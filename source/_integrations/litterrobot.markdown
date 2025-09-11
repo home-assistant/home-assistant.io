@@ -52,6 +52,7 @@ Before using this integration, you’ll need a Whisker account and a Wi-Fi-enabl
 | Sleep mode start time         | `sensor`        | When sleep mode is enabled, displays the current or next sleep mode start time.                             |
 | Sleep mode end time           | `sensor`        | When sleep mode is enabled, displays the current or last sleep mode end time.                               |
 | Status code                   | `sensor`        | Displays the status code (Clean Cycle in Progress, Ready, Drawer Full, etc.).                               |
+| Total cycles                  | `sensor`        | Displays the total cycles.                                                                                  |
 | Waste drawer                  | `sensor`        | Displays the current waste drawer level.                                                                    |
 | Power status                  | `binary_sensor` | Indicates whether power is currently connected.                                                             |
 | Sleep mode                    | `binary_sensor` | Indicates whether sleep mode is enabled.                                                                    |
@@ -69,14 +70,16 @@ Before using this integration, you’ll need a Whisker account and a Wi-Fi-enabl
 | Give snack       | `button` | Button to dispense a single snack portion.                                       |
 | Meal insert size | `select` | View and select the meal insert size.                                            |
 | Food level       | `sensor` | Displays the approximate food level remaining in the hopper.                     |
+| Last feeding     | `sensor` | Displays the timestamp of the last dispensed meal or snack.                      |
 | Night light mode | `switch` | When turned on, automatically turns on the night light in darker settings.       |
 | Panel lockout    | `switch` | When turned on, disables the buttons on the unit to prevent changes to settings. |
 
 ### Pet
 
-| Entity | Domain   | Description   |
-| ------ | -------- | ------------- |
-| Weight | `sensor` | Pet's weight. |
+| Entity       | Domain   | Description                                       |
+| ------------ | -------- | ------------------------------------------------- |
+| Visits today | `sensor` | Pet's daily visits to the Litter-Robot. |
+| Weight       | `sensor` | Pet's weight.                                     |
 
 ## Actions
 

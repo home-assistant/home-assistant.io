@@ -102,6 +102,11 @@ hours_to_show:
   description: Shows a path of previous locations. Hours to show as path on the map.
   type: integer
   default: 0
+cluster:
+  required: false
+  description: 'When set to `false`, the map will not cluster the markers. This is useful when you want to see all markers at once, but it may cause performance issues with a large number of markers.'
+  type: boolean
+  default: true
 {% endconfiguration %}
 
 {% important %}
@@ -136,6 +141,10 @@ attribute:
   required: false
   description: An entity's attribute when `label_mode` set to `attribute`.
   type: string
+unit:
+  required: false
+  description: A unit for a value of an attribute when `label_mode` set to `attribute`.
+  type: string
 focus:
   required: false
   default: true
@@ -160,6 +169,10 @@ label_mode:
 attribute:
   required: false
   description: An entity's attribute when `label_mode` set to `attribute`.
+  type: string
+unit:
+  required: false
+  description: A unit for a value of an attribute when `label_mode` set to `attribute`.
   type: string
 focus:
   required: false

@@ -11,6 +11,8 @@ related:
   - docs: /docs/configuration/
     title: Configuration file
 ha_quality_scale: legacy
+ha_codeowners:
+  - '@alexandrecuer'
 ---
 
 The `emoncms_history` {% term integration %} makes it possible to transfer (write) details collected with Home Assistant to [Emoncms.org](https://emoncms.org/) or your local running Emoncms instance. It will send the data to a specific input node on Emoncms with the entity IDs as a key. Afterwards you can create feeds and dashboards in Emoncms with the collected data.
