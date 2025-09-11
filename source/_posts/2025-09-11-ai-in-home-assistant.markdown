@@ -20,7 +20,7 @@ Moreover, if users don’t want AI in their homes, that’s their choice, and th
 
 Over the past year, we’ve added many new AI features and made them easy to use directly through Home Assistant’s user interface. We have kept up with all the developments in AI land and are using the latest standard to integrate more models and tools than ever before. We’re also continuing to benchmark local and cloud models to give users an idea of what works best. Keep reading to check out everything new, and maybe you can teach your smart home some cool new tricks.
 
-**!! Editor note: Insert video here !!**
+<lite-youtube videoid="iZ-JdpxEx3o" videotitle="Multiple commands with Ollama"></lite-youtube>
 
 Big thanks to our AI community contributor team:<br>
 [@AllenPorter](https://github.com/allenporter), [@shulyaka](https://github.com/shulyaka), [@tronikos](https://github.com/tronikos), [@IvanLH](https://github.com/IvanLH), [@JoostLek](https://github.com/JoostLek)!
@@ -37,7 +37,7 @@ Users can also leverage the power of AI to speak the way _they speak_, as LLMs a
 
 Another powerful addition from the past year is context sharing between agents. So your Assist agent can share the most recent commands with your chosen AI agent. This shared context lets you say something like _“Add milk to my shopping list,”_ which Assist will act on, and to add more items, just say _“Add rice.”_ The AI agent understands that these commands are connected and can act accordingly.
 
-**!! Editor note: Insert video here !!**
+<lite-youtube videoid="mLtFUG4YG1A" videotitle="Current state of AI - September 2025"></lite-youtube>
 
 Here is an excellent walkthrough video of JLo’s AI-powered home, showing many of these new features in action
 
@@ -73,11 +73,15 @@ It’s now easier than ever to set up your Assist hardware to work with LLMs wit
 
 When saving an automation or script, users can now leverage the new Suggest button: <img src="/images/blog/2025-09-ai/suggest.webp" style='border: 0;box-shadow: none;'> When clicked, it will send your automation configuration along with the titles of your existing automations and labels to AI to suggest a name, description, category, and labels for your new automation. Over the coming months, we’re going to explore what other features can benefit from AI suggestions.
 
-<img src="/images/blog/2025-09-ai/suggest-button.webp" alt="A rename modal open with the new Suggest button top right">
+<div class="contain nb">
+    <img src="/images/blog/2025-09-ai/suggest-button.webp" alt="A rename modal open with the new Suggest button top right">
+</div>
 
 To opt-in to this feature, you need to take two steps. First, you need to configure an integration that provides an [_AI Tasks_ entity](/integrations/?cat=ai). For local AI, you can configure Ollama, or you can also leverage cloud-based AI like Google, OpenAI, or Anthropic. Once configured, you need to go to the new [AI Task preferences pane](https://my.home-assistant.io/redirect/config_ai_task/) under **_System -> General_** and pick the AI Task entity to power suggestions in the UI. If you don't configure an AI Tasks entity, the Suggest button will not be visible.
 
-<img src="/images/blog/2025-09-ai/ai-suggestions.webp" alt="The AI Suggestions setting within Home Assistant">
+<div class="contain nb">
+    <img src="/images/blog/2025-09-ai/ai-suggestions.webp" class="contain nb" alt="The AI Suggestions setting within Home Assistant">
+</div>
 
 ## AI Tasks gets the job done
 
@@ -117,10 +121,10 @@ template:
 
 This template sends a snapshot of the camera to the AI, asking it to analyze what is going on. It defines that the output should always be a number, since we want to use that information in Home Assistant. All of this is embedded in a template entity that automatically updates every 5 minutes. An AI Task could also be embedded in an automation, a script, or any other place that can execute actions.
 
-<p class="img">
-    <img src="/images/blog/2025-09-ai/activity.webp" style='border: 0;box-shadow: none;' alt="Activity view in Home Assistant of the doorbell image analyzed by AI Tasks">
+<div class="contain">
+    <img src="/images/blog/2025-09-ai/activity.webp" alt="Activity view in Home Assistant of the doorbell image analyzed by AI Tasks">
     An automation triggers an AI Task to identify what caused motion on a camera.
-</p>
+</div>
 
 Lastly, users can set a default AI Task entity. This allows users to skip picking an entity ID when creating AI automations. It also lets you migrate everything that uses AI Tasks to the latest model with a single click. This also makes it easy to share blueprints that leverage AI Tasks, like this blueprint that analyzes a camera snapshot when motion is detected:
 
