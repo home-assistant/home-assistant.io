@@ -57,20 +57,6 @@ The **Z-Wave** {% term integration %} allows you to control a Z-Wave network fro
 
 This sections shows you how to set up a Z-Wave JS server and how to add your first Z-Wave device to Home Assistant. It also introduces you to some of the basic terminology.
 
-### Z-Wave terminology and Home Assistant
-
-Throughout this documentation, Home Assistant terminology is used. For some of the concepts, the terminology does not correspond to the terminology used in Z-Wave documentation. The table below provides equivalents for some of those terms. For more Z-Wave term definitions, refer to the [terminology section](#z-wave-terminology).
-
-| Z-Wave functionality | Home Assistant | Definition |
-| -------------------- | -------------- | ---------- |
-| barrier operator | cover | |
-| controller | adapter, when referring to the hardware device that provides the Z-Wave functionality. The term controller is still used when referring to the network role (such as primary, secondary controller)  | |
-| exclusion | remove | The process of removing a node from the Z-Wave network |
-| [inclusion](#classic-inclusion-versus-smartstart) | add | The process of adding a node to the Z-Wave network |
-| multilevel switch | represented by different entity types: light, fan etc. | |
-| replication | copy (not supported in Home Assistant) | The process of copying network information from one adapter to another. Not supported in Home Assistant. |
-| window covering | cover | |
-
 ### Prerequisites
 
 To run a Z-Wave network, you need the following elements:
@@ -1287,7 +1273,17 @@ No further action is required and the SmartStart product will be added automatic
 
 ### Terminology mapping table
 
-For some of the concepts, the terminology used in Home Assistant does not correspond to the terminology used in Z-Wave documentation. Refer to the [terminology mapping table](#z-wave-terminology-and-home-assistant) for a list of term equivalents.
+Throughout this documentation, Home Assistant terminology is used. For some of the concepts, the terminology does not correspond to the terminology used in Z-Wave documentation. The table below provides equivalents for some of those terms.
+
+| Z-Wave functionality | Home Assistant | Definition |
+| -------------------- | -------------- | ---------- |
+| barrier operator | cover | |
+| controller | adapter, when referring to the hardware device that provides the Z-Wave functionality. The term controller is still used when referring to the network role (such as primary, secondary controller)  | |
+| exclusion | remove | The process of removing a node from the Z-Wave network |
+| [inclusion](#classic-inclusion-versus-smartstart) | add | The process of adding a node to the Z-Wave network |
+| multilevel switch | represented by different entity types: light, fan etc. | |
+| replication | copy (not supported in Home Assistant) | The process of copying network information from one adapter to another. Not supported in Home Assistant. |
+| window covering | cover | |
 
 ## Removing Z-Wave JS from Home Assistant
 
