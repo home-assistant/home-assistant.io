@@ -675,6 +675,7 @@ layout: null
 /integrations/yessssms /more-info/removed-integration 301
 /integrations/yweather /more-info/removed-integration 301
 /integrations/zengge /integrations/led_ble
+/integrations/google_gemini /integrations/google_generative_ai_conversation
 /components/zwave /integrations/zwave_js
 
 # Lovelace images
