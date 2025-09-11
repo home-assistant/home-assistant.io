@@ -216,7 +216,7 @@ If you are using the Z-Wave JS add-on, Home Assistant automatically changes the 
 
 - Administrator rights in Home Assistant
 - All your Z-Wave devices must be specified for that region
-- Note: this procedure only applies if your adapter is [set up using the Z-Wave JS add-on](#to-set-up-z-wave)
+- Note: this procedure only applies if your adapter is [set up using the Z-Wave JS add-on](#to-set-a-up-a-z-wave-server)
 
 ### To override the radio frequency region of your Z-Wave adapter
 
