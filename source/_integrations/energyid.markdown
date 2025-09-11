@@ -3,120 +3,85 @@ title: EnergyID
 description: Instructions on how to integrate EnergyID into Home Assistant to send your sensor data to the EnergyID platform.
 ha_category:
   - Energy
-  - Sensor
-ha_iot_class: Cloud Push
+ha_iot_class: cloud_push
 ha_domain: energyid
 ha_integration_type: service
-ha_release: 2023.10
 ha_config_flow: true
 ha_codeowners:
   - '@JrtPec'
   - '@Molier'
-ha_quality_scale: silver
+ha_release: 2025.10
 ---
 
-The **EnergyID** {% term integration %} allows you to send data from your Home Assistant sensors to [EnergyID](https://www.energyid.eu/), a cloud-based energy management platform. This enables you to use EnergyID's tools for analysis, reporting, and insights based on data collected by your Home Assistant instance.
-
-This integration uses EnergyID's Incoming Webhook API.
+The EnergyID integration allows you to send data from your Home Assistant {% term sensor %} entities to [EnergyID](https://www.energyid.eu/), a cloud-based energy management platform. This enables you to use EnergyID's tools for analysis, reporting, and insights based on data collected by your Home Assistant instance.
 
 ## Prerequisites
 
-1. **EnergyID Account:** You need an active account on [EnergyID](https://www.energyid.eu/).
-2. **Provisioning Credentials:** You must generate a **Provisioning Key** and **Provisioning Secret** from your EnergyID portal. These are used by Home Assistant to identify itself to EnergyID when establishing a connection.
-   - For detailed instructions on generating these credentials, refer to the [official EnergyID Incoming Webhooks documentation](https://help.energyid.eu/en/developer/incoming-webhooks/).
+1. An active account on [EnergyID](https://www.energyid.eu/).
+2. A **Provisioning Key** and **Provisioning Secret** generated from your EnergyID portal. These credentials allow Home Assistant to securely connect to your account.
+    * For detailed instructions, refer to the [official EnergyID Home Assistant documentation](https://help.energyid.eu/en/apps/home-assistant/).
+
+## Configuration
+
+Adding EnergyID to your Home Assistant instance is done via the user interface.
 
 {% include integrations/config_flow.md %}
 
+During the setup, you will be prompted for the following information:
+
 {% configuration_basic %}
 Provisioning Key:
-  description: The key from your EnergyID portal under Device Provisioning or Webhook settings.
+  description: The Provisioning Key obtained from your EnergyID portal.
+
 Provisioning Secret:
-  description: The secret associated with your Provisioning Key.
-Device Name:
-  description: A name to identify this Home Assistant connection in your EnergyID portal's webhook list.
+  description: The Provisioning Secret associated with your key, obtained from your EnergyID portal.
 {% endconfiguration_basic %}
 
-## Configuration steps
+### Initial setup steps
 
-The setup consists of three main steps:
-
-1. **Connect to EnergyID**: Enter your Provisioning Key and Secret.
-2. **Claim Device** (Conditional): If this is a new connection, you'll need to claim it in your EnergyID account:
-   - Follow the provided **Claim URL** or enter the **Claim Code** on the EnergyID website.
-   - Select which EnergyID record (property or site) should receive data from this Home Assistant instance.
-3. **Finalize Setup**: Confirm the device name for this connection.
-
-Once configured, a diagnostic status sensor will appear to monitor the connection.
+1. After adding the integration, you will first be asked to enter your **Provisioning Key** and **Secret**.
+    <p class='img'><img src='/images/integrations/energyid/image-2.png' alt="Screenshot of the EnergyID connection screen in Home Assistant, asking for Provisioning Key and Secret."/></p>
+2. If this is the first time you are connecting this Home Assistant instance, you will be directed to the EnergyID website to **claim** your device. This step links your Home Assistant instance to a specific record (e.g., your house) in your EnergyID account.
+3. Once claimed, the setup will automatically complete.
 
 ## Managing sensor mappings
 
-After initial setup, you need to configure which Home Assistant sensors should send data to EnergyID:
+After the initial setup, you can manage which Home Assistant sensors send data to EnergyID.
 
-1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
-2. Find the EnergyID integration card and click **Configure**.
-3. Choose from the following options:
+1. Go to {% my integrations title="**Settings > Devices & Services**" %}.
+2. Find the EnergyID integration and select **Configure**.
 
-### Add new sensor mapping
+From here, you can add new sensor mappings. When adding a mapping, you will be asked for the following:
 
-- **Home Assistant Sensor**: Select the sensor entity whose data you want to send.
-- **EnergyID Metric Key**: Enter the key that EnergyID should use for this data.
-  - Use [predefined keys](https://help.energyid.eu/en/developer/incoming-webhooks/#predefined-properties) like `el` (electricity), `pv` (solar), `gas`, or `temp` (temperature).
-  - You can also use custom keys (for example, `temp.livingroom`).
-  - Keys should not contain spaces.
+{% configuration_basic %}
+Home Assistant sensor:
+  description: Select the sensor entity from your Home Assistant instance whose data you want to send. The list is automatically filtered to suggest suitable numeric sensors.
+{% endconfiguration_basic %}
 
-### Manage existing mappings
+<p class='img'><img src='/images/integrations/energyid/image-1.png' alt="Screenshot of the EnergyID configuration screen in Home Assistant, showing options to add and manage sensor mappings."/></p>
 
-- View a list of all your current sensor mappings.
-- For each mapping, you can:
-  - **Update EnergyID Key**: Change the metric key for the selected sensor.
-  - **Delete Mapping**: Stop sending data from this sensor.
+When you select a sensor, its `object_id` (the part of the entity ID after the dot) will be used as the **EnergyID Metric Key**. For example, mapping `sensor.total_active_power` will send data to EnergyID with the key `total_active_power`.
 
-## Status sensor
+## Data updates
 
-The integration creates a diagnostic sensor named "EnergyID Status" with these attributes:
+The EnergyID integration uses a push-based mechanism with batching:
 
-- **State**: Number of currently active sensor mappings.
-- **claimed**: Whether the instance is successfully linked to your EnergyID account.
-- **last_sync**: Timestamp of the last successful data synchronization.
-- **webhook_endpoint**: The URL used to send data.
-- **mapped_entities**: Dictionary of configured entity-to-key mappings.
-- **webhook_policy**: Details received from EnergyID (such as uploadInterval).
+* It listens for {% term state %} changes on your mapped sensors.
+* When a sensor's value changes, the new value and timestamp are queued.
+* The queued data is automatically sent to EnergyID in batches. The upload interval is determined by the policy received from EnergyID (typically every 60 seconds).
 
-## Data upload
+This is more efficient than traditional {% term polling %}, as it only sends data when there are new updates.
 
-- The integration listens for state changes of your mapped sensors.
-- When a mapped sensor's state changes, its new value and the change timestamp are recorded.
-- Data is pushed to EnergyID in batches based on the `uploadInterval` policy (typically every 60 seconds).
-- Authentication tokens are managed automatically.
+## Use Cases
 
-## Known limitations
-
-- **Webhook Policy Changes**: If EnergyID updates your webhook policy, you may need to reload the integration through {% my integrations title="**Settings** > **Devices & services**" %}.
-- **Timestamp Accuracy**: The integration uses the `last_updated` timestamp from Home Assistant states, so ensure your system time is accurate.
+* Do **not** let yourself be limited by anything. No PV provider nor dongle firmware and send anything your tinkering heart desires to eid for storage and smart analysis.
+* **Benchmarking & Reporting:** Utilize EnergyID's features to compare your energy usage against anonymized data from similar households and generate detailed reports.
 
 ## Troubleshooting
 
-{% details "Connection issues" %}
-If the status sensor shows the device is not claimed or data is not synchronizing:
+### Data not appearing in EnergyID
 
-1. Ensure your EnergyID account is active.
-2. Check that the device is properly claimed in your EnergyID portal.
-3. Reload the integration:
-   - Go to {% my integrations title="**Settings** > **Devices & services**" %}.
-   - Find the EnergyID integration card, click the {% icon "mdi:dots-vertical" %} menu, and select **Reload**.
-{% enddetails %}
-
-{% details "Missing data in EnergyID" %}
-If data isn't appearing in your EnergyID account:
-
-1. Confirm the status sensor shows the device is claimed.
-2. Verify your mapped sensor is delivering valid numerical values (not unknown or unavailable).
-3. Check the sensor's unit matches what EnergyID expects for the given metric key.
-4. Allow up to 5 minutes for data to appear in EnergyID after a state change.
-{% enddetails %}
-
-## Removing the integration
-
-This integration follows standard integration removal, no extra steps are required.
-
-{% include integrations/remove_device_service.md %}
+* **Verify Mappings**: In Home Assistant, go to the EnergyID integration's configuration page and ensure your sensors are correctly mapped.
+* **Check Sensor States**: Make sure the source sensors in Home Assistant are available and updating with new values.
+* **Reload Integration**: Try reloading the EnergyID integration by going to **Settings > Devices & Services**, finding the EnergyID entry, selecting the three-dot menu, and choosing **Reload**.
+* **Check Home Assistant Logs**: Look for any error messages related to the `energyid` component under {% my logs title="**Settings > System > Logs**" %}.
