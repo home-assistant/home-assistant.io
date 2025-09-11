@@ -95,6 +95,8 @@ We have all seen those incredible community creations, where a user leverages AI
 
 Below is a template entity that counts chickens in a video feed, all via a short and simple set of instructions.
 
+{% raw %}
+
 ```yaml
 template:
  - triggers:
@@ -123,6 +125,8 @@ template:
        state_class: total
 ```
 
+{% endraw %}
+
 This template sends a snapshot of the camera to the AI, asking it to analyze what is going on. It defines that the output should always be a number, since we want to use that information in Home Assistant. All of this is embedded in a template entity that automatically updates every 5 minutes. An AI Task could also be embedded in an automation, a script, or any other place that can execute actions.
 
 <div class="contain">
@@ -132,7 +136,7 @@ This template sends a snapshot of the camera to the AI, asking it to analyze wha
 
 Lastly, users can set a default AI Task entity. This allows users to skip picking an entity ID when creating AI automations. It also lets you migrate everything that uses AI Tasks to the latest model with a single click. This also makes it easy to share blueprints that leverage AI Tasks, like this blueprint that analyzes a camera snapshot when motion is detected:
 
-<a href="https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fcommunity.home-assistant.io%2Ft%2Fai-camera-analysis%2F911634" target="_blank"><img src="https://my.home-assistant.io/badges/blueprint_import.svg" style='border: 0;box-shadow: none;' alt="Import Blueprint to My Home Assistant"></a>
+{% my blueprint_import badge blueprint_url="https://community.home-assistant.io/t/ai-camera-analysis/911634" %}
 
 ## MCP opens a whole new world
 
