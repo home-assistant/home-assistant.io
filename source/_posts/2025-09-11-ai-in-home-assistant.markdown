@@ -42,10 +42,8 @@ Another powerful addition from the past year is context sharing between agents. 
 
 <p class="img">
     <lite-youtube videoid="mLtFUG4YG1A" videotitle="Current state of conversational AI - September 2025"></lite-youtube>
-    Here is an excellent walkthrough video of JLo's AI-powered home, showing many of these new features in action<
+    Here is an excellent walkthrough video of JLo's AI-powered home, showing many of these new features in action
 </p>
-
-Here is an excellent walkthrough video of JLo’s AI-powered home, showing many of these new features in action
 
 Another helpful addition keeps the conversation going; if the LLM asks you a question, your Assist hardware will listen for your reply. If you say something like “It’s dark”, it might ask whether you’d like to turn on some lights, and you could tell it to proceed. We have taken this even further than other voice assistants, as you can now have Home Assistant initiate conversations. For example, you could set up an automation that detects when the garage door is open and asks if you’d like to close it (though this can also be done without AI with a very clever [Blueprint](https://my.home-assistant.io/redirect/blueprint_import?blueprint_url=https%3A%2F%2Fwww.home-assistant.io%2Fblueprints%2Fblog%2F2025-07%2Fask_yes_no_question.yaml)).
 
