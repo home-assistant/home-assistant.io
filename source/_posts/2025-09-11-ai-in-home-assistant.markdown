@@ -80,7 +80,7 @@ When saving an automation or script, users can now leverage the new Suggest butt
 To opt-in to this feature, you need to take two steps. First, you need to configure an integration that provides an [_AI Tasks_ entity](/integrations/?cat=ai). For local AI, you can configure Ollama, or you can also leverage cloud-based AI like Google, OpenAI, or Anthropic. Once configured, you need to go to the new [AI Task preferences pane](https://my.home-assistant.io/redirect/config_ai_task/) under **_System -> General_** and pick the AI Task entity to power suggestions in the UI. If you don't configure an AI Tasks entity, the Suggest button will not be visible.
 
 <div class="contain nb">
-    <img src="/images/blog/2025-09-ai/ai-suggestions.webp" class="contain nb" alt="The AI Suggestions setting within Home Assistant">
+    <img src="/images/blog/2025-09-ai/ai-suggestions.webp" alt="The AI Suggestions setting within Home Assistant">
 </div>
 
 ## AI Tasks gets the job done
