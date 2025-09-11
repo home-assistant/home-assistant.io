@@ -67,6 +67,8 @@ main#page-community {
     h3,
     .h3 {
         @include h3;
+        text-transform: unset;
+        letter-spacing: unset;
     }
 
     h4,

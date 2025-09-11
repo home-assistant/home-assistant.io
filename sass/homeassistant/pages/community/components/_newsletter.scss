@@ -12,13 +12,18 @@ section#newsletter {
         flex-direction: column;
 
         @include bp(tablet) {
+            align-items: center;
             flex-direction: row;
+        }
+
+        @include bp(desktop) {
+            align-items: flex-end;
         }
     }
 
- 
 
-    h2{
+
+    h2 {
         margin-top: 0;
         text-wrap: balance;
     }
@@ -32,16 +37,18 @@ section#newsletter {
         border-radius: 24px;
     }
 
-    .content{
+    .content {
         padding: 52px 0;
+
         @include bp(tablet) {
-        padding: 100px 0;
+            padding: 100px 0;
         }
     }
 
-    .buttons{
+    .buttons {
         justify-content: flex-start;
         margin-top: 20px;
+
         @include bp(tablet) {
             margin-top: 40px;
         }
@@ -49,7 +56,6 @@ section#newsletter {
 
     .editions {
         display: flex;
-        align-self: flex-end;
         flex-direction: column;
         flex-shrink: 0;
         max-width: 570px;
@@ -57,17 +63,23 @@ section#newsletter {
         margin-bottom: -40px;
         width: 100%;
         order: 1;
-        
+
         @include bp(tablet) {
             order: -1;
             flex-basis: 50%;
+            align-self: center;
         }
         @include bp(desktop) {
-            flex-basis: unset;
+            align-self: flex-end;
+        }
+
+        @include bp(large-desktop) {
+            flex-basis: 570px;
 
         }
 
         &[data-dsap]:not([data-dsap-is="in"]):not([data-dsap-is="above"]) {
+
             // Only if scrolling down into the element
             .edition {
                 transition-duration: 0s;
@@ -76,6 +88,7 @@ section#newsletter {
                 &:nth-child(1) {
                     transform: translateY(120px);
                 }
+
                 &:nth-child(2) {
                     transform: translateY(40px);
                 }
@@ -111,7 +124,7 @@ section#newsletter {
 
             &:nth-child(1) {
                 max-width: 80%;
-                height: 35px;
+                height: 45px;
                 transition-delay: .3s;
                 z-index: 1;
 
@@ -123,7 +136,7 @@ section#newsletter {
             &:nth-child(2) {
                 max-width: 90%;
                 justify-self: center;
-                height: 40px;
+                height: 50px;
                 transform: translateY(-20px);
                 z-index: 2;
 
