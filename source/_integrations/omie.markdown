@@ -31,8 +31,8 @@ The **OMIE** {% term integration %} retrieves day-ahead market results from [OMI
 
 The **OMIE** integration will retrieve the results of the [day-ahead market](https://www.omie.es/en/mercado-de-electricidad) for Spain and Portugal on a daily basis and expose them to the following {% term sensors %}.
 
-- **Marginal Price - Portugal**: the wholesale price in the day-ahead market for the current hour Portugal (€/KWh)
-- **Marginal Price - Spain**: the wholesale price in the day-ahead market for the current hour Spain (€/KWh)
+- **Portugal spot price**: the wholesale price in the day-ahead market for the current hour in Portugal (in €/KWh)
+- **Spain spot price**: the wholesale price in the day-ahead market for the current hour in Spain (in €/KWh)
 
 ## Removing the integration
 
