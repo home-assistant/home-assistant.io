@@ -53,10 +53,6 @@ related:
 
 The **Z-Wave** {% term integration %} allows you to control a Z-Wave network from Home Assistant via the [Z-Wave JS](https://zwave-js.github.io/node-zwave-js/#/) driver.
 
-## Device compatibility
-
-You do not need a Z-Wave adapter that is specifically designed for the Z-Wave integration in Home Assistant. The Z-Wave integration in Home Assistant can be operated with any Z-Wave network with other Z-Wave certified devices from other manufacturers. All mains operated nodes within the network will act as repeaters regardless of vendor to increase reliability of the network.
-
 ## Getting started
 
 This sections shows you how to set up a Z-Wave JS server and how to add your first Z-Wave device to Home Assistant. It also introduces you to some of the basic terminology.
