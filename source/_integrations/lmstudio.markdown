@@ -3,7 +3,7 @@ title: LM Studio
 description: Instructions on how to integrate LM Studio
 ha_category:
   - Voice
-ha_release: 2025.09
+ha_release: 2025.10
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
