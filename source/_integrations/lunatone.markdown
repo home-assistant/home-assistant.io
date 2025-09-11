@@ -4,7 +4,7 @@ description: Instructions on how to integrate Lunatone REST API devices with Hom
 ha_category:
   - Hub
   - Light
-ha_release: 2025.9
+ha_release: 2025.10
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@Overlap0190'
@@ -52,11 +52,11 @@ During configuration you have to choose between three DALI device scan methods:
 - **Find new devices**: performs a device scan that can find new devices and addresses them, but doesn't remove any existing DALI addresses.
 - **New installation**: deletes the stored devices and all DALI addresses. Then it performs a device scan that addresses the devices on the DALI bus from scratch and stores the device information.
 
-{% warning %}
+{% important %}
 
 Be cautious when using the **New installation** option, especially in an existing DALI setup. Since DALI addresses are assigned randomly, resetting them may cause devices to receive new addresses that differ from their original ones. This can lead to system malfunctions, depending on the configuration.
 
-{% endwarning %}
+{% endimportant %}
 
 ## Removing the integration
 
