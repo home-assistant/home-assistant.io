@@ -26,7 +26,7 @@ Over the past year, we’ve added many new AI features and made them easy to use
 </p>
 
 Big thanks to our AI community contributor team:<br>
-[@AllenPorter](https://github.com/allenporter), [@shulyaka](https://github.com/shulyaka), [@tronikos](https://github.com/tronikos), [@IvanLH](https://github.com/IvanLH), [@Joostlek](https://github.com/Joostlek)!
+[@AllenPorter](https://github.com/allenporter), [@shulyaka](https://github.com/shulyaka), [@tronikos](https://github.com/tronikos), [@IvanLH](https://github.com/IvanLH), [@JoostLek](https://github.com/JoostLek)!
 
 <!--more-->
 
