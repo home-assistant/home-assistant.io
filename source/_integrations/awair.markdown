@@ -39,6 +39,7 @@ The integration will fetch data from each device. The following sensors are supp
 - Temperature
 - Humidity
 - Absolute humidity
+- Dew point
 - Carbon dioxide
 - Total volatile organic compounds
 - PM2.5 density
@@ -47,3 +48,9 @@ The integration will fetch data from each device. The following sensors are supp
 - Luminescence
 
 Not all devices support all sensors; consult Awair's documentation to find out what sensors are present on your device. For first-generation Awair devices with a "dust" sensor, the integration will create identical PM2.5 and PM10 sensors (which reflects the capabilities of the sensor - it can detect dust between PM2.5 and PM10 but cannot differentiate between them).
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}

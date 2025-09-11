@@ -13,8 +13,8 @@ ha_codeowners:
 ha_domain: airq
 ha_config_flow: true
 ha_platforms:
-  - sensor
   - number
+  - sensor
 ha_integration_type: hub
 ---
 

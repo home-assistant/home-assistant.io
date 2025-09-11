@@ -1,5 +1,5 @@
 ---
-title: Ubiquiti UISP airOS
+title: Ubiquiti airOS
 description: Ubiquiti UISP airOS integration.
 ha_category:
   - Sensor
@@ -10,8 +10,10 @@ ha_codeowners:
 ha_config_flow: true
 ha_domain: airos
 ha_platforms:
+  - binary_sensor
+  - diagnostics
   - sensor
-ha_integration_type: device
+ha_integration_type: integration
 ha_quality_scale: bronze
 ---
 
@@ -42,8 +44,9 @@ This integration only supports devices running airOS 8 and already configured us
 
 While there is no known limitation to which devices running airOS firmware version 8 are supported, success has been reported on:
 
-- Nanostation 5AC Loco (Loco5AC)
-- PowerBeam 5AC (PBE-5AC-Gen2)
+- NanoBeam 5AC (NBE-5AC-Gen2)
+- NanoStation 5AC Loco (Loco5AC)
+- PowerBeam 5AC: 620 (PBE-5AC-620) and Gen2 (PBE-5AC-Gen2)
 
 Do you have a device that works? We’d love to hear [your experience](#feedback_section) so we can add it to this list!
 
@@ -64,28 +67,6 @@ For stations in particular, they can operate in either a 'Bridge' or 'Router' ro
   - Can also be configured as a <abbr title="Point-to-Point Protocol over Ethernet">PPPoE</abbr> client, authenticating with a central <abbr title="Point-to-Point Protocol over Ethernet">PPPoE</abbr> server to receive its IP address, gateway, and other network settings.
 
 The choice between Bridge and Router mode depends on the network architecture and whether the device is intended to extend an existing network (Bridge) or create a new subnet (Router).
-
-## Binary sensor
-
-### Port forwarding
-
-Active if any port forwarding is enabled when operating in 'router' mode.
-
-### DHCP client
-
-Active if the device configured to use DHCP for its network settings, inactive if IP address is statically assigned.
-
-### DHCP server
-
-Active if the device itself is configured and acting as a DHCP server.
-
-### DHCPv6 server
-
-Active if the device itself is configured and acting as a DHCP server for IPv6.
-
-### PPPoE
-
-Active if the device is configured for PPPoE and the PPPoE link state is active.
 
 ## Sensor
 

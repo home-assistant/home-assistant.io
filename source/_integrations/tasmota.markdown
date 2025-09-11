@@ -33,10 +33,11 @@ This integration allows you to control [Tasmota](https://tasmota.github.io/docs/
 - Tasmota devices flashed with version 9.2, or later (`tasmota-lite.bin` does not support this integration).
 - Tasmota devices configured for native discovery (`SetOption19 0`). Go to the web interface of your Tasmota device, select **Tools** and then **Console**. Where you can see the placeholder **Enter command** type or paste `SetOption19 0` and hit **Return**.
 - Although the Tasmota integration supports custom fulltopic it is strongly suggested to leave fulltopic at its default, Tasmota does not prevent setting an invalid or non-unique fulltopic, for example a fulltopic without the `%prefix%` or `%topic%` tokens.
+- The `Camera` functionality of tasmota32-webcam based devices is supported only when the Tasmota device and the Home Assistant server are on the same local network.
 
 ## Supported features
 
-Tasmota Buttons, Fans, Lights, Relays, Sensors, Shutters and Switches are supported.
+Tasmota Buttons, Fans, Lights, Relays, Sensors, Shutters, Switches and Cameras are supported.
 
 - Tasmota Buttons will be added as Home Assistant `automation triggers` when `SetOption73` is enabled. No `binary_sensor` entity will be created. You can find the available `automation triggers` on the device screen. ![automation triggers](/images/integrations/tasmota/tasmota_button_automations.png)
 - Tasmota Lights will be added as Home Assistant `light` entities. Single channel Dimmers, RGB lights, RGB lights with Color Temperature control and RGB lights with White control are supported.
@@ -45,6 +46,7 @@ Tasmota Buttons, Fans, Lights, Relays, Sensors, Shutters and Switches are suppor
 - Tasmota Shutters will be added as Home Assistant `cover` entities. Currently only Shutter modes 1 to 4 are supported. Shutter mode 5 and Tuya shutters are not supported.
 - Tasmota Switches will be added as either Home Assistant `binary_sensor` entities or `automation triggers` depending on the `switchmode` used when `SetOption114` is enabled.
 - The fan functionality in Tasmota devices with module configured as `iFan02` or `iFan03` will be added as Home Assistant `fan` entities. Tuya fans are not supported.
+- The camera functionality in ESP32 Tasmota devices with [tasmota32-webcam](https://templates.blakadder.com/ai-thinker_ESP32-CAM.html) firmware will be added as Home Assistant `Camera` entities. Note that this functionality is supported only when the Tasmota device and the Home Assistant server are on the same network.
 - The integration will also create up to eight Status Sensors, each one with a different information. Please note all the Status Sensors are disabled by default.
   ![iot](/images/integrations/tasmota/tasmota_status_sensors.png)
 
