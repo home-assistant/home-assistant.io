@@ -12,7 +12,7 @@ og_image: /images/blog/2025-09-ai/art.webp
 
 <img src='/images/blog/2025-09-ai/art.webp' style='border: 0;box-shadow: none;' alt="Building the AI-powered local smart home">
 
-Last year, we laid out [our vision for AI in the smart home](/blog/2024/06/07/ai-agents-for-the-smart-home/), which opened up experimentation with AI in Home Assistant. In that update, we made it easier to integrate all sorts of local and cloud AI tools, and provided ways to use them to control and automate your home.  A year has passed, a lot has happened in the AI space, and our community has made sure that Home Assistant has stayed at the frontier.
+Last year, we laid out [our vision for AI in the smart home](/blog/2024/06/07/ai-agents-for-the-smart-home/), which opened up experimentation with AI in Home Assistant. In that update, we made it easier to integrate all sorts of local and cloud AI tools, and provided ways to use them to control and automate your home. A year has passed, a lot has happened in the AI space, and our community has made sure that Home Assistant has stayed at the frontier.
 
 We beat big tech to the punch; we were the first to make AI useful in the home. We did it by giving our community complete control over how and when they use AI, making AI a powerful _tool_ to use in the home. As opposed to something that takes over your home. Our community is taking advantage of AI’s unique abilities (for instance, its image recognition or summarizing skills), while having the ability to exclude it from mission-critical things they’d prefer it not to handle. Best of all, this can all be run locally, without any data leaving your home!
 
