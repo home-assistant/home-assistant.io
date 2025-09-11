@@ -55,7 +55,7 @@ The **Z-Wave** {% term integration %} allows you to control a Z-Wave network fro
 
 ## Getting started
 
-This sections shows you how to set up a Z-Wave JS server and how to add your first Z-Wave device to Home Assistant. If you are new to Z-Wave, checkout out the [terminology section](#z-wave-terminology).
+This sections shows you how to set up a Z-Wave JS server and how to add your first Z-Wave device to Home Assistant. If you are new to Z-Wave, check out the [terminology section](#z-wave-terminology).
 
 ### Prerequisites
 
