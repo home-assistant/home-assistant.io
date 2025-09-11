@@ -55,7 +55,7 @@ The **Z-Wave** {% term integration %} allows you to control a Z-Wave network fro
 
 ## Getting started
 
-This sections shows you how to set up a Z-Wave network, how to add and remove device. For an introduction to some of the Z-Wave terms, check out the [terminology section](#z-wave-terminology).
+This section shows how to set up a Z-Wave network and how to add a Z-Wave end device to that network.
 
 A Z-Wave network in Home Assistant includes the following elements:
 
@@ -64,7 +64,7 @@ A Z-Wave network in Home Assistant includes the following elements:
 - this Z-Wave integration
 - Z-Wave end devices
 
-### Setting up Z-Wave in Home Assistant
+### Setting up a Z-Wave server in Home Assistant
 
 This section shows how to set up Z-Wave using the **Z-Wave JS** add-on in Home Assistant.
 
@@ -75,7 +75,7 @@ For other ways to set up a Z-Wave server, refer to the [advanced installation in
 - A [supported Z-Wave adapter](/docs/z-wave/controllers/#supported-z-wave-usb-sticks--hardware-modules). 
   - First-time user? For recommendations, refer to the [what-to-buy-section](#which-z-wave-adapter-should-i-buy).
 
-#### To set up Z-Wave
+#### To set a up a Z-Wave server
 
 1. Open the Home Assistant user interface.
 2. Plug the Z-Wave adapter into the device running Home Assistant.
