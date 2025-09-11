@@ -16,7 +16,7 @@
         padding: 10px 24px;
         transition: color 0.2s ease, background-color 0.2s ease;
 
-        @include bp(tablet) {
+        @include bp(desktop) {
             font-size: 14px;
         }
 
@@ -34,7 +34,7 @@
             gap: 4px;
             padding: 4px 14px 4px 4px;
 
-            @include bp(tablet) {
+            @include bp(desktop) {
                 gap: 10px;
                 padding: 8px 24px 8px 8px;
             }
@@ -42,5 +42,16 @@
 
         &.cta {
             background-color: var(--color-secondary);
+        }
+    }
+
+    .buttons{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+
+        @include bp(desktop) {
+            gap: 24px;
         }
     }

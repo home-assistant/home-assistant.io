@@ -1,5 +1,41 @@
 section#join {
-    span{
-        @include big;
+    .container {
+        align-items: center;
+        flex-direction: column;
+    }
+
+    h2 {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+        text-transform: unset;
+
+        span:not(:first-child) {
+            margin-top: 8px;
+
+            @include bp(desktop) {
+                margin-top: 24px;
+            }
+        }
+    }
+
+    p {
+        max-width: 650px;
+        text-align: center;
+        text-wrap: balance;
+        margin-top: 16px;
+
+        @include bp(desktop) {
+            margin-top: 40px;
+        }
+    }
+
+    .buttons {
+        margin-top: 52px;
+
+        @include bp(desktop) {
+            margin-top: 60px;
+        }
     }
 }

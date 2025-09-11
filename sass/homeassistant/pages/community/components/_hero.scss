@@ -9,19 +9,22 @@ section#hero {
     flex-direction: column;
     justify-content: flex-end;
     min-height: 600px;
-    padding: 24px 12px;
 
     @include bp(tablet) {
         background-image: url('/images/community/hero.svg');
         background-position: center;
         border-radius: 24px;
-        padding: 164px 12px 66px 12px;
     }
 
     .container {
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
+        padding: 24px 12px;
+
+        @include bp(tablet) {
+            padding: 164px 12px 66px 12px;
+        }
 
         .content {
             align-items: flex-start;

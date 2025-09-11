@@ -4,7 +4,7 @@
     place-items: center;
     position: relative;
 
-    &[data-dsap]:not([data-dsap-is="in"]) {
+    &[data-dsap]:not([data-dsap-is="in"]):not([data-dsap-is="above"]) { // Only if scrolling down into the element
         .photo {
             opacity: 0;
             left: 0;
@@ -37,6 +37,8 @@
 
         img {
             aspect-ratio: 1/1;
+            width: 100%;
+            background-color: #f5f5f5;
         }
 
         figcaption {
