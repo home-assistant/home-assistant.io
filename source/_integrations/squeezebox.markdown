@@ -229,8 +229,10 @@ The integration provides the following entities.
 
 ### Updates
 
--- **Lyrion Music Server**: Update of the server software is available.
--- **Updated plugins**: Named Plugins will be updated on the next restart. For some installation types, the service will be restarted automatically after the **Install** button has been selected. Allow enough time for the service to restart. It will become briefly unavailable.
+This integration will notify you when updates are available on the LMS for the LMS version or for plugins installed on the LMS
+
+  - **Lyrion Music Server**: Update of the server software is available.
+  - **Updated plugins**: Plugin updates are available.  The list of updates can be viewed by selecting the "Read release announcement" link.  On the LMS, an option is available on the Manage Plugins settings page to "Update plugins automatically".  If this option is selected, plugins will be downloaded automatically by the LMS and then installed on the next restart of the LMS.  For some installation types of LMS, the LMS can be restarted by selecting the **Update** button. Allow enough time for the LMS to restart as it will become briefly unavailable.
 
 ### Actions
 
