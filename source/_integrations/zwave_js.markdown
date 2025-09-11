@@ -59,7 +59,7 @@ You do not need a Z-Wave adapter that is specifically designed for the Z-Wave in
 
 ## Getting started
 
-This sections shows you how to set up a Z-Wave JS server and how to add your first Z-Wave device to Home Assistant. It also introduces you to some of the basic terminology.
+This sections shows you how to set up a Z-Wave JS server and how to add your first Z-Wave device to Home Assistant. If you are new to Z-Wave terminology, check out the [terminology section](#z-wave-terminology).
 
 ### Prerequisites
 
