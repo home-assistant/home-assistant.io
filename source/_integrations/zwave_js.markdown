@@ -66,9 +66,11 @@ A Z-Wave network in Home Assistant includes the following elements:
 
 ### Setting up a Z-Wave server in Home Assistant
 
-This section shows how to set up Z-Wave using the **Z-Wave JS** add-on in Home Assistant.
+This section shows how to set up a Z-Wave server using the **Z-Wave JS** add-on in Home Assistant.
 
 For other ways to set up a Z-Wave server, refer to the [advanced installation instructions](#advanced-installation-instructions).
+
+Once you have set up the Z-Wave server, you can [add devices to the network](#adding-a-new-device-to-the-z-wave-network).
 
 #### Prerequisites
 
@@ -93,7 +95,7 @@ For other ways to set up a Z-Wave server, refer to the [advanced installation in
 5. Wait for the Z-Wave JS add-on to start up.
 6. Once the installation is complete, the **Device info** of the Z-Wave adapter is shown.
    - You successfully installed the Z-Wave integration and the Z-Wave JS add-on.
-   - You can now [add](/integrations/zwave_js/#adding-a-new-device-to-the-z-wave-network) devices to the Z-Wave network.
+   - You can now [add devices](/integrations/zwave_js/#adding-a-new-device-to-the-z-wave-network) devices to the Z-Wave network.
 
 {% note %}
 While your Z-Wave mesh is permanently stored on your adapter, the additional metadata is not. When the Z-Wave integration starts up the first time, it will interview your entire Z-Wave network. Depending on the number of devices paired with the Z-Wave adapter, this can take a while. You can speed up this process by manually waking up your battery-powered devices. Most of the time, this is a button press on those devices (see their manual). It is not necessary to exclude and re-include devices from the mesh.
