@@ -20,6 +20,7 @@ The `mqtt` light platform lets you control your MQTT enabled lights through one 
 | Effects           | ✔                            | ✔                      | ✔                              |
 | Flashing          | ✘                            | ✔                      | ✔                              |
 | HS Color          | ✔                            | ✔                      | ✔                              |
+| Light group       | ✘                            | ✔                      | ✘                              |
 | RGB Color         | ✔                            | ✔                      | ✔                              |
 | RGBW Color        | ✔                            | ✔                      | ✘                              |
 | RGBWW Color       | ✔                            | ✔                      | ✘                              |
@@ -695,6 +696,10 @@ flash_time_short:
   required: false
   type: integer
   default: 2
+group:
+  description: A list of unique IDs of the member light entities. Set this if the light entity represents a light group.
+  required: false
+  type: list 
 icon:
   description: "[Icon](/docs/configuration/customizing-devices/#icon) for the entity."
   required: false

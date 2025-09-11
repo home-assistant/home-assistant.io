@@ -764,6 +764,7 @@ support_url:
     'fan_mode_stat_tpl':   'fan_mode_state_template',
     'frc_upd':             'force_update',
     'g_tpl':               'green_template',
+    'grp':                 'group',
     'hs_cmd_t':            'hs_command_topic',
     'hs_cmd_tpl':          'hs_command_template',
     'hs_stat_t':           'hs_state_topic',
