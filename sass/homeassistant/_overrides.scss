@@ -328,6 +328,7 @@ dd {
     display: flex;
     align-items: center;
     font-weight: normal;
+
     @media only screen and (max-width: $menu-collapse) {
       user-select: none;
     }
@@ -612,11 +613,11 @@ a.material-card:hover {
   .links ul {
     list-style: none;
     margin: 0;
-}
+  }
 
   .links li {
     display: inline;
-}
+  }
 }
 
 .installation-survey {
@@ -894,10 +895,19 @@ a.material-card:hover {
         // make it blink every 1.5 seconds, no smoothing
         animation: blink 1.5s infinite;
         animation-timing-function: steps(1);
+
         @keyframes blink {
-          0% { opacity: 1; }
-          50% { opacity: 0.2; }
-          100% { opacity: 1; }
+          0% {
+            opacity: 1;
+          }
+
+          50% {
+            opacity: 0.2;
+          }
+
+          100% {
+            opacity: 1;
+          }
         }
       }
 
@@ -1228,9 +1238,40 @@ article.listing {
     border-radius: 8px;
     box-shadow: rgba(0, 0, 0, 0.5) 0 0 1px;
     vertical-align: middle;
+  }
 
+  img,
+  table,
+  div.contain {
     &+p {
       margin-top: 1.5rem;
+    }
+  }
+
+  div.contain {
+    display: grid;
+    font-size: .9rem;
+    font-style: italic;
+    gap: 16px;
+    text-align: center;
+
+    img {
+
+      background-color: unset;
+      border-radius: 20px;
+      border: unset;
+      box-shadow: unset;
+      display: block;
+      filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.1));
+      margin: 0 auto;
+      max-width: 620px;
+      width: 100%;
+    }
+
+    &.nb {
+      img {
+        border-radius: unset;
+      }
     }
   }
 
@@ -1275,10 +1316,19 @@ article.listing {
     border-radius: 8px;
     border-width: 8px;
     text-align: center;
+    overflow: hidden;
     padding-bottom: 8px;
     font-size: 0.9rem;
     box-shadow: rgba(0, 0, 0, 0.5) 0 0 1px;
+    font-style: italic;
     border: 0;
+
+    lite-youtube{
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
+      overflow: hidden;
+      margin: 0 auto 8px;
+    }
 
     img {
       display: block;
@@ -1308,10 +1358,10 @@ article.listing {
     text-decoration: underline;
     overflow-wrap: break-word;
 
-    &[rel*="external"]{
+    &[rel*="external"] {
       position: relative;
 
-      &:after{
+      &:after {
         content: "\00a0\00a0\00a0\00a0\00a0";
         display: inline-block;
       }
