@@ -191,3 +191,9 @@ Since LM Studio runs entirely on your local machine:
 - **Performance**: Response speed depends on your hardware (CPU/GPU) and model size
 
 For best performance, consider using models optimized for your hardware and adjusting the context window size based on your available RAM.
+
+## Removing the integration
+
+This integration follows standard integration removal. No additional steps are required.
+
+{% include integrations/remove_device_service.md %}
