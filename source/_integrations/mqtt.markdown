@@ -61,13 +61,13 @@ MQTT Devices and entities can be set up through [MQTT -discovery](#mqtt-discover
 - [Button](/integrations/button.mqtt/)
 - [Camera](/integrations/camera.mqtt/)
 - [Cover](/integrations/cover.mqtt/)
+- [Climate (HVAC)](/integrations/climate.mqtt/)
 - [Device tracker](/integrations/device_tracker.mqtt/)
 - [Device trigger](/integrations/device_trigger.mqtt/)
 - [Event](/integrations/event.mqtt/)
 - [Fan](/integrations/fan.mqtt/)
 - [Humidifier](/integrations/humidifier.mqtt/)
 - [Image](/integrations/image.mqtt/)
-- [Climate/HVAC](/integrations/climate.mqtt/)
 - [Lawn mower](/integrations/lawn_mower.mqtt/)
 - [Light](/integrations/light.mqtt/)
 - [Lock](/integrations/lock.mqtt/)
@@ -94,13 +94,13 @@ MQTT Devices and entities can be set up through [MQTT -discovery](#mqtt-discover
 - [Binary sensor](/integrations/binary_sensor.mqtt/)
 - [Button](/integrations/button.mqtt/)
 - [Camera](/integrations/camera.mqtt/)
+- [Climate (HVAC)](/integrations/climate.mqtt/)
 - [Cover](/integrations/cover.mqtt/)
 - [Device tracker](/integrations/device_tracker.mqtt/)
 - [Event](/integrations/event.mqtt/)
 - [Fan](/integrations/fan.mqtt/)
 - [Humidifier](/integrations/humidifier.mqtt/)
 - [Image](/integrations/image.mqtt/)
-- [Climate/HVACs](/integrations/climate.mqtt/)
 - [Lawn mower](/integrations/lawn_mower.mqtt/)
 - [Light](/integrations/light.mqtt/)
 - [Lock](/integrations/lock.mqtt/)
@@ -122,11 +122,14 @@ MQTT Devices and entities can be set up through [MQTT -discovery](#mqtt-discover
 <a name="configuration-via-subentries"></a>
 {% details "Configuration of MQTT components via Subentries" %}
 
+- [Alarm control panel](/integrations/alarm_control_panel.mqtt/)
 - [Binary sensor](/integrations/binary_sensor.mqtt/)
 - [Button](/integrations/button.mqtt/)
+- [Climate (HVAC)](/integrations/climate.mqtt/)
 - [Cover](/integrations/cover.mqtt/)
 - [Fan](/integrations/fan.mqtt/)
 - [Light](/integrations/light.mqtt/)
+- [Lock](/integrations/lock.mqtt/)
 - [Notify](/integrations/notify.mqtt/)
 - [Sensor](/integrations/sensor.mqtt/)
 - [Switch](/integrations/switch.mqtt/)
@@ -173,7 +176,7 @@ Add the MQTT integration, then provide your broker's hostname (or IP address) an
 2. Select the MQTT integration.
 3. Reconfigure the MQTT broker settings via {% my integrations title="**Settings** > **Devices & services**" %}, click {% icon "mdi:dots-vertical" %} and select **Reconfigure**.
 
-MQTT subentries can also be reconfigured. Additional entities can be added, or an entity can bve removed from the sub entry. Each MQTT subentry holds one MQTT device. The MQTT device must have at least one entity.
+MQTT subentries can also be reconfigured. Additional entities can be added, or an entity can be removed from the sub entry. Each MQTT subentry holds one MQTT device. The MQTT device must have at least one entity.
 
 {% important %}
 If you experience an error message like `Failed to connect due to exception: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed`, then turn on `Advanced options` and set [Broker certificate validation](/integrations/mqtt/#broker-certificate-validation) to `Auto`.
@@ -307,8 +310,8 @@ The mandatory fields were previously limited to at least one of `connection` and
 
 For every configured MQTT entity Home Assistant automatically assigns a unique `entity_id`. If the `unique_id` option is configured, you can change the `entity_id` after creation, and the changes are stored in the Entity Registry. The `entity_id` is generated when an item is loaded the first time.
 
-If the `object_id` option is set, then this will be used to generate the `entity_id`.
-If, for example, we have configured a `sensor`, and we have set `object_id` to `test`, then Home Assistant will try to assign `sensor.test` as `entity_id`, but if this `entity_id` already exits it will append it with a suffix to make it unique, for example, `sensor.test_2`.
+If the `default_entity_id` option is set, then this will be used to generate the `entity_id`.
+If, for example, we have configured a `sensor`, and we have set `default_entity_id` to `sensor.test`, then Home Assistant will try to assign `sensor.test` as `entity_id`, but if this `entity_id` already exits it will append it with a suffix to make it unique, for example, `sensor.test_2`.
 
 This means any MQTT entity which is part of a device will [automatically have its `friendly_name` attribute prefixed with the device name](https://developers.home-assistant.io/docs/core/entity/#has_entity_name-true-mandatory-for-new-integrations)
 
@@ -731,6 +734,7 @@ support_url:
     'cont_type':           'content_type',
     'curr_temp_t':         'current_temperature_topic',
     'curr_temp_tpl':       'current_temperature_template',
+    'def_ent_id':          'default_entity_id',
     'dev':                 'device',
     'dev_cla':             'device_class',
     'dir_cmd_t':           'direction_command_topic',
@@ -798,7 +802,6 @@ support_url:
     'modes':               'modes',
     'name':                'name',
     'o':                   'origin',
-    'obj_id':              'object_id',
     'off_dly':             'off_delay',
     'on_cmd_type':         'on_command_type',
     'ops':                 'options',
@@ -1323,9 +1326,9 @@ Setting up a [light that takes JSON payloads](/integrations/light.mqtt/#json-sch
   }
   ```
 
-#### Use object_id to influence the entity id
+#### Use object_id to influence the entity ID
 
-The entity id is automatically generated from the entity's name. All MQTT integrations optionally support providing an `object_id` which will be used instead if provided.
+The entity ID is automatically generated from the entity's name. All MQTT integrations optionally support providing an `object_id` which will be used instead if provided.
 
 - Configuration topic: `homeassistant/sensor/device1/config`
 - Example configuration payload:

@@ -4,8 +4,10 @@ description: Instructions on how to set up SwitchBot Devices.
 ha_category:
   - Binary Sensor
   - Button
+  - Cover
   - Fan
   - Hub
+  - Light
   - Lock
   - Plug
   - Remote
@@ -23,7 +25,9 @@ ha_platforms:
   - binary_sensor
   - button
   - climate
+  - cover
   - fan
+  - light
   - lock
   - sensor
   - switch
@@ -54,6 +58,23 @@ Please note, device names configured in the SwitchBot app are transferred into H
 - [Plug Mini (HomeKit Enabled)](https://www.switch-bot.com/products/switchbot-plug-mini-homekit-enabled)
 - Plug (Wi-Fi only, only available in Japan)
 
+### Cover
+
+- [Curtain (WoCurtain)](https://switch-bot.com/pages/switchbot-curtain) (version 1 & 2)
+- [Curtain 3 (WoCtn3)](https://switch-bot.com/pages/switchbot-curtain-3)
+- [Blind Tilt (WoBlindTilt)](https://switch-bot.com/pages/switchbot-blind-tilt)
+- [Roller Shade](https://www.switch-bot.com/products/switchbot-roller-shade)
+- [Garage Door Opener](https://www.switch-bot.com/products/switchbot-garage-door-opener)
+
+### Lights
+
+- [LED Strip Light 3](https://www.switch-bot.com/products/switchbot-led-strip-light-3)
+- [Floor Lamp](https://www.switch-bot.com/products/switchbot-floor-lamp)
+- [Color Bulb (WoBulb)](https://switch-bot.com/pages/switchbot-color-bulb)
+- [Light Strip (WoStrip)](https://www.switchbot.jp/products/switchbot-strip-light)
+- RGBICWW Floor Lamp
+- RGBICWW Strip Light
+
 ### Locks
 
 - [Lock (WoLock)](https://switch-bot.com/pages/switchbot-lock)
@@ -78,6 +99,10 @@ Please note, device names configured in the SwitchBot app are transferred into H
 
 - [K10+](https://www.switch-bot.com/products/switchbot-mini-robot-vacuum-k10)
 - [K10+ Pro](https://www.switch-bot.com/products/switchbot-mini-robot-vacuum-k10-pro)
+- [K10+ Pro Combo](https://www.switch-bot.com/products/switchbot-k10-pro-combo)
+- [K20+ Pro](https://www.switchbot.jp/products/switchbot-robot-vacuum-cleaner-k20-pro)
+- [S20](https://www.switch-bot.com/products/switchbot-floor-cleaning-robot-s20)
+- [S10](https://www.switch-bot.com/products/switchbot-floor-cleaning-robot-s10)
 - [S1](https://www.switchbot.jp/products/switchbot-robot-vacuum-cleaner?&variant=41850919420079)
 - [S1 Plus](https://www.switchbot.jp/products/switchbot-robot-vacuum-cleaner)
 
@@ -121,6 +146,51 @@ Features:
 Features:
 - turn on or off
 
+### Cover
+
+#### Curtain
+
+Features:
+- open/close/pause
+- set position
+- get position
+- get battery level
+- get calibration state
+
+#### Curtain 3
+
+Features:
+- open/close/pause
+- set position
+- get position
+- get battery level
+- get calibration state
+
+#### Blind Tilt
+
+Features:
+- close up/close down
+- set position
+- get position
+- get battery level
+- get calibration state
+
+#### Roller Shade
+
+Features:
+- open/close
+- set position
+- get position
+- get battery level
+- get calibration state
+
+#### Garage Door Opener
+
+Features:
+- open/close
+- set position
+- get position
+- get calibration state
 
 ### Sensors
 
@@ -159,6 +229,40 @@ Features:
 - get humidity
 - get carbon dioxide
 - get battery level
+
+### Lights
+
+#### LED Strip Light 3
+
+Features:
+- turn on or off
+- change brightness
+- change color temperature
+- change color
+
+
+#### Floor Lamp
+
+Features:
+- turn on or off
+- change brightness
+- change color temperature
+- change color
+
+#### Color Bulb
+
+Features:
+- turn on or off
+- change brightness
+- change color temperature
+- change color
+
+#### LED Strip Light
+
+Features:
+- turn on or off
+- change brightness
+- change color
 
 ### Locks
 
@@ -202,7 +306,7 @@ Features:
 
 ### Vacuums
 
-Vacuum entities are added for K10+, K10+ Pro, S1, S1 Plus.
+Vacuum entities are added for K10+, K10+ Pro, K10+ Pro Combo, K20+ Pro, S10, S20.
 
 Features:
 - get states

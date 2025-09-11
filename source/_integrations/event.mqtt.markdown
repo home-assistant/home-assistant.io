@@ -12,6 +12,9 @@ The `mqtt` event platform allows you to process event info from an MQTT message.
 
 ## Configuration
 
+To use an MQTT event entity in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
+
 ```yaml
 # Example configuration.yaml entry
 mqtt:
@@ -20,6 +23,8 @@ mqtt:
       event_types:
         - press
 ```
+
+Alternatively, a more advanced approach is to set it up via [MQTT discovery](/integrations/mqtt/#mqtt-discovery).
 
 {% configuration %}
 availability:
@@ -56,6 +61,10 @@ availability_template:
   type: template
 availability_topic:
   description: The MQTT topic subscribed to receive availability (online/offline) updates. Must not be used together with `availability`.
+  required: false
+  type: string
+default_entity_id:
+  description: Use `default_entity_id` instead of name for automatic generation of the entity ID. For example, `event.foobar`. When used without a `unique_id`, the entity ID will update during restart or reload if the entity ID is available.  If the entity ID already exists, the entity ID will be created with a number at the end. When used with a `unique_id`, the `default_entity_id` is only used when the entity is added for the first time. When set, this overrides a user-customized entity ID if the entity was deleted and added again.
   required: false
   type: string
 device:
@@ -154,10 +163,6 @@ name:
   required: false
   type: string
   default: MQTT Event
-object_id:
-  description: Used `object_id` instead of `name` for automatic generation of `entity_id`. This only works when the entity is added for the first time. When set, this overrides a user-customized Entity ID in case the entity was deleted and added again.
-  required: false
-  type: string
 payload_available:
   description: The payload that represents the available state.
   required: false

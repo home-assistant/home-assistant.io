@@ -190,7 +190,7 @@ The following devices are certified for Bluetooth:
 - [SwitchBot Roller Shade](https://www.switch-bot.com/products/switchbot-roller-shade)
 - [SwitchBot Lock Pro](https://www.switch-bot.com/products/switchbot-lock-pro)
 
-To see the list of SwitchBot Matter certified devices, visit the [SwitchBot Matter](switchbot_matter.markdown) page.
+To see the list of SwitchBot Matter-certified devices, visit the [SwitchBot Matter](/integrations/switchbot_matter/) page.
 
 ## Supported functionality
 

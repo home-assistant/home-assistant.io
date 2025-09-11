@@ -95,9 +95,9 @@ name:
 
 ### Long term statistics
 
-Home Assistant saves long-term statistics for a sensor if the entity has a state_class of measurement, total, or total_increasing. For short-term statistics, a snapshot is taken every 5 minutes. For long-term statistics, an hourly aggregate is stored of the short-term statistics. Short-term statistics are automatically purged after a predefined period (default is 10 days). Long-term statistics are never purged.
+Home Assistant saves long-term statistics for a sensor if the entity has a state_class of measurement, total, or total_increasing. For long-term statistics, an hourly aggregate is stored from the sensor history. Long-term statistics are never purged.
 
-In the history graph card, if the hours to show variable is set to a figure higher than the purge_keep period, long-term statistics will be used, with short term statistics shown in bold.
+In the history graph card, if the hours to show variable is set to a figure higher than the recorder retention period, long-term statistics will backfill the older parts of the history graph, with more recent actual sensor values from the recorder shown in bold.
 
 ### Examples
 
