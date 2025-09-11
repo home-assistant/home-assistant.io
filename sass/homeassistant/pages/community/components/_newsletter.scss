@@ -63,18 +63,19 @@ section#newsletter {
         margin-bottom: -40px;
         width: 100%;
         order: 1;
-
+        
         @include bp(tablet) {
             order: -1;
             flex-basis: 50%;
             align-self: center;
         }
         @include bp(desktop) {
-            align-self: flex-end;
         }
-
+        
         @include bp(large-desktop) {
             flex-basis: 570px;
+            align-self: flex-end;
+            margin-bottom: -64px;
 
         }
 
