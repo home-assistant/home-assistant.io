@@ -1316,10 +1316,19 @@ article.listing {
     border-radius: 8px;
     border-width: 8px;
     text-align: center;
+    overflow: hidden;
     padding-bottom: 8px;
     font-size: 0.9rem;
     box-shadow: rgba(0, 0, 0, 0.5) 0 0 1px;
+    font-style: italic;
     border: 0;
+
+    lite-youtube{
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
+      overflow: hidden;
+      margin: 0 auto 8px;
+    }
 
     img {
       display: block;

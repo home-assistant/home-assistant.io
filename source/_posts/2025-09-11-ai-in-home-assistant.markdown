@@ -20,7 +20,10 @@ Moreover, if users don’t want AI in their homes, that’s their choice, and th
 
 Over the past year, we’ve added many new AI features and made them easy to use directly through Home Assistant’s user interface. We have kept up with all the developments in AI land and are using the latest standard to integrate more models and tools than ever before. We’re also continuing to benchmark local and cloud models to give users an idea of what works best. Keep reading to check out everything new, and maybe you can teach your smart home some cool new tricks.
 
-<lite-youtube videoid="iZ-JdpxEx3o" videotitle="Multiple commands with Ollama"></lite-youtube>
+<p class="img">
+    <lite-youtube videoid="iZ-JdpxEx3o" videotitle="Multiple commands with Ollama"></lite-youtube>
+    Local AI is making the home very natural to control
+</p>
 
 Big thanks to our AI community contributor team:<br>
 [@AllenPorter](https://github.com/allenporter), [@shulyaka](https://github.com/shulyaka), [@tronikos](https://github.com/tronikos), [@IvanLH](https://github.com/IvanLH), [@JoostLek](https://github.com/JoostLek)!
@@ -37,7 +40,10 @@ Users can also leverage the power of AI to speak the way _they speak_, as LLMs a
 
 Another powerful addition from the past year is context sharing between agents. So your Assist agent can share the most recent commands with your chosen AI agent. This shared context lets you say something like _“Add milk to my shopping list,”_ which Assist will act on, and to add more items, just say _“Add rice.”_ The AI agent understands that these commands are connected and can act accordingly.
 
-<lite-youtube videoid="mLtFUG4YG1A" videotitle="Current state of conversational AI - September 2025"></lite-youtube>
+<p class="img">
+    <lite-youtube videoid="mLtFUG4YG1A" videotitle="Current state of conversational AI - September 2025"></lite-youtube>
+    Here is an excellent walkthrough video of JLo's AI-powered home, showing many of these new features in action<
+</p>
 
 Here is an excellent walkthrough video of JLo’s AI-powered home, showing many of these new features in action
 
