@@ -77,7 +77,7 @@ Once you have set up the Z-Wave server, you can [add devices to the network](#ad
 - A [supported Z-Wave adapter](/docs/z-wave/controllers/#supported-z-wave-usb-sticks--hardware-modules). 
   - First-time user? For recommendations, refer to the [what-to-buy-section](#which-z-wave-adapter-should-i-buy).
 
-#### To set a up a Z-Wave server
+#### To set up a Z-Wave server
 
 1. Open the Home Assistant user interface.
 2. Plug the Z-Wave adapter into the device running Home Assistant.
