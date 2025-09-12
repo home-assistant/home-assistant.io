@@ -14,7 +14,7 @@ ha_platforms:
 ha_integration_type: service
 ---
 
-The Victron VRM Forecasts integration pulls solar production and consumption forecasts from [Victron Energy](https://www.victronenergy.com/) <abbr title="Victron Remote Monitoring">VRM</abbr> portal into Home Assistant. It provides <abbr title="from the day before">day‑ahead</abbr>, next‑hour, and six‑day outlooks for both production and consumption, plus peak‑time predictions. It fetches forecasts from the day before, today, next hour, tomorrow, and provides six-day outlooks once you have at least 30 days of VRM history.
+The Victron <abbr title="Victron Remote Monitoring">VRM</abbr> Forecasts integration pulls solar production and consumption forecasts from [Victron Energy](https://www.victronenergy.com/)'s <abbr title="Victron Remote Monitoring">VRM</abbr> portal into Home Assistant. It provides day-ahead, next-hour, and six-day outlooks for both production and consumption. It also includes peak-time predictions. The integration requires at least 30 days of VRM history before forecasts become available.
 
 ---
 
@@ -91,9 +91,9 @@ The Victron VRM Forecasts integration fetches fresh data from the VRM API every 
 ## Troubleshooting
 
 - **No sensors**: Confirm you completed the UI flow and see no errors in logs.
-- **Forecasts not available**: Verify you have ≥30 days of VRM data.
+- **Forecasts not available**: Verify you have at least 30 days of VRM data.
 - **Invalid auth**: Regenerate your token in VRM Portal and update the integration.
-- **Token expired or insufficient scopes**: Ensure your access token is still valid and includes the required scopes (read:forecast, read:site).
+- **Token expired or insufficient scopes**: Ensure your access token is still valid and you have permission to access selected site.
 - **No sites listed after entering token**: The token may belong to an account without site access or lacks scopes. Verify the token’s account has access to the site and try again.
 - **Site missing from dropdown**: Confirm the site is active in VRM and associated with the account used to generate the token.
 
