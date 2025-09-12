@@ -529,7 +529,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [light.xiaomi_miio docs]: /integrations/light.xiaomi_miio/
 [lock.august docs]: /integrations/august
 [lock.zwave docs]: /integrations/zwave#lock
-[logbook docs]: /integrations/logbook/
+[logbook docs]: /integrations/activity/
 [media_extractor docs]: /integrations/media_extractor/
 [media_player.bluesound docs]: /integrations/bluesound
 [media_player.braviatv_psk docs]: /integrations/braviatv_psk/
@@ -638,7 +638,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@uchagani]: https://github.com/uchagani
 [binary_sensor.rfxtrx docs]: /integrations/rfxtrx#binary-sensors
 [bmw_connected_drive docs]: /integrations/bmw_connected_drive/
-[logbook docs]: /integrations/logbook/
+[logbook docs]: /integrations/activity/
 [media_player.plex docs]: /integrations/plex#media-player
 [media_player.samsungtv docs]: /integrations/samsungtv
 [media_player.sonos docs]: /integrations/sonos

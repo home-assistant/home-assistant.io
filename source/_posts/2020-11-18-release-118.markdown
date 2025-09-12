@@ -1597,7 +1597,7 @@ all erroneous entries to the new `controller_modes` parameter.
 [lcn docs]: /integrations/lcn/
 [life360 docs]: /integrations/life360/
 [locative docs]: /integrations/locative/
-[logbook docs]: /integrations/logbook/
+[logbook docs]: /integrations/activity/
 [london_air docs]: /integrations/london_air/
 [lovelace docs]: /integrations/lovelace/
 [luftdaten docs]: /integrations/luftdaten/

@@ -384,7 +384,7 @@ The integrations below have been removed:
 [daikin docs]: /integrations/daikin/
 [frontend docs]: /integrations/frontend/
 [history docs]: /integrations/history/
-[logbook docs]: /integrations/logbook/
+[logbook docs]: /integrations/activity/
 [owntracks docs]: /integrations/owntracks/
 [plex docs]: /integrations/plex/
 [yeelight docs]: /integrations/yeelight/
@@ -1191,7 +1191,7 @@ The integrations below have been removed:
 [lg_soundbar docs]: /integrations/lg_soundbar/
 [lifx docs]: /integrations/lifx/
 [llamalab_automate docs]: /integrations/llamalab_automate/
-[logbook docs]: /integrations/logbook/
+[logbook docs]: /integrations/activity/
 [logger docs]: /integrations/logger/
 [marytts docs]: /integrations/marytts/
 [media_extractor docs]: /integrations/media_extractor/

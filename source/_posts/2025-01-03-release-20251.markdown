@@ -531,7 +531,7 @@ noteworthy changes:
 [@marcinbauer85]: https://github.com/marcinbauer85
 [@silamon]: https://github.com/silamon
 [@wendevlin]: https://github.com/wendevlin
-[logbook card]: /dashboards/logbook/
+[logbook card]: /dashboards/activity/
 
 ## Dashboard background settings
 

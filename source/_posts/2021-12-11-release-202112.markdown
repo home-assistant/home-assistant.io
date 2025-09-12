@@ -504,7 +504,7 @@ like before. Done by [@marvin-w].
 [homekit docs]: /integrations/homekit/
 [hue docs]: /integrations/hue/
 [knx docs]: /integrations/knx/
-[logbook docs]: /integrations/logbook/
+[logbook docs]: /integrations/activity/
 [nest docs]: /integrations/nest/
 [nextbus docs]: /integrations/nextbus/
 [onewire docs]: /integrations/onewire/

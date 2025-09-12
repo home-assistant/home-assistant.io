@@ -165,7 +165,7 @@ Since 0.28 [automation rules](/blog/2016/09/10/notify-group-reload-api-pihole/#r
 [climate]: /integrations/vera
 [email]: /integrations/imap_email_content/
 [Emoncms]: /integrations/emoncms
-[filtering]: /integrations/logbook/
+[filtering]: /integrations/activity/
 [InfluxDB]: /integrations/influxdb/
 [ISY]: /integrations/isy994/
 [KNX]: /integrations/sensor.knx/

@@ -162,6 +162,7 @@ layout: null
 /components/telegram_bot.webhooks /integrations/telegram_webhooks
 /components/vacuum.mqtt /integrations/vacuum.mqtt
 /components/vacuum.template /integrations/vacuum.template
+/dashboards/logbook/ /dashboards/activity
 /integrations/vacuum.template /integrations/template/#vacuum
 /integrations/binary_sensor.group /integrations/group
 /integrations/binary_sensor.knx /integrations/knx#binary-sensor
@@ -190,6 +191,7 @@ layout: null
 /integrations/light.xiaomi_miio /integrations/xiaomi_miio/#xiaomi-philips-light
 /integrations/light.xiaomi_aqara/ /integrations/xiaomi_aqara/#lights
 /integrations/lock.xiaomi_aqara/ /integrations/xiaomi_aqara/#locks
+/integrations/logbook /integrations/activity
 /integrations/media_player.group /integrations/group
 /integrations/notify.command_line /integrations/command_line#Notify
 /integrations/notify.group /integrations/group#notify-groups

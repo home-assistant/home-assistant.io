@@ -674,7 +674,7 @@ The integrations below have been removed:
 [@bdraco]: https://github.com/bdraco
 [@emontnemery]: https://github.com/emontnemery
 [@rytilahti]: https://github.com/rytilahti
-[logbook docs]: /integrations/logbook/
+[logbook docs]: /integrations/activity/
 [mqtt docs]: /integrations/mqtt/
 [recorder docs]: /integrations/recorder/
 [tesla docs]: /integrations/tesla/
@@ -723,7 +723,7 @@ The integrations below have been removed:
 [denonavr docs]: /integrations/denonavr/
 [frontend docs]: /integrations/frontend/
 [homekit docs]: /integrations/homekit/
-[logbook docs]: /integrations/logbook/
+[logbook docs]: /integrations/activity/
 [mqtt docs]: /integrations/mqtt/
 [plex docs]: /integrations/plex/
 [recorder docs]: /integrations/recorder/
@@ -1542,7 +1542,7 @@ The integrations below have been removed:
 [konnected docs]: /integrations/konnected/
 [lametric docs]: /integrations/lametric/
 [lcn docs]: /integrations/lcn/
-[logbook docs]: /integrations/logbook/
+[logbook docs]: /integrations/activity/
 [lutron_caseta docs]: /integrations/lutron_caseta/
 [manual_mqtt docs]: /integrations/manual_mqtt/
 [media_extractor docs]: /integrations/media_extractor/

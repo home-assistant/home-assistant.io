@@ -513,7 +513,7 @@ source/_integrations/local_calendar.markdown @allenporter
 source/_integrations/local_ip.markdown @issacg
 source/_integrations/local_todo.markdown @allenporter
 source/_integrations/lock.markdown @home-assistant/core
-source/_integrations/logbook.markdown @home-assistant/core
+source/_integrations/activity.markdown @home-assistant/core
 source/_integrations/logger.markdown @home-assistant/core
 source/_integrations/london_underground.markdown @jpbede
 source/_integrations/lookin.markdown @ANMalko @bdraco

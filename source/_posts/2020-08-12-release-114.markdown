@@ -1318,7 +1318,7 @@ the automation is turned off.
 [izone docs]: /integrations/izone/
 [lg_soundbar docs]: /integrations/lg_soundbar/
 [light docs]: /integrations/light/
-[logbook docs]: /integrations/logbook/
+[logbook docs]: /integrations/activity/
 [lutron_caseta docs]: /integrations/lutron_caseta/
 [media_extractor docs]: /integrations/media_extractor/
 [met docs]: /integrations/met/

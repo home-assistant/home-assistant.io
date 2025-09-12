@@ -573,7 +573,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [light.xiaomi_miio docs]: /integrations/light.xiaomi_miio/
 [light.yeelight docs]: /integrations/yeelight
 [linode docs]: /integrations/linode/
-[logbook docs]: /integrations/logbook/
+[logbook docs]: /integrations/activity/
 [mailbox docs]: /integrations/mailbox/
 [media_extractor docs]: /integrations/media_extractor/
 [media_player docs]: /integrations/media_player/

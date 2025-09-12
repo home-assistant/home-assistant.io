@@ -282,7 +282,7 @@ Thanks for reading all of the above, especially since this week was a pretty lon
 [Yamaha]: /integrations/yamaha
 [Zoneminder]: /integrations/zoneminder/
 [emoncms]: /integrations/emoncms_history/
-[filtering]: /integrations/logbook/
+[filtering]: /integrations/activity/
 [flash-briefing-docs]: /integrations/alexa/
 [hacktoberfest-blog]: /blog/2016/10/02/hacktoberfest/
 [hacktoberfest-ha-prs]: https://github.com/home-assistant/home-assistant/labels/Hacktoberfest

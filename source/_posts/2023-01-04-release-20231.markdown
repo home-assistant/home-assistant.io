@@ -568,7 +568,7 @@ We welcome the following new integrations in this release:
 [govee_ble docs]: /integrations/govee_ble/
 [huawei_lte docs]: /integrations/huawei_lte/
 [litterrobot docs]: /integrations/litterrobot/
-[logbook docs]: /integrations/logbook/
+[logbook docs]: /integrations/activity/
 [matter docs]: /integrations/matter/
 [nanoleaf docs]: /integrations/nanoleaf/
 [shelly docs]: /integrations/shelly/
@@ -612,7 +612,7 @@ We welcome the following new integrations in this release:
 [govee_ble docs]: /integrations/govee_ble/
 [huawei_lte docs]: /integrations/huawei_lte/
 [litterrobot docs]: /integrations/litterrobot/
-[logbook docs]: /integrations/logbook/
+[logbook docs]: /integrations/activity/
 [matter docs]: /integrations/matter/
 [nanoleaf docs]: /integrations/nanoleaf/
 [pi_hole docs]: /integrations/pi_hole/

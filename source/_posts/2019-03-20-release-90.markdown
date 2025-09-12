@@ -762,7 +762,7 @@ Users will need to change `- platform: firetv` to `- platform: androidtv` in the
 [light.ihc docs]: /integrations/ihc#light
 [light.mystrom docs]: /integrations/mystrom#light
 [light.nanoleaf docs]: /integrations/nanoleaf
-[logbook docs]: /integrations/logbook/
+[logbook docs]: /integrations/activity/
 [lutron docs]: /integrations/lutron/
 [media_extractor docs]: /integrations/media_extractor/
 [media_player.anthemav docs]: /integrations/anthemav

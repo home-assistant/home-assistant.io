@@ -2582,7 +2582,7 @@ The following integrations are no longer available as of this release:
 [litterrobot docs]: /integrations/litterrobot/
 [local_file docs]: /integrations/local_file/
 [lock docs]: /integrations/lock/
-[logbook docs]: /integrations/logbook/
+[logbook docs]: /integrations/activity/
 [logger docs]: /integrations/logger/
 [logi_circle docs]: /integrations/logi_circle/
 [lovelace docs]: /integrations/lovelace/

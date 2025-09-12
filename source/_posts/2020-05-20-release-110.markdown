@@ -627,7 +627,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [homekit docs]: /integrations/homekit/
 [homematic docs]: /integrations/homematic/
 [hunterdouglas_powerview docs]: /integrations/hunterdouglas_powerview/
-[logbook docs]: /integrations/logbook/
+[logbook docs]: /integrations/activity/
 [onvif docs]: /integrations/onvif/
 
 ## Release 0.110.2 - May 24

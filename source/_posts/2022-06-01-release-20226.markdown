@@ -387,7 +387,7 @@ The following integrations are now available via the Home Assistant UI:
 [frontend docs]: /integrations/frontend/
 [history_stats docs]: /integrations/history_stats/
 [hive docs]: /integrations/hive/
-[logbook docs]: /integrations/logbook/
+[logbook docs]: /integrations/activity/
 [mqtt docs]: /integrations/mqtt/
 [recorder docs]: /integrations/recorder/
 [sonos docs]: /integrations/sonos/
@@ -488,7 +488,7 @@ The following integrations are now available via the Home Assistant UI:
 [fibaro docs]: /integrations/fibaro/
 [ialarm_xr docs]: /integrations/ialarm_xr/
 [kodi docs]: /integrations/kodi/
-[logbook docs]: /integrations/logbook/
+[logbook docs]: /integrations/activity/
 [lookin docs]: /integrations/lookin/
 [rainmachine docs]: /integrations/rainmachine/
 [recorder docs]: /integrations/recorder/
@@ -528,7 +528,7 @@ The following integrations are now available via the Home Assistant UI:
 [esphome docs]: /integrations/esphome/
 [fritz docs]: /integrations/fritz/
 [fritzbox docs]: /integrations/fritzbox/
-[logbook docs]: /integrations/logbook/
+[logbook docs]: /integrations/activity/
 [rainmachine docs]: /integrations/rainmachine/
 [recorder docs]: /integrations/recorder/
 [samsungtv docs]: /integrations/samsungtv/
@@ -630,7 +630,7 @@ The following integrations are now available via the Home Assistant UI:
 [bond docs]: /integrations/bond/
 [hive docs]: /integrations/hive/
 [hue docs]: /integrations/hue/
-[logbook docs]: /integrations/logbook/
+[logbook docs]: /integrations/activity/
 [nest docs]: /integrations/nest/
 [overkiz docs]: /integrations/overkiz/
 [unifiprotect docs]: /integrations/unifiprotect/

@@ -1714,7 +1714,7 @@ The **holiday name** sensor has been renamed to **holiday**. ([@tsvi] - [#27654]
 [lirc docs]: /integrations/lirc/
 [locative docs]: /integrations/locative/
 [lock docs]: /integrations/lock/
-[logbook docs]: /integrations/logbook/
+[logbook docs]: /integrations/activity/
 [logi_circle docs]: /integrations/logi_circle/
 [loopenergy docs]: /integrations/loopenergy/
 [luci docs]: /integrations/luci/

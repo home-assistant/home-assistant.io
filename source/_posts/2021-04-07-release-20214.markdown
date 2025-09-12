@@ -2715,7 +2715,7 @@ The following integrations are no longer available as of this release:
 [light docs]: /integrations/light/
 [litterrobot docs]: /integrations/litterrobot/
 [lock docs]: /integrations/lock/
-[logbook docs]: /integrations/logbook/
+[logbook docs]: /integrations/activity/
 [logger docs]: /integrations/logger/
 [luci docs]: /integrations/luci/
 [lutron_caseta docs]: /integrations/lutron_caseta/

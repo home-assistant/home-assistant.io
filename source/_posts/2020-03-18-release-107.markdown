@@ -1381,7 +1381,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [kodi docs]: /integrations/kodi/
 [light docs]: /integrations/light/
 [locative docs]: /integrations/locative/
-[logbook docs]: /integrations/logbook/
+[logbook docs]: /integrations/activity/
 [lovelace docs]: /integrations/lovelace/
 [media_extractor docs]: /integrations/media_extractor/
 [media_player docs]: /integrations/media_player/
