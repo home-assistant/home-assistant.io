@@ -3,7 +3,7 @@ title: Victron VRM Forecasts
 description: Instructions for implementation of Victron VRM Forecasts into Home Assistant.
 ha_category:
   - Energy
-ha_release: 2025.5
+ha_release: 2025.10
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
@@ -23,7 +23,8 @@ The Victron VRM Forecasts integration pulls solar production and consumption for
 - **Victron VRM installation** with a solar system and all consumption routed through inverters or a grid meter.
 - **At least 30 days of data** in VRM before forecasts appear.
 - **VRM access token** (keep this secret!). Create one in the VRM Portal at **Preferences → Integrations → Access tokens** or use [this link](https://vrm.victronenergy.com/access-tokens).
-- **VRM Site ID**: found under **Settings → General** in your site’s VRM Portal page.
+- **Access to your site(s)** with the account used to create the token.
+
 {% important %}
 Your VRM access token grants full access to your VRM portal, including system control and data retrieval. Treat it like a password:
 
@@ -34,6 +35,14 @@ Your VRM access token grants full access to your VRM portal, including system co
 ---
 
 {% include integrations/config_flow.md %}
+
+---
+
+## Setup notes
+
+1. When prompted, paste your VRM access token.
+2. After validation, the integration automatically fetches the list of sites available to that token.
+3. Select your site from the dropdown and finish the setup.
 
 ---
 
@@ -85,8 +94,8 @@ The Victron VRM Forecasts integration fetches fresh data from the VRM API every 
 - **Forecasts not available**: Verify you have ≥30 days of VRM data.
 - **Invalid auth**: Regenerate your token in VRM Portal and update the integration.
 - **Token expired or insufficient scopes**: Ensure your access token is still valid and includes the required scopes (read:forecast, read:site).
-- **API errors in Home Assistant logs**: Inspect `home-assistant.log` for VRM API fetch errors (timeouts, 401/403 responses) to pinpoint connectivity or permission issues.
-- **Site not found**: Make sure you've entered the correct site/installation ID.
+- **No sites listed after entering token**: The token may belong to an account without site access or lacks scopes. Verify the token’s account has access to the site and try again.
+- **Site missing from dropdown**: Confirm the site is active in VRM and associated with the account used to generate the token.
 
 ---
 
