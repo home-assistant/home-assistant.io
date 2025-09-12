@@ -42,7 +42,9 @@ User with API Key requires privileges for Type:
 - GUI Name: Diagnostics: ARP Table
 - GUI Name: Diagnostics: Network Insight
 
-> Note: OPNSense versions 25.7 and later require All Pages privilege to be granted to the API user account.
+{% important %}
+OPNSense versions 25.7 and later require All Pages privilege to be granted to the API user account.
+{% endimportant %}
 
 {% configuration %}
 url:
