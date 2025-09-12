@@ -12,4 +12,4 @@ ha_codeowners:
 ha_integration_type: system
 ---
 
-The **Usage Prediction** {% term integrations %} integration provides predictions of what entities the user is most likely to interact with. This is used in the frontend to surface the most relevant entities to the user.
+The **Usage Prediction** {% term integration %} provides predictions of what entities the user is most likely to interact with. This is used in the frontend to surface the most relevant entities to the user.
