@@ -324,7 +324,7 @@ type:
   type: string
   required: true
 ignore_non_numeric:
-  description: Only available for `sensor` group. Controls how the [state is calculated when group members have non numer state](#sensor-number-and-input_number-groups).
+  description: Only available for `sensor` group. Controls how the [state is calculated when group members have non numeric state](#sensor-number-and-input_number-groups).
   type: boolean
   required: false
   default: false
