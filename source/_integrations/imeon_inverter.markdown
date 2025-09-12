@@ -155,6 +155,13 @@ This document provides an overview of the sensors available in the Imeon Inverte
 | `energy_battery_stored`       | Energy stored in battery today.     | Wh   |
 | `energy_battery_consumed`     | Energy consumed from battery today. | Wh   |
 
+### Forecast
+
+| Sensor key                      | Description                                             | Unit |
+| ------------------------------- | ------------------------------------------------------- | ---- |
+| `forecast_cons_remaining_today` | Forecast of the remaining energy consumption for today. | Wh   |
+| `forecast_prod_remaining_today` | Forecast of the remaining energy production for today.  | Wh   |
+
 ## Troubleshooting
 
 ### What is my domain name?
@@ -164,7 +171,7 @@ The domain name is the internal name given to your inverter by Home Assistant. I
 - A name such as `Imeon Inverter number 57` would give you a domain name of `imeon_inverter_number_57`.
 - If you're still struggling to find the domain name, check the internal name of the entities under the device. The name of each variable is `DOMAIN_variable-name`, for example `neo_110_inverter_software_version` tells us the domain name is `neo_110`.
 
-## Removing the integration
+### Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.
 
