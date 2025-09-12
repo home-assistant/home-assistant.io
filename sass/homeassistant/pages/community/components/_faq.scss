@@ -224,6 +224,10 @@ section#faq {
                     margin: 0;
                 }
 
+                p:not(:last-child) {
+                    margin-bottom: 1rem;
+                }
+
                 &-animation {
                     min-height: 0;
                 }

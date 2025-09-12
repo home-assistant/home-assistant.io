@@ -1,7 +1,10 @@
 section#join {
+    isolation: isolate;
+
     .container {
         align-items: center;
         flex-direction: column;
+        position: relative;
     }
 
     h2 {
@@ -36,6 +39,44 @@ section#join {
 
         @include bp(desktop) {
             margin-top: 60px;
+        }
+    }
+
+    .avatars {
+        display: grid;
+        // 12 cols
+        grid-template-columns: repeat(12, 1fr);
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+
+        &[data-dsap]:not([data-dsap-is="in"]):not([data-dsap-is="above"]) { // Reset after scroll up
+            .avatar{
+                opacity: 0;
+            }
+        }
+
+
+        .avatar {
+            justify-self: center;
+            transition: opacity 0.5s ease-out;
+
+            img {
+                height: 48px;
+                width: 48px;
+                border-radius: 50%;
+            }
+
+            $list: 21,31,76,16,35,100,89,95,61,6,30,14;
+            @for $i from 1 through 12 {                
+                &:nth-child(#{$i}) {
+                    $offset: nth($list, $i);
+                    transform: translateY(calc(#{$offset} * 1%));
+                    opacity: 1;
+                    transition-delay: #{0.2 + ($i * 0.05)}s;
+                    @debug $offset;
+                }
+            }
         }
     }
 }
