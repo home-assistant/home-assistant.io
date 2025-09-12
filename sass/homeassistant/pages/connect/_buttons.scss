@@ -1,0 +1,17 @@
+.button {
+    align-items: center;
+    background-color: var(--connect-line-blue);
+    border-radius: 20px;
+    display: inline-flex;
+    height: 40px;
+    padding: 8px 30px;
+    font-size: 14px;
+    color: #fff;
+    text-transform: uppercase;
+    overflow: hidden;
+    
+
+    &:hover{
+    
+    }
+}

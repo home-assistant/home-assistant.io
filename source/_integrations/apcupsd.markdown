@@ -16,6 +16,7 @@ ha_platforms:
   - diagnostics
   - sensor
 ha_integration_type: integration
+ha_quality_scale: bronze
 ---
 
 The **APC UPS Daemon** {% term integration %} is used to integrate with UPS devices from [APC](www.apc.com) when the Network Information Server ([apcupsd](http://www.apcupsd.org/)) is configured on the APC devices. Use case: When the Notify integration is set up in Home Assistant, you can send notifications. For example, when the UPS switches to battery power, or when the battery level drops low. You can also use it to track the UPS load.

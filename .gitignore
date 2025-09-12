@@ -8,6 +8,7 @@ source/_data/analytics_data.json
 source/_data/blueprint_exchange_data.json
 source/_data/version_data.json
 source/_data/alerts_data.json
+source/_data/language_scores.json
 source/_stash
 source/stylesheets/screen.css
 source/.jekyll-cache/

@@ -72,7 +72,7 @@ You are in the onboarding procedure, but the process seems stuck at the step **P
 
 ### Resolution
 
-1. Select the pulsing blue dot to view the log files.
+1. Select **Show details** to view the log files.
    - The log files might provide more information on the current status.
 2. Make sure your network has internet access.
      - During first startup, time will be synchronized. Ensure NTP is allowed in your network.

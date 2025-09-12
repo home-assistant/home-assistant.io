@@ -2,7 +2,7 @@
 type: card
 title: "Sensor card"
 sidebar_label: Sensor
-description: "The sensor card gives you a quick overview of your sensors state with an optional graph to visualize change over time."
+description: "The sensor card gives you a quick overview of a sensor's state with an optional graph to visualize change over time."
 related:
   - docs: /integrations/frontend/
     title: Themes
@@ -10,7 +10,7 @@ related:
     title: Dashboard cards
 ---
 
-The sensor card gives you a quick overview of your sensors state with an optional graph to visualize change over time.
+The sensor card gives you a quick overview of a sensor's state with an optional graph to visualize change over time.
 
 <p class='img'>
   <img src='/images/dashboards/sensor.png' alt='Screenshot of the sensor card'>
