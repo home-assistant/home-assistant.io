@@ -11,6 +11,8 @@ ha_integration_type: integration
 ha_quality_scale: bronze
 ha_codeowners:
   - '@hanwg'
+ha_platforms:
+  - notify
 ---
 
 Use Telegram on your mobile or desktop device to send and receive messages or commands to/from your Home Assistant.
@@ -143,6 +145,26 @@ To allowlist the chat ID, [retrieve the chat ID](/integrations/telegram#methods-
 Chat ID:
   description: ID representing the user or group chat to which messages can be sent.
 {% endconfiguration_basic %}
+
+## Notifiers
+
+This integration will add a notify {% term entity %} for each configured chat ID.
+You can use the `notify.send_message` action to publish notifications.
+
+{% details "Example YAML configuration" %}
+
+{% raw %}
+
+```yaml
+action: notify.send_message
+data:
+  message: "Reminder: Have you considered frogs?"
+  entity_id: notify.telegram_bot_chat
+```
+
+{% endraw %}
+
+{% enddetails %}
 
 ## Notification actions
 
@@ -445,6 +467,13 @@ Sets the bot's reaction for a given message.
 
 ## Telegram notification platform
 
+{% warning %}
+
+The notification platform has been marked as legacy and might be deprecated in the future.
+Please use [notifiers](./#notifiers) instead.
+
+{% endwarning %}
+
 The [`telegram` notification platform](/integrations/telegram) requires the `telegram_bot` integration to work with, and it's designed to generate a customized shortcut (`notify.USERNAME`) to send notifications (messages, photos, documents, and locations) to a particular `chat_id` with the old syntax, allowing backward compatibility. The data attributes `parse_mode`, `disable_notification`, `message_tag`, `disable_web_page_preview`, and `message_thread_id` are also supported.
 
 The required YAML configuration now reduces to:
@@ -468,10 +497,17 @@ args: "<any other text following the command>"
 from_first: "<first name of the sender>"
 from_last: "<last name of the sender>"
 user_id: "<id of the sender>"
+id: "<message id>"
 chat_id: "<origin chat id>"
 chat: "<chat info>"
 date: "<message timestamp>"
 message_thread_id: "<message thread id>"
+bot:
+  config_entry_id: "<config entry id of the bot>"
+  id: "<id of the bot>"
+  first_name: "<first name of the bot>"
+  last_name: "<last name of the bot>"
+  username: "<username of the bot>"
 ```
 
 Any other message not starting with `/` will be processed as simple text, firing a `telegram_text` event on the event bus with the following `event_data`:
@@ -481,10 +517,16 @@ text: "some text received"
 from_first: "<first name of the sender>"
 from_last: "<last name of the sender>"
 user_id: "<id of the sender>"
+id: "<message id>"
 chat_id: "<origin chat id>"
-chat: "<chat info>"
 date: "<message timestamp>"
 message_thread_id: "<message thread id>"
+bot:
+  config_entry_id: "<config entry id of the bot>"
+  id: "<id of the bot>"
+  first_name: "<first name of the bot>"
+  last_name: "<last name of the bot>"
+  username: "<username of the bot>"
 ```
 
 If the message is sent from a [press from an inline button](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), for example, a callback query is received, and Home Assistant will fire a `telegram_callback` event with:
@@ -498,6 +540,12 @@ user_id: "<id of the sender>"
 id: "<unique id of the callback>"
 chat_instance: "<chat instance>"
 chat_id: "<origin chat id>"
+bot:
+  config_entry_id: "<config entry id of the bot>"
+  id: "<id of the bot>"
+  first_name: "<first name of the bot>"
+  last_name: "<last name of the bot>"
+  username: "<username of the bot>"
 ```
 
 ### Configuration samples

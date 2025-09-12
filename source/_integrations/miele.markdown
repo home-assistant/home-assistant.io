@@ -59,16 +59,7 @@ Endpoints for the new generations are not yet available and will be released in 
 
 ## Prerequisites
 
-{% details "Manual entry of authentication credentials" %}
-
-- Visit [https://www.miele.com/developer](https://www.miele.com/f/com/en/register_api.aspx) and sign up for a developer account.
-- Enter an arbitrary name for your connection and the email of your login for the original Miele app.
-- On success, you will get an email with an activation link. Press the **Activate** button. Make note of the client ID and secret - you will need them for the next step.
-You may be prompted to create an [Application - The provided Miele User Account email address must be all lowercase; otherwise, it will result in authentication failures.
-- The password should not contain any special characters. Even though it works in the Miele app, it may not work with the API.
-- Allow a couple of minutes to get the activation email. All changes in the developer portal take a couple of minutes before the change is implemented. Save your credentials as you will need them later.
-
-{% enddetails %}
+Make sure that you have your username, password, and country available for your Miele account.
 
 {% details "I have manually disabled My Home Assistant" %}
 
@@ -85,7 +76,7 @@ Internal examples: `http://192.168.0.2:8123/auth/external/callback`, `http://hom
 
 {% include integrations/config_flow.md %}
 
-The integration configuration may ask for the *Client ID* and *Client Secret* created above. See [Application Credentials](/integrations/application_credentials) for more details.
+The integration configuration may ask for *Client ID* and *Client Secret*. See [Troubleshooting](/integrations/miele/#troubleshooting) below and [Application Credentials](/integrations/application_credentials) for more details.
 
 ## Supported functionality
 
@@ -151,7 +142,7 @@ Climate entities are used to control target temperatures in refrigerators, freez
 
 - **Operation state**:
   - **Status**: Represents the current operation state of the device. The default entity name is just the appliance type. For example, "Dishwasher".
-  - **Program**: Shows the currently active program.
+  - **Program**: Shows the currently active program. On coffee machines, the program sensor also provides an extra state attribute `profile` in order to distinguish which profile is in use on the machine.
   - **Program phase**: Shows the current phase in the running program.
   - **Program type**: Shows the current program type.
   - **Spin speed**: Shows the spin speed selected for the current washing machine program.
@@ -244,6 +235,30 @@ actions:
 {% endraw %}
 {% enddetails %}
 
+### Set program and start washing machine
+
+Load your washing machine and manually activate mobile start or remote control mode on the machine.
+
+{% details "Example YAML configuration" %}
+
+{% raw %}
+
+```yaml
+alias: "Wash cottons early in the morning"
+description: "Set cottons program and start washing machine early in the morning"
+triggers:
+  - trigger: time
+    at: "04:00:00"
+actions:
+  - action: miele.set_program
+    data:
+      device_id: <Your washing machine's device_id>
+      program_id: 1
+```
+
+{% endraw %}
+{% enddetails %}
+
 ## Data updates
 
 This integration uses server-sent events from the Miele API to receive live updates from the appliances.
@@ -255,6 +270,19 @@ When the configuration entry is loaded or after a streaming error (for example a
 - This integration supports only one integration entry, as the Miele 3rd party API does not allow for the unique identification of an account.
 
 ## Troubleshooting
+
+{% details "Manual entry of authentication credentials" %}
+
+Follow these instructions if you are instructed to do so by a developer or by Miele support. It is not needed for normal use of the integration.
+
+- Visit [https://www.miele.com/developer](https://www.miele.com/f/com/en/register_api.aspx) and sign up for a developer account.
+- Enter an arbitrary name for your connection and the email of your login for the original Miele app.
+- On success, you will get an email with an activation link. Press the **Activate** button. Make note of the client ID and secret - you will need them for the next step.
+You may be prompted to create an [Application - The provided Miele User Account email address must be all lowercase; otherwise, it will result in authentication failures.
+- The password should not contain any special characters. Even though it works in the Miele app, it may not work with the API.
+- Allow a couple of minutes to get the activation email. All changes in the developer portal take a couple of minutes before the change is implemented. Save your credentials as you will need them later.
+
+{% enddetails %}
 
 {% details "Problem: Unavailable entities for a device" %}
 

@@ -7,6 +7,7 @@ ha_category:
   - Button
   - Climate
   - Cover
+  - Device tracker
   - Fan
   - Hub
   - Light
@@ -57,10 +58,11 @@ This {% term integration %} currently supports the following device types within
 - [Button](/integrations/button/)
 - [Climate](/integrations/climate/) (beta)
 - [Cover](/integrations/cover/)
+- [Device tracker](/integrations/device_tracker/)
 - [Fan](/integrations/fan/)
 - [Light](/integrations/light/)
 - [Lock](/integrations/lock/)
-- [Number](/integrations/number/) (i.e. analog output)
+- [Number](/integrations/number/) (i.e. analog input/output)
 - [Select](/integrations/select/)
 - [Sensor](/integrations/sensor/)
 - [Siren](/integrations/siren/)
@@ -782,6 +784,16 @@ Since all Zigbee Coordinator radio adapters are very sensitive/susceptible to al
 - Avoid Wi-Fi Routers and Wi-Fi Access Points, alternatively change the Wi-Fi channel or Zigbee channel.
   - Place your Zigbee Coordinator away from any Wi-Fi access points and all other sources of WiFi.
   - Wi-Fi frequency ranges can overlap with Zigbee, see the section above on defining Zigbee channel use.
+
+### Problems upgrading Zigbee device firmware via OTA
+
+Before upgrading any OTA firmware, it is recommended to install fresh batteries in the device. OTA firmware updates are power-intensive, and some devices check for a minimum battery level before starting the upgrade. These devices may refuse to initiate the update process if the battery level is too low. However, not all device firmware includes this check.
+
+If Zigbee firmware upgrades do not start on a Zigbee End Device (i.e. a battery-powered product), then note that you usually need to "wake up the device" (e.g. trigger state change or pressing a button if available) so that the device becomes awake and is thus able to receive commands to start the OTA upgrade. The reason for this is that battery-powered products are so called "sleepy devices," so they normally are asleep and only receive commands when the state of the device is changed.
+
+If the upgrade still does not start, then try manually restarting the device by disconnecting the power/battery for a few seconds and try again; then again make sure to activate the device by triggering state change or pressing a button on it right before sending the update request. Sometimes, it also helps to try keeping the device awake by repeatedly pushing a button or triggering state change until you see the first "Updating... " message in the user interface.
+
+Be aware that OTAU (Over-The-Air Upgrade) of Zigbee devices typically takes around 10 minutes per device, if it takes longer then another common reason for Zigbee firmware upgrades not starting, taking a very long time, or even failing, is poor reception or not having a stable Zigbee network mesh. Take action to try to optimize your Zigbee network by avoiding radio frequency interference and adding many Zigbee Router devices (repeaters/extenders) to extend range and coverage. Try to follow all the best practice tips above in the [Zigbee interference avoidance and network range/coverage optimization)](#zigbee-interference-avoidance-and-network-rangecoverage-optimization) section under troubleshooting.
 
 ### Zigbee network visualization in ZHA UI
 

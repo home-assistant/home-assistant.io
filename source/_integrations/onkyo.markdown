@@ -14,6 +14,7 @@ ha_platforms:
   - media_player
 ha_release: 0.17
 ha_ssdp: true
+ha_quality_scale: bronze
 ---
 
 The `onkyo` {% term integration %} allows you to control [Onkyo](https://www.onkyo.com) and [Integra](http://www.integrahometheater.com) (from 2011 onward) and also [Pioneer](https://www.pioneerelectronics.com) (from 2016 onward) receivers using Home Assistant.

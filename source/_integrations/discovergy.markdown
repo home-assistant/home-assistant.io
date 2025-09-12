@@ -14,7 +14,7 @@ ha_platforms:
   - diagnostics
   - sensor
 ha_integration_type: service
-ha_quality_scale: silver
+ha_quality_scale: platinum
 ---
 
 The **inexogy** {% term integration %} allows users to integrate their [inexogy](https://inexogy.com/) smart meters into Home Assistant.

@@ -16,32 +16,16 @@ ha_platforms:
 ha_integration_type: service
 ---
 
-The **AccuWeather** {% term integration %} uses the [AccuWeather](https://accuweather.com/) web service as a source for weather data for your location.
+The **AccuWeather** {% term integration %} uses the [AccuWeather](https://accuweather.com/) web service as a source for weather data for your location. A paid subscription is required to use this integration.
 
 ## Setup
 
-To generate an AccuWeather API key, go to [AccuWeather APIs](https://developer.accuweather.com/) page, register and create application with the following settings:
-- Products
-  - Core Weather
-    - **Core Weather Limited Trial**
-  - Minute Cast
-    - **None**
-- Where will the API be used? 
-  - **Other**
-- What will you be creating with this API?
-  - **Internal App**
-- What programming language is your APP written in? 
-  - **Python**
-- Is this for Business to Business or Business to Consumer use?
-  - **Business to Business**
-- Is this Worldwide or Country specific use?
-  - **Worldwide**
+To generate an AccuWeather API key, go to [AccuWeather APIs](https://developer.accuweather.com/) page, register, subscribe to one of the available plans and create application in **Subscriptions & Keys** section.
 
-You can test your newly created API key [here](https://developer.accuweather.com/accuweather-current-conditions-api/apis)
+You can test your newly created API key [here](https://developer.accuweather.com/core-weather/location-key-locations#location-search-by-location-key)
 
 {% include integrations/config_flow.md %}
 
-{% important %}
-Due to limitations of the terms of use of AccuWeather free API key, it is possible to configure only one integration instance.
-The Limited Trial account only allows 50 API calls per day.
-{% endimportant %}
+## Data updates
+
+By default, the integration {% term polling polls %} the current weather condition data from the AccuWeather API every 10 minutes and daily forecast data every 6 hours. If you want to configure the integration for more than two locations, you need a plan higher than **Starter**.

@@ -73,7 +73,7 @@ The example above defines two themes named `happy` and `sad`. For each theme, yo
 #### Primary and accent color
 
 Primary and accent colors are the main colors of the application.
-They can be changed it using `primary-color` and `accent-color` variables.
+They can be modified using the `primary-color` and `accent-color` variables.
 
 #### State color
 
@@ -103,7 +103,7 @@ The example above defines red color for open garage doors and brown color for in
 
 ### Unsupported theme variables
 
-Although we do our best to keep things working, the behavior of other theme variables can change between releases. For a partial list of variables used by the main frontend see [color.globals.ts](https://github.com/home-assistant/frontend/blob/master/src/resources/theme/color.globals.ts).
+Although we do our best to keep things working, the behavior of other theme variables can change between releases. For a partial list of variables used by the main frontend see [color.globals.ts](https://github.com/home-assistant/frontend/blob/master/src/resources/theme/color/color.globals.ts).
 
 ### Dark mode support
 
