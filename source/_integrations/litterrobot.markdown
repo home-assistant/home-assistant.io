@@ -58,6 +58,8 @@ Before using this integration, you’ll need a Whisker account and a Wi-Fi-enabl
 | Sleep mode                    | `binary_sensor` | Indicates whether sleep mode is enabled.                                                                    |
 | Sleeping                      | `binary_sensor` | Indicates whether sleep mode is currently active.                                                           |
 | Clean cycle wait time minutes | `select`        | View and select the clean cycle wait time.                                                                  |
+| Globe brightness              | `select`        | View and select the brightness level for the globe light, only for Litter-Robot 4.                          |
+| Globe light                   | `select`        | View and select the globe light setting, only for Litter-Robot 4.                                           |
 | Panel brightness              | `select`        | View and select the panel brightness, only for Litter-Robot 4.                                              |
 | Reset                         | `button`        | Button to reset the robot, clearing any errors and potentially triggering a cycle, only for Litter-Robot 4. |
 | Reset waste drawer            | `button`        | Button to reset the waste drawer level to 0%, only for Litter-Robot 3.                                      |
