@@ -230,7 +230,9 @@ data:
   media_player_entity_id: media_player.tv
   message: Read aloud: Speaker 1: There is a person at the front door. Speaker 2: Delivery!
   options:
-    voices: Speaker 1: zephyr; Speaker 2: achernar
+    voices:
+      Speaker1: zephyr
+      Speaker2: achernar
 ```
 
 {% endraw %}
@@ -240,7 +242,7 @@ You can configure the following options:
 | Option attribute | Optional | Description                                                                                                                                                                    | Example                      |
 | ---------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------- |
 | `voice`          | yes      | The [voice name](https://ai.google.dev/gemini-api/docs/speech-generation#voices) to be used for the generated speech. The default is `zephyr`.                                 | `achernar`                   |
-| `voices`         | yes      | Maps speaker names to specific voice names. Use the format `Speaker 1: voice1; Speaker 2: voice2`. If not specified, all speakers use the default voice.                       | `Speaker 1: zephyr; Speaker 2: achernar`                   |
+| `voices`         | yes      | A list of speaker names with their specific voice names. If not specified, all speakers use the default voice.                                                                 | `Speaker1: zephyr`           |
 
 The input language is detected automatically. Check the [Google AI documentation](https://ai.google.dev/gemini-api/docs/speech-generation#languages) for the supported languages.
 
