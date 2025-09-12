@@ -7,6 +7,7 @@ ha_category:
   - Cover
   - Fan
   - Hub
+  - Humidifier
   - Light
   - Lock
   - Plug
@@ -27,6 +28,7 @@ ha_platforms:
   - climate
   - cover
   - fan
+  - humidifier
   - light
   - lock
   - sensor
@@ -94,6 +96,11 @@ Please note, device names configured in the SwitchBot app are transferred into H
 - IR appliances exposed through the different hubs:
   - ON/OFF for all appliance types except for *Others*
   - Change temperature and mode for *Air Conditioner*
+  
+### Humidifiers
+
+- [Humidifier (WoHumi)](https://www.switchbot.jp/products/switchbot-smart-humidifier)
+- [Evaporative Humidifier](https://www.switch-bot.com/products/switchbot-evaporative-humidifier-auto-refill)
 
 ### Vacuums
 
@@ -291,6 +298,30 @@ Some of the hubs can be served as a bridge while the sensor data can be retrieve
 Features:
 - get temperature
 - get humidity
+
+### Humidifiers
+
+Humidifier entities are added for Humidifier and  Evaporative Humidifier.
+
+#### Humidifier
+
+Features:
+
+- turn on
+- turn off
+- set mode
+- set humidity
+
+#### Evaporative Humidifier
+
+Note: Not all modes support unless you bind the temperature and humidity sensor.
+
+Features:
+
+- turn on
+- turn off
+- set mode
+- set humidity
 
 ### Fans
 
