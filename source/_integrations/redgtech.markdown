@@ -17,23 +17,17 @@ ha_codeowners:
   - '@luan-nvg'
 ---
 
-The **Redgtech** integration allows you to control your Redgtech smart devices through Home Assistant. This integration provides seamless connectivity to your Redgtech ecosystem, enabling you to manage lights and switches from within your Home Assistant dashboard.
+The **Redgtech** integration allows you to control your [Redgtech](https://redgtech.com.br/) smart devices through Home Assistant. This integration provides seamless connectivity to your Redgtech ecosystem, enabling you to manage lights and switches from within your Home Assistant dashboard.
 
-For more information about Redgtech, visit the [Redgtech website](https://redgtech.com.br/).
 
-## Installation
 
-The Redgtech integration is available in Home Assistant by default. No additional installation steps are required.
-
-### Prerequisites
-
-Before setting up the integration, ensure you have:
+## Prerequisites
 
 - A Redgtech account with active devices.
 - Your Redgtech devices connected to your network.
 - Internet connectivity for cloud communication.
 
-### Installation parameters
+## Installation parameters
 
 The Redgtech integration does not require any special installation parameters. The integration uses cloud-based communication and does not require:
 
@@ -44,7 +38,6 @@ The Redgtech integration does not require any special installation parameters. T
 
 All communication is handled through the Redgtech cloud service using standard HTTPS connections.
 
-## Configuration
 
 {% include integrations/config_flow.md %}
 
