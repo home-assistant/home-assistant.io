@@ -18,8 +18,10 @@ The EnergyID integration allows you to send data from your Home Assistant {% ter
 ## Prerequisites
 
 1. An active account on [EnergyID](https://www.energyid.eu/).
+
 2. A **Provisioning Key** and **Provisioning Secret** generated from your EnergyID portal. These credentials allow Home Assistant to securely connect to your account.
-    * For detailed instructions, refer to the [official EnergyID Home Assistant documentation](https://help.energyid.eu/en/apps/home-assistant/).
+
+- For detailed instructions, refer to the [official EnergyID Home Assistant documentation](https://help.energyid.eu/en/apps/home-assistant/).
 
 ## Configuration
 
@@ -66,22 +68,22 @@ When you select a sensor, its `object_id` (the part of the entity ID after the d
 
 The EnergyID integration uses a push-based mechanism with batching:
 
-* It listens for {% term state %} changes on your mapped sensors.
-* When a sensor's value changes, the new value and timestamp are queued.
-* The queued data is automatically sent to EnergyID in batches. The upload interval is determined by the policy received from EnergyID (typically every 60 seconds).
+- It listens for {% term state %} changes on your mapped sensors.
+- When a sensor's value changes, the new value and timestamp are queued.
+- The queued data is automatically sent to EnergyID in batches. The upload interval is determined by the policy received from EnergyID (typically every 60 seconds).
 
 This is more efficient than traditional {% term polling %}, as it only sends data when there are new updates.
 
 ## Use Cases
 
-* Do **not** let yourself be limited by anything. No PV provider nor dongle firmware and send anything your tinkering heart desires to eid for storage and smart analysis.
-* **Benchmarking & Reporting:** Utilize EnergyID's features to compare your energy usage against anonymized data from similar households and generate detailed reports.
+- Do **not** let yourself be limited by anything. No PV provider nor dongle firmware and send anything your tinkering heart desires to eid for storage and smart analysis.
+- **Benchmarking & Reporting:** Utilize EnergyID's features to compare your energy usage against anonymized data from similar households and generate detailed reports.
 
 ## Troubleshooting
 
 ### Data not appearing in EnergyID
 
-* **Verify Mappings**: In Home Assistant, go to the EnergyID integration's configuration page and ensure your sensors are correctly mapped.
-* **Check Sensor States**: Make sure the source sensors in Home Assistant are available and updating with new values.
-* **Reload Integration**: Try reloading the EnergyID integration by going to **Settings > Devices & Services**, finding the EnergyID entry, selecting the three-dot menu, and choosing **Reload**.
-* **Check Home Assistant Logs**: Look for any error messages related to the `energyid` component under {% my logs title="**Settings > System > Logs**" %}.
+- **Verify Mappings**: In Home Assistant, go to the EnergyID integration's configuration page and ensure your sensors are correctly mapped.
+- **Check Sensor States**: Make sure the source sensors in Home Assistant are available and updating with new values.
+- **Reload Integration**: Try reloading the EnergyID integration by going to **Settings > Devices & Services**, finding the EnergyID entry, selecting the three-dot menu, and choosing **Reload**.
+- **Check Home Assistant Logs**: Look for any error messages related to the `energyid` component under {% my logs title="**Settings > System > Logs**" %}.
