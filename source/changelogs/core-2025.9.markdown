@@ -696,12 +696,14 @@ For a summary in a more readable format:
 - Fix reauth for Alexa Devices ([@chemelli74] - [#152128])
 - Bump hass-nabucasa from 1.1.0 to 1.1.1 ([@ludeeus] - [#152147])
 - Update frontend to 20250903.5 ([@bramkragten] - [#152170])
+- Use position percentage for closed status in Velux ([@wollew] - [#151679])
 
 [#150957]: https://github.com/home-assistant/core/pull/150957
 [#151046]: https://github.com/home-assistant/core/pull/151046
 [#151263]: https://github.com/home-assistant/core/pull/151263
 [#151428]: https://github.com/home-assistant/core/pull/151428
 [#151652]: https://github.com/home-assistant/core/pull/151652
+[#151679]: https://github.com/home-assistant/core/pull/151679
 [#151685]: https://github.com/home-assistant/core/pull/151685
 [#151696]: https://github.com/home-assistant/core/pull/151696
 [#151766]: https://github.com/home-assistant/core/pull/151766
