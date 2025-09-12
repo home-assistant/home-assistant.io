@@ -3,20 +3,18 @@ title: Fish Audio
 description: Instructions on how to setup Fish Audio integration with Home Assistant.
 ha_category:
   - Text-to-speech
-  - Speech-to-text
 ha_release: 2025.9
 ha_iot_class: Cloud Polling
 ha_domain: fish_audio
 ha_platforms:
   - tts
-  - stt
 ha_config_flow: true
 ha_integration_type: service
 ha_codeowners:
   - '@noambav'
 ---
 
-The **Fish Audio** integration brings high-quality voice cloning and a wide variety of public voices to Home Assistant. It provides both text-to-speech (TTS) and speech-to-text (STT) services, allowing you to create expressive, human-like speech and use voice commands with Assist pipelines.
+The **Fish Audio** integration brings high-quality voice cloning and a wide variety of public voices to Home Assistant. It provides a text-to-speech (TTS) service, allowing you to create expressive, human-like speech.
 
 Fish Audio is positioned as a leading voice cloning service. It features the advanced `s1` model series, which supports emotional and tone markers for more natural-sounding speech.
 
@@ -28,15 +26,24 @@ Fish Audio is positioned as a leading voice cloning service. It features the adv
 
 {% include integrations/config_flow.md %}
 
-The setup process is completed in stages:
+The setup is a two-step process. First, you configure the integration with your API key, and then you can add one or more voices.
 
-1. **API Key**: First, you will be asked to enter your Fish Audio API key.
-2. **Voice Filtering**: Next, you can choose whether to see only your private, cloned voices or the recommended public voices offered by Fish Audio.
-3. **Final Configuration**: On the final screen, you can set the following options:
-    - **Voice Selection**: Based on your previous selection, you will see a dropdown list of available voices. You can also choose to enter a custom voice ID, which can be obtained from the Fish Audio website.
+### Initial setup
+
+You will be asked for your [Fish Audio](https://fish.audio/?fpr=homeassistant) API key. After you provide it, the integration will be added.
+
+### Adding a voice
+
+To add a text-to-speech (TTS) voice, select the **Add TTS voice** button on the integration card. You can repeat this process to add multiple voices.
+
+The process for adding a voice involves two steps:
+
+1. **Voice Filtering**: First, you'll choose whether to see only your private, cloned voices or also the recommended public voices from Fish Audio.
+2. **Voice Configuration**: Based on your filter selection, you will then be presented with the following options on the next screen:
+    - **Voice Selection**: Select a voice from the dropdown list of available voices. You can also enter a custom voice ID from the Fish Audio website.
     - **Default Model**: Choose a default backend model. `s1` is the latest and most advanced model. Both `s1` and `v1.6` models support [emotional markers](#using-with-large-language-models-llms).
 
-After setup, one TTS entity and one STT entity will be created. These can be used in automations, scripts, or assigned to Assist pipelines. You can change the default options at any time from the integration's **Options** menu.
+Each voice you add creates a new TTS entity.
 
 ### Language and Accents
 
@@ -74,13 +81,13 @@ action:
 
 ### Using in Assist Pipelines
 
-The `tts.fish_audio` entity can also be set as the voice for your Assist pipelines. This allows your voice assistant to respond using the high-quality Fish Audio voices.
+The TTS entities you create can be set as the voice for your Assist pipelines. This allows your voice assistant to respond using the high-quality Fish Audio voices.
 
 To configure this:
 
 1. Go to **Settings** > **Voice assistants**.
 2. Select the assistant you want to configure.
-3. In the **Text-to-speech** section, choose `tts.fish_audio` from the dropdown menu.
+3. In the **Text-to-speech** section, choose one of your created voices from the dropdown menu.
 
 Your assistant will now use the default voice and model you configured for the Fish Audio integration for its spoken responses.
 
@@ -109,18 +116,6 @@ Apply emotion control by inserting markers before text.
 The LLM might then generate a response like this:
 
 `(soft tone) Movie mode has been activated. The lights are dimmed, and the blinds are closed. (empathetic) Enjoy the show.`
-
-## Speech-to-text (STT)
-
-The STT entity provided by the Fish Audio integration can be used with [Assist pipelines](/docs/assist/) to process voice commands.
-
-To use it as the speech-to-text engine for your voice assistant:
-
-1. Go to **Settings** > **Voice assistants**.
-2. Select the assistant you want to configure.
-3. In the **Speech-to-text** section, choose `stt.fish_audio` from the dropdown menu.
-
-Your assistant will now use Fish Audio to transcribe your voice commands.
 
 ## Troubleshooting
 
