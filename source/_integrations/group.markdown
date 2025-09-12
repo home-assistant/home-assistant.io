@@ -147,7 +147,7 @@ In short, when any group member entity is `unlocked`, the group will also be `un
 - Members can be any `sensor`, `number` or `input_number` holding numeric states.
 - States which are missing from the state machine does not make the state `unavailable` or `unknown`
 - The group state is `unavailable` if no group member has a numeric state.
-- The configuration variable `ignore_non_numeric` controls the behaviour of the group when the group is not `unavailable`:
+- The configuration variable `ignore_non_numeric` controls the behavior of the group when the group is not `unavailable`:
    - When set to `false` (the default), the group state is calculated according to the `type` if all members have a numeric state and set to `unknown` otherwise
    - When set to `true`, the group state is calculated according to the `type` if at least one member has a numeric state and set to `unknown` otherwise
 
