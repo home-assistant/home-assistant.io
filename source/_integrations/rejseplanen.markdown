@@ -15,43 +15,18 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `rejseplanen` {% term integration %} will provide you with travel details for Danish public transport, using multidepartureborad data from [Rejseplanen](https://www.rejseplanen.dk/).
+The `rejseplanen` {% term integration %} will provide you with travel details for Danish public transport, using multidepartureborad data from [Rejseplanen](https://www.rejseplanen.dk/). 
+ou will ahve to setup the central entity that contains the API key and then subsequent sub-entries for each stop/station you want to see. The API will be called from the central entity, ensuring the limit ot the free access is not breached.
+All setup for this integration is done in UI configuration.
 
 ## Prerequisites
-In order to use the integration you must uptain an API key from Rejseplanen.dk. You can apply for this by using the [request form](https://labs.rejseplanen.dk/hc/da/requests/new) on their webpage. Keep in mind, the private API key allows for 50.000 calls/month. 
+In order to use the integration you must uptain an API key from Rejseplanen.dk. You can apply for this by using the [request form](https://labs.rejseplanen.dk/hc/da/requests/new) on their webpage. Follow the steps for the application and remember to request it as a provate user.
+Keep in mind, the private API key allows for 50.000 calls/month. 
 
-## Configuration
-
-Add a sensor to your {% term "`configuration.yaml`" %} file.
-{% include integrations/restart_ha_after_config_inclusion.md %}
-
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: rejseplanen
-    authentication: "YOUR_API_KEY"
-    stop_id:
-      - "YOUR_STOP_ID"
-```
-
-{% configuration %}
-stop_id:
-  description: The ID of the public transport stop.
-  required: true
-  type: list[int]
-name:
-  description: "The name of the sensor. Entity ID for the sensor will be created based on this name."
-  required: false
-  type: string
-  default: "Next departure"
-departure_type:
-  description: List of departure types to filter by.
-  required: false
-  type: [string, list]
-{% endconfiguration %}
 
 ## stop_id
 
+The stop id is used in the sub entry config flow know as "stop". The integration will not get data if there are no stop defined in the config.
 Stop ID's can be obtained using multiple methods. The methods described here are based on text search or coordinate search. Both need the API key provided by Rejseplanen.
 
 ### By string search
@@ -110,7 +85,7 @@ A more extensive example on how to use this sensor:
 sensor:
   - platform: rejseplanen
     name: "Roskilde St."
-    authentication: <YOUR_API_KEY>
+    authentication: "YOUR_API_KEY"
     stop_id:
       - 860061707
 ```
