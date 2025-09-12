@@ -91,11 +91,11 @@ icon_height:
   description: The height of the icon. Any CSS value may be used.
   type: string
   default: auto
-state_color:
+color:
   required: false
-  description: If false, the icon does not change color when the entity is active.
-  type: boolean
-  default: true
+  description: Set the color for the icon. By default, the color is based on `state`, `domain`, and `device_class` of your entity. It accepts [color token](/dashboards/button/#available-colors) or hex color code.
+  type: string
+  default: state
 tap_action:
   required: false
   description: The action taken on card tap. For more information, see the [action documentation](/dashboards/actions/#tap-action).
@@ -203,3 +203,7 @@ cards:
         show_name: true
         show_icon: true
 ```
+
+## Available colors
+
+You want to colorize the button card? Choose one of the following colors: `primary`, `accent`, `disabled`, `red`, `pink`, `purple`, `deep-purple`, `indigo`, `blue`, `light-blue`, `cyan`, `teal`, `green`, `light-green`, `lime`, `yellow`, `amber`, `orange`, `deep-orange`, `brown`, `grey`, `blue-grey`, `black` and `white`.
