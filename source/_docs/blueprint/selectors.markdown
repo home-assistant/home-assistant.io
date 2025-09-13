@@ -161,17 +161,17 @@ options:
   required: true
   keys:
     label:
-      description: The label of the option
+      description: The label of the option.
       required: false
       type: string
     fields:
       description: >
-        List of fields for this option
+        List of fields for this option.
       type: map
       required: false
       keys:
         label:
-          description: The label of the field
+          description: The label of the field.
           required: false
           type: string
         selector:
