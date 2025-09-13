@@ -64,7 +64,7 @@ The image will also be saved in `config/ai_task/image/` directory and will be br
 
 Directory Structure:
 
-```
+```text
 config/
 └── ai_task/
     └── image/
