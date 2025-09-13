@@ -109,39 +109,40 @@ The alternative selector allows choosing between multiple mutually exclusive set
 
 ```yaml
 alternative:
-  aws:
-    label: Amazon Web Services (AWS)
-    fields:
-      access_key_id:
-        label: AWS Access Key ID
-        required: true
-        selector:
-          text:
-      secret_access_key:
-        label: AWS Secret Access Key
-        selector:
-          text:
-  azure:
-    label: Microsoft Azure
-    fields:
-      azure_config:
-        label: Azure Configuration
-        selector:
-          object: {}
-  cloudflare:
-    fields:
-      api_key:
-        label: Cloudflare API Key
-        selector:
-          text:
-      api_token: str?
-        label: Cloudflare API Token
-        selector:
-          text:
-      email:
-        label: Cloudflare Email Address
-        selector:
-          text:
+  options:
+    aws:
+      label: Amazon Web Services (AWS)
+      fields:
+        access_key_id:
+          label: AWS Access Key ID
+          required: true
+          selector:
+            text:
+        secret_access_key:
+          label: AWS Secret Access Key
+          selector:
+            text:
+    azure:
+      label: Microsoft Azure
+      fields:
+        azure_config:
+          label: Azure Configuration
+          selector:
+            object: {}
+    cloudflare:
+      fields:
+        api_key:
+          label: Cloudflare API Key
+          selector:
+            text:
+        api_token: str?
+          label: Cloudflare API Token
+          selector:
+            text:
+        email:
+          label: Cloudflare Email Address
+          selector:
+            text:
 ```
 
 The output of this selector is a YAML object. For example, given the configuration above, one possible output would look like this:
