@@ -153,6 +153,22 @@ aws:
   secret_access_key: "def"
 ```
 
+When a `discriminator_field` is specified, the output would look this instead:
+
+```yaml
+# Modified schema:
+#
+# alternative:
+#   discriminator_field: provider
+#   options:
+#     aws: { ... }
+#     azure: { ... }
+#     cloudflare: { ... }
+provider: aws
+access_key_id: "abc"
+secret_access_key: "def"
+```
+
 {% configuration alternative %}
 options:
   description: >
@@ -178,6 +194,12 @@ options:
           description: The selector to use for this field. It can be any available selector.
           required: true
           type: string
+discriminator_field:
+  description: >
+    The field to use as the discriminator, for example `type` or `action`. If not set,
+    the value will instead be wrapped in a dict whose single key is used as the discriminator.
+  type: string
+  required: false
 translation_key:
   description: >
     Allows translations provided by an integration where `translation_key`
