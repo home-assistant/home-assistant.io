@@ -59,6 +59,7 @@ Enjoy the release!
 - [Patch releases](#patch-releases)
   - [2025.9.1 - September 5](#202591---september-5)
   - [2025.9.2 - September 12](#202592---september-12)
+  - [2025.9.3 - September 13](#202593---september-13)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
@@ -521,6 +522,14 @@ release once a week, aiming for Friday.
 [@tr4nt0r]: https://github.com/tr4nt0r
 [@tsvi]: https://github.com/tsvi
 [@wollew]: https://github.com/wollew
+
+## Release 2025.9.3 - September 13
+
+- Bump habluetooth to 5.6.4 ([@bdraco] - [#152227]) ([bluetooth docs])
+
+[#152227]: https://github.com/home-assistant/core/pull/152227
+[@bdraco]: https://github.com/bdraco
+[bluetooth docs]: /integrations/bluetooth/
 
 ## Need help? Join the community!
 
