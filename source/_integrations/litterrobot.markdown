@@ -44,7 +44,7 @@ Before using this integration, you’ll need a Whisker account and a Wi-Fi-enabl
 | Entity                        | Domain          | Description                                                                                                 |
 | ----------------------------- | --------------- | ----------------------------------------------------------------------------------------------------------- |
 | Litter box                    | `vacuum`        | Main entity that represents a Litter-Robot unit.                                                            |
-| Night light mode              | `switch`        | When turned on, automatically turns on the night light in darker settings.                                  |
+| Night light mode              | `switch`        | When turned on, automatically turns on the night light in darker settings, only for Litter-Robot 3.         |
 | Panel lockout                 | `switch`        | When turned on, disables the buttons on the unit to prevent changes to settings.                            |
 | Last seen                     | `sensor`        | Displays the time the unit was last seen / reported an update.                                              |
 | Litter level                  | `sensor`        | Displays the litter level, only for Litter-Robot 4.                                                         |
