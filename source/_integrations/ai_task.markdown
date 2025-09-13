@@ -73,8 +73,8 @@ config/
 ```
 
 File Naming Convention:
-* Format: `{date}_{time}_{sanitized_task_name}.{ext}`
-* Example: `2025-01-19_123456_home-security-camera.png`
+- Format: `{date}_{time}_{sanitized_task_name}.{ext}`
+- Example: `2025-01-19_123456_home-security-camera.png`
 
 ## Examples
 
