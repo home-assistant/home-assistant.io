@@ -17,6 +17,7 @@ The following selectors are currently available:
 
 - [Action selector](#action-selector)
 - [Add-on selector](#add-on-selector)
+- [Alternative selector](#alternative-selector)
 - [Area selector](#area-selector)
 - [Attribute selector](#attribute-selector)
 - [Assist pipeline selector](#assist-pipeline-selector)
@@ -101,6 +102,97 @@ addon:
 
 The output of this selector is the slug of the selected add-on.
 For example: `core_ssh`.
+
+## Alternative selector
+
+The alternative selector allows choosing between multiple mutually exclusive sets of parameters. This is useful e.g. for choosing & configuring a DNS provider.
+
+```yaml
+alternative:
+  aws:
+    label: Amazon Web Services (AWS)
+    fields:
+      access_key_id:
+        label: AWS Access Key ID
+        required: true
+        selector:
+          text:
+      secret_access_key:
+        label: AWS Secret Access Key
+        selector:
+          text:
+  azure:
+    label: Microsoft Azure
+    fields:
+      azure_config:
+        label: Azure Configuration
+        selector:
+          object: {}
+  cloudflare:
+    fields:
+      api_key:
+        label: Cloudflare API Key
+        selector:
+          text:
+      api_token: str?
+        label: Cloudflare API Token
+        selector:
+          text:
+      email:
+        label: Cloudflare Email Address
+        selector:
+          text:
+```
+
+The output of this selector is a YAML object. For example, given the configuration above:
+
+```
+aws:
+  access_key_id: "abc"
+  secret_access_key: "def"
+```
+
+{% configuration alternative %}
+options:
+  description: >
+    List of mutually exclusive options.
+  type: map
+  required: true
+  keys:
+    label:
+      description: The label of the option
+      required: false
+      type: string
+    fields:
+      description: >
+        List of fields for this option
+      type: map
+      required: false
+      keys:
+        label:
+          description: The label of the field
+          required: false
+          type: string
+        selector:
+          description: The selector to use for this field. It can be any available selector.
+          required: true
+          type: string
+translation_key:
+  description: >
+    Allows translations provided by an integration where `translation_key`
+    is the translation key that is providing the selector option strings
+    translation. See the documentation on
+    [Backend Localization](https://developers.home-assistant.io/docs/internationalization/core/#selectors)
+    for more information.
+  type: string
+  required: false
+multiple:
+  description: >
+    Allows selecting multiple options. If set to `true`, the resulting value of this selector will be a list instead of a single string value. This option is only used if `fields` option set.
+  type: boolean
+  required: false
+  default: false
+{% endconfiguration %}
 
 ## Area selector
 
