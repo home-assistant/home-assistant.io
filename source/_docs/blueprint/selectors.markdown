@@ -1,4 +1,4 @@
----
+r---
 title: "Selectors"
 description: "Documentation on available selectors."
 ---
@@ -1261,7 +1261,7 @@ translation_key:
   required: false
 multiple:
   description: >
-    Allows adding multiple objects. If set to `true`, the resulting value of this selector will be a list instead of a single YAML objects. This option is only used if `fields` option set.
+    Allows adding multiple objects. If set to `true`, the resulting value of this selector will be a list instead of a single YAML object. This option is only used if `fields` option set.
   type: boolean
   required: false
   default: false
