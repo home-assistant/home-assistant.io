@@ -144,9 +144,9 @@ alternative:
           text:
 ```
 
-The output of this selector is a YAML object. For example, given the configuration above:
+The output of this selector is a YAML object. For example, given the configuration above, one possible output would look like this:
 
-```
+```yaml
 aws:
   access_key_id: "abc"
   secret_access_key: "def"
