@@ -109,8 +109,7 @@ Canceling any message with a certain tag is possible with a call to the `pushove
 action: pushover.cancel
 metadata: {}
 data:
-  data:
-    tag: appliances
+  tag: appliances
 ```
 
 If the tag is omitted, all active priority-2 notifications that were sent with at least one tag are canceled:
