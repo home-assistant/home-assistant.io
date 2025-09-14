@@ -74,9 +74,10 @@ For more information on connecting Haus-Bus.de components to operate them in a H
 visit our dedicated documentation page at [www.haus-bus.de/ha](https://www.haus-bus.de/ha)
 
 
-# Overview of all Haus-Bus sensors and actuators
 
----
+
+## Overview of all Haus-Bus sensors and actuators
+
 
 ## General functions
 
@@ -88,7 +89,7 @@ visit our dedicated documentation page at [www.haus-bus.de/ha](https://www.haus-
 - **reset_device**  
   Resets the specified module.
 
----
+
 
 ## Relays and digital outputs
 
@@ -103,7 +104,6 @@ Switches off a relay with the specified off delay.
   If configured greater than 0, the switch will turn off after the given time.  
   Range: 0–65535, Default: 0 (No delay)
 
----
 
 **switch_on**  
 Switches on a relay for the specified duration and with on delay.
@@ -116,7 +116,6 @@ Switches on a relay for the specified duration and with on delay.
   If configured greater than 0, the switch will turn on after the given time.  
   Range: 0–65535, Default: 0 (No delay)
 
----
 
 **switch_toggle**  
 Toggles a relay in intervals with specified on/off times and number of repetitions.
@@ -133,7 +132,6 @@ Toggles a relay in intervals with specified on/off times and number of repetitio
   Number of toggle cycles. 0 = infinite.  
   Range: 1–255, Default: 0 (Toggle indefinitely)
 
----
 
 ## Roller shutters
 
@@ -144,7 +142,6 @@ Home Assistant standard functions: [**Cover entity**](https://www.home-assistant
 **cover_toggle**  
 Starts the cover in the opposite direction as last time.
 
----
 
 ### Additional configuration via service:
 
@@ -163,7 +160,6 @@ Defines all possible configuration values for a cover channel.
   Inverts UP and DOWN directions.  
   Default: False
 
----
 
 ## 230V Dimmer
 
@@ -180,7 +176,6 @@ Turns on a dimmer and optionally sets the duration.
 - `duration`  
   On-duration in seconds, Default: 0 s (Permanent)
 
----
 
 **dimmer_start_ramp**  
 Starts a dimmer ramp in the specified direction or toggles to the opposite of the last action.
@@ -191,12 +186,9 @@ Starts a dimmer ramp in the specified direction or toggles to the opposite of th
   - `down`: Dim darker  
   - `toggle`: Opposite of last dim direction
 
----
-
 **dimmer_stop_ramp**  
 Stops a previously started dimmer ramp.
 
----
 
 ### Additional configuration via service:
 
@@ -225,7 +217,6 @@ Defines all available configuration values of a dimmer channel.
   End brightness of a dim action (0–100%).  
   Default: 100%
 
----
 
 ## RGB Dimmer
 
@@ -248,7 +239,6 @@ Turns on an RGB light and optionally sets the color and duration.
 - `duration`  
   On-duration in seconds. Default: 0 s (Permanent)
 
----
 
 ### Additional configuration via service:
 
@@ -259,7 +249,6 @@ Defines all available configuration values of an RGB channel.
   Fade time (50 ms steps) from 0% to 100% when setting a new brightness via `set_brightness`.  
   Range: 1–255, Default: 12
 
----
 
 ## LED
 
@@ -273,7 +262,6 @@ Turns on an LED and optionally sets the brightness.
 - `brightness`  
   Brightness in percent (0–100%). Default: 100%
 
----
 
 ## Buttons
 
@@ -284,7 +272,6 @@ Home Assistant standard functions: [**Binary sensor entity**](https://www.home-a
 **button_simulate_press**  
 Simulates a button press.
 
----
 
 ## Analog inputs
 
@@ -307,7 +294,6 @@ Defines all configuration values of an analog input channel.
   Inverts the input.  
   Default: False
 
----
 
 ## Temperature sensors
 
@@ -322,7 +308,6 @@ Defines all configuration values of a temperature sensor channel.
   Temperature offset in 0.1 °C steps (signed). Range: -1280–1270.  
   Default: 0
 
----
 
 ## Events
 
@@ -334,7 +319,6 @@ Home Assistant standard functions: [**Event entity**](https://www.home-assistant
 - **long_press** – A long button press  
 - **double_press** – A double button press  
 
----
 
 ## Device triggers
 
@@ -346,7 +330,6 @@ Home Assistant standard functions: [**Device triggers**](https://www.home-assist
 - **long_press** – Fires when a button is pressed for a long duration  
 - **double_press** – Fires when a button is pressed twice  
 
----
 
 ## Device actions
 
@@ -368,7 +351,6 @@ Home Assistant standard functions: [**Device actions**](https://www.home-assista
 - **led_set_brightness** – Sets brightness of an LED  
 - **button_simulate_press** – Simulates a button press  
 
----
 
 ## Device conditions
 
