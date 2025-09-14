@@ -126,6 +126,10 @@ icon:
   description: "[Icon](/docs/configuration/customizing-devices/#icon) for the entity."
   required: false
   type: icon
+group:
+  description: A list of unique IDs of the member device tracker entities. Set this if the device tracker entity represents a device tracker group. Note that the member entities must be already configured before the member entities will become visible in the UI at the moment a group entity is loaded.
+  required: false
+  type: list
 json_attributes_template:
   description: "Defines a [template](/docs/configuration/templating/#using-value-templates-with-mqtt) to extract the JSON dictionary from messages received on the `json_attributes_topic`. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-template-configuration) documentation."
   required: false

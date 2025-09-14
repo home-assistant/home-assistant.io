@@ -154,6 +154,10 @@ entity_picture:
   description: "Picture URL for the entity."
   required: false
   type: string
+group:
+  description: A list of unique IDs of the member switch entities. Set this if the switch entity represents a switch group. Note that the member entities must be already configured before the member entities will become visible in the UI at the moment a group entity is loaded.
+  required: false
+  type: list
 icon:
   description: "[Icon](/docs/configuration/customizing-devices/#icon) for the entity."
   required: false
