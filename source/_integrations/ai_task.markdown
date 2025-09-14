@@ -31,7 +31,7 @@ Generates data using AI.
 | `instructions`         | no       | String containing the specific instructions for the AI to follow when generating the text.                      |
 | `entity_id`            | yes      | String that points at an `entity_id` of an LLM task entity. If not specified, uses the default LLM task.       |
 | `structure`            | yes      | Dictionary defining the structure of the output data. When set, the AI will return structured data with the specified fields. Each field can have a `description`, `selector`, and optional `required` property. |
-| `attachments`          | yes      | List of attachments to include in the task. Each attachment is the output of the [Media Selector](https://www.home-assistant.io/docs/blueprint/selectors/#media-selector). |
+| `attachments`          | yes      | List of attachments to include in the task. Each attachment is the output of the [Media Selector](/docs/blueprint/selectors/#media-selector). |
 
 The response variable is a dictionary with the following keys:
 
@@ -47,11 +47,11 @@ Generates image using AI.
 | `task_name`            | no       | String that identifies the type of image generation task (for example, "floor map", "weather visualization").           |
 | `instructions`         | no       | String containing the specific instructions for the AI to follow when generating the image.                      |
 | `entity_id`            | yes      | String that points at an `entity_id` of an LLM task entity. If not specified, uses the default LLM task.       |
-| `attachments`          | yes      | List of attachments to include in the task. Each attachment is the output of the [Media Selector](https://www.home-assistant.io/docs/blueprint/selectors/#media-selector). |
+| `attachments`          | yes      | List of attachments to include in the task. Each attachment is the output of the [Media Selector](/docs/blueprint/selectors/#media-selector). |
 
 The response variable is a dictionary with the following keys:
 
-- `media_source_id`: The [Media Source](https://www.home-assistant.io/integrations/media_source/) content ID of the generated image.
+- `media_source_id`: The [Media Source](/integrations/media_source/) content ID of the generated image.
 - `url`: The URL of the generated image, without the host part. The URL is only valid for one hour.
 - `revised_prompt`: Some models would overwrite the instructions to add more details or context. This is the actual prompt used by the image model.
 - `model`: The image model that was used for the image generation
