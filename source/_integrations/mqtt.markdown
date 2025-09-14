@@ -322,13 +322,11 @@ Note that on each MQTT entity, the `has_entity_name` attribute will be set to `T
 
 ## Grouping entities
 
-If the an MQTT entity represents a group of other entities, the member entities can be made visible in the UI by setting the unique IDs of the member entities.
+If the an MQTT entity represents a group of other entities, the member entities can be made visible in the UI by setting the list of unique IDs of the member entities in the `group` configuration option of the entity group:
 
 {% configuration_basic %}
 group:
   description: A list of unique IDs of the member entities. Set this if the entity represents a group entity. Note that the member entities must be already configured before the member entities will become visible in the UI at the moment a group entity is loaded.
-  required: false
-  type: list 
 {% endconfiguration_basic %}
 
 ## MQTT Discovery
