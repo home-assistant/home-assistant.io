@@ -256,114 +256,305 @@ Home Assistant standard functions: [**Light entity**](https://www.home-assistant
 
 ### Additional functions via service and automation action:
 
-**led_set_brightness**  
-Turns on an LED and optionally sets the brightness.
+**led_off**  
+Turns off an LED and optionally considers a delay.
+
+- `off_delay`  
+  Delay in seconds before switching off.  
+  Default: 0 s (No delay)
+
+
+**led_on**  
+Turns on an LED and considers brightness, duration, and turn-on delay.
 
 - `brightness`  
-  Brightness in percent (0–100%). Default: 100%
+  Brightness in percent (0–100 %).  
+  Default: 100 %
+
+- `duration`  
+  Turn-on duration in seconds.  
+  Default: 0 s (Permanent)
+
+- `on_delay`  
+  Delay in seconds before switching on.  
+  Default: 0 s (No delay)
 
 
-## Buttons
+**led_blink**  
+Makes an LED blink with a given pattern and number of repetitions.
 
-Home Assistant standard functions: [**Binary sensor entity**](https://www.home-assistant.io/integrations/binary_sensor/)
+- `brightness`  
+  Brightness in percent (0–100 %).  
+  Default: 100 %
 
-### Additional functions via service and automation action:
+- `off_time`  
+  Duration of the off phase in the blink pattern.  
+  Range: 0–255, Default: 1
 
-**button_simulate_press**  
-Simulates a button press.
-
-
-## Analog inputs
-
-Home Assistant standard functions: [**Sensor entity**](https://www.home-assistant.io/integrations/sensor/)
-
-### Additional configuration via service:
-
-**analog_input_set_configuration**  
-Defines all configuration values of an analog input channel.
-
-- `min_voltage`  
-  Voltage corresponding to 0%. Range: 0–10000 mV.  
-  Default: 0
-
-- `max_voltage`  
-  Voltage corresponding to 100%. Range: 0–10000 mV.  
-  Default: 10000
-
-- `invert`  
-  Inverts the input.  
-  Default: False
+- `on_time`  
+  Duration of the on phase in the blink pattern.  
+  Range: 0–255,
 
 
-## Temperature sensors
-
-Home Assistant standard functions: [**Sensor entity**](https://www.home-assistant.io/integrations/sensor/)
-
-### Additional configuration via service:
-
-**temperature_sensor_set_configuration**  
-Defines all configuration values of a temperature sensor channel.
-
-- `offset`  
-  Temperature offset in 0.1 °C steps (signed). Range: -1280–1270.  
-  Default: 0
-
-
-## Events
+## Buttons and digital inputs
 
 Home Assistant standard functions: [**Event entity**](https://www.home-assistant.io/integrations/event/)
 
-### Event types
+### Additional events via Event entity and Device Trigger:
 
-- **short_press** – A short button press  
-- **long_press** – A long button press  
-- **double_press** – A double button press  
+- `button_pressed`  
+  Button was pressed or digital input (e.g., window contact) was closed.
 
+- `button_released`  
+  Button was released or digital input was opened.
 
-## Device triggers
+- `button_clicked`  
+  Button was pressed and released.  
+  Needed if double click or hold is used, as these events also report `button_pressed` at the beginning.
 
-Home Assistant standard functions: [**Device triggers**](https://www.home-assistant.io/docs/automation/trigger/#device-trigger)
+- `button_double_clicked`  
+  Button was double clicked.
 
-### Trigger types
+- `button_hold_start`  
+  Button is being held down.
 
-- **short_press** – Fires when a button is pressed shortly  
-- **long_press** – Fires when a button is pressed for a long duration  
-- **double_press** – Fires when a button is pressed twice  
+- `button_hold_end`  
+  Button was released after being held.
 
+### Example usage with a button controlling a dimmer:
 
-## Device actions
+- `button_clicked` → Toggle lamp on/off  
+- `button_hold_start` → Start dimming ramp (lamp brightens while button is held)  
+- `button_hold_end` → Stop dimming ramp (lamp stays at achieved brightness)  
+- `button_double_clicked` → Set predefined brightness (e.g., 50%)
 
-Home Assistant standard functions: [**Device actions**](https://www.home-assistant.io/docs/automation/action/device/)
+If double click or hold is not needed, it is better to use the standard events of the **Binary Sensor entity** or alternatively:
 
-### Action types
+- `button_pressed` → Toggle lamp on/off  
 
-- **switch_on** – Turns on a relay  
-- **switch_off** – Turns off a relay  
-- **switch_toggle** – Toggles a relay  
-- **cover_open** – Opens a cover  
-- **cover_close** – Closes a cover  
-- **cover_stop** – Stops a cover  
-- **cover_toggle** – Toggles cover movement  
-- **dimmer_set_brightness** – Sets brightness of a dimmer  
-- **dimmer_start_ramp** – Starts dimming ramp  
-- **dimmer_stop_ramp** – Stops dimming ramp  
-- **rgb_set_color** – Sets color of an RGB dimmer  
-- **led_set_brightness** – Sets brightness of an LED  
-- **button_simulate_press** – Simulates a button press  
+This ensures optimal reaction time, as the clicked event is slightly delayed to allow detection of a double click or hold.
 
+### Example usage with a digital input (switch or window contact):
 
-## Device conditions
+For this use case, the standard events of the **Binary Sensor entity** are usually sufficient and optimal, so device triggers are not needed.  
+If desired:
 
-Home Assistant standard functions: [**Device conditions**](https://www.home-assistant.io/docs/automation/condition/#device-condition)
+- `button_pressed` → Window contact closed  
+- `button_released` → Window contact opened
 
-### Condition types
+### Additional functions via service and automation action:
 
-- **is_on** – Checks if a relay is on  
-- **is_off** – Checks if a relay is off  
-- **cover_is_open** – Checks if a cover is open  
-- **cover_is_closed** – Checks if a cover is closed  
-- **cover_is_opening** – Checks if a cover is opening  
-- **cover_is_closing** – Checks if a cover is closing  
-- **light_is_on** – Checks if a dimmer or RGB is on  
-- **light_is_off** – Checks if a dimmer or RGB is off  
-- **button_is_pressed** – Checks if a button is pressed  
+**push_button_configure_events**  
+Disables all events of this input for a certain time or enables them again.
+
+- `event_activation_status`  
+  Desired state of input events.  
+  Default: ENABLED  
+  - `DISABLED`: Disable all events  
+  - `ENABLED`: Enable all events  
+  - `INVERT`: Invert current status
+
+- `disabled_duration`  
+  Events remain disabled for the specified time.  
+  Default: 0 (permanent off), Range: 1–255
+
+### Additional configuration via service:
+
+**push_button_set_configuration**  
+Sets all configuration parameters for the input.
+
+- `hold_timeout`  
+  Duration the button must be pressed to generate `button_hold_start` event.  
+  Default: 100 ms, Range: 1–255
+
+- `double_click_timeout`  
+  Time window to press the button again to generate `button_double_clicked` event.  
+  Default: 50 ms, Range: 1–255
+
+- `event_button_pressed_active`  
+  True if `button_pressed` event should be sent.  
+  Default: True
+
+- `event_button_released_active`  
+  True if `button_released` event should be sent.  
+  Default: True
+
+- `event_button_hold_start_active`  
+  True if `button_hold_start` event should be sent.  
+  Default: False (delays `button_clicked` accordingly)
+
+- `event_button_hold_end_active`  
+  True if `button_hold_end` event should be sent.  
+  Default: False
+
+- `event_button_clicked_active`  
+  True if `button_clicked` event should be sent.  
+  Default: False
+
+- `event_button_double_clicked_active`  
+  True if `button_double_clicked` event should be sent.  
+  Default: False (delays `button_clicked` accordingly)
+
+- `led_feedback_active`  
+  True if LED of the Haus-Bus multi-button shows pressed button automatically.  
+  Default: True
+
+- `inverted`  
+  True if the logic of this input should be inverted.  
+  Default: False
+
+- `debounce_time`  
+  Debounce time of the input.  
+  Default: 40 ms  
+  - 40 ms: For buttons  
+  - 10 ms: For high-frequency signals  
+  Range: 1–254
+
+## Temperature sensor
+
+Home Assistant standard functions: [**Sensor entity**](https://www.home-assistant.io/integrations/sensor/)
+
+### Additional configuration via service:
+
+**temperatur_sensor_set_configuration**  
+Sets all configuration parameters for a temperature sensor.
+
+- `correction`  
+  Correction value to adjust the reported temperature. Can be positive or negative and is added to the reported sensor value.  
+  Range: -10 to 10, Step: 0.1, Unit: °C, Default: -2
+
+- `auto_event_diff`  
+  Temperature change that triggers a new event. Instead of a fixed interval, an update is triggered when this change occurs.  
+  Range: 0.1–20, Step: 0.1, Unit: °C, Default: 0.5
+
+- `manual_event_interval`  
+  Interval for reported temperature values, independent of changes.  
+  Default: 5 minutes  
+  Options: 1 second, 5 seconds, 10 seconds, 30 seconds, 1 minute, 5 minutes, 10 minutes, 20 minutes, 30 minutes, 60 minutes
+
+---
+
+## Humidity sensor
+
+Home Assistant standard functions: [**Sensor entity**](https://www.home-assistant.io/integrations/sensor/)
+
+### Additional configuration via service:
+
+**humidity_sensor_set_configuration**  
+Sets all configuration parameters for a humidity sensor.
+
+- `correction`  
+  Correction value to adjust the reported humidity. Can be positive or negative and is added to the reported sensor value.  
+  Range: -100 to 100, Step: 0.1, Unit: %, Default: 0
+
+- `auto_event_diff`  
+  Humidity change that triggers a new event. Instead of a fixed interval, an update is triggered when this change occurs.  
+  Range: 0.1–100, Step: 0.1, Unit: %, Default: 1
+
+- `manual_event_interval`  
+  Interval for reported humidity values, independent of changes.  
+  Default: 5 minutes  
+  Options: 1 second, 5 seconds, 10 seconds, 30 seconds, 1 minute, 5 minutes, 10 minutes, 20 minutes, 30 minutes, 60 minutes
+
+---
+
+## Brightness sensor
+
+Home Assistant standard functions: [**Sensor entity**](https://www.home-assistant.io/integrations/sensor/)
+
+### Additional configuration via service:
+
+**brightness_sensor_set_configuration**  
+Sets all configuration parameters for a brightness sensor.
+
+- `correction`  
+  Correction value to adjust the reported brightness. Can be positive or negative and is added to the reported sensor value.  
+  Range: -100 to 100, Step: 10, Unit: lux, Default: 0
+
+- `auto_event_diff`  
+  Brightness change that triggers a new event. Instead of a fixed interval, an update is triggered when this change occurs.  
+  Range: 10–100, Step: 10, Unit: lux, Default: 30
+
+- `manual_event_interval`  
+  Interval for reported brightness values, independent of changes.  
+  Default: 5 minutes  
+  Options: 1 second, 5 seconds, 10 seconds, 30 seconds, 1 minute, 5 minutes, 10 minutes, 20 minutes, 30 minutes, 60 minutes
+
+## RFID reader
+
+Home Assistant standard functions: [**Sensor entity**](https://www.home-assistant.io/integrations/sensor/)
+
+- `last_tag`  
+  Last read RFID tag
+
+- `last_time`  
+  Timestamp of the last read operation
+
+- `last_error`  
+  Last error
+
+---
+
+### Additional event:
+
+A Home Assistant event is sent whenever an RFID tag is read:
+
+- `event_typ`  
+  hausbus_rfid_event
+
+- `device_Id`  
+  Sending device
+
+- `tag`  
+  Read RFID tag
+
+## Power measurement
+
+Home Assistant standard functions: [**Sensor entity**](https://www.home-assistant.io/integrations/sensor/)
+
+### Additional configuration via service:
+
+**power_meter_sensor_set_configuration**  
+Sets all configuration parameters for a power meter sensor.
+
+- `correction`  
+  Correction value to adjust the reported power. Can be positive or negative and is added to the reported sensor value.  
+  Range: -100 to 100, Step: 0.1, Unit: kW, Default: 0
+
+- `auto_event_diff`  
+  Power change that triggers a new event. Instead of a fixed interval, an update is triggered when this change occurs.  
+  Range: 0.1–100, Step: 0.1, Unit: kW, Default: 1
+
+- `manual_event_interval`  
+  Interval for reported power values, regardless of changes.  
+  Default: 5 minutes  
+  Options: 1 second, 5 seconds, 10 seconds, 30 seconds, 1 minute, 5 minutes, 10 minutes, 20 minutes, 30 minutes, 60 minutes
+
+## SSR Power Controller
+
+Home Assistant standard functions: [**Number entity**](https://www.home-assistant.io/integrations/number/)
+
+The solid state relay controller is exposed via a standard Number entity, allowing power to be set from 0 to 100%.
+
+## Analog Input
+
+Home Assistant standard functions: [**Sensor entity**](https://www.home-assistant.io/integrations/sensor/)
+
+### Additional configuration via service:
+
+**analog_eingang_set_configuration**  
+Sets all configuration parameters for an analog input channel.
+
+- `correction`  
+  Correction value to adjust the reported analog input. Can be positive or negative and is added to the reported value.  
+  Range: -100 to 100, Step: 1, Default: 0
+
+- `auto_event_diff`  
+  Analog input change that triggers a new event. Instead of a fixed interval, an update is triggered when this change occurs.  
+  Range: 10–100, Step: 1, Default: 30
+
+- `manual_event_interval`  
+  Interval for reported values regardless of changes.  
+  Options: 1 second, 5 seconds, 10 seconds, 30 seconds, 1 minute, 5 minutes, 10 minutes, 20 minutes, 30 minutes, 60 minutes  
+  Default: 5 minutes
+
