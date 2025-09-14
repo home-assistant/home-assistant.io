@@ -432,7 +432,6 @@ Sets all configuration parameters for a temperature sensor.
   Default: 5 minutes  
   Options: 1 second, 5 seconds, 10 seconds, 30 seconds, 1 minute, 5 minutes, 10 minutes, 20 minutes, 30 minutes, 60 minutes
 
----
 
 ## Humidity sensor
 
@@ -456,7 +455,6 @@ Sets all configuration parameters for a humidity sensor.
   Default: 5 minutes  
   Options: 1 second, 5 seconds, 10 seconds, 30 seconds, 1 minute, 5 minutes, 10 minutes, 20 minutes, 30 minutes, 60 minutes
 
----
 
 ## Brightness sensor
 
@@ -493,7 +491,6 @@ Home Assistant standard functions: [**Sensor entity**](https://www.home-assistan
 - `last_error`  
   Last error
 
----
 
 ### Additional event:
 
