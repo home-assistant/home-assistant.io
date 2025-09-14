@@ -76,8 +76,7 @@ visit our dedicated documentation page at [www.haus-bus.de/ha](https://www.haus-
 
 
 
-
-# Overview of all Haus-Bus sensors and actuators
+## Overview of all Haus-Bus sensors and actuators
 
 
 ## General functions
