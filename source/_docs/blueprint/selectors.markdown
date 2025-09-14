@@ -105,6 +105,8 @@ For example: `core_ssh`.
 
 ## Alternative selector
 
+_See also: [Object selector](#object-selector) and [Select selector](#select-selector)_
+
 The alternative selector allows choosing between multiple mutually exclusive sets of parameters. This is useful e.g. for choosing & configuring a DNS provider.
 
 ```yaml
@@ -1302,6 +1304,8 @@ number:
 
 ## Object selector
 
+_See also: [Alternative selector](#alternative-selector)_
+
 The object selector can be used to input arbitrary data in YAML form. This is useful for e.g. lists and dictionaries containing data for actions. The value of the input will contain the provided data.
 
 When used without options, the selector will accept a free form object.
@@ -1426,6 +1430,8 @@ This selector does not have any other options; therefore, it only has its key.
 The output of this selector is a list with the three (RGB) color value, for example: `[255, 0, 0]`.
 
 ## Select selector
+
+_See also: [Alternative selector](#alternative-selector)_
 
 The select selector shows a list of available options from which the user can choose. The value of the input contains the value of the selected option. Only a single option can be selected at a time.
 
