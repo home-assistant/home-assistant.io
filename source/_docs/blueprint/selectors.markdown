@@ -202,6 +202,13 @@ discriminator_field:
     the value will instead be wrapped in a dict whose single key is used as the discriminator.
   type: string
   required: false
+multiple:
+  description: >
+    Allows adding multiple objects. If set to `true`, the resulting value
+    of this selector will be a list instead of a single map value.
+  type: boolean
+  required: false
+  default: false
 translation_key:
   description: >
     Allows translations provided by an integration where `translation_key`
@@ -211,9 +218,9 @@ translation_key:
     for more information.
   type: string
   required: false
-multiple:
+sort:
   description: >
-    Allows selecting multiple options. If set to `true`, the resulting value of this selector will be a list instead of a single string value. This option is only used if `fields` option set.
+    Display options in alphabetical order.
   type: boolean
   required: false
   default: false
