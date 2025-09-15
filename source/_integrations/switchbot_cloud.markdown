@@ -97,7 +97,7 @@ Please note, device names configured in the SwitchBot app are transferred into H
 ### Hubs
 
 - [Hub 2 (WoHub2)](https://switch-bot.com/pages/switchbot-hub-2) (currently only supports retrieving sensor data, does not yet support device control)
-- [Hub 3](https://www.switch-bot.com/products/switchbot-hub-3)
+- [Hub 3](https://www.switch-bot.com/products/switchbot-hub-3) (currently only supports retrieving sensor data, does not yet support device control)
 - IR appliances exposed through the different hubs:
   - ON/OFF for all appliance types except for *Others*
   - Change temperature and mode for *Air Conditioner*
