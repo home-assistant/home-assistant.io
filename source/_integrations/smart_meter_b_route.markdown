@@ -4,7 +4,7 @@ description: Integrate your Smart Meter using B Route.
 ha_category:
   - Energy
   - Sensor
-ha_release: '2025.03'
+ha_release: '2025.10'
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@SeraphicRav'
@@ -54,6 +54,25 @@ Refer to the links below to apply for your B Route credentials:
 - [Shikoku Electric Power](https://www.yonden.co.jp/nw/b_root/index.html)
 - [Kyushu Electric Power](https://www.kyuden.co.jp/td_service_meter_b-root_index.html)
 - [Okinawa Electric Power](https://www.okiden.co.jp/business-support/service/smartmeter/b-route/index.html)
+
+## Get your monthly consumption data
+
+By default, the data you get is the total consumption since an unknown date in the past. If you want to get your monthly consumption data, you can use the [utility_meter](/integrations/utility_meter/) integration.
+
+## Get your monthly cost data
+
+To get your monthly cost data, you can use the [template sensor](/integrations/template/) integration along with the [utility_meter](/integrations/utility_meter/) integration. You will need to know your electricity rate (cost per kWh) to calculate the cost. For instance, if you are using Tokyo Gas and have a price depending on your usage, you can use the following template with a unit of measurement set to your currency per kWh (e.g., JPY/kWh):
+
+```yaml
+{% set consumption = states('sensor.tokyo_gas_electricity_monthly_consumption') | float(0) %}
+{% if consumption < 120 %}
+29.9
+{% elif consumption < 300 %}
+35.41
+{% else %}
+37.47
+{% endif %}
+```
 
 ## Removing the integration
 
