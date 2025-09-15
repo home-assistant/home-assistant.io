@@ -109,6 +109,7 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 - [Plug Mini (HomeKit Enabled)](https://www.switch-bot.com/products/switchbot-plug-mini-homekit-enabled)
 - [Relay Switch 1](https://www.switch-bot.com/products/switchbot-relay-switch-1)
 - [Relay Switch 1PM](https://www.switch-bot.com/products/switchbot-relay-switch-1pm)
+- [Plug Mini EU](https://www.switch-bot.com/products/switchbot-plug-mini-eu)
 
 ### Cover
 
@@ -124,6 +125,8 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 - [Smart Ceiling Light (WoCeiling)](https://www.switchbot.jp/products/switchbot-ceiling-light)
 - [Strip Light 3](https://www.switch-bot.com/products/switchbot-led-strip-light-3)
 - [Floor Lamp](https://www.switch-bot.com/products/switchbot-floor-lamp)
+- [RGBICWW Strip Light](https://www.switch-bot.com/products/switchbot-rgbicww-strip-light)
+- [RGBICWW Floor Lamp](https://www.switch-bot.com/products/switchbot-rgbicww-floor-lamp)
 
 ### Locks
 
@@ -225,6 +228,18 @@ Features:
 
 - turn on or off
 - get power consumption readings
+
+#### Plug Mini EU
+
+This is an encrypted device.
+
+Features:
+
+- turn on or off
+- get power
+- get voltage
+- get current
+- get electricity consumption
 
 #### Relay Switch 1
 
@@ -462,6 +477,30 @@ Features:
 - set effect
 
 #### Floor Lamp
+
+This is an encrypted device.
+
+Features:
+
+- turn on or off
+- change brightness
+- change color temperature
+- change color
+- set effect
+
+#### RGBICWW Strip Light
+
+This is an encrypted device.
+
+Features:
+
+- turn on or off
+- change brightness
+- change color temperature
+- change color
+- set effect
+
+#### RGBICWW Floor Lamp
 
 This is an encrypted device.
 
