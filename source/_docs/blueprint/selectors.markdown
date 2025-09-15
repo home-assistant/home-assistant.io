@@ -112,7 +112,7 @@ The alternative selector allows choosing between multiple mutually exclusive set
 ```yaml
 alternative:
   options:
-    aws:
+    - value: aws
       label: Amazon Web Services (AWS)
       fields:
         access_key_id:
@@ -124,14 +124,14 @@ alternative:
           label: AWS Secret Access Key
           selector:
             text:
-    azure:
+    - value: azure
       label: Microsoft Azure
       fields:
         azure_config:
           label: Azure Configuration
           selector:
             object: {}
-    cloudflare:
+    - value: cloudflare
       fields:
         api_key:
           label: Cloudflare API Key
@@ -175,9 +175,13 @@ secret_access_key: "def"
 options:
   description: >
     List of mutually exclusive options.
-  type: map
+  type: list
   required: true
   keys:
+    value:
+      description: The key of the option.
+      required: true
+      type: string
     label:
       description: The label of the option.
       required: false
