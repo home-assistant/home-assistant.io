@@ -20,9 +20,9 @@ The Victron <abbr title="Victron Remote Monitoring">VRM</abbr> Forecasts integra
 
 ## Prerequisites
 
-- **Victron VRM installation** with a solar system and all consumption routed through inverters or a grid meter.
+- Victron VRM installation with a solar system and all consumption routed through inverters or a grid meter.
 - **At least 30 days of data** in VRM before forecasts appear.
-- **VRM access token** (keep this secret!). Create one in the VRM Portal at **Preferences → Integrations → Access tokens** or use [this link](https://vrm.victronenergy.com/access-tokens).
+- **VRM access token** (keep this secret!). Create one in the VRM Portal under **Preferences** > **Integrations** > **Access tokens** or use [this link](https://vrm.victronenergy.com/access-tokens).
 - **Access to your site(s)** with the account used to create the token.
 
 {% important %}
@@ -50,7 +50,7 @@ Your VRM access token grants full access to your VRM portal, including system co
 
 The Victron VRM Forecasts integration fetches fresh data from the VRM API every 60 minutes.
 
-## Sensor Entities
+## Sensor entities
 
 ### Solar Production Forecast
 
@@ -82,7 +82,7 @@ The Victron VRM Forecasts integration fetches fresh data from the VRM API every 
 
 1. Go to **Dashboards** in the settings.
 2. Select the **Energy** dashboard.
-3. Under **Solar panels**, click the edit button of your solar installation.
+3. Under **Solar panels**, select the edit button of your solar installation.
 4. Select **Forecast production** and choose previously set up VRM Forecasts.
 5. Save; your dashboard will show forecasted values.
 
