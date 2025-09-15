@@ -23,6 +23,7 @@ ha_platforms:
   - humidifier
   - light
   - number
+  - select
   - sensor
   - switch
 ha_integration_type: integration
@@ -80,6 +81,7 @@ This {% term integration %} supports devices controllable by the VeSync App.  Th
 
 - Classic200S: Classic 200S Smart Ultrasonic Cool Mist Humidifier
 - Classic300S: Classic 300S Ultrasonic Smart Humidifier
+- Superior6000S: Superior 6000S Smart Evaporative Humidifier
 
 ## Prerequisite
 
@@ -118,6 +120,10 @@ All VeSync air purifiers expose the remaining filter lifetime, and some also exp
 | `air_quality`           | The current air quality reading. (LV-PUR131S, Core300s/400s/600s)                      | excellent |
 | `pm2_5`                 | The current air quality reading. (Core300s/400s/600s/EverestAir)                       | 8         |
 
+| Switch                  | Description                                                                        | Example   |
+| ----------------------- | ---------------------------------------------------------------------------------- | --------- |
+| `display`               | Display On or Off                                                                  | On        |
+
 ## Fan exposed attributes
 
 VeSync air purifiers will expose the following details depending on the features supported by the model:
@@ -132,6 +138,10 @@ VeSync air purifiers will expose the following details depending on the features
 | `night_light`           | The current status of the night light (Core200S/Core400s)                         | off             |
 | `child_lock`            | The current status of the child lock (Core200S/300s/400s)                         | off             |
 
+| Select                  | Description                                                                        | Example   |
+| ----------------------- | ---------------------------------------------------------------------------------- | --------- |
+| `night_light_level`     | Night light brightness level (Values: off, dim, on).                               | off       |
+
 ## Humidifier
 
 Sensors and settings exposed by VeSync humidifiers.
@@ -142,7 +152,16 @@ Sensors and settings exposed by VeSync humidifiers.
 
 | Number                  | Description                                                                        | Example   |
 | ----------------------- | ---------------------------------------------------------------------------------- | --------- |
-| `mist_level`            | Mist level intensity (Range: 1-9, Step: 1)                                         | 1         |
+| `mist_level`            | Mist level intensity (Range: 1-9, Step: 1). Only available in manual mode.         | 1         |
+
+| Select                  | Description                                                                        | Example   |
+| ----------------------- | ---------------------------------------------------------------------------------- | --------- |
+| `night_light_level`     | Night light brightness level (Values: off, dim, bright).                           | off       |
+
+| Switch                  | Description                                                                        | Example   |
+| ----------------------- | ---------------------------------------------------------------------------------- | --------- |
+| `display`               | Display On or Off                                                                  | On        |
+
 
 ## Binary Sensors
 

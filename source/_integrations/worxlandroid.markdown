@@ -23,9 +23,9 @@ To use your Worx Landroid mower in your installation, add the following to your 
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  platform: worxlandroid
-  host: 192.168.0.10
-  pin: 1234
+  - platform: worxlandroid
+    host: 192.168.0.10
+    pin: 1234
 ```
 
 {% configuration %}

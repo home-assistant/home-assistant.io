@@ -22,7 +22,7 @@ Screenshot of the statistics graph card with none metered entities and `chart_ty
 Screenshot of the statistics graph card with a metered entity and `chart_type` `bar`.
 </p>
 
-Statistics are gathered every 5 minutes and also hourly for sensors that support it. The 5-minute statistics will be retained for the duration set in the [recorder configuration](/integrations/recorder/#purge_keep_days), and hourly statistics will be retained indefinitely. It will either keep the <abbr title="Minimum">`min`</abbr>, <abbr title="Maximum">`max`</abbr>, and <abbr title="Average">`mean`</abbr> of a sensor's value for a specific hour or the <abbr title="Total">`sum`</abbr> for a metered entity.
+Statistics are gathered every 5 minutes and also hourly for sensors with a state_class of measurement, total or total_increasing. The 5-minute statistics will be retained for the duration set in the [recorder configuration](/integrations/recorder/#purge_keep_days), and hourly statistics will be retained indefinitely. It will either keep the <abbr title="Minimum">`min`</abbr>, <abbr title="Maximum">`max`</abbr>, and <abbr title="Average">`mean`</abbr> of a sensor's value for a specific hour or the <abbr title="Total">`sum`</abbr> for a metered entity.
 
 If your sensor doesn't work with statistics, check [this](/more-info/statistics/).
 
@@ -87,6 +87,11 @@ fit_y_data:
   description: If true, configured Y-axis bounds would automatically extend (but not shrink) to fit the data.
   type: boolean
   default: false
+expand_legend:
+  required: false
+  description: If true, the legend will show all items initially
+  type: boolean
+  default: false
 energy_date_selection:
   required: false
   description: If true, chart date range will follow the date selected on an `energy-date-selection` card on the same view, similar to energy cards.
@@ -95,7 +100,7 @@ energy_date_selection:
 collection_key:
   required: false
   description: If using `energy_date_selection`, you can set a custom key to match the optional key of an `energy-date-selection` card. This is not typically required, but can be useful if multiple date selection cards are used on the same view.  
-  type: string  
+  type: string
 {% endconfiguration %}
 
 ### Options for entities

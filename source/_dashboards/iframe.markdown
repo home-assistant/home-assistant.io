@@ -61,6 +61,11 @@ allow:
   description: The [Permissions Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy#iframes) of the iframe, that is, the value of the [`allow`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe#allow) attribute.
   type: string
   default: "fullscreen"
+disable_sandbox:
+  required: false
+  description: Disables the [sandbox](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe#attr-sandbox) attribute of the iframe, e.g. required for Chrome when viewing PDFs. This is less secure and should only be used if you trust the content of the iframe.
+  type: boolean
+  default: false
 {% endconfiguration %}
 
 ### Examples

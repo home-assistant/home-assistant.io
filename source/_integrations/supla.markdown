@@ -26,6 +26,12 @@ Right now, it's impossible to add a device -- all of them are discovered from SU
 
 For more complete Home Assistant support based on MQTT autodiscovery, consider switching your Supla devices to MQTT (through the setup interface). Or use the MQTT broker provided by [Supla Cloud](https://cloud.supla.org/integrations/mqtt-broker).
 
+{% important %}
+
+The Supla Cloud MQTT broker requires [changing the default MQTT protocol setting](https://www.home-assistant.io/integrations/mqtt/#broker-configuration) at version 3.1.
+
+{% endimportant %}
+
 ## Configuration
 
 To use SUPLA devices in your installation, add the following to your {% term "`configuration.yaml`" %}:

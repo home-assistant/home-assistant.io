@@ -57,7 +57,7 @@ Then, create an ACL file at `/usr/share/rpcd/acl.d/hass.json` for the user `hass
 }
 ```
 
-Restart the services. This ACL file needs to be recreated after updating/upgrading your OpenWrt firmware.
+Restart the services. Add the file path to /etc/sysupgrade.conf so that it remains after updating/upgrading your OpenWrt firmware.
 
 ```bash
 # /etc/init.d/rpcd restart && /etc/init.d/uhttpd restart

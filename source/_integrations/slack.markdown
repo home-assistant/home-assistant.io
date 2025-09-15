@@ -30,8 +30,18 @@ The `slack` platform allows you to deliver notifications from Home Assistant to 
 
 Find `Features/OAuth and Permissions/Scopes/Bot Token Scopes`
 
-3. Add the `chat:write` and `dnd:read` scopes
-  - To modify your Slack bot's username and icon, additionally add the `chat:write.customize` OAuth scope
+3. Add the following OAuth scopes:
+  - `chat:write`
+  - `dnd:read`
+  - `channels:manage`
+  - `channels:read`
+  - `groups:read`
+  - `groups:write`
+  - `im:read`
+  - `im:write`
+  - `mpim:read`
+  - `mpim:write`
+  - Optionally add `chat:write.customize` to modify your Slack bot's username and icon.
 
 ![](/images/integrations/slack/bot-token-scopes.png)
 
@@ -106,7 +116,7 @@ sequence:
   - action: notify.YOUR_SLACK_TEAM
     data:
       message: "Fallback Text"
-      target: "#test-channel"
+      target: "#test-channel" # Single channel target
       title: "Reminder"
       data:
         blocks:
@@ -121,6 +131,38 @@ sequence:
 Update the blocks array with valid Slack blocks. The easiest way to create this is using [Slack Block Kit Builder](https://app.slack.com/block-kit-builder).  Up to 50 blocks may be included per message.
 
 Create a duplicate of this script to use for different messages, and different channels (the door was opened in #security, the light was left on on #lights, etc).
+
+You can also send messages to multiple targets (channels and/or users) at once:
+
+```yaml
+alias: "Notify: Multiple Targets Message"
+sequence:
+  - action: notify.YOUR_SLACK_TEAM
+    data:
+      message: "Alert: Motion detected!"
+      target: 
+        - "#security"    # Channel by name
+        - "C01234ABCD"   # Channel by ID
+        - "U5678EFGH"    # Direct message to user by ID
+      title: "Security Alert"
+      data:
+        blocks:
+          - type: section
+            text:
+              type: mrkdwn
+              text: "Motion detected in the backyard camera"
+```
+
+### Target Types
+
+The `target` field accepts either a single value or a list of values. Each target can be:
+
+- A channel name with a `#` prefix (e.g., `#general`)
+- A channel name without the `#` prefix (e.g., `general`)
+- A channel ID (e.g., `C01234ABCD`)
+- A user ID for direct messages (e.g., `U5678EFGH`)
+
+When sending files, make sure you have the proper permissions set up as described in the Setup section.
 
 ### Icons
 

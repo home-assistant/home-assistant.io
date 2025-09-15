@@ -19,8 +19,3 @@ ha_quality_scale: legacy
 The `nmbs` {% term integration %} will create sensors for monitoring travel time and information between 2 stations.
 
 {% include integrations/config_flow.md %}
-
-<p class='img'>
-  <img src='/images/screenshots/nmbs-card-example.png' />
-  <p>Example using the <a href="https://github.com/custom-cards/entity-attributes-card">Entity Attributes custom card</a> </p>
-</p>

@@ -1,0 +1,78 @@
+:root {
+    --connect-line-blue: #005FBE;
+
+    // Containers and widths
+    --container-max-width: 1300px;
+    --container-gutters: 32px;
+
+    // Typography
+    --typography-base-font: "Figtree", serif;
+    --typography-heading-line-height: 1.25;
+
+    --typography-h1-font-size: 36px;
+    --typography-h1-font-weight: 700;
+    --typography-h1-line-height: var(--typography-heading-line-height);
+
+    --typography-h2-font-size: 36px;
+    --typography-h2-font-weight: 600;
+    --typography-h2-line-height: 1.2;
+
+    --typography-h3-font-size: 24px;
+    --typography-h3-font-weight: 600;
+    --typography-h3-line-height: var(--typography-heading-line-height);
+
+    --typography-h4-font-size: 18px;
+    --typography-h4-font-weight: 700;
+    --typography-h4-line-height: 1.25;
+
+    --typography-paragraph-color: #B7C9D9;
+    --typography-paragraph-font-size: 16px;
+    --typography-paragraph-font-weight: 400;
+    --typography-paragraph-line-height: 1.25;
+
+    --typography-hero-title-font-size: 80px;
+    --typography-hero-title-font-weight: 400;
+    --typography-hero-title-line-height: .75;
+
+    --typography-hero-subtitle-font-size: 24px;
+    --typography-hero-subtitle-font-weight: 500;
+    --typography-hero-subtitle-line-height: 1;
+}
+
+@media (min-width: 500px) {
+    :root {
+        --typography-h1-font-size: 45px;
+    }
+}
+
+@media (min-width: 768px) {
+    :root {
+        --typography-h1-font-size: 60px;
+        --typography-h2-font-size: 40px;
+        --typography-h3-font-size: 28px;
+        --typography-paragraph-font-size: 20px;
+
+        --layout-container-padding: 24px;
+        --layout-columns-gap: 16px 48px;
+    }
+}
+
+@media (min-width: 1024px) {
+    :root {
+        --typography-h1-font-size: 100px;
+        --typography-h2-font-size: 70px;
+        --typography-h3-font-size: 32px;
+        --typography-paragraph-font-size: 24px;
+
+        --layout-container-padding: 40px;
+        --layout-columns-gap: 16px 64px;
+
+        --typography-hero-title-font-size: 240px;
+        --typography-hero-title-font-weight: 400;
+        --typography-hero-title-line-height: .75;
+
+        --typography-hero-subtitle-font-size: 56px;
+        --typography-hero-subtitle-font-weight: 500;
+        --typography-hero-subtitle-line-height: 1;
+    }
+}
