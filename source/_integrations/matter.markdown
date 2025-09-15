@@ -10,6 +10,7 @@ ha_category:
   - Fan
   - Light
   - Lock
+  - Media Player
   - Number
   - Pump
   - Select
@@ -36,6 +37,7 @@ ha_platforms:
   - fan
   - light
   - lock
+  - media_player
   - number
   - select
   - sensor
