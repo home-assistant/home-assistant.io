@@ -77,7 +77,7 @@ The integration fetches data from the device every 15 seconds.
 The integration only provides connection with Slide devices via the local API. The cloud API is no longer available. 
 
 
-## Remove integration
+## Removing the integration
 
 This integration can be removed by following these steps:
 

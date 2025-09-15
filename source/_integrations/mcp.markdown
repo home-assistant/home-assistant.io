@@ -29,9 +29,10 @@ Assistant. You can control what devices and entities it can access from the {% m
 ## Prerequisites
 
 1. You will need an [MCP server](https://modelcontextprotocol.io/examples).
-1. If your MCP server only supports the <abbr title="Standard input/output">*stdio*</abbr> protocol, you will also need an additional
+2. If your MCP server only supports the <abbr title="Standard input/output">*stdio*</abbr> protocol, you will also need an additional
    MCP proxy (such as [mcp-proxy](https://github.com/sparfenyuk/mcp-proxy)) to expose
    the server over <abbr title="Server-sent events">*SSE*</abbr>.
+3. If your MCP server requires authentication, then you will need an OAuth Client ID and Secret.
 
 {% include integrations/config_flow.md %}
 
@@ -42,6 +43,10 @@ The integration provides the following configuration options:
 {% configuration_basic %}
 SSE Server URL:
   description: The URL for the SSE endpoint of the MCP server. For example, `http://example/sse`.
+Client ID:
+  description: If the server requires authentication, enter the OAuth Client ID for the MCP server in the Application Credentials
+Client Secret:
+  description: If the server requires authentication, enter the OAuth Client Secret for the MCP server in the Application Credentials.
 {% endconfiguration_basic %}
 
 ## Architecture overview
@@ -74,6 +79,12 @@ agent to use the tools.
 perform actions through Home Assistant. The tools used by the configured LLM API
 are exposed.
 
+### Authorization
+
+The Model Context Protocol supports OAuth, and allows you to give Home Assistant
+access to restricted MCP servers. You can enter the MCP Servers [Application Credentials](https://www.home-assistant.io/integrations/application_credentials/) when configuring
+the MCP integration.
+
 ## Known limitations
 
 The Home Assistant Model Context Protocol integration currently only supports a
@@ -94,8 +105,7 @@ general tips on debugging MCP. If you are developing your own MCP server and hav
 with Home Assistant, you can also use the [MCP Inspector](https://github.com/modelcontextprotocol/inspector)
 to verify that your MCP server is working correctly.
 
-
-## Remove integration
+## Removing the integration
 
 This integration can be removed by following these steps:
 

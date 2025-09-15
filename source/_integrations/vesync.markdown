@@ -120,6 +120,10 @@ All VeSync air purifiers expose the remaining filter lifetime, and some also exp
 | `air_quality`           | The current air quality reading. (LV-PUR131S, Core300s/400s/600s)                      | excellent |
 | `pm2_5`                 | The current air quality reading. (Core300s/400s/600s/EverestAir)                       | 8         |
 
+| Switch                  | Description                                                                        | Example   |
+| ----------------------- | ---------------------------------------------------------------------------------- | --------- |
+| `display`               | Display On or Off                                                                  | On        |
+
 ## Fan exposed attributes
 
 VeSync air purifiers will expose the following details depending on the features supported by the model:
@@ -153,6 +157,11 @@ Sensors and settings exposed by VeSync humidifiers.
 | Select                  | Description                                                                        | Example   |
 | ----------------------- | ---------------------------------------------------------------------------------- | --------- |
 | `night_light_level`     | Night light brightness level (Values: off, dim, bright).                           | off       |
+
+| Switch                  | Description                                                                        | Example   |
+| ----------------------- | ---------------------------------------------------------------------------------- | --------- |
+| `display`               | Display On or Off                                                                  | On        |
+
 
 ## Binary Sensors
 

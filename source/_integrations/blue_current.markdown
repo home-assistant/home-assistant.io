@@ -4,15 +4,19 @@ description: Instructions on how to integrate Blue Current charge points within 
 ha_category:
   - Car
   - Sensor
+  - Switch
 ha_release: 2024.1
 ha_iot_class: Cloud Push
 ha_config_flow: true
 ha_codeowners:
-  - '@Floris272'
   - '@gleeuwen'
+  - '@NickKoepr'
+  - '@jtodorova23'
 ha_domain: blue_current
 ha_platforms:
+  - button
   - sensor
+  - switch
 ha_integration_type: integration
 ---
 
@@ -65,3 +69,24 @@ The following sensors are created as well, but disabled by default:
 The following sensors are created as well, but disabled by default:
 
 - Grid current phase 1-3
+
+## Button
+
+The Blue Current integration provides the following buttons:
+
+### Charge point buttons
+
+- Reset
+- Reboot
+- Stop charge session
+
+## Switch
+
+The Blue Current integration provides the following switches:
+
+- Toggle Plug & Charge
+  - Allows you to start a session without having to scan a card.
+- Toggle linked charging cards only
+  - When enabled, visitors can't make use of the charge point. Only linked charging cards are allowed.
+- Toggle charge point block
+  - Enables or disables a charge point.

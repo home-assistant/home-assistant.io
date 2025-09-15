@@ -14,6 +14,7 @@ ha_iot_class: Local Polling
 ha_config_flow: true
 ha_zeroconf: true
 ha_platforms:
+  - binary_sensor
   - sensor
 ---
 
@@ -51,12 +52,14 @@ The following sensors are supported:
 - Core power status: Battery or USB-C power for the IOmeter Core
 - Signal strength WiFi: WiFi connection strength of the Bridge
 - Signal strength Core/Bridge: Sub-GHz connection strength between Core and Bridge
+- Core/Bridge connection status: If Core and Bridge are connected
+- Core attachment status: If the IOmeter Core is attached to the electricity meter
 
 ## Troubleshooting
 
 There are no commonly known issues with this integration.
 
-## Remove integration
+## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.
 

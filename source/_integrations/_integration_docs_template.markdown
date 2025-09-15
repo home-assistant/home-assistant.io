@@ -158,7 +158,7 @@ link to the blueprint on the [blueprints
 
 ## Data updates
 
-The **My integration** integration fetches data from the device every 5 minutes by default.
+The **My integration** integration {% term polling polls %} data from the device every 5 minutes by default.
 Newer devices (the ones running MyOS) have the possibility to push data.
 In this case, pushing data is enabled when the integration is started. If enabling data push fails, the integration uses data {% term polling %}.
 

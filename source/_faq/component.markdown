@@ -10,5 +10,3 @@ If you have incorrect entries in your configuration files you can use the CLI sc
 
 - [Operating System](/common-tasks/os/#configuration-check)
 - [Container](/common-tasks/container/#configuration-check)
-- [Core](/common-tasks/core/#configuration-check)
-- [Supervised](/common-tasks/supervised/#configuration-check)

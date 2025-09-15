@@ -139,7 +139,7 @@ There are a few known limitations for using the integration:
 This means you can only have 1 Home Assistant instance connected to your Overseerr instance at a time.
 - The integration is not able to function with <abbr title="cross-site request forgery">CSRF</abbr> protection turned on. In Overseer, go to **Settings** and turn off the **CSRF Protection**.
 
-## Remove integration
+## Removing the integration
 
 This integration follows standard integration removal, no extra steps are required.
 

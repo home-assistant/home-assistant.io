@@ -70,10 +70,23 @@ This is a full example that returns all to-do items that have not been completed
 ```yaml
 action: todo.get_items
 target:
-  entity_id: todo.personal_tasks
+  entity_id: todo.vacation_preparation
 data:
   status:
     - needs_action
+```
+
+This is an example response to the get items action:
+
+```yaml
+todo.vacation_preparation:
+  items:
+    - summary: Water plants
+      uid: 01244b28-e604-11ee-a0a4-e45f0197c057
+      status: needs_action
+    - summary: turn down heating
+      uid: ae993df4-e604-11ee-a0a4-e45f0197c057
+      status: needs_action
 ```
 
 ### Action `todo.add_item`
@@ -105,14 +118,14 @@ data:
 
 Update a to-do item. A to-do list `target` is selected with a [Target Selector](/docs/blueprint/selectors/#target-selector) and the `data` payload supports the following fields:
 
-| Data attribute | Optional | Description                                                       | Example                                                      |
-| -------------- | -------- | ----------------------------------------------------------------- | ------------------------------------------------------------ |
-| `item`         | no       | The name/summary of the to-do item to update.                     | Submit income tax return                                     |
-| `rename`       | yes      | The new name of the to-do item.                                   | Something else                                               |
-| `status`       | yes      | The overall status of the to-do item.                             | `needs_action` or `completed`                                |
-| `due_date`     | yes      | The date the to-do item is expected to be completed.              | 2024-04-10                                                   |
-| `due_datetime` | yes      | The date and time the to-do item is expected to be completed.     | 2024-04-10 23:00:00                                          |
-| `description`  | yes      | A more complete description than the one provided by the summary. | Collect all necessary documents and submit the final return. |
+| Data attribute | Optional | Description                                                                                                            | Example                                                              |
+| -------------- | -------- | ---------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| `item`         | no       | The name/summary of the to-do item. In some cases, for example if you have items with the same name, it can make sense to use the UID instead of the name. To find the UID of an item, perform a `get_items` action on the to-do list. | `Submit income tax return` or `01244b28-e604-11ee-a0a4-e45f0197c057`|
+| `rename`       | yes      | The new name of the to-do item.                                                                                        | Something else                                                       |
+| `status`       | yes      | The overall status of the to-do item.                                                                                  | `needs_action` or `completed`                                        |
+| `due_date`     | yes      | The date the to-do item is expected to be completed.                                                                   | 2024-04-10                                                           |
+| `due_datetime` | yes      | The date and time the to-do item is expected to be completed.                                                          | 2024-04-10 23:00:00                                                  |
+| `description`  | yes      | A more complete description than the one provided by the summary.                                                      | Collect all necessary documents and submit the final return.         |
 
 At least one of `rename` or `status` is required. Only one of `due_date` or `due_datetime` may be specified. This is a full example that updates the status and the name of a to-do item.
 
@@ -130,9 +143,9 @@ data:
 
 Removing a to-do item. A to-do list `target` is selected with a [Target Selector](/docs/blueprint/selectors/#target-selector), and the `data` payload supports the following fields:
 
-| Data attribute | Optional | Description                 | Example                  |
-| -------------- | -------- | --------------------------- | ------------------------ |
-| `item`         | no       | The name of the to-do item. | Submit income tax return |
+| Data attribute | Optional | Description                                                                                                            | Example                                                              |
+| -------------- | -------- | ---------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| `item`         | no       |The name/summary of the to-do item. In some cases, for example if you have items with the same name, it can make sense to use the UID instead of the name. To find the UID of an item, perform a `get_items` action on the to-do list.  | `Submit income tax return` or `01244b28-e604-11ee-a0a4-e45f0197c057`|
 
 This is a full example that deletes a to-do Item with the specified name.
 
