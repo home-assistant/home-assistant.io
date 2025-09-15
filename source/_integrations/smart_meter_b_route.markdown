@@ -57,12 +57,22 @@ Refer to the links below to apply for your B Route credentials:
 
 ## Get your monthly consumption data
 
-By default, the data you get is the total consumption since an unknown date in the past. If you want to get your monthly consumption data, you can use the [utility_meter](/integrations/utility_meter/) integration.
+By default, the data you get is the total consumption since an unknown date in the past. If you want to get your monthly consumption data, you can use the [utility_meter](/integrations/utility_meter/) {% term integration %}.
 
 ## Get your monthly cost data
 
-To get your monthly cost data, you can use the [template sensor](/integrations/template/) {% term integration %} along with the [utility_meter](/integrations/utility_meter/) {% term integration %}. You will need to know your electricity rate (cost per kWh) to calculate the cost. For instance, if you are using Tokyo Gas and have a price depending on your usage, you can use the following template with a unit of measurement set to your currency per kWh (e.g., JPY/kWh):
+To get your monthly cost data, you can use the [template sensor](/integrations/template/) {% term integration %} along with the [utility_meter](/integrations/utility_meter/) {% term integration %}. You will need to know your electricity rate (cost per kWh) to calculate the cost. For instance, if you are using Tokyo Gas and have a price depending on your usage, you can use the following template with a unit of measurement set to your currency per kWh (e.g., JPY/kWh) and the appropriate sensor name:
 
+```yaml
+{% raw %}
+{% set consumption = states('sensor.name_of_utility_meter') | float(0) %}
+{% if consumption < 120 %}
+29.9
+{% elif consumption < 300 %}
+35.41
+{% else %}
+37.47
+{% endif %}
 ```yaml
 {% raw %}
 {% set consumption = states('sensor.tokyo_gas_electricity_monthly_consumption') | float(0) %}
