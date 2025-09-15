@@ -90,10 +90,14 @@ Please note, device names configured in the SwitchBot app are transferred into H
 - [Indoor/Outdoor Meter (WoIOSensorTH)](https://switch-bot.com/pages/switchbot-indoor-outdoor-thermo-hygrometer) 
 - [Meter Pro](https://www.switch-bot.com/products/switchbot-meter-pro)
 - [Meter Pro CO2 Monitor](https://www.switch-bot.com/products/switchbot-meter-pro-co2-monitor)
+- [Contact Sensor](https://www.switch-bot.com/products/contact-sensor)
+- [Motion Sensor](https://www.switch-bot.com/products/motion-sensor)
+- [Water Leak Detector](https://www.switch-bot.com/products/switchbot-water-leak-detector)
 
 ### Hubs
 
 - [Hub 2 (WoHub2)](https://switch-bot.com/pages/switchbot-hub-2) (currently only supports retrieving sensor data, does not yet support device control)
+- [Hub 3](https://www.switch-bot.com/products/switchbot-hub-3)
 - IR appliances exposed through the different hubs:
   - ON/OFF for all appliance types except for *Others*
   - Change temperature and mode for *Air Conditioner*
@@ -240,6 +244,26 @@ Features:
 - get carbon dioxide
 - get battery level
 
+#### Contact Sensor
+
+Features:
+- get motion detection state
+- get light state
+- get open state
+- get battery level
+
+#### Motion Sensor
+
+Features:
+- get motion detection state
+- get battery level
+
+#### Water Leak Detector
+
+Features:
+- get leak state
+- get battery level
+
 ### Lights
 
 #### LED Strip Light 3
@@ -301,6 +325,14 @@ Some of the hubs can be served as a bridge while the sensor data can be retrieve
 Features:
 - get temperature
 - get humidity
+
+#### Hub 3
+
+Features:
+- get motion detection state
+- get temperature
+- get humidity
+- get light level
 
 ### Humidifiers
 
