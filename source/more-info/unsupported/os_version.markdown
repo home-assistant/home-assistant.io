@@ -17,7 +17,9 @@ including Home Assistant Core or Add-on updates.
 
 To resolve this issue, update your Home Assistant Operating System version. Go
 to {% my updates title="**System** > **Updates**" %} to update the operating
-system.
+system. If you don't see the update you may have skipped it in the past. To see
+previously skipped updates, select the three dots {% icon "mdi:dots-vertical" %}
+menu and select **Show skipped updates**.
 
 If your system is significantly out of date you may need to update multiple times
 to get to the latest version. The next one will appear in the UI after the prior

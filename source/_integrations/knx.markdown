@@ -638,7 +638,7 @@ knx:
 
 {% configuration %}
 address:
-  description: Group address state or attribute updates will be sent to. GroupValueRead requests will be answered.
+  description: Group address state or attribute updates will be sent to. GroupValueRead requests will be answered. For types `time`, `date`, and `datetime`, `address` is the only valid configuration variable..
   type: string
   required: true
 type:
@@ -646,33 +646,33 @@ type:
   type: [string, integer]
   required: true
 entity_id:
-  description: Entity ID to be exposed. Not needed for types `time`, `date` and `datetime`.
+  description: Entity ID to be exposed. Shall not be used for types `time`, `date`, and `datetime`.
   type: string
   required: false
 attribute:
   description: Attribute of the entity that shall be sent to the KNX bus. If not set (or `None`) the state will be sent.
-    For example for a light the state is either "on" or "off". With `attribute` you can expose its "brightness".
+    For example for a light the state is either "on" or "off". With `attribute` you can expose its "brightness". Shall not be used for types `time`, `date`, and `datetime`.
   type: string
   required: false
 default:
   description: Default value to send to the bus if the state or attribute value is `None`.
     For example a light with state "off" has no brightness attribute so a default value of `0` could be used.
-    If not set (or `None`) no value would be sent to the bus and a GroupReadRequest to the address would return the last known value.
+    If not set (or `None`) no value would be sent to the bus and a GroupReadRequest to the address would return the last known value. Shall not be used for types `time`, `date`, and `datetime`.
   type: [boolean, string, integer, float]
   default: None
   required: false
 value_template:
-  description: A template to process the value before sending it to the KNX bus. The template has access to the entity state or attribute value as `value`.
+  description: A template to process the value before sending it to the KNX bus. The template has access to the entity state or attribute value as `value`. Shall not be used for types `time`, `date`, and `datetime`.
   required: false
   default: None
   type: template
 cooldown:
-  description: Minimum time in seconds between two sent telegrams. This can be used to avoid flooding the KNX bus when exposing frequently changing states. If the state changes multiple times within the cooldown period the most recent value will be sent.
+  description: Minimum time in seconds between two sent telegrams. This can be used to avoid flooding the KNX bus when exposing frequently changing states. If the state changes multiple times within the cooldown period the most recent value will be sent. Shall not be used for types `time`, `date`, and `datetime`.
   type: float
   default: 0
   required: false
 respond_to_read:
-  description: Respond to GroupValueRead telegrams received to the configured `address`.
+  description: Respond to GroupValueRead telegrams received to the configured `address`. Shall not be used for types `time`, `date`, and `datetime`.
   required: false
   type: boolean
   default: true

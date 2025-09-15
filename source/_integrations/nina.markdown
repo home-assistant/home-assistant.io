@@ -11,6 +11,7 @@ ha_codeowners:
 ha_domain: nina
 ha_platforms:
   - binary_sensor
+  - diagnostics
 ha_integration_type: integration
 ---
 

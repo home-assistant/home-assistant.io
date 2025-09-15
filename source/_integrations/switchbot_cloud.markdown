@@ -7,6 +7,7 @@ ha_category:
   - Cover
   - Fan
   - Hub
+  - Humidifier
   - Light
   - Lock
   - Plug
@@ -24,10 +25,11 @@ ha_domain: switchbot_cloud
 ha_platforms:
   - binary_sensor
   - button
-  - cover
   - climate
-  - light
+  - cover
   - fan
+  - humidifier
+  - light
   - lock
   - sensor
   - switch
@@ -56,6 +58,7 @@ Please note, device names configured in the SwitchBot app are transferred into H
 - [Relay Switch 1PM](https://www.switch-bot.com/products/switchbot-relay-switch-1pm)
 - [Plug Mini (WoPlug)](https://www.switch-bot.com/products/switchbot-plug-mini)
 - [Plug Mini (HomeKit Enabled)](https://www.switch-bot.com/products/switchbot-plug-mini-homekit-enabled)
+- [Plug Mini (EU)](https://www.switch-bot.com/products/switchbot-plug-mini-eu)
 - Plug (Wi-Fi only, only available in Japan)
 
 ### Cover
@@ -72,6 +75,8 @@ Please note, device names configured in the SwitchBot app are transferred into H
 - [Floor Lamp](https://www.switch-bot.com/products/switchbot-floor-lamp)
 - [Color Bulb (WoBulb)](https://switch-bot.com/pages/switchbot-color-bulb)
 - [Light Strip (WoStrip)](https://www.switchbot.jp/products/switchbot-strip-light)
+- RGBICWW Floor Lamp
+- RGBICWW Strip Light
 
 ### Locks
 
@@ -92,6 +97,11 @@ Please note, device names configured in the SwitchBot app are transferred into H
 - IR appliances exposed through the different hubs:
   - ON/OFF for all appliance types except for *Others*
   - Change temperature and mode for *Air Conditioner*
+  
+### Humidifiers
+
+- [Humidifier (WoHumi)](https://www.switchbot.jp/products/switchbot-smart-humidifier)
+- [Evaporative Humidifier](https://www.switch-bot.com/products/switchbot-evaporative-humidifier-auto-refill)
 
 ### Vacuums
 
@@ -107,6 +117,8 @@ Please note, device names configured in the SwitchBot app are transferred into H
 ### Fans
 
 - [Circulator Fan](https://www.switch-bot.com/products/switchbot-battery-circulator-fan)
+- [Air Purifier](https://www.switch-bot.com/products/switchbot-air-purifier)
+- [Air Purifier Table](https://www.switch-bot.com/products/switchbot-air-purifier-table)
 
 ## Supported functionality
 
@@ -290,6 +302,30 @@ Features:
 - get temperature
 - get humidity
 
+### Humidifiers
+
+Humidifier entities are added for Humidifier and  Evaporative Humidifier.
+
+#### Humidifier
+
+Features:
+
+- turn on
+- turn off
+- set mode
+- set humidity
+
+#### Evaporative Humidifier
+
+Note: Not all modes support unless you bind the temperature and humidity sensor.
+
+Features:
+
+- turn on
+- turn off
+- set mode
+- set humidity
+
 ### Fans
 
 #### Battery Circulator Fan/Circulator Fan
@@ -300,6 +336,23 @@ Features:
 - set speed, only applicable for [direct mode]
 - set mode
 - get battery, only applicable for [Battery Circulator Fan]
+
+
+#### Air Purifier
+
+Features:
+- get states
+- turn on
+- turn off
+- set mode
+
+#### Air Purifier Table
+
+Features:
+- get states
+- turn on
+- turn off
+- set mode
 
 
 ### Vacuums
