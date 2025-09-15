@@ -110,6 +110,7 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 - [Relay Switch 1](https://www.switch-bot.com/products/switchbot-relay-switch-1)
 - [Relay Switch 1PM](https://www.switch-bot.com/products/switchbot-relay-switch-1pm)
 - [Plug Mini EU](https://www.switch-bot.com/products/switchbot-plug-mini-eu)
+- [Relay Switch 2PM](https://www.switch-bot.com/products/switchbot-relay-switch-2pm)
 
 ### Cover
 
@@ -259,6 +260,19 @@ Features:
 - get power
 - get voltage
 - get current
+- get electricity consumption
+
+#### Relay Switch 2PM
+
+This is an encrypted device, and it has two switch channels, you can set them independently.
+
+Features:
+
+- turn on or off
+- get power
+- get voltage
+- get current
+- get electricity consumption
 
 ### Cover
 
