@@ -17,35 +17,26 @@ ha_quality_scale: legacy
 
 The **Nederlandse Spoorwegen (NS)** {% term integration %} provides real-time information about Dutch train schedules using the [NS API](https://apiportal.ns.nl/). This integration allows you to monitor departure times, delays, and travel information for your regular routes.
 
-{% include integrations/config_flow.md %}
+## Prerequisites
 
 To use this integration, you need an API key from the NS API Portal.
 
 ### Obtaining an API Key
 
-To use this integration, you need an API key from NS:
 
 1. Create an account on the [NS API Portal](https://apiportal.ns.nl/).
 2. Request an API key for the `Reisinformatie` API, which is part of the `Ns-App` product.
 
-## Configuration
-
-### Adding the integration
-
-1. In the Home Assistant UI, go to **Settings** > **Devices & Services**
-2. Click **Add Integration**
-3. Search for and select **Nederlandse Spoorwegen (NS)**
-4. Enter your NS API key
-5. Click **Submit**
+{% include integrations/config_flow.md %}
 
 ### Managing routes
 
 After adding the integration, you can manage your travel routes:
 
-1. Go to **Settings** > **Devices & Services**
-2. Find the Nederlandse Spoorwegen integration
-3. Click **Configure**
-4. Add or remove routes as needed
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Find the **Nederlandse Spoorwegen** integration.
+3. Click **Configure**.
+4. Add or remove routes as needed.
 
 The integration provides a station selector in the UI, so you don't need to manually look up station codes. Simply search for and select your departure and arrival stations from the dropdown menus during route configuration.
 
@@ -67,17 +58,14 @@ The data is provided by Nederlandse Spoorwegen through their official API, ensur
 
 If you encounter authentication errors:
 
-- Verify your API key is correct
-- Ensure your NS API subscription is active
-- Check that you're using the correct API (Reisinformatie API)
+- Verify your API key is correct.
+- Ensure your NS API subscription is active.
+- Check that you're using the correct API (Reisinformatie API).
 
 ### Removing the integration
 
-To completely remove the integration:
+This integration follows standard integration removal.
 
-1. Go to **Settings** > **Devices & Services**
-2. Find the Nederlandse Spoorwegen integration
-3. Click the three-dot menu and select **Delete**
-4. Confirm the removal
+{% include integrations/remove_device_service.md %}
 
 All entities and data associated with the integration will be removed.
