@@ -65,16 +65,6 @@ To get your monthly cost data, you can use the [template sensor](/integrations/t
 
 ```yaml
 {% raw %}
-{% set consumption = states('sensor.name_of_utility_meter') | float(0) %}
-{% if consumption < 120 %}
-29.9
-{% elif consumption < 300 %}
-35.41
-{% else %}
-37.47
-{% endif %}
-```yaml
-{% raw %}
 {% set consumption = states('sensor.tokyo_gas_electricity_monthly_consumption') | float(0) %}
 {% if consumption < 120 %}
 29.9
