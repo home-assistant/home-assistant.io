@@ -13,7 +13,7 @@ ha_codeowners:
 ha_release: 2025.10
 ---
 
-The EnergyID integration allows you to send data from your Home Assistant {% term sensor %} entities to [EnergyID](https://www.energyid.eu/), a cloud-based energy management platform. This enables you to use EnergyID's tools for analysis, reporting, and insights based on data collected by your Home Assistant instance.
+Connect your Home Assistant to [EnergyID](https://www.energyid.eu/)—a cloud platform for energy monitoring and optimization. This integration uploads your Home Assistant sensor data and provides advanced analytics and performance tracking for solar, battery, energy consumption and more.
 
 ## Prerequisites
 
@@ -74,16 +74,19 @@ The EnergyID integration uses a push-based mechanism with batching:
 
 This is more efficient than traditional {% term polling %}, as it only sends data when there are new updates.
 
-## Use Cases
+## Use cases
 
-- Do **not** let yourself be limited by anything. No PV provider nor dongle firmware and send anything your tinkering heart desires to eid for storage and smart analysis.
-- **Benchmarking & Reporting:** Utilize EnergyID's features to compare your energy usage against anonymized data from similar households and generate detailed reports.
+1. Send anything in Home Assistant to EnergyID for long term storage/graphing and detailed analysis.
+2. Utilize EnergyID's features to compare your energy usage against anonymized data from similar households and generate detailed reports.
+3. Many more [advantages of EnergyID](https://help.energyid.eu/en/using-energyid/getting-started-with-energyid/) and a brief intro can be found.
 
 ## Troubleshooting
 
+If you're experiencing issues with your EnergyID integration, please try these general troubleshooting steps:
+
 ### Data not appearing in EnergyID
 
-- **Verify Mappings**: In Home Assistant, go to the EnergyID integration's configuration page and ensure your sensors are correctly mapped.
-- **Check Sensor States**: Make sure the source sensors in Home Assistant are available and updating with new values.
-- **Reload Integration**: Try reloading the EnergyID integration by going to **Settings > Devices & Services**, finding the EnergyID entry, selecting the three-dot menu, and choosing **Reload**.
-- **Check Home Assistant Logs**: Look for any error messages related to the `energyid` component under {% my logs title="**Settings > System > Logs**" %}.
+1. Verify that the linked entities from your Home Assistant are actually being updated and are not just stationary or stale. Not all entities send out changes frequently.
+2. Make sure that your entities are correctly mapped in the integration settings.
+3. Try reloading the EnergyID integration or even try reloading the integration of the entity which is not updating data in EnergyID
+4. Be sure to check Home Assistant logs for any errors or issues, or turn on debugging for the integration to receive more info on its workings.{% my logs title="**Settings > System > Logs**" %}
