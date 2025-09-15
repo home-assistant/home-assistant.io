@@ -127,7 +127,7 @@ icon:
   required: false
   type: icon
 group:
-  description: A list of unique IDs of the member device tracker entities. Set this if the device tracker entity represents a device tracker group. Note that the member entities must be already configured before the member entities will become visible in the UI at the moment a group entity is loaded.
+  description: A list of unique IDs of the member device tracker entities. Set this if the device tracker entity represents a device tracker group.
   required: false
   type: list
 json_attributes_template:

@@ -242,7 +242,7 @@ effect_value_template:
   required: false
   type: template
 group:
-  description: A list of unique IDs of the member light entities. Set this if the light entity represents a light group. Note that the member entities must be already configured before the member entities will become visible in the UI at the moment a group entity is loaded.
+  description: A list of unique IDs of the member light entities. Set this if the light entity represents a light group.
   required: false
   type: list
 hs_command_template:
@@ -701,7 +701,7 @@ flash_time_short:
   type: integer
   default: 2
 group:
-  description: A list of unique IDs of the member light entities. Set this if the light entity represents a light group. Note that the member entities must be already configured before the member entities will become visible in the UI at the moment a group entity is loaded.
+  description: A list of unique IDs of the member light entities. Set this if the light entity represents a light group.
   required: false
   type: list
 icon:
@@ -1116,7 +1116,7 @@ green_template:
   required: false
   type: template
 group:
-  description: A list of unique IDs of the member light entities. Set this if the light entity represents a light group. Note that the member entities must be already configured before the member entities will become visible in the UI at the moment a group entity is loaded.
+  description: A list of unique IDs of the member light entities. Set this if the light entity represents a light group.
   required: false
   type: list
 icon:

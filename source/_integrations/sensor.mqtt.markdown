@@ -153,7 +153,7 @@ force_update:
   type: boolean
   default: false
 group:
-  description: A list of unique IDs of the member sensor entities. Set this if the sensor entity represents a sensor group. Note that the member entities must be already configured before the member entities will become visible in the UI at the moment a group entity is loaded.
+  description: A list of unique IDs of the member sensor entities. Set this if the sensor entity represents a sensor group.
   required: false
   type: list 
 icon:

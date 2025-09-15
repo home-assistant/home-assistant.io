@@ -184,7 +184,7 @@ entity_picture:
   required: false
   type: string
 group:
-  description: A list of unique IDs of the member value entities. Set this if the value entity represents a valve group. Note that the member entities must be already configured before the member entities will become visible in the UI at the moment a group entity is loaded.
+  description: A list of unique IDs of the member value entities. Set this if the value entity represents a valve group.
   required: false
   type: list
 icon:
