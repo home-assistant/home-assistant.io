@@ -25,7 +25,7 @@ This integration enables you to access and monitor your household energy consump
 
 1. **Compatible USB Dongle**: Tested with the Wi-SUN USB dongle from [Ratoc Systems](https://www.ratocsystems.com/products/wisun/usb-wisun/rs-wsuha/).
 2. **B Route Credentials**: Obtain your B Route credentials from your utility company.
-3. **Smart Meter**: A smart meter that supports the B Route protocol. The installation is free, but if you are renting, you will need to contact your house management company.
+3. **Smart Meter**: A smart meter that supports the B Route protocol. If you are renting, you will need to contact your house management company, as the installation is free but may require permission.
 
 {% include integrations/config_flow.md %}
 
@@ -35,11 +35,11 @@ The Wi-SUN USB dongle has a typical signal reach of approximately 50 meters indo
 
 ## Obtaining B Route Credentials
 
-1. **Contact Your Utility Company**: Reach out to your electricity provider and request your B Route credentials. For instance, for Tokyo, it is TEPCO.
+1. **Contact Your Utility Company**: Reach out to your electricity provider and request your B Route credentials. For example, if you live in Tokyo, contact TEPCO.
 2. **Provide Necessary Information**: You may need to provide your smart meter ID, customer ID, or other identifying information.
 3. **Receive Credentials**: Your utility company will provide you with a user ID and password for accessing the B Route data.
 
-Even if you have a contract with a new power provider, you can use this service. For example, if you have a contract with a new power provider and live in Tokyo, you will need to apply to TEPCO.
+Even if you have a contract with a new power provider, you can still use this service by applying to the regional utility company (for example, TEPCO in Tokyo).
 Ensure that your power supply is not a bulk power supply for an apartment building.
 
 Refer to the links below to apply for your B Route credentials:
