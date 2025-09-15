@@ -23,7 +23,6 @@ To use this integration, you need an API key from the NS API Portal.
 
 ### Obtaining an API Key
 
-
 1. Create an account on the [NS API Portal](https://apiportal.ns.nl/).
 2. Request an API key for the `Reisinformatie` API, which is part of the `Ns-App` product.
 
