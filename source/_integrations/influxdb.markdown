@@ -64,7 +64,7 @@ port:
   default: 8086
 path:
   type: string
-  description: Path to use if your InfuxDB is running behind a reverse proxy.
+  description: Path to use if your InfluxDB is running behind a reverse proxy.
   required: false
 username:
   type: string
@@ -369,7 +369,7 @@ port:
   default: 8086
 path:
   type: string
-  description: Path to use if your InfuxDB is running behind a reverse proxy.
+  description: Path to use if your InfluxDB is running behind a reverse proxy.
   required: false
 username:
   type: string

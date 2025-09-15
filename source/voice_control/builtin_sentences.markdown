@@ -147,27 +147,6 @@ Unlike regular voice timers, delayed commands cannot be canceled or modified.
 - *Pause TV in 10 minutes*
 - *Open the blinds in 5 minutes*
 
-## Questions
-
-### Get information about a state
-
-- *What is the amount of energy from solar production?*
-- *what is the heat pump co2 sensor's co2 level?*
-- *what is the battery level of my phone?*
-
-### Ask about the weather
-
-- *What is the weather*
-- Struggling with this one? Check the [troubleshooting section](/voice_control/troubleshooting/).
-
-### Ask about people
-
-(that have device tracking activated in Home Assistant)
-
-- *How many people are in the kitchen*
-- *Who is in the garage*
-- *Where is Anne*
-
 ## Aborting
 
 - *Nevermind*: If you triggered the wake word by mistake and want to stop Home Assistant from listening
