@@ -96,7 +96,7 @@ GEM
       racc
     pathutil (0.16.2)
       forwardable-extended (~> 2.6)
-    prism (1.4.0)
+    prism (1.5.1)
     public_suffix (6.0.2)
     racc (1.8.1)
     rack (3.2.1)
