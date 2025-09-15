@@ -13,7 +13,7 @@ related:
 The activity card displays entries from the activity for specific entities, devices, areas, and/or labels.
 
 <p class='img'>
-  <img src='/images/dashboards/logbook.png' alt='Screenshot of the activity card'>
+  <img src='/images/dashboards/activity-card.png' alt='Screenshot of the activity card'>
   Screenshot of the activity card.
 </p>
 
