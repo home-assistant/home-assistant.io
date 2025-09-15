@@ -96,10 +96,20 @@ password:
   required: true
   type: string
 dhcp_software:
-  description: "The DHCP software used in your router: `dnsmasq`, `odhcpd`, or `none`."
+  description: "The DHCP software (or /etc/ethers) used in your router: `dnsmasq`, `odhcpd`, `ethers` or `none`."
   required: false
   default: dnsmasq
   type: string
+ssl:
+  description: "If your router enforces SSL connections, set to `true`."
+  required: false
+  default: false
+  type: boolean
+verify_ssl:
+  description: "If SSL/TLS verification for HTTPS resources needs to be turned off (for self-signed certs, etc.)"
+  required: false
+  default: true
+  type: boolean
 {% endconfiguration %}
 
 See the [device tracker integration page](/integrations/device_tracker/) for instructions how to configure the people to be tracked.
