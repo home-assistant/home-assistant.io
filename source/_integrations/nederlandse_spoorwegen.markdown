@@ -12,7 +12,7 @@ ha_domain: nederlandse_spoorwegen
 ha_platforms:
   - sensor
 ha_integration_type: integration
-ha_quality_scale: bronze
+ha_quality_scale: legacy
 ---
 
 The **Nederlandse Spoorwegen (NS)** {% term integration %} provides real-time information about Dutch train schedules using the [NS API](https://apiportal.ns.nl/). This integration allows you to monitor departure times, delays, and travel information for your regular routes.
@@ -49,29 +49,13 @@ After adding the integration, you can manage your travel routes:
 
 The integration provides a station selector in the UI, so you don't need to manually look up station codes. Simply search for and select your departure and arrival stations from the dropdown menus during route configuration.
 
-## Searching a specific train vs. the next train
+## Searching for a specific train vs. the next train
 
 The default behavior (without specifying a time) gives you information about the *next* train that fits the criteria (from, to, via stations).
 
 When you specify a departure time during route configuration, you can search for a specific train. This is convenient when searching for the next train doesn't give you enough time to base an automation on. For example, when you normally take the 08:06 train and want to get information about this specific train, but there is another train departing just minutes before your train, your time window to warn you about a delay might be too small.
 
 Using a specific time only updates the route sensor during a time window around the chosen time. Outside this window, the route sensor's state is `unknown`. The window is from half an hour before the chosen time until half an hour after the chosen time. In this way, you can have multiple routes with specific trains before hitting the API usage limits.
-
-## Migration from YAML
-
-{% important %}
-YAML configuration for Nederlandse Spoorwegen is now deprecated and will be removed in a future release.
-{% endimportant %}
-
-The integration automatically migrates existing YAML configuration and creates repair notifications to guide users. If you have an existing YAML configuration, the integration will automatically import your routes when you add the integration through the UI.
-
-To complete the migration:
-
-1. Remove the `nederlandse_spoorwegen:` section from your `configuration.yaml`
-2. Remove any `sensor:` entries with `platform: nederlandse_spoorwegen`
-3. Restart Home Assistant to clear the repair notifications
-
-Your existing routes and settings are automatically preserved in the new UI-based configuration.
 
 ## Data source
 
