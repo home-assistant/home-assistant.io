@@ -385,11 +385,11 @@ Send a poll.
 
 ### Action `telegram_bot.send_chat_action`
 
-Send a chat action. Use it to notify the user with the relevant "typing" action when a bot response may be delayed, so they know a message is coming soon; Telegram clears this status after 5 seconds or when the reply arrives.
+Send a chat action. Use it to notify the user with the relevant "typing" action when a bot response may be delayed, so they know a message is coming soon. Telegram clears this status after 5 seconds or when the reply arrives.
 
 | Data attribute     | Optional | Description                                                                                                                                                                                                                                                                                               |
 | -------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `config_entry_id`          | yes      | The config entry representing the Telegram bot to send the message. Required if you have multiple Telegram bots.|
+| `config_entry_id`          | yes      | The configuration entry representing the Telegram bot to send the message. Required if you have multiple Telegram bots.|
 | `target`                   | yes      | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id.                                                                                                                                                                                       |
 | `chat_action`               | no      | Chat action to be sent: `typing`, `upload_photo`, `record_video`, `upload_video`, `record_voice`, `upload_voice`, `upload_document`, `choose_sticker`, `find_location`, `record_video_note`, `upload_video_note`.         |
 | `message_thread_id`        | yes      | Send the message to a specific topic or thread.|
