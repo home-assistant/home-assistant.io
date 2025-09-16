@@ -93,6 +93,18 @@ After adding new devices to your Tuya account through the Smart Life or Tuya Sma
 
 Tuya supports scenes in their app. These allow triggering some of the more complex modes of various devices such as light changing effects. Scenes created in the Tuya app will automatically appear in the Scenes list in Home Assistant the next time the integration updates.
 
+## Actions
+
+### Action `tuya.send_text_command`
+
+Send a text command to a device.
+
+  | Data attribute | Required | Description |
+  | ---------------------- | -------- | ----------- |
+  | `device_id`| yes | ID of the device to send the command to |
+  | `code`| yes | name of the data point |
+  | `value`| yes | new value of the data point |
+
 ## Troubleshooting
 
 ### Unsupported device or missing device functionnality
