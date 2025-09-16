@@ -7,7 +7,7 @@ ha_category:
 ha_release: 2025.10
 ha_iot_class: Local Polling
 ha_codeowners:
-  - '@Overlap0190'
+  - '@MoonDevLT'
 ha_domain: lunatone
 ha_config_flow: true
 ha_platforms:
