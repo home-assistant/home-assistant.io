@@ -60,7 +60,7 @@ This {% term integration %} will expose the following sensors:
 
 ## Event entity
 
-The WeatherFlow tempest also sends out event triggers when it starts raining and when there is a lightning strike near by.
+The WeatherFlow Tempest station also sends out event triggers when it starts raining and when there is a lightning strike near by.
 This {% term integration %} will expose these {% term event %} {% term entities %}  and can be used for automations. The following entities will be exposed:
 
 - Lightning strike
