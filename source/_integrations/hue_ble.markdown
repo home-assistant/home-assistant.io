@@ -19,7 +19,6 @@ The **Hue BLE** {% term integration %} allows you to control your Philips Hue Bl
 
 ## Prerequisites
 
-{% note %}
 
 Before trying to connect your light(s) to Home Assistant, you must put the light(s) into pairing mode in the Philips Hue app ([Android](https://play.google.com/store/apps/details?id=com.philips.lighting.hue2), [iOS](https://apps.apple.com/us/app/philips-hue/id1055281310)).
 
@@ -27,7 +26,6 @@ Before trying to connect your light(s) to Home Assistant, you must put the light
 
 Once the light is in pairing mode, you can connect to it to Home Assistant. Discovered lights can be found in the discovery section or in the integration setup screen.
 
-{% endnote %}
 
 {% include integrations/config_flow.md %}
 
