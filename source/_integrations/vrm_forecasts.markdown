@@ -21,7 +21,7 @@ related:
     title: VRM Portal manual
 ---
 
-The Victron <abbr title="Victron Remote Monitoring">VRM</abbr> Forecasts integration pulls solar production and consumption forecasts from [Victron Energy](https://www.victronenergy.com/)'s <abbr title="Victron Remote Monitoring">VRM</abbr> portal into Home Assistant. It provides day-ahead, next-hour, and six-day outlooks for both production and consumption. It also includes peak-time predictions. The integration requires at least 30 days of VRM history before forecasts become available.
+The Victron <abbr title="Victron Remote Monitoring">VRM</abbr> Forecasts {% term integration %} pulls solar production and consumption forecasts from [Victron Energy](https://www.victronenergy.com/)'s <abbr title="Victron Remote Monitoring">VRM</abbr> portal into Home Assistant. It provides day-ahead, next-hour, and six-day outlooks for both production and consumption. It also includes peak-time predictions. The integration requires at least 30 days of VRM history before forecasts become available.
 
 ## Prerequisites
 
@@ -89,11 +89,11 @@ The Victron VRM Forecasts integration fetches fresh data from the VRM API every 
 
 #### Symptom: “Invalid authentication”
 
-##### Description
+#### Description
 
 This usually means that the token used is invalid or expired.
 
-##### Resolution
+#### Resolution
 
 Verify that you're logged in with the correct VRM account, then try the following steps:
 
@@ -105,11 +105,11 @@ Verify that you're logged in with the correct VRM account, then try the followin
 
 #### Symptoms: Empty dropdown, “No sites found for this account” or “Site ID not found. Please check the ID and try again.”
 
-##### Description
+#### Description
 
 The integration could not find any sites or installations associated with your account.
 
-##### Resolution
+#### Resolution
 
 Verify that you're logged in with the correct VRM account and that you have permission to access the desired sites or installations.
 
@@ -117,11 +117,11 @@ Verify that you're logged in with the correct VRM account and that you have perm
 
 #### Symptom: Sensors are unavailable or missing
 
-##### Description
+#### Description
 
 The integration cannot retrieve forecast data.
 
-##### Resolution
+#### Resolution
 
 1. Check the logs and the **Settings** > **Devices & services** page for any errors.
 2. Check if you still have permission to access the desired site or installation.
