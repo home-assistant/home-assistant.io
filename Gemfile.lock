@@ -116,7 +116,7 @@ GEM
       ffi (~> 1.0)
     rbs (3.9.5)
       logger
-    regexp_parser (2.11.2)
+    regexp_parser (2.11.3)
     rexml (3.4.4)
     rouge (4.6.0)
     rubocop (1.80.2)
