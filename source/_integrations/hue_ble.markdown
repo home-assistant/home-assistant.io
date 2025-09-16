@@ -30,9 +30,7 @@ Before trying to connect your light(s) to Home Assistant, you must put the light
 
 ## Supported models
 
-{% important %}
 This {% term integration %} is tested to work with the following models:
-{% endimportant %}
 
 | Model number | Product name                                     |
 |--------------|--------------------------------------------------|
