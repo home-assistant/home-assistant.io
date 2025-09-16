@@ -101,9 +101,9 @@ Send a text command to a device.
 
   | Data attribute        | Required | Description                              |
   | --------------------- | -------- | ---------------------------------------- |
-  | `device_id`           | yes      | ID of the device to send the command to  |
-  | `code`                | yes      | name of the data point                   |
-  | `value`               | yes      | new value of the data point              |
+  | `device_id`           | yes      | ID of the device to send the command to.  |
+  | `code`                | yes      | Name of the data point.                   |
+  | `value`               | yes      | New value of the data point.              |
 
 ## Troubleshooting
 
