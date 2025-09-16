@@ -99,11 +99,11 @@ Tuya supports scenes in their app. These allow triggering some of the more compl
 
 Send a text command to a device.
 
-  | Data attribute | Required | Description |
-  | ---------------------- | -------- | ----------- |
-  | `device_id`| yes | ID of the device to send the command to |
-  | `code`| yes | name of the data point |
-  | `value`| yes | new value of the data point |
+  | Data attribute        | Required | Description                              |
+  | --------------------- | -------- | ---------------------------------------- |
+  | `device_id`           | yes      | ID of the device to send the command to  |
+  | `code`                | yes      | name of the data point                   |
+  | `value`               | yes      | new value of the data point              |
 
 ## Troubleshooting
 
