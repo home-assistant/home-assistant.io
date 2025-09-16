@@ -1,14 +1,14 @@
 ---
-title: Victron VRM Forecasts
-description: Instructions for implementation of Victron VRM Forecasts into Home Assistant.
+title: Victron Remote Monitoring
+description: Instructions for implementation of Victron Remote Monitoring platform into Home Assistant.
 ha_category:
   - Energy
-ha_release: 2025.10
+ha_release: '2025.10'
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
   - '@AndyTempel'
-ha_domain: vrm_forecasts
+ha_domain: victron_remote_monitoring
 ha_platforms:
   - sensor
 ha_integration_type: service
@@ -21,14 +21,17 @@ related:
     title: VRM Portal manual
 ---
 
-The Victron <abbr title="Victron Remote Monitoring">VRM</abbr> Forecasts {% term integration %} pulls solar production and consumption forecasts from [Victron Energy](https://www.victronenergy.com/)'s <abbr title="Victron Remote Monitoring">VRM</abbr> portal into Home Assistant. It provides day-ahead, next-hour, and six-day outlooks for both production and consumption. It also includes peak-time predictions. The integration requires at least 30 days of VRM history before forecasts become available.
+The Victron Remote Monitoring (VRM) {% term integration %} pulls site statistics, solar production and consumption forecasts from [Victron Energy](https://www.victronenergy.com/)'s <abbr title="Victron Remote Monitoring">VRM</abbr> portal into Home Assistant. It provides day-ahead, next-hour, and six-day outlooks for both production and consumption. It also includes peak-time predictions. The integration requires at least 30 days of VRM history before forecasts become available.
 
 ## Prerequisites
 
-- Victron VRM installation with a solar system and all consumption routed through inverters or a grid meter.
-- At least 30 days of data in VRM before forecasts appear.
 - VRM access token (keep this secret!). Create one in the VRM Portal under **Preferences** > **Integrations** > **Access tokens** or use [this link](https://vrm.victronenergy.com/access-tokens).
 - Access to your site(s) with the account used to create the token.
+
+### Forecast requirements
+
+- VRM installation with a solar system and all consumption routed through inverters or a grid meter.
+- At least 30 days of data in VRM before forecasts appear.
 
 {% important %}
 Your VRM access token grants full access to your VRM portal, including system control and data retrieval. Treat it like a password:
@@ -47,7 +50,7 @@ Your VRM access token grants full access to your VRM portal, including system co
 
 ## Data updates
 
-The Victron VRM Forecasts integration fetches fresh data from the VRM API every 60 minutes.
+The VRM integration fetches fresh data from the VRM API every 60 minutes.
 
 ## Sensor entities
 
@@ -74,14 +77,6 @@ The Victron VRM Forecasts integration fetches fresh data from the VRM API every 
 - Peak consumption time — Yesterday
 - Peak consumption time — Today
 - Peak consumption time — Tomorrow
-
-## Adding to the energy dashboard
-
-1. Go to **Dashboards** in the settings.
-2. Select the **Energy** dashboard.
-3. Under **Solar panels**, select the edit button of your solar installation.
-4. Select **Forecast production** and choose previously set up VRM Forecasts.
-5. Save; your dashboard will show forecasted values.
 
 ## Troubleshooting
 
