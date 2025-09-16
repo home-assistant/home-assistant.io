@@ -49,17 +49,17 @@ For the binary sensor, check the [type/class](/integrations/binary_sensor/) list
 Host:
   description: The IP address of the Satel Integra ETHM module.
 Port:
-  description: The port on which the ETHM module listens for clients using integration protocol.
+  description: The port on which the ETHM module listens for clients using the integration protocol.
 Code:
   description: Optional code that will be used to toggle switchable outputs.
 {% endconfiguration_basic %}
 
-## Partitions, zones, and outputs
+## Configuring partitions, zones, and outputs
 
-After setting up the connection details, partitions, zones, and outputs can be configured as **Subentries** on the {% my integration domain="satel_integra" title="**Satel Integra**" %} integration page.
+After setting up the connection details, you can configure partitions, zones, and outputs as **Subentries** on the {% my integration domain="satel_integra" title="**Satel Integra**" %} integration page.
 
-Click the 'Add partition', 'Add zone', 'Add output' or 'Add switchable output' buttons to create the respective entities and follow the config flow to set up the individual entities.
-Each partition will have its own alarm panel. Each zone and output will have a binary sensor, and a switch will be created for each switchable output.
+To create the respective entities, select the **Add partition**, **Add zone**, **Add output**, or **Add switchable output** buttons. Follow the instructions in the UI to set up the individual entities.
+**Result**: Each partition will have its own alarm panel. Each zone and output will have a binary sensor, and a switch will be created for each switchable output.
 
 Having configured the zones and the outputs, you can use them for automation, such as to react on the movement in your bedroom.
 For example:
