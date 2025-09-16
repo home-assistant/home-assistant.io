@@ -96,7 +96,7 @@ password:
   required: true
   type: string
 dhcp_software:
-  description: "The DHCP software (or /etc/ethers) used in your router: `dnsmasq`, `odhcpd`, `ethers` or `none`."
+  description: "The DHCP software (or /etc/ethers) used in your router: `dnsmasq`, `odhcpd`, `ethers`, or `none`."
   required: false
   default: dnsmasq
   type: string
@@ -106,7 +106,7 @@ ssl:
   default: false
   type: boolean
 verify_ssl:
-  description: "If SSL/TLS verification for HTTPS resources needs to be turned off (for self-signed certs, etc.)"
+  description: "If SSL/TLS verification for HTTPS resources needs to be turned off (for example for self-signed certificates)"
   required: false
   default: true
   type: boolean
