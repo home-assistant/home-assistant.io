@@ -54,10 +54,10 @@ The response variable is a dictionary with the following keys:
 - `media_source_id`: The [Media Source](/integrations/media_source/) content ID of the generated image.
 - `url`: The URL of the generated image, without the host part. The URL is only valid for one hour.
 - `revised_prompt`: Some models would overwrite the instructions to add more details or context. This is the actual prompt used by the image model.
-- `model`: The image model that was used for the image generation
-- `mime_type`: The MIME type of the image
-- `width`: The image width
-- `height`: The image height
+- `model`: The image model that was used for the image generation.
+- `mime_type`: The MIME type of the image.
+- `width`: The image width.
+- `height`: The image height.
 - `conversation_id`: The ID of the conversation used for the task.
 
 The image will also be saved in `config/ai_task/image/` directory and will be browsable with the Media Source integration.
