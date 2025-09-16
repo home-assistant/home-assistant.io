@@ -64,7 +64,7 @@ The Weatherflow tempest also sends out event triggers when it starts raining and
 This {% term integration %} will expose these {% term event entity %} and can be used for automations the following entity's will be exposed:
 
 - Lightning strike
-- Rain start
+- Precipitation start
 
 ## Diagnostic sensors
 
