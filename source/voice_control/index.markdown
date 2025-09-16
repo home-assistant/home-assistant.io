@@ -30,7 +30,7 @@ As for the rest of Home Assistant core functionalities, Assist can be personaliz
 
 <lite-youtube videoid="XF53wUbeLxA" videotitle="Voice at Home Assistant"></lite-youtube>
 
-## Getting Started
+## Getting started
 
 When you configure voice assistant hardware made for Home Assistant, it will use a wizard to help you configure your system and get started to use voice.
 
@@ -41,7 +41,7 @@ In case your hardware does not support our wizard, do not worry. Here are two de
 - [I plan to process my voice locally](/voice_control/voice_remote_local_assistant/)
 - [I plan to use Home Assistant Cloud](/voice_control/voice_remote_cloud_assistant/) (recommended as it is the simplest)
 
-## Expand and Experiment
+## Expand and experiment
 
 Once your setup is up and running and you follow the [best practices](/voice_control/best_practices), check all the possibilities we found for [Expanding your Assist setup](/voice_control/expanding_assist), and further experiment with different setups like [wake words](/voice_control/about_wake_word/). Do you want to talk to Super Mario? Or another figure? If you want Assist to respond in a fun way, you can create an assistant with an [AI personality](/voice_control/assist_create_open_ai_personality/).
 
