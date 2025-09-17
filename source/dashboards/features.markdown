@@ -139,7 +139,7 @@ type:
   required: true
   description: "`button`"
   type: string
-data:
+action_name:
   required: false
   type: string
   description: Text inside the button.
