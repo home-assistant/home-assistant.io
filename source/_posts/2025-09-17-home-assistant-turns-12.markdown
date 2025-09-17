@@ -24,7 +24,7 @@ First, I’m thrilled to share our new Community website! Right now, it’s a si
 
 *Feel like something’s missing from this new page? [Let me know](mailto:community@openhomefoundation.org)!*
 
-Next, we’ve been working hard to do more of our development in the open. Last September, I redesigned the Discord server and in doing so I gated the _Developer_ category behind a role. This has made it more difficult to develop in the open with the channels hidden behind a role, so we’re switching things up.
+Next, we’ve been working hard to do more of our development in the open. Last September, I redesigned the Discord server and in doing so I gated the *Developer* category behind a role. This has made it more difficult to develop in the open with the channels hidden behind a role, so we’re switching things up.
 
 As of this week, the Developer category is now **read-only** for every member. Want to take a peek into the future of Home Assistant? Head to the [#projects channel](https://discord.com/channels/330944238910963714/1346914401508392980) and see what contributors are talking about! Want to join in and contribute with either your feedback or skills? I’ve created [an info thread](https://discord.com/channels/330944238910963714/1346952081881436331) for the channel that explains how to assign yourself either the Developer or Designer role and unlock the ability to chat in the threads.
 
@@ -38,7 +38,7 @@ In my opinion, the best thing about Home Assistant is its flexibility - you can 
 
 - u/katschung helped their girlfriend fully accept Home Assistant by [creating a dashboard with a retrogame-style floor plan](https://www.reddit.com/r/homeassistant/comments/1hrkku1/pokemon_style_floorplan/). 🕹️
 
-- Sythsaz uses Home Assistant to make sure their pupper is fed. 🐾 “_I've managed to make it so my dog's food auto emails the vet then the response to the email gets put on my calendar so I know how long a bag of food lasts as well as adding the receipts to Google Drive._”
+- Sythsaz uses Home Assistant to make sure their pupper is fed. 🐾 “*I've managed to make it so my dog's food auto emails the vet then the response to the email gets put on my calendar so I know how long a bag of food lasts as well as adding the receipts to Google Drive.*”
 
 - Inspired by [PowerDisplayESPHome](https://github.com/johannyren/PowerDisplayESPHome/tree/main), JannickBlmndl [made an LED matrix](https://gitlab.com/JannickBlmndl/ESPHome-Dynamic-Prices-LEDMatrix) that helps their household be more sustainable by being energy flexible. It displays the live energy prices from their energy provider. 📊
 
@@ -56,12 +56,11 @@ In my opinion, the best thing about Home Assistant is its flexibility - you can 
 
 - Too many of us anthropomorphize our homes, telling it to chill out when five things break the same day. Biofects took that to heart and created this [Home Assistant avatar](https://streamable.com/hnoc63) for his home (here’s a bonus, nightmare fuel [first version](https://streamable.com/xah2va)). 🫣
 
-
 ## Developers! 👏🏻 Developers! 👏🏻 Developers! 👏🏻
 
 Our community is more than developers, it’s true. But we wouldn’t be the [largest open source project](https://github.blog/news-insights/octoverse/octoverse-2024/) on GitHub if we didn’t have a vibrant and active developer community. This ship sails largely due to their contributions, and we genuinely appreciate all of their efforts.
 
-That’s why we’re eager to interview community members when we open new roles at the foundation. We’ve employed community members like [Joostlek](https://github.com/joostlek) (who designed the new [Integration Quality Scale](https://developers.home-assistant.io/docs/core/integration-quality-scale/) and helps onboard new integrations into Core), [Timo](https://github.com/TimoPtr) (who is our first ever Android developer and has focused on [polishing the Android app](/blog/2025/07/23/companion-app-for-android/)), and [Maxim](https://github.com/maximmaxim345) (a talented developer from the Music Assistant community who works on both Music Assistant and ESPHome and is one of our newest additions to the team). Their contributions have helped shape how things work around here, but it was their contributions as community members that helped pave the way for their joining the foundation. These are just a select few of the _several_ new hires at the foundation who were active community members.
+That’s why we’re eager to interview community members when we open new roles at the foundation. We’ve employed community members like [Joostlek](https://github.com/joostlek) (who designed the new [Integration Quality Scale](https://developers.home-assistant.io/docs/core/integration-quality-scale/) and helps onboard new integrations into Core), [Timo](https://github.com/TimoPtr) (who is our first ever Android developer and has focused on [polishing the Android app](/blog/2025/07/23/companion-app-for-android/)), and [Maxim](https://github.com/maximmaxim345) (a talented developer from the Music Assistant community who works on both Music Assistant and ESPHome and is one of our newest additions to the team). Their contributions have helped shape how things work around here, but it was their contributions as community members that helped pave the way for their joining the foundation. These are just a select few of the *several* new hires at the foundation who were active community members.
 
 (Have you checked our [jobs page](https://jobs.ashbyhq.com/openhomefoundation/) recently to see what roles are open? 👀)
 
@@ -87,7 +86,7 @@ Honorable dev mention from the submitted community stories - I couldn’t leave 
 
 ## Our humble gratitude
 
-Community is the core of what we do and the heart of Home Assistant. We thrive because you care and contribute your valuable time to support our collective success. Whether you found our platform because you wanted more privacy from big tech, were intrigued by the number of choices implemented into a single app, or needed something to track your sustainability efforts — you support our values every day. Thanks for choosing us, and thank you for all you do to help support the foundation and the projects we maintain. 
+Community is the core of what we do and the heart of Home Assistant. We thrive because you care and contribute your valuable time to support our collective success. Whether you found our platform because you wanted more privacy from big tech, were intrigued by the number of choices implemented into a single app, or needed something to track your sustainability efforts — you support our values every day. Thanks for choosing us, and thank you for all you do to help support the foundation and the projects we maintain.
 
 A very special thanks to all our [Home Assistant Cloud](/cloud/) subscribers and anyone who has purchased our official Home Assistant hardware. These support the full-time development of Home Assistant (along with ESPHome, Music Assistant, and so much more), and are the easiest way to ensure these projects keep getting cool new features!
 
