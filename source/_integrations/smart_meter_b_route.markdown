@@ -28,7 +28,7 @@ Ensure that your power supply is not a bulk power supply for an apartment buildi
 
 1. Compatible USB dongle: 
     - Tested with the Wi-SUN USB dongle from [Ratoc Systems](https://www.ratocsystems.com/products/wisun/usb-wisun/rs-wsuha/).
-2. [B Route credentials from your utility company](#optaining-b-route-credentials).
+2. [B Route credentials from your utility company](#obtaining-b-route-credentials).
 3. Smart meter: 
     - A smart meter that supports the B Route protocol. 
     - If you are renting but do not have a smart meter equipped, you will need to contact your house management company, as the installation is free but may require permission.
