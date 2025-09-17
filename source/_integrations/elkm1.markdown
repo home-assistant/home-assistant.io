@@ -31,8 +31,7 @@ related:
   - docs: /docs/configuration/
     title: Configuration file
 ---
-
-The **Elk-M1 Control** {% term integration %} allows you to integrate Elk-M1 Gold and EZ8 alarm panels with Home Assistant. The Elk-M1 is a comprehensive home security and automation controller capable of alarm control panel functions and extensive automation features.
+The **Elk-M1 Control** {% term integration %} lets you connect your Elk-M1 Gold and EZ8 alarm panels to Home Assistant. These advanced home security and automation controllers offer robust alarm control panel capabilities, along with a wide range of automation features to help you manage and protect your home.
 
 The Elk-M1 controller is manufactured by [Elk Products](https://www.elkproducts.com).
 
@@ -493,24 +492,24 @@ The ElkM1 integration provides additional actions beyond the standard Home Assis
 The panel does not automatically send counter value updates under certain conditions. Use the refresh action to retrieve the current counter value.
 {% endnote %}
 
-| Data attribute | Optional | Description                                 |
+| Data attribute | Required | Description                                 |
 | -------------- | -------- | ------------------------------------------- |
-| `entity_id`    | yes      | ElkM1 counter to refresh or set             |
-| `value`        | no*      | Value to set the counter to (0-65536). *Required for `sensor_counter_set` only |
+| `entity_id`    | No       | ElkM1 counter to refresh or set             |
+| `value`        | Yes (for `sensor_counter_set`) | Value to set the counter to (0-65536) |
 
 #### Zone management
 
 - `elkm1.sensor_zone_bypass` - Bypass a zone
 - `elkm1.sensor_zone_trigger` - Trigger a zone virtually
 
+| Data attribute | Required | Description                                     |
+| -------------- | -------- | ----------------------------------------------- |
+| `entity_id`    | No       | ElkM1 zone to bypass or trigger                |
+| `code`         | Yes (for bypass only) | Alarm code (4 or 6 digits)                |
+
 {% note %}
 The only mechanism ElkM1 offers to clear zone bypass is to clear all bypassed zones in a given alarm panel (area).
 {% endnote %}
-
-| Data attribute | Optional | Description                                     |
-| -------------- | -------- | ----------------------------------------------- |
-| `entity_id`    | yes      | ElkM1 zone to bypass or trigger                |
-| `code`         | no*      | Alarm code (4 or 6 digits). *Required for bypass only |
 
 {% note %}
 The `sensor_zone_trigger` action creates a virtual momentary open condition on the zone as if the EOL hardwired loop had been physically opened.
