@@ -573,7 +573,7 @@ Features:
 
 ### Fans
 
-Fan entities are added for Battery Circulator Fan/Circulator Fan, Air Purifier, and Air Purifier Table
+Fan entities are added for Battery Circulator Fan/Circulator Fan
 
 #### Battery Circulator Fan/Circulator Fan
 
@@ -585,7 +585,11 @@ Features:
 - oscillate left and right
 - get battery level (Battery Circulator Fan only)
 
-#### Air Purifier
+### Air Purifiers
+
+Fan entities are added for Air Purifier, and Air Purifier Table.
+
+Air purifier currently supports three speed levels, which you can adjust by setting the mode.
 
 This is an encrypted device.
 

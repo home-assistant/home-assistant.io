@@ -363,7 +363,7 @@ The following models have been tested and confirmed to work with a direct link t
 - C2 Pro*
 - [CX410](https://reolink.com/product/cx410/)
 - [CX810](https://reolink.com/product/cx810/)
-- [E1 Pro](https://reolink.com/product/e1-pro/) (only hardware version IPC_NT1NA45MP)
+- [E1 Pro](https://reolink.com/product/e1-pro/) (5MP models - hardware version IPC_NT1NA45MP - or newer†)
 - [E1 Zoom](https://reolink.com/product/e1-zoom/)
 - [E1 Outdoor](https://reolink.com/product/e1-outdoor/)
 - [E1 Outdoor PoE](https://reolink.com/product/e1-outdoor-poe/)
@@ -420,6 +420,8 @@ The following models have been tested and confirmed to work with a direct link t
 - **Reolink Video Doorbell ([Wi-Fi Black](https://reolink.com/product/reolink-video-doorbell-wifi/), [Wi-Fi White](https://reolink.com/product/reolink-video-doorbell-wifi/))**
 
 *These models are discontinued and not sold anymore, they will continue to work with Home Assistant.
+
+†Requires a [camera hardware version](https://support.reolink.com/hc/en-us/articles/900000638583-Introduction-to-the-Hardware-Version-of-Reolink-Cameras/) that supports remote access.  All 5MP or newer E1 Pro models (where the hardware version includes "5MP") meet this requirement.  Most sellers (including ReoLink) do not explicitly state the hardware version, so verify the resolution is 5MP or greater to ensure compatibility.
 
 ### Tested battery-powered models
 
