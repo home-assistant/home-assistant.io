@@ -3,26 +3,10 @@
     flex-wrap: wrap;
     gap: 24px 40px;
 
-    &[data-dsap-seen] {
-        .stat {
-            .stat-value span {
-                //--num: attr(data-value type(#{'<number>'}));
-            }
-        }
-    }
-
     .stat {
         display: flex;
         flex-direction: column;
         min-width: 100px;
-
-        @for $i from 0 through 10 {
-            &:nth-child(#{$i + 1}) {
-                .stat-value span {
-                  //  transition-delay: #{$i * 0.15}s;
-                }
-            }
-        }
 
         .stat-value {
             @include h3;
@@ -30,17 +14,6 @@
             color: var(--color-secondary);
             display: flex;
             gap: 4px;
-
-            span {
-                --num: 0;
-
-                transition: --num 1.5s ease-out;
-                counter-reset: num var(--num);
-
-                &::after {
-                    content: counter(num);
-                }
-            }
         }
 
         .stat-label {
