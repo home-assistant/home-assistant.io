@@ -1,11 +1,4 @@
-@property --num {
-    syntax: '<integer>';
-    initial-value: 0;
-    inherits: false;
-}
-
 .stats {
-
     display: flex;
     flex-wrap: wrap;
     gap: 24px 40px;
@@ -13,7 +6,7 @@
     &[data-dsap-seen] {
         .stat {
             .stat-value span {
-                --num: attr(data-value type(#{'<number>'}));
+                //--num: attr(data-value type(#{'<number>'}));
             }
         }
     }
@@ -26,7 +19,7 @@
         @for $i from 0 through 10 {
             &:nth-child(#{$i + 1}) {
                 .stat-value span {
-                    transition-delay: #{$i * 0.15}s;
+                  //  transition-delay: #{$i * 0.15}s;
                 }
             }
         }
