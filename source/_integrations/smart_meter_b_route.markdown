@@ -19,28 +19,28 @@ The **Smart Meter B Route** {% term integration %} allows you to access the data
 
 ## Overview
 
-This integration enables you to access and monitor your household energy consumption data from a smart meter using the B Route protocol in Home Assistant. You'll need a compatible USB dongle and your B Route credentials to set up this integration. It has been tested for the Japanese market.
+This integration enables you to access and monitor your household energy consumption data from a smart meter using the B Route protocol in Home Assistant. You'll need a compatible USB dongle and your B Route credentials to set up this integration. It has been tested for the Japanese market and most households are eligible, the installation of a smart meter is free. You can find some information by TEPCO [here](https://www.tepco.co.jp/en/pg/development/domestic/smartmeter-e.html) but other utility companies may have similar pages.
 
 ## Prerequisites
 
-1. **Compatible USB Dongle**: Tested with the Wi-SUN USB dongle from [Ratoc Systems](https://www.ratocsystems.com/products/wisun/usb-wisun/rs-wsuha/).
-2. **B Route Credentials**: Obtain your B Route credentials from your utility company.
-3. **Smart Meter**: A smart meter that supports the B Route protocol. If you are renting, you will need to contact your house management company, as the installation is free but may require permission.
+Even if you have a contract with a new power provider, you can still use this service by applying to the regional utility company (for example, TEPCO in Tokyo).
+Ensure that your power supply is not a bulk power supply for an apartment building.
+
+1. **Compatible USB dongle**: Tested with the Wi-SUN USB dongle from [Ratoc Systems](https://www.ratocsystems.com/products/wisun/usb-wisun/rs-wsuha/).
+2. **B Route credentials**: Obtain your B Route credentials from your utility company.
+3. **Smart meter**: A smart meter that supports the B Route protocol. If you are renting but do not have a smart meter equipped, you will need to contact your house management company, as the installation is free but may require permission.
 
 {% include integrations/config_flow.md %}
 
-## Signal Reach
+### Signal reach
 
 The Wi-SUN USB dongle has a typical signal reach of approximately 50 meters indoors and up to 200 meters outdoors, depending on environmental factors such as walls, interference, and other obstacles.
 
-## Obtaining B Route Credentials
+## Obtaining B Route credentials
 
-1. **Contact Your Utility Company**: Reach out to your electricity provider and request your B Route credentials. For example, if you live in Tokyo, contact TEPCO.
-2. **Provide Necessary Information**: You may need to provide your smart meter ID, customer ID, or other identifying information.
-3. **Receive Credentials**: Your utility company will provide you with a user ID and password for accessing the B Route data.
-
-Even if you have a contract with a new power provider, you can still use this service by applying to the regional utility company (for example, TEPCO in Tokyo).
-Ensure that your power supply is not a bulk power supply for an apartment building.
+1. **Contact your utility company**: Reach out to your electricity provider and request your B Route credentials. For example, if you live in Tokyo, contact TEPCO.
+2. **Provide necessary information**: You may need to provide your smart meter ID, customer ID, or other identifying information.
+3. **Receive credentials**: Your utility company will provide you with a user ID and password for accessing the B Route data.
 
 Refer to the links below to apply for your B Route credentials:
 
