@@ -71,6 +71,9 @@
                 }
             });
         }, { threshold: 0.1 });
-        observer.observe(document.querySelector("#global .stats"));
+        const statsElement = document.querySelector("#global .stats");
+        if (statsElement) {
+            observer.observe(statsElement);
+        }
     });
 </script>
