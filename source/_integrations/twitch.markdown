@@ -14,7 +14,7 @@ ha_codeowners:
 ha_config_flow: true
 ---
 
-The **Twitch** {% term integration %} allows you to monitor [Twitch](https://www.twitch.tv/) channel status from within Home Assistant and setup automation based on the information.
+The **Twitch** {% term integration %} allows you to monitor [Twitch](https://www.twitch.tv/) channel status from within Home Assistant and set up automation based on the information.
 
 ## Get Twitch application credentials
 
