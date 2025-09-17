@@ -6,7 +6,7 @@ date: 2025-09-17 00:00:01
 date_formatted: "September 17, 2025"
 author: Missy Quarry
 comments: true
-categories: Works-with-Home-Assistant
+categories: Announcements
 og_image: /images/blog/2025-09-12th-anniversary/art.webp
 ---
 
