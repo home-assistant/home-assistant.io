@@ -172,11 +172,11 @@ The integration does not provide the ability to reboot, which can instead be don
 
 When trying to set up the integration, the form shows the message “This device can’t be reached”.
 
-##### Description
+#### Description
 
 This means the settings on the device are incorrect, since the device needs to be enabled for local communication.
 
-##### Resolution
+#### Resolution
 
 To resolve this issue, try the following steps:
 
