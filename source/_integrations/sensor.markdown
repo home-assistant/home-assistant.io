@@ -49,7 +49,7 @@ The following device classes are supported for sensors:
 
 - **None**: Generic sensor. This is the default and doesn't need to be set.
 - **absolute_humidity**: Absolute humidity in g/m³, mg/m³.
-- **apparent_power**: Apparent power in mVA or VA.
+- **apparent_power**: Apparent power in mVA, VA or kVA.
 - **aqi**: Air Quality Index (unitless).
 - **area**: Area in m², cm², km², mm², in², ft², yd², mi², ac, ha
 - **atmospheric_pressure**: Atmospheric pressure in cbar, bar, hPa, mmHg, inHg, kPa, mbar, Pa or psi
@@ -68,7 +68,7 @@ The following device classes are supported for sensors:
 - **energy_storage**: Stored energy in J, kJ, MJ, GJ, mWh, Wh, kWh, MWh, GWh, TWh, cal, kcal, Mcal, or Gcal
 - **enum**: Has a limited set of (non-numeric) states
 - **frequency**: Frequency in Hz, kHz, MHz, or GHz
-- **gas**: Gas volume in L, m³, ft³ or CCF
+- **gas**: Gas volume in L, m³, ft³, CCF, or MCF
 - **humidity**: Percentage of humidity in the air in %
 - **illuminance**: The current light level in lx
 - **irradiance**: Irradiance in W/m² or BTU/(h⋅ft²)
@@ -86,7 +86,7 @@ The following device classes are supported for sensors:
 - **power**: Power in mW, W, kW, MW, GW or TW
 - **precipitation**: Accumulated precipitation in cm, in or mm
 - **precipitation_intensity**: Precipitation intensity in in/d, in/h, mm/d or mm/h
-- **pressure**: Pressure in Pa, kPa, hPa, bar, cbar, mbar, mmHg, inHg or psi
+- **pressure**: Pressure in Pa, kPa, hPa, bar, cbar, mbar, mmHg, inHg, inH₂O or psi
 - **reactive_energy**: Reactive energy in varh or kvarh
 - **reactive_power**: Reactive power in mvar, var, or kvar
 - **signal_strength**: Signal strength in dB or dBm
@@ -98,10 +98,10 @@ The following device classes are supported for sensors:
 - **volatile_organic_compounds**: Concentration of volatile organic compounds in µg/m³ or mg/m³
 - **volatile_organic_compounds_parts**: Ratio of volatile organic compounds in ppm or ppb
 - **voltage**: Voltage in V, mV, µV, kV, MV
-- **volume**: Generic volume in L, mL, gal, fl. oz., m³, ft³, or CCF
-- **volume_flow_rate**: Volume flow rate in m³/h, m³/s, ft³/min, L/h, L/min, L/s, gal/min, or mL/s
-- **volume_storage**: Generic stored volume in L, mL, gal, fl. oz., m³, ft³, or CCF
-- **water**: Water consumption in L, gal, m³, ft³, or CCF
+- **volume**: Generic volume in L, mL, gal, fl. oz., m³, ft³, CCF, or MCF
+- **volume_flow_rate**: Volume flow rate in m³/h, m³/min, m³/s, ft³/min, L/h, L/min, L/s, gal/min, or mL/s
+- **volume_storage**: Generic stored volume in L, mL, gal, fl. oz., m³, ft³, CCF, or MCF
+- **water**: Water consumption in L, gal, m³, ft³, CCF, or MCF
 - **weight**: Generic mass in kg, g, mg, µg, oz, lb, or st
 - **wind_direction**: Wind direction in °
 - **wind_speed**: Wind speed in Beaufort, ft/s, km/h, kn, m/s, or mph

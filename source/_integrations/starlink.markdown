@@ -38,13 +38,13 @@ The Starlink integration allows you to integrate your [Starlink](https://www.sta
 - Ping drop rate - The percentage of failed ping requests (aka "dropped"). This is the inverse of "Uptime" in the Starlink app.
 - Azimuth - The direction Dishy is facing in degrees
 - Elevation - Dishy's current elevation in degrees
-- Uplink throughput - The amount of data being uploaded through Starlink
-- Downlink throughput - The amount of data being downloaded through Starlink
+- Uplink throughput - The amount of data being uploaded through user terminal
+- Downlink throughput - The amount of data being downloaded through user terminal
 - Last boot time - The time Starlink was last turned on
-- Upload - Total number of bytes uploaded from the user terminal since reboot
-- Download - Total number of bytes downloaded to the user terminal since reboot
+- Upload - Total number of bytes uploaded through user terminal
+- Download - Total number of bytes downloaded through user terminal
 - Power - Last measured power, in W
-- Energy - Measured energy consumption since reboot, in kWh
+- Energy - Energy consumption, in kWh
 
 ### Binary sensors
 

@@ -4,7 +4,7 @@ description: Instructions on how to integrate Sleep as Android with Home Assista
 ha_category:
   - Event
   - Sensor
-ha_iot_class: Local push
+ha_iot_class: Local Push
 ha_release: 2025.9
 ha_config_flow: true
 ha_codeowners:
@@ -12,6 +12,7 @@ ha_codeowners:
 ha_domain: sleep_as_android
 ha_integration_type: integration
 ha_platforms:
+  - diagnostics
   - event
   - sensor
 ha_quality_scale: silver

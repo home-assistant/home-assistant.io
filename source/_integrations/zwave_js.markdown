@@ -44,6 +44,11 @@ ha_platforms:
   - update
 ha_integration_type: hub
 ha_zeroconf: true
+related:
+  - docs: /connect/zwa-2
+    title: Home Assistant Connect ZWA-2 Z-Wave adapter
+  - docs: /docs/z-wave/controllers/
+    title: Other Z-Wave adapters
 ---
 
 The **Z-Wave** {% term integration %} allows you to control a Z-Wave network from Home Assistant via the [Z-Wave JS](https://zwave-js.github.io/node-zwave-js/#/) driver.
@@ -58,25 +63,17 @@ This sections shows you how to set up a Z-Wave JS server and how to add your fir
 
 ### Z-Wave terminology and Home Assistant
 
-Throughout this documentation, Home Assistant terminology is used. For some of the concepts, the terminology does not correspond to the terminology used in Z-Wave documentation. The table below provides equivalents for some of those terms.
+Throughout this documentation, Home Assistant terminology is used. For some of the concepts, the terminology does not correspond to the terminology used in Z-Wave documentation. The table below provides equivalents for some of those terms. For more Z-Wave term definitions, refer to the [terminology section](#z-wave-terminology).
 
 | Z-Wave functionality | Home Assistant | Definition |
 | -------------------- | -------------- | ---------- |
 | barrier operator | cover | |
 | controller | adapter, when referring to the hardware device that provides the Z-Wave functionality. The term controller is still used when referring to the network role (such as primary, secondary controller)  | |
 | exclusion | remove | The process of removing a node from the Z-Wave network |
-| inclusion | add | The process of adding a node to the Z-Wave network |
+| [inclusion](#classic-inclusion-versus-smartstart) | add | The process of adding a node to the Z-Wave network |
 | multilevel switch | represented by different entity types: light, fan etc. | |
 | replication | copy (not supported in Home Assistant) | The process of copying network information from one adapter to another. Not supported in Home Assistant. |
 | window covering | cover | |
-
-#### Classic inclusion versus SmartStart
-
-Home Assistant supports both _classic inclusion_ and _SmartStart_. _Classic inclusion_ means you set both the hub and the device to be included into the corresponding mode. The alternative is _SmartStart_, where the hub is constantly listening for inclusion requests from devices that want to join the network.
-
-#### Related topics
-
-For more Z-Wave term definitions, refer to the [terminology section](#z-wave-terminology).
 
 ### Prerequisites
 
@@ -90,7 +87,7 @@ To run a Z-Wave network, you need the following elements:
 
 If you are running {% term "Home Assistant Operating System" %} or {% term "Home Assistant Supervised" %}, the easiest way to get started is by using the built-in Z-Wave JS add-on in Home Assistant.
 
-For other ways to setup a Z-Wave server, refer to the [advanced installation instructions](#about-installation-instructions).
+For other ways to setup a Z-Wave server, refer to the [advanced installation instructions](#advanced-installation-instructions).
 
 Follow these steps:
 
@@ -142,9 +139,15 @@ While your Z-Wave mesh is permanently stored on your adapter, the additional met
    - Find the QR code. It can be on the packaging or on the device itself.
 5. Depending on whether your device supports SmartStart, follow the steps in either option 1 or 2:
    - **Option 1: your device supports SmartStart**:
+     - Make sure the device is turned off.
      - Select **Scan QR code** and scan the QR code on your device.
-     - If scanning does not work (for example due to missing HTTPS), paste the QR code content as text from a different QR reader and select **Submit**.
-     - Turn the device on. If it was already on, you might need to power-cycle it.
+       - **Troubleshooting**: If scanning does not work (for example due to missing HTTPS), paste the QR code content as text from a different QR reader and select **Submit**.
+     - If the device supports Z-Wave Long Range, you're prompted to choose the network type.
+       - **Long Range**: If it is far away from other devices, or that spot has had connection issues in the past. It might also help preserve battery life.
+       - **Mesh**: If you already have a mesh network. Adding it can enhance coverage and reliability of this network.
+       - You can always remove and pair the device again to switch to the other network type.
+     - Turn the device on and set it into inclusion mode.
+       - If it was already on, you might need to power-cycle it.
    - **Option 2: your device does not support SmartStart**:
      - Set the device in inclusion mode. Refer to the device manual to see how this is done.
      - If your device is included using S2 security, you may be prompted to enter a PIN number provided with your device. Often, this PIN is provided with the documentation _and_ is also printed on the device itself. For more information on secure inclusion, refer to [this section](/integrations/zwave_js/#should-i-use-secure-inclusion).
@@ -182,26 +185,32 @@ You cannot run two Z-Wave adapters simultaneously using the same add-on. If you 
 
 - Administrator rights in Home Assistant
 
-#### Device specific prerequisites
+#### Device-specific prerequisites
 
-- **Important**: If you want to migrate from a **500 series** adapter, before starting migration, you need to update the adapter to SDK 6.61+
-  - Check the documentation of your device to see if and how they can be updated.
-  - [Steps to update Aeotec Z-Stick 5](https://aeotec.freshdesk.com/support/solutions/articles/6000252294-z-stick-gen5-v1-02-firmware-update).
+{% details "Migrating from a 500 series adapter" %}
 
-- If you want to migrate from a **Nortek HUSBZB-1**:
+Before starting migration, you need to update the adapter to SDK 6.61+
 
-  - There is no easy way to update that device.
-  - You need to set up a new network.
-  - If you are comfortable with soldering: some users have reported that they were able to upgrade the firmware of the **Nortek HUSBZB-1** with [this update procedure (requires soldering)](https://community.hubitat.com/t/guide-nortek-husbzb-1-nvm-backup-restore-and-updating-z-wave-firmware/48012).
-    - The procedure is very involved. Most likely, starting from scratch is quicker.
+- Check the documentation of your device to see if and how they can be updated.
+- [Steps to update Aeotec Z-Stick 5](https://aeotec.freshdesk.com/support/solutions/articles/6000252294-z-stick-gen5-v1-02-firmware-update).
+
+{% enddetails %}
+
+{% details "Migrating from a Nortek HUSBZB-1 adapter" %}
+
+There is no easy way to update that device.
+
+- You need to set up a new network.
+- If you are comfortable with soldering:
+  - Some users have reported that they were able to upgrade the firmware of the **Nortek HUSBZB-1** with [this update procedure (requires soldering)](https://community.hubitat.com/t/guide-nortek-husbzb-1-nvm-backup-restore-and-updating-z-wave-firmware/48012).
+  - The procedure is very involved. Most likely, starting from scratch is quicker.
+
+{% enddetails %}
 
 ### To migrate a Z-Wave network to a new adapter
 
-1. If you want to migrate from a **500 series** adapter, before starting migration, you need to update the adapter to SDK 6.61+
-   - Check the documentation of your device to see if and how they can be updated.
-   - [Steps to update Aeotec Z-Stick 5](https://aeotec.freshdesk.com/support/solutions/articles/6000252294-z-stick-gen5-v1-02-firmware-update).
-2. In Home Assistant, go to {% my integrations title="**Settings** > **Devices & services**" %}.
-3. Connect your new adapter.
+1. In Home Assistant, go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Connect your new adapter.
    - Plug in your new adapter.
    - **Result**: The adapter should be discovered and show up in the **Discovered section**.
    - Select **Add** and follow the instructions on screen.
@@ -211,13 +220,17 @@ You cannot run two Z-Wave adapters simultaneously using the same add-on. If you 
      3. Under **Backup and restore**, select **Migrate adapter**.
      4. Select **Migrate to a new adapter**.
         - To confirm, select **Submit**.
-4. When the **Unplug your adapter** dialog shows up, unplug your old adapter.
+3. When the **Unplug your adapter** dialog shows up, unplug your old adapter.
    - It is important to remove the old device now, as it might interfere with the new one. Even though it might not throw an error immediately, it might cause issues.
-5. Follow the steps on screen.
-6. Once the migration has completed, check if you want to rename the adapter. If you have previously changed the name, the new adapter might keep the name of the old adapter.
+4. Follow the steps on screen.
+5. Once the migration has completed, check if you want to rename the adapter. If you have previously changed the name, the new adapter might keep the name of the old adapter.
    - In the top-left corner, select the back button to go back to the integration page.
    - In the list of devices, check the device name.
    - To change the device name, select the {% icon "mdi:pencil" %} button.
+
+The video below shows how a Z-Wave network is migrated to a Home Assistant Connect ZWA-2:
+
+<lite-youtube videoid="3-1YV9i5M30" videotitle="Example showing how to migrate to a Home Assistant Connect ZWA-2" posterquality="maxresdefault"></lite-youtube>
 
 ## Overriding the radio frequency region of the adapter in the Z-Wave JS add-on
 
@@ -236,6 +249,11 @@ If you are using the Z-Wave JS add-on, Home Assistant automatically changes the 
 1. Go to {% my supervisor_addon addon="core_zwave_js" title="**Settings** > **Add-ons** > **Z-Wave JS**" %}.
 2. Open the **Configuration** tab.
 3. In the **Options** section, select the **Radio Frequency Region**.
+   - **Automatic** sets the region based on the location defined under {% my general title="**Settings** > **System** > **General**" %}.
+   - For regions where Long Range is available, it uses Long Range if the adapter supports it.
+   - If you set regions manually, choose one of the Long Range options where available:
+     - **Europe (Long Range)** or **USA (Long Range)**.
+   - Even with the Long Range option selected, you can still add devices that don't support Long Range.
 4. To apply your changes, select **Save**.
    - Your Z-Wave adapter is now ready to communicate with devices that were specified for your chosen region.
 5. To return to the default setting and use the region defined by Home Assistant, under **Radio Frequency Region** choose **Automatic**.
@@ -334,7 +352,9 @@ It is recommended to back up your Z-Wave network before resetting the device.
 
 
     ![Screenshot showing the device panel of a Z-Wave adapter](/images/integrations/z-wave/z-wave-controller-commands.png)
-4. Once the process is finished, you can use this adapter to start a new network, or pass it on to someone else.
+4. On the device info page, check the logbook. When you see that the status entity became unavailable, the reset process is finished.
+   - You can now unplug the adapter and use it to start a new network, or pass it on to someone else.
+5. If you no longer need the Z-Wave integration, you can [remove it](#removing-z-wave-js-from-home-assistant) from Home Assistant.
 
 ## Special Z-Wave entities
 
@@ -1260,10 +1280,14 @@ An _association_ in Z-Wave terminology is when two or more Z-Wave products commu
 
 An _association group_ in Z-Wave terminology is a group of devices that another one will send commands to in certain situations. Association groups and their functionality are specific to the device that sends the commands. Refer to the device manual for details.
 
+### Classic inclusion versus SmartStart
+
+Home Assistant supports both _classic inclusion_ and _SmartStart_. _Classic inclusion_ means you set both the hub and the device to be included into the corresponding mode. The alternative is _SmartStart_, where the hub is constantly listening for inclusion requests from devices that want to join the network.
+
 ### SmartStart
 
 SmartStart enabled products can be added into a Z-Wave network by scanning the Z-Wave QR Code present on the product with an adapter supporting SmartStart inclusion.
-No further action is required and the SmartStart product will be added automatically within 10 minutes of being switched on in the network vicinity. Not all devices support SmartStart. Some devices require [classic inclusion](#classic-inclusion-versus-smartstart). For documentation on adding a device to Home Assistant, refer to [adding a new device to the Z-Wave network](#adding-a-new-device-to-the-z-wave-network).
+No further action is required and the SmartStart product will be added automatically within 10 minutes of being switched on in the network vicinity. Not all devices support SmartStart. Some devices require *classic inclusion*. For documentation on adding a device to Home Assistant, refer to [adding a new device to the Z-Wave network](#adding-a-new-device-to-the-z-wave-network).
 
 ### Terminology mapping table
 

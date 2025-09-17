@@ -13,6 +13,7 @@ ha_integration_type: service
 ha_platforms:
   - ai_task
   - conversation
+ha_quality_scale: bronze
 ---
 
 The [OpenRouter](https://openrouter.ai/) {% term integration %} allows you to use the OpenRouter API as a conversation agent in Home Assistant.
