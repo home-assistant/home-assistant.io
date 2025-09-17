@@ -22,6 +22,24 @@
     }
 }
 
+footer{
+    isolation: isolate;
+    position: relative;
+    &:before{
+        content: '';
+        position: absolute;
+        height: 500px;
+        left: 0;
+        right: 0;
+        bottom: 100%;
+        background: linear-gradient(180deg, #F5F6FA 0%, #FFFFFF 100%);
+    }
+}
+
+html{
+    scroll-padding-top: 92px;
+}
+
 #landingpage {
     background-color: #F5F6FA;
     color: #002332;
@@ -30,6 +48,7 @@
 
     .page-content {
         overflow-x: clip;
+        padding-top: 68px;
     }
 
     .content {
@@ -50,10 +69,11 @@
 
 section {
     padding: var(--section-spacing-y) 0;
+    position: relative;
+    z-index: 1;
 }
 
 main#page-community {
-
     h1,
     .h1 {
         @include h1;
