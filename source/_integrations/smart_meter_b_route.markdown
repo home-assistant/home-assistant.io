@@ -15,7 +15,7 @@ ha_config_flow: true
 ha_integration_type: device
 ---
 
-The Smart Meter B Route integration allows you to access the data of your smart meter using the B Route protocol.
+The **Smart Meter B Route** {% term integration %} allows you to access the data of your smart meter using the B Route protocol.
 
 ## Overview
 
