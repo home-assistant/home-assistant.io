@@ -25,16 +25,16 @@ The Victron Remote Monitoring (VRM) {% term integration %} pulls site statistics
 
 ## Prerequisites
 
-- VRM access token (keep this secret!). Create one in the VRM Portal under **Preferences** > **Integrations** > **Access tokens** or use [this link](https://vrm.victronenergy.com/access-tokens).
+- <abbr title="Victron Remote Monitoring">VRM</abbr> access token (keep this secret!). Create one in the VRM Portal under **Preferences** > **Integrations** > **Access tokens** or use [this link](https://vrm.victronenergy.com/access-tokens).
 - Access to your site(s) with the account used to create the token.
 
 ### Forecast requirements
 
-- VRM installation with a solar system and all consumption routed through inverters or a grid meter.
+- <abbr title="Victron Remote Monitoring">VRM</abbr> installation with a solar system and all consumption routed through inverters or a grid meter.
 - At least 30 days of data in VRM before forecasts appear.
 
 {% important %}
-Your VRM access token grants full access to your VRM portal, including system control and data retrieval. Treat it like a password:
+Your <abbr title="Victron Remote Monitoring">VRM</abbr> access token grants full access to your VRM portal, including system control and data retrieval. Treat it like a password:
 
 - Do not share it.
 - Rotate it immediately if you suspect compromise.
@@ -44,13 +44,13 @@ Your VRM access token grants full access to your VRM portal, including system co
 
 ## Setup notes
 
-1. When prompted, paste your VRM access token.
+1. When prompted, paste your <abbr title="Victron Remote Monitoring">VRM</abbr> access token.
 2. After validation, the integration automatically fetches the list of sites available to that token.
 3. Select your site from the dropdown and finish the setup.
 
 ## Data updates
 
-The VRM integration fetches fresh data from the VRM API every 60 minutes.
+The <abbr title="Victron Remote Monitoring">VRM</abbr> integration fetches fresh data from the VRM API every 60 minutes.
 
 ## Sensor entities
 
@@ -90,7 +90,7 @@ This usually means that the token used is invalid or expired.
 
 #### Resolution
 
-Verify that you're logged in with the correct VRM account, then try the following steps:
+Verify that you're logged in with the correct <abbr title="Victron Remote Monitoring">VRM</abbr> account, then try the following steps:
 
 1. Log in to the VRM portal and under **Preferences** > **Integrations** > **Access tokens** (or use [this link](https://vrm.victronenergy.com/access-tokens)), remove the current token if present.
 2. Generate a new token by selecting **Add** on the same page, enter the token name, leave the expiry date empty, and select **Create token**.
@@ -106,7 +106,7 @@ The integration could not find any sites or installations associated with your a
 
 #### Resolution
 
-Verify that you're logged in with the correct VRM account and that you have permission to access the desired sites or installations.
+Verify that you're logged in with the correct <abbr title="Victron Remote Monitoring">VRM</abbr> account and that you have permission to access the desired sites or installations.
 
 ### Can't find sensors
 
@@ -120,7 +120,7 @@ The integration cannot retrieve forecast data.
 
 1. Check the logs and the **Settings** > **Devices & services** page for any errors.
 2. Check if you still have permission to access the desired site or installation.
-3. If you reset or just set up the VRM Forecasts, there might be a delay of up to 30 days before data appears.
+3. If you reset or just set up the <abbr title="Victron Remote Monitoring">VRM</abbr> Forecasts, there might be a delay of up to 30 days before data appears.
 
 ## Removing the integration
 
@@ -128,4 +128,4 @@ This integration follows standard integration removal.
 
 {% include integrations/remove_device_service.md %}
 
-After deleting the integration, go to the VRM Portal under **Preferences** > **Integrations** > **Access tokens** or use [this link](https://vrm.victronenergy.com/access-tokens) to remove the token.
+After deleting the integration, go to the <abbr title="Victron Remote Monitoring">VRM</abbr> Portal under **Preferences** > **Integrations** > **Access tokens** or use [this link](https://vrm.victronenergy.com/access-tokens) to remove the token.
