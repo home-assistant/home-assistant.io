@@ -61,7 +61,7 @@ By default, the data you get is the total consumption since an unknown date in t
 
 ## Get your monthly cost data
 
-To get your monthly cost data, you can use the [template sensor](/integrations/template/) {% term integration %} along with the [utility_meter](/integrations/utility_meter/) {% term integration %}. You will need to know your electricity rate (cost per kWh) to calculate the cost. For instance, if you are using Tokyo Gas and have a price depending on your usage, you can use the following template with a unit of measurement set to your currency per kWh (e.g., JPY/kWh) and the appropriate sensor name:
+To get your monthly cost data, you can use the [template sensor](/integrations/template/) {% term integration %} along with the [utility_meter](/integrations/utility_meter/) {% term integration %}. You will need to know your electricity rate (cost per kWh) to calculate the cost. For instance, if you are using Tokyo Gas and have a price depending on your usage, you can use the following template with a unit of measurement set to your currency per kWh (for example, JPY/kWh) and the appropriate sensor name:
 
 ```yaml
 {% raw %}
