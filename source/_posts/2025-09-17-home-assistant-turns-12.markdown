@@ -73,7 +73,7 @@ Here are some fun stats from our GitHub contributors ([commits on our Core repo]
 
 A SPECIAL CONGRATULATIONS to [bdraco](https://github.com/bdraco), who just last week surpassed [balloob](https://github.com/balloob) (the founder of Home Assistant) as the contributor with the most commits!
 
-<div class="contain">
+<div class="contain nb">
     <img src="/images/blog/2025-09-12th-anniversary/contributors.webp" alt="Top 8 contributors of all time for home-assistant/core" style="width:100%;max-width:700px;">
     The top 8 contributors of all time in home-assistant/core👏🏻
 </div>
