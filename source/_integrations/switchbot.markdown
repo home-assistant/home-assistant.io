@@ -263,7 +263,7 @@ Features:
 
 ### Cover
 
-Cover entities are added for Curtain, Curtain 3, Blind Tilt, Roller Shade and Garage Door Opener.
+Cover entities are added for Curtain, Curtain 3, Blind Tilt, Roller Shade, and Garage Door Opener.
 
 #### Curtain
 
@@ -362,7 +362,7 @@ Features:
 - get battery level
 
 #### Garage Door Opener
-The garage door support controlling both cover and button.
+The garage door opener supports controlling both cover and button.
 
 Features:
 
