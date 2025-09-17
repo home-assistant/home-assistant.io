@@ -60,17 +60,7 @@ The response variable is a dictionary with the following keys:
 - `height`: The image height.
 - `conversation_id`: The ID of the conversation used for the task.
 
-The image will also be saved in `config/ai_task/image/` directory and will be browsable with the Media Source integration.
-
-Directory Structure:
-
-```text
-config/
-└── ai_task/
-    └── image/
-        ├── 2025-01-19_123456_task-name.png
-        └── 2025-01-19_134567_another-task.jpg
-```
+The image will also be saved in the first media directory and will be browsable with the Media Source integration.
 
 File Naming Convention:
 - Format: `{date}_{time}_{sanitized_task_name}.{ext}`
