@@ -38,6 +38,8 @@ works_with:
 
 The integration allows you to control [Reolink](https://reolink.com/) NVRs or cameras. Reolink cameras are known for their local storage, without the need for a cloud subscription or account. Reolink cameras can operate fully locally on your network, putting privacy first. When blocking internet access for the Reolink devices, the Home Assistant integration, as well as the Reolink app/client, will continue to work as usual. Reolink cameras provide excellent day- and nighttime video clarity at an affordable price. An SD card in the camera offers local recording, while an optional Reolink NVR/Hub can offer a large recording capacity indoors. As evident by the list of entities in this documentation, Reolink cameras are highly configurable and tightly integrated into Home Assistant.
 
+This integration is officially authorized by Reolink, with @StarkillerOG as the main developer, and it is built with the support of Reolink's official resources.
+
 ## Prerequisites
 
 A brand new Reolink camera needs to be connected to the network and initialized. During initialization, the camera's credentials need to be set. Refer to the [Initial setup](#initial-setup) section for detailed instructions.
