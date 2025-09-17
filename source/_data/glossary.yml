@@ -79,7 +79,7 @@
     Home Assistant has built-in functionality to create files containing a copy
     of your configuration. This can be used to restore your Home Assistant as
     well as migrate to a new system. The backup feature is available for all
-    [installation types](/installation/#about-installation-methods).
+    [installation types](/installation/#about-installation-types).
   link: /common-tasks/general/#backups
   aliases:
     - backups
@@ -307,23 +307,23 @@
     Home Assistant Container is a standalone container-based installation of
     Home Assistant Core. Any [OCI](https://opencontainers.org/) compatible
     runtime can be used, but the documentation focus is on Docker.
-  link: /installation/#about-installation-methods
+  link: /installation/#about-installation-types
 - term: Home Assistant Core
   definition: >-
     Home Assistant Core is the Python program at the heart of Home Assistant. It
     is part of all installation types. It can be installed standalone (without Home Assistant
     Supervisor) as a container using Docker (this is typically referred to as the Home Assistant
-    Container installation method). For development, Core can also be run using a Virtual
-    Environment (previously referred as the Home Assistant Core installation method.
-    For production setup, the [Home Assistant Core installation method is deprecated](https://www.home-assistant.io/blog/2025/05/22/deprecating-core-and-supervised-installation-methods-and-32-bit-systems/).
+    Container installation type). For development, Core can also be run using a Virtual
+    Environment (previously referred as the Home Assistant Core installation type.
+    For production setup, the [Home Assistant Core installation type is deprecated](https://www.home-assistant.io/blog/2025/05/22/deprecating-core-and-supervised-installation-methods-and-32-bit-systems/).
 - term: Home Assistant Supervised
   definition: >-
-    The Home Assistant Supervised installation method is a full UI managed home automation ecosystem
+    The Home Assistant Supervised installation type is a full UI managed home automation ecosystem
     that runs the Home Assistant Core program, the Home Assistant Supervisor and
     add-ons. It comes pre-installed on Home Assistant OS, but can be installed
     standalone on Debian Linux systems. It leverages Docker, which is managed by
     the Home Assistant Supervisor. The
-    [Home Assistant Supervised installation method is deprecated](https://www.home-assistant.io/blog/2025/05/22/deprecating-core-and-supervised-installation-methods-and-32-bit-systems/).  
+    [Home Assistant Supervised installation type is deprecated](https://www.home-assistant.io/blog/2025/05/22/deprecating-core-and-supervised-installation-methods-and-32-bit-systems/).  
 - term: Home Assistant Supervisor
   definition: >-
     The Home Assistant Supervisor is a program that manages a Home Assistant
@@ -337,7 +337,7 @@
     includes Home Assistant Core, the Home Assistant Supervisor, and supports
     add-ons. Home Assistant Supervisor keeps it up to date, removing the need
     for you to manage an operating system. Home Assistant Operating System is
-    the recommended installation method for most users.
+    the recommended installation type for most users.
 - term: Host
   definition: >-
     A device that can communicate with other devices on a network. During setup

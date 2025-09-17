@@ -53,10 +53,6 @@ related:
 
 The **Z-Wave** {% term integration %} allows you to control a Z-Wave network from Home Assistant via the [Z-Wave JS](https://zwave-js.github.io/node-zwave-js/#/) driver.
 
-## Device compatibility
-
-You do not need a Z-Wave adapter that is specifically designed for the Z-Wave integration in Home Assistant. The Z-Wave integration in Home Assistant can be operated with any Z-Wave network with other Z-Wave certified devices from other manufacturers. All mains operated nodes within the network will act as repeaters regardless of vendor to increase reliability of the network.
-
 ## Getting started
 
 This section shows how to set up a Z-Wave network and how to add a Z-Wave end device to that network.
@@ -1282,7 +1278,17 @@ No further action is required and the SmartStart product will be added automatic
 
 ### Terminology mapping table
 
-For some of the concepts, the terminology used in Home Assistant does not correspond to the terminology used in Z-Wave documentation. Refer to the [terminology mapping table](#z-wave-terminology-and-home-assistant) for a list of term equivalents.
+Throughout this documentation, Home Assistant terminology is used. For some of the concepts, the terminology does not correspond to the terminology used in Z-Wave documentation. The table below provides equivalents for some of those terms.
+
+| Z-Wave functionality | Home Assistant | Definition |
+| -------------------- | -------------- | ---------- |
+| barrier operator | cover | |
+| controller | adapter, when referring to the hardware device that provides the Z-Wave functionality. The term controller is still used when referring to the network role (such as primary, secondary controller)  | |
+| exclusion | remove | The process of removing a node from the Z-Wave network |
+| [inclusion](#classic-inclusion-versus-smartstart) | add | The process of adding a node to the Z-Wave network |
+| multilevel switch | represented by different entity types: light, fan etc. | |
+| replication | copy (not supported in Home Assistant) | The process of copying network information from one adapter to another. Not supported in Home Assistant. |
+| window covering | cover | |
 
 ## Removing Z-Wave JS from Home Assistant
 

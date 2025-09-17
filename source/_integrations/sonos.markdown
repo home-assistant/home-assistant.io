@@ -18,6 +18,7 @@ ha_platforms:
   - diagnostics
   - media_player
   - number
+  - select
   - sensor
   - switch
 ha_zeroconf: true
@@ -30,7 +31,7 @@ The `sonos` integration allows you to control your [Sonos](https://www.sonos.com
 
 ## Feature controls & sensors
 
-Speaker-level controls are exposed as `number` or `switch` entities. Additionally, various `sensor` and `binary_sensor` entities are provided.
+Speaker-level controls are exposed as `number`, `select` or `switch` entities. Additionally, various `sensor` and `binary_sensor` entities are provided.
 
 ### Controllable features
 
@@ -44,6 +45,14 @@ Speaker-level controls are exposed as `number` or `switch` entities. Additionall
 - **Devices with battery**: Battery level, Power state
 - **Home theater devices**: Audio Input Format
 - **Voice-enabled devices**: Microphone Enabled
+
+### Select
+
+The following select entities are created:
+
+- **Dialog Level**  
+  Lets you set the dialog mode on your **Sonos Arc Ultra** soundbar. You can choose from None, Low, Medium, High, or Max.
+
 
 ### Battery support notes
 

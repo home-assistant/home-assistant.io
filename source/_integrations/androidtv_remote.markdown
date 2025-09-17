@@ -585,6 +585,11 @@ cards:
 - If you can't turn on your Nvidia Shield device, go to **Settings** > **Remotes & accessories** > **Simplified wake buttons** and disable the following options: **SHIELD 2019 Remote: Wake on power and Netflix buttons only** and **Controllers: Wake on NVIDIA or logo buttons only**.
 
 
+## Data updates
+
+Android TV devices push data directly to Home Assistant, enabling immediate updates for device state changes such as power state, volume, and current active app. But the media player entity has assumed playback state since the Android TV Remote API doesn't provide playback status.
+
+
 ## Removing the integration
 
 {% include integrations/remove_device_service.md %}

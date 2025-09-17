@@ -28,10 +28,12 @@ The integration automatically discovers all enabled zones and sources. Each zone
 
 This integration allows you to connect the following devices:
 
+- Cambridge Audio Evo One
 - Cambridge Audio Evo 75
 - Cambridge Audio Evo 150
 - Cambridge Audio CXN
 - Cambridge Audio CXN (v2)
+- Cambridge Audio CXN100
 - Cambridge Audio CXR120
 - Cambridge Audio CXR200
 - Cambridge Audio 851N

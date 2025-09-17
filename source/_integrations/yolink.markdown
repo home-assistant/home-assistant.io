@@ -24,6 +24,7 @@ ha_platforms:
   - light
   - lock
   - number
+  - select
   - sensor
   - siren
   - switch
@@ -102,6 +103,8 @@ The integration is tested and verified for the following devices from YoLink:
 - YS8015-UC (X3 Outdoor Temperature & Humidity Sensor)
 - YS8017-UC (Thermometer)
 - YS8023-UC (Hygrometer Thermometer)
+- YS4102-UC (Sprinkler)
+- YS4103-UC (Sprinkler Timer)
 
 ## Actions
 

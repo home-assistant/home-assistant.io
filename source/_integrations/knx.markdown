@@ -1787,7 +1787,7 @@ entity_category:
 
 ## Scene
 
-The KNX scenes platform allows you to trigger [KNX](https://www.knx.org/) scenes. These entities are write-only.
+The KNX scene platform allows you to activate KNX scenes and updates scene entities when the corresponding scene number is received on the KNX bus.
 
 ```yaml
 # Example configuration.yaml entry

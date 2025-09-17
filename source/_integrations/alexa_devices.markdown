@@ -49,8 +49,6 @@ This integration requires multifactor authentication using an authentication app
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
-  country:
-    description: The country of your Amazon account.
   username:
     description: The email address of your Amazon account.
   password:
@@ -60,6 +58,7 @@ This integration requires multifactor authentication using an authentication app
 {% endconfiguration_basic %}
 
 {% note %}
+
 When trying to set up the integration, the form may show the message "Cannot connect".
 This means that the specified country may need a special setting.
 Open a issue with all details to investigate
@@ -75,9 +74,23 @@ Available actions: `notify.send_message`, `alexa_devices.send_sound`, `alexa_dev
 
 Devices with appropriate functionality will have speak and announce notify entities created. These can be used as the target for the `notify.send_message` action.
 
+| Data attribute | Optional | Description |
+| -------------- | -------- | ----------------------------------------- |
+| `message` | no | Text to be output (see below for advanced markup) |
+
 {% tip %}
 When sending notifications to multiple devices, you may experience delays due to rate limiting by Amazon. You can avoid this by sending notifications to speaker groups created in Alexa.
 {% endtip %}
+
+{% details "Advanced Message Markup" %}
+
+Amazon provide markup to control not only what is said but how it is said and to add additional option such as pausing and playing certain audio clips.  Details of this are covered in [Amazon's documentation](https://developer.amazon.com/en-US/docs/alexa/custom-skills/speech-synthesis-markup-language-ssml-reference.html) where there are lots of examples (just pass everything between the `<speak>` and `</speak>` elements into the `message` parameter of the action).
+
+Audio files must meet certain criteria on size, bit and sample rates and must be served over HTTPS (see [documentation](https://developer.amazon.com/en-US/docs/alexa/custom-skills/speech-synthesis-markup-language-ssml-reference.html#audio) for full details).  These restrictions make them fine for text and sound effects but you will not be able to play music this way.
+
+Amazon provide a set of [sounds you can use](https://developer.amazon.com/en-US/docs/alexa/custom-skills/ask-soundlibrary.html) which contains the markup you will need for that clip.
+
+{% enddetails %}
 
 #### Action `alexa_devices.send_text_command`
 
@@ -90,12 +103,11 @@ This action essentially allows you to control Alexa using text commands rather t
 
 #### Action `alexa_devices.send_sound`
 
-This action allows you to play one of the built-in Alexa sounds. The full list of sounds and their variants is available in [Amazon's documentation](https://developer.amazon.com/en-US/docs/alexa/custom-skills/ask-soundlibrary.html)
+This action allows you to play one of the built-in Alexa sounds. The full list of sounds is available in [Amazon's documentation (needs authentication)](https://alexa.amazon.com/api/behaviors/entities?skillId=amzn1.ask.1p.sound)
 
 | Data attribute | Optional | Description |
 | -------------- | -------- | ----------------------------------------- |
 | `device_id` | no | Device on which you want to play sound |
-| `sound_variant` | no | The variant you want to play (generally 1) |
 | `sound` | no | The name of the sound to play |
 
 ## Examples
@@ -141,19 +153,37 @@ data:
 ```yaml
 action: alexa_devices.send_sound
 data:
-  sound_variant: 1
-  sound: amzn_sfx_doorbell_chime
+  sound: amzn_sfx_doorbell_chime_01
   device_id: 037d79c1af96c67ba57ebcae560fb18e
 ```
 
-### Play alternative doorbell sound
+### Using advanced markup in a notification
 
 ```yaml
-action: alexa_devices.send_sound
+action: notify.send_message
 data:
-  sound_variant: 2
-  sound: amzn_sfx_doorbell_chime
-  device_id: 037d79c1af96c67ba57ebcae560fb18e
+  message: >
+    Hello, lets have some examples.
+    <amazon:emotion name="excited" intensity="medium"> This is me being mildly excited! </amazon:emotion>
+    The farmer's dog was called <say-as interpret-as='spell-out'>bingo</say-as>.
+    <prosody pitch='high'> I can sing high </prosody> <prosody pitch='low'> and I can sing low </prosody>
+target:
+  entity_id: notify.study_dot_speak
+```
+
+```yaml
+action: notify.send_message
+data:
+  message: >
+    Stop! <break time='3s'/> Hammer Time. Watch out
+    <audio src="soundbank://soundlibrary/scifi/amzn_sfx_scifi_laser_gun_battle_01"/>
+    Shields up! <audio src="soundbank://soundlibrary/scifi/amzn_sfx_scifi_shields_up_01" />
+    <amazon:effect name="whispered">
+      <prosody rate="x-slow"><prosody volume="loud">Enough now</prosody></prosody>
+    </amazon:effect>
+target:
+  entity_id: notify.study_dot_speak
+
 ```
 
 ## Data updates
@@ -176,18 +206,6 @@ This integration requires multifactor authentication using an authentication app
 ## Troubleshooting
 
 ### Can’t set up the integration
-
-#### Symptom: "Wrong Country"
-
-When trying to set up the integration, the form shows the message "Wrong Country".
-
-##### Description
-
-This means that the settings in your Amazon account are not aligned to the country you specified.
-To fix it, please go to <https://www.amazon.XX/hz/mycd/preferences/myx#/home/settings/payment> (replace XX with your country domain. For example **co.uk**):
-
-- "Kindle payment": check your default address is in your country
-- "Country/Region": check your country
 
 #### Symptom: "Not found"
 

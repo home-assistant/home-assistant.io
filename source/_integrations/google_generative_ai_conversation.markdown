@@ -2,6 +2,7 @@
 title: Google Generative AI
 description: Instructions on how to integrate Google Generative AI as a conversation agent
 ha_category:
+  - AI
   - Speech-to-text
   - Text-to-speech
   - Voice
