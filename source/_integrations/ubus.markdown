@@ -96,7 +96,7 @@ password:
   required: true
   type: string
 dhcp_software:
-  description: "The DHCP software (or /etc/ethers) used in your router: `dnsmasq`, `odhcpd`, `ethers`, or `none`."
+  description: "The DHCP software used in your router: `dnsmasq`, `odhcpd`, or `none`."
   required: false
   default: dnsmasq
   type: string
