@@ -6,6 +6,7 @@ ha_category:
   - Binary sensor
   - Button
   - Cover
+  - Event
   - Fan
   - Helper
   - Image
@@ -15,6 +16,7 @@ ha_category:
   - Select
   - Sensor
   - Switch
+  - Update
   - Vacuum
   - Weather
 ha_release: 0.12
@@ -29,6 +31,7 @@ ha_platforms:
   - binary_sensor
   - button
   - cover
+  - event
   - fan
   - image
   - light
@@ -37,6 +40,7 @@ ha_platforms:
   - select
   - sensor
   - switch
+  - update
   - vacuum
   - weather
 ha_integration_type: helper
@@ -56,6 +60,7 @@ There is currently support for the following device types within Home Assistant:
 - [Binary sensor](#binary-sensor)
 - [Button](#button)
 - [Cover](#cover)
+- [Event](#event)
 - [Fan](#fan)
 - [Image](#image)
 - [Light](#light)
@@ -64,6 +69,7 @@ There is currently support for the following device types within Home Assistant:
 - [Select](#select)
 - [Sensor](#sensor)
 - [Switch](#switch)
+- [Update](#update)
 - [Vacuum](#vacuum)
 - [Weather](#weather)
 
@@ -140,7 +146,7 @@ template:
 
 ### Configuration reference
 
-{% configuration %}
+{% configuration trigger-based %}
 actions:
   description: Define actions to be executed when the trigger fires (for trigger-based entities only). Optional. Variables set by the action script are available when evaluating entity templates. This can be used to interact with anything using actions, in particular actions with [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data). [See action documentation](/docs/automation/action).
   required: false
@@ -180,7 +186,8 @@ Each entity platform has its own set of configuration options, but there are som
 template:
   - binary_sensor:
       # Common configuration options
-    - unique_id: my_unique_sensor_id
+    - default_entity_id: binary_sensor.my_alert
+      unique_id: my_unique_sensor_id
       variables:
         my_entity: sensor.watts
       availability: "{{ my_entity | has_value }}"
@@ -193,12 +200,16 @@ template:
 
 {% endraw %}
 
-{% configuration %}
+{% configuration device %}
   availability:
     description: Defines a template to get the `available` state of the entity. If the template either fails to render or returns `True`, `"1"`, `"true"`, `"yes"`, `"on"`, `"enable"`, or a non-zero number, the entity will be `available`. If the template returns any other value, the entity will be `unavailable`. If not configured, the entity will always be `available`. Note that the string comparison is not case sensitive; `"TrUe"` and `"yEs"` are allowed.
     required: false
     type: template
     default: true
+  default_entity_id:
+    description: Use `default_entity_id` instead of name for automatic generation of the entity id. E.g. `sensor.my_awesome_sensor`. When used without a `unique_id`, the entity id will update during restart or reload if the entity id is available.  If the entity id already exists, the entity id will be created with a number at the end. When used with a `unique_id`, the `default_entity_id` is only used when the entity is added for the first time. When set, this overrides a user-customized Entity ID in case the entity was deleted and added again.
+    required: false
+    type: string
   icon:
     description: Defines a template for the icon of the entity.
     required: false
@@ -212,7 +223,7 @@ template:
     required: false
     type: template
   unique_id:
-    description: An ID that uniquely identifies this entity. Will be combined with the unique ID of the configuration block if available. This allows changing the `name`, `icon` and `entity_id` from the web interface.
+    description: An ID that uniquely identifies this entity. Will be combined with the unique ID of the configuration block if available. This allows changing the `name`, `icon` and `entity_id` from the web interface.  Changing the `entity_id` from the web interface will overwrite the value in `default_entity_id`.
     required: false
     type: string
   variables:
@@ -268,7 +279,7 @@ template:
 
 {% endraw %}
 
-{% configuration %}
+{% configuration alarm_control_panel %}
 alarm_control_panel:
   description: List of alarm control panels
   required: true
@@ -308,6 +319,11 @@ alarm_control_panel:
       description: Defines an action to run when the alarm is disarmed.
       required: false
       type: action
+    optimistic:
+      description: Flag that defines if the alarm control panel works in optimistic mode. When enabled, the alarm control panel's state will update immediately when a new option is chosen through the UI or service calls, without waiting for the template defined in `state` to update. When disabled (default), the alarm control panel will only update when the `state` template returns a new value.
+      required: false
+      type: boolean
+      default: false
     state:
       description: "Defines a template to set the state of the alarm panel. Only the states `armed_away`, `armed_home`, `armed_night`, `armed_vacation`, `arming`, `disarmed`, `pending`, `triggered` and `unavailable` are used."
       required: false
@@ -349,7 +365,7 @@ template:
 
 {% endraw %}
 
-{% configuration %}
+{% configuration binary-sensor %}
 binary_sensor:
   description: List of binary sensors
   required: true
@@ -536,7 +552,7 @@ template:
 
 {% endraw %}
 
-{% configuration %}
+{% configuration button %}
 button:
   description: List of buttons
   required: true
@@ -551,8 +567,6 @@ button:
 ## Cover
 
 The template cover platform allows you to create covers with templates to define the state and scripts to define each action.
-
-Cover entities can only be created from YAML.
 
 {% raw %}
 
@@ -591,7 +605,7 @@ template:
 
 {% endraw %}
 
-{% configuration %}
+{% configuration cover %}
 cover:
   description: Characteristics of a cover
   type: map
@@ -730,6 +744,59 @@ template:
 
 {% endraw %}
 
+## Event
+
+The template event platform allows you to create events with templates to define the state.
+
+{% raw %}
+
+```yaml
+# Example state-based configuration.yaml entry
+template:
+  - event:
+      - name: Scene Controller
+        device_class: button
+        event_type: "{{ states('input_select.scene_controller_button_press') }}"
+        event_types: "{{ ['single', 'double', 'hold'] }}"
+```
+
+```yaml
+# Example trigger-based configuration.yaml entry
+template:
+  - triggers:
+      - trigger: event
+        event_type: zwave_js_notification
+        event_data:
+          node_id: 14
+    event:
+      - name: Lock Operation
+        event_type: "{{ trigger.event.data.event_label }}"
+        event_types: "{{ ['Keypad lock operation', 'Keypad unlock operation'] }}"
+```
+
+{% endraw %}
+
+{% configuration event %}
+event:
+  description: List of events
+  required: true
+  type: map
+  keys:
+    device_class:
+      description: Sets the [class of the device](/integrations/event/), changing the device state and icon that is displayed on the frontend.
+      required: false
+      type: string
+    event_type:
+      description: Template for the event's last fired event type.
+      required: true
+      type: template
+    event_types:
+      description: Template for the event's available event types.
+      required: true
+      type: template
+
+{% endconfiguration %}
+
 ## Fan
 
 The template fan platform allows you to create fans with templates to define the state and scripts to define each action.
@@ -822,18 +889,23 @@ template:
 
 {% endraw %}
 
-{% configuration %}
+{% configuration fan %}
 fan:
   description: List of fans
   required: true
   type: map
   keys:
-    oscillating:
-      description: "Defines a template to get the osc state of the fan. Valid values: `true`, `false`."
-      required: false
-      type: template
     direction:
       description: "Defines a template to get the direction of the fan. Valid values: `forward`, `reverse`."
+      required: false
+      type: template
+    optimistic:
+      description: Flag that defines if the fan works in optimistic mode. When enabled, the fan's state will update immediately when a new option is chosen through the UI or service calls, without waiting for the template defined in `state` to update. When disabled (default), the fan will only update when the `state` template returns a new value.
+      required: false
+      type: boolean
+      default: false
+    oscillating:
+      description: "Defines a template to get the oscillation state of the fan. Valid values: `true`, `false`."
       required: false
       type: template
     percentage:
@@ -1028,7 +1100,7 @@ template:
 
 {% endraw %}
 
-{% configuration %}
+{% configuration image %}
 image:
   description: List of images
   required: true
@@ -1055,7 +1127,7 @@ Light entities can only be created from YAML.
 
 ```yaml
 # Example state-based configuration.yaml entry
-light:
+template:
   - light:
       - name: "Theater Lights"
         level: "{{ state_attr('sensor.theater_brightness', 'lux')|int }}"
@@ -1161,7 +1233,7 @@ template:
 
 {% endraw %}
 
-{% configuration %}
+{% configuration light %}
 light:
   description: List of your lights.
   required: true
@@ -1197,6 +1269,11 @@ light:
       required: false
       type: template
       default: optimistic
+    optimistic:
+      description: Flag that defines if the light works in optimistic mode. When enabled, the light's state will update immediately when a new option is chosen through the UI or service calls, without waiting for the template defined in `state` to update. When disabled (default), the light will only update when the `state` template returns a new value.
+      required: false
+      type: boolean
+      default: false
     rgb:
       description: Defines a template to get the RGB color of the light. Must render a tuple or a list (red, green, blue).
       required: false
@@ -1421,7 +1498,7 @@ template:
 
 {% endraw %}
 
-{% configuration %}
+{% configuration lock %}
 lock:
   description: List of locks
   required: true
@@ -1441,13 +1518,14 @@ lock:
       required: false
       type: action
     optimistic:
-      description: Flag that defines if the lock works in optimistic mode.
+      description: Flag that defines if the lock works in optimistic mode. When enabled, the lock's state will update immediately when a new option is chosen through the UI or service calls, without waiting for the template defined in `state` to update. When disabled (default), the lock will only update when the `state` template returns a new value.
       required: false
       type: boolean
       default: false
     state:
       description: Defines a template to set the state of the lock. Valid output values from the template are `locked`, `unlocked`, `open`, `locking`, `unlocking`, `opening`, and `jammed`, which are directly mapped to the corresponding states. In addition, `true` and `on` are valid as synonyms to `locked` while `false` and `off` are valid as synonyms to `unlocked`.
-      required: true
+      required: false
+      default: optimistic
       type: template
     unlock:
       description: Defines an action to run when the lock is unlocked.
@@ -1609,7 +1687,7 @@ template:
 
 {% endraw %}
 
-{% configuration %}
+{% configuration number %}
 number:
   description: List of numbers
   required: true
@@ -1626,7 +1704,7 @@ number:
       type: template
       default: 0.0
     optimistic:
-      description: Flag that defines if number works in optimistic mode. When enabled, the number's state will update immediately when changed through the UI or service calls, without waiting for the template defined in `state` to update. When disabled (default), the number will only update when the `state` template returns a new value.
+      description: Flag that defines if the number works in optimistic mode. When enabled, the number's state will update immediately when changed through the UI or service calls, without waiting for the template defined in `state` to update. When disabled (default), the number will only update when the `state` template returns a new value.
       required: false
       type: boolean
       default: false
@@ -1635,9 +1713,10 @@ number:
       required: true
       type: action
     state:
-      description: Template for the number's current value.
-      required: true
+      description: Template for the number's current value.  When omitted, the state will be set to the `value` provided by the `set_value` action.
+      required: false
       type: template
+      default: optimistic
     unit_of_measurement:
       description: Defines the units of measurement of the number, if any.
       required: false
@@ -1645,8 +1724,9 @@ number:
       default: None
     step:
       description: Template for the number's increment/decrement step.
-      required: true
+      required: false
       type: template
+      default: 1.0
 
 {% endconfiguration %}
 
@@ -1717,14 +1797,14 @@ template:
 
 {% endraw %}
 
-{% configuration %}
+{% configuration select %}
 select:
   description: List of selects
   required: true
   type: map
   keys:
     optimistic:
-      description: Flag that defines if select works in optimistic mode. When enabled, the select's state will update immediately when a new option is chosen through the UI or service calls, without waiting for the template defined in `state` to update. When disabled (default), the select will only update when the `state` template returns a new value.
+      description: Flag that defines if the select works in optimistic mode. When enabled, the select's state will update immediately when a new option is chosen through the UI or service calls, without waiting for the template defined in `state` to update. When disabled (default), the select will only update when the `state` template returns a new value.
       required: false
       type: boolean
       default: false
@@ -1737,9 +1817,10 @@ select:
       required: true
       type: action
     state:
-      description: Template for the select's current value.
-      required: true
+      description: Template for the select's current value. When omitted, the state will be set to the `option` provided by the `select_option` action.
+      required: false
       type: template
+      default: optimistic
 {% endconfiguration %}
 
 ### State based select - Control Day/Night mode of a camera
@@ -1808,7 +1889,7 @@ template:
 
 {% endraw %}
 
-{% configuration %}
+{% configuration sensor %}
 sensor:
   description: List of sensors
   required: true
@@ -1833,7 +1914,7 @@ sensor:
       required: true
       type: template
     state_class:
-      description: "The [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor. This will also display the value based on the user profile Number Format setting and influence the graphical presentation in the history visualization as a continuous value. If you desire to include the sensor in long-term statistics, include this key and assign it the appropriate value"
+      description: "The [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor. This will also display the value based on the user profile Number Format setting and influence the graphical presentation in the history visualization as a continuous value. If you desire to include the sensor in {% term "Long-term statistics" %}, include this key and assign it the appropriate value"
       required: false
       type: string
       default: None
@@ -1971,12 +2052,17 @@ template:
 
 {% endraw %}
 
-{% configuration %}
+{% configuration switch %}
 switch:
   description: List of switches
   required: true
   type: map
   keys:
+    optimistic:
+      description: Flag that defines if the switch works in optimistic mode. When enabled, the switch's state will update immediately when a new option is chosen through the UI or service calls, without waiting for the template defined in `state` to update. When disabled (default), the switch will only update when the `state` template returns a new value.
+      required: false
+      type: boolean
+      default: false
     state:
       description: Defines a template to set the state of the switch. If not defined, the switch will optimistically assume all commands are successful.
       required: false
@@ -2085,6 +2171,96 @@ template:
 
 {% endraw %}
 
+## Update
+
+The template update platform allows you to create update entities with templates to define the state and a script to define the install action.
+
+Update entities can be created from the frontend in the Helpers section or via YAML.
+
+{% raw %}
+
+```yaml
+# Example state-based configuration.yaml entry
+template:
+  - update:
+      - name: Frigate
+        installed_version: "{{ states('sensor.installed_version') }}"
+        latest_version: "{{ states('sensor.latest_version') }}"
+        install:
+          action: script.update_frigate
+```
+
+```yaml
+# Example trigger-based configuration.yaml entry
+template:
+  - triggers:
+      - trigger: time
+        at: "00:00:00"
+    update:
+      - name: Frigate
+        installed_version: "{{ states('sensor.installed_version') }}"
+        latest_version: "{{ states('sensor.latest_version') }}"
+        install:
+          action: script.update_frigate
+```
+
+{% endraw %}
+
+{% configuration vacuum %}
+update:
+  description: List of update entities
+  required: true
+  type: map
+  keys:
+    backup:
+      default: false
+      description: Enable or disable the `automatic backup before update` option in the update repair. When disabled, the `backup` variable will always provide `False` during the `install` action and it will not accept the `backup` option.
+      required: false
+      type: boolean
+    device_class:
+      description: Sets the class of the device, changing the device state and icon that is displayed on the UI.
+      required: false
+      type: device_class
+      default: None
+    in_progress:
+      description: Defines a template to get the in-progress state.
+      required: false
+      type: template
+    install:
+      description: Defines actions to run when the update is installed. Receives variables `specific_version` and `backup` when enabled.
+      required: false
+      type: action
+    installed_version:
+      description: Defines a template to get the installed version.  When the value of `installed_version` matches the value of `latest_version`, the update entity state will be `on`.
+      required: true
+      type: template
+    latest_version:
+      description: Defines a template to get the latest version.  When the value of `installed_version` matches the value of `latest_version`, the update entity state will be `on`.
+      required: true
+      type: template
+    release_summary:
+      description: Defines a template to get the release summary.
+      required: false
+      type: template
+    release_url:
+      description: Defines a template to get the release URL.
+      required: false
+      type: template
+    specific_version:
+      default: false
+      description: Enable or disable using the `version` variable with the `install` action. When disabled, the `specific_version` variable will always provide `None` in the `install` actions.
+      required: false
+      type: boolean
+    title:
+      description: Defines a template to get the update title.
+      required: false
+      type: template
+    update_percent:
+      description: Defines a template to get the update completion percentage.
+      required: false
+      type: template
+{% endconfiguration %}
+
 ## Vacuum
 
 The template vacuum platform allows you to create vacuum entities with templates to define the state and scripts to define each action.
@@ -2117,7 +2293,7 @@ template:
 
 {% endraw %}
 
-{% configuration %}
+{% configuration vacuum %}
 vacuum:
   description: List of vacuum entities
   required: true
@@ -2152,6 +2328,11 @@ vacuum:
       description: Defines an action to run when the vacuum is given a locate command.
       required: false
       type: action
+    optimistic:
+      description: Flag that defines if the vacuum works in optimistic mode. When enabled, the vacuum's state will update immediately when a new option is chosen through the UI or service calls, without waiting for the template defined in `state` to update. When disabled (default), the vacuum will only update when the `state` template returns a new value.
+      required: false
+      type: boolean
+      default: false
     pause:
       description: Defines an action to run when the vacuum is paused.
       required: false
@@ -2171,6 +2352,7 @@ vacuum:
     state:
       description: "Defines a template to get the state of the vacuum. Valid value: `docked`/`cleaning`/`idle`/`paused`/`returning`/`error`"
       required: false
+      default: optimistic
       type: template
     stop:
       description: Defines an action to run when the vacuum is stopped.
@@ -2277,7 +2459,7 @@ template:
 
 {% endraw %}
 
-{% configuration %}
+{% configuration weather %}
 weather:
   description: List of weather entities
   required: true
@@ -2339,6 +2521,10 @@ weather:
       description: Unit for temperature_template output. Valid options are °C, °F, and K.
       required: false
       type: string
+    uv_index_template:
+      description: The current UV index.
+      required: false
+      type: template
     visibility_template:
       description: The current visibility.
       required: false
@@ -2647,7 +2833,7 @@ alarm_control_panel:
 
 {% endraw %}
 
-{% configuration %}
+{% configuration legacy_alarm_control_panel %}
 panels:
   description: List of your panels.
   required: true
@@ -2731,7 +2917,7 @@ binary_sensor:
 
 {% endraw %}
 
-{% configuration %}
+{% configuration legacy_binary_sensor %}
 sensors:
   description: List of your sensors.
   required: true
@@ -2818,7 +3004,7 @@ cover:
 
 {% endraw %}
 
-{% configuration %}
+{% configuration legacy_cover %}
   covers:
     description: List of your covers.
     required: true
@@ -2942,7 +3128,7 @@ fan:
 
 {% endraw %}
 
-{% configuration %}
+{% configuration legacy_fan %}
   fans:
     description: List of your fans.
     required: true
@@ -3078,7 +3264,7 @@ light:
 
 {% endraw %}
 
-{% configuration %}
+{% configuration legacy_light %}
   lights:
     description: List of your lights.
     required: true
@@ -3225,7 +3411,7 @@ lock:
 
 {% endraw %}
 
-{% configuration %}
+{% configuration legacy_lock %}
   name:
     description: Name to use in the frontend.
     required: false
@@ -3292,7 +3478,7 @@ sensor:
 
 {% endraw %}
 
-{% configuration %}
+{% configuration legacy_sensor %}
   sensors:
     description: Map of your sensors.
     required: true
@@ -3375,7 +3561,7 @@ switch:
 
 {% endraw %}
 
-{% configuration %}
+{% configuration legacy_switch %}
   switches:
     description: List of your switches.
     required: true
@@ -3437,7 +3623,7 @@ vacuum:
 
 {% endraw %}
 
-{% configuration %}
+{% configuration legacy_vacuum %}
   vacuums:
     description: List of your vacuums.
     required: true
@@ -3533,7 +3719,7 @@ weather:
 
 {% endraw %}
 
-{% configuration %}
+{% configuration legacy_weather %}
 name:
   description: Name to use in the frontend.
   required: true

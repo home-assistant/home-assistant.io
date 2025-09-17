@@ -109,6 +109,8 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 - [Plug Mini (HomeKit Enabled)](https://www.switch-bot.com/products/switchbot-plug-mini-homekit-enabled)
 - [Relay Switch 1](https://www.switch-bot.com/products/switchbot-relay-switch-1)
 - [Relay Switch 1PM](https://www.switch-bot.com/products/switchbot-relay-switch-1pm)
+- [Plug Mini EU](https://www.switch-bot.com/products/switchbot-plug-mini-eu)
+- [Relay Switch 2PM](https://www.switch-bot.com/products/switchbot-relay-switch-2pm)
 
 ### Cover
 
@@ -124,6 +126,8 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 - [Smart Ceiling Light (WoCeiling)](https://www.switchbot.jp/products/switchbot-ceiling-light)
 - [Strip Light 3](https://www.switch-bot.com/products/switchbot-led-strip-light-3)
 - [Floor Lamp](https://www.switch-bot.com/products/switchbot-floor-lamp)
+- [RGBICWW Strip Light](https://www.switch-bot.com/products/switchbot-rgbicww-strip-light)
+- [RGBICWW Floor Lamp](https://www.switch-bot.com/products/switchbot-rgbicww-floor-lamp)
 
 ### Locks
 
@@ -190,7 +194,7 @@ The following devices are certified for Bluetooth:
 - [SwitchBot Roller Shade](https://www.switch-bot.com/products/switchbot-roller-shade)
 - [SwitchBot Lock Pro](https://www.switch-bot.com/products/switchbot-lock-pro)
 
-To see the list of SwitchBot Matter certified devices, visit the [SwitchBot Matter](switchbot_matter.markdown) page.
+To see the list of SwitchBot Matter-certified devices, visit the [SwitchBot Matter](/integrations/switchbot_matter/) page.
 
 ## Supported functionality
 
@@ -226,6 +230,18 @@ Features:
 - turn on or off
 - get power consumption readings
 
+#### Plug Mini EU
+
+This is an encrypted device.
+
+Features:
+
+- turn on or off
+- get power
+- get voltage
+- get current
+- get electricity consumption
+
 #### Relay Switch 1
 
 This is an encrypted device.
@@ -244,6 +260,19 @@ Features:
 - get power
 - get voltage
 - get current
+- get electricity consumption
+
+#### Relay Switch 2PM
+
+This is an encrypted device, and it has two switch channels, you can set them independently.
+
+Features:
+
+- turn on or off
+- get power
+- get voltage
+- get current
+- get electricity consumption
 
 ### Cover
 
@@ -462,6 +491,30 @@ Features:
 - set effect
 
 #### Floor Lamp
+
+This is an encrypted device.
+
+Features:
+
+- turn on or off
+- change brightness
+- change color temperature
+- change color
+- set effect
+
+#### RGBICWW Strip Light
+
+This is an encrypted device.
+
+Features:
+
+- turn on or off
+- change brightness
+- change color temperature
+- change color
+- set effect
+
+#### RGBICWW Floor Lamp
 
 This is an encrypted device.
 

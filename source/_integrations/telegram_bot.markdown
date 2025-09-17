@@ -11,6 +11,8 @@ ha_integration_type: integration
 ha_quality_scale: bronze
 ha_codeowners:
   - '@hanwg'
+ha_platforms:
+  - notify
 ---
 
 Use Telegram on your mobile or desktop device to send and receive messages or commands to/from your Home Assistant.
@@ -41,7 +43,24 @@ This implementation allows Telegram to push updates directly to your server and 
 
 Create your Telegram bot and [retrieve the API key](/integrations/telegram). The `api_key` will be used for adding the bot to Home Assistant during integration setup.
 
+### Allow Telegram bot to access your Home Assistant files (Optional)
+
+To enable Telegram bot to send local files, you must grant access to it by adding the file's folder to [`allowlist_external_dirs`](/integrations/homeassistant/#allowlist_external_dirs).
+
+Example `configuration.yaml`:
+
+```yaml
+homeassistant:
+  allowlist_external_dirs:
+    - "/media"
+```
+
 ### Allow Telegram to connect to your Home Assistant (Webhooks platform only)
+
+{% note %}
+This integration currently does not support self-signed certificates for HTTPS.
+If you are using the *Reverse proxy* or *Direct* method, please ensure that your certificates are signed by a public Certificate Authority (CA).
+{% endnote %}
 
 If you plan to use the `Webhooks` platform, you will need to allow Telegram to connect to your Home Assistant using one of the following methods:
 
@@ -57,7 +76,16 @@ If your Home Assistant is behind a publicly accessible reverse proxy (for exampl
 2. Configure the [HTTP integration](/integrations/http) to allow Home Assistant to accept connections from your reverse proxy:
    - Set `use_x_forwarded_for` to `true`.
    - Add the IP address of the reverse proxy to `trusted_proxies`.
-  
+
+Example `configuration.yaml`:
+
+```yaml
+http:
+  use_x_forwarded_for: true
+  trusted_proxies:
+    - 192.168.0.0/16
+```
+
 #### Direct
 
 If your Home Assistant is publicly accessible, do the following:
@@ -82,12 +110,16 @@ Proxy URL:
 
 ### Webhooks configuration
 
+{% note %}
+If you are using Home Assistant Cloud, you must include `127.0.0.1` in the **Trusted networks** field as IP address of incoming requests are not forwarded to your Home Assistant.
+{% endnote %}
+
 If you have selected the `Webhooks` Telegram bot type, the integration setup will continue with the webhooks configuration step.
 {% configuration_basic %}
 URL:
   description: Allow to overwrite the external URL from the Home Assistant [configuration](/integrations/homeassistant/#editing-the-general-settings-in-yaml) for different setups (`https://<public_url>:<port>`).
 Trusted networks:
-  description: Telegram server access ACL as list.
+  description: Telegram server access ACL as list. Default is `149.154.160.0/20, 91.108.4.0/22`.
 {% endconfiguration_basic %}
 
 {% include integrations/option_flow.md %}
@@ -96,7 +128,7 @@ The integration can be configured to use a default parse mode for messages.
 
 {% configuration_basic %}
 Parse mode:
-  description: Default parser for messages if not explicit in message data, either `markdown` (legacy), `markdownv2` or `html`. Refer to Telegram's [formatting options](https://core.telegram.org/bots/api#formatting-options) for more information.
+  description: Default parser for messages if not explicit in message data, either `markdown` (legacy), `markdownv2`, `html` or `plain_text`. Refer to Telegram's [formatting options](https://core.telegram.org/bots/api#formatting-options) for more information.
 {% endconfiguration_basic %}
 
 ## Allowlisting chat IDs via Subentries
@@ -107,16 +139,36 @@ To allowlist the chat ID, [retrieve the chat ID](/integrations/telegram#methods-
 
 1. Go to **{% my integrations title="Settings > Devices & services" %}**.
 2. Select the Telegram bot integration.
-3. Next to the entry, select the three-dot {% icon "mdi:dots-vertical" %} menu. Then, select **Add allowed chat ID**.
+3. Next to the entry, select the three dots {% icon "mdi:dots-vertical" %} menu. Then, select **Add allowed chat ID**.
 
 {% configuration_basic %}
 Chat ID:
   description: ID representing the user or group chat to which messages can be sent.
 {% endconfiguration_basic %}
 
+## Notifiers
+
+This integration will add a notify {% term entity %} for each configured chat ID.
+You can use the `notify.send_message` action to publish notifications.
+
+{% details "Example YAML configuration" %}
+
+{% raw %}
+
+```yaml
+action: notify.send_message
+data:
+  message: "Reminder: Have you considered frogs?"
+  entity_id: notify.telegram_bot_chat
+```
+
+{% endraw %}
+
+{% enddetails %}
+
 ## Notification actions
 
-Available actions: `send_message`, `send_photo`, `send_video`, `send_animation`, `send_voice`, `send_sticker`, `send_document`, `send_location`, `edit_message`, `edit_caption`, `edit_replymarkup`, `answer_callback_query`, `delete_message`, `leave_chat` and `set_message_reaction`.
+Available actions: `send_message`, `send_photo`, `send_video`, `send_animation`, `send_voice`, `send_sticker`, `send_document`, `send_location`, `send_chat_action`, `edit_message`, `edit_caption`, `edit_replymarkup`, `answer_callback_query`, `delete_message`, `leave_chat` and `set_message_reaction`.
 
 Actions that send contents (`send_*`) will return a list of `message_id`/`chat_id` for messages delivered (in a property called `chats`). This will populate [Response Data](/docs/scripts/perform-actions#use-templates-to-handle-response-data) that you can further utilize in your automations to edit/delete the message later based on the `message_id`. See the example later on this page for usage instructions.
 
@@ -151,9 +203,9 @@ Send a photo.
 | `url`                  | no       | Remote path to an image.                                                                                                                                                                                                                                                                                  |
 | `file`                 | no       | Local path to an image.                                                                                                                                                                                                                                                                                   |
 | `caption`              | yes      | The title of the image.                                                                                                                                                                                                                                                                                   |
-| `username`             | yes      | Username for a URL which requires HTTP authentication.                                                                                                                                                                                                                                                    |
-| `password`             | yes      | Password (or bearer token) for a URL which require HTTP authentication.                                                                                                                                                                                                                                   |
-| `authentication`       | yes      | Define which authentication method to use. Set to `digest` to use HTTP digest authentication, or `bearer_token` for OAuth 2.0 bearer token authentication. Defaults to `basic`.                                                                                                                           |
+| `authentication`       | yes      | Define which authentication method to use. Set to `basic` for HTTP basic authentication, `digest` for HTTP digest authentication, or `bearer_token` for OAuth 2.0 bearer token authentication.                                                                                                                           |
+| `username`             | yes      | Username for a URL which requires HTTP `basic` or `digest` authentication.                                                                                                                                                                                                                                                    |
+| `password`             | yes      | Password (or bearer token) for a URL that requires authentication.                                                                                                                                                                                                                                   |
 | `target`               | yes      | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id.                                                                                                                                                                                       |
 | `parse_mode`           | yes      | Parser for the message text: `markdownv2`, `html`, `markdown` or `plain_text`.                                                                                                                                                                                                                            |
 | `disable_notification` | yes      | True/false for send the message silently. iOS users and web users will not receive a notification, Android users will receive a notification with no sound. Defaults to False.                                                                                                                            |
@@ -177,9 +229,9 @@ Send a video.
 | `url`                  | no       | Remote path to a video.                                                                                                                                                                                                                                                                                   |
 | `file`                 | no       | Local path to a video.                                                                                                                                                                                                                                                                                    |
 | `caption`              | yes      | The title of the video.                                                                                                                                                                                                                                                                                   |
-| `username`             | yes      | Username for a URL which requires HTTP authentication.                                                                                                                                                                                                                                                    |
-| `password`             | yes      | Password (or bearer token) for a URL which require HTTP authentication.                                                                                                                                                                                                                                   |
-| `authentication`       | yes      | Define which authentication method to use. Set to `digest` to use HTTP digest authentication, or `bearer_token` for OAuth 2.0 bearer token authentication. Defaults to `basic`.                                                                                                                           |
+| `authentication`       | yes      | Define which authentication method to use. Set to `basic` for HTTP basic authentication, `digest` for HTTP digest authentication, or `bearer_token` for OAuth 2.0 bearer token authentication.                                                                                                                           |
+| `username`             | yes      | Username for a URL which requires HTTP `basic` or `digest` authentication.                                                                                                                                                                                                                                                    |
+| `password`             | yes      | Password (or bearer token) for a URL that requires authentication.                                                                                                                                                                                                                                   |
 | `target`               | yes      | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id.                                                                                                                                                                                       |
 | `parse_mode`           | yes      | Parser for the message text: `markdownv2`, `html`, `markdown` or `plain_text`.                                                                                                                                                                                                                            |
 | `disable_notification` | yes      | True/false to send the message silently. iOS users and web users will not receive a notification. Android users will receive a notification with no sound. Defaults to False.                                                                                                                             |
@@ -202,9 +254,9 @@ Send an animation.
 | `url`                  | no       | Remote path to a GIF or H.264/MPEG-4 AVC video without sound.                                                                                                                                                                                                                                             |
 | `file`                 | no       | Local path to a GIF or H.264/MPEG-4 AVC video without sound.                                                                                                                                                                                                                                              |
 | `caption`              | yes      | The title of the animation.                                                                                                                                                                                                                                                                               |
-| `username`             | yes      | Username for a URL which requires HTTP authentication.                                                                                                                                                                                                                                                    |
-| `password`             | yes      | Password (or bearer token) for a URL which require HTTP authentication.                                                                                                                                                                                                                                   |
-| `authentication`       | yes      | Define which authentication method to use. Set to `digest` to use HTTP digest authentication, or `bearer_token` for OAuth 2.0 bearer token authentication. Defaults to `basic`.                                                                                                                           |
+| `authentication`       | yes      | Define which authentication method to use. Set to `basic` for HTTP basic authentication, `digest` for HTTP digest authentication, or `bearer_token` for OAuth 2.0 bearer token authentication.                                                                                                                           |
+| `username`             | yes      | Username for a URL which requires HTTP `basic` or `digest` authentication.                                                                                                                                                                                                                                                    |
+| `password`             | yes      | Password (or bearer token) for a URL that requires authentication.                                                                                                                                                                                                                                   |
 | `target`               | yes      | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id.                                                                                                                                                                                       |
 | `parse_mode`           | yes      | Parser for the message text: `markdownv2`, `html`, `markdown` or `plain_text`.                                                                                                                                                                                                                            |
 | `disable_notification` | yes      | True/false to send the message silently. iOS users and web users will not receive a notification. Android users will receive a notification with no sound. Defaults to False.                                                                                                                             |
@@ -228,9 +280,9 @@ Send a voice message.
 | `url`                  | no       | Remote path to a voice message.                                                                                                                                                                                                                                                                           |
 | `file`                 | no       | Local path to a voice message.                                                                                                                                                                                                                                                                            |
 | `caption`              | yes      | The title of the voice message.                                                                                                                                                                                                                                                                           |
-| `username`             | yes      | Username for a URL which requires HTTP authentication.                                                                                                                                                                                                                                                    |
-| `password`             | yes      | Password (or bearer token) for a URL which require HTTP authentication.                                                                                                                                                                                                                                   |
-| `authentication`       | yes      | Define which authentication method to use. Set to `digest` to use HTTP digest authentication, or `bearer_token` for OAuth 2.0 bearer token authentication. Defaults to `basic`.                                                                                                                           |
+| `authentication`       | yes      | Define which authentication method to use. Set to `basic` for HTTP basic authentication, `digest` for HTTP digest authentication, or `bearer_token` for OAuth 2.0 bearer token authentication.                                                                                                                           |
+| `username`             | yes      | Username for a URL which requires HTTP `basic` or `digest` authentication.                                                                                                                                                                                                                                                    |
+| `password`             | yes      | Password (or bearer token) for a URL that requires authentication.                                                                                                                                                                                                                                   |
 | `target`               | yes      | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id.                                                                                                                                                                                       |
 | `disable_notification` | yes      | True/false to send the message silently. iOS users and web users will not receive a notification. Android users will receive a notification with no sound. Defaults to False.                                                                                                                             |
 | `verify_ssl`           | yes      | True/false for checking the SSL certificate of the server for HTTPS URLs. Defaults to True.                                                                                                                                                                                                               |
@@ -253,9 +305,9 @@ Send a sticker.
 | `url`                  | no       | Remote path to a static .webp or animated .tgs sticker.                                                                                                                                                                                                                                                   |
 | `file`                 | no       | Local path to a static .webp or animated .tgs sticker.                                                                                                                                                                                                                                                    |
 | `sticker_id`           | no       | ID of a sticker that exists  on telegram servers. The ID can be found by sending a sticker to your bot and querying the telegram-api method [getUpdates](https://core.telegram.org/bots/api#getting-updates) or by using the [@idstickerbot](https://t.me/idstickerbot)                                   |
-| `username`             | yes      | Username for a URL which requires HTTP authentication.                                                                                                                                                                                                                                                    |
-| `password`             | yes      | Password (or bearer token) for a URL which require HTTP authentication.                                                                                                                                                                                                                                   |
-| `authentication`       | yes      | Define which authentication method to use. Set to `digest` to use HTTP digest authentication, or `bearer_token` for OAuth 2.0 bearer token authentication. Defaults to `basic`.                                                                                                                           |
+| `authentication`       | yes      | Define which authentication method to use. Set to `basic` for HTTP basic authentication, `digest` for HTTP digest authentication, or `bearer_token` for OAuth 2.0 bearer token authentication.                                                                                                                           |
+| `username`             | yes      | Username for a URL which requires HTTP `basic` or `digest` authentication.                                                                                                                                                                                                                                                    |
+| `password`             | yes      | Password (or bearer token) for a URL that requires authentication.                                                                                                                                                                                                                                   |
 | `target`               | yes      | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id.                                                                                                                                                                                       |
 | `disable_notification` | yes      | True/false for send the message silently. iOS users and web users will not receive a notification, Android users will receive a notification with no sound. Defaults to False.                                                                                                                            |
 | `verify_ssl`           | yes      | True/false for checking the SSL certificate of the server for HTTPS URLs. Defaults to True.                                                                                                                                                                                                               |
@@ -278,9 +330,9 @@ Send a document.
 | `url`                  | no       | Remote path to a document.                                                                                                                                                                                                                                                                                |
 | `file`                 | no       | Local path to a document.                                                                                                                                                                                                                                                                                 |
 | `caption`              | yes      | The title of the document.                                                                                                                                                                                                                                                                                |
-| `username`             | yes      | Username for a URL which requires HTTP authentication.                                                                                                                                                                                                                                                    |
-| `password`             | yes      | Password (or bearer token) for a URL which require HTTP authentication.                                                                                                                                                                                                                                   |
-| `authentication`       | yes      | Define which authentication method to use. Set to `digest` to use HTTP digest authentication, or `bearer_token` for OAuth 2.0 bearer token authentication. Defaults to `basic`.                                                                                                                           |
+| `authentication`       | yes      | Define which authentication method to use. Set to `basic` for HTTP basic authentication, `digest` for HTTP digest authentication, or `bearer_token` for OAuth 2.0 bearer token authentication.                                                                                                                           |
+| `username`             | yes      | Username for a URL which requires HTTP `basic` or `digest` authentication.                                                                                                                                                                                                                                                    |
+| `password`             | yes      | Password (or bearer token) for a URL that requires authentication.                                                                                                                                                                                                                                   |
 | `target`               | yes      | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id.                                                                                                                                                                                       |
 | `parse_mode`           | yes      | Parser for the message text: `markdownv2`, `html`, `markdown` or `plain_text`.                                                                                                                                                                                                                            |
 | `disable_notification` | yes      | True/false for send the message silently. iOS users and web users will not receive a notification, Android users will receive a notification with no sound. Defaults to False.                                                                                                                            |
@@ -330,6 +382,17 @@ Send a poll.
 | `timeout`                 | yes      | Timeout for sending voice in seconds. Will help with timeout errors (poor internet connection, etc)                                                                            |
 | `reply_to_message_id`     | yes      | Mark the message as a reply to a previous message. In `telegram_callback` handling, for example, you can use {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %} |
 | `message_thread_id`       | yes      | Send the message to a specific topic or thread.|
+
+### Action `telegram_bot.send_chat_action`
+
+Send a chat action. Use it to notify the user with the relevant "typing" action when a bot response may be delayed, so they know a message is coming soon. Telegram clears this status after 5 seconds or when the reply arrives.
+
+| Data attribute     | Optional | Description                                                                                                                                                                                                                                                                                               |
+| -------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `config_entry_id`          | yes      | The configuration entry representing the Telegram bot to send the message. Required if you have multiple Telegram bots.|
+| `target`                   | yes      | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id.                                                                                                                                                                                       |
+| `chat_action`               | no      | Chat action to be sent: `typing`, `upload_photo`, `record_video`, `upload_video`, `record_voice`, `upload_voice`, `upload_document`, `choose_sticker`, `find_location`, `record_video_note`, `upload_video_note`.         |
+| `message_thread_id`        | yes      | Send the message to a specific topic or thread.|
 
 ### Action `telegram_bot.edit_message`
 
@@ -415,6 +478,13 @@ Sets the bot's reaction for a given message.
 
 ## Telegram notification platform
 
+{% warning %}
+
+The notification platform has been marked as legacy and might be deprecated in the future.
+Please use [notifiers](./#notifiers) instead.
+
+{% endwarning %}
+
 The [`telegram` notification platform](/integrations/telegram) requires the `telegram_bot` integration to work with, and it's designed to generate a customized shortcut (`notify.USERNAME`) to send notifications (messages, photos, documents, and locations) to a particular `chat_id` with the old syntax, allowing backward compatibility. The data attributes `parse_mode`, `disable_notification`, `message_tag`, `disable_web_page_preview`, and `message_thread_id` are also supported.
 
 The required YAML configuration now reduces to:
@@ -438,10 +508,17 @@ args: "<any other text following the command>"
 from_first: "<first name of the sender>"
 from_last: "<last name of the sender>"
 user_id: "<id of the sender>"
+id: "<message id>"
 chat_id: "<origin chat id>"
 chat: "<chat info>"
 date: "<message timestamp>"
 message_thread_id: "<message thread id>"
+bot:
+  config_entry_id: "<config entry id of the bot>"
+  id: "<id of the bot>"
+  first_name: "<first name of the bot>"
+  last_name: "<last name of the bot>"
+  username: "<username of the bot>"
 ```
 
 Any other message not starting with `/` will be processed as simple text, firing a `telegram_text` event on the event bus with the following `event_data`:
@@ -451,10 +528,16 @@ text: "some text received"
 from_first: "<first name of the sender>"
 from_last: "<last name of the sender>"
 user_id: "<id of the sender>"
+id: "<message id>"
 chat_id: "<origin chat id>"
-chat: "<chat info>"
 date: "<message timestamp>"
 message_thread_id: "<message thread id>"
+bot:
+  config_entry_id: "<config entry id of the bot>"
+  id: "<id of the bot>"
+  first_name: "<first name of the bot>"
+  last_name: "<last name of the bot>"
+  username: "<username of the bot>"
 ```
 
 If the message is sent from a [press from an inline button](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), for example, a callback query is received, and Home Assistant will fire a `telegram_callback` event with:
@@ -468,6 +551,12 @@ user_id: "<id of the sender>"
 id: "<unique id of the callback>"
 chat_instance: "<chat instance>"
 chat_id: "<origin chat id>"
+bot:
+  config_entry_id: "<config entry id of the bot>"
+  id: "<id of the bot>"
+  first_name: "<first name of the bot>"
+  last_name: "<last name of the bot>"
+  username: "<username of the bot>"
 ```
 
 ### Configuration samples

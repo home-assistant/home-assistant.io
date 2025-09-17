@@ -721,6 +721,12 @@ multiple:
   type: boolean
   default: false
   required: false
+reorder:
+  description: >
+    Allows reordering of entities (only applies if `multiple` is set to `true`).
+  type: boolean
+  default: false
+  required: false
 {% endconfiguration %}
 
 The output of this selector is the entity ID, or (in case `multiple` is set to
@@ -1121,11 +1127,11 @@ number:
 min:
   description: The minimum user-settable number value.
   type: [integer, float]
-  required: true
+  required: false
 max:
   description: The maximum user-settable number value.
   type: [integer, float]
-  required: true
+  required: false
 step:
   description: The step size of the number value. Set to `"any"` to allow any number.
   type: [integer, float, "any"]
@@ -1139,7 +1145,16 @@ mode:
   description: This can be either `box` or `slider` mode.
   type: string
   required: false
-  default: slider
+  default: slider if min and max are set, otherwise box
+translation_key:
+  description: >
+    Allows translations provided by an integration where `translation_key`
+    is the translation key that is providing the unit_of_measurement string
+    translation. See the documentation on
+    [Backend Localization](https://developers.home-assistant.io/docs/internationalization/core/#selectors)
+    for more information.
+  type: string
+  required: false    
 {% endconfiguration %}
 
 The output of this selector is a number, for example: `42`
@@ -1188,8 +1203,8 @@ When used with a `schema`, the selector will force the object to be in this form
 
 ```yaml
 object:
-  label_key: name
-  description_key: percentage
+  label_field: name
+  description_field: percentage
   multiple: true
   fields:
     name:
@@ -1399,7 +1414,7 @@ would return ["Green"] and in the last example it returns ["g"].
 ## State selector
 
 The state selector shows a list of states for a provided entity of which
-one can be selected.
+one or more can be selected.
 
 ![Screenshot of an state selector](/images/blueprints/selector-state.png)
 
@@ -1407,18 +1422,28 @@ one can be selected.
 entity_id:
   description: The entity ID of which an state can be selected from.
   type: string
-  required: true
+  required: false
+hide_states:
+  description: The states to exclude from the list of options
+  type: list
+  required: false
+multiple:
+  description: >
+    Allows selecting multiple states. If set to `true`, the resulting value of
+    this selector will be a list instead of a single string value.
+  type: boolean
+  default: false  
 {% endconfiguration %}
 
 The output of this selector is the select state (not the translated or
-prettified name shown in the frontend).
+prettified name shown in the frontend), or a list of states if `multiple` is true.
 
 For example: `heat_cool`.
 
 ## Statistic selector
 
 The statistic selector selects the statistic ID of an entity that records
-long-term statistics. It may resemble an entity ID (like `sensor.temperature`),
+{% term "Long-term statistics" %}. It may resemble an entity ID (like `sensor.temperature`),
 or an external statistic ID (like `external:temperature`).
 
 ![Screenshot of a statistic selector](/images/blueprints/selector-statistic.png)

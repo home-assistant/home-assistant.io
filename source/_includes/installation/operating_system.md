@@ -134,6 +134,8 @@ To write the HAOS image to the boot medium on your x86-64 hardware, there are 2 
       - If you are getting an **Error unmounting filesystem** error message, stating that the **target is busy**:
       - Most likely, you are running Ubuntu on your internal disk. Instead, you need to run it on your stick.
         - Go back to step 3 and during start up, make sure you select **Try Ubuntu** (and NOT **Install Ubuntu**).
+      - Another issue may be that live Ubuntu is using the Swap partition of an existing Linux installation.
+        - If you see "Swap" listed as a partition on the drive you're going to install HAOS, just select the Swap partition, then press the stop button to unmount it and try the restore operation again.
    6. In the partitions overview, you should now see the restore operation in progress.
       - The Home Assistant Operating System is now being installed on your system.
         ![Restore disk image: Restoring...](/images/installation/haos_restoring.png)
