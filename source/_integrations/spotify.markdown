@@ -16,7 +16,7 @@ ha_platforms:
 ha_integration_type: service
 ---
 
-The **Spotify media player** {% term integration %} lets you control your Spotify
+The **Spotify** {% term integration %} lets you control your Spotify
 account playback and browse the [Spotify](https://www.spotify.com/) media
 library from Home Assistant.
 
