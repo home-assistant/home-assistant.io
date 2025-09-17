@@ -129,12 +129,9 @@ Widget that displays buttons to control [button](/integrations/button), [input_b
 ```yaml
 features:
   - type: "button"
-    action_name: "Click the button"
-    button_action:
-      action: perform-action
-      perform_action: script.some_script
-      data:
-        variable: some_value
+    action_name: "Press"
+    data:
+      variable: some_value
 ```
 
 {% configuration features %}
@@ -142,14 +139,14 @@ type:
   required: true
   description: "`button`"
   type: string
-action_name:
+data:
   required: false
   type: string
   description: Text inside the button.
   type: string
-button_action:
+data:
   required: false
-  description: Action taken on button tap. See [action documentation](/dashboards/actions/). By default, it will follow the action related to specified "`entity_id`" of the tile card.
+  description: Data to be send with script.
   type: map
 {% endconfiguration %}
 
