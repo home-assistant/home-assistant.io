@@ -93,11 +93,11 @@ A very special thanks to all our [Home Assistant Cloud](/cloud/) subscribers and
 We have more things coming down the line for you. In the near future, we plan on announcing a new merch store 👕. In the first half of next year, I’ll announce when Home Assistant Community Day 2026 will be. We’re already working with Nabu Casa on the next exciting hardware announcement (no spoilers…for now). And that’s not even touching the industry events we plan on attending, the State of the Open Home, and so much more. I’m excited to take you all on the journey we’re already working on over the next 12 months, and I’m always looking forward to another year of amazing contributions. 😌
 
 <script>
-    if (!document.cookie.split('; ').find(row => row.startsWith('confetti='))) {
+    if (!document.cookie.split('; ').find(row => row.startsWith('12th-blog-confetti='))) {
         const d = new Date();
         d.setTime(d.getTime() + (24*60*60*1000)); // Once a day only
         let expires = "expires="+ d.toUTCString();
-        document.cookie = "confetti=true;" + expires + ";path=/";
+        document.cookie = "12th-blog-confetti=1;" + expires + ";path=/";
 
         const script = document.createElement('script');
         script.src = 'https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js';
