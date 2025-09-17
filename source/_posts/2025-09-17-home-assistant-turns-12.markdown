@@ -20,7 +20,7 @@ When I (Missy Quarry) joined as the Community & Social Media Manager in February
 
 Before I jump into celebrating all your amazing contributions and how they shape the projects managed by the Open Home Foundation, I have a couple of birthday presents for you. 🎁
 
-First, I’m thrilled to share our new Community website! Right now, it’s a simple hub to find community information with ease, but we expect to evolve this over the coming months (or so). You’ll find links to our official community platforms, information on events, and details on meetups, including how to get reimbursed for certain fees as a host. In the future, I’d like to include links to regional communities we’re aware of and showcase more of the kinds of stories I’ll be sharing today.
+First, I’m thrilled to share our [new Community website](/community)! Right now, it’s a simple hub to find community information with ease, but we expect to evolve this over the coming months (or so). You’ll find links to our official community platforms, information on events, and details on meetups, including how to get reimbursed for certain fees as a host. In the future, I’d like to include links to regional communities we’re aware of and showcase more of the kinds of stories I’ll be sharing today.
 
 *Feel like something’s missing from this new page? [Let me know](mailto:community@openhomefoundation.org)!*
 
