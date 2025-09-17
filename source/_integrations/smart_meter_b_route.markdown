@@ -55,7 +55,7 @@ Refer to the links below to apply for your B Route credentials:
 - [Kyushu Electric Power](https://www.kyuden.co.jp/td_service_meter_b-root_index.html)
 - [Okinawa Electric Power](https://www.okiden.co.jp/business-support/service/smartmeter/b-route/index.html)
 
-## Get your monthly consumption data
+## Retrieving your monthly consumption data
 
 By default, the data you get is the total consumption since an unknown date in the past. If you want to get your monthly consumption data, you can use the [utility_meter](/integrations/utility_meter/) {% term integration %}.
 
