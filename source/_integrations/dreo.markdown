@@ -18,13 +18,20 @@ Supported platforms:
 
 - **fan**
 
-## Supported functionality
 
-### Entities
+## Prerequisites
+
+Before you can use this integration, all devices must be registered with the
+Dreo App. Once registration is complete, you can add the Dreo integration in Home Assistant through the UI.
+
+{% include integrations/config_flow.md %}
+
+
+## Supported functionality
 
 The Dreo integration provides the following entities:
 
-#### Fans
+### Fans
 
 - **Fan**
   - **Description**: Control your Dreo fan device.
@@ -39,16 +46,6 @@ The Dreo integration provides the following entities:
     - `speed` - The current speed setting
     - `oscillate` - Whether oscillation is enabled (true/false)
 
-## Prerequisites
-
-Before you can use this integration, all devices must be registered with the
-Dreo App. Once registration is complete, you can add the Dreo integration in Home Assistant through the UI.
-
-{% include integrations/config_flow.md %}
-
-## Remove the integration
-
-{% include integrations/remove_device_service.md %}
 
 ## Troubleshooting
 
@@ -73,3 +70,9 @@ If the device becomes unresponsive, try the following steps:
 1. **Power cycle the device**: Turn off the device using its power switch or unplug it from the power source. Wait for about 10–15 seconds and then turn it back on or plug it back in.
 2. **Check the Wi-Fi connection**: Ensure that the device is connected to a stable Wi-Fi network. You can try moving the device closer to the router to improve the signal strength.
 3. **Reset the device**: If the above steps do not work, you may need to reset the device to its factory settings. Refer to the device's user manual for the specific reset procedure. After resetting, re-add the device to the Dreo App and then to Home Assistant.
+
+## Remove the integration
+
+This integration follows standard integration removal.
+
+{% include integrations/remove_device_service.md %}
