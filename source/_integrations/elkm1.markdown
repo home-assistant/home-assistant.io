@@ -451,7 +451,7 @@ The ElkM1 integration provides additional actions beyond the standard Home Assis
 #### Arm modes
 
 - `elkm1.alarm_arm_home_instant` - Arms the area in "home instant" mode
-- `elkm1.alarm_arm_night_instant` - Arms the area in "night instant" mode  
+- `elkm1.alarm_arm_night_instant` - Arms the area in "night instant" mode
 - `elkm1.alarm_arm_vacation` - Arms the area in "vacation" mode
 
 | Data attribute | Optional | Description                                   |
