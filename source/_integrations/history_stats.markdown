@@ -47,8 +47,8 @@ End:
   description: When to stop the measure (timestamp or datetime). Can be a template.
 Duration:
   description: Duration of the measure.
-Minimum State Duration:
-  description: Minimum duration of the measurement to be considered for calculations (defaults to 0).
+Minimum duration of measurement:
+  description: Minimum duration of the measurement to be considered for calculations (defaults to 0, all measurements will be included). Useful to exclude short state changes from the statistics.
 {% endconfiguration_basic %}
 
 ## YAML Configuration
