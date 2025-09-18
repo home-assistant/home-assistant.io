@@ -48,7 +48,7 @@ The integration automatically detects your panel model and creates the appropria
 
 All panels have 32 zone entities created, with appropriate zones automatically disabled based on the detected model. You can manually enable additional zones if you have expanders or a non-standard configuration.
 
-### Options
+### Configuration options
 
 After setup, you can modify settings through the integration options:
 
@@ -72,39 +72,20 @@ YAML configuration for Ness Alarm is deprecated. Your existing YAML configuratio
 
 If you have existing YAML configuration, it will be automatically imported when Home Assistant starts:
 
-```yaml
-# Example configuration.yaml entry (DEPRECATED - will be auto-imported)
-ness_alarm:
-  host: alarm.local
-  port: 2401
-  zones:
-    - name: Garage
-      id: 1
-    - name: Storeroom
-      id: 2
-    - name: Kitchen
-      id: 3
-    - name: Front Entrance
-      id: 4
-    - name: Front Door
-      id: 5
-      type: door
-```
-
 ### Zone Configuration
 
 When importing from YAML, zone configurations are preserved including:
-- **Zone ID**: The zone number on your alarm panel (1-32)
-- **Zone Name**: Custom name for the zone
-- **Zone Type**: Device class for the binary sensor
+- **Zone ID**: The zone number on your alarm panel (1-32).
+- **Zone Name**: Custom name for the zone.
+- **Zone Type**: Device class for the binary sensor.
 
 ### Migration Process
 
-1. On startup, Home Assistant detects your YAML configuration
-2. The configuration is automatically imported to a config entry
-3. A persistent notification appears with instructions
-4. Remove the `ness_alarm` section from configuration.yaml
-5. Restart Home Assistant to clear the warning
+1. On startup, Home Assistant detects your YAML configuration.
+2. The configuration is automatically imported to a config entry.
+3. A persistent notification appears with instructions.
+4. Remove the `ness_alarm` section from configuration.yaml.
+5. Restart Home Assistant to clear the warning.
 
 After import, zones that weren't explicitly configured in YAML will be created with default names (e.g., "Zone 6") and motion sensor type.
 
@@ -143,11 +124,11 @@ Trigger a panic
 
 ## Troubleshooting
 
-### Connection Issues
+### Connection issues
 
 If the integration fails to connect:
-1. Verify the IP232 module is accessible on your network
-2. Check that the port number is correct (default 2401)
-3. Ensure no firewall is blocking the connection
-4. Confirm the alarm panel settings are configured correctly (P 199 E)es
+1. Verify the IP232 module is accessible on your network.
+2. Check that the port number is correct (default 2401).
+3. Ensure no firewall is blocking the connection.
+4. Confirm the alarm panel settings are configured correctly (P 199 E).
 
