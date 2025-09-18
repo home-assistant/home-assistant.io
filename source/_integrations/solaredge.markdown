@@ -57,7 +57,7 @@ You can use them in automations using the [`SQL`](/integrations/sql/) integratio
 
 An example of a Statistics graph that shows hourly production per module for the past 7 days.
 
-![Screenshot of hourly production per module graph](/images/integrations/solaredge_modules/hourly_production.png)
+![Screenshot of hourly production per module graph](/images/integrations/solaredge/hourly_production.png)
 
 {% note %}
 The statistic IDs below are examples. It's recommended to use **SHOW VISUAL EDITOR** to select the statistics by name instead.
