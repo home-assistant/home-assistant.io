@@ -33,4 +33,4 @@ If you're significantly behind and have YAML-based integrations that need
 migration, update in increments of no more than 6 releases at a time
 (e.g. from Home Assistant Core 2024.2 to 2024.8, then to 2025.2). This ensures
 automatic migrations can run properly during each update. You can use the
-Home Assistant CLI to update to a [specific Home Assistant Core version](common-tasks/os/#home-assistant-versions).
+Home Assistant CLI to update to a [specific Home Assistant Core version](/common-tasks/os/#home-assistant-versions).
