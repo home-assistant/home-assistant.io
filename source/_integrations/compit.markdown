@@ -3,11 +3,10 @@ title: Compit
 description: Instructions on how to integrate Compit devices within Home Assistant.
 ha_category:
   - Climate
-ha_release: 2025.8
+ha_release: 2025.10
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
-  - "@CompitHomeAssistant"
   - "@Przemko92"
 ha_domain: compit
 ha_platforms:
@@ -22,21 +21,18 @@ The **Compit** {% term integration %} allows you to integrate air conditioning, 
 - Create an account on [inext.compit.pl](https://inext.compit.pl).
 - Configure your Compit devices within the account.
 
-## Installation instructions
+{% include integrations/config_flow.md %}
 
-- Open Home Assistant and navigate to **Settings** > **Devices & Services**.
-- Click the **Add Integration** button in the bottom-right corner.
-- Search for **Compit** in the list of available integrations.
-- Select **Compit** and follow the on-screen instructions:
-  - Enter your **Email** and **Password** for your [inext.compit.pl](https://inext.compit.pl) account.
-- Once authenticated, Home Assistant will automatically discover and add your Compit devices.
-- Configure the devices as needed in the Home Assistant UI.
-
-If you encounter any issues during installation, refer to the [Home Assistant documentation](https://www.home-assistant.io/help/) or contact [Compit support](https://compit.pl/).
+{% configuration_basic %}
+Username:
+    description: "The username of your Compit iNext account."
+Password:
+    description: "The password of your Compit iNext account."
+{% endconfiguration_basic %}
 
 ## Supported devices
 
-**This component supports the following Compit devices.**
+This component supports the following Compit devices:
 
 - [Nano Color 2](https://compit.pl/produkty/termostaty-pokojowe/88-termostat-pokojowy-nano-color-2.html?ic=1) - Room thermostat
 - [Nano Color](https://compit.pl/produkty/termostaty-pokojowe/88-termostat-pokojowy-nano-color-2.html?ic=1) - Room thermostat
@@ -60,19 +56,6 @@ If you encounter any issues during installation, refer to the [Home Assistant do
 - [R350 T3](https://compit.pl/produkty/sterowniki-instalacji/42-dwustopniowy-sterownik-temperatury-regulator-pi-regulator-krokowy-sterowanie-3-punktowe-r350-07.html?ic=1) - Universal controller
 - [R350.CWU](https://compit.pl/produkty/sterowniki-uniwerslane/78-sterownik-do-podgrzewania-wody-r350-cwu.html?ic=1) - Universal controller
 - [AF-1](https://compit.pl/produkty/osprzet/91-af-1.html?ic=1) - Anti-freeze system
-
-## Configuration
-
-{% configuration %}
-Email:
-  description: User email for [inext.compit.pl](https://inext.compit.pl).
-  required: true
-  type: string
-Password:
-  description: Password for the account.
-  required: true
-  type: integer
-{% endconfiguration %}
 
 ## Removal instructions
 
