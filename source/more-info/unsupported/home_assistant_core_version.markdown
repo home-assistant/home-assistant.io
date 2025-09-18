@@ -5,12 +5,12 @@ description: "More information on why Home Assistant Core version marks the inst
 
 ## The issue
 
-Supervisor considers Home Assistant Core older than two years as unsupported.
-We generally recommend to always update to the latest Home Assistant Core, or
-at least update within 6 months to the latest release to not miss out on
-automatic migration of YAML integration (the migration code to migrate YAML
-integration to regular config entry based integration is available for 6
-months, today this is for 6 Home Assistant Core releases).
+Supervisor considers Home Assistant Core versions older than 24 months (approximately 24 releases) as unsupported.
+We strongly recommend keeping Home Assistant Core updated to the latest version, or
+at minimum updating within 6 months (6 release cycles) to ensure you don't miss
+automatic YAML integration migrations. Migration code that converts YAML-based
+integrations to modern UI-based configuration is only available for 6 months
+after deprecation, which corresponds to 6 Home Assistant Core releases.
 
 On installations using an unsupported Home Assistant Core release, the
 Supervisor stops refreshing its update information. This means you will no
@@ -27,8 +27,10 @@ To resolve this issue, update your Home Assistant Core version. Go to
 {% my updates title="**System** > **Updates**" %} to update Home Assistant Core.
 If you don't see the update you may have skipped it in the past. To see
 previously skipped updates, select the three dots {% icon "mdi:dots-vertical" %}
-enabling skipped updates.
+and enable skipped updates.
 
-If you would like to take advantage of YAML integration migration, update 6
-releases at a time (e.g. from Home Assistant Core 2024.2 to 2024.8). You can
-use the HA CLI to update to a specific version.
+If you're significantly behind and have YAML-based integrations that need
+migration, update in increments of no more than 6 releases at a time
+(e.g. from Home Assistant Core 2024.2 to 2024.8, then to 2025.2). This ensures
+automatic migrations can run properly during each update. You can use the
+Home Assistant CLI to update to a [specific Home Assistant Core version](common-tasks/os/#home-assistant-versions).
