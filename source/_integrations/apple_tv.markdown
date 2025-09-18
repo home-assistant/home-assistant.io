@@ -29,14 +29,14 @@ There is currently support for the following entities within the Apple TV device
 
 ## Actions
 
-An Apple TV entity exposes actions to interact with the on screen keyboard. These actions can be created via the UI, but are
+An Apple TV entity exposes actions to interact with the on-screen keyboard. These actions can be created via the UI, but are
 also available in YAML (examples below).
 
-**NOTE:** The on screen keyboard commands may not be supported by all Apple TV versions.
+**NOTE:** The on-screen keyboard commands may not be supported by all Apple TV versions.
 
 ### Action `apple_tv.set_search_text`
 
-The {% my developer_call_service service="apple_tv.set_search_text" %} action allows you to replace any existing on screen keyboard text
+The {% my developer_call_service service="apple_tv.set_search_text" %} action allows you to replace any existing on-screen keyboard text
 with your own.
 
 {% my developer_call_service badge service="apple_tv.set_search_text" %}
@@ -53,8 +53,7 @@ data:
 
 ### Action `apple_tv.append_search_text`
 
-The {% my developer_call_service service="apple_tv.append_search_text" %} action allows you to append your own text to any existing on
-screen keyboard text.
+The {% my developer_call_service service="apple_tv.append_search_text" %} action allows you to append your own text to any existing on-screen keyboard text.
 
 {% my developer_call_service badge service="apple_tv.append_search_text" %}
 
@@ -70,7 +69,7 @@ data:
 
 ### Action `apple_tv.clear_search_text`
 
-The {% my developer_call_service service="apple_tv.clear_search_text" %} action allows you to clear the on screen keyboard text.
+The {% my developer_call_service service="apple_tv.clear_search_text" %} action allows you to clear the on-screen keyboard text.
 
 {% my developer_call_service badge service="apple_tv.clear_search_text" %}
 
