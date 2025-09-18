@@ -6,8 +6,8 @@ description: "More information on why Home Assistant Core version marks the inst
 ## The issue
 
 Supervisor considers Home Assistant Core versions older than 24 months (approximately 24 releases) as unsupported.
-We strongly recommend keeping Home Assistant Core updated to the latest version, or
-at minimum updating within 6 months (6 release cycles) to ensure you don't miss
+It is strongly recommend to keeping Home Assistant Core updated to the latest version.
+At a minimum, update within 6 months (6 release cycles) to ensure you don't miss
 automatic YAML integration migrations. Migration code that converts YAML-based
 integrations to modern UI-based configuration is only available for 6 months
 after deprecation, which corresponds to 6 Home Assistant Core releases.
