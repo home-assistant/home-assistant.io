@@ -103,4 +103,3 @@ Always first check whether the data is being received by the Wallbox Portal as t
 ## Removing the integration
 
 {% include integrations/remove_device_service.md %}
-

@@ -42,27 +42,6 @@ Features can be enabled on the following cards:
   
     ![Screen recording showing how you can now reorder the HVAC modes on the thermostat shown in a tile card.](/images/blog/2024-05/tile-card-reorder-features.gif)
 
-## History chart
-
-Widget that displays the history of a [sensor](/integrations/sensor) or [binary_sensor](/integrations/binary_sensor).
-
-<p class='img'>
-  <img src='/images/dashboards/features/history-chart-line.png' alt='Screenshot of the tile card with the history chart feature for a numeric entity'>
-  <img src='/images/dashboards/features/history-chart-timeline.png' alt='Screenshot of the tile card with the history chart feature for a non-numeric entity'>
-  Screenshots of the tile card with the history chart feature
-</p>
-
-```yaml
-features:
-  - type: "history-chart"
-```
-
-{% configuration features %}
-type:
-  required: true
-  description: "`history-chart`"
-  type: string
-{% endconfiguration %}
 
 ## Alarm modes
 
@@ -101,7 +80,7 @@ modes:
 Widget that displays the state of a numeric [sensor](/integrations/sensor), with unit of measurement %, as a horizontal bar.
 
 <p class='img'>
-  <img src='/images/dashboards/features/bar-gauge.png' alt='Screenshot of the tile card with the bar gauge feature'>
+  <img src='/images/dashboards/features/bar_gauge.png' alt='Screenshot of the tile card with the bar gauge feature'>
   Screenshots of the tile card with the bar gauge feature
 </p>
 
@@ -781,6 +760,27 @@ features:
 type:
   required: true
   description: "`toggle`"
+  type: string
+{% endconfiguration %}
+
+## Trend graph
+
+Widget that displays the a trend of the history for a numeric [sensor](/integrations/sensor).
+
+<p class='img'>
+  <img src='/images/dashboards/features/trend_graph.png' alt='Screenshot of the tile card with the trend graph feature'>
+  Screenshot of the tile card with the trend graph feature
+</p>
+
+```yaml
+features:
+  - type: "trend-graph"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`trend-graph`"
   type: string
 {% endconfiguration %}
 

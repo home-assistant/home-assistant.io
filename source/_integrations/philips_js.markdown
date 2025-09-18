@@ -20,6 +20,7 @@ ha_platforms:
   - remote
   - switch
 ha_integration_type: integration
+ha_zeroconf: true
 ---
 
 The `philips_js` platform allows you to control Philips TVs which expose the [jointSPACE](http://jointspace.sourceforge.net/) JSON-API.
