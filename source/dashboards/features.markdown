@@ -98,7 +98,7 @@ type:
 
 ## Button
 
-Widget that displays buttons to control [button](/integrations/button), [input_button](/integrations/input_button), [scene](/integrations/scene) or [script](/integrations/script).
+Widget that displays buttons to control [button](/integrations/button), [input_button](/integrations/input_button), [scene](/integrations/scene), or [script](/integrations/script).](https://github.com/home-assistant/home-assistant.io/pull/40665)
 
 <p class='img'>
   <img src='/images/dashboards/features/button.png' alt='Screenshot of the tile card with the button feature'>
@@ -125,7 +125,7 @@ action_name:
   type: string
 data:
   required: false
-  description: Data to be sent with script.
+  description: Additional data to be passed when the action is executed. Only applies to script.
   type: map
 {% endconfiguration %}
 
