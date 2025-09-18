@@ -176,11 +176,11 @@ data:
 
 The Apple TV remote platform will automatically create a Binary sensor entity
 for each Apple TV configured on your Home Assistant instance to determine if the
-on screen keyboard is active.
+on-screen keyboard is active.
 
 ### Example
 
-Create an automation that clears the search text whenever the on screen keyboard
+Create an automation that clears the search text whenever the on-screen keyboard
 is activated:
 
 ```yaml
