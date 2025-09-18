@@ -125,7 +125,7 @@ action_name:
   type: string
 data:
   required: false
-  description: Data to be send with script.
+  description: Data to be sent with script.
   type: map
 {% endconfiguration %}
 
