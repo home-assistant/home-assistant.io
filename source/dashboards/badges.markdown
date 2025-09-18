@@ -36,6 +36,15 @@ Badges are widgets that sit at the top of a panel, above all the cards.
   Adding a badge to a dashboard.
 </p>
 
+## Removing a badge
+
+1. Go to the dashboard edit the dashboard (steps 1-3 in [adding a badge](#adding-a-badge-to-your-dashboard)).
+2. Hover over the badge to reveal the three dots {% icon "mdi:dots-vertical" %} menu.
+    ![Screenshot showing edit buttons](/images/dashboards/edit_badge.png)
+3. Select the three dots {% icon "mdi:dots-vertical" %} menu and select **Delete**.
+
+    ![Screenshot showing the three dots menu](/images/dashboards/edit_badge_menu.png)
+
 ## Entity badge
 
 The Entity badge allows you to display the state of an entity on a badge. This badge supports [actions](/dashboards/actions/).

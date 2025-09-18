@@ -9,7 +9,7 @@ ha_release: 0.95
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
-  - "@frenck"
+  - '@frenck'
 ha_domain: adguard
 ha_platforms:
   - sensor

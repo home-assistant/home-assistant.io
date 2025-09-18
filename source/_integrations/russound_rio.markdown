@@ -107,6 +107,10 @@ data:
   media_content_id: "1,8"
 ```
 
+## Browsing media
+
+The Russound RIO integration allows you to browse saved presets from your dashboard. 
+
 ## Troubleshooting
 
 ### There is a delay on getting the current status

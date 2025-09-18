@@ -12,6 +12,7 @@ ha_codeowners:
   - '@shmuelzon'
 ha_domain: ituran
 ha_platforms:
+  - binary_sensor
   - device_tracker
   - sensor
 ha_integration_type: hub
@@ -39,6 +40,12 @@ The information is pulled every 5 minutes from the Ituran web service; however, 
 
 ## Supported functionality
 
+### Binary sensor
+
+The Ituran {% term integration %} exposes the following binary sensors for each registered vehicle:
+
+- **Charging** - Only for EV's. The charging state of the vehicle
+
 ### Device tracker
 
 The Ituran {% term integration %} will track the location of each vehicle registered to your account.
@@ -48,10 +55,12 @@ The Ituran {% term integration %} will track the location of each vehicle regist
 The Ituran {% term integration %} also exposes the following sensors for each registered vehicle:
 
 - **Address** - The address that corresponds with the vehicle's location, as determined by Ituran
+- **Battery level** - Only for EV's. The battery level (%) of the vehicle
 - **Battery voltage** - The measured voltage (V) of the car battery. If not supported by the installation, the value will be set to `-1`
 - **Heading** - The direction (0-359°) that the vehicle is pointing to
 - **Last update from vehicle** - The time from when the vehicle last published its information to the Ituran cloud
 - **Mileage** - The distance (km) the vehicle has traveled
+- **Remaining range** - The distance (km) the vehicle can travel until the battery is depleted
 - **Speed** - The current speed (km/h) of the vehicle
 
 ## Known limitations
