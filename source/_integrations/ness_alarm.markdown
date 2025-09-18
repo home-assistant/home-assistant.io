@@ -32,15 +32,6 @@ The module communicates via the [Ness D8x/D16x ASCII protocol](https://github.co
 
 {% include integrations/config_flow.md %}
 
-## Configuration
-
-The Ness Alarm integration is configured through the UI. To add the integration:
-
-1. Go to **Settings** → **Devices & Services**
-2. Click **+ Add Integration**
-3. Search for **Ness Alarm**
-4. Follow the setup steps
-
 During setup, you'll need to provide:
 - **Host**: The hostname or IP address of your IP232 module
 - **Port**: The port on which the IP232 module listens (default: 2401)
