@@ -10,7 +10,6 @@ ha_codeowners:
   - '@frenck'
   - '@joostlek'
 ha_domain: spotify
-ha_zeroconf: true
 ha_platforms:
   - diagnostics
   - media_player

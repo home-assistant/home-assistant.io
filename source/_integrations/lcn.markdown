@@ -25,6 +25,7 @@ ha_platforms:
   - switch
 ha_config_flow: true
 ha_integration_type: integration
+ha_quality_scale: bronze
 ---
 
 The **LCN** {% term integration %} for Home Assistant allows you to connect to [LCN](https://www.lcn.eu/) hardware devices.

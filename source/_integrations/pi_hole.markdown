@@ -30,14 +30,19 @@ During the setup, it will ask for the following:
 
 | Item | Description | Example |
 | ---- | ----------- | ------- |
-| `Host` | The IP or domain name to Pi-Hole | 192.168.1.1 |
-| `Port` | Port used to get to the admin page | 80 |
+| `Host` | The IP or domain name to Pi-Hole. | 192.168.1.1 |
+| `Port` | Port used to get to the admin page, typically `80` for `http` connections and `443` for `https` connections. | 80 |
 | `Name` | Name to for this Pi-Hole. | Pi-Hole |
-| `Location` | the path to the admin page. | /admin |
+| `Location` | the path to the admin page. In the version 6 API this will be ignored. | /admin |
+| `API Key or App Password` | This can be found in your Pi-hole's **Settings** > **API (expert mode)**. | `585a2fe...` |
+| `Uses an SSL certificate` | Whether your Pi-hole has an Certificate, typically true for `https` connections and false for `http`. | {% icon "openmoji:check-mark" %} |
+| `Verify SSL certificate` | Whether to use verify your Pi-hole's certificate, ignored in Pi-hole API version 5. | {% icon "openmoji:check-mark" %} |
 
 The combined host, port and location should take you to the login page of Pi-Hole. Using the example above, it would be `http://192.168.1.1:80/admin`.
 
-If your Pi-hole web interface is password protected, an API key will be requested by Home Assistant after submitting the initial details above. You can get the API key by logging into your Pi-Hole and going to _from Settings > API_ and then the **Show API token** button.
+To find your App Password, log into your Pi-Hole and go to **Settings** > **Web Interface/API**. Switch from **Basic** to **Expert** mode, then select **Configure app password**.
+
+Versions of Pi-hole before version 6 (released in Feb 2025) use an API Key if the Pi-hole was password protected, this can be found in _Settings > API Tab_ and clicking **Show API token**
 
 ## Actions
 
@@ -49,8 +54,8 @@ Disables configured Pi-hole(s) for the specified amount of time.
 
 | Data attribute | Required | Type | Description |
 | ---------------------- | -------- | -------- | ----------- |
-| `entity_id` | `False` | string | Target switch entity. Use `all` to target all Pi-hole services |
-| `duration` | `True` | timedelta | Time for which Pi-hole should be disabled |
+| `entity_id` | `False` | string | Target switch entity. Use `all` to target all Pi-hole services. |
+| `duration` | `True` | timedelta | Time for which Pi-hole should be disabled. `'0'` will enable blocking indefinitely. |
 
 Example action:
 

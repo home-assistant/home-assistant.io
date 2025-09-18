@@ -198,4 +198,4 @@ The recommended way to overcome these obstacles is to not manually configure a l
 
 Some media players could reproduce only partial, corrupted or no audio at all when the audio format is not fully supported. In such cases it is required to experiment with different combinations of audio formats, channels, sample rates and bits using [preferred audio settings](#preferred-audio-settings) options.
 
-For example, some Google Cast devices skip initial audio part when the audio is sampled at 22050Hz, and to fix the problem it is required to set the `preferred_sample_rate` setting in the `options` option to `44100`. 
+For example, some Google Cast devices skip initial audio part when the audio is sampled at 22050Hz, and to fix the problem it is required to set the `preferred_sample_rate` setting in the `options` option to `44100`.

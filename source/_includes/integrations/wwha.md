@@ -17,7 +17,7 @@
   {% endif %}
 {% endfor %}
 
-**[{{ name }}]({{ url }})** is a member of the Works with Home Assistant partner program for their {{ formatted_types }} products. {{ name }} is committed to making sure their products are up-to-date and ready to use in Home Assistant.
+{% if url and url != "" %}[{{ name }}]({{ url }}){% else %}{{ name }}{% endif %} is a member of the Works with Home Assistant partner program for their {{ formatted_types }} products. {{ name }} is committed to making sure their products are up-to-date and ready to use in Home Assistant.
 
 {% if page.works_with contains "zwave" %}
   {{ name }} Z-Wave devices work locally and integrate seamlessly with the Z-Wave integration in Home Assistant (Z-Wave stick required). As all connectivity is happening locally, status updates and controlling your devices happen instantly in Home Assistant.

@@ -136,7 +136,7 @@ Not yet implemented features (but possible):
 
 ### Supported subdevices
 
-These subdevices are fully implemented in HomeAssistant:
+These subdevices are fully implemented in Home Assistant:
 
 - **Weather sensor (WSDCGQ01LM)**
   - Zigbee ID: `lumi.sensor_ht`
@@ -1218,11 +1218,6 @@ Set the humidifier operation mode.
 | `entity_id`            | no       | Only act on a specific Xiaomi humidifier entity.      |
 | `mode`                 | no       | The humidifier operation mode                         |
 
-### Action `fan.set_percentage`
-
-Set the fan speed percentage.
-
-| Data attribute | Optional | Description                                    |
 | ---------------------- | -------- | ---------------------------------------------- |
 | `entity_id`            | no       | Only act on a specific Xiaomi fan entity.      |
 | `percentage`           | no       | Fan speed. Percentage speed setting            |
@@ -1654,16 +1649,16 @@ Note: If your vacuum is in motion and does not respond to the `xiaomi_miio.vacuu
 Start the remote control mode of the robot. You can then move it with `remote_control_move`; when done, call `remote_control_stop`.
 
 | Data attribute | Optional | Description                  |
-| ---------------------- | -------- | ---------------------------- |
-| `entity_id`            | no       | Only act on a specific robot |
+| -------------- | -------- | ---------------------------- |
+| `entity_id`    | no       | Only act on a specific robot |
 
 ### Action `xiaomi_miio.vacuum_remote_control_stop`
 
 Exit the remote control mode of the robot.
 
 | Data attribute | Optional | Description                  |
-| ---------------------- | -------- | ---------------------------- |
-| `entity_id`            | no       | Only act on a specific robot |
+| -------------- | -------- | ---------------------------- |
+| `entity_id`    | no       | Only act on a specific robot |
 
 ### Action `xiaomi_miio.vacuuNm_remote_control_move`
 
@@ -2047,10 +2042,6 @@ Turn the wifi LED off.
 | Data attribute | Optional | Description                                       |
 | ---------------------- | -------- | ------------------------------------------------- |
 | `entity_id`            | no       | Only act on a specific Xiaomi switch entity.      |
-
-### Action `xiaomi_miio.switch_set_power_price` (Power Strip)
-
-Set the power price.
 
 | Data attribute | Optional | Description                                       |
 | ---------------------- | -------- | ------------------------------------------------- |

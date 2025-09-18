@@ -58,6 +58,14 @@ This {% term integration %} will expose the following sensors:
 - Wind lull
 - Wind speed
 
+## Event entity
+
+The WeatherFlow Tempest station also sends out event triggers when it starts raining and when there is a lightning strike near by.
+This {% term integration %} will expose these {% term event %} {% term entities %}  and can be used for automations. The following entities will be exposed:
+
+- Lightning strike
+- Precipitation start
+
 ## Diagnostic sensors
 
 Additionally the following diagnostic sensors are available:
