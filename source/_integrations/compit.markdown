@@ -32,7 +32,7 @@ Password:
 
 ## Supported devices
 
-You can use this integration with a wide range of Compit devices.
+This integration supports most of Compit device models across thermostats, controllers, and sensors.
 
 ### Thermostats
 
