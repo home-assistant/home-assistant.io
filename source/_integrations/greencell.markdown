@@ -66,7 +66,7 @@ Greencell offers three levels of integration with Home Assistant to suit differe
 
 ## Configure your device using the GC App
 
-This section describes how to configure your device for the Home Assistant integration using the **GC App** from Greencell.
+This section explains how to configure your device for the Home Assistant integration using the Greencell GC App. You must complete this one-time setup in the app before adding the device to the Greencell integration in Home Assistant. After the device has been configured and added, the app is no longer required for day-to-day use.
 
 > **Prerequisites:** Your device must be nearby. The app connects over Bluetooth Low Energy (BLE), so keep your phone close to the device during setup.
 
@@ -224,3 +224,11 @@ On this topic, devices send their serial numbers in response to a broadcast requ
     "id" : "{SERIAL}"
 }
 ```
+
+## Removing the integration
+
+This integration follows standard integration removal.
+
+{% include integrations/remove_device_service.md %}
+
+After deleting the integration, go to the app of the manufacturer and remove the Home Assistant integration from there as well.
