@@ -12,7 +12,7 @@ og_image: /images/blog/2025-09-12th-anniversary/art.webp
 
 <img src='/images/blog/2025-09-12th-anniversary/art.webp' style='border: 0;box-shadow: none;' alt="Home Assistant 12th Anniversary">
 
-Every September, we celebrate the anniversary of Home Assistant’s first PR in 2013 – for our 12th birthday, we’re going all in on community again. Last month, we asked for submissions on how Home Assistant helps you, and today we will highlight our favorites! We will also take a look at all the cool milestones over the past year in the project, thanks to contributions from you all, and the new things coming up for the community. <!-- more -->
+Every September, we celebrate the anniversary of Home Assistant’s first PR in 2013 – for our 12th birthday, we’re going all in on community again. Last month, we asked for submissions on how Home Assistant helps you, and today we will highlight our favorites! We will also take a look at all the cool milestones over the past year in the project, thanks to contributions from you all, and the new things coming up for the community. <!--more-->
 
 ## It’s a communal effort
 
