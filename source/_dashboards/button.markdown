@@ -34,14 +34,18 @@ Name:
   description: The button name that is displayed on the card. If this field is left blank and the card interacts with an entity, the button name defaults to the entity name. Otherwise, no name is displayed.
 Icon:
   description: The icon that is displayed on the card. If this field is left blank and the card interacts with an entity, the icon defaults to the entity domain icon. Otherwise, no icon is displayed.
-Show Name:
-  description: A toggle to show or hide the button name.
-Show Icon:
-  description: A toggle to show or hide the icon.
 Icon Height:
   description: The height of the icon, in pixels.
+Color:
+  description: The color of the icon.
 Theme:
   description: Name of any loaded theme to be used for this card. For more information about themes, see the [frontend documentation](/integrations/frontend/).
+Show Name:
+  description: A toggle to show or hide the button name.
+Show State:
+  description: A toggle to show or hide the state of the entity.
+Show Icon:
+  description: A toggle to show or hide the icon.
 Tap Action:
   description: The action taken on card tap. For more information, see the [action documentation](/dashboards/actions/#tap-action).
 Hold Action:
