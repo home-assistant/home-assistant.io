@@ -77,7 +77,8 @@ By default, the first network storage of type **Backup** that you add is used as
 If you want to change the local network storage that is used to store your backups, follow these steps:
 
 1. Go to **{% my backup title="Settings > System > Backups" %}**.
-2. In the top-right corner, select the three dots {% icon "mdi:dots-vertical" %} menu and select **Change local backup location**.
-3. Select your preferred network location and save your changes.
+2. Select **Settings and history**.
+3. In the top-right corner, select the three dots {% icon "mdi:dots-vertical" %} menu and select **Change default action location**.
+4. Select your preferred network location and save your changes.
    ![Select default location used for local backup](/images/screenshots/network-storage/backup_select_local_default.png)
-4. **Troubleshooting**: Don't see your external storage location? This list contains only the network storage targets you have added of type **Backup**.
+5. **Troubleshooting**: Don't see your external storage location? This list contains only the network storage targets you have added of type **Backup**.

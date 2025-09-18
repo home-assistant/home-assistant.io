@@ -3,20 +3,20 @@ title: Bayesian
 description: Instructions on how to integrate threshold Bayesian sensors into Home Assistant.
 ha_category:
   - Binary sensor
-  - Helper
   - Utility
-ha_iot_class: Local Polling
+ha_iot_class: Calculated
 ha_release: 0.53
 ha_quality_scale: internal
 ha_domain: bayesian
 ha_platforms:
   - binary_sensor
-ha_integration_type: helper
+ha_integration_type: service
 ha_codeowners:
   - '@HarvsG'
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_config_flow: true
 ---
 
 A `Bayesian` helper is a virtual binary sensor that determines its state based on the combination of multiple other sensors using probabilistic methods.

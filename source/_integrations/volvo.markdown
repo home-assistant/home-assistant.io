@@ -11,6 +11,7 @@ ha_config_flow: true
 ha_category:
   - Sensor
 ha_platforms:
+  - binary_sensor
   - sensor
 ha_quality_scale: silver
 related:
@@ -79,51 +80,44 @@ The **Volvo** integration provides the following entities.
 - **Coolant level**: Indicates if the engine coolant level is too low
 - **Daytime running light left**: Warns of a failure in the left daytime running light
 - **Daytime running light right**: Warns of a failure in the right daytime running light
-- **Door front left**<sup>*</sup>: Detects if the front left door is open or closed
-- **Door front right**<sup>*</sup>: Detects if the front right door is open or closed
-- **Door rear left**<sup>*</sup>: Detects if the rear left door is open or closed
-- **Door rear right**<sup>*</sup>: Detects if the rear right door is open or closed
+- **Door front left**: Detects if the front left door is open or closed
+- **Door front right**: Detects if the front right door is open or closed
+- **Door rear left**: Detects if the rear left door is open or closed
+- **Door rear right**: Detects if the rear right door is open or closed
 - **Engine status**: Shows if the engine is currently running
 - **Fog light front**: Warns of a failure in the front fog light
 - **Fog light rear**: Warns of a failure in the rear fog light
 - **Hazard lights**: Warns of a failure in the hazard lights
 - **High beam left**: Warns of a failure in the left high beam
 - **High beam right**: Warns of a failure in the right high beam
-- **Hood**<sup>*</sup>: Detects if the hood is open or closed
+- **Hood**: Detects if the hood is open or closed
 - **Low beam left**: Warns of a failure in the left low beam
 - **Low beam right**: Warns of a failure in the right low beam
-- **Oil level**<sup>*</sup>: Indicates oil level warnings and service requirements
+- **Oil level**: Indicates oil level warnings and service requirements
 - **Position light front left**: Warns of a failure in the front left position light
 - **Position light front right**: Warns of a failure in the front right position light
 - **Position light rear left**: Warns of a failure in the rear left position light
 - **Position light rear right**: Warns of a failure in the rear right position light
 - **Registration plate light**: Warns of a failure in the registration plate light
 - **Reverse lights**: Warns of a failure in the reverse lights
-- **Service**<sup>*</sup>: Indicates if service is required for the vehicle
+- **Service**: Indicates if service is required for the vehicle
 - **Side mark lights**: Warns of a failure in the side mark lights
-- **Sunroof**<sup>*</sup>: Detects if the sunroof is open or closed
-- **Tailgate**<sup>*</sup>: Detects if the tailgate is open or closed
-- **Tank lid**<sup>*</sup>: Detects if the tank lid is open or closed
-- **Tire front left**<sup>*</sup>: Indicates pressure warnings for the front left tire
-- **Tire front right**<sup>*</sup>: Indicates pressure warnings for the front right tire
-- **Tire rear left**<sup>*</sup>: Indicates pressure warnings for the rear left tire
-- **Tire rear right**<sup>*</sup>: Indicates pressure warnings for the rear right tire
+- **Sunroof**: Detects if the sunroof is open or closed
+- **Tailgate**: Detects if the tailgate is open or closed
+- **Tank lid**: Detects if the tank lid is open or closed
+- **Tire front left**: Indicates pressure warnings for the front left tire
+- **Tire front right**: Indicates pressure warnings for the front right tire
+- **Tire rear left**: Indicates pressure warnings for the rear left tire
+- **Tire rear right**: Indicates pressure warnings for the rear right tire
 - **Turn indication front left**: Warns of a failure in the front left turn indicator
 - **Turn indication front right**: Warns of a failure in the front right turn indicator
 - **Turn indication rear left**: Warns of a failure in the rear left turn indicator
 - **Turn indication rear right**: Warns of a failure in the rear right turn indicator
 - **Washer fluid**: Indicates if the washer fluid level is too low
-- **Window front left**<sup>*</sup>: Detects if the front left window is open or closed
-- **Window front right**<sup>*</sup>: Detects if the front right window is open or closed
-- **Window rear left**<sup>*</sup>: Detects if the rear left window is open or closed
-- **Window rear right**<sup>*</sup>: Detects if the rear right window is open or closed
-
-{% note %}
-Each binary sensor marked with "\*" has:
-
-- An attribute indicating details about the status.
-- A regular sensor, that is disabled by default, having the status as value.
-{% endnote %}
+- **Window front left**: Detects if the front left window is open or closed
+- **Window front right**: Detects if the front right window is open or closed
+- **Window rear left**: Detects if the rear left window is open or closed
+- **Window rear right**: Detects if the rear right window is open or closed
 
 #### Sensors
 
@@ -199,6 +193,7 @@ The **Volvo** integration fetches data from the API at different intervals:
 - **Every 60 minutes**: diagnostics, odometer, and statistics
 - **Every 15 minutes**: car connectivity and fuel status
 - **Every 2 minutes**: energy data (for battery cars)
+- **Every minute**: doors and window status
 
 If you decide to define a custom polling interval, beware that there is a maximum of 10,000 requests per day.
 Every poll operation accounts for about a dozen calls (depends on model).
