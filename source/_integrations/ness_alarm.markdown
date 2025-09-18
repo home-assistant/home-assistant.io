@@ -1,6 +1,6 @@
 ---
 title: Ness Alarm
-description: Instructions on how to integrate a Ness D8x/D16x alarm system with Home Assistant.
+description: Instructions on how to integrate a Ness alarm system with Home Assistant.
 ha_category:
   - Alarm
   - Binary sensor
@@ -21,7 +21,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `ness_alarm` {% term integration %} will allow Home Assistant users who own a Ness D8x/D16x alarm system to leverage their alarm system and its sensors to provide Home Assistant with information about their homes. Connectivity between Home Assistant and the alarm is accomplished through a IP232 module that must be connected to the alarm.
+The `ness_alarm` {% term integration %} will allow Home Assistant users who own a Ness alarm system to leverage their alarm system and its sensors to provide Home Assistant with information about their homes. Connectivity between Home Assistant and the alarm is accomplished through a IP232 module that must be connected to the alarm.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -42,13 +42,20 @@ The Ness Alarm integration is configured through the UI. To add the integration:
 4. Follow the setup steps
 
 During setup, you'll need to provide:
-
 - **Host**: The hostname or IP address of your IP232 module
 - **Port**: The port on which the IP232 module listens (default: 2401)
-- **Max Zone Count**: Maximum number of zones your panel supports (default: 16)
 - **Scan Interval**: Time between updates in seconds (default: 60)
 - **Infer Arming State**: Enable workaround for panels with firmware < v5.8
-- **Support Home Arm**: Enable ARM_HOME functionality
+
+### Automatic Zone Detection
+
+The integration automatically detects your panel model and creates the appropriate number of zone entities:
+- **D8X/DPLUS8**: 8 zones (zones 9-32 disabled)
+- **D16X**: 16 zones (zones 17-32 disabled)
+- **D24X**: 24 zones (zones 25-32 disabled)
+- **D32X**: All 32 zones enabled
+
+All panels have 32 zone entities created, with appropriate zones automatically disabled based on the detected model. You can manually enable additional zones if you have expanders or a non-standard configuration.
 
 ### Options
 
@@ -59,15 +66,17 @@ After setup, you can modify settings through the integration options:
 3. Click **Configure**
 
 Available options:
-- Scan interval (1-3600 seconds)
-- Infer arming state
-- Support home arm
-- Maximum zone count
+- **Scan interval**: 1-3600 seconds
+- **Infer arming state**: Infer the disarmed arming state only via system status events. This works around a bug with some panels (<v5.8) which emit update.status = [] when they are armed.
+- **Support home arm**: Enable ARM_HOME functionality
+- **Number of Active Zones**: Manual override (8, 16, 24, or 32 zones)
+
+The zone count option allows you to override the auto-detected panel capacity if you have zone expanders or if detection was incorrect.
 
 ## YAML Configuration (Deprecated)
 
 {% warning %}
-YAML configuration for Ness Alarm is deprecated and will be removed in Home Assistant 2025.6. Your existing YAML configuration will be automatically imported on upgrade. After confirming the integration works correctly, remove the `ness_alarm` section from your configuration.yaml file.
+YAML configuration for Ness Alarm is deprecated. Your existing YAML configuration will be automatically imported on upgrade. After import, you'll receive a persistent notification with instructions to remove the `ness_alarm` section from your configuration.yaml file.
 {% endwarning %}
 
 If you have existing YAML configuration, it will be automatically imported when Home Assistant starts:
@@ -94,35 +103,21 @@ ness_alarm:
 ### Zone Configuration
 
 When importing from YAML, zone configurations are preserved including:
-
-- **Zone ID**: The zone number on your alarm panel (1-16 or higher)
+- **Zone ID**: The zone number on your alarm panel (1-32)
 - **Zone Name**: Custom name for the zone
 - **Zone Type**: Device class for the binary sensor
-
-Supported zone types (device classes):
-- `motion` (default)
-- `door`
-- `window`
-- `smoke`
-- `gas`
-- `moisture`
-- `vibration`
-- `opening`
-- `presence`
-- `safety`
-- `sound`
-- `tamper`
-
-After import, zones that weren't explicitly configured in YAML will be created with default names (e.g., "Zone 6") and motion sensor type.
 
 ### Migration Process
 
 1. On startup, Home Assistant detects your YAML configuration
 2. The configuration is automatically imported to a config entry
-3. Once you verify the integration works correctly, remove the `ness_alarm` section from configuration.yaml
-4. Dismiss the repair notification
+3. A persistent notification appears with instructions
+4. Remove the `ness_alarm` section from configuration.yaml
+5. Restart Home Assistant to clear the warning
 
-If import fails, you'll see a repair issue with instructions to manually add the integration through the UI.
+After import, zones that weren't explicitly configured in YAML will be created with default names (e.g., "Zone 6") and motion sensor type.
+
+If import fails, check the logs for connection errors.
 
 ## Alarm System Configuration
 
@@ -153,7 +148,7 @@ Trigger a panic
 
 | Data attribute | Optional | Description |
 | -------------- | -------- | ----------- |
-| `code`         | No       | The user code to use to trigger the panic. |
+| `code`         | Yes      | The user code to use to trigger the panic. |
 
 ## Troubleshooting
 
@@ -165,16 +160,28 @@ If the integration fails to connect:
 3. Ensure no firewall is blocking the connection
 4. Confirm the alarm panel settings are configured correctly (P 199 E)
 
-### Zone Detection
+### Zone Management
 
-If zones aren't showing correctly:
-1. Check the Max Zone Count in integration options
-2. Verify zone IDs match your alarm panel configuration
-3. For imported YAML configs, ensure zone IDs are sequential from 1
+The integration creates all 32 zones automatically:
+- Zones beyond your panel's capacity are disabled by default
+- You can manually enable/disable zones in **Settings** → **Devices & Services** → **Ness Alarm** → **Entities**
+- Use the zone count option in Configure to bulk enable/disable zones
 
 ### After YAML Import
 
-If you experience issues after automatic YAML import:
-1. Check the repair notification for any error messages
-2. Compare your old YAML configuration with the imported settings
-3. If needed, remove the integration and re-add it manually through the UI
+If you still see YAML configuration warnings after import:
+1. Check the persistent notification for specific instructions
+2. Remove the entire `ness_alarm:` section from configuration.yaml
+3. Restart Home Assistant to clear warnings
+4. If issues persist, remove and re-add the integration through the UI
+
+### Panel Model Detection
+
+The integration automatically detects your panel model. If detection is incorrect:
+1. Go to integration options (Configure button)
+2. Set "Number of Active Zones" to match your panel:
+   - 8 zones for D8X/DPLUS8
+   - 16 zones for D16X
+   - 24 zones for D24X
+   - 32 zones for D32X
+3. The integration will reload with the correct zones enabled
