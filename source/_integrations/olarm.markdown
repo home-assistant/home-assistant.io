@@ -50,7 +50,7 @@ Before adding the integration to Home Assistant:
 
 {% include integrations/config_flow.md %}
 
-## Entities
+## Supported functionality
 
 The **Olarm** {% term integration %} provides the following {% term entities %}.
 
@@ -83,11 +83,9 @@ The integration creates various binary sensors depending on your alarm system co
 - `binary_sensor.max_input_XX_<input_name>`: MAX input status
 - `binary_sensor.max_output_XX_<output_name>`: MAX output status (for outputs in latch mode)
 
-## Examples
+## Automation examples
 
-### Automation examples
-
-#### Zone monitoring
+### Zone monitoring
 
 ```yaml
 alias: "Front Door Opened"
@@ -103,20 +101,29 @@ action:
 
 ## Troubleshooting
 
-### Common issues
+### No updates or control issues
 
-- **No updates or control issues**: Ensure the {% term device %} is online and the subscription is active
-- **Missing {% term entities %}**: Reload the {% term integration %} or restart Home Assistant
-- **Login issues**: Double-check your Olarm account credentials and ensure API access is enabled in the Olarm app
-- **LINK entities missing**: Ensure the modules are properly connected and configured in the Olarm system
+Ensure the {% term device %} is online and the subscription is active.
+
+### Missing {% term entities %}
+
+Reload the {% term integration %} or restart Home Assistant.
+
+### Login issues
+
+Double-check your Olarm account credentials and ensure API access is enabled in the Olarm app.
+
+### LINK entities missing
+
+Ensure the modules are properly connected and configured in the Olarm system.
 
 ## Known limitations
 
-- A maximum of 5 Olarm {% term device %}s per {% term integration %} instance are currently supported
-- Only one Olarm user account per Home Assistant instance - multiple Home Assistant instances require different Olarm user accounts
-- Zone bypass {% term entities %} are optional and must be enabled during setup
-- LINK binary sensors {% term entities %} only available if the respective modules are connected to your system
-- MAX binary sensors only available if you have an Olarm MAX
+- A maximum of 5 Olarm {% term device %}s per {% term integration %} instance are currently supported.
+- Only one Olarm user account per Home Assistant instance - multiple Home Assistant instances require different Olarm user accounts.
+- Zone bypass {% term entities %} are optional and must be enabled during setup.
+- LINK binary sensors {% term entities %} only available if the respective modules are connected to your system.
+- MAX binary sensors only available if you have an Olarm MAX.
 
 ## Removing the integration
 
