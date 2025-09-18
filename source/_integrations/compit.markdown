@@ -18,8 +18,8 @@ The Compit {% term integration %} allows you to integrate air conditioning, vent
 
 ## Prerequisites
 
-- Create an account on [inext.compit.pl](https://inext.compit.pl).
-- Configure your Compit devices in your account.
+1. Create an account on [inext.compit.pl](https://inext.compit.pl).
+2. Configure your Compit devices in your account.
 
 {% include integrations/config_flow.md %}
 
@@ -37,15 +37,13 @@ This integration supports the following Compit devices:
 - [Nano Color 2](https://compit.pl/produkty/termostaty-pokojowe/88-termostat-pokojowy-nano-color-2.html?ic=1) - Room thermostat
 - [Nano Color](https://compit.pl/produkty/termostaty-pokojowe/8-termostat-pokojowy-nano-color.html?ic=1) - Room thermostat
 - [Nano One](https://compit.pl/produkty/termostaty-pokojowe/24-termostat-pokojowy-nano-one.html?ic=1) - Room thermostat
+- [R810](https://compit.pl/produkty/sterowniki-instalacji/43-pogodowy-regulator-temperatury-obiegu-grzewczego-r810.html?ic=1) - Heating circuit temperature controller
 - [R900](https://compit.pl/produkty/sterowniki-pomp-ciepla/89-r900.html?ic=1) - Heat Pump Controller
-- [R810](https://compit.pl/produkty/sterowniki-instalacji/43-pogodowy-regulator-temperatury-obiegu-grzewczego-r810.html?ic=1) - Heat Pump Controller
 - [R490](https://compit.pl/produkty/sterowniki-pomp-ciepla/12-sterownik-pompy-ciepla-r490-one.html?ic=1) - Heat Pump Controller
-- R480 - Heat Pump Controller _(OEM R470 version)_
-- [R470](https://compit.pl/produkty/sterowniki-pomp-ciepla/10-sterownik-pompy-ciepla-r470-one.html?ic=1) - Heat Pump Controller
+- [R470 R480](https://compit.pl/produkty/sterowniki-pomp-ciepla/10-sterownik-pompy-ciepla-r470-one.html?ic=1) - Heat Pump Controller
 - [R770RS R771RS](https://compit.pl/produkty/sterowniki-do-kotlow/83-pogodowy-regulator-kotla-retortowego-i-instalacji-grzewczej-r771-2.html?ic=1) - Rotor boiler controller
 - [BWC310](https://compit.pl/produkty/sterowniki-ogrzewania-podlogowego/40-sterownik-ogrzewania-podlogowego-l2.html?ic=1) - Mixing valve controller
-- [BioMax775](https://compit.pl/dokumenty-do-pobrania/sterowniki-do-kot%C5%82%C3%B3w-dokumenty-do-pobrania/category/126-sterownik-kotla-pelletowego-biomax-775.html?download=313:sterownik-kotla-pelletowego-biomax-775-wersja-7) - Pellet boiler controller
-- BioMax772 - Pellet boiler controller _(OEM 775 version)_
+- [BioMax775 BioMax772](https://compit.pl/dokumenty-do-pobrania/sterowniki-do-kot%C5%82%C3%B3w-dokumenty-do-pobrania/category/126-sterownik-kotla-pelletowego-biomax-775.html?download=313:sterownik-kotla-pelletowego-biomax-775-wersja-7) - Pellet boiler controller
 - [BioMax742](https://compit.pl/dokumenty-do-pobrania/sterowniki-do-kot%C5%82%C3%B3w-dokumenty-do-pobrania/category/50-sterownik-kot%C5%82a-pelletowego-biomax-742.html?download=90:sterownik-kot%C5%82a-pelletowego-biomax-742-wersja-u7) - Pellet boiler controller
 - [SHC](https://compit.pl/produkty/osprzet/67-czujnik-stezenia-dwutlenku-wegla-wilgotnosci-i-temperatury-w-pomieszczeniach-shc.html?ic=1) - Carbon dioxide sensor
 - [SPM](https://compit.pl/produkty/osprzet/87-czujnik-jakosci-powietrza-spm.html?ic=1) - Air quality sensor
