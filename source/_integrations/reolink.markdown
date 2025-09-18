@@ -781,7 +781,7 @@ Prerequisites:
 - Wake up and start recording on other battery cameras nearby if one camera/motion sensor detects an event.
 - Turn on the spotlights or sirens of other cameras nearby when one camera detects a person, vehicle, or animal.
 - If a camera detects a person/vehicle/animal, then point other PTZ cameras in that direction using PTZ presets.
-- Make a timelaps in diffrent directions using PTZ presets and the snapshot service.
+- Make a timelapse in different directions using PTZ presets and the snapshot service.
 - Switch day night mode (Color/IR Black&White) based on sunset/sunrise times or the status of (outdoor) lights instead of relying on the internal light sensor.
 - Change the camera volume based on the time and/or when you are home or not (geofencing)
 - Increase the framerate and maximum bitrate of a camera when a person/vehicle/animal is detected and lower them again after 1 minute of no detection. This saves storage space, so you can record longer when recording 24/7 without compromising image clarity during events.
