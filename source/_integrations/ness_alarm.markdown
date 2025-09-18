@@ -36,7 +36,7 @@ During setup, you'll need to provide:
 - **Host**: The hostname or IP address of your IP232 module
 - **Port**: The port on which the IP232 module listens (default: 2401)
 - **Scan Interval**: Time between updates in seconds (default: 60)
-- **Infer Arming State**: Enable workaround for panels with firmware < v5.8
+- **Infer Arming State**: Infer the disarmed arming state only via system status events. This works around a bug with some panels (<v5.8) which emit update.status = [] when they are armed.
 
 ### Automatic Zone Detection
 
@@ -59,7 +59,7 @@ After setup, you can modify settings through the integration options:
 Available options:
 - **Scan interval**: 1-3600 seconds
 - **Infer arming state**: Infer the disarmed arming state only via system status events. This works around a bug with some panels (<v5.8) which emit update.status = [] when they are armed.
-- **Support home arm**: Enable ARM_HOME functionality
+- **Support home arm**: Enable/Disable ARM_HOME functionality
 - **Number of Active Zones**: Manual override (8, 16, 24, or 32 zones)
 
 The zone count option allows you to override the auto-detected panel capacity if you have zone expanders or if detection was incorrect.
@@ -149,30 +149,5 @@ If the integration fails to connect:
 1. Verify the IP232 module is accessible on your network
 2. Check that the port number is correct (default 2401)
 3. Ensure no firewall is blocking the connection
-4. Confirm the alarm panel settings are configured correctly (P 199 E)
+4. Confirm the alarm panel settings are configured correctly (P 199 E)es
 
-### Zone Management
-
-The integration creates all 32 zones automatically:
-- Zones beyond your panel's capacity are disabled by default
-- You can manually enable/disable zones in **Settings** → **Devices & Services** → **Ness Alarm** → **Entities**
-- Use the zone count option in Configure to bulk enable/disable zones
-
-### After YAML Import
-
-If you still see YAML configuration warnings after import:
-1. Check the persistent notification for specific instructions
-2. Remove the entire `ness_alarm:` section from configuration.yaml
-3. Restart Home Assistant to clear warnings
-4. If issues persist, remove and re-add the integration through the UI
-
-### Panel Model Detection
-
-The integration automatically detects your panel model. If detection is incorrect:
-1. Go to integration options (Configure button)
-2. Set "Number of Active Zones" to match your panel:
-   - 8 zones for D8X/DPLUS8
-   - 16 zones for D16X
-   - 24 zones for D24X
-   - 32 zones for D32X
-3. The integration will reload with the correct zones enabled
