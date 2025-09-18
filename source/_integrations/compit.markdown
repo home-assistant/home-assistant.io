@@ -14,7 +14,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The **Compit** {% term integration %} allows you to integrate air conditioning, ventilation and heating controllers with Home Assistant. This integration needs a Compit iNext account to be setup at [inext.compit.pl](https://inext.compit.pl).
+The **Compit** {% term integration %} allows you to integrate air conditioning, ventilation and heating controllers with Home Assistant. This integration requires a Compit iNext account to be set up at [inext.compit.pl](https://inext.compit.pl).
 
 ## Prerequisites
 
@@ -32,7 +32,7 @@ Password:
 
 ## Supported devices
 
-This component supports the following Compit devices:
+This integration supports the following Compit devices:
 
 - [Nano Color 2](https://compit.pl/produkty/termostaty-pokojowe/88-termostat-pokojowy-nano-color-2.html?ic=1) - Room thermostat
 - [Nano Color](https://compit.pl/produkty/termostaty-pokojowe/8-termostat-pokojowy-nano-color.html?ic=1) - Room thermostat
