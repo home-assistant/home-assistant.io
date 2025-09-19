@@ -137,12 +137,6 @@ Toggles a relay in intervals with specified on/off times and number of repetitio
 
 Home Assistant standard functions: [**Cover entity**](https://www.home-assistant.io/integrations/cover/)
 
-### Additional functions via service and automation action:
-
-**cover_toggle**  
-Starts the cover in the opposite direction as last time.
-
-
 ### Additional configuration via service:
 
 **cover_set_configuration**  
