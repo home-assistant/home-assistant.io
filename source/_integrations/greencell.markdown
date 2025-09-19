@@ -11,12 +11,13 @@ ha_domain: greencell
 ha_integration_type: integration
 ---
 
+The **Greencell** {% term integration %} lets you integrate Greencell EV charging devices with Home Assistant. It exposes real-time telemetry and charging-session data (e.g., current, voltage, power, and state) for use in dashboards and automations.
+
 ## Prerequisites
 
 - Greencell GC App
 - Greencell GC account
 
-The **Greencell** {% term integration %} allows to integrate Greencell electric vehicles charging devices into Home Assistant.
 
 ## Adding a device to the Greencell GC App
 
@@ -84,11 +85,10 @@ Currently, the integration supports only [HabuDen](https://greencell.global/habu
 
 ## Communication
 
-Communication is handled via MQTT, and the integration supports:
+The integration communicates via MQTT:
 
-- Dynamic state updates and device availability detection
-- Remote start and stop of charging
-- Checking the current charging session and vehicle connection status
+- Subscribes to device topics for telemetry and availability
+- Command handling (`START`, `STOP`, `SET_CURRENT`, `QUERY`) will be enabled once control support is released
 
 {% include integrations/config_flow.md %}
 
