@@ -22,7 +22,6 @@ The **Greencell** {% term integration %} allows to integrate Greencell electric 
 
 ### Prerequisites
 
-- Your device must be nearby.
 - The app connects over Bluetooth Low Energy (BLE), so keep your phone close to the device during setup.
 
 ### To add a device to the Greencell GC App
@@ -33,10 +32,9 @@ Instructions on adding the device are available in the [official installation gu
 
 ### Prerequisites
 
-- The device must be [added to the Greencell GC App](adding-a-device-to-the-greencell-gc-app) before you can add it to the Greencell integration in Home Assistant.
-- After the device has been configured and added, the app is no longer required for day-to-day use.
-- Your device must be nearby.
+- The device must be [added to the Greencell GC App](#adding-a-device-to-the-greencell-gc-app) before you can add it to the Greencell integration in Home Assistant
 - The app connects over Bluetooth Low Energy (BLE), so keep your phone close to the device during setup.
+- After the device has been configured and added, the app is no longer required for day-to-day use.
 
 ### To configure a device using the Greencell GC App
 
