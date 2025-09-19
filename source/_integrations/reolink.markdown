@@ -186,7 +186,7 @@ Depending on the supported features of the camera ([see specifications of the ca
 - Pre-recording time*
 - Pre-recording stop battery level*
 
-**Floodlight turn on brightness** controls the brightness of the floodlight when it is turned on internally by the camera (see **Floodlight mode** select entity) or when using the **Floodlight** light entity. **Floodlight event brightness** controls the brightness of the floodlight when it is turned on due to the camera detecting a event (for example person/vehicle), see the **Floodlight event mode** entity.
+**Floodlight turn on brightness** controls the brightness of the floodlight when it is turned on internally by the camera (see **Floodlight mode** select entity) or when using the **Floodlight** light entity. **Floodlight event brightness** controls the brightness of the floodlight when it is turned on due to the camera detecting an event (for example person/vehicle), see the **Floodlight event mode** entity.
 
 **Floodlight event on time** will be in the `unknown` state if **Floodlight event mode** is not in the `on` state
 **Floodlight event flash time** will be in the `unknown` state if **Floodlight event mode** is not in the `flash` state
