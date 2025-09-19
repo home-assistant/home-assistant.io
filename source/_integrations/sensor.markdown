@@ -81,6 +81,7 @@ The following device classes are supported for sensors:
 - **ph**: Potential hydrogen (pH) value of a water solution
 - **pm1**: Concentration of particulate matter less than 1 micrometer in µg/m³
 - **pm25**: Concentration of particulate matter less than 2.5 micrometers in µg/m³
+- **pm4**: Concentration of particulate matter less than 4 micrometers in µg/m³
 - **pm10**: Concentration of particulate matter less than 10 micrometers in µg/m³
 - **power_factor**: Power factor (unitless), unit may be `None` or %
 - **power**: Power in mW, W, kW, MW, GW or TW
