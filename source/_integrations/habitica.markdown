@@ -172,6 +172,8 @@ If you’re part of a party, the integration creates a device with these entitie
 - **Member count**: The current number of members in your party.
 - **Quest**: Shows the name of the current quest your party is engaged in.
 - **Quest boss**: The name and image of the foe your party is currently battling.
+- **Boss rage**: Rage accumulated when quest participants miss their daily tasks.
+- **Boss rage limit break**: The maximum rage a quest boss can hold. Once this limit is reached, the boss unleashes its rage skill.
 
 {% note %}
 

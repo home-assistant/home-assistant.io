@@ -168,7 +168,7 @@ data:
 
 ## Notification actions
 
-Available actions: `send_message`, `send_photo`, `send_video`, `send_animation`, `send_voice`, `send_sticker`, `send_document`, `send_location`, `edit_message`, `edit_caption`, `edit_replymarkup`, `answer_callback_query`, `delete_message`, `leave_chat` and `set_message_reaction`.
+Available actions: `send_message`, `send_photo`, `send_video`, `send_animation`, `send_voice`, `send_sticker`, `send_document`, `send_location`, `send_chat_action`, `edit_message`, `edit_caption`, `edit_replymarkup`, `answer_callback_query`, `delete_message`, `leave_chat` and `set_message_reaction`.
 
 Actions that send contents (`send_*`) will return a list of `message_id`/`chat_id` for messages delivered (in a property called `chats`). This will populate [Response Data](/docs/scripts/perform-actions#use-templates-to-handle-response-data) that you can further utilize in your automations to edit/delete the message later based on the `message_id`. See the example later on this page for usage instructions.
 
@@ -382,6 +382,17 @@ Send a poll.
 | `timeout`                 | yes      | Timeout for sending voice in seconds. Will help with timeout errors (poor internet connection, etc)                                                                            |
 | `reply_to_message_id`     | yes      | Mark the message as a reply to a previous message. In `telegram_callback` handling, for example, you can use {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %} |
 | `message_thread_id`       | yes      | Send the message to a specific topic or thread.|
+
+### Action `telegram_bot.send_chat_action`
+
+Send a chat action. Use it to notify the user with the relevant "typing" action when a bot response may be delayed, so they know a message is coming soon. Telegram clears this status after 5 seconds or when the reply arrives.
+
+| Data attribute     | Optional | Description                                                                                                                                                                                                                                                                                               |
+| -------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `config_entry_id`          | yes      | The configuration entry representing the Telegram bot to send the message. Required if you have multiple Telegram bots.|
+| `target`                   | yes      | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id.                                                                                                                                                                                       |
+| `chat_action`               | no      | Chat action to be sent: `typing`, `upload_photo`, `record_video`, `upload_video`, `record_voice`, `upload_voice`, `upload_document`, `choose_sticker`, `find_location`, `record_video_note`, `upload_video_note`.         |
+| `message_thread_id`        | yes      | Send the message to a specific topic or thread.|
 
 ### Action `telegram_bot.edit_message`
 
