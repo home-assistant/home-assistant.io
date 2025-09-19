@@ -34,49 +34,46 @@ also available in YAML (examples below).
 
 **NOTE:** The on-screen keyboard commands may not be supported by all Apple TV versions.
 
-### Action `apple_tv.set_search_text`
+### Action `apple_tv.set_keyboard_text`
+The {% my developer_call_service service="apple_tv.set_keyboard_text" %} action allows you to replace any existing on-screen keyboard text with your own.
 
-The {% my developer_call_service service="apple_tv.set_search_text" %} action allows you to replace any existing on-screen keyboard text
-with your own.
-
-{% my developer_call_service badge service="apple_tv.set_search_text" %}
-
+{% my developer_call_service badge service="apple_tv.set_keyboard_text" %}
 Example in YAML:
 
 ```yaml
-action: apple_tv.set_search_text
+action: apple_tv.set_keyboard_text
 target:
   entity_id: remote.my_apple_tv_remote
 data:
   text: The Wizard of Oz
 ```
 
-### Action `apple_tv.append_search_text`
+### Action `apple_tv.append_keyboard_text`
 
-The {% my developer_call_service service="apple_tv.append_search_text" %} action allows you to append your own text to any existing on-screen keyboard text.
+The {% my developer_call_service service="apple_tv.append_keyboard_text" %} action allows you to append your own text to any existing on-screen keyboard text.
 
-{% my developer_call_service badge service="apple_tv.append_search_text" %}
+{% my developer_call_service badge service="apple_tv.append_keyboard_text" %}
 
 Example in YAML:
 
 ```yaml
-action: apple_tv.append_search_text
+action: apple_tv.append_keyboard_text
 target:
   entity_id: remote.my_apple_tv_remote
 data:
   text: a Mockingbird
 ```
 
-### Action `apple_tv.clear_search_text`
+### Action `apple_tv.clear_keyboard_text`
 
-The {% my developer_call_service service="apple_tv.clear_search_text" %} action allows you to clear the on-screen keyboard text.
+The {% my developer_call_service service="apple_tv.clear_keyboard_text" %} action allows you to clear the on-screen keyboard text.
 
-{% my developer_call_service badge service="apple_tv.clear_search_text" %}
+{% my developer_call_service badge service="apple_tv.clear_keyboard_text" %}
 
 Example in YAML:
 
 ```yaml
-action: apple_tv.clear_search_text
+action: apple_tv.clear_keyboard_text
 target:
   entity_id: remote.my_apple_tv_remote
 ```
