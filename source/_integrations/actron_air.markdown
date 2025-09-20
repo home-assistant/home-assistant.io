@@ -24,7 +24,7 @@ This integration currently supports the Actron Air Neo controller, however other
 
 {% include integrations/config_flow.md %}
 
-## Entities
+## Supported functionality
 
 ### Climate
 
