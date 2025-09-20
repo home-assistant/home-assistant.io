@@ -3,6 +3,7 @@ title: Yardian
 description: Instructions on how to integrate Yardian device within Home Assistant.
 ha_category:
   - Irrigation
+  - Sensor
   - Switch
 ha_config_flow: true
 ha_release: 2023.9
@@ -11,21 +12,42 @@ ha_codeowners:
   - '@h3l1o5'
 ha_domain: yardian
 ha_platforms:
+  - binary_sensor
+  - sensor
   - switch
 ha_integration_type: integration
 ---
 
 The **Yardian** {% term integration %} allows you to control your [Yardian Smart Sprinkler Controller](https://yardian.com/products/yardian-pro-smart-sprinkler-controller/).
 
-There is currently support for the following platform within Home Assistant:
+There is currently support for the following platforms within Home Assistant:
 
 - Switch - Allows you to view the status of zones and control them.
+- Binary sensor - Shows watering status along with standby and freeze prevent diagnostics. Per-zone enabled diagnostics are provided but disabled by default.
+- Sensor - Reports rain delay, the number of active zones, and diagnostic values such as sensor delay, water hammer duration, and the controller region. Most diagnostic sensors are disabled by default.
 
 {% include integrations/config_flow.md %}
 
 During the configuration, you will have to manually set the **Host** and the **Access Token**. You can find them inside your [Yardian App](https://yardian.com/app/).
 
 ![Yardian Host/Token Location](/images/integrations/yardian/yardian_config_flow.jpg)
+
+## Entities
+
+### Binary sensors
+
+- **Watering running** – Indicates when any zone is currently irrigating.
+- **Standby** – Diagnostic binary sensor showing whether the controller is in standby mode.
+- **Freeze prevent** – Diagnostic binary sensor that turns on when the controller enables freeze prevention.
+- **Zone enabled** – Diagnostic binary sensors created per zone that mirror the zone enablement flags. These entities are disabled by default.
+
+### Sensors
+
+- **Rain delay** – Remaining rain delay reported in seconds.
+- **Active zone count** – The number of zones currently running.
+- **Sensor delay** – Diagnostic duration in seconds (disabled by default).
+- **Water hammer duration** – Diagnostic duration in seconds (disabled by default).
+- **Region** – Diagnostic text describing the configured region (disabled by default).
 
 ## Actions
 
