@@ -37,6 +37,8 @@ Calendar URL:
     description: "The URL of the remote calendar. Example: `https://calendar.google.com/calendar/ical/p07n98go11onamd08d0kmq6jhs%40group.calendar.google.com/public/basic.ics`"
 {% endconfiguration_basic %}
 
+Google Calendar tip: If you are trying to connect a private calendar, you have to use the [secret address](https://support.google.com/calendar/thread/2408874/can-t-find-a-private-address-of-my-google-calendar-to-subscribe-it-to-outlook) in iCal format otherwise, you will see an error when trying to connect your calendar.
+
 ## Data updates
 
 At the start of the integration, we fetch data from the remote. If the update fails, the integration tries again to fetch the data. After that, the update interval of the calendar is set to every 24 hours.
