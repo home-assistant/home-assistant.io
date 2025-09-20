@@ -169,6 +169,7 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 - [K10+ Pro Combo](https://www.switch-bot.com/products/switchbot-k10-pro-combo)
 - [K20](https://www.switchbot.jp/products/switchbot-robot-vacuum-cleaner-k20-pro)
 - [S10](https://www.switch-bot.com/products/switchbot-floor-cleaning-robot-s10)
+- [K11+](https://www.switch-bot.com/products/switchbot-robot-vacuum-k11)
 
 ### Air purifiers
 
@@ -660,7 +661,7 @@ Features:
 
 ### Vacuums
 
-Vacuum entities are added for K10+, K10+ Pro, K10+ Pro Combo, K20, S10.
+Vacuum entities are added for K10+, K10+ Pro, K10+ Pro Combo, K20, S10, K11+.
 
 Features:
 - get states, including `cleaning`, `docked`, `idle`, `paused`, `returning`, and `error`; refer to Known limitations for more details
