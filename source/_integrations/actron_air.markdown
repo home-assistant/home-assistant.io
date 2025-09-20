@@ -8,7 +8,7 @@ ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
   - "@kclif9"
-ha_domain: actronair
+ha_domain: actron_air
 ha_platforms:
   - climate
 ha_integration_type: integration
@@ -19,6 +19,8 @@ The **Actron Air** {% term integration %} allows you to control [Actron Air](htt
 ## Prerequisites
 
 You must have an Actron Air Air-Conditioner with the Neo tablet wall controller, an active internet connection, and registered to an email address.
+
+## Supported devices
 
 This integration currently supports the Actron Air Neo controller, however other units are intended to be supported soon.
 
