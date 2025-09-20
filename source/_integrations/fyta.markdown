@@ -2,6 +2,7 @@
 title: FYTA
 description: Instructions on how to integrate FYTA sensors within Home Assistant.
 ha_category:
+  - Binary sensor
   - Sensor
 ha_release: 2024.4
 ha_iot_class: Cloud Polling
@@ -10,9 +11,13 @@ ha_codeowners:
   - '@dontinelli'
 ha_domain: fyta
 ha_platforms:
+  - binary_sensor
   - diagnostics
+  - image
   - sensor
 ha_integration_type: hub
+ha_quality_scale: platinum
+ha_dhcp: true
 ---
 
 The **FYTA** {% term integration %} uses the open API of [FYTA](https://www.fyta.de) to obtain the data from your plant sensors and integrate these into Home Assistant.
@@ -36,11 +41,28 @@ Password:
   description: "The password used to access the FYTA account."
 {% endconfiguration_basic %}
 
-## Configuration options
+## Configuration
 
 The integration has no additional configuration options.
 
 ## Supported functionality
+
+### Binary sensors
+
+The following binary sensors are currently available per plant:
+
+- Low battery
+- Light notification
+- Nutrition notification
+- Temperature notification
+- Water notification
+- Productive plant
+- Repotted
+- Sensor update available
+
+### Image
+
+An image entity for both the generic plant image and the user image is added. You may use those for your dashboard.
 
 ### Sensors
 
@@ -53,11 +75,14 @@ The following sensors are currently available per plant:
 | temperature_status    |        | FYTA-Status (cf. scale below)              |
 | light_status          |        | FYTA-Status (cf. scale below)              |
 | moisture_status       |        | FYTA-Status (cf. scale below)              |
+| nutrients_status      |        | FYTA-Status (cf. scale below)              |
 | salinity_status       |        | FYTA-Status (cf. scale below)              |
 | temperature           | °C     | Temperature measured by sensor             |
 | light                 | μmol/h | Light measured by sensor (hourly photosynthetically active radiation PAR)|
 | moisture              | %      | Moisture measured by sensor                |
 | salinity              | mS/cm  | Salinity measured by sensor (measured as conductivity)|
+| fertilise_last        | date   | Date when plant has last been fertilized   |
+| fertilise_next        | date   | Date when plant should be fertilized       |
 | battery_level         | %      | Battery level of the sensor                |
 
 The plant status may have one of the following states:
@@ -76,6 +101,8 @@ For plant measurements, the following status scale is applied:
 - High
 - Too High
 
+For the measurement sensors (light, moisture, salinity, and temperature), the maximal/minimal values that define the ranges of what is considered acceptable and good for the plant are saved as an extra attribute of the sensor. For example: Below 10 it's too cold, that could be the minimum acceptable. 15 could be the minimum of the good range. Between 15 and 30 is perfect. 30 would be maximum good and 35 would be the maximum acceptable. Above 35 it's too hot. These values can be used for automations or visualizations on the dashboard.
+
 ## Data updates
 
 The integration fetches data from the device every 4 minutes.
@@ -90,7 +117,7 @@ The integration provides the data exposed by means of the plant API. The light m
 
 Please note that in order to be able to access your plant data over the API, you need a [FYTA hub](https://fyta.de/collections/all/products/single-hub) that uploads the data from the Beam sensor to the FYTA server. Alternatively, the mobile app can serve as a gateway to upload the data from the Beam to the server. No direct connection to the FYTA Beam is supported (as the Beam only provides raw data, that needs to be processed on the FYTA server).
 
-## Remove integration
+## Removing the integration
 
 For this integration the general process to remove integrations applies:
 

@@ -83,7 +83,7 @@ min_cycle_duration:
   required: false
   type: [time, integer]
 cold_tolerance:
-  description: Set a minimum amount of difference between the temperature read by the sensor specified in the *target_sensor* option and the target temperature that must change prior to being switched on. For example, if the target temperature is 25 and the tolerance is 0.5 the heater will start when the sensor equals or goes below 24.5.
+  description: Set a minimum amount of difference between the temperature read by the sensor specified in the *target_sensor* option and the target temperature that must change prior to being switched on. For example, if the target temperature is 25 and the tolerance is 0.5, the heater will start when the sensor goes below 24.5.
   required: false
   default: 0.3
   type: float

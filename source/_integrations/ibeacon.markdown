@@ -14,8 +14,6 @@ ha_platforms:
 ha_bluetooth: true
 ha_config_flow: true
 ha_integration_type: integration
-ha_codeowners:
-  - '@bdraco'
 ---
 
 {% include integrations/config_flow.md %}

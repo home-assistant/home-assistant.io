@@ -14,17 +14,23 @@ ha_platforms:
 ha_integration_type: device
 ---
 
-AquaCell is a water-softening device. The [AquaCell](https://www.aquacell-waterontharder.nl/) {% term integration %} allows you to monitor your AquaCell device in Home Assistant.
+AquaCell is a water-softening device made by [Culligan](https://culliganinternational.com). The [AquaCell](https://www.aquacell-waterontharder.nl/) {% term integration %} allows you to monitor your AquaCell device in Home Assistant.
 You will need your Aquacell account information as used in the **AquaCell** app.
 
-This integration also supports [Harvey](https://www.harveywatersofteners.co.uk/) softeners.
+This integration also supports other [Culligan brands](https://culliganinternational.com/brands) of water softener, such as [Harvey](https://www.harveywatersofteners.co.uk/) and [TwinTec](https://www.twintec.com/) (made by Harvey) softeners.
 
 ## Supported devices
 
-This integration only works for softener models which have an **i-Lid** and are configured through the 'Mijn AquaCell' or 'My Harvey' mobile app.
+This integration only works for softener models which have an **i-Lid** and are configured through the 'Mijn AquaCell' or 'myHarvey' mobile app.
 These models are also recognizable by the required curved salt blocks.
+
 - [AquaCell](https://www.aquacell-waterontharder.nl/aquacell)
 - [HarveyArc Water Softener](https://www.harveywatersofteners.co.uk/products/water-softeners/harveyarc-water-softener)
+- [TwinTec Cobalt](https://www.twintec.com/our-products/tt-cobalt/)
+
+The Mijn AquaCell app can be found on the [Apple App Store](https://apps.apple.com/us/app/mijn-aquacell/id1632415201) or on [Google Play](https://play.google.com/store/apps/details?id=com.aquacell.sws).
+
+The myHarvey app can be found on the [Apple App Store](https://apps.apple.com/us/app/myharvey/id1551338436) or on [Google Play](https://play.google.com/store/apps/details?id=com.harvey.sws).
 
 ## Prerequisites
 
@@ -51,6 +57,7 @@ This integration provides {% term sensors %} for the following information from 
 - Time remaining until 0% salt level is reached.
 - i-Lid battery level.
 - Wi-Fi signal strength.
+- Last update time. The time the softener last reported data to the cloud.
 
 ## Use cases
 
@@ -96,7 +103,7 @@ There are no known limitations for this integration.
 
 There are no commonly known issues with this integration.
 
-## Remove integration
+## Removing the integration
 
 This integration follows standard integration removal, no extra steps are required.
 

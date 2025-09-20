@@ -4,9 +4,9 @@ description: "Options for regaining access"
 related:
   - docs: /common-tasks/os/#listing-all-users-from-the-command-line
     title: Listing all usernames via command line
-  - url: https://yellow.home-assistant.io/guides/factory-reset/
+  - url: https://support.nabucasa.com/hc/en-us/articles/25463622043165
     title: Reset the Yellow
-  - url: https://green.home-assistant.io/guides/reset/
+  - url: https://support.nabucasa.com/hc/en-us/articles/25161225495837
     title: Reset the Green
 ---
 
@@ -25,13 +25,13 @@ You are the **owner** of the Home Assistant server and you cannot login because 
    - you are using the {% term "Home Assistant Operating System" %}
    - you have access to the Home Assistant server.
 2. Open a terminal connection to Home Assistant:
-   - If you are using a Home Assistant Green, follow these steps [to access the console](https://green.home-assistant.io/guides/use-terminal/).
+   - If you are using a Home Assistant Green, follow these steps [to access the console](https://support.nabucasa.com/hc/en-us/articles/25153288092829).
    - If you are using a Home Assistant Yellow, follow these steps:
-     - [to access the console from Windows](https://yellow.home-assistant.io/guides/use-serial-console-windows/)
-     - [to access the console from Linux or macOS](https://yellow.home-assistant.io/guides/use-serial-console-linux-macos/).
+     - [to access the console from Windows](https://support.nabucasa.com/hc/en-us/articles/25454894609693)
+     - [to access the console from Linux or macOS](https://support.nabucasa.com/hc/en-us/articles/25454972435357).
    - If you are using another system, connect keyboard and monitor. The procedure might be similar the one used for Green.
    - If you are using a Home Assistant OVA (virtualization image):
-     - Access the system console by opening the terminal through your virtualization platform's interface (for example, Proxmox, VMware, VirtualBox). 
+     - Access the system console by opening the terminal through your virtualization platform's interface (for example, Proxmox, VMware, VirtualBox).
      - Follow the platform-specific steps to interact with the virtual machine's console.
 3. In the terminal, enter the `auth list` command.
    - This command lists all users that are registered on your Home Assistant.
@@ -50,7 +50,7 @@ If you are the owner or have administrator, there are different methods to reset
 - [Reset an owner's password when logged out](#to-reset-an-owners-password-via-console)
 - [reset a user's password, via the container command line](#to-reset-a-users-password-via-the-container-command-line)
 
-#### To reset a password while still logged in (including Supervised)
+#### To reset a password while still logged in
 
 The method used to reset a password depends on your user rights:
 
@@ -72,16 +72,16 @@ Use this procedure only if the following conditions are met:
 
 1. If you are using a Home Assistant Yellow or Green, refer to their documentation.
    - If you are using a Home Assistant Yellow, refer to the following procedure:
-     - [Resetting the owner password on Home Assistant Yellow](https://yellow.home-assistant.io/faq/#i-forgot-the-owner-password-for-home-assistant-how-can-i-reset-it)
+     - [Resetting the owner password on Home Assistant Yellow](https://support.nabucasa.com/hc/en-us/articles/25455301907997)
    - If you are using a Home Assistant Green, refer to the following procedure:
-     - [Resetting the owner password on Home Assistant Green](https://green.home-assistant.io/faq/#i-forgot-the-owner-password-for-the-home-assistant-green-how-can-i-reset-it)
+     - [Resetting the owner password on Home Assistant Green](https://support.nabucasa.com/hc/en-us/articles/25142896227357)
 2. If you are not using a Yellow or Green: Connect to the console of the Home Assistant server:
    - If you are using a virtual machine, connect to your virtual machine console.
    - If you are using another board, connect a keyboard and monitor to your device and access the terminal. The procedure is likely very similar to the one described for the Home Assistant Green.
 3. Once you have opened the Home Assistant command line, enter the following command:
    - Note: `existing_user` is a placeholder. Replace it with your username.
    - Note: `new_password` is a placeholder. Replace it with your new password.
-   - **Command**: `auth reset --username existing_user --password new_password`
+   - **Command**: `auth reset --username 'existing_user' --password 'new_password'`
      ![Screencast showing how to enter the ha auth reset command](/images/docs/troubleshooting/home-assistant-cli.webp)
    - **Troubleshooting**: If you see the message `zsh: command not found: auth`, you likely did not enter the command in the serial console connected to the device itself, but in the terminal within Home Assistant.
 4. You can now log in to Home Assistant using this new password.
@@ -89,7 +89,7 @@ Use this procedure only if the following conditions are met:
 #### To reset a user's password, via the container command line
 
 If you are running Home Assistant in a container, you can use the command line in the container with the `hass` command to change your password. The steps below refer to a Home Assistant container in Docker named `homeassistant`. Note that while working in the container, commands will take a few moments to execute.
-  
+
 1. `docker exec -it homeassistant bash` to open to the container command line
 2. `hass` to create a default user, if this is your first time using the tool
 3. `hass --script auth --config /config change_password existing_user new_password` to change the password
@@ -115,10 +115,10 @@ If you lose the password associated with the owner account and the steps above d
 - If you have an external backup with an administrator account of which you still know the login credentials, you can restore that backup.
 - If you do not have a backup, resetting the device will erase all data.
 
-- If you have a Home Assistant Green, [reset the Green](https://green.home-assistant.io/guides/reset/).
-- If you have a Home Assistant Yellow, [reset the Yellow](https://yellow.home-assistant.io/guides/factory-reset/).
+- If you have a Home Assistant Green, [reset the Green](https://support.nabucasa.com/hc/en-us/articles/25161225495837).
+- If you have a Home Assistant Yellow, [reset the Yellow](https://support.nabucasa.com/hc/en-us/articles/25463622043165).
 
-## Recovering data for Home Assistant (including Supervised)
+## Recovering data for Home Assistant
 
 Unless your SD card/data is corrupted, you can still get to your files or troubleshoot further.
 There are a few routes:

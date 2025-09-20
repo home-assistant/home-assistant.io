@@ -12,9 +12,11 @@ ha_codeowners:
   - '@shmuelzon'
 ha_domain: ituran
 ha_platforms:
+  - binary_sensor
   - device_tracker
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
+ha_quality_scale: silver
 ---
 
 The **Ituran** {% term integration %} allows you to retrieve information from your Ituran-equipped vehicle using the [Ituran APP service](https://www.ituran.co.il/ituranfront/comfort-services-2/ituran-app-comfort). It pulls information from the Ituran web service regarding the vehicle's location.
@@ -38,24 +40,33 @@ The information is pulled every 5 minutes from the Ituran web service; however, 
 
 ## Supported functionality
 
+### Binary sensor
+
+The Ituran {% term integration %} exposes the following binary sensors for each registered vehicle:
+
+- **Charging** - Only for EV's. The charging state of the vehicle
+
 ### Device tracker
 
 The Ituran {% term integration %} will track the location of each vehicle registered to your account.
 
 ### Sensor
 
-The Ituran {% term integration %} also exposes the following sensor for each registered vehicle:
+The Ituran {% term integration %} also exposes the following sensors for each registered vehicle:
 
 - **Address** - The address that corresponds with the vehicle's location, as determined by Ituran
+- **Battery level** - Only for EV's. The battery level (%) of the vehicle
 - **Battery voltage** - The measured voltage (V) of the car battery. If not supported by the installation, the value will be set to `-1`
 - **Heading** - The direction (0-359°) that the vehicle is pointing to
 - **Last update from vehicle** - The time from when the vehicle last published its information to the Ituran cloud
 - **Mileage** - The distance (km) the vehicle has traveled
+- **Remaining range** - The distance (km) the vehicle can travel until the battery is depleted
 - **Speed** - The current speed (km/h) of the vehicle
 
 ## Known limitations
 
 - While this integration is configured with your account, you won't be able to use the official app, as only one connection at a time is supported
+  - As a workaround, it's possible to add another user from the app, with a different ID and mobile phone number that will be dedicated for Home Assistant use.
 - The vehicle's heading value is unreliable when it's not in motion
 - The mileage value is not read from the vehicle's odometer but is calculated from GPS, which may result in slight variations from the actual odometer reading
 

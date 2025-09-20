@@ -22,6 +22,7 @@ ha_codeowners:
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The **Command line** {% term integration %} offers functionality that issues specific commands to get data or to control a device.
@@ -163,7 +164,7 @@ command_line:
         command:
           description: The action to take.
           required: true
-          type: string
+          type: template
         command_timeout:
           description: Defines number of seconds for command timeout.
           required: false
@@ -438,7 +439,7 @@ Check the state of an [SickRage](https://github.com/sickragetv/sickrage) instanc
 # Example configuration.yaml entry
 command_line:
   - binary_sensor:
-      command: 'netstat -na | find "33322" | find /c "LISTENING" > nul && (echo "Running") || (echo "Not running")'
+      command: 'netstat -na | grep "33322" | grep -q "LISTENING" > nul && (echo "Running") || (echo "Not running")'
       name: "sickragerunning"
       device_class: moving
       payload_on: "Running"

@@ -18,7 +18,7 @@ ha_release: 2024.8
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
-  - "@Bre77"
+  - '@Bre77'
 ha_domain: tesla_fleet
 ha_platforms:
   - binary_sensor
@@ -36,57 +36,118 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The Tesla Fleet API {% term integration %} exposes various sensors from Tesla vehicles and energy sites using the [Tesla Fleet API](https://developer.tesla.com/).
+The **Tesla Fleet** {% term integration %} lets you control Tesla vehicles and energy sites using the [Tesla Fleet API](https://developer.tesla.com/).
 
 ## Prerequisites
 
-You must have a [Tesla](https://tesla.com) account, and a [Developer Application](https://developer.tesla.com/en_AU/dashboard).
+You need to configure developer credentials and host a public key file to allow Home Assistant to communicate with your Tesla account.
 
-### Developer Application
+- A [Tesla](https://tesla.com) account with verified email
+- A web domain to host your public key file:
+  - [NGINX Home Assistant SSL proxy Add-on](https://github.com/home-assistant/addons/blob/master/nginx_proxy/DOCS.md) (recommended)
+  - External hosting service ([FleetKey.cc](https://fleetkey.cc), [MyTeslamate.com](https://app.myteslamate.com/fleet), etc.)
 
-You must [create your own application](https://developer.tesla.com/docs/fleet-api/getting-started/what-is-fleet-api#step-2-create-an-application) for the Tesla Fleet API and configure it as an [application credential](https://my.home-assistant.io/redirect/application_credentials).
-When creating the application, you must set the redirect URL to `https://my.home-assistant.io/redirect/oauth`, but the other URLs can be set as desired. You must also complete both [step 3](https://developer.tesla.com/docs/fleet-api/getting-started/what-is-fleet-api#step-3-generate-a-public-private-key-pair) and [step 4](https://developer.tesla.com/docs/fleet-api/getting-started/what-is-fleet-api#step-4-call-the-register-endpoint) before the application will be able to make API calls.
+{% warning %}
+The China region is currently not supported by this {% term integration %}.
+{% endwarning %}
+
+## Tesla Developer Application
+
+Create a Tesla Developer Application to connect Home Assistant with the Tesla Fleet API.
+
+1. Create a developer application:
+   - Go to [developer.tesla.com/request](https://developer.tesla.com/request)
+   - Select your Tesla account from the dropdown
+
+2. Enter application details:
+   - Application name: A name to identify the application
+   - Description: Enter a brief description of your integration
+   - Purpose of Usage: Explain how you'll use the API (e.g., "Home Assistant")
+
+3. Configure client details:
+   - OAuth Grant Type: Select **Authorization Code and Machine-to-Machine**
+   - Allowed Origin URL(s): Enter your domain's URL, for example `https://yourdomain.com/`
+   - Allowed Redirect URI: Enter `https://my.home-assistant.io/redirect/oauth`
+   - Allowed Returned URL(s): Leave this field empty (not required)
+
+4. Select desired API scopes:
+   - Vehicle Information (mandatory for vehicles)
+   - Vehicle Location (recommended)
+   - Vehicle Commands (recommended)
+   - Energy Product Information (mandatory for energy products)
+   - Energy Product Settings (recommended)
+
+5. Set up billing (optional):
+   - Tesla provides $10 monthly credit for personal use
+   - You can add billing details later if needed
+
+6. Save your credentials:
+   - After creating the application, go to **View Details** > **Credentials & APIs**
+   - Note your **Client ID** and **Client Secret** - you'll need these to configure Home Assistant.
 
 {% include integrations/config_flow.md %}
 
-## Scopes
+1. Add application credentials
+   - Enter your application Client ID and Client Secret from your Tesla Developer Application
+   - This step will be skipped if you already have exactly one Tesla Fleet [application credential](/integrations/application_credentials/) already configured
 
-When connecting your Tesla account to Home Assistant, you **must** select the `Vehicle Information` or `Energy Product Information` scope. It is recommended you select all scopes for full functionality. The `Vehicle Location` scope was added in Home Assistant 2024.1, so any authorizations performed on previous releases that want this scope will need to be [modified](https://accounts.tesla.com/en_au/account-settings/security?tab=tpty-apps).
+2. Authenticate with Tesla:
+   - You'll be redirected to Tesla's login page
+   - Enter your Tesla account credentials
+   - On the authorization page, select **Select All** and then **Allow** to allow all the scopes you previously selected
 
-## Pay per use
-	
-Previously, Tesla restricted this integration to a very modest rate limit. However, from January 2025, accounts in eligible countries will be charged for every API call. Here's what you need to know:
+3. Redirect to Home Assistant:
+   - Confirm you want to **Link account to Home Assistant**
 
-- Tesla provides a $10 credit per developer account per calandar month
-- Every vehicle coordinator refresh, vehicle command, and wake up has a cost
-- This credit only allows for a maximum of 5000 coordinator refreshes
-- Energy product APIs are free to use at this time
-- To go beyond the free credit, you must provide payment details to Tesla
+4. Enter domain
+   - Enter the domain name you intend to host your public key on
+   - This domain should be the same or a subdomain of your origin domain, and must use a valid SSL certificate.
 
-For more details please see [developer.tesla.com](https://developer.tesla.com).
+5. Register public key
+   - Upload the public key shown to the domain you entered in step 4 at `.well-known/appspecific/com.tesla.3p.public-key.pem`
+
+6. Install Virtual Key
+   - Use your smartphone to scan the QR code or enter the address to install your public key on your vehicles with the Tesla app.
+   - This process needs to be repeated for each vehicle, excluding Model S and Model X vehicles manufactured before 2021.
+
+## Hosting with NGINX Add-on (optional)
+
+1. Create the NGINX configuration:
+
+   ```shell
+   echo 'location /.well-known/appspecific/com.tesla.3p.public-key.pem {
+   root /share/tesla;
+   }' > /share/nginx_proxy_default_tesla.conf
+   ```
+
+2. Copy the public key shown during setup to `/share/tesla`
+
+3. Configure the NGINX Add-on:
+    - Go to **Settings** > **Add-ons** > **NGINX Home Assistant SSL proxy** > **Configuration**
+    - Change `customize.active` from `false` to `true`
+    - Leave `config.default` at its default value: `nginx_proxy_default*.conf`
+
+4. Restart the NGINX Add-on and verify your public key is accessible at:
+ `https://yourdomain.com/.well-known/appspecific/com.tesla.3p.public-key.pem`
+
+## Data updates
+
+The {% term integration %} {% term polling polls %} each vehicle every 10 minutes while it's awake. This is designed to stay within Tesla's $10 monthly credit for most users, which you can monitor usage in the [Tesla Developer Dashboard](https://developer.tesla.com/en_US/dashboard). Energy product APIs are free to use.
+
+If you need different polling intervals, you can [define a custom polling interval](https://www.home-assistant.io/common-tasks/general/#defining-a-custom-polling-interval).
 
 ## Command signing
 
-Certain vehicles, including all vehicles manufactured since late 2023, require vehicle commands to be signed with a private key. All actions on vehicle entities will fail with an error if this is required and the key has not been added to the vehicle.
+Certain vehicles, including all vehicles manufactured since late 2023, require vehicle commands to be signed with a private key. All {% term actions %} on vehicle {% term entities %} will fail with an error if this is required and the key has not been setup correctly.
 
-You will need to use Tesla's [command line tools](https://github.com/teslamotors/vehicle-command/blob/main/README.md#installation-and-configuration) to generate a key pair and install the public key on your vehicle using Bluetooth.
+Your public key must be added to each of these vehicles by visiting `https://tesla.com/_ak/YOUR_DOMAIN` and following the instructions in the Tesla app.
+If you're using an iPhone, you may need to use Safari to open the webpage and finish the setup.
 
-```shell
-tesla-keygen -key-file tesla_fleet.key create > tesla_fleet.pem
-tesla-control -ble -key-file tesla_fleet.key -vin VINVINVINVIN -debug add-key-request tesla_fleet.pem owner cloud_key
-```
+For more details see [Tesla Fleet API vehicle commands documentation](https://developer.tesla.com/docs/fleet-api/endpoints/vehicle-commands#key-pairing).
 
-Finally, copy `tesla_fleet.key` to your Home Assistant config directory and then reload the Tesla Fleet {% term integration %}.
+## Generating your own key pair
 
-{% note %}
-If you receive a "BLE connection attempt failed" error, follow these steps:
-
-1. Disable Bluetooth on your phone
-2. Execute the `tesla-control` command
-3. Re-enable Bluetooth after the command completes
-
-This is necessary because the tool cannot establish a connection while another Bluetooth device is connected to the car.
-{% endnote %}
+The {% term integration %} generates a private key automatically at `config/tesla_fleet.key`. You can replace it with your own key (such as one from another Home Assistant instance) before configuring the integration. You can generate your own key pair following [Tesla's documentation](https://developer.tesla.com/docs/fleet-api/getting-started/what-is-fleet-api#step-3-generate-a-public-private-key-pair).
 
 ## Entities
 
@@ -120,7 +181,7 @@ These are the entities available in the Tesla Fleet integration. Not all entitie
 | Binary sensor  | Trip charging                              | No      |
 | Binary sensor  | User present                               | Yes     |
 | Button         | Flash lights                               | Yes     |
-| Button         | Homelink                                   | Yes     |
+| Button         | HomeLink                                   | Yes     |
 | Button         | Honk horn                                  | Yes     |
 | Button         | Keyless driving                            | Yes     |
 | Button         | Play fart                                  | Yes     |
@@ -186,31 +247,45 @@ These are the entities available in the Tesla Fleet integration. Not all entitie
 
 ### Energy sites
 
-| Domain        | Name                     | Enabled |
-| ------------- | ------------------------ | ------- |
-| Binary sensor | Backup capable           | Yes     |
-| Binary sensor | Grid services active     | Yes     |
-| Binary sensor | Grid services enabled    | Yes     |
-| Binary sensor | Storm watch active       | Yes     |
-| Number        | Backup reserve           | Yes     |
-| Number        | Off grid reserve         | Yes     |
-| Select        | Allow export             | Yes     |
-| Select        | Operation mode           | Yes     |
-| Sensor        | Battery power            | Yes     |
-| Sensor        | Energy left              | Yes     |
-| Sensor        | Generator power          | No      |
-| Sensor        | Grid power               | Yes     |
-| Sensor        | Grid services power      | Yes     |
-| Sensor        | Grid status              | Yes     |
-| Sensor        | Island status            | Yes     |
-| Sensor        | Load power               | Yes     |
-| Sensor        | Percentage charged       | Yes     |
-| Sensor        | Solar power              | Yes     |
-| Sensor        | Total pack energy        | No      |
-| Sensor        | VPP backup reserve       | Yes     |
-| Sensor        | Version                  | Yes     |
-| Switch        | Allow charging from grid | Yes     |
-| Switch        | Storm watch              | Yes     |
+| Domain        | Name                           | Enabled |
+|--------------|--------------------------------|---------|
+| Binary sensor | Backup capable                 | Yes     |
+| Binary sensor | Grid services active           | Yes     |
+| Binary sensor | Grid services enabled          | Yes     |
+| Binary sensor | Storm watch active             | Yes     |
+| Number        | Backup reserve                 | Yes     |
+| Number        | Off grid reserve               | Yes     |
+| Select        | Allow export                   | Yes     |
+| Select        | Operation mode                 | Yes     |
+| Sensor        | Battery power                  | Yes     |
+| Sensor        | Consumer imported from battery | No      |
+| Sensor        | Consumer imported from generator| No      |
+| Sensor        | Consumer imported from grid    | No      |
+| Sensor        | Consumer imported from solar   | No      |
+| Sensor        | Energy left                    | Yes     |
+| Sensor        | Generator exported             | Yes     |
+| Sensor        | Generator power                | No      |
+| Sensor        | Grid exported                  | Yes     |
+| Sensor        | Grid exported from battery     | No      |
+| Sensor        | Grid exported from generator   | No      |
+| Sensor        | Grid exported from solar       | No      |
+| Sensor        | Grid imported                  | No      |
+| Sensor        | Grid power                     | Yes     |
+| Sensor        | Grid services exported         | No      |
+| Sensor        | Grid services imported         | No      |
+| Sensor        | Grid services power            | Yes     |
+| Sensor        | Home usage                     | Yes     |
+| Sensor        | Island status                  | Yes     |
+| Sensor        | Load power                     | Yes     |
+| Sensor        | Percentage charged             | Yes     |
+| Sensor        | Solar exported                 | No      |
+| Sensor        | Solar generated                | Yes     |
+| Sensor        | Solar power                    | Yes     |
+| Sensor        | Total pack energy              | No      |
+| Sensor        | Version                        | Yes     |
+| Sensor        | VPP backup reserve             | Yes     |
+| Switch        | Allow charging from grid       | Yes     |
+| Switch        | Storm watch                    | Yes     |
 
 ### Wall connector
 
@@ -223,12 +298,21 @@ These are the entities available in the Tesla Fleet integration. Not all entitie
 
 ## Vehicle sleep
 
-Constant API polling will prevent most Model S and Model X vehicles manufactured before 2021 from sleeping, so the integration will stop polling these vehicles for 15 minutes, after 15 minutes of inactivity. You can call the `homeassistant.update_entity` service to force polling the API, which will reset the timer.
+Constant API {% term polling %} will prevent most Model S and Model X vehicles manufactured before 2021 from sleeping. The {% term integration %} automatically stops {% term polling %} these vehicles for 15 minutes after inactivity. You can call the `homeassistant.update_entity` {% term action %} to force {% term polling %}, which will reset the timer.
 
-## Energy dashboard
+{% note %} Vehicles manufactured outside of those mentioned above have no issues with prevented sleep. {% endnote %}
 
-The Tesla Fleet API only provides power data for Powerwall and Solar products. This means they cannot be used on the energy dashboard directly.
+## Removing the integration
 
-Energy flows can be calculated from `Battery power` and `Grid power` sensors using a [Template Sensor](/integrations/template/) to separate the positive and negative values into positive import and export values.
-The `Load power`, `Solar power`, and the templated sensors can then use a [Riemann Sum](/integrations/integration/) to convert their instant power (kW) values into cumulative energy values (kWh),
-which then can be used within the energy dashboard.
+{% include integrations/remove_device_service.md %}
+
+- Removing the {% term integration %} does not delete your Tesla Developer Application - you can remove it manually from the [Tesla Developer Dashboard](https://developer.tesla.com/en_US/dashboard) if no longer needed.
+
+## Troubleshooting
+
+- **Setup errors**: Verify your public key is accessible at the correct URL and you've completed all registration steps with Tesla
+- **Command failures**: Ensure `tesla_fleet.key` exists in your Home Assistant config directory and add your public key to vehicles via `https://tesla.com/_ak/YOUR_DOMAIN`
+- **{% term Integration %} stopped working**: Use the reconfigure option in {% my integrations title="**Settings** > **Devices & services**" %} > **Tesla Fleet**
+- **Billing errors**: Check your Tesla Developer Dashboard for usage limits and add billing information if needed
+
+If you have an error with your credentials, you can delete them in the {% my application_credentials title="Application Credentials" %} user interface.

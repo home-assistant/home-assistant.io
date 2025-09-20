@@ -29,6 +29,10 @@ Before using this integration, your water heater must be connected to a Wi-Fi ne
 - EE12-50R55DVF
 - EE12-50H55DVF
 - EE12-55H55DVF
+- HPA10-40H45DV
+- HPA10-50H45DV
+- HPA10-66H45DV
+- HPA10-80H45DV
 - HPS10-50H45DV
 - HPS10-66H45DV
 - HPS10-80H45DV
@@ -38,6 +42,10 @@ Before using this integration, your water heater must be connected to a Wi-Fi ne
 - HPSX-66-DHPT 2
 - HPSX-80-DHPT
 - HPSX-80-DHPT 2
+- HPTA-40
+- HPTA-50
+- HPTA-66
+- HPTA-80
 - HPTS-50
 - HPTS-66
 - HPTS-80
@@ -74,6 +82,10 @@ This table shows the supported operation modes. The available modes will depend 
 The following sensor entities are available:
 - Hot water availability (percentage)
 - Energy usage
+
+### Select
+
+If your water heater supports the "Hot Water+" feature, a select entity will be added to control the Hot Water+ level.
 
 ## Disclaimer
 
