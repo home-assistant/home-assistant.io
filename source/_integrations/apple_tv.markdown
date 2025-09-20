@@ -35,6 +35,7 @@ also available in YAML (examples below).
 **NOTE:** The on-screen keyboard commands may not be supported by all Apple TV versions.
 
 ### Action `apple_tv.set_keyboard_text`
+
 The {% my developer_call_service service="apple_tv.set_keyboard_text" %} action allows you to replace any existing on-screen keyboard text with your own.
 
 {% my developer_call_service badge service="apple_tv.set_keyboard_text" %}
