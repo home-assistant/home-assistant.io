@@ -34,47 +34,41 @@ All sensors are also marked as diagnostic and won't be automatically added to au
 
 One sensor per discovered disk/mount point will be created
 
-| Sensor type      | Type   | Description                                  |
-|------------------|--------|----------------------------------------------|
-| Disk free        | sensor | Amount of free space on the disk             |
-| Disk use         | sensor | Amount of used space on the disk             |
-| Disk usage (%)   | sensor | Percentage of disk space used                |
+- **Disk free**: Amount of free space on the disk
+- **Disk use**: Amount of used space on the disk
+- **Disk usage (%)**: Percentage of disk space used
 
 ### Network
 
 One sensor per discovered network interface will be created
 
-| Sensor                | Type   | Description                                         |
-|-----------------------|--------|-----------------------------------------------------|
-| IPv4 address          | sensor | The IPv4 address assigned to the network interface  |
-| IPv6 address          | sensor | The IPv6 address assigned to the network interface  |
-| Network in            | sensor | Total bytes received on the network interface       |
-| Network out           | sensor | Total bytes sent from the network interface         |
-| Packets in            | sensor | Number of packets received on the network interface |
-| Packets out           | sensor | Number of packets sent from the network interface   |
-| Network throughput in | sensor | Current inbound network speed (bytes per second)    |
-| Network throughput out| sensor | Current outbound network speed (bytes per second)   |
+- **IPv4 address**: The IPv4 address assigned to the network interface
+- **IPv6 address**: The IPv6 address assigned to the network interface
+- **Network in**: Total bytes received on the network interface
+- **Network out**: Total bytes sent from the network interface
+- **Packets in**: Number of packets received on the network interface
+- **Packets out**: Number of packets sent from the network interface
+- **Network throughput in**: Current inbound network speed (bytes per second)
+- **Network throughput out**: Current outbound network speed (bytes per second)
 
 ### Other
 
-| Sensor                 |  Type         | Description                                               |
-|------------------------|---------------|-----------------------------------------------------------|
-| Battery                | sensor        | Percentage of battery remaining                           |
-| Battery remaining      | sensor        | Expected duration until battery is empty (if not plugged) |
-| Charging               | binary sensor | Battery is charging                                       |
-| Fan RPM                | sensor        | Built-in fan speeds                                       |
-| Last boot              | sensor        | The date and time when the system was last started        |
-| Load (1m)              | sensor        | System load average over the last 1 minute                |
-| Load (5m)              | sensor        | System load average over the last 5 minutes               |
-| Load (15m)             | sensor        | System load average over the last 15 minutes              |
-| Memory free            | sensor        | Amount of available system memory                         |
-| Memory use             | sensor        | Amount of used system memory                              |
-| Memory usage (percent) | sensor        | Percentage of system memory used                          |
-| Processor use          | sensor        | Percentage of CPU usage                                   |
-| Processor temperature  | sensor        | Current temperature of the processor                      |
-| Swap free              | sensor        | Amount of available swap memory                           |
-| Swap use               | sensor        | Amount of used swap memory                                |
-| Swap usage (percent)   | sensor        | Percentage of swap memory used                            |
+- **Battery**: Percentage of battery remaining
+- **Battery empty**: Expected time the battery is empty if not plugged in
+- **Charging**: Battery is charging (binary sensor)
+- **Fan speed**: Built-in fan speeds
+- **Last boot**: The date and time when the system was last started
+- **Load (1m)**: System load average over the last 1 minute
+- **Load (5m)**: System load average over the last 5 minutes
+- **Load (15m)**: System load average over the last 15 minutes
+- **Memory free**: Amount of available system memory
+- **Memory use**: Amount of used system memory
+- **Memory usage (percent)**: Percentage of system memory used
+- **Processor use**: Percentage of CPU usage
+- **Processor temperature**: Current temperature of the processor
+- **Swap free**: Amount of available swap memory
+- **Swap use**: Amount of used swap memory
+- **Swap usage (percent)**: Percentage of swap memory used
 
 ## Add `process` binary sensor
 
