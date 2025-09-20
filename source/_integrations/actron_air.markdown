@@ -31,3 +31,10 @@ This integration currently supports the Actron Air Neo controller, however other
 The integration will create a climate entity for the main air conditioning system found and for each zone. The main air conditioner unit will be reflected based on the name in the Actron Air Neo app. You can set the temperature, operation mode and fan speed through this entity. 
 
 Each zone will be reflected as a separate climate entity.  You can set the temperature and operation mode per zone (if supported by your air conditioner).
+
+## Removing the integration
+
+This integration follows standard integration removal.
+
+{% include integrations/remove_device_service.md %}
+
