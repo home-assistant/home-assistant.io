@@ -1754,6 +1754,8 @@ data:
 ## Action `modbus.read_registers`
 This action reads one or more input or holding registers and populates its [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data) with their values. If the device returns an error response, or if the operation times out, the action will [fail](/docs/scripts/#continuing-on-error) and the response variable will remain unset.
 
+This action is intended primarily for manual use via [developer tools](/docs/tools/dev-tools/#actions-tab). Before using it in scripts or automations, you should consider defining entities instead.
+
 | Action                | Description                     |
 | --------------------- | ------------------------------- |
 | modbus.read_registers | Read input or holding registers |
