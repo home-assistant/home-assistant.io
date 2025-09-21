@@ -26,9 +26,12 @@ This integration enables you to access and monitor your household energy consump
 Even if you have a contract with a new power provider, you can still use this service by applying to the regional utility company (for example, TEPCO in Tokyo).
 Ensure that your power supply is not a bulk power supply for an apartment building.
 
-1. **Compatible USB dongle**: Tested with the Wi-SUN USB dongle from [Ratoc Systems](https://www.ratocsystems.com/products/wisun/usb-wisun/rs-wsuha/).
-2. **B Route credentials**: Obtain your B Route credentials from your utility company.
-3. **Smart meter**: A smart meter that supports the B Route protocol. If you are renting but do not have a smart meter equipped, you will need to contact your house management company, as the installation is free but may require permission.
+1. Compatible USB dongle: 
+    - Tested with the Wi-SUN USB dongle from [Ratoc Systems](https://www.ratocsystems.com/products/wisun/usb-wisun/rs-wsuha/).
+2. [B Route credentials from your utility company](#obtaining-b-route-credentials).
+3. Smart meter: 
+    - A smart meter that supports the B Route protocol. 
+    - If you are renting but do not have a smart meter equipped, you will need to contact your house management company, as the installation is free but may require permission.
 
 {% include integrations/config_flow.md %}
 
