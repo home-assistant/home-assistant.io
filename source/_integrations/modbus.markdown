@@ -1752,11 +1752,11 @@ data:
 ```
 
 ## Action `modbus.read_registers`
-This actions reads one or more input or holding registers and populates its [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data) with their values.
+This action reads one or more input or holding registers and populates its [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data) with their values. If the device returns an error response, or if the operation times out, the action will [fail](/docs/scripts/#continuing-on-error) and the response variable will remain unset.
 
-| Action                | Description                 |
-| --------------------- | --------------------------- |
-| modbus.read_registers | Read register or registers  |
+| Action                | Description                     |
+| --------------------- | ------------------------------- |
+| modbus.read_registers | Read input or holding registers |
 
 | Attribute | Description                                                                                                                                                                                                                                                                                 |
 | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
