@@ -18,7 +18,7 @@ The **ekey bionyx** {% term integration %} allows Home Assistant to receive even
 
 ## Prerequisites
 
-- ekey bionyx app.
+- The **ekey bionyx** app.
 - The ekey device needs to be set up in **plus mode** in the app.
 - The ekey bionyx Third-Party API needs to be enabled in the app.
 
@@ -42,7 +42,7 @@ The webhooks from the ekey device are represented in Home Assistant as events. Y
 
 ## Limitations
 
-- Ekey allows only five webhooks per device.
+- The ekey {% term integration %} allows only five webhooks per device.
 - You cannot link multiple Home Assistant instances to the same ekey system.
 
 ## Removing the integration
