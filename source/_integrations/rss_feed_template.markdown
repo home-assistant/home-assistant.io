@@ -29,6 +29,7 @@ rss_feed_template:
     items:
     - title: "Outside temperature"
       description: "{% if is_state('sensor.temp_outside','unknown') %}---{% else %}{{states('sensor.temp_outside')}} °C{% endif %}"
+      link: "https://www.home-assistant.io/"
 ```
 
 {% endraw %}
@@ -58,6 +59,10 @@ items:
       type: template
     description:
       description: The description of the item, which is parsed as [template](/docs/configuration/templating/).
+      required: false
+      type: template
+    link:
+      description: The link of the item, which is parsed as [template](/docs/configuration/templating/).
       required: false
       type: template
 {% endconfiguration %}
