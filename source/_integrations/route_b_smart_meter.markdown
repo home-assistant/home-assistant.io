@@ -8,7 +8,7 @@ ha_release: '2025.10'
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@SeraphicRav'
-ha_domain: b_route_smart_meter
+ha_domain: route_b_smart_meter
 ha_platforms:
   - sensor
 ha_config_flow: true
