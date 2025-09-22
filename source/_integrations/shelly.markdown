@@ -208,13 +208,15 @@ Depending on how a device's button type is configured, the integration will crea
 
 ### Binary input sensors (generation 2+)
 
-For generation 2+ hardware, it's possible to select if a device's input is connected to a button or a switch. Binary sensors are created only if the input mode is set to `switch`. When the input is of type `button` you need to use events for your automations.
+For generation 2+ hardware, it's possible to select if a device's input is connected to a button or a switch. Binary sensors are created only if the **Input Mode** is set to `Switch`. When the **Input Mode** is set to `Button` you need to use events for your automations.
 
-## Event entities (generation 1)
+## Event entities
 
-If the **BUTTON TYPE** of the switch connected to the device is set to `momentary` or `detached switch`, the integration creates an event entity for this switch. You can use this entity in your automations.
+### Event entities (generation 1)
 
-## Event entities (generation 2+)
+If the **BUTTON TYPE** of the switch connected to the device is set to `Momentary` or `Detached Switch`, the integration creates an event entity for this switch. You can use this entity in your automations.
+
+### Event entities (generation 2+)
 
 If the **Input Mode** of the switch connected to the device is set to `Button`, the integration creates an event entity for this switch. You can use this entity in your automations.
 
@@ -242,7 +244,11 @@ Shelly.addEventHandler(eventHandler);
 
 ## Events
 
-If the **BUTTON TYPE** of the switch connected to the device is set to `momentary` or `detached switch`, integration fires events under the type `shelly.click` when the switch is used. You can use these events in your automations.
+The integration fires events under the type `shelly.click` when the switch is used if:
+- The **BUTTON TYPE** of the switch connected to the device is set to `Momentary` or `Detached Switch` – for generation 1 devices.
+- The **Input Mode** of the switch connected to the device is set to `Button` – for generation 2+ devices.
+
+You can use these events in your automations.
 
 Also, some devices do not add an entity for the button/switch. For example, the Shelly Button1 has only one entity for the battery level. It does not have an entity for the button itself. To trigger automations based on button presses, use the `shelly.click` event.
 

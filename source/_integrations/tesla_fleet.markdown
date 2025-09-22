@@ -45,7 +45,7 @@ You need to configure developer credentials and host a public key file to allow 
 - A [Tesla](https://tesla.com) account with verified email
 - A web domain to host your public key file:
   - [NGINX Home Assistant SSL proxy Add-on](https://github.com/home-assistant/addons/blob/master/nginx_proxy/DOCS.md) (recommended)
-  - External hosting service ([FleetKey.cc](https://fleetkey.cc), [MyTeslamate.com](https://app.myteslamate.com/fleet), etc.)
+  - External hosting service ([FleetKey.net](https://fleetkey.net), [MyTeslamate.com](https://app.myteslamate.com/fleet), etc.)
 
 {% warning %}
 The China region is currently not supported by this {% term integration %}.

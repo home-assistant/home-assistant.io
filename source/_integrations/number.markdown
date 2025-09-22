@@ -46,8 +46,8 @@ The following device classes are supported for numbers:
 - **atmospheric_pressure**: Atmospheric pressure in cbar, bar, hPa, mmHg, inHg, kPa, mbar, Pa or psi
 - **battery**: Percentage of battery that is left in %
 - **blood_glucose_concentration**: Blood glucose concentration in mg/dL, mmol/L
-- **carbon_dioxide**: Carbon Dioxide in CO2 (Smoke) in ppm
-- **carbon_monoxide**: Carbon Monoxide in CO (Gas CNG/LPG) in ppm
+- **carbon_dioxide**: Carbon Dioxide (CO₂) concentration in ppm
+- **carbon_monoxide**: Carbon Monoxide (CO) concentration in ppm, mg/m³
 - **current**: Current in A, mA
 - **data_rate**: Data rate in bit/s, kbit/s, Mbit/s, Gbit/s, B/s, kB/s, MB/s, GB/s, KiB/s, MiB/s or GiB/s
 - **data_size**: Data size in bit, kbit, Mbit, Gbit, B, kB, MB, GB, TB, PB, EB, ZB, YB, KiB, MiB, GiB, TiB, PiB, EiB, ZiB or YiB
@@ -70,6 +70,7 @@ The following device classes are supported for numbers:
 - **ph**: Potential hydrogen (pH) value of a water solution
 - **pm1**: Concentration of particulate matter less than 1 micrometer in µg/m³
 - **pm25**: Concentration of particulate matter less than 2.5 micrometers in µg/m³
+- **pm4**: Concentration of particulate matter less than 4 micrometers in µg/m³
 - **pm10**: Concentration of particulate matter less than 10 micrometers in µg/m³
 - **power_factor**: Power factor (unitless), unit may be `None` or %
 - **power**: Power in mW, W, kW, MW, GW or TW

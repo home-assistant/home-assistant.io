@@ -80,11 +80,11 @@ Alternatively, you can create a new TOTP secret for your account and use the "no
 
 **NOTE: At this time, ConEd only has a single TOTP set up per account. Therefore, it is important that you configure the same TOTP secret for ConEd access in both Opower and your authenticator app.**
 
-### Exelon subsidiaries
+### Exelon subsidiaries (ACE, BGE, ComEd, Delmarva, PECO, Pepco)
 
-When using Opower with any of the Exelon subsidiaries, such as BGE, ComEd, PECO, Pepco, etc., you need to actively disable two-factor authentication.
-Before proceeding, make sure you understand the security implications of disabling 2FA.
-Log onto the website, select **Don't use 2FA** and **Don't ask me again**. If you have already enabled 2FA, you most likely cannot disable it, which unfortunately means you cannot use this integration.
+The integration properly supports Multi-Factor Authentication (MFA) for Exelon subsidiaries via code sent to either email or phone SMS. These subsidiaries turned on MFA automatically for customers,
+however you may not have added a phone number. This integration supports this use case, but beware that once you add a phone you most likely cannot remove it entirely.
+You will be asked to re-authenticate via MFA periodically.
 
 ### Pacific Gas & Electric (PG&E)
 

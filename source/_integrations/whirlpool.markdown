@@ -44,10 +44,21 @@ Dryers:
 
 ## Prerequisites
 
-- Valid Whirlpool/Maytag account credentials.
-- Registered appliances in the official Whirlpool/Maytag app.
+- Valid Whirlpool (or related brand) account credentials.
+- Registered appliances in the official Whirlpool (or related brand) mobile app.
 
 {% include integrations/config_flow.md %}
+
+{% configuration_basic %}
+Username:
+    description: "The username of your Whirlpool (or related brand) account."
+Password:
+    description: "The password of your Whirlpool (or related brand) account."
+Region:
+    description: "The region in which your account is registered."
+Brand:
+    description: "The brand of the mobile app. It may not be the same brand as the appliances."
+{% endconfiguration_basic %}
 
 ## Supported functionality
 

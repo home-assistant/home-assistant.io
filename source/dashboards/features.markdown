@@ -775,6 +775,7 @@ Widget that displays the a trend of the history for a numeric [sensor](/integrat
 ```yaml
 features:
   - type: "trend-graph"
+    hours_to_show: 24
 ```
 
 {% configuration features %}
@@ -782,6 +783,11 @@ type:
   required: true
   description: "`trend-graph`"
   type: string
+hours_to_show:
+  required: false
+  description: Hours to show in graph. Minimum is 1 hour. Big values can result in delayed rendering, especially if the selected entities have a lot of state changes.
+  type: integer
+  default: 24
 {% endconfiguration %}
 
 ## Update actions

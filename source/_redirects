@@ -17,7 +17,6 @@ layout: null
 /merch https://home-assistant-store.creator-spring.com
 /feature-requests https://github.com/orgs/home-assistant/discussions
 /issues https://github.com/home-assistant/core/issues
-/community https://community.home-assistant.io/
 /voice /voice_control/builtin_sentences/
 /latest-security-alert /security/
 
@@ -345,6 +344,7 @@ layout: null
 /ecosystem/notebooks/stats https://data.home-assistant.io
 /examples/notify.mqtt /integrations/mqtt/#mqtt-notifications
 /ios/whats-new https://companion.home-assistant.io/docs/getting_started/getting-started
+/installation/#about-installation-methods /installation/#about-installation-types
 /installation/nuc /installation/generic-x86-64
 /integrations/auth /docs/authentication
 /integrations/automation /docs/automation
