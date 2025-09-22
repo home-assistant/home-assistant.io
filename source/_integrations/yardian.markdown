@@ -45,11 +45,11 @@ The **Yardian** integration provides the following entities.
 
 ### Sensors
 
-- **Rain delay** – Remaining rain delay reported in seconds.
-- **Active zone count** – The number of zones currently running.
-- **Sensor delay** – Diagnostic duration in seconds (disabled by default).
-- **Water hammer duration** – Diagnostic duration in seconds (disabled by default).
-- **Region** – Diagnostic text describing the configured region (disabled by default).
+- **Rain delay**: Remaining rain delay reported in seconds.
+- **Active zone count**: The number of zones currently running.
+- **Sensor delay**: Duration in seconds (disabled by default).
+- **Water hammer duration**: Duration in seconds (disabled by default).
+- **Region**: Text describing the configured region (disabled by default).
 
 ## Actions
 
