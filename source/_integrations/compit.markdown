@@ -3,7 +3,7 @@ title: Compit
 description: Instructions on how to integrate Compit devices within Home Assistant.
 ha_category:
   - Climate
-ha_release: 2025.10
+ha_release: "2025.10"
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
