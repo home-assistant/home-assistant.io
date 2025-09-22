@@ -220,7 +220,7 @@ An example is below:
 
 Log all sockets used by Home Assistant. This action can help identify what network connections are currently open, mainly to help track down connections that are not being closed properly.
 
-Example of the output:
+Example output:
 
 ```txt
 [homeassistant.components.profiler] Sockets used by Home Assistant:
