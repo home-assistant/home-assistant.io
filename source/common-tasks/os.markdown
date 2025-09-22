@@ -31,7 +31,9 @@ If you have the {% term "Home Assistant Operating System" %} installed, you rece
 - {% term "Home Assistant Operating System" %}
 - {% term "Home Assistant Supervisor" %}
 - {% term "Home Assistant Core" %}
-- Add-ons, if you have any installed
+- {% term "Add-ons" %}, if you have any installed
+
+Each of these components needs to be updated separately.
 
 ### Updating the Home Assistant Operating System
 
@@ -39,8 +41,9 @@ Updates of the {% term "Home Assistant Operating System" %} are independent of o
 
 #### Prerequisites
 
-- [Backup](/common-tasks/general/#backups) your installation.
-  - Make sure the backup is downloaded and stored outside of the system.
+- [Backup your installation](/common-tasks/general/#backups).
+  - Make sure the backup is stored on a [backup location](/common-tasks/general/#defining-backup-locations) outside of the device where Home Assistant is installed.
+    - For example, if Home Assistant is installed on [Home Assistant Green](https://www.home-assistant.io/green), make sure it is stored on [Home Assistant Cloud](/common-tasks/general/#about-the-backup-storage-on-home-assistant-cloud) or another location.
   - So that you can [restore from that backup](/common-tasks/general/#restoring-a-backup) in case there is an issue with the system.
 
 #### To update the Home Assistant Operating System
@@ -52,9 +55,16 @@ Updates of the {% term "Home Assistant Operating System" %} are independent of o
 
     1. Open the **Settings** panel.
     2. On the top you will be presented with an update notification.
-
-    _If you do not see that notification, in the top right, select the three dots menu and select **Check for updates**"._
-
+       - **Troubleshooting**: If you do not see that notification:
+         - In the top right corner, select the three dots {% icon "mdi:dots-vertical" %} menu and select **Check for updates**.
+         - Go to {% my updates title="**System** > **Updates**" %}.
+           - Select the update notification.
+           - Select the cogwheel {% icon "mdi:cog-outline" %}, then set **Visible** to active.
+    3. Open the notification for the component you want to update.
+    4. If you want to update the system first (recommended), enable the backup toggle.
+    5. Select **Update**.
+    6. Check if there are any repair issues and check the logs to see if there are any issues with your configuration that need to be addressed.
+   
 - title: Using the CLI
   content: |
 
@@ -65,6 +75,8 @@ Updates of the {% term "Home Assistant Operating System" %} are independent of o
     _This updates to the latest version. If you want to update to a specific version instead, use  `ha os update --version 12.0`._
 
 {% endtabbed_block %}
+
+{% details "Advanced: changing the boot slot used during the update" %}
 
 #### About boot slots used during the update
 
@@ -88,6 +100,8 @@ You can manually define that the previous boot slot is used. This can be useful 
     ```
 
 Alternatively, if the Operating Systems runs on a platform that uses the GRUB bootloader, a boot menu is presented early in the boot. The alternative boot slot can be selected here, marking it active for future boots if the following boot attempt is successful.
+
+{% enddetails %}
 
 ### Updating Home Assistant Core
 

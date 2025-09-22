@@ -43,6 +43,7 @@ ha_platforms:
   - update
   - valve
 ha_integration_type: device
+ha_quality_scale: silver
 ---
 
 Integrate [Shelly devices](https://shelly.com) into Home Assistant.
@@ -408,6 +409,7 @@ The integration supports the following virtual components:
 
 - `boolean` in `toggle` mode, for which a `switch` platform entity is created
 - `boolean` in `label` mode, for which a `binary_sensor` platform entity is created
+- `button` in `button` mode, for which a `button` platform entity is created
 - `enum` in `dropdown` mode, for which a `select` platform entity is created
 - `enum` in `label` mode, for which a `sensor` platform entity is created
 - `number` in `field` mode, for which a `number` platform entity in `box` mode is created
