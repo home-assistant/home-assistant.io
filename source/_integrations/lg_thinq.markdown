@@ -94,7 +94,8 @@ Support LG Appliances as follows:
 - Ventilator
 
 ## Data updates
-- Status: Event are sent when the device's status is changed.
+
+- Status: Events are sent when the device's status is changed.
 - Status(legacy old model): Events are sent every 5 minutes because device status changes cannot be aggregated in real time.
 - Energy consumption: Aggregated usage data up to yesterday is updated every morning.
 
