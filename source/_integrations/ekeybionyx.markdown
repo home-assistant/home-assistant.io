@@ -16,17 +16,21 @@ ha_integration_type: integration
 
 The **Ekey Bionyx** {% term integration %} allows Home Assistant to receive events from your [ekey fingerprint reader](https://www.ekey.net).
 
-To use the integration, the ekey device needs to be set up in **plus mode**, and the ekey Bionyx Third-Party API needs to be enabled in the app.
+## Prerequisites
+
+- Ekey Bionyx app.
+- The Ekey device needs to be set up in **plus mode** in the app.
+- The Ekey Bionyx Third-Party API needs to be enabled in the app.
 
 ![Activate Ekey Bionyx Third Party API](/images/integrations/ekeybionyx/activate_third_party_api.png)
+
+Once the {% term integration %} is added, open the ekey app and assign events to the fingers you wish to use as triggers
+
+{% include integrations/config_flow.md %}
 
 {% tip %}
 Prefer using local IPs when setting up the integration instead of domain names because the events will be more responsive.
 {% endtip %}
-
-Once Home Assistant is set up, open the ekey app and assign events to the fingers you wish to use as triggers
-
-{% include integrations/config_flow.md %}
 
 ## Supported functionality
 
@@ -38,8 +42,8 @@ The webhooks from the ekey device are represented in Home Assistant as events. Y
 
 ## Limitations
 
-- Ekey allows only five webhooks per device
-- You cannot link multiple Home Assistant instances to the same ekey system
+- Ekey allows only five webhooks per device.
+- You cannot link multiple Home Assistant instances to the same ekey system.
 
 ## Removing the integration
 
