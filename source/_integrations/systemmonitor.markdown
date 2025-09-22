@@ -54,7 +54,7 @@ One sensor per discovered network interface will be created
 ### Other
 
 - **Battery**: Percentage of battery remaining
-- **Battery empty**: Expected time the battery is empty if not plugged in
+- **Battery empty**: Expected time until the battery is empty if not plugged in
 - **Charging**: Battery is charging (binary sensor)
 - **Fan speed**: Built-in fan speeds
 - **Last boot**: The date and time when the system was last started
