@@ -32,7 +32,9 @@ During the configuration, you will have to manually set the **Host** and the **A
 
 ![Yardian Host/Token Location](/images/integrations/yardian/yardian_config_flow.jpg)
 
-## Entities
+## Supported functionality
+
+The **Yardian** integration provides the following entities.
 
 ### Binary sensors
 
