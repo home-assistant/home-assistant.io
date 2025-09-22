@@ -100,10 +100,11 @@ Support LG Appliances as follows:
 - Energy consumption: Aggregated usage data up to yesterday is updated every morning.
 
 ## Energy consumption
+
 Support historical energy consumption sensors for individual devices
-- Energy last month (Wh): Energy usage on last month.
-- Energy this month (Wh): Energy usage on this month.
-- Energy yesterday (Wh): Energy usage on yesterday.
+- Energy last month (Wh): Energy usage last month.
+- Energy this month (Wh): Energy usage this month.
+- Energy yesterday (Wh): Energy usage yesterday.
   
 ## Platforms
 
