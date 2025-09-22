@@ -24,3 +24,21 @@ section {
         }
     }
 }
+
+.nc-collaboration{
+    position: absolute;
+    
+    &.mobile{
+        display: block;
+        @include bp(desktop){
+            display: none;
+        }
+    }
+
+    &.desktop{
+        display: none;
+        @include bp(desktop){
+            display: block;
+        }
+    }
+}
