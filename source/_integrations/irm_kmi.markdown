@@ -1,7 +1,7 @@
 ---
 title: Royal Meteorological Institute of Belgium
 description: Instructions on how to integrate IRM KMI weather within Home Assistant.
-ha_release: 2025.7
+ha_release: 2025.10
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
