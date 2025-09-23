@@ -51,7 +51,9 @@ In addition, each **TFA.me station** also has the ability to hold the most recen
 
 ## Supported TFA.me devices
 
-Currently (summer 2025), the following [TFA.me stations and sensors ](https://www.tfa-dostmann.de/en/produkte/wetterstationen/wetterstationen-wlan/tfa-me/)are supported. This product range is continuously being expanded. {% details "Stations and sensors list ..." %}
+Currently (summer 2025), the following [TFA.me stations and sensors ](https://www.tfa-dostmann.de/en/produkte/wetterstationen/wetterstationen-wlan/tfa-me/) are supported. This product range is continuously being expanded. 
+
+{% details "Stations and sensors list ..." %}
 
 
 [TFA.me](https://www.tfa-dostmann.de/en/produkte/wetterstationen/wetterstationen-wlan/tfa-me/) Stations 
