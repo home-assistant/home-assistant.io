@@ -17,8 +17,8 @@ works_with:
 ---
 
 
-The **TFA.me {% term integration %}** is used to integrate the **TFA.me** devices (stations & sensors) of [TFA Dostmann](https://www.tfa-dostmann.de/en/).
-The **TFA.me system** offers a unique combination of professional, multi-day weather forecasts and precise monitoring of local measurements. Developed in Germany, this sophisticated system is characterised by a reliable WLAN connection and a user-friendly data display. The TFA.me system is the perfect choice for anyone who attaches great importance to up-to-date, reliable weather forecasts, but also wants to measure weather and indoor climate data using their own local sensors and use this online on a powerful platform.
+The **TFA.me {% term integration %}** is used to integrate the **TFA.me** devices (WiFi weather stations & measuring sensors) of [TFA Dostmann](https://www.tfa-dostmann.de/en/). The **TFA.me system** offers multi-day weather forecasts and precise monitoring of local measurements in combination with a powerful online platform.
+
 
 ## How it works
 
@@ -31,7 +31,6 @@ In addition, each **TFA.me station** also has the ability to hold the most recen
 
 {% include integrations/config_flow.md %}
 
----
 
 ## Supported TFA.me devices
 
@@ -81,7 +80,6 @@ All sensors additional deliver a low battery value.
 {% tip %}
 {% endtip %}
 
----
 
 ## Station: Basic configuration steps
 
@@ -251,7 +249,6 @@ For steps 1 and 6, please follow the instructions in the station manuals (PDF), 
 
 
 
----
 
 ## Supported functionality
 
@@ -397,8 +394,12 @@ All units are metric.
 {% enddetails %}
 {% enddetails %}
 
---- 
- 
+
+## Troubleshooting
+
+If you have any problems with please join the [Home Assistant Help](https://www.home-assistant.io/help/) pages.
+
+
 ## Removing the integration
 
 This integration follows the standard integration removal process; no extra steps are required.
@@ -407,10 +408,5 @@ This integration follows the standard integration removal process; no extra step
 
 Optional: If you no longer use the Home Assistant functionality in your station, you can also deactivate it again.
 
----
-
-## Troubleshooting
-
-If you have any problems with please join the [Home Assistant Help](https://www.home-assistant.io/help/) pages.
 
 
