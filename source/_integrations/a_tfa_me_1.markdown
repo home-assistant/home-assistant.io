@@ -16,7 +16,6 @@ works_with:
   - local
 ---
 
-## About TFA.me
 
 The **TFA.me {% term integration %}** is used to integrate the **TFA.me** devices (stations & sensors) of [TFA Dostmann](https://www.tfa-dostmann.de/en/).
 
