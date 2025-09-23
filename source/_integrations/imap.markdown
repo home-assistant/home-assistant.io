@@ -207,7 +207,7 @@ When the "`parts`" option is set this action returns a dictionary containing inf
 part_data:
   description: The encoded data of the fetched message part.
 content_type:
-  descriptiom: The MIME content type of the message part, for example "image/jpeg".
+  description: The MIME content type of the message part, for example "image/jpeg".
 content_transfer_encoding:
   description: The encoding of the data in `part_data`.
 file_name:
