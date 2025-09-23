@@ -18,9 +18,6 @@ works_with:
 
 
 The **TFA.me {% term integration %}** is used to integrate the **TFA.me** devices (stations & sensors) of [TFA Dostmann](https://www.tfa-dostmann.de/en/).
-
-**TFA Dostmann** is an expert for weather and measuring instruments. With more than 1,000 weather and measuring instruments, TFA Dostmann GmbH & Co. KG is one of the leading companies in the industry in Europe. Since 1964, this family-owned company has been producing meteorological instruments at its headquarters in Wertheim am Main (Germany).
-
 The **TFA.me system** offers a unique combination of professional, multi-day weather forecasts and precise monitoring of local measurements. Developed in Germany, this sophisticated system is characterised by a reliable WLAN connection and a user-friendly data display. The TFA.me system is the perfect choice for anyone who attaches great importance to up-to-date, reliable weather forecasts, but also wants to measure weather and indoor climate data using their own local sensors and use this online on a powerful platform.
 
 ## How it works
