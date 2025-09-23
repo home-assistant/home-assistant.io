@@ -23,8 +23,6 @@ The **TFA.me {% term integration %}** is used to integrate the **TFA.me** device
 
 The **TFA.me system** offers a unique combination of professional, multi-day weather forecasts and precise monitoring of local measurements. Developed in Germany, this sophisticated system is characterised by a reliable WLAN connection and a user-friendly data display. The TFA.me system is the perfect choice for anyone who attaches great importance to up-to-date, reliable weather forecasts, but also wants to measure weather and indoor climate data using their own local sensors and use this online on a powerful platform.
 
----
-
 ## How it works
 
 Each **TFA.me station** measures temperature and humidity internally, and depending on the model, other measurement data as well. Each station also has an 868 MHz radio receiver that can receive external {% term sensors %} such as temperature, humidity, wind and rain sensors. 
