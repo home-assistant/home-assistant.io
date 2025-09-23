@@ -35,7 +35,7 @@ Make a note of the bucket name — you’ll need it later.
 
 {% details "Create an API Token/Secret Key" %}
 
-To create a new IAM user that can access the S3 bucket:
+To create a new Secret Key that can access the R2 bucket:
 
 1. Go back to the **R2 object storage > Overview** page.
 2. Click **Manage API Tokens**.
@@ -74,7 +74,7 @@ Endpoint URL:
   description: "Cloudflare R2 S3-compatible endpoint."
   required: true
   type: string
-Folder prefix
+Folder prefix:
   description: "Optional folder path inside the bucket. Example: backups/homeassistant"
   required: false
   type: string
