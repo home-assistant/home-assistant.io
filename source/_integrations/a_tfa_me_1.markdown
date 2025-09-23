@@ -1,7 +1,7 @@
 ---
 title: TFA.me
 description: Instructions on how to integrate the TFA.me integration into Home Assistant.
-ha_release: 2025.9
+ha_release: "2025.10"
 ha_iot_class: Local Poll
 ha_codeowners:
   - '@DrMatthiasBlaschke'
