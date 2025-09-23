@@ -253,7 +253,7 @@ For steps 1 and 6, please follow the instructions in the station manuals (PDF), 
 
 ---
 
-## Entities
+## Supported functionality
 
 ### Single entities
 
