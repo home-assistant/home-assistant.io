@@ -19,18 +19,17 @@ Add-on updates.
 
 ## The solution
 
-Since you've not updated your system in a while, we recommend to [create a backup](/common-tasks/general/#backups)
-before updating your system. Make sure to download the backup or store it at
-a remote location.
+1. Since you've not updated your system in a while, it is recommended to [create a backup](/common-tasks/general/#backups) before updating your system. 
+    - Make sure to download the backup or store it in a remote location.
 
-To resolve this issue, update your Home Assistant Core version. Go to
-{% my updates title="**System** > **Updates**" %} to update Home Assistant Core.
-If you don't see the update you may have skipped it in the past. To see
+2. Update your Home Assistant Core version. 
+    - Go to {% my updates title="**System** > **Updates**" %} to update Home Assistant Core.
+    - If you don't see the update, you may have skipped it in the past. To see
 previously skipped updates, select the three dots {% icon "mdi:dots-vertical" %}
 and enable skipped updates.
 
-If you're significantly behind and have YAML-based integrations that need
+    - If you're significantly behind and have YAML-based integrations that need
 migration, update in increments of no more than 6 releases at a time
-(e.g. from Home Assistant Core 2024.2 to 2024.8, then to 2025.2). This ensures
-automatic migrations can run properly during each update. You can use the
-Home Assistant CLI to update to a [specific Home Assistant Core version](/common-tasks/os/#home-assistant-versions).
+(for example, from Home Assistant Core 2024.2 to 2024.8, then to 2025.2). 
+      - This ensures automatic migrations can run properly during each update. 
+      - You can use the Home Assistant CLI to update to a [specific Home Assistant Core version](/common-tasks/os/#home-assistant-versions).
