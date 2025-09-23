@@ -14,16 +14,6 @@ ha_platforms:
   - sensor
 works_with:
   - local
-
-related:
-  - url: https://developers.home-assistant.io/docs/documenting/standards
-    title: Documentation standard
-  - url: https://developers.home-assistant.io/docs/core/integration-quality-scale/rules/
-    title: Integration Quality Scale - Rules
-  - docs: /docs/glossary/
-    title: Glossary
-  - docs: /docs/tools/quick-bar/#my-links
-    title: My link
 ---
 
 ## About TFA.me
