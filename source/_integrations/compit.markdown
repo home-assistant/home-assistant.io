@@ -11,6 +11,7 @@ ha_codeowners:
 ha_domain: compit
 ha_platforms:
   - climate
+  - select
 ha_integration_type: integration
 ---
 
