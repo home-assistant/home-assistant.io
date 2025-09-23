@@ -198,10 +198,30 @@ sender:
 uid:
   description: The UID of the message.
 parts:
-  description: Contains the available parts in the message in case of a multipart message. This allows to fetch and process the complete message text message part, not limited by size.
+  description: Contains the available parts in the message in case of a multipart message. This allows to fetch and process the complete message text message part, not limited by size. 
 {% endconfiguration_basic %}
- 
-When the "`parts`" option is set this action returns a dictionary containing information about the fetch message part:
+
+##### Example of `parts` data in the return variable for a multipart message:
+
+```json
+{
+    "0,0": {
+        "content_type": "text/plain",
+        "content_transfer_encoding": "7bit"
+    },
+    "0,1": {
+        "content_type": "text/html",
+        "content_transfer_encoding": "7bit"
+    },
+    "1": {
+        "content_type": "text/plain",
+        "filename": "Text attachment content.txt",
+        "content_transfer_encoding": "base64"
+    },
+}
+```
+
+If the "`part`" option is set, as parameter of the `fetch` action, it returns a dictionary containing information about the fetch message part:
 
 {% configuration_basic %}
 part_data:
