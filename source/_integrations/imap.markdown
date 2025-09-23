@@ -128,6 +128,8 @@ custom:
   description: Holds the result of the custom event data [template](/docs/configuration/templating). All attributes are available as a variable in the template.
 initial:
   description: Returns `True` if this is the initial event for the last message received. When a message within the search scope is removed and the last message received has not been changed, then an `imap_content` event is generated and the `initial` property is set to `False`. Note that if no `Message-ID` header was set on the triggering email, the `initial` property will always be set to `True`.
+parts:
+  description: Returns a dictionary with the available parts in a multipart message. The keys of the dictionary can be used to pass via the `part` option to the `fetch` action to allow you to receive the content of a specific part of the message.
 uid:
   description: Latest `uid` of the message.
 {% endconfiguration_basic %}
@@ -180,7 +182,41 @@ Available actions are:
 - `seen`: Mark the message as seen.
 - `move`: Move the message to a `target_folder` and optionally mark the message `seen`.
 - `delete`: Delete the message.
-- `fetch`: Fetch the content of a message. Returns a dictionary containing `"text"`, `"subject"`, `"sender"` and `"uid""`. This allows to fetch and process the complete message text, not limited by size.
+- `fetch`: Fetch the content of a message.
+
+#### Return values for the `fetch` action
+
+Without the `part` option set this action returns a dictionary containing information about the fetched message:
+
+{% configuration_basic %}
+text:
+  description: The plain text version of the fetched email.
+subject:
+  description: The subject of the fetched email.
+sender:
+  description: The senders email address of the fetched email.
+uid:
+  description: The UID of the message.
+parts:
+  description: Contains the available parts in the message in case of a multipart message. This allows to fetch and process the complete message text message part, not limited by size.
+{% endconfiguration_basic %}
+ 
+When the "`parts`" option is set this action returns a dictionary containing information about the fetch message part:
+
+{% configuration_basic %}
+part_data:
+  description: The encoded data of the fetched message part.
+content_type:
+  descriptiom: The MIME content type of the message part, for example "image/jpeg".
+content_transfer_encoding:
+  description: The encoding of the data in `part_data`.
+file_name:
+  description: The filename of the message part, in case the part is added as an attachment. Will be `null` if no filename is set. 
+uid:
+  description: The UID of the message.
+part:
+  description: The part index. 
+{% endconfiguration_basic %}
 
 {% caution %}
 When these actions are used in an automation, make sure the right triggers and filtering are set up. When messages are deleted, they cannot be recovered. When multiple IMAP entries are set up, make sure the messages are filtered by the `entry_id` as well to ensure the correct messages are processed. Do not use these actions unless you know what you are doing.
@@ -219,6 +255,44 @@ actions:
 ```
 
 {% endraw %}
+
+In case you want want to process a message part, you need to know the part index and specify it via the `part` option of the `fetch` action. 
+
+{% raw %}
+
+```yaml
+alias: "imap fetch and seen example"
+description: "Fetch and mark an incoming message as seen"
+triggers:
+  - trigger: event
+    event_type: imap_content
+    event_data:
+      entry_id: 91fadb3617c5a3ea692aeb62d92aa869
+conditions:
+  - condition: template
+    value_template: "{{ trigger.event.data['sender'] == 'info@example.com' }}"
+  - condition: template
+    value_template: "{{ trigger.event.data['parts'].get('1') }}"
+  - condition: template
+    value_template: "{{ trigger.event.data['parts']['1'].get('content_type') == 'text/plain' }}"
+actions:
+  - action: imap.fetch
+    data:
+      entry: 91fadb3617c5a3ea692aeb62d92aa869
+      uid: "{{ trigger.event.data['uid'] }}"
+      part: "1"
+    response_variable: message_text
+  - action: imap.seen
+    data:
+      entry: 91fadb3617c5a3ea692aeb62d92aa869
+      uid: "{{ trigger.event.data['uid'] }}"
+  - action: persistent_notification.create
+    data:
+      message: "{{ message_text['part_data'] | base64_decode }}"
+```
+
+{% endraw %}
+
 
 ## Example - keyword spotting
 
