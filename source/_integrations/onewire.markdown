@@ -84,7 +84,7 @@ Each 1-wire component data sheet describes the different properties the componen
 
 | Family | Device           | Physical Quantity |
 | -------|:-----|:-----|
-| 1F     | [DS2401/DS2411](https://datasheets.maximintegrated.com/en/ds/DS2401.pdf)  | Serial number
+| 01     | [DS2401/DS2411](https://datasheets.maximintegrated.com/en/ds/DS2401.pdf)  | Serial number
 
 Notes:
 
