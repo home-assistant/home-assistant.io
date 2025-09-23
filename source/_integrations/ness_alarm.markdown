@@ -35,7 +35,6 @@ The module communicates via the [Ness D8x/D16x ASCII protocol](https://github.co
 During setup, you'll need to provide:
 - **Host**: The hostname or IP address of your IP232 module
 - **Port**: The port on which the IP232 module listens (default: 2401)
-- **Scan Interval**: Time between updates in seconds (default: 60)
 - **Infer Arming State**: Infer the disarmed arming state only via system status events. This works around a bug with some panels (<v5.8) which emit update.status = [] when they are armed.
 
 ### Automatic Zone Detection
@@ -57,7 +56,6 @@ After setup, you can modify settings through the integration options:
 3. Click **Configure**
 
 Available options:
-- **Scan interval**: 1-3600 seconds
 - **Infer arming state**: Infer the disarmed arming state only via system status events. This works around a bug with some panels (<v5.8) which emit update.status = [] when they are armed.
 - **Support home arm**: Enable/Disable ARM_HOME functionality
 - **Number of Active Zones**: Manual override (8, 16, 24, or 32 zones)
