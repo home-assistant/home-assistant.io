@@ -47,7 +47,9 @@ Due to a limitation in the Cloudflare API, you can not use this integration with
 
 #### Record types
 
-This integration can only update A records. 
+This integration can update A and AAAA records, depending on which are configured for a given record.
+
+If an AAAA record is configured, IPv6 address must be present and useable for HA host (same applies for A records).
 
 #### Zones
 
