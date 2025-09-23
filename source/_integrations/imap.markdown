@@ -198,7 +198,7 @@ sender:
 uid:
   description: The UID of the message.
 parts:
-  description: Contains the available parts in the message in case of a multipart message. This allows to fetch and process the complete message text message part, not limited by size. 
+  description: Contains a dictionary with metadata about the available parts in the message in case of a multipart message. This allows to fetch and process the complete message text message part, not limited by size. For each available part `content_type` and `content_transfer_encoding` will be provided. In case a file name is set, it will be supplied through the `filename` key. 
 {% endconfiguration_basic %}
 
 ##### Example of `parts` data in the return variable for a multipart message:
