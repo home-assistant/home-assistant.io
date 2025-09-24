@@ -12,6 +12,7 @@ ha_integration_type: hardware
 ha_config_flow: true
 ha_platforms:
   - update
+published: false
 ---
 
 The Home Assistant Connect ZBT-2 integration provides hardware information for the hardware configuration page.
