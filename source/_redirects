@@ -190,7 +190,6 @@ layout: null
 /integrations/light.xiaomi_miio /integrations/xiaomi_miio/#xiaomi-philips-light
 /integrations/light.xiaomi_aqara/ /integrations/xiaomi_aqara/#lights
 /integrations/lock.xiaomi_aqara/ /integrations/xiaomi_aqara/#locks
-/integrations/logbook /integrations/activity
 /integrations/media_player.group /integrations/group
 /integrations/notify.command_line /integrations/command_line#Notify
 /integrations/notify.group /integrations/group#notify-groups
