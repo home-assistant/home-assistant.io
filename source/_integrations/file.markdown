@@ -75,18 +75,18 @@ This would require the following settings to extract the temperature:
 - Value template: {% raw %}`'{{ value.split(",")[1] }}'`{% endraw %}
 - Unit of measurement: `"°C"`
 
-## Action `file.read_file`
+## Action: Read file
 
-Reads a file and returns the data in a response.
+The `file.read_file` action reads a file and returns the data in a response.
 
 | Data attribute | Optional | Description |
 | -------------- | -------- | ----------- |
-| `file_name`    | No       | The path of the file and name to read. Files should be utf-8 encoded. Example: `config/www/myfile.yaml` |
+| `file_name`    | No       | The path of the file and name to read. Files should be UTF-8 encoded. Example: `config/www/myfile.yaml` |
 | `file_encoding`| No       | The content type of the file (`JSON` or `YAML`). Example: `YAML` |
 
 > **Note:** The file paths should be relative to the Home Assistant configuration directory.
 
-> **Note:** File paths must be added to [allowlist_external_dirs](/integrations/homeassistant/#allowlist_external_dirs) in your `configuration.yaml`.
+> **Note:** File paths must be added to [allowlist_external_dirs](/integrations/homeassistant/#allowlist_external_dirs) in your {% term "`configuration.yaml`" %}.
 
 The action returns a dictionary with a data element containing the parsed content from the file.
 
