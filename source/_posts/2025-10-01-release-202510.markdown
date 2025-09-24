@@ -62,8 +62,7 @@ Issues introduced in the beta are processed with priority. 🔝
 
 {% tip %}
 
-Don't forget to [join our release party live stream on YouTube](https://www.youtube.com/watch?v=0T23Co-E6Ew) on
- October 1, 2025, at 20:00 GMT / 12:00 PT / 21:00 CEST!
+Don't forget to [join our release party live stream on YouTube](https://www.youtube.com/watch?v=0T23Co-E6Ew) on October 1, 2025, at 20:00 GMT / 12:00 PT / 21:00 CEST!
 
 {% endtip %}
 
@@ -246,79 +245,66 @@ It is not just new {% term integrations %} that have been added; existing
 integrations are also being constantly improved. Here are some of the noteworthy
 changes to existing integrations:
 
-- _Coming soon_
+- [Philips Hue] expanded with support for MotionAware sensors on the new [Hue Bridge Pro]! Thanks, [@marcelveldt]!
+- [LG] added support to the [LG ThinQ] integration to now provide energy usage sensors for better energy monitoring for your devices! Nice!
+- Amazing work from [@natekspencer]: [Litter-Robot] got several enhancements: last feeding sensors, food dispensed today tracking, next feeding sensors, gravity mode switch, and globe light settings for Litter-Robot 4!
+- [AccuWeather] now provides hourly forecasts, giving you more detailed weather predictions throughout the day! Thanks, [@bieniu]!
+- The [Blue Current] integration got a new start charge session action for managing your EV charging! Nice work, [@NickKoepr]!
+- The [Ecowitt] integration now supports the LDS01 sensor support! Great addition [@GSzabados]!
+- [Reolink] cameras got several new features: encoding select entity, Home Hub siren support, and color temperature support for light entities! Awesome work from [@starkillerOG]!
+- Geocaching enthusiasts will love the new cache sensors added to the [Geocaching] integration by [@marc7s]! Nice if you have hidden one!
+- [Lutron Caseta] now supports multi-tap actions for more advanced button control! Thanks, [@rlopezdiez]!
+- Thanks to [@alexqzd], [SmartThings] air conditioners can now control the AC display light!
+- [Shelly] devices received massive updates: illuminance sensor for Plug US Gen4, presence component entities, virtual buttons support, object-based entities, presence zone component support, and cable unplugged sensor for Flood Gen4! Great work from [@chemelli74], [@bieniu], and [@thecode]!
+- The [SwitchBot] integration expanded device support with Plug Mini EU, RelaySwitch 2PM, and K11+ Vacuum! Thanks, [@zerzhang]!
+- While the [SwitchBot Cloud] integration got several improvements: AC off support, humidifier platform, Plug-Mini-EU support, and Climate Panel support! Great work from [@SeraphicRav] and [@XiaoLing-git]!
+- Thanks to [@timmo001], the [System Bridge] integration now includes a power usage sensor for better system monitoring!
+- Exciting to see that the [Tasmota] integration now supports camera functionality! Nice addition from [@anishsane]!
+- Using the [Tibber] integration? It now provides 15-minute price data, which goes into effect on October 1st. Good timing [@Danielhiversen]!
+- The [Tuya] integration received extensive updates! With support for various new device categories and sensors: energy sensors for TDQ devices, missing sensors for Metering_3PN_ZB devices, power sensors for ZNDB devices, energy sensors for DLQ devices, solar inverter support, energy consumption for smart switches, PM10 air quality monitoring, motor rotation mode for curtains, charge state for siren alarms, cooking thermometer support, cat toilet support, electric desk support, white noise machine support, and water quality sensors support! What an impressive list! Thanks [@zzysszzy], [@rokam], and [@mhalano]!
+- The [Workday] integration now has a calendar that you can view from the calendar sidebar! Thanks, [@gjohansson-ST]!
 
-Other candidates:
-
-- Add hourly forecast for AccuWeather integration ([@bieniu] - [#152178]) ([accuweather docs])
-- Add start charge session action for blue current integration. ([@NickKoepr] - [#145446]) ([blue_current docs])
-- Add downloading and seeding counts to Deluge ([@humantree] - [#150623]) ([deluge docs])
-- Add VPD - Vapour Pressure Deficit support to Ecowitt ([@GSzabados] - [#141727]) ([ecowitt docs])
-- Add LDS01 support ([@GSzabados] - [#151820]) ([ecowitt docs])
-- Add Ecovacs custom water amount entity ([@edenhaus] - [#152782]) ([ecovacs docs])
-- Add geocaching cache sensors ([@marc7s] - [#145453]) ([geocaching docs])
-- Gemini: add support for AI Task generate image ([@balloob] - [#151880]) ([google_generative_ai_conversation docs])
-- Add sensors for boss rage to Habitica ([@tr4nt0r] - [#151334]) ([habitica docs])
-- Add a switch entity for add-ons ([@felipecrs] - [#151431]) ([hassio docs]) (new-platform)
-- Homekit valve duration properties ([@fabiandev] - [#150273]) ([homekit docs])
-- Add support for controlling LED brightness on HomeWizard Plug-In Battery and P1 Meter ([@DCSBL] - [#151186]) ([homewizard docs])
-- Add support for Hue MotionAware sensors ([@marcelveldt] - [#152811]) ([hue docs])
-- Add start mowing and dock intents for lawn mower ([@piitaya] - [#140525]) ([lawn_mower docs])
-- Add energy usage sensors of ThinQ devices. ([@LG-ThinQ-Integration] - [#152141]) ([lg_thinq docs])
-- Add last feeding sensor for Feeder-Robots ([@natekspencer] - [#151871]) ([litterrobot docs])
-- Add food dispensed today and next feeding sensors to litterrobot ([@natekspencer] - [#152016]) ([litterrobot docs])
-- Add gravity mode switch for Feeder-Robot ([@natekspencer] - [#152175]) ([litterrobot docs])
-- Add globe light settings for Litter-Robot 4 ([@natekspencer] - [#152190]) ([litterrobot docs])
-- Add support for multi-tap action in Lutron Caseta integration ([@rlopezdiez] - [#150551]) ([lutron_caseta docs]) (dependency)
-- Add Matter occupancy sensing hold time ([@lboue] - [#150745]) ([matter docs])
-- Add Matter climate running state heat fan and cool fan ([@virtualbitzz] - [#151535]) ([matter docs])
-- Add Matter service actions for vacuum area ([@lboue] - [#151467]) ([matter docs])
-- Add Matter Thermostat OutdoorTemperature sensor ([@lboue] - [#152632]) ([matter docs])
-- Add mg/m³ as a valid UOM for sensor/number Carbon Monoxide device class ([@jbouwh] - [#152456]) ([sensor docs]) ([number docs])
-- OpenAI ai_task image generation support ([@Shulyaka] - [#151238]) ([openai_conversation docs])
-- Add Reolink encoding select entity ([@starkillerOG] - [#151195]) ([reolink docs])
-- Add Reolink Home Hub siren ([@starkillerOG] - [#151196]) ([reolink docs])
-- Add color temperature support to Reolink light entity ([@starkillerOG] - [#152546]) ([reolink docs])
-- Add Satel Integra config flow ([@Tommatheussen] - [#138946]) ([satel_integra docs]) (config-flow) (deprecation)
-- Add illuminance sensor for Shelly Plug US Gen4 ([@chemelli74] - [#150681]) ([shelly docs])
-- Add entities for Shelly presence component ([@bieniu] - [#151816]) ([shelly docs])
-- Add Shelly support for virtual buttons ([@thecode] - [#151940]) ([shelly docs])
-- Add support for Shelly object based entities ([@thecode] - [#152046]) ([shelly docs])
-- Support Shelly `presencezone` component ([@bieniu] - [#152393]) ([shelly docs])
-- Add a cable unplugged sensor for Shelly Flood Gen4 ([@bieniu] - [#152559]) ([shelly docs])
-- Use component role in Shelly sensor platform ([@thecode] - [#152710]) ([shelly docs])
-- SmartThings: Expose the entity to control the AC display light ([@alexqzd] - [#151404]) ([smartthings docs])
-- Add plug mini eu for switchbot integration ([@zerzhang] - [#151130]) ([switchbot docs])
-- Add switchbot relayswitch 2PM ([@zerzhang] - [#146140]) ([switchbot docs])
-- Add K11+ Vacuum for switchbot integration ([@zerzhang] - [#152643]) ([switchbot docs])
-- Add Switchbot Cloud AC Off ([@SeraphicRav] - [#138648]) ([switchbot_cloud docs])
-- Add humidifier support for switchbot cloud integration ([@zerzhang] - [#149039]) ([switchbot_cloud docs]) (new-platform)
-- Add supported device[Plug-Mini-EU] for switchbot cloud ([@XiaoLing-git] - [#151019]) ([switchbot_cloud docs])
-- Add Climate Panel support to Switchbot Cloud ([@XiaoLing-git] - [#152427]) ([switchbot_cloud docs])
-- Add power usage sensor to System Bridge ([@timmo001] - [#152625]) ([system_bridge docs])
-- Add support for Tasmota camera ([@anishsane] - [#144067]) ([tasmota docs]) (new-platform)
-- Add support for sending chat actions in Telegram bot integration ([@rlopezdiez] - [#151378]) ([telegram_bot docs]) ([telegram docs])
-- Tibber 15min prices ([@Danielhiversen] - [#151881]) ([tibber docs]) (breaking-change) (dependency)
-- Add support for new energy sensor entities for TDQ (socket/outlet) devices in the Tuya integration ([@zzysszzy] - [#151553]) ([tuya docs])
-- Tuya add missing sensors for Metering_3PN_ZB (dlq) device ([@rokam] - [#151601]) ([tuya docs])
-- Add support for new power sensor entities for ZNDB (smart energy meter) devices in the Tuya integration ([@zzysszzy] - [#151554]) ([tuya docs])
-- Add support for new energy sensor entities for DLQ (circuit breaker) devices in the Tuya integration ([@zzysszzy] - [#151551]) ([tuya docs])
-- Adds initial support for tuya category xnyjcn (solar inverter) ([@zzysszzy] - [#151549]) ([tuya docs])
-- Add energy consumption/production for Tuya kg category (smart switches) ([@zzysszzy] - [#149234]) ([tuya docs])
-- Add PM10 to Tuya air quality monitor (co2bj category) ([#151980]) ([tuya docs])
-- Use motor rotation mode in Tuya clkg covers (curtain) ([#151767]) ([tuya docs])
-- Add charge_state to Tuya siren alarm ([#151220]) ([tuya docs])
-- Add support for Tuya swtz category (cooking thermometer) ([#152022]) ([tuya docs])
-- Add initial support for Tuya msp category (cat toilet) ([#152035]) ([tuya docs])
-- Add initial support for Tuya sjz category (electric desk) ([#152036]) ([tuya docs])
-- Use translation_key in Tuya dr category (electric blanket) ([#152099]) ([tuya docs])
-- Add select for up/down/stop to electric desk ([@mhalano] - [#152166]) ([tuya docs])
-- Add support for Tuya bzyd category (white noise machine) ([#152025]) ([tuya docs])
-- Add support for Tuya szjcy category (water quality sensors) ([#152020]) ([tuya docs])
-- Add sensors for Tuya energy storage systems (xnyjcn) ([@zzysszzy] - [#149237]) ([tuya docs])
-- Add Twitch entity for self ([@w531t4] - [#150525]) ([twitch docs])
-- Add sensor for DHW storage temperature in ViCare integration ([@CFenner] - [#151128]) ([vicare docs])
-- Add calendar to Workday ([@gjohansson-ST] - [#150596]) ([workday docs]) (new-platform)
+[@alexqzd]: https://github.com/alexqzd
+[@anishsane]: https://github.com/anishsane
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@GSzabados]: https://github.com/GSzabados
+[@jbouwh]: https://github.com/jbouwh
+[@marc7s]: https://github.com/marc7s
+[@marcelveldt]: https://github.com/marcelveldt
+[@mhalano]: https://github.com/mhalano
+[@natekspencer]: https://github.com/natekspencer
+[@NickKoepr]: https://github.com/NickKoepr
+[@piitaya]: https://github.com/piitaya
+[@richardpolzer]: https://github.com/richardpolzer
+[@rlopezdiez]: https://github.com/rlopezdiez
+[@rokam]: https://github.com/rokam
+[@SeraphicRav]: https://github.com/SeraphicRav
+[@starkillerOG]: https://github.com/starkillerOG
+[@thecode]: https://github.com/thecode
+[@XiaoLing-git]: https://github.com/XiaoLing-git
+[@zerzhang]: https://github.com/zerzhang
+[@zzysszzy]: https://github.com/zzysszzy
+[AccuWeather]: /integrations/accuweather
+[Blue Current]: /integrations/blue_current
+[Ecowitt]: /integrations/ecowitt
+[Geocaching]: /integrations/geocaching
+[Hue Bridge Pro]: https://www.philips-hue.com/nl-nl/p/hue-hue-bridge-pro/8720169155114
+[LG ThinQ]: /integrations/lg_thinq
+[LG]: https://github.com/LG-ThinQ-Integration
+[Litter-Robot]: /integrations/litterrobot
+[Lutron Caseta]: /integrations/lutron_caseta
+[Matter]: /integrations/matter
+[Philips Hue]: /integrations/hue
+[Reolink]: /integrations/reolink
+[Shelly]: /integrations/shelly
+[SmartThings]: /integrations/smartthings
+[SwitchBot Cloud]: /integrations/switchbot_cloud
+[SwitchBot]: /integrations/switchbot
+[System Bridge]: /integrations/system_bridge
+[Tasmota]: /integrations/tasmota
+[Tibber]: /integrations/tibber
+[Tuya]: /integrations/tuya
+[Workday]: /integrations/workday
 
 ### Integration quality scale achievements
 
@@ -389,25 +375,34 @@ The following integrations are now available via the Home Assistant UI:
 There are many more improvements in this release; here are some of the other noteworthy changes:
 
 - The "Logbook" has been renamed to "Activity" in the UI. This better reflects its purpose of showing a timeline of activities and events in your Home Assistant instance.
+- [Matter] continues to expand with occupancy sensing hold time, climate running state for heat/cool fans, vacuum area service actions, and thermostat outdoor temperature sensors! Great contributions from [@lboue] and [@virtualbitzz]!
+- Lawn mower entities now support start mowing and dock intents for better voice control! Thanks, [@piitaya]!
 - We now have secondary wake word and pipeline support for ESPHome voice satellites. This means you can assign different pipelines (for example, different language or personalities) to a different wake word. Super nice [@synesthesiam]!
 - The [analog clock] we introduced last release got some more options! You can now enable a smooth motion for the seconds hand. Beautiful [@timmo001]!
 - Need the version of the [Home Assistant Mobile Companion App] you are using? The version is now shown in the about page in the settings menu! Nice one [@TimoPtr]!
 - The [thermostat card] now supports [water heater entities]. Thanks [@karwosts]!
 - Thanks to [@cr7pt0gr4ph7], the add-on configuration UI has gotten support for more complex configurations; this means you will get a better experience when configuring add-ons with more complex options (like lists or user accounts). Well done!
+- Talking about add-ons, we now include switch entities for those, making it easier to control your add-ons. Thanks, [@felipecrs]!
 - Using a [webhook trigger] in your automation? You can now make it even more dynamic by using a template for the `webhook_id`. Thanks [@RoboMagus]!
-- We now have support for `MCF` (1000 Cubic Feet) as an alternate unit of measure for volume, thanks to [@ekobres], [@xtimmy86x] added `m/min` for speed sensors, and [@pioto] added `inH₂O` pressure unit support. Nice!
+- We now have support for `MCF` (1000 Cubic Feet) as an alternate unit of measure for volume, thanks to [@ekobres], [@xtimmy86x] added `m/min` for speed sensors, `mg/m³` was added for carbon monoxide sensors by [@jbouwh], and [@pioto] added `inH₂O` pressure unit support. Nice!
 
 [@cr7pt0gr4ph7]: https://github.com/cr7pt0gr4ph7
 [@ekobres]: https://github.com/ekobres
+[@felipecrs]: https://github.com/felipecrs
+[@jbouwh]: https://github.com/jbouwh
 [@karwosts]: https://github.com/karwosts
+[@lboue]: https://github.com/lboue
+[@piitaya]: https://github.com/piitaya
 [@pioto]: https://github.com/pioto
 [@RoboMagus]: https://github.com/RoboMagus
 [@synesthesiam]: https://github.com/synesthesiam
 [@timmo001]: https://github.com/timmo001
 [@TimoPtr]: https://github.com/TimoPtr
+[@virtualbitzz]: https://github.com/virtualbitzz
 [@xtimmy86x]: https://github.com/xtimmy86x
 [analog clock]: /blog/2025/09/03/release-20259/#analog-clock
 [Home Assistant Mobile Companion App]: https://companion.home-assistant.io/
+[Matter]: /integrations/matter
 [thermostat card]: /dashboards/thermostat/
 [water heater entities]: /integrations/water_heater/
 [webhook trigger]: /docs/automation/trigger/#webhook-trigger
@@ -534,6 +529,9 @@ The effect of the property "invert position" is extended from the position itsel
 
 The `windFree` preset mode for the AC has been renamed to `wind_free` to allow translation to happen. Please adapt automations accordingly.
 
+([@joostlek] - [#152833]) ([smartthings docs])
+
+[@joostlek]: https://github.com/joostlek
 [#152833]: https://github.com/home-assistant/core/pull/152833
 [smartthings docs]: /integrations/smartthings/
 
