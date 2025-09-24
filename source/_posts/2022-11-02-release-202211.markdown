@@ -505,7 +505,7 @@ The following integrations are now available via the Home Assistant UI:
 [lidarr docs]: /integrations/lidarr/
 [lifx docs]: /integrations/lifx/
 [litterrobot docs]: /integrations/litterrobot/
-[logbook docs]: /integrations/activity/
+[logbook docs]: /integrations/logbook/
 [netatmo docs]: /integrations/netatmo/
 [nexia docs]: /integrations/nexia/
 [oralb docs]: /integrations/oralb/

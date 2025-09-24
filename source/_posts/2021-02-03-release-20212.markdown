@@ -2080,7 +2080,7 @@ The following integrations have been removed:
 [lg_soundbar docs]: /integrations/lg_soundbar/
 [lifx docs]: /integrations/lifx/
 [light docs]: /integrations/light/
-[logbook docs]: /integrations/activity/
+[logbook docs]: /integrations/logbook/
 [lovelace docs]: /integrations/lovelace/
 [lutron docs]: /integrations/lutron/
 [lutron_caseta docs]: /integrations/lutron_caseta/

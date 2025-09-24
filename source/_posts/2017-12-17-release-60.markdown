@@ -332,7 +332,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [light.mochad docs]: /integrations/mochad#light
 [light.tplink docs]: /integrations/tplink
 [light.tradfri docs]: /integrations/tradfri
-[logbook docs]: /integrations/activity/
+[logbook docs]: /integrations/logbook/
 [media_extractor docs]: /integrations/media_extractor/
 [media_player.denonavr docs]: /integrations/denonavr/
 [media_player.samsungtv docs]: /integrations/samsungtv

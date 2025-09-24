@@ -1456,7 +1456,7 @@ This makes all services to use consistently named parameters.
 [kodi docs]: /integrations/kodi/
 [lcn docs]: /integrations/lcn/
 [light docs]: /integrations/light/
-[logbook docs]: /integrations/activity/
+[logbook docs]: /integrations/logbook/
 [luci docs]: /integrations/luci/
 [maxcube docs]: /integrations/maxcube/
 [media_extractor docs]: /integrations/media_extractor/

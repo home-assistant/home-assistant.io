@@ -595,7 +595,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [light.limitlessled docs]: /integrations/limitlessled
 [light.xiaomi_miio docs]: /integrations/light.xiaomi_miio/
 [light.zha docs]: /integrations/zha
-[logbook docs]: /integrations/activity/
+[logbook docs]: /integrations/logbook/
 [media_player.apple_tv docs]: /integrations/apple_tv
 [media_player.cast docs]: /integrations/cast
 [media_player.channels docs]: /integrations/channels

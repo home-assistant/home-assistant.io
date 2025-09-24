@@ -3683,7 +3683,7 @@ discovery. Users currently using that should set up all devices through UI.
 [lg_soundbar docs]: /integrations/lg_soundbar/
 [light docs]: /integrations/light/
 [litejet docs]: /integrations/litejet/
-[logbook docs]: /integrations/activity/
+[logbook docs]: /integrations/logbook/
 [loopenergy docs]: /integrations/loopenergy/
 [lovelace docs]: /integrations/lovelace/
 [luci docs]: /integrations/luci/

@@ -1780,7 +1780,7 @@ Pushetta has been offline since September 2019 and the Yahoo Weather API has bee
 [lightwave docs]: /integrations/lightwave/
 [local_ip docs]: /integrations/local_ip/
 [lock docs]: /integrations/lock/
-[logbook docs]: /integrations/activity/
+[logbook docs]: /integrations/logbook/
 [luci docs]: /integrations/luci/
 [lutron docs]: /integrations/lutron/
 [mastodon docs]: /integrations/mastodon/

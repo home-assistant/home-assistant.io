@@ -381,7 +381,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [light.mystrom docs]: /integrations/mystrom#light
 [light.osramlightify docs]: /integrations/osramlightify
 [light.tradfri docs]: /integrations/tradfri
-[logbook docs]: /integrations/activity/
+[logbook docs]: /integrations/logbook/
 [lutron_caseta docs]: /integrations/lutron_caseta/
 [media_player.denonavr docs]: /integrations/denonavr/
 [media_player.kodi docs]: /integrations/kodi

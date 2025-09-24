@@ -74,7 +74,7 @@ Editor UI is now further processed. You can manage your Lovelace UI without leav
 [@balloob]: https://github.com/balloob
 [@hunterjm]: https://github.com/hunterjm
 [device_tracker docs]: /integrations/device_tracker/
-[logbook docs]: /integrations/activity/
+[logbook docs]: /integrations/logbook/
 [owntracks docs]: /integrations/owntracks/
 
 ## Release 0.84.2 - December 14
@@ -109,7 +109,7 @@ Editor UI is now further processed. You can manage your Lovelace UI without leav
 [asuswrt docs]: /integrations/asuswrt/
 [binary_sensor.xiaomi_aqara docs]: /integrations/binary_sensor.xiaomi_aqara/
 [light.lutron docs]: /integrations/lutron
-[logbook docs]: /integrations/activity/
+[logbook docs]: /integrations/logbook/
 [owntracks docs]: /integrations/owntracks/
 [tts docs]: /integrations/tts/
 [zha docs]: /integrations/zha/
@@ -706,7 +706,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [lightwave docs]: /integrations/lightwave/
 [lock.verisure docs]: /integrations/verisure
 [lock.volvooncall docs]: /integrations/volvooncall
-[logbook docs]: /integrations/activity/
+[logbook docs]: /integrations/logbook/
 [lovelace docs]: /integrations/lovelace/
 [lupusec docs]: /integrations/lupusec/
 [media_extractor docs]: /integrations/media_extractor/

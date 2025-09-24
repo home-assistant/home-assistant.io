@@ -149,7 +149,7 @@ recorder:
 
 {% include common-tasks/filters.md %}
 
-If you only want to hide events from your **Activity** panel, take a look at the [Activity integration](/integrations/activity/). But if you have privacy concerns about certain events or want them in neither the history nor activity, you should use the `exclude`/`include` options of the `recorder` integration. That way they aren't even in your database, you can reduce storage and keep the database small by excluding certain often-logged events (like `sensor.last_boot`).
+If you only want to hide events from your **Activity** panel, take a look at the [Activity integration](/integrations/logbook/). But if you have privacy concerns about certain events or want them in neither the history nor activity, you should use the `exclude`/`include` options of the `recorder` integration. That way they aren't even in your database, you can reduce storage and keep the database small by excluding certain often-logged events (like `sensor.last_boot`).
 
 #### Common filtering examples
 

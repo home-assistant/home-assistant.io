@@ -2366,7 +2366,7 @@ their data, which is not allowed for core integrations.
 [lifx docs]: /integrations/lifx/
 [light docs]: /integrations/light/
 [litterrobot docs]: /integrations/litterrobot/
-[logbook docs]: /integrations/activity/
+[logbook docs]: /integrations/logbook/
 [logi_circle docs]: /integrations/logi_circle/
 [lyric docs]: /integrations/lyric/
 [maxcube docs]: /integrations/maxcube/

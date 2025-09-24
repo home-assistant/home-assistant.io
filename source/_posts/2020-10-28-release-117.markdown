@@ -2695,7 +2695,7 @@ is automatically imported after upgrading and can be safely removed afterward.
 [litejet docs]: /integrations/litejet/
 [local_ip docs]: /integrations/local_ip/
 [lock docs]: /integrations/lock/
-[logbook docs]: /integrations/activity/
+[logbook docs]: /integrations/logbook/
 [logentries docs]: /integrations/logentries/
 [logi_circle docs]: /integrations/logi_circle/
 [lutron_caseta docs]: /integrations/lutron_caseta/

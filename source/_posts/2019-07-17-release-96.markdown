@@ -836,7 +836,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [lcn docs]: /integrations/lcn/
 [life360 docs]: /integrations/life360/
 [light docs]: /integrations/light/
-[logbook docs]: /integrations/activity/
+[logbook docs]: /integrations/logbook/
 [luftdaten docs]: /integrations/luftdaten/
 [media_extractor docs]: /integrations/media_extractor/
 [mqtt docs]: /integrations/mqtt/

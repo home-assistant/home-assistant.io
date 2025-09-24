@@ -162,7 +162,6 @@ layout: null
 /components/telegram_bot.webhooks /integrations/telegram_webhooks
 /components/vacuum.mqtt /integrations/vacuum.mqtt
 /components/vacuum.template /integrations/vacuum.template
-/dashboards/logbook/ /dashboards/activity
 /integrations/vacuum.template /integrations/template/#vacuum
 /integrations/binary_sensor.group /integrations/group
 /integrations/binary_sensor.knx /integrations/knx#binary-sensor

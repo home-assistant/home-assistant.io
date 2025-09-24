@@ -99,7 +99,7 @@ Note, this release includes a migration to add an index to speed up the logbook 
 [google_assistant docs]: /integrations/google_assistant/
 [group docs]: /integrations/group/
 [http docs]: /integrations/http/
-[logbook docs]: /integrations/activity/
+[logbook docs]: /integrations/logbook/
 [owntracks docs]: /integrations/owntracks/
 [sensor.rainmachine docs]: /integrations/rainmachine
 [sensor.seventeentrack docs]: /integrations/seventeentrack
@@ -738,7 +738,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [lock.mqtt docs]: /integrations/lock.mqtt/
 [lock.nello docs]: /integrations/nello
 [lock.zwave docs]: /integrations/zwave#lock
-[logbook docs]: /integrations/activity/
+[logbook docs]: /integrations/logbook/
 [lovelace docs]: /integrations/lovelace/
 [luftdaten docs]: /integrations/luftdaten/
 [lupusec docs]: /integrations/lupusec/

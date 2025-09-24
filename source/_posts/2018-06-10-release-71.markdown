@@ -363,7 +363,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [light.zha docs]: /integrations/zha
 [linode docs]: /integrations/linode/
 [lock.xiaomi_aqara docs]: /integrations/lock.xiaomi_aqara/
-[logbook docs]: /integrations/activity/
+[logbook docs]: /integrations/logbook/
 [media_extractor docs]: /integrations/media_extractor/
 [media_player.denonavr docs]: /integrations/denonavr/
 [media_player.directv docs]: /integrations/directv

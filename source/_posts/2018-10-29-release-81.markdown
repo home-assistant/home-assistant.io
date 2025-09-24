@@ -770,7 +770,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [light.zwave docs]: /integrations/zwave
 [lock.august docs]: /integrations/august
 [lock.template docs]: /integrations/lock.template/
-[logbook docs]: /integrations/activity/
+[logbook docs]: /integrations/logbook/
 [lovelace docs]: /integrations/lovelace/
 [media_extractor docs]: /integrations/media_extractor/
 [media_player.denonavr docs]: /integrations/denonavr/

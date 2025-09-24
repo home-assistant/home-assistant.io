@@ -482,7 +482,7 @@ The following integrations are now available via the Home Assistant UI:
 [@zxdavb]: https://github.com/zxdavb
 [incomfort docs]: /integrations/incomfort/
 [integration docs]: /integrations/integration/
-[logbook docs]: /integrations/activity/
+[logbook docs]: /integrations/logbook/
 [mazda docs]: /integrations/mazda/
 [modbus docs]: /integrations/modbus/
 [rfxtrx docs]: /integrations/rfxtrx/

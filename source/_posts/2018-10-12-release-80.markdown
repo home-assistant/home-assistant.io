@@ -665,7 +665,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [light.xiaomi_miio docs]: /integrations/light.xiaomi_miio/
 [lock docs]: /integrations/lock/
 [lock.mqtt docs]: /integrations/lock.mqtt/
-[logbook docs]: /integrations/activity/
+[logbook docs]: /integrations/logbook/
 [logger docs]: /integrations/logger/
 [lovelace docs]: /integrations/lovelace/
 [media_extractor docs]: /integrations/media_extractor/

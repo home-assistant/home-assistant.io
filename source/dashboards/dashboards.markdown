@@ -2,7 +2,7 @@
 title: "Multiple dashboards"
 description: "Multiple powerful and configurable dashboards in Home Assistant."
 related:
-  - docs: /integrations/activity/
+  - docs: /integrations/logbook/
     title: Activity integration
   - docs: /integrations/history/
     title: History integration
@@ -86,7 +86,7 @@ The predefined **History** dashboard is powered by the [History integration](/in
 
 ### Activity dashboard
 
-The predefined **Activity** dashboard is powered by the [Activity integration](/integrations/activity/). To control which events to show or filter out, refer to the documentation of the Activity integration.
+The predefined **Activity** dashboard is powered by the [Activity integration](/integrations/logbook/). To control which events to show or filter out, refer to the documentation of the Activity integration.
 
 ### Map dashboard
 

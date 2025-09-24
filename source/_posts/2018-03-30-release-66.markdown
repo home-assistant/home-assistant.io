@@ -497,7 +497,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [lock.bmw_connected_drive docs]: /integrations/bmw_connected_drive
 [lock.homematic docs]: /integrations/homematic
 [lock.mqtt docs]: /integrations/lock.mqtt/
-[logbook docs]: /integrations/activity/
+[logbook docs]: /integrations/logbook/
 [media_extractor docs]: /integrations/media_extractor/
 [media_player.bluesound docs]: /integrations/bluesound
 [media_player.cast docs]: /integrations/cast

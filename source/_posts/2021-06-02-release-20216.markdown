@@ -2575,7 +2575,7 @@ The following integrations are no longer available as of this release:
 [light docs]: /integrations/light/
 [litterrobot docs]: /integrations/litterrobot/
 [local_ip docs]: /integrations/local_ip/
-[logbook docs]: /integrations/activity/
+[logbook docs]: /integrations/logbook/
 [luftdaten docs]: /integrations/luftdaten/
 [lutron_caseta docs]: /integrations/lutron_caseta/
 [maxcube docs]: /integrations/maxcube/
