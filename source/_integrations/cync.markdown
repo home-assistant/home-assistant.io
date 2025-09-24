@@ -1,17 +1,18 @@
 ---
 title: Cync
 description: Instructions on how to integrate Cync devices into Home Assistant.
-ha_release: "2025.10"
+ha_release: '2025.10'
 ha_iot_class: Cloud Push
 ha_category:
   - light
 ha_codeowners:
   - '@Kinachi249'
 ha_domain: cync
-ha_integration_type: integration
+ha_integration_type: hub
 ha_platforms:
   - light
 ha_quality_scale: bronze
+ha_config_flow: true
 ---
 
 The **Cync** {% term integration %} is used to integrate with smart devices sold by [GE Lighting](https://www.gelighting.com/). Cync, formerly known as "C by GE", is the name given to GE Lighting's line of smart devices.

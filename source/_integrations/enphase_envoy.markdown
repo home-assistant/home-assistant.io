@@ -11,7 +11,6 @@ ha_config_flow: true
 ha_codeowners:
   - '@bdraco'
   - '@cgarwood'
-  - '@joostlek'
   - '@catsmanac'
 ha_platforms:
   - binary_sensor

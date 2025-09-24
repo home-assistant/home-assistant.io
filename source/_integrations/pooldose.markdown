@@ -2,17 +2,19 @@
 title: SEKO PoolDose
 description: Connect your SEKO PoolDose water treatment system to Home Assistant.
 ha_category:
-  - Water Management
   - Sensor
+  - Water Management
 ha_iot_class: Local Polling
 ha_config_flow: true
-ha_release: "2025.9"
+ha_release: '2025.9'
 ha_codeowners:
   - '@lmaertin'
 ha_domain: pooldose
 ha_platforms:
   - sensor
 ha_integration_type: integration
+ha_quality_scale: bronze
+ha_dhcp: true
 ---
 
 The PoolDose integration connects a [SEKO](https://www.seko.com/) water treatment system with Home Assistant. SEKO is a manufacturer of various monitoring and control devices for pools and spas.

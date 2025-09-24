@@ -13,6 +13,7 @@ ha_config_flow: true
 ha_platforms:
   - sensor
 ha_integration_type: integration
+ha_quality_scale: bronze
 ---
 
 The Opower integration allows you to get energy information from utilities that use [Opower](https://www.oracle.com/industries/utilities/opower-energy-efficiency/).
