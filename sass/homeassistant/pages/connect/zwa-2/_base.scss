@@ -27,7 +27,6 @@ section {
 
 .nc-collaboration{
     position: absolute;
-    
     &.mobile{
         display: block;
         @include bp(desktop){
