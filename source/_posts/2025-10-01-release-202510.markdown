@@ -177,6 +177,8 @@ At home, every time someone rings my doorbell, I receive a notification with a c
 
 {% details "Automation details" %}
 
+{% raw %}
+
 ```yaml
 alias: Demo Doorbell
 triggers:
@@ -274,6 +276,8 @@ actions:
     enabled: true
 mode: single
 ```
+
+{% endraw %}
 
 {% enddetails %}
 
