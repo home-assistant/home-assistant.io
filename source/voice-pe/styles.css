@@ -5300,8 +5300,6 @@ section#hero .bg-gradient {
     height: calc(var(--grid-m) * 9);
   }
 
-  .vpe-main #pricing .image{
-  }
 
   .vpe-main #pricing .image-overlay > img {
     height: calc(var(--grid-m) * 9);
