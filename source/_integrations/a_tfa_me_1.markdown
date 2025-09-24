@@ -96,7 +96,7 @@ Otherwise please follow the instructions from the datasheets above. Basically it
 4. Connect your device to the Wi-Fi network **TFA-ME-ID-XXX-XXX-XXX**
 5. Open a browser and enter **"192.168.8.1"** or **"me.local"**
 6. Select your Wi-Fi network from the list, enter your password, and select **Submit**
-7. Wait a few seconds until your station is connected to your WiFi network
+7. Wait a few seconds until your station is connected to your Wi-Fi network
 
 {% enddetails %}
 
