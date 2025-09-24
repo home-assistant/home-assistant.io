@@ -37,6 +37,13 @@ Before using this integration, you’ll need a Whisker account and a Wi-Fi-enabl
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+Username:
+    description: "The email address of your Whisker account."
+Password:
+    description: "The password of your Whisker account."
+{% endconfiguration_basic %}
+
 ## Entities
 
 ### Litter-Robot
