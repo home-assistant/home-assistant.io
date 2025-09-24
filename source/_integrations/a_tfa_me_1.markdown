@@ -103,7 +103,7 @@ Otherwise please follow the instructions from the datasheets above. Basically it
 
 {% details "2. Activate Home Assistant funtionality of your station" %} 
 
-**Use the station's network settings:**
+**Use the station's network settings**:
 
 The Home Assistant functionality in TFA.me stations is deactivated by default.
 To get access to the internal web pages for settings & configurations open a web browser and enter the **IP address** or the **mDNS name** of your station.
