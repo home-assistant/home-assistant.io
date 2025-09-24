@@ -1,0 +1,543 @@
+---
+layout: post
+title: "2025.10 Beta: A Betta title"
+description: "Beta release notes for Home Assistant Core 2025.10"
+date: 2025-09-24 00:00:00
+date_formatted: "October 1, 2025"
+author: Franck Nijhof
+author_twitter: frenck
+comments: true
+categories:
+  - Release-Notes
+  - Core
+og_image: /images/blog/2025-10/social.png
+---
+
+<lite-youtube videoid="0T23Co-E6Ew" videotitle="Home Assistant 2025.10 Release Party"></lite-youtube>
+
+{% note %}
+
+**Welcome to the beta release notes for Home Assistant 2025.10** 🎉
+
+<br />
+
+Please note that these release notes are a work in progress. 👷‍♀️ We will be
+completing them over the next couple of days. Not all features might be final
+yet, and some features _**may not** make it into the final release_.
+
+<br />
+
+**Want to help test the beta?** Awesome! ❤️ We have documented how you
+[can join our beta channel and install the beta here](/common-tasks/os/#running-a-beta-version).
+
+<br />
+
+While running the beta, we highly recommend joining our _#beta_ channel on
+the [Home Assistant Discord chat](/join-chat)! 💬 Most developers and beta
+testers are in this channel during the beta period to share experiences, ideas,
+and iterate over new features, fine-tuning them before the final release.
+It's a really fun place to hang out. 😎
+
+<br />
+
+**Reporting issues**: As this is a beta test, you might encounter unexpected
+behavior or issues. 🐞 We use the GitHub issue tracker to track beta issues.
+You can find our issue trackers and the reported issues during beta here:
+
+<br />
+
+- [Report(ed) beta **dashboards/UI/frontend** issues](https://github.com/home-assistant/frontend/milestone/136)
+- [Report(ed) beta **integrations/automations/backend/core** issues](https://github.com/home-assistant/core/milestone/767)
+- [Report(ed) beta **documentation** issues](https://github.com/home-assistant/home-assistant.io/milestone/143)
+
+🙏 When reporting issues, **make sure to mention the exact beta version you are
+running** in the issue description. This will help us identify and track the
+issue correctly. Read more about [reporting issues here](/help/reporting_issues/).
+
+<br />
+
+Issues introduced in the beta are processed with priority. 🔝
+
+{% endnote %}
+
+{% tip %}
+
+Don't forget to [join our release party live stream on YouTube](https://www.youtube.com/watch?v=0T23Co-E6Ew) on
+ October 1, 2025, at 20:00 GMT / 12:00 PT / 21:00 CEST!
+
+{% endtip %}
+
+Home Assistant 2025.10! 🎉
+
+Enjoy the (beta) release!
+
+../Frenck
+
+<!--more-->
+
+- [Automation editor](#automation-editor)
+  - [The sidebar is resizable](#the-sidebar-is-resizable)
+  - [CTRL+V](#ctrlv)
+  - [The overflow menu is back](#the-overflow-menu-is-back)
+  - [Undo/Redo](#undoredo)
+  - [Repeat repeat repeat repeat](#repeat-repeat-repeat-repeat)
+  - [Automation editor feedback](#automation-editor-feedback)
+- [AI Task - Draw me a sheep](#ai-task---draw-me-a-sheep)
+- [Dashboards get smarter - let your home suggest what to show](#dashboards-get-smarter---let-your-home-suggest-what-to-show)
+- [Integrations](#integrations)
+  - [New integrations](#new-integrations)
+  - [Noteworthy improvements to existing integrations](#noteworthy-improvements-to-existing-integrations)
+  - [Integration quality scale achievements](#integration-quality-scale-achievements)
+  - [Now available to set up from the UI](#now-available-to-set-up-from-the-ui)
+- [Other noteworthy changes](#other-noteworthy-changes)
+  - [New more information dialog for media player entities](#new-more-information-dialog-for-media-player-entities)
+  - [Sync zooming charts in the history panel](#sync-zooming-charts-in-the-history-panel)
+  - [Template \& YAML editor gets a toolbar](#template--yaml-editor-gets-a-toolbar)
+- [Need help? Join the community](#need-help-join-the-community)
+- [Backward-incompatible changes](#backward-incompatible-changes)
+- [All changes](#all-changes)
+
+## Automation editor
+
+In the [last release](/blog/2025/09/03/release-20259/), we introduced a new layout for the automation editor, and your feedback has been invaluable in helping us refine it!
+
+This release fixes a few of the most common issues we managed to gather from all of you. Thanks for all the feedback! ❤️
+
+### The sidebar is resizable
+
+Working on an action that is too complex for a small sidebar? Maybe one with a few YAML fields? You can now resize the sidebar to adapt the layout to your current task!
+
+<img class="no-shadow" alt="Temporary screenshot that might need replacement" src="/images/blog/2025-10/temp-automation-editor-split-repeat.png" />
+
+### CTRL+V
+
+We previously introduced shortcuts to copy and cut.
+
+Pasting was more complex to bring to life because you can paste a block (trigger, condition, action) in many different locations in your automation.
+In this release, we introduce a really simple pattern. If you previously copied a block, you can paste it below any block simply by selecting it and pressing CTRL+V.
+
+Another very simple, but very welcome quality of life improvement to the automation editor! An amazing contribution [@jpbede], thanks!
+
+<img class="no-shadow" alt="Temporary screen recording that might need replacement" src="/images/blog/2025-10/temp-automation-editor-copy-paste.gif" />
+
+[@jpbede]: https://github.com/jpbede
+
+### The overflow menu is back
+
+This section does not really require a long story. We initially relocated the overflow menu with all the options related to a block on the sidebar, thinking this would make the flow cleaner.
+
+Due to popular request and valid feedback about some actions being more difficult to reach (such as testing a condition or running an action), we decided to bring it back to the main section of the editor too.
+
+**TODO**: Awaiting screenshot
+
+### Undo/Redo
+
+We all had these moments when we’re building a complex automation, make a mistake, want to revert it, only to find out that it’s really not simple.
+Up until then, the only way to revert some unsaved changes made to an automation was to close it, and start again… A very painful workflow.
+This release introduces an Undo functionality (And its associated Redo). You can now undo up to 75 steps in your automation (And redo them if you want)!
+Standard keyboard shortcuts (CTRL+Z, CTRL+Y) are also available!
+
+**TODO**: Awaiting screenshot
+
+### Repeat repeat repeat repeat
+
+Finally, we noticed some unwanted complexity in our `repeat` building block, which allows you to repeat one or multiple actions for as long as you need to.
+
+This complexity stemmed from the fact that we were trying to cover 4 main use-cases in a single block.
+
+We decided to split this building block into 4 smaller ones, with simpler descriptions explaining each use case. Nice!
+
+<img class="no-shadow" alt="Temporary screenshot that might need replacement" src="/images/blog/2025-10/temp-automation-editor-split-repeat.png" />
+
+{% note %}
+For our advanced users: This is a pure “presentation” evolution on our editor. The YAML format of the repeat block does not change.
+{% endnote %}
+
+### Automation editor feedback
+
+{% tip %}
+
+One of Home Assistant's greatest strengths is our community. We're building this dashboard together, and your input will shape where it goes next. There are two ways to get involved:
+
+- [Share your thoughts in our survey](https://forms.gle/ATWcTAj8bMbiGfUE7)
+- [Join the conversation in the automations & scripts development channel on Discord](https://discord.com/channels/330944238910963714/1351529028112224359)
+
+{% endtip %}
+
+## AI Task - Draw me a sheep
+
+In [2025.8](/blog/2025/08/06/release-20258/), we introduced [a way to generate data using the LLM of your choice](/blog/2025/08/06/release-20258/#integrate-ai-into-your-workflow-using-ai-task), paving the way to more AI-driven automations, dashboards, and other smart home interactions.
+
+In this release, we introduce a way to generate images!
+
+<img class="no-shadow" alt="Temporary screenshot that might need replacement" src="/images/blog/2025-10/temp-ai-task-generate-image.png" />
+
+The results are very promising, and we cannot wait to see what you will build with this!
+At home, every time someone rings my doorbell, I receive a notification with a cartoon version of the doorbell snapshot 😃
+
+<img class="no-shadow" alt="Temporary screenshot that might need replacement" src="/images/blog/2025-10/temp-ai-task-doorbell-notification.png" />
+
+## Dashboards get smarter - let your home suggest what to show
+
+Last release with Home dashboard we created another way for controlling & monitoring if you don’t have time, energy or need for customizing your own dashboard in detail.
+
+Now we added a new concept - sections of suggested entities. For now, it follows a basic algorithm and suggests entities you interacted the most with in the span of 24h, and shows them depending on the hour of the day. System-related entities have been removed, as well as some specific entities that we checked during development that made no sense.
+
+<img class="no-shadow" alt="Temporary screenshot that might need replacement" src="/images/blog/2025-10/temp-home-dashboard-prediction-entities.png" />
+
+{% tip %}
+
+One of Home Assistant's greatest strengths is our community. We're building this dashboard together, and your input will shape where it goes next. There are two ways to get involved:
+
+- **Awaiting link for this item**
+- [Join the conversation in the dashboard development channel on Discord](https://discord.com/channels/330944238910963714/1351536906437005313)
+
+{% endtip %}
+
+## Integrations
+
+Thanks to our community for keeping pace with the new {% term integrations %}
+and improvements to existing ones! You’re all awesome 🥰
+
+### New integrations
+
+We welcome the following new integrations in this release:
+
+- **[Compit]**, added by [@Przemko92]  
+  The Compit integration allows you to integrate air conditioning, ventilation, and heating controllers with Home Assistant.
+- **[Droplet]**, added by [@sarahseidman]  
+  Connect your Droplet devices to Home Assistant. Droplet accurately monitors your home’s water usage in real time.
+- **[Ekey Bionyx]**, added by [@richardpolzer]  
+  Integrate your Ekey biometric access control systems to monitor door access and security events in your smart home.
+- **[IRM KMI]**, added by [@jdejaegh]  
+  Get accurate weather data from Belgium's Royal Meteorological Institute (IRM-KMI) for precise local forecasting.
+- **[Libre Hardware Monitor]**, added by [@Sab44]  
+  Monitor your computer's hardware sensors including CPU temperature, GPU usage, fan speeds, and system performance metrics.
+- **[Portainer]**, added by [@erwindouna]  
+  Manage and monitor your Docker, keeping track of the status of your running containers.
+- **[SFTP]**, added by [@maretodoric]  
+  Set up secure remote backup locations using SFTP/SSH protocols for your Home Assistant backups and data storage.
+- **[Usage Prediction]**, added by [@balloob]  
+  An internal integration that provides predictions of what entities the user is most likely to interact with. Used by our new Home dashboard.
+- **[Victron Remote Monitoring]**, added by [@AndyTempel]  
+  The Victron Remote Monitoring (VRM) integration pulls site statistics, solar production and consumption forecasts from Victron Energy's VRM portal.
+
+[@AndyTempel]: https://github.com/AndyTempel
+[@balloob]: https://github.com/balloob
+[@erwindouna]: https://github.com/erwindouna
+[@jdejaegh]: https://github.com/jdejaegh
+[@maretodoric]: https://github.com/maretodoric
+[@Przemko92]: https://github.com/Przemko92
+[@Sab44]: https://github.com/Sab44
+[@sarahseidman]: https://github.com/sarahseidman
+[Compit]: /integrations/compit
+[Droplet]: /integrations/droplet
+[Ekey Bionyx]: /integrations/ekeybionyx
+[IRM KMI]: /integrations/irm_kmi
+[Libre Hardware Monitor]: /integrations/libre_hardware_monitor
+[Portainer]: /integrations/portainer
+[SFTP]: /integrations/sftp
+[Usage Prediction]: /integrations/usage_prediction
+[Victron Remote Monitoring]: /integrations/victron_remote_monitoring
+
+### Noteworthy improvements to existing integrations
+
+It is not just new {% term integrations %} that have been added; existing
+integrations are also being constantly improved. Here are some of the noteworthy
+changes to existing integrations:
+
+- _Coming soon_
+
+Other candidates:
+
+- _Coming soon_
+
+### Integration quality scale achievements
+
+One thing we are incredibly proud of in Home Assistant is our
+[integration quality scale]. This scale helps us and our contributors to ensure
+integrations are of high quality, maintainable, and provide the best possible
+user experience.
+
+This release, we celebrate several {% term integrations %} that have improved
+their quality scale:
+
+- **2 integrations reached platinum** 🏆
+  - [Sleep as Android], thanks to [@tr4nt0r]
+  - [Miele], thanks to [@astrandb]
+
+- **2 integrations reached silver** 🥈
+  - [Samsung Smart TV], thanks to [@chemelli74]
+  - [Whirlpool Appliances], thanks to [@abmantis]
+
+- **3 integrations reached bronze** 🥉
+  - [NextDNS], thanks to [@bieniu]
+  - [Opower], thanks to [@tronikos]
+  - [Sonos], thanks to [@PeteRager]
+
+This is a huge achievement for these integrations and their maintainers. The
+effort and dedication required to reach these quality levels is significant,
+as it involves extensive testing, documentation, error handling, and often
+complete rewrites of parts of the integration.
+
+A big thank you to all the contributors involved! 👏
+
+[integration quality scale]: /docs/quality_scale/
+
+[@abmantis]: https://github.com/abmantis
+[@astrandb]: https://github.com/astrandb
+[@bieniu]: https://github.com/bieniu
+[@chemelli74]: https://github.com/chemelli74
+[@PeteRager]: https://github.com/PeteRager
+[@tr4nt0r]: https://github.com/tr4nt0r
+[@tronikos]: https://github.com/tronikos
+[Miele]: /integrations/miele
+[NextDNS]: /integrations/nextdns
+[Opower]: /integrations/opower
+[Samsung Smart TV]: /integrations/samsungtv
+[Sleep as Android]: /integrations/sleep_as_android
+[Sonos]: /integrations/sonos
+[Whirlpool Appliances]: /integrations/whirlpool
+
+### Now available to set up from the UI
+
+While most {% term integrations %} can be set up directly from the Home Assistant
+user interface, some were only available using YAML configuration. We keep moving
+more integrations to the UI, making them more accessible for everyone
+to set up and use.
+
+The following integrations are now available via the Home Assistant UI:
+
+- **[Nederlandse Spoorwegen (NS)]**, done by [@heindrichpaul]
+- **[Satel Integra]**, done by [@Tommatheussen]
+
+[@heindrichpaul]: https://github.com/heindrichpaul
+[@Tommatheussen]: https://github.com/Tommatheussen
+[Nederlandse Spoorwegen (NS)]: /integrations/nederlandse_spoorwegen
+[Satel Integra]: /integrations/satel_integra
+
+## Other noteworthy changes
+
+There are many more improvements in this release; here are some of the other noteworthy changes:
+
+- 
+
+To process:
+
+* Add External app version into ha-config-info (#27064) @TimoPtr
+* Support water_heater in thermostat card (#27096) @karwosts
+* Improve addon configuration UI (#26997) @cr7pt0gr4ph7
+* Add relative timestamp state_content for input_datetime (#24135) @MrEbbinghaus
+* Add toolbar to YAML/template editors (#26580) @TCWORLD
+* Analog clock: CSS animation and seconds motion options (#26943) @timmo001
+- Add secondary wake word and pipeline to ESPHome voice satellites ([@synesthesiam] - [#151710]) ([esphome docs]) ([assist_pipeline docs])
+- Add support for stream orientation in go2rtc ([@edenhaus] - [#148832]) ([camera docs]) ([go2rtc docs])
+- Webhook trigger: Enable templated webhook_id ([@RoboMagus] - [#151193]) ([webhook docs])
+- Add support for `inH₂O` pressure unit ([@ekobres] - [#148289])
+- Add m/min of speed sensors ([@xtimmy86x] - [#146441])
+- Rename logbook integration to "Activity" in user-facing strings ([@Copilot] - [#150950])
+- Add MCF (1000 Cubic Feet) as an alternate unit of measure for volume ([@pioto] - [#150015]) ([sensor docs]) ([smartthings docs]) ([number docs]) ([energy docs])
+- Add PM4 (particulates < 4μm) sensor and number device classes ([@lyricnz] - [#112867]) ([sensor docs])
+
+### New more information dialog for media player entities
+
+This one, we have [@jpbede] & [@matthiasdebaat] to thank for! The design for the more information dialogs for media players has been revamped to provide a cleaner and more intuitive interface.
+
+<img class="no-shadow" alt="Temporary screenshot that might need replacement" src="/images/blog/2025-10/temp-more-info-media-player.png" />
+
+[@jpbede]: https://github.com/jpbede
+[@matthiasdebaat]: https://github.com/matthiasdebaat
+
+### Sync zooming charts in the history panel
+
+When you have multiple charts in the history panel, zooming in on one chart will now automatically zoom in on all other charts as well. This makes it easier to compare data across different entities. Well done [@birrejan]!
+
+<img class="no-shadow" alt="Temporary screenshot that might need replacement" src="/images/blog/2025-10/temp-history-sync-zoom.gif" />
+
+[@birrejan]: https://github.com/birrejan
+
+### Template & YAML editor gets a toolbar
+
+[@TCWORLD] has contributed a toolbar for the YAML and template code editors in our UI. This solves an issue where the previous floating button would float over the content of the editor and obscure it from view, and now provides a nice little copy button as well. Nice!
+
+<img class="no-shadow" alt="Temporary screenshot that might need replacement" src="/images/blog/2025-10/temp-template-editor-toolbar.png" />
+
+[@TCWORLD]: https://github.com/TCWORLD
+
+## Need help? Join the community
+
+Home Assistant has a great community of users who are all more than willing
+to help each other out. So, join us!
+
+Our very active [Discord chat server](/join-chat) is an excellent place to be,
+and don't forget to join our amazing [forums](https://community.home-assistant.io/).
+
+Found a bug or issue? Please report it in our [issue tracker](https://github.com/home-assistant/core/issues)
+to get it fixed! Or check [our help page](/help) for guidance on more
+places you can go.
+
+Are you more into email? [Sign up for the Open Home Foundation Newsletter](/newsletter)
+to get the latest news about features, things happening in our community, and other projects that support the Open Home straight into your inbox.
+
+## Backward-incompatible changes
+
+We do our best to avoid making changes to existing functionality that might unexpectedly impact your Home Assistant installation. Unfortunately, sometimes, it is inevitable.
+
+We always make sure to document these changes to make the transition as easy as
+possible for you. This release has the following backward-incompatible changes:
+
+{% details "Targeting labels in automations and scripts" %}
+
+Configuration and diagnostic entities with a label assigned to them will now be targeted/affected by service actions targeting that label. Previously, those entity categories were ignored on service action calls targeting labels.
+
+If you have an automation or script with an action targeting a label, make sure that only entities that should be affected have that label assigned, even if they are config or diagnostic entities.
+
+([@abmantis] - [#149309]) ([labels docs])
+
+[@abmantis]: https://github.com/abmantis
+[#149309]: https://github.com/home-assistant/core/pull/149309
+[labels docs]: /docs/organizing/labels/
+
+{% enddetails %}
+
+{% details "HERE Travel Time" %}
+
+HERE deprecated the previous free tier. The new Base Plan has 5000 free requests per month. The automatic update interval of the here_travel_time integration changed from 5min to 30min so 1 route can be supported without costs.
+
+([@eifinger] - [#147222]) ([here_travel_time docs])
+
+[@eifinger]: https://github.com/eifinger
+[#147222]: https://github.com/home-assistant/core/pull/147222
+[here_travel_time docs]: /integrations/here_travel_time/
+
+{% enddetails %}
+
+{% details "Home Connect" %}
+
+The Home Connect Alarm clock entity has been removed from the time platform, please, use the number entity instead.
+
+([@Diegorro98] - [#152188]) ([home_connect docs])
+
+[@Diegorro98]: https://github.com/Diegorro98
+[#152188]: https://github.com/home-assistant/core/pull/152188
+[home_connect docs]: /integrations/home_connect/
+
+{% enddetails %}
+
+{% details "Shelly" %}
+
+Removed previously deprecated extra attributes, please review your automations.
+
+**Shelly Gas:**
+
+- The Detected attribute of the Gas entity has been removed, the Gas detected entity should be used instead.
+- The Self test attribute of the Operation entity has been removed, the Self test entity should be used instead.
+
+**Shelly Air:**
+
+- The Operational hours of the Lamp Life entity has been removed, if you still want that info please use a template entity.
+
+([@chemelli74] - [#140386]) ([shelly docs])
+
+[@chemelli74]: https://github.com/chemelli74
+[#140386]: https://github.com/home-assistant/core/pull/140386
+[shelly docs]: /integrations/shelly/
+
+{% enddetails %}
+
+{% details "Slide Local" %}
+
+The effect of the property "invert position" is extended from the position itself to the status (open or closed). With this adjustment, it is not necessary anymore to use cover templates to invert the position to correct the status. If you have covers with inverted position and are using the state in automations, you must adjust the automations accordingly.
+
+([@dontinelli] - [#150418]) ([slide_local docs])
+
+[@dontinelli]: https://github.com/dontinelli
+[#150418]: https://github.com/home-assistant/core/pull/150418
+[slide_local docs]: /integrations/slide_local/
+
+{% enddetails %}
+
+{% details "SmartThings" %}
+
+The `windFree` preset mode for the AC has been renamed to `wind_free` to allow translation to happen. Please adapt automations accordingly.
+
+[#152833]: https://github.com/home-assistant/core/pull/152833
+[smartthings docs]: /integrations/smartthings/
+
+{% enddetails %}
+
+{% details "Tibber" %}
+
+Switch Tibber electricity pricing to 15-minute intervals.
+
+- The `tibber.get_prices` action now return 15min data instead of hourly.
+- The `price_level` attribute is removed and no longer supported.
+- The `intraday_price_ranking` attribute is now scaled to (0,1) to better support 15 min prices
+
+([@Danielhiversen] - [#151881]) ([tibber docs])
+
+[@Danielhiversen]: https://github.com/Danielhiversen
+[#151881]: https://github.com/home-assistant/core/pull/151881
+[tibber docs]: /integrations/tibber/
+
+{% enddetails %}
+
+{% details "Zabbix" %}
+
+We removed official support for Zabbix 5.0 from the integration. While this does not directly break connections to Zabbix 5.0, future updates will not check for compatibility with this version. Note that Zabbix 5 LTS left its support window in May of 2025.
+
+([@nolsto] - [#149450]) ([zabbix docs])
+
+[@nolsto]: https://github.com/nolsto
+[#149450]: https://github.com/home-assistant/core/pull/149450
+[zabbix docs]: /integrations/zabbix/
+
+{% enddetails %}
+
+{% details "ZHA" %}
+
+Removes the extra ZHA specific cover entity attributes, their values were no longer populated.
+
+- `target_lift_position`
+- `target_tilt_position`
+
+([@jeverley] - [#142534]) ([zha docs])
+
+[@jeverley]: https://github.com/jeverley
+[#142534]: https://github.com/home-assistant/core/pull/142534
+[zha docs]: /integrations/zha/
+
+{% enddetails %}
+
+{% details "ZhongHong" %}
+
+ZhongHong's climate entities `set_fan_mode` action behavior has changed.
+
+- The fan mode values are now converted to **lowercase** instead of uppercase.
+- This change ensures compliance with the standard convention.
+
+As a result of this change:
+
+- Any existing integrations or automations relying on uppercase fan mode values may break.
+- You may need to update their configurations to use lowercase fan mode values.
+
+([@Blear] - [#151559]) ([zhong_hong docs])
+
+[@Blear]: https://github.com/Blear
+[#151559]: https://github.com/home-assistant/core/pull/151559
+[zhong_hong docs]: /integrations/zhong_hong/
+
+{% enddetails %}
+
+If you are a custom integration developer and want to learn about changes and
+new features available for your integration: Be sure to follow our
+[developer blog][devblog]. The following change is the most notable for this
+release:
+
+- [Deprecate hass argument in service helpers](https://developers.home-assistant.io/blog/2025/09/22/deprecate-hass-argument-service-helpers)
+
+[devblog]: https://developers.home-assistant.io/blog/
+
+## All changes
+
+Of course, there is a lot more in this release. You can find a list of all changes made here: [Full changelog for Home Assistant Core 2025.10](/changelogs/core-2025.10)
