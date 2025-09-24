@@ -395,6 +395,7 @@ changes to existing integrations:
 - Using the [Tibber] integration? It now provides 15-minute price data, which goes into effect on October 1st. Good timing [@Danielhiversen]!
 - The [Tuya] integration received extensive updates! With support for various new device categories and sensors: energy sensors for TDQ devices, missing sensors for Metering_3PN_ZB devices, power sensors for ZNDB devices, energy sensors for DLQ devices, solar inverter support, energy consumption for smart switches, PM10 air quality monitoring, motor rotation mode for curtains, charge state for siren alarms, cooking thermometer support, cat toilet support, electric desk support, white noise machine support, and water quality sensors support! What an impressive list! Thanks [@zzysszzy], [@rokam], and [@mhalano]!
 - The [Workday] integration now has a calendar that you can view from the calendar sidebar! Thanks, [@gjohansson-ST]!
+- The [ntfy] integration got a big upgrade! You can now send richer, customizable notifications with tags, icons, URLs, and attachments. Plus, with the new event platform, you can subscribe to topics and trigger automations from incoming messages. Thanks, [@tr4nt0r]!
 
 [@alexqzd]: https://github.com/alexqzd
 [@anishsane]: https://github.com/anishsane
@@ -416,6 +417,7 @@ changes to existing integrations:
 [@XiaoLing-git]: https://github.com/XiaoLing-git
 [@zerzhang]: https://github.com/zerzhang
 [@zzysszzy]: https://github.com/zzysszzy
+[@tr4nt0r]: https://github.com/tr4nt0r
 [AccuWeather]: /integrations/accuweather
 [Blue Current]: /integrations/blue_current
 [Ecowitt]: /integrations/ecowitt
@@ -437,6 +439,7 @@ changes to existing integrations:
 [Tibber]: /integrations/tibber
 [Tuya]: /integrations/tuya
 [Workday]: /integrations/workday
+[ntfy]: /integrations/ntfy
 
 ### Integration quality scale achievements
 
