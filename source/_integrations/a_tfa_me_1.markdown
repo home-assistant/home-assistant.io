@@ -95,7 +95,7 @@ Otherwise please follow the instructions from the datasheets above. Basically it
 3. Go to the WiFi settings of your device (Smartphone, tablet, PC) and look for a network named **"TFA-ME-ID-XXX-XXX-XXX"**. XXX-XXX-XXX is the 9 digit serial number of your station.
 4. Connect your device to WiFi network **"TFA-ME-ID-XXX-XXX-XXX"**
 5. Open a browser and enter **"192.168.8.1"** or **"me.local"**
-6. Select your WiFi network from the list, enter your password and press **"Submit"**
+6. Select your Wi-Fi network from the list, enter your password, and select **Submit**
 7. Wait a few seconds until your station is connected to your WiFi network
 
 {% enddetails %}
