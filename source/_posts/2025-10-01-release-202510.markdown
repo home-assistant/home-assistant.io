@@ -84,6 +84,9 @@ Enjoy the (beta) release!
   - [Automation editor feedback](#automation-editor-feedback)
 - [AI Task - Draw me a sheep](#ai-task---draw-me-a-sheep)
 - [Dashboards get smarter - let your home suggest what to show](#dashboards-get-smarter---let-your-home-suggest-what-to-show)
+- [Voice](#voice)
+  - [Hello, Hola](#hello-hola)
+  - [Beep boop](#beep-boop)
 - [Integrations](#integrations)
   - [New integrations](#new-integrations)
   - [Noteworthy improvements to existing integrations](#noteworthy-improvements-to-existing-integrations)
@@ -299,6 +302,29 @@ One of Home Assistant's greatest strengths is our community. We're building this
 - [Join the conversation in the dashboard development channel on Discord](https://discord.com/channels/330944238910963714/1351536906437005313)
 
 {% endtip %}
+
+## Voice
+
+### Hello, Hola
+
+For a very long time, our voice assistants (even the tiniest Atom Echo) secretly [supported multiple wake words](/blog/2024/06/26/voice-chapter-7/#3x-wake-words-and-2x-accuracy) under their hood.
+This release finally bring this feature to you!
+
+You can now define 2 wake words and two assistants for every voice assistant in your home!
+
+<img class="no-shadow" alt="Temporary screenshot that might need replacement" src="/images/blog/2025-10/temp-voice-2-wake-words.png" />
+
+This makes it straightforward to support dual language households by assigning different wake words to different languages. For example, “Okay Nabu” could be used for French while “Hey Jarvis” is used for English.
+
+Multiple wake words and assistants can be used for other purposes as well. Want to keep your local and cloud-based voice assistants separate? Easy! “Okay Nabu” could be used for a cloud-based assistant while “Hey Jarvis” is used for local one.
+
+We’d love to hear feedback on how you plan to use multiple wake words in your home!
+
+### Beep boop
+
+After a voice command, Assist responds with a short confirmation like “Turned on the lights” or “Brightness set”. This lets you know that it understood your command and took the appropriate actions. If you’re in the same room as the voice assistant, however, this confirmation is redundant; you can see or hear that appropriate actions were taken.
+
+Starting with this release, Assist will detect if the voice command’s actions all took place within the same area as the satellite device. If so, a short confirmation “beep” will be played instead of the full verbal response. Besides being less verbose, this also serves as a reminder that your voice command only affected the current area.
 
 ## Integrations
 
