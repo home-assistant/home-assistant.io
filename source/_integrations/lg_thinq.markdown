@@ -14,6 +14,7 @@ ha_platforms:
   - climate
   - event
   - fan
+  - humidifier
   - number
   - select
   - sensor
@@ -117,11 +118,13 @@ A list of all Entity Platforms provided by LG ThinQ Integration:
 - [Climate](#climate)
 - [Event](#event)
 - [Fan](#fan)
+- [Humidifier](#humidifier)
 - [Number](#number)
 - [Select](#select)
 - [Sensor](#sensor)
 - [Switch](#switch)
 - [Vacuum](#vacuum)
+- [Water heater](#water-heater)
 
 ### Binary sensor
 
@@ -186,6 +189,15 @@ The properties for controlling the wind strength of the appliance are represente
 | Device | Property |
 | ------ | -------- |
 | Ceiling Fan | Power<br>Speed |
+
+### Humidifier
+
+The properties for controlling the target humidity of the appliance are represented as a humidifier platform.
+
+| Device | Property |
+| ------ | -------- |
+| Dehumidifier | Power<br>Mode<br>Target humidity |
+| Humidifier | Power<br>Mode<br>Target humidity |
 
 ### Number
 
