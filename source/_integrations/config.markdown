@@ -18,7 +18,7 @@ related:
 
 The `config` integration is designed to display the **Settings** panels in the frontend to configure and manage parts of Home Assistant.
 
-The  `config`  integration is an internal integration and is enabled by default.
+The `config` integration is an internal integration and is enabled by default.
 
 The **Settings** menu provides access to the following panels:
 
@@ -32,7 +32,7 @@ Enables you to manage integrations for devices such as Philips Hue and Sonos fro
 
 ### Automation & Scenes
 
-Enables you to create and modify automations, scenes, scrips, and blueprints from within Home Assistant.
+Enables you to create and modify automations, scenes, scripts, and blueprints from within Home Assistant.
 
 ### Areas, labels & zones
 
@@ -40,7 +40,7 @@ Enables you to organize entities according to physical or conceptual areas of yo
 
 ### Add-ons
 
-Enables you to install and use additional standalone third-party software packages. Add-ons can only be installed that can be installed on Home Assistant OS.
+Enables you to install and use additional standalone third-party software packages. Add-ons can only be installed on Home Assistant OS.
 
 ### Dashboards
 
@@ -56,11 +56,11 @@ Allows you to set up NFC tags and QR codes.
 
 ### People
 
-Allows you manage who can access Home Assistant and what rights they have to configure  it.
+Allows you to manage who can access Home Assistant and what rights they have to configure it.
 
 ### System
 
-Allows you define things like time zone and location of your system but also to view logs, create backups, or add external network storage.
+Allows you to define things like time zone and location of your system but also to view logs, create backups, or add external network storage.
 
 ### About
 
