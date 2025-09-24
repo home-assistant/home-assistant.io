@@ -96,7 +96,7 @@ Please note that `homeassistant_final_write` and `homeassistant_close`, cannot b
 
 If you want to trigger automation on a Home Assistant stop event, we recommend using the special [Home Assistant trigger](/docs/automation/trigger/#home-assistant-trigger) instead of listening to these events.
 
-### `activity`
+### `logbook_entry`
 
 | Field       | Description                                         |
 | ----------- | --------------------------------------------------- |
