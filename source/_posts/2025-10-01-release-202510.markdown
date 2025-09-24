@@ -83,6 +83,9 @@ Enjoy the (beta) release!
   - [Automation editor feedback](#automation-editor-feedback)
 - [AI Task - Draw me a sheep](#ai-task---draw-me-a-sheep)
 - [Dashboards get smarter - let your home suggest what to show](#dashboards-get-smarter---let-your-home-suggest-what-to-show)
+- [Voice](#voice)
+  - [Hello, Hola](#hello-hola)
+  - [Beep boop](#beep-boop)
 - [Integrations](#integrations)
   - [New integrations](#new-integrations)
   - [Noteworthy improvements to existing integrations](#noteworthy-improvements-to-existing-integrations)
@@ -115,28 +118,29 @@ We previously introduced shortcuts to copy and cut.
 Pasting was more complex to bring to life because you can paste a block (trigger, condition, action) in many different locations in your automation.
 In this release, we introduce a really simple pattern. If you previously copied a block, you can paste it below any block simply by selecting it and pressing CTRL+V.
 
-Another very simple, but very welcome quality of life improvement to the automation editor! An amazing contribution [@jpbede], thanks!
+Another very simple, but very welcome quality of life improvement to the automation editor!
 
 <img class="no-shadow" alt="Temporary screen recording that might need replacement" src="/images/blog/2025-10/temp-automation-editor-copy-paste.gif" />
-
-[@jpbede]: https://github.com/jpbede
 
 ### The overflow menu is back
 
 This section does not really require a long story. We initially relocated the overflow menu with all the options related to a block on the sidebar, thinking this would make the flow cleaner.
 
-Due to popular request and valid feedback about some actions being more difficult to reach (such as testing a condition or running an action), we decided to bring it back to the main section of the editor too.
+Due to popular request, and valid feedback about some actions being more difficult to reach (such as testing a condition or running an action), we decided to bring it back to the main section of the editor too.
 
-**TODO**: Awaiting screenshot
+<img class="no-shadow" alt="Temporary screenshot that might need replacement" src="/images/blog/2025-10/temp-automation-editor-overflow-menu.png" />
 
 ### Undo/Redo
 
 We all had these moments when we’re building a complex automation, make a mistake, want to revert it, only to find out that it’s really not simple.
 Up until then, the only way to revert some unsaved changes made to an automation was to close it, and start again… A very painful workflow.
-This release introduces an Undo functionality (And its associated Redo). You can now undo up to 75 steps in your automation (And redo them if you want)!
-Standard keyboard shortcuts (CTRL+Z, CTRL+Y) are also available!
 
-**TODO**: Awaiting screenshot
+This release introduces an Undo functionality (And its associated Redo). You can now undo up to 75 steps in your automation (And redo them if you want)!
+Standard keyboard shortcuts (CTRL+Z, CTRL+Y) are also available! An amazing contribution [@jpbede], thanks!
+
+<img class="no-shadow" alt="Temporary screen recording that might need replacement" src="/images/blog/2025-10/temp-automation-editor-redo-undo.gif" />
+
+[@jpbede]: https://github.com/jpbede
 
 ### Repeat repeat repeat repeat
 
@@ -149,7 +153,7 @@ We decided to split this building block into 4 smaller ones, with simpler descri
 <img class="no-shadow" alt="Temporary screenshot that might need replacement" src="/images/blog/2025-10/temp-automation-editor-split-repeat.png" />
 
 {% note %}
-For our advanced users: This is a pure “presentation” evolution on our editor. The YAML format of the repeat block does not change.
+For our advanced users: This is a pure evolution is only cosmetic. The YAML format of the repeat block does not change.
 {% endnote %}
 
 ### Automation editor feedback
@@ -169,18 +173,123 @@ In [2025.8](/blog/2025/08/06/release-20258/), we introduced [a way to generate d
 
 In this release, we introduce a way to generate images!
 
-<img class="no-shadow" alt="Temporary screenshot that might need replacement" src="/images/blog/2025-10/temp-ai-task-generate-image.png" />
+At home, every time someone rings my doorbell, I receive a notification with a cartoon version of the doorbell snapshot, here is a demo, and its associated automation!
+
+<lite-youtube videoid="r6GyFSEpzg4" videotitle="Demo of image generation in Home Assistant 2025.10"></lite-youtube>
+
+{% details "Automation details" %}
+
+{% raw %}
+
+```yaml
+alias: Demo Doorbell
+triggers:
+  - trigger: state
+    entity_id:
+      - binary_sensor.doorbell_demo
+    to: "on"
+actions:
+  - action: notify.mobile_app_iphone
+    metadata: {}
+    data:
+      title: "🔔 Doorbell "
+      message: Processing image ...
+      data:
+        tag: doorbell
+  - action: ai_task.generate_data
+    metadata: {}
+    data:
+      task_name: Doorbell description
+      instructions: |-
+        Someone rang my doorbell.
+
+        Instructions:
+        - Describe the scene, describe every person on the scene
+        - Count People
+        - Count Animals
+      entity_id: ai_task.ai_task_gpt_4o
+      structure:
+        summary:
+          description: >-
+            Summary of the scene and the people inside it. Keep it under 180
+            characters
+          selector:
+            text: null
+        person_count:
+          description: Number of person in the scene
+          selector:
+            number: null
+        animal_count:
+          description: Number of animal in the scene
+          selector:
+            number: null
+      attachments:
+        media_content_id: media-source://media_source/local/doorbell_test.png
+        media_content_type: image/png
+        metadata:
+          title: doorbell_test.png
+          thumbnail: null
+          media_class: image
+          children_media_class: null
+          navigateIds:
+            - {}
+            - media_content_type: app
+              media_content_id: media-source://media_source
+    response_variable: ai
+  - action: notify.mobile_app_iphone
+    metadata: {}
+    data:
+      title: >-
+        🔔 Doorbell ({{ai.data.person_count}} 🧑🏻‍🦱 / {{ai.data.animal_count}}
+        🐊)
+      message: "{{ai.data.summary}}"
+      data:
+        tag: doorbell
+  - action: ai_task.generate_image
+    metadata: {}
+    data:
+      task_name: Manga
+      instructions: Transform this image into a super cute manga!
+      entity_id: ai_task.google_ai_task
+      attachments:
+        media_content_id: media-source://media_source/local/doorbell_test.png
+        media_content_type: image/png
+        metadata:
+          title: doorbell_test.png
+          thumbnail: null
+          media_class: image
+          children_media_class: null
+          navigateIds:
+            - {}
+            - media_content_type: app
+              media_content_id: media-source://media_source
+    response_variable: ai_image
+    enabled: true
+  - action: notify.mobile_app_iphone
+    metadata: {}
+    data:
+      title: >-
+        🔔 Doorbell ({{ai.data.person_count}} 🧑🏻‍🦱 / {{ai.data.animal_count}}
+        🐊)
+      message: "{{ai.data.summary}}"
+      data:
+        tag: doorbell
+        image: http://homeassistant.local:8123{{ai_image.url}}
+    enabled: true
+mode: single
+```
+
+{% endraw %}
+
+{% enddetails %}
 
 The results are very promising, and we cannot wait to see what you will build with this!
-At home, every time someone rings my doorbell, I receive a notification with a cartoon version of the doorbell snapshot 😃
-
-<img class="no-shadow" alt="Temporary screenshot that might need replacement" src="/images/blog/2025-10/temp-ai-task-doorbell-notification.png" />
 
 ## Dashboards get smarter - let your home suggest what to show
 
 Last release with Home dashboard we created another way for controlling & monitoring if you don’t have time, energy or need for customizing your own dashboard in detail.
 
-Now we added a new concept - sections of suggested entities. For now, it follows a basic algorithm and suggests entities you interacted the most with in the span of 24h, and shows them depending on the hour of the day. System-related entities have been removed, as well as some specific entities that we checked during development that made no sense.
+Now we added a new concept - sections of suggested entities. For now, it follows a basic algorithm and suggests entities you interacted the most with in the span of 24h, and shows them depending on the hour of the day. Only relevant controls will be suggested.
 
 <img class="no-shadow" alt="Temporary screenshot that might need replacement" src="/images/blog/2025-10/temp-home-dashboard-prediction-entities.png" />
 
@@ -192,6 +301,29 @@ One of Home Assistant's greatest strengths is our community. We're building this
 - [Join the conversation in the dashboard development channel on Discord](https://discord.com/channels/330944238910963714/1351536906437005313)
 
 {% endtip %}
+
+## Voice
+
+### Hello, Hola
+
+For a very long time, our voice assistants (even the tiniest Atom Echo) secretly [supported multiple wake words](/blog/2024/06/26/voice-chapter-7/#3x-wake-words-and-2x-accuracy) under their hood.
+This release finally bring this feature to you!
+
+You can now define 2 wake words and two assistants for every voice assistant in your home!
+
+<img class="no-shadow" alt="Temporary screenshot that might need replacement" src="/images/blog/2025-10/temp-voice-2-wake-words.png" />
+
+This makes it straightforward to support dual language households by assigning different wake words to different languages. For example, “Okay Nabu” could be used for French while “Hey Jarvis” is used for English.
+
+Multiple wake words and assistants can be used for other purposes as well. Want to keep your local and cloud-based voice assistants separate? Easy! “Okay Nabu” could be used for a cloud-based assistant while “Hey Jarvis” is used for local one.
+
+We’d love to hear feedback on how you plan to use multiple wake words in your home!
+
+### Beep boop
+
+After a voice command, Assist responds with a short confirmation like “Turned on the lights” or “Brightness set”. This lets you know that it understood your command and took the appropriate actions. If you’re in the same room as the voice assistant, however, this confirmation is redundant; you can see or hear that appropriate actions were taken.
+
+Starting with this release, Assist will detect if the voice command’s actions all took place within the same area as the satellite device. If so, a short confirmation “beep” will be played instead of the full verbal response. Besides being less verbose, this also serves as a reminder that your voice command only affected the current area.
 
 ## Integrations
 
