@@ -124,7 +124,7 @@ Another very simple, but very welcome quality of life improvement to the automat
 
 This section does not really require a long story. We initially relocated the overflow menu with all the options related to a block on the sidebar, thinking this would make the flow cleaner.
 
-Due to popular request and valid feedback about some actions being more difficult to reach (such as testing a condition or running an action), we decided to bring it back to the main section of the editor too.
+Due to popular request, and valid feedback about some actions being more difficult to reach (such as testing a condition or running an action), we decided to bring it back to the main section of the editor too.
 
 <img class="no-shadow" alt="Temporary screenshot that might need replacement" src="/images/blog/2025-10/temp-automation-editor-overflow-menu.png" />
 
