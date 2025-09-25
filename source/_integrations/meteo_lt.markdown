@@ -96,9 +96,9 @@ Weather data is automatically updated every 30 minutes from the Meteo.lt <abbr t
 To remove a Meteo.lt configuration:
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %}
-2. Find the **Meteo.lt** integration card
-3. Select the three-dot menu {% icon "mdi:dots-vertical" %}
-4. Select **Delete**
-5. Confirm the removal
+2. Find and select  the **Meteo.lt** integration card
+3. From the list of devices, select the integration instance you want to remove
+4. Select the three-dot menu {% icon "mdi:dots-vertical" %}
+5. Select **Delete**
+6. Confirm the removal
 
-This will remove all associated weather entities from Home Assistant.
