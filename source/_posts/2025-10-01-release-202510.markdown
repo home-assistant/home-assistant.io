@@ -109,7 +109,7 @@ This release fixes a few of the most common issues we managed to gather from all
 
 Working on an action that is too complex for a small sidebar? Maybe one with a few YAML fields? You can now resize the sidebar to adapt the layout to your current task!
 
-<img class="no-shadow" alt="Temporary screenshot that might need replacement" src="/images/blog/2025-10/temp-automation-editor-split-repeat.png" />
+<img class="no-shadow" alt="Temporary screenshot that might need replacement" src="/images/blog/2025-10/temp-automation-editor-resizable-sidebar.png" />
 
 ### CTRL+V
 
