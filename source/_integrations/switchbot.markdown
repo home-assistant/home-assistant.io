@@ -362,7 +362,6 @@ Features:
 - get battery level
 
 #### Garage Door Opener
-The garage door opener supports controlling both cover and button entities.
 
 Features:
 
