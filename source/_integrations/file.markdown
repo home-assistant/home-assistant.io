@@ -62,7 +62,7 @@ Contents of myfile.json
   "latitude": 32.87336,
   "longitude": -117.22743,
   "gps_accuracy": 1.2
- }
+}
 ```
 Response:
 ```yaml
