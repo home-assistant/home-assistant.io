@@ -38,11 +38,11 @@ During setup, you can choose between two methods to select your weather station:
 
 ### Coordinate-based selection
 
-Enter latitude and longitude coordinates (defaults to your Home Assistant location). The integration will automatically find the nearest weather station. You can accept the suggested station or choose to select manually.
+Enter latitude and longitude coordinates (defaults to your Home Assistant location), and the integration will automatically find the nearest weather station where you can accept the suggested station or choose to select manually
 
 ### Manual selection
 
-Browse the list of available Lithuanian weather stations. Stations are listed with their name and administrative division for easier identification.
+Browse the list of available Lithuanian weather stations, which are listed with their name and administrative division for easier identification.
 
 ## Weather platform
 
@@ -66,8 +66,8 @@ The following current weather data is provided:
 
 The integration supports two types of forecasts:
 
-- **Hourly forecast**: Available for the next 24 hours with detailed conditions including temperature, precipitation, wind, and cloud coverage
-- **Daily forecast**: Available for the next 5 days, aggregated from hourly data showing daily high/low temperatures and midday conditions
+- **Hourly forecast**: Available for the next 24 hours with detailed conditions including temperature, precipitation, wind, and cloud coverage.
+- **Daily forecast**: Available for the next 5 days, aggregated from hourly data showing daily high/low temperatures and midday conditions.
 
 ### Additional attributes
 
