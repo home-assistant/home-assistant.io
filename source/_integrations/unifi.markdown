@@ -175,6 +175,10 @@ Entities appear for each Zone-Based Firewall Policy. The switches can be identif
 
 Get entities reporting receiving and transmitting bandwidth per network client. These sensors are disabled by default. To enable the bandwidth sensors, on the UniFi integration page, select **Configure**, go to page 3/3 and enable the bandwidth sensors.
 
+{% note %}
+“Advanced Mode” must be enabled on your user profile page to see this option.
+{% endnote %}
+
 ### Wlan clients sensor
 
 Entities reporting connected clients to a WLAN.
