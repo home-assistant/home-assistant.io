@@ -49,7 +49,7 @@ To create an application key that can access the bucket:
 
 {% note %}
 
-- By limiting credentials to a specific bucket, you reduce risk and help keep your Backblaze account secure.
+By limiting credentials to a specific bucket, you reduce risk and help keep your Backblaze account secure.
 
 {% endnote %}
 
