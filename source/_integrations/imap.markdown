@@ -186,7 +186,7 @@ Available actions are:
 
 #### Return values for the `fetch` action
 
-Without the `part` option set this action returns a dictionary containing information about the fetched message:
+Without the `part` option set, this action returns a dictionary containing information about the fetched message:
 
 {% configuration_basic %}
 text:
@@ -194,7 +194,7 @@ text:
 subject:
   description: The subject of the fetched email.
 sender:
-  description: The senders email address of the fetched email.
+  description: The sender's email address of the fetched email.
 uid:
   description: The UID of the message.
 parts:
@@ -276,7 +276,7 @@ actions:
 
 {% endraw %}
 
-In case you want want to process a message part, you need to know the part index and specify it via the `part` option of the `fetch` action. 
+In case you want to process a message part, you need to know the part index and specify it via the `part` option of the `fetch` action. 
 
 {% raw %}
 
