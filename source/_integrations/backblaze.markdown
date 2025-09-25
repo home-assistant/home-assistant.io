@@ -65,16 +65,6 @@ Prefix:
   description: "Optional prefix for the backups. This is useful if you want to store backups in a specific folder within the bucket."
 {% endconfiguration_basic %}
 
-## Setting up the Backblaze integration in Home Assistant
-
-1. In Home Assistant, go to **Settings > Devices & Services**.
-2. Click **Add Integration** and search for **Backblaze**.
-3. Enter the following details:
-   - Access Key ID and Application Key from the Backblaze Console
-   - Your bucket name
-   - (Optional) Prefix for the backups
-4. Click **Submit**.
-The integration will test the connection and confirm access to your bucket.
 
 ## Troubleshooting
 
