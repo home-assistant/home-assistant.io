@@ -22,15 +22,12 @@ This integration requires an existing B2 bucket and an application key that has 
 {% details "Create a new B2 bucket" %}
 
 1. Log in to the [Backblaze Console](https://secure.backblaze.com/b2_buckets.htm).
-2. Navigate to **Buckets** from the sidebar menu.
-3. Click **Create bucket**.
-4. Choose a unique **bucket name** (e.g., `home-assistant-backups-123456`).
-5. Adjust the settings:
-   - ✅ **Set bucket to private** (enabled by default, recommended)
-   - ⚠️ **Encryption** This enables Backblaze's server-side encryption. This is separate from the Home Assistant backup encryption. This is optional. If Home Assistant backups are configured to use encryption, you can disable this.
-6. Click **Create bucket**.
-
-Make a note of the bucket name — you’ll need it later.
+2. [Create a bucket](https://www.backblaze.com/docs/cloud-storage-create-and-manage-buckets).
+   - Choose a unique **bucket name** (such as, `home-assistant-backups-123456`).
+   - Make a note of the bucket name — you’ll need it later.
+3. Adjust the settings:
+   - **Set bucket to private**: Enabled by default, recommended.
+   - **Encryption**: This enables Backblaze's server-side encryption. This is separate from the Home Assistant backup encryption. This is optional. If Home Assistant backups are configured to use encryption, you can disable this.
 
 {% enddetails %}
 
