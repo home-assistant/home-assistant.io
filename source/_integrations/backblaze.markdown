@@ -80,7 +80,9 @@ The integration will test the connection and confirm access to your bucket.
 
 The Backblaze integration has the following limitations:
 
-- Expired keys: If the application key expires, you will need to create a new one and update the integration in Home Assistant.
+### Expired keys
+
+If the application key expires, you will need to create a new one and update the integration in Home Assistant.
 - Prefix: If you set a prefix, all backups will be stored under that prefix in the bucket. Ensure that the prefix is unique to avoid overwriting other files. Changing the prefix will not move existing backups.
 
 ## Removing the integration
