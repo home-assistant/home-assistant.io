@@ -74,7 +74,7 @@ If you have existing YAML configuration, it will be automatically imported when 
 
 1. On startup, Home Assistant detects your YAML configuration.
 2. The configuration is automatically imported to a config entry.
-3. A persistent notification appears with instructions.
+3. A repair issue appears with instructions.
 4. Remove the `ness_alarm` section from configuration.yaml.
 5. Restart Home Assistant to clear the warning.
 
