@@ -153,7 +153,7 @@ We decided to split this building block into 4 smaller ones, with simpler descri
 <img class="no-shadow" alt="Temporary screenshot that might need replacement" src="/images/blog/2025-10/temp-automation-editor-split-repeat.png" />
 
 {% note %}
-For our advanced users: This is a pure evolution is only cosmetic. The YAML format of the repeat block does not change.
+For our advanced users: This evolution is only cosmetic. The YAML format of the repeat block does not change.
 {% endnote %}
 
 ### Automation editor feedback
