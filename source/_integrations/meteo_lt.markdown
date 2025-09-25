@@ -14,7 +14,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `meteo_lt` {% term integration %} uses meteorological data from the [Lithuanian Hydrometeorological Service](https://www.meteo.lt) (<abbr title="Lietuvos hidrometeorologijos tarnyba">LHMT</abbr>) to provide weather forecasts for locations in Lithuania. One or more locations can be set up via the user interface.
+The `meteo_lt` {% term integration %} uses meteorological data from the [Lithuanian Hydrometeorological Service](https://www.meteo.lt) (<abbr title="Lietuvos hidrometeorologijos tarnyba">LHMT</abbr>) to provide weather forecasts for locations in Lithuania. You can set up one or more locations via the user interface.
 
 The integration provides current weather conditions along with hourly and daily forecasts from official weather stations across Lithuania.
 
@@ -36,12 +36,13 @@ This integration requires an active internet connection to retrieve weather data
 
 During setup, you can choose between two methods to select your weather station:
 
-{% configuration_basic %}
-Coordinate-based selection:
-  description: Enter latitude and longitude coordinates (defaults to your Home Assistant location). The integration will automatically find the nearest weather station. You can accept the suggested station or choose to select manually.
-Manual selection:
-  description: Browse the list of available Lithuanian weather stations. Stations are listed with their name and administrative division for easier identification.
-{% endconfiguration_basic %}
+### Coordinate-based selection
+
+Enter latitude and longitude coordinates (defaults to your Home Assistant location). The integration will automatically find the nearest weather station. You can accept the suggested station or choose to select manually.
+
+### Manual selection
+
+Browse the list of available Lithuanian weather stations. Stations are listed with their name and administrative division for easier identification.
 
 ## Weather platform
 
