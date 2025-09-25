@@ -56,6 +56,8 @@ conditions:
   - condition: user
     users:
       - 581fca7fdc014b8b894519cc531f9a04
+  - condition: url_hash
+      hash: "dashboard"
 card:
   type: entities
   entities:
@@ -218,6 +220,26 @@ locations:
   required: true
   description: A list of zones, which if any match the current state of the `person`, will cause this condition to be true. 
   type: list
+{% endconfiguration %}
+
+### URL Hash
+
+Specify the visibility of the card based on the current URL hash (the part after `#` in the URL). This allows you to show or hide cards based on navigation state.
+
+```yaml
+condition: url_hash
+hash: "dashboard"
+```
+
+{% configuration %}
+condition:
+  required: true
+  description: "`url_hash`"
+  type: string
+hash:
+  required: true
+  description: The URL hash to match (without the `#` prefix).
+  type: string
 {% endconfiguration %}
 
 ### And
