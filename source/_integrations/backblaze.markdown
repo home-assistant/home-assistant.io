@@ -76,7 +76,7 @@ Prefix:
 4. Click **Submit**.
 The integration will test the connection and confirm access to your bucket.
 
-## Known limitations
+## Troubleshooting
 
 The Backblaze integration has the following limitations:
 
