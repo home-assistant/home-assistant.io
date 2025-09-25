@@ -51,17 +51,15 @@ The weather platform provides current conditions and forecasts that can be used 
 
 The following current weather data is provided:
 
-|Data|Unit|Description|
-|----|----|-----------|
-|Temperature|°C|Current air temperature|
-|Apparent temperature|°C|"Feels like" temperature|
-|Humidity|%|Relative humidity|
-|Pressure|hPa|Atmospheric pressure|
-|Wind speed|m/s|Current wind speed|
-|Wind direction|degrees|Wind direction in degrees|
-|Wind gust speed|m/s|Maximum wind gust speed|
-|Cloud coverage|%|Percentage of cloud cover|
-|Condition|-|Weather condition (clear, cloudy, rainy, etc.)|
+- **Temperature** (°C): Current air temperature
+- **Apparent temperature** (°C): "Feels like" temperature
+- **Humidity** (%): Relative humidity
+- **Pressure** (hPa): Atmospheric pressure
+- **Wind speed** (m/s): Current wind speed
+- **Wind direction** (degrees): Wind direction in degrees
+- **Wind gust speed** (m/s): Maximum wind gust speed
+- **Cloud coverage** (%): Percentage of cloud cover
+- **Condition**: Weather condition (clear, cloudy, rainy, etc.)
 
 ### Forecasts
 
