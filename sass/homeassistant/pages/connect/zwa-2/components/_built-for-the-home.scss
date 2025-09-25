@@ -1,0 +1,124 @@
+section#built-for-the-home {
+    //height: 100vh;
+
+    .container-full>.cols {
+        &:first-child {
+            flex-direction: column;
+        }
+    }
+
+    .featured-images {
+        display: grid;
+        gap: calc(var(--container-gutters) / 2);
+        grid-template-areas:
+        "a a"
+        "b c";
+        
+        
+        @include bp(desktop) {
+            gap: 20px;
+            grid-template-areas:
+                "a a a"
+                "b b c";
+        }
+    }
+
+    .featured-images{
+
+        >.feature-image{
+             &:nth-of-type(1) {
+            grid-area: a;
+
+            aspect-ratio: 1/1;
+
+            @include bp(desktop) {
+                aspect-ratio: 1.5/1;
+            }
+
+        
+        }
+
+        }
+
+    .feature-image {
+        position: relative;
+        width: 100%;
+        border-radius: 12px;
+        overflow: hidden;
+        display: grid;
+        height: 100%;
+        place-items: center;
+
+        .mobile {
+            @include bp(desktop) {
+                display: none;
+            }
+        }
+
+        .desktop {
+            display: none;
+
+            @include bp(desktop) {
+                display: block;
+            }
+        }
+
+        &:nth-child(2) {
+            grid-area: b;
+        }
+
+        &:nth-child(3) {
+            grid-area: c;
+        }
+
+        .right-content {
+            position: absolute;
+            left: 0;
+            right: 0;
+            padding: 40px 20px;
+            top: 0;
+            bottom: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 280px;
+            
+            @include bp(desktop) {
+                left: 55%;
+                gap: 40px;
+                padding: 100px 0;
+                max-width: 420px;
+            }
+            @include bp(large-desktop) {
+                padding: 180px 0;
+            }
+
+            .h2 {
+                text-transform: unset;
+                line-height: 1;
+                //text-wrap: balance;
+            }
+
+            p {
+                max-width: 220px;
+
+                @include bp(tablet) {
+                    max-width: unset;
+                }
+            }
+        }
+
+        img {
+            aspect-ratio: 1.5/1;
+            grid-area: 1/1;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+
+            @include bp(desktop) {
+                aspect-ratio: 2/1;
+            }
+        }
+        }
+    }
+}

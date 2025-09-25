@@ -1,5 +1,5 @@
 ---
-title: Microsoft OneDrive
+title: OneDrive
 description: Instructions on how to setup OneDrive to be used with backups.
 ha_release: 2025.2
 ha_category:
@@ -13,10 +13,15 @@ ha_integration_type: service
 related:
   - docs: /common-tasks/general/#backups
     title: Backups
-ha_quality_scale: bronze
+ha_quality_scale: platinum
+ha_platforms:
+  - diagnostics
+  - sensor
 ---
 
-This integration allows you to use [Microsoft OneDrive](https://www.microsoft.com/en-us/microsoft-365/onedrive/online-cloud-storage) for [Home Assistant Backups](/common-tasks/general/#backups).
+This integration allows you to use [OneDrive](https://www.microsoft.com/en-us/microsoft-365/onedrive/online-cloud-storage) for [Home Assistant Backups](/common-tasks/general/#backups) as well as uploading generic files to your OneDrive.
+
+Backup encryption is enabled by default and can be disabled as shown in the [backup documentation](/common-tasks/general/#to-define-the-backup-location-for-automatic-backups).
 
 Backups will be created in a folder called `Home Assistant\backups_<id>` in the `App Folder` of your OneDrive by default.
 `id` is part of your Home Assistant instance's unique id to allow backups from multiple instances to the same OneDrive account.
@@ -49,7 +54,15 @@ Delete files permanently:
 
 The backup folder is `root:\Apps\[Home Assistant | Graph]\backups_{id}`. This is not configurable because otherwise the integration would need permissions to write into your entire drive. You can, however, rename the application folder which is called `Home Assistant` or `Graph` in your OneDrive. 
 
-The last folder in the hierarchy (`backups_{id}`) is always a unique folder per Home Assistant instance to ensure that backups from different instances are not mixed. The name of this folder can be set during integration setup and can be changed later through reconfiguring the integration or by renaming the folder OneDrive.
+The last folder in the hierarchy (`backups_{id}`) is always a unique folder per Home Assistant instance to ensure that backups from different instances are not mixed. The name of this folder can be set during integration setup and can be changed later through reconfiguring the integration or by renaming the folder in OneDrive.
+
+### Backup folder is called `Graph`
+
+This integration uses Microsoft's Graph API to communicate with your OneDrive. Because of an [issue](https://github.com/OneDrive/onedrive-api-docs/issues/1866) in that API, the application folder is often not named with the name of the application (`Home Assistant`), but `Graph` instead. 
+
+There is no risk of different applications mixing in that `Graph` folder, if you already have such a `Graph` folder from a different application, the next folders will just be called `Graph 1`, `Graph 2` and so on. 
+
+You should be able to manually rename the folder to something else, without the integration breaking.
 
 ## Requested permissions by the integration
 
@@ -61,36 +74,6 @@ The integration will request the following permissions on your OneDrive for the 
 
 
 <img src='/images/integrations/onedrive/onedrive-permissions.png' alt='Lists of permissions that the application will request.'>
-
-## Getting application credentials
-
-This integration comes with a predefined set of [application credentials](https://www.home-assistant.io/integrations/application_credentials/) through Home Assistant account linking. 
-Nobody will ever have access to your data except you, as the app does not have permission to do anything on its own. It only works with a signed-in user (it only has `delegated` not `application permissions`). 
-However, if you want to use your own credentials, follow [this guide](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app?tabs=certificate) to create your own client ID and secret.
-
-{% tip %}
-You will need an Azure tenant with an active Azure subscription to create your own client credentials.
-{% endtip %}
-
-Make sure to configure the following settings on the app registration:
-
-- **Supported account types**: Personal Microsoft accounts only
-- **Redirect URI**: Type: `Web`, URL: `https://my.home-assistant.io/redirect/oauth`
-
-<img src='/images/integrations/onedrive/onedrive-app-registration.png' alt='Configuring a custom app.'>
-
-
-{% note %}
-If you set the integration up with the default credentials and switch to custom credentials later, your backup folder will change inside your OneDrive, and you will have to manually copy existing backups from the old folder to the new one.
-{% endnote %}
-
-## Backup folder is called `Graph`
-
-This integration uses Microsoft's Graph API to communicate with your OneDrive. Because of an [issue](https://github.com/OneDrive/onedrive-api-docs/issues/1866) in that API, the application folder is often not named with the name of the application (`Home Assistant`), but `Graph` instead. 
-
-There is no risk of different applications mixing in that `Graph` folder, if you already have such a `Graph` folder from a different application, the next folders will just be called `Graph 1`, `Graph 2` and so on. 
-
-You should be able to manually rename the folder to something else, without the integration breaking.
 
 ## Sensors
 
@@ -104,6 +87,25 @@ The integration provides the following sensors, which are updated every 5 minute
 {% note %}
 A drive that is in **Drive state** `Exceeded` will be automatically frozen (meaning you can't upload any more backups & files), until you clear up enough storage.
 {% endnote %}
+
+## Actions
+
+This integration provides the following actions:
+
+### Action `onedrive.upload`
+
+You can use the `onedrive.upload` action to upload files from Home Assistant
+to OneDrive. For example, to upload `camera` snapshots.
+
+{% details "Upload action details" %}
+
+| Data attribute | Optional | Description | Example |
+| ---------------------- | -------- | ----------- | --------|
+| `filename` | no | Path to the file to upload. | /media/image.jpg |
+| `destination_folder` | no | Folder inside your `Apps/Home Assistant` app folder that is the destination for the uploaded content. Will be created if it does not exist. Supports subfolders. | Snapshots/2025 |
+| `config_entry_id` | no | The ID of the OneDrive config entry (the OneDrive you want to upload to). | a1bee602deade2b09bc522749bbce48e |
+
+{% enddetails %}
 
 ## Automations
 
@@ -145,6 +147,30 @@ mode: single
 {% enddetails %}
 
 
+## Getting application credentials
+
+This integration comes with a predefined set of [application credentials](https://www.home-assistant.io/integrations/application_credentials/) through Home Assistant account linking. This means you should not need to provide credentials, but get redirected to Microsoft's sign-in page.
+
+Even if you use the default credentials, nobody will ever have access to your data except you, as the app does not have permission to do anything on its own. It only works with a signed-in user (it only has `delegated` not `application permissions`). 
+
+However, if you want to use your own credentials, follow [this guide](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app?tabs=certificate) to create your own client ID and secret.
+
+{% tip %}
+You will need an Azure tenant with an active Azure subscription to create your own client credentials.
+{% endtip %}
+
+Make sure to configure the following settings on the app registration:
+
+- **Supported account types**: Personal Microsoft accounts only
+- **Redirect URI**: Type: `Web`, URL: `https://my.home-assistant.io/redirect/oauth`
+
+<img src='/images/integrations/onedrive/onedrive-app-registration.png' alt='Configuring a custom app.'>
+
+
+{% note %}
+If you set the integration up with the default credentials and switch to custom credentials later, your backup folder will change inside your OneDrive, and you will have to manually copy existing backups from the old folder to the new one.
+{% endnote %}
+
 ## Known limitations
 
 - Only personal OneDrives are supported at the moment.
@@ -160,3 +186,7 @@ This integration follows standard integration removal. No extra steps are requir
 {% details "Unknown error while adding the integration" %}
 
 Make sure that your OneDrive is not frozen. This can happen if you haven't used it for a longer period of time, or went over your data quota. {% enddetails %}
+
+{% details "Default credentials not available" %}
+
+If the integration asks you for a `client ID` and a `client secret`, that likely means you disabled part of the `default_config` in your Home Assistant configuration. For account linking to work you'll need `my` & `cloud` integrations loaded. {% enddetails %}

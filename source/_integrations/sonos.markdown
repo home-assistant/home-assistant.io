@@ -18,6 +18,7 @@ ha_platforms:
   - diagnostics
   - media_player
   - number
+  - select
   - sensor
   - switch
 ha_zeroconf: true
@@ -30,7 +31,7 @@ The `sonos` integration allows you to control your [Sonos](https://www.sonos.com
 
 ## Feature controls & sensors
 
-Speaker-level controls are exposed as `number` or `switch` entities. Additionally, various `sensor` and `binary_sensor` entities are provided.
+Speaker-level controls are exposed as `number`, `select` or `switch` entities. Additionally, various `sensor` and `binary_sensor` entities are provided.
 
 ### Controllable features
 
@@ -44,6 +45,14 @@ Speaker-level controls are exposed as `number` or `switch` entities. Additionall
 - **Devices with battery**: Battery level, Power state
 - **Home theater devices**: Audio Input Format
 - **Voice-enabled devices**: Microphone Enabled
+
+### Select
+
+The following select entities are created:
+
+- **Dialog Level**  
+  Lets you set the dialog mode on your **Sonos Arc Ultra** soundbar. You can choose from None, Low, Medium, High, or Max.
+
 
 ### Battery support notes
 
@@ -157,7 +166,7 @@ data:
     volume: 80
 ```
 
-Sonos can also play music or playlists from Spotify. Both Spotify URIs and URLs can be used directly. An example action using a playlist URI:
+Sonos can also play music or playlists from Spotify. Both Spotify URIs and URLs can be used directly. The optional `title` parameter can be used to fill the media_playlist attribute correctly. An example action using a playlist URI:
 
 ```yaml
 action: media_player.play_media
@@ -167,6 +176,8 @@ data:
   media_content_type: "playlist"
   media_content_id: "spotify:playlist:abcdefghij0123456789XY"
   enqueue: true
+  extra:
+    title: Example Playlist
 ```
 
 An example action using a Spotify URL:
@@ -464,3 +475,9 @@ sonos:
   media_player:
     advertise_addr: 192.0.2.1
 ```
+
+## Removing the integration
+
+This integration follows the standard integration removal process; no extra steps are required.
+
+{% include integrations/remove_device_service.md %}

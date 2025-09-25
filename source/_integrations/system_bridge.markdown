@@ -65,6 +65,7 @@ This integration provides the following sensors:
 | Kernel               | Version information of the Kernel                   |
 | Latest Version       | System Bridge Latest Version                        |
 | Load                 | System load percentage                              |
+| Power Usage          | Power usage in watts (if available)                 |
 | Memory Free          | Memory (RAM) free in GB                             |
 | Memory Used          | Memory (RAM) used in GB                             |
 | Memory Used %        | Memory (RAM) % used                                 |

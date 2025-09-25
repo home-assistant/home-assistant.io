@@ -17,6 +17,12 @@ ha_quality_scale: legacy
 
 The `sesame` {% term integration %} allows you to control your [Sesame](https://candyhouse.co/) smart locks made by CANDY HOUSE, Inc.
 
+## Sesame Smart Lock Versions
+
+The integration documented here should only be used with the original Sesame Lock.
+
+Sesame Smart Lock version 5 and Hub version 3 were released in 2025 and can be integrated with Home Assistant via the Matter integration instead.
+
 ## Configuration
 
 Your Sesame needs to be paired with a standalone [Wi-Fi Access Point](https://candyhouse.co/collections/frontpage/products/wi-fi-access-point) purchased separately.

@@ -55,9 +55,13 @@ A card can be added to a dashboard directly [from the view](#to-add-a-card-from-
 
 3. If you want this card to be visible only to specific users or under a certain condition, you can [define those conditions](#showing-or-hiding-a-card-or-badge-conditionally).
 4. If you are adding this card to a [sections view](/dashboards/sections/), on the **Layout** tab, you can [resize the card](#resizing-a-card).
-5. If you like, define [card actions, features, header and footer widgets](#card-actions-features-header-and-footer-widgets).
+5. Customize your card:
+   - [define card actions](/dashboards/actions/).
+   - [define header and footer](/dashboards/header-footer/)
+   - [customize features](/dashboards/features/#customizing-features).
    - Not all cards support these elements. Refer to the documentation of the specific card type.
 6. Select **Add to dashboard**.
+
    ![Screenshot card suggestions](/images/dashboards/dashboard_add-by-entity_04.png)
 
 ### To add a card from the device page
@@ -81,7 +85,10 @@ This method is useful if you are on the **Device** page and want to create a car
 6. If you want this card to be visible only to specific users or under a certain condition, you can [define those conditions](#showing-or-hiding-a-card-or-badge-conditionally).
 7. If you are adding this card to a [sections view](/dashboards/sections/), on the **Layout** tab, you can [resize the card](#resizing-a-card).
 
-8. If you like, define [card actions, features, header and footer widgets](#card-actions-features-header-and-footer-widgets).
+8. Customize your card:
+   - [define card actions or header and footer widgets](#card-actions-features-header-and-footer-widgets).
+   - [define header and footer](/dashboards/header-footer/)
+   - [customize features](/dashboards/features/#customizing-features).
    - Not all cards support these elements. Refer to the documentation of the specific card type.
 
 ## Showing or hiding a card or badge conditionally

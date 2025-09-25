@@ -12,7 +12,7 @@ related:
 
 This is a list of all the cards used in the energy dashboard. You can also place them anywhere you want in your dashboard.
 
-Currently, there are no configuration options available for these cards. You can configure them on the {% my config_energy title="energy configuration page" %}.
+You can configure them on the {% my config_energy title="energy configuration page" %}.
 
 ## Energy date picker
 
@@ -233,6 +233,58 @@ The following example limits the number of shown devices to 5:
 ```yaml
 type: energy-devices-detail-graph
 max_devices: 5
+```
+
+## Sankey energy graph
+
+<p class='img'>
+  <img src='/images/dashboards/energy/sankey.png' alt='Screenshot of the sankey energy graph card'>
+  Screenshot of the sankey energy graph card.
+</p>
+
+The sankey energy graph shows the flow of energy in your home. It starts with sources and flows into the various consumers. Devices are grouped into floors and areas if these are configured.
+
+### YAML configuration
+
+The following YAML options are available
+
+{% configuration %}
+type:
+  required: true
+  description: "`energy-sankey`"
+  type: string
+title:
+  required: false
+  description: The title of the card.
+  type: string
+layout:
+  required: false
+  description: "`vertical`, `horizontal` or `auto`. Determines the orientation (flow direction) of the card. `auto` changes it based on the screen size."
+  type: string
+  default: auto
+group_by_area:
+  required: false
+  description: Whether to group the devices by area
+  type: boolean
+  default: true
+group_by_floor:
+  required: false
+  description: Whether to group the devices by floor
+  type: boolean
+  default: true
+{% endconfiguration %}
+
+### Examples
+
+```yaml
+type: energy-sankey
+```
+
+The following example orients the flow from top to bottom:
+
+```yaml
+type: energy-sankey
+layout: vertical
 ```
 
 ## Using Multiple Collections
