@@ -14,27 +14,34 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `meteo_lt` integration uses meteorological data from the [Lithuanian Hydrometeorological Service](https://www.meteo.lt) (Lietuvos hidrometeorologijos tarnyba - LHMT) to provide weather forecasts for locations in Lithuania. One or more locations can be set up via the user interface.
+The `meteo_lt` {% term integration %} uses meteorological data from the [Lithuanian Hydrometeorological Service](https://www.meteo.lt) (<abbr title="Lietuvos hidrometeorologijos tarnyba">LHMT</abbr>) to provide weather forecasts for locations in Lithuania. One or more locations can be set up via the user interface.
 
 The integration provides current weather conditions along with hourly and daily forecasts from official weather stations across Lithuania.
 
+## Supported functionality
+
+- Current weather conditions including temperature, humidity, pressure, and wind data
+- Hourly weather forecast for the next 24 hours
+- Daily weather forecast for the next 5 days
+- Weather station selection by coordinates or manual selection
+- Multiple location support
+
+## Prerequisites
+
+This integration requires an active internet connection to retrieve weather data from the Meteo.lt API.
+
 {% include integrations/config_flow.md %}
 
-## Configuration
+## Configuration options
 
 During setup, you can choose between two methods to select your weather station:
 
-### Coordinate-based selection
-
-1. Enter latitude and longitude coordinates (defaults to your Home Assistant location)
-2. The integration will automatically find the nearest weather station
-3. You can accept the suggested station or choose to select manually
-
-### Manual selection
-
-1. Browse the list of available Lithuanian weather stations
-2. Stations are listed with their name and administrative division for easier identification
-3. Select your preferred station
+{% configuration_basic %}
+Coordinate-based selection:
+  description: Enter latitude and longitude coordinates (defaults to your Home Assistant location). The integration will automatically find the nearest weather station. You can accept the suggested station or choose to select manually.
+Manual selection:
+  description: Browse the list of available Lithuanian weather stations. Stations are listed with their name and administrative division for easier identification.
+{% endconfiguration_basic %}
 
 ## Weather platform
 
@@ -44,26 +51,28 @@ The weather platform provides current conditions and forecasts that can be used 
 
 The following current weather data is provided:
 
-- Temperature (°C)
-- Apparent temperature - "feels like" (°C)
-- Humidity (%)
-- Atmospheric pressure (hPa)
-- Wind speed (m/s)
-- Wind direction (degrees)
-- Wind gust speed (m/s)
-- Cloud coverage (%)
-- Weather condition (clear, cloudy, rainy, etc.)
+|Data|Unit|Description|
+|----|----|-----------|
+|Temperature|°C|Current air temperature|
+|Apparent temperature|°C|"Feels like" temperature|
+|Humidity|%|Relative humidity|
+|Pressure|hPa|Atmospheric pressure|
+|Wind speed|m/s|Current wind speed|
+|Wind direction|degrees|Wind direction in degrees|
+|Wind gust speed|m/s|Maximum wind gust speed|
+|Cloud coverage|%|Percentage of cloud cover|
+|Condition|-|Weather condition (clear, cloudy, rainy, etc.)|
 
 ### Forecasts
 
 The integration supports two types of forecasts:
 
-- **Hourly forecast**: Available for the next 24 hours with detailed conditions
+- **Hourly forecast**: Available for the next 24 hours with detailed conditions including temperature, precipitation, wind, and cloud coverage
 - **Daily forecast**: Available for the next 5 days, aggregated from hourly data showing daily high/low temperatures and midday conditions
 
-## Additional attributes
+### Additional attributes
 
-The weather entity includes these additional attributes:
+The weather {% term entity %} includes these additional attributes:
 
 - `place_code`: Internal code for the weather station
 - `place_name`: Name of the location
@@ -74,19 +83,37 @@ The weather entity includes these additional attributes:
 
 ## Data updates
 
-Weather data is automatically updated every 30 minutes from the Meteo.lt API.
+Weather data is automatically updated every 30 minutes from the Meteo.lt <abbr title="Application Programming Interface">API</abbr>.
 
-## Data source
+## Known limitations
 
-All weather data is provided by the Lithuanian Hydrometeorological Service (Lietuvos hidrometeorologijos tarnyba - LHMT), which is the official national weather service of Lithuania. The service provides accurate weather forecasts, warnings, and climate information based on data from official weather stations across the country.
+- Weather data is only available for locations within Lithuania
+- Historical weather data is not provided
+- Weather warnings and alerts are not currently supported
+
+## Troubleshooting
+
+{% details "No forecast data available" %}
+If you see this error, it means the API returned no forecast data for your selected station. This can happen temporarily during API maintenance or updates. The integration will retry automatically at the next update interval.
+{% enddetails %}
+
+{% details "Cannot connect to API" %}
+Check your internet connection and ensure the Meteo.lt service is accessible. The service status can be checked at [api.meteo.lt](https://api.meteo.lt).
+{% enddetails %}
+
+{% details "Weather data not updating" %}
+1. Check the last update time in entity attributes
+2. Go to {% my integrations title="**Settings** > **Devices & services**" %} and reload the integration
+3. Check {% my logs title="**Settings** > **System** > **Logs**" %} for any error messages
+{% enddetails %}
 
 ## Removing the integration
 
 To remove a Meteo.lt configuration:
 
-1. Navigate to **Settings** → **Devices & Services**
-2. Find the Meteo.lt integration card
-3. Click the three-dot menu on the integration
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}
+2. Find the **Meteo.lt** integration card
+3. Select the three-dot menu {% icon "mdi:dots-vertical" %}
 4. Select **Delete**
 5. Confirm the removal
 
