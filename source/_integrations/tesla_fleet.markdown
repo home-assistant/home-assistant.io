@@ -306,13 +306,13 @@ Constant API {% term polling %} will prevent most Model S and Model X vehicles m
 
 {% include integrations/remove_device_service.md %}
 
-- Removing the {% term integration %} does not delete your Tesla Developer Application - you can remove it manually from the [Tesla Developer Dashboard](https://developer.tesla.com/en_US/dashboard) if no longer needed.
+- Removing the {% term integration %} does not delete your Tesla Developer Application - you can remove it manually from the [Tesla Developer Dashboard](https://developer.tesla.com/dashboard) if no longer needed.
 
 ## Troubleshooting
 
 - **Setup errors**: Verify your public key is accessible at the correct URL and you've completed all registration steps with Tesla
 - **Command failures**: Ensure `tesla_fleet.key` exists in your Home Assistant config directory and add your public key to vehicles via `https://tesla.com/_ak/YOUR_DOMAIN`
 - **{% term Integration %} stopped working**: Use the reconfigure option in {% my integrations title="**Settings** > **Devices & services**" %} > **Tesla Fleet**
-- **Billing errors**: Check your Tesla Developer Dashboard for usage limits and add billing information if needed
+- **Access to this resource is not authorized**: Check your [Tesla Developer Dashboard](https://developer.tesla.com/dashboard) to ensure you haven't exceeded your usage limits and add billing information if required. In certain countries, the *Fart* (remote boombox) command will also throw this error where its usage is illegal.
 
 If you have an error with your credentials, you can delete them in the {% my application_credentials title="Application Credentials" %} user interface.
