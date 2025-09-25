@@ -70,13 +70,6 @@ YAML configuration for Ness Alarm is deprecated. Your existing YAML configuratio
 
 If you have existing YAML configuration, it will be automatically imported when Home Assistant starts:
 
-### Zone Configuration
-
-When importing from YAML, zone configurations are preserved including:
-- **Zone ID**: The zone number on your alarm panel (1-32).
-- **Zone Name**: Custom name for the zone.
-- **Zone Type**: Device class for the binary sensor.
-
 ### Migration Process
 
 1. On startup, Home Assistant detects your YAML configuration.
@@ -84,8 +77,6 @@ When importing from YAML, zone configurations are preserved including:
 3. A persistent notification appears with instructions.
 4. Remove the `ness_alarm` section from configuration.yaml.
 5. Restart Home Assistant to clear the warning.
-
-After import, zones that weren't explicitly configured in YAML will be created with default names (e.g., "Zone 6") and motion sensor type.
 
 If import fails, check the logs for connection errors.
 
