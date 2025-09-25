@@ -1,13 +1,14 @@
 ---
-title: Backblaze
+title: Backblaze B2
 description: Instructions on how to setup a Backblaze B2 bucket to be used as a backup location.
-ha_release: 2025.7
+ha_release: 2025.10
 ha_category:
   - Backup
 ha_iot_class: Cloud Push
 ha_config_flow: true
-ha_domain: backblaze
+ha_domain: backblaze_b2
 ha_codeowners:
+  - 'ElCruncharino'
   - '@hugo-vrijswijk'
 ha_integration_type: service
 ha_quality_scale: bronze
@@ -56,22 +57,21 @@ To create an application key that can access the bucket:
 
 {% configuration_basic %}
 Key ID:
-  description: "The access key ID for your Backblaze account."
+description: "The access key ID for your Backblaze account."
 Application Key:
-  description: "The application key for your Backblaze account."
+description: "The application key for your Backblaze account."
 Bucket Name:
-  description: "Bucket name to store the backups. Bucket must already exist and be writable by the provided credentials."
+description: "Bucket name to store the backups. Bucket must already exist and be writable by the provided credentials."
 Prefix:
-  description: "Optional prefix for the backups. This is useful if you want to store backups in a specific folder within the bucket."
+description: "Optional prefix for the backups. This is useful if you want to store backups in a specific folder within the bucket."
 {% endconfiguration_basic %}
 
-
 ## Troubleshooting
-
 
 ### Expired keys
 
 If the application key expires, you will need to create a new one and update the integration in Home Assistant.
+
 ### Files are being overwritten due to non-unique bucket prefix
 
 If you set a prefix, all backups will be stored under that prefix in the bucket. Ensure that the prefix is unique to avoid overwriting other files. Changing the prefix will not move existing backups.
