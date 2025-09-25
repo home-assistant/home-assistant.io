@@ -160,7 +160,7 @@ The HomeWizard Energy integration provides data that can be used in the Energy d
 
 ## Data fetching interval
 
-The integration is {% term polling %} new data every 5 seconds. There is no limitation on the number or frequency of requests that can be made to the device. You can define a custom polling interval by following [this guide](common-tasks/general/#defining-a-custom-polling-interval).
+The integration is {% term polling %} new data every 5 seconds. There is no limitation on the number or frequency of requests that can be made to the device. You can define a custom polling interval by following [this guide](/common-tasks/general/#defining-a-custom-polling-interval).
 
 ## Known limitations
 
