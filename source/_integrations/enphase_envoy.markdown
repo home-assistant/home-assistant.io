@@ -578,7 +578,7 @@ The concept is to first sum all battery Power values using a combine state helpe
 
 {% endraw %}
 
-Use both calculated values a source for 2 left Riemann integrators to obtain energy charged and discharged. The above example does not address handling `unavailable` or `unknown` states, value changes over Home Assistant outages nor conversion losses.
+Use both calculated values as a source for the 2 left Riemann integrators to obtain the energy charged and discharged. The above example does not address handling `unavailable` or `unknown` states, value changes over Home Assistant outages, nor conversion losses.
 
 If desired, this can also be done for individual batteries, see below concept.
 
@@ -607,7 +607,7 @@ template:
           {{ [0, 0 - states('sensor.encharge_xxxx_power') | int ] | max }}
 ```
 
-Use both calculated values a source for 2 left Riemann integrators to obtain energy charged and discharged.
+Use both calculated values as a source for 2 left Riemann integrators to obtain energy charged and discharged.
 
 {% endraw %}
 
