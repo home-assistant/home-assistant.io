@@ -338,8 +338,8 @@ We welcome the following new integrations in this release:
   The Compit integration allows you to integrate air conditioning, ventilation, and heating controllers with Home Assistant.
 - **[Droplet]**, added by [@sarahseidman]  
   Connect your Droplet devices to Home Assistant. Droplet accurately monitors your home’s water usage in real time.
-- **[Ekey Bionyx]**, added by [@richardpolzer]  
-  Integrate your Ekey biometric access control systems to monitor door access and security events in your smart home.
+- **[ekey bionyx]**, added by [@richardpolzer]  
+  Integrate your ekey bionyx biometric access control systems to receive events for individual finger scans and digital inputs in your smart home.
 - **[IRM KMI]**, added by [@jdejaegh]  
   Get accurate weather data from Belgium's Royal Meteorological Institute (IRM-KMI) for precise local forecasting.
 - **[Libre Hardware Monitor]**, added by [@Sab44]  
@@ -363,7 +363,7 @@ We welcome the following new integrations in this release:
 [@sarahseidman]: https://github.com/sarahseidman
 [Compit]: /integrations/compit
 [Droplet]: /integrations/droplet
-[Ekey Bionyx]: /integrations/ekeybionyx
+[ekey bionyx]: /integrations/ekeybionyx
 [IRM KMI]: /integrations/irm_kmi
 [Libre Hardware Monitor]: /integrations/libre_hardware_monitor
 [Portainer]: /integrations/portainer
