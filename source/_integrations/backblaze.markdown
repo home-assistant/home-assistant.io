@@ -78,7 +78,6 @@ The integration will test the connection and confirm access to your bucket.
 
 ## Troubleshooting
 
-The Backblaze integration has the following limitations:
 
 ### Expired keys
 
