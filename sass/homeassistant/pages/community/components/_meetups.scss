@@ -1,0 +1,126 @@
+section#meetups {
+
+    background-color: #CCEFFE;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-top: 24px;
+
+    @include bp(tablet) {
+        border-radius: 24px;
+    }
+
+    .container {
+        gap: 60px;
+        flex-direction: column;
+
+        @include bp(tablet) {
+            flex-direction: row;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+
+            h2 {
+                margin: 0;
+                margin-bottom: 20px;
+
+                @include bp(tablet) {
+                    margin-bottom: 40px;
+                }
+            }
+
+            svg:has(use[href="#community"]) {
+                height: 40px;
+                width: 40px;
+                margin-bottom: 12px;
+
+                @include bp(desktop) {
+                    margin-bottom: 40px;
+                    height: 80px;
+                    width: 80px;
+                }
+            }
+
+            .event-card {
+                margin-top: 20px;
+
+                @include bp(tablet) {
+                    margin-top: 40px;
+                }
+            }
+        }
+
+        .guide {
+            background-color: rgba(246, 248, 251, 0.2);
+            border: 1px solid #ffffff;
+            border-radius: 12px;
+            padding: 40px 24px;
+
+            h3 {
+                margin: 0;
+                text-wrap: balance;
+                margin-bottom: 12px;
+            }
+
+            p {
+                color: #002332;
+            }
+
+            .buttons {
+                justify-content: flex-start;
+            }
+
+            .steps {
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+                margin: 40px 0;
+
+                .step {
+                    @include small;
+                    padding-left: 32px;
+                    line-height: 1.5;
+                    color: #4F606E;
+                    position: relative;
+
+                    &:before {
+                        content: '';
+                        width: 15px;
+                        height: 15px;
+                        border-radius: 50%;
+
+                        box-shadow: inset 0 0 0 5px var(--color-primary);
+                        left: 0;
+                        top: 4px;
+                        position: absolute;
+                    }
+
+                    &:not(:last-child) {
+                        padding-bottom: 28px;
+
+                        &:after {
+                            content: '';
+                            width: 1px;
+                            background-color: #4F606E;
+                            left: 7px;
+                            bottom: -4px;
+                            top: 26px;
+                            position: absolute;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .content,
+    .guide {
+        @include bp(desktop) {
+            flex-grow: 1;
+            flex-basis: 50%;
+            width: 100%;
+        }
+    }
+}

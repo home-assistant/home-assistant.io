@@ -290,3 +290,21 @@ Enable or disable music_mode.
 |---------------------------|----------|---------------------------------------------------------------------------------------------|
 | `entity_id`               |      yes | Only act on specific lights.                                                                |
 | `music_mode`              |       no | Use 'true' or 'false' to enable / disable music_mode.                                       |
+
+
+## Troubleshooting
+
+### Device Discovery
+
+The Yeelight devices use non-standard search parameters for SSDP so devices are not visible in **the SSDP/UPnP Browser**. 
+
+If you want to check what devices are in your network, you can use [the `async-upnp-client` library](https://pypi.org/project/async-upnp-client/), and then run the following command:
+```bash
+upnp-client search \
+    --target 239.255.255.250 \
+    --target_port 1982 \
+    --bind 0.0.0.0 \
+    --search_target wifi_bulb
+```
+
+You can also look at **the Zeroconf Browser** or **the DHCP Browser**, which correctly detect Yeelight devices.

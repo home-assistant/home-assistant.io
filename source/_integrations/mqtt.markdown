@@ -61,13 +61,13 @@ MQTT Devices and entities can be set up through [MQTT -discovery](#mqtt-discover
 - [Button](/integrations/button.mqtt/)
 - [Camera](/integrations/camera.mqtt/)
 - [Cover](/integrations/cover.mqtt/)
+- [Climate (HVAC)](/integrations/climate.mqtt/)
 - [Device tracker](/integrations/device_tracker.mqtt/)
 - [Device trigger](/integrations/device_trigger.mqtt/)
 - [Event](/integrations/event.mqtt/)
 - [Fan](/integrations/fan.mqtt/)
 - [Humidifier](/integrations/humidifier.mqtt/)
 - [Image](/integrations/image.mqtt/)
-- [Climate/HVAC](/integrations/climate.mqtt/)
 - [Lawn mower](/integrations/lawn_mower.mqtt/)
 - [Light](/integrations/light.mqtt/)
 - [Lock](/integrations/lock.mqtt/)
@@ -94,13 +94,13 @@ MQTT Devices and entities can be set up through [MQTT -discovery](#mqtt-discover
 - [Binary sensor](/integrations/binary_sensor.mqtt/)
 - [Button](/integrations/button.mqtt/)
 - [Camera](/integrations/camera.mqtt/)
+- [Climate (HVAC)](/integrations/climate.mqtt/)
 - [Cover](/integrations/cover.mqtt/)
 - [Device tracker](/integrations/device_tracker.mqtt/)
 - [Event](/integrations/event.mqtt/)
 - [Fan](/integrations/fan.mqtt/)
 - [Humidifier](/integrations/humidifier.mqtt/)
 - [Image](/integrations/image.mqtt/)
-- [Climate/HVACs](/integrations/climate.mqtt/)
 - [Lawn mower](/integrations/lawn_mower.mqtt/)
 - [Light](/integrations/light.mqtt/)
 - [Lock](/integrations/lock.mqtt/)
@@ -122,10 +122,15 @@ MQTT Devices and entities can be set up through [MQTT -discovery](#mqtt-discover
 <a name="configuration-via-subentries"></a>
 {% details "Configuration of MQTT components via Subentries" %}
 
+- [Alarm control panel](/integrations/alarm_control_panel.mqtt/)
 - [Binary sensor](/integrations/binary_sensor.mqtt/)
 - [Button](/integrations/button.mqtt/)
+- [Climate (HVAC)](/integrations/climate.mqtt/)
 - [Cover](/integrations/cover.mqtt/)
+- [Fan](/integrations/fan.mqtt/)
+- [Image](/integrations/image.mqtt/)
 - [Light](/integrations/light.mqtt/)
+- [Lock](/integrations/lock.mqtt/)
 - [Notify](/integrations/notify.mqtt/)
 - [Sensor](/integrations/sensor.mqtt/)
 - [Switch](/integrations/switch.mqtt/)
@@ -172,7 +177,7 @@ Add the MQTT integration, then provide your broker's hostname (or IP address) an
 2. Select the MQTT integration.
 3. Reconfigure the MQTT broker settings via {% my integrations title="**Settings** > **Devices & services**" %}, click {% icon "mdi:dots-vertical" %} and select **Reconfigure**.
 
-MQTT subentries can also be reconfigured. Additional entities can be added, or an entity can bve removed from the sub entry. Each MQTT subentry holds one MQTT device. The MQTT device must have at least one entity.
+MQTT subentries can also be reconfigured. Additional entities can be added, or an entity can be removed from the sub entry. Each MQTT subentry holds one MQTT device. The MQTT device must have at least one entity.
 
 {% important %}
 If you experience an error message like `Failed to connect due to exception: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed`, then turn on `Advanced options` and set [Broker certificate validation](/integrations/mqtt/#broker-certificate-validation) to `Auto`.
@@ -306,8 +311,8 @@ The mandatory fields were previously limited to at least one of `connection` and
 
 For every configured MQTT entity Home Assistant automatically assigns a unique `entity_id`. If the `unique_id` option is configured, you can change the `entity_id` after creation, and the changes are stored in the Entity Registry. The `entity_id` is generated when an item is loaded the first time.
 
-If the `object_id` option is set, then this will be used to generate the `entity_id`.
-If, for example, we have configured a `sensor`, and we have set `object_id` to `test`, then Home Assistant will try to assign `sensor.test` as `entity_id`, but if this `entity_id` already exits it will append it with a suffix to make it unique, for example, `sensor.test_2`.
+If the `default_entity_id` option is set, then this will be used to generate the `entity_id`.
+If, for example, we have configured a `sensor`, and we have set `default_entity_id` to `sensor.test`, then Home Assistant will try to assign `sensor.test` as `entity_id`, but if this `entity_id` already exits it will append it with a suffix to make it unique, for example, `sensor.test_2`.
 
 This means any MQTT entity which is part of a device will [automatically have its `friendly_name` attribute prefixed with the device name](https://developers.home-assistant.io/docs/core/entity/#has_entity_name-true-mandatory-for-new-integrations)
 
@@ -369,7 +374,7 @@ Supported shared options are:
 - `qos`
 - `encoding`
 
-The component specific options are placed as mappings under the `components` key (abbreviated as `cmp`) like:
+The component specific options are placed as mappings under the `components` key (abbreviated as `cmps`) like:
 
 ```json
 {
@@ -408,7 +413,7 @@ The component specific options are placed as mappings under the `components` key
 }
 ```
 
-The components id's under the `components` (`cmp`) key, are used as part of the discovery identification. A `platform` (`p`) config option is required for each component config that is added to identify the component platform. Also required is a `unique_id` for entity-based components.
+The components id's under the `components` (`cmps`) key, are used as part of the discovery identification. A `platform` (`p`) config option is required for each component config that is added to identify the component platform. Also required is a `unique_id` for entity-based components.
 
 To remove the components, publish an empty (retained) string payload to the discovery topic. This will remove the component and clear the published discovery payload. It will also remove the device entry if there are no further references to it.
 
@@ -568,7 +573,7 @@ Check the logs to ensure this step is executed correctly.
 **Step 3: Publish the new device-based discovery configuration:**
 
 Discovery topic device: `homeassistant/device/0AFFD2/config`
-Discovery id: `0AFFD2 bla` *(`0AFFD2`from discovery topic, `bla`: The key under `cmp` in the discovery payload)*
+Discovery id: `0AFFD2 bla` *(`0AFFD2`from discovery topic, `bla`: The key under `cmps` in the discovery payload)*
 Discovery payload device:
 
 ```json
@@ -730,6 +735,7 @@ support_url:
     'cont_type':           'content_type',
     'curr_temp_t':         'current_temperature_topic',
     'curr_temp_tpl':       'current_temperature_template',
+    'def_ent_id':          'default_entity_id',
     'dev':                 'device',
     'dev_cla':             'device_class',
     'dir_cmd_t':           'direction_command_topic',
@@ -797,7 +803,6 @@ support_url:
     'modes':               'modes',
     'name':                'name',
     'o':                   'origin',
-    'obj_id':              'object_id',
     'off_dly':             'off_delay',
     'on_cmd_type':         'on_command_type',
     'ops':                 'options',
@@ -1081,7 +1086,7 @@ payload_not_available:
   required: false
   type: string
   default: offline
-{% endconfiguration %}  
+{% endconfiguration %}
 
 {% enddetails %}
 
@@ -1224,7 +1229,7 @@ Setting up a light, switch etc. is similar but requires a `command_topic` as men
 - Configuration topic: `homeassistant/switch/irrigation/config`
 - State topic: `homeassistant/switch/irrigation/state`
 - Command topic: `homeassistant/switch/irrigation/set`
-- Payload:  
+- Payload:
 
 ```json
 {
@@ -1322,9 +1327,9 @@ Setting up a [light that takes JSON payloads](/integrations/light.mqtt/#json-sch
   }
   ```
 
-#### Use object_id to influence the entity id
+#### Use object_id to influence the entity ID
 
-The entity id is automatically generated from the entity's name. All MQTT integrations optionally support providing an `object_id` which will be used instead if provided.
+The entity ID is automatically generated from the entity's name. All MQTT integrations optionally support providing an `object_id` which will be used instead if provided.
 
 - Configuration topic: `homeassistant/sensor/device1/config`
 - Example configuration payload:
@@ -1370,7 +1375,7 @@ The following software has built-in support for MQTT discovery:
 - [Tasmota](https://github.com/arendst/Tasmota) (starting with 5.11.1e, development halted)
 - [TeddyCloud](https://github.com/toniebox-reverse-engineering/teddycloud)
 - [Teleinfo MQTT](https://fmartinou.github.io/teleinfo2mqtt) (starting with 3.0.0)
-- [Tydom2MQTT](https://fmartinou.github.io/tydom2mqtt/)
+- [Tydom2MQTT](https://tydom2mqtt.github.io/tydom2mqtt/)
 - [What's up Docker?](https://fmartinou.github.io/whats-up-docker/) (starting with 3.5.0)
 - [WyzeSense2MQTT](https://github.com/raetha/wyzesense2mqtt)
 - [Xiaomi DaFang Hacks](https://github.com/EliasKotlyar/Xiaomi-Dafang-Hacks)
@@ -1432,7 +1437,7 @@ Note that MQTT device payloads often contain information for updating multiple e
 
 ### The last reported state attribute
 
-Because MQTT state updates are often repeated frequently, even when no actual changes exist, it is up to the MQTT subscriber to determine whether a status update was received. If the latest update is missed, it might take some time before the next one arrives. If a retained payload exists at the broker, that value will be replayed first, but it will be an update of a previous last state. 
+Because MQTT state updates are often repeated frequently, even when no actual changes exist, it is up to the MQTT subscriber to determine whether a status update was received. If the latest update is missed, it might take some time before the next one arrives. If a retained payload exists at the broker, that value will be replayed first, but it will be an update of a previous last state.
 
 MQTT devices often continuously generate numerous state updates. MQTT does not update `last_reported` to avoid impacting system stability unless `force_update` is set. Alternatively, an MQTT sensor can be created to measure the last update.
 

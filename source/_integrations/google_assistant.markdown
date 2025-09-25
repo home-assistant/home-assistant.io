@@ -256,14 +256,14 @@ Currently, the following domains are available to be used with Google Assistant,
 - group (on/off)
 - humidifier (humidity setting/on/off/mode)
 - input_boolean (on/off)
-- input_button
+- input_button (scene)
 - input_select (option/setting/mode/value)
 - light (on/off/brightness/rgb color/color temp)
 - lawn_mower (dock/start/pause)
 - lock
 - media_player (on/off/set volume (via set volume)/source (via set input source)/control playback)
-- scene (on)
-- script (on)
+- scene
+- script (scene)
 - select
 - sensor (temperature setting for temperature sensors and humidity setting for humidity sensors)
 - switch (on/off)

@@ -2,7 +2,7 @@
 type: card
 title: "Thermostat card"
 sidebar_label: Thermostat
-description: "The thermostat card gives control of your climate entity, allowing you to change the temperature and mode of the entity."
+description: "The thermostat card gives control of your climate or water heater entity, allowing you to change the temperature and mode of the entity."
 related:
   - docs: /integrations/frontend/
     title: Themes
@@ -10,7 +10,7 @@ related:
     title: Dashboard cards
 ---
 
-The thermostat card gives control of your [climate](/integrations/#climate) {% term entity %}, allowing you to change the temperature and mode of the {% term entity %}.
+The thermostat card gives control of your [climate](/integrations/#climate) {% term entity %} or [water heater](/integrations/#water_heater) {% term entity %}, allowing you to change the temperature and mode of the {% term entity %}.
 
 <p class='img'>
   <img src='/images/dashboards/thermostat_card.png' alt='Screenshot of the thermostat card'>
@@ -32,7 +32,7 @@ type:
   type: string
 entity:
   required: true
-  description: Entity ID of `climate` domain.
+  description: Entity ID of `climate` or `water_heater` domain.
   type: string
 name:
   required: false
@@ -50,7 +50,7 @@ show_current_as_primary:
   default: false
 features:
   required: false
-  description: Additional widgets to control your entity. See [available features](/dashboards/features). Only climate related features are supported.
+  description: Additional widgets to control your entity. See [available features](/dashboards/features). Only climate or water heater related features are supported.
   type: list
 {% endconfiguration %}
 

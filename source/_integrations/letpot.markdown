@@ -3,6 +3,8 @@ title: LetPot
 description: Instructions on how to integrate LetPot hydroponic gardens into Home Assistant.
 ha_category:
   - Binary sensor
+  - Number
+  - Select
   - Sensor
   - Switch
   - Time
@@ -15,6 +17,8 @@ ha_domain: letpot
 ha_integration_type: hub
 ha_platforms:
   - binary_sensor
+  - number
+  - select
   - sensor
   - switch
   - time
@@ -78,6 +82,25 @@ Additionally, binary sensors for possible issues are available:
 {% important %}
 Binary sensors for issues are disabled by default. If you want to use them, you need to enable them first. See the [enabling or disabling entities](/common-tasks/general/#enabling-or-disabling-entities) documentation for information on how to do this.
 {% endimportant %}
+
+### Numbers
+
+- **Plants age**: The number of days the plants in the hydroponic garden have been growing/since planting. This value is automatically updated by the device while the **Power** switch is on. Edit the value to restart the counter or use your own logic.
+
+For LetPot Max devices, the following number is also available:
+
+- **Light brightness**: Set the built-in light brightness level. Accepted values are 1 (lowest) to 8 (highest).
+
+#### Selects
+
+- **Light mode**: Set the built-in light mode to fruits/flowers (red and white LEDs enabled) or veggies/herbs (red, white and blue LEDs enabled).
+
+Depending on device support, more selects are available:
+
+- **Light brightness**: Set the built-in light brightness to low or high.
+  - Available for LetPot Air devices, and some LetPot SE devices which support changing the brightness.
+- **Temperature unit on display**: Set the temperature unit for the temperature shown on the device's display.
+  - Available for LetPot Max devices, excluding devices with a serial number starting with `LPH63`.
 
 #### Sensors
 
