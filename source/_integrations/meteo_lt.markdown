@@ -91,22 +91,6 @@ Weather data is automatically updated every 30 minutes from the Meteo.lt <abbr t
 - Historical weather data is not provided
 - Weather warnings and alerts are not currently supported
 
-## Troubleshooting
-
-{% details "No forecast data available" %}
-If you see this error, it means the API returned no forecast data for your selected station. This can happen temporarily during API maintenance or updates. The integration will retry automatically at the next update interval.
-{% enddetails %}
-
-{% details "Cannot connect to API" %}
-Check your internet connection and ensure the Meteo.lt service is accessible. The service status can be checked at [api.meteo.lt](https://api.meteo.lt).
-{% enddetails %}
-
-{% details "Weather data not updating" %}
-1. Check the last update time in entity attributes
-2. Go to {% my integrations title="**Settings** > **Devices & services**" %} and reload the integration
-3. Check {% my logs title="**Settings** > **System** > **Logs**" %} for any error messages
-{% enddetails %}
-
 ## Removing the integration
 
 To remove a Meteo.lt configuration:
