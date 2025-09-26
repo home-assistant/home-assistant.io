@@ -43,7 +43,7 @@ Currently, the integration supports the following devices:
 {% configuration_basic %}
 Host:
   description: "The IP address of your device. You can find it in your router or in app."
-Host:
+Port:
   description: "The TCP port of the device, 8080 by deault."
 Scan Interval:
   description: "The polling interval in seconds."
@@ -64,45 +64,44 @@ The Solarman integration mainly provides sensors about what your device is measu
 
 SP-2W-EU also has a switch to control the outlet state.
 
-- Switch: Controls the outlet state of the plug.
+- Smart Plug: Controls the outlet state of the plug.
 
 ### P1-2W
 
 - SN
-- device_version
-- device_type
-- total_act_energy_LT
-- total_act_energy_NT
-- total_act_ret_energy_LT
-- total_act_ret_energy_NT
-- a_current
-- b_current
-- c_current
-- a_voltage
-- b_voltage
-- c_voltage
-- total_act_power
-- total_act_ret_power
-- a_act_power
-- b_act_power
-- c_act_power
-- a_act_ret_power
-- b_act_ret_power
-- c_act_ret_power
-- total_gas
+- Device version
+- Total Actual Energy Low Tariff
+- Total Actual Energy Normal Tariff
+- Total Actual Returned Energy Low Tariff
+- Total Actual Returned Energy Normal Tariff
+- AC Phase-A Current
+- AC Phase-B Current
+- AC Phase-C Current
+- AC Phase-A Voltage
+- AC Phase-B Voltage
+- AC Phase-C Voltage
+- Total Actual Power
+- Total Actual Returned Power
+- Active Power Phase-A
+- Active Power Phase-B
+- Active Power Phase-C
+- Active Returned Power Phase-A
+- Active Returned Power Phase-B
+- Active Returned Power Phase-C
+- Total Gas Consumption
 
 ### MR1-D5-W/MR1-D5-WR
 
 - SN
-- voltage
-- current
-- active power
-- apparent power
-- reactive power
-- power factor
-- frequency
-- total_act_energy
-- total_act_ret_energy
+- Voltage
+- Current
+- Active Power
+- Apparent Power
+- Reactive Power
+- Power Factor
+- Frequency
+- Total Actual Energy
+- Total Actual Returned Energy
 
 
 ## Data updates
