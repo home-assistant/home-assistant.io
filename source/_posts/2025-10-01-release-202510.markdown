@@ -451,7 +451,7 @@ user experience.
 This release, we celebrate several {% term integrations %} that have improved
 their quality scale:
 
-- **2 integrations reached platinum** 🏆
+- **3 integrations reached platinum** 🏆
   - [Android TV Remote], thanks to [@tronikos]
   - [Miele], thanks to [@astrandb]
   - [Sleep as Android], thanks to [@tr4nt0r]
