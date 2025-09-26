@@ -550,7 +550,7 @@ Battery power is the current power flow in or out of an individual battery. Usin
 
 {% details "Concept to split Battery power value into individual import-export power values" %}
 
-The concept is to first sum all battery Power values using a combine state helper. Then track value changes of the summed value entity, add positive changes to a battery_charge power entity and add negative changes to a battery_discharge power entity.
+The concept is to first sum all battery Power values using a combine state helper. Then track value changes of the summed value entity, add positive values to a battery_charge power entity and add negative values to a battery_discharge power entity.
 
 {% raw %}
 
@@ -564,20 +564,51 @@ The concept is to first sum all battery Power values using a combine state helpe
     - name: "Battery charge power"
       unique_id: calculated_envoy_battery_charge_power
       unit_of_measurement: "W" 
-      state: "{{ this.state | int(0) + ([0, (trigger.to_state.state | int(0) - trigger.from_state.state | int(0))] | max) }}" 
+      state: "{{ [0, trigger.to_state.state  | int ] | max }}" 
       device_class: power 
       state_class: measurement
     - name: "Battery discharge power"
       unique_id: calculated_envoy_battery_discharge_power
       unit_of_measurement: "W" 
-      state: "{{ this.state | int(0) - ([0, (trigger.to_state.state | int(0) - trigger.from_state.state | int(0))] | min) }}" 
+      state: "{{ [0, 0 - trigger.to_state.state | int ] | max) }}" 
       device_class: power 
       state_class: measurement
 ```
 
 {% endraw %}
 
-The above example does not address handling `unavailable` or `unknown` states, value changes over Home Assistant outages nor conversion losses.
+Use both calculated values as a source for the 2 left Riemann integrators to obtain the energy charged and discharged. The above example does not address handling `unavailable` or `unknown` states, value changes over Home Assistant outages, nor conversion losses.
+
+If desired, this can also be done for individual batteries, see below concept.
+
+{% raw %}
+
+```yaml
+
+template:
+  - sensor:
+      - name: Battery xxx charge power
+        unique_id: calculated_envoy_battery_xxx_charge_power
+        state_class: measurement
+        icon: mdi:battery-charging
+        unit_of_measurement: W
+        device_class: power
+        state: >
+          {{ [0, states('sensor.encharge_xxxx_power') | int ] | max }}
+
+      - name: Battery xxx discharge power
+        unique_id: calculated_envoy_battery_xxx_discharge_power
+        state_class: measurement
+        icon: mdi:battery-charging
+        unit_of_measurement: W
+        device_class: power
+        state: >
+          {{ [0, 0 - states('sensor.encharge_xxxx_power') | int ] | max }}
+```
+
+Use both calculated values as a source for 2 left Riemann integrators to obtain energy charged and discharged.
+
+{% endraw %}
 
 {% enddetails %}
 

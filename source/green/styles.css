@@ -2006,6 +2006,17 @@ h4.heading-small {
 .card-wrapper.flip .card-inner-flip {
   animation: 5s linear infinite flip;
 }
+  
+.nc-collaboration{
+  margin: 2rem auto 0;
+}
+.nc-collaboration.mobile{
+  display: none;
+}
+
+.nc-collaboration.desktop{
+  display: block;
+}
 
 @keyframes flip {
   0% {
@@ -2588,6 +2599,14 @@ h4.heading-small {
 
   .block-wrapper-content-center {
     height: 25em;
+  }
+
+  .nc-collaboration.mobile{
+    display: block;
+  }
+
+  .nc-collaboration.desktop{
+    display: none;
   }
 }
 
