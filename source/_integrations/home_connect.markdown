@@ -501,11 +501,11 @@ Both entities can use these options, but the availability of these will depend o
     - **Silent**: `consumer_products_cleaning_robot_enum_type_cleaning_modes_silent`
     - **Standard**: `consumer_products_cleaning_robot_enum_type_cleaning_modes_standard`
     - **Power**: `consumer_products_cleaning_robot_enum_type_cleaning_modes_power`
-    - **Intelligent Mode**: `consumer_products_cleaning_robot_enum_type_cleaning_mode_intelligent_mode`
-    - **Vacuum Only**: `consumer_products_cleaning_robot_enum_type_cleaning_mode_vacuum_only`
-    - **Mop Only**: `consumer_products_cleaning_robot_enum_type_cleaning_mode_mop_only`
-    - **Vacuum and Mop**: `consumer_products_cleaning_robot_enum_type_cleaning_mode_vacuum_and_mop`
-    - **Mop After Vacuum**: `consumer_products_cleaning_robot_enum_type_cleaning_mode_mop_after_vacuum`
+    - **Intelligent mode**: `consumer_products_cleaning_robot_enum_type_cleaning_mode_intelligent_mode`
+    - **Vacuum only**: `consumer_products_cleaning_robot_enum_type_cleaning_mode_vacuum_only`
+    - **Mop only**: `consumer_products_cleaning_robot_enum_type_cleaning_mode_mop_only`
+    - **Vacuum and mop**: `consumer_products_cleaning_robot_enum_type_cleaning_mode_vacuum_and_mop`
+    - **Mop after vacuum**: `consumer_products_cleaning_robot_enum_type_cleaning_mode_mop_after_vacuum`
 
     </details>
 - **Suction power**:
