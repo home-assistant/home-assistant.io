@@ -549,6 +549,11 @@ command_line:
 
 ### Monitoring failed login attempts on Home Assistant
 
+
+{% important %}
+This example cannot be used with {% term "Home Assistant Supervisor" %} based installations, such as the {% term "Home Assistant Operating System" %}.
+{% endimportant %}
+
 If you'd like to know how many failed login attempts are made to Home Assistant, add the following to your {% term "`configuration.yaml`" %} file:
 
 {% raw %}
