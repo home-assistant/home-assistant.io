@@ -291,7 +291,15 @@ Last release with Home dashboard we created another way for controlling & monito
 
 Now we added a new concept - sections of suggested entities. For now, it follows a basic algorithm and suggests entities you interacted the most with in the span of 24h, and shows them depending on the hour of the day. Only relevant controls will be suggested.
 
-<img class="no-shadow" alt="Temporary screenshot that might need replacement" src="/images/blog/2025-10/temp-home-dashboard-prediction-entities.png" />
+<img class="no-shadow" alt="Home Dashboard prediction entities" src="/images/blog/2025-10/temp-home-dashboard-prediction-entities.png" />
+
+
+{% details "Prediction entities on any dashboard" %}
+
+If you are experienced in customizing your dashboard sections with YAML you can bring these prediction controls into your own dashboard. It is built using a section strategy. Edit the YAML of your section-based dashboard, and under the sections key, as an individual entry, add ```{"strategy": {"type": "common-controls"}} ```
+
+{% enddetails %}
+
 
 {% tip %}
 
