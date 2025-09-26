@@ -18,14 +18,14 @@ ha_integration_type: hub
 ha_quality_scale: bronze
 ---
 
-[Watts Vision +](https://www.watts.eu/en/products/eu/smart-home-and-controls/vision-wireless) is a smart heating management system that allows you to control your home's heating zones remotely. The system provides individual room temperature control, programmable schedules, and energy consumption monitoring through connected thermostats and actuators.
+[Watts Vision +](https://www.watts.eu/en/products/eu/smart-home-and-controls/vision-wireless) is a smart heating management system for remote control of home heating zones. The system provides individual room temperature control, programmable schedules, and energy consumption monitoring through connected thermostats and actuators.
 
-This integration uses the official Watts Vision + API to provide control over your heating zones, allowing you to adjust temperatures, switch between heating modes, and monitor the current status of each thermostat and switch device in your home.
+This integration uses the official Watts Vision + API to provide control over your heating zones. You can adjust temperatures, switch between heating modes, and monitor the current status of each thermostat and switch device in your home.
 
 {% include integrations/config_flow.md %}
 
 {% note %}
-The integration uses OAuth2 authentication. You will be redirected to the Watts Vision + login page to authenticate with your account credentials. Make sure you have a Watts Vision + account set up through their mobile app before configuring this integration.
+The integration uses OAuth2 authentication. You will be redirected to the Watts Vision + login page to authenticate with your account credentials. Make sure you have set up a Watts Vision + account through their mobile app before configuring this integration.
 {% endnote %}
 
 ## Prerequisites
