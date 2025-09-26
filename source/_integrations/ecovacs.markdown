@@ -58,8 +58,9 @@ Additionally, **depending on your model**, the integration provides the followin
   - `Clean count`: Set the number of times to clean the area.
   - `Cut direction`: Set the mower cutting direction (from 0 to 180 degrees).
   - `Volume`: Set the volume.
+  - `Water level`: Set a precise water level used during cleaning with the mop.
 - **Select**:
-  - `Water amount`: Specify the water amount used during cleaning with the mop.
+  - `Water level`: Choose from predefined water levels used during cleaning with the mop.
   - `Work mode`: Specify the mode, how the bot should clean.
 - **Sensor**:
   - `Error`: The error code and a description of the error. `0` means no error. Disabled by default.

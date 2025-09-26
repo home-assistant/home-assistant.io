@@ -104,6 +104,10 @@ command_topic:
   description: The MQTT topic to publish commands to control the valve. The value sent can be a value defined by `payload_open`, `payload_close` or `payload_stop`. If `reports_position` is set to `true`, a numeric value will be published instead.
   required: false
   type: string
+default_entity_id:
+  description: Use `default_entity_id` instead of name for automatic generation of the entity ID. For example, `valve.foobar`. When used without a `unique_id`, the entity ID will update during restart or reload if the entity ID is available.  If the entity ID already exists, the entity ID will be created with a number at the end. When used with a `unique_id`, the `default_entity_id` is only used when the entity is added for the first time. When set, this overrides a user-customized entity ID if the entity was deleted and added again.
+  required: false
+  type: string
 device:
   description: "Information about the device this valve is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works when [`unique_id`](#unique_id) is set. At least one of the identifiers or connections must be present to identify the device."
   required: false
@@ -196,10 +200,6 @@ name:
   required: false
   type: string
   default: MQTT valve
-object_id:
-  description: Used instead of `name` to have the `entity_id` generated automatically.
-  required: false
-  type: string
 optimistic:
   description: Flag that defines if a switch works in optimistic mode.
   required: false

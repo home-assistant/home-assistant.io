@@ -3,6 +3,7 @@ title: ntfy
 description: Instructions on how to integrate ntfy with Home Assistant.
 ha_category:
   - Notifications
+  - Event
 ha_iot_class: Cloud Push
 ha_release: 2025.5
 ha_config_flow: true
@@ -14,6 +15,7 @@ ha_platforms:
   - diagnostics
   - notify
   - sensor
+  - event
 ha_quality_scale: bronze
 ---
 
@@ -96,6 +98,33 @@ action: notify.send_message
 data:
   message: "Reminder: Have you considered frogs?"
   entity_id: notify.mytopic
+```
+
+{% endraw %}
+
+{% enddetails %}
+
+## Events
+
+An {% term event %} {% term entity %} is created for each configured topic. These entities subscribe to their respective topics and receive notifications from the **ntfy** service in real-time. Each event entity exposes the full contents of the notification through its attributes. These attributes include links, attachments, tags, and other metadata.
+
+You can use {% term event %} {% term entities %} in automations. For example, to trigger actions in Home Assistant, or to forward notifications to other devices for further processing or alerting.
+
+{% details "Example YAML configuration" %}
+
+{% raw %}
+
+```yaml
+triggers:
+  - trigger: numeric_state
+    entity_id:
+      - event.mytopic
+    attribute: priority
+    above: 4
+actions:
+  - action: notify.mobile_app_your_device
+    data:
+      message: "Received new ntfy notification"
 ```
 
 {% endraw %}
@@ -196,6 +225,10 @@ The **ntfy** integration adds a device representing the service, along with vari
 ### ⭐ Account
 
 - **Subscription tier**: The subscription plan currently assigned to the ntfy account.
+
+## Data updates
+
+The integration retrieves data from **ntfy.sh** (or your own ntfy instance) every 15 minutes to update the usage statistics sensors.
 
 ## Known limitations
 

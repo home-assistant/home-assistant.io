@@ -112,6 +112,7 @@ Known supported devices:
 - Marantz NR1604
 - Marantz NR1606
 - Marantz NR1607
+- Marantz NR1609
 - Marantz NR1710
 - Marantz NR1711
 - Other Denon AVR receivers (untested)

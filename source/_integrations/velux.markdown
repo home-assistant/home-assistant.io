@@ -1,6 +1,6 @@
 ---
 title: Velux
-description: Instructions on how to integrate Velux KLF 200 integration with Home Assistant.
+description: Instructions on how to integrate the Velux KLF 200 with Home Assistant.
 ha_category:
   - Cover
   - Scene
@@ -23,7 +23,7 @@ ha_dhcp: true
 
 [Velux](https://www.velux.com/) {% term integration %} for Home Assistant allows you to connect to a Velux KLF 200 interface, to control [io-homecontrol](http://www.io-homecontrol.com) devices like windows and blinds. The module allows you to start scenes configured within KLF 200.
 
-At least firmware version > 2.0.0.0 is required on the KLF 200 device. The firmware images may be obtained [here](https://www.velux.com/klf200) and may be imported via the webinterface of your KLF 200.
+At least firmware version > 2.0.0.0 is required on the KLF 200 device. The firmware images may be obtained from the [vendor's website](https://www.velux.com/klf200) and may be imported via the web interface of your KLF 200.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -47,21 +47,9 @@ You must complete the configuration within 5 minutes of rebooting the KLF 200 ga
 
 ### Action `velux.reboot_gateway`
 
-Reboots the configured KLF 200 Gateway.
+Reboots the configured KLF 200 gateway.
 
-There is a problem with the KLF 200 gateway where the connection cannot be established after a restart of Home Assistant, only a manual power off and on fixes this.
-As a workaround, you can use an automation to force a restart of the KLF 200 before exiting Home Assistant, like this:
-
-```yaml
-automation:
-  - alias: "KLF reboot on hass stop event"
-    description: "Reboots the KLF200 in order to avoid SSL Handshake issue"
-    triggers:
-      - trigger: homeassistant
-        event: shutdown
-    actions:
-      - action: velux.reboot_gateway
-```
+In Home Assistant versions up to 2024.12.x, it was recommended to create an automation to reboot the KLF 200 gateway before shutting down or restarting Home Assistant. This automated reboot is now built into the integration, so you no longer need to create a separate automation.
 
 ## Velux Active (KIX 300)
 

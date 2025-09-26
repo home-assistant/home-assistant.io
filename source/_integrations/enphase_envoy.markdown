@@ -28,6 +28,8 @@ The **Enphase Envoy** {% term integration %} is used to integrate with the [Enph
 
 ## Supported devices
 
+The actual model and installed components will determine the available [capabilities](#capabilities) and which data can be provided to the [Energy dashboard](#energy-dashboard). The Envoy firmware has [known issues](#known-issues-and-limitations) that may come and go as versions change.
+
 This integration works with:
 
 - Older and newer <abbr title="IQ Gateway">Envoy</abbr> models that only have production metrics (such as Envoy-R (LCD), Envoy-S (not metered))
@@ -236,7 +238,7 @@ For storage CT energy entities refer to [battery sensor](#aggregated-iq-battery-
 
 ### Grid sensor entities
 
-When the Envoy Metered is equipped with a [net-consumption CT](#current-transformers), entities for Grid import and export are available.
+When the Envoy Metered is equipped with a [net-consumption CT](#current-transformers), entities for Grid import and export are available. See Limitations, [Grid Import/Export values incorrect](#grid-importexport-values-incorrect) when using these.
 
 - **Envoy <abbr title="Envoy serial number">SN</abbr> Current net power consumption**: Current power exchange from (positive) / to (negative) the grid in W, default display in kW.
 - **Envoy <abbr title="Envoy serial number">SN</abbr> Lifetime net energy consumption**: Lifetime energy consumed / imported from the grid in Wh, default display in MWh.
@@ -478,11 +480,11 @@ For **Solar production**, use the **Envoy <abbr title="Envoy serial number">SN</
 
 ### Electricity grid
 
-Whether there is data available to use with the electricity grid depends on the installed <abbr title="current transformers">CT</abbr>, if any. Also, see Limitations, [Balancing grid meter](#balancing-grid-meter).
+Whether there is data available to use with the electricity grid depends on the installed <abbr title="current transformers">CT</abbr>, if any. Also, see Limitations, [Grid Import/Export values incorrect](#grid-importexport-values-incorrect) and [Balancing grid meter](#balancing-grid-meter).
 
 #### Electricity grid with net-consumption CT
 
-With a [net-consumption CT](#grid-sensor-entities) installed, both grid consumption and return to grid data is available.
+With a [net-consumption CT](#grid-sensor-entities) installed, both grid consumption and return to grid data is available. (Also, see [Limitations](#grid-importexport-values-incorrect))
 
 - For **Grid consumption**, use the **Envoy <abbr title="Envoy serial number">SN</abbr> Lifetime net energy consumption** entity.
 - For **Return to grid**, use the **Envoy <abbr title="Envoy serial number">SN</abbr> Lifetime net energy production** entity.
@@ -706,7 +708,7 @@ data:
 Technically `select.first`, `select.last`, `select.previous`, `select.next` are available as well, but as there's no logical sequence in the values to select, their use is not advocated.
 {% endnote %}
 
-## Know issues and limitations
+## Known issues and limitations
 
 ### Firmware changes
 
@@ -724,17 +726,15 @@ Until a resolution is found, you must use the Enphase App to control these featu
 
 ### Late reset
 
-When using Envoy Metered with <abbr title="current transformers">CT</abbr>, not all firmware versions reset 'Energy production today' at midnight. Delays of up to 15 minutes have been reported. In this case, best use a utility meter with the `Lifetime energy production` entity for daily reporting.
+Not all firmware versions reset `Energy production today` or `Energy consumption today`, `Energy production last seven days` and `Energy consumption last seven days` at midnight. A 1 hour delay is reported. In this case, best use a utility meter with the 'Lifetime' entity for daily reporting. This seems to be daylight savings time change related and surfaced in recent firmware versions. Some older firmware versions would reset up to 15 minutes late, even outside daylight saving periods.
 
 ### Energy incorrect
 
 When using Envoy Metered with <abbr title="current transformers">CT</abbr>
 
-- not all firmware versions report `Energy production today` and/or `Energy consumption today` correctly. Zero data and unexpected spikes have been reported. In this case, best use a utility meter with the `Lifetime energy production` or `Lifetime energy consumption` entity for daily reporting.
-- not all firmware versions report `Energy production last seven days` and/or `Energy consumption last seven days` correctly. Zero and unexpected values have been reported.
-- `Energy production today` and `Energy consumption today` have been reported not to reset to zero at the start of the day. Instead, it resets to a non-zero value that seems to gradually increase over time, although other values have been reported as well. This issue has also been reported as starting suddenly overnight. For daily reporting, it is recommended to use a utility meter with the `Lifetime energy production` or `Lifetime energy consumption` entity.
-
-- `Energy production today`, `Energy consumption today`, `Energy production last seven days` and `Energy consumption last seven days` have been reported not to reset to zero at the start of the day. Instead, it resets to zero at a later time, often 1 am. This seems to be daylight savings time change related.
+- not all firmware versions report `Energy production today` and/or `Energy consumption today` correctly. Zero data, changes to a lower value and unexpected spikes have been reported. Enphase reportedly indicated it is an issue in summing phase values to aggregated data. In this case, either use individual phase data or a utility meter with the `Lifetime energy production` or `Lifetime energy consumption` entity for daily reporting.
+- not all firmware versions report `Energy production last seven days` and/or `Energy consumption last seven days` correctly. Zero and unexpected values have been reported. Enphase reportedly indicated it is an issue in summing phase values to aggregated data. In this case, use the individual phase data.
+- `Energy production today` and `Energy consumption today` have been reported not to reset to zero. Instead, it resets to a non-zero value that seems to gradually increase over time, although other values have been reported as well. This issue has also been reported as starting suddenly overnight. For daily reporting, it is recommended to use a utility meter with the `Lifetime energy production` or `Lifetime energy consumption` entity.
 
 {% details "History examples for Today's energy production value not resetting to zero" %}
 
@@ -748,6 +748,14 @@ When using Envoy Metered with <abbr title="current transformers">CT</abbr>
   <figcaption>Envoy Today's energy production value exhibits a sudden onset of non-zero resets.</figcaption>
 </figure>
 {% enddetails %}
+
+These issues may result in log entries like:
+
+```txt
+Entity sensor.envoy_123456789012_energy_consumption_today from integration enphase_envoy has state class total_increasing, but its state is not strictly increasing. Triggered by state 12.345 (12.543) with last_updated set to 2025-09-05T18:00:23.432536+00:00. Please create a bug report at ...
+```
+
+If these entries occur frequently and are a nuisance then disable the entity. It's data is at best doubtful.
 
 ### Lifetime reset
 
@@ -788,6 +796,10 @@ If you are not seeing [inverters](#sensor-entities) detail data, verify if you h
 
 The Envoy Metered in multiphase setup, sums the voltages of the phases measured on the CT for the aggregated data. This may be valid for split-phase, but for 3-phase systems, use the individual phases rather than the summed value.
 
+### Grid Import/Export values incorrect
+
+Envoy Metered with a net-consumption CT measures current and energy exchange between switchboard and grid. Mismatches with other grid-meters and/or the Enphase web-site have been reported. It's not clear if this is related to a recent firmware version or longer existing. When using these values best validate if they are correct in your specific case.
+
 ### Balancing grid meter
 
 In multiphase installations with batteries, in countries with phase-balancing grid meters, the battery will export to the grid on one phase the amount it lacks on another phase. This other phase pulls the missing amount from the grid, as if it is using the grid as a 'transport' between phases. Since the grid meter will balance the amount imported and exported on the two phases, the net result is zero. The Envoy multiphase net-consumption CTs, however, will report the amounts on both phases, resulting in too high export on one and too high import on the other. One may consider using the `lifetime balanced net energy consumption` which is the sum of grid import and export to eliminate this effect. This would require some templating to split these values into import and export values. Alternatively, use the `current net power consumption` or `balanced net power consumption` with a Riemann integral sum helper.
@@ -801,6 +813,14 @@ If you experience periodic connection issues, ensure the Envoy is connected to o
 ### CT Active flag count is non-zero
 
 The **CT active flag count** value shows the number of CT status flags that are raised. In a normal state, the value of **CT active flag count** is zero. If the value is non-zero, consult the [diagnostic](#diagnostics) report of the Envoy and look for `raw_data` - `/ivp/meters` - `statusFlags` for set flags, one or more from  (`production-imbalance` | `negative-production` | `power-on-unused-phase` | `negative-total-consumption`). Their somewhat descriptive names may be an indication of installation issues.
+
+### Log entry for state is not strictly increasing
+
+The log shows an entry like below for energy consumption today or energy production today. See the [energy incorrect](#energy-incorrect) topic for a description of this issue.
+
+```txt
+Entity sensor.envoy_123456789012_energy_consumption_today from integration enphase_envoy has state class total_increasing, but its state is not strictly increasing. Triggered by state 12.345 (12.543) with last_updated set to 2025-09-05T18:00:23.432536+00:00. Please create a bug report at ...
+```
 
 ### Debug logs and diagnostics
 
