@@ -204,7 +204,9 @@ The IMAP integration has some actions for post-pressing email messages. The acti
 When these actions are used in an automation, make sure the right triggers and filtering are set up. When messages are deleted or modified, they cannot be recovered. When multiple IMAP entries are set up, make sure the messages are filtered by the `entry_id` as well to ensure the correct messages are processed. Do not use these actions unless you know what you are doing.
 {% endcaution %}
 
-#### Action `fetch` - Fetch the text body of the IMAP message and meta data
+#### Action `fetch` - Fetch the an IMAP message
+
+Fetches the text body and retrieves metadata about the parts inside the IMAP message.
 
 | Data attribute | Type | Optional | Description |
 | -- | -- | -- | -- |
@@ -246,7 +248,7 @@ parts:
 }
 ```
 
-#### Action `fetch_part` - Fetch a part or attachement of the IMAP message
+#### Action `fetch_part` - Fetch a part or attachement from an IMAP message
 
 | Data attribute | Type | Optional | Description |
 | -- | -- | -- | -- |
