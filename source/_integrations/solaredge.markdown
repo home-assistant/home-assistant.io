@@ -21,14 +21,14 @@ ha_integration_type: device
 The SolarEdge integration allows you to get details from your SolarEdge solar power setup and integrate these in your Home Assistant installation.
 It provides two main features:
 
-1.  **Site Sensors**: Provides real-time energy data for your entire site (e.g., current power, energy today, lifetime energy). This requires a site ID and an API Key.
-2.  **Module-level Statistics**: Retrieves energy production data per inverter, string, and module, and inserts it into Home Assistant statistics. This is useful for identifying underperforming modules. This requires a site ID, username, and password.
+1.  Site sensors: Provide real-time energy data for your entire site. For example, current power, energy today, and lifetime energy. This requires a site ID and an API Key.
+2.  Module-level statistics: Retrieves energy production data per inverter, string, and module, and inserts it into Home Assistant statistics. This is useful for identifying underperforming modules. This requires a site ID, username, and password.
 
 You can configure either feature individually or both at the same time for the same site.
 
 {% include integrations/config_flow.md %}
 
-## Site Sensors (API Key)
+## Site sensors (API key)
 
 To get sensors for your installation, you need your installation's site ID and an API key. You can get these by logging in to your [SolarEdge web portal](https://monitoring.solaredge.com/). Note: if your portal is not in English, the labels will be different.
 
