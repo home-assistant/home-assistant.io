@@ -181,24 +181,24 @@ The IMAP integration has some actions for post-pressing email messages. The acti
 
 | Data attribute | Type | Optional | Description |
 | -- | -- | -- | -- |
-| `entry_id` | string | The IMAP config entry ID. |
+| `entry_id` | string | no | The IMAP config entry ID. |
 | `uid` | string |  no | The `uid` of the message to be marked as "seen". To be found in the message's event data. |
 
 #### Action `move` - Move the IMAP message
 
-| Data attribute | Optional | Description |
-| -- | -- | -- |
-| `entry_id` | string | The IMAP config entry ID. |
+| Data attribute | Type | Optional | Description |
+| -- | -- | -- | -- |
+| `entry_id` | string | no | The IMAP config entry ID. |
 | `uid` | string |  no | The `uid` of the message to be marked as seen. To be found in the message's event data. |
 | `target_folder` | string | no | The name of the target folder, for example `INBOX.Trash` where the message should be moved to. |
 | `seen` | boolean | yes | If set to `true` this will mark the message as "seen". |
 
 #### Action `delete` - Delete the IMAP message
 
-| Data attribute | Optional | Description |
-| -- | -- | -- |
-| `entry_id` | string | The IMAP config entry ID. |
-| `uid` | string |  no | The `uid` of the message to be marked as seen. To be found in the message's event data. |
+| Data attribute | Type | Optional | Description |
+| -- | -- | -- | -- |
+| `entry_id` | string | no | The IMAP config entry ID. |
+| `uid` | string | no | The `uid` of the message to be marked as seen. To be found in the message's event data. |
 
 {% caution %}
 When these actions are used in an automation, make sure the right triggers and filtering are set up. When messages are deleted or modified, they cannot be recovered. When multiple IMAP entries are set up, make sure the messages are filtered by the `entry_id` as well to ensure the correct messages are processed. Do not use these actions unless you know what you are doing.
