@@ -22,10 +22,10 @@ This integration uses an undocumented local HTTP API. It provides live readings 
 
 ## Prerequisites
 
-1. Install and set-up the PoolDose device according to its user manual.
+1. Install and set up the PoolDose device according to its user manual.
    1. In particular, connect the device to your Wi-Fi network.
    2. Identify the IP address or hostname of the device.
-2. Browse to the IP address resp. hostname. Use HTTP and port 80.
+2. Browse to the IP address or hostname. Use HTTP and port 80.
    1. Log in to the web interface.
    2. Verify that sensor data is displayed, such as water temperature or pH values shown as gauges.
    3. Deactivate the device password, i.e., set it to 0000.
@@ -35,7 +35,7 @@ This integration uses an undocumented local HTTP API. It provides live readings 
 
 {% configuration_basic %}
 Host:
-  description: The IP address resp. hostname of your device. Identify the IP address resp. hostname in the web interface of the device or of your router.
+  description: The IP address or hostname of your device. Identify this in the web interface of the device or of your router.
 {% endconfiguration_basic %}
 
 ## Removing the integration
@@ -88,7 +88,7 @@ The PoolDose devices have two characteristics that can affect their network conn
 
 - **Hardware limitations**: The devices use a small scale controller internally that is heavily loaded by the web server and data processing. This can occasionally lead to connection interruptions, though the device typically recovers and comes back online after a short period of time.
 
-- **Energy-saving mode**: When the pump monitoring feature is activated in the device settings, the device often enters an energy-saving mode if no pump operation is detected. During this time, the device may be less responsive or temporarily unavailable on the network, e.g., at night.
+- **Energy-saving mode**: When the pump monitoring feature is activated in the device settings, the device often enters an energy-saving mode if no pump operation is detected. During this time, the device may be less responsive or temporarily unavailable on the network, for examples, at night.
 
 ### Cached data behavior
 
@@ -104,7 +104,7 @@ When trying to set up the integration, you receive an error that the device cann
 
 ##### Description
 
-The device may not be properly connected to your network or may be using a different hostname than expected.
+The device may not be properly connected to your network or may be using a different hostname.
 
 ##### Resolution
 
@@ -123,7 +123,7 @@ The integration cannot connect to the device even though it's found on the netwo
 
 ##### Description
 
-This typically occurs when the device's web interface password is not set to the default value resp. deactivated.
+This typically occurs when the device's web interface password is not set to the default value or deactivated.
 
 ##### Resolution
 
