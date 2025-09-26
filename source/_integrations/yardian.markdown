@@ -47,7 +47,7 @@ The **Yardian** integration provides the following entities.
 
 - **Rain delay**: Remaining rain delay reported in seconds.
 - **Active zone count**: The number of zones currently running.
-- **Sensor delay**: Duration in seconds (disabled by default).
+- **Zone delay**: Duration in seconds (disabled by default).
 - **Water hammer duration**: Duration in seconds (disabled by default).
 - **Region**: Text describing the configured region (disabled by default).
 
