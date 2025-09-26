@@ -86,7 +86,7 @@ The following devices are known to be supported by the integration:
 
 The PoolDose devices have two characteristics that can affect their network connectivity:
 
-- **Hardware limitations**: The devices use a small scale controller internally that is heavily loaded by the web server and data processing. This can occasionally lead to connection interruptions, though the device typically recovers and comes back online after a short period of time.
+- **Hardware limitations**: The devices use a small-scale controller that is heavily loaded by web server and data processing tasks. This can occasionally cause brief connection interruptions, though devices typically recover quickly.
 
 - **Energy-saving mode**: When the pump monitoring feature is activated in the device settings, the device often enters an energy-saving mode if no pump operation is detected. During this time, the device may be less responsive or temporarily unavailable on the network, for examples, at night.
 
@@ -104,7 +104,7 @@ When trying to set up the integration, you receive an error that the device cann
 
 ##### Description
 
-The device may not be properly connected to your network or may be using a different hostname.
+The device may not be properly connected to your network, or it may be using a different IP address or hostname than expected.
 
 ##### Resolution
 
@@ -123,7 +123,7 @@ The integration cannot connect to the device even though it's found on the netwo
 
 ##### Description
 
-This typically occurs when the device's web interface password is not set to the default value or deactivated.
+This typically occurs when the device's web interface password is not set to the default value (0000) or not properly deactivated.
 
 ##### Resolution
 
