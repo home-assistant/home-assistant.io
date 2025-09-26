@@ -452,8 +452,9 @@ This release, we celebrate several {% term integrations %} that have improved
 their quality scale:
 
 - **2 integrations reached platinum** 🏆
-  - [Sleep as Android], thanks to [@tr4nt0r]
+  - [Android TV Remote], thanks to [@tronikos]
   - [Miele], thanks to [@astrandb]
+  - [Sleep as Android], thanks to [@tr4nt0r]
 
 - **2 integrations reached silver** 🥈
   - [Samsung Smart TV], thanks to [@chemelli74]
@@ -480,6 +481,7 @@ A big thank you to all the contributors involved! 👏
 [@PeteRager]: https://github.com/PeteRager
 [@tr4nt0r]: https://github.com/tr4nt0r
 [@tronikos]: https://github.com/tronikos
+[Android TV Remote]: /integrations/androidtv_remote
 [Miele]: /integrations/miele
 [NextDNS]: /integrations/nextdns
 [Opower]: /integrations/opower
