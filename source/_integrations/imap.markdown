@@ -198,7 +198,7 @@ The IMAP integration has some actions for post-pressing email messages. The acti
 | Data attribute | Type | Optional | Description |
 | -- | -- | -- | -- |
 | `entry_id` | string | no | The IMAP config entry ID. |
-| `uid` | string | no | The `uid` of the message to be marked as seen. To be found in the message's event data. |
+| `uid` | string | no | The `uid` of the message to be deleted. To be found in the message's event data. |
 
 {% caution %}
 When these actions are used in an automation, make sure the right triggers and filtering are set up. When messages are deleted or modified, they cannot be recovered. When multiple IMAP entries are set up, make sure the messages are filtered by the `entry_id` as well to ensure the correct messages are processed. Do not use these actions unless you know what you are doing.
@@ -206,9 +206,9 @@ When these actions are used in an automation, make sure the right triggers and f
 
 #### Action `fetch` - Fetch the text body of the IMAP message and meta data
 
-| Data attribute | Optional | Description |
-| -- | -- | -- |
-| `entry_id` | string | The IMAP config entry ID. |
+| Data attribute | Type | Optional | Description |
+| -- | -- | -- | -- |
+| `entry_id` | string | no | The IMAP config entry ID. |
 | `uid` | string |  no | The `uid` of the message to be marked as seen. To be found in the message's event data. |
 
 ##### Return values for the `fetch` action
@@ -248,9 +248,9 @@ parts:
 
 #### Action `fetch_part` - Fetch a part or attachement of the IMAP message
 
-| Data attribute | Optional | Description |
-| -- | -- | -- |
-| `entry_id` | string | The IMAP config entry ID. |
+| Data attribute | Type | Optional | Description |
+| -- | -- | -- | -- |
+| `entry_id` | string | no | The IMAP config entry ID. |
 | `uid` | string |  no | The `uid` of the message to be marked as seen. To be found in the message's event data. |
 | `part` | string |  no | The index of the message part that is to be returned. Use the `part` info in the message's event data or from the `fetch` action, to receive the available parts. |
 
