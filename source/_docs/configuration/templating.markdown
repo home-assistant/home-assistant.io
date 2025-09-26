@@ -550,6 +550,8 @@ The same thing can also be expressed as a test:
 - `area_name(lookup_value)` returns the area name for a given device ID, entity ID, or area ID. Can also be used as a filter.
 - `area_entities(area_name_or_id)` returns the list of entity IDs tied to a given area ID or name. Can also be used as a filter.
 - `area_devices(area_name_or_id)` returns the list of device IDs tied to a given area ID or name. Can also be used as a filter.
+- `area_temperature_sensor(area_name_or_id)` returns the designated temperature sensor of a given area ID or name. Can also be used as a filter.
+- `area_humidity_sensor(area_name_or_id)` returns the designated humidity sensor of a given area ID or name. Can also be used as a filter.
 
 #### Areas examples
 
@@ -593,6 +595,14 @@ The same thing can also be expressed as a test:
 
 ```text
 {{ area_devices('Living Room') }}  # ['my_device_id']
+```
+
+```text
+{{ area_temperature_sensor('Living Room') }}  # 'sensor.living_room_temperature'
+```
+
+```text
+{{ area_humidity_sensor('Living Room') }}  # 'sensor.living_room_humidity'
 ```
 
 {% endraw %}
