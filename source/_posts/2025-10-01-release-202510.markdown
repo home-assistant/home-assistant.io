@@ -346,7 +346,7 @@ We welcome the following new integrations in this release:
   Monitor your computer's hardware sensors including CPU temperature, GPU usage, fan speeds, and system performance metrics.
 - **[Portainer]**, added by [@erwindouna]  
   Manage and monitor your Docker, keeping track of the status of your running containers.
-- **[SFTP]**, added by [@maretodoric]  
+- **[SFTP Storage]**, added by [@maretodoric]  
   Set up secure remote backup locations using SFTP/SSH protocols for your Home Assistant backups and data storage.
 - **[Usage Prediction]**, added by [@balloob]  
   An internal integration that provides predictions of what entities the user is most likely to interact with. Used by our new Home dashboard.
@@ -367,7 +367,7 @@ We welcome the following new integrations in this release:
 [IRM KMI]: /integrations/irm_kmi
 [Libre Hardware Monitor]: /integrations/libre_hardware_monitor
 [Portainer]: /integrations/portainer
-[SFTP]: /integrations/sftp
+[SFTP Storage]: /integrations/sftp_storage
 [Usage Prediction]: /integrations/usage_prediction
 [Victron Remote Monitoring]: /integrations/victron_remote_monitoring
 
