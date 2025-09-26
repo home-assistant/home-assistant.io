@@ -24,7 +24,6 @@ The `lightwave` {% term integration %} links Home Assistant with your Lightwave 
 
 This {% term integration %} is for Connect Series WiFi links and does not support Smart Series devices, for more information see [Smart and Connect Series](https://support.lightwaverf.com/knowledge/about-smart-and-connect-series).  
 
-For an {% term integration %} that supports Smart Series devices see [https://github.com/LightwaveSmartHome/homeassistant-lightwave-smart](https://github.com/LightwaveSmartHome/homeassistant-lightwave-smart)
 
 To add your Lightwave devices into your Home Assistant installation, add the following to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
