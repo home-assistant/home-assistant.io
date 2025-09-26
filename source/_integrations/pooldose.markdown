@@ -13,11 +13,12 @@ ha_domain: pooldose
 ha_platforms:
   - sensor
 ha_integration_type: integration
+ha_dhcp: true
 ---
 
 The PoolDose integration connects a [SEKO](https://www.seko.com/) water treatment system with Home Assistant. SEKO is a manufacturer of various monitoring and control devices for pools and spas.
 
-This integration uses an undocumented local HTTP API. It provides live readings for pool sensors such as temperature, pH, ORP/Redox, as well as configuration  parameters.
+This integration uses an undocumented local HTTP API. It provides live readings for pool sensors such as temperature, pH, ORP/Redox, as well as configuration parameters.
 
 ## Prerequisites
 
@@ -79,6 +80,20 @@ The following devices are known to be supported by the integration:
 | **orp_calibration_offset** | mV | ORP calibration offset value | — |
 | **orp_calibration_slope** | mV | ORP calibration slope value | — |
 
+## Known limitations
+
+### Hardware and connectivity issues
+
+The PoolDose devices have two characteristics that can affect their network connectivity:
+
+- **Hardware limitations**: The devices use a small scale controller internally that is heavily loaded by the web server and data processing. This can occasionally lead to connection interruptions, though the device typically recovers and comes back online after a short period of time.
+
+- **Energy-saving mode**: When the pump monitoring feature is activated in the device settings, the device often enters an energy-saving mode if no pump operation is detected. During this time, the device may be less responsive or temporarily unavailable on the network, e.g., at night.
+
+### Cached data behavior
+
+These limitations are normal behavior for the device and not issues with the integration itself. To handle these connectivity issues, the integration caches values for a maximum of 300 seconds (5 minutes) when the device is temporarily unresponsive. After this cache period expires, entities will show as "unavailable" until the device provides new data again.
+
 ## Troubleshooting
 
 ### Device not found
@@ -136,3 +151,22 @@ This behavior is expected and does not indicate a problem with the integration:
 1. The integration uses cached values when the device is temporarily unresponsive.
 2. Entities will return to normal once the device becomes responsive again.
 3. Consider this behavior when creating automations that depend on these sensors.
+
+### Missing peristaltic pump status
+
+#### Symptom: No peristaltic pump status data is available
+
+Peristaltic pump status sensors don't show any data or appear as unavailable.
+
+##### Description
+
+The PoolDose device only propagates the status of peristaltic dosing pumps when the external relays for these pumps are enabled in the device settings.
+
+##### Resolution
+
+To get peristaltic pump status data:
+
+1. Browse to your PoolDose device's settings.
+2. Find the external relay configuration for the pH and ORP pumps.
+3. Enable the external relays for the pumps you want to monitor.
+4. Save the settings and restart the device if required.
