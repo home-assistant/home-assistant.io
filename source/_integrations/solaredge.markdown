@@ -21,7 +21,7 @@ ha_integration_type: device
 The SolarEdge integration allows you to get details from your SolarEdge solar power setup and integrate these in your Home Assistant installation.
 It provides two main features:
 
-1.  Site sensors: Provide real-time energy data for your entire site. For example, current power, energy today, and lifetime energy. This requires a site ID and an API Key.
+1.  Site sensors: Provide real-time energy data for your entire site. For example, current power, energy today, and lifetime energy. This requires a site ID and an API key.
 2.  Module-level statistics: Retrieves energy production data per inverter, string, and module, and inserts it into Home Assistant statistics. This is useful for identifying underperforming modules. This requires a site ID, username, and password.
 
 You can configure either feature individually or both at the same time for the same site.
@@ -38,7 +38,7 @@ To get sensors for your installation, you need your installation's site ID and a
 
 Sensor data is updated every 15 minutes to stay within the daily rate limit of 300 requests per day.
 
-## Module-level Statistics (Username & Password)
+## Module-level statistics (username & password)
 
 To get detailed per-module production data, you need:
 - A username and password with access to the [SolarEdge web portal](https://monitoring.solaredge.com/) and the **Layout** tab there. If not, you will have to ask your installer to grant you access.
@@ -51,7 +51,7 @@ You can find the created statistics under {% my developer_statistics title="**De
 You can show them in the UI using the [`Statistic card`](/dashboards/statistic/) or [`Statistics graph card`](/dashboards/statistics-graph/).
 You can use them in automations using the [`SQL`](/integrations/sql/) integration.
 
-### Module Statistics Examples
+### Module statistics examples
 
 #### Statistics graph
 
@@ -98,7 +98,7 @@ title: Daily production per module on east side
 days_to_show: 30
 ```
 
-#### SQL Sensor for Low Production
+#### SQL sensor for low production
 
 To identify problematic modules, you could set up the [`SQL`](/integrations/sql/) integration with the following:
 
