@@ -126,7 +126,7 @@ Please note, device names configured in the SwitchBot app are transferred into H
 
 ### Water Heater
 
-- Smart Radiator Thermostat
+- [Smart Radiator Thermostat](https://www.switch-bot.com/products/switchbot-smart-radiator-thermostat)
 
 ## Supported functionality
 
