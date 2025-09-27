@@ -355,7 +355,7 @@ We welcome the following new integrations in this release:
 - **[Smart Meter B Route]**, added by [@SeraphicRav]  
   Connect your smart meter via the B Route protocol—designed for the Japanese market—to access real-time energy consumption data.
 - **[Cync]**, added by [@Kinachi249]
-  Connect your GE Lighting Cync smart devices—including smart lighting (formerly known as C by GE)—with Home Assistant
+  Connect your GE Lighting Cync smart devices—including smart lighting (formerly known as C by GE)—with Home Assistant.
 
 [@AndyTempel]: https://github.com/AndyTempel
 [@balloob]: https://github.com/balloob
