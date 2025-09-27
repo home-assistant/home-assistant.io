@@ -25,7 +25,7 @@ ha_platforms:
 ha_integration_type: device
 ---
 
-[WLED](https://kno.wled.ge) is a fast and feature-rich 
+[WLED](https://kno.wled.ge) is a fast and feature-rich
 implementation of an ESP8266/ESP32 webserver to control NeoPixel LEDs
 (like WS2812B, WS2811, SK6812, and similar) and SPI based chipsets
 (like WS2801 and APA102).
@@ -37,7 +37,7 @@ This integration requires a WLED device running WLED 0.14.0 or newer.
 {% endimportant %}
 
 You can install the latest version of WLED on your device by going to
-the [WLED web installer](https://install.wled.me/) or by downloading the 
+the [WLED web installer](https://install.wled.me/) or by downloading the
 latest release from the [WLED GitHub releases page](https://github.com/Aircoookie/WLED/releases).
 
 {% include integrations/config_flow.md %}
