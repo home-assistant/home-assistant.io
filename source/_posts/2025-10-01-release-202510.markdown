@@ -352,6 +352,8 @@ We welcome the following new integrations in this release:
   An internal integration that provides predictions of what entities the user is most likely to interact with. Used by our new Home dashboard.
 - **[Victron Remote Monitoring]**, added by [@AndyTempel]  
   The Victron Remote Monitoring (VRM) integration pulls site statistics, solar production and consumption forecasts from Victron Energy's VRM portal.
+- **[Smart Meter B Route]**, added by [@SeraphicRav]  
+  Integrate your Smart Meter using the B Route protocol, primarily for the Japanese market and get real-time energy consumption data from your smart meter.
 
 [@AndyTempel]: https://github.com/AndyTempel
 [@balloob]: https://github.com/balloob
@@ -361,6 +363,7 @@ We welcome the following new integrations in this release:
 [@Przemko92]: https://github.com/Przemko92
 [@Sab44]: https://github.com/Sab44
 [@sarahseidman]: https://github.com/sarahseidman
+[@SeraphicRav]: https://github.com/SeraphicRav
 [Compit]: /integrations/compit
 [Droplet]: /integrations/droplet
 [ekey bionyx]: /integrations/ekeybionyx
@@ -370,6 +373,7 @@ We welcome the following new integrations in this release:
 [SFTP Storage]: /integrations/sftp_storage
 [Usage Prediction]: /integrations/usage_prediction
 [Victron Remote Monitoring]: /integrations/victron_remote_monitoring
+[Smart Meter B Route]: /integrations/route_b_smart_meter
 
 ### Noteworthy improvements to existing integrations
 
