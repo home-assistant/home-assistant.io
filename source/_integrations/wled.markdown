@@ -25,9 +25,7 @@ ha_platforms:
 ha_integration_type: device
 ---
 
-[WLED](https://kno.wled.ge) is a fast and feature-rich
-
-implementation of an ESP8266/ESP32 webserver to control NeoPixel LEDs
+[WLED](https://kno.wled.ge) is a fast and feature-rich implementation of an ESP8266/ESP32 webserver to control NeoPixel LEDs
 (like WS2812B, WS2811, SK6812, and similar) and SPI based chipsets
 (like WS2801 and APA102).
 
@@ -38,11 +36,7 @@ This integration requires a WLED device running WLED 0.14.0 or newer.
 {% endimportant %}
 
 You can install the latest version of WLED on your device by going to
-the [WLED web installer](https://install.wled.me/) or by downloading the
-
-latest release from the [WLED GitHub releases page](https://github.com/Aircoookie/WLED/releases).
-
-
+the [WLED web installer](https://install.wled.me/) or by downloading the latest release from the [WLED GitHub releases page](https://github.com/Aircoookie/WLED/releases).
 
 {% include integrations/config_flow.md %}
 
@@ -119,10 +113,7 @@ Toggles the synchronization between multiple WLED devices.
 Can be configured on the WLED itself under 
 **Settings** > **Sync Interfaces** > **WLED Broadcast**.
 
-
 [WLED Sync documentation](https://kno.wled.ge/interfaces/udp-realtime/)
-
-
 
 ## Firmware updates
 
@@ -158,14 +149,11 @@ target:
   entity_id: light.wled
 data:
   effect: "{{ state_attr('light.wled', 'effect_list') | random }}"
-
 ```
 
 {% endraw %}
 
 It is recommended to select an effect that matches the capabilities of your WLED device (e.g., 1D, 2D, or Sound Reactive). You can refer to the [WLED effect list](https://kno.wled.ge/features/effects/) to explore available options. Once you identify compatible effects, you can randomize them based on their IDs.
-
-
 
 Below is an example of how to select a random effect with an ID between 1 and 117, excluding retired effects:
 
@@ -177,7 +165,6 @@ target:
   entity_id: light.wled
 data:
   effect: "{{ state_attr('light.wled', 'effect_list')[1:118] | reject('equalto', 'RSVD') | list | random }}"
-
 ```
 
 {% endraw %}
@@ -196,11 +183,6 @@ target:
   entity_id: select.wled_palette
 data:
   option: "{{ state_attr('select.wled_palette', 'options') | random }}"
-
-
-
-
-
 ```
 
 {% endraw %}
@@ -239,9 +221,6 @@ Here is an example of all of these put together into an automation:
 
 ```yaml
 - alias: "Turn on WLED rain effect when weather changes to rainy"
-
-
-
   triggers:
     - trigger: state
       entity_id: sensor.weather_condition
