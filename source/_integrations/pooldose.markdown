@@ -88,7 +88,7 @@ The PoolDose devices have two characteristics that can affect their network conn
 
 - **Hardware limitations**: The devices use a small-scale controller that is heavily loaded by web server and data processing tasks. This can occasionally cause brief connection interruptions, though devices typically recover quickly.
 
-- **Energy-saving mode**: When the pump monitoring feature is activated in the device settings, the device often enters an energy-saving mode if no pump operation is detected. During this time, the device may be less responsive or temporarily unavailable on the network, for examples, at night.
+- **Energy-saving mode**: When the pump monitoring feature is activated in the device settings, the device often enters an energy-saving mode if no pump operation is detected. During this time, the device may be less responsive or temporarily unavailable on the network, for example, at night.
 
 ### Cached data behavior
 
