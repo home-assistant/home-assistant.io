@@ -39,7 +39,7 @@ All filters are applied to lowercase text only.
 
 #### Headline blocklist
 
-This blocklist filters warnings based on the headline as a **blacklist**. In other words, if the regular expression matches the headline of the warning, the warning will be **ignored**.
+This blocklist filters warnings based on the headline. In other words, if the regular expression matches the headline of the warning, the warning will be **ignored**.
 
 Default: Match nothing (`/(?!)/`)
 
