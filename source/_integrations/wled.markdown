@@ -25,7 +25,8 @@ ha_platforms:
 ha_integration_type: device
 ---
 
-[WLED](https://kno.wled.ge) is a fast and feature-rich implementation of an ESP8266/ESP32 webserver to control NeoPixel LEDs
+[WLED](https://kno.wled.ge) is a fast and feature-rich 
+implementation of an ESP8266/ESP32 webserver to control NeoPixel LEDs
 (like WS2812B, WS2811, SK6812, and similar) and SPI based chipsets
 (like WS2801 and APA102).
 
@@ -36,7 +37,8 @@ This integration requires a WLED device running WLED 0.14.0 or newer.
 {% endimportant %}
 
 You can install the latest version of WLED on your device by going to
-the [WLED web installer](https://install.wled.me/) or by downloading the latest release from the [WLED GitHub releases page](https://github.com/Aircoookie/WLED/releases).
+the [WLED web installer](https://install.wled.me/) or by downloading the 
+latest release from the [WLED GitHub releases page](https://github.com/Aircoookie/WLED/releases).
 
 {% include integrations/config_flow.md %}
 
@@ -50,7 +52,6 @@ Only native supported features of a light in Home Assistant are supported
 (which includes effects).
 
 ### Using WLED segments
-
 
 WLED can split a single LED strip into multiple segments. These segments can be
 controlled separately in WLED and in Home Assistant as well.
@@ -247,18 +248,3 @@ Here is an example of all of these put together into an automation:
       data:
         value: 255
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
