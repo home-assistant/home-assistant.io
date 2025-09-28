@@ -337,9 +337,12 @@ When the **floodlight** entity is ON always ON, when OFF controlled based on the
 
 Depending on the supported features of the camera ([see specifications of the camera model on Reolink.com](#tested-models)), the following sensor entities are added:
 
+- Person type+ (man, woman)
+- Animal type+ (dog, cat)
+- Vehicle type+ (sedan, SUV, pickup truck, motorcycle)
 - PTZ pan position
 - PTZ tilt position
-- Day night state+
+- Day night state+ (color, black & white, color with floodlight)
 - Wi-Fi signal*
 - CPU usage*
 - HDD/SD storage*
