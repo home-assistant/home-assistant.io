@@ -8,7 +8,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@Sab44'
 ha_iot_class: Local Polling
-ha_domain: librehardwaremonitor
+ha_domain: libre_hardware_monitor
 ha_platforms:
   - sensor
 ha_integration_type: integration
