@@ -106,6 +106,7 @@ Depending on the supported features of the camera ([see specifications of the ca
 - Visitor++ (Doorbell presses)
 - AI person detection++
 - AI vehicle detection++
+- AI bicycle detection+
 - AI pet detection++
 - AI animal detection++
 - AI face detection++
