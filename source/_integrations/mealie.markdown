@@ -22,6 +22,10 @@ ha_quality_scale: silver
 
 [Mealie](https://mealie.io/) is an open source, self-hosted recipe manager, meal planner, and shopping list. The Mealie {% term integration %} will fetch and allow you to create and update data held in your Mealie instance.
 
+## Supported devices
+
+Mealie instances version 2 and higher are supported.
+
 ## Prerequisites
 
 You create your API token on your Mealie installation:
