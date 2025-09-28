@@ -664,6 +664,7 @@ layout: null
 /integrations/ups /more-info/removed-integration 301
 /integrations/uscis /more-info/removed-integration 301
 /integrations/usps /more-info/removed-integration 301
+/integrations/volvooncall /more-info/removed-integration 301
 /integrations/vulcan /more-info/removed-integration 301
 /integrations/weather.darksky /more-info/removed-integration 301
 /integrations/weblink /more-info/removed-integration 301
@@ -674,7 +675,8 @@ layout: null
 /integrations/xfinity /more-info/removed-integration 301
 /integrations/yessssms /more-info/removed-integration 301
 /integrations/yweather /more-info/removed-integration 301
-/integrations/zengge /integrations/led_ble
+/integrations/zengge /integrations/led_ble 301
+/integrations/google_gemini /integrations/google_generative_ai_conversation 301
 /components/zwave /integrations/zwave_js
 
 # Lovelace images

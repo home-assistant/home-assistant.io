@@ -45,6 +45,7 @@ The **LG ThinQ** integration allows you to connect LG ThinQ devices to Home Assi
     - **All device control rights**
     - **All device event subscription rights**
     - **All device push notification permissions**
+    - **Permission to inquiry device energy consumption**
 4. Select **CREATE TOKEN**.
 5. Once all the steps are completed, you will see that a **PAT** has been generated.
 
@@ -92,6 +93,19 @@ Support LG Appliances as follows:
 - Wine Cellar
 - Ventilator
 
+## Data updates
+
+- Status: Events are sent when the device's status is changed.
+- Status(legacy old model): Events are sent every 5 minutes because device status changes cannot be aggregated in real time.
+- Energy consumption: Aggregated usage data up to yesterday is updated every morning.
+
+## Energy consumption
+
+Support historical energy consumption sensors for individual devices
+- Energy last month (Wh): Energy usage last month.
+- Energy this month (Wh): Energy usage this month.
+- Energy yesterday (Wh): Energy usage yesterday.
+  
 ## Platforms
 
 LG ThinQ represents devices as a set of properties. And these are mapped to entities in Home Assistant.

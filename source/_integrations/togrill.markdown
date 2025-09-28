@@ -66,10 +66,23 @@ Many ToGrill compatible devices exist from many different vendors. Only a subset
 **Temperature**: The current temperature of the given temperature probe
 **Battery**: The current battery level of the device.
 
+## Select
+
+**Grill type**: The meat that is currently being measured.
+**Taste**: The taste wanted when finished.
+
 ## Numbers
 
 **Target temperature**: The target temperature of the given temperature probe. Set value to 0 to disable target alarm.
+**Minimum temperature**: The minimum temperature the grill probe is allowed to reach. Set value to 0 to disable target alarm.
+**Maximum temperature**: The maximum temperature the grill probe is allowed to reach. Set value to 0 to disable target alarm.
 **Alarm interval**: The interval in minutes between successive alarms.
+
+{% tip %}
+
+**Target temperature** and the **Minimum temperature** / **Maximum temperature** are exclusive, and will disable the other setting when set on same probe.
+
+{% endtip %}
 
 ## Removing the integration
 

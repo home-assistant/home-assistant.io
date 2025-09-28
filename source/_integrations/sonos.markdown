@@ -166,7 +166,7 @@ data:
     volume: 80
 ```
 
-Sonos can also play music or playlists from Spotify. Both Spotify URIs and URLs can be used directly. An example action using a playlist URI:
+Sonos can also play music or playlists from Spotify. Both Spotify URIs and URLs can be used directly. The optional `title` parameter can be used to fill the media_playlist attribute correctly. An example action using a playlist URI:
 
 ```yaml
 action: media_player.play_media
@@ -176,6 +176,8 @@ data:
   media_content_type: "playlist"
   media_content_id: "spotify:playlist:abcdefghij0123456789XY"
   enqueue: true
+  extra:
+    title: Example Playlist
 ```
 
 An example action using a Spotify URL:
