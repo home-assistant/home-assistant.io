@@ -24,7 +24,7 @@ ha_quality_scale: silver
 
 ## Supported devices
 
-Mealie instances version 2 and higher are supported.
+Mealie instances version 2 and later are supported.
 
 ## Prerequisites
 
