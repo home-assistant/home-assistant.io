@@ -112,6 +112,8 @@ See the [device tracker integration page](/integrations/device_tracker/) for ins
 
 The `snmp` sensor platform displays values made available by network devices through the SNMP protocol.
 
+Default scan inetrval is 10 seconds.
+
 To enable this sensor in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
@@ -188,6 +190,11 @@ priv_protocol:
   required: false
   type: string
   default: 'none'
+retain_state:
+  description: Whether to keep the last known value if the SNMP response is unavailable or unknown.
+  required: false
+  type: boolean
+  default: false    
 state_class:
   description: The [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor.
   required: false
