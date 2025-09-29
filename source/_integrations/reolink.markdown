@@ -153,6 +153,7 @@ Depending on the supported features of the camera ([see specifications of the ca
 - AI face sensitivity
 - AI person sensitivity
 - AI vehicle sensitivity
+- AI bicycle sensitivity
 - AI package sensitivity
 - AI pet sensitivity
 - AI animal sensitivity
@@ -164,6 +165,7 @@ Depending on the supported features of the camera ([see specifications of the ca
 - AI face delay*
 - AI person delay*
 - AI vehicle delay*
+- AI bicycle delay*
 - AI package delay*
 - AI pet delay*
 - AI animal delay*
