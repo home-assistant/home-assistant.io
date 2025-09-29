@@ -346,20 +346,24 @@ We welcome the following new integrations in this release:
   The Compit integration allows you to integrate air conditioning, ventilation, and heating controllers with Home Assistant.
 - **[Droplet]**, added by [@sarahseidman]  
   Connect your Droplet devices to Home Assistant. Droplet accurately monitors your home’s water usage in real time.
-- **[Ekey Bionyx]**, added by [@richardpolzer]  
-  Integrate your Ekey biometric access control systems to monitor door access and security events in your smart home.
+- **[ekey bionyx]**, added by [@richardpolzer]  
+  Integrate your ekey bionyx biometric access control systems to receive events for individual finger scans and digital inputs in your smart home.
 - **[IRM KMI]**, added by [@jdejaegh]  
   Get accurate weather data from Belgium's Royal Meteorological Institute (IRM-KMI) for precise local forecasting.
 - **[Libre Hardware Monitor]**, added by [@Sab44]  
   Monitor your computer's hardware sensors including CPU temperature, GPU usage, fan speeds, and system performance metrics.
 - **[Portainer]**, added by [@erwindouna]  
   Manage and monitor your Docker, keeping track of the status of your running containers.
-- **[SFTP]**, added by [@maretodoric]  
+- **[SFTP Storage]**, added by [@maretodoric]  
   Set up secure remote backup locations using SFTP/SSH protocols for your Home Assistant backups and data storage.
 - **[Usage Prediction]**, added by [@balloob]  
   An internal integration that provides predictions of what entities the user is most likely to interact with. Used by our new Home dashboard.
 - **[Victron Remote Monitoring]**, added by [@AndyTempel]  
   The Victron Remote Monitoring (VRM) integration pulls site statistics, solar production and consumption forecasts from Victron Energy's VRM portal.
+- **[Smart Meter B Route]**, added by [@SeraphicRav]  
+  Connect your smart meter via the B Route protocol—designed for the Japanese market—to access real-time energy consumption data.
+- **[Cync]**, added by [@Kinachi249]
+  Connect your GE Lighting Cync smart devices—including smart lighting (formerly known as C by GE)—with Home Assistant.
 
 [@AndyTempel]: https://github.com/AndyTempel
 [@balloob]: https://github.com/balloob
@@ -369,15 +373,19 @@ We welcome the following new integrations in this release:
 [@Przemko92]: https://github.com/Przemko92
 [@Sab44]: https://github.com/Sab44
 [@sarahseidman]: https://github.com/sarahseidman
+[@SeraphicRav]: https://github.com/SeraphicRav
+[@Kinachi249]: https://github.com/Kinachi249
 [Compit]: /integrations/compit
 [Droplet]: /integrations/droplet
-[Ekey Bionyx]: /integrations/ekeybionyx
+[ekey bionyx]: /integrations/ekeybionyx
 [IRM KMI]: /integrations/irm_kmi
 [Libre Hardware Monitor]: /integrations/libre_hardware_monitor
 [Portainer]: /integrations/portainer
-[SFTP]: /integrations/sftp
+[SFTP Storage]: /integrations/sftp_storage
 [Usage Prediction]: /integrations/usage_prediction
 [Victron Remote Monitoring]: /integrations/victron_remote_monitoring
+[Smart Meter B Route]: /integrations/route_b_smart_meter
+[Cync]: /integrations/cync
 
 ### Noteworthy improvements to existing integrations
 
@@ -459,9 +467,10 @@ user experience.
 This release, we celebrate several {% term integrations %} that have improved
 their quality scale:
 
-- **2 integrations reached platinum** 🏆
-  - [Sleep as Android], thanks to [@tr4nt0r]
+- **3 integrations reached platinum** 🏆
+  - [Android TV Remote], thanks to [@tronikos]
   - [Miele], thanks to [@astrandb]
+  - [Sleep as Android], thanks to [@tr4nt0r]
 
 - **2 integrations reached silver** 🥈
   - [Samsung Smart TV], thanks to [@chemelli74]
@@ -488,6 +497,7 @@ A big thank you to all the contributors involved! 👏
 [@PeteRager]: https://github.com/PeteRager
 [@tr4nt0r]: https://github.com/tr4nt0r
 [@tronikos]: https://github.com/tronikos
+[Android TV Remote]: /integrations/androidtv_remote
 [Miele]: /integrations/miele
 [NextDNS]: /integrations/nextdns
 [Opower]: /integrations/opower
