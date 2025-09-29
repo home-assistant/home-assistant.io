@@ -29,8 +29,6 @@ related:
     title: Enabling Thread on Connect ZBT-1
   - url: https://support.nabucasa.com/hc/en-us/articles/25742476767517
     title: Enabling Thread on Yellow
-  - url: https://phoscon.de/en/openthread/doc
-    title: Enabling Thread on ConBee II or III
 ---
 
 The Thread integration helps you track the different Thread networks in your home and store the Thread network credentials (similar to a Wi-Fi password). The Thread integration in Home Assistant is currently still a work in progress.
