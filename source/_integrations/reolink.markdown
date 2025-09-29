@@ -342,7 +342,7 @@ Depending on the supported features of the camera ([see specifications of the ca
 - Vehicle type+ (sedan, SUV, pickup truck, motorcycle)
 - PTZ pan position
 - PTZ tilt position
-- Day night state+ (color, black & white, color with floodlight)
+- Day night state+ (color, black and white, color with floodlight)
 - Wi-Fi signal*
 - CPU usage*
 - HDD/SD storage*
