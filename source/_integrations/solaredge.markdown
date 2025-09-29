@@ -164,7 +164,7 @@ WHERE
 ) AS result
 ```
 
-This will result in a sensor with state ,e.g., `SolarEdge 1.1.13 (94.7%), SolarEdge 1.1.14 (94.2%)`
+This will result in a sensor with a state. For example, `SolarEdge 1.1.13 (94.7%), SolarEdge 1.1.14 (94.2%)`
 
 Because this SQL sensor will unnecessarily be updating every 30 seconds, in the [SQL integration entries page](https://my.home-assistant.io/redirect/integration/?domain=sql), select 3 dots, **System options**, uncheck **Enable polling for changes**, and select **UPDATE**.
 
