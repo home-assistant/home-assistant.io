@@ -40,7 +40,7 @@ This integration is currently being actively developed and tested. More platform
 
 There is currently support for the following device types within Home Assistant:
 
-- Sensors - for monitoring the the accounts, categories and their balances.
+- Sensors - for monitoring the accounts, categories and their balances.
 
 ## Removing the integration
 
