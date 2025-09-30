@@ -203,7 +203,7 @@ The following YAML options are available
 {% configuration %}
 type:
   required: true
-  description: "`energy-sankey`"
+  description: "`energy-devices-graph`"
   type: string
 title:
   required: false
