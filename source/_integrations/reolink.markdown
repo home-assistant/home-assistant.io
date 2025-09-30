@@ -106,6 +106,7 @@ Depending on the supported features of the camera ([see specifications of the ca
 - Visitor++ (Doorbell presses)
 - AI person detection++
 - AI vehicle detection++
+- AI bicycle detection+
 - AI pet detection++
 - AI animal detection++
 - AI face detection++
@@ -152,6 +153,7 @@ Depending on the supported features of the camera ([see specifications of the ca
 - AI face sensitivity
 - AI person sensitivity
 - AI vehicle sensitivity
+- AI bicycle sensitivity
 - AI package sensitivity
 - AI pet sensitivity
 - AI animal sensitivity
@@ -163,6 +165,7 @@ Depending on the supported features of the camera ([see specifications of the ca
 - AI face delay*
 - AI person delay*
 - AI vehicle delay*
+- AI bicycle delay*
 - AI package delay*
 - AI pet delay*
 - AI animal delay*
@@ -336,9 +339,12 @@ When the **floodlight** entity is ON always ON, when OFF controlled based on the
 
 Depending on the supported features of the camera ([see specifications of the camera model on Reolink.com](#tested-models)), the following sensor entities are added:
 
+- Person type+ (man, woman)
+- Animal type+ (dog, cat)
+- Vehicle type+ (sedan, SUV, pickup truck, motorcycle)
 - PTZ pan position
 - PTZ tilt position
-- Day night state+
+- Day night state+ (color, black and white, color with floodlight)
 - Wi-Fi signal*
 - CPU usage*
 - HDD/SD storage*

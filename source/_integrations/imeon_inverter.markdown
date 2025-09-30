@@ -155,6 +155,13 @@ This document provides an overview of the sensors available in the Imeon Inverte
 | `energy_battery_stored`       | Energy stored in battery today.     | Wh   |
 | `energy_battery_consumed`     | Energy consumed from battery today. | Wh   |
 
+### Forecast
+
+| Sensor key                      | Description                                             | Unit |
+| ------------------------------- | ------------------------------------------------------- | ---- |
+| `forecast_cons_remaining_today` | Forecast of the remaining energy consumption for today. | Wh   |
+| `forecast_prod_remaining_today` | Forecast of the remaining energy production for today.  | Wh   |
+
 ## Troubleshooting
 
 ### What is my domain name?

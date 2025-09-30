@@ -118,6 +118,7 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 - [Curtain 3 (WoCtn3)](https://switch-bot.com/pages/switchbot-curtain-3)
 - [Blind Tilt (WoBlindTilt)](https://switch-bot.com/pages/switchbot-blind-tilt)
 - [Roller Shade](https://www.switch-bot.com/products/switchbot-roller-shade)
+- [Garage Door Opener](https://www.switch-bot.com/products/switchbot-garage-door-opener)
 
 ### Lights
 
@@ -277,7 +278,7 @@ Features:
 
 ### Cover
 
-Cover entities are added for Curtain, Curtain 3, Blind Tilt, and Roller Shade.
+Cover entities are added for Curtain, Curtain 3, Blind Tilt, Roller Shade, and Garage Door Opener.
 
 #### Curtain
 
@@ -374,6 +375,12 @@ Features:
 - set position
 - get position
 - get battery level
+
+#### Garage Door Opener
+
+Features:
+
+- open/close
 
 ### Sensors
 
