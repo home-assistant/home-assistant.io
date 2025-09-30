@@ -48,4 +48,4 @@ This integration follows standard integration removal.
 
 {% include integrations/remove_device_service.md %}
 
-After removing the integration, consider deleting the Portainer access token.
+After removing the integration, consider deleting the Firefly III access token.
