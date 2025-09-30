@@ -28,13 +28,9 @@ The integration provides current weather conditions along with hourly and daily 
 
 ## Prerequisites
 
-This integration requires an active internet connection to retrieve weather data from the Meteo.lt API.
+This integration requires an active internet connection to retrieve weather data from the Meteo.lt <abbr title="Application Programming Interface">API</abbr>.
 
 {% include integrations/config_flow.md %}
-
-## Configuration options
-
-During setup, you can browse the list of available Lithuanian weather stations, which are listed with their name and administrative division for easier identification.
 
 ## Weather platform
 
