@@ -79,8 +79,9 @@ Weather data is automatically updated every 30 minutes from the Meteo.lt <abbr t
 - Historical weather data is not provided
 - Weather warnings and alerts are not currently supported
 
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
 {% include integrations/remove_device_service.md %}
-4. Select the three-dot menu {% icon "mdi:dots-vertical" %}
-5. Select **Delete**
-6. Confirm the removal
 
