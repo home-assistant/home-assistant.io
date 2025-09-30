@@ -79,13 +79,7 @@ Weather data is automatically updated every 30 minutes from the Meteo.lt <abbr t
 - Historical weather data is not provided
 - Weather warnings and alerts are not currently supported
 
-## Removing the integration
-
-To remove a Meteo.lt configuration:
-
-1. Go to {% my integrations title="**Settings** > **Devices & services**" %}
-2. Find and select the **Meteo.lt** integration card
-3. From the list of devices, select the integration instance you want to remove
+{% include integrations/remove_device_service.md %}
 4. Select the three-dot menu {% icon "mdi:dots-vertical" %}
 5. Select **Delete**
 6. Confirm the removal
