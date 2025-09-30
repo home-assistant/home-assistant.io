@@ -212,7 +212,7 @@ title:
 max_devices:
   required: false
   description: By default, this card will show all your devices. Optionally, the number of devices can be limited by adding the `max_devices` option and specifying the maximum number of devices to show. If there are more devices available than shown, the devices with the highest energy usage are shown.
-  type: number
+  type: integer
 hide_compound_stats:
   required: false
   description: Hide higher level devices like breakers. These are devices that are set as `included_in_stat` of another device.
