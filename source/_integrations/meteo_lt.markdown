@@ -34,15 +34,7 @@ This integration requires an active internet connection to retrieve weather data
 
 ## Configuration options
 
-During setup, you can choose between two methods to select your weather station:
-
-### Coordinate-based selection
-
-Enter latitude and longitude coordinates (defaults to your Home Assistant location), and the integration will automatically find the nearest weather station where you can accept the suggested station or choose to select manually
-
-### Manual selection
-
-Browse the list of available Lithuanian weather stations, which are listed with their name and administrative division for easier identification.
+During setup, you can browse the list of available Lithuanian weather stations, which are listed with their name and administrative division for easier identification.
 
 ## Weather platform
 
