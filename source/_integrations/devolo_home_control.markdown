@@ -113,6 +113,11 @@ The integration provides support for the following Z-Wave devices:
 
 - devolo Siren
 
+## Known limitations
+
+Device addition and removal are not supported by this integration as the local API rejects these operations.
+To add or remove devices, please use the devolo Home Control app or the web interface.
+
 ## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.
