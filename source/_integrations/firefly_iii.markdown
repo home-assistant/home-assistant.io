@@ -11,7 +11,7 @@ ha_domain: firefly_iii
 ha_config_flow: true
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The Firefly III {% term integration %} is used as an interface to the [Firefly III API](https://api-docs.firefly-iii.org/).
