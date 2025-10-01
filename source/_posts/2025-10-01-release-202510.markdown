@@ -506,12 +506,11 @@ There are many more improvements in this release; here are some of the other not
 - Thanks to [@cr7pt0gr4ph7], the add-on configuration UI has gotten support for more complex configurations; this means you will get a better experience when configuring add-ons with more complex options (like lists or user accounts). Well done!
 - Talking about add-ons, we now include switch entities for those, making it easier to control your add-ons. Thanks, [@felipecrs]!
 - Using a [webhook trigger] in your automation? You can now make it even more dynamic by using a template for the `webhook_id`. Thanks, [@RoboMagus]!
-- We now have support for `MCF` (1000 Cubic Feet) as an alternate unit of measure for volume, thanks to [@ekobres], [@xtimmy86x] added `m/min` for speed sensors, `mg/m³` was added for carbon monoxide sensors by [@jbouwh], and [@pioto] added `inH₂O` pressure unit support. Nice!
+- We now have support for `MCF` (1000 Cubic Feet) as an alternate unit of measure for volume, thanks to [@ekobres], [@xtimmy86x] added `m/min` for speed sensors, and [@pioto] added `inH₂O` pressure unit support. Nice!
 
 [@cr7pt0gr4ph7]: https://github.com/cr7pt0gr4ph7
 [@ekobres]: https://github.com/ekobres
 [@felipecrs]: https://github.com/felipecrs
-[@jbouwh]: https://github.com/jbouwh
 [@karwosts]: https://github.com/karwosts
 [@lboue]: https://github.com/lboue
 [@piitaya]: https://github.com/piitaya
