@@ -15,10 +15,17 @@ ha_integration_type: device
 ha_quality_scale: silver
 ---
 
-The **OpenRGB** {% term integration %} is used to integrate the RGB lighting devices from computers through [OpenRGB](https://openrgb.org/).
+The **OpenRGB** {% term integration %} is used to integrate the RGB lighting devices from computers running [OpenRGB](https://openrgb.org/).
 OpenRGB provides a unified interface for controlling various RGB lighting hardware from different manufacturers.
 
 {% include integrations/config_flow.md %}
+
+{% configuration_basic %}
+Host:
+  description: The hostname or IP address of the computer running the OpenRGB SDK Server (e.g., `192.168.1.100`).
+Port:
+  description: The port on which the OpenRGB SDK Server is accessible (default is `6742`).
+{% endconfiguration_basic %}
 
 ## Supported devices
 
@@ -26,22 +33,13 @@ This integration supports any RGB device that is compatible with OpenRGB. Refer 
 
 ## Prerequisites
 
-To use this integration, you need the **OpenRGB application installed** in your computer, with the **SDK Server running**.
+To use this integration, you need the **OpenRGB application installed** in your computer with the **SDK Server running**.
 
 To enable the OpenRGB SDK Server:
 
 1. In the OpenRGB application, go to **SDK Server** tab
 2. Click **Start Server**
 3. Optionally, go to the **Settings** tab and check **Start at Login**, **Start Minimized**, and **Start Server** for convenience
-
-{% include integrations/option_flow.md %}
-
-{% configuration_basic %}
-Host:
-  description: "The hostname or IP address of the computer running the OpenRGB SDK Server (e.g., `192.168.1.100`)."
-Port:
-  description: "The port on which the OpenRGB SDK Server is accessible (default is `6742`)."
-{% endconfiguration_basic %}
 
 ## Configuration options
 
