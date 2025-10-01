@@ -296,7 +296,17 @@ Now we added a new concept - sections of suggested entities. For now, it follows
 
 {% details "Prediction entities on any dashboard" %}
 
-If you are experienced in customizing your dashboard sections with YAML you can bring these prediction controls into your own dashboard. It is built using a section strategy. Edit the YAML of your section-based dashboard, and under the sections key, as an individual entry, add ```{"strategy": {"type": "common-controls"}} ```
+If you’re creating a manual dashboard with sections, you can integrate these prediction controls directly into it. The setup follows a section-based approach:
+
+1. Add a new section.
+2. Open and edit the YAML of that section.
+3. Replace the entire section YAML with the following snippet:
+
+```yaml
+strategy:
+  type: common-controls
+  title: Common controls
+```
 
 {% enddetails %}
 
