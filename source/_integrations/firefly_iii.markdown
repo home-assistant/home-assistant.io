@@ -34,7 +34,6 @@ Create a Firefly III Personal Access Token by following these steps:
 
 ## Supported functionality
 
-
 There is currently support for the following device types within Home Assistant:
 
 - Sensors - for monitoring the accounts, categories and their balances.
