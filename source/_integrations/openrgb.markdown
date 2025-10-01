@@ -101,10 +101,6 @@ If lighting effects are not working:
 
 - Verify the effect can be applied in the OpenRGB application
 
-If lighting effects are not working:
-
-- Verify the effect can be applied in the OpenRGB application
-
 ## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.
