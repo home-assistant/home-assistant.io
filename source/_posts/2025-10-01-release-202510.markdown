@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "2025.10 Beta: A Betta title"
+title: "2025.10 Beta: Undo, redo, and draw me too"
 description: "Beta release notes for Home Assistant Core 2025.10"
 date: 2025-09-24 00:00:00
 date_formatted: "October 1, 2025"
@@ -113,7 +113,7 @@ Working on an action that is too complex for a small sidebar? Maybe one with a f
 
 ### CTRL+V
 
-We previously introduced shortcuts to copy and cut.
+We previously introduced keyboard shortcuts to copy and cut.
 
 Pasting was more complex to bring to life because you can paste a block (trigger, condition, action) in many different locations in your automation.
 In this release, we introduce a really simple pattern. If you previously copied a block, you can paste it below any block simply by selecting it and pressing CTRL+V.
@@ -124,19 +124,19 @@ Another very simple, but very welcome quality of life improvement to the automat
 
 ### The overflow menu is back
 
-This section does not really require a long story. We initially relocated the overflow menu with all the options related to a block on the sidebar, thinking this would make the flow cleaner.
+We initially relocated the overflow menu (the menu that appears when you click the `⋮`) with all the options related to a block on the sidebar, thinking this would make the flow cleaner.
 
-Due to popular request, and valid feedback about some actions being more difficult to reach (such as testing a condition or running an action), we decided to bring it back to the main section of the editor too.
+Due to popular demand and helpful feedback that some actions were more difficult to reach (such as testing a condition or running an action), we decided to bring it back to the main section of the editor too.
 
 <img class="no-shadow" alt="Temporary screenshot that might need replacement" src="/images/blog/2025-10/temp-automation-editor-overflow-menu.png" />
 
 ### Undo/Redo
 
-We all had these moments when we’re building a complex automation, make a mistake, want to revert it, only to find out that it’s really not simple.
-Up until then, the only way to revert some unsaved changes made to an automation was to close it, and start again… A very painful workflow.
+We’ve all been there, you’re building a complex automation, make a mistake, and want to revert it, only to find out that it’s really not simple.
+Up until now, the only way to revert some unsaved changes made to an automation was to close it and start over again… A very painful workflow.
 
-This release introduces an Undo functionality (And its associated Redo). You can now undo up to 75 steps in your automation (And redo them if you want)!
-Standard keyboard shortcuts (CTRL+Z, CTRL+Y) are also available! An amazing contribution [@jpbede], thanks!
+This release introduces an Undo functionality (And its associated Redo). You can now undo up to 75 steps back in your automation editing history (and redo them if you want).
+Standard keyboard shortcuts (CTRL+Z and CTRL+Y) are also available! An amazing contribution [@jpbede], thanks!
 
 <img class="no-shadow" alt="Temporary screen recording that might need replacement" src="/images/blog/2025-10/temp-automation-editor-redo-undo.gif" />
 
@@ -146,9 +146,16 @@ Standard keyboard shortcuts (CTRL+Z, CTRL+Y) are also available! An amazing cont
 
 Finally, we noticed some unwanted complexity in our `repeat` building block, which allows you to repeat one or multiple actions for as long as you need to.
 
-This complexity stemmed from the fact that we were trying to cover 4 main use-cases in a single block.
+This complexity stemmed from the fact that we were trying to cover four main use-cases in a single block.
 
-We decided to split this building block into 4 smaller ones, with simpler descriptions explaining each use case. Nice!
+We decided to split this building block into four smaller ones, with simpler descriptions explaining each use case. Nice!
+
+Here's how they were separated out,
+
+- Repeat for each - Repeat a sequence for each element of a list.
+- Repeat multiple times - Repeat a sequence of actions a fixed number of times.
+- Repeat until - Repeat a sequence of actions until a condition is satisfied. The condition is checked after each run of the sequence.
+- Repeat while - Repeat a sequence of actions as long as a condition is satisfied. The condition is checked before each run of the sequence.
 
 <img class="no-shadow" alt="Temporary screenshot that might need replacement" src="/images/blog/2025-10/temp-automation-editor-split-repeat.png" />
 
@@ -173,7 +180,7 @@ In [2025.8](/blog/2025/08/06/release-20258/), we introduced [a way to generate d
 
 In this release, we introduce a way to generate images!
 
-At home, every time someone rings my doorbell, I receive a notification with a cartoon version of the doorbell snapshot, here is a demo, and its associated automation!
+Now every time someone rings your doorbell, you can receive a notification with a cartoon version of the doorbell snapshot. [@JLo](https://github.com/jlpouffier) has made this example a reality, and here's his demo with the associated automation!
 
 <lite-youtube videoid="r6GyFSEpzg4" videotitle="Demo of image generation in Home Assistant 2025.10"></lite-youtube>
 
@@ -283,13 +290,13 @@ mode: single
 
 {% enddetails %}
 
-The results are very promising, and we cannot wait to see what you will build with this!
+Image generation is already working great, and we cannot wait to see what you will build with this!
 
 ## Dashboards get smarter - let your home suggest what to show
 
-Last release with Home dashboard we created another way for controlling & monitoring if you don’t have time, energy or need for customizing your own dashboard in detail.
+In the last release, we introduced the Home dashboard, offering a simpler way to control and monitor your smart home if you don’t have the time, energy, or need to customize your own dashboard in detail.
 
-Now we added a new concept - sections of suggested entities. For now, it follows a basic algorithm and suggests entities you interacted the most with in the span of 24h, and shows them depending on the hour of the day. Only relevant controls will be suggested.
+Now we’ve added a new concept - sections of suggested entities. For now, it follows a basic algorithm suggesting entities you have interacted with the most in the past 24 hours. It then shows these entities based on the hour of the day, with only relevant controls being suggested.
 
 <img class="no-shadow" alt="Temporary screenshot that might need replacement" src="/images/blog/2025-10/temp-home-dashboard-prediction-entities.png" />
 
@@ -306,22 +313,21 @@ One of Home Assistant's greatest strengths is our community. We're building this
 
 ### Hello, Hola
 
-For a very long time, our voice assistants (even the tiniest Atom Echo) secretly [supported multiple wake words](/blog/2024/06/26/voice-chapter-7/#3x-wake-words-and-2x-accuracy) under their hood.
-This release finally bring this feature to you!
+For a very long time, ESPHome-based voice assistants (even the tiny Atom Echo) secretly [supported multiple wake words](/blog/2024/06/26/voice-chapter-7/#3x-wake-words-and-2x-accuracy) under the hood. With this release, we are finally opening up this feature to you!
 
-You can now define 2 wake words and two assistants for every voice assistant in your home!
+You can now define two wake words and two assistants for every voice assistant in your home!
 
 <img class="no-shadow" alt="Temporary screenshot that might need replacement" src="/images/blog/2025-10/temp-voice-2-wake-words.png" />
 
-This makes it straightforward to support dual language households by assigning different wake words to different languages. For example, “Okay Nabu” could be used for French while “Hey Jarvis” is used for English.
+This makes it straightforward to support dual-language households by assigning different wake words to different languages. For example, “Okay Nabu” could be used for French while “Hey Jarvis” is used for English.
 
-Multiple wake words and assistants can be used for other purposes as well. Want to keep your local and cloud-based voice assistants separate? Easy! “Okay Nabu” could be used for a cloud-based assistant while “Hey Jarvis” is used for local one.
+Multiple wake words and assistants can be used for other purposes as well. Want to keep your local and cloud-based voice assistants separate? Easy! “Okay Nabu” could be used for a cloud-based assistant while “Hey Jarvis” is used for a local one.
 
 We’d love to hear feedback on how you plan to use multiple wake words in your home!
 
 ### Beep boop
 
-After a voice command, Assist responds with a short confirmation like “Turned on the lights” or “Brightness set”. This lets you know that it understood your command and took the appropriate actions. If you’re in the same room as the voice assistant, however, this confirmation is redundant; you can see or hear that appropriate actions were taken.
+After a voice command, Assist responds with a short confirmation like “Turned on the lights” or “Brightness set”. This lets you know that it understood your command and took the appropriate actions. However, if you’re in the same room as the voice assistant, this confirmation is redundant, as you can see or hear that the appropriate actions were taken.
 
 Starting with this release, Assist will detect if the voice command’s actions all took place within the same area as the satellite device. If so, a short confirmation “beep” will be played instead of the full verbal response. Besides being less verbose, this also serves as a reminder that your voice command only affected the current area.
 
@@ -554,7 +560,7 @@ There are many more improvements in this release; here are some of the other not
 
 ### New more information dialog for media player entities
 
-This one, we have [@jpbede] & [@matthiasdebaat] to thank for! The design for the more information dialogs for media players has been revamped to provide a cleaner and more intuitive interface.
+This one, we have [@jpbede] & [@matthiasdebaat] to thank for! The 'more information' dialogs for media players have a revamped design, offering a cleaner and more intuitive interface.
 
 <img class="no-shadow" alt="Temporary screenshot that might need replacement" src="/images/blog/2025-10/temp-more-info-media-player.png" />
 
