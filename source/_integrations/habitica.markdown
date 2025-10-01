@@ -99,6 +99,7 @@ Verify SSL certificate:
 - **Quest scrolls**: Displays the total number of quest scrolls in your inventory. A list of each quest scroll and its quantity is provided in the sensor's attributes.
 - **Pending damage**: Total damage accumulated during the day by completing your tasks. The quest boss is then attacked for this amount at the end of the day.
 - **Pending quest items**: Quest items found during the day when completing tasks. The total is counted towards the quest objective at the end of the day.
+- **Last check-in**: Last time a user checked in.
 
 ## Binary sensors
 
