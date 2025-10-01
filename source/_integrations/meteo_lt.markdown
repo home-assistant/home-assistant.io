@@ -14,7 +14,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `meteo_lt` {% term integration %} uses meteorological data from the [Lithuanian Hydrometeorological Service](https://www.meteo.lt) (<abbr title="Lietuvos hidrometeorologijos tarnyba">LHMT</abbr>) to provide weather forecasts for locations in Lithuania. You can set up one or more locations via the user interface.
+The **Meteo.lt** {% term integration %} uses meteorological data from the [Lithuanian Hydrometeorological Service](https://www.meteo.lt) (<abbr title="Lietuvos hidrometeorologijos tarnyba">LHMT</abbr>) to provide weather forecasts for locations in Lithuania. You can set up one or more locations via the user interface.
 
 The integration provides current weather conditions along with hourly and daily forecasts from official weather stations across Lithuania.
 
