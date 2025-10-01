@@ -38,9 +38,9 @@ To enable the OpenRGB SDK Server:
 
 {% configuration_basic %}
 Host:
-description: "The hostname or IP address of the computer running the OpenRGB SDK Server (e.g., `192.168.1.100`)."
+  description: "The hostname or IP address of the computer running the OpenRGB SDK Server (e.g., `192.168.1.100`)."
 Port:
-description: "The port on which the OpenRGB SDK Server is accessible (default is `6742`)"
+  description: "The port on which the OpenRGB SDK Server is accessible (default is `6742`)."
 {% endconfiguration_basic %}
 
 ## Configuration options
