@@ -63,14 +63,14 @@ The OpenRGB integration uses {% term polling %} to fetch the current state of yo
 
 ## Reconfiguration
 
-If your OpenRGB server's IP address changes or you need to update the connection settings:
+If your OpenRGB SDK Server's address changes or you need to update the connection settings:
 
 1. Go to **{% my integrations title="Settings > Devices & Services" %}**.
 2. Select **OpenRGB**. Click the three dots {% icon "mdi:dots-vertical" %} menu and then select **Reconfigure**.
 3. Update the hostname/IP address and port as needed.
 4. Select **Submit**.
 
-The integration will reconnect to the OpenRGB server with the new settings.
+The integration will reconnect to the OpenRGB SDK Server with the new settings.
 
 ## Known limitations
 
