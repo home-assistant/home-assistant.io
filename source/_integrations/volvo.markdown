@@ -9,9 +9,12 @@ ha_domain: volvo
 ha_integration_type: device
 ha_config_flow: true
 ha_category:
+  - Binary sensor
+  - Button
   - Sensor
 ha_platforms:
   - binary_sensor
+  - button
   - sensor
 ha_quality_scale: silver
 related:
@@ -118,6 +121,19 @@ The **Volvo** integration provides the following entities.
 - **Window front right**: Detects if the front right window is open or closed
 - **Window rear left**: Detects if the rear left window is open or closed
 - **Window rear right**: Detects if the rear right window is open or closed
+
+#### Buttons
+
+- **Start climatization**: Starts the climate control system to pre-condition the vehicle's interior temperature
+- **Stop climatization**: Stops the climate control system
+- **Flash**: Activates the vehicle's lights to flash briefly
+- **Honk**: Activates the vehicle's horn for a short duration
+- **Flash & honk**: Combines flashing lights and horn activation
+
+{% important %}
+Volvo removed the **Honk** and **Flash** buttons from the official app because they can drain the vehicle's 12V battery.
+Use them with care!
+{% endimportant %}
 
 #### Sensors
 
