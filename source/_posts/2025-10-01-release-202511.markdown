@@ -103,11 +103,18 @@ and improvements to existing ones! You’re all awesome 🥰
 
 We welcome the following new integrations in this release:
 
-- **[Lorem ipsum]**, added by [@frenck]  
-  The Lorem integration provides a Lorem Ipsum generator service, allowing users to generate placeholder text for design and development purposes.
+- **[Firefly III]**, added by [@erwindouna]  
+  Integrate with the [Firefly III project], a free open-source personal finance manager with full transaction management, budgets, categories, and reports.
 
-[@frenck]: https://github.com/frenck
-[Lorem ipsum]: /integrations/lorem_ipsum
+- **[Meteo.lt]**, added by [@xE1H]  
+  The Meteo.lt integration uses meteorological data from the [Lithuanian Hydrometeorological Service] (LHMT) to provide regional weather forecasts for locations in Lithuania.
+
+[@erwindouna]: https://github.com/erwindouna
+[@xE1H]: https://github.com/xE1H
+[Firefly III project]: https://www.firefly-iii.org/
+[Firefly III]: /integrations/firefly_iii
+[Lithuanian Hydrometeorological Service]: https://www.meteo.lt/en/
+[Meteo.lt]: /integrations/meteo_lt
 
 ### Noteworthy improvements to existing integrations
 
