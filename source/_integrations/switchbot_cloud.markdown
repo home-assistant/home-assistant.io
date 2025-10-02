@@ -124,7 +124,7 @@ Please note, device names configured in the SwitchBot app are transferred into H
 - [Air Purifier](https://www.switch-bot.com/products/switchbot-air-purifier)
 - [Air Purifier Table](https://www.switch-bot.com/products/switchbot-air-purifier-table)
 
-### Water Heater
+### Water heater
 
 - [Smart Radiator Thermostat](https://www.switch-bot.com/products/switchbot-smart-radiator-thermostat)
 
