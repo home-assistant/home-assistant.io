@@ -18,11 +18,21 @@ ha_quality_scale: silver
 The **OpenRGB** {% term integration %} is used to integrate the RGB lighting devices from computers running [OpenRGB](https://openrgb.org/).
 OpenRGB provides a unified interface for controlling various RGB lighting hardware from different manufacturers.
 
+## Prerequisites
+
+To use this integration, you need the **OpenRGB application installed** in your computer with the **SDK Server running**.
+
+To enable the OpenRGB SDK Server:
+
+1. In the OpenRGB application, go to **SDK Server** tab.
+2. Select **Start Server**.
+3. Optionally, go to the **Settings** tab and check **Start at Login**, **Start Minimized**, and **Start Server** for convenience.
+
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
 Host:
-  description: The hostname or IP address of the computer running the OpenRGB SDK Server (e.g., `192.168.1.100`).
+  description: The hostname or IP address of the computer running the OpenRGB SDK Server (for example, `192.168.1.100`).
 Port:
   description: The port on which the OpenRGB SDK Server is accessible (default is `6742`).
 {% endconfiguration_basic %}
@@ -31,15 +41,6 @@ Port:
 
 This integration supports any RGB device that is compatible with OpenRGB. Refer to the [OpenRGB Supported Devices list](https://openrgb.org/devices.html).
 
-## Prerequisites
-
-To use this integration, you need the **OpenRGB application installed** in your computer with the **SDK Server running**.
-
-To enable the OpenRGB SDK Server:
-
-1. In the OpenRGB application, go to **SDK Server** tab
-2. Click **Start Server**
-3. Optionally, go to the **Settings** tab and check **Start at Login**, **Start Minimized**, and **Start Server** for convenience
 
 ## Configuration options
 
@@ -72,8 +73,8 @@ The integration will reconnect to the OpenRGB SDK Server with the new settings.
 
 ## Known limitations
 
-- Changes made directly in the OpenRGB application may not be immediately reflected in Home Assistant (the integration polls for updates every 15 seconds)
-- Some OpenRGB features like per-LED or per-zone control are not yet supported through Home Assistant
+- Changes made directly in the OpenRGB application may not be immediately reflected in Home Assistant (the integration polls for updates every 15 seconds).
+- Some OpenRGB features, like per-LED or per-zone control, are not yet supported through Home Assistant
 
 ## Troubleshooting
 
@@ -81,23 +82,23 @@ The integration will reconnect to the OpenRGB SDK Server with the new settings.
 
 If you encounter connection errors:
 
-- In the OpenRGB application, verify **OpenRGB SDK Server is running**
-- In the OpenRGB application, verify that **SDK Server** > **Server Host** is set to `0.0.0.0`
-- Confirm the IP address of the computer running the OpenRGB SDK Server matches the **Host** configured in the OpenRGB integration
-- Confirm the **SDK Server** > **Server Port** matches the port configured in the OpenRGB integration
-- Check for firewall rules that may block the connection from Home Assistant to the OpenRGB SDK Server
+- In the OpenRGB application, verify **OpenRGB SDK Server is running**.
+- In the OpenRGB application, verify that **SDK Server** > **Server Host** is set to `0.0.0.0`.
+- Confirm the IP address of the computer running the OpenRGB SDK Server matches the **Host** configured in the OpenRGB integration.
+- Confirm the **SDK Server** > **Server Port** matches the port configured in the OpenRGB integration.
+- Check for firewall rules that may block the connection from Home Assistant to the OpenRGB SDK Server.
 
 ### Devices not appearing
 
 If your RGB devices don't appear in Home Assistant:
 
-- Verify the devices are detected and working in the OpenRGB application
+- Verify the devices are detected and working in the OpenRGB application.
 
 ### Light effects not working
 
 If lighting effects are not working:
 
-- Verify the effect can be applied in the OpenRGB application
+- Verify the effect can be applied in the OpenRGB application.
 
 ## Removing the integration
 
