@@ -26,6 +26,14 @@ End station:
   description: "The arrival station for the end of the connection (e.g., `Geneva`)"
 Via stations:
   description: "List of up to 5 via stations (e.g., `Bern`, `Lausanne`)"
+Departure or arrival time:
+  description: "Choose between the departure or arrival time or the connection to be displayed"
+Time mode:
+  description: "The time mode of the connections (e.g., `now` , `fixed`, `offset`)"
+Fixed time of day (only when time mode is set to fixed):
+  description: "The relevant time for the connection (e.g. 7:12:00 AM every morning)."
+Offset time from now (only when time mode is set to fixed):
+  description: "The time offset added to the earliest possible connection (e.g. add +00:05:00 offset, taking into account the time to walk to the station)"
 {% endconfiguration_basic %}
 
 Use the [Stationboard](https://transport.opendata.ch/examples/stationboard.html) to find exact station names.
@@ -38,7 +46,7 @@ The public timetables are coming from [Swiss public transport](https://transport
 
 The minimum configuration for a connection requires a _start_ and _end_ station (for example, "Zürich HB").
 
-Optionally, you can provide up to 5 additional _via_ stations.
+Optionally, you can provide up to 5 additional _via_ stations where the connection must go through.
 
 ![Config flow](/images/integrations/swiss_public_transport/config_flow.png)
 

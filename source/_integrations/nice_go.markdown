@@ -21,7 +21,10 @@ ha_platforms:
 ha_integration_type: hub
 ---
 
-The **Nice G.O.** {% term integration %} lets you control Nice G.O. garage doors through Home Assistant. Device names in Home Assistant are generated based on the names defined in your Nice G.O. mobile app.
+The **Nice G.O.** {% term integration %} is used to integrate with [Nice/Linear](https://linear-solutions.com/) and [Mighty Mule](https://mightymule.com/) products.
+This integration is used for garage doors and gate openers created by these companies.
+
+Device names in Home Assistant are generated based on the names defined in your Nice G.O. mobile app.
 
 ## Prerequisites
 
@@ -44,3 +47,9 @@ Lights on your garage door will appear as lights.
 ## Switch
 
 A switch for turning vacation mode on and off will be made available for each device. Vacation mode prevents the operation of the door from physical control points such as a wall station, wireless keypad, remote control, or HomeLink. It can still be controlled from Home Assistant.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}

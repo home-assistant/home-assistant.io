@@ -6,8 +6,7 @@ date: 2023-03-03 00:00:00
 date_formatted: "March 3rd, 2023"
 author: Uwe Bernitt
 comments: true
-categories:
-- Announcements
+categories: Works-with-Home-Assistant
 og_image: /images/blog/2023-03-03-heltun-partner/social.png
 ---
 

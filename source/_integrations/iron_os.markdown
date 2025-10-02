@@ -2,11 +2,13 @@
 title: IronOS
 description: Instructions on how to integrate IronOS-based Pinecil V2 devices with Home Assistant.
 ha_category:
-  - Number
-  - Sensor
-  - Update
   - Binary sensor
+  - Button
+  - Number
   - Select
+  - Sensor
+  - Switch
+  - Update
 ha_iot_class: Local Polling
 ha_release: 2024.8
 ha_config_flow: true
@@ -15,11 +17,15 @@ ha_codeowners:
 ha_domain: iron_os
 ha_integration_type: integration
 ha_platforms:
-  - number
-  - sensor
-  - update
   - binary_sensor
+  - button
+  - diagnostics
+  - number
   - select
+  - sensor
+  - switch
+  - update
+ha_quality_scale: platinum
 ---
 
 The **IronOS** {% term integration %} seamlessly connects Home Assistant with PINE64's Pinecil V2 soldering irons, allowing for remote monitoring and control. This integration provides real-time updates on temperature, power, and various other settings and diagnostic information.
@@ -43,6 +49,13 @@ The IronOS integration requires your device to be within Bluetooth range of Home
 Home Assistant will detect nearby IronOS devices. Discovered devices will show up on {% my integrations title="Settings > Devices & services" %} in the discovered section.
 
 {% include integrations/config_flow.md %}
+
+### Configuration parameters
+
+{% configuration_basic %}
+"Address":
+  description: "The Bluetooth address of the detected IronOS device."
+{% endconfiguration_basic %}
 
 ## Number controls
 
@@ -78,7 +91,8 @@ The following controls allow you to customize the settings and options for your 
 
 ### Basic settings
 
-- **Boost temperature:** Sets the temperature for boost mode, which temporarily overrides the soldering temperature when the front button is held down.
+- **Boost:** Enables or disables the boost feature. When enabled, holding the front button temporarily raises the tip to the boost temperature.
+- **Boost temperature:** Defines the temporary temperature increase activated when holding the front button.
 - **Sleep temperature:** The temperature the device drops to after a specified period of inactivity (no movement or button presses).
 - **Sleep timeout:** The duration of inactivity required before the device enters sleep mode and drops to the sleep temperature.
 
@@ -90,6 +104,8 @@ The following controls allow you to customize the settings and options for your 
 - **Button locking mode:** Configures whether buttons can be locked to prevent accidental presses, with options for disabled, full locking, or boost only.
 - **Display orientation mode:** Sets the display orientation with options for left-handed, right-handed, or automatic adjustment.
 - **Startup behavior:** Defines the mode the device enters on power-up: disabled, sleeping mode, idle mode (heat-off until moved), or soldering mode.
+- **Soldering tip type:** Select the type of soldering tip in use: TS100 long/Hakko T12, Pinecil short, or PTS200 short. The auto-sense option enables automatic detection of the tip type. This feature requires IronOS v2.23 or higher.
+- **Hall effect sleep timeout:** Specifies the duration of inactivity after which the device enters sleep mode when a hall effect sensor (if present) detects proximity to a magnet. This feature requires IronOS v2.23 or higher.
 
 ### User interface settings
 
@@ -97,6 +113,12 @@ The following controls allow you to customize the settings and options for your 
 - **Temperature display unit:** Sets the unit for displaying temperature as Celsius (C°) or Fahrenheit (F°).
 - **Animation speed:** Adjusts the pace of icon animations in the menu, with options for off, slow, medium, or fast.
 - **Boot logo duration:** Sets the duration for the boot logo, with options for off, 1–5 seconds, or loop.
+- **Animation loop:** Controls whether menu animations should loop continuously. This setting is applicable only when animation speed is enabled.
+- **Detailed idle screen:** Enables a more detailed view on the idle screen, showing text with additional information compared to the default icon-based view.
+- **Detailed solder screen:** Enables a more detailed view on the soldering screen in a text-based format, reducing the use of graphical visuals.
+- **Invert screen:** Inverts the OLED screen colors.
+- **Swap +/- buttons:** Reverses the button assignment for incrementing and decrementing temperature on adjustment screens.
+- **Cool down screen flashing:** Enables the idle screen to blink the tip temperature when it exceeds 50°C, serving as a tip is still hot warning.
 
 ### Power management
 
@@ -108,6 +130,7 @@ The following controls allow you to customize the settings and options for your 
 - **Power Delivery timeout:** Defines how long the firmware will attempt to negotiate USB-PD before switching to Quick Charge. Lower values are recommended for faster PD negotiation.
 - **Power limit:** Sets a custom wattage cap for the device to maintain the **average** power below this value. Note: Peak power cannot be controlled. When using USB-PD, the limit will be the lower of this setting and the power supply's advertised wattage.
 - **Quick Charge voltage:** Adjusts the maximum voltage for Quick Charge negotiation. Does not affect USB-PD. Ensure the setting aligns with the current rating of your power supply for safety.
+- **Power Delivery 3.1 EPR (Extended Power Range):** Enables EPR mode, allowing input voltages up to 28V with a [compatible USB-C power supply](https://wiki.pine64.org/wiki/Pinecil_Power_Supplies#EPR_PD3.1,_140W_Chargers). Options are *on*, *off*, and *safe* (does not dynamically request more power). The *safe* option requires IronOS v2.23 or higher.
 
 ### Advanced settings
 
@@ -115,6 +138,13 @@ These settings are intended for technically experienced users and require carefu
 
 - **Voltage divider:** Fine-tunes the measured voltage to account for variations in the voltage sense resistors between units.
 - **Calibration offset:** Adjusts the calibration of the thermocouple measurements, which determine the temperature displayed for the tip.
+- **Calibrate CJC (Cold Junction Compensation):** Initiates thermocouple calibration at the next boot to improve temperature accuracy. Only needed if temperature readings are consistently inaccurate. Ensure the device is at room temperature before calibrating. For more details, see the [documentation](https://ralim.github.io/IronOS/Settings/#setting-calibrate-cjc-at-next-boot).
+
+### Save & restore
+
+- **Save settings:** Saves the current configuration to apply it permanently. Use this after making changes to ensure they persist across device reboots.
+- **Restore default settings:** Resets all configuration options to their factory defaults. Note: This action cannot be undone, and all custom settings will be lost. To preserve custom settings, create a {% term scene %} before restoring defaults.
+
 ## Automations
 
 Get started with this automation example for IronOS with a ready-to-use blueprint!
@@ -123,7 +153,7 @@ Get started with this automation example for IronOS with a ready-to-use blueprin
 
 Automatically activate the fume extractor when soldering begins and deactivate it when the soldering iron is idle.
 
-{% my blueprint_import badge blueprint_url="https://community.home-assistant.io/t/ironos-soldering-fume-extractor-automation-pinecil-v2/802156" %}
+{% my blueprint_import badge blueprint_url="<https://community.home-assistant.io/t/ironos-soldering-fume-extractor-automation-pinecil-v2/802156>" %}
 
 {% details "Example YAML configuration" %}
 
@@ -187,6 +217,8 @@ This integration maintains an active Bluetooth connection while the device is po
       sdkconfig_options:
         CONFIG_BT_GATTC_MAX_CACHE_CHAR: "100"
   ```
+
+In any case, when reporting an issue, please enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics), restart the integration, and as soon as the issue reoccurs, stop the debug logging again (_download of debug log file will start automatically_). Further, if still possible, please also download the [diagnostics](/integrations/diagnostics) data. If you have collected the debug log and the diagnostics data, provide them with the issue report.
 
 ## Removing the integration
 

@@ -84,7 +84,7 @@ disable_brightness_adjust:
   type: boolean
   default: false
 mode:
-  description: Select how color temperature is passed to lights. Valid values are `xy`, `mired` and `rgb`.
+  description: Select how color temperature is passed to lights. Valid values are `xy`, `mired` (alias to kelvin) and `rgb`.
   required: false
   default: xy
   type: string

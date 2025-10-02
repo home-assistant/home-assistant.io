@@ -6,7 +6,7 @@ description: The Conditional card displays another card based on conditions.
 related:
   - docs: /dashboards/cards/
     title: Dashboard cards
-  - docs: /dashboards/cards/#showing-or-hiding-a-card-conditionally
+  - docs: /dashboards/cards/#showing-or-hiding-a-card-or-badge-conditionally
     title: Conditional settings on the card's visibility tab
 ---
 
@@ -17,7 +17,7 @@ The conditional card displays another card based on conditions.
 {% include dashboard/edit_dashboard.md %}
 Note that while editing the dashboard, the card will always be shown, so be sure to exit editing mode to test the conditions.
 
-The conditional card can still be used. However, it is now possible to define a setting to show or hide a card conditionally directly on each card type, on its [Visibility](/dashboards/cards/#showing-or-hiding-a-card-conditionally) tab.
+The conditional card can still be used. However, it is now possible to define a setting to show or hide a card conditionally directly on each card type, on its [Visibility](/dashboards/cards/#showing-or-hiding-a-card-or-badge-conditionally) tab.
 
 Most options for this card can be configured via the user interface.
 
@@ -198,9 +198,31 @@ users:
   type: list
 {% endconfiguration %}
 
+### Location
+
+Specify the visibility of the card based on the current user's current location. The location is based on the state of the `person` entity associated with the current user. If the current user does not have a `person` entity, this condition will always resolve to false.
+
+```yaml
+condition: location
+locations:
+  - home
+  - Home Neigborhood
+```
+
+{% configuration %}
+condition:
+  required: true
+  description: "`location`"
+  type: string
+locations:
+  required: true
+  description: A list of zones, which if any match the current state of the `person`, will cause this condition to be true. 
+  type: list
+{% endconfiguration %}
+
 ### And
 
-Specify that both conditions must be met.
+Specify that all conditions must be met.
 
 ```yaml
 condition: and
@@ -248,4 +270,27 @@ conditions:
   type: list
 {% endconfiguration %}
 
+### Not
 
+Specify that at least one of the conditions must not be met.
+
+```yaml
+condition: not
+conditions:
+  - condition: numeric_state
+    above: 0
+  - condition: user
+    users:
+      - 581fca7fdc014b8b894519cc531f9a04
+```
+
+{% configuration %}
+condition:
+  required: true
+  description: "`not`"
+  type: string
+conditions:
+  required: false
+  description: List of conditions to check. See [available conditions](#conditions-options).
+  type: list
+{% endconfiguration %}

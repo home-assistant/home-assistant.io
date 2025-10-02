@@ -53,6 +53,9 @@ The following entities can be grouped:
 - [event (events)](/integrations/event/)
 - [media player (media players)](/integrations/media_player/)
 - [notify (notifications)](/integrations/notify/)
+- [sensor (sensors)](/integrations/sensor/)
+- [number (numbers)](/integrations/number/)
+- [input_number (input_numbers)](/integrations/input_number/)
 
 {% include integrations/config_flow.md %}
 
@@ -115,10 +118,12 @@ In short, when any group member entity is `unlocked`, the group will also be `un
 - The group state is `unavailable` if all group members are `unavailable`.
 - Otherwise, the group state is `unknown` if all group members are `unknown` or `unavailable`.
 - Otherwise, the group state is `jammed` if at least one group member is `jammed`.
+- Otherwise, the group state is `opening` if at least one group member is `opening`.
 - Otherwise, the group state is `locking` if at least one group member is `locking`.
+- Otherwise, the group state is `open` if at least one group member is `open`.
 - Otherwise, the group state is `unlocking` if at least one group member is `unlocking`.
-- Otherwise, the group state is `unlocked` if at least one group member is `unlocked`.
-- Otherwise, the group state is `locked`.
+- Otherwise, the group state is `locked` if all group members are `locked`.
+- Otherwise, the group state is `unlocked`.
 
 ### Notify entity groups
 
@@ -136,12 +141,19 @@ In short, when any group member entity is `unlocked`, the group will also be `un
 - Otherwise, the group state is `on` if at least one group member is not `off`, `unavailable` or `unknown`.
 - Otherwise, the group state is `off`.
 
-### Sensor groups
+### Sensor, number, and input_number groups
 
 - The group state is combined / calculated based on `type` selected to determine the minimum, maximum, latest (last), mean, median, range, product, standard deviation, or sum of the collected states.
 - Members can be any `sensor`, `number` or `input_number` holding numeric states.
-- The group state is `unavailable` if all group members are `unavailable`.
-- If `ignore_non_numeric` is `false` then group state will be `unavailable` if one member is `unavailable` or does not have a numeric state.
+- States which are missing from the state machine do not make the state `unavailable` or `unknown`.
+- The group state is `unavailable` if no group member has a numeric state.
+- The configuration variable `ignore_non_numeric` controls the behavior of the group when the group is not `unavailable`:
+   - When set to `false` (the default), the group state is calculated as follows:
+      - if all members have a numeric state: calculated according to the `type` 
+      - otherwise: set to `unknown` 
+   - When set to `true`, the group state is calculated as follows:
+      - if at least one member has a numeric state: calculated according to the `type`
+      - otherwise:  and set to `unknown`
 
 ## Managing groups
 
@@ -316,7 +328,7 @@ type:
   type: string
   required: true
 ignore_non_numeric:
-  description: Only available for `sensor` group. Set this to `true` if the group state should ignore sensors with non numeric values.
+  description: Only available for `sensor` group. Controls how the [state is calculated when group members have non-numeric state](#sensor-number-and-input_number-groups).
   type: boolean
   required: false
   default: false
@@ -349,7 +361,7 @@ notify:
       - action: html5
         data:
           target: "macbook"
-      - action: html5_nexus
+      - action: mobile_app_pauluus
 ```
 
 {% configuration %}
@@ -482,7 +494,7 @@ These are the attributes available for an old-style group.
 
 ### Actions
 
-This integration provides the following actions to modify groups and a action to reload the configuration without restarting Home Assistant itself.
+The following actions to modify groups and a action to reload the configuration without restarting Home Assistant itself. These actions are only available for old-style groups. They cannot be used with the new-style groups described above.
 
 | Action   | Data              | Description                                                                   |
 | -------- | ----------------- | ----------------------------------------------------------------------------- |

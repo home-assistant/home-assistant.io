@@ -17,6 +17,7 @@ ha_codeowners:
 ha_config_flow: true
 ha_integration_type: device
 ha_zeroconf: true
+ha_quality_scale: platinum
 ---
 
 The **Cambridge Audio** {% term integration %} allows you to control all receivers and streamers that support the [StreamMagic](https://www.cambridgeaudio.com/usa/en/products/streammagic) app.
@@ -27,10 +28,12 @@ The integration automatically discovers all enabled zones and sources. Each zone
 
 This integration allows you to connect the following devices:
 
+- Cambridge Audio Evo One
 - Cambridge Audio Evo 75
 - Cambridge Audio Evo 150
 - Cambridge Audio CXN
 - Cambridge Audio CXN (v2)
+- Cambridge Audio CXN100
 - Cambridge Audio CXR120
 - Cambridge Audio CXR200
 - Cambridge Audio 851N
@@ -67,6 +70,13 @@ The integration provides a few entities to configure the device settings. The fo
 - Pre-Amp
 - Early update
 - Audio output (Speaker select)
+- Control Bus mode
+
+### Pre-Amp
+When Pre-Amp mode is enabled, Home Assistant can control the output volume of your Pre-Amplifier. 
+
+### Control Bus
+When Control Bus mode is enabled, Home Assistant can control the output volume of your Power Amplifier when it is connected to a Cambridge Audio network player using the Control Bus interface. In this case Pre-Amp mode can be disabled, the network player will send the signal with full volume to the power amplifier and the volume of the power amplifier can be controlled using volume up and down controls. Control Bus does not support setting the volume to a certain value, it can only increase and decrease the current volume.
 
 ## Playing media
 
@@ -104,6 +114,12 @@ data:
   media_content_type: "internet_radio"
   media_content_id: "https://example.com/internet-radio/station_abcd.mp3"
 ```
+
+## Browsing media
+
+The Cambridge Audio integration allows you to browse saved presets from your dashboard. 
+All stored presets will be categorized into playlists, artists, and tracks.
+
 ## Troubleshooting
 
 ### The buttons to skip, shuffle, and repeat the track are missing

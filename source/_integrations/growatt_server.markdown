@@ -42,4 +42,9 @@ To obtain an API token for your Growatt account:
 
 Using an API token is recommended for MIN/TLX inverters as it uses the official Growatt V1 API, which offers better stability, support and feature growth.
 
+## Prerequisites
+
+- Growatt account
+- Login credentials to that Growatt account, you will need them during setup of the integration
+
 {% include integrations/config_flow.md %}

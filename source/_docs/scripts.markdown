@@ -62,7 +62,7 @@ The variables {% term action %} allows you to set/override variables that will b
 ```yaml
 - alias: "Set variables"
   variables:
-    entities: 
+    entities:
       - light.kitchen
       - light.living_room
     brightness: 100
@@ -94,9 +94,7 @@ Variables can be templated.
 
 ### Scope of variables
 
-Variables have local scope. This means that if a variable is changed in a nested sequence block, that change will not be visible in an outer sequence block.
-
-Inside the `if` sequence the `variables` {% term action %} will only alter the `people` variable for that sequence.
+The `variables` {% term action %} assigns the values to previously defined variables with the same name. If a variable was not previously defined, it is assigned in the top-level (script run) scope.
 
 {% raw %}
 
@@ -111,17 +109,17 @@ sequence:
         entity_id: device_tracker.paulus
         state: "home"
     then:
-      # At this scope and this point of the sequence, people == 0
       - variables:
           people: "{{ people + 1 }}"
-      # At this scope, people will now be 1 ...
+          paulus_home: true
       - action: notify.notify
         data:
           message: "There are {{ people }} people home" # "There are 1 people home"
-  # ... but at this scope it will still be 0
+  # Variable value is now updated
   - action: notify.notify
     data:
-      message: "There are {{ people }} people home" # "There are 0 people home"
+      message: "There are {{ people }} people home {% if paulus_home is defined %}(including Paulus){% endif %}"
+      # "There are 1 people home (including Paulus)"
 ```
 
 {% endraw %}
@@ -213,8 +211,8 @@ This {% term action %} evaluates the template, and if true, the script will cont
 The template is re-evaluated whenever an entity ID that it references changes state. If you use non-deterministic functions like `now()` in the template it will not be continuously re-evaluated, but only when an entity ID that is referenced is changed. If you need to periodically re-evaluate the template, reference a sensor from the [Time and Date](/integrations/time_date/) integration that will update minutely or daily.
 
 {% raw %}
-```yaml
 
+```yaml
 # Wait until media player is stopped
 - alias: "Wait until media player is stopped"
   wait_template: "{{ is_state('media_player.floor', 'stop') }}"
@@ -258,8 +256,8 @@ With both types of waits it is possible to set a timeout after which the script 
 You can also get the script to abort after the timeout by using optional `continue_on_timeout: false`.
 
 {% raw %}
-```yaml
 
+```yaml
 # Wait for IFTTT event or abort after specified timeout.
 - wait_for_trigger:
     - trigger: event
@@ -322,6 +320,7 @@ This can be used to take different actions based on whether or not the condition
   target:
     entity_id: switch.some_light
 ```
+
 {% endraw %}
 
 ## Fire an event
@@ -453,7 +452,7 @@ repeat:
 {% endraw %}
 
 Other types are accepted as list items, for example, each item can be a
-template, or even an mapping of key/value pairs. 
+template, or even an mapping of key/value pairs.
 
 {% raw %}
 
@@ -509,7 +508,7 @@ For example:
 - repeat:
     while: "{{ is_state('sensor.mode', 'Home') and repeat.index < 10 }}"
     sequence:
-    - ...
+      - ...
 ```
 
 {% endraw %}
@@ -559,8 +558,9 @@ For example:
 - repeat:
     until: "{{ is_state('device_tracker.iphone', 'home') }}"
     sequence:
-    - ...
+      - ...
 ```
+
 {% endraw %}
 
 ### Repeat loop variable
@@ -690,7 +690,6 @@ automation:
 ```
 
 {% endraw %}
-
 
 More `choose` can be used together. This is the case of an IF-IF.
 
@@ -856,8 +855,8 @@ Some of the caveats of running {% term actions %} in parallel:
   there is no guarantee that they will be completed in the same order.
 - If one {% term action %} fails or errors, the other {% term actions %} will keep running until
   they too have finished or errored.
-- Variables created/modified in one parallelized {% term action %} are not available
-  in another parallelized {% term action %}. Each step in a parallelized has its own scope.
+- Variables created/modified in one parallelized {% term action %} can conflict with variables
+  from another parallelized {% term action %}. Make sure to give them distinct names to prevent that.
 
 ## Stopping a script sequence
 
@@ -961,7 +960,7 @@ blueprint:
   input:
     input_boolean:
       name: Boolean
-      selector: 
+      selector:
         boolean:
 
   actions:
