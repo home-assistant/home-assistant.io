@@ -45,6 +45,14 @@ There is currently support for the following device types within Home Assistant:
 
 - Binary sensor - for monitoring the status of Portainer services.
 
+## Data updates
+
+The integration normally updates every 60 seconds. For more detailed steps on how to define a custom polling interval, follow the procedure below.
+
+### Defining a custom polling interval
+
+{% include common-tasks/define_custom_polling.md %}
+
 ## Removing the integration
 
 This integration follows standard integration removal.
