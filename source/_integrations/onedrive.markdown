@@ -48,6 +48,8 @@ Folder name:
 {% configuration_basic %}
 Delete files permanently:
   description: By default, files are put into the Recycle Bin when deleted, where they remain available for another 30 days. If you enable this option, files will be deleted immediately when they are cleaned up by the backup system.
+Chunk size:
+  description: When the backup is uploaded to Onedrive, the file is actually uploaded in multiple smaller parts. This setting allows you to control the size of those parts. Smaller chunks mean more reliable uploads, avoiding timeouts and limiting data use when having to retry a chunk and are therefore better suited for slower or metered internet connections, larger chunk sizes mean faster uploads and should be fine for faster internet connection speeds.
 {% endconfiguration_basic %}
 
 ## Backup folder
