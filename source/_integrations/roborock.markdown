@@ -101,7 +101,7 @@ Virtual walls:
   description: Show virtual walls on the map.
 Zones:
   description: Show zones on the map.
-Show background
+Show background:
   description: Show a blue background behind the map instead of a transparent background.
 {% endconfiguration_basic %}
 
