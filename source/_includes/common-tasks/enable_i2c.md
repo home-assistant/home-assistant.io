@@ -54,10 +54,10 @@ You can enable I2C via this terminal:
   ```shell
   mkdir /tmp/mnt
   mount /dev/sda1 /tmp/mnt
-  mkdir -p /tmp/mnt/CONFIG/modules
-  echo -ne i2c-dev>/tmp/mnt/CONFIG/modules/rpi-i2c.conf
-  echo dtparam=i2c_vc=on >> /tmp/mnt/CONFIG/config.txt
-  echo dtparam=i2c_arm=on >> /tmp/mnt/CONFIG/config.txt
+  mkdir -p /tmp/mnt/modules
+  echo -ne i2c-dev>/tmp/mnt/modules/rpi-i2c.conf
+  echo dtparam=i2c_vc=on >> /tmp/mnt/config.txt
+  echo dtparam=i2c_arm=on >> /tmp/mnt/config.txt
   sync
   reboot
   ```

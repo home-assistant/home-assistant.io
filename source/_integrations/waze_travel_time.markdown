@@ -32,8 +32,8 @@ with route alternatives and travel times between two locations.
 
 | Data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | --------|
-| `origin` | no | The origin of the route | "51.330436, 3.802043" |
-| `destination` | no | The destination of the route | "51.330436, 3.802043" |
+| `origin` | no | The origin of the route | "51.330436, 3.802043", "person.fred" |
+| `destination` | no | The destination of the route | "51.330436, 3.802043", "zone.work", "Work" |
 | `region` | no | The region. Controls which waze server is used. | "us" |
 | `units` | yes | Which unit system to use | metric |
 | `vehicle_type` | yes | Which vehicle to use | "car" |

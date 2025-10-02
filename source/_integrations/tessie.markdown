@@ -91,7 +91,7 @@ The integration will create binary sensor entities for a variety of metrics rela
 The integration will create button entities to control various aspects of the vehicle:
 
 - Flash lights
-- Homelink
+- HomeLink
 - Honk horn
 - Keyless driving
 - Play fart

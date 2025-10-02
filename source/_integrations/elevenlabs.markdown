@@ -15,11 +15,12 @@ ha_codeowners:
 ---
 
 The **ElevenLabs** text-to-speech {% term integrations %} adds support for [ElevenLabs](https://elevenlabs.io/) as text-to-speech to read a text with natural sounding voices.
+
 ## Prerequisites
 
-- You need an ElevenLabs account to use this integration. A free account suffices for basic usage. 
+- You need an ElevenLabs account to use this integration. A free account suffices for basic usage.
 - For custom voices or more quota you need a subscription.
-- You need your API key from the ElevenLabs website. 
+- You need your API key from the ElevenLabs website.
 
 {% include integrations/config_flow.md %}
 
@@ -44,6 +45,32 @@ target:
 data:
   media_player_entity_id: media_player.giant_tv
   message: Hello, can you hear me now?
+  options:
+    voice: <voice-id>
+    model: <model-id>
 ```
 
+### Configuration
+
+Below settings can be configured in the options of the integration and in the `options` parameter of the `tts.speak` service.
+
+{% configuration %}
+
+voice:
+  description: "Voice ID for the ElevenLabs voice to use. Will override the default voice of the entity!"
+  required: false
+  type: string
+model:
+  description: "Model ID for the model to use. Will override the default model of the entity!"
+  required: false
+  type: string
+
+{% endconfiguration %}
+
 For more information about using text-to-speech with Home Assistant and more details on all the options it provides, see the [TTS documentation](/integrations/tts/).
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}

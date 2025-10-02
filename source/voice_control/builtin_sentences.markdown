@@ -109,6 +109,8 @@ Home Assistant comes with [built-in sentences](https://github.com/home-assistant
 - *set a timer for 5 minutes*
 - *5 minute timer*
 - *set a 20 minute timer for pizza*
+- *set a timer for 1 hour and 3 minutes*
+  - Break it up into hours, minutes, and seconds instead of using a technical term like *set a timer for 63 minutes*. 
 
 ### Cancelling
 
@@ -144,27 +146,6 @@ Unlike regular voice timers, delayed commands cannot be canceled or modified.
 - *Turn off the lights in the living room in 5 minutes*
 - *Pause TV in 10 minutes*
 - *Open the blinds in 5 minutes*
-
-## Questions
-
-### Get information about a state
-
-- *What is the amount of energy from solar production?*
-- *what is the heat pump co2 sensor's co2 level?*
-- *what is the battery level of my phone?*
-
-### Ask about the weather
-
-- *What is the weather*
-- Struggling with this one? Check the [troubleshooting section](/voice_control/troubleshooting/).
-
-### Ask about people
-
-(that have device tracking activated in Home Assistant)
-
-- *How many people are in the kitchen*
-- *Who is in the garage*
-- *Where is Anne*
 
 ## Aborting
 

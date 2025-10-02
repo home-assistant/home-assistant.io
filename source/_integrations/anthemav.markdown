@@ -26,7 +26,7 @@ Both [Anthem]'s current and last generation of <abbr title="Audio & video">A/V</
 
 ### A/V Processor
 
-- [AVM 60](https://www.anthemav.com/products-current/model=avm-60/page=overview)
+- [AVM 60](https://www.anthemav.com/products-current/model=avm-60/page=overview), [AVM 70](https://www.anthemav.com/products-current/model=avm-70/page=overview)
 
 ### Distribution solution
 

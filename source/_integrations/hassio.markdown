@@ -2,17 +2,21 @@
 title: Home Assistant Supervisor
 description: Control Supervisor Add-ons and OS from Home Assistant
 ha_category:
+  - Backup
   - Binary sensor
   - Sensor
+  - Switch
   - Update
 ha_iot_class: Local Polling
 ha_release: 0.42
 ha_domain: hassio
 ha_quality_scale: internal
 ha_platforms:
+  - backup
   - binary_sensor
   - diagnostics
   - sensor
+  - switch
   - update
 ha_codeowners:
   - '@home-assistant/supervisor'
@@ -20,8 +24,8 @@ ha_integration_type: integration
 ---
 
 Supervisor integration allows you to monitor and control Supervisor add-ons and operating system from Home Assistant.
-This integration is already installed if you run Home Assistant OS or Supervised. Please note that this integration
-cannot be installed on Home Assistant Container or Core (Python venv) installation types.
+This integration is already installed if you run {% term "Home Assistant Operating System" %}. Please note that this integration
+cannot be installed on {% term "Home Assistant Container" %}.
 
 ## Sensor entities
 
@@ -82,6 +86,14 @@ For Home Assistant OS Supervisor provides following binary sensors:
 | ------- | ------------------ | ----------- |
 | Update Available | no | Whether there is an update available for OS
 
+## Switch entities
+
+For each installed add-on, the following switch is available:
+
+| Switch | Enabled by default | Description |
+| ------- | ------------------ | ----------- |
+| Running | no | Shows whether the add-on is running or not, and allows you to start or stop the add-on depending on its current state. |
+
 ## Update entities
 
 For all your installed add-ons, Home Assistant Core, Home Assistant Supervisor, and for the Home Assistant Operating System (if you are running that), this integration will provide [update](/integrations/update) entities that provide information about pending updates, and will allow you to update to them.
@@ -115,14 +127,6 @@ Restart an add-on.
 ### Action hassio.addon_stdin
 
 Write data to add-on stdin.
-
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `addon` | no | Add-on slug
-
-### Action hassio.addon_update
-
-Update add-on. This action should be used with caution since add-on updates can contain backward-incompatible changes. It is highly recommended that you review release notes/change logs before updating an add-on.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |

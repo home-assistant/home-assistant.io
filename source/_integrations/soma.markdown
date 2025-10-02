@@ -9,7 +9,6 @@ ha_config_flow: true
 ha_release: '0.100'
 ha_codeowners:
   - '@ratsept'
-  - '@sebfortier2288'
 ha_domain: soma
 ha_platforms:
   - cover

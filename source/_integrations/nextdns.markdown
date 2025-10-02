@@ -16,6 +16,7 @@ ha_platforms:
   - sensor
   - switch
 ha_integration_type: service
+ha_quality_scale: bronze
 ---
 
 NextDNS is a DNS service that protects from all kinds of security threats, blocks ADS and trackers on websites and in apps, and provides a safe and supervised Internet for kids — on all devices and on all networks. The NextDNS integration allows you to monitor NextDNS statistics and control its configuration.
@@ -25,3 +26,16 @@ NextDNS is a DNS service that protects from all kinds of security threats, block
 To obtain API key go to the NextDNS site >> [Account section](https://my.nextdns.io/account).
 
 {% include integrations/config_flow.md %}
+
+{% configuration_basic %}
+API Key:
+    description: "The API key for your NextDNS account."
+Profile:
+    description: "The NextDNS configuration profile you want to integrate."
+{% endconfiguration_basic %}
+
+## Removing the integration
+
+This integration follows standard integration removal, no extra steps are required.
+
+{% include integrations/remove_device_service.md %}
