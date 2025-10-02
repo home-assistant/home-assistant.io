@@ -119,17 +119,24 @@ The **Volvo** integration provides the following entities.
 - **Window rear left**: Detects if the rear left window is open or closed
 - **Window rear right**: Detects if the rear right window is open or closed
 
+#### Device tracker
+
+Go to Volvo's developer portal to view [the availability](https://developer.volvocars.com/apis/location/v1/overview/#availability).
+
+- **Location**: The car's current location.
+
 #### Sensors
 
-- **Car connection**: Connectivity of the car
-- **Distance to service**: Remaining distance until the next service maintenance
-- **Odometer**: Odometer
-- **Time to engine service**: Remaining engine-hours until the next service maintenance
-- **Time to service**: Remaining time until the next service maintenance
-- **Trip automatic average speed**: Average speed on the automatic trip meter
-- **Trip automatic distance**: Total distance on the automatic trip meter
-- **Trip manual average speed**: Average speed on the manual trip meter
-- **Trip manual distance**: Total distance on the manual trip meter
+- **Car connection**: Connectivity of the car.
+- **Direction**: In which direction the car is heading.
+- **Distance to service**: Remaining distance until the next service maintenance.
+- **Odometer**: Odometer.
+- **Time to engine service**: Remaining engine-hours until the next service maintenance.
+- **Time to service**: Remaining time until the next service maintenance.
+- **Trip automatic average speed**: Average speed on the automatic trip meter.
+- **Trip automatic distance**: Total distance on the automatic trip meter.
+- **Trip manual average speed**: Average speed on the manual trip meter.
+- **Trip manual distance**: Total distance on the manual trip meter.
 
 ### Battery-only and plug-in hybrid
 
@@ -190,10 +197,10 @@ Set the **Device class** to **Timestamp** and optionally choose your vehicle for
 
 The **Volvo** integration fetches data from the API at different intervals:
 
-- **Every 60 minutes**: diagnostics, odometer, and statistics
-- **Every 15 minutes**: car connectivity and fuel status
-- **Every 2 minutes**: energy data (for battery cars)
-- **Every minute**: doors and window status
+- **Every 60 minutes**: diagnostics, odometer, and statistics.
+- **Every 15 minutes**: car connectivity, fuel status and location.
+- **Every 2 minutes**: energy data (for battery cars).
+- **Every minute**: doors and window status.
 
 If you decide to define a custom polling interval, beware that there is a maximum of 10,000 requests per day.
 Every poll operation accounts for about a dozen calls (depends on model).
