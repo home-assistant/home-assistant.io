@@ -46,7 +46,7 @@ pause the vacuum when a media player starts playing music.
 
 ## Note about compatibility
 
-The newly released [Q-Series](https://us.roborock.com/pages/roborock-store#Q-Series) devices are not supported. Roborock has changed the protocol for how these devices interact. It is unclear if new devices not in the Q-series will use the existing protocol or the new protocol.
+The newly released [Q-Series](https://us.roborock.com/pages/roborock-store#Q-Series) devices are not supported. Roborock has changed the protocol for how these devices interact. It is unclear if new devices not in the Q-series will use the existing protocol or the new protocol. Most Q-Series devices should have partial support via the [Matter](/integrations/matter/) integration.
 
 ## Prerequisites
 
