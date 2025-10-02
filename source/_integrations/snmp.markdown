@@ -112,7 +112,7 @@ See the [device tracker integration page](/integrations/device_tracker/) for ins
 
 The `snmp` sensor platform displays values made available by network devices through the SNMP protocol.
 
-Deafult scan interval is 10 seconds.
+Default scan interval is 10 seconds.
 
 To enable this sensor in your installation, add the following to your `configuration.yaml` file:
 
