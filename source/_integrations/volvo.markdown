@@ -131,7 +131,7 @@ The **Volvo** integration provides the following entities.
 - **Flash & honk**: Combines flashing lights and horn activation.
 
 {% important %}
-Volvo removed the **Honk** and **Flash** buttons from the official app because they can drain the vehicle's 12V battery.
+Volvo removed the **Honk** and **Flash** buttons from the official app because they can drain the vehicle's 12&nbsp;V battery.
 Use them with care!
 {% endimportant %}
 
