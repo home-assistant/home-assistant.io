@@ -35,7 +35,7 @@ The weather entity provides the current state of the weather as well as detailed
 
 The integration creates entities showing the current state of some additional weather and fire metrics.
 
-The following weather sensors are provided (The cloud sensors are not enabled by default):
+The following weather sensors are provided (cloud sensors are disabled by default):
 
 - **Thunder probability** (%): Probability of thunder
 - **Total cloud coverage** (%): Mean value of total cloud cover
@@ -45,17 +45,17 @@ The following weather sensors are provided (The cloud sensors are not enabled by
 - **Precipitation category**: Precipitation category can be any of the following: No precipitation, Snow, Snow and rain, Rain, Drizzle, Freezing rain, or Freezing drizzle
 - **Frozen precipitation** (%): Percent of precipitation in frozen form
 
-The following fire sensors are provided (no fire sensors are enabled by default):
+The following fire sensors are provided (fire sensors are disabled by default):
 
-- **FWI-index**: Fire Weather Index classed from low risk to very high risk
+- **FWI-index**: Fire Weather Index classified from low risk to very high risk
 - **FWI-value**: Fire Weather Index as its native value
 - **Initial Spread Index (ISI)**: Describes the expected rate of fire spread
 - **Build Up Index (BUI)**: Indicates the total amount of fuel available for the fire
-- **Fine Fuel Moisture Code (FFMC)**: Describes moisture content in the dead fine fuel
-- **Duff Moisture Code (DMC)**: Describes moisture content of loosely compact organic layers of moderate depth
+- **Fine Fuel Moisture Code (FFMC)**: Describes the moisture content in the dead fine fuels
+- **Duff Moisture Code (DMC)**: Describes moisture content of loosely compacted organic layers of moderate depth
 - **Drought Code (DC)**: Describes moisture content of deep compact organic layers
 - **Highest grass fire risk**: Highest grass fire risk (danger) according to the grass fire model ranging from snow cover to very high
-- **Potential rate of spread**: Potential rate of spread (m/min) of uncut, un-grazed, natural grass
+- **Potential rate of spread**: Potential rate of spread (m/min) of uncut and ungrazed natural grass
 - **Fuel drying**: Measure of the available water amount in the forest fuel ranging from extremely dry to very wet
 
 The SMHI weather service is free under the Creative Commons Attribution 4.0, international license. Weather data will be pulled once every 30 minutes.
