@@ -1,9 +1,9 @@
 ---
 title: Model Context Protocol Server
-description: Instructions on how to add a Model Context Protocol Server to Home Assistant.
+description: Expose Home Assistant Large Language Model APIs through the Model Context Protocol.
 ha_category:
   - Voice
-ha_release: 2025.2
+ha_release: 2025.10
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
@@ -16,91 +16,82 @@ related:
 ha_quality_scale: silver
 ---
 
-The [Model Context Protocol](https://modelcontextprotocol.io) is an open protocol that standardizes how applications provide context to <abbr title="Large Language Models">LLMs</abbr>. The **Model Context Protocol Server** (MCP) integration enables using Home Assistant to provide context for <abbr title="Model Context Protocol">MCP</abbr> LLM Client Applications. For example, you can control your lights from Claude Desktop, or expose your Google Tasks to-do list as a tool.
+The [Model Context Protocol](https://modelcontextprotocol.io) is an open standard for exposing tools, prompts, and contextual data to <abbr title="Large Language Models">LLMs</abbr>. The **Model Context Protocol Server** integration turns Home Assistant into a fully compliant MCP server so MCP clients, such as Claude for Desktop, Cursor, FastMCP-compatible deskktop assistants, IDE extensions or custom agents can call Home Assistant tools and prompts. You can, for example, control lights from Claude Desktop, run automations from Cursor, or expose Home Assistant lists to any MCP-aware agent.
 
-Controlling Home Assistant is done by providing <abbr title="Model Context Protocol">MCP</abbr> clients access to the Assist API of Home Assistant. You can control what devices and entities it can access from the {% my voice_assistants title="exposed entities page" %}.
+When this integration is enabled, the Assist API (or any other configured Home Assistant LLM API) becomes accessible to MCP clients. You retain full control over which entities or devices are exposed through the {% my voice_assistants title="exposed entities page" %}.
 
 ## Prerequisites
 
-- You need an [MCP client](https://modelcontextprotocol.io/clients) LLM Application such as [Claude for Desktop](https://claude.ai/download).
-- Since most clients do not support native remote servers, you need an additional local MCP server remote gateway.
-
-For detailed configuration instructions, refer to the [Client configuration](#client-configuration) section.
+- An [MCP client](https://modelcontextprotocol.io/clients) such as [Claude for Desktop](https://claude.ai/download), [Cursor](https://www.cursor.com), or any FastMCP-compatible tool.
+- A Home Assistant LLM API configured (Assist, Anthropic, Gemini, Ollama, etc.).
+- Either:
+  - An MCP gateway (for example [mcp-proxy](https://github.com/sparfenyuk/mcp-proxy)) if your client only supports local `stdio`.
+  - A client that can connect directly to HTTP(S) endpoints using the MCP streamable HTTP transport.
+- A Home Assistant access token (long-lived access token or OAuth consent flow).
 
 {% include integrations/config_flow.md %}
 
 ## Configuration options
 
-The integration provides the following configuration options:
-
 {% configuration_basic %}
 Control Home Assistant:
-  description: If MCP clients are allowed to control Home Assistant. Clients can only
-    control or provide information about entities that are [exposed](/voice_control/voice_remote_expose_devices/) to it.
+  description: Whether MCP clients may call Home Assistant tools. Access remains limited to the entities that are [exposed](/voice_control/voice_remote_expose_devices/).
 {% endconfiguration_basic %}
 
 ## Architecture overview
 
-This integration can provide similar functionality as other LLM-based conversation
-agents (for example [Anthropic](/integrations/anthropic/), [Google Generative AI](/integrations/google_generative_ai_conversation), [Ollama](/integrations/ollama/), [Open AI](/integrations/openai_conversation/)). In those conversation agents, Home Assistant is the
-client and prepares the available tools and passes them into the LLM with a prompt.
+Traditional LLM integrations (Anthropic, Google Generative AI Conversation, Ollama, OpenAI) treat Home Assistant as the client: Home Assistant gathers tools, prepares prompts, and sends them to the LLM. MCP reverses that direction. Here, the LLM application is the client and connects to one or more MCP servers, Home Assistant among them to request prompts and call tools.
 
-The Model Context Protocol follows a different pattern: An LLM application acts as
-a client and can connect to multiple MCP servers to provide context. See the
-[Model Context Protocol Introduction](https://modelcontextprotocol.io/introduction#general-architecture) for more details.
+The Home Assistant MCP Server implementation now uses [FastMCP](https://github.com/modelcontextprotocol/fastmcp) and supports both the [Server-Sent Events (SSE) transport](https://modelcontextprotocol.io/docs/concepts/transports#server-sent-events-sse) and the newer [streamable HTTP transport](https://modelcontextprotocol.io/docs/concepts/transports#streamable-http-sse-over-http). Streamable HTTP:
 
-The Home Assistant Model Context Protocol Server integration implements the
-[Server-Sent Events (SSE) transport](https://modelcontextprotocol.io/docs/concepts/transports#server-sent-events-sse)
-allowing streaming client-to-server communication. Most MCP clients today only support
-[stdio](https://modelcontextprotocol.io/docs/concepts/transports#standard-input-output-stdio) transport,
-and directly run an MCP server as a local command line tool. You can 
-use an MCP proxy server like [mcp-proxy](https://github.com/sparfenyuk/mcp-proxy)
-to act as a gateway to the Home Assistant MCP SSE server.
+- Keeps a single HTTP connection open for bidirectional JSON-RPC traffic.
+- Stores outbound messages in an in-memory event store so reconnecting clients can resume with `Last-Event-ID`.
+- Mirrors CORS headers on every response so browser-based IDEs can connect without reverse proxies.
+
+Most current MCP clients still require a local proxy (for example `mcp-proxy`) to bridge `stdio` to HTTP, but any FastMCP-based or browser-based client can now talk to Home Assistant directly.
+
+## MCP endpoints and transports
+
+All endpoints are served under `/mcp_server`:
+
+| Endpoint | Purpose |
+| -------- | ------- |
+| `/mcp_server/sse` | Primary SSE stream. Clients receive an `endpoint` event on connect that points to the message ingress URL. |
+| `/mcp_server/messages/{session_id}` | Accepts JSON-RPC requests for the active SSE session. |
+| `/mcp_server/mcp` | Streamable HTTP endpoint supporting resumable sessions, reconnection, and browser CORS. |
+
+### Event store & resumable sessions
+
+Outbound messages are stored per stream (default 100 events) in the server	219;s in-memory event store. When a client reconnects with the `Last-Event-ID`, missed events are replayed before live traffic resumes. If you scale Home Assistant horizontally, replace the in-memory store with a shared backend (Redis, database, message bus) that preserves the `EventStore` interface.
+
+### CORS and browser clients
+
+The streamable HTTP endpoint mirrors the caller	219;s `Origin`, allows `Authorization`, `MCP-Session-ID`, and `Content-Type`, and responds to `OPTIONS` requests. This means IDEs like VS Code or web-based tools like Copilot M365 can interact with Home Assistant without additional gateways.
 
 ## Client configuration
 
-The Model Context Protocol specification has recently defined standards for
-authorization and connecting to remote servers. The standards are a *work in progress*
-and so some clients may not support the latest functionality, and the specification
-will likely continue to evolve.
+The MCP specification continues to evolve	219;OAuth scopes, remote discovery, and client UX are still being standardized. Some clients support only `stdio`, while others now support remote HTTP transports. Adapt the instructions below to match your client	219;s capabilities.
 
 ### Access control
 
 #### OAuth
 
-The Model Context Protocol supports OAuth for [Authorization](https://spec.modelcontextprotocol.io/specification/2025-03-26/basic/authorization/) and is fully supported by Home Assistant's
-[Authentication API](https://developers.home-assistant.io/docs/auth_api/). MCP
-Clients that support OAuth can use this to allow you to give the client access
-to your Home Assistant MCP server.
+Home Assistant MCP server fully supports the MCP OAuth flow defined in the [2025-03-26 specification](https://spec.modelcontextprotocol.io/specification/2025-03-26/basic/authorization/). Home Assistant uses [IndieAuth](https://indieauth.spec.indieweb.org/), so no pre-registered client IDs are required	219;the client ID is the origin of your redirect URI.
 
-Home Assistant has adopted [IndieAuth](https://indieauth.spec.indieweb.org/) and does not require you to pre-define
-an OAuth Client ID. Instead, the Client ID is the base of the redirect URL.
+- *Client ID*: If the redirect URI is `https://www.example.com/mcp/redirect`, use `https://www.example.com`.
+- *Client secret*: Not required by Home Assistant (provide any placeholder if your client insists).
 
-- *Client ID*: If your redirect-uri is `https://www.example.com/mcp/redirect`, your client ID should be `https://www.example.com`.
-- *Client Secret*: This is not used by Home Assistant and can be ignored or set to any value.
+#### Long-lived access tokens
 
-#### Long-Lived Access Tokens
-
-Some MCP clients may not support OAuth, but may support access tokens. You may create a
-[Long-lived access token](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token) to allow the client to access the API.
+If your MCP client lacks OAuth, use a [long-lived access token](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token):
 
 1. Visit your account profile settings, under the **Security** tab. {% my profile badge %}.
+2. Create a **Long-lived access token**.
+3. Copy the token; your MCP client will send it as `Authorization: Bearer <token>`.
 
-2. Create a **Long-lived access token**
-
-3. Copy the access token to use when configuring the MCP client LLM application.
-
-For more information about Authentication in Home Assistant, refer to the [Authentication documentation](https://www.home-assistant.io/docs/authentication/#your-account-profile).
+More background is available in [Home Assistant Authentication](https://www.home-assistant.io/docs/authentication/#your-account-profile).
 
 ### Example: Claude for Desktop
-
-See [MCP Quickstart: For Claude Desktop Users](https://modelcontextprotocol.io/quickstart/user#for-claude-desktop-users)
-for a detailed guide on using Claude for Desktop with an MCP server. It is recommended
-to get the example server working first before using the Home Assistant MCP Server.
-
-Claude for Desktop currently only supports local MCP servers using the [stdio](https://modelcontextprotocol.io/docs/concepts/transports#standard-input-output-stdio)
-transport, run as a local command line tool. You can use a local MCP proxy server
-to allow Claude for Desktop to access Home Assistant using the SSE transport.
 
 1. Download [Claude for Desktop](https://claude.ai/download). 
 2. Install `mcp-proxy` following the instructions in the [README](https://github.com/sparfenyuk/mcp-proxy).
@@ -111,51 +102,53 @@ to allow Claude for Desktop to access Home Assistant using the SSE transport.
 4. Add a new MCP server to the JSON file. You need to set the `SSE_URL` to the URL you use to
    connect to Home Assistant with the path `/mcp_server/sse`. You will also need to set `API_ACCESS_TOKEN`
    to the long live access token created above in the [access control instructions](#access-control)
-    ```json
-    {
-      "mcpServers": {
-        "Home Assistant": {
-          "command": "mcp-proxy",
-          "env": {
-            "SSE_URL": "http://localhost:8123/mcp_server/sse",
-            "API_ACCESS_TOKEN": "<your_access_token_here>"
-          }
-        }
+```json
+{
+  "mcpServers": {
+    "Home Assistant": {
+      "command": "mcp-proxy",
+      "env": {
+        "SSE_URL": "http://localhost:8123/mcp_server/sse",
+        "API_ACCESS_TOKEN": "<your_access_token_here>"
       }
     }
-    ```
-5. Restart Claude.
-6. You will see a connection icon {% icon "mdi:connection" %} if things are set up correctly. Clicking the connection icon will show enabled MCP servers such as *Home Assistant*.
-7. Select the prompt provided by Home Assistant.
-8. You can then use Claude to control Home Assistant similar to how you control Home Assistant through the Voice Assistant. Claude wil ask you for permission before calling any tools.
+  }
+}
+```
 
-  ![Screenshot of Claude for Desktop adding an item to a Home Assistant To-do list](/images/integrations/mcp_server/claude-todo-list-control.png)
+5. Restart Claude.
+6. Confirm the connection icon {% icon "mdi:connection" %} shows *Home Assistant*.
+7. Select the Home Assistant prompt and follow Claude's permission prompts when tools run.
+8. You can now control Home Assistant similarly to using a voice assistant.
+
+![Screenshot of Claude for Desktop adding an item to a Home Assistant to-do list](/images/integrations/mcp_server/claude-todo-list-control.png)
 
 ### Example: Cursor
 
-1. Download and install [Cursor](https://www.cursor.com).
-2. Install `mcp-proxy` following the instructions in the [README](https://github.com/sparfenyuk/mcp-proxy).
-   For example, `uv tool install git+https://github.com/sparfenyuk/mcp-proxy`.
-3. Open the main Cursor Settings and select **MCP**.
-4. Click **Add new global MCP server** and add the Home Assistant server configuration:
-   ```json
-    {
-      "mcpServers": {
-        "Home Assistant": {
-          "command": "mcp-proxy",
-          "args": [
-            "http://localhost:8123/mcp_server/sse"
-          ],
-          "env": {
-            "API_ACCESS_TOKEN": "<your_access_token_here>"
-          }
-        }
+1. Download [Cursor](https://www.cursor.com).
+2. Install `mcp-proxy`.
+3. Open **Settings 	'; MCP**, and click **Add new global MCP server**.
+4. Configure Home Assistant. You can include both SSE and streamable URLs; Cursor currently uses SSE via the proxy:
+
+```json
+{
+  "mcpServers": {
+    "Home Assistant": {
+      "command": "mcp-proxy",
+      "args": [
+        "http://localhost:8123/mcp_server/sse"
+      ],
+      "env": {
+        "API_ACCESS_TOKEN": "<your_access_token_here>"
       }
     }
-    ```
-5. Save your `mcp.json` file. You can also find this file in the `$HOME/.cursor/mcp.json` directory.
-6. Restart Cursor and return to the MCP settings. You should see the Home Assistant server in the list. The indicator should be green.
-7. In chat agent mode (Ctrl+I), ask it to control your home and the tool should be used.
+  }
+}
+```
+
+5. Save `mcp.json` (`$HOME/.cursor/mcp.json`).
+6. Restart Cursor and verify the Home Assistant server indicator is green.
+7. In chat mode (Ctrl+I), ask the assistant to control Home Assistant	';Cursor will invoke the Home Assistant tools.
 
 ![Screenshot of Cursor controlling the office lights](/images/integrations/mcp_server/cursor-lights-control.png)
 
@@ -163,78 +156,57 @@ to allow Claude for Desktop to access Home Assistant using the SSE transport.
 
 ### Tools
 
-[MCP Tools](https://modelcontextprotocol.io/docs/concepts/tools) enable LLMs to
-perform actions through Home Assistant. The tools used by the configured LLM API
-are exposed.
+[MCP Tools](https://modelcontextprotocol.io/docs/concepts/tools) exposed by the selected Home Assistant LLM API are made available to the MCP client. Permissions remain governed by the LLM API configuration and the exposed-entities list.
 
 ### Prompts
 
-The [MCP Prompts](https://modelcontextprotocol.io/docs/concepts/prompts) provided
-inform LLMs how to call the tools. The tools used by the configured LLM API
-are exposed.
+[MCP Prompts](https://modelcontextprotocol.io/docs/concepts/prompts) mirror the LLM API	's;s default system prompt. Home Assistant publishes the LLM-specific instructions so clients can see how to call the tools.
 
-## Known Limitations
-
-The Home Assistant Model Context Protocol integration currently only supports a
-subset of MCP features:
+### Transport summary
 
 | Feature | Supported by Home Assistant |
-| ------- | --------- |
+| ------- | --------------------------- |
 | Prompts | ✅ |
 | Tools | ✅ |
+| Streamable HTTP (resumable) | ✅ |
+| SSE | ✅ |
 | Resources | ❌ |
 | Sampling | ❌ |
 | Notifications | ❌ |
 
-
 ## Troubleshooting
 
-This section has troubleshooting information for Claude for Desktop since it is
-the primary client. Also see [Debugging in Claude Desktop](https://modelcontextprotocol.io/docs/tools/debugging#debugging-in-claude-desktop).
+See [Debugging in Claude Desktop](https://modelcontextprotocol.io/docs/tools/debugging#debugging-in-claude-desktop) for client-side log capture. Additional Home Assistant-specific tips are below.
 
-### LLM client cannot connect to Home Assistant MCP server
+### Client cannot connect to Home Assistant
 
-#### Symptom: Failed to start MCP server: Could not start MCP server Home Assistant
+#### Symptom: 	201Failed to start MCP server: Could not start MCP server Home Assistant	201
 
-When trying to configure a client like Claude for Desktop to talk to Home Assistant, the app shows a
-message like "Failed to start MCP server: Could not start MCP server Home Assistant"
+`mcp-proxy` could not start, often due to a missing executable or incorrect arguments.
 
-##### Description
+**Resolution:** Verify the command and environment variables in `claude_desktop_config.json`. Try running the command manually to ensure `mcp-proxy` is available.
 
-This means that the local MCP server `mcp-proxy` could not start.
+#### Symptom: 	201MCP server Home Assistant disconnected	201 or 	201Could not attach to MCP server Home Assistant	201
 
-##### Resolution
+The proxy started, but it cannot reach Home Assistant or authentication failed.
 
-Verify the command line arguments in the `claude_desktop_config.json` are correct. You may try to run
-the command manually to verify that the command can be found.
+**Resolution:**
 
-#### Symptom: “MCP server Home Assistant disconnected” or "Could not attach to MCP server Home Assistant"
+1. Open the client	's;s MCP logs (for Claude Desktop: **Settings 	's; Developer 	's; Open Logs Folder**).
+2. Check `mcp-server-Home Assistant.log` for errors:
+   - `404 Not Found`: The integration is not configured or the URL path is incorrect.
+   - `401 Unauthorized`: Token is invalid or missing.
+   - `425 Too Early` / `503`: Home Assistant is still starting; retry.
+   - `Event store replay failed`: The `Last-Event-ID` is unknown. Ensure the client handles reconnections correctly, or clear the stored event ID.
+3. For browser/IDE clients, use the streamable HTTP endpoint (`/mcp_server/mcp`) and confirm that CORS headers match your origin.
 
-When trying to configure a client like Claude Desktop to talk to Home Assistant, the app shows a
-message like "MCP server Home Assistant disconnected" or "Could not attach to MCP server Home Assistant".
+### Streamable HTTP reconnect issues
 
-##### Description
+If reconnecting clients lose state:
 
-This means the MCP server has started, however the MCP server is having trouble communicating with Home Assistant,
-or the MCP server in Home Assistant is not configured.
-
-##### Resolution
-
-To understand the root cause, first check debug logs on the client. For example in Claude for Desktop:
-
-1. Visit **Settings...**.
-2. Select **Developer**.
-3. Select the `Home Assistant` MCP server.
-4. Select **Open Logs Folder**.
-5. View `mcp-server-Home Assistant.log`. These are known problems and their resolution:
-   - `Client error '404 Not Found' for url 'http://localhost:8123/mcp_server/sse'`:
-     this means the MCP Server integration is not configured in Home Assistant.
-   - `Client error '401 Unauthorized' for url 'http://localhost:8123/mcp_server/sse'`:
-     this means that the long live access token is not correct.
-...
+- Confirm the client sends the `Last-Event-ID` header.
+- Increase the `max_events_per_stream` setting (requires custom component override) or deploy a shared event store backend if you run multiple Home Assistant instances.
 
 ## Removing the integration
-
-This integration can be removed by following these steps:
 
 {% include integrations/remove_device_service.md %}
