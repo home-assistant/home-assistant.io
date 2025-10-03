@@ -41,7 +41,7 @@ Enjoy the release!
 - [AI Task - Draw me a sheep](#ai-task---draw-me-a-sheep)
 - [Dashboards get smarter - let your home suggest what to show](#dashboards-get-smarter---let-your-home-suggest-what-to-show)
 - [Voice](#voice)
-  - [Hello, Hola](#hello-hola)
+  - [Hello, hola](#hello-hola)
   - [Beep boop](#beep-boop)
 - [Integrations](#integrations)
   - [New integrations](#new-integrations)
@@ -52,6 +52,8 @@ Enjoy the release!
   - [New more information dialog for media player entities](#new-more-information-dialog-for-media-player-entities)
   - [Sync zooming charts in the history panel](#sync-zooming-charts-in-the-history-panel)
   - [Template \& YAML editors get a toolbar](#template--yaml-editors-get-a-toolbar)
+- [Patch releases](#patch-releases)
+  - [2025.10.1 - October 3](#2025101---october-3)
 - [Need help? Join the community](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
@@ -554,6 +556,114 @@ The new toolbar also includes undo and redo buttons, bringing [the same convenie
 <img class="no-shadow" alt="Screenshot showing a YAML editor in our UI with the brand new toolbar that now additionally provides undo, redo, and copy buttons!" src="/images/blog/2025-10/template-yaml-editor-toolbar.png" />
 
 [@TCWORLD]: https://github.com/TCWORLD
+
+## Patch releases
+
+We will also release patch releases for Home Assistant 2025.10 in October.
+These patch releases only contain bug fixes. Our goal is to release a patch
+release once a week, aiming for Friday.
+
+### 2025.10.1 - October 3
+
+- Bump airOS dependency ([@CoMPaTech] - [#153065])
+- Bump airOS module for alternative login url ([@CoMPaTech] - [#153317])
+- Bump aiohasupervisor to 0.3.3 ([@agners] - [#153344])
+- Do not reset the adapter twice during ZHA options flow migration ([@puddly] - [#153345])
+- Fix Nord Pool 15 minute interval ([@gjohansson-ST] - [#153350])
+- Explicitly check for None in raw value processing of modbus ([@alengwenus] - [#153352])
+- Set config entry to None in ProxmoxVE ([@mib1185] - [#153357])
+- Explicit pass in the config entry to coordinator in airtouch4 ([@mib1185] - [#153361])
+- Add Roborock mop intensity translations ([@starkillerOG] - [#153380])
+- Correct blocking update in ToGrill with lack of notifications ([@elupus] - [#153387])
+- Bump python-roborock to 2.49.1 ([@Lash-L] - [#153396])
+- Pushover: Handle empty data section properly ([@linuxkidd] - [#153397])
+- Increase onedrive upload chunk size ([@zweckj] - [#153406])
+- Bump pyportainer 1.0.2 ([@erwindouna] - [#153326])
+- Bump pyportainer 1.0.3 ([@erwindouna] - [#153413])
+- Disable thinking for unsupported gemini models ([@Shulyaka] - [#153415])
+- Fix Satel Integra creating new binary sensors on YAML import ([@Tommatheussen] - [#153419])
+- Update `markdown` field description in ntfy integration ([@tr4nt0r] - [#153421])
+- Fix Z-Wave RGB light turn on causing rare `ZeroDivisionError` ([@TheJulianJES] - [#153422])
+- Bump aiohomekit to 3.2.19 ([@bdraco] - [#153423])
+- Fix sentence-casing in user-facing strings of `slack` ([@NoRi2909] - [#153427])
+- Add missing translation for media browser default title ([@timmo001] - [#153430])
+- Fix missing powerconsumptionreport in Smartthings ([@joostlek] - [#153438])
+- Update Home Assistant base image to 2025.10.0 ([@agners] - [#153441])
+- Disable baudrate bootloader reset for ZBT-2 ([@puddly] - [#153443])
+- Add translation for turbo fan mode in SmartThings ([@joostlek] - [#153445])
+- Fix next event in workday calendar ([@gjohansson-ST] - [#153465])
+- Update OVOEnergy to 3.0.1 ([@timmo001] - [#153476])
+- Fix missing parameter pass in onedrive ([@zweckj] - [#153478])
+- Bump pyTibber to 0.32.2 ([@Danielhiversen] - [#153484])
+- Bump reolink-aio to 0.16.1 ([@starkillerOG] - [#153489])
+- Fix VeSync zero fan speed handling ([@cdnninja] - [#153493])
+- Bump universal-silabs-flasher to 0.0.35 ([@puddly] - [#153500])
+- Debounce updates in Idasen Desk ([@abmantis] - [#153503])
+- Z-Wave to support migrating from USB to socket with same home ID ([@balloob] - [#153522])
+- When discovering a Z-Wave adapter, always configure add-on in config flow ([@balloob] - [#153575])
+
+[#152881]: https://github.com/home-assistant/core/pull/152881
+[#153065]: https://github.com/home-assistant/core/pull/153065
+[#153317]: https://github.com/home-assistant/core/pull/153317
+[#153326]: https://github.com/home-assistant/core/pull/153326
+[#153344]: https://github.com/home-assistant/core/pull/153344
+[#153345]: https://github.com/home-assistant/core/pull/153345
+[#153350]: https://github.com/home-assistant/core/pull/153350
+[#153352]: https://github.com/home-assistant/core/pull/153352
+[#153357]: https://github.com/home-assistant/core/pull/153357
+[#153361]: https://github.com/home-assistant/core/pull/153361
+[#153380]: https://github.com/home-assistant/core/pull/153380
+[#153387]: https://github.com/home-assistant/core/pull/153387
+[#153396]: https://github.com/home-assistant/core/pull/153396
+[#153397]: https://github.com/home-assistant/core/pull/153397
+[#153406]: https://github.com/home-assistant/core/pull/153406
+[#153413]: https://github.com/home-assistant/core/pull/153413
+[#153415]: https://github.com/home-assistant/core/pull/153415
+[#153419]: https://github.com/home-assistant/core/pull/153419
+[#153421]: https://github.com/home-assistant/core/pull/153421
+[#153422]: https://github.com/home-assistant/core/pull/153422
+[#153423]: https://github.com/home-assistant/core/pull/153423
+[#153427]: https://github.com/home-assistant/core/pull/153427
+[#153430]: https://github.com/home-assistant/core/pull/153430
+[#153438]: https://github.com/home-assistant/core/pull/153438
+[#153441]: https://github.com/home-assistant/core/pull/153441
+[#153443]: https://github.com/home-assistant/core/pull/153443
+[#153445]: https://github.com/home-assistant/core/pull/153445
+[#153465]: https://github.com/home-assistant/core/pull/153465
+[#153476]: https://github.com/home-assistant/core/pull/153476
+[#153478]: https://github.com/home-assistant/core/pull/153478
+[#153484]: https://github.com/home-assistant/core/pull/153484
+[#153489]: https://github.com/home-assistant/core/pull/153489
+[#153493]: https://github.com/home-assistant/core/pull/153493
+[#153500]: https://github.com/home-assistant/core/pull/153500
+[#153503]: https://github.com/home-assistant/core/pull/153503
+[#153522]: https://github.com/home-assistant/core/pull/153522
+[#153575]: https://github.com/home-assistant/core/pull/153575
+[@CoMPaTech]: https://github.com/CoMPaTech
+[@Danielhiversen]: https://github.com/Danielhiversen
+[@Lash-L]: https://github.com/Lash-L
+[@NoRi2909]: https://github.com/NoRi2909
+[@Shulyaka]: https://github.com/Shulyaka
+[@TheJulianJES]: https://github.com/TheJulianJES
+[@Tommatheussen]: https://github.com/Tommatheussen
+[@abmantis]: https://github.com/abmantis
+[@agners]: https://github.com/agners
+[@alengwenus]: https://github.com/alengwenus
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@cdnninja]: https://github.com/cdnninja
+[@elupus]: https://github.com/elupus
+[@erwindouna]: https://github.com/erwindouna
+[@frenck]: https://github.com/frenck
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@joostlek]: https://github.com/joostlek
+[@linuxkidd]: https://github.com/linuxkidd
+[@mib1185]: https://github.com/mib1185
+[@puddly]: https://github.com/puddly
+[@starkillerOG]: https://github.com/starkillerOG
+[@timmo001]: https://github.com/timmo001
+[@tr4nt0r]: https://github.com/tr4nt0r
+[@zweckj]: https://github.com/zweckj
 
 ## Need help? Join the community
 
