@@ -453,6 +453,6 @@ Some devices are not supported yet as they use a different protocol than other d
 
 ### I'm getting information about rate limiting in my logs - what should I do?
 
-There is rate limiting built into the python package that this integration is built on. This is to try to help prevent your instance from overwhelming the Roborock servers and resulting in any kind of IP ban. Best practice is to disable the integration for 24 hours. 
+There is rate limiting built into the Python package that this integration is built on. This is to try to help prevent your instance from overwhelming the Roborock servers and resulting in any kind of IP ban. Best practice is to disable the integration for 24 hours. 
 
 It's also important to try to determine what caused this error in your setup. A common cause some users have is that they have a script that automatically reloads the integration if it goes unavailable. Then, if the device gets stuck and runs out of battery, you are frequently reloading and that causes rate limits.
