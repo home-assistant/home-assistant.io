@@ -45,7 +45,7 @@ This integration is currently being actively developed and tested. More platform
 There is currently support for the following device types within Home Assistant:
 
 - Binary sensor - for monitoring the status of Portainer services.
-- Switch - for turning on and off Containers.
+- Switch - for turning on and off containers.
 
 ## Data updates
 
