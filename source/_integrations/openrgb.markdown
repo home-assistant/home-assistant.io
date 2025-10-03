@@ -11,7 +11,7 @@ ha_codeowners:
 ha_domain: openrgb
 ha_platforms:
   - light
-ha_integration_type: device
+ha_integration_type: hub
 ha_quality_scale: silver
 ---
 
@@ -22,7 +22,7 @@ OpenRGB provides a unified interface for controlling various RGB lighting hardwa
 
 To use this integration, you need the **OpenRGB application installed** in your computer with the **SDK Server running**.
 
-To enable the OpenRGB SDK Server:
+To enable the OpenRGB SDK server:
 
 1. In the OpenRGB application, go to **SDK Server** tab.
 2. Select **Start Server**.
@@ -31,20 +31,17 @@ To enable the OpenRGB SDK Server:
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
+Name:
+  description: A name for this OpenRGB entry, like the name of the computer running the SDK server (for example, `My Gaming PC`).
 Host:
-  description: The hostname or IP address of the computer running the OpenRGB SDK Server (for example, `192.168.1.100`).
+  description: The hostname or IP address of the computer running the OpenRGB SDK server (for example, `192.168.1.100`).
 Port:
-  description: The port on which the OpenRGB SDK Server is accessible (default is `6742`).
+  description: The port on which the OpenRGB SDK server is accessible (default is `6742`).
 {% endconfiguration_basic %}
 
 ## Supported devices
 
 This integration supports any RGB device that is compatible with OpenRGB. Refer to the [OpenRGB Supported Devices list](https://openrgb.org/devices.html).
-
-
-## Configuration options
-
-The integration has no additional configuration options.
 
 ## Supported functionality
 
@@ -58,7 +55,7 @@ For each RGB device connected to OpenRGB, the integration creates a light entity
 
 ## Data updates
 
-The OpenRGB integration uses {% term polling %} to fetch the current state of your RGB devices every 15 seconds.
+The **OpenRGB** integration {% term polling polls %} data from the OpenRGB SDK server **every 15 seconds**.
 
 ## Reconfiguration
 
@@ -82,11 +79,11 @@ The integration will reconnect to the OpenRGB SDK Server with the new settings.
 
 If you encounter connection errors:
 
-- In the OpenRGB application, verify **OpenRGB SDK Server is running**.
+- In the OpenRGB application, verify **OpenRGB SDK server is running**.
 - In the OpenRGB application, verify that **SDK Server** > **Server Host** is set to `0.0.0.0`.
-- Confirm the IP address of the computer running the OpenRGB SDK Server matches the **Host** configured in the OpenRGB integration.
+- Confirm the IP address of the computer running the OpenRGB SDK server matches the **Host** configured in the OpenRGB integration.
 - Confirm the **SDK Server** > **Server Port** matches the port configured in the OpenRGB integration.
-- Check for firewall rules that may block the connection from Home Assistant to the OpenRGB SDK Server.
+- Check for firewall rules that may block the connection from Home Assistant to the OpenRGB SDK server.
 
 ### Devices not appearing
 
