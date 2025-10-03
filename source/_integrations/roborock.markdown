@@ -46,7 +46,7 @@ pause the vacuum when a media player starts playing music.
 
 ## Note about compatibility
 
-Roborock recently released a new series of models, Q10 and Q7. This integration does NOT support these models (and likely all future released vacuums). Roborock has changed the protocol for how these devices interact. Therefore, they will not be supported by this integration until they are reverse-engineered.
+The newly released [Q-Series](https://us.roborock.com/pages/roborock-store#Q-Series) devices are not supported. Roborock has changed the protocol for how these devices interact. It is unclear if new devices not in the Q-series will use the existing protocol or the new protocol. Most Q-Series devices should have partial support via the [Matter](/integrations/matter/) integration.
 
 ## Prerequisites
 
@@ -101,6 +101,8 @@ Virtual walls:
   description: Show virtual walls on the map.
 Zones:
   description: Show zones on the map.
+Show background:
+  description: Show a blue background behind the map instead of a transparent background.
 {% endconfiguration_basic %}
 
 ## Data Updates

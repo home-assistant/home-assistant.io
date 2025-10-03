@@ -15,6 +15,7 @@ ha_codeowners:
   - '@thegardenmonkey'
   - '@cdnninja'
   - '@iprak'
+  - '@sapuseven'
 ha_domain: vesync
 ha_platforms:
   - binary_sensor
