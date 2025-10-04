@@ -25,7 +25,7 @@ After configuring this {% term integration %}, the binary sensors automatically 
 ## Configuration
 
 {% important %}
-You should have at least one VM or container entry configured, else this integration won't do anything.
+You should have at least one VM or container entry configured within Home Assistant, else this integration won't do anything.
 {% endimportant %}
 
 To use the `proxmoxve` {% term integration %}, add the following configuration to your {% term "`configuration.yaml`" %} file.
