@@ -199,7 +199,7 @@ The vacuum entity holds the ability to control most things the vacuum can do, su
   - **Description**: How much time is left before Roborock recommends you replace your dock's maintenance brush.
 
 - **Strainer time left**
-  - **Description**: How much time is left before Roborock recommends you replace your dock's strainer - this can refer to the water filter or the cleaning tray depending on your device..
+  - **Description**: How much time is left before Roborock recommends you replace your dock's strainer - this can refer to the water filter or the cleaning tray depending on your device.
 
 - **Status**
   - **Description**: The current status of your vacuum. This typically describes the action that is currently being run. For example, 'spot_cleaning' or 'docking'.
