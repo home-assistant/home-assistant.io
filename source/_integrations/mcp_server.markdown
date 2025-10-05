@@ -51,7 +51,7 @@ a client and can connect to multiple MCP servers to provide context. See the
 
 The Home Assistant Model Context Protocol Server integration implements the
 [Streamable HTTP protocol](https://modelcontextprotocol.io/specification/2025-06-18/basic/transports#streamable-http)
-allowing client-to-server communication using the stateless. Some MCP clients only support
+allowing client-to-server communication using the stateless protocol. Some MCP clients only support
 [stdio](https://modelcontextprotocol.io/docs/concepts/transports#standard-input-output-stdio) transport,
 and directly run an MCP server as a local command line tool. You can 
 use an MCP proxy server like [mcp-proxy](https://github.com/sparfenyuk/mcp-proxy)
