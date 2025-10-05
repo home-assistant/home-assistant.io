@@ -425,7 +425,7 @@ The IQ Meter Collar has the net-consumption CT integrated. The CT data is report
 - **Collar <abbr title="Collar serial number">SN</abbr> Communicating**: Communication status of the collar, Connected / Disconnected. This is a diagnostics entity.
 
 {% note %}
-Practical use learned that `Grid state` does not reflect actual grid state changes. Off/On grid state rather seems to be reflected in Admin state values ENCMN_MDE_ON_GRID and ENCMN_MDE_OFF_GRID. Be aware when using these entities. With time, more accurate details for these Collar entities may become available.
+Practical use learned that "Grid state" does not reflect actual grid state changes. Off/On grid state rather seems to be reflected in Admin state values ENCMN_MDE_ON_GRID for on grid state and ENCMN_MDE_OFF_GRID for off grid state. Be aware when using these entities. With time, more accurate details for these Collar entities may become available.
 {% endnote %}
 
 ### C6 Combiner Controller data
