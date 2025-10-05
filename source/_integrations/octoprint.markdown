@@ -5,6 +5,7 @@ ha_category:
   - 3D printing
   - Binary sensor
   - Button
+  - Number
   - Sensor
 ha_config_flow: true
 ha_release: 0.19
@@ -18,6 +19,7 @@ ha_platforms:
   - binary_sensor
   - button
   - camera
+  - number
   - sensor
 ha_integration_type: integration
 ---
@@ -87,13 +89,18 @@ The OctoPrint integration provides the following buttons:
 - Shutdown System
 - Stop Job
 
+## Number
+
+The OctoPrint integration lets you set target bed and tool temperature. These writable properties return the same data as Target Temperature sensors, and additionally allow changing Target Temperature from automation, scripts, or entities card interaction.
+
+- Set Target Bed Temperature
+- Set Target Tool (Nozzle) Temperature
+
 ## Service
 
 The OctoPrint integration provides the following services, which may be invoked from automation, scripts, or as a button interaction.
 
 - Connect to printer
-- Set bed temperature
-- Set tool temperature
 
 ## Troubleshooting
 
