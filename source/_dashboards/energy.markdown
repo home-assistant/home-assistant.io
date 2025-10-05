@@ -129,11 +129,11 @@ The following YAML options are available
 {% configuration %}
 type:
   required: true
-  description: "energy-sources-table"
+  description: "`energy-sources-table`"
   type: string
 types:
   required: false
-  description: If defined, table displays listed types of consumption only. Valid values are: `grid`, `solar`, `battery`, `gas`, and `water`.
+  description: "If defined, table displays listed types of consumption only. Valid values are: `grid`, `solar`, `battery`, `gas`, and `water`."
   type: list
 {% endconfiguration %}
 
