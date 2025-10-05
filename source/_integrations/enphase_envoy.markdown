@@ -417,11 +417,16 @@ The IQ Meter Collar has the net-consumption CT integrated. The CT data is report
 
 #### Collar status entities
 
+- **Collar <abbr title="Collar serial number">SN</abbr> Admin state**: Collar state, ENCMN_MDE_ON_GRID when on grid and ENCMN_MDE_OFF_GRID when off grid.
 - **Collar <abbr title="Collar serial number">SN</abbr> Grid state**: Grid connection status, on_grid / off_grid / synchronizing / manual override active.
 - **Collar <abbr title="Collar serial number">SN</abbr> MID State**: Status of enphase Microgrid Interconnection Device, open / close.
 - **Collar <abbr title="Collar serial number">SN</abbr> Temperature**: Current temperature in degrees C or F, based on your localization.
 - **Collar <abbr title="Collar serial number">SN</abbr> Last reported**: Time when Envoy received last update from the collar device.
 - **Collar <abbr title="Collar serial number">SN</abbr> Communicating**: Communication status of the collar, Connected / Disconnected. This is a diagnostics entity.
+
+{% note %}
+Practical use learned that "Grid state" does not reflect actual grid state changes. Off/On grid state rather seems to be reflected in Admin state values ENCMN_MDE_ON_GRID for on grid state and ENCMN_MDE_OFF_GRID for off grid state. Be aware when using these entities. With time, more accurate details for these Collar entities may become available.
+{% endnote %}
 
 ### C6 Combiner Controller data
 
