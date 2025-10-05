@@ -129,7 +129,7 @@ The following YAML options are available
 {% configuration %}
 type:
   required: true
-  description: "`energy-sources-table`"
+  description: "energy-sources-table"
   type: string
 types:
   required: false
