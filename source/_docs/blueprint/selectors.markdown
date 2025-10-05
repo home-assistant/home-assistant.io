@@ -1189,7 +1189,7 @@ number:
 
 The object selector can be used to input arbitrary data in YAML form. This is useful for e.g. lists and dictionaries containing data for actions. The value of the input will contain the provided data.
 
-When used without options, the selector will accept a free form object.
+When used without options, the selector will accept any valid YAML content, such as objects, arrays, strings, or other YAML types. The input box is displayed as an editor with syntax highlighting.
 
 ![Screenshot of an object selector](/images/blueprints/selector-object.png)
 
