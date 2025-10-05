@@ -73,7 +73,7 @@ Thinking budget:
 Enable web search:
   description: Enable the server-side [Web search tool](https://docs.claude.com/en/docs/agents-and-tools/tool-use/web-search-tool) for direct access to real-time web content, allowing it to answer questions with up-to-date information beyond its knowledge cutoff. Please note that this tool has its own [pricing](https://docs.claude.com/en/docs/agents-and-tools/tool-use/web-search-tool#usage-and-pricing).
 Maximum web searches:
-  description: The parameter limits the number of searches performed per user request.
+  description: Limits the number of web searches that can be performed per user request. Once the limit is reached, no additional searches will be executed during that conversation.
 Include home location:
-  description: The parameter allows you to localize search results based on the Home Assistant location
+  description: The parameter allows you to localize search results based on the Home Assistant location.
 {% endconfiguration_basic %}
