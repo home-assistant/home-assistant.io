@@ -41,6 +41,7 @@ This integration uses the last 6 digits of the serial number.
 - Wave Mini
 - Wave Plus
 - Wave Enhance
+- Corentium Home 2
 
 ## Sensors
 
