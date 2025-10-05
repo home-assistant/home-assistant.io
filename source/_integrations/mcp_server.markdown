@@ -120,9 +120,9 @@ to allow Claude for Desktop to access Home Assistant using the SSE transport.
         "Home Assistant": {
           "command": "mcp-proxy",
           "args": [
-              "--transport=streamablehttp",
-              "--stateless",
-              "http://localhost:8123/api/mcp_server"
+            "--transport=streamablehttp",
+            "--stateless",
+            "http://localhost:8123/api/mcp_server"
           ],
           "env": {
             "API_ACCESS_TOKEN": "<your_access_token_here>"
