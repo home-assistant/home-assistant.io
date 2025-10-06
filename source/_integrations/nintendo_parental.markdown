@@ -73,7 +73,7 @@ The **Nintendo Switch Parental Controls** integration provides the following ent
 #### Time
 
 - **Bedtime alarm**
-  - **Description**: A set bedtime for a given device, at this time, the switch can either "lock" or show an alert in the top left corner.
+  - **Description**: A set bedtime for a given device, at this time, the Switch can either "lock" or show an alert in the top left corner.
 
 ## Known limitations
 
