@@ -9,6 +9,7 @@ ha_domain: nintendo_parental
 ha_integration_type: integration
 ha_platforms:
   - sensor
+  - time
 ---
 
 
