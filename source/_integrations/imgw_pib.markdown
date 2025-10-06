@@ -33,11 +33,9 @@ This integration follows standard integration removal, no extra steps are requir
 
 ## Supported functionality
 
-### Entities
-
 The IMGW-PIB integration provides the following entities.
 
-#### Sensors
+### Sensors
 
 - **Water level**
   - **Description**: Water level in the river or reservoir at the measurement point
