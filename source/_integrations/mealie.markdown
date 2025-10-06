@@ -26,7 +26,7 @@ ha_quality_scale: platinum
 
 - View your upcoming meal plans in the calendars.
 - Use automations or your voice assistant to add items to a shopping list.
-- Use [zone presence-detection](/getting-started/presence-detection/) to remind you when when you approach a store that you have items on your shopping list to pick up.
+- Use [zone presence-detection](/getting-started/presence-detection/) to remind you when you approach a store that you have items on your shopping list to pick up.
 - Search for a recipe by ingredient.
 
 ## Supported versions
