@@ -77,8 +77,7 @@ automation:
       - action: persistent_notification.create
         data:
           title: Hydrological alert!
-          message: >-
-            {{ trigger.to_state.state }}, probability {{ trigger.to_state.attributes.probability }}%
+          message: "{{ trigger.to_state.state }}, probability {{ trigger.to_state.attributes.probability }}%"
 ```
 
 ## Known limitations
