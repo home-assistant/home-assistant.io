@@ -64,7 +64,7 @@ authorization and connecting to remote servers. The standards are a *work in pro
 and so some clients may not support the latest functionality, and the specification
 will likely continue to evolve.
 
-The Home Assistant MCP server is exposed as `/api/mcp_server` and requires the
+The Home Assistant MCP server is exposed as `/api/mcp` and requires the
 client to provide an authentication token.
 
 ### Access control
@@ -112,7 +112,7 @@ to allow Claude for Desktop to access Home Assistant using the SSE transport.
    which will edit `claude_desktop_config.json`. The full file location depends on your
    operating system (macOS or Windows).
 4. Add a new MCP server to the JSON file. You need to set the `SSE_URL` to the URL you use to
-   connect to Home Assistant with the path `/api/mcp_server`. You will also need to set `API_ACCESS_TOKEN`
+   connect to Home Assistant with the path `/api/mcp`. You will also need to set `API_ACCESS_TOKEN`
    to the long live access token created above in the [access control instructions](#access-control)
     ```json
     {
@@ -122,7 +122,7 @@ to allow Claude for Desktop to access Home Assistant using the SSE transport.
           "args": [
             "--transport=streamablehttp",
             "--stateless",
-            "http://localhost:8123/api/mcp_server"
+            "http://localhost:8123/api/mcp"
           ],
           "env": {
             "API_ACCESS_TOKEN": "<your_access_token_here>"
@@ -153,7 +153,7 @@ to allow Claude for Desktop to access Home Assistant using the SSE transport.
           "args": [
             "--transport=streamablehttp",
             "--stateless",
-            "http://localhost:8123/api/mcp_server"
+            "http://localhost:8123/api/mcp"
           ],
           "env": {
             "API_ACCESS_TOKEN": "<your_access_token_here>"
@@ -236,9 +236,9 @@ To understand the root cause, first check debug logs on the client. For example 
 3. Select the `Home Assistant` MCP server.
 4. Select **Open Logs Folder**.
 5. View `mcp-server-Home Assistant.log`. These are known problems and their resolution:
-   - `Client error '404 Not Found' for url 'http://localhost:8123/api/mcp_server'`:
+   - `Client error '404 Not Found' for url 'http://localhost:8123/api/mcp'`:
      this means the MCP Server integration is not configured in Home Assistant.
-   - `Client error '401 Unauthorized' for url 'http://localhost:8123/api/mcp_server'`:
+   - `Client error '401 Unauthorized' for url 'http://localhost:8123/api/mcp'`:
      this means that the long live access token is not correct.
 ...
 
