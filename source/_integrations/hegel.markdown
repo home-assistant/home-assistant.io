@@ -29,18 +29,14 @@ This integration provides complete control over your Hegel amplifier including p
 
 {% include integrations/config_flow.md %}
 
-{% configuration_basic %}
+## Configuration options
 
-Host:
-description: Hostname or IP address of your Hegel amplifier.
-Port:
-description: TCP port for the amplifier control. Default is 50001.
-Name:
-description: A friendly name for your amplifier.
-Model:
-description: Your specific Hegel amplifier model for proper input mapping.
+When setting up the integration, you can configure the following options:
 
-{% endconfiguration_basic %}
+- **Host**: Hostname or IP address of your Hegel amplifier
+- **Port**: TCP port for the amplifier control (default: 50001)
+- **Name**: A friendly name for your amplifier
+- **Model**: Your specific Hegel amplifier model for proper input mapping
 
 ## Supported models
 
