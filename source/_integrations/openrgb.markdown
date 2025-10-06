@@ -28,6 +28,8 @@ To enable the OpenRGB SDK server:
 2. Select **Start Server**.
 3. Optionally, go to the **Settings** tab and check **Start at Login**, **Start Minimized**, and **Start Server** for convenience.
 
+**Note**: if you opted to **Install System Service** in the OpenRGB **Windows installer**, the SDK server is probably already running. You can check this in the **Services** application in Windows.
+
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
