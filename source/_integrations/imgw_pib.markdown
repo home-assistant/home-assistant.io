@@ -40,19 +40,19 @@ The IMGW-PIB integration provides the following entities.
 #### Sensors
 
 - **Water level**
-  - **Description**: Water level in the river/reservoir at the measurement point
+  - **Description**: Water level in the river or reservoir at the measurement point
 - **Water flow**
   - **Description**: River water flow at the measurement point
   - **Remarks**: Not available for all hydrological stations
 - **Water temperature**
-  - **Description**: Water temperature in the river/reservoir at the measurement point
+  - **Description**: Water temperature in the river or reservoir at the measurement point
   - **Remarks**: Not available for all hydrological stations
 - **Hydrological alert**
-  - **Description**: Provides information on hydrological alerts for a given river/reservoir
+  - **Description**: Provides information on hydrological alerts for a given river or reservoir
 
 ## Data updates
 
-By default, the integration {% term polling polls %} the data from the IMGW-PIB API every 30 minutes.
+By default, the integration {% term polling polls %} data from the IMGW-PIB API every 30 minutes.
 
 ## Possible use-cases
 
