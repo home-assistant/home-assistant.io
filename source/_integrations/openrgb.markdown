@@ -82,7 +82,7 @@ If you encounter connection errors:
 - Verify that the **OpenRGB SDK server is running** in the OpenRGB application.
 - Verify that the **SDK Server** > **Server Host** is set to `0.0.0.0` in the OpenRGB application.
 - Confirm that the IP address of the computer running the OpenRGB SDK server matches the **Host** configured in the OpenRGB integration.
-- Confirm the **SDK Server** > **Server Port** matches the port configured in the OpenRGB integration.
+- Confirm that the **SDK Server** > **Server Port** matches the port configured in the OpenRGB integration.
 - Check for firewall rules that may block the connection from Home Assistant to the OpenRGB SDK server.
 
 ### Devices not appearing
