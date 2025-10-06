@@ -1622,7 +1622,7 @@ template:
         unlock:
           - variables:
               pin: !secret garage_door_pin
-          - condition: "{{ code == pin }}"
+          - condition: "{{ code|int == pin|int }}"
           - action: switch.turn_off
             target:
               entity_id: switch.source
