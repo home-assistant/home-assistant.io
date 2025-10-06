@@ -27,7 +27,6 @@ This integration provides complete control over your Hegel amplifier including p
 - TCP port 50001 must be accessible between Home Assistant and your amplifier
 - UPnP/SSDP should be enabled on your network for automatic discovery
 
-{% include integrations/config_flow.md %}
 
 ## Configuration options
 
