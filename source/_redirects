@@ -621,6 +621,7 @@ layout: null
 /integrations/pcal9535a /more-info/removed-integration 301
 /integrations/pi4ioe5v9xxxx /more-info/removed-integration 301
 /integrations/piglow /more-info/removed-integration 301
+/integrations/plum_lightpad /more-info/removed-integration 301
 /integrations/postnl /more-info/removed-integration 301
 /integrations/prezzibenzina /more-info/removed-integration 301
 /integrations/ptvsd /more-info/removed-integration 301
@@ -666,6 +667,8 @@ layout: null
 /integrations/usps /more-info/removed-integration 301
 /integrations/volvooncall /more-info/removed-integration 301
 /integrations/vulcan /more-info/removed-integration 301
+/integrations/vultr /more-info/removed-integration 301
+/integrations/watson_iot /more-info/removed-integration 301
 /integrations/weather.darksky /more-info/removed-integration 301
 /integrations/weblink /more-info/removed-integration 301
 /integrations/wink /more-info/removed-integration 301
