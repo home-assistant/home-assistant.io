@@ -28,7 +28,29 @@ You will need:
 
 ## Configuration
 
-{% include integrations/config_flow.md %}
+ 1. In the Home Assistant UI, go to **Settings > Devices & Services**.
+
+ 2. Click on **ADD INTEGRATION** and search for "Nintendo Switch Parental Controls".
+
+ 3. You will be prompted to provide an "Access Token". Click the link provided in the dialog description. This link is unique to your setup session.
+
+ 4. A new browser tab will open. Log in to your Nintendo account using your credentials.
+
+ 5. After successful login, you will see a "Linking an External Account" screen. For the Nintendo account you wish to link, **right-click** on the red button labeled **"Select this person"** and choose **"Copy Link"** (or "Copy Link Address" / "Copy URL" depending on your browser).
+
+    - **Important:** Do **not** click the button directly, as this can redirect you and prevent you from getting the necessary token.
+
+    - The copied link should have a format similar to `npf54789befxxxxxxxx://auth#session_token_code={redacted}&state={redacted}&session_state={redacted}`.
+
+ 6. Close the Nintendo Account browser tab.
+
+ 7. Paste the entire copied link (the full string) into the "Access Token" field in the Home Assistant configuration dialog.
+
+ 8. Click **Submit**.
+
+ 9. The configuration flow should then present additional options.
+
+10. Click **Submit** to finalize the setup.
 
 ## Supported functionality
 
@@ -46,6 +68,11 @@ The **Nintendo Switch Parental Controls** integration provides the following ent
   - **Description**: The amount total amount of time remaining for a device.
   - **Unit of measurement**: `minutes`
   - **Device class**: `duration`
+
+#### Time
+
+- **Bedtime alarm**
+  - **Description**: A set bedtime for a given device, at this time, the switch can either "lock" or show an alert in the top left corner.
 
 ## Known limitations
 
