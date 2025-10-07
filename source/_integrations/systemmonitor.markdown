@@ -54,16 +54,16 @@ One sensor per discovered network interface will be created
 ### Other
 
 - **Battery**: Percentage of battery remaining
-- **Battery empty**: Expected time until the battery is empty if not plugged in
+- **Battery empty**: Expected time when the battery is empty if not plugged in
 - **Charging**: Battery is charging (binary sensor)
 - **Fan speed**: Built-in fan speeds
 - **Last boot**: The date and time when the system was last started
-- **Load (1m)**: System load average over the last 1 minute
-- **Load (5m)**: System load average over the last 5 minutes
-- **Load (15m)**: System load average over the last 15 minutes
+- **Load (1 min)**: System load average over the last 1 minute
+- **Load (5 min)**: System load average over the last 5 minutes
+- **Load (15 min)**: System load average over the last 15 minutes
 - **Memory free**: Amount of available system memory
-- **Memory use**: Amount of used system memory
-- **Memory usage (percent)**: Percentage of system memory used
+- **Memory use**: Amount of system memory used
+- **Memory usage (%)**: Percentage of system memory used
 - **Processor use**: Percentage of CPU usage
 - **Processor temperature**: Current temperature of the processor
 - **Swap free**: Amount of available swap memory
