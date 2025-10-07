@@ -291,8 +291,6 @@ zha:
       channels: [15, 20, 25]  # Channel mask
 ```
 
-
-
 The related troubleshooting segments mentioned above will, among other things, inform that if you have issues with overlapping frequencies between Wi-Fi and Zigbee, then it is usually better to first only try changing and setting a static Wi-Fi channel on your Wi-Fi router or all your Wi-Fi access points (instead of just changing to another Zigbee channel).
 
 MetaGeek Support has a good reference article about channel selection for [Zigbee and WiFi coexistence](https://support.metageek.com/hc/en-us/articles/203845040-ZigBee-and-WiFi-Coexistence).
@@ -593,32 +591,28 @@ Confirm you meet the following requirements before migrating:
 {% details "To migrate to a new Zigbee adapter inside ZHA:" %}
 
 {% important %}
-You will not be able to control your existing Zigbee devices until the new adapter fully joins the network after the migration. **This can take a few minutes.**
+You will not be able to control your existing Zigbee devices until they join the network after the migration. **This can take a few minutes.**
 
 If some existing devices do not resume normal functions after some time, try power-cycling them to attempt rejoining to the network.
 {% endimportant %}
 
 1. Go to **{% my integrations title="Settings > Devices & services" %}** and select the ZHA {% term integration %}. Then select the cogwheel {% icon "mdi:cog-outline" %}.
 2. Under **Network settings**, select **Migrate adapter**.
-3. Reconfiguration of ZHA will start. Select **Submit**.
-   - An automatic backup will be performed, the Zigbee adapter will be reset, and the backup will be automatically restored.
-   - For combined Z-Wave and Zigbee adapters, like the HUSBZB-1 adapter, only the Zigbee radio portion is reset.
-   - You may now unplug the old adapter, or you may leave the old adapter plugged in (for example, if the adapter is a combined Z-Wave adapter).
-4. Under **Migrate or re-configure**, select **Migrate to a new adapter**.
-5. Plug in the new Zigbee adapter.
+3. Plug in the new Zigbee adapter.
    - To minimize interference:
      - Use a USB extension cable.
      - Use a USB 2.0 port or a powered USB 2.0 hub.
      - Keep the Zigbee stick away from USB 3.0 devices.
+4. Reconfiguration of ZHA will start. Select **Submit**.
+   - An automatic backup will be performed, and the backup will be automatically restored.
+5. Under **Migrate or re-configure**, select **Migrate to a new adapter**.
 6. Select the new Zigbee adapter from the list of serial ports and select **Submit**.
-   - **Troubleshooting**: A migration can be resumed if a reboot is required, such as when troubleshooting or if new hardware is plugged in.
-   - To resume, go to **Network Settings**, select **Re-configure the current adapter**, choose the new adapter and proceed.
 7. Choose what backup to use for migration:
    - **Option 1**: To use the backup that was created during this migration, select **Migrate automatically (recommended)**.
      - This is the quickest way to complete the migration.
    - **Option 2**: To restore a specific, older backup, select **Advanced migration** instead.
      - This will let you select a backup of your choice.
-8. If the new radio requires overwriting the IEEE address (the unique MAC address), you will see the prompt for **Overwrite Radio IEEE Address**.
+8. In the rare event the new radio requires overwriting the IEEE address (the unique MAC address), you will see the prompt for **Overwrite Radio IEEE Address**.
    - Check the **Permanently replace the radio IEEE address** box and click **Submit**.
    - Selecting this option is required for the migration process to complete successfully.
    - Overwriting the IEEE address may take a while.
@@ -626,7 +620,9 @@ If some existing devices do not resume normal functions after some time, try pow
    - You should not operate the old adapter in the same area unless you change its Zigbee IEEE address.
    - If you do not migrate the Zigbee IEEE address from the old Zigbee adapter, you will have to reconnect many of your devices to keep them working.
 9. The migration process is now complete.
-   - **Info** You won't be able to control the devices until they rejoin the network.
+   - The old adapter is being reset.
+   - For combined Z-Wave and Zigbee adapters, like the HUSBZB-1 adapter, only the Zigbee radio portion is reset.
+   - **Info**: You won't be able to control the devices until they rejoin the network.
      - Normally, they rejoin within one hour.
      - You may be able to accelerate that process by power-cycling devices.
    - You can now remove the old Zigbee adapter.
