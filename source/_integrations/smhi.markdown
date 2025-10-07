@@ -47,13 +47,13 @@ The following weather sensors are provided (cloud sensors are disabled by defaul
 
 The following fire sensors are provided (fire sensors are disabled by default):
 
-- **FWI-index**: Fire Weather Index classified from low risk to very high risk
-- **FWI-value**: Fire Weather Index as its native value
-- **Initial Spread Index (ISI)**: Describes the expected rate of fire spread
-- **Build Up Index (BUI)**: Indicates the total amount of fuel available for the fire
-- **Fine Fuel Moisture Code (FFMC)**: Describes the moisture content in the dead fine fuels
-- **Duff Moisture Code (DMC)**: Describes moisture content of loosely compacted organic layers of moderate depth
-- **Drought Code (DC)**: Describes moisture content of deep compact organic layers
+- **FWI-index**: Fire weather index classified from low risk to very high risk
+- **FWI-value**: Fire weather index as its native value
+- **Initial spread index (ISI)**: Describes the expected rate of fire spread
+- **Build up index (BUI)**: Indicates the total amount of fuel available for the fire
+- **Fine fuel moisture code (FFMC)**: Describes the moisture content in the dead fine fuels
+- **Duff moisture code (DMC)**: Describes moisture content of loosely compacted organic layers of moderate depth
+- **Drought code (DC)**: Describes moisture content of deep compact organic layers
 - **Highest grass fire risk**: Highest grass fire risk (danger) according to the grass fire model ranging from snow cover to very high
 - **Potential rate of spread**: Potential rate of spread (m/min) of uncut and ungrazed natural grass
 - **Fuel drying**: Measure of the available water amount in the forest fuel ranging from extremely dry to very wet
