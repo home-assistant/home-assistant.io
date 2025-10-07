@@ -31,7 +31,7 @@ You will need:
 
  1. In the Home Assistant UI, go to **Settings > Devices & Services**.
 
- 2. Click on **ADD INTEGRATION** and search for "Nintendo Switch Parental Controls".
+ 2. Select **Add integration** and search for **Nintendo Switch Parental Controls**.
 
  3. You will be prompted to provide an "Access Token". Click the link provided in the dialog description. This link is unique to your setup session.
 
