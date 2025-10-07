@@ -198,7 +198,7 @@ binary_sensor:
 
 ### Template
 
-Here's an example for `template` observations, as seen in the configuration it requires `value_template`. This template will evaluate to true if the device tracker `device_tracker.paulus` shows `not_home` and it last changed its status more than 5 minutes ago.
+Here's an example for `template` observations, as seen in the configuration it requires `value_template`. This template will evaluate to true if the device tracker `device_tracker.paulus` has not been seen in the last 5 minutes.
 
 {% raw %}
 
