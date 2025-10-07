@@ -625,7 +625,7 @@ If some existing devices do not resume normal functions after some time, try pow
    - **Info**: You won't be able to control the devices until they rejoin the network.
      - Normally, they rejoin within one hour.
      - You may be able to accelerate that process by power-cycling devices.
-   - You can now remove the old Zigbee adapter.
+10. You can now remove the old Zigbee adapter.
 
 {% enddetails %}
 
