@@ -42,6 +42,16 @@ ha_dhcp: true
 ha_zeroconf: true
 ---
 
-[Konnected](https://konnected.io/) devices work locally and integrate seamlessly with the [ESPHome](/integrations/esphome/) {% term integration %} in Home Assistant. As all connectivity is done locally, status updates and device control from Home Assistant happen instantly.
+[Konnected](https://konnected.io/) is a member of the Made for ESPHome program.
+
+Konnected devices work locally and integrate seamlessly with the [ESPHome](/integrations/esphome/) {% term integration %} in Home Assistant. As all connectivity is done locally, status updates and device control from Home Assistant happen instantly.
 
 {% include integrations/supported_brand.md %}
+
+## Supported devices
+
+The following devices are known to be supported by the integration. They are certified under the [Works with Home Assistant](https://partner.home-assistant.io/) program.
+
+- [Konnected Smart Garage Door Opener blaQ](https://konnected.io/products/smart-garage-door-opener-blaq-myq-alternative)
+- [Konnected Smart Garage Door Opener White (v2)](https://konnected.io/products/smart-garage-door-opener)
+- [Konnected Alarm Panel Pro](https://konnected.io/collections/smart-alarm-panels)
