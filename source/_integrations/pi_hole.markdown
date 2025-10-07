@@ -40,9 +40,9 @@ During the setup, it will ask for the following:
 
 The combined host, port and location should take you to the login page of Pi-Hole. Using the example above, it would be `http://192.168.1.1:80/admin`.
 
-To find your App Password, log into your Pi-Hole and go to **Settings** > **Web Interface/API**. Switch from **Basic** to **Expert** mode, then select **Configure app password**.
+To find your App Password, log into your Pi-Hole and go to **Settings** > **Web Interface/API**. Switch from **Basic** to **Expert** mode, then select **Configure app password**.  Your admin log-in password may be used instead but this is not reccomended.
 
-Versions of Pi-hole before version 6 (released in Feb 2025) use an API Key if the Pi-hole was password protected, this can be found in _Settings > API Tab_ and clicking **Show API token**
+Versions of Pi-hole before version 6 (released in Feb 2025) use an API Key if the Pi-hole was password protected, this can be found in _Settings > API Tab_ and clicking **Show API token**.
 
 ## Actions
 
@@ -70,4 +70,4 @@ target:
 
 ## Switches
 
-The integration creates a switch for the Pi-hole allowing you to toggle the Pi-hole on and off.
+The integration creates a switch for the Pi-hole allowing you to toggle ad-blocking on and off.
