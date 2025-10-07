@@ -3,15 +3,18 @@ title: Portainer
 description: Instructions on how to integrate Portainer with Home Assistant.
 ha_category:
   - Binary sensor
-ha_release: "2025.10"
-ha_iot_class: Cloud Polling
+ha_release: '2025.10'
+ha_iot_class: Local Polling
 ha_codeowners:
   - '@erwindouna'
 ha_domain: portainer
 ha_config_flow: true
 ha_platforms:
   - binary_sensor
+  - switch
+  - button
 ha_integration_type: integration
+ha_quality_scale: bronze
 ---
 
 The Portainer {% term integration %} is used as an interface to the [Portainer API](https://docs.portainer.io/api).
@@ -43,6 +46,8 @@ This integration is currently being actively developed and tested. More platform
 There is currently support for the following device types within Home Assistant:
 
 - Binary sensor - for monitoring the status of Portainer services.
+- Switch - for turning on and off containers.
+- Button - for restarting containers.
 
 ## Removing the integration
 
