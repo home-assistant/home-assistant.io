@@ -68,7 +68,7 @@ One sensor per discovered network interface will be created
 - **Processor temperature**: Current temperature of the processor
 - **Swap free**: Amount of available swap memory
 - **Swap use**: Amount of used swap memory
-- **Swap usage (percent)**: Percentage of swap memory used
+- **Swap usage (%)**: Percentage of swap memory used
 
 ## Add `process` binary sensor
 
