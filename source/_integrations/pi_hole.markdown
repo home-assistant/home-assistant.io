@@ -67,7 +67,10 @@ data:
 target:
   entity_id: all
 ```
-
 ## Switches
 
 The integration creates a switch for the Pi-hole allowing you to toggle ad-blocking on and off.
+
+## Sensors
+
+The integration creates a number of sensors which report various ad-blocking metrics as well as diagnostic information about the pi-hole itself.
