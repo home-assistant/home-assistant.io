@@ -29,7 +29,7 @@ You will need:
 
 ## Configuration
 
- 1. In the Home Assistant UI, go to **Settings > Devices & Services**.
+ 1. In the Home Assistant UI, go to {% my integrations title="**Settings** > **Devices & services**" %}.
 
  2. Select **Add integration** and search for **Nintendo Switch Parental Controls**.
 
