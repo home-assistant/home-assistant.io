@@ -33,7 +33,7 @@ You will need:
 
  2. Select **Add integration** and search for **Nintendo Switch Parental Controls**.
 
- 3. You will be prompted to provide an "Access Token". Click the link provided in the dialog description. This link is unique to your setup session.
+ 3. You will be prompted to provide an **Access token**. Select the link provided in the dialog description. This link is unique to your setup session.
 
  4. A new browser tab will open. Log in to your Nintendo account using your credentials.
 
