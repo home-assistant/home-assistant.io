@@ -602,7 +602,7 @@ If some existing devices do not resume normal functions after some time, try pow
    - To minimize interference:
      - Use a USB extension cable.
      - Use a USB 2.0 port or a powered USB 2.0 hub.
-     - Keep the Zigbee stick away from USB 3.0 devices.
+     - Keep the Zigbee adapter away from USB 3.0 devices.
 4. Reconfiguration of ZHA will start. Select **Submit**.
    - An automatic backup will be performed, and the backup will be automatically restored.
 5. Under **Migrate or re-configure**, select **Migrate to a new adapter**.
