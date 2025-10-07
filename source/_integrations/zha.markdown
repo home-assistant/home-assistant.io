@@ -603,8 +603,8 @@ If some existing devices do not resume normal functions after some time, try pow
      - Use a USB extension cable.
      - Use a USB 2.0 port or a powered USB 2.0 hub.
      - Keep the Zigbee adapter away from USB 3.0 devices.
-4. Reconfiguration of ZHA will start. Select **Submit**.
-   - An automatic backup will be performed, and the backup will be automatically restored.
+4. Reconfiguration of ZHA starts. Select **Submit**.
+   - An automatic backup will be performed.
 5. Under **Migrate or re-configure**, select **Migrate to a new adapter**.
 6. Select the new Zigbee adapter from the list of serial ports and select **Submit**.
 7. Choose what backup to use for migration:
@@ -616,7 +616,7 @@ If some existing devices do not resume normal functions after some time, try pow
    - Check the **Permanently replace the radio IEEE address** box and click **Submit**.
    - Selecting this option is required for the migration process to complete successfully.
    - Overwriting the IEEE address may take a while.
-   - Both the old and new Zigbee adapters will now have the same Zigbee IEEE address.
+   - Both the old and new Zigbee adapters now have the same Zigbee IEEE address.
    - You should not operate the old adapter in the same area unless you change its Zigbee IEEE address.
    - If you do not migrate the Zigbee IEEE address from the old Zigbee adapter, you will have to reconnect many of your devices to keep them working.
 9. The migration process is now complete.
