@@ -23,7 +23,7 @@ A `Bayesian` sensor is a virtual binary sensor that determines its state by comb
 
 This approach enables the detection of complex events that are not directly or easily measurable, such as cooking, showering, being in bed, or starting a morning routine. Additionally, it can improve confidence and reliability in measurable events where sensors may be unreliable, such as some presence detectors.
 
-Bayesian works by applying [Bayes' rule](https://en.wikipedia.org/wiki/Bayes%27_theorem). It estimates the likelihood that a specific event is occurring based on the combination of a baseline probability - known as a 'posterior' - and the states of 'observed' sensors and. When the calculated probability - known as a 'prior' - exceeds the defined `probability_threshold`, the `bayesian` sensor will turn `on`; otherwise, it will be `off`.
+Bayesian works by applying [Bayes' rule](https://en.wikipedia.org/wiki/Bayes%27_theorem). It estimates the likelihood that a specific event is occurring based on the combination of a baseline probability - known as a 'prior' - and the states of 'observed' sensors and. When the calculated probability - known as a 'posterior' - exceeds the defined `probability_threshold`, the `bayesian` sensor will turn `on`; otherwise, it will be `off`.
 
 Both UI and YAML setups are supported, importantly YAML uses probabilities of `0` to `1` whereas the UI uses percentages, `0` to `100`.
 
