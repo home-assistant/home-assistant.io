@@ -543,13 +543,14 @@ While using a native Zigbee group instead of Home Assistant's [Group](/integrati
 
 Binding a Zigbee device attaches an endpoint from one device to an endpoint of another device (or group).
 
-Commands sent between bound devices bypass ZHA (even when ZHA is not active) and directly control the targeted device. Binding devices can allow for faster response times and smoother control.
+Commands sent between bound devices bypass ZHA (even when ZHA or Home Assistant are not working) and directly control the targeted device. Binding devices can also allow for faster response times and smoother control.
 
 Before binding devices, note the following:
 
 - ZHA binds remotes to the Zigbee coordinator by default in order to forward click events to Home Assistant.
 - Some remotes can only be bound to a single target; you might need to unbind the remote from the coordinator before binding it to another target.
-- Not all devices support binding. Refer to the device manufacturer's documentation to confirm features.
+- All remotes have some upper limit as to the number of devices they can bind.
+- Not all devices support binding, some only support binding groups, others only devices; refer to the device manufacturer's or the community's documentation to confirm features.
 
 #### To manage bindings of a Zigbee device
 
@@ -559,11 +560,12 @@ Before binding devices, note the following:
 Prerequisites and steps can vary depending on the device type, manufacturer, and your desired end result.
 {% endnote %}
 
-1. Navigate to the Zigbee device's configuration page,
-2. In the options menu (the "three dots" icon), select **Manage Zigbee device**,
+1. Navigate to the Zigbee remote's configuration page,
+2. In the options menu (the "three dots" icon) to the right of the **Reconfigure** button, select **Manage Zigbee device**,
 3. Select the **Bindings** tab in the pop-up dialog,
 4. Choose the device from the dropdown list of _Bindable devices_ (or _Bindable groups_),
-5. Confirm the Bind or Unbind action:
+5. If the remote is battery powered or low-power, wake it by pressing a button immediately before sending a command.
+6. Confirm the Bind or Unbind action:
    - To bind devices: select **Bind** (or **Bind group**), or
    - To unbind devices, select **Unbind** (or **Unbind group**).
 
