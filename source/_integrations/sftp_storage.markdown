@@ -3,14 +3,14 @@ title: SFTP Storage
 description: Allows storing backups created with Backup system onto remote SFTP host.
 ha_category:
   - Other
-ha_release: "2025.10"
-ha_quality_scale: internal
+ha_release: '2025.10'
+ha_quality_scale: silver
 ha_domain: sftp_storage
 ha_codeowners:
   - '@maretodoric'
-ha_iot_class: Local Push
+ha_iot_class: Local Polling
 ha_config_flow: true
-ha_integration_type: integration
+ha_integration_type: service
 related:
   - docs: /common-tasks/general/#backups
     title: Backups

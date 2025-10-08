@@ -138,8 +138,11 @@ Depending on the supported features of the camera ([see specifications of the ca
 
 - Optical zoom control
 - Focus control
-- Floodlight turn on brightness+
+- Floodlight turn on brightness*+
+- Floodlight event brightness*+
 - Infrared light brightness
+- Floodlight event on time*
+- Floodlight event flash time*
 - Volume (Camera)
 - Volume speak (Camera)
 - Volume doorbell (Camera)
@@ -188,7 +191,11 @@ Depending on the supported features of the camera ([see specifications of the ca
 - Pre-recording time*
 - Pre-recording stop battery level*
 
-**Floodlight turn on brightness** controls the brightness of the floodlight when it is turned on internally by the camera (see **Floodlight mode** select entity) or when using the **Floodlight** light entity.
+**Floodlight turn on brightness** controls the brightness of the floodlight when it is turned on internally by the camera (see **Floodlight mode** select entity) or when using the **Floodlight** light entity. 
+**Floodlight event brightness** controls the brightness of the floodlight when it is turned on due to the camera detecting an event (for example, a person or vehicle), see the **Floodlight event mode** entity.
+
+**Floodlight event on time** will be in the `unknown` state if **Floodlight event mode** is not in the `on` state.
+**Floodlight event flash time** will be in the `unknown` state if **Floodlight event mode** is not in the `flash` state.
 
 When the camera is not moved and no person/pet/animal/vehicle is detected for the **Guard return time** in seconds, and the **Guard return** switch is ON, the camera will move back to the guard position.
 
@@ -231,7 +238,8 @@ Some Reolink <abbr title="pan, tilt, and zoom">PTZ</abbr> cameras can move at di
 
 Depending on the supported features of the camera ([see specifications of the camera model on Reolink.com](#tested-models)), select entities are added for:
 
-- Floodlight mode (Off, Auto, Schedule)
+- Floodlight mode (Off, Auto, On at night, Schedule, Adaptive, Auto adaptive)
+- Floodlight event mode (Off, On, Flash)
 - Day night mode+ (Auto, Color, Black&White)
 - <abbr title="pan, tilt, and zoom">PTZ</abbr> preset
 - Play quick reply message

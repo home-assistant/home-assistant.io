@@ -80,6 +80,7 @@ Known supported devices:
 - Denon AVR-S960H
 - Denon AVR-S970H
 - Denon DN-500AV
+- Denon DRA-N5
 - Denon DRA-800H
 - Marantz AV7702
 - Marantz AV7703

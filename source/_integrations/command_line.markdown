@@ -547,32 +547,6 @@ command_line:
 ```
 {% endraw%}
 
-### Monitoring failed login attempts on Home Assistant
-
-If you'd like to know how many failed login attempts are made to Home Assistant, add the following to your {% term "`configuration.yaml`" %} file:
-
-{% raw %}
-```yaml
-# Example configuration.yaml entry
-command_line:
-  - sensor:
-      name: Badlogin
-      command: "grep -c 'Login attempt' /home/hass/.homeassistant/home-assistant.log"
-```
-{% endraw%}
-
-Make sure to configure the [Logger integration](/integrations/logger) to monitor the [HTTP integration](/integrations/http/) at least the `warning` level.
-
-{% raw %}
-```yaml
-# Example working logger settings that works
-logger:
-  default: critical
-  logs:
-    homeassistant.components.http: warning
-```
-{% endraw%}
-
 ### Details about the upstream Home Assistant release
 
 You can see directly in the frontend (**Developer tools** -> **About**) what release of Home Assistant you are running. The Home Assistant releases are available on the [Python Package Index](https://pypi.python.org/pypi). This makes it possible to get the current release.

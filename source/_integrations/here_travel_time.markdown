@@ -91,3 +91,9 @@ automation:
       target:
         entity_id: sensor.morning_commute
 ```
+
+For more detailed steps on how to define a custom polling interval, follow the procedure below.
+
+### Defining a custom polling interval
+
+{% include common-tasks/define_custom_polling.md %}

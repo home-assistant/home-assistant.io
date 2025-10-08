@@ -132,6 +132,7 @@ MQTT Devices and entities can be set up through [MQTT -discovery](#mqtt-discover
 - [Light](/integrations/light.mqtt/)
 - [Lock](/integrations/lock.mqtt/)
 - [Notify](/integrations/notify.mqtt/)
+- [Number](/integrations/number.mqtt/)
 - [Sensor](/integrations/sensor.mqtt/)
 - [Switch](/integrations/switch.mqtt/)
 

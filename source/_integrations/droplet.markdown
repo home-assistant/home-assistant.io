@@ -4,14 +4,14 @@ description: Instructions on how to setup Droplet in Home Assistant.
 ha_category:
   - Sensor
 ha_config_flow: true
-ha_release: "2025.10"
+ha_release: '2025.10'
 ha_iot_class: Local Push
 ha_codeowners:
   - '@sarahseidman'
-ha_domain: droplet 
+ha_domain: droplet
 ha_platforms:
   - sensor
-ha_integration_type: device
+ha_integration_type: integration
 ha_zeroconf: true
 ha_quality_scale: bronze
 ---

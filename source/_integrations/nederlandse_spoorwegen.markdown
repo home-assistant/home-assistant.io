@@ -6,13 +6,14 @@ ha_category:
 ha_iot_class: Cloud Polling
 ha_release: 0.57
 ha_codeowners:
-  - '@heindrichpaul'
   - '@YarmoM'
+  - '@heindrichpaul'
 ha_domain: nederlandse_spoorwegen
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ha_quality_scale: legacy
+ha_config_flow: true
 ---
 
 The **Nederlandse Spoorwegen (NS)** {% term integration %} provides real-time information about Dutch train schedules using the [NS API](https://apiportal.ns.nl/). This integration allows you to monitor departure times, delays, and travel information for your regular routes.
