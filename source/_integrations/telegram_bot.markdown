@@ -872,6 +872,32 @@ The following features are not available in this integration:
 - Calls and live streaming
 - Wallpapers and Themes
 
+## Troubleshooting
+
+{% details "Error sending message: Can't parse entities" %}
+
+When using send actions such as `telegram_bot.send_message` with the `markdownv2` parse mode, the action will fail with the "Can't parse entities" error if the user input in the `message` field contains malformed Markdown syntax.
+
+You can perform any of the following to resolve this issue:
+
+- Use the `plain_text` parse mode either by configuring the Telegram bot options or by specifying it via the action's `parse_mode` data attribute.
+- Escape special characters in the `message` field with a preceding '\\' character.
+- Format your message according to the [formatting options](https://core.telegram.org/bots/api#formatting-options).
+
+{% enddetails %}
+
+{% details "Telegram Webhook bot is unable to receive updates" %}
+
+If your Telegram bot is unable to receive updates (i.e. all events other than `telegram_sent` are not triggered), please follow the troubleshooting steps below:
+
+1. Reconfigure your Telegram bot to use the **Polling** platform and test again to verify that the issue is not related to network connectivity between Telegram and your Home Assistant.
+2. Check your firewall rules to verify that incoming connections are not blocked.
+3. Verify that your webhook URL is public and accessible.
+
+If the issue persists, please refer to the [Webhooks Guide](https://core.telegram.org/bots/webhooks) for more detailed troubleshooting.
+
+{% enddetails %}
+
 ## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.
