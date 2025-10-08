@@ -583,7 +583,7 @@ Confirm you meet the following requirements before migrating:
 
 - The previous adapter is used in the ZHA {% term integration %} and _not_ in deCONZ or MQTT.
 - The radio type is one of the following:
-  - ezsp _(Silicon Labs EmberZnet)_
+  - ezsp _(Silicon Labs EmberZNet)_
   - znp _(Texas Instruments Z-Stack ZNP)_
   - deCONZ _(ConBee/RaspBee from dresden elektronik)_
     - Be sure it is running [firmware 0x26700700 (from 2021-08-18)](https://github.com/dresden-elektronik/deconz-rest-plugin/wiki/Firmware-Changelog) or later.
