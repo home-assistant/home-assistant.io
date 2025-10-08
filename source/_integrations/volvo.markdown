@@ -13,7 +13,7 @@ ha_category:
 ha_platforms:
   - binary_sensor
   - sensor
-ha_quality_scale: silver
+ha_quality_scale: platinum
 related:
   - url: https://developer.volvocars.com/
     title: Volvo developers portal
