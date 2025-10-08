@@ -150,11 +150,11 @@ adsvar_color_temp_kelvin:
   type: string
 min_color_temp_kelvin:
   required: false
-  description: The minimum color temperature in Kelvin (default: 2000)
+  description: The minimum color temperature in Kelvin (default is 2000)
   type: integer
 max_color_temp_kelvin:
   required: false
-  description: The maximum color temperature in Kelvin (default: 6500)
+  description: The maximum color temperature in Kelvin (default is 6500)
   type: integer
 name:
   required: false
