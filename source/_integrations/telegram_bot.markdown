@@ -527,6 +527,7 @@ An attachment message will fire a `telegram_attachment` event on the event bus w
 file_id: "<unique identifier for the file>"
 file_name: "<name of the file, if available>"
 file_mime_type: "<MIME type of the file, if available>"
+file_size: "<file size in bytes, if available>"
 text: "<caption of the file, if available>"
 from_first: "<first name of the sender>"
 from_last: "<last name of the sender>"
