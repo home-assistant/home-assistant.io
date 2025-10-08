@@ -860,6 +860,18 @@ sequence:
 
 {% endraw %}
 
+## Known limitations
+
+The following features are not available in this integration:
+
+- Editing the bot (You can edit the bot using [@BotFather](https://t.me/botfather) on the Telegram app instead)
+- All payment related features such as Telegram Premium, Telegram Star and Telegram Gifts
+- Telegram Business
+- Telegram ADS
+- Mini Bot Apps and Mini Bot Store
+- Calls and live streaming
+- Wallpapers and Themes
+
 ## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.

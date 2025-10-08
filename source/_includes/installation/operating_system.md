@@ -321,7 +321,7 @@ Minimum recommended assignments:
 - title: VirtualBox
   content: |
     1. Create a new virtual machine.
-    2. Select type **Linux**, subtype **Oracle Linux** and version **Oracle Linux (ARM 64-bit)**.
+    2. Select type **Linux**, subtype **Oracle Linux** and version **Oracle Linux (64-bit)** or **Oracle Linux (ARM 64-bit)** depending on your hardware.
     3. Under **Hardware**, select the amount of memory and number of CPUs. Then, select **Enable EFI**.
        - Make sure **EFI** is enabled. If EFI is not enabled, HAOS won't boot.
     4. Under **Hard Disk**, select **Use an existing virtual hard disk file**, select the unzipped VDI file from above.
@@ -469,8 +469,6 @@ Minimum recommended assignments:
 3. Once completed, you will be able to reach Home Assistant on <a href="http://homeassistant.local:8123" target="_blank">homeassistant.local:8123</a>. If you are running an older Windows version or have a stricter network configuration, you might need to access Home Assistant at <a href="http://homeassistant:8123" target="_blank">homeassistant:8123</a> or `http://X.X.X.X:8123` (replace X.X.X.X with your virtual machine’s IP address).
 
 {% endif %}
-
-{% include installation_survey.html %}
 
 With the Home Assistant Operating System installed and accessible, you can continue with onboarding.
 
