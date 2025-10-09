@@ -75,11 +75,11 @@ The integration creates a climate entity for each thermostat device in your Watt
 
 Each climate entity exposes additional attributes:
 
-- `thermostat_mode`: Current operating mode (Program, Eco, Comfort, Off)
-- `device_type`: Type of thermostat device
-- `room_name`: Name of the room as configured in the Watts Vision + app
-- `temperature_unit`: Temperature unit (°C or °F)
-- `available_thermostat_modes`: List of supported modes for the device
+- **thermostat_mode**: Current operating mode of the thermostat
+- **device_type**: Type of thermostat device
+- **room_name**: Name of the room as configured in the Watts Vision + app
+- **temperature_unit**: Temperature unit (°C or °F)
+- **available_thermostat_modes**: List of supported modes for the device
 
 ### Switch entities
 
@@ -92,8 +92,8 @@ The integration creates a switch entity for each switch device in your Watts Vis
 
 Each switch entity exposes additional attributes:
 
-- `device_type`: Type of switch device
-- `room_name`: Name of the room as configured in the Watts Vision + app
+- **device_type**: Type of switch device
+- **room_name**: Name of the room as configured in the Watts Vision + app
 
 ### Shared functionality
 
@@ -155,3 +155,8 @@ actions:
 {% endraw %}
 
 {% enddetails %}
+
+## Removing the integration
+
+This integration follows standard integration removal.
+{% include integrations/remove_device_service.md %}
