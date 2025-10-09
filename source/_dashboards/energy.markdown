@@ -121,10 +121,29 @@ link_dashboard: true
 The energy sources table card shows all your energy sources, and the corresponding amount of energy.
 If setup, it will also show the costs and compensation per source and the total.
 
+
+### YAML configuration
+
+The following YAML options are available
+
+{% configuration %}
+type:
+  required: true
+  description: "`energy-sources-table`"
+  type: string
+types:
+  required: false
+  description: "If defined, table displays listed types of consumption only. Valid values are: `grid`, `solar`, `battery`, `gas`, and `water`."
+  type: list
+{% endconfiguration %}
+
 ### Example
 
 ```yaml
 type: energy-sources-table
+types:
+  - gas
+  - water
 ```
 
 ## Grid neutrality gauge

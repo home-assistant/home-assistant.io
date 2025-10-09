@@ -15,7 +15,7 @@ ha_platforms:
   - diagnostics
   - event
   - sensor
-ha_quality_scale: silver
+ha_quality_scale: platinum
 ---
 
 The **Sleep as Android** {% term integration %} connects the Sleep as Android app to Home Assistant, allowing you to trigger automations based on alarm clock or sleep cycle events.

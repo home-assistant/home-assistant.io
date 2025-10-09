@@ -9,7 +9,6 @@ featured: true
 ha_release: '0.60'
 ha_config_flow: true
 ha_codeowners:
-  - '@balloob'
   - '@marcelveldt'
 ha_domain: hue
 ha_homekit: true
