@@ -22,12 +22,6 @@ ha_quality_scale: bronze
 
 This integration uses the official Watts Vision + API to provide control over your heating zones. You can adjust temperatures, switch between heating modes, and monitor the current status of each thermostat and switch device in your home.
 
-{% include integrations/config_flow.md %}
-
-{% note %}
-The integration uses OAuth2 authentication. You will be redirected to the Watts Vision + login page to authenticate with your account credentials. Make sure you have set up a Watts Vision + account through their mobile app before configuring this integration.
-{% endnote %}
-
 ## Prerequisites
 
 Before setting up the integration, make sure you have:
@@ -35,6 +29,12 @@ Before setting up the integration, make sure you have:
 1. A Watts Vision + account created via the Vision + mobile app.
 2. At least one Watts Vision + gateway connected to the internet and linked to your account.
 3. At least one sub-device paired with your gateway.
+
+{% include integrations/config_flow.md %}
+
+{% note %}
+The integration uses OAuth2 authentication. You will be redirected to the Watts Vision + login page to authenticate with your account credentials. Make sure you have set up a Watts Vision + account through their mobile app before configuring this integration.
+{% endnote %}
 
 ## Supported devices
 
