@@ -408,7 +408,7 @@ Minimum recommended assignments:
   content: |
     1. Start VMware Workstation and select **Create a New Virtual Machine**.
        - Note: the exact name and location of the settings below depend on the VMware version. This procedure is based on version 17.
-    2. Select **I will install the operating system later**, then select **Linux** > **Other linux 5.x kernel 64-bit**.
+    2. Select **I will install the operating system later**, then select **Linux** > **Other Linux 5.x kernel 64-bit**.
     3. Give the VM a name, `home-assistant`, and define an easy to reach storage location, such as `C:\home-assistant`.
     4. Specify the disk size and select **Store virtual disk as a single file**.
     5. Select **Customize Hardware**.
