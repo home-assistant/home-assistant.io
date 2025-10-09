@@ -3,7 +3,7 @@ title: Fluss+
 description: Instructions on how to integrate Fluss+ devices within Home Assistant.
 ha_category:
   - Button
-ha_release: "2025.6"
+ha_release: "2025.10"
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@fluss'
