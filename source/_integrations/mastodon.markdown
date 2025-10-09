@@ -81,8 +81,9 @@ Example post action that will post a status using your account's default visibil
 
 ```yaml
 - action: mastodon.post
-  config_entry_id: YOUR_MASTODON_CONFIG_ENTITY_ID
-  status: "A toot from Home Assistant"
+  data:
+    config_entry_id: YOUR_MASTODON_CONFIG_ENTITY_ID
+    status: "A toot from Home Assistant"
 ```
 
 {% endraw %}
@@ -97,9 +98,10 @@ This will post a status to Mastodon, but visibility is marked as `private` so on
 
 ```yaml
 - action: mastodon.post
-  config_entry_id: YOUR_MASTODON_CONFIG_ENTITY_ID
-  status: "A private toot from Home Assistant"
-  visibility: private
+  data:
+    config_entry_id: YOUR_MASTODON_CONFIG_ENTITY_ID
+    status: "A private toot from Home Assistant"
+    visibility: private
 ```
 
 {% endraw %}
@@ -114,9 +116,10 @@ This will post a status to Mastodon that includes an image.
 
 ```yaml
 - action: mastodon.post
-  config_entry_id: YOUR_MASTODON_CONFIG_ENTITY_ID
-  status: "A media toot from Home Assistant"
-  media: /config/www/funny_meme.png
+  data:
+    config_entry_id: YOUR_MASTODON_CONFIG_ENTITY_ID
+    status: "A media toot from Home Assistant"
+    media: /config/www/funny_meme.png
 ```
 
 {% endraw %}
@@ -131,12 +134,13 @@ This will post a status to Mastodon that includes an image, with a description, 
 
 ```yaml
 - action: mastodon.post
-  config_entry_id: YOUR_MASTODON_CONFIG_ENTITY_ID
-  status: "A media toot from Home Assistant"
-  visibility: unlisted
-  media: /config/www/funny_meme.png
-  media_description: "A funny meme"
-  content_warning: "This might not be funny enough"
+  data:
+    config_entry_id: YOUR_MASTODON_CONFIG_ENTITY_ID
+    status: "A media toot from Home Assistant"
+    visibility: unlisted
+    media: /config/www/funny_meme.png
+    media_description: "A funny meme"
+    content_warning: "This might not be funny enough"
 ```
 
 {% endraw %}

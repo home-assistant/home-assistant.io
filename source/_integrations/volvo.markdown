@@ -21,6 +21,22 @@ related:
 
 The **Volvo** {% term integration %} is used to integrate your [Volvo](https://www.volvocars.com/) vehicle.
 
+## Use cases
+
+### Monitor safety and status of your vehicle
+
+Keep an eye on doors and windows, and get immediate notifications if something changes. You can create automations that alert you when service is required, or when a door is left open.
+
+### Manage charging and battery
+
+Track battery state of charge, estimated electric range, and current charging status. Automate charging to start or stop based on battery level, departure time, or electricity rates, and monitor progress using the integration's sensors.
+
+**Note:** This integration does not provide direct control to start or stop charging. To actually start or stop charging, use the integration for your charger.
+
+### Preheat cabin and battery
+
+Preheat or precondition the cabin and battery before a trip to improve comfort and efficiency. Schedule preheating or preconditioning relative to your departure time or trigger it based on the outside temperature.
+
 ## Supported vehicles
 
 - Car models starting from model year 2010.
@@ -165,6 +181,41 @@ Go to Volvo's developer portal to view [the list of supported models](https://de
 - **Trip manual average fuel consumption**: Average fuel consumption on the manual trip meter.
 
 ## Examples
+
+### Notify if doors are left open
+
+Send a notification to your mobile phone if at least one door is open for 5 minutes.
+
+{% raw %}
+
+```yaml
+alias: Notify me if doors are left open for 5 minutes
+description: ""
+triggers:
+  - trigger: state
+    entity_id:
+      - binary_sensor.volvo_YOUR_MODEL_door_front_left
+      - binary_sensor.volvo_YOUR_MODEL_door_front_right
+      - binary_sensor.volvo_YOUR_MODEL_door_rear_left
+      - binary_sensor.volvo_YOUR_MODEL_door_rear_right
+      - binary_sensor.volvo_YOUR_MODEL_tailgate
+    to: "on"
+    for:
+      hours: 0
+      minutes: 5
+      seconds: 0
+conditions: []
+actions:
+  - data:
+      data:
+        url: /lovelace/volvo
+      title: 🚘 Volvo
+      message: You've left some doors open. Don't give thiefs a chance!
+    action: notify.mobile_app_phone_john_doe
+mode: single
+```
+
+{% endraw %}
 
 ### Estimated charging finish time
 
