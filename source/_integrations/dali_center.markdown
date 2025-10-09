@@ -27,10 +27,6 @@ Configure the integration from the Home Assistant user interface; discovery find
 
 {% include integrations/config_flow.md %}
 
-1. Go to **Settings** → **Devices & Services** → **Add Integration**.
-2. Pick **DALI Center** and select the discovered gateway.
-3. Complete the flow to import the devices the gateway reports.
-
 After setup the gateway appears under **Devices & Services**, and Home Assistant creates light entities for every supported DALI device. Multiple gateways are supported, each with its own set of entities.
 
 ## Lights
