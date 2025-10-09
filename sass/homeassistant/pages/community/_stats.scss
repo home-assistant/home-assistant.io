@@ -1,0 +1,26 @@
+.stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px 40px;
+
+    .stat {
+        display: flex;
+        flex-direction: column;
+        min-width: 100px;
+
+        .stat-value {
+            @include h3;
+
+            color: var(--color-secondary);
+            display: flex;
+            gap: 4px;
+        }
+
+        .stat-label {
+            @include small;
+
+            max-width: 140px;
+            text-wrap: balance;
+        }
+    }
+}

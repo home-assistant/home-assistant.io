@@ -1,0 +1,79 @@
+<section id="global">
+    <div class="container">
+        <div class="content">
+            <div class="content-inner">
+                <h2>A Global Community, Growing Every Day</h2>
+                <p>Wherever you are in the world, the community will be ready to share knowledge and ideas.</p>
+            </div>
+            <div class="stats" data-dsap>
+                <div class="stat">
+                    <div class="stat-value">
+                        +<span data-value="90"></span>
+                    </div>
+                    <div class="stat-label">
+                        Events & Meetups Worldwide
+                    </div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">
+                        +<span data-value="200"></span>
+                    </div>
+                    <div class="stat-label">
+                        Contributors Every Month
+                    </div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">
+                        +<span data-value="430000"></span>
+                    </div>
+                    <div class="stat-label">
+                        Active Community Members
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="photos-wrapper">
+            <div class="photos" data-dsap>
+                <figure class="photo large">
+                    <img src="/images/community/utrecht.webp"
+                        alt="A crowd of people gathering in a bar - Utrecht, Netherlands" />
+                    <figcaption>Community Day 2025 - Utrecht</figcaption>
+                </figure>
+                <figure class="photo medium">
+                    <img src="/images/community/berlin.webp"
+                        alt="A group of 6 people standing in front of a bar - Berlin, Germany" />
+                    <figcaption>Community Meetup - IFA Berlin 2025</figcaption>
+                </figure>
+                <figure class="photo small">
+                    <img src="/images/community/columbus.webp"
+                        alt="A few people gathering around a table demonstrating ESP32 hardware - Columbus, Ohio" />
+                    <figcaption>Community Day 2025 - Columbus</figcaption>
+                </figure>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    const stats = document.querySelectorAll("#global .stat-value span[data-value]");
+                    stats.forEach((stat) => {
+                        let demo = new countUp.CountUp(stat, stat.getAttribute("data-value"));
+                        if (!demo.error) {
+                            demo.start();
+                        } else {
+                            console.error(demo.error);
+                        }
+                    });
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        const statsElement = document.querySelector("#global .stats");
+        if (statsElement) {
+            observer.observe(statsElement);
+        }
+    });
+</script>

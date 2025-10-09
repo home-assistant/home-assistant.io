@@ -28,6 +28,7 @@ HTML5 push notifications **do not** work on iOS versions below 16.4.
 The `html5` platform can only function if all of the following requirements are met:
 
 - You are using Chrome and/or Firefox on any desktop platform, ChromeOS or Android. Or you added your Home Assistant instance to your home screen on iOS 16.4 or higher.
+- On Brave desktop, you have gone into Brave Privacy Settings by going to `brave://settings/privacy` in your address bar or **Settings > Privacy and Security** and made sure the **Use Google services for push messaging** option is turned on.
 - Your Home Assistant instance is accessible from outside your network over HTTPS or can perform an alternative [Domain Name Verification Method](https://support.google.com/webmasters/answer/9008080#domain_name_verification) on the domain used by Home Assistant.
 - If using a proxy, HTTP basic authentication must be disabled to register or deregister push notifications. It can be re-enabled afterwards.
 - You have configured SSL/TLS for your Home Assistant. It doesn't need to be configured in Home Assistant though, e.g., you can be running NGINX in front of Home Assistant and this will still work. The certificate must be trustworthy (i.e., not self-signed).
@@ -191,13 +192,13 @@ During the lifespan of a single push notification, Home Assistant will emit a fe
 
 Common event payload parameters are:
 
-| Parameter | Description                                                                                                                                                                                                                                                    |
-| --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `action`  | The `action` key that you set when sending the notification of the action clicked. Only appears in the `clicked` event.                                                                                                                                        |
+| Parameter | Description                                                                                                                                                                                                                                                              |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `action`  | The `action` key that you set when sending the notification of the action clicked. Only appears in the `clicked` event.                                                                                                                                                  |
 | `data`    | The data dictionary you originally passed in the notify payload, minus any parameters that were added to the HTML5 notification (`actions`, `badge`, `body`, `dir`, `icon`, `image`, `lang`, `renotify`, `requireInteraction`, `tag`, `timestamp`, `vibrate`, `silent`). |
-| `tag`     | The unique identifier of the notification. Can be overridden when sending a notification to allow for replacing existing notifications.                                                                                                                        |
-| `target`  | The target that this notification callback describes.                                                                                                                                                                                                          |
-| `type`    | The type of event callback received. Can be `received`, `clicked` or `closed`.                                                                                                                                                                                 |
+| `tag`     | The unique identifier of the notification. Can be overridden when sending a notification to allow for replacing existing notifications.                                                                                                                                  |
+| `target`  | The target that this notification callback describes.                                                                                                                                                                                                                    |
+| `type`    | The type of event callback received. Can be `received`, `clicked` or `closed`.                                                                                                                                                                                           |
 
 You can use the `target` parameter to write automations against a single `target`. For more granularity, use `action` and `target` together to write automations which will do specific things based on what target clicked an action.
 
