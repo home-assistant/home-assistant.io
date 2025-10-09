@@ -581,7 +581,7 @@ ZHA supports migrating the Zigbee network between different Zigbee adapters base
 
 Confirm you meet the following requirements before migrating:
 
-- The previous adapter is used in the ZHA {% term integration %} and _not_ in deCONZ or MQTT.
+- The previous adapter is used in the ZHA {% term integration %} and _not_ in deCONZ or Zigbee2MQTT.
 - The radio type is one of the following:
   - ezsp _(Silicon Labs EmberZNet)_
   - znp _(Texas Instruments Z-Stack ZNP)_
