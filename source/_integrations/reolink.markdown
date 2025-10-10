@@ -106,6 +106,7 @@ Depending on the supported features of the camera ([see specifications of the ca
 - Visitor++ (Doorbell presses)
 - AI person detection++
 - AI vehicle detection++
+- AI bicycle detection+
 - AI pet detection++
 - AI animal detection++
 - AI face detection++
@@ -137,8 +138,11 @@ Depending on the supported features of the camera ([see specifications of the ca
 
 - Optical zoom control
 - Focus control
-- Floodlight turn on brightness+
+- Floodlight turn on brightness*+
+- Floodlight event brightness*+
 - Infrared light brightness
+- Floodlight event on time*
+- Floodlight event flash time*
 - Volume (Camera)
 - Volume speak (Camera)
 - Volume doorbell (Camera)
@@ -152,6 +156,7 @@ Depending on the supported features of the camera ([see specifications of the ca
 - AI face sensitivity
 - AI person sensitivity
 - AI vehicle sensitivity
+- AI bicycle sensitivity
 - AI package sensitivity
 - AI pet sensitivity
 - AI animal sensitivity
@@ -163,6 +168,7 @@ Depending on the supported features of the camera ([see specifications of the ca
 - AI face delay*
 - AI person delay*
 - AI vehicle delay*
+- AI bicycle delay*
 - AI package delay*
 - AI pet delay*
 - AI animal delay*
@@ -185,7 +191,11 @@ Depending on the supported features of the camera ([see specifications of the ca
 - Pre-recording time*
 - Pre-recording stop battery level*
 
-**Floodlight turn on brightness** controls the brightness of the floodlight when it is turned on internally by the camera (see **Floodlight mode** select entity) or when using the **Floodlight** light entity.
+**Floodlight turn on brightness** controls the brightness of the floodlight when it is turned on internally by the camera (see **Floodlight mode** select entity) or when using the **Floodlight** light entity. 
+**Floodlight event brightness** controls the brightness of the floodlight when it is turned on due to the camera detecting an event (for example, a person or vehicle), see the **Floodlight event mode** entity.
+
+**Floodlight event on time** will be in the `unknown` state if **Floodlight event mode** is not in the `on` state.
+**Floodlight event flash time** will be in the `unknown` state if **Floodlight event mode** is not in the `flash` state.
 
 When the camera is not moved and no person/pet/animal/vehicle is detected for the **Guard return time** in seconds, and the **Guard return** switch is ON, the camera will move back to the guard position.
 
@@ -228,7 +238,8 @@ Some Reolink <abbr title="pan, tilt, and zoom">PTZ</abbr> cameras can move at di
 
 Depending on the supported features of the camera ([see specifications of the camera model on Reolink.com](#tested-models)), select entities are added for:
 
-- Floodlight mode (Off, Auto, Schedule)
+- Floodlight mode (Off, Auto, On at night, Schedule, Adaptive, Auto adaptive)
+- Floodlight event mode (Off, On, Flash)
 - Day night mode+ (Auto, Color, Black&White)
 - <abbr title="pan, tilt, and zoom">PTZ</abbr> preset
 - Play quick reply message
@@ -251,6 +262,8 @@ Depending on the supported features of the camera ([see specifications of the ca
 - Recording packing time
 - Pre-recording frame rate*
 - Post-recording time
+- Clear encoding* (h264, h265)
+- Fluent encoding* (h264, h265)
 
 **PTZ preset** positions can be set in the Reolink app/windows/web client, the names of the presets will be loaded into Home Assistant at the start of the integration. When adding new preset positions, please restart the Reolink integration.
 
@@ -269,7 +282,7 @@ To play a ringtone on a Reolink chime, the `reolink.play_chime` action can be us
 
 ### Siren entities
 
-If the camera supports a siren, a siren entity will be created.
+If the camera or hub supports a siren, a siren entity will be created.
 When using the siren turn-on action, the siren will continue to sound until the siren turn-off action is called.
 
 In some camera models, there is a delay of up to 5 seconds between the turn-off command and the sound stopping. The siren turn-on action supports setting a volume and a duration (no turn-off action call is needed in that case).
@@ -289,6 +302,7 @@ Depending on the supported features of the camera ([see specifications of the ca
 - Record
 - Manual record+
 - Pre-recording
+- Surveillance rule
 - Privacy mode+
 - Privacy mask
 - Push notifications
@@ -334,9 +348,12 @@ When the **floodlight** entity is ON always ON, when OFF controlled based on the
 
 Depending on the supported features of the camera ([see specifications of the camera model on Reolink.com](#tested-models)), the following sensor entities are added:
 
+- Person type+ (man, woman)
+- Animal type+ (dog, cat)
+- Vehicle type+ (sedan, SUV, pickup truck, motorcycle)
 - PTZ pan position
 - PTZ tilt position
-- Day night state+
+- Day night state+ (color, black and white, color with floodlight)
 - Wi-Fi signal*
 - CPU usage*
 - HDD/SD storage*
@@ -409,7 +426,8 @@ The following models have been tested and confirmed to work with a direct link t
 - [RLN12W NVR](https://reolink.com/product/rln12w/)
 - [NVS8 NVR](https://reolink.com/product/nvs8/) (Retail version of RLN8)
 - [NVS16 NVR](https://reolink.com/product/nvs16/) (Retail version of RLN16)
-- [Reolink Chime](https://reolink.com/product/reolink-chime/) (when connected to a doorbell)
+- [RP-PCB8MZ](https://reolink.com/product/rp-pcb8mz/)
+- [Reolink Chime](https://reolink.com/product/reolink-chime/) (when connected to a doorbell or Home Hub)
 - [Reolink Duo WiFi](https://reolink.com/product/reolink-duo-wifi-v1/)
 - [Reolink Duo 2 WiFi](https://reolink.com/product/reolink-duo-wifi/)
 - **[Reolink Duo 3 PoE](https://reolink.com/product/reolink-duo-3-poe/)**

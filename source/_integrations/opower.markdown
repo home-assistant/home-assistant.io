@@ -13,6 +13,7 @@ ha_config_flow: true
 ha_platforms:
   - sensor
 ha_integration_type: integration
+ha_quality_scale: bronze
 ---
 
 The Opower integration allows you to get energy information from utilities that use [Opower](https://www.oracle.com/industries/utilities/opower-energy-efficiency/).
@@ -82,7 +83,7 @@ Alternatively, you can create a new TOTP secret for your account and use the "no
 
 ### Exelon subsidiaries (ACE, BGE, ComEd, Delmarva, PECO, Pepco)
 
-The integration only supports Multi-Factor Authentication (MFA) for Exelon subsidiaries via code sent to either email or phone SMS. These subsidiaries turned on MFA automatically for customers,
+The integration properly supports Multi-Factor Authentication (MFA) for Exelon subsidiaries via code sent to either email or phone SMS. These subsidiaries turned on MFA automatically for customers,
 however you may not have added a phone number. This integration supports this use case, but beware that once you add a phone you most likely cannot remove it entirely.
 You will be asked to re-authenticate via MFA periodically.
 

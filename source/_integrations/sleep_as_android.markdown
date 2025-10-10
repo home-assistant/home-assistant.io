@@ -15,7 +15,7 @@ ha_platforms:
   - diagnostics
   - event
   - sensor
-ha_quality_scale: silver
+ha_quality_scale: platinum
 ---
 
 The **Sleep as Android** {% term integration %} connects the Sleep as Android app to Home Assistant, allowing you to trigger automations based on alarm clock or sleep cycle events.
@@ -158,6 +158,15 @@ Events triggered when a specific sound is detected during sleep tracking.
 | `laugh`    | Laughter             |
 | `snore`    | Snoring              |
 | `talk`     | Talking              |
+
+### Jet lag prevention
+
+Events triggered when a specific sound is detected during sleep tracking.
+
+| Event type      | Description                |
+| --------------- | -------------------------- |
+| `jet_lag_start` | Jet lag prevention started |
+| `jet_lag_stop`  | Jet lag prevention stopped |
 
 ## Automation
 

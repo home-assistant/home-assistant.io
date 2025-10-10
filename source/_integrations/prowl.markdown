@@ -8,7 +8,7 @@ ha_iot_class: Cloud Push
 ha_domain: prowl
 ha_platforms:
   - notify
-ha_integration_type: integration
+ha_integration_type: service
 related:
   - docs: /docs/configuration/
     title: Configuration file

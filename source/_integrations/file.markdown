@@ -21,8 +21,56 @@ ha_config_flow: true
 ---
 
 The File integration allows storing notifications in a file or setting up a sensor based on a file's content.
+
+This integration is enabled by default, unless you've disabled or removed the [`default_config:`](/integrations/default_config/) line from your configuration. If that is the case, the following example shows you how to enable this integration manually:
+
+```yaml
+# Basic configuration.yaml entry
+file:
+```
   
 {% include integrations/config_flow.md %}
+
+## Action: Read file
+
+The `file.read_file` action reads a file and returns the data in a response.
+
+| Data attribute | Optional | Description |
+| -------------- | -------- | ----------- |
+| `file_name`    | No       | The path of the file and name to read. Files should be UTF-8 encoded. Example: `config/www/myfile.yaml` |
+| `file_encoding`| No       | The content type of the file (`JSON` or `YAML`). Example: `YAML` |
+
+> **Note:** The file paths should be relative to the Home Assistant configuration directory.
+
+> **Note:** File paths must be added to [allowlist_external_dirs](/integrations/homeassistant/#allowlist_external_dirs) in your {% term "`configuration.yaml`" %}.
+
+The action returns a dictionary with a data element containing the parsed content from the file.
+
+Example, read a JSON file out of the `www` directory.
+```yaml
+  - action: file.read_file
+    data:
+      file_name: config/www/myfile.json
+      file_encoding: JSON
+    response_variable: file_content
+```
+<!-- textlint-disable -->
+Contents of myfile.json
+<!-- textlint-enable -->
+```json
+{
+  "latitude": 32.87336,
+  "longitude": -117.22743,
+  "gps_accuracy": 1.2
+}
+```
+Response:
+```yaml
+data:
+  latitude: 32.87336
+  longitude: -117.22743
+  gps_accuracy: 1.2
+```
 
 ## Notifications
 
