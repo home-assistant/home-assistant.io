@@ -54,6 +54,7 @@ Enjoy the release!
   - [Template \& YAML editors get a toolbar](#template--yaml-editors-get-a-toolbar)
 - [Patch releases](#patch-releases)
   - [2025.10.1 - October 3](#2025101---october-3)
+  - [2025.10.2 - October 10](#2025102---october-10)
 - [Need help? Join the community](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
@@ -663,6 +664,170 @@ release once a week, aiming for Friday.
 [@starkillerOG]: https://github.com/starkillerOG
 [@timmo001]: https://github.com/timmo001
 [@tr4nt0r]: https://github.com/tr4nt0r
+[@zweckj]: https://github.com/zweckj
+
+### 2025.10.2 - October 10
+
+- Prevent reloading the ZHA integration while adapter firmware is being updated ([@puddly] - [#152626])
+- Wallbox fix Rate Limit issue for multiple chargers ([@hesselonline] - [#153074])
+- Fix power device classes for system bridge ([@timmo001] - [#153201])
+- Bump PyCync to 0.4.1 ([@Kinachi249] - [#153401])
+- Updated VRM client and accounted for missing forecasts ([@AndyTempel] - [#153464])
+- Bump python-roborock to 2.50.2 ([@Lash-L] - [#153561])
+- Bump aioamazondevices to 6.2.8 ([@chemelli74] - [#153592])
+- Switch Roborock to v4 of the code login api ([@Lash-L] - [#153593])
+- Fix MQTT Lock state reset to unknown when a reset payload is received ([@jbouwh] - [#153647])
+- Gemini: Use default model instead of recommended where applicable ([@Shulyaka] - [#153676])
+- Fix ViCare pressure sensors missing unit of measurement ([@CFenner] - [#153691])
+- Bump pyvesync to 3.1.0 ([@cdnninja] - [#153693])
+- Modbus Fix message_wait_milliseconds is no longer applied ([@peetersch] - [#153709])
+- Bump opower to 0.15.6 ([@tronikos] - [#153714])
+- Version bump pydaikin to 2.17.0 ([@fredrike] - [#153718])
+- Version bump pydaikin to 2.17.1 ([@fredrike] - [#153726])
+- Fix missing google_assistant_sdk.send_text_command ([@tronikos] - [#153735])
+- Bump airOS to 0.5.5 using formdata for v6 firmware ([@CoMPaTech] - [#153736])
+- Align Shelly `presencezone` entity to the new API/firmware ([@bieniu] - [#153737])
+- Synology DSM: Don't reinitialize API during configuration ([@oyvindwe] - [#153739])
+- Upgrade python-melcloud to 0.1.2 ([@Sander0542] - [#153742])
+- Fix sensors availability check for Alexa Devices ([@chemelli74] - [#153743])
+- Bump aioamazondevices to 6.2.9 ([@chemelli74] - [#153756])
+- Remove stale entities from Alexa Devices ([@chemelli74] - [#153759])
+- vesync correct fan set modes ([@cdnninja] - [#153761])
+- Handle ESPHome discoveries with uninitialized Z-Wave antennas ([@balloob] - [#153790])
+- Fix Tuya cover position when only control is available ([@epenet] - [#153803])
+- Bump pySmartThings to 3.3.1 ([@joostlek] - [#153826])
+- Catch update exception in AirGradient ([@joostlek] - [#153828])
+- Add motion presets to SmartThings AC ([@joostlek] - [#153830])
+- Fix delay_on and auto_off with multiple triggers ([@Petro31] - [#153839])
+- Fix PIN validation for Comelit SimpleHome ([@chemelli74] - [#153840])
+- Bump aiocomelit to 1.1.1 ([@chemelli74] - [#153843])
+- Limit SimpliSafe websocket connection attempts during startup ([@bachya] - [#153853])
+- Handle timeout errors gracefully in Nord Pool services ([@gjohansson-ST] - [#153856])
+- Add plate_count for Miele KM7575 ([@derytive] - [#153868])
+- Fix restore cover state for Comelit SimpleHome ([@chemelli74] - [#153887])
+- fix typo in icon assignment of AccuWeather integration ([@CFenner] - [#153890])
+- Add missing translation string for Satel Integra subentry type ([@Tommatheussen] - [#153905])
+- Do not auto-set up ZHA zeroconf discoveries during onboarding ([@TheJulianJES] - [#153914])
+- `sharkiq` dependency bump to 1.4.2 ([@Freebien] - [#153931])
+- Fix HA hardware configuration message for Thread without HAOS ([@TheJulianJES] - [#153933])
+- Adjust OTBR config entry name for ZBT-2 ([@TheJulianJES] - [#153940])
+- Bump pylamarzocco to 2.1.2 ([@zweckj] - [#153950])
+- Bump holidays to 0.82 ([@gjohansson-ST] - [#153952])
+- Fix update interval for AccuWeather hourly forecast ([@bieniu] - [#153957])
+- Bump env-canada to 0.11.3 ([@michaeldavie] - [#153967])
+- Fix empty llm api list in chat log ([@arturpragacz] - [#153996])
+- Don't mark ZHA coordinator as via_device with itself ([@joostlek] - [#154004])
+- Filter out invalid Renault vehicles ([@epenet] - [#154070])
+- Bump aioamazondevices to 6.4.0 ([@chemelli74] - [#154071])
+- Bump brother to version 5.1.1 ([@bieniu] - [#154080])
+- Fix for multiple Lyrion Music Server on a single Home Assistant server for Squeezebox ([@peteS-UK] - [#154081])
+- Z-Wave: ESPHome discovery to update all options ([@balloob] - [#154113])
+- Add missing entity category and icons for smlight integration ([@piitaya] - [#154131])
+- Update frontend to 20251001.2 ([@bramkragten] - [#154143])
+- IOmeter bump version v0.2.0 ([@jukrebs] - [#154150])
+- Bump deebot-client to 15.1.0 ([@edenhaus] - [#154154])
+- Fix Shelly RPC cover update when the device is not initialized ([@thecode] - [#154159])
+- Fix shelly remove orphaned entities ([@thecode] - [#154182])
+
+[#152626]: https://github.com/home-assistant/core/pull/152626
+[#152881]: https://github.com/home-assistant/core/pull/152881
+[#153074]: https://github.com/home-assistant/core/pull/153074
+[#153201]: https://github.com/home-assistant/core/pull/153201
+[#153401]: https://github.com/home-assistant/core/pull/153401
+[#153464]: https://github.com/home-assistant/core/pull/153464
+[#153561]: https://github.com/home-assistant/core/pull/153561
+[#153582]: https://github.com/home-assistant/core/pull/153582
+[#153592]: https://github.com/home-assistant/core/pull/153592
+[#153593]: https://github.com/home-assistant/core/pull/153593
+[#153647]: https://github.com/home-assistant/core/pull/153647
+[#153676]: https://github.com/home-assistant/core/pull/153676
+[#153691]: https://github.com/home-assistant/core/pull/153691
+[#153693]: https://github.com/home-assistant/core/pull/153693
+[#153709]: https://github.com/home-assistant/core/pull/153709
+[#153714]: https://github.com/home-assistant/core/pull/153714
+[#153718]: https://github.com/home-assistant/core/pull/153718
+[#153726]: https://github.com/home-assistant/core/pull/153726
+[#153735]: https://github.com/home-assistant/core/pull/153735
+[#153736]: https://github.com/home-assistant/core/pull/153736
+[#153737]: https://github.com/home-assistant/core/pull/153737
+[#153739]: https://github.com/home-assistant/core/pull/153739
+[#153742]: https://github.com/home-assistant/core/pull/153742
+[#153743]: https://github.com/home-assistant/core/pull/153743
+[#153756]: https://github.com/home-assistant/core/pull/153756
+[#153759]: https://github.com/home-assistant/core/pull/153759
+[#153761]: https://github.com/home-assistant/core/pull/153761
+[#153790]: https://github.com/home-assistant/core/pull/153790
+[#153803]: https://github.com/home-assistant/core/pull/153803
+[#153826]: https://github.com/home-assistant/core/pull/153826
+[#153828]: https://github.com/home-assistant/core/pull/153828
+[#153830]: https://github.com/home-assistant/core/pull/153830
+[#153839]: https://github.com/home-assistant/core/pull/153839
+[#153840]: https://github.com/home-assistant/core/pull/153840
+[#153843]: https://github.com/home-assistant/core/pull/153843
+[#153853]: https://github.com/home-assistant/core/pull/153853
+[#153856]: https://github.com/home-assistant/core/pull/153856
+[#153868]: https://github.com/home-assistant/core/pull/153868
+[#153887]: https://github.com/home-assistant/core/pull/153887
+[#153890]: https://github.com/home-assistant/core/pull/153890
+[#153905]: https://github.com/home-assistant/core/pull/153905
+[#153914]: https://github.com/home-assistant/core/pull/153914
+[#153931]: https://github.com/home-assistant/core/pull/153931
+[#153933]: https://github.com/home-assistant/core/pull/153933
+[#153940]: https://github.com/home-assistant/core/pull/153940
+[#153950]: https://github.com/home-assistant/core/pull/153950
+[#153952]: https://github.com/home-assistant/core/pull/153952
+[#153957]: https://github.com/home-assistant/core/pull/153957
+[#153967]: https://github.com/home-assistant/core/pull/153967
+[#153996]: https://github.com/home-assistant/core/pull/153996
+[#154004]: https://github.com/home-assistant/core/pull/154004
+[#154070]: https://github.com/home-assistant/core/pull/154070
+[#154071]: https://github.com/home-assistant/core/pull/154071
+[#154080]: https://github.com/home-assistant/core/pull/154080
+[#154081]: https://github.com/home-assistant/core/pull/154081
+[#154113]: https://github.com/home-assistant/core/pull/154113
+[#154131]: https://github.com/home-assistant/core/pull/154131
+[#154143]: https://github.com/home-assistant/core/pull/154143
+[#154150]: https://github.com/home-assistant/core/pull/154150
+[#154154]: https://github.com/home-assistant/core/pull/154154
+[#154159]: https://github.com/home-assistant/core/pull/154159
+[#154182]: https://github.com/home-assistant/core/pull/154182
+[@AndyTempel]: https://github.com/AndyTempel
+[@CFenner]: https://github.com/CFenner
+[@CoMPaTech]: https://github.com/CoMPaTech
+[@Freebien]: https://github.com/Freebien
+[@Kinachi249]: https://github.com/Kinachi249
+[@Lash-L]: https://github.com/Lash-L
+[@Petro31]: https://github.com/Petro31
+[@Sander0542]: https://github.com/Sander0542
+[@Shulyaka]: https://github.com/Shulyaka
+[@TheJulianJES]: https://github.com/TheJulianJES
+[@Tommatheussen]: https://github.com/Tommatheussen
+[@arturpragacz]: https://github.com/arturpragacz
+[@bachya]: https://github.com/bachya
+[@balloob]: https://github.com/balloob
+[@bieniu]: https://github.com/bieniu
+[@bramkragten]: https://github.com/bramkragten
+[@cdnninja]: https://github.com/cdnninja
+[@chemelli74]: https://github.com/chemelli74
+[@derytive]: https://github.com/derytive
+[@edenhaus]: https://github.com/edenhaus
+[@epenet]: https://github.com/epenet
+[@fredrike]: https://github.com/fredrike
+[@frenck]: https://github.com/frenck
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@hesselonline]: https://github.com/hesselonline
+[@jbouwh]: https://github.com/jbouwh
+[@joostlek]: https://github.com/joostlek
+[@jukrebs]: https://github.com/jukrebs
+[@michaeldavie]: https://github.com/michaeldavie
+[@oyvindwe]: https://github.com/oyvindwe
+[@peetersch]: https://github.com/peetersch
+[@peteS-UK]: https://github.com/peteS-UK
+[@piitaya]: https://github.com/piitaya
+[@puddly]: https://github.com/puddly
+[@thecode]: https://github.com/thecode
+[@timmo001]: https://github.com/timmo001
+[@tronikos]: https://github.com/tronikos
 [@zweckj]: https://github.com/zweckj
 
 ## Need help? Join the community
