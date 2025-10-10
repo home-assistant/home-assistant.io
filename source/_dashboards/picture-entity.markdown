@@ -116,7 +116,7 @@ entity: light.bed_light
 image: /local/bed_light.png
 ```
 
-Different images for each state (supports local, web, or `media-source://` URLs)
+Different images for each state (supports local, web, or `media-source://` URLs):
 
 ```yaml
 type: picture-entity
