@@ -1486,34 +1486,6 @@ target:
 ```
 
 {% configuration target %}
-device:
-  description: >
-    When device options are provided, the targets are limited by devices
-    that at least match the given conditions. Can be either a object or a list
-    of object.
-  type: list
-  keys:
-    integration:
-      description: >
-        Can be set to an integration domain. Limits the device targets that
-        are provided devices by the set integration domain, for example,
-        [`zha`](/integrations/zha).
-      type: string
-      required: false
-    manufacturer:
-      description: >
-        When set, it limits the targets to devices provided by the set
-        manufacturer name.
-      type: string
-      required: false
-    model:
-      description: When set, it limits the targets to devices by the set model.
-      type: string
-      required: false
-    model_id:
-      description: When set, the targets are limited to devices that have the set model ID.
-      type: string
-      required: false
 entity:
   description: >
     When entity options are provided, the targets are limited by entities
@@ -1570,18 +1542,6 @@ target:
   entity:
     - integration: zha
       domain: light
-```
-
-Another example using the target selector, which only shows targets that
-provide one or more remote controls, provided by the
-[deCONZ](/integrations/deconz) integration.
-
-```yaml
-target:
-  device:
-    - integration: deconz
-      manufacturer: IKEA of Sweden
-      model: TRADFRI remote control
 ```
 
 ## Template selector
