@@ -855,6 +855,11 @@ entity_category:
 
 The KNX climate platform is used as an interface to KNX thermostats and room controllers.
 
+Climate entities can be created from the frontend in the KNX panel or via YAML.
+
+<a name="configuration-cover-yaml"></a>
+{% details "Configuration of KNX climate entities via YAML" %}
+
 To use your KNX thermostats in your installation, add the following lines to your top level [KNX Integration](/integrations/knx) configuration key in {% term "`configuration.yaml`" %}:
 
 ```yaml
@@ -1137,6 +1142,8 @@ entity_category:
   type: string
   default: None
 {% endconfiguration %}
+
+{% enddetails %}
 
 ## Cover
 
