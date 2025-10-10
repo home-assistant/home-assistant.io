@@ -302,7 +302,7 @@ Depending on the supported features of the camera ([see specifications of the ca
 - Record
 - Manual record+
 - Pre-recording
-- Survaillance rule
+- Surveillance rule
 - Privacy mode+
 - Privacy mask
 - Push notifications
