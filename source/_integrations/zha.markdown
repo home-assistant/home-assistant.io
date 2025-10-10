@@ -291,8 +291,6 @@ zha:
       channels: [15, 20, 25]  # Channel mask
 ```
 
-
-
 The related troubleshooting segments mentioned above will, among other things, inform that if you have issues with overlapping frequencies between Wi-Fi and Zigbee, then it is usually better to first only try changing and setting a static Wi-Fi channel on your Wi-Fi router or all your Wi-Fi access points (instead of just changing to another Zigbee channel).
 
 MetaGeek Support has a good reference article about channel selection for [Zigbee and WiFi coexistence](https://support.metageek.com/hc/en-us/articles/203845040-ZigBee-and-WiFi-Coexistence).
@@ -577,58 +575,60 @@ After restoring a Home Assistant backup, you can reconfigure ZHA or migrate to a
 
 Manual backups can also be created from the configuration page under **Network Settings**.
 
-### Migrating to a new Zigbee Coordinator adapter inside ZHA
+### Migrating to a new Zigbee adapter inside ZHA
 
-ZHA supports migrating the Zigbee network between different Zigbee Coordinators based on chips from Silicon Labs, Texas Instruments, or ConBee/RaspBee if the backup was made from inside ZHA.
+ZHA supports migrating the Zigbee network between different Zigbee adapters based on chips from Silicon Labs, Texas Instruments, or ConBee/RaspBee if the backup was made from inside ZHA.
 
 #### Prerequisites
 
 Confirm you meet the following requirements before migrating:
 
-- The previous coordinator is used in the ZHA {% term integration %} and _not_ in deCONZ or MQTT.
+- The previous adapter is used in the ZHA {% term integration %} and _not_ in deCONZ or Zigbee2MQTT.
 - The radio type is one of the following:
-  - ezsp _(Silicon Labs EmberZnet)_
+  - ezsp _(Silicon Labs EmberZNet)_
   - znp _(Texas Instruments Z-Stack ZNP)_
   - deCONZ _(ConBee/RaspBee from dresden elektronik)_
     - Be sure it is running [firmware 0x26700700 (from 2021-08-18)](https://github.com/dresden-elektronik/deconz-rest-plugin/wiki/Firmware-Changelog) or later.
 
-{% details "To migrate to a new Zigbee coordinator radio inside ZHA:" %}
+{% details "To migrate to a new Zigbee adapter inside ZHA:" %}
 
 {% important %}
-You will not be able to control your existing Zigbee devices until the new coordinator fully joins the network after the migration. **This can take a few minutes.**
+You will not be able to control your existing Zigbee devices until they join the network after the migration. **This can take a few minutes.**
 
 If some existing devices do not resume normal functions after some time, try power-cycling them to attempt rejoining to the network.
 {% endimportant %}
 
-1. Go to **{% my integrations title="Settings > Devices & services" %}** and select the ZHA {% term integration %}. Then select **Configure**.
-2. Under **Network settings**, select **Migrate radio**.
-3. Reconfiguration of ZHA will start. Select **Submit**.
-4. Under **Migrate or re-configure**, select **Migrate to a new radio**.
-5. Select **Submit** to begin.
-    - An automatic backup will be performed, the Zigbee Coordinator radio will be reset, and the backup will be automatically restored.
-    - For combined Z-Wave and Zigbee radios, like the HUSBZB-1 adapter, only the Zigbee radio portion is reset.
-    - You may now unplug the old adapter, or you may leave the old radio adapter plugged in (for example, if the adapter is a combined Z-Wave adapter).
-6. Plug in the new Zigbee Coordinator radio adapter.
-    - Select **Submit** after confirming the new Zigbee Coordinator radio adapter is properly connected.
-    - To minimize interference:
-      - Use a USB extension cable,
-      - Use a USB 2.0 port or a powered USB 2.0 hub,
-      - Keep the Zigbee stick away from USB 3.0 devices.
-7. Start the backup restore process:
-    - Select the new Zigbee radio from the list of serial ports and select **Next**.
-    - A migration can be resumed if a reboot is required, such as when troubleshooting or if new hardware is plugged in.
-      - To resume, go to **Network Settings**, select **Re-configure the current radio**, choose the new radio and proceed.
-8. Under **Network Formation**, select **Restore an automatic backup**.
-9. Under **Restore Automation Backup**, choose the latest automatic backup and select **Submit**.
-10. If the new radio requires overwriting the IEEE address (the unique MAC address), you will see the prompt for **Overwrite Radio IEEE Address**.
-    - Check the **Permanently replace the radio IEEE address** box and click **Submit**.
-      - Selecting this option is required for the migration process to complete successfully.
-      - Overwriting the IEEE address may take a while.
-    - Both the old and new Zigbee Coordinators will now have the same Zigbee IEEE address.
-    - You should not operate the old adapter in the same area unless you change its Zigbee IEEE address.
-    - If you do not migrate the Zigbee IEEE address from the old Zigbee Coordinator radio, you will have to reconnect many of your devices to keep them working.
-11. Finally, a **Success!** message should pop up with information that all options were successfully saved.
-    - Select **Finish** to confirm.
+1. Go to **{% my integrations title="Settings > Devices & services" %}** and select the ZHA {% term integration %}. Then select the cogwheel {% icon "mdi:cog-outline" %}.
+2. Under **Network settings**, select **Migrate adapter**.
+3. Plug in the new Zigbee adapter.
+   - To minimize interference:
+     - Use a USB extension cable.
+     - Use a USB 2.0 port or a powered USB 2.0 hub.
+     - Keep the Zigbee adapter away from USB 3.0 devices.
+     - This [video](https://support.nabucasa.com/hc/en-us/articles/26124431414557) shows the effect of interference.
+4. Reconfiguration of ZHA starts. Select **Submit**.
+   - An automatic backup will be performed.
+5. Under **Migrate or re-configure**, select **Migrate to a new adapter**.
+6. Select the new Zigbee adapter from the list of serial ports and select **Submit**.
+7. Choose what backup to use for migration:
+   - **Option 1**: To use the backup that was created during this migration, select **Migrate automatically (recommended)**.
+     - This is the quickest way to complete the migration.
+   - **Option 2**: To restore a specific, older backup, select **Advanced migration** instead.
+     - This will let you select a backup of your choice.
+8. In the rare event the new radio requires overwriting the IEEE address (the unique MAC address), you will see the prompt for **Overwrite Radio IEEE Address**.
+   - Check the **Permanently replace the radio IEEE address** box and click **Submit**.
+   - Selecting this option is required for the migration process to complete successfully.
+   - Overwriting the IEEE address may take a while.
+   - Both the old and new Zigbee adapters now have the same Zigbee IEEE address.
+   - You should not operate the old adapter in the same area unless you change its Zigbee IEEE address.
+   - If you do not migrate the Zigbee IEEE address from the old Zigbee adapter, you will have to reconnect many of your devices to keep them working.
+9. The migration process is now complete.
+   - The old adapter is being reset.
+   - For combined Z-Wave and Zigbee adapters, like the HUSBZB-1 adapter, only the Zigbee radio portion is reset.
+   - **Info**: You won't be able to control the devices until they rejoin the network.
+     - Normally, they rejoin within one hour.
+     - You may be able to accelerate that process by power-cycling devices.
+10. You can now remove the old Zigbee adapter.
 
 {% enddetails %}
 
