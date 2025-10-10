@@ -1,0 +1,16 @@
+{
+  "ignorePatterns": [
+    {
+      "pattern": "^https://support.nabucasa.com"
+    },
+    {
+      "pattern": "^/docs/locked_out/"
+    },
+    {
+      "pattern": "^/images/docs/troubleshooting/home-assistant-cli.webp"
+    },
+    {
+      "pattern": "#to-reset-a-password-while-still-logged-in-including-supervised"
+    }
+  ]
+}
