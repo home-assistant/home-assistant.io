@@ -159,6 +159,15 @@ Events triggered when a specific sound is detected during sleep tracking.
 | `snore`    | Snoring              |
 | `talk`     | Talking              |
 
+### Jet lag prevention
+
+Events triggered when a specific sound is detected during sleep tracking.
+
+| Event type      | Description                |
+| --------------- | -------------------------- |
+| `jet_lag_start` | Jet lag prevention started |
+| `jet_lag_stop`  | Jet lag prevention stopped |
+
 ## Automation
 
 Here’s an example automation: when your Sleep as Android alarm starts ringing, your bedroom blinds will automatically open.
