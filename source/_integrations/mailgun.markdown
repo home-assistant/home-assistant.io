@@ -40,6 +40,11 @@ api_key:
   description: This is the API token that has been generated in your Mailgun account.
   required: true
   type: string
+eu_domain:
+  description: This configuration allows for the usage of Mailgun EU server. If set to true, it will use EU server instead of US.
+  required: false
+  default: false
+  type: boolean
 sandbox:
   description: "(**Deprecated**) Whether to use the sandboxed domain for outgoing mail. Since the `domain` item is required, it should be set to the sandbox domain name, so this isn't needed."
   required: false
