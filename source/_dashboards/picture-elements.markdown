@@ -67,7 +67,7 @@ theme:
   type: string
 dark_mode_image:
   required: false
-  description: "This image is used when the dark mode is activated and no state image is set." <br/>To use a locally hosted image, see [Hosting](/integrations/http#hosting-files), or use a `media-source://` URL for Media content.
+  description: This image is used when the dark mode is activated and no state image is set.<br/>To use a locally hosted image, see [Hosting](/integrations/http#hosting-files), or use a `media-source://` URL for Media content.
   type: string
 dark_mode_filter:
   required: false
@@ -423,7 +423,7 @@ style:
 
 ### How to use state_image
 
-Specify a different image to display based on the state of the entity  (supports local, web, or `media-source://` URLs):
+Specify a different image to display based on the state of the entity (supports local, web, or `media-source://` URLs):
 
 ```yaml
 state_image:
