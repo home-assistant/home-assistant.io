@@ -135,6 +135,7 @@ MQTT Devices and entities can be set up through [MQTT -discovery](#mqtt-discover
 - [Number](/integrations/number.mqtt/)
 - [Select](/integrations/select.mqtt/)
 - [Sensor](/integrations/sensor.mqtt/)
+- [Siren](/integrations/siren.mqtt/)
 - [Switch](/integrations/switch.mqtt/)
 
 To add an MQTT device via a Subentry, follow these steps:
