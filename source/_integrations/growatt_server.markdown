@@ -8,7 +8,6 @@ ha_release: 0.99
 ha_iot_class: Cloud Polling
 ha_domain: growatt_server
 ha_platforms:
-  - number
   - sensor
   - switch
 ha_config_flow: true
@@ -50,13 +49,7 @@ Using an API token is recommended for MIN/TLX inverters as it uses the official 
 
 When using API token authentication with MIN/TLX inverters, the integration provides additional control entities:
 
-### Number entities
-
-- **Charge power**: Set the AC charge power as a percentage (0-100%)
-- **Charge stop SOC**: Set the state of charge percentage at which charging should stop (0-100%)
-- **Discharge power**: Set the discharge power as a percentage (0-100%)
-- **Discharge stop SOC**: Set the state of charge percentage at which discharging should stop (0-100%)
-
 ### Switch entities
 
 - **AC charge**: Enable or disable AC charging
+
