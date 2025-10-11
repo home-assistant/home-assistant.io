@@ -41,7 +41,7 @@ api_key:
   required: true
   type: string
 eu_domain:
-  description: This configuration allows for the usage of Mailgun EU server. If set to true, it will use EU server instead of US.
+  description: This configuration allows you to use the Mailgun EU server. If set to true, it will use the EU server instead of the US server.
   required: false
   default: false
   type: boolean
