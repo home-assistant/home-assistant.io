@@ -3,9 +3,13 @@ title: "MQTT Valve"
 description: "Instructions on how to integrate MQTT valves into Home Assistant."
 ha_category:
   - Valve
-ha_iot_class: Configurable
+ha_iot_class: Local Push
 ha_release: 2024.1
 ha_domain: mqtt
+ha_main_integration: MQTT
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The `mqtt` valve platform allows you to control an MQTT valve (such a gas or water valve).

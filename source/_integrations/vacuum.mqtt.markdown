@@ -5,6 +5,10 @@ ha_category:
   - Vacuum
 ha_release: 0.54
 ha_domain: mqtt
+ha_main_integration: MQTT
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The `mqtt` vacuum {% term integration %} allows you to control your MQTT-enabled vacuum.

@@ -4,8 +4,12 @@ description: "Instructions on how to integrate MQTT sirens into Home Assistant."
 ha_category:
   - Siren
 ha_release: 2022.3
-ha_iot_class: Configurable
+ha_iot_class: Local Push
 ha_domain: mqtt
+ha_main_integration: MQTT
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The `mqtt` siren platform lets you control your MQTT enabled sirens and text based notification devices.

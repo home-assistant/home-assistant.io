@@ -4,8 +4,12 @@ description: "Instructions on how to integrate MQTT scenes into Home Assistant."
 ha_category:
   - Scene
 ha_release: 2020.12
-ha_iot_class: Configurable
+ha_iot_class: Local Push
 ha_domain: mqtt
+ha_main_integration: MQTT
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The `mqtt` scene platform lets you control your MQTT enabled scenes.

@@ -4,8 +4,12 @@ description: "Instructions on how to integrate MQTT humidifiers into Home Assist
 ha_category:
   - Humidifier
 ha_release: 2021.8
-ha_iot_class: Configurable
+ha_iot_class: Local Push
 ha_domain: mqtt
+ha_main_integration: MQTT
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The `mqtt` humidifier platform lets you control your MQTT enabled humidifiers.

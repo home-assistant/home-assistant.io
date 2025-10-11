@@ -4,8 +4,12 @@ description: "Instructions on how to integrate MQTT binary sensors within Home A
 ha_category:
   - Binary sensor
 ha_release: 0.9
-ha_iot_class: Configurable
+ha_iot_class: Local Push
 ha_domain: mqtt
+ha_main_integration: MQTT
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The `mqtt` binary sensor platform uses an MQTT message received to set the binary sensor's state to `on`, `off` or `unknown`.

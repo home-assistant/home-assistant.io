@@ -4,8 +4,12 @@ description: "Instructions on how to integrate MQTT buttons into Home Assistant.
 ha_category:
   - Button
 ha_release: 2021.12
-ha_iot_class: Configurable
+ha_iot_class: Local Push
 ha_domain: mqtt
+ha_main_integration: MQTT
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The `mqtt` button platform lets you send an MQTT message when the button is pressed in the frontend or the button press action is called. This can be used to expose some service of a remote device, for example reboot.

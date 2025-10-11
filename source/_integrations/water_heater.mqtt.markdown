@@ -6,6 +6,10 @@ ha_category:
 ha_release: 2023.7
 ha_iot_class: Local Polling
 ha_domain: mqtt
+ha_main_integration: MQTT
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The `mqtt` water heater platform lets you control your MQTT enabled water heater devices.

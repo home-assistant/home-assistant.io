@@ -4,8 +4,12 @@ description: "Instructions on how to interact with a device exposing text capabi
 ha_category:
   - Text
 ha_release: "2022.12"
-ha_iot_class: Configurable
+ha_iot_class: Local Push
 ha_domain: mqtt
+ha_main_integration: MQTT
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The `mqtt` Text platform allows you to integrate devices that show text that can be set remotely. Optionally the text state can be monitored too using MQTT.

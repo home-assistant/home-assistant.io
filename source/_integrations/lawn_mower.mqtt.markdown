@@ -4,8 +4,12 @@ description: "Instructions on how to integrate MQTT lawn mowers into Home Assist
 ha_category:
   - Lawn mower
 ha_release: 2023.9
-ha_iot_class: Configurable
+ha_iot_class: Local Push
 ha_domain: mqtt
+ha_main_integration: MQTT
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The `mqtt` `lawn_mower` platform allows controlling a lawn mower over MQTT.

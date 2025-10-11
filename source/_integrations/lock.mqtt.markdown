@@ -4,8 +4,12 @@ description: "Instructions on how to integrate MQTT locks into Home Assistant."
 ha_category:
   - Lock
 ha_release: 0.15
-ha_iot_class: Configurable
+ha_iot_class: Local Push
 ha_domain: mqtt
+ha_main_integration: MQTT
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The `mqtt` lock platform lets you control your MQTT enabled locks.

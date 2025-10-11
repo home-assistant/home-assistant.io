@@ -4,8 +4,12 @@ description: "Instructions on how to integrate MQTT fans into Home Assistant."
 ha_category:
   - Fan
 ha_release: 0.27
-ha_iot_class: Configurable
+ha_iot_class: Local Push
 ha_domain: mqtt
+ha_main_integration: MQTT
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The `mqtt` fan platform lets you control your MQTT enabled fans.

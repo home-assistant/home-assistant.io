@@ -4,8 +4,12 @@ description: "Instructions on how to integrate MQTT notify entities into Home As
 ha_category:
   - Notifications
 ha_release: 2024.5
-ha_iot_class: Configurable
+ha_iot_class: Local Push
 ha_domain: mqtt
+ha_main_integration: MQTT
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The **MQTT notify** platform lets you send an MQTT message when the `send_message` action is called. This can be used to expose a action of a remote device that allows processing a message, such as showing it on a screen.

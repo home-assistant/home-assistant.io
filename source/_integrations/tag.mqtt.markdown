@@ -4,8 +4,9 @@ description: "Instructions on how to integrate MQTT scanner within Home Assistan
 ha_category:
   - Tag scanner
 ha_release: 0.116
-ha_iot_class: Configurable
+ha_iot_class: Local Push
 ha_domain: mqtt
+ha_main_integration: MQTT
 ---
 
 The `mqtt` tag scanner platform uses an MQTT message payload to generate tag scanned events.

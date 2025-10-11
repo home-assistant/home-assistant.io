@@ -4,8 +4,12 @@ description: "Instructions on how to use an MQTT image message as an Image withi
 ha_category:
   - Image
 ha_release: 2023.7
-ha_iot_class: Configurable
+ha_iot_class: Local Push
 ha_domain: mqtt
+ha_main_integration: MQTT
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The `mqtt` image platform allows you to integrate the content of an image file sent through MQTT into Home Assistant as an image.

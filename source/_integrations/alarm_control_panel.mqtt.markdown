@@ -4,8 +4,9 @@ description: "Instructions on how to integrate MQTT capable alarm panels into Ho
 ha_category:
   - Alarm
 ha_release: 0.7.4
-ha_iot_class: Configurable
+ha_iot_class: Local Push
 ha_domain: mqtt
+ha_main_integration: MQTT
 related:
   - docs: /docs/configuration/
     title: Configuration file

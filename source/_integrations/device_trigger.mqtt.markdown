@@ -4,7 +4,8 @@ description: "Instructions on how to integrate MQTT device triggers within Home 
 ha_category:
   - Device automation
 ha_release: 0.106
-ha_iot_class: Configurable
+ha_iot_class: Local Push
+ha_main_integration: MQTT
 ha_domain: mqtt
 ---
 

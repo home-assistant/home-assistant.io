@@ -4,8 +4,12 @@ description: "Instructions on how to integrate MQTT climate into Home Assistant.
 ha_category:
   - Climate
 ha_release: 0.55
-ha_iot_class: Local Polling
+ha_iot_class: Local Push
 ha_domain: mqtt
+ha_main_integration: MQTT
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The `mqtt` climate platform lets you control your MQTT enabled HVAC devices.

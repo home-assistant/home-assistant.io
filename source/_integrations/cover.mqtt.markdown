@@ -3,9 +3,13 @@ title: "MQTT Cover"
 description: "Instructions on how to integrate MQTT covers into Home Assistant."
 ha_category:
   - Cover
-ha_iot_class: Configurable
+ha_iot_class: Local Push
 ha_release: 0.18
 ha_domain: mqtt
+ha_main_integration: MQTT
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The `mqtt` cover platform allows you to control an MQTT cover (such as blinds, a roller shutter or a garage door).
