@@ -1,0 +1,21 @@
+<section class="sharing aside-module grid__item one-whole lap-one-half">
+  <h1 class="title epsilon">{% icon "mdi:ios-share" %} Share this post</h1>
+  <ul class="divided">
+  {% if site.twitter_tweet_button %}
+    <li>
+      <a
+        target="_blank"
+        href="https://twitter.com/intent/tweet?url={{ page.url | canonical_url | url_encode }}&text={{ page.title | append: ' via @home_assistant' | url_encode }}"
+      >Tweet</a>
+    </li>
+  {% endif %}
+  {% if site.facebook_like %}
+    <li>
+      <a
+        target="_blank"
+        href="https://www.facebook.com/sharer.php?u={{ page.url | canonical_url | url_encode }}"
+      >Share on Facebook</a>
+    </li>
+  {% endif %}
+  </ul>
+</section>

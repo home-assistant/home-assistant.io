@@ -1,0 +1,12 @@
+<section class="categories aside-module grid__item one-whole lap-one-half">
+  <h1 class="title epsilon">{% icon "mdi:category" %} Categories</h1>
+  <ul class="divided">
+    {% assign categories = site.categories | sort %}
+    {% for category in categories %}
+      {% assign category_name = category | first | downcase %}
+      {% if category_name != "core"%}
+        <li><a href="/blog/categories/{{ category_name }}/">{{ category | first | replace: '-', ' '}} <span class="count">{{ category[1] | size }}</span></a></li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+</section>

@@ -1,0 +1,36 @@
+---
+show_title: false
+sidebar: false
+hero_unit: true
+dark_header: true
+is_homepage: true
+regenerate: true
+feedback: false
+---
+
+<div class="frontpage">
+  <div class="grid">
+
+    <!-- Seção de notícias -->
+    {% include custom/news.html %}
+
+    <!-- Seção de destaques -->
+    {% include custom/features.html %}
+
+    <!-- Seção de imprensa -->
+    {% include custom/press.html %}
+
+    <!-- Seção de patrocinadores -->
+    <section class="sponsor">
+      <div class="sponsored-by grid__item one-whole">
+        <h2>O projeto Home Assistant é patrocinado por</h2>
+        <div class="material-card text">
+          <a href="https://www.nabucasa.com"
+            ><img alt="Nabu Casa logo" src="/images/sponsors/nabu_casa.svg"
+          /></a>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</div>

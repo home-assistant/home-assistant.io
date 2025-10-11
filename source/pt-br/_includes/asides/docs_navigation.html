@@ -1,0 +1,16 @@
+<section class="vertical-nav aside-module grid__item one-whole lap-one-half">
+  <div class="section">
+    <h1 class="title epsilon">{% icon "mdi:bookshelf" %} Documentation</h1>
+    <ul class="divided sidebar-menu">
+      <li>
+        {% active_link /docs/ Overview %}
+        |
+        {% active_link /faq/ FAQ %}
+        |
+        {% active_link /docs/glossary/ Glossary %}
+      </li>
+
+      {% include asides/docs_sitemap.html %}
+    </ul>
+  </div>
+</section>

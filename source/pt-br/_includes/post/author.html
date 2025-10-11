@@ -1,0 +1,17 @@
+{% if post.author %}
+  {% assign author = post.author %}
+{% elsif page.author %}
+  {% assign author = page.author %}
+{% else %}
+  {% assign author = site.author %}
+{% endif %}
+{% if author %}
+  {% assign person = site.data.people[author] %}
+  {% if person %}
+    <span class="byline author vcard">
+      <a href="https://github.com/{{ person.github }}" target="_blank"><img class="author-avatar" src="https://avatars.githubusercontent.com/{{ person.github }}?size=64" alt="{{ person.name }}"/> {{ person.name }}</a>
+    </span>
+  {% else %}
+    <span class="byline author vcard">{% icon "mdi:person" %} {{ author }}</span>
+  {% endif %}
+{% endif %}
