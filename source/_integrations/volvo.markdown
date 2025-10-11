@@ -11,10 +11,14 @@ ha_config_flow: true
 ha_category:
   - Binary sensor
   - Button
+  - Lock
+  - Presence detection
   - Sensor
 ha_platforms:
   - binary_sensor
   - button
+  - device_tracker
+  - lock
   - sensor
 ha_quality_scale: silver
 related:
@@ -141,6 +145,11 @@ Go to Volvo's developer portal to view [the availability](https://developer.volv
 
 - **Location**: The car's current location.
 
+#### Lock
+
+- **Central lock**: Locks or unlocks the vehicle, and reports the current lock state of the vehicle.
+- **Reduced guard lock**: Locks the vehicle in reduced guard mode, keeping the doors locked but not arming movement or tilt detectors.
+
 #### Sensors
 
 - **Car connection**: Connectivity of the car.
@@ -216,7 +225,7 @@ The **Volvo** integration fetches data from the API at different intervals:
 - **Every 60 minutes**: diagnostics, odometer, and statistics.
 - **Every 15 minutes**: car connectivity, fuel status, and location.
 - **Every 2 minutes**: energy data (for battery cars).
-- **Every minute**: doors and window status.
+- **Every minute**: doors, lock and windows status.
 
 If you decide to define a custom polling interval, beware that there is a maximum of 10,000 requests per day.
 Every poll operation accounts for about a dozen calls (depends on model).
