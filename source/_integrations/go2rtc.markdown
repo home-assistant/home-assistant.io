@@ -17,7 +17,7 @@ ha_quality_scale: internal
 go2rtc is an open source project providing a camera streaming application that supports formats such as RTSP, WebRTC, HomeKit, FFmpeg, RTMP.  The **go2rtc** {% term integration %} connects to a go2rtc instance and provides a WebRTC proxy for all your cameras. To learn more about go2rtc, refer to the [project's GitHub page](https://github.com/AlexxIT/go2rtc/).
 
 
-If you are using the [`default_config`](/integrations/default_config/) and run Home Assistant using one of the following installation methods, the go2rtc integration will be set up automatically and you don't need to do anything:
+If you are using the [`default_config`](/integrations/default_config/) and run Home Assistant using one of the following installation types, the go2rtc integration will be set up automatically and you don't need to do anything:
 
 - {% term "Home Assistant Operating System" %}
 - {% term "Home Assistant Supervised" %}

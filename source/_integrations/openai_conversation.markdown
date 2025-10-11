@@ -1,13 +1,12 @@
 ---
-title: OpenAI Conversation
+title: OpenAI
 description: Instructions on how to integrate OpenAI as a conversation agent
 ha_category:
+  - AI
   - Voice
 ha_release: 2023.2
 ha_iot_class: Cloud Polling
 ha_config_flow: true
-ha_codeowners:
-  - '@balloob'
 ha_domain: openai_conversation
 ha_integration_type: service
 ha_platforms:
@@ -166,7 +165,7 @@ with the response from OpenAI.
 
 - **Service data attribute**: `config_entry`
   - **Description**: Integration entry ID to use.
-  - **Example**: 
+  - **Example**:
   - **Optional**: no
 
 - **Service data attribute**: `prompt`
@@ -189,7 +188,7 @@ data:
     Very briefly describe what you see in this image from my doorbell camera.
     Your message needs to be short to fit in a phone notification. Don't
     describe stationary objects or buildings.
-  image_filename: 
+  image_filename:
     - /tmp/doorbell_snapshot.jpg
 response_variable: generated_content
 ```

@@ -27,15 +27,15 @@ The Squeezebox integration allows you to control music players from the [Lyrion 
 
 This integration connects to an existing <abbr title="Lyrion Music Server">LMS</abbr> server and provides both media players and sensors for monitoring server status.
 
-The Squeezebox music player ecosystem, which can be controlled through this integration, includes hardware audio players from Logitech, including [Squeezebox 3rd Generation, Squeezebox Boom, Squeezebox Receiver, Transporter, Squeezebox2, Squeezebox and SLIMP3](https://lms-community.github.io/players-and-controllers/hardware-comparison/), and many software emulators like [Squeezelite, SqueezeSlave, SoftSqueeze and SqueezePlay](https://sourceforge.net/projects/lmsclients/files/).
+The Squeezebox music player ecosystem, which can be controlled through this integration, includes [hardware audio players](https://lms-community.github.io/players-and-controllers/hardware-comparison/) from Logitech, including [Squeezebox 3rd Generation](https://lyrion.org/players-and-controllers/squeezebox-classic/), [Squeezebox Boom](https://lyrion.org/players-and-controllers/squeezebox-boom/), [Squeezebox Receiver](https://lyrion.org/players-and-controllers/squeezebox-receiver/), [Transporter](https://lyrion.org/players-and-controllers/transporter/), [Squeezebox2](https://lyrion.org/players-and-controllers/squeezebox2/), [Squeezebox](https://lyrion.org/players-and-controllers/squeezebox1/) and [SLIMP3](https://lyrion.org/players-and-controllers/SLIMP3/), and many software emulators like [Squeezelite](https://sourceforge.net/projects/lmsclients/files/squeezelite/), [SqueezeSlave](https://sourceforge.net/projects/lmsclients/files/squeezeslave/), [SoftSqueeze](https://sourceforge.net/projects/lmsclients/files/softsqueeze/) and [SqueezePlay](https://sourceforge.net/projects/lmsclients/files/squeezeplay/).
 
 ## Supported devices
 
-The integration supports any [Squeezebox compatible hardware or software players](https://lyrion.org/players-and-controllers/) and both Lyrion Music Servers and Logitech Media Servers.
+The integration supports any Squeezebox compatible [hardware or software players](https://lyrion.org/players-and-controllers/) and both Lyrion Music Servers and Logitech Media Servers.
 
 ## Prerequisites
 
-1. One or more [Squeezebox compatible hardware or software players](https://lyrion.org/players-and-controllers/).
+1. One or more Squeezebox compatible [hardware or software players](https://lyrion.org/players-and-controllers/).
 2. One or more [Lyrion Music Servers or Logitech Media Servers (LMS)](https://lyrion.org/getting-started) with the Squeezebox players connected to these servers.
 
 {% include integrations/config_flow.md %}
@@ -229,8 +229,10 @@ The integration provides the following entities.
 
 ### Updates
 
--- **Lyrion Music Server**: Update of the server software is available.
--- **Updated plugins**: Named Plugins will be updated on the next restart. For some installation types, the service will be restarted automatically after the **Install** button has been selected. Allow enough time for the service to restart. It will become briefly unavailable.
+This integration will notify you when updates are available on the LMS for the LMS version or for plugins installed on the LMS
+
+  - **Lyrion Music Server**: Update of the server software is available.
+  - **Updated plugins**: Plugin updates are available.  The list of updates can be viewed by selecting the "Read release announcement" link.  On the LMS, an option is available on the Manage Plugins settings page to "Update plugins automatically".  If this option is selected, plugins will be downloaded automatically by the LMS and then installed on the next restart of the LMS.  For some installation types of LMS, the LMS can be restarted by selecting the **Update** button. Allow enough time for the LMS to restart as it will become briefly unavailable.
 
 ### Actions
 

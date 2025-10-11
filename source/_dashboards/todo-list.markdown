@@ -76,6 +76,11 @@ display_order:
   description: "Optionally sorts the items in the to-do list for display. Options are: `none`: Show the list in its original order. `alpha_asc`: Sort the list in alphabetical order. `alpha_desc`: Sort the list in reverse alphabetical order. `duedate_asc`: Sort the list by due date (soonest first). `duedate_desc`: Sort the list by reverse due date (soonest last)."
   type: string
   default: "none"
+item_tap_action:
+  required: false
+  description: "Defines the behavior when an item's body is clicked. Options are: `edit` (opens the edit dialog), `toggle` (marks or unmarks the item as completed, hiding the edit dialog)."
+  type: string
+  default: "edit"  
 {% endconfiguration %}
 
 ### Examples

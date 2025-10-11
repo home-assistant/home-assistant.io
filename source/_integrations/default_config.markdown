@@ -32,6 +32,7 @@ This {% term integration %} is a meta-component and configures a default set of 
 - [Simple Service Discovery Protocol (SSDP)](/integrations/ssdp/) (`ssdp`)
 - [Stream](/integrations/stream/) (`stream`)
 - [Sun](/integrations/sun/) (`sun`)
+- [Usage Prediction](/integrations/usage_prediction/) (`usage_prediction`)
 - [USB](/integrations/usb/) (`usb`)
 - [Webhooks](/integrations/webhook) (`webhook`)
 - [Zero-configuration networking (zeroconf)](/integrations/zeroconf/) (`zeroconf`)

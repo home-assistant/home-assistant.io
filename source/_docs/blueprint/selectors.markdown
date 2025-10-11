@@ -1189,7 +1189,7 @@ number:
 
 The object selector can be used to input arbitrary data in YAML form. This is useful for e.g. lists and dictionaries containing data for actions. The value of the input will contain the provided data.
 
-When used without options, the selector will accept a free form object.
+When used without options, the selector will accept any valid YAML content, such as objects, arrays, strings, or other YAML types. The input box is displayed as an editor with syntax highlighting.
 
 ![Screenshot of an object selector](/images/blueprints/selector-object.png)
 
@@ -1197,7 +1197,7 @@ When used without options, the selector will accept a free form object.
 object:
 ```
 
-When used with a `schema`, the selector will force the object to be in this format by displaying a form.
+When used with `fields` specified, the selector will force the object to be in this format by displaying a form.
 
 ![Screenshot of an object selector](/images/blueprints/selector-object-schema.png)
 
@@ -1220,7 +1220,7 @@ object:
 
 The output of this selector is a YAML object.
 
-{% configuration qr_code %}
+{% configuration object %}
 fields:
   description: >
     List of fields of the object.
@@ -1231,6 +1231,11 @@ fields:
       description: The label of the field
       required: false
       type: string
+    required:
+      description: If set to true, the field must be present.
+      required: false
+      default: false
+      type: boolean
     selector:
       description: The selector to use for this field. It can be any available selector.
       required: true
@@ -1256,7 +1261,7 @@ translation_key:
   required: false
 multiple:
   description: >
-    Allows selecting multiple options. If set to `true`, the resulting value of this selector will be a list instead of a single string value. This option is only used if `fields` option set.
+    Allows adding multiple objects. If set to `true`, the resulting value of this selector will be a list instead of a single YAML object. This option is only used if `fields` option set.
   type: boolean
   required: false
   default: false
@@ -1414,7 +1419,7 @@ would return ["Green"] and in the last example it returns ["g"].
 ## State selector
 
 The state selector shows a list of states for a provided entity of which
-one can be selected.
+one or more can be selected.
 
 ![Screenshot of an state selector](/images/blueprints/selector-state.png)
 
@@ -1427,10 +1432,16 @@ hide_states:
   description: The states to exclude from the list of options
   type: list
   required: false
+multiple:
+  description: >
+    Allows selecting multiple states. If set to `true`, the resulting value of
+    this selector will be a list instead of a single string value.
+  type: boolean
+  default: false  
 {% endconfiguration %}
 
 The output of this selector is the select state (not the translated or
-prettified name shown in the frontend).
+prettified name shown in the frontend), or a list of states if `multiple` is true.
 
 For example: `heat_cool`.
 
@@ -1475,34 +1486,6 @@ target:
 ```
 
 {% configuration target %}
-device:
-  description: >
-    When device options are provided, the targets are limited by devices
-    that at least match the given conditions. Can be either a object or a list
-    of object.
-  type: list
-  keys:
-    integration:
-      description: >
-        Can be set to an integration domain. Limits the device targets that
-        are provided devices by the set integration domain, for example,
-        [`zha`](/integrations/zha).
-      type: string
-      required: false
-    manufacturer:
-      description: >
-        When set, it limits the targets to devices provided by the set
-        manufacturer name.
-      type: string
-      required: false
-    model:
-      description: When set, it limits the targets to devices by the set model.
-      type: string
-      required: false
-    model_id:
-      description: When set, the targets are limited to devices that have the set model ID.
-      type: string
-      required: false
 entity:
   description: >
     When entity options are provided, the targets are limited by entities
@@ -1559,18 +1542,6 @@ target:
   entity:
     - integration: zha
       domain: light
-```
-
-Another example using the target selector, which only shows targets that
-provide one or more remote controls, provided by the
-[deCONZ](/integrations/deconz) integration.
-
-```yaml
-target:
-  device:
-    - integration: deconz
-      manufacturer: IKEA of Sweden
-      model: TRADFRI remote control
 ```
 
 ## Template selector

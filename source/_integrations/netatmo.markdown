@@ -317,6 +317,8 @@ Menu: **Settings** > **Devices & services**.
 Click on the `+` sign to add an integration and click on **Netatmo**.
 After completing the configuration flow, the Netatmo integration will be available.
 
+During the process you have to choose the new Application Credentials name.
+
 ## Troubleshooting
 
 ### Receiving events

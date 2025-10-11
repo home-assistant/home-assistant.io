@@ -4,8 +4,10 @@ description: Instructions on how to set up SwitchBot Devices.
 ha_category:
   - Binary Sensor
   - Button
+  - Cover
   - Fan
   - Hub
+  - Humidifier
   - Light
   - Lock
   - Plug
@@ -19,13 +21,16 @@ ha_codeowners:
   - '@SeraphicRav'
   - '@laurence-presland'
   - '@Gigatrappeur'
+  - '@XiaoLing-git'
 ha_domain: switchbot_cloud
 ha_platforms:
   - binary_sensor
   - button
   - climate
-  - light
+  - cover
   - fan
+  - humidifier
+  - light
   - lock
   - sensor
   - switch
@@ -54,7 +59,16 @@ Please note, device names configured in the SwitchBot app are transferred into H
 - [Relay Switch 1PM](https://www.switch-bot.com/products/switchbot-relay-switch-1pm)
 - [Plug Mini (WoPlug)](https://www.switch-bot.com/products/switchbot-plug-mini)
 - [Plug Mini (HomeKit Enabled)](https://www.switch-bot.com/products/switchbot-plug-mini-homekit-enabled)
+- [Plug Mini (EU)](https://www.switch-bot.com/products/switchbot-plug-mini-eu)
 - Plug (Wi-Fi only, only available in Japan)
+
+### Cover
+
+- [Curtain (WoCurtain)](https://switch-bot.com/pages/switchbot-curtain) (version 1 & 2)
+- [Curtain 3 (WoCtn3)](https://switch-bot.com/pages/switchbot-curtain-3)
+- [Blind Tilt (WoBlindTilt)](https://switch-bot.com/pages/switchbot-blind-tilt)
+- [Roller Shade](https://www.switch-bot.com/products/switchbot-roller-shade)
+- [Garage Door Opener](https://www.switch-bot.com/products/switchbot-garage-door-opener)
 
 ### Lights
 
@@ -62,6 +76,8 @@ Please note, device names configured in the SwitchBot app are transferred into H
 - [Floor Lamp](https://www.switch-bot.com/products/switchbot-floor-lamp)
 - [Color Bulb (WoBulb)](https://switch-bot.com/pages/switchbot-color-bulb)
 - [Light Strip (WoStrip)](https://www.switchbot.jp/products/switchbot-strip-light)
+- RGBICWW Floor Lamp
+- RGBICWW Strip Light
 
 ### Locks
 
@@ -75,13 +91,22 @@ Please note, device names configured in the SwitchBot app are transferred into H
 - [Indoor/Outdoor Meter (WoIOSensorTH)](https://switch-bot.com/pages/switchbot-indoor-outdoor-thermo-hygrometer) 
 - [Meter Pro](https://www.switch-bot.com/products/switchbot-meter-pro)
 - [Meter Pro CO2 Monitor](https://www.switch-bot.com/products/switchbot-meter-pro-co2-monitor)
+- [Contact Sensor](https://www.switch-bot.com/products/contact-sensor)
+- [Motion Sensor](https://www.switch-bot.com/products/motion-sensor)
+- [Water Leak Detector](https://www.switch-bot.com/products/switchbot-water-leak-detector)
 
 ### Hubs
 
 - [Hub 2 (WoHub2)](https://switch-bot.com/pages/switchbot-hub-2) (currently only supports retrieving sensor data, does not yet support device control)
+- [Hub 3](https://www.switch-bot.com/products/switchbot-hub-3) (currently only supports retrieving sensor data, does not yet support device control)
 - IR appliances exposed through the different hubs:
   - ON/OFF for all appliance types except for *Others*
   - Change temperature and mode for *Air Conditioner*
+  
+### Humidifiers
+
+- [Humidifier (WoHumi)](https://www.switchbot.jp/products/switchbot-smart-humidifier)
+- [Evaporative Humidifier](https://www.switch-bot.com/products/switchbot-evaporative-humidifier-auto-refill)
 
 ### Vacuums
 
@@ -97,6 +122,8 @@ Please note, device names configured in the SwitchBot app are transferred into H
 ### Fans
 
 - [Circulator Fan](https://www.switch-bot.com/products/switchbot-battery-circulator-fan)
+- [Air Purifier](https://www.switch-bot.com/products/switchbot-air-purifier)
+- [Air Purifier Table](https://www.switch-bot.com/products/switchbot-air-purifier-table)
 
 ## Supported functionality
 
@@ -134,6 +161,51 @@ Features:
 Features:
 - turn on or off
 
+### Cover
+
+#### Curtain
+
+Features:
+- open/close/pause
+- set position
+- get position
+- get battery level
+- get calibration state
+
+#### Curtain 3
+
+Features:
+- open/close/pause
+- set position
+- get position
+- get battery level
+- get calibration state
+
+#### Blind Tilt
+
+Features:
+- close up/close down
+- set position
+- get position
+- get battery level
+- get calibration state
+
+#### Roller Shade
+
+Features:
+- open/close
+- set position
+- get position
+- get battery level
+- get calibration state
+
+#### Garage Door Opener
+
+Features:
+- open/close
+- set position
+- get position
+- get calibration state
 
 ### Sensors
 
@@ -171,6 +243,26 @@ Features:
 - get temperature
 - get humidity
 - get carbon dioxide
+- get battery level
+
+#### Contact Sensor
+
+Features:
+- get motion detection state
+- get light state
+- get open state
+- get battery level
+
+#### Motion Sensor
+
+Features:
+- get motion detection state
+- get battery level
+
+#### Water Leak Detector
+
+Features:
+- get leak state
 - get battery level
 
 ### Lights
@@ -235,6 +327,38 @@ Features:
 - get temperature
 - get humidity
 
+#### Hub 3
+
+Features:
+- get motion detection state
+- get temperature
+- get humidity
+- get light level
+
+### Humidifiers
+
+Humidifier entities are added for Humidifier and  Evaporative Humidifier.
+
+#### Humidifier
+
+Features:
+
+- turn on
+- turn off
+- set mode
+- set humidity
+
+#### Evaporative Humidifier
+
+Note: Not all modes support unless you bind the temperature and humidity sensor.
+
+Features:
+
+- turn on
+- turn off
+- set mode
+- set humidity
+
 ### Fans
 
 #### Battery Circulator Fan/Circulator Fan
@@ -245,6 +369,23 @@ Features:
 - set speed, only applicable for [direct mode]
 - set mode
 - get battery, only applicable for [Battery Circulator Fan]
+
+
+#### Air Purifier
+
+Features:
+- get states
+- turn on
+- turn off
+- set mode
+
+#### Air Purifier Table
+
+Features:
+- get states
+- turn on
+- turn off
+- set mode
 
 
 ### Vacuums
