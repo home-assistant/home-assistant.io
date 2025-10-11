@@ -13,7 +13,7 @@ ha_integration_type: service
 ha_quality_scale: bronze
 ---
 
-The **AWS S3** {% term integration %} allows you to use [AWS S3](https://aws.amazon.com/s3/) bucket with Home Assistant Backups.
+The **AWS S3** {% term integration %} allows you to use [AWS S3](https://aws.amazon.com/s3/) buckets with Home Assistant Backups.
 
 ## Prerequisites
 
@@ -21,19 +21,25 @@ The **AWS S3** {% term integration %} allows you to use [AWS S3](https://aws.ama
 This integration is specifically designed to work **only with Amazon AWS S3** and not with third-party storage providers that claim S3 API compatibility. Third-party providers like Wasabi, DigitalOcean Spaces, Backblaze B2, Infomaniak, and others are not supported.
 {% endimportant %}
 
-This integration requires an existing S3 bucket and an IAM user that has access to that bucket. For security reasons, it is strongly recommended to scope the IAM policy as narrowly as possible to only the required operations and resources.
+This integration requires an existing S3 bucket and an IAM user or role that has access to that bucket. For security reasons, it is strongly recommended to scope the IAM policy attached to the user or role as narrowly as possible to only the required operations and resources.
+
+The example setup below describes using an IAM user with long-lived static security credentials which will be stored in Home Assistant.
+
+ AWS [best practice](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#bp-workloads-use-roles) recommends alternative authentication methods which use short-lived security credentials instead - the relative complexity of configuring these methods under the hood is not covered in this guide.
 
 {% details "Create a new S3 bucket" %}
 
 1. Log in to the [AWS Management Console](https://console.aws.amazon.com/).
-1. Navigate to **S3** from the Services menu.
-1. Click **Create bucket**.
-1. Choose a unique **bucket name** (e.g., `home-assistant-backups-123456`).
-1. Select your preferred AWS **region** (e.g., `eu-central-1`).
-1. Adjust the settings:
+2. Navigate to **S3** from the Services menu.
+3. Select your preferred AWS region from the drop-down towards the top-right of the management console (e.g., `Europe Frankfurt`)
+4. Click **Create bucket**.
+5. Select **General purpose** bucket type.
+6. Choose a unique **bucket name** (e.g., `home-assistant-backups-123456`).
+7. Adjust the settings:
+   - Object ownership - **ACLs disabled** (selected by default, recommended)
    - ✅ **Block all public access** (enabled by default, recommended)
    - ⚠️ **Enable Bucket Versioning** (optional). This lets you recover backups after Home Assistant deletes them, but it **can increase storage costs**. Disable this to allow permanent deletion based on retention settings.
-1. Click **Create bucket**.
+8. Click **Create bucket**.
 
 Make a note of the bucket name — you’ll need it later.
 
@@ -44,10 +50,9 @@ Make a note of the bucket name — you’ll need it later.
 To create a new IAM user that can access the S3 bucket:
 
 1. Go to **IAM > Users** in the AWS Management Console.
-1. Click **Add users**.
-1. Use a name like `home-assistant-backup`.
-1. Check **Access key - Programmatic access** only.
-1. Click **Next: Permissions**.
+2. Click **Create user**.
+3. Use a name like `home-assistant-backup` and click **Next**.
+4. Select **Attach policies directly**.
 
 Now, let's create and attach a custom IAM policy to give the user the necessary permissions to the bucket:
 
@@ -76,43 +81,64 @@ Now, let's create and attach a custom IAM policy to give the user the necessary 
     }
     ```
 
-1. Name the policy (e.g., `HomeAssistantS3Policy`) and create it.
-1. Return to the user creation wizard and attach the new policy.
-1. Complete the user setup.
-1. Save the **Access Key ID** and **Secret Access Key** — you'll need these when setting up the AWS S3 integration in Home Assistant.
+2. Name the policy (e.g., `HomeAssistantS3Policy`) and create it.
+3. Return to the user creation wizard, refresh the list of available policies, and attach the new policy.
+4. Complete the user setup.
+5. Click on the newly created user, go to the **Security credentials** tab and click **Create access key**.
+6. Select **Other** in the list of use-cases, click **Next**, and then **Create access key**
+7. Securely note the **Access Key ID** and **Secret Access Key** — you'll need these when setting up the AWS S3 integration in Home Assistant.
 
 {% enddetails %}
 
 {% note %}
 
-- Avoid using credentials for your AWS root account or IAM users that have more permissions than is necessary.
-- By limiting credentials to a specific bucket, you reduce risk and help keep your AWS account secure.
+- *Never* use IAM credentials belonging to your AWS root user account.
+- Avoid using IAM roles or IAM users that have more permissions than is necessary.
+- By limiting your IAM role or IAM User to a specific bucket, you reduce risk and help keep your AWS account secure.
 
 {% endnote %}
 
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
-Access Key ID:
-  description: "The access key ID for your AWS S3 account."
-Secret Access Key:
-  description: "The secret access key for your AWS S3 account."
 Bucket Name:
   description: "S3 bucket name to store the backups. Bucket must already exist and be writable by the provided credentials."
 Endpoint URL:
   description: "Endpoint URL provided to [Boto3 Session](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/core/session.html). Region-specific [AWS S3 endpoints](https://docs.aws.amazon.com/general/latest/gr/s3.html) are available in their documentation. Defaults to `https://s3.eu-central-1.amazonaws.com/`."
+AWS Authentication Type:
+  description: "The type of authentication [credentials](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/credentials.html) used to connect to your AWS S3 bucket."
+AWS Authentication Type - Implicit Authentication:
+  description: "No explicit authentication method is configured - the client library will work its way through the potential authentication providers and use the first one that provides valid credentials."
+AWS Authentication Type - Named Profile:
+  description: "The client library is configured to use a Named Profile (equivalent to setting the `AWS_PROFILE` environment variable).  The client library will work its way through the potential authentication providers and use the first one that provides valid credentials when using the specific named profile."
+AWS Authentication Type - IAM Credentials:
+  description: "The client library is configured to use an explicit IAM Access Key ID and Secret Access Key."
+Access Key ID (IAM Credentials Authentication Type only):
+  description: "The access key ID for your AWS S3 account."
+Secret Access Key (IAM Credentials Authentication Type only):
+  description: "The secret access key for your AWS S3 account."
+AWS Profile Name (Named Profile Authentication Type only):
+  description: "The name of the AWS Profile to use to access your AWS S3 account."
 {% endconfiguration_basic %}
 
 ## Setting up the AWS S3 integration in Home Assistant
 
 1. In Home Assistant, go to **Settings > Devices & Services**.
-1. Click **Add Integration** and search for **AWS S3**.
-1. Enter the following details:
-   - Access Key ID and Secret Access Key from the IAM user
+2. Click **Add Integration** and search for **AWS S3**.
+3. Enter the following details:
    - Your bucket name
    - The region endpoint (e.g., `https://s3.eu-central-1.amazonaws.com/`)
-
-The integration will test the connection and confirm access to your S3 bucket.
+4. Select the AWS Authentication Type and click **Submit**
+   - **Implicit Authentication**
+     - The integration will test the connection and confirm access to your S3 bucket.
+   - **Named Profile**
+     1. Enter the following details:
+        - AWS Profile Name
+     2. Click **Submit** - the integration will test the connection and confirm access to your S3 bucket.
+   - **IAM Credentials**
+     1. Enter the following details:
+        - Access Key ID and Secret Access Key from the IAM user
+     2. Click **Submit** - the integration will test the connection and confirm access to your S3 bucket.
 
 ## Known limitations
 
@@ -125,5 +151,9 @@ This integration is designed to work only with the official Amazon AWS S3 servic
 ## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.
+
+{% note %}
+Removing the integration will not remove any data stored in AWS S3, for which you may still be charged.
+{% endnote %}
 
 {% include integrations/remove_device_service.md %}
