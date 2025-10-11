@@ -10,6 +10,7 @@ ha_integration_type: integration
 ha_platforms:
   - sensor
   - time
+  - switch
 ---
 
 
@@ -74,6 +75,10 @@ The **Nintendo Switch Parental Controls** integration provides the following ent
 
 - **Bedtime alarm**
   - **Description**: A set bedtime for a given device, at this time, the Switch can either "lock" or show an alert in the top left corner.
+
+#### Switch
+- **Suspend software**
+  - **Description**: Enable to automatically suspend running software when the Bedtime alarm is reached or the maximum screen time is exceeded. Turn off to allow software to continue running past these limits. 
 
 ## Known limitations
 
