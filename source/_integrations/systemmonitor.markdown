@@ -16,7 +16,7 @@ ha_codeowners:
   - '@gjohansson-ST'
 ---
 
-The **System monitor** {% term integration %} allows you to monitor disk usage, memory usage, network usage, CPU usage, and running processes.
+The **System monitor** {% term integration %} allows you to monitor disk usage, memory usage, network usage, CPU usage, and running processes on which Home Assistant is running.
 
 {% include integrations/config_flow.md %}
 
