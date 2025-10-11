@@ -121,15 +121,84 @@ task :version_data do
   end
 end
 
+def download_with_cache(uri, data_file, cache_file)
+  begin
+    remote_data = JSON.parse(Net::HTTP.get(uri))
+    File.open(data_file, "w") do |file|
+      file.write(JSON.generate(remote_data))
+    end
+    File.open(cache_file, "w") do |file|
+      file.write(JSON.generate(remote_data))
+    end
+    return true
+  rescue Net::HTTPError, Net::HTTPServerException, Net::ProtocolError, Net::HTTPFatalError, SocketError, Errno::ECONNREFUSED, Errno::EHOSTUNREACH, Timeout::Error, JSON::ParserError => e
+    puts "### Failed to download language scores data: #{e.message}. Attempting to use cache."
+    if File.exist?(cache_file)
+      cached_data = JSON.parse(File.read(cache_file))
+      File.open(data_file, "w") do |file|
+        file.write(JSON.generate(cached_data))
+      end
+      return true
+    else
+      return false
+    end
+  end
+end
+
 desc "Download supported language data from ohf-voice.github.io"
 task :language_scores_data do
+  data_file = "#{source_dir}/_data/language_scores.json"
+  cache_file = ".lang-cache"
   uri = URI('https://ohf-voice.github.io/intents/language_scores.json')
 
-  remote_data = JSON.parse(Net::HTTP.get(uri))
-
-  File.open("#{source_dir}/_data/language_scores.json", "w") do |file|
-    file.write(JSON.generate(remote_data))
+  unless download_with_cache(uri, data_file, cache_file)
+    abort("### Failed to download language scores data and no cache available.")
   end
+end
+
+desc "Test the language_scores_data caching mechanism"
+task :test_cache do
+  puts "## Running test for language_scores_data caching"
+  data_file = "test_data.json"
+  cache_file = "test_cache.json"
+  invalid_uri = URI('http://127.0.0.1:9999/invalid.json')
+
+  # Test 1: Remote down, no cache
+  puts "# Test 1: Remote down, no cache. Should fail."
+  system "rm -f #{cache_file}"
+
+  if download_with_cache(invalid_uri, data_file, cache_file)
+    puts "## Test 1 FAILED: Task succeeded when it should have failed."
+    abort("Test failed")
+  else
+    puts "## Test 1 PASSED: Task failed as expected."
+  end
+
+  # Test 2: Remote down, with cache
+  puts "\n# Test 2: Remote down, with cache. Should succeed."
+  File.open(cache_file, "w") do |file|
+    file.write("{\"test\":\"data\"}")
+  end
+  if download_with_cache(invalid_uri, data_file, cache_file)
+    puts "## Test 2 PASSED: Task succeeded as expected."
+    # Verify content
+    content = File.read(data_file)
+    if content == '{"test":"data"}'
+      puts "## Content verification PASSED."
+    else
+      puts "## Content verification FAILED. Got #{content}"
+      abort("Test failed")
+    end
+  else
+    puts "## Test 2 FAILED: Task failed when it should have succeeded."
+    abort("Test failed")
+  end
+
+  # Cleanup
+  puts "\n## Cleaning up"
+  system "rm -f #{cache_file}"
+  system "rm -f #{data_file}"
+  puts "\n## Cache test completed successfully."
 end
 
 desc "Extract CODEOWNERS and output to _data/codeowners.json"

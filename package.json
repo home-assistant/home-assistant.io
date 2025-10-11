@@ -3,6 +3,7 @@
   "description": "Home Assistant Website & Documentation",
   "version": "1.0.0",
   "devDependencies": {
+    "markdown-link-check": "^3.14.0",
     "remark-cli": "^12.0.1",
     "remark-frontmatter": "^5.0.0",
     "remark-lint": "^10.0.1",
@@ -27,6 +28,7 @@
   "scripts": {
     "markdown:lint": "remark --quiet --frail .",
     "textlint:all": "textlint source",
-    "textlint": "textlint source/_docs source/_faq source/_integrations source/_dashboards source/cloud source/getting-started source/hassio source/dashboards"
+    "textlint": "textlint source/_docs source/_faq source/_integrations source/_dashboards source/cloud source/getting-started source/hassio source/dashboards",
+    "check-links": "markdown-link-check --config mlc_config.json ./source/**/*.md"
   }
 }
