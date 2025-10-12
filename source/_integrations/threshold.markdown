@@ -77,6 +77,24 @@ name:
   default: Threshold
 {% endconfiguration %}
 
+## Action `threshold.set_lower_threshold`
+
+Sets the lower threshold to compare against. The helper's state will be recalculated immediately, ignoring any hysteresis.
+
+| Data attribute | Optional | Description                              |
+| -------------- | -------- | -----------------------------------------|
+| `entity_id`    | no       | String or list of strings that point at `entity_id`s of thresholds. To target all thresholds, set `entity_id` to `all`. |
+| `value`        | no       | New value to set the lower threshold to. |
+
+## Action `threshold.set_upper_threshold`
+
+Sets the upper threshold to compare against. The helper's state will be recalculated immediately, ignoring any hysteresis.
+
+| Data attribute | Optional | Description                              |
+| -------------- | -------- | -----------------------------------------|
+| `entity_id`    | no       | String or list of strings that point at `entity_id`s of thresholds. To target all thresholds, set `entity_id` to `all`. |
+| `value`        | no       | New value to set the upper threshold to. |
+
 ## Matrix of state change behavior
 
 ### Sensor value rising
