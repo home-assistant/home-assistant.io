@@ -48,7 +48,7 @@ Technicolor:
 
 UltraHub:
 
-- Vodafone Ultra Hub 7 Fibre - FG4268VF
+- Vodafone Ultra Hub 7 Fibre - FG4278VF
 
 {% include integrations/config_flow.md %}
 
