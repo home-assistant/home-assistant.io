@@ -22,3 +22,9 @@ related:
 The `niko_home_control` {% term integration %} allows you to integrate your [Niko Home Control](https://www.niko.eu/enus/products/niko-home-control) into Home Assistant.
 
 {% include integrations/config_flow.md %}
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
