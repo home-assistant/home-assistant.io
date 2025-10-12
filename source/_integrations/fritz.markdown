@@ -114,7 +114,7 @@ Makes the FRITZ!Box dial a phone number. The dial-help service of the FRITZ!Box 
 |----------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `device_id` | yes | Only act on a specific router                                                                                                                                               |
 | `number` | yes | The phone number to dial                                                                                                                                                    |
-| `max_ring_seconds` | no | The maximum number of seconds to ring after dialing. Note that the actual ring duration might be shorter depending on the receiver's phone settings. (_default 15 seconds_) |
+| `max_ring_seconds` | yes | The maximum number of seconds to ring after dialing. Note that the actual ring duration might be shorter depending on the receiver's phone settings. (_default 15 seconds_) |
 
 ## Additional information
 
