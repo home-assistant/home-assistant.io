@@ -970,7 +970,7 @@ See the [Persistent Notification](/integrations/persistent_notification/) integr
 Webhook trigger fires when a web request is made to the webhook endpoint: `/api/webhook/<webhook_id>`. The webhook endpoint is created automatically when you set it as the `webhook_id` in an automation trigger. The `webhook_id` can either be a static value or computed using [limited templates](/docs/configuration/templating/#limited-templates).
 
 {% note %}
-The `webhook_id` template is only evaluated when setting up the trigger, they will not be re-evaluated for incomming webhook triggers.
+The `webhook_id` template is only evaluated when setting up the trigger, they will not be re-evaluated for incoming webhook triggers.
 {% endnote %}
 
 ```yaml
