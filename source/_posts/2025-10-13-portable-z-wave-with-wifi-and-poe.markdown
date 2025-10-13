@@ -35,7 +35,7 @@ NOTE: This firmware is experimental. Do not use it if you’re looking for the m
 To get started using your Connect ZWA-2 over your local network, you can use one of the two following configurations:
 
 - **Wi-Fi** \- the new firmware will be installed on the Connect ZWA-2 and use its built-in Wi-Fi chip to communicate over your network.  
-- **PoE** \- the new firmware will be installed on an [external development board](https://www.waveshare.com/esp32-s3-eth.htm) that supports Power-over-Ethernet (PoE); Connect ZWA-2 will use its stock firmware and will plug into this new device via USB.
+- **PoE** \- the new firmware will be installed on an [external development board](https://amzn.to/4h2T2q7) that supports Power-over-Ethernet (PoE); Connect ZWA-2 will use its stock firmware and will plug into this new device via USB.
 
 First, before installing this new firmware, make sure to [back up your Z-Wave network](/integrations/zwave_js/#backing-up-your-z-wave-network) and ensure your Home Assistant instance is running version 2025.10.2 or later. Only after those steps should you use the [toolkit website for Portable Z-Wave](https://toolbox.openhomefoundation.org/home-assistant-connect-zwa-2/). The toolkit’s wizard will walk you through the whole process of installing and connecting your device to your network. When the installation is complete, it should join your network and be discovered by both the ESPHome and Z-Wave integrations in Home Assistant.
 
