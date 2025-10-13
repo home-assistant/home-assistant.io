@@ -26,7 +26,7 @@ This integration enables you to access and monitor your household energy consump
 Even if you have a contract with a new power provider, you can still use this service by applying to the regional utility company (for example, TEPCO in Tokyo).
 Ensure that your power supply is not a bulk power supply for an apartment building.
 
-1. Compatible USB dongle:
+1. Compatible USB dongles (tested with):
     - Wi-SUN USB dongle from [Ratoc Systems](https://www.ratocsystems.com/products/wisun/usb-wisun/rs-wsuha/).
     - Wi-SUN Module RL7023 Stick-D/DSS from [Tessera Technology Inc.](https://www.tessera.co.jp/product/rfmodul/rl7023stick-d_dss.html).
 2. [B Route credentials from your utility company](#obtaining-b-route-credentials).
