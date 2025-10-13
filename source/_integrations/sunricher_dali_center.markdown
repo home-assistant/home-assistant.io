@@ -8,7 +8,7 @@ ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
   - '@niracler'
-ha_domain: dali_center
+ha_domain: sunricher_dali_center
 ha_platforms:
   - light
 ha_integration_type: hub
