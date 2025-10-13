@@ -225,7 +225,7 @@ The **Volvo** integration fetches data from the API at different intervals:
 - **Every 60 minutes**: diagnostics, odometer, and statistics.
 - **Every 15 minutes**: car connectivity, fuel status, and location.
 - **Every 2 minutes**: energy data (for battery cars).
-- **Every minute**: doors, lock and windows status.
+- **Every minute**: doors, lock, and windows status.
 
 If you decide to define a custom polling interval, beware that there is a maximum of 10,000 requests per day.
 Every poll operation accounts for about a dozen calls (depends on model).
