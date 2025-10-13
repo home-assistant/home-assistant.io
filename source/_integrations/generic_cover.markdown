@@ -15,66 +15,109 @@ ha_integration_type: device
 ha_config_flow: true
 ---
 
-The Generic Cover integration allows you to create cover entities that are controlled by two separate switches - one for opening/up movement and one for closing/down movement. This is particularly useful for DIY covers, blinds, or shutters that use relay switches for directional control.
+The **Generic Cover** {% term integration %} allows you to create {% term cover %} {% term entities entity %} that are controlled by two separate switches - one for opening/up movement and one for closing/down movement. This is particularly useful for DIY covers, blinds, or shutters that use relay switches for directional control.
+
+## Supported devices
+
+The Generic Cover integration works with any covers that use:
+
+- Two separate switches for directional control (open/close or up/down)
+- Relay-controlled motorized blinds, shutters, or curtains
+- DIY cover solutions with motor controllers
+- Garage doors with separate open/close controls
+- Projector screens with directional switches
+
+## Prerequisites
+
+Before setting up the Generic Cover integration, you need:
+
+1. Two working switch {% term entities entity %} in Home Assistant that control your cover's movement
+2. Knowledge of how long it takes for your cover to complete a full open or close cycle
+3. If using tilt functionality, knowledge of the tilt cycle duration
 
 {% include integrations/config_flow.md %}
 
-## Features
+## Configuration options
 
-- **Two-switch control**: Separate switches for open and close operations
-- **Position tracking**: Automatically tracks cover position based on movement duration
-- **Tilt support**: Optional tilt functionality with separate tilt duration configuration
-- **State restoration**: Position and tilt state are restored after Home Assistant restart
-- **Safety interlocking**: Prevents simultaneous open and close operations
-- **Configurable timing**: Set custom durations for full open/close and tilt cycles
+{% configuration_basic %}
+Name:
+  description: A friendly name for your cover.
+Open switch entity:
+  description: The switch entity used to open/raise the cover.
+Close switch entity:
+  description: The switch entity used to close/lower the cover.
+Duration:
+  description: Time in seconds for a complete open or close cycle.
+Tilt duration:
+  description: Time in seconds for a complete tilt cycle. Leave empty if tilt functionality is not needed.
+{% endconfiguration_basic %}
 
-## Configuration
+## Supported functionality
 
-The Generic Cover integration can be configured through the UI by going to **{% my integrations title="Settings > Devices & Services" %}** and clicking the **Add Integration** button, then searching for "Generic Cover".
+### Entities
 
-### Configuration Parameters
+The **Generic Cover** integration provides the following {% term entities entity %}.
 
-- **Name**: A friendly name for your cover
-- **Open switch entity**: The switch entity used to open/raise the cover
-- **Close switch entity**: The switch entity used to close/lower the cover  
-- **Duration**: Time in seconds for a complete open or close cycle (default: 30 seconds)
-- **Tilt duration**: Time in seconds for a complete tilt cycle (optional, default: 5 seconds)
+#### Covers
 
-## How It Works
+- **Generic Cover**
+  - **Description**: A cover entity that can be opened, closed, and positioned using two switches.
+  - **Features**: Open, close, stop, position control, and optional tilt support.
+  - **Position tracking**: Automatically tracks cover position based on movement duration.
+  - **State restoration**: Position and tilt state are restored after Home Assistant restart.
 
-The integration operates by:
+## Examples
 
-1. **Monitoring switch states**: Tracks when open/close switches are activated
-2. **Calculating positions**: Uses timing to estimate current position (0-100%)
-3. **Preventing conflicts**: Ensures only one switch can be active at a time
-4. **Tracking progress**: Updates position continuously during movement
+### Basic cover control
 
-### Position Calculation
+```yaml
+automations:
+  - alias: "Open covers at sunrise"
+    triggers:
+      - trigger: sun
+        event: sunrise
+    actions:
+      - action: cover.open_cover
+        target:
+          entity_id: cover.living_room_blinds
 
-- Position 0% = fully closed
-- Position 100% = fully open
-- Position updates every second during movement
-- Final position is based on movement duration vs. configured cycle time
+  - alias: "Close covers at sunset"
+    triggers:
+      - trigger: sun
+        event: sunset
+    actions:
+      - action: cover.close_cover
+        target:
+          entity_id: cover.living_room_blinds
+```
 
-### Tilt Functionality
+### Position-based control
 
-When tilt duration is configured:
+```yaml
+automations:
+  - alias: "Set cover to 50% at midday"
+    triggers:
+      - trigger: time
+        at: "12:00:00"
+    actions:
+      - action: cover.set_cover_position
+        target:
+          entity_id: cover.living_room_blinds
+        data:
+          position: 50
+```
 
-- Tilt position is calculated as a percentage of cover position
-- Each tilt step represents a small increment of the total cover movement
-- Tilt commands move the cover in small increments for precise positioning
+### Use case examples
 
-## Example Use Cases
-
-### Motorized Blinds
+#### Motorized blinds
 
 Control motorized blinds with separate up/down relay switches:
 
 - **Open switch**: Connected to "up" relay
-- **Close switch**: Connected to "down" relay  
+- **Close switch**: Connected to "down" relay
 - **Duration**: Time for blinds to go from fully closed to fully open
 
-### Garage Door
+#### Garage door
 
 Control a garage door with directional switches:
 
@@ -82,7 +125,7 @@ Control a garage door with directional switches:
 - **Close switch**: Garage door close button/relay
 - **Duration**: Time for door to fully open or close
 
-### Projector Screen
+#### Projector screen
 
 Control a motorized projector screen:
 
@@ -90,78 +133,78 @@ Control a motorized projector screen:
 - **Close switch**: Screen extend switch
 - **Duration**: Time for full extension/retraction cycle
 
-## Automation Examples
+## Data updates
 
-### Basic Cover Control
+The Generic Cover integration operates using:
 
-```yaml
-automation:
-  - alias: "Open covers at sunrise"
-    trigger:
-      platform: sun
-      event: sunrise
-    action:
-      service: cover.open_cover
-      target:
-        entity_id: cover.living_room_blinds
+- **Switch state monitoring**: Continuously monitors the state of both open and close switches
+- **Timer-based position calculation**: Updates position every second during movement
+- **Event-driven updates**: Position changes are calculated based on switch activation events
+- **No polling**: The integration does not poll external devices, relying on switch state changes
 
-  - alias: "Close covers at sunset"  
-    trigger:
-      platform: sun
-      event: sunset
-    action:
-      service: cover.close_cover
-      target:
-        entity_id: cover.living_room_blinds
-```
+## Known limitations
 
-### Position-Based Control
-
-```yaml
-automation:
-  - alias: "Set cover to 50% at midday"
-    trigger:
-      platform: time
-      at: "12:00:00"
-    action:
-      service: cover.set_cover_position
-      target:
-        entity_id: cover.living_room_blinds
-      data:
-        position: 50
-```
+- **Position accuracy depends on timing**: Position tracking relies on consistent movement timing and may drift over time
+- **No position feedback**: The integration cannot verify actual cover position, only estimates based on timing
+- **Manual recalibration needed**: Periodic manual full open/close cycles may be required to maintain accuracy
+- **Switch dependency**: Proper operation requires reliable switch {% term entities entity %} that accurately report state changes
 
 ## Troubleshooting
 
-### Cover Position Drift
+### Cover position becomes inaccurate over time
 
-If cover position becomes inaccurate over time:
+#### Description
 
-1. Verify your duration settings match actual movement time
-2. Manually open/close cover fully to recalibrate
-3. Consider physical stops or limit switches for better accuracy
+The cover's reported position in Home Assistant doesn't match its actual physical position.
 
-### Switch Conflicts  
+#### Resolution
 
-If switches activate unexpectedly:
+1. Verify your duration settings match the actual movement time by timing a full open/close cycle
+2. Manually open or close the cover fully to allow the integration to recalibrate
+3. Consider adding physical limit switches or position sensors for better accuracy
+4. Check if the cover movement speed is consistent - variable speeds can cause drift
 
-1. Check switch entity states in Developer Tools
-2. Ensure switches are properly configured as momentary or toggle as needed
-3. Verify no automation conflicts are triggering switches
+### Switches activate unexpectedly
 
-### Position Not Updating
+#### Description
 
-If position doesn't change during movement:
+The open or close switches turn on without user interaction, causing unexpected cover movement.
 
-1. Check that switch entities report state changes correctly
-2. Verify duration is set appropriately (not too short)
-3. Check Home Assistant logs for any error messages
+#### Resolution
 
-## Technical Notes
+1. Check switch entity states in **{% my developer_tools title="Developer Tools" %}** > **States**
+2. Ensure switches are properly configured as momentary or toggle based on your hardware
+3. Review {% term automations %} and scripts that might be triggering the switches
+4. Check for interference or electrical issues with the switch hardware
 
-- Position tracking uses internal timers and switch state monitoring
-- The integration automatically handles switch turn-off after movement completion  
-- State persistence ensures position survives Home Assistant restarts
-- Interlocking prevents damage from simultaneous switch activation
+### Position doesn't update during movement
 
-For more advanced cover control scenarios, consider the Template Cover integration for custom templated behavior.
+#### Description
+
+The cover position remains unchanged even when the cover is moving.
+
+#### Resolution
+
+1. Verify that both switch {% term entities entity %} report state changes correctly in **{% my developer_tools title="Developer Tools" %}**
+2. Check that the duration setting is appropriate (not too short or too long)
+3. Review Home Assistant logs for error messages under **{% my logs title="Settings > System > Logs" %}**
+4. Ensure the switches actually control the cover movement
+
+### Cover operates in wrong direction
+
+#### Description
+
+Pressing "open" closes the cover or vice versa.
+
+#### Resolution
+
+1. Go to **{% my integrations title="Settings > Devices & Services" %}**
+2. Find your Generic Cover integration and select **Configure**
+3. Swap the open and close switch entity assignments
+4. Test the cover operation after reconfiguring
+
+## Removing the integration
+
+{% include integrations/remove_device_service.md %}
+
+After removing the integration, the cover {% term entity %} will no longer be available in Home Assistant. Any {% term automations %} or scripts referencing the cover will need to be updated or removed.
