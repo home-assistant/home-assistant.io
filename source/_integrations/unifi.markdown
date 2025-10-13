@@ -215,7 +215,11 @@ The Light entities will only be available for UniFi access points that support L
 
 ### LED control
 
-Provides control over the LED ring on compatible UniFi access points. Entities appear automatically for devices that support LED customization. The LED state, brightness, and color can be controlled.
+Provides control over the LED ring on compatible UniFi access points. Entities appear automatically for devices that support LED customization. The LED state, brightness, and color can be controlled. This feature requires admin privileges.
+
+{% note %}
+Changes may take over 5 seconds to apply as the device must adopt a new configuration. The UI updates optimistically.
+{% endnote %}
 
 ## Firmware updates
 
