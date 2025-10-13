@@ -20,9 +20,11 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `lightwave` {% term integration %} links Home Assistant with your Lightwave WiFi link for controlling Lightwave lights, switches and TRVs.
+The `lightwave` {% term integration %} links Home Assistant with your Lightwave Connect Series WiFi link for controlling Lightwave lights, switches and TRVs.
 
-This integration uses the official API published by Lightwave on their website [https://api.lightwaverf.com/](https://api.lightwaverf.com/).
+This {% term integration %} is for Connect Series WiFi links and does not support Smart Series devices, for more information see [Smart and Connect Series](https://support.lightwaverf.com/knowledge/about-smart-and-connect-series).  
+
+
 To add your Lightwave devices into your Home Assistant installation, add the following to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
 

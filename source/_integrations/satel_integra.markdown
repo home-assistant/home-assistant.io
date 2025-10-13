@@ -15,6 +15,7 @@ ha_domain: satel_integra
 ha_platforms:
   - alarm_control_panel
   - binary_sensor
+  - diagnostics
   - switch
 ha_integration_type: integration
 related:
@@ -75,3 +76,9 @@ For example:
       target:
         entity_id: input_boolean.movement_detected
 ```
+
+## Removing the integration
+
+This integration follows standard integration removal. Once the integration is removed, consider disabling the communication ability to the ETHM-1 Plus module using DLOADX to reduce security risks.
+
+{% include integrations/remove_device_service.md %}

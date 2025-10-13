@@ -2,8 +2,8 @@
 title: ntfy
 description: Instructions on how to integrate ntfy with Home Assistant.
 ha_category:
-  - Notifications
   - Event
+  - Notifications
 ha_iot_class: Cloud Push
 ha_release: 2025.5
 ha_config_flow: true
@@ -13,9 +13,9 @@ ha_domain: ntfy
 ha_integration_type: integration
 ha_platforms:
   - diagnostics
+  - event
   - notify
   - sensor
-  - event
 ha_quality_scale: bronze
 ---
 
@@ -141,7 +141,7 @@ For more customizable notifications, use the `ntfy.publish` action instead of `n
 
 - `title`: Title for your notification message.
 - `message`: Your notification message.
-- `markdown`: Enable Markdown formatting for the message body (Web app only). See the Markdown guide for syntax details: [https://www.markdownguide.org/basic-syntax/](https://www.markdownguide.org/basic-syntax/).
+- `markdown`: Enable Markdown formatting for the message body. See the Markdown guide for syntax details: [https://www.markdownguide.org/basic-syntax/](https://www.markdownguide.org/basic-syntax/).
 - `tags`: Add tags or emojis to the notification. Emojis (using shortcodes like `smile`) will appear in the notification title or message. Other tags will be displayed below the notification content.
 - `priority`: All messages have a priority, which defines how urgently your phone notifies you, depending on the configured vibration patterns, notification sounds, and visibility in the notification drawer or pop-over.
 - `click`: URL that is opened when the notification is clicked.

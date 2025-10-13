@@ -205,6 +205,11 @@ to a preset called My Preset:
     option: "My Preset"
 ```
 
+When a preset is activated and the light state is modified afterward 
+(e.g. with a `light.turn_on` action), the preset may be reset to an empty value. 
+This can affect services such as `select.select_next`, which will start again 
+from the first option instead of continuing the cycle.
+
 ### Automation using specific palette name
 
 An automation to turn on a WLED light and select a specific palette and

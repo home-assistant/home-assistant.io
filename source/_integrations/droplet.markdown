@@ -4,14 +4,14 @@ description: Instructions on how to setup Droplet in Home Assistant.
 ha_category:
   - Sensor
 ha_config_flow: true
-ha_release: "2025.10"
+ha_release: '2025.10'
 ha_iot_class: Local Push
 ha_codeowners:
   - '@sarahseidman'
-ha_domain: droplet 
+ha_domain: droplet
 ha_platforms:
   - sensor
-ha_integration_type: device
+ha_integration_type: integration
 ha_zeroconf: true
 ha_quality_scale: bronze
 ---
@@ -70,3 +70,13 @@ This integration follows standard integration removal process.
 
 {% include integrations/remove_device_service.md %}
 4. To prevent Droplet from showing up as a discovered device after its removal, disable the local API in the Droplet app under **Settings** > **Smart Home Integrations** > **Home Assistant**.
+
+## FAQ & Troubleshooting
+
+### Q: Why does Droplet’s volume sensor sometimes show negative values?
+
+**A**: The volume reported by Droplet over local API is point-to-point, meaning that each new value represents the difference in volume recorded since this data was last sent. Even when you’re not using appliances in your home, there can still be activity in your pipes. Droplet tries to be very accurate and is sensitive to small flows, which can include water sloshing back and forth, or slight movement as a result of pressure differences. Small negative values are to be expected, and are reported so that cumulative statistics reported in Home Assistant (or other consumers of the API) can be fully accurate.
+
+### Q: Why is my Droplet failing to authenticate with Home Assistant?
+
+**A**: If your Droplet is failing to authenticate, try waiting 1-2 minutes after enabling Home Assistant or regenerating the code in the Droplet app. It may take a moment for the Droplet to be ready to accept connections.

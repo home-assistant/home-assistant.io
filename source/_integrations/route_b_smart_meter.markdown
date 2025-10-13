@@ -13,6 +13,7 @@ ha_platforms:
   - sensor
 ha_config_flow: true
 ha_integration_type: device
+ha_quality_scale: bronze
 ---
 
 The **Smart Meter B Route** {% term integration %} allows you to access the data of your smart meter using the B Route protocol.

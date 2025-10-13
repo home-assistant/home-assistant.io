@@ -28,7 +28,7 @@ ha_codeowners:
 ha_integration_type: hub
 ---
 
-The FRITZ!SmartHome integration for Home Assistant allows you to integrate [FRITZ! Smart Home](https://en.fritz.com/products/smart-home/) (_former AVM FRITZ!DECT_) devices like plugs, thermostats or shutter drivers as also trigger so called smart home templates (_contains settings for Smart Home devices of the same type_).
+The FRITZ!SmartHome integration for Home Assistant allows you to integrate [FRITZ! Smart Home](https://fritz.com/en/collections/smart-home/) (_former AVM FRITZ!DECT_) devices like plugs, thermostats or shutter drivers as also trigger so called smart home templates (_contains settings for Smart Home devices of the same type_).
 
 #### Tested devices
 
@@ -56,7 +56,7 @@ The FRITZ!SmartHome integration for Home Assistant allows you to integrate [FRIT
 
 ## Prerequisites
 
-Please note that in a [mesh](https://en.fritz.com/service/knowledge-base/dok/FRITZ-Box-7590/3329_Mesh-with-FRITZ/) setup, only the FRITZ!Box with the mesh master role should be added with the FRITZ!SmartHome integration.
+Please note that in a [mesh](https://fritz.com/en/apps/knowledge-base/FRITZ-Box-7590/3329_Mesh-with-FRITZ/) setup, only the FRITZ!Box with the mesh master role should be added with the FRITZ!SmartHome integration.
 
 ### Username
 
@@ -111,7 +111,7 @@ Shutter drivers like the [Homepilot RolloTron DECT 1213][rademacher_rollotron_de
 
 ### Templates
 
-Self defined [templates](https://en.fritz.com/guide/three-smart-home-templates-that-will-make-your-life-easier) within the FRITZ!Box smart home configuration menu, will be integrated as {% term button %} entities and those can be triggered from within Home Assistant.
+Self defined [templates](https://fritz.com/en/apps/knowledge-base/FRITZ-Box-7590/3708_Creating-a-template-and-scene-for-smart-home-devices) within the FRITZ!Box smart home configuration menu, will be integrated as {% term button %} entities and those can be triggered from within Home Assistant.
 
 ### Thermostats
 
@@ -147,15 +147,15 @@ The availability of these {% term sensor %} and {% term binary_sensor "binary se
 - Open window detected
 - Temperature
 
-[fritzbox_5590_fiber]: https://en.fritz.com/products/fritzbox/fritzbox-5590-fiber
-[fritzbox_7590_ax]: https://en.fritz.com/products/fritzbox/fritzbox-7590-ax
-[fritzbox_7530_ax]: https://en.fritz.com/products/fritzbox/fritzbox-7530-ax
-[fritzdect_200]: https://en.fritz.com/products/smart-home/fritzsmart-energy-200
-[fritzdect_210]: https://en.fritz.com/products/smart-home/fritzsmart-energy-210
-[fritzdect_302]: https://en.fritz.com/products/smart-home/fritzsmart-thermo-302
-[fritzdect_350]: https://en.fritz.com/products/smart-home/fritzsmart-control-350
-[fritzdect_440]: https://en.fritz.com/products/smart-home/fritzsmart-control-440
-[fritz_smart_gateway]: https://en.fritz.com/products/smart-home/fritzsmart-gateway
+[fritzbox_5590_fiber]: https://fritz.com/en/products/fritz-box-5590-fiber-20002981
+[fritzbox_7590_ax]: https://fritz.com/en/products/fritz-box-7590-ax-20002998
+[fritzbox_7530_ax]: https://fritz.com/en/products/fritz-box-7530-ax-20002930
+[fritzdect_200]: https://fritz.com/en/products/fritz-dect-200-20002572
+[fritzdect_210]: https://fritz.com/en/products/fritz-dect-210-20002723
+[fritzdect_302]: https://fritz.com/en/products/fritz-smart-thermo-302-20003120
+[fritzdect_350]: https://fritz.com/en/products/fritz-dect-440-20002905
+[fritzdect_440]: https://fritz.com/en/products/fritz-smart-control-350-20003119
+[fritz_smart_gateway]: https://fritz.com/en/products/fritz-smart-gateway-20003012
 [rademacher_rollotron_dect_1213]: https://www.rademacher.de/shop/rollladen-sonnenschutz/elektrischer-gurtwickler/rollotron-dect-1213
 
 ## Troubleshooting

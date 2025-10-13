@@ -43,8 +43,6 @@ To use this integration, you must first create a LetPot account and connect your
 
 {% include integrations/config_flow.md %}
 
-### Configuration parameters
-
 {% configuration_basic %}
 Email:
     description: "The email address of your LetPot account."
@@ -58,11 +56,9 @@ Password:
 
 ## Supported functionality
 
-### Entities
+The **LetPot** integration provides the following entities.
 
-The LetPot integration provides the following entities.
-
-#### Binary sensors
+### Binary sensors
 
 - **Pump**: Indicates if the water pump is running (on) or idle (off). Updates may be delayed by the device until another entity updates.
   - Available for LetPot Air devices, and other device models which report this value.
@@ -91,7 +87,7 @@ For LetPot Max devices, the following number is also available:
 
 - **Light brightness**: Set the built-in light brightness level. Accepted values are 1 (lowest) to 8 (highest).
 
-#### Selects
+### Selects
 
 - **Light mode**: Set the built-in light mode to fruits/flowers (red and white LEDs enabled) or veggies/herbs (red, white and blue LEDs enabled).
 
@@ -102,14 +98,14 @@ Depending on device support, more selects are available:
 - **Temperature unit on display**: Set the temperature unit for the temperature shown on the device's display.
   - Available for LetPot Max devices, excluding devices with a serial number starting with `LPH63`.
 
-#### Sensors
+### Sensors
 
 For LetPot Max devices, the following sensors are available:
 
 - **Temperature**: Ambient temperature measured by the device.
 - **Water level**: Percentage of the water tank filled with water. The official app will display 0-30% as "Low", 30-90% as "Medium", and 90% or more as "High".
 
-#### Switches
+### Switches
 
 - **Power**: Main switch to turn on/off the device. Device features (like the built-in light and pump) will only operate when the power is on.
 - **Pump cycling**: Turn on/off cycling of the water pump. When on, the pump will run intermittently (controlled by the device), which can be tracked using the **Pump** binary sensor.
@@ -122,7 +118,7 @@ For LetPot Max devices, the following switch is also available:
 
 - **Auto mode**: Turn on/off auto mode, which automatically adds water and nutrients to the garden when needed.
 
-#### Times
+### Times
 
 - **Light on**: Time when the built-in light turns on.
 - **Light off**: Time when the built-in light turns off.
@@ -135,7 +131,7 @@ When **Light on** and **Light off** are set to the same time, the built-in light
 
 ## Data updates
 
-The integration receives updates when the device state changes, enabling immediate updates of the data in Home Assistant.
+The integration receives push updates when the device state changes, enabling immediate updates of the data in Home Assistant.
 
 ## Removing the integration
 
