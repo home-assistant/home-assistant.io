@@ -32,7 +32,7 @@ To get the encryption key, use the VictronConnect app ([Android](https://play.go
 3. From the list, select the device that you want to monitor.
 4. To open the **Settings** for that device, select the gear icon.
 5. Open the menu and select **Product Info**.
-6. Scroll down to Instant Readout via Bluetooth and enable the feature if it is not already enabled.
+6. Scroll down to **Instant Readout via Bluetooth** and enable the feature (if it is not already enabled).
 7. To display the encryption key, next to **Instant Readout Details**, select **Show**.
 
 ## Data updates
