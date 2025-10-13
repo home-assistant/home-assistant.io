@@ -123,6 +123,7 @@ Depending on the supported features of the camera ([see specifications of the ca
 - AI linger animal+ (up to 3 zones)
 - AI item forgotten+ (up to 3 zones)
 - AI item taken+ (up to 3 zones)
+- IO input+
 - Sleep status+
 
 \++ These sensors receive events using the following 4 methods (in order): TCP push, ONVIF push, ONVIF long polling or fast polling (every 5 seconds).

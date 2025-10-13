@@ -47,7 +47,7 @@ The following device classes are supported for numbers:
 - **battery**: Percentage of battery that is left in %
 - **blood_glucose_concentration**: Blood glucose concentration in mg/dL, mmol/L
 - **carbon_dioxide**: Carbon Dioxide (CO₂) concentration in ppm
-- **carbon_monoxide**: Carbon Monoxide (CO) concentration in ppm, mg/m³
+- **carbon_monoxide**: Carbon Monoxide (CO) concentration in ppm, µg/m³, mg/m³
 - **current**: Current in A, mA
 - **data_rate**: Data rate in bit/s, kbit/s, Mbit/s, Gbit/s, B/s, kB/s, MB/s, GB/s, KiB/s, MiB/s or GiB/s
 - **data_size**: Data size in bit, kbit, Mbit, Gbit, B, kB, MB, GB, TB, PB, EB, ZB, YB, KiB, MiB, GiB, TiB, PiB, EiB, ZiB or YiB
