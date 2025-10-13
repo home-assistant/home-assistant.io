@@ -1,0 +1,27 @@
+---
+layout: landingpage
+title: "Home Assistant Community"
+description: "Connect and share ideas with makers, tinkerers, and smart home enthusiasts."
+og_image: /images/community/og.jpeg
+frontpage: false
+---
+<script src="https://cdn.jsdelivr.net/gh/inorganik/countUp.js@2.9.0/dist/countUp.umd.js" type="module"></script>
+<link rel="stylesheet" href="/stylesheets/homeassistant/pages/community/index.css" />
+<script type="module">
+  import {DSAP} from "/javascripts/dsap.es.js";
+  window.dsap = new DSAP();
+</script>
+
+
+<main id="page-community">
+  <div class="container-full">
+    {% include_relative assets/_icons.html %}
+    {% include_relative components/_nav.html %}
+    {% include_relative components/_hero.html %}
+    {% include_relative components/_global.html %}
+    {% include_relative components/_join.html %}
+    {% include_relative components/_newsletter.html %}
+    {% include_relative components/_meetups.html %}
+    {% include_relative components/_faq.html %}
+  </div>
+</main>
