@@ -99,7 +99,13 @@ This integration retrieves data from Overkiz every 30 seconds to ensure timely u
 
 ## Known limitations
 
-### Zigbee, Z-Wave, Hue, and Sonos devices not supported
+### Unsupported hardware
+
+Some devices that appear in your vendor app may not use the Overkiz platform and are not accessible through the Overkiz API. For example, Somfy Protect devices and some Atlantic Cozytouch devices are not supported by this integration.
+
+If you have a Cozytouch device that is not supported by the Overkiz integration, you can explore [custom components](https://github.com/gduteil/cozytouch) created by the community. These may provide support for additional Cozytouch devices.
+
+### Zigbee, Z-Wave, Hue, and Sonos devices are not supported
 
 Even though most Overkiz hubs support adding Zigbee, Z-Wave, Hue, and Sonos devices, this isn't supported in the Overkiz integration. All these platforms have native integrations in Home Assistant, which provide more frequent state updates and are more feature-rich.
 
