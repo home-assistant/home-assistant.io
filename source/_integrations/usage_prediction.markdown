@@ -3,10 +3,10 @@ title: Usage Prediction
 description: Instructions on how to configure the usage prediction integration for Home Assistant.
 ha_category:
   - History
-ha_release: "2025.10"
+ha_release: '2025.10'
 ha_quality_scale: internal
 ha_domain: usage_prediction
-ha_iot_class: local_polling
+ha_iot_class: Calculated
 ha_codeowners:
   - '@home-assistant/core'
 ha_integration_type: system

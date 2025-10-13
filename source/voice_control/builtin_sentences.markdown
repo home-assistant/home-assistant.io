@@ -83,6 +83,8 @@ Home Assistant comes with [built-in sentences](https://github.com/home-assistant
 - *set TV volume to 90 percent*
 - *change the TV volume to 90*
 - *turn TV volume down to 90 percent*
+- *Mute my TV*
+- *Unmute the television*
 
 ### Vacuum
 

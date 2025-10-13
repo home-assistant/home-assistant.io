@@ -26,9 +26,10 @@ The **Environment Canada** {% term integration %} provides meteorological data f
 
 ## Location selection
 
-The integration automatically determines the closest weather station based on the latitude and longitude specified. If integration-specific coordinates are not provided, the coordinates configured for Home Assistant are used.
+Choose your weather location using either:
 
-You can also specify a weather station to use by providing an identification code of the form `AB/s0000123`, based on those listed in [this CSV file](https://dd.weather.gc.ca/citypage_weather/docs/site_list_towns_en.csv).
+- Station selector: Select a station location from a dropdown of all Environment Canada weather stations.
+- Coordinates: Provide latitude and longitude to automatically find the nearest station (defaults to your Home Assistant location).
 
 ## Entities
 

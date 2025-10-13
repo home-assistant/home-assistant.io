@@ -15,6 +15,7 @@ ha_domain: satel_integra
 ha_platforms:
   - alarm_control_panel
   - binary_sensor
+  - diagnostics
   - switch
 ha_integration_type: integration
 related:

@@ -171,12 +171,28 @@ data:
 
 ## Viewing logs
 
-The log information are stored in the
+The log information can be viewed and downloaded from {% my logs title="**Settings** > **System** > **Logs**" %}
+
+
+### Supervised installations
+
+On {% term "Home Assistant Supervisor" %} based installations, such as the
+{% term "Home Assistant Operating System" %} the logs can also be viewed
+by logging in through the [SSH add-on](/common-tasks/os/#installing-and-using-the-ssh-add-on) and running the following command:
+
+```bash
+ha core logs
+```
+
+### Non-Supervised installations
+
+For installations without the {% term "Home Assistant Supervisor" %}
+the log information is stored in the
 [configuration directory](/docs/configuration/) as `home-assistant.log`
 and you can read it with the command-line tool `cat` or follow it dynamically
 with `tail -f`.
 
-You can use the example below, when logged in through the [SSH add-on](/addons/ssh/):
+You can use the example below, when logged in through the [SSH add-on](/common-tasks/os/#installing-and-using-the-ssh-add-on):
 
 ```bash
 tail -f /config/home-assistant.log

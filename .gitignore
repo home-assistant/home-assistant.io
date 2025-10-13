@@ -11,6 +11,7 @@ source/_data/alerts_data.json
 source/_data/language_scores.json
 source/_data/codeowners.json
 source/_stash
+source/stylesheets/homeassistant/pages/connect/zwa-2/index.css
 source/stylesheets/homeassistant/pages/community/index.css
 source/stylesheets/screen.css
 source/.jekyll-cache/
