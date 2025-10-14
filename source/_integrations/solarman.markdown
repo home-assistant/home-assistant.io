@@ -55,11 +55,11 @@ The Solarman integration mainly provides sensors about what your device is measu
 
 The SP-2W-EU provides the following sensors:
 
-- Power (W)
-- Voltage (V)
-- Current (A)
-- Positive Active Energy (kWh)
-- Reverse Active Energy (kWh)
+- Power
+- Voltage
+- Current
+- Positive active energy
+- Reverse active energy
 
 ### P1-2W
 
@@ -67,25 +67,25 @@ The P1-2W provides the following sensors:
 
 - SN
 - Device version
-- Total Actual Energy Low Tariff
-- Total Actual Energy Normal Tariff
-- Total Actual Returned Energy Low Tariff
-- Total Actual Returned Energy Normal Tariff
-- AC Phase-A Current
-- AC Phase-B Current
-- AC Phase-C Current
-- AC Phase-A Voltage
-- AC Phase-B Voltage
-- AC Phase-C Voltage
-- Total Actual Power
-- Total Actual Returned Power
-- Active Power Phase-A
-- Active Power Phase-B
-- Active Power Phase-C
-- Active Returned Power Phase-A
-- Active Returned Power Phase-B
-- Active Returned Power Phase-C
-- Total Gas Consumption
+- Total actual energy low tariff
+- Total actual energy normal tariff
+- Total actual returned energy low tariff
+- Total actual returned energy normal tariff
+- AC phase-A current
+- AC phase-B current
+- AC phase-C current
+- AC phase-A voltage
+- AC phase-B voltage
+- AC phase-C voltage
+- Total actual power
+- Total actual returned power
+- Active power phase-A
+- Active power phase-B
+- Active power phase-C
+- Active returned power phase-A
+- Active returned power phase-B
+- Active returned power phase-C
+- Total gas consumption
 
 ### MR1-D5-W/MR1-D5-WR
 
@@ -94,39 +94,17 @@ The MR1-D5-W/MR1-D5-WR provides the following sensors:
 - SN
 - Voltage
 - Current
-- Active Power
-- Apparent Power
-- Reactive Power
-- Power Factor
+- Active power
+- Apparent power
+- Reactive power
+- Power factor
 - Frequency
-- Total Actual Energy
-- Total Actual Returned Energy
+- Total actual energy
+- Total actual returned energy
 
 ## Data updates
 
 The **Solarman integration** integration {% term polling polls %} data from the device every 30 seconds by default. You can define it by changing Scan Interval during integration setup.
-
-## Examples
-
-### Turning on switch at sunset
-
-{% raw %}
-
-```yaml
-
-alias: Turn on switch at sunset
-triggers:
-  - trigger: sun
-    event: sunset
-actions:
-  - action: switch.turn_on
-    target:
-      entity_id: switch.smart_plug_smart_plug
-    data: {}
-
-```
-
-{% endraw %}
 
 ## Known limitations
 
