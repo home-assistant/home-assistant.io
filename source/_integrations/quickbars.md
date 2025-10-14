@@ -16,15 +16,18 @@ related:
     title: The official QuickBars for Home Assistant website
 ---
 
-The **QuickBars** {% term integration %} connects Home Assistant to the [QuickBars for Home Assistant](https://quickbars.app) Android / Google TV app. The app enables on-screen overlays called **QuickBars**, which let you control {% term entities %} and view their states quickly, without disrupting the viewing experience.
+The **QuickBars** {% term integration %} connects Home Assistant to the [QuickBars for Home Assistant](https://quickbars.app) Android / Google TV app. 
+The app enables on-screen overlays called **QuickBars**, which let you control {% term entities %} and view their states quickly, without disrupting the viewing experience.
 
-A common use case is to set up the **QuickBars for Home Assistant** app initially by sending your Home Assistant URL and a Long-Lived Access Token from the integration. From there, you can configure which entities are available to the app, create and customize QuickBars, and use Home Assistant automations to show a QuickBar, display a camera picture-in-picture feed, or send a rich notification to the TV.
+
+A common use case is to set up the **QuickBars for Home Assistant** app initially by sending your Home Assistant URL and a Long-Lived Access Token from the integration. Afterwards, you can configure which entities are available to the app, create and customize QuickBars.
+You can also use Home Assistant automations to show a QuickBar, display a camera picture-in-picture feed, or send a rich notification to the TV (using **Actions**).
 
 {% tip %}
 The QuickBars TV app can be used as a standalone application. This integration enhances it by unlocking powerful features, including:
-  - Triggering notifications, camera PiPs, and QuickBars from automations.
-  - Configuring the app directly from Home Assistant.
-  - Accessing advanced options like custom QuickBar colors and custom-sized camera PiPs.
+  - Triggering notifications, camera PiPs, and QuickBars from automations
+  - Configuring the app directly from Home Assistant
+  - Accessing advanced options like custom QuickBar colors and custom-sized camera PiPs
 
 It works entirely on your local network using local push for real-time communication. This {% term integration %} exposes services and emits events, but does not create any entities.
 {% endtip %}
@@ -41,7 +44,8 @@ It works entirely on your local network using local push for real-time communica
 
 1. Install the [QuickBars for Home Assistant](https://quickbars.app) app on your Android TV device.
 2. Ensure your Android TV device and Home Assistant are on the **same LAN**.
-3. Open the QuickBars app on your TV. Keep it open and visible on the screen for the initial pairing process, where you will be asked to enter a code shown on the TV into Home Assistant.
+3. Open the QuickBars app on your TV. Keep it open and visible on the screen for the initial pairing process.
+4. You will be asked to enter a code shown on the TV.
 4. If the app has not been configured yet, you may be prompted to provide your Home Assistant URL and a long-lived access token. This can also be done via the integration's configuration flow.
 
 {% note %}
@@ -177,7 +181,7 @@ data:
 
 ## Events
 
-When a user presses an action button on a TV notification, the QuickBars app sends an event to Home Assistant. You can use this event to trigger automations. The event type is `quickbars.action`, and it contains the `action_i`d you defined in your `quickbars.notify` action call.
+When a user presses an action button on a TV notification, the QuickBars app sends an event to Home Assistant. You can use this event to trigger automations. The event type is `quickbars.action`, and it contains the `action_id` you defined in your `quickbars.notify` action call.
 
 {% details "Example: reacting to a notification button press" %}
 
@@ -242,7 +246,7 @@ The QuickBars integration uses a combination of communication methods for effici
 
 ## Known limitations
 
-  - The QuickBars for Home Assistant app only works on Android TV. Fire TV / Roku TV / Tizen OS / WebOS / Apple TV are *not* supported. This is due to permissions like "Display Over Other Apps" and Acessibility permissions that only Android TV has.
+  - The QuickBars for Home Assistant app only works on Android TV. Fire TV / Roku TV / Tizen OS / WebOS / Apple TV are *not* supported. This is due to permissions like "Display Over Other Apps" and Accessibility permissions that only Android TV has.
   - The QuickBars TV app must be open in the foreground when using the Options flow from Home Assistant to configure it.
   - Advanced features in the TV app, such as using more than one QuickBar or advanced grid layouts, may require the "QuickBars Plus" in-app purchase.
 
@@ -263,7 +267,7 @@ The QuickBars integration uses a combination of communication methods for effici
 
   -  #### Resolution:
      1. In the QuickBars TV app settings, ensure that the "Persistent background connection" option is enabled. This allows Home Assistant to send commands to the app even when it's not in the foreground.
-     2. for Cameras - verify the camera has a valid MJPEG stream, and it's imported to the TV app (if using a regular camera entity with MJPEG stream, and not RTSP url). 
+     2. For Cameras - verify the camera has a valid MJPEG stream, and it's imported to the TV app (if using a regular camera entity with MJPEG stream, and not RTSP url). 
 
 ## Removing the integration
 
