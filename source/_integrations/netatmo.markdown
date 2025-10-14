@@ -62,7 +62,7 @@ In the dialog, it is possible to create, edit and remove public weather sensors.
 
 To edit an existing area, enter its name and follow the dialog.
 
-By default, the opening entity shows up as a generic binary sensor. You can manually change its *device class* (e.g. `door`, `window`) to better match the real appliance.
+By default, the opening entity appears as a generic binary sensor. You can manually change its *device class* (for example, `door`, or `window`) to better match the real appliance.
 
 ## Binary sensor
 
