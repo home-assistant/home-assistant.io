@@ -1,9 +1,9 @@
 ---
-title: "TIS Control"
-description: "Instructions on how to integrate TIS Control devices with Home Assistant."
-ha_release: "2025.10.0"
-ha_category: "Switch"
-ha_iot_class: "Local Polling"
+title: TIS Control
+description: Instructions on how to integrate TIS Control devices with Home Assistant.
+ha_release: 2025.11
+ha_category: Switch
+ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
   - '@karimtis'
@@ -18,7 +18,8 @@ This integration automatically discovers TIS Control devices (RCUs and Relays) o
 
 ## Prerequisites
 
-For the integration to work, your Home Assistant instance and your TIS Control devices must be connected to the **same local network**. You will also need to know the UDP communication port used by your TIS devices. The default port is `6000`.
+- For the integration to work, your Home Assistant instance and your TIS Control devices must be connected to the same local network. 
+- You need to know the UDP communication port used by your TIS devices. The default port is `6000`.
 
 
 {% include integrations/config_flow.md %}
@@ -28,8 +29,8 @@ You will be prompted to enter the **UDP Port** for communication. If you haven't
 {% endimportant %}
 
 
-## Supported Devices
+## Supported devices
 
 Currently, this integration supports the following types of TIS Control devices:
 
-- Switch devices (e.g., RCUs, Relays)
+- Switch devices (for example, RCUs, relays)
