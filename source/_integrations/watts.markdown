@@ -55,7 +55,7 @@ The integration supports the following Watts Vision + devices:
 - PR03-RF
 - BT-WR03
 
-## Platforms
+## Supported functionality
 
 The integration provides the following Home Assistant entities:
 
