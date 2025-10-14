@@ -44,7 +44,7 @@ Port:
 Scan Interval:
   description: "The polling interval in seconds."
 Model:
-  description: "The device model".
+  description: "The device model."
 
 {% endconfiguration_basic %}
 
