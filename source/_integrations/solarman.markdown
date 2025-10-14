@@ -21,7 +21,6 @@ The Solarman {% term integration %} enables direct local communication between H
 - Monitor energy usage in real time.
 - Control devices remotely.
 - Automate schedules for your appliances.
-
 ## Supported devices
 
 Currently, the integration supports the following devices:
@@ -29,7 +28,6 @@ Currently, the integration supports the following devices:
 - SP-2W-EU: Smart Plug for energy monitoring (power consumption, voltage, current) and remote outlet control.
 - P1-2W: P1 Meter Reader for monitoring operating status and consumption data of P1 meter.
 - MR1-D5-W/MR1-D5-WR: Smart Meter for bidirectional energy metering in residential and small commercial and industrial scenarios.
-
 ## Prerequisites
 
 1. Connect your Solarman device and Home Assistant to the same local network.
@@ -46,7 +44,6 @@ Port:
 Scan Interval:
   description: "The polling interval in seconds."
 {% endconfiguration_basic %}
-
 ## Supported functionality
 
 The Solarman integration mainly provides sensors about what your device is measuring.
