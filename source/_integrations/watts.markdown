@@ -18,6 +18,7 @@ ha_integration_type: hub
 ha_quality_scale: bronze
 ---
 
+The **Watts Vision +** {% term integration %} allows you to control your [Watts Vision +](https://www.watts.eu/en/products/eu/smart-home-and-controls/vision-wireless) heating zones via Home Assistant.
 [Watts Vision +](https://www.watts.eu/en/products/eu/smart-home-and-controls/vision-wireless) is a smart heating management system for remote control of home heating zones. The system provides individual room temperature control, programmable schedules, and energy consumption monitoring through connected thermostats and actuators.
 
 This integration uses the official Watts Vision + API to provide control over your heating zones. You can adjust temperatures, switch between heating modes, and monitor the current status of each thermostat and switch device in your home.
