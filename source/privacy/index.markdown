@@ -48,7 +48,36 @@ Ads appearing on any of our websites may be delivered to users by advertising pa
 
 ## Companion Applications
 
-All information collected by the applications is sent directly to your hosted instance of Home Assistant. This includes, but is not limited to, sensor, health, and location data, which at times is sent while the application is in the background. At no point is this data logged or given to a 3rd party.
+All information collected by the applications is sent directly to your hosted instance of Home Assistant. This includes, but is not limited to, sensor and location data, which at times is sent while the application is in the background. At no point is this data logged or given to a 3rd party.
+
+### Data Deletion
+
+Since all data collected by the companion applications is sent directly to your self-hosted Home Assistant instance, you have complete control over your data and can delete it at any time. You can remove all data collected by the companion apps by:
+
+- Deleting specific data within your Home Assistant instance (e.g., removing sensor history, logs, or database entries)
+- Removing the mobile app integration from your Home Assistant configuration
+- Uninstalling your Home Assistant server entirely
+
+No data from the companion applications is stored on Home Assistant servers or any third-party servers, so removing data from your self-hosted instance completely deletes it. You do not need to contact Home Assistant to request data deletion from the companion apps.
+
+### Health Connect Data (Android)
+
+The Android companion application may access health and fitness data through Health Connect with your explicit permission. This access is entirely optional and only used when you configure Home Assistant sensors that utilize health data.
+
+**Data Types Accessed:**
+The app only requests access to Health Connect data types that you have explicitly configured as sensors in Home Assistant. If you have not configured any health sensors, no Health Connect permissions are requested or used.
+
+**How Data is Used:**
+When you grant access to specific Health Connect data types:
+
+- Data is read only from the types you've authorized
+- Data is transmitted directly to your self-hosted Home Assistant instance
+- Data is used only for the automation and monitoring purposes you configure
+- No health data is stored on external servers or shared with third parties
+- You can revoke access at any time through your device's Health Connect settings
+
+**Your Control:**
+You have complete control over which health data types, if any, the app can access.
 
 ## Privacy Policy Changes
 
@@ -59,6 +88,7 @@ Although most changes are likely to be minor, Home Assistant may change its Priv
 - October 19, 2017: Initial version
 - October 19, 2020: Add information about Companion Applications
 - October 30, 2024: Add health data to Companion Applications
+- October 14, 2025: Add detailed Health Connect disclosure for Android app to comply with Google Play policy and add Data Deletion section for companion apps
 
 _This privacy policy has been adapted from the [Automattic privacy policy][Home Assistant] and is licensed [Creative Commons ShareAlike][cc]._
 
