@@ -105,7 +105,7 @@ All Watts Vision + devices share common functionality:
 
 ## Data updates
 
-The Watts Vision + integration polls data from the cloud API every 30 seconds. After sending commands (temperature changes, mode changes, or switch operations), the integration waits 7 seconds before refreshing to allow the device to process the change.
+The Watts Vision + integration {% term polling polls %} data from the cloud API every 30 seconds. After sending commands (temperature changes, mode changes, or switch operations), the integration waits 7 seconds before refreshing to allow the device to process the change.
 
 ## Use cases
 
