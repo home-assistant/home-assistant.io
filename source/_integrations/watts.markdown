@@ -13,7 +13,6 @@ ha_domain: watts
 ha_config_flow: true
 ha_platforms:
   - climate
-  - switch
 ha_integration_type: hub
 ha_quality_scale: bronze
 ---
@@ -22,7 +21,7 @@ The **Watts Vision +** {% term integration %} enables seamless control of your h
 
 [Watts Vision +](https://www.watts.eu/en/products/eu/smart-home-and-controls/vision-wireless) is a smart heating management system that allows remote control of individual home heating zones. It offers precise room temperature regulation, programmable schedules, and energy consumption monitoring through connected thermostats and actuators.
 
-This integration uses the official Watts Vision + API to provide control over your heating zones. You can adjust temperatures, switch between heating modes, and monitor the current status of each thermostat and switch device in your home.
+This integration uses the official Watts Vision + API to provide control over your heating zones. You can adjust temperatures, switch between heating modes, and monitor the current status of each thermostat in your home.
 
 ## Prerequisites
 
@@ -77,25 +76,11 @@ The integration creates a climate entity for each thermostat device in your Watt
 
 Each climate entity exposes additional attributes:
 
-- **thermostat_mode**: Current operating mode of the thermostat
-- **device_type**: Type of thermostat device
-- **room_name**: Name of the room as configured in the Watts Vision + app
-- **temperature_unit**: Temperature unit (°C or °F)
-- **available_thermostat_modes**: List of supported modes for the device
-
-### Switch entities
-
-The integration creates a switch entity for each switch device in your Watts Vision + system. Each switch entity provides:
-
-- **On/Off control**: Turn switch devices on or off
-- **Current state**: Shows whether the switch is currently on or off
-
-#### Switch entity attributes
-
-Each switch entity exposes additional attributes:
-
-- **device_type**: Type of switch device
-- **room_name**: Name of the room as configured in the Watts Vision + app
+- **Thermostat mode**: Current operating mode of the thermostat
+- **Device type**: Type of thermostat device
+- **Room name**: Name of the room as configured in the Watts Vision + app
+- **Temperature unit**: Temperature unit (°C or °F)
+- **Available thermostat modes**: List of supported modes for the device
 
 ### Shared functionality
 
