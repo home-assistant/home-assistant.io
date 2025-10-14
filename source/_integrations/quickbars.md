@@ -242,7 +242,7 @@ The QuickBars integration uses a combination of communication methods for effici
 
 ## Known limitations
 
-  - The QuickBars for Home Assistant app only works on Android TV. Fire TV / Roku TV / Tizen OS / WebOS / Apple TV are *not* supported. This is due to permissions like "Display Over Other Apps" and Acessibility permissions that only Android TV has.
+  - The QuickBars for Home Assistant app only works on Android TV. Fire TV / Roku TV / Tizen OS / WebOS / Apple TV are *not* supported. This is due to permissions like "Display Over Other Apps" and Accessibility permissions that only Android TV has.
   - The QuickBars TV app must be open in the foreground when using the Options flow from Home Assistant to configure it.
   - Advanced features in the TV app, such as using more than one QuickBar or advanced grid layouts, may require the "QuickBars Plus" in-app purchase.
 
