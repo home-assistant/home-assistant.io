@@ -3,7 +3,7 @@ title: Generic Cover
 description: Instructions on how to integrate Generic Cover into Home Assistant.
 ha_category:
   - Cover
-ha_release: 2025.1
+ha_release: 2025.11
 ha_iot_class: Local Push
 ha_quality_scale: bronze
 ha_codeowners:
