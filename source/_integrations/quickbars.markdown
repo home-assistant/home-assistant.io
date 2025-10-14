@@ -46,7 +46,7 @@ It works entirely on your local network using local push for real-time communica
 2. Ensure your Android TV device and Home Assistant are on the **same LAN**.
 3. Open the QuickBars app on your TV. Keep it open and visible on the screen for the initial pairing process.
 4. You will be asked to enter a code shown on the TV.
-4. If the app has not been configured yet, you may be prompted to provide your Home Assistant URL and a long-lived access token. This can also be done via the integration's configuration flow.
+5. If the app has not been configured yet, you may be prompted to provide your Home Assistant URL and a long-lived access token. This can also be done via the integration's configuration flow.
 
 {% note %}
 When entering your Home Assistant URL, do not use localhost or 127.0.0.1. Use a hostname or IP address that is reachable on your local network.
@@ -99,7 +99,7 @@ Shows or hides a picture-in-picture camera overlay on the TV. The camera entity 
     - You may also provide only `rtsp_url` (no entity/alias) for an ad-hoc stream.
     - Use rtsp:// (TLS rtsps:// isn’t supported).
     - Credentials may be included (for example, rtsp://user:pass@host:554/path). If your username/password contains special characters like @ or :, the app will handle encoding automatically.
-    - You can create a script that calls this RTSP url PiP display action, import it into the app and use it as a normal trigger (to imitate the standard MJPEG stream functionality).
+    - You can create a script that calls this RTSP URL PiP display action, import it into the app and use it as a normal trigger (to imitate the standard MJPEG stream functionality).
   - `size` *(optional)* - The size of the overlay. Can be *small*, *medium*, or *large*. If not specified, uses the default size configured for the camera in the TV app. You can use this or `size_px`.
   - `size_px` *(optional)* - A custom size for the overlay, specified as a map with width and height in pixels (*for example*, `{"w": 640, "h": 360}`). Use instead of `size`.
   - `position` *(optional)* - The position of the overlay on the screen. Can be *top_left*, *top_right*, *bottom_left*, or *bottom_right*. If not specified, uses the position configured to the camera entity on the TV app.
@@ -267,7 +267,7 @@ The QuickBars integration uses a combination of communication methods for effici
 
   -  #### Resolution:
      1. In the QuickBars TV app settings, ensure that the "Persistent background connection" option is enabled. This allows Home Assistant to send commands to the app even when it's not in the foreground.
-     2. For Cameras - verify the camera has a valid MJPEG stream, and it's imported to the TV app (if using a regular camera entity with MJPEG stream, and not RTSP url). 
+     2. For Cameras - verify the camera has a valid MJPEG stream, and it's imported to the TV app (if using a regular camera entity with MJPEG stream, and not RTSP URL). 
 
 ## Removing the integration
 
