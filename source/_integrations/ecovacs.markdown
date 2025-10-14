@@ -49,6 +49,7 @@ Additionally, **depending on your model**, the integration provides the followin
 - **Button**:
   - `Reset lifespan`: For each supported component, a button entity to reset the lifespan will be created. All disabled by default.
   - `Relocate`: Button entity to trigger manual relocation.
+  - `Station actions`: For each supported station action, a button entity will be created.
 - **Event**:
   - `Last job`: Provides the stop reason as event_type
 - **Image**:
@@ -57,8 +58,10 @@ Additionally, **depending on your model**, the integration provides the followin
   - `Clean count`: Set the number of times to clean the area.
   - `Cut direction`: Set the mower cutting direction (from 0 to 180 degrees).
   - `Volume`: Set the volume.
+  - `Water level`: Set a precise water level used during cleaning with the mop.
 - **Select**:
-  - `Water amount`: Specify the water amount used during cleaning with the mop.
+  - `Active map`: Select the active map. The ID will be shown when the map has no name.
+  - `Water level`: Choose from predefined water levels used during cleaning with the mop.
   - `Work mode`: Specify the mode, how the bot should clean.
 - **Sensor**:
   - `Error`: The error code and a description of the error. `0` means no error. Disabled by default.
@@ -70,6 +73,7 @@ Additionally, **depending on your model**, the integration provides the followin
   - `Cleaning cycle`:
     - `Area`: The cleaned area
     - `Time`: The cleaned time
+  - `Station state`: Station state enum sensor. See options to see all possible states
   - `Total statistics`: Updated after each cleaning cycle:
     - `Area`: Total cleaned area
     - `Cleanings`: The number of cleanings

@@ -10,6 +10,7 @@ ha_domain: growatt_server
 ha_platforms:
   - number
   - sensor
+  - switch
 ha_config_flow: true
 ha_integration_type: integration
 ---
@@ -60,3 +61,8 @@ When using API token authentication with MIN/TLX inverters, the integration prov
 - **Charge stop SOC**: Set the state of charge percentage at which charging should stop (0-100%)
 - **Discharge power**: Set the discharge power as a percentage (0-100%)
 - **Discharge stop SOC**: Set the state of charge percentage at which discharging should stop (0-100%)
+
+### Switch entities
+
+- **AC charge**: Enable or disable AC charging
+

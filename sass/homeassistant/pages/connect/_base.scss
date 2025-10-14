@@ -1,0 +1,191 @@
+html {
+
+    // Center line for render alignment checks
+    &:before {
+        //content: '';
+        left: 50%;
+        position: fixed;
+        width: 1px;
+        background: #fff;
+        top: 0;
+        bottom: 0;
+        z-index: 1000;
+    }
+}
+
+article.page {
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin-top: 0;
+        line-height: initial;
+    }
+}
+
+#landingpage {
+    .page-content {
+        overflow-x: clip;
+    }
+
+    .site-header {
+        .grid-wrapper {
+            max-width: calc(var(--container-max-width) + (var(--container-gutters) * 2)) !important;
+        }
+    }
+
+    .grid-wrapper {
+        max-width: unset;
+        min-height: unset;
+    }
+
+    .content {
+        max-width: unset;
+        margin: unset;
+        color: #002332;
+        font-family: Figtree, sans-serif;
+        font-weight: 400;
+        line-height: 1.5;
+
+        img {
+            box-shadow: unset;
+            border: unset;
+            max-width: 100%;
+            border-radius: 0;
+        }
+    }
+
+    .ha-connect {
+
+        h1,
+        .h1 {
+            font-size: var(--typography-h1-font-size);
+            font-weight: var(--typography-h1-font-weight);
+            line-height: var(--typography-h1-line-height);
+        }
+
+        h2,
+        .h2 {
+            font-size: var(--typography-h2-font-size);
+            font-weight: var(--typography-h2-font-weight);
+            line-height: var(--typography-h2-line-height);
+        }
+
+        h3,
+        .h3 {
+            font-size: var(--typography-h3-font-size);
+            font-weight: var(--typography-h3-font-weight);
+            line-height: var(--typography-h3-line-height);
+        }
+
+        h4,
+        .h4 {
+            font-size: var(--typography-h4-font-size);
+            font-weight: var(--typography-h4-font-weight);
+            line-height: var(--typography-h4-line-height);
+        }
+
+        h5,
+        .h5 {
+            font-size: var(--typography-h5-font-size);
+            font-weight: var(--typography-h5-font-weight);
+            line-height: var(--typography-h5-line-height);
+        }
+
+        h6,
+        .h6 {
+            font-size: var(--typography-h6-font-size);
+            font-weight: var(--typography-h6-font-weight);
+            line-height: var(--typography-h6-line-height);
+        }
+
+        p {
+            color: var(--typography-paragraph-color);
+            font-size: var(--typography-paragraph-font-size);
+            font-weight: var(--typography-paragraph-font-weight);
+            line-height: var(--typography-paragraph-line-height);
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+
+html.disable-scroll {
+    overflow: hidden !important;
+    height: 100vh !important;
+}
+
+.ha-connect {
+    background-color: #0F121F;
+}
+
+section {
+    position: relative;
+}
+
+.container {
+    display: flex;
+    margin: 0 auto;
+    max-width: calc(var(--container-max-width) + (var(--container-gutters) * 2));
+    padding: 0 calc(var(--container-gutters) / 2);
+    width: 100%;
+    height: 100%;
+
+    @include bp(desktop) {
+        padding: 0 var(--container-gutters);
+    }
+
+    &-full {
+        margin: 0 auto;
+        padding: 0 calc(var(--container-gutters) / 2);
+        max-width: 2600px;
+        width: 100%;
+
+        @include bp(desktop) {
+            padding: 0 var(--container-gutters);
+        }
+    }
+}
+
+.page-content {
+    padding-top: 0;
+}
+
+.cols {
+    display: flex;
+    width: 100%;
+}
+
+.vline {
+    height: 45px;
+    width: 1px;
+    background: #ffffff;
+}
+
+section.light {
+    --color: #1D2126;
+    background-color: #F2F4F9;
+    color: #1D2126;
+}
+
+.light {
+
+    &,
+    section {
+        color: #1D2126;
+    }
+
+    .connect-badge {
+        --background: #CCEFFE;
+        --color: #1D2126;
+    }
+
+    p {
+        --typography-paragraph-color: #4F606E;
+    }
+}

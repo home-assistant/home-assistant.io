@@ -23,7 +23,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The IKEA TRÅDFRI integration allows you to connect your IKEA Trådfri Gateway to Home Assistant. The gateway can control compatible Zigbee-based lights (certified Zigbee Light Link products) connected to it. Home Assistant will automatically discover the gateway's presence on your local network if `discovery:` is present in your {% term "`configuration.yaml`" %} file.
+The IKEA TRÅDFRI integration allows you to connect your IKEA Trådfri Gateway to Home Assistant. The gateway can control compatible Zigbee-based lights (certified Zigbee Light Link products) connected to it.
 
 {% include integrations/config_flow.md %}
 
@@ -36,7 +36,7 @@ If you see an "Unable to connect" message, restart the gateway and try again. Do
 {% note %}
 There is currently no dedicated core integration for the Dirigera hub released in October 2022.
 
-The Dirigera hub can, however, be integrated directly via the [HomeKit device](/integrations/homekit_controller/) integration. This configuration even provides events for motion sensors and buttons, which the original integration lacks.
+The Dirigera hub can, however, be integrated directly via the [HomeKit device](/integrations/homekit_controller/) integration or the [Matter](/integrations/matter/#using-a-matter-bridge) integration. As of Hub version 2.615.8 (September 2024), there is support for the following device types via Matter Bridge: lights (including drivers), smart plugs/outlets, connected blinds, remotes, motion sensors, open/close sensors, air purifiers, and air quality sensors.
 {% endnote %}
 
 
@@ -52,14 +52,6 @@ After updating your IKEA Trådfri Gateway firmware it might be necessary to repe
 - when configured using the integration: remove the integration through Settings > Integrations > Tradfri > delete (trash can icon)
 
 Then restart Home Assistant. When prompted, enter the security key and click *configure*, just like during initial setup.
-
-### Compilation issues
-
-{% note %}
-This does not apply to Home Assistant running in Docker Containers, including the default Home Assistant install.
-{% endnote %}
-
-Please make sure you have `autoconf` installed (`$ sudo apt-get install autoconf`) if you want to use this integration. Also, installing some dependencies might take considerable time (more than one hour) on slow devices.
 
 ## Known limitations
 

@@ -1,0 +1,59 @@
+---
+layout: landingpage
+title: "Home Assistant Connect ZWA-2"
+description: "The ultimate way to connect Z-Wave devices to Home Assistant."
+date: 2025-08-14
+og_image: /images/connect/zwa-2/og.jpeg
+frontpage: true
+frontpage_image: /images/frontpage/zwa-2-frontpage.webp
+frontpage_content_top: true
+---
+<link rel="stylesheet" href="/stylesheets/homeassistant/pages/connect/zwa-2/index.css" />
+{% include custom/buy-dialog.html product="zwa-2" %}
+
+<main class="ha-connect" id="connect-zwa-2">
+  {% include_relative components/_header.html %}
+  <div class="animation-wrapper">
+    <div class="animation-wrapper-inner">
+      <canvas class="render-scroller" id="scene-one" width="1920" height="1080"></canvas>
+    </div>
+    {% include_relative components/_hero.html %}
+    {% include_relative components/_features.html %}
+    {% include_relative components/_chipset.html %}
+    {% include_relative components/_long-range.html %}
+  </div>
+  <!-- {% include_relative components/_second-generation-platform.html %} -->
+  <div id="light-wrapper">
+    <div class="container-full">
+      <div class="light">
+        <div class="animation-wrapper">
+          <div class="animation-wrapper-inner">
+            <canvas class="render-scroller" id="scene-two" width="1920" height="1080"></canvas>
+          </div>
+          {% include_relative components/_built-for-home-assistant.html %}
+          {% include_relative components/_plug-and-play.html %}
+          {% include_relative components/_buy.html %}
+        </div>
+      </div>
+    </div>
+  </div>
+  {% include_relative components/_zwave-range.html %}
+  {% include_relative components/_built-for-the-home.html %}
+  {% include_relative components/_specs.html %}
+  {% include_relative components/_faq.html %}
+</main>
+
+<script type="importmap">
+  {
+    "imports": {
+      "header": "/javascripts/connect/header.js",
+      "animations": "/javascripts/connect/zwa-2/animations.js",
+      "render-animations": "/javascripts/connect/zwa-2/render-animations.js",
+      "simon": "/javascripts/connect/zwa-2/simon.js"
+    }
+  }
+</script>
+<script src="/javascripts/gsap.min.js" type="text/javascript"></script>
+<script src="/javascripts/ScrollTrigger.min.js" type="text/javascript"></script>
+<script src="/javascripts/ScrollSmoother.min.js" type="text/javascript"></script>
+<script src="/javascripts/connect/zwa-2/index.js" type="module"></script>

@@ -128,6 +128,8 @@ custom:
   description: Holds the result of the custom event data [template](/docs/configuration/templating). All attributes are available as a variable in the template.
 initial:
   description: Returns `True` if this is the initial event for the last message received. When a message within the search scope is removed and the last message received has not been changed, then an `imap_content` event is generated and the `initial` property is set to `False`. Note that if no `Message-ID` header was set on the triggering email, the `initial` property will always be set to `True`.
+parts:
+  description: Returns a dictionary with the available parts in a multipart message. The keys of the dictionary can be used to pass via the `part` option to the `fetch` action to allow you to receive the content of a specific part of the message.
 uid:
   description: Latest `uid` of the message.
 {% endconfiguration_basic %}
@@ -173,18 +175,111 @@ template:
 
 ### Actions for post-processing
 
-The IMAP integration has some actions for post-pressing email messages. The actions are intended to be used in automations as actions after an "imap_content" event. The actions take the IMAP `entry_id` and the `uid` of the message's event data. You can use a template for the `entry_id` and the `uid`. When the action is set up as a trigger action, you can easily select the correct entry from the UI. You will find the `entry_id` in YAML mode. It is highly recommended you filter the events by the `entry_id`.
+The IMAP integration has some actions for post-pressing email messages. The actions are intended to be used in automations as actions after an "imap_content" event. The actions require the IMAP `entry_id` and the `uid` of the message's event data. You can use a template for the `entry_id` and the `uid`. When the action is set up as a trigger action, you can easily select the correct entry from the UI. You will find the `entry_id` in YAML mode. It is highly recommended you filter the events by the `entry_id`.
 
-Available actions are:
+#### Action `seen` - Mark the message as seen
 
-- `seen`: Mark the message as seen.
-- `move`: Move the message to a `target_folder` and optionally mark the message `seen`.
-- `delete`: Delete the message.
-- `fetch`: Fetch the content of a message. Returns a dictionary containing `"text"`, `"subject"`, `"sender"` and `"uid""`. This allows to fetch and process the complete message text, not limited by size.
+| Data attribute | Type | Optional | Description |
+| -- | -- | -- | -- |
+| `entry_id` | string | no | The IMAP config entry ID. |
+| `uid` | string |  no | The `uid` of the message to be marked as "seen". To be found in the message's event data. |
+
+#### Action `move` - Move the IMAP message
+
+| Data attribute | Type | Optional | Description |
+| -- | -- | -- | -- |
+| `entry_id` | string | no | The IMAP config entry ID. |
+| `uid` | string |  no | The `uid` of the message to be marked as seen. To be found in the message's event data. |
+| `target_folder` | string | no | The name of the target folder, for example `INBOX.Trash` where the message should be moved to. |
+| `seen` | boolean | yes | If set to `true` this will mark the message as "seen". |
+
+#### Action `delete` - Delete the IMAP message
+
+| Data attribute | Type | Optional | Description |
+| -- | -- | -- | -- |
+| `entry_id` | string | no | The IMAP config entry ID. |
+| `uid` | string | no | The `uid` of the message to be deleted. To be found in the message's event data. |
 
 {% caution %}
-When these actions are used in an automation, make sure the right triggers and filtering are set up. When messages are deleted, they cannot be recovered. When multiple IMAP entries are set up, make sure the messages are filtered by the `entry_id` as well to ensure the correct messages are processed. Do not use these actions unless you know what you are doing.
+When these actions are used in an automation, make sure the right triggers and filtering are set up. When messages are deleted or modified, they cannot be recovered. When multiple IMAP entries are set up, make sure the messages are filtered by the `entry_id` as well to ensure the correct messages are processed. Do not use these actions unless you know what you are doing.
 {% endcaution %}
+
+#### Action `fetch` - Fetch the an IMAP message
+
+Fetches the text body and retrieves metadata about the parts inside the IMAP message.
+
+| Data attribute | Type | Optional | Description |
+| -- | -- | -- | -- |
+| `entry_id` | string | no | The IMAP config entry ID. |
+| `uid` | string |  no | The `uid` of the message to be marked as seen. To be found in the message's event data. |
+
+##### Return values for the `fetch` action
+
+{% configuration_basic %}
+text:
+  description: The plain text version of the fetched email.
+subject:
+  description: The subject of the fetched email.
+sender:
+  description: The sender's email address of the fetched email.
+uid:
+  description: The UID of the message.
+parts:
+  description: Contains a dictionary with metadata about the available parts in the message in case of a multipart message. This allows to fetch and process the complete message text message part, not limited by size.
+  type: map
+  keys:
+    content_type:
+      description: The MIME content type of the message part, for example "image/jpeg"
+    content_transfer_encoding:
+      description: The encoding of returned message part.
+    filename:
+      description: The file name of the message. The file name is only available if it is available.
+{% endconfiguration_basic %}
+
+##### Example of `parts` data in the return variable for a multipart message:
+
+```json
+{
+    "0,0": {
+        "content_type": "text/plain",
+        "content_transfer_encoding": "7bit"
+    },
+    "0,1": {
+        "content_type": "text/html",
+        "content_transfer_encoding": "7bit"
+    },
+    "1": {
+        "content_type": "text/plain",
+        "filename": "Text attachment content.txt",
+        "content_transfer_encoding": "base64"
+    },
+}
+```
+
+#### Action `fetch_part` - Fetch a part or attachement from an IMAP message
+
+| Data attribute | Type | Optional | Description |
+| -- | -- | -- | -- |
+| `entry_id` | string | no | The IMAP config entry ID. |
+| `uid` | string |  no | The `uid` of the message to be marked as seen. To be found in the message's event data. |
+| `part` | string |  no | The index of the message part that is to be returned. Use the `part` info in the message's event data or from the `fetch` action, to receive the available parts. |
+
+##### Return values for the `fetch_part` action
+
+{% configuration_basic %}
+part_data:
+  description: The encoded data of the fetched message part.
+content_type:
+  description: The MIME content type of the message part, for example "image/jpeg".
+content_transfer_encoding:
+  description: The encoding of the data in `part_data`.
+file_name:
+  description: The filename of the message part, in case the part is added as an attachment. Will be `null` if no filename is set.
+uid:
+  description: The UID of the message.
+part:
+  description: The part index. 
+{% endconfiguration_basic %}
 
 ## Example - post-processing
 
@@ -219,6 +314,44 @@ actions:
 ```
 
 {% endraw %}
+
+In case you want want to process a message part, use the `fetch_part` action, and specify the `part` option. 
+
+{% raw %}
+
+```yaml
+alias: "imap fetch and seen example"
+description: "Fetch and mark an incoming message as seen"
+triggers:
+  - trigger: event
+    event_type: imap_content
+    event_data:
+      entry_id: 91fadb3617c5a3ea692aeb62d92aa869
+conditions:
+  - condition: template
+    value_template: "{{ trigger.event.data['sender'] == 'info@example.com' }}"
+  - condition: template
+    value_template: "{{ trigger.event.data['parts'].get('1') }}"
+  - condition: template
+    value_template: "{{ trigger.event.data['parts']['1'].get('content_type') == 'text/plain' }}"
+actions:
+  - action: imap.fetch_part
+    data:
+      entry: 91fadb3617c5a3ea692aeb62d92aa869
+      uid: "{{ trigger.event.data['uid'] }}"
+      part: "1"
+    response_variable: message_text
+  - action: imap.seen
+    data:
+      entry: 91fadb3617c5a3ea692aeb62d92aa869
+      uid: "{{ trigger.event.data['uid'] }}"
+  - action: persistent_notification.create
+    data:
+      message: "{{ message_text['part_data'] | base64_decode }}"
+```
+
+{% endraw %}
+
 
 ## Example - keyword spotting
 

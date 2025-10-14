@@ -20,6 +20,7 @@ Compatible transceivers:
 
 - [DIY](https://wiki.volkszaehler.org/hardware/controllers/ir-schreib-lesekopf-rs232-ausgang)
 - [Weidmann Elektronik Schreib-/Lesekopf USB](https://shop.weidmann-elektronik.de/index.php?page=product&info=24)
+- [Wattwächter](https://www.smartcircuits.de)
 
 Tested smart meters:
 
@@ -29,6 +30,7 @@ Tested smart meters:
 - EMH metering eHZ Generation K (enable InF as described in manual to retrieve full data)
 - efr SGM-C4 (enable InF as described in manual to retrieve full data)
 - easymeter Q3 ([Link](https://www.easymeter.com/products/zaehler/q3a))
+- EBZ DD3 (tested version: DD3 2R06 DTA - SMZ1)
 
 {% include integrations/config_flow.md %}
 

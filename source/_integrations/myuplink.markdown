@@ -27,6 +27,7 @@ ha_integration_type: integration
 related:
   - url: https://myuplink.com/
     title: myUplink web portal
+ha_quality_scale: silver
 ---
 
 The **myUplink** {% term integration %} lets you get information about and control heat-pump devices supporting myUplink using the [official cloud API](https://dev.myuplink.com).

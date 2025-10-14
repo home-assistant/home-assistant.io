@@ -33,7 +33,17 @@ ha_integration_type: hub
 
 {% include integrations/config_flow.md %}
 
-Please do not change the URL provided in the advanced mode unless you know what you are doing.
+{% configuration_basic %}
+Email / mydevolo ID:
+  description: "Email address you used to register the central unit at mydevolo."
+Password:
+  description: "Password of your mydevolo account."
+{% endconfiguration_basic %}
+
+{% note %}
+Your mydevolo account is only used to acquire local credentials. Afterward, communication is completely local as long as the gateway is within the same network.
+{% endnote %}
+
 
 ## Supported devices and functions
 

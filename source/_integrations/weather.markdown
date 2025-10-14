@@ -33,7 +33,7 @@ The `weather` {% term entity %} can provide the conditions listed below as its s
 - **Cloudy**: There are many clouds in the sky. `cloudy`.
 - **Fog**: There is a thick mist or fog reducing visibility. `fog`.
 - **Hail**: Hailstones are falling. `hail`.
-- **Lightning**: Lightning/thunderstorms are occurring. `lighting`.
+- **Lightning**: Lightning/thunderstorms are occurring. `lightning`.
 - **Lightning, rainy**: Lightning/thunderstorm is occurring along with rain. `lightning-rainy`.
 - **Partly cloudy**: The sky is partially covered with clouds. `partlycloudy`.
 - **Pouring**: It is raining heavily. `pouring`.
@@ -115,7 +115,7 @@ The response data field is a mapping of called target entities, each containing 
 
 {% details "Example template sensor using get_forecasts" %}
 
-Example template sensor that contains the hourly forecast
+Example [template sensor](/integrations/template#yaml-configuration) that contains the hourly forecast
 
 {% raw %}
 

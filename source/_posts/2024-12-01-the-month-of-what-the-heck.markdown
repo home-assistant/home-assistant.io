@@ -50,6 +50,8 @@ hear from 👉 **YOU** 👈!
 [voice-controlled Home Assistant]: /blog/2022/12/20/year-of-voice/
 [years]: /blog/2022/09/30/the-month-of-what-the-heck/
 
+<!--more-->
+
 ### Lowering the barrier for sharing WTH?! moments
 
 We realize reporting bugs on our [GitHub] might be a steep hill and, for some,

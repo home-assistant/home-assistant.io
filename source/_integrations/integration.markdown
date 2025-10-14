@@ -18,7 +18,7 @@ ha_platforms:
 ha_integration_type: helper
 ---
 
-This integrations provides the [Riemann sum](https://en.wikipedia.org/wiki/Riemann_sum)
+This integration provides the [Riemann sum](https://en.wikipedia.org/wiki/Riemann_sum)
 of the values provided by a source sensor. The Riemann sum is an approximation
 of an **integral** by a finite sum.
 
