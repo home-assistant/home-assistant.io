@@ -177,7 +177,7 @@ data:
 
 ## Events
 
-When a user presses an action button on a TV notification, the QuickBars app sends an event to Home Assistant. You can use this event to trigger automations. The event type is `quickbars.action`, and it contains the `action_i`d you defined in your `quickbars.notify` action call.
+When a user presses an action button on a TV notification, the QuickBars app sends an event to Home Assistant. You can use this event to trigger automations. The event type is `quickbars.action`, and it contains the `action_id` you defined in your `quickbars.notify` action call.
 
 {% details "Example: reacting to a notification button press" %}
 
