@@ -20,7 +20,6 @@ This integration automatically discovers TIS Control devices (RCUs and Relays) o
 
 For the integration to work, your Home Assistant instance and your TIS Control devices must be connected to the **same local network**. You will also need to know the UDP communication port used by your TIS devices. The default port is `6000`.
 
-***
 
 {% include integrations/config_flow.md %}
 
@@ -28,7 +27,6 @@ For the integration to work, your Home Assistant instance and your TIS Control d
 You will be prompted to enter the **UDP Port** for communication. If you haven't changed it on your devices, leave the default value of `6000`.
 {% endimportant %}
 
-***
 
 ## Supported Devices
 
