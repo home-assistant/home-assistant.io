@@ -42,7 +42,7 @@ Currently, the integration supports the following devices:
 Host:
   description: "The IP address of your device. You can find it in your router or in the app."
 Port:
-  description: "The TCP port of the device, 8080 by deault."
+  description: "The TCP port of the device, 8080 by default."
 Scan Interval:
   description: "The polling interval in seconds."
 {% endconfiguration_basic %}
