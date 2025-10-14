@@ -4,7 +4,7 @@ description: Instructions on how to integrate getsequence.io into Home Assistant
 ha_category:
 - Sensor
 ha_iot_class: Cloud Polling
-ha_release: 2025.11.0
+ha_release: 2025.11
 ha_config_flow: true
 ha_codeowners:
 - '@DellanX'
@@ -99,11 +99,15 @@ The integration {% term polling polls %} data from the Sequence API every 5 minu
 
 ### Cannot connect to Sequence
 
-**Symptom**: The integration shows "Cannot connect" during setup.
+#### Symptom
 
-**Description**: This typically means there's an issue with your API token or network connectivity.
+The integration shows "Cannot connect" during setup.
 
-**Resolution**:
+#### Description
+
+This typically means there's an issue with your API token or network connectivity.
+
+#### Resolution
 
 1. Verify your internet connection is working.
 2. Check that your API access token is correct and hasn't expired.
@@ -112,11 +116,15 @@ The integration {% term polling polls %} data from the Sequence API every 5 minu
 
 ### Missing account data
 
-**Symptom**: Some accounts don't appear as sensors.
+#### Symptom
 
-**Description**: The integration only shows accounts that are accessible through the Sequence API.
+Some accounts don't appear as sensors.
 
-**Resolution**:
+#### Description
+
+The integration only shows accounts that are accessible through the Sequence API.
+
+#### Resolution
 
 1. Ensure your accounts are properly set up in your Sequence dashboard.
 2. Check that the accounts have recent activity or balances.
