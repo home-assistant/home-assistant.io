@@ -45,7 +45,7 @@ camera_view:
   type: string
 image:
   required: false
-  description: URL of an image. To use a locally hosted image, see [Hosting](/integrations/http#hosting-files).
+  description: URL of an image. To use a locally hosted image, see [Hosting](/integrations/http#hosting-files), or use a `media-source://` URL for Media content.
   type: string
 state_image:
   required: false
@@ -116,14 +116,15 @@ entity: light.bed_light
 image: /local/bed_light.png
 ```
 
-Different images for each state:
+Different images for each state (supports local, web, or `media-source://` URLs):
 
 ```yaml
 type: picture-entity
 entity: light.bed_light
 state_image:
   "on": /local/bed_light_on.png
-  "off": /local/bed_light_off.png
+  "off": https://demo.home-assistant.io/stub_config/bedroom.png
+  "unavailable": media-source://image_upload/123456789
 ```
 
 Displaying a live feed from an FFmpeg camera:
