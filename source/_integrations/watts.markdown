@@ -57,7 +57,7 @@ The integration supports the following Watts Vision + devices:
 
 ## Platforms
 
-The integration provides the following Home Assistant platforms:
+The integration provides the following Home Assistant entities:
 
 ### Climate entities
 
