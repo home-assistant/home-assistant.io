@@ -632,7 +632,7 @@ Check the logs for every step.
 
 #### Single component discovery payload
 
-When using single component discovery messages, the `<component>` part in the discovery topic must be one of the supported MQTT-platforms.
+When using single component discovery messages, the `<component>` part in the discovery topic must be one of the supported MQTT platforms.
 
 The options in the payload are only used to set up one specific component. If a device contains multiple components, it is recommended to use [device-based discovery](/integrations/mqtt/#device-based-discovery-payload) instead.
 
