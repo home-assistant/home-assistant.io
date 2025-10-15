@@ -9,6 +9,11 @@ ha_config_flow: true
 ha_codeowners:
   - '@ctalkington'
 ha_domain: ipp
+ha_platforms:
+  - diagnostics
+  - sensor
+ha_zeroconf: true
+ha_integration_type: device
 ---
 
 The `Internet Printing Protocol (IPP)` integration allows you to read current data from your networked printer that supports the [Internet Printing Protocol](https://www.pwg.org/ipp/everywhere.html).

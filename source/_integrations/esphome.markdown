@@ -10,7 +10,6 @@ ha_release: 0.85
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
-  - '@OttoWinter'
   - '@jesserockz'
   - '@kbx81'
   - '@bdraco'
@@ -152,6 +151,7 @@ The [Native API Component](https://esphome.io/components/api.html) also supports
 
 - Entity name is a combination of the friendly name (or name if unset) and component name
 - Entity ID is derived from the entity name with the device name prepended
+- Unicode characters in names are transliterated to their closest ASCII equivalents for compatibility
 
 Example with `friendly_name` set:
 
@@ -177,6 +177,19 @@ sensor:
 ```
 
 The entity will be named `livingroomdesk Temperature` and will default to having an entity ID of `sensor.livingroomdesk_temperature`.
+
+Example with Unicode characters:
+
+```yaml
+esphome:
+   name: "haloszoba-klima"
+   friendly_name: "Hálószoba klíma"
+
+sensor:
+   name: "Árvíztűrő tükörfúrógép"
+```
+
+The entity will be named `Hálószoba klíma Árvíztűrő tükörfúrógép` and will default to having an entity ID of `sensor.haloszoba_klima_arvizturo_tukorfurogep`. Note how the Unicode characters are transliterated rather than replaced with underscores.
 
 ## Troubleshooting
 

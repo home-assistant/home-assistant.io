@@ -17,6 +17,7 @@ ha_category:
   - Switch
   - Valve
 ha_config_flow: true
+ha_zeroconf: true
 ha_release: 2025.2
 ha_iot_class: Local Push
 ha_codeowners:
@@ -28,6 +29,7 @@ ha_platforms:
   - button
   - climate
   - cover
+  - diagnostics
   - event
   - fan
   - light
@@ -35,10 +37,11 @@ ha_platforms:
   - number
   - select
   - sensor
+  - siren
   - switch
   - valve
 ha_integration_type: hub
-ha_quality_scale: bronze
+ha_quality_scale: silver
 ---
 
 [Homee](https://hom.ee) is a smart home system, able to integrate various protocols such as Z-Wave, Zigbee, EnOcean, and more. The Homee {% term integration %} will let you use the {% term devices %} from your Homee in Home Assistant.
@@ -73,6 +76,32 @@ New devices added to Homee will be automatically discovered after a restart of H
 ## Limitations
 
 Changed values are reported from Homee in defined time intervals and not always in realtime. For example, while a cover moves, the position is updated only every few seconds and intermediate states may be missed by Home Assistant.
+
+## Troubleshooting
+
+First, see the general [Home Assistant troubleshooting guide](/docs/configuration/troubleshooting/).
+
+The **homee** integration supports [debug logs and diagnostics](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics).
+
+### Homee device not working as expected
+
+Make sure, the {% term device %} works as expected in homee.
+If a homee device shows up in Home Assistant, but does not work as expected or is missing {% term entities %}, open a [report](https://github.com/home-assistant/core/issues) and attach error logs and the device's {% term diagnostics %} data.
+
+### Integration not loading or homee device not showing up in HA
+
+Check that the homee-user, used for Home Assistant, is allowed to see the device.
+If that is the case, open a [report](https://github.com/home-assistant/core/issues) and attach error logs and the diagnostic data of the {% term integration %}.
+
+## Reconfiguration
+
+This integration supports reconfiguration, allowing you to change the IP address, even after a device has already been set up.
+
+### To start the reconfiguration
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the homee integration card.
+2. From the list of hubs, select the one you want to reconfigure.
+3. Next to the entry, select the three dots {% icon "mdi:dots-vertical" %} menu. Then, select **Reconfigure**.
 
 ## Removing the integration
 

@@ -20,6 +20,7 @@ ha_platforms:
   - device_tracker
   - diagnostics
   - image
+  - light
   - sensor
   - switch
   - update
@@ -64,6 +65,7 @@ There is currently support for the following device types within Home Assistant:
 
 - [Button](#button)
 - [Image](#image)
+- [Light](#light)
 - [Presence detection](#presence-detection)
 - [Actions](#actions)
 - [Switch](#switch)
@@ -141,6 +143,10 @@ Allow control of network access to clients configured in the {% term integration
 
 Provides per-port PoE control. Entities are disabled by default. This feature requires admin privileges.
 
+### Port control
+
+Provides individual control to enable or disable switch ports. Entities are disabled by default. This feature requires admin privileges.
+
 ### Control DPI Traffic Restrictions
 
 Entities appear automatically for each restriction group. If there are no restrictions in a group, no {% term entity %} will be visible. Toggling the switch in Home Assistant will enable or disable all restrictions inside a group.
@@ -202,6 +208,18 @@ Get entities reporting the current memory utilization of a UniFi Network device.
 ### Port Bandwidth sensor
 
 Get entities reporting receiving and transmitting bandwidth per port. These sensors are disabled by default. To enable the bandwidth sensors, on the UniFi integration page, select **Configure**, go to page 3/3 and enable the bandwidth sensors.
+
+## Light
+
+The Light entities will only be available for UniFi access points that support LED ring customization. Not all access points have this capability.
+
+### LED control
+
+Provides control over the LED ring on compatible UniFi access points. Entities appear automatically for devices that support LED customization. The LED state, brightness, and color can be controlled. This feature requires admin privileges.
+
+{% note %}
+Changes may take over 5 seconds to apply as the device must adopt a new configuration. The UI updates optimistically.
+{% endnote %}
 
 ## Firmware updates
 

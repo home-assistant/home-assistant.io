@@ -896,6 +896,13 @@ For a summary in a more readable format:
 [zha docs]: /integrations/zha/
 [zwave_js docs]: /integrations/zwave_js
 
+## Release 2025.6.3 - June 24
+
+- Update frontend to 20250531.4 ([@bramkragten] - [#147414])
+
+[#147414]: https://github.com/home-assistant/core/pull/147414
+[@bramkragten]: https://github.com/bramkragten
+
 [#123284]: https://github.com/home-assistant/core/pull/123284
 [#125764]: https://github.com/home-assistant/core/pull/125764
 [#129456]: https://github.com/home-assistant/core/pull/129456

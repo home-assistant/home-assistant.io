@@ -141,6 +141,10 @@ attribute:
   required: false
   description: An entity's attribute when `label_mode` set to `attribute`.
   type: string
+unit:
+  required: false
+  description: A unit for a value of an attribute when `label_mode` set to `attribute`.
+  type: string
 focus:
   required: false
   default: true
@@ -165,6 +169,10 @@ label_mode:
 attribute:
   required: false
   description: An entity's attribute when `label_mode` set to `attribute`.
+  type: string
+unit:
+  required: false
+  description: A unit for a value of an attribute when `label_mode` set to `attribute`.
   type: string
 focus:
   required: false

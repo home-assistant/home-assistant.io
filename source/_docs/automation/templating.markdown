@@ -7,10 +7,10 @@ Automations support the advanced features of [templating](/docs/configuration/te
 
 Example of variables used in templates:
 
-```jinja
- {{ this.name }} is the name of the automation executing from this trigger
- {{ trigger.platform }} is the type of trigger object, like `calendar`
- ```
+{% raw %}
+- `{{ this.name }}` is the name of the automation executing from this trigger
+- `{{ trigger.platform }}` is the type of trigger object, like `calendar`
+{% endraw %}
 
 ## Available state data
 
@@ -57,7 +57,7 @@ These are the properties available for a [Calendar trigger](/docs/automation/tri
 
 These are the properties available for a [Device trigger](/docs/automation/trigger/#device-triggers).
 
-Inherites template variables from [event](#event) or [state](#state) template based on the type of trigger selected for the device.
+Inherits template variables from [event](#event) or [state](#state) template based on the type of trigger selected for the device.
 
 | Template variable | Data |
 | ---- | ---- |
