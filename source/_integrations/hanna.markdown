@@ -1,7 +1,7 @@
 ---
 title: Hanna
 description: Instructions on how to integrate HannaCloud within Home Assistant.
-ha_release: 2025.8
+ha_release: 2025.11
 ha_category:
   - Sensor
 ha_codeowners:
@@ -46,7 +46,6 @@ The integration will update its sensors by {% term polling %} the [HannaCloud](h
 
 The following sensors are supported:
 
-- **Alarms**: Binary sensor with alarm and warning details as attributes
 - **Chlorine flow rate**: Monitors chlorine dosing rate
 - **Chlorine ORP value**: Measures oxidation-reduction potential with calibration data as attributes
 - **pH Acid/base flow rate**: Monitors acid/base (pH-) chemical dosing rate
