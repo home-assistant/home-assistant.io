@@ -39,7 +39,7 @@ password:
 
 ## Data updates
 
-The integration will update its sensors by {% term polling %} the [HannaCloud](https://www.hannacloud.com) account every 5 seconds for new values. 
+The integration will update its sensors by {% term polling %} the [HannaCloud](https://www.hannacloud.com) account for new values. 
 
 
 ## Available sensors
@@ -48,12 +48,11 @@ The following sensors are supported:
 
 - **Chlorine flow rate**: Monitors chlorine dosing rate
 - **Chlorine ORP value**: Measures oxidation-reduction potential with calibration data as attributes
-- **pH Acid/base flow rate**: Monitors acid/base (pH-) chemical dosing rate
+- **pH Acid/base flow rate**: Monitors acid/base chemical dosing rate
 - **pH value**: Measures pH level with calibration data as attributes
 - **Air temperature**: Air temperature reported by the device
 - **Water temperature**: Water temperature reported by the device
 
-All sensors include a `last_updated` attribute with the timestamp of the last data update.
 
 ## Troubleshooting
 
