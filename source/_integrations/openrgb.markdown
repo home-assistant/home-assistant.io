@@ -20,7 +20,7 @@ OpenRGB provides a unified interface for controlling various RGB lighting hardwa
 
 ## Prerequisites
 
-To use this integration, you need the **OpenRGB application installed** in your computer with the **SDK Server running**.
+To use this integration, you need the **OpenRGB** application installed on your computer with the SDK Server running.
 
 To enable the OpenRGB SDK server:
 
@@ -47,11 +47,10 @@ This integration supports any RGB device that is compatible with OpenRGB. Refer 
 
 ## Supported functionality
 
-### Entities
 
 The OpenRGB integration provides the following entities:
 
-#### Lights
+### Lights
 
 For each RGB device connected to OpenRGB, the integration creates a light entity to control all the LEDs on that device as a single unit.
 
