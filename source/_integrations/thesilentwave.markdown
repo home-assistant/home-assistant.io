@@ -13,7 +13,7 @@ ha_quality_scale: silver
 ha_config_flow: true
 ---
 
-The TheSilentWave integration allows you to monitor the status of your TheSilentWave device in Home Assistant.
+The **TheSilentWave** {% term integration %} allows you to monitor the status of your TheSilentWave device in Home Assistant.
 
 ## Prerequisites
 
