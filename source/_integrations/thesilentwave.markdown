@@ -26,8 +26,8 @@ The **TheSilentWave** {% term integration %} allows you to monitor the status of
 
 This integration provides a binary sensor that shows the current state of your TheSilentWave device:
 
-- **State**: Shows either "on" or "off" depending on the device's status
-- **Icon**: Dynamically changes between power-on and power-off based on the state
+- **State**: Shows either "on" or "off" depending on the device's status.
+- **Icon**: Dynamically changes between power-on and power-off based on the state.
 
 ## Removing the integration
 This integration follows standard integration removal.
