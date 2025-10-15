@@ -80,6 +80,11 @@ The **Nintendo Switch Parental Controls** integration provides the following ent
 - **Suspend software**
   - **Description**: Enable to automatically suspend running software when the Bedtime alarm is reached or the maximum screen time is exceeded. Turn off to allow software to continue running past these limits. 
 
+#### Number
+
+- **Max screentime today**
+  - **Description**: Maximum amount of screentime to allow today, for unlimited screentime, set to `-1`. By setting this to `0` and turning the **Suspend software** switch on, you can 'lock' your Nintendo Switch.
+
 ## Known limitations
 
 The integration currently does not provide all the functionality found in the mobile app. Future updates will see this extended.
