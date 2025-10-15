@@ -47,7 +47,6 @@ This integration supports any RGB device that is compatible with OpenRGB. Refer 
 
 ## Supported functionality
 
-
 The OpenRGB integration provides the following entities:
 
 ### Lights
