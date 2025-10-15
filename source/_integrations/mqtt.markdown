@@ -307,7 +307,7 @@ mosquitto_sub -h 127.0.0.1 -v -t "homeassistant/#"
 For every configured MQTT entity Home Assistant automatically assigns a unique `entity_id`. If the `unique_id` option is configured, you can change the `entity_id` after creation, and the changes are stored in the Entity Registry. The `entity_id` is generated when an item is loaded the first time.
 
 If the `default_entity_id` option is set, then this will be used to generate the `entity_id`.
-If, for example, we have configured a `sensor`, and we have set `default_entity_id` to `sensor.test`, then Home Assistant will try to assign `sensor.test` as `entity_id`. If `sensor.test` already exits, Home Assistant will append a suffix to make it unique, for example, `sensor.test_2`.
+If, for example, we have configured a `sensor`, and we have set `default_entity_id` to `sensor.test`, then Home Assistant will try to assign `sensor.test` as `entity_id`. If `sensor.test` already exists, Home Assistant will append a suffix to make it unique, for example, `sensor.test_2`.
 
 This means any MQTT entity which is part of a device will [automatically have its `friendly_name` attribute prefixed with the device name](https://developers.home-assistant.io/docs/core/entity/#has_entity_name-true-mandatory-for-new-integrations)
 
