@@ -34,7 +34,7 @@ Before you can add the Hanna integration, you need:
 email:
   description: The email address of your [HannaCloud](https://www.hannacloud.com) account.
 password:
-  description: The password assiciated with your [HannaCloud](https://www.hannacloud.com) account
+  description: The password associated with your [HannaCloud](https://www.hannacloud.com) account
 {% endconfiguration_basic %}
 
 ## Data updates
