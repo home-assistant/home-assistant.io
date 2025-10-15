@@ -122,27 +122,6 @@ unit_of_measurement: °C
 friendly_name: 28.FF5C68521604 Temperature
 ```
 
-### Units with multiple sensors
-
-This platform works with devices with multiple sensors, which will cause a discontinuity in recorded values. Existing devices will receive a new ID and therefore show up as new devices.
-If you wish to maintain continuity, it can be resolved in the database by renaming the old devices to the new names.
-
-Connect to your database using the instructions from [Database section](/docs/backend/database/). Check the names of sensors:
-
-```sql
-SELECT entity_id, COUNT(*) as count FROM states GROUP BY entity_id ORDER BY count DESC LIMIT 10;
-```
-
-Alter the names of sensors using the following examples:
-
-```sql
-UPDATE states SET entity_id='sensor.<sensor_name>_temperature' WHERE entity_id LIKE 'sensor.<sensor_name>%' AND attributes LIKE '%\u00b0C%';
-UPDATE states SET entity_id='sensor.<sensor_name>_pressure' WHERE entity_id LIKE 'sensor.<sensor_name>%' AND attributes LIKE '%mb%';
-UPDATE states SET entity_id='sensor.<sensor_name>_humidity' WHERE entity_id LIKE 'sensor.<sensor_name>%' AND attributes LIKE '%%%' ESCAPE '';
-```
-
-Remember to replace `<sensor_name>` with the actual name of the sensor, as seen in the `SELECT` query.
-
 ## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.
