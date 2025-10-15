@@ -42,7 +42,7 @@ Currently, the integration supports the following devices:
 Host:
   description: "The IP address of your device. You can find it in your router or in the app."
 Port:
-  description: "The TCP port of the device, 8080 by deault."
+  description: "The TCP port of the device, 8080 by default."
 Scan Interval:
   description: "The polling interval in seconds."
 {% endconfiguration_basic %}
@@ -55,52 +55,52 @@ The Solarman integration mainly provides sensors about what your device is measu
 
 The SP-2W-EU provides the following sensors:
 
-- Power
-- Voltage
-- Current
-- Positive active energy
-- Reverse active energy
+- Power (W)
+- Voltage (V)
+- Current (A)
+- Positive active energy (kWh)
+- Reverse active energy (kWh)
 
 ### P1-2W
 
 The P1-2W provides the following sensors:
 
-- SN
-- Device version
-- Total actual energy low tariff
-- Total actual energy normal tariff
-- Total actual returned energy low tariff
-- Total actual returned energy normal tariff
-- AC phase-A current
-- AC phase-B current
-- AC phase-C current
-- AC phase-A voltage
-- AC phase-B voltage
-- AC phase-C voltage
-- Total actual power
-- Total actual returned power
-- Active power phase-A
-- Active power phase-B
-- Active power phase-C
-- Active returned power phase-A
-- Active returned power phase-B
-- Active returned power phase-C
-- Total gas consumption
+- SN: serial number of the P1 meter
+- Device version: version of the P1 meter
+- Total actual energy low tariff (kWh)
+- Total actual energy normal tariff (kWh)
+- Total actual returned energy low tariff (kWh)
+- Total actual returned energy normal tariff (kWh)
+- AC phase-A current (A)
+- AC phase-B current (A)
+- AC phase-C current (A)
+- AC phase-A voltage (V)
+- AC phase-B voltage (V)
+- AC phase-C voltage (V)
+- Total actual power (kW)
+- Total actual returned power (kW)
+- Active power phase-A (kW)
+- Active power phase-B (kW)
+- Active power phase-C (kW)
+- Active returned power phase-A (kW)
+- Active returned power phase-B (kW)
+- Active returned power phase-C (kW)
+- Total gas consumption (m³)
 
 ### MR1-D5-W/MR1-D5-WR
 
 The MR1-D5-W/MR1-D5-WR provides the following sensors:
 
-- SN
-- Voltage
-- Current
-- Active power
-- Apparent power
-- Reactive power
-- Power factor
-- Frequency
-- Total actual energy
-- Total actual returned energy
+- SN: serial number of the meter
+- Voltage (V)
+- Current (A)
+- Active power (W)
+- Apparent power (W)
+- Reactive power (W)
+- Power factor: ratio of active to apparent power
+- Frequency (Hz)
+- Total actual energy (kWh)
+- Total actual returned energy (kWh)
 
 ## Data updates
 
