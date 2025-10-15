@@ -6,7 +6,7 @@ date: 2025-10-15 00:00:01
 date_formatted: "October 15, 2025"
 author: Carl Albertsson
 comments: true
-categories: Z-Wave
+categories: Announcements
 og_image: /images/blog/2025-10-yellow-eol/art.webp
 ---
 
