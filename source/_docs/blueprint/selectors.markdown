@@ -1197,7 +1197,7 @@ When used without options, the selector will accept a free form object.
 object:
 ```
 
-When used with a `schema`, the selector will force the object to be in this format by displaying a form.
+When used with `fields` specified, the selector will force the object to be in this format by displaying a form.
 
 ![Screenshot of an object selector](/images/blueprints/selector-object-schema.png)
 
@@ -1220,7 +1220,7 @@ object:
 
 The output of this selector is a YAML object.
 
-{% configuration qr_code %}
+{% configuration object %}
 fields:
   description: >
     List of fields of the object.
@@ -1231,6 +1231,11 @@ fields:
       description: The label of the field
       required: false
       type: string
+    required:
+      description: If set to true, the field must be present.
+      required: false
+      default: false
+      type: boolean
     selector:
       description: The selector to use for this field. It can be any available selector.
       required: true
@@ -1256,7 +1261,7 @@ translation_key:
   required: false
 multiple:
   description: >
-    Allows selecting multiple options. If set to `true`, the resulting value of this selector will be a list instead of a single string value. This option is only used if `fields` option set.
+    Allows adding multiple objects. If set to `true`, the resulting value of this selector will be a list instead of a single YAML object. This option is only used if `fields` option set.
   type: boolean
   required: false
   default: false

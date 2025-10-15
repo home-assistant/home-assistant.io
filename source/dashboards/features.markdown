@@ -42,27 +42,6 @@ Features can be enabled on the following cards:
   
     ![Screen recording showing how you can now reorder the HVAC modes on the thermostat shown in a tile card.](/images/blog/2024-05/tile-card-reorder-features.gif)
 
-## History chart
-
-Widget that displays the history of a [sensor](/integrations/sensor) or [binary_sensor](/integrations/binary_sensor).
-
-<p class='img'>
-  <img src='/images/dashboards/features/history-chart-line.png' alt='Screenshot of the tile card with the history chart feature for a numeric entity'>
-  <img src='/images/dashboards/features/history-chart-timeline.png' alt='Screenshot of the tile card with the history chart feature for a non-numeric entity'>
-  Screenshots of the tile card with the history chart feature
-</p>
-
-```yaml
-features:
-  - type: "history-chart"
-```
-
-{% configuration features %}
-type:
-  required: true
-  description: "`history-chart`"
-  type: string
-{% endconfiguration %}
 
 ## Alarm modes
 
@@ -101,7 +80,7 @@ modes:
 Widget that displays the state of a numeric [sensor](/integrations/sensor), with unit of measurement %, as a horizontal bar.
 
 <p class='img'>
-  <img src='/images/dashboards/features/bar-gauge.png' alt='Screenshot of the tile card with the bar gauge feature'>
+  <img src='/images/dashboards/features/bar_gauge.png' alt='Screenshot of the tile card with the bar gauge feature'>
   Screenshots of the tile card with the bar gauge feature
 </p>
 
@@ -119,7 +98,7 @@ type:
 
 ## Button
 
-Widget that displays buttons to control [button](/integrations/button) or [script](/integrations/script).
+Widget that displays buttons to control [button](/integrations/button), [input_button](/integrations/input_button), [scene](/integrations/scene), or [script](/integrations/script).
 
 <p class='img'>
   <img src='/images/dashboards/features/button.png' alt='Screenshot of the tile card with the button feature'>
@@ -129,7 +108,9 @@ Widget that displays buttons to control [button](/integrations/button) or [scrip
 ```yaml
 features:
   - type: "button"
-    action_name: "Click the button"
+    action_name: "Press"
+    data:
+      variable: some_value
 ```
 
 {% configuration features %}
@@ -142,6 +123,10 @@ action_name:
   type: string
   description: Text inside the button.
   type: string
+data:
+  required: false
+  description: Additional data to be passed when the action is executed. Only applies to script.
+  type: map
 {% endconfiguration %}
 
 ## Climate fan modes
@@ -782,6 +767,33 @@ type:
   required: true
   description: "`toggle`"
   type: string
+{% endconfiguration %}
+
+## Trend graph
+
+Widget that displays the a trend of the history for a numeric [sensor](/integrations/sensor).
+
+<p class='img'>
+  <img src='/images/dashboards/features/trend_graph.png' alt='Screenshot of the tile card with the trend graph feature'>
+  Screenshot of the tile card with the trend graph feature
+</p>
+
+```yaml
+features:
+  - type: "trend-graph"
+    hours_to_show: 24
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`trend-graph`"
+  type: string
+hours_to_show:
+  required: false
+  description: Hours to show in graph. Minimum is 1 hour. Big values can result in delayed rendering, especially if the selected entities have a lot of state changes.
+  type: integer
+  default: 24
 {% endconfiguration %}
 
 ## Update actions

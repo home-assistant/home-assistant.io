@@ -39,7 +39,7 @@ There is support for the following platform types within Home Assistant:
 - **{% term "Binary sensor" %}** - connectivity status.
 - **{% term Image %}** - QR code for Guest Wi-Fi.
 - **{% term Button %}** - reboot, reconnect, firmware update.
-- **{% term Sensor %}** - external IP address, uptime and network monitors.
+- **{% term Sensor %}** - external IP address, uptime, CPU temperature, and network monitors.
 - **{% term Switch %}** - call deflection, port forward, parental control and Wi-Fi networks.
 - **{% term Update %}** - firmware status of the device.
 

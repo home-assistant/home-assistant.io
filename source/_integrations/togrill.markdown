@@ -1,22 +1,21 @@
 ---
-title: ToGrill Bluetooth BBQ thermometers
+title: ToGrill
 description: Control and monitor your ToGrill compatible BBQ thermometers.
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_release: '2025.9'
 ha_category:
   - Event
-  - Select
-  - Sensor
   - Number
+  - Sensor
 ha_domain: togrill
 ha_bluetooth: true
 ha_platforms:
   - event
+  - number
   - select
   - sensor
-  - number
-ha_integration_type: device
+ha_integration_type: integration
 ha_codeowners:
   - '@elupus'
 ha_quality_scale: bronze

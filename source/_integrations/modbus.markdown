@@ -1647,7 +1647,7 @@ switches:
 
 {% endconfiguration %}
 
-### Example: switch configuration
+### Example: switch configuration
 
 ```yaml
 # Example configuration.yaml entry
@@ -1676,7 +1676,7 @@ modbus:
 ```
 
 
-### Example: switch full configuration
+### Example: switch full configuration
 
 ```yaml
 # Example configuration.yaml entry

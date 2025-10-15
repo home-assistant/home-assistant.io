@@ -19,7 +19,7 @@ ha_codeowners:
 ha_quality_scale: legacy
 ---
 
-A lot of Wi-Fi access points and Wi-Fi routers support the Simple Network Management Protocol (SNMP). This is a standardized method for monitoring/managing network connected devices. SNMP uses a tree-like hierarchy where each node is an object. Many of these objects contain (live) lists of instances and metrics, like network interfaces, disks and Wi-Fi registrations.
+Many routers, Wi-Fi access points, printers, and other network-connected devices support the [Simple Network Management Protocol (SNMP)](https://en.wikipedia.org/wiki/Simple_Network_Management_Protocol). This is a standardized method for monitoring/managing network-connected devices. SNMP uses a tree-like hierarchy where each node is an object. Many of these objects contain continuously updated lists of metrics like network interfaces throughput, disk activity, active devices on the network, toner levels, and such.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -31,12 +31,12 @@ There is currently support for the following device types within Home Assistant:
 - [Switch](#switch)
 
 {% important %}
-This device tracker needs SNMP to be enabled on the router. It could be that you need to install the SNMP support manually.
+This device tracker needs SNMP to be enabled on the target network device. It could be that you need to install SNMP support manually on your router, switch, server, or any other device that you will be trying to extract information from.
 {% endimportant %}
 
 ## Presence detection
 
-The following OID examples pull the current MAC Address table from a router. This reflects all recent devices seen on the network. However, since devices are not removed until they time out, this is less effective for [device tracker integration page](/integrations/device_tracker/) than desirable. It is recommended to use [Ping](/integrations/ping) or [Nmap](/integrations/nmap_tracker) instead.
+The following OIDs refer to the current MAC Address table from various common router brands. These reflect all recent devices seen on the network. However, since devices are usually not removed from these internal tables until after a predefined timeout (typically in a range of 5-15 minutes after they were last active on the network, depending on the specific manufacturer's implementation), this is less effective for [device tracking](/integrations/device_tracker/) than desirable. If near-realtime values are needed, it is recommended to use [Ping](/integrations/ping) or [Nmap](/integrations/nmap_tracker) integrations instead.
 
 | Brand    | Device/Firmware                  | OID                                             |
 | -------- | -------------------------------- | ----------------------------------------------- |
@@ -57,7 +57,7 @@ The following OID examples pull the current MAC Address table from a router. Thi
 | TP-Link  | Archer VR600                     | `1.3.6.1.2.1.3.1.1.2`                           |
 | Ubiquiti | Edgerouter Lite v1.9.0           | `1.3.6.1.2.1.4.22.1.2`                          |
 
-To use the SNMP version 1 or 2c platform in your installation, add the following to your `configuration.yaml` file:
+To use SNMP version 1 or 2c in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry for SNMP version 1 or 2c
@@ -68,7 +68,7 @@ device_tracker:
     baseoid: 1.3.6.1.4.1.14988.1.1.1.2.1.1
 ```
 
-If you want to use encryption, you must enable SNMP version 3 by adding `auth_key` and `priv_key` variables and enabling SNMP version 3 on your router. Currently only SHA1 is supported for authentication and AES for encryption. Example of SNMPv3 configuration:
+If your network device supports SNMP version 3 and is configured appropriately, you can enable encryption by adding `auth_key` and `priv_key` variables. Example configuration:
 
 ```yaml
 # Example configuration.yaml entry for SNMP version 3
@@ -87,7 +87,7 @@ host:
   required: true
   type: string
 community:
-  description: The SNMP community which is set for the device. Most devices have a default community set to `public` with read-only permission (which is sufficient).
+  description: The SNMP community which is set for the device. Most devices have a default community set to `public` with read-only permission (which is sufficient for most purposes).
   required: true
   type: string
 baseoid:
@@ -110,7 +110,7 @@ See the [device tracker integration page](/integrations/device_tracker/) for ins
 
 ## Sensor
 
-The `snmp` sensor platform displays information available through the [Simple Network Management Protocol (SNMP)](https://en.wikipedia.org/wiki/Simple_Network_Management_Protocol). SNMP uses a tree-like hierarchy where each node is an object, and is mainly supported by network-oriented devices such as routers, modems and printers.
+The `snmp` sensor platform displays values made available by network devices through the SNMP protocol.
 
 To enable this sensor in your installation, add the following to your `configuration.yaml` file:
 
@@ -143,7 +143,7 @@ baseoid:
   required: true
   type: string
 community:
-  description: "The SNMP community which is set for the device for SNMP v1 and v2c. Most devices have a default community set to `public` with read-only permission (which is sufficient)."
+  description: "The SNMP community which is set for the device for SNMP v1 and v2c. Most devices have a default community set to `public` with read-only permission (which is sufficient for most devices that don't accept direct modifications of their parameters via SNMP, such as printers)."
   required: false
   type: string
   default: 'public'
@@ -373,7 +373,7 @@ vartype:
   default: 'none'
 {% endconfiguration %}
 
-You should check with your device's vendor to find out the correct BaseOID and what values turn the switch on and off.
+You should check with your device's vendor to find out the correct OID and what values turn the switch on and off.
 
 Valid values for `auth_protocol`:
 

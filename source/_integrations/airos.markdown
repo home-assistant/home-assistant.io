@@ -10,6 +10,8 @@ ha_codeowners:
 ha_config_flow: true
 ha_domain: airos
 ha_platforms:
+  - binary_sensor
+  - diagnostics
   - sensor
 ha_integration_type: integration
 ha_quality_scale: bronze
