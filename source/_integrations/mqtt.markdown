@@ -349,6 +349,7 @@ The discovery topic needs to follow a specific format:
 - `<node_id>`: (*Optional*):  ID of the node providing the topic, this is not used by Home Assistant but may be used to structure the MQTT topic. The ID of the node must only consist of characters from the character class `[a-zA-Z0-9_-]` (alphanumerics, underscore and hyphen).
 - `<object_id>`: The ID of the device. This allows for separate topics for each device. The ID of the device must only consist of characters from the character class `[a-zA-Z0-9_-]` (alphanumerics, underscore and hyphen).
 
+> **Note:** The `<object_id>` in the topic does not influence the resulting `entity_id`; use `default_entity_id` if you need to control the `entity_id`.
 The `<node_id>` is optional, and can be used by clients to subscribe to their own (command) topics by using one wildcard topic like `<discovery_prefix>/+/<node_id>/+/set`.
 
 Best practice for entities with a `unique_id` is to set `<object_id>` to the `unique_id` and omit the `<node_id>`.
