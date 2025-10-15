@@ -184,6 +184,16 @@ The integration provides the following entities.
 - **Library rescan**
   - **Description**: The music library is currently being scanned by LMS (depending on the type of scan, some content may be unavailable).
 
+- **Alarm upcoming**
+  - **Description**: The Squeezebox player has an alarm scheduled within the next 24 hours.
+
+- **Alarm active**
+  - **Description**: One of the alarms on the Squeezebox player is currently active (means alarm currently going off). 
+
+- **Alarm snoozed**
+  - **Description**: One of the alarms on the Squeezebox player is currently active but snoozing (in this case the "Alarm active" binary sensor will be in state OFF).
+
+
 #### Buttons
 
 - **Preset 1 ... Preset 6**
