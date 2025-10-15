@@ -12,7 +12,7 @@ ha_domain: openrgb
 ha_platforms:
   - light
 ha_integration_type: hub
-ha_quality_scale: silver
+ha_quality_scale: bronze
 ---
 
 The **OpenRGB** {% term integration %} is used to integrate the RGB lighting devices from computers running [OpenRGB](https://openrgb.org/).
@@ -58,17 +58,6 @@ For each RGB device connected to OpenRGB, the integration creates a light entity
 ## Data updates
 
 The **OpenRGB** integration {% term polling polls %} data from the OpenRGB SDK server **every 15 seconds**.
-
-## Reconfiguration
-
-If you need to update your OpenRGB SDK server connection details, you can reconfigure the integration:
-
-1. Go to **{% my integrations title="Settings > Devices & Services" %}**.
-2. Select **OpenRGB**. Click the three dots {% icon "mdi:dots-vertical" %} menu and then select **Reconfigure**.
-3. Update the hostname/IP address and port number as needed.
-4. Select **Submit**.
-
-The integration will then reconnect to the OpenRGB SDK server with the new settings.
 
 ## Known limitations
 
