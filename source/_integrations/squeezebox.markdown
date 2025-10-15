@@ -188,10 +188,10 @@ The integration provides the following entities.
   - **Description**: The Squeezebox player has an alarm scheduled within the next 24 hours.
 
 - **Alarm active**
-  - **Description**: One of the alarms on the Squeezebox player is currently active (means alarm currently going off). 
+  - **Description**: One of the alarms on the Squeezebox player is currently going off. 
 
 - **Alarm snoozed**
-  - **Description**: One of the alarms on the Squeezebox player is currently active but snoozing (in this case the "Alarm active" binary sensor will be in state OFF).
+  - **Description**: One of the alarms on the Squeezebox player is currently active but snoozed. In this case the "Alarm active" binary sensor will be in state OFF.
 
 
 #### Buttons
