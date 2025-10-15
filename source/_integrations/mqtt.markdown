@@ -329,7 +329,7 @@ Documentation on the MQTT components that support MQTT discovery [can be found h
 
 ### Discovery messages
 
-Home Assistant support two types of discovery messages:
+Home Assistant supports two types of discovery messages:
 
 - [Device-based discovery](/integrations/mqtt/#device-based-discovery-payload), which allows you to include several components in a single discovery message
 - [Single component discovery](/integrations/mqtt/#single-component-discovery-payload), where you publish a separate discovery message for each component.
