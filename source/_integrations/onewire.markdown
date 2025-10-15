@@ -127,3 +127,13 @@ friendly_name: 28.FF5C68521604 Temperature
 This integration follows standard integration removal. No extra steps are required.
 
 {% include integrations/remove_device_service.md %}
+
+## Troubleshooting
+
+### 85°C temperature
+
+85°C is the power-on reset value of the `DS18B20`. It can report such a value when its tiny internal capacitor that acts as its power supply is depleted.
+However, 85°C is also a valid value, and there is currently no way to distinguish between a valid and an invalid 85°C value.
+If such values are reported incorrectly, the recommendation is to either:
+- ensure that the temperature sensors are powered, and do not use parasitic power.
+- or implement a template sensor to ignore 85°C values.
