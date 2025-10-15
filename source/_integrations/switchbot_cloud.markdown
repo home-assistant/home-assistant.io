@@ -115,6 +115,7 @@ Please note, device names configured in the SwitchBot app are transferred into H
 - [K10+](https://www.switch-bot.com/products/switchbot-mini-robot-vacuum-k10)
 - [K10+ Pro](https://www.switch-bot.com/products/switchbot-mini-robot-vacuum-k10-pro)
 - [K10+ Pro Combo](https://www.switch-bot.com/products/switchbot-k10-pro-combo)
+- [K11+](https://www.switch-bot.com/products/switchbot-robot-vacuum-k11)
 - [K20+ Pro](https://www.switchbot.jp/products/switchbot-robot-vacuum-cleaner-k20-pro)
 - [S20](https://www.switch-bot.com/products/switchbot-floor-cleaning-robot-s20)
 - [S10](https://www.switch-bot.com/products/switchbot-floor-cleaning-robot-s10)
@@ -411,7 +412,7 @@ Features:
 
 ### Vacuums
 
-Vacuum entities are added for K10+, K10+ Pro, K10+ Pro Combo, K20+ Pro, S10, S20.
+Vacuum entities are added for K10+, K10+ Pro, K10+ Pro Combo, K11+, K20+ Pro, S10, S20.
 
 Features:
 - get states
