@@ -35,14 +35,20 @@ There is currently support for the following device types within Home Assistant:
 
 Rain sensors of supported windows do not report automatically and must be polled every 5 minutes. For this reason, they are disabled by default, because polling uses more radio bandwidth and battery power than simply reporting changed window positions.
 
+## Installation preparation
+
+1. Make sure you know the password of the gateway's wireless access point. It is printed on the underside of the KLF 200 device - **not** the web login password.
+2. Reboot or power cycle the KLF 200 device. You must complete the configuration within 5 minutes of rebooting the device while its WiFi access point is still visible. 
+3. Do **not** connect to the device's WiFi access point during configuration. 
+
 {% include integrations/config_flow.md %}
 
 During configuration, you will be asked for a hostname and password:
 
-- Hostname: enter the IP address of the KLF 200 gateway.
+- Hostname: enter the IP address or hostname of the KLF 200 gateway.
 - Password: enter the password of the gateway's wireless access point (printed on the underside - **not** the web login password).
 
-You must complete the configuration within 5 minutes of rebooting the KLF 200 gateway while the access point is still available.
+Remember: You must complete the configuration within 5 minutes of rebooting the KLF 200 gateway. If you couldn't complete in time and setup fails, power cycle the device and retry. 
 
 ## Actions
 
@@ -51,6 +57,10 @@ You must complete the configuration within 5 minutes of rebooting the KLF 200 ga
 Reboots the configured KLF 200 gateway.
 
 In Home Assistant versions up to 2024.12.x, it was recommended to create an automation to reboot the KLF 200 gateway before shutting down or restarting Home Assistant. This automated reboot is now built into the integration, so you no longer need to create a separate automation.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
 
 ## Velux Active (KIX 300)
 
