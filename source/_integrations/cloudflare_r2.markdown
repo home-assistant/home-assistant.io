@@ -63,7 +63,7 @@ Access key ID:
   required: true
   type: string
 Secret access key:
-  description: "Secret access key to connect to Cloudflare R2. See [Docs](https://developers.cloudflare.com/r2/api/tokens/)"
+  description: "Secret access key to connect to Cloudflare R2. See [Cloudflare documentation](https://developers.cloudflare.com/r2/api/tokens/)"
   required: true
   type: string
 Bucket name:
