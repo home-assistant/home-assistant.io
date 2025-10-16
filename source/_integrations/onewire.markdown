@@ -105,6 +105,21 @@ The 1-Wire bus can be connected with a remote 1-wire host over a network connect
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+Host:
+  description: The hostname or IP address of your OWServer instance.
+Port:
+  description: The port of your OWServer instance.
+  default: 4304
+{% endconfiguration_basic %}
+
+{% include integrations/option_flow.md %}
+
+{% configuration_basic %}
+Device selection:
+  description: The precision of the `DS18B20` temperature sensors can be configured for individual devices. The lower the precision, the faster the sensor will respond, but with less accuracy. The selected precision is reflected in the `device_path` attribute of the sensor entities.
+{% endconfiguration_basic %}
+
 ### Entities and attributes
 
 Upon startup of the platform, the 1-wire bus is searched for available 1-wire devices. On Bridge devices, the `aux` and `main` branches are recursively searched. For each device that this platform handles (see list of supported devices above), the platform adds one sensor for each physical quantity it measures. The name of the sensor is the device ID with the physical quantity it measures appended. Unsupported sensors are noted with a warning message in the log.
