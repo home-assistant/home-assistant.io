@@ -107,16 +107,17 @@ The 1-Wire bus can be connected with a remote 1-wire host over a network connect
 
 {% configuration_basic %}
 Host:
-  description: "The hostname or IP address of your OWServer instance."
+  description: The hostname or IP address of your OWServer instance.
 Port:
-  description: "The port of your OWServer instance (default is 4304)."
+  description: The port of your OWServer instance.
+  default: 4304
 {% endconfiguration_basic %}
 
 {% include integrations/option_flow.md %}
 
 {% configuration_basic %}
 The precision of the temperature sensors `DS18B20` can be configured for individual devices. The lower the precision, the faster the sensor will respond, but with less accuracy.
-This selected precision will be reflected in the `device_path` attribute of the sensor entities.
+The selected precision is reflected in the `device_path` attribute of the sensor entities.
 {% endconfiguration_basic %}
 
 ### Entities and attributes
