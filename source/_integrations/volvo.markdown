@@ -147,6 +147,7 @@ Go to Volvo's developer portal to view [the availability](https://developer.volv
 - **Direction**: In which direction the car is heading.
 - **Distance to service**: Remaining distance until the next service maintenance.
 - **Odometer**: Odometer.
+- **Service**: Indicates whether service is due and the reason.
 - **Time to engine service**: Remaining engine-hours until the next service maintenance.
 - **Time to service**: Remaining time until the next service maintenance.
 - **Trip automatic average speed**: Average speed on the automatic trip meter.
