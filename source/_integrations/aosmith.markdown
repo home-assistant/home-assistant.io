@@ -29,6 +29,7 @@ Before using this integration, your water heater must be connected to a Wi-Fi ne
 - EE12-50R55DVF
 - EE12-50H55DVF
 - EE12-55H55DVF
+- HETF-50-100
 - HPA10-40H45DV
 - HPA10-50H45DV
 - HPA10-66H45DV
