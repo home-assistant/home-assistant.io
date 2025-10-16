@@ -115,7 +115,7 @@ Port:
 {% include integrations/option_flow.md %}
 
 {% configuration_basic %}
-The precision of temperature sensors `DS18B20` can be configured for individual devices: the lower the precision, the faster the sensor will respond, but with less accuracy.
+The precision of the temperature sensors `DS18B20` can be configured for individual devices. The lower the precision, the faster the sensor will respond, but with less accuracy.
 This selected precision will be reflected in the `device_path` attribute of the sensor entities.
 {% endconfiguration_basic %}
 
