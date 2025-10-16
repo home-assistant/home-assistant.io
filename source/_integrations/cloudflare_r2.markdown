@@ -75,7 +75,7 @@ Endpoint URL:
   required: true
   type: string
 Folder prefix:
-  description: "Optional folder path inside the bucket. Example: backups/homeassistant"
+  description: "Optional folder path inside the bucket. For example, `backups/homeassistant`"
   required: false
   type: string
 {% endconfiguration %}
