@@ -518,11 +518,11 @@ data:
   file_name: "my_downloaded_file"
 ```
 
-Limitations and notes:
-
+{% note %}
 - For file size limits and download behaviour, refer to the python-telegram-bot documentation: [python-telegram-bot - get_file](https://docs.python-telegram-bot.org/en/stable/telegram.bot.html#telegram.Bot.get_file)
 - For the moment, bots can download files of up to 20 MB in size. The file can then be downloaded with methods such as `telegram.File.download_to_drive()`.
 - Ensure the target `directory_path` is writable by Home Assistant and included in `allowlist_external_dirs` if you need to serve or access the file from the frontend.
+{% endnote %}
 
 ## Telegram notification platform
 
