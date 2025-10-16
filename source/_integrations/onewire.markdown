@@ -139,6 +139,7 @@ A reading of 85°C on a `DS18B20` may indicate a valid value, or it may indicate
 There is currently no way to distinguish between a valid and an invalid 85°C value. If such values are reported incorrectly, the first step is to check the wiring (possibly ensuring that the temperature sensors are powered, and not using parasitic power).
 
 If all else fails, then a template can be used to filter out the incorrect values:
+{% raw %}
 ```jinja
 {% if states('sensor.28_a05966040000_temperature') | float != 85 %}
   {{ states('sensor.28_a05966040000_temperature') }}
@@ -146,3 +147,4 @@ If all else fails, then a template can be used to filter out the incorrect value
   None
 {% endif %}
 ```
+{% end raw %}
