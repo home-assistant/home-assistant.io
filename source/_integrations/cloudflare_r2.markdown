@@ -84,4 +84,6 @@ Folder prefix:
 
 None.
 
+## Removing the integration
+
 {% include integrations/remove_device_service.md %}
