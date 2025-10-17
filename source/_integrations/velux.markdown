@@ -35,7 +35,7 @@ There is currently support for the following device types within Home Assistant:
 
 Rain sensors of supported windows do not report automatically and must be polled every 5 minutes. For this reason, they are disabled by default, because polling uses more radio bandwidth and battery power than simply reporting changed window positions.
 
-## Installation preparation
+## Prerequisites
 
 1. Make sure you have the password for your gateway's wireless access point. You'll find it printed on the underside of your KLF 200 device -- *not* the web login password.
 2. Reboot or power cycle the KLF 200 device. You must complete the configuration within 5 minutes of rebooting the device while its Wi-Fi access point is still visible. 
