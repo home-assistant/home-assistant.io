@@ -17,7 +17,6 @@ ha_category:
   - Valve
 ha_release: 0.115
 ha_codeowners:
-  - '@balloob'
   - '@bieniu'
   - '@thecode'
   - '@chemelli74'

@@ -11,6 +11,7 @@ ha_codeowners:
   - '@Julius2342'
   - '@DeerMaximum'
   - '@pawlizio'
+  - '@wollew'
 ha_domain: velux
 ha_platforms:
   - binary_sensor

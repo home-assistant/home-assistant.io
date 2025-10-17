@@ -6,6 +6,7 @@ ha_category:
   - Environment
   - Sensor
 ha_platforms:
+  - event
   - sensor
 ha_iot_class: Local Push
 ha_config_flow: true

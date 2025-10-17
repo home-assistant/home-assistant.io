@@ -132,6 +132,7 @@ Further there are additional {% term sensor %} and {% term binary_sensor "binary
 - Next Scheduled Temperature
 - Open window detected
 - Summer mode
+- Temperature
 
 ### Other devices
 

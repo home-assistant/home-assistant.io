@@ -76,6 +76,9 @@ The library sensors show a count of items in each library. Depending on the libr
 In addition to the item count, the last added media item (movie, album, or episode) and a timestamp showing when it was added are also provided with each library sensor.
 
 Example automation to use the `last_added_item` attribute on library sensors to notify when new media has been added:
+
+{% raw %}
+
 ```yaml
 alias: "Plex - New media added"
 triggers:
@@ -96,8 +99,10 @@ actions:
       message: "{{ trigger.to_state.attributes.last_added_item }}"
 ```
 
+{% endraw %}
+
 {% important %}
-The library sensors are disabled by default, but can be enabled via the Plex integration page.
+The library sensors are disabled by default, but can be enabled via the Plex integration page. After the sensors are enabled, you may need to add a new item to your library before the last added media attribute is populated.
 {% endimportant %}
 
 ## Button
