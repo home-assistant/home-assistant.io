@@ -51,7 +51,7 @@ During configuration, you will be asked for a hostname and password:
 
 {% configuration_basic %}
 Hostname:
-    description: "the IP address or hostname of the KLF 200 gateway. You can find it in your router."
+    description: "The IP address or hostname of the KLF 200 gateway. You can find it in your router."
 Local access token:
     description: "The password of the gateway's wireless access point. You can find it printed on the underside of the device. It is not the web login password."
 {% endconfiguration_basic %}
