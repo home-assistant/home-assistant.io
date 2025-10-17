@@ -114,6 +114,29 @@ actions:
 
 {% endraw %}
 
+### Action `stop_record`
+
+Stop a recording previously started with `record` action.
+
+| Data attribute | Optional | Description                                                                                                                                    |
+| -------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`    | no       | Name(s) of entities to create a snapshot from, e.g., `camera.living_room_camera`.                                                              |
+
+For example, the following action in an automation would stop a recording from "yourcamera".
+
+{% raw %}
+
+```yaml
+actions:
+  - variables:
+      my_camera_id: camera.yourcamera  # Store the camera entity_id in a variable for reuse
+  - action: camera.stop_record
+    target:
+      entity_id: '{{ my_camera_id }}'
+```
+
+{% endraw %}
+
 ### Action `snapshot`
 
 Take a snapshot from a camera.
