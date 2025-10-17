@@ -53,7 +53,7 @@ You may encounter a `aiodns.error.DNSError: (4, 'Domain name not found')` error.
 To resolve this:
 
 1. Navigate to **Settings → System → Network → DNS Servers** in Home Assistant
-2. Manually set fallback DNS servers to `1.1.1.1` (Cloudflare) and `8.8.8.8` (Google) (or any other that you prefer). This ensures that DNS queries bypass the non-recursive internal resolver and reach public resolvers that fully support recursion.
+2. Manually set fallback DNS servers to `1.1.1.1` (Cloudflare) and `8.8.8.8` (Google) (or any other that you prefer). This allows Home Assistant to resolve Azure domain names successfully.
 3. Restart Home Assistant to propagate the new settings.
 
 {% enddetails %}
