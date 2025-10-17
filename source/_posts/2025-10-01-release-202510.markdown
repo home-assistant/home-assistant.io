@@ -55,6 +55,7 @@ Enjoy the release!
 - [Patch releases](#patch-releases)
   - [2025.10.1 - October 3](#2025101---october-3)
   - [2025.10.2 - October 10](#2025102---october-10)
+  - [2025.10.3 - October 17](#2025103---october-17)
 - [Need help? Join the community](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
@@ -829,6 +830,125 @@ release once a week, aiming for Friday.
 [@timmo001]: https://github.com/timmo001
 [@tronikos]: https://github.com/tronikos
 [@zweckj]: https://github.com/zweckj
+
+### 2025.10.3 - October 17
+
+- Bump aioasuswrt to 1.5.1 ([@kennedyshead] - [#153209])
+- PushSafer: Handle empty data section properly ([@LennartC] - [#154109])
+- Remove redudant state write in Smart Meter Texas ([@srirams] - [#154126])
+- Fix state class for Overkiz water consumption ([@Yvan13120] - [#154164])
+- Bump frontend 20251001.4 ([@piitaya] - [#154218])
+- Bump aioamazondevices to 6.4.1 ([@chemelli74] - [#154228])
+- Move URL out of Mealie strings.json ([@andrew-codechimp] - [#154230])
+- Move URL out of Mastodon strings.json ([@andrew-codechimp] - [#154231])
+- Move URL out of Switcher strings.json ([@thecode] - [#154240])
+- Remove URL from ViCare strings.json ([@CFenner] - [#154243])
+- Fix August integration to handle unavailable OAuth implementation at startup ([@bdraco] - [#154244])
+- Fix Yale integration to handle unavailable OAuth implementation at startup ([@bdraco] - [#154245])
+- Move url like strings to placeholders for nibe ([@elupus] - [#154249])
+- Add description placeholders in Uptime Kuma config flow ([@tr4nt0r] - [#154252])
+- Add description placeholders to pyLoad config flow ([@tr4nt0r] - [#154254])
+- Fix home wiziard total increasing sensors returning 0 ([@jbouwh] - [#154264])
+- Bump pyprobeplus to 1.1.0 ([@pantherale0] - [#154265])
+- Update Snoo strings.json to include weaning_baseline ([@dschafer] - [#154268])
+- Move Electricity Maps url out of strings.json ([@jpbede] - [#154284])
+- Bump aioamazondevices to 6.4.3 ([@chemelli74] - [#154293])
+- Move URL out of Overkiz Config Flow descriptions ([@iMicknl] - [#154315])
+- AsusWRT: Pass only online clients to the device list from the API ([@Vaskivskyi] - [#154322])
+- Move Ecobee authorization URL out of strings.json ([@ogruendel] - [#154332])
+- Move URLs out of SABnzbd strings.json ([@shaiu] - [#154333])
+- Move developer url out of strings.json for coinbase setup flow ([@ogruendel] - [#154339])
+- Fix Bluetooth discovery for devices with alternating advertisement names ([@bdraco] - [#154347])
+- Bump opower to 0.15.7 ([@tronikos] - [#154351])
+- update pysqueezebox lib to 0.13.0 ([@wollew] - [#154358])
+- Move URL out of sfr_box strings.json ([@epenet] - [#154364])
+- Move translatable URLs out of strings.json for huawei lte ([@sonianuj287] - [#154368])
+- Bump aioairq to 0.4.7 ([@Sibgatulin] - [#154386])
+- Bump aiocomelit to 1.1.2 ([@chemelli74] - [#154393])
+- Use `async_schedule_reload` instead of `async_reload` for ZHA ([@puddly] - [#154397])
+- Move igloohome API access URL into constant placeholders ([@DannyS95] - [#154430])
+- Add missing`long_press` entry for trigger_type in strings.json for Hue ([@mvdwetering] - [#154437])
+- Move translatable URLs out of strings.json for isy994 ([@sonianuj287] - [#154464])
+- OpenUV: Fix update by skipping when protection window is null ([@wbyoung] - [#154487])
+- Bump aioamazondevices to 6.4.4 ([@chemelli74] - [#154538])
+- Move URL out of Nuheat strings.json ([@tstabrawa] - [#154580])
+- Bump pyvesync version to 3.1.2 ([@cdnninja] - [#154650])
+
+[#152881]: https://github.com/home-assistant/core/pull/152881
+[#153209]: https://github.com/home-assistant/core/pull/153209
+[#153582]: https://github.com/home-assistant/core/pull/153582
+[#154109]: https://github.com/home-assistant/core/pull/154109
+[#154126]: https://github.com/home-assistant/core/pull/154126
+[#154164]: https://github.com/home-assistant/core/pull/154164
+[#154181]: https://github.com/home-assistant/core/pull/154181
+[#154218]: https://github.com/home-assistant/core/pull/154218
+[#154228]: https://github.com/home-assistant/core/pull/154228
+[#154230]: https://github.com/home-assistant/core/pull/154230
+[#154231]: https://github.com/home-assistant/core/pull/154231
+[#154240]: https://github.com/home-assistant/core/pull/154240
+[#154243]: https://github.com/home-assistant/core/pull/154243
+[#154244]: https://github.com/home-assistant/core/pull/154244
+[#154245]: https://github.com/home-assistant/core/pull/154245
+[#154249]: https://github.com/home-assistant/core/pull/154249
+[#154252]: https://github.com/home-assistant/core/pull/154252
+[#154254]: https://github.com/home-assistant/core/pull/154254
+[#154264]: https://github.com/home-assistant/core/pull/154264
+[#154265]: https://github.com/home-assistant/core/pull/154265
+[#154268]: https://github.com/home-assistant/core/pull/154268
+[#154284]: https://github.com/home-assistant/core/pull/154284
+[#154293]: https://github.com/home-assistant/core/pull/154293
+[#154315]: https://github.com/home-assistant/core/pull/154315
+[#154322]: https://github.com/home-assistant/core/pull/154322
+[#154332]: https://github.com/home-assistant/core/pull/154332
+[#154333]: https://github.com/home-assistant/core/pull/154333
+[#154339]: https://github.com/home-assistant/core/pull/154339
+[#154347]: https://github.com/home-assistant/core/pull/154347
+[#154351]: https://github.com/home-assistant/core/pull/154351
+[#154358]: https://github.com/home-assistant/core/pull/154358
+[#154364]: https://github.com/home-assistant/core/pull/154364
+[#154368]: https://github.com/home-assistant/core/pull/154368
+[#154386]: https://github.com/home-assistant/core/pull/154386
+[#154393]: https://github.com/home-assistant/core/pull/154393
+[#154397]: https://github.com/home-assistant/core/pull/154397
+[#154430]: https://github.com/home-assistant/core/pull/154430
+[#154437]: https://github.com/home-assistant/core/pull/154437
+[#154464]: https://github.com/home-assistant/core/pull/154464
+[#154487]: https://github.com/home-assistant/core/pull/154487
+[#154538]: https://github.com/home-assistant/core/pull/154538
+[#154580]: https://github.com/home-assistant/core/pull/154580
+[#154650]: https://github.com/home-assistant/core/pull/154650
+[@CFenner]: https://github.com/CFenner
+[@DannyS95]: https://github.com/DannyS95
+[@LennartC]: https://github.com/LennartC
+[@Sibgatulin]: https://github.com/Sibgatulin
+[@Vaskivskyi]: https://github.com/Vaskivskyi
+[@Yvan13120]: https://github.com/Yvan13120
+[@andrew-codechimp]: https://github.com/andrew-codechimp
+[@bdraco]: https://github.com/bdraco
+[@cdnninja]: https://github.com/cdnninja
+[@chemelli74]: https://github.com/chemelli74
+[@dschafer]: https://github.com/dschafer
+[@elupus]: https://github.com/elupus
+[@epenet]: https://github.com/epenet
+[@frenck]: https://github.com/frenck
+[@iMicknl]: https://github.com/iMicknl
+[@jbouwh]: https://github.com/jbouwh
+[@jpbede]: https://github.com/jpbede
+[@kennedyshead]: https://github.com/kennedyshead
+[@mvdwetering]: https://github.com/mvdwetering
+[@ogruendel]: https://github.com/ogruendel
+[@pantherale0]: https://github.com/pantherale0
+[@piitaya]: https://github.com/piitaya
+[@puddly]: https://github.com/puddly
+[@shaiu]: https://github.com/shaiu
+[@sonianuj287]: https://github.com/sonianuj287
+[@srirams]: https://github.com/srirams
+[@thecode]: https://github.com/thecode
+[@tr4nt0r]: https://github.com/tr4nt0r
+[@tronikos]: https://github.com/tronikos
+[@tstabrawa]: https://github.com/tstabrawa
+[@wbyoung]: https://github.com/wbyoung
+[@wollew]: https://github.com/wollew
 
 ## Need help? Join the community
 
