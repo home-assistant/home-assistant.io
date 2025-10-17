@@ -1,11 +1,11 @@
 ---
 title: TFA.me
 description: Instructions on how to integrate the TFA.me integration into Home Assistant.
-ha_release: "2025.10"
+ha_release: "2025.XX"
 ha_iot_class: Local Poll
 ha_codeowners:
   - '@DrMatthiasBlaschke'
-ha_domain: a_tfa_me_1
+ha_domain: tfa_me
 ha_integration_type: hub
 ha_category:
   - Sensor
@@ -34,41 +34,38 @@ In addition, each **TFA.me station** also has the ability to hold the most recen
 
 ## Supported TFA.me devices
 
-Currently (summer 2025), the following [TFA.me stations and sensors ](https://www.tfa-dostmann.de/en/produkte/wetterstationen/wetterstationen-wlan/tfa-me/) are supported. This product range is continuously being expanded. 
+Currently (autumn 2025), the following [TFA.me stations and sensors ](https://www.tfa-dostmann.de/en/produkte/wetterstationen/wetterstationen-wlan/tfa-me/) are supported. This product range is continuously being expanded. 
 
 {% details "Stations and sensors list ..." %}
 
 
-[TFA.me](https://www.tfa-dostmann.de/en/produkte/wetterstationen/wetterstationen-wlan/tfa-me/) Stations 
+[TFA.me](https://www.tfa-dostmann.de/en/produkte/wetterstationen/wetterstationen-wlan/tfa-me/) Station overview 
 
-All stations deliver cyclic the following internal measurement values. 
+All stations cyclically deliver the following internal measured values ​​every 5 minutes: 
 
-| ID | Value 1 | Value 2 | Value 3 | TX(*) | Events |
-| ---|---------|---------|---------|-------------|--------|
-| [01](https://www.tfa-dostmann.de/en/produkt/wlan-gateway-tfa-me-id-01-35-8103)| Temperature | Humidity | - | 5 | No |
-| [02](https://www.tfa-dostmann.de/en/product/wifi-wireless-weather-station-tfa-me-id-02-35-8100) | Temperature | Humidity | - | 5 | No |[02]
-| [03](https://www.tfa-dostmann.de/en/produkt/wlan-funk-wetterstation-tfa-me-id-03-35-8101/) | Temperature | Humidity | - | 5 | No |
-| [04](https://www.tfa-dostmann.de/en/produkt/wlan-funk-wetterstation-tfa-me-id-04-35-8102/) | Temperature | Humidity | - | 5 | No |
-| [05](https://www.tfa-dostmann.de/en/product/wifi-wireless-weather-station-tfa-me-id-05-35-8106/) | Temperature | Humidity | Barometric<BR>Pressure | 5 | No |
-| [06](https://www.tfa-dostmann.de/en/product/wifi-wireless-weather-station-tfa-me-id-06-35-8108/) | Temperature | Humidity | - | 5 | No |
-| [07](https://www.tfa-dostmann.de/en/product/wifi-wireless-weather-station-tfa-me-id-07-35-8107/) | Temperature | Humidity | - | 5 | No |
-| [08](https://www.tfa-dostmann.de/en/product/wifi-wireless-weather-station-tfa-me-id-08-35-8105/) | Temperature | Humidity | - | 5 | No |
+- [ID 01](https://www.tfa-dostmann.de/en/produkt/wlan-gateway-tfa-me-id-01-35-8103) (Temperature, Humidity) 
+- [ID 02](https://www.tfa-dostmann.de/en/product/wifi-wireless-weather-station-tfa-me-id-02-35-8100) (Temperature, Humidity) 
+- [ID 03](https://www.tfa-dostmann.de/en/produkt/wlan-funk-wetterstation-tfa-me-id-03-35-8101/) (Temperature, Humidity) 
+- [ID 04](https://www.tfa-dostmann.de/en/produkt/wlan-funk-wetterstation-tfa-me-id-04-35-8102/) (Temperature, Humidity) 
+- [ID 05](https://www.tfa-dostmann.de/en/product/wifi-wireless-weather-station-tfa-me-id-05-35-8106/) (Temperature, Humidity, Barometric pressure)
+- [ID 06](https://www.tfa-dostmann.de/en/product/wifi-wireless-weather-station-tfa-me-id-06-35-8108/) (Temperature, Humidity) 
+- [ID 07](https://www.tfa-dostmann.de/en/product/wifi-wireless-weather-station-tfa-me-id-07-35-8107/) (Temperature, Humidity) 
+- [ID 08](https://www.tfa-dostmann.de/en/product/wifi-wireless-weather-station-tfa-me-id-08-35-8105/) (Temperature, Humidity) 
 
 
-[TFA.me](https://www.tfa-dostmann.de/en/produkte/wetterstationen/wetterstationen-wlan/tfa-me/) Sensors
+[TFA.me](https://www.tfa-dostmann.de/en/produkte/wetterstationen/wetterstationen-wlan/tfa-me/) Sensor overview
 
 All 868 MHz sensors transmit cyclic the following measurement values in a data set: 
 
-| ID | Value 1 | Value 2 | Value 3 | TX(*) | Events |
-|----|---------|---------|---------|--------------|--------|
-| [A0](https://www.tfa-dostmann.de/en/product/temperature-humidity-transmitter-id-a0-30-3900/) | Temperature | Humidity | - | 5 | No |
-| [A1](https://www.tfa-dostmann.de/en/product/rain-transmitter-tfa-me-id-a1-30-3903/) | Rain | - | - | 120 | Rain |
-| [A2](https://www.tfa-dostmann.de/en/product/wind-meter-tfa-me-id-a2-30-3904/)| Wind direction | Wind speed | Wind gust | 5 | No |
-| [A3](https://www.tfa-dostmann.de/en/product/2-fold-temperature-transmitter-with-waterproof-cable-sensor-id-a3-30-3902/) | Temperature | Temperature probe | - | 5 | No |
-| [A4](https://www.tfa-dostmann.de/en/product/professional-temperature-humidity-transmitter-with-waterproof-cable-sensor-id-a4-30-3905/)| Temperature | Humidity | Temperature<BR> probe | 1 | No |
-| [A5](https://www.tfa-dostmann.de/en/product/temperature-transmitter-id-a5-30-3901/) | Temperature | - | - | 5 | No |
-| [A5](https://www.tfa-dostmann.de/en/product/pool-transmitter-tfa-me-id-a5-pool-30-3907/) | Temperature (Pool) | - | - | 5 | No |
-| [A6](https://www.tfa-dostmann.de/en/product/professional-temperature-humidity-transmitter-id-a6-30-3906/)| Temperature | Humidity | - | 1 | No |
+
+- [ID A0](https://www.tfa-dostmann.de/en/product/temperature-humidity-transmitter-id-a0-30-3900/) (Temperature, Humidity (TX=5))
+- [ID A1](https://www.tfa-dostmann.de/en/product/rain-transmitter-tfa-me-id-a1-30-3903/) (Rain, (TX=120))
+- [ID A2](https://www.tfa-dostmann.de/en/product/wind-meter-tfa-me-id-a2-30-3904/) (Wind direction, Wind speed, Wind gust (TX=5)
+- [ID A3](https://www.tfa-dostmann.de/en/product/2-fold-temperature-transmitter-with-waterproof-cable-sensor-id-a3-30-3902/) (Temperature, Temperature probe (TX=5)
+- [ID A4](https://www.tfa-dostmann.de/en/product/professional-temperature-humidity-transmitter-with-waterproof-cable-sensor-id-a4-30-3905/) (Temperature, Humidity, Temperature probe (TX=1))
+- [ID A5](https://www.tfa-dostmann.de/en/product/temperature-transmitter-id-a5-30-3901/) (Temperature (TX=5)
+- [ID A5](https://www.tfa-dostmann.de/en/product/pool-transmitter-tfa-me-id-a5-pool-30-3907/) (Temperature (Pool) (TX=5)
+- [ID A6](https://www.tfa-dostmann.de/en/product/professional-temperature-humidity-transmitter-id-a6-30-3906/) (Temperature, Humidity (TX=1)
 
 
 (*) TX: Transmission interval in minutes
@@ -122,7 +119,7 @@ Change station settings to activate Home Assistant:
 
 **Network settings:**
 <p class='img'>
-  <img src='/images/integrations/a_tfa_me_1/tfa_me_local_api_activation.png' width=50% height=50% />
+  <img src='/images/integrations/tfa_me/tfa_me_local_api_activation.png' width=50% height=50% />
 </p>
 
 3. Optional: Use link **"HA menu"** to enter main menu <br>
@@ -133,7 +130,7 @@ Your station is now prepared for Home Assistant. It generates a table with all s
 The list of sensor measured values ​​can also be found under the menu item **Sensors table**:
 
 <p class='img'>
-  <img src='/images/integrations/a_tfa_me_1/tfa_me_sensor_table.png' width=100% height=100% />
+  <img src='/images/integrations/tfa_me/tfa_me_sensor_table.png' width=100% height=100% />
 </p>
 
 
