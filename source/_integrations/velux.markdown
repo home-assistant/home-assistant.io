@@ -45,8 +45,12 @@ Rain sensors of supported windows do not report automatically and must be polled
 
 During configuration, you will be asked for a hostname and password:
 
-- Hostname: enter the IP address or hostname of the KLF 200 gateway.
-- Password: enter the password of the gateway's wireless access point (printed on the underside - **not** the web login password).
+{% configuration_basic %}
+Hostname:
+    description: "the IP address or hostname of the KLF 200 gateway. You can find it in your router."
+Local access token:
+    description: "The password of the gateway's wireless access point. You can find it printed on the underside of the device. It is not the web login password."
+{% endconfiguration_basic %}
 
 Remember: You must complete the configuration within 5 minutes of rebooting the KLF 200 gateway. If you can't complete in time and setup fails, power cycle the device and try again. 
 
