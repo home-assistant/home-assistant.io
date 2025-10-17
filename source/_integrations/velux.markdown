@@ -37,12 +37,12 @@ Rain sensors of supported windows do not report automatically and must be polled
 
 ## Prerequisites
 
-1. Make sure you have the password for your gateway's wireless access point. 
+1. Make sure you have the password for your gateway's wireless access point.
     - You'll find it printed on the underside of your KLF 200 device.
     - It is not the web login password.
-2. Reboot or power cycle the KLF 200 device. 
-    - You must complete the configuration within 5 minutes of rebooting the device while its Wi-Fi access point is still visible. 
-3. During configuration, keep your Home Assistant connected to your regular network. 
+2. Reboot or power cycle the KLF 200 device.
+    - You must complete the configuration within 5 minutes of rebooting the device while its Wi-Fi access point is still visible.
+3. During configuration, keep your Home Assistant connected to your regular network.
     - Don't connect to the device's wireless access point.
 
 {% include integrations/config_flow.md %}
@@ -56,7 +56,7 @@ Local access token:
     description: "The password of the gateway's wireless access point. You can find it printed on the underside of the device. It is not the web login password."
 {% endconfiguration_basic %}
 
-Remember: You must complete the configuration within 5 minutes of rebooting the KLF 200 gateway. If you can't complete in time and setup fails, power cycle the device and try again. 
+Remember: You must complete the configuration within 5 minutes of rebooting the KLF 200 gateway. If you can't complete in time and setup fails, power cycle the device and try again.
 
 ## Actions
 
@@ -71,6 +71,7 @@ In Home Assistant versions up to 2024.12.x, it was recommended to create an auto
 This integration follows standard integration removal. No extra steps are required.
 
 {% include integrations/remove_device_service.md %}
+
 ## Velux Active (KIX 300)
 
 The Velux Active (KIX 300) set is not supported by this {% term integration %}. To integrate Velux Active (KIX 300) with Home Assistant, you can use the [HomeKit Controller](/integrations/homekit_controller) {% term integration %} and get full control over your windows, curtains, covers, the air quality sensor KLA 300, etc.
