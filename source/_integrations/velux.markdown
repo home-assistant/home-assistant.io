@@ -67,6 +67,7 @@ In Home Assistant versions up to 2024.12.x, it was recommended to create an auto
 
 This integration follows standard integration removal. No extra steps are required.
 
+{% include integrations/remove_device_service.md %}
 ## Velux Active (KIX 300)
 
 The Velux Active (KIX 300) set is not supported by this {% term integration %}. To integrate Velux Active (KIX 300) with Home Assistant, you can use the [HomeKit Controller](/integrations/homekit_controller) {% term integration %} and get full control over your windows, curtains, covers, the air quality sensor KLA 300, etc.
