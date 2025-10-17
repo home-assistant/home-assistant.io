@@ -62,7 +62,7 @@ The **OpenRGB** integration {% term polling polls %} data from the OpenRGB SDK s
 If you need to update your OpenRGB SDK server connection details, you can reconfigure the integration:
 
 1. Go to **{% my integrations title="Settings > Devices & Services" %}**.
-2. Select **OpenRGB**. Click the three dots {% icon "mdi:dots-vertical" %} menu and then select **Reconfigure**.
+2. Select **OpenRGB**. Select the three dots {% icon "mdi:dots-vertical" %} menu and then select **Reconfigure**.
 3. Update the hostname/IP address and port number as needed.
 4. Select **Submit**.
 
