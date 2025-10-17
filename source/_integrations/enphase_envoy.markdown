@@ -11,7 +11,6 @@ ha_config_flow: true
 ha_codeowners:
   - '@bdraco'
   - '@cgarwood'
-  - '@joostlek'
   - '@catsmanac'
 ha_platforms:
   - binary_sensor
@@ -418,11 +417,16 @@ The IQ Meter Collar has the net-consumption CT integrated. The CT data is report
 
 #### Collar status entities
 
-- **Collar <abbr title="Collar serial number">SN</abbr> Grid state**: Grid connection status, on_grid / off_grid / synchronizing / manual override active.
-- **Collar <abbr title="Collar serial number">SN</abbr> MID State**: Status of enphase Microgrid Interconnection Device, open / close.
+- **Collar <abbr title="Collar serial number">SN</abbr> Admin state**: Collar admin status, on grid / off grid.
+- **Collar <abbr title="Collar serial number">SN</abbr> Grid state**: Grid connection status, on grid / off grid / synchronizing to grid / manual override active.
+- **Collar <abbr title="Collar serial number">SN</abbr> MID State**: Status of enphase Microgrid Interconnection Device, open / closed.
 - **Collar <abbr title="Collar serial number">SN</abbr> Temperature**: Current temperature in degrees C or F, based on your localization.
 - **Collar <abbr title="Collar serial number">SN</abbr> Last reported**: Time when Envoy received last update from the collar device.
 - **Collar <abbr title="Collar serial number">SN</abbr> Communicating**: Communication status of the collar, Connected / Disconnected. This is a diagnostics entity.
+
+{% note %}
+Practical use learned that "Grid state" does not seem to reflect actual grid state changes. Off/On grid state rather seems to be reflected in Admin state values on grid / off grid. Be aware when using these entities. With time, more accurate details for these Collar entities may become available.
+{% endnote %}
 
 ### C6 Combiner Controller data
 
@@ -551,7 +555,7 @@ Battery power is the current power flow in or out of an individual battery. Usin
 
 {% details "Concept to split Battery power value into individual import-export power values" %}
 
-The concept is to first sum all battery Power values using a combine state helper. Then track value changes of the summed value entity, add positive changes to a battery_charge power entity and add negative changes to a battery_discharge power entity.
+The concept is to first sum all battery Power values using a combine state helper. Then track value changes of the summed value entity, add positive values to a battery_charge power entity and add negative values to a battery_discharge power entity.
 
 {% raw %}
 
@@ -565,20 +569,51 @@ The concept is to first sum all battery Power values using a combine state helpe
     - name: "Battery charge power"
       unique_id: calculated_envoy_battery_charge_power
       unit_of_measurement: "W" 
-      state: "{{ this.state | int(0) + ([0, (trigger.to_state.state | int(0) - trigger.from_state.state | int(0))] | max) }}" 
+      state: "{{ [0, trigger.to_state.state  | int ] | max }}" 
       device_class: power 
       state_class: measurement
     - name: "Battery discharge power"
       unique_id: calculated_envoy_battery_discharge_power
       unit_of_measurement: "W" 
-      state: "{{ this.state | int(0) - ([0, (trigger.to_state.state | int(0) - trigger.from_state.state | int(0))] | min) }}" 
+      state: "{{ [0, 0 - trigger.to_state.state | int ] | max) }}" 
       device_class: power 
       state_class: measurement
 ```
 
 {% endraw %}
 
-The above example does not address handling `unavailable` or `unknown` states, value changes over Home Assistant outages nor conversion losses.
+Use both calculated values as a source for the 2 left Riemann integrators to obtain the energy charged and discharged. The above example does not address handling `unavailable` or `unknown` states, value changes over Home Assistant outages, nor conversion losses.
+
+If desired, this can also be done for individual batteries, see below concept.
+
+{% raw %}
+
+```yaml
+
+template:
+  - sensor:
+      - name: Battery xxx charge power
+        unique_id: calculated_envoy_battery_xxx_charge_power
+        state_class: measurement
+        icon: mdi:battery-charging
+        unit_of_measurement: W
+        device_class: power
+        state: >
+          {{ [0, states('sensor.encharge_xxxx_power') | int ] | max }}
+
+      - name: Battery xxx discharge power
+        unique_id: calculated_envoy_battery_xxx_discharge_power
+        state_class: measurement
+        icon: mdi:battery-charging
+        unit_of_measurement: W
+        device_class: power
+        state: >
+          {{ [0, 0 - states('sensor.encharge_xxxx_power') | int ] | max }}
+```
+
+Use both calculated values as a source for 2 left Riemann integrators to obtain energy charged and discharged.
+
+{% endraw %}
 
 {% enddetails %}
 

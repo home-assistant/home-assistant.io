@@ -16,8 +16,8 @@ related:
 ha_integration_type: device
 ha_quality_scale: bronze
 ha_platforms:
-  - sensor
   - select
+  - sensor
 ha_ssdp: true
 ---
 

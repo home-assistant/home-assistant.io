@@ -206,7 +206,7 @@ To see the list of SwitchBot Matter-certified devices, visit the [SwitchBot Matt
 - `Retry count`: How many times to retry sending commands to your SwitchBot devices.
 
 #### Attributes
-- `last_run_success`: Returns `true` if the last action sent to the SwitchBot succeeded. This attribute is useful for error trapping when Bluetooth connectivity is intermittent. If `false`, see home-assistant.log for specific error messages.
+- `last_run_success`: Returns `true` if the last action sent to the SwitchBot succeeded. This attribute is useful for error trapping when Bluetooth connectivity is intermittent. If `false`, see [the Home Assistant logs](/integrations/logger/#viewing-logs) for specific error messages.
 
 ### Plugs and switches
 

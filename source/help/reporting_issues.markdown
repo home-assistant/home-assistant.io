@@ -73,7 +73,7 @@ In some cases, it is also necessary to [enable debug logging](/docs/configuratio
 Enabling this will instruct Home Assistant to log a lot of fine-grained information about the integration. This is helpful for debugging and fixing the issue.
 In contrast to the diagnostics information, debug logs are not automatically redacted. Make sure to include only the parts you think are relevant to the issue.
 
-Look at the `home-assistant.log` file in the [configuration folder](/docs/configuration/) and see if there are any errors related to your integration.
+[Download the logs](/integrations/logger/#viewing-logs) and see if there are any errors related to your integration.
 
 ### Additional information
 
