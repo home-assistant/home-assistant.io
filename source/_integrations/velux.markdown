@@ -37,7 +37,9 @@ Rain sensors of supported windows do not report automatically and must be polled
 
 ## Prerequisites
 
-1. Make sure you have the password for your gateway's wireless access point. You'll find it printed on the underside of your KLF 200 device -- *not* the web login password.
+1. Make sure you have the password for your gateway's wireless access point. 
+    - You'll find it printed on the underside of your KLF 200 device.
+    - It is not the web login password.
 2. Reboot or power cycle the KLF 200 device. You must complete the configuration within 5 minutes of rebooting the device while its Wi-Fi access point is still visible. 
 3. During configuration, keep your Home Assistant connected to your regular network. 
     - Don't connect to the device's wireless access point.
