@@ -15,6 +15,7 @@ ha_category:
   - Organization
   - Sensor
   - Switch
+  - Valve
 ha_release: pre 0.7
 ha_iot_class: Calculated
 ha_quality_scale: internal
@@ -46,16 +47,17 @@ The following entities can be grouped:
 - [binary sensor (binary sensors)](/integrations/binary_sensor/)
 - [button (buttons)](/integrations/button/)
 - [cover (covers)](/integrations/cover/)
-- [fan (fans)](/integrations/fan/)
-- [switch (switches)](/integrations/switch/)
-- [lock (locks)](/integrations/lock/)
-- [light (lights)](/integrations/light/)
 - [event (events)](/integrations/event/)
+- [fan (fans)](/integrations/fan/)
+- [input_number (input_numbers)](/integrations/input_number/)
+- [light (lights)](/integrations/light/)
+- [lock (locks)](/integrations/lock/)
 - [media player (media players)](/integrations/media_player/)
 - [notify (notifications)](/integrations/notify/)
-- [sensor (sensors)](/integrations/sensor/)
 - [number (numbers)](/integrations/number/)
-- [input_number (input_numbers)](/integrations/input_number/)
+- [sensor (sensors)](/integrations/sensor/)
+- [switch (switches)](/integrations/switch/)
+- [valve (valves)](/integrations/valve/)
 
 {% include integrations/config_flow.md %}
 
@@ -89,7 +91,7 @@ The group state is the last time the grouped button was pressed.
 - The group state is `unavailable` if all group members are `unavailable`.
 - Otherwise, the group state is the last time the grouped button was pressed.
 
-### Cover groups
+### Cover, Valve groups
 In short, when any group member entity is `open`, the group will also be `open`. A complete overview of how cover groups behave:
 
 - The group state is `unavailable` if all group members are `unavailable`.
@@ -303,6 +305,18 @@ switch:
     entities:
       - switch.tv
       - switch.soundbar
+```
+
+Example YAML configuration of a valve group:
+
+```yaml
+# Example configuration.yaml entry
+valve:
+  - platform: group
+    name: "Garden Valves"
+    entities:
+      - valve.front_garden
+      - valve.back_garden
 ```
 
 {% configuration %}
