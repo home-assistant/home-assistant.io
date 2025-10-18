@@ -34,14 +34,18 @@ Name:
   description: The button name that is displayed on the card. If this field is left blank and the card interacts with an entity, the button name defaults to the entity name. Otherwise, no name is displayed.
 Icon:
   description: The icon that is displayed on the card. If this field is left blank and the card interacts with an entity, the icon defaults to the entity domain icon. Otherwise, no icon is displayed.
-Show Name:
-  description: A toggle to show or hide the button name.
-Show Icon:
-  description: A toggle to show or hide the icon.
 Icon Height:
   description: The height of the icon, in pixels.
+Color:
+  description: The color of the icon.
 Theme:
   description: Name of any loaded theme to be used for this card. For more information about themes, see the [frontend documentation](/integrations/frontend/).
+Show Name:
+  description: A toggle to show or hide the button name.
+Show State:
+  description: A toggle to show or hide the state of the entity.
+Show Icon:
+  description: A toggle to show or hide the icon.
 Tap Action:
   description: The action taken on card tap. For more information, see the [action documentation](/dashboards/actions/#tap-action).
 Hold Action:
@@ -91,11 +95,11 @@ icon_height:
   description: The height of the icon. Any CSS value may be used.
   type: string
   default: auto
-state_color:
+color:
   required: false
-  description: If false, the icon does not change color when the entity is active.
-  type: boolean
-  default: true
+  description: Set the color for the icon. By default, the color is based on `state`, `domain`, and `device_class` of your entity. It accepts [color token](/dashboards/button/#available-colors) or hex color code.
+  type: string
+  default: state
 tap_action:
   required: false
   description: The action taken on card tap. For more information, see the [action documentation](/dashboards/actions/#tap-action).
@@ -203,3 +207,7 @@ cards:
         show_name: true
         show_icon: true
 ```
+
+## Available colors
+
+The following colors are available to colorize the button card: `primary`, `accent`, `disabled`, `red`, `pink`, `purple`, `deep-purple`, `indigo`, `blue`, `light-blue`, `cyan`, `teal`, `green`, `light-green`, `lime`, `yellow`, `amber`, `orange`, `deep-orange`, `brown`, `grey`, `blue-grey`, `black`, `white`, or any hex color code (for example, `#93c47d`).

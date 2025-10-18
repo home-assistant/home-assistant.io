@@ -23,6 +23,17 @@ The integration monitors every supported part.
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+Host:
+    description: "The hostname or IP address of the Brother printer to control."
+Port:
+    description: "The SNMP port of the Brother printer."
+SNMP Community:
+    description: "A simple password for devices to communicate to each other."
+Type of the printer:
+    description: "Brother printer type: ink or laser."
+{% endconfiguration_basic %}
+
 {% note %}
 Some very old Brother printers use different data format and these models are not supported. The integration will show information about that during configuration.
 {% endnote %}

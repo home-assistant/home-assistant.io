@@ -61,6 +61,11 @@ name:
   description: Overwrites the friendly name.
   type: string
   default: Entity name
+show_current:
+  required: false
+  description: Show the current weather conditions above the forecast.
+  type: boolean
+  default: true
 show_forecast:
   required: false
   description: Show next hours/days forecast.
@@ -70,7 +75,6 @@ forecast_type:
   required: true
   description: Type of forecast to display, one of `daily`, `hourly` or `twice_daily`.
   type: string
-  default: Automatically selects in order of `daily`, `hourly` and `twice_daily`.
 secondary_info_attribute:
   required: false
   description: Which attribute to display under the temperature.

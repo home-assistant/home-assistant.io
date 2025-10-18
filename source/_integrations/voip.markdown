@@ -6,8 +6,8 @@ ha_category:
 ha_iot_class: Local Push
 ha_release: '2023.5'
 ha_codeowners:
-  - '@balloob'
   - '@synesthesiam'
+  - '@jaminh'
 ha_domain: voip
 ha_integration_type: integration
 ha_quality_scale: internal
