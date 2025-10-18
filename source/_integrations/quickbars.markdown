@@ -35,7 +35,7 @@ You can also use Home Assistant automations to display a rich notification on yo
 2. Ensure your Android TV device and Home Assistant are on the **same LAN**.
 3. Open the QuickBars app on your TV. Keep it open and visible on the screen for the initial pairing process.
 4. You will be asked to enter a code shown on the TV.
-5. If the app has not been configured yet, you may be prompted to provide your Home Assistant URL and a long-lived access token. This can also be done via the integration's configuration flow.
+5. If the app has not been configured yet on the TV, you will be prompted to provide your Home Assistant URL and a long-lived access token.
 
 {% include integrations/config_flow.md %}
 
