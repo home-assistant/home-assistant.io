@@ -801,7 +801,7 @@ void receive(const MyMessage &message)
       last_state = LIGHT_ON;
       last_dim = dim_value;
 
-      //Update controller with dimmer value
+      // Update controller with dimmer value
       send_dimmer_message();
     }
 
