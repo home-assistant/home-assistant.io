@@ -12,7 +12,7 @@ ha_integration_type: system
 
 The `person` integration allows connecting [device tracker](/integrations/device_tracker/) entities to one or more person entities. The state updates of a connected device tracker will set the state of the person. When multiple device trackers are used, the state of person will be determined in this order:
 
-1. If there are stationary trackers (non-GPS trackers, e.g., a router or Bluetooth device tracker) presenting the state `home`, the tracker most recently updated will be used.
+1. If there are stationary trackers (non-GPS trackers, e.g., a router or Bluetooth device tracker or Wi-Fi-based tracker in a known zone) presenting the state `home` or another recognized `zone`, the tracker most recently updated will be used.
 2. If there are trackers of type `gps`, then the most recently updated tracker will be used.
 3. Otherwise, the latest tracker with state `not_home` will be used.
 
@@ -22,11 +22,11 @@ Let's say, for example, that you have three trackers: `tracker_gps`, `tracker_ro
 2. You just left home. `tracker_gps` shows state `not_home`, but the other two trackers show state `home` (they may not have yet updated due to their `consider_home` setting see [device_tracker](/integrations/device_tracker/#configuring-a-device_tracker-platform)). Since the stationary trackers have priority, you are considered `home`.
 3. After some time, both stationary trackers show state `not_home`. Now your Person entity has state `not_home` with source `tracker_gps`.
 4. While you are away from home, your Home Assistant instance is restarted. Until the `tracker_gps` receives an update, your status will be determined by the stationary trackers, since they will have the most recent update after a restart. Obviously, the state will be `not_home`.
-5. Then you're going into a zone you have defined as `zone1`, `tracker_gps` sends an update, and now your state is `zone1` with source `tracker_gps`.
+5. Then you're going into a zone you have defined as `zone1`, if there `tracker_gps` sends an update, and now your state is `zone1` with source `tracker_gps`. However, if that zone (for example, your work or school) has a known Wi-Fi network and a Wi-Fi-based tracker reports the location, it will take priority over the GPS tracker and remain the active source. 
 6. You've returned home and your mobile device has connected to the router, but `tracker_gps` hasn't updated yet. Your state will be `home` with source `tracker_router`.
 7. After the `tracker_gps` update occurs, your state will still be `home` with source `tracker_router` or `tracker_ble`, whichever has the most recent update.
 
-In short, when you're at home, your position is determined first by stationary trackers (if any) and then by GPS. When you're outside your home, your position is determined firstly by GPS and then by stationary trackers.
+In short, when you're at home or in a known zone, your position is determined first by stationary trackers (if any), and then by GPS. When you're outside these locations, your position is determined first by GPS, and then by stationary trackers.
 
 **Hint**: When you use multiple device trackers together, especially stationary and GPS trackers, it's advisable to set `consider_home` for stationary trackers as low as possible see [device_tracker](/integrations/device_tracker/#configuring-a-device_tracker-platform)).
 
