@@ -7,8 +7,6 @@ ha_category:
   - Presence detection
 ha_iot_class: Local Push
 ha_config_flow: true
-ha_codeowners:
-  - '@ludeeus'
 ha_domain: traccar_server
 ha_platforms:
   - binary_sensor

@@ -17,10 +17,10 @@ The device tracker allows you to track devices in Home Assistant. This can happe
 
 ## Configuring a `device_tracker` platform
 
-To get started add the following lines to your {% term "`configuration.yaml`" %} (example for Netgear):
+To get started add the following lines to your {% term "`configuration.yaml`" %} (example for NETGEAR):
 
 ```yaml
-# Example configuration.yaml entry for Netgear device
+# Example configuration.yaml entry for NETGEAR device
 device_tracker:
   - platform: netgear
     host: IP_ADDRESS
@@ -50,7 +50,7 @@ Note that setting `track_new_devices: false` will still result in new devices be
 In the {% term "`configuration.yaml`" %}, the extended example from above would look like the following sample:
 
 ```yaml
-# Example configuration.yaml entry for Netgear device
+# Example configuration.yaml entry for NETGEAR device
 device_tracker:
   - platform: netgear
     host: IP_ADDRESS

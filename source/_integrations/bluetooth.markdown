@@ -55,10 +55,8 @@ For Bluetooth to function on Linux systems:
 
 - Home Assistant Operating System: Upgrade to Home Assistant OS version 9.0 or later.
 - Home Assistant Container: The host system must run BlueZ, and the D-Bus socket must be accessible to Home Assistant **inside** the container.
-- Home Assistant Supervised: The host system must run BlueZ, and the D-Bus socket must be accessible to Home Assistant **inside** the container.
-- Home Assistant Core: The system must run BlueZ, and the D-Bus socket must be accessible to Home Assistant.
 
-### Additional details for Container, Core, and Supervised installs
+### Additional details for Container
 
 {% details "Making the DBus socket available in the Docker container" %}
 
@@ -173,7 +171,7 @@ The following requirements must be met for an adapter to be labeled as High Perf
 - Establish a connection in about 1s or less
 - Process at least one advertisement per second from a device without dropping data
 - 95% of connection attempts are successful within two tries
-- Meets the above requirements with Home Assistant Core 2022.11.1 or later and Home Assistant Operating System 9.3 or later
+- Meets the above requirements with Home Assistant 2022.11.1 or later and Home Assistant Operating System 9.3 or later
 - Must be able to hold five (5) connections at the same time
 
 Performance testing used the following hardware:
@@ -375,3 +373,52 @@ For example, unshielded USB 3 port and their cables are especially infamously kn
     - While Bluetooth is designed to coexist with Wi-Fi, its stronger signal can interfere.
       - To play it safe, try to place your Bluetooth adapter away from Wi-Fi access points.
     - Place Bluetooth adapters far away from electrical/power wires/cables, power supplies, and household appliances.
+
+## Discovered integrations
+
+The following integrations are automatically discovered by the Bluetooth integration:
+
+ - [Acaia](/integrations/acaia/)
+ - [Airthings BLE](/integrations/airthings_ble/)
+ - [Aranet](/integrations/aranet/)
+ - [BlueMaestro](/integrations/bluemaestro/)
+ - [BTHome](/integrations/bthome/)
+ - [Dormakaba dKey](/integrations/dormakaba_dkey/)
+ - [eQ-3 Bluetooth Smart Thermostats](/integrations/eq3btsmart/)
+ - [EufyLife](/integrations/eufylife_ble/)
+ - [Fjäråskupan](/integrations/fjaraskupan/)
+ - [Gardena Bluetooth](/integrations/gardena_bluetooth/)
+ - [Govee Bluetooth](/integrations/govee_ble/)
+ - [HomeKit Device](/integrations/homekit_controller/)
+ - [Husqvarna Automower BLE](/integrations/husqvarna_automower_ble/)
+ - [iBeacon Tracker](/integrations/ibeacon/)
+ - [IKEA Idasen Desk](/integrations/idasen_desk/)
+ - [Improv via BLE](/integrations/improv_ble/)
+ - [INKBIRD](/integrations/inkbird/)
+ - [IronOS](/integrations/iron_os/)
+ - [Kegtron](/integrations/kegtron/)
+ - [Keymitt MicroBot Push](/integrations/keymitt_ble/)
+ - [Kuler Sky](/integrations/kulersky/)
+ - [La Marzocco](/integrations/lamarzocco/)
+ - [LD2410 BLE](/integrations/ld2410_ble/)
+ - [LED BLE](/integrations/led_ble/)
+ - [Medcom Bluetooth](/integrations/medcom_ble/)
+ - [Melnor Bluetooth](/integrations/melnor/)
+ - [Moat](/integrations/moat/)
+ - [Mopeka](/integrations/mopeka/)
+ - [Motionblinds Bluetooth](/integrations/motionblinds_ble/)
+ - [Oral-B](/integrations/oralb/)
+ - [Probe Plus](/integrations/probe_plus/)
+ - [Qingping](/integrations/qingping/)
+ - [RAPT Bluetooth](/integrations/rapt_ble/)
+ - [RuuviTag BLE](/integrations/ruuvitag_ble/)
+ - [Sensirion BLE](/integrations/sensirion_ble/)
+ - [SensorPro](/integrations/sensorpro/)
+ - [SensorPush](/integrations/sensorpush/)
+ - [Snooz](/integrations/snooz/)
+ - [SwitchBot Bluetooth](/integrations/switchbot/)
+ - [ThermoBeacon](/integrations/thermobeacon/)
+ - [ThermoPro](/integrations/thermopro/)
+ - [Tilt Hydrometer BLE](/integrations/tilt_ble/)
+ - [Xiaomi BLE](/integrations/xiaomi_ble/)
+ - [Yale Access Bluetooth](/integrations/yalexs_ble/)
