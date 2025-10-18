@@ -48,7 +48,7 @@ There is support for the following platform types within Home Assistant:
 {% important %}
 Both the TR-064 (_Permit access for apps_) and UPnP (_Transmit status information over UPnP_) protocol needs to be enabled in the FRITZ!Box under **Home Network** > **Network** > **Network settings** > **Access Settings in the Home Network** for Home Assistant to login and read device info.
 
-To use the [ring](#action-ring) action, the click to dial service of the FRITZ!Box must also be enabled under **Telephony** > **Calls** > **Click to Dial**.
+To use the [dial](#action-ring) action, the click to dial service of the FRITZ!Box must also be enabled under **Telephony** > **Calls** > **Click to Dial**.
 {% endimportant %}
 
 ### Username
@@ -96,7 +96,7 @@ This integration fetches the data every 30 seconds from the FRITZ!Box router.
 Available {% term actions %}:
 
 - `set_guest_wifi_password`
-- `ring`
+- `dial`
 
 ### Action `set_guest_wifi_password`
 
@@ -108,7 +108,7 @@ Set a new password for the guest wifi. The password Length must be between 8 and
 | `password` | no | New password for the guest wifi (_will be auto-generated if not defined_) |
 | `length` | no | Length of the auto-generated password. (_default 12_) |
 
-### Action `ring`
+### Action `dial`
 
 Makes the FRITZ!Box dial a phone number.
 
