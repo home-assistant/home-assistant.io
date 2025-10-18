@@ -118,6 +118,7 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 - [Curtain 3 (WoCtn3)](https://switch-bot.com/pages/switchbot-curtain-3)
 - [Blind Tilt (WoBlindTilt)](https://switch-bot.com/pages/switchbot-blind-tilt)
 - [Roller Shade](https://www.switch-bot.com/products/switchbot-roller-shade)
+- [Garage Door Opener](https://www.switch-bot.com/products/switchbot-garage-door-opener)
 
 ### Lights
 
@@ -205,7 +206,7 @@ To see the list of SwitchBot Matter-certified devices, visit the [SwitchBot Matt
 - `Retry count`: How many times to retry sending commands to your SwitchBot devices.
 
 #### Attributes
-- `last_run_success`: Returns `true` if the last action sent to the SwitchBot succeeded. This attribute is useful for error trapping when Bluetooth connectivity is intermittent. If `false`, see home-assistant.log for specific error messages.
+- `last_run_success`: Returns `true` if the last action sent to the SwitchBot succeeded. This attribute is useful for error trapping when Bluetooth connectivity is intermittent. If `false`, see [the Home Assistant logs](/integrations/logger/#viewing-logs) for specific error messages.
 
 ### Plugs and switches
 
@@ -277,7 +278,7 @@ Features:
 
 ### Cover
 
-Cover entities are added for Curtain, Curtain 3, Blind Tilt, and Roller Shade.
+Cover entities are added for Curtain, Curtain 3, Blind Tilt, Roller Shade, and Garage Door Opener.
 
 #### Curtain
 
@@ -374,6 +375,12 @@ Features:
 - set position
 - get position
 - get battery level
+
+#### Garage Door Opener
+
+Features:
+
+- open/close
 
 ### Sensors
 
