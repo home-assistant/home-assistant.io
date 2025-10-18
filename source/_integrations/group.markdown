@@ -91,7 +91,7 @@ The group state is the last time the grouped button was pressed.
 - The group state is `unavailable` if all group members are `unavailable`.
 - Otherwise, the group state is the last time the grouped button was pressed.
 
-### Cover, Valve groups
+### Cover and valve groups
 In short, when any group member entity is `open`, the group will also be `open`. A complete overview of how cover groups behave:
 
 - The group state is `unavailable` if all group members are `unavailable`.
