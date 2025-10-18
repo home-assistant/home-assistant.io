@@ -179,7 +179,7 @@ Some sensors are disabled by default, since they provide information that is onl
 - **Transfer to Battery**
   - **Description**: Time and date of last transfer to batteries.
   - **Available for machines**: all
-  - **Remarks**: This entity only becomes available after a tranfer to battery event happens.
+  - **Remarks**: This entity only becomes available after a transfer to battery event happens.
 
 - **Battery Status**
   - **Description**: The status of the batteries.
