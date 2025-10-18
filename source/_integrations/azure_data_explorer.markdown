@@ -65,7 +65,7 @@ There are a few differences between the **PAYG** and **Free** versions:
 // Give the Service Principal write access to the database
 .add database ['<databasename>'] ingestors ('aadapp=<ApplicationID>;<DirectoryID>');
 
-// Give the Service Principal read access to database (used for connectivity checks)
+// Give the Service Principal read access to the database (used for connectivity checks)
 .add database ['<databasename>'] viewers ('aadapp=<ApplicationID>;<DirectoryID>');
 
 // Create a table for the data to be ingested into (replace the name and copy inserted *name* for later use)
