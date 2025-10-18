@@ -46,14 +46,6 @@ Token:
     description: "A long-lived token generated inside your user profile -> Security -> scroll down and Create Token"
 {% endconfiguration_basic %}
 
-{% tip %}
-The QuickBars TV app can be used as a standalone application. This integration enhances it by unlocking powerful features, including:
-  - Easier initial setup on the app, by sending a long-lived token straight from HA
-  - Triggering notifications on your TV using an event
-
-It works entirely on your local network using local push for real-time communication. This {% term integration %} exposes services and emits events, but does not create any entities.
-{% endtip %}
-
 ## Actions
 
 This integration provides services to display content on your TV. You can call these from automations, scripts, or the Developer tools.
