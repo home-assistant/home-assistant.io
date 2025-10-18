@@ -495,7 +495,7 @@ layout: null
 
 # Removed documentation
 /docs/installation /getting-started
-/docs/installation/dokcer /getting-started
+/docs/installation/docker /getting-started
 /docs/installation/hassbian /getting-started
 /docs/installation/macos /docs/installation/virtualenv
 /docs/installation/raspberry-pi-all-in-one /getting-started
