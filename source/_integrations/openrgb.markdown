@@ -53,6 +53,10 @@ The OpenRGB integration provides the following entities:
 
 For each RGB device connected to OpenRGB, the integration creates a light entity to control all the LEDs on that device as a single unit.
 
+### Select
+
+For each OpenRGB server device, a select entity is created that allows selecting the profiles configured in the OpenRGB application.
+
 ## Data updates
 
 The **OpenRGB** integration {% term polling polls %} data from the OpenRGB SDK server **every 15 seconds**.
