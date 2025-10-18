@@ -794,7 +794,7 @@ void receive(const MyMessage &message)
     if ( dim_value == 0 ) {
       last_state = LIGHT_OFF;
 
-      //Update controller with dimmer value & status
+      // Update controller with dimmer value & status
       send_dimmer_message();
       send_status_message();
     } else {
