@@ -99,6 +99,7 @@ Verify SSL certificate:
 - **Quest scrolls**: Displays the total number of quest scrolls in your inventory. A list of each quest scroll and its quantity is provided in the sensor's attributes.
 - **Pending damage**: Total damage accumulated during the day by completing your tasks. The quest boss is then attacked for this amount at the end of the day.
 - **Pending quest items**: Quest items found during the day when completing tasks. The total is counted towards the quest objective at the end of the day.
+- **Last check-in**: Last time a user checked in.
 
 ## Binary sensors
 
@@ -160,6 +161,11 @@ If you've unlocked the class system, button controls for casting player and part
 ## Switch controls
 
 - **Rest in the Inn**: When enabled, allows your character to rest in the inn in Habitica, pausing damage dealt from dailies and quest bosses.
+
+## Notifier
+
+- **Party chat**: Sends a message to your party's group chat.
+- **Private message**: Sends a private message to an individual party member. A separate notify entity is created for each member of your party.
 
 ## Party
 
@@ -380,6 +386,7 @@ Updates a specific to-do for the selected Habitica character.
 | `remove_checklist_item`  | yes | Remove items from a to-do's checklist.                                                  |
 | `score_checklist_item`   | yes | Mark items from a to-do's checklist as completed.                                       |
 | `unscore_checklist_item` | yes | Undo completion of items of a to-do's checklist.                                        |
+| `collapse_checklist`     | yes | Whether the checklist is displayed as collapsed or expanded.                            |
 | `priority`     | yes      | Update the difficulty of a to-do. Valid values: `trivial`, `easy`, `medium`, `hard`          |
 | `date`         | yes      | The to-do's due date.                                                                        |
 | `clear_date`   | yes      | Remove the due date from a to-do.                                                            |
@@ -400,6 +407,7 @@ Creates a to-do for the selected Habitica character.
 | `name`         | no       | The title for the Habitica to-do.                                                            |
 | `notes`        | yes      | The notes for the Habitica to-do.                                                            |
 | `add_checklist_item`     | yes | The items to add to the to-do's checklist.                                              |
+| `collapse_checklist`     | yes | Whether the checklist is displayed as collapsed or expanded.                            |
 | `priority`     | yes      | The difficulty of the to-do. Valid values: `trivial`, `easy`, `medium`, `hard`               |
 | `date`         | yes      | The to-do's due date.                                                                        |
 | `reminder`     | yes      | Add reminders to a Habitica to-do.                                                           |
@@ -420,6 +428,7 @@ Updates a specific daily for the selected Habitica character.
 | `remove_checklist_item`  | yes | Remove items from a daily's checklist.                                                  |
 | `score_checklist_item`   | yes | Mark items from a daily's checklist as completed.                                       |
 | `unscore_checklist_item` | yes | Undo completion of items of a daily's checklist.                                        |
+| `collapse_checklist`     | yes | Whether the checklist is displayed as collapsed or expanded.                            |
 | `priority`     | yes      | Update the difficulty of a daily. Valid values: `trivial`, `easy`, `medium`, `hard`          |
 | `start_date`   | yes      | Defines when the daily task becomes active and specifies the exact weekday or day of the month it repeats on. |
 | `frequency`    | yes      | The repetition interval of a daily. Valid values: `daily`, `weekly`, `monthly`, `yearly`.    |
@@ -444,7 +453,8 @@ Creates a daily for the selected Habitica character.
 | `name`         | no       | The title for the Habitica daily.                                                            |
 | `notes`        | yes      | The new notes for the Habitica daily.                                                        |
 | `add_checklist_item` | yes | The items to add to the daily's checklist.                                                  |
-| `priority`     | yes      | The difficulty of a daily. Valid values: `trivial`, `easy`, `medium`, `hard`             |
+| `collapse_checklist` | yes | Whether the checklist is displayed as collapsed or expanded.                                |
+| `priority`     | yes      | The difficulty of a daily. Valid values: `trivial`, `easy`, `medium`, `hard`                 |
 | `start_date`   | yes      | The date when the daily becomes active and specifies the exact weekday or day of the month it repeats on. |
 | `frequency`    | yes      | The repetition interval of a daily. Valid values: `daily`, `weekly`, `monthly`, `yearly`.    |
 | `every_x`      | yes      | The number of intervals (`days`, `weeks`, `months`, or `years`) after which the daily repeats, based on the chosen repetition interval. A value of 0 makes the daily inactive (a *Gray Daily*). |

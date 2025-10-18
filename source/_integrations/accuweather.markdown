@@ -28,4 +28,4 @@ You can test your newly created API key [here](https://developer.accuweather.com
 
 ## Data updates
 
-By default, the integration {% term polling polls %} the current weather condition data from the AccuWeather API every 10 minutes and daily forecast data every 6 hours. If you want to configure the integration for more than two locations, you need a plan higher than **Starter**.
+By default, the integration {% term polling polls %} the current weather condition data from the AccuWeather API every 10 minutes, daily forecast data every 6 hours and hourly forecast data every 30 minutes. If you want to configure the integration for more than two locations, you need a plan higher than **Starter**.

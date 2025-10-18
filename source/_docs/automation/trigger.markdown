@@ -967,10 +967,16 @@ See the [Persistent Notification](/integrations/persistent_notification/) integr
 
 ## Webhook trigger
 
-Webhook trigger fires when a web request is made to the webhook endpoint: `/api/webhook/<webhook_id>`. The webhook endpoint is created automatically when you set it as the `webhook_id` in an automation trigger.
+Webhook trigger fires when a web request is made to the webhook endpoint: `/api/webhook/<webhook_id>`. The webhook endpoint is created automatically when you set it as the `webhook_id` in an automation trigger. The `webhook_id` can either be a static value or computed using [limited templates](/docs/configuration/templating/#limited-templates).
+
+{% note %}
+The `webhook_id` template is only evaluated when setting up the trigger, they will not be re-evaluated for incomming webhook triggers.
+{% endnote %}
 
 ```yaml
 automation:
+  trigger_variables:
+    webhook_id_variable: "template_webhook_id"
   triggers:
     - trigger: webhook
       webhook_id: "some_hook_id"
@@ -978,6 +984,10 @@ automation:
         - POST
         - PUT
       local_only: true
+    - trigger: webhook
+      webhook_id: "{{ webhook_id_variable }}"
+      allowed_methods:
+        - POST
 ```
 
 You can run this automation by sending an HTTP POST request to `http://your-home-assistant:8123/api/webhook/some_hook_id`. Here is an example using the **curl** command line program, with an example form data payload:

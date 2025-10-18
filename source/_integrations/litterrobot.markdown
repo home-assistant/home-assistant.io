@@ -37,6 +37,13 @@ Before using this integration, you’ll need a Whisker account and a Wi-Fi-enabl
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+Username:
+    description: "The email address of your Whisker account."
+Password:
+    description: "The password of your Whisker account."
+{% endconfiguration_basic %}
+
 ## Entities
 
 ### Litter-Robot
@@ -44,7 +51,7 @@ Before using this integration, you’ll need a Whisker account and a Wi-Fi-enabl
 | Entity                        | Domain          | Description                                                                                                 |
 | ----------------------------- | --------------- | ----------------------------------------------------------------------------------------------------------- |
 | Litter box                    | `vacuum`        | Main entity that represents a Litter-Robot unit.                                                            |
-| Night light mode              | `switch`        | When turned on, automatically turns on the night light in darker settings.                                  |
+| Night light mode              | `switch`        | When turned on, automatically turns on the night light in darker settings, only for Litter-Robot 3.         |
 | Panel lockout                 | `switch`        | When turned on, disables the buttons on the unit to prevent changes to settings.                            |
 | Last seen                     | `sensor`        | Displays the time the unit was last seen / reported an update.                                              |
 | Litter level                  | `sensor`        | Displays the litter level, only for Litter-Robot 4.                                                         |
@@ -58,6 +65,8 @@ Before using this integration, you’ll need a Whisker account and a Wi-Fi-enabl
 | Sleep mode                    | `binary_sensor` | Indicates whether sleep mode is enabled.                                                                    |
 | Sleeping                      | `binary_sensor` | Indicates whether sleep mode is currently active.                                                           |
 | Clean cycle wait time minutes | `select`        | View and select the clean cycle wait time.                                                                  |
+| Globe brightness              | `select`        | View and select the brightness level for the globe light, only for Litter-Robot 4.                          |
+| Globe light                   | `select`        | View and select the globe light setting, only for Litter-Robot 4.                                           |
 | Panel brightness              | `select`        | View and select the panel brightness, only for Litter-Robot 4.                                              |
 | Reset                         | `button`        | Button to reset the robot, clearing any errors and potentially triggering a cycle, only for Litter-Robot 4. |
 | Reset waste drawer            | `button`        | Button to reset the waste drawer level to 0%, only for Litter-Robot 3.                                      |
@@ -65,14 +74,17 @@ Before using this integration, you’ll need a Whisker account and a Wi-Fi-enabl
 
 ### Feeder-Robot
 
-| Entity           | Domain   | Description                                                                      |
-| ---------------- | -------- | -------------------------------------------------------------------------------- |
-| Give snack       | `button` | Button to dispense a single snack portion.                                       |
-| Meal insert size | `select` | View and select the meal insert size.                                            |
-| Food level       | `sensor` | Displays the approximate food level remaining in the hopper.                     |
-| Last feeding     | `sensor` | Displays the timestamp of the last dispensed meal or snack.                      |
-| Night light mode | `switch` | When turned on, automatically turns on the night light in darker settings.       |
-| Panel lockout    | `switch` | When turned on, disables the buttons on the unit to prevent changes to settings. |
+| Entity               | Domain   | Description                                                                                |
+| -------------------- | -------- | ------------------------------------------------------------------------------------------ |
+| Give snack           | `button` | Button to dispense a single snack portion.                                                 |
+| Meal insert size     | `select` | View and select the meal insert size.                                                      |
+| Food dispensed today | `sensor` | Displays the amount of food, in cups, by the feeder.                                       |
+| Food level           | `sensor` | Displays the approximate food level remaining in the hopper.                               |
+| Last feeding         | `sensor` | Displays the timestamp of the last dispensed meal or snack.                                |
+| Next feeding         | `sensor` | Displays the timestamp of the next scheduled meal.                                         |
+| Gravity mode         | `switch` | When turned on, the unit will keep the bowl full by checking the food level every 6 hours. |
+| Night light mode     | `switch` | When turned on, automatically turns on the night light in darker settings.                 |
+| Panel lockout        | `switch` | When turned on, disables the buttons on the unit to prevent changes to settings.           |
 
 ### Pet
 

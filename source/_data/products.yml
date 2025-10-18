@@ -606,7 +606,7 @@ zwa-2:
     - name: mediarath
       ship_from: Germany
       ship_to: Europe
-      url: https://mediarath.de/products/home-assistant-connect-zwa-2-antenne-z-wave-800-long-range-plus-plus-v2
+      url: https://mediarath.de/products/home-assistant-connect-zwa-2-adapter-z-wave-800-long-range-plus-plus-v2
       logo: /images/distributors/mediarath.de.webp
     - name: SmarterHOME
       ship_from: Czech Republic
