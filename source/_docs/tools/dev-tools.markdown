@@ -11,7 +11,7 @@ Screenshot of Home Assistant's developer tools.
 </p>
 
 | Section    | Description                                                         |
-| ---------- | ------------------------------------------------------------------- |
+|------------|---------------------------------------------------------------------|
 | YAML       | Lets you validate the configuration and trigger a reload or restart |
 | States     | Sets the representation of an entity                                |
 | Actions    | Performs actions from integrations                                  |
@@ -19,6 +19,7 @@ Screenshot of Home Assistant's developer tools.
 | Events     | Fires events                                                        |
 | Statistics | Shows a list of long-term statistic entities                        |
 | Assist     | Lets you see how Home Assistant Assist processes a sentence         |
+| Blueprints | Lets you create and edit blueprints                                 |
 
 ## What can I do with Developer Tools?
 
@@ -164,3 +165,29 @@ If no matching intent is found, then Assist is unable to interpret the sentence.
 - The targets are the narrowed-down entities in scope.
 
 ![Example use of assist developer tools](/images/docs/developer-tools/Assist.png)
+
+## Blueprints Tab
+
+The **Blueprints** tab lets you create and edit blueprints.
+
+### Create a blueprint
+
+To create a blueprint,
+
+1. Click "Pick a blueprint"
+2. Select the type of blueprint you want to create
+3. Select "Create a New (Type) Blueprint"
+
+This will open up a blank blueprint. When you are satisfied with your blueprint, you have two options. If this blueprint is just for personal use, you can click "Save" to add this blueprint to your {% my blueprints title="Blueprints" %}. Alternatively, if you want to share this blueprint with other people, simply scroll down to find the YAML equivalent of your blueprint. You can copy the YAML and upload it to somewhere like GitHub to share with other people.
+
+### Edit an existing blueprint
+
+If you find that someone else's blueprint is *almost* what you need, but you want to keep it as a blueprint instead of taking control of it, you can edit the blueprint. 
+
+1. Click "Pick a blueprint"
+2. Navigate to the blueprint you want to edit
+3. Make the changes that you want, then click "Save"
+
+{% warning %}
+Editing a blueprint that you imported from a URL can lead to unexpected behavior. If you reimport the URL, any changes you made will get overwritten by the new blueprint at that URL. Home Assistant will warn you of this when you try to save the blueprint.
+{% endwarning %}
