@@ -75,7 +75,8 @@ The integration will then reconnect to the OpenRGB SDK server with the new setti
 ## Known limitations
 
 - Changes made directly in the OpenRGB application may not be immediately reflected in Home Assistant (the integration polls for updates every 15 seconds).
-- Some OpenRGB features like per-zone and per-LED control are not yet supported through Home Assistant
+- Some OpenRGB features like per-zone and per-LED control are not yet supported through Home Assistant.
+- The Profile select entity cannot be used to determine which profile is currently active as this information is not [currently](https://gitlab.com/CalcProgrammer1/OpenRGB/-/issues/5178) provided by the OpenRGB SDK server.
 
 ## Troubleshooting
 
