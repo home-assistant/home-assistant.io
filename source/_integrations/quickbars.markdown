@@ -17,20 +17,9 @@ related:
 ---
 
 The **QuickBars** {% term integration %} connects Home Assistant to the [QuickBars for Home Assistant](https://quickbars.app) Android / Google TV app. 
-The app enables on-screen overlays called **QuickBars**, which let you control {% term entities %} and view their states quickly, without disrupting the viewing experience.
 
-
-A common use case is to set up the **QuickBars for Home Assistant** app initially by sending your Home Assistant URL and a Long-Lived Access Token from the integration. Afterwards, you can configure which entities are available to the app, create and customize QuickBars.
-You can also use Home Assistant automations to show a QuickBar, display a camera picture-in-picture feed, or send a rich notification to the TV (using **Actions**).
-
-{% tip %}
-The QuickBars TV app can be used as a standalone application. This integration enhances it by unlocking powerful features, including:
-  - Triggering notifications, camera PiPs, and QuickBars from automations
-  - Configuring the app directly from Home Assistant
-  - Accessing advanced options like custom QuickBar colors and custom-sized camera PiPs
-
-It works entirely on your local network using local push for real-time communication. This {% term integration %} exposes services and emits events, but does not create any entities.
-{% endtip %}
+With this integration, you can set up the **QuickBars for Home Assistant** app initially by sending your Home Assistant URL and a Long-Lived Access Token from the integration. 
+You can also use Home Assistant automations to display a rich notification on your TV.
 
 ## Supported devices
 
@@ -48,85 +37,26 @@ It works entirely on your local network using local push for real-time communica
 4. You will be asked to enter a code shown on the TV.
 5. If the app has not been configured yet, you may be prompted to provide your Home Assistant URL and a long-lived access token. This can also be done via the integration's configuration flow.
 
-{% note %}
-When entering your Home Assistant URL, do not use localhost or 127.0.0.1. Use a hostname or IP address that is reachable on your local network.
-{% endnote %}
-
 {% include integrations/config_flow.md %}
 
-{% include integrations/option_flow.md %}
 {% configuration_basic %}
-Add/remove Saved Entities:
-  description: Select which Home Assistant entities are "saved" (imported) into the QuickBars TV app, making them available for use in QuickBars
-Manage Saved Entities:
-  description: Configure your saved (imported) entities (currently, only friendly name configuration is supported).
-Manage QuickBars:
-  description: Create new QuickBars or edit existing ones. This includes setting the name, entities, position, layout, overlay options, custom colors, and rules for when a QuickBar should automatically close.
+URL:
+    description: "The Hostname or IP address of your Home Assistant instance, reachable by other devices in your LAN."
+Token:
+    description: "A long-lived token generated inside your user profile -> Security -> scroll down and Create Token"
 {% endconfiguration_basic %}
+
+{% tip %}
+The QuickBars TV app can be used as a standalone application. This integration enhances it by unlocking powerful features, including:
+  - Easier initial setup on the app, by sending a long-lived token straight from HA
+  - Triggering notifications on your TV using an event
+
+It works entirely on your local network using local push for real-time communication. This {% term integration %} exposes services and emits events, but does not create any entities.
+{% endtip %}
 
 ## Actions
 
 This integration provides services to display content on your TV. You can call these from automations, scripts, or the Developer tools.
-
-### Action: `quickbars.quickbar_toggle` 
-
-Open or close a QuickBar overlay by its alias.
-
-- **Fields**
-  - `device_id` *(optional)* — Target a specific QuickBars device. If omitted, broadcasts to all connected QuickBars devices.
-  - `alias` *(required)* — The QuickBar alias defined in the TV app.
-
-**Example**
-
-```yaml
-# Toggle a QuickBar
-action: quickbars.quickbar_toggle
-data:
-  device_id: 123456789ABCDEF
-  alias: living_room
-```
-
-### Action: `quickbars.camera_toggle` 
-
-Shows or hides a picture-in-picture camera overlay on the TV. The camera entity must first be imported into the QuickBars app via the options flow and must have an MJPEG stream URL. You can display the camera using its alias (configured in the TV app) or its Home Assistant entity ID. You may also use a direct RTSP URL.
-
-- **Fields**
-  - `device_id` *(optional)* - Target a specific QuickBars device. If omitted, broadcasts to all connected QuickBars devices.
-  - `camera_alias` *(optional)* - Camera Alias as configured in QuickBars TV app (in the Manage Saved Entities screen). You must use this or `camera_entity`.
-  - `camera_entity` *(optional)* - The Home Assistant camera entity ID. You must use this or `camera_alias`.
-  - `camera_entity` *(optional)* - An **RTSP** URL (rtsp://…) to play directly via the TV app.
-    - If you provide both `camera_entity`/`camera_alias` and `rtsp_url`, the app will prefer RTSP for that request.
-    - You may also provide only `rtsp_url` (no entity/alias) for an ad-hoc stream.
-    - Use rtsp:// (TLS rtsps:// isn’t supported).
-    - Credentials may be included (for example, rtsp://user:pass@host:554/path). If your username/password contains special characters like @ or :, the app will handle encoding automatically.
-    - You can create a script that calls this RTSP URL PiP display action, import it into the app and use it as a normal trigger (to imitate the standard MJPEG stream functionality).
-  - `size` *(optional)* - The size of the overlay. Can be *small*, *medium*, or *large*. If not specified, uses the default size configured for the camera in the TV app. You can use this or `size_px`.
-  - `size_px` *(optional)* - A custom size for the overlay, specified as a map with width and height in pixels (*for example*, `{"w": 640, "h": 360}`). Use instead of `size`.
-  - `position` *(optional)* - The position of the overlay on the screen. Can be *top_left*, *top_right*, *bottom_left*, or *bottom_right*. If not specified, uses the position configured to the camera entity on the TV app.
-  - `show_title` *(optional)* - A boolean (`true`/`false`) to show the camera's name on the stream. If not specified, uses the show_title configured to the camera entity on the TV app.
-  - `auto_hide` *(optional)* - The number of seconds before the overlay automatically hides. Set to `0` to disable auto-hide. If not specified, uses the default setting from the TV app.
-
-**Examples**
-
-```yaml
-# Display an MJPEG camera PiP on the TV
-action: quickbars.camera_toggle
-data:
-  device_id: 123456789ABCDEF
-  camera_entity: camera.driveway_camera
-  size: large
-  position: bottom_left
-```
-
-```yaml
-# Display an RTSP stream (no camera entity needed)
-action: quickbars.camera_toggle
-data:
-  device_id: 123456789ABCDEF
-  rtsp_url: rtsp://user:pass@192.168.1.200:554/stream1 # Enter your RTSP url, determined by your camera.
-  size: large
-  position: bottom_left
-```
 
 ### Action: `quickbars.notify`
 
@@ -202,7 +132,7 @@ actions:
 {% enddetails %}
 
 ## Example automation: Doorbell
-This automation combines a camera feed and an actionable notification when a doorbell is pressed.
+This automation combines a camera PiP display (built-in to the app) and an actionable notification when a doorbell is pressed.
 
 ```yaml
 alias: "Doorbell Pressed - Show on TV"
@@ -211,12 +141,9 @@ triggers:
     entity_id: binary_sensor.doorbell
     to: "on"
 actions:
-  - action: quickbars.camera_toggle     
-    data:
-      device_id: abcdef123456
-      camera_entity: camera.front_door
-      position: top_right
-      auto_hide: 25
+  - event: quickbars.open
+    event_data:
+      camera_alias: doorbell_cam
   - action: quickbars.notify
     data:
       device_id: abcdef123456
@@ -247,13 +174,11 @@ The QuickBars integration uses a combination of communication methods for effici
 ## Known limitations
 
   - The QuickBars for Home Assistant app only works on Android TV. Fire TV / Roku TV / Tizen OS / WebOS / Apple TV are *not* supported. This is due to permissions like "Display Over Other Apps" and Accessibility permissions that only Android TV has.
-  - The QuickBars TV app must be open in the foreground when using the Options flow from Home Assistant to configure it.
-  - Advanced features in the TV app, such as using more than one QuickBar or advanced grid layouts, may require the "QuickBars Plus" in-app purchase.
 
 ## Troubleshooting
 
 ### TV not reachable during setup
-  - #### Symptom: The setup form shows “TV not reachable”.
+  - #### Symptom: The setup form shows “TV not reachable”
   - #### Resolution:
     1. Ensure the TV is powered on and the QuickBars app is open and visible on the screen (in the foreground).
     2. Try exiting the app and re-opening it.
@@ -261,15 +186,15 @@ The QuickBars integration uses a combination of communication methods for effici
     4. For discovery to work, ensure Zeroconf/mDNS is enabled and working correctly on your network.
     5. If you are providing a URL and token, double-check that the URL is correct and reachable from the local network, and that the long-lived access token is valid.
 
-### Camera PiP or a notification doesn't appear on the TV after sending them using the actions
+### Notification doesn't appear on the TV after sending it using the action
 
-  -  #### Symptom: Events are sent using the integration, but don't appear on the TV.
-
+  -  #### Symptom: Events are sent using the integration, but don't appear on the TV
   -  #### Resolution:
-     1. In the QuickBars TV app settings, ensure that the "Persistent background connection" option is enabled. This allows Home Assistant to send commands to the app even when it's not in the foreground.
-     2. For Cameras - verify the camera has a valid MJPEG stream, and it's imported to the TV app (if using a regular camera entity with MJPEG stream, and not RTSP URL). 
+     - In the QuickBars TV app settings, ensure that the **"Persistent background connection"** option is enabled. This allows Home Assistant to send commands to the app even when it's not in the foreground, and is required for notifications.
 
 ## Removing the integration
+
+This integration follows standard integration removal, with an extra step required on the QuickBars TV app.
 
 {% include integrations/remove_device_service.md %}
 
