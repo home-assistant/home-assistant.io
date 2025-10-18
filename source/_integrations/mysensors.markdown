@@ -785,7 +785,7 @@ void receive(const MyMessage &message)
       last_dim=100;
     }
 
-    //Update controller status
+    // Update controller status
     send_status_message();
 
   } else if ( message.type == V_PERCENTAGE ) {
