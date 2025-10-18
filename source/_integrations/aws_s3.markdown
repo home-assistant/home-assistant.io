@@ -133,8 +133,7 @@ For example, instance B may show backups that actually belong to instance A.
 
 ### Cause
 
-Amazon S3 uses **prefix-based paths** to organize objects but does not enforce a real directory structure.  
-If multiple Home Assistant instances or configurations share the same bucket and use **overlapping prefixes**, their backup paths overlap.
+Amazon S3 uses **prefix-based paths** to organize objects but does not enforce a real directory structure. If multiple Home Assistant instances or configurations share the same bucket and use **overlapping prefixes**, their backup paths overlap.
 
 **Problematic prefix examples:**
 
@@ -156,11 +155,7 @@ This ensures that each Home Assistant instance only sees its own backups.
 - `homeassistant/test/`  
 - `homeassistant/dev/`
 
-**Avoid:**
-
-- `homeassistant/` as a shared prefix when multiple instances or configurations use the same bucket.
-
-By assigning distinct prefixes, you prevent backup overlap and incorrect listing across instances.
+Avoid `homeassistant/` as a shared prefix when multiple instances or configurations use the same bucket. By assigning distinct prefixes, you prevent backup overlap and incorrect listing across instances.
 
 {% enddetails %}
 
