@@ -99,6 +99,8 @@ Secret Access Key:
   description: "The secret access key for your AWS S3 account."
 Bucket Name:
   description: "S3 bucket name to store the backups. Bucket must already exist and be writable by the provided credentials."
+Prefix:
+  description: Prefix to use for the backup keys in the bucket. Make sure to use a unique, non-overlapping prefix to avoid conflicts with backup assignments from other Home Assistant instances.
 Endpoint URL:
   description: "Endpoint URL provided to [Boto3 Session](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/core/session.html). Region-specific [AWS S3 endpoints](https://docs.aws.amazon.com/general/latest/gr/s3.html) are available in their documentation. Defaults to `https://s3.eu-central-1.amazonaws.com/`."
 {% endconfiguration_basic %}
@@ -121,6 +123,46 @@ The AWS S3 integration has the following limitations:
 ### No support for third-party S3 API compatible providers
 
 This integration is designed to work only with the official Amazon AWS S3 service. Despite claims of S3 API compatibility, third-party storage providers like Wasabi, DigitalOcean Spaces, Backblaze B2, Infomaniak, OVH Cloud, and others have often proven to be incompatible. Even when they appear to work initially, they cannot guarantee ongoing compatibility with this AWS S3 integration in the future.
+
+## Troubleshooting
+
+{% details "Backups appear under the wrong Home Assistant instance" %}
+
+If backups are displayed in the wrong Home Assistant instance or assigned to the wrong S3 configuration in the backups menu, the prefix could overlap with the prefix of another Home Assistant instance.  
+For example, instance B may show backups that actually belong to instance A.
+
+### Cause
+
+Amazon S3 uses **prefix-based paths** to organize objects but does not enforce a real directory structure.  
+If multiple Home Assistant instances or configurations share the same bucket and use **overlapping prefixes**, their backup paths overlap.
+
+**Problematic prefix examples:**
+
+- `homeassistant/prod/`  
+- `homeassistant/test/`  
+- `homeassistant/`
+
+Since `homeassistant/` includes everything below it (like `prod/` and `test/`), backups stored under those sub-prefixes will also appear under the broader prefix.  
+This causes backups to be displayed or assigned incorrectly in the UI, even though they are stored correctly in S3.
+
+### Solution
+
+Use **unique, non-overlapping prefixes** for each instance or configuration.  
+This ensures that each Home Assistant instance only sees its own backups.
+
+**Recommended prefix structure:**
+
+- `homeassistant/prod/`  
+- `homeassistant/test/`  
+- `homeassistant/dev/`
+
+**Avoid:**
+
+- `homeassistant/` as a shared prefix when multiple instances or configurations use the same bucket.
+
+By assigning distinct prefixes, you prevent backup overlap and incorrect listing across instances.
+
+{% enddetails %}
 
 ## Removing the integration
 
