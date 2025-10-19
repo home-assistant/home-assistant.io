@@ -181,6 +181,11 @@ Go to Volvo's developer portal to view [the list of supported models](https://de
 
 ### Fuel-only and plug-in hybrid
 
+#### Buttons
+
+- **Start engine**: Starts the engine for 15 minutes.
+- **Stop engine**: Stops the engine.
+
 #### Sensors
 
 - **Distance to empty tank**: Fuel range
