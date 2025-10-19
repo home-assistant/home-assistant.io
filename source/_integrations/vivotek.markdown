@@ -11,38 +11,29 @@ ha_domain: vivotek
 ha_platforms:
   - camera
 ha_integration_type: integration
-related:
-  - docs: /docs/configuration/
-    title: Configuration file
 ha_quality_scale: legacy
+ha_config_flow: true
 ---
 
 The **VIVOTEK** camera {% term integration %} allows you to integrate a VIVOTEK IP camera into Home Assistant.
 
 Home Assistant will serve the images via its server, making it possible to view your IP cameras while outside of your network. The endpoint is `/api/camera_proxy/camera.[name]`.
 
-## Configuration
+{% include integrations/config_flow.md %}
 
-To enable this camera in your installation, add the following to your {% term "`configuration.yaml`" %} file.
-{% include integrations/restart_ha_after_config_inclusion.md %}
-
-```yaml
-# Example configuration.yaml entry
-camera:
-  - platform: vivotek
-    ip_address: IP_ADDRESS
-    username: USERNAME
-    password: PASSWORD
-```
-
-{% configuration %}
+{% configuration_basic %}
 ip_address:
   description: "The IP address of your camera, e.g., `192.168.1.2`."
   required: true
   type: string
+port:
+  description: "The port number"
+  required: true
+  default: 80
+  type: integer
 name:
   description: This parameter allows you to override the name of your camera.
-  required: false
+  required: true
   default: VIVOTEK Camera
   type: string
 username:
@@ -55,12 +46,12 @@ password:
   type: string
 authentication:
   description: "Type for authenticating the requests `basic` or `digest`."
-  required: false
+  required: true
   default: basic
   type: string
 security_level:
   description: The security level of the user accessing your camera. This could be `admin` or `viewer`.
-  required: false
+  required: true
   default: admin
   type: string
 ssl:
@@ -75,7 +66,7 @@ verify_ssl:
   type: boolean
 framerate:
   description: The number of frames-per-second (FPS) of the stream. Can cause heavy traffic on the network and/or heavy load on the camera.
-  required: false
+  required: true
   default: 2
   type: integer
 stream_path:
@@ -83,25 +74,7 @@ stream_path:
   required: false
   default: live.sdp
   type: string
-{% endconfiguration %}
-
-### Advanced configuration
-
-```yaml
-# Example configuration.yaml entry
-camera:
-  - platform: vivotek
-    name: Front door camera
-    ip_address: 192.168.1.2
-    ssl: true
-    username: !secret fd_camera_username
-    password: !secret fd_camera_pwd
-    authentication: digest
-    security_level: admin
-    verify_ssl: false
-    framerate: 5
-    stream_path: live2.sdp
-```
+{% endconfiguration_basic %}
 
 ### Actions
 
