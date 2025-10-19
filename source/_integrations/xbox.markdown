@@ -22,7 +22,7 @@ ha_integration_type: integration
 
 The **Xbox** {% term integration %} allows you to control Xbox One (or newer) consoles from Home Assistant.
 
-Home Assistant authenticates with Xbox Live through OAuth2 using the Home Assistant Cloud account linking service.
+Home Assistant authenticates with Xbox Network through OAuth2 using the Home Assistant Cloud account linking service.
 
 {% include integrations/config_flow.md %}
 
@@ -243,27 +243,23 @@ elements:
 
 The Xbox binary sensor platform automatically keeps track of your "**Favorite** friends". In your friends list, select **Change friendship -> Favorite** to have that person automatically pulled into Home Assistant.
 
-4 binary sensors are added, 3 of which are disabled by default. They can be enabled in the "Xbox Live" service on the devices page.
-
-| Entity ID | Default | Description                                                                                  |
-| ----------------------------------------- | -------- | ------------------------------------------------------------|
-| `binary_sensor.{gamertag}`                | Enabled  | Shows the online status of your friend.                     |
-| `binary_sensor.{gamertag}_in_game`        | Disabled | Shows if your friend is currently playing a game.           |
-| `binary_sensor.{gamertag}_in_party`       | Disabled | Shows if your friend is currently in a party.               |
-| `binary_sensor.{gamertag}_in_multiplayer` | Disabled | Shows if your friend is currently in a multiplayer session. |
+| Entity Name        | Description                                                 |
+| ------------------ | ------------------------------------------------------------|
+| (*Gamertag* )      | Shows the online status of your friend.                     |
+| **In game**        | Shows if your friend is currently playing a game.           |
+| **In party**       | Shows if your friend is currently in a party.               |
+| **In multiplayer** | Shows if your friend is currently in a multiplayer session. |
 
 ## Sensor
 
 Just like the binary sensors, the Xbox sensor platform automatically keeps track of your "**Favorite** friends".
 
-4 sensors are added, **all** of which are disabled by default. They can be enabled in the "Xbox Live" service on the devices page.
-
-| Entity ID | Default | Description                                                                                      |
-| ---------------------------------| -------- | -------------------------------------------------------------------------|
-| `sensor.{gamertag}_status`       | Disabled | Shows the text status of your friend as it appears in your friends list. |
-| `sensor.{gamertag}_gamer_score`  | Disabled | Shows your friend's gamer score.                                         |
-| `sensor.{gamertag}_account_tier` | Disabled | Shows your friend's Xbox Live account tier (Gold or Silver).             |
-| `sensor.{gamertag}_gold_tenure`  | Disabled | Shows how long your friend has had Xbox Live Gold.                       |
+| Entity Name      | Description                                                              |
+| ---------------- | -------------------------------------------------------------------------|
+| **Status**       | Shows the text status of your friend as it appears in your friends list. |
+| **Gamerscore**   | Friend's Gamerscore.                                                     |
+| **Account tier** | Friend's Xbox Live account tier (Gold or Silver).                        |
+| **Gold tenure**  | Shows how long your friend has had Xbox Live Gold.                       |
 
 ## Media source
 
