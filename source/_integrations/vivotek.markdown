@@ -23,57 +23,27 @@ Home Assistant will serve the images via its server, making it possible to view 
 
 {% configuration_basic %}
 ip_address:
-  description: "The IP address of your camera, e.g., `192.168.1.2`."
-  required: true
-  type: string
+  description: The IP address of your camera, e.g., `192.168.1.2`.
 port:
-  description: "The port number"
-  required: true
-  default: 80
-  type: integer
+  description: The port number.
 name:
-  description: This parameter allows you to override the name of your camera.
-  required: true
-  default: VIVOTEK Camera
-  type: string
+  description: The name of your camera.
 username:
   description: The username for accessing your camera.
-  required: true
-  type: string
 password:
   description: The password for accessing your camera.
-  required: true
-  type: string
 authentication:
-  description: "Type for authenticating the requests `basic` or `digest`."
-  required: true
-  default: basic
-  type: string
+  description: "Type for authenticating the requests with `basic` or `digest`."
 security_level:
   description: The security level of the user accessing your camera. This could be `admin` or `viewer`.
-  required: true
-  default: admin
-  type: string
 ssl:
   description: Enable or disable SSL. Set to false to use an HTTP-only camera.
-  required: false
-  default: false
-  type: boolean
 verify_ssl:
   description: Enable or disable SSL certificate verification. Set to false to use an HTTP-only camera, or you have a self-signed SSL certificate and haven't installed the CA certificate to enable verification.
-  required: false
-  default: true
-  type: boolean
 framerate:
   description: The number of frames-per-second (FPS) of the stream. Can cause heavy traffic on the network and/or heavy load on the camera.
-  required: true
-  default: 2
-  type: integer
 stream_path:
-  description: This parameter allows you to override the stream path.
-  required: false
-  default: live.sdp
-  type: string
+  description: This parameter allows you to override the stream path. The default is `live.sdp`.
 {% endconfiguration_basic %}
 
 ### Actions
