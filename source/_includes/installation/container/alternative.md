@@ -16,7 +16,7 @@ The steps would be:
 - On the "Advanced Settings" page:
   - In the "Volume Settings" section, click on "Add Folder" and choose either an existing folder or add a new folder (e.g. in "docker" shared folder, add new folder named "homeassistant" and then within that new folder add another new folder "config"), then click Select. Then edit the "mount path" to be "/config" with the permissions set as "Read/Write". This configures where Home Assistant will store configs and logs.
   - To ensure that Home Assistant displays the correct timezone, in the "Environment" section, click the "Add" button and in the "Variable" field add `TZ` and in the value add your timezone (e.g. `Europe/London`). Timezones can be found [here](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
-  -  In the "Network" section, set the Network dropdown as "host"
+  - In the "Network" section, set the Network dropdown as "host"
 - Click "Next"
 - Ensure "Run this container after the wizard is finished" is checked and click "Done"
 - Your Home Assistant within Docker should now run and will serve the web interface from port 8123 on your Docker host (this will be your Synology NAS IP address - for example `http://192.168.1.10:8123`)
