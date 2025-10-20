@@ -84,6 +84,10 @@ Binary sensor, light, and switch groups allow you set the "All entities" option.
 - Otherwise, the group state is `off` if at least one group member is `off`.
 - Otherwise, the group state is `on`.
 
+{% note %}
+When a light group contains two or more lights using HS color mode, whose colors are evenly spaced (180° apart for two, 120° apart for three, etc.), the light group's average color *might* default to either 0° (red) or 180° (light blue).
+{% endnote %}
+
 ### Button groups
 
 The group state is the last time the grouped button was pressed.
