@@ -378,7 +378,7 @@ device_address:
 unique_id:
   description: "ID that uniquely identifies this entity.
   Slaves will be given a unique_id of <<unique_id>>_<<slave_index>>.
-  If two enities have the same unique ID, Home Assistant will raise an exception."
+  If two entities have the same unique ID, Home Assistant will raise an exception."
   required: false
   type: string
 
@@ -1461,7 +1461,7 @@ sensors:
       required: false
       type: integer
     virtual_count:
-      description: "Generates x+1 sensors (master + slaves), allowing read of multiple registers with a single read messsage."
+      description: "Generates x+1 sensors (master + slaves), allowing read of multiple registers with a single read message."
       required: false
       type: integer
     state_class:
