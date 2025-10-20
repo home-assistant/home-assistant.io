@@ -447,6 +447,7 @@ The steps needed to fix this issue are specific to your networking setup. Here a
 2. Ensure your vacuum can communicate with your HA instance on ports TCP 58867 and UDP 58866.
 3. If you are using a tool such as Pi-Hole, AdGuard, or anything else that modifies your DNS, ensure that your vacuum is exempted.
 4. Set a static IP for your vacuum.
+5. Check your router's webpage - if the device is losing connection there, you need to focus on increasing your WiFi network's performance.
 
 ### My Device goes unavailable every night at around 3am - how can I fix this?
 
