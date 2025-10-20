@@ -441,11 +441,12 @@ Roborock servers require accepting a user agreement before using the API, which 
 
 This integration has the capability to control your devices through the cloud API and the local API. If the local API is not reachable, it will just use the cloud API. We recommend only using the local API as it helps prevent any kind of rate-limiting.
 
-The steps needed to fix this issue are specific to your networking setup. Here are some general troubleshooting steps.
+The steps needed to fix this issue are specific to your networking setup. Here are some general troubleshooting steps:
 
-1) Ensure your vacuum can communicate externally via port 8883
-2) Ensure your vacuum can communicate with your HA instance on ports TCP 58867 and UDP 58866
+1) Ensure your vacuum can communicate externally via port 8883.
+2) Ensure your vacuum can communicate with your HA instance on ports TCP 58867 and UDP 58866.
 3) If you are using a tool such as Pi-Hole, Adguard, or anything else that modifies your DNS, ensure that your vacuum is exempted.
+4) Set a static ip for your vacuum.
 
 ### My Device goes unavailable every night at around 3am - how can I fix this?
 
