@@ -6,7 +6,7 @@ The steps would be:
 - Using Synology's Package Center, install the "Container Manager" package
 - Launch the Container Manager app and navigate to the "Registry" section
 - On the Registry page, search for "homeassistant/home-assistant" and click "Download". Choose the "stable" tag.
-- Wait for for the image to be pulled
+- Wait for the image to be pulled
 - Navigate to the "Image" section of the Container Manager app
 - Click on the "homeassistant/home-assistant" image and then click "Run"
 - On the "General Settings" page:
