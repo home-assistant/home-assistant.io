@@ -265,9 +265,9 @@ By default, the integration {% term polling polls %} data from the NextDNS API:
 
 ## Possible use-cases
 
-- Monitor the number of DNS queries from your local network or from individual devices.
-- Monitor the type of protocol used for DNS queries.
-- Take care of your children's mental health by allowing them access to social media, games, and streaming services only during select time slots.
+- Monitor DNS queries from your local network or individual devices.
+- Track DNS query protocols to understand connection security.
+- Manage children's screen time by scheduling access to social media, games, and streaming services.
 
 ## Examples
 
