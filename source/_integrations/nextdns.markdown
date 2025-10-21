@@ -271,9 +271,9 @@ By default, the integration {% term polling polls %} data from the NextDNS API:
 
 ## Examples
 
-### These two automations are responsible for blocking access to social media for the "kids" profile during the night and school hours
+### Block social media for kids
 
-This automation will create a persistent notification with the content and probability of a hydrological alert:
+These two automations are responsible for blocking access to social media for the "kids" profile during the night and school hours.
 
 ```yaml
 automation:
