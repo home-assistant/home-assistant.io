@@ -259,9 +259,9 @@ The NextDNS integration provides the following entities.
 ## Data updates
 
 By default, the integration {% term polling polls %} data from the NextDNS API:
-- every 5 minutes for connection status data
-- every 10 minutes for analytics data
-- every 1 minute for settings
+- Every 5 minutes for connection status data
+- Every 10 minutes for analytics data
+- Every 1 minute for settings
 
 ## Possible use-cases
 
