@@ -66,46 +66,66 @@ The NextDNS integration provides the following entities.
   - **Description**: Shows the percentage of blocked DNS queries
 - **DNS-over-HTTP/3 queries**
   - **Description**: Shows the number of DNS queries via DNS-over-HTTP/3
+  - **Remarks**: This entity is disabled by default
 - **DNS-over-HTTP/3 queries ratio**
   - **Description**: Shows the percentage of DNS queries via DNS-over-HTTP/3
+  - **Remarks**: This entity is disabled by default
 - **DNS-over-HTTPS queries**
   - **Description**: Shows the number of DNS queries via DNS-over-HTTPS
+  - **Remarks**: This entity is disabled by default
 - **DNS-over-HTTPS queries ratio**
   - **Description**: Shows the percentage of DNS queries via DNS-over-HTTPS
+  - **Remarks**: This entity is disabled by default
 - **DNS-over-QUIC queries**
   - **Description**: Shows the number of DNS queries via DNS-over-QUIC
+  - **Remarks**: This entity is disabled by default
 - **DNS-over-QUIC queries ratio**
   - **Description**: Shows the percentage of DNS queries via DNS-over-QUIC
 - **DNS-over-TLS queries**
   - **Description**: Shows the number of DNS queries via DNS-over-TLS
+  - **Remarks**: This entity is disabled by default
 - **DNS-over-TLS queries ratio**
   - **Description**: Shows the percentage of DNS queries via DNS-over-TLS
+  - **Remarks**: This entity is disabled by default
 - **TCP queries**
   - **Description**: Shows the number of DNS queries via TCP
+  - **Remarks**: This entity is disabled by default
 - **TCP queries ratio**
   - **Description**: Shows the percentage of DNS queries via TCP
+  - **Remarks**: This entity is disabled by default
 - **UDP queries**
   - **Description**: Shows the number of DNS queries via UDP
+  - **Remarks**: This entity is disabled by default
 - **UDP queries ratio**
   - **Description**: Shows the percentage of DNS queries via UDP
+  - **Remarks**: This entity is disabled by default
 - **Encrypted queries**
   - **Description**: Shows the number of encrypted DNS queries
+  - **Remarks**: This entity is disabled by default
 - **Encrypted queries ratio**
   - **Description**: Shows the percentage of encrypted DNS queries
+  - **Remarks**: This entity is disabled by default
 - **Unencrypted queries**
   - **Description**: Shows the number of unencrypted DNS queries
+  - **Remarks**: This entity is disabled by default
 - **IPv4 queries**
   - **Description**: Shows the number of DNS queries via IPv4
+  - **Remarks**: This entity is disabled by default
 - **IPv6 queries**
   - **Description**: Shows the number of DNS queries via IPv6
+  - **Remarks**: This entity is disabled by default
 - **IPv6 queries ratio**
   - **Description**: Shows the percentage of DNS queries via IPv6
+  - **Remarks**: This entity is disabled by default
 - **DNSSEC validated queries**
   - **Description**: Shows the number of DNS queries validated by DNSSEC
+  - **Remarks**: This entity is disabled by default
 - **DNSSEC validated queries ratio**
   - **Description**: Shows the percentage of DNS queries validated by DNSSEC
+  - **Remarks**: This entity is disabled by default
 - **DNSSEC not validated queries**
   - **Description**: Shows the number of DNS queries not validated by DNSSEC
+  - **Remarks**: This entity is disabled by default
 - **DNS queries relayed**
   - **Description**: Shows the number of relayed DNS queries
 
@@ -159,102 +179,151 @@ The NextDNS integration provides the following entities.
   - **Description**: Controls blocking of parked domains
 - **Block piracy**
   - **Description**: Controls blocking of piracy websites
+  - **Remarks**: This entity is disabled by default
 - **Block porn**
   - **Description**: Controls blocking of pornographic content
+  - **Remarks**: This entity is disabled by default
 - **Block social networks**
   - **Description**: Controls blocking of social networks
+  - **Remarks**: This entity is disabled by default
 - **Block video streaming**
   - **Description**: Controls blocking of video streaming websites
+  - **Remarks**: This entity is disabled by default
 - **Block dating**
   - **Description**: Controls blocking of dating websites
+  - **Remarks**: This entity is disabled by default
 - **Block gambling**
   - **Description**: Controls blocking of gambling websites
+  - **Remarks**: This entity is disabled by default
 - **Block 9GAG**
   - **Description**: Controls 9GAG access
+  - **Remarks**: This entity is disabled by default
 - **Block Amazon**
   - **Description**: Controls Amazon access
+  - **Remarks**: This entity is disabled by default
 - **Block BeReal**
   - **Description**: Controls BeReal access
+  - **Remarks**: This entity is disabled by default
 - **Block Blizzard**
   - **Description**: Controls Blizzard access
+  - **Remarks**: This entity is disabled by default
 - **Block ChatGPT**
   - **Description**: Controls ChatGPT access
+  - **Remarks**: This entity is disabled by default
 - **Block Dailymotion**
   - **Description**: Controls Dailymotion access
+  - **Remarks**: This entity is disabled by default
 - **Block Discord**
   - **Description**: Controls Discord access
+  - **Remarks**: This entity is disabled by default
 - **Block Disney Plus**
   - **Description**: Controls Disney Plus access
+  - **Remarks**: This entity is disabled by default
 - **Block eBay**
   - **Description**: Controls eBay access
+  - **Remarks**: This entity is disabled by default
 - **Block Facebook**
   - **Description**: Controls Facebook access
+  - **Remarks**: This entity is disabled by default
 - **Block Fortnite**
   - **Description**: Controls Fortnite access
+  - **Remarks**: This entity is disabled by default
 - **Block Google Chat**
   - **Description**: Controls Google Chat access
+  - **Remarks**: This entity is disabled by default
 - **Block HBO Max**
   - **Description**: Controls HBO Max access
+  - **Remarks**: This entity is disabled by default
 - **Block Hulu**
   - **Description**: Controls Hulu access
+  - **Remarks**: This entity is disabled by default
 - **Block Imgur**
   - **Description**: Controls Imgur access
+  - **Remarks**: This entity is disabled by default
 - **Block Instagram**
   - **Description**: Controls Instagram access
+  - **Remarks**: This entity is disabled by default
 - **Block League of Legends**
   - **Description**: Controls League of Legends access
+  - **Remarks**: This entity is disabled by default
 - **Block Mastodon**
   - **Description**: Controls Mastodon access
+  - **Remarks**: This entity is disabled by default
 - **Block Messenger**
   - **Description**: Controls Facebook Messenger access
+  - **Remarks**: This entity is disabled by default
 - **Block Minecraft**
   - **Description**: Controls Minecraft access
+  - **Remarks**: This entity is disabled by default
 - **Block Netflix**
   - **Description**: Controls Netflix access
+  - **Remarks**: This entity is disabled by default
 - **Block Pinterest**
   - **Description**: Controls Pinterest access
+  - **Remarks**: This entity is disabled by default
 - **Block PlayStation Network**
   - **Description**: Controls PlayStation Network access
+  - **Remarks**: This entity is disabled by default
 - **Block Prime Video**
   - **Description**: Controls Prime Video access
+  - **Remarks**: This entity is disabled by default
 - **Block Reddit**
   - **Description**: Controls Reddit access
+  - **Remarks**: This entity is disabled by default
 - **Block Roblox**
   - **Description**: Controls Roblox access
+  - **Remarks**: This entity is disabled by default
 - **Block Signal**
   - **Description**: Controls Signal access
+  - **Remarks**: This entity is disabled by default
 - **Block Skype**
   - **Description**: Controls Skype access
+  - **Remarks**: This entity is disabled by default
 - **Block Snapchat**
   - **Description**: Controls Snapchat access
+  - **Remarks**: This entity is disabled by default
 - **Block Spotify**
   - **Description**: Controls Spotify access
+  - **Remarks**: This entity is disabled by default
 - **Block Steam**
   - **Description**: Controls Steam access
+  - **Remarks**: This entity is disabled by default
 - **Block Telegram**
   - **Description**: Controls Telegram access
+  - **Remarks**: This entity is disabled by default
 - **Block TikTok**
   - **Description**: Controls TikTok access
+  - **Remarks**: This entity is disabled by default
 - **Block Tinder**
   - **Description**: Controls Tinder access
+  - **Remarks**: This entity is disabled by default
 - **Block Tumblr**
   - **Description**: Controls Tumblr access
+  - **Remarks**: This entity is disabled by default
 - **Block Twitch**
   - **Description**: Controls Twitch access
+  - **Remarks**: This entity is disabled by default
 - **Block X (formerly Twitter)**
-  - **Description**: Controls X access
+  - **Description**: Controls X (formerly Twitter) access
+  - **Remarks**: This entity is disabled by default
 - **Block Vimeo**
   - **Description**: Controls Vimeo access
+  - **Remarks**: This entity is disabled by default
 - **Block VK**
   - **Description**: Controls VK access
+  - **Remarks**: This entity is disabled by default
 - **Block WhatsApp**
   - **Description**: Controls WhatsApp access
+  - **Remarks**: This entity is disabled by default
 - **Block Xbox Network**
   - **Description**: Controls Xbox Network access
+  - **Remarks**: This entity is disabled by default
 - **Block YouTube**
   - **Description**: Controls YouTube access
+  - **Remarks**: This entity is disabled by default
 - **Block Zoom**
   - **Description**: Controls Zoom access
+  - **Remarks**: This entity is disabled by default
 
 ## Data updates
 
