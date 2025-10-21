@@ -10,6 +10,7 @@ ha_codeowners:
 ha_domain: jewish_calendar
 ha_platforms:
   - binary_sensor
+  - calendar
   - diagnostics
   - sensor
 ha_integration_type: integration
@@ -20,7 +21,6 @@ The **Jewish Calendar** {% term integration %} exposes Jewish calendar informati
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
-
 Language:
   description: The language to be used for textual sensors in Hebrew (א' תשרי תשע"ט) or English characters (1 Tishrei 5779). Valid options are `english` and `hebrew`. Default value is `english`.
 
@@ -39,7 +39,28 @@ Minutes before sunset for candle lighting:
 
 Minutes after sunset for Havdalah:
   description: By default havdalah time is considered the moment the sun is 8.5 degrees below the horizon. By specifying this offset, havdalah time will be calculated as a static time offset relative to sunset.
+
+Calendar events to display:
+  description: Select which Jewish calendar events should be displayed in the calendar entity. By default, Hebrew date, holidays, weekly portion, Omer count, and Daf Yomi are displayed. You can also add candle lighting and Havdalah times.
 {% endconfiguration_basic %}
+
+## Calendar
+
+The **Jewish Calendar** {% term integration %} provides a calendar entity that displays various Jewish calendar events based on your configuration. You can customize which event types are displayed through the integration options.
+
+### Available calendar event types
+
+The following event types can be configured to appear in the calendar:
+
+- **Hebrew date**: Shows the Hebrew date for each day (for example, "1 Tishrei 5779").
+- **Jewish holidays**: Displays all Jewish holidays, including Rosh Hashana, Yom Kippur, Sukkot, Chanukah, Purim, Pesach, Shavuot, and more.
+- **Torah portion**: Shows the weekly Torah portion (Parshat Hashavua) for the week.
+- **Omer count**: Displays the daily Omer count during the 49 days between Pesach and Shavuot.
+- **Daf Yomi**: Shows the daily Talmud study page according to the Daf Yomi cycle.
+- **Candle lighting**: Creates timed events for Shabbat and holiday candle lighting based on your location and configured offset.
+- **Havdalah**: Creates timed events for Shabbat and holiday Havdalah based on your location and configured offset.
+
+By default, the calendar includes Hebrew date, holidays, weekly portion, Omer count, and Daf Yomi events. You can add or remove event types through the integration's configuration options.
 
 ## Sensor list
 
