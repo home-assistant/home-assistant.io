@@ -273,7 +273,7 @@ By default, the integration {% term polling polls %} data from the NextDNS API:
 
 ### Block social media for kids
 
-These two automations are responsible for blocking access to social media for the "kids" profile during the night and school hours.
+These automations block social media access for the kids profile during evening hours and unblock it after school.
 
 ```yaml
 automation:
@@ -285,7 +285,7 @@ automation:
       - action: switch.turn_off
         target:
           entity_id: switch.kids_block_social_networks
-  - alias: Unblock social media for kids after the school
+  - alias: Unblock social media for kids after school
     triggers:
       - trigger: time
         at: "16:00:00"
