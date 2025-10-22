@@ -12,7 +12,7 @@ og_image: /images/blog/2025-10-voice-chapter-11/art.webp
 
 <img src='/images/blog/2025-10-voice-chapter-11/art.webp' style='border: 0;box-shadow: none;' alt="Voice Chapter 11: multilingual assistants are here">
 
-Welcome to Voice Chapter 11 🎉, our [long-running series](/blog/categories/assist/) where we share all the key developments in Open Voice. In this chapter, we will tell you how our assistant can now control more things in the home, in multiple languages at the same time, all while not talking your ear off. What’s more, our list of supported languages has grown again with several languages that big tech’s voice assistants won’t support. Join us for a deeper look at this voice chapter in our [livestream](https://www.youtube.com/watch?v=sIkguv0NEQI) on Wednesday, October 29. It’s been a couple of months, we’ve been building up our voice, and now have a lot to say, so let’s get to it!
+Welcome to Voice Chapter 11 🎉, our [long-running series](/blog/categories/assist/) where we share all the key developments in Open Voice. In this chapter, we will tell you how our assistant can now control more things in the home, in multiple languages at the same time, all while not talking your ear off. What’s more, our list of supported languages has grown again with several languages that big tech’s voice assistants won’t support. Join us for a deeper look at this voice chapter in our [livestream](https://www.youtube.com/watch?v=sIkguv0NEQI) on Wednesday, October 29. It’s been a couple of months, we’ve been building up our voice, and now have a lot to say, so let’s get to it!<!--more-->
 
 ## Multilingual assistants
 
