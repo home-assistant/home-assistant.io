@@ -7,7 +7,7 @@ date_formatted: "October 22, 2025"
 author: Michael Hansen
 comments: true
 categories: Assist
-og_image: /images/blog/2025-10-yellow-eol/art.webp
+og_image: /images/blog/2025-10-voice-chapter-11/art.webp
 ---
 
 <img src='/images/blog/2025-10-voice-chapter-11/art.webp' style='border: 0;box-shadow: none;' alt="Voice Chapter 11: multilingual assistants are here">
@@ -18,7 +18,7 @@ Welcome to Voice Chapter 11 🎉, our [long-running series](/blog/categories/ass
 
 Our original goal for the [Year of Voice back in 2023](/blog/2022/12/20/year-of-voice/) was to “let users control Home Assistant in their own language”. We’ve come a long way towards that goal, and really broadened our language support. We’ve also provided options that allow users to customize voice assistant pipelines with the services that best support their language, whether run locally or in the cloud of their choice. But what if you speak two languages within your home?
 
-For some time, users have been able to create [Assist](/voice_control/) voice assistant pipelines for different languages in Home Assistant, but interacting with the different pipelines has either required multiple voice satellite devices (one per language) or some kind of automation [trigger to switch languages](https://www.youtube.com/live/ZgoaoTpIhm8?si=HowkskpdyU7TO6sV&t=3902).
+For some time, users have been able to create [Assist](/voice_control/) voice assistant pipelines for different languages in Home Assistant, but interacting with the different pipelines has either required multiple voice satellite devices (one per language) or some kind of automation [trigger to switch languages](https://www.youtube.com/live/ZgoaoTpIhm8?t=3902).
 
 Since even the tiniest voice satellite hardware we support is capable of running [multiple wake words](/blog/2024/06/26/voice-chapter-7/#3x-wake-words-and-2x-accuracy) now, we’ve added support in 2025.10 for configuring **up to two wake words** and voice assistant pipelines on each Assist satellite! This makes it straightforward to support dual language households by assigning different wake words to different languages. For example, “Okay Nabu” could run an English voice assistant pipeline while “Hey Jarvis” is used for French.
 
@@ -53,7 +53,7 @@ For users wanting to keep all voice processing local, we offer add-ons for both 
 * [Speech-to-Phrase](/blog/2025/02/13/voice-chapter-9-speech-to-phrase/) is our speech-to-text system that trades flexibility for speed  
 * [Piper](https://github.com/home-assistant/addons/blob/master/piper/DOCS.md) is our fast neural text-to-speech system with [broad language support](https://rhasspy.github.io/piper-samples/)
 
-All of this together shows just how much can be done without needing to include AI, even though it can do [some pretty amazing things](https://youtu.be/mLtFUG4YG1A?si=YRTRtSdv5ySU_JBJ). And we’re continuing to close the gap with the features highlighted in this blog post, including multilingual assistants, improved sentence matching, and the ability to ask questions from automations.
+All of this together shows just how much can be done without needing to include AI, even though it can do [some pretty amazing things](https://youtu.be/mLtFUG4YG1A). And we’re continuing to close the gap with the features highlighted in this blog post, including multilingual assistants, improved sentence matching, and the ability to ask questions from automations.
 
 ### More intents
 
