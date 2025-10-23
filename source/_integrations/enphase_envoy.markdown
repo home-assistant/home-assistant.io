@@ -816,7 +816,7 @@ The example below shows decreases when multiple inverters reach a 1.2 MWh lifeti
 
 To correct for this issue, a sensor [blueprint template](/integrations/template/#using-blueprints) named [`Correct Envoy lifetime production energy`](https://community.home-assistant.io/t/correct-envoy-lifetime-production-energy/942918/1) is available in the community blueprints exchange.
 
-Import the blueprint using the `import blueprint to` button. This will install the blueprint as `/config/blueprints/template/marcelhoogantink/correct_envoy_lifetime_production_energy.yaml`. Use the templates shown in the blueprint exchange to implement an entity with corrected lifetime value.
+Import the blueprint using the **import blueprint to** button. This will install the blueprint as `/config/blueprints/template/marcelhoogantink/correct_envoy_lifetime_production_energy.yaml`. Use the templates shown in the blueprint exchange to implement an entity with a corrected lifetime value.
 
 ### Missing inverter data
 
