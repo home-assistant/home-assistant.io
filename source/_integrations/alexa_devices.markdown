@@ -112,11 +112,11 @@ This action allows you to play one of the built-in Alexa sounds. The full list o
 
 ## Sensors
 
-The integration creates sensor entities when the connected device exposes that information. Not every device supports every sensor and they are created only if the device reports the data.
+The integration creates sensor entities when the connected device exposes that information. Not every device supports every sensor.
 
 ### Alarm, timer, and reminder sensors
 
-All Alexa-enabled devices have timestamp sensors to show the next alarm, timer, and reminder set on the device with the respective label.
+All Alexa-enabled devices have timestamp sensors that show the next scheduled alarm, timer, and reminder along with their labels.
 
 ### Environmental and device sensors
 
@@ -126,7 +126,7 @@ All Alexa-enabled devices have timestamp sensors to show the next alarm, timer, 
 
 ## Supported functionality
 
-The **Alexa Devices** {% term integration %} also provides the following entities:
+In addition to sensors, the **Alexa Devices** {% term integration %} provides the following entities:
 
 - Notify - Speak and Announce notifications
 - Switch - Do not disturb
