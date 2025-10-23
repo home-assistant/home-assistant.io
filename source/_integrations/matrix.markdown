@@ -277,19 +277,71 @@ is not inside of a thread, `thread_parent` will be the same as `event_id`.
 To reply inside of a thread, pass the correct message identifier of the root message into `data.thread_id` when sending
 a reply message. For example:
 
+{% raw %}
 ```yaml
 action: notify.matrix_notify
 data:
   message: "Reply message goes here"
   data:
-    thread_id: |
-      {{ trigger.event.data.thread_parent }}
+    thread_id: "{{ trigger.event.data.thread_parent }}"
 ```
+{% endraw %}
+
+## Actions
+
+The integration also provides the following actions:
+
+### Sending a message
+
+As an alternative to using the notify integration as described above, you may use `matrix.send_message` to send a
+message to a Matrix room.
+
+```yaml
+action: matrix.send_message
+data:
+  message: "My cool message"
+  target: "#hasstest:matrix.org"
+  data:
+    images:
+      - /path/to/picture.jpg
+    format: html
+    thread_id: "$-abcdeghij_klmnopqrstuvwxyz123"
+```
+
+{% configuration %}
+message:
+  description: The message body to send
+  required: true
+  type: string
+target:
+  description: The room to send the message to
+  required: true
+  type: string
+data:
+  description: Additional options
+  required: false
+  type: map
+  keys:
+    images:
+      description: One or more image paths to attach to the message.
+      required: false
+      type: list
+    format:
+      description: The format of the message. Must be either `text` or `html`.
+      required: false
+      default: text
+      type: string
+    thread_id:
+      description: The ID of the parent message to thread this reply under.
+      required: false
+      type: string
+{% endconfiguration %}
 
 ### Reacting to messages
 
 To react to a message with an emoji reaction, use the `matrix.react` action:
 
+{% raw %}
 ```yaml
 action: matrix.react
 data:
@@ -297,8 +349,24 @@ data:
   room: "{{ trigger.event.data.room }}"
   message_id: "{{ trigger.event.data.event_id }}"
 ```
+{% endraw %}
 
 {% tip %}
 Reactions do not have to be an emoji. They can be any valid string. However, emoji are the typical/traditional use
 case.
 {% endtip %}
+
+{% configuration %}
+reaction:
+  description: The reaction to send
+  required: true
+  type: string
+room:
+  description: The room to send the reaction in
+  required: true
+  type: string
+message_id:
+  description: The ID of the message to apply the reaction to
+  required: true
+  type: string
+{% endconfiguration %}
