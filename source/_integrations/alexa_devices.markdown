@@ -126,10 +126,10 @@ All Alexa-enabled devices have timestamp sensors that show the next scheduled al
 
 ## Supported functionality
 
-In addition to sensors, the **Alexa Devices** {% term integration %} provides the following entities:
+In addition to sensors, you can use the following entities:
 
-- Notify - Speak and Announce notifications
-- Switch - Do not disturb
+- **Notify** - Speak and Announce notifications
+- **Switch** - Do not disturb
 
 ## Examples
 
