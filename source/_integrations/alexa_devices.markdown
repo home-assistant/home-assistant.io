@@ -122,7 +122,7 @@ All Alexa-enabled devices have timestamp sensors that show the next scheduled al
 
 - **Temperature**
 - **Illuminance**
-- **Main and Bluetooth connectivity**
+- **Wi-Fi and Bluetooth connectivity**
 
 ## Supported functionality
 
