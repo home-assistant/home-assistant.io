@@ -16,5 +16,6 @@ RUN \
   apt update \
   && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
       ack \
+      imagemagick \
   && echo "en_US UTF-8" > /etc/locale.gen \
   && locale-gen en_US.UTF-8
