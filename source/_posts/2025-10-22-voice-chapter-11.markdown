@@ -4,7 +4,7 @@ title: "Voice Chapter 11: multilingual assistants are here"
 description: "Our assistant can now control more things and in multiple languages at the same time."
 date: 2025-10-22 00:00:01
 date_formatted: "October 22, 2025"
-author: Michael Hansen
+author: Mike Hansen
 comments: true
 categories: Assist
 og_image: /images/blog/2025-10-voice-chapter-11/art.webp
