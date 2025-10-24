@@ -93,8 +93,8 @@ You must first add your solar panels to the Energy dashboard. If you have not al
 2. In the **Solar panels** section, edit your solar panels and enable the **Forecast production** option.
 3. Select the desired Victron Remote Monitoring installation from the list of available forecast providers.
 4. Select **Save**. 
-    - No additional parameters are required. The integration retrieves the forecast from your VRM data.
-    - **Result**: The forecast will now appear in your Energy dashboard's solar production graph.
+   - No additional parameters are required. The integration retrieves the forecast from your VRM data.
+   - **Result**: The forecast will now appear in your Energy dashboard's solar production graph.
 
 ## Troubleshooting
 
