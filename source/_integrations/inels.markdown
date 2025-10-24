@@ -3,7 +3,7 @@ title: iNELS
 description: Instructions on how to integrate iNELS with Home Assistant.
 ha_category:
   - Switch
-ha_release: 2024.12
+ha_release: 2025.11
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
@@ -31,7 +31,7 @@ There is currently support for the following device types within Home Assistant:
 
 ## Removing the integration
 
-This integration follows standard integration removal. No extra steps are required.
+This integration follows standard integration removal.
 
 {% include integrations/remove_device_service.md %}
 
