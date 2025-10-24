@@ -20,13 +20,23 @@ Use this skill when:
 
 ## Workflow
 
-Before starting, look at the last 3 blog posts to get an understanding of their format, just to get an idea of the output. Then follow these instructions.
+**MANDATORY FIRST STEPS:**
+1. Look at the last 3 blog posts to understand the format
+2. Check the source file size with `ls -lh` and `wc -l`
+3. If the file is large (>100KB or >200 lines with base64 data), go directly to Step 1 to extract images
+4. **DO NOT attempt to Read the source file until images are extracted!**
 
-Once ready, remember not to initially read the source markdown as it will fail. We first need to extract the images. Go to Step 1
+**CRITICAL: DO NOT READ THE SOURCE FILE FIRST!** Files exported from Google Docs contain large embedded base64 images that will cause read failures. Always start with Step 1 to extract images before attempting to read the file.
+**CRITICAL: NEVER CHANGE CONTENT!** The content must not be changed as it was written by our internal copywriter. Ensure that only the structure of the file is worked on and no text is changed.
+### Step 1: Extract Base64 Images (REQUIRED FIRST STEP)
 
-### Step 1: Extract Base64 Images (if present)
+**DO THIS BEFORE READING THE FILE!** The source markdown file will be too large to read due to embedded base64 images. You MUST extract the images first:
 
-The source markdown file will initially be too big to read by the LLM. Before trying to read it, make a simple script to extract the images out of the markdown file and into a temporary directory. These images are usually used like this:
+1. **Check file size** using `wc -l` and `ls -lh` to confirm it's large
+2. **Create a Python script** to extract base64 images WITHOUT reading the entire file into memory
+3. **Process the file line-by-line** to avoid memory issues
+
+The embedded images follow this pattern:
 
 ```markdown
    ![][image1]
@@ -36,7 +46,22 @@ The source markdown file will initially be too big to read by the LLM. Before tr
    [image1]: <data:image/png;base64,{base64here}>
 ```
 
-Google Docs always tends to use image1, image2, image3. Extract the images to a `_imgtemp` folder, converting the base64 image to the relative filename such as _imgtemp/image1.png. Then, remove the embedded images from the source markdown and replace instances of the images with placeholders for later.
+**Extraction requirements:**
+- Extract images to `_imgtemp` folder (e.g., `_imgtemp/image1.png`, `_imgtemp/image2.png`)
+- Google Docs typically uses sequential naming: image1, image2, image3, etc.
+- Remove the base64 image definitions from the source file
+- Replace image references with temporary placeholders: `IMGPLACEHOLDER:imageN`
+- Create a new cleaned file (e.g., `source-cleaned.md`) that can be safely read
+
+**Example Python script structure:**
+```python
+import re
+import base64
+
+# Process file line-by-line to avoid memory issues
+# Extract base64 data when pattern matches
+# Write cleaned content to new file
+```
 
 ### Step 2: Analyze the Source Content
 
