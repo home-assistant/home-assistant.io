@@ -83,10 +83,10 @@ The <abbr title="Victron Remote Monitoring">VRM</abbr> integration fetches fresh
 
 Solar production forecasts can be added to the built-in [Energy dashboard](/docs/energy/) to visualize expected solar production alongside your actual energy data.
 
-
 ### Prerequisites 
 
 You must first add your solar panels to the Energy dashboard. If you have not already done so, follow the instructions in the [Energy dashboard documentation](/docs/energy/) to add your solar panels.
+
 ### To add Victron Remote Monitoring to the Energy dashboard
 
 1. Navigate to {% my energy title="**Settings** > **Dashboards** > **Energy**" %}.
