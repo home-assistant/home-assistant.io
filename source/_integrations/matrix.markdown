@@ -278,6 +278,7 @@ To reply inside of a thread, pass the correct message identifier of the root mes
 a reply message. For example:
 
 {% raw %}
+
 ```yaml
 action: notify.matrix_notify
 data:
@@ -285,6 +286,7 @@ data:
   data:
     thread_id: "{{ trigger.event.data.thread_parent }}"
 ```
+
 {% endraw %}
 
 ## Actions
@@ -308,40 +310,41 @@ data:
     thread_id: "$-abcdeghij_klmnopqrstuvwxyz123"
 ```
 
-{% configuration %}
-message:
-  description: The message body to send
-  required: true
-  type: string
-target:
-  description: The room to send the message to
-  required: true
-  type: string
-data:
-  description: Additional options
-  required: false
-  type: map
-  keys:
-    images:
-      description: One or more image paths to attach to the message.
-      required: false
-      type: list
-    format:
-      description: The format of the message. Must be either `text` or `html`.
-      required: false
-      default: text
-      type: string
-    thread_id:
-      description: The ID of the parent message to thread this reply under.
-      required: false
-      type: string
-{% endconfiguration %}
+- **Data attribute**: `message`
+  - **Description**: The message body to send
+  - **Optional**: No
+  - **Type**: String
+
+- **Data attribute**: `target`
+  - **Description**: The room to send the message to
+  - **Optional**: No
+  - **Type**: String
+
+- **Data attribute**: `data`
+  - **Description**: Additional options
+  - **Optional**: Yes
+  - **Type**: Map
+  - **Sub-attributes**:
+    - **Data attribute**: `images`
+      - **Description**: One or more image paths to attach to the message
+      - **Optional**: Yes
+      - **Type**: List of strings
+    - **Data attribute**: `format`
+      - **Description**: The format of the message. Must be either `text` or `html`
+      - **Optional**: Yes
+      - **Default**: `text`
+      - **Type**: String
+    - **Data attribute**: `thread_id`
+      - **Description**: The ID of the parent message to thread this reply under
+      - **Optional**: Yes
+      - **Type**: String
 
 ### Reacting to messages
 
 To react to a message with an emoji reaction, use the `matrix.react` action:
 
 {% raw %}
+
 ```yaml
 action: matrix.react
 data:
@@ -349,6 +352,7 @@ data:
   room: "{{ trigger.event.data.room }}"
   message_id: "{{ trigger.event.data.event_id }}"
 ```
+
 {% endraw %}
 
 {% tip %}
@@ -356,17 +360,17 @@ Reactions do not have to be an emoji. They can be any valid string. However, emo
 case.
 {% endtip %}
 
-{% configuration %}
-reaction:
-  description: The reaction to send
-  required: true
-  type: string
-room:
-  description: The room to send the reaction in
-  required: true
-  type: string
-message_id:
-  description: The ID of the message to apply the reaction to
-  required: true
-  type: string
-{% endconfiguration %}
+- **Data attribute**: `reaction`
+  - **Description**: The reaction to send
+  - **Optional**: No
+  - **Type**: String
+
+- **Data attribute**: `room`
+  - **Description**: The room to send the reaction in
+  - **Optional**: No
+  - **Type**: String
+
+- **Data attribute**: `message_id`
+  - **Description**: The ID of the message to apply the reaction to
+  - **Optional**: No
+  - **Type**: String
