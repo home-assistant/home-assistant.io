@@ -133,9 +133,9 @@ For more detailed steps on how to define a custom interval, follow the procedure
 
 ## Actions
 
-### Action `sql.query`
+### Action SQL query
 
-This action allows you to execute an arbitrary read-only `SELECT` query against a database and get the results back.
+The `sql.query` action allows you to execute an arbitrary read-only `SELECT` query against a database and get the results back.
 
 - **Data attribute**: `query`
   - **Description**: The `SELECT` query to execute. Only `SELECT` statements are allowed.
@@ -144,7 +144,7 @@ This action allows you to execute an arbitrary read-only `SELECT` query against 
   - **Description**: The URL of the database to connect to. If not provided, the default Home Assistant recorder database will be used.
   - **Optional**: Yes
 
-The action returns a list of rows, where each row is a dictionary of column names to values.
+The `sql.query` action returns a list of rows, where each row is a dictionary of column names to values.
 
 #### Data type conversion
 
