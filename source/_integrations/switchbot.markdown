@@ -67,10 +67,10 @@ The device will automatically detect, If your device is not discovered in active
 ### For passive scanning
 The device will not automatically detect, You need to follow the steps below.
 
-1. Add the device in the Switchbot App.
+1. Add the device in the SwitchBot App.
 2. go to {% my integrations title="**Settings** > **Devices & services**" %}.
-3. Clicked the Add integration and search switchbot, scroll to the bottom of the list box and clicked SwitchBot Bluetooth.
-4. login the switchbot account.
+3. Clicked the Add integration and search SwitchBot, scroll to the bottom of the list box and clicked SwitchBot Bluetooth.
+4. login the SwitchBot account.
 
 After above steps, the device information will be download and then the integration automate discovery devices.
 
