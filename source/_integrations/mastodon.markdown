@@ -16,6 +16,7 @@ ha_platforms:
   - sensor
 ha_integration_type: service
 ha_config_flow: true
+ha_quality_scale: bronze
 ---
 
 The `mastodon` platform uses [Mastodon](https://joinmastodon.org/) to post status updates and get account statistics.
@@ -51,10 +52,6 @@ The Mastodon integration has the following actions:
 
 - `mastodon.post`
 
-{% note %}
-The previous `notify.mastodon` service has been deprecated in favor of the new `mastodon.post` action. If you're upgrading from a previous version, you'll need to update your automations to use the new action format shown below.
-{% endnote %}
-
 ### Action `mastodon.post`
 
 Post a status to your Mastodon account
@@ -65,6 +62,7 @@ Post a status to your Mastodon account
 | `status`            | No       | The status text to post.                                                                                                                                                                                                                                           |
 | `visibility`        | Yes      | If not used, will default to account setting. `public`: post will be public, `unlisted`: post will be public but not appear on the public timeline, `private`: post will only be visible to followers, and `direct`: post will only be visible to mentioned users. |
 | `content_warning`   | Yes      | Text will be shown as a warning before the text of the status. If not used, no warning will be displayed.                                                                                                                                                          |
+| `language`          | Yes      | The language of the post. If not used, the language that is set in the Mastodon account is used. |
 | `media`             | Yes      | Attach an image or video to the post.                                                                                                                                                                                                                              |
 | `media_description` | Yes      | If an image or video is attached, will add a description for this media for people with visual impairments.                                                                                                                                                        |
 | `media_warning`     | Yes      | If an image or video is attached, `True` will mark the media as sensitive. `False` is default.                                                                                                                                                                     |
@@ -83,8 +81,9 @@ Example post action that will post a status using your account's default visibil
 
 ```yaml
 - action: mastodon.post
-  config_entry_id: YOUR_MASTODON_CONFIG_ENTITY_ID
-  status: "A toot from Home Assistant"
+  data:
+    config_entry_id: YOUR_MASTODON_CONFIG_ENTITY_ID
+    status: "A toot from Home Assistant"
 ```
 
 {% endraw %}
@@ -99,9 +98,10 @@ This will post a status to Mastodon, but visibility is marked as `private` so on
 
 ```yaml
 - action: mastodon.post
-  config_entry_id: YOUR_MASTODON_CONFIG_ENTITY_ID
-  status: "A private toot from Home Assistant"
-  visibility: private
+  data:
+    config_entry_id: YOUR_MASTODON_CONFIG_ENTITY_ID
+    status: "A private toot from Home Assistant"
+    visibility: private
 ```
 
 {% endraw %}
@@ -116,9 +116,10 @@ This will post a status to Mastodon that includes an image.
 
 ```yaml
 - action: mastodon.post
-  config_entry_id: YOUR_MASTODON_CONFIG_ENTITY_ID
-  status: "A media toot from Home Assistant"
-  media: /config/www/funny_meme.png
+  data:
+    config_entry_id: YOUR_MASTODON_CONFIG_ENTITY_ID
+    status: "A media toot from Home Assistant"
+    media: /config/www/funny_meme.png
 ```
 
 {% endraw %}
@@ -133,12 +134,13 @@ This will post a status to Mastodon that includes an image, with a description, 
 
 ```yaml
 - action: mastodon.post
-  config_entry_id: YOUR_MASTODON_CONFIG_ENTITY_ID
-  status: "A media toot from Home Assistant"
-  visibility: unlisted
-  media: /config/www/funny_meme.png
-  media_description: "A funny meme"
-  content_warning: "This might not be funny enough"
+  data:
+    config_entry_id: YOUR_MASTODON_CONFIG_ENTITY_ID
+    status: "A media toot from Home Assistant"
+    visibility: unlisted
+    media: /config/www/funny_meme.png
+    media_description: "A funny meme"
+    content_warning: "This might not be funny enough"
 ```
 
 {% endraw %}

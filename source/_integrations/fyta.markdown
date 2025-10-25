@@ -41,7 +41,7 @@ Password:
   description: "The password used to access the FYTA account."
 {% endconfiguration_basic %}
 
-## Configuration options
+## Configuration
 
 The integration has no additional configuration options.
 
@@ -62,7 +62,7 @@ The following binary sensors are currently available per plant:
 
 ### Image
 
-The picture created or chosen in the FYTA app is also exposed to Home Assistant.
+An image entity for both the generic plant image and the user image is added. You may use those for your dashboard.
 
 ### Sensors
 
@@ -100,6 +100,8 @@ For plant measurements, the following status scale is applied:
 - Perfect
 - High
 - Too High
+
+For the measurement sensors (light, moisture, salinity, and temperature), the maximal/minimal values that define the ranges of what is considered acceptable and good for the plant are saved as an extra attribute of the sensor. For example: Below 10 it's too cold, that could be the minimum acceptable. 15 could be the minimum of the good range. Between 15 and 30 is perfect. 30 would be maximum good and 35 would be the maximum acceptable. Above 35 it's too hot. These values can be used for automations or visualizations on the dashboard.
 
 ## Data updates
 

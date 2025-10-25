@@ -128,7 +128,7 @@ automation:
 
 To dynamically set the `input_datetime` you can call
 `input_datetime.set_datetime`. The values for `date`, `time` and/or `datetime` must be in a certain format for the call to be successful. (See action description above.)
-If you have a `datetime` object you can use its `timestamp` method. Of if you have a timestamp you can just use it directly.
+If you have a `datetime` object, you can use its `timestamp` method. Or, if you have a timestamp, you can just use it directly.
 
 {% raw %}
 
