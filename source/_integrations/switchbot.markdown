@@ -61,7 +61,18 @@ Please note, device names configured in the SwitchBot app are not transferred in
 
 Some SwitchBot devices need to be configured within the app before being controlled by Home Assistant, such as calibrating the cover open/close limits or pairing two covers to move together.
 
+### For activce scanning 
+The device will automatically detect, If your device is not discovered in active mode, you can refer to the passive mode to add it.
 
+### For passive scanning
+The device will not automatically detect, You need to follow the steps below.
+
+1. Add the device in the Switchbot App.
+2. go to {% my integrations title="**Settings** > **Devices & services**" %}.
+3. Clicked the Add integration and search switchbot, scroll to the bottom of the list box and clicked SwitchBot Bluetooth.
+4. login the switchbot account.
+
+After above steps, the device information will be download and then the integration automate discovery devices.
 
 ### Adding encrypted SwitchBot devices
 
