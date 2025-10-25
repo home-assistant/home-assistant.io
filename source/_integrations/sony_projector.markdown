@@ -12,9 +12,9 @@ ha_integration_type: integration
 ha_quality_scale: legacy
 ---
 
-The `sony_projector` switch platform allows you to control the state of SDCP compatible network-connected projectors from [Sony](https://www.sony.com/).
+The `sony_projector` integration allows you to control the state of SDCP compatible network-connected projectors from [Sony](https://www.sony.com/).
 
-## Configuration
+## Switch configuration
 
 To use your Sony Projector in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
@@ -36,6 +36,18 @@ name:
   required: false
   type: string
 {% endconfiguration %}
+
+### Legacy YAML import
+
+If you previously configured the integration with `configuration.yaml`, keep the following block so Home Assistant can import your settings into the UI-based configuration entry:
+
+```yaml
+sony_projector:
+  - host: "192.168.1.47"
+    name: "Projector"
+```
+
+After the config entry appears in the UI, you can remove this legacy YAML.
 
 Under your projector's web interface **Advanced Menu**, you may need to:
 - Enable/start the **PJ Talk** service.
