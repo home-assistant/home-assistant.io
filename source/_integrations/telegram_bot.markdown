@@ -541,6 +541,30 @@ bot:
   username: "<username of the bot>"
 ```
 
+An attachment message will fire a `telegram_attachment` event on the event bus with the following `event_data`:
+
+```yaml
+file_id: "<unique identifier for the file>"
+file_name: "<name of the file, if available>"
+file_mime_type: "<MIME type of the file, if available>"
+file_size: "<file size in bytes, if available>"
+text: "<caption of the file, if available>"
+from_first: "<first name of the sender>"
+from_last: "<last name of the sender>"
+user_id: "<id of the sender>"
+id: "<message id>"
+chat_id: "<origin chat id>"
+date: "<message timestamp>"
+message_thread_id: "<message thread id>"
+bot:
+  config_entry_id: "<config entry id of the bot>"
+  id: "<id of the bot>"
+  first_name: "<first name of the bot>"
+  last_name: "<last name of the bot>"
+  username: "<username of the bot>"
+```
+
+
 Any other message not starting with `/` will be processed as simple text, firing a `telegram_text` event on the event bus with the following `event_data`:
 
 ```yaml

@@ -9,6 +9,7 @@ ha_iot_class: Cloud Polling
 ha_domain: growatt_server
 ha_platforms:
   - sensor
+  - switch
 ha_config_flow: true
 ha_integration_type: integration
 ---
@@ -48,3 +49,12 @@ Using an API token is recommended for MIN/TLX inverters as it uses the official 
 - Login credentials to that Growatt account, you will need them during setup of the integration
 
 {% include integrations/config_flow.md %}
+
+## Inverter controls
+
+When using API token authentication with MIN/TLX inverters, the integration provides additional control entities:
+
+### Switch entities
+
+- **AC charge**: Enable or disable AC charging
+
