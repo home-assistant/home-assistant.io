@@ -134,6 +134,10 @@ cover:
               entity_id: cover.rts_test_shutter # change to your device id
 ```
 
+### Troubleshooting connection issues with the local API
+
+If your entities frequently become unavailable for short periods, this usually indicates connection problems between Home Assistant and your gateway. To improve reliability, try connecting to your gateway using its IP address instead of the `gateway-xxxx-xxxx-xxx.local` hostname.
+
 ### Overkiz API limits
 
 **Device state changes are not broadcasted for all devices**
