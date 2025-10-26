@@ -372,7 +372,7 @@ Enables water heater boost for a specific duration.
 
 | Data attribute        | Optional | Description                                                        |
 |----------------------|----------|--------------------------------------------------------------------|
-| `duration`           | No       | Boost duration                                                     |
+| `duration`           | No       | Boost duration in seconds                                          |
 | `emergency_boost`    | Yes      | Whether to enable emergency boost mode                             |
 | `temporary_setpoint` | Yes      | Temporary setpoint temperature in Celsius during the boost period  |
 
