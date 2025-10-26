@@ -40,6 +40,14 @@ There is currently support for the following device types within Home Assistant:
 
 If your unit is not in the list above there is another option, to buy and install an [ESP32-Faikin](https://github.com/revk/ESP32-Faikin).
 
+{% include integrations/config_flow.md %}
+
+Configuration steps:
+1) go into your router and make the IP address allocation static so that the controller will always get the same IP address each time it requests one through DHCP. If you skip this your addition will only work until the IP address changes as determined by DHCP
+2) try adding your controller to HA first with just the static IP address. Leave the key and password field blank. This will work for the majority of cases.
+3) if 2) fails try again but find and add the "KEY" from the silver label inside the Daikin head unit to the IP address information sought by the integration. Again, leave the password blank.
+4) any other permutation that is needed that is unique for a specific controller and/or country.
+
 {% note %}
 
 - BRP072Cxx adapters require an API key to be entered, which is labelled "KEY" on the device sticker alongside SSID, MAC, and S/N. Password should be left blank.
@@ -47,8 +55,6 @@ If your unit is not in the list above there is another option, to buy and instal
 - Other models are auto-detected and the API key and password fields must be left blank.
 
 {% endnote %}
-
-{% include integrations/config_flow.md %}
 
 {% note %}
   
