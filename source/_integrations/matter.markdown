@@ -364,7 +364,7 @@ The Home Assistant Matter updates currently do not work for Thread devices on a 
 
 The Matter integration has the following actions:
 
-- `matter.get_mealplan`
+- `matter.water_heater_boost`
 
 ### Action `matter.water_heater_boost`
 
