@@ -153,6 +153,7 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 - [Motion Sensor (WoPresence)](https://switch-bot.com/pages/switchbot-motion-sensor)
 - [Water Leak Detector](https://www.switch-bot.com/products/switchbot-water-leak-detector)
 - [Remote (WoRemote)](https://www.switch-bot.com/products/switchbot-remote) (currently only supports battery level monitoring)
+- [Climate Panel](https://www.switch-bot.com/products/switchbot-home-climate-panel) (currently only supports retrieving sensor data, does not yet support device control)
 
 ### Hubs
 
@@ -384,7 +385,7 @@ Features:
 
 ### Sensors
 
-Sensor entiteis are added for thermometer and hygrometer devices, motion sensor, contact sensor, leak sensor, and remote button.
+Sensor entiteis are added for thermometer and hygrometer devices, motion sensor, contact sensor, leak sensor, remote button and climate panel.
 
 #### Meter
 
@@ -455,6 +456,18 @@ Features:
 
 Features:
 - get battery level
+
+#### Climate Panel
+
+This is an encrypted device.
+
+Features:
+
+- get temperature
+- get humidity
+- get battery
+- motion detection state
+- light detection state
 
 ### Lights
 

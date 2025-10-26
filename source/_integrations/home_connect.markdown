@@ -500,6 +500,22 @@ Both entities can use these options, but the availability of these will depend o
     - **Silent**: `consumer_products_cleaning_robot_enum_type_cleaning_modes_silent`
     - **Standard**: `consumer_products_cleaning_robot_enum_type_cleaning_modes_standard`
     - **Power**: `consumer_products_cleaning_robot_enum_type_cleaning_modes_power`
+    - **Intelligent mode**: `consumer_products_cleaning_robot_enum_type_cleaning_mode_intelligent_mode`
+    - **Vacuum only**: `consumer_products_cleaning_robot_enum_type_cleaning_mode_vacuum_only`
+    - **Mop only**: `consumer_products_cleaning_robot_enum_type_cleaning_mode_mop_only`
+    - **Vacuum and mop**: `consumer_products_cleaning_robot_enum_type_cleaning_mode_vacuum_and_mop`
+    - **Mop after vacuum**: `consumer_products_cleaning_robot_enum_type_cleaning_mode_mop_after_vacuum`
+
+    </details>
+- **Suction power**:
+  - **Description**: Defines the suction power.
+  - **Availability**: Cleaning robot
+  - <details>
+    <summary><b>Options:</b> (click to view)</summary>
+
+    - **Silent**: `consumer_products_cleaning_robot_enum_type_suction_power_silent`
+    - **Standard**: `consumer_products_cleaning_robot_enum_type_suction_power_standard`
+    - **Max**: `consumer_products_cleaning_robot_enum_type_suction_power_max`
 
     </details>
 - **Bean amount**:
@@ -1032,6 +1048,7 @@ Starts or selects a program. If the `program` attribute is not set, this action 
 | `program` | yes | Program to select. If set, it will start or select a program depending on `affects_to`. |
 | `consumer_products_cleaning_robot_option_reference_map_id` | yes | Defines which reference map is to be used. |
 | `consumer_products_cleaning_robot_option_cleaning_mode` | yes | Defines the favoured cleaning mode. |
+| `consumer_products_cleaning_robot_option_suction_power` | yes | Defines the suction power. |
 | `consumer_products_coffee_maker_option_bean_amount` | yes | Describes the amount of coffee beans used in a coffee machine program. |
 | `consumer_products_coffee_maker_option_fill_quantity` | yes | Describes the amount of water (in ml) used in a coffee machine program. |
 | `consumer_products_coffee_maker_option_coffee_temperature` | yes | Describes the coffee temperature used in a coffee machine program. |
