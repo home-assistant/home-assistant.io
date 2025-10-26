@@ -59,12 +59,18 @@ When using API token authentication with MIN/TLX inverters, the integration prov
 These controls directly modify your inverter's operational settings. Only change these values if you understand their impact on your system. Incorrect settings may damage your battery, reduce system efficiency, or void your warranty. Use at your own risk.
 {% endimportant %}
 
-The following control entities are available:
+### Numbers
 
-| Name                | Type   | Unit | Description   |
-|---------------------|--------|------|:--------------|
-| Charge power        | Number | %    | Set the charge power as a percentage (0-100%) |
-| Charge stop SOC     | Number | %    | Set the state of charge at which charging should stop (0-100%) |
-| Discharge power     | Number | %    | Set the discharge power as a percentage (0-100%) |
-| Discharge stop SOC  | Number | %    | Set the state of charge percentage at which discharging should stop (0-100%) |
-| AC charge           | Switch | -    | Enable or disable AC charging |
+- **Charge power**
+  - **Description**: Set the charge power as a percentage (0-100%)
+- **Charge stop SOC**
+  - **Description**: Set the state of charge at which charging should stop (0-100%)
+- **Discharge power**
+  - **Description**: Set the discharge power as a percentage (0-100%)
+- **Discharge stop SOC**
+  - **Description**: Set the state of charge percentage at which discharging should stop (0-100%)
+
+### Switches
+
+- **AC charge**
+  - **Description**: Enable or disable AC charging
