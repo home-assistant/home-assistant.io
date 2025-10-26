@@ -25,7 +25,7 @@ Before setting up the Transmission integration, ensure you have:
 
 1. Transmission installed and running on your network.
 2. The IP address or hostname and port of your Transmission instance.
-3. The username & password of your Transmission instance, if set.
+3. The username and password of your Transmission instance, if set.
 4. Your Transmission client must first be configured to allow remote access. In your Transmission client navigate to **Preferences** -> **Remote** tab and then click the **Allow remote access** checkbox.
 
 {% include integrations/config_flow.md %}
