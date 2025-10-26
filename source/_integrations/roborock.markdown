@@ -437,11 +437,17 @@ Roborock servers require accepting a user agreement before using the API, which 
 4. Log back in and accept the policy.
 5. Reload the Roborock integration!
 
-### The integration tells me it cannot reach my vacuum and is using the cloud API and that this is not supported
+### The integration tells me it cannot reach my vacuum and is using the cloud API and that this is not supported or I am having any networking issues
 
 This integration has the capability to control your devices through the cloud API and the local API. If the local API is not reachable, it will just use the cloud API. We recommend only using the local API as it helps prevent any kind of rate-limiting.
 
-The steps needed to fix this issue are specific to your networking setup. Make sure your Home Assistant instance can communicate on port 58867 with the IP address of your vacuum. This may require changing firewall settings, VLAN configuration, etc.
+The steps needed to fix this issue are specific to your networking setup. Here are some general troubleshooting steps:
+
+1. Ensure your vacuum can communicate externally via port 8883.
+2. Ensure your vacuum can communicate with your Home Assistant instance on ports TCP 58867 and UDP 58866.
+3. If you are using a tool such as Pi-Hole, AdGuard, or anything else that modifies your DNS, ensure that your vacuum is exempted.
+4. Set a static IP for your vacuum.
+5. Check your router's webpage. If the device is losing connection, you need to focus on increasing your Wi-Fi network's performance.
 
 ### My Device goes unavailable every night at around 3am - how can I fix this?
 

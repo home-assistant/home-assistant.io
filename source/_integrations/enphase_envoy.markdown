@@ -802,7 +802,7 @@ Envoy Metered without installed CT, running older firmware versions, reportedly 
 
 ### Lifetime energy production decreases by 1.2 MWh
 
-Envoy Standard (not Metered), running firmware 8.2.4264, reportedly decreases the **Lifetime energy production** value by 1.2 MWh at irregular times. The current hypothesis is that the step change occurs when one of the inverters exceeds an internal lifetime joules counter of 32 bit, which is 1.19 MWh, and resets to zero. This leads to a decrease of 1.2 MWh in the aggregated value for all inverters. It's not clear if this also happens for the metered Envoy.
+The envoy, as of firmware 8.2.4264, reportedly decreases the **Lifetime energy production** value by 1.2 MWh at irregular times. The current hypothesis is that the step change occurs when one of the inverters exceeds an internal lifetime joules counter of 32 bit, which is 1.19 MWh, and resets to zero. This leads to a decrease of 1.2 MWh in the aggregated value for all inverters.
 
 {% details "History example for Envoy Lifetime energy production value decrease" %}
 
@@ -813,6 +813,10 @@ The example below shows decreases when multiple inverters reach a 1.2 MWh lifeti
 </figure>
 
 {% enddetails %}
+
+To correct for this issue, a sensor [blueprint template](/integrations/template/#using-blueprints) named [`Correct Envoy lifetime production energy`](https://community.home-assistant.io/t/correct-envoy-lifetime-production-energy/942918/1) is available in the community blueprints exchange.
+
+Import the blueprint using the **import blueprint to** button. This will install the blueprint as `/config/blueprints/template/marcelhoogantink/correct_envoy_lifetime_production_energy.yaml`. Use the templates shown in the blueprint exchange to implement an entity with a corrected lifetime value.
 
 ### Missing inverter data
 
