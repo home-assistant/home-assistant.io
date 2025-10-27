@@ -18,7 +18,7 @@ The **eGauge** {% term integration %} is used to integrate with [eGauge energy m
 
 ## Supported devices
 
-This integration supports all eGauge energy monitors running firmware >= v4.2. For instructions on how to check and upgrade the firmware on eGauge devices, see the [eGauge knowledge base](https://kb.egauge.net/configuration/how-to-check-and-upgrade-firmware).
+This integration supports all eGauge energy monitors running firmware version 4.2 or newer. For instructions on how to check and upgrade the firmware on eGauge devices, see the [eGauge knowledge base](https://kb.egauge.net/configuration/how-to-check-and-upgrade-firmware).
 
 ## Prerequisites
 
