@@ -44,15 +44,15 @@ Consult the [eGauge Configuration Guide](https://www.egauge.net/media/support/do
 
 In this installation, solar inverters are wired into your electrical panel.
 
-* `grid_in  = [= ] max(0, $"grid")`
-* `grid_out = [= ] max(0, -$"grid")`
+- `grid_in  = [= ] max(0, $"grid")`
+- `grid_out = [= ] max(0, -$"grid")`
 
 #### Direct-feed
 
 In this installation, solar inverters feed directly into the grid.
 
-* `grid_in = [= ] max(0, $"grid"-$"solar")`
-* `grid_out = [= ] max(0, $"solar"-$"grid")`
+- `grid_in = [= ] max(0, $"grid"-$"solar")`
+- `grid_out = [= ] max(0, $"solar"-$"grid")`
 
 #### Other installations
 
@@ -79,7 +79,7 @@ The **eGauge** integration provides the following entities:
 
 ### Sensors
 
-* **Power and Energy**: Each power register on the eGauge will appear as two Home Assistant sensors: one reporting current power and the other reporting cumulative total energy usage.
+- **Power and Energy**: Each power register on the eGauge will appear as two Home Assistant sensors: one reporting current power and the other reporting cumulative total energy usage.
 
 ### Data Updates
 
@@ -87,8 +87,8 @@ The **eGauge** integration polls the device every 30 seconds.
 
 ## Known limitations
 
-* The integration currently only supports power registers.
-* The integration is currently read-only and cannot modify settings on the eGauge device.
+- The integration currently only supports power registers.
+- The integration is currently read-only and cannot modify settings on the eGauge device.
 
 ## Troubleshooting
 
