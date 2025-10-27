@@ -34,7 +34,7 @@ Under your projector's web interface Advanced Menu, you may need to:
 YAML configuration for `sony_projector` is no longer supported. If you previously configured this integration using YAML, remove any `sony_projector` entries from your `configuration.yaml` (including legacy `switch` or `media_player` sections) and set up the integration from {% my integrations title="**Settings** > **Devices & services**" %}.
 
 After removing the YAML and restarting Home Assistant:
-- The temporary compatibility switch (if present) is removed automatically
+- The temporary compatibility switch (if present) is removed automatically.
 - The Repairs notice about the legacy switch clears automatically after a reload or restart once no automations or scripts reference it
 
 Tip: to re-check immediately without restarting, reload the Sony Projector integration from Settings → Devices & Services.
