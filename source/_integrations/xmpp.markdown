@@ -57,7 +57,7 @@ password:
   required: true
   type: string
 recipient:
-  description: The Jabber IDs (JID) that will receive the messages.
+  description: Default Jabber IDs (JID) that will receive the notification. This can be a JID or a list of JIDs for multiple recipients.<br>This is where you want to send your Jabber notifications by default (when not specifying target in the action). Any JID(s) specified in the action’s target field will override this recipient content.
   required: true
   type: [string, list]
 tls:

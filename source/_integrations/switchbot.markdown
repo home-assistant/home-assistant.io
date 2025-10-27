@@ -118,6 +118,7 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 - [Curtain 3 (WoCtn3)](https://switch-bot.com/pages/switchbot-curtain-3)
 - [Blind Tilt (WoBlindTilt)](https://switch-bot.com/pages/switchbot-blind-tilt)
 - [Roller Shade](https://www.switch-bot.com/products/switchbot-roller-shade)
+- [Garage Door Opener](https://www.switch-bot.com/products/switchbot-garage-door-opener)
 
 ### Lights
 
@@ -152,6 +153,7 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 - [Motion Sensor (WoPresence)](https://switch-bot.com/pages/switchbot-motion-sensor)
 - [Water Leak Detector](https://www.switch-bot.com/products/switchbot-water-leak-detector)
 - [Remote (WoRemote)](https://www.switch-bot.com/products/switchbot-remote) (currently only supports battery level monitoring)
+- [Climate Panel](https://www.switch-bot.com/products/switchbot-home-climate-panel) (currently only supports retrieving sensor data, does not yet support device control)
 
 ### Hubs
 
@@ -205,7 +207,7 @@ To see the list of SwitchBot Matter-certified devices, visit the [SwitchBot Matt
 - `Retry count`: How many times to retry sending commands to your SwitchBot devices.
 
 #### Attributes
-- `last_run_success`: Returns `true` if the last action sent to the SwitchBot succeeded. This attribute is useful for error trapping when Bluetooth connectivity is intermittent. If `false`, see home-assistant.log for specific error messages.
+- `last_run_success`: Returns `true` if the last action sent to the SwitchBot succeeded. This attribute is useful for error trapping when Bluetooth connectivity is intermittent. If `false`, see [the Home Assistant logs](/integrations/logger/#viewing-logs) for specific error messages.
 
 ### Plugs and switches
 
@@ -277,7 +279,7 @@ Features:
 
 ### Cover
 
-Cover entities are added for Curtain, Curtain 3, Blind Tilt, and Roller Shade.
+Cover entities are added for Curtain, Curtain 3, Blind Tilt, Roller Shade, and Garage Door Opener.
 
 #### Curtain
 
@@ -375,9 +377,15 @@ Features:
 - get position
 - get battery level
 
+#### Garage Door Opener
+
+Features:
+
+- open/close
+
 ### Sensors
 
-Sensor entiteis are added for thermometer and hygrometer devices, motion sensor, contact sensor, leak sensor, and remote button.
+Sensor entiteis are added for thermometer and hygrometer devices, motion sensor, contact sensor, leak sensor, remote button and climate panel.
 
 #### Meter
 
@@ -448,6 +456,18 @@ Features:
 
 Features:
 - get battery level
+
+#### Climate Panel
+
+This is an encrypted device.
+
+Features:
+
+- get temperature
+- get humidity
+- get battery
+- motion detection state
+- light detection state
 
 ### Lights
 

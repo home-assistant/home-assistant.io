@@ -690,7 +690,6 @@ Binary sensors are read-only entities. To write to the KNX bus, configure a [KNX
 
 Binary sensor entities can be created from the frontend in the KNX panel or via YAML.
 
-<a name="configuration-binary-sensor-yaml"></a>
 {% details "Configuration of KNX binary sensor entities via YAML" %}
 
 ```yaml
@@ -854,6 +853,10 @@ entity_category:
 ## Climate
 
 The KNX climate platform is used as an interface to KNX thermostats and room controllers.
+
+Climate entities can be created from the frontend in the KNX panel or via YAML.
+
+{% details "Configuration of KNX climate entities via YAML" %}
 
 To use your KNX thermostats in your installation, add the following lines to your top level [KNX Integration](/integrations/knx) configuration key in {% term "`configuration.yaml`" %}:
 
@@ -1138,6 +1141,8 @@ entity_category:
   default: None
 {% endconfiguration %}
 
+{% enddetails %}
+
 ## Cover
 
 The KNX cover platform is used as an interface to KNX covers.
@@ -1150,7 +1155,6 @@ Home Assistant will, by default, `close` a cover by moving it in the `DOWN` dire
 
 Cover entities can be created from the frontend in the KNX panel or via YAML.
 
-<a name="configuration-cover-yaml"></a>
 {% details "Configuration of KNX cover entities via YAML" %}
 
 To use your KNX covers in your installation, add the following lines to your top level [KNX Integration](/integrations/knx) configuration key in your {% term "`configuration.yaml`" %}:
@@ -1443,7 +1447,6 @@ The KNX light integration is used as an interface to control KNX actuators for l
 
 Light entities can be created from the frontend in the KNX panel or via YAML.
 
-<a name="configuration-light-yaml"></a>
 {% details "Configuration of KNX light entities via YAML" %}
 
 {% configuration %}
@@ -2196,7 +2199,6 @@ Switch entities can be created from the frontend in the KNX panel or via YAML.
 Switch entities without a `state_address` will restore their last known state after Home Assistant was restarted.
 Switches that have a `state_address` configured request their current state from the KNX bus.
 
-<a name="configuration-switch-yaml"></a>
 {% details "Configuration of KNX switch entities via YAML" %}
 
 ```yaml
