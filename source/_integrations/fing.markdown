@@ -20,7 +20,7 @@ The [Fing](https://www.fing.com/) {% term integration %} enables you to retrieve
 
 - This integration leverages the [Local API](https://www.fing.com/developers/local-api/) provided by the Fing Agent to seamlessly connect Home Assistant with the device information gathered by the Agent, so make sure the Local API is enabled on your Fing Agent for proper functionality.
 
-- To configure the integration you will need the IP address, port, and API key of your Fing Agent.
+- To configure the integration, you will need the IP address, port, and API key of your Fing Agent.
 
 {% include integrations/config_flow.md %}
 
