@@ -87,9 +87,9 @@ data:
 {% enddetails %}
 
 
-### Action `google_sheets.fetch_sheet`
+### Action `google_sheets.get_sheet`
 
-You can use the `google_sheets.fetch_sheet` action to retrieve rows of data from a Sheets document.
+You can use the `google_sheets.get_sheet` action to retrieve rows of [data] (/docs/scripts/perform-actions#use-templates-to-handle-response-data) from a Sheets document.
 
 {% details "Create event action details" %}
 
@@ -103,7 +103,7 @@ You can use the `google_sheets.fetch_sheet` action to retrieve rows of data from
 
 ```yaml
 # Example action
-action: google_sheets.fetch_sheet
+action: google_sheets.get_sheet
 data:
   config_entry: 1b4a46c6cba0677bbfb5a8c53e8618b0
   worksheet: "Car Charging"
@@ -111,5 +111,18 @@ data:
 ```
 
 {% endraw %}
+
+{% enddetails %}
+
+
+{% details "Example action response" %}
+
+```yaml
+range:
+  - - 04/07/2024
+    - 9 Kw
+  - - 05/07/2024
+    - 8 Kw
+```
 
 {% enddetails %}
