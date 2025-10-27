@@ -35,14 +35,15 @@ Each DALI device creates a light entity with on/off control and dimming. Dependi
 
 The integration listens for push updates from the gateway, so changes made outside Home Assistant are reflected immediately.
 
+## Troubleshooting
+
+- **Gateway not discovered:** Confirm the gateway and Home Assistant share the same network, the gateway is powered, and its web interface is reachable; restart the gateway if needed.
+- **Devices missing:** Check DALI bus wiring, ensure devices are commissioned on the gateway, then reload the integration.
+- **Entities unavailable:** Verify device power and addressing in the gateway before restarting the integration.
+
 ## Removing the integration
 
 This integration follows standard integration removal; no extra steps are required.
 
 {% include integrations/remove_device_service.md %}
 
-## Troubleshooting
-
-- **Gateway not discovered:** Confirm the gateway and Home Assistant share the same network, the gateway is powered, and its web interface is reachable; restart the gateway if needed.
-- **Devices missing:** Check DALI bus wiring, ensure devices are commissioned on the gateway, then reload the integration.
-- **Entities unavailable:** Verify device power and addressing in the gateway before restarting the integration.
