@@ -432,6 +432,12 @@ For each device script, the integration creates a `switch` entity that allows yo
 Shelly devices rely on [SNTP](https://en.wikipedia.org/wiki/Network_Time_Protocol#SNTP) for features like power measurement.
 Please check from the device Web UI that the configured server is reachable.
 
+## Troubleshooting
+
+1. [Enable debug logging](https://www.home-assistant.io/docs/configuration/troubleshooting/#enabling-debug-logging).
+2. Take necessary steps/actions to replicate the issue.
+3. [Disable debug logging and download logs](https://www.home-assistant.io/docs/configuration/troubleshooting/#disable-debug-logging-and-download-logs).
+
 ## Known issues and limitations
 
 - Only supports firmware 1.9 and later for generation 1 devices

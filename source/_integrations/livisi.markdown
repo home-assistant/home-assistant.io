@@ -30,7 +30,7 @@ The following devices are currently supported by this integration:
 - Wall Switches (ISS, ISS2)
 - Window-Door Sensor (WDS)
  
-## Prequisites
+## Prerequisites
  
 This integration communicates with the local version of LIVISI SmartHome only. 
  

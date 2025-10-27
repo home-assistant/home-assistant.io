@@ -25,7 +25,7 @@ For Assist to be able to talk to your Home Assistant setup your setup needs to b
 In Home Assistant, the Assist pipelines are made up of various components that together form a voice assistant. For each component, you can choose from different options.
 
 - For listening and talking back, it needs your phone with the Home Assistant app, or a voice activated device.
-- For understanding, it needs to have a text-to-speech and speech-to-text software integrated. 
+- For understanding, it needs to have a speech-to-text and text-to-speech software integrated. 
 - For running all together, it needs to have the Home Assistant Operating System running.
 
 ## Some options for speech-to-text and text-to-speech
