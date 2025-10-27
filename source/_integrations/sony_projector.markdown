@@ -16,13 +16,13 @@ ha_quality_scale: legacy
 
 The **Sony Projector** {% term integration %} allows Home Assistant to control the power state of SDCP-compatible, network-connected projectors from [Sony](https://www.sony.com/). It exposes the projector as a media player {% term entity %} with on/off controls.
 
-{% include integrations/config_flow.md %}
-
-## Projector settings
+## Prerequisites
 
 Under your projector's web interface Advanced Menu, you may need to:
 - Enable/start the PJ Talk service.
 - Add the IP address of your Home Assistant server to the Host address field.
+
+{% include integrations/config_flow.md %}
 
 ## Entities
 
