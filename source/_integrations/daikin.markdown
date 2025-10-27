@@ -42,7 +42,7 @@ If your unit is not in the list above there is another option, to buy and instal
 
 {% include integrations/config_flow.md %}
 
-If your device is set up with password, use that, if it has a API-key, use that, in all other cases leave the fields blank.
+If your device is set up with password, use the password. If it has an API key, use the API key. In all other cases, leave the fields blank.
 
 {% note %}
   
