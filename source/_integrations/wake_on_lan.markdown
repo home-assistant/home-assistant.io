@@ -114,10 +114,18 @@ host:
   description: The IP address or hostname to check the state of the device (on/off). If this is not provided, the state of the switch will be assumed based on the last action that was taken.
   required: false
   type: string
+on_grace_period:
+  description: Calling `turn_on` forces the state to `on` for the specified duration (in seconds), regardless of the actual device status. Requires `host` to be configured.
+  required: false
+  type: float
 turn_off:
   description: Defines an [action](/getting-started/automation/) to run when the switch is turned off.
   required: false
   type: string
+off_grace_period:
+  description: Calling `turn_off` forces the state to `off` for the specified duration (in seconds), regardless of the actual device status. Requires `host` and `turn_off` to be configured.
+  required: false
+  type: float
 broadcast_address:
   description: The IP address of the host to send the magic packet to.
   required: false
