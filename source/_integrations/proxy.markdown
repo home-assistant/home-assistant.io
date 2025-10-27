@@ -11,6 +11,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `proxy` camera {% term integration %} allows you to pass another camera's output through post-processing routines and generate a new camera with the post-processed output.

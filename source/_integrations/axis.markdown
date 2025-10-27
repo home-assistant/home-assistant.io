@@ -13,7 +13,6 @@ ha_codeowners:
   - '@Kane610'
 ha_domain: axis
 ha_qa_scale: platinum
-ha_quality_scale: platinum
 ha_zeroconf: true
 ha_ssdp: true
 ha_dhcp: true
@@ -53,6 +52,10 @@ If you are having issues and want to report a problem, always start with making 
 ### Troubleshooting discovery
 
 If your device is not discovered. On your camera, go to **System Options** -> **Advanced** -> **Plain Configuration**. Change the drop-down box to `network` and click `Select Group`. If `Network Interface I0 ZeroConf` contains the `169.x.x.x` IP address, unchecked the box next to `Enabled` for this section and click `Save`.
+
+### Internet access required for full integration
+
+If the Axis device does not have internet access, Home Assistant may only display the camera stream. Other entities such as sensors and output controls might not appear. To ensure all device features are available, make sure the camera has internet access during initial setup.
 
 ### Reporting a problem
 

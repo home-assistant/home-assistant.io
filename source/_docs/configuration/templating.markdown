@@ -52,8 +52,8 @@ There are a few very important rules to remember when adding templates to YAML:
 
 1. You **must** surround single-line templates with double quotes (`"`) or single quotes (`'`).
 2. It is advised that you prepare for undefined variables by using `if ... is not none` or the [`default` filter](https://jinja.palletsprojects.com/en/latest/templates/#jinja-filters.default), or both.
-3. It is advised that when comparing numbers, you convert the number(s) to a [`float`](https://jinja.palletsprojects.com/en/latest/templates/#float) or an [`int`](https://jinja.palletsprojects.com/en/latest/templates/#int) by using the respective [filter](https://jinja.palletsprojects.com/en/latest/templates/#list-of-builtin-filters).
-4. While the [`float`](https://jinja.palletsprojects.com/en/latest/templates/#float) and [`int`](https://jinja.palletsprojects.com/en/latest/templates/#int) filters do allow a default fallback value if the conversion is unsuccessful, they do not provide the ability to catch undefined variables.
+3. It is advised that when comparing numbers, you convert the number(s) to a [`float`](https://jinja.palletsprojects.com/en/latest/templates/#jinja-filters.float) or an [`int`](https://jinja.palletsprojects.com/en/latest/templates/#jinja-filters.int) by using the respective [filter](https://jinja.palletsprojects.com/en/latest/templates/#list-of-builtin-filters).
+4. While the [`float`](https://jinja.palletsprojects.com/en/latest/templates/#jinja-filters.float) and [`int`](https://jinja.palletsprojects.com/en/latest/templates/#jinja-filters.int) filters do allow a default fallback value if the conversion is unsuccessful, they do not provide the ability to catch undefined variables.
 
 Remembering these simple rules will help save you from many headaches and endless hours of frustration when using automation templates.
 
@@ -63,7 +63,8 @@ Jinja supports a set of language extensions that add new functionality to the la
 To improve the experience of writing Jinja templates, we have enabled the following
 extensions:
 
-- [Loop Controls](https://jinja.palletsprojects.com/en/3.0.x/extensions/#loop-controls) (`break` and `continue`)
+- [Loop Controls](https://jinja.palletsprojects.com/en/stable/extensions/#loop-controls) (`break` and `continue`)
+- [Expression Statement](https://jinja.palletsprojects.com/en/stable/extensions/#expression-statement) (`do`)
 
 ### Reusing templates
 
@@ -79,7 +80,7 @@ For example, you might define a macro in a template in `config/custom_templates/
 
 {% raw %}
 
-```text
+```jinja
 {% macro format_entity(entity_id) %}
 {{ state_attr(entity_id, 'friendly_name') }} - {{ states(entity_id) }}
 {% endmacro %}
@@ -91,12 +92,31 @@ In your automations, you could then reuse this macro by importing it:
 
 {% raw %}
 
-```text
+```jinja
 {% from 'formatter.jinja' import format_entity %}
 {{ format_entity('sensor.temperature') }}
 ```
 
 {% endraw %}
+
+Home Assistant also allows you to write macros with non-string return values by
+taking a named argument called `returns` and calling it with a return value.  Once created,
+pass the macro into the `as_function` filter to use the returned value:
+
+{% raw %}
+
+```jinja
+{%- macro macro_is_switch(entity_name, returns) -%}
+  {%- do returns(entity_name.startswith('switch.')) -%}
+{%- endmacro -%}
+{%- set is_switch = macro_is_switch | as_function -%}
+{{ "It's a switch!" if is_switch("switch.my_switch") else "Not a switch!" }}
+```
+
+{% endraw %}
+
+In this way, you can export utility functions that return scalar or complex values rather than
+just macros that render to strings.
 
 ## Home Assistant template extensions
 
@@ -105,6 +125,10 @@ Extensions allow templates to access all of the Home Assistant specific states a
 ### Limited templates
 
 Templates for some [triggers](/docs/automation/trigger/) as well as `trigger_variables` only support a subset of the Home Assistant template extensions. This subset is referred to as "Limited Templates".
+
+### This
+
+State-based and trigger-based template entities have the special template variable `this` available in their templates and actions. See more details and examples in the [Template integration documentation](/integrations/template).
 
 ### States
 
@@ -318,7 +342,7 @@ List of lights that are on with a brightness of 255:
 {% raw %}
 
 ```text
-{{ ['light.kitchen', 'light.dinig_room'] | select('is_state', 'on') | select('is_state_attr', 'brightness', 255) | list }}
+{{ ['light.kitchen', 'light.dining_room'] | select('is_state', 'on') | select('is_state_attr', 'brightness', 255) | list }}
 ```
 
 {% endraw %}
@@ -423,6 +447,7 @@ The same thing can also be expressed as a test:
 - `device_attr(device_or_entity_id, attr_name)` returns the value of `attr_name` for the given device or entity ID. Can also be used as a filter. Not supported in [limited templates](#limited-templates).
 - `is_device_attr(device_or_entity_id, attr_name, attr_value)` returns whether the value of `attr_name` for the given device or entity ID matches `attr_value`. Can also be used as a test. Not supported in [limited templates](#limited-templates).
 - `device_id(entity_id)` returns the device ID for a given entity ID or device name. Can also be used as a filter.
+- `device_name(lookup_value)` returns the device name for a given device ID or entity ID. Can also be used as a filter.
 
 #### Devices examples
 
@@ -438,6 +463,11 @@ The same thing can also be expressed as a test:
 
 ```text
 {{ device_id('sensor.sony') }}  # deadbeefdeadbeefdeadbeefdeadbeef
+```
+
+```text
+{{ device_name('deadbeefdeadbeefdeadbeefdeadbeef') }}  # Sony speaker
+{{ device_name('sensor.sony') }}  # Sony speaker
 ```
 
 {% endraw %}
@@ -466,9 +496,10 @@ The same thing can also be expressed as a test:
 ### Floors
 
 - `floors()` returns the full list of floor IDs.
-- `floor_id(lookup_value)` returns the floor ID for a given device ID, entity ID, area ID, or area name. Can also be used as a filter.
+- `floor_id(lookup_value)` returns the floor ID for a given floor name or alias, area name or alias, entity ID or device ID. Can also be used as a filter.
 - `floor_name(lookup_value)` returns the floor name for a given device ID, entity ID, area ID, or floor ID. Can also be used as a filter.
 - `floor_areas(floor_name_or_id)` returns the list of area IDs tied to a given floor ID or name. Can also be used as a filter.
+- `floor_entities(floor_name_or_id)` returns the list of entity IDs tied to a given floor ID or name. Can also be used as a filter.
 
 #### Floors examples
 
@@ -480,6 +511,10 @@ The same thing can also be expressed as a test:
 
 ```text
 {{ floor_id('First floor') }}  # 'first_floor'
+```
+
+```text
+{{ floor_id('First floor alias') }}  # 'first_floor'
 ```
 
 ```text
@@ -511,7 +546,7 @@ The same thing can also be expressed as a test:
 ### Areas
 
 - `areas()` returns the full list of area IDs
-- `area_id(lookup_value)` returns the area ID for a given device ID, entity ID, or area name. Can also be used as a filter.
+- `area_id(lookup_value)` returns the area ID for a given area name or alias, entity ID or device ID. Can also be used as a filter.
 - `area_name(lookup_value)` returns the area name for a given device ID, entity ID, or area ID. Can also be used as a filter.
 - `area_entities(area_name_or_id)` returns the list of entity IDs tied to a given area ID or name. Can also be used as a filter.
 - `area_devices(area_name_or_id)` returns the list of device IDs tied to a given area ID or name. Can also be used as a filter.
@@ -526,6 +561,10 @@ The same thing can also be expressed as a test:
 
 ```text
 {{ area_id('Living Room') }}  # 'deadbeefdeadbeefdeadbeefdeadbeef'
+```
+
+```text
+{{ area_id('Living Room Alias') }}  # 'deadbeefdeadbeefdeadbeefdeadbeef'
 ```
 
 ```text
@@ -584,6 +623,7 @@ If there is more than one entry with the same title, the entities for all the ma
 - `labels()` returns the full list of label IDs, or those for a given area ID, device ID, or entity ID.
 - `label_id(lookup_value)` returns the label ID for a given label name.
 - `label_name(lookup_value)` returns the label name for a given label ID.
+- `label_description(lookup_value)` returns the label description for a given label ID.
 - `label_areas(label_name_or_id)` returns the list of area IDs tied to a given label ID or name.
 - `label_devices(label_name_or_id)` returns the list of device IDs tied to a given label ID or name.
 - `label_entities(label_name_or_id)` returns the list of entity IDs tied to a given label ID or name.
@@ -714,15 +754,15 @@ For example, if you wanted to select a field from `trigger` in an automation bas
 
 ### Time
 
-`now()`, `relative_time()`, `today_at()`, and `utcnow()` are not supported in [limited templates](#limited-templates).
+`now()`, `time_since()`, `time_until()`, `today_at()`, and `utcnow()` are not supported in [limited templates](#limited-templates).
 
 - `now()` returns a datetime object that represents the current time in your time zone.
-  - You can also use: `now().second`, `now().minute`, `now().hour`, `now().day`, `now().month`, `now().year`, `now().weekday()` and `now().isoweekday()` and other [`datetime`](https://docs.python.org/3.8/library/datetime.html#datetime.datetime) attributes and functions.
+  - You can also use: `now().second`, `now().minute`, `now().hour`, `now().day`, `now().month`, `now().year`, `now().weekday()` and `now().isoweekday()` and other [`datetime`](https://docs.python.org/3/library/datetime.html#datetime.datetime) attributes and functions.
   - Using `now()` will cause templates to be refreshed at the start of every new minute.
 - `utcnow()` returns a datetime object of the current time in the UTC timezone.
   - For specific values: `utcnow().second`, `utcnow().minute`, `utcnow().hour`, `utcnow().day`, `utcnow().month`, `utcnow().year`, `utcnow().weekday()` and `utcnow().isoweekday()`.
   - Using `utcnow()` will cause templates to be refreshed at the start of every new minute.
-- `today_at(value)` converts a string containing a military time format to a datetime object with today's date in your time zone. Defaults to midnight (`00:00`).
+- `today_at(value)` converts a string containing a 24-hour time format to a datetime object with today's date in your time zone. Defaults to midnight (`00:00`).
 
   - Using `today_at()` will cause templates to be refreshed at the start of every new minute.
 
@@ -735,10 +775,12 @@ For example, if you wanted to select a field from `trigger` in an automation bas
 
   {% endraw %}
 
-- `as_datetime(value, default)` converts a string containing a timestamp, or valid UNIX timestamp, to a datetime object. If that fails, it returns the `default` value or, if omitted, raises an error. When the input is already a datetime object it will be returned as is. in case the input is a datetime.date object, midnight will be added as time. This function can also be used as a filter.
+- `as_datetime(value, default)` converts a string containing a timestamp or a valid UNIX timestamp to a datetime object. If conversion fails, the function returns the `default` value. If no `default` is provided and the input is a string that cannot be converted to a datetime, it returns `None`. For other invalid inputs (e.g., a list, dictionary, or a numeric value too large to convert), it raises an error when no `default` is supplied. In case the input is already a datetime object, it is returned unchanged. If the input is a `datetime.date` object, midnight is added as the time. This function can also be used as a filter.
 - `as_timestamp(value, default)` converts a datetime object or string to UNIX timestamp. If that fails, returns the `default` value, or if omitted raises an error. This function can also be used as a filter.
 - `as_local()` converts a datetime object to local time. This function can also be used as a filter.
-- `strptime(string, format, default)` parses a string based on a [format](https://docs.python.org/3.10/library/datetime.html#strftime-and-strptime-behavior) and returns a datetime object. If that fails, it returns the `default` value or, if omitted, raises an error.
+- `strptime(string, format, default)` parses a string based on a [format](https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior) and returns a datetime object. If that fails, it returns the `default` value or, if omitted, raises an error.
+- `relative_time` converts a datetime object to its human-friendly "age" string. The age can be in seconds, minutes, hours, days, months, or years (but only the biggest unit is considered. For example, if it's 2 days and 3 hours, "2 days" will be returned). Note that it only works for dates _in the past_.
+  - Using `relative_time()` will cause templates to be refreshed at the start of every new minute.
 - `time_since(datetime, precision)` converts a datetime object into its human-readable time string. The time string can be in seconds, minutes, hours, days, months, and years. `precision` takes an integer (full number) and indicates the number of units returned.  The last unit is rounded. For example: `precision = 1` could return "2 years" while `precision = 2` could return "1 year 11 months". This function can also be used as a filter.
 If the datetime is in the future, returns 0 seconds.
 A precision of 0 returns all available units, default is 1.
@@ -857,6 +899,29 @@ The temperature is {{ temp.temperature }}{{ temp.unit }}
 
 ```text
 The temperature is 25°C
+```
+
+{% endraw %}
+
+`from_json(default)` function will attempt to convert the input to `json`. If that fails, returns the `default` value, or if omitted raises an error.
+
+#### Template
+
+{% raw %}
+
+```text
+{% set result = 'not json'|from_json('not json') %}
+The value is {{ result }}
+```
+
+{% endraw %}
+
+#### Output
+
+{% raw %}
+
+```text
+The value is not json
 ```
 
 {% endraw %}
@@ -1153,6 +1218,8 @@ Some examples:
 - Filter `urlencode` will convert an object to a percent-encoded ASCII text string (e.g., for HTTP requests using `application/x-www-form-urlencoded`).
 - Filter `slugify(separator="_")` will convert a given string into a "slug".
 - Filter `ordinal` will convert an integer into a number defining a position in a series (e.g., `1st`, `2nd`, `3rd`, `4th`, etc).
+- Filter `value | from_hex` Decodes a hex string to raw bytes.
+- Filter `value | base64_encode` Encodes a string or bytes to a base 64 string.
 - Filter `value | base64_decode` Decodes a base 64 string to a string, by default utf-8 encoding is used.
 - Filter `value | base64_decode("ascii")` Decodes a base 64 string to a string, using ascii encoding.
 - Filter `value | base64_decode(None)` Decodes a base 64 string to raw bytes.
@@ -1161,13 +1228,40 @@ Some examples:
 
 Some examples:
 {% raw %}
-
+- `{{ "homeassistant" | base64_encode }}` - renders as `aG9tZWFzc2lzdGFudA==`
 - `{{ "aG9tZWFzc2lzdGFudA==" | base64_decode }}` - renders as `homeassistant`
 - `{{ "aG9tZWFzc2lzdGFudA==" | base64_decode(None) }}` - renders as `b'homeassistant'`
+- `{{ "0F010003" | from_hex }}` - renders as `b'\x0f\x01\x00\x03'`
+- `{{ "0F010003" | from_hex | base64_encode }}` - renders as `DwEAAw==`
 
 {% endraw %}
 
 </div>
+
+### Hashing
+
+The template engine contains a few filters and functions to hash a string of
+data. A few very common hashing algorithms are supported: `md5`, `sha1`,
+`sha256`, and `sha512`.
+
+Some examples:
+
+{% raw %}
+
+- `{{ md5("Home Assistant") }}` - renders as `f3f2b8b3b40084aa87e92b7ffb02ed13885fea2d07`
+- `{{ "Home Assistant" | md5 }}` - renders as `f3f2b8b3b40084aa87e92b7ffb02ed13885fea2d07`
+
+- `{{ sha1("Home Assistant") }}` - renders as `14bffd017c73917bfda2372aaf287570597b8e82`
+- `{{ "Home Assistant" | sha1 }}` - renders as `14bffd017c73917bfda2372aaf287570597b8e82`
+
+- `{{ sha256("Home Assistant") }}` - renders as `a18f473c9d3ed968a598f996dcf0b9de84de4ee04c950d041b61297a25bcea49`
+- `{{ "Home Assistant" | sha256 }}` - renders as `a18f473c9d3ed968a598f996dcf0b9de84de4ee04c950d041b61297a25bcea49`
+
+- `{{ sha512("Home Assistant") }}` - renders as `f251e06eb7d3439e1a86d6497d6a4531c3e8c809f538be62f89babf147d7d63aca4e77ae475b94c654fd38d8f543f778ce80007d6afef379d8a0e5d3ddf7349d`
+- `{{ "Home Assistant" | sha512 }}` - renders as `f251e06eb7d3439e1a86d6497d6a4531c3e8c809f538be62f89babf147d7d63aca4e77ae475b94c654fd38d8f543f778ce80007d6afef379d8a0e5d3ddf7349d`
+
+{% endraw %}
+
 
 ### Regular expressions
 
@@ -1176,9 +1270,160 @@ See: [Python regular expression operations](https://docs.python.org/3/library/re
 
 - Test `string is match(find, ignorecase=False)` will match the find expression at the beginning of the string using regex.
 - Test `string is search(find, ignorecase=False)` will match the find expression anywhere in the string using regex.
-- Filter `string|regex_replace(find='', replace='', ignorecase=False)` will replace the find expression with the replace string using regex.
+- Filter `string|regex_replace(find='', replace='', ignorecase=False)` will replace the find expression with the replace string using regex. Access to the matched groups in `replace` is possible with `'\\1'`, `'\\2'`, etc.
 - Filter `value | regex_findall(find='', ignorecase=False)` will find all regex matches of the find expression in `value` and return the array of matches.
 - Filter `value | regex_findall_index(find='', index=0, ignorecase=False)` will do the same as `regex_findall` and return the match at index.
+
+### Shuffling
+
+The template engine contains a filter and function to shuffle a list.
+
+Shuffling can happen randomly or reproducibly using a seed. When using a seed
+it will always return the same shuffled list for the same seed.
+
+Some examples:
+
+{% raw %}
+
+- `{{ [1, 2, 3] | shuffle }}` - renders as `[3, 1, 2]` (_random_)
+- `{{ shuffle([1, 2, 3]) }}` - renders as `[3, 1, 2]` (_random_)
+- `{{ shuffle(1, 2, 3) }}` - renders as `[3, 1, 2]` (_random_)
+
+- `{{ [1, 2, 3] | shuffle("random seed") }}` - renders as `[2, 3, 1] (_reproducible_)
+- `{{ shuffle([1, 2, 3], seed="random seed") }}` - renders as `[2, 3, 1] (_reproducible_)
+- `{{ shuffle([1, 2, 3], "random seed") }}`- renders as `[2, 3, 1] (_reproducible_)
+- `{{ shuffle(1, 2, 3, seed="random seed") }}` - renders as `[2, 3, 1] (_reproducible_)
+
+{% endraw %}
+
+### Flatten a list of lists
+
+The template engine provides a filter to flatten a list of lists: `flatten`.
+
+It will take a list of lists and return a single list with all the elements.
+The depth of the flattening can be controlled using the `levels` parameter.
+The flattening process is recursive, so it will flatten all nested lists, until
+the number of levels (if specified) is reached.
+
+Some examples:
+
+{% raw %}
+
+- `{{ flatten([1, [2, [3]], 4, [5 , 6]]) }}` - renders as `[1, 2, 3, 4, 5, 6]`
+- `{{ [1, [2, [3]], 4, [5 , 6]] | flatten }}` - renders as `[1, 2, 3, 4, 5, 6]`
+
+- `{{ flatten([1, [2, [3]]], levels=1) }}` - renders as `[1, 2, [3]]`
+- `{{ [1, [2, [3]]], flatten(levels=1) }}` - renders as `[1, 2, [3]]`
+
+- `{{ flatten([1, [2, [3]]], 1) }}` - renders as `[1, 2, [3]]`
+- `{{ [1, [2, [3]]], flatten(1) }}` - renders as `[1, 2, [3]]`
+
+{% endraw %}
+
+### Find common elements between lists
+
+The template engine provides a filter to find common elements between two lists: `intersect`.
+
+This function returns a list containing all elements that are present in both input lists.
+
+Some examples:
+
+{% raw %}
+
+- `{{ intersect([1, 2, 5, 3, 4, 10], [1, 2, 3, 4, 5, 11, 99]) }}` - renders as `[1, 2, 3, 4, 5]`
+- `{{ [1, 2, 5, 3, 4, 10] | intersect([1, 2, 3, 4, 5, 11, 99]) }}` - renders as `[1, 2, 3, 4, 5]`
+- `{{ intersect(['a', 'b', 'c'], ['b', 'c', 'd']) }}` - renders as `['b', 'c']`
+- `{{ ['a', 'b', 'c'] | intersect(['b', 'c', 'd']) }}` - renders as `['b', 'c']`
+
+{% endraw %}
+
+### Find elements in first list not in second list
+
+The template engine provides a filter to find elements that are in the first list but not in the second list: `difference`.
+This function returns a list containing all elements that are present in the first list but absent from the second list.
+
+Some examples:
+
+{% raw %}
+
+- `{{ difference([1, 2, 5, 3, 4, 10], [1, 2, 3, 4, 5, 11, 99]) }}` - renders as `[10]`
+- `{{ [1, 2, 5, 3, 4, 10] | difference([1, 2, 3, 4, 5, 11, 99]) }}` - renders as `[10]`
+- `{{ difference(['a', 'b', 'c'], ['b', 'c', 'd']) }}` - renders as `['a']`
+- `{{ ['a', 'b', 'c'] | difference(['b', 'c', 'd']) }}` - renders as `['a']`
+
+{% endraw %}
+
+### Find elements that are in either list but not in both
+
+The template engine provides a filter to find elements that are in either of the input lists but not in both: `symmetric_difference`.
+This function returns a list containing all elements that are present in either the first list or the second list, but not in both.
+
+Some examples:
+
+{% raw %}
+
+- `{{ symmetric_difference([1, 2, 5, 3, 4, 10], [1, 2, 3, 4, 5, 11, 99]) }}` - renders as `[10, 11, 99]`
+- `{{ [1, 2, 5, 3, 4, 10] | symmetric_difference([1, 2, 3, 4, 5, 11, 99]) }}` - renders as `[10, 11, 99]`
+- `{{ symmetric_difference(['a', 'b', 'c'], ['b', 'c', 'd']) }}` - renders as `['a', 'd']`
+- `{{ ['a', 'b', 'c'] | symmetric_difference(['b', 'c', 'd']) }}` - renders as `['a', 'd']`
+
+{% endraw %}
+
+### Combine all unique elements from two lists
+
+The template engine provides a filter to combine all unique elements from two lists: `union`.
+This function returns a list containing all unique elements that are present in either the first list or the second list.
+
+Some examples:
+
+{% raw %}
+
+- `{{ union([1, 2, 5, 3, 4, 10], [1, 2, 3, 4, 5, 11, 99]) }}` - renders as `[1, 2, 3, 4, 5, 10, 11, 99]`
+- `{{ [1, 2, 5, 3, 4, 10] | union([1, 2, 3, 4, 5, 11, 99]) }}` - renders as `[1, 2, 3, 4, 5, 10, 11, 99]`
+- `{{ union(['a', 'b', 'c'], ['b', 'c', 'd']) }}` - renders as `['a', 'b', 'c', 'd']`
+- `{{ ['a', 'b', 'c'] | union(['b', 'c', 'd']) }}` - renders as `['a', 'b', 'c', 'd']`
+
+{% endraw %}
+
+### Combining dictionaries
+
+The template engine provides a function and filter to merge multiple dictionaries: `combine`.
+
+It will take multiple dictionaries and merge them into a single dictionary. When used as a filter,
+the filter value is used as the first dictionary. The optional `recursive` parameter determines
+whether nested dictionaries should be merged (defaults to `False`).
+
+Some examples:
+
+{% raw %}
+
+- `{{ {'a': 1, 'b': 2} | combine({'b': 3, 'c': 4}) }}` - renders as `{'a': 1, 'b': 3, 'c': 4}`
+- `{{ combine({'a': 1, 'b': 2}, {'b': 3, 'c': 4}) }}` - renders as `{'a': 1, 'b': 3, 'c': 4}`
+
+- `{{ combine({'a': 1, 'b': {'x': 1}}, {'b': {'y': 2}, 'c': 4}, recursive=True) }}` - renders as `{'a': 1, 'b': {'x': 1, 'y': 2}, 'c': 4}`
+- `{{ combine({'a': 1, 'b': {'x': 1}}, {'b': {'y': 2}, 'c': 4}) }}` - renders as `{'a': 1, 'b': {'y': 2}, 'c': 4}`
+
+{% endraw %}
+
+### Working with macros
+
+Home Assistant provides two additional functions that make macros much more powerful.
+
+{% raw %}
+
+- `apply` is both a filter and a test that allows you to use any callable (macros or functions) wherever
+you can use other filters and tests. `apply` also passes along any additional parameters to the function.
+For example, if you had a function called `double`, you could call
+`{{ [1, 2, 3, 4] | map('apply', double) | list }}`, which would render as `[2, 4, 6, 8]`.  
+Alternatively, if you had a function called `is_multiple_of`, you could call
+`{{ [1, 2, 3, 4] | select('apply', is_multiple_of, 2) | list }}`, which would render as `[2, 4]`.
+- `as_function` is a filter that takes a macro that has a named parameter called `returns`. The macro can
+then call `{%- do returns(return_value) -%}`. After passing this macro into `as_function`, the resulting
+function returns your return value directly, preserving the underlying data type rather than rendering
+a string. You can return dictionaries, numbers, `True`/`False` (allowing you to write your own tests when
+used with `apply`), or any other value your code might produce.
+
+{% endraw %}
 
 ## Merge action responses
 
@@ -1459,12 +1704,14 @@ To evaluate a response, go to **{% my developer_template title="Developer Tools 
 
 ### Using templates with the MQTT integration
 
-The [MQTT integration](/integrations/mqtt/) relies heavily on templates. Templates are used to transform incoming payloads (value templates) to status updates or incoming actions (command templates) to payloads that configure the MQTT device.
+The [MQTT integration](/integrations/mqtt/) relies heavily on templates. Templates are used to transform incoming payloads (value templates) to state updates or incoming actions (command templates) to payloads that configure the MQTT device.
 
 #### Using value templates with MQTT
 
-For incoming data a value template translates incoming JSON or raw data to a valid payload.
-Incoming payloads are rendered with possible JSON values, so when rendering the `value_json` can be used access the attributes in a JSON based payload.
+Value templates translate received MQTT payload to a valid state or attribute.
+The received MQTT is available in the `value` template variable, and in the `value_json` template variable if the received MQTT payload is valid JSON.
+
+In addition, the template variables `entity_id`, `name` and `this` are available for MQTT entity value templates. The `this` attribute refers to the [entity state](/docs/configuration/state_object) of the MQTT item.
 
 {% note %}
 
@@ -1473,18 +1720,20 @@ Example value template:
 With given payload:
 
 ```json
-{ "state": "ON", "temperature": 21.902 }
+{ "state": "ON", "temperature": 21.902, "humidity": null }
 ```
 
 Template {% raw %}`{{ value_json.temperature | round(1) }}`{% endraw %} renders to `21.9`.
 
-Additional the MQTT entity attributes `entity_id`, `name` and `this` can be used as variables in the template. The `this` attribute refers to the [entity state](/docs/configuration/state_object) of the MQTT item.
+Template {% raw %}`{{ value_json.humidity }}`{% endraw %} renders to `None`.
 
 {% endnote %}
 
 #### Using command templates with MQTT
 
-For actions, command templates are defined to format the outgoing MQTT payload to the device. When an action is executed, `value` can be used to generate the correct payload to the device.
+For actions, command templates are defined to format the outgoing MQTT payload to a format supported by the remote device. When an action is executed, the template variable `value` has the action data in most cases unless otherwise specified in the documentation.
+
+In addition, the template variables `entity_id`, `name` and `this` are available for MQTT entity command templates. The `this` attribute refers to the [entity state](/docs/configuration/state_object) of the MQTT item.
 
 {% note %}
 
@@ -1498,8 +1747,6 @@ With given value `21.9` template {% raw %}`{"temperature": {{ value }} }`{% endr
 }
 ```
 
-Additional the MQTT entity attributes `entity_id`, `name` and `this` can be used as variables in the template. The `this` attribute refers to the [entity state](/docs/configuration/state_object) of the MQTT item.
-
 {% endnote %}
 
 **Example command template with raw data:**
@@ -1509,6 +1756,44 @@ When a command template renders to a valid `bytes` literal, then MQTT will publi
 - Template {% raw %}`{{ "16" }}`{% endraw %} renders to payload encoded string `"16"`.
 - Template {% raw %}`{{ 16 }}`{% endraw %} renders to payload encoded string `"16"`.
 - Template {% raw %}`{{ pack(0x10, ">B") }}`{% endraw %} renders to a raw 1 byte payload `0x10`.
+
+### Determining types
+
+When working with templates, it can be useful to determine the type of
+the returned value from a method or the type of a variable at times.
+
+For this, Home Assistant provides the `typeof()` template function and filter,
+which is inspired by the [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
+`typeof` operator. It reveals the type of the given value.
+
+This is mostly useful when you are debugging or playing with templates in
+the developer tools of Home Assistant. However, it might be useful in some
+other cases as well.
+
+Some examples:
+
+{% raw %}
+
+- `{{ typeof(42) }}` - renders as `int`
+- `{{ typeof(42.0) }}` - renders as `float`
+- `{{ typeof("42") }}` - renders as `str`
+- `{{ typeof([1, 2, 3]) }}` - renders as `list`
+- `{{ typeof({"key": "value"}) }}` - renders as `dict`
+- `{{ typeof(True) }}` - renders as `bool`
+- `{{ typeof(None) }}` - renders as `NoneType`
+
+- `{{ 42 | typeof }}` - renders as `int`
+- `{{ 42.0 | typeof }}` - renders as `float`
+- `{{ "42" | typeof }}` - renders as `str`
+- `{{ [1, 2, 3] | typeof }}` - renders as `list`
+- `{{ {"key": "value"} | typeof }}` - renders as `dict`
+- `{{ True | typeof }}` - renders as `bool`
+- `{{ None | typeof }}` - renders as `NoneType`
+
+- `{{ some_variable | typeof }}` - renders the type of `some_variable`
+- `{{ states("sensor.living_room") | typeof }}` - renders the type of the result of `states()` function
+
+{% endraw %}
 
 ## Some more things to keep in mind
 

@@ -11,6 +11,7 @@ ha_domain: hikvision
 ha_platforms:
   - binary_sensor
 ha_integration_type: integration
+ha_quality_scale: legacy
 ---
 
 The Hikvision Binary Sensor is a platform that parses the event stream of a
@@ -62,6 +63,7 @@ and has been confirmed to work with the following models:
 - DS-2CD2232-I5
 - DS-2CD2385G1
 - DS-2CD2387G2-LU
+- DS-2CD2686G2
 - DS-2CD3132-I
 - DS-7616NI-K2 (NVR)
 - ERI-K104-PR (NVR)

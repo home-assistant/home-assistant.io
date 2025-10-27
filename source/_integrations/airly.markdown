@@ -9,7 +9,6 @@ ha_config_flow: true
 ha_codeowners:
   - '@bieniu'
 ha_domain: airly
-ha_quality_scale: platinum
 ha_platforms:
   - diagnostics
   - sensor

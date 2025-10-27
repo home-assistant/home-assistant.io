@@ -12,6 +12,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `dublin_bus_transport` {% term integration %} will give you the time until the next two departures from a Dublin bus stop using the RTPI information.

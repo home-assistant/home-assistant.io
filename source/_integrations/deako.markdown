@@ -1,10 +1,10 @@
 ---
-title: Deako Smart Lighting
+title: Deako
 description: Instructions on how to integrate Deako Smart Lighting into Home Assistant.
 ha_category:
   - Switch
 ha_iot_class: Local Polling
-ha_release: "2024.10"
+ha_release: '2024.10'
 ha_domain: deako
 ha_config_flow: true
 ha_platforms:
@@ -33,4 +33,3 @@ Features not currently supported:
 
 - Deako groups
 - Deako scenes
-

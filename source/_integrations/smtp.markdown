@@ -9,6 +9,7 @@ ha_domain: smtp
 ha_platforms:
   - notify
 ha_integration_type: integration
+ha_quality_scale: legacy
 ---
 
 The SMTP platform allows you to deliver notifications from Home Assistant to an email recipient.

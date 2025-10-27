@@ -12,6 +12,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `lw12wifi` light {% term integration %} supports Lagute LW-12 Wifi LED controller.

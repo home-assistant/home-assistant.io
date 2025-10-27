@@ -10,6 +10,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 With the `route53` {% term integration %} can you keep your AWS Route53 DNS records up to date.

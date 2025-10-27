@@ -10,6 +10,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `foursquare` {% term integration %} accepts pushes from the Foursquare [Real-Time API](https://developer.foursquare.com/overview/realtime) and an action to check users in on Swarm.

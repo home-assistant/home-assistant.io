@@ -12,6 +12,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `worldtidesinfo` {% term integration %} uses details from [World Tides](https://www.worldtides.info/) to provide information about the prediction for the tides for any location in the world.

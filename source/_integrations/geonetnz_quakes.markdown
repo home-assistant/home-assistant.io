@@ -6,11 +6,11 @@ ha_category:
 ha_iot_class: Cloud Polling
 ha_release: 0.98
 ha_config_flow: true
-ha_quality_scale: platinum
 ha_codeowners:
   - '@exxamalte'
 ha_domain: geonetnz_quakes
 ha_platforms:
+  - diagnostics
   - geo_location
   - sensor
 ha_integration_type: service

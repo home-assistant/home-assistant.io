@@ -21,14 +21,14 @@ ha_integration_type: integration
 Support for mDNS discovery in your local network is mandatory for automatic discovery. Make sure that your router has this feature enabled. If mDNS does not work in your network, the IP addresses of the Cast devices can be manually entered in the configuration as mentioned below.
 
 {% include integrations/option_flow.md %}
+
 {% configuration_basic %}
 Known hosts:
   description: "A comma-separated list of hostnames or IP-addresses of cast devices, use if mDNS discovery is not working"
 Allowed UUIDs:
   description: A comma-separated list of UUIDs of Cast devices to add to Home Assistant. **Use only if you don't want to add all available devices.** The device won't be added until discovered through either mDNS or if it's included in the list of known hosts. In order to find the UUID for your device use a mDNS browser or advanced users can use the following Python command (adjust friendly names as required) - `python3 -c "import pychromecast; print(pychromecast.get_listed_chromecasts(friendly_names=['Living Room TV', 'Bedroom TV', 'Office Chromecast']))"`. This option is only visible if advanced mode is enabled in your user profile.
 Ignore CEC:
-  description: A comma-separated list of Chromecasts that should ignore CEC data for determining the
-        active input. [See the upstream documentation for more information](https://github.com/home-assistant-libs/pychromecast#ignoring-cec-data). This option is only visible if advanced mode is enabled in your user profile.
+  description: A comma-separated list of Chromecasts that should ignore CEC data for determining the active input. [See the upstream documentation for more information](https://github.com/home-assistant-libs/pychromecast#ignoring-cec-data). This option is only visible if advanced mode is enabled in your user profile.
 {% endconfiguration_basic %}
 
 ## Home Assistant Cast
@@ -54,9 +54,11 @@ Home Assistant Cast requires your Home Assistant installation to be accessible v
 
 {% note %}
 
-Chromecasts generally ignore DNS servers from DHCP and will instead use Google's DNS servers, 8.8.8.8 and 8.8.4.4. This means media URLs must either be specifying the IP-address of the server directly, e.g. `http://192.168.1.1:8123/movie.mp4`, or be publicly resolvable, e.g. `http://homeassistant.internal.mydomain.com:8123/movie.mp4` where `homeassistant.internal.mydomain.com` resolves to `192.168.1.1`. A hostname which can't be publicly resolved, e.g. `http://homeassistant.local:8123/movie.mp4` will fail to play.
+Chromecasts generally don't resolve hosts through mDNS and also ignore DNS servers from DHCP, they instead use Google's public DNS servers, 8.8.8.8 and 8.8.4.4.
 
-This is important when casting TTS or local media sources; the cast integration will cast such media from the `external_url` if [configured](/integrations/homeassistant/#editing-the-general-settings-in-yaml), otherwise from the Home Assistant Cloud if configured, otherwise from the [`internal_url`](/integrations/homeassistant/#editing-the-general-settings-in-yaml). Note that the Home Assistant Cloud will not be used if an `external_url` is configured.
+This means media URLs must either be specifying the IP-address of the server directly, e.g. `http://192.168.1.1:8123/movie.mp4`, or be publicly resolvable, e.g. `http://homeassistant.internal.mydomain.com:8123/movie.mp4` where `homeassistant.internal.mydomain.com` resolves to `192.168.1.1` using Google's DNS servers. A hostname which can't be publicly resolved, e.g. `http://homeassistant.local:8123/movie.mp4` will fail to play.
+
+This is important when casting TTS or local media sources; the cast integration will cast such media from the local Home Assistant URL, which can be configured by navigating to **{% my network title="Settings > System > Network" %}** or by configuring an [`internal_url`](/integrations/homeassistant/#editing-the-general-settings-in-yaml).
 
 {% endnote %}
 

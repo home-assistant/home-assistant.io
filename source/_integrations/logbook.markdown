@@ -1,5 +1,5 @@
 ---
-title: Logbook
+title: Activity
 description: Instructions on how to enable the logbook integration for Home Assistant.
 ha_category:
   - History

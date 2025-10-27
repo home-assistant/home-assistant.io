@@ -18,7 +18,7 @@ ha_integration_type: integration
 
 [Agent DVR](https://www.ispyconnect.com/download.aspx/) is a free* software DVR solution for Windows 10, Mac and Linux. Agent DVR runs as a service or console application and can access and control a huge range of third party cameras with advanced motion detection, including DeepStack integration for object recognition. The iSpyConnect website provides secured (SSL) remote access without port forwarding needed.
 
-You can add Agent DVR via integrations using the IP address and port of the server, e.g.,: `http://192.168.1.3:8090/`.
+You can add Agent DVR via integrations using the IP address and port of the server, like: `http://192.168.1.3:8090/`. If you have "Protect API" turned on in your Agent DVR server configuration, you can supply the username and password as part of the URL, for example, `http://username:password@192.168.1.3:8090`.
 
 {% include integrations/config_flow.md %}
 

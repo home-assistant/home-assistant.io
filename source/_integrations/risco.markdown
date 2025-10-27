@@ -11,7 +11,6 @@ ha_config_flow: true
 ha_codeowners:
   - '@OnFreund'
 ha_domain: risco
-ha_quality_scale: platinum
 ha_platforms:
   - alarm_control_panel
   - binary_sensor

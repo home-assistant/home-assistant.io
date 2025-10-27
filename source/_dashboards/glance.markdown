@@ -115,15 +115,6 @@ double_tap_action:
   type: map
 {% endconfiguration %}
 
-### Options for exemptions
-
-{% configuration badges %}
-user:
-  required: true
-  description: User ID that can see the view tab.
-  type: string
-{% endconfiguration %}
-
 ### Examples
 
 Basic example:

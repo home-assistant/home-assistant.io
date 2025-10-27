@@ -39,7 +39,7 @@ To change the general settings that were defined during onboarding, follow these
 
 ## Changing a person's display name
 
-The display name is the name that is shown in Home Assistant. It can differ from the user name, which is the name used to log in.
+The display name is the name that is shown in Home Assistant. It can differ from the username, which is the name used to log in.
 
 ### Prerequisites
 
@@ -50,18 +50,19 @@ The display name is the name that is shown in Home Assistant. It can differ from
 1. To edit the display name of a person using Home Assistant, go to {% my people title="**Settings** > **People**" %} and select the person for which you want to change the display name.
 2. Change the display name and select **Update** to save the change.
 
-## Changing a user name
+## Changing a username
 
-The user name is the name that is used to log in. It can differ from the display name.
+The username is the name that is used to log in. It can differ from the display name.
 
 ### Prerequisites
 
-- You need owner rights to change a user name.
+- You need owner rights to change a username.
 
 ### To change a username
 
 1. To edit the username of a person using Home Assistant, go to {% my people title="**Settings** > **People**" %} and select the person for which you want to change the display name.
 2. Change the username and select **Update** to save the change.
+   - It must be lowercase and contain no spaces.
    - The log in is case-sensitive.
 
 ## Changing authentication settings

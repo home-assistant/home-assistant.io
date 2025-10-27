@@ -1,0 +1,249 @@
+<!--  Left column begins -->
+<div class="grid__item one-third lap-one-half palm-one-whole">
+
+  {% assign video_id = "Z-pUkM6XIuA" %}
+  {% assign show_livestream = false %}
+
+  {% if show_livestream %}
+  <a href="https://www.youtube.com/watch?v={{ video_id }}" class="material-card livestream-card" target="_blank" style="
+      background-image: url(/images/frontpage/zwa-2-livestream.webp);
+      aspect-ratio: 580/386;
+    " aria-label="State of the Open Home - Saturday April 12th 2025">
+    <div
+      style="position: absolute; pointer-events: none; inset: 0; opacity: 0; transition: opacity 1s; overflow: hidden; border-style: none;">
+      <iframe
+        style="aspect-ratio: 16/9; position: absolute; top:0; left: 50%; transform: translateX(-50%); height: 100%; border: 0; object-fit: cover;"
+        data-src="https://www.youtube-nocookie.com/embed/{{ video_id }}?autoplay=1&mute=1&fs=0&controls=0&modestbranding=1"></iframe>
+    </div>
+    <div class="livestream-card-banner">
+      <div>
+        <strong>We're live!</strong> Join the stream
+      </div>
+    </div>
+  </a>
+  {% endif %}
+
+  {% assign releases_post_limit = 2 %}
+  {% assign blog_post_limit = 4 %}
+  <!-- Home Assistant updates posts -->
+  <div class="recent-posts material-card text">
+    <h1>{% icon "mdi:new-box" %} Release Notes</h1>
+
+    <ol>
+      {% assign current = 0 %}
+
+      {% for post in site.posts %}
+      {% if post.categories contains "Release-Notes" %}
+      {% assign current = current | plus: 1 %}
+
+      {% if current > releases_post_limit %}
+      {% break %}
+      {% endif %}
+
+      {% assign post_date = post.date | date: "%Y-%m-%d" %}
+      {% assign post_date_formatted = post_date | date: "%B %d, %Y" %}
+      {% assign post.date_formatted = post_date_formatted %}
+      <li class="post" style="display: grid; font-size: 16px">
+        <a href="{{ post.url }}">{{ post.title }}</a>
+        <small class="blog-date">{{ post.date_formatted }}</small>
+      </li>
+      {% endif %}
+      {% endfor %}
+    </ol>
+  </div>
+
+  <!-- Recent blog posts -->
+  <div class="recent-posts material-card text">
+    <h1>{% icon "mdi:newspaper-variant-multiple" %} Recent Blog Posts</h1>
+
+    <ol>
+      {% assign current = 0 %}
+
+      {% for post in site.posts %}
+      {% if post.categories contains "Release-Notes" %}
+      {% else %}
+      {% assign current = current | plus: 1 %}
+
+      {% if current > blog_post_limit %}
+      {% break %}
+      {% endif %}
+
+      {% assign post_date = post.date | date: "%Y-%m-%d" %}
+      {% assign post_date_formatted = post_date | date: "%B %d, %Y" %}
+      {% assign post.date_formatted = post_date_formatted %}
+      <li class="post" style="display: grid; font-size: 16px">
+        <a href="{{ post.url }}">{{ post.title }}</a>
+        <small class="blog-date">{{ post.date_formatted }}</small>
+      </li>
+      {% endif %}
+      {% endfor %}
+    </ol>
+  </div>
+
+  <!-- Community -->
+  <a href="/community" class="material-card picture-promo" style="
+        background-image: url(/images/frontpage/community-card.webp);
+        aspect-ratio: 500/263;
+      " aria-label="Join the Home Assistant community">
+  </a>
+
+  <!-- OHF notice -->
+  <a href="https://www.openhomefoundation.org/blog/announcing-the-open-home-foundation/"
+    class="material-card highlight-blog-post">
+    <div>
+      <p class="lead">We are a non-profit and can't be sold or acquired.</p>
+      <p>Home Assistant is a project by the Open Home Foundation.</p>
+    </div>
+    <iconify-icon icon="mdi:chevron-right"></iconify-icon>
+  </a>
+
+  <a class="material-card highlight-blog-post" href="/blog/2016/01/19/perfect-home-automation/">
+    <p class="lead">Read our founder's vision for the perfect home automation</p>
+    <iconify-icon icon="mdi:chevron-right"></iconify-icon>
+  </a>
+
+  <div class="join-community material-card text">
+    <h1>{% icon "simple-icons:amazonalexa" %} Alexa, turn on the lights</h1>
+
+    Use Alexa to control Home Assistant.
+
+    <div class="links">
+      <a href="/cloud/">Learn more</a>
+    </div>
+  </div>
+
+  <div class="join-community material-card text">
+    <h1>{% icon "simple-icons:googleassistant" %} Ok Google, turn off the AC</h1>
+
+    Use Google Assistant to control Home Assistant.
+
+    <div class="links">
+      <a href="/cloud/">Learn more</a>
+    </div>
+  </div>
+
+  <div class="join-community material-card text">
+    <h1>{% icon "mdi:people-group-outline" %} Join The Community</h1>
+
+    Our vibrant community is very active and super friendly. We love to talk and share our passion for home automation.
+
+    <div class="links">
+      <a href="https://community.home-assistant.io">{% icon "simple-icons:discourse" %} Forums</a>
+      <a href="/join-chat/">{% icon "simple-icons:discord" %} Chat</a>
+      <a href="/newsletter/">{% icon "mdi:email-newsletter" %} Newsletter</a>
+    </div>
+  </div>
+
+</div>
+<!-- Left column ends -->
+
+
+<!-- Center content begins -->
+<div class="grid__item one-third lap-one-half palm-one-whole">
+
+  <!-- All landing pages have a block. -->
+  {% assign pages_by_date = site.pages | sort: "date" | reverse %} {% for
+  page in pages_by_date %} {% if page.layout == "landingpage" and
+  page.frontpage != false %}
+  <a class="material-card picture-promo {% if page.frontpage_content_top %}picture-top{% endif %}" href="{{page.url}}"
+    style="
+          background-image: url({{page.frontpage_image | default:page.og_image}});
+          background-size: cover;
+          background-color: #41bdf5;
+        ">
+    <div class="caption">
+      <div>
+        <div class="title">
+          {{page.title}}
+        </div>
+        <div class="subtitle">{{page.description}}</div>
+      </div>
+    </div>
+  </a>
+  {% endif %} {% endfor %}
+
+</div>
+<!-- Center sidebar ends -->
+
+
+<!-- Right content begins -->
+<div class="grid__item one-third lap-one-half palm-one-whole">
+
+  <!-- State of the Open Home -->
+  <a href="/blog/2025/04/16/state-of-the-open-home-recap/" class="material-card picture-promo" style="
+      background-image: url(/images/frontpage/feature-sotoh2025.jpg);
+      background-size: cover;
+      padding-top: 55%;
+    ">
+    <div class="caption">
+      <div>
+        <div class="title">
+          State of the Open Home 2025
+        </div>
+        <div class="subtitle">
+          Learn about our progress so far and also the roadmap for this year.
+        </div>
+      </div>
+    </div>
+  </a>
+
+  <!-- Assist -->
+  <a class="material-card picture-promo picture-top" href="/voice_control/" style="
+      background-image: url(/images/frontpage/feature-voice.jpg);
+      background-size: cover;
+      padding-bottom: 35%;
+    ">
+    <div class="caption">
+      <div>
+        <div class="title">
+          Control your home with Assist
+        </div>
+        <div class="subtitle">
+          Our private, insanely fast, voice assistant running on affordable
+          hardware. Now supporting wake words.
+        </div>
+      </div>
+    </div>
+  </a>
+  <a class="material-card picture-promo" href="/home-energy-management/" style="
+      background-image: url(/images/frontpage/energy-frontpage.jpg);
+      background-size: cover;
+      padding-top: 35%;
+    ">
+    <div class="caption">
+      <div>
+        <div class="title">
+          Home Energy Management
+        </div>
+        <div class="subtitle">
+          Monitor your energy usage, transition to sustainable energy and save money
+        </div>
+      </div>
+    </div>
+  </a>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    let loaded = false;
+    const lazyLoadYouTube = () => {
+      if (loaded) return; // Prevent multiple loads
+      loaded = true;
+      const iframes = document.querySelectorAll('.livestream-card iframe[data-src]');
+      iframes.forEach(iframe => {
+        iframe.src = iframe.getAttribute('data-src');
+        iframe.removeAttribute('data-src');
+        setTimeout(() => {
+          iframe.parentElement.style.opacity = 1;
+        }, 500);
+      });
+    };
+
+    document.addEventListener('scroll', lazyLoadYouTube, { once: true });
+    document.addEventListener('click', lazyLoadYouTube, { once: true });
+    document.addEventListener('mousemove', lazyLoadYouTube, { once: true });
+    document.addEventListener('touchstart', lazyLoadYouTube, { once: true });
+    document.addEventListener('touchmove', lazyLoadYouTube, { once: true });
+  });
+</script>
+<!-- Right content ends -->

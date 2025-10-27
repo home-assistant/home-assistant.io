@@ -75,7 +75,7 @@ This message indicates that the device could connect to the Wi-Fi, but is unable
 2. Make sure your device is on the same network as Home Assistant.
    - If you have a complex network setup with VLAN, make sure it is in the same VLAN.
 3. Go to {% my integrations title="**Settings** > **Devices & Services**" %}.
-   - If the device is shown as **Discovered**, select **Configure**.
+   - If the device is shown as **Discovered**, select **Add**.
      ![ESP32-S3-BOX-3 open config file](/images/assist/esp32-discovered.png)
    - If it was not discovered, select [**Add integration** > **ESPHome**](https://my.home-assistant.io/redirect/config_flow_start/?domain=esphome).
 4. If you see the screen below, but the ESP32-S3-BOX-3 is not listed, select **Setup another instance of ESPHome**.

@@ -17,6 +17,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 There is currently support for the following device types within Home Assistant:

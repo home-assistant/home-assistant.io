@@ -9,7 +9,7 @@ ha_domain: intent_script
 ha_integration_type: integration
 ---
 
-The `intent_script` integration allows users to configure actions and responses to intents. Intents can be fired by any integration that supports it. Examples are [Alexa](/integrations/alexa/) (Amazon Echo), [Dialogflow](/integrations/dialogflow/) (Google Assistant) and [Snips](/integrations/snips/).
+The `intent_script` integration allows users to configure actions and responses to intents. Intents can be fired by any integration that supports it. Examples are [Alexa](/integrations/alexa/) (Amazon Echo), [Dialogflow](/integrations/dialogflow/) (Google Assistant) and [Snips](/integrations/snips/). Internally they can be fired by [custom sentences](https://www.home-assistant.io/voice_control/custom_sentences_yaml/).
 
 If you are using intent script with LLMs and have parameters, make sure to mention the parameters and their types in the description.
 
@@ -46,7 +46,7 @@ intent:
       description: List of domains that the entity supports.
       required: false
       type: list
-    actions:
+    action:
       description: Defines an action to run to intents.
       required: false
       type: action
@@ -105,11 +105,11 @@ available in the `action_response` variable.
 conversation:
   intents:
     EventCountToday:
-      - "How many meetings do I have today?"
+      - "How many meetings do I have today"
 
 intent_script:
   EventCountToday:
-    actions:
+    action:
       - action: calendar.get_events
         target:
           entity_id: calendar.my_calendar

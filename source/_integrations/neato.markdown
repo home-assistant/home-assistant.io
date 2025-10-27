@@ -10,8 +10,6 @@ ha_category:
 ha_iot_class: Cloud Polling
 ha_release: 0.33
 ha_config_flow: true
-ha_codeowners:
-  - '@Santobert'
 ha_domain: neato
 ha_platforms:
   - button

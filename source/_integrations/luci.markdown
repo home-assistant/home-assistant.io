@@ -11,6 +11,7 @@ ha_domain: luci
 ha_platforms:
   - device_tracker
 ha_integration_type: integration
+ha_quality_scale: legacy
 ---
 
 This is a presence detection scanner for OpenWrt using [luci](https://openwrt.org/docs/techref/luci).
@@ -18,6 +19,7 @@ This is a presence detection scanner for OpenWrt using [luci](https://openwrt.or
 Before this scanner can be used you have to install the luci RPC package on OpenWrt:
 
 ```bash
+# opkg update
 # opkg install luci-mod-rpc
 ```
 

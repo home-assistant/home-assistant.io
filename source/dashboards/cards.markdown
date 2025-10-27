@@ -53,11 +53,15 @@ A card can be added to a dashboard directly [from the view](#to-add-a-card-from-
         - Then, select **Continue**.
         ![Screenshot add cards by entity](/images/dashboards/dashboard_add-by-entity_02.png)
 
-3. If you want this card to be visible only to specific users or under a certain condition, you can [define those conditions](#showing-or-hiding-a-card-conditionally).
+3. If you want this card to be visible only to specific users or under a certain condition, you can [define those conditions](#showing-or-hiding-a-card-or-badge-conditionally).
 4. If you are adding this card to a [sections view](/dashboards/sections/), on the **Layout** tab, you can [resize the card](#resizing-a-card).
-5. If you like, define [card actions, features, header and footer widgets](#card-actions-features-header-and-footer-widgets).
+5. Customize your card:
+   - [define card actions](/dashboards/actions/).
+   - [define header and footer](/dashboards/header-footer/)
+   - [customize features](/dashboards/features/#customizing-features).
    - Not all cards support these elements. Refer to the documentation of the specific card type.
 6. Select **Add to dashboard**.
+
    ![Screenshot card suggestions](/images/dashboards/dashboard_add-by-entity_04.png)
 
 ### To add a card from the device page
@@ -78,20 +82,24 @@ This method is useful if you are on the **Device** page and want to create a car
   ![Add to Dashboard button on the device page](/images/dashboards/add_card_from_device_page_02.png)
 5. To edit the card configuration, open the view to which you added the card.
    - Select **Edit card**.
-6. If you want this card to be visible only to specific users or under a certain condition, you can [define those conditions](#showing-or-hiding-a-card-conditionally).
+6. If you want this card to be visible only to specific users or under a certain condition, you can [define those conditions](#showing-or-hiding-a-card-or-badge-conditionally).
 7. If you are adding this card to a [sections view](/dashboards/sections/), on the **Layout** tab, you can [resize the card](#resizing-a-card).
 
-8. If you like, define [card actions, features, header and footer widgets](#card-actions-features-header-and-footer-widgets).
+8. Customize your card:
+   - [define card actions or header and footer widgets](#card-actions-features-header-and-footer-widgets).
+   - [define header and footer](/dashboards/header-footer/)
+   - [customize features](/dashboards/features/#customizing-features).
    - Not all cards support these elements. Refer to the documentation of the specific card type.
 
 ## Showing or hiding a card or badge conditionally
 
 You can choose to show or hide certain cards or [badges](/dashboards/badges/) based on different conditions. The [available conditions](/dashboards/conditional/#card-conditions) are the same as the ones for the conditional card.
 
-1. On the **Visibility** tab, select **Add condition**.
-   - Don't see a **Visibility** tab?
+1. On the **Visibility** tab, select **Add condition**./dashboards/conditional/#conditions-options
+   - **Troubleshooting**: Don't see a **Visibility** tab?
      - It is not available inside nested cards: vertical stack, horizontal stack, and grid card
 2. Select the type of condition, and enter the parameters.
+   - The [available conditions](/dashboards/conditional/#conditions-options) are the same as the ones for the conditional card.
    - If you define multiple conditions, the section is only shown when all conditions are met.
    - If you did not define any conditions, the section is always shown, to all users.
 3. Select **Save**.
@@ -101,12 +109,13 @@ You can choose to show or hide certain cards or [badges](/dashboards/badges/) ba
 In [sections view](/dashboards/sections/), you can resize cards. Follow these steps:
 
 1. On the **Layout** tab, move the sliders to adjust the card size.
-    - Don't see a **Layout** tab?
+  ![Screenshot of the Layout tab in the card dialog](/images/dashboards/card_resize.png)
+    - **Troubleshooting**: Don't see a **Layout** tab?
       - It is not available inside nested cards: vertical stack, horizontal stack, and grid card
       - It is not available on the picture elements card.
-  ![Screenshot of the Layout tab in the card dialog](/images/dashboards/card_resize.png)
-
-2. Select **Save**.
+2. **Precise mode** gives you a finer grid to size your card. The last row was done using precise mode.
+  ![Screenshot of a section using precise mode for some cards](/images/dashboards/precise-mode-example.png)
+3. Select **Save**.
 
 ## Revert resizing of a card
 

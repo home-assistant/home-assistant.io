@@ -10,6 +10,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `statsd` {% term integration %} makes it possible to transfer all state changes to an external [StatsD](https://github.com/etsy/statsd) instance.

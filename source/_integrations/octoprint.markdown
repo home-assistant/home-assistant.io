@@ -5,6 +5,7 @@ ha_category:
   - 3D printing
   - Binary sensor
   - Button
+  - Number
   - Sensor
 ha_config_flow: true
 ha_release: 0.19
@@ -18,6 +19,7 @@ ha_platforms:
   - binary_sensor
   - button
   - camera
+  - number
   - sensor
 ha_integration_type: integration
 ---
@@ -29,35 +31,20 @@ ha_integration_type: integration
 {% configuration_basic %}
 username:
   description: Username for the server.
-  required: true
-  type: string
 host:
-  description: Address of the server, e.g., 192.168.1.32.
-  required: true
-  type: string
+  description: Address of the server, e.g., `192.168.1.32`.
 port:
   description:  Port of the server.
-  required: false
-  type: string
-  default: 80
 path:
   description: URL path of the server
-  required: false
-  type: string
-  default: /
 ssl:
   description: Whether to use SSL or not when communicating.
-  required: false
-  type: boolean
-  default: false
 verify ssl:
   description: Should the SSL certificate be validated.
-  required: false
-  type: boolean
-  default: false
 {% endconfiguration_basic %}
 
 ### API key
+
 For the integration to work, please check that in Octoprint, the [Discovery Plugin](https://docs.octoprint.org/en/master/bundledplugins/discovery.html) is enabled and in the **Settings** -> **Printer Notifications** menu that **Enable popups** is checked.
 The Octoprint integration will attempt to register itself via the [Application Keys Plugin](https://docs.octoprint.org/en/master/bundledplugins/appkeys.html). After submitting the configuration UI in Home Assistant, log in to Octoprint as the user whose credentials you just entered in Home Assistant, and select **Allow** on the prompt.
 
@@ -76,10 +63,16 @@ The OctoPrint integration lets you monitor various states of your 3D printer and
 
 Supported sensors:
 
+- Actual Bed Temperature
+- Actual Tool (Nozzle) Temperature
 - Current Printer State
-- Job Completed Percentage
 - Estimated Finish Time
+- Job Completed Percentage
 - Estimated Start Time
+- Target Bed Temperature
+- Target Tool (Nozzle) Temperature
+- Current File Name
+- Current File Size
 
 ## Camera
 
@@ -90,11 +83,24 @@ The OctoPrint integration provides a camera feed if one is configured in OctoPri
 The OctoPrint integration provides the following buttons:
 
 - Pause Job
-- Resume Job
-- Stop Job
-- Shutdown System
 - Reboot System
 - Restart Octoprint
+- Resume Job
+- Shutdown System
+- Stop Job
+
+## Number
+
+The OctoPrint integration lets you set target bed and tool temperature. These writable properties return the same data as Target Temperature sensors, and additionally allow changing Target Temperature from automation, scripts, or entities card interaction.
+
+- Set Target Bed Temperature
+- Set Target Tool (Nozzle) Temperature
+
+## Actions
+
+The OctoPrint integration provides the following actions, which may be invoked from automation, scripts, or as a button interaction.
+
+- Connect to printer
 
 ## Troubleshooting
 

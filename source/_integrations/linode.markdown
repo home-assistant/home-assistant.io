@@ -15,6 +15,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `linode` {% term integration %} allows you to access the information about your [Linode](https://linode.com) systems from Home Assistant.

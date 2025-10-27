@@ -1,6 +1,6 @@
 <h1>Awaken<br><span class="line2">your home</span></h1>
 <p class="lead">
-  {{ site.description }}
+  Open source home automation that puts local control and privacy first. Powered by a worldwide community of tinkerers and DIY enthusiasts.
 </p>
 
 {%- assign tot = 0 -%}
@@ -14,8 +14,33 @@
 {%- endif %}
 {%- endfor -%}
 
-<p class='hero-buttons'>
-  <a href='/installation/' class="primary">Get started <iconify-icon inline icon='mdi:arrow-right'></iconify-icon></a><br/>
-  <a href='https://demo.home-assistant.io' target='_blank'>View live demos</a>
-  <a href='/integrations/'>Browse {{ tot | minus: 1 | divided_by: 100 | round | times: 100 }}+ integrations</a>
-</p>
+<div class='hero-buttons'>
+  <a href='/installation/' class="primary">Get started <iconify-icon inline icon='mdi:arrow-right'></iconify-icon></a>
+  <div>
+    <a href='https://demo.home-assistant.io' target='_blank'>View live demos</a>
+    <a href='/integrations/'>Browse {{ tot | minus: 1 | divided_by: 100 | round | times: 100 }}+ integrations</a>
+  </div>
+</div>
+
+<div class="hero-socialproof">
+  <a href="https://github.blog/news-insights/octoverse/octoverse-2024/#the-state-of-open-source" target="_blank" class="">
+    <div class="hero-github-top-project">
+      <img src="/images/frontpage/hero-github-logo.svg" alt="GitHub logo"/>
+      <img src="/images/frontpage/hero-trophy.svg" alt="Top open source project trophy"/>
+      <p><strong>Top open source project</strong> by contributors in 2024</p>
+    </div>
+  </a>
+
+  <!-- <div class="hero-socialproof-asseenon">
+    <p>As seen on</p>
+    <div class="logos">
+      <a href="https://www.theverge.com/23744526/smart-home-assistant-how-to-automation" target="_blank">
+        <img src="/images/frontpage/hero-socialproof-theverge.svg" alt="The Verge"/>
+      </a>
+      <a href="https://arstechnica.com/information-technology/2021/03/how-to-achieve-smart-home-nirvana-or-home-automation-without-subscription/" target="_blank">
+        <img src="/images/frontpage/hero-socialproof-arstechnica.svg" alt="ArsTechnica" height="48"/>
+      </a>
+    </div>
+  </div> -->
+</div>
+

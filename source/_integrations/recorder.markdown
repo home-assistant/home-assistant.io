@@ -149,7 +149,7 @@ recorder:
 
 {% include common-tasks/filters.md %}
 
-If you only want to hide events from your history, take a look at the [`history` integration](/integrations/history/). The same goes for the [logbook](/integrations/logbook/). But if you have privacy concerns about certain events or want them in neither the history or logbook, you should use the `exclude`/`include` options of the `recorder` integration. That way they aren't even in your database, you can reduce storage and keep the database small by excluding certain often-logged events (like `sensor.last_boot`).
+If you only want to hide events from your logbook, take a look at the [logbook integration](/integrations/logbook/). But if you have privacy concerns about certain events or want them in neither the history or logbook, you should use the `exclude`/`include` options of the `recorder` integration. That way they aren't even in your database, you can reduce storage and keep the database small by excluding certain often-logged events (like `sensor.last_boot`).
 
 #### Common filtering examples
 
@@ -252,6 +252,43 @@ Perform the action `recorder.disable` to stop saving events and states to the da
 ### Action `enable`
 
 Perform the action `recorder.enable` to start again saving events and states to the database. This is the opposite of `recorder.disable`.
+
+### Action `get_statistics`
+
+Perform the action `recorder.get_statistics` to retrieve statistics for one or more entities from the recorder database. This action is useful for automations or scripts that need to access historical statistics, such as mean, min, max, or sum values, for supported entities like sensors.
+
+{% note %}
+Statistics are only available for entities that store {% term "Long-term statistics" %}
+{% endnote %}
+
+| Data attribute | Optional | Description |
+| -------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `statistic_ids`| no      | The entity IDs or statistic IDs to get statistics for. |
+| `start_time`   | no      | The start time for the statistics query. |
+| `end_time`     | yes      | The end time for the statistics query. If omitted, returns all statistics from start time onward. |
+| `period`       | no      | The time period to group statistics by (`5minute`, `hour`, `day`, `week`, or `month`). |
+| `types`        | no      | The types of statistics values to return (`change`, `last_reset`, `max`, `mean`, `min`, `state`, or `sum`). |
+| `units`        | yes      | Optional unit conversion mapping. An object where keys are [device classes](https://www.home-assistant.io/integrations/sensor#device-class) and values are the desired target units. This allows retrieving statistics converted to different units than what's stored in the database. |
+
+#### Example using get_statistics
+
+```yaml
+action: recorder.get_statistics
+data:
+  statistic_ids:
+    - sensor.energy_meter
+    - sensor.water_usage
+  start_time: "2025-06-10 00:00:00"
+  end_time: "2025-06-11 23:00:00"
+  period: hour
+  types:
+    - sum
+    - mean
+  units:
+    energy: kWh
+    volume: L
+response_variable: consumption_stats
+```
 
 ## Handling disk corruption and hardware failures
 

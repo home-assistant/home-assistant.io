@@ -12,6 +12,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 Integration between the [ebusd](https://github.com/john30/ebusd/) daemon (used for communication with the eBUS heating systems), and Home Assistant. The ebusd integrations uses the sensor integration.

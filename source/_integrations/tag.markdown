@@ -5,11 +5,10 @@ ha_category:
   - Automation
 ha_release: 0.115
 ha_codeowners:
-  - '@balloob'
-  - '@dmulcahey'
+  - '@home-assistant/core'
 ha_domain: tag
 ha_quality_scale: internal
-ha_integration_type: integration
+ha_integration_type: entity
 ---
 
 <p class='img'>

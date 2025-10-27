@@ -18,7 +18,7 @@ ha_platforms:
 ha_integration_type: helper
 ---
 
-This integrations provides the [Riemann sum](https://en.wikipedia.org/wiki/Riemann_sum)
+This integration provides the [Riemann sum](https://en.wikipedia.org/wiki/Riemann_sum)
 of the values provided by a source sensor. The Riemann sum is an approximation
 of an **integral** by a finite sum.
 
@@ -40,8 +40,7 @@ Metric prefix:
 Integration time:
   description: SI unit of time to integrate over.
 Max sub-interval:
-  description: Applies time-based integration if the source did not change for this duration. This implies that at least every `max sub-interval`, the integral is updated. If you don't want time-based updates, enter 0.
-
+  description: Applies time-based integration if the source did not change for this duration. This implies that at least every `max sub-interval`, the integral is updated. If you don't want time-based updates, enter `0`.
 {% endconfiguration_basic %}
 
 

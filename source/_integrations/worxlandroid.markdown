@@ -12,6 +12,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `worxlandroid` {% term integration %} allows you to get the current state, battery level and error status Worx Landroid WG796E.1 or WG797E.
@@ -22,9 +23,9 @@ To use your Worx Landroid mower in your installation, add the following to your 
 ```yaml
 # Example configuration.yaml entry
 sensor:
-  platform: worxlandroid
-  host: 192.168.0.10
-  pin: 1234
+  - platform: worxlandroid
+    host: 192.168.0.10
+    pin: 1234
 ```
 
 {% configuration %}

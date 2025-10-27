@@ -3,7 +3,7 @@ title: "Scenes"
 description: "Instructions on how to setup scenes within Home Assistant."
 ---
 
-You can create scenes that capture the states you want certain entities to be. For example, a scene can specify that light A should be turned on and light B should be bright red.
+You can create scenes that capture the states you want certain entities to be. For example, a scene can specify that light A should be turned on and light B should be bright red. Scenes are available as an entity through the standalone [Scene integration](/integrations/scene/) but can also be embedded in {% term automations %} and {% term scripts %}.
 
 ```yaml
 # Example configuration.yaml entry
@@ -24,21 +24,16 @@ scene:
       media_player.sony_bravia_tv:
         state: "on"
         source: HDMI 1
-        state: "on"
 ```
 
 ## How to configure your scene
 
-In the scene you define in your YAML files, please ensure you use
+In the scene you define in your {% term YAML %} files, please ensure you use
 all required parameters as listed below.
 
 {% configuration %}
 name: 
   description: Friendly name of the scene.
-  required: true
-  type: string
-description:
-  description: Description of the scene.
   required: true
   type: string
 entities:

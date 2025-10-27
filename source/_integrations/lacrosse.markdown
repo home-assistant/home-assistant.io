@@ -12,6 +12,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `lacrosse` sensor {% term integration %} is using the data provided by a [Jeelink](https://www.digitalsmarties.net/products/jeelink) USB dongle or this [Arduino sketch](https://svn.fhem.de/trac/browser/trunk/fhem/contrib/arduino/36_LaCrosse-LaCrosseITPlusReader.zip).
@@ -36,7 +37,7 @@ Or, when using Docker containers:
 docker exec -it <containername> pylacrosse -d /dev/ttyUSB0 scan
 ```
 
-If you are using the Home Assistant OS or Supervised installation method, these
+If you are using the Home Assistant OS or Supervised installation types, these
 methods are not available for you. The use of an additional computer to figure
 out the ID is advised.
 

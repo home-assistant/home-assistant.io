@@ -12,6 +12,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `horizon` {% term integration %} allows you to control a [Unitymedia](https://www.unitymedia.de) Horizon HD Recorder from Home Assistant.

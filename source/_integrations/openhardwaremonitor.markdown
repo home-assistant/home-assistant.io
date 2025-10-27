@@ -12,6 +12,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `openhardwaremonitor` {% term integration %} uses your [Open Hardware Monitor](https://openhardwaremonitor.org/) installation as a source for sensors that will display system information.

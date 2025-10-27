@@ -13,6 +13,7 @@ ha_platforms:
   - fan
   - sensor
 ha_integration_type: integration
+ha_quality_scale: legacy
 ---
 
 The `comfoconnect` integration lets you control Zehnder ComfoAir [Q350](https://products.zehnder-systems.com/en/product/zehnder-comfoair-q350-tr)/[Q450](https://products.zehnder-systems.com/en/product/zehnder-comfoair-q450-tr)/[Q600](https://products.zehnder-systems.com/en/product/zehnder-comfoair-q600-st)

@@ -38,7 +38,7 @@ This will download the file from the given URL.
 
 ### Extract media URL action
 
-There is also a action that will directly return the URL in the response of the action.
+There is also an action that will directly return the URL in the response of the action.
 
 | Data attribute | Optional | Description                                            |
 | ---------------------- | -------- | ------------------------------------------------------ |

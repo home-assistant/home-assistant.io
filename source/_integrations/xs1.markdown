@@ -17,6 +17,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The [EZcontrol XS1](http://www.ezcontrol.de/content/view/36/28/) {% term integration %} for Home Assistant allows you to observe and control devices configured on the XS1 Gateway. Please have a look at the official documentation for using this gateway [Bedienungsanleitung v3.0.0.0](http://www.ezcontrol.de/support/downloads/XS1/xs1manual/Bedienungsanleitung_EZcontrol_XS1_3.0.0.0-2.pdf).

@@ -12,6 +12,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `rtorrent` {% term integration %} allows you to monitor your downloads with [rTorrent](https://rakshasa.github.io/rtorrent/) from within Home Assistant and setup automations based on the information.

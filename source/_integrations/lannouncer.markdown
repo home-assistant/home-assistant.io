@@ -12,6 +12,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `lannouncer` notification {% term integration %} allows you to play spoken messages (TTS) or sounds on an Android device running [Lannouncer](https://play.google.com/store/apps/details?id=com.keybounce.lannouncer&hl=en_US). This can be useful when you have a wall mounted Android tablet, or an Android device that is permanently powered and turned on and want to use that to play notifications.
