@@ -108,7 +108,7 @@ When trying to set up the integration, the form shows the message "Invalid authe
 
 ##### Resolution
 
-This means that Home Assistant authenticate using the provided username and password. Double-check that the provided credentials are correct and that the configured user has permission to view data and settings.
+This means that Home Assistant failed to authenticate using the provided username and password. Double-check that the provided credentials are correct and that the configured user has permission to view data and settings.
 
 ### Unexpected sensor values
 
