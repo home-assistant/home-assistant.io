@@ -14,20 +14,30 @@ ha_domain: fing
 ha_integration_type: integration
 ---
 
-The [Fing](https://www.fing.com/) {% term integration %} enables you to retrieve device data from your network, create your personal device inventory, and use it to optimize your automations. The **Fing integration** allows you to retrieve device information through the [local API](https://www.fing.com/developers/local-api/) exposed by Fing agents ([Fing Agent](https://www.fing.com/fing-agent/), Fingbox, [Fing Desktop](https://www.fing.com/fing-desktop/)). 
+[Fing](https://www.fing.com/) helps home users and IT professionals monitor, protect, and understand their networks with intuitive tools that make connectivity management simple and effective.
+
+The [Fing](https://www.fing.com/) {% term integration %} allows Home Assistant to retrieve detailed information about the devices on your local network.  
+By connecting through the [Fing Local API](https://www.fing.com/developers/local-api/), you can build a personal device inventory and use it to power your presence detection and other automations.
 
 ## Prerequisites
 
-- This integration leverages the [Local API](https://www.fing.com/developers/local-api/) provided by the Fing Agent to seamlessly connect Home Assistant with the device information gathered by the Agent, so make sure the Local API is enabled on your Fing Agent for proper functionality.
-
-- To configure the integration, you will need the IP address, port, and API key of your Fing Agent.
+- Ensure that the [Local API](https://www.fing.com/developers/local-api/) is enabled on your Fing Agent (e.g., [Fing Agent](https://www.fing.com/agent/), Fingbox, or [Fing Desktop](https://www.fing.com/desktop/)).
+- You will need your Fing Agent’s IP address, port, and API key to complete the setup.
 
 {% include integrations/config_flow.md %}
 
 ## Troubleshooting
 
-If you encounter issues while using the Fing integration, consider the following steps:
+If you experience issues with the **Fing integration**, try the following:
 
-- Ensure that the Fing agent is running and accessible on the network.
-- Verify that the IP address and port configured in the integration settings are correct.
-- Ensure that the local API version is 1.1.0 or newer.
+- Confirm that the Fing Agent is running and reachable on your network.
+- Verify that the configured IP address and port in Home Assistant match your Fing Agent’s actual settings.
+- Make sure your Local API version is **1.1.0** or newer.
+
+## Removing the integration
+
+You can remove this integration following the standard Home Assistant procedure.
+
+{% include integrations/remove_device_service.md %}
+
+Once the integration is deleted, if you no longer plan to use it, you may also disable the Fing Local API on your network.
