@@ -14,7 +14,7 @@ ha_integration_type: integration
 ha_quality_scale: legacy
 ---
 
-The Sony Projector integration allows Home Assistant to control the power state of SDCP-compatible, network-connected projectors from [Sony](https://www.sony.com/). It exposes the projector as a media player entity with on/off controls.
+The **Sony Projector** {% term integration %} allows Home Assistant to control the power state of SDCP-compatible, network-connected projectors from [Sony](https://www.sony.com/). It exposes the projector as a media player entity with on/off controls.
 
 {% include integrations/config_flow.md %}
 
