@@ -15,13 +15,12 @@ ha_integration_type: integration
 ---
 
 [Fing](https://www.fing.com/) helps home users and IT professionals monitor, protect, and understand their networks with intuitive tools that make connectivity management simple and effective.
-
 The [Fing](https://www.fing.com/) {% term integration %} allows Home Assistant to retrieve detailed information about the devices on your local network.  
-By connecting through the [Fing Local API](https://www.fing.com/developers/local-api/), you can build a personal device inventory and use it to power your presence detection and other automations.
+By connecting through the [Local API](https://www.fing.com/developers/local-api/), Fing automatically builds and synchronizes an inventory of devices to detect online presence and trigger automations.
 
 ## Prerequisites
 
-- Ensure that the [Local API](https://www.fing.com/developers/local-api/) is enabled on your Fing Agent (e.g., [Fing Agent](https://www.fing.com/agent/), Fingbox, or [Fing Desktop](https://www.fing.com/desktop/)).
+- Ensure that the [Local API](https://www.fing.com/developers/local-api/) is enabled on your Fing Agent ([Fing Agent](https://www.fing.com/agent/), Fingbox, or [Fing Desktop](https://www.fing.com/desktop/)).
 - You will need your Fing Agent’s IP address, port, and API key to complete the setup.
 
 {% include integrations/config_flow.md %}
@@ -40,4 +39,4 @@ You can remove this integration following the standard Home Assistant procedure.
 
 {% include integrations/remove_device_service.md %}
 
-Once the integration is deleted, if you no longer plan to use it, you may also disable the Fing Local API on your network.
+Once the integration is deleted, you may also disable the Fing Local API on your network if you no longer plan to use it.
