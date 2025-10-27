@@ -177,6 +177,7 @@ The integration will create the following sensors:
 - Error. For example: *Mower tilted*, *outside geofence*.
 - Downtime (if available)
 - Inactive reason (if available). For example: *Searching for satellites* or *planning*.
+- Remaining charging time
 - Restricted reason. For example: *Week schedule*, *frost*, or *daily limit*.
 - Mode
 - Next start
