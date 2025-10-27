@@ -35,7 +35,7 @@ YAML configuration for `sony_projector` is no longer supported. If you previousl
 
 After removing the YAML and restarting Home Assistant:
 - The temporary compatibility switch (if present) is removed automatically.
-- The Repairs notice about the legacy switch clears automatically after a reload or restart once no automations or scripts reference it
+- The **Repairs** notice about the legacy switch clears automatically after a reload or restart once no automations or scripts reference it.
 
 Tip: to re-check immediately without restarting, reload the Sony Projector integration from Settings → Devices & Services.
 
