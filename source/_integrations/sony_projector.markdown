@@ -37,6 +37,6 @@ After removing the YAML and restarting Home Assistant:
 - The temporary compatibility switch (if present) is removed automatically.
 - The **Repairs** notice about the legacy switch clears automatically after a reload or restart once no automations or scripts reference it.
 
-Tip: to re-check immediately without restarting, reload the Sony Projector integration from Settings → Devices & Services.
+Tip: to re-check immediately without restarting, reload the Sony Projector integration from {% my integrations title="**Settings** > **Devices & services**" %}.
 
 To migrate existing automations, update them to call `media_player.turn_on` and `media_player.turn_off` on the projector entity. To find where the legacy switch is used, open Settings → Developer tools → Search and look up the switch entity to see related automations, scripts, scenes, and groups.
