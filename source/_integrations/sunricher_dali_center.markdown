@@ -3,7 +3,7 @@ title: DALI Center
 description: Instructions on how to integrate DALI Center with Home Assistant.
 ha_category:
   - Light
-ha_release: 2025.10
+ha_release: 2025.11
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
@@ -14,7 +14,7 @@ ha_platforms:
 ha_integration_type: hub
 ---
 
-The DALI Center integration connects Home Assistant to Sunricher SR-GW-EDA DALI gateways so you can manage DALI lighting from one place. Gateways are discovered on the local network and push updates keep entity state in sync.
+The **DALI Center** {% term integration %} connects Home Assistant to [Sunricher](https://www.sunricher.com/) SR-GW-EDA DALI gateways so you can manage DALI lighting from one place. Gateways are discovered on the local network and push updates keep entity state in sync.
 
 ## Requirements
 
@@ -27,7 +27,7 @@ Configure the integration from the Home Assistant user interface; discovery find
 
 {% include integrations/config_flow.md %}
 
-After setup the gateway appears under **Devices & Services**, and Home Assistant creates light entities for every supported DALI device. Multiple gateways are supported, each with its own set of entities.
+After setup, the gateway appears under **Devices & Services**. Multiple gateways are supported, each with its own set of entities.
 
 ## Lights
 
@@ -40,10 +40,6 @@ The integration listens for push updates from the gateway, so changes made outsi
 This integration follows standard integration removal; no extra steps are required.
 
 {% include integrations/remove_device_service.md %}
-
-{% warning %}
-Removing the integration removes all associated DALI devices from Home Assistant.
-{% endwarning %}
 
 ## Troubleshooting
 
