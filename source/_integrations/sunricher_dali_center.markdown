@@ -27,7 +27,7 @@ Configure the integration from the Home Assistant user interface; discovery find
 
 {% include integrations/config_flow.md %}
 
-After setup, the gateway appears under **Devices & Services**. Multiple gateways are supported, each with its own set of entities.
+After setup, the gateway appears under {% my integrations title="**Settings** > **Devices & services**" %}. Multiple gateways are supported, each with its own set of entities.
 
 ## Lights
 
