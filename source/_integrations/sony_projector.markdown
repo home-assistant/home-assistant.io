@@ -33,10 +33,18 @@ Under your projector's web interface Advanced Menu, you may need to:
 
 YAML configuration for `sony_projector` is no longer supported. If you previously configured this integration using YAML, remove any `sony_projector` entries from your `configuration.yaml` (including legacy `switch` or `media_player` sections) and set up the integration from {% my integrations title="**Settings** > **Devices & services**" %}.
 
+### Resolving the Deprecation
+
 After removing the YAML and restarting Home Assistant:
 - The temporary compatibility switch (if present) is removed automatically.
 - The **Repairs** notice about the legacy switch clears automatically after a reload or restart once no automations or scripts reference it.
 
 Tip: to re-check immediately without restarting, reload the Sony Projector integration from {% my integrations title="**Settings** > **Devices & services**" %}.
 
-To migrate existing automations, update them to call `media_player.turn_on` and `media_player.turn_off` on the projector entity. To find where the legacy switch is used, open Settings → Developer tools → Search and look up the switch entity to see related automations, scripts, scenes, and groups.
+### Migrating existing associations to new component
+
+To migrate existing automations, update them to call `media_player.turn_on` and `media_player.turn_off` on the projector entity. To find where the legacy switch is used:
+- Open Developer tools → States → Filter Entities.
+- Look up the switch entity via the Entity Column Filter (ie. `switch.*projector`).
+- Click the (i) to open the entity details pane.
+- Click the menu button → `Related` see related automations, scripts, scenes, and groups.
