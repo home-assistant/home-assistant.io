@@ -247,8 +247,6 @@ The Xbox binary sensor platform automatically keeps track of your "**Favorite** 
 | -------------------------------- | ---------------------------------------------------------------------- |
 | (*Gamertag* )                    | Shows the online status of your friend.                                |
 | **In game**                      | Shows if your friend is currently playing a game.                      |
-| **In party**                     | Shows if your friend is currently in a party.                          |
-| **In multiplayer**               | Shows if your friend is currently in a multiplayer session.            |
 | **Subscribed to Xbox Game Pass** | Indicates whether the friend is currently subscribed to Xbox Game Pass.|
 
 ## Sensor
@@ -259,8 +257,6 @@ Just like the binary sensors, the Xbox sensor platform automatically keeps track
 | ---------------- | -------------------------------------------------------------------------- |
 | **Status**       | Shows the text status of your friend as it appears in your friends list.   |
 | **Gamerscore**   | Friend's Gamerscore.                                                       |
-| **Account tier** | Friend's Xbox Live account tier (Gold or Silver).                          |
-| **Gold tenure**  | Shows how long your friend has had Xbox Live Gold.                         |
 | **Follower**     | Displays the number of people following the account, including friends.    |
 | **Following**    |  Displays the number of people the account is following, including friends.|
 | **Last online**  | Displays the last time the friend was active online.                       |
