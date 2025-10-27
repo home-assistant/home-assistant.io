@@ -36,7 +36,7 @@ This setup is optional but recommended as a security best practice.
 
 This setup is optional, but required for integration with the Energy Dashboard.
 
-While eGauge meters are usually configured to measure net usage, Home Assistant needs separate sensors for energy consumed and generated. This section describes how configure your eGauge to produce these measurements for common installations.
+While eGauge meters are usually configured to measure net usage, Home Assistant needs separate sensors for energy consumed and generated. This section describes how to configure your eGauge to produce these measurements for common installations.
 
 Consult the [eGauge Configuration Guide](https://www.egauge.net/media/support/docs/config-guide.pdf) or ask your installer to determine which type of installation you have. First, follow the basic configuration instructions in the guide. Then, you'll need to create `grid_in` and `grid_out` registers for use with Home Assistant. Note that you can name these whatever you want; you'll select them in the Energy Dashboard configuration screen.
 
