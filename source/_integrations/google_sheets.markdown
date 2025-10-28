@@ -97,7 +97,7 @@ You can use the `google_sheets.get_sheet` action to retrieve rows of [data] (/do
 | ---------------------- | -------- | ----------- | --------|
 | `config_entry` | no | Config entry to use. |
 | `worksheet` | yes | Name of the worksheet. Defaults to the first one in the document. | Sheet1 |
-| `rows` | no | Maximum number of the last rows of data to be retrieved from the worksheet.  | 2 |
+| `rows` | no | Maximum number of rows from the end of the worksheet to return.  | 2 |
 
 {% raw %}
 
