@@ -658,6 +658,32 @@ type:
   type: string
 {% endconfiguration %}
 
+## Media player volume buttons
+
+Widget that displays buttons to control the volume for a [media player](/integrations/media_player).
+
+<p class='img'>
+  <img src='/images/dashboards/features/media_player_volume_buttons.png' alt='Screenshot of the tile card with media player volume buttons feature'>
+  Screenshot of the tile card with media player volume buttons feature
+</p>
+
+```yaml
+features:
+  - type: "media-player-volume-buttons"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`media-player-volume-buttons`"
+  type: string
+step:
+  required: false
+  description: "The step size of the volume. The default is 5%."
+  type: integer
+  default: 5
+{% endconfiguration %}
+
 ## Media player volume slider
 
 Widget that displays a slider to control the volume for a [media player](/integrations/media_player).
