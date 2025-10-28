@@ -2,8 +2,8 @@
 title: ntfy
 description: Instructions on how to integrate ntfy with Home Assistant.
 ha_category:
-  - Notifications
   - Event
+  - Notifications
 ha_iot_class: Cloud Push
 ha_release: 2025.5
 ha_config_flow: true
@@ -13,9 +13,9 @@ ha_domain: ntfy
 ha_integration_type: integration
 ha_platforms:
   - diagnostics
+  - event
   - notify
   - sensor
-  - event
 ha_quality_scale: bronze
 ---
 
@@ -225,6 +225,10 @@ The **ntfy** integration adds a device representing the service, along with vari
 ### ⭐ Account
 
 - **Subscription tier**: The subscription plan currently assigned to the ntfy account.
+
+## Data updates
+
+The integration retrieves data from **ntfy.sh** (or your own ntfy instance) every 15 minutes to update the usage statistics sensors.
 
 ## Known limitations
 

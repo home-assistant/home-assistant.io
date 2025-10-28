@@ -121,10 +121,29 @@ link_dashboard: true
 The energy sources table card shows all your energy sources, and the corresponding amount of energy.
 If setup, it will also show the costs and compensation per source and the total.
 
+
+### YAML configuration
+
+The following YAML options are available
+
+{% configuration %}
+type:
+  required: true
+  description: "`energy-sources-table`"
+  type: string
+types:
+  required: false
+  description: "If defined, table displays listed types of consumption only. Valid values are: `grid`, `solar`, `battery`, `gas`, and `water`."
+  type: list
+{% endconfiguration %}
+
 ### Example
 
 ```yaml
 type: energy-sources-table
+types:
+  - gas
+  - water
 ```
 
 ## Grid neutrality gauge
@@ -196,7 +215,29 @@ type: energy-self-sufficiency-gauge
 
 The devices energy graph show the energy usage per device, it is sorted by usage.
 
-By default, this card will show all your devices. Optionally, the number of devices can be limited by adding the `max_devices` option and specifying the maximum number of devices to show. If there are more devices available than shown, the devices with the highest energy usage are shown.
+### YAML configuration
+
+The following YAML options are available
+
+{% configuration %}
+type:
+  required: true
+  description: "`energy-devices-graph`"
+  type: string
+title:
+  required: false
+  description: The title of the card.
+  type: string
+max_devices:
+  required: false
+  description: By default, this card will show all your devices. Optionally, the number of devices can be limited by adding the `max_devices` option and specifying the maximum number of devices to show. If there are more devices available than shown, the devices with the highest energy usage are shown.
+  type: integer
+hide_compound_stats:
+  required: false
+  description: Hide higher level devices like breakers. These are devices that are set as `included_in_stat` of another device.
+  type: boolean
+  default: false
+{% endconfiguration %}
 
 ### Examples
 

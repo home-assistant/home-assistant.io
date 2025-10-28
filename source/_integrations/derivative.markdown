@@ -15,8 +15,10 @@ ha_codeowners:
 ha_domain: derivative
 ha_config_flow: true
 ha_platforms:
+  - diagnostics
   - sensor
 ha_integration_type: helper
+ha_quality_scale: internal
 ---
 
 The derivative ([Wikipedia](https://en.wikipedia.org/wiki/Derivative)) integration creates a sensor that estimates the derivative of the

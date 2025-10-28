@@ -1,0 +1,92 @@
+.photos {
+    display: grid;
+    isolation: isolate;
+    place-items: center;
+    position: relative;
+
+    &[data-dsap]:not([data-dsap-is="in"]):not([data-dsap-is="above"]) { // Only if scrolling down into the element
+        .photo {
+            opacity: 0;
+            left: 0;
+            top: 0;
+            right: 0;
+            transform: rotate(0) scale(0.8);
+            transition-duration: 0s;
+            transition-delay: 0s;
+
+            &.large {
+                opacity: 1;
+            
+            }
+        }
+    }
+
+    .photo {
+        background-color: #ffffff;
+        grid-area: 1/1;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        transition-property: transform, opacity, top, left, right;
+        transition-duration: .8s;
+        transition-delay: .25s;
+        transition-timing-function: cubic-bezier(0.2, 1, 0.5, 1);
+
+        @for $i from 1 through 3 {
+            &:nth-child(#{$i}) {
+                transition-delay: #{0.25 + ($i * 0.05)}s;
+            }
+        }
+
+        img {
+            aspect-ratio: 1/1;
+            width: 100%;
+            background-color: #f5f5f5;
+        }
+
+        figcaption {
+            font-size: 16px;
+            text-align: center;
+        }
+
+        &.small {
+            border-radius: 8px;
+            padding: 6px;
+            position: absolute;
+            right: -15%;
+            top: -10%;
+            width: 50%;
+            z-index: 1;
+            transform: rotate(9deg);
+
+            img {
+                border-radius: 4px;
+            }
+        }
+
+        &.medium {
+            border-radius: 12px;
+            left: -10%;
+            padding: 8px;
+            position: absolute;
+            top: -15%;
+            width: 70%;
+            z-index: 2;
+            transform: rotate(-15deg);
+
+            img {
+                border-radius: 6px;
+            }
+        }
+
+        &.large {
+            border-radius: 12px;
+            padding: 12px;
+            z-index: 3;
+
+            img {
+                border-radius: 6px;
+            }
+        }
+    }
+}
