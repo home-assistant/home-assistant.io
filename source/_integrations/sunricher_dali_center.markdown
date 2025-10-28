@@ -43,8 +43,7 @@ To add the DALI Center integration to your Home Assistant instance:
 1. Ensure the gateway is powered on and connected to the same network as Home Assistant.
 2. Select **Submit** to start discovery. Home Assistant will search for gateways for up to 3 minutes.
 3. While discovery is in progress, press the **Reset** button on your DALI gateway device once. The gateway will respond immediately after the button press.
-
-![Press the Reset button on the DALI gateway](/images/integrations/sunricher_dali_center/gateway_reset_button.png)
+   ![Press the Reset button on the DALI gateway](/images/integrations/sunricher_dali_center/gateway_reset_button.png)
 
 After setup, the gateway appears under {% my integrations title="**Settings** > **Devices & services**" %}. Multiple gateways are supported, each with its own set of entities.
 
