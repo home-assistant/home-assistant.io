@@ -261,6 +261,16 @@ Just like the binary sensors, the Xbox sensor platform automatically keeps track
 | **Following**    |  Displays the number of people the account is following, including friends.|
 | **Last online**  | Displays the last time the friend was active online.                       |
 
+## Image
+
+For your account and each of your favorite friends, several image entities are available:
+
+| Entity Name      | Description                                                                            |
+| ---------------- | -------------------------------------------------------------------------------------- |
+| **Avatar**       | Shows the classic Xbox avatar for you or your friend, if available. You can create or customize your own avatar using the [Xbox Original Avatars app](https://apps.microsoft.com/detail/9nblgggz5qdq?ocid=webpdpshare) |
+| **Gamerpic**     | Shows the current **Gamerpic** that represents you or your friend across the Xbox Network. |
+| **Now playing**  | Displays the cover art of the game you or your friends are currently playing.          |
+
 ## Media source
 
 The Xbox media source platform allows you to use the Media Browser panel to view both your own, and community, gameclips or screenshots for games that you have installed on any of your consoles. As with any other media source {% term integration %}, you are also able to send these clips to supported media players like Chromecast.
