@@ -14,12 +14,12 @@ ha_category:
 ha_release: 0.78
 ha_iot_class: Local Push
 ha_codeowners:
-  - '@danielhiversen'
-  - '@RenierM26'
-  - '@murtas'
-  - '@Eloston'
-  - '@dsypniewski'
-  - '@zerzhang'
+  - "@danielhiversen"
+  - "@RenierM26"
+  - "@murtas"
+  - "@Eloston"
+  - "@dsypniewski"
+  - "@zerzhang"
 ha_domain: switchbot
 works_with:
   - bluetooth
@@ -61,8 +61,6 @@ Please note, device names configured in the SwitchBot app are not transferred in
 
 Some SwitchBot devices need to be configured within the app before being controlled by Home Assistant, such as calibrating the cover open/close limits or pairing two covers to move together.
 
-
-
 ### Adding encrypted SwitchBot devices
 
 Some types of the SwitchBot devices are encrypted for improved security. More types and models will be added as encrypted devices in the future.
@@ -76,9 +74,9 @@ Using this option you can provide your SwitchBot account login credentials and H
 
 {% configuration_basic %}
 Username:
-  description: SwitchBot account username
+description: SwitchBot account username
 Password:
-  description: SwitchBot account password
+description: SwitchBot account password
 {% endconfiguration_basic %}
 
 {% important %}
@@ -91,9 +89,9 @@ This option is for those that would rather obtain the encryption key themselves,
 
 {% configuration_basic %}
 Key ID:
-  description: Locks' encryption key ID
+description: Locks' encryption key ID
 Encryption key:
-  description: Locks' encryption key
+description: Locks' encryption key
 {% endconfiguration_basic %}
 
 For instructions on how to obtain the encryption key, see README in [PySwitchbot](https://github.com/Danielhiversen/pySwitchbot#obtaining-locks-encryption-key) project.
@@ -146,7 +144,7 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 
 - [Meter](https://switch-bot.com/pages/switchbot-meter)
 - [Meter Plus (WoSensorTH)](https://switch-bot.com/pages/switchbot-meter-plus)
-- [Indoor/Outdoor Meter (WoIOSensorTH)](https://switch-bot.com/pages/switchbot-indoor-outdoor-thermo-hygrometer) 
+- [Indoor/Outdoor Meter (WoIOSensorTH)](https://switch-bot.com/pages/switchbot-indoor-outdoor-thermo-hygrometer)
 - [Meter Pro](https://www.switch-bot.com/products/switchbot-meter-pro)
 - [Meter Pro CO2 Monitor](https://www.switch-bot.com/products/switchbot-meter-pro-co2-monitor)
 - [Contact Sensor (WoContact)](https://switch-bot.com/pages/switchbot-contact-sensor)
@@ -166,6 +164,7 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 - [Circulator Fan](https://www.switch-bot.com/products/switchbot-battery-circulator-fan)
 
 ### Vacuums
+
 - [K10+](https://www.switch-bot.com/products/switchbot-mini-robot-vacuum-k10)
 - [K10+ Pro](https://www.switch-bot.com/products/switchbot-mini-robot-vacuum-k10-pro)
 - [K10+ Pro Combo](https://www.switch-bot.com/products/switchbot-k10-pro-combo)
@@ -184,6 +183,7 @@ SwitchBot is committed to making sure their products are up-to-date and ready to
 Devices are certified for both Bluetooth and Matter.
 
 The following devices are certified for Bluetooth:
+
 - [SwitchBot Lock Ultra](https://www.switch-bot.com/products/switchbot-lock-ultra)
 - [SwitchBot Air Purifier](https://www.switch-bot.com/products/switchbot-air-purifier)
 - [SwitchBot Air Purifier Table](https://www.switch-bot.com/products/switchbot-air-purifier-table)
@@ -204,10 +204,12 @@ To see the list of SwitchBot Matter-certified devices, visit the [SwitchBot Matt
 ### Common
 
 #### Options
+
 - `Retry count`: How many times to retry sending commands to your SwitchBot devices.
 
 #### Attributes
-- `last_run_success`: Returns `true` if the last action sent to the SwitchBot succeeded. This attribute is useful for error trapping when Bluetooth connectivity is intermittent. If `false`, see [the Home Assistant logs](/integrations/logger/#viewing-logs) for specific error messages.
+
+- `last_run_success`: Returns `true` if the last action sent to the SwitchBot succeeded. This attribute is useful for error trapping when Bluetooth connectivity is intermittent. If `false`, see home-assistant.log for specific error messages.
 
 ### Plugs and switches
 
@@ -224,6 +226,7 @@ Features:
 - get battery level
 
 Attributes:
+
 - `Switch mode`: Specifies the mode of the device. If `true`, the device is in Pull/Retract mode for toggle switches otherwise the device is in momentary switch mode.
 
 #### Plug Mini
@@ -303,6 +306,14 @@ Features:
 - get battery level
 - get calibration state
 
+Options:
+
+Curtain devices have a slow mode option available in the configuration. However, slow mode is primarily designed for Curtain 3 models. Older curtain models (version 1 & 2) may ignore the slow mode setting.
+
+1. To enable slow mode, go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Under **Integration entries**, find the curtain device and select **Configure**.
+3. In the **Options** dialog, enable **Curtain slow mode**.
+
 #### Blind Tilt
 
 Features:
@@ -363,6 +374,7 @@ cover:
 {% endraw %}
 
 #### Roller Shade
+
 The Roller Shade is exposed as a cover entity with control of the position only:
 
 | position | Roller Shade state |
@@ -455,6 +467,7 @@ Features:
 #### Remote
 
 Features:
+
 - get battery level
 
 #### Climate Panel
@@ -484,6 +497,7 @@ Features:
 #### Color Bulb
 
 Features:
+
 - turn on or off
 - change brightness
 - change color temperature
@@ -587,8 +601,6 @@ Options:
 2. Under **Integration entries**, find the lock and select **Configure**.
 3. In the **Options** dialog, configure the nightlatch operation mode.
 
-
-
 #### Lock Ultra
 
 This is an encrypted device.
@@ -652,6 +664,7 @@ Fan entities are added for Battery Circulator Fan/Circulator Fan
 #### Battery Circulator Fan/Circulator Fan
 
 Features:
+
 - turn on
 - turn off
 - set speed
@@ -688,6 +701,7 @@ Features:
 Vacuum entities are added for K10+, K10+ Pro, K10+ Pro Combo, K20, S10, K11+.
 
 Features:
+
 - get states, including `cleaning`, `docked`, `idle`, `paused`, `returning`, and `error`; refer to Known limitations for more details
 - start
 - return to base
@@ -695,7 +709,7 @@ Features:
 
 ### Humidifiers
 
-Humidifier entities are added for Humidifier and  Evaporative Humidifier.
+Humidifier entities are added for Humidifier and Evaporative Humidifier.
 
 #### Humidifier
 
@@ -737,9 +751,9 @@ Device names configured in the SwitchBot app are not transferred into Home Assis
 
 Due to firmware limitations, early models such as **Lock** and **Lock Lite** report the battery level in coarse ranges rather than an exact value:
 
-- < 10 %  → 10  
-- 10 % – 20 % → 20  
-- 20 % – 60 % → 60  
+- < 10 % → 10
+- 10 % – 20 % → 20
+- 20 % – 60 % → 60
 - ≥ 60 % → 100
 
 Refer to the latest version of the [OpenAPI doc](https://github.com/OpenWonderLabs/SwitchBotAPI) for precise definitions.
