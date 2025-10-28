@@ -12,38 +12,61 @@ ha_domain: sunricher_dali_center
 ha_platforms:
   - light
 ha_integration_type: hub
+ha_quality_scale: bronze
+related:
+  - url: https://www.sunricher.com/din-rail-ethernet-dali-gateway-sr-gw-eda.html
+    title: SR-GW-EDA DALI Gateway
 ---
 
-The **DALI Center** {% term integration %} connects Home Assistant to [Sunricher](https://www.sunricher.com/) SR-GW-EDA DALI gateways so you can manage DALI lighting from one place. Gateways are discovered on the local network and push updates keep entity state in sync.
+The **DALI Center** {% term integration %} allows you to control and monitor DALI lighting devices connected to [Sunricher](https://www.sunricher.com/) gateways. The integration receives real-time push updates to keep entity states synchronized.
 
-## Requirements
+## Supported devices
+
+The integration supports DALI-compliant lighting devices, including:
+
+- DALI DT6 Dimmable Drivers
+- DALI DT8 Tunable White Drivers (Tc)
+- DALI DT8 Color Drivers (RGB, XY, RGBW, RGBWA)
+
+## Prerequisites
+
+This integration communicates with DALI lighting devices through a Sunricher gateway. You will need:
 
 - Sunricher SR-GW-EDA DALI gateway on the same network as Home Assistant
-- Commissioned DALI lighting devices connected to that gateway (tested with DALI DT6 dimmable drivers and DT8 tunable white/RGBW drivers)
+- DALI lighting devices connected to and configured on the gateway
 
 ## Setup
 
-Configure the integration from the Home Assistant user interface; discovery finds supported gateways automatically.
-
 {% include integrations/config_flow.md %}
+
+To add the DALI Center integration to your Home Assistant instance:
+
+1. Ensure the gateway is powered on and connected to the same network as Home Assistant.
+2. Select **Submit** to start discovery. Home Assistant will search for gateways for up to 3 minutes.
+3. While discovery is in progress, press the **Reset** button on your DALI gateway device once. The gateway will respond immediately after the button press.
+
+![Press the Reset button on the DALI gateway](/images/integrations/sunricher_dali_center/gateway_reset_button.png)
 
 After setup, the gateway appears under {% my integrations title="**Settings** > **Devices & services**" %}. Multiple gateways are supported, each with its own set of entities.
 
-## Lights
+## Supported functionality
 
-Each DALI device creates a light entity with on/off control and dimming. Depending on the hardware, lights may expose color temperature, HS color, or RGBW control. Grouped control and scenes are managed in the gateway; rename devices from the gateway interface and reload the integration to sync changes.
+The **DALI Center** integration provides the following entities.
 
-The integration listens for push updates from the gateway, so changes made outside Home Assistant are reflected immediately.
+### Lights
 
-## Troubleshooting
+Each DALI lighting device connected to the gateway is represented as a light entity in Home Assistant. Supported features depend on the device type:
 
-- **Gateway not discovered:** Confirm the gateway and Home Assistant share the same network, the gateway is powered, and its web interface is reachable; restart the gateway if needed.
-- **Devices missing:** Check DALI bus wiring, ensure devices are commissioned on the gateway, then reload the integration.
-- **Entities unavailable:** Verify device power and addressing in the gateway before restarting the integration.
+- On/off and brightness control (all DALI DT6 and DT8 devices)
+- Color temperature (DALI DT8 Tc devices)
+- Color control (DALI DT8 RGB, XY, RGBW, and RGBWA devices)
+
+## Data updates
+
+The integration receives real-time push updates from the gateway, ensuring changes made outside Home Assistant are reflected immediately.
 
 ## Removing the integration
 
 This integration follows standard integration removal; no extra steps are required.
 
 {% include integrations/remove_device_service.md %}
-
