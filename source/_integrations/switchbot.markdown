@@ -74,7 +74,7 @@ Using this option you can provide your SwitchBot account login credentials and H
 
 {% configuration_basic %}
 Username:
-description: SwitchBot account username
+ description: SwitchBot account username
 Password:
 description: SwitchBot account password
 {% endconfiguration_basic %}
