@@ -35,7 +35,6 @@ This integration communicates with DALI lighting devices through a Sunricher gat
 - Sunricher SR-GW-EDA DALI gateway on the same network as Home Assistant
 - DALI lighting devices connected to and configured on the gateway
 
-## Setup
 
 {% include integrations/config_flow.md %}
 
