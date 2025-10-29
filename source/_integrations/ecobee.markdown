@@ -161,7 +161,7 @@ The `ventilator 20 min` switch is behaving like the switch in the physical ecobe
 
 ### Concepts 
 
-When an HVAC system is equipped with a heat pump, a form of auxiliary heat is usually included. This may also be referred to as 'Emergency Heat'. You can control whether the thermostat requests only auxiliary heat, and adjust the outdoor temperature at which the heat pump compressor will no longer be used, for example, in response to utility costs or solar production in a hybrid system. A hybrid system refers to a system that does not use electricity for the auxiliary heat (natural gas, propane, etc.). This applies more to air source heat pumps than geothermal. 
+When an HVAC system is equipped with a heat pump, a form of auxiliary heat is usually included. This may also be referred to as 'Emergency Heat'. You can control whether the thermostat requests only auxiliary heat, adjust the outdoor temperature at which the heat pump compressor will no longer be used, and adjust the outdoor temperature at which the auxiliary heat will no longer be used, for example, in response to utility costs or solar production in a hybrid system. A hybrid system refers to a system that does not use electricity for the auxiliary heat (natural gas, propane, etc.). This applies more to air source heat pumps than geothermal. 
 
 ### Switch
 
@@ -172,6 +172,8 @@ The `Auxiliary heat only` switch is provided to disable the use of the compresso
 The `Compressor minimum temperature` number represents the outdoor temperature at which the compressor (heat pump) will not run. This is represented in the temperature units you have selected in Home Assistant; however, ecobee allows configuration only in increments of 5 degrees Fahrenheit. This is also represented in the thermostat user interface. When the outdoor temperature is below this value, only auxiliary heat will be used. Be careful with this setting, as it can incur additional utility costs from using a less-efficient heat source.
 
 Check your heat pump Owners' Manual prior to adjusting this value; do not adjust it below the rated minimum operating temperature of the heat pump. **Failure to observe the rated minimum operating temperature can cause damage to the system**
+
+The `Auxiliary maximum outdoor temperature` number represents the outdoor temperature at which the auxiliary heat will not run. This is represented in the temperature units you have selected in Home Assistant. This is also represented in the thermostat user interface. When the outdoor temperature is above this value, auxiliary heat will not be used. Be careful with this setting, as it can incur additional utility costs from using a less-efficient heat source.
 
 ## Actions
 
