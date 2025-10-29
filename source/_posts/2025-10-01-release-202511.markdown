@@ -75,7 +75,7 @@ Enjoy the (beta) release!
 <!--more-->
 
 - [A brand new target picker](#a-brand-new-target-picker)
-- [A brand new way to add triggers, conditions, and actions in your automations](#a-brand-new-way-to-trigger-conditions-and-actions-in-your-automations)
+- [A brand new way to add triggers, conditions, and actions in your automations](#a-brand-new-way-to-add-triggers-conditions-and-actions-in-your-automations)
 - [Naming entities on your dashboard](#naming-entities-on-your-dashboard)
 - [Energy pie](#energy-pie)
 - [Progress for Home Assistant Core and Add-on updates](#progress-for-home-assistant-core-and-add-on-updates)
@@ -175,19 +175,19 @@ We welcome the following new integrations in this release:
   Integrate with [Lunatone Gateway], enabling control and monitoring of DALI lighting systems through Lunatone’s DALI gateway interface.
 
 - **[Nintendo Parental Controls]**, added by [@pantherale0]
-  The [Nintendo Parental Controls integration] connects with Nintendo’s parental management service, allowing you to monitor and manage device usage and restrictions.
+  The [Nintendo Parental Controls] integration connects with Nintendo’s parental management service, allowing you to monitor and manage device usage and restrictions.
 
-- **[Actron Air]**, added by [@kclif9]
+- **[Actron Air Neo]**, added by [@kclif9]
   Integrate with [Actron Air Neo], an advanced climate control system providing temperature management, zoning, and automation for Actron Air devices.
 
 - **[OpenRGB]**, added by [@felipecrs]
-  The [OpenRGB integration] allows unified control of RGB lighting across various hardware brands and devices through the OpenRGB project.
+  The [OpenRGB] integration allows unified control of RGB lighting across various hardware brands and devices through the OpenRGB project.
 
 - **[iNELS]**, added by [@epdevlab]
-  Integrate with the [iNELS smart home system] to manage lighting, heating, and automation components for enhanced home control.
+  Integrate with the [iNELS] smart home system to manage lighting, heating, and automation components for enhanced home control.
 
 - **[Fing]**, added by [@Lorenzo-Gasparini]
-  The [Fing integration] provides network scanning, device detection, and presence monitoring capabilities using the Fing platform.
+  The [Fing] integration provides network scanning, device detection, and presence monitoring capabilities using the Fing platform.
 
 - **[DALI Center]**, added by [@niracler]
   Integrate with [DALI Center], a platform for managing and monitoring DALI-based lighting systems.
@@ -200,19 +200,12 @@ We welcome the following new integrations in this release:
 [@Lorenzo-Gasparini]: https://github.com/Lorenzo-Gasparini
 [@niracler]: https://github.com/niracler
 [Lunatone Gateway]: /integrations/lunatone
-[lunatone docs]: https://www.home-assistant.io/integrations/lunatone
-[Nintendo Parental Controls integration]: /integrations/nintendo_parental
-[nintendo_parental docs]: https://www.home-assistant.io/integrations/nintendo_parental
+[Nintendo Parental Controls]: /integrations/nintendo_parental
 [Actron Air Neo]: /integrations/actronair_neo
-[actronair_neo docs]: https://www.home-assistant.io/integrations/actronair_neo
-[OpenRGB integration]: /integrations/openrgb
-[openrgb docs]: https://www.home-assistant.io/integrations/openrgb
-[iNELS smart home system]: /integrations/inels
-[inels docs]: https://www.home-assistant.io/integrations/inels
-[Fing integration]: /integrations/fing
-[fing docs]: https://www.home-assistant.io/integrations/fing
+[OpenRGB]: /integrations/openrgb
+[iNELS]: /integrations/inels
+[Fing]: /integrations/fing
 [DALI Center]: /integrations/dali_center
-[dali_center docs]: https://www.home-assistant.io/integrations/dali_center
 [@erwindouna]: https://github.com/erwindouna
 [@xE1H]: https://github.com/xE1H
 [Firefly III project]: https://www.firefly-iii.org/
@@ -223,8 +216,6 @@ We welcome the following new integrations in this release:
 ### Noteworthy improvements to existing integrations
 
 It is not just new {% term integrations %} that have been added; existing integrations are also being constantly improved. Here are some of the noteworthy changes to existing integrations:
-
-- [Lorem ipsum] expanded with support for slipsum sensors! Thanks, [@frenck]!
 
 - Add garage door opener for switchbot integration ([@zerzhang] - [#148460]) ([switchbot docs]) (new-platform)
 - snoo: add button entity for calling start_snoo ([@falconindy] - [#151052]) ([snoo docs]) (new-platform)
@@ -289,21 +280,13 @@ to set up and use.
 
 The following integrations are now available via the Home Assistant UI:
 
-- **[Lorem ipsum]**, done by [@frenck]
+- **[London Underground]** by [@HarvsG]
+- **[Satel Integra]** by [@Tommatheussen]
 
-[@frenck]: https://github.com/frenck
-[Lorem ipsum]: /integrations/lorem_ipsum
-
-## The new Home Dashboard keeps getting smarter.
-
-Following the improvements introduced in latest releases, this release makes the experience even smoother and more intuitive.
-
-We've simplified and reorganized things:
-- Suggested entities and favorites are now combined into a single, smart section, showing you what's most relevant in one place.
-- Areas are now grouped by floor, making it easier to browse and understand your home's layout at a glance.
-- The Lights, Climate, and Safety views have been moved to their own dedicated panels, so you can access them directly under Settings → Dashboards.
-
-These improvements bring everything together more naturally, helping your Home Dashboard feel less like a setup and more like a true reflection of your home.
+[@HarvsG]: https://github.com/HarvsG
+[@Tommatheussen]: https://github.com/Tommatheussen
+[London Underground]: /integrations/london_underground
+[Satel Integra]: /integrations/satel_integra
 
 ## Other noteworthy changes
 
@@ -315,9 +298,16 @@ There are many more improvements in this release; here are some of the other not
 [lorem ipsum card]: /dashboards/lorem_ipsum/
 [slipsum entities]: /integrations/slipsum/
 
-### Lorem ipsum
+### The new Home Dashboard keeps getting smarter.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Following the improvements introduced in latest releases, this release makes the experience even smoother and more intuitive.
+
+We've simplified and reorganized things:
+- Suggested entities and favorites are now combined into a single, smart section, showing you what's most relevant in one place.
+- Areas are now grouped by floor, making it easier to browse and understand your home's layout at a glance.
+- The Lights, Climate, and Safety views have been moved to their own dedicated panels, so you can access them directly under Settings → Dashboards.
+
+These improvements bring everything together more naturally, helping your Home Dashboard feel less like a setup and more like a true reflection of your home.
 
 ## Need help? Join the community
 
