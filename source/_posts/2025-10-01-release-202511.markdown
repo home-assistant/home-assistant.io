@@ -75,7 +75,7 @@ Enjoy the (beta) release!
 <!--more-->
 
 - [Lorem ipsum](#lorem-ipsum)
-- [Progress for Core and Add-on updates](#progress-for-core-and-add-on-updates)
+- [Progress for Home Assistant Core and Add-on updates](#progress-for-home-assistant-core-and-add-on-updates)
 - [Integrations](#integrations)
   - [New integrations](#new-integrations)
   - [Noteworthy improvements to existing integrations](#noteworthy-improvements-to-existing-integrations)
@@ -95,7 +95,7 @@ _A huge thank you to all the contributors who made this release possible! And a 
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-## Progress for Core and Add-on updates
+## Progress for Home Assistant Core and Add-on updates
 
 With this Home Assistant Core and Add-on updates (handled by the Supervisor) now have progress information! The progress includes download and unpacking of the update, hence the steps depend on the speed of your Internet connection and your CPU and its load. This makes the progress not completely linear. The progress still gives a rough estimate how long along the update is.
 
