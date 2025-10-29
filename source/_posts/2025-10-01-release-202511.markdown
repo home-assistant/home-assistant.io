@@ -109,7 +109,11 @@ These two issues led to a low usage of complex targets, with many of you falling
 The new version of the target picker fixes these two issues.
 Context is clearly displayed, and it also now clearly states how many entities will be targeted.
 
+<img class="no-shadow" alt="Screenshot of a light action configuration with targets picked." src="/images/blog/2025-11/target-picker.png" />
+
 You can even dig deeper into a floor, area, or device in order to understand where these entities are coming from
+
+<img class="no-shadow" alt="Screenshot of the details of a target." src="/images/blog/2025-11/target-details.png" />
 
 We hope that this revision of our target picker will help you create more ong lasting and durable automations. An automation targeting an area or a floor is dynamic, and scales as you add or remove devices in your home, which is one of the great advantages of using larger targets.
 
@@ -122,8 +126,12 @@ After the release of the automation sidebar [two releases ago](https://www.home-
 The changes are purely cosmetic; the dialog is bigger, so that the description of each block is simpler to read.
 The dialog has a two-pane layout to ease both the navigation and the selection of the wanted block.
 
+<img class="no-shadow" alt="Screenshot of the new dialog to add a action." src="/images/blog/2025-11/add-automation-dialog.png" />
+
 The building blocks (These blocks used to perform more complex conditions or sequences of actions, such as repeating actions, or branching out your sequence into multiple paths) have been moved into the main dialog on a second tab.
 There is now a single entry point to add something to an automation instead of two, reducing a lot the number of buttons present in complex automation.
+
+<img class="no-shadow" alt="Screenshot of the new dialog to add a building block to an action." src="/images/blog/2025-11/add-automation-dialog-blocks.png" />
 
 As mentioned above, these changes are purely cosmetic, for now! But this new dialog is foundational for what’s coming next, and we cannot wait to present it to you once it finally lands.
 
@@ -141,6 +149,8 @@ This gives you full control over how your dashboards look and feel. For example,
 Of course, you can still set a custom name if you want complete control over the text shown.
 
 And the best part? If you rename an entity or device, your dashboards will automatically stay in sync. No more manual edits, everything just updates itself.
+
+<img class="no-shadow" alt="Screenshot of the configuration dialog of a tile card." src="/images/blog/2025-11/card-naming.png" />
 
 ## Energy pie
 
