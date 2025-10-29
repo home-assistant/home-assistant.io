@@ -12,13 +12,13 @@ og_image: /images/blog/2025-10-yellow-eol/art.webp
 
 <img src='/images/blog/2025-10-yellow-eol/art.webp' style='border: 0;box-shadow: none;' alt="Ending production of Home Assistant Yellow">
 
-Today, we’re announcing that we will no longer be producing [Home Assistant Yellow](/yellow). Rest assured, it will continue to receive software support far into the future.
+Today, we’re announcing that we will no longer be producing [Home Assistant Yellow](/yellow). Rest assured, it will continue to receive software support far into the future.<!--more-->
 
 I’m Carl, Vice President of Commercial at Nabu Casa, the organization that builds and sells official hardware for the Open Home Foundation. I couldn’t be more proud of our hardware achievements over the past 12 months, including [Voice Preview Edition](/voice-pe/) and [Connect ZWA-2](/connect/zwa-2/) (including its cool new [Wi-Fi and PoE experimental firmware](/blog/2025/10/13/portable-z-wave-with-wifi-and-poe/)).
 
 Home Assistant Yellow was similarly groundbreaking at launch and helped fund Home Assistant’s development. However, for reasons I’ll explain below, the time has come to end production. This means that if you were considering buying a Home Assistant Yellow, you’ll need to act fast, as stock will not be replenished (check the *Order Now* button on the [Home Assistant Yellow page](/yellow) to see if your local retailer still has stock).
 
-[Nabu Casa](https://www.nabucasa.com/) is now exploring what hardware could replace Home Assistant Yellow, so if you have any suggestions on what we should do next, **please** **tell us in the comments\!** In the meantime, the good news is that there are already [plenty of other great ways to run Home Assistant](/installation/). For example, if you’re looking for hardware that’s both easy to start with and supports the Open Home Foundation, we’d recommend the [Home Assistant Green](/green).
+[Nabu Casa](https://www.nabucasa.com/) is now exploring what hardware could replace Home Assistant Yellow, so if you have any suggestions on what we should do next, **please** **tell us in the comments\!** In the meantime, the good news is that there are already [plenty of other great ways to run Home Assistant](/installation/). For example, if you’re looking for hardware that’s both easy to start with and supports the Open Home Foundation, we’d recommend the [Home Assistant Green](/green).<!--more-->
 
 ## A golden era
 
