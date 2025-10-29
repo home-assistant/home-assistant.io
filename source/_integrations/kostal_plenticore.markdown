@@ -171,7 +171,6 @@ The following entities are available for device configuration:
 | Battery Smart Control        |      | Switch | Enable smart battery control |
 | Battery Strategy             |      | Switch | Battery strategy |
 | Shadow Management            |      | Switch | PV string shadow management |
-| Shadow Management            |      | Switch | PV string shadow management |
 
 If you use installer access to connect, you also have access to the following sensors:
 
