@@ -87,7 +87,7 @@ data:
 {% enddetails %}
 
 
-### Action `google_sheets.get_sheet`
+### Action: Get sheet
 
 You can use the `google_sheets.get_sheet` action to retrieve rows of [data] (/docs/scripts/perform-actions#use-templates-to-handle-response-data) from a Sheets document.
 
