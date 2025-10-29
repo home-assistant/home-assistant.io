@@ -100,7 +100,7 @@ _A huge thank you to all the contributors who made this release possible! And a 
 When researching issues with the current automation editor, we surfaced a few issues with our current target picker, the element used to select which areas, devices, or entities an action is targeting.
 The issues can be summarized as: Lack of context and lack of trust.
 
-We were not displaying the context of entities, devices, and areas. For example, from which device an entity is coming from, or on which area it is assigned to. This led to confusion, as it is fairly common to have multiple devices named the same way but simply in different areas (Presence sensor, for example), or multiple entities named the same way, but coming from different devices (Battery level, for example) 
+We were not displaying the context of entities, devices, and areas. For example, from which device an entity is coming from, or on which area it is assigned to. This led to confusion, as it is fairly common to have multiple devices named the same way but simply in different areas (Presence sensor, for example), or multiple entities named the same way, but coming from different devices (Battery level, for example).
 
 On top of this missing context, we were unable to provide the scope of a particular target. How many lights will you turn on if you target a floor? Is it what you expect?
 
