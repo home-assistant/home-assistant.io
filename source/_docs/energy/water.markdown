@@ -25,6 +25,7 @@ Some hardware with water meters may also provide additional practical functions 
 
 We have the following integrations available for existing products that can provide information about water usage:
 
+- [Droplet](/integrations/droplet)
 - [Flo](/integrations/flo)
 - [Flume](/integrations/flume)
 - [HomeWizard Energy](/integrations/homewizard)

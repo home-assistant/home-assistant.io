@@ -16,6 +16,7 @@ ha_codeowners:
 ha_domain: tasmota
 ha_platforms:
   - binary_sensor
+  - camera
   - cover
   - fan
   - light

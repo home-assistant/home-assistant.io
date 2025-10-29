@@ -40,7 +40,7 @@ title:
   type: string
 image:
   required: false
-  description: Background image URL.
+  description: Background image URL (local, web, or `media-source://`)
   type: string
 image_entity:
   required: false
@@ -261,7 +261,7 @@ entities: []
 camera_image: camera.front_garden_camera
 ```
 
-Use different images based on entity state:
+Use different images based on entity state (supports local, web, or `media-source://` URLs):
 
 ```yaml
 type: picture-glance
@@ -271,6 +271,7 @@ entities:
   - light.ceiling_lights
 state_image:
   "on": /local/living_room_on.png
-  "off": /local/living_room_off.png
+  "off": https://demo.home-assistant.io/stub_config/living_room.png
+  "unavailable": media-source://image_upload/123456789
 entity: group.living.room
 ```
