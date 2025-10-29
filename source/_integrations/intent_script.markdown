@@ -124,3 +124,13 @@ intent_script:
 ```
 
 {% endraw %}
+
+## Actions
+
+Available actions: `reload`.
+
+### Action `intent_script.reload`
+
+Reloads the intent script from the YAML-configuration, as a quicker alternative to restarting Home Assistant.
+
+This action takes no data attributes.
