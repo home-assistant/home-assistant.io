@@ -50,7 +50,8 @@ These Matter devices that work over Wi-Fi are all about giving you freedom to co
 
 In case you didn’t know, when using Matter devices with Home Assistant you have local control with no need for external internet for day-to-day operation. If you do want to access your dashboard while you’re away from home, using [Home Assistant Cloud](/cloud/) is a simple, secure, way to do this (and help fund Home Assistant’s development in the process!).
 
-Professional quality, support for all  
+## Professional quality, support for all
+
 Like all brands within the Works with Home Assistant program, ELTAKO isn’t just adding our little blue logo to their little blue products – they’re joining our community. That means active engagement and shared expertise to help everyone get the best from their devices. Because ELTAKO’s products are built to professional standards, installation can sometimes require a qualified electrician – especially for wired set-ups. That’s where ELTAKO’s directory of system partners and specialists in many regions, as well as a tech support hotline, can help you find the installation advice you need, whether you’re a complete novice or electrical enthusiast.
 
 With ELTAKO on board, we hope Home Assistant users will have further flexibility to explore new devices and experiment with different set-ups, as well as open up more ways to mix and match products to build a professional-standard smart home.
