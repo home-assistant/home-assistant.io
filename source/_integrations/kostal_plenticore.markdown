@@ -159,22 +159,25 @@ The following sensors can be used in the [energy dashboard](/docs/energy/):
 Some of the energy is measured on the DC side and some on the AC side, so the values may differ slightly due to losses between DC and AC.
 {% endnote %}
 
-### Settings Sensors
+### Configuration Entities
 
-The following sensors are available in the library:
+The following entities are available for device configuration:
 
-| Name                    | Unit | RW | Description   |
-|-------------------------|------|----|:--------------|
-| Battery Dynamic SoC     |      | RW | Dynamic SoC. |
-| Battery Smart Control   |      | RW | Enable smart battery control |
-| Battery Strategy        |      | RW | Battery strategy. |
-| Shadow Management       |      | RW | PV string shadow management. |
+| Name                         | Unit | Domain | Description   |
+|------------------------------|------|--------|:--------------|
+| Battery min Home Consumption | W    | Number | Min. home consumption power for battery |
+| Battery min Soc              | %    | Number | Min. SoC of battery |
+| Battery Dynamic SoC          |      | Select | Dynamic SoC |
+| Battery Smart Control        |      | Switch | Enable smart battery control |
+| Battery Strategy             |      | Switch | Battery strategy |
+| Shadow Management            |      | Switch | PV string shadow management |
+| Shadow Management            |      | Switch | PV string shadow management |
 
 If you use installer access to connect, you also have access to the following sensors:
 
-| Name                    | Unit | RW | Description   |
-|-------------------------|------|----|:--------------|
-| Battery Manual Charge   |      | RW | Force the battery to charge. |
+| Name                    | Unit | Domain | Description   |
+|-------------------------|------|--------|:--------------|
+| Battery Manual Charge   |      | Switch | Force the battery to charge from AC |
 
 {% note %}
 Setting values change less often, therefore these sensors are only polled every 5 minutes.
@@ -199,6 +202,10 @@ The Battery Smart Control sensor appears as a select field labeled "Battery Char
 The Battery Manual Charge sensor allows you to force charge the battery to 100%, regardless of PV generation or home usage.
 This setting is available when using installer access and should therefore only be used with the same caution as using installer access.
 More on [Installer Access](#installer-access)
+
+#### Shadow Management
+
+The shadow management switches are created automatically based on which DC strings are supported.
 
 ## Number
 
