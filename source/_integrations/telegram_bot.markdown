@@ -518,7 +518,7 @@ notify:
 
 ## Event entity
 
-The **Telegram bot** integration provides an {% term "Event entity" %} which represents the state of the last message sent or received. It also provides several event attributes which can be used in automations.
+The **Telegram bot** integration provides an {% term event %} {% term entity %} which represents the state of the last message sent or received. It also provides several event attributes that can be used in automations.
 
 ### Event: Attachment received
 
