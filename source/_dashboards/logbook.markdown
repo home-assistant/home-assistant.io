@@ -30,6 +30,8 @@ Hours to show:
   description: The number of hours in the past that will be tracked in the card.
 Theme:
   description: Name of any loaded theme to be used for this card. For more information about themes, see the [frontend documentation](/integrations/frontend/).
+State filter:
+  description: Limit the displayed logbook entries to only the specified states.  
 {% endconfiguration_basic %}
 
 ## YAML configuration
@@ -58,6 +60,10 @@ theme:
   required: false
   description: Override the used theme for this card with any loaded theme. For more information about themes, see the [frontend documentation](/integrations/frontend/).
   type: string
+state_filter:
+  required: false
+  description: Limit the displayed logbook entries to only the selected states. For example a list of `['on']` will display entries when targeted entities turn on, but not when they turn off.
+  type: list
 {% endconfiguration %}
 
 ### Examples
