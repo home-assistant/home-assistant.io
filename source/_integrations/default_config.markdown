@@ -26,7 +26,7 @@ This {% term integration %} is a meta-component and configures a default set of 
 - [Home Assistant Alerts](/integrations/homeassistant_alerts) (`homeassistant_alerts`)
 - [Home Assistant Cloud](/integrations/cloud/) (`cloud`)
 - [Image upload](/integrations/image_upload/) (`image_upload`)
-- [Logbook](/integrations/logbook/) (`logbook`)
+- [Activity](/integrations/logbook/) (`logbook`)
 - [Media source](/integrations/media_source/) (`media_source`)
 - [Mobile app support](/integrations/mobile_app/) (`mobile_app`)
 - [My Home Assistant](/integrations/my/) (`my`)

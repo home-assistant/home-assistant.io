@@ -245,7 +245,7 @@ The Xbox binary sensor platform automatically keeps track of your "**Favorite** 
 
 | Entity Name                      | Description                                                            |
 | -------------------------------- | ---------------------------------------------------------------------- |
-| (*Gamertag* )                    | Shows the online status of your friend.                                |
+| (*Gamertag* )                    | Shows the online status of your friend.            The entity’s attributes provide extra information, including real name and bio. |
 | **In game**                      | Shows if your friend is currently playing a game.                      |
 | **Subscribed to Xbox Game Pass** | Indicates whether the friend is currently subscribed to Xbox Game Pass.|
 
@@ -260,6 +260,7 @@ Just like the binary sensors, the Xbox sensor platform automatically keeps track
 | **Follower**     | Displays the number of people following the account, including friends.    |
 | **Following**    |  Displays the number of people the account is following, including friends.|
 | **Last online**  | Displays the last time the friend was active online.                       |
+| **Now playing**  | Shows the title of the game currently being played. Additional details such as a short description, genre, developer, age rating, and achievement progress are available in the entity's attributes. |
 
 ## Image
 

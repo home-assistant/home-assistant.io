@@ -110,6 +110,27 @@ This action allows you to play one of the built-in Alexa sounds. The full list o
 | `device_id` | no | Device on which you want to play sound |
 | `sound` | no | The name of the sound to play |
 
+## Sensors
+
+The integration creates sensor entities when the connected device exposes that information. Not every device supports every sensor.
+
+### Alarm, timer, and reminder sensors
+
+All Alexa-enabled devices have timestamp sensors that show the next scheduled alarm, timer, and reminder along with their labels.
+
+### Environmental and device sensors
+
+- **Temperature**
+- **Illuminance**
+- **Wi-Fi and Bluetooth connectivity**
+
+## Supported functionality
+
+In addition to sensors, you can use the following entities:
+
+- **Notify** - Speak and Announce notifications
+- **Switch** - Do not disturb
+
 ## Examples
 
 ### Send announcement when you arrive home
@@ -190,18 +211,10 @@ target:
 
 This integration {% term polling polls %} data from the device every 30 seconds by default.
 
-## Supported functionality
-
-The **Alexa Devices** {% term integration %} provides the following entities:
-
-- Binary sensor - main and Bluetooth connectivity
-- Notify - Speak and Announce notifications
-- Sensor - temperature and illuminance sensors
-- Switch - Do not disturb
-
 ## Known limitations
 
-This integration requires multifactor authentication using an authentication app (such as Microsoft Authenticator). To enable MFA, in your Amazon account settings, select **Login & Security** > **2-step verification** > **Backup methods** > **Add new app**. See [Amazon's documentation](https://www.amazon.com/gp/help/customer/display.html?nodeId=G9MX9LXNWXFKMJYU) for more information.
+- This integration requires multifactor authentication using an authentication app (such as Microsoft Authenticator). To enable MFA, in your Amazon account settings, select **Login & Security** > **2-step verification** > **Backup methods** > **Add new app**. See [Amazon's documentation](https://www.amazon.com/gp/help/customer/display.html?nodeId=G9MX9LXNWXFKMJYU) for more information.
+- Reminders may not be added to the sensor if the configured account is linked to an Alexa Household.
 
 ## Troubleshooting
 
