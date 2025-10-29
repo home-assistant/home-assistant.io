@@ -267,7 +267,7 @@ For your account and each of your favorite friends, several image entities are a
 
 | Entity Name      | Description                                                                            |
 | ---------------- | -------------------------------------------------------------------------------------- |
-| **Avatar**       | Shows the classic Xbox avatar for you or your friend, if available. You can create or customize your own avatar using the [Xbox Original Avatars app](https://apps.microsoft.com/detail/9nblgggz5qdq?ocid=webpdpshare) |
+| **Avatar**       | Shows the classic Xbox avatar for you or your friend, if available. You can create or customize your own avatar using the [Xbox Original Avatars app](https://apps.microsoft.com/detail/9nblgggz5qdq?ocid=webpdpshare). |
 | **Gamerpic**     | Shows the current **Gamerpic** that represents you or your friend across the Xbox Network. |
 | **Now playing**  | Displays the cover art of the game you or your friends are currently playing.          |
 
