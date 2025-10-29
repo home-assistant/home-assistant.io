@@ -36,7 +36,7 @@ The **Yardian** integration provides the following entities.
 
 ### Binary sensors
 
-- **Watering running**: Is `on`  when a zone is currently irrigating.
+- **Watering running**: Is `on` when a zone is currently irrigating.
 - **Standby**:  Is `on` when the controller is in standby mode.
 - **Freeze prevent**: Turns on when the controller enables freeze prevention.
 - **Zone enabled**: `On` if a zone is enabled. These entities are disabled by default and created per zone.
