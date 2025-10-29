@@ -13,7 +13,6 @@ ha_codeowners:
 ha_domain: yardian
 ha_platforms:
   - binary_sensor
-  - sensor
   - switch
 ha_integration_type: integration
 ---
@@ -24,7 +23,6 @@ There is currently support for the following platforms within Home Assistant:
 
 - Switch - Allows you to view the status of zones and control them.
 - Binary sensor - Shows watering status along with standby and freeze prevent diagnostics. Per-zone enabled diagnostics are provided but disabled by default.
-- Sensor - Reports rain delay, the number of active zones, and diagnostic values such as sensor delay, water hammer duration, and the controller region. Most diagnostic sensors are disabled by default.
 
 {% include integrations/config_flow.md %}
 
@@ -43,13 +41,6 @@ The **Yardian** integration provides the following entities.
 - **Freeze prevent**: Turns on when the controller enables freeze prevention.
 - **Zone enabled**: `On` if a zone is enabled. These entities are disabled by default and created per zone
 
-### Sensors
-
-- **Rain delay**: Remaining rain delay reported in seconds.
-- **Active zone count**: The number of zones currently running.
-- **Zone delay**: Duration in seconds (disabled by default).
-- **Water hammer duration**: Duration in seconds (disabled by default).
-- **Region**: Text describing the configured region (disabled by default).
 
 ## Actions
 
