@@ -97,7 +97,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor i
 
 ## Progress for Home Assistant Core and Add-on updates
 
-With this Home Assistant Core and Add-on updates (handled by the Supervisor) now have progress information! The progress includes download and unpacking of the update, hence the steps depend on the speed of your Internet connection and your CPU and its load. This makes the progress not completely linear. The progress still gives a rough estimate how long along the update is.
+With this release you can now track the progress of updates to Home Assistant Core and Add-ons (managed by the Supervisor)! The progress includes the stages of downloading and unpacking, so the time required will vary based on your internet speed, CPU performance, and system load. As a result, the progress is not reflected perfectly linear, but it does still provide a good estimate of how far along the update is.
 
 <img class="no-shadow" alt="Screen recording showing an add-on update with progress reporting." src="/images/blog/2025-11/supervisor-progress-report.gif" />
 
