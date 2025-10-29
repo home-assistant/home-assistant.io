@@ -166,7 +166,7 @@ To create a `known_hosts` file with your host fingerprint, run:
 
 ```bash
 # Replace <host> with your target hostname or IP address
-ssh-keyscan -H 192.0.2.10 >> /config/.ssh/known_hosts
+ssh-keyscan -H "<host>" >> /config/.ssh/known_hosts
 ```
 
 More information about `ssh-keygen` can be found in the [OpenSSH manual](https://github.com/openssh/openssh-portable/blob/master/README.md).
@@ -177,10 +177,6 @@ Example configuration:
 
 ```yaml
 # Example configuration.yaml entry
-# Persistent SSH setup in /config/.ssh
-# /config/.ssh/id_ed25519  (chmod 600)
-# /config/.ssh/known_hosts (chmod 644)
-
 shell_command:
   read_remote_hostname: >
     ssh -i /config/.ssh/id_ed25519 \
