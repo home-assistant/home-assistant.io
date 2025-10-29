@@ -57,12 +57,11 @@ automation:
       network connection.
     triggers:
       - trigger: template
-        value_template: "{{ states('sensor.speedtest_download')|float >= 10 }}"
+        value_template: "{{ states('sensor.speedtest_download') | float >= 10 }}"
     actions:
       - action: light.turn_on
         target:
-          entity_id:
-            - light.yeelight_bulb
+          entity_id: light.yeelight_bulb
         data:
           rgb_color:
             - 0
@@ -77,12 +76,11 @@ automation:
       network connection.
     triggers:
       - trigger: template
-        value_template: "{{ states('sensor.speedtest_download')|float < 10 }}"
+        value_template: "{{ states('sensor.speedtest_download') | float < 10 }}"
     actions:
       - action: light.turn_on
         target:
-          entity_id:
-            - light.yeelight_bulb
+          entity_id: light.yeelight_bulb
         data:
           rgb_color:
             - 255
