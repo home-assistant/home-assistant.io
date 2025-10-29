@@ -63,10 +63,7 @@ automation:
         target:
           entity_id: light.yeelight_bulb
         data:
-          rgb_color:
-            - 0
-            - 100
-            - 0
+          rgb_color: [0, 100, 0]
 
   - alias: Turn On Red Light When Download Speed Is Poor
     description: >-
@@ -82,10 +79,7 @@ automation:
         target:
           entity_id: light.yeelight_bulb
         data:
-          rgb_color:
-            - 255
-            - 0
-            - 0
+          rgb_color: [255, 0, 0]
 ```
 
 {% endraw %}
