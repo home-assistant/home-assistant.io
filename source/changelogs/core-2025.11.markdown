@@ -7,7 +7,7 @@ replace_regex: \s\(\[?[a-z0-9\-\s_]+\]?\)$
 These are all the changes included in the Home Assistant 2025.11 release.
 
 For a summary in a more readable format
-[Release notes blog for this release](/blog/2025/11/05/release-2025101/).
+[Release notes blog for this release](/blog/2025/11/05/release-202511/).
 
 ## All changes
 
