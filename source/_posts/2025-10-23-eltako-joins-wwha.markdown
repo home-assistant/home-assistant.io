@@ -1,6 +1,6 @@
 ---
 layout: post
-title: ELTAKO joins Works with Home Assistant"
+title: ELTAKO joins Works with Home Assistant
 description: ELTAKO’s pro-standard Matter relays join our Home Assistant program.
 date: 2025-10-29 00:00:01
 date_formatted: "October 29, 2025"
