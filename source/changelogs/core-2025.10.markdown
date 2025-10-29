@@ -1169,6 +1169,119 @@ For a summary in a more readable format:
 [@wbyoung]: https://github.com/wbyoung
 [@wollew]: https://github.com/wollew
 
+## Release 2025.10.4 - October 24
+
+- Bump aioautomower to v2.3.1 ([@Thomas55555] - [#151795])
+- Fix history coordinator in Tesla Fleet and Teslemetry ([@Bre77] - [#153068])
+- Increase connect and configuration time for rfxtrx ([@alec-pinson] - [#153834])
+- Return default temp range if API responds 0 in Huum. ([@vincentwolsink] - [#153871])
+- Improve error message for unsupported hardware in Overkiz ([@iMicknl] - [#154314])
+- Bump pyprobeplus to 1.1.1 ([@pantherale0] - [#154523])
+- Move translatable URL out of strings.json for airnow integration ([@akanksha106-code] - [#154557])
+- Moved non-translatable elements out of strings.json for nuki ([@sonianuj287] - [#154682])
+- Handle location scope in Tesla Fleet vehicle coordinator ([@Bre77] - [#154731])
+- Fix units for Shelly TopAC EVE01-11 sensors ([@bieniu] - [#154740])
+- Fix pterodactyl server config link ([@electricsteve] - [#154758])
+- Move URL out of Tomorrow.io strings.json ([@andrew-codechimp] - [#154759])
+- Move URL out of TheThingsNetwork strings.json ([@andrew-codechimp] - [#154760])
+- Move url out of simplisafe strings ([@andrew-codechimp] - [#154762])
+- Move url out of sensorpush_cloud strings.json ([@andrew-codechimp] - [#154768])
+- Move URLs out of strings.json for auth ([@jbouwh] - [#154769])
+- Move url out of starline strings.json ([@andrew-codechimp] - [#154773])
+- Move url out of orsoenergy strings.json ([@andrew-codechimp] - [#154776])
+- Move url out of motionblinds strings.json ([@andrew-codechimp] - [#154777])
+- Move url out of rachio strings.json ([@andrew-codechimp] - [#154781])
+- Move url out of Flume strings.json ([@andrew-codechimp] - [#154787])
+- Remove opower violation from hassfest requirements check ([@cdce8p] - [#154797])
+- Bump opower to 0.15.8 ([@tronikos] - [#154811])
+- Move url out of nightscout strings and change to field descriptions ([@andrew-codechimp] - [#154812])
+- vesync show fan speed for smart tower fans ([@cdnninja] - [#154842])
+- Bump bring-api to v1.1.1 ([@tr4nt0r] - [#154854])
+- Bump PyCync to 0.4.2 ([@Kinachi249] - [#154856])
+- Bump aioamazondevices to 6.4.6 ([@chemelli74] - [#154865])
+- YoLink remove unsupported remoters ([@matrixd2] - [#154918])
+- Fix BrowseError import in yamaha_musiccast media_player.py ([@wimb0] - [#154980])
+- Remove async-modbus exception from hassfest requirements check ([@cdce8p] - [#154988])
+- Lametric remove translatable URL ([@erwindouna] - [#154991])
+- Add SensorDeviceClass and unit for LCN humidity sensor. ([@alengwenus] - [#155044])
+- Add shared BleakScanner to probe_plus ([@pantherale0] - [#155051])
+- Improve migration to Uptime Kuma v2.0.0 ([@tr4nt0r] - [#155055])
+- Move URL out of system_bridge strings.json ([@MichaelMKKelly] - [#155067])
+- Update aioairzone to v1.0.2 ([@Noltari] - [#155088])
+- Bump pydroplet version to 2.3.4 ([@sarahseidman] - [#155103])
+- Bump holidays to 0.83 ([@gjohansson-ST] - [#155107])
+
+[#151795]: https://github.com/home-assistant/core/pull/151795
+[#152881]: https://github.com/home-assistant/core/pull/152881
+[#153068]: https://github.com/home-assistant/core/pull/153068
+[#153582]: https://github.com/home-assistant/core/pull/153582
+[#153834]: https://github.com/home-assistant/core/pull/153834
+[#153871]: https://github.com/home-assistant/core/pull/153871
+[#154181]: https://github.com/home-assistant/core/pull/154181
+[#154314]: https://github.com/home-assistant/core/pull/154314
+[#154523]: https://github.com/home-assistant/core/pull/154523
+[#154557]: https://github.com/home-assistant/core/pull/154557
+[#154682]: https://github.com/home-assistant/core/pull/154682
+[#154718]: https://github.com/home-assistant/core/pull/154718
+[#154731]: https://github.com/home-assistant/core/pull/154731
+[#154740]: https://github.com/home-assistant/core/pull/154740
+[#154758]: https://github.com/home-assistant/core/pull/154758
+[#154759]: https://github.com/home-assistant/core/pull/154759
+[#154760]: https://github.com/home-assistant/core/pull/154760
+[#154762]: https://github.com/home-assistant/core/pull/154762
+[#154768]: https://github.com/home-assistant/core/pull/154768
+[#154769]: https://github.com/home-assistant/core/pull/154769
+[#154773]: https://github.com/home-assistant/core/pull/154773
+[#154776]: https://github.com/home-assistant/core/pull/154776
+[#154777]: https://github.com/home-assistant/core/pull/154777
+[#154781]: https://github.com/home-assistant/core/pull/154781
+[#154787]: https://github.com/home-assistant/core/pull/154787
+[#154797]: https://github.com/home-assistant/core/pull/154797
+[#154811]: https://github.com/home-assistant/core/pull/154811
+[#154812]: https://github.com/home-assistant/core/pull/154812
+[#154842]: https://github.com/home-assistant/core/pull/154842
+[#154854]: https://github.com/home-assistant/core/pull/154854
+[#154856]: https://github.com/home-assistant/core/pull/154856
+[#154865]: https://github.com/home-assistant/core/pull/154865
+[#154918]: https://github.com/home-assistant/core/pull/154918
+[#154980]: https://github.com/home-assistant/core/pull/154980
+[#154988]: https://github.com/home-assistant/core/pull/154988
+[#154991]: https://github.com/home-assistant/core/pull/154991
+[#155044]: https://github.com/home-assistant/core/pull/155044
+[#155051]: https://github.com/home-assistant/core/pull/155051
+[#155055]: https://github.com/home-assistant/core/pull/155055
+[#155067]: https://github.com/home-assistant/core/pull/155067
+[#155088]: https://github.com/home-assistant/core/pull/155088
+[#155103]: https://github.com/home-assistant/core/pull/155103
+[#155107]: https://github.com/home-assistant/core/pull/155107
+[@Bre77]: https://github.com/Bre77
+[@Kinachi249]: https://github.com/Kinachi249
+[@MichaelMKKelly]: https://github.com/MichaelMKKelly
+[@Noltari]: https://github.com/Noltari
+[@Thomas55555]: https://github.com/Thomas55555
+[@akanksha106-code]: https://github.com/akanksha106-code
+[@alec-pinson]: https://github.com/alec-pinson
+[@alengwenus]: https://github.com/alengwenus
+[@andrew-codechimp]: https://github.com/andrew-codechimp
+[@bieniu]: https://github.com/bieniu
+[@cdce8p]: https://github.com/cdce8p
+[@cdnninja]: https://github.com/cdnninja
+[@chemelli74]: https://github.com/chemelli74
+[@electricsteve]: https://github.com/electricsteve
+[@erwindouna]: https://github.com/erwindouna
+[@frenck]: https://github.com/frenck
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@iMicknl]: https://github.com/iMicknl
+[@jbouwh]: https://github.com/jbouwh
+[@matrixd2]: https://github.com/matrixd2
+[@pantherale0]: https://github.com/pantherale0
+[@sarahseidman]: https://github.com/sarahseidman
+[@sonianuj287]: https://github.com/sonianuj287
+[@tr4nt0r]: https://github.com/tr4nt0r
+[@tronikos]: https://github.com/tronikos
+[@vincentwolsink]: https://github.com/vincentwolsink
+[@wimb0]: https://github.com/wimb0
+
 [#112867]: https://github.com/home-assistant/core/pull/112867
 [#123446]: https://github.com/home-assistant/core/pull/123446
 [#132164]: https://github.com/home-assistant/core/pull/132164
