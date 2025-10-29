@@ -115,7 +115,7 @@ You can even dig deeper into a floor, area, or device in order to understand whe
 
 <img class="no-shadow" alt="Screenshot of the details of a target." src="/images/blog/2025-11/target-details.png" />
 
-We hope that this revision of our target picker will help you create more ong lasting and durable automations. An automation targeting an area or a floor is dynamic, and scales as you add or remove devices in your home, which is one of the great advantages of using larger targets.
+We hope that this revision of our target picker will help you create more long lasting and durable automations. An automation targeting an area or a floor is dynamic, and scales as you add or remove devices in your home, which is one of the great advantages of using larger targets.
 
 
 ## A brand new way to add triggers, conditions, and actions in your automations
