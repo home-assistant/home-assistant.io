@@ -58,8 +58,8 @@ Another things you can do to further push your setup:
 
 Assist aims to support more languages than other voice assistants, but this is still a work in progress, and we need your help.
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bluzky/nice-select2@2.1.0/dist/css/nice-select2.css">
-<script src="https://cdn.jsdelivr.net/gh/bluzky/nice-select2@2.1.0/dist/js/nice-select2.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bluzky/nice-select2@2.1.0/dist/css/nice-select2.css" integrity="sha384-LPh4ytLNuALl70+0CMnq0sP1tXQpGPWbSCH8/zknn1okTVRKHvyDGUg80R568fXO" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/gh/bluzky/nice-select2@2.1.0/dist/js/nice-select2.js" integrity="sha384-efeEfE1PkalgBRHHJ3qv56R1qnZhbbpil0g7lyf+5MOqiWYw579wZUNTTwjH5jjn" crossorigin="anonymous"></script>
 
 <div class="language-card">
 	<div class="form-title h3">Check supported languages here</div>

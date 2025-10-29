@@ -34,8 +34,6 @@ The default, and recommended, database engine is [SQLite](https://www.sqlite.org
 Changing database used by the recorder may result in losing your existing history. Migrating data is not supported.
 {% endcaution %}
 
-To change the defaults for the `recorder` integration in your installation, add the following to your {% term "`configuration.yaml`" %} file:
-
 ## Disk space requirements
 
 A bare minimum requirement is to have at least as much free temporary space available as the size of your database at all times. A table rebuild, repair, or repack may happen at any time, which can result in a copy of the data on disk during the operation. Meeting the bare minimum requirement is essential during a version upgrade, where the schema may change, as this operation almost always requires making a temporary copy of part of the database.
@@ -43,6 +41,8 @@ A bare minimum requirement is to have at least as much free temporary space avai
 For example, if your database is 1.5&nbsp;GiB on disk, you must always have at least 1.5&nbsp;GiB free.
 
 ## Advanced configuration
+
+To change the defaults for the `recorder` integration in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -172,7 +172,7 @@ recorder:
       - sensor.last_boot # Comes from 'systemmonitor' sensor platform
       - sun.sun # Don't record sun data
     event_types:
-      - call_service # Don't record actions
+      - my_custom_event
 ```
 
 Defining domains and entities to record by using the `include` configuration (i.e. allowlist) is convenient if you have a lot of entities in your system and your `exclude` lists possibly get very large, so it might be better just to define the entities or domains to record.
