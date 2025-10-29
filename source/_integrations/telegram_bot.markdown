@@ -527,26 +527,26 @@ The `telegram_attachment` event is triggered when the bot receives a file.
 Example event attributes:
 
 ```yaml
-event_type: "telegram_attachment"
-chat_id: "<origin chat id>"
 bot:
   config_entry_id: "<config entry id of the bot>"
-  id: "<id of the bot>"
   first_name: "<first name of the bot>"
+  id: "<id of the bot>"
   last_name: "<last name of the bot>"
   username: "<username of the bot>"
-friendly_name: "<name of the event entity>"
-id: "<message id>"
+chat_id: "<origin chat id>"
 date: "<message timestamp>"
-message_thread_id: "<message thread id>"
-text: "<caption of the file, if available>"
+event_type: "telegram_attachment"
 file_id: "<unique identifier for the file>"
 file_mime_type: "<MIME type of the file, if available>"
+file_name: "<name of the file, if available>"
 file_size: "<file size in bytes, if available>"
-user_id: "<id of the sender>"
+friendly_name: "<name of the event entity>"
 from_first: "<first name of the sender>"
 from_last: "<last name of the sender>"
-file_name: "<name of the file, if available>"
+id: "<message id>"
+message_thread_id: "<message thread id>"
+text: "<caption of the file, if available>"
+user_id: "<id of the sender>"
 ```
 
 Example automation:
@@ -587,24 +587,25 @@ The `id` attribute is used as the `callback_query_id` parameter for the `answer_
 Example event attributes:
 
 ```yaml
-event_type: "telegram_callback"
-chat_id: "<origin chat id>"
+# Callback query always have no args
+args: []
 bot:
   config_entry_id: "<config entry id of the bot>"
-  id: "<id of the bot>"
   first_name: "<first name of the bot>"
+  id: "<id of the bot>"
   last_name: "<last name of the bot>"
   username: "<username of the bot>"
-friendly_name: "<name of the event entity>"
-id: "<callback id>"
+chat_id: "<origin chat id>"
 chat_instance: "<chat instance id>"
+command: "<callback query>"
 data: "<data associated to action callback>"
-message: <message origin of the action callback>
-user_id: "<id of the sender>"
+event_type: "telegram_callback"
 from_first: "<first name of the sender>"
 from_last: "<last name of the sender>"
-command: "<callback query>"
-args: [] # callback query always have no args
+friendly_name: "<name of the event entity>"
+id: "<callback id>"
+message: "<message origin of the action callback>"
+user_id: "<id of the sender>"
 ```
 
 Example automation:
@@ -640,23 +641,23 @@ A command looks like `/thecommand` or `/othercommand with some args`.
 Example event attributes:
 
 ```yaml
-event_type: "telegram_command"
-chat_id: "<origin chat id>"
+args: "<any other text following the command>"
 bot:
   config_entry_id: "<config entry id of the bot>"
-  id: "<id of the bot>"
   first_name: "<first name of the bot>"
+  id: "<id of the bot>"
   last_name: "<last name of the bot>"
   username: "<username of the bot>"
+chat_id: "<origin chat id>"
+command: "/thecommand"
+date: "<message timestamp>"
+event_type: "telegram_command"
 friendly_name: "<name of the event entity>"
-id: "<message id>"
-user_id: "<id of the sender>"
 from_first: "<first name of the sender>"
 from_last: "<last name of the sender>"
-date: "<message timestamp>"
+id: "<message id>"
 message_thread_id: "<message thread id>"
-command: "/thecommand"
-args: "<any other text following the command>"
+user_id: "<id of the sender>"
 ```
 
 Example automation:
@@ -691,22 +692,22 @@ The `telegram_text` event is triggered when the bot receives a text message (any
 Example event attributes:
 
 ```yaml
-event_type: "telegram_text"
-chat_id: "<origin chat id>"
 bot:
   config_entry_id: "<config entry id of the bot>"
-  id: "<id of the bot>"
   first_name: "<first name of the bot>"
+  id: "<id of the bot>"
   last_name: "<last name of the bot>"
   username: "<username of the bot>"
+chat_id: "<origin chat id>"
+date: "<message timestamp>"
+event_type: "telegram_text"
 friendly_name: "<name of the event entity>"
-id: "<message id>"
-user_id: "<id of the sender>"
 from_first: "<first name of the sender>"
 from_last: "<last name of the sender>"
-date: "<message timestamp>"
+id: "<message id>"
 message_thread_id: "<message thread id>"
 text: "<the text received>"
+user_id: "<id of the sender>"
 ```
 
 Example automation:
@@ -747,18 +748,18 @@ The `message_id` attribute can be used with the edit, delete and `set_message_re
 Example event attributes:
 
 ```yaml
-from_first: "<first name of the sender>"
-from_last: "<last name of the sender>"
-user_id: "<id of the sender>"
-id: "<message id>"
-chat_id: "<origin chat id>"
-message_thread_id: "<message thread id>"
 bot:
   config_entry_id: "<config entry id of the bot>"
-  id: "<id of the bot>"
   first_name: "<first name of the bot>"
+  id: "<id of the bot>"
   last_name: "<last name of the bot>"
   username: "<username of the bot>"
+chat_id: "<origin chat id>"
+from_first: "<first name of the sender>"
+from_last: "<last name of the sender>"
+id: "<message id>"
+message_thread_id: "<message thread id>"
+user_id: "<id of the sender>"
 ```
 
 Example automation:
