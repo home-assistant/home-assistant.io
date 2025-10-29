@@ -157,8 +157,8 @@ ssh-keygen -t ed25519 -f /config/.ssh/id_ed25519 -C "homeassistant"
 
 This creates two files:
 
-* `id_ed25519` (private key)
-* `id_ed25519.pub` (public key)
+- `id_ed25519` (private key)
+- `id_ed25519.pub` (public key)
 
 Add the public key to your target system’s `~/.ssh/authorized_keys` file.
 
