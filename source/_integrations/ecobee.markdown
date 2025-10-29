@@ -161,8 +161,11 @@ The `ventilator 20 min` switch is behaving like the switch in the physical ecobe
 
 ### Concepts 
 
-When an HVAC system is equipped with a heat pump, a form of auxiliary heat is usually included. This may also be referred to as 'Emergency Heat'. You can control whether the thermostat requests only auxiliary heat, adjust the outdoor temperature at which the heat pump compressor will no longer be used, and adjust the outdoor temperature at which the auxiliary heat will no longer be used, for example, in response to utility costs or solar production in a hybrid system. A hybrid system refers to a system that does not use electricity for the auxiliary heat (natural gas, propane, etc.). This applies more to air source heat pumps than geothermal. 
+When your HVAC system is equipped with a heat pump, it usually includes a form of auxiliary heat. This is sometimes called *Emergency Heat*. 
 
+You can control whether the thermostat requests only auxiliary heat. You can also adjust the outdoor temperature at which the heat pump compressor will stop running, and the outdoor temperature at which the auxiliary heat will stop running. 
+
+These settings are useful if you want to respond to utility costs or take advantage of solar production in a hybrid system. A hybrid system is a system that uses a fuel source other than electricity for auxiliary heat, like natural gas or propane. This applies more to air source heat pumps than to geothermal systems.
 ### Switch
 
 The `Auxiliary heat only` switch is provided to disable the use of the compressor (heat pump), only using the auxiliary heater. Be careful with this setting, as it can incur additional utility costs from using a less-efficient heat source. 
