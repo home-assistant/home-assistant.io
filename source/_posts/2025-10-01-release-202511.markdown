@@ -244,32 +244,6 @@ It is not just new {% term integrations %} that have been added; existing integr
 [@frenck]: https://github.com/frenck
 [Lorem ipsum]: /integrations/lorem_ipsum
 
-### Integration quality scale achievements
-
-One thing we are incredibly proud of in Home Assistant is our [integration quality scale]. This scale helps us and our contributors to ensure integrations are of high quality, maintainable, and provide the best possible user experience.
-
-This release, we celebrate several {% term integrations %} that have improved their quality scale:
-
-- **2 integrations reached platinum** 🏆
-  - [Lorem Ipsum], thanks to [@frenck]
-  - [Lorem Ipsum], thanks to [@frenck]
-
-- **2 integrations reached silver** 🥈
-  - [Lorem Ipsum], thanks to [@frenck]
-  - [Lorem Ipsum], thanks to [@frenck]
-
-- **2 integrations reached bronze** 🥉
-  - [Lorem Ipsum], thanks to [@frenck]
-  - [Lorem Ipsum], thanks to [@frenck]
-
-This is a huge achievement for these integrations and their maintainers. The effort and dedication required to reach these quality levels is significant, as it involves extensive testing, documentation, error handling, and often complete rewrites of parts of the integration.
-
-A big thank you to all the contributors involved! 👏
-
-[integration quality scale]: /docs/quality_scale/
-
-[@frenck]: https://github.com/frenck
-[Lorem Ipsum]: /integrations/lorem_ipsum
 
 ### Now available to set up from the UI
 
@@ -669,4 +643,4 @@ release:
 
 ## All changes
 
-Of course, there is a lot more in this release. You can find a list of all changes made here: [Full changelog for Home Assistant Core 2025.10](/changelogs/core-2025.11)
+Of course, there is a lot more in this release. You can find a list of all changes made here: [Full changelog for Home Assistant Core 2025.11](/changelogs/core-2025.11)
