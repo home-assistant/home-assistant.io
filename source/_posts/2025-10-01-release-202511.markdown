@@ -75,6 +75,7 @@ Enjoy the (beta) release!
 <!--more-->
 
 - [Lorem ipsum](#lorem-ipsum)
+- [Energy pie](#energy-pie)
 - [Progress for Home Assistant Core and Add-on updates](#progress-for-home-assistant-core-and-add-on-updates)
 - [Integrations](#integrations)
   - [New integrations](#new-integrations)
@@ -94,6 +95,14 @@ _A huge thank you to all the contributors who made this release possible! And a 
 ## Lorem ipsum
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+## Energy pie
+
+The devices energy graph got a new layout more - "pie" 🥧. You can toggle between the regular bar chart and the new pie chart by clicking the icon in the top-right corner.
+
+<img class="no-shadow" alt="Screen recording showing the devices energy graph in pie layout." src="/images/blog/2025-11/pie-chart.gif" />
+
+This made the top-right corner of the other energy cards feel empty so we used that space to display the total energy for the selected period. So, for example, if the date picker is set to today, the total solar energy for today will be displayed in the corner of the solar production graph card.
 
 ## Progress for Home Assistant Core and Add-on updates
 
