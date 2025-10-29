@@ -186,7 +186,7 @@ The available schedules depend on the [schedules](#schedule-management) you have
 
 The following HVAC modes are available:
 
-- `auto`: Active schedule – The thermostat changes presets/setpoints according to the schedule.
+- `auto`: Thermostat schedule active – The thermostat changes presets/setpoints according to the user-created schedule.
 - `cool or heat`: No active schedule – The system is manually set to cooling or heating mode, activating based on room temperature relative to the thermostat setpoint.
 
 For Adam:
