@@ -74,7 +74,9 @@ Enjoy the (beta) release!
 
 <!--more-->
 
-- [Lorem ipsum](#lorem-ipsum)
+- [A brand new target picker](#a-brand-new-target-picker)
+- [A brand new way to add triggers, conditions, and actions in your automations](#a-brand-new-way-to-trigger-conditions-and-actions-in-your-automations)
+- [Naming entities on your dashboard](#naming-entities-on-your-dashboard)
 - [Energy pie](#energy-pie)
 - [Progress for Home Assistant Core and Add-on updates](#progress-for-home-assistant-core-and-add-on-updates)
 - [Integrations](#integrations)
@@ -92,9 +94,53 @@ _A huge thank you to all the contributors who made this release possible! And a 
 
 [@frenck]: https://github.com/frenck
 
-## Lorem ipsum
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+## A brand new target picker
+
+When researching issues with the current automation editor, we surfaced a few issues with our current target picker, the element used to select which areas, devices, or entities an action is targeting.
+The issues can be summarized as: Lack of context and lack of trust.
+
+We were not displaying the context of entities, devices, and areas. For example, from which device an entity is coming from, or on which area it is assigned to. This led to confusion, as it is fairly common to have multiple devices named the same way but simply in different areas (Presence sensor, for example), or multiple entities named the same way, but coming from different devices (Battery level, for example) 
+
+On top of this missing context, we were unable to provide the scope of a particular target. How many lights will you turn on if you target a floor? Is it what you expect?
+
+These two issues led to a low usage of complex targets, with many of you falling back to targeting entities because this is what you trust and understand the most.
+
+The new version of the target picker fixes these two issues.
+Context is clearly displayed, and it also now clearly states how many entities will be targeted.
+
+You can even dig deeper into a floor, area, or device in order to understand where these entities are coming from
+
+We hope that this revision of our target picker will help you create more ong lasting and durable automations. An automation targeting an area or a floor is dynamic, and scales as you add or remove devices in your home, which is one of the great advantages of using larger targets.
+
+
+## A brand new way to add triggers, conditions, and actions in your automations
+
+It is no secret that we're currently working hard on making automation easier to create.
+After the release of the automation sidebar [two releases ago](https://www.home-assistant.io/blog/2025/09/03/release-20259/#automation-editor-sidebar), we are now introducing a new dialog to add triggers, conditions, and actions.
+
+The changes are purely cosmetic; the dialog is bigger, so that the description of each block is simpler to read.
+The dialog has a two-pane layout to ease both the navigation and the selection of the wanted block.
+
+The building blocks (These blocks used to perform more complex conditions or sequences of actions, such as repeating actions, or branching out your sequence into multiple paths) have been moved into the main dialog on a second tab.
+There is now a single entry point to add something to an automation instead of two, reducing a lot the number of buttons present in complex automation.
+
+As mentioned above, these changes are purely cosmetic, for now! But this new dialog is foundational for what’s coming next, and we cannot wait to present it to you once it finally lands.
+
+
+## Naming entities on your dashboard
+
+A few releases ago, we gave the entity picker a big upgrade by adding more context so you could easily see where each entity belongs ([May 2025 release](https://www.home-assistant.io/blog/2025/05/07/release-20255/#picking-entities)
+).
+
+In this release, we're bringing that same flexibility to your dashboards.
+
+You can now choose how names appear on your cards: show the entity, device, area, floor, or even combine them.
+This gives you full control over how your dashboards look and feel. For example, in a dedicated section for a specific device, you might choose to display only the entity name to avoid repeating the device name on every card.
+
+Of course, you can still set a custom name if you want complete control over the text shown.
+
+And the best part? If you rename an entity or device, your dashboards will automatically stay in sync. No more manual edits, everything just updates itself.
 
 ## Energy pie
 
@@ -125,6 +171,48 @@ We welcome the following new integrations in this release:
 - **[Meteo.lt]**, added by [@xE1H]  
   The Meteo.lt integration uses meteorological data from the [Lithuanian Hydrometeorological Service] (LHMT) to provide regional weather forecasts for locations in Lithuania.
 
+- **[Lunatone Gateway]**, added by [@MoonDevLT]
+  Integrate with [Lunatone Gateway], enabling control and monitoring of DALI lighting systems through Lunatone’s DALI gateway interface.
+
+- **[Nintendo Parental Controls]**, added by [@pantherale0]
+  The [Nintendo Parental Controls integration] connects with Nintendo’s parental management service, allowing you to monitor and manage device usage and restrictions.
+
+- **[Actron Air]**, added by [@kclif9]
+  Integrate with [Actron Air Neo], an advanced climate control system providing temperature management, zoning, and automation for Actron Air devices.
+
+- **[OpenRGB]**, added by [@felipecrs]
+  The [OpenRGB integration] allows unified control of RGB lighting across various hardware brands and devices through the OpenRGB project.
+
+- **[iNELS]**, added by [@epdevlab]
+  Integrate with the [iNELS smart home system] to manage lighting, heating, and automation components for enhanced home control.
+
+- **[Fing]**, added by [@Lorenzo-Gasparini]
+  The [Fing integration] provides network scanning, device detection, and presence monitoring capabilities using the Fing platform.
+
+- **[DALI Center]**, added by [@niracler]
+  Integrate with [DALI Center], a platform for managing and monitoring DALI-based lighting systems.
+
+[@MoonDevLT]: https://github.com/MoonDevLT
+[@pantherale0]: https://github.com/pantherale0
+[@kclif9]: https://github.com/kclif9
+[@felipecrs]: https://github.com/felipecrs
+[@epdevlab]: https://github.com/epdevlab
+[@Lorenzo-Gasparini]: https://github.com/Lorenzo-Gasparini
+[@niracler]: https://github.com/niracler
+[Lunatone Gateway]: /integrations/lunatone
+[lunatone docs]: https://www.home-assistant.io/integrations/lunatone
+[Nintendo Parental Controls integration]: /integrations/nintendo_parental
+[nintendo_parental docs]: https://www.home-assistant.io/integrations/nintendo_parental
+[Actron Air Neo]: /integrations/actronair_neo
+[actronair_neo docs]: https://www.home-assistant.io/integrations/actronair_neo
+[OpenRGB integration]: /integrations/openrgb
+[openrgb docs]: https://www.home-assistant.io/integrations/openrgb
+[iNELS smart home system]: /integrations/inels
+[inels docs]: https://www.home-assistant.io/integrations/inels
+[Fing integration]: /integrations/fing
+[fing docs]: https://www.home-assistant.io/integrations/fing
+[DALI Center]: /integrations/dali_center
+[dali_center docs]: https://www.home-assistant.io/integrations/dali_center
 [@erwindouna]: https://github.com/erwindouna
 [@xE1H]: https://github.com/xE1H
 [Firefly III project]: https://www.firefly-iii.org/
@@ -137,6 +225,30 @@ We welcome the following new integrations in this release:
 It is not just new {% term integrations %} that have been added; existing integrations are also being constantly improved. Here are some of the noteworthy changes to existing integrations:
 
 - [Lorem ipsum] expanded with support for slipsum sensors! Thanks, [@frenck]!
+
+- Add garage door opener for switchbot integration ([@zerzhang] - [#148460]) ([switchbot docs]) (new-platform)
+- snoo: add button entity for calling start_snoo ([@falconindy] - [#151052]) ([snoo docs]) (new-platform)
+- Add notify platform to Habitica ([@tr4nt0r] - [#150553]) ([habitica docs]) (new-platform)
+- Add switch domain to VegeHub integration ([@Thulrus] - [#148436]) ([vegehub docs]) (new-platform)
+- Portainer add switch platform ([@erwindouna] - [#153485]) ([portainer docs]) (new-platform)
+- Portainer add button platform ([@erwindouna] - [#153063]) ([portainer docs]) (new-platform)
+- Portainer add sensor platform ([@erwindouna] - [#153059]) ([portainer docs]) (new-platform)
+- Add time platform to nintendo_parental integration ([@pantherale0] - [#153866]) ([nintendo_parental docs]) (new-platform)
+- Add device_tracker platform to Volvo integration ([@thomasddn] - [#153437]) ([volvo docs]) (new-platform)
+- Add buttons to Volvo integration ([@thomasddn] - [#153272]) ([volvo docs]) (new-platform)
+- Add Speech-to-Text (stt) to elevenlabs ([@ehendrix23] - [#147838]) ([elevenlabs docs]) (new-platform)
+- Add switch platform to Nintendo Parental controls integration ([@pantherale0] - [#154179]) ([nintendo_parental_controls docs]) (new-platform)
+- Add switch platform and grid charge enable for Growatt Server integration ([@johanzander] - [#153960]) ([growatt_server docs]) (new-platform)
+- Add LED control for supported UniFi network devices ([@Sese-Schneider] - [#152649]) ([unifi docs]) (new-platform)
+- Add valve group support ([@thecode] - [#154749]) ([group docs]) (new-platform)
+- Add number platform to nintendo_parental_controls integration ([@pantherale0] - [#154548]) ([nintendo_parental_controls docs]) (new-platform)
+- Yardian: add binary sensors ([@barneyonline] - [#152654]) ([yardian docs]) (new-platform)
+- Add temperature number entity to set Tool and Bed temperatures to Octoprint ([@AmadeusW] - [#153712]) ([octoprint docs]) (new-platform)
+- Add scene platform support to Niko Home Control integration ([@VandeurenGlenn] - [#152712]) ([niko_home_control docs]) (new-platform)
+- Add support for climate devices (e.g. thermostats) to the Control4 component ([@davidrecordon] - [#154502]) ([control4 docs]) (new-platform)
+- Adds support for controlling Growatt MIN/TLX inverters through number platform and entities ([@johanzander] - [#153886]) ([growatt_server docs]) (new-platform)
+- Add event entity for Telegram bot ([@hanwg] - [#154383]) ([telegram_bot docs]) (new-platform)
+- Add image platform to Xbox integration ([@tr4nt0r] - [#155369]) ([xbox docs]) (new-platform)
 
 [@frenck]: https://github.com/frenck
 [Lorem ipsum]: /integrations/lorem_ipsum
@@ -182,6 +294,17 @@ The following integrations are now available via the Home Assistant UI:
 [@frenck]: https://github.com/frenck
 [Lorem ipsum]: /integrations/lorem_ipsum
 
+## The new Home Dashboard keeps getting smarter.
+
+Following the improvements introduced in latest releases, this release makes the experience even smoother and more intuitive.
+
+We've simplified and reorganized things:
+- Suggested entities and favorites are now combined into a single, smart section, showing you what's most relevant in one place.
+- Areas are now grouped by floor, making it easier to browse and understand your home's layout at a glance.
+- The Lights, Climate, and Safety views have been moved to their own dedicated panels, so you can access them directly under Settings → Dashboards.
+
+These improvements bring everything together more naturally, helping your Home Dashboard feel less like a setup and more like a true reflection of your home.
+
 ## Other noteworthy changes
 
 There are many more improvements in this release; here are some of the other noteworthy changes:
@@ -218,24 +341,339 @@ We do our best to avoid making changes to existing functionality that might unex
 We always make sure to document these changes to make the transition as easy as
 possible for you. This release has the following backward-incompatible changes:
 
-{% details "Lorem ipsum" %}
+Perfect 👍 Here’s the same **breaking changes list** now with all the proper reference links (GitHub usernames, PRs, and documentation) — fully formatted for Markdown export in Home Assistant release notes style:
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+---
 
-([@frenck] - [#12345]) ([lorem_ipsum docs])
+{% details "Stop writing to config dir log file on supervised install" %}
 
-[@frenck]: https://github.com/frenck
-[#12345]: https://github.com/home-assistant/core/pull/12345
-[lorem_ipsum docs]: /integrations/lorem_ipsum/
+The Supervisor will no longer write log files directly to the configuration directory. This change improves separation between managed and user-controlled files.
+
+([@abmantis] - [#146675])
 
 {% enddetails %}
+
+{% details "Remove deprecated state constants from lock" %}
+
+Deprecated state constants in the `lock` integration have been removed. Update any custom components or automations using these constants.
+
+([@gjohansson-ST] - [#153367]) ([lock docs])
+
+{% enddetails %}
+
+{% details "Remove deprecated constants from media_player" %}
+
+All deprecated constants from the `media_player` integration have been removed. Custom components referencing these must update accordingly.
+
+([@gjohansson-ST] - [#153366]) ([media_player docs])
+
+{% enddetails %}
+
+{% details "Remove deprecated constants in camera" %}
+
+Deprecated constants within the `camera` integration have been removed. Update any references in custom integrations.
+
+([@gjohansson-ST] - [#153363]) ([camera docs])
+
+{% enddetails %}
+
+{% details "Remove deprecated entity feature constants in vacuum" %}
+
+The deprecated entity feature constants in the `vacuum` integration have been removed.
+
+([@gjohansson-ST] - [#153364]) ([vacuum docs])
+
+{% enddetails %}
+
+{% details "Remove Vultr integration" %}
+
+The `vultr` integration has been removed and is no longer available.
+
+([@mib1185] - [#153560]) ([vultr docs])
+
+{% enddetails %}
+
+{% details "Remove IBM Watson IoT Platform integration" %}
+
+The `watson_iot` integration has been removed due to lack of maintenance and usage.
+
+([@tr4nt0r] - [#153567]) ([watson_iot docs])
+
+{% enddetails %}
+
+{% details "Add translations and icons to OralB integration" %}
+
+This change updates the `oralb` integration with translations and icons. Some entity IDs or display attributes may have changed.
+
+([@tr4nt0r] - [#153605]) ([oralb docs])
+
+{% enddetails %}
+
+{% details "Remove Plum Lightpad integration" %}
+
+The `plum_lightpad` integration has been removed.
+
+([@tr4nt0r] - [#153590]) ([plum_lightpad docs])
+
+{% enddetails %}
+
+{% details "Validating schema outside the event loop will now fail" %}
+
+Schemas must now be validated within the event loop. Validations performed outside will raise errors.
+
+([@gjohansson-ST] - [#153472])
+
+{% enddetails %}
+
+{% details "Bump aiomealie to 1.0.0, update min Mealie instance version to v2" %}
+
+The `mealie` integration now requires Mealie v2 or later and uses `aiomealie` 1.0.0.
+
+([@andrew-codechimp] - [#153203]) ([mealie docs])
+
+{% enddetails %}
+
+{% details "Remove previously deprecated template attach function" %}
+
+The previously deprecated template attach function has been removed. Update custom templates using the new attach API.
+
+([@gjohansson-ST] - [#153370])
+
+{% enddetails %}
+
+{% details "Reverse Motion Blinds tilt direction" %}
+
+The tilt direction for `motion_blinds` has been reversed to align with standard behavior. Adjust automations as necessary.
+
+([@starkillerOG] - [#149777]) ([motion_blinds docs])
+
+{% enddetails %}
+
+{% details "Call async_track_template_result with template without hass now fails" %}
+
+`async_track_template_result` now requires a `hass` instance when called with a template.
+
+([@gjohansson-ST] - [#153473])
+
+{% enddetails %}
+
+{% details "Migrate Nederlandse Spoorwegen sensor to timestamp" %}
+
+The `nederlandse_spoorwegen` integration now reports departure and arrival times as timestamps.
+
+([@joostlek] - [#154011]) ([nederlandse_spoorwegen docs])
+
+{% enddetails %}
+
+{% details "Remove deprecated cover state constants" %}
+
+Deprecated cover state constants have been removed. Update references accordingly.
+
+([@gjohansson-ST] - [#154037]) ([cover docs])
+
+{% enddetails %}
+
+{% details "Remove deprecated set state directly in alarm_control_panel" %}
+
+Directly setting state in the `alarm_control_panel` integration is no longer supported.
+
+([@gjohansson-ST] - [#154038]) ([alarm_control_panel docs])
+
+{% enddetails %}
+
+{% details "Remove deprecated extra attributes from fritzbox climate" %}
+
+Deprecated extra attributes in the `fritzbox` climate integration have been removed.
+
+([@flabbamann] - [#154152]) ([fritzbox docs])
+
+{% enddetails %}
+
+{% details "Remove deprecated ConfigSource from core" %}
+
+`ConfigSource` has been removed from the core system. Ensure any custom integrations no longer reference it.
+
+([@gjohansson-ST] - [#154112])
+
+{% enddetails %}
+
+{% details "Bump renault-api to 0.4.4" %}
+
+The `renault` integration has been updated to use `renault-api` 0.4.4.
+
+([@epenet] - [#154137]) ([renault docs])
+
+{% enddetails %}
+
+{% details "async_config_entry_first_refresh in update coordinator requires a config entry" %}
+
+`async_config_entry_first_refresh` now mandates a valid config entry. Custom components using it must be updated.
+
+([@gjohansson-ST] - [#154114])
+
+{% enddetails %}
+
+{% details "Remove Asuswrt device tracker last_time_reachable extra attribute" %}
+
+The `last_time_reachable` extra attribute has been removed from the `asuswrt` device tracker.
+
+([@ollo69] - [#154219]) ([asuswrt docs])
+
+{% enddetails %}
+
+{% details "Set assumed state to group if at least one child has assumed state" %}
+
+Groups now reflect an assumed state if any member entity has an assumed state.
+
+([@piitaya] - [#154163]) ([group docs])
+
+{% enddetails %}
+
+{% details "Add support for Python 3.14" %}
+
+Home Assistant now supports Python 3.14. Custom integrations should be verified for compatibility.
+
+([@cdce8p] - [#153939])
+
+{% enddetails %}
+
+{% details "Fix friendly names of zones with mobile_app" %}
+
+Zone entities created via the `mobile_app` integration now correctly handle friendly names.
+
+([@Ashus] - [#149453]) ([mobile_app docs])
+
+{% enddetails %}
+
+{% details "Make Speed optional for GoToPreset ONVIF command" %}
+
+The `Speed` parameter in ONVIF `GoToPreset` commands is now optional.
+
+([@carlos-sarmiento] - [#149636]) ([onvif docs])
+
+{% enddetails %}
+
+{% details "Fail creating config entry in reauth or reconfigure flows" %}
+
+Creating config entries during reauthentication or reconfiguration flows will now fail if invalid.
+
+([@gjohansson-ST] - [#154035])
+
+{% enddetails %}
+
+{% details "Fix LG webOS TV entity availability status" %}
+
+Entity availability for `webostv` devices has been corrected to better reflect actual device status.
+
+([@thecode] - [#155164]) ([webostv docs])
+
+{% enddetails %}
+
+{% details "Bump renault-api to 0.5.0" %}
+
+The `renault` integration now uses `renault-api` version 0.5.0.
+
+([@epenet] - [#155263]) ([renault docs])
+
+{% enddetails %}
+
+{% details "Remove neato integration" %}
+
+The `neato` integration and related analytics have been removed from Home Assistant.
+
+([@mib1185] - [#154902]) ([neato docs]) ([homeassistant_alerts docs]) ([analytics_insights docs])
+
+{% enddetails %}
+
+{% details "Use API token authentication in traccar_server" %}
+
+The `traccar_server` integration now uses API token authentication instead of legacy credentials.
+
+([@pantherale0] - [#155297]) ([traccar_server docs])
+
+{% enddetails %}
+
+[@abmantis]: https://github.com/abmantis
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@mib1185]: https://github.com/mib1185
+[@tr4nt0r]: https://github.com/tr4nt0r
+[@andrew-codechimp]: https://github.com/andrew-codechimp
+[@starkillerOG]: https://github.com/starkillerOG
+[@joostlek]: https://github.com/joostlek
+[@flabbamann]: https://github.com/flabbamann
+[@epenet]: https://github.com/epenet
+[@ollo69]: https://github.com/ollo69
+[@piitaya]: https://github.com/piitaya
+[@cdce8p]: https://github.com/cdce8p
+[@Ashus]: https://github.com/Ashus
+[@carlos-sarmiento]: https://github.com/carlos-sarmiento
+[@thecode]: https://github.com/thecode
+[@pantherale0]: https://github.com/pantherale0
+[#146675]: https://github.com/home-assistant/core/pull/146675
+[#153367]: https://github.com/home-assistant/core/pull/153367
+[#153366]: https://github.com/home-assistant/core/pull/153366
+[#153363]: https://github.com/home-assistant/core/pull/153363
+[#153364]: https://github.com/home-assistant/core/pull/153364
+[#153560]: https://github.com/home-assistant/core/pull/153560
+[#153567]: https://github.com/home-assistant/core/pull/153567
+[#153605]: https://github.com/home-assistant/core/pull/153605
+[#153590]: https://github.com/home-assistant/core/pull/153590
+[#153472]: https://github.com/home-assistant/core/pull/153472
+[#153203]: https://github.com/home-assistant/core/pull/153203
+[#153370]: https://github.com/home-assistant/core/pull/153370
+[#149777]: https://github.com/home-assistant/core/pull/149777
+[#153473]: https://github.com/home-assistant/core/pull/153473
+[#154011]: https://github.com/home-assistant/core/pull/154011
+[#154037]: https://github.com/home-assistant/core/pull/154037
+[#154038]: https://github.com/home-assistant/core/pull/154038
+[#154152]: https://github.com/home-assistant/core/pull/154152
+[#154112]: https://github.com/home-assistant/core/pull/154112
+[#154137]: https://github.com/home-assistant/core/pull/154137
+[#154114]: https://github.com/home-assistant/core/pull/154114
+[#154219]: https://github.com/home-assistant/core/pull/154219
+[#154163]: https://github.com/home-assistant/core/pull/154163
+[#153939]: https://github.com/home-assistant/core/pull/153939
+[#149453]: https://github.com/home-assistant/core/pull/149453
+[#149636]: https://github.com/home-assistant/core/pull/149636
+[#154035]: https://github.com/home-assistant/core/pull/154035
+[#155164]: https://github.com/home-assistant/core/pull/155164
+[#155263]: https://github.com/home-assistant/core/pull/155263
+[#154902]: https://github.com/home-assistant/core/pull/154902
+[#155297]: https://github.com/home-assistant/core/pull/155297
+[lock docs]: /integrations/lock/
+[media_player docs]: /integrations/media_player/
+[camera docs]: /integrations/camera/
+[vacuum docs]: /integrations/vacuum/
+[vultr docs]: /integrations/vultr/
+[watson_iot docs]: /integrations/watson_iot/
+[oralb docs]: /integrations/oralb/
+[plum_lightpad docs]: /integrations/plum_lightpad/
+[mealie docs]: /integrations/mealie/
+[motion_blinds docs]: /integrations/motion_blinds/
+[nederlandse_spoorwegen docs]: /integrations/nederlandse_spoorwegen/
+[cover docs]: /integrations/cover/
+[alarm_control_panel docs]: /integrations/alarm_control_panel/
+[fritzbox docs]: /integrations/fritzbox/
+[renault docs]: /integrations/renault/
+[asuswrt docs]: /integrations/asuswrt/
+[group docs]: /integrations/group/
+[mobile_app docs]: /integrations/mobile_app/
+[onvif docs]: /integrations/onvif/
+[webostv docs]: /integrations/webostv/
+[neato docs]: /integrations/neato/
+[homeassistant_alerts docs]: /integrations/homeassistant_alerts/
+[analytics_insights docs]: /integrations/analytics_insights/
+[traccar_server docs]: /integrations/traccar_server/
 
 If you are a custom integration developer and want to learn about changes and
 new features available for your integration: Be sure to follow our
 [developer blog][devblog]. The following changes are the most notable for this
 release:
 
-- [Lorem ipsum](https://developers.home-assistant.io/blog/lormet-ipsum/)
+- [Update coordinator now allows retriggering](https://developers.home-assistant.io/blog/2025/10/05/coordinator-retrigger)
+- [Device filter has been removed from target selector](https://developers.home-assistant.io/blog/2025/10/14/device-filter-removed-from-target-selector)
+- [Changes to the recorder statistics API](https://developers.home-assistant.io/blog/2025/10/16/recorder-statistics-api-changes)
+- [Service translations removed from WebSocket get_services and REST /api/services](https://developers.home-assistant.io/blog/2025/10/24/service-web-api-changes)
 
 [devblog]: https://developers.home-assistant.io/blog/
 
