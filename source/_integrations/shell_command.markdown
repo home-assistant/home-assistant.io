@@ -165,7 +165,8 @@ Add the public key to your target system’s `~/.ssh/authorized_keys` file.
 To create a `known_hosts` file with your host fingerprint, run:
 
 ```bash
-ssh-keyscan -H <host> >> /config/.ssh/known_hosts
+# Replace <host> with your target hostname or IP address
+ssh-keyscan -H 192.0.2.10 >> /config/.ssh/known_hosts
 ```
 
 More information about `ssh-keygen` can be found in the [OpenSSH manual](https://github.com/openssh/openssh-portable/blob/master/README.md).
