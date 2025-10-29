@@ -138,9 +138,7 @@ As mentioned above, these changes are purely cosmetic, for now! But this new dia
 
 ## Naming entities on your dashboard
 
-A few releases ago, we gave the entity picker a big upgrade by adding more context so you could easily see where each entity belongs ([May 2025 release](https://www.home-assistant.io/blog/2025/05/07/release-20255/#picking-entities)
-).
-
+A few releases ago, we gave the entity picker a big upgrade by adding more context so you could easily see where each entity belongs ([May 2025 release](https://www.home-assistant.io/blog/2025/05/07/release-20255/#picking-entities)).
 In this release, we're bringing that same flexibility to your dashboards.
 
 You can now choose how names appear on your cards: show the entity, device, area, floor, or even combine them.
