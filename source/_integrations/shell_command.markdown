@@ -12,7 +12,7 @@ ha_domain: shell_command
 ha_integration_type: integration
 ---
 
-This integration can expose regular shell commands as actions. Actions can be called from a [script] or an [automation].
+This integration can expose regular shell commands as actions. Actions can be called from a [script] or in [automation].
 Shell commands aren't allowed for a camel-case naming, please use lowercase naming only and separate the names with underscores.
 
 Note that the shell command process will be terminated after 60 seconds, full stop. There is no option to alter this behavior, this is by design because Home Assistant is not intended to manage long-running external processes.
@@ -89,7 +89,7 @@ helper and an automation.
 {% raw %}
 
 ```yaml
-# Example configuration.yaml entry
+# Apply value of a GUI slider to the shell_command
 automation:
   - alias: "run_set_ac"
     triggers:
@@ -117,10 +117,9 @@ The following example shows how the shell command response may be used in automa
 {% raw %}
 
 ```yaml
-# Example configuration.yaml entry
+# Create a ToDo notification based on file contents
 automation:
   - alias: "run_get_file_contents"
-    description: "Create a ToDo notification based on file contents"
     triggers:
       - ...
     actions:
