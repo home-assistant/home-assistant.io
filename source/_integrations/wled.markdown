@@ -248,3 +248,10 @@ Here is an example of all of these put together into an automation:
       data:
         value: 255
 ```
+
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
