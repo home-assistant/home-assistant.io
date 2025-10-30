@@ -125,7 +125,7 @@ This section shows a similar example to the example automation shown above in YA
    - Under **State**, select **Unavailable**.
    - **Important**: Leave the other fields **empty**.
    - Add another condition inside the **Not** block, but this time select **Unknown** as the state.
-   - **Note** Alternativelly, instead of conditions this can be done using the `not_state` attribute of the state trigger, in YAML.
+   - **Note** Alternatively, instead of conditions this can be done using the `not_state` attribute of the state trigger, in YAML.
      ![Condition - prevent unavailable or unknown states](/images/integrations/event/matter_condition_prevent_unavailable_unknown.png)
 5. Define the condition when something should happen.
    - Under **Then do**, select **Add action**.
