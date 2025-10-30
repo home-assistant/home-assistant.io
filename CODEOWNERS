@@ -8,6 +8,11 @@
 # https://github.com/blog/2392-introducing-code-owners
 
 # Pages
+
+# Non-integration pages (manually maintained)
+source/privacy/index.markdown @frenck
+
+# Integration pages (auto-synced from core)
 source/_integrations/3_day_blinds.markdown @starkillerOG
 source/_integrations/_integration_docs_template.markdown @home-assistant/core
 source/_integrations/abode.markdown @shred86

@@ -85,3 +85,44 @@ data:
 {% endraw %}
 
 {% enddetails %}
+
+
+### Action: Get sheet
+
+You can use the `google_sheets.get_sheet` action to retrieve rows of [data] (/docs/scripts/perform-actions#use-templates-to-handle-response-data) from a Sheets document.
+
+{% details "Create event action details" %}
+
+| Data attribute | Optional | Description | Example |
+| ---------------------- | -------- | ----------- | --------|
+| `config_entry` | no | Config entry to use. |
+| `worksheet` | yes | Name of the worksheet. Defaults to the first one in the document. | Sheet1 |
+| `rows` | no | Maximum number of rows from the end of the worksheet to return.  | 2 |
+
+{% raw %}
+
+```yaml
+# Example action
+action: google_sheets.get_sheet
+data:
+  config_entry: 1b4a46c6cba0677bbfb5a8c53e8618b0
+  worksheet: "Car Charging"
+  rows: 2
+```
+
+{% endraw %}
+
+{% enddetails %}
+
+
+{% details "Example action response" %}
+
+```yaml
+range:
+  - - 04/07/2024
+    - 9 Kw
+  - - 05/07/2024
+    - 8 Kw
+```
+
+{% enddetails %}

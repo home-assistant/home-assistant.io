@@ -4,7 +4,7 @@ description: Instructions on how to integrate Lunatone REST API devices with Hom
 ha_category:
   - Hub
   - Light
-ha_release: 2025.10
+ha_release: 2025.11
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@MoonDevLT'

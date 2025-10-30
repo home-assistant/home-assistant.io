@@ -115,7 +115,7 @@ customize:
 
 {% endraw %}
 
-Some of the Garadget sensors can create a lot of clutter in the logbook.  Use this section of code in your{% term "`configuration.yaml`" %} to exclude those entries.
+Some of the Garadget sensors can create a lot of clutter in the **Activity** section. Use this section of code in your{% term "`configuration.yaml`" %} to exclude those entries.
 
 ```yaml
 logbook:
