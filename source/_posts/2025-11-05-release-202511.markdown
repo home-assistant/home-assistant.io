@@ -2,7 +2,7 @@
 layout: post
 title: "2025.11 Beta: A Betta title"
 description: "Beta release notes for Home Assistant Core 2025.11"
-date: 2025-10-02 00:00:00
+date: 2025-11-05 00:00:00
 date_formatted: "November 5, 2025"
 author: Franck Nijhof
 author_twitter: frenck
