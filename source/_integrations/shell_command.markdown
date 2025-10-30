@@ -169,7 +169,7 @@ To create a `known_hosts` file with your host fingerprint, run:
 ssh-keyscan -H "<host>" >> /config/.ssh/known_hosts
 ```
 
-More information about `ssh-keygen` can be found in the [OpenSSH manual](https://github.com/openssh/openssh-portable/blob/master/README.md).
+More information about `ssh-keygen` can be found in the [OpenSSH manual](https://man.openbsd.org/ssh-keygen).
 
 Example configuration:
 
