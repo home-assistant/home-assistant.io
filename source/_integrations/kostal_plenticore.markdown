@@ -159,7 +159,7 @@ The following sensors can be used in the [energy dashboard](/docs/energy/):
 Some of the energy is measured on the DC side and some on the AC side, so the values may differ slightly due to losses between DC and AC.
 {% endnote %}
 
-### Configuration Entities
+### Configuration entities
 
 The following entities are available for device configuration:
 
