@@ -21,6 +21,14 @@ The **Brother Printer** {% term integration %} allows you to read current data f
 It usually provides information about the device's state, the left amount of ink or toner and the remaining lifetime of the drum or other parts of the printer.
 The integration monitors every supported part.
 
+## Prerequisites
+
+To enable SNMP, navigate to the printer's web interface (for example: `http://192.168.5.6`) and turn it on under **Network** >> **Protocol** >> **SNMP**. For some models, access to the web interface is password-protected. For some printers, the default password is printed on a sticker on the back of the printer, preceded by "Pwd:". If the printer does not have a password on the sticker, the default password is `initpass`.
+
+For some Brother devices, **SNMPv3 read-write access and v1/v2c read-only access** is the option required (under advanced settings).
+
+![SNMP settings on Brother Printer web interface](/images/integrations/brother/brother-printer-webui.png)
+
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
@@ -34,21 +42,32 @@ Type of the printer:
     description: "Brother printer type: ink or laser."
 {% endconfiguration_basic %}
 
-{% note %}
-Some very old Brother printers use different data format and these models are not supported. The integration will show information about that during configuration.
-{% endnote %}
+## Removing the integration
 
-## Configuring the printer
+This integration follows standard integration removal, no extra steps are required.
 
-To enable SNMP, navigate to the printer's web interface (for example: `http://192.168.5.6`) and turn it on under Network / Protocol / SNMP. For some models, access to the web interface is password-protected. For some printers, the default password is printed on a sticker on the back of the printer, preceded by "Pwd:". If the printer does not have a password on the sticker, the default password is "initpass".
+{% include integrations/remove_device_service.md %}
 
-For some Brother devices, `SNMPv3 read-write access and v1/v2c read-only access` is the option required (under advanced settings).
+## Supported functionality
 
-![SNMP settings on Brother Printer web interface](/images/integrations/brother/brother-printer-webui.png)
+The Brother integration provides the following entities.
 
-## Sensor example
+### Sensors
 
-You can configure Home Assistant to alert you when the printer jams or runs out of paper as follows.  First, add the following to {% term "`configuration.yaml`" %} under the `template:` section (Note: replace `sensor.hl_l2340d_status` with the actual name of your sensor):
+- **xxx**
+  - **xxx**: xxx
+
+## Data updates
+
+By default, the integration {% term polling polls %} data from the device every 30 seconds.
+
+## Possible use-cases
+
+- Monitor printer status and send notifications when paper jams or other unexpected events occur.
+
+## Examples
+
+You can configure Home Assistant to alert you when the printer jams or runs out of paper as follows. First, add the following to {% term "`configuration.yaml`" %} under the `template:` section (Note: replace `sensor.hl_l2340d_status` with the actual name of your sensor):
 
 {% raw %}
 
@@ -90,3 +109,7 @@ Then, add this under the `alert:` section:
 The above will send an alert for paper jam or out of paper whenever the condition is detected, assuming you have the Home Assistant app configured on your phone so that alerts can be sent directly to it. If you don't use the Home Assistant app, you will need to set up a different notifier.
 
 Change `my_phone_notify` to the actual notifier you are using.
+
+## Known limitations
+
+- Some very old Brother printers use different data format and these models are not supported. The integration will show information about that during configuration.
