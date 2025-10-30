@@ -12,7 +12,7 @@ og_image: /images/blog/2025-10-yellow-eol/art.webp
 
 <img src='/images/blog/2025-10-yellow-eol/art.webp' style='border: 0;box-shadow: none;' alt="Ending production of Home Assistant Yellow">
 
-Today, we’re announcing that we will no longer be producing [Home Assistant Yellow](/yellow). Rest assured, it will continue to receive software support far into the future.
+Today, we’re announcing that we will no longer be producing [Home Assistant Yellow](/yellow). Rest assured, it will continue to receive software support far into the future.<!--more-->
 
 I’m Carl, Vice President of Commercial at Nabu Casa, the organization that builds and sells official hardware for the Open Home Foundation. I couldn’t be more proud of our hardware achievements over the past 12 months, including [Voice Preview Edition](/voice-pe/) and [Connect ZWA-2](/connect/zwa-2/) (including its cool new [Wi-Fi and PoE experimental firmware](/blog/2025/10/13/portable-z-wave-with-wifi-and-poe/)).
 

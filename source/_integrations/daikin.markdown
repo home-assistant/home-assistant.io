@@ -40,15 +40,9 @@ There is currently support for the following device types within Home Assistant:
 
 If your unit is not in the list above there is another option, to buy and install an [ESP32-Faikin](https://github.com/revk/ESP32-Faikin).
 
-{% note %}
-
-- BRP072Cxx adapters require an API key to be entered, which is labelled "KEY" on the device sticker alongside SSID, MAC, and S/N. Password should be left blank.
-- SKYFi-based units require a password to be entered. API key should be left blank.
-- Other models are auto-detected and the API key and password fields must be left blank.
-
-{% endnote %}
-
 {% include integrations/config_flow.md %}
+
+If your device is set up with password, use the password. If it has an API key, use the API key. In all other cases, leave the fields blank.
 
 {% note %}
   
