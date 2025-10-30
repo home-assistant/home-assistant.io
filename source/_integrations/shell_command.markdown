@@ -147,7 +147,7 @@ shell_command:
 
 ### Using SSH with shell_command
 
-Because `/root/.ssh` in the container is not persistent, store your keys in `/config/.ssh`.
+The `/root/.ssh` directory in the container is not persistent. Store your keys in `/config/.ssh` instead.
 
 To generate a new SSH key pair, you can run the following command in the [terminal](https://github.com/home-assistant/addons/tree/master/ssh):
 
