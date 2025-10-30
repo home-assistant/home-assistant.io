@@ -57,13 +57,13 @@ By limiting credentials to a specific bucket, you reduce risk and help keep your
 
 {% configuration_basic %}
 Key ID:
-description: "The access key ID for your Backblaze account."
+   description: "The access key ID for your Backblaze account."
 Application Key:
-description: "The application key for your Backblaze account."
+   description: "The application key for your Backblaze account."
 Bucket Name:
-description: "Bucket name to store the backups. Bucket must already exist and be writable by the provided credentials."
+   description: "Bucket name to store the backups. Bucket must already exist and be writable by the provided credentials."
 Prefix:
-description: "Optional prefix for the backups. This is useful if you want to store backups in a specific folder within the bucket."
+   description: "Optional prefix for the backups. This is useful if you want to store backups in a specific folder within the bucket."
 {% endconfiguration_basic %}
 
 ## Troubleshooting
