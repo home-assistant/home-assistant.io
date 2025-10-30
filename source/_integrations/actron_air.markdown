@@ -12,6 +12,7 @@ ha_domain: actron_air
 ha_platforms:
   - climate
 ha_integration_type: integration
+ha_quality_scale: bronze
 ---
 
 The **Actron Air** {% term integration %} allows you to control [Actron Air](https://www.actronair.com.au/) Air Conditioning controllers into Home Assistant.

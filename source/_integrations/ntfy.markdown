@@ -16,7 +16,7 @@ ha_platforms:
   - event
   - notify
   - sensor
-ha_quality_scale: bronze
+ha_quality_scale: platinum
 ---
 
 The **ntfy** {% term integration %} allows publishing push notifications on [ntfy.sh](https://ntfy.sh/) or other ntfy services.

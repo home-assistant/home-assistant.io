@@ -12,6 +12,7 @@ ha_config_flow: true
 ha_platforms:
   - sensor
 ha_integration_type: hub
+ha_quality_scale: bronze
 ---
 
 The Firefly III {% term integration %} is used as an interface to the [Firefly III API](https://api-docs.firefly-iii.org/).

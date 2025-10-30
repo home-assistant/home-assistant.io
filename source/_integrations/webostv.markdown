@@ -16,6 +16,7 @@ ha_platforms:
   - media_player
   - notify
 ha_integration_type: integration
+ha_quality_scale: platinum
 ---
 
 The `webostv` platform allows you to control a [LG](https://www.lg.com/) webOS TV.

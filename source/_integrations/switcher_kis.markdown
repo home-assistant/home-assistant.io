@@ -22,6 +22,7 @@ ha_platforms:
   - switch
 ha_config_flow: true
 ha_integration_type: integration
+ha_quality_scale: silver
 ---
 
 This `Switcher` integration allows you to control your [Switcher Devices](https://www.switcher.co.il/).

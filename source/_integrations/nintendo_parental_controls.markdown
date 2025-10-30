@@ -12,6 +12,7 @@ ha_platforms:
   - time
   - switch
   - number
+ha_quality_scale: bronze
 ---
 
 
