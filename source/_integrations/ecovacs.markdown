@@ -68,6 +68,7 @@ Additionally, **depending on your model**, the integration provides the followin
   - `Water level`: Choose from predefined water levels used during cleaning with the mop.
   - `Work mode`: Specify the mode, how the bot should clean.
 - **Sensor**:
+  - `Auto-empty frequency`: The frequency of emptying the bot dust bin during cleaning.
   - `Error`: The error code and a description of the error. `0` means no error. Disabled by default.
   - `Lifespan`: For each supported component, an entity with the remaining lifespan will be created.
   - `Network`: The following network related entities will be created. All disabled by default.
