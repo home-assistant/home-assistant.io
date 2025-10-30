@@ -52,7 +52,7 @@ automation:
   - alias: Turn On Green Light When Download Speed Is Good
     description: >-
       This automation turns on the Yeelight bulb with a green color when the
-      download speed exceeds 10 Mbps.
+      download speed exceeds 10 megabits per second.
       It ensures that the light is an indicator of the health of your
       network connection.
     triggers:
@@ -68,7 +68,7 @@ automation:
   - alias: Turn On Red Light When Download Speed Is Poor
     description: >-
       This automation turns on the Yeelight bulb with a red color when the
-      download speed drops below 10 Mbps.
+      download speed drops below 10 megabits per second.
       It ensures that the light is an indicator of the health of your
       network connection.
     triggers:
