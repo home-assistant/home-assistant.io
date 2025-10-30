@@ -177,11 +177,12 @@ Example configuration:
 
 ```yaml
 # Example configuration.yaml entry
+# Replace <host> with your target hostname or IP address
 shell_command:
-  read_remote_hostname: >
+  read_remote_hostname: |
     ssh -i /config/.ssh/id_ed25519 \
       -o UserKnownHostsFile=/config/.ssh/known_hosts \
-      user@192.0.2.10 'hostname'
+      user@<host> 'hostname'
 ```
 
 {% endraw %}
