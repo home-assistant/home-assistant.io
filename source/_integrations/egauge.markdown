@@ -81,7 +81,7 @@ The **eGauge** integration provides the following entities:
 
 - **Power and Energy**: Each power register on the eGauge will appear as two Home Assistant sensors: one reporting current power and the other reporting cumulative total energy usage.
 
-### Data Updates
+### Data updates
 
 The **eGauge** integration polls the device every 30 seconds.
 
