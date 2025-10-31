@@ -495,7 +495,7 @@ layout: null
 
 # Removed documentation
 /docs/installation /getting-started
-/docs/installation/dokcer /getting-started
+/docs/installation/docker /getting-started
 /docs/installation/hassbian /getting-started
 /docs/installation/macos /docs/installation/virtualenv
 /docs/installation/raspberry-pi-all-in-one /getting-started
@@ -562,6 +562,7 @@ layout: null
 /integrations/essent /more-info/removed-integration 301
 /integrations/facebox /more-info/removed-integration 301
 /integrations/fedex /more-info/removed-integration 301
+/integrations/flick_electric /more-info/removed-integration 301
 /integrations/flunearyou /more-info/removed-integration 301
 /integrations/fortigate /more-info/removed-integration 301
 /integrations/fritzbox_netmonitor  /more-info/removed-integration 301
@@ -608,6 +609,7 @@ layout: null
 /integrations/mpchc /more-info/removed-integration 301
 /integrations/mychevy /more-info/removed-integration 301
 /integrations/n26 /more-info/removed-integration 301
+/integrations/neato /more-info/removed-integration 301
 /integrations/nello /more-info/removed-integration 301
 /integrations/nma /more-info/removed-integration 301
 /integrations/nuimo_controller /more-info/removed-integration 301

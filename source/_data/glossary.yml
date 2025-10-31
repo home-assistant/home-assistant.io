@@ -316,6 +316,13 @@
     Container installation type). For development, Core can also be run using a Virtual
     Environment (previously referred as the Home Assistant Core installation type.
     For production setup, the [Home Assistant Core installation type is deprecated](https://www.home-assistant.io/blog/2025/05/22/deprecating-core-and-supervised-installation-methods-and-32-bit-systems/).
+  excerpt: >-
+    Home Assistant Core is the Python program at the heart of Home Assistant. It
+    is part of all installation types. It can be installed standalone (without Home Assistant
+    Supervisor) as a container using Docker (this is typically referred to as the Home Assistant
+    Container installation type). For development, Core can also be run using a Virtual
+    Environment (previously referred as the Home Assistant Core installation type).
+    For production setup, the Home Assistant Core installation type is deprecated.
 - term: Home Assistant Supervised
   definition: >-
     The Home Assistant Supervised installation type is a full UI managed home automation ecosystem
@@ -323,7 +330,13 @@
     add-ons. It comes pre-installed on Home Assistant OS, but can be installed
     standalone on Debian Linux systems. It leverages Docker, which is managed by
     the Home Assistant Supervisor. The
-    [Home Assistant Supervised installation type is deprecated](https://www.home-assistant.io/blog/2025/05/22/deprecating-core-and-supervised-installation-methods-and-32-bit-systems/).  
+    [Home Assistant Supervised installation type is deprecated](https://www.home-assistant.io/blog/2025/05/22/deprecating-core-and-supervised-installation-methods-and-32-bit-systems/).
+  excerpt: >-
+    The Home Assistant Supervised installation type is a full UI managed home automation ecosystem
+    that runs the Home Assistant Core program, the Home Assistant Supervisor and
+    add-ons. It comes pre-installed on Home Assistant OS, but can be installed
+    standalone on Debian Linux systems. It leverages Docker, which is managed by
+    the Home Assistant Supervisor. The Home Assistant Supervised installation type is deprecated.
 - term: Home Assistant Supervisor
   definition: >-
     The Home Assistant Supervisor is a program that manages a Home Assistant

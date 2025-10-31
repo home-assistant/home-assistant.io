@@ -602,7 +602,7 @@ knx:
     # time and date exposures
     - type: time
       address: "0/0/1"
-    # entitiy exposures
+    # entity exposures
     - type: temperature
       entity_id: sensor.owm_temperature
       address: "0/0/2"
