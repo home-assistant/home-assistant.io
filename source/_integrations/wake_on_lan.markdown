@@ -115,7 +115,7 @@ host:
   required: false
   type: string
 on_grace_period:
-  description: Calling `turn_on` forces the state to `on` for the specified duration (in seconds), regardless of the actual device status. Requires `host` to be configured.
+  description: The amount of time (in seconds) the state is set to `on` after `turn_on` has been triggered. The state is set to `on` for this time, irrespective of the actual device status. The `on_grace_period` reflects the amount of time it takes the system to boot. If no grace period is set, the system might show as `off` while it is actually in the process of starting up. `on_grace_period` requires `host` to be configured.
   required: false
   type: float
 turn_off:
@@ -123,7 +123,7 @@ turn_off:
   required: false
   type: string
 off_grace_period:
-  description: Calling `turn_off` forces the state to `off` for the specified duration (in seconds), regardless of the actual device status. Requires `host` and `turn_off` to be configured.
+  description: The amount of time (in seconds) the state is set to `off` after `turn_off` has been triggered. The state is set to `off` for this time, irrespective of the actual device status. The `off_grace_period` reflects the amount of time it takes the system to shutdown. If no grace period is set, the system might show as `on` while it is actually in the process of shutting down. `off_grace_period` requires `host` and `turn_off` to be configured.
   required: false
   type: float
 broadcast_address:
