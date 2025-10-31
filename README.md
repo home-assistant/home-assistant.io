@@ -42,3 +42,16 @@ bundle exec rake integrate
 ```
 
 [![Home Assistant - A project from the Open Home Foundation](https://www.openhomefoundation.org/badges/home-assistant.png)](https://www.openhomefoundation.org/)
+
+
+
+Run the following commands in your terminal:
+
+# Update npm to the latest version
+npm install -g npm@latest
+
+# Verify the update
+npm -v
+
+# If you face a permission error, use:
+sudo npm install -g npm@latest
