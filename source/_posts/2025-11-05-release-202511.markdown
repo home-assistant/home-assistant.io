@@ -96,7 +96,7 @@ _A huge thank you to all the contributors who made this release possible! And a 
 
 ## A brand new target picker
 
-Previously, we did not display the context of entities, devices, and areas — for example, which device an entity belongs to or which area it is assigned to. This could cause confusion, especially when multiple devices shared the same name but were located in different areas (e.g., Presence sensor), or when multiple entities had the same name but belonged to different devices (e.g., Battery level).
+Previously, we did not display the context of entities, devices, and areas—for example, which device an entity belongs to or which area it is assigned to. This could cause confusion, especially when multiple devices shared the same name but were located in different areas (for example, Presence sensor), or when multiple entities had the same name but belonged to different devices (for example, Battery level).
 
 On top of this missing context, we were unable to provide the scope of a particular target. How many lights will you turn on if you target a floor? Is it what you expect?
 
