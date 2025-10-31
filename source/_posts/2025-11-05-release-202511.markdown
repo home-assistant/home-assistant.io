@@ -311,6 +311,7 @@ There are many more improvements in this release; here are some of the other not
 - TODO
 
 ### Shipping on a new Python version 
+
 This release ships with Python π! (See what they did there? Python 3.14 → π 😉) 
 If you’re wondering—Python is the language Home Assistant runs on. 
 
