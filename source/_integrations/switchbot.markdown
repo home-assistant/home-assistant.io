@@ -302,6 +302,13 @@ Features:
 - get light level
 - get battery level
 - get calibration state
+- enable slow mode
+
+Curtain slow mode is configured from the device options. Slow mode is primarily designed for Curtain 3 models, and older curtain models (version 1 & 2) may ignore the setting.
+
+1. To enable slow mode, go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Under **Integration entries**, find the curtain device and select **Configure**.
+3. In the **Options** dialog, enable **Curtain slow mode**.
 
 #### Blind Tilt
 
@@ -313,14 +320,6 @@ Features:
 - get light level
 - get battery level
 - get calibration state
-
-Options:
-
-Curtain devices have a slow mode option available in the configuration. However, slow mode is primarily designed for Curtain 3 models. Older curtain models (version 1 & 2) may ignore the slow mode setting.
-
-1. To enable slow mode, go to {% my integrations title="**Settings** > **Devices & services**" %}.
-2. Under **Integration entries**, find the curtain device and select **Configure**.
-3. In the **Options** dialog, enable **Curtain slow mode**.
 
 The blind tilt is exposed as a cover entity with control of the tilt position only:
 
