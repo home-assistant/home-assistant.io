@@ -83,7 +83,7 @@ The **eGauge** integration provides the following entities:
 
 ### Data updates
 
-The **eGauge** integration polls the device every 30 seconds.
+The **eGauge** integration {% term polling polls %} the device every 30 seconds.
 
 ## Known limitations
 
