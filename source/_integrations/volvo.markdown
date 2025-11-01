@@ -24,6 +24,22 @@ related:
 
 The **Volvo** {% term integration %} is used to integrate your [Volvo](https://www.volvocars.com/) vehicle.
 
+## Use cases
+
+### Monitor safety and status of your vehicle
+
+Keep an eye on doors and windows, and get immediate notifications if something changes. You can create automations that alert you when service is required, or when a door is left open.
+
+### Manage charging and battery
+
+Track battery state of charge, estimated electric range, and current charging status. Automate charging to start or stop based on battery level, departure time, or electricity rates, and monitor progress using the integration's sensors.
+
+**Note:** This integration does not provide direct control to start or stop charging. To actually start or stop charging, use the integration for your charger.
+
+### Preheat cabin and battery
+
+Preheat or precondition the cabin and battery before a trip to improve comfort and efficiency. Schedule preheating or preconditioning relative to your departure time or trigger it based on the outside temperature.
+
 ## Supported vehicles
 
 - Car models starting from model year 2010.
@@ -76,51 +92,51 @@ The **Volvo** integration provides the following entities.
 
 #### Binary sensors
 
-- **Brake fluid**: Indicates if the brake fluid level is too low
-- **Brake light center**: Warns of a failure in the center brake light
-- **Brake light left**: Warns of a failure in the left brake light
-- **Brake light right**: Warns of a failure in the right brake light
-- **Coolant level**: Indicates if the engine coolant level is too low
-- **Daytime running light left**: Warns of a failure in the left daytime running light
-- **Daytime running light right**: Warns of a failure in the right daytime running light
-- **Door front left**: Detects if the front left door is open or closed
-- **Door front right**: Detects if the front right door is open or closed
-- **Door rear left**: Detects if the rear left door is open or closed
-- **Door rear right**: Detects if the rear right door is open or closed
-- **Engine status**: Shows if the engine is currently running
-- **Fog light front**: Warns of a failure in the front fog light
-- **Fog light rear**: Warns of a failure in the rear fog light
-- **Hazard lights**: Warns of a failure in the hazard lights
-- **High beam left**: Warns of a failure in the left high beam
-- **High beam right**: Warns of a failure in the right high beam
-- **Hood**: Detects if the hood is open or closed
-- **Low beam left**: Warns of a failure in the left low beam
-- **Low beam right**: Warns of a failure in the right low beam
-- **Oil level**: Indicates oil level warnings and service requirements
-- **Position light front left**: Warns of a failure in the front left position light
-- **Position light front right**: Warns of a failure in the front right position light
-- **Position light rear left**: Warns of a failure in the rear left position light
-- **Position light rear right**: Warns of a failure in the rear right position light
-- **Registration plate light**: Warns of a failure in the registration plate light
-- **Reverse lights**: Warns of a failure in the reverse lights
-- **Service**: Indicates if service is required for the vehicle
-- **Side mark lights**: Warns of a failure in the side mark lights
-- **Sunroof**: Detects if the sunroof is open or closed
-- **Tailgate**: Detects if the tailgate is open or closed
-- **Tank lid**: Detects if the tank lid is open or closed
-- **Tire front left**: Indicates pressure warnings for the front left tire
-- **Tire front right**: Indicates pressure warnings for the front right tire
-- **Tire rear left**: Indicates pressure warnings for the rear left tire
-- **Tire rear right**: Indicates pressure warnings for the rear right tire
-- **Turn indication front left**: Warns of a failure in the front left turn indicator
-- **Turn indication front right**: Warns of a failure in the front right turn indicator
-- **Turn indication rear left**: Warns of a failure in the rear left turn indicator
-- **Turn indication rear right**: Warns of a failure in the rear right turn indicator
-- **Washer fluid**: Indicates if the washer fluid level is too low
-- **Window front left**: Detects if the front left window is open or closed
-- **Window front right**: Detects if the front right window is open or closed
-- **Window rear left**: Detects if the rear left window is open or closed
-- **Window rear right**: Detects if the rear right window is open or closed
+- **Brake fluid**: Indicates if the brake fluid level is too low.
+- **Brake light center**: Warns of a failure in the center brake light.
+- **Brake light left**: Warns of a failure in the left brake light.
+- **Brake light right**: Warns of a failure in the right brake light.
+- **Coolant level**: Indicates if the engine coolant level is too low.
+- **Daytime running light left**: Warns of a failure in the left daytime running light.
+- **Daytime running light right**: Warns of a failure in the right daytime running light.
+- **Door front left**: Detects if the front left door is open or closed.
+- **Door front right**: Detects if the front right door is open or closed.
+- **Door rear left**: Detects if the rear left door is open or closed.
+- **Door rear right**: Detects if the rear right door is open or closed.
+- **Engine status**: Shows if the engine is currently running.
+- **Fog light front**: Warns of a failure in the front fog light.
+- **Fog light rear**: Warns of a failure in the rear fog light.
+- **Hazard lights**: Warns of a failure in the hazard lights.
+- **High beam left**: Warns of a failure in the left high beam.
+- **High beam right**: Warns of a failure in the right high beam.
+- **Hood**: Detects if the hood is open or closed.
+- **Low beam left**: Warns of a failure in the left low beam.
+- **Low beam right**: Warns of a failure in the right low beam.
+- **Oil level**: Indicates oil level warnings and service requirements.
+- **Position light front left**: Warns of a failure in the front left position light.
+- **Position light front right**: Warns of a failure in the front right position light.
+- **Position light rear left**: Warns of a failure in the rear left position light.
+- **Position light rear right**: Warns of a failure in the rear right position light.
+- **Registration plate light**: Warns of a failure in the registration plate light.
+- **Reverse lights**: Warns of a failure in the reverse lights.
+- **Service**: Indicates if service is required for the vehicle.
+- **Side mark lights**: Warns of a failure in the side mark lights.
+- **Sunroof**: Detects if the sunroof is open or closed.
+- **Tailgate**: Detects if the tailgate is open or closed.
+- **Tank lid**: Detects if the tank lid is open or closed.
+- **Tire front left**: Indicates pressure warnings for the front left tire.
+- **Tire front right**: Indicates pressure warnings for the front right tire.
+- **Tire rear left**: Indicates pressure warnings for the rear left tire.
+- **Tire rear right**: Indicates pressure warnings for the rear right tire.
+- **Turn indication front left**: Warns of a failure in the front left turn indicator.
+- **Turn indication front right**: Warns of a failure in the front right turn indicator.
+- **Turn indication rear left**: Warns of a failure in the rear left turn indicator.
+- **Turn indication rear right**: Warns of a failure in the rear right turn indicator.
+- **Washer fluid**: Indicates if the washer fluid level is too low.
+- **Window front left**: Detects if the front left window is open or closed.
+- **Window front right**: Detects if the front right window is open or closed.
+- **Window rear left**: Detects if the rear left window is open or closed.
+- **Window rear right**: Detects if the rear right window is open or closed.
 
 #### Buttons
 
@@ -159,25 +175,25 @@ Go to Volvo's developer portal to view [the availability](https://developer.volv
 
 #### Sensors
 
-- **Average energy consumption since charge**: Average energy consumption since the last charge of the battery
-- **Battery**: Current state of charge of the battery
-- **Battery capacity**: Total capacity of the battery
-- **Distance to empty battery**: Electric range
+- **Average energy consumption since charge**: Average energy consumption since the last charge of the battery.
+- **Battery**: Current state of charge of the battery.
+- **Battery capacity**: Total capacity of the battery.
+- **Distance to empty battery**: Electric range.
 
 #### Sensors for specific models
 
 Go to Volvo's developer portal to view [the list of supported models](https://developer.volvocars.com/apis/energy/v2/overview/#availability).
 
-- **Charging connection status**: Charging connection status
-- **Charging limit**: Charging limit configured in the car
-- **Charging power**: Current charging power
-- **Charging power status**: Indication if power is being provided
-- **Charging status**: Indication if the car is charging or not
-- **Charging type**: AC or DC
-- **Estimated charging time**: Estimated charging time to reach the target battery charge level
-- **Trip automatic average energy consumption**: Average energy consumption on the automatic trip meter
-- **Target battery charge level**: Target battery charge level configured in the car
-- **Trip manual average energy consumption**: Average energy consumption on the manual trip meter
+- **Charging connection status**: Charging connection status.
+- **Charging limit**: Charging limit configured in the car.
+- **Charging power**: Current charging power.
+- **Charging power status**: Indication if power is being provided.
+- **Charging status**: Indication if the car is charging or not.
+- **Charging type**: AC or DC.
+- **Estimated charging time**: Estimated charging time to reach the target battery charge level.
+- **Trip automatic average energy consumption**: Average energy consumption on the automatic trip meter.
+- **Target battery charge level**: Target battery charge level configured in the car.
+- **Trip manual average energy consumption**: Average energy consumption on the manual trip meter.
 
 ### Fuel-only and plug-in hybrid
 
@@ -188,12 +204,47 @@ Go to Volvo's developer portal to view [the list of supported models](https://de
 
 #### Sensors
 
-- **Distance to empty tank**: Fuel range
-- **Fuel amount**: Remaining fuel
-- **Trip automatic average fuel consumption**: Average fuel consumption on the automatic trip meter
-- **Trip manual average fuel consumption**: Average fuel consumption on the manual trip meter
+- **Distance to empty tank**: Fuel range.
+- **Fuel amount**: Remaining fuel.
+- **Trip automatic average fuel consumption**: Average fuel consumption on the automatic trip meter.
+- **Trip manual average fuel consumption**: Average fuel consumption on the manual trip meter.
 
 ## Examples
+
+### Notify if doors are left open
+
+Send a notification to your mobile phone if at least one door is open for 5 minutes.
+
+{% raw %}
+
+```yaml
+alias: Notify me if doors are left open for 5 minutes
+description: ""
+triggers:
+  - trigger: state
+    entity_id:
+      - binary_sensor.volvo_YOUR_MODEL_door_front_left
+      - binary_sensor.volvo_YOUR_MODEL_door_front_right
+      - binary_sensor.volvo_YOUR_MODEL_door_rear_left
+      - binary_sensor.volvo_YOUR_MODEL_door_rear_right
+      - binary_sensor.volvo_YOUR_MODEL_tailgate
+    to: "on"
+    for:
+      hours: 0
+      minutes: 5
+      seconds: 0
+conditions: []
+actions:
+  - data:
+      data:
+        url: /lovelace/volvo
+      title: 🚘 Volvo
+      message: You've left some doors open. Don't give thiefs a chance!
+    action: notify.mobile_app_phone_john_doe
+mode: single
+```
+
+{% endraw %}
 
 ### Estimated charging finish time
 

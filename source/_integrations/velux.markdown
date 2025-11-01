@@ -35,14 +35,28 @@ There is currently support for the following device types within Home Assistant:
 
 Rain sensors of supported windows do not report automatically and must be polled every 5 minutes. For this reason, they are disabled by default, because polling uses more radio bandwidth and battery power than simply reporting changed window positions.
 
+## Prerequisites
+
+1. Make sure you have the password for your gateway's wireless access point.
+    - You'll find it printed on the underside of your KLF 200 device.
+    - It is not the web login password.
+2. Reboot or power cycle the KLF 200 device.
+    - You must complete the configuration within 5 minutes of rebooting the device while its Wi-Fi access point is still visible.
+3. During configuration, keep your Home Assistant connected to your regular network.
+    - Don't connect to the device's wireless access point.
+
 {% include integrations/config_flow.md %}
 
 During configuration, you will be asked for a hostname and password:
 
-- Hostname: enter the IP address of the KLF 200 gateway.
-- Password: enter the password of the gateway's wireless access point (printed on the underside - **not** the web login password).
+{% configuration_basic %}
+Hostname:
+    description: "The IP address or hostname of the KLF 200 gateway. You can find it in your router."
+Password:
+    description: "The password of the gateway's wireless access point. You can find it printed on the underside of the device. It is not the web login password."
+{% endconfiguration_basic %}
 
-You must complete the configuration within 5 minutes of rebooting the KLF 200 gateway while the access point is still available.
+Remember: You must complete the configuration within 5 minutes of rebooting the KLF 200 gateway. If you can't complete in time and setup fails, power cycle the device and try again.
 
 ## Actions
 
@@ -52,7 +66,21 @@ Reboots the configured KLF 200 gateway.
 
 In Home Assistant versions up to 2024.12.x, it was recommended to create an automation to reboot the KLF 200 gateway before shutting down or restarting Home Assistant. This automated reboot is now built into the integration, so you no longer need to create a separate automation.
 
-## Velux Active (KIX 300)
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
+
+## Unsupported Hardware
+
+### Velux KLF 150
+
+The Velux KLF 150 is not supported by this {% term integration %}, even though Velux markets it as the replacement for the now-discontinued KLF 200. Unlike the KLF 200, the KLF 150 does not provide a local API that Home Assistant can communicate with directly.
+
+However, there is a community [project](https://github.com/uncaught/gpio-shutter-bridge) that bridges the KLF 150's GPIO interface with MQTT. Using this project with additional hardware, you can control your KLF 150 through the [MQTT Cover integration](/integrations/cover.mqtt/).
+
+### Velux Active (KIX 300)
 
 The Velux Active (KIX 300) set is not supported by this {% term integration %}. To integrate Velux Active (KIX 300) with Home Assistant, you can use the [HomeKit Controller](/integrations/homekit_controller) {% term integration %} and get full control over your windows, curtains, covers, the air quality sensor KLA 300, etc.
 

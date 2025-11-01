@@ -80,7 +80,7 @@ They are ideal to be used in automation scripts or for the `template` platforms.
 {% endnote %}
 
 
-## Setting up devices and entites
+## Setting up devices and entities
 
 The `lcn` hardware modules and groups are represented by Home Assistant *devices*. The periphery of each `lcn` module is represented by Home Assistant *entities*. Peripheries are, for example, the output ports, relays, and variables of a module. Refer to the description of each [platform](#platforms) to learn about which entity should be used for which periphery.
 
