@@ -300,7 +300,7 @@ A big thank you to all the contributors involved! 👏
 
 ### Farewell to the following 
 
-The IBM Watson IOT Platform, Neato, and Plum Lightpad integrations are also no longer available as of this release. Their services have been discontinued. 
+The IBM Watson IOT Platform, and Plum Lightpad integrations are also no longer available as of this release. Their services have been discontinued. 
 
 The Vultr integration has been removed. It relied on Vultr’s phased out API, which is no longer available. We’d be happy to see this integration return if someone updates it to work with Vultr’s newer API versions.
 
