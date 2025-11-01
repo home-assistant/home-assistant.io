@@ -29,8 +29,8 @@ This setup is optional but recommended as a security best practice.
 1. Go to your eGauge's web dashboard.
 2. Select **Settings**, then **Access Control**.
 3. Add a new user with privileges set to **Allowed to view all data and settings**.
-4. Click **Save**.
-5. Click **Change Password** to create a password for the new account.
+4. Select **Save**.
+5. Select **Change Password** to create a password for the new account.
 
 ### Configure eGauge registers
 
