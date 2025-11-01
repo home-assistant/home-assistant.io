@@ -38,9 +38,14 @@ This integration requires a WLED device running WLED 0.14.0 or newer.
 
 You can install the latest version of WLED on your device by going to
 the [WLED web installer](https://install.wled.me/) or by downloading the
-latest release from the [WLED GitHub releases page](https://github.com/Aircoookie/WLED/releases).
+latest release from the [WLED GitHub releases page](https://github.com/wled/WLED/releases).
 
 {% include integrations/config_flow.md %}
+
+{% configuration_basic %}
+Host:
+    description: "Hostname or IP address of your WLED device."
+{% endconfiguration_basic %}
 
 ## Lights
 
@@ -135,6 +140,37 @@ unless you are using a beta version of WLED. In that case, the update
 Keep Master Light:
   description: Keep the master light, even if there is only 1 segment. This ensures the master light is always there, in case you are automating segments to appear and remove dynamically.
 {% endconfiguration_basic %}
+
+## Data updates
+
+By default, official WLED builds have the WebSocket server enabled, which allows the integration to receive real-time updates (“push” data) directly from the device. When the integration starts, it first attempts to connect via [WebSocket](https://kno.wled.ge/interfaces/websocket/). If the device was built without WebSocket support — for example, a custom WLED firmware compiled without that feature — the integration automatically falls back to {% term polling %}, fetching data from the device every 10 seconds by default.
+
+Information about new WLED releases is checked independently, once every 3 hours, regardless of the number of connected devices.
+
+## Known limitations
+
+* WLED exposes a single color model per segment in Home Assistant.
+  This means that **mixed-type LED strips** — for example *RGB + CCT* or *RGBW + CCT* combinations — cannot currently have their RGB and CCT channels controlled independently in Home Assistant.
+  When such strips are used, only one color temperature or hue is active at a time.
+
+* The integration relies on the WLED JSON API.
+  Custom WLED builds that disable or remove parts of the API (for example, turning off the JSON interface in favor of HTTP + MQTT only) are not supported.
+
+* Real-time effects that depend on **sound-reactive** or **2D matrix** features appear in the effect list, but may not behave correctly if the WLED instance was not compiled with those capabilities.
+
+* The integration does not provide direct control for WLED’s user-created **presets or playlists stored on the filesystem** (JSON files in `/presets.json`).
+
+## Known supported and unsupported devices
+
+The integration requires **WLED version 0.14.0 or newer**.
+Official WLED releases for ESP8266 and ESP32 are fully supported.
+
+Most standard digital LED chipsets supported by WLED—such as **WS2812B**, **WS2811**, **SK6812**, **APA102**, or **WS2801**—work correctly with all features exposed in Home Assistant.
+
+Some LED configurations, however, have limited functionality:
+
+* **Analog RGB + CCT** or **digital RGBCCT** strips (for example, WS2508 or hybrid RGB + CCT setups) cannot be controlled with separate sliders for color and color temperature.
+  Home Assistant can only manage one color model at a time.
 
 ## Example automations
 
@@ -249,9 +285,61 @@ Here is an example of all of these put together into an automation:
         value: 255
 ```
 
+## Troubleshooting
+
+### Failed to set up the device due to MAC address mismatch
+
+#### Symptom
+
+**“Failed to set up: MAC address does not match the configured device. Expected to connect to device with MAC: XX:XX:XX:XX:XX:01, but connected to device with MAC: XX:XX:XX:XX:XX:02.”**
+
+When setting up or loading the integration, Home Assistant reports that the MAC address of the connected device does not match the MAC address stored in the configuration.
+
+##### Description
+
+This error indicates that Home Assistant connected to a different device than expected while using the same IP address.
+
+The most common cause is DHCP address reuse. This usually happens when:
+
+* The original device was offline or temporarily disconnected.
+* The router reassigned its IP address to another device.
+* Home Assistant attempted to connect to the old IP address and reached a different device with a different MAC address.
+
+To avoid controlling or communicating with the wrong device, the integration validates the MAC address and stops the setup if it does not match the configured one.
+
+##### Resolution
+
+To resolve this issue, follow these steps:
+
+1. Open the integration settings in Home Assistant.
+2. Select **Reconfigure** from the menu of the affected integration.
+3. Verify the currently configured IP address.
+4. Enter the correct IP address of the device if it has changed.
+5. Submit the form to update the configuration.
+
+##### Verify the device IP address
+
+If you are unsure about the correct IP address:
+
+* Check your router or DHCP server for the device’s current IP assignment.
+* Ensure the IP address matches the device you are configuring.
+
+##### Prevent future occurrences (optional)
+
+To reduce the chance of this issue happening again:
+
+* Configure a DHCP reservation for the device in your router, or
+* Assign a static IP address to the device.
+
+##### Automatic recovery
+
+In many cases, this issue resolves automatically. When Home Assistant discovers the device at a new IP address, the integration may update the configuration on its own and restore the connection without manual action.
+
+If the error persists, reconfiguring the integration with the correct IP address is required.
 
 ## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.
 
 {% include integrations/remove_device_service.md %}
+
