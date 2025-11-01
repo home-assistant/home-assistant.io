@@ -56,7 +56,7 @@ In this installation, solar inverters feed directly into the grid.
 
 #### Other installations
 
-Consult the [eGauge configuration guide](https://www.egauge.net/media/support/docs/config-guide.pdf).
+For prerequisites of other installation types, consult the [eGauge configuration guide](https://www.egauge.net/media/support/docs/config-guide.pdf).
 
 {% include integrations/config_flow.md %}
 
