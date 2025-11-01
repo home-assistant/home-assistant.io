@@ -310,17 +310,6 @@ There are many more improvements in this release; here are some of the other not
 
 - TODO
 
-### Shipping on a new Python version 
-
-This release ships with Python π! (See what they did there? Python 3.14 → π 😉) 
-If you’re wondering—Python is the language Home Assistant runs on. 
-
-Why’s that exciting? It means a faster, more efficient foundation for everything Home Assistant does. 
-
-And the best part? If you’re using Home Assistant OS or the Container version, you don’t have to do a thing. The upgrade to Python 3.14 happens automatically when you update Home Assistant.
-
-Big thanks to [@cdce8p] for making it happen!
-
 ### The new Home Dashboard keeps getting smarter.
 
 Following the improvements introduced in latest releases, this release makes the experience even smoother and more intuitive.
@@ -385,9 +374,13 @@ Schemas must now be validated within the event loop. Validations performed outsi
 Deprecated state constants in the `camera`, `cover`, `lock`, `media_player` and `vacuum` integrations have been removed. Update any custom components or automations using these constants.
 
 ([@gjohansson-ST] - [#153363]) ([camera docs])
+
 ([@gjohansson-ST] - [#154037]) ([cover docs])
+
 ([@gjohansson-ST] - [#153367]) ([lock docs])
+
 ([@gjohansson-ST] - [#153366]) ([media_player docs])
+
 ([@gjohansson-ST] - [#153364]) ([vacuum docs])
 
 {% enddetails %}
@@ -526,6 +519,14 @@ Groups now reflect an assumed state if any member entity has an assumed state.
 Creating config entries during reauthentication or reconfiguration flows will now fail if invalid.
 
 ([@gjohansson-ST] - [#154035])
+
+{% enddetails %}
+
+{% details "Add support for Python 3.14" %}
+
+Home Assistant now supports Python 3.14. Custom integrations should be verified for compatibility.
+
+(@cdce8p - #153939)
 
 {% enddetails %}
 
