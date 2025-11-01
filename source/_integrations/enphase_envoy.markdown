@@ -249,7 +249,7 @@ When used with [multiphase CT phase data](#ct-aggregate-and-phase-data), disable
 
 #### Grid Balanced import/export sensor entities
 
-When the Envoy Metered is equipped with a [total-consumption CT](#current-transformers) instead of a [net-consumption CT](#current-transformers), no individual entities for Grid import and export are available, as these are not measured. Instead, the balance (difference) of grid import and export is available in a single entity, disabled by default, enable as desired.
+When the Envoy Metered is equipped with either a [total-consumption CT](#current-transformers) or a [net-consumption CT](#current-transformers), the balance of grid import and export is available as well. The balanced power and energy entities are disabled by default, enable these as desired.
 
 - **Envoy <abbr title="Envoy serial number">SN</abbr> balanced net power consumption**: Current power exchange from (positive) / to (negative) the grid in W, default display in kW.
   (This is the same value as [Envoy <abbr title="Envoy serial number">SN</abbr> Current net power consumption](#grid-sensor-entities) when using a net-consumption CT.)
@@ -488,46 +488,15 @@ With a [net-consumption CT](#grid-sensor-entities) installed, both grid consumpt
 - For **Grid consumption**, use the **Envoy <abbr title="Envoy serial number">SN</abbr> Lifetime net energy consumption** entity.
 - For **Return to grid**, use the **Envoy <abbr title="Envoy serial number">SN</abbr> Lifetime net energy production** entity.
 
-#### Electricity grid with total-consumption CT
+#### Electricity grid with balanced consumption entities
 
-With a [total-consumption CT](#grid-balanced-importexport-sensor-entities) installed, only the balanced grid import-export value is available. This value is not suited for direct use with the energy dashboard. It will require some templating to split the value into an import and export value.
+With a [total-consumption CT](#grid-balanced-importexport-sensor-entities) or a [net-consumption CT](#grid-sensor-entities) installed, the balanced grid import-export energy value is available. This value is not suited for direct use with the energy dashboard. It will require some templating to split the value into an import and export value.
 
-{% details "Concept to split balanced Grid value into individual import-export values" %}
+To split the balanced energy value **Envoy <abbr title="Envoy serial number">SN</abbr> Lifetime balanced net energy consumption** into import-export values, a sensor [blueprint template](/integrations/template/#using-blueprints) named [`Filter positive or negative value changes in a sensor entity`](https://community.home-assistant.io/t/filter-positive-or-negative-value-changes-in-a-sensor-entity/943919/1) is available in the community blueprints exchange.
 
-The concept is to track value changes of the **Envoy <abbr title="Envoy serial number">SN</abbr> Lifetime balanced net energy consumption** entity, add positive changes to a grid_import entity and add negative changes to a grid_export entity.
+Import the blueprint using the **import blueprint to** button. This will install the blueprint as `/config/blueprints/template/catsmanac/Filter_positive_or_negative_value_changes_in_sensor_entity.yaml`. Use the directions and templates in the blueprint exchange topic to implement such a split.
 
-{% raw %}
-
-```yaml
-
-- trigger:
-    - platform: state
-      entity_id: sensor.envoy_sn_lifetime_balanced_net_energy_consumption
-  
-  sensor:
-    - name: "Grid import"
-      unique_id: calculated_envoy_grid_import
-      unit_of_measurement: "Wh" 
-      state: "{{ this.state | int(0) + ([0, (trigger.to_state.state | int(0) - trigger.from_state.state | int(0))] | max) }}" 
-      device_class: energy 
-      state_class: total_increasing 
-    - name: "Grid export"
-      unique_id: calculated_envoy_grid_export
-      unit_of_measurement: "Wh" 
-      state: "{{ this.state | int(0) - ([0, (trigger.to_state.state | int(0) - trigger.from_state.state | int(0))] | min) }}" 
-      device_class: energy 
-      state_class: total_increasing
-```
-
-{% endraw %}
-
-The above example does not address handling `unavailable` or `unknown` states, value changes over Home Assistant outages nor changing UOM to a preferred one. Examples for these exist in various community topics.
-
-{% tip %}
-Alternatively, this can be done by splitting the **Envoy <abbr title="Envoy serial number">SN</abbr> balanced net power consumption** into power import and export and two Riemann sum integral helpers to calculate energy from the power values.
-{% endtip %}
-
-{% enddetails %}
+Alternatively, creating 2 split energy sensors can be done by splitting the **Envoy <abbr title="Envoy serial number">SN</abbr> balanced net power consumption** into power import and export using [filter range](/integrations/filter/#range) helpers. These are then the source for two Riemann sum integral helpers to calculate energy from the power values.
 
 ### Home battery storage
 
@@ -546,108 +515,19 @@ Without a [storage CT](#aggregated-iq-battery-sensor-entities) installed, only t
 
 ##### Home battery storage data using battery power
 
-Battery power is the current power flow in or out of an individual battery. Using the summed Power values of all batteries, the result needs to be split in 2 entities, representing total power in and power out. Next, each entity needs to be integrated into energy, using two Riemann sum integral helpers. The resulting data can be used for Energy going into the battery and Energy coming out of the battery.
+Battery power is the current power flow in or out of an individual battery. Using the summed Power values of all batteries, the result needs to be split in 2 entities, representing total power in and power out.
 
-{% details "Concept to split Battery power value into individual import-export power values" %}
+This can be done using the [filter range](/integrations/filter/#range) helper. Next, each entity needs to be integrated into energy, using two Riemann sum integral helpers. The resulting data can be used for Energy going into the battery and Energy coming out of the battery.
 
-The concept is to first sum all battery Power values using a combine state helper. Then track value changes of the summed value entity, add positive values to a battery_charge power entity and add negative values to a battery_discharge power entity.
-
-{% raw %}
-
-```yaml
-
-- trigger:
-    - platform: state
-      entity_id: sensor.envoy_sn_summed_battery_power_entity
-  
-  sensor:
-    - name: "Battery charge power"
-      unique_id: calculated_envoy_battery_charge_power
-      unit_of_measurement: "W" 
-      state: "{{ [0, trigger.to_state.state  | int ] | max }}" 
-      device_class: power 
-      state_class: measurement
-    - name: "Battery discharge power"
-      unique_id: calculated_envoy_battery_discharge_power
-      unit_of_measurement: "W" 
-      state: "{{ [0, 0 - trigger.to_state.state | int ] | max) }}" 
-      device_class: power 
-      state_class: measurement
-```
-
-{% endraw %}
-
-Use both calculated values as a source for the 2 left Riemann integrators to obtain the energy charged and discharged. The above example does not address handling `unavailable` or `unknown` states, value changes over Home Assistant outages, nor conversion losses.
-
-If desired, this can also be done for individual batteries, see below concept.
-
-{% raw %}
-
-```yaml
-
-template:
-  - sensor:
-      - name: Battery xxx charge power
-        unique_id: calculated_envoy_battery_xxx_charge_power
-        state_class: measurement
-        icon: mdi:battery-charging
-        unit_of_measurement: W
-        device_class: power
-        state: >
-          {{ [0, states('sensor.encharge_xxxx_power') | int ] | max }}
-
-      - name: Battery xxx discharge power
-        unique_id: calculated_envoy_battery_xxx_discharge_power
-        state_class: measurement
-        icon: mdi:battery-charging
-        unit_of_measurement: W
-        device_class: power
-        state: >
-          {{ [0, 0 - states('sensor.encharge_xxxx_power') | int ] | max }}
-```
-
-Use both calculated values as a source for 2 left Riemann integrators to obtain energy charged and discharged.
-
-{% endraw %}
-
-{% enddetails %}
+If desired, this can also be done in a similar way for individual batteries.
 
 ##### Home battery storage data on the available battery energy
 
 Changes in the Available battery energy are a result from Energy going in or out of the battery. Splitting these energy changes into 2 entities, one tracking positive changes, one the negative changes, results in data that can be used for Energy going into the battery and Energy coming out off the battery. This method does not account for conversion losses as Energy content changes do not exactly match actual energy flow in and out of the battery.
 
-{% details "Concept to split Available battery energy value into individual import-export values" %}
+To split the changes in Available battery energy into charge-discharge values, a sensor [blueprint template](/integrations/template/#using-blueprints) named [`Filter positive or negative value changes in a sensor entity`](https://community.home-assistant.io/t/filter-positive-or-negative-value-changes-in-a-sensor-entity/943919/1) is available in the community blueprints exchange.
 
-The concept is to track value changes of the **Envoy <abbr title="Envoy serial number">SN</abbr> Available battery energy** entity, add positive changes to a battery_charge entity and add negative changes to a battery_discharge entity.
-
-{% raw %}
-
-```yaml
-
-- trigger:
-    - platform: state
-      entity_id: sensor.envoy_sn_available_battery_energy
-  
-  sensor:
-    - name: "Battery charge"
-      unique_id: calculated_envoy_battery_charge
-      unit_of_measurement: "Wh" 
-      state: "{{ this.state | int(0) + ([0, (trigger.to_state.state | int(0) - trigger.from_state.state | int(0))] | max }}" 
-      device_class: energy 
-      state_class: total_increasing
-    - name: "Battery discharge"
-      unique_id: calculated_envoy_battery_discharge
-      unit_of_measurement: "Wh" 
-      state: "{{ this.state | int(0) - ([0, (trigger.to_state.state | int(0) - trigger.from_state.state | int(0))] | min }}" 
-      device_class: energy 
-      state_class: total_increasing
-```
-
-{% endraw %}
-
-The above example does not address handling `unavailable` or `unknown` states, value changes over Home Assistant outages nor conversion losses.
-
-{% enddetails %}
+Import the blueprint using the **import blueprint to** button. This will install the blueprint as `/config/blueprints/template/catsmanac/Filter_positive_or_negative_value_changes_in_sensor_entity.yaml`. Use the directions and templates in the blueprint exchange topic to implement such a split using the **Envoy <abbr title="Envoy serial number">SN</abbr> available battery energy** entity as source entity. Add positive changes to a battery_charge entity and add negative changes to a battery_discharge entity.
 
 ### Individual devices
 

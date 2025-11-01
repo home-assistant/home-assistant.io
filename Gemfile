@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 ruby '> 2.5.0'
 
 group :development do
-  gem 'rake', '13.3.0'
+  gem 'rake', '13.3.1'
   gem 'jekyll', '4.4.1'
   gem 'compass', '1.0.3'
   gem 'sass-globbing', '1.1.5'
@@ -12,7 +12,7 @@ group :development do
   gem 'sassc', '2.1.0'
   gem 'sass-embedded', '1.93.2'
   gem 'rubocop', '1.81.6'
-  gem 'ruby-lsp', '0.26.1'
+  gem 'ruby-lsp', '0.26.2'
   gem 'rackup', '2.2.1'
 end
 
