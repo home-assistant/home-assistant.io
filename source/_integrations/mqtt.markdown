@@ -354,7 +354,7 @@ The `<node_id>` is optional, and can be used by clients to subscribe to their ow
 
 Best practice for entities with a `unique_id` is to set `<object_id>` to the `unique_id` and omit the `<node_id>`.
 
-#### Device-based discovery payload
+#### Device discovery payload
 
 A device can send a discovery payload to expose all components for a device.
 The `<component>` part in the discovery topic must be set to `device`.
