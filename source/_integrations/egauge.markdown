@@ -94,7 +94,7 @@ The **eGauge** integration polls the device every 30 seconds.
 
 ### Can’t set up the device
 
-#### Symptom: "Failed to Connect"
+#### Symptom: "Failed to connect"
 
 When trying to set up the integration, the form shows the message "Failed to connect".
 
