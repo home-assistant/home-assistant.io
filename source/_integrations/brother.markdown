@@ -138,7 +138,8 @@ By default, the integration {% term polling polls %} data from the device every 
 
 ## Examples
 
-You can configure Home Assistant to alert you when the printer jams or runs out of paper as follows. First, add the following to {% term "`configuration.yaml`" %} under the `template:` section (Note: replace `sensor.hl_l2340d_status` with the actual name of your sensor):
+You can configure Home Assistant to alert you when the printer jams or runs out of paper as follows. First, add the following to {% term "`configuration.yaml`" %} under the `template:` section.
+Replace `sensor.hl_l2340d_status` with the actual name of your sensor.
 
 {% raw %}
 
