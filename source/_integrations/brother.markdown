@@ -54,8 +54,79 @@ The Brother integration provides the following entities.
 
 ### Sensors
 
-- **xxx**
-  - **xxx**: xxx
+- **Belt unit remaining lifetime**
+  - **Description**: Remaining lifetime percentage of the belt unit
+- **Black drum page counter**
+  - **Description**: Total number of pages printed with the black drum
+- **Black drum remaining lifetime**
+  - **Description**: Remaining lifetime percentage of the black drum
+- **Black drum remaining pages**
+  - **Description**: Estimated number of pages remaining for the black drum
+- **Black ink remaining**
+  - **Description**: Percentage of black ink remaining
+- **Black toner remaining**
+  - **Description**: Percentage of black toner remaining
+- **B/W pages**
+  - **Description**: Total number of black and white pages printed
+- **Color pages**
+  - **Description**: Total number of color pages printed
+- **Cyan drum page counter**
+  - **Description**: Total number of pages printed with the cyan drum
+- **Cyan drum remaining lifetime**
+  - **Description**: Remaining lifetime percentage of the cyan drum
+- **Cyan drum remaining pages**
+  - **Description**: Estimated number of pages remaining for the cyan drum
+- **Cyan ink remaining**
+  - **Description**: Percentage of cyan ink remaining
+- **Cyan toner remaining**
+  - **Description**: Percentage of cyan toner remaining
+- **Drum page counter**
+  - **Description**: Total number of pages printed using the main drum
+- **Drum remaining lifetime**
+  - **Description**: Remaining lifetime percentage of the main drum
+- **Drum remaining pages**
+  - **Description**: Estimated number of pages remaining for the main drum
+- **Duplex unit page counter**
+  - **Description**: Total number of pages printed using the duplex unit
+- **Fuser remaining lifetime**
+  - **Description**: Remaining lifetime percentage of the fuser unit
+- **Laser remaining lifetime**
+  - **Description**: Remaining lifetime percentage of the laser unit
+- **Last restart**
+  - **Description**: Date and time of the last printer restart
+  - **Remarks**: This entity is disabled by default
+- **Magenta drum page counter**
+  - **Description**: Total number of pages printed with the magenta drum
+- **Magenta drum remaining lifetime**
+  - **Description**: Remaining lifetime percentage of the magenta drum
+- **Magenta drum remaining pages**
+  - **Description**: Estimated number of pages remaining for the magenta drum
+- **Magenta ink remaining**
+  - **Description**: Percentage of magenta ink remaining
+- **Magenta toner remaining**
+  - **Description**: Percentage of magenta toner remaining
+- **Page counter**
+  - **Description**: Total number of pages printed by the printer
+- **PF Kit 1 remaining lifetime**
+  - **Description**: Remaining lifetime percentage of paper feed kit 1
+- **PF Kit MP remaining lifetime**
+  - **Description**: Remaining lifetime percentage of multipurpose tray feed kit
+- **Status**
+  - **Description**: Current printer status or condition
+- **Yellow drum page counter**
+  - **Description**: Total number of pages printed with the yellow drum
+- **Yellow drum remaining lifetime**
+  - **Description**: Remaining lifetime percentage of the yellow drum
+- **Yellow drum remaining pages**
+  - **Description**: Estimated number of pages remaining for the yellow drum
+- **Yellow ink remaining**
+  - **Description**: Percentage of yellow ink remaining
+- **Yellow toner remaining**
+  - **Description**: Percentage of yellow toner remaining
+
+{% note %}
+Not all printer models support all the listed entities, the set of entities is tailored to a specific printer model.
+{% endnote %}
 
 ## Data updates
 
