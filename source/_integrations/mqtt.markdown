@@ -334,7 +334,7 @@ MQTT discovery supports two types of discovery messages:
 - [Device-based discovery](/integrations/mqtt/#device-based-discovery-payload), which allows you to include several components in a single discovery message
 - [Single component discovery](/integrations/mqtt/#single-component-discovery-payload), where you publish a separate discovery message for each component
 
-If you use a device with multiple components, it is recommended to use device-based discovery. It reduces the number of messages sent, and allows you to send the device information only once.
+If you use a device with multiple components, it is recommended to use MQTT device discovery. It reduces the number of messages sent, and allows you to send the device information only once.
 
 #### Discovery topic
 
