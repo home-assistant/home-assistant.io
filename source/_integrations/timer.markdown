@@ -181,7 +181,7 @@ template:
   - sensor:
       - name: "Laundry Timer - Ends at"
         state: >
-          {% set fin = state_attr('timer.laundry','finishes_at') %}
+          {% set fin = state_attr('timer.laundry', 'finishes_at') %}
           {{ as_datetime(fin) if fin else none }}
         device_class: timestamp
 ```
