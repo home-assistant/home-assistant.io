@@ -307,8 +307,9 @@ Features:
 Curtain slow mode is configured from the device options. Slow mode is primarily designed for Curtain 3 models, and older Curtain models may ignore the setting.
 
 1. To enable slow mode, go to {% my integrations title="**Settings** > **Devices & services**" %}.
-2. Find the SwitchBot integration and select the curtain device you want to configure, then select **Configure**.
-3. In the **Options** dialog, enable **Curtain slow mode**.
+2. Find the SwitchBot integration and select the curtain device you want to configure.
+3. Select **Configure** for that device.
+4. In the **Options** dialog, enable **Curtain slow mode**.
 
 #### Blind Tilt
 
