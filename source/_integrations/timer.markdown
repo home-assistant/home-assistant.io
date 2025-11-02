@@ -160,7 +160,7 @@ It uses the `finishes_at` timestamp to compute the difference between now and th
 ```yaml
 template:
   - sensor:
-      - name: "Laundry Timer – Remaining"
+      - name: "Laundry Timer - Remaining"
         state: >
           {% set fin = state_attr('timer.laundry','finishes_at') %}
           {% if fin %}
