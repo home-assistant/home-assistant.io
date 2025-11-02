@@ -82,6 +82,19 @@ Pick an icon from [Material Design Icons](https://pictogrammers.com/library/mdi/
 | `timer.restarted` | Fired when a timer has been restarted |
 | `timer.paused` | Fired when a timer has been paused |
 
+## Attributes
+
+Each `timer` entity provides a few useful attributes that describe its current configuration and runtime.
+
+* `duration` — total configured length of the timer, in seconds or `HH:MM:SS`
+* `remaining` — how much time is left when the timer is active or paused; updates only when paused, restarted, or canceled
+* `finishes_at` — the timestamp when the timer will finish; available only when running
+* `restore` — whether the timer will resume after a Home Assistant restart
+
+> **Note:**
+> The `remaining` value does not count down in real time.
+> For dynamic countdowns or dashboards, rely on the `finishes_at` attribute and a time-based template sensor.
+
 ## Actions
 
 ### Action `timer.start`
@@ -134,6 +147,45 @@ Reload `timer`'s configuration without restarting Home Assistant itself. This ac
 ### Using the action
 
 Navigate to **Developer Tools** > **Actions** and select the `timer.start` action, then click the **Fill Example Data** button. Now change the `entity_id` and `duration` and select **Perform action** button.
+
+## Templates
+
+Timers can be combined with templates to show remaining time or end time dynamically.
+
+### Remaining time
+
+Create a template sensor that calculates how long the timer has left.
+It uses the `finishes_at` timestamp to compute the difference between now and the expected end.
+
+```yaml
+template:
+  - sensor:
+      - name: "Laundry Timer – Remaining"
+        state: >
+          {% set fin = state_attr('timer.laundry','finishes_at') %}
+          {% if fin %}
+            {% set s = (as_datetime(fin) - now()).total_seconds() | int %}
+            {{ (s if s > 0 else 0) | timestamp_custom('%H:%M:%S', false) }}
+          {% else %}
+            00:00:00
+          {% endif %}
+```
+
+### End time
+
+A simpler version that shows when the timer will finish.
+With `device_class: timestamp`, it displays as a proper time value in the dashboard.
+
+```yaml
+template:
+  - sensor:
+      - name: "Laundry Timer – Ends at"
+        state: >
+          {% set fin = state_attr('timer.laundry','finishes_at') %}
+          {{ as_datetime(fin) if fin else none }}
+        device_class: timestamp
+```
+
 
 ## Examples
 
@@ -207,3 +259,47 @@ script:
         target:
           entity_id: timer.test
 ```
+
+### Motion light with auto-off
+
+The light turns on when motion is detected and stays on while movement continues.
+When motion stops and the timer finishes, the light turns off.
+
+```yaml
+alias: Motion-Activated Hall Light
+description: >-
+  Turn on hall light when motion is detected and turn it off after 2 minutes of
+  inactivity.
+triggers:
+  - trigger: state
+    entity_id: binary_sensor.motion_hall
+    to: "on"
+    id: motion_on
+  - trigger: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.hall_light
+    id: timer_done
+actions:
+  - choose:
+      - conditions:
+          - condition: trigger
+            id: motion_on
+        sequence:
+          - action: light.turn_on
+            target:
+              entity_id: light.hall
+          - action: timer.start
+            target:
+              entity_id: timer.hall_light
+            data:
+              duration: "00:02:00"
+      - conditions:
+          - condition: trigger
+            id: timer_done
+        sequence:
+          - action: light.turn_off
+            target:
+              entity_id: light.hall
+```
+
