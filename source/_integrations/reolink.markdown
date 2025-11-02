@@ -402,6 +402,7 @@ The following models have been tested and confirmed to work with a direct link t
 - **[RLC-823S2](https://reolink.com/product/rlc-823s2/)**
 - [RLC-830A](https://reolink.com/product/rlc-830a/)
 - [RLC-833A](https://reolink.com/product/rlc-833a/)
+- [RLC-840A](https://reolink.com/product/rlc-840a/)
 - [RLC-843A](https://reolink.com/product/rlc-843a/)
 - [RLC-1212A](https://reolink.com/product/rlc-1212a/)
 - **[RLC-1224A](https://reolink.com/product/rlc-1224a/)**
