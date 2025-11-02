@@ -12,12 +12,10 @@ ha_category:
   - Binary sensor
   - Button
   - Lock
-  - Presence detection
   - Sensor
 ha_platforms:
   - binary_sensor
   - button
-  - device_tracker
   - lock
   - sensor
 ha_quality_scale: silver
@@ -147,8 +145,7 @@ Go to Volvo's developer portal to view [the availability](https://developer.volv
 
 #### Lock
 
-- **Central lock**: Locks or unlocks the vehicle, and reports the current lock state of the vehicle.
-- **Reduced guard lock**: Locks the vehicle in reduced guard mode, keeping the doors locked but not arming movement or tilt detectors.
+- **Lock**: Locks or unlocks the vehicle, and reports the current lock state of the vehicle.
 
 #### Sensors
 
