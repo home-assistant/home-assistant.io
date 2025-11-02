@@ -90,6 +90,7 @@ Each `timer` entity provides a few useful attributes that describe its current c
 - `remaining`: How much time is left when the timer is active or paused; updates only when paused, restarted, or canceled
 - `finishes_at`: The timestamp when the timer will finish; available only when running
 - `restore`: Whether the timer will resume after a Home Assistant restart
+- 'editable': Whether the timer are manageable by UI 
 
 {% note %}
 The `remaining` value does not count down in real time. For dynamic countdowns or dashboards, rely on the `finishes_at` attribute.
