@@ -179,7 +179,7 @@ With `device_class: timestamp`, it displays as a proper time value in the dashbo
 ```yaml
 template:
   - sensor:
-      - name: "Laundry Timer – Ends at"
+      - name: "Laundry Timer - Ends at"
         state: >
           {% set fin = state_attr('timer.laundry','finishes_at') %}
           {{ as_datetime(fin) if fin else none }}
