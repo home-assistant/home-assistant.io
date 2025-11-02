@@ -32,7 +32,7 @@ It is recommended that you create a user on your device specifically for Home As
 
 ### Configuration notes
 
-Most of the ONVIF devices support more than one audio/video profile. Each profile provides different image quality, or in the case of an NVR, separate connected cameras. This integration will add entities for all compatible profiles with the video encoding set to H.264. Usually, the first profile has the highest quality and it is the profile used by default. However, you may want to use a lower quality image. You may disable unwanted entities through the Home Assistant UI.
+Most of the ONVIF devices support more than one audio/video profile. Each profile provides different image quality, or in the case of an NVR, separate connected cameras. This integration will add entities for all compatible profiles with the video encoding set to H.264, and only H.264, alternative formats like H.265 and MJPEG aren't supported so at least one video stream from each camera must be set to H.264 in order for the integration to find it. Usually, the first profile has the highest quality and it is the profile used by default. However, you may want to use a lower quality image. You may disable unwanted entities through the Home Assistant UI.
 
 {% include integrations/option_flow.md %}
 
