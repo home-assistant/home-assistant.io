@@ -91,9 +91,9 @@ Each `timer` entity provides a few useful attributes that describe its current c
 * `finishes_at` — the timestamp when the timer will finish; available only when running
 * `restore` — whether the timer will resume after a Home Assistant restart
 
-> **Note:**
-> The `remaining` value does not count down in real time.
-> For dynamic countdowns or dashboards, rely on the `finishes_at` attribute and a time-based template sensor.
+{% note %}
+The `remaining` value does not count down in real time. For dynamic countdowns or dashboards, rely on the `finishes_at` attribute.
+{% endnote %}
 
 ## Actions
 
