@@ -157,6 +157,8 @@ Timers can be combined with templates to show remaining time or end time dynamic
 Create a template sensor that calculates how long the timer has left.
 It uses the `finishes_at` timestamp to compute the difference between now and the expected end.
 
+{% raw %}
+
 ```yaml
 template:
   - sensor:
@@ -170,11 +172,14 @@ template:
             00:00:00
           {% endif %}
 ```
+{% endraw %}
 
 ### End time
 
 A simpler version that shows when the timer will finish.
 With `device_class: timestamp`, it displays as a proper time value in the dashboard.
+
+{% raw %}
 
 ```yaml
 template:
@@ -186,6 +191,7 @@ template:
         device_class: timestamp
 ```
 
+{% endraw %}
 
 ## Examples
 
