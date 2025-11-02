@@ -162,7 +162,7 @@ template:
   - sensor:
       - name: "Laundry Timer - Remaining"
         state: >
-          {% set fin = state_attr('timer.laundry','finishes_at') %}
+          {% set fin = state_attr('timer.laundry', 'finishes_at') %}
           {% if fin %}
             {% set s = (as_datetime(fin) - now()).total_seconds() | int %}
             {{ (s if s > 0 else 0) | timestamp_custom('%H:%M:%S', false) }}
