@@ -86,10 +86,10 @@ Pick an icon from [Material Design Icons](https://pictogrammers.com/library/mdi/
 
 Each `timer` entity provides a few useful attributes that describe its current configuration and runtime.
 
-* `duration`: Total configured length of the timer, in seconds or `HH:MM:SS`
-* `remaining`: How much time is left when the timer is active or paused; updates only when paused, restarted, or canceled
-* `finishes_at`: The timestamp when the timer will finish; available only when running
-* `restore`: Whether the timer will resume after a Home Assistant restart
+- `duration`: Total configured length of the timer, in seconds or `HH:MM:SS`
+- `remaining`: How much time is left when the timer is active or paused; updates only when paused, restarted, or canceled
+- `finishes_at`: The timestamp when the timer will finish; available only when running
+- `restore`: Whether the timer will resume after a Home Assistant restart
 
 {% note %}
 The `remaining` value does not count down in real time. For dynamic countdowns or dashboards, rely on the `finishes_at` attribute.
