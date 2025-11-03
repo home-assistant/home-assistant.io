@@ -82,17 +82,24 @@ Enjoy the (beta) release!
 - [Integrations](#integrations)
   - [New integrations](#new-integrations)
   - [Noteworthy improvements to existing integrations](#noteworthy-improvements-to-existing-integrations)
-  - [Integration quality scale achievements](#integration-quality-scale-achievements)
   - [Now available to set up from the UI](#now-available-to-set-up-from-the-ui)
+  - [Integration quality scale achievements](#integration-quality-scale-achievements)
+  - [Farewell to the following](#farewell-to-the-following)
+  - [Farewell to the following](#farewell-to-the-following-1)
 - [Other noteworthy changes](#other-noteworthy-changes)
+  - [The new Home Dashboard keeps getting smarter.](#the-new-home-dashboard-keeps-getting-smarter)
 - [Need help? Join the community](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
 
-_A huge thank you to all the contributors who made this release possible! And a special shout-out to [@frenck], [@frenck], and [@frenck] who helped write the release notes this release. Also, [@frenck], [@frenck], [@frenck], and [@frenck] for putting effort into tweaking its contents. Thanks to them, these release notes are in great shape. ❤️_
+_A huge thank you to all the contributors who made this release possible! And a special shout-out to [@bramkragten], [@JLo], [@MindFreeze], [@agners] and [@piitaya] who helped write the release notes this release. Also, [@frenck], [@frenck], [@frenck], and [@frenck] for putting effort into tweaking its contents. Thanks to them, these release notes are in great shape. ❤️_
 
 [@frenck]: https://github.com/frenck
-
+[@JLo]: https://github.com/jlpouffier
+[@bramkragten]: https://github.com/bramkragten
+[@piitaya]: https://github.com/piitaya
+[@MindFreeze]: https://github.com/MindFreeze
+[@agners]: https://github.com/agners
 
 ## A brand new target picker
 
@@ -304,6 +311,52 @@ The IBM Watson IOT Platform, and Plum Lightpad integrations are also no longer a
 
 The Vultr integration has been removed. It relied on Vultr’s phased out API, which is no longer available. We’d be happy to see this integration return if someone updates it to work with Vultr’s newer API versions.
 
+
+### Farewell to the following
+
+The following {% term integrations %} are no longer available as
+of this release:
+
+{% details "Vultr" %}
+
+The `vultr` integration has been removed and is no longer available.
+The integraiton has not been working since the API v1 that was used was taken offline in September 2023.
+
+([@mib1185] - [#153560]) ([vultr docs])
+
+{% enddetails %}
+
+{% details "IBM Watson IoT Platform" %}
+
+The `watson_iot` integration has been removed.
+
+On September 8th 2020 IBM announced the withdrawal of it's support for the IBM Watson IoT Platform and successively discontinued all versions until September 30th 2022.
+
+([@tr4nt0r] - [#153567]) ([watson_iot docs])
+
+{% enddetails %}
+
+{% details "Plum Lightpad" %}
+
+The `plum_lightpad` integration has been removed.
+
+The servers have been shutdown, which made the integration non functional.
+
+([@tr4nt0r] - [#153590]) ([plum_lightpad docs])
+
+{% enddetails %}
+
+{% details "Neato" %}
+
+The `neato` integration has been removed from Home Assistant.
+
+Vorwerk announced the shutdown of all neato cloud services. Because of this shutdown, the integration will no longer be able to control any neato devices, thus becoming dis-functional.
+
+([@mib1185] - [#154902]) ([neato docs])
+
+{% enddetails %}
+
+
 ## Other noteworthy changes
 
 There are many more improvements in this release; here are some of the other noteworthy changes:
@@ -345,188 +398,197 @@ possible for you. This release has the following backward-incompatible changes:
 
 ---
 
-{% details "Config log file changes on supervised install" %}
+{% details "Logging" %}
 
-The Supervisor will no longer write log files directly to the configuration directory. This change improves separation between managed and user-controlled files.
+On supervised installations (such as Home Assistant OS), the logs will no longer be written directly to the configuration directory. The logs are sent to systemd journal, and can be found in the UI. This change reduces the ammount of writes to disk.
 
 ([@abmantis] - [#146675])
 
 {% enddetails %}
 
-{% details "Validating schema outside the event loop will now fail" %}
-
-Schemas must now be validated within the event loop. Validations performed outside will raise errors.
-
-([@gjohansson-ST] - [#153472])
-
-{% enddetails %}
-
-{% details "Call async_track_template_result with template without hass now fails" %}
-
-`async_track_template_result` now requires a `hass` instance when called with a template.
-
-([@gjohansson-ST] - [#153473])
-
-{% enddetails %}
-
-{% details "Remove deprecated state constants" %}
-
-Deprecated state constants in the `camera`, `cover`, `lock`, `media_player` and `vacuum` integrations have been removed. Update any custom components or automations using these constants.
-
-([@gjohansson-ST] - [#153363]) ([camera docs])
-
-([@gjohansson-ST] - [#154037]) ([cover docs])
-
-([@gjohansson-ST] - [#153367]) ([lock docs])
-
-([@gjohansson-ST] - [#153366]) ([media_player docs])
-
-([@gjohansson-ST] - [#153364]) ([vacuum docs])
-
-{% enddetails %}
-
-{% details "template helper" %}
-
-The previously deprecated template attach function has been removed. Update custom templates using the new attach API.
-
-([@gjohansson-ST] - [#153370])
-
-{% enddetails %}
-
-{% details "Asuswrt" %}
-
-The `last_time_reachable` extra attribute has been removed from the `asuswrt` device tracker.
-
-([@ollo69] - [#154219]) ([asuswrt docs])
-
-{% enddetails %}
-
-{% details "LG webOS TV" %}
-
-Entity availability for `webostv` devices has been corrected to better reflect actual device status.
-
-([@thecode] - [#155164]) ([webostv docs])
-
-{% enddetails %}
-
-{% details "Fritzbox" %}
-
-Deprecated extra attributes in the `fritzbox` climate integration have been removed.
-
-([@flabbamann] - [#154152]) ([fritzbox docs])
-
-{% enddetails %}
-
-{% details "Mealie" %}
-
-The `mealie` integration now requires Mealie v2 or later and uses `aiomealie` 1.0.0.
-
-([@andrew-codechimp] - [#153203]) ([mealie docs])
-
-{% enddetails %}
-
-{% details "Mobile app" %}
-
-Zone entities created via the `mobile_app` integration now correctly handle friendly names.
-
-([@Ashus] - [#149453]) ([mobile_app docs])
-
-{% enddetails %}
-
-{% details "Motion Blinds" %}
-
-The tilt direction for `motion_blinds` has been reversed to align with standard behavior. Adjust automations as necessary.
-
-([@starkillerOG] - [#149777]) ([motion_blinds docs])
-
-{% enddetails %}
-
-{% details "Nederlandse Spoorwegen" %}
-
-The `nederlandse_spoorwegen` integration now reports departure and arrival times as timestamps.
-
-([@joostlek] - [#154011]) ([nederlandse_spoorwegen docs])
-
-{% enddetails %}
-
-{% details "ONVIF" %}
-
-The `Speed` parameter in ONVIF `GoToPreset` commands is now optional.
-
-([@carlos-sarmiento] - [#149636]) ([onvif docs])
-
-{% enddetails %}
 
 {% details "OralB" %}
 
-This change updates the `oralb` integration with translations and icons. Some entity IDs or display attributes may have changed.
+In the OralB integration states and attributes have changed.
+
+In multiple places, spaces have been replaced with underscores: 
+
+- Toothbrush state:
+
+  - `flight menu` → `flight_menu`
+  - `selection menu` → `selection_menu`
+  - `final test` → `final_test`
+  - `pcb test` → `pcb_test`
+  
+- Brushing mode:
+
+  - `daily clean` → `daily_clean`
+  - `gum care` → `gum_care`
+  - `tongue cleaning` → `tongue_cleaning`
+  - `super sensitive` → `super_sensitive`
+  - `deep clean` → `deep_clean`
+
+- Pressure:
+
+  - `power button pressed` → `power_button_pressed`
+  - `button pressed` → `button_pressed`
+
+- Sector:
+
+  - `no sector` → `no_sector`
+  - `sector 1` → `sector_1`
+  - `sector 2` → `sector_2`
+  - `sector 3` → `sector_3`
+  - `sector 4` → `sector_4`
+
+
+Automations should be updated to use the new states and attributes.
 
 ([@tr4nt0r] - [#153605]) ([oralb docs])
 
 {% enddetails %}
 
+
+{% details "Mealie" %}
+
+The `mealie` integration now requires Mealie version 2 or later.
+
+Mealie version 1 is no longer supported, version 2 was released in October 2024 so over a year ago.
+Given the differences between versions 1 and 2 we are no longer able to support/test backward compatibility with version 1.
+
+([@andrew-codechimp] - [#153203]) ([mealie docs])
+
+{% enddetails %}
+
+
+{% details "Motion Blinds" %}
+
+The tilt direction for `motion_blinds` has been reversed to align with standard behavior. Adjust automations as necessary.
+
+The tilt position of Motion Blinds devices has been corrected to allign with the Home Assistant standards.
+The new tilt position will be: 0 = closed/covering the window opening, 100 = open/letting light through.
+The previous tilt position can be converted to the new tilt postion as follows:
+ - new = 100 - old
+ - current_tilt_position 100 -> 0
+ - current_tilt_position 75 -> 25
+ - current_tilt_position 50 -> 50
+ - current_tilt_position 25 -> 75
+ - current_tilt_position 0 -> 100
+ - open_cover_tilt -> close_cover_tilt
+ - close_cover_tilt -> open_cover_tilt
+
+Any automations concerning Motion Blinds devices that use the current_tilt_position attribute or use tilt open/close will need to be adjusted.
+
+([@starkillerOG] - [#149777]) ([motion_blinds docs])
+
+{% enddetails %}
+
+
+{% details "Nederlandse Spoorwegen" %}
+
+The Nederlandse Spoorwegen entity is now displayed as a timestamp entity, rather than a string. Please adapt your automations and scripts.
+
+([@joostlek] - [#154011]) ([nederlandse_spoorwegen docs])
+
+{% enddetails %}
+
+
 {% details "Renault" %}
 
-The discovery of Renault functionnality was previously based on assumptions that may have created invalid and non-functionnal entities.
+The discovery of Renault functionality was previously based on assumptions that may have created invalid and non-functional entities.
 These will no longer be created.
 
 ([@epenet] - [#154137]) ([renault docs])
 
 {% enddetails %}
 
-{% details "Traccar server" %}
 
-The `traccar_server` integration now uses API token authentication instead of legacy credentials.
+{% details "Asuswrt" %}
 
-([@pantherale0] - [#155297]) ([traccar_server docs])
+The `last_time_reachable` attribute has been removed from the `asuswrt` device tracker.
+Use the `last_changed` attribute instead in your automations.
 
-{% enddetails %}
-
-{% details "Remove deprecated set state directly in alarm_control_panel" %}
-
-Directly setting state in the `alarm_control_panel` integration is no longer supported.
-
-([@gjohansson-ST] - [#154038]) ([alarm_control_panel docs])
-
-{% enddetails %}
-
-{% details "Remove deprecated ConfigSource from core" %}
-
-`ConfigSource` has been removed from the core system. Ensure any custom integrations no longer reference it.
-
-([@gjohansson-ST] - [#154112])
-
-{% enddetails %}
-
-{% details "async_config_entry_first_refresh in update coordinator requires a config entry" %}
-
-`async_config_entry_first_refresh` now mandates a valid config entry. Custom components using it must be updated.
-
-([@gjohansson-ST] - [#154114])
+([@ollo69] - [#154219]) ([asuswrt docs])
 
 {% enddetails %}
 
 {% details "Set assumed state to group if at least one child has assumed state" %}
 
-Groups now reflect an assumed state if any member entity has an assumed state.
+Previously, the group’s assumed state was always false, regardless of the state of its child entities.
+
+This is now changed so that:
+
+The group will now have an assumed state of `true` if at least one child entity has an assumed state.
+This makes the group’s assumed state reflect the uncertainty of its children more accurately.
+These domains have been added: switch, fan, light and cover.
 
 ([@piitaya] - [#154163]) ([group docs])
 
 {% enddetails %}
 
-{% details "Fail creating config entry in reauth or reconfigure flows" %}
-
-Creating config entries during reauthentication or reconfiguration flows will now fail if invalid.
-
-([@gjohansson-ST] - [#154035])
-
-{% enddetails %}
-
-{% details "Add support for Python 3.14" %}
+{% details "Python 3.14 support" %}
 
 Home Assistant now supports Python 3.14. Custom integrations should be verified for compatibility.
 
-(@cdce8p - #153939)
+The following integrations won't work with Python 3.14 initially. Support will be added back once the dependencies are updated.
+
+- `AppleTV`
+- `Jabber (XMPP)`
+- `Logitech Harmony Hub`
+
+The `profiler.memory` service is not available when using Python 3.14. It will return if and when `guppy3` becomes Python 3.14 compatible.
+
+([@cdce8p] - [#153939])
+
+{% enddetails %}
+
+{% details "Mobile app" %}
+
+The `mobile_app` integration, which has support for the iPhone and Android companion apps, has been updated to set the device tracker state to the friendly name of the zone when the companion app is set to send only the zone name instead of the exact coordinates.
+
+This means the `person` entity states of custom zones will now be the zone's name instead of the zone's object ID, and might hence break existing automation which trigger on the person state.
+
+As an example, given a zone `zone.kids_school` named `School`.
+_Before_ this change: The state of the corresponding `person` and `device_tracker` entities would be `kids_school` when the "Location Sent" in the companion app was set to send "Zone Name Only" and `School` when the  the "Location Sent" in the companion app was set to "Exact".
+_After_  this change: The state of the corresponding `person` and `device_tracker` entities is `School` both when the  the "Location Sent" in the companion app is set to "Exact" and when it is set to "Zone Name Only".
+
+([@Ashus] - [#149453]) ([mobile_app docs])
+
+{% enddetails %}
+
+{% details "ONVIF" %}
+
+The `Speed` parameter in the ONVIF `GoToPreset` action is now optional.
+
+The default of `0.5` is no longer set. If you want to restore the previous behavior you have to set `speed` to `0.5` in your action.
+
+([@carlos-sarmiento] - [#149636]) ([onvif docs])
+
+{% enddetails %}
+
+{% details "Fix LG webOS TV entity availability status" %}
+
+The state of LG webOS TV media player entities that do not have an automation trigger to turn on the device will set to `unavailable` instead of `off`.
+
+([@thecode] - [#155164]) ([webostv docs])
+
+{% enddetails %}
+
+{% details "Traccar Server" %}
+
+The Traccar integration has been updated to use a more secure API Token for authentication. This is a required, one-time breaking change to align with Traccar's security recommendations and ensure the integration continues to work.
+
+This release migrates the integration away from the older username/password method, ensuring continued stability and security for all users while also allowing users with SSO based setups to use the integration.
+
+When you update Home Assistant, the existing Traccar integration will need to be re-authenticated:
+
+1. Generate an API Token on your Traccar server. (You'll find this option in your Traccar server's user settings.)
+2. Go to Settings → Devices & Services → Traccar Server.
+3. Click "Reconfigure" and enter your new API Token when prompted.
+
+Once you've done this, your Traccar devices and entities will work exactly as they did before.
+
+([@pantherale0] - [#155297]) ([traccar_server docs])
 
 {% enddetails %}
 
