@@ -99,7 +99,7 @@ notify:
     platform: signal_messenger
     url: "http://127.0.0.1:8080"
     auth:
-      username: "BASIC_AUTH_USER" # the username to be used for Basic Auth
+      username: "BASIC_AUTH_USERNAME" # the username to be used for Basic Auth
       password: "BASIC_AUTH_PASSWORD" # the password for the specified user
     number: "YOUR_PHONE_NUMBER"
     recipients:
