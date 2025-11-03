@@ -573,6 +573,14 @@ Once you've done this, your Traccar devices and entities will work exactly as th
 
 {% enddetails %}
 
+{% details "Xbox" %}
+
+The `Account tier` and `Gold tenure` sensors have been retired, as they no longer receive updates following the transition from Xbox Live Gold to Xbox Game Pass. Additionally, the `In party` and `In multiplayer` binary sensors have been removed, since they’ve been non-functional for quite some time.
+
+([@tr4nt0r] - [#154891]) ([xbox docs])
+
+{% enddetails %}
+
 [@abmantis]: https://github.com/abmantis
 [@gjohansson-ST]: https://github.com/gjohansson-ST
 [@mib1185]: https://github.com/mib1185
@@ -620,6 +628,8 @@ Once you've done this, your Traccar devices and entities will work exactly as th
 [#155263]: https://github.com/home-assistant/core/pull/155263
 [#154902]: https://github.com/home-assistant/core/pull/154902
 [#155297]: https://github.com/home-assistant/core/pull/155297
+[#154891]: https://github.com/home-assistant/core/pull/154891
+
 [lock docs]: /integrations/lock/
 [media_player docs]: /integrations/media_player/
 [camera docs]: /integrations/camera/
@@ -644,6 +654,7 @@ Once you've done this, your Traccar devices and entities will work exactly as th
 [homeassistant_alerts docs]: /integrations/homeassistant_alerts/
 [analytics_insights docs]: /integrations/analytics_insights/
 [traccar_server docs]: /integrations/traccar_server/
+[xbox docs]: /integrations/xbox/
 
 If you are a custom integration developer and want to learn about changes and
 new features available for your integration: Be sure to follow our
