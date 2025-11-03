@@ -338,17 +338,6 @@ The servers have been shutdown, which made the integration non functional.
 
 {% enddetails %}
 
-{% details "Neato" %}
-
-The `neato` integration has been removed from Home Assistant.
-
-Vorwerk announced the shutdown of all neato cloud services. Because of this shutdown, the integration will no longer be able to control any neato devices, thus becoming dis-functional.
-
-([@mib1185] - [#154902]) ([neato docs])
-
-{% enddetails %}
-
-
 ## Other noteworthy changes
 
 There are many more improvements in this release; here are some of the other noteworthy changes:
