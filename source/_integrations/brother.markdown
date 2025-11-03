@@ -23,9 +23,12 @@ The integration monitors every supported part.
 
 ## Prerequisites
 
-To enable SNMP, navigate to the printer's web interface (for example: `http://192.168.5.6`) and turn it on under **Network** > **Protocol** > **SNMP**. For some models, access to the web interface is password-protected. For some printers, the default password is printed on a sticker on the back of the printer, preceded by **Pwd**. If the printer does not have a password on the sticker, the default password is `initpass`.
+- To enable SNMP, navigate to the printer's web interface (for example: `http://192.168.5.6`) and turn it on under **Network** > **Protocol** > **SNMP**. 
+- For some models, access to the web interface is password-protected. 
+   - For some printers, the default password is printed on a sticker on the back of the printer, preceded by **Pwd**.
+   - If the printer does not have a password on the sticker, the default password is `initpass`.
 
-For some Brother devices, **SNMPv3 read-write access and v1/v2c read-only access** is the option required (under advanced settings).
+- For some Brother devices, **SNMPv3 read-write access and v1/v2c read-only access** is the option required (under advanced settings).
 
 ![SNMP settings on Brother Printer web interface](/images/integrations/brother/brother-printer-webui.png)
 
@@ -184,4 +187,10 @@ Change `my_phone_notify` to the actual notifier you are using.
 
 ## Known limitations
 
-- Some very old Brother printers use different data format and these models are not supported. The integration will show information about that during configuration.
+- Some very old Brother printers use a different data format. Those models are not supported. The integration will show information about that during configuration.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
