@@ -151,6 +151,7 @@ Depending on the supported features of the camera ([see specifications of the ca
 - Message volume (Home Hub)
 - Chime volume
 - Chime silent time
+- Audio noise reduction*
 - Guard return time
 - Motion sensitivity
 - PIR sensitivity
