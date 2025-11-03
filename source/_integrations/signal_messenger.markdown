@@ -68,7 +68,7 @@ auth:
   required: false
   type: map
   keys:
-    user:
+    username:
       description: Username for authentication.
       required: true
       type: string
@@ -90,7 +90,7 @@ recipients:
 
 ### Basic Auth
 
-If Signal Messenger is running behind a Proxy with Basic Auth requirements, you need to add `auth` to your config and specify the user and password respectively.
+If Signal Messenger is running behind a Proxy with Basic Auth requirements, you need to add `auth` to your config and specify the username and password respectively.
 
 ```yaml
 # Basic Auth example for Signal Messenger
@@ -99,7 +99,7 @@ notify:
     platform: signal_messenger
     url: "http://127.0.0.1:8080"
     auth:
-      user: "BASIC_AUTH_USER" # the user to be used for Basic Auth
+      username: "BASIC_AUTH_USER" # the username to be used for Basic Auth
       password: "BASIC_AUTH_PASSWORD" # the password for the specified user
     number: "YOUR_PHONE_NUMBER"
     recipients:
