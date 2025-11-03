@@ -25,4 +25,4 @@ After the integration is set up, Dropbox will appear as a backup location in Hom
 
 {% include integrations/remove_device_service.md %}
 
-If you remove the integration, the Home Assistant folder in Dropbox containing your backups is not automatically deleted. You have to manually delete it in Dropbox.
+If you remove the integration, the Home Assistant folder in Dropbox containing your backups is not automatically deleted. If you want to delete the backup files, you need to manually delete the Home Assistant folder in Dropbox.
