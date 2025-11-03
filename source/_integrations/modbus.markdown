@@ -625,7 +625,7 @@ climates:
       type: float
       default: 0
     current_temp_scale:
-      description: "Scale factor for current temperature (output = current_temp_scale * value + current_temp_offset). Cannot be used together with *scale*."
+      description: "Scale factor for current temperature (output = `current_temp_scale` * `value` + `current_temp_offset`). Cannot be used together with `scale`"
       required: false
       type: float
       default: 1.0
