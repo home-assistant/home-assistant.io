@@ -32,6 +32,13 @@ The integration monitors every supported part.
 
 ![SNMP settings on Brother Printer web interface](/images/integrations/brother/brother-printer-webui.png)
 
+## Unsupported devices
+
+The following devices are not supported by the integration:
+
+- MFC-8660DN
+- MFC-8860DN
+
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
