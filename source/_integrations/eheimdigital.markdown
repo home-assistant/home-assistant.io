@@ -91,9 +91,9 @@ Currently, the following devices and entities are supported:
 #### Select
 
 - **Filter mode**: Setting the filter mode
-  - Manual mode: The filter uses the **manual speed**
-  - Pulse mode: The filter uses a high and low pulse, the speeds are configured via **high pulse speed** and **low pulse speed**, the durations are configured via **high pulse duration** and **low pulse duration**
-  - Bio mode: The filter uses a day and night rhythm, the speeds are configured via **day speed** and **night speed**, the start times of day and night are configured via **day start time** and **night start time**
+  - **Manual mode**: The filter uses the **manual speed**
+  - **Pulse mode**: The filter uses a high and low pulse, the speeds are configured via **high pulse speed** and **low pulse speed**, the durations are configured via **high pulse duration** and **low pulse duration**
+  - **Bio mode**: The filter uses a day and night rhythm, the speeds are configured via **day speed** and **night speed**, the start times of day and night are configured via **day start time** and **night start time**
 
 #### Sensor
 
@@ -120,10 +120,10 @@ Currently, the following devices and entities are supported:
 #### Select
 
 - **Filter mode**: Setting the filter mode
-  - Manual mode: The filter uses the **manual speed**
-  - Constant flow mode: The filter uses the **constant flow speed**
-  - Pulse mode: The filter uses a high and low pulse, the speeds are configured via **high pulse speed** and **low pulse speed**, the durations are configured via **high pulse duration** and **low pulse duration**
-  - Bio mode: The filter uses a day and night rhythm, the speeds are configured via **day speed** and **night speed**, the start times of day and night are configured via **day start time** and **night start time**
+  - **Manual mode**: The filter uses the **manual speed**
+  - **Constant flow mode**: The filter uses the **constant flow speed**
+  - **Pulse mode**: The filter uses a high and low pulse, the speeds are configured via **high pulse speed** and **low pulse speed**, the durations are configured via **high pulse duration** and **low pulse duration**
+  - **Bio mode**: The filter uses a day and night rhythm, the speeds are configured via **day speed** and **night speed**, the start times of day and night are configured via **day start time** and **night start time**
 - **Manual speed**: Setting the pump speed in Manual mode
 - **Constant flow speed**: Setting the pump speed in Constant flow mode
 - **Day speed**: Setting the pump speed for the day in Bio mode
