@@ -105,6 +105,21 @@ The 1-Wire bus can be connected with a remote 1-wire host over a network connect
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+Host:
+  description: The hostname or IP address of your OWServer instance.
+Port:
+  description: The port of your OWServer instance.
+  default: 4304
+{% endconfiguration_basic %}
+
+{% include integrations/option_flow.md %}
+
+{% configuration_basic %}
+Device selection:
+  description: The precision of the `DS18B20` temperature sensors can be configured for individual devices. The lower the precision, the faster the sensor will respond, but with less accuracy. The selected precision is reflected in the `device_path` attribute of the sensor entities.
+{% endconfiguration_basic %}
+
 ### Entities and attributes
 
 Upon startup of the platform, the 1-wire bus is searched for available 1-wire devices. On Bridge devices, the `aux` and `main` branches are recursively searched. For each device that this platform handles (see list of supported devices above), the platform adds one sensor for each physical quantity it measures. The name of the sensor is the device ID with the physical quantity it measures appended. Unsupported sensors are noted with a warning message in the log.
@@ -122,29 +137,29 @@ unit_of_measurement: °C
 friendly_name: 28.FF5C68521604 Temperature
 ```
 
-### Units with multiple sensors
-
-This platform works with devices with multiple sensors, which will cause a discontinuity in recorded values. Existing devices will receive a new ID and therefore show up as new devices.
-If you wish to maintain continuity, it can be resolved in the database by renaming the old devices to the new names.
-
-Connect to your database using the instructions from [Database section](/docs/backend/database/). Check the names of sensors:
-
-```sql
-SELECT entity_id, COUNT(*) as count FROM states GROUP BY entity_id ORDER BY count DESC LIMIT 10;
-```
-
-Alter the names of sensors using the following examples:
-
-```sql
-UPDATE states SET entity_id='sensor.<sensor_name>_temperature' WHERE entity_id LIKE 'sensor.<sensor_name>%' AND attributes LIKE '%\u00b0C%';
-UPDATE states SET entity_id='sensor.<sensor_name>_pressure' WHERE entity_id LIKE 'sensor.<sensor_name>%' AND attributes LIKE '%mb%';
-UPDATE states SET entity_id='sensor.<sensor_name>_humidity' WHERE entity_id LIKE 'sensor.<sensor_name>%' AND attributes LIKE '%%%' ESCAPE '';
-```
-
-Remember to replace `<sensor_name>` with the actual name of the sensor, as seen in the `SELECT` query.
-
 ## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.
 
 {% include integrations/remove_device_service.md %}
+
+## Troubleshooting
+
+### Temperature reported as 85°C
+
+A reading of 85°C on a `DS18B20` may indicate a valid value, or it may indicate a wiring issue or a loss of power.
+
+> 85°C is the power-on reset value of the `DS18B20`. It can report such a value when its tiny internal capacitor that acts as its power supply is depleted.
+
+There is currently no way to distinguish between a valid and an invalid 85°C value. If such values are reported incorrectly, the first step is to check the wiring (possibly ensuring that the temperature sensors are powered, and not using parasitic power).
+
+If all else fails, then a template can be used to filter out the incorrect values:
+{% raw %}
+```jinja
+{% if states('sensor.28_a05966040000_temperature') | float != 85 %}
+  {{ states('sensor.28_a05966040000_temperature') }}
+{% else %}
+  None
+{% endif %}
+```
+{% endraw %}

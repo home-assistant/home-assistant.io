@@ -3,6 +3,7 @@ title: LetPot
 description: Instructions on how to integrate LetPot hydroponic gardens into Home Assistant.
 ha_category:
   - Binary sensor
+  - Number
   - Select
   - Sensor
   - Switch
@@ -16,6 +17,7 @@ ha_domain: letpot
 ha_integration_type: hub
 ha_platforms:
   - binary_sensor
+  - number
   - select
   - sensor
   - switch
@@ -41,8 +43,6 @@ To use this integration, you must first create a LetPot account and connect your
 
 {% include integrations/config_flow.md %}
 
-### Configuration parameters
-
 {% configuration_basic %}
 Email:
     description: "The email address of your LetPot account."
@@ -56,11 +56,9 @@ Password:
 
 ## Supported functionality
 
-### Entities
+The **LetPot** integration provides the following entities.
 
-The LetPot integration provides the following entities.
-
-#### Binary sensors
+### Binary sensors
 
 - **Pump**: Indicates if the water pump is running (on) or idle (off). Updates may be delayed by the device until another entity updates.
   - Available for LetPot Air devices, and other device models which report this value.
@@ -81,7 +79,15 @@ Additionally, binary sensors for possible issues are available:
 Binary sensors for issues are disabled by default. If you want to use them, you need to enable them first. See the [enabling or disabling entities](/common-tasks/general/#enabling-or-disabling-entities) documentation for information on how to do this.
 {% endimportant %}
 
-#### Selects
+### Numbers
+
+- **Plants age**: The number of days the plants in the hydroponic garden have been growing/since planting. This value is automatically updated by the device while the **Power** switch is on. Edit the value to restart the counter or use your own logic.
+
+For LetPot Max devices, the following number is also available:
+
+- **Light brightness**: Set the built-in light brightness level. Accepted values are 1 (lowest) to 8 (highest).
+
+### Selects
 
 - **Light mode**: Set the built-in light mode to fruits/flowers (red and white LEDs enabled) or veggies/herbs (red, white and blue LEDs enabled).
 
@@ -92,14 +98,14 @@ Depending on device support, more selects are available:
 - **Temperature unit on display**: Set the temperature unit for the temperature shown on the device's display.
   - Available for LetPot Max devices, excluding devices with a serial number starting with `LPH63`.
 
-#### Sensors
+### Sensors
 
 For LetPot Max devices, the following sensors are available:
 
 - **Temperature**: Ambient temperature measured by the device.
 - **Water level**: Percentage of the water tank filled with water. The official app will display 0-30% as "Low", 30-90% as "Medium", and 90% or more as "High".
 
-#### Switches
+### Switches
 
 - **Power**: Main switch to turn on/off the device. Device features (like the built-in light and pump) will only operate when the power is on.
 - **Pump cycling**: Turn on/off cycling of the water pump. When on, the pump will run intermittently (controlled by the device), which can be tracked using the **Pump** binary sensor.
@@ -112,7 +118,7 @@ For LetPot Max devices, the following switch is also available:
 
 - **Auto mode**: Turn on/off auto mode, which automatically adds water and nutrients to the garden when needed.
 
-#### Times
+### Times
 
 - **Light on**: Time when the built-in light turns on.
 - **Light off**: Time when the built-in light turns off.
@@ -125,7 +131,7 @@ When **Light on** and **Light off** are set to the same time, the built-in light
 
 ## Data updates
 
-The integration receives updates when the device state changes, enabling immediate updates of the data in Home Assistant.
+The integration receives push updates when the device state changes, enabling immediate updates of the data in Home Assistant.
 
 ## Removing the integration
 

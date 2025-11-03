@@ -1133,7 +1133,7 @@ template:
         level: "{{ state_attr('sensor.theater_brightness', 'lux')|int }}"
         state: "{{ state_attr('sensor.theater_brightness', 'lux')|int > 0 }}"
         temperature: "{{states('input_number.temperature_input') | int}}"
-        hs_template: "({{states('input_number.h_input') | int}}, {{states('input_number.s_input') | int}})"
+        hs: "({{states('input_number.h_input') | int}}, {{states('input_number.s_input') | int}})"
         effect_list: "{{ state_attr('light.led_strip', 'effect_list') }}"
         turn_on:
           action: script.theater_lights_on
@@ -1190,7 +1190,7 @@ template:
         level: "{{ state_attr('sensor.theater_brightness', 'lux')|int }}"
         state: "{{ state_attr('sensor.theater_brightness', 'lux')|int > 0 }}"
         temperature: "{{states('input_number.temperature_input') | int}}"
-        hs_template: "({{states('input_number.h_input') | int}}, {{states('input_number.s_input') | int}})"
+        hs: "({{states('input_number.h_input') | int}}, {{states('input_number.s_input') | int}})"
         effect_list: "{{ state_attr('light.led_strip', 'effect_list') }}"
         turn_on:
           action: script.theater_lights_on
@@ -1622,7 +1622,7 @@ template:
         unlock:
           - variables:
               pin: !secret garage_door_pin
-          - condition: "{{ code == pin }}"
+          - condition: "{{ code|int == pin|int }}"
           - action: switch.turn_off
             target:
               entity_id: switch.source

@@ -168,7 +168,7 @@ data:
 
 ## Notification actions
 
-Available actions: `send_message`, `send_photo`, `send_video`, `send_animation`, `send_voice`, `send_sticker`, `send_document`, `send_location`, `edit_message`, `edit_caption`, `edit_replymarkup`, `answer_callback_query`, `delete_message`, `leave_chat` and `set_message_reaction`.
+Available actions: `send_message`, `send_photo`, `send_video`, `send_animation`, `send_voice`, `send_sticker`, `send_document`, `send_location`, `send_chat_action`, `edit_message`, `edit_caption`, `edit_replymarkup`, `answer_callback_query`, `delete_message`, `leave_chat` and `set_message_reaction`.
 
 Actions that send contents (`send_*`) will return a list of `message_id`/`chat_id` for messages delivered (in a property called `chats`). This will populate [Response Data](/docs/scripts/perform-actions#use-templates-to-handle-response-data) that you can further utilize in your automations to edit/delete the message later based on the `message_id`. See the example later on this page for usage instructions.
 
@@ -382,6 +382,17 @@ Send a poll.
 | `timeout`                 | yes      | Timeout for sending voice in seconds. Will help with timeout errors (poor internet connection, etc)                                                                            |
 | `reply_to_message_id`     | yes      | Mark the message as a reply to a previous message. In `telegram_callback` handling, for example, you can use {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %} |
 | `message_thread_id`       | yes      | Send the message to a specific topic or thread.|
+
+### Action `telegram_bot.send_chat_action`
+
+Send a chat action. Use it to notify the user with the relevant "typing" action when a bot response may be delayed, so they know a message is coming soon. Telegram clears this status after 5 seconds or when the reply arrives.
+
+| Data attribute     | Optional | Description                                                                                                                                                                                                                                                                                               |
+| -------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `config_entry_id`          | yes      | The configuration entry representing the Telegram bot to send the message. Required if you have multiple Telegram bots.|
+| `target`                   | yes      | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id.                                                                                                                                                                                       |
+| `chat_action`               | no      | Chat action to be sent: `typing`, `upload_photo`, `record_video`, `upload_video`, `record_voice`, `upload_voice`, `upload_document`, `choose_sticker`, `find_location`, `record_video_note`, `upload_video_note`.         |
+| `message_thread_id`        | yes      | Send the message to a specific topic or thread.|
 
 ### Action `telegram_bot.edit_message`
 
@@ -848,6 +859,44 @@ sequence:
 ```
 
 {% endraw %}
+
+## Known limitations
+
+The following features are not available in this integration:
+
+- Editing the bot (You can edit the bot using [@BotFather](https://t.me/botfather) on the Telegram app instead)
+- All payment related features such as Telegram Premium, Telegram Star and Telegram Gifts
+- Telegram Business
+- Telegram ADS
+- Mini Bot Apps and Mini Bot Store
+- Calls and live streaming
+- Wallpapers and Themes
+
+## Troubleshooting
+
+{% details "Error sending message: Can't parse entities" %}
+
+When using send actions such as `telegram_bot.send_message` with the `markdownv2` parse mode, the action will fail with the "Can't parse entities" error if the user input in the `message` field contains malformed Markdown syntax.
+
+You can perform any of the following steps to resolve this issue:
+
+- Use the `plain_text` parse mode either by configuring the Telegram bot options or by specifying it via the action's `parse_mode` data attribute.
+- Escape special characters in the `message` field with a preceding '\\' character.
+- Format your message according to the [formatting options](https://core.telegram.org/bots/api#formatting-options).
+
+{% enddetails %}
+
+{% details "Telegram Webhook bot is unable to receive updates" %}
+
+If your Telegram bot is unable to receive updates (for example, all events other than `telegram_sent` are not triggered), please follow the troubleshooting steps below:
+
+1. Reconfigure your Telegram bot to use the **Polling** platform and test again to verify that the issue is not related to network connectivity between Telegram and your Home Assistant.
+2. Check your firewall rules to verify that incoming connections are not blocked.
+3. Verify that your webhook URL is public and accessible.
+
+If the issue persists, please refer to the [Webhooks Guide](https://core.telegram.org/bots/webhooks) for more detailed troubleshooting.
+
+{% enddetails %}
 
 ## Removing the integration
 

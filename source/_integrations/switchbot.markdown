@@ -109,6 +109,8 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 - [Plug Mini (HomeKit Enabled)](https://www.switch-bot.com/products/switchbot-plug-mini-homekit-enabled)
 - [Relay Switch 1](https://www.switch-bot.com/products/switchbot-relay-switch-1)
 - [Relay Switch 1PM](https://www.switch-bot.com/products/switchbot-relay-switch-1pm)
+- [Plug Mini EU](https://www.switch-bot.com/products/switchbot-plug-mini-eu)
+- [Relay Switch 2PM](https://www.switch-bot.com/products/switchbot-relay-switch-2pm)
 
 ### Cover
 
@@ -124,6 +126,8 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 - [Smart Ceiling Light (WoCeiling)](https://www.switchbot.jp/products/switchbot-ceiling-light)
 - [Strip Light 3](https://www.switch-bot.com/products/switchbot-led-strip-light-3)
 - [Floor Lamp](https://www.switch-bot.com/products/switchbot-floor-lamp)
+- [RGBICWW Strip Light](https://www.switch-bot.com/products/switchbot-rgbicww-strip-light)
+- [RGBICWW Floor Lamp](https://www.switch-bot.com/products/switchbot-rgbicww-floor-lamp)
 
 ### Locks
 
@@ -165,6 +169,7 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 - [K10+ Pro Combo](https://www.switch-bot.com/products/switchbot-k10-pro-combo)
 - [K20](https://www.switchbot.jp/products/switchbot-robot-vacuum-cleaner-k20-pro)
 - [S10](https://www.switch-bot.com/products/switchbot-floor-cleaning-robot-s10)
+- [K11+](https://www.switch-bot.com/products/switchbot-robot-vacuum-k11)
 
 ### Air purifiers
 
@@ -226,6 +231,18 @@ Features:
 - turn on or off
 - get power consumption readings
 
+#### Plug Mini EU
+
+This is an encrypted device.
+
+Features:
+
+- turn on or off
+- get power
+- get voltage
+- get current
+- get electricity consumption
+
 #### Relay Switch 1
 
 This is an encrypted device.
@@ -244,6 +261,19 @@ Features:
 - get power
 - get voltage
 - get current
+- get electricity consumption
+
+#### Relay Switch 2PM
+
+This is an encrypted device, and it has two switch channels, you can set them independently.
+
+Features:
+
+- turn on or off
+- get power
+- get voltage
+- get current
+- get electricity consumption
 
 ### Cover
 
@@ -473,6 +503,30 @@ Features:
 - change color
 - set effect
 
+#### RGBICWW Strip Light
+
+This is an encrypted device.
+
+Features:
+
+- turn on or off
+- change brightness
+- change color temperature
+- change color
+- set effect
+
+#### RGBICWW Floor Lamp
+
+This is an encrypted device.
+
+Features:
+
+- turn on or off
+- change brightness
+- change color temperature
+- change color
+- set effect
+
 ### Locks
 
 Note: The integration currently only uses the primary lock state; in dual lock mode, not all things might work properly.
@@ -611,7 +665,7 @@ Features:
 
 ### Vacuums
 
-Vacuum entities are added for K10+, K10+ Pro, K10+ Pro Combo, K20, S10.
+Vacuum entities are added for K10+, K10+ Pro, K10+ Pro Combo, K20, S10, K11+.
 
 Features:
 - get states, including `cleaning`, `docked`, `idle`, `paused`, `returning`, and `error`; refer to Known limitations for more details

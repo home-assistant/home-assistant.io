@@ -21,7 +21,7 @@ The `rvmtransport` {% term integration %} will give you the departure time of th
 
 ## Setup
 
-Visit the [RMV OpenData web site](https://opendata.rmv.de) to find a list of valid station IDs.
+Visit the [RMV OpenData web site](https://opendata.rmv.de) to find a list of valid station IDs. You will need to use the "HAFAS_ID".
 
 ## Configuration
 
@@ -61,7 +61,7 @@ next_departure:
       required: false
       type: [string]
     direction:
-      description: "Name of a stop or station, e.g., 'Frankfurt (Main) Hauptbahnhof'. This can be used to only consider a particular direction of travel."
+      description: "ID of a stop or station, e.g., `3000912`. This can be used to only consider a particular direction of travel."
       required: false
       type: [string]
     lines:
@@ -116,6 +116,9 @@ sensor:
         lines: "S8"
         max_journeys: 5
         products: "S"
+      - station: 3001830
+        time_offset: 15
+        direction: 3000010
 ```
 
 The first sensor will return S-Bahn, bus, RB and RE trains departures from Frankfurt Hauptbahnhof to Frankfurt Airport or Stadium that are at least 5 minutes away.
@@ -123,3 +126,5 @@ The first sensor will return S-Bahn, bus, RB and RE trains departures from Frank
 The second sensor returns bus departures from Wiesbaden Hauptbahnhof going to Dernsches Gelände and Mainz Hauptbahnhof. To retrieve the time of the second departure, you would use `state_attr('sensor.ENTITY_NAME', 'departures')[1].time`.
 
 The third sensor returns all S-Bahn trains from Mainz Hauptbahnhof for line S8.
+
+The 4th sensor returns all connections from Niederrad Bahnhof going to or over Frankfurt Hauptbahnhof.

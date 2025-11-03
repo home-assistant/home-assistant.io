@@ -251,6 +251,8 @@ Depending on the supported features of the camera ([see specifications of the ca
 - Recording packing time
 - Pre-recording frame rate*
 - Post-recording time
+- Clear encoding* (h264, h265)
+- Fluent encoding* (h264, h265)
 
 **PTZ preset** positions can be set in the Reolink app/windows/web client, the names of the presets will be loaded into Home Assistant at the start of the integration. When adding new preset positions, please restart the Reolink integration.
 
@@ -269,7 +271,7 @@ To play a ringtone on a Reolink chime, the `reolink.play_chime` action can be us
 
 ### Siren entities
 
-If the camera supports a siren, a siren entity will be created.
+If the camera or hub supports a siren, a siren entity will be created.
 When using the siren turn-on action, the siren will continue to sound until the siren turn-off action is called.
 
 In some camera models, there is a delay of up to 5 seconds between the turn-off command and the sound stopping. The siren turn-on action supports setting a volume and a duration (no turn-off action call is needed in that case).
@@ -400,6 +402,7 @@ The following models have been tested and confirmed to work with a direct link t
 - **[RLC-823S2](https://reolink.com/product/rlc-823s2/)**
 - [RLC-830A](https://reolink.com/product/rlc-830a/)
 - [RLC-833A](https://reolink.com/product/rlc-833a/)
+- [RLC-840A](https://reolink.com/product/rlc-840a/)
 - [RLC-843A](https://reolink.com/product/rlc-843a/)
 - [RLC-1212A](https://reolink.com/product/rlc-1212a/)
 - **[RLC-1224A](https://reolink.com/product/rlc-1224a/)**
@@ -409,7 +412,7 @@ The following models have been tested and confirmed to work with a direct link t
 - [RLN12W NVR](https://reolink.com/product/rln12w/)
 - [NVS8 NVR](https://reolink.com/product/nvs8/) (Retail version of RLN8)
 - [NVS16 NVR](https://reolink.com/product/nvs16/) (Retail version of RLN16)
-- [Reolink Chime](https://reolink.com/product/reolink-chime/) (when connected to a doorbell)
+- [Reolink Chime](https://reolink.com/product/reolink-chime/) (when connected to a doorbell or Home Hub)
 - [Reolink Duo WiFi](https://reolink.com/product/reolink-duo-wifi-v1/)
 - [Reolink Duo 2 WiFi](https://reolink.com/product/reolink-duo-wifi/)
 - **[Reolink Duo 3 PoE](https://reolink.com/product/reolink-duo-3-poe/)**
@@ -452,7 +455,7 @@ The following battery-powered models have been tested and confirmed to work thro
 - **[Argus Track](https://reolink.com/product/argus-track/)**
 - [Reolink Altas](https://reolink.com/product/reolink-altas/)
 - [Reolink Altas PT Ultra](https://reolink.com/product/altas-pt-ultra/)
-- **[Reolink Doorbell Battery](https://reolink.com/roadmap/)**
+- **[Reolink Doorbell Battery](https://reolink.com/product/reolink-doorbell-battery/)**
 
 Reolink provides [this larger list of battery camera models](https://support.reolink.com/hc/en-us/articles/32379509281561-Reolink-Home-Hub-Compatibility/) which are compatible with the Home Hub and should work with Home Assistant.
 

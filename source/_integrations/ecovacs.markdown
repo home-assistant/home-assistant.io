@@ -28,11 +28,15 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `ecovacs` {% term integration %} is the main integration to integrate [Ecovacs](https://www.ecovacs.com) (Deebot) vacuums and mowers. You will need your Ecovacs account information (username, password) to discover and control vacuums and mowers in your account.
+The `ecovacs` {% term integration %} is the main integration to integrate [Ecovacs](https://www.ecovacs.com) (Deebot) vacuums and mowers.
 
-{% include integrations/config_flow.md %}
+## Prerequisites
+
+You will need your Ecovacs account information (username, password) to discover and control vacuums and mowers in your account.
 
 Additional note: There are some issues during the password encoding. Using some special characters (e.g., `-`) in your password does not work.
+
+{% include integrations/config_flow.md %}
 
 With `advanced_mode` enabled, users can use their self-hosted instance over the cloud servers. Self-hosting comes with some requirements and limitations. See [Self-hosted configuration](#self-hosted-configuration) for additional details.
 
@@ -58,8 +62,9 @@ Additionally, **depending on your model**, the integration provides the followin
   - `Clean count`: Set the number of times to clean the area.
   - `Cut direction`: Set the mower cutting direction (from 0 to 180 degrees).
   - `Volume`: Set the volume.
+  - `Water level`: Set a precise water level used during cleaning with the mop.
 - **Select**:
-  - `Water amount`: Specify the water amount used during cleaning with the mop.
+  - `Water level`: Choose from predefined water levels used during cleaning with the mop.
   - `Work mode`: Specify the mode, how the bot should clean.
 - **Sensor**:
   - `Error`: The error code and a description of the error. `0` means no error. Disabled by default.
@@ -211,3 +216,9 @@ In any case, when reporting an issue, please enable [debug logging](/docs/config
 
 Because Ecovacs doesn't provide a public documentation about their APIs, the support of devices is based on reverse engineering of the communication of the device. This reverse engineering can only be done by persons, who are in possession of such a device and the knowledge how to do the reverse engineering. Therefore the support of devices heavily depends on contributions from the community.
 If your device is not supported, please request for help or contribute on your own the support of your device directly to the [`deebot_client`](https://github.com/DeebotUniverse/client.py) library.
+
+## Removing the integration
+
+This integration follows standard integration removal.
+
+{% include integrations/remove_device_service.md %}
