@@ -15,8 +15,6 @@ ha_quality_scale: bronze
 
 This {% term integration %} allows you to connect your [Dropbox](https://dropbox.com) account with Home Assistant Backups.
 
-## Setting up the integration
-
 {% include integrations/config_flow.md %}
 
 ## Using the integration
