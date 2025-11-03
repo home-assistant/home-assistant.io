@@ -154,6 +154,7 @@ Depending on the supported features of the camera ([see specifications of the ca
 - Guard return time
 - Motion sensitivity
 - PIR sensitivity
+- PIR interval*
 - AI face sensitivity
 - AI person sensitivity
 - AI vehicle sensitivity
