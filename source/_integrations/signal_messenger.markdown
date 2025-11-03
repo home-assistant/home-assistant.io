@@ -63,6 +63,19 @@ url:
   description: The URL where the Signal Messenger REST API listens for incoming requests. 
   required: true
   type: string
+auth:
+  description: Configuration for Basic Auth.
+  required: false
+  type: map
+  keys:
+    user:
+      description: Username for authentication.
+      required: true
+      type: string
+    password:
+      description: Password for authentication.
+      required: true
+      type: string
 number:
   description: The sender number.
   required: true
