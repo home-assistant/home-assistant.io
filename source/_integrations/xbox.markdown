@@ -257,6 +257,7 @@ Just like the binary sensors, the Xbox sensor platform automatically keeps track
 | ---------------- | -------------------------------------------------------------------------- |
 | **Status**       | Shows the text status of your friend as it appears in your friends list.   |
 | **Gamerscore**   | Friend's Gamerscore.                                                       |
+| **Friends**      | Displays the number of mutual friend relationships of the account.         |
 | **Follower**     | Displays the number of people following the account.                       |
 | **Following**    |  Displays the number of people the account is following.                   |
 | **Last online**  | Displays the last time the friend was active online.                       |
