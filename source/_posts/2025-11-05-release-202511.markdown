@@ -85,7 +85,6 @@ Enjoy the (beta) release!
   - [Now available to set up from the UI](#now-available-to-set-up-from-the-ui)
   - [Integration quality scale achievements](#integration-quality-scale-achievements)
   - [Farewell to the following](#farewell-to-the-following)
-  - [Farewell to the following](#farewell-to-the-following-1)
 - [Other noteworthy changes](#other-noteworthy-changes)
   - [The new Home Dashboard keeps getting smarter.](#the-new-home-dashboard-keeps-getting-smarter)
 - [Need help? Join the community](#need-help-join-the-community)
@@ -304,13 +303,6 @@ A big thank you to all the contributors involved! 👏
 [Volvo]: /integrations/volvo
 [IMGW-PIB]: /integrations/imgw_pib
 [1-wire]: /integrations/onewire
-
-### Farewell to the following 
-
-The IBM Watson IOT Platform, and Plum Lightpad integrations are also no longer available as of this release. Their services have been discontinued. 
-
-The Vultr integration has been removed. It relied on Vultr’s phased out API, which is no longer available. We’d be happy to see this integration return if someone updates it to work with Vultr’s newer API versions.
-
 
 ### Farewell to the following
 
