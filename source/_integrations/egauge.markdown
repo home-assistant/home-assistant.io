@@ -22,7 +22,7 @@ This integration supports all eGauge energy monitors running firmware version 4.
 
 ## Prerequisites
 
-### Create a read-only user account for Home Assistant
+### Creating a read-only user account for Home Assistant
 
 This setup is optional but recommended as a security best practice.
 
@@ -32,7 +32,7 @@ This setup is optional but recommended as a security best practice.
 4. Select **Save**.
 5. Select **Change Password** to create a password for the new account.
 
-### Configure eGauge registers
+### Configuring eGauge registers
 
 This setup is optional, but required for integration with the Energy Dashboard.
 
