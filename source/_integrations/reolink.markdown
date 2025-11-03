@@ -249,6 +249,7 @@ Depending on the supported features of the camera ([see specifications of the ca
 - Doorbell LED (Stay off, Auto, Auto & always on at night)
 - HDR* (Off, On, Auto)
 - Binning mode* (Off, On, Auto)
+- Image exposure mode* (Auto, Low noise, Anti-smearing, Manual)
 - Clear frame rate*
 - Fluent frame rate*
 - Clear bit rate*
