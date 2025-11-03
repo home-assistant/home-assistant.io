@@ -73,4 +73,9 @@ automation:
     - action: scene.turn_on
       target:
         entity_id: scene.office_at_evening
+    - action: light.turn_on
+      target: "{{ {'entity_id': ['light.office', 'light.office_2']} }}"
+    - action: switch.turn_on
+      target:
+        label_id: "{{ ['office_evening', 'office_after_15'] }}"
 ```
