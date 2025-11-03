@@ -42,7 +42,7 @@ You will need to obtain an API key from Freedompro's app to use this integration
 2. Register and create your first home.
 3. Make sure you have at least one accessory paired with the Freedompro Cloud before starting integration.
 4. Switch to the **Profile** tab (bottom right corner).
-5. Scroll down to the **Developper tools** and tap **Api Key**.
+5. Scroll down to the **Developer tools** and tap **Api Key**.
 6. Generate an API key.
 
 {% include integrations/config_flow.md %}

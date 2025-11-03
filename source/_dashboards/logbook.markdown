@@ -1,8 +1,8 @@
 ---
 type: card
-title: "Logbook card"
-sidebar_label: Logbook
-description: "The logbook card displays entries from the logbook for specific entities, devices, areas, and/or labels."
+title: "Activity card"
+sidebar_label: Activity
+description: "The activity card displays the activity of specific entities, devices, areas, and/or labels."
 related:
   - docs: /integrations/frontend/
     title: Themes
@@ -10,11 +10,11 @@ related:
     title: Dashboard cards
 ---
 
-The logbook card displays entries from the logbook for specific entities, devices, areas, and/or labels.
+The activity card displays entries from the activity for specific entities, devices, areas, and/or labels.
 
 <p class='img'>
-  <img src='/images/dashboards/logbook.png' alt='Screenshot of the logbook card'>
-  Screenshot of the logbook card.
+  <img src='/images/dashboards/activity-card.png' alt='Screenshot of the activity card'>
+  Screenshot of the activity card.
 </p>
 
 {% include dashboard/edit_dashboard.md %}
@@ -23,18 +23,20 @@ The logbook card displays entries from the logbook for specific entities, device
 
 {% configuration_basic %}
 Target:
-  description: The entities, devices, areas and labels whose logbook entries will show in the card. See [target selector](/docs/blueprint/selectors/#target-selector) for more information.
+  description: The entities, devices, areas and labels whose activity entries will show in the card. See [target selector](/docs/blueprint/selectors/#target-selector) for more information.
 Title:
   description: The title that shows on the top of the card.
 Hours to show:
   description: The number of hours in the past that will be tracked in the card.
 Theme:
   description: Name of any loaded theme to be used for this card. For more information about themes, see the [frontend documentation](/integrations/frontend/).
+State filter:
+  description: Limit the displayed logbook entries to only the specified states.  
 {% endconfiguration_basic %}
 
 ## YAML configuration
 
-The following YAML options are available when you use YAML mode or just prefer to use YAML in the code editor in the UI.
+The following YAML options are available when you use YAML mode or just prefer to use YAML in the code editor in the UI. Activity used to be called "logbook" in the past, and is still called logbook in YAML.
 
 {% configuration %}
 type:
@@ -58,6 +60,10 @@ theme:
   required: false
   description: Override the used theme for this card with any loaded theme. For more information about themes, see the [frontend documentation](/integrations/frontend/).
   type: string
+state_filter:
+  required: false
+  description: Limit the displayed logbook entries to only the selected states. For example a list of `['on']` will display entries when targeted entities turn on, but not when they turn off.
+  type: list
 {% endconfiguration %}
 
 ### Examples
