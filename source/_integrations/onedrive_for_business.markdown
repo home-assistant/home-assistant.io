@@ -37,7 +37,7 @@ Folder path:
 
 The integration will request the following permissions on your OneDrive for the integration to work:
 
-- `Files.ReadWrite.All`: Grants the application permission to read and write in any folder of your OneDrive. Unfortunately, unlike the personal OneDrive, OneDrive for Business does not support the `Files.ReadWrite.AppFolder` permissions, so this are the least possible permissions.
+- `Files.ReadWrite.All`: Grants the application permission to read and write in any folder of your OneDrive. Unfortunately, unlike the personal OneDrive, OneDrive for Business does not support the `Files.ReadWrite.AppFolder` permissions, so these are the least possible permissions.
 - `offline_access`: Grants the application permission to refresh its authentication token without requiring your manual intervention
 - `openid`: Grants the application permission to read basic information, e.g. if you have a OneDrive
 
