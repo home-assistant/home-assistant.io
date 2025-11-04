@@ -88,7 +88,7 @@ recipients:
     type: string
 {% endconfiguration %}
 
-### Basic Auth
+### Basic authentication
 
 If Signal Messenger is running behind a Proxy with Basic Auth requirements, you need to add `auth` to your config and specify the username and password respectively.
 
