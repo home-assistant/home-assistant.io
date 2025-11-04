@@ -249,7 +249,7 @@ It is not just new {% term integrations %} that have been added; existing integr
 - Adds support for controlling Growatt MIN/TLX inverters through number platform and entities ([@johanzander] - [#153886]) ([growatt_server docs]) (new-platform)
 - Add event entity for Telegram bot ([@hanwg] - [#154383]) ([telegram_bot docs]) (new-platform)
 - Add image platform to Xbox integration ([@tr4nt0r] - [#155369]) ([xbox docs]) (new-platform)
-- Add support for Wi-SUN Module RL7023 Stick-D/DSS from Tessera Technology Inc. to B Route Smart Meter integration  ([@SeraphicRav] - [#154371]) ([route_b_smart_meter docs])
+- Add support for Wi-SUN Module RL7023 Stick-D/DSS from Tessera Technology Inc. to B Route Smart Meter integration ([@SeraphicRav] - [#154371]) ([route_b_smart_meter docs])
 
 
 ### Now available to set up from the UI
