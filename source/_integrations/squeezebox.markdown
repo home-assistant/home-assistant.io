@@ -207,7 +207,7 @@ The integration provides the following entities.
   - **Description**: Date of the last library scan.
 
 - **Next alarm**
-  - **Description**: Timestamp of the next enabled alarm of a player
+  - **Description**: Timestamp of the next enabled alarm of a player.
 
 - **Player count**
   - **Description**: Number of players on the service.
