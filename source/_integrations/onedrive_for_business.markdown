@@ -16,7 +16,7 @@ related:
 ha_quality_scale: bronze
 ---
 
-This integration allows you to use [OneDrive for Business](https://www.microsoft.com/en-us/microsoft-365/onedrive/online-cloud-storage) for [Home Assistant Backups](/common-tasks/general/#backups).
+The **OneDrive for Business** {% term integration %} allows you to use [OneDrive for Business](https://www.microsoft.com/en-us/microsoft-365/onedrive/online-cloud-storage) for [Home Assistant Backups](/common-tasks/general/#backups).
 
 Backup encryption is enabled by default and can be disabled as shown in the [backup documentation](/common-tasks/general/#to-define-the-backup-location-for-automatic-backups).
 
