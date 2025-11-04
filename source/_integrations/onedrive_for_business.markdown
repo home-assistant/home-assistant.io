@@ -59,11 +59,6 @@ Make sure to configure the following settings on the app registration:
 - **Supported account types**: Choose one of `Accounts in this organizational directory only` (recommended), `Accounts in any organizational directory`, `Accounts in any organizational directory (Any Microsoft Entra ID tenant - Multitenant) and personal Microsoft accounts`
 - **Redirect URI**: Type: `Web`, URL: `https://my.home-assistant.io/redirect/oauth`
 
-## Removing the integration
-
-This integration follows standard integration removal. No extra steps are required.
-
-{% include integrations/remove_device_service.md %}
 
 ## Troubleshooting
 
