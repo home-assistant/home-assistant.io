@@ -166,7 +166,7 @@ Climate entities are used to control target temperatures in refrigerators, freez
 {% details "List of switch entities" %}
 
 - **Power**: The Power switch has slightly different characteristics depending on the appliance model. For some devices, it works more or less as a traditional power switch, while it behaves like a wake-up/sleep toggle on others. The availability of the switch is controlled by the API, depending on the operational state of the appliance.
-- **Sabbath**: Certain fridges and freezers support Sabbath mode. The API support for this mode is incomplete and the if the user toggles the switch in the Miele app in can be a delay of a couple of minutes until the state is updated in HA. This entity is disabled by default in the integration.
+- **Sabbath**: Certain fridges and freezers support Sabbath mode. The API support for this mode is incomplete. Please note: If you toggle the switch in the Miele app, there may be a delay of a couple of minutes until the state is updated in HA. The **Sabbath** entity is disabled by default in the integration.
 - **Supercooling**: The switch controls Supercooling mode for refrigerators.
 - **Superfreezing**: The switch controls Superfreezing mode for freezers.
 {% enddetails %}
