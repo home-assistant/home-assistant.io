@@ -22,8 +22,8 @@ ha_brand: true
 
 The following devices are supported:
 
-- [Universal Dimming Actuator EUD62NPN-IPM](https://www.eltako.com/en/catalog/products/1238/eud62npn-ipm110-240v)
-- [Universal Dimming Actuator EUD64NPN-IPM](https://www.eltako.com/en/catalog/products/1761/eud64npn-ipm)
-- [Impulse Switch ESR64PF-IPM](https://www.eltako.com/en/catalog/products/1760/esr64pf-ipm)
-- [Impulse Switch ESR64NP-IPM](https://www.eltako.com/en/catalog/products/1759/esr64np-ipm)
-- [Shading Actuator ESB64NP-IPM](https://www.eltako.com/en/catalog/products/1792/esb64np-ipm)
+- [Universal dimming actuator EUD62NPN-IPM](https://www.eltako.com/en/catalog/products/1238/eud62npn-ipm110-240v)
+- [Universal dimming actuator EUD64NPN-IPM](https://www.eltako.com/en/catalog/products/1761/eud64npn-ipm)
+- [Impulse switch ESR64PF-IPM](https://www.eltako.com/en/catalog/products/1760/esr64pf-ipm)
+- [Impulse switch ESR64NP-IPM](https://www.eltako.com/en/catalog/products/1759/esr64np-ipm)
+- [Shading actuator ESB64NP-IPM](https://www.eltako.com/en/catalog/products/1792/esb64np-ipm)
