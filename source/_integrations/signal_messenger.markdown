@@ -90,7 +90,7 @@ recipients:
 
 ### Basic authentication
 
-If Signal Messenger is running behind a Proxy with Basic Auth requirements, you need to add `auth` to your config and specify the username and password respectively.
+If Signal Messenger is running behind a proxy that requires basic authentication, you need to add `auth` to your configuration and specify the username and password.
 
 ```yaml
 # Basic authentication example for Signal Messenger
