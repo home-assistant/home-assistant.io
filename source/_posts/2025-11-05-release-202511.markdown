@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "2025.11 Beta: A Betta title"
+title: "2025.11 Beta: Pick, automate, and a slice of pie"
 description: "Beta release notes for Home Assistant Core 2025.11"
 date: 2025-10-29 00:00:00
 date_formatted: "November 5, 2025"
@@ -86,6 +86,7 @@ Enjoy the (beta) release!
   - [Integration quality scale achievements](#integration-quality-scale-achievements)
   - [Farewell to the following](#farewell-to-the-following)
 - [Other noteworthy changes](#other-noteworthy-changes)
+  - [Logging](#logging)
   - [The new Home Dashboard keeps getting smarter.](#the-new-home-dashboard-keeps-getting-smarter)
 - [Need help? Join the community](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
@@ -102,14 +103,14 @@ _A huge thank you to all the contributors who made this release possible! And a 
 
 ## A brand new target picker
 
-Previously, we did not display the context of entities, devices, and areas—for example, which device an entity belongs to or which area it is assigned to. This could cause confusion, especially when multiple devices shared the same name but were located in different areas (for example, Presence sensor), or when multiple entities had the same name but belonged to different devices (for example, Battery level).
+Previously, we did not display the context of entities, devices, and areas: for example, which device an entity belongs to or which area it is assigned to. This could cause confusion, especially when multiple devices shared the same name but were located in different areas (for example, Presence sensor), or when multiple entities had the same name but belonged to different devices (for example, Battery level).
 
 On top of this missing context, we were unable to provide the scope of a particular target. How many lights will you turn on if you target a floor? Is it what you expect?
 
-These two issues led to a low usage of complex targets, with many of you falling back to targeting entities because this is what you trust and understand the most.
+These two issues led to a low usage of complex targets, with many of you falling back to targeting entities because it is what you trust and understand the most.
 
 The new version of the target picker fixes these two issues.
-Context is clearly displayed, and it also now clearly states how many entities will be targeted.
+Context is clearly displayed, as well as how many entities will be targeted.
 
 <img class="no-shadow" alt="Screenshot of a light action configuration with targets picked." src="/images/blog/2025-11/target-picker.png" />
 
@@ -117,24 +118,23 @@ You can even dig deeper into a floor, area, or device in order to understand whe
 
 <img class="no-shadow" alt="Screenshot of the details of a target." src="/images/blog/2025-11/target-details.png" />
 
-We hope that this revision of our target picker will help you create more long lasting and durable automations. An automation targeting an area or a floor is dynamic, and scales as you add or remove devices in your home, which is one of the great advantages of using larger targets.
+We hope this revision of our target picker will help you create longer lasting and more durable automations. An automation targeting an area or a floor is dynamic, and scales as you add or remove devices in your home, which is one of the great advantages of using larger targets.
 
 ## A brand new way to add triggers, conditions, and actions in your automations
 
 It is no secret that we're currently working hard on making automation easier to create.
 After the release of the automation sidebar [two releases ago](https://www.home-assistant.io/blog/2025/09/03/release-20259/#automation-editor-sidebar), we are now introducing a new dialog to add triggers, conditions, and actions.
 
-The changes are purely cosmetic; the dialog is bigger, so that the description of each block is simpler to read.
-The dialog has a two-pane layout to ease both the navigation and the selection of the wanted block.
+The changes are purely cosmetic: the dialog is bigger, so the description of each block is simpler to read, with a two-pane layout to ease both navigation and block selection.
 
-<img class="no-shadow" alt="Screenshot of the new dialog to add a action." src="/images/blog/2025-11/add-automation-dialog.png" />
+<img class="no-shadow" alt="Screenshot of the new dialog to add an action." src="/images/blog/2025-11/add-automation-dialog.png" />
 
-The building blocks (These blocks used to perform more complex conditions or sequences of actions, such as repeating actions, or branching out your sequence into multiple paths) have been moved into the main dialog on a second tab.
-There is now a single entry point to add something to an automation instead of two, reducing a lot the number of buttons present in complex automation.
+The building blocks (which used to perform more complex conditions or sequences of actions, such as repeating actions, or branching out your sequence into multiple paths) have been moved into the main dialog on a second tab.
+There is now a single entry point to add something to an automation instead of two, greatly reducing the number of buttons in complex automation.
 
 <img class="no-shadow" alt="Screenshot of the new dialog to add a building block to an action." src="/images/blog/2025-11/add-automation-dialog-blocks.png" />
 
-As mentioned above, these changes are purely cosmetic, for now! But this new dialog is foundational for what’s coming next, and we cannot wait to present it to you once it finally lands.
+As mentioned above, these changes are purely cosmetic, for now! But this new dialog is the foundation of what’s coming next, and we cannot wait to present that to you once it finally lands.
 
 
 ## Naming entities on your dashboard
@@ -153,15 +153,15 @@ And the best part? If you rename an entity or device, your dashboards will autom
 
 ## Energy pie
 
-The devices energy graph got a new layout more - "pie" 🥧. You can toggle between the regular bar chart and the new pie chart by clicking the icon in the top-right corner.
+We have added a new layout to the devices energy graph: "pie" 🥧. You can toggle between the regular bar chart and the new pie chart by clicking the icon in the top-right corner.
 
 <img class="no-shadow" alt="Screen recording showing the devices energy graph in pie layout." src="/images/blog/2025-11/pie-chart.gif" />
 
-This made the top-right corner of the other energy cards feel empty so we used that space to display the total energy for the selected period. So, for example, if the date picker is set to today, the total solar energy for today will be displayed in the corner of the solar production graph card.
+Doing this made the top-right corner of the other energy cards feel empty, so we used that space to display the total energy for the selected period. For example, if the date picker is set to today, the total solar energy for today will be displayed in the corner of the solar production graph card.
 
 ## Progress for Home Assistant Core and Add-on updates
 
-With this release you can now track the progress of updates to Home Assistant Core and Add-ons (managed by the Supervisor)! The progress includes the stages of downloading and unpacking, so the time required will vary based on your internet speed, CPU performance, and system load. As a result, the progress is not reflected perfectly linear, but it does still provide a good estimate of how far along the update is.
+With this release, you can now track the progress of updates to Home Assistant Core and Add-ons (managed by the Supervisor)! The progress includes the stages of downloading and unpacking, so the time required will vary based on your internet speed, CPU performance, and system load. As a result, the progress is not reflected as perfectly linear, but it does still provide a good estimate of how far along the update is.
 
 <img class="no-shadow" alt="Screen recording showing an add-on update with progress reporting." src="/images/blog/2025-11/supervisor-progress-report.gif" />
 
@@ -175,7 +175,7 @@ and improvements to existing ones! You’re all awesome 🥰
 We welcome the following new integrations in this release:
 
 - **[Firefly III]**, added by [@erwindouna]  
-  Integrate with the [Firefly III project], a free open-source personal finance manager with full transaction management, budgets, categories, and reports.
+  Integrate with the [Firefly III project], a free open source personal finance manager with full transaction management, budgets, categories, and reports.
 
 - **[Meteo.lt]**, added by [@xE1H]  
   The Meteo.lt integration uses meteorological data from the [Lithuanian Hydrometeorological Service] (LHMT) to provide regional weather forecasts for locations in Lithuania.
@@ -224,10 +224,10 @@ We welcome the following new integrations in this release:
 
 ### Noteworthy improvements to existing integrations
 
-It is not just new {% term integrations %} that have been added; existing integrations are also being constantly improved. Here are some of the noteworthy changes to existing integrations:
+It is not just new {% term integrations %} that have been added, existing integrations are also being constantly improved. Here are some of the noteworthy changes:
 
-- Add garage door opener for switchbot integration ([@zerzhang] - [#148460]) ([switchbot docs]) (new-platform)
-- snoo: add button entity for calling start_snoo ([@falconindy] - [#151052]) ([snoo docs]) (new-platform)
+- Add garage door opener for SwitchBot integration ([@zerzhang] - [#148460]) ([switchbot docs]) (new-platform)
+- SNOO: add button entity for calling start_snoo ([@falconindy] - [#151052]) ([snoo docs]) (new-platform)
 - Add notify platform to Habitica ([@tr4nt0r] - [#150553]) ([habitica docs]) (new-platform)
 - Add switch domain to VegeHub integration ([@Thulrus] - [#148436]) ([vegehub docs]) (new-platform)
 - Portainer add switch platform ([@erwindouna] - [#153485]) ([portainer docs]) (new-platform)
@@ -236,25 +236,25 @@ It is not just new {% term integrations %} that have been added; existing integr
 - Add time platform to nintendo_parental integration ([@pantherale0] - [#153866]) ([nintendo_parental docs]) (new-platform)
 - Add device_tracker platform to Volvo integration ([@thomasddn] - [#153437]) ([volvo docs]) (new-platform)
 - Add buttons to Volvo integration ([@thomasddn] - [#153272]) ([volvo docs]) (new-platform)
-- Add Speech-to-Text (stt) to elevenlabs ([@ehendrix23] - [#147838]) ([elevenlabs docs]) (new-platform)
+- Add Speech-to-Text (STT) to ElevenLabs ([@ehendrix23] - [#147838]) ([elevenlabs docs]) (new-platform)
 - Add switch platform to Nintendo Parental controls integration ([@pantherale0] - [#154179]) ([nintendo_parental_controls docs]) (new-platform)
-- Add switch platform and grid charge enable for Growatt Server integration ([@johanzander] - [#153960]) ([growatt_server docs]) (new-platform)
+- Add switch platform and grid charge enable to Growatt Server integration ([@johanzander] - [#153960]) ([growatt_server docs]) (new-platform)
 - Add LED control for supported UniFi network devices ([@Sese-Schneider] - [#152649]) ([unifi docs]) (new-platform)
 - Add valve group support ([@thecode] - [#154749]) ([group docs]) (new-platform)
 - Add number platform to nintendo_parental_controls integration ([@pantherale0] - [#154548]) ([nintendo_parental_controls docs]) (new-platform)
-- Yardian: add binary sensors ([@barneyonline] - [#152654]) ([yardian docs]) (new-platform)
-- Add temperature number entity to set Tool and Bed temperatures to Octoprint ([@AmadeusW] - [#153712]) ([octoprint docs]) (new-platform)
+- Add binary sensor to Yardian ([@barneyonline] - [#152654]) ([yardian docs]) (new-platform)
+- Add temperature number entity to set Tool and Bed temperatures to OctoPrint ([@AmadeusW] - [#153712]) ([octoprint docs]) (new-platform)
 - Add scene platform support to Niko Home Control integration ([@VandeurenGlenn] - [#152712]) ([niko_home_control docs]) (new-platform)
 - Add support for climate devices (e.g. thermostats) to the Control4 component ([@davidrecordon] - [#154502]) ([control4 docs]) (new-platform)
 - Adds support for controlling Growatt MIN/TLX inverters through number platform and entities ([@johanzander] - [#153886]) ([growatt_server docs]) (new-platform)
-- Add event entity for Telegram bot ([@hanwg] - [#154383]) ([telegram_bot docs]) (new-platform)
+- Add event entity to Telegram bot ([@hanwg] - [#154383]) ([telegram_bot docs]) (new-platform)
 - Add image platform to Xbox integration ([@tr4nt0r] - [#155369]) ([xbox docs]) (new-platform)
 
 
 ### Now available to set up from the UI
 
 While most {% term integrations %} can be set up directly from the Home Assistant
-user interface, some were only available using YAML configuration. We keep moving
+user interface, some were only available using a YAML configuration. We keep moving
 more integrations to the UI, making them more accessible for everyone
 to set up and use.
 
@@ -285,7 +285,7 @@ This release, we celebrate several {% term integrations %} that have improved th
 
 This is a huge achievement for these integrations and their maintainers. The effort and dedication required to reach these quality levels is significant, as it involves extensive testing, documentation, error handling, and often complete rewrites of parts of the integration.
 
-A big thank you to all the contributors involved! 👏
+A big thank-you to all the contributors involved! 👏
 
 [integration quality scale]: /docs/quality_scale/
 
@@ -312,7 +312,7 @@ of this release:
 {% details "Vultr" %}
 
 The `vultr` integration has been removed and is no longer available.
-The integraiton has not been working since the API v1 that was used was taken offline in September 2023.
+The integration has not been working since the API v1 that it used was taken offline in September 2023.
 
 ([@mib1185] - [#153560]) ([vultr docs])
 
@@ -322,7 +322,7 @@ The integraiton has not been working since the API v1 that was used was taken of
 
 The `watson_iot` integration has been removed.
 
-On September 8th 2020 IBM announced the withdrawal of it's support for the IBM Watson IoT Platform and successively discontinued all versions until September 30th 2022.
+On September 8, 2020 IBM announced the withdrawal of its support for the IBM Watson IoT Platform and successively discontinued all versions until September 30, 2022.
 
 ([@tr4nt0r] - [#153567]) ([watson_iot docs])
 
@@ -347,14 +347,12 @@ There are many more improvements in this release; here are some of the other not
 
 ### Logging
 
-On supervised installations (such as Home Assistant OS), we would save logs twice before, once in a log file in your configuration directory, and once in the OS in the systemd journal. All these extra writes to disk would cause more wear on for example SD cards than needed, so we have now stopped doing this.
-
-The logs are now only saved on the OS level, and can be found in the UI.
+On supervised installations (such as Home Assistant OS), we used to save logs twice — once in a log file in your configuration directory, and once in the OS in the systemd journal. All these extra writes to disk would cause more wear on drives, or even worse SD cards, than needed. We have now stopped doing this, and logs are now only saved on the OS level, and can be found in the UI.
 
 
 ### The new Home Dashboard keeps getting smarter.
 
-Following the improvements introduced in latest releases, this release makes the experience even smoother and more intuitive.
+Following the improvements introduced in the latest releases, this release makes the experience even smoother and more intuitive.
 
 We've simplified and reorganized things:
 - Suggested entities and favorites are now combined into a single, smart section, showing you what's most relevant in one place.
@@ -376,7 +374,7 @@ to get it fixed! Or check [our help page](/help) for guidance on more
 places you can go.
 
 Are you more into email? [Sign up for the Open Home Foundation Newsletter](/newsletter)
-to get the latest news about features, things happening in our community, and other projects that support the Open Home straight into your inbox.
+to get the latest on features, things happening in our community, and other projects that support the Open Home straight into your inbox.
 
 ## Backward-incompatible changes
 
@@ -434,7 +432,7 @@ Automations should be updated to use the new states and attributes.
 
 The `mealie` integration now requires Mealie version 2 or later.
 
-Mealie version 1 is no longer supported, version 2 was released in October 2024 so over a year ago.
+Mealie version 1 is no longer supported, version 2 was released in October 2024, so over a year ago.
 Given the differences between versions 1 and 2 we are no longer able to support/test backward compatibility with version 1.
 
 ([@andrew-codechimp] - [#153203]) ([mealie docs])
@@ -444,11 +442,9 @@ Given the differences between versions 1 and 2 we are no longer able to support/
 
 {% details "Motion Blinds" %}
 
-The tilt direction for `motion_blinds` has been reversed to align with standard behavior. Adjust automations as necessary.
-
-The tilt position of Motion Blinds devices has been corrected to allign with the Home Assistant standards.
+The tilt position of `motion_blinds` devices has been corrected to align with the Home Assistant standards.
 The new tilt position will be: 0 = closed/covering the window opening, 100 = open/letting light through.
-The previous tilt position can be converted to the new tilt postion as follows:
+The previous tilt position can be converted to the new tilt position as follows:
  - new = 100 - old
  - current_tilt_position 100 -> 0
  - current_tilt_position 75 -> 25
@@ -525,13 +521,13 @@ The `profiler.memory` service is not available when using Python 3.14. It will r
 
 {% details "Mobile app" %}
 
-The `mobile_app` integration, which has support for the iPhone and Android companion apps, has been updated to set the device tracker state to the friendly name of the zone when the companion app is set to send only the zone name instead of the exact coordinates.
+The `mobile_app` integration, which has support for the iPhone and Android companion apps, now handles zone-only updates better. When your companion app sends just the zone name (not the exact coordinates), the device tracker will show the zone’s friendly name.
 
-This means the `person` entity states of custom zones will now be the zone's name instead of the zone's object ID, and might hence break existing automation which trigger on the person state.
+The `person` entity now shows the zone’s friendly name (not its object ID) for custom zones. This might break existing automations that trigger on a person's state.
 
-As an example, given a zone `zone.kids_school` named `School`.
-_Before_ this change: The state of the corresponding `person` and `device_tracker` entities would be `kids_school` when the "Location Sent" in the companion app was set to send "Zone Name Only" and `School` when the  the "Location Sent" in the companion app was set to "Exact".
-_After_  this change: The state of the corresponding `person` and `device_tracker` entities is `School` both when the  the "Location Sent" in the companion app is set to "Exact" and when it is set to "Zone Name Only".
+As an example, if you have a zone named `zone.kids_school` with the friendly name `School`.
+_Before_ this change, the state of the corresponding `person` and `device_tracker` entities would be `kids_school` when the "Location Sent" in the companion app was set to send "Zone Name Only" and `School` when it was set to "Exact".
+_After_  this change, the state of the corresponding `person` and `device_tracker` entities will be `School` for both the "Location Sent" settings in the companion app.
 
 ([@Ashus] - [#149453]) ([mobile_app docs])
 
@@ -563,7 +559,7 @@ This release migrates the integration away from the older username/password meth
 
 When you update Home Assistant, the existing Traccar integration will need to be re-authenticated:
 
-1. Generate an API Token on your Traccar server. (You'll find this option in your Traccar server's user settings.)
+1. Generate an API Token on your Traccar server (you'll find this option in your Traccar server's user settings).
 2. Go to Settings → Devices & Services → Traccar Server.
 3. Click "Reconfigure" and enter your new API Token when prompted.
 
@@ -646,7 +642,7 @@ Once you've done this, your Traccar devices and entities will work exactly as th
 [traccar_server docs]: /integrations/traccar_server/
 
 If you are a custom integration developer and want to learn about changes and
-new features available for your integration: Be sure to follow our
+new features available for your integration, be sure to follow our
 [developer blog][devblog]. The following changes are the most notable for this
 release:
 
@@ -659,4 +655,4 @@ release:
 
 ## All changes
 
-Of course, there is a lot more in this release. You can find a list of all changes made here: [Full changelog for Home Assistant Core 2025.11](/changelogs/core-2025.11)
+Of course, there is a lot more in this release. You can find a list of all changes here: [Full changelog for Home Assistant Core 2025.11](/changelogs/core-2025.11)
