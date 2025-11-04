@@ -255,7 +255,7 @@ weekdays:
   type: list
 {% endconfiguration %}
 
-*at least one is required (`after` or `before`), both can be used together to define a time range.
+At least one of `after` or `before` must be used for this condition to be valid. Both can be used together to define a time range as in the example above.
 
 ### And
 
