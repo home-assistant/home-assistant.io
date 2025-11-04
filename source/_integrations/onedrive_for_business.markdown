@@ -71,3 +71,9 @@ This integration follows standard integration removal. No extra steps are requir
 
 If the integration asks you for a `client ID` and a `client secret`, that likely means you disabled part of the `default_config` in your Home Assistant configuration. For account linking to work you'll need `my` & `cloud` integrations loaded.
 {% enddetails %}
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
