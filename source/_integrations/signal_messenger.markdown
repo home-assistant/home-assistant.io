@@ -93,7 +93,7 @@ recipients:
 If Signal Messenger is running behind a Proxy with Basic Auth requirements, you need to add `auth` to your config and specify the username and password respectively.
 
 ```yaml
-# Basic Auth example for Signal Messenger
+# Basic authentication example for Signal Messenger
 notify:
   - name: signal
     platform: signal_messenger
