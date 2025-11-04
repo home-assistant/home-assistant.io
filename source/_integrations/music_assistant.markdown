@@ -20,7 +20,7 @@ The **Music Assistant** (MA) {% term integration %} allows you to connect Home A
 
 ## Prerequisites
 
-Before installing this integration ensure a running Music Assistant server is available. Instructions for installing the Music Assistant server is available in the [Music Assistant documentation](https://www.music-assistant.io/installation/)
+Before installing this integration ensure you have a running Music Assistant server. Instructions for installing the Music Assistant server are available in the [Music Assistant documentation](https://www.music-assistant.io/installation/)
 
 {% include integrations/config_flow.md %}
 
