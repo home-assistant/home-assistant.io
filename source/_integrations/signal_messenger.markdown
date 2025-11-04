@@ -64,7 +64,7 @@ url:
   required: true
   type: string
 auth:
-  description: Configuration for Basic Auth.
+  description: Configuration for basic authentication
   required: false
   type: map
   keys:
