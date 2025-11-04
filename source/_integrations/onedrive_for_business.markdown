@@ -48,7 +48,7 @@ This integration comes with a predefined set of [application credentials](https:
 
 Even if you use the default credentials, nobody will ever have access to your data except you, as the app does not have permission to do anything on its own. It only works with a signed-in user (it only has `delegated` not `application permissions`). 
 
-However, if you want to use your own credentials, follow [this guide](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app?tabs=certificate) to create your own client ID and secret.
+However, if you want to use your own credentials, follow [this guide by Microsoft on registering an application](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app?tabs=certificate) to create your own client ID and secret.
 
 {% tip %}
 You will need an Azure tenant with an active Azure subscription to create your own client credentials.
