@@ -2,6 +2,7 @@
 title: Ollama
 description: Instructions on how to integrate Ollama
 ha_category:
+  - AI
   - Voice
 ha_release: 2024.4
 ha_iot_class: Local Polling
@@ -54,7 +55,7 @@ Think before responding:
 
 ## Controlling Home Assistant
 
-If you want to experiment with local LLMs using Home Assistant, we currently recommend using the `llama3.1:8b` model and exposing fewer than 25 entities. Note that smaller models are more likely to make mistakes than larger models.
+If you want to experiment with local LLMs using Home Assistant, we recommend exposing fewer than 25 entities. Note that smaller models are more likely to make mistakes than larger models.
 
 Only models that support [Tools](https://ollama.com/search?c=tools) may control Home Assistant.
 

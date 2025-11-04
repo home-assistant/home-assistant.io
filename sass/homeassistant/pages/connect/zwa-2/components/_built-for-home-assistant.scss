@@ -1,0 +1,80 @@
+section#built-for-home-assistant {
+    @include bp(desktop) {
+        height: 100vh;
+    }
+
+    .cols {
+        justify-content: space-between;
+        align-items: center;
+        align-self: center;
+        flex-direction: column;
+        gap: 16px;
+
+        @include bp(tablet) {
+            gap: 40px;
+            flex-direction: row;
+        }
+
+        .col {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            gap: 16px;
+            flex-basis: 0;
+            min-width: 300px;
+            text-align: center;
+
+            h2 {
+                margin: 0 auto;
+            }
+
+            p {
+                text-wrap: balance;
+                max-width: 500px;
+            }
+
+            @include bp(tablet) {
+                gap: 20px;
+                text-align: left;
+                align-items: flex-start;
+
+                h2 {
+                    margin: 0;
+                }
+            }
+        }
+
+        .col:first-child {
+            align-items: flex-end;
+
+            @include bp(tablet) {
+                text-align: right;
+            }
+        }
+    }
+
+    &:after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, #FFF 30%, #DADDE2 100%);
+        background-size: 200%;
+    }
+
+    .model-still {
+        position: absolute;
+        inset: 0;
+        height: 100%;
+    }
+
+    .section-inner-content {
+        height: 720px;
+
+        @include bp(desktop) {
+            padding-top: calc(120px - var(--header-height));
+            height: 64vh;
+        }
+
+    }
+}

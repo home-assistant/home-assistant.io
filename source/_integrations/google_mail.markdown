@@ -63,8 +63,8 @@ The following attributes can be placed inside the `data` key of the action for e
 
 | Attribute              | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `cc`               |      yes | List of recipients to be carbon copied.
-| `bcc`                   |      yes | List of recipients to be back carbon copied.
+| `cc`               |      yes | List of recipients to be carbon-copied.
+| `bcc`                   |      yes | List of recipients to be blind-carbon-copied.
 | `from`                   |      yes | Default is current authenticated user. Typically only applies to GSuite accounts where the user has delegate access to a shared mailbox.
 | `send`                 |      yes | Default is true. Set this to false to create a draft instead. Recipients are not required in this instance.
 

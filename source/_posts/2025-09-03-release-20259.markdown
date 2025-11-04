@@ -1,0 +1,741 @@
+---
+layout: post
+title: "2025.9: Features for tiles and automations for miles"
+description: "A sidebar for the automation editor, tons of new tile card features, a brand new experimental Home dashboard, analog clocks, storage insights, and much more!"
+date: 2025-09-03 00:00:00
+date_formatted: "September 3, 2025"
+author: Franck Nijhof
+author_twitter: frenck
+comments: true
+categories:
+  - Release-Notes
+  - Core
+og_image: /images/blog/2025-09/social.png
+---
+
+<lite-youtube videoid="4oeQZhxYUNk" videotitle="Home Assistant 2025.9 Release Party"></lite-youtube>
+
+Home Assistant 2025.9! 🎉
+
+But before we dive into this release: _Did you see we launched a new product?_ 👀
+
+We've introduced the [Home Assistant Connect ZWA-2](/connect/zwa-2/), the ultimate way to connect Z-Wave devices to Home Assistant. You can read all about it in our [announcement blog 📰](/blog/2025/08/13/home-assistant-connect-zwa-2/) or re-watch the [product launch live stream on YouTube 📺](https://www.youtube.com/watch?v=Z-pUkM6XIuA).
+
+It was a busy month, as we also had two new [Works with Home Assistant](https://works-with.home-assistant.io/) program partners joining this month as well: [AirGradient](/blog/2025/08/21/airgradient-joins-works-with-home-assistant/) and [Frient](/blog/2025/09/02/frient-joins-works-with-home-assistant/)! 🎉
+
+While the above was happening this month, as if the project wasn't already busy enough, we kept on pushing to prepare for this release; and it is an absolute **massive** one! 🤯
+
+This month introduces a new experimental Home dashboard, which aims to become the new default dashboard for Home Assistant in a future release. A first iteration, of which we love to see your feedback and input on. As you know, we develop and iterate in the open. Give it a shot and let us know what you think!
+
+Talking about dashboards, my personal favorite card is definitely the [tile card](/dashboards/tile/); it is just so versatile. And this release brings in a staggering amount of new features for it! Most notably, the ability to add a trend graph to the tile card! 📈
+
+I'm the most excited about the visual changes to the automation editor this release brings: a sidebar. It is a huge and very visible change, that just makes so much sense. This release denotes the start of a whole series of improvements to the automation editor in this, and upcoming releases. As automations make a smart home feel magical, I personally can't wait to see how this evolves. 🤖
+
+Enjoy the release!
+
+../Frenck
+
+<!--more-->
+
+- [Automation editor sidebar](#automation-editor-sidebar)
+- [Introducing the Home dashboard](#introducing-the-home-dashboard)
+- [New tile card features](#new-tile-card-features)
+  - [Trend chart](#trend-chart)
+  - [Media player controls](#media-player-controls)
+  - [Bar gauge](#bar-gauge)
+  - [Fan direction and oscillation controls](#fan-direction-and-oscillation-controls)
+  - [Buttons](#buttons)
+  - [Valve open/close and position controls](#valve-openclose-and-position-controls)
+  - [Setting the date](#setting-the-date)
+- [Integrations](#integrations)
+  - [New integrations](#new-integrations)
+  - [Noteworthy improvements to existing integrations](#noteworthy-improvements-to-existing-integrations)
+  - [Integration quality scale achievements](#integration-quality-scale-achievements)
+  - [Now available to set up from the UI](#now-available-to-set-up-from-the-ui)
+  - [Farewell to the following](#farewell-to-the-following)
+- [Other noteworthy changes](#other-noteworthy-changes)
+  - [Analog clock](#analog-clock)
+  - [Storage insights](#storage-insights)
+- [Patch releases](#patch-releases)
+  - [2025.9.1 - September 5](#202591---september-5)
+  - [2025.9.2 - September 12](#202592---september-12)
+  - [2025.9.3 - September 13](#202593---september-13)
+  - [2025.9.4 - September 19](#202594---september-19)
+- [Need help? Join the community!](#need-help-join-the-community)
+- [Backward-incompatible changes](#backward-incompatible-changes)
+- [All changes](#all-changes)
+
+## Automation editor sidebar
+
+On [this year's Home Assistant roadmap](/blog/2025/05/09/roadmap-2025h1/#and-thats-not-all-for-this-year), we have set the goal of making automations easier to create. We have big plans, all based on tons of research, and with this release... we are shipping the first part of all this work, with the intent to gradually add more improvements over multiple releases!
+
+This release tweaks the automation editor user interface experience by introducing a sidebar! If you select an item in your automation, instead of that item expanding, it will open a new sidebar to the right with the settings for that selected item.
+
+<img class="no-shadow" alt="Screenshot showcasing a sidebar in our automation editor." src="/images/blog/2025-09/automation-sidebar.png" />
+
+This allows you to keep an overview of your automation on the left side of your screen, while you can tweak its behavior on the right. Of course, we have thought of smaller screens as well. On mobile, instead of the sidebar, a sheet will pop up at the bottom of the screen. This pop-up is also resizable, making it easier than ever to edit an action while reviewing your triggers.
+
+<img class="no-shadow" alt="Screenshot showing how on a smaller screen device a sheet is shown from the bottom of the page." src="/images/blog/2025-09/automation-bottom-sheet.png" />
+
+Besides the sidebar, we have made tons of other little improvements as well. Tiny layout and styling changes that you will definitely notice as they really help with the overall readability. For example, small lines and borders around grouped elements have been added, making it easier to distinguish between different parts of your automation. Oh! And drag-and-drop support is now available on mobile! 🎉
+
+{% tip %}
+
+One of Home Assistant's greatest strengths is our community. We're building the changes to our automations together, and your input will shape where it goes next. There are two ways to get involved:
+
+- [Share your thoughts in our survey](https://forms.gle/VFBQdYpmdWc8RDg18)
+- [Join the conversation in the automations & scripts development channel on Discord](https://discord.com/channels/330944238910963714/1351529028112224359)
+
+{% endtip %}
+
+## Introducing the Home dashboard
+
+Over the past year, we have focused on dashboards and their capabilities a lot. We’ve looked at a lot of your dashboards you’ve shared on socials, and talked to many of you about how you organize all your smart home devices and services. The goal? Making dashboards faster and easier to create, while still making them very customizable.
+
+With this release, we’re introducing a brand-new *Home dashboard*. The purpose is simple: to give you easy access to the right information at the right time.
+
+<img class="no-shadow" alt="Screenshot of the new Home dashboard" src="/images/blog/2025-09/home-dashboard.png" />
+
+The dashboard adapts to your Home Assistant experience level: powerful enough for advanced users, yet approachable for newcomers. We’re working to have it earn its name, and hope it will eventually become your new *Home* page. As always, it’s optional; you can always pick your own dashboard. This is the first iteration, and we’ll continue developing it in the open.
+
+When you first open the Home dashboard, it gives you a quick way to navigate to useful summaries for your light, climate, security, and media devices. You can also browse by areas, getting an overview of all the devices and services associated with that part of your home.
+
+We’re also introducing Favorites. You can pin any entity to the top, whether it’s a light, climate, or a person. We’d love to see what you choose (more on this in the future).
+
+The Home dashboard is not just about quick control. It also brings insights and information about your home. This first release includes weather and energy cards. It's a simple start, and we have a lot of ideas to explore with you. For example, helping you create your first automation, or show discovered devices.
+
+<img class="no-shadow" alt="Screenshot of the new Home dashboard viewing the living room area" src="/images/blog/2025-09/home-dashboard-area.png" />
+
+For now, the Home dashboard is considered experimental. Configuration options are limited, and it's guaranteed to evolve. It won’t appear automatically, and if you want to try it you’ll need to add it manually in the [dashboard settings](https://my.home-assistant.io/redirect/lovelace_dashboards/), by adding a new “Home” dashboard.
+
+{% tip %}
+
+One of Home Assistant's greatest strengths is our community. We're building this dashboard together, and your input will shape where it goes next. There are two ways to get involved:
+
+- [Share your thoughts in our survey](https://forms.gle/2Djeie5Cbwqmy8BR9)
+- [Join the conversation in the dashboard development channel on Discord](https://discord.com/channels/330944238910963714/1351536906437005313)
+
+{% endtip %}
+
+## New tile card features
+
+The [tile card](/dashboards/tile/) is the most versatile card we have in our arsenal
+of [cards for our dashboards](/dashboards/).
+
+One superpower of the tile card is its “features”, which are small additions where you can add quick interactions to these cards. For example, a slider to control the brightness of a light or buttons for the speed presets of a fan. Features have been extended quite a bit in this release by a dedicated group of community members.
+
+### Trend chart
+
+This release, an absolute banger is the addition of the trend chart features for tile cards created by [@MindFreeze].
+
+This feature adds a handy quick graph to the tile card, showing the history of a specific entity over time. For this initial version, the time window shown is 24 hours.
+
+<img class="no-shadow" alt="Screenshot showing a tile card using the new trend graph feature" src="/images/blog/2025-09/tile-features-trend-graph.png" />
+
+[@MindFreeze]: https://github.com/MindFreeze
+
+### Media player controls
+
+[@timmo001], added tile card features for media player controls and volume! This makes the tile card now a viable alternative to the media player card. Awesome!
+
+<img class="no-shadow" alt="Screenshot showing a tile card using the new media player features" src="/images/blog/2025-09/tile-features-media-player.png" />
+
+[@timmo001]: https://github.com/timmo001
+
+### Bar gauge
+
+A new tile card feature, made by [@MindFreeze]: The bar gauge!
+
+For this initial version, it works with sensors that use a percentage (`%`) for their unit of measurement.
+This makes the card great, for example, for a battery overview dashboard. Nice work!
+
+<img class="no-shadow" alt="Screenshot showing a tile card using the new bar gauge feature" src="/images/blog/2025-09/tile-features-bar-gauge.png" />
+
+[@MindFreeze]: https://github.com/MindFreeze
+
+### Fan direction and oscillation controls
+
+Thanks to [@pcan08] we now have a tile card feature to control fan direction and oscillation!
+
+<img class="no-shadow" alt="Screenshot showing a tile card using the new fan direction and oscillation features" src="/images/blog/2025-09/tile-features-fan.png" />
+
+[@pcan08]: https://github.com/pcan08
+
+### Buttons
+
+Thanks to [@dhoeben] we now have a tile card feature for buttons! He added these buttons for automation, script, and button entities. The text can be changed to display standard button text or custom text.
+
+<img class="no-shadow" alt="Screenshot showing a tile card using the new button feature" src="/images/blog/2025-09/tile-features-button.png" />
+
+[@dhoeben]: https://github.com/dhoeben
+
+### Valve open/close and position controls
+
+Thanks to [@timmo001] we now have a tile card feature to control the open/close and the position of valves.
+
+<img class="no-shadow" alt="Screenshot showing a tile card using the new open/close and valve position features" src="/images/blog/2025-09/tile-features-valve.png" />
+
+[@timmo001]: https://github.com/timmo001
+
+### Setting the date
+
+[@timmo001] continued and also added a new tile card feature to support date and datetime entities (including the input datetime helpers). It allows you to add a feature that allows for setting a date.
+
+<img class="no-shadow" alt="Screenshot showing a tile card using the new date feature" src="/images/blog/2025-09/tile-features-date.png" />
+
+[@timmo001]: https://github.com/timmo001
+
+## Integrations
+
+Thanks to our community for keeping pace with the new {% term integrations %}
+and improvements to existing ones! You’re all awesome 🥰
+
+### New integrations
+
+We welcome the following new integrations in this release:
+
+- **[Aladdin Connect]**, added by [@swcloudgenie]  
+  Control and monitor your [Genie Aladdin Connect garage doors] directly from Home Assistant.
+- **[SEKO PoolDose]**, added by [@lmaertin]  
+  Integrate your [SEKO] water treatment system of your pool or spa to monitor temperature and chemical levels.
+- **[Sleep as Android]**, added by [@tr4nt0r]  
+  Connects the [Sleep as Android app] to Home Assistant, allowing you to trigger automations based on alarm clock or sleep cycle events.
+- **[ToGrill Bluetooth BBQ thermometers]**, added by [@elupus]  
+  Connect your ToGrill-compatible Bluetooth grill thermometer and monitor your BBQ efforts to cook steaks to absolute perfection.
+
+[@elupus]: https://github.com/elupus
+[@lmaertin]: https://github.com/lmaertin
+[@swcloudgenie]: https://github.com/swcloudgenie
+[@tr4nt0r]: https://github.com/tr4nt0r
+[Aladdin Connect]: /integrations/aladdin_connect
+[Genie Aladdin Connect garage doors]: https://www.geniecompany.com/aladdin-connect-by-genie
+[SEKO PoolDose]: /integrations/pooldose
+[SEKO]: https://www.seko.com/
+[Sleep as Android app]: https://sleep.urbandroid.org/
+[Sleep as Android]: /integrations/sleep_as_android/
+[ToGrill Bluetooth BBQ thermometers]: /integrations/togrill/
+
+### Noteworthy improvements to existing integrations
+
+It is not just new {% term integrations %} that have been added; existing
+integrations are also being constantly improved. Here are some of the noteworthy
+changes to existing integrations:
+
+- [Husqvarna Automower] got some nice additions from [@Thomas55555]! You can now reset cutting blade usage time and track error events with a new event entity. Perfect for keeping track of your lawn mowing robot!
+- The [Reolink] integration now includes speak and doorbell volume controls, plus a chime silent time number entity! Nice [@starkillerOG]!
+- You can now send notifications with the [PlayStation Network] integration! Send direct messages to your friends! Thanks, [@tr4nt0r]!
+- Network admins will love [@Tomeroeni] bringing individual (enable/disable) switch port control to [UniFi] switches!
+- The [OpenWeatherMap] integration now includes a wind gust sensor, thanks to [@gjohansson-ST]!
+- [@kizovinh] added support for battery status and online status sensors to the [EZVIZ] integration, making it easier to monitor your EZVIZ cameras. Nice!
+- If you own a [Russound RIO] device, you can now browse your device's saved presets directly from the media browser! Thanks, [@noahhusby]!
+- [@mbo18] added an absolute humidity sensor to the [Awair] integration. Nice!
+- The [Teslemetry] integration added charging and preconditioning actions for your Tesla vehicle. Thanks, [@Bre77]!
+- [@catsmanac] added [IQ Meter Collar] and [C6 Combiner] support to the [Enphase Envoy] integration. Good work!
+
+[@Bre77]: https://github.com/Bre77
+[@catsmanac]: https://github.com/catsmanac
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@kizovinh]: https://github.com/kizovinh
+[@mbo18]: https://github.com/mbo18
+[@noahhusby]: https://github.com/noahhusby
+[@starkillerOG]: https://github.com/starkillerOG
+[@Thomas55555]: https://github.com/Thomas55555
+[@Tomeroeni]: https://github.com/Tomeroeni
+[@tr4nt0r]: https://github.com/tr4nt0r
+[Awair]: /integrations/awair
+[C6 Combiner]: https://enphase.com/store/communication/iq-gateway-and-combiner/iq-combiner-6c
+[Enphase Envoy]: /integrations/enphase_envoy
+[EZVIZ]: /integrations/ezviz
+[Husqvarna Automower]: /integrations/husqvarna_automower
+[IQ Meter Collar]: https://enphase.com/store/storage/gen4/iq-meter-collar
+[OpenWeatherMap]: /integrations/openweathermap
+[PlayStation Network]: /integrations/playstation_network
+[Reolink]: /integrations/reolink
+[Russound RIO]: /integrations/russound_rio
+[Teslemetry]: /integrations/teslemetry
+[UniFi]: /integrations/unifi
+
+### Integration quality scale achievements
+
+One thing we are incredibly proud of in Home Assistant is our
+[integration quality scale]. This scale helps us and our contributors to ensure
+integrations are of high quality, maintainable, and provide the best possible
+user experience.
+
+This release, we celebrate several {% term integrations %} that have improved
+their quality scale:
+
+- **2 integrations reached platinum** 🏆
+  - [Network UPS Tools (NUT)], thanks to [@tdfountain]
+  - [Uptime Kuma], thanks to [@tr4nt0r]
+
+- **1 integration reached bronze** 🥉
+  - [Mastodon], thanks to [@andrew-codechimp]
+
+[integration quality scale]: /docs/quality_scale/
+[@andrew-codechimp]: https://github.com/andrew-codechimp
+[@tdfountain]: https://github.com/tdfountain
+[@tr4nt0r]: https://github.com/tr4nt0r
+[Mastodon]: /integrations/mastodon
+[Network UPS Tools (NUT)]: /integrations/nut
+[Uptime Kuma]: /integrations/uptime_kuma
+
+This is a huge achievement for these integrations and their maintainers. The
+effort and dedication required to reach these quality levels is significant,
+as it involves extensive testing, documentation, error handling, and often
+complete rewrites of parts of the integration.
+
+A big thank you to all the contributors involved! 👏
+
+### Now available to set up from the UI
+
+While most {% term integrations %} can be set up directly from the Home Assistant
+user interface, some were only available using YAML configuration. We keep moving
+more integrations to the UI, making them more accessible for everyone
+to set up and use.
+
+The following integration is now available via the Home Assistant UI:
+
+- **[Bayesian]**, done by [@HarvsG]
+
+[@HarvsG]: https://github.com/HarvsG
+[Bayesian]: /integrations/bayesian
+
+### Farewell to the following
+
+The following {% term integration %} is no longer available as
+of this release:
+
+- **Uonet+ Vulcan** has been removed. Vulcan has changed their API and their
+  policies forbid using the API from unofficial software.
+
+## Other noteworthy changes
+
+There are many more improvements in this release; here are some of the other noteworthy changes:
+
+- Based on feature requests from the community, all modern [template entity] syntax now supports setting a default entity ID directly in YAML. Thanks [@Petro31] for implementing that!
+- [@Petro31] also added support for two new entity types to the template integration. You can now create your own templated [event entities](/integrations/template#event) and [update entities](/integrations/template#update). Awesome!
+- Home Assistant now supports `m³/min` as a volume flow rate unit. Nice addition [@fetzerch]!
+- Our voice guy [@synesthesiam] has been busy with some great QoL improvements this release as well.
+  - The intent handling for the default agent (non-LLM) now supports fuzzy matching. The technique ensures voice pipelines recognize many more sentences. This improvement is available for English only, while we are looking for ways to extend this to other languages.
+  - We now have built-in intents to control the volume of (active) media players! Like the song? Just ask Home Assistant to turn it up a notch!
+  - After all that dancing, you might have gotten a little warm. Hence in this release, we now also have intents to control fan speeds. Nice!
+
+[template entity]: /integrations/template/
+[@Petro31]: https://github.com/Petro31
+[@fetzerch]: https://github.com/fetzerch
+[@synesthesiam]: https://github.com/synesthesiam
+
+### Analog clock
+
+In [Home Assistant 2025.4, we introduced the clock card](/blog/2025/04/02/release-20254/#time-for-a-new-card!), which provides a digital clock display for your dashboards.
+
+For this release, [@timmo001] made this card more feature-rich by adding support for displaying the clock in a customizable analog clock style. Nice!
+
+<img class="no-shadow" alt="Screenshot showing multiple analog clocks in different sizes and styles" src="/images/blog/2025-09/analog-clock.png" />
+
+### Storage insights
+
+Disk almost full? You might wonder where your storage space has gone...
+
+This release adds disk metrics to the {% my storage title="storage configuration panel" %}, letting you see usage at a glance, helping you identify what is taking up space.
+
+<img class="no-shadow" alt="Screenshot of the new disk metrics as shown in the storage configuration panel." src="/images/blog/2025-09/disk-metrics.png" />
+
+You can find these metrics by navigating to {% my storage title="**Settings** > **System** > **Storage**" %}, or by selecting the My Home Assistant button down below.
+
+{% my storage badge %}
+
+## Patch releases
+
+We will also release patch releases for Home Assistant 2025.9 in September.
+These patch releases only contain bug fixes. Our goal is to release a patch
+release once a week, aiming for Friday.
+
+### 2025.9.1 - September 5
+
+- Add support for migrated Hue bridge ([@marcelveldt] - [#151411])
+- Add missing device trigger duration localizations ([@karwosts] - [#151578])
+- Correct capitalization of "FRITZ!Box" in FRITZ!Box Tools integration ([@tr4nt0r] - [#151637])
+- Fix Sonos Dialog Select type conversion ([@PeteRager] - [#151649])
+- Fix WebSocket proxy for add-ons not forwarding ping/pong frame data ([@felipecrs] - [#151654])
+- Fix, entities stay unavailable after timeout error, Imeon inverter integration ([@Imeon-Energy] - [#151671])
+- Bump aiohue to 4.7.5 ([@marcelveldt] - [#151684])
+- Update frontend to 20250903.3 ([@bramkragten] - [#151694])
+- Require OhmeAdvancedSettingsCoordinator to run regardless of entities ([@dan-r] - [#151701])
+- Bump ohmepy version to 1.5.2 ([@dan-r] - [#151707])
+- Update Mill library 0.13.1 ([@Danielhiversen] - [#151712])
+- Handle match failures in intent HTTP API ([@synesthesiam] - [#151726])
+- Bump pyschlage to 2025.9.0 ([@dknowles2] - [#151731])
+- Bump bimmer_connected to 0.17.3 ([@rikroe] - [#151756])
+- Fix recognition of entity names in default agent with interpunction ([@arturpragacz] - [#151759])
+- Fix enable/disable entity in modbus ([@janiversen] - [#151626])
+
+[#151263]: https://github.com/home-assistant/core/pull/151263
+[#151411]: https://github.com/home-assistant/core/pull/151411
+[#151578]: https://github.com/home-assistant/core/pull/151578
+[#151626]: https://github.com/home-assistant/core/pull/151626
+[#151637]: https://github.com/home-assistant/core/pull/151637
+[#151649]: https://github.com/home-assistant/core/pull/151649
+[#151654]: https://github.com/home-assistant/core/pull/151654
+[#151671]: https://github.com/home-assistant/core/pull/151671
+[#151684]: https://github.com/home-assistant/core/pull/151684
+[#151694]: https://github.com/home-assistant/core/pull/151694
+[#151701]: https://github.com/home-assistant/core/pull/151701
+[#151707]: https://github.com/home-assistant/core/pull/151707
+[#151712]: https://github.com/home-assistant/core/pull/151712
+[#151726]: https://github.com/home-assistant/core/pull/151726
+[#151731]: https://github.com/home-assistant/core/pull/151731
+[#151756]: https://github.com/home-assistant/core/pull/151756
+[#151759]: https://github.com/home-assistant/core/pull/151759
+[@Danielhiversen]: https://github.com/Danielhiversen
+[@Imeon-Energy]: https://github.com/Imeon-Energy
+[@PeteRager]: https://github.com/PeteRager
+[@arturpragacz]: https://github.com/arturpragacz
+[@bramkragten]: https://github.com/bramkragten
+[@dan-r]: https://github.com/dan-r
+[@dknowles2]: https://github.com/dknowles2
+[@felipecrs]: https://github.com/felipecrs
+[@frenck]: https://github.com/frenck
+[@janiversen]: https://github.com/janiversen
+[@karwosts]: https://github.com/karwosts
+[@marcelveldt]: https://github.com/marcelveldt
+[@rikroe]: https://github.com/rikroe
+[@synesthesiam]: https://github.com/synesthesiam
+[@tr4nt0r]: https://github.com/tr4nt0r
+
+### 2025.9.2 - September 12
+
+- Fix XMPP not working with non-TLS servers ([@Human] - [#150957])
+- Update SharkIQ authentication method ([@funkybunch] - [#151046])
+- Add event entity on websocket ready in Husqvarna Automower ([@Thomas55555] - [#151428])
+- Fix Aladdin Connect state not updating ([@hbludworth] - [#151652])
+- Fix support for Ecowitt soil moisture sensors ([@blotus] - [#151685])
+- Fix update of the entity ID does not clean up an old restored state ([@jbouwh] - [#151696])
+- Revert "Jewish Calendar add coordinator " ([@tsvi] - [#151780])
+- Remove device class for Matter NitrogenDioxideSensor ([@lboue] - [#151782])
+- Improve config entry migration for edge cases in Alexa Devices ([@chemelli74] - [#151788])
+- Bump habluetooth to 5.3.1 ([@bdraco] - [#151803])
+- Fix KNX BinarySensor config_store data ([@farmio] - [#151808])
+- Fix KNX Light - individual color initialisation from UI config ([@farmio] - [#151815])
+- Mark Tractive switches as unavailable when tacker is in the enegy saving zone ([@bieniu] - [#151817])
+- Allow delay > 1 in modbus. ([@janiversen] - [#151832])
+- max_temp / min_temp in modbus light could only be int, otherwise an assert was provoked. ([@janiversen] - [#151833])
+- removed assert fron entity in modbus. ([@janiversen] - [#151834])
+- Bump pydrawise to 2025.9.0 ([@dknowles2] - [#151842])
+- Bump aioharmony to 0.5.3 ([@bdraco] - [#151853])
+- Update pysmarty2 to 0.10.3 ([@martinssipenko] - [#151855])
+- fix rain sensor for Velux GPU windows ([@wollew] - [#151857])
+- Bump aioecowitt to 2025.9.1 ([@edenhaus] - [#151859])
+- Use `native_visibility` property instead of `visibility` for OpenWeatherMap weather entity ([@bieniu] - [#151867])
+- Bump aiontfy to v0.5.5 ([@tr4nt0r] - [#151869])
+- Bump aiolifx-themes to 1.0.2 to support newer LIFX devices ([@Djelibeybi] - [#151898])
+- Bump aiovodafone to 1.2.1 ([@chemelli74] - [#151901])
+- Avoid cleanup/recreate of device_trackers not linked to a device for Vodafone Station ([@chemelli74] - [#151904])
+- Fix _is_valid_suggested_unit in sensor platform ([@epenet] - [#151912])
+- Bump habluetooth to 5.5.1 ([@bdraco] - [#151921])
+- Bump bleak-esphome to 3.3.0 ([@bdraco] - [#151922])
+- Bump habluetooth to 5.6.0 ([@bdraco] - [#151942])
+- Fix invalid logger in Tuya ([@epenet] - [#151957])
+- Fix for squeezebox track content_type ([@peteS-UK] - [#151963])
+- Fix playlist media_class_filter in search_media for squeezebox ([@peteS-UK] - [#151973])
+- Bump habluetooth to 5.6.2 ([@bdraco] - [#151985])
+- Bump yt-dlp to 2025.09.05 ([@joostlek] - [#152006])
+- Bump `accuweather` to version 4.2.1 ([@bieniu] - [#152029])
+- Fix HomeKit Controller stale values at startup ([@bdraco] - [#152086])
+- Fix duplicated IP port usage in Govee Light Local ([@abmantis] - [#152087])
+- Fix DoorBird being updated with wrong IP addresses during discovery ([@bdraco] - [#152088])
+- Fix supported _color_modes attribute not set for on/off MQTT JSON light ([@jbouwh] - [#152126])
+- Fix reauth for Alexa Devices ([@chemelli74] - [#152128])
+- Bump hass-nabucasa from 1.1.0 to 1.1.1 ([@ludeeus] - [#152147])
+- Update frontend to 20250903.5 ([@bramkragten] - [#152170])
+- Use position percentage for closed status in Velux ([@wollew] - [#151679])
+
+[#150957]: https://github.com/home-assistant/core/pull/150957
+[#151046]: https://github.com/home-assistant/core/pull/151046
+[#151263]: https://github.com/home-assistant/core/pull/151263
+[#151428]: https://github.com/home-assistant/core/pull/151428
+[#151652]: https://github.com/home-assistant/core/pull/151652
+[#151679]: https://github.com/home-assistant/core/pull/151679
+[#151685]: https://github.com/home-assistant/core/pull/151685
+[#151696]: https://github.com/home-assistant/core/pull/151696
+[#151766]: https://github.com/home-assistant/core/pull/151766
+[#151780]: https://github.com/home-assistant/core/pull/151780
+[#151782]: https://github.com/home-assistant/core/pull/151782
+[#151788]: https://github.com/home-assistant/core/pull/151788
+[#151803]: https://github.com/home-assistant/core/pull/151803
+[#151808]: https://github.com/home-assistant/core/pull/151808
+[#151815]: https://github.com/home-assistant/core/pull/151815
+[#151817]: https://github.com/home-assistant/core/pull/151817
+[#151832]: https://github.com/home-assistant/core/pull/151832
+[#151833]: https://github.com/home-assistant/core/pull/151833
+[#151834]: https://github.com/home-assistant/core/pull/151834
+[#151842]: https://github.com/home-assistant/core/pull/151842
+[#151853]: https://github.com/home-assistant/core/pull/151853
+[#151855]: https://github.com/home-assistant/core/pull/151855
+[#151857]: https://github.com/home-assistant/core/pull/151857
+[#151859]: https://github.com/home-assistant/core/pull/151859
+[#151867]: https://github.com/home-assistant/core/pull/151867
+[#151869]: https://github.com/home-assistant/core/pull/151869
+[#151898]: https://github.com/home-assistant/core/pull/151898
+[#151901]: https://github.com/home-assistant/core/pull/151901
+[#151904]: https://github.com/home-assistant/core/pull/151904
+[#151912]: https://github.com/home-assistant/core/pull/151912
+[#151921]: https://github.com/home-assistant/core/pull/151921
+[#151922]: https://github.com/home-assistant/core/pull/151922
+[#151942]: https://github.com/home-assistant/core/pull/151942
+[#151957]: https://github.com/home-assistant/core/pull/151957
+[#151963]: https://github.com/home-assistant/core/pull/151963
+[#151973]: https://github.com/home-assistant/core/pull/151973
+[#151985]: https://github.com/home-assistant/core/pull/151985
+[#152006]: https://github.com/home-assistant/core/pull/152006
+[#152029]: https://github.com/home-assistant/core/pull/152029
+[#152086]: https://github.com/home-assistant/core/pull/152086
+[#152087]: https://github.com/home-assistant/core/pull/152087
+[#152088]: https://github.com/home-assistant/core/pull/152088
+[#152126]: https://github.com/home-assistant/core/pull/152126
+[#152128]: https://github.com/home-assistant/core/pull/152128
+[#152147]: https://github.com/home-assistant/core/pull/152147
+[#152170]: https://github.com/home-assistant/core/pull/152170
+[@Djelibeybi]: https://github.com/Djelibeybi
+[@Human]: https://github.com/Human
+[@Thomas55555]: https://github.com/Thomas55555
+[@abmantis]: https://github.com/abmantis
+[@bdraco]: https://github.com/bdraco
+[@bieniu]: https://github.com/bieniu
+[@blotus]: https://github.com/blotus
+[@bramkragten]: https://github.com/bramkragten
+[@chemelli74]: https://github.com/chemelli74
+[@dknowles2]: https://github.com/dknowles2
+[@edenhaus]: https://github.com/edenhaus
+[@epenet]: https://github.com/epenet
+[@farmio]: https://github.com/farmio
+[@frenck]: https://github.com/frenck
+[@funkybunch]: https://github.com/funkybunch
+[@hbludworth]: https://github.com/hbludworth
+[@janiversen]: https://github.com/janiversen
+[@jbouwh]: https://github.com/jbouwh
+[@joostlek]: https://github.com/joostlek
+[@lboue]: https://github.com/lboue
+[@ludeeus]: https://github.com/ludeeus
+[@martinssipenko]: https://github.com/martinssipenko
+[@peteS-UK]: https://github.com/peteS-UK
+[@tr4nt0r]: https://github.com/tr4nt0r
+[@tsvi]: https://github.com/tsvi
+[@wollew]: https://github.com/wollew
+
+### 2025.9.3 - September 13
+
+- Bump habluetooth to 5.6.4 ([@bdraco] - [#152227])
+
+[#152227]: https://github.com/home-assistant/core/pull/152227
+[@bdraco]: https://github.com/bdraco
+
+### 2025.9.4 - September 19
+
+- Bump habiticalib to v0.4.4 ([@tr4nt0r] - [#151332])
+- Bump habiticalib to v0.4.5 ([@tr4nt0r] - [#151720])
+- Fix bug with the hardcoded configuration_url (asuswrt) ([@Vaskivskyi] - [#151858])
+- Fix HomeKit Controller overwhelming resource-limited devices by batching characteristic polling ([@bdraco] - [#152209])
+- Upgrade waterfurnace to 1.2.0 ([@sdague] - [#152241])
+- Bump aiohomekit to 3.2.16 ([@bdraco] - [#152255])
+- Bump bluetooth-auto-recovery to 1.5.3 ([@bdraco] - [#152256])
+- Add proper error handling for /actions endpoint for miele ([@astrandb] - [#152290])
+- Bump aiohomekit to 3.2.17 ([@bdraco] - [#152297])
+- Update authorization server to prefer absolute urls ([@allenporter] - [#152313])
+- Bump imeon_inverter_api to 0.4.0 ([@Imeon-Energy] - [#152351])
+- Bump pylamarzocco to 2.1.0 ([@zweckj] - [#152364])
+- Add La Marzocco specific client headers ([@zweckj] - [#152419])
+- Fix KNX UI schema missing DPT ([@farmio] - [#152430])
+- Bump pyemoncms to 0.1.3 ([@alexandrecuer] - [#152436])
+- Fix Sonos set_volume float precision issue ([@PeteRager] - [#152493])
+- Bump opower to 0.15.5 ([@tronikos] - [#152531])
+- Bump holidays to 0.80 ([@gjohansson-ST] - [#152306])
+- Bump holidays to 0.81 ([@gjohansson-ST] - [#152569])
+- Bump asusrouter to 1.21.0 ([@Vaskivskyi] - [#151607])
+
+[#151263]: https://github.com/home-assistant/core/pull/151263
+[#151332]: https://github.com/home-assistant/core/pull/151332
+[#151607]: https://github.com/home-assistant/core/pull/151607
+[#151720]: https://github.com/home-assistant/core/pull/151720
+[#151766]: https://github.com/home-assistant/core/pull/151766
+[#151858]: https://github.com/home-assistant/core/pull/151858
+[#152198]: https://github.com/home-assistant/core/pull/152198
+[#152209]: https://github.com/home-assistant/core/pull/152209
+[#152237]: https://github.com/home-assistant/core/pull/152237
+[#152241]: https://github.com/home-assistant/core/pull/152241
+[#152255]: https://github.com/home-assistant/core/pull/152255
+[#152256]: https://github.com/home-assistant/core/pull/152256
+[#152290]: https://github.com/home-assistant/core/pull/152290
+[#152297]: https://github.com/home-assistant/core/pull/152297
+[#152306]: https://github.com/home-assistant/core/pull/152306
+[#152313]: https://github.com/home-assistant/core/pull/152313
+[#152351]: https://github.com/home-assistant/core/pull/152351
+[#152364]: https://github.com/home-assistant/core/pull/152364
+[#152419]: https://github.com/home-assistant/core/pull/152419
+[#152430]: https://github.com/home-assistant/core/pull/152430
+[#152436]: https://github.com/home-assistant/core/pull/152436
+[#152493]: https://github.com/home-assistant/core/pull/152493
+[#152531]: https://github.com/home-assistant/core/pull/152531
+[#152569]: https://github.com/home-assistant/core/pull/152569
+[@Imeon-Energy]: https://github.com/Imeon-Energy
+[@PeteRager]: https://github.com/PeteRager
+[@Vaskivskyi]: https://github.com/Vaskivskyi
+[@alexandrecuer]: https://github.com/alexandrecuer
+[@allenporter]: https://github.com/allenporter
+[@astrandb]: https://github.com/astrandb
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@farmio]: https://github.com/farmio
+[@frenck]: https://github.com/frenck
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@sdague]: https://github.com/sdague
+[@tr4nt0r]: https://github.com/tr4nt0r
+[@tronikos]: https://github.com/tronikos
+[@zweckj]: https://github.com/zweckj
+
+## Need help? Join the community!
+
+Home Assistant has a great community of users who are all more than willing
+to help each other out. So, join us!
+
+Our very active [Discord chat server](/join-chat) is an excellent place to be,
+and don't forget to join our amazing [forums](https://community.home-assistant.io/).
+
+Found a bug or issue? Please report it in our [issue tracker](https://github.com/home-assistant/core/issues)
+to get it fixed! Or check [our help page](/help) for guidance on more
+places you can go.
+
+Are you more into email? [Sign up for the Open Home Foundation Newsletter](/newsletter)
+to get the latest news about features, things happening in our community, and other projects that support the Open Home straight into your inbox.
+
+## Backward-incompatible changes
+
+We do our best to avoid making changes to existing functionality that might unexpectedly impact your Home Assistant installation. Unfortunately, sometimes, it is inevitable.
+
+We always make sure to document these changes to make the transition as easy as
+possible for you. This release has the following backward-incompatible changes:
+
+{% details "Encoding units containing the μ character" %}
+
+The encoding for some units that contain the μ character has been changed. Users that consume state data from sensors that have changed units will be impacted (such as exported state data to InfluxDB). The units with a changed encoding are:
+
+- `μSv/h` for the `aranet` integration as a unit for radiation rate
+- `μS/cm` for `UnitOfConductivity.MICROSIEMENS_PER_CM`
+- `μV` for `UnitOfElectricPotential.MICROVOLT`
+- `μg/ft³`  for concentration in micrograms per cubic foot
+- `μg/m³` for concentration in micrograms per cubic meter
+- `μmol/s⋅m²` for the `fyta` integration as a unit for light
+- `μg` for `UnitOfMass.MICROGRAMS`
+- `μs` for `UnitOfTime.MICROSECONDS`
+
+([@jbouwh] - [#144853])
+
+[@jbouwh]: https://github.com/jbouwh
+[#144853]: https://github.com/home-assistant/core/pull/144853
+
+{% enddetails %}
+
+{% details "1-Wire" %}
+
+The `raw_value` attribute was previously deprecated and has now been removed.
+
+([@gjohansson-ST] - [#150112]) ([documentation](/integrations/onewire))
+
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[#150112]: https://github.com/home-assistant/core/pull/150112
+
+{% enddetails %}
+
+{% details "Alexa Devices" %}
+
+The sound list has been updated to match the one used by the Alexa Mobile app.
+The `variant` parameter is no longer required.
+
+Check your automations to ensure the selected sound is still present.
+
+([@chemelli74] - [#151317]) ([documentation](/integrations/alexa_devices))
+
+[@chemelli74]: https://github.com/chemelli74
+[#151317]: https://github.com/home-assistant/core/pull/151317
+
+{% enddetails %}
+
+{% details "Husqvarna Automower BLE" %}
+
+The integration now requires the Automower PIN when being set up. This ensures Home Assistant can communicate with more models of mowers and with higher security levels.
+
+([@alistair23] - [#135440]) ([documentation](/integrations/husqvarna_automower_ble))
+
+[@alistair23]: https://github.com/alistair23
+[#135440]: https://github.com/home-assistant/core/pull/135440
+
+{% enddetails %}
+
+{% details "KNX" %}
+
+KNX scene entities now also change their state when a scene was activated externally (from bus). Previously they only updated when activated from within Home Assistant.
+
+([@farmio] - [#151218]) ([documentation](/integrations/knx))
+
+[@farmio]: https://github.com/farmio
+[#151218]: https://github.com/home-assistant/core/pull/151218
+
+{% enddetails %}
+
+{% details "SIA Alarm Systems" %}
+
+SIA alarm status code CF (armed with malfunctions) is now mapped to `armed_away` instead of to `armed_custom_bypass`.
+
+([@etnoy] - [#132628]) ([documentation](/integrations/sia))
+
+[@etnoy]: https://github.com/etnoy
+[#132628]: https://github.com/home-assistant/core/pull/132628
+
+{% enddetails %}
+
+{% details "SwitchBot Bluetooth" %}
+
+The battery property on vacuum entities is being removed in Home Assistant. Therefore, this property is now removed from this integration and is replaced by a battery level sensor.
+
+Please review your automations, scripts, and dashboards using the battery property and update the code to use the battery sensor instead.
+
+([@MartinHjelmare] - [#150227]) ([documentation](/integrations/switchbot))
+
+[@MartinHjelmare]: https://github.com/MartinHjelmare
+[#150227]: https://github.com/home-assistant/core/pull/150227
+
+{% enddetails %}
+
+{% details "Yale August" %}
+
+The August integration now uses OAuth authentication with Yale August's official API. This is a required one-time breaking change as the unofficial authentication method will stop working soon. This migration helps reduce unnecessary load on Yale August's servers while ensuring continued access for all users.
+
+When you update Home Assistant, you'll be prompted to re-authenticate your August account:
+
+1. Select the notification or go to **Settings** → **Devices & Services** → **August**
+2. Select "Reconfigure" and follow the OAuth flow to sign in
+3. Once authenticated, your devices will work exactly as before
+
+We're grateful to Yale August for officially supporting Home Assistant with dedicated API access!
+
+([@bdraco] - [#151080]) ([documentation](/integrations/august))
+
+[@bdraco]: https://github.com/bdraco
+[#151080]: https://github.com/home-assistant/core/pull/151080
+
+{% enddetails %}
+
+If you are a custom integration developer and want to learn about changes and
+new features available for your integration: Be sure to follow our
+[developer blog][devblog]. The following changes are the most notable for this
+release:
+
+- [Standardize encoding of μ in units of measurement](https://developers.home-assistant.io/blog/2025/08/20/micro-sign-encoding)
+- [The DeviceEntry.suggested_area attribute is deprecated and will be removed](https://developers.home-assistant.io/blog/2025/08/01/suggested-area-removed-from-deviceentry/)
+
+[devblog]: https://developers.home-assistant.io/blog/
+
+## All changes
+
+Of course, there is a lot more in this release. You can find a list of all changes made here: [Full changelog for Home Assistant Core 2025.9](/changelogs/core-2025.9)

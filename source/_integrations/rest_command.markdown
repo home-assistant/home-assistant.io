@@ -49,12 +49,17 @@ service_name:
       description: A string/template to send with request.
       required: false
       type: template
+    authentication:
+      description: Type of HTTP authentication. Either `basic` or `digest`.
+      required: false
+      type: string
+      default: basic
     username:
-      description: The username for basic HTTP authentication (digest is not supported).
+      description: The username for HTTP authentication.
       required: false
       type: string
     password:
-      description: The password for basic HTTP authentication (digest is not supported).
+      description: The password for HTTP authentication.
       required: false
       type: string
     timeout:
@@ -98,9 +103,26 @@ rest_command:
     payload: "mode=off"
 ```
 
+### Using digest authentication
+
+This example shows how to use digest authentication with a REST command:
+
+```yaml
+rest_command:
+  secured_command:
+    url: "http://example.com/api/secure-endpoint"
+    method: post
+    authentication: digest
+    username: "your_username"
+    password: "your_password"
+    payload: '{"data": "example"}'
+    content_type: "application/json"
+```
+
 ### Using REST command Response in automations
 
-REST commands provide an action response in a dictionary containing `status` (containing the HTTP response code) and `content` containing the response body as text or JSON. This response can be accessed in automations using [`response_variable`](/docs/scripts/perform-actions#use-templates-to-handle-response-data).
+REST commands provide an action response in a dictionary containing `status` (containing the HTTP response code), `content` containing the response body as text or JSON and `headers` containing the response headers.
+This response can be accessed in automations using [`response_variable`](/docs/scripts/perform-actions#use-templates-to-handle-response-data).
 
 The following example shows how the REST command response may be used in automations. In this case, checking the [Traefik API](https://doc.traefik.io/traefik/operations/api/) for errors.
 

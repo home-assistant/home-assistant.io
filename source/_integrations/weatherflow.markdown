@@ -6,6 +6,7 @@ ha_category:
   - Environment
   - Sensor
 ha_platforms:
+  - event
   - sensor
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -57,6 +58,14 @@ This {% term integration %} will expose the following sensors:
 - Wind gust
 - Wind lull
 - Wind speed
+
+## Event entity
+
+The WeatherFlow Tempest station also sends out event triggers when it starts raining and when there is a lightning strike near by.
+This {% term integration %} will expose these {% term event %} {% term entities %}  and can be used for automations. The following entities will be exposed:
+
+- Lightning strike
+- Precipitation start
 
 ## Diagnostic sensors
 

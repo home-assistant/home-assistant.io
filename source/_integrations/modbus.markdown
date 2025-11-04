@@ -378,7 +378,7 @@ device_address:
 unique_id:
   description: "ID that uniquely identifies this entity.
   Slaves will be given a unique_id of <<unique_id>>_<<slave_index>>.
-  If two enities have the same unique ID, Home Assistant will raise an exception."
+  If two entities have the same unique ID, Home Assistant will raise an exception."
   required: false
   type: string
 
@@ -1461,7 +1461,7 @@ sensors:
       required: false
       type: integer
     virtual_count:
-      description: "Generates x+1 sensors (master + slaves), allowing read of multiple registers with a single read messsage."
+      description: "Generates x+1 sensors (master + slaves), allowing read of multiple registers with a single read message."
       required: false
       type: integer
     state_class:
@@ -1647,7 +1647,7 @@ switches:
 
 {% endconfiguration %}
 
-### Example: switch configuration
+### Example: switch configuration
 
 ```yaml
 # Example configuration.yaml entry
@@ -1676,7 +1676,7 @@ modbus:
 ```
 
 
-### Example: switch full configuration
+### Example: switch full configuration
 
 ```yaml
 # Example configuration.yaml entry
@@ -1733,7 +1733,7 @@ Description:
 | Attribute | Description                                                                                                                                                                                                                                                                                 |
 | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | hub       | Hub name (defaults to 'modbus_hub' when omitted)                                                                                                                                                                                                                                            |
-| slave     | Slave address (0-255)                                                                                                                                                                                                                                                                       |
+| slave     | Slave address (0-255, defaults to 1 when omitted)                                                                                                                                                                                                                                           |
 | address   | Address of the Register (e.g. 138)                                                                                                                                                                                                                                                          |
 | value     | (write_register) A single value or an array of 16-bit values. Single value will call modbus function code 0x06. Array will call modbus function code 0x10. Values might need reverse ordering. E.g., to set 0x0004 you might need to set `[4,0]`, this depend on the byte order of your CPU |
 | state     | (write_coil) A single boolean or an array of booleans. Single boolean will call modbus function code 0x05. Array will call modbus function code 0x0F                                                                                                                                        |

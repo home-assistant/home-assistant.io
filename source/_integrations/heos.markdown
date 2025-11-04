@@ -15,6 +15,7 @@ ha_platforms:
   - media_player
 ha_integration_type: hub
 ha_quality_scale: platinum
+ha_zeroconf: true
 ---
 
 The HEOS {% term integration %} is used to connect a [HEOS](https://www.denon.com/en-gb/category/heos/) System to Home Assistant. HEOS is a wireless audio ecosystem
@@ -70,7 +71,7 @@ Password:
 Once setup, the host name or IP address used to access the HEOS System can be changed by reconfiguring the integration.
 
 1. Go to **{% my integrations icon title="Settings > Devices & Services" %}**.
-2. Select **Denon HEOS**. Click the three-dot {% icon "mdi:dots-vertical" %} menu and then select **Reconfigure**.
+2. Select **Denon HEOS**. Click the three dots {% icon "mdi:dots-vertical" %} menu and then select **Reconfigure**.
 3. Enter a new [host name or IP address](/integrations/heos/#host).
 4. Click Submit to complete the reconfiguration.
 
@@ -79,7 +80,7 @@ Once setup, the host name or IP address used to access the HEOS System can be ch
 This integration follows standard integration removal. No extra steps are required.
 
 1. Go to **{% my integrations icon title="Settings > Devices & Services" %}**.
-2. Select **Denon HEOS**. Click the three-dot {% icon "mdi:dots-vertical" %} menu and then select **Delete**.
+2. Select **Denon HEOS**. Click the three dots {% icon "mdi:dots-vertical" %} menu and then select **Delete**.
 
 ## Actions
 
