@@ -26,7 +26,7 @@ Before installing this integration ensure a running Music Assistant server is av
 
 ### Manual configuration
 
-Under normal circumstances, Home Assistant automatically discovers your running Music Assistant Server. If there is something special about the Home Assistant or MA setup (for example, the MA server is running as a remote Docker container) or discovery is not working, you can manually specify the URL to your Music Assistant server. If the Music Assistant Server is not installed, then follow these [installation instructions](https://music-assistant.io/installation/).
+Under normal circumstances, Home Assistant automatically discovers your running Music Assistant server. If there is something special about the HA or MA setup (for example, the MA server is running as a remote Docker container) or discovery is not working, you can manually specify the URL to your Music Assistant server.
 
 ## Supported functionality
 
