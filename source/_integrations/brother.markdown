@@ -196,6 +196,16 @@ Change `my_phone_notify` to the actual notifier you are using.
 
 - Some very old Brother printers use a different data format. Those models are not supported. The integration will show information about that during configuration.
 
+## Troubleshooting
+
+### Printer is unavailable after changing SNMP community
+
+##### Description
+
+After changing the SNMP community in the printer configuration, reconfiguration of the device in Home Assistant is required. Go to
+{% my integrations title="**Settings** > **Devices & services**" %},
+select "Brother Printer", click {% icon "mdi:dots-vertical" %} and select **Reconfigure**.
+
 ## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.
