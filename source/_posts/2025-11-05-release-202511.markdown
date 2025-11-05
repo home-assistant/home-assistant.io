@@ -137,8 +137,8 @@ We welcome the following new integrations in this release:
 - **[Actron Air]**, added by [@kclif9]  
   The Actron Air integration allows you to control Actron Air air conditioning controllers in Home Assistant.
 
-- **[DALI Center]**, added by [@niracler]  
-  Integrate with [DALI Center], a platform for managing and monitoring DALI-based lighting systems.
+- **[Sunricher DALI]**, added by [@niracler]  
+  Integrate with [Sunricher DALI], a platform for managing and monitoring DALI-based lighting systems.
 
 - **[Fing]**, added by [@Lorenzo-Gasparini]  
   The [Fing] integration provides network scanning, device detection, and presence monitoring capabilities using the Fing platform.
@@ -171,7 +171,7 @@ We welcome the following new integrations in this release:
 [@pantherale0]: https://github.com/pantherale0
 [@xE1H]: https://github.com/xE1H
 [Actron Air]: /integrations/actron_air
-[DALI Center]: /integrations/sunricher_dali_center
+[Sunricher DALI]: /integrations/sunricher_dali
 [Fing]: /integrations/fing
 [Firefly III project]: https://www.firefly-iii.org/
 [Firefly III]: /integrations/firefly_iii
