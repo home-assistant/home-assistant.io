@@ -10,6 +10,8 @@ related:
     title: Themes
   - docs: /dashboards/cards/
     title: Dashboard cards
+  - docs: /dashboards/naming/
+    title: Card naming
 ---
 
 The picture entity card displays an entity in the form of an image. Instead of images from URL, it can also show the picture of `camera` entities.
@@ -66,8 +68,8 @@ fit_mode:
   default: cover
 name:
   required: false
-  description: Overwrite entity name.
-  type: string
+  description: Overwrites friendly name. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/).
+  type: [string, map, list]
 show_name:
   required: false
   description: Shows name in footer.
