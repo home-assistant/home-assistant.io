@@ -206,6 +206,7 @@ After changing the SNMP community in the printer configuration, you need to reco
 2. Select **Brother Printer**.
 3. Click {% icon "mdi:dots-vertical" %}.
 4. Select **Reconfigure**.
+
 ## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.
