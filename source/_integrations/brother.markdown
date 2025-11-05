@@ -200,7 +200,7 @@ Change `my_phone_notify` to the actual notifier you are using.
 
 ### Printer is unavailable after changing SNMP community
 
-##### Description
+#### Description
 
 After changing the SNMP community in the printer configuration, reconfiguration of the device in Home Assistant is required. Go to
 {% my integrations title="**Settings** > **Devices & services**" %},
