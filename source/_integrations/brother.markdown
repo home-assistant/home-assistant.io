@@ -52,12 +52,6 @@ Type of the printer:
     description: "Brother printer type: ink or laser."
 {% endconfiguration_basic %}
 
-## Removing the integration
-
-This integration follows standard integration removal, no extra steps are required.
-
-{% include integrations/remove_device_service.md %}
-
 ## Supported functionality
 
 The Brother integration provides the following entities.
