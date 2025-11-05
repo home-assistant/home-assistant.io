@@ -359,7 +359,7 @@ We've simplified and reorganized things:
 
 - Suggested entities and favorites are now combined into a single, smart section, showing you what's most relevant in one place.
 - Areas are now grouped by floor, making it easier to browse and understand your home's layout at a glance.
-- The Lights, Climate, and Security views have been moved to their own dedicated dashboards, so you can access them directly under Settings → Dashboards. These dashboard now also include devices that aren’t assigned to any specific area, ensuring nothing is overlooked.
+- The Lights, Climate, and Security views have been moved to their own dedicated dashboards, so you can access them directly under Settings → Dashboards. These dashboards now also include devices that aren’t assigned to any specific area, ensuring nothing is overlooked.
 
 These improvements bring everything together more naturally, helping your Home Dashboard feel less like a setup and more like a true reflection of your home.
 
