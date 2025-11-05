@@ -151,9 +151,11 @@ Depending on the supported features of the camera ([see specifications of the ca
 - Message volume (Home Hub)
 - Chime volume
 - Chime silent time
+- Audio noise reduction*
 - Guard return time
 - Motion sensitivity
 - PIR sensitivity
+- PIR interval*
 - AI face sensitivity
 - AI person sensitivity
 - AI vehicle sensitivity
@@ -249,6 +251,7 @@ Depending on the supported features of the camera ([see specifications of the ca
 - Doorbell LED (Stay off, Auto, Auto & always on at night)
 - HDR* (Off, On, Auto)
 - Binning mode* (Off, On, Auto)
+- Image exposure mode* (Auto, Low noise, Anti-smearing, Manual)
 - Clear frame rate*
 - Fluent frame rate*
 - Clear bit rate*
