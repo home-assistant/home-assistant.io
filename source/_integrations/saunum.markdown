@@ -35,8 +35,6 @@ Before setting up the integration, you need to:
 {% configuration_basic %}
 Host:
     description: "The IP address of your Saunum Leil control unit. You can find it in the Leil touch panel under **Settings** > **Modbus Settings**."
-Port:
-    description: "The port number for Modbus TCP communication (default: 502)."
 {% endconfiguration_basic %}
 
 ## Changing temperature unit
@@ -92,7 +90,7 @@ The **Saunum Leil** integration {% term polling polls %} data from the control u
 
 ## Known limitations
 
-- The integration communicates with the control unit using the Modbus TCP protocol. Ensure your network allows communication on the configured port (default 502).
+- The integration communicates with the control unit using the Modbus TCP protocol. Ensure your network allows communication on port 502.
 - Temperature readings and controls are provided in the native Celsius scale, with automatic conversion to Fahrenheit for display when needed.
 - When the sauna session is active, the sauna duration, fan duration, and sauna type cannot be changed.
 
@@ -119,7 +117,7 @@ To resolve this issue, try the following steps:
 3. Ensure your Home Assistant instance can reach the control unit:
    - Try pinging the IP address from your Home Assistant host system.
    - Check for firewalls or network segmentation blocking communication.
-4. Verify the port number (default is 502):
+4. Verify the port **502** is accessible:
    - Some networks may require a different port.
    - Check your router and firewall settings.
 5. Ensure no other device or software is already communicating with the control unit on the same Modbus connection.
