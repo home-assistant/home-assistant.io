@@ -195,9 +195,3 @@ Change `my_phone_notify` to the actual notifier you are using.
 ## Known limitations
 
 - Some very old Brother printers use a different data format. Those models are not supported. The integration will show information about that during configuration.
-
-## Removing the integration
-
-This integration follows standard integration removal. No extra steps are required.
-
-{% include integrations/remove_device_service.md %}
