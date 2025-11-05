@@ -14,12 +14,12 @@ including Home Assistant Core or Add-on updates.
 
 ## The solution
 
-You'll be able to continue use the system as is, but we recommend to move your
+You'll be able to continue to use the system as is, but we recommend to move your
 Home Assistant installation onto supported hardware. This makes sure that you'll
 continue to receive software updates, including security updates.
 
 To migrate to a supported architecture, [create a full backup](/common-tasks/general/#backups)
-and download it. Install Home Assistant OS on supported 64-bit  hardware. Use the
+and download it. Install Home Assistant OS on supported 64-bit hardware. Use the
 [restore from backup feature during on-boarding](https://www.home-assistant.io/getting-started/onboarding/) (Option 2).
 If you use a Raspberry Pi 3 or Raspberry Pi 4, you can install the 64-bit variants
 of Home Assistant OS. See the [Raspberry Pi installation documentation](https://www.home-assistant.io/installation/raspberrypi/) for detailed instructions.
