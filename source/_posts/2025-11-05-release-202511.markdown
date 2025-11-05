@@ -155,7 +155,7 @@ And the best part? If you rename an entity or device, your dashboards will autom
 
 We have added a new layout to the devices energy graph: "pie" 🥧. You can toggle between the regular bar chart and the new pie chart by clicking the icon in the top-right corner.
 
-<img class="no-shadow" alt="Screen recording showing the devices energy graph in pie layout." src="/images/blog/2025-11/pie-chart.gif" />
+<img class="no-shadow" alt="Screenshot showing the devices energy graph in pie layout." src="/images/blog/2025-11/pie-chart.png" />
 
 Doing this made the top-right corner of the other energy cards feel empty, so we used that space to display the total energy for the selected period. For example, if the date picker is set to today, the total solar energy for today will be displayed in the corner of the solar production graph card.
 
