@@ -139,6 +139,28 @@ data:
   text_command: whats the time
 ```
 
+### Set volume
+
+{% note %}
+Once media player functionality is supported you will be able to achieve this through standard media player actions.
+{% endnote %}
+
+```yaml
+action: alexa_devices.send_text_command
+data:
+  device_id: 037d79c1af96c67ba57ebcae560fb18e
+  text_command: volume 7
+```
+
+### Control devices in Alexa
+
+```yaml
+action: alexa_devices.send_text_command
+data:
+  device_id: 037d79c1af96c67ba57ebcae560fb18e
+  text_command: turn study lights off
+```
+
 ### Play BBC Radio 6
 
 ```yaml
@@ -196,7 +218,7 @@ The **Alexa Devices** {% term integration %} provides the following entities:
 
 - Binary sensor - main and Bluetooth connectivity
 - Notify - Speak and Announce notifications
-- Sensor - temperature and illuminance sensors
+- Sensor - temperature, illuminance, and motion sensors
 - Switch - Do not disturb
 
 ## Known limitations
@@ -205,17 +227,20 @@ This integration requires multifactor authentication using an authentication app
 
 ## Troubleshooting
 
-### Can’t set up the integration
+### Sensors unavailable
 
-#### Symptom: "Not found"
+#### Symptom: "Too many requests"
 
-When trying to set up the integration, the form shows the message "Not found".
+You see something similar to
+
+- `Error retrieving devices state: Too many requests for path ['listEndpoints']`
+- `Error retrieving data: CannotRetrieveData('Request failed: Bad Request')`
+
+In logs.
 
 ##### Description
 
-This appears to indicate that your Alexa devices aren't owned by you, but are connected through Amazon Family.
-This setup isn't supported by the Alexa Mobile app, so it's not supported by this integration.
-Move the devices to your primary account.
+This is down to rate limits applied by Amazon.   We are looking to reduce these errors but if they are causing you an issue you can disable polling for the integration which will stop these errors, this will however stop DND, sensors and connectivity from being updated but speech, announcements and text commands will continue to work.
 
 ## Removing the integration
 
