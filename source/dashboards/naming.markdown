@@ -149,6 +149,7 @@ name:
 
 You can combine multiple name components by using a list. This allows you to create hybrid names with contextual information. A space is automatically added between each component.
 
+If a name component does not have a value, like when an entity has no area assigned, Home Assistant will automatically skip that component. This means only the components with values will be shown, and you will not see empty spaces or errors in the card name.
 ```yaml
 name:
   - type: area
