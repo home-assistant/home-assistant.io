@@ -200,10 +200,12 @@ Change `my_phone_notify` to the actual notifier you are using.
 
 ### Printer is unavailable after changing SNMP community
 
-After changing the SNMP community in the printer configuration, reconfiguration of the device in Home Assistant is required. Go to
-{% my integrations title="**Settings** > **Devices & services**" %},
-select **Brother Printer**, click {% icon "mdi:dots-vertical" %} and select **Reconfigure**.
+After changing the SNMP community in the printer configuration, you need to reconfigure the device in Home Assistant. To do this:
 
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Select **Brother Printer**.
+3. Click {% icon "mdi:dots-vertical" %}.
+4. Select **Reconfigure**.
 ## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.
