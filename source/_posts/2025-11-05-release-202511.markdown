@@ -87,7 +87,7 @@ Enjoy the (beta) release!
   - [Farewell to the following](#farewell-to-the-following)
 - [Other noteworthy changes](#other-noteworthy-changes)
   - [Logging](#logging)
-  - [The new Home Dashboard keeps getting smarter.](#the-new-home-dashboard-keeps-getting-smarter)
+  - [The new Home Dashboard keeps getting smarter](#the-new-home-dashboard-keeps-getting-smarter)
 - [Need help? Join the community](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
@@ -351,17 +351,19 @@ There are many more improvements in this release; here are some of the other not
 
 On supervised installations (such as Home Assistant OS), we used to save logs twice — once in a log file in your configuration directory, and once in the OS in the systemd journal. All these extra writes to disk would cause more wear on drives, or even worse SD cards, than needed. We have now stopped doing this, and logs are now only saved on the OS level, and can be found in the UI.
 
-
-### The new Home Dashboard keeps getting smarter.
+### The new Home Dashboard keeps getting smarter
 
 Following the improvements introduced in the latest releases, this release makes the experience even smoother and more intuitive.
 
 We've simplified and reorganized things:
+
 - Suggested entities and favorites are now combined into a single, smart section, showing you what's most relevant in one place.
 - Areas are now grouped by floor, making it easier to browse and understand your home's layout at a glance.
-- The Lights, Climate, and Safety views have been moved to their own dedicated panels, so you can access them directly under Settings → Dashboards.
+- The Lights, Climate, and Security views have been moved to their own dedicated dashboards, so you can access them directly under Settings → Dashboards. These dashboard now also include devices that aren’t assigned to any specific area, ensuring nothing is overlooked.
 
 These improvements bring everything together more naturally, helping your Home Dashboard feel less like a setup and more like a true reflection of your home.
+
+<img class="no-shadow" alt="New built-in dashboards in dashboards config panel" src="/images/blog/2025-11/config-dashboards.png" />
 
 ## Need help? Join the community
 
