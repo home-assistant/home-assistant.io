@@ -10,7 +10,7 @@ related:
     title: Entities card
 ---
 
-All dashboard cards and badges that use an entity support flexible name configuration. This allows you to display custom text, show contextual information like area or device names, or use the entity's technical name instead of its friendly name.
+All dashboard cards and badges that use an entity support flexible name configuration. This allows you to display custom text, show contextual information like area or device names, or use the entity name instead of its friendly name.
 
 The name configuration helps you avoid redundant information (like repeating device names on every card) and create more contextual, easier-to-understand dashboards.
 
