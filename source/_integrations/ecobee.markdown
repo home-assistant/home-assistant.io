@@ -178,7 +178,7 @@ Check your heat pump Owners' Manual prior to adjusting this value; do not adjust
 
 The **Auxiliary maximum outdoor temperature** number represents the outdoor temperature at which the auxiliary heat will not run. This is represented in the temperature units you have selected in Home Assistant. This is also represented in the thermostat user interface. When the outdoor temperature is above this value, auxiliary heat will not be used. Be careful with this setting, as it can incur additional utility costs from using a less-efficient heat source.
 
-`Compressor minimum temperature` has to be at least 5°F less then `Auxiliary maximum outdoor temperature`. When updating one of them the other one will be updated as well if the update violates this restriction.
+**Compressor minimum temperature** has to be at least 5°F less than **Auxiliary maximum outdoor temperature**. When updating one of them, the other one will be updated as well if the update violates this restriction.
 
 ## Actions
 
