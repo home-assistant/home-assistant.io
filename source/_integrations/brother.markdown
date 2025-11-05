@@ -192,6 +192,6 @@ Change `my_phone_notify` to the actual notifier you are using.
 
 ## Removing the integration
 
-This integration follows standard integration removal, no extra steps are required.
+This integration follows standard integration removal. No extra steps are required.
 
 {% include integrations/remove_device_service.md %}
