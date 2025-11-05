@@ -52,12 +52,6 @@ Type of the printer:
     description: "Brother printer type: ink or laser."
 {% endconfiguration_basic %}
 
-## Removing the integration
-
-This integration follows standard integration removal, no extra steps are required.
-
-{% include integrations/remove_device_service.md %}
-
 ## Supported functionality
 
 The Brother integration provides the following entities.
@@ -195,3 +189,9 @@ Change `my_phone_notify` to the actual notifier you are using.
 ## Known limitations
 
 - Some very old Brother printers use a different data format. Those models are not supported. The integration will show information about that during configuration.
+
+## Removing the integration
+
+This integration follows standard integration removal, no extra steps are required.
+
+{% include integrations/remove_device_service.md %}
