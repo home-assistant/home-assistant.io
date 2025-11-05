@@ -35,7 +35,7 @@ The name can also be configured as an object with a `type` property to display c
 
 ### Entity name
 
-Displays the entity's technical name (entity ID without the domain prefix) instead of the friendly name.
+Displays the entity name instead of the friendly name. The entity name is the specific function or data point the entity represents, without the device or area prefix.
 
 ```yaml
 name:
@@ -52,7 +52,7 @@ name:
   keys:
     type:
       required: true
-      description: "Type of name to display. Use `entity` to show the entity's technical name."
+      description: "Type of name to display. Use `entity` to show the entity name."
       type: string
 {% endconfiguration %}
 
@@ -180,12 +180,12 @@ This is the simplest way to set a custom name, overriding the entity's display n
 
 ```yaml
 type: tile
-entity: light.living_room_ceiling_light
+entity: sensor.living_room_sensor_temperature
 name:
   type: entity
 ```
 
-This displays "ceiling light" instead of the full friendly name "Living Room Ceiling Light", avoiding repetition when the card is already grouped by room.
+This displays the entity name "Temperature" instead of the full friendly name "Living room sensor Temperature", avoiding repetition when the card is already grouped by area.
 
 ### Combining area and device
 
