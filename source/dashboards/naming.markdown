@@ -191,13 +191,13 @@ This displays the entity name "Temperature" instead of the full friendly name "L
 
 ```yaml
 type: tile
-entity: cover.garage_door
+entity: media_player.living_room_tv
 name:
-  - type: device
   - type: area
+  - type: device
 ```
 
-This combines the device name with the area name, displaying something like "Door Garage".
+This combines the area name with the device name, displaying something like "Living room TV".
 
 ### Using custom text with other name types
 
