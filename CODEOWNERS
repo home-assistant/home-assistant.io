@@ -8,6 +8,11 @@
 # https://github.com/blog/2392-introducing-code-owners
 
 # Pages
+
+# Non-integration pages (manually maintained)
+source/privacy/index.markdown @frenck
+
+# Integration pages (auto-synced from core)
 source/_integrations/3_day_blinds.markdown @starkillerOG
 source/_integrations/_integration_docs_template.markdown @home-assistant/core
 source/_integrations/abode.markdown @shred86
@@ -260,7 +265,6 @@ source/_integrations/energie_vanons.markdown @klaasnicolaas
 source/_integrations/energy.markdown @home-assistant/core
 source/_integrations/energyzero.markdown @klaasnicolaas
 source/_integrations/enigma2.markdown @autinerd
-source/_integrations/enmax.markdown @tronikos
 source/_integrations/enphase_envoy.markdown @bdraco @cgarwood @catsmanac
 source/_integrations/entur_public_transport.markdown @hfurubotten
 source/_integrations/environment_canada.markdown @gwww @michaeldavie
@@ -294,7 +298,6 @@ source/_integrations/fivem.markdown @Sander0542
 source/_integrations/fjaraskupan.markdown @elupus
 source/_integrations/flexit_bacnet.markdown @lellky @piotrbulinski
 source/_integrations/flexom.markdown @imicknl
-source/_integrations/flick_electric.markdown @ZephireNZ
 source/_integrations/flipr.markdown @cnico
 source/_integrations/flo.markdown @dmulcahey
 source/_integrations/flume.markdown @ChrisMandich @bdraco @jeeftor

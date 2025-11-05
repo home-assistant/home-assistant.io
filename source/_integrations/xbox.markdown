@@ -245,10 +245,8 @@ The Xbox binary sensor platform automatically keeps track of your "**Favorite** 
 
 | Entity Name                      | Description                                                            |
 | -------------------------------- | ---------------------------------------------------------------------- |
-| (*Gamertag* )                    | Shows the online status of your friend.                                |
+| (*Gamertag* )                    | Shows the online status of your friend.            The entity’s attributes provide extra information, including real name and bio. |
 | **In game**                      | Shows if your friend is currently playing a game.                      |
-| **In party**                     | Shows if your friend is currently in a party.                          |
-| **In multiplayer**               | Shows if your friend is currently in a multiplayer session.            |
 | **Subscribed to Xbox Game Pass** | Indicates whether the friend is currently subscribed to Xbox Game Pass.|
 
 ## Sensor
@@ -259,11 +257,21 @@ Just like the binary sensors, the Xbox sensor platform automatically keeps track
 | ---------------- | -------------------------------------------------------------------------- |
 | **Status**       | Shows the text status of your friend as it appears in your friends list.   |
 | **Gamerscore**   | Friend's Gamerscore.                                                       |
-| **Account tier** | Friend's Xbox Live account tier (Gold or Silver).                          |
-| **Gold tenure**  | Shows how long your friend has had Xbox Live Gold.                         |
-| **Follower**     | Displays the number of people following the account, including friends.    |
-| **Following**    |  Displays the number of people the account is following, including friends.|
+| **Friends**      | Displays the number of mutual friend relationships of the account.         |
+| **Follower**     | Displays the number of people following the account.                       |
+| **Following**    |  Displays the number of people the account is following.                   |
 | **Last online**  | Displays the last time the friend was active online.                       |
+| **Now playing**  | Shows the title of the game currently being played. Additional details such as a short description, genre, developer, age rating, and achievement progress are available in the entity's attributes. |
+
+## Image
+
+For your account and each of your favorite friends, several image entities are available:
+
+| Entity Name      | Description                                                                            |
+| ---------------- | -------------------------------------------------------------------------------------- |
+| **Avatar**       | Shows the classic Xbox avatar for you or your friend, if available. You can create or customize your own avatar using the [Xbox Original Avatars app](https://apps.microsoft.com/detail/9nblgggz5qdq?ocid=webpdpshare). |
+| **Gamerpic**     | Shows the current **Gamerpic** that represents you or your friend across the Xbox Network. |
+| **Now playing**  | Displays the cover art of the game you or your friends are currently playing.          |
 
 ## Media source
 

@@ -136,7 +136,7 @@ content: |
 
 ## ha-alert
 
-You can also use our [\`ha-alert\`](https://design.home-assistant.io/#components/ha-alert) component in the Markdown card.
+You can also use our [`ha-alert`](https://design.home-assistant.io/#components/ha-alert) component in the Markdown card.
 
 Example:
 

@@ -25,7 +25,7 @@ After configuring this {% term integration %}, the binary sensors automatically 
 ## Configuration
 
 {% important %}
-You should have at least one VM or container entry configured, else this integration won't do anything.
+You should have at least one VM or container entry configured within Home Assistant, else this integration won't do anything.
 {% endimportant %}
 
 To use the `proxmoxve` {% term integration %}, add the following configuration to your {% term "`configuration.yaml`" %} file.
@@ -152,7 +152,7 @@ The Home Assistant user you create must already exist on the Linux system.
 1. Click `Datacenter`
 2. Open `Permissions` and click `Users`
 3. Click `Add`
-4. Enter a username (e.g.,` hass`)
+4. Enter a username (e.g.,`hass`)
 5. Set the realm to "Proxmox VE authentication server"
 6. Enter a secure password (it can be complex as you will only need to copy/paste it into your Home Assistant configuration)
 7. Select the group just created earlier (`HomeAssistant`) to grant access to Proxmox
