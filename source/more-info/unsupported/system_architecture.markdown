@@ -1,5 +1,5 @@
 ---
-title: "Home Assistant Operating System version"
+title: "System architecture"
 description: "More information on why System Architecture marks the installation as unsupported."
 ---
 
