@@ -56,27 +56,6 @@ name:
       type: string
 {% endconfiguration %}
 
-### Area name
-
-Displays the name of the area the entity is assigned to.
-
-```yaml
-name:
-  type: area
-```
-
-{% configuration name-area %}
-name:
-  required: false
-  description: Name configuration object.
-  type: map
-  keys:
-    type:
-      required: true
-      description: "Type of name to display. Use `area` to show the area name."
-      type: string
-{% endconfiguration %}
-
 ### Device name
 
 Displays the name of the device the entity belongs to.
@@ -95,6 +74,27 @@ name:
     type:
       required: true
       description: "Type of name to display. Use `device` to show the device name."
+      type: string
+{% endconfiguration %}
+
+### Area name
+
+Displays the name of the area the entity is assigned to.
+
+```yaml
+name:
+  type: area
+```
+
+{% configuration name-area %}
+name:
+  required: false
+  description: Name configuration object.
+  type: map
+  keys:
+    type:
+      required: true
+      description: "Type of name to display. Use `area` to show the area name."
       type: string
 {% endconfiguration %}
 
@@ -187,17 +187,17 @@ name:
 
 This displays the entity name "Temperature" instead of the full friendly name "Living room sensor Temperature", avoiding repetition when the card is already grouped by area.
 
-### Combining area and device
+### Combining device and area
 
 ```yaml
 type: tile
 entity: cover.garage_door
 name:
-  - type: area
   - type: device
+  - type: area
 ```
 
-This combines the area name with the device name, displaying something like "Garage Door".
+This combines the device name with the area name, displaying something like "Door Garage".
 
 ### Using custom text with other name types
 
