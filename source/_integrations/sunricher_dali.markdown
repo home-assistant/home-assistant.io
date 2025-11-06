@@ -1,6 +1,6 @@
 ---
-title: DALI Center
-description: Instructions on how to integrate DALI Center with Home Assistant.
+title: Sunricher DALI
+description: Instructions on how to integrate Sunricher DALI with Home Assistant.
 ha_category:
   - Light
 ha_release: 2025.11
@@ -8,7 +8,7 @@ ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
   - '@niracler'
-ha_domain: sunricher_dali_center
+ha_domain: sunricher_dali
 ha_platforms:
   - light
 ha_integration_type: integration
@@ -18,15 +18,7 @@ related:
     title: SR-GW-EDA DALI Gateway
 ---
 
-The **DALI Center** {% term integration %} allows you to control and monitor DALI lighting devices connected to [Sunricher](https://www.sunricher.com/) gateways. The integration receives real-time push updates to keep entity states synchronized.
-
-## Supported devices
-
-The integration supports DALI-compliant lighting devices, including:
-
-- DALI DT6 Dimmable Drivers
-- DALI DT8 Tunable White Drivers (Tc)
-- DALI DT8 Color Drivers (RGB, XY, RGBW, RGBWA)
+The **Sunricher DALI** {% term integration %} allows you to control and monitor DALI lighting devices connected to [Sunricher](https://www.sunricher.com/) gateways. The integration receives real-time push updates to keep entity states synchronized.
 
 ## Prerequisites
 
@@ -35,10 +27,9 @@ This integration communicates with DALI lighting devices through a Sunricher gat
 - Sunricher SR-GW-EDA DALI gateway on the same network as Home Assistant
 - DALI lighting devices connected to and configured on the gateway
 
-
 {% include integrations/config_flow.md %}
 
-To add the DALI Center integration to your Home Assistant instance:
+To add the Sunricher DALI integration to your Home Assistant instance:
 
 1. Ensure the gateway is powered on and connected to the same network as Home Assistant.
 2. Select **Submit** to start discovery. Home Assistant will search for gateways for up to 3 minutes.
@@ -49,7 +40,7 @@ After setup, the gateway appears under {% my integrations title="**Settings** > 
 
 ## Supported functionality
 
-The **DALI Center** integration provides the following entities.
+The **Sunricher DALI** integration provides the following entities.
 
 ### Lights
 
