@@ -15,6 +15,11 @@
     text-transform: uppercase;
     white-space: nowrap;
 
+    &.connect-line-blue{
+        --background: var(--connect-line-blue);
+        --color: #ffffff;
+    }
+
     &:before{
         background-color: var(--color);
         border-radius: 50%;
