@@ -4,6 +4,7 @@ description: Instructions on how to set up the Home Connect integration within H
 ha_category:
   - Binary sensor
   - Button
+  - Climate
   - Hub
   - Light
   - Number
@@ -22,6 +23,7 @@ ha_config_flow: true
 ha_platforms:
   - binary_sensor
   - button
+  - climate
   - diagnostics
   - light
   - number
