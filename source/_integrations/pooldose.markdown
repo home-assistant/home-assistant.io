@@ -17,7 +17,7 @@ ha_quality_scale: bronze
 ha_dhcp: true
 ---
 
-The PoolDose integration connects a [SEKO](https://www.seko.com/) water treatment system with Home Assistant. SEKO is a manufacturer of various monitoring and control devices for pools and spas.
+The PoolDose integration connects a [SEKO](https://www.seko.com/) water treatment system with Home Assistant. SEKO is a manufacturer of various monitoring and control devices for pools and spas. Some devices from [VÁGNER POOL](https://www.vagnerpool.com/web/en/) are compatible as well.
 
 This integration uses an undocumented local HTTP API. It provides live readings for pool sensors such as temperature, pH, ORP/Redox, as well as configuration parameters.
 
@@ -57,23 +57,29 @@ This integration {% term polling polls %} data from the device every 10 minutes 
 
 The following devices are known to be supported by the integration:
 
-- SEKO PoolDose Dual/Double (API v1)
+- SEKO PoolDose Double
+- VÁGNER POOL VA DOS BASIC
+- VÁGNER POOL VA DOS EXACT
 
 ## Supported functionality
 
 ### Sensor entities
 
-| Identifier | Unit | Description | States |
+| Identifier | Unit(s) | Description | States |
 |--------|------|-------------|--------|
-| **temperature** | °C/°F | water temperature | — |
+| **temperature** | °C, °F | water temperature | — |
 | **ph** | — | pH value | — |
 | **orp** | mV | Current ORP (Redox) value | — |
+| **cl** | ppm | Chlorine concentration | — |
+| **flow_rate** | L/s, m³/h | Water flow rate | — |
 | **ph_type_dosing** | — | Type of pH dosing being used | pH+, pH- |
 | **peristaltic_ph_dosing** | — | pH peristaltic dosing mode | Off, Proportional, On/Off, Timed |
-| **ofa_ph_value** | min | Time threshold for pH overfeed alerts | — |
+| **ofa_ph_time** | min | Time threshold for pH overfeed alerts | — |
 | **orp_type_dosing** | — | Type of ORP dosing being used | Low, High |
 | **peristaltic_orp_dosing** | — | ORP peristaltic dosing mode | Off, Proportional, On/Off, Timed |
-| **ofa_orp_value** | min | Time threshold for ORP overfeed alerts | — |
+| **cl_type_dosing** | — | Type of chlorine dosing being used | Low, High |
+| **peristaltic_cl_dosing** | — | Chlorine peristaltic dosing mode | Off, Proportional, On/Off, Timed |
+| **ofa_orp_time** | min | Time threshold for ORP overfeed alerts | — |
 | **ph_calibration_type** | — | Type of pH calibration being used | Off, Reference, 1 point, 2 points |
 | **ph_calibration_offset** | mV | pH calibration offset value | — |
 | **ph_calibration_slope** | mV | pH calibration slope value | — |
