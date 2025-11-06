@@ -1,4 +1,4 @@
-Anna connected to Adam---
+---
 title: Plugwise
 description: Plugwise Gateway platform integration.
 ha_category:
