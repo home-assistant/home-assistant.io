@@ -333,6 +333,7 @@ Both entities can use these options, but the availability of these will depend o
 - **Magic daily**: `dishcare_dishwasher_program_magic_daily`
 - **Super 60ºC**: `dishcare_dishwasher_program_super_60`
 - **Kurz 60ºC**: `dishcare_dishwasher_program_kurz_60`
+- **Intelligent**: `dishcare_dishwasher_program_learning_dishwasher`
 - **Express sparkle 65ºC**: `dishcare_dishwasher_program_express_sparkle_65`
 - **Machine care**: `dishcare_dishwasher_program_machine_care`
 - **Steam fresh**: `dishcare_dishwasher_program_steam_fresh`
