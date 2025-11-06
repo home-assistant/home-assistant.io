@@ -179,6 +179,7 @@ The integration configuration will ask for the *Client ID* and *Client Secret* c
 ### Climate
 
 {% details "List of climate entities" %}
+
 - **Air conditioner**:
   - **Description**: Controls the air conditioner appliance.
   - **Availability**: Air conditioner
