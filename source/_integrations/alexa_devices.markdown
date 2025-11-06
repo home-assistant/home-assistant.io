@@ -227,6 +227,22 @@ This integration requires multifactor authentication using an authentication app
 
 ## Troubleshooting
 
+### Unable to Setup
+
+#### Symptom: "CannotAuthenticate"
+
+##### Description
+
+You will see `MFA OTP code not found on login page` or `Cannot find "auth-mfa-otpcode" in html source` in the logs when trying to setup the integration.   This is because the authentication details are incorrect.
+
+You need to ensure you are:
+
+- using the right credentials (The ones you would use to login to the Alexa app and Amazon shopping site)
+- setup to use app based 2FA
+- not setup to receive SMS 2FA codes
+
+To test this you should login to your local amazon shopping site in incognition/private mode in your browser and check you are are prompted for the OTP code from you authenticator app and you are able to login sucessfully.
+
 ### Sensors unavailable
 
 #### Symptom: "Too many requests"
