@@ -33,4 +33,7 @@ The QNAP integration will add the following sensors:
 
 This integration works with most (but not all) QNAP devices. A complete, up-to-date [list of compatible devices can be found here](https://github.com/colinodell/python-qnapstats#device-support).
 
-If your QNAP device is running QTS 5, make sure you log into the device's web interface (with the same account you've configured in Home Assistant) and complete any agreements, warnings, wizards, setup, etc. as the QNAP API may block requests until those are completed.
+
+In the case of QTS 5, the QNAP account that is being used by Home Assistant needs the following:
+- make sure you log into the device's web interface and complete any agreements, warnings, wizards, setup, etc. as the QNAP API may block requests until those are completed.
+- the account must have access to System Monitoring. Either by being an administator itself, or having an administrator assign it access to System Monitoring: ControlPanel->Priviledge->Delegated Administration->System Monitoring
