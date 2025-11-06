@@ -173,6 +173,7 @@ Sensors and settings exposed by VeSync humidifiers.
 | ----------------------- | ---------------------------------------------------------------------------------- | --------- |
 | `water_lacks`           | Indicates whether the device needs a water refill                                  | false     |
 | `water_tank_lifted`     | Water tank is lifted                                                               | false     |
+| `drying_mode_state`     | Drying mode is On or Off                                                           | false     |
 
 ## Extracting attribute data
 
