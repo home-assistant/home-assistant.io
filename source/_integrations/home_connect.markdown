@@ -261,9 +261,6 @@ The integration configuration will ask for the *Client ID* and *Client Secret* c
 - **Setpoint temperature**:
   - **Description**: Defines the target cavity temperature, which will be held by the oven.
   - **Availability**: Oven
-- **Fan speed percentage**
-  - **Description**: Setting to adjust the venting levels of the air conditioner as percentage.
-  - **Availability**: Air conditioner
 
 {% enddetails %}
 
@@ -489,18 +486,6 @@ Both entities can use these options, but the availability of these will depend o
     </details>
 
 #### Program options
-- **Fan speed mode**
-  - **Description**: Setting to adjust the fan speed mode to Manual or Automatic.
-  - **Availability**: Air conditioner
-  - <details>
-    <summary><b>Options:</b> (click to view)</summary>
-
-    - **Auto**: `heating_ventilation_air_conditioning_air_conditioner_enum_type_fan_speed_mode_automatic`
-    - **Manual**: `heating_ventilation_air_conditioning_air_conditioner_enum_type_fan_speed_mode_manual`
-
-    </details>
-
-
 - **Reference map ID**:
   - **Description**: Defines which reference map is to be used.
   - **Availability**: Cleaning robot
