@@ -82,8 +82,6 @@ For each installed add-on Supervisor provides following binary sensors:
 
 For each network storage Supervisor provides following binary sensors:
 
-(These entities are disabled by default and must be re-enabled to appear)
-
 | Sensor | Enabled by default | Description |
 | ------- | ------------------ | ----------- |
 | Connected | no | Whether the network storage is connected and working properly.
