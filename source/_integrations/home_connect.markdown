@@ -179,6 +179,7 @@ The integration configuration will ask for the *Client ID* and *Client Secret* c
 ### Fan
 
 {% details "List of fan entities" %}
+
 - **Air conditioner**:
   - **Description**: Controls the fan speed of air conditioner appliances.
   - **Availability**: Air conditioner
