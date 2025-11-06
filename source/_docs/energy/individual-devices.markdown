@@ -39,8 +39,9 @@ Some smart devices, such as air conditioning, boilers, and others, may provide a
 
 You can create a hierarchy of devices by setting one device as an "upstream device" of another. This means you can now establish parent-child relationships between devices within your energy configuration. This works for both energy and water devices.
 
-For example, imagine having a breaker monitoring the total energy consumption of a circuit, but also separately tracking individual devices connected to that circuit. Or, for water usage, you might have a main water line meter and individual meters for appliances like washing machines or dishwashers. Without setting the device hierarchies, Home Assistant might double-count this usage. By setting the hierarchy, it understands these relationships and accurately shows the individual device usage without duplication.
+For example, imagine having a breaker monitoring the total energy consumption of a circuit, but also separately tracking individual devices connected to that circuit.
 
+For water usage, you might have a main water line meter and individual meters for appliances like washing machines or dishwashers. Without setting the device hierarchies, Home Assistant might double-count this usage. By setting the hierarchy, it understands these relationships and accurately shows the individual device usage without duplication.
 To set up an upstream device relationship:
 
 1. Add an energy or water consumption entity as an individual device.
