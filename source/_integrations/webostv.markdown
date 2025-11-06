@@ -62,7 +62,7 @@ This usually only works if the TV is connected to the same network. Routing the 
 
 Automations can also be created using YAML:
 
-The `webostv.turn_on` automation trigger is used to create an automation to turn on the TV using the media player power button.
+The `webostv.turn_on` device trigger is used in an automation to turn on the TV when the media player power button is pressed.
 
 | Data attribute | Optional | Description                                          |
 | ---------------------- | -------- | ---------------------------------------------------- |
