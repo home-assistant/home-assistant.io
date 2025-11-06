@@ -60,7 +60,7 @@ Common for webOS 3.0 and higher would be to use WakeOnLan feature. To use this f
 This usually only works if the TV is connected to the same network. Routing the WakeOnLan packet to a different subnet requires special configuration on your router or may not be possible.
 {% endimportant %}
 
-Automations can also be created using an automation action:
+Automations can also be created using YAML:
 
 The `webostv.turn_on` automation trigger is used to create an automation to turn on the TV using the media player power button.
 
