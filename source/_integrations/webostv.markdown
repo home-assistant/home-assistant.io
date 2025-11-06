@@ -50,7 +50,7 @@ LG webOS TV devices running webOS 2.0 and above.
 
 ## Turn on automation trigger
 
-To be able to turn on your TV, you need to create an automation trigger, you can create an automation from the user interface, from the device create a new automation and select the  **Device is requested to turn on** automation.
+To turn on your TV, you need to create an automation. You can create an automation from the user interface. From the device, create a new automation and select the **Device is requested to turn on** trigger.
 
 If you want to use an automation to turn on an LG webOS TV, install an {% term integration %} such as the [HDMI-CEC](/integrations/hdmi_cec/) or [WakeOnLan](/integrations/wake_on_lan/). They provide an action that can be used for that.
 
