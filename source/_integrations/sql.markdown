@@ -263,6 +263,8 @@ sensor:
 
 The query will look like this:
 
+{% raw %}
+
 ```sql
 SELECT
   count(state) as changes
@@ -284,6 +286,8 @@ FROM
       AND last_updated_ts >= strftime('%s','{{ states("sensor.datetime_helper") }}')
   )
 ```
+
+{% endraw %}
 
 Use `changes` as column for value.
 
