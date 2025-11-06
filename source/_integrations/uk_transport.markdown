@@ -52,7 +52,7 @@ app_key:
 app_limit:
   description: Maximum number of allowed API calls in a day
   required: false
-  type: number
+  type: integer
 queries:
   description: At least one entry required.
   required: true
