@@ -19,10 +19,29 @@ ha_codeowners:
 
 The Growatt integration enables you to retrieve data from Growatt inverters. During setup, you can choose from various regional endpoint servers:
 
-- For users in China: `https://openapi-cn.growatt.com/`
-- For users in North America: `https://openapi-us.growatt.com/`
-- For users in other regions: `https://openapi.growatt.com/`
-- SMTEN server: `http://server.smten.com/`
+- For users in China:
+
+  ```text
+  https://openapi-cn.growatt.com/
+  ```
+
+- For users in North America:
+
+  ```text
+  https://openapi-us.growatt.com/
+  ```
+
+- For users in other regions:
+
+  ```text
+  https://openapi.growatt.com/
+  ```
+
+- SMTEN server:
+
+  ```text
+  http://server.smten.com/
+  ```
 
 Selecting the appropriate server for your region improves the reliability and performance of data collection.
 
