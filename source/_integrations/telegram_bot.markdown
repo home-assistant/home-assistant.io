@@ -2,7 +2,7 @@
 title: Telegram bot
 description: Telegram bot support
 ha_category:
-  - Hub
+  - Notifications
 ha_release: 0.42
 ha_iot_class: Cloud Push
 ha_config_flow: true
@@ -41,9 +41,23 @@ This implementation allows Telegram to push updates directly to your server and 
 
 ## Prerequisites
 
-### Create Telegram bot
+### Create a bot in Telegram
 
-Create your Telegram bot and [retrieve the API key](/integrations/telegram). The `api_key` will be used for adding the bot to Home Assistant during integration setup.
+To create your first [Telegram bot](https://core.telegram.org/bots#how-do-i-create-a-bot), follow these steps:
+
+1. Tell Telegram to create a bot for you:
+   - In Telegram, open a chat with [@BotFather](https://t.me/BotFather) and enter `/newbot`.
+   - Follow the instructions on screen and give your bot a name.
+   - BotFather will give you a link to your new bot and an HTTP **API token**.
+   - Store the **API token** somewhere safe, it will be used for setting up the integration later.
+2. Get your **chat ID**:
+   - Send any message to the [GetIDs bot](https://t.me/getidsbot).
+   - Then, enter `/start`.
+   - The bot will return your **chat ID** and username.
+   - Note down your **chat ID**. You will need to add this ID to the allowlist after setting up the integration to permit your new bot to send/receive messages with this target.
+3. Make the first contact with your new bot (bots are not allowed to initiate contact with users):
+   - From the conversation with BotFather, select the link to open a chat.
+   - In the chat, enter `/start`.
 
 ### Allow Telegram bot to access your Home Assistant files (Optional)
 
@@ -137,7 +151,7 @@ Parse mode:
 
 A Telegram chat ID is a unique numerical identifier for an individual user (positive) or a chat group (negative).
 You must allowlist the chat ID for the Telegram bot before it can send/receive messages for that chat.
-To allowlist the chat ID, [retrieve the chat ID](/integrations/telegram#methods-to-retrieve-a-chat_id) and create a subentry:
+To allowlist the chat ID, [retrieve the chat ID](#create-a-bot-in-telegram) and create a subentry:
 
 1. Go to **{% my integrations title="Settings > Devices & services" %}**.
 2. Select the Telegram bot integration.
@@ -968,7 +982,7 @@ actions:
 
 ```yaml
 actions:
-- action: notify.telegrambot
+- action: telegram_bot.send_message
   data:
     title: Example Message
     message: 'Message with *BOLD*, _ITALIC_ and `MONOSPACE` Text'
@@ -978,7 +992,7 @@ actions:
 
 ```yaml
 actions:
-- action: notify.telegrambot
+- action: telegram_bot.send_message
   data:
     title: Example Message
     message: "Message with tag"
@@ -990,7 +1004,7 @@ actions:
 
 ```yaml
 actions:
-- action: notify.telegram
+- action: telegram_bot.send_message
   data:
     message: >-
       <a href="https://www.home-assistant.io/">HA site</a>
@@ -1003,7 +1017,7 @@ actions:
 
 ```yaml
 actions:
-- action: notify.telegram
+- action: telegram_bot.send_message
   data:
     message: "Message to a topic"
     data:
