@@ -68,7 +68,16 @@ The `daikin` climate platform integrates Daikin air conditioning systems into Ho
 
 Current inside temperature is displayed.
 
-When your controller supports zones (AirBase/SKYFi), the climate entity also exposes a `zone_temps` attribute listing the target temperature for each zone.
+When your controller supports zones (AirBase/SKYFi), the integration also exposes one climate entity per zone (for example `climate.living_room_temperature`). These entities automatically appear when the controller reports per-zone set points and mirror the HVAC mode of the main Daikin climate so they stay in sync with the system.
+
+### Zone climate entities
+
+- Each zone climate accepts the standard [`climate.set_temperature`](/integrations/climate#action-climateset_temperature) service as well as UI, voice, and automation controls. Daikin hardware enforces a ±2 °C window around the system set point, so the entity slider/input keeps you within that band and any manual calls outside it are rejected with a `temperature_out_of_range` error.
+- Turning a zone on or off continues to rely on the existing `switch.daikin_*_zone_*` entities. The zone climate entity is exclusively for temperature management.
+- Even when a zone is switched off you can adjust its target temperature; Daikin applies the stored set point as soon as the zone is re-enabled.
+- Only controllers that advertise Linear Zone Control and expose the zone temperature tables (for example AirHub Touch Zone Controller, AirBase/SKYFi models with Linear Zone Control) create these extra climate entities. Other controllers continue to expose a single climate entity.
+
+The primary Daikin climate continues to provide the `zone_temps` attribute for a quick overview of all zone targets.
 
 {% note %}
   
@@ -139,12 +148,6 @@ Zones with the name `-` will be ignored, just as the AirBase application is work
 A switch is created for each device that will toggle the unit on/off. This will turn the unit on to its previous state, or toggle it off. This switch works in conjunction with the climate entity.
 
 Additionally the Daikin Streamer (air purifier) function can be toggled on supported devices using a switch. Note that it isn't currently possible to reliably detect whether a specific device has streamer support, so the switch may appear in the UI even if the functionality isn't actually supported.
-
-## Services
-
-### Service `daikin.set_zone_temperature`
-
-AirBase and SKYFi controllers expose the `daikin.set_zone_temperature` service so you can adjust the per-zone set point without leaving Home Assistant. The controller must support zone temperature control (marketed as **Linear Zone Control**) such as the Daikin AirHub Touch Zone Controller. Select the Daikin climate entity to target, provide the `zone_id` (0 for the first zone, matching the zone switch order) and a temperature within ±2 °C of the main set point. When you have more than one AirBase controller, include its `entry_id` so the service updates the right system. The climate entity's `zone_temps` attribute refreshes immediately after the call, letting you confirm the new values.
 
 ## Region changing
 
