@@ -630,7 +630,7 @@ climates:
       type: float
       default: 1.0
     current_temp_offset:
-      description: "Offset for current temperature (output = current_temp_scale * value + current_temp_offset). Cannot be used together with *offset*."
+      description: "Offset for current temperature (output` = current_temp_scale` * `value` + `current_temp_offset`). Cannot be used together with *offset*."
       required: false
       type: float
       default: 0.0
