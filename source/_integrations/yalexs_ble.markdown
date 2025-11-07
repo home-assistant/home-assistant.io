@@ -55,6 +55,10 @@ These devices do not send updates, but can be locked and unlocked.
 
 Some Yale locks support a deadlock function (secure mode) for locking both the inside and outside. A secure mode lock entity (initially disabled) is exposed for all locks and can be enabled where the lock is known to support this capability.
 
+## Autolock support
+
+Some Yale and August locks support an autolock function that automatically locks the door after a set period. Autolock mode and autolock duration options are exposed to configure this feature where supported. This requires the [door sensor](#door-sensors) to be installed and calibrated for the autolock feature to work correctly.
+
 ## Troubleshooting
 
 Lock operation requires setting up an encrypted connection highly sensitive to latency. It is recommended to use a [High-Performance Bluetooth adapter](/integrations/bluetooth/#known-working-high-performance-adapters) or [ESPHome Bluetooth proxy](/integrations/bluetooth/#remote-adapters-bluetooth-proxies) for stable operation.
