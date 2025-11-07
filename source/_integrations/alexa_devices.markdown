@@ -44,6 +44,8 @@ There is support for the following device families within Home Assistant:
 
 This integration requires multifactor authentication using an authentication app (such as Microsoft Authenticator, for example). To enable MFA, in your Amazon account settings select **Login & Security** > **2-step verification** > **Backup methods** > **Add new app**. See [Amazon's documentation](https://www.amazon.com/gp/help/customer/display.html?nodeId=G9MX9LXNWXFKMJYU) for more information.
 
+You must ensure the authenticator app is setup as your preferred method for 2FA.
+
 {% endwarning %}
 
 {% include integrations/config_flow.md %}
