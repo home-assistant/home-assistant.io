@@ -9,6 +9,7 @@ There are various ways to get in touch with the Home Assistant community. It doe
 
 - [Forum][forum]
 - [Discord Chat Server][discord] for general Home Assistant discussions and questions.
+- Follow us on Bluesky, use [@home-assistant.io][bluesky]
 - Follow us on Mastodon, use [@homeassistant@fosstodon.org][mastodon]
 - Follow us on X, use [@home_assistant][x-twitter]
 - Join the [Facebook community][facebook]
