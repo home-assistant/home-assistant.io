@@ -35,5 +35,5 @@ This integration works with most (but not all) QNAP devices. A complete, up-to-d
 
 
 In the case of QTS 5, the QNAP account that is being used by Home Assistant needs the following:
-- make sure you log into the device's web interface and complete any agreements, warnings, wizards, setup, etc. as the QNAP API may block requests until those are completed.
-- the QNAP account must have access to System Monitoring. Either by being an administrator itself, or having an administrator assign System Monitoring privileges (within QTS : ControlPanel->Privilege->Delegated Administration->System Monitoring)
+- Make sure you log into the device's web interface and complete any agreements, warnings, wizards, or setup steps, as the QNAP API may block requests until those are completed.
+- The QNAP account must have access to System Monitoring. This can be achieved either by being an administrator or by having an administrator assign System Monitoring privileges (within QTS: ControlPanel > Privilege > Delegated Administration > System Monitoring).
