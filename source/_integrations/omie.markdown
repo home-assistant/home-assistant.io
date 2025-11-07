@@ -13,7 +13,7 @@ ha_codeowners:
 ha_domain: omie
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 The **OMIE** {% term integration %} retrieves day-ahead market results from [OMIE](https://www.omie.es/en) APIs
