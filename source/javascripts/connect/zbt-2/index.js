@@ -20,7 +20,7 @@ if (window.location.search.includes("hide")) {
 const featuresEntry = new ZBT2Animations("section#features");
 
 featuresEntry.onEnter(() => {
-    featuresEntry.el.querySelector(".waves-wrapper svg").style.setProperty("--enter", 1);
+    featuresEntry.el.querySelector(".waves-wrapper svg").style.setProperty("--enter", -1);
 });
 
 featuresEntry.onLeave(() => {

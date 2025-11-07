@@ -16,7 +16,9 @@ frontpage_content_top: true
   {% include_relative components/_hero.html %}
   {% include_relative components/_features.html %}
   {% include_relative components/_tour.html %}
+  {% include_relative components/_comparison.html %}
   {% include_relative components/_buy.html %}
+  {% include_relative components/_home.html %}
   {% include_relative components/_specs.html %}
   {% include_relative components/_faq.html %}
 </main>
@@ -28,6 +30,10 @@ frontpage_content_top: true
       "animations": "/javascripts/connect/zbt-2/animations.js"
     }
   }
+</script>
+<script type="module">
+  import {DSAP} from "/javascripts/dsap.es.js";
+  window.dsap = new DSAP();
 </script>
 <script src="/javascripts/gsap.min.js" type="text/javascript"></script>
 <script src="/javascripts/ScrollTrigger.min.js" type="text/javascript"></script>

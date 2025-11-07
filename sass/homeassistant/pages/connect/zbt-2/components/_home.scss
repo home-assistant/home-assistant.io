@@ -1,0 +1,52 @@
+section#home {
+
+    .container{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    .cols{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        
+        @include bp(tablet){
+            flex-direction: row;
+        }
+
+        &[data-dsap]{
+            img{
+                scale: 90%;
+            }
+
+            &[data-dsap-is="in"]{
+                img{
+                    scale: 100%;
+                    border-radius: 16px;
+                }
+            }
+        }
+
+        img{
+            border-radius: 48px;
+            transition: scale 4s cubic-bezier(0.22, 1, 0.36, 1), border-radius 1s ease-out;
+            width: 100%;
+        }
+
+        &:nth-child(1){
+            .col{
+                &:nth-child(1){}
+                &:nth-child(2){}
+            }
+        }
+
+        &:nth-child(2){
+            .col{
+                flex-grow: 1;
+                flex-basis: 0;
+                &:nth-child(1){}
+                &:nth-child(2){}
+            }
+        }
+    }
+}
