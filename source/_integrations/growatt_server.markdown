@@ -17,7 +17,7 @@ ha_codeowners:
   - '@johanzander'
 ---
 
-The Growatt integration allows you to retrieve data from Growatt inverters. During setup, you can choose from various regional endpoint servers:
+The Growatt integration enables you to retrieve data from Growatt inverters. During setup, you can choose from various regional endpoint servers:
 
 - For users in China: `https://openapi-cn.growatt.com/`
 - For users in North America: `https://openapi-us.growatt.com/`
@@ -44,7 +44,7 @@ To obtain an API token for your Growatt account:
 3. Generate or retrieve your API token.
 4. Use this token during the integration setup in Home Assistant.
 
-Using an API token is recommended for MIN/TLX inverters as it uses the official Growatt V1 API, which offers better stability, support and feature growth.
+Using an API token is recommended for MIN/TLX inverters as it uses the official Growatt API, which offers better stability, support and feature growth.
 
 ## Prerequisites
 
