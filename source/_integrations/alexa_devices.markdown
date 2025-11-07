@@ -227,21 +227,21 @@ This integration requires multifactor authentication using an authentication app
 
 ## Troubleshooting
 
-### Unable to Setup
+### Unable to setup
 
 #### Symptom: "CannotAuthenticate"
 
 ##### Description
 
-You will see `MFA OTP code not found on login page` or `Cannot find "auth-mfa-otpcode" in html source` in the logs when trying to setup the integration.   This is because the authentication details are incorrect.
+You will see `MFA OTP code not found on login page` or `Cannot find "auth-mfa-otpcode" in html source` in the logs when trying to set up the integration.   This is because the authentication details are incorrect.
 
 You need to ensure you are:
 
-- using the right credentials (The ones you would use to login to the Alexa app and Amazon shopping site)
-- setup to use app based 2FA
-- not setup to receive SMS 2FA codes
+- using the right credentials (The ones you would use to log in to the Alexa app and Amazon shopping site)
+- set up to use app based 2FA
+- not set up to receive SMS 2FA codes
 
-To test this you should login to your local amazon shopping site in incognition/private mode in your browser and check you are are prompted for the OTP code from you authenticator app and you are able to login sucessfully.
+To test this you should log in to your local Amazon shopping site in incognito/private mode in your browser and check you are prompted for the OTP code from your authenticator app, and you are able to log in successfully.
 
 ### Sensors unavailable
 
@@ -256,7 +256,7 @@ In logs.
 
 ##### Description
 
-This is down to rate limits applied by Amazon.   We are looking to reduce these errors but if they are causing you an issue you can disable polling for the integration which will stop these errors, this will however stop DND, sensors and connectivity from being updated but speech, announcements and text commands will continue to work.
+This happens because of rate limits applied by Amazon. We are working to reduce these errors. If these errors are causing you issues, you can disable polling for the integration. Disabling polling will stop these errors, but it will also stop DND, sensors, and connectivity from being updated. However, speech, announcements, and text commands will continue to work.
 
 ## Removing the integration
 
