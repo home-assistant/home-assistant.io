@@ -615,12 +615,12 @@ climates:
         input:
           description: "Input register."
     scale:
-      description: "Scale factor (output = scale * value + offset) for setting target and current temperature. Cannot be used together with *current_temp_scale* or *target_temp_scale*."
+      description: "Scale factor (`output` = `scale` * `value` + offset) for setting target and current temperature. Cannot be used together with `current_temp_scale` or `target_temp_scale."
       required: false
       type: float
       default: 1
     offset:
-      description: "Final offset for target and current temperature (output = scale * value + offset). Cannot be used together with *current_temp_offset* or *target_temp_offset*."
+      description: "Final offset for target and current temperature (`output` = `scale` * `value` + `offset). Cannot be used together with current_temp_offset or target_temp_offset`."
       required: false
       type: float
       default: 0
@@ -635,12 +635,12 @@ climates:
       type: float
       default: 0.0
     target_temp_scale:
-      description: "Scale factor for target temperature (output = target_temp_scale * value + target_temp_offset). Cannot be used together with *scale*."
+      description: "Scale factor for target temperature (`output` = `target_temp_scale` * `value` + `target_temp_offset`). Cannot be used together with scale`."
       required: false
       type: float
       default: 1.0
     target_temp_offset:
-      description: "Offset for target temperature (output = target_temp_scale * value + target_temp_offset). Cannot be used together with *offset*."
+      description: "Offset for target temperature (`output` = `target_temp_scale` * `value` + `target_temp_offset`). Cannot be used together with offset`."
       required: false
       type: float
       default: 0.0
