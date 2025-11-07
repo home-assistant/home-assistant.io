@@ -252,7 +252,7 @@ Use `state` as column for value.
 ### Amount of state changes since using a template
 
 This example shows the amount of state changes of the sensor `sensor.temperature_in`
-using another sensors state to provide the time window.
+using another sensor's state to provide the time window.
 
 ```yaml
 sensor:
