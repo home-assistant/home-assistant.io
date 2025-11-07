@@ -98,7 +98,7 @@ type:
 
 ## Button
 
-Widget that displays buttons to control [button](/integrations/button) or [script](/integrations/script).
+Widget that displays buttons to control [button](/integrations/button), [input_button](/integrations/input_button), [scene](/integrations/scene), or [script](/integrations/script).
 
 <p class='img'>
   <img src='/images/dashboards/features/button.png' alt='Screenshot of the tile card with the button feature'>
@@ -108,7 +108,9 @@ Widget that displays buttons to control [button](/integrations/button) or [scrip
 ```yaml
 features:
   - type: "button"
-    action_name: "Click the button"
+    action_name: "Press"
+    data:
+      variable: some_value
 ```
 
 {% configuration features %}
@@ -121,6 +123,10 @@ action_name:
   type: string
   description: Text inside the button.
   type: string
+data:
+  required: false
+  description: Additional data to be passed when the action is executed. Only applies to script.
+  type: map
 {% endconfiguration %}
 
 ## Climate fan modes
@@ -650,6 +656,32 @@ type:
   required: true
   description: "`media-player-playback`"
   type: string
+{% endconfiguration %}
+
+## Media player volume buttons
+
+Widget that displays buttons to control the volume for a [media player](/integrations/media_player).
+
+<p class='img'>
+  <img src='/images/dashboards/features/media_player_volume_buttons.png' alt='Screenshot of the tile card with media player volume buttons feature'>
+  Screenshot of the tile card with media player volume buttons feature
+</p>
+
+```yaml
+features:
+  - type: "media-player-volume-buttons"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`media-player-volume-buttons`"
+  type: string
+step:
+  required: false
+  description: "The step size of the volume. The default is 5%."
+  type: integer
+  default: 5
 {% endconfiguration %}
 
 ## Media player volume slider

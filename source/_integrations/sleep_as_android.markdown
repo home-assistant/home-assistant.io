@@ -10,12 +10,12 @@ ha_config_flow: true
 ha_codeowners:
   - '@tr4nt0r'
 ha_domain: sleep_as_android
-ha_integration_type: integration
+ha_integration_type: service
 ha_platforms:
   - diagnostics
   - event
   - sensor
-ha_quality_scale: silver
+ha_quality_scale: platinum
 ---
 
 The **Sleep as Android** {% term integration %} connects the Sleep as Android app to Home Assistant, allowing you to trigger automations based on alarm clock or sleep cycle events.
@@ -30,7 +30,7 @@ The Sleep as Android integration allows you to trigger sleep-related automations
 
 ## Prerequisites
 
-This integration uses webhooks to receive events from Sleep as Android. By default, webhook triggers can only be accessed from devices on the same network as Home Assistant. If you want to receive events while away from your home network, remote access must be enabled, either by adding a [remote URL](/docs/configuration/remote/) or via [Nabu Casa Cloud](https://www.nabucasa.com/config/webhooks/).
+This integration uses webhooks to receive events from Sleep as Android. By default, webhook triggers can only be accessed from devices on the same network as Home Assistant. If you want to receive events while away from your home network, remote access must be enabled, either by adding a [remote URL](/docs/configuration/remote/) or via [Home Assistant Cloud](https://www.nabucasa.com/config/webhooks/).
 
 Steps to set up the integration:
 
@@ -158,6 +158,15 @@ Events triggered when a specific sound is detected during sleep tracking.
 | `laugh`    | Laughter             |
 | `snore`    | Snoring              |
 | `talk`     | Talking              |
+
+### Jet lag prevention
+
+Events triggered when a specific sound is detected during sleep tracking.
+
+| Event type      | Description                |
+| --------------- | -------------------------- |
+| `jet_lag_start` | Jet lag prevention started |
+| `jet_lag_stop`  | Jet lag prevention stopped |
 
 ## Automation
 

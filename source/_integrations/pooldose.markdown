@@ -2,29 +2,31 @@
 title: SEKO PoolDose
 description: Connect your SEKO PoolDose water treatment system to Home Assistant.
 ha_category:
-  - Water Management
   - Sensor
+  - Water Management
 ha_iot_class: Local Polling
 ha_config_flow: true
-ha_release: "2025.9"
+ha_release: '2025.9'
 ha_codeowners:
   - '@lmaertin'
 ha_domain: pooldose
 ha_platforms:
   - sensor
 ha_integration_type: integration
+ha_quality_scale: bronze
+ha_dhcp: true
 ---
 
 The PoolDose integration connects a [SEKO](https://www.seko.com/) water treatment system with Home Assistant. SEKO is a manufacturer of various monitoring and control devices for pools and spas.
 
-This integration uses an undocumented local HTTP API. It provides live readings for pool sensors such as temperature, pH, ORP/Redox, as well as configuration  parameters.
+This integration uses an undocumented local HTTP API. It provides live readings for pool sensors such as temperature, pH, ORP/Redox, as well as configuration parameters.
 
 ## Prerequisites
 
-1. Install and set-up the PoolDose device according to its user manual.
+1. Install and set up the PoolDose device according to its user manual.
    1. In particular, connect the device to your Wi-Fi network.
    2. Identify the IP address or hostname of the device.
-2. Browse to the IP address resp. hostname. Use HTTP and port 80.
+2. Browse to the IP address or hostname. Use HTTP and port 80.
    1. Log in to the web interface.
    2. Verify that sensor data is displayed, such as water temperature or pH values shown as gauges.
    3. Deactivate the device password, i.e., set it to 0000.
@@ -34,7 +36,7 @@ This integration uses an undocumented local HTTP API. It provides live readings 
 
 {% configuration_basic %}
 Host:
-  description: The IP address resp. hostname of your device. Identify the IP address resp. hostname in the web interface of the device or of your router.
+  description: The IP address or hostname of your device. Identify this in the web interface of the device or of your router.
 {% endconfiguration_basic %}
 
 ## Removing the integration
@@ -79,6 +81,20 @@ The following devices are known to be supported by the integration:
 | **orp_calibration_offset** | mV | ORP calibration offset value | — |
 | **orp_calibration_slope** | mV | ORP calibration slope value | — |
 
+## Known limitations
+
+### Hardware and connectivity issues
+
+The PoolDose devices have two characteristics that can affect their network connectivity:
+
+- **Hardware limitations**: The devices use a small-scale controller that is heavily loaded by web server and data processing tasks. This can occasionally cause brief connection interruptions, though devices typically recover quickly.
+
+- **Energy-saving mode**: When the pump monitoring feature is activated in the device settings, the device often enters an energy-saving mode if no pump operation is detected. During this time, the device may be less responsive or temporarily unavailable on the network, for example, at night.
+
+### Cached data behavior
+
+These limitations are normal behavior for the device and not issues with the integration itself. To handle these connectivity issues, the integration caches values for a maximum of 300 seconds (5 minutes) when the device is temporarily unresponsive. After this cache period expires, entities will show as "unavailable" until the device provides new data again.
+
 ## Troubleshooting
 
 ### Device not found
@@ -89,7 +105,7 @@ When trying to set up the integration, you receive an error that the device cann
 
 ##### Description
 
-The device may not be properly connected to your network or may be using a different hostname than expected.
+The device may not be properly connected to your network, or it may be using a different IP address or hostname than expected.
 
 ##### Resolution
 
@@ -108,7 +124,7 @@ The integration cannot connect to the device even though it's found on the netwo
 
 ##### Description
 
-This typically occurs when the device's web interface password is not set to the default value resp. deactivated.
+This typically occurs when the device's web interface password is not set to the default value (0000) or not properly deactivated.
 
 ##### Resolution
 
@@ -136,3 +152,22 @@ This behavior is expected and does not indicate a problem with the integration:
 1. The integration uses cached values when the device is temporarily unresponsive.
 2. Entities will return to normal once the device becomes responsive again.
 3. Consider this behavior when creating automations that depend on these sensors.
+
+### Missing peristaltic pump status
+
+#### Symptom: No peristaltic pump status data is available
+
+Peristaltic pump status sensors don't show any data or appear as unavailable.
+
+##### Description
+
+The PoolDose device only propagates the status of peristaltic dosing pumps when the external relays for these pumps are enabled in the device settings.
+
+##### Resolution
+
+To get peristaltic pump status data:
+
+1. Browse to your PoolDose device's settings.
+2. Find the external relay configuration for the pH and ORP pumps.
+3. Enable the external relays for the pumps you want to monitor.
+4. Save the settings and restart the device if required.

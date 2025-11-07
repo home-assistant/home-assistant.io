@@ -27,7 +27,7 @@ Screenshot of the masonry view with different types of cards.
 
 There are several different card types, each with their own configuration options. They can be categorized in terms of their function:
 
-- **Specific to a device type or service**: [alarm](/dashboards/alarm-panel/), [light](/dashboards/light/), [humidifier](/dashboards/humidifier/), [thermostat](/dashboards/thermostat/), [plant status](/dashboards/plant-status/), [media control](/dashboards/media-control/), [weather forecast](/dashboards/weather-forecast/), [to-do list](/dashboards/todo-list/), [map](/dashboards/map/), [logbook](/dashboards/logbook/), [calendar](/dashboards/calendar/)
+- **Specific to a device type or service**: [alarm](/dashboards/alarm-panel/), [light](/dashboards/light/), [humidifier](/dashboards/humidifier/), [thermostat](/dashboards/thermostat/), [plant status](/dashboards/plant-status/), [media control](/dashboards/media-control/), [weather forecast](/dashboards/weather-forecast/), [to-do list](/dashboards/todo-list/), [map](/dashboards/map/), [activity](/dashboards/logbook/), [calendar](/dashboards/calendar/)
 - **Grouping other cards**: [vertical stack](/dashboards/vertical-stack/), [horizontal stack](/dashboards/horizontal-stack/), [grid](/dashboards/grid/)
 - **Logic function**: [conditional](/dashboards/conditional/), [entity filter](/dashboards/entity-filter/)
 - **Display generic data**: [sensor](/dashboards/sensor/), [history graph](/dashboards/history-graph/), [statistic](/dashboards/statistic/), [statistics graph](/dashboards/statistics-graph/), [energy](/dashboards/energy/), [gauge](/dashboards/gauge/), [webpage](/dashboards/iframe/)

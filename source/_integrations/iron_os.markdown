@@ -15,7 +15,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@tr4nt0r'
 ha_domain: iron_os
-ha_integration_type: integration
+ha_integration_type: device
 ha_platforms:
   - binary_sensor
   - button

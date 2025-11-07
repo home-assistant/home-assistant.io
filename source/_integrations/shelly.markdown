@@ -17,7 +17,6 @@ ha_category:
   - Valve
 ha_release: 0.115
 ha_codeowners:
-  - '@balloob'
   - '@bieniu'
   - '@thecode'
   - '@chemelli74'
@@ -181,7 +180,7 @@ The integration creates a sub-device for every relay (channel) and uses the foll
 - If a `Device Name` is set in the device, the integration will use it to generate the main device name and entity names assigned to the main device.
 - If a `Device Name` is not set, the integration will use the `Device ID` to generate the main device name and entity names assigned to the main device.
 - If a `Channel Name` is set in the device, the integration will use it to generate the sub-device name and entity names assigned to this sub-device (channel/relay).
-- If a `Channel Name` is set to the default value in the device, the integration will use the device name and this ddefault channel name to generate the sub-device name and entity names assigned to this sub-device (channel/relay).
+- If a `Channel Name` is set to the default value in the device, the integration will use the device name and this default channel name to generate the sub-device name and entity names assigned to this sub-device (channel/relay).
 
 Examples:
 
@@ -415,6 +414,7 @@ The integration supports the following virtual components:
 
 - `boolean` in `toggle` mode, for which a `switch` platform entity is created
 - `boolean` in `label` mode, for which a `binary_sensor` platform entity is created
+- `button` in `button` mode, for which a `button` platform entity is created
 - `enum` in `dropdown` mode, for which a `select` platform entity is created
 - `enum` in `label` mode, for which a `sensor` platform entity is created
 - `number` in `field` mode, for which a `number` platform entity in `box` mode is created
@@ -431,6 +431,12 @@ For each device script, the integration creates a `switch` entity that allows yo
 
 Shelly devices rely on [SNTP](https://en.wikipedia.org/wiki/Network_Time_Protocol#SNTP) for features like power measurement.
 Please check from the device Web UI that the configured server is reachable.
+
+## Troubleshooting
+
+1. [Enable debug logging](https://www.home-assistant.io/docs/configuration/troubleshooting/#enabling-debug-logging).
+2. Take necessary steps/actions to replicate the issue.
+3. [Disable debug logging and download logs](https://www.home-assistant.io/docs/configuration/troubleshooting/#disable-debug-logging-and-download-logs).
 
 ## Known issues and limitations
 
