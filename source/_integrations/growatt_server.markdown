@@ -19,14 +19,14 @@ ha_codeowners:
 
 The Growatt integration allows you to retrieve data from Growatt inverters. During setup, you can choose from various regional endpoint servers:
 
-- For users in China: https://openapi-cn.growatt.com/
-- For users in North America: https://openapi-us.growatt.com/
-- For users in other regions: https://openapi.growatt.com/
-- SMTEN server: http://server.smten.com/
+- For users in China: `https://openapi-cn.growatt.com/`
+- For users in North America: `https://openapi-us.growatt.com/`
+- For users in other regions: `https://openapi.growatt.com/`
+- SMTEN server: `http://server.smten.com/`
 
 Selecting the appropriate server for your region improves the reliability and performance of data collection.
 
-Once integrated, the sensor logs into your Growatt account and retrieves your plants. If you have multiple plants, you can select which one to integrate. The integration then retrieves the inverters associated with the selected plant and generates sensors for these inverters, as well as overall plant sensors.
+Once configured, the integration connects to your Growatt account. If you have multiple plants, you can select which one to integrate. It will then create entities for your plant and inverters, allowing you to monitor energy production and control settings in Home Assistant.
 
 ## Authentication
 
@@ -53,6 +53,15 @@ Using an API token is recommended for MIN/TLX inverters as it uses the official 
 
 {% include integrations/config_flow.md %}
 
+## Known limitations
+
+### Rate limiting with username/password authentication
+
+The classic API (username/password authentication) has strict rate limits that can result in your account being locked out for up to 24 hours if exceeded. To avoid this issue:
+
+- **For MIN/TLX inverter users**: Use API token authentication instead, which uses the official Growatt V1 API that does not have this limitation.
+- **For all other users**: Avoid all unnecessary integration reloads, as a reload triggers re-login via Growatt classic API.
+
 ## Inverter controls
 
 When using API token authentication with MIN/TLX inverters, the integration provides additional control entities:
@@ -76,3 +85,25 @@ These controls directly modify your inverter's operational settings. Only change
 
 - **AC charge**
   - **Description**: Enable or disable AC charging
+
+## Troubleshooting
+
+### Account locked or authentication failing
+
+If you're experiencing authentication failures or account lockouts:
+
+1. **Accept new terms and conditions**: Open the ShinePhone mobile app and log in with your Growatt account. You may need to accept updated terms and conditions before the integration can access your account successfully.
+
+2. **Account locked due to rate limiting**: If you're using username/password authentication and your account has been locked due to rate limiting:
+   - Wait for the lockout period to expire (up to 24 hours).
+   - Consider switching to API token authentication if you have a MIN/TLX inverter.
+   - Avoid frequent integration reloads, which can trigger rate limits.
+
+3. **Prevent lockouts during Home Assistant restarts**:
+   - If you experience frequent lockouts, temporarily disable the integration before restarting Home Assistant.
+   - To disable: Go to {% my integrations title="**Settings** > **Devices & services**" %}, select the Growatt integration, click the three dots {% icon "mdi:dots-vertical" %} menu, and select **Disable**.
+   - Re-enable after Home Assistant has fully restarted.
+
+## Removing the integration
+
+{% include integrations/remove_device_service.md %}
