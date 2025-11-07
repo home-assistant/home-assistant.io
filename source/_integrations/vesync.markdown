@@ -15,6 +15,7 @@ ha_codeowners:
   - '@thegardenmonkey'
   - '@cdnninja'
   - '@iprak'
+  - '@sapuseven'
 ha_domain: vesync
 ha_platforms:
   - binary_sensor
@@ -26,6 +27,7 @@ ha_platforms:
   - select
   - sensor
   - switch
+  - update
 ha_integration_type: integration
 ---
 
@@ -42,6 +44,7 @@ The following platforms are supported:
 - **number**
 - **sensor**
 - **switch**
+- **update**
 
 ## Supported devices
 
@@ -133,6 +136,7 @@ VeSync air purifiers will expose the following details depending on the features
 | `mode`                  | The current mode the device is in. (LV-PUR131S, Core200S/300s/400s)               | manual          |
 | `speed`                 | The current speed setting of the device. (LV-PUR131S, Core200S/300s/400s)         | high            |
 | `speed_list`            | The available list of speeds supported by the device. (LV-PUR131S)                | high            |
+| 'oscillating'           | If the fan is currently oscillating                                               | True            |
 | `active_time`           | The number of seconds since the device has been in a non-off mode. (LV-PUR131S)   | 1598            |
 | `screen_status`         | The current status of the screen. (LV-PUR131S)                                    | on              |
 | `night_light`           | The current status of the night light (Core200S/Core400s)                         | off             |

@@ -10,7 +10,7 @@ ha_domain: feedreader
 ha_config_flow: true
 ha_platforms:
   - event
-ha_integration_type: integration
+ha_integration_type: service
 related:
   - docs: /common-tasks/general/#defining-a-custom-polling-interval
     title: Defining a custom polling interval

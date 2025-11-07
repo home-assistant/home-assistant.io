@@ -95,7 +95,7 @@ Tuya supports scenes in their app. These allow triggering some of the more compl
 
 ## Troubleshooting
 
-### Unsupported device or missing device functionnality
+### Unsupported device or missing device functionality
 
 This integration relies on the official [Python SDK provided by Tuya](https://github.com/tuya/tuya-device-sharing-sdk), which does not expose all functionality available in SmartLife.
 

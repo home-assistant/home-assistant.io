@@ -16,8 +16,8 @@ related:
 ha_integration_type: device
 ha_quality_scale: bronze
 ha_platforms:
-  - sensor
   - select
+  - sensor
 ha_ssdp: true
 ---
 
@@ -27,7 +27,7 @@ The Imeon Energy Inverter {% term integrations %} will poll an [Imeon](https://i
 
 - The Imeon inverter must be connected to the local network.
 - [OS One](https://imeon-energy.com/os-one/) version must be **1.8.1.4** or higher.
-- *ModuleAPI* application must be activated on the OS One pannel of your Imeon inverter.
+- *ModuleAPI* application must be activated on the OS One panel of your Imeon inverter.
    - To do so, connect to **OS One** > **Applications** and by hovering over *ModuleAPI*, select **Activate**.
 
 {% include integrations/config_flow.md %}
@@ -154,6 +154,13 @@ This document provides an overview of the sensors available in the Imeon Inverte
 | `energy_building_consumption` | Energy building consumption today.  | Wh   |
 | `energy_battery_stored`       | Energy stored in battery today.     | Wh   |
 | `energy_battery_consumed`     | Energy consumed from battery today. | Wh   |
+
+### Forecast
+
+| Sensor key                      | Description                                             | Unit |
+| ------------------------------- | ------------------------------------------------------- | ---- |
+| `forecast_cons_remaining_today` | Forecast of the remaining energy consumption for today. | Wh   |
+| `forecast_prod_remaining_today` | Forecast of the remaining energy production for today.  | Wh   |
 
 ## Troubleshooting
 

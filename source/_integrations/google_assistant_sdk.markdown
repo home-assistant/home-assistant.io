@@ -130,6 +130,8 @@ If you have an error with your credentials you can delete them in the [Applicati
 
 If commands don't work try removing superfluous words such as "the". E.g. "play rain sounds on bedroom speaker" instead of "play rain sounds on the bedroom speaker".
 
+If commands to a specific device (like streaming a camera to a Google TV) fail, you may need to enable "Personal Results" on that device itself. For example, on a Google TV or Chromecast with Google TV, this setting may be located under `Settings > Privacy > Google Assistant > Personal Results`. This may be required in addition to enabling it in the Google Home app.
+
 If broadcasting doesn't work, make sure: the speakers aren't in do not disturb mode, the Home Assistant server is in the same network as the speakers.
 
 The easiest way to check if the integration is working is to check [My Google Activity](https://myactivity.google.com/myactivity) for the issued commands and their responses.
@@ -157,7 +159,7 @@ You can use the `google_assistant_sdk.send_text_command` action to send commands
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `command`              | no       | Command(s) to send to Google Assistant. |
-| `media_player`         | yes      | Name(s) of media player entities to play response on |
+| `media_player`         | yes      | Name(s) of media player entities to play the Google Assistant's audio response on. This does **not** target the device for the command itself. |
 
 Examples:
 
@@ -168,12 +170,22 @@ data:
 ```
 
 ```yaml
-# Say a joke on the living room speaker
+# Say a joke on the living room speaker. The `media_player` entity receives the audio response.
 action: google_assistant_sdk.send_text_command
 data:
   command: "tell me a joke"
   media_player: media_player.living_room_speaker
 ```
+
+```yaml
+# Stream a camera to a Chromecast-enabled TV or display.
+# The target device ("living room tv") must be part of the command itself.
+action: google_assistant_sdk.send_text_command
+data:
+  command: "show the front door camera on the living room tv"
+```
+
+Note: To control a specific device, like streaming a camera to a TV, you must include the device's name (as known by Google Assistant) in the text `command`. The `media_player` parameter is only used for playing back Google Assistant's audio response and will not direct the video stream.
 
 You can send multiple commands in the same conversation context which is useful to unlock doors or open covers that need a PIN. Example:
 
