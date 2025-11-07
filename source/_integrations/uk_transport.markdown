@@ -23,7 +23,7 @@ Additional sensors can be added but at the expense of a reduced refresh rate. 2 
 
 Queries are entered as a list, with the two transport modes available being `bus` and `train`.
 
-Train departure sensors require three character long `origin` and `destination` station codes which are searchable on the [National Rail enquiries](https://www.nationalrail.co.uk/times_fares/ldb.aspx) website (e.g., `WAT` is London Waterloo). The validity of a route can be checked by performing a GET request to `/uk/train/station/{station_code}/live.json` in the [API reference webpage](https://developer.transportapi.com/docs?raml=https://transportapi.com/v3/raml/transportapi.raml#request_uk_train_station_station_code_live_json).
+Train departure sensors require three character long `origin` and `destination` station codes which are searchable on the [National Rail enquiries](https://www.nationalrail.co.uk/times_fares/ldb.aspx) website (e.g., `WAT` is London Waterloo). The validity of a route can be checked by performing a GET request to `/uk/train/station_timetables/{station_code}.json` in the [API reference webpage](https://developer.transportapi.com/docs?raml=https://transportapi.com/v3/raml/transportapi.raml#request_uk_train_station_station_code_live_json).
 
 To add a single train departure {% term integration %} add the following to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
@@ -49,6 +49,10 @@ app_key:
   description: Your application Key.
   required: true
   type: string
+app_limit:
+  description: Maximum number of allowed API calls in a day
+  required: false
+  type: integer
 queries:
   description: At least one entry required.
   required: true
@@ -117,7 +121,7 @@ follows:
 3. Tick the 'map data' layer, and wait for clickable objects to load.
 4. Click the bus stop node to reveal its tags on the left.
 
-The `destination` must be a valid location in the "direction" field returned by a GET query to `/uk/bus/stop/{atcocode}/live.json` as described in the [API reference webpage](https://developer.transportapi.com/docs?raml=https://transportapi.com/v3/raml/transportapi.raml##bus_information). A bus sensor is added in the following {% term "`configuration.yaml`" %} file entry:
+The `destination` must be a valid location in the "direction" field returned by a GET query to `/uk/bus/stop_timetables/{atcocode}.json` as described in the [API reference webpage](https://developer.transportapi.com/docs?raml=https://transportapi.com/v3/raml/transportapi.raml##bus_information). Multiple destinations separated by comma can be provided in `destination`. A bus sensor is added in the following {% term "`configuration.yaml`" %} file entry:
 
 ```yaml
 # Example configuration.yaml entry for multiple sensors
