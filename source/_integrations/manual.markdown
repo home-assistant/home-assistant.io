@@ -101,17 +101,15 @@ armed_custom_bypass/armed_home/armed_away/armed_night/armed_vacation/disarmed/tr
       type: integer
 {% endconfiguration %}
 
-### Event: `manual_alarm_bad_code_attempt`
+### Event: Manual alarm bad code attempt
 
-This event is fired when an attempt to change the state of a manual alarm control panel (e.g., arm or disarm) fails due to an invalid code being provided.
+The `manual_alarm_bad_code_attempt` event is fired when an attempt to change the state of a manual alarm control panel (for example, arm or disarm) fails because an invalid code was entered.
 
-#### Event Data
+#### Event data
 
-| Key       | Type   | Description                                   |
-| --------- | ------ | --------------------------------------------- |
-| `entity_id` | `string` | The entity ID of the alarm control panel (e.g., `alarm_control_panel.my_alarm`). |
-| `action`    | `string` | The attempted action or target state (e.g., `disarmed`, `armed_away`, `armed_home`). |
-| `user_id`   | `string` | The user ID who initiated the service call (if available). |
+- **entity_id** (string): The entity ID of the alarm control panel (for example, `alarm_control_panel.my_alarm`).
+- **action** (string): The attempted action or target state (for example, `disarmed`, `armed_away`, `armed_home`).
+- **user_id** (string): The user ID who initiated the service call (if available).
 
 Example automation trigger:
 
