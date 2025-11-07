@@ -193,3 +193,12 @@ Restore from partial backup.
 | `addons` | yes | List of add-on slugs to restore
 | `folders` | yes | List of directories to restore
 | `password` | yes | Optional password for backup
+
+### Action hassio.mount_reload
+
+Reload a network storage mount.
+
+| Data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `device_id` | no | The device ID of the network storage mount to reload
+
