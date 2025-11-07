@@ -68,14 +68,14 @@ The `daikin` climate platform integrates Daikin air conditioning systems into Ho
 
 Current inside temperature is displayed.
 
-When your controller supports zones (AirBase/SKYFi), the integration also exposes one climate entity per zone (for example `climate.living_room_temperature`). These entities automatically appear when the controller reports per-zone set points and mirror the HVAC mode of the main Daikin climate so they stay in sync with the system.
+When your controller supports zone temperature control (AirBase/SKYFi), the integration also exposes one climate entity per zone.
 
 ### Zone climate entities
 
-- Each zone climate accepts the standard [`climate.set_temperature`](/integrations/climate#action-climateset_temperature) service as well as UI, voice, and automation controls. Daikin hardware enforces a ±2 °C window around the system set point, so the entity slider/input keeps you within that band and any manual calls outside it are rejected with a `temperature_out_of_range` error.
-- Turning a zone on or off continues to rely on the existing `switch.daikin_*_zone_*` entities. The zone climate entity is exclusively for temperature management.
+- Each zone climate entity can set the temperature within a ±2 °C window around the system set point.
+- Turning a zone on or off continues to rely on the existing zone switch entities. The zone climate entity is exclusively for temperature management.
 - Even when a zone is switched off you can adjust its target temperature; Daikin applies the stored set point as soon as the zone is re-enabled.
-- Only controllers that advertise Linear Zone Control and expose the zone temperature tables (for example AirHub Touch Zone Controller, AirBase/SKYFi models with Linear Zone Control) create these extra climate entities. Other controllers continue to expose a single climate entity.
+- Only controllers that advertise Linear Zone Control and expose the zone temperature tables (for example AirHub Touch Zone Controller, AirBase/SKYFi models with Linear Zone Control) create these extra climate entities.
 
 The primary Daikin climate continues to provide the `zone_temps` attribute for a quick overview of all zone targets.
 
