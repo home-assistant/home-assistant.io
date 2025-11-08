@@ -289,7 +289,7 @@ A big thank you to all the contributors involved! 👏
 [Mealie]: /integrations/mealie
 [NextDNS]: /integrations/nextdns
 [ntfy]: /integrations/ntfy
-[Switcher]: /integrations/switcher
+[Switcher]: /integrations/switcher_kis
 [Volvo]: /integrations/volvo
 
 ### Farewell to the following
