@@ -769,8 +769,8 @@ Changes for things like sensors or thermostat temperature set points should be i
 - To learn more about how Google Pub/Sub works see the [Pull subscription workflow documentation](https://cloud.google.com/pubsub/docs/pull#pull-workflow). The steps in the following section will:
 
     1. Verify the Nest Device Access Console is configured with a Pub/Sub topic for publishing messages
-    2. (Optional) Verify messages are published on the Pub/Sub topic. This works for some topic typcs.
-    3. Verify Pub/Sub subscription messages are routed properly
+    2. (Optional) Verify topic message publishing. These steps are available for some topic configurations.
+    3. Verify Pub/Sub subscription message routing
     4. Verify Home Assistant is receiving messages on the Pub/Sub subscription
 
 - **Verify the Nest Device Access Console configuration**
@@ -778,35 +778,37 @@ Changes for things like sensors or thermostat temperature set points should be i
     1. Visit the [Device Access Console](https://console.nest.google.com/device-access/project-list)
     2. Click the Home Assistant device access project
     3. Verify the *Pub/Sub topic* is *Enabled*. If not, follow the integration configuration instructions.
-    4. If the topic starts with `projects/<your cloud project>/topics/home-assistant-` then you are using a topic created by Home Assistant and you can follow the steps in the next section for verify the topic.
-    5. If the topic starts with `projects/sdm-prod/topics` then you are using a topic created by the Device Access console and you can skip the next section. This is the old way, but still works fine.
+    4. If the Pub/Sub topic starts with `projects/<your cloud project>/topics/home-assistant-` then you are using a topic created by Home Assistant. You may follow the steps in the next section to verify the topic.
+    5. If the Pub/Sub topic starts with `projects/sdm-prod/topics` then you are using a topic created by the Device Access console. This is the old way, but works completely fine. You should skip the next section.
 
-- **(Optional) Verify messages are published on the Pub/Sub topic.** Skip this section if using a topic name starting with `projects/sdm-prod/topics`
+- **(Optional) Verify topic message publishing.** Skip this section if using a topic name starting with `projects/sdm-prod/topics`
 
     1. Visit the Pub/Sub Topics [Cloud Console](https://console.cloud.google.com/cloudpubsub/topic/list)
     2. Click the Home Assistant Topic ID matching the Device Access Console configuration.
     3. View the *Subscriptions* tab and confirm there is a Subscription ID. This will be verified in the next section.
     3. Click the *Metrics* tab and set the zoom to *6 hours* or *1 day*.
-    4. View the *Published message count*. This shows the frequency of the device publishing messages to the topic. If there are no messages published then it indicates either:
-        - A problem with the device connecting to Google. Verify the device works in the Google Home App
-        - An issue with the SDM API that requires [Google Support](https://developers.google.com/nest/device-access/support) to address or diagnose.
+    4. View the *Published message count*. This counts messages published by the device to the topic. If the number of messages is not what you expect then it indicates:
+        - A problem with the device connecting to Google. Verify the device works in the Google Home App.
+        - An issue with the SDM API that requires [Device Access Support](https://developers.google.com/nest/device-access/support) to diagnose or address.
 
-- **Verify Pub/Sub subscription messages are routed properly**
+- **Verify Pub/Sub subscription message routing**
 
   1. Visit the Pub/Sub Subscriptions [Cloud Console](https://console.cloud.google.com/cloudpubsub/subscription/list)
   2. Click the Home Assistant Subscription ID
-  3. Confirm the *Topic name* is the same as in the Nest Device Access Console.
+  3. Confirm the *Topic name* is the same as in the Nest Device Access Console above.
   4. View the *Metrics* tab in the bottom panel, which include:
 
-    - *Delivery metrics*: which shows the *Publish message count* indicating if messages are published by Google. You may need to scroll down to see this.
+    - *Delivery metrics*: The *Publish message count* shows messages are published on the topic that are routed to the subscription. You may need to scroll down to see this.
     - *Oldest unacked message age* shows messages not being fully received by the Home Assistant nest integration. See the next section for diagnosing this.
 
   5. Click the *Messages* tab
-  6. Click *Pull* to see a sample of received messages. These messages should correspond to messages published in the topic (e.g. optionally verified by the *Published message count* in the previous section). If there are no messages published then it indicates either:
-        - A problem with the device connecting to Google. Verify the device works in the Google Home App.
-        - A misconfiguration. Confirm the *Topic ID* matches the Device Access Console.
-        - An issue with the SDM API that requires [Google Support](https://developers.google.com/nest/device-access/support) to address or diagnose.
-  7. Click the arrow to *View all row content* to make it easier to see the full contents of the received messages to confirm they are what you expect to see.
+  6. Click *Pull* to see a sample of received messages published on the topic. These correspond to messages optionally verified by the *Published message count* in the previous section. If there are no messages published then it indicates either:
+
+    - A Subscription misconfiguration. Confirm the *Topic ID* matches the Device Access Console. If they do not match, then follow the integration configuration instructions to resolve this.
+    - A problem with the device connecting to Google. Verify the device works in the Google Home App.
+    - An issue with the SDM API that requires [Device Access Support](https://developers.google.com/nest/device-access/support) to diagnose or address.
+
+  7. Click the arrow for a received message to *View all row content* to make it easier to see the full contents of the received messages. You may confirm the message contains the information you expect to see and correspond with messages received by Home Assistant in the next section.
 
 - **Verify Home Assistant is receiving messages**
 
@@ -826,7 +828,7 @@ Changes for things like sensors or thermostat temperature set points should be i
   {% endraw %}
   {% enddetails %}
 
-  4. Subscription pull requests are long running, and reconnect every few minutes with a message like `API error in streaming pull` and then `Event stream connection established`. This is normal, and described in more detail in the [Pull subscription workflow documentation](https://cloud.google.com/pubsub/docs/pull#pull-workflow). The following debug logs indicate the Subscription connection is working properly.
+  4. Subscription pull requests are long running, and reconnect every few minutes. This is normal and you will see debug messages like `API error in streaming pull` and then `Event stream connection established`. The [Pull subscription workflow documentation](https://cloud.google.com/pubsub/docs/pull#pull-workflow) descriptions how this works in more detail. The following debug logs indicate the Subscription connection is working properly.
 
   {% details "Example debug log: Event stream connection established" %}
   {% raw %}
@@ -843,10 +845,9 @@ Changes for things like sensors or thermostat temperature set points should be i
   {% endraw %}
   {% enddetails %}
 
+  5. Confirm the Subscription ID from the `Sending streaming pull request` message in the debug logs match the Subscription ID verified above in the cloud console. If they do not match, then follow the integration configuration instructions to resolve this.
 
-  5. You can confirm which Subscription ID in the debug logs matches the Subscription ID verified above in the cloud console.
-
-- When reporting issues for the Nest integration it is helpful to include details such as messages published by the device and details from the debug log.
+- When reporting issues for the Nest integration please include details such as messages published by the device and details from the debug log.
 
 ## Removing the integration
 
