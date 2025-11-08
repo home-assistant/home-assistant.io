@@ -796,7 +796,7 @@ Changes for things like sensors or thermostat temperature set points should be i
   1. Visit the Pub/Sub Subscriptions [Cloud Console](https://console.cloud.google.com/cloudpubsub/subscription/list)
   2. Click the Home Assistant Subscription ID
   3. Confirm the *Topic name* is the same as in the Nest Device Access Console above.
-  4. View the *Metrics* tab in the bottom panel, which include:
+  4. View the *Metrics* tab in the bottom panel, which includes:
 
     - *Delivery metrics*: The *Publish message count* shows messages are published on the topic that are routed to the subscription. You may need to scroll down to see this.
     - *Oldest unacked message age* shows messages not being fully received by the Home Assistant nest integration. See the next section for diagnosing this.
@@ -808,7 +808,7 @@ Changes for things like sensors or thermostat temperature set points should be i
     - A problem with the device connecting to Google: Verify the device works in the Google Home App.
     - An issue with the SDM API: This requires [Device Access Support](https://developers.google.com/nest/device-access/support) to diagnose or address.
 
-  7. Click the arrow for a received message to *View all row content* to make it easier to see the full contents of the received messages. You may confirm the message contains the information you expect to see and correspond with messages received by Home Assistant in the next section.
+  7. Click the arrow for a received message to *View all row content* to make it easier to see the full contents of the received messages. You may confirm the message contains the information you expect to see and corresponds with messages received by Home Assistant in the next section.
 
 - **Verify Home Assistant is receiving messages**
 
