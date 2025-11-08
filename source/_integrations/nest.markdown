@@ -768,28 +768,28 @@ Changes for things like sensors or thermostat temperature set points should be i
 
 - To learn more about how Google Pub/Sub works see the [Pull subscription workflow documentation](https://cloud.google.com/pubsub/docs/pull#pull-workflow). The steps in the following section will:
 
-    1. Verify the Nest Device Access Console is configured with a Pub/Sub topic for publishing messages
-    2. (Optional) Verify topic message publishing. These steps are available for some topic configurations.
-    3. Verify Pub/Sub subscription message routing
-    4. Verify Home Assistant is receiving messages on the Pub/Sub subscription
+  1. Verify the Nest Device Access Console is configured with a Pub/Sub topic for publishing messages
+  2. (Optional) Verify topic message publishing. These steps are available for some topic configurations.
+  3. Verify Pub/Sub subscription message routing
+  4. Verify Home Assistant is receiving messages on the Pub/Sub subscription
 
 - **Verify the Nest Device Access Console configuration**
 
-    1. Visit the [Device Access Console](https://console.nest.google.com/device-access/project-list)
-    2. Click the Home Assistant device access project
-    3. Verify the *Pub/Sub topic* is *Enabled*. If not, follow the integration configuration instructions.
-    4. If the Pub/Sub topic starts with `projects/<your cloud project>/topics/home-assistant-` then you are using a topic created by Home Assistant. You may follow the steps in the next section to verify the topic.
-    5. If the Pub/Sub topic starts with `projects/sdm-prod/topics` then you are using a topic created by the Device Access console. This is the old way, but works completely fine. You should skip the next section.
+  1. Visit the [Device Access Console](https://console.nest.google.com/device-access/project-list)
+  2. Click the Home Assistant device access project
+  3. Verify the *Pub/Sub topic* is *Enabled*. If not, follow the integration configuration instructions.
+  4. If the Pub/Sub topic starts with `projects/<your cloud project>/topics/home-assistant-` then you are using a topic created by Home Assistant. You may follow the steps in the next section to verify the topic.
+  5. If the Pub/Sub topic starts with `projects/sdm-prod/topics` then you are using a topic created by the Device Access console. This is the old way, but works completely fine. You should skip the next section.
 
 - **(Optional) Verify topic message publishing.** Skip this section if using a topic name starting with `projects/sdm-prod/topics`
 
-    1. Visit the Pub/Sub Topics [Cloud Console](https://console.cloud.google.com/cloudpubsub/topic/list)
-    2. Click the Home Assistant Topic ID matching the Device Access Console configuration.
-    3. View the *Subscriptions* tab and confirm there is a Subscription ID. This will be verified in the next section.
-    3. Click the *Metrics* tab and set the zoom to *6 hours* or *1 day*.
-    4. View the *Published message count*. This counts messages published by the device to the topic. If the number of messages is not what you expect then it indicates:
-        - A problem with the device connecting to Google. Verify the device works in the Google Home App.
-        - An issue with the SDM API that requires [Device Access Support](https://developers.google.com/nest/device-access/support) to diagnose or address.
+  1. Visit the Pub/Sub Topics [Cloud Console](https://console.cloud.google.com/cloudpubsub/topic/list)
+  2. Click the Home Assistant Topic ID matching the Device Access Console configuration.
+  3. View the *Subscriptions* tab and confirm there is a Subscription ID. This will be verified in the next section.
+  4. Click the *Metrics* tab and set the zoom to *6 hours* or *1 day*.
+  5. View the *Published message count*. This counts messages published by the device to the topic. If the number of messages is not what you expect then it indicates:
+      - A problem with the device connecting to Google. Verify the device works in the Google Home App.
+      - An issue with the SDM API that requires [Device Access Support](https://developers.google.com/nest/device-access/support) to diagnose or address.
 
 - **Verify Pub/Sub subscription message routing**
 
@@ -818,7 +818,7 @@ Changes for things like sensors or thermostat temperature set points should be i
 
   {% details "Example debug log: Received 1 message" %}
   {% raw %}
-  ```
+  ```text
   2025-11-08 09:15:57.620 DEBUG (MainThread) [google_nest_sdm.streaming_manager] Received 1 messages
   2025-11-08 09:15:57.621 DEBUG (MainThread) [google_nest_sdm.event] EventMessage raw_data={'eventId': 'xxxxxx-yyyy-zzzz-aaaa', 'timestamp': '2025-11-08T17:15:56.470930Z', 'resourceUpdate': {'name': 'enterprises/...'}}
   2025-11-08 09:15:57.621 DEBUG (MainThread) [google_nest_sdm.device] Processing update xxxxxx-yyyy-zzzz-aaaa @ 2025-11-08 17:15:56.470930+00:00
@@ -832,7 +832,7 @@ Changes for things like sensors or thermostat temperature set points should be i
 
   {% details "Example debug log: Event stream connection established" %}
   {% raw %}
-  ```
+  ```text
   2025-11-08 09:19:50.827 DEBUG (MainThread) [google_nest_sdm.subscriber_client] API error in streaming pull: 503 The service was unable to fulfill your request. Please try again. [code=8a75]
   2025-11-08 09:19:50.828 DEBUG (MainThread) [google_nest_sdm.streaming_manager] Disconnected from event stream: API error when streaming iterator: 503 The service was unable to fulfill your request. Please try again. [code=8a75]
   2025-11-08 09:19:50.830 DEBUG (MainThread) [google_nest_sdm.streaming_manager] Reconnecting stream in 10.0 seconds
