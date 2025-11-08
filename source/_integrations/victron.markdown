@@ -266,7 +266,7 @@ The integration cannot discover or create entities from MQTT topics.
 #### Resolution
 
 1. Verify that MQTT topics are being published by your Victron device.
-2. Check the Home Assistant logs under {% my logs title="**Settings** > **System** > **Logs**" %} for any error messages.
+2. Check the Home Assistant logs under **Settings** > **System** > **Logs** for any error messages.
 3. Ensure the MQTT service on the Victron device is running and configured correctly.
 4. Try increasing the **Elevated tracing** option in the integration settings for more detailed logging.
 
