@@ -67,8 +67,6 @@ If your Victron device has MQTT enabled and is on the same network as Home Assis
 
 ### Manual configuration
 
-{% include integrations/config_flow.md %}
-
 When setting up the integration manually, you need to provide connection details based on your Victron device's security profile.
 
 On the Victron device, go to **Settings** > **General** and check the **Local Network Security Profile** setting. This can be **Unsecured**, **Weak**, or **Secured**. If set to **Weak** or **Secured**, you must have specified a password when configuring this option.
