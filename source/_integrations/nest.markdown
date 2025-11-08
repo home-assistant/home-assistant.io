@@ -766,31 +766,87 @@ Changes for things like sensors or thermostat temperature set points should be i
 
 ##### Resolution
 
-To learn more about how Google Pub/Sub works see the [Pull subscription workflow documentation](https://cloud.google.com/pubsub/docs/pull#pull-workflow). To investigate subscription related issues follow these steps:
+- To learn more about how Google Pub/Sub works see the [Pull subscription workflow documentation](https://cloud.google.com/pubsub/docs/pull#pull-workflow). The steps in the following section will:
 
-- Check the logs for any relevant error messages.
-- View stats about your subscriber in the [Cloud Console](https://console.cloud.google.com/cloudpubsub/subscription/list). The stats include the number of messages published by your devices, and how many have been acknowledged by your Home Assistant subscriber. You can also `View Messages` to see examples of published. Many old unacknowledged messages indicate the subscriber is not receiving the messages and working properly or not connected at all.
-- Note that it is normal to see info messages such as *API error in streaming pull: 503 The service was unable to fulfill your request. Please try again* as part of the streaming pull flow. The pull requests are long
-running requests that will send an error after a few minutes and then are retried as needed. These are described in more detail in the [Pull subscription workflow documentation](https://cloud.google.com/pubsub/docs/pull#pull-workflow).
-- Enable verbose logging by adding some or all of these to your {% term "`configuration.yaml`" %} depending on where you are having trouble:
+    1. Verify the Nest Device Access Console is configured with a Pub/Sub topic for publishing messages
+    2. (Optional) Verify messages are published on the Pub/Sub topic. This works for some topic typcs.
+    3. Verify Pub/Sub subscription messages are routed properly
+    4. Verify Home Assistant is receiving messages on the Pub/Sub subscription
 
-```yaml
+- **Verify the Nest Device Access Console configuration**
 
-logger:
-  default: info
-  logs:
-    homeassistant.components.nest: debug
-    homeassistant.components.nest.climate_sdm: debug
-    homeassistant.components.nest.camera_sdm: debug
-    homeassistant.components.nest.sensor_sdm: debug
-    homeassistant.helpers.config_entry_flow: debug
-    homeassistant.helpers.config_entry_oauth2_flow: debug
-    google_nest_sdm: debug
-    google_nest_sdm.device: debug
-    google_nest_sdm.device_manager: debug
-    google_nest_sdm.google_nest_subscriber: debug
-    google_nest_sdm.event: debug
-```
+    1. Visit the [Device Access Console](https://console.nest.google.com/device-access/project-list)
+    2. Click the Home Assistant device access project
+    3. Verify the *Pub/Sub topic* is *Enabled*. If not, follow the integration configuration instructions.
+    4. If the topic starts with `projects/<your cloud project>/topics/home-assistant-` then you are using a topic created by Home Assistant and you can follow the steps in the next section for verify the topic.
+    5. If the topic starts with `projects/sdm-prod/topics` then you are using a topic created by the Device Access console and you can skip the next section. This is the old way, but still works fine.
+
+- **(Optional) Verify messages are published on the Pub/Sub topic.** Skip this section if using a topic name starting with `projects/sdm-prod/topics`
+
+    1. Visit the Pub/Sub Topics [Cloud Console](https://console.cloud.google.com/cloudpubsub/topic/list)
+    2. Click the Home Assistant Topic ID matching the Device Access Console configuration.
+    3. View the *Subscriptions* tab and confirm there is a Subscription ID. This will be verified in the next section.
+    3. Click the *Metrics* tab and set the zoom to *6 hours* or *1 day*.
+    4. View the *Published message count*. This shows the frequency of the device publishing messages to the topic. If there are no messages published then it indicates either:
+        - A problem with the device connecting to Google. Verify the device works in the Google Home App
+        - An issue with the SDM API that requires [Google Support](https://developers.google.com/nest/device-access/support) to address or diagnose.
+
+- **Verify Pub/Sub subscription messages are routed properly**
+
+  1. Visit the Pub/Sub Subscriptions [Cloud Console](https://console.cloud.google.com/cloudpubsub/subscription/list)
+  2. Click the Home Assistant Subscription ID
+  3. Confirm the *Topic name* is the same as in the Nest Device Access Console.
+  4. View the *Metrics* tab in the bottom panel, which include:
+
+    - *Delivery metrics*: which shows the *Publish message count* indicating if messages are published by Google. You may need to scroll down to see this.
+    - *Oldest unacked message age* shows messages not being fully received by the Home Assistant nest integration. See the next section for diagnosing this.
+
+  5. Click the *Messages* tab
+  6. Click *Pull* to see a sample of received messages. These messages should correspond to messages published in the topic (e.g. optionally verified by the *Published message count* in the previous section). If there are no messages published then it indicates either:
+        - A problem with the device connecting to Google. Verify the device works in the Google Home App.
+        - A misconfiguration. Confirm the *Topic ID* matches the Device Access Console.
+        - An issue with the SDM API that requires [Google Support](https://developers.google.com/nest/device-access/support) to address or diagnose.
+  7. Click the arrow to *View all row content* to make it easier to see the full contents of the received messages to confirm they are what you expect to see.
+
+- **Verify Home Assistant is receiving messages**
+
+  1. Enable debug logs for the Nest integration. See [Debug logs and diagnostics](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics) for instructions.
+  2. View the raw logs
+  3. Successfully received event messages will appear in debug logs similar to the following:
+
+  {% details "Example debug log: Received 1 message" %}
+  {% raw %}
+  ```
+  2025-11-08 09:15:57.620 DEBUG (MainThread) [google_nest_sdm.streaming_manager] Received 1 messages
+  2025-11-08 09:15:57.621 DEBUG (MainThread) [google_nest_sdm.event] EventMessage raw_data={'eventId': 'xxxxxx-yyyy-zzzz-aaaa', 'timestamp': '2025-11-08T17:15:56.470930Z', 'resourceUpdate': {'name': 'enterprises/...'}}
+  2025-11-08 09:15:57.621 DEBUG (MainThread) [google_nest_sdm.device] Processing update xxxxxx-yyyy-zzzz-aaaa @ 2025-11-08 17:15:56.470930+00:00
+  2025-11-08 09:15:57.621 DEBUG (MainThread) [google_nest_sdm.device] Trait update {'sdm.devices.traits.ThermostatMode': {'mode': 'COOL', 'availableModes': ['HEAT', 'COOL', 'HEATCOOL', 'OFF']}, 'sdm.devices.traits.ThermostatEco': {'availableModes': ['OFF', 'MANUAL_ECO'], 'mode': 'OFF', 'heatCelsius': 4.4444427, 'coolCelsius': 24.444443}, 'sdm.devices.traits.ThermostatTemperatureSetpoint': {'coolCelsius': 25.997345}, 'name': 'enterprises/<project id>/devices/<device_id>'}
+  2025-11-08 09:17:14.406 DEBUG (MainThread) [google_nest_sdm.subscriber_client] Sending streaming pull request (acking 1 messages)
+  ```
+  {% endraw %}
+  {% enddetails %}
+
+  4. Subscription pull requests are long running, and reconnect every few minutes with a message like `API error in streaming pull` and then `Event stream connection established`. This is normal, and described in more detail in the [Pull subscription workflow documentation](https://cloud.google.com/pubsub/docs/pull#pull-workflow). The following debug logs indicate the Subscription connection is working properly.
+
+  {% details "Example debug log: Event stream connection established" %}
+  {% raw %}
+  ```
+  2025-11-08 09:19:50.827 DEBUG (MainThread) [google_nest_sdm.subscriber_client] API error in streaming pull: 503 The service was unable to fulfill your request. Please try again. [code=8a75]
+  2025-11-08 09:19:50.828 DEBUG (MainThread) [google_nest_sdm.streaming_manager] Disconnected from event stream: API error when streaming iterator: 503 The service was unable to fulfill your request. Please try again. [code=8a75]
+  2025-11-08 09:19:50.830 DEBUG (MainThread) [google_nest_sdm.streaming_manager] Reconnecting stream in 10.0 seconds
+  ...
+  2025-11-08 09:20:00.837 DEBUG (MainThread) [google_nest_sdm.subscriber_client] Sending streaming pull request for projects/<your cloud project>/subscriptions/home-assistant-prod
+  ...
+  2025-11-08 09:20:01.004 DEBUG (MainThread) [google_nest_sdm.streaming_manager] Event stream connection established
+  2025-11-08 09:20:01.004 DEBUG (MainThread) [google_nest_sdm.subscriber_client] Starting streaming iterator
+  ```
+  {% endraw %}
+  {% enddetails %}
+
+
+  5. You can confirm which Subscription ID in the debug logs matches the Subscription ID verified above in the cloud console.
+
+- When reporting issues for the Nest integration it is helpful to include details such as messages published by the device and details from the debug log.
 
 ## Removing the integration
 
