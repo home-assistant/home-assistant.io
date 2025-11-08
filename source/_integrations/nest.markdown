@@ -788,8 +788,8 @@ Changes for things like sensors or thermostat temperature set points should be i
   3. View the *Subscriptions* tab and confirm there is a Subscription ID. This will be verified in the next section.
   4. Click the *Metrics* tab and set the zoom to *6 hours* or *1 day*.
   5. View the *Published message count*. This counts messages published by the device to the topic. If the number of messages is not what you expect then it indicates:
-      - A problem with the device connecting to Google. Verify the device works in the Google Home App.
-      - An issue with the SDM API that requires [Device Access Support](https://developers.google.com/nest/device-access/support) to diagnose or address.
+      - A problem with the device connecting to Google: Verify the device works in the Google Home App.
+      - An issue with the SDM API: This requires [Device Access Support](https://developers.google.com/nest/device-access/support) to diagnose or address.
 
 - **Verify Pub/Sub subscription message routing**
 
@@ -804,9 +804,9 @@ Changes for things like sensors or thermostat temperature set points should be i
   5. Click the *Messages* tab
   6. Click *Pull* to see a sample of received messages published on the topic. These correspond to messages optionally verified by the *Published message count* in the previous section. If there are no messages published then it indicates either:
 
-    - A Subscription misconfiguration. Confirm the *Topic ID* matches the Device Access Console. If they do not match, then follow the integration configuration instructions to resolve this.
-    - A problem with the device connecting to Google. Verify the device works in the Google Home App.
-    - An issue with the SDM API that requires [Device Access Support](https://developers.google.com/nest/device-access/support) to diagnose or address.
+    - A Subscription misconfiguration: Confirm the *Topic ID* matches the Device Access Console. If they do not match, then follow the integration configuration instructions to resolve this.
+    - A problem with the device connecting to Google: Verify the device works in the Google Home App.
+    - An issue with the SDM API: This requires [Device Access Support](https://developers.google.com/nest/device-access/support) to diagnose or address.
 
   7. Click the arrow for a received message to *View all row content* to make it easier to see the full contents of the received messages. You may confirm the message contains the information you expect to see and correspond with messages received by Home Assistant in the next section.
 
