@@ -61,7 +61,7 @@ The integration can be set up in three ways: automatic discovery, manual configu
 
 If your Victron device has MQTT enabled and is on the same network as Home Assistant, it should be automatically discovered.
 
-1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+1. Go to **Settings** > **Devices & services**.
 2. Look for **Victron** in the discovered section.
 3. Follow the configuration flow.
 
