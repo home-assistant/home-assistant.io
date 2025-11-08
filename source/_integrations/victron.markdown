@@ -270,12 +270,6 @@ The integration cannot discover or create entities from MQTT topics.
 3. Ensure the MQTT service on the Victron device is running and configured correctly.
 4. Try increasing the **Elevated tracing** option in the integration settings for more detailed logging.
 
-## Removing the integration
-
-This integration follows standard integration removal.
-
-{% include integrations/remove_device_service.md %}
-
 ## Services
 
 ### `victron.publish`
@@ -297,9 +291,15 @@ The Victron integration exposes the `victron.publish` service, allowing you to p
 ```yaml
 service: victron.publish
 data:
-  device_id: "com.victronenergy.battery.ttyUSB0"
-  metric_id: "Soc"
-  value: 85
+  device_id: "261"
+  metric_id: "generator_service_counter_reset"
+  value: 230.0
 ```
 
 This will publish the value `85` to the `Soc` metric of the specified battery device.
+
+## Removing the integration
+
+This integration follows standard integration removal.
+
+{% include integrations/remove_device_service.md %}
