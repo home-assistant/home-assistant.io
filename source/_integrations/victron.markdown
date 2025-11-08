@@ -299,5 +299,4 @@ This will publish the value `85` to the `Soc` metric of the specified battery de
 ## Removing the integration
 
 This integration follows standard integration removal.
-
-{% include integrations/remove_device_service.md %}
+After deleting the integration, go to the app of the manufacturer and remove the Home Assistant integration from there as well.
