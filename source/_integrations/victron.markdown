@@ -1,5 +1,5 @@
 ---
-title: Victron GX Communication Centre Integration
+title: Victron GX Communication Center Integration
 description: Instructions for connecting Victron Energy GX devices to Home Assistant using MQTT
 ha_category:
   - Binary sensor
