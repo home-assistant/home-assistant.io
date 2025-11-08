@@ -828,7 +828,7 @@ Changes for things like sensors or thermostat temperature set points should be i
   {% endraw %}
   {% enddetails %}
 
-  4. Subscription pull requests are long running, and reconnect every few minutes. This is normal and you will see debug messages like `API error in streaming pull` and then `Event stream connection established`. The [Pull subscription workflow documentation](https://cloud.google.com/pubsub/docs/pull#pull-workflow) descriptions how this works in more detail. The following debug logs indicate the Subscription connection is working properly.
+  4. Subscription pull requests are long running, and reconnect every few minutes. This is normal and you will see debug messages like `API error in streaming pull` and then `Event stream connection established`. The [Pull subscription workflow documentation](https://cloud.google.com/pubsub/docs/pull#pull-workflow) describes how this works in more detail. The following debug logs indicate the Subscription connection is working properly.
 
   {% details "Example debug log: Event stream connection established" %}
   {% raw %}
