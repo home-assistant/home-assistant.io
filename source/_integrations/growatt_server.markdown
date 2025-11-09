@@ -59,7 +59,7 @@ Once configured, the integration connects to your Growatt account. If you have m
 The integration supports two authentication methods:
 
 - **Username and password**: Use your Growatt account credentials to authenticate.
-- **API token**: Use an API token for more secure and stable authentication using the official Growatt API (only certain MIN series inverters currently supported).
+- **API token**: Use an API token for more secure and stable authentication using the official Growatt API. This is the preferred method - check compatibility with your inverter below.
 
 ### Obtaining an API token
 
