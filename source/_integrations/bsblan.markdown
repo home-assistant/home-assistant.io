@@ -54,8 +54,8 @@ The integration provides the following action.
 
 Sets the hot water heating schedule for your BSB-Lan device. Each day of the week can have one or more time periods when hot water heating should be active.
 
-- **Data attribute**: `device`
-  - **Description**: The BSB-Lan device to configure.
+- **Target**: `device_id`
+  - **Description**: The BSB-Lan device to configure. Use the `target` field with a `device_id` to specify which device you want to set the schedule for.
   - **Required**: Yes
 - **Data attribute**: `schedule`
   - **Description**: A schedule object containing one or more day configurations. Each day accepts a string in the format `"HH:MM-HH:MM HH:MM-HH:MM"`. Multiple time periods can be specified, separated by spaces. Use 24-hour time format. Set a day to `null` to clear its schedule. Available days: `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`.
