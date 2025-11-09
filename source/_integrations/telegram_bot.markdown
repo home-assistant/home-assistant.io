@@ -982,21 +982,20 @@ actions:
 
 ```yaml
 actions:
-- action: telegram_bot.send_message
-  data:
-    title: Example Message
-    message: 'Message with *BOLD*, _ITALIC_ and `MONOSPACE` Text'
+  - action: telegram_bot.send_message
+    data:
+      title: Example Message
+      message: 'Message with *BOLD*, _ITALIC_ and `MONOSPACE` Text'
 ```
 
 ## Example: send_message with message tag
 
 ```yaml
 actions:
-- action: telegram_bot.send_message
-  data:
-    title: Example Message
-    message: "Message with tag"
+  - action: telegram_bot.send_message
     data:
+      title: Example Message
+      message: "Message with tag"
       message_tag: "example_tag"
 ```
 
@@ -1004,11 +1003,10 @@ actions:
 
 ```yaml
 actions:
-- action: telegram_bot.send_message
-  data:
-    message: >-
-      <a href="https://www.home-assistant.io/">HA site</a>
+  - action: telegram_bot.send_message
     data:
+      message: >-
+        <a href="https://www.home-assistant.io/">HA site</a>
       parse_mode: html
       disable_web_page_preview: true
 ```
@@ -1017,10 +1015,9 @@ actions:
 
 ```yaml
 actions:
-- action: telegram_bot.send_message
-  data:
-    message: "Message to a topic"
+  - action: telegram_bot.send_message
     data:
+      message: "Message to a topic"
       message_thread_id: 123
 ```
 
@@ -1030,7 +1027,7 @@ actions:
 
 ```yaml
 alias: telegram send message and delete
-sequence:
+actions:
   - action: telegram_bot.send_message
     data:
       message: testing
