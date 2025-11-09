@@ -36,7 +36,6 @@ This Hive integration uses the same username and password you use on the [Hive w
 Please note that the credentials used must be for the Hive account owner. Shared accounts or secondary users will not work with this integration.
 {% endnote %}
 
-
 {% include integrations/config_flow.md %}
 
 ## Options
