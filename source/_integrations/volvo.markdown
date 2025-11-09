@@ -16,6 +16,8 @@ ha_category:
 ha_platforms:
   - binary_sensor
   - button
+  - device_tracker
+  - diagnostics
   - lock
   - sensor
 ha_quality_scale: platinum
@@ -61,19 +63,26 @@ Features available depend on model, year and location.
 It's recommended to add an API application per vehicle you want to add. There is a maximum on the number of requests that can be made per API key per day.
 
 {% note %}
-Home Assistant will use account linking provided by Nabu Casa for authenticating with Volvo, this service is provided for free and does not require a Nabu Casa subscription.
+Home Assistant will use account linking provided by Nabu Casa for authenticating with Volvo. This service is **provided for free**, does not require a Nabu Casa subscription, and is the preferred way of using this integration.
 
-If you want to use your own `client id` and `client secret`, or you have the [cloud integration](/integrations/cloud) disabled, proceed to "**Using custom application credentials**".
+Read the "**Using custom application credentials**"-section if you have the [cloud integration](/integrations/cloud) disabled.
 {% endnote %}
 
 {% details "Using custom application credentials" icon="mdi:account-key" %}
+
+{% important %}
+Custom Volvo application credentials have a 6-day grant period, which means you'll need to re-authenticate with Volvo every 6 days.
+Data updates will stop working once the grant expires until you re-authenticate.
+
+For a better user experience, it's recommended to use the default Nabu Casa account linking instead.
+{% endimportant %}
 
 1. On Volvo's API application page, click the **Publish** button underneath your API application.
 2. Fill in all required fields in the screen that follows. Pay attention to:
    - **Scopes**: Make sure to select them all (you need to expand the sections).
    - **Redirect URI(s)**: Add `https://my.home-assistant.io/redirect/oauth`.
 3. Click **View summary** and **confirm**.
-4. Grab the `client id` and `client secret` from the confirmation page and add them to your [application credentials](/integrations/application_credentials).
+4. Grab the `client id` and `client secret` from the confirmation page and **add them** to your [application credentials](/integrations/application_credentials).
 
 {% enddetails %}
 

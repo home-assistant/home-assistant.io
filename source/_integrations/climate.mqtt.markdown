@@ -201,7 +201,7 @@ json_attributes_topic:
   required: false
   type: string
 max_humidity:
-  description: The minimum target humidity percentage that can be set.
+  description: The maximum target humidity percentage that can be set.
   required: false
   type: float
   default: 99
@@ -210,7 +210,7 @@ max_temp:
   type: float
   required: false
 min_humidity:
-  description: The maximum target humidity percentage that can be set.
+  description: The minimum target humidity percentage that can be set.
   required: false
   type: float
   default: 30

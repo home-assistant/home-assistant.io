@@ -180,7 +180,7 @@ The integration creates a sub-device for every relay (channel) and uses the foll
 - If a `Device Name` is set in the device, the integration will use it to generate the main device name and entity names assigned to the main device.
 - If a `Device Name` is not set, the integration will use the `Device ID` to generate the main device name and entity names assigned to the main device.
 - If a `Channel Name` is set in the device, the integration will use it to generate the sub-device name and entity names assigned to this sub-device (channel/relay).
-- If a `Channel Name` is set to the default value in the device, the integration will use the device name and this ddefault channel name to generate the sub-device name and entity names assigned to this sub-device (channel/relay).
+- If a `Channel Name` is set to the default value in the device, the integration will use the device name and this default channel name to generate the sub-device name and entity names assigned to this sub-device (channel/relay).
 
 Examples:
 

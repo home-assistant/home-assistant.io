@@ -14,10 +14,13 @@ ha_domain: xbox
 ha_config_flow: true
 ha_platforms:
   - binary_sensor
+  - image
   - media_player
   - remote
   - sensor
 ha_integration_type: integration
+ha_ssdp: true
+ha_dhcp: true
 ---
 
 The **Xbox** {% term integration %} allows you to control Xbox One (or newer) consoles from Home Assistant.

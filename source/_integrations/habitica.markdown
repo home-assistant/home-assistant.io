@@ -15,13 +15,14 @@ ha_platforms:
   - calendar
   - diagnostics
   - image
+  - notify
   - sensor
   - switch
   - todo
 ha_codeowners:
   - '@tr4nt0r'
 ha_config_flow: true
-ha_integration_type: integration
+ha_integration_type: service
 related:
   - docs: /integrations/todo
     title: To-do list integration documentation
