@@ -53,4 +53,8 @@ password:
   description: Password to authenticate with the projector.
   required: false
   type: string
+unique_id:
+  description: An ID that uniquely identifies this projector. Set this to a unique value to allow control through the UI.
+  required: false
+  type: string
 {% endconfiguration %}
