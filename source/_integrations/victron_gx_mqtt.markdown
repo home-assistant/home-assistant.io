@@ -14,7 +14,7 @@ ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
   - '@tomer-w'
-ha_domain: victron
+ha_domain: victron_gx_mqtt
 ha_platforms:
   - binary_sensor
   - button
@@ -34,7 +34,7 @@ related:
 ha_quality_scale: bronze
 ---
 
-The **Victron** integration connects to [Victron Energy](https://www.victronenergy.com/) GX devices using MQTT, providing real-time monitoring and control of your Victron system, including inverters, solar chargers, battery systems, grid meters, and <abbr title="electric vehicle">EV</abbr> chargers.
+The **Victron GX Integration** integration connects to [Victron Energy](https://www.victronenergy.com/) GX devices using MQTT, providing real-time monitoring and control of your Victron system, including inverters, solar chargers, battery systems, grid meters, and <abbr title="electric vehicle">EV</abbr> chargers.
 
 ## Supported devices
 
@@ -62,7 +62,7 @@ The integration can be set up in three ways: automatic discovery, manual configu
 If your Victron device has MQTT enabled and is on the same network as Home Assistant, it should be automatically discovered.
 
 1. Go to **Settings** > **Devices & services**.
-2. Look for **Victron** in the discovered section.
+2. Look for **Victron GX** integration in the discovered section.
 3. Follow the configuration flow.
 
 ### Manual configuration
@@ -153,7 +153,7 @@ The integration automatically discovers and creates entities for all supported V
 
 ### Entities
 
-The **Victron MQTT** integration provides the following types of entities:
+The **Victron GX** integration provides the following types of entities:
 
 #### Sensors
 
