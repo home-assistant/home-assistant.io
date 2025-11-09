@@ -195,6 +195,8 @@ Send a notification.
 | `reply_to_message_id`      | yes      | Mark the message as a reply to a previous message. In `telegram_callback` handling, for example, you can use {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %}                                                                                                                           |
 | `message_thread_id`        | yes      | Send the message to a specific topic or thread.|
 
+This action returns a [send message response](#send-message-response).
+
 ### Action `telegram_bot.send_photo`
 
 Send a photo.
@@ -221,6 +223,8 @@ Send a photo.
 | `reply_to_message_id`  | yes      | Mark the message as a reply to a previous message. In `telegram_callback` handling, for example, you can use {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %}                                                                                                                       |
 | `message_thread_id`    | yes      | Send the message to a specific topic or thread.|
 
+This action returns a [send message response](#send-message-response).
+
 ### Action `telegram_bot.send_video`
 
 Send a video.
@@ -245,6 +249,8 @@ Send a video.
 | `inline_keyboard`      | yes      | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data or external URL (https-only). Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Google link", "https://google.com"]]]` |
 | `reply_to_message_id`  | yes      | Mark the message as a reply to a previous message. In `telegram_callback` handling, for example, you can use {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %}                                                                                                                       |
 | `message_thread_id`    | yes      | Send the message to a specific topic or thread.|
+
+This action returns a [send message response](#send-message-response).
 
 ### Action `telegram_bot.send_animation`
 
@@ -272,6 +278,8 @@ Send an animation.
 | `reply_to_message_id`  | yes      | Mark the message as a reply to a previous message. In `telegram_callback` handling, for example, you can use {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %}                                                                                                                       |
 | `message_thread_id`    | yes      | Send the message to a specific topic or thread.|
 
+This action returns a [send message response](#send-message-response).
+
 ### Action `telegram_bot.send_voice`
 
 Send a voice message.
@@ -297,6 +305,8 @@ Send a voice message.
 | `reply_to_message_id`  | yes      | Mark the message as a reply to a previous message. In `telegram_callback` handling, for example, you can use {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %}                                                                                                                       |
 | `message_thread_id`    | yes      | Send the message to a specific topic or thread.|
 
+This action returns a [send message response](#send-message-response).
+
 ### Action `telegram_bot.send_sticker`
 
 Send a sticker.
@@ -321,6 +331,8 @@ Send a sticker.
 | `message_tag`          | yes      | Tag for sent message. In `telegram_sent` event data: {% raw %}`{{trigger.event.data.message_tag}}`{% endraw %}                                                                                                                                                                                            |
 | `reply_to_message_id`  | yes      | Mark the message as a reply to a previous message. In `telegram_callback` handling, for example, you can use {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %}                                                                                                                       |
 | `message_thread_id`    | yes      | Send the message to a specific topic or thread.|
+
+This action returns a [send message response](#send-message-response).
 
 ### Action `telegram_bot.send_document`
 
@@ -348,6 +360,8 @@ Send a document.
 | `reply_to_message_id`  | yes      | Mark the message as a reply to a previous message. In `telegram_callback` handling, for example, you can use {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %}                                                                                                                       |
 | `message_thread_id`    | yes      | Send the message to a specific topic or thread.|
 
+This action returns a [send message response](#send-message-response).
+
 ### Action `telegram_bot.send_location`
 
 Send a location.
@@ -367,6 +381,8 @@ Send a location.
 | `reply_to_message_id`  | yes      | Mark the message as a reply to a previous message. In `telegram_callback` handling, for example, you can use {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %}                                                                                                                       |
 | `message_thread_id`    | yes      | Send the message to a specific topic or thread.|
 
+This action returns a [send message response](#send-message-response).
+
 ### Action `telegram_bot.send_poll`
 
 Send a poll.
@@ -384,6 +400,8 @@ Send a poll.
 | `timeout`                 | yes      | Timeout for sending voice in seconds. Will help with timeout errors (poor internet connection, etc)                                                                            |
 | `reply_to_message_id`     | yes      | Mark the message as a reply to a previous message. In `telegram_callback` handling, for example, you can use {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %} |
 | `message_thread_id`       | yes      | Send the message to a specific topic or thread.|
+
+This action returns a [send message response](#send-message-response).
 
 ### Action `telegram_bot.send_chat_action`
 
@@ -497,6 +515,40 @@ Sets the bot's reaction for a given message.
 | `chat_id`           | no       | Id of the chat containing the message.                           |
 | `reaction`          | no       | Emoji to react to the message with. |
 | `is_big`            | yes      | Whether to use a large variant of the reaction animation.        |
+
+## Response schemas for actions
+
+{% tip %}
+
+Responses can be accessed using the `response_variable` of actions.
+You can refer to the [send a message then edit it after a delay](#example-send_message-then-edit-it-after-a-delay) automation for an example of usage of the response.
+
+{% endtip %}
+
+### Send message response
+
+Response schema:
+
+| Data attribute | Optional | Type                 | Description                                                               |
+| -------------- | -------- | -------------------- | ------------------------------------------------------------------------- |
+| `chats`        | no       | list                 | A list of chat objects. Each object represents a successful message sent. |
+
+Chat object schema:
+
+| Data attribute | Optional | Type    | Description                             |
+| ---------------| -------- | ------- | --------------------------------------- |
+| `chat_id`      | no       | integer | The target chat_id of the sent message. |
+| `message_id`   | no       | integer | The id of the message.                  |
+
+Example response:
+
+```yaml
+chats:
+  - chat_id: 1234567890
+    message_id: 100
+  - chat_id: -1234567890
+    message_id: 200
+```
 
 ## Telegram notification platform
 
@@ -999,6 +1051,27 @@ actions:
       disable_web_page_preview: true
 ```
 
+## Example: send_message then edit it after a delay
+
+{% raw %}
+
+```yaml
+actions:
+  - action: telegram_bot.send_message
+    data:
+      message: testing
+    response_variable: response
+  - delay:
+      seconds: 5
+  - action: telegram_bot.edit_message
+    data:
+      message: done testing
+      chat_id: "{{ response.chats[0].chat_id }}"
+      message_id: "{{ response.chats[0].message_id }}"
+```
+
+{% endraw %}
+
 ## Example: send_message to a topic within a group
 
 ```yaml
@@ -1016,7 +1089,7 @@ actions:
 
 ```yaml
 alias: telegram send message and delete
-sequence:
+actions:
   - action: telegram_bot.send_message
     data:
       message: testing
