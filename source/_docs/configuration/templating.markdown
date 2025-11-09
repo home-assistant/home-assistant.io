@@ -1108,13 +1108,13 @@ The numeric functions and filters raise an error if the input is not a valid num
   Like `float` and `int`, `bool` has a filter form. Using `none` as the default value is particularly useful in combination with the [immediate if filter](#immediate-if-iif): it can handle all three possible cases in a single line.
 
 - `log(value, base, default)` will take the logarithm of the input. When the base is omitted, it defaults to `e` - the natural logarithm. If `value` or `base` can't be converted to a `float`, returns the `default` value, or if omitted raises an error. Can also be used as a filter.
-- `sin(value, default)` will return the sine of the input. If `value` can't be converted to a `float`, returns the `default` value, or if omitted raises an error. Can be used as a filter.
-- `cos(value, default)` will return the cosine of the input. If `value` can't be converted to a `float`, returns the `default` value, or if omitted raises an error. Can be used as a filter.
-- `tan(value, default)` will return the tangent of the input. If `value` can't be converted to a `float`, returns the `default` value, or if omitted raises an error. Can be used as a filter.
-- `asin(value, default)` will return the arcus sine of the input. If `value` can't be converted to a `float`, returns the `default` value, or if omitted raises an error. Can be used as a filter.
-- `acos(value, default)` will return the arcus cosine of the input. If `value` can't be converted to a `float`, returns the `default` value, or if omitted raises an error. Can be used as a filter.
-- `atan(value, default)` will return the arcus tangent of the input. If `value` can't be converted to a `float`, returns the `default` value, or if omitted raises an error. Can be used as a filter.
-- `atan2(y, x, default)` will return the four quadrant arcus tangent of y / x. If `y` or `x` can't be converted to a `float`, returns the `default` value, or if omitted raises an error. Can be used as a filter.
+- `sin(value, default)` will return the sine of the input. The input value is in radians. If `value` can't be converted to a `float`, returns the `default` value, or if omitted raises an error. Can be used as a filter.
+- `cos(value, default)` will return the cosine of the input. The input value is in radians. If `value` can't be converted to a `float`, returns the `default` value, or if omitted raises an error. Can be used as a filter.
+- `tan(value, default)` will return the tangent of the input. The input value is in radians. If `value` can't be converted to a `float`, returns the `default` value, or if omitted raises an error. Can be used as a filter.
+- `asin(value, default)` will return the arcus sine of the input. The return value is in radians. If `value` can't be converted to a `float`, returns the `default` value, or if omitted raises an error. Can be used as a filter.
+- `acos(value, default)` will return the arcus cosine of the input. The return value is in radians. If `value` can't be converted to a `float`, returns the `default` value, or if omitted raises an error. Can be used as a filter.
+- `atan(value, default)` will return the arcus tangent of the input. The return value is in radians. If `value` can't be converted to a `float`, returns the `default` value, or if omitted raises an error. Can be used as a filter.
+- `atan2(y, x, default)` will return the four quadrant arcus tangent of y / x. The return value is in radians. If `y` or `x` can't be converted to a `float`, returns the `default` value, or if omitted raises an error. Can be used as a filter.
 - `sqrt(value, default)` will return the square root of the input. If `value` can't be converted to a `float`, returns the `default` value, or if omitted raises an error. Can be used as a filter.
 - `max([x, y, ...])` will obtain the largest item in a sequence. Uses the same parameters as the built-in [max](https://jinja.palletsprojects.com/en/latest/templates/#jinja-filters.max) filter.
 - `min([x, y, ...])` will obtain the smallest item in a sequence. Uses the same parameters as the built-in [min](https://jinja.palletsprojects.com/en/latest/templates/#jinja-filters.min) filter.
