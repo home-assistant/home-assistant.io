@@ -37,7 +37,12 @@ The Electricity Maps integration helps you understand the carbon intensity of yo
 ## Prerequisites
 
 To configure and use this integration, you need to obtain a free API key from Electricity Maps by signing up to the Free Tier product on the [Electricity Maps API Portal](https://electricitymaps.com/free-tier).
-Please be aware that the Free Tier API is limited to one location (called a zone). You need to specify the zone for your home location when creating your account.
+
+Please be aware that the Free Tier API is limited to one location, called a zone. A zone represents a specific electricity grid region. You need to select and specify the zone for your home location when creating your account. For example, the United States has multiple zones like `US-CENT-SWPP` (Southwest Power Pool), `US-CAR-DUK` (Duke Energy Carolinas), or `US-CAR-CPLE` (Duke Energy Progress East).
+
+To find your zone identifier, you can:
+- Check the [Electricity Maps app](https://app.electricitymaps.com) to see which zone covers your location.
+- Use the [Zones API reference](https://portal.electricitymaps.com/developer-hub/api/reference#zones) to look up zones by geographic coordinates.
 
 {% include integrations/config_flow.md %}
 
@@ -45,7 +50,7 @@ The integration provides the following configuration options when setting it up:
 
 {% configuration_basic %}
 Location:
-  description: Choose between using your Home Assistant's configured home location, a specific country code, or custom latitude/longitude coordinates.
+  description: Choose between using your Home Assistant's configured home location, a specific zone identifier, or custom latitude/longitude coordinates.
 API key:
   description: The API key obtained from the Electricity Maps API Portal.
 {% endconfiguration_basic %}
@@ -59,11 +64,11 @@ Longitude:
   description: The longitude of your home location.
 {% endconfiguration_basic %}
 
-When configuring the location based on a country code, you will be prompted to enter the following:
+When configuring the location based on a zone identifier, you will be prompted to enter the following:
 
 {% configuration_basic %}
-Country code:
-  description: The two-letter ISO 3166-1 alpha-2 country code for your home location (e.g., "US" for the United States, "DE" for Germany).
+Zone identifier:
+  description: The zone identifier for your electricity grid region. For example, `US-CENT-SWPP` for the Southwest Power Pool in the United States, `DE` for Germany, or `GB` for Great Britain. You can find zone identifiers in the [Electricity Maps app](https://app.electricitymaps.com) or using the [Zones API reference](https://portal.electricitymaps.com/developer-hub/api/reference#zones).
 {% endconfiguration_basic %}
 
 ## Supported functionality
@@ -161,7 +166,7 @@ The integration {% term polling polls %} data from the Electricity Maps API ever
 
 ## Known limitations
 
-- The Free Tier API is limited to one location. You need to specify the country when creating your account.
+- The Free Tier API is limited to one zone. A zone represents a specific electricity grid region. You need to specify the zone when creating your account. If you need to change zones, you will need to delete and reconfigure the integration.
 - The Free Tier API has a limit of 50 requests per hour, but the integration is designed to poll at a rate that won't exceed this limit.
 - Not all geographic regions are supported by Electricity Maps. Check their app to see if your region has coverage.
 
@@ -181,13 +186,15 @@ If you see an invalid token error during setup, your API key may be invalid or e
 
 #### Symptom: "No data available for selected location" during setup
 
-If you receive a "No data available for selected location" error, the coordinates or country code you provided might not be supported by Electricity Maps.
+If you receive a "No data available for selected location" error, the coordinates or zone identifier you provided might not be supported by Electricity Maps, or there may be a zone mismatch.
 
 ##### Resolution
 
 1. Check the [Electricity Maps app](https://app.electricitymaps.com) to verify coverage for your location.
-2. Try using a country code instead of coordinates, or vice versa.
-3. If your exact location isn't supported, try using the nearest supported location.
+2. If using a zone identifier, verify that you're using the correct zone for your electricity grid region. In the United States, for example, you need to use a specific zone like `US-CENT-SWPP` rather than just `US`.
+3. Make sure the zone identifier you enter in Home Assistant matches the zone you selected when you created your API key. If you need to change zones, you will need to create a new API key with the new zone and reconfigure the integration.
+4. Try using coordinates instead of a zone identifier, or vice versa.
+5. If your exact location isn't supported, try using the nearest supported location.
 
 ### Sensors show "unavailable"
 
