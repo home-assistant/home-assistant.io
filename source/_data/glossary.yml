@@ -297,7 +297,7 @@
 - term: HASS
   definition: >-
     HASS is often used as an abbreviation for Home Assistant. This abbreviation
-    is no longer commonly used. Home Assistant is generally referred to as HA.
+    is no longer actively used. Home Assistant is generally referred to as HA nowadays.
 - term: HassOS
   definition: >-
     Another name for Home Assistant Operating System
