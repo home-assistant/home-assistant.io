@@ -54,7 +54,7 @@ password:
   required: false
   type: string
 unique_id:
-  description: An ID that uniquely identifies this projector. Set this to a unique value to allow control through the UI.
+  description: An ID that uniquely identifies this projector. This allows you to change the name, icon, and entity_id from the Home Assistant web interface.
   required: false
   type: string
 {% endconfiguration %}
