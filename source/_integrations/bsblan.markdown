@@ -96,7 +96,7 @@ automation:
     triggers:
       - trigger: state
         entity_id: sensor.season
-        to: "winter"
+        to: winter
     actions:
       - action: bsblan.set_hot_water_schedule
         target:
@@ -111,24 +111,24 @@ automation:
             saturday: "07:00-23:00"
             sunday: "07:00-23:00"
 
-    - alias: "Set hot water schedule - summer"
-      triggers:
-        - trigger: state
-          entity_id: sensor.season
-          to: "summer"
-      actions:
-        - action: bsblan.set_hot_water_schedule
-          target:
-            device_id: "{{ device_id('water_heater.bsblan_hot_water') }}"
-          data:
-            schedule:
-              monday: "06:00-07:00 18:00-20:00"
-              tuesday: "06:00-07:00 18:00-20:00"
-              wednesday: "06:00-07:00 18:00-20:00"
-              thursday: "06:00-07:00 18:00-20:00"
-              friday: "06:00-07:00 18:00-20:00"
-              saturday: "08:00-21:00"
-              sunday: "08:00-21:00"
+  - alias: "Set hot water schedule - summer"
+    triggers:
+      - trigger: state
+        entity_id: sensor.season
+        to: summer
+    actions:
+      - action: bsblan.set_hot_water_schedule
+        target:
+          device_id: "{{ device_id('water_heater.bsblan_hot_water') }}"
+        data:
+          schedule:
+            monday: "06:00-07:00 18:00-20:00"
+            tuesday: "06:00-07:00 18:00-20:00"
+            wednesday: "06:00-07:00 18:00-20:00"
+            thursday: "06:00-07:00 18:00-20:00"
+            friday: "06:00-07:00 18:00-20:00"
+            saturday: "08:00-21:00"
+            sunday: "08:00-21:00"
 ```
 
 {% endraw %}
