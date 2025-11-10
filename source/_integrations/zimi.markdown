@@ -1,26 +1,31 @@
 ---
-title: Zimi Cloud Controller
+title: zimi
 description: Access and control your Zimi Cloud Controller and its connected Zimi-based devices.
 featured: false
 ha_iot_class: Local Push
 ha_release: 2025.6
 ha_codeowners:
   - '@markhannon'
-  - '@mhannon11'
 ha_category:
-  - Light
+  - Cover
   - Fan
+  - Light
+  - Sensor
   - Switch
 ha_domain: zimi
 ha_platforms:
-  - light
+  - cover
   - fan
+  - light
+  - sensor
   - switch
 ha_config_flow: true
 quality_scale: bronze
 integration_type: hub
 related:
   - url: https://zimi.life/
+ha_quality_scale: bronze
+ha_integration_type: integration
 ---
 
 The **Zimi Cloud Controller** {% term integration %} allows you to connect your Zimi Cloud Controller to Home Assistant and, via this integration, control local devices connected to the Zimi mesh.
@@ -77,29 +82,40 @@ The integration will support all Zimi devices. Note that the naming conventions 
 
 When you add a supported device, the following entities will be created:
 
-| Zimi product                    | HA device name | HA entities         | HA default friendly name                                         | Supported |
-| ------------------------------- | -------------- | ------------------- | ---------------------------------------------------------------- | --------- |
-| Blind Controller                | Cover          | 1xCover             | Cover {Name}                                                     | Future    |
-| Fan and Light Controller        | Fan            | 1xFan<br>1xSwitch   | Fan {Name}<br>Fan {Name}                                         | Yes       |
-| Garage Door Controller          | Cover          | 1xCover<br>2xSensor | Cover {Name}<br>Cover {Temperature}<br>Cover {Humidity}          | Future    |
-| Light Dimmer Switch             | Light          | 1xLight             | Light {Name}                                                     | Yes       |
-| Multi Dimmer Switch (2 button)  | Light          | 1xLight             | Light {Name}                                                     | Yes       |
-| Multi Dimmer Switch (4 button)  | Light          | 2xLight             | Light {Name}<br>Light {Name}                                     | Yes       |
-| Multi-Purpose Switch (1 button) | Switch         | 1xSwitch            | Switch {Name}                                                    | Yes       |
-| Multi-Purpose Switch (2 button) | Switch         | 2xSwitch            | Switch {Name}<br>Switch {Name}                                   | Yes       |
-| Multi-Purpose Switch (3 button) | Switch         | 3xSwitch            | Switch {Name}<br>Switch {Name}<br>Switch {Name}                  | Yes       |
-| Multi-Purpose Switch (4 button) | Switch         | 4xSwitch            | Switch {Name}<br>Switch {Name}<br>Switch {Name}<br>Switch {Name} | Yes       |
-| Power Point                     | Outlet         | 2xSwitch            | Outlet {Name}                                                    | Yes       |
+| Zimi product                    | HA device name | HA entities         | HA default friendly name                                         |
+|---------------------------------|----------------|---------------------|------------------------------------------------------------------|
+| Blind Controller                | Cover          | 1xCover             | Cover {Name}                                                     |
+| Fan and Light Controller        | Fan            | 1xFan<br>1xSwitch   | Fan {Name}<br>Fan {Name}                                         |
+| Garage Door Controller          | Cover          | 1xCover<br>2xSensor | Garage {Name}<br>Garage {Temperature}<br>Garage {Humidity}       |
+| Light Dimmer Switch             | Light          | 1xLight             | Light {Name}                                                     |
+| Multi Dimmer Switch (2 button)  | Light          | 1xLight             | Light {Name}                                                     |
+| Multi Dimmer Switch (4 button)  | Light          | 2xLight             | Light {Name}<br>Light {Name}                                     |
+| Multi-Purpose Switch (1 button) | Switch         | 1xSwitch            | Switch {Name}                                                    |
+| Multi-Purpose Switch (2 button) | Switch         | 2xSwitch            | Switch {Name}<br>Switch {Name}                                   |
+| Multi-Purpose Switch (3 button) | Switch         | 3xSwitch            | Switch {Name}<br>Switch {Name}<br>Switch {Name}                  |
+| Multi-Purpose Switch (4 button) | Switch         | 4xSwitch            | Switch {Name}<br>Switch {Name}<br>Switch {Name}<br>Switch {Name} |
+| Power Point                     | Outlet         | 2xOutlet            | Outlet {Name}                                                    |
 
-### Zimi fan controller
+### Zimi cover
+
+- Cover entity: Basic open/close and open to percentage
+
+### Zimi fan
 
 - Fan entity: Basic on/off and speed control
 
-### Zimi light controller
+### Zimi light
 
 - Light entity: Basic on/off and brightness control
 
-### Zimi switch controller
+### Zimi sensor
+
+- Battery Level (in %)
+- Garage Temperature (in degrees)
+- Garage Humidity (in %)
+- Outside Temperature (in degrees)
+
+### Zimi switch
 
 - Switch entity: Basic on/off
 
@@ -110,7 +126,6 @@ The integration receives updates instantly from the Zimi Cloud Controller via th
 ## Known limitations
 
 Entity name changes made in the Zimi app will not be reflected in Home Assistant until after a restart. This is because entity names are only read during integration setup and Home Assistant startup.
-
 
 ## Troubleshooting
 

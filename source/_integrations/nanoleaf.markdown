@@ -23,7 +23,7 @@ ha_ssdp: true
 ha_integration_type: integration
 ---
 
-The Nanoleaf integration allows you to control and monitor Nanoleaf Light Panels, Canvas, Shapes, Elements, and Lines.
+The **Nanoleaf** {% term integration %} allows you to control and monitor Nanoleaf Light Panels, Canvas, Shapes, Elements, and Lines.
 
 This integration does not support the Nanoleaf Remote and Essentials lights. Controlling Nanoleaf Essentials lights is possible over Thread and Bluetooth through the HomeKit Controller integration.
 
@@ -32,3 +32,9 @@ This integration does not support the Nanoleaf Remote and Essentials lights. Con
 # Transition and brightness
 
 When using a transition in an action (such as `light.turn_on`), the transition is only applied to brightness and does not apply to color. When an action has a transition set, but no brightness is included, the light will automatically transition to 100% brightness.
+
+## Removing the integration
+
+This integration follows standard integration removal, no extra steps are required.
+
+{% include integrations/remove_device_service.md %}
