@@ -23,7 +23,7 @@ related:
     title: Google Developer Console
 ---
 
-This {% term integration %} allows you to connect your [Google Drive](https://drive.google.com) with Home Assistant Backups. When you set up this integration, your Google Drive will have a new folder called Home Assistant where all the backups will be stored. You can rename this folder to whatever you like in Google Drive at any point in time. If you delete the folder, it will automatically be re-created as long as you have the {% term integration %} enabled.
+This {% term integration %} allows you to connect your [Google Drive](https://drive.google.com) with Home Assistant Backups. When you set up this integration, your Google Drive will have a new folder called `Home Assistant` where all the backups will be stored. You can rename this folder to whatever you like in Google Drive at any point in time. If you delete the folder, it will automatically be re-created as long as you have the {% term integration %} enabled.
 
 For a video walkthrough of the setup instructions, see this video from 13:50 to 19:20
 <lite-youtube videoid="pZlYu9bN72U" videoStartAt="830" videotitle="Automate Your Home Assistant Backups Like A Pro!" posterquality="maxresdefault"></lite-youtube>
@@ -39,6 +39,50 @@ These are not the same as *Device Auth* credentials previously recommended for [
 {% include integrations/config_flow.md %}
 
 {% include integrations/google_oauth.md %}
+
+## Sensors
+The integration provides the following sensors, which are updated every 5 minutes:
+
+- **Total available storage**: The storage limit, if applicable. This will not be unknown if the user has unlimited storage.
+- **Used storage**: The total usage across all Google services. For users that are part of an organization with pooled storage, this is the usage across all services for the organization, rather than the individual user.
+- **Used storage in Drive**: The usage by all files in Google Drive. (disabled by default)
+- **Used storage in Drive Trash**: The usage by trashed files in Google Drive. (disabled by default)
+
+For users that are part of an organization with pooled storage, information about the available storage and used storage across all services is for the organization, rather than the individual user. 
+
+## Automations
+
+Get started with these automation examples.
+
+### Send alert when drive is near storage limit
+
+Send an alert when the drive usage is close to the storage limit and needs cleanup.
+
+{% details "Example YAML configuration" %}
+
+{% raw %}
+
+```yaml
+alias: Alert when Google Account is close to storage limit
+description: Send notification to phone when drive needs clean up.
+triggers:
+  - trigger: template
+    value_template: >-
+      {{ (states('sensor.example_gmail_com_used_storage') | float) /
+      (states('sensor.example_gmail_com_total_available_storage') | float) 
+      > 0.9 }}
+actions:
+  - action: notify.mobile_app_iphone
+    data:
+      title: Google Account is almost full!
+      message: >
+        Google Account has used up {{ states('sensor.example_gmail_com_used_storage') }}GB of {{
+        states('sensor.example_gmail_com_total_available_storage') }}GB.
+mode: single
+```
+
+{% endraw %}
+{% enddetails %}
 
 ## Removing the integration
 
