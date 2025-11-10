@@ -44,7 +44,7 @@ These are not the same as *Device Auth* credentials previously recommended for [
 The integration provides the following sensors, which are updated every 5 minutes:
 
 - **Total available storage**: The storage limit, if applicable. This will not be unknown if the user has unlimited storage.
-- **Used storage**: The total usage across all Google services. For users that are part of an organization with pooled storage, this is the usage across all services for the organization, rather than the individual user.
+- **Used storage**: The total storage usage across all Google services.
 - **Used storage in Drive**: The usage by all files in Google Drive. (disabled by default)
 - **Used storage in Drive Trash**: The usage by trashed files in Google Drive. (disabled by default)
 
@@ -56,7 +56,7 @@ Get started with these automation examples.
 
 ### Send alert when drive is near storage limit
 
-Send an alert when the drive usage is close to the storage limit and needs cleanup.
+Send an alert when the drive usage is close to the storage limit and needs clean up.
 
 {% details "Example YAML configuration" %}
 
@@ -97,3 +97,4 @@ mode: single
 ## Troubleshooting
 
 If you have an error with your credentials, you can delete them in the [Application Credentials](/integrations/application_credentials/) user interface.
+
