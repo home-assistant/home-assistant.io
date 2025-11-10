@@ -109,6 +109,10 @@ cluster:
   default: true
 {% endconfiguration %}
 
+{% note %}
+The `hours_to_show` option controls the time range for showing the path of previous locations. It requires historical location data from Home Assistant's history/recorder. If your entities do not have location history recorded (for example, the Recorder integration is disabled or the entities have no stored location states), no path will be shown even when `hours_to_show` is set. To show location history, make sure the Recorder integration is enabled and your entities have stored location data. See the [Recorder](/integrations/recorder/) and [History](/integrations/history/) integrations for more information.
+{% endnote %}
+
 {% important %}
 Only entities that have latitude and longitude attributes will be displayed on the map.
 {% endimportant %}

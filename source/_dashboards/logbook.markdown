@@ -60,6 +60,10 @@ theme:
   type: string
 {% endconfiguration %}
 
+{% note %}
+The `hours_to_show` option controls the time range for displaying activity entries. It requires historical data from Home Assistant's history/recorder. If your entities do not have activity history recorded (for example, the Recorder integration is disabled or the entities have no stored state changes), limited or no activity will be shown. To show activity history, make sure the Recorder integration is enabled and your entities have stored state change data. See the [Recorder](/integrations/recorder/) and [History](/integrations/history/) integrations for more information.
+{% endnote %}
+
 ### Examples
 
 ```yaml
