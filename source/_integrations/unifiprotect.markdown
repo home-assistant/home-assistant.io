@@ -77,7 +77,7 @@ use has.
 
 #### Creating a local user
 
-1. Login to your _Local Portal_ on your UniFi OS device by accessing it directly by IP address (e.g. _192.168.1.1_).  
+1. Login to your _Local Portal_ on your UniFi OS device by accessing it directly by IP address (For example,  _192.168.1.1_).  
 **Note**: This **must** be done from the UniFi OS by accessing it directly by IP address, not via `unifi.ui.com` or within the UniFi Protect app.
 2. If you are using the new UniFi OS interface, switch to the Legacy interface:
    - Go to **Settings** > **System** > **Interface**.
