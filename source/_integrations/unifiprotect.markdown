@@ -71,39 +71,23 @@ It is recommended you use the Administrator or a user with full read/write acces
 but it is not required. The entities that are created will automatically adjust based on the permissions of the user you
 use has.
 
-{% important %}
-**New UniFi OS Interface**: If your UniFi OS console is running the newer interface (typically the default for recent versions), you will need to switch to the Legacy interface to create a local user. The option to create local-only users is not available in the new interface.
-{% endimportant %}
-
-#### Creating a local user
-
-1. Login to your _Local Portal_ on your UniFi OS device by accessing it directly by IP address (For example,  _192.168.1.1_).  
-**Note**: This **must** be done from the UniFi OS by accessing it directly by IP address, not via `unifi.ui.com` or within the UniFi Protect app.
-2. If you are using the new UniFi OS interface, switch to the Legacy interface:
-   - Go to **Settings** > **System** > **Interface**.
-   - Select **Legacy** interface.
-   - Wait for the interface to reload.
-3. Go to **Admins & Users** from the left hand side menu and select the **Admins** tab or go to [IP address]/admins/ (e.g. _192.168.1.1/admins/_).
-4. Click on **+** in the top right corner and select **Add Admin**.
-5. Select **Restrict to local access only** and enter a new _username_ and _password_.
-6. Select **Full Management** for the _Protect_ role.
-7. Click **Add** in the bottom right.
+1. Login to your _Local Portal_ on your UniFi OS device, and click on _Users_.  
+**Note**: This **must** be done from the UniFi OS by accessing it directly by IP address (e.g. _192.168.1.1_), not via `unifi.ui.com` or within the UniFi Protect app.
+2. Go to **Admins & Users** from the left hand side menu and select the **Admins** tab or go to [IP address]/admins/ (e.g. _192.168.1.1/admins/_).
+3. Click on **+** in the top right corner and select **Add Admin**.
+4. Select **Restrict to local access only** and enter a new _username_ and _password_.
+5. Select **Full Management** for the _Protect_ role.
+6. Click **Add** in the bottom right.
 
 ![UniFi OS User Creation](/images/integrations/unifiprotect/user.png)
 
-#### Creating an API key
-
 In addition to the username and password, you now need to create an API key for Home Assistant.
 
-1. If you switched to the Legacy interface earlier, switch back to the new interface:
-   - Go to **Settings** > **System** > **Interface**.
-   - Select **New** interface.
-   - Wait for the interface to reload.
-2. Log in to your _Local Portal_ on your UniFi OS device with an administrator account (if needed).
-3. Go to **Settings** > **Control Plane** > **Integrations**.
-4. Enter a new name for the API key, like "Home Assistant".
-5. Select **Create API Key** and copy the generated key.
-6. Use this API key together with your username and password when setting up the UniFi Protect integration in Home Assistant.
+1. Log in to your _Local Portal_ on your UniFi OS device with an administrator account.
+2. Go to **Settings** > **Control Plane** > **Integrations**.
+3. Enter a new name for the API key, like "Home Assistant".
+4. Select **Create API Key** and copy the generated key.
+5. Use this API key together with your username and password when setting up the UniFi Protect integration in Home Assistant.
 
 {% tip %}
 Currently, creating an API key requires you to be logged in as an administrator.
