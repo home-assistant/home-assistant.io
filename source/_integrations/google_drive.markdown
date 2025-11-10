@@ -66,11 +66,9 @@ Send an alert when the drive usage is close to the storage limit and needs clean
 alias: Alert when Google Account is close to storage limit
 description: Send notification to phone when drive needs clean up.
 triggers:
-  - trigger: template
-    value_template: >-
-      {{ (states('sensor.example_gmail_com_used_storage') | float) /
-      (states('sensor.example_gmail_com_total_available_storage') | float) 
-      > 0.9 }}
+  - trigger: numeric_state
+    entity_id: sensor.example_gmail_com_used_storage
+    above: "{{ states('sensor.example_gmail_com_total_available_storage') | float * 0.9 }}"
 actions:
   - action: notify.mobile_app_iphone
     data:
