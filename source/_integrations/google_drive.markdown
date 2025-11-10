@@ -43,7 +43,7 @@ These are not the same as *Device Auth* credentials previously recommended for [
 ## Sensors
 The integration provides the following sensors, which are updated every 5 minutes:
 
-- **Total available storage**: The storage limit, if applicable. This will not be unknown if the user has unlimited storage.
+- **Total available storage**: The storage limit, if applicable. This will be unknown if the user has unlimited storage.
 - **Used storage**: The total storage usage across all Google services.
 - **Used storage in Drive**: The usage by all files in Google Drive. (disabled by default)
 - **Used storage in Drive Trash**: The usage by trashed files in Google Drive. (disabled by default)
