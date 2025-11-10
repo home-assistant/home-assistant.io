@@ -157,5 +157,5 @@ hours_to_show:
 {% endconfiguration %}
 
 {% note %}
-The `hours_to_show` option controls the time range shown in the graph only when historical data from Home Assistant's history/recorder is available. It does not cause the frontend to fetch historical data for entities that do not have records in the recorder. If your sensor does not have history recorded, the graph will only show recent live states and `hours_to_show` will have limited effect. To show historical data, make sure the Recorder integration is enabled and your entity has stored history. See the [Recorder](/integrations/recorder/) and [History](/integrations/history/) integrations for more information.
+The `hours_to_show` option controls the time range of historical data shown in the graph. The amount of history available depends on the Recorder's `purge_keep_days` setting. By default, the Recorder purges data older than 10 days. See the [Recorder integration documentation](/integrations/recorder/#purge_keep_days) for more information.
 {% endnote %}
