@@ -76,7 +76,6 @@ actions:
       message: >
         Google Account has used up {{ states('sensor.example_gmail_com_used_storage') }}GB of {{
         states('sensor.example_gmail_com_total_available_storage') | float }}GB.
-mode: single
 ```
 
 {% endraw %}
