@@ -381,7 +381,6 @@ The following features can be accessed from the device panel of any Z-Wave devic
 - **Delete:** Opens a dialog with the following options for removing the device:
    - Removing it from the network using exclusion
    - Removing a failed device from the adapter without excluding it from the network
-   - Deleting it from Home Assistant
 - **[Statistics](https://zwave-js.github.io/node-zwave-js/#/api/node?id=quotstatistics-updatedquot):** Provides statistics about communication between this device and the adapter, allowing you to troubleshoot RF issues with the device.
 - **Update:** Updates a device's firmware using a manually uploaded firmware file. Only some devices support this feature (adapters and devices with the Firmware Update Metadata Command Class).
 - **Download diagnostics:** Exports a JSON file describing the entities of this specific device.
