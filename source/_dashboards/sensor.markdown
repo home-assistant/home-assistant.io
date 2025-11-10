@@ -81,10 +81,25 @@ theme:
   type: string
 {% endconfiguration %}
 
-### Example
+{% note %}
+The `hours_to_show` option controls the time range shown in the card only when the card is rendering historical data from Home Assistant's history/recorder. It does not cause the frontend to fetch historical data for entities that do not have records in the recorder. If your sensor does not have history recorded (for example, the Recorder integration is disabled or the entity has no stored states), the card will only show recent live states and `hours_to_show` will have no effect. To show historical data, make sure the Recorder integration is enabled and your entity has stored history. See the [Recorder](/integrations/recorder/) and [History](/integrations/history/) integrations for more information.
+{% endnote %}
+
+### Examples
+
+Basic sensor card:
 
 ```yaml
 type: sensor
 entity: sensor.illumination
 name: Illumination
+```
+
+Sensor card with historical data graph:
+
+```yaml
+type: sensor
+entity: sensor.my_temperature
+graph: line
+hours_to_show: 720 # shows 30 days of history only if history exists for this sensor
 ```
