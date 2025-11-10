@@ -102,7 +102,7 @@ Authentication using API token is currently supported for the following inverter
 
 ### Rate limiting with username/password authentication
 
-The classic API (username/password authentication) has strict rate limits that can result in your account being locked out for up to 24 hours if exceeded. To avoid this issue:
+The classic API (username/password authentication) has strict rate limits that can result in your account being locked out for up to 24 hours if these limits are exceeded. To avoid this issue, use one of the following options:
 
 - **Option 1: Your inverter supports API token**: Use token authentication instead, as this uses the official Growatt V1 API that does not have this limitation.
 - **Option 2: Your inverter doesn't support API token**: Avoid all unnecessary integration reloads, as a reload triggers re-login via Growatt classic API.
