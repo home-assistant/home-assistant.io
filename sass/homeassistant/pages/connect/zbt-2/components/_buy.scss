@@ -11,17 +11,6 @@ section#buy {
         height: calc(100vh - var(--header-height));
     }
 
-    &:after {
-        content: '';
-        position: absolute;
-        background: linear-gradient(180deg, transparent 25%, rgba(218, 221, 226, 0.90) 50%, transparent 75%);
-        inset: 0;
-
-        @include bp(desktop) {
-            content: unset;
-        }
-    }
-
     .cols {
         align-items: center;
         justify-content: center;
