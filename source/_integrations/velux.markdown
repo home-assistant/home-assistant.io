@@ -60,14 +60,6 @@ Password:
 
 Remember: You must complete the configuration within 5 minutes of rebooting the KLF 200 gateway. If you can't complete in time and setup fails, power cycle the device and try again.
 
-## Actions
-
-### Action `velux.reboot_gateway`
-
-Reboots the configured KLF 200 gateway. _This action is deprecated and will be removed in Home Assistant 2026.6.0. To reboot your gateway, use the **Restart** button in Home Assistant's UI for the gateway device._
-
-In Home Assistant versions up to 2024.12.x, it was recommended to create an automation to reboot the KLF 200 gateway before shutting down or restarting Home Assistant. This automated reboot is now built into the integration, so you no longer need to create a separate automation.
-
 ## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.
