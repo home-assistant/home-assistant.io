@@ -7,11 +7,14 @@ ha_release: 2025.11
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
-  - "@kclif9"
+  - '@kclif9'
+  - '@JagadishDhanamjayam'
 ha_domain: actron_air
 ha_platforms:
   - climate
 ha_integration_type: integration
+ha_quality_scale: bronze
+ha_dhcp: true
 ---
 
 The **Actron Air** {% term integration %} allows you to control [Actron Air](https://www.actronair.com.au/) Air Conditioning controllers into Home Assistant.
@@ -39,4 +42,3 @@ Each zone will be reflected as a separate climate entity. You can set the temper
 This integration follows standard integration removal.
 
 {% include integrations/remove_device_service.md %}
-

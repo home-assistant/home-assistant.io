@@ -11,6 +11,7 @@ ha_domain: homeassistant_connect_zbt2
 ha_integration_type: hardware
 ha_config_flow: true
 ha_platforms:
+  - switch
   - update
 published: false
 ha_quality_scale: bronze

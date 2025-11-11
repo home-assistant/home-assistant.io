@@ -25,7 +25,7 @@ ha_platforms:
   - sensor
   - switch
   - vacuum
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The `ecovacs` {% term integration %} is the main integration to integrate [Ecovacs](https://www.ecovacs.com) (Deebot) vacuums and mowers.

@@ -1,19 +1,21 @@
 ---
-title: Nintendo Switch Parental Controls
+title: Nintendo Switch parental controls
 description: The Nintendo Switch Parental Controls integration allows you to monitor and control screentime for children via the Nintendo Switch Parental Controls service.
 ha_release: 2025.11
-ha_iot_class: cloud_polling
+ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@pantherale0'
-ha_domain: nintendo_parental
+ha_domain: nintendo_parental_controls
 ha_integration_type: integration
 ha_platforms:
-  - sensor
-  - time
-  - switch
   - number
+  - sensor
+  - switch
+  - time
+ha_category: []
+ha_quality_scale: bronze
+ha_config_flow: true
 ---
-
 
 The **Nintendo Switch Parental Controls** {% term integration %} integrates with the Nintendo Switch Parental Controls service, allowing parents to monitor and control screentime for their children.
 

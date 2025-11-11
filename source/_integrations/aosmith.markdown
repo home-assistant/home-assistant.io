@@ -11,6 +11,7 @@ ha_codeowners:
   - '@bdr99'
 ha_platforms:
   - diagnostics
+  - select
   - sensor
   - water_heater
 ha_integration_type: integration

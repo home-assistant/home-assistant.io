@@ -43,7 +43,7 @@ ha_platforms:
   - vacuum
   - valve
   - water_heater
-ha_integration_type: integration
+ha_integration_type: service
 ha_quality_scale: platinum
 ---
 

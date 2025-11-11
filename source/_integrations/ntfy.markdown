@@ -10,13 +10,13 @@ ha_config_flow: true
 ha_codeowners:
   - '@tr4nt0r'
 ha_domain: ntfy
-ha_integration_type: integration
+ha_integration_type: service
 ha_platforms:
   - diagnostics
   - event
   - notify
   - sensor
-ha_quality_scale: bronze
+ha_quality_scale: platinum
 ---
 
 The **ntfy** {% term integration %} allows publishing push notifications on [ntfy.sh](https://ntfy.sh/) or other ntfy services.
