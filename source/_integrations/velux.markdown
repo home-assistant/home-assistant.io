@@ -30,7 +30,7 @@ At least firmware version > 2.0.0.0 is required on the KLF 200 device. The firmw
 There is currently support for the following device types within Home Assistant:
 
 - Binary sensor (reports rain detection for windows that support it)
-- Button
+- Button (Reboot button on the gateway device to reboot the KLF 200 gateway)
 - Cover
 - Light
 - Scene
