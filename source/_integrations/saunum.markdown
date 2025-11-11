@@ -84,15 +84,21 @@ The **Saunum Leil** integration provides the following entities for controlling 
   - **Description**: Main climate control for your sauna, allowing you to set target temperature and control heating.
   - **Features**: Temperature control, HVAC modes (off, heat).
 
+## Supported devices
+
+The following devices are known to be supported by the integration:
+
+- Saunum Leil touch screen control panel
+
 ## Data updates
 
-The **Saunum Leil** integration {% term polling polls %} data from the control unit every 5 seconds by default to ensure responsive control and monitoring.
+The **Saunum Leil** integration {% term polling polls %} data from the control unit every 1 minute by default.
 
 ## Known limitations
 
 - The integration communicates with the control unit using the Modbus TCP protocol. Ensure your network allows communication on port 502.
-- Temperature readings and controls are provided in the native Celsius scale, with automatic conversion to Fahrenheit for display when needed.
 - When the sauna session is active, the sauna duration, fan duration, and sauna type cannot be changed.
+- The integration does not provide the ability to reboot, which can instead be done via the Leil touch screen control panel.
 
 ## Troubleshooting
 
@@ -143,6 +149,6 @@ This indicates the integration successfully connected initially but is now unabl
 
 ## Removing the integration
 
-This integration follows standard integration removal.
+This integration follows standard integration removal. No extra steps are required.
 
 {% include integrations/remove_device_service.md %}
