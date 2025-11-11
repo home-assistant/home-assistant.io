@@ -95,3 +95,4 @@ Don't miss the regular [Home Assistant podcasts](https://hasspodcast.io/).
 [facebook]: https://www.facebook.com/homeassistantio
 [reddit]: https://reddit.com/r/homeassistant
 [discord]: /join-chat
+[bluesky]: https://bsky.app/profile/home-assistant.io
