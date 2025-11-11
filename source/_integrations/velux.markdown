@@ -15,6 +15,7 @@ ha_codeowners:
 ha_domain: velux
 ha_platforms:
   - binary_sensor
+  - button
   - cover
   - light
   - scene
@@ -29,6 +30,7 @@ At least firmware version > 2.0.0.0 is required on the KLF 200 device. The firmw
 There is currently support for the following device types within Home Assistant:
 
 - Binary sensor (reports rain detection for windows that support it)
+- Button
 - Cover
 - Light
 - Scene
@@ -62,7 +64,7 @@ Remember: You must complete the configuration within 5 minutes of rebooting the 
 
 ### Action `velux.reboot_gateway`
 
-Reboots the configured KLF 200 gateway.
+Reboots the configured KLF 200 gateway. This action will be deprecated. To reboot your gateway, use the **Reboot** button on the gateway device.
 
 In Home Assistant versions up to 2024.12.x, it was recommended to create an automation to reboot the KLF 200 gateway before shutting down or restarting Home Assistant. This automated reboot is now built into the integration, so you no longer need to create a separate automation.
 
