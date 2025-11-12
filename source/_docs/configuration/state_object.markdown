@@ -87,6 +87,7 @@ Context is a property used in state objects and events. It ties {% term events %
 
 ## Examples
 
+
 - Evaluate the `state.last_changed` of a switch entity: 
 
 {% raw %}
