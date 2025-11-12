@@ -81,10 +81,25 @@ theme:
   type: string
 {% endconfiguration %}
 
-### Example
+{% note %}
+The `hours_to_show` option controls the time range of historical data shown in the graph. The amount of history available depends on the Recorder's `purge_keep_days` setting. By default, the Recorder purges data older than 10 days. See the [Recorder integration documentation](/integrations/recorder/#purge_keep_days) for more information.
+{% endnote %}
+
+### Examples
+
+Basic sensor card:
 
 ```yaml
 type: sensor
 entity: sensor.illumination
 name: Illumination
+```
+
+Sensor card with historical data graph:
+
+```yaml
+type: sensor
+entity: sensor.my_temperature
+graph: line
+hours_to_show: 720 # shows 30 days of history only if history exists for this sensor
 ```

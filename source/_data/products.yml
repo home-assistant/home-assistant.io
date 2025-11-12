@@ -174,17 +174,6 @@ yellow:
       ship_to: America
       url: https://cloudfree.shop/product/home-assistant-yellow/
       logo: /images/distributors/cloudfree.webp
-    - name: Seeed Studio
-      ship_from: US
-      ship_to: America
-      url: https://www.seeedstudio.com/Home-Assistant-Yellow-Kit-with-selectable-CM4.html
-      logo: /images/distributors/seeed-studio.webp
-      # Asia
-    - name: Seeed Studio
-      ship_from: China
-      ship_to: Asia
-      url: https://www.seeedstudio.com/Home-Assistant-Yellow-Kit-with-selectable-CM4.html
-      logo: /images/distributors/seeed-studio.webp
       # Australia
     - name: Smart Guys
       ship_from: Australia
@@ -192,16 +181,6 @@ yellow:
       url: https://smartguys.com.au/product/home-assistant-yellow-smart-hub/
       logo: /images/distributors/smart-guys.webp
       # Europe
-    - name: Botland
-      ship_from: Poland
-      ship_to: Europe
-      url: https://botland.com.pl/centralki-i-bramki-sieciowe/24698-home-assistant-yellow-standard-kit-inteligenta-centralka-zigbee-thread-nabu-casa-yellow-kit-std-794677011741.html
-      logo: /images/distributors/botland.webp
-    - name: Mauser
-      ship_from: Portugal
-      ship_to: Europe
-      url: https://mauser.pt/catalog/product_info.php?products_id=095-3150
-      logo: /images/distributors/mauser.png
     - name: Pi-Shop.ch
       ship_from: Switzerland
       ship_to: Europe
@@ -212,21 +191,6 @@ yellow:
       ship_to: Europe
       url: https://raspberrypi.dk/en/product/home-assistant-yellow/
       logo: /images/distributors/RaspberryPi-dk.webp
-    - name: Seeed Studio
-      ship_from: Germany
-      ship_to: Europe
-      url: https://www.seeedstudio.com/Home-Assistant-Yellow-Kit-with-selectable-CM4.html
-      logo: /images/distributors/seeed-studio.webp
-    - name: The Pi Hut
-      ship_from: UK
-      ship_to: Europe
-      url: https://thepihut.com/products/home-assistant-yellow
-      logo: /images/distributors/pi-hut.webp
-    - name: Domadoo
-      ship_from: France
-      ship_to: Europe
-      url: https://www.domadoo.fr/en/smart-home-hub/7113-nabu-casa-home-assistant-yellow-kit-with-power-supply.html
-      logo: /images/distributors/domadoo.jpg
 zbt-1:
   name: "<strong>Home Assistant Connect ZBT-1</strong>"
   distributors:

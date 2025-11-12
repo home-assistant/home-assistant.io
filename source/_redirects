@@ -557,6 +557,7 @@ layout: null
 /integrations/edp_redy /more-info/removed-integration 301
 /integrations/ee_brightbox /more-info/removed-integration 301
 /integrations/eight_sleep /more-info/removed-integration 301
+/integrations/enmax /more-info/removed-integration 301
 /integrations/envirophat /more-info/removed-integration 301
 /integrations/epsonworkforce /more-info/removed-integration 301
 /integrations/essent /more-info/removed-integration 301
@@ -621,6 +622,7 @@ layout: null
 /integrations/pcal9535a /more-info/removed-integration 301
 /integrations/pi4ioe5v9xxxx /more-info/removed-integration 301
 /integrations/piglow /more-info/removed-integration 301
+/integrations/plum_lightpad /more-info/removed-integration 301
 /integrations/postnl /more-info/removed-integration 301
 /integrations/prezzibenzina /more-info/removed-integration 301
 /integrations/ptvsd /more-info/removed-integration 301
@@ -666,6 +668,8 @@ layout: null
 /integrations/usps /more-info/removed-integration 301
 /integrations/volvooncall /more-info/removed-integration 301
 /integrations/vulcan /more-info/removed-integration 301
+/integrations/vultr /more-info/removed-integration 301
+/integrations/watson_iot /more-info/removed-integration 301
 /integrations/weather.darksky /more-info/removed-integration 301
 /integrations/weblink /more-info/removed-integration 301
 /integrations/wink /more-info/removed-integration 301

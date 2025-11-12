@@ -1,5 +1,5 @@
 ---
-title: Konnected.io
+title: Konnected.io (Legacy)
 description: Connect wired alarm sensors and siren using the NodeMCU based Konnected Alarm Panel
 ha_category:
   - Alarm
@@ -148,7 +148,7 @@ devices:
   type: list
   keys:
     id:
-      description: The MAC address (Konnected Alarm Panel) or Device ID (Konnected Alarm Panel Pro) of the Konnected device. MAC addresses must be formatted with colons/punctuation removed, for example, `68c63a8bcd53`. You can usually find the mac address in your router's client list. Or, check the `home-assistant.log` for log messages from automatically discovered devices. Device ID can be found on the device Status Page which is accessible via the Konnected Mobile App.
+      description: The MAC address (Konnected Alarm Panel) or Device ID (Konnected Alarm Panel Pro) of the Konnected device. MAC addresses must be formatted with colons/punctuation removed, for example, `68c63a8bcd53`. You can usually find the mac address in your router's client list. Or, check [the Home Assistant logs](/integrations/logger/#viewing-logs) for log messages from automatically discovered devices. Device ID can be found on the device Status Page which is accessible via the Konnected Mobile App.
       required: true
       type: string
     binary_sensors:

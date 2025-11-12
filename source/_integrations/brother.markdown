@@ -32,6 +32,13 @@ The integration monitors every supported part.
 
 ![SNMP settings on Brother Printer web interface](/images/integrations/brother/brother-printer-webui.png)
 
+## Unsupported devices
+
+The following devices are not supported by the integration:
+
+- MFC-8660DN
+- MFC-8860DN
+
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
@@ -44,12 +51,6 @@ SNMP Community:
 Type of the printer:
     description: "Brother printer type: ink or laser."
 {% endconfiguration_basic %}
-
-## Removing the integration
-
-This integration follows standard integration removal, no extra steps are required.
-
-{% include integrations/remove_device_service.md %}
 
 ## Supported functionality
 
@@ -188,6 +189,23 @@ Change `my_phone_notify` to the actual notifier you are using.
 ## Known limitations
 
 - Some very old Brother printers use a different data format. Those models are not supported. The integration will show information about that during configuration.
+
+## Troubleshooting
+
+### Printer is unavailable after changing SNMP community
+
+After changing the SNMP community in the printer configuration, you need to reconfigure the device in Home Assistant. To do this:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Select **Brother Printer**.
+3. Click {% icon "mdi:dots-vertical" %}.
+4. Select **Reconfigure**.
+
+### Integration reports problems with communication or data updating
+
+1. Check if the printer is online and available on the local network.
+2. Check in the printer's web interface if SNMP is enabled.
+3. In the printer's web interface, verify that **SNMPv3 read/write access and v1/v2c read-only access** is enabled, if available.
 
 ## Removing the integration
 

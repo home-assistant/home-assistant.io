@@ -10,13 +10,13 @@ ha_config_flow: true
 ha_codeowners:
   - '@tr4nt0r'
 ha_domain: ntfy
-ha_integration_type: integration
+ha_integration_type: service
 ha_platforms:
   - diagnostics
   - event
   - notify
   - sensor
-ha_quality_scale: bronze
+ha_quality_scale: platinum
 ---
 
 The **ntfy** {% term integration %} allows publishing push notifications on [ntfy.sh](https://ntfy.sh/) or other ntfy services.
@@ -27,7 +27,7 @@ The **ntfy** {% term integration %} allows publishing push notifications on [ntf
 
 ## How you can use this integration
 
-The ntfy integration can be used to send push notifications from automations and scripts in real-time to your mobile devices and desktops.
+The ntfy integration can be used to send and receive messages via an [ntfy](https://ntfy.sh/) server. For example, to send a notification from Home Assistant to your mobile or send messages from a script to Home Assistant.
 
 ## Prerequisites
 

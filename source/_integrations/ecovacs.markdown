@@ -25,7 +25,7 @@ ha_platforms:
   - sensor
   - switch
   - vacuum
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The `ecovacs` {% term integration %} is the main integration to integrate [Ecovacs](https://www.ecovacs.com) (Deebot) vacuums and mowers.
@@ -64,6 +64,7 @@ Additionally, **depending on your model**, the integration provides the followin
   - `Volume`: Set the volume.
   - `Water level`: Set a precise water level used during cleaning with the mop.
 - **Select**:
+  - `Active map`: Select the active map. The ID will be shown when the map has no name.
   - `Water level`: Choose from predefined water levels used during cleaning with the mop.
   - `Work mode`: Specify the mode, how the bot should clean.
 - **Sensor**:

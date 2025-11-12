@@ -27,7 +27,7 @@ ha_platforms:
   - sensor
   - switch
   - vacuum
-ha_integration_type: integration
+ha_integration_type: hub
 ha_zeroconf: true
 ha_quality_scale: platinum
 ---

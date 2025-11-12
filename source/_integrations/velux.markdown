@@ -18,7 +18,7 @@ ha_platforms:
   - cover
   - light
   - scene
-ha_integration_type: integration
+ha_integration_type: hub
 ha_dhcp: true
 ---
 

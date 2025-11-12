@@ -15,7 +15,7 @@ ha_platforms:
   - binary_sensor
   - sensor
   - update
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 The `nextcloud` integration pulls summary [Nextcloud](https://nextcloud.com/) information into Home Assistant.

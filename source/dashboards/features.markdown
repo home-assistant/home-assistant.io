@@ -658,6 +658,32 @@ type:
   type: string
 {% endconfiguration %}
 
+## Media player volume buttons
+
+Widget that displays buttons to control the volume for a [media player](/integrations/media_player).
+
+<p class='img'>
+  <img src='/images/dashboards/features/media_player_volume_buttons.png' alt='Screenshot of the tile card with media player volume buttons feature'>
+  Screenshot of the tile card with media player volume buttons feature
+</p>
+
+```yaml
+features:
+  - type: "media-player-volume-buttons"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`media-player-volume-buttons`"
+  type: string
+step:
+  required: false
+  description: "The step size of the volume. The default is 5%."
+  type: integer
+  default: 5
+{% endconfiguration %}
+
 ## Media player volume slider
 
 Widget that displays a slider to control the volume for a [media player](/integrations/media_player).
@@ -795,6 +821,10 @@ hours_to_show:
   type: integer
   default: 24
 {% endconfiguration %}
+
+{% note %}
+The `hours_to_show` option controls the time range of historical data shown in the graph. The amount of history available depends on the Recorder's `purge_keep_days` setting. By default, the Recorder purges data older than 10 days. See the [Recorder integration documentation](/integrations/recorder/#purge_keep_days) for more information.
+{% endnote %}
 
 ## Update actions
 

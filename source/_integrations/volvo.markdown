@@ -9,11 +9,16 @@ ha_domain: volvo
 ha_integration_type: device
 ha_config_flow: true
 ha_category:
+  - Binary sensor
+  - Button
   - Sensor
 ha_platforms:
   - binary_sensor
+  - button
+  - device_tracker
+  - diagnostics
   - sensor
-ha_quality_scale: silver
+ha_quality_scale: platinum
 related:
   - url: https://developer.volvocars.com/
     title: Volvo developers portal
@@ -56,19 +61,26 @@ Features available depend on model, year and location.
 It's recommended to add an API application per vehicle you want to add. There is a maximum on the number of requests that can be made per API key per day.
 
 {% note %}
-Home Assistant will use account linking provided by Nabu Casa for authenticating with Volvo, this service is provided for free and does not require a Nabu Casa subscription.
+Home Assistant will use account linking provided by Nabu Casa for authenticating with Volvo. This service is **provided for free**, does not require a Nabu Casa subscription, and is the preferred way of using this integration.
 
-If you want to use your own `client id` and `client secret`, or you have the [cloud integration](/integrations/cloud) disabled, proceed to "**Using custom application credentials**".
+Read the "**Using custom application credentials**"-section if you have the [cloud integration](/integrations/cloud) disabled.
 {% endnote %}
 
 {% details "Using custom application credentials" icon="mdi:account-key" %}
+
+{% important %}
+Custom Volvo application credentials have a 6-day grant period, which means you'll need to re-authenticate with Volvo every 6 days.
+Data updates will stop working once the grant expires until you re-authenticate.
+
+For a better user experience, it's recommended to use the default Nabu Casa account linking instead.
+{% endimportant %}
 
 1. On Volvo's API application page, click the **Publish** button underneath your API application.
 2. Fill in all required fields in the screen that follows. Pay attention to:
    - **Scopes**: Make sure to select them all (you need to expand the sections).
    - **Redirect URI(s)**: Add `https://my.home-assistant.io/redirect/oauth`.
 3. Click **View summary** and **confirm**.
-4. Grab the `client id` and `client secret` from the confirmation page and add them to your [application credentials](/integrations/application_credentials).
+4. Grab the `client id` and `client secret` from the confirmation page and **add them** to your [application credentials](/integrations/application_credentials).
 
 {% enddetails %}
 
@@ -135,11 +147,32 @@ The **Volvo** integration provides the following entities.
 - **Window rear left**: Detects if the rear left window is open or closed.
 - **Window rear right**: Detects if the rear right window is open or closed.
 
+#### Buttons
+
+- **Start climatization**: Starts the climate control system to pre-condition the vehicle's interior temperature.
+- **Stop climatization**: Stops the climate control system.
+- **Flash**: Activates the vehicle's lights to flash briefly.
+- **Honk**: Activates the vehicle's horn for a short duration.
+- **Flash & honk**: Combines flashing lights and horn activation.
+
+{% important %}
+Volvo removed the **Honk** and **Flash** buttons from the official app because they can drain the vehicle's 12&nbsp;V battery.
+Use them with care!
+{% endimportant %}
+
+#### Device tracker
+
+Go to Volvo's developer portal to view [the availability](https://developer.volvocars.com/apis/location/v1/overview/#availability).
+
+- **Location**: The car's current location.
+
 #### Sensors
 
 - **Car connection**: Connectivity of the car.
+- **Direction**: In which direction the car is heading.
 - **Distance to service**: Remaining distance until the next service maintenance.
 - **Odometer**: Odometer.
+- **Service**: Indicates whether service is due and the reason.
 - **Time to engine service**: Remaining engine-hours until the next service maintenance.
 - **Time to service**: Remaining time until the next service maintenance.
 - **Trip automatic average speed**: Average speed on the automatic trip meter.
@@ -172,6 +205,11 @@ Go to Volvo's developer portal to view [the list of supported models](https://de
 - **Trip manual average energy consumption**: Average energy consumption on the manual trip meter.
 
 ### Fuel-only and plug-in hybrid
+
+#### Buttons
+
+- **Start engine**: Starts the engine for 15 minutes.
+- **Stop engine**: Stops the engine.
 
 #### Sensors
 
@@ -242,7 +280,7 @@ Set the **Device class** to **Timestamp** and optionally choose your vehicle for
 The **Volvo** integration fetches data from the API at different intervals:
 
 - **Every 60 minutes**: diagnostics, odometer, and statistics.
-- **Every 15 minutes**: car connectivity and fuel status.
+- **Every 15 minutes**: car connectivity, fuel status, and location.
 - **Every 2 minutes**: energy data (for battery cars).
 - **Every minute**: doors and window status.
 

@@ -11,7 +11,11 @@ ha_domain: portainer
 ha_config_flow: true
 ha_platforms:
   - binary_sensor
-ha_integration_type: integration
+  - button
+  - diagnostics
+  - sensor
+  - switch
+ha_integration_type: hub
 ha_quality_scale: bronze
 ---
 
@@ -44,6 +48,9 @@ This integration is currently being actively developed and tested. More platform
 There is currently support for the following device types within Home Assistant:
 
 - Binary sensor - for monitoring the status of Portainer services.
+- Switch - for turning on and off containers.
+- Sensor - for monitoring various elements of containers.
+- Button - for restarting containers.
 
 ## Data updates
 

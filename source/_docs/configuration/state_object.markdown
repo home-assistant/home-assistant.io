@@ -84,3 +84,11 @@ Context is a property used in state objects and events. It ties {% term events %
 | `context_id` | Unique identifier for the context.                                                                                                                                           |
 | `user_id`    | Unique identifier of the user that started the change. Will be `None` if the action was not started by a user (for example, started by an automation).                       |
 | `parent_id`  | Unique identifier of the parent context that started the change, if available. For example, if an automation is triggered, the context of the trigger will be set as parent. |
+
+## Examples
+
+Evaluate the `state.last_changed` of a switch entity: `{{ states.switch.my_switch.last_changed }}` result type: `string` representing date and time e.g. `2025-11-11 12:56:10.244125+00:00`
+
+Evaluate the `state.context.id` of this switch: `{{ states.switch.my_switch.context.id }}` result type: `string` representing an id code e.g. `01K9SFSRTSKRV5NXPTC38S6KJRF`
+
+If the switch was changed by a user you can read the `state.context.user_id` as well `{{ states.switch.my_switch.context.user_id }}`

@@ -15,13 +15,14 @@ ha_platforms:
   - calendar
   - diagnostics
   - image
+  - notify
   - sensor
   - switch
   - todo
 ha_codeowners:
   - '@tr4nt0r'
 ha_config_flow: true
-ha_integration_type: integration
+ha_integration_type: service
 related:
   - docs: /integrations/todo
     title: To-do list integration documentation
@@ -99,6 +100,7 @@ Verify SSL certificate:
 - **Quest scrolls**: Displays the total number of quest scrolls in your inventory. A list of each quest scroll and its quantity is provided in the sensor's attributes.
 - **Pending damage**: Total damage accumulated during the day by completing your tasks. The quest boss is then attacked for this amount at the end of the day.
 - **Pending quest items**: Quest items found during the day when completing tasks. The total is counted towards the quest objective at the end of the day.
+- **Last check-in**: Last time a user checked in.
 
 ## Binary sensors
 
@@ -161,6 +163,11 @@ If you've unlocked the class system, button controls for casting player and part
 
 - **Rest in the Inn**: When enabled, allows your character to rest in the inn in Habitica, pausing damage dealt from dailies and quest bosses.
 
+## Notifier
+
+- **Party chat**: Sends a message to your party's group chat.
+- **Private message**: Sends a private message to an individual party member. A separate notify entity is created for each member of your party.
+
 ## Party
 
 If you’re part of a party, the integration creates a device with these entities.
@@ -180,6 +187,17 @@ If you’re part of a party, the integration creates a device with these entitie
 Certain entities are only available depending on whether you are in a boss quest or a collect quest.
 
 {% endnote %}
+
+### Keep an eye on your team mates
+
+You can add members of your party to Home Assistant, so you can keep an eye on your mates health and other key stats. To add a party member, go to {% my integration domain="habitica" title="**Settings** > **Devices & services** > **Habitica**" %} and select **{% icon "mdi:plus" %} Add party member**.
+
+When you add someone, Home Assistant creates a new entry with the following entities:
+
+- **Sensors**: Class, display name, health, mana, max. mana, experience, next level, strength, intelligence, constitution, and perception.
+- **Image**: Avatar
+
+For details about each of these entities, see the descriptions above under [**Sensors**](#sensors) and [**Image**](#image).
 
 ## Actions
 
@@ -580,7 +598,8 @@ actions:
 
 ## Data updates
 
-This integration retrieves data from Habitica every 60 seconds to ensure timely updates.
+This integration syncs with Habitica every 60 seconds to keep your own data up to date.
+Party data, including any party members you’ve added as sub-entries, is refreshed every 15 minutes.
 
 ## Known limitations
 

@@ -10,7 +10,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@tr4nt0r'
 ha_domain: sleep_as_android
-ha_integration_type: integration
+ha_integration_type: service
 ha_platforms:
   - diagnostics
   - event
@@ -158,6 +158,15 @@ Events triggered when a specific sound is detected during sleep tracking.
 | `laugh`    | Laughter             |
 | `snore`    | Snoring              |
 | `talk`     | Talking              |
+
+### Jet lag prevention
+
+Events triggered when a specific sound is detected during sleep tracking.
+
+| Event type      | Description                |
+| --------------- | -------------------------- |
+| `jet_lag_start` | Jet lag prevention started |
+| `jet_lag_stop`  | Jet lag prevention stopped |
 
 ## Automation
 
