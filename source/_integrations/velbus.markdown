@@ -32,15 +32,17 @@ ha_quality_scale: bronze
 
 The **Velbus** {% term integration %} is used to control [Velbus](https://www.velbus.eu/?lang=en) modules. It supports the Velbus USB, Velbus serial and a TCP/IP gateway.
 
+To use the Velbus integration, you need to have Velbus modules connected to a Velbus USB or TCP/IP interface.
 
 {% include integrations/config_flow.md %}
 
 ## Configuration parameters
-
 During the setup you will be shown 2 choices on ways to connect to the Velbus bus:
 
 - USB
 - TCP/IP
+
+There will be a connection test to make sure the connection is working, and if it's working the integration will be added to Home Assistant.
 
 ### USB
 
@@ -54,17 +56,16 @@ There will be a connection test to make sure the connection is working, and if i
 
 The TCP/IP connection is a way to connect to the Velbus bus. You will need a Velbus TCP/IP interface available in your network.
 
-There are a couple of parameters you need to fill in to connect to the Velbus bus:
-
-- tls
-- host
-- port
-- password
-
-The `tls` parameter is optional and can be used to enable or disable the TLS connection.
-The `host` parameter is the IP address of the Velbus TCP/IP interface.
-The `port` parameter is the port number of the Velbus TCP/IP interface.
-The `password` parameter is optional and can be used to authenticate to the Velbus TCP/IP interface.
+{% configuration_basic %}
+Tls:
+    description: "Enable TLS connection towards the Velbus TCP/IP interface. This is usually needed when connecting to a signum."
+Host:
+    description: "The IP address of the Velbus TCP/IP interface."
+Port:
+    description: "The port number of the Velbus TCP/IP interface."
+Password:
+    description: "The password to authenticate to the Velbus TCP/IP interface, if configured."
+{% endconfiguration_basic %}
 
 #### Example: signum
 
