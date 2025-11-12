@@ -18,6 +18,12 @@ ha_platforms:
 
 The **Hanna** {% term integration %} fetches data from your [Hanna Pool Controller](https://www.hannainstruments.be/en/Applicatons-measure-analyze/swimming-pool/ph-chlorine-control/systems/) device, by connecting to your [HannaCloud](https://www.hannacloud.com) account.
 
+## Supported devices
+
+The following devices are known to be supported by the integration:
+-  Hanna Instruments BL122
+-  Hanna Instruments BL132
+
 ## Prerequisites
 
 Before you can add the Hanna integration, you need:
@@ -42,10 +48,13 @@ password:
 The integration will update its sensors by {% term polling %} the [HannaCloud](https://www.hannacloud.com) account for new values. 
 
 
-## Available sensors
+## Supported functionality
 
-The following sensors are supported:
+### Entities
 
+The Hanna integration provides the following entities.
+
+#### Sensors
 - **Chlorine flow rate**: Monitors chlorine dosing rate
 - **Chlorine ORP value**: Measures oxidation-reduction potential with calibration data as attributes
 - **pH Acid/base flow rate**: Monitors acid/base chemical dosing rate
