@@ -822,6 +822,10 @@ hours_to_show:
   default: 24
 {% endconfiguration %}
 
+{% note %}
+The `hours_to_show` option controls the time range of historical data shown in the graph. The amount of history available depends on the Recorder's `purge_keep_days` setting. By default, the Recorder purges data older than 10 days. See the [Recorder integration documentation](/integrations/recorder/#purge_keep_days) for more information.
+{% endnote %}
+
 ## Update actions
 
 Widget that displays actions to install or skip an [update](/integrations/update).
