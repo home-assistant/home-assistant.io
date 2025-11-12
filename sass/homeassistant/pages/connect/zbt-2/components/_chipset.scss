@@ -2,15 +2,29 @@ section#chipset {
 
     .cols {
         display: flex;
+        flex-direction: column;
         gap: 20px;
 
-        .col {
+        @include bp(tablet){
+            flex-direction: row;
+        }
+            .col {
             flex-grow: 1;
             flex-basis: 0;
 
             &:last-child {
                 .card {
                     --border-gradient-angle: 0deg;
+                }
+            }
+
+            .card--image{
+                img{
+                    aspect-ratio: 0.86;
+                    
+                    @include bp(tablet){
+                        aspect-ratio: 0.7;
+                    }
                 }
             }
         }
@@ -24,12 +38,12 @@ section#chipset {
         border-radius: 16px;
         display: flex;
         flex-direction: column;
-        gap: 20px;
         height: 100%;
         isolation: isolate;
+        justify-content: center;
         overflow: hidden;
         position: relative;
-        padding: 40px;
+        padding: 24px 40px;
 
         &:before {
             background: linear-gradient(180deg, rgba(0, 19, 38, 0.80) 16.83%, rgba(0, 0, 0, 0.80) 100%);
@@ -49,6 +63,10 @@ section#chipset {
                 object-fit: cover;
                 width: 100%;
             }
+        }
+
+        img+h3{
+            margin-top: 20px;
         }
 
     }

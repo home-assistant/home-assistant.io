@@ -1,12 +1,31 @@
 section#second-generation-platform {
-    //height: 100vh;
+    isolation: isolate;
 
-    .cols {
-        align-items: flex-end;
-        justify-content: space-between;
+    &,
+    p {
+        color: #002E3E;
+        --typography-paragraph-color: #002E3E;
     }
 
-    .section-inner-content {
-        //height: 64vh;
+    .section-inner{
+        align-items: flex-start;
+    }
+
+    img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+    }
+
+    .cols{
+        justify-content: space-between;
+        .col{
+            flex-grow: 1;
+            flex-basis: 0;
+            max-width: 580px;
+        }
     }
 }

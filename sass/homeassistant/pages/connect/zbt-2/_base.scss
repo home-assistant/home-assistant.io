@@ -1,13 +1,49 @@
-#landingpage .content .ha-connect {
+.content .ha-connect {
     background-color: #000000;
     color: #ffffff;
 
-    section .content{
+    section .content {
         color: #ffffff;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        letter-spacing: -1px;
+        text-transform: unset;
+        margin: 0;
+    }
+
+    h1 {
+        margin: var(--typography-h1-margin-y) 0;
+    }
+
+    h2 {
+        margin: var(--typography-h2-margin-y) 0;
+    }
+
+    h3 {
+        margin: var(--typography-h3-margin-y) 0;
+    }
+
+    h4 {
+        margin: var(--typography-h4-margin-y) 0;
+    }
+
+    h5 {
+        margin: var(--typography-h5-margin-y) 0;
+    }
+
+    h6 {
+        margin: var(--typography-h6-margin-y) 0;
     }
 }
 
-section {   
+
+section {
     color: #ffffff;
 
     .section-inner {
@@ -34,18 +70,21 @@ section {
     }
 }
 
-.nc-collaboration{
+.nc-collaboration {
     position: absolute;
-    &.mobile{
+
+    &.mobile {
         display: block;
-        @include bp(desktop){
+
+        @include bp(desktop) {
             display: none;
         }
     }
 
-    &.desktop{
+    &.desktop {
         display: none;
-        @include bp(desktop){
+
+        @include bp(desktop) {
             display: block;
         }
     }
