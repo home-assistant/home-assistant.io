@@ -16,7 +16,7 @@ ha_platforms:
   - update
 ha_codeowners:
   - '@mib1185'
-ha_integration_type: integration
+ha_integration_type: service
 ha_quality_scale: silver
 ---
 

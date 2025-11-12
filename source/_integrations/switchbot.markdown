@@ -3,6 +3,7 @@ title: SwitchBot Bluetooth
 description: Instructions on how to set up SwitchBot Devices.
 ha_category:
   - Binary sensor
+  - Climate
   - Cover
   - Fan
   - Humidifier
@@ -26,6 +27,7 @@ works_with:
 ha_bluetooth: true
 ha_platforms:
   - binary_sensor
+  - climate
   - cover
   - diagnostics
   - fan
@@ -177,6 +179,10 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 
 - [Air Purifier](https://www.switch-bot.com/products/switchbot-air-purifier)
 - [Air Purifier Table](https://www.switch-bot.com/products/switchbot-air-purifier-table)
+
+### Climates
+
+- [Smart Radiator Thermostat](https://www.switch-bot.com/products/switchbot-smart-radiator-thermostat)
 
 ## Works with Home Assistant
 
@@ -717,6 +723,19 @@ Features:
 - turn off
 - set mode
 - set humidity
+
+### Climates
+
+climate entities are added for smart radiator thermostat
+
+This is an encryed device.
+
+Features:
+
+- turn on
+- turn off
+- set mode
+- set target temperature
 
 ## Data updates
 

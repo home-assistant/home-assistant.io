@@ -80,6 +80,12 @@ For each installed add-on Supervisor provides following binary sensors:
 | Update Available | no | Whether there is an update available for this add-on (This is deprecated, use the Update entities instead.)
 | Running | no | Whether the add-on is running or not.
 
+For each network storage Supervisor provides following binary sensors:
+
+| Sensor | Enabled by default | Description |
+| ------- | ------------------ | ----------- |
+| Connected | no | Whether the network storage is connected and working properly.
+
 For Home Assistant OS Supervisor provides following binary sensors:
 
 | Sensor | Enabled by default | Description |

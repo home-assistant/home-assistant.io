@@ -10,6 +10,7 @@ ha_codeowners:
 ha_domain: homeassistant_hardware
 ha_integration_type: system
 ha_platforms:
+  - switch
   - update
 ---
 

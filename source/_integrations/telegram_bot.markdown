@@ -12,6 +12,8 @@ ha_quality_scale: bronze
 ha_codeowners:
   - '@hanwg'
 ha_platforms:
+  - diagnostics
+  - event
   - notify
 ---
 

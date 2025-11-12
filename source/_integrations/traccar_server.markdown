@@ -272,7 +272,7 @@ actions:
 
 {% enddetails %}
 
-#### Do something when a device are speeding
+#### Do something when a device is speeding
 
 The allows you to do something when the device "Millennium Falcon" exceeds a defined speed.
 

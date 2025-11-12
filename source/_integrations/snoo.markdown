@@ -15,6 +15,7 @@ ha_codeowners:
 ha_domain: snoo
 ha_platforms:
   - binary_sensor
+  - button
   - event
   - select
   - sensor
