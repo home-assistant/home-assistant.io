@@ -1,0 +1,141 @@
+---
+layout: landingpage
+title: "Pinion PCB - Home Assistant Yellow"
+description: "Pinion PCB hardware documentation for Home Assistant Yellow, including schematics and specifications."
+date: 2025-11-12
+tagline: Pinion PCB Documentation
+---
+
+<style>
+  #landingpage .banner .title {
+    text-shadow: 0px 0px 10px rgba(0, 0, 0), 0px 0px 10px rgba(0, 0, 0);
+  }
+  #landingpage .content .bullet-points,
+  #landingpage .sub-title {
+    margin-top: 100px;
+  }
+  .spaced-card {
+    max-width: 750px;
+    margin: 100px auto;
+  }
+  #landingpage .page-content .content .bullet-points .item span{
+    letter-spacing: unset;
+  }
+  .banner-overlay-button, #landingpage .fab {
+    background-color: #ffc900 !important;
+    color: black !important;
+  }
+</style>
+
+<div class="content">
+  <div class="material-card text banner-overlay with-box">
+    <div>
+      <div class="banner-overlay-header">Pinion PCB</div>
+      <div class="banner-overlay-content">
+        The Pinion PCB is the carrier board for the Raspberry Pi Compute Module 4 (CM4) that powers Home Assistant Yellow.
+        This open hardware design includes all necessary interfaces and connectivity options for smart home applications.
+      </div>
+    </div>
+  </div>
+
+  <div class="material-card text spaced-card">
+    <h1>Pinion PCB Overview</h1>
+    <p>
+      The Pinion PCB serves as the carrier board for the Raspberry Pi Compute Module 4 (CM4) and is the core of the Home Assistant Yellow hardware platform.
+      It provides all the necessary connectivity and expansion options for a complete smart home hub.
+    </p>
+    
+    <h2>Key Features</h2>
+    <ul>
+      <li>Designed specifically for Raspberry Pi Compute Module 4</li>
+      <li>Direct board-to-board connection for CM4</li>
+      <li>Support for direct boot from NVMe devices</li>
+      <li>Integrated Zigbee/Matter wireless module</li>
+      <li>NVMe M.2 expansion slot</li>
+      <li>Gigabit Ethernet connectivity</li>
+      <li>Multiple USB ports for accessories</li>
+      <li>Audio capabilities</li>
+      <li>Hardware buttons and status LEDs</li>
+    </ul>
+  </div>
+
+  <div class="material-card spaced-card">
+    <div class="banner-overlay-header">Hardware Specifications</div>
+    <div style="display: flex; flex-direction: column; gap: 16px;">
+      <div class="documentation-card" style="text-decoration: none; color: inherit;">
+        <div class="content-container" style="display: flex; justify-content: space-between; align-items: center;">
+          <div>
+            <h2>Dimensions</h2>
+            <p>12 cm x 12 cm carrier board</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="documentation-card" style="text-decoration: none; color: inherit;">
+        <div class="content-container" style="display: flex; justify-content: space-between; align-items: center;">
+          <div>
+            <h2>Power</h2>
+            <p>12V/2A barrel connector (5.5mm x 2.1mm), with PoE+ option</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="documentation-card" style="text-decoration: none; color: inherit;">
+        <div class="content-container" style="display: flex; justify-content: space-between; align-items: center;">
+          <div>
+            <h2>Connectivity</h2>
+            <p>Gigabit Ethernet, Silicon Labs MGM210P for Zigbee/Thread/Matter</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="documentation-card" style="text-decoration: none; color: inherit;">
+        <div class="content-container" style="display: flex; justify-content: space-between; align-items: center;">
+          <div>
+            <h2>Expansion</h2>
+            <p>NVMe M.2 slot (M-Key) supporting 2230, 2242, 2260, 2280 modules</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="material-card text spaced-card">
+    <h1>Wireless Module</h1>
+    <p>
+      The integrated Silicon Labs MGM210P Mighty Gecko module provides smart home wireless capabilities:
+    </p>
+    <ul>
+      <li>Supports Zigbee 3.0, OpenThread, and Matter protocols</li>
+      <li>2.4 GHz radio with TX power up to +20 dBm</li>
+      <li>1024 KB flash memory, 96 KB RAM</li>
+      <li>Pre-installed with Zigbee 3.0 firmware (EZSP)</li>
+      <li>Upgradeable for future protocols</li>
+    </ul>
+  </div>
+
+  <div class="material-card spaced-card">
+    <div class="banner-overlay-header">Hardware Resources</div>
+    <div style="display: flex; flex-direction: column; gap: 16px;">
+      <a href="https://github.com/NabuCasa/yellow/" class="documentation-card" style="text-decoration: none; color: inherit;">
+        <div class="content-container" style="display: flex; justify-content: space-between; align-items: center;">
+          <div>
+            <h2>Design Files & Schematics</h2>
+            <p>Access the complete hardware design files on GitHub</p>
+          </div>
+          {% include assets/chevron_right.html %}
+        </div>
+      </a>
+      
+      <a href="/images/yellow/yellow-pcb-preview.jpg" class="documentation-card" style="text-decoration: none; color: inherit;">
+        <div class="content-container" style="display: flex; justify-content: space-between; align-items: center;">
+          <div>
+            <h2>PCB Preview</h2>
+            <p>Visual representation of the Pinion PCB layout</p>
+          </div>
+          {% include assets/chevron_right.html %}
+        </div>
+      </a>
+    </div>
+  </div>
+</div>

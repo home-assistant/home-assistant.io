@@ -1,0 +1,186 @@
+---
+layout: landingpage
+title: "Home Assistant Yellow Hardware"
+description: "Hardware documentation for Home Assistant Yellow, including Pinion PCB schematics and specifications."
+date: 2025-11-12
+tagline: Home Assistant Yellow Hardware
+---
+
+<style>
+  #landingpage .banner .title {
+    text-shadow: 0px 0px 10px rgba(0, 0, 0), 0px 0px 10px rgba(0, 0, 0);
+  }
+  #landingpage .content .bullet-points,
+  #landingpage .sub-title {
+    margin-top: 100px;
+  }
+  .spaced-card {
+    max-width: 750px;
+    margin: 100px auto;
+  }
+  #landingpage .page-content .content .bullet-points .item span{
+    letter-spacing: unset;
+  }
+  .banner-overlay-button, #landingpage .fab {
+    background-color: #ffc900 !important;
+    color: black !important;
+  }
+</style>
+
+<div class="content">
+  <div class="material-card text banner-overlay with-box">
+    <div>
+      <div class="banner-overlay-header">Home Assistant Yellow Hardware</div>
+      <div class="banner-overlay-content">
+        Documentation for Home Assistant Yellow hardware, including the Pinion PCB and other components.
+      </div>
+    </div>
+  </div>
+
+  <div class="material-card text spaced-card">
+    <h1>Pinion PCB Documentation</h1>
+    <p>
+      The Pinion PCB is the carrier board for the Raspberry Pi Compute Module 4 (CM4) that powers Home Assistant Yellow.
+      This open hardware design includes all necessary interfaces and connectivity options for smart home applications.
+    </p>
+    
+    <h2>Specifications</h2>
+    <ul>
+      <li>Carrier board for Raspberry Pi Compute Module 4 (CM4)</li>
+      <li>CM4 board-to-board connector</li>
+      <li>Supports direct boot from NVMe devices (e.g., for CM4 Lite)</li>
+      <li>12 cm x 12 cm</li>
+      <li>Compatible with all 32 variants of CM4</li>
+      <li>Quad-core Cortex-A72 (ARMv8) 64-bit / 1.5 GHz</li>
+      <li>Up to 8 GB RAM</li>
+      <li>Up to 32 GB eMMC</li>
+      <li>Integrated smart-home wireless (Silicon Labs MGM210P Mighty Gecko Module)</li>
+      <li>Supports Zigbee 3.0, OpenThread, and Matter</li>
+      <li>2.4 GHz radio with TX power up to +20 dBm</li>
+      <li>Expansion slot for NVMe SSDs (M-Key)</li>
+      <li>Gigabit Ethernet</li>
+      <li>2 x USB 2.0 Type-A host port</li>
+      <li>High-quality stereo audio DAC</li>
+      <li>2 x Push button (Red: Factory reset, Blue: User defined)</li>
+      <li>RTC backed by CR2032 battery</li>
+    </ul>
+  </div>
+
+  <div class="material-card spaced-card">
+    <div class="banner-overlay-header">Hardware Resources</div>
+    <div style="display: flex; flex-direction: column; gap: 16px;">
+      <a href="https://github.com/NabuCasa/yellow/" class="documentation-card" style="text-decoration: none; color: inherit;">
+        <div class="content-container" style="display: flex; justify-content: space-between; align-items: center;">
+          <div>
+            <h2>View Source on GitHub</h2>
+            <p>Access the complete schematics, design files, and documentation for Home Assistant Yellow</p>
+          </div>
+          {% include assets/chevron_right.html %}
+        </div>
+      </a>
+      
+      <a href="/images/yellow/yellow-pcb-preview.jpg" class="documentation-card" style="text-decoration: none; color: inherit;">
+        <div class="content-container" style="display: flex; justify-content: space-between; align-items: center;">
+          <div>
+            <h2>PCB Preview</h2>
+            <p>View the Pinion PCB layout and component placement</p>
+          </div>
+          {% include assets/chevron_right.html %}
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <div class="material-card text spaced-card">
+    <h1>Features & specifications</h1>
+    <div class="flex">
+      <ul>
+        <li>
+          Carrier board for Raspberry Pi Compute Module 4 (CM4)
+          <ul>
+            <li>CM4 board-to-board connector</li>
+            <li>Supports direct boot from NVMe devices (e.g., for CM4 Lite)</li>
+            <li>12 cm x 12 cm</li>
+            <li>Compatible with all 32 variants of CM4
+              <ul>
+                <li>Quad-core Cortex-A72 (ARMv8) 64-bit&nbsp;/&nbsp;1.5&nbsp;GHz</li>
+                <li>Up to 8 GB RAM</li>
+                <li>Up to 32 GB eMMC</li>
+                <li>Regulatory approval does not cover wireless variants</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li>
+          Integrated smart-home wireless (<a href="https://www.mouser.com/new/silicon-labs/silicon-labs-mgm210p-mighty-gecko-lighting-module/">Silicon Labs MGM210P Mighty Gecko Module</a>)
+          <ul>
+            <li>Supports Zigbee 3.0, OpenThread, and Matter</li>
+            <li>2.4 GHz radio with TX power up to +20&nbsp;dBm</li>
+            <li>1024 KB flash program memory, 96 KB RAM data memory</li>
+            <li>Pre-installed with Zigbee 3.0 firmware (EZSP), can be upgraded</li>
+          </ul>
+        </li>
+        <li>Expansion slot
+          <ul>
+            <li>For NVMe SSDs (M-Key)</li>
+            <li>M.2 socket M-Key</li>
+            <li>Supports 2230, 2242, 2260, and 2280 modules</li>
+            <li>PCIe x1</li>
+            <li>Note: Google Coral AI Accelerator doesn't work in the expansion slot. For details, see this <a href="https://github.com/google-coral/edgetpu/issues/280#issuecomment-818202094">issue</a></li>
+          </ul>
+        </li>
+        <li>Gigabit Ethernet</li>
+        <li>2 x USB 2.0 Type-A host port</li>
+        <li>1 x USB-C 2.0 device port (<a href="https://www.mouser.com/new/silicon-labs/silabs-cp2102n-usbxpress-usb-uart-bridge-controllers/">Silicon Labs CP2102N USBXpress USB bridge</a>)
+          <ul>
+            <li>UART mode (default): debug USB-to-serial adapter</li>
+            <li>USB mode: CM4 USB 2.0 interface for USB recovery</li>
+          </ul>
+        </li>
+      </ul>
+      <ul>
+        <li>High-quality stereo audio DAC
+          <ul>
+            <li>2 V RMS line-out on 3.5 mm audio jack</li>
+            <li>SNR 106 dB</li>
+          </ul>
+        </li>
+        <li>2 x Push button
+          <ul>
+            <li>Red: Factory reset</li>
+            <li>Blue: To be determined</li>
+          </ul>
+        </li>
+        <li>RTC backed by CR2032 battery</li>
+        <li>Status LEDs (can be powered off during regular operation)
+          <ul>
+            <li>Red: Power</li>
+            <li>Green: Disk usage</li>
+            <li>Yellow: Home Assistant system state</li>
+          </ul>
+        </li>
+        <li>Power
+          <ul>
+            <li>12 V / 2 A through barrel DC power jack (5.5&nbsp;mm x 2.1&nbsp;mm)</li>
+            <li>Ethernet: PoE+ IEEE 802.3at-2009 Class 3 or 4 (selectable via jumper)</li>
+            <li>Typical power usage
+              <ul>
+                <li>Idle ~1.5 W</li>
+                <li>Idle with NVMe ~2.5 W</li>
+                <li>Load ~5-9 W</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li>Enclosure
+          <ul>
+            <li>123 mm x 123 mm x 36 mm</li>
+            <li>Translucent injection-molded polycarbonate plastic</li>
+            <li>Tool-free assembly</li>
+            <li>Accommodates custom heat sink (included)</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

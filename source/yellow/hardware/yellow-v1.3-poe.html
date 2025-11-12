@@ -1,0 +1,127 @@
+---
+layout: landingpage
+title: "Home Assistant Yellow v1.3 PoE Hardware"
+description: "Hardware documentation for Home Assistant Yellow v1.3 PoE variant, including Pinion PCB schematics and specifications."
+date: 2025-11-12
+tagline: Yellow v1.3 PoE Hardware
+---
+
+<style>
+  #landingpage .banner .title {
+    text-shadow: 0px 0px 10px rgba(0, 0, 0), 0px 0px 10px rgba(0, 0, 0);
+  }
+  #landingpage .content .bullet-points,
+  #landingpage .sub-title {
+    margin-top: 100px;
+  }
+  .spaced-card {
+    max-width: 750px;
+    margin: 100px auto;
+  }
+  #landingpage .page-content .content .bullet-points .item span{
+    letter-spacing: unset;
+  }
+  .banner-overlay-button, #landingpage .fab {
+    background-color: #ffc900 !important;
+    color: black !important;
+  }
+</style>
+
+<div class="content">
+  <div class="material-card text banner-overlay with-box">
+    <div>
+      <div class="banner-overlay-header">Home Assistant Yellow v1.3 PoE</div>
+      <div class="banner-overlay-content">
+        Hardware documentation for the Power over Ethernet variant of Home Assistant Yellow.
+        This variant includes the Pinion PCB with PoE+ support.
+      </div>
+    </div>
+  </div>
+
+  <div class="material-card text spaced-card">
+    <h1>Yellow v1.3 PoE Overview</h1>
+    <p>
+      The Home Assistant Yellow v1.3 PoE variant features the Pinion PCB with Power over Ethernet support,
+      allowing it to be powered through the Ethernet cable. This variant is ideal for installations
+      where a separate power supply is not convenient.
+    </p>
+    
+    <h2>Key Features</h2>
+    <ul>
+      <li>Power over Ethernet (PoE+) IEEE 802.3at-2009 Class 3 or 4</li>
+      <li>Carrier board for Raspberry Pi Compute Module 4 (CM4)</li>
+      <li>Integrated Zigbee/Matter wireless module</li>
+      <li>NVMe M.2 expansion slot</li>
+      <li>Gigabit Ethernet connectivity</li>
+      <li>Multiple USB ports for accessories</li>
+      <li>Audio capabilities</li>
+      <li>Hardware buttons and status LEDs</li>
+    </ul>
+  </div>
+
+  <div class="material-card spaced-card">
+    <div class="banner-overlay-header">Hardware Specifications</div>
+    <div style="display: flex; flex-direction: column; gap: 16px;">
+      <div class="documentation-card" style="text-decoration: none; color: inherit;">
+        <div class="content-container" style="display: flex; justify-content: space-between; align-items: center;">
+          <div>
+            <h2>Dimensions</h2>
+            <p>12 cm x 12 cm carrier board</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="documentation-card" style="text-decoration: none; color: inherit;">
+        <div class="content-container" style="display: flex; justify-content: space-between; align-items: center;">
+          <div>
+            <h2>Power Options</h2>
+            <p>Either 12V/2A barrel connector OR PoE+ (IEEE 802.3at-2009 Class 3 or 4)</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="documentation-card" style="text-decoration: none; color: inherit;">
+        <div class="content-container" style="display: flex; justify-content: space-between; align-items: center;">
+          <div>
+            <h2>Connectivity</h2>
+            <p>Gigabit Ethernet with PoE support, Silicon Labs MGM210P for Zigbee/Thread/Matter</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="documentation-card" style="text-decoration: none; color: inherit;">
+        <div class="content-container" style="display: flex; justify-content: space-between; align-items: center;">
+          <div>
+            <h2>Expansion</h2>
+            <p>NVMe M.2 slot (M-Key) supporting 2230, 2242, 2260, 2280 modules</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="material-card spaced-card">
+    <div class="banner-overlay-header">Hardware Resources</div>
+    <div style="display: flex; flex-direction: column; gap: 16px;">
+      <a href="https://github.com/NabuCasa/yellow/" class="documentation-card" style="text-decoration: none; color: inherit;">
+        <div class="content-container" style="display: flex; justify-content: space-between; align-items: center;">
+          <div>
+            <h2>Design Files & Schematics</h2>
+            <p>Access the complete hardware design files on GitHub</p>
+          </div>
+          {% include assets/chevron_right.html %}
+        </div>
+      </a>
+      
+      <a href="/images/yellow/yellow-pcb-preview.jpg" class="documentation-card" style="text-decoration: none; color: inherit;">
+        <div class="content-container" style="display: flex; justify-content: space-between; align-items: center;">
+          <div>
+            <h2>PCB Preview</h2>
+            <p>Visual representation of the Pinion PCB layout</p>
+          </div>
+          {% include assets/chevron_right.html %}
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
