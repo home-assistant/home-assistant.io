@@ -31,6 +31,12 @@ The Growatt integration enables you to retrieve data from Growatt inverters. Dur
   https://openapi-us.growatt.com/
   ```
 
+- For users in Australia and New Zealand:
+
+  ```text
+  https://openapi-au.growatt.com/
+  ```
+
 - For users in other regions:
 
   ```text
@@ -43,7 +49,13 @@ The Growatt integration enables you to retrieve data from Growatt inverters. Dur
   http://server.smten.com/
   ```
 
-Selecting the appropriate server for your region improves the reliability and performance of data collection.
+- Era server (Atess Power):
+
+  ```text
+  http://ess-server.atesspower.com/
+  ```
+
+Selecting the appropriate server for your region or service provider improves the reliability and performance of data collection.
 
 Once configured, the integration connects to your Growatt account. If you have multiple plants, you can select which one to integrate. It will then create entities for your plant and inverters, allowing you to monitor energy production and control settings in Home Assistant.
 
