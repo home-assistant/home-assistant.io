@@ -14,6 +14,19 @@ section#hero {
             width: 100%;
         }
 
+        &:before{
+            content: '';
+            position: absolute;
+            top: 0;
+            height: 101%;
+            aspect-ratio: 16 / 9;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #000;
+            background: linear-gradient(0deg,rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 15%, rgba(0, 0, 0, 0) 85%, rgba(0, 0, 0, 1) 100%);
+            z-index: 2;
+        }
+
         &:after {
             content: '';
             position: absolute;
@@ -100,6 +113,12 @@ section#hero {
         align-items: flex-end;
         justify-content: space-between;
         flex-wrap: wrap;
+
+        .col{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
 
         p {
             color: #ffff;

@@ -9,10 +9,16 @@
     --typography-h3-margin-y: 8px;
     --typography-h4-margin-y: 4px;
 
+    --typography-subtitle-medium-font-size: 24px;
+
     --typography-body-extra-small-font-size: 10px;
     --typography-body-small-font-size: 12px;
     --typography-body-medium-font-size: 16px;
-    --typography-body-large-font-size: 24px;
+    --typography-body-large-font-size: 16px;
+
+    --typography-body-large-font-weight: 300;
+
+    --typography-paragraph-color: #AAABAE;
 
 
 }
@@ -67,5 +73,10 @@
         --typography-body-large-font-size: 24px;
 
         --typography-paragraph-font-size: 16px;
+
+        --typography-hero-title-font-size: 200px;
+        --typography-hero-subtitle-font-size: 52px;
+
+        --typography-subtitle-medium-font-size: 32px;
     }
 }

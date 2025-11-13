@@ -1,4 +1,4 @@
-.content .ha-connect {
+#landingpage .content .ha-connect {
     background-color: #000000;
     color: #ffffff;
 
@@ -39,6 +39,16 @@
 
     h6 {
         margin: var(--typography-h6-margin-y) 0;
+    }
+
+    .body-large{
+        font-size: var(--typography-body-large-font-size);
+        font-weight: var(--typography-body-large-font-weight);
+        margin: 0;
+    }
+    
+    .subtitle-medium {
+        font-size: var(--typography-subtitle-medium-font-size);
     }
 }
 
