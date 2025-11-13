@@ -59,13 +59,13 @@ The TCP/IP connection is a way to connect to the Velbus bus. You will need a Vel
 
 {% configuration_basic %}
 tls:
-    description: "Enable TLS connection towards the Velbus TCP/IP interface. This is usually needed when connecting to a signum."
+    description: "Enable TLS connection towards the Velbus TCP/IP interface. This is usually needed when connecting to a signum. This is optional and can be disabled when connecting to a velser or Home Assistant add-on."
 host:
     description: "The IP address of the Velbus TCP/IP interface."
 port:
     description: "The port number of the Velbus TCP/IP interface."
 password:
-    description: "The password to authenticate to the Velbus TCP/IP interface, if configured."
+    description: "The password to authenticate to the Velbus TCP/IP interface. This is optional and only needed if the devie has authentication enabled."
 {% endconfiguration_basic %}
 
 #### Example: signum
