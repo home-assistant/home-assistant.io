@@ -72,7 +72,7 @@ If an entity listed below has an asterisk (*) next to its name, it means it is d
 ## Data updates: plus (+) next to entities listed in this documentation
 
 If an entity listed below has a plus (+) next to its name, it means this entity supports push updates. These entities will have almost instant state changes. 
-For redundancy, the state of all entities is also polled every 60 seconds. For entities without a plus (+), this is the only update method. Therefore, a device's state change can take up to 60 seconds to be reflected in Home Assistant.
+For redundancy, the state of all entities is also polled. The polling interval is 10 seconds per camera connected to a NVR/Hub with a minimum of 60 seconds. For directly connected cameras it is always 60 seconds. For entities without a plus (+), polling is the only update method. Therefore, a device's state change can take some time to be reflected in Home Assistant.
 An exception is the firmware update entity, which is polled every 24 hours.
 Another exception are battery cameras, most {% term entities %} are still {% term polling polls %} every 60 seconds. However, the entities that would cause the camera to wake from sleep will only be polled during the following events:
 
