@@ -2,7 +2,7 @@
 title: Saunum Leil
 description: Instructions on how to integrate Saunum Leil sauna control units into Home Assistant.
 ha_iot_class: Local Polling
-ha_release: 2025.12.0
+ha_release: 2025.12
 ha_codeowners:
   - "@mettolen"
 ha_domain: saunum
