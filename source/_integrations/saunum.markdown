@@ -124,7 +124,6 @@ To resolve this issue, try the following steps:
    - Try pinging the IP address from your Home Assistant host system.
    - Check for firewalls or network segmentation blocking communication.
 4. Verify the port **502** is accessible:
-   - Some networks may require a different port.
    - Check your router and firewall settings.
 5. Ensure no other device or software is already communicating with the control unit on the same Modbus connection.
 
