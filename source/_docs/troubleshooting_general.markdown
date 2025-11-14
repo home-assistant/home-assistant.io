@@ -49,11 +49,13 @@ You can enable Safe mode in several ways:
   - Go to **Settings** > **System** > **Restart Home Assistant** (top right) > **Restart Home Assistant in safe mode**.
 
 - From the [command line](/common-tasks/os/#home-assistant-via-the-command-line):
-  - Run: ```ha core restart --safe-mode```
+  - Run:
+    ```bash
+    ha core restart --safe-mode
+    ```
 
 - By creating a file in the configuration directory:
-  - Create an empty file named `safe-mode` in your Home Assistant configuration directory.
-    Home Assistant will detect this file on startup and automatically boot into Safe mode.
+  - Create an empty file named `safe-mode` in your Home Assistant configuration directory. Home Assistant will detect this file on startup and automatically boot into Safe mode.
 
 ## I don't see any updates
 
