@@ -62,7 +62,7 @@ Code:
 
 After setting up the connection details, you can configure partitions, zones, and outputs as **Subentries** on the {% my integration domain="satel_integra" title="**Satel Integra**" %} integration page.
 
-A list of all partition, zone and output IDs can be acquired by running DloadX program and connecting to your alarm.
+A list of all partition, zone and output IDs can be acquired by running DLOADX program and connecting to your alarm.
 To create the respective entities, select the **Add partition**, **Add zone**, **Add output**, or **Add switchable output** buttons. Follow the instructions in the UI to set up the individual entities.
 **Result**: Each partition will have its own alarm panel. Each zone and output will have a binary sensor, and a switch will be created for each switchable output.
 
