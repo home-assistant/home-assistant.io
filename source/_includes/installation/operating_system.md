@@ -102,7 +102,7 @@ To write the HAOS image to the boot medium on your x86-64 hardware, there are 2 
 
 - Computer
 - The target x86-64 hardware, on which you want to install the {% term "Home Assistant Operating System" %} (HAOS)
-- USB flash drive (USB thumb drive is sufficient, it should be at least 4&nbsp;GB in size)
+- USB flash drive (USB thumb drive is sufficient, it should be at least 8&nbsp;GB in size)
 - Internet connection
 
 #### To install HAOS via Ubuntu from a USB flash drive
@@ -134,6 +134,8 @@ To write the HAOS image to the boot medium on your x86-64 hardware, there are 2 
       - If you are getting an **Error unmounting filesystem** error message, stating that the **target is busy**:
       - Most likely, you are running Ubuntu on your internal disk. Instead, you need to run it on your stick.
         - Go back to step 3 and during start up, make sure you select **Try Ubuntu** (and NOT **Install Ubuntu**).
+      - Another issue may be that live Ubuntu is using the Swap partition of an existing Linux installation.
+        - If you see "Swap" listed as a partition on the drive you're going to install HAOS, just select the Swap partition, then press the stop button to unmount it and try the restore operation again.
    6. In the partitions overview, you should now see the restore operation in progress.
       - The Home Assistant Operating System is now being installed on your system.
         ![Restore disk image: Restoring...](/images/installation/haos_restoring.png)
@@ -178,53 +180,51 @@ Use this method only if Method 1 does not work for you.
 4. Download the image to your computer.
    - Copy the URL for the image.
    - If there are multiple links below, make sure to select the correct link for your version of {{site.installation.types[page.installation_type].board}}.
-{% if site.installation.types[page.installation_type].variants.size > 1 %}
-{% tabbed_block %}
-{% for variant in site.installation.types[page.installation_type].variants %}
+    {% if site.installation.types[page.installation_type].variants.size > 1 %}
+    {% tabbed_block %}
+    {% for variant in site.installation.types[page.installation_type].variants %}
 
-- title: {{ variant.name }}
-  content: |
+    - title: {{ variant.name }}
+      content: |
+
+        ```text
+        {{release_url}}/{{site.data.version_data.hassos[variant.key]}}/haos_{{ variant.key }}-{{site.data.version_data.hassos[variant.key]}}.img.xz
+        ```
+
+        {% if variant.key == "odroid-n2" %}
+        [Guide: Flashing ODROID-N2 using OTG-USB](/installation/odroid#flashing-an-odroid-n2)
+        {% elsif variant.key == "odroid-m1s" %}
+        [Guide: Flashing ODROID-M1S using OTG-USB](/installation/odroid#flashing-an-odroid-m1s)
+        {% elsif variant.key == "rpi4" or variant.key == "rpi3" %}
+          *(64-bit is recommended)*
+        {% endif %}
+
+    {% endfor %}
+    {% endtabbed_block %}
+    {% else %}
 
     ```text
-    {{release_url}}/{{site.data.version_data.hassos[variant.key]}}/haos_{{ variant.key }}-{{site.data.version_data.hassos[variant.key]}}.img.xz
+    {% assign board_key = site.installation.types[page.installation_type].variants[0].key %}
+    {{release_url}}/{{site.data.version_data.hassos[board_key]}}/haos_{{ board_key }}-{{site.data.version_data.hassos[board_key]}}.img.xz
     ```
 
-    {% if variant.key == "odroid-n2" %}
-    [Guide: Flashing ODROID-N2 using OTG-USB](/installation/odroid#flashing-an-odroid-n2)
-    {% elsif variant.key == "odroid-m1s" %}
-    [Guide: Flashing ODROID-M1S using OTG-USB](/installation/odroid#flashing-an-odroid-m1s)
-    {% elsif variant.key == "rpi4" or variant.key == "rpi3" %}
-      *(64-bit is recommended)*
     {% endif %}
 
-{% endfor %}
-{% endtabbed_block %}
-{% else %}
-
-```text
-{% assign board_key = site.installation.types[page.installation_type].variants[0].key %}
-{{release_url}}/{{site.data.version_data.hassos[board_key]}}/haos_{{ board_key }}-{{site.data.version_data.hassos[board_key]}}.img.xz
-```
-
-{% endif %}
-
-*Select and copy the URL or use the "copy" button that appear when you hover it.*
-
+    *Select and copy the URL or use the "copy" button that appears when you hover it.*
 5. Paste the URL into your browser to start the download.
 6. Extract the file you just downloaded.
 7. Select **Flash from file** and select the image you just extracted.
    - Do not use **Flash from URL**. It does not work on some systems.
-
-  ![Screenshot of the Etcher software showing flash from URL selected.](/images/installation/etcher1_file.png)
+    ![Screenshot of the Etcher software showing flash from URL selected.](/images/installation/etcher1_file.png)
 8. **Select target**.
-![Screenshot of the Etcher software showing the select target button highlighted.](/images/installation/etcher3.png)
+    ![Screenshot of the Etcher software showing the select target button highlighted.](/images/installation/etcher3.png)
 9. Select the boot medium ({{site.installation.types[page.installation_type].installation_media}}) you want to use for your installation.
-![Screenshot of the Etcher software showing the targets available.](/images/installation/etcher4.png)
+    ![Screenshot of the Etcher software showing the targets available.](/images/installation/etcher4.png)
 10. Select **Flash!** to start writing the image.
-   - If the operation fails, decompress the .xz file and try again.
-![Screenshot of the Etcher software showing the Flash button highlighted.](/images/installation/etcher5.png)
-   - When Balena Etcher has finished writing the image, you will see a confirmation.
-![Screenshot of the Etcher software showing that the installation has completed.](/images/installation/etcher6.png)
+    - If the operation fails, decompress the .xz file and try again.
+    ![Screenshot of the Etcher software showing the Flash button highlighted.](/images/installation/etcher5.png)
+    - When Balena Etcher has finished writing the image, you will see a confirmation.
+    ![Screenshot of the Etcher software showing that the installation has completed.](/images/installation/etcher6.png)
 
 ### Start up your {{site.installation.types[page.installation_type].board}}
 
@@ -319,7 +319,7 @@ Minimum recommended assignments:
 - title: VirtualBox
   content: |
     1. Create a new virtual machine.
-    2. Select type **Linux**, subtype **Oracle Linux** and version **Oracle Linux (ARM 64-bit)**.
+    2. Select type **Linux**, subtype **Oracle Linux** and version **Oracle Linux (64-bit)** or **Oracle Linux (ARM 64-bit)** depending on your hardware.
     3. Under **Hardware**, select the amount of memory and number of CPUs. Then, select **Enable EFI**.
        - Make sure **EFI** is enabled. If EFI is not enabled, HAOS won't boot.
     4. Under **Hard Disk**, select **Use an existing virtual hard disk file**, select the unzipped VDI file from above.
@@ -467,8 +467,6 @@ Minimum recommended assignments:
 3. Once completed, you will be able to reach Home Assistant on <a href="http://homeassistant.local:8123" target="_blank">homeassistant.local:8123</a>. If you are running an older Windows version or have a stricter network configuration, you might need to access Home Assistant at <a href="http://homeassistant:8123" target="_blank">homeassistant:8123</a> or `http://X.X.X.X:8123` (replace X.X.X.X with your virtual machine’s IP address).
 
 {% endif %}
-
-{% include installation_survey.html %}
 
 With the Home Assistant Operating System installed and accessible, you can continue with onboarding.
 

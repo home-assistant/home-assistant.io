@@ -25,7 +25,7 @@ For Assist to be able to talk to your Home Assistant setup your setup needs to b
 In Home Assistant, the Assist pipelines are made up of various components that together form a voice assistant. For each component, you can choose from different options.
 
 - For listening and talking back, it needs your phone with the Home Assistant app, or a voice activated device.
-- For understanding, it needs to have a text-to-speech and speech-to-text software integrated. 
+- For understanding, it needs to have a speech-to-text and text-to-speech software integrated. 
 - For running all together, it needs to have the Home Assistant Operating System running.
 
 ## Some options for speech-to-text and text-to-speech
@@ -120,6 +120,7 @@ You can check out [Voice Chapter 9](/blog/2025/02/13/voice-chapter-9-speech-to-p
 <lite-youtube videoid="k6VvzDSI8RU" videotitle="Voice Chapter 9"></lite-youtube>
 
 ## Next steps
-Once Assist is configured, now can now start using it. You can now talk through your device ([Android](/voice_control/android/), [iOS](/voice_control/apple/) or [Voice Preview edition](https://support.nabucasa.com/hc/en-us/categories/24451727188125-Home-Assistant-Voice-Preview-Edition)).
 
-To get the best out of the voice interaction, don't forget to check the [best practices](/voice_control/best_practices/).
+- To get the best out of the voice interaction, check the [best practices](/voice_control/best_practices/).
+- Once Assist is configured, you can start using it.
+  - Talk to Assist via a connected device, such as [Android](/voice_control/android/), [iOS](/voice_control/apple/), or [Voice Preview edition](https://support.nabucasa.com/hc/en-us/categories/24451727188125-Home-Assistant-Voice-Preview-Edition)).

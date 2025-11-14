@@ -20,12 +20,6 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-{% warning %}
-
-Daikin has removed their local API in newer products. They offer a Onecta cloud API for controlling Daikin devices through the cloud, see the [Daikin Europe Developer Portal](https://developer.cloud.daikineurope.com) for more details. This affects units fitted with the BRP069C4x wifi adapter. Units listed under Supported Hardware below continue to have access to local control. Additionally the older but commonly available BRP072A42 adapter can be fitted to most if not all newer units for access to local control.
-
-{% endwarning %}
-
 The **Daikin** {% term integration %} integrates Daikin air conditioning systems into Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
@@ -40,19 +34,15 @@ There is currently support for the following device types within Home Assistant:
 - The Australian version of the Daikin Wifi Controller Unit BRP072A42, which is operated by the [Daikin Mobile Controller (iOS)](https://itunes.apple.com/au/app/daikin-mobile-controller/id917168708?mt=8) ([Android](https://play.google.com/store/apps/details?id=ao.daikin.remoapp)) application. Confirmed working on a Daikin Cora Series Reverse Cycle Split System Air Conditioner 2.5kW Cooling FTXM25QVMA with operation mode, temp, fan swing (3d, horizontal, vertical).
   - BRP072Cxx based units (including Zena devices)*.
 - The United States version of the Wifi Controller Unit (BRP072A43), which is powered by the [Daikin Comfort Control](https://play.google.com/store/apps/details?id=us.daikin.comfortcontrols) application. Confirmed working on a Daikin Wall Units FTXS09LVJU, FTXS15LVJU, FTXS18LVJU and a Floor Unit FVXS15NVJU with operation mode, temp, fan swing (3d, horizontal, vertical).
+- BRP069C4x/BRP084Cxx units using firmware 2.8.0 was added in HA 2025.9.
 - The Australian version of the Daikin Wifi Controller for **AirBase** units (BRP15B61), which is operated by the [Daikin Airbase](https://play.google.com/store/apps/details?id=au.com.daikin.airbase) application.
 - **SKYFi** based units, which is operated by the SKYFi application*.
 
-{% note %}
-
-- BRP072Cxx adapters require an API key to be entered, which is labelled "KEY" on the device sticker alongside SSID, MAC, and S/N. Password should be left blank.
-- SKYFi-based units require a password to be entered. API key should be left blank.
-- Other models are auto-detected and the API key and password fields must be left blank.
-- BRP084Cxx firmware update from 1.19.0 to 2.8.0 breaks local API there is however ongoing work in fixing local API support again.
-
-{% endnote %}
+If your unit is not in the list above there is another option, to buy and install an [ESP32-Faikin](https://github.com/revk/ESP32-Faikin).
 
 {% include integrations/config_flow.md %}
+
+If your device is set up with password, use the password. If it has an API key, use the API key. In all other cases, leave the fields blank.
 
 {% note %}
   

@@ -182,7 +182,9 @@ Log what is scheduled in the event loop. This can be helpful in tracking down in
 
 Each upcoming scheduled item is logged similar to the below example:
 
-`[homeassistant.components.profiler] Scheduled: <TimerHandle when=1528307.1818668307 async_track_point_in_utc_time.<locals>.run_action(<Job HassJobType.Coroutinefunction <bound method DataUpdateCoordinator._handle_refresh_interval of <homeassistant.components.screenlogic.ScreenlogicDataUpdateCoordinator object at 0x7f985d896d30>>>) at /usr/src/homeassistant/homeassistant/helpers/event.py:1175>`
+```txt
+[homeassistant.components.profiler] Scheduled: <TimerHandle when=1528307.1818668307 async_track_point_in_utc_time.<locals>.run_action(<Job HassJobType.Coroutinefunction <bound method DataUpdateCoordinator._handle_refresh_interval of <homeassistant.components.screenlogic.ScreenlogicDataUpdateCoordinator object at 0x7f985d896d30>>>) at /usr/src/homeassistant/homeassistant/helpers/event.py:1175>`
+```
 
 ### Action profiler.lru_stats
 
@@ -210,4 +212,24 @@ An example is below:
 
 ```txt
 [homeassistant.components.profiler] Task: <Task pending name='Task-1133' coro=<HubConnector._listener() running at /usr/local/lib/python3.12/site-packages/aioharmony/hubconnector_websocket.py:362> wait_for=<Future pending cb=[Task.task_wakeup()]>>
+```
+
+### Action profiler.dump_sockets
+
+{% my developer_call_service badge service="profiler.dump_sockets" %}
+
+Log all sockets used by Home Assistant. This action can help identify what network connections are currently open, mainly to help track down connections that are not being closed properly.
+
+Example output:
+
+```txt
+[homeassistant.components.profiler] Sockets used by Home Assistant:
+<socket.socket [closed] fd=-1, family=2, type=1, proto=6>
+<socket.socket fd=97, family=2, type=1, proto=6, laddr=('192.168.1.10', 80), raddr=('192.168.1.14', 59086)>
+<socket.socket fd=7, family=1, type=1, proto=0>
+<socket.socket fd=8, family=1, type=1, proto=0>
+<socket.socket fd=11, family=10, type=1, proto=6, laddr=('::', 80, 0, 0)>
+<socket.socket fd=12, family=2, type=1, proto=6, laddr=('0.0.0.0', 80)>
+<socket.socket fd=15, family=10, type=2, proto=0, laddr=('::', 5353, 0, 0)>
+...
 ```

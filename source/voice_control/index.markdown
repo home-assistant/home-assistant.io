@@ -30,7 +30,7 @@ As for the rest of Home Assistant core functionalities, Assist can be personaliz
 
 <lite-youtube videoid="XF53wUbeLxA" videotitle="Voice at Home Assistant"></lite-youtube>
 
-## Getting Started
+## Getting started
 
 When you configure voice assistant hardware made for Home Assistant, it will use a wizard to help you configure your system and get started to use voice.
 
@@ -41,7 +41,7 @@ In case your hardware does not support our wizard, do not worry. Here are two de
 - [I plan to process my voice locally](/voice_control/voice_remote_local_assistant/)
 - [I plan to use Home Assistant Cloud](/voice_control/voice_remote_cloud_assistant/) (recommended as it is the simplest)
 
-## Expand and Experiment
+## Expand and experiment
 
 Once your setup is up and running and you follow the [best practices](/voice_control/best_practices), check all the possibilities we found for [Expanding your Assist setup](/voice_control/expanding_assist), and further experiment with different setups like [wake words](/voice_control/about_wake_word/). Do you want to talk to Super Mario? Or another figure? If you want Assist to respond in a fun way, you can create an assistant with an [AI personality](/voice_control/assist_create_open_ai_personality/).
 
@@ -58,8 +58,8 @@ Another things you can do to further push your setup:
 
 Assist aims to support more languages than other voice assistants, but this is still a work in progress, and we need your help.
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bluzky/nice-select2@2.1.0/dist/css/nice-select2.css">
-<script src="https://cdn.jsdelivr.net/gh/bluzky/nice-select2@2.1.0/dist/js/nice-select2.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bluzky/nice-select2@2.1.0/dist/css/nice-select2.css" integrity="sha384-LPh4ytLNuALl70+0CMnq0sP1tXQpGPWbSCH8/zknn1okTVRKHvyDGUg80R568fXO" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/gh/bluzky/nice-select2@2.1.0/dist/js/nice-select2.js" integrity="sha384-efeEfE1PkalgBRHHJ3qv56R1qnZhbbpil0g7lyf+5MOqiWYw579wZUNTTwjH5jjn" crossorigin="anonymous"></script>
 
 <div class="language-card">
 	<div class="form-title h3">Check supported languages here</div>

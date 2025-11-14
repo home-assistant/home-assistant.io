@@ -3,6 +3,7 @@ title: Squeezebox (Lyrion Music Server)
 description: Instructions on how to integrate Squeezebox players and a Lyrion Music Server (LMS) into Home Assistant.
 ha_category:
   - Media player
+  - Update
 ha_release: pre 0.7
 ha_iot_class: Local Polling
 ha_domain: squeezebox
@@ -19,22 +20,22 @@ ha_platforms:
   - sensor
   - switch
   - update
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The Squeezebox integration allows you to control music players from the [Lyrion Music Server](https://lyrion.org/) (LMS) ecosystem. Lyrion Music Server was formerly known as [Logitech Media Server](https://en.wikipedia.org/wiki/Squeezebox_%28network_music_player%29).
 
 This integration connects to an existing <abbr title="Lyrion Music Server">LMS</abbr> server and provides both media players and sensors for monitoring server status.
 
-The Squeezebox music player ecosystem, which can be controlled through this integration, includes hardware audio players from Logitech, including [Squeezebox 3rd Generation, Squeezebox Boom, Squeezebox Receiver, Transporter, Squeezebox2, Squeezebox and SLIMP3](https://lms-community.github.io/players-and-controllers/hardware-comparison/), and many software emulators like [Squeezelite, SqueezeSlave, SoftSqueeze and SqueezePlay](https://sourceforge.net/projects/lmsclients/files/).
+The Squeezebox music player ecosystem, which can be controlled through this integration, includes [hardware audio players](https://lms-community.github.io/players-and-controllers/hardware-comparison/) from Logitech, including [Squeezebox 3rd Generation](https://lyrion.org/players-and-controllers/squeezebox-classic/), [Squeezebox Boom](https://lyrion.org/players-and-controllers/squeezebox-boom/), [Squeezebox Receiver](https://lyrion.org/players-and-controllers/squeezebox-receiver/), [Transporter](https://lyrion.org/players-and-controllers/transporter/), [Squeezebox2](https://lyrion.org/players-and-controllers/squeezebox2/), [Squeezebox](https://lyrion.org/players-and-controllers/squeezebox1/) and [SLIMP3](https://lyrion.org/players-and-controllers/SLIMP3/), and many software emulators like [Squeezelite](https://sourceforge.net/projects/lmsclients/files/squeezelite/), [SqueezeSlave](https://sourceforge.net/projects/lmsclients/files/squeezeslave/), [SoftSqueeze](https://sourceforge.net/projects/lmsclients/files/softsqueeze/) and [SqueezePlay](https://sourceforge.net/projects/lmsclients/files/squeezeplay/).
 
 ## Supported devices
 
-The integration supports any [Squeezebox compatible hardware or software players](https://lyrion.org/players-and-controllers/) and both Lyrion Music Servers and Logitech Media Servers.
+The integration supports any Squeezebox compatible [hardware or software players](https://lyrion.org/players-and-controllers/) and both Lyrion Music Servers and Logitech Media Servers.
 
 ## Prerequisites
 
-1. One or more [Squeezebox compatible hardware or software players](https://lyrion.org/players-and-controllers/).
+1. One or more Squeezebox compatible [hardware or software players](https://lyrion.org/players-and-controllers/).
 2. One or more [Lyrion Music Servers or Logitech Media Servers (LMS)](https://lyrion.org/getting-started) with the Squeezebox players connected to these servers.
 
 {% include integrations/config_flow.md %}
@@ -166,16 +167,14 @@ data:
 
 ## Supported functionality
 
+The integration provides the following functionality:
+
 ### Switches
 
 - **Alarm**: Enables a scheduled alarm to sound. Alarms must also be enabled on the associated player for the alarm to sound, using the Alarms Enabled switch or directly on the Lyrion Music Server for that player.
-- **Alarms Enabled**: Enables a player to sound alarms. Disabling will prevent all alarms from sounding on that player, regardless of whether the individual alarm is enabled
+- **Alarms Enabled**: Enables a player to sound alarms. Disabling will prevent all alarms from sounding on that player, regardless of whether the individual alarm is enabled.
 
 ### Binary sensors
-
-The integration provides the following entities.
-
-#### Binary sensors
 
 - **Needs restart**
   - **Description**: Server Service needs to be restarted (typically, this is needed to apply updates).
@@ -183,7 +182,7 @@ The integration provides the following entities.
 - **Library rescan**
   - **Description**: The music library is currently being scanned by LMS (depending on the type of scan, some content may be unavailable).
 
-#### Buttons
+### Buttons
 
 - **Preset 1 ... Preset 6**
   - **Description**: Play media stored in Preset 1 to Preset 6 on Squeezebox.
@@ -200,7 +199,7 @@ The integration provides the following entities.
   - **Description**: Adjust the treble on Logitech Squeezebox players, such as Radio and Boom.
   - **Available on**: Logitech hardware players such as Radio, Duet, and Boom.
 
-#### Sensors
+### Sensors
 
 - **Last scan**
   - **Description**: Date of the last library scan.
@@ -228,8 +227,10 @@ The integration provides the following entities.
 
 ### Updates
 
--- **Lyrion Music Server**: Update of the server software is available.
--- **Updated plugins**: Named Plugins will be updated on the next restart. For some installation types, the service will be restarted automatically after the **Install** button has been selected. Allow enough time for the service to restart. It will become briefly unavailable.
+This integration will notify you when updates are available on the LMS for the LMS version or for plugins installed on the LMS
+
+  - **Lyrion Music Server**: Update of the server software is available.
+  - **Updated plugins**: Plugin updates are available.  The list of updates can be viewed by selecting the "Read release announcement" link.  On the LMS, an option is available on the Manage Plugins settings page to "Update plugins automatically".  If this option is selected, plugins will be downloaded automatically by the LMS and then installed on the next restart of the LMS.  For some installation types of LMS, the LMS can be restarted by selecting the **Update** button. Allow enough time for the LMS to restart as it will become briefly unavailable.
 
 ### Actions
 

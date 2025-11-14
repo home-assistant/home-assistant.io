@@ -14,7 +14,6 @@ ha_quality_scale: bronze
 ha_platforms:
   - sensor
   - weather
----
 
 This {% term integration %} uses [Google Weather](https://developers.google.com/maps/documentation/weather) as a source for weather data for your location.
 
@@ -43,11 +42,13 @@ This results in 4,464 requests per month, meaning you could have up to 2 locatio
 
 ## Known limitations
 
-- Weather forecast information isn't currently available in South Korea and Japan. See [here](https://support.google.com/websearch/answer/13687874).
+- Weather forecast information isn't currently available in South Korea and Japan. Refer to the [Google Help Center](https://support.google.com/websearch/answer/13687874).
+
 
 ## Troubleshooting
 
-- Enable debug logging and attach logs before opening an issue.
+- [Enable debug logging](https://www.home-assistant.io/docs/configuration/troubleshooting/#debug-logs-and-diagnostics) and attach logs before opening an issue.
+
 
 ## Removing the integration
 
