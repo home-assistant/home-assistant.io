@@ -18,9 +18,6 @@ ha_platforms:
   - diagnostics
   - switch
 ha_integration_type: device
-related:
-  - docs: /docs/configuration/
-    title: Configuration file
 ---
 
 The **Satel Integra** {% term integration %} allows you to connect your [Satel Integra alarm system](https://www.satel.pl/en/product-category/intruder-alarms/integra/) to Home Assistant to control and monitor your alarm system.
