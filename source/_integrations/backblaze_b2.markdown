@@ -1,14 +1,14 @@
 ---
 title: Backblaze B2
 description: Instructions on how to setup a Backblaze B2 bucket to be used as a backup location.
-ha_release: 2025.10
+ha_release: 2025.12
 ha_category:
   - Backup
 ha_iot_class: Cloud Push
 ha_config_flow: true
 ha_domain: backblaze_b2
 ha_codeowners:
-  - 'ElCruncharino'
+  - '@ElCruncharino'
   - '@hugo-vrijswijk'
 ha_integration_type: service
 ha_quality_scale: bronze
