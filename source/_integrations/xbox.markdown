@@ -266,6 +266,8 @@ Just like the binary sensors, the Xbox sensor platform automatically keeps track
 | **Last online**  | Displays the last time the friend was active online.                       |
 | **In party**     | Shows the number of people in the user’s party chat if they are currently in one. |
 | **Now playing**  | Shows the title of the game currently being played. Additional details such as a short description, genre, developer, age rating, and achievement progress are available in the entity's attributes. |
+| **Total space: *{name}*** | Reports the total storage capacity of the device. A separate sensor is created for each Xbox console and connected internal and external storage device. |
+| **Free space: *{name}*** | Reports the available (unused) storage space on the device. A separate sensor is created for each Xbox console and connected internal and external storage device. |
 
 ## Image
 
