@@ -15,14 +15,15 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-Integrates [Ruuvi](https://ruuvi.com/)'s RuuviTag BLE devices into Home Assistant.
+Integrates [Ruuvi](https://ruuvi.com/)'s RuuviTag and Ruuvi Air BLE devices into Home Assistant.
 
 {% include integrations/config_flow.md %}
 
 The RuuviTag BLE integration will automatically discover devices once the [Bluetooth](/integrations/bluetooth) integration is enabled and functional.
 
-If your RuuviTags are not discovered, please make sure to update them to [the latest firmware](https://ruuvi.com/software-update/).
+If your Ruuvi devices are not discovered, please make sure to update them to [the latest firmware](https://ruuvi.com/software-update/).
 
 ## Supported devices
 
 - [RuuviTag](https://ruuvi.com/ruuvitag/)
+- [Ruuvi Air](https://ruuvi.com/air/)
