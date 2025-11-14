@@ -1,6 +1,6 @@
 ---
 title: Prana recuperators
-description: Integration to control Prana recuperators: fans, modes, and sensors.
+description: Integration to control Prana recuperators fans, modes, and sensors.
 ha_release: 2025.11.1
 ha_iot_class: Local Polling
 ha_codeowners:
@@ -33,9 +33,9 @@ Use case: If you have a Prana recuperator and want to automate ventilation, moni
 
 This integration is installed via a **config flow** and uses mDNS to discover devices on your local network. Setup is two clicks: select the discovered device and confirm to add it.
 
+### Discovery
 
-Discovery (mDNS):
-  description: "The device is discovered automatically over mDNS. There is no user input step. Confirm the discovered device in the dialog to add it."
+This integration is discovered automatically over mDNS. There is no user input step. Select the discovered device and confirm to add it.
 
 ## Supported functionality
 
@@ -152,7 +152,7 @@ The integration uses local polling. By default, Home Assistant polls the device 
 ### Entities show as unavailable
 
 - Check the device network connection
-- Increase the polling interval in the integration options
+- Ensure the device is powered on and reachable; entities become available automatically when communication is restored
 
 ## Community notes
 
