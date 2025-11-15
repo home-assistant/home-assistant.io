@@ -61,8 +61,7 @@ Post a status to your Mastodon account
 | `config_entry_id`           | No       | The ID of the Mastodon config entry to post to.                                                                                                                                                                                                                    |
 | `status`                    | No       | The status text to post.                                                                                                                                                                                                                                           |
 | `visibility`                | Yes      | If not used, will default to account setting. `public`: post will be public, `unlisted`: post will be public but not appear on the public timeline, `private`: post will only be visible to followers, and `direct`: post will only be visible to mentioned users. |
-| `prevent_duplicate_posts`   | Yes      | Automatically creates a hash of the status and uses it as the idempotency_key, preventing subsequent posts with the same status within one hour when `True`, `False` is default. If not used, the post will be published without any duplicate check. If you want more control of duplication use specify your own key using the `idepmotency_key` field. |
-| `idempotency_key`           | Yes      | A unique key for the post. If specified then subsequent posts with the same key within one hour will be ignored by your Mastodon instance. If not used, the post will be published without any duplicate check. |
+| `idempotency_key`           | Yes      | A unique key for the post. If specified then subsequent posts with the same key within one hour will be ignored by your Mastodon instance. If not used, the post will be published without any duplicate check. The timeframe is controlled by your Mastodon instance, not Home Assistant.|
 | `content_warning`           | Yes      | Text will be shown as a warning before the text of the status. If not used, no warning will be displayed.                                                                                                                                                          |
 | `language`                  | Yes      | The language of the post. If not used, the language that is set in the Mastodon account is used. |
 | `media`                     | Yes      | Attach an image or video to the post.                                                                                                                                                                                                                              |
@@ -121,25 +120,7 @@ Example post action that will post a status, but ensure that the same status is 
   data:
     config_entry_id: YOUR_MASTODON_CONFIG_ENTITY_ID
     status: "A toot from Home Assistant"
-    prevent_duplicate_posts: True
-```
-
-{% endraw %}
-
-{% enddetails %}
-
-{% details "Example status post action preventing frequent posts from Home Assistant" %}
-
-Example post action that will post a status, but ensure that posts with the same key, but potentially a different status, will not be posted more than once within one hour.  This check is performed by your Mastodon instance.
-
-{% raw %}
-
-```yaml
-- action: mastodon.post
-  data:
-    config_entry_id: YOUR_MASTODON_CONFIG_ENTITY_ID
-    status: "A toot from Home Assistant"
-    idempotency_key: "From Home Assistant"
+    idempotency_key: {{ md5("A toot from Home Assistant") }}
 ```
 
 {% endraw %}
