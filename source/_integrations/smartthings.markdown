@@ -190,7 +190,7 @@ The SmartThings Media player lets you control devices that have media player-rel
 
 ### Number
 
-The SmartThings Number platform lets your view and control devices that have number-related capabilities. A Number entity is created for each attribute (below) supported by the device.
+The SmartThings Number platform lets you view and control devices that have number-related capabilities. A Number entity is created for each attribute (below) supported by the device.
 
 | SmartThings capability         | Related entities in Home Assistant   |
 | ------------------------------ | ------------------------------------ |
