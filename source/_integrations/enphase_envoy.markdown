@@ -76,6 +76,8 @@ Collect test fixture data in diagnostics report:
   description: "No/Yes <br> When new features are requested or firmware is upgraded, it can happen that existing test fixtures no longer cover all test cases and new ones are needed. You may be requested to provide data for such test fixtures. If so, and you are willing to provide the data, setting this option enables the collection of test data as part of the [diagnostics report](#fixtures)."
 Always use a new connection when requesting data from the Envoy:
   description: "No/Yes <br> Some older Envoy firmware may exhibit connection issues when using the default keep-alive connection and report failures. When set, this option disables the use of keep-alive and builds a new connection at each data request. This makes the communication more reliable for these firmware versions. Reported for the Envoy-R, but may apply to other older firmware versions as well."
+List of additional endpoints to include in diagnostics report:
+  description: "Comma separated list of endpoints. <br>Each endpoint must start with `/` and NOT end with `/`. <br> When specified, each endpoint is included in the diagnostics report. You may be requested to use this option to obtain data for new features in Envoy firmware. If so, and you are willing to provide the data, this option collects the data of these endpoints and adds it to the [diagnostics report](#additional-endpoints)."
 {% endconfiguration_basic %}
 
 ## Reconfigure
@@ -776,9 +778,9 @@ The end of a collection cycle is marked by:
 
 #### Diagnostics
 
-The {% term diagnostics %} data file is a JSON file and includes a `data` section with the details for this integration. The file can be viewed with any text editor. The data section has up to 6 major subsections which reflect how the integration is set up and data is used. Include the file when reporting issues.
+The {% term diagnostics %} data file is a JSON file and includes a `data` section with the details for this integration. The file can be viewed with any text editor. The data section has up to 7 major subsections which reflect how the integration is set up and data is used. Include the file when reporting issues.
 
-Below the 6 subsections, each collapsed.
+Below the subsections, each collapsed.
 
 ```JSON
   "data": {
@@ -793,6 +795,8 @@ Below the 6 subsections, each collapsed.
     "envoy_entities_by_device": [ ...
     ],
     "fixtures" : { ...
+    },
+    "additional_endpoints": { ...
     }
   }
 }    
@@ -821,5 +825,9 @@ Shows all entities created by the integration based on the findings of the initi
 ##### Fixtures
 
 The data to build test fixtures from. This section is only available when the option to Collect test fixture data is enabled in the integration [options](#options).
+
+##### Additional endpoints
+
+The data of endpoints specified in the integration option [List of additional endpoints to include in diagnostics report](#list-of-additional-endpoints-to-include-in-diagnostics-report). Only available when the option is used.
 
 ___
