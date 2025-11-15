@@ -190,7 +190,12 @@ The SmartThings Media player lets you control devices that have media player-rel
 
 ### Number
 
-The SmartThings number platform lets you control the amount of washer rinse cycles.
+The SmartThings Number platform lets your view and control devices that have number-related capabilities. A Number entity is created for each attribute (below) supported by the device.
+
+| SmartThings capability         | Related entities in Home Assistant   |
+| ------------------------------ | ------------------------------------ |
+| `custom.washerRinseCycles`     | Washer Rinse cycles                  |
+| `samsungce.audioVolumeLevel`   | Audio Volume Level                   |
 
 ### Select
 
