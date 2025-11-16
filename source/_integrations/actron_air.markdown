@@ -25,7 +25,7 @@ You must have an **Actron Air** Air-Conditioner with the Neo or Que controller, 
 
 ## Supported devices
 
-This integration currently supports the Actron Air Neo and Que controllers.
+This integration supports the Actron Air Neo and Que controllers.
 
 {% include integrations/config_flow.md %}
 
