@@ -193,9 +193,9 @@ If you're experiencing authentication failures or account lockouts:
            - alias: Disable Growatt integration
              conditions:
                - condition: trigger
-                 id:
-                   - ha_shutdown
-                   - ha_restart
+                 id: ha_shutdown
+               - condition: trigger
+                 id: ha_restart
              sequence:
                - action: homeassistant.disable_config_entry
                  data:
