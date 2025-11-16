@@ -57,11 +57,11 @@ The Mastodon integration has the following actions:
 Post a status to your Mastodon account
 
 | Data attribute              | Optional | Description                                                                                                                                                                                                                                                        |
-| ------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| --------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `config_entry_id`           | No       | The ID of the Mastodon config entry to post to.                                                                                                                                                                                                                    |
 | `status`                    | No       | The status text to post.                                                                                                                                                                                                                                           |
 | `visibility`                | Yes      | If not used, will default to account setting. `public`: post will be public, `unlisted`: post will be public but not appear on the public timeline, `private`: post will only be visible to followers, and `direct`: post will only be visible to mentioned users. |
-| `idempotency_key`           | Yes      | A unique key for the post. Mastodon holds these keys for up to one hour and subsequent posts will be ignored by your Mastodon instance. If not used, the post will be published without any duplicate check. The timeframe is controlled by your Mastodon instance, not Home Assistant. Common strategies for the key include a hash of the status text or static text to stop frequent posting by the same action regardless of content. |
+| `idempotency_key`           | Yes      | A unique key to prevent duplicate posts for up to one hour. Common strategies include using a hash of the status text or a static string. |
 | `content_warning`           | Yes      | Text will be shown as a warning before the text of the status. If not used, no warning will be displayed.                                                                                                                                                          |
 | `language`                  | Yes      | The language of the post. If not used, the language that is set in the Mastodon account is used. |
 | `media`                     | Yes      | Attach an image or video to the post.                                                                                                                                                                                                                              |
@@ -71,6 +71,10 @@ Post a status to your Mastodon account
 {% tip %}
 You can get your `config_entry_id` by using actions within [Developer Tools](/docs/tools/dev-tools/), using one of the above actions and viewing the YAML.
 {% endtip %}
+
+{% note %}
+Mastodon holds idempotency keys for up to one hour and subsequent posts using the same key will be ignored by your Mastodon instance. If not used, the post will be published without any duplicate check. The timeframe is controlled by your Mastodon instance, not Home Assistant. 
+{% endnote %}
 
 ### Examples
 
@@ -111,7 +115,7 @@ This will post a status to Mastodon, but visibility is marked as `private` so on
 
 {% details "Example status post action avoiding recent duplication" %}
 
-Example post action that will post a status, but ensure that the same status is not posted more than once within one hour.  This check is performed by your Mastodon instance.
+Example post action that will post a status, but ensure that the same status is not posted more than once within one hour. This check is performed by your Mastodon instance.
 
 {% raw %}
 
@@ -123,7 +127,7 @@ actions:
     data:
       config_entry_id: YOUR_MASTODON_CONFIG_ENTITY_ID
       status: "{{ toot }}"
-      idempotency_key: md5({{ toot }})
+      idempotency_key: {{ toot | md5 }}
 ```
 
 {% endraw %}
