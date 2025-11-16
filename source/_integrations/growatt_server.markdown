@@ -206,7 +206,7 @@ If you're experiencing authentication failures or account lockouts:
      mode: single
    ```
    
-   Replace `REPLACE-WITH-YOUR-CONFIG-ENTRY-ID` with your actual Growatt integration config entry ID. You can find this ID in **{% my integrations title="Settings > Devices & services" %}** by selecting your Growatt integration and checking the URL or developer tools.
+   Replace `REPLACE-WITH-YOUR-CONFIG-ENTRY-ID` with your actual Growatt integration config entry ID. You can find this ID in {% my integrations title="**Settings** > **Devices & services**" %} by selecting your Growatt integration and checking the URL or developer tools.
 
 ## Removing the integration
 
