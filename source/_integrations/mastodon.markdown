@@ -122,9 +122,8 @@ actions:
   - action: mastodon.post
     data:
       config_entry_id: YOUR_MASTODON_CONFIG_ENTITY_ID
-      status: "{{toot}}"
-      idempotency_key: md5({{toot}})
-      media_warning: false    
+      status: "{{ toot }}"
+      idempotency_key: md5({{ toot }})
 ```
 
 {% endraw %}
