@@ -65,7 +65,7 @@ Once you located the config folder, you can edit your `configuration.yaml` file.
 
 - **If you are using the File editor add-on**: Open the add-on, navigate to the `/config` folder in the file browser on the left, and select the `configuration.yaml` file to open it in the editor.
 - **If you are using the Studio Code Server add-on**: Open the add-on, use the file explorer on the left to navigate to the `configuration.yaml` file, and select it to open in the editor.
-- **If you are using Samba to access files**: Navigate to the shared folder on your computer, locate the `configuration.yaml` file, and open it with your favorite text editor such as Notepad++ or Visual Studio Code.
+- **If you are using Samba to access files**: Navigate to the shared folder on your computer, locate the `configuration.yaml` file, and open it with your favorite text editor such as [Notepad++](https://notepad-plus-plus.org/) or [Visual Studio Code](https://code.visualstudio.com/).
 
 {% note %}
 
