@@ -27,7 +27,7 @@ The **Xbox** {% term integration %} allows you to connect Home Assistant to the 
 
 ## About Xbox Network
 
-Xbox Network is Microsoft’s online gaming and entertainment service for Xbox consoles and Windows PCs. It provides multiplayer gaming, social features like friends and parties, cloud saves, digital game purchases, and access to apps and online services. It’s the platform that connects players, manages profiles, and powers online functionality across the Xbox ecosystem.
+Xbox Network is Microsoft’s online gaming and entertainment service for Xbox consoles and Windows PCs. You can use Xbox Network for multiplayer gaming. It offers social features like friends and parties, cloud saves, and digital game purchases. Xbox Network also provides access to apps and online services. The platform connects players, manages profiles, and powers online functionality across the Xbox ecosystem.
 
 ## How you can use this integration
 
@@ -36,7 +36,7 @@ The Home Assistant Xbox {% term integration %} lets you monitor and control Xbox
 ## Prerequisites
 
 - You must sign in with a **non-child Xbox account** (age 18+).
-- To enable the media player and remote entities, make sure **remote features** are turned on in **Settings → Devices & connections → Remote features** on your Xbox.
+- To enable the media player and remote entities, make sure **remote features** are turned on in **Settings** > **Devices & connections** > **Remote features** on your Xbox.
 - Home Assistant connects to **Xbox Network** via OAuth2 using Home Assistant Cloud’s account-linking service. To use this, your {% term "configuration.yaml" %} must include either `cloud:` or `default_config:`.
 
 {% include integrations/config_flow.md %}
@@ -59,7 +59,7 @@ You can find Product IDs using the **{% my developer_events title="Developer Too
 | Data attribute         | Description                           |
 | ---------------------- | --------------------------------------|
 | `entity_id`            | `entity_id` of the Xbox media player  |
-| `media_content_id`     | `Home` / `TV`/ `{product_id}`         |
+| `media_content_id`     | `Home` / `TV` / `{product_id}`               |
 | `media_content_type`   | Any Value                             |
 
 #### Examples
@@ -260,7 +260,7 @@ elements:
 
 ## Binary sensor
 
-The Xbox binary sensor platform automatically keeps track of your "**Favorite** friends". In your friends list, select **Change friendship -> Favorite** to have that person automatically pulled into Home Assistant.
+The Xbox binary sensor platform automatically keeps track of your "**Favorite** friends". In your friends list, select **Change friendship > Favorite** to have that person automatically pulled into Home Assistant.
 
 | Entity Name                      | Description                                                            |
 | -------------------------------- | ---------------------------------------------------------------------- |
@@ -326,7 +326,7 @@ instead.
 The `<HOME_ASSISTANT_URL>` must be the same as used during the configuration/
 authentication process.
 
-Internal examples: `http://192.168.0.2:8123/auth/external/callback`, `http://homeassistant.local:8123/auth/external/callback`."
+Internal examples: `http://192.168.0.2:8123/auth/external/callback`, `http://homeassistant.local:8123/auth/external/callback`.
 
 {% enddetails %}
 
@@ -336,9 +336,9 @@ This integration syncs with Xbox Network every 10 seconds.
 
 ## Troubleshooting
 
-The **Xbox** integration relies on an active internet connection to communicate with **Xbox Network**. If you encounter issues, verify that your network connection is stable. Additionally, the Xbox Network service itself may experience downtime, whether unexpected or due to scheduled maintenance.
+The **Xbox** integration relies on an active internet connection to communicate with **Xbox Network**. If you encounter issues, verify that your network connection is stable. The Xbox Network service itself may also experience downtime. This can be unexpected or due to scheduled maintenance.
 
-In any case, when reporting an issue, please enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics), restart the integration, and as soon as the issue reoccurs stop the debug logging again (*download of debug log file will start automatically*).
+When reporting an issue, please enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics). Restart the integration.   As soon as the issue reoccurs, stop debug logging again. The debug log file will download automatically.
 
 ## Removing the integration
 
