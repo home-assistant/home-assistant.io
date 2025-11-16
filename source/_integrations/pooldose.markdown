@@ -6,7 +6,7 @@ ha_category:
   - Water Management
 ha_iot_class: Local Polling
 ha_config_flow: true
-ha_release: '2025.12'
+ha_release: '2025.9'
 ha_codeowners:
   - '@lmaertin'
 ha_domain: pooldose
@@ -57,29 +57,23 @@ This integration {% term polling polls %} data from the device every 10 minutes 
 
 The following devices are known to be supported by the integration:
 
-- SEKO PoolDose Double
-- VÁGNER POOL VA DOS BASIC
-- VÁGNER POOL VA DOS EXACT
+- SEKO PoolDose Dual/Double (API v1)
 
 ## Supported functionality
 
 ### Sensor entities
 
-| Identifier | Unit(s) | Description | States |
+| Identifier | Unit | Description | States |
 |--------|------|-------------|--------|
-| **temperature** | °C, °F | water temperature | — |
+| **temperature** | °C/°F | water temperature | — |
 | **ph** | — | pH value | — |
 | **orp** | mV | Current ORP (Redox) value | — |
-| **cl** | ppm | Chlorine concentration | — |
-| **flow_rate** | L/s, m³/h | Water flow rate | — |
 | **ph_type_dosing** | — | Type of pH dosing being used | pH+, pH- |
 | **peristaltic_ph_dosing** | — | pH peristaltic dosing mode | Off, Proportional, On/Off, Timed |
-| **ofa_ph_time** | min | Time threshold for pH overfeed alerts | — |
+| **ofa_ph_value** | min | Time threshold for pH overfeed alerts | — |
 | **orp_type_dosing** | — | Type of ORP dosing being used | Low, High |
 | **peristaltic_orp_dosing** | — | ORP peristaltic dosing mode | Off, Proportional, On/Off, Timed |
-| **cl_type_dosing** | — | Type of chlorine dosing being used | Low, High |
-| **peristaltic_cl_dosing** | — | Chlorine peristaltic dosing mode | Off, Proportional, On/Off, Timed |
-| **ofa_orp_time** | min | Time threshold for ORP overfeed alerts | — |
+| **ofa_orp_value** | min | Time threshold for ORP overfeed alerts | — |
 | **ph_calibration_type** | — | Type of pH calibration being used | Off, Reference, 1 point, 2 points |
 | **ph_calibration_offset** | mV | pH calibration offset value | — |
 | **ph_calibration_slope** | mV | pH calibration slope value | — |
