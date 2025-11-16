@@ -13,6 +13,8 @@ ha_platforms:
   - switch
 ha_config_flow: true
 ha_integration_type: integration
+ha_codeowners:
+  - '@johanzander'
 ---
 
 The Growatt integration allows you to retrieve data from Growatt inverters. During setup, you can choose from various regional endpoint servers:

@@ -12,6 +12,7 @@ ha_domain: meteo_lt
 ha_platforms:
   - weather
 ha_integration_type: service
+ha_quality_scale: bronze
 ---
 
 The **Meteo.lt** {% term integration %} uses meteorological data from the [Lithuanian Hydrometeorological Service](https://www.meteo.lt) (<abbr title="Lietuvos hidrometeorologijos tarnyba">LHMT</abbr>) to provide weather forecasts for locations in Lithuania. You can set up one or more locations via the user interface.
@@ -72,4 +73,3 @@ Weather data is automatically updated every 30 minutes from the Meteo.lt <abbr t
 This integration follows standard integration removal. No extra steps are required.
 
 {% include integrations/remove_device_service.md %}
-

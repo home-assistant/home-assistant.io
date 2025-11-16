@@ -35,6 +35,7 @@ ha_platforms:
   - notify
   - sensor
   - switch
+  - valve
 ha_integration_type: helper
 ---
 

@@ -8,10 +8,12 @@ ha_iot_class: Cloud Push
 ha_config_flow: true
 ha_domain: telegram_bot
 ha_integration_type: integration
-ha_quality_scale: bronze
+ha_quality_scale: silver
 ha_codeowners:
   - '@hanwg'
 ha_platforms:
+  - diagnostics
+  - event
   - notify
 ---
 
@@ -516,168 +518,279 @@ notify:
     chat_id: USER_CHAT_ID
 ```
 
-## Event triggering
+## Event entity
 
-A command looks like `/thecommand` or `/othercommand with some args`.
+The **Telegram bot** integration provides an {% term event %} {% term entity %} which represents the state of the last message sent or received. It also provides several event attributes that can be used in automations.
 
-When received by Home Assistant it will fire a `telegram_command` event on the event bus with the following `event_data`:
+### Event: Attachment received
+
+The `telegram_attachment` event is triggered when the bot receives a file.
+
+Example event attributes:
 
 ```yaml
-command: "/thecommand"
-args: "<any other text following the command>"
-from_first: "<first name of the sender>"
-from_last: "<last name of the sender>"
-user_id: "<id of the sender>"
-id: "<message id>"
-chat_id: "<origin chat id>"
-chat: "<chat info>"
-date: "<message timestamp>"
-message_thread_id: "<message thread id>"
 bot:
   config_entry_id: "<config entry id of the bot>"
-  id: "<id of the bot>"
   first_name: "<first name of the bot>"
+  id: "<id of the bot>"
   last_name: "<last name of the bot>"
   username: "<username of the bot>"
-```
-
-An attachment message will fire a `telegram_attachment` event on the event bus with the following `event_data`:
-
-```yaml
+chat_id: "<origin chat id>"
+date: "<message timestamp>"
+event_type: "telegram_attachment"
 file_id: "<unique identifier for the file>"
-file_name: "<name of the file, if available>"
 file_mime_type: "<MIME type of the file, if available>"
+file_name: "<name of the file, if available>"
 file_size: "<file size in bytes, if available>"
+friendly_name: "<name of the event entity>"
+from_first: "<first name of the sender>"
+from_last: "<last name of the sender>"
+id: "<message id>"
+message_thread_id: "<message thread id>"
 text: "<caption of the file, if available>"
-from_first: "<first name of the sender>"
-from_last: "<last name of the sender>"
 user_id: "<id of the sender>"
-id: "<message id>"
-chat_id: "<origin chat id>"
-date: "<message timestamp>"
-message_thread_id: "<message thread id>"
-bot:
-  config_entry_id: "<config entry id of the bot>"
-  id: "<id of the bot>"
-  first_name: "<first name of the bot>"
-  last_name: "<last name of the bot>"
-  username: "<username of the bot>"
 ```
 
-
-Any other message not starting with `/` will be processed as simple text, firing a `telegram_text` event on the event bus with the following `event_data`:
-
-```yaml
-text: "some text received"
-from_first: "<first name of the sender>"
-from_last: "<last name of the sender>"
-user_id: "<id of the sender>"
-id: "<message id>"
-chat_id: "<origin chat id>"
-date: "<message timestamp>"
-message_thread_id: "<message thread id>"
-bot:
-  config_entry_id: "<config entry id of the bot>"
-  id: "<id of the bot>"
-  first_name: "<first name of the bot>"
-  last_name: "<last name of the bot>"
-  username: "<username of the bot>"
-```
-
-If the message is sent from a [press from an inline button](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating), for example, a callback query is received, and Home Assistant will fire a `telegram_callback` event with:
-
-```yaml
-data: "<data associated to action callback>"
-message: <message origin of the action callback>
-from_first: "<first name of the sender>"
-from_last: "<last name of the sender>"
-user_id: "<id of the sender>"
-id: "<unique id of the callback>"
-chat_instance: "<chat instance>"
-chat_id: "<origin chat id>"
-bot:
-  config_entry_id: "<config entry id of the bot>"
-  id: "<id of the bot>"
-  first_name: "<first name of the bot>"
-  last_name: "<last name of the bot>"
-  username: "<username of the bot>"
-```
-
-### Configuration samples
-
-Simple ping pong example.
-
-```yaml
-alias: "Telegram bot that reply pong to ping"
-triggers:
-  - trigger: event
-    event_type: telegram_command
-    event_data:
-      command: "/ping"
-actions:
-  - action: notify.notify
-    data:
-      message: "pong"
-```
-
-An example that shows keyboard interaction with `notify.telegram`
-
-```yaml
-triggers:
-  - trigger: event
-    event_type: telegram_command
-    event_data:
-      command: "/start"
-actions:
-  - action: notify.telegram
-    data:
-      message: "commands"
-      data:
-        keyboard:
-          - '/ping, /alarm'
-          - '/siren'
-```
-
-and an automation to trigger a related command "/siren".
-
-```yaml
-triggers:
-  - trigger: event
-    event_type: telegram_command
-    event_data:
-      command: "/siren"
-actions:
-  - action: homeassistant.turn_on
-    target:
-      entity_id: switch.vision_zm1601eu5_battery_operated_siren_switch_9_0
-  - delay:
-      seconds: 10
-  - action: homeassistant.turn_off
-    target:
-      entity_id: switch.vision_zm1601eu5_battery_operated_siren_switch_9_0
-```
-
-An example to show the use of event_data in action:
+Example automation:
 
 {% raw %}
 
 ```yaml
-- alias: "Kitchen Telegram Speak"
-  triggers:
-    - trigger: event
-      event_type: telegram_command
-      event_data:
-        command: "/speak"
-  actions:
-    - action: notify.kitchen_echo
-      data:
-        message: >
-          Message from {{ trigger.event.data["from_first"] }}. {% for state in trigger.event.data["args"] %} {{ state }} {% endfor %}
+triggers:
+  - trigger: state
+    entity_id:
+      - event.bot_update_event # Replace with your telegram bot event entity
+conditions:
+  - condition: state
+    entity_id: event.bot_update_event # Replace with your telegram bot event entity
+    attribute: event_type
+    state: telegram_attachment
+actions:
+  - action: notify.persistent_notification
+    data:
+      message: >-
+        Received a file.
+        MIME type   : {{ trigger.to_state.attributes.file_mime_type }}
+        Size (bytes): {{ trigger.to_state.attributes.file_size }}
+        File ID     : {{ trigger.to_state.attributes.file_id }} 
+        File name   : {{ trigger.to_state.attributes.file_name }}
 ```
 
 {% endraw %}
 
-### Sample automations with callback queries and inline keyboards
+### Event: Callback query received
+
+The `telegram_callback` event is triggered when the bot receives a callback query from an inline keyboard button.
+
+{% tip %}
+The `id` attribute is used as the `callback_query_id` parameter for the `answer_callback_query` action.
+{% endtip %}
+
+Example event attributes:
+
+```yaml
+# Callback query always have no args
+args: []
+bot:
+  config_entry_id: "<config entry id of the bot>"
+  first_name: "<first name of the bot>"
+  id: "<id of the bot>"
+  last_name: "<last name of the bot>"
+  username: "<username of the bot>"
+chat_id: "<origin chat id>"
+chat_instance: "<chat instance id>"
+command: "<callback query>"
+data: "<data associated to action callback>"
+event_type: "telegram_callback"
+from_first: "<first name of the sender>"
+from_last: "<last name of the sender>"
+friendly_name: "<name of the event entity>"
+id: "<callback id>"
+message: "<message origin of the action callback>"
+user_id: "<id of the sender>"
+```
+
+Example automation:
+
+{% raw %}
+
+```yaml
+triggers:
+  - trigger: state
+    entity_id:
+      - event.bot_update_event # Replace with your telegram bot event entity
+conditions:
+  - condition: state
+    entity_id: event.bot_update_event # Replace with your telegram bot event entity
+    attribute: event_type
+    state: telegram_callback
+actions:
+  - action: notify.persistent_notification
+    data:
+      message: >-
+        Received callback query.
+        Callback ID   : {{ trigger.to_state.attributes.id }}
+        Callback query: {{ trigger.to_state.attributes.data }}
+```
+
+{% endraw %}
+
+### Event: Command received
+
+The `telegram_command` event is triggered when the bot receives a command.
+A command looks like `/thecommand` or `/othercommand with some args`.
+
+Example event attributes:
+
+```yaml
+args: "<any other text following the command>"
+bot:
+  config_entry_id: "<config entry id of the bot>"
+  first_name: "<first name of the bot>"
+  id: "<id of the bot>"
+  last_name: "<last name of the bot>"
+  username: "<username of the bot>"
+chat_id: "<origin chat id>"
+command: "/thecommand"
+date: "<message timestamp>"
+event_type: "telegram_command"
+friendly_name: "<name of the event entity>"
+from_first: "<first name of the sender>"
+from_last: "<last name of the sender>"
+id: "<message id>"
+message_thread_id: "<message thread id>"
+user_id: "<id of the sender>"
+```
+
+Example automation:
+
+{% raw %}
+
+```yaml
+triggers:
+  - trigger: state
+    entity_id:
+      - event.bot_update_event # Replace with your telegram bot event entity
+conditions:
+  - condition: state
+    entity_id: event.bot_update_event # Replace with your telegram bot event entity
+    attribute: event_type
+    state: telegram_command
+actions:
+  - action: notify.persistent_notification
+    data:
+      message: >-
+        Received command.
+        Command: {{ trigger.to_state.attributes.command }}
+        Args   : {{ trigger.to_state.attributes.args }}
+```
+
+{% endraw %}
+
+### Event: Text received
+
+The `telegram_text` event is triggered when the bot receives a text message (any message that does not begin with `/`).
+
+Example event attributes:
+
+```yaml
+bot:
+  config_entry_id: "<config entry id of the bot>"
+  first_name: "<first name of the bot>"
+  id: "<id of the bot>"
+  last_name: "<last name of the bot>"
+  username: "<username of the bot>"
+chat_id: "<origin chat id>"
+date: "<message timestamp>"
+event_type: "telegram_text"
+friendly_name: "<name of the event entity>"
+from_first: "<first name of the sender>"
+from_last: "<last name of the sender>"
+id: "<message id>"
+message_thread_id: "<message thread id>"
+text: "<the text received>"
+user_id: "<id of the sender>"
+```
+
+Example automation:
+
+{% raw %}
+
+```yaml
+triggers:
+  - trigger: state
+    entity_id:
+      - event.bot_update_event # Replace with your telegram bot event entity
+conditions:
+  - condition: state
+    entity_id: event.bot_update_event # Replace with your telegram bot event entity
+    attribute: event_type
+    state: telegram_text
+actions:
+  - action: notify.persistent_notification
+    data:
+      message: >-
+      Message received.
+      Chat ID   : {{ trigger.to_state.attributes.chat_id }}
+      First name: {{ trigger.to_state.attributes.from_first }}
+      Last name : {{ trigger.to_state.attributes.from_last }}
+      Message   : {{ trigger.to_state.attributes.text }}
+```
+
+{% endraw %}
+
+### Event: Message sent
+
+The `telegram_sent` event is triggered when the bot sends a message of any type.
+
+{% tip %}
+The `message_id` attribute can be used with the edit, delete and `set_message_reaction` actions to interact with a previously sent message.
+{% endtip %}
+
+Example event attributes:
+
+```yaml
+bot:
+  config_entry_id: "<config entry id of the bot>"
+  first_name: "<first name of the bot>"
+  id: "<id of the bot>"
+  last_name: "<last name of the bot>"
+  username: "<username of the bot>"
+chat_id: "<origin chat id>"
+from_first: "<first name of the sender>"
+from_last: "<last name of the sender>"
+id: "<message id>"
+message_thread_id: "<message thread id>"
+user_id: "<id of the sender>"
+```
+
+Example automation:
+
+{% raw %}
+
+```yaml
+triggers:
+  - trigger: state
+    entity_id:
+      - event.bot_update_event # Replace with your telegram bot event entity
+conditions:
+  - condition: state
+    entity_id: event.bot_update_event # Replace with your telegram bot event entity
+    attribute: event_type
+    state: telegram_sent
+actions:
+  - action: notify.persistent_notification
+    data:
+      message: >-
+      Bot sent a message.
+      Chat ID   : {{ trigger.to_state.attributes.chat_id }}
+      Message ID: {{ trigger.to_state.attributes.message_id }}
+        
+```
+
+{% endraw %}
+
+### Sample automations with inline keyboards and callback queries
 
 A quick example to show some of the callback capabilities of inline keyboards with a dumb automation consisting in a simple repeater of normal text that presents an inline keyboard with 3 buttons: 'EDIT', 'NO' and 'REMOVE BUTTON':
 
@@ -690,20 +803,25 @@ Text repeater:
 {% raw %}
 
 ```yaml
-- alias: "Telegram bot that repeats text"
-  triggers:
-    - trigger: event
-      event_type: telegram_text
-  actions:
-    - action: telegram_bot.send_message
-      data:
-        title: "*Dumb automation*"
-        target: "{{ trigger.event.data.user_id }}"
-        message: "You said: {{ trigger.event.data.text }}"
-        disable_notification: true
-        inline_keyboard:
-          - "Edit message:/edit_msg, Don't:/do_nothing"
-          - "Remove this button:/remove_button"
+alias: Telegram bot that repeats text
+triggers:
+  - trigger: state
+    entity_id:
+      - event.bot_update_event # Replace with your telegram bot event entity
+conditions:
+  - condition: state
+    entity_id: event.bot_update_event # Replace with your telegram bot event entity
+    attribute: event_type
+    state: telegram_text
+actions:
+  - action: telegram_bot.send_message
+    data:
+      message: "You said: {{ trigger.to_state.attributes.text }}"
+      title: "*Dumb automation*"
+      disable_notification: true
+      inline_keyboard:
+        - Edit message:/edit_msg, Don't:/do_nothing
+        - Remove this button:/remove_button
 ```
 
 {% endraw %}
@@ -713,30 +831,39 @@ Message editor:
 {% raw %}
 
 ```yaml
-- alias: "Telegram bot that edits the last sent message"
-  triggers:
-    - trigger: event
-      event_type: telegram_callback
-      event_data:
-        command: "/edit_msg"
-  actions:
-    - action: telegram_bot.answer_callback_query
-      data:
-        callback_query_id: "{{ trigger.event.data.id }}"
-        message: "Editing the message!"
-        show_alert: true
-    - action: telegram_bot.edit_message
-      data:
-        message_id: "{{ trigger.event.data.message.message_id }}"
-        chat_id: "{{ trigger.event.data.chat_id }}"
-        title: "*Message edit*"
-        inline_keyboard:
-          - "Edit message:/edit_msg, Don't:/do_nothing"
-          - "Remove this button:/remove_button"
-        message: >
-          Callback received from {{ trigger.event.data.from_first }}.
-          Message id: {{ trigger.event.data.message.message_id }}.
-          Data: {{ trigger.event.data.data|replace("_", "\_") }}
+alias: Telegram bot that edits the last sent message
+description: ""
+triggers:
+  - trigger: state
+    entity_id:
+      - event.bot_update_event # Replace with your telegram bot event entity
+conditions:
+  - condition: state
+    entity_id: event.bot_update_event # Replace with your telegram bot event entity
+    attribute: event_type
+    state: telegram_callback
+  - condition: state
+    entity_id: event.bot_update_event # Replace with your telegram bot event entity
+    attribute: command
+    state: /edit_msg
+actions:
+  - action: telegram_bot.answer_callback_query
+    data:
+      show_alert: true
+      message: Editing the message!
+      callback_query_id: "{{ trigger.to_state.attributes.id }}"
+  - action: telegram_bot.edit_message
+    data:
+      inline_keyboard:
+        - Edit message:/edit_msg, Don't:/do_nothing
+        - Remove this button:/remove_button
+      message_id: "{{ trigger.to_state.attributes.message.message_id }}"
+      chat_id: "{{ trigger.to_state.attributes.chat_id }}"
+      title: "*Message edit*"
+      message: >-
+        Callback received from {{ trigger.to_state.attributes.from_first }}.
+        Message id: {{ trigger.to_state.attributes.message.message_id }}.
+        Data: {{ trigger.to_state.attributes.data|replace("_", "\_") }}
 ```
 
 {% endraw %}
@@ -746,23 +873,32 @@ Keyboard editor:
 {% raw %}
 
 ```yaml
-- alias: "Telegram bot that edits the keyboard"
-  triggers:
-    - trigger: event
-      event_type: telegram_callback
-      event_data:
-        command: "/remove_button"
-  actions:
-    - action: telegram_bot.answer_callback_query
-      data:
-        callback_query_id: "{{ trigger.event.data.id }}"
-        message: "Callback received for editing the inline keyboard!"
-    - action: telegram_bot.edit_replymarkup
-      data:
-        message_id: "last"
-        chat_id: "{{ trigger.event.data.chat_id }}"
-        inline_keyboard:
-          - "Edit message:/edit_msg, Don't:/do_nothing"
+alias: Telegram bot that edits the keyboard
+triggers:
+  - trigger: state
+    entity_id:
+      - event.bot_update_event # Replace with your telegram bot event entity
+conditions:
+  - condition: state
+    entity_id: event.bot_update_event # Replace with your telegram bot event entity
+    attribute: event_type
+    state: telegram_callback
+  - condition: state
+    entity_id: event.bot_update_event # Replace with your telegram bot event entity
+    attribute: command
+    state: /remove_button
+actions:
+  - action: telegram_bot.answer_callback_query
+    data:
+      callback_query_id: "{{ trigger.to_state.attributes.id }}"
+      message: Callback received for editing the inline keyboard!
+      show_alert: false
+  - action: telegram_bot.edit_replymarkup
+    data:
+      inline_keyboard:
+        - Edit message:/edit_msg, Don't:/do_nothing
+      chat_id: "{{ trigger.to_state.attributes.chat_id }}"
+      message_id: last
 ```
 
 {% endraw %}
@@ -772,64 +908,58 @@ Only acknowledges the 'NO' answer:
 {% raw %}
 
 ```yaml
-- alias: "Telegram bot that simply acknowledges"
-  triggers:
-    - trigger: event
-      event_type: telegram_callback
-      event_data:
-        command: "/do_nothing"
-  actions:
-    - action: telegram_bot.answer_callback_query
-      data:
-        callback_query_id: "{{ trigger.event.data.id }}"
-        message: "OK, you said no!"
+alias: Telegram bot that simply acknowledges
+triggers:
+  - trigger: state
+    entity_id:
+      - event.bot_update_event # Replace with your telegram bot event entity
+conditions:
+  - condition: state
+    entity_id: event.bot_update_event # Replace with your telegram bot event entity
+    attribute: event_type
+    state: telegram_callback
+  - condition: state
+    entity_id: event.bot_update_event # Replace with your telegram bot event entity
+    attribute: command
+    state: /do_nothing
+actions:
+  - action: telegram_bot.answer_callback_query
+    data:
+      message: OK, you said no!
+      callback_query_id: "{{ trigger.to_state.attributes.id }}"
 ```
 
 {% endraw %}
 
-Telegram callbacks also support arguments and commands the same way as normal messages.
+### Sample automation to receive `chat_id` and `message_id` identifiers of sent messages
+
+The following sample automation stores the `chat_id` and `message_id` of the last sent message using input entities.
+These attributes can then be used in other **Telegram bot** actions.
 
 {% raw %}
 
 ```yaml
-- alias: "Telegram bot repeats arguments on callback query"
-  triggers:
-    - trigger: event
-      event_type: telegram_callback
-      event_data:
-        command: "/repeat"
-  actions:
-    - action: telegram_bot.answer_callback_query
-      data:
-        show_alert: true
-        callback_query_id: "{{ trigger.event.data.id }}"
-        message: "I repeat: {{trigger.event.data['args']}}"
-```
-
-{% endraw %}
-
-In this case, having a callback with `/repeat 1 2 3` will pop a notification saying `I repeat: [1, 2, 3]`
-
-Receiving `chat_id` and `message_id` identifiers of sent messages by the `telegram_bot`.
-
-{% raw %}
-
-```yaml
-- alias: 'Notifications about messages sent by Telegram bot'
-  triggers:
-    - trigger: event
-      event_type: telegram_sent
-      event_data:
-        message_tag: "msg_start"
-  actions:
-    - action: input_number.set_value
-      data_template:
-        entity_id: input_number.chat_id
-        value: "{{ trigger.event.data.chat_id }}"
-    - action: input_number.set_value
-      data_template:
-        entity_id: input_number.message_id
-        value: "{{ trigger.event.data.message_id }}"
+alias: Notifications about messages sent by Telegram bot
+triggers:
+  - trigger: state
+    entity_id:
+      - event.bot_update_event # Replace with your telegram bot event entity
+conditions:
+  - condition: state
+    entity_id: event.bot_update_event # Replace with your telegram bot event entity
+    attribute: event_type
+    state: telegram_sent
+actions:
+  - action: input_number.set_value
+    data_template:
+      value: "{{ trigger.to_state.attributes.chat_id }}"
+    target:
+      entity_id: input_number.chat_id # Replace with your input entity
+  - action: input_number.set_value
+    data_template:
+      value: "{{ trigger.to_state.attributes.message_id }}"
+    target:
+      entity_id: input_number.message_id # Replace with your input entity
 ```
 
 {% endraw %}
@@ -903,6 +1033,44 @@ sequence:
 ```
 
 {% endraw %}
+
+## Known limitations
+
+The following features are not available in this integration:
+
+- Editing the bot (You can edit the bot using [@BotFather](https://t.me/botfather) on the Telegram app instead)
+- All payment related features such as Telegram Premium, Telegram Star and Telegram Gifts
+- Telegram Business
+- Telegram ADS
+- Mini Bot Apps and Mini Bot Store
+- Calls and live streaming
+- Wallpapers and Themes
+
+## Troubleshooting
+
+{% details "Error sending message: Can't parse entities" %}
+
+When using send actions such as `telegram_bot.send_message` with the `markdownv2` parse mode, the action will fail with the "Can't parse entities" error if the user input in the `message` field contains malformed Markdown syntax.
+
+You can perform any of the following steps to resolve this issue:
+
+- Use the `plain_text` parse mode either by configuring the Telegram bot options or by specifying it via the action's `parse_mode` data attribute.
+- Escape special characters in the `message` field with a preceding '\\' character.
+- Format your message according to the [formatting options](https://core.telegram.org/bots/api#formatting-options).
+
+{% enddetails %}
+
+{% details "Telegram Webhook bot is unable to receive updates" %}
+
+If your Telegram bot is unable to receive updates (for example, all events other than `telegram_sent` are not triggered), please follow the troubleshooting steps below:
+
+1. Reconfigure your Telegram bot to use the **Polling** platform and test again to verify that the issue is not related to network connectivity between Telegram and your Home Assistant.
+2. Check your firewall rules to verify that incoming connections are not blocked.
+3. Verify that your webhook URL is public and accessible.
+
+If the issue persists, please refer to the [Webhooks Guide](https://core.telegram.org/bots/webhooks) for more detailed troubleshooting.
+
+{% enddetails %}
 
 ## Removing the integration
 

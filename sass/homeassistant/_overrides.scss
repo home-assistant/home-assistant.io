@@ -1256,7 +1256,6 @@ article.listing {
     text-align: center;
 
     img {
-
       background-color: unset;
       border-radius: 20px;
       border: unset;
@@ -1266,6 +1265,12 @@ article.listing {
       margin: 0 auto;
       max-width: 620px;
       width: 100%;
+    }
+
+    &.fw{
+      img {
+        max-width: 100%;
+      }
     }
 
     &.nb {
