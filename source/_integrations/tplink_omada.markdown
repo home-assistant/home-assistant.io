@@ -27,7 +27,7 @@ The integration provides basic configuration and status of Omada devices control
 
 - You need a local TP-Link Omada SDN infrastructure
 - A local Omada controller
-  - The TP-Link Omada Cloud Management SAAS Platform is not supported
+  - The TP-Link Omada Cloud Management SaaS Platform is not supported
 - It is recommended to create a dedicated account for Home Assistant to use
   - The user needs permissions to view and configure the site that you want to manage
 
