@@ -116,11 +116,15 @@ Example post action that will post a status, but ensure that the same status is 
 {% raw %}
 
 ```yaml
-- action: mastodon.post
-  data:
-    config_entry_id: YOUR_MASTODON_CONFIG_ENTITY_ID
-    status: "A toot from Home Assistant"
-    idempotency_key: {{ md5("A toot from Home Assistant") }}
+actions:
+  - variables:
+      toot: A toot from Home Assistant
+  - action: mastodon.post
+    data:
+      config_entry_id: YOUR_MASTODON_CONFIG_ENTITY_ID
+      status: "{{toot}}"
+      idempotency_key: md5({{toot}})
+      media_warning: false    
 ```
 
 {% endraw %}
