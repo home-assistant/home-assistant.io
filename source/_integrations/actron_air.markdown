@@ -21,7 +21,7 @@ The **Actron Air** {% term integration %} allows you to control [Actron Air](htt
 
 ## Prerequisites
 
-You must have an **Actron Air** Air-Conditioner with the Neo or Que controller, an active internet connection, and be registered to an email address.
+You must have an **Actron Air** air conditioner with the Neo or Que controller, an active internet connection, and be registered to an email address.
 
 ## Supported devices
 
