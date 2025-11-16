@@ -186,10 +186,7 @@ If you're experiencing authentication failures or account lockouts:
                  id: ha_start
              sequence:
                - delay:
-                   hours: 0
                    minutes: 10
-                   seconds: 0
-                   milliseconds: 0
                - action: homeassistant.enable_config_entry
                  data:
                    config_entry_id: REPLACE-WITH-YOUR-CONFIG-ENTRY-ID
