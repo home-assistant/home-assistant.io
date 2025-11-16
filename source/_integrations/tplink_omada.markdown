@@ -102,7 +102,7 @@ The integration provides the following actions.
 The `tplink_omada.reconnect_client` action is used to force a WiFi client to reconnect to the network. This is useful if you have a troublesome client network connection that needs to be reset.
 
 - **Data attribute**: `mac`
-  - **Description**: The MAC address of the WiFi client to reconnect
+  - **Description**: The MAC address of the Wi-Fi client to reconnect
   - **Optional**: No
 
 ## Removing the integration
