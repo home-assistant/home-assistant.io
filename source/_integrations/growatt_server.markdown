@@ -88,7 +88,7 @@ If your inverter supports API token, this authentication method is recommended a
 
 #### Classic API
 
-When using username and password authentication the Growatt integration uses the same API as the ShinePhone app. Hence, if your inverter can be controlled via the ShinePhone app, the Growatt integation can access the same data.
+When using username and password authentication the Growatt integration uses the same API as the ShinePhone app. Hence, if your inverter can be controlled via the ShinePhone app, the Growatt integration can access the same data.
 
 #### API token
 
