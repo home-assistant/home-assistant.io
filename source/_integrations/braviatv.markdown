@@ -16,6 +16,7 @@ ha_platforms:
   - button
   - diagnostics
   - media_player
+  - number
   - remote
 ha_ssdp: true
 ha_integration_type: device
@@ -195,6 +196,57 @@ data:
 ## Buttons
 
 The {% term integration %} supports `button` {% term platform %} and allows you to reboot the device or terminate all running applications.
+
+## Number entities
+
+The {% term integration %} provides `number` {% term entities %} for controlling picture quality settings on your TV. These entities allow you to adjust various picture parameters such as brightness, contrast, color, and more.
+
+{% note %}
+All number entities are disabled by default to reduce clutter. You can enable the ones you need from the {% term entity %} settings.
+{% endnote %}
+
+The following picture quality controls are available:
+
+- **Picture Brightness** - Adjust the overall brightness of the picture
+- **Picture Contrast** - Control the contrast level
+- **Picture Color** - Adjust color intensity
+- **Picture Sharpness** - Control image sharpness
+- **Color Temperature** - Adjust the color temperature (warm to cool)
+- **Picture Mode** - Select picture mode preset
+- **Color Space** - Configure the color space setting
+- **Light Sensor** - Adjust light sensor sensitivity
+- **Auto Picture Mode** - Control auto picture mode behavior
+- **HDR Mode** - Configure HDR (High Dynamic Range) settings
+- **Auto Local Dimming** - Adjust local dimming behavior
+- **X-tended Dynamic Range** - Control Sony's X-tended Dynamic Range feature
+
+The minimum, maximum, and step values for each entity are determined dynamically based on your TV model's capabilities. For example, brightness may range from 0-50 on some models and 0-100 on others.
+
+**Example to adjust picture brightness:**
+
+```yaml
+action: number.set_value
+target:
+  entity_id: number.bravia_tv_picture_brightness
+data:
+  value: 30
+```
+
+**Example automation to sync TV brightness with room lights:**
+
+```yaml
+automation:
+  - alias: "Sync TV brightness with room lights"
+    trigger:
+      - platform: state
+        entity_id: light.living_room
+    action:
+      - action: number.set_value
+        target:
+          entity_id: number.bravia_tv_picture_brightness
+        data:
+          value: "{{ state_attr('light.living_room', 'brightness') | int * 50 / 255 }}"
+```
 
 ## Limitations and known issues
 
