@@ -55,7 +55,7 @@ Verify SSL Certificates:
 Username:
     description: "Enter the username of the Omada controller user for Home Assistant to connect as. Make sure the user has sufficient privileges to manage the Omada network."
 Password:
-    description: "Enter the password for the user"
+    description: "Enter the password for the user."
 Site:
     description: "If your controller manages multiple sites, you will need to select which site to manage from the drop-down."
 {% endconfiguration_basic %}
