@@ -14,6 +14,7 @@ ha_domain: adguard
 ha_platforms:
   - sensor
   - switch
+  - update
 ha_integration_type: service
 ---
 
@@ -77,6 +78,14 @@ The **AdGuard protection** switch acts as a master control. When turned off, it 
 {% important %}
 Turning off **Query log** stops all sensor updates. AdGuard requires query logging to provide statistics.
 {% endimportant %}
+
+### Update
+
+The integration provides an {% term update %} entity to check for and install AdGuard Home software updates.
+
+{% note %}
+The update entity is not available for docker based installations of AdGuard Home (_those also not for the [AdGuard Home add-on](https://github.com/hassio-addons/addon-adguard-home), as the add-on has its own update entity_).
+{% endnote %}
 
 ## Actions
 
