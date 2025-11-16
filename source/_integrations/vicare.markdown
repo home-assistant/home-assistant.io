@@ -24,12 +24,12 @@ ha_codeowners:
   - '@CFenner'
 ---
 
-The **Viessmann ViCare** {% term integration %} lets you control [Viessmann](https://www.viessmann.com) devices via the Viessmann ViCare (REST) API.
+The **Viessmann ViCare** {% term integration %} lets you control [Viessmann](https://www.viessmann-climatesolutions.com) devices via the Viessmann ViCare (REST) API.
 Most recent network-connected Viessmann heating devices (e.g., gas boilers) should be supported.
 
 ## Prerequisites
 
-You will need to sign in on the [Viessmann developer portal](https://app.developer.viessmann.com/) with **your existing ViCare app user credentials**.
+You will need to sign in on the [Viessmann developer portal](https://app.developer.viessmann-climatesolutions.com) with **your existing ViCare app user credentials**.
 
 Create a new API client by selecting **Add** in the **Clients** section on the developer dashboard with the following settings:
    - Name: `HomeAssistant`
@@ -58,7 +58,7 @@ For the paid API plans this limit increases to 3000 calls in 24 hours. The {% te
 {% important %}
 For any Viessmann API plan except the most expensive "Advanced" tier, Viessmann imposes certain limits on which APIs are accessible for end-user consumption. Unfortunately, this also affects APIs useful for smart home integrations, like controlling thermostats (TRVs) and climate sensors, which are only available in the "Advanced" plan API tier. In case you set up the integration with a lower-tier plan, TRVs and other smart home entities will not become accessible in your Home Assistant installation.
 
-Please consider providing feedback to Viessmann as described in [their FAQ](https://developer.viessmann.com/start/faq.html) "Where can I give feedback on the API?" in case you consider this as a limitation for your use-case.
+Please consider providing feedback to Viessmann as described in [their FAQ](https://developer.viessmann-climatesolutions.com/start/faq.html) "Where can I give feedback on the API?" in case you consider this as a limitation for your use-case.
 {% endimportant %}
 
 {% note %}
@@ -69,7 +69,7 @@ If you have multiple Viessmann devices in Home Assistant, the limit is shared be
 
 ## Entities
 
-ViCare represents devices as a set of [data points](https://documentation.viessmann.com/static/iot/data-points) and the ViCare {% term integration %} maps those to {% term entity entities %} of different {% term platform platforms %} in Home Assistant. A single device may be represented by one or more platforms.
+ViCare represents devices as a set of [data points](https://api.viessmann-climatesolutions.com/documentation/data-points) and the ViCare {% term integration %} maps those to {% term entity entities %} of different {% term platform platforms %} in Home Assistant. A single device may be represented by one or more platforms.
 
 ### Climate
 
@@ -193,6 +193,6 @@ Usually, this resolves itself after a while, but if this state persists, try to 
 
 ## Removing the integration
 
-This integration follows standard integration removal. Once the integration is removed, you can remove the API client (assuming it was only used by this integration) by going to the [Viessmann developer portal](https://app.developer.viessmann.com/) and deleting the client you created for Home Assistant.
+This integration follows standard integration removal. Once the integration is removed, you can remove the API client (assuming it was only used by this integration) by going to the [Viessmann developer portal](https://app.developer.viessmann-climatesolutions.com) and deleting the client you created for Home Assistant.
 
 {% include integrations/remove_device_service.md %}
