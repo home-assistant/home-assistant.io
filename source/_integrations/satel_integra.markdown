@@ -37,14 +37,14 @@ The integration only supports the **ETHM-1 Plus**, with firmware version 2.00 or
 ## Prerequisites
 
 1. Open the [DLOADX](https://www.satel.eu/nl/product/343/DLOADX,INTEGRA-en-VERSA-Alarmsysteem-installatie-programma) installer program.
-2. Open you existing project file.
+2. Open your existing project file.
 3. Open the **System and hardware structure** tab.
 4. Navigate to the **Hardware** section, expand the tree and select the **ETHM-1 Plus** module.
 5. Select the **Integration** checkbox.
 6. Clear the **Encrypted integration** checkbox. Encrypted connection is currently not supported.
 
 {% note %}
-  If you do not have access to the DLOADX program or your project file, ask your installer to adjust the settings for you.
+If you do not have access to the DLOADX program or your project file, ask your installer to adjust the settings for you.
 {% endnote %}
 
 {% include integrations/config_flow.md %}
@@ -62,7 +62,7 @@ Code:
 
 After setting up the connection details, you can configure partitions, zones, and outputs as **Subentries** on the {% my integration domain="satel_integra" title="**Satel Integra**" %} integration page.
 
-A list of all partition, zone and output IDs can be acquired by running DLOADX program and connecting to your alarm.
+A list of all partition, zone, and output IDs can be acquired by running the DLOADX program and connecting to your alarm.
 To create the respective entities, select the **Add partition**, **Add zone**, **Add output**, or **Add switchable output** buttons. Follow the instructions in the UI to set up the individual entities.
 **Result**: Each partition will have its own alarm panel. Each zone and output will have a binary sensor, and a switch will be created for each switchable output.
 
