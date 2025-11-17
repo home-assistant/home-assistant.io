@@ -27,3 +27,19 @@ The following devices are supported:
 - [Nuki Smart Lock Go](https://nuki.io/en-uk/products/smart-lock-go)
 - [Nuki Smart Lock Pro](https://nuki.io/en-uk/products/smart-lock-pro-5th-gen)
 - [Nuki Smart Lock Ultra](https://nuki.io/en-uk/products/smart-lock-ultra)
+
+## Setting up your Matter integration requires Thread
+
+To integrate your Smart Lock into your Smart Home, you need a suitable hub that supports **Matter via Thread**.
+
+## 🏡 Home Assistant Connect ZBT-1 Support
+
+| Type | Matter via Thread | Remote Access via Thread* |
+| :--- | :---: | :---: |
+| Home Assistant Connect ZBT-1 | ✅ | ✅ |
+
+***
+
+*\* Remote Access via Thread requires a compatible Thread Border Router.*
+
+[Nuki Documentation](https://help.nuki.io/hc/en-001/articles/14596875392017-Setting-up-your-Matter-integration)
