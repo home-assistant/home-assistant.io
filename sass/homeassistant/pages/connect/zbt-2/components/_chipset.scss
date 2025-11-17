@@ -1,5 +1,13 @@
 section#chipset {
 
+    .section-inner-content{
+        padding-top: 10px;
+
+        @include bp(tablet) {
+            padding-top: 40px;
+        }
+    }
+
     .cols {
         display: flex;
         flex-direction: column;
@@ -31,8 +39,6 @@ section#chipset {
         }
     }
 
-
-
     .card {
         --border-gradient-angle: 0deg;
 
@@ -47,7 +53,7 @@ section#chipset {
         justify-content: center;
         
         .card-inner {
-            padding: 24px 40px;
+            padding: 48px 40px;
             display: flex;
             align-items: flex-start;
             justify-content: center;

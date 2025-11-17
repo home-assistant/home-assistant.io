@@ -33,21 +33,22 @@
     </div>
 </section>
 <script>
-    // Play video on page load. If the video is scrolled out of the viewport, set the video currentTime to 0. Upon scrolling back into the viewport, play the video from the start.
-    const videoWrapper = document.querySelector('#hero .video-background');
-    const video = videoWrapper.querySelector('video');
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                video.currentTime = 0;
-                video.play();
-                videoWrapper.classList.add('visible');
+    (function () {
+        const videoWrapper = document.querySelector('#hero .video-background');
+        const video = videoWrapper.querySelector('video');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    video.currentTime = 0;
+                    video.play();
+                    videoWrapper.classList.add('visible');
 
-            } else {
-                video.pause();
-                videoWrapper.classList.remove('visible');
-            }
+                } else {
+                    video.pause();
+                    videoWrapper.classList.remove('visible');
+                }
+            });
         });
-    });
-    observer.observe(videoWrapper);
+        observer.observe(videoWrapper);
+    })();
 </script>

@@ -5,11 +5,17 @@
                 <div class="cols">
                     <div class="col">
                         <div class="card">
-
-                            <h2>Plug and play</h2>
-                            <p>Z-Wave setup has never been easier, thanks to our intuitive start-up wizard and one-click
-                                firmware updates.</p>
+                            <div class="card-inner">
+                                <h3>Plug and play</h3>
+                                <ul>
+                                    <li>The easiest way to get started with Zigbee or Thread, thanks to our intuitive
+                                        start-up wizard and one-click updates.</li>
+                                    <li>Seamlessly migrate your Zigbee or Thread network.</li>
+                                    <li>Start up a new network in mere minutes by dedicating your Connect ZBT-2 to
+                                        either Zigbee or Thread.</li>
+                                </ul>
                             </div>
+                        </div>
                     </div>
                     <div class="col">
                         <div class="video">
@@ -21,3 +27,23 @@
         </div>
     </div>
 </section>
+<script>
+    (function () {
+        const videoWrapper = document.querySelector('#plug-and-play .section-inner');
+        const video = videoWrapper.querySelector('video');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    video.currentTime = 0;
+                    video.play();
+                    videoWrapper.classList.add('visible');
+
+                } else {
+                    video.pause();
+                    videoWrapper.classList.remove('visible');
+                }
+            });
+        });
+        observer.observe(videoWrapper);
+    })();
+</script>

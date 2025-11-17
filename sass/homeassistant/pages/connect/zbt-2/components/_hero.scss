@@ -12,6 +12,7 @@ section#hero {
         video {
             height: 100%;
             width: 100%;
+            object-fit: cover;
         }
 
         &:before{
@@ -96,6 +97,13 @@ section#hero {
             @include bp(desktop) {
                 margin-top: 40px;
             }
+        }
+    }
+
+    .body-large{
+        padding: 8px 0 0 0;
+        @include bp(tablet){   
+            padding: 8px 20px;
         }
     }
 

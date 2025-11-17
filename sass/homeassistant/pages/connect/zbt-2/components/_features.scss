@@ -49,11 +49,7 @@ section#features {
             }
 
             .connect-badge {
-                margin-bottom: 12px;
-
-                @include bp(desktop) {
-                    margin-bottom: 40px;
-                }
+                
             }
 
             .caption {

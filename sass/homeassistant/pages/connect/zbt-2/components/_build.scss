@@ -1,0 +1,15 @@
+section#build{
+    video{
+        border-radius: 16px;
+        width: 100%;
+    }
+    
+    .section-inner{
+        padding-bottom: 10px;
+
+        @include bp(tablet) {
+            padding-bottom: 40px;
+        }
+    }
+    
+}
