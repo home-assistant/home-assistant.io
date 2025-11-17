@@ -41,6 +41,15 @@ The Home Assistant Xbox {% term integration %} lets you monitor and control Xbox
 
 {% include integrations/config_flow.md %}
 
+{% details "Configuration parameters" icon="mdi:tune" %}
+
+{% configuration_basic %}
+auth_implementation:
+    description: "OAuth 2.0 implementation used to link your Xbox account with Home Assistant. This is only shown if custom application credentials are configured, otherwise, it defaults to `cloud`."
+{% endconfiguration_basic %}
+
+{% enddetails %}
+
 ## Supported devices
 
 - Xbox One (S/X)
