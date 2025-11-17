@@ -94,17 +94,17 @@ type: energy-water-graph
 ## Water Sankey graph
 
 <p class='img'>
-  <img src='/images/dashboards/energy/water-sankey.png' alt='Screenshot of the water sankey graph card'>
+  <img src='/images/dashboards/energy/water-sankey.png' alt='Screenshot of the water Sankey graph card'>
   Screenshot of the water sankey graph card.
 </p>
 
-The water sankey graph shows the flow of water consumption in your home. It visualizes how water flows from sources to the various consumers. Devices are grouped into floors and areas if these are configured.
+The water Sankey graph shows the flow of water consumption in your home. It visualizes how water flows from sources to the various consumers. Devices are grouped into floors and areas if these are configured.
 
 This card displays historical water data based on the selected date range from the energy date picker.
 
 ### YAML configuration
 
-The following YAML options are available
+The following YAML options are available:
 
 {% configuration %}
 type:
