@@ -327,16 +327,16 @@ type: energy-sankey
 layout: vertical
 ```
 
-## Power Sankey graph
+## Power Sankey graph to visualize power flow
 
 <p class='img'>
-  <img src='/images/dashboards/energy/sankey.png' alt='Screenshot of the power sankey graph card'>
-  Screenshot of the power sankey graph card.
+  <img src='/images/dashboards/energy/sankey.png' alt='Screenshot of the Sankey graph card to visualize power'>
+  Screenshot of the power Sankey graph card.
 </p>
 
-The power sankey graph shows the real-time flow of power in your home. Unlike the energy sankey card which shows historical energy data based on the selected date range, this card displays current power values and is not affected by the date picker selection.
+The power Sankey graph shows the real-time flow of power in your home. Unlike the energy Sankey card, which shows historical energy data based on the selected date range, this card displays current power values and is not affected by the date picker selection.
 
-It visualizes the instantaneous power flow from sources (like grid, solar panels, battery) to consumers in your home. Devices are grouped into floors and areas if these are configured.
+It visualizes the instantaneous power flow from sources (like the grid, solar panels, and battery) to consumers in your home. Devices are grouped into floors and areas if these are configured.
 
 ### YAML configuration
 
