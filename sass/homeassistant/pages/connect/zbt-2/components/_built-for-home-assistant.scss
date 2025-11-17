@@ -1,4 +1,5 @@
 section#built-for-home-assistant {
+    isolation: isolate;
     margin-top: 17.5%;
 
     @include bp(tablet) {
@@ -11,8 +12,29 @@ section#built-for-home-assistant {
         --typography-paragraph-color: #002E3E;
     }
 
-    .section-inner-content{
+    .section-inner-content {
         padding-bottom: 0;
+    }
+
+    &[data-dsap] {
+
+
+        &[data-dsap-is="in"] {
+            .col:first-child img {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        // and is !=in
+        &:not([data-dsap-is="in"]) {
+            .col:first-child img {
+                transform: translateY(5%);
+                opacity: 0.75;
+                transition-delay: 0s;
+                transition-duration: 0.2s;
+            }
+        }
     }
 
     .cols {
@@ -36,9 +58,26 @@ section#built-for-home-assistant {
                 height: -webkit-fill-available;
                 position: relative;
 
+                &:before {
+                    @include bp(tablet) {
+                        content: '';
+                        position: absolute;
+                        top: calc(100% + 20px);
+                        left: 0;
+                        right: 0;
+                        height: 10rem;
+                        background-color: #000000;
+                        z-index: 1;
+                    }
+                }
+
                 img {
                     margin-top: -17.5%;
                     margin-bottom: -24px;
+                    transform: translateY(5%);
+                    opacity: 0.75;
+                    transition: transform 1s ease-out, opacity .5s ease-out;
+                    transition-delay: .1s;
 
                     @include bp(tablet) {
                         margin-top: -32px;
