@@ -99,40 +99,20 @@ Some sensors are disabled by default, since they provide information that is onl
 - **Status**:
   - **Description**: The current status of the device. e.g. Working or Not Connected.
   - **Available for models**: All
-- **Title**:
-  - **Description**: The title of the device received from PTDevices.
-  - **Available for models**: All
-- **MAC Address**:
-  - **Description**: The MAC Address of the device.
-  - **Available for models**: All
-  - **Remarks**: Disabled by default for advanced uses.
-- **ID**:
-  - **Description**: The device ID in the PTDevices system. This can be used to create links to this device.
-  - **Available for models**: All
-  - **Remarks**: Disabled by default for advanced uses.
-- **Share ID**:
-  - **Description**: The share ID for the device. This can be used to create publicly accessible links to your device.
-  - **Available for models**: All
-  - **Remarks**: Disabled by default for advanced uses.
-- **User ID**:
-  - **Description**: The ID of the user this device belongs to.
-  - **Available for models**: All
+- **Battery Status**:
+  - **Description**: The current status of the onboard batteries. e.g. Good or Low
+  - **Available for models**: All battery powered models
+- **Battery Voltage**:
+  - **Description**: The current voltage reading of the onboard batteries.
+  - **Available for models**: All battery powered models
   - **Remarks**: Disabled by default for advanced uses.
 - **WiFi Signal Strength**:
-  - **Description**: The signal strength of the WiFi at the receiver/WiFI device
+  - **Description**: The signal strength of the WiFi at the receiver/WiFI device.
   - **Available for models**: All
   - **Remarks**: Disabled by default for advanced uses.
 - **LoRa Signal Strength**:
   - **Description**: The signal strength between the receiver and transmitter.
   - **Available for models**: PTLevel Long Range Wireless Only
-  - **Remarks**: Disabled by default for advanced uses.
-- **Address**:
-  - **Description**: The install location of your PTDevice
-  - **Available for models**: All
-  - **Remarks**: Disabled by default for advanced uses.
-- **Receiver Firmware Version**:
-  - **Description**: The installed version of the receiver firmware.
-  - **Available for models**: All
   - **Remarks**: Disabled by default for advanced uses.
 - **Last RX Report**:
   - **Description**: The last time the receiver/WiFi device reported to PTDevices.
