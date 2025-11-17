@@ -4,24 +4,29 @@ green:
       # America
     - name: Amazon US
       ship_from: US
-      ship_to: America
+      ship_to: North America
       url: https://www.amazon.com/dp/B0CXVKSG19?maas=maas_adg_BB51722E249D328CABB2F6DF1F8976CC_afap_abs&ref_=aa_maas&tag=maas
       logo: /images/distributors/amazon.webp
     - name: ameriDroid
       ship_from: US
-      ship_to: America
+      ship_to: North America
       url: https://ameridroid.com/products/home-assistant-green
       logo: /images/distributors/ameridroid.webp
     - name: CloudFree
       ship_from: US
-      ship_to: America
+      ship_to: North America
       url: https://cloudfree.shop/product/home-assistant-green/
       logo: /images/distributors/cloudfree.webp
     - name: Seeed Studio
       ship_from: US
-      ship_to: America
+      ship_to: North America
       url: https://www.seeedstudio.com/Home-Assistant-Green-p-5792.html
       logo: /images/distributors/seeed-studio.webp
+    - name: Apollo Automation
+      ship_from: US & Canada
+      ship_to: North America
+      url: https://apolloautomation.com/products/home-assistant-green
+      logo: /images/distributors/apollo.webp
       # Asia
     - name: Seeed Studio
       ship_from: China
@@ -166,12 +171,12 @@ yellow:
       # America
     - name: ameriDroid
       ship_from: US
-      ship_to: America
+      ship_to: North America
       url: https://ameridroid.com/products/home-assistant-yellow
       logo: /images/distributors/ameridroid.webp
     - name: CloudFree
       ship_from: US
-      ship_to: America
+      ship_to: North America
       url: https://cloudfree.shop/product/home-assistant-yellow/
       logo: /images/distributors/cloudfree.webp
       # Australia
@@ -197,17 +202,17 @@ zbt-1:
       # America
     - name: ameriDroid
       ship_from: US
-      ship_to: America
+      ship_to: North America
       url: https://ameridroid.com/products/skyconnect
       logo: /images/distributors/ameridroid.webp
     - name: CloudFree
       ship_from: US
-      ship_to: America
+      ship_to: North America
       url: https://cloudfree.shop/product/home-assistant-skyconnect/
       logo: /images/distributors/cloudfree.webp
     - name: Seeed Studio
       ship_from: US
-      ship_to: America
+      ship_to: North America
       url: https://www.seeedstudio.com/Home-Assistant-SkyConnect-p-5479.html
       logo: /images/distributors/seeed-studio.webp
       # Asia
@@ -339,19 +344,24 @@ voice-pe:
       # America
     - name: ameriDroid
       ship_from: US
-      ship_to: America
+      ship_to: North America
       url: https://ameridroid.com/products/home-assistant-voice-preview-edition/
       logo: /images/distributors/ameridroid.webp
     - name: CloudFree
       ship_from: US
-      ship_to: America
+      ship_to: North America
       url: https://cloudfree.shop/product/home-assistant-voice-preview-edition/
       logo: /images/distributors/cloudfree.webp
     - name: Seeed Studio
       ship_from: US
-      ship_to: America
+      ship_to: North America
       url: https://www.seeedstudio.com/Home-Assistant-Voice-p-6998.html
       logo: /images/distributors/seeed-studio.webp
+    - name: Apollo Automation
+      ship_from: US & Canada
+      ship_to: North America
+      url: https://apolloautomation.com/products/home-assistant-voice
+      logo: /images/distributors/apollo.webp
       # Asia
     - name: Seeed Studio
       ship_from: China
