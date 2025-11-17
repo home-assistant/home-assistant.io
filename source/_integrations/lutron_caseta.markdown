@@ -146,6 +146,8 @@ For dimmable lights including wall and plug-in dimmers, see the light section on
 
 For more information on working with switches in Home Assistant, see the [Switches integration](/integrations/switch/).
 
+For supported bridges, a switch entity will be created under the smart bridge called Smart Away. This switch toggles Smart Away on/off.
+
 ## Fan
 
 After setup, fans will appear in Home Assistant using an `entity_id` based on the name used in the Lutron mobile app. For example, a light switch called 'Master Bedroom Ceiling Fan' will appear in Home Assistant as `fan.master_bedroom_ceiling_fan`.
