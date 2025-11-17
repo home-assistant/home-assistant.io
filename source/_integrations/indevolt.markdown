@@ -19,7 +19,6 @@ The Indevolt integration {% term integration %} enables direct local communicati
 
 - Monitor energy production and consumption, as well as battery status.
 
-
 ## Supported devices
 
 Currently, the integration supports the following devices:
@@ -27,12 +26,11 @@ Currently, the integration supports the following devices:
 - BK1600/BK1600Ultra
 - SolidFlex/PowerFlex2000
 
-
 ## Prerequisites
 
 1. Connect your Indevolt device and Home Assistant to the same local network.
-2. Ensure the Indevolt device is powered on and has acquired a network IP address. You can get the IP from app or your router.
-3. Enable the device's API through app.
+2. Ensure the Indevolt device is powered on and has acquired a network IP address. You can get the IP from the app or from your router.
+3. Enable the device's API through the app.
 
 {% include integrations/config_flow.md %}
 
@@ -40,14 +38,13 @@ Currently, the integration supports the following devices:
 Host:
   description: "The IP address of your device. You can find it in your router or in app."
 Port:
-  description: "The TCP port of the device, 8080 by deault."
+  description: "The TCP port of the device, 8080 by default."
 Scan Interval:
   description: "The polling interval in seconds."
 Model:
   description: "The device model."
 
 {% endconfiguration_basic %}
-
 
 ## Supported functionality
 
@@ -60,7 +57,7 @@ The Indevolt integration mainly provides sensors about what your device is measu
 - DC Input Power2 (W)
 - Total AC Output Power (W)
 - Daily Production (kWh)
-- Cumulative Production (* 0.001kwh)
+- Cumulative Production (* 0.001kWh)
 - Total AC Input Power (W)
 - Total AC Input Energy (kWh)
 - Total DC Output Power (W)
@@ -75,7 +72,6 @@ The Indevolt integration mainly provides sensors about what your device is measu
 - Meter Connection Status (ON, OFF)
 - Meter Power (W)
 
-
 ### SolidFlex/PowerFlex2000
 
 - Working mode (Self-consumed Prioritized, Charge/Discharge Schedule)
@@ -86,7 +82,7 @@ The Indevolt integration mainly provides sensors about what your device is measu
 - Total DC Output Power (W)
 - Total AC Output Power (W)
 - Daily Production (kWh)
-- Cumulative Production (* 0.001kwh)
+- Cumulative Production (* 0.001kWh)
 - Total AC Input Power (W)
 - Total AC Input Energy (kWh)
 - Rated capacity (kWh)
@@ -103,7 +99,6 @@ The Indevolt integration mainly provides sensors about what your device is measu
 - Meter Power (W)
 - Bypass power (W)
 
-
 ## Data updates
 
 The Indevolt integration automatically retrieves data from your devices by polling the OpenData API every 30 seconds. You can adjust this frequency by configuring the "Scan Interval" during setup.
@@ -111,7 +106,6 @@ The Indevolt integration automatically retrieves data from your devices by polli
 ## Known limitations
 
 The integration does not provide the ability to configure the devices, which can instead be done via the manufacturer's app.
-
 
 ## Troubleshooting
 
@@ -123,7 +117,6 @@ The integration does not provide the ability to configure the devices, which can
 4. Check the device's settings in app to ensure that the API is enabled.
 
 Check the Home Assistant logs for more information.
-
 
 ## Removing the integration
 
