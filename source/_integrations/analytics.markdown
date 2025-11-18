@@ -190,7 +190,7 @@ This is an example of how the information is stored:
 
 **This is available only on the development version of Home Assistant.** To switch to development version, look [here for Home Assistant OS](/common-tasks/os/#running-a-development-version) and [here for Home Assistant Container](/common-tasks/container/#running-a-development-version).
 
-If enabled, anonymous device analytics snapshot will be collected and uploaded to the [Open Home Foundation Device Database](https://devices.openhomefoundation.org/). These snapshots help us better understand what devices are used in real life to build a free and open source device database.
+If enabled, anonymous device analytics snapshots will be collected and uploaded to the [Open Home Foundation Device Database](https://devices.openhomefoundation.org/). These snapshots help us better understand what devices are used in real life to build a free and open source device database.
 
 The snapshots include:
 
@@ -211,9 +211,9 @@ For each entity belonging to a device:
 - Whether it uses `has_entity_name`
 - Whether it has an assumed state
 
-Device snapshots do not include device names, entity names, entity IDs, state values, unique identifiers (MAC addresses, serial numbers), IP addresses, or any personally identifiable information. Device IDs are anonymised using integration-scoped indices.
+Device snapshots do not include device names, entity names, entity IDs, state values, unique identifiers (MAC addresses, serial numbers), IP addresses, or any personally identifiable information. Device IDs are anonymized using integration-scoped indices.
 
-For now custom integrations are not included.
+Currently custom integrations are not included.
 
 Snapshots are uploaded every 24 hours.
 
