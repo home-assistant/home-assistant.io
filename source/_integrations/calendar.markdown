@@ -27,7 +27,7 @@ Home Assistant’s calendar support is designed primarily for automation use cas
 
 Home Assistant is not aim to replace a full-featured personal calendar. Instead, it works alongside external calendar platforms, complementing them with powerful automation capabilities.
 
-If you need a complete personal calendar, you should first look at the existing [calendar integrations](/integrations/#calendar) that Home Assistant already supports. Some of these integrations allow you to create, edit, or delete events in external calendar services directly from Home Assistant.
+If you need a complete personal calendar, you should first look at the existing [calendar integrations](/integrations/#calendar) that Home Assistant already supports. 
 
 If you want a full-featured, privacy-oriented and self-hosted calendar platform, consider using an other solutions such as [Nextcloud Calendar](https://apps.nextcloud.com/apps/calendar) or [other self-hosted solutions](https://github.com/awesome-selfhosted/awesome-selfhosted). These platforms expose their calendars over **CalDAV**, which can be integrated with Home Assistant using [the CalDAV integration](/integrations/caldav/).
 
