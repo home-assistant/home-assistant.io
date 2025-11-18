@@ -104,12 +104,12 @@ If your system includes the Supervisor, this will also contain:
   },
   "integrations": ["awesome_integration"],
   "addons": [
-      {
-          "slug": "awesome_addon",
-          "protected": true,
-          "version": "1.0.0",
-          "auto_update": false
-      }
+    {
+      "slug": "awesome_addon",
+      "protected": true,
+      "version": "1.0.0",
+      "auto_update": false
+    }
   ],
   "energy": {
     "configured": true
@@ -185,3 +185,79 @@ This is an example of how the information is stored:
   description: "{'version': '{{current_version}}', 'installation_type': 'Home Assistant OS', 'country': 'NO'}"
 
 {% endconfiguration_basic %}
+
+## Device analytics
+
+**This is available only on the development version of Home Assistant.** To switch to development version, look [here for Home Assistant OS](/common-tasks/os/#running-a-development-version) and [here for Home Assistant Container](/common-tasks/container/#running-a-development-version).
+
+If enabled, anonymous device analytics snapshot will be collected and uploaded to the [Open Home Foundation Device Database](https://devices.openhomefoundation.org/). These snapshots help us better understand what devices are used in real life to build a free and open source device database.
+
+The snapshots include:
+
+For each device:
+
+- Integration domain
+- Manufacturer, model name, model ID
+- Hardware and software version
+- Whether the device has a configuration URL
+- Device hierarchy information (`via_device` relationships)
+
+For each entity belonging to a device:
+
+- Entity domain (light, sensor, switch, etc.)
+- Entity category (config, diagnostic, or none)
+- Original device class (temperature, humidity, etc.)
+- Unit of measurement
+- Whether it uses `has_entity_name`
+- Whether it has an assumed state
+
+Device snapshots do not include device names, entity names, entity IDs, state values, unique identifiers (MAC addresses, serial numbers), IP addresses, or any personally identifiable information. Device IDs are anonymised using integration-scoped indices.
+
+For now custom integrations are not included.
+
+Snapshots are uploaded every 24 hours.
+
+{% details "Example payload" %}
+
+```json
+{
+  "hue": {
+    "devices": [
+      {
+        "entry_type": null,
+        "has_configuration_url": true,
+        "hw_version": "2.1",
+        "manufacturer": "Signify",
+        "model": "Philips Hue Bridge",
+        "model_id": "BSB002",
+        "sw_version": "1.65.1",
+        "via_device": null,
+        "entities": []
+      },
+      {
+        "entry_type": null,
+        "has_configuration_url": false,
+        "hw_version": null,
+        "manufacturer": "Signify",
+        "model": "Hue color lamp",
+        "model_id": "LCT015",
+        "sw_version": "1.104.2",
+        "via_device": ["hue", 0],
+        "entities": [
+          {
+            "assumed_state": false,
+            "domain": "light",
+            "entity_category": null,
+            "has_entity_name": true,
+            "original_device_class": null,
+            "unit_of_measurement": null
+          }
+        ]
+      }
+    ],
+    "entities": []
+  }
+}
+```
+
+{% enddetails %}

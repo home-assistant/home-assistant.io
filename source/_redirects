@@ -17,6 +17,7 @@ layout: null
 /merch https://home-assistant-store.creator-spring.com
 /feature-requests https://github.com/orgs/home-assistant/discussions
 /issues https://github.com/home-assistant/core/issues
+/device-database /integrations/analytics/#device-analytics
 /voice /voice_control/builtin_sentences/
 /latest-security-alert /security/
 
