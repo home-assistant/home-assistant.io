@@ -1,6 +1,6 @@
 ---
-title: V\u00c1GNER POOL
-description: Connect your V\u00c1GNER POOL water treatment system to Home Assistant.
+title: VÁGNER POOL
+description: Connect your VÁGNER POOL water treatment system to Home Assistant.
 ha_category:
   - Sensor
   - Water Management
