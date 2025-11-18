@@ -27,6 +27,8 @@ Home Assistant’s calendar support is designed primarily for automation use cas
 
 Home Assistant is not intended to replace a full-featured personal calendar. Instead, it works alongside external calendar platforms and complements them with powerful automation capabilities.
 
+Home Assistant also provides a unified calendar view that lets you browse events and perform basic calendar management when supported by the integration. This interface helps with automation workflows by giving you quick visibility into upcoming events and allowing simple edits directly from Home Assistant, while still letting you use your preferred external calendar application for full calendar management.
+
 Depending on your needs, you can choose from several approaches:
 
 - **Use an existing external calendar**  
