@@ -7,8 +7,9 @@ section#buy {
     isolation: isolate;
     
     @include bp(desktop) {
+        background-size: contain;
         isolation: unset;
-        height: calc(100vh - var(--header-height));
+        height: 920px;
     }
 
     .cols {
@@ -53,6 +54,7 @@ section#buy {
         text-wrap: balance;
         position: relative;
         z-index: 2;
+        padding: 12px 0;
 
         @include bp(tablet) {
             font-size: 24px;
@@ -81,12 +83,22 @@ section#buy {
         }
 
         sup {
-            font-size: 44px;
+            font-size: 36px;
             vertical-align: unset;
             position: absolute;
             top: 0;
             line-height: 1;
         }
+
+        sub{
+            vertical-align: initial;
+            bottom: 0;
+            margin-right: 6px;
+        }
+    }
+
+    .button{
+        margin-top: 40px;
     }
 
     .terms {
@@ -97,14 +109,6 @@ section#buy {
         max-width: 385px;
         font-size: 12px;
         color: #AAABAE;
-        position: absolute;
-        bottom: 50px;
-        margin-top: 5rem;
-
-        @include bp(desktop) {
-            bottom: 130px;
-            margin-top: unset;
-        }
 
         @include bp(1750px) {
             max-width: 33rem;

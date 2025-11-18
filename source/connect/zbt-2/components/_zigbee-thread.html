@@ -1,10 +1,97 @@
-<section id="_zigbee-thread">
+<section id="zigbee-thread">
     <div class="section-inner">
         <div class="section-inner-content">
             <div class="container">
-                <div class="cols">
+                <h2>Choose what’s best for your home</h2>
+                <p class="body-large">Connect ZBT-2 gives you the flexibility to run either a Zigbee or Thread network. Even though you need to select one, both technologies give devices a local connection, longer battery life, and reduces the strain on your home Wi-Fi.</p>
+                <div class="protocol-toggles">
+                    <div class="protocol-toggle active" data-protocol-toggle="thread">Thread</div>
+                    <div class="protocol-toggle" data-protocol-toggle="zigbee">Zigbee</div>
+                </div>
+                <div class="cards">
+                    <div class="card active" id="thread">
+                        <div class="card-inner">
+                            <div class="content">
+
+                                <h3>Thread has a big future</h3>
+                                <p class="body-medium">Thread is the latest smart home communication technology,
+                                    allowing
+                                    you to
+                                    directly connect a wide range of Matter devices.</p>
+                            </div>
+                            <!-- logo -->
+                        </div>
+                        <img src="/images/connect/zbt-2/zbt-2-thread.webp">
+                    </div>
+                    <div class="card" id="zigbee">
+                        <div class="card-inner">
+                            <div class="content">
+
+                                <h3>Zigbee has the devices</h3>
+                                <p class="body-medium">Tried and tested, with the biggest selection of devices of any
+                                    standard,
+                                    many from established brands.</p>
+                            </div>
+                        </div>
+                        <img src="/images/connect/zbt-2/zbt-2-zigbee.webp">
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+<script>
+    (function(){
+        // when you click the card or the protocol-toggle, switch the active state
+        const protocolToggles = document.querySelectorAll('#zigbee-thread .protocol-toggle');
+        const cards = document.querySelectorAll('#zigbee-thread .card');
+
+        protocolToggles.forEach(protocolToggle => {
+            protocolToggle.addEventListener('click', () => {
+                const target = protocolToggle.getAttribute('data-protocol-toggle');
+
+                // update protocolToggles
+                protocolToggles.forEach(t => {
+                    if (t === protocolToggle) {
+                        t.classList.add('active');
+                    } else {
+                        t.classList.remove('active');
+                    }
+                });
+
+                // update cards
+                cards.forEach(card => {
+                    if (card.id === target) {
+                        card.classList.add('active');
+                    } else {
+                        card.classList.remove('active');
+                    }
+                });
+            });
+        });
+
+        cards.forEach(card => {
+            card.addEventListener('click', () => {
+                const target = card.id;
+
+                // update protocol-toggles
+                protocolToggles.forEach(t => {
+                    if (t.getAttribute('data-protocol-toggle') === target) {
+                        t.classList.add('active');
+                    } else {
+                        t.classList.remove('active');
+                    }
+                });
+
+                // update cards
+                cards.forEach(c => {
+                    if (c === card) {
+                        c.classList.add('active');
+                    } else {
+                        c.classList.remove('active');
+                    }
+                });
+            });
+        });
+    })();
+</script>

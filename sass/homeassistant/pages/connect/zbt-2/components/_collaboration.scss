@@ -1,30 +1,28 @@
 section#collaboration {
-
     &[data-dsap] {
-    
         &[data-dsap-seen] {
             .card:after {
                 opacity: 0;
             }
         }
-
     }
 
     .card {
+        background-color: #000000;
         background-image: url('/images/connect/zbt-2/collaboration-bg.webp');
         background-position: center bottom;
         background-repeat: no-repeat;
-        background-size: 200%;
-        min-height: 530px;
+        background-size: 700px;
+        min-height: 500px;
         display: flex;
         align-items: center;
         flex-direction: column;
-        border-radius: 16px;
-
-
+        border-radius: 16px;        
+        
         @include bp(tablet) {
             background-position: bottom left;
             background-size: 50%;
+            justify-content: center;
             min-height: 330px;
         }
 
@@ -65,13 +63,12 @@ section#collaboration {
             margin-left: auto;
             display: flex;
             flex-direction: column;
-            gap: 18px;
             z-index: 1;
-
+            
             @include bp(tablet) {
+                gap: 18px;
                 width: calc(6 / 12 * 100%);
             }
-
         }
     }
 }

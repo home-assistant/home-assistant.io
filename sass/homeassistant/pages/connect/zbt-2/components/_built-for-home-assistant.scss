@@ -1,9 +1,10 @@
 section#built-for-home-assistant {
     isolation: isolate;
-    margin-top: 17.5%;
-
+    margin-top: 10%;
+    
     @include bp(tablet) {
         margin-top: 0;
+        padding-top: 40px;
     }
 
     &,
@@ -17,8 +18,6 @@ section#built-for-home-assistant {
     }
 
     &[data-dsap] {
-
-
         &[data-dsap-is="in"] {
             .col:first-child img {
                 transform: translateY(0);
@@ -39,7 +38,6 @@ section#built-for-home-assistant {
 
     .cols {
         flex-direction: column;
-        align-items: center;
 
         @include bp(tablet) {
             flex-direction: row;

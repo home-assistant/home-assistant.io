@@ -614,6 +614,7 @@ zwa-2:
       logo: /images/distributors/robb.webp
 zbt-2:
   name: "<strong>Home Assistant</strong> Connect ZBT-2"
+  new: true
   distributors:
     # America
     - name: Amazon

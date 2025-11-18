@@ -60,7 +60,6 @@ section#plug-and-play {
 
         
         .card-inner {
-            padding: 48px 40px;
             display: flex;
             align-items: flex-start;
             justify-content: center;
@@ -68,6 +67,11 @@ section#plug-and-play {
             flex-direction: column;
             width: 100%;
             gap: 12px;
+            padding: 48px 20px;
+            
+            @include bp(tablet) {
+                padding: 48px 40px;
+            }
         }
 
 

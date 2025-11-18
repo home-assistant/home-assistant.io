@@ -2,7 +2,37 @@
     <div class="section-inner">
         <div class="section-inner-content">
             <div class="container">
+                <div class="cols">
+                    <div class="col">
+                        <div class="connect-badge connect-line-blue"><span>Take back your smart home</span>
+                        </div>
+                        <h2>Cut hub clutter from your smart home</h2>
+                        <p class="body-large">Directly connect the Zigbee, Matter or Thread devices you already have
+                            (including Hue, IKEA Trådfri, Smartthings, and more!) to Home Assistant.</p>
+                    </div>
+                    <div class="col">
+                        <video src="/connect/zbt-2/video/declutter.mp4" muted></video>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </section>
+<script>
+    (function () {
+        const videoWrapper = document.querySelector('#declutter');
+        const video = videoWrapper.querySelector('video');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    video.currentTime = 1.2;
+                    video.play();
+
+                } else {
+                    video.pause();
+                }
+            });
+        });
+        observer.observe(videoWrapper);
+    })();
+</script>

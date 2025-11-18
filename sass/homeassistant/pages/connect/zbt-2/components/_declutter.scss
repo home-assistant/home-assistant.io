@@ -1,3 +1,49 @@
-section#declutter{
+section#declutter {
     
+    h3 {
+        text-wrap: balance;
+    }
+    
+    .section-inner-content{
+        padding: 40px 0;
+        @include bp(tablet) {
+            padding: 100px 0;
+        }
+    }
+
+    .cols {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        
+        @include bp(tablet) {
+            //flex-direction: row;
+        }
+        
+        .col {
+            align-items: center;
+            text-align: center;
+            flex-direction: column;
+            display: flex;
+
+            &:first-child {
+
+                @include bp(tablet) {
+                    //width: calc(6/12 * 100%);
+                    padding: 24px 40px;
+                }
+
+                @include bp(desktop) {
+                    
+                }
+            }
+        }
+    }
+
+    video {
+        border-radius: 16px;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+    }
+
 }

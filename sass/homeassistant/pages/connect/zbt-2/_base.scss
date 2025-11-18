@@ -48,14 +48,15 @@
         font-weight: 400;
         margin: 0;
         letter-spacing: 0;
-        line-height: 1.2;
+        line-height: 120%;
+        padding: 4px 0;
     }
 
     .body-large {
         font-size: var(--typography-body-large-font-size);
         font-weight: var(--typography-body-large-font-weight);
         margin: 0;
-        line-height: 1.2;
+        line-height: 120%;
         letter-spacing: 0;
     }
 
@@ -113,13 +114,7 @@ section {
         padding: 40px 0;
         width: 100%;
 
-        @include bp(tablet) {
-            padding: 80px 0;
-        }
-
-        @include bp(desktop) {
-            padding: 120px 0;
-        }
+    
     }
 }
 
