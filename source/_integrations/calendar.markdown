@@ -32,10 +32,10 @@ Depending on your needs, you can choose from several approaches:
 - **Use an existing external calendar**
   Explore the built-in [calendar integrations](/integrations/#calendar) to connect Home Assistant to your preferred calendar platform and use its events for automations.
 
-- **Run your own full-featured, privacy-focused calendar **platform**  
+- **Run your own full-featured, privacy-focused calendar **platform**
   Solutions like [Nextcloud Calendar](https://apps.nextcloud.com/apps/calendar) or other [self-hosted calendar platforms](https://github.com/awesome-selfhosted/awesome-selfhosted) provide complete calendar functionality and expose calendars over **CalDAV**. You can integrate them with Home Assistant using the [CalDAV integration](/integrations/caldav/) while keeping full calendar management outside Home Assistant.
 
-- **Use a simple, local event store for automations**  
+- **Use a simple, local event store for automations**
   The [Local Calendar integration](/integrations/local_calendar/) provides a fully local calendar designed specifically for automation workflows. It is not intended to function as a general-purpose personal calendar.
 
 ## Viewing and managing calendars
