@@ -42,12 +42,17 @@ Optimistic mode can be forced, even if the `state_topic` is available. Try to en
 Home Assistant internally assumes that a light's state corresponds to a defined `color_mode`.
 The state of MQTT lights with default schema and support for both color and color temperature will set the `color_mode` according to the last received valid color or color temperature. Optionally, a `color_mode_state_topic` can be configured for explicit control of the `color_mode`.
 
+To use an MQTT basic light in your installation, [add a MQTT device as a subentry](/integrations/mqtt/#configuration), or add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
+
 ```yaml
 # Example configuration.yaml entry
 mqtt:
   - light:
       command_topic: "office/rgb1/light/switch"
 ```
+
+Alternatively, a more advanced approach is to set it up via [MQTT discovery](/integrations/mqtt/#mqtt-discovery).
 
 {% configuration %}
 availability:
@@ -139,6 +144,10 @@ color_temp_value_template:
 command_topic:
   description: The MQTT topic to publish commands to change the switch state.
   required: true
+  type: string
+default_entity_id:
+  description: Use `default_entity_id` instead of name for automatic generation of the entity ID. For example, `light.foobar`. When used without a `unique_id`, the entity ID will update during restart or reload if the entity ID is available.  If the entity ID already exists, the entity ID will be created with a number at the end. When used with a `unique_id`, the `default_entity_id` is only used when the entity is added for the first time. When set, this overrides a user-customized entity ID if the entity was deleted and added again.
+  required: false
   type: string
 device:
   description: 'Information about the device this light is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device.'
@@ -285,10 +294,6 @@ name:
   required: false
   type: string
   default: MQTT Light
-object_id:
-  description: Used instead of `name` for automatic generation of `entity_id`
-  required: false
-  type: string
 on_command_type:
   description: "Defines when on the payload_on is sent. Using `last` (the default) will send any style (brightness, color, etc) topics first and then a `payload_on` to the `command_topic`. Using `first` will send the `payload_on` and then any style topics. Using `brightness` will only send brightness commands instead of the `payload_on` to turn the light on."
   required: false
@@ -542,6 +547,9 @@ When a state topic is not available, the light will work in optimistic mode. In 
 
 Optimistic mode can be forced, even if state topic is available. Try enabling it if the light is operating incorrectly.
 
+To use an MQTT JSON light in your installation, [add a MQTT device as a subentry](/integrations/mqtt/#configuration), or add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
+
 ```yaml
 # Example configuration.yaml entry
 mqtt:
@@ -549,6 +557,8 @@ mqtt:
       schema: json
       command_topic: "home/rgb1/set"
 ```
+
+Alternatively, a more advanced approach is to set it up via [MQTT discovery](/integrations/mqtt/#mqtt-discovery).
 
 {% configuration %}
 availability:
@@ -605,6 +615,10 @@ color_temp_kelvin:
 command_topic:
   description: The MQTT topic to publish commands to change the light’s state.
   required: true
+  type: string
+default_entity_id:
+  description: Use `default_entity_id` instead of name for automatic generation of the entity ID. For example, `light.foobar`. When used without a `unique_id`, the entity ID will update during restart or reload if the entity ID is available.  If the entity ID already exists, the entity ID will be created with a number at the end. When used with a `unique_id`, the `default_entity_id` is only used when the entity is added for the first time. When set, this overrides a user-customized entity ID if the entity was deleted and added again.
+  required: false
   type: string
 device:
   description: 'Information about the device this light is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device.'
@@ -666,6 +680,11 @@ effect_list:
   description: The list of effects the light supports.
   required: false
   type: [string, list]
+flash:
+  description: Flag that defines if light supports the flash feature.
+  required: false
+  type: boolean
+  default: true
 flash_time_long:
   description: The duration, in seconds, of a “long” flash.
   required: false
@@ -711,10 +730,6 @@ name:
   required: false
   type: string
   default: MQTT JSON Light
-object_id:
-  description: Used instead of `name` for automatic generation of `entity_id`
-  required: false
-  type: string
 optimistic:
   description: Flag that defines if the light works in optimistic mode.
   required: false
@@ -754,9 +769,14 @@ state_topic:
   required: false
   type: string
 supported_color_modes:
-  description: A list of color modes supported by the list. Possible color modes are `onoff`, `brightness`, `color_temp`, `hs`, `xy`, `rgb`, `rgbw`, `rgbww`, `white`. Note that if `onoff` **or** `brightness` are used, that must be the _only_ value in the list.
+  description: A list of color modes supported by the light. Possible color modes are `onoff`, `brightness`, `color_temp`, `hs`, `xy`, `rgb`, `rgbw`, `rgbww`, `white`. Note that if `onoff` **or** `brightness` are used, that must be the _only_ value in the list.
   required: false
   type: list
+transition:
+  description: Flag that defines if light supports the transition feature.
+  required: false
+  type: boolean
+  default: true
 unique_id:
    description: An ID that uniquely identifies this light. If two lights have the same unique ID, Home Assistant will raise an exception. Required when used with device-based discovery.
    required: false
@@ -938,6 +958,9 @@ When a state topic is not available, the light will work in optimistic mode. In 
 
 Optimistic mode can be forced, even if state topic is available. Try enabling it if the light is operating incorrectly.
 
+To use an MQTT template light in your installation, [add a MQTT device as a subentry](/integrations/mqtt/#configuration), or add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
+
 ```yaml
 # Example configuration.yaml entry
 mqtt:
@@ -947,6 +970,8 @@ mqtt:
       command_on_template: "on"
       command_off_template: "off"
 ```
+
+Alternatively, a more advanced approach is to set it up via [MQTT discovery](/integrations/mqtt/#mqtt-discovery).
 
 {% configuration %}
 availability:
@@ -1013,6 +1038,10 @@ command_on_template:
 command_topic:
   description: The MQTT topic to publish commands to change the light’s state.
   required: true
+  type: string
+default_entity_id:
+  description: Use `default_entity_id` instead of name for automatic generation of the entity ID. For example, `light.foobar`. When used without a `unique_id`, the entity ID will update during restart or reload if the entity ID is available.  If the entity ID already exists, the entity ID will be created with a number at the end. When used with a `unique_id`, the `default_entity_id` is only used when the entity is added for the first time. When set, this overrides a user-customized entity ID if the entity was deleted and added again.
+  required: false
   type: string
 device:
   description: 'Information about the device this light is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device.'
@@ -1112,10 +1141,6 @@ name:
   required: false
   type: string
   default: MQTT Template Light
-object_id:
-  description: Used instead of `name` for automatic generation of `entity_id`
-  required: false
-  type: string
 optimistic:
   description: Flag that defines if the light works in optimistic mode.
   required: false

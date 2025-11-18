@@ -16,9 +16,23 @@ ha_platforms:
   - stt
   - tts
 ha_integration_type: system
+related:
+  - url: https://support.nabucasa.com/hc/en-us/categories/24734619902749-Home-Assistant-Cloud
+    title: Home Assistant Cloud user documentation
+  - docs: /voice_control/voice_remote_cloud_assistant/
+    title: Setting up a voice Assistant with Home Assistant Cloud
 ---
 
-The Home Assistant Cloud allows you to quickly integrate your local Home Assistant with various cloud services like Amazon Alexa and Google Assistant. It also enables a secure remote connection, speech-to-text, text-to-speech, an offsite backup location, Webhooks support, and better WebRTC. [Learn more.](/cloud)
+The Home Assistant Cloud allows you to quickly integrate your local Home Assistant with various cloud services, such as the following:
+
+- [Amazon Alexa](https://support.nabucasa.com/hc/en-us/articles/25619363899677)
+- [Google Assistant](https://support.nabucasa.com/hc/en-us/articles/25619376817053)
+- [Secure remote access](https://support.nabucasa.com/hc/en-us/sections/26496346499997)
+- [Speech-to-text](https://support.nabucasa.com/hc/en-us/articles/29718084245149)
+- [Text-to-speech](https://support.nabucasa.com/hc/en-us/articles/25619386304541)
+- [Offsite backup location](https://support.nabucasa.com/hc/en-us/sections/26353804834973)
+- [Webhooks support](https://support.nabucasa.com/hc/en-us/articles/25619382358685)
+- [Better WebRTC](https://support.nabucasa.com/hc/en-us/articles/25619464018461) for camera streaming
 
 ## Configuration
 

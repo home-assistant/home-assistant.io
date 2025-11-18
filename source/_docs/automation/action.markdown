@@ -3,7 +3,7 @@ title: "Automation actions"
 description: "Automations result in action."
 ---
 
-The action of an automation rule is what is being executed when a rule fires. The action part follows the [script syntax](/docs/scripts/) which can be used to interact with anything via other actions or events.
+The action of an automation is what is being executed when an automation fires. The action part follows the [script syntax](/docs/scripts/) which can be used to interact with anything via other actions or events.
 
 For actions, you can specify the `entity_id` that it should apply to and optional parameters (to specify for example the brightness).
 

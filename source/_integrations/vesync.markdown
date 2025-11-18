@@ -15,6 +15,7 @@ ha_codeowners:
   - '@thegardenmonkey'
   - '@cdnninja'
   - '@iprak'
+  - '@sapuseven'
 ha_domain: vesync
 ha_platforms:
   - binary_sensor
@@ -120,6 +121,10 @@ All VeSync air purifiers expose the remaining filter lifetime, and some also exp
 | `air_quality`           | The current air quality reading. (LV-PUR131S, Core300s/400s/600s)                      | excellent |
 | `pm2_5`                 | The current air quality reading. (Core300s/400s/600s/EverestAir)                       | 8         |
 
+| Switch                  | Description                                                                        | Example   |
+| ----------------------- | ---------------------------------------------------------------------------------- | --------- |
+| `display`               | Display On or Off                                                                  | On        |
+
 ## Fan exposed attributes
 
 VeSync air purifiers will expose the following details depending on the features supported by the model:
@@ -129,6 +134,7 @@ VeSync air purifiers will expose the following details depending on the features
 | `mode`                  | The current mode the device is in. (LV-PUR131S, Core200S/300s/400s)               | manual          |
 | `speed`                 | The current speed setting of the device. (LV-PUR131S, Core200S/300s/400s)         | high            |
 | `speed_list`            | The available list of speeds supported by the device. (LV-PUR131S)                | high            |
+| 'oscillating'           | If the fan is currently oscillating                                               | True            |
 | `active_time`           | The number of seconds since the device has been in a non-off mode. (LV-PUR131S)   | 1598            |
 | `screen_status`         | The current status of the screen. (LV-PUR131S)                                    | on              |
 | `night_light`           | The current status of the night light (Core200S/Core400s)                         | off             |
@@ -153,6 +159,11 @@ Sensors and settings exposed by VeSync humidifiers.
 | Select                  | Description                                                                        | Example   |
 | ----------------------- | ---------------------------------------------------------------------------------- | --------- |
 | `night_light_level`     | Night light brightness level (Values: off, dim, bright).                           | off       |
+
+| Switch                  | Description                                                                        | Example   |
+| ----------------------- | ---------------------------------------------------------------------------------- | --------- |
+| `display`               | Display On or Off                                                                  | On        |
+
 
 ## Binary Sensors
 

@@ -23,26 +23,20 @@ I'm sure you're all wondering, "*Missy, what is a Community Day?*". In its simpl
 
 ### Locations and registering to attend
 
-We already have **13 events** hosted by several of us who work on Home Assistant 😎! To coordinate these, we are using Luma, a site focused on tech meetups. All the current events can be found on our [Home Assistant Community Day](https://lu.ma/haday2025) calendar, including:
+To coordinate all these meetups, we are using Luma, a site focused on tech meetups. All the current events can be found below or on our [Home Assistant Community Day](https://lu.ma/haday2025) calendar.
 
-**Europe**
-- [Aveiro, Portugal](https://lu.ma/p9eo4v3t)
-- [Bordeaux, France](https://lu.ma/shxhyi6u)
-- [London, United Kingdom](https://lu.ma/fa5ez3t7)
-- [Madrid, Spain](https://lu.ma/o6pqbjv8)
-- [Porto, Portugal](https://lu.ma/uozbfr6n)
-- [Prague, Czech Republic](https://lu.ma/dhudha0z)
-- [Utrecht, Netherlands](https://lu.ma/e2wyv8k0)
-- [Vienna, Austria](https://lu.ma/2vjs7dab)
+<iframe
+  data-src="https://lu.ma/embed/calendar/cal-QXZXEJrvB3UaI63/events?lt=light"
+  width="100%"
+  height="600"
+  frameborder="0"
+  style="border: 1px solid #bfcbda88; border-radius: 4px;"
+  allowfullscreen=""
+  aria-hidden="false"
+  tabindex="0"
+></iframe>
 
-**North America**
-- [Brooklyn, New York](https://lu.ma/efkt35on)
-- [Charlotte, North Carolina](https://lu.ma/3kbb2dte)
-- [Houston, Texas](https://lu.ma/g5o66to2)
-- [Redmond, Washington](https://lu.ma/qb0hhhkm)
-- [Twin Cities, Minnesota](https://lu.ma/ljwdnjmc)
-
-All Community Day events are free, so **[register before spaces run out!](https://lu.ma/haday2025)** (No worries, there are waitlists!)
+All Community Day events are free, so **[register before spaces run out!](https://lu.ma/haday2025)** (No worries, there are waitlists!). We also have people who work full-time on Home Assistant attending these events. To find out who you can meet, head over to Luma 😎!
 
 ### Host your own
 

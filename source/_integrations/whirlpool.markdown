@@ -12,10 +12,12 @@ ha_codeowners:
   - '@mkmer'
 ha_domain: whirlpool
 ha_platforms:
+  - binary_sensor
   - climate
   - diagnostics
   - sensor
 ha_integration_type: hub
+ha_quality_scale: silver
 ---
 
 The **Whirlpool Appliances** {% term integration %} allows you to connect Whirlpool and Maytag appliances to Home Assistant.
@@ -42,17 +44,35 @@ Dryers:
 
 ## Prerequisites
 
-- Valid Whirlpool/Maytag account credentials.
-- Registered appliances in the official Whirlpool/Maytag app.
+- Valid Whirlpool (or related brand) account credentials.
+- Registered appliances in the official Whirlpool (or related brand) mobile app.
 
 {% include integrations/config_flow.md %}
+
+{% configuration_basic %}
+Username:
+    description: "The username of your Whirlpool (or related brand) account."
+Password:
+    description: "The password of your Whirlpool (or related brand) account."
+Region:
+    description: "The region in which your account is registered."
+Brand:
+    description: "The brand of the mobile app. It may not be the same brand as the appliances."
+{% endconfiguration_basic %}
 
 ## Supported functionality
 
 This {% term integration %} maps appliances to entities in Home Assistant. A single appliance may be represented by one or more entities.
 
+- [Binary Sensor](#binary_sensor)
 - [Climate](#climate)
 - [Sensor](#sensor)
+
+### Binary Sensor
+
+The binary sensor platform provides the following functionality:
+
+- state of the washer/dryer machine door (open/closed)
 
 ### Climate
 

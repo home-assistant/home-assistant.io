@@ -1,6 +1,6 @@
 ---
-title: AVM FRITZ!Box Tools
-description: Instructions on how to integrate AVM FRITZ!Box routers into Home Assistant.
+title: FRITZ!Box Tools
+description: Instructions on how to integrate FRITZ!Box routers into Home Assistant.
 ha_category:
   - Binary sensor
   - Image
@@ -25,13 +25,13 @@ ha_platforms:
   - switch
   - update
 ha_ssdp: true
-ha_integration_type: integration
+ha_integration_type: hub
 related:
   - docs: /common-tasks/general/#enabling-or-disabling-entities
     title: Enabling or disabling entities
 ---
 
-The AVM FRITZ!Box Tools integration allows you to control your [AVM FRITZ!Box](https://en.avm.de/products/fritzbox/) router and have presence detection for connected network devices.
+The FRITZ!Box Tools integration allows you to control your [FRITZ!Box](https://en.fritz.com/products/fritzbox/) router (by FRITZ!, formerly AVM) and have presence detection for connected network devices.
 
 There is support for the following platform types within Home Assistant:
 
@@ -39,7 +39,7 @@ There is support for the following platform types within Home Assistant:
 - **{% term "Binary sensor" %}** - connectivity status.
 - **{% term Image %}** - QR code for Guest Wi-Fi.
 - **{% term Button %}** - reboot, reconnect, firmware update.
-- **{% term Sensor %}** - external IP address, uptime and network monitors.
+- **{% term Sensor %}** - external IP address, uptime, CPU temperature, and network monitors.
 - **{% term Switch %}** - call deflection, port forward, parental control and Wi-Fi networks.
 - **{% term Update %}** - firmware status of the device.
 
@@ -47,6 +47,8 @@ There is support for the following platform types within Home Assistant:
 
 {% important %}
 Both the TR-064 (_Permit access for apps_) and UPnP (_Transmit status information over UPnP_) protocol needs to be enabled in the FRITZ!Box under **Home Network** > **Network** > **Network settings** > **Access Settings in the Home Network** for Home Assistant to login and read device info.
+
+To use the [dial](#action-dial) action, the click to dial service of the FRITZ!Box must also be enabled under **Telephony** > **Calls** > **Click to Dial**.
 {% endimportant %}
 
 ### Username
@@ -61,24 +63,28 @@ If you still want to use the predefined user, please note that as of FRITZ!OS 7.
 
 {% configuration_basic %}
 Host:
-    description: "The hostname or IP address of your FRITZ!Box router."
+    description: The hostname or IP address of your FRITZ!Box router.
 Port:
-    description: "The port used to connect to your FRITZ!Box router. Leave it empty to use the default port."
+    description: The port used to connect to your FRITZ!Box router. Leave it empty to use the default port.
 Username:
-    description: "Name of the user to connect Home Assistant to your FRITZ!Box (_see [username](#username)_)"
+    description: Name of the user to connect Home Assistant to your FRITZ!Box (_see [username](#username)_)
 Password:
-    description: "Password for the user to connect Home Assistant to your FRITZ!Box (_see [username](#username)_)"
+    description: Password for the user to connect Home Assistant to your FRITZ!Box (_see [username](#username)_)
 Uses an SSL certificate:
-    description: "Whether to use SSL encryption for connecting to your FRITZ!Box router."
+    description: Whether to use SSL encryption for connecting to your FRITZ!Box router.
+Enable network device tracking:
+    description: Whether to enable or disable the network device tracking feature. When disabled, all network device related entities (_Parental control switches, Device tracker and WoL buttons_) will also be removed or not created.
 {% endconfiguration_basic %}
 
 {% include integrations/option_flow.md %}
 
 {% configuration_basic %}
 Consider home:
-  description: Number of seconds that must elapse before considering a disconnected device "not at home".
+    description: Number of seconds that must elapse before considering a disconnected device "not at home".
 Enable old discovery method:
-  description: Required in scenarios such as networks without mesh support (_FritzOS <= 6.x_) or mixed brands network devices or LAN switches.
+    description: Required in scenarios such as networks without mesh support (_FritzOS <= 6.x_) or mixed brands network devices or LAN switches.
+Enable network device tracking:
+    description: Whether to enable or disable the network device tracking feature. When disabled, all network device related entities (_Parental control switches, Device tracker and WoL buttons_) will also be removed or not created.
 {% endconfiguration_basic %}
 
 ## Data updates
@@ -87,7 +93,10 @@ This integration fetches the data every 30 seconds from the FRITZ!Box router.
 
 ## Actions
 
-Available {% term actions %}: `set_guest_wifi_password`
+Available {% term actions %}:
+
+- `set_guest_wifi_password`
+- `dial`
 
 ### Action `set_guest_wifi_password`
 
@@ -98,6 +107,16 @@ Set a new password for the guest wifi. The password Length must be between 8 and
 | `device_id` | yes | Only act on a specific router |
 | `password` | no | New password for the guest wifi (_will be auto-generated if not defined_) |
 | `length` | no | Length of the auto-generated password. (_default 12_) |
+
+### Action `dial`
+
+Makes the FRITZ!Box dial a phone number.
+
+| Data attribute | Required | Description |
+| --- | --- | --- |
+| `device_id` | yes | Only act on a specific router |
+| `number` | yes | The phone number to dial |
+| `max_ring_seconds` | yes | The maximum number of seconds to ring after dialing. Note that the actual ring duration might be shorter depending on the receiver's phone settings. (_default 15 seconds_) |
 
 ## Additional information
 
@@ -111,7 +130,7 @@ Parental control {% term switches %} can be used to enable and disable internet 
 
 ### Port forward switches
 
-Due to security reasons, AVM implemented the ability to enable/disable a port forward rule only from the host involved in the rule. As a result, this integration will create entities only for rules that have your Home Assistant host as a destination.
+Due to security reasons, FRITZ! implemented the ability to enable/disable a port forward rule only from the host involved in the rule. As a result, this integration will create entities only for rules that have your Home Assistant host as a destination.
 
 **Note 1**: On your FRITZ!Box under **Internet** > **Permit Access**, enable the setting `Permit independent port sharing for this device` for the device which runs HA.
 
@@ -182,7 +201,7 @@ In any case, when reporting an issue, please enable [debug logging](/docs/config
 Check if one of the following cases applies:
 
 - You see a device as still present, even if it is offline or disconnected for more than the configured [consider home](#consider-home) seconds.
-- You're using additional network equipment like a network switch or Wi-Fi access point other than an AVM Fritz!Repeater or other AVM components, but not configured as a [mesh](https://en.avm.de/service/knowledge-base/dok/FRITZ-Box-7590/3329_Mesh-with-FRITZ/) in your home network.
+- You're using additional network equipment like a network switch or Wi-Fi access point other than a Fritz!Repeater or other FRITZ! components, but not configured as a [mesh](https://en.fritz.com/service/knowledge-base/dok/FRITZ-Box-7590/3329_Mesh-with-FRITZ/) in your home network.
 
 If one of the above cases applies to your setup, try [enabling the old discovery method](#enable-old-discovery-method) in the [integration options](#integration-options). This might resolve the issue.
 

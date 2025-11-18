@@ -1,0 +1,106 @@
+section#join {
+    isolation: isolate;
+
+    .container {
+        align-items: center;
+        flex-direction: column;
+        position: relative;
+    }
+
+    h2 {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+        text-transform: unset;
+
+        span:not(:first-child) {
+            margin-top: 8px;
+
+            @include bp(desktop) {
+                margin-top: 24px;
+            }
+        }
+    }
+
+    p {
+        //background-color: rgba(245, 246, 250, 0.6);
+        //backdrop-filter: blur(2px);
+        max-width: 650px;
+        text-align: center;
+        text-wrap: balance;
+        padding-top: 16px;
+        z-index: 1;
+
+        @include bp(desktop) {
+            padding-top: 40px;
+        }
+    }
+
+    .buttons {
+        margin-top: 52px;
+        z-index: 1;
+
+        @include bp(desktop) {
+            margin-top: 60px;
+        }
+    }
+
+    .avatars {
+        display: grid;
+        // 12 cols
+        grid-template-columns: repeat(6, 1fr);
+        position: absolute;
+        inset: 0;
+        
+        &[data-dsap]:not([data-dsap-is="in"]):not([data-dsap-is="above"]) { // Reset after scroll up
+            .avatar{
+                opacity: 0;
+            }
+        }
+        
+        @include bp(tablet) {
+            grid-template-columns: repeat(12, 1fr);
+        }
+
+
+        .avatar {
+            justify-self: center;
+            transition: opacity 0.25s ease-out;
+            
+            &.hide{
+                img{
+                    opacity: 0;
+                }
+            }
+            
+            img {
+                height: 48px;
+                width: 48px;
+                border-radius: 50%;
+                transition: opacity 0.5s ease-out;
+            }
+
+
+            // hide every even avatar on desktop
+   
+                &:nth-child(odd) {
+                    display: none;
+                    @include bp(tablet) {
+                        display: block;
+                    }
+                }
+            
+
+            $list: 21,31,76,0,35,70,100,95,50,6,30,26;
+            @for $i from 1 through 12 {                
+                &:nth-child(#{$i}) {
+                    $offset: nth($list, $i);
+                    transform: translateY(calc(#{$offset} * 1%));
+                    opacity: 1;
+                    transition-delay: #{0.2 + ($i * 0.05)}s;
+                }
+            }
+        }
+    }
+}

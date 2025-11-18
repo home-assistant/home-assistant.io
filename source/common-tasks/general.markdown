@@ -13,11 +13,11 @@ This section provides tasks that do not depend on a specific Home Assistant inst
 
 If you want to define a specific interval at which your device is being polled for data, you can disable the default polling interval and create your own polling automation.
 
-## What is data polling?
+### What is data polling?
 
 Data polling is the process of querying a device or service at regular intervals to check for updates or retrieve data. By defining a custom polling interval, you can control how frequently your system checks for new data, which can help optimize performance and reduce unnecessary network traffic.
 
-## Why use an automation instead of changing the integration's polling configuration?
+### Why use an automation instead of changing the integration's polling configuration?
 
 Creating an automation for polling gives you more flexibility on when to poll:
 

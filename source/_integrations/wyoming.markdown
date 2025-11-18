@@ -6,7 +6,6 @@ ha_category:
 ha_iot_class: Local Push
 ha_release: '2023.5'
 ha_codeowners:
-  - '@balloob'
   - '@synesthesiam'
 ha_domain: wyoming
 ha_integration_type: service

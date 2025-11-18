@@ -32,7 +32,7 @@ type:
   type: string
 entity:
   required: true
-  description: Entity ID of `plant` domain.
+  description: Entity ID of `plant` domain. For more information, see the [`plant` integration](/integrations/plant).
   type: string
 name:
   required: false

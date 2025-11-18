@@ -24,6 +24,7 @@ ha_integration_type: device
 related:
   - url: https://www.networkupstools.org
     title: Network UPS Tools
+ha_quality_scale: platinum
 ---
 
 The **Network UPS Tools (NUT)** {% term integration %} allows you to monitor and manage an Uninterruptible Power Supply (UPS) for battery backup, a Power Distribution Unit (PDU), or other similar power device using a [NUT](https://networkupstools.org/) server. It lets you view the status, receive notifications about important events, and execute commands as device actions for one or more such devices.
@@ -67,6 +68,12 @@ Password:
   description: "The password to sign in to your NUT server. The password is optional."
 {% endconfiguration_basic %}
 
+You can update these settings after installation. To do so,
+reconfigure the NUT device via
+{% my integrations title="**Settings** > **Devices & services**" %},
+select {% icon "mdi:dots-vertical" %} for the NUT device you wish to update,
+and select **Reconfigure**.
+
 ## Supported functionality
 
 {% note %}
@@ -97,7 +104,10 @@ The following sensors may be available:
 - **Input load (%)**: Load on (ePDU) input
 - **Input voltage (V)**: Input voltage
 - **Load (%)**: Load on UPS
-- **Outlet voltage (V)**: Total output voltage
+- **Outlet apparent power (VA)**: Apparent power for all outlets
+- **Outlet current (A)**: Current for all outlets
+- **Outlet real power (W)**: Real power for all outlets
+- **Outlet voltage (V)**: Voltage for all outlets
 - **Output phases**: Output phases
 - **Output voltage (V)**: Output voltage
 - **Status**: Human-readable version of "Status data" (see below)
@@ -150,7 +160,7 @@ The following diagnostic sensors may be available:
 - **Battery current (A)**: Battery current
 - **Battery date**: Battery installation or last change date (opaque by mfg)
 - **Battery manuf date**: Battery manufacturing date (opaque by mfg)
-- **Battery runtime (secs)**: Battery runtime
+- **Battery runtime (secs)**: Remaining battery runtime as estimated by the device
 - **Battery temperature (°C)**: Battery temperature
 - **Battery voltage (V)**: Battery voltage
 - **Beeper status**: UPS beeper status, with the available states: `enabled`, `disabled`, and `muted`
@@ -277,7 +287,10 @@ The following switches are available for each switchable outlet:
 ## Data updates
 
 The integration uses {% term polling %} to retrieve data from the NUT
-server. The default polling interval is once every 60 seconds.
+server. The default polling interval is once every 60 seconds. You can
+also [define a custom polling
+interval](/common-tasks/general/#defining-a-custom-polling-interval)
+if needed.
 
 ## Actions
 
@@ -328,7 +341,7 @@ automation:
     - trigger: state
       entity_id:
         - sensor.ups_status
-      to: "On Battery Battery Discharging"
+      to: "On Battery, Battery Discharging"
   actions:
     - action: notify.notify
       data:

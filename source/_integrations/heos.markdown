@@ -15,6 +15,7 @@ ha_platforms:
   - media_player
 ha_integration_type: hub
 ha_quality_scale: platinum
+ha_zeroconf: true
 ---
 
 The HEOS {% term integration %} is used to connect a [HEOS](https://www.denon.com/en-gb/category/heos/) System to Home Assistant. HEOS is a wireless audio ecosystem
@@ -70,7 +71,7 @@ Password:
 Once setup, the host name or IP address used to access the HEOS System can be changed by reconfiguring the integration.
 
 1. Go to **{% my integrations icon title="Settings > Devices & Services" %}**.
-2. Select **Denon HEOS**. Click the three-dot {% icon "mdi:dots-vertical" %} menu and then select **Reconfigure**.
+2. Select **Denon HEOS**. Click the three dots {% icon "mdi:dots-vertical" %} menu and then select **Reconfigure**.
 3. Enter a new [host name or IP address](/integrations/heos/#host).
 4. Click Submit to complete the reconfiguration.
 
@@ -79,7 +80,7 @@ Once setup, the host name or IP address used to access the HEOS System can be ch
 This integration follows standard integration removal. No extra steps are required.
 
 1. Go to **{% my integrations icon title="Settings > Devices & Services" %}**.
-2. Select **Denon HEOS**. Click the three-dot {% icon "mdi:dots-vertical" %} menu and then select **Delete**.
+2. Select **Denon HEOS**. Click the three dots {% icon "mdi:dots-vertical" %} menu and then select **Delete**.
 
 ## Actions
 
@@ -87,7 +88,7 @@ In addition to the standard [Media Player actions](/integrations/media_player#ac
 
 Group volume actions: `heos.group_volume_set`, `heos.group_volume_down`, and `heos.group_volume_up` for entities joined to a group.
 
-Queue actions: `heos.get_queue` to manage a player's queue items.
+Queue actions: `heos.get_queue`, `heos.move_queue_item`, and `heos.remove_from_queue` to manage a player's queue items.
 
 ### Action `heos.group_volume_set`
 
@@ -128,6 +129,45 @@ media_player.office:
       media_id: "134788275"
       album_id: "134788273"
 ```
+
+### Action `heos.move_queue_item`
+
+Move one or more items in the target player's queue, effectively reordering the play queue. The play queue can be enumerated by using the `heos.get_queue` service.
+
+Example action data payload that moves the second item to the top of the play queue:
+
+```yaml
+action: heos.move_queue_item
+target:
+  entity_id: media_player.family_room_receiver
+data:
+  queue_ids:
+    - 2
+  destination_position: 1
+```
+
+| Data attribute | Optional | Description                                                     |
+| ---------------------- | -------- | ------------------------------------------------------- |
+| `queue_ids`            | no       | The IDs (indexes) of the items in the queue to move.    |
+| `destination_position` | no       | The destination position in the queue (starting at 1).  |
+
+### Action `heos.remove_from_queue`
+
+Removes one or more items from the target player(s) queue. The play queue can be enumerated by using the `heos.get_queue` service. Example action data payload:
+
+```yaml
+action: heos.remove_from_queue
+target:
+  entity_id: media_player.family_room_receiver
+data:
+  queue_ids:
+    - 1
+    - 3
+```
+
+| Data attribute | Optional | Description                                                     |
+| ---------------------- | -------- | ------------------------------------------------------- |
+| `queue_ids`            | no       | The IDs (indexes) of the items in the queue to remove.   |
 
 ## Examples
 

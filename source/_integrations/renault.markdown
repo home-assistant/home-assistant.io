@@ -32,7 +32,7 @@ This integration provides the following platforms:
 - Device tracker - to track location of your car.
 - Buttons - to start air conditioning or start/stop the charge. Please note that although available these actions do not work on all vehicles.
 - Selectors - to change the charge mode.
-- Sensors - such as battery level, outside temperature, odometer, estimated range, and charging rate.
+- Sensors - such as battery level, outside temperature, odometer, estimated range, charging rate, and tyre pressure.
 
 {% include integrations/config_flow.md %}
 
@@ -50,6 +50,11 @@ Kamereon account id:
 All vehicles linked to the account should then get added as devices, with sensors added as linked entity.
 
 In some situations, some of the features may require a subscription such as the *Pack EV Remote Control* and/or the *Pack Smart Navigation* subscription.
+
+## Data updates
+
+Due to rate limitations from the Renault servers, the integration limits {% term polling %} to 60 data requests/hour.
+For a single vehicle with all 7 endpoints available, the integration fetches data from the device every 7 minutes.
 
 ## Actions
 

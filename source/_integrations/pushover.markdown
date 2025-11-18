@@ -94,6 +94,19 @@ Also note that in this example the sound parameter is not explicitly set, in whi
       data:
         ttl: 21600 
 ```
+Using the `ttl` parameter, messages may be set to delete automatically after a certain period of time. This is useful for messages that, at some point, outlive their usefulness. The `ttl` parameter specifies a time-to-live in seconds. In the following example, the message will self-delete from the targeted device(s) after 6 hours.
+
+```yaml
+  - service: notify.pushover
+    data:
+      message: "This is the message"
+      title: "Title of message"
+      target:
+        - pixel9
+        - johnsmith
+      data:
+        ttl: 21600 
+```
 
 ## Message Priority
 

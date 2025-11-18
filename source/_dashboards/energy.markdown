@@ -12,7 +12,7 @@ related:
 
 This is a list of all the cards used in the energy dashboard. You can also place them anywhere you want in your dashboard.
 
-Currently, there are no configuration options available for these cards. You can configure them on the {% my config_energy title="energy configuration page" %}.
+You can configure them on the {% my config_energy title="energy configuration page" %}.
 
 ## Energy date picker
 
@@ -121,10 +121,29 @@ link_dashboard: true
 The energy sources table card shows all your energy sources, and the corresponding amount of energy.
 If setup, it will also show the costs and compensation per source and the total.
 
+
+### YAML configuration
+
+The following YAML options are available
+
+{% configuration %}
+type:
+  required: true
+  description: "`energy-sources-table`"
+  type: string
+types:
+  required: false
+  description: "If defined, table displays listed types of consumption only. Valid values are: `grid`, `solar`, `battery`, `gas`, and `water`."
+  type: list
+{% endconfiguration %}
+
 ### Example
 
 ```yaml
 type: energy-sources-table
+types:
+  - gas
+  - water
 ```
 
 ## Grid neutrality gauge
@@ -196,7 +215,29 @@ type: energy-self-sufficiency-gauge
 
 The devices energy graph show the energy usage per device, it is sorted by usage.
 
-By default, this card will show all your devices. Optionally, the number of devices can be limited by adding the `max_devices` option and specifying the maximum number of devices to show. If there are more devices available than shown, the devices with the highest energy usage are shown.
+### YAML configuration
+
+The following YAML options are available
+
+{% configuration %}
+type:
+  required: true
+  description: "`energy-devices-graph`"
+  type: string
+title:
+  required: false
+  description: The title of the card.
+  type: string
+max_devices:
+  required: false
+  description: By default, this card will show all your devices. Optionally, the number of devices can be limited by adding the `max_devices` option and specifying the maximum number of devices to show. If there are more devices available than shown, the devices with the highest energy usage are shown.
+  type: integer
+hide_compound_stats:
+  required: false
+  description: Hide higher level devices like breakers. These are devices that are set as `included_in_stat` of another device.
+  type: boolean
+  default: false
+{% endconfiguration %}
 
 ### Examples
 
@@ -243,6 +284,36 @@ max_devices: 5
 </p>
 
 The sankey energy graph shows the flow of energy in your home. It starts with sources and flows into the various consumers. Devices are grouped into floors and areas if these are configured.
+
+### YAML configuration
+
+The following YAML options are available
+
+{% configuration %}
+type:
+  required: true
+  description: "`energy-sankey`"
+  type: string
+title:
+  required: false
+  description: The title of the card.
+  type: string
+layout:
+  required: false
+  description: "`vertical`, `horizontal` or `auto`. Determines the orientation (flow direction) of the card. `auto` changes it based on the screen size."
+  type: string
+  default: auto
+group_by_area:
+  required: false
+  description: Whether to group the devices by area
+  type: boolean
+  default: true
+group_by_floor:
+  required: false
+  description: Whether to group the devices by floor
+  type: boolean
+  default: true
+{% endconfiguration %}
 
 ### Examples
 

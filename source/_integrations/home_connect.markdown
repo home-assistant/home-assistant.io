@@ -13,6 +13,7 @@ ha_category:
 ha_iot_class: Cloud Push
 ha_release: '0.110'
 ha_domain: home_connect
+ha_quality_scale: platinum
 ha_codeowners:
   - '@DavidMStraub'
   - '@Diegorro98'
@@ -27,8 +28,9 @@ ha_platforms:
   - select
   - sensor
   - switch
-  - time
 ha_integration_type: integration
+ha_zeroconf: true
+ha_dhcp: true
 ---
 
 The Home Connect integration allows users to integrate their home appliances supporting the Home Connect standard for Bosch and Siemens using the [official cloud API](https://developer.home-connect.com).
@@ -331,6 +333,7 @@ Both entities can use these options, but the availability of these will depend o
 - **Magic daily**: `dishcare_dishwasher_program_magic_daily`
 - **Super 60ºC**: `dishcare_dishwasher_program_super_60`
 - **Kurz 60ºC**: `dishcare_dishwasher_program_kurz_60`
+- **Intelligent**: `dishcare_dishwasher_program_learning_dishwasher`
 - **Express sparkle 65ºC**: `dishcare_dishwasher_program_express_sparkle_65`
 - **Machine care**: `dishcare_dishwasher_program_machine_care`
 - **Steam fresh**: `dishcare_dishwasher_program_steam_fresh`
@@ -498,6 +501,22 @@ Both entities can use these options, but the availability of these will depend o
     - **Silent**: `consumer_products_cleaning_robot_enum_type_cleaning_modes_silent`
     - **Standard**: `consumer_products_cleaning_robot_enum_type_cleaning_modes_standard`
     - **Power**: `consumer_products_cleaning_robot_enum_type_cleaning_modes_power`
+    - **Intelligent mode**: `consumer_products_cleaning_robot_enum_type_cleaning_mode_intelligent_mode`
+    - **Vacuum only**: `consumer_products_cleaning_robot_enum_type_cleaning_mode_vacuum_only`
+    - **Mop only**: `consumer_products_cleaning_robot_enum_type_cleaning_mode_mop_only`
+    - **Vacuum and mop**: `consumer_products_cleaning_robot_enum_type_cleaning_mode_vacuum_and_mop`
+    - **Mop after vacuum**: `consumer_products_cleaning_robot_enum_type_cleaning_mode_mop_after_vacuum`
+
+    </details>
+- **Suction power**:
+  - **Description**: Defines the suction power.
+  - **Availability**: Cleaning robot
+  - <details>
+    <summary><b>Options:</b> (click to view)</summary>
+
+    - **Silent**: `consumer_products_cleaning_robot_enum_type_suction_power_silent`
+    - **Standard**: `consumer_products_cleaning_robot_enum_type_suction_power_standard`
+    - **Max**: `consumer_products_cleaning_robot_enum_type_suction_power_max`
 
     </details>
 - **Bean amount**:
@@ -723,7 +742,7 @@ Both entities can use these options, but the availability of these will depend o
 
 ### Sensor
 
-{% details "List of binary sensors" %}
+{% details "List of sensors" %}
 
 - **Finish time**:
   - **Description**: Represents the time when the program will end.
@@ -835,6 +854,10 @@ It is not recommended to use the **Current cavity temperature** sensor because t
 {% endimportant %}
 
 #### Event sensors
+
+{% note %}
+The event sensors will not be provided by the integration until the appliance reports the event.
+{% endnote %}
 
 {% details "Event sensor options" %}
 All the event sensors will have the following possible values:
@@ -1026,6 +1049,7 @@ Starts or selects a program. If the `program` attribute is not set, this action 
 | `program` | yes | Program to select. If set, it will start or select a program depending on `affects_to`. |
 | `consumer_products_cleaning_robot_option_reference_map_id` | yes | Defines which reference map is to be used. |
 | `consumer_products_cleaning_robot_option_cleaning_mode` | yes | Defines the favoured cleaning mode. |
+| `consumer_products_cleaning_robot_option_suction_power` | yes | Defines the suction power. |
 | `consumer_products_coffee_maker_option_bean_amount` | yes | Describes the amount of coffee beans used in a coffee machine program. |
 | `consumer_products_coffee_maker_option_fill_quantity` | yes | Describes the amount of water (in ml) used in a coffee machine program. |
 | `consumer_products_coffee_maker_option_coffee_temperature` | yes | Describes the coffee temperature used in a coffee machine program. |
@@ -1123,9 +1147,7 @@ actions:
           device_id: "your_device_id"
           affects_to: "active_program"
           program: "dishcare_dishwasher_program_eco_50"
-          options:
-            - key: "dishcare_dishwasher_option_silence_on_demand"
-              value: true
+          dishcare_dishwasher_option_silence_on_demand: true
     else:
       - service: home_connect.set_program_and_options
         data:
@@ -1173,7 +1195,7 @@ To solve the above issue, follow these steps:
 
 ### Missing options at the "active program" and "selected program" entities
 
-#### Symptom: "Although I have options, some programs that are available on the app are not in the list of options at the "active program" and "selected program" entities"
+#### Symptom: "Although I have options, some programs that are available on the app are not in the list of options at the "active program" and "selected program" entities or the entities don't show up"
 
 Some programs that are available to select on the app, on the physical device or in the diagnostics file from the device are missing at the "active program" and "selected program" entities.
 
@@ -1185,9 +1207,9 @@ If you see programs in the app or the physical device that are missing in the in
 
 The program key needs to be added to the integration. To help with that, you can open an issue at [aiohomeconnect](https://github.com/MartinHjelmare/aiohomeconnect) about the missing program key.
 
-#### Symptom: "No programs available at the "active program" and "selected program" entities nor in the diagnostics file"
+#### Symptom: "the "active program" and "selected program" entities are not provided by the integration"
 
-There are no programs available to select at the "active program" and "selected program" entities, and the downloaded device diagnostics file does not list any programs.
+The "active program" and "selected program" entities are not provided by the integration, and the downloaded device diagnostics file does not list any programs.
 
 ##### Description
 
@@ -1198,7 +1220,7 @@ The Home Connect API is not sending any programs to the integration.
 There's no solution for this issue. The only thing that can be done is reporting the issue to Home Connect through these channels:
 
 - [Home Connect service and contact](https://www.home-connect.com/us/en/support/contact-and-service)
-- [Home Connect developer Help & Support](https://developer.home-connect.com/support)
+- [Home Connect developer Help & Support](https://developer.home-connect.com/support/contact)
 
 ### Unavailable entities for a device
 
@@ -1241,7 +1263,7 @@ To try to solve the above issues, follow these steps:
       - If the line between the appliance and the cloud is green, the appliance is connected to the cloud.
 4. If everything is correct and the issue persists, contact Home Connect support.
    - [Home Connect service and contact](https://www.home-connect.com/us/en/support/contact-and-service)
-   - [Home Connect developer Help & Support](https://developer.home-connect.com/support)
+   - [Home Connect developer Help & Support](https://developer.home-connect.com/support/contact)
 
 ## Removing the integration
 
