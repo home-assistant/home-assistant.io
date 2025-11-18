@@ -21,6 +21,14 @@ integrations page to find integrations offering calendar entities. For example, 
 
 {% include integrations/building_block_integration.md %}
 
+{% note %}
+**Intended uses**
+
+Home Assistant’s calendar support is designed mainly for automations, not as a replacement for a full-featured personal calendar. It does not aim to provide rich calendar functionality such as advanced search, cross-device sync, or deep integrations with mobile apps and smartwatches.
+
+If you need a complete calendar solution or prefer to store your events locally, consider using an external platform such as [Nextcloud Calendar](https://apps.nextcloud.com/apps/calendar) or [other self-hosted solution](https://github.com/awesome-selfhosted/awesome-selfhosted). These platforms are built for full calendar management and can be integrated with Home Assistant.
+{% endnote %}
+
 ## Viewing and managing calendars
 
 Each calendar is represented as its own {% term entity %} in Home Assistant and can be
@@ -260,3 +268,5 @@ data:
     {% endfor %}
 ```
 {% endraw %}
+
+
