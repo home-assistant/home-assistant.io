@@ -4,7 +4,7 @@ description: Instructions on how to integrate Victron BLE devices into Home Assi
 ha_category:
   - Sensor
 ha_bluetooth: true
-ha_release: '2025.8'
+ha_release: '2025.12'
 ha_iot_class: Local Push
 ha_codeowners:
   - '@rajlaud'
