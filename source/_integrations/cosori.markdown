@@ -1,6 +1,6 @@
 ---
 title: Cosori
-description: Instructions on how to set up Cosori switches, outlets, and fans within Home Assistant.
+description: Connect and control your Cosori devices using the VeSync integration
 ha_category:
   - Fan
   - Light
