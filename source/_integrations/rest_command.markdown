@@ -81,6 +81,11 @@ service_name:
       required: false
       type: boolean
       default: false
+    skip_url_encoding:
+      description: Skip internal URL canonicalization, which would have encoded the _host_ part by [IDNA](https://docs.aiohttp.org/en/stable/glossary.html#term-IDNA) codec and applied [requoting](https://docs.aiohttp.org/en/stable/glossary.html#term-requoting) to the _path_ and _query_ parts.
+      required: false
+      type: boolean
+      default: false
 {% endconfiguration %}
 
 ## Examples
