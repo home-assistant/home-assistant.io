@@ -10,6 +10,7 @@ ha_codeowners:
   - '@heindrichpaul'
 ha_domain: nederlandse_spoorwegen
 ha_platforms:
+  - binary_sensor
   - sensor
 ha_integration_type: service
 ha_quality_scale: legacy
