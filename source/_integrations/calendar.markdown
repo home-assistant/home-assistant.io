@@ -23,7 +23,9 @@ integrations page to find integrations offering calendar entities.
 
 ## Intended uses
 
-Home Assistant’s calendar support is designed primarily for automation use cases. Calendars in Home Assistant allow you to trigger automations based on events, react to upcoming reminders, and manage simple local event data. They are not intended to replace a full-featured personal calendar and do not aim to provide advanced search, cross-device synchronization, or deep integrations with native mobile calendar applications.
+Home Assistant’s calendar support is designed primarily for automation use cases. Calendars in Home Assistant allow you to trigger automations based on events and access event information provided by calendar integrations, regardless of where the actual calendar data is stored. This is made possible through calendar integrations, which connect Home Assistant to a variety of  calendar sources. 
+
+Home Assistant is not aim to replace a full-featured personal calendar. Instead, it works alongside external calendar platforms, complementing them with powerful automation capabilities.
 
 If you need a complete personal calendar, you should first look at the existing [calendar integrations](/integrations/#calendar) that Home Assistant already supports. Some of these integrations allow you to create, edit, or delete events in external calendar services directly from Home Assistant.
 
