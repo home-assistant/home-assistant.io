@@ -25,14 +25,13 @@ integrations page to find integrations offering calendar entities.
 
 Home Assistant’s calendar support is designed primarily for automation use cases. Calendars in Home Assistant allow you to trigger automations based on events, react to upcoming reminders, and manage simple local event data. They are not intended to replace a full-featured personal calendar and do not aim to provide advanced search, cross-device synchronization, or deep integrations with native mobile calendar applications.
 
-If you need a complete personal calendar or prefer to keep your events fully local, you should first look at the existing [calendar integrations](/integrations/#calendar) that Home Assistant already supports. Some of these integrations allow you to create, edit, or delete events in external calendar services directly from Home Assistant.
+If you need a complete personal calendar, you should first look at the existing [calendar integrations](/integrations/#calendar) that Home Assistant already supports. Some of these integrations allow you to create, edit, or delete events in external calendar services directly from Home Assistant.
 
-If you want a full-featured, privacy-oritented and self-hosted calendar platform, consider using an external platform such as [Nextcloud Calendar](https://apps.nextcloud.com/apps/calendar) or [other self-hosted solutions](https://github.com/awesome-selfhosted/awesome-selfhosted). These platforms expose their calendars over **CalDAV**, which can be integrated with Home Assistant using [the CalDAV integration](/integrations/caldav/).
+If you want a full-featured, privacy-oriented and self-hosted calendar platform, consider using an other solutions such as [Nextcloud Calendar](https://apps.nextcloud.com/apps/calendar) or [other self-hosted solutions](https://github.com/awesome-selfhosted/awesome-selfhosted). These platforms expose their calendars over **CalDAV**, which can be integrated with Home Assistant using [the CalDAV integration](/integrations/caldav/).
 
-These platforms manage your calendar data with full functionality, while Home Assistant can use those events seamlessly in automations.
+These platforms provide full calendar functionality, while Home Assistant can still use their events in automations.
 
-For simple automation scenarios, Home Assistant also includes [the Local Calendar integration](integrations/local_calendar/). It provides a fully local event store, but its intended use is limited to automation-related cases and it is not designed to serve as a general personal calendar.
-
+For automation-focused scenarios, Home Assistant also includes [the Local Calendar integration](/integrations/local_calendar/). It provides a fully local event store, but its intended use is limited to automation purposes and it is not designed to serve as a general personal calendar.
 
 ## Viewing and managing calendars
 
