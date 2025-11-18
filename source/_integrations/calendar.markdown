@@ -21,7 +21,7 @@ integrations page to find integrations offering calendar entities.
 
 {% include integrations/building_block_integration.md %}
 
-## Intended uses
+## Getting started with calendars
 
 Home Assistant’s calendar support is designed primarily for automation use cases. It allows you to trigger automations based on events and access event information provided by calendar integrations, regardless of where the actual calendar data is stored. When supported by a given integration, Home Assistant can also **create**, **edit**, and **delete** events in external calendars, making it possible to interact with calendars both for reading and writing.
 
