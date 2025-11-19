@@ -3,7 +3,9 @@
         <div class="section-inner-content">
             <div class="container">
                 <h2>Choose what’s best for your home</h2>
-                <p class="body-large">Connect ZBT-2 gives you the flexibility to run either a Zigbee or Thread network. Even though you need to select one, both technologies give devices a local connection, longer battery life, and reduces the strain on your home Wi-Fi.</p>
+                <p class="body-large">Connect ZBT-2 gives you the flexibility to run either a Zigbee or Thread network.
+                    Even though you need to select one, both technologies give devices a local connection, longer
+                    battery life, and reduces the strain on your home Wi-Fi.</p>
                 <div class="protocol-toggles">
                     <div class="protocol-toggle active" data-protocol-toggle="thread">Thread</div>
                     <div class="protocol-toggle" data-protocol-toggle="zigbee">Zigbee</div>
@@ -44,13 +46,11 @@
     </div>
 </section>
 <script>
-    (function(){
-        // when you click the card or the protocol-toggle, switch the active state
+    (function () {
         const protocolToggles = document.querySelectorAll('#zigbee-thread .protocol-toggle');
         const cards = document.querySelectorAll('#zigbee-thread .card');
         const cardsContainer = document.querySelector('#zigbee-thread .cards');
 
-        // Function to adjust card positioning on mobile
         function adjustCardPosition() {
             if (window.innerWidth <= 632) {
                 const activeCard = document.querySelector('#zigbee-thread .card.active');
@@ -58,36 +58,30 @@
 
                 const containerWidth = cardsContainer.offsetWidth;
                 const cardWidth = activeCard.offsetWidth;
-                const gap = 20; // gap between cards
-                
-                // Check if the active card is the second one (Zigbee)
+                const gap = 20;
+
                 if (activeCard.id === 'zigbee') {
-                    // Calculate how much to shift left so the second card's right edge aligns with container's right edge
                     const firstCardWidth = cards[0].offsetWidth;
                     const totalWidth = firstCardWidth + gap + cardWidth;
                     const overflow = totalWidth - containerWidth;
-                    
+
                     if (overflow > 0) {
                         cardsContainer.style.transform = `translateX(-${overflow}px)`;
                     } else {
                         cardsContainer.style.transform = 'translateX(0)';
                     }
                 } else {
-                    // First card is active, reset position
                     cardsContainer.style.transform = 'translateX(0)';
                 }
             } else {
-                // On larger screens, reset transform
                 cardsContainer.style.transform = '';
             }
         }
 
-        // Add transition to cards container for smooth animation
         cardsContainer.style.transition = 'transform 0.3s ease-out';
 
-        // Function to switch to a specific card
         function switchToCard(targetId) {
-            // update protocol-toggles
+
             protocolToggles.forEach(t => {
                 if (t.getAttribute('data-protocol-toggle') === targetId) {
                     t.classList.add('active');
@@ -96,7 +90,7 @@
                 }
             });
 
-            // update cards
+
             cards.forEach(card => {
                 if (card.id === targetId) {
                     card.classList.add('active');
@@ -105,14 +99,14 @@
                 }
             });
 
-            // Adjust card position on mobile
+
             adjustCardPosition();
         }
 
-        // Swipe detection for mobile
+
         let touchStartX = 0;
         let touchEndX = 0;
-        const swipeThreshold = 50; // minimum distance for a swipe
+        const swipeThreshold = 50;
 
         cardsContainer.addEventListener('touchstart', (e) => {
             touchStartX = e.changedTouches[0].screenX;
@@ -125,21 +119,21 @@
 
         function handleSwipe() {
             const swipeDistance = touchEndX - touchStartX;
-            
+
             if (Math.abs(swipeDistance) < swipeThreshold) {
-                return; // Not enough movement to count as a swipe
+                return;
             }
 
             const activeCard = document.querySelector('#zigbee-thread .card.active');
             if (!activeCard) return;
 
             if (swipeDistance > 0) {
-                // Swipe right - go to Thread (first card)
+
                 if (activeCard.id === 'zigbee') {
                     switchToCard('thread');
                 }
             } else {
-                // Swipe left - go to Zigbee (second card)
+
                 if (activeCard.id === 'thread') {
                     switchToCard('zigbee');
                 }
@@ -159,7 +153,7 @@
             });
         });
 
-        // Handle window resize
+
         let resizeTimeout;
         window.addEventListener('resize', () => {
             clearTimeout(resizeTimeout);
@@ -168,7 +162,7 @@
             }, 50);
         });
 
-        // Initial adjustment
+
         adjustCardPosition();
     })();
 </script>

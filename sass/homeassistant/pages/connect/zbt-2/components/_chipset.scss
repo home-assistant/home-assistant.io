@@ -131,7 +131,6 @@ section#chipset {
             }
         }
 
-        // and is !=in
         &:not([data-dsap-is="in"]) {
             .comparisons .comparison .progress div {
                 transition-duration: 0s !important;

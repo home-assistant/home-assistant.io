@@ -25,7 +25,6 @@ section#built-for-home-assistant {
             }
         }
 
-        // and is !=in
         &:not([data-dsap-is="in"]) {
             .col:first-child img {
                 transform: translateY(5%);

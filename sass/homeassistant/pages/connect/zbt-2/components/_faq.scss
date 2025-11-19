@@ -31,13 +31,8 @@ section#faq {
             display: flex;
             flex-direction: column;
 
-            // Checkbox-driven open state
             input[type="checkbox"] {
                 display: none;
-            }
-
-            input[type="checkbox"]:checked ~ .accordion-item-heading {
-                // Optionally style the heading when open
             }
 
             input[type="checkbox"]:checked ~ .accordion-item-content-animation-wrapper {
@@ -205,8 +200,6 @@ section#faq {
                     &:hover:after {
                         transform: translate(-50%, -50%) scale(calc(34/28));
                     }
-
-                    // .active state now handled by input:checked selectors above
                 }
             }
 

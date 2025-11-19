@@ -88,14 +88,11 @@
                 left: 0;
                 border-radius: 50%;
                 background-color: #ffffff;
-                //                filter: drop-shadow(0 0 14.7px var(--Blue---Connect-Line, #005FBE));
                 box-shadow: 0 0 6px var(--Blue---Connect-Line, #005FBE);
             }
-
         }
     }
 }
-
 
 section {
     color: #ffffff;
@@ -112,9 +109,7 @@ section {
 
     .section-inner-content {
         padding: 40px 0;
-        width: 100%;
-
-    
+        width: 100%;    
     }
 }
 

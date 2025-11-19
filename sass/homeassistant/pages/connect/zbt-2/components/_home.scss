@@ -18,7 +18,6 @@ section#home {
             }
         }
 
-        // and is !=in
         &:not([data-dsap-is="in"]) {
             img {
                 transition-delay: 0s !important;
