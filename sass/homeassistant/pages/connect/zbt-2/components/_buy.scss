@@ -3,7 +3,18 @@ section#buy {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 560px;
+    
+    &:before{
+        position: absolute;
+        height: 560px;
+        content: '';
+        background-image: url('/images/connect/zbt-2/dark-front-lit.webp');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        
+    }
+
     isolation: isolate;
     
     @include bp(desktop) {
