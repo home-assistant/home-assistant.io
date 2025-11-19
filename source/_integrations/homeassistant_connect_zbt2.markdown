@@ -13,7 +13,6 @@ ha_config_flow: true
 ha_platforms:
   - switch
   - update
-published: false
 ha_quality_scale: bronze
 ---
 
