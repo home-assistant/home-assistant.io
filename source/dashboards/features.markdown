@@ -808,6 +808,7 @@ Widget that displays the a trend of the history for a numeric [sensor](/integrat
 features:
   - type: "trend-graph"
     hours_to_show: 24
+    detail: true
 ```
 
 {% configuration features %}
@@ -820,6 +821,11 @@ hours_to_show:
   description: Hours to show in graph. Minimum is 1 hour. Big values can result in delayed rendering, especially if the selected entities have a lot of state changes.
   type: integer
   default: 24
+detail:
+  required: false
+  description: Show more detail in the graph. When enabled, samples to 1 point per 5 pixels. When disabled, samples to 1 point per hour using mean values for a smoother graph.
+  type: boolean
+  default: true
 {% endconfiguration %}
 
 ## Update actions
