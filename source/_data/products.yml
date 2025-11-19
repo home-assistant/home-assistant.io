@@ -795,3 +795,8 @@ zbt-2:
       ship_to: Europe
       url: https://nettop.gr/index.php/smart-home/home-assistant/home-assistant-connect-zbt-2.html 
       logo: /images/distributors/nettop.webp
+    - name: Nurkan takaa
+      ship_from: Finland
+      ship_to: Europe
+      url: https://verkkokauppa.nurkantakaa.fi/tuote/nc-zbt-9741/
+      logo: /images/distributors/nurkan-takaa.webp
