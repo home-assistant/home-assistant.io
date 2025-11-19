@@ -67,40 +67,85 @@ The **PoolDose** integration provides the following entities.
 
 ### Binary sensors
 
-| Identifier | Device class | Description |
-|--------|------|-------------|
-| **recirculation_pump_alarm** | Problem | Indicate recirculation issue |
-| **ph_tank_level** | Problem | Low pH dosing solution level |
-| **orp_tank_level** | Problem | Low ORP dosing solution level |
-| **cl_tank_level** | Problem | Low chlorine dosing solution level |
-| **flow_rate_alarm** | Problem | Water flow issues |
-| **ph_overfeed** | Problem | Excessive pH dosing detected |
-| **orp_overfeed** | Problem | Excessive ORP dosing detected |
-| **alarm_relay** | — | Main alarm relay state |
-| **auxiliary_relay_1** | — | Auxiliary relay 1 output state |
-| **auxiliary_relay_2** | — | Auxiliary relay 2 output state |
-| **auxiliary_relay_3** | — | Auxiliary relay 3 output state |
-| **flow_rate_reed_sensor** | Opening | Flow detection |
+- **Recirculation pump alarm**
+  - **Device class**: Problem
+  - **Description**: Indicates recirculation issue.
+- **pH tank level**
+  - **Device class**: Problem
+  - **Description**: Low pH dosing solution level.
+- **ORP tank level**
+  - **Device class**: Problem
+  - **Description**: Low ORP dosing solution level.
+- **Chlorine tank level**
+  - **Device class**: Problem
+  - **Description**: Low chlorine dosing solution level.
+- **Flow rate alarm**
+  - **Device class**: Problem
+  - **Description**: Water flow issues.
+- **pH overfeed**
+  - **Device class**: Problem
+  - **Description**: Excessive pH dosing detected.
+- **ORP overfeed**
+  - **Device class**: Problem
+  - **Description**: Excessive ORP dosing detected.
+- **Alarm relay**
+  - **Description**: Main alarm relay state.
+- **Auxiliary relay 1**
+  - **Description**: Auxiliary relay 1 output state.
+- **Auxiliary relay 2**
+  - **Description**: Auxiliary relay 2 output state.
+- **Auxiliary relay 3**
+  - **Description**: Auxiliary relay 3 output state.
+- **Flow rate reed sensor**
+  - **Device class**: Opening
+  - **Description**: Flow detection.
 
 ### Sensors
 
-| Identifier | Unit | Description | States |
-|--------|------|-------------|--------|
-| **temperature** | °C/°F | water temperature | — |
-| **ph** | — | pH value | — |
-| **orp** | mV | Current ORP (Redox) value | — |
-| **ph_type_dosing** | — | Type of pH dosing being used | pH+, pH- |
-| **peristaltic_ph_dosing** | — | pH peristaltic dosing mode | Off, Proportional, On/Off, Timed |
-| **ofa_ph_value** | min | Time threshold for pH overfeed alerts | — |
-| **orp_type_dosing** | — | Type of ORP dosing being used | Low, High |
-| **peristaltic_orp_dosing** | — | ORP peristaltic dosing mode | Off, Proportional, On/Off, Timed |
-| **ofa_orp_value** | min | Time threshold for ORP overfeed alerts | — |
-| **ph_calibration_type** | — | Type of pH calibration being used | Off, Reference, 1 point, 2 points |
-| **ph_calibration_offset** | mV | pH calibration offset value | — |
-| **ph_calibration_slope** | mV | pH calibration slope value | — |
-| **orp_calibration_type** | — | Type of ORP calibration being used | Off, Reference, 1 point |
-| **orp_calibration_offset** | mV | ORP calibration offset value | — |
-| **orp_calibration_slope** | mV | ORP calibration slope value | — |
+- **Temperature**
+  - **Unit**: °C, °F
+  - **Description**: Water temperature.
+- **pH**
+  - **Description**: pH value.
+- **ORP**
+  - **Unit**: mV
+  - **Description**: Current ORP (Redox) value.
+- **pH type dosing**
+  - **Description**: Type of pH dosing being used.
+  - **Values**: pH+, pH-
+- **Peristaltic pH dosing**
+  - **Description**: pH peristaltic dosing mode.
+  - **Values**: Off, Proportional, On/Off, Timed
+- **Overfeed alert pH value**
+  - **Unit**: min
+  - **Description**: Time threshold for pH overfeed alerts.
+- **ORP type dosing**
+  - **Description**: Type of ORP dosing being used.
+  - **Values**: Low, High
+- **Peristaltic ORP dosing**
+  - **Description**: ORP peristaltic dosing mode.
+  - **Values**: Off, Proportional, On/Off, Timed
+- **Overfeed alert ORP value**
+  - **Unit**: min
+  - **Description**: Time threshold for ORP overfeed alerts.
+- **pH calibration type**
+  - **Description**: Type of pH calibration being used.
+  - **Values**: Off, Reference, 1 point, 2 points
+- **pH calibration offset**
+  - **Unit**: mV
+  - **Description**: pH calibration offset value.
+- **pH calibration slope**
+  - **Unit**: mV
+  - **Description**: pH calibration slope value.
+- **ORP calibration type**
+  - **Description**: Type of ORP calibration being used.
+  - **Values**: Off, Reference, 1 point
+- **ORP calibration offset**
+  - **Unit**: mV
+  - **Description**: ORP calibration offset value.
+- **ORP calibration slope**
+  - **Unit**: mV
+  - **Description**: ORP calibration slope value.
 
 ## Known limitations
 
