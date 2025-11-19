@@ -139,8 +139,8 @@ This section describes how to add it via Home Assistant's preferred {% term Thre
   - Make sure the {% term Thread %} network you'd like to use is known by Home Assistant and marked as **Preferred network** in the {% term Thread %} configuration.
   - If you have a Home Assistant Yellow, or a Connect ZBT-1 or ZBT-2, you can enable Thread to set up an Open Thread border router and with that a {% term Thread %} network.
     - Documentation on [enabling Thread on Yellow](https://support.nabucasa.com/hc/en-us/articles/25742476767517)
-    - Documentation on [enabling Thread on Connect ZBT-2](https://support.nabucasa.com/hc/en-us/sections/31260019451421)
     - Documentation on [enabling Thread on Connect ZBT-1](https://support.nabucasa.com/hc/en-us/sections/26122472719517)
+    - Documentation on [enabling Thread on Connect ZBT-2](https://support.nabucasa.com/hc/en-us/sections/31260019451421)
 
 #### To add a HomeKit device to a Thread network via Home Assistant
 
