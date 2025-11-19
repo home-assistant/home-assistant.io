@@ -15,8 +15,6 @@ ha_zeroconf: true
 related:
   - docs: /yellow/
     title: Home Assistant Yellow - hub
-  - docs: /connect/zbt-2/
-    title: Home Assistant Connect ZBT-2 - Zigbee/Thread USB stick
   - docs: /integrations/matter/
     title: Matter
   - docs: /integrations/homekit_controller/
