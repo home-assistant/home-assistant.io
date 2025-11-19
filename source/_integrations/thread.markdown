@@ -131,7 +131,7 @@ Find out if you already have Thread networks:
 
 ### Case 1: Making Home Assistant your first Thread network
 
-Follow these steps if you want to turn Home Assistant into a Thread border router using the Thread radio of Yellow, Connect&nbsp;ZBT-1, Connect&nbsp;ZBT-2, or another compatible radio and you do not have any third-party Thread networks present yet. This will automatically create a new Thread network with the name `ha-thread-xxxx`. The last for digits are a network-specific identifier (PAN ID).
+Follow these steps if you want to turn Home Assistant into a Thread border router using the Thread radio of Yellow, Connect&nbsp;ZBT-1, Connect&nbsp;ZBT-2, or another compatible radio and you do not have any third-party Thread networks present yet. This will automatically create a new Thread network with the name `ha-thread-xxxx`. The last four digits are a network-specific identifier (PAN ID).
 
 #### Prerequisites
 
