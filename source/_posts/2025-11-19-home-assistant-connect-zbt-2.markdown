@@ -25,7 +25,9 @@ Available today starting at $49 and €45 (that’s the MSRP, and pricing will v
 </a>
 <!--more-->
 
-## What are Zigbee, Thread, and Matter?
+<br>
+
+{% details "What are Zigbee, Thread, and Matter?" %}
 
 The short answer is they’re all open standards that let smart devices talk directly to your smart hub of choice, like Home Assistant. We love open standards because they don’t rely on the cloud, which means your devices are fully under your control at home, with no risk of turning into a paperweight if the manufacturer gets bored of paying the server fees. Also, when used with Home Assistant, your smart home data never needs to leave your home, which is always better for privacy.
 
@@ -34,6 +36,8 @@ The short answer is they’re all open standards that let smart devices talk dir
 **Matter** is the big new standard – [its tech is cutting-edge](/integrations/matter/#what-does-thread-have-to-do-with-matter), and growing really fast. It can use Wi-Fi to talk to devices, but if that device is battery-powered, it’ll probably use **Thread** instead. Matter devices that use Thread are getting really good, and many are [Works with Home Assistant](https://works-with.home-assistant.io/) certified, including devices from [Nuki](/blog/2025/07/03/nuki-joins-works-with-home-assistant/), [Eve](/blog/2025/04/29/eve-joins-works-with-home-assistant/), [MotionBlinds](/blog/2025/03/27/motionblinds-joins-wwha/), and [Aqara](/blog/2024/09/03/aqara-joins-works-with-home-assistant/).
 
 Whether you set up your Connect ZBT-2 to use Zigbee or Thread, you can’t really go wrong, as both standards have devices for nearly every smart home need. Both give devices great battery life, take some strain off your Wi-Fi, and counterintuitively, [the more devices you have](/integrations/zha/#using-router-devices-to-add-more-devices), the better the range and stability can be.
+
+{% enddetails %}
 
 ## Standing on the shoulders of giants
 
