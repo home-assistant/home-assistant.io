@@ -57,15 +57,17 @@ section#zigbee-thread {
     .cards {
         display: flex;
         width: 100%;
-        gap: 20px;
+        @include bp(632px){
         justify-content: center;
+        }
+        gap: 20px;
     }
 
     .card {
         background: #000;
         position: relative;
         border-radius: 16px;
-        height: 100%;
+        height: auto;
         max-width: 286px;
         flex-shrink: 0;
         display: flex;
@@ -109,7 +111,6 @@ section#zigbee-thread {
             display: flex;
             align-items: center;
             text-align: center;
-            justify-content: center;
             overflow: hidden;
             flex-direction: column;
             width: 100%;
@@ -130,6 +131,15 @@ section#zigbee-thread {
             border-bottom-right-radius: 16px;
 
             height: 280px;
+        }
+
+        .matter{
+            align-items: center;
+            display: flex;
+            padding: 12px 20px;
+            gap: 12px;
+            font-size: 12px;
+            font-weight: 600;
         }
     }
 }

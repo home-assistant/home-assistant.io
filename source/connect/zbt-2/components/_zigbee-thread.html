@@ -21,6 +21,7 @@
                             </div>
                             <div class="matter">
                                 <img src="/images/connect/zbt-2/matter.svg" alt="Matter logo">
+                                Home Assistant is Matter certified.
                             </div>
                         </div>
                         <img src="/images/connect/zbt-2/zbt-2-thread.webp">
@@ -47,6 +48,42 @@
         // when you click the card or the protocol-toggle, switch the active state
         const protocolToggles = document.querySelectorAll('#zigbee-thread .protocol-toggle');
         const cards = document.querySelectorAll('#zigbee-thread .card');
+        const cardsContainer = document.querySelector('#zigbee-thread .cards');
+
+        // Function to adjust card positioning on mobile
+        function adjustCardPosition() {
+            if (window.innerWidth <= 632) {
+                const activeCard = document.querySelector('#zigbee-thread .card.active');
+                if (!activeCard) return;
+
+                const containerWidth = cardsContainer.offsetWidth;
+                const cardWidth = activeCard.offsetWidth;
+                const gap = 20; // gap between cards
+                
+                // Check if the active card is the second one (Zigbee)
+                if (activeCard.id === 'zigbee') {
+                    // Calculate how much to shift left so the second card's right edge aligns with container's right edge
+                    const firstCardWidth = cards[0].offsetWidth;
+                    const totalWidth = firstCardWidth + gap + cardWidth;
+                    const overflow = totalWidth - containerWidth;
+                    
+                    if (overflow > 0) {
+                        cardsContainer.style.transform = `translateX(-${overflow}px)`;
+                    } else {
+                        cardsContainer.style.transform = 'translateX(0)';
+                    }
+                } else {
+                    // First card is active, reset position
+                    cardsContainer.style.transform = 'translateX(0)';
+                }
+            } else {
+                // On larger screens, reset transform
+                cardsContainer.style.transform = '';
+            }
+        }
+
+        // Add transition to cards container for smooth animation
+        cardsContainer.style.transition = 'transform 0.3s ease-out';
 
         protocolToggles.forEach(protocolToggle => {
             protocolToggle.addEventListener('click', () => {
@@ -69,6 +106,9 @@
                         card.classList.remove('active');
                     }
                 });
+
+                // Adjust card position on mobile
+                adjustCardPosition();
             });
         });
 
@@ -93,7 +133,22 @@
                         c.classList.remove('active');
                     }
                 });
+
+                // Adjust card position on mobile
+                adjustCardPosition();
             });
         });
+
+        // Handle window resize
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                adjustCardPosition();
+            }, 50);
+        });
+
+        // Initial adjustment
+        adjustCardPosition();
     })();
 </script>
