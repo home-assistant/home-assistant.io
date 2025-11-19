@@ -85,57 +85,77 @@
         // Add transition to cards container for smooth animation
         cardsContainer.style.transition = 'transform 0.3s ease-out';
 
+        // Function to switch to a specific card
+        function switchToCard(targetId) {
+            // update protocol-toggles
+            protocolToggles.forEach(t => {
+                if (t.getAttribute('data-protocol-toggle') === targetId) {
+                    t.classList.add('active');
+                } else {
+                    t.classList.remove('active');
+                }
+            });
+
+            // update cards
+            cards.forEach(card => {
+                if (card.id === targetId) {
+                    card.classList.add('active');
+                } else {
+                    card.classList.remove('active');
+                }
+            });
+
+            // Adjust card position on mobile
+            adjustCardPosition();
+        }
+
+        // Swipe detection for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+        const swipeThreshold = 50; // minimum distance for a swipe
+
+        cardsContainer.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        cardsContainer.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, { passive: true });
+
+        function handleSwipe() {
+            const swipeDistance = touchEndX - touchStartX;
+            
+            if (Math.abs(swipeDistance) < swipeThreshold) {
+                return; // Not enough movement to count as a swipe
+            }
+
+            const activeCard = document.querySelector('#zigbee-thread .card.active');
+            if (!activeCard) return;
+
+            if (swipeDistance > 0) {
+                // Swipe right - go to Thread (first card)
+                if (activeCard.id === 'zigbee') {
+                    switchToCard('thread');
+                }
+            } else {
+                // Swipe left - go to Zigbee (second card)
+                if (activeCard.id === 'thread') {
+                    switchToCard('zigbee');
+                }
+            }
+        }
+
         protocolToggles.forEach(protocolToggle => {
             protocolToggle.addEventListener('click', () => {
                 const target = protocolToggle.getAttribute('data-protocol-toggle');
-
-                // update protocolToggles
-                protocolToggles.forEach(t => {
-                    if (t === protocolToggle) {
-                        t.classList.add('active');
-                    } else {
-                        t.classList.remove('active');
-                    }
-                });
-
-                // update cards
-                cards.forEach(card => {
-                    if (card.id === target) {
-                        card.classList.add('active');
-                    } else {
-                        card.classList.remove('active');
-                    }
-                });
-
-                // Adjust card position on mobile
-                adjustCardPosition();
+                switchToCard(target);
             });
         });
 
         cards.forEach(card => {
             card.addEventListener('click', () => {
-                const target = card.id;
-
-                // update protocol-toggles
-                protocolToggles.forEach(t => {
-                    if (t.getAttribute('data-protocol-toggle') === target) {
-                        t.classList.add('active');
-                    } else {
-                        t.classList.remove('active');
-                    }
-                });
-
-                // update cards
-                cards.forEach(c => {
-                    if (c === card) {
-                        c.classList.add('active');
-                    } else {
-                        c.classList.remove('active');
-                    }
-                });
-
-                // Adjust card position on mobile
-                adjustCardPosition();
+                switchToCard(card.id);
             });
         });
 
