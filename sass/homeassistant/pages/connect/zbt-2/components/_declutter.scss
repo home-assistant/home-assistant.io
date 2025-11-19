@@ -42,7 +42,7 @@ section#declutter {
         }
 
         .button{
-            transition: all 0.3s ease;
+            transition: all 5s ease-out;
             position: absolute;
             top: 50%;
             left: 50%;
@@ -50,6 +50,7 @@ section#declutter {
             &.hide{
                 opacity: 0;
                 pointer-events: none;
+                transition: all 0.3s ease;
             }
         }
     }
