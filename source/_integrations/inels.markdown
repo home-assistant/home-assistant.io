@@ -20,6 +20,7 @@ The **iNELS** {% term integration %} allows you to control and monitor the devic
 There is currently support for the following device types within Home Assistant:
 
 - Switch
+- Light
 
 ## Prerequisites
 
