@@ -1,4 +1,5 @@
 <section id="buy">
+    <div class="background"></div>
     <div class="section-inner">
         <div class="section-inner-content">
             <div class="container">
@@ -13,3 +14,20 @@
         </div>
     </div>
 </section>
+<script>
+    (function () {
+        // add "active" to background when middle of viewport. I don't want it when it's just barely visible at the top or bottom
+        const section = document.querySelector('#buy');
+        const background = section.querySelector('.background');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
+                    background.classList.add('active');
+                } else {
+                    background.classList.remove('active');
+                }
+            });
+        }, { threshold: [0, 0.5, 1] });
+        observer.observe(section);
+    })();
+</script>

@@ -1,26 +1,47 @@
 section#buy {
-    background-image: url('/images/connect/zbt-2/dark-left-lit.webp');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    
-    &:before{
+    isolation: isolate;
+    max-height: 1000px;
+    margin: 0 auto;
+
+    .background {
+        pointer-events: none;
         position: absolute;
-        height: 560px;
-        content: '';
-        background-image: url('/images/connect/zbt-2/dark-front-lit.webp');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        
+        inset: 0;
+
+        &:before {
+            content: '';
+            background-image: url('/images/connect/zbt-2/dark-left-lit.webp');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: absolute;
+            inset: 0;;
+        }
+
+        &:after {
+            position: absolute;
+            inset: 0;
+            content: '';
+            background-image: url('/images/connect/zbt-2/dark-front-lit.webp');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0;
+            transition: opacity 1.5s ease-out;
+        }
+
+        &.active{
+            &:after {
+                opacity: 1;
+            }
+        }
     }
 
-    isolation: isolate;
-    
+
     @include bp(desktop) {
         background-size: contain;
         isolation: unset;
-        height: 920px;
+        aspect-ratio: 16 / 9;
     }
 
     .cols {
@@ -101,14 +122,14 @@ section#buy {
             line-height: 1;
         }
 
-        sub{
+        sub {
             vertical-align: initial;
             bottom: 0;
             margin-right: 6px;
         }
     }
 
-    .button{
+    .button {
         margin-top: 40px;
     }
 
@@ -126,10 +147,11 @@ section#buy {
         }
     }
 
-    .nc-collaboration{
+    .nc-collaboration {
         bottom: 20px;
         max-width: calc(100% - 20px);
-        @include bp(desktop){
+
+        @include bp(desktop) {
             bottom: 60px;
         }
     }
