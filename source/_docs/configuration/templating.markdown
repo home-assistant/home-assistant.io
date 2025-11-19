@@ -239,6 +239,23 @@ Other state examples:
 
 {% endraw %}
 
+{% note %}
+
+If an `entity_id` starts with a number, it has to be templated in a special way  
+Let's say the `entity_id` is `1_light` and you want the `state.last_changed`
+
+{% raw %}
+
+```jinja
+{{ state.light['1_light'].last_changed }}
+```
+
+{% endraw %}
+
+Best is, if possible, to avoid having an entity id start with a number e.g. `one_light`
+
+{% endnote %}
+
 #### Formatting sensor states
 
 The examples below show the output of a temperature sensor with state `20.001`, unit `°C` and user configured presentation rounding set to 1 decimal.
