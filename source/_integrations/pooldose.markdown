@@ -2,6 +2,7 @@
 title: SEKO PoolDose
 description: Connect your SEKO PoolDose water treatment system to Home Assistant.
 ha_category:
+  - Binary sensor
   - Sensor
   - Water Management
 ha_iot_class: Local Polling
@@ -11,6 +12,7 @@ ha_codeowners:
   - '@lmaertin'
 ha_domain: pooldose
 ha_platforms:
+  - binary_sensor
   - sensor
 ha_integration_type: integration
 ha_quality_scale: bronze
@@ -19,7 +21,7 @@ ha_dhcp: true
 
 The PoolDose integration connects a [SEKO](https://www.seko.com/) water treatment system with Home Assistant. SEKO is a manufacturer of various monitoring and control devices for pools and spas.
 
-This integration uses an undocumented local HTTP API. It provides live readings for pool sensors such as temperature, pH, ORP/Redox, as well as configuration parameters.
+This integration uses an undocumented local HTTP API. It provides live readings for pool sensors such as temperature, pH, ORP/Redox, alarm status, relay states, as well as configuration parameters.
 
 ## Prerequisites
 
@@ -61,7 +63,26 @@ The following devices are known to be supported by the integration:
 
 ## Supported functionality
 
-### Sensor entities
+The **PoolDose** integration provides the following entities.
+
+### Binary sensors
+
+| Identifier | Device class | Description |
+|--------|------|-------------|
+| **recirculation_pump_alarm** | Problem | Indicate recirculation issue |
+| **ph_tank_level** | Problem | Low pH dosing solution level |
+| **orp_tank_level** | Problem | Low ORP dosing solution level |
+| **cl_tank_level** | Problem | Low chlorine dosing solution level |
+| **flow_rate_alarm** | Problem | Water flow issues |
+| **ph_overfeed** | Problem | Excessive pH dosing detected |
+| **orp_overfeed** | Problem | Excessive ORP dosing detected |
+| **alarm_relay** | — | Main alarm relay state |
+| **auxiliary_relay_1** | — | Auxiliary relay 1 output state |
+| **auxiliary_relay_2** | — | Auxiliary relay 2 output state |
+| **auxiliary_relay_3** | — | Auxiliary relay 3 output state |
+| **flow_rate_reed_sensor** | Opening | Flow detection |
+
+### Sensors
 
 | Identifier | Unit | Description | States |
 |--------|------|-------------|--------|
