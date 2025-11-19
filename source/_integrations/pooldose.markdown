@@ -29,7 +29,7 @@ This integration uses an undocumented local HTTP API. It provides live readings 
 2. Browse to the IP address or hostname. Use HTTP and port 80.
    1. Log in to the web interface.
    2. Verify that sensor data is displayed, such as water temperature or pH values shown as gauges.
-   3. Deactivate the device password, i.e., set it to 0000.
+   3. Deactivate the device password, that is, set it to 0000.
 3. Optional: Block the device’s internet access to guarantee fully local operation and prevent potentially breaking firmware updates.
 
 {% include integrations/config_flow.md %}
@@ -57,23 +57,29 @@ This integration {% term polling polls %} data from the device every 10 minutes 
 
 The following devices are known to be supported by the integration:
 
-- SEKO PoolDose Dual/Double (API v1)
+- SEKO PoolDose Double
+- VÁGNER POOL VA DOS BASIC
+- VÁGNER POOL VA DOS EXACT
 
 ## Supported functionality
 
 ### Sensor entities
 
-| Identifier | Unit | Description | States |
+| Identifier | Unit(s) | Description | States |
 |--------|------|-------------|--------|
-| **temperature** | °C/°F | water temperature | — |
+| **temperature** | °C, °F | water temperature | — |
 | **ph** | — | pH value | — |
 | **orp** | mV | Current ORP (Redox) value | — |
+| **cl** | ppm | Chlorine concentration | — |
+| **flow_rate** | L/s, m³/h | Water flow rate | — |
 | **ph_type_dosing** | — | Type of pH dosing being used | pH+, pH- |
 | **peristaltic_ph_dosing** | — | pH peristaltic dosing mode | Off, Proportional, On/Off, Timed |
-| **ofa_ph_value** | min | Time threshold for pH overfeed alerts | — |
+| **ofa_ph_time** | min | Time threshold for pH overfeed alerts | — |
 | **orp_type_dosing** | — | Type of ORP dosing being used | Low, High |
 | **peristaltic_orp_dosing** | — | ORP peristaltic dosing mode | Off, Proportional, On/Off, Timed |
-| **ofa_orp_value** | min | Time threshold for ORP overfeed alerts | — |
+| **cl_type_dosing** | — | Type of chlorine dosing being used | Low, High |
+| **peristaltic_cl_dosing** | — | Chlorine peristaltic dosing mode | Off, Proportional, On/Off, Timed |
+| **ofa_orp_time** | min | Time threshold for ORP overfeed alerts | — |
 | **ph_calibration_type** | — | Type of pH calibration being used | Off, Reference, 1 point, 2 points |
 | **ph_calibration_offset** | mV | pH calibration offset value | — |
 | **ph_calibration_slope** | mV | pH calibration slope value | — |
