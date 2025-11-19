@@ -5,7 +5,7 @@
                 <div class="cols">
                     <div class="col">
                         <div class="connect-badge connect-line-blue"><span>Take back your smart home</span></div>
-                        <h2>Cut hub clutter from your smart home</h2>
+                        <h2>Cut the clutter</h2>
                         <p class="body-large">Directly connect the Zigbee, Matter or Thread devices you already have
                             (including Hue, IKEA Trådfri, Smartthings, and more!) to Home Assistant.</p>
                     </div>
@@ -45,6 +45,16 @@
                 list.shift();
             }
             if (list.toString() === desiredList.toString()) {
+                done = true;
+                wiiclutter();
+            }
+        });
+
+        let count = 0;
+        video.addEventListener('touchend', () => {
+            if(done) return;
+            count++;
+            if (count >= 10) {
                 done = true;
                 wiiclutter();
             }
