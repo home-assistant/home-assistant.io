@@ -87,30 +87,15 @@ Context is a property used in state objects and events. It ties {% term events %
 
 ## Examples
 
-
-- Evaluate the `state.last_changed` of a switch entity: 
-
 {% raw %}
 
-```jinja
-{{ states.switch.my_switch.last_changed }}
-```
-{% endraw %}
-    result type: `string` representing date and time e.g. `2025-11-11 12:56:10.244125+00:00`
+Evaluate the `state.last_changed` of a switch entity: `{{ states.switch.my_switch.last_changed }}`
+result type: `string` representing datetime object e.g. `2025-11-11 12:56:10.244125+00:00`
 
-- Evaluate the `state.context.id` of this switch: 
+Evaluate the `state.context.id` of this switch: `{{ states.switch.my_switch.context.id }}`
+result type: `string` representing an id code e.g. `01K9SF2T4SK2RV5NXP3TC38S6KJR1F`
 
-{% raw %}
-```jinja
-{{ states.switch.my_switch.context.id }}
-```
-{% endraw %}
-    result type: `string` representing an id code e.g. `01K9SFSRTSKRV5NXPTC38S6KJRF`
+If the switch was changed by a user you can read the `state.context.user_id` as well with `{{ states.switch.my_switch.context.user_id }}`
+result type: `string` representing an user id code e.g. `01K9SF2RTS3KRV5N2340238S6K3JRF`
 
-- If the switch was changed by a user you can read the `state.context.user_id` as well 
-
-{% raw %}
-```jinja
-{{ states.switch.my_switch.context.user_id }}
-```
 {% endraw %}
