@@ -109,7 +109,7 @@ section#chipset {
         }
     }
 
-    &[data-dsap] {
+    [data-dsap] {
         .comparisons .comparison .progress div {
             --progress: 0%;
         }
