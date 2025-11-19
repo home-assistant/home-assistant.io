@@ -128,9 +128,9 @@ By default, this integration will receive push updates from the cloud about its 
 
 ## Calendar
 
-The integration exposes a calendar for the auto on/off schedule set for the machine. It will only display the schedule, you won't be able to make changes to it from here.
+The integration exposes a calendar for the auto on/off schedule set for the machine. It will only display the schedule, you will not be able to make changes to it from here.
 
-The schedule will be displayed recurringly: If you set the machine to start up on Mondays at 8:00, and shut down at 9:00, you will get events for all Mondays in your calendar. On days when you have the auto on/off feature disabled, you won't get an event in the calendar. Also, if you have the auto on/off feature disabled globally (for example, through the switch "Auto on/off"), there will be no events in the calendar.
+The schedule will be displayed recurringly: If you set the machine to start up on Mondays at 8:00, and shut down at 9:00, you will get events for all Mondays in your calendar. On days when you have the auto on/off feature disabled, you will not get an event in the calendar. Also, if you have the auto on/off feature disabled globally (for example, through the switch "Auto on/off"), there will be no events in the calendar.
 
 ## Supported devices
 
