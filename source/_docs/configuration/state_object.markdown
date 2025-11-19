@@ -81,7 +81,7 @@ Context is a property used in state objects and events. It ties {% term events %
 
 | Field        | Description                                                                                                                                                                  |
 | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `context_id` | Unique identifier for the context.                                                                                                                                           |
+| `id`         | Unique identifier for the context.                                                                                                                                           |
 | `user_id`    | Unique identifier of the user that started the change. Will be `None` if the action was not started by a user (for example, started by an automation).                       |
 | `parent_id`  | Unique identifier of the parent context that started the change, if available. For example, if an automation is triggered, the context of the trigger will be set as parent. |
 

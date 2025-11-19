@@ -23,17 +23,28 @@ ha_ssdp: true
 ha_dhcp: true
 ---
 
-The **Xbox** {% term integration %} allows you to control Xbox One (or newer) consoles from Home Assistant.
+The **Xbox** {% term integration %} allows you to connect Home Assistant to the **Xbox Network**.
 
-Home Assistant authenticates with Xbox Network through OAuth2 using the Home Assistant Cloud account linking service.
+## About Xbox Network
+
+Xbox Network is Microsoft’s online gaming and entertainment service for Xbox consoles and Windows PCs. You can use Xbox Network for multiplayer gaming. It offers social features like friends and parties, cloud saves, and digital game purchases. Xbox Network also provides access to apps and online services. The platform connects players, manages profiles, and powers online functionality across the Xbox ecosystem.
+
+## How you can use this integration
+
+The Home Assistant Xbox {% term integration %} lets you monitor and control Xbox One (and newer) consoles and also keep track of your favorite friends on Xbox Network. It exposes your console’s status and activity, and provides friend-related presence and activity information you can use in dashboards and automations.
+
+## Prerequisites
+
+- You must sign in with a **non-child Xbox account** (age 18+).
+- To enable the media player and remote entities, make sure **remote features** are turned on in **Settings** > **Devices & connections** > **Remote features** on your Xbox.
+- Home Assistant connects to **Xbox Network** via OAuth2 using Home Assistant Cloud’s account-linking service. To use this, your {% term "configuration.yaml" %} must include either `cloud:` or `default_config:`.
 
 {% include integrations/config_flow.md %}
 
-Note that for the media player and remote entities to be added your Xbox will need to have remote features enabled via **Settings -> Devices & connections -> Remote features** (you may need to upgrade your controller firmware).
+## Supported devices
 
-{% important %}
-Because it uses the Home Assistant Cloud account linking service you **must** have either `cloud:` or `default_config:` in your {% term "`configuration.yaml`" %}.
-{% endimportant %}
+- Xbox One (S/X)
+- Xbox Series S/X
 
 ## Media player
 
@@ -43,15 +54,15 @@ The Xbox media player platform will create media player entities for each consol
 
 Launches an application on the Xbox console using the application's product ID. Also supports "Home" and "TV" to navigate to the dashboard or Live TV respectively.
 
-You can find Product IDs using the **{% my developer_events title="Developer Tools -> Events" %}** tab and listening to the `call_service` event. In a new browser tab, navigate to the media browser for your console and click on an App/Game to see the product ID in the event.
+You can find Product IDs using the **{% my developer_events title="Developer Tools > Events" %}** tab and listening to the `call_service` event. In a new browser tab, navigate to the media browser for your console and click on an App/Game to see the product ID in the event.
 
-| Data attribute | Description                           |
+| Data attribute         | Description                           |
 | ---------------------- | --------------------------------------|
 | `entity_id`            | `entity_id` of the Xbox media player  |
-| `media_content_id`     | "Home"/"TV"/{product_id}              |
+| `media_content_id`     | `Home` / `TV` / `{product_id}`        |
 | `media_content_type`   | Any Value                             |
 
-**Examples:**
+#### Examples
 
 ```yaml
 entity_id: media_player.xboxone
@@ -71,28 +82,30 @@ The Xbox remote platform will create Remote entities for each console linked to 
 
 ### Action `send_command`
 
-| Data attribute | Optional | Description                                                            |
-| ---------------------- | -------- | ---------------------------------------------------------------------- |
-| `entity_id`            | no       | `entity_id` of the Xbox remote.                                                      |
-| `command`              | no       | List of the controller commands or text input to be sent.<br />Commands: A, B, X, Y, Up, Down, Left, Right, Menu, View |
-| `num_repeats`          | yes      | Number of times to repeat the commands.                                |
-| `delay_secs`           | yes      | Interval in seconds between one send and another.                      |
+| Data attribute | Optional | Description                                                       |
+| ---------------------- | -------- | --------------------------------------------------------- |
+| `entity_id`            | no       | `entity_id` of the Xbox remote.                           |
+| `command`              | no       | List of the controller commands or text input to be sent. |
+| `num_repeats`          | yes      | Number of times to repeat the commands.                   |
+| `delay_secs`           | yes      | Interval in seconds between one send and another.         |
 
-**Examples**
+**Available commands**: `A`, `B`, `X`, `Y`, `Up`, `Down`, `Left`, `Right`, `Menu`, `View`, `Nexus`
+
+#### Examples
 
 ```yaml
-entity_id: remote.xboxone_remote
+entity_id: remote.xboxone
 command: "A"
 ```
 
 ```yaml
-entity_id: remote.xboxone_remote
+entity_id: remote.xboxone
 command: "A"
 num_repeats: 20
 ```
 
 ```yaml
-entity_id: remote.xboxone_remote
+entity_id: remote.xboxone
 command:
   - Right
   - Right
@@ -102,12 +115,14 @@ delay_sec: 0.1
 
 ### Picture elements card
 
-Below is a picture elements card that can be added to a dashboard to provide an Xbox controller interface in your frontend. It utilizes the services detailed above. Replace `remote.xboxone_remote` and `media_player.xboxone` with the names of your entities and enjoy! Courtesy of [@SeanPM5](https://github.com/SeanPM5) and [@hunterjm](https://github.com/hunterjm).
+Below is a picture elements card that can be added to a dashboard to provide an Xbox controller interface in your frontend. It utilizes the services detailed above. Replace `remote.xboxone` and `media_player.xboxone` with the names of your entities and enjoy! Courtesy of [@SeanPM5](https://github.com/SeanPM5) and [@hunterjm](https://github.com/hunterjm).
 
 <p class='img'>
   <img src='/images/integrations/xbox/xbox_picture_entity.png' alt='Screenshot showing Xbox Controller in a dashboard.'>
   Screenshot showing Xbox Controller in a dashboard.
 </p>
+
+{% details "Show YAML configuration" %}
 
 ```yaml
 type: picture-elements
@@ -118,7 +133,7 @@ elements:
     title: ""
     action: remote.send_command
     service_data:
-      entity_id: remote.xboxone_remote
+      entity_id: remote.xboxone
       command: Up
     style:
       top: 45.35%
@@ -130,7 +145,7 @@ elements:
     title: ""
     action: remote.send_command
     service_data:
-      entity_id: remote.xboxone_remote
+      entity_id: remote.xboxone
       command: Down
     style:
       top: 74.7%
@@ -142,7 +157,7 @@ elements:
     title: ""
     action: remote.send_command
     service_data:
-      entity_id: remote.xboxone_remote
+      entity_id: remote.xboxone
       command: Left
     style:
       top: 60%
@@ -154,7 +169,7 @@ elements:
     title: ""
     action: remote.send_command
     service_data:
-      entity_id: remote.xboxone_remote
+      entity_id: remote.xboxone
       command: Right
     style:
       top: 60%
@@ -166,7 +181,7 @@ elements:
     title: ""
     action: remote.send_command
     service_data:
-      entity_id: remote.xboxone_remote
+      entity_id: remote.xboxone
       command: "A"
     style:
       top: 82.5%
@@ -179,7 +194,7 @@ elements:
     title: ""
     action: remote.send_command
     service_data:
-      entity_id: remote.xboxone_remote
+      entity_id: remote.xboxone
       command: "X"
     style:
       top: 60.0%
@@ -192,7 +207,7 @@ elements:
     title: ""
     action: remote.send_command
     service_data:
-      entity_id: remote.xboxone_remote
+      entity_id: remote.xboxone
       command: "B"
     style:
       top: 60.0%
@@ -205,7 +220,7 @@ elements:
     title: ""
     action: remote.send_command
     service_data:
-      entity_id: remote.xboxone_remote
+      entity_id: remote.xboxone
       command: "Y"
     style:
       top: 37.9%
@@ -218,7 +233,7 @@ elements:
     title: ""
     action: remote.toggle
     service_data:
-      entity_id: remote.xboxone_remote
+      entity_id: remote.xboxone
     style:
       top: 80.2%
       left: 47.2%
@@ -228,11 +243,10 @@ elements:
       overflow: hidden
   - type: service-button
     title: ""
-    action: media_player.play_media
+    action: remote.send_command
     service_data:
-      entity_id: media_player.xboxone
-      media_content_type: ""
-      media_content_id: "Home"
+      entity_id: remote.xboxone
+      command: Nexus
     style:
       top: 22.2%
       left: 47.2%
@@ -242,13 +256,15 @@ elements:
       overflow: hidden
 ```
 
+{% enddetails %}
+
 ## Binary sensor
 
-The Xbox binary sensor platform automatically keeps track of your "**Favorite** friends". In your friends list, select **Change friendship -> Favorite** to have that person automatically pulled into Home Assistant.
+The Xbox binary sensor platform automatically keeps track of your "**Favorite** friends". In your friends list, select **Change friendship > Favorite** to have that person automatically pulled into Home Assistant.
 
 | Entity Name                      | Description                                                            |
 | -------------------------------- | ---------------------------------------------------------------------- |
-| (*Gamertag* )                    | Shows the online status of your friend.            The entity’s attributes provide extra information, including real name and bio. |
+| (*Gamertag* )                    | Shows the online status of your friend. The entity’s attributes provide extra information, including real name and bio. |
 | **In game**                      | Shows if your friend is currently playing a game.                      |
 | **Subscribed to Xbox Game Pass** | Indicates whether the friend is currently subscribed to Xbox Game Pass.|
 
@@ -283,7 +299,7 @@ The Xbox media source platform allows you to use the Media Browser panel to view
 It can take up to a couple of days for newly installed applications to appear in the media browser.
 {% endimportant %}
 
-## Manual configuration
+## Manual OAuth2 configuration
 
 {% warning %}
 These steps are not required, nor will they be supported if issues are encountered.
@@ -310,6 +326,22 @@ instead.
 The `<HOME_ASSISTANT_URL>` must be the same as used during the configuration/
 authentication process.
 
-Internal examples: `http://192.168.0.2:8123/auth/external/callback`, `http://homeassistant.local:8123/auth/external/callback`." 
+Internal examples: `http://192.168.0.2:8123/auth/external/callback`, `http://homeassistant.local:8123/auth/external/callback`.
 
 {% enddetails %}
+
+## Data updates
+
+This integration syncs with Xbox Network every 10 seconds.
+
+## Troubleshooting
+
+The **Xbox** integration relies on an active internet connection to communicate with **Xbox Network**. If you encounter issues, verify that your network connection is stable. The Xbox Network service itself may also experience downtime. This can be unexpected or due to scheduled maintenance.
+
+When reporting an issue, please enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics). Restart the integration.   As soon as the issue reoccurs, stop debug logging again. The debug log file will download automatically.
+
+## Removing the integration
+
+This integration can be removed by following these steps:
+
+{% include integrations/remove_device_service.md %}
