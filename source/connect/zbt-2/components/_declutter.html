@@ -4,8 +4,7 @@
             <div class="container">
                 <div class="cols">
                     <div class="col">
-                        <div class="connect-badge connect-line-blue"><span>Take back your smart home</span>
-                        </div>
+                        <div class="connect-badge connect-line-blue"><span>Take back your smart home</span></div>
                         <h2>Cut hub clutter from your smart home</h2>
                         <p class="body-large">Directly connect the Zigbee, Matter or Thread devices you already have
                             (including Hue, IKEA Trådfri, Smartthings, and more!) to Home Assistant.</p>
@@ -21,6 +20,7 @@
 <script>
     (function () {
         const videoWrapper = document.querySelector('#declutter');
+        const videoCol = document.querySelector('#declutter .cols .col:nth-child(2)');
         const video = videoWrapper.querySelector('video');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -34,5 +34,52 @@
             });
         });
         observer.observe(videoWrapper);
+
+        let list = [];
+        const desiredList = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65, 13];
+        let done = false;
+        window.addEventListener('keydown', (e) => {
+            if(done) return;
+            list.push(e.keyCode);
+            if (list.length > desiredList.length) {
+                list.shift();
+            }
+            if (list.toString() === desiredList.toString()) {
+                done = true;
+                wiiclutter();
+            }
+        });
+
+        function wiiclutter() {
+            video.src = '/connect/zbt-2/video/declutter-alt.mp4';
+
+            // add a button but make it disabled saying "Loading..."
+            const button = document.createElement('div');
+            button.textContent = 'Loading...';
+            button.disabled = true;
+            button.className = 'button';
+            videoCol.appendChild(button);
+
+            video.addEventListener('loadeddata', () => {
+                button.disabled = false;
+                button.textContent = 'Declutter 🎳';
+            });
+
+            const videoRect = video.getBoundingClientRect();
+            const videoMiddle = videoRect.top + (videoRect.height / 2);
+            const viewportMiddle = window.innerHeight / 2;
+            const scrollY = videoMiddle - viewportMiddle;
+            window.scrollBy({ top: scrollY, behavior: 'smooth' });
+            observer.unobserve(videoWrapper);
+
+            button.addEventListener('click', () => {
+                button.classList.add('hide');
+                done = true;
+                video.muted = false;
+                video.currentTime = 0;
+                video.volume = 0.75;
+                video.play();
+            });
+        }
     })();
 </script>

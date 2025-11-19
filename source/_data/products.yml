@@ -793,5 +793,5 @@ zbt-2:
     - name: Nettop
       ship_from: Greece
       ship_to: Europe
-      link: https://nettop.gr/index.php/smart-home/a_link_without_existence.html
+      link: https://nettop.gr/index.php/smart-home/home-assistant/home-assistant-connect-zbt-2.html 
       logo: /images/distributors/nettop.webp

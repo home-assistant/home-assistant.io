@@ -27,24 +27,30 @@ section#home {
         }
     }
 
-    .home-content{
+    .home-content {
         display: flex;
         flex-grow: 1;
         flex-direction: column;
         justify-content: center;
-        align-items: center;
-        text-align: center;
+        align-items: flex-start;
+        text-wrap: balance;
+
+        @include bp(tablet) {
+            padding: 20px;
+        }
     }
 
     .cols {
         display: flex;
         flex-direction: column;
         gap: 20px;
-        
-        .col{
+
+        .col {
             display: flex;
             flex-direction: column;
             gap: 20px;
+            flex-grow: 1;
+            flex-basis: 0;
         }
 
         @include bp(tablet) {
@@ -57,15 +63,32 @@ section#home {
             transition-duration: 1s;
             transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
             width: 100%;
+            object-fit: cover;
         }
 
         &:nth-child(1) {
             .col {
-                &:nth-child(1) {}
+                &:nth-child(1) {
+                    flex-basis: calc(7/12 * 100%);
+                    order: -1;
+
+                    img {
+                        aspect-ratio: 692/448;
+
+                    }
+                }
 
                 &:nth-child(2) {
-                    img{
+                    flex-basis: calc(5/12 * 100%);
+
+                    img {
+                        aspect-ratio: 16/9;
+                        height: 100%;
                         transition-delay: 0.1s;
+
+                        @include bp(tablet) {
+                            aspect-ratio: 488/720;
+                        }
                     }
                 }
             }
@@ -73,18 +96,26 @@ section#home {
 
         &:nth-child(2) {
             .col {
-                flex-grow: 1;
-                flex-basis: 0;
-
                 &:nth-child(1) {
-                    img{
-                        transition-delay: 0.2s;
+                    order: 1;
+                    flex-basis: calc(6/12 * 100%);
+
+                    @include bp(tablet) {
+                        order: -1;
+                    }
+
+                    img {
+                        aspect-ratio: 590/720;
+                        height: 100%;
+                        transition-delay: 0.1s;
                     }
                 }
 
                 &:nth-child(2) {
-                    img{
-                        transition-delay: 0.3s;
+                    flex-basis: calc(6/12 * 100%);
+
+                    img {
+                        aspect-ratio: 590/448;
                     }
                 }
             }

@@ -25,17 +25,31 @@ section#declutter {
             text-align: center;
             flex-direction: column;
             display: flex;
+            position: relative;
 
             &:first-child {
 
                 @include bp(tablet) {
-                    //width: calc(6/12 * 100%);
                     padding: 24px 40px;
                 }
+            }
 
-                @include bp(desktop) {
-                    
-                }
+            &:last-child{
+                aspect-ratio: 16/9;
+                width: 100%;
+                max-width: 800px;
+            }
+        }
+
+        .button{
+            transition: all 0.3s ease;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            &.hide{
+                opacity: 0;
+                pointer-events: none;
             }
         }
     }

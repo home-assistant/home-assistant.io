@@ -1,5 +1,4 @@
 section#zigbee-thread {
-
     .container {
         flex-direction: column;
         align-items: center;
@@ -44,14 +43,14 @@ section#zigbee-thread {
             user-select: none;
             z-index: 1;
 
-            &.active{
+            &.active {
                 color: #000;
                 cursor: default;
             }
         }
     }
 
-    .body-large{
+    .body-large {
         text-align: center;
     }
 
@@ -60,7 +59,6 @@ section#zigbee-thread {
         width: 100%;
         gap: 20px;
         justify-content: center;
-
     }
 
     .card {
@@ -76,6 +74,7 @@ section#zigbee-thread {
 
         &.active {
             cursor: default;
+
             &:before {
                 opacity: 1;
             }
@@ -117,7 +116,7 @@ section#zigbee-thread {
             gap: 20px;
             flex-grow: 1;
 
-            h3{
+            h3 {
                 text-wrap: balance;
             }
 
