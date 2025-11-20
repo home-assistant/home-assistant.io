@@ -14,15 +14,18 @@ ha_domain: xbox
 ha_config_flow: true
 ha_platforms:
   - binary_sensor
+  - image
   - media_player
   - remote
   - sensor
 ha_integration_type: integration
+ha_ssdp: true
+ha_dhcp: true
 ---
 
 The **Xbox** {% term integration %} allows you to control Xbox One (or newer) consoles from Home Assistant.
 
-Home Assistant authenticates with Xbox Live through OAuth2 using the Home Assistant Cloud account linking service.
+Home Assistant authenticates with Xbox Network through OAuth2 using the Home Assistant Cloud account linking service.
 
 {% include integrations/config_flow.md %}
 
@@ -38,14 +41,14 @@ The Xbox media player platform will create media player entities for each consol
 
 ### Action `play_media`
 
-Launches an application on the Xbox console using the application's product ID. Also supports "Home" and "TV" to navigate to the dashboard or Live TV respectively.
+Launches an application on the Xbox console using the application's product ID. Also supports "Home" to navigate to the dashboard.
 
 You can find Product IDs using the **{% my developer_events title="Developer Tools -> Events" %}** tab and listening to the `call_service` event. In a new browser tab, navigate to the media browser for your console and click on an App/Game to see the product ID in the event.
 
 | Data attribute | Description                           |
 | ---------------------- | --------------------------------------|
 | `entity_id`            | `entity_id` of the Xbox media player  |
-| `media_content_id`     | "Home"/"TV"/{product_id}              |
+| `media_content_id`     | "Home"/{product_id}                   |
 | `media_content_type`   | Any Value                             |
 
 **Examples:**
@@ -243,27 +246,38 @@ elements:
 
 The Xbox binary sensor platform automatically keeps track of your "**Favorite** friends". In your friends list, select **Change friendship -> Favorite** to have that person automatically pulled into Home Assistant.
 
-4 binary sensors are added, 3 of which are disabled by default. They can be enabled in the "Xbox Live" service on the devices page.
-
-| Entity ID | Default | Description                                                                                  |
-| ----------------------------------------- | -------- | ------------------------------------------------------------|
-| `binary_sensor.{gamertag}`                | Enabled  | Shows the online status of your friend.                     |
-| `binary_sensor.{gamertag}_in_game`        | Disabled | Shows if your friend is currently playing a game.           |
-| `binary_sensor.{gamertag}_in_party`       | Disabled | Shows if your friend is currently in a party.               |
-| `binary_sensor.{gamertag}_in_multiplayer` | Disabled | Shows if your friend is currently in a multiplayer session. |
+| Entity Name                      | Description                                                            |
+| -------------------------------- | ---------------------------------------------------------------------- |
+| (*Gamertag* )                    | Shows the online status of your friend.            The entity’s attributes provide extra information, including real name and bio. |
+| **In game**                      | Shows if your friend is currently playing a game.                      |
+| **Subscribed to Xbox Game Pass** | Indicates whether the friend is currently subscribed to Xbox Game Pass.|
 
 ## Sensor
 
 Just like the binary sensors, the Xbox sensor platform automatically keeps track of your "**Favorite** friends".
 
-4 sensors are added, **all** of which are disabled by default. They can be enabled in the "Xbox Live" service on the devices page.
+| Entity Name      | Description                                                                |
+| ---------------- | -------------------------------------------------------------------------- |
+| **Status**       | Shows the text status of your friend as it appears in your friends list.   |
+| **Gamerscore**   | Friend's Gamerscore.                                                       |
+| **Friends**      | Displays the number of mutual friend relationships of the account.         |
+| **Follower**     | Displays the number of people following the account.                       |
+| **Following**    |  Displays the number of people the account is following.                   |
+| **Last online**  | Displays the last time the friend was active online.                       |
+| **In party**     | Shows the number of people in the user’s party chat if they are currently in one. |
+| **Now playing**  | Shows the title of the game currently being played. Additional details such as a short description, genre, developer, age rating, and achievement progress are available in the entity's attributes. |
+| **Total space: *{name}*** | Reports the total storage capacity of the device. A separate sensor is created for each Xbox console and connected internal and external storage device. |
+| **Free space: *{name}*** | Reports the available (unused) storage space on the device. A separate sensor is created for each Xbox console and connected internal and external storage device. |
 
-| Entity ID | Default | Description                                                                                      |
-| ---------------------------------| -------- | -------------------------------------------------------------------------|
-| `sensor.{gamertag}_status`       | Disabled | Shows the text status of your friend as it appears in your friends list. |
-| `sensor.{gamertag}_gamer_score`  | Disabled | Shows your friend's gamer score.                                         |
-| `sensor.{gamertag}_account_tier` | Disabled | Shows your friend's Xbox Live account tier (Gold or Silver).             |
-| `sensor.{gamertag}_gold_tenure`  | Disabled | Shows how long your friend has had Xbox Live Gold.                       |
+## Image
+
+For your account and each of your favorite friends, several image entities are available:
+
+| Entity Name      | Description                                                                            |
+| ---------------- | -------------------------------------------------------------------------------------- |
+| **Avatar**       | Shows the classic Xbox avatar for you or your friend, if available. You can create or customize your own avatar using the [Xbox Original Avatars app](https://apps.microsoft.com/detail/9nblgggz5qdq?ocid=webpdpshare). |
+| **Gamerpic**     | Shows the current **Gamerpic** that represents you or your friend across the Xbox Network. |
+| **Now playing**  | Displays the cover art of the game you or your friends are currently playing.          |
 
 ## Media source
 

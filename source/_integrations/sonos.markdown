@@ -23,6 +23,7 @@ ha_platforms:
   - switch
 ha_zeroconf: true
 ha_integration_type: integration
+ha_quality_scale: bronze
 ---
 
 The `sonos` integration allows you to control your [Sonos](https://www.sonos.com) wireless speakers from Home Assistant. It also works with IKEA Symfonisk speakers.
@@ -166,7 +167,7 @@ data:
     volume: 80
 ```
 
-Sonos can also play music or playlists from Spotify. Both Spotify URIs and URLs can be used directly. An example action using a playlist URI:
+Sonos can also play music or playlists from Spotify. Both Spotify URIs and URLs can be used directly. The optional `title` parameter can be used to fill the media_playlist attribute correctly. An example action using a playlist URI:
 
 ```yaml
 action: media_player.play_media
@@ -176,6 +177,8 @@ data:
   media_content_type: "playlist"
   media_content_id: "spotify:playlist:abcdefghij0123456789XY"
   enqueue: true
+  extra:
+    title: Example Playlist
 ```
 
 An example action using a Spotify URL:

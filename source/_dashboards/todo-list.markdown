@@ -71,6 +71,11 @@ hide_create:
   description: Hide the textbox for creating new tasks at the top of the card.
   type: boolean
   default: "false"
+hide_section_headers:
+  required: false
+  description: Hide the 'Active' and 'Completed' sections with the overflow menus.
+  type: boolean
+  default: "false"
 display_order:
   required: false
   description: "Optionally sorts the items in the to-do list for display. Options are: `none`: Show the list in its original order. `alpha_asc`: Sort the list in alphabetical order. `alpha_desc`: Sort the list in reverse alphabetical order. `duedate_asc`: Sort the list by due date (soonest first). `duedate_desc`: Sort the list by reverse due date (soonest last)."

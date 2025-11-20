@@ -47,6 +47,7 @@ This integration provides the following sensors:
 |Sun Last 10 Minutes|Sunshine in the last 10 minutes in sec|
 |Precipitation|Precipitation in mm|
 |Snow|Snow in cm|
+|Global Radiation|Global Radiation in the last 10 minutes in W/m²|
 
 {% note %}
 Not every station supports every sensor.

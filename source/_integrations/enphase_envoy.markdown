@@ -11,7 +11,6 @@ ha_config_flow: true
 ha_codeowners:
   - '@bdraco'
   - '@cgarwood'
-  - '@joostlek'
   - '@catsmanac'
 ha_platforms:
   - binary_sensor
@@ -27,6 +26,8 @@ ha_quality_scale: platinum
 The **Enphase Envoy** {% term integration %} is used to integrate with the [Enphase IQ Gateway](https://enphase.com/en-us/products-and-services/envoy-and-combiner), a communication device for [Enphase](https://enphase.com/homeowners) solar inverters and batteries. In this documentation, as well as in integration entity names, the Enphase IQ Gateway is commonly referred to as `Envoy`, a name from the conception times of this integration and retained for its compact format.
 
 ## Supported devices
+
+The actual model and installed components will determine the available [capabilities](#capabilities) and which data can be provided to the [Energy dashboard](#energy-dashboard). The Envoy firmware has [known issues](#known-issues-and-limitations) that may come and go as versions change.
 
 This integration works with:
 
@@ -236,7 +237,7 @@ For storage CT energy entities refer to [battery sensor](#aggregated-iq-battery-
 
 ### Grid sensor entities
 
-When the Envoy Metered is equipped with a [net-consumption CT](#current-transformers), entities for Grid import and export are available.
+When the Envoy Metered is equipped with a [net-consumption CT](#current-transformers), entities for Grid import and export are available. See Limitations, [Grid Import/Export values incorrect](#grid-importexport-values-incorrect) when using these.
 
 - **Envoy <abbr title="Envoy serial number">SN</abbr> Current net power consumption**: Current power exchange from (positive) / to (negative) the grid in W, default display in kW.
 - **Envoy <abbr title="Envoy serial number">SN</abbr> Lifetime net energy consumption**: Lifetime energy consumed / imported from the grid in Wh, default display in MWh.
@@ -248,7 +249,7 @@ When used with [multiphase CT phase data](#ct-aggregate-and-phase-data), disable
 
 #### Grid Balanced import/export sensor entities
 
-When the Envoy Metered is equipped with a [total-consumption CT](#current-transformers) instead of a [net-consumption CT](#current-transformers), no individual entities for Grid import and export are available, as these are not measured. Instead, the balance (difference) of grid import and export is available in a single entity, disabled by default, enable as desired.
+When the Envoy Metered is equipped with either a [total-consumption CT](#current-transformers) or a [net-consumption CT](#current-transformers), the balance of grid import and export is available as well. The balanced power and energy entities are disabled by default, enable these as desired.
 
 - **Envoy <abbr title="Envoy serial number">SN</abbr> balanced net power consumption**: Current power exchange from (positive) / to (negative) the grid in W, default display in kW.
   (This is the same value as [Envoy <abbr title="Envoy serial number">SN</abbr> Current net power consumption](#grid-sensor-entities) when using a net-consumption CT.)
@@ -416,11 +417,16 @@ The IQ Meter Collar has the net-consumption CT integrated. The CT data is report
 
 #### Collar status entities
 
-- **Collar <abbr title="Collar serial number">SN</abbr> Grid state**: Grid connection status, on_grid / off_grid / synchronizing / manual override active.
-- **Collar <abbr title="Collar serial number">SN</abbr> MID State**: Status of enphase Microgrid Interconnection Device, open / close.
+- **Collar <abbr title="Collar serial number">SN</abbr> Admin state**: Collar admin status, on grid / off grid.
+- **Collar <abbr title="Collar serial number">SN</abbr> Grid state**: Grid connection status, on grid / off grid / synchronizing to grid / manual override active.
+- **Collar <abbr title="Collar serial number">SN</abbr> MID State**: Status of enphase Microgrid Interconnection Device, open / closed.
 - **Collar <abbr title="Collar serial number">SN</abbr> Temperature**: Current temperature in degrees C or F, based on your localization.
 - **Collar <abbr title="Collar serial number">SN</abbr> Last reported**: Time when Envoy received last update from the collar device.
 - **Collar <abbr title="Collar serial number">SN</abbr> Communicating**: Communication status of the collar, Connected / Disconnected. This is a diagnostics entity.
+
+{% note %}
+Practical use learned that "Grid state" does not seem to reflect actual grid state changes. Off/On grid state rather seems to be reflected in Admin state values on grid / off grid. Be aware when using these entities. With time, more accurate details for these Collar entities may become available.
+{% endnote %}
 
 ### C6 Combiner Controller data
 
@@ -478,55 +484,24 @@ For **Solar production**, use the **Envoy <abbr title="Envoy serial number">SN</
 
 ### Electricity grid
 
-Whether there is data available to use with the electricity grid depends on the installed <abbr title="current transformers">CT</abbr>, if any. Also, see Limitations, [Balancing grid meter](#balancing-grid-meter).
+Whether there is data available to use with the electricity grid depends on the installed <abbr title="current transformers">CT</abbr>, if any. Also, see Limitations, [Grid Import/Export values incorrect](#grid-importexport-values-incorrect) and [Balancing grid meter](#balancing-grid-meter).
 
 #### Electricity grid with net-consumption CT
 
-With a [net-consumption CT](#grid-sensor-entities) installed, both grid consumption and return to grid data is available.
+With a [net-consumption CT](#grid-sensor-entities) installed, both grid consumption and return to grid data is available. (Also, see [Limitations](#grid-importexport-values-incorrect))
 
 - For **Grid consumption**, use the **Envoy <abbr title="Envoy serial number">SN</abbr> Lifetime net energy consumption** entity.
 - For **Return to grid**, use the **Envoy <abbr title="Envoy serial number">SN</abbr> Lifetime net energy production** entity.
 
-#### Electricity grid with total-consumption CT
+#### Electricity grid with balanced consumption entities
 
-With a [total-consumption CT](#grid-balanced-importexport-sensor-entities) installed, only the balanced grid import-export value is available. This value is not suited for direct use with the energy dashboard. It will require some templating to split the value into an import and export value.
+With a [total-consumption CT](#grid-balanced-importexport-sensor-entities) or a [net-consumption CT](#grid-sensor-entities) installed, the balanced grid import-export energy value is available. This value is not suited for direct use with the energy dashboard. It will require some templating to split the value into an import and export value.
 
-{% details "Concept to split balanced Grid value into individual import-export values" %}
+To split the balanced energy value **Envoy <abbr title="Envoy serial number">SN</abbr> Lifetime balanced net energy consumption** into import-export values, a sensor [blueprint template](/integrations/template/#using-blueprints) named [`Filter positive or negative value changes in a sensor entity`](https://community.home-assistant.io/t/filter-positive-or-negative-value-changes-in-a-sensor-entity/943919/1) is available in the community blueprints exchange.
 
-The concept is to track value changes of the **Envoy <abbr title="Envoy serial number">SN</abbr> Lifetime balanced net energy consumption** entity, add positive changes to a grid_import entity and add negative changes to a grid_export entity.
+Import the blueprint using the **import blueprint to** button. This will install the blueprint as `/config/blueprints/template/catsmanac/Filter_positive_or_negative_value_changes_in_sensor_entity.yaml`. Use the directions and templates in the blueprint exchange topic to implement such a split.
 
-{% raw %}
-
-```yaml
-
-- trigger:
-    - platform: state
-      entity_id: sensor.envoy_sn_lifetime_balanced_net_energy_consumption
-  
-  sensor:
-    - name: "Grid import"
-      unique_id: calculated_envoy_grid_import
-      unit_of_measurement: "Wh" 
-      state: "{{ this.state | int(0) + ([0, (trigger.to_state.state | int(0) - trigger.from_state.state | int(0))] | max) }}" 
-      device_class: energy 
-      state_class: total_increasing 
-    - name: "Grid export"
-      unique_id: calculated_envoy_grid_export
-      unit_of_measurement: "Wh" 
-      state: "{{ this.state | int(0) - ([0, (trigger.to_state.state | int(0) - trigger.from_state.state | int(0))] | min) }}" 
-      device_class: energy 
-      state_class: total_increasing
-```
-
-{% endraw %}
-
-The above example does not address handling `unavailable` or `unknown` states, value changes over Home Assistant outages nor changing UOM to a preferred one. Examples for these exist in various community topics.
-
-{% tip %}
-Alternatively, this can be done by splitting the **Envoy <abbr title="Envoy serial number">SN</abbr> balanced net power consumption** into power import and export and two Riemann sum integral helpers to calculate energy from the power values.
-{% endtip %}
-
-{% enddetails %}
+Alternatively, creating 2 split energy sensors can be done by splitting the **Envoy <abbr title="Envoy serial number">SN</abbr> balanced net power consumption** into power import and export using [filter range](/integrations/filter/#range) helpers. These are then the source for two Riemann sum integral helpers to calculate energy from the power values.
 
 ### Home battery storage
 
@@ -545,77 +520,19 @@ Without a [storage CT](#aggregated-iq-battery-sensor-entities) installed, only t
 
 ##### Home battery storage data using battery power
 
-Battery power is the current power flow in or out of an individual battery. Using the summed Power values of all batteries, the result needs to be split in 2 entities, representing total power in and power out. Next, each entity needs to be integrated into energy, using two Riemann sum integral helpers. The resulting data can be used for Energy going into the battery and Energy coming out of the battery.
+Battery power is the current power flow in or out of an individual battery. Using the summed Power values of all batteries, the result needs to be split in 2 entities, representing total power in and power out.
 
-{% details "Concept to split Battery power value into individual import-export power values" %}
+This can be done using the [filter range](/integrations/filter/#range) helper. Next, each entity needs to be integrated into energy, using two Riemann sum integral helpers. The resulting data can be used for Energy going into the battery and Energy coming out of the battery.
 
-The concept is to first sum all battery Power values using a combine state helper. Then track value changes of the summed value entity, add positive changes to a battery_charge power entity and add negative changes to a battery_discharge power entity.
-
-{% raw %}
-
-```yaml
-
-- trigger:
-    - platform: state
-      entity_id: sensor.envoy_sn_summed_battery_power_entity
-  
-  sensor:
-    - name: "Battery charge power"
-      unique_id: calculated_envoy_battery_charge_power
-      unit_of_measurement: "W" 
-      state: "{{ this.state | int(0) + ([0, (trigger.to_state.state | int(0) - trigger.from_state.state | int(0))] | max) }}" 
-      device_class: power 
-      state_class: measurement
-    - name: "Battery discharge power"
-      unique_id: calculated_envoy_battery_discharge_power
-      unit_of_measurement: "W" 
-      state: "{{ this.state | int(0) - ([0, (trigger.to_state.state | int(0) - trigger.from_state.state | int(0))] | min) }}" 
-      device_class: power 
-      state_class: measurement
-```
-
-{% endraw %}
-
-The above example does not address handling `unavailable` or `unknown` states, value changes over Home Assistant outages nor conversion losses.
-
-{% enddetails %}
+If desired, this can also be done in a similar way for individual batteries.
 
 ##### Home battery storage data on the available battery energy
 
 Changes in the Available battery energy are a result from Energy going in or out of the battery. Splitting these energy changes into 2 entities, one tracking positive changes, one the negative changes, results in data that can be used for Energy going into the battery and Energy coming out off the battery. This method does not account for conversion losses as Energy content changes do not exactly match actual energy flow in and out of the battery.
 
-{% details "Concept to split Available battery energy value into individual import-export values" %}
+To split the changes in Available battery energy into charge-discharge values, a sensor [blueprint template](/integrations/template/#using-blueprints) named [`Filter positive or negative value changes in a sensor entity`](https://community.home-assistant.io/t/filter-positive-or-negative-value-changes-in-a-sensor-entity/943919/1) is available in the community blueprints exchange.
 
-The concept is to track value changes of the **Envoy <abbr title="Envoy serial number">SN</abbr> Available battery energy** entity, add positive changes to a battery_charge entity and add negative changes to a battery_discharge entity.
-
-{% raw %}
-
-```yaml
-
-- trigger:
-    - platform: state
-      entity_id: sensor.envoy_sn_available_battery_energy
-  
-  sensor:
-    - name: "Battery charge"
-      unique_id: calculated_envoy_battery_charge
-      unit_of_measurement: "Wh" 
-      state: "{{ this.state | int(0) + ([0, (trigger.to_state.state | int(0) - trigger.from_state.state | int(0))] | max }}" 
-      device_class: energy 
-      state_class: total_increasing
-    - name: "Battery discharge"
-      unique_id: calculated_envoy_battery_discharge
-      unit_of_measurement: "Wh" 
-      state: "{{ this.state | int(0) - ([0, (trigger.to_state.state | int(0) - trigger.from_state.state | int(0))] | min }}" 
-      device_class: energy 
-      state_class: total_increasing
-```
-
-{% endraw %}
-
-The above example does not address handling `unavailable` or `unknown` states, value changes over Home Assistant outages nor conversion losses.
-
-{% enddetails %}
+Import the blueprint using the **import blueprint to** button. This will install the blueprint as `/config/blueprints/template/catsmanac/Filter_positive_or_negative_value_changes_in_sensor_entity.yaml`. Use the directions and templates in the blueprint exchange topic to implement such a split using the **Envoy <abbr title="Envoy serial number">SN</abbr> available battery energy** entity as source entity. Add positive changes to a battery_charge entity and add negative changes to a battery_discharge entity.
 
 ### Individual devices
 
@@ -706,7 +623,7 @@ data:
 Technically `select.first`, `select.last`, `select.previous`, `select.next` are available as well, but as there's no logical sequence in the values to select, their use is not advocated.
 {% endnote %}
 
-## Know issues and limitations
+## Known issues and limitations
 
 ### Firmware changes
 
@@ -724,17 +641,15 @@ Until a resolution is found, you must use the Enphase App to control these featu
 
 ### Late reset
 
-When using Envoy Metered with <abbr title="current transformers">CT</abbr>, not all firmware versions reset 'Energy production today' at midnight. Delays of up to 15 minutes have been reported. In this case, best use a utility meter with the `Lifetime energy production` entity for daily reporting.
+Not all firmware versions reset `Energy production today` or `Energy consumption today`, `Energy production last seven days` and `Energy consumption last seven days` at midnight. A 1 hour delay is reported. In this case, best use a utility meter with the 'Lifetime' entity for daily reporting. This seems to be daylight savings time change related and surfaced in recent firmware versions. Some older firmware versions would reset up to 15 minutes late, even outside daylight saving periods.
 
 ### Energy incorrect
 
 When using Envoy Metered with <abbr title="current transformers">CT</abbr>
 
-- not all firmware versions report `Energy production today` and/or `Energy consumption today` correctly. Zero data and unexpected spikes have been reported. In this case, best use a utility meter with the `Lifetime energy production` or `Lifetime energy consumption` entity for daily reporting.
-- not all firmware versions report `Energy production last seven days` and/or `Energy consumption last seven days` correctly. Zero and unexpected values have been reported.
-- `Energy production today` and `Energy consumption today` have been reported not to reset to zero at the start of the day. Instead, it resets to a non-zero value that seems to gradually increase over time, although other values have been reported as well. This issue has also been reported as starting suddenly overnight. For daily reporting, it is recommended to use a utility meter with the `Lifetime energy production` or `Lifetime energy consumption` entity.
-
-- `Energy production today`, `Energy consumption today`, `Energy production last seven days` and `Energy consumption last seven days` have been reported not to reset to zero at the start of the day. Instead, it resets to zero at a later time, often 1 am. This seems to be daylight savings time change related.
+- not all firmware versions report `Energy production today` and/or `Energy consumption today` correctly. Zero data, changes to a lower value and unexpected spikes have been reported. Enphase reportedly indicated it is an issue in summing phase values to aggregated data. In this case, either use individual phase data or a utility meter with the `Lifetime energy production` or `Lifetime energy consumption` entity for daily reporting.
+- not all firmware versions report `Energy production last seven days` and/or `Energy consumption last seven days` correctly. Zero and unexpected values have been reported. Enphase reportedly indicated it is an issue in summing phase values to aggregated data. In this case, use the individual phase data.
+- `Energy production today` and `Energy consumption today` have been reported not to reset to zero. Instead, it resets to a non-zero value that seems to gradually increase over time, although other values have been reported as well. This issue has also been reported as starting suddenly overnight. For daily reporting, it is recommended to use a utility meter with the `Lifetime energy production` or `Lifetime energy consumption` entity.
 
 {% details "History examples for Today's energy production value not resetting to zero" %}
 
@@ -748,6 +663,14 @@ When using Envoy Metered with <abbr title="current transformers">CT</abbr>
   <figcaption>Envoy Today's energy production value exhibits a sudden onset of non-zero resets.</figcaption>
 </figure>
 {% enddetails %}
+
+These issues may result in log entries like:
+
+```txt
+Entity sensor.envoy_123456789012_energy_consumption_today from integration enphase_envoy has state class total_increasing, but its state is not strictly increasing. Triggered by state 12.345 (12.543) with last_updated set to 2025-09-05T18:00:23.432536+00:00. Please create a bug report at ...
+```
+
+If these entries occur frequently and are a nuisance then disable the entity. It's data is at best doubtful.
 
 ### Lifetime reset
 
@@ -764,7 +687,7 @@ Envoy Metered without installed CT, running older firmware versions, reportedly 
 
 ### Lifetime energy production decreases by 1.2 MWh
 
-Envoy Standard (not Metered), running firmware 8.2.4264, reportedly decreases the **Lifetime energy production** value by 1.2 MWh at irregular times. The current hypothesis is that the step change occurs when one of the inverters exceeds an internal lifetime joules counter of 32 bit, which is 1.19 MWh, and resets to zero. This leads to a decrease of 1.2 MWh in the aggregated value for all inverters. It's not clear if this also happens for the metered Envoy.
+The envoy, as of firmware 8.2.4264, reportedly decreases the **Lifetime energy production** value by 1.2 MWh at irregular times. The current hypothesis is that the step change occurs when one of the inverters exceeds an internal lifetime joules counter of 32 bit, which is 1.19 MWh, and resets to zero. This leads to a decrease of 1.2 MWh in the aggregated value for all inverters.
 
 {% details "History example for Envoy Lifetime energy production value decrease" %}
 
@@ -775,6 +698,10 @@ The example below shows decreases when multiple inverters reach a 1.2 MWh lifeti
 </figure>
 
 {% enddetails %}
+
+To correct for this issue, a sensor [blueprint template](/integrations/template/#using-blueprints) named [`Correct Envoy lifetime production energy`](https://community.home-assistant.io/t/correct-envoy-lifetime-production-energy/942918/1) is available in the community blueprints exchange.
+
+Import the blueprint using the **import blueprint to** button. This will install the blueprint as `/config/blueprints/template/marcelhoogantink/correct_envoy_lifetime_production_energy.yaml`. Use the templates shown in the blueprint exchange to implement an entity with a corrected lifetime value.
 
 ### Missing inverter data
 
@@ -787,6 +714,10 @@ If you are not seeing [inverters](#sensor-entities) detail data, verify if you h
 ### Summed Voltage
 
 The Envoy Metered in multiphase setup, sums the voltages of the phases measured on the CT for the aggregated data. This may be valid for split-phase, but for 3-phase systems, use the individual phases rather than the summed value.
+
+### Grid Import/Export values incorrect
+
+Envoy Metered with a net-consumption CT measures current and energy exchange between switchboard and grid. Mismatches with other grid-meters and/or the Enphase web-site have been reported. It's not clear if this is related to a recent firmware version or longer existing. When using these values best validate if they are correct in your specific case.
 
 ### Balancing grid meter
 
@@ -801,6 +732,14 @@ If you experience periodic connection issues, ensure the Envoy is connected to o
 ### CT Active flag count is non-zero
 
 The **CT active flag count** value shows the number of CT status flags that are raised. In a normal state, the value of **CT active flag count** is zero. If the value is non-zero, consult the [diagnostic](#diagnostics) report of the Envoy and look for `raw_data` - `/ivp/meters` - `statusFlags` for set flags, one or more from  (`production-imbalance` | `negative-production` | `power-on-unused-phase` | `negative-total-consumption`). Their somewhat descriptive names may be an indication of installation issues.
+
+### Log entry for state is not strictly increasing
+
+The log shows an entry like below for energy consumption today or energy production today. See the [energy incorrect](#energy-incorrect) topic for a description of this issue.
+
+```txt
+Entity sensor.envoy_123456789012_energy_consumption_today from integration enphase_envoy has state class total_increasing, but its state is not strictly increasing. Triggered by state 12.345 (12.543) with last_updated set to 2025-09-05T18:00:23.432536+00:00. Please create a bug report at ...
+```
 
 ### Debug logs and diagnostics
 

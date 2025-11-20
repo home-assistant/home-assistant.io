@@ -36,6 +36,7 @@ The available sensor entities:
 - probability of precipitation
 - station name
 - temperature
+- pressure
 - UV index
 - visibility
 - weather

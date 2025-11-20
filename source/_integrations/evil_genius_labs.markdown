@@ -6,8 +6,6 @@ ha_category:
 ha_iot_class: Local Polling
 ha_release: '2021.12'
 ha_config_flow: true
-ha_codeowners:
-  - '@balloob'
 ha_domain: evil_genius_labs
 ha_platforms:
   - diagnostics
