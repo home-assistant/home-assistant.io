@@ -15,7 +15,7 @@ related:
     title: Configuration basics
 ---
 
-The **Labs** {% term integration %} provides a dedicated panel where you can preview and test new features before they become standard in Home Assistant. These preview features are critical bug free and fully functional but may still undergo design changes based on user feedback.
+The **Labs** {% term integration %} provides a dedicated panel where you can preview and test new features before they become standard in Home Assistant. These preview features are critical bug-free and fully functional but may still undergo design changes based on user feedback.
 
 Labs preview features are different from beta testing:
 
