@@ -126,6 +126,11 @@ By default, this integration will receive push updates from the cloud about its 
 | **Steam level** | The level your steam boiler should run at | `1`,`2`,`3` | `Linea Micra`, `Linea Mini R` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} <iconify-icon inline title="Bluetooth" icon="material-symbols:bluetooth"></iconify-icon> |
 | **Smart standby mode** | The smart standby mode, that decides from which events the timer to standby will run. | `Last brewing`, `Power on` | `all` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} <iconify-icon inline title="Bluetooth" icon="material-symbols:bluetooth"></iconify-icon>  |
 
+## Calendar
+
+The integration exposes a calendar for the machine's auto-on/off schedule. It only displays the schedule; you can't make changes to the schedule from the calendar.
+The schedule will be displayed recurrently: If you set the machine to start up on Mondays at 8:00 and shut down at 9:00, you will get events for all Mondays in your calendar. On days when you have the auto on/off feature disabled, you will not get an event in the calendar. Also, if you have the auto on/off feature disabled globally (for example, through the switch "Auto on/off"), there will be no events in the calendar.
+
 ## Supported devices
 
 Currently, only devices from the **"Home"** range are supported:
@@ -183,15 +188,15 @@ mode: single
 - Only La Marzocco native app accounts are supported, social logins (Google, Apple & WeChat) are not supported
 - Currently it is only possible to view the schedules configured in the La Marzocco Home app, but not to edit the schedules from Home Assistant. You can, of course, build Home Assistant native automations to reflect the same functionality in Home Assistant.
 
-## Removing the integration
-
-This integration follows standard integration removal. No extra steps are required.
-
-{% include integrations/remove_device_service.md %}
-
 ## Troubleshooting
 
 {% details "Problem: Connection to machine is not possible" %}
 
 Check the La Marzocco Home app to see if you can connect to your machine there. If not, remove the machine and add it again (follow the instructions in the La Marzocco App).
 {% enddetails %}
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
