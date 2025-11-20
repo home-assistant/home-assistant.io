@@ -58,7 +58,6 @@ Optionally they include:
 - **Feedback link**: Share your experience with the community
 - **Documentation link**: Learn more about the feature
 - **Report issue link**: Report bugs or problems
- 
 ### Enabling a feature
 
 1. Navigate to {% my labs title="the Labs panel" %}
