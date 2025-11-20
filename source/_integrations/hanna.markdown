@@ -1,7 +1,7 @@
 ---
 title: Hanna
 description: Instructions on how to integrate HannaCloud within Home Assistant.
-ha_release: 2025.11
+ha_release: 2025.12
 ha_category:
   - Sensor
 ha_codeowners:
@@ -38,14 +38,14 @@ Before you can add the Hanna integration, you need:
 
 {% configuration_basic %}
 email:
-  description: The email address of your [HannaCloud](https://www.hannacloud.com) account.
+  description: The email address of your HannaCloud account.
 password:
-  description: The password associated with your [HannaCloud](https://www.hannacloud.com) account
+  description: The password associated with your HannaCloud account
 {% endconfiguration_basic %}
 
 ## Data updates
 
-The integration will update its sensors by {% term polling %} the [HannaCloud](https://www.hannacloud.com) account for new values. 
+The integration will update its sensors by {% term polling %} the HannaCloud account for new values. 
 
 
 ## Supported functionality
