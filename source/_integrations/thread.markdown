@@ -13,8 +13,6 @@ ha_platforms:
   - diagnostics
 ha_zeroconf: true
 related:
-  - docs: /yellow/
-    title: Home Assistant Yellow - hub
   - docs: /integrations/matter/
     title: Matter
   - docs: /integrations/homekit_controller/
