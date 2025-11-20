@@ -740,10 +740,10 @@ zbt-2:
       ship_to: Europe
       url: https://mauser.pt/095-7567
       logo: /images/distributors/mauser.png
-    - name: WifiShop
+    - name: WIFIShop
       ship_from: Romania
       ship_to: Europe
-      url: https://www.wifishop.ro/home-assistant-connect-zbt-2
+      url: https://www.wifishop.ro/home-assistant-connect-zbt-2.html
       logo: /images/distributors/wifishop.webp
     - name: SmarterHome
       ship_from: Slovakia
