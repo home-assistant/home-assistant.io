@@ -210,7 +210,6 @@ The following SmartThings capabilities are supported for Select entities:
 | `samsungce.lamp`                                                                                                                           |
 | [`washerOperatingState`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#washerOperatingState)          |
 
-
 ### Sensor
 
 The SmartThings Sensor platform lets your view devices that have sensor-related capabilities. A Sensor entity is created for each attribute (below) supported by the device.
