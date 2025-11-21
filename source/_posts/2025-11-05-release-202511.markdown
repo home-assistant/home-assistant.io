@@ -54,6 +54,7 @@ PS: Oh, and pssst... Don't tell anyone 🤫, but there might be something exciti
 - [Patch releases](#patch-releases)
   - [2025.11.1 - November 7](#2025111---november-7)
   - [2025.11.2 - November 14](#2025112---november-14)
+  - [2025.11.3 - November 21](#2025113---november-21)
 - [Need help? Join the community](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
@@ -512,6 +513,86 @@ release once a week, aiming for Friday.
 [@starkillerOG]: https://github.com/starkillerOG
 [@tr4nt0r]: https://github.com/tr4nt0r
 [@xE1H]: https://github.com/xE1H
+[@zweckj]: https://github.com/zweckj
+
+### 2025.11.3 - November 21
+
+- Cache token info in Wallbox ([@hesselonline] - [#154147])
+- Bump version of python_awair to 0.2.5 ([@averybiteydinosaur] - [#155798])
+- Fix args passed to check_config script ([@tmonck] - [#155885])
+- update methods to non deprecated methods in vesync ([@cdnninja] - [#155887])
+- Fix wrong BrowseError module in Kode ([@charrus] - [#155971])
+- Bump universal-silabs-flasher to v0.1.0 ([@puddly] - [#156291])
+- Reset state on error during VOIP announcement ([@jaminh] - [#156384])
+- Bump pyiCloud to 2.2.0 ([@PaulCavill] - [#156485])
+- Fix is_matching in samsungtv config flow ([@FredrikM97] - [#156594])
+- Bump async-upnp-client to 0.46.0 ([@edenhaus] - [#156622])
+- Bump tplink-omada-api to 1.5.3 ([@MarkGodwin] - [#156645])
+- Fix missing description placeholders in MQTT subentry flow ([@jbouwh] - [#156684])
+- Fix missing `temperature_delta` device class translations ([@jbouwh] - [#156685])
+- Bump ohmepy and remove advanced_settings_coordinator ([@dan-r] - [#156764])
+- Fix blocking call in cync ([@epenet] - [#156782])
+- Lamarzocco fix websocket reconnect issue ([@zweckj] - [#156786])
+- Fix hvv_departures to pass config_entry explicitly to DataUpdateCoordinator ([@Copilot] - [#156794])
+- Bump aioautomower to 2.7.1 ([@Thomas55555] - [#156826])
+- Bump pySmartThings to 3.3.4 ([@joostlek] - [#156830])
+- Bump universal-silabs-flasher to 0.1.2 ([@puddly] - [#156849])
+- Bump onedrive-personal-sdk to 0.0.17 ([@zweckj] - [#156865])
+- Bump aiounifi to 88 ([@Sese-Schneider] - [#156867])
+- Rework CloudhookURL setup for mobile app ([@TimoPtr] - [#156940])
+- Bump go2rtc to 1.9.12 and go2rtc-client to 0.3.0 ([@edenhaus] - [#156948])
+- Update frontend to 20251105.1 ([@bramkragten] - [#156992])
+- Throttle Decora wifi updates ([@joostlek] - [#156994])
+
+[#154147]: https://github.com/home-assistant/core/pull/154147
+[#155798]: https://github.com/home-assistant/core/pull/155798
+[#155885]: https://github.com/home-assistant/core/pull/155885
+[#155887]: https://github.com/home-assistant/core/pull/155887
+[#155971]: https://github.com/home-assistant/core/pull/155971
+[#156076]: https://github.com/home-assistant/core/pull/156076
+[#156291]: https://github.com/home-assistant/core/pull/156291
+[#156384]: https://github.com/home-assistant/core/pull/156384
+[#156485]: https://github.com/home-assistant/core/pull/156485
+[#156594]: https://github.com/home-assistant/core/pull/156594
+[#156620]: https://github.com/home-assistant/core/pull/156620
+[#156622]: https://github.com/home-assistant/core/pull/156622
+[#156645]: https://github.com/home-assistant/core/pull/156645
+[#156684]: https://github.com/home-assistant/core/pull/156684
+[#156685]: https://github.com/home-assistant/core/pull/156685
+[#156764]: https://github.com/home-assistant/core/pull/156764
+[#156782]: https://github.com/home-assistant/core/pull/156782
+[#156786]: https://github.com/home-assistant/core/pull/156786
+[#156794]: https://github.com/home-assistant/core/pull/156794
+[#156826]: https://github.com/home-assistant/core/pull/156826
+[#156830]: https://github.com/home-assistant/core/pull/156830
+[#156849]: https://github.com/home-assistant/core/pull/156849
+[#156865]: https://github.com/home-assistant/core/pull/156865
+[#156867]: https://github.com/home-assistant/core/pull/156867
+[#156940]: https://github.com/home-assistant/core/pull/156940
+[#156948]: https://github.com/home-assistant/core/pull/156948
+[#156992]: https://github.com/home-assistant/core/pull/156992
+[#156994]: https://github.com/home-assistant/core/pull/156994
+[@Copilot]: https://github.com/apps/copilot-swe-agent
+[@FredrikM97]: https://github.com/FredrikM97
+[@MarkGodwin]: https://github.com/MarkGodwin
+[@PaulCavill]: https://github.com/PaulCavill
+[@Sese-Schneider]: https://github.com/Sese-Schneider
+[@Thomas55555]: https://github.com/Thomas55555
+[@TimoPtr]: https://github.com/TimoPtr
+[@averybiteydinosaur]: https://github.com/averybiteydinosaur
+[@bramkragten]: https://github.com/bramkragten
+[@cdnninja]: https://github.com/cdnninja
+[@charrus]: https://github.com/charrus
+[@dan-r]: https://github.com/dan-r
+[@edenhaus]: https://github.com/edenhaus
+[@epenet]: https://github.com/epenet
+[@frenck]: https://github.com/frenck
+[@hesselonline]: https://github.com/hesselonline
+[@jaminh]: https://github.com/jaminh
+[@jbouwh]: https://github.com/jbouwh
+[@joostlek]: https://github.com/joostlek
+[@puddly]: https://github.com/puddly
+[@tmonck]: https://github.com/tmonck
 [@zweckj]: https://github.com/zweckj
 
 ## Need help? Join the community
