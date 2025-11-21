@@ -196,6 +196,8 @@ The SmartThings number platform lets you control the amount of washer rinse cycl
 
 The SmartThings Select platform can be used to remotely turn on a dryer, a washer and a dishwasher. Be aware that for them to work, the Remote control has to be turned on.
 
+The following SmartThings capabilities are supported for Select entities:
+
 | SmartThings capability                                                                                                                     |
 | ------------------------------------------------------------------------------------------------------------------------------------------ |
 | `custom.washerSoilLevel`                                                                                                                   |
