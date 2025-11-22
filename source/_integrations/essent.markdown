@@ -87,10 +87,9 @@ Prices are fetched from Essent's public API endpoint:
 
 ## Known limitations
 
-- **Geographic limitation**: Netherlands only
 - **Contract type**: Designed for Essent dynamic pricing contracts
 - **Data availability**: Current day and next day only (when available)
-- **No historical data**: Past pricing data is not stored or available
+- **No historical data**: Past pricing data is not stored or available - use HA recorder to capture these.
 
 ## Troubleshooting
 
@@ -98,16 +97,13 @@ Prices are fetched from Essent's public API endpoint:
 
 If your sensors are showing unavailable or unknown states, check the following:
 
-1. **Timezone configuration**: Ensure Home Assistant's timezone is set correctly
-   - Go to {% my general title="Settings → System → General" %}
-   - Set timezone to `Europe/Amsterdam` or your local timezone
-
-2. **Network connectivity**: Verify that Home Assistant can reach `essent.nl`
+1. **Network connectivity**: Verify that Home Assistant can reach `essent.nl`
    - Check your network and firewall settings
    - Verify internet connectivity
 
-3. **API service status**: Essent's API may be temporarily unavailable
+2. **API service status**: Essent's API may be temporarily unavailable
    - Check {% my logs title="Settings → System → Logs" %} for error messages
+   - Open `https://www.essent.nl/api/public/tariffmanagement/dynamic-prices/v1/` in a browser or via `curl`; a JSON response confirms the service is reachable, while HTTP errors mean the API is down or blocked by your network
    - Wait and check if data returns within an hour
 
 ### Prices don't match my Essent account
