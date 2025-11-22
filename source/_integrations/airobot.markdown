@@ -9,7 +9,7 @@ ha_domain: airobot
 ha_integration_type: device
 ha_dhcp: true
 ha_config_flow: true
-ha_quality_scale: silver
+ha_quality_scale: bronze
 ---
 
 The **Airobot** {% term integration %} allows you to control and monitor [Airobot](https://airobothome.com/) smart thermostats for intelligent floor heating control via the local REST API. The thermostat uses adaptive learning with a TPI (Time Proportional Integral) algorithm to maintain stable temperatures and optimize energy efficiency. Optional built-in CO₂ and humidity sensors monitor indoor air quality for a healthier living environment.
@@ -38,7 +38,7 @@ The integration can be automatically discovered via DHCP when the thermostat is 
 
 {% configuration_basic %}
 Host:
-    description: "The hostname or IP address of your Airobot thermostat. You can find it in your router settings, or use the hostname format `airobot-thermostat-t01xxxxxx.local` (replace `t01xxxxxx` with your Device ID in lowercase)."
+    description: "The hostname or IP address of your Airobot thermostat. You can find it in your router settings, or use the hostname format `airobot-thermostat-t01xxxxxx` (replace `t01xxxxxx` with your Device ID in lowercase)."
 Username:
     description: "The thermostat Device ID (e.g., T01XXXXXX). You can find this in the thermostat menu under **Connectivity** > **Mobile app** screen. This is the same credential used to pair the mobile app."
 Password:
@@ -57,7 +57,10 @@ The thermostat is represented as a climate entity with the following capabilitie
 - **Target temperature**: Shows and allows you to set the desired temperature (5-35°C range).
   - In HOME mode: Controls the HOME temperature setpoint.
   - In AWAY mode: Controls the AWAY temperature setpoint.
-- **HVAC mode**: Always set to HEAT (the thermostat only supports heating).
+- **HVAC mode**: Shows whether the thermostat is actively heating or idle.
+  - Supported modes:
+    - **Heat**: Actively heats to reach the target temperature.
+    - **Off**: Disables heating.
 - **HVAC action**: Shows whether the thermostat is actively heating or idle.
 - **Preset modes**:
   - **Home**: Use the HOME temperature setpoint.
@@ -87,7 +90,7 @@ To resolve this issue, try the following steps:
 1. **Verify the IP address or hostname**:
    - Make sure you entered the correct IP address or hostname.
    - You can find the IP address in your router settings.
-   - The hostname format is `airobot-thermostat-t01xxxxxx.local` (replace `t01xxxxxx` with your Device ID in lowercase).
+   - The hostname format is `airobot-thermostat-t01xxxxxx` (replace `t01xxxxxx` with your Device ID in lowercase).
 
 2. **Check network connectivity**:
    - Ensure the thermostat is powered on and connected to your network.
