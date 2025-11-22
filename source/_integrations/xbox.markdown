@@ -281,11 +281,7 @@ For your account and each of your favorite friends, several image entities are a
 
 ## Media source
 
-The Xbox media source platform allows you to use the Media Browser panel to view both your own, and community, gameclips or screenshots for games that you have installed on any of your consoles. As with any other media source {% term integration %}, you are also able to send these clips to supported media players like Chromecast.
-
-{% important %}
-It can take up to a couple of days for newly installed applications to appear in the media browser.
-{% endimportant %}
+The Xbox media source platform lets your browse your own and community gameclips or screenshots, as well as promotional images for games you've played, through the Media Browser panel. As with any other media source {% term integration %}, you can also send these clips to supported media players like Chromecast.
 
 ## Manual configuration
 
