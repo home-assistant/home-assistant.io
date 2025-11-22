@@ -32,7 +32,7 @@ The `ecovacs` {% term integration %} is the main integration to integrate [Ecova
 
 ## Prerequisites
 
-You will need your Ecovacs account information (email address, password) to discover and control vacuums and mowers in your account. Your email address is used as your username.
+You will need your Ecovacs account information (username, password) to discover and control vacuums and mowers in your account. Your username is your email address.
 
 Additional note: There are some issues during the password encoding. Using some special characters (e.g., `-`) in your password does not work.
 
@@ -199,7 +199,7 @@ vacuum.deebot_n8_plus:
 ## Self-hosted configuration
 
 Depending on your setup of the self-hosted instance, you can connect to the server using the following settings:
-- `Email address`: Enter the email address configured in your instance. If authentication is disabled, you can enter any valid email address.
+- `Username`: Enter the email address configured in your instance. If authentication is disabled, you can enter any valid email address.
 - `Password`: Enter the password configured in your instance. If authentication is disabled, you can enter any string (series of characters).
 - `REST URL`: http://`SELF_HOSTED_INSTANCE`:8007
 - `MQTT URL`: mqtts://`SELF_HOSTED_INSTANCE`:8883
