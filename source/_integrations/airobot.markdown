@@ -12,7 +12,7 @@ ha_config_flow: true
 ha_quality_scale: bronze
 ---
 
-The **Airobot** {% term integration %} allows you to control and monitor [Airobot](https://airobothome.com/) smart thermostats for intelligent floor heating control via the local REST API. The thermostat uses adaptive learning with a TPI (Time Proportional Integral) algorithm to maintain stable temperatures and optimize energy efficiency. Optional built-in CO₂ and humidity sensors monitor indoor air quality for a healthier living environment.
+The **Airobot** {% term integration %} allows you to control and monitor [Airobot](https://airobothome.com/) smart thermostats for intelligent floor heating control via the local REST API. The thermostat uses adaptive learning with a <abbr title="Time Proportional Integral">TPI</abbr> algorithm to maintain stable temperatures and optimize energy efficiency. Optional built-in CO₂ and humidity sensors monitor indoor air quality for a healthier living environment.
 
 ## Supported devices
 
@@ -57,15 +57,15 @@ The thermostat is represented as a climate entity with the following capabilitie
 - **Target temperature**: Shows and allows you to set the desired temperature (5-35°C range).
   - In HOME mode: Controls the HOME temperature setpoint.
   - In AWAY mode: Controls the AWAY temperature setpoint.
-- **HVAC mode**: Shows whether the thermostat is actively heating or idle.
+- **HVAC mode**: Controls whether heating is enabled or disabled.
   - Supported modes:
-    - **Heat**: Actively heats to reach the target temperature.
-    - **Off**: Disables heating.
+    - **Heat**: Actively heats to reach the target temperature
+    - **Off**: Disables heating
 - **HVAC action**: Shows whether the thermostat is actively heating or idle.
 - **Preset modes**:
-  - **Home**: Use the HOME temperature setpoint.
-  - **Away**: Use the AWAY temperature setpoint (typically lower for energy savings).
-  - **Boost**: Temporarily boost heating for 1 hour, then return to the previous mode.
+  - **Home**: Use the HOME temperature setpoint
+  - **Away**: Use the AWAY temperature setpoint (typically lower for energy savings)
+  - **Boost**: Temporarily boost heating for 1 hour, then return to the previous mode
 
 ## Data updates
 
