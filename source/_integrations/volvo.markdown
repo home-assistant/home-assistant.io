@@ -156,6 +156,7 @@ The **Volvo** integration provides the following entities.
 - **Flash**: Activates the vehicle's lights to flash briefly.
 - **Honk**: Activates the vehicle's horn for a short duration.
 - **Flash & honk**: Combines flashing lights and horn activation.
+- **Lock reduced guard**: Locks the vehicle with reduced guard.
 
 {% important %}
 Volvo removed the **Honk** and **Flash** buttons from the official app because they can drain the vehicle's 12&nbsp;V battery.
