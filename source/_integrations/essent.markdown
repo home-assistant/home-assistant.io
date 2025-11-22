@@ -39,7 +39,7 @@ The integration provides the following sensors:
 The following sensors are created for electricity prices:
 
 - **Current electricity price** - Current hourly electricity price per kWh including VAT
-- **Next electricity price** - Next hour's electricity price per kWh
+- **Next electricity price** - Next hour's electricity price per kWh (disabled by default)
 - **Average electricity price today** - Average of all hourly electricity prices for today
 - **Lowest electricity price today** - Minimum electricity price for today (disabled by default)
 - **Highest electricity price today** - Maximum electricity price for today (disabled by default)
@@ -54,7 +54,7 @@ The following sensors are created for electricity prices:
 The following sensors are created for gas prices:
 
 - **Current gas price** - Current daily gas price per m³ including VAT
-- **Next gas price** - Next day's gas price per m³
+- **Next gas price** - Next day's gas price per m³ (disabled by default)
 - **Current gas price excl. VAT** - Current daily price excluding VAT (disabled by default)
 - **Current gas VAT** - VAT component of the current price (disabled by default)
 - **Current gas market price** - Spot market component of the current price (disabled by default)
