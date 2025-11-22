@@ -38,46 +38,34 @@ The integration provides the following sensors:
 
 The following sensors are created for electricity prices:
 
-- **Electricity current price** - Current hourly electricity price per kWh including VAT
-- **Electricity next price** - Next hour's electricity price per kWh
-- **Electricity average today** - Average of all hourly electricity prices for today
-- **Electricity lowest price today** - Minimum electricity price for today with time window (disabled by default)
-- **Electricity highest price today** - Maximum electricity price for today with time window (disabled by default)
-
-The **current price** and **next price** sensors include detailed price breakdown attributes:
-
-- `price_ex_vat` - Price excluding VAT
-- `vat` - VAT amount
-- `market_price` - Spot market price component
-- `purchasing_fee` - Supplier purchasing fee
-- `tax` - Energy tax component
-- `start_time` - Tariff period start time
-- `end_time` - Tariff period end time
-
-The **average price** sensor includes:
-
-- `min_price` - Lowest price for today
-- `max_price` - Highest price for today
-
-The **lowest price** and **highest price** sensors include:
-
-- `start` - Time window start for the min/max price
-- `end` - Time window end for the min/max price
+- **Current electricity price** - Current hourly electricity price per kWh including VAT
+- **Next electricity price** - Next hour's electricity price per kWh
+- **Average electricity price today** - Average of all hourly electricity prices for today
+- **Lowest electricity price today** - Minimum electricity price for today (disabled by default)
+- **Highest electricity price today** - Maximum electricity price for today (disabled by default)
+- **Current electricity price excl. VAT** - Current hourly price excluding VAT (disabled by default)
+- **Current electricity VAT** - VAT component of the current price (disabled by default)
+- **Current electricity market price** - Spot market component of the current price (disabled by default)
+- **Current electricity purchasing fee** - Supplier purchasing fee component (disabled by default)
+- **Current electricity tax** - Tax component of the current price (disabled by default)
 
 ### Gas
 
 The following sensors are created for gas prices:
 
-- **Gas current price** - Current daily gas price per m³ including VAT
-- **Gas next price** - Next day's gas price per m³
-
-Gas **current price** and **next price** sensors include the same detailed price breakdown attributes as electricity sensors (price components, VAT, and time windows). Gas prices use daily tariffs, so the same price applies for the entire day.
+- **Current gas price** - Current daily gas price per m³ including VAT
+- **Next gas price** - Next day's gas price per m³
+- **Current gas price excl. VAT** - Current daily price excluding VAT (disabled by default)
+- **Current gas VAT** - VAT component of the current price (disabled by default)
+- **Current gas market price** - Spot market component of the current price (disabled by default)
+- **Current gas purchasing fee** - Supplier purchasing fee component (disabled by default)
+- **Current gas tax** - Tax component of the current price (disabled by default)
 
 ## Data updates
 
-The API is called once per hour at a random minute offset (0-59) to distribute server load. Each call fetches all hourly prices for today and tomorrow (when available). Tomorrow's prices typically appear after 12:00 CET for electricity and 19:00 CET for gas.
+The API is called once per hour. Each call fetches all hourly prices for today and tomorrow (when available). Tomorrow's prices typically appear after 12:00 CET for electricity and 19:00 CET for gas.
 
-Sensors update on the hour using cached API data, so they advance to the current price without additional API calls.
+Sensors update on the hour using cached API data, so they advance to the current price without additional API calls between polls.
 
 ## Data source
 
