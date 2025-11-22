@@ -65,98 +65,61 @@ The following devices are known to be supported by the integration:
 
 ## Supported functionality
 
-The **PoolDose** integration provides the following entities.
+This integration provides the following entities.
 
 ### Binary sensors
 
-- **Recirculation pump alarm**
-  - **Device class**: Problem
-  - **Description**: Indicates recirculation issue.
-- **pH tank level**
-  - **Device class**: Problem
-  - **Description**: Low pH dosing solution level.
-- **ORP tank level**
-  - **Device class**: Problem
-  - **Description**: Low ORP dosing solution level.
-- **Chlorine tank level**
-  - **Device class**: Problem
-  - **Description**: Low chlorine dosing solution level.
-- **Flow rate alarm**
-  - **Device class**: Problem
-  - **Description**: Water flow issues.
-- **pH overfeed**
-  - **Device class**: Problem
-  - **Description**: Excessive pH dosing detected.
-- **ORP overfeed**
-  - **Device class**: Problem
-  - **Description**: Excessive ORP dosing detected.
-- **Alarm relay**
-  - **Description**: Main alarm relay state.
-- **Auxiliary relay 1**
-  - **Description**: Auxiliary relay 1 output state.
-- **Auxiliary relay 2**
-  - **Description**: Auxiliary relay 2 output state.
-- **Auxiliary relay 3**
-  - **Description**: Auxiliary relay 3 output state.
+- **Recirculation pump alarm**: Recirculation pump issue.
+- **pH tank level alarm**: Low pH dosing solution level.
+- **ORP tank level alarm**: Low ORP dosing solution level.
+- **Chlorine tank level alarm**: Low chlorine dosing solution level.
+- **Flow rate alarm**: Water flow issues.
+- **pH overfeed alarm**: Excessive pH dosing detected.
+- **ORP overfeed alarm**: Excessive ORP dosing detected.
+- **Alarm relay**: Main alarm relay state.
+- **Auxiliary relay 1**: Auxiliary relay 1 output state.
+- **Auxiliary relay 2**: Auxiliary relay 2 output state.
+- **Auxiliary relay 3**: Auxiliary relay 3 output state.
 
 ### Sensors
 
-- **Temperature**
+- **Temperature**: Water temperature.
   - **Unit**: °C, °F
-  - **Description**: Water temperature.
-- **pH**
-  - **Description**: pH value.
-- **ORP**
+- **pH**: pH value.
+- **ORP**: Current ORP (Redox) value.
   - **Unit**: mV
-  - **Description**: Current ORP (Redox) value.
-- **Chlorine**
+- **Chlorine**: Chlorine concentration.
   - **Unit**: ppm
-  - **Description**: Chlorine concentration.
-- **Flow rate**
+- **Flow rate**: Water flow rate.
   - **Unit**: L/s, m³/h
-  - **Description**: Water flow rate.
-- **pH type dosing**
-  - **Description**: Type of pH dosing being used.
+- **pH type dosing**: Type of pH dosing being used.
   - **Values**: pH+, pH-
-- **Peristaltic pH dosing**
-  - **Description**: pH peristaltic dosing mode.
+- **Peristaltic pH dosing**: pH peristaltic dosing mode.
   - **Values**: Off, Proportional, On/Off, Timed
-- **Overfeed alert pH time**
+- **Overfeed alert pH time**: Time threshold for pH overfeed alerts.
   - **Unit**: min
-  - **Description**: Time threshold for pH overfeed alerts.
-- **ORP type dosing**
-  - **Description**: Type of ORP dosing being used.
+- **ORP type dosing**: Type of ORP dosing being used.
   - **Values**: Low, High
-- **Peristaltic ORP dosing**
-  - **Description**: ORP peristaltic dosing mode.
+- **Peristaltic ORP dosing**: ORP peristaltic dosing mode.
   - **Values**: Off, Proportional, On/Off, Timed
-- **Chlorine type dosing**
-  - **Description**: Type of chlorine dosing being used.
+- **Chlorine type dosing**: Type of chlorine dosing being used.
   - **Values**: Low, High
-- **Peristaltic chlorine dosing**
-  - **Description**: Chlorine peristaltic dosing mode.
+- **Peristaltic chlorine dosing**: Chlorine peristaltic dosing mode.
   - **Values**: Off, Proportional, On/Off, Timed
-- **Overfeed alert ORP time**
+- **Overfeed alert ORP time**: Time threshold for ORP overfeed alerts.
   - **Unit**: min
-  - **Description**: Time threshold for ORP overfeed alerts.
-- **pH calibration type**
-  - **Description**: Type of pH calibration being used.
+- **pH calibration type**: Type of pH calibration being used.
   - **Values**: Off, Reference, 1 point, 2 points
-- **pH calibration offset**
+- **pH calibration offset**: pH calibration offset value.
   - **Unit**: mV
-  - **Description**: pH calibration offset value.
-- **pH calibration slope**
+- **pH calibration slope**: pH calibration slope value.
   - **Unit**: mV
-  - **Description**: pH calibration slope value.
-- **ORP calibration type**
-  - **Description**: Type of ORP calibration being used.
+- **ORP calibration type**: Type of ORP calibration being used.
   - **Values**: Off, Reference, 1 point
-- **ORP calibration offset**
+- **ORP calibration offset**: ORP calibration offset value.
   - **Unit**: mV
-  - **Description**: ORP calibration offset value.
-- **ORP calibration slope**
+- **ORP calibration slope**: ORP calibration slope value.
   - **Unit**: mV
-  - **Description**: ORP calibration slope value.
 
 ## Known limitations
 
