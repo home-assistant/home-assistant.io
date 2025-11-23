@@ -101,7 +101,7 @@ The **Saunum** integration provides the following entities for controlling and m
 ### Light
 
 - **Sauna Light**
-  - **Description**: Control the sauna lighting.
+  - **Description**: Control the sauna lighting if light is connected to the control unit.
   - **Features**: Turn the sauna light on or off.
 
 ## Supported devices
