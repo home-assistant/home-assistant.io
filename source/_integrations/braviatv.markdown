@@ -245,7 +245,7 @@ automation:
         target:
           entity_id: number.bravia_tv_picture_brightness
         data:
-          value: "{{ state_attr('light.living_room', 'brightness') | int * 50 / 255 }}"
+          value: "{% raw %}{{ state_attr('light.living_room', 'brightness') | int * 50 / 255 }}{% endraw %}"
 ```
 
 ## Limitations and known issues
