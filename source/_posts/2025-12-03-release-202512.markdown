@@ -1,0 +1,492 @@
+---
+layout: post
+title: "2025.12 Beta: A Betta title"
+description: "Beta release notes for Home Assistant Core 2025.12"
+date: 2025-11-23 00:00:00
+date_formatted: "December 3, 2025"
+author: Franck Nijhof
+author_twitter: frenck
+comments: true
+categories:
+  - Release-Notes
+  - Core
+og_image: /images/blog/2025-12/social.png
+---
+
+<lite-youtube videoid="8Zj0JiVoRNs" videotitle="Home Assistant 2025.12 Release Party"></lite-youtube>
+
+{% note %}
+
+**Welcome to the beta release notes for Home Assistant 2025.12** 🎉
+
+<br />
+
+Please note that these release notes are a work in progress. 👷‍♀️ We will be
+completing them over the next couple of days. Not all features might be final
+yet, and some features _**may not** make it into the final release_.
+
+<br />
+
+**Want to help test the beta?** Awesome! ❤️ We have documented how you
+[can join our beta channel and install the beta here](/common-tasks/os/#running-a-beta-version).
+
+<br />
+
+While running the beta, we highly recommend joining our _#beta_ channel on
+the [Home Assistant Discord chat](/join-chat)! 💬 Most developers and beta
+testers are in this channel during the beta period to share experiences, ideas,
+and iterate over new features, fine-tuning them before the final release.
+It's a really fun place to hang out. 😎
+
+<br />
+
+**Reporting issues**: As this is a beta test, you might encounter unexpected
+behavior or issues. 🐞 We use the GitHub issue tracker to track beta issues.
+You can find our issue trackers and the reported issues during beta here:
+
+<br />
+
+- [Report(ed) beta **dashboards/UI/frontend** issues](https://github.com/home-assistant/frontend/milestone/138)
+- [Report(ed) beta **integrations/automations/backend/core** issues](https://github.com/home-assistant/core/milestone/778)
+- [Report(ed) beta **documentation** issues](https://github.com/home-assistant/home-assistant.io/milestone/145)
+
+🙏 When reporting issues, **make sure to mention the exact beta version you are
+running** in the issue description. This will help us identify and track the
+issue correctly. Read more about [reporting issues here](/help/reporting_issues/).
+
+<br />
+
+Issues introduced in the beta are processed with priority. 🔝
+
+{% endnote %}
+
+{% tip %}
+
+Don't forget to [join our release party live stream on YouTube](https://www.youtube.com/watch?v=8Zj0JiVoRNs) on December 3, 2025, at 20:00 GMT / 12:00 PT / 21:00 CET!
+
+{% endtip %}
+
+Home Assistant 2025.12! 🎄
+
+Enjoy the (beta) release!
+
+../Frenck
+
+<!--more-->
+
+- [Lorem ipsum](#lorem-ipsum)
+- [Integrations](#integrations)
+  - [New integrations](#new-integrations)
+  - [Noteworthy improvements to existing integrations](#noteworthy-improvements-to-existing-integrations)
+  - [Integration quality scale achievements](#integration-quality-scale-achievements)
+  - [Now available to set up from the UI](#now-available-to-set-up-from-the-ui)
+- [Other noteworthy changes](#other-noteworthy-changes)
+  - [Lorem ipsum](#lorem-ipsum-1)
+- [Need help? Join the community](#need-help-join-the-community)
+- [Backward-incompatible changes](#backward-incompatible-changes)
+- [All changes](#all-changes)
+
+_A huge thank you to all the contributors who made this release possible! And a special shout-out to [@frenck], [@frenck], and [@frenck] who helped write the release notes this release. Also, [@frenck], [@frenck], [@frenck], and [@frenck] for putting effort into tweaking its contents. Thanks to them, these release notes are in great shape. ❤️_
+
+[@frenck]: https://github.com/frenck
+
+## Lorem ipsum
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+## Integrations
+
+Thanks to our community for keeping pace with the new {% term integrations %}
+and improvements to existing ones! You’re all awesome 🥰
+
+### New integrations
+
+We welcome the following new integrations in this release:
+
+- **[Lorem ipsum]**, added by [@frenck]  
+  The Lorem integration provides a Lorem Ipsum generator service, allowing users to generate placeholder text for design and development purposes.
+
+[@frenck]: https://github.com/frenck
+[Lorem ipsum]: /integrations/lorem_ipsum
+
+To process:
+- Add backblaze b2 backup integration ([@ElCruncharino] - [#149627]) ([backblaze docs]) (new-integration)
+- Add Google Weather integration ([@tronikos] - [#147015]) ([google_weather docs]) (new-integration)
+- Add Saunum integration ([@mettolen] - [#155099]) ([saunum docs]) (new-integration)
+- New virtual integration Vagner Pool supported by pooldose ([@lmaertin] - [#156678]) ([vagner_pool docs]) (new-integration)
+- Add Cosori virtual integration ([@joostlek] - [#156792]) ([cosori docs]) (new-integration)
+- Add support for Victron bluetooth low energy devices ([@rajlaud] - [#148043]) ([victron_ble docs]) (new-integration)
+- Add Hanna integration ([@bestycame] - [#147085]) ([hanna docs]) (new-integration)
+- Introduce Home Assistant Labs ([@frenck] - [#156840]) ([kitchen_sink docs]) ([labs docs]) (new-integration)
+- Add Airobot integration ([@mettolen] - [#156712]) ([airobot docs]) (new-integration)
+
+### Noteworthy improvements to existing integrations
+
+It is not just new {% term integrations %} that have been added; existing integrations are also being constantly improved. Here are some of the noteworthy changes to existing integrations:
+
+- [Lorem ipsum] expanded with support for slipsum sensors! Thanks, [@frenck]!
+
+[@frenck]: https://github.com/frenck
+[Lorem ipsum]: /integrations/lorem_ipsum
+
+### Integration quality scale achievements
+
+One thing we are incredibly proud of in Home Assistant is our [integration quality scale]. This scale helps us and our contributors to ensure integrations are of high quality, maintainable, and provide the best possible user experience.
+
+This release, we celebrate several {% term integrations %} that have improved their quality scale:
+
+- **2 integrations reached platinum** 🏆
+  - [Lorem Ipsum], thanks to [@frenck]
+  - [Lorem Ipsum], thanks to [@frenck]
+
+- **2 integrations reached silver** 🥈
+  - [Lorem Ipsum], thanks to [@frenck]
+  - [Lorem Ipsum], thanks to [@frenck]
+
+- **2 integrations reached bronze** 🥉
+  - [Lorem Ipsum], thanks to [@frenck]
+  - [Lorem Ipsum], thanks to [@frenck]
+
+This is a huge achievement for these integrations and their maintainers. The effort and dedication required to reach these quality levels is significant, as it involves extensive testing, documentation, error handling, and often complete rewrites of parts of the integration.
+
+A big thank you to all the contributors involved! 👏
+
+[integration quality scale]: /docs/quality_scale/
+
+[@frenck]: https://github.com/frenck
+[Lorem Ipsum]: /integrations/lorem_ipsum
+
+### Now available to set up from the UI
+
+While most {% term integrations %} can be set up directly from the Home Assistant
+user interface, some were only available using YAML configuration. We keep moving
+more integrations to the UI, making them more accessible for everyone
+to set up and use.
+
+The following integration is now available via the Home Assistant UI:
+
+- **[DuckDNS]**, done by [@tr4nt0r]
+
+[@tr4nt0r]: https://github.com/tr4nt0r
+[DuckDNS]: /integrations/duckdns
+
+## Other noteworthy changes
+
+There are many more improvements in this release; here are some of the other noteworthy changes:
+
+- The [lorem ipsum card] now supports [slipsum entities]. Thanks, [@frenck]!
+
+[@frenck]: https://github.com/frenck
+[lorem ipsum card]: /dashboards/lorem_ipsum/
+[slipsum entities]: /integrations/slipsum/
+
+### Lorem ipsum
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+## Need help? Join the community
+
+Home Assistant has a great community of users who are all more than willing
+to help each other out. So, join us!
+
+Our very active [Discord chat server](/join-chat) is an excellent place to be,
+and don't forget to join our amazing [forums](https://community.home-assistant.io/).
+
+Found a bug or issue? Please report it in our [issue tracker](https://github.com/home-assistant/core/issues)
+to get it fixed! Or check [our help page](/help) for guidance on more
+places you can go.
+
+Are you more into email? [Sign up for the Open Home Foundation Newsletter](/newsletter)
+to get the latest news about features, things happening in our community, and other projects that support the Open Home straight into your inbox.
+
+## Backward-incompatible changes
+
+We do our best to avoid making changes to existing functionality that might unexpectedly impact your Home Assistant installation. Unfortunately, sometimes, it is inevitable.
+
+We always make sure to document these changes to make the transition as easy as
+possible for you. This release has the following backward-incompatible changes:
+
+{% details "Lorem ipsum" %}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+([@frenck] - [#12345]) ([lorem_ipsum docs])
+
+[@frenck]: https://github.com/frenck
+[#12345]: https://github.com/home-assistant/core/pull/12345
+[lorem_ipsum docs]: /integrations/lorem_ipsum/
+
+{% enddetails %}
+
+{% details "TensorFlow" %}
+
+The **TensorFlow** {% term integration %} has been removed, as it cannot be used on supported installations.
+
+([@edenhaus] - [#155462]) ([tensorflow docs])
+
+[@edenhaus]: https://github.com/edenhaus
+[#155462]: https://github.com/home-assistant/core/pull/155462
+[tensorflow docs]: /integrations/tensorflow/
+
+{% enddetails %}
+
+{% details "SMS" %}
+
+The **SMS** {% term integration %} has been removed, as it cannot be used on supported installations.
+
+([@edenhaus] - [#155460]) ([sms docs])
+
+[@edenhaus]: https://github.com/edenhaus
+[#155460]: https://github.com/home-assistant/core/pull/155460
+[sms docs]: /integrations/sms/
+
+{% enddetails %}
+
+{% details "Pandora" %}
+
+The **Pandora** {% term integration %} has been removed, as it cannot be used on supported installations.
+
+([@edenhaus] - [#155458]) ([pandora docs])
+
+[@edenhaus]: https://github.com/edenhaus
+[#155458]: https://github.com/home-assistant/core/pull/155458
+[pandora docs]: /integrations/pandora/
+
+{% enddetails %}
+
+{% details "Snips" %}
+
+The **Snips** {% term integration %} has been removed, as it cannot be used on supported installations.
+
+([@edenhaus] - [#155461]) ([snips docs])
+
+[@edenhaus]: https://github.com/edenhaus
+[#155461]: https://github.com/home-assistant/core/pull/155461
+[snips docs]: /integrations/snips/
+
+{% enddetails %}
+
+{% details "Eddystone Temperature" %}
+
+The **Eddystone Temperature** {% term integration %} has been removed, as it cannot be used on supported installations.
+
+([@edenhaus] - [#155452]) ([eddystone_temperature docs])
+
+[@edenhaus]: https://github.com/edenhaus
+[#155452]: https://github.com/home-assistant/core/pull/155452
+[eddystone_temperature docs]: /integrations/eddystone_temperature/
+
+{% enddetails %}
+
+{% details "dlib Face" %}
+
+The **dlib Face Detect** and **dlib Face Identify** {% term integrations %} have been removed, as they cannot be used on supported installations.
+
+([@edenhaus] - [#155450]) ([dlib_face_detect docs]) ([dlib_face_identify docs])
+
+[@edenhaus]: https://github.com/edenhaus
+[#155450]: https://github.com/home-assistant/core/pull/155450
+[dlib_face_detect docs]: /integrations/dlib_face_detect/
+[dlib_face_identify docs]: /integrations/dlib_face_identify/
+
+{% enddetails %}
+
+{% details "Decora" %}
+
+The **Decora** {% term integration %} has been removed, as it cannot be used on supported installations.
+
+([@edenhaus] - [#155449]) ([decora docs])
+
+[@edenhaus]: https://github.com/edenhaus
+[#155449]: https://github.com/home-assistant/core/pull/155449
+[decora docs]: /integrations/decora/
+
+{% enddetails %}
+
+{% details "GStreamer" %}
+
+The **GStreamer** {% term integration %} has been removed, as it cannot be used on supported installations.
+
+([@edenhaus] - [#155455]) ([gstreamer docs])
+
+[@edenhaus]: https://github.com/edenhaus
+[#155455]: https://github.com/home-assistant/core/pull/155455
+[gstreamer docs]: /integrations/gstreamer/
+
+{% enddetails %}
+
+{% details "Home Assistant Core" %}
+
+Support for building images for deprecated architectures has been removed. More information can be found in the [blog post about deprecating core and supervised installation methods and 32-bit systems](https://www.home-assistant.io/blog/2025/05/22/deprecating-core-and-supervised-installation-methods-and-32-bit-systems/).
+
+([@edenhaus] - [#155447])
+
+[@edenhaus]: https://github.com/edenhaus
+[#155447]: https://github.com/home-assistant/core/pull/155447
+
+{% enddetails %}
+
+{% details "Flick Electric" %}
+
+The **Flick Electric** {% term integration %} has been removed. All customers of the Flick Electric company have already been moved to Meridian Energy. The API endpoint used in the integration is already non-functional.
+
+([@ZephireNZ] - [#155469]) ([flick_electric docs]) ([analytics_insights docs])
+
+[@ZephireNZ]: https://github.com/ZephireNZ
+[#155469]: https://github.com/home-assistant/core/pull/155469
+[flick_electric docs]: /integrations/flick_electric/
+[analytics_insights docs]: /integrations/analytics_insights/
+
+{% enddetails %}
+
+{% details "CUPS" %}
+
+The **CUPS** {% term integration %} has been removed, as it cannot be used on supported installations.
+
+([@edenhaus] - [#155448]) ([cups docs])
+
+[@edenhaus]: https://github.com/edenhaus
+[#155448]: https://github.com/home-assistant/core/pull/155448
+[cups docs]: /integrations/cups/
+
+{% enddetails %}
+
+{% details "Keyboard" %}
+
+The **Keyboard** {% term integration %} has been removed, as it cannot be used on supported installations.
+
+([@edenhaus] - [#155456]) ([keyboard docs])
+
+[@edenhaus]: https://github.com/edenhaus
+[#155456]: https://github.com/home-assistant/core/pull/155456
+[keyboard docs]: /integrations/keyboard/
+
+{% enddetails %}
+
+{% details "LIRC" %}
+
+The **LIRC** {% term integration %} has been removed, as it cannot be used on supported installations.
+
+([@edenhaus] - [#155457]) ([lirc docs])
+
+[@edenhaus]: https://github.com/edenhaus
+[#155457]: https://github.com/home-assistant/core/pull/155457
+[lirc docs]: /integrations/lirc/
+
+{% enddetails %}
+
+{% details "Home Assistant Core" %}
+
+The previously deprecated constant for square meters has been removed.
+
+([@gjohansson-ST] - [#155954])
+
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[#155954]: https://github.com/home-assistant/core/pull/155954
+
+{% enddetails %}
+
+{% details "Home Assistant Core" %}
+
+The previously deprecated constant for volt ampere reactive has been removed.
+
+([@gjohansson-ST] - [#155955])
+
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[#155955]: https://github.com/home-assistant/core/pull/155955
+
+{% enddetails %}
+
+{% details "Home Assistant Core" %}
+
+The deprecated handling of explicitly setting a config entry in an options flow has been removed.
+
+([@gjohansson-ST] - [#155958])
+
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[#155958]: https://github.com/home-assistant/core/pull/155958
+
+{% enddetails %}
+
+{% details "Home Assistant Core" %}
+
+The deprecated start of reconfigure and reauth flows with no linked config entry has been removed.
+
+([@gjohansson-ST] - [#155956])
+
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[#155956]: https://github.com/home-assistant/core/pull/155956
+
+{% enddetails %}
+
+{% details "Hive" %}
+
+Hive has removed support for their security products. This change removes the alarm control panel code, as the Hive APIs no longer support them.
+
+([@KJonline] - [#156184]) ([hive docs])
+
+[@KJonline]: https://github.com/KJonline
+[#156184]: https://github.com/home-assistant/core/pull/156184
+[hive docs]: /integrations/hive/
+
+{% enddetails %}
+
+{% details "Home Assistant Core" %}
+
+The `issues()` templating method used to return all issues, including fixed issues. From now on, only active issues are returned.
+
+([@jbouwh] - [#156274])
+
+[@jbouwh]: https://github.com/jbouwh
+[#156274]: https://github.com/home-assistant/core/pull/156274
+
+{% enddetails %}
+
+{% details "SmartThings" %}
+
+The deprecated **SmartThings** binary sensors have now been removed.
+
+([@joostlek] - [#156924]) ([smartthings docs])
+
+[@joostlek]: https://github.com/joostlek
+[#156924]: https://github.com/home-assistant/core/pull/156924
+[smartthings docs]: /integrations/smartthings/
+
+{% enddetails %}
+
+{% details "Dominos Pizza" %}
+
+The **Dominos Pizza** {% term integration %} has been removed. The integration no longer functions on Python ≥3.13, and its underlying library has been unmaintained since 2019.
+
+([@tr4nt0r] - [#156879]) ([dominos docs])
+
+[@tr4nt0r]: https://github.com/tr4nt0r
+[#156879]: https://github.com/home-assistant/core/pull/156879
+[dominos docs]: /integrations/dominos/
+
+{% enddetails %}
+
+{% details "go2rtc" %}
+
+It is now required to set a `username` and `password` when enabling the debug UI.
+
+([@edenhaus] - [#157008]) ([go2rtc docs])
+
+[@edenhaus]: https://github.com/edenhaus
+[#157008]: https://github.com/home-assistant/core/pull/157008
+[go2rtc docs]: /integrations/go2rtc/
+
+{% enddetails %}
+
+If you are a custom integration developer and want to learn about changes and
+new features available for your integration: Be sure to follow our
+[developer blog][devblog]. The following changes are the most notable for this
+release:
+
+- [Lorem ipsum](https://developers.home-assistant.io/blog/lormet-ipsum/)
+
+[devblog]: https://developers.home-assistant.io/blog/
+
+## All changes
+
+Of course, there is a lot more in this release. You can find a list of all changes made here: [Full changelog for Home Assistant Core 2025.12](/changelogs/core-2025.12).
