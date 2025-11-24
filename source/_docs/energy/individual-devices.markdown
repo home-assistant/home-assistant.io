@@ -21,9 +21,9 @@ Smart relays sit behind your "normal" switches and make them smart. It allows yo
 
 For tracking individual water devices, you can use:
 
-- Smart water meters with device-level monitoring capabilities
-- Inline flow meters that measure water flowing to specific appliances
-- Smart appliances (washing machines, dishwashers, etc.) that report their own water consumption
+- Smart water meters with device-level monitoring capabilities.
+- Inline flow meters that measure water flowing to specific appliances.
+- Smart appliances (washing machines, dishwashers, etc.) that report their own water consumption.
 
 For more information on water metering hardware and integrations, see the [water usage documentation](/docs/energy/water/).
 
