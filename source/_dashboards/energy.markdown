@@ -121,7 +121,6 @@ link_dashboard: true
 The energy sources table card shows all your energy sources, and the corresponding amount of energy.
 If setup, it will also show the costs and compensation per source and the total.
 
-
 ### YAML configuration
 
 The following YAML options are available
@@ -328,13 +327,73 @@ type: energy-sankey
 layout: vertical
 ```
 
-## Using Multiple Collections
+## Power Sankey graph to visualize power flow
+
+<p class='img'>
+  <img src='/images/dashboards/energy/sankey.png' alt='Screenshot of the Sankey graph card to visualize power'>
+  Screenshot of the power Sankey graph card.
+</p>
+
+The power Sankey graph shows the real-time flow of power in your home. Unlike the energy Sankey card, which shows historical energy data based on the selected date range, this card displays current power values and is not affected by the date picker selection.
+
+It visualizes the instantaneous power flow from sources (like the grid, solar panels, and battery) to consumers in your home. Devices are grouped into floors and areas if these are configured.
+
+### YAML configuration
+
+The following YAML options are available
+
+{% configuration %}
+type:
+  required: true
+  description: "`power-sankey`"
+  type: string
+collection_key:
+  required: false
+  description: "Collection key to use for the card. This links the card to a specific energy dashboard collection. Defaults to `energy_dashboard`."
+  type: string
+  default: energy_dashboard
+title:
+  required: false
+  description: The title of the card.
+  type: string
+layout:
+  required: false
+  description: "`vertical`, `horizontal` or `auto`. Determines the orientation (flow direction) of the card. `auto` changes it based on the screen size."
+  type: string
+  default: auto
+group_by_area:
+  required: false
+  description: Whether to group the devices by area
+  type: boolean
+  default: true
+group_by_floor:
+  required: false
+  description: Whether to group the devices by floor
+  type: boolean
+  default: true
+{% endconfiguration %}
+
+### Examples
+
+```yaml
+type: power-sankey
+```
+
+The following example orients the flow from left to right:
+
+```yaml
+type: power-sankey
+layout: horizontal
+```
+
+## Using multiple collections
 
 By default, all energy cards are linked to any `energy-date-selection` card on the view, and all `energy-date-selection` cards are linked to the same period. To enable multiple different date selections on the same view, it is necessary to link them to different collections. This is done by adding the variable `collection_key` to the card YAML, and giving this a value of any custom string that begins with `energy_`. (strings that do not start with `energy_` will generate an error).
 
 All energy cards support use of `collection_key` option.
 
 ### Examples
+
 Example view with multiple collections:
 
 ```yaml

@@ -3,19 +3,22 @@
 Synology with DSM now supports container management through the Container Manager package, allowing you to install Home Assistant without the need for command-line. For details about the package (including compatibility-information, if your NAS is supported), see <https://www.synology.com/en-us/dsm/packages/ContainerManager>
 The steps would be:
 
-- Install Docker "Container Manager" package on your Synology NAS
-- Launch Container Manager-app and move to "Registry"-section
-- Find "homeassistant/home-assistant" within registry and click on "Download". Choose the "stable" tag.
-- Wait for some time until your NAS has pulled the image
-- Move to the "Image"-section of the "Container Manager"-app
-- Click on "Launch"
-- Within "Network" select "Use same network as Docker Host" and click Next
-- Choose a container-name you want (e.g., "homeassistant")
-- Set "Enable auto-restart" if you like
-- Click on "Advanced Settings". To ensure that Home Assistant displays the correct timezone go to the "Environment" tab and click the plus sign then add `variable` = `TZ` & `value` = `Europe/London` choosing [your correct timezone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). Click Save to exit Advanced Settings.
-- Click Next
-- Within "Volume Settings" click on "Add Folder" and choose either an existing folder or add a new folder (e.g. in "docker" shared folder, add new folder named "homeassistant" and then within that new folder add another new folder "config"), then click Select. Then edit the "mount path" to be "/config". This configures where Home Assistant will store configs and logs.
-- Ensure "Run this container after the wizard is finished" is checked and click Done
+- Using Synology's Package Center, install the "Container Manager" package
+- Launch the Container Manager app and navigate to the "Registry" section
+- On the Registry page, search for "homeassistant/home-assistant" and click "Download". Choose the "stable" tag.
+- Wait for the image to be pulled
+- Navigate to the "Image" section of the Container Manager app
+- Click on the "homeassistant/home-assistant" image and then click "Run"
+- On the "General Settings" page:
+  - Choose a container-name you want (e.g., "homeassistant")
+  - Set "Enable auto-restart" if you like
+  - Click "Next"
+- On the "Advanced Settings" page:
+  - In the "Volume Settings" section, click on "Add Folder" and choose either an existing folder or add a new folder (e.g. in "docker" shared folder, add new folder named "homeassistant" and then within that new folder add another new folder "config"), then click Select. Then edit the "mount path" to be "/config" with the permissions set as "Read/Write". This configures where Home Assistant will store configs and logs.
+  - To ensure that Home Assistant displays the correct timezone, in the "Environment" section, click the "Add" button and in the "Variable" field add `TZ` and in the value add your timezone (e.g. `Europe/London`). Timezones can be found [here](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
+  - In the "Network" section, set the Network dropdown as "host"
+- Click "Next"
+- Ensure "Run this container after the wizard is finished" is checked and click "Done"
 - Your Home Assistant within Docker should now run and will serve the web interface from port 8123 on your Docker host (this will be your Synology NAS IP address - for example `http://192.168.1.10:8123`)
 
 If you are using the built-in firewall, you must also add the port 8123 to allowed list. This can be found in "Control Panel -> Security" and then the Firewall tab. Click "Edit Rules" besides the Firewall Profile dropdown box. Create a new rule and select "Custom" for Ports and add 8123. Edit Source IP if you like or leave it at default "All". Action should stay at "Allow".

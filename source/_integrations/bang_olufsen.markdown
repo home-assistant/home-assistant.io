@@ -34,6 +34,7 @@ Devices that have been tested and _should_ work without any trouble are:
 - [Beosound Balance](https://www.bang-olufsen.com/en/dk/speakers/beosound-balance)
 - [Beosound Emerge](https://www.bang-olufsen.com/en/dk/speakers/beosound-emerge)
 - [Beosound Level](https://www.bang-olufsen.com/en/dk/speakers/beosound-level)
+- [Beosound Premiere](https://www.bang-olufsen.com/en/dk/soundbars/beosound-premiere)
 - [Beosound Theatre](https://www.bang-olufsen.com/en/dk/soundbars/beosound-theatre)
 
 and any other [Mozart](https://support.bang-olufsen.com/hc/en-us/articles/24766979863441-Which-platform-is-my-Connected-Audio-product-based-on) based products. This means all [Connected Speakers](https://www.bang-olufsen.com/en/dk/story/connected-speakers) that have been launched after 2020.
@@ -76,7 +77,7 @@ A number of features are available through the media player entity:
 Event entities are created for each of the physical controls on your device. These controls usually have their own behaviors, so using them for automations is not always ideal.
 Available event entities:
 
-- Bluetooth
+- Bluetooth (Not available on Beosound Premiere)
 - Microphone
 - Next
 - Play / Pause

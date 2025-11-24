@@ -67,7 +67,6 @@ The method used to reset a password depends on your user rights:
 
 Use this procedure only if the following conditions are met:
 
-- You know the username.
 - You can access the Home Assistant console **on the device itself** (not via the SSH terminal from the add-ons).
 
 1. If you are using a Home Assistant Yellow or Green, refer to their documentation.
@@ -79,10 +78,8 @@ Use this procedure only if the following conditions are met:
    - If you are using a virtual machine, connect to your virtual machine console.
    - If you are using another board, connect a keyboard and monitor to your device and access the terminal. The procedure is likely very similar to the one described for the Home Assistant Green.
 3. Once you have opened the Home Assistant command line, enter the following command:
-   - Note: `existing_user` is a placeholder. Replace it with your username.
-   - Note: `new_password` is a placeholder. Replace it with your new password.
-   - **Command**: `auth reset --username 'existing_user' --password 'new_password'`
-     ![Screencast showing how to enter the ha auth reset command](/images/docs/troubleshooting/home-assistant-cli.webp)
+   - **Command**: `auth reset --interactive`
+   - This will display a list of users. Select your user and enter a new password when prompted.
    - **Troubleshooting**: If you see the message `zsh: command not found: auth`, you likely did not enter the command in the serial console connected to the device itself, but in the terminal within Home Assistant.
 4. You can now log in to Home Assistant using this new password.
 
