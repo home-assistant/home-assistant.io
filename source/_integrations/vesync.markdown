@@ -94,6 +94,8 @@ the configuration section below.
 
 ## Actions
 
+The integration offers the following action:
+
 ### Action `vesync.update_devices`
 
 Poll Vesync server to find and add any new devices

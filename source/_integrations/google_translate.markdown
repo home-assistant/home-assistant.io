@@ -130,7 +130,7 @@ data:
   message: Hello, can you hear me now?
 ```
 
-## Action `tts.google_translate_say` (legacy)
+### Action `tts.google_translate_say` (legacy)
 
 {% tip %}
 The `google_translate_say` action can be used when configuring the legacy `google_translate` text-to-speech platform in `configuration.yaml`. We recommend new users to instead set up the integration in the UI and use the `tts.speak` action with the corresponding Google Translate text-to-speech entity as target.

@@ -21,12 +21,8 @@ The `nx584` {% term integration %} provides integration with GE, Caddx, Interlog
 
 There is currently support for the following device types within Home Assistant:
 
-- [Alarm control panel](#alarm-control-panel)
+- [Alarm](#alarm-control-panel)
 - [Binary sensor](#binary-sensor)
-- [Full example](#full-example)
-- [Actions](#actions)
-  - [Action `nx584.bypass_zone`](#action-nx584bypass_zone)
-  - [Action `nx584.unbypass_zone`](#action-nx584unbypass_zone)
 
 ## Alarm control panel
 

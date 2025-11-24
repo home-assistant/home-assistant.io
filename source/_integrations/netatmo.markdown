@@ -50,22 +50,7 @@ There is currently support for the following device types within Home Assistant:
 - [Light](#light)
 - [Sensor](#sensor)
 - [Switch](#switch)
-- [Actions](#actions)
-  - [Action `set_camera_light_mode`](#action-set_camera_light_mode)
-  - [Action `netatmo.set_schedule`](#action-netatmoset_schedule)
-  - [Action `netatmo.set_preset_mode_with_end_datetime`](#action-netatmoset_preset_mode_with_end_datetime)
-  - [Action `netatmo.set_temperature_with_end_datetime`](#action-netatmoset_temperature_with_end_datetime)
-  - [Action `netatmo.set_temperature_with_time_period`](#action-netatmoset_temperature_with_time_period)
-  - [Action `netatmo.clear_temperature_setting`](#action-netatmoclear_temperature_setting)
-  - [Action `netatmo.set_persons_home`](#action-netatmoset_persons_home)
-  - [Action `netatmo.set_person_away`](#action-netatmoset_person_away)
-  - [Action `netatmo.register_webhook`](#action-netatmoregister_webhook)
-  - [Action `netatmo.unregister_webhook`](#action-netatmounregister_webhook)
 - [Webhook Events](#webhook-events)
-- [Development / Testing with your own client ID](#development--testing-with-your-own-client-id)
-- [Troubleshooting](#troubleshooting)
-  - [Receiving events](#receiving-events)
-  - [Light](#light-1)
 
 {% include integrations/config_flow.md %}
 

@@ -112,6 +112,8 @@ Some devices, such as the Insignia F30 series, disappear from the network when t
 
 ## Actions
 
+The integration provides the following actions.
+
 ### Action `media_player.select_source`
 
 You can launch an app on your device using the `media_player.select_source` command. Simply provide the app ID as the `source`.  You can also stop an app by prefixing the app ID with a `!`. For example, you could define [scripts](/docs/scripts) to start and stop Netflix as follows:

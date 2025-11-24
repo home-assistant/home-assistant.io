@@ -101,6 +101,8 @@ The Fully Kiosk Browser app does not provide feedback on the device volume or me
 
 ## Actions
 
+The integration provides the following actions.
+
 ### Action `fully_kiosk.load_url`
 
 You can use the `fully_kiosk.load_url` action to have the tablet open the specified URL.

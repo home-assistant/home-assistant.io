@@ -40,6 +40,8 @@ There is currently support for the following device types within Home Assistant:
 
 ## Actions
 
+The integration provides the following actions.
+
 ### Action `guardian.pair_sensor`
 
 Add a new paired sensor to the valve controller.

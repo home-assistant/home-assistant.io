@@ -143,6 +143,8 @@ The tutorial is using OpenAI, but this could also be done with the Google Gemini
 
 ## Actions
 
+The integration provides the following actions.
+
 ### Action `google_generative_ai_conversation.generate_content`
 
 {% tip %}
@@ -194,7 +196,7 @@ response_variable: generated_content
 
 {% endraw %}
 
-### Speak
+### Action `tts.speak`
 
 The `tts.speak` action is the modern way to use TTS. Add the `speak` action, select the Google Gemini TTS entity, select the media player entity or group to send the TTS audio to, and enter the message to speak.
 

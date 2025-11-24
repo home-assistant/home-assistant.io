@@ -70,6 +70,8 @@ wind_speed_unit: km/h
 
 ## Actions
 
+The integration offers the following action:
+
 ### Action `weather.get_forecasts`
 
 This action populates [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data)

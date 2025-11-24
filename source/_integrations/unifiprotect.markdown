@@ -231,6 +231,8 @@ Below are the accepted identifiers to resolve media. Since events do not necessa
 
 ## Actions
 
+The integration offers the following actions:
+
 ### Action `unifiprotect.add_doorbell_text`
 
 Adds a new custom message for Doorbells.

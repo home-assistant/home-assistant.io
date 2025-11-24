@@ -29,6 +29,8 @@ One weather entity is created for each entry in the configuration. Hourly and da
 
 ## Actions
 
+The integration offers the following action:
+
 ### Action `nws.get_forecasts_extra`
 
 `nws.get_forecasts_extra` provides extra data in a form similar to `weather.get_forecasts`. See [`weather.get_forecasts` documentation](/integrations/weather#action-weatherget_forecasts).

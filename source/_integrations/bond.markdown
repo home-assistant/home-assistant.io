@@ -65,6 +65,8 @@ will fallback to polling for 2.10.x versions lower than .8
 
 ## Actions
 
+The integration provides the following actions.
+
 ### Action `bond.set_fan_speed_tracked_state`
 
 Sets the tracked fan speed for a bond fan.

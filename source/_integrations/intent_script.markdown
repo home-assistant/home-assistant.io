@@ -127,7 +127,7 @@ intent_script:
 
 ## Actions
 
-The integration offers the following actions:
+The integration offers the following action:
 
 ### Action `intent_script.reload`
 

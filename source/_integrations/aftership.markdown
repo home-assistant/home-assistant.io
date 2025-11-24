@@ -28,6 +28,8 @@ AfterShip removed the Tracking API functionality from the Forever Free plan, and
 
 ## Actions
 
+The integration provides the following actions.
+
 ### Action `aftership.add_tracking`
 
  You can use the `aftership.add_tracking` action to add trackings to AfterShip.

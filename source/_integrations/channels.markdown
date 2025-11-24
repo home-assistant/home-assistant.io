@@ -51,6 +51,8 @@ name:
 
 ## Actions
 
+The integration provides the following actions.
+
 ### Action `media_player.seek_forward`
 
 Seek forward by the number of seconds currently set in settings on the instance of Channels.

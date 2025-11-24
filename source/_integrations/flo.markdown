@@ -32,6 +32,8 @@ There is currently support for the following device types within Home Assistant:
 
 ## Actions
 
+The integration provides the following actions.
+
 ### Action `flo.run_health_test`
 
 Run a health test for the Flo device.
