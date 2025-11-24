@@ -13,5 +13,5 @@ You need to reinstall the host machine running the Supervisor using Home Assista
 
 The best approach here is to [create a backup](/common-tasks/general/#backups) of your
 current installation, then reinstall your system using Home Assistant OS. During
-[Onboarding of Home Assistant](/getting-started/onboarding/) choose to restore from
-backup.
+[Onboarding of Home Assistant](/getting-started/onboarding/), choose to **Restore from
+backup**.
