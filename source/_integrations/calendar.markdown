@@ -49,7 +49,7 @@ Also see [Actions](#actions) below.
 
 ## Calendar Card
 
-To display calendar events directly on your dashboards, Home Assistant includes the [Calendar Card](/dashboards/calendar/).
+To display calendar events directly on your dashboards, Home Assistant includes the [calendar card](/dashboards/calendar/).
 The card shows upcoming events from one or more calendar entities and provides a quick,glanceable view of your schedule.
 
 ## The state of a calendar entity
