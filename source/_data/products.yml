@@ -99,7 +99,7 @@ green:
       ship_from: Portugal
       ship_to: Europe
       url: https://mauser.pt/catalog/product_info.php?products_id=095-3152
-      logo: /images/distributors/mauser.png
+      logo: /images/distributors/mauser.webp
     - name: mediarath
       ship_from: Germany
       ship_to: Europe
@@ -287,7 +287,7 @@ zbt-1:
       ship_from: Portugal
       ship_to: Europe
       url: https://mauser.pt/catalog/product_info.php?products_id=095-1222
-      logo: /images/distributors/mauser.png
+      logo: /images/distributors/mauser.webp
     - name: mediarath
       ship_from: Germany
       ship_to: Europe
@@ -434,7 +434,7 @@ voice-pe:
       ship_from: Portugal
       ship_to: Europe
       url: https://mauser.pt/catalog/product_info.php?products_id=095-4747
-      logo: /images/distributors/mauser.png
+      logo: /images/distributors/mauser.webp
     - name: SmarterHOME
       ship_from: Slovakia
       ship_to: Europe
@@ -561,7 +561,7 @@ zwa-2:
       ship_from: Portugal
       ship_to: Europe
       url: https://mauser.pt/catalog/product_info.php?products_id=095-6904
-      logo: /images/distributors/mauser.png
+      logo: /images/distributors/mauser.webp
     - name: RaspberryPi.dk
       ship_from: Denmark
       ship_to: Europe
@@ -794,7 +794,7 @@ zbt-2:
       ship_from: Portugal
       ship_to: Europe
       url: https://mauser.pt/095-7567
-      logo: /images/distributors/mauser.png
+      logo: /images/distributors/mauser.webp
     - name: WIFIShop
       ship_from: Romania
       ship_to: Europe
