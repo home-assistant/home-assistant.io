@@ -29,10 +29,10 @@ The `vasttrafik` {% term integration %} will provide you traveling details for t
 
 Once the main integration is configured, you can add departure boards:
 
-1. Go to {% my integrations title="**Settings** > **Devices & services** > **Västtrafik**" domain="vasttrafik" %}
-2. Select **Add departure board**
-3. Search for your departure station (for example, "Central", "Musikvägen")
-4. Select the station from the results
+1. Go to {% my integrations title="**Settings** > **Devices & services** > **Västtrafik**" domain="vasttrafik" %}.
+2. Select **Add departure board**.
+3. Search for your departure station (for example, "Central", "Musikvägen").
+4. Select the station from the results.
 5. Configure your departure board:
    - **Name**: Optional custom name for the sensor
    - **Destination**: Optional filter for specific destination (for example, "Järntorget")
@@ -44,14 +44,14 @@ Once the main integration is configured, you can add departure boards:
 
 The departure board configuration includes an interactive station search. If the wrong station is being selected during setup:
 
-1. Try using the full station name (for example, "Musikvägen, Göteborg")
-2. Use more specific search terms to narrow down results
-3. Try alternative names or spellings of the station
+1. Try using the full station name (for example, "Musikvägen, Göteborg").
+2. Use more specific search terms to narrow down results.
+3. Try alternative names or spellings of the station.
 
 If problems persist, you can find the exact station ID for troubleshooting:
 
-1. Login to the Västtrafik API and go to ["Applikationer"](https://developer.vasttrafik.se/applications)
-2. Select **\* Generera accesstoken**, then **Kopiera**
+1. Login to the Västtrafik API and go to ["Applikationer"](https://developer.vasttrafik.se/applications).
+2. Select **\* Generera accesstoken**, then **Kopiera**.
 3. Execute this `curl` command, replacing `<ACCESS_TOKEN>` and `<STATION_NAME>`:
 
    ```shell
@@ -66,10 +66,10 @@ If you previously configured Västtrafik in your `configuration.yaml` file, your
 
 After the automatic import:
 
-1. A repair notification will be created in **Settings** > **System** > **Repairs**
-2. Your existing departure boards will be migrated as sub-entries under the main Västtrafik integration
-3. You can safely remove the YAML configuration from your `configuration.yaml` file after verifying the import was successful
-4. Restart Home Assistant to complete the migration
+1. A repair notification will be created in **Settings** > **System** > **Repairs**.
+2. Your existing departure boards will be migrated as sub-entries under the main Västtrafik integration.
+3. You can safely remove the YAML configuration from your `configuration.yaml` file after verifying the import was successful.
+4. Restart Home Assistant to complete the migration.
 
 The YAML configuration method is deprecated and will be removed in a future release. All new departure boards should be added through the UI as described above.
 
