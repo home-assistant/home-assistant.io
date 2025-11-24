@@ -1,10 +1,10 @@
 green:
   name: "<strong>Home Assistant Green</strong>"
   distributors:
-      # America
+      # North America
     - name: Amazon US
       ship_from: US
-      ship_to: America
+      ship_to: North America
       url: https://www.amazon.com/dp/B0CXVKSG19?maas=maas_adg_BB51722E249D328CABB2F6DF1F8976CC_afap_abs&ref_=aa_maas&tag=maas
       logo: /images/distributors/amazon.webp
     - name: Apollo Automation
@@ -14,17 +14,17 @@ green:
       logo: /images/distributors/apollo.webp
     - name: ameriDroid
       ship_from: US
-      ship_to: America
+      ship_to: North America
       url: https://ameridroid.com/products/home-assistant-green
       logo: /images/distributors/ameridroid.webp
     - name: CloudFree
       ship_from: US
-      ship_to: America
+      ship_to: North America
       url: https://cloudfree.shop/product/home-assistant-green/
       logo: /images/distributors/cloudfree.webp
     - name: Seeed Studio
       ship_from: US
-      ship_to: America
+      ship_to: North America
       url: https://www.seeedstudio.com/Home-Assistant-Green-p-5792.html
       logo: /images/distributors/seeed-studio.webp
       # Asia
@@ -183,15 +183,15 @@ green:
 yellow:
   name: "<strong>Home Assistant Yellow</strong>"
   distributors:
-      # America
+      # North America
     - name: ameriDroid
       ship_from: US
-      ship_to: America
+      ship_to: North America
       url: https://ameridroid.com/products/home-assistant-yellow
       logo: /images/distributors/ameridroid.webp
     - name: CloudFree
       ship_from: US
-      ship_to: America
+      ship_to: North America
       url: https://cloudfree.shop/product/home-assistant-yellow/
       logo: /images/distributors/cloudfree.webp
       # Australia
@@ -214,20 +214,20 @@ yellow:
 zbt-1:
   name: "<strong>Home Assistant Connect ZBT-1</strong>"
   distributors:
-      # America
+      # North America
     - name: ameriDroid
       ship_from: US
-      ship_to: America
+      ship_to: North America
       url: https://ameridroid.com/products/skyconnect
       logo: /images/distributors/ameridroid.webp
     - name: CloudFree
       ship_from: US
-      ship_to: America
+      ship_to: North America
       url: https://cloudfree.shop/product/home-assistant-skyconnect/
       logo: /images/distributors/cloudfree.webp
     - name: Seeed Studio
       ship_from: US
-      ship_to: America
+      ship_to: North America
       url: https://www.seeedstudio.com/Home-Assistant-SkyConnect-p-5479.html
       logo: /images/distributors/seeed-studio.webp
       # Asia
@@ -356,10 +356,10 @@ zbt-1:
 voice-pe:
   name: "<strong>Home Assistant Voice</strong> Preview Edition"
   distributors:
-      # America
+      # North America
     - name: ameriDroid
       ship_from: US
-      ship_to: America
+      ship_to: North America
       url: https://ameridroid.com/products/home-assistant-voice-preview-edition/
       logo: /images/distributors/ameridroid.webp
     - name: Apollo Automation
@@ -369,12 +369,12 @@ voice-pe:
       logo: /images/distributors/apollo.webp
     - name: CloudFree
       ship_from: US
-      ship_to: America
+      ship_to: North America
       url: https://cloudfree.shop/product/home-assistant-voice-preview-edition/
       logo: /images/distributors/cloudfree.webp
     - name: Seeed Studio
       ship_from: US
-      ship_to: America
+      ship_to: North America
       url: https://www.seeedstudio.com/Home-Assistant-Voice-p-6998.html
       logo: /images/distributors/seeed-studio.webp
       # Asia
@@ -498,7 +498,7 @@ voice-pe:
 zwa-2:
   name: "<strong>Home Assistant</strong> Connect ZWA-2"
   distributors:
-    # America
+    # North America
     - name: Amazon
       ship_from: US
       ship_to: North America
