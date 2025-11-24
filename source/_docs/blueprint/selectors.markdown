@@ -1517,6 +1517,12 @@ entity:
         or a list of string device_class to limit the selection to.
       type: [device_class, list]
       required: false
+    supported_features:
+      description: >
+        Limits the targets to entities with a certain supported feature, for example,
+        `light.LightEntityFeature.TRANSITION` or `climate.ClimateEntityFeature.TARGET_TEMPERATURE`. Should be a list of features.
+      type: list
+      required: false
 {% endconfiguration %}
 
 {% important %}
