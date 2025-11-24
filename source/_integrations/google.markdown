@@ -80,6 +80,10 @@ Using the entity state and attributes is more error prone and less flexible than
 
 {% enddetails %}
 
+## Actions
+
+The integration provides the following action.
+
 ### Action `google.create_event`
 
 You can use the `google.create_event` action to create a new calendar event in a calendar.
