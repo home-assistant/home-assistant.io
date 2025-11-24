@@ -20,16 +20,7 @@ The **TheSilentWave** {% term integration %} allows you to monitor the status of
 - A TheSilentWave device on your local network
 - The IP address or hostname of your device
 
-## Configuration
-
-This integration can be configured via the Home Assistant UI:
-
-1. Go to **Settings** > **Devices & Services**
-2. Click the **+ ADD INTEGRATION** button
-3. Search for "TheSilentWave"
-4. Follow the configuration flow and provide:
-   - A name for your device
-   - The IP address of your device
+{% include integrations/config_flow.md %}
 
 **Naming suggestion:**  
 You may use any name you prefer for the device. For clarity in larger setups, it is recommended to include the device’s location, for example “Aquarium Flow Pump – Left Rotation” or “Aquarium Flow Pump – Right Rotation”
