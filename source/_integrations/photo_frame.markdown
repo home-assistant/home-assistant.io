@@ -17,13 +17,10 @@ ha_integration_type: service
 ha_quality_scale: bronze
 ---
 
-The photo frame integration creates an [image entity](/integrations/image/) based on a [media source directory](/integrations/media_source) selected during integration setup. From the selected directory, a single image will be randomly chosen and presented in the image entity. A service is provided to shuffle the entity to a new random image at the user's request.
+The **Photo Frame** {% term integration %} creates an [image entity](/integrations/image/) based on a [media source directory](/integrations/media_source) selected during integration setup. From the selected directory, a single image will be randomly chosen and presented in the image entity. A service is provided to shuffle the entity to a new random image at the user's request.
 
 This image entity can be used to display a dynamic picture in a frontend picture card, or as a dynamic view background.
 
-## Setting up the integration
-
-This integration is setup via config flow only.
 
 {% include integrations/config_flow.md %}
 {% configuration_basic %}
@@ -32,12 +29,6 @@ Name:
 Media:
   description: The media folder from which images will be chosen.
 {% endconfiguration_basic %}
-
-## Removing the integration
-
-This integration follows standard integration removal. No extra steps are required.
-
-{% include integrations/remove_device_service.md %}
 
 
 ## Actions
@@ -49,3 +40,11 @@ The `shuffle` action accepts a target, and no other options. When executed, all 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `target` | no | Target of entities which should choose a new image.
+
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
+
