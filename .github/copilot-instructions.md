@@ -227,52 +227,29 @@ Timeframe:
 
 ## Supported functionality
 
-### Entities
+The **My integration** integration provides the following {% term entities %}. For a list of supported features for each entity type, refer to the [entity documentation](https://developers.home-assistant.io/docs/core/entity).
 
-The **My integration** integration provides the following entities.
+### Sensors
 
-#### Buttons
+- **Current coffee temperature**: Current temperature of the coffee boiler. When the machine reaches temperature, this will be approximately 3 degrees higher than the `Coffee target temperature`, due to different measurement points.
+- **Current steam temperature**: Current temperature of the steam boiler.
 
-- **Start backflush**
-  - **Description**: Starts the backflush process on your machine. You got 15 seconds to turn the paddle after activation.
-  - **Available for machines**: all
+### Binary sensors
 
-#### Numbers
+- **Water tank empty**: Indicates whether the water tank is empty.
 
-- **Dose**
-  - **Description**: Dosage (in ticks) for each key
-  - **Available for machines**: GS3 AV, Linea Mini.
-  - **Remarks**: GS3 has this multiple times, one for each physical key (1-4), and the entities are disabled by default.
+### Buttons
 
-#### Sensors
+- **Start backflush**: Starts the backflush process on your machine. You have 15 seconds to turn the paddle after activation.
 
-- **Current coffee temperature**
-  - **Description**: Current temperature of the coffee boiler.
-  - **Available for machines**: all
-  - **Remarks**: When the machine reaches temperature, this will be approximately 3 degrees higher than the `Coffee target temperature`, due to different measurement points.
+### Numbers
 
-- **Current steam temperature**
-  - **Description**: Current temperature of the steam boiler.
-  - **Available for machines**: Linea Micra, GS3 AV, GS3 MP.
-  - **Remarks**: -
+- **Dose**: Dosage (in ticks) for each key.
 
-#### Selects
+### Selects
 
-- **Prebrew/-infusion mode**
-  - **Description**: Whether to use prebrew, preinfusion, or neither.
-  - **Options**: Disabled, Prebrew, Preinfusion
-  - **Available for machines**: Linea Micra, Linea Mini, GS3 AV
-
-- **Steam level**
-  - **Description**: The level your steam boiler should run at.
-  - **Options**: 1, 2, 3
-  - **Available for machines**: Linea Micra
-
-#### Updates
-
-- **Gateway firmware**
-  - **Description**: Firmware status of the gateway.
-  - **Available for machines**: all
+- **Prebrew/-infusion mode**: Whether to use prebrew, preinfusion, or neither. Options: Disabled, Prebrew, Preinfusion.
+- **Steam level**: The level your steam boiler should run at. Options: 1, 2, 3.
 
 ## Actions
 
