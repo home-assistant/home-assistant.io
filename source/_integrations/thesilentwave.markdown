@@ -31,6 +31,9 @@ This integration can be configured via the Home Assistant UI:
    - A name for your device
    - The IP address of your device
 
+**Naming suggestion:**  
+You may use any name you prefer for the device. For clarity in larger setups, it is recommended to include the device’s location, for example “Aquarium Flow Pump – Left Rotation” or “Aquarium Flow Pump – Right Rotation”
+
 {% configuration_basic %}
 Name:
   description: A name for the device
