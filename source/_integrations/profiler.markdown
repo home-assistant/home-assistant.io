@@ -16,7 +16,7 @@ The Profiler integration provides a profile which is a set of statistics that id
 
 {% include integrations/config_flow.md %}
 
-### Action profiler.start
+### Action `profiler.start`
 
 {% my developer_call_service badge service="profiler.start" %}
 
@@ -53,7 +53,7 @@ dot callgrind.dot -Tpng -o callgrind.png
 gprof2dot -f pstats profile.1234567890123456.cprof | dot -Tsvg -o profile.svg
 ```
 
-### Action profiler.memory
+### Action `profiler.memory`
 
 {% my developer_call_service badge service="profiler.memory" %}
 
@@ -73,7 +73,7 @@ from guppy import hpy
 hpy().pb()
 ```
 
-### Action profiler.start_log_objects
+### Action `profiler.start_log_objects`
 
 {% my developer_call_service badge service="profiler.start_log_objects" %}
 
@@ -87,13 +87,13 @@ Periodically log the growth of new objects in memory. This action's primary use 
 
 See the [corresponding documentation for `growth()`](https://mg.pov.lt/objgraph/objgraph.html#objgraph.growth) regarding the format in which this data is logged.
 
-### Action profiler.stop_log_objects
+### Action `profiler.stop_log_objects`
 
 {% my developer_call_service badge service="profiler.stop_log_objects" %}
 
 Stop logging the growth of objects in memory.
 
-### Action profiler.start_log_object_sources
+### Action `profiler.start_log_object_sources`
 
 {% my developer_call_service badge service="profiler.start_log_object_sources" %}
 
@@ -108,13 +108,13 @@ Periodically log the growth of new objects in memory. This actions's primary use
 
 This action is similar to `start_log_objects` except that it is much more CPU intensive since it will attempt to locate the source of each new object up to `max_objects` each time it logs.
 
-### Action profiler.stop_log_object_sources
+### Action `profiler.stop_log_object_sources`
 
 {% my developer_call_service badge service="profiler.stop_log_object_sources" %}
 
 Stop logging the growth of objects with sources in memory.
 
-### Action profiler.dump_log_objects
+### Action `profiler.dump_log_objects`
 
 {% my developer_call_service badge service="profiler.dump_log_objects" %}
 
@@ -137,7 +137,7 @@ data:
   type: Template
 ```
 
-### Action profiler.log_thread_frames
+### Action `profiler.log_thread_frames`
 
 {% my developer_call_service badge service="profiler.log_thread_frames" %}
 
@@ -174,7 +174,7 @@ An example is below:
     sock.connect(address)
 ```
 
-### Action profiler.log_event_loop_scheduled
+### Action `profiler.log_event_loop_scheduled`
 
 {% my developer_call_service badge service="profiler.log_event_loop_scheduled" %}
 
@@ -186,13 +186,13 @@ Each upcoming scheduled item is logged similar to the below example:
 [homeassistant.components.profiler] Scheduled: <TimerHandle when=1528307.1818668307 async_track_point_in_utc_time.<locals>.run_action(<Job HassJobType.Coroutinefunction <bound method DataUpdateCoordinator._handle_refresh_interval of <homeassistant.components.screenlogic.ScreenlogicDataUpdateCoordinator object at 0x7f985d896d30>>>) at /usr/src/homeassistant/homeassistant/helpers/event.py:1175>`
 ```
 
-### Action profiler.lru_stats
+### Action `profiler.lru_stats`
 
 {% my developer_call_service badge service="profiler.lru_stats" %}
 
 Logs statistics from [lru_cache](https://docs.python.org/3/library/functools.html#functools.lru_cache) and [lru-dict](https://pypi.org/project/lru-dict/) to help tune Home Assistant and locate memory leaks.
 
-### Action profiler.set_asyncio_debug
+### Action `profiler.set_asyncio_debug`
 
 {% my developer_call_service badge service="profiler.set_asyncio_debug" %}
 
@@ -202,7 +202,7 @@ Logs statistics from [lru_cache](https://docs.python.org/3/library/functools.htm
 
 When `set_asyncio_debug` is enabled, `asyncio` will run in [debug mode](https://docs.python.org/3/library/asyncio-dev.html#debug-mode). Use this service to help identify an integration that is blocking the event loop.
 
-### Action profiler.log_current_tasks
+### Action `profiler.log_current_tasks`
 
 {% my developer_call_service badge service="profiler.log_current_tasks" %}
 
@@ -214,7 +214,7 @@ An example is below:
 [homeassistant.components.profiler] Task: <Task pending name='Task-1133' coro=<HubConnector._listener() running at /usr/local/lib/python3.12/site-packages/aioharmony/hubconnector_websocket.py:362> wait_for=<Future pending cb=[Task.task_wakeup()]>>
 ```
 
-### Action profiler.dump_sockets
+### Action `profiler.dump_sockets`
 
 {% my developer_call_service badge service="profiler.dump_sockets" %}
 

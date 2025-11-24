@@ -29,8 +29,13 @@ The `zoneminder` integration sets up Home Assistant with your [ZoneMinder](https
 
 There is currently support for the following device types within Home Assistant:
 
+- [Configuration](#configuration)
+  - [Full configuration](#full-configuration)
+- [Actions](#actions)
+  - [Action `zoneminder.set_run_state`](#action-zoneminderset_run_state)
 - [Binary sensor](#binary-sensor)
 - [Camera](#camera)
+  - [Configuration](#configuration-1)
 - [Sensor](#sensor)
 - [Switch](#switch)
 
@@ -94,7 +99,9 @@ zoneminder:
     password: YOUR_PASSWORD
 ```
 
-### Action
+## Actions
+
+### Action `zoneminder.set_run_state`
 
 Once loaded, the `zoneminder` platform will expose an action (`set_run_state`) that can be used to change the current run state of ZoneMinder.
 

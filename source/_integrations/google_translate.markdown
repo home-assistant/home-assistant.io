@@ -112,8 +112,9 @@ You can also use supported BCP 47 tags like the below or the 2-2 digit format fo
 | es-es   | es       | es     |
 | es-us   | es       | com    |
 
+## Actions
 
-## Action speak
+### Action `tts.speak`
 
 The `tts.speak` action is the modern way to use Google translate TTS action. Add the `speak` action, select the entity for your Google translate TTS (it's named for the language you created it with), select the media player entity or group to send the TTS audio to, and enter the message to speak.
 
@@ -129,7 +130,7 @@ data:
   message: Hello, can you hear me now?
 ```
 
-## Action say (legacy)
+## Action `tts.google_translate_say` (legacy)
 
 {% tip %}
 The `google_translate_say` action can be used when configuring the legacy `google_translate` text-to-speech platform in `configuration.yaml`. We recommend new users to instead set up the integration in the UI and use the `tts.speak` action with the corresponding Google Translate text-to-speech entity as target.

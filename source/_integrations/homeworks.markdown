@@ -31,7 +31,7 @@ The protocol for automatically extracting device information from the controller
 
 ## Actions
 
-### Action `send_command`
+### Action `homeworks.send_command`
 
 Send a custom command to the Lutron Homeworks controller.
 

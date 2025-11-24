@@ -94,9 +94,9 @@ the configuration section below.
 
 ## Actions
 
-| Action | Description |
-|---------|-------------|
-| `update_devices` | Poll Vesync server to find and add any new devices |
+### Action `vesync.update_devices`
+
+Poll Vesync server to find and add any new devices
 
 ## Power & energy sensors
 

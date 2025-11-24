@@ -92,7 +92,7 @@ The **Nintendo Switch Parental Controls** integration provides the following ent
 
 The integration provides the following actions.
 
-### Action: Add bonus time
+### Action `nintendo_parental_controls.add_bonus_time`
 
 The `nintendo_parental_controls.add_bonus_time` action adds additional bonus screen time to a specified device, which is granted outside of the maximum allowed screentime.
 

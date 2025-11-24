@@ -107,7 +107,7 @@ The Rain Bird integration provides the following entities.
 
 The integration exposes actions to give additional control over a Rain Bird device.
 
-### `rainbird.start_irrigation`
+### Action `rainbird.start_irrigation`
 
 Start a Rain Bird zone for a set number of minutes. This action accepts a Rain Bird sprinkler
 zone switch entity and allows a custom duration unlike the switch.

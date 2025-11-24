@@ -226,7 +226,7 @@ Depending on the supported features of the camera ([see specifications of the ca
 
 **Guard set current position** will set the current position as the new guard position.
 
-#### Action reolink.ptz_move
+#### Action `reolink.ptz_move`
 
 Some Reolink <abbr title="pan, tilt, and zoom">PTZ</abbr> cameras can move at different speeds. For those cameras, the `reolink.ptz_move` action can be used in combination with the **PTZ left**, **right**, **up**, **down**, **zoom in**, or **zoom out** entity which allows specifying the speed attribute. If the <abbr title="pan, tilt, and zoom">PTZ</abbr> button entities for a specific camera are not shown under **Choose entity** under **targets** of the `reolink.ptz_move` action, it means that this camera does not support custom <abbr title="pan, tilt, and zoom">PTZ</abbr> speeds.
 
@@ -272,7 +272,7 @@ Depending on the supported features of the camera ([see specifications of the ca
 
 **Hub scene modes** can be set in the Reolink app/client. The scene names are loaded into Home Assistant at the start of the integration. After adding new custom scenes, restart the Reolink integration.
 
-#### Action reolink.play_chime
+#### Action `reolink.play_chime`
 
 To play a ringtone on a Reolink chime, the `reolink.play_chime` action can be used.
 

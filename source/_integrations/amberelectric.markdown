@@ -53,9 +53,9 @@ There are two additional sensors:
 - **Renewables** - The percentage of renewable energy currently in the grid.
 
 ## Actions
-### `get_forecasts`
+### `amberelectric.get_forecasts`
 
-The `get_forecasts` action returns an array of forecasts for the requested channel type.
+The `amberelectric.get_forecasts` action returns an array of forecasts for the requested channel type.
 
 | Data attribute    | Optional | Description                                                           |
 | ----------------- | -------- | --------------------------------------------------------------------- |

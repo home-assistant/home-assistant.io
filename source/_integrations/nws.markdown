@@ -27,7 +27,9 @@ Providing a METAR station code is optional, and if not supplied, the closest sta
 
 One weather entity is created for each entry in the configuration. Hourly and day/night forecasts are provided through the [`weather.get_forecasts` action](/integrations/weather#action-weatherget_forecasts). The time supplied for each forecast is the start time for the forecast. Sensors are also created as disabled entities after configuration and can be enabled by the user.
 
-## Action `nws.get_forecasts_extra` 
+## Actions
+
+### Action `nws.get_forecasts_extra`
 
 `nws.get_forecasts_extra` provides extra data in a form similar to `weather.get_forecasts`. See [`weather.get_forecasts` documentation](/integrations/weather#action-weatherget_forecasts).
 

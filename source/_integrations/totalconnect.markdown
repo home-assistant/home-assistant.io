@@ -76,7 +76,7 @@ The integration provides a bypass button for each zone that can be bypassed. The
 
 The alarm control panel supports the following basic actions: `alarm_arm_away`, `alarm_arm_home`, `alarm_arm_night`, and `alarm_disarm`.
 
-### Action: Arm home instant
+### Action `totalconnect.arm_home_instant`
 
 The `totalconnect.arm_home_instant` action puts the alarm panel in "arm home" with zero entry delay, triggering the alarm instantly if an entry/exit zone is faulted. This is equivalent to "arm stay instant" in most alarm panels.
 
@@ -84,7 +84,7 @@ The `totalconnect.arm_home_instant` action puts the alarm panel in "arm home" wi
 |------------------------|----------|------------------------------------------------------|
 | `entity_id`            | No       | The ID of the alarm panel to arm.                    |
 
-### Action: Arm away instant
+### Action `totalconnect.arm_away_instant`
 
 The `totalconnect.arm_away_instant` action puts the alarm panel in "arm away" with zero entry delay, triggering the alarm instantly if an entry/exit zone is faulted. This is equivalent to "arm away instant" in most alarm panels.
 

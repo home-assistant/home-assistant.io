@@ -28,9 +28,9 @@ In addition, the entity can have the following states:
 
 Once loaded, the `image` platform will expose services that can be called to perform various actions.
 
-Available services: `snapshot`.
+Available services: `image.snapshot`.
 
-#### Action `snapshot`
+#### Action `image.snapshot`
 
 Take a snapshot from an image.
 

@@ -89,7 +89,7 @@ Any other [actions](/docs/automation/action/) to power on the device can be conf
 
 The integration provides the following actions.
 
-### Action: Select sound output
+### Action `webostv.select_sound_output`
 
 The `webostv.select_sound_output` action is used to select the active sound output.
 The current sound output of the TV can be found under the state attributes.
@@ -99,7 +99,7 @@ The current sound output of the TV can be found under the state attributes.
 | `entity_id`            | no       | Target a specific webostv media player. |
 | `sound_output`         | no       | Name of the sound output to switch to.  |
 
-### Action: Button press
+### Action `webostv.button`
 
 The `webostv.button` action is used to simulate a button press.
 
@@ -108,7 +108,7 @@ The `webostv.button` action is used to simulate a button press.
 | `entity_id`            | no       | Target a specific webostv media player.                                                                                                                                                                                                                                                |
 | `button`               | no       | Name of the button. Known possible values are `LEFT`, `RIGHT`, `DOWN`, `UP`, `HOME`, `MENU`, `BACK`, `ENTER`, `DASH`, `INFO`, `ASTERISK`, `CC`, `EXIT`, `MUTE`, `RED`, `GREEN`, `BLUE`, `YELLOW`, `VOLUMEUP`, `VOLUMEDOWN`, `CHANNELUP`, `CHANNELDOWN`, `PLAY`, `PAUSE`, `NETFLIX`, `GUIDE`, `AMAZON`, `0`, `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9` |
 
-### Action: Generic command
+### Action `webostv.command`
 
 The `webostv.command` action is used to send a generic command to the TV.
 

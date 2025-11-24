@@ -124,7 +124,7 @@ The Ohme integration provides the following entities.
 
 The integration provides the following actions.
 
-### Action: List charge slots
+### Action `ohme.list_charge_slots`
 
 The `ohme.list_charge_slots` action is used to fetch a list of charge slots from your charger. Charge slots will only be returned if a charge is in progress.
 
@@ -132,7 +132,7 @@ The `ohme.list_charge_slots` action is used to fetch a list of charge slots from
 |------------------------|----------|--------------------------------------------------------------|
 | `config_entry`         | No       | The config entry of the account to get the charge list from. |
 
-### Action: Set price cap
+### Action `ohme.set_price_cap`
 
 The `ohme.set_price_cap` action is used to set the price cap threshold. This can be toggled by the switch **Price cap**.
 

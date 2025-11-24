@@ -68,7 +68,9 @@ wind_speed: 35.17
 wind_speed_unit: km/h
 ```
 
-## Action `weather.get_forecasts`
+## Actions
+
+### Action `weather.get_forecasts`
 
 This action populates [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data)
 with a mapping of weather services and their associated forecasts.

@@ -49,7 +49,9 @@ name:
   type: string
 {% endconfiguration %}
 
-### Action `seek_forward`
+## Actions
+
+### Action `media_player.seek_forward`
 
 Seek forward by the number of seconds currently set in settings on the instance of Channels.
 
@@ -57,7 +59,7 @@ Seek forward by the number of seconds currently set in settings on the instance 
 | ---------------------- | -------- | -------------------------------------------------- |
 | `entity_id`            | no       | String that points at `entity_id` of Channels app. |
 
-### Action `seek_backward`
+### Action `media_player.seek_backward`
 
 Seek backward by the number of seconds currently set in settings on the instance of Channels.
 
@@ -65,7 +67,7 @@ Seek backward by the number of seconds currently set in settings on the instance
 | ---------------------- | -------- | -------------------------------------------------- |
 | `entity_id`            | no       | String that points at `entity_id` of Channels app. |
 
-### Action `seek_by`
+### Action `media_player.seek_by`
 
 Seek forward or backward by a provided number of seconds.
 

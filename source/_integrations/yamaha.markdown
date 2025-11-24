@@ -128,7 +128,9 @@ script:
 
 ```
 
-### Action `enable_output`
+## Actions
+
+### Action `yamaha.enable_output`
 
 Enable or disable an output port (HDMI) on the receiver.
 
@@ -138,7 +140,7 @@ Enable or disable an output port (HDMI) on the receiver.
 | `port`                 | no       | Port to enable or disable, e.g., `hdmi1`.                                 |
 | `enabled`              | no       | To enable set true, otherwise set to false.                               |
 
-### Action `menu_cursor`
+### Action `yamaha.menu_cursor`
 
 Control the menu cursor.
 
@@ -147,7 +149,7 @@ Control the menu cursor.
 | `entity_id`            | yes      | String or list of strings that point at `entity_id`s of Yamaha receivers.          |
 | `cursor`               | no       | Name of the cursor key to press: `up`, `down`, `left`, `right`, `select`, `return` |
 
-### Action `select_scene`
+### Action `yamaha.select_scene`
 
 Select a scene on the receiver.
 

@@ -136,7 +136,7 @@ The **My integration** integration provides the following entities.
 
 The integration provides the following actions.
 
-### Action: Get schedule
+### Action `my_integration.get_schedule`
 
 The `my_integration.get_schedule` action is used to fetch a schedule from the integration.
 

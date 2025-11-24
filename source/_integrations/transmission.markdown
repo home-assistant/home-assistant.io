@@ -104,7 +104,7 @@ Example of an automation that notifies on successful download and removes the to
 
 All Transmission actions require integration `entry_id`. To find it, go to **Developer tools** > **Actions**. Choose the desired action and select your integration from dropdown. Then switch to YAML mode to see `entry_id`.
 
-### Action `add_torrent`
+### Action `transmission.add_torrent`
 
 Adds a new torrent to download. It can either be a URL (HTTP, HTTPS or FTP), magnet link or a local file (make sure that the path is [white listed](/integrations/homeassistant/#allowlist_external_dirs)).
 
@@ -114,7 +114,7 @@ Adds a new torrent to download. It can either be a URL (HTTP, HTTPS or FTP), mag
 | `torrent`              | no       | Torrent to download      |
 | `download_path`        | yes      | Absolute path to the download directory. If not specified, the Transmission's default directory will be used. |
 
-### Action `remove_torrent`
+### Action `transmission.remove_torrent`
 
 Removes a torrent from the client.
 
@@ -124,7 +124,7 @@ Removes a torrent from the client.
 | `id`                   | no       | ID of the torrent, can be found in the `torrent_info` attribute of the `*_torrents` sensors |
 | `delete_data`          | yes      | Delete torrent data (Default: false)                                                        |
 
-### Action `start_torrent`
+### Action `transmission.start_torrent`
 
 Starts a torrent.
 
@@ -133,7 +133,7 @@ Starts a torrent.
 | `entry_id`             | no       | The integration entry_id                                                                    |
 | `id`                   | no       | ID of the torrent, can be found in the `torrent_info` attribute of the `*_torrents` sensors |
 
-### Action `stop_torrent`
+### Action `transmission.stop_torrent`
 
 Stops a torrent.
 

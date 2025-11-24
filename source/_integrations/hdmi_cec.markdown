@@ -152,7 +152,7 @@ hdmi_cec:
 
 ## Actions
 
-### Select Device
+### Action `hdmi_cec.select_device`
 
 Use the `hdmi_cec.select_device` action with the name of the device from configuration or entity_id or physical address"to select it, for example:
 
@@ -177,7 +177,7 @@ actions:
       device: Chromecast
 ```
 
-### Power On
+### `hdmi_cec.power_on`
 
 Use the `hdmi_cec.power_on` action (no arguments) to power on any devices that support this function.
 
@@ -188,7 +188,7 @@ actions:
   - action: hdmi_cec.power_on
 ```
 
-### Standby
+### Action `hdmi_cec.standby`
 
 Use the `hdmi_cec.standby` action (no arguments) to place in standby any devices that support this function.
 
@@ -199,9 +199,9 @@ actions:
   - action: hdmi_cec.standby
 ```
 
-### Change volume level
+### Action `hdmi_cec.volume`
 
-Use the `hdmi_cec.volume` action with one of following commands:
+To change volume level, use the `hdmi_cec.volume` action with one of following commands:
 
 #### Volume up
 

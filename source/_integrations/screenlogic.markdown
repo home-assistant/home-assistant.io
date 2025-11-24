@@ -38,7 +38,7 @@ ScreenLogic options are set via **Settings** > **Devices & services** > **Pentai
 
 ## Actions
 
-### `screenlogic.set_color_mode`
+### Action `screenlogic.set_color_mode`
 
 Sets the operation of any connected color-capable lights.
 
@@ -47,7 +47,7 @@ Sets the operation of any connected color-capable lights.
 | `config_entry`         | no       | Integration entry_id of the ScreenLogic instance you wish to set the color mode on. |
 | `color_mode`           | no       | The color mode to set. Valid values are listed below.                               |
 
-### `screenlogic.start_super_chlorination`
+### Action `screenlogic.start_super_chlorination`
 
 Begins super chlorination, running for the specified period or 24 hours if none is specified.
 
@@ -56,7 +56,7 @@ Begins super chlorination, running for the specified period or 24 hours if none 
 | `config_entry`         | no       | Integration entry_id of the ScreenLogic instance you wish to start super chlorination on. |
 | `runtime`              | yes      | Number of hours to run super chlorination for. Defaults to 24 hours.                      |
 
-### `screenlogic.stop_super_chlorination`
+### Action `screenlogic.stop_super_chlorination`
 
 Stops super chlorination.
 

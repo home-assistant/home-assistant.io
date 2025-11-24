@@ -266,7 +266,7 @@ In addition, some vacuums allow routines to be set up in the app. For each of th
 
 #### Actions
 
-##### Action Set Vacuum Goto Position
+##### Action `roborock.set_vacuum_goto_position`
 
 The `roborock.set_vacuum_goto_position` action will set the vacuum to go to
 the specified coordinates.
@@ -281,7 +281,7 @@ the specified coordinates.
   - **Description**: Y-coordinate, integer value. The dock is located at y-coordinate 25500.
   - **Optional**: No.
 
-##### Action Get Vacuum Current Position
+##### Action `roborock.get_vacuum_current_position`
 
 The `roborock.get_vacuum_current_position` action will get the current position of the vacuum. This
 is a cloud call and should only be used for diagnostics. This is not meant to be used for
@@ -308,7 +308,7 @@ data: {}
     y: 25168
   ```
 
-##### Action Get Maps
+##### Action `roborock.get_maps`
 
 The `roborock.get_maps` action will return the maps available on the device and
 details about any named rooms on each map.

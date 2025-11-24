@@ -207,7 +207,7 @@ recorder:
 
 ## Actions
 
-### Action `purge`
+### Action `recorder.purge`
 
 Perform the action `recorder.purge` to start a purge task which deletes events and states older than x days, according to `keep_days` action data.
 Note that purging will not immediately decrease disk space usage but it will significantly slow down further growth.
@@ -218,7 +218,7 @@ Note that purging will not immediately decrease disk space usage but it will sig
 | `repack`               | yes      | When using SQLite or PostgreSQL this will rewrite the entire database. When using MySQL or MariaDB it will optimize or recreate the events and states tables. This is a heavy operation that can cause slowdowns and increased disk space usage while it runs. Only supported by SQLite, PostgreSQL, MySQL and MariaDB. |
 | `apply_filter`         | yes      | Apply entity_id and event_type filter in addition to time based purge. Useful in combination with `include` / `exclude` filter to remove falsely added states and events. Combine with `repack: true` to reduce database size.                                                                                          |
 
-### Action `purge_entities`
+### Action `recorder.purge_entities`
 
 Perform the action `recorder.purge_entities` to start a task that purges events and states from the recorder database that match any of the specified `entity_id`, `domains`, and `entity_globs` fields. At least one of the three selection criteria fields must be provided.
 
@@ -245,15 +245,15 @@ actions:
       entity_id: sensor.power_sensor_0
 ```
 
-### Action `disable`
+### Action `recorder.disable`
 
 Perform the action `recorder.disable` to stop saving events and states to the database.
 
-### Action `enable`
+### Action `recorder.enable`
 
 Perform the action `recorder.enable` to start again saving events and states to the database. This is the opposite of `recorder.disable`.
 
-### Action `get_statistics`
+### Action `recorder.get_statistics`
 
 Perform the action `recorder.get_statistics` to retrieve statistics for one or more entities from the recorder database. This action is useful for automations or scripts that need to access historical statistics, such as mean, min, max, or sum values, for supported entities like sensors.
 

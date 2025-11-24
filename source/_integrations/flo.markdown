@@ -32,18 +32,18 @@ There is currently support for the following device types within Home Assistant:
 
 ## Actions
 
-### `flo.run_health_test`
+### Action `flo.run_health_test`
 
 Run a health test for the Flo device.
 
-### `flo.set_away_mode`
+### Action `flo.set_away_mode`
 
 Set the Flo device to away mode.
 
-### `flo.set_home_mode`
+### Action `flo.set_home_mode`
 
 Set the Flo device to home mode.
 
-### `flo.set_sleep_mode`
+### Action `flo.set_sleep_mode`
 
 Set the Flo device to sleep mode.

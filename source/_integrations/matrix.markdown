@@ -293,7 +293,7 @@ data:
 
 The integration also provides the following actions:
 
-### Sending a message
+### `matrix.send_message`
 
 As an alternative to using the notify integration as described above, you may use `matrix.send_message` to send a
 message to a Matrix room.
@@ -339,7 +339,7 @@ data:
       - **Optional**: Yes
       - **Type**: String
 
-### Reacting to messages
+### Action `matrix.react`
 
 To react to a message with an emoji reaction, use the `matrix.react` action:
 

@@ -26,7 +26,9 @@ AfterShip removed the Tracking API functionality from the Forever Free plan, and
 
 {% include integrations/config_flow.md %}
 
-## Action `add_tracking`
+## Actions
+
+### Action `aftership.add_tracking`
 
  You can use the `aftership.add_tracking` action to add trackings to AfterShip.
 
@@ -36,7 +38,7 @@ AfterShip removed the Tracking API functionality from the Forever Free plan, and
 | `slug` | `False` | string | Carrier e.g.,  `fedex`
 | `title` | `False` | string | Friendly name of package
 
-## Action `remove_tracking`
+### Action `aftership.remove_tracking`
 
  You can use the `aftership.remove_tracking` action to remove trackings from AfterShip.
 

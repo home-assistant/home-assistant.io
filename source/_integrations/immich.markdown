@@ -87,7 +87,7 @@ An {% term update %} entity is created to inform about a new available Immich se
 
 ## Actions
 
-### Upload file
+### Action `immich.upload_file`
 
 This action allows you to upload a media file to your Immich instance. It takes the following arguments:
 

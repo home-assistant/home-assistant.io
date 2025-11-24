@@ -119,7 +119,7 @@ To edit, simply open the file in a text editor, find the game or app you would l
 
 ## Actions
 
-### Action `select_source`
+### Action `media_player.select_source`
 
 Opens new application/game and closes currently running application/game. The game/app must be in the entity's source list. Games will be added automatically when you open them normally.
 
@@ -128,7 +128,7 @@ Opens new application/game and closes currently running application/game. The ga
 | `entity_id`            | No       | `media_player.ps4`         | The entity id for your PlayStation 4.                                                                       |
 | `source`               | No       | `Some Game` or `CUSA00123` | The game/app you want to open. You can use the title or SKU ID. Using the SKU ID will be the most reliable. |
 
-### Action `send_command`
+### Action `ps4.send_command`
 
 Emulate button press on PlayStation 4. This emulates the commands available for the PS4 Second Screen App. This is not to be confused with DualShock 4 controller buttons.
 

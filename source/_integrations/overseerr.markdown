@@ -74,9 +74,9 @@ The Overseerr integration has the following actions:
 
 - Get requests
 
-### Action get requests
+### Action `overseerr.get_requests`
 
-Get a list of media requests using `overseerr.get_requests`.
+Get a list of media requests.
 
 | Data attribute    | Optional | Description                                                 |
 |-------------------|----------|-------------------------------------------------------------|

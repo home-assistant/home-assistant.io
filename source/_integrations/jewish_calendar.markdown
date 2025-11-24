@@ -144,7 +144,7 @@ Available {% term actions %}:
 
 - `jewish_calendar.count_omer`
 
-### Action Count the Omer
+### Action `jewish_calendar.count_omer`
 
 The `jewish_calendar.count_omer` action returns the phrase for counting the Omer for a given date.
 

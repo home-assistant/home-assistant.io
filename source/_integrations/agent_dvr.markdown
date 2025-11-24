@@ -35,11 +35,12 @@ Reports on the current alarm status and can be used to arm and disarm the system
 Once loaded, the `agent_dvr` integration will expose actions that can be used. The `entity_id` action attribute can specify one or more specific cameras.
 
 Available actions:
-`enable_alerts`, `disable_alerts`,
-`start_recording`, `stop_recording`,
-`turn_on`, `turn_off`, `toggle`, `enable_motion_detection`,`disable_motion_detection`
+`agent_dvr.enable_alerts`, `agent_dvr.disable_alerts`,
+`agent_dvr.start_recording`, `agent_dvr.stop_recording`,
 
-### Action `enable_alerts`/`disable_alerts`
+Camera entities can also be controlled by action provided by [Camera integration](/integrations/camera/#actions).
+
+### Action `agent_dvr.enable_alerts`/`agent_dvr.disable_alerts`
 
 These actions enable or disable the device's alert events within Agent DVR.
 
@@ -47,17 +48,9 @@ Data attribute | Optional | Description
 -|-|-
 `entity_id` | no | Name(s) of entities, e.g., `camera.living_room_camera`.
 
-### Action `start_recording`/`stop_recording`
+### Action `agent_dvr.start_recording`/`agent_dvr.stop_recording`
 
 These actions start or stop the device recording.
-
-Data attribute | Optional | Description
--|-|-
-`entity_id` | no | Name(s) of entities, e.g., `camera.living_room_camera`.
-
-### Action `turn_on`/`turn_off`/`toggle`
-
-These actions turn on, off or toggle the device enabled state within Agent DVR
 
 Data attribute | Optional | Description
 -|-|-

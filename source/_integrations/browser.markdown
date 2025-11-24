@@ -25,11 +25,13 @@ To load this integration, add the following lines to your {% term "`configuratio
 browser:
 ```
 
-### Actions
+## Actions
 
 Once loaded, the `browser` platform will expose {% term actions %} that can be called to perform various {% term actions %}.
 
-Available actions: `browser/browse_url`.
+### Action `browser.browse_url`
+
+This will open the given URL on the host machine.
 
 | Data attribute | Optional | Description      |
 | ---------------------- | -------- | ---------------- |
@@ -42,5 +44,3 @@ To use this {% term action %}, select the **Actions** tab from the **Developer T
 ```json
 {"url": "http://www.google.com"}
 ```
-
-This will open the given URL on the host machine.

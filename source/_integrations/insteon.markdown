@@ -191,12 +191,29 @@ automation:
 
 The following actions are available:
 
-- **insteon.add_all_link**: Puts the Insteon Modem (IM) into All-Linking mode. The IM can be set as a controller or a responder. If the IM is a controller, put the IM into linking mode then press the SET button on the device. If the IM is a responder, press the SET button on the device then put the IM into linking mode.
-- **insteon.delete_all_link**: Tells the Insteon Modem (IM) to remove an All-Link record from the All-Link Database of the IM and a device. Once the IM is set to delete the link, press the SET button on the corresponding device to complete the process.
-- **insteon.load_all_link_database**: Load the All-Link Database for a device. WARNING - Loading a device All-Link database may take a LONG time and may need to be repeated to obtain all records.
-- **insteon.print_all_link_database**: Print the All-Link Database for a device. Requires that the All-Link Database is loaded first.
-- **insteon.print_im_all_link_database**: Print the All-Link Database for the Insteon Modem (IM).
-- **insteon.add_default_links**: Add a set of default links between the modem and the device to facilitate proper communication between them.
+### Action `insteon.add_all_link`
+
+Puts the Insteon Modem (IM) into All-Linking mode. The IM can be set as a controller or a responder. If the IM is a controller, put the IM into linking mode then press the SET button on the device. If the IM is a responder, press the SET button on the device then put the IM into linking mode.
+
+### Action  `insteon.delete_all_link`
+
+Tells the Insteon Modem (IM) to remove an All-Link record from the All-Link Database of the IM and a device. Once the IM is set to delete the link, press the SET button on the corresponding device to complete the process.
+
+### Action  `insteon.load_all_link_database`
+
+Load the All-Link Database for a device. WARNING - Loading a device All-Link database may take a LONG time and may need to be repeated to obtain all records.
+
+### Action  `insteon.print_all_link_database` 
+
+Print the All-Link Database for a device. Requires that the All-Link Database is loaded first.
+
+### Action  `insteon.print_im_all_link_database`
+
+Print the All-Link Database for the Insteon Modem (IM).
+
+### Action  `insteon.add_default_links`
+
+ Add a set of default links between the modem and the device to facilitate proper communication between them.
 
 ## Device overrides
 

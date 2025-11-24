@@ -110,7 +110,7 @@ text_type:
   default: "text"
 {% endconfiguration %}
 
-### Action speak
+### Action `tts.speak`
 
 The `tts.speak` action is the modern way to use Google Cloud TTS action. Add the `speak` action, select the entity for your Google Cloud TTS, select the media player entity or group to send the TTS audio to, and enter the message to speak.
 
@@ -140,7 +140,7 @@ data:
       - wearable-class-device
 ```
 
-## Action say (legacy)
+## Action `tts.google_cloud_say` (legacy)
 
 The `tts.google_cloud_say` action can be used when configuring the legacy `google_cloud` text-to-speech platform in `configuration.yaml`. We recommend new users to instead set up the integration in the UI and use the `tts.speak` action with the corresponding Google Cloud text-to-speech entity as target. If you are an existing user of `tts.google_cloud_say`, you can still use it but don't remove the legacy `google_cloud` text-to-speech platform in `configuration.yaml`. If you remove it, you will have to manually migrate to `tts.speak`.
 

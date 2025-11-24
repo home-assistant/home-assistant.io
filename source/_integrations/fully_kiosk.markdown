@@ -101,7 +101,7 @@ The Fully Kiosk Browser app does not provide feedback on the device volume or me
 
 ## Actions
 
-**Action `load_url`**
+### Action `fully_kiosk.load_url`
 
 You can use the `fully_kiosk.load_url` action to have the tablet open the specified URL.
 
@@ -120,7 +120,7 @@ target:
   device_id: a674c90eca95eca91f6020415de07713
 ```
 
-**Action `set_config`**
+### Action `fully_kiosk.set_config`
 
 You can use the `fully_kiosk.set_config` action to change the many configuration parameters of Fully Kiosk Browser.
 
@@ -141,7 +141,7 @@ target:
   device_id: a674c90eca95eca91f6020415de07713
 ```
 
-**Action `start_application`**
+### Action `fully_kiosk.start_application`
 
 You can use the `fully_kiosk.start_application` action to have the tablet launch the specified app.
 

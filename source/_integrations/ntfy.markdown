@@ -133,7 +133,7 @@ actions:
 
 ## Actions
 
-### Publish notification
+### Action `ntfy.publish`
 
 For more customizable notifications, use the `ntfy.publish` action instead of `notify.send_message`. With `ntfy.publish`, you can take full advantage of the **ntfy** service's capabilities. These include setting a priority, adding links, attachments, tags, and emojis.
 

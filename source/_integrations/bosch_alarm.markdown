@@ -111,7 +111,7 @@ Three switches are added per door, which allow for locking, securing, or momenta
 
 The integration provides the following actions.
 
-### Action: Set panel date and time
+### Action `bosch_alarm.set_date_time`
 
 The `bosch_alarm.set_date_time` action is used to update the date and time on the panel.
 

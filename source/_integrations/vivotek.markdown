@@ -103,13 +103,13 @@ camera:
     stream_path: live2.sdp
 ```
 
-### Actions
+## Actions
 
 Once loaded, the `camera` platform will expose actions that can be called to perform various actions.
 
 Available actions: `enable_motion_detection`, `disable_motion_detection`, `snapshot`, and `play_stream`.
 
-#### Action `play_stream`
+### Action `camera.play_stream`
 
 Play a live stream from a camera to selected media player(s). Requires [`stream`](/integrations/stream) {% term integration %} to be set up.
 
@@ -130,7 +130,7 @@ actions:
       media_player: media_player.chromecast
 ```
 
-#### Action `enable_motion_detection`
+### Action `camera.enable_motion_detection`
 
 Enable motion detection in a camera. Currently, this will enable the first event configured on the camera.
 
@@ -138,7 +138,7 @@ Enable motion detection in a camera. Currently, this will enable the first event
 | ---------------------- | -------- | --------------------------------------------------------------------------------- |
 | `entity_id`            | yes      | Name(s) of entities to enable motion detection, e.g., `camera.front_door_camera`. |
 
-#### Action `disable_motion_detection`
+### Action `camera.disable_motion_detection`
 
 Disable the motion detection in a camera. Currently, this will disable the first event configured on the camera.
 
@@ -146,7 +146,7 @@ Disable the motion detection in a camera. Currently, this will disable the first
 | ---------------------- | -------- | ---------------------------------------------------------------------------------- |
 | `entity_id`            | yes      | Name(s) of entities to disable motion detection, e.g., `camera.front_door_camera`. |
 
-#### Action `snapshot`
+### Action `camera.snapshot`
 
 Take a snapshot from a camera.
 

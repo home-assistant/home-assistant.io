@@ -81,7 +81,7 @@ Password:
 
 You can use the actions from the [to-do list](/integrations/todo/) to create, update, or delete items on your Bring! shopping lists.
 
-### Notifications
+### Action `bring.send_message`
 
 The **Bring!** integration offers an action to send push notifications to the Bring! mobile apps of other members of a shared shopping list. The Bring! mobile app has 4 predefined notification types.
 
@@ -148,7 +148,7 @@ actions:
 
 {% enddetails %}
 
-### Action: Send reaction
+### Action `bring.send_reaction`
 
 Reactions in **Bring!** let users quickly acknowledge shopping list updates with emojis. The action `bring.send_reaction` in Home Assistant allows sending reactions like 👍 or ❤️ to the latest event from the [Activities entity](#events).
 

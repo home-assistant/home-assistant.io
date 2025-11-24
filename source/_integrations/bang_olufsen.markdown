@@ -115,7 +115,7 @@ And more advanced app-centric features such as:
 
 ## Actions
 
-### play_media actions
+### `play_media` actions
 
 The Bang & Olufsen integration supports different playback types in the `media_player.play_media` action: playback from URL, activating a favorite, playback from a local file, playing a radio station, activating a Deezer flow and Deezer playlists, albums, tracks, and playing files and text-to-speech (TTS) as an overlay.
 
@@ -319,7 +319,7 @@ The Bang & Olufsen integration additionally supports different custom actions fo
 
 Attempting to execute an invalid Beolink action will result in either a Home Assistant error or an audible error indication from your device.
 
-#### `bang_olufsen.beolink_join`
+#### Action `bang_olufsen.beolink_join`
 
 Join a Beolink experience.
 
@@ -378,7 +378,7 @@ A limited selection of `source_id`s are available. The below table shows which `
 | Mozart                  | `tidal`                                    |
 | Beolink Converter NL/ML | `radio`, `tp1`, `tp2`, `cd`, `aux_a`, `ph` |
 
-#### `bang_olufsen.beolink_expand`
+#### Action `bang_olufsen.beolink_expand`
 
 Expand current Beolink experience.
 
@@ -443,7 +443,7 @@ data:
     - media_player.beosound_balance_66666666
 ```
 
-#### `bang_olufsen.beolink_unexpand`
+#### Action `bang_olufsen.beolink_unexpand`
 
 Unexpand from current Beolink experience.
 
@@ -474,7 +474,7 @@ data:
     - 4444.5555555.66666666@products.bang-olufsen.com
 ```
 
-#### `bang_olufsen.beolink_leave`
+#### Action `bang_olufsen.beolink_leave`
 
 Leave a Beolink experience.
 
@@ -494,7 +494,7 @@ target:
   entity_id: media_player.beosound_balance_12345678
 ```
 
-#### `bang_olufsen.beolink_allstandby`
+#### Action `bang_olufsen.beolink_allstandby`
 
 Set all connected Beolink devices to standby.
 

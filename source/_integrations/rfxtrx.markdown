@@ -339,7 +339,7 @@ automation:
 
 - `rfxtrx.send`: Send a custom event using the RFXtrx device.
 
-### Action: Send
+### Action `rfxtrx.send`
 
 Simulate a button being pressed:
 

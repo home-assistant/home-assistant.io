@@ -133,7 +133,7 @@ For more detailed steps on how to define a custom interval, follow the procedure
 
 ## Actions
 
-### Action SQL query
+### Action `sql.query`
 
 The `sql.query` action allows you to execute an arbitrary read-only `SELECT` query against a database and get the results back.
 

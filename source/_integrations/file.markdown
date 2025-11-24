@@ -31,9 +31,9 @@ file:
   
 {% include integrations/config_flow.md %}
 
-## Action: Read file
+## Action `file.read_file`
 
-The `file.read_file` action reads a file and returns the data in a response.
+The action reads a file and returns the data in a response.
 
 | Data attribute | Optional | Description |
 | -------------- | -------- | ----------- |

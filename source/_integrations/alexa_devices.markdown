@@ -68,11 +68,9 @@ Open a issue with all details to investigate
 
 ## Actions
 
-### Available Actions
-
 Available actions: `notify.send_message`, `alexa_devices.send_sound`, `alexa_devices.send_text_command`
 
-#### Action `notify.send_message`
+### Action `notify.send_message`
 
 Devices with appropriate functionality will have speak and announce notify entities created. These can be used as the target for the `notify.send_message` action.
 
@@ -94,7 +92,7 @@ Amazon provide a set of [sounds you can use](https://developer.amazon.com/en-US/
 
 {% enddetails %}
 
-#### Action `alexa_devices.send_text_command`
+### Action `alexa_devices.send_text_command`
 
 This action essentially allows you to control Alexa using text commands rather than speech. You should be able to request anything you would via speech using this action.
 
@@ -103,7 +101,7 @@ This action essentially allows you to control Alexa using text commands rather t
 | `device_id` | no | Device on which you want to run action |
 | `text_command` | no | Command to send |
 
-#### Action `alexa_devices.send_sound`
+### Action `alexa_devices.send_sound`
 
 This action allows you to play one of the built-in Alexa sounds. The full list of sounds is available in [Amazon's documentation (needs authentication)](https://alexa.amazon.com/api/behaviors/entities?skillId=amzn1.ask.1p.sound)
 

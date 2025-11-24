@@ -50,7 +50,7 @@ The Home Assistant Xbox {% term integration %} lets you monitor and control Xbox
 
 The Xbox media player platform will create media player entities for each console linked to your Microsoft account. These entities will display the active app and playback controls as well as a media browser implementation, allowing you to launch any installed application.
 
-### Action `play_media`
+### Action `media_player.play_media`
 
 Launches an application on the Xbox console using the application's product ID. Also supports "Home" and "TV" to navigate to the dashboard or Live TV respectively.
 
@@ -80,7 +80,7 @@ media_content_id: "9WZDNCRFJ3TJ" # Netflix
 
 The Xbox remote platform will create Remote entities for each console linked to your Microsoft Account. These entities will allow you to turn on/off and send controller or text input to your console.
 
-### Action `send_command`
+### Action `remote.send_command`
 
 | Data attribute | Optional | Description                                                       |
 | ---------------------- | -------- | --------------------------------------------------------- |

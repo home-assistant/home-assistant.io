@@ -100,7 +100,7 @@ For all your installed add-ons, Home Assistant Core, Home Assistant Supervisor, 
 
 ## Actions
 
-### Action hassio.addon_start
+### Action `hassio.addon_start`
 
 Start an add-on.
 
@@ -108,7 +108,7 @@ Start an add-on.
 | ---------------------- | -------- | ----------- |
 | `addon` | no | Add-on slug
 
-### Action hassio.addon_stop
+### Action `hassio.addon_stop`
 
 Stop an add-on.
 
@@ -116,7 +116,7 @@ Stop an add-on.
 | ---------------------- | -------- | ----------- |
 | `addon` | no | Add-on slug
 
-### Action hassio.addon_restart
+### Action `hassio.addon_restart`
 
 Restart an add-on.
 
@@ -124,7 +124,7 @@ Restart an add-on.
 | ---------------------- | -------- | ----------- |
 | `addon` | no | Add-on slug
 
-### Action hassio.addon_stdin
+### Action `hassio.addon_stdin`
 
 Write data to add-on stdin.
 
@@ -132,15 +132,15 @@ Write data to add-on stdin.
 | ---------------------- | -------- | ----------- |
 | `addon` | no | Add-on slug
 
-### Action hassio.host_reboot
+### Action `hassio.host_reboot`
 
 Reboot the host system.
 
-### Action hassio.host_shutdown
+### Action `hassio.host_shutdown`
 
 Shutdown the host system.
 
-### Action hassio.backup_full
+### Action `hassio.backup_full`
 
 Create a full backup.
 
@@ -152,7 +152,7 @@ Create a full backup.
 | `location` | yes | Alternate backup location instead of using the default location for backups
 | `homeassistant_exclude_database` | yes | Exclude the Home Assistant database file from backup
 
-### Action hassio.backup_partial
+### Action `hassio.backup_partial`
 
 Create a partial backup.
 
@@ -167,7 +167,7 @@ Create a partial backup.
 | `homeassistant` | yes | Include Home Assistant and associated config in backup
 | `homeassistant_exclude_database` | yes | Exclude the Home Assistant database file from backup
 
-### Action hassio.restore_full
+### Action `hassio.restore_full`
 
 Restore from full backup.
 
@@ -176,7 +176,7 @@ Restore from full backup.
 | `slug` | no | Slug of backup to restore from
 | `password` | yes | Optional password for backup
 
-### Action hassio.restore_partial
+### Action `hassio.restore_partial`
 
 Restore from partial backup.
 

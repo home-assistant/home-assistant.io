@@ -70,7 +70,9 @@ ip_address:
 {% endconfiguration %}
 
 <!-- omit in toc -->
-## Action
+## Actions
+
+### Action `ads.write_by_name`
 
 The ADS integration will register the `write_by_name` action allowing you to write a value to a variable on your ADS device.
 

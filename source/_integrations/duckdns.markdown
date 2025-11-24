@@ -44,7 +44,7 @@ duckdns:
     type: string
 {% endconfiguration %}
 
-## Action `set_txt`
+## Action `duckdb.set_txt`
 
 Set the TXT record of your DuckDNS subdomain.
 

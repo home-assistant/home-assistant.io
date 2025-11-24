@@ -62,15 +62,15 @@ Please note that each camera reports two different states: one as `sensor.blink_
 
 Any sequential calls to {% term actions %} relating to blink should have a minimum of a 5 second delay in between them to prevent the calls from being throttled and ignored. The actions that act on a camera needs a target parameter.
 
-### `blink.record`
+### Action `blink.record`
 
 Trigger a camera to record a new video clip.
 
-### `blink.trigger_camera`
+### Action `blink.trigger_camera`
 
 Trigger a camera to take a new still image.
 
-### `blink.save_video`
+### Action `blink.save_video`
 
 Save the last recorded video of a camera to a local file. Note that in most cases, Home Assistant will need to know that the directory is writable via the `allowlist_external_dirs` in your {% term "`configuration.yaml`" %} file (see example below).
 
@@ -84,7 +84,8 @@ homeassistant:
     - '/tmp'
     - '/path/to/whitelist'
 ```
-### `blink.save_recent_clips`
+
+### Action `blink.save_recent_clips`
 
 Save the recent video clips of a camera to a local file in the pattern `%Y%m%d_%H%M%S_{name}.mp4`. Note that in most cases, Home Assistant will need to know that the directory is writable via the `allowlist_external_dirs` in your {% term "`configuration.yaml`" %} file.
 
@@ -92,7 +93,7 @@ Save the recent video clips of a camera to a local file in the pattern `%Y%m%d_%
 | ---------------------- | -------- | ----------------------- |
 | `file_path`            | no       | Location of save files. |
 
-### `blink.send_pin`
+### Action `blink.send_pin`
 
 Send a new pin to blink.  Since Blink's 2FA implementation is new and changing, this is to allow the integration to continue to work with user intervention.  The intent is to handle all of this behind the scenes, but until the login implementation is settled this was added. To use it, perform the action with the pin you receive from Blink as the payload (for a simple "Allow this Device" email, you may keep the `pin` value empty).
 

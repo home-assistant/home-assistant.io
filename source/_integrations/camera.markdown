@@ -43,9 +43,7 @@ A camera can have the following states. Not all camera integrations support all 
 
 Once loaded, the `camera` platform will expose actions that can be called to perform various actions.
 
-Available actions: `enable_motion_detection`, `disable_motion_detection`, `play_stream`, `record`, `snapshot`, `turn_off` and `turn_on`.
-
-### Action `enable_motion_detection`
+### Action `camera.enable_motion_detection`
 
 Enable the motion detection in a camera.
 
@@ -53,7 +51,7 @@ Enable the motion detection in a camera.
 | -------------- | -------- | ---------------------------------------------------------------------------------- |
 | `entity_id`    | yes      | Name(s) of entities to enable motion detection, e.g., `camera.living_room_camera`. |
 
-### Action `disable_motion_detection`
+### Action `camera.disable_motion_detection`
 
 Disable the motion detection in a camera.
 
@@ -61,7 +59,7 @@ Disable the motion detection in a camera.
 | -------------- | -------- | ----------------------------------------------------------------------------------- |
 | `entity_id`    | yes      | Name(s) of entities to disable motion detection, e.g., `camera.living_room_camera`. |
 
-### Action `play_stream`
+### Action `camera.play_stream`
 
 Play a live stream from a camera to selected media player(s). Requires [`stream`](/integrations/stream) integration to be set up.
 
@@ -82,7 +80,7 @@ actions:
       media_player: media_player.chromecast
 ```
 
-### Action `record`
+### Action `camera.record`
 
 Make a `.mp4` recording from a camera stream. Requires `stream` integration to be set up.
 
@@ -114,7 +112,7 @@ actions:
 
 {% endraw %}
 
-### Action `snapshot`
+### Action `camera.snapshot`
 
 Take a snapshot from a camera.
 
@@ -142,7 +140,7 @@ actions:
 
 {% endraw %}
 
-### Action `turn_off`
+### Action `camera.turn_off`
 
 Turn off camera. Not all camera models support this action, please consult individual camera page.
 
@@ -150,7 +148,7 @@ Turn off camera. Not all camera models support this action, please consult indiv
 | -------------- | -------- | ------------------------------------------------------------------- |
 | `entity_id`    | yes      | Name(s) of entities to turn off, e.g., `camera.living_room_camera`. |
 
-### Action `turn_on`
+### Action `camera.turn_on`
 
 Turn on camera. Not all camera models support this action, please consult individual camera page.
 

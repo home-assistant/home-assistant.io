@@ -236,7 +236,7 @@ This integration will notify you when updates are available on the LMS for the L
 
 The integration provides the following actions.
 
-#### Action `call_method`
+#### Action `squeezebox.call_method`
 
 Call a custom Squeezebox JSON-RPC API.
 
@@ -302,7 +302,7 @@ data:
     - '+5'
 ```
 
-#### Action `call_query`
+#### Action `squeezebox.call_query`
 
 Call a custom Squeezebox JSON-RPC API. The result of the query will be stored in the 'query_result' attribute of the player.
 

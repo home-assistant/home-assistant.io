@@ -29,7 +29,7 @@ In preparation for using this integration you will need to request an API key fo
 
 {% include integrations/config_flow.md %}
 
-## Action `set_away_mode`
+## Action `streamlabswater.set_away_mode`
 
 You can use the `streamlabswater.set_away_mode` action to set the mode to `home` or `away`. The away mode will only be changed for the configured location.
 

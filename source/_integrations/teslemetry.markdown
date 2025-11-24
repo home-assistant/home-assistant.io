@@ -308,9 +308,9 @@ Entities in the device tracker platform specifically require the `Vehicle locati
 
 Teslemetry provides various custom actions to interact with the Tesla Fleet API directly.
 
-### Navigate to coordinates
+### Action `teslemetry.navigation_gps_request`
 
-`teslemetry.navigation_gps_request`
+Navigate to coordinates.
 
 | Field         | Description                | Example                          |
 |---------------|----------------------------|----------------------------------|
@@ -320,9 +320,9 @@ Teslemetry provides various custom actions to interact with the Tesla Fleet API 
 | gps.longitude | Longitude in degrees       | 153.4081865                      |
 | order         | Order for this destination | 1                                |
 
-### Set scheduled charging
+### Action `teslemetry.set_scheduled_charging`
 
-`teslemetry.set_scheduled_charging`
+Set scheduled charging
 
 | Field     | Description                           | Example                          |
 |-----------|---------------------------------------|----------------------------------|
@@ -330,9 +330,9 @@ Teslemetry provides various custom actions to interact with the Tesla Fleet API 
 | enable    | Enable or disable scheduled charging | true                             |
 | time      | Time to start charging in HH:MM       | 6:00                             |
 
-### Set scheduled departure
+### Action `teslemetry.set_scheduled_departure`
 
-`teslemetry.set_scheduled_departure`
+Set scheduled departure
 
 | Field                           | Description                               | Example                          |
 |---------------------------------|-------------------------------------------|----------------------------------|
@@ -345,9 +345,9 @@ Teslemetry provides various custom actions to interact with the Tesla Fleet API 
 | off_peak_charging_weekdays_only | Enable off-peak charging on weekdays only | false                            |
 | end_off_peak_time               | Time to complete charging by (HH:MM)      | 5:00                             |
 
-### Valet Mode
+### Action `teslemetry.valet_mode`
 
-`teslemetry.valet_mode`
+Valet Mode
 
 | Field         | Description                  | Example                          |
 |---------------|------------------------------|----------------------------------|
@@ -355,9 +355,9 @@ Teslemetry provides various custom actions to interact with the Tesla Fleet API 
 | enable        | Enable or disable valet mode | true                             |
 | pin           | 4-digit pin                  | 1234                             |
 
-### Speed Limit
+### Action `teslemetry.speed_limit`
 
-`teslemetry.speed_limit`
+Speed Limit
 
 | Field         | Description                   | Example                          |
 |---------------|-------------------------------|----------------------------------|
@@ -365,9 +365,9 @@ Teslemetry provides various custom actions to interact with the Tesla Fleet API 
 | enable        | Enable or disable speed limit | true                             |
 | pin           | 4-digit pin                   | 1234                             |
 
-### Time of use
+### Action `teslemetry.time_of_use`
 
-`teslemetry.time_of_use`
+Time of use
 
 | Field         | Description                  | Example                                                                                                          |
 |---------------|------------------------------|------------------------------------------------------------------------------------------------------------------|

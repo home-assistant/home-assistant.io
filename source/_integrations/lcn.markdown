@@ -469,7 +469,7 @@ data:
 
 {% endtip %}
 
-### Action: `output_abs`
+### Action `lcn.output_abs`
 
 Set absolute brightness of output port in percent.
 
@@ -491,7 +491,7 @@ data:
   transition: 0
 ```
 
-### Action: `output_rel`
+### Action `lcn.output_rel`
 
 Set relative brightness of output port in percent.
 
@@ -512,7 +512,7 @@ data:
   brightness: 30
 ```
 
-### Action: `output_toggle`
+### Action `lcn.lcn.output_toggle`
 
 Toggle output port.
 
@@ -532,7 +532,7 @@ data:
   transition: 0
 ```
 
-### Action: `relays`
+### Action `lcn.relays`
 
 Set the relays status. The relays states are defined as a string with eight characters.
 Each character represents the state change of a relay (1=on, 0=off, t=toggle, -=nochange).
@@ -553,7 +553,7 @@ data:
   state: t---001-
 ```
 
-### Action: `led`
+### Action `lcn.led`
 
 Set the LED status.
 
@@ -572,7 +572,7 @@ data:
   state: blink
 ```
 
-### Action: `var_abs`
+### Action `lcn.var_abs`
 
 Set the absolute value of a variable or setpoint.
 If `value` is not defined, it is assumed to be 0.
@@ -601,7 +601,7 @@ Ensure that the LCN module is configured properly to provide access to the defin
 Otherwise the module might show unexpected behaviors or return error messages.
 {% endimportant %}
 
-### Action: `var_rel`
+### Action `lcn.var_rel`
 
 Set the relative value of a variable or setpoint.
 If `value` is not defined, it is assumed to be 0.
@@ -630,7 +630,7 @@ Ensure that the LCN module is configured properly to provide access to the defin
 Otherwise the module might show unexpected behavior or return error messages.
 {% endimportant %}
 
-### Action: `var_reset`
+### Action `lcn.var_reset`
 
 Reset value of variable or setpoint.
 
@@ -653,7 +653,7 @@ Ensure that the LCN module is configured properly to provide access to the defin
 Otherwise the module might show unexpected behavior or return error messages.
 {% endimportant %}
 
-### Action: `lock_regulator`
+### Action `lcn.lock_regulator`
 
 Locks a regulator setpoint.
 If `state` is not defined, it is assumed to be `False`.
@@ -674,7 +674,7 @@ data:
   state: true
 ```
 
-### Action: `send_keys`
+### Action `lcn.send_keys`
 
 Send keys (which executes bound commands).
 The keys attribute is a string with one or more key identifiers. Example: `a1a5d8`
@@ -711,7 +711,7 @@ data:
   time_unit: s
 ```
 
-### Action: `lock_keys`
+### Action `lcn.lock_keys`
 
 Locks keys.
 If the table is not defined, it is assumed to be table `a`.
@@ -748,7 +748,7 @@ data:
   time_unit: s
 ```
 
-### Action: `dyn_text`
+### Action `lcn.dyn_text`
 
 Send dynamic text to LCN-GTxD displays.
 The displays support four rows for text messages.
@@ -770,7 +770,7 @@ data:
   text: "text in row 1"
 ```
 
-### Action: `pck`
+### Action `lcn.pck`
 
 Send arbitrary PCK command. Only the command part of the PCK command has to be specified in the `pck` string.
 

@@ -295,11 +295,25 @@ To get the `homematic.keypress` event for some Homematic IP devices like WRC2 / 
 
 ### Actions
 
-- *homematic.virtualkey*: Simulate a keypress (or other valid action) on CCU/Homegear with device or virtual keys.
-- *homematic.reconnect*: Reconnect to CCU/Homegear without restarting Home Assistant (useful when CCU has been restarted)
-- *homematic.set_variable_value*: Set the value of a system variable.
-- *homematic.set_device_value*: Control a device manually (even devices without support). Equivalent to setValue-method from XML-RPC.
-- *homematic.put_paramset*: Manually change a device's paramset (even devices without support). Equivalent to putParamset-method from XML-RPC.
+### Action `homematic.virtualkey`
+
+Simulate a keypress (or other valid action) on CCU/Homegear with device or virtual keys.
+
+### Action `homematic.reconnect`
+
+Reconnect to CCU/Homegear without restarting Home Assistant (useful when CCU has been restarted)
+
+### Action `homematic.set_variable_value`
+
+Set the value of a system variable.
+
+### Action `homematic.set_device_value`
+
+Control a device manually (even devices without support). Equivalent to setValue-method from XML-RPC.
+
+### Action `homematic.put_paramset`
+
+Manually change a device's paramset (even devices without support). Equivalent to putParamset-method from XML-RPC.
 
 #### Examples
 

@@ -88,9 +88,9 @@ and the inferred groups and their ranges of event codes are defined in
 
 ## Actions
 
-Available {% term actions %}: `change_setting`, `capture_image`, `trigger_automation`
+Available {% term actions %}: `abode.change_setting`, `abode.capture_image`, `abode.trigger_automation`
 
-### Action `change_setting`
+### Action `abode.change_setting`
 
 Change settings on your Abode system.
 For a full list of settings and valid values, consult the
@@ -101,7 +101,7 @@ For a full list of settings and valid values, consult the
 | `setting` | No | The setting you wish to change. |
 | `value` | No | The value you wish to change the setting to. |
 
-### Action `capture_image`
+### Action `abode.capture_image`
 
 Request a new still image from your Abode camera.
 
@@ -109,7 +109,7 @@ Request a new still image from your Abode camera.
 | ---------------------- | -------- | ----------- |
 | `entity_id` | No | String or list of strings that point at `entity_id`s of Abode cameras. |
 
-### Action `trigger_automation`
+### Action `abode.trigger_automation`
 
 Trigger an automation on your Abode system.
 

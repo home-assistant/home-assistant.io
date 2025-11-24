@@ -265,7 +265,7 @@ data:
 message: URL opened
 ```
 
-### Action`system_bridge.send_keypress`
+### Action `system_bridge.send_keypress`
 
 Send a keypress to the server.
 

@@ -116,6 +116,8 @@ You can use the `sensor.iperf3_update` action to trigger a manual speed test for
 
 ## Action
 
+### Action `iperf3.speedtest`
+
 Once loaded, the `iperf3` integration will expose an action (`iperf3.speedtest`) that can be called to run a speed test on demand. This can be useful if you have enabled manual mode.
 
 | Data attribute | Description |

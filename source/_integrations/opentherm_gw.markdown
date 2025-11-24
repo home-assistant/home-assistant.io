@@ -97,7 +97,7 @@ Reset the OpenTherm Gateway.
 | ---------------------- | -------- | --------------------------------------------------- |
 | `gateway_id`           | no       | The `gateway_id` as specified during configuration. |
 
-### Action `set_central_heating_ovrd`
+### Action `opentherm_gw.set_central_heating_ovrd`
 
 Set the central heating override option on the gateway.
 When overriding the control setpoint (via the [set_control_setpoint](#action-opentherm_gwset_control_setpoint) action with a temperature value other than `0`), the gateway automatically enables the central heating override to start heating. This action can then be used to control the central heating override status.

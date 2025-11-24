@@ -46,7 +46,9 @@ actions:
 
 ## Actions
 
-### Media control actions
+### Action `openhome.invoke_pin`
+
+Starts playing content pinned on the specified device.
 
 Available actions: `invoke_pin`
 

@@ -112,7 +112,7 @@ Some devices, such as the Insignia F30 series, disappear from the network when t
 
 ## Actions
 
-### `media_player.select_source`
+### Action `media_player.select_source`
 
 You can launch an app on your device using the `media_player.select_source` command. Simply provide the app ID as the `source`.  You can also stop an app by prefixing the app ID with a `!`. For example, you could define [scripts](/docs/scripts) to start and stop Netflix as follows:
 
@@ -134,7 +134,7 @@ stop_netflix:
       source: "!com.netflix.ninja"
 ```
 
-### `androidtv.adb_command`
+### Action `androidtv.adb_command`
 
 The `androidtv.adb_command` action allows you to send either keys or ADB shell commands to your Android / Fire TV device. If there is any output, it will be stored in the `'adb_response'` attribute (i.e., `state_attr('media_player.android_tv_living_room', 'adb_response')` in a template) and logged at the INFO level.
 
@@ -173,7 +173,7 @@ You can also use the command `GET_PROPERTIES` to retrieve the properties used by
 
 A list of various intents can be found [here](https://gist.github.com/mcfrojd/9e6875e1db5c089b1e3ddeb7dba0f304).
 
-### `androidtv.learn_sendevent` (for faster ADB commands)
+### Action `androidtv.learn_sendevent` (for faster ADB commands)
 
 When sending commands like UP, DOWN, HOME, etc. via ADB, the device can be slow to respond. The problem isn't ADB, but rather the Android command `input` that is used to perform those actions. A faster way to send these commands is using the Android `sendevent` command. The challenge is that these commands are device-specific. To assist users in learning commands for their device, the Android debug bridge integration provides the `androidtv.learn_sendevent` action. Its usage is as follows:
 
@@ -207,7 +207,7 @@ to this:
     command: "sendevent /dev/input/event4 4 4 786979 && sendevent /dev/input/event4 1 172 1 && sendevent /dev/input/event4 0 0 0 && sendevent /dev/input/event4 4 4 786979 && sendevent /dev/input/event4 1 172 0 && sendevent /dev/input/event4 0 0 0"
 ```
 
-### `androidtv.download` and `androidtv.upload`
+### Action `androidtv.download` and `androidtv.upload`
 
 You can use the `androidtv.download` action to download a file from your Android / Fire TV device to your Home Assistant instance.
 

@@ -1429,11 +1429,11 @@ For now, pronto hex codes only work on the first version (`chuangmi.ir.v2`).
 
 The Xiaomi IR Remote Platform registers four actions.
 
-### `remote.send_command`
+### Action `remote.send_command`
 
 Allows sending either named commands using an identifier or sending commands as one of the two types defined in [Command Types](/integrations/xiaomi_miio/#command-types).
 
-### `xiaomi_miio.remote_learn_command`
+### Action `xiaomi_miio.remote_learn_command`
 
 Used to learn new commands.
 
@@ -1443,11 +1443,11 @@ Use the entity_id of the Xiaomi IR Remote to start a learning process.
 
 After learning the command the base64 string can be found as a notification in Overview, the string can be copied by left clicking on the string and choose the copy option.
 
-### `xiaomi_miio.remote_set_led_on`
+### Action `xiaomi_miio.remote_set_led_on`
 
 Used to turn remote's blue LED on.
 
-### `xiaomi_miio.remote_set_led_off`
+### Action `xiaomi_miio.remote_set_led_off`
 
 Used to turn remote's blue LED off.
 

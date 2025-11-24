@@ -161,7 +161,7 @@ There are two themes-related actions:
 - `frontend.reload_themes`: Reloads theme configuration from your {% term "`configuration.yaml`" %} file.
 - `frontend.set_theme`: Sets backend-preferred theme name.
 
-### Action `set_theme`
+### Action `frontend.set_theme`
 
 | Data attribute | Description                                                                                         |
 | -------------- | --------------------------------------------------------------------------------------------------- |

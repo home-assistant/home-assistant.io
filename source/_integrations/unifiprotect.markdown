@@ -231,7 +231,7 @@ Below are the accepted identifiers to resolve media. Since events do not necessa
 
 ## Actions
 
-### Action unifiprotect.add_doorbell_text
+### Action `unifiprotect.add_doorbell_text`
 
 Adds a new custom message for Doorbells.
 
@@ -240,7 +240,7 @@ Adds a new custom message for Doorbells.
 | `device_id`            | No       | Any device from the UniFi Protect instance you want to change. In case you have multiple Protect instances. |
 | `message`              | No       | New custom message to add for Doorbells. Must be less than 30 characters.                                   |
 
-### Action unifiprotect.remove_doorbell_text
+### Action `unifiprotect.remove_doorbell_text`
 
 Removes an existing message for Doorbells.
 
@@ -249,7 +249,7 @@ Removes an existing message for Doorbells.
 | `device_id`            | No       | Any device from the UniFi Protect instance you want to change. In case you have multiple Protect instances. |
 | `message`              | No       | Existing custom message to remove for Doorbells.                                                            |
 
-### Action unifiprotect.set_chime_paired_doorbells
+### Action `unifiprotect.set_chime_paired_doorbells`
 
 Use to set the paired doorbell(s) with a smart chime.
 
@@ -258,7 +258,7 @@ Use to set the paired doorbell(s) with a smart chime.
 | `device_id`            | No       | The device ID of the Chime you want to pair or unpair doorbells to.                                     |
 | `doorbells`            | Yes      | A target selector for any number of doorbells you want to pair to the chime. No value means unpair all. |
 
-### Action unifiprotect.remove_privacy_zone
+### Action `unifiprotect.remove_privacy_zone`
 
 Use to remove a privacy zone from a camera.
 
@@ -267,7 +267,7 @@ Use to remove a privacy zone from a camera.
 | `device_id`            | No       | Camera you want to remove privacy zone from.                                                            |
 | `name`                 | No       | The name of the zone to remove.                                                                         |
 
-### Action unifiprotect.get_user_keyring_info
+### Action `unifiprotect.get_user_keyring_info`
 
 | Data attribute | Optional | Description                                                                                                 |
 | -------------- | -------- | ----------------------------------------------------------------------------------------------------------- |

@@ -114,7 +114,7 @@ The block price sensors are not enabled by default.
 
 ## Actions
 
-### Get price for date
+### Action `nordpool.get_prices_for_date`
 
 The integration entities provide price information only for the current date. Use the "Get price for date" action to retrieve pricing information for any date within the last two months or for tomorrow.
 
@@ -164,7 +164,7 @@ data:
 
 {% endraw %}
 
-### Get price indices for date
+### Action `nordpool.get_prices_for_date`
 
 The integration can also provide price indices for any date with published prices. Use the "Get price indices for date" action to retrieve pricing information with a custom resolution time.
 

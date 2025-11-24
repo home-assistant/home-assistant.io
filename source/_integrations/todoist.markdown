@@ -156,6 +156,8 @@ the Todoist UI.
 You may use the actions from the [todo](/integrations/todo/) integration for
 creating, updating, or deleting to-do items on the to-do list.
 
+### Action `todoist.new_task`
+
 Todoist also comes with an additional action, `todoist.new_task` that offers
 more advanced attributes when creating a Todoist task. You can specify labels
 and a project, or you can leave them blank, and the task will go to your

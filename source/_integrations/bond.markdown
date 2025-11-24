@@ -63,6 +63,8 @@ upgrade your firmware from Bond app before adding this integration.
 Firmware version 2.10.8 or newer is required for push updates. The integration
 will fallback to polling for 2.10.x versions lower than .8
 
+## Actions
+
 ### Action `bond.set_fan_speed_tracked_state`
 
 Sets the tracked fan speed for a bond fan.

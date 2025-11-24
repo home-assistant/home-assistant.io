@@ -45,6 +45,8 @@ This video tutorial explains how to set up the Google Sheets integration and how
 
 <lite-youtube videoid="hgGMgoxLYwo" videotitle="How to use Google Sheets in Home Assistant - TUTORIAL" posterquality="maxresdefault"></lite-youtube>
 
+## Actions
+
 ### Action `google_sheets.append_sheet`
 
 You can use the `google_sheets.append_sheet` action to add rows of data to the Sheets document created at setup.
@@ -87,7 +89,7 @@ data:
 {% enddetails %}
 
 
-### Action: Get sheet
+### Action `google_sheets.get_sheet`
 
 You can use the `google_sheets.get_sheet` action to retrieve rows of [data](/docs/scripts/perform-actions#use-templates-to-handle-response-data) from a Sheets document.
 

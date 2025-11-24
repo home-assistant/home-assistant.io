@@ -90,9 +90,9 @@ ombi:
 
 ### Submit request actions
 
-Available actions: `submit_movie_request`, `submit_music_request`, `submit_tv_request`
+Available actions: `ombi.submit_movie_request`, `ombi.submit_music_request`, `ombi.submit_tv_request`
 
-#### Action `submit_movie_request`
+#### Action `ombi.submit_movie_request`
 
 Searches and requests the closest matching movie.
 
@@ -100,7 +100,7 @@ Searches and requests the closest matching movie.
 | ---------------------- | -------- | ----------------- |
 | `name`                 | no       | Search parameter. |
 
-#### Action `submit_music_request`
+#### Action `ombi.submit_music_request`
 
 Searches and requests the closest matching music album.
 
@@ -108,7 +108,7 @@ Searches and requests the closest matching music album.
 | ---------------------- | -------- | ----------------- |
 | `name`                 | no       | Search parameter. |
 
-#### Action `submit_tv_request`
+#### Action `ombi.submit_tv_request`
 
 Searches and requests the closest matching TV show.
 

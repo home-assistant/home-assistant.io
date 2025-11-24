@@ -109,7 +109,7 @@ The following commands are currently available:
 
 **NOTE:** Not all commands are supported by all Apple TV versions.
 
-### Action `send_command`
+### Action `remote.send_command`
 
 | Service data<br>attribute | Optional | Description                                                                                                                   |
 | ------------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
