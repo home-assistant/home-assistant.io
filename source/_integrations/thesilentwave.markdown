@@ -3,7 +3,7 @@ title: TheSilentWave
 description: Instructions on how to integrate TheSilentWave devices into Home Assistant.
 ha_category:
   - Sensor
-ha_release: 2025.10
+ha_release: 2025.12
 ha_iot_class: Local Polling
 ha_domain: thesilentwave
 ha_platforms:
