@@ -49,6 +49,8 @@ Menu: *Configuration* > *Integrations* > *Select your new integration* > *Press 
   
 ## Actions
 
+The following actions are provided by this integration:
+
 ### Action `hive.boost_heating_on`
 
 You can use the action `hive.boost_heating_on` to set your heating to boost for a period of time at a certain target temperature". Individual TRVs can also be boosted in the same way, using this action.

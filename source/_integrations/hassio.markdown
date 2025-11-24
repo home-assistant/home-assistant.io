@@ -100,6 +100,8 @@ For all your installed add-ons, Home Assistant Core, Home Assistant Supervisor, 
 
 ## Actions
 
+The following actions are provided by this integration:
+
 ### Action `hassio.addon_start`
 
 Start an add-on.

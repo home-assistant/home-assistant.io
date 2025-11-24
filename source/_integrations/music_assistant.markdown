@@ -62,6 +62,8 @@ The Music Assistant integration creates a button entity for each player to favor
 
 ## Actions
 
+The integration offers the following actions:
+
 ### Action `music_assistant.play_media`
 
 Play media on a Music Assistant player with more fine-grained control options. This action is more powerful than the [`media_player.play_media`](https://www.home-assistant.io/integrations/media_player/#action-media_playerplay_media) action because it allows multiple items to be added to the queue at once, it allows more specific control of the media item to be played (e.g. a track from a specific album can be specified) and Music Assistant's radio mode (where the queue is filled with similar tracks to that enqueued) can be enabled.

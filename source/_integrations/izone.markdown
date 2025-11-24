@@ -125,6 +125,8 @@ This will help you to find network connection issues etc.
 
 ## Actions
 
+The integration offers the following actions:
+
 ### Action `izone.airflow_min`
 
 Set the minimum airflow for a particular zone.

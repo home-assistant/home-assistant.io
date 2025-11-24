@@ -42,6 +42,8 @@ Use an encrypted token for authentication:
 
 ## Actions
 
+The integration offers the following actions:
+
 ### Action `nuki.lock_n_go`
 
 This will first unlock, wait a few seconds (20 by default) then re-lock. The wait period can be customized through the app.

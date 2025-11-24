@@ -139,6 +139,8 @@ logger:
 
 ## Actions
 
+The integration offers the following actions:
+
 ### Action `logger.set_default_level`
 
 You can alter the default log level (for integrations without a specified log

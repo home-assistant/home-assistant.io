@@ -33,6 +33,8 @@ By default, the first 6 zones (11..16) are enabled, and there's an attempt to au
 
 ## Actions
 
+The integration offers the following actions:
+
 ### Action `monoprice.snapshot`
 
 Take a snapshot of one or more zones' states. This action, and the following one are useful if you want to play a doorbell or notification sound and resume playback afterward. If `entity_id` is `all`, all zones are snapshotted.

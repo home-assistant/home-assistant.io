@@ -295,6 +295,8 @@ To get the `homematic.keypress` event for some Homematic IP devices like WRC2 / 
 
 ### Actions
 
+The following actions are provided by this integration:
+
 ### Action `homematic.virtualkey`
 
 Simulate a keypress (or other valid action) on CCU/Homegear with device or virtual keys.

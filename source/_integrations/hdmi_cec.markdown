@@ -152,6 +152,8 @@ hdmi_cec:
 
 ## Actions
 
+The following actions are provided by this integration:
+
 ### Action `hdmi_cec.select_device`
 
 Use the `hdmi_cec.select_device` action with the name of the device from configuration or entity_id or physical address"to select it, for example:

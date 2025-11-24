@@ -201,6 +201,8 @@ For details about each of these entities, see the descriptions above under [**Se
 
 ## Actions
 
+The following actions are provided by the Habitica integration:
+
 ### Action `habitica.cast_skill`
 
 Use a skill or spell from your Habitica character on a specific task to affect its progress or status.

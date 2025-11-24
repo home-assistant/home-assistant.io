@@ -120,6 +120,8 @@ The `netatmo` switch platform provides support for Legrand/BTicino switches and 
 
 ## Actions
 
+The integration offers the following actions:
+
 ### Action `set_camera_light_mode`
 
 Set the outdoor camera light mode.

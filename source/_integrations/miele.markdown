@@ -179,6 +179,8 @@ Climate entities are used to control target temperatures in refrigerators, freez
 
 ## Actions
 
+The integration offers the following actions:
+
 ### Action `miele.set_program`
 
 Set and start a program for applicable appliances. Note that the device must be in a state where it will accept a new program, for example, most washing machines must be in state `on` and many appliances must be set manually to 'MobileStart' or 'MobileControl' in advance. An error message is displayed if the device did not accept the action command.

@@ -115,7 +115,7 @@ And more advanced app-centric features such as:
 
 ## Actions
 
-### `play_media` actions
+### Action `media_player.play_media`
 
 The Bang & Olufsen integration supports different playback types in the `media_player.play_media` action: playback from URL, activating a favorite, playback from a local file, playing a radio station, activating a Deezer flow and Deezer playlists, albums, tracks, and playing files and text-to-speech (TTS) as an overlay.
 

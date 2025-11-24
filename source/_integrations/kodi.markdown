@@ -66,6 +66,8 @@ automation:
 
 ### Actions
 
+The integration offers the following actions:
+
 #### Action `kodi.add_to_playlist`
 
 Add music to the default playlist (i.e., playlistid=0).

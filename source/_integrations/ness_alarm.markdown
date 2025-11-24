@@ -118,6 +118,8 @@ Incorrect configuration of these settings will prevent the integration from func
 
 ## Actions
 
+The integration offers the following actions:
+
 ### Action `ness_alarm.aux`
 
 Trigger an aux output.  This requires PCB version 7.8 or higher.

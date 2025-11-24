@@ -63,6 +63,8 @@ The Modern Forms integration provides support for the following toggleable attri
 
 ## Actions
 
+The integration offers the following actions:
+
 ### Action `modern_forms.clear_fan_sleep_timer`
 
 This action will clear the sleep timer for the fan if it has been set. It will not turn off the fan when the timer is cleared.
