@@ -89,7 +89,7 @@ The Xbox remote platform will create Remote entities for each console linked to 
 | `num_repeats`          | yes      | Number of times to repeat the commands.                   |
 | `delay_secs`           | yes      | Interval in seconds between one send and another.         |
 
-**Available commands**: `A`, `B`, `X`, `Y`, `Up`, `Down`, `Left`, `Right`, `Menu`, `View`, `Nexus`
+**Available commands**: `A`, `B`, `X`, `Y`, `Up`, `Down`, `Left`, `Right`, `Menu`, `View`, `Nexus`, `WakeUp`, `TurnOff`, `Reboot`, `Mute`, `Unmute`, `Play`, `Pause`, `Next`, `Previous`,`GoHome`, `GoBack`, `ShowGuideTab`, `ShowGuide`
 
 #### Examples
 
