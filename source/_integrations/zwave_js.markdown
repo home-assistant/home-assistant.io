@@ -378,7 +378,9 @@ The following features can be accessed from the device panel of any Z-Wave devic
 - **Configure:** Provides an easy way to look up and update configuration parameters for the device. While there is an existing action for setting configuration parameter values, this UI may sometimes be quicker to use for one-off changes.
 - **Re-interview:** Forces the device to go through the interview process again so that Z-Wave-JS can discover all of its capabilities. Can be helpful if you don't see all the expected entities for your device.
 - **Rebuild routes:** Discovers new routes between the adapter and the device. Use this if you think you are experiencing unexpected delays or RF issues with your device. Your device may be less responsive during this process.
-- **Remove failed:** Removes the device from the adapter without excluding the device from the network. Can be used when a device has failed and it can't go through the normal exclusion process.
+- **Delete:** Opens a dialog with the following options for removing the device:
+   - Removing it from the network using exclusion
+   - Removing a failed device from the adapter without excluding it from the network
 - **[Statistics](https://zwave-js.github.io/node-zwave-js/#/api/node?id=quotstatistics-updatedquot):** Provides statistics about communication between this device and the adapter, allowing you to troubleshoot RF issues with the device.
 - **Update:** Updates a device's firmware using a manually uploaded firmware file. Only some devices support this feature (adapters and devices with the Firmware Update Metadata Command Class).
 - **Download diagnostics:** Exports a JSON file describing the entities of this specific device.

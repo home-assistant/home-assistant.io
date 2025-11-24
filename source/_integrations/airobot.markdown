@@ -1,0 +1,160 @@
+---
+title: Airobot
+description: Instructions on how to integrate Airobot smart thermostats for intelligent floor heating control into Home Assistant.
+ha_release: 2025.12
+ha_iot_class: Local Polling
+ha_codeowners:
+  - '@mettolen'
+ha_domain: airobot
+ha_integration_type: device
+ha_dhcp: true
+ha_config_flow: true
+ha_quality_scale: bronze
+---
+
+The **Airobot** {% term integration %} allows you to control and monitor [Airobot](https://airobothome.com/) smart thermostats for intelligent floor heating control via the local REST API. The thermostat uses adaptive learning with a <abbr title="Time Proportional Integral">TPI</abbr> algorithm to maintain stable temperatures and optimize energy efficiency. Optional built-in CO₂ and humidity sensors monitor indoor air quality for a healthier living environment.
+
+## Supported devices
+
+The following devices are supported by the integration:
+
+- Airobot Smart Thermostat TE1 with firmware version 1.8 or later
+
+## Prerequisites
+
+Before setting up the integration, ensure your Airobot thermostat is properly configured:
+
+1. Verify your thermostat has firmware version 1.8 or later. You can check the firmware version in the thermostat settings menu.
+2. Connect the thermostat to your local WiFi or Ethernet network.
+3. Connect to the internet at least once to register with the Airobot server. During this initial connection, the thermostat receives its Device ID (username) and password.
+4. In the thermostat settings menu, navigate to **Connectivity** > **Local API** > **Enable** to enable the local REST API (disabled by default).
+5. Note your Device ID and password from the thermostat menu under **Connectivity** > **Mobile app** screen. You will need these during setup. These are the same credentials used to pair the mobile app.
+
+After initial setup, the thermostat does not require internet connectivity to function with Home Assistant.
+
+{% include integrations/config_flow.md %}
+
+The integration can be automatically discovered via DHCP when the thermostat is on the same network. If automatic discovery does not work, you can manually add the integration.
+
+{% configuration_basic %}
+Host:
+    description: "The hostname or IP address of your Airobot thermostat. You can find it in your router settings, or use the hostname format `airobot-thermostat-t01xxxxxx` (replace `t01xxxxxx` with your Device ID in lowercase)."
+Username:
+    description: "The thermostat Device ID (e.g., T01XXXXXX). You can find this in the thermostat menu under **Connectivity** > **Mobile app** screen. This is the same credential used to pair the mobile app."
+Password:
+    description: "The thermostat password. You can find this in the thermostat menu under **Connectivity** > **Mobile app** screen. This is the same credential used to pair the mobile app."
+{% endconfiguration_basic %}
+
+## Supported functionality
+
+The **Airobot** integration provides climate control functionality with comprehensive temperature management and preset modes.
+
+### Climate
+
+The thermostat is represented as a climate entity with the following capabilities:
+
+- **Current temperature**: Displays the measured air temperature in the room.
+- **Target temperature**: Shows and allows you to set the desired temperature (5-35°C range).
+  - In HOME mode: Controls the HOME temperature setpoint.
+  - In AWAY mode: Controls the AWAY temperature setpoint.
+- **HVAC mode**: Controls whether heating is enabled or disabled.
+  - Supported modes:
+    - **Heat**: Actively heats to reach the target temperature
+    - **Off**: Disables heating
+- **HVAC action**: Shows whether the thermostat is actively heating or idle.
+- **Preset modes**:
+  - **Home**: Use the HOME temperature setpoint
+  - **Away**: Use the AWAY temperature setpoint (typically lower for energy savings)
+  - **Boost**: Temporarily boost heating for 1 hour, then return to the previous mode
+
+## Data updates
+
+The **Airobot** integration {% term polling polls %} data from the thermostat every 30 seconds. This interval matches the thermostat's internal measurement cycle, ensuring efficient data synchronization without overwhelming the device.
+
+## Troubleshooting
+
+### Cannot connect to thermostat
+
+#### Symptom: "Cannot connect to your Airobot thermostat"
+
+When trying to set up the integration, the configuration flow shows the error "Cannot connect to your Airobot thermostat".
+
+#### Description
+
+This error indicates that Home Assistant cannot establish a connection to the thermostat's local REST API. This can be caused by incorrect network settings, local API being disabled, or network connectivity issues.
+
+#### Resolution
+
+To resolve this issue, try the following steps:
+
+1. **Verify the IP address or hostname**:
+   - Make sure you entered the correct IP address or hostname.
+   - You can find the IP address in your router settings.
+   - The hostname format is `airobot-thermostat-t01xxxxxx` (replace `t01xxxxxx` with your Device ID in lowercase).
+
+2. **Check network connectivity**:
+   - Ensure the thermostat is powered on and connected to your network.
+   - Verify that Home Assistant and the thermostat are on the same network or can communicate with each other.
+   - Try pinging the thermostat from the Home Assistant host: `ping <thermostat-ip>`.
+
+3. **Enable local API**:
+   - On the thermostat, navigate to **Connectivity** > **Local API** > **Enable**.
+   - Wait a few seconds for the API to become active.
+
+4. **Restart the thermostat** (if needed):
+   - If the local API was just enabled, try restarting the thermostat to ensure the API service starts properly.
+
+### Authentication failed
+
+#### Symptom: "Invalid authentication"
+
+The configuration flow shows "Invalid authentication" error when entering credentials.
+
+#### Description
+
+The Device ID (username) or password provided is incorrect or does not match the thermostat's credentials.
+
+#### Resolution
+
+1. **Verify credentials**:
+   - On the thermostat, navigate to the **Connectivity** > **Mobile app** screen in the settings menu.
+   - Check that the Device ID (e.g., T01XXXXXX) matches exactly what you entered (case-sensitive).
+   - Check that the password matches exactly what you entered (case-sensitive).
+
+2. **Re-enter credentials**:
+   - Double-check for typing errors.
+   - The Device ID should start with "T" followed by numbers.
+
+3. **Ensure initial registration**:
+   - The thermostat must have connected to the internet at least once to register and obtain credentials.
+   - If you have never connected the thermostat to the internet, do so first, then check the credentials again.
+
+### Thermostat goes unavailable
+
+#### Symptom: The thermostat entity becomes unavailable after some time
+
+#### Description
+
+The integration loses connection to the thermostat, causing the entity to become unavailable. This can happen due to network issues, thermostat power loss, or the device entering sleep mode.
+
+#### Resolution
+
+1. **Check power and network**:
+   - Ensure the thermostat is powered on and connected to the network.
+   - Check if you can access the thermostat's web interface directly in a browser.
+
+2. **Verify network stability**:
+   - Check for WiFi signal strength issues if using wireless connection.
+   - Consider using a wired Ethernet connection for more reliable connectivity.
+
+3. **Check local API status**:
+   - Ensure the local API is still enabled on the thermostat.
+   - Navigate to **Connectivity** > **Local API** and verify it is enabled.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
+
+You can optionally disable the local API on the thermostat after removing the integration by navigating to **Connectivity** > **Local API** > **Disable**.
