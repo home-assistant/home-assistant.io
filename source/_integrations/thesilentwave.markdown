@@ -18,8 +18,25 @@ The **TheSilentWave** {% term integration %} allows you to monitor the status of
 ## Prerequisites
 
 - A TheSilentWave device on your local network
-- The IP address of your device
+- The IP address or hostname of your device
 
+## Configuration
+
+This integration can be configured via the Home Assistant UI:
+
+1. Go to **Settings** > **Devices & Services**
+2. Click the **+ ADD INTEGRATION** button
+3. Search for "TheSilentWave"
+4. Follow the configuration flow and provide:
+   - A name for your device
+   - The IP address of your device
+
+{% configuration_basic %}
+Name:
+  description: A name for the device
+Host:
+  description: The IP address or hostname of your TheSilentWave device
+{% endconfiguration_basic %}
 {% include integrations/config_flow.md %}
 
 ## Sensors
