@@ -39,7 +39,7 @@ To use SUPLA devices in your installation, add the following to your {% term "`c
 ```yaml
 supla:
   servers:
-    - server: "svr1.supla.org"
+    - server: "svr74.supla.org"
       access_token: "YOUR_ACCESS_TOKEN"
 ```
 
