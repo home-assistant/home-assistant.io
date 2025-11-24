@@ -8,6 +8,7 @@ ha_category:
   - Fan
   - Hub
   - Light
+  - Select
   - Sensor
   - Switch
   - Vacuum
@@ -24,6 +25,7 @@ ha_platforms:
   - diagnostics
   - fan
   - light
+  - select
   - sensor
   - switch
   - vacuum
@@ -134,6 +136,13 @@ Climate entities are used to control target temperatures in refrigerators, freez
 
 - **Light**: The light can be turned on and off in many models of ovens, cooker hoods, and wine cabinets.
 - **Ambient light**: Some models of cooker hoods have ambient light that can be turned on and off.
+{% enddetails %}
+
+### Select
+
+{% details "List of select entities" %}
+
+- **Mode**: Select operating mode for freezers and refrigerators. Available modes vary depending on appliance model.
 {% enddetails %}
 
 ### Sensor
