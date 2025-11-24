@@ -69,13 +69,13 @@ Before adding SwitchBot devices over Bluetooth, confirm whether your Bluetooth a
 - Active mode
   - Devices are normally discovered automatically.
   - If a device is not discovered automatically:
-    - For devices with a physical button, press and hold the button to enter pairing mode
-    - For devices without a button, power-cycle the device to trigger pairing mode
-    - If the device still cannot be discovered, try syncing devices from your SwitchBot account by clicking the **SwitchBot** integration and signing in
+    - For devices with a physical button, press and hold the button to enter pairing mode.
+    - For devices without a button, power-cycle the device to trigger pairing mode.
+    - If the device still cannot be discovered, try syncing devices from your SwitchBot account by selecting  the **SwitchBot** integration and signing in.
 
 - Passive mode
-  - Devices cannot be discovered via local Bluetooth scanning and must be synchronized through your SwitchBot account
-  - To sync devices from your account, go to {% my integrations title="**Settings** > **Devices & services**" %}, open **Integrations**, select **SwitchBot**, click the integration to open the login window, and sign in. If the local Bluetooth scan detects devices that are linked to your SwitchBot account and within range, you can add them after signing in
+  - Devices cannot be discovered via local Bluetooth scanning and must be synchronized through your SwitchBot account.
+  - To sync devices from your account, go to {% my integrations title="**Settings** > **Devices & services**" %}, open **Integrations**, select **SwitchBot**, select  the integration to open the login window, and sign in. If the local Bluetooth scan detects devices that are linked to your SwitchBot account and within range, you can add them after signing in.
 
 If you still cannot add a device, make sure it is powered on, within Bluetooth range, and not connected to another app. If necessary, follow the manufacturer's reset instructions or consult SwitchBot support.
 
