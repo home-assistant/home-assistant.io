@@ -4,7 +4,9 @@ description: Instructions on how to integrate a Sony Bravia TV into Home Assista
 ha_category:
   - Button
   - Media player
+  - Number
   - Remote
+  - Select
 ha_release: 0.23
 ha_iot_class: Local Polling
 ha_codeowners:
@@ -18,6 +20,7 @@ ha_platforms:
   - media_player
   - number
   - remote
+  - select
 ha_ssdp: true
 ha_integration_type: device
 ---
@@ -199,26 +202,19 @@ The {% term integration %} supports `button` {% term platform %} and allows you 
 
 ## Number entities
 
-The {% term integration %} provides `number` {% term entities %} for controlling picture quality settings on your TV. These entities allow you to adjust various picture parameters such as brightness, contrast, color, and more.
+The {% term integration %} provides `number` {% term entities %} for controlling picture quality settings on your TV. These entities allow you to adjust various picture parameters using numeric sliders.
 
 {% note %}
-All number entities are disabled by default to reduce clutter. You can enable the ones you need from the {% term entity %} settings.
+All picture quality entities are disabled by default to reduce clutter. You can enable the ones you need from the {% term entity %} settings.
 {% endnote %}
 
-The following picture quality controls are available:
+The following numeric picture controls are available:
 
-- **Picture Brightness** - Adjust the overall brightness of the picture
-- **Picture Contrast** - Control the contrast level
-- **Picture Color** - Adjust color intensity
-- **Picture Sharpness** - Control image sharpness
-- **Color Temperature** - Adjust the color temperature (warm to cool)
-- **Picture Mode** - Select picture mode preset
-- **Color Space** - Configure the color space setting
-- **Light Sensor** - Adjust light sensor sensitivity
-- **Auto Picture Mode** - Control auto picture mode behavior
-- **HDR Mode** - Configure HDR (High Dynamic Range) settings
-- **Auto Local Dimming** - Adjust local dimming behavior
-- **X-tended Dynamic Range** - Control Sony's X-tended Dynamic Range feature
+- **Brightness** - Adjust the overall brightness of the picture
+- **Contrast** - Control the contrast level
+- **Color** - Adjust color intensity
+- **Sharpness** - Control image sharpness
+- **Hue** - Adjust picture hue (typically ranges from -50 to 50)
 
 The minimum, maximum, and step values for each entity are determined dynamically based on your TV model's capabilities. For example, brightness may range from 0-50 on some models and 0-100 on others.
 
@@ -227,12 +223,14 @@ The minimum, maximum, and step values for each entity are determined dynamically
 ```yaml
 action: number.set_value
 target:
-  entity_id: number.bravia_tv_picture_brightness
+  entity_id: number.bravia_tv_brightness
 data:
   value: 30
 ```
 
 **Example automation to sync TV brightness with room lights:**
+
+{% raw %}
 
 ```yaml
 automation:
@@ -243,9 +241,62 @@ automation:
     action:
       - action: number.set_value
         target:
-          entity_id: number.bravia_tv_picture_brightness
+          entity_id: number.bravia_tv_brightness
         data:
-          value: "{% raw %}{{ state_attr('light.living_room', 'brightness') | int * 50 / 255 }}{% endraw %}"
+          value: "{{ state_attr('light.living_room', 'brightness') | int * 50 / 255 }}"
+```
+
+{% endraw %}
+
+## Select entities
+
+The {% term integration %} provides `select` {% term entities %} for controlling picture mode settings that have discrete options. These entities allow you to choose from predefined values for various display settings.
+
+{% note %}
+All picture quality entities are disabled by default to reduce clutter. You can enable the ones you need from the {% term entity %} settings.
+{% endnote %}
+
+The following select controls are available:
+
+- **Picture Mode** - Select picture mode preset (e.g., vivid, standard, cinema, custom)
+- **Color Space** - Configure the color space setting (e.g., auto, BT.2020, BT.709)
+- **Color Temperature** - Adjust the color temperature (warm to cool presets)
+- **HDR Mode** - Configure HDR (High Dynamic Range) settings (e.g., auto, on, off)
+- **Light Sensor** - Control ambient light sensor behavior
+- **Auto Picture Mode** - Configure automatic picture mode switching
+- **Auto Local Dimming** - Control local dimming behavior for enhanced contrast
+- **X-tended Dynamic Range** - Control Sony's X-tended Dynamic Range feature
+
+The available options for each entity depend on your TV model's capabilities.
+
+**Example to set picture mode to Cinema:**
+
+```yaml
+action: select.select_option
+target:
+  entity_id: select.bravia_tv_picture_mode
+data:
+  option: "cinema"
+```
+
+**Example automation to switch to cinema mode at night:**
+
+```yaml
+automation:
+  - alias: "Cinema mode at night"
+    trigger:
+      - platform: sun
+        event: sunset
+    condition:
+      - condition: state
+        entity_id: media_player.bravia_tv
+        state: "on"
+    action:
+      - action: select.select_option
+        target:
+          entity_id: select.bravia_tv_picture_mode
+        data:
+          option: "cinema"
 ```
 
 ## Limitations and known issues
