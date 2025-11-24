@@ -43,7 +43,7 @@ ha_platforms:
   - vacuum
   - valve
   - water_heater
-ha_integration_type: integration
+ha_integration_type: service
 ha_quality_scale: platinum
 ---
 
@@ -132,8 +132,13 @@ MQTT Devices and entities can be set up through [MQTT -discovery](#mqtt-discover
 - [Light](/integrations/light.mqtt/)
 - [Lock](/integrations/lock.mqtt/)
 - [Notify](/integrations/notify.mqtt/)
+- [Number](/integrations/number.mqtt/)
+- [Select](/integrations/select.mqtt/)
 - [Sensor](/integrations/sensor.mqtt/)
+- [Siren](/integrations/siren.mqtt/)
 - [Switch](/integrations/switch.mqtt/)
+- [Text](/integrations/text.mqtt/)
+- [Valve](/integrations/valve.mqtt/)
 
 To add an MQTT device via a Subentry, follow these steps:
 

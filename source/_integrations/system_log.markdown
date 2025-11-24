@@ -62,7 +62,7 @@ Errors and warnings are posted as the event `system_log_event`, so it is possibl
 | `name`      | Name of the integration, e.g., `homeassistant.components.device_tracker`    |
 | `timestamp` | Unix timestamp with as a double, e.g., 1517241010.237416.                   |
 
-Live examples of these events can be found in the Home Assistant log file (`home-assistant.log`) or by just looking in the system log. An example could, for instance, look like this:
+Live examples of these events can be found in the [Home Assistant logs](/integrations/logger/#viewing-logs). An example could, for instance, look like this:
 
 ```text
 2019-02-14 16:20:35 ERROR (MainThread) [homeassistant.loader] Unable to find integration system_healt

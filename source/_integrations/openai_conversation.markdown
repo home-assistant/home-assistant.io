@@ -7,8 +7,6 @@ ha_category:
 ha_release: 2023.2
 ha_iot_class: Cloud Polling
 ha_config_flow: true
-ha_codeowners:
-  - '@balloob'
 ha_domain: openai_conversation
 ha_integration_type: service
 ha_platforms:

@@ -15,16 +15,36 @@ ha_domain: transmission
 ha_platforms:
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 The Transmission integration allows you to monitor your [Transmission](https://www.transmissionbt.com/) BitTorrent downloads from within Home Assistant and set up automations based on that information.
 
-## Setup
+## Prerequisites
 
-Your Transmission client must first be configured to allow remote access. In your Transmission client navigate to **Preferences** -> **Remote** tab and then click the **Allow remote access** checkbox.
+Before setting up the Transmission integration, ensure you have:
+
+1. Transmission installed and running on your network.
+2. The IP address or hostname and port of your Transmission instance.
+3. The username and password of your Transmission instance, if set.
+4. Your Transmission client must first be configured to allow remote access. In your Transmission client navigate to **Preferences** -> **Remote** tab and then click the **Allow remote access** checkbox.
 
 {% include integrations/config_flow.md %}
+
+{% configuration_basic %}
+Host:
+  description: "The IP address or hostname of your Transmission instance. For example: `192.168.1.100` or `transmission.local`."
+Path:
+  description: "The RPC request target path, for example, `/transmission/rpc`."
+Port:
+  description: "The port Transmission is running on. Default is `9091`."
+Username:
+  description: "Your Transmission username, if set."
+Password:
+  description: "Your Transmission password, if set."
+Verify SSL certificate:
+  description: "Enable SSL certificate verification when connecting via HTTPS."
+{% endconfiguration_basic %}
 
 ## Supported functionality
 
@@ -141,3 +161,9 @@ type: markdown
 ```
 
 {% endraw %}
+
+## Removing the integration
+
+This integration follows standard integration removal. After removal, your Transmission instance continues running with its current configuration.
+
+{% include integrations/remove_device_service.md %}
