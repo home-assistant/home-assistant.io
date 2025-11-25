@@ -528,8 +528,9 @@ conditions:
   - condition: template
     value_template: >
       {% raw %}{{ 
+         trigger.event.data.old_state is not none and
          not trigger.event.data.old_state.attributes.get('restored', false) and
-         not trigger.event.data.old_state.state == 'unavailable' and
+         trigger.event.data.old_state.state != 'unavailable' and
          trigger.event.data.new_state is not none and
          trigger.event.data.new_state.attributes.event_type == 'detected'
        }}{% endraw %}
