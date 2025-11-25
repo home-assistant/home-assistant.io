@@ -69,7 +69,7 @@ For your local air quality you can find more details [here](https://developers.g
   *Descriptive category for UAQI. Possible values include: Excellent air quality, Good air quality, Moderate air quality, Low air quality, Poor air quality.*
 
 - **UAQI Dominant Pollutant**  
-  *The pollutant that most significantly influences the UAQI value. Possible values include: PM2.5, PM10, Ozone (O₃), Nitrogen Dioxide (NO₂), Sulphur Dioxide (SO₂) Carbon Monoxide (CO)*
+  *The pollutant that most significantly influences the UAQI value. Possible values include: PM2.5, PM10, Ozone (O₃), Nitrogen Dioxide (NO₂), Sulphur Dioxide (SO₂), Carbon Monoxide (CO)*
 
 - **Local Air Quality Index**  
   *A regionally calibrated AQI value, where available.*
