@@ -3,7 +3,7 @@ title: Google Air Quality
 description: Instructions on how to integrate Google Air Quality into Home Assistant.
 ha_category:
   - Sensor
-ha_release: 2025.7
+ha_release: 2025.12
 ha_iot_class: Cloud Poll
 ha_config_flow: true
 ha_codeowners:
