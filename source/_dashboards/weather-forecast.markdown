@@ -85,7 +85,7 @@ secondary_info_attribute:
 round_temperature:
   required: false
   description: Round temperature values to closest integer.
-  default: `false`. Uses the raw value from temperature values.
+  default: `false` (uses the raw temperature values).
 theme:
   required: false
   description: Override the used theme for this card with any loaded theme. For more information about themes, see the [frontend documentation](/integrations/frontend/).
