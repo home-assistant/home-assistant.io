@@ -19,9 +19,7 @@ The **Google Air Quality** {% term integration %} provides Air quality data thro
 
 ## Prerequisites
 
-You need to configure developer credentials to allow Home Assistant to access your Google Account.
-These credentials are the same as the ones for [Google Sheets](/integrations/google_sheets), [Nest](/integrations/nest), [YouTube](/integrations/youtube), and [Google Mail](/integrations/google_mail).
-These are not the same as *Device Auth* credentials previously recommended for [Google Calendar](/integrations/google).
+You need an API key. Follow instructions [in the Google developer documentation](https://developers.google.com/maps/documentation/air-quality/get-api-key) for creating an API key.
 Additionally, you have to create a *Billing Account*. At the time of writing this documentation, Google allows 10,000 API calls per month for free.
 
 {% important %}
@@ -45,15 +43,7 @@ You may want to setup [disable billing with notifications](https://cloud.google.
 You are always self aware of the costs.
 {% endimportant %}
 
-{% include integrations/google_client_secret.md %}
-
 {% include integrations/config_flow.md %}
-
-{% include integrations/google_oauth.md %}
-
-## Known limitations
-
-- Currently only the Universal Air Quality Index (UAQI) is supported as Air Quality Index.
 
 ## Supported functionality
 
@@ -97,10 +87,6 @@ For your local air quality you can find more details [here](https://developers.g
 
 - **Carbon Monoxide (CO)**  
   *Carbon monoxide concentration.*
-
-## Troubleshooting
-
-If you have an error with your credentials, you can delete them in the [Application Credentials](/integrations/application_credentials/) user interface.
 
 ## Removing the integration
 
