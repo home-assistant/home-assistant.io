@@ -9,6 +9,9 @@ ha_codeowners:
 ha_domain: search
 ha_quality_scale: internal
 ha_integration_type: system
+related:
+  - docs: /integrations/entity_migration/
+    title: Entity Migration
 ---
 
 The `search` integration is an internally used integration by the
@@ -25,3 +28,7 @@ Currently these relations are displayed on the "Related" tab in more info dialog
 
 The search integration is automatically loaded with the Home Assistant frontend
 and does not need to be configured separately.
+
+## Related integrations
+
+The [Entity Migration](/integrations/entity_migration/) integration builds on similar concepts to find all references to a specific entity across your configuration, which is useful when replacing devices or switching integrations.
