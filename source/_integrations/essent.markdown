@@ -32,30 +32,30 @@ The integration provides the following sensors:
 
 ### Electricity
 
-| Sensor                                  | Description                                         | Enabled by default |
-| --------------------------------------- | --------------------------------------------------- | ------------------ |
-| Current electricity price               | Current hourly electricity price per kWh with VAT   | Yes                |
-| Next electricity price                  | Next hour's electricity price per kWh               | No                 |
-| Average electricity price today         | Average of all hourly electricity prices for today  | Yes                |
-| Lowest electricity price today          | Minimum electricity price for today                 | No                 |
-| Highest electricity price today         | Maximum electricity price for today                 | No                 |
-| Current electricity price excl. VAT     | Current hourly price excluding VAT                  | No                 |
-| Current electricity VAT                 | VAT component of the current price                  | No                 |
-| Current electricity market price        | Spot market component of the current price          | No                 |
-| Current electricity purchasing fee      | Supplier purchasing fee component                   | No                 |
-| Current electricity tax                 | Tax component of the current price                  | No                 |
+The following sensors are created for electricity prices:
+
+- **Current electricity price** - Current hourly electricity price per kWh including VAT
+- **Next electricity price** - Next hour's electricity price per kWh (disabled by default)
+- **Average electricity price today** - Average of all hourly electricity prices for today
+- **Lowest electricity price today** - Minimum electricity price for today (disabled by default)
+- **Highest electricity price today** - Maximum electricity price for today (disabled by default)
+- **Current electricity price excl. VAT** - Current hourly price excluding VAT (disabled by default)
+- **Current electricity VAT** - VAT component of the current price (disabled by default)
+- **Current electricity market price** - Spot market component of the current price (disabled by default)
+- **Current electricity purchasing fee** - Supplier purchasing fee component (disabled by default)
+- **Current electricity tax** - Tax component of the current price (disabled by default)
 
 ### Gas
 
-| Sensor                              | Description                                     | Enabled by default |
-| ----------------------------------- | ----------------------------------------------- | ------------------ |
-| Current gas price                   | Current daily gas price per m³ with VAT         | Yes                |
-| Next gas price                      | Next day's gas price per m³                     | No                 |
-| Current gas price excl. VAT         | Current daily price excluding VAT               | No                 |
-| Current gas VAT                     | VAT component of the current price              | No                 |
-| Current gas market price            | Spot market component of the current price      | No                 |
-| Current gas purchasing fee          | Supplier purchasing fee component               | No                 |
-| Current gas tax                     | Tax component of the current price              | No                 |
+The following sensors are created for gas prices:
+
+- **Current gas price** - Current daily gas price per m³ including VAT
+- **Next gas price** - Next day's gas price per m³ (disabled by default)
+- **Current gas price excl. VAT** - Current daily price excluding VAT (disabled by default)
+- **Current gas VAT** - VAT component of the current price (disabled by default)
+- **Current gas market price** - Spot market component of the current price (disabled by default)
+- **Current gas purchasing fee** - Supplier purchasing fee component (disabled by default)
+- **Current gas tax** - Tax component of the current price (disabled by default)
 
 ## Data updates
 
@@ -78,13 +78,10 @@ triggers:
     value_template: >-
       {{ states('sensor.essent_current_electricity_price') ==
       states('sensor.essent_lowest_electricity_price_today') }}
-
-conditions: []
 actions:
   - action: switch.turn_on
     target:
       entity_id: switch.ev_charger
-mode: single
 ```
 
 {% endraw %}
