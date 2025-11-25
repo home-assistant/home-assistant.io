@@ -7,8 +7,12 @@ ha_release: 0.61
 ha_iot_class: Cloud Polling
 ha_domain: nuheat
 ha_config_flow: true
+ha_dhcp: true
+ha_platforms:
+  - climate
+ha_integration_type: integration
 ha_codeowners:
-  - '@bdraco'
+  - '@tstabrawa'
 ---
 
 The `nuheat` integration lets control your connected [NuHeat Signature](https://www.nuheat.com/products/thermostats/signature-thermostat) floor heating thermostats from [NuHeat](https://www.nuheat.com/).
@@ -17,42 +21,11 @@ There is currently support for the following device types within Home Assistant:
 
 - Climate
 
+## Prerequisites
+
 First, you will need to obtain your thermostat's numeric serial number or ID by logging into [MyNuHeat.com](https://mynuheat.com/) and selecting your thermostat(s).
 
-Once you have the Thermostat ID(s), to add `NuHeat` to your installation, go to **Configuration** >> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **NuHeat**.
-
-Alternatively, add the following information to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-nuheat:
-  username: YOUR_USERNAME
-  password: YOUR_PASSWORD
-  devices: 12345
-
-# Example configuration.yaml entry with multiple thermostats
-nuheat:
-  username: YOUR_USERNAME
-  password: YOUR_PASSWORD
-  devices:
-    - 12345
-    - 67890
-```
-
-{% configuration %}
-username:
-  description: The username for accessing your MyNuHeat account.
-  required: true
-  type: string
-password:
-  description: The password for accessing your MyNuHeat account.
-  required: true
-  type: string
-devices:
-  description: The serial number/ID of each thermostat you would like to integrate.
-  required: true
-  type: [string, integer]
-{% endconfiguration %}
+{% include integrations/config_flow.md %}
 
 ## Concepts
 
@@ -137,20 +110,20 @@ Returns the maximum supported temperature by the thermostat
 | ---------------| ----------- |
 | Integer | Maximum supported temperature
 
-## Services
+## Actions
 
-The following services are provided by the NuHeat Thermostat: `set_temperature`, `set_hvac_mode`, `set_preset_mode`.
+The following actions are provided by the NuHeat Thermostat: `set_temperature`, `set_hvac_mode`, `set_preset_mode`.
 
-### Service `climate.set_hvac_mode` ([Climate integration](/integrations/climate/))
+### Action `climate.set_hvac_mode` ([Climate integration](/integrations/climate/))
 
 NuHeat Thermostats do not have an off concept. Setting the temperature to `min_temp` and changing the mode to `heat` will cause the device to enter a `Permanent Hold` preset and will stop the thermostat from turning on unless you happen to live in a freezing climate.
 
-### Service `climate.set_temperature` ([Climate integration](/integrations/climate/))
+### Action `climate.set_temperature` ([Climate integration](/integrations/climate/))
 
 If the thermostat is in auto mode, it puts the thermostat into a temporary hold at the given temperature.
 
 If the thermostat is in heat mode, it puts the thermostat into a permanent hold at the given temperature.
 
-### Service `climate.set_preset_mode` ([Climate integration](/integrations/climate/))
+### Action `climate.set_preset_mode` ([Climate integration](/integrations/climate/))
 
 The following presets are available: `Run Schedule`, `Temporary Hold`, `Permanent Hold`.

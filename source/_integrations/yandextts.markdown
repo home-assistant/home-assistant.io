@@ -6,17 +6,25 @@ ha_category:
 ha_release: 0.36
 ha_iot_class: Cloud Push
 ha_domain: yandextts
+ha_platforms:
+  - tts
+ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
+ha_quality_scale: legacy
 ---
 
-The `yandextts` text-to-speech platform uses [Yandex SpeechKit](https://tech.yandex.com/speechkit/) Text-to-Speech engine to read a text with natural sounding voices.
+The `yandextts` text-to-speech {% term integration %} uses [Yandex SpeechKit](https://tech.yandex.com/speechkit/) text-to-speech engine to read a text with natural sounding voices.
 
-<div class='note warning'>
+{% important %}
 This integration is working only with old API keys. For the new API keys, this integration cannot be used.
-</div>
+{% endimportant %}
 
 ## Configuration
 
-To enable text-to-speech with Yandex SpeechKit, add the following lines to your `configuration.yaml`:
+To enable text-to-speech with Yandex SpeechKit, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -68,7 +76,7 @@ The configuration sample below shows how an entry can look like:
 tts:
   - platform: yandextts
     api_key: YOUR_API_KEY
-    language: 'ru-RU'
+    language: "ru-RU"
     codec: mp3
     voice: oksana
     emotion: evil

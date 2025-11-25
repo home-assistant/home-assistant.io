@@ -2,13 +2,20 @@
 title: Bizkaibus
 description: Instructions on how to integrate timetable data for traveling on Bizkaibus within Home Assistant.
 ha_category:
-  - Transport
   - Sensor
+  - Transport
 ha_iot_class: Cloud Polling
 ha_release: 0.93
 ha_codeowners:
   - '@UgaitzEtxebarria'
 ha_domain: bizkaibus
+ha_platforms:
+  - sensor
+ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `bizkaibus` sensor will give you the time until the next bus in the selected stop.
@@ -17,7 +24,8 @@ The next website can help to determine the id of your bus stop. You can check if
 
 For a correct use of the sensor the selected route must stop in the selected stop.
 
-Then add the data to your `configuration.yaml` file as shown in the example:
+Then add the data to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

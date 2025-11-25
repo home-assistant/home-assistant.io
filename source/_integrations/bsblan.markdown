@@ -1,48 +1,56 @@
 ---
 title: BSB-Lan
 description: Instructions on how to integrate BSBLan device into Home Assistant.
-logo: bsblan.png
-ha_category: Climate
+ha_category:
+  - Climate
+  - Sensor
+  - Water heater
 ha_release: '0.110'
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
   - '@liudger'
 ha_domain: bsblan
+ha_platforms:
+  - climate
+  - diagnostics
+  - sensor
+  - water_heater
+ha_integration_type: device
+ha_zeroconf: true
 ---
 
-This integration integrates [BSBLan](https://github.com/fredlcore/bsb_lan) device into Home Assistant.
+The **BSB-Lan** {% term integration %} integrates [BSBLan](https://github.com/fredlcore/BSB-LAN) devices into Home Assistant.
 
-BSBLan is a device that is made by `Frederik Holst` and `Ulf Dieckmann` for documentation and with
+BSBLan is a device that is made by `Frederik Holst` and with
 the help of many other contributors.
-The new board v3 is designed for an Arduino Due with an Ethernet-Shield for web-based controlling
+The board v3 is designed for an Arduino Due with an Ethernet-Shield for web-based controlling
 of heating systems such as `Elco Thision`, `Brötje` and similar systems.
+Also, available is an ESP32 version of the board.
 
 It can interface with the heating system over Boiler-System-Bus, Local Process Bus and PPS (Punkt-zu-Punkt Schnittstelle)
-For more information of which system it supports, have a look at their [documentation](https://1coderookie.github.io/BSB-LPB-LAN_EN/).
+For more information of which system it supports, take a look at their [documentation](https://docs.bsb-lan.de).
 
-## Configuration
+{% include integrations/config_flow.md %}
 
-This integration can be configured using the integrations in the
-Home Assistant frontend.
+For authentication HTTP authentication using a username and password,
+or using a passkey is supported. Use either one.
 
-Menu: **Configuration** -> **Integrations**.
+## Available sensors depending on your heating system
 
-Click on the `+` sign to add an integration and click on **BSBLan**.
-Fill in the IP address of the device in your network and, if needed,
-the port number. The default value should be 80.
-For authentication now only passkey is supported.
-Username and password are not supported yet. This will be supported in the next release.
+- `inside temperature`
+- `outside temperature`
 
-After completing the configuration flow, the BSBLan Climate integration will be
-available.
+## Available platforms depending on your system
 
-For more documentation of the BSBLan device, check the [manual](https://1coderookie.github.io/BSB-LPB-LAN_EN/).
+- `climate`
+- `water heater`
 
-To see a more detailed listing of the reported systems which are successfully used with BSB-LAN please follow the corresponding link:
+For more documentation of the BSBLan device, check the [manual](https://docs.bsb-lan.de).
 
-- [`Brötje`](https://1coderookie.github.io/BSB-LPB-LAN_EN/chap03.html#311-broetje)
-- [`Elco`](https://1coderookie.github.io/BSB-LPB-LAN_EN/chap03.html#312-elco)
-- [`Other Manufacturers (e.g. Fujitsu, Atlantic, Weishaupt)`](https://1coderookie.github.io/BSB-LPB-LAN_EN/chap03.html#313-other-manufacturers)
+To see a more detailed listing of the reported systems which are successfully used with BSB-LAN, please follow the corresponding link:
 
-The integration is tested with firmware the stable version `v0.43`.
+[Supported heating systems](https://docs.bsb-lan.de/supported_heating_systems.html)
+
+The integration is tested with the stable firmware version `5.0.16-20250525002819`. A newer firmware version may not work because the API could have changed.
+For autodiscovery, use the latest release. [release 5.0](https://github.com/fredlcore/BSB-LAN/releases/tag/v5.0)

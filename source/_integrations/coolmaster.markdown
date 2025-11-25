@@ -9,16 +9,14 @@ ha_config_flow: true
 ha_codeowners:
   - '@OnFreund'
 ha_domain: coolmaster
+ha_platforms:
+  - binary_sensor
+  - button
+  - climate
+  - sensor
+ha_integration_type: integration
 ---
 
 The `coolmaster` climate platform lets you control HVAC through [CoolMasterNet](https://coolautomation.com/products/coolmasternet/).
 
-## Configuration via the frontend
-
-Menu: **Configuration** -> **Integrations**.
-
-Click on the `+` sign to add an integration and click on **CoolMasterNet**.
-Select the host and port of your instance, and check the box for the modes
-supported by your HVAC units. The units you have configured in CoolMasterNet
-will be automatically added to Home Assistant as Climate entities and
-matching devices.
+{% include integrations/config_flow.md %}

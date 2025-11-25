@@ -5,7 +5,9 @@ date: 2016-06-08 01:06:00 +0000
 date_formatted: "June 8, 2016"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 ---
 
 It's time for release 0.21 and it contains massive core improvements: replacement of our home grown HTTP stack with a standardized WSGI stack. This will improve performance, speed, security and make future development of advanced HTTP features a breeze.
@@ -35,7 +37,7 @@ Alright, time for the changes:
  - Sensor: [DTE Energy Bridge] now supported ([@kylehendricks])
  - Media Player: [Kodi] now supports different turn off commands ([@armills])
 
-### Breaking Changes
+### Backward-incompatible changes
 
  - Our work in the WSGI stack is not fully done yet. We still have a minor issues where retrieving the error log in the about screen can raise an encoding error
  - The API used to incorrectly accept a JSON body with form-url-encoded headers. Our cURL examples on the website used to be wrong and have [been updated].

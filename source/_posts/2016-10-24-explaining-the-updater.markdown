@@ -26,11 +26,11 @@ Please note that this functionality is not done yet but will be available in a f
 
 As developers of Home Assistant, we will be able to see in what kind of environments Home Assistant is running. Here’s a few data points we didn’t have until now:
 
-* Total number of instances
-* Which operating systems versions and flavors are in use
-* Python version
-* What option is more popular: Docker, Virtualenv or bare metal installs?
-* How popular is our new [Raspberry Pi image][rpi-image]?
+- Total number of instances
+- Which operating systems versions and flavors are in use
+- Python version
+- What option is more popular: Docker, Virtualenv or bare metal installs?
+- How popular is our new [Raspberry Pi image][rpi-image]?
 
 
 ## Why we look up your IP address with GeoIP

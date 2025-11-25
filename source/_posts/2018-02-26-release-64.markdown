@@ -5,7 +5,9 @@ date: 2018-02-26 00:01:00
 date_formatted: "February 26, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2018-02-0.64/components.png
 ---
 
@@ -109,7 +111,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 <!--more-->
 
-## Breaking Changes
+## Backward-incompatible changes
 
 - Home Assistant now defaults to purge recorded history that is older than 10 days. If you want to keep your recorded data for longer than that, you must configure the number of days to retain _before starting 0.64 for the first time_, for example:
     ```yaml

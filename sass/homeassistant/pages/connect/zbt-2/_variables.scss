@@ -1,0 +1,91 @@
+:root {
+    --typography-h1-font-size: 36px;
+    --typography-h2-font-size: 28px;
+    --typography-h3-font-size: 24px;
+    --typography-h4-font-size: 16px;
+
+    --typography-h1-margin-y: 12px;
+    --typography-h2-margin-y: 8px;
+    --typography-h3-margin-y: 8px;
+    --typography-h4-margin-y: 4px;
+
+    --typography-h1-font-weight: 600;
+    --typography-h2-font-weight: 600;
+    --typography-h3-font-weight: 500;
+
+    --typography-subtitle-medium-font-size: 24px;
+
+    --typography-body-extra-small-font-size: 10px;
+    --typography-body-small-font-size: 12px;
+    --typography-body-medium-font-size: 12px;
+    --typography-body-large-font-size: 16px;
+
+    --typography-body-large-font-weight: 400;
+
+    --typography-paragraph-color: #AAABAE;
+    --typography-paragraph-font-size: 16px;
+
+
+}
+
+@include bp(large-mobile) {
+    :root {
+        --typography-h1-font-size: 36px;
+        --typography-h2-font-size: 28px;
+        --typography-h3-font-size: 24px;
+        --typography-h4-font-size: 16px;
+
+        --typography-h1-margin-y: 12px;
+        --typography-h2-margin-y: 8px;
+        --typography-h3-margin-y: 8px;
+        --typography-h4-margin-y: 4px;
+
+        --typography-body-medium-font-size: 12px;
+        --typography-body-large-font-size: 16px;
+
+        --typography-paragraph-font-size: 16px;
+    }
+}
+
+@include bp(tablet) {
+    :root {
+        --typography-h1-font-size: 50px;
+        --typography-h2-font-size: 38px;
+        --typography-h3-font-size: 28px;
+        --typography-h4-font-size: 18px;
+
+        --typography-h1-margin-y: 16px;
+        --typography-h2-margin-y: 12px;
+        --typography-h3-margin-y: 10px;
+        --typography-h4-margin-y: 6px;
+
+        --typography-body-medium-font-size: 14px;
+        --typography-body-large-font-size: 16px;
+
+        --typography-paragraph-font-size: 16px;
+    }
+}
+
+@include bp(desktop) {
+    :root {
+        --typography-h1-font-size: 64px;
+        --typography-h2-font-size: 48px;
+        --typography-h3-font-size: 32px;
+        --typography-h4-font-size: 20px;
+
+        --typography-h1-margin-y: 20px;
+        --typography-h2-margin-y: 16px;
+        --typography-h3-margin-y: 12px;
+        --typography-h4-margin-y: 8px;
+
+        --typography-body-medium-font-size: 16px;
+        --typography-body-large-font-size: 24px;
+
+        --typography-paragraph-font-size: 16px;
+
+        --typography-hero-title-font-size: 200px;
+        --typography-hero-subtitle-font-size: 52px;
+
+        --typography-subtitle-medium-font-size: 32px;
+    }
+}

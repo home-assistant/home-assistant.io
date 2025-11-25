@@ -5,7 +5,9 @@ date: 2017-09-23 00:11:05
 date_formatted: "September 23, 2017"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2017-09-0.54/components.png
 ---
 
@@ -37,7 +39,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 <!--more-->
 
-## Breaking Changes
+## Backward-incompatible changes
 
 - Sensor - OneWire: This update changes the names of the sensors from `<sensor_name>` to `<sensor_name> <Sensor_type>` ([@tcastberg] - [#9404]) ([sensor.onewire docs]) (breaking change)
 - Renamed Xiaomi platforms to include their protocol names. xiaomi -> xiaomi_aqara, xiaomi_aqara.switch, xiaomi_aqara.light, xiaomi_aqara.binary_sensor, ... and vacuum.xiaomi, xiaomi_philipslight -> xiaomi_miio, vacuum.xiaomi_miio, light.xiaomi_miio ([@danielhiversen] - [#9426]) (breaking change)

@@ -6,9 +6,15 @@ ha_category:
 ha_release: 0.106
 ha_iot_class: Cloud Polling
 ha_config_flow: true
-ha_codeowners:
-  - '@vilppuvuorinen'
 ha_domain: melcloud
+ha_platforms:
+  - climate
+  - diagnostics
+  - sensor
+  - water_heater
+ha_integration_type: device
+ha_codeowners:
+  - '@erwindouna'
 ---
 
 The `melcloud` integration integrates Mitsubishi Electric's [MELCloud](https://www.melcloud.com/) enabled devices into Home Assistant.
@@ -20,30 +26,7 @@ The `melcloud` integration integrates Mitsubishi Electric's [MELCloud](https://w
 - Energy recovery ventilators - **Not supported**
 - Other - **Not supported**
 
-## Configuration
-
-The integration should be configured through the user interface ("Configurations -> Integrations") using the MELCloud login details. While not optimal, **the provided password is not stored**.
-
-An expired token needs to be updated manually by adding the MELCloud integration again with the same email address.
-
-Configuration is also possible through `configuration.yaml`. The required authentication token can be found in `X-MitsContextKey` header when logged into the MELCloud. The language needs to be set to English and the "Remember me" option needs to be selected.
-
-```yaml
-melcloud:
-  username: xxxx@xxxxxxx
-  token: xxxxxxxxxxxxxxxxxxx
-```
-
-{% configuration %}
-username:
-  description: Email address used to login to MELCloud
-  required: true
-  type: string
-token:
-  description: X-MitsContextKey access token
-  required: true
-  type: string
-{% endconfiguration %}
+{% include integrations/config_flow.md %}
 
 ## Air-to-Air device
 
@@ -70,7 +53,7 @@ The following parameters can be controlled for the `climate` platform entities:
 
 #### Controlling vanes
 
-The horizontal and vertical vane positions can be controlled using the corresponding `melcloud.set_vane_horizontal` and `melcloud.set_vane_vertical` services.
+The horizontal and vertical vane positions can be controlled using the corresponding `melcloud.set_vane_horizontal` and `melcloud.set_vane_vertical` actions.
 
 Swing mode can also be used to control vertical vane position.
 
@@ -79,7 +62,9 @@ Swing mode can also be used to control vertical vane position.
 The following attributes are available for `sensor` platform entities:
 
 - Room temperature
+- Outside temperature
 - Energy - The total consumed energy in kWh. **Not supported by all models.**
+- Daily energy - Energy consumption within a 24h window in kWh. This reading resets at midnight on the timezone of the MELCloud service. The exact time needs to be determined by following the sensor value until a reset is detected.
 
 ## Air-to-Water device
 

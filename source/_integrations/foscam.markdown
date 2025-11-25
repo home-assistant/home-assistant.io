@@ -6,69 +6,101 @@ ha_category:
 ha_iot_class: Local Polling
 ha_release: 0.7.3
 ha_codeowners:
-  - '@skgsergio'
+  - '@Foscam-wangzhengyu'
 ha_domain: foscam
+ha_config_flow: true
+ha_platforms:
+  - camera
+  - number
+  - switch
+ha_integration_type: integration
 ---
 
 The `foscam` platform allows you to watch the live stream of your [Foscam](https://www.foscam.com) IP camera in Home Assistant.
 
-## Configuration
+{% include integrations/config_flow.md %}
 
-To enable your Foscam IP camera in your installation, add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-camera:
-  - platform: foscam
-    ip: IP_ADDRESS
-    username: YOUR_USERNAME
-    password: YOUR_PASSWORD
-```
-
-{% configuration %}
-ip:
-  description: The IP address your camera.
-  required: true
-  type: string
-port:
-  description: The port that the camera is running on.
-  required: false
-  default: 88
-  type: integer
-rtsp_port:
-  description: The port that the camera uses for RTSP. This is normally auto-discovered but some models may need this set, such as the R2 and R2C.
-  required: false
-  default: None
-  type: integer
-username:
-  description: The username for accessing your camera.
-  required: true
-  type: string
-password:
-  description: The password for accessing your camera.
-  required: true
-  type: string
-name:
-  description: This parameter allows you to override the name of your camera.
-  required: false
-  type: string
-{% endconfiguration %}
-
-<div class='note'>
+{% note %}
 There seems to be some issues within Foscam with lengthy passwords and passwords containing certain symbols. Be sure to check your camera's documentation.
-</div>
+{% endnote %}
 
-### Service `foscam.ptz`
+## Supported functionality
 
-If your Foscam camera supports PTZ, you will be able to pan or tilt your camera.
+### Entities
+The Foscam integration provides the following entities.
 
-| Service data attribute | Description |
+#### Camera
+- **Streams**
+  - **Description**: Most Foscam IP Cameras support two video streams, by default the `Main` stream is the high quality stream while the `Sub` stream is a lower     quality stream. These streams can be configured in your camera preferences.
+  - **Available for machines**: all.
+    
+#### Switch
+- **Infrared**
+  - **Description**: Control the camera’s infrared illuminator.
+  - **Available for machines**: all.
+
+- **Device indicator light**
+  - **Description**: Control the camera’s status indicator.
+  - **Available for machines**: all.
+
+- **White light**
+  - **Description**: Control the camera’s white light illuminator.
+  - **Available for machines**: Cameras equipped with white light illumination.
+  - **Remarks**: Since there is currently no mechanism to determine device capabilities for conditionally displaying the white light switch, unsupported models will still show the switch — but in a disabled state. This will be refined in a future update.
+
+- **Siren alarm**
+  - **Description**: Control the device’s alarm.
+  - **Available for machines**: all.
+
+- **Image flip/mirror**
+  - **Description**: Toggle image flip/mirror on the device.
+  - **Available for machines**: all.
+
+- **Sleep**
+  - **Description**: Toggle sleep mode, when enabled, the device enters sleep state.
+  - **Available for machines**: all.
+
+- **HDR**
+  - **Description**: Toggle the camera’s HDR, when enabled, the image will reveal more detail in shadows and highlights.
+  - **Available for machines**: all.
+
+- **WDR**
+  - **Description**: Toggle the camera’s WDR, when enabled, the image will reveal more detail in shadows and highlights.
+  - **Available for machines**: all.
+    
+#### Number
+- **Device volume**
+  - **Description**: Adjust the volume of device alert sounds, such as alarms and power on/off tones.
+  - **Available for machines**: all.
+
+- **Speak volume**
+  - **Description**: Adjust the device’s intercom volume.
+  - **Available for machines**: all.
+
+#### Action `foscam.ptz`
+- **Control the device’s PTZ functions**
+  - **Description**: If your Foscam camera supports <abbr title="pan, tilt, and zoom">PTZ</abbr>, you will be able to pan or tilt your camera.
+    
+| Data attribute | Description |
 | -----------------------| ----------- |
 | `entity_id` | String or list of strings that point at `entity_id`s of cameras. Use `entity_id: all` to target all. |
 | `movement` | 	Direction of the movement. Allowed values: `up`, `down`, `left`, `right`, `top_left`, `top_right`, `bottom_left`, `bottom_right` |
 | `travel_time` | (Optional) Travel time in seconds. Allowed values: float from 0 to 1. Default: 0.125 |
 
-### Example card with controls
+- **Available for machines**: Devices with PTZ functionality.
+
+#### Action `foscam.ptz_preset`
+- **Direct the device to a specified preset position.**
+  - **Description**: If your Foscam camera supports <abbr title="pan, tilt, and zoom">PTZ</abbr> presets, you will be able to move the camera to a predefined          preset using the preset name.
+
+| Data attribute | Description |
+| -----------------------| ----------- |
+| `entity_id` | String or list of strings that point at `entity_id`s of cameras. Use `entity_id: all` to target all. |
+| `preset_name` | The name of the preset to move to. Presets can be created from within the official Foscam apps. |
+
+- **Available for machines**: Devices with PTZ functionality.
+
+#### Example card with controls
 
 <p class='img'>
   <img src='/images/integrations/foscam/example-card.png' alt='Screenshot showing a foscam camera using a picture-elements with PTZ controls.'>
@@ -80,108 +112,116 @@ Using the following card code you can achieve a card displaying the live video f
 
 ```yaml
 type: picture-elements
-entity: camera.bedroom
+image: camera.bedroom
 camera_image: camera.bedroom
 camera_view: live
 elements:
   - type: icon
-    icon: 'mdi:arrow-up'
+    icon: "mdi:arrow-up"
     style:
-      background: 'rgba(255, 255, 255, 0.5)'
+      background: "rgba(255, 255, 255, 0.5)"
       right: 25px
       bottom: 50px
     tap_action:
-      action: call-service
-      service: foscam.ptz
-      service_data:
+      action: perform-action
+      perform_action: foscam.ptz
+      target:
         entity_id: camera.bedroom
+      data:
         movement: up
   - type: icon
-    icon: 'mdi:arrow-down'
+    icon: "mdi:arrow-down"
     style:
-      background: 'rgba(255, 255, 255, 0.5)'
+      background: "rgba(255, 255, 255, 0.5)"
       right: 25px
       bottom: 0px
     tap_action:
-      action: call-service
-      service: foscam.ptz
-      service_data:
+      action: perform-action
+      perform_action: foscam.ptz
+      target:
         entity_id: camera.bedroom
+      data:
         movement: down
   - type: icon
-    icon: 'mdi:arrow-left'
+    icon: "mdi:arrow-left"
     style:
-      background: 'rgba(255, 255, 255, 0.5)'
+      background: "rgba(255, 255, 255, 0.5)"
       right: 50px
       bottom: 25px
     tap_action:
-      action: call-service
-      service: foscam.ptz
-      service_data:
+      action: perform-action
+      perform_action: foscam.ptz
+      target:
         entity_id: camera.bedroom
+      data:
         movement: left
   - type: icon
-    icon: 'mdi:arrow-right'
+    icon: "mdi:arrow-right"
     style:
-      background: 'rgba(255, 255, 255, 0.5)'
+      background: "rgba(255, 255, 255, 0.5)"
       right: 0px
       bottom: 25px
     tap_action:
-      action: call-service
-      service: foscam.ptz
-      service_data:
+      action: perform-action
+      perform_action: foscam.ptz
+      target:
         entity_id: camera.bedroom
+      data:
         movement: right
   - type: icon
-    icon: 'mdi:arrow-top-left'
+    icon: "mdi:arrow-top-left"
     style:
-      background: 'rgba(255, 255, 255, 0.5)'
+      background: "rgba(255, 255, 255, 0.5)"
       right: 50px
       bottom: 50px
     tap_action:
-      action: call-service
-      service: foscam.ptz
-      service_data:
+      action: perform-action
+      perform_action: foscam.ptz
+      target:
         entity_id: camera.bedroom
+      data:
         movement: top_left
   - type: icon
-    icon: 'mdi:arrow-top-right'
+    icon: "mdi:arrow-top-right"
     style:
-      background: 'rgba(255, 255, 255, 0.5)'
+      background: "rgba(255, 255, 255, 0.5)"
       right: 0px
       bottom: 50px
     tap_action:
-      action: call-service
-      service: foscam.ptz
-      service_data:
+      action: perform-action
+      perform_action: foscam.ptz
+      target:
         entity_id: camera.bedroom
+      data:
         movement: top_right
   - type: icon
-    icon: 'mdi:arrow-bottom-left'
+    icon: "mdi:arrow-bottom-left"
     style:
-      background: 'rgba(255, 255, 255, 0.5)'
+      background: "rgba(255, 255, 255, 0.5)"
       right: 50px
       bottom: 0px
     tap_action:
-      action: call-service
-      service: foscam.ptz
-      service_data:
+      action: perform-action
+      perform_action: foscam.ptz
+      target:
         entity_id: camera.bedroom
+      data:
         movement: bottom_left
   - type: icon
-    icon: 'mdi:arrow-bottom-right'
+    icon: "mdi:arrow-bottom-right"
     style:
-      background: 'rgba(255, 255, 255, 0.5)'
+      background: "rgba(255, 255, 255, 0.5)"
       right: 0px
       bottom: 0px
     tap_action:
-      action: call-service
-      service: foscam.ptz
-      service_data:
+      action: perform-action
+      perform_action: foscam.ptz
+      target:
         entity_id: camera.bedroom
+      data:
         movement: bottom_right
 ```
 
 ### Extra CGI Commands
 
-Foscam Webcams which support CGI Commands can be controlled by Home Assistant ([Source](https://www.iltucci.com/blog/wp-content/uploads/2018/12/Foscam-IPCamera-CGI-User-Guide-V1.0.4.pdf)). For an example of how this can be done, see the [Foscam IP Camera Pan, Tilt, Zoom Control](/cookbook/foscam_away_mode_PTZ/) Cookbook entry.
+Foscam Webcams which support CGI Commands can be controlled by Home Assistant ([Source](https://community.jeedom.com/uploads/short-url/2A5aSBcCyoVZOdpiFC8HRDAOxqG.pdf)).

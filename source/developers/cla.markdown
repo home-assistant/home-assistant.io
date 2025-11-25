@@ -30,7 +30,7 @@ By making a contribution to this project, I certify that:
 
 ## Attribution
 
-The text of this license is available under the [Creative Commons Attribution-ShareAlike 3.0 Unported License](http://creativecommons.org/licenses/by-sa/3.0/).  It is based on the Linux [Developer Certificate Of Origin](http://elinux.org/Developer_Certificate_Of_Origin), but is modified to explicitly use the Apache 2.0 license
+The text of this license is available under the [Creative Commons Attribution-ShareAlike 3.0 Unported License](https://creativecommons.org/licenses/by-sa/3.0/).  It is based on the Linux [Developer Certificate Of Origin](https://elinux.org/Developer_Certificate_Of_Origin), but is modified to explicitly use the Apache 2.0 license
 and not mention sign-off.
 
 ## Signing

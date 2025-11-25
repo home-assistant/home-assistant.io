@@ -5,7 +5,9 @@ date: 2016-10-08 03:04:05 +0000
 date_formatted: "October 08, 2016"
 author: Fabian Affolter
 author_twitter: fabaff
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 ---
 
 Yes, after only nine days comes 0.30. Don't worry, we will try to keep our usual release cycle and not start to release every day.
@@ -38,9 +40,11 @@ As the results are processed on-the-fly you still need to use the data from your
 
 ### REST! We don't...
 
-There was a lot of work done on our implementation which are working with RESTful APIs. [@w1ll1am23] extended the [aREST] platforms to display if an aREST unit is available or not. The aREST implementations are now covered by the configuration check as well. Please check the Breaking changes section for more details.
+There was a lot of work done on our implementation which are working with RESTful APIs. [@w1ll1am23] extended the [aREST] platforms to display if an aREST unit is available or not. The aREST implementations are now covered by the configuration check as well. Please check the Backward-incompatible changes section for more details.
 
 The [REST sensor][rest-sensor] supports now HTTP authentication (basic and digest) and custom headers. This will allow you to access resources which are protected. This sample sensor will access GitHub and retrieve the latest release number while by-passing the rate limit for non-authenticated requests.
+
+{% raw %}
 
 ```yaml
 sensor
@@ -49,12 +53,14 @@ sensor
     username: YOUR_GITHUB_USERNAME
     password: YOUR_GITHUB_ACCESS_TOKEN
     authentication: basic
-    value_template: '{% raw %}{{ value_json.tag_name }}{% endraw %}'
+    value_template: "{{ value_json.tag_name }}"
     headers:
       Accept: application/vnd.github.v3+json
       Content-Type: application/json
       User-Agent: Home Assistant REST sensor
 ```
+
+{% endraw %}
 
 ### Misc
 
@@ -111,7 +117,7 @@ sensor
 - Fix for Slack targets ([@fabaff])
 - Fix for Pushover targets ([@Nixon506E])
 
-### Breaking changes
+### Backward-incompatible changes
 
 - All deprecated condition options from `automation` have been removed (deprecated since May and have printed warnings to your console):
   - `use_trigger_values` is gone. You have to copy your triggers to conditions and adjust for the correct config.

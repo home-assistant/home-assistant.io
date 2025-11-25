@@ -6,13 +6,23 @@ ha_category:
 ha_release: 0.47
 ha_iot_class: Local Polling
 ha_domain: tapsaff
+ha_codeowners:
+  - '@bazwilliams'
+ha_platforms:
+  - binary_sensor
+ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
+ha_quality_scale: legacy
 ---
 
-The `tapsaff` binary sensor provides the 'Taps Aff' status for a given location within the UK using [Taps Aff](https://www.taps-aff.co.uk/).
+The `tapsaff` binary sensor {% term integration %} provides the 'Taps Aff' status for a given location within the UK using [Taps Aff](https://www.taps-aff.co.uk/).
 
 ## Configuration
 
-To enable this sensor, add the following lines to your `configuration.yaml`:
+To enable this {% term integration %}, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

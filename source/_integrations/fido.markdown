@@ -6,13 +6,21 @@ ha_category:
 ha_release: 0.39
 ha_iot_class: Cloud Polling
 ha_domain: fido
+ha_platforms:
+  - sensor
+ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
+ha_quality_scale: legacy
 ---
 
 Integrate your [Fido](https://www.fido.ca/) account information into Home Assistant.
 
 ## Configuration
 
-To enable this sensor, add the following lines to your `configuration.yaml` file:
+To enable this sensor, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -76,12 +84,12 @@ monitored_variables:
       description: Talk time used
     talk_limit:
       description: Talk time limit
-    talt_remaining:
+    talk_remaining:
       description: Talk time remaining
     other_talk_used:
       description: Other talk time used (It could be international calls)
     other_talk_limit:
       description: Other talk time limit
-    other_talt_remaining:
+    other_talk_remaining:
       description: Other talk time remaining
 {% endconfiguration %}

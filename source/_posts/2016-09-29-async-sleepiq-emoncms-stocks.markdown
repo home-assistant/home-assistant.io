@@ -5,7 +5,9 @@ date: 2016-09-29 03:04:05 +0000
 date_formatted: "September 29, 2016"
 author: Paulus Schoutsen & Fabian Affolter
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 ---
 
 Two weeks ago, September 17 marked our 3 year anniversary. In this time Home Assistant managed to grow from a simple script that turned on my lights when the sun set to a kick ass open source project with the best community an open-source project could wish for. This release contains features, bug fixes and performance tweaks by a total of **50** different people! We have also managed to cross the 1000 forks on GitHub. Talking about momentum!
@@ -20,7 +22,7 @@ There now is support for two new super cool things: Beds and license plates. [@t
 
 ### Configuration validation
 
-On the voluptuous front we have also made great progress. We were able to fully remove the legacy config helpers and have migrated 323 of the 346 components and platforms that needed migrating! This does mean that for some components the configuration has slightly changed, make sure to check out the breaking changes section at the bottom for more info. Thanks everybody for reviewing the Pull requests, testing the changes, and reporting issues.
+On the voluptuous front we have also made great progress. We were able to fully remove the legacy config helpers and have migrated 323 of the 346 components and platforms that needed migrating! This does mean that for some components the configuration has slightly changed, make sure to check out the backward-incompatible changes section at the bottom for more info. Thanks everybody for reviewing the Pull requests, testing the changes, and reporting issues.
 
 ### Delayed Release
 
@@ -41,7 +43,7 @@ Since 0.28 [automation rules](/blog/2016/09/10/notify-group-reload-api-pihole/#r
 - Climate: [MySensors] is now supported ([@kaustubhphatak])
 - Control Home Assistant with [keyboard shortcuts][keyboard_remote] ([@deisi])
 - More voluptuous config validations ([@fabaff], [@kellerza], [@balloob])
-- New [Nuimo] controller support added ([@gross1989])
+- New Nuimo controller support added ([@gross1989])
 - Sensor: BOM Weather component ([@tinglis1])
 - Automation: Option added to hide entity ([@milaq])
 - Sensor: [Emoncms] feeds now supported ([@joyrider])
@@ -98,7 +100,7 @@ Since 0.28 [automation rules](/blog/2016/09/10/notify-group-reload-api-pihole/#r
 
  - Fix handling SIGTERM and SIGHUP signals (fixes Systemd restart issues) ([@pvizeli])
 
-### Breaking changes
+### Backward-incompatible changes
 
  - The template methods `now` and `utcnow` have been changed from variables to methods. To get the current time replace `now` with `now()`.
  - `yahooweather` default name is now `yweather`. Also min and max temperature are now correctly called `Temperature Min` and `Temperature Max`.
@@ -170,7 +172,6 @@ Since 0.28 [automation rules](/blog/2016/09/10/notify-group-reload-api-pihole/#r
 [Kodi]: /integrations/kodi
 [Modbus]: /integrations/modbus/
 [Nest]: /integrations/nest/
-[Nuimo]: /integrations/nuimo_controller/
 [OpenALPR]: /integrations/openalpr_local/
 [passwordless]: /integrations/http/
 [Simplepush]: /integrations/simplepush

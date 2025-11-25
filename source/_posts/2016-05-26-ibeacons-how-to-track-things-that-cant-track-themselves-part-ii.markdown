@@ -34,9 +34,9 @@ So if you put an iBeacon on your keys or in your car - then you can track them.
 
 It’s easier to set up OwnTracks and HA to track a mobile beacon than the fixed beacon I discussed in Part 1, because you only need to tell OwnTracks about your iBeacon. You don’t need to configure HA at all.
 
-<div class='note warning'>
+{% warning %}
 OwnTracks currently only supports mobile beacons on iOS.
-</div>
+{% endwarning %}
 
 You set up the beacon the same way as we discussed in part 1. The only difference is that instead of calling the region the name of a location (eg -drive) you call it the name of the device you want to track (eg -keys). Remember the leading ‘-’ that makes the connection more reliable.
 
@@ -60,48 +60,55 @@ With the basic tracking working - you can use automation to do things like open 
 
 ```yaml
 automation:
-    - alias: 'Open gate'
+    - alias: "Open gate"
       trigger:
         - platform: state
           entity_id: device_tracker.beacon_car
-          from: 'not_home'
-          to: 'home'
+          from: "not_home"
+          to: "home"
       condition:
         - condition: state
           entity_id: switch.gate
-          state: 'off'
+          state: "off"
       action:
           service: switch.turn_on
-          entity_id: switch.gate
+          target:
+            entity_id: switch.gate
 ```
 
 Or warn you if you leave your keys behind
 
+{% raw %}
+
 ```yaml
 automation:
-  - alias: 'Forgotten keys'
+  - alias: "Forgotten keys"
     trigger:
       platform: template
-      value_template: '{% raw %}{{ states.device_tracker.greg_gregphone.state != states.device_tracker.beacon_keys.state}}{% endraw %}'
+      value_template: '{{ states.device_tracker.greg_gregphone.state != states.device_tracker.beacon_keys.state}}'
     condition:
       condition: template
-      value_template: '{% raw %}{{ states.device_tracker.greg_gregphone.state != "home" }}{% endraw %}'
+      value_template: '{{ states.device_tracker.greg_gregphone.state != "home" }}'
     action:
       service: script.turn_on
-      entity_id: script.send_key_alert
+      target:
+        entity_id: script.send_key_alert
 
-  - alias: 'Forgotten keys - cancel'
+  - alias: "Forgotten keys - cancel"
     trigger:
       platform: template
-      value_template: '{% raw %}{{ states.device_tracker.greg_gregphone.state == states.device_tracker.beacon_keys.state }}{% endraw %}'
+      value_template: '{{ states.device_tracker.greg_gregphone.state == states.device_tracker.beacon_keys.state }}'
     condition:
       - condition: state
         entity_id: script.send_key_alert
-        state: 'on'
+        state: "on"
     action:
       service: script.turn_off
-      entity_id: script.send_key_alert
+      target:
+        entity_id: script.send_key_alert
 ```
+
+{% endraw %}
 
 ```yaml
 script:
@@ -111,8 +118,8 @@ script:
           minutes: 2
       - service: notify.notify
         data:
-            message: 'You forgot your keys'
-            target: 'device/gregs_iphone'
+            message: "You forgot your keys"
+            target: "device/gregs_iphone"
 ```
 
 

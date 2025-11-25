@@ -8,13 +8,19 @@ ha_release: 0.13
 ha_domain: splunk
 ha_codeowners:
   - '@Bre77'
+ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `splunk` integration makes it possible to log all state changes to an external [Splunk](https://splunk.com/) database using Splunk's HTTP Event Collector (HEC) feature. You can either use this alone, or with the Home Assistant for Splunk [app](https://github.com/miniconfig/splunk-homeassistant). Since the HEC feature is new to Splunk, you will need to use at least version 6.3.
 
 ## Configuration
 
-To use the `splunk` integration in your installation, add the following to your `configuration.yaml` file:
+To use the `splunk` integration in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -35,7 +41,7 @@ host:
 port:
   description: Port to use.
   required: false
-  default: 8080
+  default: 8088
   type: integer
 ssl:
   description: Use HTTPS instead of HTTP to connect.
@@ -45,12 +51,12 @@ ssl:
 verify_ssl:
   description: Allows you do disable checking of the SSL certificate.
   required: false
-  default: false
+  default: true
   type: boolean
 name:
   description: This parameter allows you to specify a friendly name to send to Splunk as the host, instead of using the name of the HEC.
   required: false
-  default: HASS
+  default: "`HASS`"
   type: string
 filter:
   description: Filters for entities to be included/excluded from Splunk. Default is to include all entities. ([Configure Filter](#configure-filter))
@@ -83,11 +89,9 @@ filter:
       type: list
 {% endconfiguration %}
 
-### Configure Filter
+### Configure filter
 
 By default, no entity will be excluded. To limit which entities are being exposed to `Splunk`, you can use the `filter` parameter.
-
-{% raw %}
 
 ```yaml
 # Example filter to include specified domains and exclude specified entities
@@ -103,22 +107,4 @@ splunk:
       - light.kitchen_light
 ```
 
-{% endraw %}
-
-Filters are applied as follows:
-
-1. No includes or excludes - pass all entities
-2. Includes, no excludes - only include specified entities
-3. Excludes, no includes - only exclude specified entities
-4. Both includes and excludes:
-   - Include domain and/or glob patterns specified
-      - If domain is included, and entity not excluded or match exclude glob pattern, pass
-      - If entity matches include glob pattern, and entity does not match any exclude criteria (domain, glob pattern or listed), pass
-      - If domain is not included, glob pattern does not match, and entity not included, fail
-   - Exclude domain and/or glob patterns specified and include does not list domains or glob patterns
-      - If domain is excluded and entity not included, fail
-      - If entity matches exclude glob pattern and entity not included, fail
-      - If entity does not match any exclude criteria (domain, glob pattern or listed), pass
-   - Neither include or exclude specifies domains or glob patterns
-      - If entity is included, pass (as #2 above)
-      - If entity include and exclude, the entity exclude is ignored
+{% include common-tasks/filters.md %}

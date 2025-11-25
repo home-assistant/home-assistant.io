@@ -5,7 +5,9 @@ date: 2018-06-08 00:01:00
 date_formatted: "June 8, 2018"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2018-06-0.71/components.png
 ---
 
@@ -51,7 +53,7 @@ Have a good weekend everyone!
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
 <!--more-->
-## Breaking Changes
+## Backward-incompatible changes
 
 - BOM sensor: `'Wind Direction kt'` to `'Wind Speed kt'` (fixes #14535) ([@fabaff] - [#14541]) (breaking change)
 - Removed attribute current_time from Raincloudy sensors to avoid being triggered by recorder component ([@tchellomello] - [#14584]) ([raincloud docs]) ([switch.raincloud docs]) (breaking change)

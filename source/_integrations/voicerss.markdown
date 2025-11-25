@@ -6,13 +6,21 @@ ha_category:
 ha_iot_class: Cloud Push
 ha_release: 0.35
 ha_domain: voicerss
+ha_platforms:
+  - tts
+ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
+ha_quality_scale: legacy
 ---
 
-The `voicerss` text-to-speech platform uses [VoiceRSS](http://www.voicerss.org/) Text-to-Speech engine to read a text with natural sounding voices.
+The **VoiceRSS** text-to-speech {% term integration %} uses [VoiceRSS](http://www.voicerss.org/) text-to-speech engine to read a text with natural sounding voices.
 
 ## Configuration
 
-To enable text-to-speech with VoiceRSS, add the following lines to your `configuration.yaml`:
+To enable text-to-speech with VoiceRSS, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -54,9 +62,9 @@ The configuration sample below shows how an entry can look like:
 tts:
   - platform: voicerss
     api_key: YOUR_API_KEY
-    language: 'de-de'
+    language: "de-de"
     codec: mp3
-    format: '8khz_8bit_mono'
+    format: "8khz_8bit_mono"
 ```
 
 Please note, some media_players require a certain format. For example the Sonos requires a format of '44khz_16bit_stereo'

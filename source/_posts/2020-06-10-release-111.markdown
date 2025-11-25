@@ -7,7 +7,9 @@ date_formatted: "June 10, 2020"
 author: Franck Nijhof
 author_twitter: frenck
 comments: true
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2020-06-0.111/social.png
 ---
 
@@ -152,7 +154,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 <!--more-->
 
-## Breaking Changes
+## Backward-incompatible changes
 
 - **Frontend**
 

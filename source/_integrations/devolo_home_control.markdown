@@ -2,11 +2,12 @@
 title: devolo Home Control
 description: Instructions on how to integrate devolo Home Control with Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Climate
   - Cover
   - Light
   - Sensor
+  - Siren
   - Switch
 ha_release: '0.110'
 ha_iot_class: Local Push
@@ -15,18 +16,38 @@ ha_codeowners:
   - '@2Fake'
   - '@Shutgun'
 ha_domain: devolo_home_control
-ha_quality_scale: silver
+ha_platforms:
+  - binary_sensor
+  - climate
+  - cover
+  - diagnostics
+  - light
+  - sensor
+  - siren
+  - switch
+ha_zeroconf: true
+ha_integration_type: hub
 ---
 
-devolo Home Control is a Z-Wave ecosystem with a Z-Wave to IP gateway in the center. The integration allows you to control devices connected to the gateway.
+[devolo](https://www.devolo.global) Home Control is a Z-Wave ecosystem with a [Z-Wave to IP gateway](https://www.devolo.de/devolo-home-control-zentrale) in the center. The {% term integration %} allows you to control devices connected to the gateway.
 
-## Configuration
+{% include integrations/config_flow.md %}
 
-Menu: **Configuration** -> **Integrations**.
+{% configuration_basic %}
+Email / mydevolo ID:
+  description: "Email address you used to register the central unit at mydevolo."
+Password:
+  description: "Password of your mydevolo account."
+{% endconfiguration_basic %}
 
-Click on the `+` sign to add an integration and click on **devolo Home Control**. You will be asked for your [mydevolo](https://www.mydevolo.com) credentials. After entering them, the devolo Home Control integration will be available. Please do not change the URLs provided in the advanced mode unless you know what you are doing.
+{% note %}
+Your mydevolo account is only used to acquire local credentials. Afterward, communication is completely local as long as the gateway is within the same network.
+{% endnote %}
 
-## Switches
+
+## Supported devices and functions
+
+### Switches
 
 The integration provides support for the following Z-Wave devices:
 
@@ -38,7 +59,7 @@ The integration provides support for the following Z-Wave devices:
 - Fibaro Wall Plug
 - Fibaro Double Relay Switch
 
-## Binary Sensors
+### Binary sensors
 
 The integration provides support for the following Z-Wave devices:
 
@@ -57,31 +78,43 @@ The integration provides support for the following features:
 - Overload alarm sensor of various switches
 - Sensors I2 and I3 of devolo and Qubino flush mounted relays
 
-## Cover
+### Cover
 
 The integration provides support for the following Z-Wave devices:
 
 - devolo Shutter FM
 - Qubino Flush Shutter
 
-## Climate
+### Climate
 
 The integration provides support for the following Z-Wave devices:
 
 - devolo Radiator Thermostat
 - Danfoss Living Connect Z Radiator Thermostat
 
-## Lights
+### Lights
 
 The integration provides support for the following Z-Wave devices:
 
 - devolo Dimmer FM
 - Qubino Flush Dimmer
 
-## Sensor
+### Sensor
 
 The integration provides support for the following features:
 
 - Temperature and brightness of devolo Sensors, that support it
 - Consumptions of devolo and Qubino devices, that support it
 - Voltage of devolo Metering Plug v2
+
+### Siren
+
+The integration provides support for the following Z-Wave devices:
+
+- devolo Siren
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}

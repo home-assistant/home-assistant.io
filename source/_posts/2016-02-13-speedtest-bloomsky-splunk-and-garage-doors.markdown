@@ -5,7 +5,9 @@ date: 2016-02-13 22:15:00 UTC
 date_formatted: "February 13, 2016"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2016-02-release-13/social-img.png
 ---
 
@@ -106,7 +108,7 @@ Not only did we gain a lot of test coverage, we also attracted a lot of new deve
 [Snapcast]: /integrations/snapcast
 [mqtt-publish]: /integrations/mqtt/#publish-service
 [REST]: /integrations/notify.rest/
-[template]: /integrations/switch.template/
+[template]: /integrations/template/#switch
 [Honeywell]: /integrations/honeywell/
 [zwave-polling]: /integrations/zwave/#configuration
 [zwave-scene]: /integrations/zwave/#events

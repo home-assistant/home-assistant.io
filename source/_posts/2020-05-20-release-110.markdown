@@ -7,7 +7,9 @@ date_formatted: "May 20, 2020"
 author: Franck Nijhof
 author_twitter: frenck
 comments: true
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2020-05-0.110/social.png
 ---
 
@@ -146,7 +148,7 @@ You can also set the attribute you want to show as the secondary information.
 Screenshot of the updated weather card.
 </p>
 
-Check the [documentation](/lovelace/weather-forecast/) for more information.
+Check the [documentation](/dashboards/weather-forecast/) for more information.
 
 ## Internal & External URLs
 
@@ -203,7 +205,7 @@ for writing automations in YAML:
 
 ```yaml
 # Example automation
-alias: Turn kitchen lights off when alarm is armed.
+alias: "Turn kitchen lights off when alarm is armed."
 trigger:
   - platform: state
     entity_id: alarm_control_panel.home_alarm
@@ -215,7 +217,8 @@ condition:
         state: disarmed
 action:
   - service: light.turn_off
-    entity_id: light.kitchen
+    target:
+      entity_id: light.kitchen
 ```
 
 ## HomeKit
@@ -259,7 +262,7 @@ Screenshot of an ONVIF camera in Home Assistant.
 
 ## Supervisor
 
-Have you seen the new supervisor UI? [@ludeeus] did a great job redoing it's UI!
+Have you seen the new supervisor UI? [@ludeeus] did a great job redoing its UI!
 It now uses the same tabs as the configuration panel. The add-on page is split
 into multiple tabs, the add-on store is cleaned up and you can view all logs
 in the system tab now (requires advanced mode).
@@ -296,7 +299,7 @@ you've enabled advanced mode on your user profile.
   happens, it will be prevented and write an error message to your log,
   similar to how the I/O detection does it (released in [0.109](/blog/2020/04/29/release-109/#detection-of-blocking-io-in-the-event-loop)).
 
-- The ISY994 got a major upgrade! While it has quite a few breaking changes, it
+- The ISY994 got a major upgrade! While it has quite a few backward-incompatible changes, it
   is now available via the UI and many bug are squashed. Thanks [@shbatm]!
 
 ## New Integrations
@@ -350,7 +353,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 <!--more-->
 
-## Breaking Changes
+## Backward-incompatible changes
 
 - **Manual Alarm Panel** - When going from state `disarmed` to any other (armed)
   state such as `armed_away`, the state will be `arming` instead of `pending` during
@@ -389,8 +392,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - **Fortigate** *(Deprecated)* - The Fortigate integration will be removed in
   0.112.0 and has a replacement in the FortiOS integration.
 
-  Please refer to the fortios integration on how to configure the new
-  parameters: https://www.home-assistant.io/integrations/fortios/ -
+  Please refer to the [fortios integration](/integrations/fortios) on how to configure the new
+  parameters. -
   ([@kifeo] - [#34854])
 
 - **Raspberry Pi Camera** - To align with ADR-0007, configuration has been
@@ -509,10 +512,10 @@ Experiencing issues introduced by this release? Please report them in our [issue
   significant update to the original module used to communicate with the ISY.
   ([@shbatm] - [#35212], [#35338], [#35413], [#35391] ) ([isy994 docs])
 
-  As part of the update and many bug fixes, some breaking changes were introduced:
+  As part of the update and many bug fixes, some backward-incompatible changes were introduced:
 
   <details>
-    <summary>Click see all breaking changes for ISY994</summary>
+    <summary>Click see all backward-incompatible changes for ISY994</summary>
 
     - Remove ISY Climate Module support: the ISY Climate Module was retired by
       UDI on 3/30/2020: UDI Announcement, support has been removed from the module,

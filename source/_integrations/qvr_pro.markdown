@@ -1,7 +1,6 @@
 ---
 title: QVR Pro
 description: Instructions on how to integrate QVR Pro within Home Assistant.
-logo: qvr_pro.png
 ha_category:
   - Camera
 ha_iot_class: Local Polling
@@ -9,18 +8,26 @@ ha_release: 0.107
 ha_domain: qvr_pro
 ha_codeowners:
   - '@oblogic7'
+ha_platforms:
+  - camera
+ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
+ha_quality_scale: legacy
 ---
 
 [QVR Pro](https://www.qnap.com/en/software/qvr-pro) allows you to create 
-an independent and expandable surveillance environment on your QNAP NAS.  The 
-`qvr_pro` component allows you to view your QVR Pro channels in Home Assistant.
+an independent and expandable surveillance environment on your QNAP NAS. The 
+`qvr_pro` integration allows you to view your QVR Pro channels in Home Assistant.
 
 Currently, only cameras are supported by this integration.
 
 ## Configuration
 
 To enable QVR Pro integration, add the following to your
-`configuration.yaml` file:
+{% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -58,6 +65,6 @@ Enabling the QVR Pro camera platform will add all QVR Pro channels by
 default. Please see `exclude_channels` if you would like to exclude
 specific channels from showing up in Home Assistant.
 
-<p class="note warning">
+{% important %}
 The QVR Pro user must have Surveillance Management permission.
-</p>
+{% endimportant %}

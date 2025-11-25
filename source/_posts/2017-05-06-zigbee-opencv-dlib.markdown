@@ -5,7 +5,9 @@ date: 2017-05-06 01:04:05 +0000
 date_formatted: "May 6, 2017"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2017-05-0.44/components.png
 ---
 
@@ -58,7 +60,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - MQTT Cover: Fixed status reporting for range with non-zero base ([@cribbstechnologies])
 
 <!--more-->
-## Breaking changes
+## Backward-incompatible changes
 
 - Python Open Z-Wave made a release that fixed string processing. This was backwards incompatible. We have updated our code so you'll have to update to the latest Python Open Z-Wave with this release. You can also wait one release, as next release we'll introduce automatic installing of Python Open Z-Wave. ([@keatontaylor] - [#7266]) ([climate.zwave docs]) (breaking change)
 - InfluxDB configuration to blacklist domains has been updated to allow more features. ([@janLo] - [#7264]) (breaking change)
@@ -183,7 +185,7 @@ influxdb:
 - Remove path whitelisting for hassio ([@balloob] - [#7399])
 - Add Eight sleep component ([@mezz64] - [#7275]) ([eight_sleep docs]) ([binary_sensor.eight_sleep docs]) ([sensor.eight_sleep docs]) (new-platform)
 - OpenGarage support ([@swbradshaw] - [#7338]) ([cover.opengarage docs]) (new-platform)
-- Clean up requirements ([@andrey-git] - [#7391]) ([nuimo_controller docs]) ([sensor.dht docs]) ([sensor.thinkingcleaner docs]) ([switch.thinkingcleaner docs])
+- Clean up requirements ([@andrey-git] - [#7391]) ([sensor.dht docs]) ([sensor.thinkingcleaner docs]) ([switch.thinkingcleaner docs])
 - correct MQTT subscription filter ([@amigian74] - [#7269]) ([mqtt docs])
 - Update docstrings ([@fabaff] - [#7374])
 - light.blinkt: update brightness control logic ([@imrehg] - [#7389])
@@ -462,7 +464,6 @@ influxdb:
 [notify.smtp docs]: /integrations/smtp
 [notify.telegram docs]: /integrations/telegram
 [notify.webostv docs]: /integrations/webostv
-[nuimo_controller docs]: /integrations/nuimo_controller/
 [octoprint docs]: /integrations/octoprint/
 [opencv docs]: /integrations/opencv/
 [plant docs]: /integrations/plant/

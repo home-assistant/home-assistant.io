@@ -5,7 +5,9 @@ date: 2016-01-30 00:22:00 -0800
 date_formatted: "January 30, 2016"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2016-01-release-12/social.png
 ---
 

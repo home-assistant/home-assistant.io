@@ -6,9 +6,11 @@ ha_category:
 ha_release: 0.85
 ha_iot_class: Local Push
 ha_domain: idteck_prox
+ha_integration_type: integration
+ha_quality_scale: legacy
 ---
 
-[IDTECK](http://www.idteck.com) makes ID systems used to control access and identify users.  This integration works with [Proximity Readers](http://www.idteck.com/en/products/proximity-reader-__-card-%26-tag-__125khz) (RFID card readers). The device is connected to Home Assistant through a serial to ethernet converter (NPort).
+[IDTECK](https://www.idteck.com/) makes ID systems used to control access and identify users.  This integration works with [Proximity Readers](https://www.idteck.com/en/products/rfid-reader-__-card-%26-tag-__idteck-credential-format-(idc)) (RFID card readers). The device is connected to Home Assistant through a serial to ethernet converter (NPort).
 
 An `idteck_prox_keycard` event is fired whenever a card or key sequence has been entered.  The event contains 'card' - the card/key sequence, and the 'name' of the card reader.  Checking 'card' against known card numbers can be used as the basis of an entry control system, or as part of a check-in/check-out system.
 

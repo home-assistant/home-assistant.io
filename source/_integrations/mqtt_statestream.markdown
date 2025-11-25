@@ -4,15 +4,21 @@ description: Instructions on how to setup MQTT Statestream within Home Assistant
 ha_category:
   - Other
 ha_release: 0.54
-ha_iot_class: Configurable
+ha_iot_class: Local Push
 ha_domain: mqtt_statestream
+ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
+ha_quality_scale: legacy
 ---
 
-The `mqtt_statestream` integration publishes state changes in Home Assistant to individual MQTT topics.
+The `mqtt_statestream` {% term integration %} publishes state changes in Home Assistant to individual MQTT topics. [The MQTT integration](/integrations/mqtt/) is a prerequisite for MQTT Statestream to work.
 
 ## Configuration
 
-To enable MQTT Statestream in Home Assistant, add the following section to your `configuration.yaml` file:
+To enable MQTT Statestream in Home Assistant, add the following section to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -73,11 +79,9 @@ include:
       type: list
 {% endconfiguration %}
 
-### Configure Filter
+### Configure filter
 
 By default, no entity will be excluded. To limit which entities are being exposed to `MQTT Statestream`, you can use the `include` and `exclude` parameters.
-
-{% raw %}
 
 ```yaml
 # Example filter to include specified domains and exclude specified entities
@@ -94,25 +98,7 @@ mqtt_statestream:
       - light.kitchen_light
 ```
 
-{% endraw %}
-
-Filters are applied as follows:
-
-1. No includes or excludes - pass all entities
-2. Includes, no excludes - only include specified entities
-3. Excludes, no includes - only exclude specified entities
-4. Both includes and excludes:
-   - Include domain and/or glob patterns specified
-      - If domain is included, and entity not excluded or match exclude glob pattern, pass
-      - If entity matches include glob pattern, and entity does not match any exclude criteria (domain, glob pattern or listed), pass
-      - If domain is not included, glob pattern does not match, and entity not included, fail
-   - Exclude domain and/or glob patterns specified and include does not list domains or glob patterns
-      - If domain is excluded and entity not included, fail
-      - If entity matches exclude glob pattern and entity not included, fail
-      - If entity does not match any exclude criteria (domain, glob pattern or listed), pass
-   - Neither include or exclude specifies domains or glob patterns
-      - If entity is included, pass (as #2 above)
-      - If entity include and exclude, the entity exclude is ignored
+{% include common-tasks/filters.md %}
 
 ### Common filtering examples
 

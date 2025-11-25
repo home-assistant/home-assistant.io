@@ -2,25 +2,33 @@
 title: OASA Telematics
 description: Instructions on how to integrate bus and trolley arrival data for Greek OASA Telematics within Home Assistant.
 ha_category:
-  - Transport
   - Sensor
+  - Transport
 ha_iot_class: Cloud Polling
 ha_release: 0.92
 ha_domain: oasa_telematics
+ha_platforms:
+  - sensor
+ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
+ha_quality_scale: legacy
 ---
 
-The `oasa_telematics` sensor will provide you with bus and trolley arrival times for Greek public transport for Athens, using real-time data from [OASA Telematics](http://telematics.oasa.gr/en/).
+The `oasa_telematics` {% term integration %} will provide you with bus and trolley arrival times for Greek public transport for Athens, using real-time data from [OASA Telematics](http://telematics.oasa.gr/en/).
 
 ## Configuration
 
-Add a sensor to your `configuration.yaml` file as shown in the example:
+Add the {% term integration %} to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
 sensor:
   - platform: oasa_telematics
     route_id: YOUR_ROUTE_ID
-    stop_id: 'YOUR_STOP_ID'
+    stop_id: "YOUR_STOP_ID"
 ```
 
 The `route_id` can be obtained by looking up the "LineCode" of the route you want at this link: 
@@ -60,5 +68,5 @@ A more extensive example on how to use this sensor:
 sensor:
   - platform: oasa_telematics
     route_id: 1965
-    stop_id: '090006'
+    stop_id: "090006"
 ```

@@ -2,112 +2,75 @@
 title: Pi-hole
 description: Instructions on how to integrate Pi-hole with Home Assistant.
 ha_category:
-  - System Monitor
   - Sensor
   - Switch
+  - System monitor
+  - Update
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_release: 0.28
 ha_codeowners:
-  - '@fabaff'
-  - '@johnluetke'
   - '@shenxn'
 ha_domain: pi_hole
+ha_platforms:
+  - binary_sensor
+  - diagnostics
+  - sensor
+  - switch
+  - update
+ha_integration_type: integration
 ---
 
-The `pi_hole` integration allows you to retrieve statistics and interact with a [Pi-hole](https://pi-hole.net/) system.
+The Pi-hole integration allows you to retrieve statistics and interact with a
+[Pi-hole](https://pi-hole.net/) system.
 
-## Configuration
+{% include integrations/config_flow.md %}
 
-To enable this integration, go to the Integrations page inside the configuration panel. You can also use YAML configuration. Add the following lines to your `configuration.yaml` file
+During the setup, it will ask for the following:
 
-```yaml
-# Example configuration.yaml entry
-pi_hole:
-  - host: IP_ADDRESS
-```
+| Item | Description | Example |
+| ---- | ----------- | ------- |
+| `Host` | The IP or domain name to Pi-Hole. | 192.168.1.1 |
+| `Port` | Port used to get to the admin page, typically `80` for `http` connections and `443` for `https` connections. | 80 |
+| `Name` | Name to for this Pi-Hole. | Pi-Hole |
+| `Location` | the path to the admin page. In the version 6 API this will be ignored. | /admin |
+| `API Key or App Password` | This can be found in your Pi-hole's **Settings** > **API (expert mode)**. | `585a2fe...` |
+| `Uses an SSL certificate` | Whether your Pi-hole has an Certificate, typically true for `https` connections and false for `http`. | {% icon "openmoji:check-mark" %} |
+| `Verify SSL certificate` | Whether to use verify your Pi-hole's certificate, ignored in Pi-hole API version 5. | {% icon "openmoji:check-mark" %} |
 
-{% configuration %}
-host:
-  description: >
-    The hostname (and port), e.g.,  '192.168.0.3:4865' of the host where Pi-hole is running. Home Assistant add-on users should be sure to specify port `4865`. 
-  required: true
-  type: string
-name:
-  description: >
-    The name for this Pi-hole. This name will be a part of the sensors created, e.g.,  `name: My Awesome Pi-hole` would result in sensor names beginning with `sensor.my_awesome_pi_hole_`.
-  required: false
-  type: string
-  default: Pi-hole
-location:
-  description: The installation location of the Pi-hole API.
-  required: false
-  type: string
-  default: admin
-ssl:
-  description: "If `true`, use SSL/TLS to connect to the Pi-hole system."
-  required: false
-  type: boolean
-  default: false
-verify_ssl:
-  description: >
-    Verify the SSL/TLS certificate of the system. If your Pi-hole instance uses a self-signed certificate, you should specify `false`.
-  required: false
-  type: boolean
-  default: true
-api_key:
-  description: API Key for interacting with the Pi-hole. This is not required if you want to just query the Pi-hole for usage statistics.
-  required: false
-  type: string
-  default: None
-{% endconfiguration %}
+The combined host, port and location should take you to the login page of Pi-Hole. Using the example above, it would be `http://192.168.1.1:80/admin`.
 
-### Full examples
+To find your App Password, log into your Pi-Hole and go to **Settings** > **Web Interface/API**. Switch from **Basic** to **Expert** mode, then select **Configure app password**.  Your admin login password may be used instead but this is not recommended.
 
-Single Pi-hole running via Home Assistant add-on:
+Versions of Pi-hole before version 6 (released in Feb 2025) use an API Key if the Pi-hole was password protected, this can be found in _Settings > API Tab_ and clicking **Show API token**.
 
-```yaml
-pi_hole:
-  - host: 'localhost:4865'
-```
+## Actions
 
-Multiple Pi-holes:
+The platform provides the following actions to interact with your Pi-hole. Use switch entities when calling the actions.
 
-```yaml
-pi_hole:
-  - host: '192.168.0.2'
-  - host: '192.168.0.3'
-    name: 'Secondary Pi-hole'
-```
-
-Pi-hole with a self-signed certificate:
-
-```yaml
-pi_hole:
-  - host: 'pi.hole'
-    ssl: true
-    verify_ssl: false
-```
-
-Pi-hole with an `api_key` that allows it to be enabled or disabled:
-
-```yaml
-pi_hole:
-  - host: 'pi.hole'
-    api_key: !secret pi_hole_api_key
-```
-
-## Services
-
-The platform provides the following services to interact with your Pi-hole. Use switch entities when calling the services.
-
-_Note: Switch entity requires `api_key` to be configured._
-
-### Service `pi_hole.disable`
+### Action `pi_hole.disable`
 
 Disables configured Pi-hole(s) for the specified amount of time.
 
-| Service data attribute | Required | Type | Description |
+| Data attribute | Required | Type | Description |
 | ---------------------- | -------- | -------- | ----------- |
-| `entity_id` | `False` | string | Target switch entity. Use `all` to target all Pi-hole services |
-| `duration` | `True` | timedelta | Time for which Pi-hole should be disabled |
+| `entity_id` | `False` | string | Target switch entity. Use `all` to target all Pi-hole services. |
+| `duration` | `True` | timedelta | Time for which Pi-hole should be disabled. `'0'` will enable blocking indefinitely. |
+
+Example action:
+
+```yaml
+# Example action to disable Pi-Hole for 30 minutes
+action: pi_hole.disable
+data:
+  duration: '00:30'
+target:
+  entity_id: all
+```
+## Switches
+
+The integration creates a switch for the Pi-hole allowing you to toggle ad-blocking on and off.
+
+## Sensors
+
+The integration creates a number of sensors which report various ad-blocking metrics as well as diagnostic information about the pi-hole itself.

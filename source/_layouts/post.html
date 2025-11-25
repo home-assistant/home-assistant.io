@@ -1,6 +1,7 @@
 ---
 layout: default
 is_post: true
+feedback: false
 ---
 
 <article class="post">
@@ -10,7 +11,7 @@ is_post: true
 
 <div id='post-comments'></div>
 
-{% if page.comments == true %}
+{% if page.comments == true and site.netlify.branch == "current" %}
 <div id='discourse-comments'></div>
 
 <script type="text/javascript">

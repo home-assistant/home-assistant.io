@@ -1,0 +1,63 @@
+body > header {
+  background-color: $header-background;
+  margin-bottom: 2em;
+  backdrop-filter: blur(24px);
+
+  .site-title {
+    color: rgba(229, 229, 229, 0.8);
+    font-size: 1.7em;
+    font-weight: bold;
+    line-height: 2.5em;
+  }
+
+  .release-date {
+    font-size: 10px;
+    margin: 29.5px 0 0;
+    padding: 0 4px 0 4px;
+    background: #e8edf0;
+    height: fit-content;
+    color: $link-color;
+    font-weight: 500;
+    border-radius: 4px;
+    letter-spacing: .025rem;
+  }
+
+  &.dark {
+    background-color: rgba(255,255,255,0);
+    backdrop-filter: none;
+    // transition: background-color 1s;
+
+    @media only screen and (min-width: $desk-start) {
+      .menu>li>a, .docsearch .DocSearch-Search-Icon {
+        color: $white;
+      }
+    }
+
+    .ha-title {
+      .logo {
+        background-image: url('/images/home-assistant-logo-white.svg');
+      }
+    }
+  }
+}
+
+
+.ha-title {
+  display: inline-flex;
+  height: 100%;
+  white-space: nowrap;
+
+  .logo {
+    border-radius: 0;
+    width: 226px;
+    height: 32px;
+    margin-right: 10px;
+    background-image: url('/images/home-assistant-logo.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  a>* {
+    vertical-align: middle;
+  }
+}

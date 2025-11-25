@@ -8,9 +8,16 @@ ha_release: 0.92
 ha_codeowners:
   - '@exxamalte'
 ha_domain: ign_sismologia
+ha_platforms:
+  - geo_location
+ha_integration_type: service
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
+ha_quality_scale: legacy
 ---
 
-The `ign_sismologia` platform lets you integrate a GeoRSS feed provided by the 
+The `ign_sismologia` {% term integration %} lets you integrate a GeoRSS feed provided by the 
 Spanish [Instituto Geográfico Nacional](https://www.ign.es/) with information 
 about seismic events like earthquakes on the Iberian Peninsula and Canary 
 Islands. It retrieves incidents from a feed and shows information of those 
@@ -30,7 +37,8 @@ The data is updated every 5 minutes.
 
 ## Configuration
 
-To integrate the IGN Sismología feed, add the following lines to your `configuration.yaml`.
+To integrate the IGN Sismología feed, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -67,17 +75,17 @@ longitude:
 The following state attributes are available for each entity in addition to 
 the standard ones:
 
-| Attribute          | Description |
-|--------------------|-------------|
-| latitude           | Latitude of the earthquake. |
-| longitude          | Longitude of the earthquake. |
-| source             | `ign_sismologia` to be used in conjunction with `geo_location` automation trigger. |
-| external_id        | The external ID used in the feed to identify the earthquake in the feed. |
-| title              | Original title from the feed. |
-| region             | Textual description of named geographic region near to the event. |
-| magnitude          | Reported magnitude of the earthquake. |
-| publication_date   | Date and time when this event occurred. |
-| image_url          | URL to a map supplied in the feed marking the location of the event. This could for example be used in notifications. |
+| Attribute        | Description                                                                                                           |
+| ---------------- | --------------------------------------------------------------------------------------------------------------------- |
+| latitude         | Latitude of the earthquake.                                                                                           |
+| longitude        | Longitude of the earthquake.                                                                                          |
+| source           | `ign_sismologia` to be used in conjunction with `geo_location` automation trigger.                                    |
+| external_id      | The external ID used in the feed to identify the earthquake in the feed.                                              |
+| title            | Original title from the feed.                                                                                         |
+| region           | Textual description of named geographic region near to the event.                                                     |
+| magnitude        | Reported magnitude of the earthquake.                                                                                 |
+| publication_date | Date and time when this event occurred.                                                                               |
+| image_url        | URL to a map supplied in the feed marking the location of the event. This could for example be used in notifications. |
 
 
 ## Full Configuration

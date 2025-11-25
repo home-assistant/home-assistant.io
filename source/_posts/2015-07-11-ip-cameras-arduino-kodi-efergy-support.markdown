@@ -5,7 +5,9 @@ date: 2015-07-11 01:37 -0700
 date_formatted: "July 11, 2015"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 ---
 
 Another month has passed and some great new features have landed in Home Assistant. This month release has been made possible by [balloob](https://github.com/balloob), [ettisan](https://github.com/ettisan), [fabaff](https://github.com/fabaff), [gyran](https://github.com/gyran), [jamespcole](https://github.com/jamespcole), [michaelarnauts](https://github.com/michaelarnauts), [miniconfig](https://github.com/miniconfig) and [rmkraus](https://github.com/rmkraus).
@@ -27,9 +29,9 @@ camera:
   still_image_url: http://194.218.96.92/jpg/image.jpg
 ```
 
-<div class='note'>
+{% note %}
 To update to the latest version, run <code>scripts/update</code>. Please report any issues on <a href='https://github.com/home-assistant/home-assistant/issues'>GitHub</a>.
-</div>
+{% endnote %}
 
 <!--more-->
 

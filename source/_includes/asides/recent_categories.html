@@ -1,0 +1,14 @@
+{% capture recent_categories %}{% for post in site.posts limit: 20 %}{{ post.categories | join: ", " }}, {% endfor %}{% endcapture %}
+{% assign recent_categories = recent_categories | split: ", " | uniq | compact %}
+
+<section class="recent-categories aside-module grid__item one-whole lap-one-half">
+  <h1 class="title epsilon">{% icon "mdi:category" %}  Recent categories</h1>
+  <ul class="divided">
+    {% for category in recent_categories limit: 10 %}
+      {% assign category_link = category | downcase %}
+      {{ category_name }}
+      <li><a href="/blog/categories/{{ category_link }}/">{{ category | replace: '-', ' '}} <span class="count">{{ site.categories[category] | size }}</span></a></li>
+    {% endfor %}
+    <li><a href="/blog/categories/announcements/">View all categories</a></li>
+  </ul>
+</section>
