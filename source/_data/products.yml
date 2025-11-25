@@ -669,7 +669,6 @@ zwa-2:
       logo: /images/distributors/smartdomo.webp
 zbt-2:
   name: "<strong>Home Assistant</strong> Connect ZBT-2"
-  new: true
   distributors:
     # North America
     #- name: Amazon
