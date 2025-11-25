@@ -1,0 +1,116 @@
+
+section#plug-and-play {
+    
+    .cols{
+        gap: 20px;
+        flex-direction: column;
+        @include bp(tablet){
+            flex-direction: row;
+        }
+        .col{
+            width: 100%;
+
+            &:first-child {
+                flex-shrink: 0;
+                
+                @include bp(tablet){
+                    width: 388px;
+                }
+            }
+        }
+    }
+
+    .section-inner-content{
+        padding-top: 20px;
+    }
+
+    .video{
+        position: relative;
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 1/1;
+        
+        @include bp(tablet){
+            aspect-ratio: auto;
+        }
+
+        video{
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            border-radius: 16px;
+            position: absolute;
+            inset: 0;
+        }
+    }    
+
+    .card {
+        --border-gradient-angle: 0deg;
+
+        align-items: flex-start;
+        background: linear-gradient(180deg, rgba(0, 15, 30, 1) 0%, rgba(0, 0, 0, 1) 100%);
+        border-radius: 16px;
+        position: relative;
+        height: 100%;
+        display: flex;
+        gap: 12px;
+        
+        flex-direction: column;
+        justify-content: center;
+
+        
+        .card-inner {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            overflow: hidden;
+            flex-direction: column;
+            width: 100%;
+            gap: 12px;
+            padding: 48px 20px;
+            
+            @include bp(tablet) {
+                padding: 48px 40px;
+            }
+        }
+
+
+        &:before {
+            border-radius: 16px;
+            content: '';
+            background: linear-gradient(var(--border-gradient-angle), #005FBE 0%, rgba(0, 0, 0, 0) 100%);
+            inset: -1px;
+            position: absolute;
+            z-index: -10;
+        }
+
+        &:after {
+            content: '';
+            position: absolute;
+            border-radius: 16px;
+            inset: 1px;
+            z-index: -8;
+        }
+
+        &--image {
+            padding: 0;
+
+            &:before,
+            &:after {
+                content: unset;
+            }
+
+            img {
+                border-radius: 16px;
+                height: 100%;
+                object-fit: cover;
+                width: 100%;
+            }
+        }
+
+        img+h3 {
+            margin-top: 20px;
+        }
+
+    }
+}

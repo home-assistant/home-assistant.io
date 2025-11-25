@@ -1,0 +1,123 @@
+section#home {
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    &[data-dsap] {
+        img {
+            scale: 90%;
+        }
+
+        &[data-dsap-is="in"] {
+            img {
+                scale: 100%;
+                border-radius: 16px;
+            }
+        }
+
+        &:not([data-dsap-is="in"]) {
+            img {
+                transition-delay: 0s !important;
+                transition-duration: 0s !important;
+            }
+        }
+    }
+
+    .home-content {
+        display: flex;
+        flex-grow: 1;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        text-wrap: balance;
+
+        @include bp(tablet) {
+            padding: 20px;
+        }
+    }
+
+    .cols {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        .col {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            flex-grow: 1;
+            flex-basis: 0;
+        }
+
+        @include bp(tablet) {
+            flex-direction: row;
+        }
+
+        img {
+            border-radius: 48px;
+            transition-property: scale, border-radius;
+            transition-duration: 1s;
+            transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+            width: 100%;
+            object-fit: cover;
+        }
+
+        &:nth-child(1) {
+            .col {
+                &:nth-child(1) {
+                    flex-basis: calc(7/12 * 100%);
+                    order: -1;
+
+                    img {
+                        aspect-ratio: 692/448;
+
+                    }
+                }
+
+                &:nth-child(2) {
+                    flex-basis: calc(5/12 * 100%);
+
+                    img {
+                        aspect-ratio: 16/9;
+                        height: 100%;
+                        transition-delay: 0.1s;
+
+                        @include bp(tablet) {
+                            aspect-ratio: 488/720;
+                        }
+                    }
+                }
+            }
+        }
+
+        &:nth-child(2) {
+            .col {
+                &:nth-child(1) {
+                    order: 1;
+                    flex-basis: calc(6/12 * 100%);
+
+                    @include bp(tablet) {
+                        order: -1;
+                    }
+
+                    img {
+                        aspect-ratio: 590/720;
+                        height: 100%;
+                        transition-delay: 0.1s;
+                    }
+                }
+
+                &:nth-child(2) {
+                    flex-basis: calc(6/12 * 100%);
+
+                    img {
+                        aspect-ratio: 590/448;
+                    }
+                }
+            }
+        }
+    }
+}

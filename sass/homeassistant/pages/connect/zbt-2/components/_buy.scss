@@ -1,0 +1,158 @@
+section#buy {
+    isolation: isolate;
+    max-height: 1000px;
+    margin: 0 auto;
+
+    .background {
+        pointer-events: none;
+        position: absolute;
+        inset: 0;
+
+        &:before {
+            content: '';
+            background-image: url('/images/connect/zbt-2/dark-left-lit.webp');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: absolute;
+            inset: 0;;
+        }
+
+        &:after {
+            position: absolute;
+            inset: 0;
+            content: '';
+            background-image: url('/images/connect/zbt-2/dark-front-lit.webp');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0;
+            transition: opacity 1.5s ease-out;
+        }
+
+        &.active{
+            &:after {
+                opacity: 1;
+            }
+        }
+    }
+
+
+    @include bp(desktop) {
+        background-size: contain;
+        isolation: unset;
+        aspect-ratio: 16 / 9;
+    }
+
+    .cols {
+        align-items: center;
+        justify-content: center;
+    }
+
+    .container {
+        justify-content: center;
+        text-align: center;
+        flex-direction: column;
+        align-items: center;
+        gap: 80px;
+        padding-top: 5rem;
+
+        @include bp(desktop) {
+            padding-top: 0;
+        }
+    }
+
+    .section-inner {
+        position: relative;
+        z-index: 1;
+
+        @include bp(desktop) {
+            z-index: unset;
+            position: relative;
+        }
+
+    }
+
+    .section-inner-content {
+        //height: 64vh;
+        align-items: center;
+        justify-content: center;
+        //position: relative;
+        padding: 0;
+    }
+
+    .strap {
+        font-size: 18px;
+        text-wrap: balance;
+        position: relative;
+        z-index: 2;
+        padding: 12px 0;
+
+        @include bp(tablet) {
+            font-size: 24px;
+        }
+
+        @include bp(desktop) {
+            font-size: 32px;
+        }
+    }
+
+    .price {
+        font-size: 64px;
+        font-weight: 700;
+
+        @include bp(tablet) {
+            font-size: 96px;
+        }
+
+        @include bp(desktop) {
+            font-size: 160px;
+        }
+
+        span {
+            opacity: .4;
+            position: relative;
+        }
+
+        sup {
+            font-size: 36px;
+            vertical-align: unset;
+            position: absolute;
+            top: 0;
+            line-height: 1;
+        }
+
+        sub {
+            vertical-align: initial;
+            bottom: 0;
+            margin-right: 6px;
+        }
+    }
+
+    .button {
+        margin-top: 40px;
+    }
+
+    .terms {
+        background-color: rgba(0, 19, 38, 0.5);
+        backdrop-filter: blur(5px);
+        border-radius: 8px;
+        padding: 12px 16px;
+        max-width: 410px;
+        font-size: 12px;
+        color: #AAABAE;
+
+        @include bp(1750px) {
+            max-width: 33rem;
+        }
+    }
+
+    .nc-collaboration {
+        bottom: 20px;
+        max-width: calc(100% - 20px);
+
+        @include bp(desktop) {
+            bottom: 60px;
+        }
+    }
+}

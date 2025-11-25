@@ -8,12 +8,18 @@
     color: var(--color);
     display: inline-flex;
     font-size: 12px;
-    font-weight: 700;
+    font-weight: 600;
     gap: 8px;
     line-height: .666;
     padding: 10px 16px;
+    margin: 16px 0;
     text-transform: uppercase;
     white-space: nowrap;
+
+    &.connect-line-blue{
+        --background: var(--connect-line-blue);
+        --color: #ffffff;
+    }
 
     &:before{
         background-color: var(--color);

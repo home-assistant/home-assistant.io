@@ -41,7 +41,7 @@
         pointer-events: none;
         position: sticky;
         top: 0;
-        z-index: 1000;
+        z-index: 10;
 
         &-inner {
             --mobile-nav-display: none;
