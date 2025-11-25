@@ -1495,14 +1495,6 @@ sensors:
       required: false
       type: string
       default: ">f"
-    slave_count:
-      description: "Identical to `virtual_count`."
-      required: false
-      type: integer
-    virtual_count:
-      description: Generates x-1 slave sensors, allowing read of multiple registers with a single read message.
-      required: false
-      type: integer
     swap:
       description: "Swap the order of bytes/words, **not valid with `custom` and `datatype: string`**"
       required: false
@@ -1519,10 +1511,6 @@ sensors:
       description: "Unit to attach to value."
       required: false
       type: string
-    zero_suppress:
-      description: "Suppress values close to zero. If -zero_suppress <= value <= +zero_suppress --> 0. Can be float or integer"
-      required: false
-      type: float
     unique_id:
       description: ID that uniquely identifies the entity. If two sensors have the same unique ID, Home Assistant will raise an exception.
       required: false

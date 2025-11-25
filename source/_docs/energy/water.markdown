@@ -38,6 +38,11 @@ There are also products for water usage monitoring that are based on existing co
 - [Zigbee](/integrations/zha)
 - [Matter](/integrations/matter)
 
+## Individual water devices
+
+Similar to tracking individual energy devices, Home Assistant supports tracking water usage of individual devices. This feature allows you to monitor water consumption from specific appliances or fixtures in your home, such as washing machines, dishwashers, or individual faucets.
+
+You can create hierarchies of water devices by setting one device as an "upstream device" of another. This prevents double-counting when you have, for example, a main water meter and individual device meters. For more details on setting up device hierarchies and preventing double-counting, see the [individual devices documentation](/docs/energy/individual-devices/).
 
 ## Community-made sensors
 
