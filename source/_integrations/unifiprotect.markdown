@@ -507,6 +507,7 @@ The vehicle detection event uses a delayed firing mechanism to optimize data qua
    - Confidence score (higher is better)
    - Timestamp (most recent)
 5. If a new vehicle event starts while a timer is pending, the old event fires immediately, then a new timer starts for the new event.
+6. In rare cases, if UniFi Protect sends updated data after the event has already fired, an additional event will be triggered with the new information.
 
 #### Requirements
 
