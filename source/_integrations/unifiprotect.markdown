@@ -490,7 +490,7 @@ Similar to NFC, an event is triggered when a fingerprint is recognized and not r
   - **license_plate**: Detected license plate (optional, requires License Plate Recognition).
   - **attributes**: Additional detection metadata from UniFi Protect (optional), including:
     - **trackerId**: Internal tracking ID for the detected vehicle.
-    - **vehicleType**: Detected vehicle type (for example, car, truck, bus) with confidence score.
+    - **vehicleType**: Detected vehicle type (for example, car, truck or bus) with confidence score.
     - **color**: Detected vehicle color with confidence score.
     - **zone**: List of zone IDs where the vehicle was detected.
 - **Description**: This event is triggered when a camera with Smart Detection capabilities detects a vehicle. Unlike other event types that fire immediately, vehicle detection uses a 3-second delay to allow optimal thumbnail and License Plate Recognition (LPR) data to arrive. The delay ensures Home Assistant receives the thumbnail with the highest confidence LPR data before firing the event.
@@ -537,8 +537,8 @@ conditions:
 actions:
   - data:
       message: >-
-        {% raw %}Vehicle detected with {{ trigger.event.data.new_state.attributes.confidence * 100 }}% confidence.
-        {% if trigger.event.data.new_state.attributes.license_plate %}
+        {% raw %}Vehicle detected{% if trigger.event.data.new_state.attributes.confidence is defined %} with {{ trigger.event.data.new_state.attributes.confidence }}% confidence{% endif %}.
+        {% if trigger.event.data.new_state.attributes.license_plate is defined %}
         License plate: {{ trigger.event.data.new_state.attributes.license_plate }}
         {% endif %}{% endraw %}
       title: Vehicle Detection
@@ -559,8 +559,9 @@ conditions:
   - condition: template
     value_template: >
       {% raw %}{{ 
+         trigger.event.data.old_state is not none and
          not trigger.event.data.old_state.attributes.get('restored', false) and
-         not trigger.event.data.old_state.state == 'unavailable' and
+         trigger.event.data.old_state.state != 'unavailable' and
          trigger.event.data.new_state is not none and
          trigger.event.data.new_state.attributes.event_type == 'detected' and
          trigger.event.data.new_state.attributes.license_plate in ['ABC123', 'XYZ789']
