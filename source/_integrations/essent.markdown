@@ -24,10 +24,6 @@ Price data is fetched from Essent's public API and requires no authentication. T
 This is a community integration using Essent's public API, not officially provided by Essent.
 {% endnote %}
 
-{% note %}
-This integration is specifically for customers with an Essent dynamic pricing contract in the Netherlands.
-{% endnote %}
-
 {% include integrations/config_flow.md %}
 
 ## Sensors
@@ -63,7 +59,7 @@ The integration provides the following sensors:
 
 ## Data updates
 
-The API is called once per hour. Each call fetches all hourly prices for today and tomorrow (when available). Tomorrow's prices typically appear after 12:00 CET for electricity and 19:00 CET for gas.
+The API is polled every 12 hours to fetch price data. Each call fetches all hourly prices for today and tomorrow (when available). Tomorrow's prices typically appear after 12:00 CET for electricity and 19:00 CET for gas.
 
 Sensors update on the hour using cached API data, so they advance to the current price without additional API calls between polls.
 
