@@ -459,7 +459,6 @@ Feature
 
 - get light level
 - get battery
-- get battry range
 - get occupancy state
 
 #### Water Leak Detector
