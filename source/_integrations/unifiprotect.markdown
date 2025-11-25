@@ -499,7 +499,7 @@ Similar to NFC, an event is triggered when a fingerprint is recognized and not r
 
 The vehicle detection event uses a delayed firing mechanism to optimize data quality:
 
-1. When a vehicle is detected, the camera starts sending thumbnail data via websocket.
+1. When a vehicle is detected, the camera starts sending thumbnail data via WebSocket.
 2. A 3-second timer starts waiting for additional thumbnails.
 3. If new thumbnails arrive for the same event, the timer resets to 3 seconds.
 4. After the timer expires, the event fires with the best available thumbnail based on:
