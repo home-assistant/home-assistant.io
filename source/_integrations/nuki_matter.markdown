@@ -20,7 +20,7 @@ works_with:
 
 {% include integrations/wwha.md url="https://nuki.io" name="Nuki" %}
 
-## Setting up your Matter integrations requires Thread
+## Setting up your Nuki via Matter integrations requires Thread
 
 You can turn your Home Assistant installation into a Thread border router e.g. by using the Home Assistant [Connect ZBT-1](https://www.home-assistant.io/connectzbt1/). For more information on setting this up, go to [Turning Home Assistant into a Thread border router section](/integrations/thread/#turning-home-assistant-into-a-thread-border-router)
 
