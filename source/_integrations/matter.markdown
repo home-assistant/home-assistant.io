@@ -147,12 +147,12 @@ Make sure you have all these components ready before trying to add a Matter devi
     - At a minimum, have Android version 8.1. Recommended is version 12 or higher.
     - Have the latest version of the Home Assistant Companion app, installed from the Play Store (full version).
     - If you are using {% term Thread %}: Make sure there is a Thread border router device (Nest Hub (2nd Gen) or Nest Wi-Fi Pro or Home Assistant with the OpenThread Border Router add-on) present in your home network.
-      - If you are using OpenThread (for Connect ZBT-1/SkyConnect) as border router, make sure you followed the steps in the [Thread documentation](/integrations/thread#turning-home-assistant-into-a-thread-border-router).
+      - If you are using OpenThread (for Connect ZBT-1, ZBT-2, or SkyConnect) as border router, make sure you followed the steps in the [Thread documentation](/integrations/thread#turning-home-assistant-into-a-thread-border-router).
   - **iPhone**
     - Have the iOS version 16 or higher
     - Have the latest version of the Home Assistant Companion app installed.
     - If you are using {% term Thread %}: Make sure there is a Thread border router device (HomePod Mini or V2, Apple TV 4K or Home Assistant with the OpenThread Border Router add-on) present in your home network.
-      - If you are using OpenThread (for Connect ZBT-1/SkyConnect) as border router, make sure you followed the steps in the [Thread documentation](/integrations/thread#turning-home-assistant-into-a-thread-border-router).
+      - If you are using OpenThread (for Connect ZBT-1, ZBT-2, or SkyConnect) as border router, make sure you followed the steps in the [Thread documentation](/integrations/thread#turning-home-assistant-into-a-thread-border-router).
 - Make sure the phone is in close range of the border router and your device.
 - If you are adding a Wi-Fi-based Matter device: Matter devices often use the 2.4&nbsp;GHz frequency for Wi-Fi. For this reason, make sure your phone is in the same 2.4&nbsp;GHz network where you want to operate your devices.
 
@@ -313,11 +313,11 @@ Follow these steps if you want to remove a device from a particular Matter contr
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and on the **Matter** integration card, select **Devices**.
 2. From the list of devices, select the device you want to remove from a controller.
-3. In the **Device info** section, next to **Share device**, select the three-dot menu. Then, select **Manage fabrics**.
+3. In the **Device info** section, next to **Share device**, select the three dots {% icon "mdi:dots-vertical" %} menu. Then, select **Manage fabrics**.
 4. From the list, remove the controller of interest.
    - If you want to remove Apple Home, also remove the Apple Keychain entry.
    ![image](/images/integrations/matter/matter-remove-from-network.png)
-5. If you want to remove the device from Home Assistant itself, select the three-dot menu and select **Delete**.
+5. If you want to remove the device from Home Assistant itself, select the three dots {% icon "mdi:dots-vertical" %} menu and select **Delete**.
 
 ## About Matter device information
 
@@ -360,6 +360,22 @@ Notification of an OTA update for a Matter device
 The Home Assistant Matter updates currently do not work for Thread devices on a Thread network with (any) Apple border routers. Typically you'll see "Target node did not process the update file" error instead. The Apple border routers do not forward the necessary mDNS packets which allow to discover the update provider on Home Assistant end. The Apple Home ecosystem might offer updates from their end as an alternative (e.g. for Eve devices).
 {% endnote %}
 
+## Actions
+
+The Matter integration has the following actions:
+
+- `matter.water_heater_boost`
+
+### Action `matter.water_heater_boost`
+
+Enables water heater boost for a specific duration.
+
+| Data attribute        | Optional | Description                                                        |
+|----------------------|----------|--------------------------------------------------------------------|
+| `duration`           | No       | Boost duration in seconds                                          |
+| `emergency_boost`    | Yes      | Whether to enable emergency boost mode                             |
+| `temporary_setpoint` | Yes      | Temporary setpoint temperature in Celsius during the boost period  |
+
 ## Automate on a button press
 
 You have a device that takes button presses as inputs (such as a Tuo Smart Button, VTM31SN dimmer by Inovelli, or the Matter Pushbutton Module by Innovation Matters) and now want to trigger an automation based on that button press. To learn how to create an automation triggered by a button press, refer to this [tutorial](/integrations/event/#automating-on-a-button-press).
@@ -386,7 +402,7 @@ NOTE for Android users: You need to follow the instructions at the bottom of the
 
 ### General recommendations
 
-- Using Thread-based Matter devices in Home Assistant requires Home Assistant OS version 10 and above. Not using Home Assistant OS is at your own risk. We do provide some [documentation](https://github.com/home-assistant-libs/python-matter-server/blob/main/README.md) on how to run the Matter Server as a Docker container. The documentation includes a description of the host and networking requirements.
+- Using Thread-based Matter devices in Home Assistant requires Home Assistant OS version 10 and above. Home Assistant OS with the Matter Server add-on is the supported path for using Matter with Home Assistant. Running Matter Server as a standalone Docker container is unsupported, but we provide [documentation](https://github.com/home-assistant-libs/python-matter-server/blob/main/README.md) including a description of the host and networking requirements.
 
 - To use {% term Thread %} devices you will need a {% term Thread %} network with at least one Thread border router in your network nearby the {% term Thread %} device(s). Apple users, for example, need the Apple TV 4K or the HomePod Mini, while Google users need a Nest Hub (2nd Gen). Use the Thread integration in Home Assistant to diagnose your {% term Thread %} network(s).
 

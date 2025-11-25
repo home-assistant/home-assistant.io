@@ -106,6 +106,12 @@ sensors:
       required: false
       type: integer
       default: 0
+    unique_id:
+      description: >
+        An ID that uniquely identifies this sensor. Set this to a unique value to allow
+        customization through the UI and to enable the sensor to be placed in areas.
+      required: false
+      type: string
 {% endconfiguration %}
 
 ## Using Multiple Samples
@@ -148,6 +154,7 @@ binary_sensor:
     sensors:
       temp_falling:
         entity_id: sensor.outside_temperature
+        unique_id: outside_temp_falling_trend
         sample_duration: 7200
         max_samples: 120
         min_samples: 20
@@ -156,6 +163,7 @@ binary_sensor:
 
       temp_rising:
         entity_id: sensor.outside_temperature
+        unique_id: outside_temp_rising_trend
         sample_duration: 7200
         max_samples: 120
         min_samples: 20

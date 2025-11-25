@@ -27,6 +27,10 @@ There is currently support for the following device types within Home Assistant:
 - [Button](#button) enabled from the UI
 - [Switch](#switch) enabled from YAML configuration
 
+{% tip %}
+To implement a switch without using YAML, consider using a [template switch helper](/integrations/template/#switch). Use the Wake on LAN button as the turn on action, a [ping](/integrations/ping) sensor for the state, and a third service for the turn off action.
+{% endtip %}
+
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
@@ -151,7 +155,7 @@ from Home Assistant running on another Linux computer (the **server**).
 switch:
   - platform: wake_on_lan
     name: "TARGET"
-    ...
+    mac: XX:XX:XX:XX:XX:XX
     turn_off:
       action: shell_command.turn_off_TARGET
 

@@ -26,7 +26,7 @@ ha_platforms:
   - switch
   - water_heater
 ha_dhcp: true
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The Tado integration platform is used as an interface to the [my.tado.com](https://my.tado.com/) website.
@@ -39,7 +39,7 @@ There is currently support for the following device types within Home Assistant:
 - [Presence detection](#presence-detection)
 - Sensor - for some additional information of the zones.
 - Weather - for information about the current weather at the location of your Tado home.
-- Switch - for controlling child lock on supported devices
+- Switch - for controlling child lock on supported devices.
 
 The Tado thermostats are internet connected thermostats. There exists an unofficial API at [my.tado.com](https://my.tado.com/), which is used by their website and now by this component.
 

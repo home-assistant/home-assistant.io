@@ -3,13 +3,15 @@ title: SwitchBot Bluetooth
 description: Instructions on how to set up SwitchBot Devices.
 ha_category:
   - Binary sensor
+  - Climate
   - Cover
+  - Fan
+  - Humidifier
   - Light
   - Lock
   - Sensor
   - Switch
   - Vacuum
-  - Fan
 ha_release: 0.78
 ha_iot_class: Local Push
 ha_codeowners:
@@ -18,10 +20,14 @@ ha_codeowners:
   - '@murtas'
   - '@Eloston'
   - '@dsypniewski'
+  - '@zerzhang'
 ha_domain: switchbot
+works_with:
+  - bluetooth
 ha_bluetooth: true
 ha_platforms:
   - binary_sensor
+  - climate
   - cover
   - diagnostics
   - fan
@@ -33,6 +39,7 @@ ha_platforms:
   - vacuum
 ha_config_flow: true
 ha_integration_type: integration
+ha_quality_scale: gold
 ---
 
 The SwitchBot integration allows you to control SwitchBot [devices](https://www.switch-bot.com/) such as sensors, locks, shades, lights, plugs, robot vacuums, hubs and etc.
@@ -104,6 +111,8 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 - [Plug Mini (HomeKit Enabled)](https://www.switch-bot.com/products/switchbot-plug-mini-homekit-enabled)
 - [Relay Switch 1](https://www.switch-bot.com/products/switchbot-relay-switch-1)
 - [Relay Switch 1PM](https://www.switch-bot.com/products/switchbot-relay-switch-1pm)
+- [Plug Mini EU](https://www.switch-bot.com/products/switchbot-plug-mini-eu)
+- [Relay Switch 2PM](https://www.switch-bot.com/products/switchbot-relay-switch-2pm)
 
 ### Cover
 
@@ -111,12 +120,17 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 - [Curtain 3 (WoCtn3)](https://switch-bot.com/pages/switchbot-curtain-3)
 - [Blind Tilt (WoBlindTilt)](https://switch-bot.com/pages/switchbot-blind-tilt)
 - [Roller Shade](https://www.switch-bot.com/products/switchbot-roller-shade)
+- [Garage Door Opener](https://www.switch-bot.com/products/switchbot-garage-door-opener)
 
 ### Lights
 
 - [Color Bulb (WoBulb)](https://switch-bot.com/pages/switchbot-color-bulb)
 - [Light Strip (WoStrip)](https://www.switchbot.jp/products/switchbot-strip-light)
 - [Smart Ceiling Light (WoCeiling)](https://www.switchbot.jp/products/switchbot-ceiling-light)
+- [Strip Light 3](https://www.switch-bot.com/products/switchbot-led-strip-light-3)
+- [Floor Lamp](https://www.switch-bot.com/products/switchbot-floor-lamp)
+- [RGBICWW Strip Light](https://www.switch-bot.com/products/switchbot-rgbicww-strip-light)
+- [RGBICWW Floor Lamp](https://www.switch-bot.com/products/switchbot-rgbicww-floor-lamp)
 
 ### Locks
 
@@ -128,6 +142,7 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 ### Humidifiers
 
 - [Humidifier (WoHumi)](https://www.switchbot.jp/products/switchbot-smart-humidifier)
+- [Evaporative Humidifier](https://www.switch-bot.com/products/switchbot-evaporative-humidifier-auto-refill)
 
 ### Sensors
 
@@ -140,6 +155,8 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 - [Motion Sensor (WoPresence)](https://switch-bot.com/pages/switchbot-motion-sensor)
 - [Water Leak Detector](https://www.switch-bot.com/products/switchbot-water-leak-detector)
 - [Remote (WoRemote)](https://www.switch-bot.com/products/switchbot-remote) (currently only supports battery level monitoring)
+- [Climate Panel](https://www.switch-bot.com/products/switchbot-home-climate-panel) (currently only supports retrieving sensor data, does not yet support device control)
+- [Presence Sensor](https://www.switch-bot.com/products/switchbot-presence-sensor)
 
 ### Hubs
 
@@ -155,13 +172,40 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 - [K10+](https://www.switch-bot.com/products/switchbot-mini-robot-vacuum-k10)
 - [K10+ Pro](https://www.switch-bot.com/products/switchbot-mini-robot-vacuum-k10-pro)
 - [K10+ Pro Combo](https://www.switch-bot.com/products/switchbot-k10-pro-combo)
+- [K11+](https://www.switch-bot.com/products/switchbot-robot-vacuum-k11)
 - [K20](https://www.switchbot.jp/products/switchbot-robot-vacuum-cleaner-k20-pro)
 - [S10](https://www.switch-bot.com/products/switchbot-floor-cleaning-robot-s10)
+- [S20](https://www.switch-bot.com/products/switchbot-floor-cleaning-robot-s20)
 
 ### Air purifiers
 
 - [Air Purifier](https://www.switch-bot.com/products/switchbot-air-purifier)
 - [Air Purifier Table](https://www.switch-bot.com/products/switchbot-air-purifier-table)
+
+### Climates
+
+- [Smart Radiator Thermostat](https://www.switch-bot.com/products/switchbot-smart-radiator-thermostat)
+
+## Works with Home Assistant
+
+SwitchBot is committed to making sure their products are up-to-date and ready to use in Home Assistant.
+Devices are certified for both Bluetooth and Matter.
+
+The following devices are certified for Bluetooth:
+- [SwitchBot Lock Ultra](https://www.switch-bot.com/products/switchbot-lock-ultra)
+- [SwitchBot Air Purifier](https://www.switch-bot.com/products/switchbot-air-purifier)
+- [SwitchBot Air Purifier Table](https://www.switch-bot.com/products/switchbot-air-purifier-table)
+- [SwitchBot Leak Detector](https://www.switch-bot.com/products/switchbot-water-leak-detector)
+- [SwitchBot Meter](https://www.switch-bot.com/products/switchbot-meter)
+- [SwitchBot Meter Pro](https://www.switch-bot.com/products/switchbot-meter-pro)
+- [SwitchBot Meter Pro CO2](https://www.switch-bot.com/products/switchbot-meter-pro-co2-monitor)
+- [SwitchBot Indoor/Outdoor Thermo-Hygrometer](https://www.switch-bot.com/products/switchbot-indoor-outdoor-thermo-hygrometer)
+- [SwitchBot Curtain 3](https://www.switch-bot.com/products/switchbot-curtain-3)
+- [SwitchBot Contact Sensor](https://www.switch-bot.com/products/contact-sensor)
+- [SwitchBot Roller Shade](https://www.switch-bot.com/products/switchbot-roller-shade)
+- [SwitchBot Lock Pro](https://www.switch-bot.com/products/switchbot-lock-pro)
+
+To see the list of SwitchBot Matter-certified devices, visit the [SwitchBot Matter](/integrations/switchbot_matter/) page.
 
 ## Supported functionality
 
@@ -171,7 +215,7 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 - `Retry count`: How many times to retry sending commands to your SwitchBot devices.
 
 #### Attributes
-- `last_run_success`: Returns `true` if the last action sent to the SwitchBot succeeded. This attribute is useful for error trapping when Bluetooth connectivity is intermittent. If `false`, see home-assistant.log for specific error messages.
+- `last_run_success`: Returns `true` if the last action sent to the SwitchBot succeeded. This attribute is useful for error trapping when Bluetooth connectivity is intermittent. If `false`, see [the Home Assistant logs](/integrations/logger/#viewing-logs) for specific error messages.
 
 ### Plugs and switches
 
@@ -182,6 +226,7 @@ Switch entities are added for Bot, Plug Mini, and Relay Switch.
 Password protection: You can set a device password in the SwitchBot app to prevent people nearby take control of your device. When a password is set, you need to enter the correct password in order to add it to the integrations.
 
 Features:
+
 - turn on or off
 - press
 - get battery level
@@ -192,14 +237,28 @@ Attributes:
 #### Plug Mini
 
 Features:
+
 - turn on or off
 - get power consumption readings
+
+#### Plug Mini EU
+
+This is an encrypted device.
+
+Features:
+
+- turn on or off
+- get power
+- get voltage
+- get current
+- get electricity consumption
 
 #### Relay Switch 1
 
 This is an encrypted device.
 
 Features:
+
 - turn on or off
 
 #### Relay Switch 1PM
@@ -207,18 +266,33 @@ Features:
 This is an encrypted device.
 
 Features:
+
 - turn on or off
 - get power
 - get voltage
 - get current
+- get electricity consumption
+
+#### Relay Switch 2PM
+
+This is an encrypted device, and it has two switch channels, you can set them independently.
+
+Features:
+
+- turn on or off
+- get power
+- get voltage
+- get current
+- get electricity consumption
 
 ### Cover
 
-Cover entities are added for Curtain, Curtain 3, Blind Tilt, and Roller Shade.
+Cover entities are added for Curtain, Curtain 3, Blind Tilt, Roller Shade, and Garage Door Opener.
 
 #### Curtain
 
 Features:
+
 - open/close/pause
 - set position
 - get position
@@ -229,6 +303,7 @@ Features:
 #### Curtain 3
 
 Features:
+
 - open/close/pause
 - set position
 - get position
@@ -239,6 +314,7 @@ Features:
 #### Blind Tilt
 
 Features:
+
 - close up/close down/pause
 - set position
 - get position
@@ -258,7 +334,7 @@ The close button will close the blinds to the closest closed position (either 0%
 
 ##### Simple cover template entity
 
-Some integrations may expose your SwitchBot Blind Tilt to other actions which expect that 100% is open and 0% is fully closed. Using a [Cover Template](/integrations/cover.template), a proxy entity can be created which will be open at 100% and closed at 0%. This template entity is limited to closing in one direction.
+Some integrations may expose your SwitchBot Blind Tilt to other actions which expect that 100% is open and 0% is fully closed. Using a [Cover Template](/integrations/template/#cover), a proxy entity can be created which will be open at 100% and closed at 0%. This template entity is limited to closing in one direction.
 
 {% raw %}
 
@@ -303,18 +379,26 @@ The Roller Shade is exposed as a cover entity with control of the position only:
 | >20%     | Close              |
 
 Features:
+
 - open/close/pause
 - set position
 - get position
 - get battery level
 
+#### Garage Door Opener
+
+Features:
+
+- open/close
+
 ### Sensors
 
-Sensor entiteis are added for thermometer and hygrometer devices, motion sensor, contact sensor, leak sensor, and remote button.
+Sensor entiteis are added for thermometer and hygrometer devices, motion sensor, contact sensor, leak sensor, presence sensor, remote button and climate panel.
 
 #### Meter
 
 Features:
+
 - get temperature
 - get humidity
 - get battery level
@@ -322,6 +406,7 @@ Features:
 #### Meter Plus
 
 Features:
+
 - get temperature
 - get humidity
 - get battery level
@@ -329,6 +414,7 @@ Features:
 #### Indoor/Outdoor Meter
 
 Features:
+
 - get temperature
 - get humidity
 - get battery level
@@ -336,6 +422,7 @@ Features:
 #### Meter Pro
 
 Features:
+
 - get temperature
 - get humidity
 - get battery level
@@ -343,6 +430,7 @@ Features:
 #### Meter Pro CO2 Monitor
 
 Features:
+
 - get temperature
 - get humidity
 - get carbon dioxide
@@ -362,10 +450,23 @@ Features:
 
 - motion detection state
 - get battery level
+
+#### Presence Sensor
+
+Note: Device battery data is stored in service data, not broadcast. This data can only be retrieved when Bluetooth is in active mode.
+
+Feature
+
+- get light level
+- get battery
+- get occupancy state
+
 #### Water Leak Detector
+
 This is an encrypted device.
 
 Features:
+
 - leak or dry state
 - get battery level
 
@@ -374,9 +475,29 @@ Features:
 Features:
 - get battery level
 
+#### Climate Panel
+
+This is an encrypted device.
+
+Features:
+
+- get temperature
+- get humidity
+- get battery
+- motion detection state
+- light detection state
+
 ### Lights
 
 Light entities are added for Color Bulb, LED Strip Light, and Ceiling Light.
+
+#### Ceiling Light
+
+Features:
+
+- turn on or off
+- change brightness
+- change color temperature
 
 #### Color Bulb
 
@@ -385,13 +506,64 @@ Features:
 - change brightness
 - change color temperature
 - change color
+- set effect
 
 #### LED Strip Light
 
 Features:
+
 - turn on or off
 - change brightness
 - change color
+- set effect
+
+#### Strip Light 3
+
+This is an encrypted device.
+
+Features:
+
+- turn on or off
+- change brightness
+- change color temperature
+- change color
+- set effect
+
+#### Floor Lamp
+
+This is an encrypted device.
+
+Features:
+
+- turn on or off
+- change brightness
+- change color temperature
+- change color
+- set effect
+
+#### RGBICWW Strip Light
+
+This is an encrypted device.
+
+Features:
+
+- turn on or off
+- change brightness
+- change color temperature
+- change color
+- set effect
+
+#### RGBICWW Floor Lamp
+
+This is an encrypted device.
+
+Features:
+
+- turn on or off
+- change brightness
+- change color temperature
+- change color
+- set effect
 
 ### Locks
 
@@ -402,11 +574,18 @@ Note: The integration currently only uses the primary lock state; in dual lock m
 This is an encrypted device.
 
 Features:
+
 - Lock or unlock
 - open or closed state
 - auto-lock paused state
 - calibration state
 - get battery level
+
+Options:
+
+1. To enable nightlatch operation mode, go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Under **Integration entries**, find the lock and select **Configure**.
+3. In the **Options** dialog, configure the nightlatch operation mode.
 
 #### Lock Pro
 
@@ -420,6 +599,14 @@ Features:
 - calibration state
 - get battery level
 
+Options:
+
+1. To enable nightlatch operation mode, go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Under **Integration entries**, find the lock and select **Configure**.
+3. In the **Options** dialog, configure the nightlatch operation mode.
+
+
+
 #### Lock Ultra
 
 This is an encrypted device.
@@ -432,6 +619,12 @@ Features:
 - calibration state
 - get battery level
 
+Options:
+
+1. To enable nightlatch operation mode, go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Under **Integration entries**, find the lock and select **Configure**.
+3. In the **Options** dialog, configure the nightlatch operation mode.
+
 #### Lock Lite
 
 This is an encrypted device.
@@ -439,8 +632,6 @@ This is an encrypted device.
 Features:
 
 - Lock or unlock
-- open or closed state
-- auto-lock paused state
 - calibration state
 - get battery level
 
@@ -474,19 +665,23 @@ Features:
 
 ### Fans
 
-Fan entities are added for Circulator Fan, Air Purifier, and Air Purifier Table
+Fan entities are added for Battery Circulator Fan/Circulator Fan
 
-#### Circulator Fan
+#### Battery Circulator Fan/Circulator Fan
 
 Features:
-
 - turn on
 - turn off
 - set speed
 - set mode
 - oscillate left and right
+- get battery level (Battery Circulator Fan only)
 
-#### Air Purifier
+### Air Purifiers
+
+Fan entities are added for Air Purifier, and Air Purifier Table.
+
+Air purifier currently supports three speed levels, which you can adjust by setting the mode.
 
 This is an encrypted device.
 
@@ -508,13 +703,51 @@ Features:
 
 ### Vacuums
 
-Vacuum entities are added for K10+, K10+ Pro, K10+ Pro Combo, K20, S10.
+Vacuum entities are added for K10+, K10+ Pro, K10+ Pro Combo, K20, S10, K11+, S20.
 
 Features:
-
+- get states, including `cleaning`, `docked`, `idle`, `paused`, `returning`, and `error`; refer to Known limitations for more details
 - start
 - return to base
 - get battery
+
+### Humidifiers
+
+Humidifier entities are added for Humidifier and  Evaporative Humidifier.
+
+#### Humidifier
+
+Features:
+
+- turn on
+- turn off
+- set mode
+- set humidity
+
+#### Evaporative Humidifier
+
+This is an encrypted device.
+Note: Not all modes support unless you bind the temperature and humidity sensor.
+
+Features:
+
+- turn on
+- turn off
+- set mode
+- set humidity
+
+### Climates
+
+climate entities are added for smart radiator thermostat
+
+This is an encryed device.
+
+Features:
+
+- turn on
+- turn off
+- set mode
+- set target temperature
 
 ## Data updates
 
@@ -531,9 +764,24 @@ Move the device closer, or replace the Bluetooth adapter with a faster one. See 
 
 Device names configured in the SwitchBot app are not transferred into Home Assistant.
 
+### Battery level
+
+Due to firmware limitations, early models such as **Lock** and **Lock Lite** report the battery level in coarse ranges rather than an exact value:
+
+- < 10 %  → 10  
+- 10 % – 20 % → 20  
+- 20 % – 60 % → 60  
+- ≥ 60 % → 100
+
+Refer to the latest version of the [OpenAPI doc](https://github.com/OpenWonderLabs/SwitchBotAPI) for precise definitions.
+
 ### Lock state
 
 The integration currently only uses the primary lock state; in dual lock mode, not all things might work properly.
+
+### Vacuum state
+
+For robot vacuum K10+ and K10+ Pro, due to firmware implementation, it only returns these states, `cleaning` and `docked`
 
 ## Troubleshooting
 
@@ -546,8 +794,6 @@ Possible custom integration conflict, using a different version of PySwitchbot; 
 {% details "No unconfigured devices found" %}
 Make sure your devices are powered on and are in range.
 {% enddetails %}
-
-
 
 ## Examples
 

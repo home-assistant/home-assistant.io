@@ -8,6 +8,8 @@ related:
     title: Themes
   - docs: /dashboards/cards/
     title: Dashboard cards
+  - docs: /dashboards/naming/
+    title: Card naming
 ---
 
 The weather forecast card displays the weather. This card is particularly useful on wall-mounted displays.
@@ -58,9 +60,14 @@ entity:
   type: string
 name:
   required: false
-  description: Overwrites the friendly name.
-  type: string
+  description: Overwrites friendly name. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/).
+  type: [string, map, list]
   default: Entity name
+show_current:
+  required: false
+  description: Show the current weather conditions above the forecast.
+  type: boolean
+  default: true
 show_forecast:
   required: false
   description: Show next hours/days forecast.
@@ -70,7 +77,6 @@ forecast_type:
   required: true
   description: Type of forecast to display, one of `daily`, `hourly` or `twice_daily`.
   type: string
-  default: Automatically selects in order of `daily`, `hourly` and `twice_daily`.
 secondary_info_attribute:
   required: false
   description: Which attribute to display under the temperature.

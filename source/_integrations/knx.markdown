@@ -48,6 +48,7 @@ ha_platforms:
   - weather
 ha_config_flow: true
 ha_integration_type: hub
+ha_quality_scale: silver
 ---
 
 The [KNX](https://www.knx.org) integration connects Home Assistant to your KNX installation, allowing you to control KNX devices, act on telegrams and forward state changes from other integrations entities to your KNX bus.
@@ -125,13 +126,23 @@ Local IP interface:
 
 See [Connection](#connection) on how to get the files or keys needed for this configuration step.
 
-{% include integrations/option_flow.md %}
+## Reconfiguration
+
+You can change your KNX connection configuration at any time through the integration settings. This is useful when you need to update the Keyring file or switch to a different connection type.
+
+1. Go to {% my integrations icon title="**Settings** > **Devices & services**" %}.
+2. Select **KNX**.
+3. Click the three-dot {% icon "mdi:dots-vertical" %} menu and then select **Reconfigure**.
 
 ### Configure KNX interface
 
 Reconfigure your connection settings. See above for more information.
 
-### Communication settings
+### Import KNX Keyring
+
+Provide a new keyring file to be used by the integration. See [KNX Secure](#knx-secure) on how to get this file.
+
+{% include integrations/option_flow.md %}
 
 {% configuration_basic %}
 State updater:
@@ -141,10 +152,6 @@ Rate limit:
 Telegram history limit:
   description: "Number of Telegrams to keep in memory for the KNX panels group monitor."
 {% endconfiguration_basic %}
-
-### Import KNX Keyring
-
-Provide a (new) keyring file to be used by the integration. See [KNX Secure](#knx-secure) on how to get this file.
 
 ## Basic configuration
 
@@ -555,7 +562,7 @@ address:
   required: true
   type: [string, list]
 remove:
-  description: If `True` the group address will be removed.
+  description: If `true` the group address will be removed.
   required: false
   type: boolean
   default: false
@@ -571,7 +578,7 @@ The `knx.exposure_register` action can be used to register (or unregister) expos
 
 {% configuration %}
 remove:
-  description: In addition to the configuration variables of [expose](#exposing-entity-states-entity-attributes-or-time-to-knx-bus) `remove` set to `True` can be used to remove exposures. Only `address` is required for removal.
+  description: In addition to the configuration variables of [expose](#exposing-entity-states-entity-attributes-or-time-to-knx-bus) `remove` set to `true` can be used to remove exposures. Only `address` is required for removal.
   required: false
   type: boolean
   default: false
@@ -595,7 +602,7 @@ knx:
     # time and date exposures
     - type: time
       address: "0/0/1"
-    # entitiy exposures
+    # entity exposures
     - type: temperature
       entity_id: sensor.owm_temperature
       address: "0/0/2"
@@ -631,7 +638,7 @@ knx:
 
 {% configuration %}
 address:
-  description: Group address state or attribute updates will be sent to. GroupValueRead requests will be answered.
+  description: Group address state or attribute updates will be sent to. GroupValueRead requests will be answered. For types `time`, `date`, and `datetime`, `address` is the only valid configuration variable..
   type: string
   required: true
 type:
@@ -639,33 +646,33 @@ type:
   type: [string, integer]
   required: true
 entity_id:
-  description: Entity ID to be exposed. Not needed for types `time`, `date` and `datetime`.
+  description: Entity ID to be exposed. Shall not be used for types `time`, `date`, and `datetime`.
   type: string
   required: false
 attribute:
   description: Attribute of the entity that shall be sent to the KNX bus. If not set (or `None`) the state will be sent.
-    For example for a light the state is either "on" or "off". With `attribute` you can expose its "brightness".
+    For example for a light the state is either "on" or "off". With `attribute` you can expose its "brightness". Shall not be used for types `time`, `date`, and `datetime`.
   type: string
   required: false
 default:
   description: Default value to send to the bus if the state or attribute value is `None`.
     For example a light with state "off" has no brightness attribute so a default value of `0` could be used.
-    If not set (or `None`) no value would be sent to the bus and a GroupReadRequest to the address would return the last known value.
+    If not set (or `None`) no value would be sent to the bus and a GroupReadRequest to the address would return the last known value. Shall not be used for types `time`, `date`, and `datetime`.
   type: [boolean, string, integer, float]
   default: None
   required: false
 value_template:
-  description: A template to process the value before sending it to the KNX bus. The template has access to the entity state or attribute value as `value`.
+  description: A template to process the value before sending it to the KNX bus. The template has access to the entity state or attribute value as `value`. Shall not be used for types `time`, `date`, and `datetime`.
   required: false
   default: None
   type: template
 cooldown:
-  description: Minimum time in seconds between two sent telegrams. This can be used to avoid flooding the KNX bus when exposing frequently changing states. If the state changes multiple times within the cooldown period the most recent value will be sent.
+  description: Minimum time in seconds between two sent telegrams. This can be used to avoid flooding the KNX bus when exposing frequently changing states. If the state changes multiple times within the cooldown period the most recent value will be sent. Shall not be used for types `time`, `date`, and `datetime`.
   type: float
   default: 0
   required: false
 respond_to_read:
-  description: Respond to GroupValueRead telegrams received to the configured `address`.
+  description: Respond to GroupValueRead telegrams received to the configured `address`. Shall not be used for types `time`, `date`, and `datetime`.
   required: false
   type: boolean
   default: true
@@ -683,7 +690,6 @@ Binary sensors are read-only entities. To write to the KNX bus, configure a [KNX
 
 Binary sensor entities can be created from the frontend in the KNX panel or via YAML.
 
-<a name="configuration-binary-sensor-yaml"></a>
 {% details "Configuration of KNX binary sensor entities via YAML" %}
 
 ```yaml
@@ -847,6 +853,10 @@ entity_category:
 ## Climate
 
 The KNX climate platform is used as an interface to KNX thermostats and room controllers.
+
+Climate entities can be created from the frontend in the KNX panel or via YAML.
+
+{% details "Configuration of KNX climate entities via YAML" %}
 
 To use your KNX thermostats in your installation, add the following lines to your top level [KNX Integration](/integrations/knx) configuration key in {% term "`configuration.yaml`" %}:
 
@@ -1131,6 +1141,8 @@ entity_category:
   default: None
 {% endconfiguration %}
 
+{% enddetails %}
+
 ## Cover
 
 The KNX cover platform is used as an interface to KNX covers.
@@ -1143,7 +1155,6 @@ Home Assistant will, by default, `close` a cover by moving it in the `DOWN` dire
 
 Cover entities can be created from the frontend in the KNX panel or via YAML.
 
-<a name="configuration-cover-yaml"></a>
 {% details "Configuration of KNX cover entities via YAML" %}
 
 To use your KNX covers in your installation, add the following lines to your top level [KNX Integration](/integrations/knx) configuration key in your {% term "`configuration.yaml`" %}:
@@ -1279,7 +1290,7 @@ state_address:
   required: false
   type: [string, list]
 respond_to_read:
-  description: Respond to GroupValueRead telegrams received to the configured `address`.
+  description: If `true`, the entity will respond to GroupValueRead telegrams received on the configured `address` by sending a GroupValueResponse to the same `address`. This is typically used when Home Assistant acts as the state provider for the KNX bus. In such cases, only `address` is configured, and `state_address` is not set. Read-requests to passive or state addresses don't trigger responses.
   required: false
   type: boolean
   default: false
@@ -1346,7 +1357,7 @@ state_address:
   required: false
   type: [string, list]
 respond_to_read:
-  description: Respond to GroupValueRead telegrams received to the configured `address`.
+  description: If `true`, the entity will respond to GroupValueRead telegrams received on the configured `address` by sending a GroupValueResponse to the same `address`. This is typically used when Home Assistant acts as the state provider for the KNX bus. In such cases, only `address` is configured, and `state_address` is not set. Read-requests to passive or state addresses don't trigger responses.
   required: false
   type: boolean
   default: false
@@ -1436,7 +1447,6 @@ The KNX light integration is used as an interface to control KNX actuators for l
 
 Light entities can be created from the frontend in the KNX panel or via YAML.
 
-<a name="configuration-light-yaml"></a>
 {% details "Configuration of KNX light entities via YAML" %}
 
 {% configuration %}
@@ -1750,7 +1760,7 @@ type:
   required: true
   type: [string, integer]
 respond_to_read:
-  description: Respond to GroupValueRead telegrams received to the configured `address`.
+  description: If `true`, the entity will respond to GroupValueRead telegrams received on the configured `address` by sending a GroupValueResponse to the same `address`. This is typically used when Home Assistant acts as the state provider for the KNX bus. In such cases, only `address` is configured, and `state_address` is not set. Read-requests to passive or state addresses don't trigger responses.
   required: false
   type: boolean
   default: false
@@ -1780,7 +1790,7 @@ entity_category:
 
 ## Scene
 
-The KNX scenes platform allows you to trigger [KNX](https://www.knx.org/) scenes. These entities are write-only.
+The KNX scene platform allows you to activate KNX scenes and updates scene entities when the corresponding scene number is received on the KNX bus.
 
 ```yaml
 # Example configuration.yaml entry
@@ -1883,7 +1893,7 @@ options:
       required: true
       type: integer
 respond_to_read:
-  description: Respond to GroupValueRead telegrams received to the configured `address`.
+  description: If `true`, the entity will respond to GroupValueRead telegrams received on the configured `address` by sending a GroupValueResponse to the same `address`. This is typically used when Home Assistant acts as the state provider for the KNX bus. In such cases, only `address` is configured, and `state_address` is not set. Read-requests to passive or state addresses don't trigger responses.
   required: false
   type: boolean
   default: false
@@ -2189,7 +2199,6 @@ Switch entities can be created from the frontend in the KNX panel or via YAML.
 Switch entities without a `state_address` will restore their last known state after Home Assistant was restarted.
 Switches that have a `state_address` configured request their current state from the KNX bus.
 
-<a name="configuration-switch-yaml"></a>
 {% details "Configuration of KNX switch entities via YAML" %}
 
 ```yaml
@@ -2219,7 +2228,7 @@ invert:
   type: boolean
   default: false
 respond_to_read:
-  description: Respond to GroupValueRead telegrams received to the configured `address`.
+  description: If `true`, the entity will respond to GroupValueRead telegrams received on the configured `address` by sending a GroupValueResponse to the same `address`. This is typically used when Home Assistant acts as the state provider for the KNX bus. In such cases, only `address` is configured, and `state_address` is not set. Read-requests to passive or state addresses don't trigger responses.
   required: false
   type: boolean
   default: false
@@ -2282,7 +2291,7 @@ type:
   type: [string, integer]
   default: latin_1
 respond_to_read:
-  description: Respond to GroupValueRead telegrams received to the configured `address`.
+  description: If `true`, the entity will respond to GroupValueRead telegrams received on the configured `address` by sending a GroupValueResponse to the same `address`. This is typically used when Home Assistant acts as the state provider for the KNX bus. In such cases, only `address` is configured, and `state_address` is not set. Read-requests to passive or state addresses don't trigger responses.
   required: false
   type: boolean
   default: false
@@ -2335,7 +2344,7 @@ state_address:
   required: false
   type: [string, list]
 respond_to_read:
-  description: Respond to GroupValueRead telegrams received to the configured `address`.
+  description: If `true`, the entity will respond to GroupValueRead telegrams received on the configured `address` by sending a GroupValueResponse to the same `address`. This is typically used when Home Assistant acts as the state provider for the KNX bus. In such cases, only `address` is configured, and `state_address` is not set. Read-requests to passive or state addresses don't trigger responses.
   required: false
   type: boolean
   default: false

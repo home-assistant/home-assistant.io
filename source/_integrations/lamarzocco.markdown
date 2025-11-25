@@ -78,6 +78,7 @@ By default, this integration will receive push updates from the cloud about its 
 | Number name | Description | Available for machines | Controllable through | Remarks |
 |-------------|-------------| ---------------------- |--------------------- | ------- |
 | **Coffee target temperature** | Temperature the coffee boiler is set to | `all` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} <iconify-icon inline title="Bluetooth" icon="material-symbols:bluetooth"></iconify-icon> | - |
+| **Steam target temperature** | Temperature the steam boiler is set to | `GS3 AV`, `GS3 MP` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} <iconify-icon inline title="Bluetooth" icon="material-symbols:bluetooth"></iconify-icon> | - |
 | **Smart standby time** | Time until the machine will automatically stand by (if enabled) | `all` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} | - |
 | **Preinfusion time** | Duration of preinfusion | `Linea Micra`, `Linea Mini`, `Linea Mini R` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} | only available when machine is in mode `Preinfusion` |
 | **Prebrew time on** | Duration which prebrew will be on | `Linea Micra`, `Linea Mini`, `Linea Mini R` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} | only available when machine is in mode `Prebrew` |
@@ -125,6 +126,11 @@ By default, this integration will receive push updates from the cloud about its 
 | **Prebrew/-infusion mode** | Whether to use prebrew, preinfusion, or neither | `Disabled`, `Prebrew`, `Preinfusion` | `Linea Micra`, `Linea Mini`, `GS3 AV` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} |
 | **Steam level** | The level your steam boiler should run at | `1`,`2`,`3` | `Linea Micra`, `Linea Mini R` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} <iconify-icon inline title="Bluetooth" icon="material-symbols:bluetooth"></iconify-icon> |
 | **Smart standby mode** | The smart standby mode, that decides from which events the timer to standby will run. | `Last brewing`, `Power on` | `all` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} <iconify-icon inline title="Bluetooth" icon="material-symbols:bluetooth"></iconify-icon>  |
+
+## Calendar
+
+The integration exposes a calendar for the machine's auto-on/off schedule. It only displays the schedule; you can't make changes to the schedule from the calendar.
+The schedule will be displayed recurrently: If you set the machine to start up on Mondays at 8:00 and shut down at 9:00, you will get events for all Mondays in your calendar. On days when you have the auto on/off feature disabled, you will not get an event in the calendar. Also, if you have the auto on/off feature disabled globally (for example, through the switch "Auto on/off"), there will be no events in the calendar.
 
 ## Supported devices
 
@@ -183,15 +189,15 @@ mode: single
 - Only La Marzocco native app accounts are supported, social logins (Google, Apple & WeChat) are not supported
 - Currently it is only possible to view the schedules configured in the La Marzocco Home app, but not to edit the schedules from Home Assistant. You can, of course, build Home Assistant native automations to reflect the same functionality in Home Assistant.
 
-## Removing the integration
-
-This integration follows standard integration removal. No extra steps are required.
-
-{% include integrations/remove_device_service.md %}
-
 ## Troubleshooting
 
 {% details "Problem: Connection to machine is not possible" %}
 
 Check the La Marzocco Home app to see if you can connect to your machine there. If not, remove the machine and add it again (follow the instructions in the La Marzocco App).
 {% enddetails %}
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}

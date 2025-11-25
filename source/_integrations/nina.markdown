@@ -11,6 +11,7 @@ ha_codeowners:
 ha_domain: nina
 ha_platforms:
   - binary_sensor
+  - diagnostics
 ha_integration_type: integration
 ---
 
@@ -24,6 +25,10 @@ This integration may only work with an Internet connection that supports IPv4.
 
 {% include integrations/config_flow.md %}
 
+### Data updates
+
+The integration checks for warnings every 5 minutes.
+
 ### Filter
 
 The integration includes the possibility to filter warnings in two ways via a regex.
@@ -32,9 +37,9 @@ The integration includes the possibility to filter warnings in two ways via a re
 All filters are applied to lowercase text only.
 {% endnote %}
 
-#### Headline filter
+#### Headline blocklist
 
-This filter filters warnings based on the headline as a **blacklist**. In other words, if the regular expression matches the headline of the warning, the warning will be **ignored**.
+This blocklist filters warnings based on the headline. In other words, if the regular expression matches the headline of the warning, the warning will be **ignored**.
 
 Default: Match nothing (`/(?!)/`)
 
@@ -72,3 +77,9 @@ Areas: `gemeinde oberreichenbach, gemeinde neuweiler, stadt nagold`
 | `sent` | *(time)* Transmission time and date (UTC) of the issued warning. |
 | `start` | *(time)* Starting time and date (UTC) of the issued warning. Can be empty. |
 | `expires` | *(time)* Expiration time and date (UTC) of the issued warning. Can be empty. |
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}

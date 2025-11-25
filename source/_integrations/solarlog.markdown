@@ -100,7 +100,12 @@ The following additional sensor becomes available:
 
 | Name                  | Unit   | Description   |
 |-----------------------|--------|:-------------------------------------------|
+| charge_level          | %      | Current charge level of battery.*          |
+| charging_power        | W      | Current power charging battery.*           |
+| discharging_power     | W      | Current power discharging battery.*        |
 | self_consumption_year | kWh    | Annual self-consumed solar power.          |
+
+*Only available, if battery connected to solarlog.
 
 In addition, information from devices connected to the Solar-Log device becomes available. The following additional sensors become available (all values are per inverter/device):
 

@@ -25,6 +25,7 @@ Some hardware with water meters may also provide additional practical functions 
 
 We have the following integrations available for existing products that can provide information about water usage:
 
+- [Droplet](/integrations/droplet)
 - [Flo](/integrations/flo)
 - [Flume](/integrations/flume)
 - [HomeWizard Energy](/integrations/homewizard)
@@ -37,12 +38,17 @@ There are also products for water usage monitoring that are based on existing co
 - [Zigbee](/integrations/zha)
 - [Matter](/integrations/matter)
 
+## Individual water devices
+
+Similar to tracking individual energy devices, Home Assistant supports tracking water usage of individual devices. This feature allows you to monitor water consumption from specific appliances or fixtures in your home, such as washing machines, dishwashers, or individual faucets.
+
+You can create hierarchies of water devices by setting one device as an "upstream device" of another. This prevents double-counting when you have, for example, a main water meter and individual device meters. For more details on setting up device hierarchies and preventing double-counting, see the [individual devices documentation](/docs/energy/individual-devices/).
 
 ## Community-made sensors
 
 If your water meter lacks a rotary disk, magnetic disk, or coil. There are alternative solutions available to seamlessly integrate water monitoring into your smart home setup:
 
-- [AI-on-the-edge-device](https://github.com/jomjol/AI-on-the-edge-device) is a project running on an ESP32-CAM and can be fully integrated into Home Assistant using the Home Assistant Discovery Functionality of MQTT. It digitalizes your gas/water/electricity meter display and provides its data in various ways.![Photo of the AI-on-the-edge-device Workflow](/images/docs/energy/
+- [AI-on-the-edge-device](https://github.com/jomjol/AI-on-the-edge-device) is a project running on an ESP32-CAM and can be fully integrated into Home Assistant using the Home Assistant Discovery Functionality of MQTT. It digitalizes your gas/water/electricity meter display and provides its data in various ways.![Photo of the AI-on-the-edge-device Workflow](/images/docs/energy/ai-on-the-edge-device.jpg)
 
 If you have a Culligan Water Softener, you may be able to interface with the inbuilt `DEBUG PORT` and receive water usage stats including `Gallons` (gal), `Gallons Per Minute` (gal/min), and `Gallons to Recharge` (gal):
 
