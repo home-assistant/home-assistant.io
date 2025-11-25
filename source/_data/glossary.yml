@@ -111,9 +111,9 @@
   aliases:
     - buttons
 - term: Calendar
-  definition:
+  definition: >-
     A calendar entity represents a schedule of events coming from a local or external calendar source.
-    It can be used to trigger automations based on the start or end of an event, react to offsets (e.g., 15 minutes before), or retrieve event details through services.
+    It can be used to trigger automations based on the start or end of an event, react to offsets (like 15 minutes before), or retrieve event details through services.
   link: /integrations/calendar
   aliases:
     - calendars
