@@ -44,6 +44,8 @@ There is support for the following device families within Home Assistant:
 
 This integration requires multifactor authentication using an authentication app (such as Microsoft Authenticator, for example). To enable MFA, in your Amazon account settings select **Login & Security** > **2-step verification** > **Backup methods** > **Add new app**. See [Amazon's documentation](https://www.amazon.com/gp/help/customer/display.html?nodeId=G9MX9LXNWXFKMJYU) for more information.
 
+You must ensure the authenticator app is setup as your preferred method for 2FA.
+
 {% endwarning %}
 
 {% include integrations/config_flow.md %}
@@ -160,6 +162,28 @@ data:
   text_command: whats the time
 ```
 
+### Set volume
+
+{% note %}
+Once media player functionality is supported you will be able to achieve this through standard media player actions.
+{% endnote %}
+
+```yaml
+action: alexa_devices.send_text_command
+data:
+  device_id: 037d79c1af96c67ba57ebcae560fb18e
+  text_command: volume 7
+```
+
+### Control devices in Alexa
+
+```yaml
+action: alexa_devices.send_text_command
+data:
+  device_id: 037d79c1af96c67ba57ebcae560fb18e
+  text_command: turn study lights off
+```
+
 ### Play BBC Radio 6
 
 ```yaml
@@ -218,17 +242,36 @@ This integration {% term polling polls %} data from the device every 30 seconds 
 
 ## Troubleshooting
 
-### Can’t set up the integration
+### Unable to setup
 
-#### Symptom: "Not found"
-
-When trying to set up the integration, the form shows the message "Not found".
+#### Symptom: "CannotAuthenticate"
 
 ##### Description
 
-This appears to indicate that your Alexa devices aren't owned by you, but are connected through Amazon Family.
-This setup isn't supported by the Alexa Mobile app, so it's not supported by this integration.
-Move the devices to your primary account.
+You will see `MFA OTP code not found on login page` or `Cannot find "auth-mfa-otpcode" in html source` in the logs when trying to set up the integration.   This is because the authentication details are incorrect.
+
+You need to ensure you are:
+
+- using the right credentials (The ones you would use to log in to the Alexa app and Amazon shopping site)
+- set up to use app based 2FA
+- not set up to receive SMS 2FA codes
+
+To test this you should log in to your local Amazon shopping site in incognito/private mode in your browser and check you are prompted for the OTP code from your authenticator app, and you are able to log in successfully.
+
+### Sensors unavailable
+
+#### Symptom: "Too many requests"
+
+You see something similar to
+
+- `Error retrieving devices state: Too many requests for path ['listEndpoints']`
+- `Error retrieving data: CannotRetrieveData('Request failed: Bad Request')`
+
+In logs.
+
+##### Description
+
+This happens because of rate limits applied by Amazon. We are working to reduce these errors. If these errors are causing you issues, you can disable polling for the integration. Disabling polling will stop these errors, but it will also stop DND, sensors, and connectivity from being updated. However, speech, announcements, and text commands will continue to work.
 
 ## Removing the integration
 

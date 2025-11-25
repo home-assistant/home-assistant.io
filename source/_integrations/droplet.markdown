@@ -71,12 +71,19 @@ This integration follows standard integration removal process.
 {% include integrations/remove_device_service.md %}
 4. To prevent Droplet from showing up as a discovered device after its removal, disable the local API in the Droplet app under **Settings** > **Smart Home Integrations** > **Home Assistant**.
 
-## FAQ & Troubleshooting
+## Troubleshooting
+
+Here are some steps you can take if you're having trouble connecting your Droplet to Home Assistant.
+
+- Make sure you've entered the code from the Droplet app without any spaces and in all caps.
+- Try waiting 1-2 minutes after enabling Home Assistant or regenerating the code in the app. It may take a moment for Droplet to be ready to accept connections.
+
+## FAQ
 
 ### Q: Why does Droplet’s volume sensor sometimes show negative values?
 
-**A**: The volume reported by Droplet over local API is point-to-point, meaning that each new value represents the difference in volume recorded since this data was last sent. Even when you’re not using appliances in your home, there can still be activity in your pipes. Droplet tries to be very accurate and is sensitive to small flows, which can include water sloshing back and forth, or slight movement as a result of pressure differences. Small negative values are to be expected, and are reported so that cumulative statistics reported in Home Assistant (or other consumers of the API) can be fully accurate.
+**A**: Even when you’re not using appliances in your home, there can still be activity in your pipes. Droplet tries to be very accurate and is sensitive to small flows, which can include water sloshing back and forth, or slight movement as a result of pressure differences. Small negative values are to be expected, and are reported so that cumulative statistics reported in Home Assistant (or other consumers of the API) can be fully accurate.
 
-### Q: Why is my Droplet failing to authenticate with Home Assistant?
+### Q: Why is Droplet's volume sensor value so small?
 
-**A**: If your Droplet is failing to authenticate, try waiting 1-2 minutes after enabling Home Assistant or regenerating the code in the Droplet app. It may take a moment for the Droplet to be ready to accept connections.
+**A**: The volume reported by Droplet over local API is point-to-point, meaning that each new value represents the difference in volume recorded since this data was last sent. This data can be aggregated to generate cumulative volumes over periods such as days, weeks, or months.
