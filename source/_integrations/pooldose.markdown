@@ -126,7 +126,7 @@ This integration provides the following entities.
 ### Switches
 
 - **Pause dosing**: Pauses or resumes the dosing process.
-- **Pump monitoring**: Enables or disables the pump monitoring.
+- **Pump monitoring**: Enables or disables pump monitoring.
 - **Frequency input**: Enables or disables the frequency input for a water meter.
 
 ## Known limitations
