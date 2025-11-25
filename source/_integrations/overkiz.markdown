@@ -93,6 +93,15 @@ Verify SSL:
   description: "Verify the SSL certificate of your hub. This option is available only when connecting via the hostname."
 {% endconfiguration_basic %}
 
+### Using both local and cloud APIs
+
+For hubs that support the local API, you can configure both a local and a cloud connection for the same gateway. This hybrid setup provides:
+
+- **Local control**: Fast, reliable control that works without internet
+- **Cloud features**: Access to scenarios and climate entities not available via the local API
+
+When both connections are configured, the integration automatically prioritizes the local connection for devices that support it. Devices only available via the cloud API (such as scenarios and certain climate entities) will continue to work through the cloud connection.
+
 ## Data updates
 
 This integration retrieves data from Overkiz every 30 seconds to ensure timely updates. If you only have stateless devices (RTS protocol), the integration will poll for new data every hour to reduce unnecessary load on the Overkiz API.
