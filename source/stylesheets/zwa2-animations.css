@@ -1,5 +1,0 @@
-/* Prevent scrolling while the initial animation is playing */
-.zwa2-disable-scroll {
-  overflow: hidden !important;
-  height: 100vh !important;
-}
