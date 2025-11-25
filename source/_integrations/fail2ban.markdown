@@ -18,7 +18,7 @@ ha_quality_scale: legacy
 The Fail2Ban {% term integration %} allows for IPs banned by [fail2ban](https://www.fail2ban.org/wiki/index.php/Main_Page) to be displayed in the Home Assistant frontend.
 
 {% important %}
-This integration is only available on {% term "Home Assistant Container" %}.
+This integration is only available on {% term "Home Assistant Container" %} . Unfortunately, it cannot be used with {% term "Home Assistant Operating System" %}.
 {% endimportant %}
 
 {% important %}
