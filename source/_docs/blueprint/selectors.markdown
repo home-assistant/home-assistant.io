@@ -191,7 +191,7 @@ entity:
       description: >
         Limits the list of areas to areas that have entities with a certain
         supported feature, for example, `light.LightEntityFeature.TRANSITION` or `climate.ClimateEntityFeature.TARGET_TEMPERATURE`. Should be a list of features.
-        For a list of supported features for each entity platform, refer to the [entity documentation](https://developers.home-assistant.io/docs/core/entity).
+        For a list of supported features for each entity type, refer to the [entity documentation](https://developers.home-assistant.io/docs/core/entity).
       type: list
       required: false
 multiple:
