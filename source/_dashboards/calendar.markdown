@@ -10,7 +10,7 @@ related:
     title: Dashboard cards
 ---
 
-The calendar card displays your [calendar](/integrations/#calendar) {% term entities %} in a month, day, and list view (7 days).
+The calendar card displays your {% term calendar %} {% term entities %} in a month, day, and list view (7 days).
 
 <p class='img'>
   <img src='/images/dashboards/calendar_card.png' alt='Screenshot of the 
