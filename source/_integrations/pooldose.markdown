@@ -4,6 +4,7 @@ description: Connect your SEKO PoolDose water treatment system to Home Assistant
 ha_category:
   - Binary sensor
   - Sensor
+  - Switch
   - Water Management
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -14,6 +15,7 @@ ha_domain: pooldose
 ha_platforms:
   - binary_sensor
   - sensor
+  - switch
 ha_integration_type: integration
 ha_quality_scale: bronze
 ha_dhcp: true
@@ -120,6 +122,12 @@ This integration provides the following entities.
   - **Unit**: mV
 - **ORP calibration slope**: ORP calibration slope value.
   - **Unit**: mV
+
+### Switches
+
+- **Pause dosing**: Pauses or resumes the dosing process.
+- **Pump monitoring**: Enables or disables pump monitoring.
+- **Frequency input**: Enables or disables frequency input for a water meter.
 
 ## Known limitations
 
