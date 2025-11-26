@@ -201,6 +201,19 @@ Note: the steps and images here show the process with a Google Thread network. B
    ![image](/images/integrations/thread/thread-ha-preferred.png)
    - 🎉 You successfully created a Home Assistant Thread network and joined it with a pre-existing third-party network.
 
+## Migrating a Thread network to a new adapter
+
+If you already have a Thread adapter running but want to switch a new one, follow these steps:
+
+1. In your Home Assistant hub, plug in the new adapter.
+2. In Home Assistant, go to {% my integrations title="**Settings** > **Devices & services**" %}, and find the new adapter under **Discovered**.
+3. Select **Add**.
+4. In the **Pick your protocol** dialog, select **Migrate Thread to a new adapter**.
+   - Once the migration is complete, go to **Settings** > **Add-ons** > **OpenThread Border Router** and open the **Configuration** tab. 
+   - **Result**: Under **Device**, you now see that the new device is shown on the USB port.
+5. Remove the integration of the old adapter.
+6. You can now unplug the old adapter.
+
 ## Understanding the Thread configuration page
 
 This section explains why you might see multiple networks on the Thread configuration page and what this means for your network.
