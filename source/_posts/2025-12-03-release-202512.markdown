@@ -110,8 +110,6 @@ We welcome the following new integrations in this release:
   Integrate your Anglian Water smart water meter to track water usage and consumption costs.
 - **[Backblaze B2]**, added by [@ElCruncharino]  
   Use a Backblaze B2 cloud storage bucket as a backup location for your Home Assistant backups.
-- **[Cosori]**, added by [@joostlek]  
-  Support for Cosori devices is now available via the VeSync integration.
 - **[Essent]**, added by [@jaapp]  
   Monitor dynamic electricity and gas prices for Essent customers in the Netherlands with variable pricing contracts.
 - **[Google Air Quality]**, added by [@Thomas55555]  
@@ -126,8 +124,6 @@ We welcome the following new integrations in this release:
   Control your Philips Hue Bluetooth lights directly with Home Assistant, without the need for a Hue Bridge.
 - **[Saunum]**, added by [@mettolen]  
   Integrate your Saunum Leil sauna control unit to precisely control temperature and monitor your sauna's operation.
-- **[VÁGNER POOL]**, added by [@lmaertin]  
-  Support for VÁGNER POOL water treatment devices is now available via the SEKO PoolDose integration.
 - **[Victron BLE]**, added by [@rajlaud]  
   Integrate Victron Energy devices that support the Bluetooth Low Energy protocol for real-time monitoring.
 
@@ -135,8 +131,6 @@ We welcome the following new integrations in this release:
 [@ElCruncharino]: https://github.com/ElCruncharino
 [@flip-dots]: https://github.com/flip-dots
 [@jaapp]: https://github.com/jaapp
-[@joostlek]: https://github.com/joostlek
-[@lmaertin]: https://github.com/lmaertin
 [@mettolen]: https://github.com/mettolen
 [@pantherale0]: https://github.com/pantherale0
 [@rajlaud]: https://github.com/rajlaud
@@ -145,7 +139,6 @@ We welcome the following new integrations in this release:
 [Airobot]: /integrations/airobot
 [Anglian Water]: /integrations/anglian_water
 [Backblaze B2]: /integrations/backblaze_b2
-[Cosori]: /integrations/cosori
 [Essent]: /integrations/essent
 [Google Air Quality]: /integrations/google_air_quality
 [Google Weather]: /integrations/google_weather
@@ -153,8 +146,19 @@ We welcome the following new integrations in this release:
 [Home Assistant Labs]: /integrations/labs
 [Philips Hue BLE]: /integrations/hue_ble
 [Saunum]: /integrations/saunum
-[VÁGNER POOL]: /integrations/vagner_pool
 [Victron BLE]: /integrations/victron_ble
+
+This release also has new virtual integrations. Virtual integrations are stubs that are handled by other (existing) integrations to help with findability. These ones are new:
+
+- **[Cosori]**, provided by [VeSync], added by [@joostlek]
+- **[VÁGNER POOL]**, provided by [SEKO PoolDose], added by [@lmaertin]
+
+[@joostlek]: https://github.com/joostlek
+[@lmaertin]: https://github.com/lmaertin
+[Cosori]: /integrations/cosori
+[SEKO PoolDose]: /integrations/pooldose
+[VÁGNER POOL]: /integrations/vagner_pool
+[VeSync]: /integrations/vesync
 
 ### Noteworthy improvements to existing integrations
 
