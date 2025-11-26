@@ -16,9 +16,9 @@ ha_integration_type: service
 ha_quality_scale: silver
 ---
 
-The **Essent** {% term integration %} monitors dynamic energy prices for Essent customers in the Netherlands with variable pricing contracts.
+The **Essent** {% term integration %} monitors dynamic energy prices for Essent customers in the Netherlands with Dynamic Contracts.
 
-Price data is fetched from Essent's public API and requires no authentication. The integration provides real-time electricity and gas pricing information, updated hourly.
+Price data is fetched from Essent's public API and requires no authentication. The integration provides real-time electricity and gas pricing information, updated twice a day.
 
 {% note %}
 This is a community integration using Essent's public API, not officially provided by Essent.
