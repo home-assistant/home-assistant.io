@@ -291,7 +291,7 @@ It is not just new {% term integrations %} that have been added; existing integr
 - Air conditioner and microwave support have landed in the [Home Connect] integration, expanding the range of supported BSH appliances. Thanks, [@Diegorro98]!
 - [@zerzhang] added support for the SwitchBot smart thermostat radiator to the [SwitchBot] integration. Nice!
 - The [Xbox] integration got some love from [@tr4nt0r]! You can now track friend locations, see if your friend is in a party, and control more remote functions.
-- Got an Ecovacs robot? The [Ecovacs] integration now has a border spin switch (to reach those tricky edges while mopping) and an auto-empty sensor. Thanks, [@aronnebrivio]!
+- Got an Ecovacs robot? The [Ecovacs] integration now has a border spin switch (to reach those tricky edges while mopping) and an auto-empty select entity. Thanks, [@aronnebrivio]!
 - [@balloob] added a chat log subscription endpoint to the [Home Assistant] conversation agent, allowing you to subscribe to and receive real-time updates from ongoing conversations.
 - The [VeSync] integration gained a child lock switch, giving you control over this safety feature for your devices. Thanks, [@cdnninja]!
 - [@XiaoLing-git] added support for the SwitchBot smart radiator thermostat to the [SwitchBot Cloud] integration.
