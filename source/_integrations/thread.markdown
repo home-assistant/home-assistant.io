@@ -203,7 +203,7 @@ Note: the steps and images here show the process with a Google Thread network. B
 
 ## Migrating a Thread network to a new adapter
 
-If you already have a Thread adapter running but want to switch a new one, follow these steps:
+If you already have a Thread adapter running but want to switch to a new one, follow these steps:
 
 1. In your Home Assistant hub, plug in the new adapter.
 2. In Home Assistant, go to {% my integrations title="**Settings** > **Devices & services**" %}, and find the new adapter under **Discovered**.
