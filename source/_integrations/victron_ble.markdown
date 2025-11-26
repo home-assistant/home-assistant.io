@@ -13,6 +13,7 @@ ha_config_flow: true
 ha_platforms:
   - sensor
 ha_integration_type: device
+ha_quality_scale: bronze
 ---
 
 The **Victron BLE** {% term integration %} integrates [Victron Energy](https://www.victronenergy.com/) devices that support the BLE protocol into Home Assistant.

@@ -13,6 +13,7 @@ ha_codeowners:
 ha_domain: cloud
 ha_platforms:
   - binary_sensor
+  - conversation
   - stt
   - tts
 ha_integration_type: system

@@ -10,7 +10,6 @@ ha_codeowners:
   - '@jaapp'
 ha_domain: essent
 ha_platforms:
-  - diagnostics
   - sensor
 ha_integration_type: service
 ha_quality_scale: silver

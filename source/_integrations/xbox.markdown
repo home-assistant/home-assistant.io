@@ -10,10 +10,12 @@ ha_iot_class: Cloud Polling
 ha_release: 0.117
 ha_codeowners:
   - '@hunterjm'
+  - '@tr4nt0r'
 ha_domain: xbox
 ha_config_flow: true
 ha_platforms:
   - binary_sensor
+  - diagnostics
   - image
   - media_player
   - remote

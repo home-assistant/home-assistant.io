@@ -8,6 +8,7 @@ ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
   - '@music-assistant'
+  - '@arturpragacz'
 ha_domain: music_assistant
 ha_platforms:
   - button

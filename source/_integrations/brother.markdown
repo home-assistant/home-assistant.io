@@ -14,6 +14,7 @@ ha_platforms:
   - diagnostics
   - sensor
 ha_integration_type: device
+ha_quality_scale: platinum
 ---
 
 The **Brother Printer** {% term integration %} allows you to read current data from your local Brother printer.

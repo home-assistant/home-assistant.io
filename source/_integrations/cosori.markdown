@@ -6,7 +6,7 @@ ha_category:
   - Light
   - Number
   - Switch
-ha_release: 2025.12
+ha_release: 0.66
 ha_domain: cosori
 ha_integration_type: virtual
 ha_supporting_domain: vesync

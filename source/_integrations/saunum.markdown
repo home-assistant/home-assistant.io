@@ -4,17 +4,21 @@ description: Instructions on how to integrate Saunum sauna control units into Ho
 ha_iot_class: Local Polling
 ha_release: 2025.12
 ha_codeowners:
-  - "@mettolen"
+  - '@mettolen'
 ha_domain: saunum
 ha_integration_type: device
 ha_config_flow: true
-ha_quality_scale: bronze
+ha_quality_scale: silver
 related:
   - url: https://www.saunum.com/
     title: Saunum
   - url: https://saunum.com/en/product/control-devices/
     title: Saunum Leil product page
-
+ha_category: []
+ha_platforms:
+  - climate
+  - diagnostics
+  - light
 ---
 
 The **Saunum** {% term integration %} integrates your [Saunum Leil](https://saunum.com/en/product/control-devices/) sauna control unit with Home Assistant. [Saunum](https://saunum.com/) is an Estonian company that creates advanced sauna heaters and control systems with smart features.
