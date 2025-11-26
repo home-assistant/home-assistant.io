@@ -53,14 +53,14 @@ The **Airobot** integration provides climate control functionality with comprehe
 
 The thermostat is represented as a climate entity with the following capabilities:
 
-- **Current temperature**: Displays the measured air temperature in the room.
+- **Current temperature**: Displays the measured temperature in the room.
+  - If a floor temperature sensor is connected, displays the floor temperature (for floor heating control).
+  - Otherwise, displays the air temperature.
+- **Current humidity**: Displays the measured relative humidity in the room.
 - **Target temperature**: Shows and allows you to set the desired temperature (5-35°C range).
   - In HOME mode: Controls the HOME temperature setpoint.
   - In AWAY mode: Controls the AWAY temperature setpoint.
-- **HVAC mode**: Controls whether heating is enabled or disabled.
-  - Supported modes:
-    - **Heat**: Actively heats to reach the target temperature
-    - **Off**: Disables heating
+- **HVAC mode**: Always set to Heat for this heating-only thermostat.
 - **HVAC action**: Shows whether the thermostat is actively heating or idle.
 - **Preset modes**:
   - **Home**: Use the HOME temperature setpoint

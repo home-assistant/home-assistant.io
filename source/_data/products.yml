@@ -1,25 +1,30 @@
 green:
   name: "<strong>Home Assistant Green</strong>"
   distributors:
-      # America
+      # North America
     - name: Amazon US
       ship_from: US
-      ship_to: America
+      ship_to: North America
       url: https://www.amazon.com/dp/B0CXVKSG19?maas=maas_adg_BB51722E249D328CABB2F6DF1F8976CC_afap_abs&ref_=aa_maas&tag=maas
       logo: /images/distributors/amazon.webp
+    - name: Apollo Automation
+      ship_from: US & Canada
+      ship_to: North America
+      url: https://apolloautomation.com/products/home-assistant-green
+      logo: /images/distributors/apollo.webp
     - name: ameriDroid
       ship_from: US
-      ship_to: America
+      ship_to: North America
       url: https://ameridroid.com/products/home-assistant-green
       logo: /images/distributors/ameridroid.webp
     - name: CloudFree
       ship_from: US
-      ship_to: America
+      ship_to: North America
       url: https://cloudfree.shop/product/home-assistant-green/
       logo: /images/distributors/cloudfree.webp
     - name: Seeed Studio
       ship_from: US
-      ship_to: America
+      ship_to: North America
       url: https://www.seeedstudio.com/Home-Assistant-Green-p-5792.html
       logo: /images/distributors/seeed-studio.webp
       # Asia
@@ -94,7 +99,7 @@ green:
       ship_from: Portugal
       ship_to: Europe
       url: https://mauser.pt/catalog/product_info.php?products_id=095-3152
-      logo: /images/distributors/mauser.png
+      logo: /images/distributors/mauser.webp
     - name: mediarath
       ship_from: Germany
       ship_to: Europe
@@ -160,18 +165,33 @@ green:
       ship_to: Europe
       url: https://www.inet.se/produkt/8310063/home-assistant-green
       logo: /images/distributors/inet.webp
+    - name: Nettop
+      ship_from: Greece
+      ship_to: Europe
+      url: https://nettop.gr/index.php/smart-home/home-assistant/home-assistant-green.html
+      logo: /images/distributors/nettop.webp
+    - name: BerryBase
+      ship_from: Germany
+      ship_to: Europe
+      url: https://www.berrybase.de/detail/019a8296042d70f19cbbcb67ddc0b205
+      logo: /images/distributors/berrybase.webp
+    - name: SmartDomo
+      ship_from: Germany
+      ship_to: Europe
+      url: https://smartdomo.de/products/home-assistant-green
+      logo: /images/distributors/smartdomo.webp
 yellow:
   name: "<strong>Home Assistant Yellow</strong>"
   distributors:
-      # America
+      # North America
     - name: ameriDroid
       ship_from: US
-      ship_to: America
+      ship_to: North America
       url: https://ameridroid.com/products/home-assistant-yellow
       logo: /images/distributors/ameridroid.webp
     - name: CloudFree
       ship_from: US
-      ship_to: America
+      ship_to: North America
       url: https://cloudfree.shop/product/home-assistant-yellow/
       logo: /images/distributors/cloudfree.webp
       # Australia
@@ -194,20 +214,20 @@ yellow:
 zbt-1:
   name: "<strong>Home Assistant Connect ZBT-1</strong>"
   distributors:
-      # America
+      # North America
     - name: ameriDroid
       ship_from: US
-      ship_to: America
+      ship_to: North America
       url: https://ameridroid.com/products/skyconnect
       logo: /images/distributors/ameridroid.webp
     - name: CloudFree
       ship_from: US
-      ship_to: America
+      ship_to: North America
       url: https://cloudfree.shop/product/home-assistant-skyconnect/
       logo: /images/distributors/cloudfree.webp
     - name: Seeed Studio
       ship_from: US
-      ship_to: America
+      ship_to: North America
       url: https://www.seeedstudio.com/Home-Assistant-SkyConnect-p-5479.html
       logo: /images/distributors/seeed-studio.webp
       # Asia
@@ -267,7 +287,7 @@ zbt-1:
       ship_from: Portugal
       ship_to: Europe
       url: https://mauser.pt/catalog/product_info.php?products_id=095-1222
-      logo: /images/distributors/mauser.png
+      logo: /images/distributors/mauser.webp
     - name: mediarath
       ship_from: Germany
       ship_to: Europe
@@ -336,20 +356,25 @@ zbt-1:
 voice-pe:
   name: "<strong>Home Assistant Voice</strong> Preview Edition"
   distributors:
-      # America
+      # North America
     - name: ameriDroid
       ship_from: US
-      ship_to: America
+      ship_to: North America
       url: https://ameridroid.com/products/home-assistant-voice-preview-edition/
       logo: /images/distributors/ameridroid.webp
+    - name: Apollo Automation
+      ship_from: US & Canada
+      ship_to: North America
+      url: https://apolloautomation.com/products/home-assistant-voice
+      logo: /images/distributors/apollo.webp
     - name: CloudFree
       ship_from: US
-      ship_to: America
+      ship_to: North America
       url: https://cloudfree.shop/product/home-assistant-voice-preview-edition/
       logo: /images/distributors/cloudfree.webp
     - name: Seeed Studio
       ship_from: US
-      ship_to: America
+      ship_to: North America
       url: https://www.seeedstudio.com/Home-Assistant-Voice-p-6998.html
       logo: /images/distributors/seeed-studio.webp
       # Asia
@@ -409,7 +434,7 @@ voice-pe:
       ship_from: Portugal
       ship_to: Europe
       url: https://mauser.pt/catalog/product_info.php?products_id=095-4747
-      logo: /images/distributors/mauser.png
+      logo: /images/distributors/mauser.webp
     - name: SmarterHOME
       ship_from: Slovakia
       ship_to: Europe
@@ -455,10 +480,25 @@ voice-pe:
       ship_to: Europe
       url: https://www.robbshop.nl/home-assistant-voice-preview-edition
       logo: /images/distributors/robb.webp
+    - name: Nettop
+      ship_from: Greece
+      ship_to: Europe
+      url: https://nettop.gr/index.php/smart-home/home-assistant/home-assistant-voice.html
+      logo: /images/distributors/nettop.webp
+    - name: BerryBase
+      ship_from: Germany
+      ship_to: Europe
+      url: https://www.berrybase.de/detail/019a8294e0e872c6a26a43c31d66e37a
+      logo: /images/distributors/berrybase.webp
+    - name: SmartDomo
+      ship_from: Germany
+      ship_to: Europe
+      url: https://smartdomo.de/products/home-assistant-voice-preview-edition-sprachassistent-nabu-casa-nc-vk-9727
+      logo: /images/distributors/smartdomo.webp
 zwa-2:
   name: "<strong>Home Assistant</strong> Connect ZWA-2"
   distributors:
-    # America
+    # North America
     - name: Amazon
       ship_from: US
       ship_to: North America
@@ -521,7 +561,7 @@ zwa-2:
       ship_from: Portugal
       ship_to: Europe
       url: https://mauser.pt/catalog/product_info.php?products_id=095-6904
-      logo: /images/distributors/mauser.png
+      logo: /images/distributors/mauser.webp
     - name: RaspberryPi.dk
       ship_from: Denmark
       ship_to: Europe
@@ -612,9 +652,23 @@ zwa-2:
       ship_to: Europe
       url: https://www.robbshop.nl/home-assistant-connect-zwa-2-z-wave-antenne
       logo: /images/distributors/robb.webp
+    - name: Nettop
+      ship_from: Greece
+      ship_to: Europe
+      url: https://nettop.gr/index.php/smart-home/home-assistant/home-assistant-connect-zwa-2.html
+      logo: /images/distributors/nettop.webp
+    - name: BerryBase
+      ship_from: Germany
+      ship_to: Europe
+      url: https://www.berrybase.de/detail/019a8294957e72eeac488049bae6e5f7
+      logo: /images/distributors/berrybase.webp
+    - name: SmartDomo
+      ship_from: Germany
+      ship_to: Europe
+      url: https://smartdomo.de/products/z-wave-adapter-home-assistant-connect-zwa-2
+      logo: /images/distributors/smartdomo.webp
 zbt-2:
   name: "<strong>Home Assistant</strong> Connect ZBT-2"
-  new: true
   distributors:
     # North America
     #- name: Amazon
@@ -739,7 +793,7 @@ zbt-2:
       ship_from: Portugal
       ship_to: Europe
       url: https://mauser.pt/095-7567
-      logo: /images/distributors/mauser.png
+      logo: /images/distributors/mauser.webp
     - name: WIFIShop
       ship_from: Romania
       ship_to: Europe

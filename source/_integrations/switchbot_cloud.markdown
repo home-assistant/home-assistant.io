@@ -129,6 +129,10 @@ Please note, device names configured in the SwitchBot app are transferred into H
 - [Air Purifier](https://www.switch-bot.com/products/switchbot-air-purifier)
 - [Air Purifier Table](https://www.switch-bot.com/products/switchbot-air-purifier-table)
 
+### Water heater
+
+- [Smart Radiator Thermostat](https://www.switch-bot.com/products/switchbot-smart-radiator-thermostat)
+
 ## Supported functionality
 
 ### Plugs and switches
@@ -427,6 +431,19 @@ Features:
 - pause
 - set cleaning mode
 - return to base
+- get battery
+
+
+### Water Heater
+
+#### Smart Radiator Thermostat
+
+Features:
+- turn on
+- turn off
+- set temperature
+- get temperature
+- set mode
 - get battery
 
 ## Important considerations

@@ -91,6 +91,64 @@ The water consumption graph card shows the amount of water consumed per source.
 type: energy-water-graph
 ```
 
+## Water Sankey graph
+
+<p class='img'>
+  <img src='/images/dashboards/energy/water-sankey.png' alt='Screenshot of the water Sankey graph card'>
+  Screenshot of the water sankey graph card.
+</p>
+
+The water Sankey graph shows the flow of water consumption in your home. It visualizes how water flows from sources to the various consumers. Devices are grouped into floors and areas if these are configured.
+
+This card displays historical water data based on the selected date range from the energy date picker.
+
+### YAML configuration
+
+The following YAML options are available:
+
+{% configuration %}
+type:
+  required: true
+  description: "`water-sankey`"
+  type: string
+collection_key:
+  required: false
+  description: "Collection key to use for the card. This links the card to a specific energy dashboard collection."
+  type: string
+title:
+  required: false
+  description: The title of the card.
+  type: string
+layout:
+  required: false
+  description: "`vertical`, `horizontal` or `auto`. Determines the orientation (flow direction) of the card. `auto` changes it based on the screen size."
+  type: string
+  default: auto
+group_by_area:
+  required: false
+  description: Whether to group the devices by area
+  type: boolean
+  default: true
+group_by_floor:
+  required: false
+  description: Whether to group the devices by floor
+  type: boolean
+  default: true
+{% endconfiguration %}
+
+### Examples
+
+```yaml
+type: water-sankey
+```
+
+The following example orients the flow from left to right:
+
+```yaml
+type: water-sankey
+layout: horizontal
+```
+
 ## Energy distribution
 
 <p class='img'>

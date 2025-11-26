@@ -98,6 +98,12 @@ The **Saunum** integration provides the following entities for controlling and m
   - **Description**: Main climate control for your sauna, allowing you to set target temperature and control heating.
   - **Features**: Temperature control, HVAC modes (off, heat), fan mode (off, low, medium, high).
 
+### Light
+
+- **Sauna light**
+  - **Description**: Control the sauna lighting if light is connected to the control unit.
+  - **Features**: Turn the sauna light on or off.
+
 ## Supported devices
 
 The following devices are known to be supported by the integration:
