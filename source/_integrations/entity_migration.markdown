@@ -1,6 +1,6 @@
 ---
 title: Entity Migration
-description: Find all references to an entity across Home Assistant configurations.
+description: Discover and migrate entity references across Home Assistant configurations.
 ha_category:
   - Other
 ha_release: "2025.12"
@@ -26,7 +26,9 @@ related:
     title: Dashboards
 ---
 
-The **Entity Migration** {% term integration %} allows you to discover all references to an entity across your Home Assistant configuration. This is useful when you want to replace a device, switch integrations, or understand the impact of removing an entity.
+The **Entity Migration** {% term integration %} allows you to discover and migrate all references to an entity across your Home Assistant configuration. This is useful when you want to replace a device, switch integrations, or understand the impact of removing an entity.
+
+You can access the Entity Migration panel from **Settings** > **Devices & services** > **Entity Migration**.
 
 The integration scans across:
 
@@ -43,7 +45,7 @@ The Entity Migration integration is automatically loaded with Home Assistant and
 
 ## Actions
 
-The integration provides the following action.
+The integration provides the following actions.
 
 ### Action: Scan for entity references
 
@@ -75,9 +77,91 @@ Each reference includes:
 - `config_name`: The human-readable name
 - `location`: Where in the configuration the reference appears
 
+### Action: Migrate entity references
+
+The `entity_migration.migrate` action migrates all references from one entity to another across your configuration.
+
+| Data attribute | Optional | Description |
+| -------------- | -------- | ----------- |
+| `source_entity_id` | no | The entity to migrate references from. |
+| `target_entity_id` | no | The entity to migrate references to. |
+| `dry_run` | yes | Preview changes without applying them. Default: `false`. |
+| `create_backup` | yes | Create a backup of affected files before migration. Default: `false`. |
+| `force` | yes | Bypass compatibility warnings and force migration. Default: `false`. |
+
+#### Compatibility validation
+
+Before migration, the system validates compatibility between source and target entities. The following checks are performed:
+
+- **Domain mismatch**: Warning when source and target have different domains (e.g., `sensor` to `binary_sensor`)
+- **Device class mismatch**: Warning when device classes differ
+- **Unit of measurement mismatch**: Warning when units differ
+
+Warnings do not block migration but indicate potential issues. Use `force: true` to suppress warning checks.
+
+Migration is blocked if the target entity does not exist in the entity registry.
+
+#### Backup
+
+When `create_backup: true` is set, affected configuration files are backed up to `.backup/entity_migration/{timestamp}/` before any changes are applied.
+
+#### Example: Dry-run migration
+
+Preview what would change without applying any modifications:
+
+```yaml
+action: entity_migration.migrate
+data:
+  source_entity_id: sensor.old_temperature
+  target_entity_id: sensor.new_temperature
+  dry_run: true
+response_variable: migration_preview
+```
+
+#### Example: Full migration with backup
+
+Execute migration with a backup of affected files:
+
+```yaml
+action: entity_migration.migrate
+data:
+  source_entity_id: sensor.old_temperature
+  target_entity_id: sensor.new_temperature
+  create_backup: true
+response_variable: migration_result
+```
+
+#### Example: Force migration despite warnings
+
+Override compatibility warnings (use with caution):
+
+```yaml
+action: entity_migration.migrate
+data:
+  source_entity_id: sensor.temperature_celsius
+  target_entity_id: sensor.temperature_fahrenheit
+  force: true
+response_variable: migration_result
+```
+
+#### Response
+
+The action returns a response containing:
+
+- `success`: Whether the migration completed successfully
+- `source_entity_id`: The source entity that was migrated from
+- `target_entity_id`: The target entity that was migrated to
+- `updated`: Dictionary of config types mapped to lists of updated config IDs
+- `updated_count`: Total number of references updated
+- `errors`: List of any errors that occurred during migration
+- `backup_path`: Path to backup directory (if backup was created)
+- `dry_run`: Whether this was a dry run
+
 ## WebSocket API
 
-The integration provides a WebSocket command for real-time scanning from the frontend.
+The integration provides WebSocket commands for real-time operations from the frontend. All commands require administrator privileges.
+
+### Scan for references
 
 ```json
 {
@@ -87,7 +171,54 @@ The integration provides a WebSocket command for real-time scanning from the fro
 }
 ```
 
-This command requires administrator privileges.
+Returns scan results with all references grouped by configuration type.
+
+### Validate compatibility
+
+Check compatibility between source and target entities before migration:
+
+```json
+{
+  "type": "entity_migration/validate",
+  "id": 2,
+  "source_entity_id": "sensor.old_temperature",
+  "target_entity_id": "sensor.new_temperature"
+}
+```
+
+Returns:
+
+- `valid`: Whether migration can proceed (no blocking errors)
+- `source_entity_id`: The source entity validated
+- `target_entity_id`: The target entity validated
+- `warnings`: List of non-blocking compatibility warnings
+- `blocking_errors`: List of errors that prevent migration
+
+### Execute migration
+
+Migrate all references from source to target entity:
+
+```json
+{
+  "type": "entity_migration/migrate",
+  "id": 3,
+  "source_entity_id": "sensor.old_temperature",
+  "target_entity_id": "sensor.new_temperature",
+  "dry_run": false,
+  "create_backup": true,
+  "force": false
+}
+```
+
+Parameters:
+
+- `source_entity_id` (required): Entity to migrate from
+- `target_entity_id` (required): Entity to migrate to
+- `dry_run` (optional): Preview changes without applying. Default: `false`
+- `create_backup` (optional): Backup files before migration. Default: `false`
+- `force` (optional): Bypass compatibility warnings. Default: `false`
+
+Returns migration results including success status, updated references, and any errors.
 
 ## Related integrations
 
