@@ -566,7 +566,11 @@ new features available for your integration: Be sure to follow our
 [developer blog][devblog]. The following changes are the most notable for this
 release:
 
-- [Lorem ipsum](https://developers.home-assistant.io/blog/lormet-ipsum/)
+- [Data Update Coordinator now supports Retry After](https://developers.home-assistant.io/blog/2025/11/17/retry-after-update-failed)
+- [Device identification buttons are now classified as diagnostic](https://developers.home-assistant.io/blog/2025/11/21/identify-buttons-diagnostic-category)
+- [Improved error handling for oauth2 configuration without internet](https://developers.home-assistant.io/blog/2025/11/05/config-entry-oauth2-error-handling)
+- [Introducing Labs: Preview features before they become standard](https://developers.home-assistant.io/blog/2025/11/20/labs-preview-features)
+- [The capability_attributes field removed from CalculatedState](https://developers.home-assistant.io/blog/2025/11/10/calculated-state-capability-attributes-removed)
 
 [devblog]: https://developers.home-assistant.io/blog/
 
