@@ -111,10 +111,7 @@ This integration uses the ONVIF auxiliary command and imaging service to send ce
 
 ## Troubleshooting
 
-### Error message: "No usable cameras were found"
-
-
-#### Symptom
+### Symptom: Error message: "No usable cameras were found"
 
 The ONVIF integration shows an error message "No usable cameras were found". 
 
