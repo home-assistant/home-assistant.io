@@ -104,22 +104,57 @@ and improvements to existing ones! You’re all awesome 🥰
 
 We welcome the following new integrations in this release:
 
-- **[Lorem ipsum]**, added by [@frenck]  
-  The Lorem integration provides a Lorem Ipsum generator service, allowing users to generate placeholder text for design and development purposes.
+- **[Airobot]**, added by [@mettolen]  
+  Control and monitor your Airobot smart thermostats for intelligent floor heating control via the local REST API.
+- **[Anglian Water]**, added by [@pantherale0]  
+  Integrate your Anglian Water smart water meter to track water usage and consumption costs.
+- **[Backblaze B2]**, added by [@ElCruncharino]  
+  Use a Backblaze B2 cloud storage bucket as a backup location for your Home Assistant backups.
+- **[Cosori]**, added by [@joostlek]  
+  Support for Cosori devices is now available via the VeSync integration.
+- **[Essent]**, added by [@jaapp]  
+  Monitor dynamic electricity and gas prices for Essent customers in the Netherlands with variable pricing contracts.
+- **[Google Air Quality]**, added by [@Thomas55555]  
+  Get real-time air quality data for your location using Google's Air Quality API.
+- **[Google Weather]**, added by [@tronikos]  
+  Use Google Weather as a source for weather data, providing current conditions, hourly forecasts for the next 24 hours, and daily forecasts for the next 10 days.
+- **[Hanna]**, added by [@bestycame]  
+  Fetch pool water quality data from your Hanna Pool Controller device, including pH, chlorine, ORP values, and water temperature.
+- **[Home Assistant Labs]**, added by [@frenck]  
+  A dedicated panel where you can preview and test new features before they become standard in Home Assistant.
+- **[Philips Hue BLE]**, added by [@flip-dots]  
+  Control your Philips Hue Bluetooth lights directly with Home Assistant, without the need for a Hue Bridge.
+- **[Saunum]**, added by [@mettolen]  
+  Integrate your Saunum Leil sauna control unit to precisely control temperature and monitor your sauna's operation.
+- **[VÁGNER POOL]**, added by [@lmaertin]  
+  Support for VÁGNER POOL water treatment devices is now available via the SEKO PoolDose integration.
+- **[Victron BLE]**, added by [@rajlaud]  
+  Integrate Victron Energy devices that support the Bluetooth Low Energy protocol for real-time monitoring.
 
-[@frenck]: https://github.com/frenck
-[Lorem ipsum]: /integrations/lorem_ipsum
-
-To process:
-- Add backblaze b2 backup integration ([@ElCruncharino] - [#149627]) ([backblaze docs]) (new-integration)
-- Add Google Weather integration ([@tronikos] - [#147015]) ([google_weather docs]) (new-integration)
-- Add Saunum integration ([@mettolen] - [#155099]) ([saunum docs]) (new-integration)
-- New virtual integration Vagner Pool supported by pooldose ([@lmaertin] - [#156678]) ([vagner_pool docs]) (new-integration)
-- Add Cosori virtual integration ([@joostlek] - [#156792]) ([cosori docs]) (new-integration)
-- Add support for Victron bluetooth low energy devices ([@rajlaud] - [#148043]) ([victron_ble docs]) (new-integration)
-- Add Hanna integration ([@bestycame] - [#147085]) ([hanna docs]) (new-integration)
-- Introduce Home Assistant Labs ([@frenck] - [#156840]) ([kitchen_sink docs]) ([labs docs]) (new-integration)
-- Add Airobot integration ([@mettolen] - [#156712]) ([airobot docs]) (new-integration)
+[@bestycame]: https://github.com/bestycame
+[@ElCruncharino]: https://github.com/ElCruncharino
+[@flip-dots]: https://github.com/flip-dots
+[@jaapp]: https://github.com/jaapp
+[@joostlek]: https://github.com/joostlek
+[@lmaertin]: https://github.com/lmaertin
+[@mettolen]: https://github.com/mettolen
+[@pantherale0]: https://github.com/pantherale0
+[@rajlaud]: https://github.com/rajlaud
+[@Thomas55555]: https://github.com/Thomas55555
+[@tronikos]: https://github.com/tronikos
+[Airobot]: /integrations/airobot
+[Anglian Water]: /integrations/anglian_water
+[Backblaze B2]: /integrations/backblaze_b2
+[Cosori]: /integrations/cosori
+[Essent]: /integrations/essent
+[Google Air Quality]: /integrations/google_air_quality
+[Google Weather]: /integrations/google_weather
+[Hanna]: /integrations/hanna
+[Home Assistant Labs]: /integrations/labs
+[Philips Hue BLE]: /integrations/hue_ble
+[Saunum]: /integrations/saunum
+[VÁGNER POOL]: /integrations/vagner_pool
+[Victron BLE]: /integrations/victron_ble
 
 ### Noteworthy improvements to existing integrations
 
