@@ -15,7 +15,7 @@ ha_quality_scale: bronze
 ha_config_flow: true
 ---
 
-**Anglian Water** {% term integration %} is used to integrate with the smart meters of [Anglian Water](https://www.anglianwater.co.uk).
+The **Anglian Water** {% term integration %} is used to integrate with the smart meters of [Anglian Water](https://www.anglianwater.co.uk).
 
 ## Supported devices
 
