@@ -75,6 +75,7 @@ Enjoy the (beta) release!
 <!--more-->
 
 - [Home Assistant Labs 🧪](#home-assistant-labs-)
+- [Intuitive triggers and conditions](#intuitive-triggers-and-conditions)
 - [More dashboard improvements!](#more-dashboard-improvements)
   - [Set a system-wide default dashboard](#set-a-system-wide-default-dashboard)
   - [Reorder areas and floors](#reorder-areas-and-floors)
@@ -121,6 +122,34 @@ When you enable a preview feature, you can also choose to create a backup first,
 Preview features are off by default, and enabling them won't affect your existing setup. It's completely optional, so if you prefer to stick with the battle proven experience, that's totally fine. But if you're curious and want to explore what's coming next, Labs is the place to be.
 
 {% my labs badge %}
+
+## Intuitive triggers and conditions
+
+Almost [two years ago](/blog/2024/01/03/release-20241/), we released a new automation editor that unwrapped all our actions and made them easier to understand. Instead of a single, obscure "Call service" action, you now see clear options like "Light: Turn on" or "Media Player: Set Volume".
+
+Ever since, we've been wondering: could we do the same for triggers and conditions? Instead of relying on technical, state-based options, what if we could offer intuitive alternatives that just make sense? Things like "When a light turns on" or "If a light is on".
+
+That idea set a two-year plan in motion, and today it's finally becoming a reality.
+
+<img class="no-shadow" alt="Screenshot showing the new intuitive triggers and conditions in the automation editor." src="/images/blog/2025-12/temp-intuitive-triggers.png" />
+
+Along the way, we discovered something interesting: many of you take a "target-first" approach when building automations. You think about _what_ you want to automate (a device, an entity, or an area) before thinking about _how_ to automate it (which action to perform or which trigger to use).
+
+This release introduces a completely new way to build automations. Intuitive triggers and conditions are now provided directly by domains like [Light], [Climate], [Fan], and others, covering the most common automation use cases.
+
+[Light]: /integrations/light
+[Climate]: /integrations/climate
+[Fan]: /integrations/fan
+
+These new triggers and conditions fully support targeting. This means you can trigger an automation when _any_ light in your living room turns on, without having to list them one by one or create a group beforehand. Targeting an area keeps things simple: it's always aligned with how your home is organized, and you don't have to update anything when you add or remove devices.
+
+<img class="no-shadow" alt="Screenshot showing the new target-first picker for triggers, conditions, and actions." src="/images/blog/2025-12/temp-intuitive-picker.png" />
+
+Labels are supported too! You can now check if any of your Christmas lights are on. Perfect timing for the holidays! 🎄
+
+We've also introduced a new way to pick triggers, conditions, and actions that fits this target-first approach. You can navigate your home by floor, then area, then device, and see exactly which options are available for each target. It's a much more intuitive way to build automations.
+
+This feature is still being refined, so we've made it available as a preview feature in Labs. Head over to {% my labs title="**Settings** > **System** > **Labs**" %} to enable it and help us shape the future of automation building!
 
 ## More dashboard improvements!
 
