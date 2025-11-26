@@ -203,14 +203,12 @@ Note: the steps and images here show the process with a Google Thread network. B
 
 ## Migrating to a new Thread adapter
 
-If you already have a Thread adapter running but want to switch to a new one, follow these steps:
+If you already have a Thread adapter running but want to switch to a Home Assistant Connect ZBT-1 or Connect ZBT-2, follow these steps:
 
 1. In your Home Assistant hub, plug in the new adapter.
-2. Add the integration for your new adapter.
+2. If your adapter is a Home Assistant Connect device, add the integration for your new adapter.
    - In Home Assistant, go to {% my integrations title="**Settings** > **Devices & services**" %}, find the new adapter under **Discovered**, and select **Add**.
 3. In the **Pick your protocol** dialog, select **Migrate Thread to a new adapter**.
-   - Once the migration is complete, go to {% my supervisor_addon addon="core_openthread_border_router" title="**Settings** > **Add-ons** > **OpenThread Border Router**" %} and open the **Configuration** tab.
-   - **Result**: Under **Device**, you now see that the new device is shown on the USB port.
 4. If you no longer want to use the old adapter, you can remove the old hardware integration.
    - Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the integration.
    - Select the three dots {% icon "mdi:dots-vertical" %} menu and select **Delete**.
