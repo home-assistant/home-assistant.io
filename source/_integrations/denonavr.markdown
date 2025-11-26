@@ -80,6 +80,7 @@ Known supported devices:
 - Denon AVR-S960H
 - Denon AVR-S970H
 - Denon DN-500AV
+- Denon DRA-N5
 - Denon DRA-800H
 - Marantz AV7702
 - Marantz AV7703
@@ -112,6 +113,7 @@ Known supported devices:
 - Marantz NR1604
 - Marantz NR1606
 - Marantz NR1607
+- Marantz NR1609
 - Marantz NR1710
 - Marantz NR1711
 - Other Denon AVR receivers (untested)

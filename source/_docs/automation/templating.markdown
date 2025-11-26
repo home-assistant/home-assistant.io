@@ -7,10 +7,10 @@ Automations support the advanced features of [templating](/docs/configuration/te
 
 Example of variables used in templates:
 
-```jinja
- {{ this.name }} is the name of the automation executing from this trigger
- {{ trigger.platform }} is the type of trigger object, like `calendar`
- ```
+{% raw %}
+- `{{ this.name }}` is the name of the automation executing from this trigger
+- `{{ trigger.platform }}` is the type of trigger object, like `calendar`
+{% endraw %}
 
 ## Available state data
 
@@ -57,7 +57,7 @@ These are the properties available for a [Calendar trigger](/docs/automation/tri
 
 These are the properties available for a [Device trigger](/docs/automation/trigger/#device-triggers).
 
-Inherites template variables from [event](#event) or [state](#state) template based on the type of trigger selected for the device.
+Inherits template variables from [event](#event) or [state](#state) template based on the type of trigger selected for the device.
 
 | Template variable | Data |
 | ---- | ---- |
@@ -135,6 +135,7 @@ These are the properties available for a [Sentence trigger](/docs/automation/tri
 | `trigger.slots`    | Object with matched slot values.
 | `trigger.details`  | Object with matched slot details by name, such as [wildcards](/docs/automation/trigger/#sentence-wildcards). Each detail contains: <ul><li>`name` - name of the slot</li><li>`text` - matched text</li><li>`value` - output value (see [lists](/docs/voice/intent-recognition/template-sentence-syntax/#lists))</li></ul>.
 | `trigger.device_id` | The device ID that captured the command, if any.
+| `trigger.satellite_id` | The entity ID of the satellite that captured the command, if any.
 
 ### State
 

@@ -17,7 +17,6 @@ layout: null
 /merch https://home-assistant-store.creator-spring.com
 /feature-requests https://github.com/orgs/home-assistant/discussions
 /issues https://github.com/home-assistant/core/issues
-/community https://community.home-assistant.io/
 /voice /voice_control/builtin_sentences/
 /latest-security-alert /security/
 
@@ -345,6 +344,7 @@ layout: null
 /ecosystem/notebooks/stats https://data.home-assistant.io
 /examples/notify.mqtt /integrations/mqtt/#mqtt-notifications
 /ios/whats-new https://companion.home-assistant.io/docs/getting_started/getting-started
+/installation/#about-installation-methods /installation/#about-installation-types
 /installation/nuc /installation/generic-x86-64
 /integrations/auth /docs/authentication
 /integrations/automation /docs/automation
@@ -495,7 +495,7 @@ layout: null
 
 # Removed documentation
 /docs/installation /getting-started
-/docs/installation/dokcer /getting-started
+/docs/installation/docker /getting-started
 /docs/installation/hassbian /getting-started
 /docs/installation/macos /docs/installation/virtualenv
 /docs/installation/raspberry-pi-all-in-one /getting-started
@@ -530,6 +530,7 @@ layout: null
 /integrations/binary_sensor.mychevy /more-info/removed-integration 301
 /integrations/blinkt /more-info/removed-integration 301
 /integrations/bloomsky /more-info/removed-integration 301
+/integrations/bluetooth_tracker /more-info/removed-integration 301
 /integrations/bme280 /more-info/removed-integration 301
 /integrations/bme680 /more-info/removed-integration 301
 /integrations/bmp280 /more-info/removed-integration 301
@@ -549,6 +550,7 @@ layout: null
 /integrations/discovery /more-info/removed-integration 301
 /integrations/dlib_face_detect /more-info/removed-integration 301
 /integrations/dlib_face_identify /more-info/removed-integration 301
+/integrations/dominos /more-info/removed-integration 301
 /integrations/dte_energy_bridge /more-info/removed-integration 301
 /integrations/duke_energy /more-info/removed-integration 301
 /integrations/dweet /more-info/removed-integration 301
@@ -557,11 +559,13 @@ layout: null
 /integrations/edp_redy /more-info/removed-integration 301
 /integrations/ee_brightbox /more-info/removed-integration 301
 /integrations/eight_sleep /more-info/removed-integration 301
+/integrations/enmax /more-info/removed-integration 301
 /integrations/envirophat /more-info/removed-integration 301
 /integrations/epsonworkforce /more-info/removed-integration 301
 /integrations/essent /more-info/removed-integration 301
 /integrations/facebox /more-info/removed-integration 301
 /integrations/fedex /more-info/removed-integration 301
+/integrations/flick_electric /more-info/removed-integration 301
 /integrations/flunearyou /more-info/removed-integration 301
 /integrations/fortigate /more-info/removed-integration 301
 /integrations/fritzbox_netmonitor  /more-info/removed-integration 301
@@ -621,11 +625,13 @@ layout: null
 /integrations/pcal9535a /more-info/removed-integration 301
 /integrations/pi4ioe5v9xxxx /more-info/removed-integration 301
 /integrations/piglow /more-info/removed-integration 301
+/integrations/plum_lightpad /more-info/removed-integration 301
 /integrations/postnl /more-info/removed-integration 301
 /integrations/prezzibenzina /more-info/removed-integration 301
 /integrations/ptvsd /more-info/removed-integration 301
 /integrations/pushetta /more-info/removed-integration 301
 /integrations/raspihats /more-info/removed-integration 301
+/integrations/rpi_camera /more-info/removed-integration 301
 /integrations/rpi_gpio /more-info/removed-integration 301
 /integrations/rpi_gpio_pwm /more-info/removed-integration 301
 /integrations/rpi_pfio /more-info/removed-integration 301
@@ -664,7 +670,10 @@ layout: null
 /integrations/ups /more-info/removed-integration 301
 /integrations/uscis /more-info/removed-integration 301
 /integrations/usps /more-info/removed-integration 301
+/integrations/volvooncall /more-info/removed-integration 301
 /integrations/vulcan /more-info/removed-integration 301
+/integrations/vultr /more-info/removed-integration 301
+/integrations/watson_iot /more-info/removed-integration 301
 /integrations/weather.darksky /more-info/removed-integration 301
 /integrations/weblink /more-info/removed-integration 301
 /integrations/wink /more-info/removed-integration 301

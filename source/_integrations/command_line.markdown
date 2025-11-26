@@ -329,8 +329,12 @@ To use your Command binary sensor in your installation, add the following to you
 command_line:
   - binary_sensor:
       command: "cat /proc/sys/net/ipv4/ip_forward"
+      payload_on: "1"
+      payload_off: "0"
   - binary_sensor:
       command: "echo 1"
+      payload_on: "1"
+      payload_off: "0"
 ```
 {% endraw%}
 
@@ -544,32 +548,6 @@ command_line:
       # If errors occur, make sure configuration file is encoded as UTF-8
       unit_of_measurement: "°C"
       value_template: "{{ value | multiply(0.001) | round(1) }}"
-```
-{% endraw%}
-
-### Monitoring failed login attempts on Home Assistant
-
-If you'd like to know how many failed login attempts are made to Home Assistant, add the following to your {% term "`configuration.yaml`" %} file:
-
-{% raw %}
-```yaml
-# Example configuration.yaml entry
-command_line:
-  - sensor:
-      name: Badlogin
-      command: "grep -c 'Login attempt' /home/hass/.homeassistant/home-assistant.log"
-```
-{% endraw%}
-
-Make sure to configure the [Logger integration](/integrations/logger) to monitor the [HTTP integration](/integrations/http/) at least the `warning` level.
-
-{% raw %}
-```yaml
-# Example working logger settings that works
-logger:
-  default: critical
-  logs:
-    homeassistant.components.http: warning
 ```
 {% endraw%}
 

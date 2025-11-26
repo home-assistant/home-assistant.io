@@ -27,17 +27,28 @@ The integration provides information about your internet connection and the conn
 
 ## Supported devices
 
-The integration supports only Sercomm models so far.
+The integration supports models from the following brands: Sercomm, Technicolor, UltraHub.
 
 ### Tested models
 
-This {% term integration %} was tested against the following models from Sercomm:
+This {% term integration %} was tested against the following models:
+
+Sercomm:
 
 - Vodafone Power Station (SHG3000)
 - Vodafone Power Station WiFi 6 (SHG3060)
 - Vodafone WiFi 6 Station (RHG3006)
 - Vodafone Gigabox (SHG3000) - supplied by [Vodafone Ireland](https://deviceguides.vodafone.ie/vodafone/gigabox-windows-10/)
 - Vodafone H300S
+
+Technicolor:
+
+- Vodafone Power Station (THG3000)
+- Vodafone WiFi 6 Station (CGA6444VF)
+
+UltraHub:
+
+- Vodafone Ultra Hub 7 Fibre - FG4278VF
 
 {% include integrations/config_flow.md %}
 

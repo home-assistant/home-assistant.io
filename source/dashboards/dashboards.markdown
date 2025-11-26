@@ -3,7 +3,7 @@ title: "Multiple dashboards"
 description: "Multiple powerful and configurable dashboards in Home Assistant."
 related:
   - docs: /integrations/logbook/
-    title: Logbook integration
+    title: Activity integration
   - docs: /integrations/history/
     title: History integration
   - docs: /integrations/todo/
@@ -34,12 +34,12 @@ Home Assistant ships with some dashboards out of the box:
 - [Areas dashboard (experimental)](#areas-dashboard)
 - Energy dashboard
 - [History dashboard](#history-dashboard)
-- [Logbook dashboard](#logbook-dashboard)
+- [Activity dashboard](#activity-dashboard)
 - [Map dashboard](#map-dashboard)
 - [Overview dashboard](#creating-a-new-dashboard)
 - [To-do lists dashboard](#to-do-lists-dashboard)
 
-Not all of the predefined dashboards are listed under {% my lovelace_dashboards title="**Settings** > **Dashboards**" %}. The **Logbook** and **History** dashboards are powered by their respective integrations.
+Not all of the predefined dashboards are listed under {% my lovelace_dashboards title="**Settings** > **Dashboards**" %}. The **Activity** and **History** dashboards are powered by their respective integrations.
 
 ### Areas dashboard
 
@@ -84,9 +84,9 @@ Screenshot of the Areas default dashboard.
 
 The predefined **History** dashboard is powered by the [History integration](/integrations/history/). To learn about the data sources used and how to export data, refer to the documentation of the History integration.
 
-### Logbook dashboard
+### Activity dashboard
 
-The predefined **Logbook** dashboard is powered by the [Logbook integration](/integrations/logbook/). To control which events to show or filter out, refer to the documentation of the Logbook integration.
+The predefined **Activity** dashboard is powered by the [Activity integration](/integrations/logbook/). To control which events to show or filter out, refer to the documentation of the Activity integration.
 
 ### Map dashboard
 
