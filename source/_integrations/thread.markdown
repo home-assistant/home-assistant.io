@@ -206,15 +206,15 @@ Note: the steps and images here show the process with a Google Thread network. B
 If you already have a Thread adapter running but want to switch to a new one, follow these steps:
 
 1. In your Home Assistant hub, plug in the new adapter.
-2. In Home Assistant, go to {% my integrations title="**Settings** > **Devices & services**" %}, and find the new adapter under **Discovered**.
-3. Select **Add**.
-4. In the **Pick your protocol** dialog, select **Migrate Thread to a new adapter**.
+2. Add the integration for your new adapter.
+   - In Home Assistant, go to {% my integrations title="**Settings** > **Devices & services**" %} find the new adapter under **Discovered** and select **Add**.
+3. In the **Pick your protocol** dialog, select **Migrate Thread to a new adapter**.
    - Once the migration is complete, go to {% my supervisor_addon addon="core_openthread_border_router" title="**Settings** > **Add-ons** > **OpenThread Border Router**" %} and open the **Configuration** tab.
    - **Result**: Under **Device**, you now see that the new device is shown on the USB port.
-5. Remove the integration for your old adapter.
+4. Remove the integration for your old adapter.
    - Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the integration.
    - Select the three dots {% icon "mdi:dots-vertical" %} menu and select **Delete**.
-6. You can now unplug the old adapter.
+5. You can now unplug the old adapter.
 
 ## Understanding the Thread configuration page
 
