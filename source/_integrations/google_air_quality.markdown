@@ -19,7 +19,7 @@ The **Google Air Quality** {% term integration %} provides Air quality data thro
 
 ## Prerequisites
 
-You need an API key. Follow instructions [in the Google developer documentation](https://developers.google.com/maps/documentation/air-quality/get-api-key) for creating an API key.
+You need an API key. Follow the instructions [in the Google developer documentation](https://developers.google.com/maps/documentation/air-quality/get-api-key) for creating an API key.
 Additionally, you have to create a *Billing Account*. At the time of writing this documentation, Google allows 10,000 API calls per month for free.
 
 {% important %}
