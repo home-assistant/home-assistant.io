@@ -109,7 +109,9 @@ This integration uses the ONVIF auxiliary command and imaging service to send ce
 | Autofocus  | `autofocus` |  Turn autofocus on and off via `AutoFocusMode` ONVIF imaging setting. |
 | Wiper  | `wiper` |  Turn on the lens wiper on and off via the `Wiper` ONVIF auxiliary command. |
 
-### Troubleshooting
+## Troubleshooting
+
+### Error message: "No usable cameras were found"
 
 
 #### Symptom
