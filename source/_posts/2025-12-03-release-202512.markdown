@@ -75,6 +75,11 @@ Enjoy the (beta) release!
 <!--more-->
 
 - [Home Assistant Labs 🧪](#home-assistant-labs-)
+- [More dashboard improvements!](#more-dashboard-improvements)
+  - [Set a system-wide default dashboard](#set-a-system-wide-default-dashboard)
+  - [Reorder areas and floors](#reorder-areas-and-floors)
+  - [Experimental dashboards have graduated](#experimental-dashboards-have-graduated)
+  - [Home dashboard improvements](#home-dashboard-improvements)
 - [Power and water in the Energy dashboard](#power-and-water-in-the-energy-dashboard)
   - [Real-time power monitoring](#real-time-power-monitoring)
   - [Downstream water meters](#downstream-water-meters)
@@ -116,6 +121,38 @@ When you enable a preview feature, you can also choose to create a backup first,
 Preview features are off by default, and enabling them won't affect your existing setup. It's completely optional, so if you prefer to stick with the battle proven experience, that's totally fine. But if you're curious and want to explore what's coming next, Labs is the place to be.
 
 {% my labs badge %}
+
+## More dashboard improvements!
+
+Lots of improvements to report on the dashboard front this release! From better default dashboard management to an improved Home dashboard, we have been busy making your Home Assistant experience even better.
+
+### Set a system-wide default dashboard
+
+Picking a default dashboard is now a system-level setting that takes effect instantly for all users on your Home Assistant installation. The dashboard you choose will appear at the top of the sidebar, replacing the current default.
+
+But don't worry, personal preferences still matter! We added a new setting in your {% my profile title="**User profile**" %} where you can override the system default and set your own preferred dashboard.
+
+### Reorder areas and floors
+
+When using the built-in dashboard experiences (Home, Lights, Security, and others), one of the main pain points was the strict ordering of areas (alphabetically) and floors (numerically by level). This often didn't make sense in a real home, where your guest bathroom shouldn't appear before your living room, and the attic is rarely more relevant than the main floor.
+
+Now you can go to {% my areas title="**Settings** > **Areas, labels & zones**" %} and manually drag and drop any area or floor to reorder them. Your changes will instantly apply to all built-in dashboards that show areas and floors.
+
+### Experimental dashboards have graduated
+
+With the launch of Labs, we retired the experimental flag from the dashboard creation list. The **Home** dashboard can now be found in the dashboard list (still not visible by default), and the **Areas** dashboard has evolved into Home, so we've removed it for now.
+
+### Home dashboard improvements
+
+We added a new sidebar to the Home dashboard that gathers quick access links we think are useful for you. There's also a nicer area and floor layout that uses space more efficiently. On a more technical level, the Home dashboard is now a proper built-in dashboard and shows up in the dashboard list.
+
+{% note %}
+The sidebar can also be added to your manual dashboards via YAML.
+{% endnote %}
+
+{% important %}
+There is a chance your current favorites might disappear in this release and need to be re-added. This is due to the migration of this dashboard from a strategy to a built-in dashboard.
+{% endimportant %}
 
 ## Power and water in the Energy dashboard
 
