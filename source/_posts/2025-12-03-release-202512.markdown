@@ -121,6 +121,8 @@ When you enable a preview feature, you can also choose to create a backup first,
 
 Preview features are off by default, and enabling them won't affect your existing setup. It's completely optional, so if you prefer to stick with the battle proven experience, that's totally fine. But if you're curious and want to explore what's coming next, Labs is the place to be.
 
+But what was the first Labs preview feature we put in there? Well, it's a big one...
+
 {% my labs badge %}
 
 ## Intuitive triggers and conditions
@@ -445,6 +447,18 @@ There are many more improvements in this release; here are some of the other not
 [blueprints]: /docs/automation/using_blueprints/
 [helpers]: /docs/configuration/helpers/
 [logbook card]: /dashboards/logbook/
+
+### Get insight into your AI conversations
+
+Ever played around with AI in Home Assistant and wondered what data is actually being sent?
+
+[@balloob] upgraded the voice debug interface, and you can now inspect the system prompt that tells the AI how to behave, along with any tool calls it made to generate your answer.
+
+This makes it much easier to figure out why the AI decided to skip over that one entity, or why it called a specific tool. You can find the debug interface in the voice assistant configuration panel for your favorite assistant.
+
+<img class="no-shadow" src="/images/blog/2025-12/temp-debug-assistant.png" alt="Screenshot showing the new AI conversation debug interface with system prompt and tool calls visible." />
+
+[@balloob]: https://github.com/balloob
 
 ### Add entities to Android widgets and favorites
 
