@@ -201,7 +201,7 @@ Note: the steps and images here show the process with a Google Thread network. B
    ![image](/images/integrations/thread/thread-ha-preferred.png)
    - 🎉 You successfully created a Home Assistant Thread network and joined it with a pre-existing third-party network.
 
-## Migrating a Thread network to a new adapter
+## Migrating to a new Thread adapter
 
 If you already have a Thread adapter running but want to switch to a new one, follow these steps:
 
