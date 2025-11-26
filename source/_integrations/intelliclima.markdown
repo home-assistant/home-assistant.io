@@ -11,7 +11,7 @@ ha_codeowners:
 ha_domain: intelliclima
 ha_integration_type: device
 related:
-  - url: https://www.fantinicosmi.com/
+  - url: https://www.fantinicosmi.it/en/
     title: Fantini Cosmi
   - url: https://developers.home-assistant.io/docs/core/integration-quality-scale/rules/
     title: Integration Quality Scale - Rules
