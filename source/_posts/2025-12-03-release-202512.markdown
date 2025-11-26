@@ -90,7 +90,7 @@ Enjoy the (beta) release!
   - [Now available to set up from the UI](#now-available-to-set-up-from-the-ui)
   - [Farewell to the following](#farewell-to-the-following)
 - [Other noteworthy changes](#other-noteworthy-changes)
-  - [Add to... Android!](#add-to-android)
+  - [Add entities to Android widgets and favorites](#add-entities-to-android-widgets-and-favorites)
 - [Need help? Join the community](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
@@ -400,13 +400,24 @@ The following {% term integrations %} are no longer available as of this release
 
 There are many more improvements in this release; here are some of the other noteworthy changes:
 
-- The [lorem ipsum card] now supports [slipsum entities]. Thanks, [@frenck]!
+- New template math functions! [@akx] added `clamp`, `wrap`, and `remap` to manipulate numbers in your templates. Awesome!
+- The [logbook card] now supports filtering by state, making it easier to see specific events. Nice one, [@karwosts]!
+- [@MindFreeze] added `min` and `max` options to the [bar gauge feature] for tile cards, giving you more control over the gauge range.
+- You can now delete [helpers] directly from the helpers panel, without having to open them first. Thanks, [@frenck]!
+- The [blueprints] panel now shows how many automations and scripts use each blueprint. Great for keeping track, [@EarMaster]!
+- [@timmo001] added a handy trick: double-click the automation editor sidebar to reset its width.
+- Labels now show up on the device information card, making it easier to see how your devices are organized. Thanks again, [@timmo001]!
 
-[@frenck]: https://github.com/frenck
-[lorem ipsum card]: /dashboards/lorem_ipsum/
-[slipsum entities]: /integrations/slipsum/
+[@akx]: https://github.com/akx
+[@EarMaster]: https://github.com/EarMaster
+[@karwosts]: https://github.com/karwosts
+[@timmo001]: https://github.com/timmo001
+[bar gauge feature]: /dashboards/features/#bar-gauge
+[blueprints]: /docs/automation/using_blueprints/
+[helpers]: /docs/configuration/helpers/
+[logbook card]: /dashboards/logbook/
 
-### Add to... Android!
+### Add entities to Android widgets and favorites
 
 If you're using the [Home Assistant Companion app for Android](https://companion.home-assistant.io/docs/getting_started/), there's a handy new feature waiting for you! Starting with app version 2025.11, you can now add entities to widgets and Android Auto favorites directly from the entity's more information dialog.
 
