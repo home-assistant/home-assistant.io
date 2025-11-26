@@ -207,7 +207,7 @@ If you already have a Thread adapter running but want to switch to a new one, fo
 
 1. In your Home Assistant hub, plug in the new adapter.
 2. Add the integration for your new adapter.
-   - In Home Assistant, go to {% my integrations title="**Settings** > **Devices & services**" %} find the new adapter under **Discovered** and select **Add**.
+   - In Home Assistant, go to {% my integrations title="**Settings** > **Devices & services**" %}, find the new adapter under **Discovered**, and select **Add**.
 3. In the **Pick your protocol** dialog, select **Migrate Thread to a new adapter**.
    - Once the migration is complete, go to {% my supervisor_addon addon="core_openthread_border_router" title="**Settings** > **Add-ons** > **OpenThread Border Router**" %} and open the **Configuration** tab.
    - **Result**: Under **Device**, you now see that the new device is shown on the USB port.
