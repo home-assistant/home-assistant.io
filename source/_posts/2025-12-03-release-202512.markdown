@@ -176,16 +176,18 @@ One thing we are incredibly proud of in Home Assistant is our [integration quali
 This release, we celebrate several {% term integrations %} that have improved their quality scale:
 
 - **2 integrations reached platinum** 🏆
-  - [Lorem Ipsum], thanks to [@frenck]
-  - [Lorem Ipsum], thanks to [@frenck]
+  - [Brother Printer], thanks to [@bieniu]
+  - [Shelly], thanks to [@davidrapan]
+
+- **1 integration reached gold** 🥇
+  - [Google Assistant SDK], thanks to [@tronikos]
 
 - **2 integrations reached silver** 🥈
-  - [Lorem Ipsum], thanks to [@frenck]
-  - [Lorem Ipsum], thanks to [@frenck]
+  - [LCN], thanks to [@alengwenus]
+  - [Telegram bot], thanks to [@hanwg]
 
-- **2 integrations reached bronze** 🥉
-  - [Lorem Ipsum], thanks to [@frenck]
-  - [Lorem Ipsum], thanks to [@frenck]
+- **1 integration reached bronze** 🥉
+  - [Transmission], thanks to [@andrew-codechimp]
 
 This is a huge achievement for these integrations and their maintainers. The effort and dedication required to reach these quality levels is significant, as it involves extensive testing, documentation, error handling, and often complete rewrites of parts of the integration.
 
@@ -193,8 +195,18 @@ A big thank you to all the contributors involved! 👏
 
 [integration quality scale]: /docs/quality_scale/
 
-[@frenck]: https://github.com/frenck
-[Lorem Ipsum]: /integrations/lorem_ipsum
+[@alengwenus]: https://github.com/alengwenus
+[@andrew-codechimp]: https://github.com/andrew-codechimp
+[@bieniu]: https://github.com/bieniu
+[@davidrapan]: https://github.com/davidrapan
+[@hanwg]: https://github.com/hanwg
+[@tronikos]: https://github.com/tronikos
+[Brother Printer]: /integrations/brother
+[Google Assistant SDK]: /integrations/google_assistant_sdk
+[LCN]: /integrations/lcn
+[Shelly]: /integrations/shelly
+[Telegram bot]: /integrations/telegram_bot
+[Transmission]: /integrations/transmission
 
 ### Now available to set up from the UI
 
