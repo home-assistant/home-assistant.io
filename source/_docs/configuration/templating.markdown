@@ -1124,12 +1124,12 @@ The numeric functions and filters raise an error if the input is not a valid num
 - `clamp(v, min, max)` limits the value `v` to be between `min` and `max`, [clamping at the edges](https://en.wikipedia.org/wiki/Clamp_(function)). If any of the arguments cannot be converted to a float, raises an error. Can be used as a filter.
 - `wrap(v, min, max)` limits the value to be between min and max, wrapping the value at the edges. In mathematical terms, this is [modular arithmetic](https://en.wikipedia.org/wiki/Modular_arithmetic), sometimes called "clock face math". If `v`, `min`, or `max` cannot be converted to numbers, an error is raised. Can be used as a filter.
 - `remap(v, in_min, in_max, out_min, out_max, *, [steps], [edges])` remaps a value `v` from the range `in_min`..`in_max` to the range `out_min`..`out_max`.
-  If any of the values `v`, `in_min`, `in_max`, `out_min`, `out_max` can not be converted to numbers, an error is raised. Can be used as a filter.
+  If any of the values `v`, `in_min`, `in_max`, `out_min`, `out_max` cannot be converted to numbers, an error is raised. Can be used as a filter.
   - You can optionally set the `edges` parameter to control how out-of-bounds input values are handled:
     - `edges='clamp'` (the default) will clamp the output to the min/max output range.
     - `edges='wrap'` will wrap the input value around the input range before remapping.
     - `edges='mirror'` will bounce the input value back and forth within the input range before remapping.
-  - You can optionally set `steps=...` to a positive integer to quantize the output to a number of discrete steps.
+  - You can optionally set the `steps` parameter to a positive integer to quantize the output to a number of discrete steps.
 - `e` mathematical constant, approximately 2.71828.
 - `pi` mathematical constant, approximately 3.14159.
 - `tau` mathematical constant, approximately 6.28318.
