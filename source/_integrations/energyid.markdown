@@ -10,7 +10,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@JrtPec'
   - '@Molier'
-ha_release: 2025.10
+ha_release: 2025.12
 ---
 
 Connect your Home Assistant to [EnergyID](https://www.energyid.eu/)—a cloud platform for energy monitoring and optimization. This integration uploads your Home Assistant sensor data and provides advanced analytics and performance tracking for solar, battery, energy consumption and more.
