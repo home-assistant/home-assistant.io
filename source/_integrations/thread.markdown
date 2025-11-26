@@ -211,7 +211,9 @@ If you already have a Thread adapter running but want to switch to a new one, fo
 4. In the **Pick your protocol** dialog, select **Migrate Thread to a new adapter**.
    - Once the migration is complete, go to {% my supervisor_addon addon="core_openthread_border_router" title="**Settings** > **Add-ons** > **OpenThread Border Router**" %} and open the **Configuration** tab.
    - **Result**: Under **Device**, you now see that the new device is shown on the USB port.
-5. Go to {% my integrations title="**Settings** > **Devices & services**" %}, find the integration for your old adapter, select it, and then select **Delete**.
+5. Remove the integration for your old adapter.
+   - Go to {% my integrations title="**Settings** > **Devices & services**" %}, find the integration and select it.
+   - Select the three dots {% icon "mdi:dots-vertical" %} menu and select **Delete**.
 6. You can now unplug the old adapter.
 
 ## Understanding the Thread configuration page
