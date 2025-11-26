@@ -301,7 +301,7 @@ It is not just new {% term integrations %} that have been added; existing integr
 - The [OpenAI Conversation] integration now supports GPT-5.1 models. Great work, [@Shulyaka]!
 - Air conditioner and microwave support have landed in the [Home Connect] integration, expanding the range of supported BSH appliances. Thanks, [@Diegorro98]!
 - [@zerzhang] added support for the SwitchBot smart thermostat radiator to the [SwitchBot] integration. Nice!
-- The [Xbox] integration got some love from [@tr4nt0r]! You can now track friend locations, see if your friend is in a party, and control more remote functions.
+- The [Xbox] integration got some love from [@tr4nt0r]! You can now link multiple Xbox accounts, track how many friends you (and your friends) have, see if they're in a party, and control more remote functions. The media browser also gains a new category showcasing official game art and screenshots.
 - Got an Ecovacs robot? The [Ecovacs] integration now has a border spin switch (to reach those tricky edges while mopping) and an auto-empty select entity. Thanks, [@aronnebrivio]!
 - [@balloob] added a chat log subscription endpoint to the [Home Assistant] conversation agent, allowing you to subscribe to and receive real-time updates from ongoing conversations.
 - The [VeSync] integration gained a child lock switch, giving you control over this safety feature for your devices. Thanks, [@cdnninja]!
@@ -574,6 +574,21 @@ For more information and automation examples, see the [Vehicle Detection Event d
 [#157196]: https://github.com/home-assistant/core/pull/157196
 [#157203]: https://github.com/home-assistant/core/pull/157203
 [unifiprotect documentation]: /integrations/unifiprotect/
+
+{% enddetails %}
+
+{% details "Xbox" %}
+
+- The Xbox media browser has been completely overhauled to support multiple accounts and introduce a range of other improvements. As part of this update, the format of the media-source identifiers has been changed as well.
+
+- The **following** and **followers** sensors introduced in the last release previously included friends in their counts. After a recent API update, friends are no longer included.
+
+([@tr4nt0r] - [#155925]) ([@tr4nt0r] - [#155536]) ([xbox docs])
+
+[@tr4nt0r]: https://github.com/tr4nt0r
+[#155925]: https://github.com/home-assistant/core/pull/155925
+[#155536]: https://github.com/home-assistant/core/pull/155536
+[xbox docs]: /integrations/xbox/
 
 {% enddetails %}
 
