@@ -74,7 +74,10 @@ Enjoy the (beta) release!
 
 <!--more-->
 
+- [Home Assistant Labs 🧪](#home-assistant-labs-)
 - [Power and water in the Energy dashboard](#power-and-water-in-the-energy-dashboard)
+  - [Real-time power monitoring](#real-time-power-monitoring)
+  - [Downstream water meters](#downstream-water-meters)
 - [Integrations](#integrations)
   - [New integrations](#new-integrations)
   - [Noteworthy improvements to existing integrations](#noteworthy-improvements-to-existing-integrations)
@@ -82,28 +85,47 @@ Enjoy the (beta) release!
   - [Now available to set up from the UI](#now-available-to-set-up-from-the-ui)
   - [Farewell to the following](#farewell-to-the-following)
 - [Other noteworthy changes](#other-noteworthy-changes)
-  - [Lorem ipsum](#lorem-ipsum-1)
+  - [Add to... Android!](#add-to-android)
 - [Need help? Join the community](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
 
-_A huge thank you to all the contributors who made this release possible! And a special shout-out to [@frenck], [@frenck], and [@frenck] who helped write the release notes this release. Also, [@frenck], [@frenck], [@frenck], and [@frenck] for putting effort into tweaking its contents. Thanks to them, these release notes are in great shape. ❤️_
+_A huge thank you to all the contributors who made this release possible! And a special shout-out to [@TimoPtr], [@laupalombi], and [@MindFreeze] who helped write the release notes this release. Also, [@frenck], [@frenck], [@frenck], and [@frenck] for putting effort into tweaking its contents. Thanks to them, these release notes are in great shape. ❤️_
 
 [@frenck]: https://github.com/frenck
+[@laupalombi]: https://github.com/laupalombi
+[@MindFreeze]: https://github.com/MindFreeze
+[@TimoPtr]: https://github.com/TimoPtr
+
+## Home Assistant Labs 🧪
+
+When we develop new features for Home Assistant, we often find ourselves in a tricky spot. A feature might be fully built and tested, but we're not entirely sure if it's the right fit for everyone just yet. Maybe we want to gather some real-world feedback first, or perhaps we want to see how the community uses it before committing to keeping it around forever.
+
+That's where **Home Assistant Labs** comes in! 🧪
+
+Labs is a brand-new place in Home Assistant that gives you a sneak peek at features we're working on. These are not unfinished experiments or unstable beta features. They are fully functional and tested, but they might change or even disappear based on feedback. Think of it as a way for us to early share what we're excited about, while giving you the choice to try them out.
+
+<img class="no-shadow" alt="Screenshot showing the new Home Assistant Labs panel with preview features you can enable or disable." src="/images/blog/2025-12/temp-labs.png" />
+
+The very first preview feature available in Labs is **Winter mode** ❄️. Enable it, and watch your Home Assistant interface transform into a winter wonderland with falling snow. A fun way to get into the holiday spirit!
+
+<img class="no-shadow" alt="Screenshot showing the backup option when you enable a preview feature." src="/images/blog/2025-12/temp-labs-enable-with-backup.png" />
+
+When you enable a preview feature, you can also choose to create a backup first, just to be safe. And if you change your mind? Simply disable it again. No restart required!
+
+Preview features are off by default, and enabling them won't affect your existing setup. It's completely optional, so if you prefer to stick with the battle proven experience, that's totally fine. But if you're curious and want to explore what's coming next, Labs is the place to be.
+
+{% my labs badge %}
 
 ## Power and water in the Energy dashboard
 
-Our beloved {% term "Energy dashboard" %} just got a serious upgrade! After years of helping you track your electrons and gas molecules, we figured it was time to bring some more friends to the party: **real-time power monitoring** and **downstream water tracking**.
+The Energy dashboard has been helping you track your energy and gas usage for years now, and this release brings two great additions: **real-time power monitoring** and **downstream water tracking**.
 
-### Power: Because knowing what happened yesterday is so... yesterday
+### Real-time power monitoring
 
-Until now, the Energy dashboard was all about energy - the cumulative kWh you've consumed or produced over time. But sometimes you want to know what's happening _right now_. How much power is that suspicious appliance actually pulling? Is your solar system earning its keep at this very moment?
+Until now, the Energy dashboard was all about energy: the cumulative kWh you've consumed or produced over time. But sometimes you want to know what's happening _right now_. How much power is that appliance actually pulling? Is your solar system producing at this very moment?
 
-With this release, you can now configure **power sensors** alongside your energy sensors. Track your real-time grid consumption, see how much you're exporting back to the grid, and watch those watts flow in real-time with the new power graphs.
-
-Power configuration options now appear alongside energy settings for each source or device.
-
-New power graphs have been added so you can enjoy watching your power consumption dance throughout the day.
+With this release, you can now configure **power sensors** alongside your energy sensors. Track your real-time grid consumption, see how much you're exporting back to the grid, and watch those watts flow in real-time. The power configuration options now appear alongside energy settings for each source or device, and new power graphs let you see your power consumption throughout the day.
 
 <p class='img'>
 <img src='/images/dashboards/energy/power-sources.png' alt='Screenshot showing the power sources graph'>
@@ -114,14 +136,13 @@ New power graphs have been added so you can enjoy watching your power consumptio
 
 The Energy dashboard has been tracking your water consumption for a while now, but it was missing something: the ability to see _where_ all that water is actually going. Just like you can track individual devices for energy consumption, you can now add **downstream water meters** to break down your water usage.
 
-Got a smart irrigation controller? A water softener with a flow meter? A separate meter for your pool? Now you can track them all and see exactly how your water consumption splits across different uses.
+Got a smart irrigation controller? A water softener with a flow meter? A separate meter for your pool? Now you can track them all and see exactly how your water consumption is distributed across different uses.
 
-And because we couldn't leave water users without some eye candy, there's a brand new **water sankey card** that visualizes your water flow just like the energy sankey diagram you know and love. Watch your water consumption branch out to all its destinations in a satisfying visual flow.
+There's also a brand-new **water sankey card** that visualizes your water flow, just like the energy sankey diagram you already know. It's a great way to see where your water is going at a glance.
 
 <p class='img'>
-<!-- TODO: Add screenshot of water sankey card -->
 <img src='/images/dashboards/energy/water-sankey.png' alt='Screenshot showing the water sankey card visualizing water consumption'>
-The new water sankey card shows where your water went at a glance.
+The new water sankey card shows where your water is going at a glance.
 </p>
 
 ## Integrations
@@ -348,9 +369,26 @@ There are many more improvements in this release; here are some of the other not
 [lorem ipsum card]: /dashboards/lorem_ipsum/
 [slipsum entities]: /integrations/slipsum/
 
-### Lorem ipsum
+### Add to... Android!
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+If you're using the [Home Assistant Companion app for Android](https://companion.home-assistant.io/docs/getting_started/), there's a handy new feature waiting for you! Starting with app version 2025.11, you can now add entities to widgets and Android Auto favorites directly from the entity's more information dialog.
+
+<video playsinline muted controls poster="/images/blog/2025-12/android-add-to.png">
+  <source src="/images/blog/2025-12/temp-android-add-to.mp4" type="video/mp4">
+</video>
+
+With just a few taps, you can:
+
+- Add [widgets](https://companion.home-assistant.io/docs/integrations/android-widgets) for quick control of entities right from your home screen
+- Set entities as Android Auto favorites, making them quickly accessible in your car
+
+No more deep-diving into app settings! The **Add to** option appears in the more information dialog whenever the Companion app signals support for it. Selecting it opens a native dialog that lists all available options depending on the entity type.
+
+This is a first step in integrating native mobile features directly into the Home Assistant interface. Future releases will expand this with support for creating shortcuts, tiles, and watch favorites.
+
+Thanks for this great addition, [@TimoPtr]! 🙏
+
+[@TimoPtr]: https://github.com/TimoPtr
 
 ## Need help? Join the community
 
