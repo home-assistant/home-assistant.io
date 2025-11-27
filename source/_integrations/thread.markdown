@@ -204,6 +204,7 @@ Note: the steps and images here show the process with a Google Thread network. B
 ## Migrating a Thread network to a new adapter
 
 Follow these steps if you already have a Thread adapter running but want to switch to a new adapter.
+If you want to migrate to a Home Assistant Connect ZBT-2, follow the steps in the [Home Assistant Connect ZBT-2 documentation](https://support.nabucasa.com/hc/en-us/articles/32087461954589).
 
 ### Prerequisites
 
