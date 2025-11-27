@@ -10,7 +10,6 @@ ha_integration_type: hub
 ha_category:
   - Sensor
 ha_platforms:
-  - diagnostics
   - sensor
 works_with:
   - local
@@ -34,7 +33,7 @@ In addition, each **TFA.me station** also has the ability to hold the most recen
 
 ## Supported TFA.me devices
 
-Currently (autumn 2025), the following [TFA.me stations and sensors ](https://www.tfa-dostmann.de/en/produkte/wetterstationen/wetterstationen-wlan/tfa-me/) are supported. This product range is continuously being expanded. 
+Currently (winter 2025), the following [TFA.me stations and sensors ](https://www.tfa-dostmann.de/en/produkte/wetterstationen/wetterstationen-wlan/tfa-me/) are supported. This product range is continuously being expanded. 
 
 {% details "Stations and sensors list ..." %}
 
@@ -175,22 +174,20 @@ Otherwise please insert the batteries into all sensors you want to use.
 Please follow the configuration flow and make some basic setting.
 
 1. Mandatory: Enter the IP address of your device or the 9 digit serial number **"XXX-XXX-XXX"**. To get the IP address of your station press and hold the **"+"** key and wait until the IP is shown. The serial number is placed at the backside of your station.
-2. Optional: Change the interval time the integration should request data (default {% term polling %} time are 60 seconds)
-3. Optional: Checkbox  **"Multiple entities"**, when you only use one station leave this unchecked. Otherwise look at section **Entities** for more informations. 
-4. Mandatory: Press button **"OK"**. 
+2. Optional: Checkbox  **"Add station ID to device name"**, when you only use one station leave this unchecked. If there is more than one station, sensors will likely received from multiple stations. To better distinguish between them, the station ID is also displayed after the sensor ID/name when the checkbox is selected.
+3. Mandatory: Press button **"OK"**. 
 
-The integration now requests sensor list & sensor measurement data once at start. When successful you will see a list with all sensors added. The integrationn also generates all entities (section **"Entities"**). 
-
+The integration now requests sensor list & sensor measurement data once at start. When successful you will see a list with all sensors added. The integrationn also generates all entities (section **"Entities"**) and updates them every minute.. 
 
 After completing the configuration flow, the **TFA.me** integration will be available.
+
 
 **Recommendations**
  
 - The stations use DHCP by default to obtain their IP address. However, this IP address can change during operation. If this happens, Home Assistant can no longer reach the station. We therefore recommend using the serial number. The **TFA.me integration** then addresses the station using the mDNS name **tfa-me-XXX-XXX-XXX.local**.
  
-- Most sensors and all station transmit new values every 5 minutes. Professional sensors do this every minute. Therefore, it makes little sense to set the query interval ​​more frequently than every 1 or 5 minutes.
+- If there are problems with DHCP or mDNS, we recommend operating the station with a static/fixed IP address.
 
-- You can add the integration even when your TFA.me station if offline. Home Assistant tries cyclic to reach the station again.
 
 {% enddetails %}
 
@@ -203,10 +200,7 @@ After completing the configuration flow, the **TFA.me** integration will be avai
 
 The following options or actions can be set or triggered:
 
-- **Change request interval**: Change the interval the integration requests the measurement data from station.
-- **Discover new sensors**: Reload the sensor list & measurement values and add all missing entities.
-- **Reset all rain sensors**: Set all `rain_rel` to 0. (also see chapter **Entities**)
-- **Reload sensor data**: Reload all sensor measurement values.
+- **Reset all rain sensors**: Set all 'rain last hour' and 'rain last 24 hours' to 0. (also see chapter **Entities**)
 
 {% enddetails %}
 
@@ -249,49 +243,27 @@ For steps 1 and 6, please follow the instructions in the station manuals (PDF), 
 
 ## Supported functionality
 
-### Single entities
+### Entities
 
-Typically, you have one station and multiple sensors. In this case, we recommend using the **Single entities** option. This creates exactly one {% term entity %} for each sensor measurement.
+Typically, you have one station and multiple sensors. If you have multiple stations, it's likely that sensors are received by more than one station.
+To distinguish which station received a sensor signal, the following naming scheme for entities is always used:
 
-The naming scheme is as follows:
-
-- `sensor.<Sensor-ID>_<Measurement value>`
-
-**Example**: T/H-Sensor "A01-234-456" receiced via station/gateway "017-654-321":
-
-- `sensor.A01234567_temperature` 
-- `sensor.A01234567_humidity` 
-- `sensor.A01234567_rssi` 
-- `sensor.A01234567_lowbatt` 
-- `sensor.A01234567_lowbatt_txt` 
-
-
-### Multiple entities
-
-If you have multiple stations, it's likely that sensors are received by more than one station. In this case, you can decide whether measurement values ​​are stored twice and whether two different entities are **Multiple entities**.
-
-The naming scheme is as follows:
 
 `sensor.<Gateway-ID>_<Sensor-ID>_<Measurement value>`
 
-**Example**: T/H-Sensor A01-234-456 receiced via gateway 017-654-321:
+**Example**: T/H-Sensor with ID A01-234-456 receiced via station with ID 017-654-321:
 
 - `sensor.017654321_A01234567_temperature`
 - `sensor.017654321_A01234567_humidity`
 - `sensor.017654321_A01234567_rssi` 
 - `sensor.017654321_A01234567_lowbatt` 
-- `sensor.017654321_A01234567_lowbatt_txt` 
 
-**Example**: T/H-Sensor A01-234-456 receiced via gateway 031-654-321:
+**Example**: T/H-Sensor with ID A01-234-456 receiced via station with ID 031-654-321:
 
 - `sensor.031654321_A01234567_temperature`
 - `sensor.031654321_A01234567_humidity`
 - `sensor.031654321_A01234567_rssi` 
 - `sensor.031654321_A01234567_lowbatt` 
-- `sensor.031654321_A01234567_lowbatt_txt` 
-
-
-When **Single entities** is chosen and a sensor is received from more the one station/gateway, Home Assistant will remove one of then, because they have the same entity name.
 
 
 {% details "Overview of all station & sensor entities" %}
@@ -302,8 +274,10 @@ All entity name starts with: `sensor.xxxxxxxxx_yyyyyyyyy_` followed by the measu
 - ID 02: `temperature`, `humidity`, `rssi`, `lowbatt`, `lowbatt_txt`
 - ID 03: `temperature`, `humidity`, `rssi`, `lowbatt`, `lowbatt_txt`
 - ID 04: `temperature`, `humidity`, `rssi`, `lowbatt`, `lowbatt_txt`
-- ID 05: `temperature`, `humidity`, `barometric_pressure`, `rssi`, `lowbatt`
-
+- ID 05: `temperature`, `humidity`, `barometric_pressure`, `rssi`, `lowbatt`, `lowbatt_txt`
+- ID 06: `temperature`, `humidity`, `rssi`, `lowbatt`, `lowbatt_txt`
+- ID 07: `temperature`, `humidity`, `rssi`, `lowbatt`, `lowbatt_txt`
+- ID 08: `temperature`, `humidity`, `rssi`, `lowbatt`, `lowbatt_txt`
 
 - ID A0: `temperature`, `humidity`, `rssi`, `low_batt`, `lowbatt_txt` 
 - ID A1: `rain`, `rain_rel`, `rain_1_hour`, `rain_24_hours`, `rssi`, `lowbatt`, `lowbatt_txt` 
@@ -313,8 +287,6 @@ All entity name starts with: `sensor.xxxxxxxxx_yyyyyyyyy_` followed by the measu
 - ID A5: `temperature`, `rssi`, `lowbatt`, `lowbatt_txt`
 - ID A6: `temperature`, `humidity`, `rssi`, `lowbatt`, `lowbatt_txt`
 
-(*) yyyyyyyyy only used if **Multiple entities** is chosen. 
-
 {% enddetails %}
 
 
@@ -322,20 +294,19 @@ All entity name starts with: `sensor.xxxxxxxxx_yyyyyyyyy_` followed by the measu
 
 All units are metric.
 
-| Measurements | Unit | Comments |
-|---------------|------|----------|
-|`temperature`, `temperature_probe`|**°C**|Temperature|
-|`humidity`|**%**|Relative humidity|
-|`barometric_pressure`|**hPa**|Barometric pressure|
-|`rain`|**mm**| Rain fall, absolute value|
-|`rain_rel`, `rain_1_hour`, `rain_24_hours`|**mm**| Rain fall, relative value|
-|`rssi`|**1/256**| Theoretical range: 0(bad) ... 255(very good)<br>Practical range: 80(bad) ... 230(very good)|
-|`lowbatt`|**-**| 0: battery good, 1: battery bad|
-|`lowbatt_txt`|**-**| No: battery good, Yes: battery bad|
-|`wind_speed`, `wind_gust `|**m/s**|Speed is the average speed of last measurement period, gust is the maximum.|
-|`wind_direction`|**-**|Value range: 0...15 for the 16 main directions:<BR> 0="N", 1="NNE", 2="NE", 3="ENE", 4="E", 5="ESE", 6="SE", 7="SSE", 8="S", 9="SSW",10="SW", 11="WSW", 12="W", 13="WNW", 14="NW", 15="NNW"|
-|`wind_direction_deg`|**degress**|Value range: 0...337.5 for the 16 main directions (step 22.5):<BR> 0.0="N", 22.5="NNE", 45.0="NE", ... 337.5="NNW"|
-|`wind_direction_txt`|**-**|Text values for the 16 main directions:<BR> "N", "NNE", "NE", "ENE", "E","ESE", "SE", "SSE","S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW"|
+- `temperature`, `temperature_probe` in **°C**: Temperature
+- `humidity`in **%**: Relative humidity
+- `barometric_pressure` in **hPa**: Barometric pressure
+- `rain`in **mm**: Rain fall (absolute value)
+- `rain_rel`, `rain_1_hour`, `rain_24_hours` in **mm**: Rain fall (relative value)
+- `rssi` in **1/256**: Signal strength<br>Theoretical range: 0(bad) ... 255(very good)<br>Practical range: 80(bad) ... 230(very good)|
+- `lowbatt`, 0: battery good, 1: battery bad
+- `lowbatt_txt`,  No: battery good, Yes: battery bad
+- `wind_speed`, `wind_gust` in **m/s**: Speed is the average speed of last measurement period, gust is the maximum.
+- `wind_direction`, Value range: 0...15 for the 16 main directions:<BR> 0="N", 1="NNE", 2="NE", 3="ENE", 4="E", 5="ESE", 6="SE", 7="SSE", 8="S", 9="SSW",10="SW", 11="WSW", 12="W", 13="WNW", 14="NW", 15="NNW"
+- `wind_direction_deg` in **degress**: Value range: 0...337.5 for the 16 main directions (step 22.5):<BR> 0.0="N", 22.5="NNE", 45.0="NE", ... 337.5="NNW"
+- `wind_direction_txt`, Text values for the 16 main directions:<BR> "N", "NNE", "NE", "ENE", "E","ESE", "SE", "SSE","S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW"
+
 
 {% enddetails %}
 
@@ -348,44 +319,53 @@ All units are metric.
 - `rain_1_hour` is the rain value of the last hour. For that integration holds the history of rainfall values ​​from the last hour.
 - `rain_24_hours` is the rain value of the last 24 hours. For that integration holds the history of rainfall values ​​from the last 24 hours.
 - `rssi` values for stations are set to 255. They are internal values and not received via 868 MHz.
-- Sensors not received longer then (2 * transmisson interval time + 1 minute) are marked as **unavailable**. A sensor that sends every 5 minutes is marked after (2 * 5 + 1) = 11 minutes.
+- Sensors not received longer then (2 * transmisson interval time + 0.5 minute) are marked as **unavailable**. A sensor that sends every 5 minutes is marked after (2 * 5 + 0.5) = 10.5 minutes.
 - Dynamically Icons: Icons for measurement values (entities) are some time depending on the measuerement value itself.
 
 
 {% details "List with icons for entities" %}
 
+Depending on the measured value (value/range):
 
-| Entity              | Value | Icon |Value/Range|
-|---------------------|-------|------|-----|
-| temperature | default | {% icon "mdi:thermometer" %} | |
-| temperature | high    | {% icon "mdi:thermometer-high" %} | > 25|
-| temperature | low     | {% icon "mdi:thermometer-low" %}  |  < 0|
-| humidity    | default| {% icon "mdi:water-percent" %}       | 31...64 |
-| humidity    | alert  | {% icon "mdi:water-percent-alert" %} | 0...30 or 65...99 |
-| co2         | default  | {% icon "mdi:molecule-co2" %} |  |
-| barometric_pressure | default  | {% icon "mdi:gauge" %} | |
-| rssi | default  | {% icon "mdi:wifi" %} | |
-| rssi | weak     | {% icon "mdi:wifi-strength-1" %} | 0...99 |
-| rssi | middle   | {% icon "mdi:wifi-strength-2" %} | 100...149 |
-| rssi | good     | {% icon "mdi:wifi-strength-3" %} | 150..219 |
-| rssi | strong   | {% icon "mdi:wifi-strength-4" %} | 220...255 |
-| lowbatt | full  | {% icon "mdi:battery" %} | 1 |
-| lowbatt | low   | {% icon "mdi:battery-alert" %} | 0 |
-| wind_direction | default   | {% icon "mdi:compass-outline" %} | |
-| wind_direction | N, NNE | {% icon "mdi:arrow-down" %}     | 0, 1 |
-| wind_direction | NE, ENE| {% icon "mdi:arrow-bottom-left" %}     | 2, 3 |
-| wind_direction | E, ESE | {% icon "mdi:arrow-left" %}         | 4, 5 |
-| wind_direction | SE, SSE| {% icon "mdi:arrow-top-left" %}  | 6, 7 |
-| wind_direction | S, SSW | {% icon "mdi:arrow-up" %}          | 8, 9 |
-| wind_direction | SW, SSW| {% icon "mdi:arrow-top-right" %}   | 10, 11 |
-| wind_direction | W, WNW | {% icon "mdi:arrow-right" %}          | 12, 13 |
-| wind_direction | NW, NNW| {% icon "mdi:arrow-bottom-right" %}      | 14, 15 |
-| wind_speed     | default   | {% icon "mdi:weather-windy-variant" %} | | 
-| wind_gust      | default   | {% icon "mdi:weather-windy" %} | |
-| rain | none     | {% icon "mdi:weather-sunny" %} | (< 0.1 mm)/hour|
-| rain | light    | {% icon "mdi:weather-partly-rainy" %} | (0.1 mm ... < 0.5 mm)/hour|
-| rain | moderate | {% icon "mdi:weather-rainy" %} | (0.5 mm ... < 4.0 mm)/hour|
-| rain | heavy    | {% icon "mdi:weather-pouring" %} | (> 4.0 mm)/hour|
+- `temperature` 
+  - {% icon "mdi:thermometer" %} default 
+  - {% icon "mdi:thermometer-high" %} high (> 25)
+  - {% icon "mdi:thermometer-low" %} low (< 0)
+- `humidity`
+  - {% icon "mdi:water-percent" %} default (31...64)
+  - {% icon "mdi:water-percent-alert" %} alert (0...30 or 65...99)
+- `co2`
+  - {% icon "mdi:molecule-co2" %} default
+- `barometric_pressure`
+  - {% icon "mdi:gauge" %} default
+- `rssi`
+  - {% icon "mdi:wifi" %} default
+  - {% icon "mdi:wifi-strength-1" %} weak (0...99)
+  - {% icon "mdi:wifi-strength-2" %} middle (100...149)
+  - {% icon "mdi:wifi-strength-3" %} good  (150..219)
+  - {% icon "mdi:wifi-strength-4" %} strong (220...255)
+- `lowbatt` 
+  - {% icon "mdi:battery" %} full  (0)
+  - {% icon "mdi:battery-alert" %} low (1)
+- `wind_direction` 
+  - {% icon "mdi:compass-outline" %} default
+  - {% icon "mdi:arrow-down" %} N, NNE  (0, 1)
+  - {% icon "mdi:arrow-bottom-left" %} NE, ENE (2, 3)
+  - {% icon "mdi:arrow-left" %} E, ESE (4, 5)
+  - {% icon "mdi:arrow-top-left" %} SE, SSE (6, 7)
+  - {% icon "mdi:arrow-up" %} S, SSW (8, 9)
+  - {% icon "mdi:arrow-top-right" %}  SW, SSW (10, 11)
+  - {% icon "mdi:arrow-right" %} W, WNW (12, 13)
+  - {% icon "mdi:arrow-bottom-right" %} NW, NNW (14, 15)
+- `wind_speed`
+  - {% icon "mdi:weather-windy-variant" %} default 
+- `wind_gust`
+  - {% icon "mdi:weather-windy" %} default 
+- `rain`
+  - {% icon "mdi:weather-sunny" %} none (< 0.1 mm)/hour
+  - {% icon "mdi:weather-partly-rainy" %} light (0.1 mm ... < 0.5 mm)/hour
+  - {% icon "mdi:weather-rainy" %} moderate (0.5 mm ... < 4.0 mm)/hour
+  - {% icon "mdi:weather-pouring" %} heavy (> 4.0 mm)/hour
 
 
 {% enddetails %}
