@@ -554,7 +554,7 @@ It is now required to set a `username` and `password` when enabling the debug UI
 
 The legacy license plate event sensor has been removed from the UniFi Protect integration, as it no longer functions with Protect 6 and newer. The UniFi Protect integration has not been compatible with Protect versions older than 6 for quite some time.
 
-This sensor has been replaced with a new **Vehicle Detection Event** entity that provides significantly more functionality, including license plate recognition, vehicle type detection, color detection, and confidence scores. The new event entity fires with a 3-second delay to ensure optimal thumbnail and License Plate Recognition (LPR) data quality.
+This sensor has been replaced with a new **Vehicle Detection Event** entity that provides significantly more functionality, including license plate recognition, vehicle type detection, color detection, and confidence scores. The new event entity fires with a 3-second delay to ensure optimal thumbnail and <abbr title="License Plate Recognition">LPR</abbr> data quality.
 
 For more information and automation examples, see the [Vehicle Detection Event documentation](/integrations/unifiprotect/#vehicle-detection-event).
 
