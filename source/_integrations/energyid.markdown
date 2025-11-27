@@ -3,7 +3,7 @@ title: EnergyID
 description: Instructions on how to integrate EnergyID into Home Assistant to send your sensor data to the EnergyID platform.
 ha_category:
   - Energy
-ha_iot_class: cloud_push
+ha_iot_class: Cloud Push
 ha_domain: energyid
 ha_integration_type: service
 ha_config_flow: true
