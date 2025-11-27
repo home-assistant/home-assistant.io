@@ -32,13 +32,14 @@ There are two common representations for encoding an IRK - base64 encoding or he
 If you are trying to get the IRK for your iPhone or Apple Watch, you must be logged in to the Mac with the same iCloud account on those devices. This procedure should also work for devices that you pair with macOS.
 
 1. Start the **Keychain Access** application.
-2. In the left sidebar, make sure iCloud is selected.
+2. Depending on your macOS version, Keychain Access may look different. On macOS 26, select **Local Items** in the sidebar on the left. On older macOS versions, select **iCloud** in the sidebar.
 3. In the search bar in the upper right, type Bluetooth.
 4. A list of GUIDs is shown.
-5. Double-click on a record. As part of the **Account** field, it will say `Public: XX:XX:XX:XX:XX:XX`. This MAC address should match the device you are trying to work with.
-6. Click on show password
-7. You will have to enter your password, then enter your username and password.
-8. macOS will show some XML. You are looking for the "Remote IRK" field. After there is a data field that contains a base64 encoded version of your Identity Resolving Key.
+5. Click on the first record in the list. At the top, as part of the **Account** field, you should see `Public: XX:XX:XX:XX:XX:XX` (or Random - you can ignore records starting with random).
+6. Scroll down through the records to find the MAC address that matches your iPhone/Watch (you can find this in **Settings** > **General** > **About** on your phone/watch).
+7. Select **Show password**.
+8. You will have to enter your password, then enter your username and password.
+9. macOS will show some XML. You are looking for the **Remote IRK** field. After that, there is a data field that contains a base64 encoded version of your Identity Resolving Key.
 
 ### On Windows / For Android
 
@@ -55,6 +56,18 @@ Alternatively, the IRK of an Android phone and/or secondary device can be obtain
 7. Open `btsnoop_hci.log` in [Wireshark](https://www.wireshark.org/download.html) and search for `btsmp.id_resolving_key`.
 8. Select one of the frames and expand the "Bluetooth Security Manager Protocol." The hex dump will show either the sending or receiving device IRK.
 9. Reverse the value displayed. For example, if it is `763af6c7f7d94ad6c262158e2320544e`, the IRK to use would be: `4e5420238e1562c2d64ad9f7c7f63a76`.
+
+### On Windows - for any devices that will connect to a computer
+
+1. Get the PsExec tool from Microsoft. It's available in the [Sysinternals Suite](https://learn.microsoft.com/en-us/sysinternals/downloads/psexec). Download and extract the `PsExec.exe` or `PsExec64.exe`.
+2. Open Command Prompt as Administrator: Press the Windows key, type `cmd`, right-click on **Command Prompt**, and select **Run as administrator**.
+3. Run PsExec: Navigate to the folder where PsExec is located and run `psexec -i -s cmd` or `psexec64 -i -s cmd`. This command will open a new command prompt window with SYSTEM rights.
+4. Verify SYSTEM Rights: In the new command prompt window, type `whoami` to confirm that you have SYSTEM rights.
+5. Open Registry Editor with SYSTEM Rights: In the new command prompt window, type `regedit` to open the Registry Editor with SYSTEM rights.
+6. Locate the IRK: Navigate to `HKLM\SYSTEM\CurrentControlSet\Services\BTHPORT\Parameters\Keys`. There is one subfolder that probably holds the computer's Bluetooth radio's MAC address, look inside it for the folder corresponding to the MAC address of your Bluetooth device.
+7. Right-click the key(folder) and select export. Save the `.reg` file somewhere.
+8. Open the `.reg` file in Notepad. To open the **Replace** window, press Ctrl+H. **Find what:** "," and **Replace with** "". Select **Replace All**. This removes all commas from the hex value.
+9. Copy the IRK value (only the part after `hex:`) and it can be used as-is. No reversing of byte order needs to be done.
 
 ## ESPresense
 

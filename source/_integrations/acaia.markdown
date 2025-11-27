@@ -108,7 +108,7 @@ actions:
 
 - While this integration is configured for your device, you won't be able to use the official app, as only one connection at a time is supported.
 
-## Remove integration
+## Removing the integration
 
 This integration follows standard integration removal, no extra steps are required.
 

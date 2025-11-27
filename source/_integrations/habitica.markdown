@@ -15,13 +15,14 @@ ha_platforms:
   - calendar
   - diagnostics
   - image
+  - notify
   - sensor
   - switch
   - todo
 ha_codeowners:
   - '@tr4nt0r'
 ha_config_flow: true
-ha_integration_type: integration
+ha_integration_type: service
 related:
   - docs: /integrations/todo
     title: To-do list integration documentation
@@ -31,6 +32,7 @@ related:
     title: To-do list card
   - url: https://habitica.com/
     title: Habitica
+ha_quality_scale: platinum
 ---
 
 The Habitica {% term integration %} enables you to monitor your adventurer's progress and stats from [Habitica](https://habitica.com/) in Home Assistant and seamlessly integrates your to-do's, daily tasks, and many more things.
@@ -96,6 +98,9 @@ Verify SSL certificate:
 - **Saddles**: Indicates the number of saddles owned, used for instantly raising pets to mounts.
 - **Hatching potions**: Shows the total count of available hatching potions. The sensor's attributes detail each potion type and quantity. Pour them on an egg to hatch a pet.
 - **Quest scrolls**: Displays the total number of quest scrolls in your inventory. A list of each quest scroll and its quantity is provided in the sensor's attributes.
+- **Pending damage**: Total damage accumulated during the day by completing your tasks. The quest boss is then attacked for this amount at the end of the day.
+- **Pending quest items**: Quest items found during the day when completing tasks. The total is counted towards the quest objective at the end of the day.
+- **Last check-in**: Last time a user checked in.
 
 ## Binary sensors
 
@@ -157,6 +162,42 @@ If you've unlocked the class system, button controls for casting player and part
 ## Switch controls
 
 - **Rest in the Inn**: When enabled, allows your character to rest in the inn in Habitica, pausing damage dealt from dailies and quest bosses.
+
+## Notifier
+
+- **Party chat**: Sends a message to your party's group chat.
+- **Private message**: Sends a private message to an individual party member. A separate notify entity is created for each member of your party.
+
+## Party
+
+If you’re part of a party, the integration creates a device with these entities.
+
+- **Boss health**: The total health of the quest boss.
+- **Boss health remaining**: The remaining health of the quest boss.
+- **Collected quest items**: Displays the total number of items collected. Attributes include a breakdown of each required item type, showing both collected and required amounts.
+- **Group leader**: The username of your party's leader.
+- **Member count**: The current number of members in your party.
+- **Quest**: Shows the name of the current quest your party is engaged in.
+- **Quest boss**: The name and image of the foe your party is currently battling.
+- **Boss rage**: Rage accumulated when quest participants miss their daily tasks.
+- **Boss rage limit break**: The maximum rage a quest boss can hold. Once this limit is reached, the boss unleashes its rage skill.
+
+{% note %}
+
+Certain entities are only available depending on whether you are in a boss quest or a collect quest.
+
+{% endnote %}
+
+### Keep an eye on your team mates
+
+You can add members of your party to Home Assistant, so you can keep an eye on your mates health and other key stats. To add a party member, go to {% my integration domain="habitica" title="**Settings** > **Devices & services** > **Habitica**" %} and select **{% icon "mdi:plus" %} Add party member**.
+
+When you add someone, Home Assistant creates a new entry with the following entities:
+
+- **Sensors**: Class, display name, health, mana, max. mana, experience, next level, strength, intelligence, constitution, and perception.
+- **Image**: Avatar
+
+For details about each of these entities, see the descriptions above under [**Sensors**](#sensors) and [**Image**](#image).
 
 ## Actions
 
@@ -328,6 +369,113 @@ Updates a specific habit for the selected Habitica character.
 | `counter_down` | yes      | Update the down counter of a negative habit.                                                 |
 | `alias`        | yes      | A task alias can be used instead of the name or task ID. Only dashes, underscores, and alphanumeric characters are supported. The task alias must be unique among all your tasks. |
 
+### Action `habitica.create_habit`
+
+Creates a habit for the selected Habitica character.
+
+| Data attribute | Optional | Description                                                                                  |
+| -------------- | -------- | -------------------------------------------------------------------------------------------- |
+| `config_entry` | no       | Select the Habitica account to create a habit.                                               |
+| `name`         | no       | The title for the Habitica habit.                                                            |
+| `notes`        | yes      | The notes for the Habitica habit.                                                            |
+| `up_down`      | yes      | Defines if the habit is good and rewarding (positive), bad and penalizing (negative) or both. Valid values: `up`, `down`, or `[up, down]` |
+| `priority`     | yes      | Sets the difficulty of the habit. Valid values: `trivial`, `easy`, `medium`, `hard`. Default: `easy` |
+| `frequency`    | yes      | Defines when the habit's counter resets. Valid values: `daily`, `weekly`, `monthly`. Default: `daily` |
+| `tag`          | yes      | Add tags to the Habitica habit. If a tag does not already exist, a new one will be created.  |
+| `alias`        | yes      | A task alias can be used instead of the name or task ID. Only dashes, underscores, and alphanumeric characters are supported. The task alias must be unique among all your tasks. |
+
+### Action `habitica.update_todo`
+
+Updates a specific to-do for the selected Habitica character.
+
+| Data attribute | Optional | Description                                                                                  |
+| -------------- | -------- | -------------------------------------------------------------------------------------------- |
+| `config_entry` | no       | Select the Habitica account to update a to-do.                                               |
+| `task`         | no       | The name (or task ID) of the to-do you want to update.                                       |
+| `rename`       | yes      | The new title for the Habitica to-do.                                                        |
+| `notes`        | yes      | The new notes for the Habitica to-do.                                                        |
+| `add_checklist_item`     | yes | The items to add to the to-do's checklist.                                              |
+| `remove_checklist_item`  | yes | Remove items from a to-do's checklist.                                                  |
+| `score_checklist_item`   | yes | Mark items from a to-do's checklist as completed.                                       |
+| `unscore_checklist_item` | yes | Undo completion of items of a to-do's checklist.                                        |
+| `collapse_checklist`     | yes | Whether the checklist is displayed as collapsed or expanded.                            |
+| `priority`     | yes      | Update the difficulty of a to-do. Valid values: `trivial`, `easy`, `medium`, `hard`          |
+| `date`         | yes      | The to-do's due date.                                                                        |
+| `clear_date`   | yes      | Remove the due date from a to-do.                                                            |
+| `reminder`     | yes      | Add reminders to a Habitica to-do.                                                           |
+| `remove_reminder` | yes   | Remove specific reminders from a Habitica to-do.                                             |
+| `clear_reminder`  | yes   | Remove all reminders from a Habitica to-do.                                                  |
+| `tag`          | yes      | Add tags to the Habitica to-do. If a tag does not already exist, a new one will be created.  |
+| `remove_tag`   | yes      | Remove tags from the Habitica to-do.                                                         |
+| `alias`        | yes      | A task alias can be used instead of the name or task ID. Only dashes, underscores, and alphanumeric characters are supported. The task alias must be unique among all your tasks. |
+
+### Action `habitica.create_todo`
+
+Creates a to-do for the selected Habitica character.
+
+| Data attribute | Optional | Description                                                                                  |
+| -------------- | -------- | -------------------------------------------------------------------------------------------- |
+| `config_entry` | no       | Select the Habitica account to create a to-do.                                               |
+| `name`         | no       | The title for the Habitica to-do.                                                            |
+| `notes`        | yes      | The notes for the Habitica to-do.                                                            |
+| `add_checklist_item`     | yes | The items to add to the to-do's checklist.                                              |
+| `collapse_checklist`     | yes | Whether the checklist is displayed as collapsed or expanded.                            |
+| `priority`     | yes      | The difficulty of the to-do. Valid values: `trivial`, `easy`, `medium`, `hard`               |
+| `date`         | yes      | The to-do's due date.                                                                        |
+| `reminder`     | yes      | Add reminders to a Habitica to-do.                                                           |
+| `tag`          | yes      | Add tags to the Habitica to-do. If a tag does not already exist, a new one will be created.  |
+| `alias`        | yes      | A task alias can be used instead of the name or task ID. Only dashes, underscores, and alphanumeric characters are supported. The task alias must be unique among all your tasks. |
+
+### Action `habitica.update_daily`
+
+Updates a specific daily for the selected Habitica character.
+
+| Data attribute | Optional | Description                                                                                  |
+| -------------- | -------- | -------------------------------------------------------------------------------------------- |
+| `config_entry` | no       | Select the Habitica account to update a daily.                                               |
+| `task`         | no       | The name (or task ID) of the daily you want to update.                                       |
+| `rename`       | yes      | The new title for the Habitica daily.                                                        |
+| `notes`        | yes      | The new notes for the Habitica daily.                                                        |
+| `add_checklist_item`     | yes | The items to add to the daily's checklist.                                              |
+| `remove_checklist_item`  | yes | Remove items from a daily's checklist.                                                  |
+| `score_checklist_item`   | yes | Mark items from a daily's checklist as completed.                                       |
+| `unscore_checklist_item` | yes | Undo completion of items of a daily's checklist.                                        |
+| `collapse_checklist`     | yes | Whether the checklist is displayed as collapsed or expanded.                            |
+| `priority`     | yes      | Update the difficulty of a daily. Valid values: `trivial`, `easy`, `medium`, `hard`          |
+| `start_date`   | yes      | Defines when the daily task becomes active and specifies the exact weekday or day of the month it repeats on. |
+| `frequency`    | yes      | The repetition interval of a daily. Valid values: `daily`, `weekly`, `monthly`, `yearly`.    |
+| `every_x`      | yes      | The number of intervals (`days`, `weeks`, `months`, or `years`) after which the daily repeats, based on the chosen repetition interval. A value of 0 makes the daily inactive (a *Gray Daily*). |
+| `repeat`       | yes      | The days of the week the daily repeats. Applicable when the repetition interval is set to weekly. |
+| `repeat_monthly` | yes    | Whether a monthly recurring task repeats on the same calendar day each month (`day_of_month`), or on the same weekday and week of the month (`day_of_week`), based on the start date. Applicable when the repetition interval is set to monthly. |
+| `reminder`     | yes      | Add reminders to a Habitica daily.                                                           |
+| `remove_reminder` | yes   | Remove specific reminders from a Habitica daily.                                             |
+| `clear_reminder`  | yes   | Remove all reminders from a Habitica daily.                                                  |
+| `tag`          | yes      | Add tags to the Habitica daily. If a tag does not already exist, a new one will be created.  |
+| `remove_tag`   | yes      | Remove tags from the Habitica daily.                                                         |
+| `streak`       | yes      | Adjust or reset the streak counter of the daily.                                             |
+| `alias`        | yes      | A task alias can be used instead of the name or task ID. Only dashes, underscores, and alphanumeric characters are supported. The task alias must be unique among all your tasks. |
+
+### Action `habitica.create_daily`
+
+Creates a daily for the selected Habitica character.
+
+| Data attribute | Optional | Description                                                                                  |
+| -------------- | -------- | -------------------------------------------------------------------------------------------- |
+| `config_entry` | no       | Select the Habitica account to create a daily.                                               |
+| `name`         | no       | The title for the Habitica daily.                                                            |
+| `notes`        | yes      | The new notes for the Habitica daily.                                                        |
+| `add_checklist_item` | yes | The items to add to the daily's checklist.                                                  |
+| `collapse_checklist` | yes | Whether the checklist is displayed as collapsed or expanded.                                |
+| `priority`     | yes      | The difficulty of a daily. Valid values: `trivial`, `easy`, `medium`, `hard`                 |
+| `start_date`   | yes      | The date when the daily becomes active and specifies the exact weekday or day of the month it repeats on. |
+| `frequency`    | yes      | The repetition interval of a daily. Valid values: `daily`, `weekly`, `monthly`, `yearly`.    |
+| `every_x`      | yes      | The number of intervals (`days`, `weeks`, `months`, or `years`) after which the daily repeats, based on the chosen repetition interval. A value of 0 makes the daily inactive (a *Gray Daily*). |
+| `repeat`       | yes      | The days of the week the daily repeats. Applicable when the repetition interval is set to weekly. |
+| `repeat_monthly` | yes    | Whether a monthly recurring task repeats on the same calendar day each month (`day_of_month`), or on the same weekday and week of the month (`day_of_week`), based on the start date. Applicable when the repetition interval is set to monthly. |
+| `reminder`     | yes      | Add reminders to a Habitica daily.                                                           |
+| `tag`          | yes      | Add tags to the Habitica daily. If a tag does not already exist, a new one will be created.  |
+| `alias`        | yes      | A task alias can be used instead of the name or task ID. Only dashes, underscores, and alphanumeric characters are supported. The task alias must be unique among all your tasks. |
+
 ## Automations
 
 Get started with these automation examples for Habitica, each featuring ready-to-use blueprints!
@@ -450,7 +598,8 @@ actions:
 
 ## Data updates
 
-This integration retrieves data from Habitica every 60 seconds to ensure timely updates.
+This integration syncs with Habitica every 60 seconds to keep your own data up to date.
+Party data, including any party members you’ve added as sub-entries, is refreshed every 15 minutes.
 
 ## Known limitations
 
@@ -470,7 +619,7 @@ The Habitica integration relies on an active internet connection to communicate 
 
 In any case, when reporting an issue, please enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics), restart the integration, and as soon as the issue reoccurs stop the debug logging again (*download of debug log file will start automatically*). Further, if still possible, please also download the [diagnostics](/integrations/diagnostics) data. If you have collected the debug log and the diagnostics data, provide them with the issue report.
 
-## Remove integration
+## Removing the integration
 
 This integration can be removed by following these steps:
 

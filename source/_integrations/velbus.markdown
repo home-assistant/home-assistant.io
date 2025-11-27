@@ -27,10 +27,12 @@ ha_platforms:
   - sensor
   - switch
 ha_integration_type: hub
+ha_quality_scale: bronze
 ---
 
 The **Velbus** {% term integration %} is used to control [Velbus](https://www.velbus.eu/?lang=en) modules. It supports the Velbus USB, Velbus serial and a TCP/IP gateway.
 
+To use the Velbus integration, you need to have Velbus modules connected to a Velbus USB or TCP/IP interface.
 
 {% include integrations/config_flow.md %}
 
@@ -40,6 +42,8 @@ During the setup you will be shown 2 choices on ways to connect to the Velbus bu
 
 - USB
 - TCP/IP
+
+A connection test will be performed to ensure the connection is working. If successful, the integration will be added to Home Assistant.
 
 ### USB
 
@@ -53,17 +57,16 @@ There will be a connection test to make sure the connection is working, and if i
 
 The TCP/IP connection is a way to connect to the Velbus bus. You will need a Velbus TCP/IP interface available in your network.
 
-There are a couple of parameters you need to fill in to connect to the Velbus bus:
-
-- tls
-- host
-- port
-- password
-
-The `tls` parameter is optional and can be used to enable or disable the TLS connection.
-The `host` parameter is the IP address of the Velbus TCP/IP interface.
-The `port` parameter is the port number of the Velbus TCP/IP interface.
-The `password` parameter is optional and can be used to authenticate to the Velbus TCP/IP interface.
+{% configuration_basic %}
+tls:
+    description: "Enable TLS connection towards the Velbus TCP/IP interface. This is usually needed when connecting to a signum. This is optional and can be disabled when connecting to a velser or Home Assistant add-on."
+host:
+    description: "The IP address of the Velbus TCP/IP interface."
+port:
+    description: "The port number of the Velbus TCP/IP interface."
+password:
+    description: "The password to authenticate to the Velbus TCP/IP interface. This is optional and only needed if the devie has authentication enabled."
+{% endconfiguration_basic %}
 
 #### Example: signum
 
@@ -102,7 +105,6 @@ You can use the `velbus.sync_clock` action to synchronize the clock of the Velbu
 
 | Data attribute | Optional | Description                              |
 | ---------------------- | -------- | ---------------------------------------- |
-| `interface`            | no       | The port used to connect to the bus (the same one as used during configuration). |
 | `config_entry`         | no       | The config_entry to send the command to. |
 
 ### Action `velbus.scan`
@@ -111,7 +113,6 @@ You can use the `velbus.scan` action to synchronize the modules between the bus 
 
 | Data attribute | Optional | Description                              |
 | ---------------------- | -------- | ---------------------------------------- |
-| `interface`            | no       | The port used to connect to the bus (the same one as used during configuration). |
 | `config_entry`         | no       | The config_entry to send the command to. |
 
 
@@ -121,7 +122,6 @@ You can use the `velbus.set_memo_text` action to provide the memo text to be dis
 
 | Data attribute | Optional | Description                              |
 | ---------------------- | -------- | ---------------------------------------- |
-| `interface`            | no       | The port used to connect to the bus (the same one as used during configuration). |
 | `config_entry`         | no       | The config_entry to send the command to. |
 | `address`              | no       | The module address in decimal format, which is displayed at the device list at the integration page. |
 | `memo_text`            | yes      | Text to be displayed on module. When no memo text is supplied the memo text will be cleared. |
@@ -147,7 +147,6 @@ Use this action when you make changes to your configuration via velbuslink.
 
 | Data attribute | Optional | Description                              |
 | ---------------------- | -------- | ---------------------------------------- |
-| `interface`            | no       | The port used to connect to the bus (the same one as used during configuration). |
 | `config_entry`         | no       | The config_entry to send the command to. |
 | `address`              | no       | The module address in decimal format, which is displayed on the device list on the integration page, if provided the service will only clear the cache for this model, without an address, the full velbuscache will be cleared. |
 

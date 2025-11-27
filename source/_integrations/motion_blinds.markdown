@@ -36,6 +36,7 @@ Additionally the following brands have been reported to also work with this inte
 - [Hurrican Shutters Wholesale](https://www.hurricaneshutterswholesale.com/)
 - [Inspired Shades](https://www.inspired-shades.com/)
 - [iSmartWindow](https://www.ismartwindow.co.nz/)
+- [Kaiser Nienhaus](https://www.kaiser-nienhaus.de/)
 - [Krispol](https://krispol.eu/en/drives/)
 - [Linx](https://linxautomation.com.au/)
 - [Madeco](https://www.madeco.fr/)
@@ -69,6 +70,7 @@ The following bridges are reported to work with this integration:
 - DD7006A Smart Home bridge
 - Dreamhub Pro 191726
 - Dreamhub mini 191717
+- Kaiser Nienhaus Smart Stick
 
 {% include integrations/config_flow.md %}
 

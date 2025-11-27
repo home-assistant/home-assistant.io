@@ -20,6 +20,7 @@ ha_platforms:
 ha_integration_type: integration
 ha_config_flow: true
 ha_dhcp: true
+ha_quality_scale: platinum
 ---
 
 This integration links Home Assistant with your Intergas gateway, including the boiler and any room thermostats attached to it.
@@ -92,7 +93,7 @@ In case setting up an older gateway type fails, then try to leave `username` and
 
 The Intergas gateway will fetch state data from the gateway every 30 seconds. When the target temperature on the thermostat is changed, it might take some time for the set point to be updated on the Home Assistant climate {% term entity %}.
 
-## Remove integration
+## Removing the integration
 
 This integration follows standard integration removal, no extra steps are required.
 

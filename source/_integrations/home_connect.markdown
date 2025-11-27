@@ -10,13 +10,14 @@ ha_category:
   - Select
   - Sensor
   - Switch
-  - Time
 ha_iot_class: Cloud Push
 ha_release: '0.110'
 ha_domain: home_connect
+ha_quality_scale: platinum
 ha_codeowners:
   - '@DavidMStraub'
   - '@Diegorro98'
+  - '@MartinHjelmare'
 ha_config_flow: true
 ha_platforms:
   - binary_sensor
@@ -27,8 +28,9 @@ ha_platforms:
   - select
   - sensor
   - switch
-  - time
 ha_integration_type: integration
+ha_zeroconf: true
+ha_dhcp: true
 ---
 
 The Home Connect integration allows users to integrate their home appliances supporting the Home Connect standard for Bosch and Siemens using the [official cloud API](https://developer.home-connect.com).
@@ -41,29 +43,8 @@ The Home Connect integration allows users to integrate their home appliances sup
 - Control the light of your appliances.
 - Adjust the appliance settings.
 
-The integration will add one Home Assistant device for each connected home appliance which will have the following entities:
-
-- A power switch
-- If the device has programs:
-  - Two select entities that will allow you to select and start a program between the available ones.
-  - A timestamp sensor for remaining time and a numeric sensor for the progress percentage.
-- Light:
-  - Hoods:
-    - Functional light: on/off and brightness
-    - Ambient light: on/off, brightness, HSV and RGB
-  - Dishwasher: on/off, brightness, HS and RGB
-  - Cooling appliances: Both, external and internal lights, on/off and brightness
-- Numbers that set the temperature of cooling appliances.
-- Time for alarm clock for cooktops and ovens.
-- Multiple sensors that report the different states and events reported by the appliance.
-- Binary sensors that show binary states of the appliance.
-
 {% note %}
 Note that it depends on the appliance and on API permissions which of the features are supported.
-{% endnote %}
-
-{% note %}
-Some devices only have the state `on` and turn off is not supported by the appliance, check [power state availability at Home Connect API documentation](https://api-docs.home-connect.com/settings/#power-state) for more information.
 {% endnote %}
 
 ## Supported devices
@@ -110,19 +91,12 @@ Internal examples: `http://192.168.0.2:8123/auth/external/callback`, `http://hom
 
 The integration configuration will ask for the *Client ID* and *Client Secret* created above. See [Application Credentials](/integrations/application_credentials) for more details.
 
-## Removing the integration
-
-This integration follows standard integration removal. No extra steps are required.
-
-{% include integrations/remove_device_service.md %}
-
-After deleting the integration, go to [your applications at the Home Connect Developer portal](https://developer.home-connect.com/applications), find the application that you were using for Home Assistant, click on details and click on "Delete Application".
-
 ## Supported functionality
 
 {% note %}
 
 - The entities availability depends on the appliance type, but the appliance might not support all the entities for its type.
+- The program option entities will not be provided by the integration until they are available in the selected or active program.
 - Some appliances don't report data while they are turned off, so corresponding entities will not appear in the Home Connect integration after loading until the appliances are turned on.
 {% endnote %}
 
@@ -145,8 +119,17 @@ After deleting the integration, go to [your applications at the Home Connect Dev
 - **Bottle cooler door**:
   - **Description**: Indicates if the bottle cooler door is open.
   - **Availability**: Fridge freezer, Refrigerator
+- **Common chiller door**:
+  - **Description**: Indicates if the common chiller door is open.
+  - **Availability**: Fridge freezer, Refrigerator
 - **Chiller door**:
   - **Description**: Indicates if the chiller door is open.
+  - **Availability**: Fridge freezer, Refrigerator
+- **Left chiller door**:
+  - **Description**: Indicates if the left chiller door is open.
+  - **Availability**: Fridge freezer, Refrigerator
+- **Right chiller door**:
+  - **Description**: Indicates if the right chiller door is open.
   - **Availability**: Fridge freezer, Refrigerator
 - **Flex compartment door**:
   - **Description**: Indicates if the flex compartment door is open.
@@ -220,6 +203,9 @@ After deleting the integration, go to [your applications at the Home Connect Dev
 
 #### Settings
 
+- **Alarm clock**
+  - **Description**: Sets the alarm clock.
+  - **Availability**: Cooktop, Oven
 - **Refrigerator setpoint temperature**:
   - **Description**: Sets the refrigerator temperature.
   - **Availability**: Fridge freezer, Refrigerator
@@ -347,11 +333,18 @@ Both entities can use these options, but the availability of these will depend o
 - **Magic daily**: `dishcare_dishwasher_program_magic_daily`
 - **Super 60ºC**: `dishcare_dishwasher_program_super_60`
 - **Kurz 60ºC**: `dishcare_dishwasher_program_kurz_60`
+- **Intelligent**: `dishcare_dishwasher_program_learning_dishwasher`
 - **Express sparkle 65ºC**: `dishcare_dishwasher_program_express_sparkle_65`
 - **Machine care**: `dishcare_dishwasher_program_machine_care`
 - **Steam fresh**: `dishcare_dishwasher_program_steam_fresh`
 - **Maximum cleaning**: `dishcare_dishwasher_program_maximum_cleaning`
 - **Mixed load**: `dishcare_dishwasher_program_mixed_load`
+- **Active clean**: `heating_ventilation_air_conditioning_air_conditioner_program_active_clean`
+- **Auto**: `heating_ventilation_air_conditioning_air_conditioner_program_auto`
+- **Cool**: `heating_ventilation_air_conditioning_air_conditioner_program_cool`
+- **Dry**: `heating_ventilation_air_conditioning_air_conditioner_program_dry`
+- **Fan**: `heating_ventilation_air_conditioning_air_conditioner_program_fan`
+- **Heat**: `heating_ventilation_air_conditioning_air_conditioner_program_heat`
 - **Cotton**: `laundry_care_dryer_program_cotton`
 - **Synthetic**: `laundry_care_dryer_program_synthetic`
 - **Mix**: `laundry_care_dryer_program_mix`
@@ -406,6 +399,7 @@ Both entities can use these options, but the availability of these will depend o
 - **90 Watt**: `cooking_oven_program_microwave_90_watt`
 - **180 Watt**: `cooking_oven_program_microwave_180_watt`
 - **360 Watt**: `cooking_oven_program_microwave_360_watt`
+- **450 Watt**: `cooking_oven_program_microwave_450_watt`
 - **600 Watt**: `cooking_oven_program_microwave_600_watt`
 - **900 Watt**: `cooking_oven_program_microwave_900_watt`
 - **1000 Watt**: `cooking_oven_program_microwave_1000_watt`
@@ -492,7 +486,6 @@ Both entities can use these options, but the availability of these will depend o
     </details>
 
 #### Program options
-
 - **Reference map ID**:
   - **Description**: Defines which reference map is to be used.
   - **Availability**: Cleaning robot
@@ -514,6 +507,22 @@ Both entities can use these options, but the availability of these will depend o
     - **Silent**: `consumer_products_cleaning_robot_enum_type_cleaning_modes_silent`
     - **Standard**: `consumer_products_cleaning_robot_enum_type_cleaning_modes_standard`
     - **Power**: `consumer_products_cleaning_robot_enum_type_cleaning_modes_power`
+    - **Intelligent mode**: `consumer_products_cleaning_robot_enum_type_cleaning_mode_intelligent_mode`
+    - **Vacuum only**: `consumer_products_cleaning_robot_enum_type_cleaning_mode_vacuum_only`
+    - **Mop only**: `consumer_products_cleaning_robot_enum_type_cleaning_mode_mop_only`
+    - **Vacuum and mop**: `consumer_products_cleaning_robot_enum_type_cleaning_mode_vacuum_and_mop`
+    - **Mop after vacuum**: `consumer_products_cleaning_robot_enum_type_cleaning_mode_mop_after_vacuum`
+
+    </details>
+- **Suction power**:
+  - **Description**: Defines the suction power.
+  - **Availability**: Cleaning robot
+  - <details>
+    <summary><b>Options:</b> (click to view)</summary>
+
+    - **Silent**: `consumer_products_cleaning_robot_enum_type_suction_power_silent`
+    - **Standard**: `consumer_products_cleaning_robot_enum_type_suction_power_standard`
+    - **Max**: `consumer_products_cleaning_robot_enum_type_suction_power_max`
 
     </details>
 - **Bean amount**:
@@ -651,11 +660,11 @@ Both entities can use these options, but the availability of these will depend o
     <summary><b>Options:</b> (click to view)</summary>
 
     - **Fan off** `cooking_hood_enum_type_stage_fan_off`
-    - **Fan stage 1** `cooking_hood_enum_type_stage_fan_stage01`
-    - **Fan stage 2** `cooking_hood_enum_type_stage_fan_stage02`
-    - **Fan stage 3** `cooking_hood_enum_type_stage_fan_stage03`
-    - **Fan stage 4** `cooking_hood_enum_type_stage_fan_stage04`
-    - **Fan stage 5** `cooking_hood_enum_type_stage_fan_stage05`
+    - **Fan stage 1** `cooking_hood_enum_type_stage_fan_stage_01`
+    - **Fan stage 2** `cooking_hood_enum_type_stage_fan_stage_02`
+    - **Fan stage 3** `cooking_hood_enum_type_stage_fan_stage_03`
+    - **Fan stage 4** `cooking_hood_enum_type_stage_fan_stage_04`
+    - **Fan stage 5** `cooking_hood_enum_type_stage_fan_stage_05`
 
     </details>
 - **Intensive level**:
@@ -687,14 +696,14 @@ Both entities can use these options, but the availability of these will depend o
     <summary><b>Options:</b> (click to view)</summary>
 
     - **Cold**: `laundry_care_washer_enum_type_temperature_cold`
-    - **20ºC clothes**: `laundry_care_washer_enum_type_temperature_g_c20`
-    - **30ºC clothes**: `laundry_care_washer_enum_type_temperature_g_c30`
-    - **40ºC clothes**: `laundry_care_washer_enum_type_temperature_g_c40`
-    - **50ºC clothes**: `laundry_care_washer_enum_type_temperature_g_c50`
-    - **60ºC clothes**: `laundry_care_washer_enum_type_temperature_g_c60`
-    - **70ºC clothes**: `laundry_care_washer_enum_type_temperature_g_c70`
-    - **80ºC clothes**: `laundry_care_washer_enum_type_temperature_g_c80`
-    - **90ºC clothes**: `laundry_care_washer_enum_type_temperature_g_c90`
+    - **20ºC clothes**: `laundry_care_washer_enum_type_temperature_g_c_20`
+    - **30ºC clothes**: `laundry_care_washer_enum_type_temperature_g_c_30`
+    - **40ºC clothes**: `laundry_care_washer_enum_type_temperature_g_c_40`
+    - **50ºC clothes**: `laundry_care_washer_enum_type_temperature_g_c_50`
+    - **60ºC clothes**: `laundry_care_washer_enum_type_temperature_g_c_60`
+    - **70ºC clothes**: `laundry_care_washer_enum_type_temperature_g_c_70`
+    - **80ºC clothes**: `laundry_care_washer_enum_type_temperature_g_c_80`
+    - **90ºC clothes**: `laundry_care_washer_enum_type_temperature_g_c_90`
     - **Cold**: `laundry_care_washer_enum_type_temperature_ul_cold`
     - **Warm**: `laundry_care_washer_enum_type_temperature_ul_warm`
     - **Hot**: `laundry_care_washer_enum_type_temperature_ul_hot`
@@ -708,13 +717,15 @@ Both entities can use these options, but the availability of these will depend o
     <summary><b>Options:</b> (click to view)</summary>
 
     - **Off**: `laundry_care_washer_enum_type_spin_speed_off`
-    - **400 rpm**: `laundry_care_washer_enum_type_spin_speed_r_p_m400`
-    - **600 rpm**: `laundry_care_washer_enum_type_spin_speed_r_p_m600`
-    - **800 rpm**: `laundry_care_washer_enum_type_spin_speed_r_p_m800`
-    - **1000 rpm**: `laundry_care_washer_enum_type_spin_speed_r_p_m1000`
-    - **1200 rpm**: `laundry_care_washer_enum_type_spin_speed_r_p_m1200`
-    - **1400 rpm**: `laundry_care_washer_enum_type_spin_speed_r_p_m1400`
-    - **1600 rpm**: `laundry_care_washer_enum_type_spin_speed_r_p_m1600`
+    - **400 rpm**: `laundry_care_washer_enum_type_spin_speed_r_p_m_400`
+    - **600 rpm**: `laundry_care_washer_enum_type_spin_speed_r_p_m_600`
+    - **700 rpm**: `laundry_care_washer_enum_type_spin_speed_r_p_m_700`
+    - **800 rpm**: `laundry_care_washer_enum_type_spin_speed_r_p_m_800`
+    - **900 rpm**: `laundry_care_washer_enum_type_spin_speed_r_p_m_900`
+    - **1000 rpm**: `laundry_care_washer_enum_type_spin_speed_r_p_m_1000`
+    - **1200 rpm**: `laundry_care_washer_enum_type_spin_speed_r_p_m_1200`
+    - **1400 rpm**: `laundry_care_washer_enum_type_spin_speed_r_p_m_1400`
+    - **1600 rpm**: `laundry_care_washer_enum_type_spin_speed_r_p_m_1600`
     - **Off**: `laundry_care_washer_enum_type_spin_speed_ul_off`
     - **Low**: `laundry_care_washer_enum_type_spin_speed_ul_low`
     - **Medium**: `laundry_care_washer_enum_type_spin_speed_ul_medium`
@@ -737,7 +748,7 @@ Both entities can use these options, but the availability of these will depend o
 
 ### Sensor
 
-{% details "List of binary sensors" %}
+{% details "List of sensors" %}
 
 - **Finish time**:
   - **Description**: Represents the time when the program will end.
@@ -850,6 +861,10 @@ It is not recommended to use the **Current cavity temperature** sensor because t
 
 #### Event sensors
 
+{% note %}
+The event sensors will not be provided by the integration until the appliance reports the event.
+{% endnote %}
+
 {% details "Event sensor options" %}
 All the event sensors will have the following possible values:
 
@@ -859,30 +874,120 @@ All the event sensors will have the following possible values:
 
 {% enddetails %}
 
-- **Freezer door alarm**:
-  - **Description**: Represents the alarm state of the freezer door.
-  - **Availability**: Freezer, Fridge freezer
-- **Refrigerator door alarm**:
-  - **Description**: Represents the alarm state of the refrigerator door.
-  - **Availability**: Fridge freezer, Refrigerator
-- **Freezer temperature alarm**:
-  - **Description**: Represents the alarm state of the freezer temperature.
-  - **Availability**: Freezer, Fridge freezer
-- **Bean container empty**:
-  - **Description**: Indicates whether the bean container is empty.
-  - **Availability**: Coffee maker
-- **Water tank empty**:
-  - **Description**: Indicates whether the water tank is empty.
-  - **Availability**: Coffee maker
-- **Drip tray full**:
-  - **Description**: Indicates whether the drip tray is full.
-  - **Availability**: Coffee maker
+- **Program aborted**:
+  - **Description**: Event triggered each time a program is successfully canceled.
+  - **Availability**: Cook processor, Cleaning robot, Dishwasher
+- **Program finished**:
+  - **Description**: Event triggered each time a program run is successfully finished.
+  - **Availability**: Cook processor, Cooktop, Hood, Oven, Cleaning robot, Dishwasher, Washer, Washer dryer
+- **Alarm clock elapsed**:
+  - **Description**: Event triggered when the alarm clock has elapsed.
+  - **Availability**: Cooktop, Oven
+- **Pre-heat finished**:
+  - **Description**: Event triggered when **Fast pre-heat** program option is active and the preheating phase is finished.
+  - **Availability**: Cooktop, Oven
+- **Regular pre-heat finished**:
+  - **Description**: Event triggered when the preheating phase is finished (and the **Fast pre-heat** option is not active nor supported).
+  - **Availability**: Oven
+- **Drying process finished**:
+  - **Description**: Event triggered when the drying process is finished.
+  - **Availability**: Dryer
 - **Salt nearly empty**:
-  - **Description**: Indicates whether the salt is nearly empty.
+  - **Description**: Event triggered when the salt supply is running low.
   - **Availability**: Dishwasher
 - **Rinse aid nearly empty**:
-  - **Description**: Indicates whether the rinse aid is nearly empty.
+  - **Description**: Event triggered when the rinse aid supply is running low.
   - **Availability**: Dishwasher
+- **Bean container empty**:
+  - **Description**: Event triggered when the bean container is empty.
+  - **Availability**: Coffee maker
+- **Water tank empty**:
+  - **Description**: Event triggered when the water tank is empty.
+  - **Availability**: Coffee maker
+- **Drip tray full**:
+  - **Description**: Event triggered when the drip tray is full.
+  - **Availability**: Coffee maker
+- **Keep milk tank cool**:
+  - **Description**: Event triggered when the user should remove the milk container and put it in a cool place so that the milk stays fresh.
+  - **Availability**: Coffee maker
+- **Descaling in 20 cups**:
+  - **Description**: Event triggered when there are 20 cups left before the descaling process is required.
+  - **Availability**: Coffee maker
+- **Descaling in 15 cups**:
+  - **Description**: Event triggered when there are 15 cups left before the descaling process is required.
+  - **Availability**: Coffee maker
+- **Descaling in 10 cups**:
+  - **Description**: Event triggered when there are 10 cups left before the descaling process is required.
+  - **Availability**: Coffee maker
+- **Descaling in 5 cups**:
+  - **Description**: Event triggered when there are 5 cups left before the descaling process is required.
+  - **Availability**: Coffee maker
+- **Device should be descaled**:
+  - **Description**: Event triggered when the device should be descaled.
+  - **Availability**: Coffee maker
+- **Device descaling overdue**:
+  - **Description**: Event triggered when the device descaling is overdue.
+  - **Availability**: Coffee maker
+- **Device descaling blockage**:
+  - **Description**: Event triggered when the device descaling is blocked.
+  - **Availability**: Coffee maker
+- **Device should be cleaned**:
+  - **Description**: Event triggered when the device should be cleaned.
+  - **Availability**: Coffee maker
+- **Device cleaning overdue**:
+  - **Description**: Event triggered when the device cleaning is overdue.
+  - **Availability**: Coffee maker
+- **Calc'N'Clean in 20 cups**:
+  - **Description**: Event triggered when there are 20 cups left before the Calc'N'Clean process is required.
+  - **Availability**: Coffee maker
+- **Calc'N'Clean in 15 cups**:
+  - **Description**: Event triggered when there are 15 cups left before the Calc'N'Clean process is required.
+  - **Availability**: Coffee maker
+- **Calc'N'Clean in 10 cups**:
+  - **Description**: Event triggered when there are 10 cups left before the Calc'N'Clean process is required.
+  - **Availability**: Coffee maker
+- **Calc'N'Clean in 5 cups**:
+  - **Description**: Event triggered when there are 5 cups left before the Calc'N'Clean process is required.
+  - **Availability**: Coffee maker
+- **Device should be Calc'N'Cleaned**:
+  - **Description**: Event triggered when the device should be Calc'N'Cleaned.
+  - **Availability**: Coffee maker
+- **Device Calc'N'Clean overdue**:
+  - **Description**: Event triggered when the device Calc'N'Clean is overdue.
+  - **Availability**: Coffee maker
+- **Device Calc'N'Clean blockage**:
+  - **Description**: Event triggered when the device Calc'N'Clean is blocked.
+  - **Availability**: Coffee maker
+- **Freezer door alarm**:
+  - **Description**: Event triggered when the freezer door was left open too long.
+  - **Availability**: Freezer, Fridge freezer
+- **Refrigerator door alarm**:
+  - **Description**: Event triggered when the refrigerator door was left open too long.
+  - **Availability**: Fridge freezer, Refrigerator
+- **Freezer temperature alarm**:
+  - **Description**: Event triggered when the freezer temperature is too high.
+  - **Availability**: Freezer, Fridge freezer
+- **Empty dust box and clean filter**:
+  - **Description**: Event triggered when the user has to empty the dust box and clean the filter.
+  - **Availability**: Cleaning robot
+- **Cleaning robot is stuck**:
+  - **Description**: Event triggered when the cleaning robot is stuck and isn't able to continue its run.
+  - **Availability**: Cleaning robot
+- **Docking station not found**:
+  - **Description**: Event triggered when the cleaning robot wasn't able to find the charging station.
+  - **Availability**: Cleaning robot
+- **Poor i-Dos 1 fill level**:
+  - **Description**: Event triggered when i-Dos content 1 is poor.
+  - **Availability**: Washer
+- **Poor i-Dos 2 fill level**:
+  - **Description**: Event triggered when i-Dos content 2 is poor.
+  - **Availability**: Washer
+- **Grease filter max saturation nearly reached**:
+  - **Description**: Event triggered when the grease filters need to be cleaned soon
+  - **Availability**: Hood
+- **Grease filter max saturation reached**:
+  - **Description**: Event triggered when  the grease filters are saturated
+  - **Availability**: Hood
 
 {% enddetails %}
 
@@ -934,16 +1039,6 @@ Some devices only have the state `on` and turn off is not supported by the appli
 
 {% enddetails %}
 
-### Time
-
-{% details "List of time entities" %}
-
-- **Alarm clock**
-  - **Description**: Sets the alarm clock.
-  - **Availability**: Cooktop, Oven
-
-{% enddetails %}
-
 ## Actions
 
 The Home Connect integration makes various actions available.
@@ -958,8 +1053,11 @@ Starts or selects a program. If the `program` attribute is not set, this action 
 | `device_id` | no | ID of the device. |
 | `affects_to` | no | Selects if the program affected by the action should be the active or the selected program. |
 | `program` | yes | Program to select. If set, it will start or select a program depending on `affects_to`. |
+| `heating_ventilation_air_conditioning_air_conditioner_option_fan_speed_percentage` | yes | Setting to adjust the venting levels of the air conditioner as percentage. |
+| `heating_ventilation_air_conditioning_air_conditioner_option_fan_speed_mode` | yes | Setting to adjust the fan speed mode to Manual or Automatic. |
 | `consumer_products_cleaning_robot_option_reference_map_id` | yes | Defines which reference map is to be used. |
 | `consumer_products_cleaning_robot_option_cleaning_mode` | yes | Defines the favoured cleaning mode. |
+| `consumer_products_cleaning_robot_option_suction_power` | yes | Defines the suction power. |
 | `consumer_products_coffee_maker_option_bean_amount` | yes | Describes the amount of coffee beans used in a coffee machine program. |
 | `consumer_products_coffee_maker_option_fill_quantity` | yes | Describes the amount of water (in ml) used in a coffee machine program. |
 | `consumer_products_coffee_maker_option_coffee_temperature` | yes | Describes the coffee temperature used in a coffee machine program. |
@@ -1001,7 +1099,6 @@ Changes a setting.
 | `device_id` | no | Id of a device associated with the home appliance. |
 | `key` | no | Key of the setting. |
 | `value` | no | Value of the setting. |
-
 
 ## Automation examples
 
@@ -1058,9 +1155,7 @@ actions:
           device_id: "your_device_id"
           affects_to: "active_program"
           program: "dishcare_dishwasher_program_eco_50"
-          options:
-            - key: "dishcare_dishwasher_option_silence_on_demand"
-              value: true
+          dishcare_dishwasher_option_silence_on_demand: true
     else:
       - service: home_connect.set_program_and_options
         data:
@@ -1077,6 +1172,12 @@ actions:
 This integration uses server-sent events from the Home Connect API to receive live updates from the appliances.
 When the configuration entry is loaded or after a streaming error (for example after disconnection), the integration will request all data (such as appliance info, available commands, programs, settings, and status) for all appliances.
 If a new appliance is added to the account, the integration will request data for the new appliance and expose the related entities automatically.
+
+## Known limitations
+
+- The Home Connect API does not fully match the Home Connect app. Some programs, options, or settings available in the app may not be accessible or usable via the API.
+- This integration supports only one integration entry, as the Home Connect API does not allow for the unique identification of an account.
+
 ## Troubleshooting
 
 ### I could not configure the Home Connect integration
@@ -1099,6 +1200,35 @@ To solve the above issue, follow these steps:
     ![Application credential list](/images/integrations/application_credentials/application-credentials.png)
 3. Select the three dots {% icon "mdi:dots-vertical" %} menu from the application credentials you created for the Home Connect integration and select **Delete**.
 4. Add the Home Connect integration again under {% my integrations title="**Settings** > **Devices & services**" %}
+
+### Missing options at the "active program" and "selected program" entities
+
+#### Symptom: "Although I have options, some programs that are available on the app are not in the list of options at the "active program" and "selected program" entities or the entities don't show up"
+
+Some programs that are available to select on the app, on the physical device or in the diagnostics file from the device are missing at the "active program" and "selected program" entities.
+
+##### Description
+
+If you see programs in the app or the physical device that are missing in the integration, first check if they are available in the [diagnostics file](https://www.home-assistant.io/docs/configuration/troubleshooting/#download-diagnostics). If they are in the diagnostics file, it means the API can send them to the integration, but the integration can't recognize them.
+
+##### Solution
+
+The program key needs to be added to the integration. To help with that, you can open an issue at [aiohomeconnect](https://github.com/MartinHjelmare/aiohomeconnect) about the missing program key.
+
+#### Symptom: "the "active program" and "selected program" entities are not provided by the integration"
+
+The "active program" and "selected program" entities are not provided by the integration, and the downloaded device diagnostics file does not list any programs.
+
+##### Description
+
+The Home Connect API is not sending any programs to the integration.
+
+##### Solution
+
+There's no solution for this issue. The only thing that can be done is reporting the issue to Home Connect through these channels:
+
+- [Home Connect service and contact](https://www.home-connect.com/us/en/support/contact-and-service)
+- [Home Connect developer Help & Support](https://developer.home-connect.com/support/contact)
 
 ### Unavailable entities for a device
 
@@ -1141,10 +1271,12 @@ To try to solve the above issues, follow these steps:
       - If the line between the appliance and the cloud is green, the appliance is connected to the cloud.
 4. If everything is correct and the issue persists, contact Home Connect support.
    - [Home Connect service and contact](https://www.home-connect.com/us/en/support/contact-and-service)
-   - [Home Connect developer Help & Support](https://developer.home-connect.com/support)
+   - [Home Connect developer Help & Support](https://developer.home-connect.com/support/contact)
 
-## Known limitations
+## Removing the integration
 
-- The Home Connect API does not fully match the Home Connect app. Some programs, options, or settings available in the app may not be accessible or usable via the API.
-- This integration supports only one integration entry, as the Home Connect API does not allow for the unique identification of an account.
+This integration follows standard integration removal. No extra steps are required.
 
+{% include integrations/remove_device_service.md %}
+
+After deleting the integration, go to [your applications at the Home Connect Developer portal](https://developer.home-connect.com/applications), find the application that you were using for Home Assistant, click on details and click on "Delete Application".

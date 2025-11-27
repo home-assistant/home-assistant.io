@@ -108,3 +108,22 @@ The `seventeentrack.archive_package` action allows you to archive a package usin
     config_entry_id: 2b4be47a1fa7c3764f14cf756dc98991
     package_tracking_number: RU0103445624A
 ```
+
+### Action `seventeentrack.add_package`
+
+The `seventeentrack.add_package` action allows you to add a package using the 17track API.
+
+| Data attribute            | Optional | Description                                   |
+| ------------------------- | -------- | --------------------------------------------- |
+| `config_entry_id`         | No       | The selected service to add the package to.   |
+| `package_tracking_number` | No       | The package tracking number to add.           |
+| `package_friendly_name`   | No       | The friendly name of the package to be added. |
+
+```yaml
+# Example automation action to add a package with tracking number and its friendly name
+- action: seventeentrack.add_package
+  data:
+    config_entry_id: 2b4be47a1fa7c3764f14cf756dc98991
+    package_tracking_number: RU0103445624A
+    package_friendly_name: "Example Package"
+```

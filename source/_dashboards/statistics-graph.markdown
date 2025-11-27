@@ -8,6 +8,8 @@ related:
     title: Themes
   - docs: /dashboards/cards/
     title: Dashboard cards
+  - docs: /dashboards/naming/
+    title: Card naming
 ---
 
 The statistics graph card allows you to display a graph of statistics data for each of the entities listed.
@@ -22,7 +24,7 @@ Screenshot of the statistics graph card with none metered entities and `chart_ty
 Screenshot of the statistics graph card with a metered entity and `chart_type` `bar`.
 </p>
 
-Statistics are gathered every 5 minutes and also hourly for sensors that support it. The 5-minute statistics will be retained for the duration set in the [recorder configuration](/integrations/recorder/#purge_keep_days), and hourly statistics will be retained indefinitely. It will either keep the <abbr title="Minimum">`min`</abbr>, <abbr title="Maximum">`max`</abbr>, and <abbr title="Average">`mean`</abbr> of a sensor's value for a specific hour or the <abbr title="Total">`sum`</abbr> for a metered entity.
+Statistics are gathered every 5 minutes and also hourly for sensors with a state_class of measurement, total or total_increasing. The 5-minute statistics will be retained for the duration set in the [recorder configuration](/integrations/recorder/#purge_keep_days), and hourly statistics will be retained indefinitely. It will either keep the <abbr title="Minimum">`min`</abbr>, <abbr title="Maximum">`max`</abbr>, and <abbr title="Average">`mean`</abbr> of a sensor's value for a specific hour or the <abbr title="Total">`sum`</abbr> for a metered entity.
 
 If your sensor doesn't work with statistics, check [this](/more-info/statistics/).
 
@@ -114,8 +116,8 @@ entity:
   type: string
 name:
   required: false
-  description: Overwrites friendly name.
-  type: string
+  description: Overwrites friendly name. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/).
+  type: [string, map, list]
 {% endconfiguration %}
 
 ### Example

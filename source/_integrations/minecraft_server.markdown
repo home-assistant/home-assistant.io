@@ -15,6 +15,7 @@ ha_platforms:
   - diagnostics
   - sensor
 ha_integration_type: integration
+ha_quality_scale: silver
 ---
 
 [Minecraft](https://www.minecraft.net/en-us) is a sandbox video game developed by Mojang Studios. Minecraft servers allow players to play the game online or via a local area network with other players. The **Minecraft Server** integration lets you retrieve information from a Minecraft server within Home Assistant. Both **Java Edition** and **Bedrock Edition** servers are supported.

@@ -8,6 +8,8 @@ related:
     title: Themes
   - docs: /dashboards/cards/
     title: Dashboard cards
+  - docs: /dashboards/naming/
+    title: Card naming
 ---
 
 The history graph card allows you to display a graph for each of up to eight entities.
@@ -89,9 +91,15 @@ entity:
   type: string
 name:
   required: false
-  description: Overwrites friendly name.
-  type: string
+  description: Overwrites friendly name. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/).
+  type: [string, map, list]
 {% endconfiguration %}
+
+### Long term statistics
+
+Home Assistant saves long-term statistics for a sensor if the entity has a state_class of measurement, total, or total_increasing. For long-term statistics, an hourly aggregate is stored from the sensor history. Long-term statistics are never purged.
+
+In the history graph card, if the hours to show variable is set to a figure higher than the recorder retention period, long-term statistics will backfill the older parts of the history graph, with more recent actual sensor values from the recorder shown in bold.
 
 ### Examples
 

@@ -171,22 +171,26 @@ data:
 
 ## Viewing logs
 
-The log information are stored in the
-[configuration directory](/docs/configuration/) as `home-assistant.log`
-and you can read it with the command-line tool `cat` or follow it dynamically
+The log information can be viewed and downloaded from {% my logs title="**Settings** > **System** > **Logs**" %}
+
+### Viewing logs on Container installations
+
+For {% term "Home Assistant Container" %} installations, the log information is stored in the
+[configuration directory](/docs/configuration/) as `home-assistant.log`.
+You can read it with the command-line tool `cat` or follow it dynamically
 with `tail -f`.
 
-You can use the example below, when logged in through the [SSH add-on](/addons/ssh/):
+You can use the example below, when logged in through the [SSH add-on](/common-tasks/os/#installing-and-using-the-ssh-add-on):
 
 ```bash
 tail -f /config/home-assistant.log
 ```
 
-On Docker you can use your host command line directly - follow the logs dynamically with:
+On Docker, you can use your host command line directly. Follow the logs dynamically with the following command:
 
 ```bash
 # follow the log dynamically
 docker logs --follow  MY_CONTAINER_ID
 ```
 
-To see other options use `--help` instead, or simply leave with no options to display the entire log.
+To see other options, use `--help` instead, or simply leave with no options to display the entire log.

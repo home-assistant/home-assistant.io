@@ -16,11 +16,9 @@ ha_quality_scale: internal
 
 go2rtc is an open source project providing a camera streaming application that supports formats such as RTSP, WebRTC, HomeKit, FFmpeg, RTMP.  The **go2rtc** {% term integration %} connects to a go2rtc instance and provides a WebRTC proxy for all your cameras. To learn more about go2rtc, refer to the [project's GitHub page](https://github.com/AlexxIT/go2rtc/).
 
-
-If you are using the [`default_config`](/integrations/default_config/) and run Home Assistant using one of the following installation methods, the go2rtc integration will be set up automatically and you don't need to do anything:
+If you are using the [`default_config`](/integrations/default_config/) and run Home Assistant using one of the following installation types, the go2rtc integration will be set up automatically and you don't need to do anything:
 
 - {% term "Home Assistant Operating System" %}
-- {% term "Home Assistant Supervised" %}
 - {% term "Home Assistant Container" %}
 
 ## Configuration
@@ -32,9 +30,17 @@ The following YAML options are available:
 {% configuration %}
 debug_ui:
   required: false
-  description: Enables the UI of the go2rtc, which helps debugging WebRTC issues. The `debug_ui` should only be enabled during debugging as it will expose port 11984 without any authentication!
+  description: Enables the UI of the go2rtc, which helps debugging WebRTC issues. The `debug_ui` should only be enabled during debugging as it will expose port 11984.
   default: false
   type: boolean
+username:
+  required: false
+  description: The username for authentication when accessing the debug UI. Required when `debug_ui` is enabled.
+  type: string
+password:
+  required: false
+  description: The password for authentication when accessing the debug UI. Required when `debug_ui` is enabled.
+  type: string
 url:
   required: false
   description: The URL to the self-hosted [go2rtc](https://github.com/AlexxIT/go2rtc/) server
@@ -47,7 +53,7 @@ If you using the go2rtc server managed by Home Assistant, please be aware that a
 
 {% warning %}
 
-The `debug_ui` should only be enabled during debugging as it will expose port 11984 without any authentication!
+The `debug_ui` should only be enabled during debugging as it will expose port 11984.
 Please disable the `debug_ui` immediately after debugging.
 
 {% endwarning %}
@@ -59,4 +65,13 @@ Use a self-hosted instance:
 ```yaml
 go2rtc:
   url: http://my-go2rtc-instance:1984
+```
+
+Enable debug UI with authentication:
+
+```yaml
+go2rtc:
+  debug_ui: true
+  username: your_username
+  password: your_password
 ```

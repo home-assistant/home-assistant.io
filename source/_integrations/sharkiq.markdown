@@ -9,6 +9,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@JeffResc'
   - '@funkybunch'
+  - '@TheOneOgre'
 ha_domain: sharkiq
 ha_platforms:
   - vacuum

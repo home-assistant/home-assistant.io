@@ -30,10 +30,6 @@ The ONVIF camera integration allows you to use an [ONVIF](https://www.onvif.org/
 It is recommended that you create a user on your device specifically for Home Assistant. For all current functionality, it is enough to create a standard user.
 {% endtip %}
 
-{% note %}
-If running Home Assistant Core in a venv, ensure that libxml2 and libxslt Python interfaces are installed via your package manager.
-{% endnote %}
-
 ### Configuration notes
 
 Most of the ONVIF devices support more than one audio/video profile. Each profile provides different image quality, or in the case of an NVR, separate connected cameras. This integration will add entities for all compatible profiles with the video encoding set to H.264. Usually, the first profile has the highest quality and it is the profile used by default. However, you may want to use a lower quality image. You may disable unwanted entities through the Home Assistant UI.
@@ -112,3 +108,17 @@ This integration uses the ONVIF auxiliary command and imaging service to send ce
 | IR lamp  | `ir_lamp` |  Turn infrared lamp on and off via `IrCutFilter` ONVIF imaging setting. |
 | Autofocus  | `autofocus` |  Turn autofocus on and off via `AutoFocusMode` ONVIF imaging setting. |
 | Wiper  | `wiper` |  Turn on the lens wiper on and off via the `Wiper` ONVIF auxiliary command. |
+
+## Troubleshooting
+
+### Symptom: Error message: "No usable cameras were found"
+
+The ONVIF integration shows an error message "No usable cameras were found". 
+
+#### Resolution
+
+Update the camera configuration to output at least one video stream in H.264 format rather than H.265. One option for doing this is to set a secondary stream to H.264 while leaving the primary stream at the default H.265.
+
+#### Cause 
+
+Many newer cameras, particularly those with higher resolutions that benefit from H.265's improved video coding, support H.265 (HEVC) by default, while the ONVIF integration looks for H.264 (AVC) video streams to find cameras. 
