@@ -226,7 +226,7 @@ Follow these steps if you already have a Thread adapter running but want to swit
 3. Under **Devices**, select your adapter.
 4. Enter the **Baudrate** as specified in the documentation of your adapter.
    - If you can't find the baudrate, contact the manufacturer's support.
-   - If your feeling lucky, try `460800`.
+   - If you're feeling lucky, try `460800`.
    - **Save** your changes.
    - **Troubleshooting**: If you see in the logs that the add-on seems to crash, or does not seem to communicate with the Thread integration: Disable the **Hardware flow control** option and try again.
 5. Restart the add-on and check the logs. Wait.
