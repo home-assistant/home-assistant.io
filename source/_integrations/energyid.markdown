@@ -23,9 +23,6 @@ The **EnergyID** {% term integration %} connects your Home Assistant to [EnergyI
 
 - For detailed instructions, refer to the [official EnergyID Home Assistant documentation](https://help.energyid.eu/en/apps/home-assistant/).
 
-## Configuration
-
-Adding EnergyID to your Home Assistant instance is done via the user interface.
 
 {% include integrations/config_flow.md %}
 
