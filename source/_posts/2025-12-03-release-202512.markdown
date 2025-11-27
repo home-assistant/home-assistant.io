@@ -473,7 +473,7 @@ With just a few taps, you can:
 - Add [widgets](https://companion.home-assistant.io/docs/integrations/android-widgets) for quick control of entities right from your home screen
 - Set entities as Android Auto favorites, making them quickly accessible in your car
 
-No more deep-diving into app settings! The **Add to** option appears in the more information dialog whenever the Companion app signals support for it. Selecting it opens a native dialog that lists all available options depending on the entity type.
+No more deep-diving into app settings! The **Add to** option appears in the more information dialog with actions tailored to the entity type. For example, adding a media player widget is only available for media players.
 
 This is a first step in integrating native mobile features directly into the Home Assistant interface. Future releases will expand this with support for creating shortcuts, tiles, and watch favorites.
 
