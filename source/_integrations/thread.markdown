@@ -207,7 +207,7 @@ Follow these steps if you already have a Thread adapter running but want to swit
 
 ### Prerequisites
 
-- [Home Assistant Operating System](https://www.home-assistant.io/docs/glossary/#home-assistant-operating-system) installed on your smart home hub. For example:
+- [Home Assistant Operating System](/docs/glossary/#home-assistant-operating-system) installed on your smart home hub. For example:
   - on a Home Assistant Green, where Home Assistant OS is preinstalled
   - On a Home Assistant Yellow or on a Raspberry Pi
 - Existing Thread adapter connected to your Home Assistant hub
