@@ -159,22 +159,24 @@ The following sensors can be used in the [energy dashboard](/docs/energy/):
 Some of the energy is measured on the DC side and some on the AC side, so the values may differ slightly due to losses between DC and AC.
 {% endnote %}
 
-### Settings Sensors
+### Configuration entities
 
-The following sensors are available in the library:
+The following entities are available for device configuration:
 
-| Name                    | Unit | RW | Description   |
-|-------------------------|------|----|:--------------|
-| Battery Dynamic SoC     |      | RW | Dynamic SoC. |
-| Battery Smart Control   |      | RW | Enable smart battery control |
-| Battery Strategy        |      | RW | Battery strategy. |
-| Shadow Management       |      | RW | PV string shadow management. |
+| Name                         | Unit | Domain | Description   |
+|------------------------------|------|--------|:--------------|
+| Battery min home consumption | W    | Number | Min. home consumption power for battery |
+| Battery min Soc              | %    | Number | Min. SoC of battery |
+| Battery dynamic SoC          |      | Select | Dynamic SoC |
+| Battery smart control        |      | Switch | Enable smart battery control |
+| Battery strategy             |      | Switch | Battery strategy |
+| Shadow management            |      | Switch | PV string shadow management |
 
 If you use installer access to connect, you also have access to the following sensors:
 
-| Name                    | Unit | RW | Description   |
-|-------------------------|------|----|:--------------|
-| Battery Manual Charge   |      | RW | Force the battery to charge. |
+| Name                    | Unit | Domain | Description   |
+|-------------------------|------|--------|:--------------|
+| Battery manual charge   |      | Switch | Force the battery to charge from AC |
 
 {% note %}
 Setting values change less often, therefore these sensors are only polled every 5 minutes.
@@ -186,19 +188,23 @@ This sensor is on by default, which maps to the "Automatically" mode in the Kost
 
 Turning this sensor off maps to the "Automatically economical" mode. Consequently, the inverter controls the battery charging automatically but switches the battery off when there is insufficient PV energy to charge the battery for longer periods. This mode is recommended for regions with a lot of snowfall.
 
-#### Battery Smart Control
+#### Battery smart control
 
-The Battery Smart Control sensor appears as a select field labeled "Battery Charging / Usage Mode" with three options:
+The battery smart control sensor appears as a select field labeled "battery charging / usage mode" with three options:
 
 - **None**: the battery is loaded immediately when there is PV energy spare.
 - **Battery:SmartBatteryControl:Enable**: the battery loading optimizes grid feed-in and battery loading. This setting is recommended when the grid feed-in is limited to, for example, 70% of the Plenticore Plus peak power.
 - **Battery:TimeControl:Enable**: battery charging/discharging can be configured flexibly at different times (tariff periods). Detailed settings must be done on the web frontend of the Kostal Plenticore Plus inverter. This option activates the time-controlled battery usage mode.
 
-#### Battery Manual Charge
+#### Battery manual charge
 
-The Battery Manual Charge sensor allows you to force charge the battery to 100%, regardless of PV generation or home usage.
+The battery manual charge sensor allows you to force charge the battery to 100%, regardless of PV generation or home usage.
 This setting is available when using installer access and should therefore only be used with the same caution as using installer access.
 More on [Installer Access](#installer-access)
+
+#### Shadow management
+
+The shadow management switches are created automatically based on which DC strings are supported.
 
 ## Number
 
@@ -206,7 +212,7 @@ The following Number entities are available. The values could also be change fro
 
 | Name                    | Unit | RW | Description   |
 |-------------------------|------|----|:--------------|
-| Battery min Home Consumption | W    | RW | Min. home consumption power for battery. |
+| Battery min home Ccnsumption | W    | RW | Min. home consumption power for battery. |
 | Battery min SoC         | %    | RW | Min. SoC of battery. |
 
 ## Diagnostics
@@ -215,4 +221,4 @@ The following diagnostic sensors are available.
 
 | Name                    | Data Type | Description   |
 |-------------------------|-----------|:-------------------------------------------|
-| Active Errors           | Integer   | Count of currently active errors. |
+| Active errors           | Integer   | Count of currently active errors. |

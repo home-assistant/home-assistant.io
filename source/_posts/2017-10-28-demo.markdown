@@ -22,7 +22,7 @@ The simplest way to show Home Assistant to others is the online demo at [/demo/]
 
 ## `--demo-mode` and Demo platform
 
-To be safe for your talk, you don't want to depend on an internet connection. The demo mode [`--demo-mode`](/docs/tools/hass/) allows you to run a demo locally including the latest features. Make sure that you have a backup of your configuration.
+To be safe for your talk, you don't want to depend on an internet connection. The demo mode `--demo-mode` allows you to run a demo locally including the latest features. Make sure that you have a backup of your configuration.
 
 ```bash
 hass --demo-mode
