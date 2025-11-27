@@ -81,6 +81,7 @@ Enjoy the (beta) release!
   - [Reorder areas and floors](#reorder-areas-and-floors)
   - [Experimental dashboards have graduated](#experimental-dashboards-have-graduated)
   - [Home dashboard improvements](#home-dashboard-improvements)
+  - [Undo and redo in the dashboard editor](#undo-and-redo-in-the-dashboard-editor)
 - [Power and water in the Energy dashboard](#power-and-water-in-the-energy-dashboard)
   - [Real-time power monitoring](#real-time-power-monitoring)
   - [Downstream water meters](#downstream-water-meters)
@@ -184,6 +185,15 @@ The sidebar can also be added to your manual dashboards via YAML.
 {% important %}
 There is a chance your current favorites might disappear in this release and need to be re-added. This is due to the migration of this dashboard from a strategy to a built-in dashboard.
 {% endimportant %}
+
+### Undo and redo in the dashboard editor
+
+The dashboard editor now includes the undo and redo feature that we added in 2025.10 to the automation and script editor.
+This allows you to experiment safely while editing your dashboards. You can undo up to 75 changes or restore them with a single click, making editing dashboards faster and less stressful.
+
+Thanks to [@jpbede] for implementing this handy feature!
+
+[@jpbede]: https://github.com/jpbede
 
 ## Power and water in the Energy dashboard
 
