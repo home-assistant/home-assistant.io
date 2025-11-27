@@ -228,7 +228,9 @@ Follow these steps if you already have a Thread adapter running but want to swit
    - If you can't find the baudrate, contact the manufacturer's support.
    - If you're feeling lucky, try `460800`.
    - **Save** your changes.
-   - **Troubleshooting**: If you see in the logs that the add-on seems to crash, or does not seem to communicate with the Thread integration: Disable the **Hardware flow control** option and try again.
+   - **Troubleshooting**:
+     - Check the logs.
+     - If the add-on crashes or fails to communicate with the Thread integration: Disable the **Hardware flow control** option and try again.
 5. Restart the add-on and check the logs. Wait.
    - **Info**: Your Thread network is managed by Home Assistant. It is not stored on the adapter. Migrating the adapter means that Home Assistant will start to use your new adapter's radio instead of the old one.
 6. Go to {% my integrations title="**Settings** > **Devices & services**" %}, select the **Thread** integration.
