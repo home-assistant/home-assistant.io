@@ -49,19 +49,37 @@ In this section you will find some real-life examples of how to use this integra
 ```yaml
 # Example configuration.yaml entry
 automation:
-  - alias: "Internet Speed Glow Connect Great"
+  - alias: Turn On Green Light When Download Speed Is Good
+    description: >-
+      This automation turns on the Yeelight bulb with a green color when the
+      download speed exceeds 10 megabits per second.
+      It ensures that the light is an indicator of the health of your
+      network connection.
     triggers:
       - trigger: template
-        value_template: "{{ states('sensor.speedtest_download')|float >= 10 }}"
+        value_template: "{{ states('sensor.speedtest_download') | float >= 10 }}"
     actions:
-      - action: shell_command.green
+      - action: light.turn_on
+        target:
+          entity_id: light.yeelight_bulb
+        data:
+          rgb_color: [0, 100, 0]
 
-  - alias: "Internet Speed Glow Connect Poor"
+  - alias: Turn On Red Light When Download Speed Is Poor
+    description: >-
+      This automation turns on the Yeelight bulb with a red color when the
+      download speed drops below 10 megabits per second.
+      It ensures that the light is an indicator of the health of your
+      network connection.
     triggers:
       - trigger: template
-        value_template: "{{ states('sensor.speedtest_download')|float < 10 }}"
+        value_template: "{{ states('sensor.speedtest_download') | float < 10 }}"
     actions:
-      - action: shell_command.red
+      - action: light.turn_on
+        target:
+          entity_id: light.yeelight_bulb
+        data:
+          rgb_color: [255, 0, 0]
 ```
 
 {% endraw %}

@@ -108,3 +108,17 @@ This integration uses the ONVIF auxiliary command and imaging service to send ce
 | IR lamp  | `ir_lamp` |  Turn infrared lamp on and off via `IrCutFilter` ONVIF imaging setting. |
 | Autofocus  | `autofocus` |  Turn autofocus on and off via `AutoFocusMode` ONVIF imaging setting. |
 | Wiper  | `wiper` |  Turn on the lens wiper on and off via the `Wiper` ONVIF auxiliary command. |
+
+## Troubleshooting
+
+### Symptom: Error message: "No usable cameras were found"
+
+The ONVIF integration shows an error message "No usable cameras were found". 
+
+#### Resolution
+
+Update the camera configuration to output at least one video stream in H.264 format rather than H.265. One option for doing this is to set a secondary stream to H.264 while leaving the primary stream at the default H.265.
+
+#### Cause 
+
+Many newer cameras, particularly those with higher resolutions that benefit from H.265's improved video coding, support H.265 (HEVC) by default, while the ONVIF integration looks for H.264 (AVC) video streams to find cameras. 

@@ -10,6 +10,7 @@ ha_codeowners:
 ha_domain: homeassistant_yellow
 ha_integration_type: hardware
 ha_platforms:
+  - switch
   - update
 ---
 

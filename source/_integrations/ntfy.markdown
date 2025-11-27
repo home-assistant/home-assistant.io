@@ -10,13 +10,13 @@ ha_config_flow: true
 ha_codeowners:
   - '@tr4nt0r'
 ha_domain: ntfy
-ha_integration_type: integration
+ha_integration_type: service
 ha_platforms:
   - diagnostics
   - event
   - notify
   - sensor
-ha_quality_scale: bronze
+ha_quality_scale: platinum
 ---
 
 The **ntfy** {% term integration %} allows publishing push notifications on [ntfy.sh](https://ntfy.sh/) or other ntfy services.
@@ -27,7 +27,7 @@ The **ntfy** {% term integration %} allows publishing push notifications on [ntf
 
 ## How you can use this integration
 
-The ntfy integration can be used to send push notifications from automations and scripts in real-time to your mobile devices and desktops.
+The ntfy integration can be used to send and receive messages via an [ntfy](https://ntfy.sh/) server. For example, to send a notification from Home Assistant to your mobile or send messages from a script to Home Assistant.
 
 ## Prerequisites
 
@@ -141,7 +141,7 @@ For more customizable notifications, use the `ntfy.publish` action instead of `n
 
 - `title`: Title for your notification message.
 - `message`: Your notification message.
-- `markdown`: Enable Markdown formatting for the message body (Web app only). See the Markdown guide for syntax details: [https://www.markdownguide.org/basic-syntax/](https://www.markdownguide.org/basic-syntax/).
+- `markdown`: Enable Markdown formatting for the message body. See the Markdown guide for syntax details: [https://www.markdownguide.org/basic-syntax/](https://www.markdownguide.org/basic-syntax/).
 - `tags`: Add tags or emojis to the notification. Emojis (using shortcodes like `smile`) will appear in the notification title or message. Other tags will be displayed below the notification content.
 - `priority`: All messages have a priority, which defines how urgently your phone notifies you, depending on the configured vibration patterns, notification sounds, and visibility in the notification drawer or pop-over.
 - `click`: URL that is opened when the notification is clicked.

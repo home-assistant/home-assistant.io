@@ -20,7 +20,7 @@ ha_platforms:
   - sensor
   - switch
   - update
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The Squeezebox integration allows you to control music players from the [Lyrion Music Server](https://lyrion.org/) (LMS) ecosystem. Lyrion Music Server was formerly known as [Logitech Media Server](https://en.wikipedia.org/wiki/Squeezebox_%28network_music_player%29).
@@ -167,16 +167,14 @@ data:
 
 ## Supported functionality
 
+The integration provides the following functionality:
+
 ### Switches
 
 - **Alarm**: Enables a scheduled alarm to sound. Alarms must also be enabled on the associated player for the alarm to sound, using the Alarms Enabled switch or directly on the Lyrion Music Server for that player.
-- **Alarms Enabled**: Enables a player to sound alarms. Disabling will prevent all alarms from sounding on that player, regardless of whether the individual alarm is enabled
+- **Alarms Enabled**: Enables a player to sound alarms. Disabling will prevent all alarms from sounding on that player, regardless of whether the individual alarm is enabled.
 
 ### Binary sensors
-
-The integration provides the following entities.
-
-#### Binary sensors
 
 - **Needs restart**
   - **Description**: Server Service needs to be restarted (typically, this is needed to apply updates).
@@ -184,7 +182,7 @@ The integration provides the following entities.
 - **Library rescan**
   - **Description**: The music library is currently being scanned by LMS (depending on the type of scan, some content may be unavailable).
 
-#### Buttons
+### Buttons
 
 - **Preset 1 ... Preset 6**
   - **Description**: Play media stored in Preset 1 to Preset 6 on Squeezebox.
@@ -201,7 +199,7 @@ The integration provides the following entities.
   - **Description**: Adjust the treble on Logitech Squeezebox players, such as Radio and Boom.
   - **Available on**: Logitech hardware players such as Radio, Duet, and Boom.
 
-#### Sensors
+### Sensors
 
 - **Last scan**
   - **Description**: Date of the last library scan.

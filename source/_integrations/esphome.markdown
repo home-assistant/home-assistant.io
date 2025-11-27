@@ -150,7 +150,7 @@ The [Native API Component](https://esphome.io/components/api.html) also supports
 ## Entity naming and IDs
 
 - Entity name is a combination of the friendly name (or name if unset) and component name
-- Entity ID is derived from the entity name with the device name prepended
+- Entity ID is derived from the entity name
 - Unicode characters in names are transliterated to their closest ASCII equivalents for compatibility
 
 Example with `friendly_name` set:
@@ -164,7 +164,7 @@ sensor:
    name: "Temperature"
 ```
 
-The entity will be named `Living room desk Temperature` and will default to having an entity ID of `sensor.livingroomdesk_temperature`.
+The entity will be named `Living room desk Temperature` and will default to having an entity ID of `sensor.living_room_desk_temperature`.
 
 Example without `friendly_name` set:
 

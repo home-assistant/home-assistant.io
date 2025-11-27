@@ -11,10 +11,11 @@ ha_domain: portainer
 ha_config_flow: true
 ha_platforms:
   - binary_sensor
-  - switch
-  - sensor
   - button
-ha_integration_type: integration
+  - diagnostics
+  - sensor
+  - switch
+ha_integration_type: hub
 ha_quality_scale: bronze
 ---
 
@@ -50,6 +51,14 @@ There is currently support for the following device types within Home Assistant:
 - Switch - for turning on and off containers.
 - Sensor - for monitoring various elements of containers.
 - Button - for restarting containers.
+
+## Data updates
+
+The integration normally updates every 60 seconds. For more detailed steps on how to define a custom polling interval, follow the procedure below.
+
+### Defining a custom polling interval
+
+{% include common-tasks/define_custom_polling.md %}
 
 ## Removing the integration
 
