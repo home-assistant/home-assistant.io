@@ -91,6 +91,7 @@ Enjoy the (beta) release!
   - [Now available to set up from the UI](#now-available-to-set-up-from-the-ui)
   - [Farewell to the following](#farewell-to-the-following)
 - [Other noteworthy changes](#other-noteworthy-changes)
+  - [Get insight into your AI conversations](#get-insight-into-your-ai-conversations)
   - [Add entities to Android widgets and favorites](#add-entities-to-android-widgets-and-favorites)
 - [Need help? Join the community](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
