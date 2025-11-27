@@ -203,7 +203,7 @@ Note: the steps and images here show the process with a Google Thread network. B
 
 ## Migrating a Thread network to a new adapter
 
-follow these steps if you already have a Thread adapter running but want to switch to a new adapter.
+Follow these steps if you already have a Thread adapter running but want to switch to a new adapter.
 
 ### Prerequisites
 
