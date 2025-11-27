@@ -13,7 +13,7 @@ ha_codeowners:
 ha_release: 2025.12
 ---
 
-Connect your Home Assistant to [EnergyID](https://www.energyid.eu/)—a cloud platform for energy monitoring and optimization. This integration uploads your Home Assistant sensor data and provides advanced analytics and performance tracking for solar, battery, energy consumption and more.
+The **EnergyID** {% term integration %} connects your Home Assistant to [EnergyID](https://www.energyid.eu/)—a cloud platform for energy monitoring and optimization. This integration uploads your Home Assistant sensor data and provides advanced analytics and performance tracking for solar, battery, energy consumption, and more.
 
 ## Prerequisites
 
