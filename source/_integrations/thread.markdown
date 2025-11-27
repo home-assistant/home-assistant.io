@@ -214,7 +214,7 @@ Follow these steps if you already have a Thread adapter running but want to swit
 - Latest updates installed
 - A new Thread adapter and a USB extension cable
   - If your adapter supports multiple protocols:
-  - They might have another firmware installed by default, (Zigbee, for example).
+  - They might have another firmware installed by default (Zigbee, for example).
   - Check their documentation and install the OpenThread firmware on the adapter.
   - Check their documentation and take a note of the baudrate.
 - Thread devices
@@ -234,6 +234,7 @@ Follow these steps if you already have a Thread adapter running but want to swit
 6. Go to {% my integrations title="**Settings** > **Devices & services**" %}, select the **Thread** integration.
    - Select the cogwheel {% icon "mdi:cog-outline" %}.
    - **Result**: You should now see that the Thread network is still there.
+   - **Troubleshooting**: If you don't see the network there, go back to the add-on configuration and adjust your settings, if needed and try again.
 7. If you no longer want to use the old adapter, you can unplug it now.
 
 ## Understanding the Thread configuration page
