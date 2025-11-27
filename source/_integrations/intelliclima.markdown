@@ -57,7 +57,6 @@ The **IntelliClima** integration provides the following entities for each discov
 - **Fan** (Main control entity)
   - **Description**: Control the ventilation system's operation mode and speed.
   - **Supported modes**:
-    - `off`: Turn off ventilation completely
     - `forward`: Intake mode (supply air into the room)
     - `reverse`: Extract mode (exhaust air into the room)
     - `alternate`: Alternating mode (cycles between intake and extract)
@@ -109,7 +108,7 @@ The **IntelliClima** integration provides the following entities for each discov
 
 ## Data updates
 
-The **IntelliClima** integration uses **cloud polling** to fetch device status. The integration polls the IntelliClima cloud API every 10 seconds by default to retrieve current device state, sensor readings, and configuration.
+The **IntelliClima** integration uses **cloud polling** to fetch device status. The integration polls the IntelliClima cloud API every 1 minute by default to retrieve current device state, sensor readings, and configuration.
 
 This means:
 - An active internet connection is required on the Home Assistant device.
@@ -297,7 +296,7 @@ Cloud polling introduces latency in command execution and data updates.
 
 1. **Check internet connection**: Ensure stable, fast internet connectivity for both your Home Assistant device and Ecocomfort 2.0.
 2. **Check cloud service status**: Fantini Cosmi's cloud service may occasionally experience slowdowns. Try again in a few minutes.
-3. **Monitor polling interval**: By default, the integration polls every 10 seconds. If real-time responsiveness is critical, you can set up local automations that don't depend on frequent updates.
+3. **Monitor polling interval**: By default, the integration polls every 1 minute. If real-time responsiveness is critical, you can set up local automations that don't depend on frequent updates.
 
 ## Removing the integration
 
