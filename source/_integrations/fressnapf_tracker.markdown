@@ -16,10 +16,16 @@ ha_integration_type: device
 
 The **Fressnapf Tracker** {% term integration %} allows you to integrate [Fressnapf GPS Trackers](https://tracker.fressnapf.de/) into Home Assistant.
 
-It will allow you to track the location of your pets and monitor their activity via the following entities:
+You can use this integration to track the location of your pets and monitor their activity in Home Assistant.
 
-- **Device Tracker**: Shows the current location of your pet.
+## Supported functionality
 
+### Entities
+
+The **Fressnapf Tracker** integration provides the following entities.
+
+- **Device Tracker**
+  - **Description**: Shows the current location of your pet.
 ## Prerequisites
 
 You have to use the mobile app to add the trackers to your Fressnapf Tracker account.
