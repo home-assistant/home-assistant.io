@@ -14,7 +14,11 @@ ha_platforms:
 ha_integration_type: device
 ---
 
-The Fressnapf Tracker integration allows you to integrate [Fressnapf GPS Trackers](https://tracker.fressnapf.de/) into Home Assistant.
+The **Fressnapf Tracker** {% term integration %} allows you to integrate [Fressnapf GPS Trackers](https://tracker.fressnapf.de/) into Home Assistant.
+
+It will allow you to track the location of your pets and monitor their activity via the following entities:
+
+- **Device Tracker**: Shows the current location of your pet.
 
 ## Prerequisites
 
@@ -24,6 +28,12 @@ The phone number you used to register can then be used to set up the integration
 During the setup, you will receive a verification code via SMS to confirm your identity.
 
 {% include integrations/config_flow.md %}
+
+## Defining a custom polling interval
+
+The **Fressnapf Tracker** {% term polling polls %} data from the cloud every 15 minutes.
+
+{% include common-tasks/define_custom_polling.md %}
 
 ## Removing the integration
 
