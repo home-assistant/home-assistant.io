@@ -14,7 +14,7 @@ ha_platforms:
 ha_integration_type: device
 ---
 
-The Fressnapf Tracker integration allows you to integrate (Fressnapf GPS Trackers)[https://tracker.fressnapf.de/] into Home Assistant.
+The Fressnapf Tracker integration allows you to integrate [Fressnapf GPS Trackers](https://tracker.fressnapf.de/) into Home Assistant.
 
 ## Prerequisites
 
