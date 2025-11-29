@@ -135,8 +135,7 @@ Send gas meter reading when the sensor value changes:
 
 ## Data updates
 
-- Meter readings are sent on-demand via action calls
-- The integration does not poll Energy Tracker for data
+Meter readings are sent on-demand via action calls. The integration does not poll Energy Tracker for data.
 
 ## Troubleshooting
 
