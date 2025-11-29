@@ -34,13 +34,13 @@ You need the IP address and login credentials for your router's web interface.
 
 {% configuration_basic %}
 Host:
-description: "The IP address or hostname of your router. The integration will try both HTTPS and HTTP."
+  description: "The IP address or hostname of your router. The integration will try both HTTPS and HTTP."
 Username:
-description: "Username for the router's web interface."
+  description: "Username for the router's web interface."
 Password:
-description: "Password for the router's web interface."
+  description: "Password for the router's web interface."
 Validate SSL certificate:
-description: "Enable SSL certificate validation. Leave disabled for self-signed certificates."
+  description: "Enable SSL certificate validation. Leave disabled for self-signed certificates."
 {% endconfiguration_basic %}
 
 ## Automatic discovery
