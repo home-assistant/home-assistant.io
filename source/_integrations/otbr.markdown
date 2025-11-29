@@ -22,3 +22,5 @@ This integration is installed automatically when the **Open Thread Border Router
 Installing this integration manually is an advanced use case, for example if you run your own border router. If you do have such a use case, follow these steps:
 
 {% include integrations/config_flow.md %}
+
+More information on the configuration of this add-on can be found [here](https://github.com/home-assistant/addons/blob/master/openthread_border_router/DOCS.md).
