@@ -122,6 +122,8 @@ This integration provides the following entities.
   - **Unit**: mV
 - **ORP calibration slope**: ORP calibration slope value.
   - **Unit**: mV
+- **Totalizer**: Total water volume accumulated.
+  - **Unit**: L, m³
 
 ### Switches
 
