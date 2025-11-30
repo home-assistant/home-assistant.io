@@ -3,7 +3,7 @@ title: Energy Tracker
 description: Automatically send meter readings from Home Assistant to your Energy Tracker account.
 ha_category:
   - Energy
-ha_release: 2025.2
+ha_release: 2025.12
 ha_iot_class: Cloud Push
 ha_config_flow: true
 ha_codeowners:
