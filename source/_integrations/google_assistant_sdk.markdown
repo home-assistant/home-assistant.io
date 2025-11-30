@@ -24,7 +24,6 @@ The Google Assistant SDK integration allows Home Assistant to interact with Goog
 This integration allows:
 
 - Sending text commands to Google Assistant to control devices supported by Google Assistant but not by Home Assistant. Examples:
-  - Set Nest Guard to home and guarding
   - Start vacuuming
   - Stream front door on living room TV
   - Turn off kitchen TV

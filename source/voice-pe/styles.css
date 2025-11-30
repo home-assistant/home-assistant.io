@@ -18,7 +18,7 @@ html {
 }
 
 #landingpage .site-header .grid-wrapper {
-  max-width: 960px !important;
+  /* max-width: 960px !important; */
   padding: 0 40px !important;
 }
 
