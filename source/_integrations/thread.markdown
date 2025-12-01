@@ -225,7 +225,7 @@ If you have a Home Assistant brand Thread adapter, follow the corresponding inst
     - Check their documentation and install the OpenThread firmware on the adapter.
     - Check their documentation and take a note of the baudrate.
 
-### To a Thread adapter to the OpenThread Border Router add-on
+### To add a Thread adapter to the OpenThread Border Router add-on
 
 1. Plug the adapter into the extension cable and plug it into the Home Assistant hub.
 2. Go to {% my supervisor_addon title="**Settings** > **Add-ons** > **OpenThread Border Router**" addon="core_openthread_border_router" %} and select the **Configuration** tab.
