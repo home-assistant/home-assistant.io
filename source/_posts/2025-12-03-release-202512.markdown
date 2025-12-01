@@ -294,7 +294,7 @@ This release also has new virtual integrations. Virtual integrations are stubs t
 It is not just new {% term integrations %} that have been added; existing integrations are also being constantly improved. Here are some of the noteworthy changes to existing integrations:
 
 - [@piitaya] updated the [ESPHome] integration to let Home Assistant generate entity IDs using its standard rules, aligning it with how other integrations work.
-- [Shelly] now supports control modes for Shelly Cury devices. Nice work, [@bieniu]!
+- [Shelly] now supports control modes for upcoming Shelly Cury device. Nice work, [@bieniu]!
 - Thanks to [@gjohansson-ST], [System Monitor] now exposes fan sensors and battery sensors for your system.
 - The [Tuya] integration received a lot of love! Cat litter boxes now expose switches, buttons, lights, and sensors for controlling your pet's automated litter box. On top of that, doorbell events are now supported too. Thanks, [@heindrichpaul]!
 - [@starkillerOG] expanded the [Reolink] integration with an exposure mode select and audio noise reduction controls for supported cameras.
