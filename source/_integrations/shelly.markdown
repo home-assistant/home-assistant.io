@@ -425,10 +425,10 @@ template:
         data:
           device_id: e4c0e031f68a8fbe08c50eda5e189a70
           key: my_temperature_value
-        response_variable: temp_variable
+        response_variable: temperature_variable
     sensor:
       - name: My temperature
-        state: "{{ temp_variable.value }}"
+        state: "{{ temperature_variable.value }}"
         unit_of_measurement: "°C"
         device_class: "temperature"
 ```
