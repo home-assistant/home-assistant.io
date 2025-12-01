@@ -25,3 +25,9 @@ Measuring station:
 Name:
   description: "Service name in Home Assistant, by default, this is the name of your Home Assistant instance. For example `Home`."
 {% endconfiguration_basic %}
+
+## Removing the integration
+
+This integration follows standard integration removal, no extra steps are required.
+
+{% include integrations/remove_device_service.md %}

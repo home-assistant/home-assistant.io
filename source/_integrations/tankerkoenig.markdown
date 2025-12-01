@@ -19,7 +19,7 @@ ha_config_flow: true
 related:
   - docs: /common-tasks/general/#defining-a-custom-polling-interval
     title: Defining a custom polling interval
-ha_integration_type: integration
+ha_integration_type: service
 ha_quality_scale: platinum
 ---
 

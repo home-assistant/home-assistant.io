@@ -15,13 +15,14 @@ ha_platforms:
   - calendar
   - diagnostics
   - image
+  - notify
   - sensor
   - switch
   - todo
 ha_codeowners:
   - '@tr4nt0r'
 ha_config_flow: true
-ha_integration_type: integration
+ha_integration_type: service
 related:
   - docs: /integrations/todo
     title: To-do list integration documentation
@@ -186,6 +187,17 @@ If you’re part of a party, the integration creates a device with these entitie
 Certain entities are only available depending on whether you are in a boss quest or a collect quest.
 
 {% endnote %}
+
+### Keep an eye on your team mates
+
+You can add members of your party to Home Assistant, so you can keep an eye on your mates health and other key stats. To add a party member, go to {% my integration domain="habitica" title="**Settings** > **Devices & services** > **Habitica**" %} and select **{% icon "mdi:plus" %} Add party member**.
+
+When you add someone, Home Assistant creates a new entry with the following entities:
+
+- **Sensors**: Class, display name, health, mana, max. mana, experience, next level, strength, intelligence, constitution, and perception.
+- **Image**: Avatar
+
+For details about each of these entities, see the descriptions above under [**Sensors**](#sensors) and [**Image**](#image).
 
 ## Actions
 
@@ -586,7 +598,8 @@ actions:
 
 ## Data updates
 
-This integration retrieves data from Habitica every 60 seconds to ensure timely updates.
+This integration syncs with Habitica every 60 seconds to keep your own data up to date.
+Party data, including any party members you’ve added as sub-entries, is refreshed every 15 minutes.
 
 ## Known limitations
 

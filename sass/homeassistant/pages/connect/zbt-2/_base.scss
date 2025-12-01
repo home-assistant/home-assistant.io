@@ -1,0 +1,134 @@
+#landingpage .content .ha-connect {
+    background-color: #000000;
+    color: #ffffff;
+
+    section .content {
+        color: #ffffff;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        letter-spacing: -1px;
+        text-transform: unset;
+        margin: 0;
+        line-height: 1;
+    }
+
+    h1 {
+        margin: var(--typography-h1-margin-y) 0;
+    }
+
+    h2 {
+        margin: var(--typography-h2-margin-y) 0;
+    }
+
+    h3 {
+        margin: var(--typography-h3-margin-y) 0;
+        letter-spacing: -1px;
+    }
+
+    h4 {
+        margin: var(--typography-h4-margin-y) 0;
+    }
+
+    h5 {
+        margin: var(--typography-h5-margin-y) 0;
+    }
+
+    h6 {
+        margin: var(--typography-h6-margin-y) 0;
+    }
+
+    .body-medium {
+        font-size: var(--typography-body-medium-font-size);
+        font-weight: 400;
+        margin: 0;
+        letter-spacing: 0;
+        line-height: 120%;
+        padding: 4px 0;
+    }
+
+    .body-large {
+        font-size: var(--typography-body-large-font-size);
+        font-weight: var(--typography-body-large-font-weight);
+        margin: 0;
+        line-height: 120%;
+        letter-spacing: 0;
+    }
+
+    .subtitle-medium {
+        font-size: var(--typography-subtitle-medium-font-size);
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        li {
+            position: relative;
+            letter-spacing: normal;
+            margin: 0;
+            padding: 12px 0 12px 24px;
+            box-sizing: content-box;
+            font-weight: 300;
+            font-size: 16px;
+
+            &:before {
+                content: '';
+                display: inline-flex;
+                height: 4px;
+                width: 4px;
+                position: absolute;
+                top: 22px;
+                left: 0;
+                border-radius: 50%;
+                background-color: #ffffff;
+                box-shadow: 0 0 6px var(--Blue---Connect-Line, #005FBE);
+            }
+        }
+    }
+}
+
+section {
+    color: #ffffff;
+
+    .section-inner {
+        height: 100%;
+        position: sticky;
+        top: 0;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .section-inner-content {
+        padding: 40px 0;
+        width: 100%;    
+    }
+}
+
+.nc-collaboration {
+    position: absolute;
+
+    &.mobile {
+        display: block;
+
+        @include bp(desktop) {
+            display: none;
+        }
+    }
+
+    &.desktop {
+        display: none;
+
+        @include bp(desktop) {
+            display: block;
+        }
+    }
+}

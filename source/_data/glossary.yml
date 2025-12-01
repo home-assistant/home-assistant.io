@@ -296,8 +296,9 @@
     - groups
 - term: HASS
   definition: >-
-    HASS or [hass](/docs/tools/hass/) is often used as an abbreviation for Home
-    Assistant. It is also the command-line tool.
+    HASS is an abbreviation for Home Assistant that was commonly used in the past.
+    This abbreviation is no longer actively used. It is recommended to use the full
+    name "Home Assistant" instead of abbreviations.
 - term: HassOS
   definition: >-
     Another name for Home Assistant Operating System
@@ -316,6 +317,13 @@
     Container installation type). For development, Core can also be run using a Virtual
     Environment (previously referred as the Home Assistant Core installation type.
     For production setup, the [Home Assistant Core installation type is deprecated](https://www.home-assistant.io/blog/2025/05/22/deprecating-core-and-supervised-installation-methods-and-32-bit-systems/).
+  excerpt: >-
+    Home Assistant Core is the Python program at the heart of Home Assistant. It
+    is part of all installation types. It can be installed standalone (without Home Assistant
+    Supervisor) as a container using Docker (this is typically referred to as the Home Assistant
+    Container installation type). For development, Core can also be run using a Virtual
+    Environment (previously referred as the Home Assistant Core installation type).
+    For production setup, the Home Assistant Core installation type is deprecated.
 - term: Home Assistant Supervised
   definition: >-
     The Home Assistant Supervised installation type is a full UI managed home automation ecosystem
@@ -323,7 +331,13 @@
     add-ons. It comes pre-installed on Home Assistant OS, but can be installed
     standalone on Debian Linux systems. It leverages Docker, which is managed by
     the Home Assistant Supervisor. The
-    [Home Assistant Supervised installation type is deprecated](https://www.home-assistant.io/blog/2025/05/22/deprecating-core-and-supervised-installation-methods-and-32-bit-systems/).  
+    [Home Assistant Supervised installation type is deprecated](https://www.home-assistant.io/blog/2025/05/22/deprecating-core-and-supervised-installation-methods-and-32-bit-systems/).
+  excerpt: >-
+    The Home Assistant Supervised installation type is a full UI managed home automation ecosystem
+    that runs the Home Assistant Core program, the Home Assistant Supervisor and
+    add-ons. It comes pre-installed on Home Assistant OS, but can be installed
+    standalone on Debian Linux systems. It leverages Docker, which is managed by
+    the Home Assistant Supervisor. The Home Assistant Supervised installation type is deprecated.
 - term: Home Assistant Supervisor
   definition: >-
     The Home Assistant Supervisor is a program that manages a Home Assistant
@@ -584,7 +598,7 @@
     uses its radio frequency (RF) radio to communicate with the Thread mesh
     network. In case of Matter, the data that is forwarded is encrypted.
     Examples of Thread border routers are the Nest Hub (2nd gen), the HomePod
-    mini, and the Home Assistant Connect&nbsp;ZBT-1 together with the OpenThread Border
+    mini, and the Home Assistant Connect&nbsp;ZBT-2 together with the OpenThread Border
     Router add-on.
   link: /integrations/thread/#about-thread-border-routers
   aliases:

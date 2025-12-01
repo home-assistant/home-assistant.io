@@ -101,6 +101,9 @@ After adding a friend, a new device will be created with the following entities:
 - **Online status**: Indicates the friend's current availability on the PlayStation Network.
 - **Last online**: Displays the time the friend was last seen online.
 - **Now playing**: Shows the title of the game the friend is currently playing.
+- **Trophy level**: Your friend's current PlayStation trophy level.
+- **Next Level**: Your friend's progress towards the next PlayStation trophy level.
+- **Platinum, gold, silver, and bronze trophies**: The total number of trophies your friend has earned.
 
 ### Image
 
