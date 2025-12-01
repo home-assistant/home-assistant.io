@@ -16,16 +16,16 @@ works_with:
 ---
 
 
-The **TFA.me {% term integration %}** is used to integrate the **TFA.me** devices (WiFi weather stations & measuring sensors) of [TFA Dostmann](https://www.tfa-dostmann.de/en/). The **TFA.me system** offers multi-day weather forecasts and precise monitoring of local measurements in combination with a powerful online platform.
+The **TFA.me {% term integration %}** is used to integrate the **TFA.me** devices (Wi-Fi weather stations & measuring sensors) of [TFA Dostmann](https://www.tfa-dostmann.de/en/). The **TFA.me system** offers multi-day weather forecasts and precise monitoring of local measurements in combination with a powerful online platform.
 
 
 ## How it works
 
-Each **TFA.me station** measures temperature and humidity internally, and depending on the model, other measurement data as well. Each station also has an 868 MHz radio receiver that can receive external {% term sensors %} such as temperature, humidity, wind and rain sensors. 
+Each **TFA.me station** measures temperature and humidity internally, and depending on the model, other measurement data as well. Each station also has a 868 MHz radio receiver that can receive external {% term sensors %} such as temperature, humidity, wind and rain sensors. 
 
 The internal and external measurement values ​​are partially displayed on the station's display and also transferred to the [**TFA.me cloud**](https://go.tfa.me). When measured values ​​are received station will add the current time stamp (UTC) and the 868 MHz RSSI (Radio Signal Strength Indicator) value to the data set. 
 
-In addition, each **TFA.me station** also has the ability to hold the most recent measurement data in a table and make it available to Home Assistant via an integrated web server. Therefore, Home Assistant can query measurement data directly and locally from your station via the LAN (WiFi).
+In addition, each **TFA.me station** also has the ability to hold the most recent measurement data in a table and make it available to Home Assistant via an integrated web server. Therefore, Home Assistant can query measurement data directly and locally from your station via the LAN (Wi-Fi).
 
 
 {% include integrations/config_flow.md %}
@@ -67,7 +67,7 @@ All 868 MHz sensors transmit cyclic the following measurement values in a data s
 - [ID A6](https://www.tfa-dostmann.de/en/product/professional-temperature-humidity-transmitter-id-a6-30-3906/) (Temperature, Humidity (TX=1)
 
 
-(*) TX: Transmission interval in minutes
+(**TX**: Transmission interval in minutes)
 
 All sensors additional deliver a low battery value.
 
@@ -81,18 +81,18 @@ All sensors additional deliver a low battery value.
 
 **Quick start:**
 
-{% details "1. Connect your station to your WiFi" %}
+{% details "1. Connect your station to your Wi-Fi" %}
 
-**Note**: You can skip this step when your station is already connected to your WiFi.
+**Note**: You can skip this step when your station is already connected to your Wi-Fi.
 Otherwise please follow the instructions from the datasheets above. Basically it works like this:
 
-1. Insert power supply cable and batteries
-2. Press **WiFi button** for 5 seconds until you hear a **"beep"**. (The WiFi button placed in battery case)
+1. Insert power supply cable and batteries.
+2. Press **Wi-Fi button** for 5 seconds until you hear a **beep**. (The Wi-Fi button is placed in battery case.)
 3. Go to the Wi-Fi settings of your device (Smartphone, tablet, PC) and look for a network named **TFA-ME-ID-XXX-XXX-XXX**. XXX-XXX-XXX is the 9-digit serial number of your station.
-4. Connect your device to the Wi-Fi network **TFA-ME-ID-XXX-XXX-XXX**
-5. Open a browser and enter 192.168.8.1 or me.local`.
-6. Select your Wi-Fi network from the list, enter your password, and select **Submit**
-7. Wait a few seconds until your station is connected to your Wi-Fi network
+4. Connect your device to the Wi-Fi network **TFA-ME-ID-XXX-XXX-XXX**.
+5. Open a browser and enter **192.168.8.1** or **me.local**.
+6. Select your Wi-Fi network from the list, enter your password and press **Submit**.
+7. Wait a few seconds until your station is connected to your Wi-Fi network.
 
 {% enddetails %}
 
@@ -104,25 +104,25 @@ Otherwise please follow the instructions from the datasheets above. Basically it
 The Home Assistant functionality in TFA.me stations is deactivated by default.
 To get access to the internal web pages for settings & configurations open a web browser and enter the **IP address** or the **mDNS name** of your station.
 
-**Use IP:** To get the IP address of your station press and hold the **"+"** key and wait until the IP is shown. 
-**Example:** In your browser enter "192.168.1.35" 
+**Use IP:** To get the IP address of your station press and hold the **+** key and wait until the IP is shown. 
+**Example:** In your browser enter **192.168.1.35**. 
 
 **Use mDNS name:** You can find the serial number on a sticker at the backside of your station. 
-**Example:** In your browser enter "tfa-me-05B-3E4-E44.local"
+**Example:** In your browser enter **tfa-me-05B-3E4-E44.local**.
 
 
 Change station settings to activate Home Assistant:
 
-1. On the main website, click on the link **"Network settings"**
-2. Set "Local API" to "Yes" and press "Submit", this activates the Home Assistant functionality of the station.
+1. On the main website, click on the link **Network settings**.
+2. Set **Local API** to **Yes** and press **Submit**, this activates the Home Assistant functionality of the station.
 
 **Network settings:**
 <p class='img'>
   <img src='/images/integrations/tfa_me/tfa_me_local_api_activation.png' width=50% height=50% />
 </p>
 
-3. Optional: Use link **"HA menu"** to enter main menu <br>
-   ("IP/ha_menu" or "tfa-me-XXX-XXX-XXX.local")
+3. Optional: Use link **HA menu** to enter main menu <br>
+   (**IP/ha_menu** or **tfa-me-XXX-XXX-XXX.local**)
 
 Your station is now prepared for Home Assistant. It generates a table with all station & sensor measurement values. The list may be emtpy at start because the sensor values were not received. Just wait some minutes until you see all sensors. Normally this only takes 5 minutes which is the typically sensor & station transmission interval. 
 
@@ -136,23 +136,23 @@ The list of sensor measured values ​​can also be found under the menu item *
 
 **Use the station's Home Assistant menu:**
 
-You can also get direct access to the entire Home Assistant menu of the station and enter the **IP address** or the **mDNS name** of your station followed by path "/ha_menu"
+You can also get direct access to the entire Home Assistant menu of the station and enter the **IP address** or the **mDNS name** of your station followed by path **/ha_menu**.
 
-- "IP/ha_menu"
-- "tfa-me-XXX-XXX-XXX.local" where XXX-XXX-XXX is the 9 digit serial number.
+- **IP/ha_menu**
+- **tfa-me-XXX-XXX-XXX.local** where XXX-XXX-XXX is the 9 digit serial number.
 
-**Use IP:** To get the IP address of your station press and hold the **"+"** key and wait until the IP is shown. 
-**Example:** In your browser enter "192.168.1.42/ha_menu" 
+**Use IP:** To get the IP address of your station press and hold the **+** key and wait until the IP is shown. 
+**Example:** In your browser enter **192.168.1.42/ha_menu**. 
 
 **Use mDNS name:** You can find the serial number on a sticker at the backside of your station. 
-**Example:** In your browser enter "tfa-me-017-654-321.local/ha_menu"
+**Example:** In your browser enter **tfa-me-017-654-321.local/ha_menu**.
 
 Change station settings to activate Home Assistant:
 
-1. Go to menu **All settings**
-2. Set check box **"HA on"** to **"yes"**. This activates the Home Assistant functionality of your station. 
-3. Press button **"Submit"**.
-4. Optional: Select the maximum number of sensors the **TFA.me station** should hold. When you have one station and N external sensors, set the size to (N+1). Enter this value in text field **"Resize HA table"** and press button **"Resize"**. The default value is set to 25, minimum is 2 & maximum is 75.
+1. Go to menu **All settings**.
+2. Set check box **HA on** to **yes**. This activates the Home Assistant functionality of your station. 
+3. Press button **Submit**.
+4. Optional: Select the maximum number of sensors the **TFA.me station** should hold. When you have one station and N external sensors, set the size to (N+1). Enter this value in text field **Resize HA table** and press button **Resize**. The default value is set to 25, minimum is 2 & maximum is 75.
 
 {% enddetails %}
 
@@ -168,16 +168,16 @@ Otherwise please insert the batteries into all sensors you want to use.
 {% details "4. Add the TFA.me integration to your Home Assistant" %}
 
 1. Open the web page of your Home Assistant and go no menu: **Settings** > **Devices & services**.
-2. Click on the "+" sign to and search for "**tfa**"
-3. Click on "**TFA**" then "**TFA.me station**" to add the integration.
+2. Click on the **+** sign to and search for **tfa**.
+3. Click on **TFA** then **TFA.me station** to add the integration.
 
 Please follow the configuration flow and make some basic setting.
 
-1. Mandatory: Enter the IP address of your device or the 9 digit serial number **"XXX-XXX-XXX"**. To get the IP address of your station press and hold the **"+"** key and wait until the IP is shown. The serial number is placed at the backside of your station.
-2. Optional: Checkbox  **"Add station ID to device name"**, when you only use one station leave this unchecked. If there is more than one station, sensors will likely received from multiple stations. To better distinguish between them, the station ID is also displayed after the sensor ID/name when the checkbox is selected.
-3. Mandatory: Press button **"OK"**. 
+1. Mandatory: Enter the IP address of your device or the 9 digit serial number **XXX-XXX-XXX**. To get the IP address of your station press and hold the **+** key and wait until the IP is shown. The serial number is placed at the backside of your station.
+2. Optional: Checkbox  **Add station ID to device name**, when you only use one station leave this unchecked. If there is more than one station, sensors will likely received from multiple stations. To better distinguish between them, the station ID is also displayed after the sensor ID/name when the checkbox is selected.
+3. Mandatory: Press button **OK**. 
 
-The integration now requests sensor list & sensor measurement data once at start. When successful you will see a list with all sensors added. The integrationn also generates all entities (section **"Entities"**) and updates them every minute.. 
+The integration now requests sensor list & sensor measurement data once at start. When successful you will see a list with all sensors added. The integrationn also generates all entities (section **Entities**) and updates them every minute.. 
 
 After completing the configuration flow, the **TFA.me** integration will be available.
 
@@ -200,7 +200,7 @@ After completing the configuration flow, the **TFA.me** integration will be avai
 
 The following options or actions can be set or triggered:
 
-- **Reset all rain sensors**: Set all 'rain last hour' and 'rain last 24 hours' to 0. (also see chapter **Entities**)
+- **Reset all rain sensors**: Set all **rain last hour** and **rain last 24 hours** to 0. (also see chapter **Entities**)
 
 {% enddetails %}
 
@@ -211,14 +211,14 @@ The following options or actions can be set or triggered:
 **Note**: You can skip this step when your weather forecast location is already set.
 Otherwise please follow the instructions from the datasheets above. Basically it works like this:
 
-1. Open a browser and enter [go.tfa.me](https://go.tfa.me) to enter the **TFA.me portal**
-2. Click on **"Set Location"**
-3. Enter your device ID ("XXX-XXX-XXX") and press button **"Search"**
-4. Press the **Wifi button** at your station (placed in battery case)
-5. Select your location on the map or enter the your address
-6. Press button **"Location from address"** or **"Location from browser"**
-7. Press button **"Save"**
-8. Press the **Wifi button** at your station again to confirm the location settings
+1. Open a browser and enter [go.tfa.me](https://go.tfa.me) to enter the **TFA.me portal**.
+2. Click on **Set Location**.
+3. Enter your device ID (**XXX-XXX-XXX**) and press button **Search**.
+4. Press the **Wi-Fi button** at your station (placed in battery case).
+5. Select your location on the map or enter the your address.
+6. Press button **Location from address** or **Location from browser**.
+7. Press button **Save**.
+8. Press the **Wi-Fi button** at your station again to confirm the location settings.
 
 The station in now configured and should see the correct local time & date at the display of your station.
 
@@ -299,13 +299,13 @@ All units are metric.
 - `barometric_pressure` in **hPa**: Barometric pressure
 - `rain`in **mm**: Rain fall (absolute value)
 - `rain_rel`, `rain_1_hour`, `rain_24_hours` in **mm**: Rain fall (relative value)
-- `rssi` in **1/256**: Signal strength<br>Theoretical range: 0(bad) ... 255(very good)<br>Practical range: 80(bad) ... 230(very good)|
+- `rssi` in **1/256**: Signal strength<br>Theoretical range: 0 (bad) ... 255 (very good)<br>Practical range: 80 (bad) ... 230 (very good)|
 - `lowbatt`, 0: battery good, 1: battery bad
 - `lowbatt_txt`,  No: battery good, Yes: battery bad
 - `wind_speed`, `wind_gust` in **m/s**: Speed is the average speed of last measurement period, gust is the maximum.
-- `wind_direction`, Value range: 0...15 for the 16 main directions:<BR> 0="N", 1="NNE", 2="NE", 3="ENE", 4="E", 5="ESE", 6="SE", 7="SSE", 8="S", 9="SSW",10="SW", 11="WSW", 12="W", 13="WNW", 14="NW", 15="NNW"
-- `wind_direction_deg` in **degress**: Value range: 0...337.5 for the 16 main directions (step 22.5):<BR> 0.0="N", 22.5="NNE", 45.0="NE", ... 337.5="NNW"
-- `wind_direction_txt`, Text values for the 16 main directions:<BR> "N", "NNE", "NE", "ENE", "E","ESE", "SE", "SSE","S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW"
+- `wind_direction`, Value range: 0...15 for the 16 main directions:<BR> 0=**N**, 1=**NNE**, 2=**NE**, 3=**ENE**, 4=**E**, 5=**ESE**, 6=**SE**, 7=**SSE**, 8=**S**, 9=**SSW**, 10=**SW**, 11=**WSW**, 12=**W**, 13=**WNW**, 14=**NW**, 15=**NNW**
+- `wind_direction_deg` in **degress**: Value range: 0...337.5 for the 16 main directions (step 22.5):<BR> 0.0=**N**, 22.5=**NNE**, 45.0=**NE**, ... 337.5=**NNW**
+- `wind_direction_txt`, Text values for the 16 main directions:<BR> **N**, **NNE**, **NE**, **ENE**, **E**, **ESE**, **SE**, **SSE**, **S**, **SSW**, **SW**, **WSW**, **W**, **WNW**, **NW**, **NNW**
 
 
 {% enddetails %}
@@ -315,7 +315,7 @@ All units are metric.
 {% details "More informations to entities" %}
 
 - `rain_rel`, `rain_1_hour` and `rain_24_hours` are generated entities and does not come from the rain sensor itself. 
-- `rain_rel` is the rain value since the integration was started or since last reset of this value. This value can be reset by option **"Reset all rain sensors**" 
+- `rain_rel` is the rain value since the integration was started or since last reset of this value. This value can be reset by option **Reset all rain sensors**. 
 - `rain_1_hour` is the rain value of the last hour. For that integration holds the history of rainfall values ​​from the last hour.
 - `rain_24_hours` is the rain value of the last 24 hours. For that integration holds the history of rainfall values ​​from the last 24 hours.
 - `rssi` values for stations are set to 255. They are internal values and not received via 868 MHz.
@@ -362,10 +362,10 @@ Depending on the measured value (value/range):
 - `wind_gust`
   - {% icon "mdi:weather-windy" %} default 
 - `rain`
-  - {% icon "mdi:weather-sunny" %} none (< 0.1 mm)/hour
-  - {% icon "mdi:weather-partly-rainy" %} light (0.1 mm ... < 0.5 mm)/hour
-  - {% icon "mdi:weather-rainy" %} moderate (0.5 mm ... < 4.0 mm)/hour
-  - {% icon "mdi:weather-pouring" %} heavy (> 4.0 mm)/hour
+  - {% icon "mdi:weather-sunny" %} none (< 0.1 mm/hour)
+  - {% icon "mdi:weather-partly-rainy" %} light (0.1 mm ... < 0.5 mm/hour)
+  - {% icon "mdi:weather-rainy" %} moderate (0.5 mm/hour ... < 4.0 mm)/hour
+  - {% icon "mdi:weather-pouring" %} heavy (>= 4.0 mm/hour)
 
 
 {% enddetails %}
