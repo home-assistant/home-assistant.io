@@ -5,7 +5,7 @@ ha_category:
   - Other
 ha_release: '2026.1'
 ha_quality_scale: internal
-ha_domain: webrtc
+ha_domain: web_rtc
 ha_iot_class: Calculated
 ha_codeowners:
   - '@home-assistant/core'
