@@ -6,10 +6,11 @@ ha_category:
 ha_release: '2026.1'
 ha_quality_scale: internal
 ha_domain: web_rtc
-ha_iot_class: Calculated
 ha_codeowners:
   - '@home-assistant/core'
 ha_integration_type: system
 ---
 
-The **WebRTC** {% term integration %} is an internal integration that provides WebRTC functionality for camera streaming in Home Assistant. It manages ICE (Interactive Connectivity Establishment) servers used for establishing peer-to-peer connections.
+The **WebRTC** {% term integration %} is an internal integration that provides WebRTC functionality for camera streaming in Home Assistant. It is automatically set up when needed and does not require any manual configuration.
+
+If you want to configure your own TURN and STUN servers, [check the core config](/integrations/homeassistant/#webrtc).
