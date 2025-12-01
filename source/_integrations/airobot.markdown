@@ -56,7 +56,7 @@ If you need to update the connection settings for your thermostat (such as chang
 
 This is useful when:
 
-- Your thermostat's IP address has changed (e.g., after router restart or DHCP lease renewal).
+- Your thermostat's IP address has changed (for example, after a router restart or a DHCP lease renewal).
 - You need to update the Device ID or password.
 - You want to switch between IP address and hostname.
 
