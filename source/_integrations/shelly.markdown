@@ -412,9 +412,10 @@ The `shelly.set_kvs_value` action is used to set a value in the device's Key-Val
 
 #### Example how to create a sensor for the KVS value
 
-The device's KVS contains a numerical temperature value, available under the `my_temperature_value` key. The following example creates a temperature sensor that will retrieve a value from the KVS every 10 minutes.
+The following example creates a temperature sensor that will retrieve a temperarure value from the KVS for the key `my_temperature_value` every 10 minutes.
 
 ```yaml
+# Example configuration.yaml entry
 template:
   - trigger:
       - platform: time_pattern
