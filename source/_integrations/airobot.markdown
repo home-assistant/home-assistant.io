@@ -9,7 +9,7 @@ ha_domain: airobot
 ha_integration_type: device
 ha_dhcp: true
 ha_config_flow: true
-ha_quality_scale: bronze
+ha_quality_scale: silver
 ---
 
 The **Airobot** {% term integration %} allows you to control and monitor [Airobot](https://airobothome.com/) smart thermostats for intelligent floor heating control via the local REST API. The thermostat uses adaptive learning with a <abbr title="Time Proportional Integral">TPI</abbr> algorithm to maintain stable temperatures and optimize energy efficiency. Optional built-in CO₂ and humidity sensors monitor indoor air quality for a healthier living environment.
@@ -39,11 +39,26 @@ The integration can be automatically discovered via DHCP when the thermostat is 
 {% configuration_basic %}
 Host:
     description: "The hostname or IP address of your Airobot thermostat. You can find it in your router settings, or use the hostname format `airobot-thermostat-t01xxxxxx` (replace `t01xxxxxx` with your Device ID in lowercase)."
-Username:
+Device ID:
     description: "The thermostat Device ID (e.g., T01XXXXXX). You can find this in the thermostat menu under **Connectivity** > **Mobile app** screen. This is the same credential used to pair the mobile app."
 Password:
     description: "The thermostat password. You can find this in the thermostat menu under **Connectivity** > **Mobile app** screen. This is the same credential used to pair the mobile app."
 {% endconfiguration_basic %}
+
+## Reconfiguration
+
+If you need to update the connection settings for your thermostat (such as changing the IP address, Device ID, or password), you can reconfigure the integration without removing and re-adding it:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. On the **Airobot** integration, select the three-dot menu and choose **Reconfigure**.
+3. Update the connection settings as needed.
+4. Select **Submit** to save the new settings.
+
+This is useful when:
+
+- Your thermostat's IP address has changed (for example, after a router restart or a DHCP lease renewal).
+- You need to update the Device ID or password.
+- You want to switch between IP address and hostname.
 
 ## Supported functionality
 
