@@ -86,7 +86,7 @@ secondary_info_attribute:
   default: Defaults to `extrema` if available, if not available then `precipitation` and if precipitation isn't available then `humidity`.
 round_temperature:
   required: false
-  description: Round temperature values to closest integer.
+  description: Round temperature values to the closest integer.
   type: boolean
   default: `false` (uses the raw temperature values).
 theme:
