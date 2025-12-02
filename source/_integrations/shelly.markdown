@@ -404,7 +404,7 @@ The `shelly.set_kvs_value` action is used to set a value in the device's Key-Val
   - **Description**: The ID of the Shelly device to set the KVS value.
   - **Optional**: No
 - **Data attribute**: `key`
-  - **Description**: The name of the key for which the KVS value will be stored.
+  - **Description**: The name of the key under which the KVS value will be stored.
   - **Optional**: No
 - **Data attribute**: `value`
   - **Description**: Value to set. The value can be text, a number, a boolean, a null value, a dictionary, or a list.
