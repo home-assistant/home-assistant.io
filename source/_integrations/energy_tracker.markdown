@@ -16,7 +16,7 @@ ha_integration_type: service
 
 The **Energy Tracker** {% term integration %} makes it easy for you to monitor and analyze your home's energy usage by automatically sending meter readings from your Home Assistant sensors to your [Energy Tracker](https://www.energy-tracker.best-ios-apps.de) account.
 
-Energy Tracker is a popular energy monitoring service, trusted by over 100,000 people, that helps you track your electricity, gas, and water consumption over time. With clear charts and insights, you can better understand your usage patterns and find ways to save energy.
+Energy Tracker is a popular energy monitoring service, trusted by over 100,000 people. It helps you track your electricity, gas, and water consumption over time. With clear charts and insights, you can better understand your usage patterns and find ways to save energy.
 
 By connecting Energy Tracker with Home Assistant, you can automate the submission of your meter readings. This means you no longer need to enter data manually—your readings are sent automatically, so you always have up-to-date information and can easily spot trends or unusual usage. This integration helps you take control of your energy habits and make smarter decisions for your home.
 
@@ -49,9 +49,9 @@ To send meter readings, you need your **Standard Measuring Device ID**:
 ### Via Energy Tracker web interface
 
 1. Log into your Energy Tracker account.
-2. Go to your device details.
-3. Copy the Standard Measuring Device ID.
-4. Remove the `std-` prefix from the ID.
+2. Go to your device settings.
+3. Copy the **Device Identifier**.
+4. Remove the `std-` prefix from the Identifier.
 5. The final ID should be in UUID format: `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.
 
 ### Via API (recommended)
@@ -63,9 +63,9 @@ To send meter readings, you need your **Standard Measuring Device ID**:
 
 ## Actions
 
-### Action: `energy_tracker.send_meter_reading`
+### Action: Send meter reading
 
-Sends a meter reading from a Home Assistant sensor to Energy Tracker.
+The `energy_tracker.send_meter_reading` action sends a meter reading from a Home Assistant sensor to Energy Tracker.
 
 - **Data attribute**: `entry_id`
   - **Description**: The Energy Tracker account entry ID to use for sending the meter reading.
@@ -137,7 +137,7 @@ Send gas meter reading when the sensor value changes:
 
 ## Data updates
 
-Meter readings are sent on-demand via action calls. The integration does not poll Energy Tracker for data.
+Meter readings are sent on-demand via action calls. The integration does not {% term polling polls %} Energy Tracker for data.
 
 ## Troubleshooting
 
@@ -146,8 +146,8 @@ Meter readings are sent on-demand via action calls. The integration does not pol
 If you see authentication errors after setup:
 
 1. Go to {% my integrations title="**Settings** > **Devices & Services**" %}.
-2. Find your Energy Tracker integration.
-3. Click the {% icon "mdi:dots-vertical" %} menu and select **Reconfigure**.
+2. Find your **Energy Tracker** integration.
+3. Select the {% icon "mdi:dots-vertical" %} menu and select **Reconfigure**.
 4. Enter a new Personal Access Token.
 
 ### Device not found
