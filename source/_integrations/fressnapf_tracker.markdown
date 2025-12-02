@@ -11,6 +11,7 @@ ha_codeowners:
 ha_domain: fressnapf_tracker
 ha_platforms:
   - device_tracker
+  - sensor
 ha_integration_type: device
 ---
 
@@ -26,6 +27,8 @@ The **Fressnapf Tracker** integration provides the following entities.
 
 - **Device Tracker**
   - **Description**: Shows the current location of your pet.
+- **Battery**
+  - **Description**: Shows the current battery level of your tracker.
 ## Prerequisites
 
 You have to use the mobile app to add the trackers to your Fressnapf Tracker account.
