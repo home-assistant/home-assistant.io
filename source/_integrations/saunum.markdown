@@ -79,9 +79,9 @@ The preset mode (sauna type) can only be changed when the sauna session is not a
 Preset names can be configured on the Saunum Leil control unit itself. You can also customize the preset names in Home Assistant to match the names configured on your device:
 
 1. Go to the Saunum integration in {% my integrations title="**Settings** > **Devices & Services**" %}.
-2. Click on **Configure** for your Saunum Leil device.
-3. Enter custom names for each of the three sauna type presets to match those configured on your Leil touch panel (for example, "Finnish Sauna", "Quick Session", "Deep Heat").
-4. Click **Submit** to save your changes.
+2. Select **Configure** for your Saunum Leil device.
+3. Enter custom names for each of the three sauna type presets to match those configured on your Leil touch panel (for example, **Finnish Sauna**, **Quick Session**, **Deep Heat**).
+4. Select **Submit** to save your changes.
 
 The custom preset names will immediately appear in the climate entity's preset mode selector, making it easier to identify and select your preferred sauna configuration.
 
