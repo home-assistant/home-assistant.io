@@ -107,6 +107,10 @@ This action essentially allows you to control Alexa using text commands rather t
 
 This action allows you to play one of the built-in Alexa sounds. The full list of sounds is available in [Amazon's documentation (needs authentication)](https://alexa.amazon.com/api/behaviors/entities?skillId=amzn1.ask.1p.sound)
 
+{%tip%}
+Additional sounds are available through advanced markup using the `notify.send_message` [action](#action-notifysend_message)
+{%endtip%}
+
 | Data attribute | Optional | Description |
 | -------------- | -------- | ----------------------------------------- |
 | `device_id` | no | Device on which you want to play sound |
