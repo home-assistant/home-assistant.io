@@ -28,7 +28,7 @@ As the device doesn't contain a temperature sensor ([read more](https://forum.fh
 
 Pairing your eQ-3 Bluetooth Smart Thermostat device works differently based on your method of connection and the device's firmware version.
 
-#### [ESPHome Bluetooth Proxies](https://esphome.io/components/bluetooth_proxy.html)
+#### [ESPHome Bluetooth Proxies](https://esphome.io/components/bluetooth_proxy/)
 
 For firmware versions below 148, no additional configuration is required when using ESPHome Bluetooth Proxies.
 Since version 148, a security flaw in the devices has been fixed that now requires entering a passkey.
@@ -50,7 +50,7 @@ ble_client:
             passkey: <PIN code displayed on the thermostat. To display the PIN hold down the main button.>
 ```
 
-For further information see the [ESPHome documentation](https://esphome.io/components/ble_client.html#on-passkey-request).
+For further information see the [ESPHome documentation](https://esphome.io/components/ble_client/#on_passkey_request).
 
 #### Other
 
