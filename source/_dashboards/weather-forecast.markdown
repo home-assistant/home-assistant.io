@@ -88,7 +88,7 @@ round_temperature:
   required: false
   description: Round temperature values to the closest integer.
   type: boolean
-  default: `false` (uses the raw temperature values).
+  default: false
 theme:
   required: false
   description: Override the used theme for this card with any loaded theme. For more information about themes, see the [frontend documentation](/integrations/frontend/).
