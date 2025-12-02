@@ -380,7 +380,8 @@ This release, we celebrate several {% term integrations %} that have improved th
   - [LCN], thanks to [@alengwenus]
   - [Telegram bot], thanks to [@hanwg]
 
-- **1 integration reached bronze** 🥉
+- **2 integrations reached bronze** 🥉
+  - [Music Assistant], thanks to [@OzGav]
   - [Transmission], thanks to [@andrew-codechimp]
 
 This is a huge achievement for these integrations and their maintainers. The effort and dedication required to reach these quality levels is significant, as it involves extensive testing, documentation, error handling, and often complete rewrites of parts of the integration.
@@ -395,9 +396,11 @@ A big thank you to all the contributors involved! 👏
 [@davidrapan]: https://github.com/davidrapan
 [@hanwg]: https://github.com/hanwg
 [@tronikos]: https://github.com/tronikos
+[@OzGav]: https://github.com/OzGav
 [Brother Printer]: /integrations/brother
 [Google Assistant SDK]: /integrations/google_assistant_sdk
 [LCN]: /integrations/lcn
+[Music Assistant]: /integrations/music_assistant
 [Shelly]: /integrations/shelly
 [Telegram bot]: /integrations/telegram_bot
 [Transmission]: /integrations/transmission
