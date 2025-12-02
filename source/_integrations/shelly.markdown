@@ -387,7 +387,7 @@ The integration provides the following actions for non-sleeping Gen2+ devices:
 
 ### Action: Get KVS value
 
-The `shelly.get_kvs_value` action is used to get a value from the device's Key-Value Storage. The retrieved value can be text, number, boolean, null value, dictionary or list.
+The `shelly.get_kvs_value` action is used to get a value from the device's Key-Value Storage. The retrieved value can be text, a number, a boolean, a null value, a dictionary, or a list.
 
 - **Data attribute**: `device_id`
   - **Description**: The ID of the Shelly device to get the KVS value from.
@@ -404,10 +404,10 @@ The `shelly.set_kvs_value` action is used to set a value in the device's Key-Val
   - **Description**: The ID of the Shelly device to set the KVS value.
   - **Optional**: No
 - **Data attribute**: `key`
-  - **Description**: The name of the key for which the KVS value will be retrieved.
+  - **Description**: The name of the key for which the KVS value will be stored.
   - **Optional**: No
 - **Data attribute**: `value`
-  - **Description**: Value to set. The value can be text, a number, a boolean, a null value, a dictionary or a list.
+  - **Description**: Value to set. The value can be text, a number, a boolean, a null value, a dictionary, or a list.
   - **Optional**: No
 
 #### Example how to create a sensor for the KVS value
@@ -421,7 +421,7 @@ template:
       - platform: time_pattern
         minutes: /10
     action:
-      - service: shelly.get_kvs_value
+      - action: shelly.get_kvs_value
         data:
           device_id: e4c0e031f68a8fbe08c50eda5e189a70
           key: my_temperature_value
@@ -429,8 +429,8 @@ template:
     sensor:
       - name: My temperature
         state: "{{ temperature_variable.value }}"
-        unit_of_measurement: "°C"
-        device_class: "temperature"
+        unit_of_measurement: °C
+        device_class: temperature
 ```
 
 ## Shelly Thermostatic Radiator Valve (TRV)
