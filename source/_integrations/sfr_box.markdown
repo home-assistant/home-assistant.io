@@ -29,7 +29,7 @@ This integration provides the following platforms:
 
 {% configuration_basic %}
 Host:
-  description: "The hostname, IP address, or full URL of your SFR device. This can be an IP, a hostname or a full URL."
+  description: "The hostname, IP address, or full URL of your SFR device."
 Username (optional):
   description: "The username for accessing your SFR box's web interface, the default is 'admin'"
 Password (optional):
