@@ -14,9 +14,11 @@ ha_platforms:
 ha_integration_type: service
 ---
 
-The **Energy Tracker** {% term integration %} allows you to automatically send meter readings from Home Assistant sensors to your [Energy Tracker](https://www.energy-tracker.best-ios-apps.de) account.
+The **Energy Tracker** {% term integration %} makes it easy for you to monitor and analyze your home's energy usage by automatically sending meter readings from your Home Assistant sensors to your [Energy Tracker](https://www.energy-tracker.best-ios-apps.de) account.
 
-Energy Tracker is an energy monitoring service with over 100,000 users that helps you track and analyze your energy consumption.
+Energy Tracker is a popular energy monitoring service, trusted by over 100,000 people, that helps you track your electricity, gas, and water consumption over time. With clear charts and insights, you can better understand your usage patterns and find ways to save energy.
+
+By connecting Energy Tracker with Home Assistant, you can automate the submission of your meter readings. This means you no longer need to enter data manually—your readings are sent automatically, so you always have up-to-date information and can easily spot trends or unusual usage. This integration helps you take control of your energy habits and make smarter decisions for your home.
 
 ## Prerequisites
 
@@ -63,7 +65,7 @@ To send meter readings, you need your **Standard Measuring Device ID**:
 
 ### Action: `energy_tracker.send_meter_reading`
 
-The `energy_tracker.send_meter_reading` action is used to send a meter reading from a Home Assistant sensor to Energy Tracker.
+Sends a meter reading from a Home Assistant sensor to Energy Tracker.
 
 - **Data attribute**: `entry_id`
   - **Description**: The Energy Tracker account entry ID to use for sending the meter reading.
