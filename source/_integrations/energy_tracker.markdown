@@ -24,10 +24,10 @@ Before configuring the integration, you need:
 
 1. An [Energy Tracker account](https://www.energy-tracker.best-ios-apps.de)
 2. A **Personal Access Token** from your Energy Tracker account:
-   1. Log in to your Energy Tracker account
-   2. Navigate to **API** → **Access Tokens**
-   3. Create a new Personal Access Token
-   4. Copy and save the token securely
+   1. Log in to your Energy Tracker account.
+   2. Navigate to **API** > **Access Tokens**.
+   3. Create a new Personal Access Token.
+   4. Copy and save the token securely.
 
 {% include integrations/config_flow.md %}
 
@@ -35,7 +35,7 @@ Before configuring the integration, you need:
 Account name:
     description: "A descriptive name for your Energy Tracker account."
 Personal Access Token:
-    description: "Your Personal Access Token from Energy Tracker. You can create one in your Energy Tracker account under **API** → **Access Tokens**."
+    description: "Your Personal Access Token from Energy Tracker. You can create one in your Energy Tracker account under **API** > **Access Tokens**."
 {% endconfiguration_basic %}
 
 You can add multiple Energy Tracker accounts by repeating the setup process.
@@ -46,18 +46,18 @@ To send meter readings, you need your **Standard Measuring Device ID**:
 
 ### Via Energy Tracker web interface
 
-1. Log into your Energy Tracker account
-2. Go to your device details
-3. Copy the Standard Measuring Device ID
-4. Remove the `std-` prefix from the ID
-5. The final ID should be in UUID format: `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`
+1. Log into your Energy Tracker account.
+2. Go to your device details.
+3. Copy the Standard Measuring Device ID.
+4. Remove the `std-` prefix from the ID.
+5. The final ID should be in UUID format: `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.
 
 ### Via API (recommended)
 
-1. Log into your Energy Tracker account
-2. Navigate to **API** → **Documentation**
-3. Use the API endpoint to retrieve your devices
-4. The IDs returned are already in the correct format
+1. Log into your Energy Tracker account.
+2. Navigate to **API** > **Documentation**.
+3. Use the API endpoint to retrieve your devices.
+4. The IDs returned are already in the correct format.
 
 ## Actions
 
@@ -143,18 +143,18 @@ Meter readings are sent on-demand via action calls. The integration does not pol
 
 If you see authentication errors after setup:
 
-1. Go to {% my integrations title="**Settings** → **Devices & Services**" %}
-2. Find your Energy Tracker integration
-3. Click the {% icon "mdi:dots-vertical" %} menu and select **Reconfigure**
-4. Enter a new Personal Access Token
+1. Go to {% my integrations title="**Settings** > **Devices & Services**" %}.
+2. Find your Energy Tracker integration.
+3. Click the {% icon "mdi:dots-vertical" %} menu and select **Reconfigure**.
+4. Enter a new Personal Access Token.
 
 ### Device not found
 
 Verify your device ID:
 
-- Must be in UUID format: `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`
-- Should **not** include the `std-` prefix
-- Check the ID in your Energy Tracker account or via API
+- Must be in UUID format: `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.
+- Should **not** include the `std-` prefix.
+- Check the ID in your Energy Tracker account or via API.
 
 ### Debug logging
 
@@ -167,7 +167,7 @@ logger:
     homeassistant.components.energy_tracker: debug
 ```
 
-Then check {% my logs title="**Settings** → **System** → **Logs**" %} for detailed information.
+Then check {% my logs title="**Settings** > **System** > **Logs**" %} for detailed information.
 
 ## Removing the integration
 
