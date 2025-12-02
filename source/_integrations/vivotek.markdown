@@ -11,7 +11,6 @@ ha_domain: vivotek
 ha_platforms:
   - camera
 ha_integration_type: integration
-ha_quality_scale: legacy
 ha_config_flow: true
 ---
 
