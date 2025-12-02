@@ -241,7 +241,7 @@ If you have a Home Assistant Thread adapter, follow the corresponding instructio
 6. Restart the add-on and check the logs. Wait.
 7. Go to {% my integrations title="**Settings** > **Devices & services**" %}, select the **Thread** integration.
    - Select the cogwheel {% icon "mdi:cog-outline" %}.
-   - **Result**: You should now see that the Thread network is still there.
+   - **Result**: You should now see a new `ha-thread` Thread network.
    - **Troubleshooting**: If you don't see the network there, go back to the add-on configuration and adjust your settings, if needed, and try again.
 
 ## Migrating a Thread network to a new adapter
