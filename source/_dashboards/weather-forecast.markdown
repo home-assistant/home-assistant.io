@@ -87,6 +87,7 @@ secondary_info_attribute:
 round_temperature:
   required: false
   description: Round temperature values to closest integer.
+  type: boolean
   default: `false` (uses the raw temperature values).
 theme:
   required: false
