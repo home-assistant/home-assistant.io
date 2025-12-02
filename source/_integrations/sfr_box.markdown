@@ -31,9 +31,9 @@ This integration provides the following platforms:
 Host:
   description: "The hostname, IP address, or full URL of your SFR device."
 Username (optional):
-  description: "The username for accessing your SFR box's web interface, the default is 'admin'"
+  description: "The username for accessing your SFR box's web interface. The default is 'admin'."
 Password (optional):
-  description: "The password for accessing your SFR box's web interface, the default is the WiFi security key found on the device label"
+  description: "The password for accessing your SFR box's web interface. The default is the Wi-Fi security key found on the device label."
 {% endconfiguration_basic %}
 
 ## Compatibility
