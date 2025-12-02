@@ -9,7 +9,7 @@ ha_domain: connectsense
 ha_integration_type: device
 ---
 
-The **ConnectSense** {% term integration %} integrates the [Rebooter Pro](https://www.gridconnect.com/products/rebooter-pro) from [Grid Connect Inc](https://www.gridconnect.com). It discovers devices via Zeroconf or by manually entering hostname/IP. The integration exposes the outlet switch, a reboot button, an optional Intelligent Reboot configuration, device triggers for reboot events, and optional push notifications.
+The **ConnectSense** {% term integration %} integrates the [Rebooter Pro](https://www.gridconnect.com/products/rebooter-pro) from [Grid Connect Inc](https://www.gridconnect.com). It discovers devices via Zeroconf or by manually entering hostname/IP. This initial release exposes a reboot button, device triggers for reboot events, and optional push notifications. Device-side settings (intelligent reboot, power-fail recovery, timing) are configurable via the options flow.
 
 ## Supported devices
 
@@ -68,15 +68,9 @@ Notifications:
 
 ## Supported functionality
 
-### Controls
+### Buttons
 
 - **Reboot Now Button**: Immediately power-cycles the outlet.
-- **Toggle Power Switch**: Turns the controlled outlet on/off.
-
-### Configuration
-
-- **Power Outage Auto Reboot Switch**: If enabled, the equipment will reboot after power is restored.
-- **Intelligent Reboot Switch**: If enabled, the equipment will reboot on Internet/Ping failures.
 
 ### Device triggers
 
