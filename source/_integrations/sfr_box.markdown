@@ -27,6 +27,15 @@ This integration provides the following platforms:
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+Host:
+  description: "The hostname, IP address, or full URL of your SFR device. This can be an IP, a hostname or a full URL."
+Username (optional):
+  description: "The username for accessing your SFR box's web interface, the default is 'admin'"
+Password (optional):
+  description: "The password for accessing your SFR box's web interface, the default is the WiFi security key found on the device label"
+{% endconfiguration_basic %}
+
 ## Compatibility
 
 The integration uses the REST API, which is known to be available on models `NB4`, `NB5`, `NB6`, `NB6V`, and `NB6VAC`.
