@@ -48,7 +48,7 @@ ha_quality_scale: platinum
 
 ## Overview
 
-The **ESPHome** {% term integration %} allows [ESPHome](https://esphome.io) devices to connect directly to Home Assistant with the [native ESPHome API](https://esphome.io/components/api.html).
+The **ESPHome** {% term integration %} allows [ESPHome](https://esphome.io) devices to connect directly to Home Assistant with the [native ESPHome API](https://esphome.io/components/api/).
 
 ESPHome is a firmware generator and configuration system that enables the transformation of microcontrollers into fully customizable smart home devices. Using a simple YAML configuration file, ESPHome allows users to define hardware components like sensors, actuators, and peripherals. These configurations are then compiled into custom firmware that can be flashed onto the target device.
 
@@ -56,7 +56,7 @@ ESPHome is a firmware generator and configuration system that enables the transf
 
 - **YAML Configuration**: Specify hardware components, sensors, actuators, and integrations using a clean and straightforward YAML syntax.
 - **Custom Firmware Generation**: ESPHome compiles the provided configuration into a highly optimized, device-specific firmware image that is ready to be flashed onto microcontrollers.
-- **Seamless Integration**: After flashing, ESPHome devices can integrate seamlessly with Home Assistant using the ESPHome native API. This documentation page focuses on the [native API](https://esphome.io/components/api.html), which allows devices to communicate directly with Home Assistant for real-time automation and monitoring. For other integrations, such as MQTT or HTTP, please refer to the relevant sections of the [ESPHome documentation](https://esphome.io/).
+- **Seamless Integration**: After flashing, ESPHome devices can integrate seamlessly with Home Assistant using the ESPHome native API. This documentation page focuses on the [native API](https://esphome.io/components/api/), which allows devices to communicate directly with Home Assistant for real-time automation and monitoring. For other integrations, such as MQTT or HTTP, please refer to the relevant sections of the [ESPHome documentation](https://esphome.io/).
 
 ESPHome supports a variety of microcontrollers beyond just the ESP family. These include:
 
@@ -68,7 +68,7 @@ ESPHome supports a variety of microcontrollers beyond just the ESP family. These
 
 For a list of officially supported microcontrollers and devices, refer to the [ESPHome device database](https://devices.esphome.io/). Keep in mind that this database represents only a portion of the ecosystem—many other devices and peripherals are supported but may not appear in the database.
 
-For inspiration and examples of complete, ready-to-use configurations, check out the [ESPHome ready-made projects](https://esphome.io/projects/index.html). These include setups like [Bluetooth proxies](https://esphome.io/components/bluetooth_proxy.html), which can extend the [Bluetooth](/integrations/bluetooth/#remote-adapters-bluetooth-proxies) range of Home Assistant.
+For inspiration and examples of complete, ready-to-use configurations, check out the [ESPHome ready-made projects](https://esphome.io/projects/index.html). These include setups like [Bluetooth proxies](https://esphome.io/components/bluetooth_proxy/), which can extend the [Bluetooth](/integrations/bluetooth/#remote-adapters-bluetooth-proxies) range of Home Assistant.
 
 If you're looking for pre-built solutions, the [Voice PE](https://www.home-assistant.io/voice-pe/) is an excellent example. It's a pre-built voice assistant device powered by ESPHome, offering an easy way to integrate voice control into your Home Assistant system. Many pre-built solutions, like the Voice PE, are open-source and can be customized, giving you flexibility to adapt them to your needs.
 
@@ -93,7 +93,7 @@ password:
 
 {% endconfiguration_basic %}
 
-For more information, see the [ESPHome Native API Component documentation](https://esphome.io/components/api.html).
+For more information, see the [ESPHome Native API Component documentation](https://esphome.io/components/api/).
 
 {% include integrations/option_flow.md %}
 
@@ -108,7 +108,7 @@ Subscribe to logs from the device:
 
 ## Supported devices
 
-The ESPHome {% term integration %} works with devices that run ESPHome firmware and expose their functionality through the [native ESPHome API](https://esphome.io/components/api.html). This API is designed for tight, efficient integration with Home Assistant, enabling ESPHome devices to push updates directly to Home Assistant in **near real time**.
+The ESPHome {% term integration %} works with devices that run ESPHome firmware and expose their functionality through the [native ESPHome API](https://esphome.io/components/api/). This API is designed for tight, efficient integration with Home Assistant, enabling ESPHome devices to push updates directly to Home Assistant in **near real time**.
 
 ## Updating data
 
@@ -125,27 +125,27 @@ This real-time behavior enables fast, reactive automations and a smooth user exp
 
 ### Entities
 
-The available entities depend on the components defined in the ESPHome YAML configuration for each device. These entities are exposed through the [Native API Component](https://esphome.io/components/api.html).
+The available entities depend on the components defined in the ESPHome YAML configuration for each device. These entities are exposed through the [Native API Component](https://esphome.io/components/api/).
 
 ### Firing events on the Home Assistant event bus
 
-When using the native API with Home Assistant, you can trigger events on the Home Assistant event bus directly from ESPHome. For more details, see the [homeassistant.event Action](https://esphome.io/components/api.html#homeassistant-event-action).
+When using the native API with Home Assistant, you can trigger events on the Home Assistant event bus directly from ESPHome. For more details, see the [homeassistant.event Action](https://esphome.io/components/api/#homeassistantevent-action).
 
 ### Actions
 
-Each device can define Home Assistant Actions based on its ESPHome YAML configuration. For more information, refer to the [Actions](https://esphome.io/components/api.html#actions) section in the [Native API Component](https://esphome.io/components/api.html) documentation.
+Each device can define Home Assistant Actions based on its ESPHome YAML configuration. For more information, refer to the [Actions](https://esphome.io/components/api/#actions) section in the [Native API Component](https://esphome.io/components/api/) documentation.
 
 ### Retrieving data from Home Assistant
 
-ESPHome can retrieve the state of Home Assistant entities using the [Native API](https://esphome.io/components/api.html) with [User-Defined Actions](https://esphome.io/components/api.html#user-defined-actions).
+ESPHome can retrieve the state of Home Assistant entities using the [Native API](https://esphome.io/components/api/) with [User-Defined Actions](https://esphome.io/components/api/#user-defined-actions).
 
 ### Home Assistant actions
 
-ESPHome devices can call any [Home Assistant Action](https://esphome.io/components/api.html#homeassistant-service-action). This feature is not enabled by default for newly added devices but can be enabled through the options flow on a per-device basis.
+ESPHome devices can call any [Home Assistant Action](https://esphome.io/components/api/#homeassistantaction-action). This feature is not enabled by default for newly added devices but can be enabled through the options flow on a per-device basis.
 
 ### Tag scanning support
 
-The [Native API Component](https://esphome.io/components/api.html) also supports sending tag scan events to Home Assistant. See the [homeassistant.tag_scanned Action](https://esphome.io/components/api.html#homeassistant-tag-scanned-action) for more information.
+The [Native API Component](https://esphome.io/components/api/) also supports sending tag scan events to Home Assistant. See the [homeassistant.tag_scanned Action](https://esphome.io/components/api/#homeassistanttag_scanned-action) for more information.
 
 ## Entity naming and IDs
 
@@ -204,7 +204,7 @@ To troubleshoot your ESPHome devices, you can easily view live logs, whether you
 
 #### Using the **ESPHome CLI**
 
-If you're using the **ESPHome CLI**, follow the instructions for the [logs Command](https://esphome.io/guides/cli.html#logs-command) to access the logs.
+If you're using the **ESPHome CLI**, follow the instructions for the [logs Command](https://esphome.io/guides/cli/#logs-command) to access the logs.
 
 ### Obtaining logs from the device
 
@@ -229,7 +229,7 @@ This integration supports reconfiguration, allowing you to make changes—such a
 
 ### Name conflict resolution
 
-If Home Assistant detects multiple devices with the same [**name**](https://esphome.io/components/esphome.html#configuration-variables), it will automatically initiate **Name Conflict Resolution**. This process is designed to help you seamlessly replace a failed or retired device with new hardware, while preserving your existing configuration if desired.
+If Home Assistant detects multiple devices with the same [**name**](https://esphome.io/components/esphome/#configuration-variables), it will automatically initiate **Name Conflict Resolution**. This process is designed to help you seamlessly replace a failed or retired device with new hardware, while preserving your existing configuration if desired.
 
 This process gives you two options:
 
@@ -248,7 +248,7 @@ If you’re using the same YAML file on the new device, choose **Migrate**. If i
 To trigger Name Conflict Resolution, all of the following must be true:
 
 - The new device must be running **ESPHome 2025.4.0 or later**.
-- The new device must use the same [**name**](https://esphome.io/components/esphome.html#configuration-variables) (not just the friendly name).
+- The new device must use the same [**name**](https://esphome.io/components/esphome/#configuration-variables) (not just the friendly name).
 - The original (old) device must be **offline**.
 
 ---
