@@ -125,7 +125,7 @@ For more details, see [Remote Adapters](/integrations/bluetooth/#remote-adapters
 
 {% configuration_basic %}
 Bluetooth scanner mode:
-  description: The scanner mode to use for Bluetooth scanning. Bluetooth scanning can be active or passive. With active, the Shelly requests data from nearby devices; with passive, the Shelly receives unsolicited data from nearby devices.
+  description: "The scanner mode to use for Bluetooth scanning. Bluetooth scanning can be active or passive. With active, the Shelly requests data from nearby devices. With passive, the Shelly receives unsolicited data from nearby devices."
 {% endconfiguration_basic %}
 
 ## Range Extender Support
