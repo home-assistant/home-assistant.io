@@ -30,8 +30,6 @@ The **Fressnapf Tracker** integration provides the following entities.
   - **Description**: Shows the current location of your pet.
 - **Battery**
   - **Description**: Shows the current battery level of your tracker.
-- **Deep Sleep Status**
-  - **Description**: Indicates whether the tracker is in deep sleep mode.
 - **Charging Status**
   - **Description**: Indicates whether the tracker is currently charging.
   
