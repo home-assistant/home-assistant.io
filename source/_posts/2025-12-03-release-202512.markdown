@@ -224,6 +224,10 @@ There's also a brand-new **water sankey card** that visualizes your water flow, 
 The new water sankey card shows where your water is going at a glance.
 </p>
 
+### New energy layout
+
+In order to make room for this new functionality we had to reorder the Energy Dashboard. Don't worry, if you only have energy configured, you'll still see the same dashboard. But if you add water, gas or power, the dashboard will be split into several tabs.
+
 ## Integrations
 
 Thanks to our community for keeping pace with the new {% term integrations %}
