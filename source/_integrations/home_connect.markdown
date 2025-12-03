@@ -434,10 +434,10 @@ Both entities can use these options, but the availability of these will depend o
 - **Spin/drain**: `laundry_care_washer_program_spin_drain`
 - **Sport fitness**: `laundry_care_washer_program_sport_fitness`
 - **Towels**: `laundry_care_washer_program_towels`
-- **Water proof**: `laundry_care_washer_program_water_proof`
-- **Wool**: `laundry_care_washer_program_wool`
 - **Super 15 min**: `laundry_care_washer_program_super_153045_super_15`
 - **Super 15/30 min**: `laundry_care_washer_program_super_153045_super_1530`
+- **Water proof**: `laundry_care_washer_program_water_proof`
+- **Wool**: `laundry_care_washer_program_wool`
 - **Cotton**: `laundry_care_washer_dryer_program_cotton`
 - **Cotton eco 40/60ºC**: `laundry_care_washer_dryer_program_cotton_eco_4060`
 - **Mix**: `laundry_care_washer_dryer_program_mix`
