@@ -120,7 +120,7 @@ To see which version your system is running, go to {% my info title="**Settings*
 
 If you want to preview upcoming features, you can enable preview under {% my labs title="**Settings** > **System** > **Labs**" %}.
 
-**Labs** allows you to preview selected features that are running stable but are still being fine-tuned. Preview is different from installing a beta or development version, which are used for development and testing.
+**Labs** allows you to preview selected features that are stable but are still being fine-tuned. Preview is different from installing a beta or development version, which are used for development and testing.
 
 For more information, refer to the [Labs documentation](/integrations/labs).
 
