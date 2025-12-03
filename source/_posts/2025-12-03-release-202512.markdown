@@ -85,6 +85,7 @@ Enjoy the (beta) release!
 - [Power and water in the Energy dashboard](#power-and-water-in-the-energy-dashboard)
   - [Real-time power monitoring](#real-time-power-monitoring)
   - [Downstream water meters](#downstream-water-meters)
+  - [New energy layout](#new-energy-layout)
 - [Integrations](#integrations)
   - [New integrations](#new-integrations)
   - [Noteworthy improvements to existing integrations](#noteworthy-improvements-to-existing-integrations)
@@ -164,7 +165,7 @@ Lots of improvements to report on the dashboard front this release! From better 
 Picking a default dashboard is now a system-level setting that takes effect instantly for all users on your Home Assistant installation. The dashboard you choose will appear at the top of the sidebar, replacing the current default.
 
 <p class='img'>
-<img src='source/images/blog/2025-12/set-dashboard-default-system.png' alt='Screenshot showing the Dashboard configuration page and the option to make any dashboard default in the three dots menu'>
+<img src='/images/blog/2025-12/set-dashboard-default-system.png' alt='Screenshot showing the Dashboard configuration page and the option to make any dashboard default in the three dots menu'>
 </p>
 
 But don't worry, personal preferences still matter! We added a new setting in your {% my profile title="**User profile**" %} where you can override the system default and set your own preferred dashboard.
@@ -176,7 +177,7 @@ When using the built-in dashboard experiences (Home, Lights, Security, and other
 Now you can go to {% my areas title="**Settings** > **Areas, labels & zones**" %} and use the new *Reorder floors and areas* menu to manually drag and drop any area or floor to reorder them. Your changes will instantly apply to all built-in dashboards that show areas and floors.
 
 <p class='img'>
-<img src='/source/images/blog/2025-12/reorder-areas-menu.png' alt='Screenshot showing the reorder areas and floors menu'>
+<img src='/images/blog/2025-12/reorder-areas-menu.png' alt='Screenshot showing the reorder areas and floors menu'>
 </p>
 
 ### Experimental dashboards have graduated
