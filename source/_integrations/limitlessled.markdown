@@ -21,11 +21,11 @@ LimitlessLED bulbs are controlled via groups, so you can only control an individ
 
 Note: you can assign an `rgbw`, `rgbww`, `white` and `dimmer` group to the same group number, effectively allowing up to 16 groups (4 `rgbww`, 4 `rgbw`, 4 `white` and 4 `dimmer`) per bridge.
 
-An archive of the extensive API can be found [here](https://github.com/Fantasmos/LimitlessLED-DevAPI).
+An archive of the extensive API can be found [here](https://github.com/Supernova4422/LimitlessLED-DevAPI).
 
 ## Setup
 
-Before configuring Home Assistant, make sure you can control your bulbs or LEDs with the MiLight mobile application. Next, discover your bridge(s) IP address. You can do this via your router or a mobile application like Fing ([Android](https://play.google.com/store/apps/details?id=com.overlook.android.fing&hl=en) or [iTunes](https://itunes.apple.com/us/app/fing-network-scanner/id430921107?mt=8)).
+Before configuring Home Assistant, make sure you can control your bulbs or LEDs with the MiLight mobile application. Next, discover your bridge(s) IP address. You can do this via your router or a mobile application like Fing ([Android](https://play.google.com/store/apps/details?id=com.overlook.android.fing) or [iTunes](https://apps.apple.com/app/id430921107)).
 
 To add `limitlessled` to your installation, add the following to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
