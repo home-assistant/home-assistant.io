@@ -35,9 +35,12 @@ Happy holidays, and enjoy the release!
 
 {% details "A little holiday cheer 🎄🎶" %}
 
-<audio controls>
-  <source src="/audio/blog/2025-12-03-release-202512/jingle-labs.mp3">
-</audio>
+<p class='audio'>
+  <audio controls aria-label="Jingle Labs holiday song by Frenck and Darren">
+    <source src="/audio/blog/2025-12-03-release-202512/jingle-labs.mp3">
+    Your browser does not support the audio element.
+  </audio>
+</p>
 
 **Jingle Labs** <small>by Frenck and Darren</small>
 
