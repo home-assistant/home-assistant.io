@@ -68,6 +68,7 @@ Happy holidays, and enjoy the release!
 _A huge thank you to all the contributors who made this release possible! And a special shout-out to [@TimoPtr], [@laupalombi], [@jlpouffier], and [@MindFreeze] who helped write these release notes. Also, [@edenhaus], [@tr4nt0r], [@jpbede], [@RaHehl], [@bieniu], [@arturpragacz], and [@piitaya] for putting effort into tweaking its contents. Thanks to them, these release notes are in great shape. ❤️_
 
 [@arturpragacz]: https://github.com/arturpragacz
+[@bdraco]: https://github.com/bdraco
 [@bieniu]: https://github.com/bieniu
 [@edenhaus]: https://github.com/edenhaus
 [@frenck]: https://github.com/frenck
