@@ -62,6 +62,7 @@ There is currently support for the following device types within Home Assistant:
 - [Climate](#climate)
 - [Cover](#cover)
 - [Date](#date)
+- [DateTime](#datetime)
 - [Fan](#fan)
 - [Light](#light)
 - [Notify](#notify)
@@ -1267,6 +1268,10 @@ Dates that have a `state_address` configured request their current state from th
 DPT 11.001 covers the range 1990 to 2089. Year values outside of this range are not allowed.
 {% endnote %}
 
+Date entities can be created from the frontend in the KNX panel or via YAML.
+
+{% details "Configuration of KNX date entities via YAML" %}
+
 ```yaml
 # Example configuration.yaml entry
 knx:
@@ -1319,6 +1324,8 @@ entity_category:
   default: None
 {% endconfiguration %}
 
+{% enddetails %}
+
 ## DateTime
 
 The KNX datetime platform allows to send datetime values to the KNX bus and update its state from received telegrams. It can optionally respond to read requests from the KNX bus.
@@ -1333,6 +1340,10 @@ DateTimes that have a `state_address` configured request their current state fro
 System timezone is used as DPT 19.001 doesn't provide timezone information.
 Year values outside of the range 1900 to 2155 are invalid.
 {% endnote %}
+
+Datetime entities can be created from the frontend in the KNX panel or via YAML.
+
+{% details "Configuration of KNX datetime entities via YAML" %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -1385,6 +1396,8 @@ entity_category:
   type: string
   default: None
 {% endconfiguration %}
+
+{% enddetails %}
 
 ## Fan
 
@@ -2321,6 +2334,10 @@ Times that have a `state_address` configured request their current state from th
 The `day` field of the time telegram will always be set to 0 (`no day`).
 {% endnote %}
 
+Time entities can be created from the frontend in the KNX panel or via YAML.
+
+{% details "Configuration of KNX time entities via YAML" %}
+
 ```yaml
 # Example configuration.yaml entry
 knx:
@@ -2372,6 +2389,8 @@ entity_category:
   type: string
   default: None
 {% endconfiguration %}
+
+{% enddetails %}
 
 ## Weather
 

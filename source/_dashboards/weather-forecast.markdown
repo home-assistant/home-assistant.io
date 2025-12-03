@@ -34,6 +34,8 @@ Forecast type:
   description: Select the forecast to display between "Daily", "Hourly" and "Twice daily".
 Secondary Info Attribute:
   description: Here you can specify a secondary attribute to show under the current temperature. Ex. Extrema, Precipitation, Humidity. If not set, it will default to Extrema (High/Low) if available, if not available then Precipitation and if precipitation isn't available then Humidity.
+Round temperature:
+  description: Check this if you would like to round all temperature values in the card to its nearest integer.
 Theme:
   description: Name of any loaded theme to be used for this card. For more information about themes, see the [frontend documentation](/integrations/frontend/).
 {% endconfiguration_basic %}
@@ -82,6 +84,11 @@ secondary_info_attribute:
   description: Which attribute to display under the temperature.
   type: string
   default: Defaults to `extrema` if available, if not available then `precipitation` and if precipitation isn't available then `humidity`.
+round_temperature:
+  required: false
+  description: Round temperature values to the closest integer.
+  type: boolean
+  default: false
 theme:
   required: false
   description: Override the used theme for this card with any loaded theme. For more information about themes, see the [frontend documentation](/integrations/frontend/).

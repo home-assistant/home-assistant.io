@@ -3,6 +3,7 @@ title: SEKO PoolDose
 description: Connect your SEKO PoolDose water treatment system to Home Assistant.
 ha_category:
   - Binary sensor
+  - Number
   - Sensor
   - Switch
   - Water Management
@@ -14,6 +15,7 @@ ha_codeowners:
 ha_domain: pooldose
 ha_platforms:
   - binary_sensor
+  - number
   - sensor
   - switch
 ha_integration_type: integration
@@ -124,6 +126,24 @@ This integration provides the following entities.
   - **Unit**: mV
 - **Totalizer**: Total water volume accumulated.
   - **Unit**: L, m³
+
+### Numbers
+
+- **pH target**: Target pH value for automatic dosing control.
+- **ORP target**: Target ORP (Redox) value for automatic dosing control.
+  - **Unit**: mV
+- **Chlorine target**: Target chlorine concentration for automatic dosing control.
+  - **Unit**: ppm
+- **pH overfeed alarm lower limit**: Lower threshold for pH overfeed detection.
+- **pH overfeed alarm upper limit**: Upper threshold for pH overfeed detection.
+- **ORP overfeed alarm lower limit**: Lower threshold for ORP overfeed detection.
+  - **Unit**: mV
+- **ORP overfeed alarm upper limit**: Upper threshold for ORP overfeed detection.
+  - **Unit**: mV
+- **Chlorine overfeed alarm lower limit**: Lower threshold for chlorine overfeed detection.
+  - **Unit**: ppm
+- **Chlorine overfeed alarm upper limit**: Upper threshold for chlorine overfeed detection.
+  - **Unit**: ppm
 
 ### Switches
 
