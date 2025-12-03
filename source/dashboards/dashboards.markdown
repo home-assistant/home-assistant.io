@@ -27,7 +27,7 @@ Under {% my lovelace_dashboards title="**Settings** > **Dashboards**" %}, you ca
 Screenshot of the Dashboard list.
 </p>
 
-## Home Assistant build-in dashboards
+## Home Assistant built-in dashboards
 
 Home Assistant ships with some dashboards out of the box:
 
