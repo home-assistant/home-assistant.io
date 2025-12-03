@@ -33,9 +33,55 @@ Happy holidays, and enjoy the release!
 
 ../Frenck
 
+{% details "A little holiday cheer 🎄🎶" %}
+
 <audio controls>
   <source src="/audio/blog/2025-12-03-release-202512/jingle-labs.mp3">
 </audio>
+
+**Jingle Labs** <small>by Frenck and Darren</small>
+
+Dashing through the code,<br>
+With a brand-new Labs to show,<br>
+Snowflakes start to fall,<br>
+Watch the dashboard glow!<br>
+Triggers now make sense,<br>
+Conditions feel just right,<br>
+What fun it is to automate,<br>
+Your smart home every night!
+
+**Chorus**<br>
+Jingle Labs, jingle Labs,<br>
+Features on the way!<br>
+Oh what fun it is to run,<br>
+Home Assistant every day, hey!
+
+Jingle Labs, jingle Labs,<br>
+Winter mode is here!<br>
+Turn your lights on with a thought,<br>
+And spread some holiday cheer!
+
+Power graphs are live,<br>
+Water meters too,<br>
+Dashboards you can set,<br>
+For every user's view!
+
+Xbox got some love,<br>
+Shelly's platinum now,<br>
+Contributors came through this year,<br>
+Take a final bow!
+
+**Chorus**<br>
+Jingle Labs, jingle Labs,<br>
+Triggers for the win!<br>
+Climate, lights, and fans galore,<br>
+Let the automations spin!
+
+Jingle Labs, jingle Labs,<br>
+Thank you all so much!<br>
+Happy holidays from us,<br>
+Now go and automate stuff!
+{% enddetails %}
 
 <!--more-->
 
