@@ -131,7 +131,7 @@ automation:
         above: 300
     conditions: []
     actions:
-      - service: fan.set_percentage
+      - action: fan.set_percentage
         target:
           entity_id: fan.ecocomfort_2
         data:
@@ -146,7 +146,7 @@ automation:
         below: 150
     conditions: []
     actions:
-      - service: fan.set_percentage
+      - action: fan.set_percentage
         target:
           entity_id: fan.ecocomfort_2
         data:
@@ -167,7 +167,7 @@ automation:
         at: "22:00:00"
     conditions: []
     actions:
-      - service: fan.set_percentage
+      - action: fan.set_percentage
         target:
           entity_id: fan.ecocomfort_2
         data:
@@ -181,7 +181,7 @@ automation:
         at: "07:00:00"
     conditions: []
     actions:
-      - service: fan.set_percentage
+      - action: fan.set_percentage
         target:
           entity_id: fan.ecocomfort_2
         data:
@@ -203,10 +203,9 @@ automation:
         to: "on"
     conditions: []
     actions:
-      - service: notify.notify
+      - action: notify.notify
         data:
           message: "Ecocomfort 2.0 filter requires cleaning"
-          title: "Home Ventilation"
     mode: single
 ```
 
