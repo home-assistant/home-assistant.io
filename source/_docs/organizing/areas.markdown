@@ -11,8 +11,8 @@ related:
     title: Categories
   - docs: /docs/configuration/templating/#areas
     title: Using areas in template
-  - docs: /dashboards/dashboards/#areas-dashboard
-    title: Areas dashboard
+  - docs: /dashboards/dashboards/#home-dashboard
+    title: Home dashboard
 ---
 
 An area in Home Assistant is a logical grouping of {% term devices %} and {% term entities %} that are meant to match areas (or rooms) in the physical world of your home.
@@ -81,15 +81,6 @@ Follow these steps to edit an area.
 ## Reordering areas on built-in dashboards
 
 {% include organizing/reorder-areas.md %}
-
-## Using the Areas dashboard
-
-Once you have assigned your entities to areas, you can use the **Areas** dashboard. The **Areas** dashboard is a pre-populated dashboard that shows your {% term entities %} grouped by areas. To learn how, refer to the documentation on the [Areas dashboard](/dashboards/dashboards/#areas-dashboard).
-
-<p class='img'>
-<img src='/images/dashboards/areas-dashboard-overview.png' alt='Screenshot of the Areas default dashboard'>
-Screenshot of the Areas default dashboard.
-</p>
 
 ## Deleting an area
 

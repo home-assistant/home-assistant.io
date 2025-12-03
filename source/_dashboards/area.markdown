@@ -6,8 +6,8 @@ description: "The area card gives control of your entities in a specified area."
 related:
   - docs: /dashboards/cards/
     title: Dashboard cards
-  - docs: /dashboards/dashboards/#areas-dashboard
-    title: Areas dashboard
+  - docs: /dashboards/dashboards/#home-dashboard
+    title: Home dashboard
   - docs: /docs/organizing/areas/
     title: About areas
 ---
