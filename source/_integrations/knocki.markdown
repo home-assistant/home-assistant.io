@@ -21,15 +21,15 @@ The **Knocki** {% term integration %} allows you to trigger your favorite automa
 
 ## Prerequisites
 
-- You must have a [Knocki device](http://knocki.com).
+- You must have a [Knocki device](https://knocki.com/).
 
 - Completed the setup process in the **Knocki** mobile app, as described in steps 1-7 below.
 
-1. Open the Knocki Mobile App. It’s a free download on [iOS](https://apps.apple.com/us/app/knocki/id1238395440) and [Android](https://play.google.com/store/apps/details?id=com.knocki.mobileapp).
+1. Open the Knocki Mobile App. It’s a free download on [iOS](https://apps.apple.com/app/id1238395440) and [Android](https://play.google.com/store/apps/details?id=com.knocki.mobileapp).
 2. Using the app, log-in or create a new Knocki account.
-3. From the app’s home screen, select a Knocki or [add a Knocki](https://support.knocki.com/hc/en-us/articles/12769368448659-How-Do-Add-a-Knocki-to-My-Account).
-4. On the app’s device screen, select a gesture or [add a gesture](https://support.knocki.com/hc/en-us/articles/360013333634-Creating-a-Gesture).
-5. Next, select the [add a task](https://support.knocki.com/hc/en-us/articles/12920956118291-How-do-I-Add-Tasks-to-a-Knocki) option.
+3. From the app’s home screen, select a Knocki or [add a Knocki](https://support.knocki.com/hc/articles/12769368448659).
+4. On the app’s device screen, select a gesture or [add a gesture](https://support.knocki.com/hc/articles/360013333634).
+5. Next, select the [add a task](https://support.knocki.com/hc/articles/12920956118291) option.
 6. Scroll down the task menu and select Home Assistant.
 7. Follow the in-app instructions to add the Home Assistant task.
 
