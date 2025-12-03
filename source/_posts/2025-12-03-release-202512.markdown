@@ -82,7 +82,6 @@ Thank you all so much!<br>
 Happy holidays from us,<br>
 Now go and automate stuff!
 {% enddetails %}
-
 <!--more-->
 
 
