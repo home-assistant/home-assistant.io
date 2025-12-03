@@ -386,7 +386,7 @@ It is not just new {% term integrations %} that have been added; existing ones a
 [Home Assistant]: /integrations/conversation
 [Home Connect]: /integrations/home_connect
 [NASweb]: /integrations/nasweb
-[Nederlandse Spoorwegen]: /integrations/ns
+[Nederlandse Spoorwegen]: /integrations/nederlandse_spoorwegen
 [Niko Home Control]: /integrations/niko_home_control
 [OpenAI Conversation]: /integrations/openai_conversation
 [Plugwise]: /integrations/plugwise
