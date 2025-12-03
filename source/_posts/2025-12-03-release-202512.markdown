@@ -163,17 +163,29 @@ Lots of improvements to report on the dashboard front this release! From better 
 
 Picking a default dashboard is now a system-level setting that takes effect instantly for all users on your Home Assistant installation. The dashboard you choose will appear at the top of the sidebar, replacing the current default.
 
+<p class='img'>
+<img src='source/images/blog/2025-12/set-dashboard-default-system.png' alt='Screenshot showing the Dashboard configuration page and the option to make any dashboard default in the three dots menu'>
+</p>
+
 But don't worry, personal preferences still matter! We added a new setting in your {% my profile title="**User profile**" %} where you can override the system default and set your own preferred dashboard.
 
 ### Reorder areas and floors
 
 When using the built-in dashboard experiences (Home, Lights, Security, and others), one of the main pain points was the strict ordering of areas (alphabetically) and floors (numerically by level). This often didn't make sense in a real home, where your guest bathroom shouldn't appear before your living room, and the attic is rarely more relevant than the main floor.
 
-Now you can go to {% my areas title="**Settings** > **Areas, labels & zones**" %} and manually drag and drop any area or floor to reorder them. Your changes will instantly apply to all built-in dashboards that show areas and floors.
+Now you can go to {% my areas title="**Settings** > **Areas, labels & zones**" %} and use the new *Reorder floors and areas* menu to manually drag and drop any area or floor to reorder them. Your changes will instantly apply to all built-in dashboards that show areas and floors.
+
+<p class='img'>
+<img src='/source/images/blog/2025-12/reorder-areas-menu.png' alt='Screenshot showing the reorder areas and floors menu'>
+</p>
 
 ### Experimental dashboards have graduated
 
 With the launch of Labs, we retired the experimental flag from the dashboard creation list. The **Home** dashboard can now be found in the dashboard list (still not visible by default), and the **Areas** dashboard has evolved into Home, so we've removed it for now.
+
+{% note %}
+We want to keep hearing your voice! Share your experience with us [in the Home dashboard survey](https://forms.gle/akJJNZGMadkBP7Xw5) and help us improve every step of the way. And of course [join us on Discord](https://discord.com/channels/330944238910963714/1351536906437005313) to work together on the future of dashboards.
+{% endnote %}
 
 ### Home dashboard improvements
 
