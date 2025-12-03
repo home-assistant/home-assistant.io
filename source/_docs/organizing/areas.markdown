@@ -78,6 +78,10 @@ Follow these steps to edit an area.
    - Add an **Alias**.
      - Aliases are alternative names used in [voice assistants](/voice_control/aliases/) to refer to an area, entity, or floor.
 
+## Reordering areas on built-in-dashboards
+
+{% include organizing/reorder-areas.md %}
+
 ## Using the Areas dashboard
 
 Once you have assigned your entities to areas, you can use the **Areas** dashboard. The **Areas** dashboard is a pre-populated dashboard that shows your {% term entities %} grouped by areas. To learn how, refer to the documentation on the [Areas dashboard](/dashboards/dashboards/#areas-dashboard).
