@@ -31,6 +31,10 @@ From all of us working on Home Assistant:
 
 Happy holidays, and enjoy the release!
 
+<audio controls>
+  <source src="/audio/blog/2025-12-03-release-202512/jingle-labs.mp3">
+</audio>
+
 ../Frenck
 
 <!--more-->
