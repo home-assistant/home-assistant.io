@@ -53,7 +53,7 @@ The IEC62056-21 is a common protocol not only for electric meters. It uses an in
 
 #### Using (Smart Message Language) interface
 
-In countries like Germany, SML (Smart Message Language) is used typically. ESPHome's [SML (Smart Message Language)](https://esphome.io/components/sml.html) is one way to integrate it. If you prefer to integrate it via MQTT, [sml2mqtt](https://github.com/spacemanspiff2007/sml2mqtt) is another open source option.
+In countries like Germany, SML (Smart Message Language) is used typically. ESPHome's [SML (Smart Message Language)](https://esphome.io/components/sml/) is one way to integrate it. If you prefer to integrate it via MQTT, [sml2mqtt](https://github.com/spacemanspiff2007/sml2mqtt) is another open source option.
 
 #### Read the meter using an AI-on-the-edge-device
 

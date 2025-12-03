@@ -30,8 +30,8 @@ There is currently support for the following information within Home Assistant:
 
 You will need to use the associated standalone app for this device to register a username and password.
 
-- [Google](https://play.google.com/store/apps/details?id=co.proautomation.app.poolSense&hl=en_ZA)
-- [Apple](https://apps.apple.com/us/app/poolsense/id1288535609)
+- [Google](https://play.google.com/store/apps/details?id=co.proautomation.app.poolSense)
+- [Apple](https://apps.apple.com/app/poolsense/id1288535609)
 
 {% include integrations/config_flow.md %}
 
