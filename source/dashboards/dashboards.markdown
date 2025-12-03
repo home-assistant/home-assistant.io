@@ -61,7 +61,7 @@ Screenshot of the built-in Home dashboard.
 
 1. Make sure all the {% term entities %} are [assigned to an area](/docs/organizing/areas/#assigning-an-area-to-multiple-items).
 2. In the top-right corner, select the {% icon "mdi:pencil" %} icon.
-3. You can add entities.
+3. You can add entities to customize which items appear on your dashboard.
 4. If you don't like how the cards are arranged, [you can reorder floors and areas](/docs/organizing/areas/#reordering-areas-on-built-in-dashboards) under {% my areas title="**Settings** > **Areas, labels & zones**" %}.
 
 #### Troubleshooting: entity is not showing
