@@ -1,5 +1,5 @@
 
-Follow these steps to rearrange floors and areas on the built-in dashboards (such as Overview, Lights, Security).
+Follow these steps to rearrange floors and areas on the built-in dashboards (such as **Overview**, **Lights**, and **Security**).
 
 1. Go to {% my areas title="**Settings** > **Areas, labels & zones**" %}.
 2. There are 2 options to rearrange items:
