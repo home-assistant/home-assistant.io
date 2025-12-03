@@ -216,10 +216,6 @@ We want to keep hearing your voice! Share your experience with us [in the Home d
 
 We added a new sidebar to the Home dashboard that gathers quick access links we think are useful for you. There's also a nicer area and floor layout that uses space more efficiently. On a more technical level, the Home dashboard is now a proper built-in dashboard and shows up in the dashboard list.
 
-{% note %}
-The sidebar can also be added to your manual dashboards via YAML.
-{% endnote %}
-
 {% important %}
 There is a chance your current favorites might disappear in this release and need to be re-added. This is due to the migration of this dashboard from a strategy to a built-in dashboard.
 {% endimportant %}
