@@ -17,7 +17,7 @@ og_image: /images/blog/2025-12/social.png
 
 Home Assistant 2025.12! 🎄
 
-As the year winds down and the holidays approach, we're closing out 2025 with a release that's all about giving you more control, and a little bit of magic. ✨
+As the year winds down and the holidays approach, we're closing out 2025 with a release that's all about giving you more control and a little bit of magic. ✨
 
 This month, we're unveiling **Home Assistant Labs**, a brand-new space where you can preview features before they go mainstream. And what better way to kick it off than with **Winter mode**? ❄️ Enable it and watch snowflakes drift across your dashboard. It's completely unnecessary, utterly delightful, and exactly the kind of thing we love to build. ❄️
 
@@ -86,7 +86,7 @@ When we develop new features for Home Assistant, we often find ourselves in a tr
 
 That's where **Home Assistant Labs** comes in! 🧪
 
-Labs is a brand-new place in Home Assistant that gives you a sneak peek at features we're working on. These are not unfinished experiments or unstable beta features. They are fully functional and tested, but they might change or even disappear based on feedback. Think of it as a way for us to share early what we're excited about, while giving you the choice to try them out.
+Labs is a brand-new place in Home Assistant that gives you a sneak peek at features we're working on. These are not unfinished experiments or unstable beta features. They are fully functional and tested, but they might change or even disappear based on feedback. We are committed to building in the open, and we want to give more people the choice to hop into the lab with us. By joining us, your feedback will directly help refine these features for the entire community.
 
 <img class="no-shadow" alt="Screenshot showing the new Home Assistant Labs panel with preview features you can enable or disable." src="/images/blog/2025-12/labs.png" />
 
@@ -134,7 +134,7 @@ This feature is still being refined, so we've made it available as a preview fea
 
 ## More dashboard improvements!
 
-Lots of improvements to report on the dashboard front this release! From better default dashboard management to an improved Home dashboard, we have been busy making your Home Assistant experience even better.
+We have a lot of dashboard improvements to share in this release! From better default dashboard management to an improved Home dashboard, we have been busy making your Home Assistant experience even better.
 
 ### Set a system-wide default dashboard
 
@@ -143,6 +143,8 @@ Picking a default dashboard is now a system-level setting that takes effect inst
 <img class="no-shadow" alt="Screenshot showing the Dashboard configuration page and the option to make any dashboard default in the three dots menu." src="/images/blog/2025-12/set-dashboard-default-system.png" />
 
 But don't worry, personal preferences still matter! We added a new setting in your {% my profile title="**User profile**" %} where you can override the system default and set your own preferred dashboard.
+
+If you set your phone to one dashboard and your wall tablet to another, they’ll now both revert to the default dashboard. If you want your wall tablet to use a different dashboard than your other devices, we recommend giving it a separate user profile that you can customize however you want.
 
 ### Reorder areas and floors
 
@@ -154,7 +156,7 @@ Now you can go to {% my areas title="**Settings** > **Areas, labels & zones**" %
 
 ### Experimental dashboards have graduated
 
-With the launch of Labs, we retired the experimental flag from the dashboard creation list. The **Home** dashboard can now be found in the dashboard list (still not visible by default), and the **Areas** dashboard has evolved into Home, so we've removed it for now.
+With the launch of Labs, we retired the experimental flag from the dashboard creation list. The **Home** dashboard can now be found in the dashboard list (still not visible by default), and the **Areas** dashboard has evolved into Home, so we've removed it for now. If you’re using the Areas dashboard, it will continue to work; you just won’t be able to create another.
 
 {% note %}
 We want to keep hearing your voice! Share your experience with us [in the Home dashboard survey](https://forms.gle/akJJNZGMadkBP7Xw5) and help us improve every step of the way. And of course [join us on Discord](https://discord.com/channels/330944238910963714/1351536906437005313) to work together on the future of dashboards.
@@ -286,7 +288,7 @@ It is not just new {% term integrations %} that have been added; existing ones a
 - The [Tuya] integration received a lot of love! Cat litter boxes now expose switches, buttons, lights, and sensors for controlling your pet's automated litter box. On top of that, doorbell events are now supported too. Thanks, [@heindrichpaul]!
 - [@starkillerOG] expanded the [Reolink] integration with an exposure mode select and audio noise reduction controls for supported cameras.
 - The [OpenAI Conversation] integration now supports GPT-5.1 models. Great work, [@Shulyaka]!
-- Air conditioner and microwave support have landed in the [Home Connect] integration, expanding the range of supported BSH appliances. Thanks, [@Diegorro98]!
+- Air conditioner and microwave support has landed in the [Home Connect] integration, expanding the range of supported BSH appliances. Thanks, [@Diegorro98]!
 - [@zerzhang] added support for the SwitchBot smart thermostat radiator to the [SwitchBot] integration. Nice!
 - The [Xbox] integration got some love from [@tr4nt0r]! You can now link multiple Xbox accounts, track how many friends you (and your friends) have, see if they're in a party, and control more remote functions. The media browser also gained a new category showcasing official game art and screenshots.
 - Got an Ecovacs robot? The [Ecovacs] integration now has a border spin switch (to reach those tricky edges while mopping) and an auto-empty select entity. Thanks, [@aronnebrivio]!
