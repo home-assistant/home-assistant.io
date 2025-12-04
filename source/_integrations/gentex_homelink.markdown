@@ -1,6 +1,6 @@
 ---
 title: HomeLink
-description: Instructions on how to setup your HomeLink enabled car with Home Assistant.
+description: Instructions on how to set up your HomeLink devices with Home Assistant.
 ha_category:
   - Binary sensor
 ha_release: 2025.3
