@@ -109,7 +109,7 @@ embedding them into a Home Assistant dashboard.
 
 ## Setting a default dashboard
 
-The default dashboard is the dashboard that is shown to all users when they open Home Assistant. Each user can change this later in their profile.
+The default dashboard is the dashboard that is shown when you open Home Assistant.
 
 - If you have administrator rights, you can set an initial default dashboard for all users.
    1. Go to {% my lovelace_dashboards title="**Settings** > **Dashboards**" %}.
