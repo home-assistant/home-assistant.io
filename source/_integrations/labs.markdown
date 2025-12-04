@@ -20,14 +20,8 @@ The **Labs** {% term integration %} provides a dedicated panel where you can pre
 Labs preview features are different from beta testing:
 
 - *Beta testing* evaluates the stability of upcoming Home Assistant releases.
-- *Labs preview features* are preview features being refined through real-world usage and feedback.
-
-## Prerequisites
-
-You need administrator rights to access the **Labs** panel.
-
-{% include integrations/config_flow.md %}
-
+- *Labs preview features* are in the process of being refined through real-world usage and feedback.
+  
 ## About Labs
 
 Labs allows you to:
@@ -42,6 +36,12 @@ All preview features in Labs are:
 - Free of critical bugs: Fully functional and free of critical bugs.
 - Subject to change: Feature set may be extended, and design and behavior may be refined based on feedback.
 - Reversible: Can be disabled at any time.
+
+## Prerequisites
+
+You need administrator rights to access the **Labs** panel.
+
+{% include integrations/config_flow.md %}
 
 ## About preview features
 
