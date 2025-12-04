@@ -28,14 +28,10 @@ HomeLink is only compatible with HomeLink devices accessible via the HomeLink Ap
 
 {% configuration_basic %}
 Email:
-    description: "The email you used to log in to your HomeLink account."
+    description: "The email for your HomeLink account."
 Password:
-    description: "The password to your HomeLink account."
+    description: "The password for your HomeLink account."
 {% endconfiguration_basic %}
-
-When you have configured the HomeLink service, you will see your connected HomeLink devices and buttons you have configured on the home screen. These buttons can be connected to events for automations to control lights, music, and more in Home Assistant.
-
-For more information on how to configure automation and scenes, please see Home Assistant's documentation [here](https://www.home-assistant.io/getting-started/automation/).
 
 ## Removing the integration
 
