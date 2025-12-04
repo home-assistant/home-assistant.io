@@ -9,7 +9,7 @@ The Home Assistant [frontend integration](/integrations/frontend/) provides the 
   <img src='/images/frontend/ui2022.png' />
 </p>
 
-Home Assistant comes with a [default dashboard](/dashboards/dashboards/#home-assistant-default-dashboards). But you can also create and customize your own dashboards.
+Home Assistant comes with [built-in dashboards](/dashboards/dashboards/#home-assistant-built-in-dashboards). But you can also create and customize your own dashboards.
 
 ## Creating and styling your own dashboards
 

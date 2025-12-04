@@ -25,7 +25,7 @@ ha_platforms:
   - sensor
   - switch
   - update
-ha_integration_type: integration
+ha_integration_type: device
 ha_zeroconf: true
 ---
 

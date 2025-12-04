@@ -96,6 +96,7 @@ Please note, device names configured in the SwitchBot app are transferred into H
 - [Motion Sensor](https://www.switch-bot.com/products/motion-sensor)
 - [Water Leak Detector](https://www.switch-bot.com/products/switchbot-water-leak-detector)
 - [Climate Panel](https://www.switch-bot.com/products/switchbot-home-climate-panel)
+- [Presence Sensor](https://www.switch-bot.com/products/switchbot-presence-sensor)
 
 ### Hubs
 
@@ -127,6 +128,10 @@ Please note, device names configured in the SwitchBot app are transferred into H
 - [Circulator Fan](https://www.switch-bot.com/products/switchbot-battery-circulator-fan)
 - [Air Purifier](https://www.switch-bot.com/products/switchbot-air-purifier)
 - [Air Purifier Table](https://www.switch-bot.com/products/switchbot-air-purifier-table)
+
+### Water heater
+
+- [Smart Radiator Thermostat](https://www.switch-bot.com/products/switchbot-smart-radiator-thermostat)
 
 ## Supported functionality
 
@@ -267,6 +272,12 @@ Features:
 - get battery level
 
 #### Motion Sensor
+
+Features:
+- get motion detection state
+- get battery level
+
+#### Presence Sensor
 
 Features:
 - get motion detection state
@@ -420,6 +431,19 @@ Features:
 - pause
 - set cleaning mode
 - return to base
+- get battery
+
+
+### Water Heater
+
+#### Smart Radiator Thermostat
+
+Features:
+- turn on
+- turn off
+- set temperature
+- get temperature
+- set mode
 - get battery
 
 ## Important considerations

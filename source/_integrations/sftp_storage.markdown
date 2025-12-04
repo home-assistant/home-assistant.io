@@ -2,7 +2,7 @@
 title: SFTP Storage
 description: Allows storing backups created with Backup system onto remote SFTP host.
 ha_category:
-  - Other
+  - Backup
 ha_release: '2025.10'
 ha_quality_scale: silver
 ha_domain: sftp_storage

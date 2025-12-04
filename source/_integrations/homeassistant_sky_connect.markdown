@@ -11,6 +11,7 @@ ha_domain: homeassistant_sky_connect
 ha_integration_type: hardware
 ha_config_flow: true
 ha_platforms:
+  - switch
   - update
 ---
 

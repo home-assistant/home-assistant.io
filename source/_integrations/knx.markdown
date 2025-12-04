@@ -62,6 +62,7 @@ There is currently support for the following device types within Home Assistant:
 - [Climate](#climate)
 - [Cover](#cover)
 - [Date](#date)
+- [DateTime](#datetime)
 - [Fan](#fan)
 - [Light](#light)
 - [Notify](#notify)
@@ -602,7 +603,7 @@ knx:
     # time and date exposures
     - type: time
       address: "0/0/1"
-    # entitiy exposures
+    # entity exposures
     - type: temperature
       entity_id: sensor.owm_temperature
       address: "0/0/2"
@@ -690,7 +691,6 @@ Binary sensors are read-only entities. To write to the KNX bus, configure a [KNX
 
 Binary sensor entities can be created from the frontend in the KNX panel or via YAML.
 
-<a name="configuration-binary-sensor-yaml"></a>
 {% details "Configuration of KNX binary sensor entities via YAML" %}
 
 ```yaml
@@ -854,6 +854,10 @@ entity_category:
 ## Climate
 
 The KNX climate platform is used as an interface to KNX thermostats and room controllers.
+
+Climate entities can be created from the frontend in the KNX panel or via YAML.
+
+{% details "Configuration of KNX climate entities via YAML" %}
 
 To use your KNX thermostats in your installation, add the following lines to your top level [KNX Integration](/integrations/knx) configuration key in {% term "`configuration.yaml`" %}:
 
@@ -1138,6 +1142,8 @@ entity_category:
   default: None
 {% endconfiguration %}
 
+{% enddetails %}
+
 ## Cover
 
 The KNX cover platform is used as an interface to KNX covers.
@@ -1150,7 +1156,6 @@ Home Assistant will, by default, `close` a cover by moving it in the `DOWN` dire
 
 Cover entities can be created from the frontend in the KNX panel or via YAML.
 
-<a name="configuration-cover-yaml"></a>
 {% details "Configuration of KNX cover entities via YAML" %}
 
 To use your KNX covers in your installation, add the following lines to your top level [KNX Integration](/integrations/knx) configuration key in your {% term "`configuration.yaml`" %}:
@@ -1263,6 +1268,10 @@ Dates that have a `state_address` configured request their current state from th
 DPT 11.001 covers the range 1990 to 2089. Year values outside of this range are not allowed.
 {% endnote %}
 
+Date entities can be created from the frontend in the KNX panel or via YAML.
+
+{% details "Configuration of KNX date entities via YAML" %}
+
 ```yaml
 # Example configuration.yaml entry
 knx:
@@ -1315,6 +1324,8 @@ entity_category:
   default: None
 {% endconfiguration %}
 
+{% enddetails %}
+
 ## DateTime
 
 The KNX datetime platform allows to send datetime values to the KNX bus and update its state from received telegrams. It can optionally respond to read requests from the KNX bus.
@@ -1329,6 +1340,10 @@ DateTimes that have a `state_address` configured request their current state fro
 System timezone is used as DPT 19.001 doesn't provide timezone information.
 Year values outside of the range 1900 to 2155 are invalid.
 {% endnote %}
+
+Datetime entities can be created from the frontend in the KNX panel or via YAML.
+
+{% details "Configuration of KNX datetime entities via YAML" %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -1381,6 +1396,8 @@ entity_category:
   type: string
   default: None
 {% endconfiguration %}
+
+{% enddetails %}
 
 ## Fan
 
@@ -1443,7 +1460,6 @@ The KNX light integration is used as an interface to control KNX actuators for l
 
 Light entities can be created from the frontend in the KNX panel or via YAML.
 
-<a name="configuration-light-yaml"></a>
 {% details "Configuration of KNX light entities via YAML" %}
 
 {% configuration %}
@@ -2196,7 +2212,6 @@ Switch entities can be created from the frontend in the KNX panel or via YAML.
 Switch entities without a `state_address` will restore their last known state after Home Assistant was restarted.
 Switches that have a `state_address` configured request their current state from the KNX bus.
 
-<a name="configuration-switch-yaml"></a>
 {% details "Configuration of KNX switch entities via YAML" %}
 
 ```yaml
@@ -2319,6 +2334,10 @@ Times that have a `state_address` configured request their current state from th
 The `day` field of the time telegram will always be set to 0 (`no day`).
 {% endnote %}
 
+Time entities can be created from the frontend in the KNX panel or via YAML.
+
+{% details "Configuration of KNX time entities via YAML" %}
+
 ```yaml
 # Example configuration.yaml entry
 knx:
@@ -2370,6 +2389,8 @@ entity_category:
   type: string
   default: None
 {% endconfiguration %}
+
+{% enddetails %}
 
 ## Weather
 

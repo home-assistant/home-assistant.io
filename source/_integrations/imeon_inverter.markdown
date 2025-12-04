@@ -27,7 +27,7 @@ The Imeon Energy Inverter {% term integrations %} will poll an [Imeon](https://i
 
 - The Imeon inverter must be connected to the local network.
 - [OS One](https://imeon-energy.com/os-one/) version must be **1.8.1.4** or higher.
-- *ModuleAPI* application must be activated on the OS One pannel of your Imeon inverter.
+- *ModuleAPI* application must be activated on the OS One panel of your Imeon inverter.
    - To do so, connect to **OS One** > **Applications** and by hovering over *ModuleAPI*, select **Activate**.
 
 {% include integrations/config_flow.md %}

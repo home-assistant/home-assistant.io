@@ -12,7 +12,7 @@ The `mqtt` Text platform allows you to integrate devices that show text that can
 
 ## Configuration
 
-To use an MQTT text entity in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+To use an MQTT text entity in your installation, [add an MQTT device as a subentry](/integrations/mqtt/#configuration), or add the following to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml

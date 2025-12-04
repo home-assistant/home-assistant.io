@@ -378,7 +378,7 @@ device_address:
 unique_id:
   description: "ID that uniquely identifies this entity.
   Slaves will be given a unique_id of <<unique_id>>_<<slave_index>>.
-  If two enities have the same unique ID, Home Assistant will raise an exception."
+  If two entities have the same unique ID, Home Assistant will raise an exception."
   required: false
   type: string
 
@@ -614,11 +614,36 @@ climates:
           description: "Holding register."
         input:
           description: "Input register."
+    scale:
+      description: "Scale factor (`output` = `scale` * `value` + offset) for setting target and current temperature. Cannot be used together with `current_temp_scale` or `target_temp_scale."
+      required: false
+      type: float
+      default: 1
     offset:
-      description: "Final offset for current temperature (output = scale * value + offset)."
+      description: "Final offset for target and current temperature (`output` = `scale` * `value` + `offset). Cannot be used together with current_temp_offset or target_temp_offset`."
       required: false
       type: float
       default: 0
+    current_temp_scale:
+      description: "Scale factor for current temperature (output = `current_temp_scale` * `value` + `current_temp_offset`). Cannot be used together with `scale`"
+      required: false
+      type: float
+      default: 1.0
+    current_temp_offset:
+      description: "Offset for current temperature (output` = current_temp_scale` * `value` + `current_temp_offset`). Cannot be used together with *offset*."
+      required: false
+      type: float
+      default: 0.0
+    target_temp_scale:
+      description: "Scale factor for target temperature (`output` = `target_temp_scale` * `value` + `target_temp_offset`). Cannot be used together with scale`."
+      required: false
+      type: float
+      default: 1.0
+    target_temp_offset:
+      description: "Offset for target temperature (`output` = `target_temp_scale` * `value` + `target_temp_offset`). Cannot be used together with offset`."
+      required: false
+      type: float
+      default: 0.0
     target_temp_register:
       description: "Register address for target temperature (Setpoint). Using a list, it is possible to define one register for each of the available HVAC Modes. The list has to have a fixed size of 7 registers corresponding to the 7 available HVAC Modes, as follows: Register **1: HVAC AUTO mode**; Register **2: HVAC Cool mode**; Register **3: HVAC Dry mode**; Register **4: HVAC Fan only mode**; Register **5: HVAC Heat mode**; Register **6: HVAC Heat Cool mode**; Register **7: HVAC OFF mode**. It is possible to set duplicated values for the modes where the devices don't have a related register."
       required: true
@@ -628,11 +653,6 @@ climates:
       required: false
       type: boolean
       default: false
-    scale:
-      description: "Scale factor (output = scale * value + offset) for setting target temperature."
-      required: false
-      type: float
-      default: 1
     structure:
       description: "If `data_type: custom` is specified a double-quoted Python struct is expected,
       to format the string to unpack the value. See Python documentation for details.
@@ -1461,7 +1481,7 @@ sensors:
       required: false
       type: integer
     virtual_count:
-      description: "Generates x+1 sensors (master + slaves), allowing read of multiple registers with a single read messsage."
+      description: "Generates x+1 sensors (master + slaves), allowing read of multiple registers with a single read message."
       required: false
       type: integer
     state_class:
@@ -1475,14 +1495,6 @@ sensors:
       required: false
       type: string
       default: ">f"
-    slave_count:
-      description: "Identical to `virtual_count`."
-      required: false
-      type: integer
-    virtual_count:
-      description: Generates x-1 slave sensors, allowing read of multiple registers with a single read message.
-      required: false
-      type: integer
     swap:
       description: "Swap the order of bytes/words, **not valid with `custom` and `datatype: string`**"
       required: false
@@ -1499,10 +1511,6 @@ sensors:
       description: "Unit to attach to value."
       required: false
       type: string
-    zero_suppress:
-      description: "Suppress values close to zero. If -zero_suppress <= value <= +zero_suppress --> 0. Can be float or integer"
-      required: false
-      type: float
     unique_id:
       description: ID that uniquely identifies the entity. If two sensors have the same unique ID, Home Assistant will raise an exception.
       required: false
