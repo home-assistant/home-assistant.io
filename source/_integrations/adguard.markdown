@@ -5,6 +5,7 @@ ha_category:
   - Network
   - Sensor
   - Switch
+  - Update
 ha_release: 0.95
 ha_iot_class: Local Polling
 ha_config_flow: true

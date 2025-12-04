@@ -19,7 +19,7 @@ ha_platforms:
   - sensor
   - water_heater
 ha_dhcp: true
-ha_integration_type: integration
+ha_integration_type: hub
 ha_codeowners:
   - '@CFenner'
 ---

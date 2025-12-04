@@ -4,7 +4,7 @@ description: Try new preview features before they become standard in Home Assist
 ha_category:
   - Other
 ha_release: 2025.12
-ha_iot_class: ~
+ha_iot_class: Calculated
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
