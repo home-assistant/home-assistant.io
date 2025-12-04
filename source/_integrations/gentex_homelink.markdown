@@ -16,7 +16,7 @@ ha_integration_type: integration
 ha_quality_scale: bronze
 ---
 
-The HomeLink app allows [HomeLink](https://homelink.com) owners to trigger smart home routines in a variety of cloud-based home automation platforms from the comfort of your vehicle. When you arrive home, one HomeLink button press can adjust your thermostat, turn on your lights, disarm the security system, unlock the door, and begin playing your favorite music.
+The **HomeLink** {% term integration %} allows you to integrate your [HomeLink](https://homelink.com) devices in Home Assistant. The HomeLink app allows [HomeLink](https://homelink.com) owners to trigger smart home routines in a variety of cloud-based home automation platforms from the comfort of your vehicle. When you arrive home, one HomeLink button press can adjust your thermostat, turn on your lights, disarm the security system, unlock the door, and begin playing your favorite music.
 
 Download the HomeLink app by scanning this QR code or following links to our app store pages:
 
