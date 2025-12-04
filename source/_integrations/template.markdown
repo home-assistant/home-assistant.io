@@ -2792,3 +2792,329 @@ The blueprint can now be used for creating template entities.
 Event `event_template_reloaded` is fired when Template entities have been reloaded and entities thus might have changed.
 
 This event has no additional data.
+
+## Legacy Template Deprecation Migration Guide
+
+Legacy template entities are deprecated and will be removed in Home Assistant 2026.6.0.  The deprecated template entities will produce a repair that guides you through the migration.
+
+### Migrating a legacy sensor into a new template section
+
+This example covers how to migrate a legacy template sensor into modern syntax.
+
+Take the example configuration.yaml file
+
+```yaml
+# configuration.yaml
+sensor:
+# SNMP Configuration
+- platform: snmp
+  host: 192.168.1.32
+  baseoid: 1.3.6.1.4.1.2021.10.1.3.1
+
+# Legacy template configuration
+- platform: template
+  sensors:
+    my_light_count:
+      friendly_name: Total lights on
+      unique_id: sa892hfa9sdf8
+      value_template: "{{ states.light | selectattr('state', 'eq', 'on') | list | count }}"
+```
+
+To get started with the migration:
+
+1. Remove the `sensor` template definition from the `configuration.yaml` `sensor:` section.
+
+    Delete the following yaml from configuration.yaml file.
+
+    ```yaml
+    # Legacy template configuration
+    - platform: template
+      sensors:
+        my_light_count:
+          friendly_name: Total lights on
+          unique_id: sa892hfa9sdf8
+          value_template: "{{ states.light | selectattr('state', 'eq', 'on') | list | count }}"
+      ```
+
+      Make sure to keep all the other platforms in the sensor section.
+
+    ```yaml
+    sensor:
+    # SNMP Configuration
+    - platform: snmp
+      host: 192.168.1.32
+      baseoid: 1.3.6.1.4.1.2021.10.1.3.1
+    ```
+
+    **Note:** If you are using `sensor: !include sensors.yaml` in `configuration.yaml`, remove the legacy definition from the included `sensors.yaml`.
+
+2. Add the modern syntax provided by the repair.
+
+    The repair would provide the following yaml.
+  
+    ```yaml
+    template:
+    - sensor:
+      - default_entity_id: sensor.my_light_count
+        name: Total lights on
+        unique_id: sa892hfa9sdf8
+        state: '{{ states.light | selectattr(''state'', ''eq'', ''on'') | list | count }}'
+    ```
+  
+    This yaml should be added to the `template:` section inside configuration.yaml.
+
+    ```yaml
+    # configuration.yaml
+    sensor:
+      # SNMP Configuration
+    - platform: snmp
+      host: 192.168.1.32
+      baseoid: 1.3.6.1.4.1.2021.10.1.3.1
+
+    # Copied example
+    template:
+    - sensor:
+      - default_entity_id: sensor.my_light_count
+        name: Total lights on
+        unique_id: sa892hfa9sdf8
+        state: '{{ states.light | selectattr(''state'', ''eq'', ''on'') | list | count }}'
+    ```
+
+    **Note**: If you are migrating multiple template entities, ensure there is only 1 `template:` section.  Do not keep duplicate `template:` sections.
+
+    ```yaml
+    # configuration.yaml
+    sensor:
+      # SNMP Configuration
+    - platform: snmp
+      host: 192.168.1.32
+      baseoid: 1.3.6.1.4.1.2021.10.1.3.1
+
+    template:
+    
+    # Migrated Sensor
+    - sensor:
+      - default_entity_id: sensor.my_light_count
+        name: Total lights on
+        unique_id: sa892hfa9sdf8
+        state: '{{ states.light | selectattr(''state'', ''eq'', ''on'') | list | count }}'
+
+    # Migrated Cover
+    - cover:
+      - default_entity_id: cover.garage
+        name: Garage Cover
+        state: '{{ is_state(''binary_sensor.relay'', ''on'') }}'
+  
+    # Migrated Light
+    - light:
+      - default_entity_id: light.skylight
+        name: Skylight
+        state: '{{ is_state(''binary_sensor.crank'', ''on'') }}'
+    ```
+
+3. Restart Home Assistant or Reload Template Entities.
+
+### Migrating a legacy sensor into an existing template section
+
+This example covers how to migrate a legacy template sensor into modern syntax.
+
+Take the example configuration.yaml file
+
+```yaml
+# configuration.yaml
+sensor:
+# SNMP Configuration
+- platform: snmp
+  host: 192.168.1.32
+  baseoid: 1.3.6.1.4.1.2021.10.1.3.1
+
+# Legacy template configuration
+- platform: template
+  sensors:
+    my_light_count:
+      friendly_name: Total lights on
+      unique_id: sa892hfa9sdf8
+      value_template: "{{ states.light | selectattr('state', 'eq', 'on') | list | count }}"
+
+template:
+# Existing modern template
+- binary_sensor:
+  - name: Bright Outside
+    state: "{{ states('sensor.lux_value') | float(0) > 10 }}"
+```
+
+To get started with the migration:
+
+1. Remove the `sensor` template definition from the `configuration.yaml` `sensor:` section.
+
+    Delete the following yaml from configuration.yaml file.
+
+    ```yaml
+    # Legacy template configuration
+    - platform: template
+      sensors:
+        my_light_count:
+          friendly_name: Total lights on
+          unique_id: sa892hfa9sdf8
+          value_template: "{{ states.light | selectattr('state', 'eq', 'on') | list | count }}"
+      ```
+
+      Make sure to keep all the other platforms in the sensor section.
+
+    ```yaml
+    sensor:
+    # SNMP Configuration
+    - platform: snmp
+      host: 192.168.1.32
+      baseoid: 1.3.6.1.4.1.2021.10.1.3.1
+
+    template:
+    # Existing modern template
+    - binary_sensor:
+      - name: Bright Outside
+        state: "{{ states('sensor.lux_value') | float(0) > 10 }}"
+    ```
+
+    **Note:** If you are using `sensor: !include sensors.yaml` in `configuration.yaml`, remove the legacy definition from the included `sensors.yaml`.
+
+2. Add the modern syntax provided by the repair.
+
+    The repair would provide the following yaml.
+  
+    ```yaml
+    template:
+    - sensor:
+      - default_entity_id: sensor.my_light_count
+        name: Total lights on
+        unique_id: sa892hfa9sdf8
+        state: '{{ states.light | selectattr(''state'', ''eq'', ''on'') | list | count }}'
+    ```
+  
+    This yaml should be added to the `template:` section inside configuration.yaml.
+
+    ```yaml
+    # configuration.yaml
+    sensor:
+      # SNMP Configuration
+    - platform: snmp
+      host: 192.168.1.32
+      baseoid: 1.3.6.1.4.1.2021.10.1.3.1
+
+    template:
+    # Existing modern template
+    - binary_sensor:
+      - name: Bright Outside
+        state: "{{ states('sensor.lux_value') | float(0) > 10 }}"
+    
+    # Copied example
+    - sensor:
+      - default_entity_id: sensor.my_light_count
+        name: Total lights on
+        unique_id: sa892hfa9sdf8
+        state: '{{ states.light | selectattr(''state'', ''eq'', ''on'') | list | count }}'
+    ```
+
+    **Note**: In this example, configuration.yaml already had a `template:` section.  When copying the yaml, make sure to avoid adding double `template:` sections.
+
+3. Restart Home Assistant or Reload Template Entities.
+
+### Migrating a sensor from an included file to an included file
+
+This example covers how to migrate a legacy template sensor into modern syntax when the sensor exists in an included `sensors.yaml` file.
+
+Take the example configuration.yaml file
+
+```yaml
+# configuration.yaml
+sensor: !include sensors.yaml
+template: !include templates.yaml
+```
+
+
+```yaml
+# sensors.yaml
+
+# SNMP Configuration
+- platform: snmp
+  host: 192.168.1.32
+  baseoid: 1.3.6.1.4.1.2021.10.1.3.1
+
+# Legacy template configuration
+- platform: template
+  sensors:
+    my_light_count:
+      friendly_name: Total lights on
+      unique_id: sa892hfa9sdf8
+      value_template: "{{ states.light | selectattr('state', 'eq', 'on') | list | count }}"
+```
+
+```yaml
+# templates.yaml
+
+# Existing modern template
+- binary_sensor:
+  - name: Bright Outside
+    state: "{{ states('sensor.lux_value') | float(0) > 10 }}"
+```
+
+To get started with the migration:
+
+1. Remove the `sensor` template definition from the `sensors.yaml` section.
+
+    Delete the following yaml from `sensors.yaml` file.
+
+    ```yaml
+    # Legacy template configuration
+    - platform: template
+      sensors:
+        my_light_count:
+          friendly_name: Total lights on
+          unique_id: sa892hfa9sdf8
+          value_template: "{{ states.light | selectattr('state', 'eq', 'on') | list | count }}"
+      ```
+
+      Make sure to keep all the other platforms in the sensor file.
+
+    ```yaml
+    # sensors.yaml
+  
+    # SNMP Configuration
+    - platform: snmp
+      host: 192.168.1.32
+      baseoid: 1.3.6.1.4.1.2021.10.1.3.1
+    ```
+
+2. Add the modern syntax provided by the repair.
+
+    The repair would provide the following yaml.
+  
+    ```yaml
+    template:
+    - sensor:
+      - default_entity_id: sensor.my_light_count
+        name: Total lights on
+        unique_id: sa892hfa9sdf8
+        state: '{{ states.light | selectattr(''state'', ''eq'', ''on'') | list | count }}'
+    ```
+  
+    This yaml should be added to the `templates.yaml` file.
+
+    ```yaml
+    # templates.yaml
+
+    # Existing modern template
+    - binary_sensor:
+      - name: Bright Outside
+        state: "{{ states('sensor.lux_value') | float(0) > 10 }}"
+    
+    # Copied example
+    - sensor:
+      - default_entity_id: sensor.my_light_count
+        name: Total lights on
+        unique_id: sa892hfa9sdf8
+        state: '{{ states.light | selectattr(''state'', ''eq'', ''on'') | list | count }}'
+    ```
+
+    **Note**: In this example, configuration.yaml already has a `template: !include templates.yaml`.  When copying the yaml, make sure to avoid adding the `template:` section inside `templates.yaml`.
+
+3. Restart Home Assistant or Reload Template Entities.
