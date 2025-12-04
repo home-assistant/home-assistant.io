@@ -276,6 +276,8 @@ We welcome the following new integrations in this release:
   Integrate your Anglian Water smart water meter to track water usage and consumption costs.
 - **[Backblaze B2]**, added by [@ElCruncharino]  
   Use a Backblaze B2 cloud storage bucket as a backup location for your Home Assistant backups.
+- **[EnergyID]**, added by [@Molier]  
+  Sync anything from your home directly to EnergyID for advanced analytics, performance tracking and benchmarking.
 - **[Essent]**, added by [@jaapp]  
   Monitor dynamic electricity and gas prices for Essent customers in the Netherlands with variable pricing contracts.
 - **[Google Air Quality]**, added by [@Thomas55555]  
@@ -296,6 +298,7 @@ We welcome the following new integrations in this release:
 [@bestycame]: https://github.com/bestycame
 [@ElCruncharino]: https://github.com/ElCruncharino
 [@flip-dots]: https://github.com/flip-dots
+[@molier]: https://github.com/Molier
 [@jaapp]: https://github.com/jaapp
 [@mettolen]: https://github.com/mettolen
 [@pantherale0]: https://github.com/pantherale0
@@ -305,6 +308,7 @@ We welcome the following new integrations in this release:
 [Airobot]: /integrations/airobot
 [Anglian Water]: /integrations/anglian_water
 [Backblaze B2]: /integrations/backblaze_b2
+[EnergyID]: /integrations/energyid
 [Essent]: /integrations/essent
 [Google Air Quality]: /integrations/google_air_quality
 [Google Weather]: /integrations/google_weather
