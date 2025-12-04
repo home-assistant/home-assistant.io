@@ -23,7 +23,7 @@ Mammotion logins only allow one device to be logged in at a time. To use this in
 
 To create the separate account:
 
-1. Sign up using the Mammotion App with an email address you plan to use just with Home Assistant, SSO such as google is not officially supported though google email addresses do work.
+1. Sign up using the Mammotion App with an email address you plan to use just with Home Assistant, SSO such as Google is not officially supported though Google email addresses do work.
 2. Sign into your main account and share the devices you want to control with the new account.
 3. Sign into the new account and accept the shared devices.
 
