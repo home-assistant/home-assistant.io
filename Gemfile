@@ -10,9 +10,9 @@ group :development do
   gem 'stringex', '2.8.6'
   # > 2.1.0 causes slowdowns https://github.com/sass/sassc-ruby/issues/189
   gem 'sassc', '2.1.0'
-  gem 'sass-embedded', '1.93.2'
+  gem 'sass-embedded', '1.94.2'
   gem 'rubocop', '1.81.7'
-  gem 'ruby-lsp', '0.26.2'
+  gem 'ruby-lsp', '0.26.4'
   gem 'rackup', '2.2.1'
 end
 

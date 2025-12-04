@@ -13,10 +13,6 @@ ha_platforms:
   - diagnostics
 ha_zeroconf: true
 related:
-  - docs: /yellow/
-    title: Home Assistant Yellow - hub
-  - docs: /connectzbt1/
-    title: Home Assistant Connect ZBT-1 - Zigbee/Thread USB stick
   - docs: /integrations/matter/
     title: Matter
   - docs: /integrations/homekit_controller/
@@ -25,8 +21,10 @@ related:
     title: Adding a Matter device to Home Assistant
   - docs: /integrations/homekit_controller/#adding-a-homekit-device-through-thread
     title: Adding an Apple HomeKit device through Thread
-  - url: https://support.nabucasa.com/hc/en-us/articles/26124710072861
+  - url: https://support.nabucasa.com/hc/en-us/sections/26122472719517
     title: Enabling Thread on Connect ZBT-1
+  - url: https://support.nabucasa.com/hc/en-us/sections/31260019451421
+    title: Enabling Thread on Connect ZBT-2
   - url: https://support.nabucasa.com/hc/en-us/articles/25742476767517
     title: Enabling Thread on Yellow
 ---
@@ -97,9 +95,9 @@ These border routers may require an iPhone or Android phone for onboarding. What
 
 #### Home Assistant
 
-Out of the box, Home Assistant Connect&nbsp;ZBT-1 and Yellow run Zigbee, not Thread. Currently, enabling Thread involves manual steps. The integration of the Home Assistant based Thread border router with Matter is work-in-progress.
+Out of the box, Home Assistant Connect&nbsp;ZBT-1, [Connect&nbsp;ZBT-2](/connect/zbt-2/), and Yellow run Zigbee, not Thread. Currently, enabling Thread involves manual steps. The integration of the Home Assistant based Thread border router with Matter is work-in-progress.
 
-- If you have a Home Assistant Yellow or Connect&nbsp;ZBT-1, you can use their Thread radio. Follow these steps to [turn Home Assistant into a Thread border router](#turning-home-assistant-into-a-thread-border-router).
+- If you have a Home Assistant Yellow, Connect&nbsp;ZBT-1, or a [Connect&nbsp;ZBT-2](/connect/zbt-2/), you can use their Thread radio. Follow these steps to [turn Home Assistant into a Thread border router](#turning-home-assistant-into-a-thread-border-router).
 
 #### Google
 
@@ -129,19 +127,20 @@ Find out if you already have Thread networks:
 
 ### Case 1: Making Home Assistant your first Thread network
 
-Follow these steps if you want to turn Home Assistant into a Thread border router using the Thread radio of Yellow, Connect&nbsp;ZBT-1, or another compatible radio and you do not have any third-party Thread networks present yet. This will automatically create a new Thread network with the name `ha-thread-xxxx`. The last for digits are a network-specific identifier (PAN ID).
+Follow these steps if you want to turn Home Assistant into a Thread border router using the Thread radio of Yellow, Connect&nbsp;ZBT-1, Connect&nbsp;ZBT-2, or another compatible radio and you do not have any third-party Thread networks present yet. This will automatically create a new Thread network with the name `ha-thread-xxxx`. The last four digits are a network-specific identifier (PAN ID).
 
 #### Prerequisites
 
-- Device with a Thread-capable radio, such as Home Assistant Yellow, Connect&nbsp;ZBT-1, or another compatible radio
+- Device with a Thread-capable radio, such as Home Assistant Yellow, Connect&nbsp;ZBT-1, [Connect&nbsp;ZBT-2](/connect/zbt-2/), or another compatible radio
 - Android phone or iPhone
 - No third-party Thread networks present
 
 #### To make Home Assistant your first Thread network
 
-1. To enable Thread support on your Home Assistant Yellow or Connect&nbsp;ZBT-1, you need to install the **OpenThread Border Router** add-on. Follow the corresponding procedure:
+1. To enable Thread support on your Home Assistant Yellow, Connect&nbsp;ZBT-1, or [Connect&nbsp;ZBT-2](/connect/zbt-2/), you need to install the **OpenThread Border Router** add-on. Follow the corresponding procedure:
    - [Enable Thread on Home Assistant Yellow](https://support.nabucasa.com/hc/en-us/articles/25742476767517).
-   - [Enable Thread on Home Assistant Connect ZBT-1](https://support.nabucasa.com/hc/en-us/articles/26124710072861).
+   - [Enable Thread on Home Assistant Connect ZBT-1](https://support.nabucasa.com/hc/en-us/sections/26122472719517).
+   - [Enable Thread on Home Assistant Connect ZBT-2](https://support.nabucasa.com/hc/en-us/sections/31260019451421).
 
 2. Make sure the Home Assistant Thread network is defined as preferred network.
    - This should happen automatically, but check to be sure.
@@ -172,7 +171,7 @@ If you have both Google and Apple Thread networks present, decide which one you 
 
 #### Prerequisites
 
-- Device with a Thread-capable radio, such as Home Assistant Yellow, Connect&nbsp;ZBT-1, or another compatible radio
+- Device with a Thread-capable radio, such as Home Assistant Yellow, Connect&nbsp;ZBT-1, Connect&nbsp;ZBT-2, or another compatible radio
 - Third-party Thread network listed
 - Android phone if you have a Google Thread network, iPhone if you have an Apple Thread network
 
@@ -193,9 +192,10 @@ Note: the steps and images here show the process with a Google Thread network. B
 
    ![image](/images/integrations/thread/thread-google-br.png)
 
-5. To enable Thread support on your Home Assistant Yellow or Connect ZBT-1, you need to install the **OpenThread Border Router** add-on. Follow the corresponding procedure:
+5. To enable Thread support on your Home Assistant Yellow, Connect&nbsp;ZBT-1, or [Connect&nbsp;ZBT-2](/connect/zbt-2/), you need to install the **OpenThread Border Router** add-on. Follow the corresponding procedure:
    - [Enable Thread on Home Assistant Yellow](https://support.nabucasa.com/hc/en-us/articles/25742476767517).
-   - [Enable Thread on Home Assistant Connect ZBT-1](https://support.nabucasa.com/hc/en-us/articles/26124710072861).
+   - [Enable Thread on Home Assistant Connect ZBT-1](https://support.nabucasa.com/hc/en-us/sections/26122472719517).
+   - [Enable Thread on Home Assistant Connect ZBT-2](https://support.nabucasa.com/hc/en-us/sections/31260019451421).
    - **Result**: The network now shows as the preferred network, joined with the third-party network.
 
    ![image](/images/integrations/thread/thread-ha-preferred.png)

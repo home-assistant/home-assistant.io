@@ -70,6 +70,7 @@ The integration will then reconnect to the OpenRGB SDK server with the new setti
 
 ## Known limitations
 
+- The light state shown in Home Assistant may not always reflect the actual device state. Most RGB devices don't report their status back to OpenRGB, so it assumes the state based on the last command sent. If other applications control the same devices, the state reported by OpenRGB (and thus Home Assistant) may be outdated.
 - Changes made directly in the OpenRGB application may not be immediately reflected in Home Assistant (the integration polls for updates every 15 seconds).
 - Some OpenRGB features like per-zone and per-LED control are not yet supported through Home Assistant
 

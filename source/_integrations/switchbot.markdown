@@ -156,6 +156,7 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 - [Water Leak Detector](https://www.switch-bot.com/products/switchbot-water-leak-detector)
 - [Remote (WoRemote)](https://www.switch-bot.com/products/switchbot-remote) (currently only supports battery level monitoring)
 - [Climate Panel](https://www.switch-bot.com/products/switchbot-home-climate-panel) (currently only supports retrieving sensor data, does not yet support device control)
+- [Presence Sensor](https://www.switch-bot.com/products/switchbot-presence-sensor)
 
 ### Hubs
 
@@ -171,9 +172,10 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 - [K10+](https://www.switch-bot.com/products/switchbot-mini-robot-vacuum-k10)
 - [K10+ Pro](https://www.switch-bot.com/products/switchbot-mini-robot-vacuum-k10-pro)
 - [K10+ Pro Combo](https://www.switch-bot.com/products/switchbot-k10-pro-combo)
+- [K11+](https://www.switch-bot.com/products/switchbot-robot-vacuum-k11)
 - [K20](https://www.switchbot.jp/products/switchbot-robot-vacuum-cleaner-k20-pro)
 - [S10](https://www.switch-bot.com/products/switchbot-floor-cleaning-robot-s10)
-- [K11+](https://www.switch-bot.com/products/switchbot-robot-vacuum-k11)
+- [S20](https://www.switch-bot.com/products/switchbot-floor-cleaning-robot-s20)
 
 ### Air purifiers
 
@@ -391,7 +393,7 @@ Features:
 
 ### Sensors
 
-Sensor entiteis are added for thermometer and hygrometer devices, motion sensor, contact sensor, leak sensor, remote button and climate panel.
+Sensor entiteis are added for thermometer and hygrometer devices, motion sensor, contact sensor, leak sensor, presence sensor, remote button and climate panel.
 
 #### Meter
 
@@ -448,6 +450,16 @@ Features:
 
 - motion detection state
 - get battery level
+
+#### Presence Sensor
+
+Note: Device battery data is stored in service data, not broadcast. This data can only be retrieved when Bluetooth is in active mode.
+
+Feature
+
+- get light level
+- get battery
+- get occupancy state
 
 #### Water Leak Detector
 
@@ -691,7 +703,7 @@ Features:
 
 ### Vacuums
 
-Vacuum entities are added for K10+, K10+ Pro, K10+ Pro Combo, K20, S10, K11+.
+Vacuum entities are added for K10+, K10+ Pro, K10+ Pro Combo, K20, S10, K11+, S20.
 
 Features:
 - get states, including `cleaning`, `docked`, `idle`, `paused`, `returning`, and `error`; refer to Known limitations for more details

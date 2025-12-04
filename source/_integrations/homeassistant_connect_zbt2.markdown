@@ -13,14 +13,13 @@ ha_config_flow: true
 ha_platforms:
   - switch
   - update
-published: false
 ha_quality_scale: bronze
 ---
 
 The Home Assistant Connect ZBT-2 integration provides hardware information for the hardware configuration page.
 
-For documentation on the Home Assistant Connect ZBT-2, please visit the [documentation page](https://support.nabucasa.com/hc/en-us/categories/24734620813469).
-If you are looking to buy one, please visit the [product page](https://home-assistant.io/connectzbt2)
+For documentation on the Home Assistant Connect ZBT-2, please visit the [documentation page](https://support.nabucasa.com/hc/en-us/categories/29400540866973).
+If you are looking to buy one, please visit the [product page](https://home-assistant.io/connect/zbt-2/).
 
 ## Configuration
 

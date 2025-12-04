@@ -152,6 +152,8 @@ After setup, fans will appear in Home Assistant using an `entity_id` based on th
 
 For more information on working with fans in Home Assistant, see the [Fans integration](/integrations/fan/).
 
+For supported bridges, a switch entity will be created under the smart bridge called Smart Away. This switch toggles Smart Away on/off.
+
 ## Sensor
 
 Occupancy sensors can be added to a Lutron Caseta system to trigger events when an area becomes vacant and, optionally, occupied. However, Lutron systems report occupancy and vacancy statuses only in *occupancy groups* -- that is, groups of one or more sensors.

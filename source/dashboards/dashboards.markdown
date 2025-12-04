@@ -20,18 +20,18 @@ related:
 
 You can define multiple dashboards in Home Assistant. Each dashboard can be added to the sidebar. This makes it possible to create separate control dashboards for each individual part of your house.
 
-Under {% my lovelace_dashboards title="**Settings** > **Dashboards**" %}, you can see your own dashboards and some of the predefined ones.
+Under {% my lovelace_dashboards title="**Settings** > **Dashboards**" %}, you can see your own dashboards as well as the predefined, built-in dashboards.
 
 <p class='img'>
 <img src='/images/dashboards/dashboard-manage-01.png' alt='Screenshot of the dashboard list'>
 Screenshot of the Dashboard list.
 </p>
 
-## Home Assistant default dashboards
+## Home Assistant built-in dashboards
 
 Home Assistant ships with some dashboards out of the box:
 
-- [Areas dashboard (experimental)](#areas-dashboard)
+- [Home dashboard](#home-dashboard)
 - Energy dashboard
 - [History dashboard](#history-dashboard)
 - [Activity dashboard](#activity-dashboard)
@@ -41,13 +41,11 @@ Home Assistant ships with some dashboards out of the box:
 
 Not all of the predefined dashboards are listed under {% my lovelace_dashboards title="**Settings** > **Dashboards**" %}. The **Activity** and **History** dashboards are powered by their respective integrations.
 
-### Areas dashboard
+### Home dashboard
 
-{% note %}
-The **Areas** dashboard is still experimental. It is subject to change and may not always work as intended.
-{% endnote %}
+The **Home** dashboard is an entry point to open other built-in dashboards based on areas or topics such as lights, climate, or media players.
 
-The **Areas** dashboard is prepopulated by default and shows your {% term entities %} [grouped](/docs/organizing/) by [areas](/docs/organizing/areas/).
+The **Home** dashboard is prepopulated by default and shows your {% term entities %} [grouped](/docs/organizing/) by [areas](/docs/organizing/areas/).
 
 - It uses the [sections view](/dashboards/sections/) type and [tile cards](/dashboards/tile/).
 - The first view shows all your areas and the {% term entities %} that are [assigned to those areas](/docs/organizing/areas/).
@@ -55,29 +53,20 @@ The **Areas** dashboard is prepopulated by default and shows your {% term entiti
 - {% term entities Entities%}, such as lights, covers, and cameras are automatically grouped by {% term domain %}.
 
 <p class='img'>
-<img src='/images/dashboards/areas-dashboard-overview.png' alt='Screenshot of the Areas default dashboard'>
-Screenshot of the Areas default dashboard.
+<img src='/images/dashboards/home-dashboard-overview.png' alt='Screenshot of the built-in Home dashboard'>
+Screenshot of the built-in Home dashboard.
 </p>
 
-#### Limitations of the Areas dashboard
-
-1. Not all devices are added to the **Areas** dashboard. Only a few sensors are displayed automatically. Such as temperature and humidity of the area, and door, window, and gate binary sensors.
-2. Certain entity domains and helpers are omitted from the **Areas** dashboard. For example, configuration and diagnostic {% term entities %} do not appear, even if they have been assigned to an area.
-
-#### Adding an Areas dashboard
-
-- To add the **Areas** dashboard, follow the steps on [adding a dashboard](#creating-a-new-dashboard).
-
-#### Editing the Areas dashboard
+#### Editing the Home dashboard
 
 1. Make sure all the {% term entities %} are [assigned to an area](/docs/organizing/areas/#assigning-an-area-to-multiple-items).
-2. After you [added the dashboard](#creating-a-new-dashboard), you can edit the **Areas** dashboard.
-3. In the top-right corner, select the {% icon "mdi:pencil" %} icon.
-4. You can show or hide sections, rearrange the content, or [add badges](/dashboards/badges/).
+2. In the top-right corner, select the {% icon "mdi:pencil" %} icon.
+3. You can add entities to customize which items appear on your dashboard.
+4. If you don't like how the cards are arranged, [you can reorder floors and areas](/docs/organizing/areas/#reordering-areas-on-built-in-dashboards) under {% my areas title="**Settings** > **Areas, labels & zones**" %}.
 
 #### Troubleshooting: entity is not showing
 
-1. Not all devices or entity types are automatically added to the **Areas** dashboard. Refer to the [Limitations](#limitations-of-the-areas-dashboard) section.
+1. Not all devices or entity types are automatically added to the **Home** dashboard.
 2. Make sure the entity is [assigned to an area](/docs/organizing/areas/#assigning-an-area-to-multiple-items) and check the dashboard again.
 
 ### History dashboard

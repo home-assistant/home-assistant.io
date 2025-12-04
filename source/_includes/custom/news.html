@@ -1,13 +1,13 @@
 <!--  Left column begins -->
 <div class="grid__item one-third lap-one-half palm-one-whole">
 
-  {% assign video_id = "Z-pUkM6XIuA" %}
+  {% assign video_id = "HSRvso6cbf0" %}
   {% assign show_livestream = false %}
 
   {% if show_livestream %}
   <a href="https://www.youtube.com/watch?v={{ video_id }}" class="material-card livestream-card" target="_blank" style="
-      background-image: url(/images/frontpage/zwa-2-livestream.webp);
-      aspect-ratio: 580/386;
+      background-image: url(/images/frontpage/zbt-2-livestream.webp);
+      aspect-ratio: 16/9;
     " aria-label="State of the Open Home - Saturday April 12th 2025">
     <div
       style="position: absolute; pointer-events: none; inset: 0; opacity: 0; transition: opacity 1s; overflow: hidden; border-style: none;">
@@ -22,22 +22,6 @@
     </div>
   </a>
   {% endif %}
-
-  <a href="https://www.youtube.com/watch?v=HSRvso6cbf0" class="material-card picture-promo picture-top" target="_blank"
-    rel="noopener noreferrer" aria-label="Join the livestream for our latest product reveal!"
-    style="background-image: url(/images/frontpage/feature-nov19.webp);background-size: cover;aspect-ratio: 900/600;">
-    <div class="caption">
-      <div>
-        <div class="title">
-          Product launch incoming
-        </div>
-        <div class="subtitle">
-          Join the livestream for our latest product reveal!<br />
-          November 19 @ 12PM PT / 3PM ET / 21:00 CET
-        </div>
-      </div>
-    </div>
-  </a>
 
   {% assign releases_post_limit = 2 %}
   {% assign blog_post_limit = 4 %}

@@ -128,6 +128,11 @@ toc: true
     the recommended installation type for most users.</li>
     <li>
       <b>Home Assistant Container:</b> Container-based installation of Home Assistant. You need to bring your own system (such as Linux) with container orchestration (like Docker), and manually handle updates. Home Assistant Container installations don’t have access to {% term "add-ons" %}.
+      <ul>
+        <li>
+          <b>Note</b>: Some integrations, such as <b>Thread</b> and <b>Z-Wave</b>, are controlled by {% term "add-ons" %}. There is no out-of-the-box support for these on Container installations.
+        </li>
+      </ul>
     </li>
   </ul>
 
