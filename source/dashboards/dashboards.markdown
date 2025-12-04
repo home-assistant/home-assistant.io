@@ -109,7 +109,7 @@ embedding them into a Home Assistant dashboard.
 
 ## Creating a new dashboard
 
-The built-in dashboards update itself when you add new devices. If you want a customized dashboard, it is recommended not to change the **Overview** dashboard, but to create a new dashboard instead.
+The built-in dashboards update themselves when you add new devices. If you want a customized dashboard, it is recommended not to change the **Overview** dashboard, but to create a new dashboard instead.
 
 This will leave the default dashboard intact.
 
