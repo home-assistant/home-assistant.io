@@ -143,6 +143,25 @@ Stops a torrent.
 | `entry_id`             | no       | The integration entry_id                                                                    |
 | `id`                   | no       | ID of the torrent, can be found in the `torrent_info` attribute of the `*_torrents` sensors |
 
+### Action `get_torrents`
+
+Gets torrent details for the selected filter.
+
+This action populates [Response Data](/docs/scripts/perform-actions#use-templates-to-handle-response-data) with a dictionary of torrents based on the provided filter.
+
+| Data attribute         | Optional | Description                                                                             |
+| ---------------------- | -------- | --------------------------------------------------------------------------------------- |
+| `entry_id`             | no       | The integration entry_id                                                                |
+| `torrent_filter`       | no       | The type of torrents you want in the response (all, active, started, paused, completed) |
+
+```yaml
+action: transmission.get_torrents
+data:
+  entry_id: YOUR_TRANSMISSION_ENTRY_ID
+  filter: "all"
+response_variable: torrents
+```
+
 ## Templating
 
 ### Attribute `torrent_info`
