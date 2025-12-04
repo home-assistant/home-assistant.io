@@ -37,11 +37,8 @@ All preview features in Labs are:
 - Subject to change: Feature set may be extended, and design and behavior may be refined based on feedback.
 - Reversible: Can be disabled at any time.
 
-## Prerequisites
 
-You need administrator rights to access the **Labs** panel.
 
-{% include integrations/config_flow.md %}
 
 ## About preview features
 
