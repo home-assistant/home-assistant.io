@@ -101,7 +101,7 @@ All of these event entities support the following event types:
 
 ##### Button variations
 
-Many devices have the same button layout, but not all of them. These are the differences.
+Many devices have the same button layout, but not all of them. These are the differences:
 
 - The [Beoconnect Core](https://www.bang-olufsen.com/en/dk/accessories/beoconnect-core) does not support device controls.
 - The [Beosound A9 5th gen](https://www.bang-olufsen.com/en/dk/speakers/beosound-a9) and the [Beosound Premiere](https://www.bang-olufsen.com/en/dk/soundbars/beosound-premiere) do not have Bluetooth or Microphone buttons
