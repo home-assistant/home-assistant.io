@@ -131,8 +131,8 @@ This will leave the default dashboard intact.
 1. Open your new dashboard and in the top right of the screen, select the {% icon "mdi:pencil" %} button.
    - **Result**: The **Edit dashboard** dialog appears.
 2. Select the areas you want to show on this new dashboard and select **Save**.
-3. If you are editing an **Overview** dashboard for the first time, and you want to have more detailed control over it, you need to take control before you can edit it:
-     - This means that it is no longer automatically updated when new dashboard elements become available.
+3. If you want to have more detailed control over the dashboard, you need to take control:
+     - This means that this dashboard is no longer automatically updated when new dashboard elements become available.
      - Once you've taken control, you can't get this specific dashboard back to update automatically. However, you can create a new default dashboard.
      - To continue, in the dialog, select the three dots {% icon "mdi:dots-vertical" %} menu, then select **Take control**.
 4. You can now [add a badge](/dashboards/badges/#adding-a-badge-to-your-dashboard), [add a card](/dashboards/cards/#adding-cards-to-your-dashboard), or [add a view](/dashboards/views/#adding-a-view-to-a-dashboard).
