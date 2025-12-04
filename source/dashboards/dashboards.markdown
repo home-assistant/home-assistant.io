@@ -136,6 +136,10 @@ This will leave the default dashboard intact.
      - Once you've taken control, you can't get this specific dashboard back to update automatically. However, you can create a new default dashboard.
      - To continue, in the dialog, select the three dots {% icon "mdi:dots-vertical" %} menu, then select **Take control**.
 4. You can now [add a badge](/dashboards/badges/#adding-a-badge-to-your-dashboard), [add a card](/dashboards/cards/#adding-cards-to-your-dashboard), or [add a view](/dashboards/views/#adding-a-view-to-a-dashboard).
+5. To **undo** or **redo** a change, select the buttons on top of the dashboard.
+
+   ![Screenshot of the undo and redo buttons on top of the dashboard](/images/dashboards/dashboard-undo-redo.png)
+
 
 ## Deleting a dashboard
 
