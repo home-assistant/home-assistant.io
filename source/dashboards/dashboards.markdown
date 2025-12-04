@@ -120,8 +120,8 @@ The default dashboard is the dashboard that is shown when you open Home Assistan
 
    4. **Result**: This dashboard is shown to all users when they open Home Assistant.
 - To change your personal default dashboard, you don't need administrator rights.
-  1. Go to {% my profile title="**User profile**" %}.
-  2. On the **General** tab, under **Dashboard**, select your default dashboard.
+   1. Go to {% my profile title="**User profile**" %}.
+   2. On the **General** tab, under **Dashboard**, select your default dashboard.
 
       ![Changing your own default dashboard](/images/dashboards/dashboard-change-your-default.png)
 
