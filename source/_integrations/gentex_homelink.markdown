@@ -22,13 +22,16 @@ The **HomeLink** {% term integration %} allows you to integrate your [HomeLink](
 
 HomeLink is only compatible with HomeLink devices accessible via the HomeLink App. To prepare for an integration with Home Assistant:
 
-1. Install the HomeLink app through an app store of your choice.
-2. Create an account or sign in.
-3. Connect to your HomeLink mirror.
+{% include integrations/config_flow.md %}
 
 ## Configuration
 
-Upon enabling the HomeLink integration, you will be prompted to enter the email and password for your HomeLink account.
+{% configuration_basic %}
+Email:
+    description: "The email you used to log in to your HomeLink account."
+Password:
+    description: "The password to your HomeLink account."
+{% endconfiguration_basic %}
 
 When you have configured the HomeLink service, you will see your connected HomeLink devices and buttons you have configured on the home screen. These buttons can be connected to events for automations to control lights, music, and more in Home Assistant.
 
