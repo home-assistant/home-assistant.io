@@ -56,6 +56,13 @@ Port:
     description: "Custom TCP port of the device. Change this only if the device is connected via Shelly Range Extender."
 {% endconfiguration_basic %}
 
+{% include integrations/option_flow.md %}
+
+{% configuration_basic %}
+Bluetooth scanner mode:
+  description: "The scanner mode to use for Bluetooth scanning. Bluetooth scanning can be active or passive. With active, the Shelly requests data from nearby devices. With passive, the Shelly receives unsolicited data from nearby devices."
+{% endconfiguration_basic %}
+
 ## Shelly device generations
 
 There are four generations of devices and all generations are supported by this integration. There are some differences in how devices should be configured and in the naming of entities and devices between generations.
@@ -120,8 +127,6 @@ Shelly devices do **not** support proxying active (GATT) connections.
 {% endtip %}
 
 For more details, see [Remote Adapters](/integrations/bluetooth/#remote-adapters-bluetooth-proxies) in the [Bluetooth integration](/integrations/bluetooth).
-
-{% include integrations/option_flow.md %}
 
 ## Range Extender Support
 

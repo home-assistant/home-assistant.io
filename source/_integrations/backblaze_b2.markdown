@@ -8,10 +8,12 @@ ha_iot_class: Cloud Push
 ha_config_flow: true
 ha_domain: backblaze_b2
 ha_codeowners:
-  - '@ElCruncharino'
   - '@hugo-vrijswijk'
+  - '@ElCruncharino'
 ha_integration_type: service
 ha_quality_scale: bronze
+ha_platforms:
+  - diagnostics
 ---
 
 The **Backblaze** {% term integration %} enables you to use a [Backblaze B2](https://www.backblaze.com/cloud-storage) bucket as a backup location in Home Assistant.

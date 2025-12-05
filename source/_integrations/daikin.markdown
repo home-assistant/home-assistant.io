@@ -31,14 +31,14 @@ There is currently support for the following device types within Home Assistant:
 ## Supported hardware
 
 - The European versions of the Wifi Controller Unit (BRP069A41, 42, 43, 45), which is powered by the [Daikin Online Controller](https://play.google.com/store/apps/details?id=eu.daikin.remoapp) application. The new version of WiFi Controller Unit BRP069Bxx is also confirmed to work, tested and working devices are the BRP069B41 and BRP069B45.
-- The Australian version of the Daikin Wifi Controller Unit BRP072A42, which is operated by the [Daikin Mobile Controller (iOS)](https://itunes.apple.com/au/app/daikin-mobile-controller/id917168708?mt=8) ([Android](https://play.google.com/store/apps/details?id=ao.daikin.remoapp)) application. Confirmed working on a Daikin Cora Series Reverse Cycle Split System Air Conditioner 2.5kW Cooling FTXM25QVMA with operation mode, temp, fan swing (3d, horizontal, vertical).
+- The Australian version of the Daikin Wifi Controller Unit BRP072A42, which is operated by the [Daikin Mobile Controller (iOS)](https://apps.apple.com/au/app/id917168708) ([Android](https://play.google.com/store/apps/details?id=ao.daikin.remoapp)) application. Confirmed working on a Daikin Cora Series Reverse Cycle Split System Air Conditioner 2.5kW Cooling FTXM25QVMA with operation mode, temp, fan swing (3d, horizontal, vertical).
   - BRP072Cxx based units (including Zena devices)*.
 - The United States version of the Wifi Controller Unit (BRP072A43), which is powered by the [Daikin Comfort Control](https://play.google.com/store/apps/details?id=us.daikin.comfortcontrols) application. Confirmed working on a Daikin Wall Units FTXS09LVJU, FTXS15LVJU, FTXS18LVJU and a Floor Unit FVXS15NVJU with operation mode, temp, fan swing (3d, horizontal, vertical).
 - BRP069C4x/BRP084Cxx units using firmware 2.8.0 was added in HA 2025.9.
 - The Australian version of the Daikin Wifi Controller for **AirBase** units (BRP15B61), which is operated by the [Daikin Airbase](https://play.google.com/store/apps/details?id=au.com.daikin.airbase) application.
 - **SKYFi** based units, which is operated by the SKYFi application*.
 
-If your unit is not in the list above there is another option, to buy and install an [ESP32-Faikin](https://github.com/revk/ESP32-Faikin).
+If your unit is not in the list above there is another option, to buy and install an [ESP32-Faikout](https://github.com/revk/ESP32-Faikout).
 
 {% include integrations/config_flow.md %}
 

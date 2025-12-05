@@ -444,6 +444,46 @@ type: power-sankey
 layout: horizontal
 ```
 
+## Power sources graph
+
+<p class='img'>
+  <img src='/images/dashboards/energy/power-sources.png' alt='Screenshot of the Sankey sources graph card'>
+  Screenshot of the power Sankey graph card.
+</p>
+
+The power sources graph shows historical power data.
+
+### YAML configuration
+
+The following YAML options are available
+
+{% configuration %}
+type:
+  required: true
+  description: "`power-sources-graph`"
+  type: string
+collection_key:
+  required: false
+  description: "Collection key to use for the card. This links the card to a specific energy dashboard collection. Defaults to `energy_dashboard`."
+  type: string
+  default: energy_dashboard
+title:
+  required: false
+  description: The title of the card.
+  type: string
+show_legend:
+  required: false
+  description: Show or hide the legend
+  type: boolean
+  default: true
+{% endconfiguration %}
+
+### Examples
+
+```yaml
+type: power-sources-graph
+```
+
 ## Using multiple collections
 
 By default, all energy cards are linked to any `energy-date-selection` card on the view, and all `energy-date-selection` cards are linked to the same period. To enable multiple different date selections on the same view, it is necessary to link them to different collections. This is done by adding the variable `collection_key` to the card YAML, and giving this a value of any custom string that begins with `energy_`. (strings that do not start with `energy_` will generate an error).

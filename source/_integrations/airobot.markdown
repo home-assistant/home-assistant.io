@@ -9,7 +9,10 @@ ha_domain: airobot
 ha_integration_type: device
 ha_dhcp: true
 ha_config_flow: true
-ha_quality_scale: silver
+ha_quality_scale: bronze
+ha_category: []
+ha_platforms:
+  - climate
 ---
 
 The **Airobot** {% term integration %} allows you to control and monitor [Airobot](https://airobothome.com/) smart thermostats for intelligent floor heating control via the local REST API. The thermostat uses adaptive learning with a <abbr title="Time Proportional Integral">TPI</abbr> algorithm to maintain stable temperatures and optimize energy efficiency. Optional built-in CO₂ and humidity sensors monitor indoor air quality for a healthier living environment.
