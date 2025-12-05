@@ -2803,6 +2803,7 @@ This example covers how to migrate a legacy template sensor into modern syntax.
 
 Take the example configuration.yaml file
 
+{% raw %}
 ```yaml
 # configuration.yaml
 sensor:
@@ -2820,12 +2821,14 @@ sensor:
       value_template: "{{ states.light | selectattr('state', 'eq', 'on') | list | count }}"
 ```
 
+{% endraw %}
 To get started with the migration:
 
 1. Remove the `sensor` template definition from the `configuration.yaml` `sensor:` section.
 
     Delete the following yaml from configuration.yaml file.
 
+{% raw %}
     ```yaml
     # Legacy template configuration
     - platform: template
@@ -2835,6 +2838,7 @@ To get started with the migration:
           unique_id: sa892hfa9sdf8
           value_template: "{{ states.light | selectattr('state', 'eq', 'on') | list | count }}"
       ```
+{% endraw %}
 
       Make sure to keep all the other platforms in the sensor section.
 
@@ -2852,6 +2856,7 @@ To get started with the migration:
 
     The repair would provide the following yaml.
   
+  {% raw %}
     ```yaml
     template:
     - sensor:
@@ -2860,9 +2865,11 @@ To get started with the migration:
         unique_id: sa892hfa9sdf8
         state: '{{ states.light | selectattr(''state'', ''eq'', ''on'') | list | count }}'
     ```
+   {% endraw %}
   
     This yaml should be added to the `template:` section inside configuration.yaml.
 
+{% raw %}
     ```yaml
     # configuration.yaml
     sensor:
@@ -2879,9 +2886,11 @@ To get started with the migration:
         unique_id: sa892hfa9sdf8
         state: '{{ states.light | selectattr(''state'', ''eq'', ''on'') | list | count }}'
     ```
+    {% endraw %}
 
     **Note**: If you are migrating multiple template entities, ensure there is only 1 `template:` section.  Do not keep duplicate `template:` sections.
 
+{% raw %}
     ```yaml
     # configuration.yaml
     sensor:
@@ -2911,6 +2920,7 @@ To get started with the migration:
         name: Skylight
         state: '{{ is_state(''binary_sensor.crank'', ''on'') }}'
     ```
+{% endraw %}
 
 3. Restart Home Assistant or reload template entities.
 
@@ -2920,6 +2930,7 @@ This example covers how to migrate a legacy template sensor into modern syntax.
 
 Take the example configuration.yaml file
 
+{% raw %}
 ```yaml
 # configuration.yaml
 sensor:
@@ -2942,6 +2953,7 @@ template:
   - name: Bright Outside
     state: "{{ states('sensor.lux_value') | float(0) > 10 }}"
 ```
+{% endraw %}
 
 To get started with the migration:
 
@@ -2949,6 +2961,7 @@ To get started with the migration:
 
     Delete the following yaml from configuration.yaml file.
 
+{% raw %}
     ```yaml
     # Legacy template configuration
     - platform: template
@@ -2958,9 +2971,11 @@ To get started with the migration:
           unique_id: sa892hfa9sdf8
           value_template: "{{ states.light | selectattr('state', 'eq', 'on') | list | count }}"
       ```
+{% endraw %}
 
       Make sure to keep all the other platforms in the sensor section.
 
+{% raw %}
     ```yaml
     sensor:
     # SNMP Configuration
@@ -2974,6 +2989,7 @@ To get started with the migration:
       - name: Bright Outside
         state: "{{ states('sensor.lux_value') | float(0) > 10 }}"
     ```
+{% endraw %}
 
     **Note:** If you are using `sensor: !include sensors.yaml` in `configuration.yaml`, remove the legacy definition from the included `sensors.yaml`.
 
@@ -2981,6 +2997,7 @@ To get started with the migration:
 
     The repair would provide the following yaml.
   
+  {% raw %}
     ```yaml
     template:
     - sensor:
@@ -2989,9 +3006,11 @@ To get started with the migration:
         unique_id: sa892hfa9sdf8
         state: '{{ states.light | selectattr(''state'', ''eq'', ''on'') | list | count }}'
     ```
+{% endraw %}
   
     This yaml should be added to the `template:` section inside configuration.yaml.
 
+{% raw %}
     ```yaml
     # configuration.yaml
     sensor:
@@ -3013,6 +3032,7 @@ To get started with the migration:
         unique_id: sa892hfa9sdf8
         state: '{{ states.light | selectattr(''state'', ''eq'', ''on'') | list | count }}'
     ```
+{% endraw %}
 
     **Note**: In this example, configuration.yaml already had a `template:` section.  When copying the yaml, make sure to avoid adding double `template:` sections.
 
@@ -3031,6 +3051,7 @@ template: !include templates.yaml
 ```
 
 
+{% raw %}
 ```yaml
 # sensors.yaml
 
@@ -3048,6 +3069,9 @@ template: !include templates.yaml
       value_template: "{{ states.light | selectattr('state', 'eq', 'on') | list | count }}"
 ```
 
+{% endraw %}
+
+{% raw %}
 ```yaml
 # templates.yaml
 
@@ -3056,6 +3080,7 @@ template: !include templates.yaml
   - name: Bright Outside
     state: "{{ states('sensor.lux_value') | float(0) > 10 }}"
 ```
+{% endraw %}
 
 To get started with the migration:
 
@@ -3063,6 +3088,7 @@ To get started with the migration:
 
     Delete the following yaml from `sensors.yaml` file.
 
+{% raw %}
     ```yaml
     # Legacy template configuration
     - platform: template
@@ -3073,6 +3099,7 @@ To get started with the migration:
           value_template: "{{ states.light | selectattr('state', 'eq', 'on') | list | count }}"
       ```
 
+{% endraw %}
       Make sure to keep all the other platforms in the sensor file.
 
     ```yaml
@@ -3088,6 +3115,7 @@ To get started with the migration:
 
     The repair would provide the following yaml.
   
+  {% raw %}
     ```yaml
     template:
     - sensor:
@@ -3097,8 +3125,10 @@ To get started with the migration:
         state: '{{ states.light | selectattr(''state'', ''eq'', ''on'') | list | count }}'
     ```
   
+  {% endraw %}
     This yaml should be added to the `templates.yaml` file.
 
+{% raw %}
     ```yaml
     # templates.yaml
 
@@ -3115,6 +3145,7 @@ To get started with the migration:
         state: '{{ states.light | selectattr(''state'', ''eq'', ''on'') | list | count }}'
     ```
 
+{% endraw %}
     **Note**: In this example, configuration.yaml already has a `template: !include templates.yaml`.  When copying the yaml, make sure to avoid adding the `template:` section inside `templates.yaml`.
 
 3. Restart Home Assistant or reload template entities.
