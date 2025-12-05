@@ -339,6 +339,12 @@ Both entities can use these options, but the availability of these will depend o
 - **Steam fresh**: `dishcare_dishwasher_program_steam_fresh`
 - **Maximum cleaning**: `dishcare_dishwasher_program_maximum_cleaning`
 - **Mixed load**: `dishcare_dishwasher_program_mixed_load`
+- **Active clean**: `heating_ventilation_air_conditioning_air_conditioner_program_active_clean`
+- **Auto**: `heating_ventilation_air_conditioning_air_conditioner_program_auto`
+- **Cool**: `heating_ventilation_air_conditioning_air_conditioner_program_cool`
+- **Dry**: `heating_ventilation_air_conditioning_air_conditioner_program_dry`
+- **Fan**: `heating_ventilation_air_conditioning_air_conditioner_program_fan`
+- **Heat**: `heating_ventilation_air_conditioning_air_conditioner_program_heat`
 - **Cotton**: `laundry_care_dryer_program_cotton`
 - **Synthetic**: `laundry_care_dryer_program_synthetic`
 - **Mix**: `laundry_care_dryer_program_mix`
@@ -393,6 +399,7 @@ Both entities can use these options, but the availability of these will depend o
 - **90 Watt**: `cooking_oven_program_microwave_90_watt`
 - **180 Watt**: `cooking_oven_program_microwave_180_watt`
 - **360 Watt**: `cooking_oven_program_microwave_360_watt`
+- **450 Watt**: `cooking_oven_program_microwave_450_watt`
 - **600 Watt**: `cooking_oven_program_microwave_600_watt`
 - **900 Watt**: `cooking_oven_program_microwave_900_watt`
 - **1000 Watt**: `cooking_oven_program_microwave_1000_watt`
@@ -479,7 +486,6 @@ Both entities can use these options, but the availability of these will depend o
     </details>
 
 #### Program options
-
 - **Reference map ID**:
   - **Description**: Defines which reference map is to be used.
   - **Availability**: Cleaning robot
@@ -1047,6 +1053,8 @@ Starts or selects a program. If the `program` attribute is not set, this action 
 | `device_id` | no | ID of the device. |
 | `affects_to` | no | Selects if the program affected by the action should be the active or the selected program. |
 | `program` | yes | Program to select. If set, it will start or select a program depending on `affects_to`. |
+| `heating_ventilation_air_conditioning_air_conditioner_option_fan_speed_percentage` | yes | Setting to adjust the venting levels of the air conditioner as percentage. |
+| `heating_ventilation_air_conditioning_air_conditioner_option_fan_speed_mode` | yes | Setting to adjust the fan speed mode to Manual or Automatic. |
 | `consumer_products_cleaning_robot_option_reference_map_id` | yes | Defines which reference map is to be used. |
 | `consumer_products_cleaning_robot_option_cleaning_mode` | yes | Defines the favoured cleaning mode. |
 | `consumer_products_cleaning_robot_option_suction_power` | yes | Defines the suction power. |

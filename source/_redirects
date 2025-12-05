@@ -530,6 +530,7 @@ layout: null
 /integrations/binary_sensor.mychevy /more-info/removed-integration 301
 /integrations/blinkt /more-info/removed-integration 301
 /integrations/bloomsky /more-info/removed-integration 301
+/integrations/bluetooth_tracker /more-info/removed-integration 301
 /integrations/bme280 /more-info/removed-integration 301
 /integrations/bme680 /more-info/removed-integration 301
 /integrations/bmp280 /more-info/removed-integration 301
@@ -549,6 +550,7 @@ layout: null
 /integrations/discovery /more-info/removed-integration 301
 /integrations/dlib_face_detect /more-info/removed-integration 301
 /integrations/dlib_face_identify /more-info/removed-integration 301
+/integrations/dominos /more-info/removed-integration 301
 /integrations/dte_energy_bridge /more-info/removed-integration 301
 /integrations/duke_energy /more-info/removed-integration 301
 /integrations/dweet /more-info/removed-integration 301
@@ -563,6 +565,7 @@ layout: null
 /integrations/essent /more-info/removed-integration 301
 /integrations/facebox /more-info/removed-integration 301
 /integrations/fedex /more-info/removed-integration 301
+/integrations/flick_electric /more-info/removed-integration 301
 /integrations/flunearyou /more-info/removed-integration 301
 /integrations/fortigate /more-info/removed-integration 301
 /integrations/fritzbox_netmonitor  /more-info/removed-integration 301
@@ -628,6 +631,7 @@ layout: null
 /integrations/ptvsd /more-info/removed-integration 301
 /integrations/pushetta /more-info/removed-integration 301
 /integrations/raspihats /more-info/removed-integration 301
+/integrations/rpi_camera /more-info/removed-integration 301
 /integrations/rpi_gpio /more-info/removed-integration 301
 /integrations/rpi_gpio_pwm /more-info/removed-integration 301
 /integrations/rpi_pfio /more-info/removed-integration 301

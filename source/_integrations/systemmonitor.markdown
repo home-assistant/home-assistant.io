@@ -32,39 +32,43 @@ All sensors are also marked as diagnostic and won't be automatically added to au
 
 ### Disks
 
-One sensor per found disk/mount point will be created
+One sensor per discovered disk/mount point will be created
 
-- Disk free
-- Disk use
-- Disk usage (percent)
+- **Disk free**: Amount of free space on the disk
+- **Disk use**: Amount of used space on the disk
+- **Disk usage (%)**: Percentage of disk space used
 
 ### Network
 
-One sensor per found network interface will be created
+One sensor per discovered network interface will be created
 
-- IPv4 address
-- IPv6 address
-- Network in
-- Network out
-- Packets in
-- Packets out
-- Network throughput in
-- Network throughput out
+- **IPv4 address**: The IPv4 address assigned to the network interface
+- **IPv6 address**: The IPv6 address assigned to the network interface
+- **Network in**: Total bytes received on the network interface
+- **Network out**: Total bytes sent from the network interface
+- **Packets in**: Number of packets received on the network interface
+- **Packets out**: Number of packets sent from the network interface
+- **Network throughput in**: Current inbound network speed (bytes per second)
+- **Network throughput out**: Current outbound network speed (bytes per second)
 
 ### Other
 
-- Last boot
-- Load (15m)
-- Load (5m)
-- Load (1m)
-- Memory free
-- Memory use
-- Memory usage (percent)
-- Processor use
-- Processor temperature
-- Swap free
-- Swap use
-- Swap usage (percent)
+- **Battery**: Percentage of battery remaining
+- **Battery empty**: Expected time when the battery is empty if not plugged in
+- **Charging**: Battery is charging (binary sensor)
+- **Fan speed**: Built-in fan speeds
+- **Last boot**: The date and time when the system was last started
+- **Load (1 min)**: System load average over the last 1 minute
+- **Load (5 min)**: System load average over the last 5 minutes
+- **Load (15 min)**: System load average over the last 15 minutes
+- **Memory free**: Amount of available system memory
+- **Memory use**: Amount of system memory used
+- **Memory usage (%)**: Percentage of system memory used
+- **Processor use**: Percentage of CPU usage
+- **Processor temperature**: Current temperature of the processor
+- **Swap free**: Amount of available swap memory
+- **Swap use**: Amount of used swap memory
+- **Swap usage (%)**: Percentage of swap memory used
 
 ## Add `process` binary sensor
 
