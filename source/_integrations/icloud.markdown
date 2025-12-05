@@ -32,13 +32,10 @@ It does require that your devices are registered with the [Find My](https://www.
 You can't use an [app-specific password](https://support.apple.com/102654). You need to use your Apple Account password to set up this integration.
 {% endimportant %}
 
-
 {% warning %}
 You may receive recurring emails and notifications from Apple stating that someone has logged into your account if the integration is improperly configured. If this occurs, select `Don't Allow` on your iOS device and reconfigure the Integration Credentials when prompted.
 
 For the notification, press "Allow", then "OK".
-
-Work is currently underway to resolve this problem. 
 {% endwarning %}
 
 To prevent excessive battery drainage, a dynamic interval is used for each individual device instead of a fixed interval for all devices linked to one account. The dynamic interval is based on the current zone of a device, the distance towards home and the battery level of the device.
