@@ -101,19 +101,19 @@ Claude for Desktop now supports remote MCP servers, making it extremely easy to 
 Home Assistant instance:
 
 1. Download [Claude for Desktop](https://claude.ai/download) and log in.
-2. Click your profile name, select Settings, and go to Connectors.
-3. Click "Add Custom Connector"
+2. Click your profile name, select **Settings**, and go to **Connectors**.
+3. Click **Add Custom Connector**.
 4. Enter the following details:
-   * Name: "Home Assistant" (or any more descriptive name you prefer)
-   * Remote MCP Server URL: https://<your home assistant URL>/api/mcp
-   * Under advanced settings:
-     * OAuth Client ID: https://claude.ai
-     * OAuth Client Secret: <leave blank>
-5. Click OK.  Now click "Connect" next to the entry created with the name you provided above.
+   - **Name**: "Home Assistant" (or any more descriptive name you prefer)
+   - **Remote MCP Server URL**: https://<your home assistant URL>/api/mcp
+   - Under advanced settings:
+     - **OAuth Client ID**: https://claude.ai
+     - **OAuth Client Secret**: <leave blank>
+5. Click **OK**. Now click **Connect** next to the entry created with the name you provided above.
 6. Log in to your Home Assistant instance and allow the redirect back to Claude Desktop.
-7. You can now enable tools from Home Assistant when chatting with Claude, allowing you to control Home Assistant similar to how you would through the Voice Assistant.  Claude will ask you for permission before calling any tools.
+7. You can now enable tools from Home Assistant when chatting with Claude, allowing you to control Home Assistant similar to how you would through the Voice Assistant. Claude will ask you for permission before calling any tools.
 
-  ![Screenshot of Claude for Desktop adding an item to a Home Assistant To-do list](/images/integrations/mcp_server/claude-todo-list-control.png)
+   ![Screenshot of Claude for Desktop adding an item to a Home Assistant To-do list](/images/integrations/mcp_server/claude-todo-list-control.png)
 
 ### Example: Cursor
 
