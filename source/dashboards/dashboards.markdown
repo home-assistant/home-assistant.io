@@ -107,6 +107,24 @@ Note that not every webpage can be embedded due to security restrictions that
 some sites have in place. These restrictions are enforced by your browser and prevent
 embedding them into a Home Assistant dashboard.
 
+## Setting a default dashboard
+
+The default dashboard is the dashboard that is shown when you open Home Assistant.
+
+- If you have administrator rights, you can set an initial default dashboard for all users.
+   1. Go to {% my lovelace_dashboards title="**Settings** > **Dashboards**" %}.
+   2. In the list of dashboards, find the dashboard of interest and select the {% icon "mdi:dots-vertical" %} menu.
+   3. Select **Set as default**.
+
+      ![Setting a default dashboard for all users](/images/dashboards/dashboards-set-default.png)
+
+   4. **Result**: This dashboard is shown to all users when they open Home Assistant.
+- To change your personal default dashboard, you don't need administrator rights.
+   1. Go to {% my profile title="**User profile**" %}.
+   2. On the **General** tab, under **Dashboard**, select your default dashboard.
+
+      ![Changing your own default dashboard](/images/dashboards/dashboard-change-your-default.png)
+
 ## Creating a new dashboard
 
 The default **Overview** dashboard updates itself when you add new devices, as long as you do not edit the default dashboard. If you want a customized dashboard, it is recommended not to change the **Overview** dashboard, but to create a new dashboard instead.
