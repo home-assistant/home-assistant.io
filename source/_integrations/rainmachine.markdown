@@ -33,7 +33,7 @@ There is currently support for the following device types within Home Assistant:
 - Binary sensor
 - Button
 - Sensor
-- [Switch](#switch)
+- Switch
 
 Note that some entities are disabled by default. If you are missing a sensor or binary sensor, check the configured integration!
 
