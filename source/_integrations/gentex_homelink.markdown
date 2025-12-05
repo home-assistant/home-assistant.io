@@ -3,7 +3,7 @@ title: HomeLink
 description: Instructions on how to set up your HomeLink devices with Home Assistant.
 ha_category:
   - Binary sensor
-ha_release: 2025.4
+ha_release: 2026.1
 ha_iot_class: Cloud Push
 ha_config_flow: true
 ha_codeowners:
