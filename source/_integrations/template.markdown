@@ -2795,13 +2795,13 @@ This event has no additional data.
 
 ## Legacy template deprecation migration guide
 
-Legacy template entities are deprecated and will be removed in Home Assistant 2026.6.0.  The deprecated template entities will produce a repair that guides you through the migration.
+Legacy template entities are deprecated and will be removed in Home Assistant 2026.6.0. The deprecated template entities will produce a repair that guides you through the migration.
 
 ### Migrating a legacy sensor into a new template section
 
 This example covers how to migrate a legacy template sensor into modern syntax.
 
-Take the example configuration.yaml file
+Take the example `configuration.yaml` file
 
 {% raw %}
 ```yaml
@@ -2826,7 +2826,7 @@ To get started with the migration:
 
 1. Remove the `sensor` template definition from the `configuration.yaml` `sensor:` section.
 
-    Delete the following yaml from configuration.yaml file.
+    Delete the following YAML from `configuration.yaml` file.
 
 {% raw %}
     ```yaml
@@ -2840,9 +2840,10 @@ To get started with the migration:
       ```
 {% endraw %}
 
-      Make sure to keep all the other platforms in the sensor section.
+      Make sure to keep all the other platforms in the sensor section. Your `configuration.yaml` file would look like this after the change:
 
     ```yaml
+    # configuration.yaml
     sensor:
     # SNMP Configuration
     - platform: snmp
@@ -2854,7 +2855,7 @@ To get started with the migration:
 
 2. Add the modern syntax provided by the repair.
 
-    The repair would provide the following yaml.
+    The repair would provide the following YAML.
   
   {% raw %}
     ```yaml
@@ -2867,7 +2868,7 @@ To get started with the migration:
     ```
    {% endraw %}
   
-    This yaml should be added to the `template:` section inside configuration.yaml.
+    This YAML should be added to the `template:` section inside `configuration.yaml`.
 
 {% raw %}
     ```yaml
@@ -2928,7 +2929,7 @@ To get started with the migration:
 
 This example covers how to migrate a legacy template sensor into modern syntax.
 
-Take the example configuration.yaml file
+Take the example `configuration.yaml` file
 
 {% raw %}
 ```yaml
@@ -2959,7 +2960,7 @@ To get started with the migration:
 
 1. Remove the `sensor` template definition from the `configuration.yaml` `sensor:` section.
 
-    Delete the following yaml from configuration.yaml file.
+    Delete the following YAML from `configuration.yaml` file.
 
 {% raw %}
     ```yaml
@@ -2973,10 +2974,11 @@ To get started with the migration:
       ```
 {% endraw %}
 
-      Make sure to keep all the other platforms in the sensor section.
+      Make sure to keep all the other platforms in the sensor section. Your `configuration.yaml` file would look like this after the change:
 
 {% raw %}
     ```yaml
+    # configuration.yaml
     sensor:
     # SNMP Configuration
     - platform: snmp
@@ -2991,11 +2993,15 @@ To get started with the migration:
     ```
 {% endraw %}
 
-    **Note:** If you are using `sensor: !include sensors.yaml` in `configuration.yaml`, remove the legacy definition from the included `sensors.yaml`.
+    {% note %}
 
-2. Add the modern syntax provided by the repair.
+    If you are using `sensor: !include sensors.yaml` in `configuration.yaml`, remove the legacy definition from the included `sensors.yaml`.
 
-    The repair would provide the following yaml.
+    {% endnote %}
+
+1. Add the modern syntax provided by the repair.
+
+    The repair would provide the following YAML.
   
   {% raw %}
     ```yaml
@@ -3008,7 +3014,7 @@ To get started with the migration:
     ```
 {% endraw %}
   
-    This yaml should be added to the `template:` section inside configuration.yaml.
+    This YAML should be added to the `template:` section inside `configuration.yaml`.
 
 {% raw %}
     ```yaml
@@ -3034,15 +3040,19 @@ To get started with the migration:
     ```
 {% endraw %}
 
-    **Note**: In this example, configuration.yaml already had a `template:` section.  When copying the yaml, make sure to avoid adding double `template:` sections.
+    {% note %}
 
-3. Restart Home Assistant or reload template entities.
+    In this example, `configuration.yaml` already had a `template:` section.  When copying the YAML, make sure to avoid adding double `template:` sections.
+
+    {% endnote %}
+
+1. Restart Home Assistant or reload template entities.
 
 ### Migrating a sensor from an included file to an included file
 
 This example covers how to migrate a legacy template sensor into modern syntax when the sensor exists in an included `sensors.yaml` file.
 
-Take the example configuration.yaml file
+Take the example configuration. It's a configuration that is split between 3 files, `configuration.yaml`, `sensors.yaml`, and `templates.yaml`.
 
 ```yaml
 # configuration.yaml
@@ -3086,7 +3096,7 @@ To get started with the migration:
 
 1. Remove the `sensor` template definition from the `sensors.yaml` section.
 
-    Delete the following yaml from `sensors.yaml` file.
+    Delete the following YAML from `sensors.yaml` file.
 
 {% raw %}
     ```yaml
@@ -3100,7 +3110,8 @@ To get started with the migration:
       ```
 
 {% endraw %}
-      Make sure to keep all the other platforms in the sensor file.
+      Make sure to keep all the other platforms in the sensor file. Your `sensors.yaml` file would look like this after the change:
+
 
     ```yaml
     # sensors.yaml
@@ -3113,7 +3124,7 @@ To get started with the migration:
 
 2. Add the modern syntax provided by the repair.
 
-    The repair would provide the following yaml.
+    The repair would provide the following YAML.
   
   {% raw %}
     ```yaml
@@ -3126,7 +3137,7 @@ To get started with the migration:
     ```
   
   {% endraw %}
-    This yaml should be added to the `templates.yaml` file.
+    This YAML should be added to the `templates.yaml` file.
 
 {% raw %}
     ```yaml
@@ -3146,6 +3157,11 @@ To get started with the migration:
     ```
 
 {% endraw %}
-    **Note**: In this example, configuration.yaml already has a `template: !include templates.yaml`.  When copying the yaml, make sure to avoid adding the `template:` section inside `templates.yaml`.
 
-3. Restart Home Assistant or reload template entities.
+    {% note %}
+
+    In this example, `configuration.yaml` already has a `template: !include templates.yaml`.  When copying the yaml, make sure to avoid adding the `template:` section inside `templates.yaml`.
+
+    {% endnote %}
+
+1. Restart Home Assistant or reload template entities.
