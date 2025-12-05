@@ -105,7 +105,7 @@ Home Assistant instance:
 3. Click **Add Custom Connector**.
 4. Enter the following details:
    - **Name**: "Home Assistant" (or any more descriptive name you prefer)
-   - **Remote MCP Server URL**: https://<your home assistant URL>/api/mcp
+   - **Remote MCP Server URL**: `https://<your_home_assistant_url>/api/mcp`
    - Under advanced settings:
      - **OAuth Client ID**: https://claude.ai
      - **OAuth Client Secret**: <leave blank>
