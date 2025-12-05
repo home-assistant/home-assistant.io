@@ -110,6 +110,8 @@ Now go and automate stuff!
 - [Other noteworthy changes](#other-noteworthy-changes)
   - [Get insight into your AI conversations](#get-insight-into-your-ai-conversations)
   - [Add entities to Android widgets and favorites](#add-entities-to-android-widgets-and-favorites)
+- [Patch releases](#patch-releases)
+  - [2025.12.1 - December 5](#2025121---december-5)
 - [Need help? Join the community](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
@@ -531,6 +533,93 @@ This is a first step in integrating native mobile features directly into the Hom
 Thanks for this great addition, [@TimoPtr]! 🙏
 
 [@TimoPtr]: https://github.com/TimoPtr
+
+## Patch releases
+
+We will also release patch releases for Home Assistant 2025.12 in December. 🎄
+These patch releases only contain bug fixes. Our goal is to release a patch
+release once a week, aiming for Friday.
+
+### 2025.12.1 - December 5
+
+- Fix Rituals Perfume Genie ([@quebulm] - [#151537])
+- Move telegram-bot URLs out of strings.json ([@maxmichels] - [#155130])
+- Fix Starlink's ever updating uptime ([@davidrapan] - [#155574])
+- Display error when forming new ZHA network fails ([@TheJulianJES] - [#157863])
+- Move teslemetry time-of-use URL out of strings.json ([@jbouwh] - [#157874])
+- Correctly pass MopParserConfig for Roborock ([@Lash-L] - [#157891])
+- Fix VeSync binary sensor discovery ([@cdnninja] - [#157898])
+- Bump reolink_aio to 0.17.1 ([@starkillerOG] - [#157929])
+- Move out URL of Xiaomy_aquara from strings.json ([@jbouwh] - [#157937])
+- Set account number as required for Anglian Water config entry ([@pantherale0] - [#157939])
+- Move translatable URL from rainmachine push_weather_data action description ([@jbouwh] - [#157941])
+- Convert image URLs to secure URLs in Xbox integration ([@tr4nt0r] - [#157945])
+- Add pyanglianwater to Anglian Water loggers ([@pantherale0] - [#157947])
+- Fix template migration errors ([@Petro31] - [#157949])
+- Move Yeelight URLs out of translatable strings for action descriptions ([@jbouwh] - [#157957])
+- Move out zwave_js api docs url from strings.json ([@jbouwh] - [#157959])
+- Fix unit parsing in Tuya climate entities ([@epenet] - [#157964])
+- Update template deprecation to be more explicit ([@Petro31] - [#157965])
+- Move pilight URL out of strings.json ([@jbouwh] - [#157967])
+- Move out example URL and IP of strings.json for reolink ([@jbouwh] - [#157970])
+- Add subscribe preview feature endpoint to labs ([@piitaya] - [#157976])
+- Bump python-Roborock to 3.10.0 ([@Lash-L] - [#157980])
+- Bump oralb-ble to 1.0.2 ([@abmantis] - [#157992])
+- Bump evohome-async to 1.0.6 ([@zxdavb] - [#158005])
+- Fix doorbird duplicate unique ID generation ([@ptarjan] - [#158013])
+- SharkIQ dep upgrade `v1.5.0` ([@funkybunch] - [#158015])
+- Bump python-roborock to 3.10.2 ([@allenporter] - [#158020])
+- Change ZHA strings for incorrect adapter state ([@TheJulianJES] - [#158021])
+- Improve action descriptions for Telegram bot ([@hanwg] - [#158022])
+- Fix missing template key in deprecation repair ([@Petro31] - [#158033])
+- Prevent entsoe from loading ([@joostlek] - [#158036])
+- Do not create `restart` button for sleeping gen2+ Shelly devices ([@bieniu] - [#158047])
+- Replace deprecated preview image model ([@Shulyaka] - [#158048])
+- Move lametric URLs out of strings.json ([@jbouwh] - [#158051])
+- Move example image path out of translatable strings ([@jbouwh] - [#158053])
+- Fix inverted kelvin issue ([@Petro31] - [#158054])
+- Bump uiprotect to 7.33.2 ([@RaHehl] - [#158057])
+- Update frontend to 20251203.1 ([@piitaya] - [#158069])
+
+[#151537]: https://github.com/home-assistant/core/pull/151537
+[#155130]: https://github.com/home-assistant/core/pull/155130
+[#155574]: https://github.com/home-assistant/core/pull/155574
+[#157330]: https://github.com/home-assistant/core/pull/157330
+[#157863]: https://github.com/home-assistant/core/pull/157863
+[#157874]: https://github.com/home-assistant/core/pull/157874
+[#157891]: https://github.com/home-assistant/core/pull/157891
+[#157898]: https://github.com/home-assistant/core/pull/157898
+[#157929]: https://github.com/home-assistant/core/pull/157929
+[#157937]: https://github.com/home-assistant/core/pull/157937
+[#157939]: https://github.com/home-assistant/core/pull/157939
+[#157941]: https://github.com/home-assistant/core/pull/157941
+[#157945]: https://github.com/home-assistant/core/pull/157945
+[#157947]: https://github.com/home-assistant/core/pull/157947
+[#157949]: https://github.com/home-assistant/core/pull/157949
+[#157957]: https://github.com/home-assistant/core/pull/157957
+[#157959]: https://github.com/home-assistant/core/pull/157959
+[#157964]: https://github.com/home-assistant/core/pull/157964
+[#157965]: https://github.com/home-assistant/core/pull/157965
+[#157967]: https://github.com/home-assistant/core/pull/157967
+[#157970]: https://github.com/home-assistant/core/pull/157970
+[#157976]: https://github.com/home-assistant/core/pull/157976
+[#157980]: https://github.com/home-assistant/core/pull/157980
+[#157992]: https://github.com/home-assistant/core/pull/157992
+[#158005]: https://github.com/home-assistant/core/pull/158005
+[#158013]: https://github.com/home-assistant/core/pull/158013
+[#158015]: https://github.com/home-assistant/core/pull/158015
+[#158020]: https://github.com/home-assistant/core/pull/158020
+[#158021]: https://github.com/home-assistant/core/pull/158021
+[#158022]: https://github.com/home-assistant/core/pull/158022
+[#158033]: https://github.com/home-assistant/core/pull/158033
+[#158036]: https://github.com/home-assistant/core/pull/158036
+[#158047]: https://github.com/home-assistant/core/pull/158047
+[#158048]: https://github.com/home-assistant/core/pull/158048
+[#158051]: https://github.com/home-assistant/core/pull/158051
+[#158053]: https://github.com/home-assistant/core/pull/158053
+[#158054]: https://github.com/home-assistant/core/pull/158054
+[#158057]: https://github.com/home-assistant/core/pull/158057
+[#158069]: https://github.com/home-assistant/core/pull/158069
 
 ## Need help? Join the community
 
