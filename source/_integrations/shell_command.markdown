@@ -144,6 +144,8 @@ shell_command:
   get_file_contents: "cat {{ filename }}"
 ```
 
+{% endraw %}
+
 ### Using SSH with shell_command
 
 The `/root/.ssh` directory in the container is not persistent. Store your keys in `/config/.ssh` instead.
