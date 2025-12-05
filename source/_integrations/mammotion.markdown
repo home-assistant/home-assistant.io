@@ -46,7 +46,6 @@ The integration will create a lawn mower entity to control the mower. This entit
 - Return to dock
 - Status monitoring
 
-{% enddetails %}
 
 ## Known issues
 Because Home Assistant now talks to your device, this can sometimes cause issues with making changes using the Mammotion App, though the integration will stop communicating when it sees the device is in setup states, the device will continue to work as expected even if you see a delay visually on your phone when setting up zones, areas or channels. 
