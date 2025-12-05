@@ -20,7 +20,7 @@ ha_integration_type: device
 ha_dhcp: true
 ---
 
-The Tailwind integration integrates [Tailwind](https://gotailwind.com/)
+The Tailwind {% term integration %} integrates [Tailwind](https://gotailwind.com/)
 garage door controllers fully locally.
 
 This integration has been tested with the following Tailwind devices:
