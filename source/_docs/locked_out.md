@@ -105,6 +105,36 @@ Only the owner can change other user's passwords.
 5. Confirm the new password by entering it again, and select **OK** again.
 6. A confirmation box will be displayed with the text **Password was changed successfully**.
 
+## Locked out due to missing 2FA authentication
+### Symptom: I'm the owner and I cannot login as my TOTP second factor is unavailable
+
+You are the **owner** of the Home Assistant server and you cannot login because your second factor of authentication using a TOTP is unavailable permanently.
+
+#### Remedy
+
+1. Check if the following conditions are met:
+   - you are using the {% term "Home Assistant Operating System" %}
+   - you have access to the Home Assistant server.
+2. Open a terminal connection to Home Assistant:
+   - If you are using a Home Assistant Green, follow these steps [to access the console](https://support.nabucasa.com/hc/en-us/articles/25153288092829).
+   - If you are using a Home Assistant Yellow, follow these steps:
+     - [to access the console from Windows](https://support.nabucasa.com/hc/en-us/articles/25454894609693)
+     - [to access the console from Linux or macOS](https://support.nabucasa.com/hc/en-us/articles/25454972435357).
+   - If you are using another system, connect keyboard and monitor. The procedure might be similar the one used for Green.
+   - If you are using a Home Assistant OVA (virtualization image):
+     - Access the system console by opening the terminal through your virtualization platform's interface (for example, Proxmox, VMware, VirtualBox).
+     - Follow the platform-specific steps to interact with the virtual machine's console.
+3. In the terminal, enter the `login` command.
+   - This command logs into the appliance which Home Assistant runs on allowing you to access the underlying host's command line.
+4. In the terminal, open an interactive bash shell in the Home Assistant core docker container:
+   - docker exec -it homeassistant /bin/bash
+6. Change the name of the TOTP authentication module settings file:
+   - mv /config/.storage/auth_module.totp /config/.storage/auth_module.totp.old
+9. Exit container
+    - exit
+11. Reboot server
+    - reboot now
+
 ## Preparing the system to start a new onboarding process
 
 If you lose the password associated with the owner account and the steps above do not work to reset the password, the only way to resolve this is to start a new onboarding process.
