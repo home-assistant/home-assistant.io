@@ -29,11 +29,11 @@ Off time:
 
 ## YAML configuration
 
-Alternatlively, this integration can be configured and set up manually via YAML instead. This has some additional functionality over the UI version.
+Alternatively, this integration can be configured and set up manually via YAML. This has some additional functionality over the UI setup.
 
-The time ranges can be provided as absolute local time or using the `sunrise` or `sunset` keyword calculated based on the sun position for location. The location must be provided in the configuration.
+The time ranges can be provided as an absolute local time or by using the `sunrise` or `sunset` keyword, calculated based on the sun position for the location.
 
-In addition for sun position based ranges, the negative or positive offset can be configured.
+In addition, for sun position-based ranges, a negative or positive offset can be configured.
 
 To enable the Times of Day binary sensor in your installation, add the
 following to your {% term "`configuration.yaml`" %} file:

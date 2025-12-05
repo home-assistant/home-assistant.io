@@ -25,7 +25,7 @@ ha_platforms:
   - switch
   - update
 ha_ssdp: true
-ha_integration_type: integration
+ha_integration_type: hub
 related:
   - docs: /common-tasks/general/#enabling-or-disabling-entities
     title: Enabling or disabling entities
@@ -47,6 +47,8 @@ There is support for the following platform types within Home Assistant:
 
 {% important %}
 Both the TR-064 (_Permit access for apps_) and UPnP (_Transmit status information over UPnP_) protocol needs to be enabled in the FRITZ!Box under **Home Network** > **Network** > **Network settings** > **Access Settings in the Home Network** for Home Assistant to login and read device info.
+
+To use the [dial](#action-dial) action, the click to dial service of the FRITZ!Box must also be enabled under **Telephony** > **Calls** > **Click to Dial**.
 {% endimportant %}
 
 ### Username
@@ -91,7 +93,10 @@ This integration fetches the data every 30 seconds from the FRITZ!Box router.
 
 ## Actions
 
-Available {% term actions %}: `set_guest_wifi_password`
+Available {% term actions %}:
+
+- `set_guest_wifi_password`
+- `dial`
 
 ### Action `set_guest_wifi_password`
 
@@ -102,6 +107,16 @@ Set a new password for the guest wifi. The password Length must be between 8 and
 | `device_id` | yes | Only act on a specific router |
 | `password` | no | New password for the guest wifi (_will be auto-generated if not defined_) |
 | `length` | no | Length of the auto-generated password. (_default 12_) |
+
+### Action `dial`
+
+Makes the FRITZ!Box dial a phone number.
+
+| Data attribute | Required | Description |
+| --- | --- | --- |
+| `device_id` | yes | Only act on a specific router |
+| `number` | yes | The phone number to dial |
+| `max_ring_seconds` | yes | The maximum number of seconds to ring after dialing. Note that the actual ring duration might be shorter depending on the receiver's phone settings. (_default 15 seconds_) |
 
 ## Additional information
 

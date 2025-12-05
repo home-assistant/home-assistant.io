@@ -1,0 +1,46 @@
+---
+layout: landingpage
+title: "Home Assistant Connect ZBT-2"
+description: "The easiest way to start with Zigbee or Thread is now even better."
+date: 2025-11-19
+og_image: /images/connect/zbt-2/og.jpg
+frontpage: true
+frontpage_image: /images/frontpage/zbt-2-frontpage.webp
+---
+<link rel="stylesheet" href="/stylesheets/homeassistant/pages/connect/zbt-2/index.css" />
+{% include custom/buy-dialog.html product="zbt-2" %}
+
+<main class="ha-connect" id="connect-zbt-2">
+  {% include_relative components/_header.html %}
+  {% include_relative components/_hero.html %}
+  {% include_relative components/_features.html %}
+  {% include_relative components/_build.html %}
+  {% include_relative components/_chipset.html %}
+  {% include_relative components/_second-generation-platform.html %}
+  {% include_relative components/_built-for-home-assistant.html %}
+  {% include_relative components/_plug-and-play.html %}
+  {% include_relative components/_collaboration.html %}
+  {% include_relative components/_buy.html %}
+  {% include_relative components/_declutter.html %}
+  {% include_relative components/_zigbee-thread.html %}
+  {% include_relative components/_home.html %}
+  {% include_relative components/_specs.html %}
+  {% include_relative components/_faq.html %}
+</main>
+
+<script type="importmap">
+  {
+    "imports": {
+      "header": "/javascripts/connect/header.js",
+      "animations": "/javascripts/connect/zbt-2/animations.js"
+    }
+  }
+</script>
+<script type="module">
+  import {DSAP} from "/javascripts/dsap.es.js";
+  window.dsap = new DSAP();
+</script>
+<script src="/javascripts/gsap.min.js" type="text/javascript"></script>
+<script src="/javascripts/ScrollTrigger.min.js" type="text/javascript"></script>
+<script src="/javascripts/ScrollSmoother.min.js" type="text/javascript"></script>
+<script src="/javascripts/connect/zbt-2/index.js" type="module"></script>

@@ -224,4 +224,4 @@ elements:
 
 ### Extra CGI Commands
 
-Foscam Webcams which support CGI Commands can be controlled by Home Assistant ([Source](https://www.foscam.es/descarga/Foscam-IPCamera-CGI-User-Guide-AllPlatforms-2015.11.06.pdf)).
+Foscam Webcams which support CGI Commands can be controlled by Home Assistant ([Source](https://community.jeedom.com/uploads/short-url/2A5aSBcCyoVZOdpiFC8HRDAOxqG.pdf)).

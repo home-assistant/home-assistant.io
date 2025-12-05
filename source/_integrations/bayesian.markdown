@@ -19,21 +19,13 @@ related:
 ha_config_flow: true
 ---
 
-A `Bayesian` helper is a virtual binary sensor that determines its state based on the combination of multiple other sensors using probabilistic methods.
+A `Bayesian` sensor is a virtual binary sensor that determines its state by combining the states of other sensors using probability.
 
 This approach enables the detection of complex events that are not directly or easily measurable, such as cooking, showering, being in bed, or starting a morning routine. Additionally, it can improve confidence and reliability in measurable events where sensors may be unreliable, such as some presence detectors.
 
-Bayesian works by applying [Bayes' rule](https://en.wikipedia.org/wiki/Bayes%27_theorem). It estimates the likelihood that a specific event is occurring based on the combination of the states of 'observed' sensors and a baseline, (`prior`) probability. When the calculated probability - known as a 'posterior' - exceeds the defined `probability_threshold`, the `bayesian` sensor will turn `on`; otherwise, it will be `off`.
+Bayesian works by applying [Bayes' rule](https://en.wikipedia.org/wiki/Bayes%27_theorem). It estimates the likelihood that a specific event is occurring based on the combination of a baseline probability - known as a 'prior' - and the states of 'observed' sensors and. When the calculated probability - known as a 'posterior' - exceeds the defined `probability_threshold`, the `bayesian` sensor will turn `on`; otherwise, it will be `off`.
 
 Both UI and YAML setups are supported, importantly YAML uses probabilities of `0` to `1` whereas the UI uses percentages, `0` to `100`.
-
-## Theory
-
-A fundamental concept in Bayes' Rule is the distinction between the probability of an *event given an observation* and the probability of an *observation given an event*. These two probabilities are not interchangeable and must be considered separately. While they may be similar in some cases — for example, when motion sensors are accurate, the probability that someone is in the room *given* that motion is detected is often close to the probability that motion is detected *given* someone is in the room.
-
-Now consider the above, but in a home that has cats. The probability that the room is human-occupied *given* that motion detected may be quite low (e.g. 20%, p=0.2) if the room is popular with the cats. However, the probability that motion is detected *given* that it is occupied by a human is high (e.g 95%, p = 0.95) if our motion sensor is accurate. Said succinctly, not all motion is human, but all humans move.
-
-When configuring these conditional probabilities, define the probability of the sensor observation (e.g motion detected) *given* the thing you are trying to estimate (e.g human-occupancy of the room).
 
 {% include integrations/config_flow.md %}
 
@@ -121,6 +113,14 @@ observations:
       type: float
 {% endconfiguration %}
 
+## Theory
+
+A fundamental concept in Bayes' Rule is the distinction between the probability of an *event given an observation* and the probability of an *observation given an event*. These two probabilities are not interchangeable and must be considered separately. While they may be similar in some cases — for example, when motion sensors are accurate, the probability that someone is in the room *given* that motion is detected is often close to the probability that motion is detected *given* someone is in the room.
+
+Now consider the above, but in a home that has cats. The probability that the room is human-occupied *given* that motion detected may be quite low (e.g. 20%, p=0.2) if the room is popular with the cats. However, the probability that motion is detected *given* that it is occupied by a human is high (e.g 95%, p = 0.95) if our motion sensor is accurate. Said succinctly, not all motion is human, but all humans move.
+
+When configuring these conditional probabilities, define the probability of the sensor observation (e.g motion detected) *given* the thing you are trying to estimate (e.g human-occupancy of the room).
+
 ## Estimating probabilities
 
 1. Avoid `0` and `1`; these will mess with the odds and are rarely true—sensors fail.
@@ -134,11 +134,11 @@ observations:
 
 ## Full examples
 
-These are a number of worked examples which you may find helpful for each of the state types.
+These are a number of worked examples which you may find helpful for each of the observation types. Whilst these are YAML examples, UI configurations work in the same way, except that probabilities are expressed in percentages.
 
 ### State
 
-The following is an example for the `state` observation platform.
+The following is an example that only uses observations which test for exact matches of the `state` of entities.
 
 ```yaml
 # Example configuration.yaml entry
@@ -178,7 +178,7 @@ binary_sensor:
 
 ### Numeric State
 
-Next up an example which targets the `numeric_state` observation platform,
+Next up is an example which uses the `numeric_state` - testing if the state of a numeric entity falls within a specified range,
 as seen in the configuration it requires `below` and/or `above` instead of `to_state`.
 
 ```yaml
@@ -198,7 +198,7 @@ binary_sensor:
 
 ### Template
 
-Here's an example for `template` observation platform, as seen in the configuration it requires `value_template`. This template will evaluate to true if the device tracker `device_tracker.paulus` shows `not_home` and it last changed its status more than 5 minutes ago.
+Here's an example for `template` observations, as seen in the configuration it requires `value_template`. This template will evaluate to true if the device tracker `device_tracker.paulus` has not been seen in the last 5 minutes.
 
 {% raw %}
 
