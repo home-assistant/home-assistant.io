@@ -77,8 +77,7 @@ A number of features are available through the media player entity:
 
 #### Mozart device controls
 
-Event entities are created for each of the physical controls on your device. These controls usually have their own behaviors, so using them for automations is not always ideal.
-
+Event entities are created for each of the available physical controls on your device. These controls usually have their own behaviors, so using them for automations is not always ideal.
 Available event entities:
 
 - Bluetooth (Not available on Beosound Premiere)
@@ -100,7 +99,13 @@ All of these event entities support the following event types:
 - Very long press
 - Release of very long press
 
-All devices except the [Beoconnect Core](https://www.bang-olufsen.com/en/dk/accessories/beoconnect-core) support device controls.
+##### Button variations
+
+Many devices have the same button layout, but not all of them. These are the differences:
+
+- The [Beoconnect Core](https://www.bang-olufsen.com/en/dk/accessories/beoconnect-core) does not support device controls.
+- The [Beosound A9 5th gen](https://www.bang-olufsen.com/en/dk/speakers/beosound-a9) and the [Beosound Premiere](https://www.bang-olufsen.com/en/dk/soundbars/beosound-premiere) do not have Bluetooth or Microphone buttons
+- The [Beosound A5](https://www.bang-olufsen.com/en/dk/speakers/beosound-a5) does not have a Microphone button
 
 #### Beoremote One
 
