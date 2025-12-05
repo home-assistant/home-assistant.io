@@ -14,6 +14,7 @@ ha_platforms:
   - device_tracker
   - light
   - sensor
+  - switch
 ha_integration_type: device
 ---
 
@@ -27,14 +28,16 @@ You can use this integration to track the location of your pets and monitor thei
 
 The **Fressnapf Tracker** integration provides the following entities.
 
-- **Device Tracker**
+- **Device tracker**
   - **Description**: Shows the current location of your pet.
 - **Battery**
   - **Description**: Shows the current battery level of your tracker.
-- **Charging Status**
+- **Charging status**
   - **Description**: Indicates whether the tracker is currently charging.
 - **Flashlight**
   - **Description**: Allows you to turn on the flashlight of the tracker to help locate your pet in the dark.
+- **Sleep mode**
+  - **Description**: Allows you to control the sleep mode of the tracker to conserve battery.
   
 ## Prerequisites
 
