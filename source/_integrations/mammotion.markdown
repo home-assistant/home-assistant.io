@@ -33,9 +33,9 @@ Use your new account credentials in the the follw
 
 {% configuration_basic %}
 Email:
-description: Your Mammotion account email
+    description: Your Mammotion account email
 Password:
-description: Your Mammotion account password
+    description: Your Mammotion account password
 {% endconfiguration_basic %}
 
 ## Lawn mower
