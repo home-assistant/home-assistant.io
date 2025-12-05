@@ -2793,7 +2793,7 @@ Event `event_template_reloaded` is fired when Template entities have been reload
 
 This event has no additional data.
 
-## Legacy Template Deprecation Migration Guide
+## Legacy template deprecation migration guide
 
 Legacy template entities are deprecated and will be removed in Home Assistant 2026.6.0.  The deprecated template entities will produce a repair that guides you through the migration.
 
@@ -2892,27 +2892,27 @@ To get started with the migration:
 
     template:
     
-    # Migrated Sensor
+    # Migrated sensor
     - sensor:
       - default_entity_id: sensor.my_light_count
         name: Total lights on
         unique_id: sa892hfa9sdf8
         state: '{{ states.light | selectattr(''state'', ''eq'', ''on'') | list | count }}'
 
-    # Migrated Cover
+    # Migrated cover
     - cover:
       - default_entity_id: cover.garage
         name: Garage Cover
         state: '{{ is_state(''binary_sensor.relay'', ''on'') }}'
   
-    # Migrated Light
+    # Migrated light
     - light:
       - default_entity_id: light.skylight
         name: Skylight
         state: '{{ is_state(''binary_sensor.crank'', ''on'') }}'
     ```
 
-3. Restart Home Assistant or Reload Template Entities.
+3. Restart Home Assistant or reload template entities.
 
 ### Migrating a legacy sensor into an existing template section
 
@@ -3016,7 +3016,7 @@ To get started with the migration:
 
     **Note**: In this example, configuration.yaml already had a `template:` section.  When copying the yaml, make sure to avoid adding double `template:` sections.
 
-3. Restart Home Assistant or Reload Template Entities.
+3. Restart Home Assistant or reload template entities.
 
 ### Migrating a sensor from an included file to an included file
 
@@ -3117,4 +3117,4 @@ To get started with the migration:
 
     **Note**: In this example, configuration.yaml already has a `template: !include templates.yaml`.  When copying the yaml, make sure to avoid adding the `template:` section inside `templates.yaml`.
 
-3. Restart Home Assistant or Reload Template Entities.
+3. Restart Home Assistant or reload template entities.
