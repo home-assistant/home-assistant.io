@@ -2851,9 +2851,7 @@ To get started with the migration:
       baseoid: 1.3.6.1.4.1.2021.10.1.3.1
     ```
 
-    **Note:** If you are using `sensor: !include sensors.yaml` in `configuration.yaml`, remove the legacy definition from the included `sensors.yaml`.
-
-2. Add the modern syntax provided by the repair.
+1. Add the modern syntax provided by the repair.
 
     The repair would provide the following YAML.
   
@@ -2889,7 +2887,7 @@ To get started with the migration:
     ```
     {% endraw %}
 
-    **Note**: If you are migrating multiple template entities, ensure there is only 1 `template:` section.  Do not keep duplicate `template:` sections.
+    If you are migrating multiple template entities, ensure there is only 1 `template:` section.  Do not keep duplicate `template:` sections.
 
 {% raw %}
     ```yaml
@@ -2923,7 +2921,7 @@ To get started with the migration:
     ```
 {% endraw %}
 
-3. Restart Home Assistant or reload template entities.
+1. Restart Home Assistant or reload template entities.
 
 ### Migrating a legacy sensor into an existing template section
 
@@ -2993,12 +2991,6 @@ To get started with the migration:
     ```
 {% endraw %}
 
-    {% note %}
-
-    If you are using `sensor: !include sensors.yaml` in `configuration.yaml`, remove the legacy definition from the included `sensors.yaml`.
-
-    {% endnote %}
-
 1. Add the modern syntax provided by the repair.
 
     The repair would provide the following YAML.
@@ -3040,11 +3032,7 @@ To get started with the migration:
     ```
 {% endraw %}
 
-    {% note %}
-
     In this example, `configuration.yaml` already had a `template:` section.  When copying the YAML, make sure to avoid adding double `template:` sections.
-
-    {% endnote %}
 
 1. Restart Home Assistant or reload template entities.
 
@@ -3059,7 +3047,6 @@ Take the example configuration. It's a configuration that is split between 3 fil
 sensor: !include sensors.yaml
 template: !include templates.yaml
 ```
-
 
 {% raw %}
 ```yaml
@@ -3158,10 +3145,6 @@ To get started with the migration:
 
 {% endraw %}
 
-    {% note %}
-
     In this example, `configuration.yaml` already has a `template: !include templates.yaml`.  When copying the yaml, make sure to avoid adding the `template:` section inside `templates.yaml`.
-
-    {% endnote %}
 
 1. Restart Home Assistant or reload template entities.
