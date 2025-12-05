@@ -107,11 +107,11 @@ Home Assistant instance:
    - **Name**: "Home Assistant" (or any more descriptive name you prefer)
    - **Remote MCP Server URL**: `https://<your_home_assistant_url>/api/mcp`
    - Under advanced settings:
-     - **OAuth Client ID**: https://claude.ai
+     - **OAuth Client ID**: `https://claude.ai`
      - **OAuth Client Secret**: Leave this blank
 5. Click **OK**. Now click **Connect** next to the entry created with the name you provided above.
 6. Log in to your Home Assistant instance and allow the redirect back to Claude Desktop.
-7. You can now enable tools from Home Assistant when chatting with Claude, allowing you to control Home Assistant similar to how you would through the Voice Assistant. Claude will ask you for permission before calling any tools.
+7. You can now enable tools from Home Assistant when chatting with Claude, allowing you to control Home Assistant in a similar way to how you control it through the Voice Assistant. Claude will ask you for permission before calling any tools.
 
    ![Screenshot of Claude for Desktop adding an item to a Home Assistant To-do list](/images/integrations/mcp_server/claude-todo-list-control.png)
 
