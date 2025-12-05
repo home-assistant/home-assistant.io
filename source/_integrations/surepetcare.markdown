@@ -5,6 +5,7 @@ ha_category:
   - Binary sensor
   - Lock
   - Sensor
+  - Switch
 ha_release: 0.104
 ha_iot_class: Cloud Polling
 ha_codeowners:
@@ -16,12 +17,27 @@ ha_platforms:
   - binary_sensor
   - lock
   - sensor
+  - switch
 ha_integration_type: integration
 ---
 
-The Sure Petcare integration allows you to get information on your Sure Petcare Connect Pet or Cat Flap.
+The Sure Petcare integration allows you to manage your Sure Petcare Connect Pet or Cat Flap. You can control lock states, set indoor-only mode for specific pets, and track your pet's location.
 
 {% include integrations/config_flow.md %}
+
+## Supported functionality
+
+### Entities
+
+The **Sure Petcare** integration provides the following entities.
+
+### Switches
+
+- **{flap_name} - Indoor only**
+  - **Description**: Restricts a pet so they can enter the flap but cannot exit. This is useful for keeping your pet inside during certain times.
+  - **Available for**: Pets configured on flaps (Cat Flap, Pet Flap)
+  - **Enabled by default**: No
+  - **Remarks**: A switch is created for each pet and flap combination. Disabled by default to reduce clutter.
 
 
 ## Actions
