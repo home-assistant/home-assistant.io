@@ -29,17 +29,35 @@ Screenshot of the Dashboard list.
 
 ## Home Assistant built-in dashboards
 
-Home Assistant ships with some dashboards out of the box:
+**Built-in** dashboards are available out of the box, cannot be deleted, and there are limited options on how much you can edit them.
+
+### Dashboards shown in the sidebar by default
+
+Built-in dashboards that are available in the sidebar by default:
+
+- [Activity dashboard](#activity-dashboard) Category: built-in.
+- Energy dashboard. Category: built-in.
+- [History dashboard](#history-dashboard). Category: built-in.
+- [Map dashboard](#map-dashboard): Category: user-created. The Map dashboard is an exception: it is available out of the box, but you can edit it freely. This is why it is categorized as **User-created** dashboard.
+- [Overview dashboard](#creating-a-new-dashboard). Category: built-in.
+- [To-do lists dashboard](#to-do-lists-dashboard). Category: built-in.
+
+<p class='img'>
+<img src='/images/dashboards/dashboards-out-of-the-box.png' alt='Screenshot of the dashboard list on a new installation'>
+Screenshot of the Dashboard list on a new installation.
+</p>
+
+### Dashboards only shown in the dashboard list by default
+
+Some of the built-in dashboards are not shown in the sidebar by default, but are listed under {% my lovelace_dashboards title="**Settings** > **Dashboards**" %}.
 
 - [Home dashboard](#home-dashboard)
-- Energy dashboard
-- [History dashboard](#history-dashboard)
-- [Activity dashboard](#activity-dashboard)
-- [Map dashboard](#map-dashboard)
-- [Overview dashboard](#creating-a-new-dashboard)
-- [To-do lists dashboard](#to-do-lists-dashboard)
+- **Lights** dashboards: Overview of your lights, [grouped](/docs/organizing/) by [floors](/docs/organizing/floors/) and [areas](/docs/organizing/areas/).
+- **Security** dashboards: Overview of your security-related devices, [grouped](/docs/organizing/) by [floors](/docs/organizing/floors/) and [areas](/docs/organizing/areas/). The security-related devices include devices such as alarm, lock, camera, doors/covers, motion sensors, and binary sensor.
+- **Climate** dashboards: Overview of your climate devices, [grouped](/docs/organizing/) by [floors](/docs/organizing/floors/) and [areas](/docs/organizing/areas/). The climate dashboard includes devices such as heating and cooling devices, windows, and fans.
+- **Energy** dashboards: Allows you to visualize your energy consumption and production, if you have such entities available. This includes electricity from grid and from solar panels, gas and water consumption, and the status of your battery storage.
 
-Not all of the predefined dashboards are listed under {% my lovelace_dashboards title="**Settings** > **Dashboards**" %}. The **Activity** and **History** dashboards are powered by their respective integrations.
+Not all of the predefined dashboards are listed under {% my lovelace_dashboards title="**Settings** > **Dashboards**" %}. The **Activity** and **History** dashboards for example are powered by their respective integrations.
 
 ### Home dashboard
 
