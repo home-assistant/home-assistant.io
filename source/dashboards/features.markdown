@@ -321,7 +321,7 @@ type:
   type: string
 invert:
   required: false
-  description: The slider direction is inverted by default. If you don't want it in this way set this to `false`.
+  description: The slider direction is inverted by default. Set to `false` to disable the default inversion.
   type: boolean
   default: true
 {% endconfiguration %}
