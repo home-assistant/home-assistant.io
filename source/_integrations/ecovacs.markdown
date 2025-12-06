@@ -32,7 +32,7 @@ The `ecovacs` {% term integration %} is the main integration to integrate [Ecova
 
 ## Prerequisites
 
-You will need your Ecovacs account information (username, password) to discover and control vacuums and mowers in your account.
+You will need your Ecovacs account information (username, password) to discover and control vacuums and mowers in your account. Your username is your email address.
 
 Additional note: There are some issues during the password encoding. Using some special characters (e.g., `-`) in your password does not work.
 

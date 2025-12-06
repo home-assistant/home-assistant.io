@@ -1,23 +1,27 @@
 ---
-title: Saunum Leil
-description: Instructions on how to integrate Saunum Leil sauna control units into Home Assistant.
+title: Saunum
+description: Instructions on how to integrate Saunum sauna control units into Home Assistant.
 ha_iot_class: Local Polling
 ha_release: 2025.12
 ha_codeowners:
-  - "@mettolen"
+  - '@mettolen'
 ha_domain: saunum
 ha_integration_type: device
 ha_config_flow: true
-ha_quality_scale: bronze
+ha_quality_scale: silver
 related:
   - url: https://www.saunum.com/
     title: Saunum
   - url: https://saunum.com/en/product/control-devices/
     title: Saunum Leil product page
-
+ha_category: []
+ha_platforms:
+  - climate
+  - diagnostics
+  - light
 ---
 
-The **Saunum Leil** {% term integration %} integrates your [Saunum Leil](https://saunum.com/en/product/control-devices/) sauna control unit with Home Assistant. [Saunum](https://saunum.com/) is an Estonian company that creates advanced sauna heaters and control systems with smart features.
+The **Saunum** {% term integration %} integrates your [Saunum Leil](https://saunum.com/en/product/control-devices/) sauna control unit with Home Assistant. [Saunum](https://saunum.com/) is an Estonian company that creates advanced sauna heaters and control systems with smart features.
 
 With the Leil control unit, you can precisely control temperature, customize your sauna experience, and monitor your sauna's operation.
 
@@ -60,8 +64,22 @@ The Saunum Leil control unit natively operates in Celsius, even if Fahrenheit is
 
 1. **Turn on the session** by setting the **Sauna** climate entity to heat mode.
 2. **Adjust the target temperature** using climate entity temperature dial (40-100°C / 104-212°F).
+3. **Adjust the fan mode** (optional) to control the sauna air circulation fan speed.
 
 Once started, the sauna begins heating to the target temperature and automatically turns off after the configured duration. During an active session, you cannot change the sauna type, sauna duration, or fan duration settings.
+
+### Fan mode settings
+
+The sauna heater has a built-in ventilation fan that helps circulate air and maintain even temperature distribution. You can adjust the fan speed during an active sauna session using the climate entity's fan mode control:
+
+- **Off** (0): Fan is turned off
+- **Low** (1): Low fan speed
+- **Medium** (2): Medium fan speed
+- **High** (3): High fan speed
+
+{% note %}
+The fan mode can only be changed when a sauna session is active (heating mode is on). When the sauna is off, the fan mode setting is not available.
+{% endnote %}
 
 {% important %}
 Never leave a heating sauna unattended for extended periods. Always ensure proper ventilation and never place flammable materials near or on the sauna heater. Sauna surfaces, especially near the heater, can cause severe burns. Use caution when the sauna is hot.
@@ -76,13 +94,34 @@ When controlling your sauna remotely through Home Assistant:
 
 ## Supported functionality
 
-The **Saunum Leil** integration provides the following entities for controlling and monitoring your sauna.
+The **Saunum** integration provides the following entities for controlling and monitoring your sauna.
 
 ### Climate
 
 - **Sauna**
   - **Description**: Main climate control for your sauna, allowing you to set target temperature and control heating.
-  - **Features**: Temperature control, HVAC modes (off, heat).
+  - **Features**: Temperature control, HVAC modes (off, heat), fan mode (off, low, medium, high).
+
+### Light
+
+- **Sauna light**
+  - **Description**: Control the sauna lighting if light is connected to the control unit.
+  - **Features**: Turn the sauna light on or off.
+
+### Sensor
+
+- **Temperature**
+  - **Description**: Current temperature inside the sauna.
+  - **Unit**: °C (Celsius) or °F (Fahrenheit) depending on your Home Assistant unit system.
+
+- **Heater elements active**
+  - **Description**: Number of active heating elements (0-3).
+  - **Use case**: Monitor heating intensity and power consumption.
+
+- **On time**
+  - **Description**: Total accumulated operating time of the Leil touch screen control panel since last restart.
+  - **Unit**: Seconds
+  - **Note**: This sensor is disabled by default. Enable it in the entity settings if you want to track usage statistics.
 
 ## Supported devices
 
@@ -92,7 +131,7 @@ The following devices are known to be supported by the integration:
 
 ## Data updates
 
-The **Saunum Leil** integration {% term polling polls %} data from the control unit every 1 minute by default.
+The **Saunum** integration {% term polling polls %} data from the control unit every 1 minute by default.
 
 ## Known limitations
 

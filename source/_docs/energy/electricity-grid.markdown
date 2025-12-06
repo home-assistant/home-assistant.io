@@ -41,7 +41,7 @@ We are not currently aware of a device that implements this which supports a loc
 
 Many meters, including older ones, have an LED that will flash whenever energy passes through it. For example, each flash is a 1/1000th kWh. By monitoring the time between flashes it’s possible to determine the energy consumption.
 
-We have developed [Home Assistant Glow](https://github.com/klaasnicolaas/home-assistant-glow), an open source solution powered by ESPHome's [pulse meter sensor](https://esphome.io/components/sensor/pulse_meter.html). You put it on top of the activity LED of your electricity meter and it will bring your consumption into Home Assistant.
+We have developed [Home Assistant Glow](https://github.com/klaasnicolaas/home-assistant-glow), an open source solution powered by ESPHome's [pulse meter sensor](https://esphome.io/components/sensor/pulse_meter/). You put it on top of the activity LED of your electricity meter and it will bring your consumption into Home Assistant.
 
 ![Photo of Home Assistant Glow attached to an electricity meter](/images/docs/energy/home-assistant-glow.jpg)
 
@@ -53,7 +53,7 @@ The IEC62056-21 is a common protocol not only for electric meters. It uses an in
 
 #### Using (Smart Message Language) interface
 
-In countries like Germany, SML (Smart Message Language) is used typically. ESPHome's [SML (Smart Message Language)](https://esphome.io/components/sml.html) is one way to integrate it. If you prefer to integrate it via MQTT, [sml2mqtt](https://github.com/spacemanspiff2007/sml2mqtt) is another open source option.
+In countries like Germany, SML (Smart Message Language) is used typically. ESPHome's [SML (Smart Message Language)](https://esphome.io/components/sml/) is one way to integrate it. If you prefer to integrate it via MQTT, [sml2mqtt](https://github.com/spacemanspiff2007/sml2mqtt) is another open source option.
 
 #### Read the meter using an AI-on-the-edge-device
 

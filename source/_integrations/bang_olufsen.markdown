@@ -34,7 +34,9 @@ Devices that have been tested and _should_ work without any trouble are:
 - [Beosound Balance](https://www.bang-olufsen.com/en/dk/speakers/beosound-balance)
 - [Beosound Emerge](https://www.bang-olufsen.com/en/dk/speakers/beosound-emerge)
 - [Beosound Level](https://www.bang-olufsen.com/en/dk/speakers/beosound-level)
+- [Beosound Premiere](https://www.bang-olufsen.com/en/dk/soundbars/beosound-premiere)
 - [Beosound Theatre](https://www.bang-olufsen.com/en/dk/soundbars/beosound-theatre)
+- [Beoremote One](https://www.bang-olufsen.com/en/dk/accessories/beoremote-one) through paired devices
 
 and any other [Mozart](https://support.bang-olufsen.com/hc/en-us/articles/24766979863441-Which-platform-is-my-Connected-Audio-product-based-on) based products. This means all [Connected Speakers](https://www.bang-olufsen.com/en/dk/story/connected-speakers) that have been launched after 2020.
 
@@ -73,10 +75,12 @@ A number of features are available through the media player entity:
 
 ### Events
 
-Event entities are created for each of the physical controls on your device. These controls usually have their own behaviors, so using them for automations is not always ideal.
+#### Mozart device controls
+
+Event entities are created for each of the available physical controls on your device. These controls usually have their own behaviors, so using them for automations is not always ideal.
 Available event entities:
 
-- Bluetooth
+- Bluetooth (Not available on Beosound Premiere)
 - Microphone
 - Next
 - Play / Pause
@@ -95,7 +99,54 @@ All of these event entities support the following event types:
 - Very long press
 - Release of very long press
 
-All devices except the [Beoconnect Core](https://www.bang-olufsen.com/en/dk/accessories/beoconnect-core) support device controls.
+##### Button variations
+
+Many devices have the same button layout, but not all of them. These are the differences:
+
+- The [Beoconnect Core](https://www.bang-olufsen.com/en/dk/accessories/beoconnect-core) does not support device controls.
+- The [Beosound A9 5th gen](https://www.bang-olufsen.com/en/dk/speakers/beosound-a9) and the [Beosound Premiere](https://www.bang-olufsen.com/en/dk/soundbars/beosound-premiere) do not have Bluetooth or Microphone buttons
+- The [Beosound A5](https://www.bang-olufsen.com/en/dk/speakers/beosound-a5) does not have a Microphone button
+
+#### Beoremote One
+
+A Home Assistant device is created for each paired Beoremote One via their paired Mozart device. Event entities are created for each of the compatible keys on the remote. These event entities are disabled by default.
+
+Beoremote One devices are automatically added as they are detected.
+
+##### Triggering events
+
+There are 4 different types of key events:
+
+- Control functions
+- Control keys
+- Light functions
+- Light keys
+
+Functions can be accessed by pressing the `Right` key while either `Control` or `Light` are highlighted and can be triggered by pressing `Select`.
+
+Keys can be triggered by pressing the `Select` key while either `Control` or `Light` are highlighted, and then pressing one of the compatible keys. The `Select` press can also be skipped, by simply pressing one of the compatible keys while the desired submenu is highlighted.
+
+Each of these triggers have two different event states:
+
+- key_press
+- key_release
+
+In total, this amounts to 90 different remote key Event entities per remote.
+
+##### Configuring light and control functions
+
+A number of functions are available on the Beoremote One. These are available as `function` 1-17 for the **Light** submenu and 1-27 for the **Control** submenu.
+
+Only a subset of these functions are enabled by default. Change settings for the **Control** and **Light** submenus following these steps:
+
+- Press up and select the name of the currently selected paired device. This will show a list of the paired devices.
+- Select **Beovision**
+- Navigate to **Settings** > **Advanced** > **Light menu** / **Control menu**.
+  - Use the **Show** setting to change which functions are visible.
+  - Use the **Rename** setting to rename the visible functions.
+  - Use the **Move** setting to reorder the visible functions.
+
+The function names are not available to the Mozart device, so enable [debug logging](#diagnostics-and-troubleshooting) and trigger functions to see what function IDs are associated with which functions on the remote.
 
 ## Limitations
 
@@ -112,6 +163,12 @@ And more advanced app-centric features such as:
 - Creating stereo pairs
 - Adjusting specific sound settings
 - Pairing remotes
+
+### Beoremote One
+
+Several remote controls can be paired to the same Mozart device and are still created as Home Assistant devices and Event entities. These remote controls will trigger the same WebSocket notification, meaning that a press on remote A will also trigger Remote B's associated Event entity.
+
+This has the benefit of being able to trigger automations mapped to remote A with remote B, but also means that each Mozart device _only_ supports the 90 Event entities that a single remote provides.
 
 ## Actions
 
@@ -514,11 +571,19 @@ WebSocket notifications received from the device are fired as events in Home Ass
 
 To find Deezer playlist, album URIs, and user IDs for Deezer flows, the Deezer website has to be accessed. When navigating to an album, the URL will look something like: <https://www.deezer.com/en/album/ALBUM_ID>, and this needs to be converted to: `album:ALBUM_ID` and the same applies to playlists, which have the format: `playlist:PLAYLIST_ID`.
 
-Additionally a Deezer user ID can be found at <https://www.deezer.com/en/profile/USER_ID> by selecting the active user in a web browser.
+Deezer user IDs can be found at <https://www.deezer.com/en/profile/USER_ID> by selecting the active user in a web browser.
+
+Additionally, Deezer IDs for currently playing tracks can be found in the `media_content_id` attribute in the `media_player` entity.
 
 ### Getting Tidal URIs
 
 Tidal playlists, album URIs and track IDs are available via the Tidal website. When navigating to an album, the URL will look something like <https://listen.tidal.com/album/ALBUM_ID/>, and this needs to be converted to `album:ALBUM_ID`. The same applies to playlists, which have the format `playlist:PLAYLIST_ID`. Individual tracks can be found by sharing the track and selecting the `Copy track link` method, which should yield a link of the format <https://tidal.com/browse/track/TRACK_ID?u>, this can be played by extracting the track id `TRACK_ID`.
+
+Additionally, Tidal IDs for currently playing tracks can be found in the `media_content_id` attribute in the `media_player` entity.
+
+### Getting B&O Radio station IDs
+
+Radio station IDs for currently playing stations can be found in the `media_content_id` attribute in the `media_player` entity.
 
 ### Beolink
 
