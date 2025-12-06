@@ -311,6 +311,7 @@ Widget that displays a slider to control the position for a [cover](/integration
 ```yaml
 features:
   - type: "cover-position"
+    invert: false    
 ```
 
 {% configuration features %}
@@ -318,6 +319,11 @@ type:
   required: true
   description: "`cover-position`"
   type: string
+invert:
+  required: false
+  description: The slider direction is inverted by default. If you don't want it in this way set this to `false`.
+  type: boolean
+  default: true
 {% endconfiguration %}
 
 ## Cover tilt
