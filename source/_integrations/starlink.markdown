@@ -26,7 +26,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The Starlink integration allows you to integrate your [Starlink](https://www.starlink.com/) into Home Assistant.
+The Starlink {% term integration %} allows you to integrate your [Starlink](https://www.starlink.com/) into Home Assistant.
 
 **Important:** If your Starlink is in bypass mode, you will need to open a route to it so that the local API can be accessed. Otherwise this integration will not work.
 
