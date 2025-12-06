@@ -35,7 +35,7 @@ The **Sure Petcare** integration provides the following entities.
 
 - **{flap_name} - Indoor only**
   - **Description**: Restricts a pet so they can enter the flap but cannot exit. This is useful for keeping your pet inside during certain times.
-  - **Available for**: Pets configured on flaps (Cat Flap, Pet Flap)
+  - **Available for**: Pets configured on flaps (Cat Flap, Pet Flap).
   - **Enabled by default**: No
   - **Remarks**: A switch is created for each pet and flap combination. Disabled by default to reduce clutter.
 
