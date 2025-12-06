@@ -18,7 +18,7 @@ api: Gmail API
 api_link: https://console.cloud.google.com/apis/library/gmail.googleapis.com
 ---
 
-The Google Mail integration allows you to connect your [Google Mail](https://mail.google.com) to Home Assistant. The integration adds an action to allow you to set an email auto-response for when you go on vacation. A `notify` action is also added, allowing you to draft or send emails in plain text.
+The Google Mail {% term integration %} allows you to connect your [Google Mail](https://mail.google.com) to Home Assistant. The integration adds an action to allow you to set an email auto-response for when you go on vacation. A `notify` action is also added, allowing you to draft or send emails in plain text.
 
 ## Prerequisites
 
