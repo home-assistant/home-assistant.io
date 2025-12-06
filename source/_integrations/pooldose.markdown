@@ -3,7 +3,6 @@ title: SEKO PoolDose
 description: Connect your SEKO PoolDose water treatment system to Home Assistant.
 ha_category:
   - Binary sensor
-  - Number
   - Sensor
   - Switch
   - Water Management
@@ -15,7 +14,6 @@ ha_codeowners:
 ha_domain: pooldose
 ha_platforms:
   - binary_sensor
-  - number
   - sensor
   - switch
 ha_integration_type: integration
@@ -23,7 +21,7 @@ ha_quality_scale: bronze
 ha_dhcp: true
 ---
 
-The PoolDose integration connects a [SEKO](https://www.seko.com/) water treatment system with Home Assistant. SEKO is a manufacturer of various monitoring and control devices for pools and spas.
+The PoolDose {% term integration %} connects a [SEKO](https://www.seko.com/) water treatment system with Home Assistant. SEKO is a manufacturer of various monitoring and control devices for pools and spas.
 
 This integration uses an undocumented local HTTP API. It provides live readings for pool sensors such as temperature, pH, ORP/Redox, alarm status, relay states, as well as configuration parameters.
 
@@ -124,26 +122,6 @@ This integration provides the following entities.
   - **Unit**: mV
 - **ORP calibration slope**: ORP calibration slope value.
   - **Unit**: mV
-- **Totalizer**: Total water volume accumulated.
-  - **Unit**: L, m³
-
-### Numbers
-
-- **pH target**: Target pH value for automatic dosing control.
-- **ORP target**: Target ORP (Redox) value for automatic dosing control.
-  - **Unit**: mV
-- **Chlorine target**: Target chlorine concentration for automatic dosing control.
-  - **Unit**: ppm
-- **pH overfeed alarm lower limit**: Lower threshold for pH overfeed detection.
-- **pH overfeed alarm upper limit**: Upper threshold for pH overfeed detection.
-- **ORP overfeed alarm lower limit**: Lower threshold for ORP overfeed detection.
-  - **Unit**: mV
-- **ORP overfeed alarm upper limit**: Upper threshold for ORP overfeed detection.
-  - **Unit**: mV
-- **Chlorine overfeed alarm lower limit**: Lower threshold for chlorine overfeed detection.
-  - **Unit**: ppm
-- **Chlorine overfeed alarm upper limit**: Upper threshold for chlorine overfeed detection.
-  - **Unit**: ppm
 
 ### Switches
 

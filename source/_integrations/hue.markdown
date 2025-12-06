@@ -24,7 +24,7 @@ ha_zeroconf: true
 ha_integration_type: hub
 ---
 
-The Philips Hue integration allows you to control and monitor the lights and sensors connected to your Hue bridge.
+The Philips Hue {% term integration %} allows you to control and monitor the lights and sensors connected to your Hue bridge.
 
 There is currently support for the following device types within Home Assistant:
 

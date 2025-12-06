@@ -22,7 +22,7 @@ ha_integration_type: integration
 ha_config_flow: true
 ---
 
-The `geniushub` integration links Home Assistant with your Genius Hub CH/DHW system, including its zones, devices, and issues.
+The `geniushub` {% term integration %} links Home Assistant with your Genius Hub CH/DHW system, including its zones, devices, and issues.
 
 It uses the [geniushub](https://pypi.org/project/geniushub-client/) client library, which provides data compatible with the v1 API that _may not_ exactly match that of the official Web App.
 

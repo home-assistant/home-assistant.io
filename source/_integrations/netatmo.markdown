@@ -37,7 +37,7 @@ ha_platforms:
 ha_integration_type: hub
 ---
 
-The Netatmo integration platform is the main integration to integrate all Netatmo related platforms.
+The Netatmo {% term integration %} platform is the main integration to integrate all Netatmo related platforms.
 
 There is currently support for the following device types within Home Assistant:
 

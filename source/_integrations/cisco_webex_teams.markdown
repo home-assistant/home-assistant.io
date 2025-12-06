@@ -25,7 +25,7 @@ To use this notification platform you will need an app (bot) token. To obtain a 
 
 You also need to specify the `room_id` that you wish to post messages into. The `room_id` can be found in one of three ways:
 
-1. Logging in at [Cisco Webex for Developers](https://developer.webex.com/) and navigate to `Documentation`>`API Reference`>`Messages` and select List Messages, or
+1. Logging in at [Cisco Webex for Developers](https://developer.webex.com/) and navigate to `Documentation`>`Webex Messaging`>`All APIs`>`Messages` and select List Messages.
 2. Log into the web client at [web.webex.com](https://web.webex.com/),
     - select the room (or create a new room),
     - then copying the room ID from the URL.

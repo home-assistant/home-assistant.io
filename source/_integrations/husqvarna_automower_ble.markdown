@@ -16,7 +16,7 @@ ha_integration_type: integration
 ha_domain: husqvarna_automower_ble
 ---
 
-The Husqvarna Automower BLE integration provides connectivity with Husqvarna Automowers lawn mowers via a local Bluetooth connection. This allows connecting and controlling an Automower without any accounts, cloud, or network connection.
+The Husqvarna Automower BLE {% term integration %} provides connectivity with Husqvarna Automowers lawn mowers via a local Bluetooth connection. This allows connecting and controlling an Automower without any accounts, cloud, or network connection.
 
 The integration is based on [AutoMower-BLE](https://github.com/alistair23/AutoMower-BLE), an unofficial reverse engineered Husqvarna Automower Connect BLE library.
 
