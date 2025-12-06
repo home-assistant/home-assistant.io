@@ -337,11 +337,10 @@ This example sends a notification with a camera thumbnail when motion is detecte
 alias: "Motion detection with image"
 description: "Sends a notification with camera snapshot when motion is detected."
 triggers:
-  - entity_id:
-      - binary_sensor.g4_instant_motion # Replace with your camera entity
+  - entity_id: binary_sensor.g4_instant_motion # Replace with your camera entity
     trigger: state
-    from: "off"
-    to: "on"
+    from: off
+    to: on
 actions:
   - delay:
       seconds: 2
@@ -351,7 +350,6 @@ actions:
         image: >-
           {% raw %}/api/unifiprotect/thumbnail/{{ config_entry_id(trigger.entity_id) }}/{{ trigger.to_state.attributes.event_id }}{% endraw %}
     action: notify.mobile_app_your_device # Replace with your notification target
-mode: single
 ```
 
 ### Example notification automation with video
