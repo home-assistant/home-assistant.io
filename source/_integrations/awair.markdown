@@ -16,7 +16,7 @@ ha_integration_type: integration
 ha_zeroconf: true
 ---
 
-The Awair integration will fetch data from your [Awair devices](https://getawair.com).
+The Awair {% term integration %} will fetch data from your [Awair devices](https://getawair.com).
 
 ## Prerequisites
 
