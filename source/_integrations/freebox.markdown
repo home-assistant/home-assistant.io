@@ -27,7 +27,7 @@ ha_zeroconf: true
 ha_integration_type: integration
 ---
 
-The `freebox` integration allows you to observe and control [Freebox router](https://www.free.fr/freebox/).
+The `freebox` {% term integration %} allows you to observe and control [Freebox router](https://www.free.fr/freebox/).
 
 There is currently support for the following device types within Home Assistant:
 
