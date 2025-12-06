@@ -25,7 +25,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `starline` integration lets you retrieve data of your [StarLine](https://www.alarmstarline.com/) security system from the [StarLine portal](https://my.starline.ru/). You will need a working StarLine account.
+The `starline` {% term integration %} lets you retrieve data of your [StarLine](https://www.alarmstarline.com/) security system from the [StarLine portal](https://my.starline.ru/). You will need a working StarLine account.
 
 This integration provides the following platforms:
 
