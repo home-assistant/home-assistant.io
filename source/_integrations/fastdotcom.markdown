@@ -17,7 +17,7 @@ ha_platforms:
 ha_integration_type: service
 ---
 
-The `fastdotcom` integration uses the [Fast.com](https://fast.com/) web service to measure network bandwidth performance.
+The `fastdotcom` {% term integration %} uses the [Fast.com](https://fast.com/) web service to measure network bandwidth performance.
 
 {% note %}
 Currently, the Fast.com integration only supports measuring download bandwidth.
