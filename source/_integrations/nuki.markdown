@@ -19,7 +19,7 @@ ha_dhcp: true
 ha_integration_type: integration
 ---
 
-The Nuki integration allows you to control [Nuki Smart Locks](https://nuki.io/en/smart-lock/) via a [Nuki Bridge](https://help.nuki.io/hc/en-001/sections/360004474718-Bridge). 
+The Nuki {% term integration %} allows you to control [Nuki Smart Locks](https://nuki.io/en/smart-lock/) via a [Nuki Bridge](https://help.nuki.io/hc/en-001/sections/360004474718-Bridge). 
 Many Nuki Smart Locks also support [local integrations](#local-integration-alternatives) using a different integration. 
 
 ## Prerequisites
