@@ -25,7 +25,7 @@ related:
     title: Configuration file
 ---
 
-The **CalDAV** integration allows you to connect your WebDAV calendar to Home Assistant
+The **CalDAV** {% term integration %} allows you to connect your WebDAV calendar to Home Assistant
 as one of these entity types:
 
 - A [calendar](/integrations/calendar) entity which can be used to trigger automations based on the start or end of an event using criteria such as the event name or description.
