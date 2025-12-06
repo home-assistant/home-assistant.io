@@ -11,6 +11,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@engrbm87'
   - '@JPHutchins'
+  - '@andrew-codechimp'
 ha_domain: transmission
 ha_platforms:
   - sensor
