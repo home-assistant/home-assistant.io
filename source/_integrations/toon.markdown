@@ -20,7 +20,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The Toon integration platform can be used to control your Quby Toon thermostat,
+The Toon {% term integration %} platform can be used to control your Quby Toon thermostat,
 which is currently being sold as:
 
 - Eneco Toon
