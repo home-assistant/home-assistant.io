@@ -3,31 +3,19 @@ title: Lytiva
 description: Instructions on how to integrate Lytiva devices with Home Assistant.
 ha_category:
   - Light
-  - Switch
-  - Cover
-  - Climate
-  - Fan
-  - Sensor
-  - Binary Sensor
-  - Scene
 ha_release: 2025.2
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
-  - '@lytiva'
+  - '@convasys'
 ha_domain: lytiva
 ha_platforms:
-  - binary_sensor
-  - climate
-  - cover
-  - fan
   - light
-  - scene
-  - sensor
-  - switch
 ---
 
 The **Lytiva** integration allows you to control Lytiva smart home devices through Home Assistant via MQTT.
+
+- Currently, this integration supports **light** devices. Additional platforms (switch, cover, climate, fan, sensor, binary sensor, and scene) will be added in future updates.
 
 ## Prerequisites
 
@@ -47,63 +35,32 @@ The Lytiva integration is configured via the Home Assistant user interface.
 4. Enter your MQTT broker details:
    - **MQTT Broker**: IP address or hostname of your MQTT broker
    - **Port**: MQTT broker port (default: 1883)
-   - **Username**: MQTT username (if you have !)
-   - **Password**: MQTT password (if you have !)
+   - **Username**: MQTT username (optional)
+   - **Password**: MQTT password (optional)
 5. Click **Submit**
 
-Home Assistant will automatically discover your Lytiva devices via MQTT discovery.
+Home Assistant will automatically discover your Lytiva light devices via MQTT discovery.
 
 ## Supported Devices
 
-The Lytiva integration supports the following device types:
-
 ### Lights
+
+The Lytiva integration currently supports light devices with the following features:
+
 - On/Off control
 - Brightness adjustment
-- Color temperature control (if supported by device)
 - RGB color control (if supported by device)
-- State monitoring
+- Color temperature control (if supported by device)
 
-### Switches
-- On/Off control
-- State monitoring
-
-### Covers
-- Open/Close/Stop control
-- Position control
-- State monitoring
-
-### Climate
-- Temperature control
-- HVAC mode selection
-- On/Off control
-- State monitoring
-
-### Fans
-- On/Off control
-- Speed control
-- State monitoring
-
-### Sensors
-- Temperature & humidity sensors
-- CO2 sensors
-- lux sensors
-
-### Binary Sensors
-- Human presence sensors
-- In-Out sensors
-- Parking sensors
-
-### Scenes
-- Scene activation
+- Additional device types (switches, covers, climate controls, fans, sensors, and scenes) will be added in future releases.
 
 ## MQTT Topics
 
 Lytiva uses the following MQTT topic structure:
 
-- **Discovery**: `homeassistant/{platform}/{device_id}/config`
-- **Status**: `LYT/{address}/NODE/E/STATUS` or `LYT/{address}/GROUP/E/STATUS` or `LYT/{address}/SCENE/E/STATUS`
-- **Command**: `LYT/{address}/NODE/CONTROL` or `LYT/{address}/GROUP/CONTROL` or `LYT/{address}/SCENE/CONTROL`
+- **Discovery**: `homeassistant/light/{device_id}/config`
+- **Status**: `LYT/{address}/NODE/E/STATUS` or `LYT/{address}/GROUP/E/STATUS`
+- **Command**: `LYT/{address}/NODE/E/COMMAND` or `LYT/{address}/GROUP/E/COMMAND`
 
 ## Options
 
@@ -134,37 +91,40 @@ automation:
 ```
 {% endraw %}
 
-### Control Lytiva cover based on temperature
+### Set light color based on time of day
 
 {% raw %}
 ```yaml
 automation:
-  - alias: "Close covers when hot"
+  - alias: "Warm light in evening"
     trigger:
-      - platform: numeric_state
-        entity_id: sensor.lytiva_temperature
-        above: 30
+      - platform: time
+        at: "18:00:00"
     action:
-      - service: cover.close_cover
+      - service: light.turn_on
         target:
-          entity_id: cover.lytiva_bedroom_curtain
+          entity_id: light.lytiva_bedroom
+        data:
+          brightness: 180
+          color_temp: 370
 ```
 {% endraw %}
 
-### Activate a Lytiva scene
+### Turn off all Lytiva lights at bedtime
 
 {% raw %}
 ```yaml
 automation:
-  - alias: "Movie time scene"
+  - alias: "Bedtime - turn off all lights"
     trigger:
-      - platform: state
-        entity_id: media_player.living_room_tv
-        to: "playing"
+      - platform: time
+        at: "23:00:00"
     action:
-      - service: scene.turn_on
+      - service: light.turn_off
         target:
-          entity_id: scene.lytiva_movie_mode
+          entity_id: all
+        data:
+          entity_id: "light.lytiva_*"
 ```
 {% endraw %}
 
@@ -173,15 +133,14 @@ automation:
 ### Devices not discovered
 
 1. Verify your MQTT broker is running and accessible
-2. Check that Lytiva devices are publishing discovery messages
+2. Check that Lytiva devices are publishing discovery messages to the correct topics
 3. Verify the discovery prefix matches (default: `homeassistant`)
 
 ### Devices not responding to commands
 
 1. Verify MQTT broker connectivity
 2. Check that devices are subscribed to command topics
-3. Verify username/password if authentication is enabled
-4. Check device-specific logs for errors
+3. Verify username/password if authentication is enabled on your MQTT broker
 
 ## Removing the integration
 
@@ -192,6 +151,18 @@ automation:
 5. Confirm deletion
 
 All Lytiva devices and entities will be removed from Home Assistant.
+
+## Future Updates
+
+The following platforms are planned for future releases:
+
+- Switch
+- Cover
+- Climate
+- Fan
+- Sensor
+- Binary Sensor
+- Scene
 
 ## Support
 
