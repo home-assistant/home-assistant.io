@@ -12,7 +12,7 @@ ha_integration_type: integration
 ha_quality_scale: legacy
 ---
 
-This integration adds interaction with [Minio](https://min.io).
+This {% term integration %} adds interaction with [Minio](https://min.io).
 It also enables listening for bucket notifications: [see documentation](https://docs.min.io/docs/minio-client-complete-guide.html#watch)
 
 To download or upload files, folders must be added to [allowlist_external_dirs](/integrations/homeassistant/#allowlist_external_dirs).
