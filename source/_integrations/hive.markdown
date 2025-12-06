@@ -27,7 +27,7 @@ ha_integration_type: integration
 ha_homekit: true
 ---
 
-The Hive integration for Home Assistant allows you to interact with supported devices and services offered by
+The Hive {% term integration %} for Home Assistant allows you to interact with supported devices and services offered by
 [hivehome.com](https://www.hivehome.com)
 
 This Hive integration uses the same username and password you use on the [Hive website](https://sso.hivehome.com) to configure it within Home Assistant. 2FA authentication must be enabled to use this integration. Once configured, Home Assistant will detect and add all Hive devices, including support for multi-zone heating.
