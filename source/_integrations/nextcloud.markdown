@@ -18,7 +18,7 @@ ha_platforms:
 ha_integration_type: service
 ---
 
-The `nextcloud` integration pulls summary [Nextcloud](https://nextcloud.com/) information into Home Assistant.
+The `nextcloud` {% term integration %} pulls summary [Nextcloud](https://nextcloud.com/) information into Home Assistant.
 
 The integration provides sensors and binary sensors for most of the data points that the built-in Nextcloud [serverinfo app](https://github.com/nextcloud/serverinfo) provides.
 
