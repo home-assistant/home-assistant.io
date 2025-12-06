@@ -38,7 +38,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The Teslemetry integration exposes various commands and sensors from the Tesla vehicles and energy sites connected to a [Teslemetry](https://teslemetry.com/) subscription.
+The Teslemetry {% term integration %} exposes various commands and sensors from the Tesla vehicles and energy sites connected to a [Teslemetry](https://teslemetry.com/) subscription.
 
 ## Prerequisites
 

@@ -28,7 +28,7 @@ related:
 ha_quality_scale: platinum
 ---
 
-The **Bring!** integration allows you to sync your [Bring!](https://www.getbring.com/) shopping lists with Home Assistant.
+The **Bring!** {% term integration %} allows you to sync your [Bring!](https://www.getbring.com/) shopping lists with Home Assistant.
 
 ## About Bring!  
 
