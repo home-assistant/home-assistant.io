@@ -12,7 +12,7 @@ ha_domain: input_datetime
 ha_integration_type: helper
 ---
 
-The `input_datetime` integration allows the user to define date and time values
+The `input_datetime` {% term integration %} allows the user to define date and time values
 that can be controlled via the frontend and can be used within automations and
 templates.
 
