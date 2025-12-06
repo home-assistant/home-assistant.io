@@ -19,7 +19,7 @@ related:
     title: Google Developers Console
 ---
 
-The **Google Photos** integration allows you to upload photos to your [Google Photos](https://photos.google.com/) using Home Assistant. The integration adds an action for uploading photos and a
+The **Google Photos** {% term integration %} allows you to upload photos to your [Google Photos](https://photos.google.com/) using Home Assistant. The integration adds an action for uploading photos and a
 [media source](/integrations/media_source) to view or cast the content uploaded by
 Home Assistant. This integration does not give Home Assistant access to your
 entire Google Photos library.
