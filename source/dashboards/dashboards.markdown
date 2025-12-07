@@ -127,7 +127,7 @@ embedding them into a Home Assistant dashboard.
 
 ## Setting a default dashboard
 
-The default dashboard is the dashboard that is shown when you open Home Assistant.
+The default dashboard is the dashboard that is shown when you open Home Assistant. It is listed on top of the sidebar.
 
 - If you have administrator rights, you can set an initial default dashboard for all users.
    1. Go to {% my lovelace_dashboards title="**Settings** > **Dashboards**" %}.
@@ -142,6 +142,8 @@ The default dashboard is the dashboard that is shown when you open Home Assistan
    2. On the **General** tab, under **Dashboard**, select your default dashboard.
 
       ![Changing your own default dashboard](/images/dashboards/dashboard-change-your-default.png)
+   3. If you want your wall tablet to use a different dashboard than your other devices, use a separate user profile for your wall tablet.
+      - If you set your phone to one dashboard and your wall tablet to another, using the same user, they’ll both revert to the default dashboard.
 
 ## Creating a new dashboard
 
