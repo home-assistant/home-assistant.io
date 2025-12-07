@@ -66,7 +66,6 @@ Use this automation to keep an eye on sudden peaks in your electricity usage. Wh
 ```yaml
 alias: "Powerfox high usage alert"
 description: "Notify me when the Powerfox meter reports sustained high power draw."
-mode: single
 triggers:
   - trigger: numeric_state
     entity_id: sensor.poweropti_power
@@ -123,7 +122,7 @@ It will create the following sensors:
 
 {% details "Cost sensors stay at zero" %}
 
-Powerfox only publishes currency fields when a tariff are configured in their App. Set the tariff inside the Powerfox app, then wait for the next report; the Home Assistant sensors will populate once the API exposes those fields.
+Powerfox only publishes currency fields when a tariffs are configured in their app. Set the tariff inside the Powerfox app, then wait for the next report; the Home Assistant sensors will populate once the API exposes those fields.
 {% enddetails %}
 
 ## Removing the integration
