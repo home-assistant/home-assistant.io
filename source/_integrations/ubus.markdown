@@ -34,7 +34,7 @@ Edit the `/etc/config/rpcd` and add the following lines:
 ```yaml
 config login
         option username 'hass'
-        option password '$p$hass'
+        option password '$p$hass' # This is just a placeholder, don't specify an actual password here, do it with passwd as described below.
         list read hass
         list read unauthenticated
         list write hass
@@ -69,6 +69,17 @@ Check if the `file` namespaces is registered with the RPC server.
 # ubus list | grep file
 file
 ```
+
+Specify the password for the new hass user by running
+```bash
+# passwd hass
+Changing password for hass
+New password: 
+Retype password: 
+passwd: password for hass changed by root
+/etc/init.d/rpcd restart
+```
+
 
 After this is done, add the following to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
