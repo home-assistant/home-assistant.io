@@ -18,7 +18,7 @@ ha_config_flow: true
 
 The **Entur** {% term integration %} provides real-time departure information for public transport in Norway, including bus stops, car ferry quays, train stations, airports, and passenger ferry quays.
 
-For each stop place you configure, the integration creates a {% term sensor %} that shows the remaining minutes until the next departure. The sensor {% term attributes %} include additional upcoming departures, whether the departure times are monitored in real-time or based on scheduled times, and any delay information.
+For each stop place you configure, the integration creates a {% term sensor %} that shows the remaining minutes until the next departure. The sensor attributes include additional upcoming departures, whether the departure times are monitored in real-time or based on scheduled times, and any delay information.
 
 Real-time data is fetched from [Entur](https://www.entur.no), a service that collects and delivers information about all public transport available in Norway under an [open source license](https://data.norge.no/nlod/no).
 
@@ -38,13 +38,13 @@ Stop IDs:
 Expand platforms:
   description: If additional sensors should be created for each platform under a stop place.
 Show on map:
-  description: If platform locations should be added to the {% term sensor %} {% term attributes %} for map display.
+  description: If platform locations should be added to the {% term sensor %} attributes for map display.
 Line whitelist:
   description: List of lines to filter. Only departures for these specific line IDs will be shown. Leave empty for all lines.
 Omit non-boarding:
   description: Hide departures where boarding is not allowed (for example, last stop).
 Number of departures:
-  description: The number of upcoming departures to include in the {% term sensor %} {% term attributes %} (2-10).
+  description: The number of upcoming departures to include in the {% term sensor %} attributes (2-10).
 {% endconfiguration_basic %}
 
 ## Example stop IDs
@@ -84,7 +84,7 @@ The stop ID is the content after `id=` parameter in the URL. Copy this into the 
 
 **Q:** Where do I find a line ID to add to the whitelist?
 
-**A:** The {% term sensor %} shows the line ID in its {% term attributes %}, which is the recommended way to find it. You can also see the line IDs by using the developer tools in your browser while looking at the network traffic on [Entur's travel planner](https://entur.no).
+**A:** The {% term sensor %} shows the line ID in its attributes, which is the recommended way to find it. You can also see the line IDs by using the developer tools in your browser while looking at the network traffic on [Entur's travel planner](https://entur.no).
 
 ## YAML configuration (deprecated)
 
