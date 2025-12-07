@@ -16,14 +16,14 @@ ha_quality_scale: bronze
 ha_config_flow: true
 ---
 
-The Entur integration gives real-time departure information for the next departures from any bus stop, car ferry quay, train station, airport and person ferries quay in Norway.
+The **Entur** {% term integration %} provides real-time departure information for public transport in Norway, including bus stops, car ferry quays, train stations, airports, and passenger ferry quays.
 
-For each stop place given in the configuration, a sensor will be created for that stop place. It will give remaining minutes until the nearest departure in the state, but also next departures in the attributes. Information about if the departure is monitored in real-time or is from scheduled times, and how many minutes there is in delays, are included as well.
+For each stop place you configure, the integration creates a {% term sensor %} that shows the remaining minutes until the next departure. The sensor {% term attributes %} include additional upcoming departures, whether the departure times are monitored in real-time or based on scheduled times, and any delay information.
 
-Real-time data is fetched from [Entur](https://www.entur.no). Entur is a service which collects and delivers information about all public transport available in Norway under an [open source license](https://data.norge.no/nlod/no).
+Real-time data is fetched from [Entur](https://www.entur.no), a service that collects and delivers information about all public transport available in Norway under an [open source license](https://data.norge.no/nlod/no).
 
 {% note %}
-The underlying API is rate limited. To avoid getting your instance blocked from Entur, the sensor only fetches new information every 45 seconds.
+The underlying API is rate limited. To avoid getting your instance blocked from Entur, the {% term sensor %} only fetches new information every 45 seconds.
 {% endnote %}
 
 {% include integrations/config_flow.md %}
@@ -34,17 +34,17 @@ The following options can be configured when setting up the integration or chang
 
 {% configuration_basic %}
 Stop IDs:
-  description: List of stop places or platforms to monitor departure times from (e.g., `NSR:StopPlace:337` or `NSR:Quay:7203`).
+  description: List of stop places or platforms to monitor departure times from (for example, `NSR:StopPlace:337` or `NSR:Quay:7203`).
 Expand platforms:
   description: If additional sensors should be created for each platform under a stop place.
 Show on map:
-  description: If platform locations should be added to the sensor attributes for map display.
+  description: If platform locations should be added to the {% term sensor %} {% term attributes %} for map display.
 Line whitelist:
   description: List of lines to filter. Only departures for these specific line IDs will be shown. Leave empty for all lines.
 Omit non-boarding:
-  description: Hide departures where boarding is not allowed (e.g., last stop).
+  description: Hide departures where boarding is not allowed (for example, last stop).
 Number of departures:
-  description: The number of upcoming departures to include in the sensor attributes (2-10).
+  description: The number of upcoming departures to include in the {% term sensor %} {% term attributes %} (2-10).
 {% endconfiguration_basic %}
 
 ## Example stop IDs
@@ -72,24 +72,24 @@ The stop ID is the content after `id=` parameter in the URL. Copy this into the 
 
 **Q:** I have multiple stop IDs and have added a line whitelist. Now some of the stop places are showing `unknown`.
 
-**A:** A line whitelist takes effect on all stops. You need to whitelist all lines you are interested in across all stop places.
+**A:** The line whitelist applies to all stops. You need to whitelist all lines you are interested in across all stop places.
 
 ---
 
 **Q:** I have added a line whitelist and everything worked fine before, but now it has stopped updating.
 
-**A:** Some transport companies, such as Kolumbus in Rogaland, have running numbers on the end of their line IDs. These get periodically updated and will invalidate the whitelist. The new line IDs need to be added again. Most of the time it iterates by one.
+**A:** Some transport companies, such as Kolumbus in Rogaland, have running numbers at the end of their line IDs. These get periodically updated and will invalidate the whitelist. You need to add the new line IDs again. Most of the time the number increments by one.
 
 ---
 
 **Q:** Where do I find a line ID to add to the whitelist?
 
-**A:** The sensor will show the line ID in its attributes, which is the recommended way to find it. It is also possible to see the line IDs by using the developer tools in your browser while looking at the network traffic on [Entur's travel planner](https://entur.no).
+**A:** The {% term sensor %} shows the line ID in its {% term attributes %}, which is the recommended way to find it. You can also see the line IDs by using the developer tools in your browser while looking at the network traffic on [Entur's travel planner](https://entur.no).
 
 ## YAML configuration (deprecated)
 
 {% warning %}
-YAML configuration is deprecated and will be removed in a future release of Home Assistant. Please migrate to the UI configuration by removing the YAML configuration and setting up the integration through **Settings** > **Devices & Services** > **Add Integration**.
+YAML configuration is deprecated and will be removed in a future release of Home Assistant. Please migrate to the UI configuration by removing the YAML configuration and setting up the integration through {% my integrations title="**Settings** > **Devices & services**" %}.
 {% endwarning %}
 
 If you are still using YAML configuration, the following options are available:
@@ -99,8 +99,8 @@ If you are still using YAML configuration, the following options are available:
 sensor:
   - platform: entur_public_transport
     stop_ids:
-      - 'STOP_ID_1'
-      - 'STOP_ID_2'
+      - "YOUR_STOP_ID_1"
+      - "YOUR_STOP_ID_2"
 ```
 
 {% configuration %}
@@ -119,21 +119,21 @@ expand_platforms:
   type: boolean
   default: true
 show_on_map:
-  description: If platform locations should be added to the sensor, and the map.
+  description: If platform locations should be added to the sensor attributes and the map.
   required: false
   type: boolean
   default: false
 line_whitelist:
-  description: List of lines that should be whitelisted in the resulting sensors, and will only show when the defined lines are expected to leave the platform or station.
+  description: List of lines to whitelist. Only departures for these specific lines will be shown.
   required: false
   type: list
 omit_non_boarding:
-  description: If the sensors should remove resulting departures that don't take new passengers, or is at last stop.
+  description: Hide departures where boarding is not allowed, for example at the last stop.
   required: false
   type: boolean
   default: true
 number_of_departures:
-  description: The number of departures that should be shown in the sensor attributes. Maximum 10, Minimum 2.
+  description: The number of departures to show in the sensor attributes. Minimum 2, maximum 10.
   required: false
   type: integer
   default: 2
