@@ -12,7 +12,7 @@ ha_domain: entur_public_transport
 ha_platforms:
   - sensor
 ha_integration_type: service
-ha_quality_scale: bronze
+ha_quality_scale: legacy
 ha_config_flow: true
 ---
 
