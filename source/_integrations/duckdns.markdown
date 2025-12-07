@@ -26,12 +26,12 @@ If you are running the Home Assistant Duck DNS add-on this integration is not re
 
 ## How You Can Use This Integration
 
-- Keep your DuckDNS subdomain automatically in sync with your public IP.  
+- Keep your Duck DNS subdomain automatically in sync with your public IP.  
 - Update ACME DNS-01 challenges for automated SSL certificate validation.
 
 ## Prerequisites
 
-To set up the integration, you need your Duck DNS subdomain and token. You can find these on the [DuckDNS homepage](https://www.duckdns.org) after logging in. If you don’t have an account, sign up using your preferred method (e.g., GitHub, Google), then create a new subdomain.
+To set up the integration, you need your Duck DNS subdomain and token. You can find these on the [Duck DNS homepage](https://www.duckdns.org) after logging in. If you don’t have an account, sign up using your preferred method (e.g., GitHub, Google), then create a new subdomain.
 
 {% include integrations/config_flow.md %}
 
@@ -77,7 +77,7 @@ This integration syncs your public IP with your Duck DNS subdomain every 5 minut
 ## Known limitations
 
 - Duck DNS errors do not clearly indicate authentication failures. If you have recreated your token, make sure to update your Duck DNS configuration entry with the new token.
-- The integration updates your DuckDNS subdomain periodically rather than continuously monitoring your public IP. After a long outage, the update interval is increased to reduce unnecessary requests. Once your internet connection is restored, it may take up to 30 minutes for your subdomain to reflect your current IP.
+- The integration updates your Duck DNS subdomain periodically rather than continuously monitoring your public IP. After a long outage, the update interval is increased to reduce unnecessary requests. Once your internet connection is restored, it may take up to 30 minutes for your subdomain to reflect your current IP.
 
 ## Troubleshooting
 
