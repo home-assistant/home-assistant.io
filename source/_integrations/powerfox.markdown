@@ -20,7 +20,7 @@ ha_zeroconf: true
 
 The **Powerfox** {% term integration %} allows you to gather data from your [Poweropti](https://shop.powerfox.energy/collections/frontpage) devices, by using their cloud API and fetch the data in Home Assistant.
 
-[Powerfox](https://www.powerfox.energy/) is a German company that provides smart meters (Poweropti) for reading electricity, water, gas, and heat. They have their own cloud platform where you can monitor the usage of your devices and get insights into your energy consumption.
+[Powerfox](https://www.powerfox.energy/) is a German company that provides smart meters (Poweropti) for reading electricity, water, gas, and heat. They have their own cloud platform where you can monitor the usage of your devices and get insights into your energy consumption. Powerfox FLOW delivers its measurements via a daily/hourly report endpoint.
 
 {% include integrations/config_flow.md %}
 
@@ -42,13 +42,12 @@ Not all Poweropti devices are supported currently. Check the list below to see i
 | PA 201901 / PA 201902 | Power meter | Yes        |
 | PB 202001             | Power meter | Yes        |
 | WA 201902             | Water meter | Yes        |
-| Powerfox FLOW         | Gas meter   | No         |
+| Powerfox FLOW         | Gas meter   | Yes (report) |
 | HA 201902             | Heat meter  | Yes        |
 
 ## Data updates
 
-The integration will update its information by polling Powerfox every
-10 seconds. This ensures the data in Home Assistant is up to date.
+The integration polls the Powerfox cloud every 10 seconds. Power/heat/water meters return realtime snapshots, while the Powerfox FLOW relies on the hourly/day report endpoint—the coordinator still polls every 10 seconds, but the values refresh whenever Powerfox publishes a new block in the report.
 
 ## Actions
 
@@ -87,6 +86,19 @@ It will create the following sensors:
 - **Delta energy (kWh)**: How much energy is used since the last update.
 - **Total volume (m³)**: How much water is used.
 - **Delta volume (m³)**: How much water is used since the last update.
+
+### Powerfox FLOW gas meter
+
+FLOW data is exposed via the Powerfox report endpoint and provides daily/hourly aggregates. The integration creates:
+
+- **Gas consumption today (m³)** and **Gas consumption energy today (kWh)**.
+- **Current gas consumption (m³)** and **current gas consumption energy (kWh)**.
+- **Gas cost today (€)** (requires tariff in the Powerfox app).
+- **Minimum / maximum / average consumption today** (m³).
+- **Minimum / maximum / average consumption energy today** (kWh).
+- **Maximum gas cost today (€)**.
+
+The energy-based variants are disabled by default in the entity registry, so enable them when you have a gas-to-kWh conversion configured in Powerfox.
 
 ## Troubleshooting
 
