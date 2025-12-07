@@ -32,6 +32,9 @@ Telegram implementation to support **sending messages only**. Your Home Assistan
 ### Polling
 
 Telegram chatbot polling implementation.
+This implementation fetches data from Telegram via long polling with a timeout of 10 seconds.
+(In long polling, the bot will wait until the timeout expires before fetching the data again if there are no updates from Telegram.)
+
 Your Home Assistant instance does not have to be exposed to the internet.
 
 ### Webhooks
