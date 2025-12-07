@@ -11,10 +11,11 @@ ha_domain: portainer
 ha_config_flow: true
 ha_platforms:
   - binary_sensor
-  - switch
-  - sensor
   - button
-ha_integration_type: integration
+  - diagnostics
+  - sensor
+  - switch
+ha_integration_type: hub
 ha_quality_scale: bronze
 ---
 

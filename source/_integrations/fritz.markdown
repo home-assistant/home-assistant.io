@@ -25,7 +25,7 @@ ha_platforms:
   - switch
   - update
 ha_ssdp: true
-ha_integration_type: integration
+ha_integration_type: hub
 related:
   - docs: /common-tasks/general/#enabling-or-disabling-entities
     title: Enabling or disabling entities

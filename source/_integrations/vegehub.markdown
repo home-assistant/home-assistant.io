@@ -12,6 +12,7 @@ ha_codeowners:
 ha_domain: vegehub
 ha_platforms:
   - sensor
+  - switch
 ha_integration_type: integration
 related:
   - url: https://vegetronix.com/Products/ha/VG-HUB-RELAY/

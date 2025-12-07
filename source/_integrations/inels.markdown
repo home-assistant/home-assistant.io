@@ -12,6 +12,7 @@ ha_domain: inels
 ha_platforms:
   - switch
 ha_integration_type: integration
+ha_quality_scale: bronze
 ---
 
 The **iNELS** {% term integration %} allows you to control and monitor the devices connected to your control units ([BUS](https://www.elkoep.com/wired) or [eLAN](https://www.elkoep.com/wireless)).

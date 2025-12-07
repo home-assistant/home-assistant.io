@@ -65,7 +65,7 @@ The Starlink integration allows you to integrate your [Starlink](https://www.sta
 
 ### Buttons
 
-- Reboot - Reboots your Starlink system
+- Restart - Restart your user terminal
 
 ### Switches
 

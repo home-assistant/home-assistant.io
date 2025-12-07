@@ -5,6 +5,7 @@ ha_codeowners:
   - '@VandeurenGlenn'
 ha_config_flow: true
 ha_category:
+  - Climate
   - Cover
   - Light
   - Scene
@@ -12,6 +13,7 @@ ha_iot_class: Local Push
 ha_release: 0.82
 ha_domain: niko_home_control
 ha_platforms:
+  - climate
   - cover
   - light
   - scene
