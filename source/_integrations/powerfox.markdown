@@ -20,7 +20,9 @@ ha_zeroconf: true
 
 The **Powerfox** {% term integration %} allows you to gather data from your [Poweropti](https://shop.powerfox.energy/collections/frontpage) devices, by using their cloud API and fetch the data in Home Assistant.
 
-[Powerfox](https://www.powerfox.energy/) is a German company that provides smart meters (Poweropti) for reading electricity, water, gas, and heat. They have their own cloud platform where you can monitor the usage of your devices and get insights into your energy consumption. Powerfox FLOW delivers its measurements via a daily/hourly report endpoint.
+[Powerfox](https://www.powerfox.energy/) is a German company that provides smart meters (Poweropti) for reading electricity, water, gas, and heat. They have their own cloud platform where you can monitor the usage of your devices and get insights into your energy consumption.
+
+The Powerfox FLOW device delivers its measurements via a daily/hourly report endpoint, while other devices provide real-time data.
 
 {% include integrations/config_flow.md %}
 
@@ -47,7 +49,7 @@ Not all Poweropti devices are supported currently. Check the list below to see i
 
 ## Data updates
 
-The integration polls the Powerfox cloud every 10 seconds. Power/heat/water meters return realtime snapshots, while the Powerfox FLOW relies on the hourly/day report endpoint—the coordinator still polls every 10 seconds, but the values refresh whenever Powerfox publishes a new block in the report.
+The integration polls the Powerfox cloud every 10 seconds. Power, heat, and water meters return real-time snapshots. The Powerfox FLOW relies on the hourly/daily report endpoint. The coordinator still polls every 10 seconds, but the values refresh whenever Powerfox publishes a new block in the report.
 
 ## Actions
 
@@ -91,14 +93,20 @@ It will create the following sensors:
 
 FLOW data is exposed via the Powerfox report endpoint and provides daily/hourly aggregates. The integration creates:
 
-- **Gas consumption today (m³)** and **Gas consumption energy today (kWh)**.
-- **Current gas consumption (m³)** and **current gas consumption energy (kWh)**.
-- **Gas cost today (€)** (requires tariff in the Powerfox app).
-- **Minimum / maximum / average consumption today** (m³).
-- **Minimum / maximum / average consumption energy today** (kWh).
-- **Maximum gas cost today (€)**.
+- **Gas consumption today (m³)**: How much gas is consumed today.
+- **Gas consumption energy today (kWh)**: How much gas energy is consumed today.
+- **Current gas consumption (m³)**: Current gas consumption rate.
+- **Current gas consumption energy (kWh)**: Current gas consumption energy rate.
+- **Gas cost today (€)**: Total gas cost today (requires tariff in the Powerfox app).
+- **Minimum consumption today (m³)**: Lowest hourly consumption observed so far today.
+- **Maximum consumption today (m³)**: Highest hourly consumption observed so far today.
+- **Average consumption today (m³)**: Average hourly consumption observed so far today.
+- **Minimum consumption energy today (kWh)**: Lowest hourly energy consumption observed so far today.
+- **Maximum consumption energy today (kWh)**: Highest hourly energy consumption observed so far today.
+- **Average consumption energy today (kWh)**: Average hourly energy consumption observed so far today.
+- **Maximum gas cost today (€)**: Highest hourly gas cost observed so far today.
 
-The energy-based variants are disabled by default in the entity registry, so enable them when you have a gas-to-kWh conversion configured in Powerfox.
+The energy-based variants are disabled by default in the entity registry. Enable them if you have a gas-to-kWh conversion configured in Powerfox.
 
 ## Troubleshooting
 
