@@ -17,7 +17,7 @@ ha_codeowners:
   - '@johanzander'
 ---
 
-The Growatt integration enables you to retrieve data from Growatt inverters. During setup, you can choose from various regional endpoint servers:
+The Growatt {% term integration %} enables you to retrieve data from Growatt inverters. During setup, you can choose from various regional endpoint servers:
 
 - For users in China:
 
