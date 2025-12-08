@@ -112,6 +112,7 @@ Now go and automate stuff!
   - [Add entities to Android widgets and favorites](#add-entities-to-android-widgets-and-favorites)
 - [Patch releases](#patch-releases)
   - [2025.12.1 - December 5](#2025121---december-5)
+  - [2025.12.2 - December 8](#2025122---december-8)
 - [Need help? Join the community](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
@@ -620,6 +621,67 @@ release once a week, aiming for Friday.
 [#158054]: https://github.com/home-assistant/core/pull/158054
 [#158057]: https://github.com/home-assistant/core/pull/158057
 [#158069]: https://github.com/home-assistant/core/pull/158069
+
+### 2025.12.2 - December 8
+
+- fix Lutron Caseta smart away subscription ([@omrishiv] - [#158082])
+- Fix legacy template entity_id field in migration ([@Petro31] - [#158105])
+- Revert "Remove Shelly redundant device entry check for sleepy devices" ([@thecode] - [#158108])
+- Ensure Roborock disconnects mqtt on unload/stop ([@allenporter] - [#158144])
+- Fix secure URLs for promotional game media in Xbox integration ([@tr4nt0r] - [#158162])
+- Add program id codes for Miele WQ1000 ([@astrandb] - [#158175])
+- Bump pymiele dependency to 0.6.1 ([@astrandb] - [#158177])
+- Bump asusrouter to 1.21.1 ([@Vaskivskyi] - [#158192])
+- Bump HueBLE to 2.1.0 ([@flip-dots] - [#158197])
+- Bump python-roborock to 3.10.10 ([@allenporter] - [#158212])
+- Be more specific about winter mode in the description ([@piitaya] - [#158230])
+- Fix description placeholders for system_bridge ([@jbouwh] - [#158232])
+- Bump google air quality api to 2.0.0 ([@Thomas55555] - [#158234])
+- Fix zwave_js service description placeholders ([@epenet] - [#158236])
+- Fix yeelight service description placeholders ([@epenet] - [#158239])
+- Fix teslemetry service description placeholders ([@epenet] - [#158240])
+- Fix multiple top-level support for template integration ([@Petro31] - [#158244])
+- Bump yt-dlp to 2025.12.08 ([@andreimoraru] - [#158253])
+- Update frontend to 20251203.2 ([@piitaya] - [#158259])
+- Skip check for onboarding done in Music Assistant integration ([@marcelveldt] - [#158270])
+
+[#157330]: https://github.com/home-assistant/core/pull/157330
+[#158071]: https://github.com/home-assistant/core/pull/158071
+[#158082]: https://github.com/home-assistant/core/pull/158082
+[#158105]: https://github.com/home-assistant/core/pull/158105
+[#158108]: https://github.com/home-assistant/core/pull/158108
+[#158144]: https://github.com/home-assistant/core/pull/158144
+[#158162]: https://github.com/home-assistant/core/pull/158162
+[#158175]: https://github.com/home-assistant/core/pull/158175
+[#158177]: https://github.com/home-assistant/core/pull/158177
+[#158192]: https://github.com/home-assistant/core/pull/158192
+[#158197]: https://github.com/home-assistant/core/pull/158197
+[#158212]: https://github.com/home-assistant/core/pull/158212
+[#158230]: https://github.com/home-assistant/core/pull/158230
+[#158232]: https://github.com/home-assistant/core/pull/158232
+[#158234]: https://github.com/home-assistant/core/pull/158234
+[#158236]: https://github.com/home-assistant/core/pull/158236
+[#158239]: https://github.com/home-assistant/core/pull/158239
+[#158240]: https://github.com/home-assistant/core/pull/158240
+[#158244]: https://github.com/home-assistant/core/pull/158244
+[#158253]: https://github.com/home-assistant/core/pull/158253
+[#158259]: https://github.com/home-assistant/core/pull/158259
+[#158270]: https://github.com/home-assistant/core/pull/158270
+[@Petro31]: https://github.com/Petro31
+[@Thomas55555]: https://github.com/Thomas55555
+[@Vaskivskyi]: https://github.com/Vaskivskyi
+[@allenporter]: https://github.com/allenporter
+[@andreimoraru]: https://github.com/andreimoraru
+[@astrandb]: https://github.com/astrandb
+[@epenet]: https://github.com/epenet
+[@flip-dots]: https://github.com/flip-dots
+[@frenck]: https://github.com/frenck
+[@jbouwh]: https://github.com/jbouwh
+[@marcelveldt]: https://github.com/marcelveldt
+[@omrishiv]: https://github.com/omrishiv
+[@piitaya]: https://github.com/piitaya
+[@thecode]: https://github.com/thecode
+[@tr4nt0r]: https://github.com/tr4nt0r
 
 ## Need help? Join the community
 
