@@ -8,7 +8,7 @@ ha_release: 0.84
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@ahayworth'
-  - '@danielsjf'
+  - '@ricohageman'
 ha_domain: awair
 ha_platforms:
   - sensor
@@ -16,7 +16,7 @@ ha_integration_type: integration
 ha_zeroconf: true
 ---
 
-The Awair integration will fetch data from your [Awair devices](https://getawair.com).
+The Awair {% term integration %} will fetch data from your [Awair devices](https://getawair.com).
 
 ## Prerequisites
 

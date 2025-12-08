@@ -6,6 +6,7 @@ ha_category:
   - Light
   - Number
   - Switch
+  - Update
 ha_release: 0.66
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -27,6 +28,7 @@ ha_platforms:
   - select
   - sensor
   - switch
+  - update
 ha_integration_type: integration
 ---
 
@@ -43,6 +45,7 @@ The following platforms are supported:
 - **number**
 - **sensor**
 - **switch**
+- **update**
 
 ## Supported devices
 

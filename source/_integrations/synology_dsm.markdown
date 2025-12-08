@@ -29,7 +29,7 @@ ha_integration_type: device
 ha_zeroconf: true
 ---
 
-The Synology DSM integration provides access to various statistics from your [Synology NAS](https://www.synology.com) (_DSM 5.x and higher_), as well as cameras from the [Surveillance Station](https://www.synology.com/surveillance) and will allow to use the [File Station](https://www.synology.com/en-us/dsm/feature/file_sharing) as a {% term backup %} location.
+The Synology DSM {% term integration %} provides access to various statistics from your [Synology NAS](https://www.synology.com) (_DSM 5.x and higher_), as well as cameras from the [Surveillance Station](https://www.synology.com/surveillance) and will allow to use the [File Station](https://www.synology.com/en-us/dsm/feature/file_sharing) as a {% term backup %} location.
 
 {% include integrations/config_flow.md %}
 

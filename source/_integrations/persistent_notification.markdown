@@ -12,7 +12,7 @@ ha_domain: persistent_notification
 ha_integration_type: system
 ---
 
-The `persistent_notification` integration can be used to show a notification on the frontend that has to be dismissed by the user.
+The `persistent_notification` {% term integration %} can be used to show a notification on the frontend that has to be dismissed by the user.
 
 <p class='img'>
   <img src='/images/screenshots/persistent-notification.png' />

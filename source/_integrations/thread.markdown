@@ -29,7 +29,7 @@ related:
     title: Enabling Thread on Yellow
 ---
 
-The Thread integration helps you track the different Thread networks in your home and store the Thread network credentials (similar to a Wi-Fi password). The Thread integration in Home Assistant is currently still a work in progress.
+The Thread {% term integration %} helps you track the different Thread networks in your home and store the Thread network credentials (similar to a Wi-Fi password). The Thread integration in Home Assistant is currently still a work in progress.
 
 You do not need to install this integration. The Thread integration shows up automatically when Home Assistant detects a [border router](#about-thread-border-routers).
 
@@ -141,6 +141,7 @@ Follow these steps if you want to turn Home Assistant into a Thread border route
    - [Enable Thread on Home Assistant Yellow](https://support.nabucasa.com/hc/en-us/articles/25742476767517).
    - [Enable Thread on Home Assistant Connect ZBT-1](https://support.nabucasa.com/hc/en-us/sections/26122472719517).
    - [Enable Thread on Home Assistant Connect ZBT-2](https://support.nabucasa.com/hc/en-us/sections/31260019451421).
+   - [Adding a Thread adapter to Home Assistant](#adding-a-thread-adapter-to-home-assistant).
 
 2. Make sure the Home Assistant Thread network is defined as preferred network.
    - This should happen automatically, but check to be sure.
@@ -192,14 +193,56 @@ Note: the steps and images here show the process with a Google Thread network. B
 
    ![image](/images/integrations/thread/thread-google-br.png)
 
-5. To enable Thread support on your Home Assistant Yellow, Connect&nbsp;ZBT-1, or [Connect&nbsp;ZBT-2](/connect/zbt-2/), you need to install the **OpenThread Border Router** add-on. Follow the corresponding procedure:
+5. To enable Thread support, you need to install the **OpenThread Border Router** add-on. Follow the corresponding procedure:
    - [Enable Thread on Home Assistant Yellow](https://support.nabucasa.com/hc/en-us/articles/25742476767517).
    - [Enable Thread on Home Assistant Connect ZBT-1](https://support.nabucasa.com/hc/en-us/sections/26122472719517).
    - [Enable Thread on Home Assistant Connect ZBT-2](https://support.nabucasa.com/hc/en-us/sections/31260019451421).
+   - [Adding a Thread adapter to Home Assistant](#adding-a-thread-adapter-to-home-assistant).
    - **Result**: The network now shows as the preferred network, joined with the third-party network.
 
    ![image](/images/integrations/thread/thread-ha-preferred.png)
    - 🎉 You successfully created a Home Assistant Thread network and joined it with a pre-existing third-party network.
+
+## Adding a third-party Thread adapter to Home Assistant
+
+Follow these steps if you want to set up a third-party Thread adapter.
+
+If you have a Home Assistant Thread adapter, follow the corresponding instructions instead:
+
+- [Enable Thread on Home Assistant Yellow](https://support.nabucasa.com/hc/en-us/articles/25742476767517).
+- [Enable Thread on Home Assistant Connect ZBT-1](https://support.nabucasa.com/hc/en-us/sections/26122472719517).
+- [Enable Thread on Home Assistant Connect ZBT-2](https://support.nabucasa.com/hc/en-us/sections/31260019451421).
+
+### Prerequisites
+
+- [Home Assistant Operating System](/docs/glossary/#home-assistant-operating-system) installed on your smart home hub. For example:
+  - On a Home Assistant Green, where Home Assistant OS is preinstalled
+  - On a Home Assistant Yellow or on a Raspberry Pi
+- Latest updates installed
+- A new Thread adapter and a USB extension cable
+  - If your adapter supports multiple protocols:
+    - They might have another firmware installed by default (Zigbee, for example).
+    - Check their documentation and install the OpenThread firmware on the adapter.
+    - Check their documentation and take a note of the baudrate.
+
+### To add a Thread adapter to the OpenThread Border Router add-on
+
+1. Install the **OpenThread Border Router** add-on.
+   - Go to {% my supervisor_addon title="**Settings** > **Add-ons**" addon="core_openthread_border_router" %} and select the **OpenThread Border Router** add-on.
+2. Plug the adapter into the extension cable and plug it into the Home Assistant hub.
+3. Go to {% my supervisor_addon title="**Settings** > **Add-ons** > **OpenThread Border Router**" addon="core_openthread_border_router" %} and select the **Configuration** tab.
+4. Under **Devices**, select your adapter.
+5. Enter the **Baudrate** as specified in the documentation of your adapter.
+   - If you can't find the baudrate, try `460800` or contact the manufacturer's support.
+   - **Save** your changes.
+   - **Troubleshooting**:
+     - Check the logs.
+     - If the add-on crashes or fails to communicate with the Thread integration: Toggle the **Hardware flow control** option and try again.
+6. Restart the add-on and check the logs. Wait.
+7. Go to {% my integrations title="**Settings** > **Devices & services**" %}, select the **Thread** integration.
+   - Select the cogwheel {% icon "mdi:cog-outline" %}.
+   - **Result**: You should now see a new `ha-thread` Thread network.
+   - **Troubleshooting**: If you don't see the network there, go back to the add-on configuration and adjust your settings, if needed, and try again.
 
 ## Migrating a Thread network to a new adapter
 
@@ -216,9 +259,9 @@ If you want to migrate to a Home Assistant Connect ZBT-2, follow the steps in th
 - Latest updates installed
 - A new Thread adapter and a USB extension cable
   - If your adapter supports multiple protocols:
-  - They might have another firmware installed by default (Zigbee, for example).
-  - Check their documentation and install the OpenThread firmware on the adapter.
-  - Check their documentation and take a note of the baudrate.
+    - They might have another firmware installed by default (Zigbee, for example).
+    - Check their documentation and install the OpenThread firmware on the adapter.
+    - Check their documentation and take a note of the baudrate.
 - Thread devices
 
 ### To migrate an existing Thread network to a new adapter

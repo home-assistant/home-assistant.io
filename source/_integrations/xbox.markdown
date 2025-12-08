@@ -10,10 +10,12 @@ ha_iot_class: Cloud Polling
 ha_release: 0.117
 ha_codeowners:
   - '@hunterjm'
+  - '@tr4nt0r'
 ha_domain: xbox
 ha_config_flow: true
 ha_platforms:
   - binary_sensor
+  - diagnostics
   - image
   - media_player
   - remote
@@ -52,14 +54,14 @@ The Xbox media player platform will create media player entities for each consol
 
 ### Action `play_media`
 
-Launches an application on the Xbox console using the application's product ID. Also supports "Home" and "TV" to navigate to the dashboard or Live TV respectively.
+Launches an application on the Xbox console using the application's product ID. Also supports "Home" to navigate to the dashboard.
 
 You can find Product IDs using the **{% my developer_events title="Developer Tools > Events" %}** tab and listening to the `call_service` event. In a new browser tab, navigate to the media browser for your console and click on an App/Game to see the product ID in the event.
 
 | Data attribute         | Description                           |
 | ---------------------- | --------------------------------------|
 | `entity_id`            | `entity_id` of the Xbox media player  |
-| `media_content_id`     | `Home` / `TV` / `{product_id}`        |
+| `media_content_id`     | "Home"/{product_id}                   |
 | `media_content_type`   | Any Value                             |
 
 #### Examples
@@ -89,7 +91,7 @@ The Xbox remote platform will create Remote entities for each console linked to 
 | `num_repeats`          | yes      | Number of times to repeat the commands.                   |
 | `delay_secs`           | yes      | Interval in seconds between one send and another.         |
 
-**Available commands**: `A`, `B`, `X`, `Y`, `Up`, `Down`, `Left`, `Right`, `Menu`, `View`, `Nexus`
+**Available commands**: `A`, `B`, `X`, `Y`, `Up`, `Down`, `Left`, `Right`, `Menu`, `View`, `Nexus`, `WakeUp`, `TurnOff`, `Reboot`, `Mute`, `Unmute`, `Play`, `Pause`, `Next`, `Previous`,`GoHome`, `GoBack`, `ShowGuideTab`, `ShowGuide`
 
 #### Examples
 
@@ -276,10 +278,14 @@ Just like the binary sensors, the Xbox sensor platform automatically keeps track
 | ---------------- | -------------------------------------------------------------------------- |
 | **Status**       | Shows the text status of your friend as it appears in your friends list.   |
 | **Gamerscore**   | Friend's Gamerscore.                                                       |
-| **Follower**     | Displays the number of people following the account, including friends.    |
-| **Following**    |  Displays the number of people the account is following, including friends.|
+| **Friends**      | Displays the number of mutual friend relationships of the account.         |
+| **Follower**     | Displays the number of people following the account.                       |
+| **Following**    |  Displays the number of people the account is following.                   |
 | **Last online**  | Displays the last time the friend was active online.                       |
+| **In party**     | Shows the number of people in the user’s party chat if they are currently in one. |
 | **Now playing**  | Shows the title of the game currently being played. Additional details such as a short description, genre, developer, age rating, and achievement progress are available in the entity's attributes. |
+| **Total space: *{name}*** | Reports the total storage capacity of the device. A separate sensor is created for each Xbox console and connected internal and external storage device. |
+| **Free space: *{name}*** | Reports the available (unused) storage space on the device. A separate sensor is created for each Xbox console and connected internal and external storage device. |
 
 ## Image
 
@@ -293,11 +299,7 @@ For your account and each of your favorite friends, several image entities are a
 
 ## Media source
 
-The Xbox media source platform allows you to use the Media Browser panel to view both your own, and community, gameclips or screenshots for games that you have installed on any of your consoles. As with any other media source {% term integration %}, you are also able to send these clips to supported media players like Chromecast.
-
-{% important %}
-It can take up to a couple of days for newly installed applications to appear in the media browser.
-{% endimportant %}
+The Xbox media source platform lets your browse your own and community gameclips or screenshots, as well as promotional images for games you've played, through the Media Browser panel. As with any other media source {% term integration %}, you can also send these clips to supported media players like Chromecast.
 
 ## Manual OAuth2 configuration
 

@@ -15,7 +15,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `flock` integration uses [Flock.com](https://flock.com) to deliver notifications from Home Assistant.
+The `flock` {% term integration %} uses [Flock.com](https://flock.com) to deliver notifications from Home Assistant.
 
 ## Setup
 

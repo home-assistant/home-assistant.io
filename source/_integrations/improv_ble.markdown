@@ -13,7 +13,7 @@ ha_iot_class: Local Polling
 ha_config_flow: true
 ---
 
-The Improv via BLE integration allows connecting devices implementing Improv via BLE to Wi-Fi.
+The Improv via BLE {% term integration %} allows connecting devices implementing Improv via BLE to Wi-Fi.
 
 For documentation on Improv via BLE, please visit the [documentation](https://www.improv-wifi.com/ble/).
 

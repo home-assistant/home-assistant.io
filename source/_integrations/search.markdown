@@ -11,7 +11,7 @@ ha_quality_scale: internal
 ha_integration_type: system
 ---
 
-The `search` integration is an internally used integration by the
+The `search` {% term integration %} is an internally used integration by the
 Home Assistant Core.
 
 All data stored in Home Assistant is interconnected, making it a graph.
