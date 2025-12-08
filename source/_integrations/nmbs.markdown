@@ -16,6 +16,6 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `nmbs` {% term integration %} will create sensors for monitoring travel time and information between 2 stations.
+The **NMBS** {% term integration %} will create sensors for monitoring travel time and information between 2 stations.
 
 {% include integrations/config_flow.md %}
