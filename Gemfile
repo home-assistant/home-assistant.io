@@ -13,7 +13,7 @@ group :development do
   gem 'sass-embedded', '1.94.2'
   gem 'rubocop', '1.81.7'
   gem 'ruby-lsp', '0.26.4'
-  gem 'rackup', '2.2.1'
+  gem 'rackup', '2.3.1'
 end
 
 group :jekyll_plugins do
