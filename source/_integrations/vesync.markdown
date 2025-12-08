@@ -32,7 +32,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The **VeSync** {% term integration %} enables you to control a wide variety of Levoit devices connected to the VeSync App. Currently this integration supports most Bulbs, Fans, Air Purifiers, switches, outlets and Humidifers.  It does not support Cosori devices. 
+The **VeSync** {% term integration %} enables you to control a wide variety of Levoit devices connected to the VeSync App. Currently this integration supports most bulbs, fans, air purifiers, switches, outlets and humidifers. It does not support Cosori devices. 
 
 The devices must be added to the VeSync App before this {% term integration %} can discover them.
 
