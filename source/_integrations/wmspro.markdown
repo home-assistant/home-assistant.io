@@ -7,6 +7,7 @@ ha_category:
   - Hub
   - Light
   - Scene
+  - Switch
 ha_release: '2024.10'
 ha_iot_class: Local Polling
 ha_codeowners:
@@ -19,6 +20,7 @@ ha_platforms:
   - diagnostics
   - light
   - scene
+  - switch
 ha_integration_type: hub
 related:
   - url: https://www.warema.com/en/smart-home/wms-webcontrol-pro/
@@ -56,3 +58,7 @@ The WMS WebControl pro *may* also be discovered on your local network via DHCP.
 
 - Scenes can be activated, but not changed or monitored.
 - Scenes are accessible via a virtual device per room.
+
+## Switches
+
+- Load bearing switches (for example, a connected heater) can be turned on and off.
