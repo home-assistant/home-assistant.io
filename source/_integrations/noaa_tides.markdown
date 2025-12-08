@@ -60,3 +60,22 @@ unit_system:
   default: Defaults to `metric` or `imperial` based on the Home Assistant configuration.
   type: string
 {% endconfiguration %}
+
+## Entities and Attributes
+
+This plugin exposes one entity `sensor.noaa_tides` which has a native value that contains the next tide event
+information as a string, formatted as "[High|Low] tide at H:MM AM/PM". There are additional attributes that can
+be used for display or automation as follows:
+
+| Attribute | Description
+| --------- | -----------
+| next_tide_event_time | Minute of next tide event in %Y-%m-%dT%H:%M format, in the timezone as configured above |
+| next_tide_event_height | The height of the next tide event (above or below MLLW datum) |
+| minutes_until_next_tide_event | Integer number of minutes until the next tide event occurs |
+| high_tide_time | The time of the next high tide after the next tide event |
+| high_tide_height | The height of that future high tide event |
+| low_tide_time | The time of the next low tide after the next tide event |
+| low_tide_height | The height of that future low tide event |
+
+Note that `low_tide_time` will be later than `high_tide_time` if and only if the next tide event is a low tide.
+
