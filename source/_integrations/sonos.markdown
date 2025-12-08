@@ -495,7 +495,7 @@ This integration follows the standard integration removal process; no extra step
 
 When setting up the integration you see the following error:
 
-```
+```txt
 requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: http://192.168.1.1:1400/DeviceProperties/Control
 ```
 
