@@ -49,7 +49,7 @@ The following platforms are supported:
 
 ## Supported devices
 
-This {% term integration %} supports devices controllable by the VeSync App.  The following devices are supported by this {% term integration %}.  This list may not be exhaustive as devices have multiple model numbers within this.
+This {% term integration %} supports devices controllable by the VeSync App. The following devices are supported by this {% term integration %}. This list may not be exhaustive as devices have multiple model numbers within this.
 
 ### Bulbs
 - Etekcity WiFi Dimmable LED Bulb (ESL100)
