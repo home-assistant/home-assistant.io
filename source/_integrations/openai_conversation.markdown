@@ -56,7 +56,7 @@ If you choose to not use the recommended settings, you can configure the followi
 
 {% configuration_basic %}
 Model:
-  description: The GPT language model is used for text generation. You can find more details on the available models in the [GPT-4o Documentation](https://platform.openai.com/docs/models/gpt-4o). The default is "gpt-4o-mini".
+  description: The GPT language model is used for text generation. You can find more details on the available models in the [ChatGPT Documentation](https://platform.openai.com/docs/models). The default is "gpt-4o-mini".
 Maximum Tokens to Return in Response:
   description: The maximum number of words or "tokens" that the AI model should generate in its completion of the prompt. For more information, see the [OpenAI Completion Documentation](https://platform.openai.com/docs/guides/completion/introduction).
 Temperature:
@@ -64,9 +64,9 @@ Temperature:
 Top P:
   description: An alternative to temperature, top_p determines the proportion of the most likely word choices the model should consider when generating text. A higher top_p means the model will only consider the most likely words, while a lower top_p means a wider range of words, including less likely ones, will be considered. For more information, see the [OpenAI Completion API Reference](https://platform.openai.com/docs/api-reference/completions/create#completions/create-top_p).
 Enable web search:
-  description: Enable OpenAI-provided [Web search tool](https://openai.com/index/new-tools-for-building-agents/#web-search). Note that it is only available for gpt-4o and gpt-4o-mini models.
+  description: Enable OpenAI-provided [Web search tool](https://openai.com/index/new-tools-for-building-agents/#web-search). Note that it is only available for gpt-4o and newer models.
 Search context size:
-  description: The search is performed with a separate fine-tuned "gpt-4o-search-preview" or "gpt-4o-mini-search-preview" model with its own context and its own [pricing](https://platform.openai.com/docs/pricing#web-search). This parameter controls how much context is retrieved from the web to help the tool formulate a response. The tokens used by the search tool do not affect the context window of the main model. These tokens are also not carried over from one turn to another — they're simply used to formulate the tool response and then discarded. This parameter would affect the search quality, cost, and latency.
+  description: The search is performed with a separate fine-tuned model with its own context and its own [pricing](https://platform.openai.com/docs/pricing#built-in-tools). This parameter controls how much context is retrieved from the web to help the tool formulate a response. The tokens used by the search tool do not affect the context window of the main model. These tokens are also not carried over from one turn to another — they're simply used to formulate the tool response and then discarded. This parameter would affect the search quality, cost, and latency.
 Include home location:
   description: This parameter allows using the location of your Home Assistant instance during search to provide more relevant search results.
 {% endconfiguration_basic %}

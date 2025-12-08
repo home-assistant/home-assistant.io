@@ -249,11 +249,11 @@ percentage_command_template:
   required: false
   type: template
 percentage_command_topic:
-  description: The MQTT topic to publish commands to change the fan speed state based on a percentage.
+  description: The MQTT topic to publish commands to change the fan speed state based on a percentage setting. The value shall be in the range from `speed_range_min` to `speed_range_max`.
   required: false
   type: string
 percentage_state_topic:
-  description: The MQTT topic subscribed to receive fan speed based on percentage.
+  description: The MQTT topic subscribed to receive fan speed state. This is a value in the range from `speed_range_min` to `speed_range_max`.
   required: false
   type: string
 percentage_value_template:

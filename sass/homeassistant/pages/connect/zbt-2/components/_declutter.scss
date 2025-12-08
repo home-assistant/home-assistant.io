@@ -1,0 +1,68 @@
+section#declutter {
+    
+    h3 {
+        text-wrap: balance;
+    }
+    
+    .section-inner-content{
+        padding: 40px 0;
+        @include bp(tablet) {
+            padding: 100px 0;
+        }
+    }
+
+    .cols {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        
+        @include bp(tablet) {
+            //flex-direction: row;
+        }
+        
+        .col {
+            align-items: center;
+            text-align: center;
+            flex-direction: column;
+            display: flex;
+            position: relative;
+
+            &:first-child {
+
+                @include bp(tablet) {
+                    padding: 24px 40px;
+                }
+            }
+
+            &:last-child{
+                aspect-ratio: 16/9;
+                width: 100%;
+                max-width: 800px;
+            }
+
+            video{
+                background-color: #252525;
+            }
+        }
+
+        .button{
+            transition: all 5s ease-out;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            &.hide{
+                opacity: 0;
+                pointer-events: none;
+                transition: all 0.3s ease;
+            }
+        }
+    }
+
+    video {
+        border-radius: 16px;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+    }
+
+}

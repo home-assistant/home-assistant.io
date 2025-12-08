@@ -1,0 +1,24 @@
+section#build {
+    border-radius: 0;
+    transition: border-radius 0.3s ease-in-out;
+    overflow: hidden;
+
+    margin: 40px auto;
+
+    @include bp(2016px) {
+        border-radius: 16px;
+    }
+
+    @include bp(tablet) {
+        max-width: 2000px;
+        object-fit: cover;
+    }
+
+    video {
+        height: 100%;
+        object-fit: cover;
+        width: 100%;
+    }
+
+
+}

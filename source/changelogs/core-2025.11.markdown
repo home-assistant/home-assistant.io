@@ -1030,6 +1030,250 @@ For a summary in a more readable format
 - Allow hardware integrations to specify TX power for ZHA ([@puddly] - [#155855])
 - Rename DALI Center to Sunricher DALI ([@balloob] - [#155865])
 
+## Release 2025.11.1 - November 7
+
+- Improve scan interval for Airthings Corentium Home 2 ([@LaStrada] - [#155694])
+- Remove `@progress_step` decorator from ZHA and Hardware integration ([@puddly] - [#155867])
+- Fix KNX Climate humidity DPT ([@farmio] - [#155942])
+- Truncate password before sending it to bcrypt ([@cdce8p] - [#155950])
+- Fix for corrupt restored state in miele consumption sensors ([@astrandb] - [#155966])
+- Handle empty fields in SolarEdge config flow ([@tronikos] - [#155978])
+- Fix SolarEdge unload failing when there are no sensors ([@tronikos] - [#155979])
+- Bump aioamazondevices to 8.0.1 ([@chemelli74] - [#155989])
+- Fix Growatt integration authentication error for legacy config entries ([@johanzander] - [#155993])
+- Bump tuya-device-sharing-sdk to 0.2.5 ([@epenet] - [#156014])
+- Bump onedrive-personal-sdk to 0.0.16 ([@zweckj] - [#156021])
+- Fix the exception caused by the missing Foscam integration key ([@Foscam-wangzhengyu] - [#156022])
+- Bump intents to 2025.11.7 ([@synesthesiam] - [#156063])
+
+[#155440]: https://github.com/home-assistant/core/pull/155440
+[#155694]: https://github.com/home-assistant/core/pull/155694
+[#155867]: https://github.com/home-assistant/core/pull/155867
+[#155942]: https://github.com/home-assistant/core/pull/155942
+[#155950]: https://github.com/home-assistant/core/pull/155950
+[#155966]: https://github.com/home-assistant/core/pull/155966
+[#155978]: https://github.com/home-assistant/core/pull/155978
+[#155979]: https://github.com/home-assistant/core/pull/155979
+[#155989]: https://github.com/home-assistant/core/pull/155989
+[#155993]: https://github.com/home-assistant/core/pull/155993
+[#156014]: https://github.com/home-assistant/core/pull/156014
+[#156021]: https://github.com/home-assistant/core/pull/156021
+[#156022]: https://github.com/home-assistant/core/pull/156022
+[#156063]: https://github.com/home-assistant/core/pull/156063
+[@Foscam-wangzhengyu]: https://github.com/Foscam-wangzhengyu
+[@LaStrada]: https://github.com/LaStrada
+[@astrandb]: https://github.com/astrandb
+[@cdce8p]: https://github.com/cdce8p
+[@chemelli74]: https://github.com/chemelli74
+[@edenhaus]: https://github.com/edenhaus
+[@epenet]: https://github.com/epenet
+[@farmio]: https://github.com/farmio
+[@johanzander]: https://github.com/johanzander
+[@puddly]: https://github.com/puddly
+[@synesthesiam]: https://github.com/synesthesiam
+[@tronikos]: https://github.com/tronikos
+[@zweckj]: https://github.com/zweckj
+
+## Release 2025.11.2 - November 14
+
+- Bump cronsim to 2.7 ([@dgomes] - [#155648])
+- Avoid firing discovery events when flows immediately create a config entry ([@puddly] - [#155753])
+- Remove arbitrary forecast limit for meteo_lt ([@xE1H] - [#155877])
+- Fix progress step bugs ([@emontnemery] - [#155923])
+- Make sure to clean register callbacks when mobile_app reloads ([@TimoPtr] - [#156028])
+- Bump pyportainer 1.0.13 ([@erwindouna] - [#155783])
+- Bump pyportainter 1.0.14 ([@erwindouna] - [#156072])
+- Log `HomeAssistantError`s in ZHA config flow ([@TheJulianJES] - [#156075])
+- Bump aio-ownet to 0.0.5 ([@jrieger] - [#156157])
+- Fix MFA Notify setup flow schema ([@abmantis] - [#156158])
+- Update xknx to 3.10.1 ([@farmio] - [#156177])
+- Forbid to choose state in Ukraine Alarm integration ([@PaulAnnekov] - [#156183])
+- Fix set_absolute_position angle ([@starkillerOG] - [#156185])
+- Fix config flow reconfigure for Comelit ([@chemelli74] - [#156193])
+- Bump pyvesync to 3.2.1 ([@cdnninja] - [#156195])
+- Fix Climate state reproduction when target temperature is `None` ([@mib1185] - [#156220])
+- Foscam Integration with Legacy Model Compatibility ([@Foscam-wangzhengyu] - [#156226])
+- Bump pypalazzetti lib from 0.1.19 to 0.1.20 ([@dotvav] - [#156249])
+- Bump pySmartThings to 3.3.2 ([@joostlek] - [#156250])
+- Correct migration to recorder schema 51 ([@emontnemery] - [#156267])
+- Improve logging of failing miele action commands ([@astrandb] - [#156275])
+- Ituran: Don't cache properties ([@shmuelzon] - [#156281])
+- tplink: handle repeated, unknown thermostat modes gracefully ([@rytilahti] - [#156310])
+- Check collation of statistics_meta DB table ([@emontnemery] - [#156327])
+- Fix support for Hyperion 2.1.1 ([@antoniocifu] - [#156343])
+- Update pyMill to 0.14.1 ([@Danielhiversen] - [#156396])
+- Prevent sensor updates caused by fluctuating “last seen” timestamps in Xbox integration ([@tr4nt0r] - [#156419])
+- Fix update progress in Teslemetry ([@Bre77] - [#156422])
+- Bump pyvesync to 3.2.2 ([@cdnninja] - [#156423])
+- Fix lamarzocco update status ([@zweckj] - [#156442])
+- Add firmware flashing debug loggers to hardware integrations ([@puddly] - [#156480])
+- URL-encode the RTSP URL in the Foscam integration ([@Foscam-wangzhengyu] - [#156488])
+- Update Home Assistant base image to 2025.11.0 ([@sairon] - [#156517])
+- Bump pySmartThings to 3.3.3 ([@joostlek] - [#156528])
+- Update bsblan to python-bsblan version 3.1.1 ([@liudger] - [#156536])
+- Bump reolink-aio to 0.16.5 ([@starkillerOG] - [#156553])
+- Bump python-open-router to 0.3.3 ([@joostlek] - [#156563])
+- Bump ZHA to 0.0.78 ([@TheJulianJES] - [#155937])
+- Bump ZHA to 0.0.79 ([@TheJulianJES] - [#156571])
+- Fix sfr_box entry reload ([@epenet] - [#156593])
+- Fix model_id in Husqvarna Automower ([@Thomas55555] - [#156608])
+- Add debounce to Alexa Devices coordinator ([@chemelli74] - [#156609])
+
+[#155648]: https://github.com/home-assistant/core/pull/155648
+[#155753]: https://github.com/home-assistant/core/pull/155753
+[#155783]: https://github.com/home-assistant/core/pull/155783
+[#155877]: https://github.com/home-assistant/core/pull/155877
+[#155923]: https://github.com/home-assistant/core/pull/155923
+[#155937]: https://github.com/home-assistant/core/pull/155937
+[#156028]: https://github.com/home-assistant/core/pull/156028
+[#156072]: https://github.com/home-assistant/core/pull/156072
+[#156075]: https://github.com/home-assistant/core/pull/156075
+[#156076]: https://github.com/home-assistant/core/pull/156076
+[#156157]: https://github.com/home-assistant/core/pull/156157
+[#156158]: https://github.com/home-assistant/core/pull/156158
+[#156177]: https://github.com/home-assistant/core/pull/156177
+[#156183]: https://github.com/home-assistant/core/pull/156183
+[#156185]: https://github.com/home-assistant/core/pull/156185
+[#156193]: https://github.com/home-assistant/core/pull/156193
+[#156195]: https://github.com/home-assistant/core/pull/156195
+[#156220]: https://github.com/home-assistant/core/pull/156220
+[#156226]: https://github.com/home-assistant/core/pull/156226
+[#156249]: https://github.com/home-assistant/core/pull/156249
+[#156250]: https://github.com/home-assistant/core/pull/156250
+[#156267]: https://github.com/home-assistant/core/pull/156267
+[#156275]: https://github.com/home-assistant/core/pull/156275
+[#156281]: https://github.com/home-assistant/core/pull/156281
+[#156310]: https://github.com/home-assistant/core/pull/156310
+[#156327]: https://github.com/home-assistant/core/pull/156327
+[#156343]: https://github.com/home-assistant/core/pull/156343
+[#156396]: https://github.com/home-assistant/core/pull/156396
+[#156419]: https://github.com/home-assistant/core/pull/156419
+[#156422]: https://github.com/home-assistant/core/pull/156422
+[#156423]: https://github.com/home-assistant/core/pull/156423
+[#156442]: https://github.com/home-assistant/core/pull/156442
+[#156480]: https://github.com/home-assistant/core/pull/156480
+[#156488]: https://github.com/home-assistant/core/pull/156488
+[#156517]: https://github.com/home-assistant/core/pull/156517
+[#156528]: https://github.com/home-assistant/core/pull/156528
+[#156536]: https://github.com/home-assistant/core/pull/156536
+[#156553]: https://github.com/home-assistant/core/pull/156553
+[#156563]: https://github.com/home-assistant/core/pull/156563
+[#156571]: https://github.com/home-assistant/core/pull/156571
+[#156593]: https://github.com/home-assistant/core/pull/156593
+[#156608]: https://github.com/home-assistant/core/pull/156608
+[#156609]: https://github.com/home-assistant/core/pull/156609
+[@Bre77]: https://github.com/Bre77
+[@Danielhiversen]: https://github.com/Danielhiversen
+[@Foscam-wangzhengyu]: https://github.com/Foscam-wangzhengyu
+[@PaulAnnekov]: https://github.com/PaulAnnekov
+[@TheJulianJES]: https://github.com/TheJulianJES
+[@Thomas55555]: https://github.com/Thomas55555
+[@TimoPtr]: https://github.com/TimoPtr
+[@abmantis]: https://github.com/abmantis
+[@antoniocifu]: https://github.com/antoniocifu
+[@astrandb]: https://github.com/astrandb
+[@cdnninja]: https://github.com/cdnninja
+[@chemelli74]: https://github.com/chemelli74
+[@dgomes]: https://github.com/dgomes
+[@dotvav]: https://github.com/dotvav
+[@emontnemery]: https://github.com/emontnemery
+[@epenet]: https://github.com/epenet
+[@erwindouna]: https://github.com/erwindouna
+[@farmio]: https://github.com/farmio
+[@frenck]: https://github.com/frenck
+[@joostlek]: https://github.com/joostlek
+[@jrieger]: https://github.com/jrieger
+[@liudger]: https://github.com/liudger
+[@mib1185]: https://github.com/mib1185
+[@puddly]: https://github.com/puddly
+[@rytilahti]: https://github.com/rytilahti
+[@sairon]: https://github.com/sairon
+[@shmuelzon]: https://github.com/shmuelzon
+[@starkillerOG]: https://github.com/starkillerOG
+[@tr4nt0r]: https://github.com/tr4nt0r
+[@xE1H]: https://github.com/xE1H
+[@zweckj]: https://github.com/zweckj
+
+## Release 2025.11.3 - November 21
+
+- Cache token info in Wallbox ([@hesselonline] - [#154147])
+- Bump version of python_awair to 0.2.5 ([@averybiteydinosaur] - [#155798])
+- Fix args passed to check_config script ([@tmonck] - [#155885])
+- update methods to non deprecated methods in vesync ([@cdnninja] - [#155887])
+- Fix wrong BrowseError module in Kode ([@charrus] - [#155971])
+- Bump universal-silabs-flasher to v0.1.0 ([@puddly] - [#156291])
+- Reset state on error during VOIP announcement ([@jaminh] - [#156384])
+- Bump pyiCloud to 2.2.0 ([@PaulCavill] - [#156485])
+- Fix is_matching in samsungtv config flow ([@FredrikM97] - [#156594])
+- Bump async-upnp-client to 0.46.0 ([@edenhaus] - [#156622])
+- Bump tplink-omada-api to 1.5.3 ([@MarkGodwin] - [#156645])
+- Fix missing description placeholders in MQTT subentry flow ([@jbouwh] - [#156684])
+- Fix missing `temperature_delta` device class translations ([@jbouwh] - [#156685])
+- Bump ohmepy and remove advanced_settings_coordinator ([@dan-r] - [#156764])
+- Fix blocking call in cync ([@epenet] - [#156782])
+- Lamarzocco fix websocket reconnect issue ([@zweckj] - [#156786])
+- Fix hvv_departures to pass config_entry explicitly to DataUpdateCoordinator ([@Copilot] - [#156794])
+- Bump aioautomower to 2.7.1 ([@Thomas55555] - [#156826])
+- Bump pySmartThings to 3.3.4 ([@joostlek] - [#156830])
+- Bump universal-silabs-flasher to 0.1.2 ([@puddly] - [#156849])
+- Bump onedrive-personal-sdk to 0.0.17 ([@zweckj] - [#156865])
+- Bump aiounifi to 88 ([@Sese-Schneider] - [#156867])
+- Rework CloudhookURL setup for mobile app ([@TimoPtr] - [#156940])
+- Bump go2rtc to 1.9.12 and go2rtc-client to 0.3.0 ([@edenhaus] - [#156948])
+- Update frontend to 20251105.1 ([@bramkragten] - [#156992])
+- Throttle Decora wifi updates ([@joostlek] - [#156994])
+
+[#154147]: https://github.com/home-assistant/core/pull/154147
+[#155798]: https://github.com/home-assistant/core/pull/155798
+[#155885]: https://github.com/home-assistant/core/pull/155885
+[#155887]: https://github.com/home-assistant/core/pull/155887
+[#155971]: https://github.com/home-assistant/core/pull/155971
+[#156076]: https://github.com/home-assistant/core/pull/156076
+[#156291]: https://github.com/home-assistant/core/pull/156291
+[#156384]: https://github.com/home-assistant/core/pull/156384
+[#156485]: https://github.com/home-assistant/core/pull/156485
+[#156594]: https://github.com/home-assistant/core/pull/156594
+[#156620]: https://github.com/home-assistant/core/pull/156620
+[#156622]: https://github.com/home-assistant/core/pull/156622
+[#156645]: https://github.com/home-assistant/core/pull/156645
+[#156684]: https://github.com/home-assistant/core/pull/156684
+[#156685]: https://github.com/home-assistant/core/pull/156685
+[#156764]: https://github.com/home-assistant/core/pull/156764
+[#156782]: https://github.com/home-assistant/core/pull/156782
+[#156786]: https://github.com/home-assistant/core/pull/156786
+[#156794]: https://github.com/home-assistant/core/pull/156794
+[#156826]: https://github.com/home-assistant/core/pull/156826
+[#156830]: https://github.com/home-assistant/core/pull/156830
+[#156849]: https://github.com/home-assistant/core/pull/156849
+[#156865]: https://github.com/home-assistant/core/pull/156865
+[#156867]: https://github.com/home-assistant/core/pull/156867
+[#156940]: https://github.com/home-assistant/core/pull/156940
+[#156948]: https://github.com/home-assistant/core/pull/156948
+[#156992]: https://github.com/home-assistant/core/pull/156992
+[#156994]: https://github.com/home-assistant/core/pull/156994
+[@Copilot]: https://github.com/apps/copilot-swe-agent
+[@FredrikM97]: https://github.com/FredrikM97
+[@MarkGodwin]: https://github.com/MarkGodwin
+[@PaulCavill]: https://github.com/PaulCavill
+[@Sese-Schneider]: https://github.com/Sese-Schneider
+[@Thomas55555]: https://github.com/Thomas55555
+[@TimoPtr]: https://github.com/TimoPtr
+[@averybiteydinosaur]: https://github.com/averybiteydinosaur
+[@bramkragten]: https://github.com/bramkragten
+[@cdnninja]: https://github.com/cdnninja
+[@charrus]: https://github.com/charrus
+[@dan-r]: https://github.com/dan-r
+[@edenhaus]: https://github.com/edenhaus
+[@epenet]: https://github.com/epenet
+[@frenck]: https://github.com/frenck
+[@hesselonline]: https://github.com/hesselonline
+[@jaminh]: https://github.com/jaminh
+[@jbouwh]: https://github.com/jbouwh
+[@joostlek]: https://github.com/joostlek
+[@puddly]: https://github.com/puddly
+[@tmonck]: https://github.com/tmonck
+[@zweckj]: https://github.com/zweckj
+
 [#125595]: https://github.com/home-assistant/core/pull/125595
 [#126058]: https://github.com/home-assistant/core/pull/126058
 [#133771]: https://github.com/home-assistant/core/pull/133771

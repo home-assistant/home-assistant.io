@@ -43,9 +43,19 @@ You need to identify the issue in the configuration files and fix it there. The 
 If your Home Assistant is acting up and you cannot identify a root cause, you can use **Safe mode** to narrow down the number of possible causes.
 **Safe mode** loads Home Assistant Core, but no custom integrations, no custom cards, and no custom themes. If the issue does not persist in **Safe mode**, the issue is not with Home Assistant Core. Before reporting an issue, check if the issue persists in **Safe mode**.
 
-- To enable Safe mode from the UI, go to **Settings** > **System** > **Restart Home Assistant** (top right) > **Restart Home Assistant in safe mode**.
-- If you cannot reach the UI, you can enable **Safe mode** from the [command line](/common-tasks/os/#home-assistant-via-the-command-line):
-  - ```ha core restart --safe-mode```
+You can enable Safe mode in several ways:
+
+- From the UI:
+  - Go to **Settings** > **System** > **Restart Home Assistant** (top right) > **Restart Home Assistant in safe mode**.
+
+- From the [command line](/common-tasks/os/#home-assistant-via-the-command-line):
+  - Run:
+    ```bash
+    ha core restart --safe-mode
+    ```
+
+- By creating a file in the configuration directory:
+  - Create an empty file named `safe-mode` in your Home Assistant configuration directory. Home Assistant will detect this file on startup and automatically boot into Safe mode.
 
 ## I don't see any updates
 

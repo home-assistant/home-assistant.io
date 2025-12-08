@@ -22,7 +22,7 @@ The Mobile App integration allows Home Assistant mobile apps to easily integrate
 
 If you are planning to use a mobile application that integrates with Home Assistant, we recommend that you keep this integration enabled.
 
-If you are a mobile app developer, see the [developer documentation](https://developers.home-assistant.io/docs/api/native-app-integration.html) for instructions on how to build your app on top of the mobile app component.
+If you are a mobile app developer, see the [developer documentation](https://developers.home-assistant.io/docs/api/native-app-integration/) for instructions on how to build your app on top of the mobile app component.
 
 ## Configuration
 
@@ -35,7 +35,7 @@ mobile_app:
 
 ## Apps that use Mobile App
 
-- [Home Assistant for iOS](https://apps.apple.com/us/app/home-assistant/id1099568401?ls=1) (official)
+- [Home Assistant for iOS](https://apps.apple.com/app/home-assistant/id1099568401?ls=1) (official)
   - [Beta release](https://testflight.apple.com/join/1AlPbnLZ) (Testflight)
 - [Home Assistant for Android](https://play.google.com/store/apps/details?id=io.homeassistant.companion.android) (official)
   - [Beta release](https://play.google.com/apps/testing/io.homeassistant.companion.android)

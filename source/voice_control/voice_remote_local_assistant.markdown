@@ -61,7 +61,7 @@ There are currently two options to run speech-to-text locally: **Speech-to-Phras
 
 ### Text-to-speech engine
 
-For text-to-speech, we have developed [Piper](https://github.com/rhasspy/piper). Piper is a fast, local neural text-to-speech system that sounds great and is optimized for the Raspberry Pi 4. It supports [many languages](https://rhasspy.github.io/piper-samples/). On a Raspberry Pi, using medium quality models, it can generate 1.6s of voice in a second.
+For text-to-speech, we have developed [Piper](https://github.com/OHF-Voice/piper1-gpl). Piper is a fast, local neural text-to-speech system that sounds great and is optimized for the Raspberry Pi 4. It supports [many languages](https://rhasspy.github.io/piper-samples/). On a Raspberry Pi, using medium quality models, it can generate 1.6s of voice in a second.
 
 Please be sure to check how either option will work in your language, since quality can change quite a bit.
 
