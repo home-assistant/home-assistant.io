@@ -25,7 +25,7 @@ ha_integration_type: hub
 related:
   - url: https://www.warema.com/en/smart-home/wms-webcontrol-pro/
     title: Consumer information about WMS WebControl pro
-  - url: https://smartbuildings.warema.com/en/control-systems/radio-systems/wms/wms-webcontrol-pro/
+  - url: https://smartbuildings.warema.com/en/control-systems/radio-systems/wms/wms-webcontrolpro/
     title: Technical documentation for WMS WebControl pro
 ha_dhcp: true
 ---
@@ -34,7 +34,8 @@ The **WMS WebControl pro** {% term integration %} allows you to integrate WAREMA
 
 This integration uses a local API which is available with firmware container version 11H.
 
-See device section for support information: [buttons](#buttons), [covers](#covers), [lights](#lights) and [scenes](#scenes).
+See device section for support information: [buttons](#buttons), [covers](#covers), [lights](#lights),
+[scenes](#scenes) and [switches](#switches).
 
 {% include integrations/config_flow.md %}
 
