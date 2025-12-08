@@ -17,7 +17,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The Aussie Broadband integration displays various service metrics using the Aussie Broadband API.
+The **Aussie Broadband** {% term integration %} displays various service metrics using the Aussie Broadband API.
 
 ## Prerequisites
 
