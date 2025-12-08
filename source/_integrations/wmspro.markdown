@@ -61,4 +61,4 @@ The WMS WebControl pro *may* also be discovered on your local network via DHCP.
 
 ## Switches
 
-- Load bearing switches (for example, a connected heater) can be turned on and off.
+- Load switches (for example, a connected heater) can be turned on and off.
