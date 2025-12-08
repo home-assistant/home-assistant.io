@@ -28,7 +28,7 @@ ha_platforms:
 ha_integration_type: hub
 ---
 
-The `ecovacs` {% term integration %} is the main integration to integrate [Ecovacs](https://www.ecovacs.com) (Deebot) vacuums and mowers.
+The **Ecovacs** {% term integration %} is the main integration to integrate [Ecovacs](https://www.ecovacs.com) (Deebot) vacuums and mowers.
 
 ## Prerequisites
 
