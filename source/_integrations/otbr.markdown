@@ -23,4 +23,4 @@ Installing this integration manually is an advanced use case, for example if you
 
 {% include integrations/config_flow.md %}
 
-More information on the configuration of this add-on can be found [here](https://github.com/home-assistant/addons/blob/master/openthread_border_router/DOCS.md).
+To view the add-on documentation, go to {% my supervisor_addon title="**Settings** > **Add-ons** > **OpenThread Border Router**" addon="core_openthread_border_router" %} and select the **Documentation** tab.
