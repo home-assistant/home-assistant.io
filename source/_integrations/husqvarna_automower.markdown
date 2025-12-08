@@ -6,6 +6,7 @@ ha_category:
   - Button
   - Calendar
   - Device tracker
+  - Event
   - Lawn Mower
   - Number
   - Select
@@ -22,16 +23,18 @@ ha_platforms:
   - calendar
   - device_tracker
   - diagnostics
+  - event
   - lawn_mower
   - number
   - select
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: hub
 ha_domain: husqvarna_automower
+ha_quality_scale: silver
 ---
 
-The Husqvarna Automower integration provides connectivity with Husqvarna Automowers lawn mowers through Husqvarna's cloud API. Only mowers with *Automower® Connect* or with the *Automower® Connect Module* are supported.
+The Husqvarna Automower {% term integration %} provides connectivity with Husqvarna Automowers lawn mowers through Husqvarna's cloud API. Only mowers with *Automower® Connect* or with the *Automower® Connect Module* are supported.
 
 In order to use this integration you must properly configure OAuth2 credentials using your Husqvarna account.  Refer to [this guide](https://developer.husqvarnagroup.cloud/docs/get-started) for general overview of the process.
 Your Husqvarna account username/password used for the *Automower® Connect*  phone app is required.  Most users probably created a Husqvarna account during initial mower setup.
@@ -78,11 +81,11 @@ Internal examples: `http://192.168.0.2:8123/auth/external/callback`, `http://hom
 
 {% configuration_basic %}
 Name:
-    description: "Enter the name for the provided credentials. You can choose your favorite name."
+  description: "Enter the name for the provided credentials. You can choose your favorite name."
 OAuth Client ID:
-    description: "Enter the Application key from your Husqvarna developer application."
+  description: "Enter the Application key from your Husqvarna developer application."
 OAuth Client Secret:
-    description: "Enter the Application secret from your Husqvarna developer application."
+  description: "Enter the Application secret from your Husqvarna developer application."
 {% endconfiguration_basic %}
 
 ## Troubleshooting
@@ -107,6 +110,7 @@ The integration will create the following binary sensors:
 The integration will create the following buttons:
 
 - **Confirm Error** (if available): For confirming minor mower errors.
+- **Reset cutting blade usage time** (if available): Resets the cutting blade usage time.
 - **Sync clock**: Syncs the clock of the mower with the time set in Home Assistant.
 
 ### Calendar
@@ -116,6 +120,30 @@ The integration will create a calendar entity for all mowers. The calendar shows
 ### Device tracker (if available)
 
 The integration will create a device tracker entity to show the position of the mower.
+
+### Event (if available)
+
+- Shows the last error as event.
+- Includes additional context: `severity`, `latitude`, `longitude`, and `date_time`.
+
+#### Example attributes
+
+| Attribute     | Description                            |
+|---------------|----------------------------------------|
+| `event_type`  | Error code (for example, `tilt_error`)        |
+| `severity`    | Error severity (for example, `error`, `warning`) |
+| `latitude`    | Latitude where the error occurred      |
+| `longitude`   | Longitude where the error occurred     |
+| `date_time`   | Timestamp of the error                 |
+
+#### Use cases
+
+- Send a notification when the mower is lifted or stuck.
+- Show last error location on a map
+
+{% note %}
+The entity will only be created when a new message is received. If a mower hasn’t reported any errors yet, the entity won't show up.
+{% endnote %}
 
 ### Lawn mower
 
@@ -147,6 +175,9 @@ The integration will create the following sensors:
 - Battery level
 - Cutting blade usage time (if available)
 - Error. For example: *Mower tilted*, *outside geofence*.
+- Downtime (if available)
+- Inactive reason (if available). For example: *Searching for satellites* or *planning*.
+- Remaining charging time
 - Restricted reason. For example: *Week schedule*, *frost*, or *daily limit*.
 - Mode
 - Next start
@@ -157,6 +188,7 @@ The integration will create the following sensors:
 - Total drive distance
 - Total running time
 - Total searching time
+- Uptime (if available)
 - Work area (if available). For example: *My lawn*, *Front lawn*, *Back lawn*
 
 For each work area with activated systematic mowing these sensors are created:
@@ -223,7 +255,7 @@ data:
 - The mower can only be started using the `lawn_mower.start_mowing` action during the schedules configured in the Automower Connect App. To start the mower outside the scheduled times, use the `husqvarna_automower.override_schedule` action. In both cases, the battery must be fully charged beforehand.
 - Stay-out zone handling is not supported for mowers equipped with EPOS technology.
 
-## Remove integration
+## Removing the integration
 
 This integration can be removed by following these steps:
 

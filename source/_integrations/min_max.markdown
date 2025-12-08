@@ -17,13 +17,14 @@ ha_platforms:
 ha_integration_type: helper
 ---
 
-The Min/Max integration consumes the state from other sensors to determine the minimum, maximum, latest (last), mean, median, range and sum of the collected states.
+The Min/Max {% term integration %} consumes the state from other sensors to determine the minimum, maximum, latest (last), mean, median, range and sum of the collected states.
 
 The sensor provided by this integration will always show you the lowest/highest/latest value which was received from all monitored sensors. If you have spikes in your values, it's recommended to filter/equalize your values with a [statistics sensor](/integrations/statistics) first.
 
 If the source sensor provides an unknown state, it will be ignored in the calculation except for sum where it will set the state to unknown. If the unit of measurement of the sensors differs, the Min/Max sensor will go to an error state where the value is `UNKNOWN` and unit of measurement is `ERR`.
 
 {% include integrations/config_flow.md %}
+
 {% configuration_basic %}
 Name:
   description: The name the sensor should have. You can change it again later.

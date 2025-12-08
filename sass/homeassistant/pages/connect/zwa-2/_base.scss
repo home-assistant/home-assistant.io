@@ -1,0 +1,43 @@
+section {   
+    color: #ffffff;
+
+    .section-inner {
+        height: 100%;
+        position: sticky;
+        top: 0;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .section-inner-content {
+        padding: 40px 0;
+        width: 100%;
+
+        @include bp(tablet) {
+            padding: 80px 0;
+        }
+
+        @include bp(desktop) {
+            padding: 120px 0;
+        }
+    }
+}
+
+.nc-collaboration{
+    position: absolute;
+    &.mobile{
+        display: block;
+        @include bp(desktop){
+            display: none;
+        }
+    }
+
+    &.desktop{
+        display: none;
+        @include bp(desktop){
+            display: block;
+        }
+    }
+}

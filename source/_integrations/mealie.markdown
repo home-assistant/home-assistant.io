@@ -17,9 +17,21 @@ ha_platforms:
   - sensor
   - todo
 ha_integration_type: service
+ha_quality_scale: platinum
 ---
 
-The Mealie integration will fetch data from your [Mealie instance](https://mealie.io/).
+[Mealie](https://mealie.io/) is an open source, self-hosted recipe manager, meal planner, and shopping list. The Mealie {% term integration %} will fetch and allow you to create and update data held in your Mealie instance.
+
+## Use cases
+
+- View your upcoming meal plans in the calendars.
+- Use automations or your voice assistant to add items to a shopping list.
+- Use [zone presence-detection](/getting-started/presence-detection/) to remind you when you approach a store that you have items on your shopping list to pick up.
+- Search for a recipe by ingredient.
+
+## Supported versions
+
+Mealie instances version 2 and later are supported.
 
 ## Prerequisites
 
@@ -72,6 +84,7 @@ The Mealie integration has the following actions:
 
 - `mealie.get_mealplan`
 - `mealie.get_recipe`
+- `mealie.get_recipes`
 - `mealie.import_recipe`
 - `mealie.set_mealplan`
 - `mealie.set_random_mealplan`
@@ -94,6 +107,18 @@ Get the recipe for a specified recipe ID or slug.
 |------------------------|----------|-----------------------------------------------------|
 | `config_entry_id`      | No       | The ID of the Mealie config entry to get data from. |
 | `recipe_id`            | No       | The ID or the slug of the recipe to get.            |
+
+### Action `mealie.get_recipes`
+
+Get a list of recipes that match your search terms. You can use this action to find the recipe ID or slug. The response includes a brief description of each recipe. To view full details and steps for a specific recipe, use the `mealie.get_recipe` action afterwards.
+
+Please note the behavior of the search function depends on the backend used for Mealie (see [documentation](https://docs.mealie.io/documentation/getting-started/faq/#what-is-fuzzy-search-and-how-do-i-use-it)). In the case of postgresql backend, the search will be fuzzy, otherwise it will be literal.
+
+| Data attribute    | Optional | Description                                                                 |
+|-------------------|----------|-----------------------------------------------------------------------------|
+| `config_entry_id` | No       | The ID of the Mealie config entry to get data from.                         |
+| `search_terms`    | Yes      | Search terms on which all the properties of recipes are searched.           |
+| `result_limit`    | Yes      | The maximum number of recipes to return.                                    |
 
 ### Action `mealie.import_recipe`
 
@@ -164,7 +189,17 @@ template:
 
 {% enddetails %}
 
-## Remove integration
+## Known limitations
+
+- When editing a food item within the shopping list the item will be converted to a note style item.
+
+## Troubleshooting
+
+If you are using the Mealie add-on, use the direct URL with port number (default 9090) for the Mealie web page. Do not use the ingress URL that ends with /xxx_mealie.
+
+Before reporting an issue, enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics) and restart the integration. As soon as the issue re-occurs, stop the debug logging again (_download of debug log file will start automatically_). Further, _if still possible_, download the {% term diagnostics %} data. If you have collected the debug log and the diagnostics data, include them in the issue report.
+
+## Removing the integration
 
 This integration follows standard integration removal, once the integration is removed you can remove the API token (assuming it was only used by this integration) by going to your Account in the Mealie web interface, then to **Manage Your API Tokens** and deleting the token you created for Home Assistant.
 

@@ -52,18 +52,19 @@ Use wallclock as timestamps:
   <a href='/examples/google_maps_card/'>
     <img src='/images/integrations/camera/generic-google-maps.png' alt='Screenshot showing Google Maps integration in Home Assistant front end.'>
     Example showing the Generic camera platform pointing at a dynamic Google Map image.
-  </a>
+  <img src='/images/integrations/camera/generic-google-maps.png' alt='Screenshot showing Google Maps integration in Home Assistant front end.'>
+  Example showing the Generic camera platform pointing at a dynamic Google Map image.
 </p>
 
 ## Examples
 
 In this section, you find some real-life examples of how to use this camera platform.
 
-### Weather graph from yr.no
+### Weather graph from USA National Weather Service
 
-- Still Image URL: `https://www.yr.no/en/content/1-72837/meteogram.svg`
+You can display a GIF from the web as a still image.
 
-Instructions on how to locate the SVG for your location are available at [developer.yr.no](https://developer.yr.no/doc/guides/available-widgets/)
+- Still Image URL: `https://radar.weather.gov/ridge/standard/CONUS_0.gif`
 
 ### Local image
 

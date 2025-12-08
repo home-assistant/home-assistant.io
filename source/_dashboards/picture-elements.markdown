@@ -34,7 +34,7 @@ type:
   type: string
 image:
   required: true
-  description: The URL of an image.<br/>To use a locally hosted image, see [Hosting](/integrations/http#hosting-files).
+  description: The URL of an image.<br/>To use a locally hosted image, see [Hosting](/integrations/http#hosting-files), or use a `media-source://` URL for Media content.
   type: string
 image_entity:
   required: false
@@ -67,7 +67,7 @@ theme:
   type: string
 dark_mode_image:
   required: false
-  description: "This image is used when the dark mode is activated and no state image is set."
+  description: This image is used when the dark mode is activated and no state image is set.<br/>To use a locally hosted image, see [Hosting](/integrations/http#hosting-files), or use a `media-source://` URL for Media content.
   type: string
 dark_mode_filter:
   required: false
@@ -322,7 +322,7 @@ double_tap_action:
   type: map
 image:
   required: false
-  description: The image to display.
+  description: The image to display.<br/>To use a locally hosted image, see [Hosting](/integrations/http#hosting-files), or use a `media-source://` URL for Media content.
   type: string
 camera_image:
   required: false
@@ -423,12 +423,13 @@ style:
 
 ### How to use state_image
 
-Specify a different image to display based on the state of the entity.
+Specify a different image to display based on the state of the entity (supports local, web, or `media-source://` URLs):
 
 ```yaml
 state_image:
-  "on": /local/living_room_on.jpg
-  "off": /local/living_room_off.jpg
+  "on": /local/bed_light_on.png
+  "off": https://demo.home-assistant.io/stub_config/bedroom.png
+  "unavailable": media-source://image_upload/123456789
 ```
 
 ### How to use state_filter

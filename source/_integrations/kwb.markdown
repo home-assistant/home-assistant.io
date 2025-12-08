@@ -12,6 +12,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `kwb` {% term integration %} integrates the sensors of KWB Easyfire pellet central heating units with the Comfort3 controller (https://www.kwb.net/produkte/) into Home Assistant.

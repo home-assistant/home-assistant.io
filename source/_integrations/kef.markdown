@@ -14,6 +14,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `kef` {% term integration %} allows you to control the KEF LS50 Wireless and [KEF LSX](https://international.kef.com/products/lsx) speakers from Home Assistant.
@@ -78,7 +79,7 @@ supports_on:
   description: LS50 Wireless with a serial number below LS50W13074K24L/R2G do not support turning on the speakers over the network. Set this to false if you have an older model.
   default: true
   required: false
-  type: integer
+  type: boolean
 {% endconfiguration %}
 
 ## Advanced - configuration example

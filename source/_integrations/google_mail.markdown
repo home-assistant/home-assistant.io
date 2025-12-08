@@ -18,7 +18,7 @@ api: Gmail API
 api_link: https://console.cloud.google.com/apis/library/gmail.googleapis.com
 ---
 
-The Google Mail integration allows you to connect your [Google Mail](https://mail.google.com) to Home Assistant. The integration adds an action to allow you to set an email auto-response for when you go on vacation. A `notify` action is also added, allowing you to draft or send emails in plain text.
+The Google Mail {% term integration %} allows you to connect your [Google Mail](https://mail.google.com) to Home Assistant. The integration adds an action to allow you to set an email auto-response for when you go on vacation. A `notify` action is also added, allowing you to draft or send emails in plain text.
 
 ## Prerequisites
 
@@ -63,8 +63,8 @@ The following attributes can be placed inside the `data` key of the action for e
 
 | Attribute              | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `cc`               |      yes | List of recipients to be carbon copied.
-| `bcc`                   |      yes | List of recipients to be back carbon copied.
+| `cc`               |      yes | List of recipients to be carbon-copied.
+| `bcc`                   |      yes | List of recipients to be blind-carbon-copied.
 | `from`                   |      yes | Default is current authenticated user. Typically only applies to GSuite accounts where the user has delegate access to a shared mailbox.
 | `send`                 |      yes | Default is true. Set this to false to create a draft instead. Recipients are not required in this instance.
 

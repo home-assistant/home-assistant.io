@@ -13,6 +13,7 @@ ha_integration_type: hub
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 Receive signals from a keyboard and use it as a remote control.

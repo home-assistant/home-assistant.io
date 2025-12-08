@@ -9,6 +9,7 @@ ha_domain: orvibo
 ha_platforms:
   - switch
 ha_integration_type: integration
+ha_quality_scale: legacy
 ---
 
 {% caution %}

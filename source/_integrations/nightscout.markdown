@@ -9,13 +9,12 @@ ha_config_flow: true
 ha_codeowners:
   - '@marciogranzotto'
 ha_domain: nightscout
-ha_quality_scale: platinum
 ha_platforms:
   - sensor
 ha_integration_type: integration
 ---
 
-The Nightscout integration allows you to view your CGM data from [Nightscout](http://www.nightscout.info/) in Home Assistant.
+The Nightscout {% term integration %} allows you to view your CGM data from [Nightscout](http://www.nightscout.info/) in Home Assistant.
 
 {% include integrations/config_flow.md %}
 

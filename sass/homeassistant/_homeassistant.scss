@@ -12,6 +12,7 @@
 @import "base/post";
 @import "base/archive_list";
 @import "base/print";
+@import "base/collaboration_badge";
 
 @import "plugins/alert";
 @import "plugins/details";
@@ -20,6 +21,7 @@
 @import "plugins/integration_alert";
 
 @import "base/sidebar";
+@import "aside/buy_dialog";
 @import "aside/recent_posts";
 @import "aside/github";
 @import "aside/pinboard";

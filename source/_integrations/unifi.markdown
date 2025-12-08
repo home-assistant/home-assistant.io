@@ -11,7 +11,6 @@ ha_category:
 ha_release: 0.81
 ha_iot_class: Local Push
 ha_config_flow: true
-ha_quality_scale: platinum
 ha_codeowners:
   - '@Kane610'
 ha_domain: unifi
@@ -21,6 +20,7 @@ ha_platforms:
   - device_tracker
   - diagnostics
   - image
+  - light
   - sensor
   - switch
   - update
@@ -65,6 +65,7 @@ There is currently support for the following device types within Home Assistant:
 
 - [Button](#button)
 - [Image](#image)
+- [Light](#light)
 - [Presence detection](#presence-detection)
 - [Actions](#actions)
 - [Switch](#switch)
@@ -110,6 +111,8 @@ This platform allows you to detect presence by looking at devices connected to a
 
 If tracked devices continue to show "Home" when not connect/present and show connected in the UniFi Controller, disable 802.11r Fast Roaming.  When enabled, it has been observed on the various UniFi Controller versions, failure to declare disconnected clients.
 
+Presence detection is not compatible with Client MAC Address Randomization, enabled by default on most modern SmartPhones. This feature will need to be disabled within the client device settings, usually under the settings for the specific network.
+
 Presence detection depends on accurate time configuration between Home Assistant and the UniFi Network application.
 
 If Home Assistant and the UniFi Network application are running on separate machines or VMs ensure that all clocks are synchronized. Failing to have synchronized clocks will lead to Home Assistant failing to mark a device as home.
@@ -140,27 +143,43 @@ Allow control of network access to clients configured in the {% term integration
 
 Provides per-port PoE control. Entities are disabled by default. This feature requires admin privileges.
 
+### Port control
+
+Provides individual control to enable or disable switch ports. Entities are disabled by default. This feature requires admin privileges.
+
 ### Control DPI Traffic Restrictions
 
 Entities appear automatically for each restriction group. If there are no restrictions in a group, no {% term entity %} will be visible. Toggling the switch in Home Assistant will enable or disable all restrictions inside a group.
-
-### Control Port forward functonality
-
-Entities appear for each port forwarding rule. 
 
 ### Control WLAN availability
 
 Entities appear for each WLAN. Changing the state of WLAN will trigger a reconfiguration of affected access points, limiting access to all WLANs exposed by the access point.
 
-### Traffic Rules
+### Control Port Forwarding Rules
 
-Entities appear for each Traffic Rule. This allows toggling rules on and off.
+Entities appear for each port Forwarding Rule. The switches can be identified from icon {% icon "mdi:upload-network" %}.
+
+### Control Traffic Rules
+
+Entities appear for each Traffic Rule. The switches can be identified from icon {% icon "mdi:security-network" %}.
+
+### Control Policy-Based Routing Rules
+
+Entities appear for each Policy-Based Routing Rule. The switches can be identified from icon {% icon "mdi:routes" %}.
+
+### Control Zone-Based Firewall Policies
+
+Entities appear for each Zone-Based Firewall Policy. The switches can be identified from icon {% icon "mdi:security-network" %}.
 
 ## Sensor
 
 ### Bandwidth sensor
 
 Get entities reporting receiving and transmitting bandwidth per network client. These sensors are disabled by default. To enable the bandwidth sensors, on the UniFi integration page, select **Configure**, go to page 3/3 and enable the bandwidth sensors.
+
+### Wired client link speed sensor
+
+Get entities reporting the link speed for wired network clients. This sensor shows the connection speed in megabits per second (Mbit/s) between the wired client and the network switch or gateway. These sensors are disabled by default and are only available for wired clients with an active connection.
 
 ### Wlan clients sensor
 
@@ -193,6 +212,18 @@ Get entities reporting the current memory utilization of a UniFi Network device.
 ### Port Bandwidth sensor
 
 Get entities reporting receiving and transmitting bandwidth per port. These sensors are disabled by default. To enable the bandwidth sensors, on the UniFi integration page, select **Configure**, go to page 3/3 and enable the bandwidth sensors.
+
+## Light
+
+The Light entities will only be available for UniFi access points that support LED ring customization. Not all access points have this capability.
+
+### LED control
+
+Provides control over the LED ring on compatible UniFi access points. Entities appear automatically for devices that support LED customization. The LED state, brightness, and color can be controlled. This feature requires admin privileges.
+
+{% note %}
+Changes may take over 5 seconds to apply as the device must adopt a new configuration. The UI updates optimistically.
+{% endnote %}
 
 ## Firmware updates
 

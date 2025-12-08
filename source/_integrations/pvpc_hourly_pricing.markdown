@@ -5,7 +5,6 @@ ha_category:
   - Energy
 ha_release: '0.108'
 ha_iot_class: Cloud Polling
-ha_quality_scale: platinum
 ha_config_flow: true
 ha_codeowners:
   - '@azogue'

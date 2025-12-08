@@ -16,7 +16,7 @@ ha_platforms:
   - diagnostics
   - sensor
 ha_integration_type: integration
-ha_quality_scale: platinum
+ha_dhcp: true
 ---
 
 The **Withings** {% term integration %} consumes data from various health products produced by [Withings](https://www.withings.com).
@@ -26,7 +26,7 @@ The **Withings** {% term integration %} consumes data from various health produc
 - Withings account
 - Withings app installed
 - Withings device setup in the app
-- [Withings developer account](#create-a-withings-developer-account) to get a *ClientID* and *Secret* to connect to be able to get the data from the Withings cloud API
+- [Withings developer account](#creating-a-withings-developer-account) to get a *ClientID* and *Secret* to connect to be able to get the data from the Withings cloud API
 
 ### Creating a Withings developer account
 
@@ -86,3 +86,9 @@ For example, measurement sensors like weight only work when data has been regist
 Sleep sensors are only created if the {% term integration %} can find sleep data for you within the last day.
 
 Workout calendar and the workout and activity sensors show if the latest available data point is no older than 14 days.
+
+## Removing the integration
+
+This integration follows standard integration removal, no extra steps are required.
+
+{% include integrations/remove_device_service.md %}

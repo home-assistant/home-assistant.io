@@ -12,9 +12,10 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
-This is a presence detection scanner for [OpenWrt](https://openwrt.org/) using [ubus](https://wiki.openwrt.org/doc/techref/ubus). It scans for changes in `hostapd.*`, which will detect and report changes in devices connected to the access point on the router.
+This is a presence detection scanner for [OpenWrt](https://openwrt.org/) using [ubus](https://openwrt.org/docs/techref/ubus). It scans for changes in `hostapd.*`, which will detect and report changes in devices connected to the access point on the router.
 
 Before this scanner can be used, you have to install the ubus RPC packages on OpenWrt (versions older than 18.06.x do not require the `uhttpd-mod-ubus` package):
 
@@ -56,7 +57,7 @@ Then, create an ACL file at `/usr/share/rpcd/acl.d/hass.json` for the user `hass
 }
 ```
 
-Restart the services. This ACL file needs to be recreated after updating/upgrading your OpenWrt firmware.
+Restart the services. Add the file path to /etc/sysupgrade.conf so that it remains after updating/upgrading your OpenWrt firmware.
 
 ```bash
 # /etc/init.d/rpcd restart && /etc/init.d/uhttpd restart
@@ -119,11 +120,20 @@ If you find that this never creates `known_devices.yaml`, or if you need more in
         homeassistant.components.device_tracker: debug
     ```
 
-3. In another window, tail the logfile in the configuration directory:
+3. In another window, observe the logs.
 
-    ```bash
-    tail -f home-assistant.log  | grep device_tracker
-    ```
+    - If using an {% term "Home Assistant Supervisor" %} based installation, such as the
+    {% term "Home Assistant Operating System" %}, log in through the [SSH add-on](/common-tasks/os/#installing-and-using-the-ssh-add-on) and run the following command:
+
+      ```bash
+      ha core logs --follow | grep device_tracker
+      ```
+
+    - If not using the {% term "Home Assistant Supervisor" %} tail the log file in the configuration directory:
+
+      ```bash
+      tail -f home-assistant.log  | grep device_tracker
+      ```
 
 4. If you see a Python stack trace like the following, check your configuration for correct username/password.
 

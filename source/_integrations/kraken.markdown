@@ -15,8 +15,8 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The Kraken integration allows you to monitor exchange rates on [kraken.com](https://www.kraken.com/).
-For a list of tradable asset pairs check [this kraken support article](https://support.kraken.com/hc/articles/201893658-Currency-pairs-available-for-trading-on-Kraken).
+The Kraken {% term integration %} allows you to monitor exchange rates on [kraken.com](https://www.kraken.com/).
+For a list of tradable asset pairs check [this kraken support article](https://support.kraken.com/articles/kraken-markets).
 
 {% include integrations/config_flow.md %}
 

@@ -26,6 +26,7 @@ related:
     title: Configuration file
 ha_codeowners:
   - '@mrpasztoradam'
+ha_quality_scale: legacy
 ---
 
 The ADS (automation device specification) describes a device-independent and fieldbus independent interface for communication between [Beckhoff](https://www.beckhoff.com/) automation devices running [TwinCAT](https://www.beckhoff.com/en-en/products/automation/twincat/) and other devices implementing this interface.

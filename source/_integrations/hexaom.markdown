@@ -24,11 +24,6 @@ ha_supporting_integration: Overkiz
 ha_release: 2022.2
 ha_codeowners:
   - '@imicknl'
-  - '@vlebourl'
-  - '@tetienne'
-  - '@nyroDev'
-  - '@tronix117'
-  - '@alexfp14'
 ha_config_flow: true
 ha_platforms:
   - alarm_control_panel

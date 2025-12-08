@@ -11,6 +11,7 @@ ha_domain: msteams
 ha_platforms:
   - notify
 ha_integration_type: integration
+ha_quality_scale: legacy
 ---
 
 The `Microsoft Teams` platform allows you to send notifications from Home Assistant to a team channel in [Microsoft Teams](https://www.microsoft.com/microsoft-teams/group-chat-software).

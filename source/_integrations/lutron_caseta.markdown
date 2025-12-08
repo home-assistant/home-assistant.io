@@ -33,9 +33,9 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-[Lutron](http://www.lutron.com/) is an American lighting control company. They have several lines of home automation devices that manage light switches, dimmers, occupancy sensors, HVAC controls, etc. The `lutron_caseta` integration in Home Assistant is responsible for communicating with the Lutron Caseta Smart Bridge for the [Caseta](https://www.casetawireless.com/) product line of dimmers, switches, shades, and sensors. It will also communicate with the Lutron Radio RA2 Main Repeater for the [RA2 Select](http://www.lutron.com/en-US/Products/Pages/WholeHomeSystems/RA2Select/Overview.aspx) product line of dimmers, switches, shades, and sensors.
+[Lutron](https://www.lutron.com/) is an American lighting control company. They have several lines of home automation devices that manage light switches, dimmers, occupancy sensors, HVAC controls, etc. The `lutron_caseta` integration in Home Assistant is responsible for communicating with the Lutron Caseta Smart Bridge for the [Caseta](https://www.casetawireless.com/) product line of dimmers, switches, shades, and sensors. It will also communicate with the Lutron Radio RA2 Main Repeater for the [RA2 Select](https://www.lutron.com/controls/systems/ra2select) product line of dimmers, switches, shades, and sensors.
 
-This integration supports the [Caséta](https://www.casetawireless.com/), [RA2 Select](https://www.lutron.com/en-US/Products/Pages/WholeHomeSystems/RA2Select/Overview.aspx), [RadioRA 3](https://radiora3.lutron.com/), and [Homeworks QSX](https://www.lutron.com/en-US/Products/Pages/WholeHomeSystems/Homeworks/Overview.aspx) **(not QS)** lines of products. 
+This integration supports the [Caséta](https://www.casetawireless.com/), [RA2 Select](https://www.lutron.com/controls/systems/ra2select), [RadioRA 3](https://radiora3.lutron.com/), and [Homeworks QSX](https://residential.lutron.com/homeworks) **(not QS)** lines of products. 
 
 Supports Bridges:
 
@@ -151,6 +151,8 @@ For more information on working with switches in Home Assistant, see the [Switch
 After setup, fans will appear in Home Assistant using an `entity_id` based on the name used in the Lutron mobile app. For example, a light switch called 'Master Bedroom Ceiling Fan' will appear in Home Assistant as `fan.master_bedroom_ceiling_fan`.
 
 For more information on working with fans in Home Assistant, see the [Fans integration](/integrations/fan/).
+
+For supported bridges, a switch entity will be created under the smart bridge called Smart Away. This switch toggles Smart Away on/off.
 
 ## Sensor
 

@@ -1,5 +1,5 @@
 ---
-title: OPNSense
+title: OPNsense
 description: Instructions on how to configure OPNsense integration
 ha_category:
   - Hub
@@ -12,6 +12,7 @@ ha_iot_class: Local Polling
 ha_platforms:
   - device_tracker
 ha_integration_type: integration
+ha_quality_scale: legacy
 ---
 
 [OPNsense](https://opnsense.org/) is an open source FreeBSD based firewall
@@ -40,6 +41,10 @@ User with API Key requires privileges for Type:
 
 - GUI Name: Diagnostics: ARP Table
 - GUI Name: Diagnostics: Network Insight
+
+{% important %}
+OPNSense versions 25.7 and later require All Pages privilege to be granted to the API user account.
+{% endimportant %}
 
 {% configuration %}
 url:

@@ -3,6 +3,7 @@ title: Netatmo
 description: Instructions on how to integrate Netatmo integration into Home Assistant.
 ha_category:
   - Binary sensor
+  - Button
   - Camera
   - Climate
   - Cover
@@ -23,6 +24,7 @@ ha_domain: netatmo
 ha_homekit: true
 ha_platforms:
   - binary_sensor
+  - button
   - camera
   - climate
   - cover
@@ -35,11 +37,12 @@ ha_platforms:
 ha_integration_type: hub
 ---
 
-The Netatmo integration platform is the main integration to integrate all Netatmo related platforms.
+The Netatmo {% term integration %} platform is the main integration to integrate all Netatmo related platforms.
 
 There is currently support for the following device types within Home Assistant:
 
 - [Binary sensor](#binary-sensor)
+- [Button](#button)
 - [Camera](#camera)
 - [Climate](#climate)
 - [Cover](#cover)
@@ -62,6 +65,11 @@ To edit an existing area, enter its name and follow the dialog.
 ## Binary sensor
 
 The `netatmo` binary sensor platform is showing the connectivity for the [Netatmo Smart Home Weather Station](https://www.netatmo.com/smart-weather-station).
+
+## Button
+
+The `netatmo` button sensor platform provides support for moving compatible shutters to a preferred position.
+Not all covers support this functionality, and we cannot automatically determine the capability, so these entities are disabled by default.
 
 ## Camera
 
@@ -308,6 +316,8 @@ Menu: **Settings** > **Devices & services**.
 
 Click on the `+` sign to add an integration and click on **Netatmo**.
 After completing the configuration flow, the Netatmo integration will be available.
+
+During the process you have to choose the new Application Credentials name.
 
 ## Troubleshooting
 

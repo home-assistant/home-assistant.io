@@ -14,6 +14,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The **VIVOTEK** camera {% term integration %} allows you to integrate a VIVOTEK IP camera into Home Assistant.

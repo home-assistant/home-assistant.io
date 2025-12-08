@@ -7,9 +7,10 @@ ha_iot_class: Cloud Push
 ha_release: 0.37
 ha_domain: microsoft_face
 ha_integration_type: integration
+ha_quality_scale: legacy
 ---
 
-The `microsoft_face` integration {% term integration %} is the main integration for Microsoft
+The `microsoft_face` {% term integration %} is the main integration for Microsoft
 Azure Cognitive service
 [Face](https://azure.microsoft.com/products/cognitive-services/vision-services).
 All data are stored in your own private instance in the Azure cloud.

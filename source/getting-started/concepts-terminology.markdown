@@ -13,7 +13,7 @@ Integrations are pieces of software that allow Home Assistant to connect to othe
 Some integration cards show an icon:
 
 - The cloud icon <img height="28px" src="/images/getting-started/cloud-icon.png" alt="Cloud icon"/> indicates that this integration depends on the cloud.
-The file icon <img height="28px" src="/images/getting-started/config-file_icon.png" alt="Configuration file icon"/> indicates that this integration was not set up via the UI. You have either set it up in your {% term "`configuration.yaml`" %} file, or it is a dependency set up by another integration. If you want to configure it, you will need to do so in your {% term "`configuration.yaml`" %} file.
+- The file icon <img height="28px" src="/images/getting-started/config-file_icon.png" alt="Configuration file icon"/> indicates that this integration was not set up via the UI. You have either set it up in your {% term "`configuration.yaml`" %} file, or it is a dependency set up by another integration. If you want to configure it, you will need to do so in your {% term "`configuration.yaml`" %} file.
 - The custom icon <img height="28px" src="/images/getting-started/custom-icon.png" alt="Custom icon"/> indicates that this is not an official Home Assistant integration but that it was custom made. It could be imported from another source, for example downloaded from HACS.
 
 For a full list of compatible {% term integrations %}, refer to the [integrations](/integrations) documentation.
@@ -74,7 +74,7 @@ To learn how to use {% term scenes %}, refer to the [scene](/integrations/scene/
 
 ## Add-ons
 
-Add-ons are third-party applications that provide additional functionality in Home Assistant. Add-ons run directly alongside Home Assistant, whereas {% term integrations %} connect Home Assistant to other apps. Add-ons are only supported by the {% term "Home Assistant Operating System" %} and {% term "Home Assistant Supervised" %} [installation type](/installation).
+Add-ons are third-party applications that provide additional functionality in Home Assistant. Add-ons run directly alongside Home Assistant, whereas {% term integrations %} connect Home Assistant to other apps. Add-ons are only supported when using {% term "Home Assistant Operating System" %}.
 
 Add-ons are installed from the add-on store under {% my supervisor title="**Settings** > **Add-ons**" %}. If you are curious now and feel like installing every add-on that looks interesting: beware that add-ons can use quite a bit of resources in terms of disk space, memory, and additional load on the processor.
 

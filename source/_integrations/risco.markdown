@@ -11,7 +11,6 @@ ha_config_flow: true
 ha_codeowners:
   - '@OnFreund'
 ha_domain: risco
-ha_quality_scale: platinum
 ha_platforms:
   - alarm_control_panel
   - binary_sensor
@@ -20,7 +19,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-This integration connects with Risco Alarms, in one of two ways:
+This {% term integration %} connects with Risco Alarms, in one of two ways:
 
 ## Risco cloud (recommended)
 

@@ -7,8 +7,6 @@ ha_category:
   - Presence detection
 ha_iot_class: Local Push
 ha_config_flow: true
-ha_codeowners:
-  - '@ludeeus'
 ha_domain: traccar_server
 ha_platforms:
   - binary_sensor
@@ -40,7 +38,6 @@ Examples:
 All events will also have the following data:
 
 {% configuration_basic %}
-
 Device ID:
   description: (`device_traccar_id`) This will be the device ID that the event is related to.
 Device name:
@@ -51,7 +48,6 @@ Server time:
   description: (`serverTime`) This will be the time the event was received by the Traccar Server.
 Attributes:
   description: (`attributes`) This will be a dictionary of attributes related to the event.
-
 {% endconfiguration_basic %}
 
 {% details "Example" %}
@@ -276,7 +272,7 @@ actions:
 
 {% enddetails %}
 
-#### Do something when a device are speeding
+#### Do something when a device is speeding
 
 The allows you to do something when the device "Millennium Falcon" exceeds a defined speed.
 

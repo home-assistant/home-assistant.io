@@ -9,7 +9,6 @@ ha_category:
 ha_release: 0.102
 ha_iot_class: Local Push
 ha_config_flow: true
-ha_quality_scale: platinum
 ha_codeowners:
   - '@frenck'
 ha_domain: wled
@@ -155,6 +154,22 @@ data:
 
 {% endraw %}
 
+It is recommended to select an effect that matches the capabilities of your WLED device (e.g., 1D, 2D, or Sound Reactive). You can refer to the [WLED effect list](https://kno.wled.ge/features/effects/) to explore available options. Once you identify compatible effects, you can randomize them based on their IDs.
+
+Below is an example of how to select a random effect with an ID between 1 and 117, excluding retired effects:
+
+{% raw %}
+
+```yaml
+action: light.turn_on
+target:
+  entity_id: light.wled
+data:
+  effect: "{{ state_attr('light.wled', 'effect_list')[1:118] | reject('equalto', 'RSVD') | list | random }}"
+```
+
+{% endraw %}
+
 ### Activating random palette
 
 Activating a random palette is very similar to the above random effect,
@@ -189,6 +204,11 @@ to a preset called My Preset:
   data:
     option: "My Preset"
 ```
+
+When a preset is activated and the light state is modified afterward 
+(e.g. with a `light.turn_on` action), the preset may be reset to an empty value. 
+This can affect services such as `select.select_next`, which will start again 
+from the first option instead of continuing the cycle.
 
 ### Automation using specific palette name
 
@@ -228,3 +248,10 @@ Here is an example of all of these put together into an automation:
       data:
         value: 255
 ```
+
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}

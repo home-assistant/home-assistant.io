@@ -15,6 +15,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 [Proxmox VE](https://www.proxmox.com/en/) is an open-source server virtualization environment. This integration allows you to poll various data from your instance.
@@ -24,7 +25,7 @@ After configuring this {% term integration %}, the binary sensors automatically 
 ## Configuration
 
 {% important %}
-You should have at least one VM or container entry configured, else this integration won't do anything.
+You should have at least one VM or container entry configured within Home Assistant, else this integration won't do anything.
 {% endimportant %}
 
 To use the `proxmoxve` {% term integration %}, add the following configuration to your {% term "`configuration.yaml`" %} file.
@@ -144,10 +145,14 @@ For the group to access the VMs we need to grant it the auditor role
 
 Creating a dedicated user for Home Assistant, limited to only to the access just created is the most secure method. These instructions use the `pve` realm for the user. This allows a connection, but ensures that the user is not authenticated for SSH connections. If you use the `pve` realm, just be sure to add `realm: pve` to your configuration.
 
+{% important %}
+The Home Assistant user you create must already exist on the Linux system.
+{% endimportant %}
+
 1. Click `Datacenter`
 2. Open `Permissions` and click `Users`
 3. Click `Add`
-4. Enter a username (e.g.,` hass`)
+4. Enter a username (e.g.,`hass`)
 5. Set the realm to "Proxmox VE authentication server"
 6. Enter a secure password (it can be complex as you will only need to copy/paste it into your Home Assistant configuration)
 7. Select the group just created earlier (`HomeAssistant`) to grant access to Proxmox

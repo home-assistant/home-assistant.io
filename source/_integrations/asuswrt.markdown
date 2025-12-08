@@ -11,6 +11,7 @@ ha_iot_class: Local Polling
 ha_codeowners:
   - '@kennedyshead'
   - '@ollo69'
+  - '@Vaskivskyi'
 ha_domain: asuswrt
 ha_platforms:
   - device_tracker

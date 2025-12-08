@@ -14,6 +14,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `netdata` sensor {% term integration %} allows you to display information collected by [Netdata](https://www.netdata.cloud/).

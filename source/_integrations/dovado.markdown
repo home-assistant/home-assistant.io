@@ -15,6 +15,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The **Dovado** {% term integration %} manages communication with the [Dovado](https://www.dovado.com/) router.

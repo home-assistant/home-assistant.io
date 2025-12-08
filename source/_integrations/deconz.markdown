@@ -16,7 +16,6 @@ ha_category:
 ha_release: 0.61
 ha_iot_class: Local Push
 ha_config_flow: true
-ha_quality_scale: platinum
 ha_codeowners:
   - '@Kane610'
 ha_domain: deconz

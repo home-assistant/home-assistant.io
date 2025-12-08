@@ -32,7 +32,7 @@ type:
   type: string
 image:
   required: true
-  description: "The URL of an image. When you want to store images in your Home Assistant installation use the [hosting files documentation](/integrations/http/#hosting-files). After storing your files, use the `/local` path, for example, `/local/filename.jpg`."
+  description: "The URL of an image. When you want to store images in your Home Assistant installation use the [hosting files documentation](/integrations/http/#hosting-files). After storing your files, use the `/local` path, for example, `/local/filename.jpg`. To use an image from an existing [media](/integrations/media_source/) directory, provide the full media-source identifier (see examples)."
   type: string
 image_entity:
   required: false
@@ -84,4 +84,11 @@ tap_action:
   perform_action: light.toggle
   data:
     entity_id: light.ceiling_lights
+```
+
+Show an image from a [media](/integrations/media_source/) directory: 
+
+```yaml
+type: picture
+image: media-source://media_source/local/test.jpg
 ```

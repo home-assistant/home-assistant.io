@@ -21,10 +21,9 @@ ha_platforms:
   - select
   - sensor
   - switch
-ha_quality_scale: silver
 ha_integration_type: integration
 ---
 
-The Rituals Perfume Genie integration allows you to control and monitor your Rituals perfume diffusers connected to your Rituals account. The integration is compatible with the first and second `2.0` versions.
+The Rituals Perfume Genie {% term integration %} allows you to control and monitor your Rituals perfume diffusers connected to your Rituals account. The integration is compatible with the first and second `2.0` versions.
 
 {% include integrations/config_flow.md %}

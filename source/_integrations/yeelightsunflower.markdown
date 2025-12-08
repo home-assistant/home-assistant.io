@@ -14,6 +14,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `yeelightsunflower` {% term integration %} allows you to control your Yeelight Sunflower light bulbs with Home Assistant.

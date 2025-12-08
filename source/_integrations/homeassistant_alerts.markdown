@@ -11,7 +11,7 @@ ha_integration_type: system
 ha_quality_scale: internal
 ---
 
-The Home Assistant Alerts integration integrates the 
+The Home Assistant Alerts {% term integration %} integrates the 
 [Home Assistant Alerts](https://alerts.home-assistant.io) website into
 your Home Assistant instance.
 

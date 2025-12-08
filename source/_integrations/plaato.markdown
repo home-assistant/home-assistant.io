@@ -15,7 +15,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-This integration sets up integration with [Plaato](https://www.plaato.io/) Airlock and Keg.
+This {% term integration %} sets up integration with [Plaato](https://www.plaato.io/) Airlock and Keg.
 
 ### Plaato Airlock
 

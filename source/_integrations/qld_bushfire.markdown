@@ -14,6 +14,7 @@ ha_integration_type: service
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `qld_bushfire` platform lets you integrate a 

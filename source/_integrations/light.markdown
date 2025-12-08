@@ -88,7 +88,7 @@ automation:
         entity_id: light.living_room
       data:
         brightness: 255
-        kelvin: 2700
+        color_temp_kelvin: 2700
 ```
 ```yaml
 # Ledlist morning on, red

@@ -29,7 +29,7 @@ related:
     title: Todoist projects
 ---
 
-This platform allows you to connect to your [Todoist projects](https://todoist.com) as [todo](/integrations/todo/) or [calendar](/integrations/calendar/) entities. All tasks get updated roughly every 15 minutes.
+This platform allows you to connect to your [Todoist projects](https://todoist.com) as [todo](/integrations/todo/) or [calendar](/integrations/calendar/) entities. All tasks get updated roughly every minute.
 
 
 A calendar entity will be `on` if you have a task due in that project. It will be `off` if all the tasks in the project are completed or if the project doesn't have any tasks at all.
@@ -135,7 +135,7 @@ the Todoist UI.
 
  - **location**: Not used.
 
- - **start_time**: The last time the Todoist integration got updated. Usually within the last 15 minutes.
+ - **start_time**: The last time the Todoist integration got updated. Usually within the last minute.
 
  - **end_time**: When the task is due.
 

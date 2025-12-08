@@ -14,9 +14,9 @@ You can access your (automatically) created media folder using the dashboard.
 Navigate to the {% my media_browser title="Media > Local Media" %}, and in the 
 top right corner, click manage. Here you can add and delete your media. 
 
-## Home Assistant OS & Supervised
+## Home Assistant OS
 
-If you are running Home Assistant OS or Supervised, you can also use the 
+If you are running {% term "Home Assistant Operating System" %}, you can also use the 
 Samba add-on. If you haven't installed the Samba add-on yet, you can do 
 so by browsing to the {% my supervisor title="Settings > Add-ons" %} panel. 
 Next, click on the "Add-on store" tab and search for "Samba" and click on it.
@@ -28,17 +28,10 @@ media onto your device using drag and drop in your file explorer.
 Other add-ons are available, for example, SSH and others provide access to the
 media folders as well.
 
-## Home Assistant Docker
+## Home Assistant Container
 
 After you have [set up a local media][setup-media] folder, you can add
 any media to that folder you have mounted in.
-
-Your media will show up in the Home Assistant frontend automatically.
-
-## Home Assistant Core
-
-After you have [set up a local media][setup-media] folder, you can add any
-media to that folder you have set up.
 
 Your media will show up in the Home Assistant frontend automatically.
 

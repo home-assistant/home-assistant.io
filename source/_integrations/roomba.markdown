@@ -5,7 +5,6 @@ ha_category:
   - Vacuum
 ha_iot_class: Local Push
 ha_release: 0.51
-ha_conflig_flow: true
 ha_codeowners:
   - '@pschmitt'
   - '@cyr-ius'
@@ -29,7 +28,7 @@ The **Roomba** {% term integrations %} allows you to control your [iRobot Roomba
 </p>
 
 {% note %}
-This {% term integrations %}  has been tested and confirmed to be working with the iRobot Roomba s9+, Roomba 980, Roomba 960, Roomba 890, and Braava jet m6 models, but should also work fine with any Wi-Fi enabled Roomba or Braava like the 690. For auto-discovery, you will need to initiate a Roomba reboot. For example, by holding the clean button for up to 20 seconds on an i7 or 980. [More information about rebooting your robot](https://homesupport.irobot.com/s/article/9087).
+This {% term integrations %}  has been tested and confirmed to be working with the iRobot Roomba s9+, Roomba 980, Roomba 960, Roomba 890, and Braava jet m6 models, but should also work fine with any of the older Wi-Fi enabled Roomba or Braava like the 690. It currently does NOT work with the newer x05 Wi-Fi models, such as Roomba 105, 405, and 505. For auto-discovery, you will need to initiate a Roomba reboot. For example, by holding the clean button for up to 20 seconds on an i7 or 980. [More information about rebooting your robot](https://homesupport.irobot.com/s/article/9087).
 {% endnote %}
 
 {% include integrations/config_flow.md %}
@@ -88,3 +87,9 @@ Use this credentials in dorita980 lib :)
 ```
 
 Copy the password (everything between `=>` and `<=`, not including leading and trailing whitespace) into the Home Assistant password dialog.
+
+## Troubleshooting
+
+- **Integration wizard shows "Failed to connect" after submitting the password**: Before attempting a factory reset (which can be a cumbersome process), attempt submitting the password in the integration wizard while the Roomba is actively running (i.e. cleaning). Avoid opening the app to start a manual job to help with this. Instead, push the physical clean button on the device directly to start the manual job. This appears to resolve the issue on some models because they answer queries only while actively running.
+
+  If this still does not resolve the issue, factory reset the model.

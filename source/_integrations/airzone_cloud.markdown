@@ -117,3 +117,9 @@ For each Airzone zone (thermostat), a switch entity is created to turn the therm
 ## Water heater
 
 For each Airzone device, a *water heater entity* is created if supported.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}

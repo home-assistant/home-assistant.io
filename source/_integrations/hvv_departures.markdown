@@ -75,8 +75,7 @@ If the selected station has elevators, binary sensors will be available.
 
 You have to apply for credentials via the HVV website. You can see their official guide [here](https://www.hvv.de/de/fahrplaene/abruf-fahrplaninfos/datenabruf) (the page is only available in German).
 
-In your mail, tell them you are using your API credentials for use within Home Assistant. They will send you a contract you will have to sign and send back. After about a week, you will receive your API credentials.
-
+In your mail, tell them you are using your API credentials for use within Home Assistant.  They will subsequently send your API credentials in a follow-up response.
 ## Data
 
 Data is provided by [HVV](https://www.hvv.de/).

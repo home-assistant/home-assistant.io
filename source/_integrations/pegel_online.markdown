@@ -14,9 +14,10 @@ ha_platforms:
 ha_codeowners:
   - '@mib1185'
 ha_integration_type: service
+ha_quality_scale: platinum
 ---
 
-This integration uses the data from the German Federal Waterways and Shipping Administration (_Wasserstraßen- und Schifffahrtsverwaltung des Bundes_) [PEGELONLINE](https://www.pegelonline.wsv.de/) to provide different [sensors](#sensors), based on the available data of the selected measurement station.
+This {% term integration %} uses the data from the German Federal Waterways and Shipping Administration (_Wasserstraßen- und Schifffahrtsverwaltung des Bundes_) [PEGELONLINE](https://www.pegelonline.wsv.de/) to provide different [sensors](#sensors), based on the available data of the selected measurement station.
 
 ## Data fetching and limitations
 
@@ -30,18 +31,18 @@ Select the area, where you want to search for available water measuring stations
 
 {% configuration_basic %}
 Latitude:
-    description: "The latitude of the center of the search area (_automatically filled by the location picker_)."
+  description: "The latitude of the center of the search area (_automatically filled by the location picker_)."
 Longitude:
-    description: "The longitude of the center of the search area (_automatically filled by the location picker_)."
+  description: "The longitude of the center of the search area (_automatically filled by the location picker_)."
 Radius:
-    description: "Search radius (_in km_)"
+  description: "Search radius (_in km_)"
 {% endconfiguration_basic %}
 
 ### Step 2 - Station selection
 
 {% configuration_basic %}
 Station:
-    description: "Select the measurement station you want to add."
+  description: "Select the measurement station you want to add."
 {% endconfiguration_basic %}
 
 ## Sensors

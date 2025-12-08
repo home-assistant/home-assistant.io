@@ -1,5 +1,5 @@
 ---
-title: Sky Remote
+title: Sky Remote Control
 description: The Sky Remote integration allows you to control a Sky box with Home Assistant.
 ha_category:
   - Remote
@@ -7,8 +7,8 @@ ha_release: 2024.12
 ha_domain: sky_remote
 ha_config_flow: true
 ha_codeowners:
-  - "@dunnmj"
-  - "@saty9"
+  - '@dunnmj'
+  - '@saty9'
 ha_iot_class: Assumed State
 ha_platforms:
   - remote
@@ -22,7 +22,7 @@ The **Sky Remote** {% term integration %} lets you control a [Sky](https://www.s
 
 ## Supported models
 
-This integration is intended to control all Sky satellite receiver boxes with a LAN port. It will not control Sky stream pucks.
+This integration is intended to control Sky+ HD and Sky Q satellite receiver boxes with a LAN port. It will not control Sky stream pucks.
 
 {% include integrations/config_flow.md %}
 
@@ -104,6 +104,3 @@ The following commands are supported:
 - `dismiss` - Dismiss interactive content 
 - `search` - Opens SkyQ search interface
 - `home` - Launches SkyQ homepage
-
-
-

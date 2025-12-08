@@ -8,7 +8,6 @@ ha_iot_class: Local Push
 ha_domain: hyperion
 ha_codeowners:
   - '@dermotduffy'
-ha_quality_scale: platinum
 ha_config_flow: true
 ha_ssdp: true
 ha_platforms:
@@ -92,6 +91,7 @@ Provided entities for controlling external sources:
 
 - `switch.[instance]_component_platform_capture`: Toggles the `Screen Capture` source
 - `switch.[instance]_component_usb_capture`: Toggles the `USB Capture` source
+- `switch.[instance]_component_audio_capture`: Toggles the `Audio Capture` source
 
 ### Control over Hyperion functionality
 

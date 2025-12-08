@@ -11,7 +11,7 @@ ha_domain: script
 ha_integration_type: system
 ---
 
-The script integration allows users to specify a sequence of actions to be executed by Home Assistant. These are run when you turn the script on. The script integration will create an entity for each script and allow them to be controlled via actions.
+The script {% term integration %} allows users to specify a sequence of actions to be executed by Home Assistant. These are run when you turn the script on. The script integration will create an entity for each script and allow them to be controlled via actions.
 
 Scripts can be created via YAML configuration (described below) or via {% my scripts title="the UI" %}.
 
@@ -77,7 +77,7 @@ fields:
           description: The name of this script parameter field.
           type: string
         description:
-          description: A description of this of this script parameter.
+          description: A description of this script parameter.
           type: string
         advanced:
           description: Marks this field as an advanced parameter. This causes it only to be shown in the UI, when the user has advanced mode enabled.

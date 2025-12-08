@@ -9,6 +9,7 @@ ha_iot_class: Cloud Push
 ha_platforms:
   - notify
 ha_integration_type: integration
+ha_quality_scale: legacy
 ---
 
 The `twilio_sms` notification platform enables sending notifications via SMS, powered by [Twilio](https://twilio.com).

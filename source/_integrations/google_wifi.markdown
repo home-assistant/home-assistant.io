@@ -12,6 +12,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `google_wifi` sensor {% term integration %} is displaying the exposed status of a Google Wifi (or OnHub) router.

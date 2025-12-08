@@ -1,0 +1,80 @@
+---
+layout: post
+title: "3…2…1… Backup"
+description: "Stop what you're doing and take 5 minutes to set up automatic encrypted backups to keep your smart home running smoothly."
+date: 2025-01-03 00:00:01
+date_formatted: "January 3, 2025"
+author: Paulus Schoutsen
+comments: true
+categories: Announcements
+og_image: /images/blog/2025-01-backups/art.jpg
+---
+
+<img src='/images/blog/2025-01-backups/art.jpg' alt="3 2 1 backup">
+
+Home Assistant is a powerful tool that can save you time and money by automating your home. Pretty important things around the home, from heating to an automatic fish feeder, need to depend on it. However, as your setup grows more complex, maintaining it—what we call *"digital housekeeping"*—can become a time-consuming task. Backups are a critical part of this maintenance, yet they’re often overlooked, especially by new users, often until it is too late when disaster strikes.
+
+To make backups effortless, we’ve introduced new automated and off-site backup features in [the latest release of Home Assistant](/blog/2025/01/03/release-20251/). These improvements will make it easier than ever to safeguard your setup. As we step into the New Year, we would encourage you to adopt a simple yet crucial resolution: regularly back up your data. With our new tools, it takes just five minutes to set up and provides lasting peace of mind.
+
+Learn more about our backups below, or get started now by [updating](https://my.home-assistant.io/redirect/updates/) and visiting the [backups](https://my.home-assistant.io/redirect/backup/) page.
+
+<!--more-->
+
+## What’s in a backup?
+Backups are essential for a reliable smart home. They protect your system from hardware failures, natural disasters, and cyberattacks, allowing you to quickly restore operations. A solid backup strategy follows the 3-2-1 rule:
+
+- 3 copies of your data
+- 2 stored on different media
+- 1 kept off-site
+
+While this may seem excessive, consider a scenario like a lightning strike: both your Home Assistant system and any local storage, like network-attached storage (NAS), could be destroyed. That’s why an off-site backup is non-negotiable for true resilience, and a comprehensive backup strategy should include:
+
+- Regular and frequent backups of critical data
+- Following the 3-2-1 rule for redundancy
+- Encrypting backups to protect against theft and corruption
+- Testing backups to ensure they are functional
+- Defining how long backups should be retained
+
+To support these best practices, we have worked hard to introduce Automatic Backups and seamless integration with off-site backup location providers, such as [Home Assistant Cloud](/cloud/). These updates, part of [our 2024 roadmap](/blog/2024/06/12/roadmap-2024h1/#home-assistant-cloud-peace-of-mind), make it easier than ever to provide peace of mind to our users, by implementing a robust backup strategy, and keep your smart home running smoothly.
+
+## Backups have never been this easy
+
+<img src='/images/blog/2025-01-backups/backups.png' style='border: 0;box-shadow: none;' alt="the backup page">
+
+Home Assistant backups are incredibly good, backing up every setting and add-on, making restores feel a bit like magic. It even works across different CPU architectures! Up until recently setting up a 3-2-1 backup strategy in Home Assistant was not entirely straightforward. This changes with Home Assistant 2025.1, where we're elevating our backup experience with three new important features.
+
+- **Automatic encrypted backups** - You can now schedule automatic backups every night or once a week, ensuring you always have a recent backup at hand.
+- **Automatic cleanup** - No longer worry about backups overrunning your disk space, as you can now set the maximum number of backups that should be stored.
+- **Backup locations** - We have added a new system for integrations to provide backup locations (also known as [backup agents](https://developers.home-assistant.io/docs/core/platform/backup)), allowing you to sync backups to both local or off-site storage. It's launching with support for [network shares](https://my.home-assistant.io/redirect/storage/) and [Home Assistant Cloud](https://my.home-assistant.io/redirect/cloud/) (included at no additional cost to subscribers), with more locations to follow.
+
+### Get started with our Backup Wizard
+
+<img src='/images/blog/2025-01-backups/wizard.png' style='border: 0;box-shadow: none;' alt="the backup wizard">
+
+The new automatic backup feature in Home Assistant 2025.1 comes with a new easy to use backup wizard. With a couple of clicks, you can backup your Home Assistant system on a regular schedule and easily choose the places where backups are stored. New users will be prompted with a wizard to make sure they set up automatic encrypted backups. Selecting the recommended settings ensures that a backup is made every night, that three backups are kept, and that they are uploaded to all available locations.
+
+### Backup locations
+
+<img src='/images/blog/2025-01-backups/locations.png' style='border: 0;box-shadow: none;' alt="backup locations">
+
+At launch, only a few backup locations will be available, but we've made it easy for developers to integrate more, so expect a lot of options to follow. As part of this renewed focus on smart home resilience set out in [our roadmap](/blog/2024/06/12/roadmap-2024h1/#next-priority-encrypted-cloud-backup), cloud backup has been added to [Home Assistant Cloud](/cloud/), which will be available day one to all subscribers for no additional cost. It will only store the latest backup, which must be under 5GB (you'll be notified to repair it if it is too large to upload). If you lose your other backups, you can always go to [your Cloud account page](https://account.nabucasa.com/) and download the latest backup.
+
+New Home Assistant features like this supercharged backup capability is only possible with funding from our Home Assistant Cloud subscribers. Adding backup to the subscription at no additional cost, was the least we could do to thank them for their continued support.
+
+### Secure by default
+
+<img src='/images/blog/2025-01-backups/encrypt.png' style='border: 0;box-shadow: none;' alt="Encryption key page">
+
+Backups contain all Home Assistant data, including all the keys to every integrated device in your smart home and the history of how you live your life. This data is very important to keep secure. With automatic backups and the 3-2-1 approach we are promoting to users to store their backups off-site. This is why all automatic backups are fully encrypted.
+
+When a user configures automatic backups, they will be presented with the encryption key and the option to download an emergency kit. The emergency kit contains all the important information, including a link to [the instructions on how to use it to restore a backup](/more-info/backup-emergency-kit). If you were to ever delete your emergency kit, it is available to re-download in the [backup configuration page](https://my.home-assistant.io/redirect/backup/).
+
+#### Apply 3-2-1 to your backups
+
+<lite-youtube videoid="nSSkMVBqChM" videotitle="How to setup automatic backups"></lite-youtube>
+
+Check out the above video tutorial or read our docs to learn more about setting up [automatic and off-site backups](/integrations/backup/).
+
+## Conclusion
+
+Too often, people just starting their smart home journey move forward a little too fast and make a mistake that causes some downtime. This impacts the household's confidence, as something that should be making their lives easier is actually seen as unreliable. Avoid this early pitfall and build a resilient smart home with 3-2-1 backups.

@@ -16,7 +16,7 @@ Remember to follow the [securing checklist](/docs/configuration/securing/) befor
 
 ## Home Assistant Cloud
 
-Users of <a href="https://www.nabucasa.com">Home Assistant Cloud</a> can use the <a href="https://www.nabucasa.com/config/remote/">Remote UI</a> without requiring any configuration.
+Users of <a href="https://www.nabucasa.com">Home Assistant Cloud</a> can use the <a href="https://www.nabucasa.com/config/remote/">Home Assistant Cloud remote access</a> feature without requiring any configuration.
 
 A unique remote URL will be generated and given to you along with a certificate so all your traffic to Home Assistant is encrypted automatically.
 

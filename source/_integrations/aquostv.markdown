@@ -12,6 +12,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `aquostv` platform allows you to control a [Sharp Aquos TV](https://global.sharp/aquos/index.html).

@@ -11,7 +11,6 @@ ha_config_flow: true
 ha_codeowners:
   - '@timmo001'
 ha_domain: system_bridge
-ha_quality_scale: silver
 ha_platforms:
   - binary_sensor
   - media_player
@@ -66,6 +65,7 @@ This integration provides the following sensors:
 | Kernel               | Version information of the Kernel                   |
 | Latest Version       | System Bridge Latest Version                        |
 | Load                 | System load percentage                              |
+| Power Usage          | Power usage in watts (if available)                 |
 | Memory Free          | Memory (RAM) free in GB                             |
 | Memory Used          | Memory (RAM) used in GB                             |
 | Memory Used %        | Memory (RAM) % used                                 |

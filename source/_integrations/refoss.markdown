@@ -20,11 +20,8 @@ Integrate Refoss devices into Home Assistant.
 
 ## Prerequisites
 
-- The device needs to be connected to the local network first. There are two ways to connect devices to the local network:
-  - Using the Refoss app (download and install the Refoss app on Google Play) to connect devices to the local network.
-  - Using the Web page to connect devices to the local network.
-    - The computer/mobile phone is connected to the device factory Wi-Fi.
-    - In the browser, access the address 10.10.10.1, then select the local Wi-Fi needed for device configuration.
+- Devices need to be connected to the local network first.
+- Devices and Home Assistant must be connected to the same network.
 - The integration will occupy port: 9989.    
 {% include integrations/config_flow.md %}
 
@@ -39,7 +36,7 @@ Integrate Refoss devices into Home Assistant.
  
 ### Discover device
 
-  - After integrating Refoss, it will start socket broadcast and Home Assistant will automatically discover Refoss devices under the current LAN.
+After integrating Refoss, it will start socket broadcast and Home Assistant will automatically discover Refoss devices under the current LAN.
   
 ## Entity naming
 
@@ -67,3 +64,21 @@ Examples:
 ## Reset device
 
 Long-press the button on the device to reset it.
+
+## Troubleshooting
+
+### No devices found on the network
+
+If the Refoss device isn't discovered by Home Assistant automatically, follow these steps:
+1. Verify that your Refoss device and Home Assistant are on the same network
+2. Enable debug logging for the integration:
+   ```yaml
+   logger:
+     logs:
+       homeassistant.components.refoss: debug
+   ```
+3. Restart Home Assistant and attempt to add the integration again
+4. Check the logs for messages containing "Discovered devices"
+5. If no devices are found, verify:
+   - Network connectivity
+   - Device firmware version matches the supported versions listed above

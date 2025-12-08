@@ -77,7 +77,7 @@ Today we like you to meet:
 allows you to use natural language to control Home Assistant. It is powered by
 [Hassil](https://github.com/home-assistant/hassil) and the sentences
 (contributed by 112! people) from the
-[Home Assistant Intents](https://home-assistant.github.io/intents/) project.
+[Home Assistant Intents](https://ohf-voice.github.io/intents/) project.
 
 We believe technology is meant to be played with, and projects should be
 usable as soon as possible. Together with the community, we can then iterate

@@ -11,11 +11,12 @@ ha_codeowners:
   - '@emontnemery'
 ha_domain: meater
 ha_platforms:
+  - diagnostics
   - sensor
 ha_integration_type: integration
 ---
 
-The Meater Smart Meat Thermometer integration allows for communicating with the [Meater Temperature Probe](https://meater.com/) from Apption Labs.
+The Meater Smart Meat Thermometer {% term integration %} allows for communicating with the [Meater Temperature Probe](https://meater.com/) from Apption Labs.
 
 {% include integrations/config_flow.md %}
 
