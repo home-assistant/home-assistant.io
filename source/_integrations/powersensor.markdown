@@ -27,7 +27,7 @@ The following devices are known to be supported by the integration:
 
 ## Unsupported devices
 
-Devices running firmware <8129 are not supported and should be upgraded, though devices with firmware >=8100 may have partial functionality within Home assistant
+Devices running firmware <8129 are not supported and should be upgraded, though devices with firmware >=8100 may have partial functionality within Home Assistant
 
 ## Prerequisites
 
