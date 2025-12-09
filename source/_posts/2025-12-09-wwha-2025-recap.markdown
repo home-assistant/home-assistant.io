@@ -31,14 +31,14 @@ This means our testers aren’t overwhelmed with a truckload of devices delivere
 
 ## Making it easy to find certified devices
 
+*Here’s a conundrum*: the more products that are certified, the harder it is for you to see and find them. The good news is I think we’ve cracked it!
+
+Last week, we published the first version of our new [searchable certified device list](https://works-with.home-assistant.io/certified-products/). Previously, you’d have to hunt around for info by checking the integration page or digging through launch blogs to see if a device was certified. Now, certified devices are kept up to date in one central, easy-to-use location, with extra information on the region they’re available in, the protocol we’ve certified them under, and notes about any secondary functionality we’re still working on.
+
 <p class="img">
     <img src="/images/blog/2025-12-wwha-recap/wwha-device-list.webp" alt="So many (useful) columns!">
     So many (useful) columns!
 </p>
-
-*Here’s a conundrum*: the more products that are certified, the harder it is for you to see and find them. The good news is I think we’ve cracked it!
-
-Last week, we published the first version of our new [searchable certified device list](https://works-with.home-assistant.io/certified-products/). Previously, you’d have to hunt around for info by checking the integration page or digging through launch blogs to see if a device was certified. Now, certified devices are kept up to date in one central, easy-to-use location, with extra information on the region they’re available in, the protocol we’ve certified them under, and notes about any secondary functionality we’re still working on.
 
 ## The badge had a makeover
 
