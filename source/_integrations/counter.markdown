@@ -12,7 +12,7 @@ ha_domain: counter
 ha_integration_type: helper
 ---
 
-The Counter {% term integration %} allows one to count occurrences fired by automations.
+The **Counter** {% term integration %} allows one to count occurrences fired by automations.
 
 ## Configuration
 
