@@ -27,9 +27,9 @@ Before setting up the Diyanet integration, ensure you have:
 
 {% configuration_basic %}
 E-mail:
-  description: "Your Diyanet Awqat Salah API e-mail."
+  description: "Enter the email address associated with your Diyanet Awqat Salah API account. You can find this in the confirmation email you received after registering for API access."
 Password:
-  description: "Your Diyanet Awqat Salah API password."
+  description: "Enter the password for your Diyanet Awqat Salah API account. This is the password you set when registering for API access."
 {% endconfiguration_basic %}
 
 After signing in, the flow guides you through selecting a country, state, and city. The integration stores the chosen location ID and schedules a daily refresh.
