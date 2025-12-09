@@ -15,7 +15,7 @@ ha_codeowners:
 ha_config_flow: true
 ---
 
-The IMAP {% term integration %} is observing your [IMAP server](https://en.wikipedia.org/wiki/Internet_Message_Access_Protocol). It can report the number of unread emails and can send a custom event that can be used to trigger an automation. Other search criteria can be used, as shown in the example below.
+The **IMAP** {% term integration %} is observing your [IMAP server](https://en.wikipedia.org/wiki/Internet_Message_Access_Protocol). It can report the number of unread emails and can send a custom event that can be used to trigger an automation. Other search criteria can be used, as shown in the example below.
 
 {% include integrations/config_flow.md %}
 
