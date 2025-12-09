@@ -17,7 +17,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-eQ-3 MAX! {% term integration %} for Home Assistant allows you to connect eQ-3 MAX! components via the eQ-3 MAX! Cube. The components connects to the eQ-3 MAX! Cube via TCP and automatically makes all supported integrations available in Home Assistant. The name for each device is created by concatenating the MAX! room and device names.
+The **eQ-3 MAX!** {% term integration %} for Home Assistant allows you to connect eQ-3 MAX! components via the eQ-3 MAX! Cube. The components connects to the eQ-3 MAX! Cube via TCP and automatically makes all supported integrations available in Home Assistant. The name for each device is created by concatenating the MAX! room and device names.
 
 There is currently support for the following device types within Home Assistant:
 
