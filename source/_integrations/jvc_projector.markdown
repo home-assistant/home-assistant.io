@@ -18,7 +18,7 @@ ha_platforms:
 ha_integration_type: device
 ---
 
-The JVC Projector integration allows for the automation of [JVC Projectors](https://www.jvc.com/usa/projectors/).
+The **JVC Projector** {% term integration %} allows for the automation of [JVC Projectors](https://www.jvc.com/usa/projectors/).
 
 ## Supported models
 
