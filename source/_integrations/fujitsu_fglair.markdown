@@ -15,7 +15,7 @@ ha_platforms:
 ha_iot_class: Cloud Polling
 ---
 
-The {{ page.title }} {% term integration %} provides support for Fujitsu heat pumps and air conditioners that use the FGLair app.
+The **FGLair** {% term integration %} provides support for Fujitsu heat pumps and air conditioners that use the FGLair app.
 To find out which app to use for your heat pump, check [the Fujitsu FGLair FAQ](https://www.fujitsu-general.com/global/support/faq/airstage-mobile/0127.html).
 
 ## Supported devices
