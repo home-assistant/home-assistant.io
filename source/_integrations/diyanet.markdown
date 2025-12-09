@@ -15,7 +15,7 @@ ha_integration_type: service
 ha_quality_scale: bronze
 ---
 
-Use the Diyanet integration to fetch daily Islamic prayer times from the [Diyanet Awqat Salah API](https://awqatsalah.diyanet.gov.tr/index.html) for your selected city. The integration authenticates with your Diyanet account, keeps the current day's times cached, and refreshes them automatically each day.
+The **Diyanet** {% term integration %} retrieves the daily Islamic prayer times from the [Diyanet Awqat Salah API](https://awqatsalah.diyanet.gov.tr/index.html) for your selected city. The integration authenticates with your Diyanet account, keeps the current day's times cached, and refreshes them automatically each day.
 
 ## Prerequisites
 
