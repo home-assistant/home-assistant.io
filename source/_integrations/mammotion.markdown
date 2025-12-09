@@ -15,21 +15,21 @@ ha_integration_type: integration
 ha_quality_scale: bronze
 ---
 
-The Mammotion integration provides BLE and Wi-Fi connectivity with Mammotion products from Home Assistant.
+The **Mammotion** {% term integration %} provides BLE and Wi-Fi connectivity with Mammotion products from Home Assistant.
 
 ## Prerequisites
 
-Mammotion logins only allow one device to be logged in at a time. To use this integration you will need to create a separate account just for Home Assistant and share devices to that account.
+Mammotion logins only allow one device to be logged in at a time. To use this integration, you need to create a separate account just for Home Assistant and share devices with that account.
 
 To create the separate account:
 
-1. Sign up using the Mammotion App with an email address you plan to use just with Home Assistant, SSO such as Google is not officially supported though Google email addresses do work.
-2. Sign into your main account and share the devices you want to control with the new account.
-3. Sign into the new account and accept the shared devices.
+1. Sign up using the Mammotion App with an email address you plan to use just with Home Assistant. SSO, such as Google, is not officially supported, though Google email addresses do work.
+2. Sign in to your main account and share the devices you want to control with the new account.
+3. Sign in to the new account and accept the shared devices.
 
 {% include integrations/config_flow.md %}
 
-Use your new account credentials in the the follw
+Use your new account credentials during setup:
 
 {% configuration_basic %}
 Email:
@@ -40,7 +40,7 @@ Password:
 
 ## Lawn mower
 
-The integration will create a lawn mower entity to control the mower. This entity can:
+The integration creates a lawn mower entity to control the mower. This entity can:
 
 - Pause/Resume mowing
 - Return to dock
