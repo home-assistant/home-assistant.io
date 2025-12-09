@@ -14,7 +14,7 @@ ha_platforms:
   - diagnostics
 ---
 
-The camera {% term integration %} allows you to use IP cameras with Home Assistant.
+The **Camera** {% term integration %} allows you to use IP cameras with Home Assistant.
 
 {% include integrations/building_block_integration.md %}
 
