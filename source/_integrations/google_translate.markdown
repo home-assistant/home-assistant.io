@@ -12,7 +12,7 @@ ha_config_flow: true
 ha_integration_type: integration
 ---
 
-The `google_translate` text-to-speech platform uses the unofficial [Google Translate text-to-speech engine](https://translate.google.com/) to read a text with natural sounding voices. Contrary to what the name suggests, the integration only does text-to-speech and does not translate messages sent to it.
+The **Google Translate text-to-speech** {% term integration %} uses the unofficial [Google Translate text-to-speech engine](https://translate.google.com/) to read a text with natural sounding voices. Contrary to what the name suggests, the integration only does text-to-speech and does not translate messages sent to it.
 
 {% include integrations/config_flow.md %}
 
