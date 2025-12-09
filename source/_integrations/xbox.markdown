@@ -45,7 +45,7 @@ The Home Assistant Xbox {% term integration %} lets you monitor and control Xbox
 
 ## Track online status of friends
 
-The **Xbox integration** allows tracking the online status, activity and other information of your friends. To add a friend, go to {% my integration domain="xbox" title="**Settings** > **Devices & services** > **Xbox**" %} and select **{% icon "mdi:plus" %} Add friend**.
+The **Xbox integration** allows tracking the online status, activity, and other information of your friends. To add a friend, go to {% my integration domain="xbox" title="**Settings** > **Devices & services** > **Xbox**" %} and select **{% icon "mdi:plus" %} Add friend**.
 
 Once added, a new device will appear with the same set of entities available for your own Xbox account, allowing you to track your friend’s activity.
 
@@ -291,7 +291,7 @@ Similar to binary sensors, the **Xbox sensor platform** monitors your account an
 | **In party**     | Shows the number of people in the user’s party chat if they are currently in one. |
 | **Now playing**  | Shows the title of the game currently being played. Additional details such as a short description, genre, developer, age rating, and achievement progress are available in the entity's attributes. |
 
-### Storage Sensors
+### Storage sensors
 
 These sensors track the storage on your own **Xbox consoles** and connected storage devices.
 
