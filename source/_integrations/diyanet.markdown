@@ -3,7 +3,7 @@ title: Diyanet Awqat Salah
 description: Instructions on how to integrate Diyanet Awqat Salah API within Home Assistant.
 ha_category:
   - Sensor
-ha_release: 2025.12
+ha_release: 2026.1
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
