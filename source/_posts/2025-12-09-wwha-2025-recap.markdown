@@ -27,7 +27,7 @@ When we moved it over to the foundation, we also took that chance to beef-up our
 
 When we started the program we certified brands, but now we certify devices. This means you know exactly which sensors, switches, or other gadgets have been rigorously tested by us to ensure the best experience with Home Assistant. Each certified device has to work **locally**, without the need for cloud subscriptions or control.
 
-This means our testers aren’t overwhelmed with a truckload of devices delivered to their door in order to launch one partner. Also, if a manufacturer has one device that is cloud-controlled, it doesn’t blacklist any remaining items they have that could operate perfectly well locally. It also means that sometimes your favorite devices aren’t part of the first wave of certification but, trust us, the partners check the comments 😉.
+We can now certify in phases, rather than overwhelming our testers with a truckload of devices in order to launch one partner. Also, if a manufacturer has one device that is cloud-controlled, it doesn’t blacklist any remaining items they have that could operate perfectly well locally. It sometimes means that sometimes your favorite devices aren’t part of the first wave of certification but, trust us, the partners check the comments 😉.
 
 ## Making it easy to find certified devices
 
