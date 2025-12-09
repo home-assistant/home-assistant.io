@@ -18,7 +18,7 @@ related:
     title: Configuration file
 ---
 
-The `iZone` {% term integration %} allows access of control of a local [iZone](https://izone.com.au/) ducted reverse-cycle climate control devices. These are largely available in Australia.
+The **iZone** {% term integration %} allows access of control of a local [iZone](https://izone.com.au/) ducted reverse-cycle climate control devices. These are largely available in Australia.
 
 ## Supported hardware
 
