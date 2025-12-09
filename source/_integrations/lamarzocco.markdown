@@ -129,7 +129,7 @@ By default, this integration will receive push updates from the cloud about its 
 | **Prebrew/-infusion mode** | Whether to use prebrew, preinfusion, or neither | `Disabled`, `Prebrew`, `Preinfusion` | `Linea Micra`, `Linea Mini`, `GS3 AV` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} |
 | **Steam level** | The level your steam boiler should run at | `1`,`2`,`3` | `Linea Micra`, `Linea Mini R` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} <iconify-icon inline title="Bluetooth" icon="material-symbols:bluetooth"></iconify-icon> |
 | **Smart standby mode** | The smart standby mode, that decides from which events the timer to standby will run. | `Last brewing`, `Power on` | `all` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} <iconify-icon inline title="Bluetooth" icon="material-symbols:bluetooth"></iconify-icon>  |
-| **Brew by weight dose mode** | Select the brew by weight mode of your machine | `Continous`, `Dose 1`, `Dose 2` | `Linea Mini`, `Linea Mini R` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} |
+| **Brew by weight dose mode** | Select the brew by weight mode of your machine | `Continuous`, `Dose 1`, `Dose 2` | `Linea Mini`, `Linea Mini R` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} |
 
 ## Calendar
 
