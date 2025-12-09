@@ -16,9 +16,9 @@ related:
     title: Configuration file
 ---
 
-The `config` integration is designed to display the **Settings** panels in the frontend to configure and manage parts of Home Assistant.
+The **Config** {% term integration %} is designed to display the **Settings** panels in the frontend to configure and manage parts of Home Assistant.
 
-The `config` integration is an internal integration and is enabled by default.
+This is an internal integration and is enabled by default.
 
 The **Settings** menu provides access to the following panels:
 
