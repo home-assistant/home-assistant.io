@@ -16,7 +16,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The HomeKit Bridge {% term integration %} allows you to make your Home Assistant entities available in Apple HomeKit,
+The **HomeKit Bridge** {% term integration %} allows you to make your Home Assistant entities available in Apple HomeKit,
 so they can be controlled from Apple's Home app and Siri; even if those devices do not natively support HomeKit.
 
 Please make sure that you have read the [considerations](#considerations) listed below to save you
