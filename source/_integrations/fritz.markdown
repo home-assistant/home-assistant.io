@@ -31,7 +31,7 @@ related:
     title: Enabling or disabling entities
 ---
 
-The FRITZ!Box Tools integration allows you to control your [FRITZ!Box](https://en.fritz.com/products/fritzbox/) router (by FRITZ!, formerly AVM) and have presence detection for connected network devices.
+The **FRITZ!Box Tools** {% term integration %} allows you to control your [FRITZ!Box](https://en.fritz.com/products/fritzbox/) router (by FRITZ!, formerly AVM) and have presence detection for connected network devices.
 
 There is support for the following platform types within Home Assistant:
 
