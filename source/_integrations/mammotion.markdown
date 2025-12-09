@@ -49,7 +49,7 @@ The integration creates a lawn mower entity to control the mower. This entity ca
 
 ## Known issues
 
-Because Home Assistant now talks to your device, this can sometimes cause issues with making changes using the Mammotion App, though the integration will stop communicating when it sees the device is in setup states, the device will continue to work as expected even if you see a delay visually on your phone when setting up zones, areas or channels. 
+Because Home Assistant now talks to your device, this can sometimes cause issues with making changes to areas, channels, or boundaries using the Mammotion App. The integration stops communicating when it sees the device is modifying the map data. However, if you notice a delay on your phone when setting up areas, channels, or boundaries, you can switch out of the app and back again once you are done which will refresh the state and you can complete the setup. 
 
 If this becomes a problem, disable the integration, perform your changes, then re-enable.
 
