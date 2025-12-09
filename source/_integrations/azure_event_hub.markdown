@@ -15,7 +15,7 @@ related:
     title: Configuration file
 ---
 
-The `Azure Event Hub` {% term integration %} allows you to hook into the Home Assistant event bus and send events to [Azure Event Hub](https://azure.microsoft.com/products/event-hubs/) or to an [Azure IoT Hub](https://learn.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-read-builtin).
+The **Azure Event Hub** {% term integration %} allows you to hook into the Home Assistant event bus and send events to [Azure Event Hub](https://azure.microsoft.com/products/event-hubs/) or to an [Azure IoT Hub](https://learn.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-read-builtin).
 
 ## First time setup
 

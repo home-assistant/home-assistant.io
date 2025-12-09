@@ -16,7 +16,7 @@ related:
     title: Configuration file
 ---
 
-The `alert` {% term integration %} is designed to notify you when problematic issues arise.
+The **Alert** {% term integration %} is designed to notify you when problematic issues arise.
 For example, if the garage door is left open, the `alert` integration can be used
 to remind you of this by sending you repeating notifications at customizable
 intervals. This is also used for low battery sensors,
