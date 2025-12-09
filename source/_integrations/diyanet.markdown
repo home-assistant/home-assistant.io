@@ -48,7 +48,7 @@ The integration adds the following sensors for your selected city:
 - `Hijri date`
 - `Gregorian date`
 
-## Services
+## Actions
 
 - `diyanet.refresh`: Fetch the latest prayer times immediately. Provide `config_entry_id` to refresh a specific entry or leave it empty to refresh all loaded Diyanet entries.
 
