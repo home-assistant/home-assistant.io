@@ -11,7 +11,7 @@ ha_domain: api
 ha_integration_type: system
 ---
 
-The `api` {% term integration %} exposes a RESTful API and allows one to interact with a Home Assistant instance that is running headless. This integration depends on the [HTTP integration](/integrations/http/).
+The **Home Assistant API** {% term integration %} exposes a RESTful API and allows one to interact with a Home Assistant instance that is running headless. This integration depends on the [HTTP integration](/integrations/http/).
 
 ```yaml
 # Example configuration.yaml entry

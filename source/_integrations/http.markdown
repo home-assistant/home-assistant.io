@@ -12,7 +12,7 @@ ha_domain: http
 ha_integration_type: system
 ---
 
-The HTTP {% term integration %} serves all files and data required for the Home Assistant frontend. You only need to add this to your configuration file if you want to change any of the default settings.
+The **HTTP** {% term integration %} serves all files and data required for the Home Assistant frontend. You only need to add this to your configuration file if you want to change any of the default settings.
 
 There is currently support for the following device types within Home Assistant:
 
