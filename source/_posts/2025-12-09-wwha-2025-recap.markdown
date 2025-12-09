@@ -12,7 +12,7 @@ og_image: /images/blog/2025-12-wwha-recap/art.webp
 
 <img src='/images/blog/2025-12-wwha-recap/art.webp' style='border: 0;box-shadow: none;' alt="More devices, more choice: celebrating a massive year for certification">
 
-If you’re ever in need of a device that works great with Home Assistant, *well, I have a program for you*. [Works with Home Assistant](https://works-with.home-assistant.io/) is our certification program that ensures devices work seamlessly and locally, all with brands that back them up.
+If you’re ever in need of a device that works great with Home Assistant, *well, I have just the program for you*. [Works with Home Assistant](https://works-with.home-assistant.io/) is our certification program that ensures devices work seamlessly and locally, all with brands that back them up.
 
 Did you know that this year the Works with Home Assistant program has certified 12 partners across 12 months? That’s more than were certified in the two years since the [program launched in 2022](/blog/2022/07/12/partner-program/)! The full list of devices is insanely long now ([luckily, we made it searchable](https://works-with.home-assistant.io/certified-products/)). To make all this happen over just one year, a lot of important things have been happening behind the scenes.
 <!--more-->
