@@ -64,4 +64,6 @@ Host or IP:
 
 ## Removing the integration
 
-Remove via Settings → Devices & Services → ConnectSense → Delete. Entities are removed.
+This integration follows standard integration removal.
+
+{% include integrations/remove_device_service.md %}
