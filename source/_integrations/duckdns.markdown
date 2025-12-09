@@ -12,7 +12,7 @@ ha_codeowners:
 ha_config_flow: true
 ---
 
-The Duck DNS {% term integration %} keeps your Duck DNS subdomain in sync with your current public IP address.
+The **Duck DNS** {% term integration %} keeps your Duck DNS subdomain in sync with your current public IP address.
 
 ## About Duck DNS
 
