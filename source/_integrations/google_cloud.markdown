@@ -18,7 +18,7 @@ ha_platforms:
 ha_integration_type: service
 ---
 
-The Google Cloud {% term integration %} allows you to use [Google Cloud Platform](https://cloud.google.com/) APIs and integrate them into Home Assistant.
+The **Google Cloud** {% term integration %} allows you to use [Google Cloud Platform](https://cloud.google.com/) APIs and integrate them into Home Assistant.
 
 {% include integrations/config_flow.md %}
 
