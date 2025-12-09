@@ -20,7 +20,7 @@ ha_config_flow: true
 ha_zeroconf: true
 ---
 
-The `bluesound` platform allows you to control your [Bluesound](https://www.bluesound.com/) HiFi wireless speakers and audio integrations from Home Assistant.
+The **Bluesound** {% term integration %} allows you to control your [Bluesound](https://www.bluesound.com/) HiFi wireless speakers and audio integrations from Home Assistant.
 
 {% include integrations/config_flow.md %}
 
