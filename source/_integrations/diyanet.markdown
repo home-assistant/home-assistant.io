@@ -1,5 +1,5 @@
 ---
-title: Diyanet
+title: Diyanet Awqat Salah
 description: Instructions on how to integrate Diyanet Awqat Salah API within Home Assistant.
 ha_category:
   - Sensor
@@ -21,12 +21,12 @@ Use the Diyanet integration to fetch daily Islamic prayer times from the [Diyane
 
 Before setting up the Diyanet integration, ensure you have:
 
-1. Have a Diyanet Awqat Salah account (email/password). If you don’t have one, fill the [API access form](https://awqatsalah.diyanet.gov.tr/files/b8ed95e5-95fc-4635-9c40-406caeeddc1d.pdf) and email it to [dinisleriyk@diyanet.gov.tr](mailto:dinisleriyk@diyanet.gov.tr).
+1. A Diyanet Awqat Salah account (email/password). If you don’t have one, fill the [API access form](https://awqatsalah.diyanet.gov.tr/files/b8ed95e5-95fc-4635-9c40-406caeeddc1d.pdf) and email it to [dinisleriyk@diyanet.gov.tr](mailto:dinisleriyk@diyanet.gov.tr).
 
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
-E-mail:
+Email:
   description: "Enter the email address associated with your Diyanet Awqat Salah API account. You can find this in the confirmation email you received after registering for API access."
 Password:
   description: "Enter the password for your Diyanet Awqat Salah API account. This is the password you set when registering for API access."
@@ -54,9 +54,9 @@ The integration adds the following sensors for your selected city:
 
 ## Data updates
 
-Prayer times are refreshed daily and cached for the current day. Use the refresh service if you need an immediate update (for example after changing your location in Diyanet).
+Prayer times are refreshed daily and cached for the current day. Use the refresh action if you need an immediate update, like after changing your location in Diyanet.
 
-## Known issues
+## Known limitations
 
 When setting up the integration, you need to select a country, state, and city. For some countries, there is no state selection option because the API only returns states for large countries. For smaller countries, a single option will be displayed with the country name. After selecting this option, the available cities in that country will be listed.
 
