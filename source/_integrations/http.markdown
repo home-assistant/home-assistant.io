@@ -119,7 +119,9 @@ http:
     - 172.30.33.0/24  # You may also provide the subnet mask
 ```
 
-{% important %} When network mask is provided the IP must have all host bits set to 0. {% endimportant %}
+{% important %}
+When network mask is provided, the IP must have all host bits set to 0.
+{% endimportant %}
 
 ## APIs
 
