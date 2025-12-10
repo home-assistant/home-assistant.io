@@ -58,7 +58,10 @@ Relevant data about the request are stored in the attributes.
 
 ### Sensors
 
-The integration also provides statistics for the requests stored in Overseerr.
+The integration provides statistics for both requests and issues stored in Overseerr.
+
+#### Request sensors
+
 There are sensors for:
  - Total requests
  - Movie requests
@@ -68,15 +71,34 @@ There are sensors for:
  - Processing requests
  - Available requests
 
+#### Issue sensors
+
+There are sensors for:
+ - Total issues
+ - Open issues
+ - Closed issues
+ - Video issues
+ - Audio issues
+ - Subtitle issues
+
 ## Actions
 
 The Overseerr integration has the following actions:
 
-- Get requests
+### Request actions
 
-### Action get requests
+- `overseerr.get_requests` - Get a list of media requests
 
-Get a list of media requests using `overseerr.get_requests`.
+### Issue actions
+
+- `overseerr.get_issues` - Get a list of issues
+- `overseerr.create_issue` - Create a new issue for media
+- `overseerr.update_issue` - Update an existing issue
+- `overseerr.delete_issue` - Delete an issue
+
+### Action `overseerr.get_requests`
+
+Get a list of media requests.
 
 | Data attribute    | Optional | Description                                                 |
 |-------------------|----------|-------------------------------------------------------------|
@@ -85,11 +107,59 @@ Get a list of media requests using `overseerr.get_requests`.
 | `sort_order`      | Yes      | The sort order to sort the results in (`added`/`modified`). |
 | `requested_by`    | Yes      | Filter the requests based on the user ID of the requester.  |
 
+### Action `overseerr.get_issues`
+
+Get a list of issues from Overseerr.
+
+| Data attribute    | Optional | Description                                                 |
+|-------------------|----------|-------------------------------------------------------------|
+| `config_entry_id` | No       | The ID of the Overseerr config entry to get data from.      |
+| `issue_status`    | Yes      | Filter by status (`open` or `resolved`).                    |
+| `sort_order`      | Yes      | The sort order to sort the results in (`added`/`modified`). |
+| `requested_by`    | Yes      | Filter by the user ID that reported the issue.              |
+
+### Action `overseerr.create_issue`
+
+Create a new issue in Overseerr for a specific media item.
+
+| Data attribute    | Optional | Description                                                       |
+|-------------------|----------|-------------------------------------------------------------------|
+| `config_entry_id` | No       | The ID of the Overseerr config entry.                             |
+| `issue_type`      | No       | The type of issue: `1` (Video), `2` (Audio), `3` (Subtitles), `4` (Other). |
+| `message`         | No       | Description of the issue.                                         |
+| `media_id`        | No       | The TMDB ID of the media item.                                    |
+| `problem_season`  | Yes      | The season number with the issue (for TV shows). Defaults to 0.   |
+| `problem_episode` | Yes      | The episode number with the issue (for TV shows). Defaults to 0.  |
+
+### Action `overseerr.update_issue`
+
+Update an existing issue in Overseerr.
+
+| Data attribute    | Optional | Description                                                 |
+|-------------------|----------|-------------------------------------------------------------|
+| `config_entry_id` | No       | The ID of the Overseerr config entry.                       |
+| `issue_id`        | No       | The ID of the issue to update.                              |
+| `issue_status`    | Yes      | New status: `1` (Open) or `2` (Resolved).                   |
+| `message`         | Yes      | Add a comment to the issue.                                 |
+
+### Action `overseerr.delete_issue`
+
+Delete an issue from Overseerr.
+
+| Data attribute    | Optional | Description                                    |
+|-------------------|----------|------------------------------------------------|
+| `config_entry_id` | No       | The ID of the Overseerr config entry.          |
+| `issue_id`        | No       | The ID of the issue to delete.                 |
+
 
 ## Use cases
 
-The integration can be used to build automations to help and notify you of new media requests.
-The provided actions can be used to provide extra context to voice assistants.
+The integration can be used to build automations to help and notify you of new media requests and issues.
+The provided actions can be used to:
+- Automatically create issues when media playback fails
+- Send notifications about new issues
+- Resolve issues based on external triggers
+- Provide extra context to voice assistants
 
 ## Example automations
 
@@ -119,6 +189,56 @@ actions:
       message: >-
         {{ state_attr('event.overseerr_last_media_event', 'subject') }} has been
         requested
+```
+
+{% endraw %}
+{% enddetails %}
+
+{% details "Automatically create an issue when Plex playback fails" %}
+
+{% raw %}
+
+```yaml
+alias: "Report Plex playback issue to Overseerr"
+description: "Create an issue in Overseerr when Plex media fails to play"
+triggers:
+  - trigger: state
+    entity_id:
+      - media_player.plex_living_room
+    to: "unavailable"
+conditions:
+  - condition: template
+    value_template: >-
+      {{ trigger.from_state.attributes.media_content_id is defined }}
+actions:
+  - action: overseerr.create_issue
+    data:
+      issue_type: 1  # Video issue
+      message: "Media failed to play on {{ trigger.entity_id }}"
+      media_id: "{{ trigger.from_state.attributes.media_content_id }}"
+```
+
+{% endraw %}
+{% enddetails %}
+
+{% details "Send notification when open issues exceed threshold" %}
+
+{% raw %}
+
+```yaml
+alias: "Notify when too many open issues"
+description: "Alert when open issues in Overseerr exceed 10"
+triggers:
+  - trigger: numeric_state
+    entity_id:
+      - sensor.overseerr_open_issues
+    above: 10
+actions:
+  - action: notify.mobile_app
+    data:
+      message: >-
+        Warning: {{ states('sensor.overseerr_open_issues') }} open issues in Overseerr!
+      title: "High Issue Count"
 ```
 
 {% endraw %}
