@@ -103,6 +103,7 @@ Out of the box, Home Assistant Connect&nbsp;ZBT-1, [Connect&nbsp;ZBT-2](/connect
 
 - **Displays**: Nest Hub (2nd gen), Nest Hub Max
 - **Wi-Fi routers**: Nest Wifi Pro (Wi-Fi 6E), Nest Wifi
+- **TVs**: Google TV Streamer (4K)
 
 #### Apple
 
