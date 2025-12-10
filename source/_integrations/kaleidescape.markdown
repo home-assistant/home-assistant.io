@@ -19,7 +19,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The Kaleidescape integration allows for the automation of [Kaleidescape](https://www.kaleidescape.com/) movie players.
+The **Kaleidescape** {% term integration %} allows for the automation of [Kaleidescape](https://www.kaleidescape.com/) movie players.
 
 Ideas for automation include:
 
