@@ -119,6 +119,8 @@ http:
     - 172.30.33.0/24  # You may also provide the subnet mask
 ```
 
+{% important %} When network mask is provided the IP must have all host bits set to 0. {% endimportant %}
+
 ## APIs
 
 On top of the `http` integration is a [REST API](https://developers.home-assistant.io/docs/api/rest/), [Python API](https://developers.home-assistant.io/docs/api_lib_index/) and [WebSocket API](https://developers.home-assistant.io/docs/api/websocket/) available.
