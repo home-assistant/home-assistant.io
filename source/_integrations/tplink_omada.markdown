@@ -104,6 +104,22 @@ The `tplink_omada.reconnect_client` action is used to force a Wi-Fi client to re
 - **Data attribute**: `mac`
   - **Description**: The MAC address of the Wi-Fi client to reconnect
   - **Optional**: No
+ 
+### Action: Block client
+
+The `tplink_omada.block_client` action is used to block a Wi-Fi client from the Omada site.
+
+- **Data attribute**: `mac`
+  - **Description**: The MAC address of the Wi-Fi client to reconnect
+  - **Optional**: No
+ 
+### Action: Unblock client
+
+The `tplink_omada.unblock_client` action is used to unblock a Wi-Fi client from the Omada site.
+
+- **Data attribute**: `mac`
+  - **Description**: The MAC address of the Wi-Fi client to reconnect
+  - **Optional**: No
 
 ## Removing the integration
 
