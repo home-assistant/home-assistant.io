@@ -35,11 +35,6 @@ The device tracker will show:
 - **Away**: When the pet is outside.
 - **Unknown**: When the pet's location cannot be determined.
 
-The device tracker entity also provides additional information as state attributes:
-
-- `since`: The timestamp when the pet's location was last updated.
-- `where`: The numeric location value from the Sure Petcare system.
-
 ## Actions
 
 ### Action `surepetcare.set_lock_state`
