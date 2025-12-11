@@ -39,7 +39,7 @@ Before integrating the Cielo device/s with Home Assistant, ensure that:
 - Your Home Assistant server has internet access. 
 - Before proceeding, ensure the Cielo device is fully compatible with Home Assistant.
 
-### Important API Key Rules
+### Important API key rules
 
 To safeguard security and prevent unauthorized access, Cielo enforces the following API security restrictions:
 
