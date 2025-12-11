@@ -29,7 +29,7 @@ related:
     title: Enabling Thread on Yellow
 ---
 
-The Thread integration helps you track the different Thread networks in your home and store the Thread network credentials (similar to a Wi-Fi password). The Thread integration in Home Assistant is currently still a work in progress.
+The Thread {% term integration %} helps you track the different Thread networks in your home and store the Thread network credentials (similar to a Wi-Fi password). The Thread integration in Home Assistant is currently still a work in progress.
 
 You do not need to install this integration. The Thread integration shows up automatically when Home Assistant detects a [border router](#about-thread-border-routers).
 
@@ -103,6 +103,7 @@ Out of the box, Home Assistant Connect&nbsp;ZBT-1, [Connect&nbsp;ZBT-2](/connect
 
 - **Displays**: Nest Hub (2nd gen), Nest Hub Max
 - **Wi-Fi routers**: Nest Wifi Pro (Wi-Fi 6E), Nest Wifi
+- **TVs**: Google TV Streamer (4K)
 
 #### Apple
 

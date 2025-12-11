@@ -960,6 +960,148 @@ For a summary in a more readable format
 - Bump Roborock to 3.9.3 ([@Lash-L] - [#157852])
 - Add retry logic to docker.io image push step ([@edenhaus] - [#157859])
 
+## Release 2025.12.1 - December 5
+
+- Fix Rituals Perfume Genie ([@quebulm] - [#151537])
+- Move telegram-bot URLs out of strings.json ([@maxmichels] - [#155130])
+- Fix Starlink's ever updating uptime ([@davidrapan] - [#155574])
+- Display error when forming new ZHA network fails ([@TheJulianJES] - [#157863])
+- Move teslemetry time-of-use URL out of strings.json ([@jbouwh] - [#157874])
+- Correctly pass MopParserConfig for Roborock ([@Lash-L] - [#157891])
+- Fix VeSync binary sensor discovery ([@cdnninja] - [#157898])
+- Bump reolink_aio to 0.17.1 ([@starkillerOG] - [#157929])
+- Move out URL of Xiaomy_aquara from strings.json ([@jbouwh] - [#157937])
+- Set account number as required for Anglian Water config entry ([@pantherale0] - [#157939])
+- Move translatable URL from rainmachine push_weather_data action description ([@jbouwh] - [#157941])
+- Convert image URLs to secure URLs in Xbox integration ([@tr4nt0r] - [#157945])
+- Add pyanglianwater to Anglian Water loggers ([@pantherale0] - [#157947])
+- Fix template migration errors ([@Petro31] - [#157949])
+- Move Yeelight URLs out of translatable strings for action descriptions ([@jbouwh] - [#157957])
+- Move out zwave_js api docs url from strings.json ([@jbouwh] - [#157959])
+- Fix unit parsing in Tuya climate entities ([@epenet] - [#157964])
+- Update template deprecation to be more explicit ([@Petro31] - [#157965])
+- Move pilight URL out of strings.json ([@jbouwh] - [#157967])
+- Move out example URL and IP of strings.json for reolink ([@jbouwh] - [#157970])
+- Add subscribe preview feature endpoint to labs ([@piitaya] - [#157976])
+- Bump python-Roborock to 3.10.0 ([@Lash-L] - [#157980])
+- Bump oralb-ble to 1.0.2 ([@abmantis] - [#157992])
+- Bump evohome-async to 1.0.6 ([@zxdavb] - [#158005])
+- Fix doorbird duplicate unique ID generation ([@ptarjan] - [#158013])
+- SharkIQ dep upgrade `v1.5.0` ([@funkybunch] - [#158015])
+- Bump python-roborock to 3.10.2 ([@allenporter] - [#158020])
+- Change ZHA strings for incorrect adapter state ([@TheJulianJES] - [#158021])
+- Improve action descriptions for Telegram bot ([@hanwg] - [#158022])
+- Fix missing template key in deprecation repair ([@Petro31] - [#158033])
+- Prevent entsoe from loading ([@joostlek] - [#158036])
+- Do not create `restart` button for sleeping gen2+ Shelly devices ([@bieniu] - [#158047])
+- Replace deprecated preview image model ([@Shulyaka] - [#158048])
+- Move lametric URLs out of strings.json ([@jbouwh] - [#158051])
+- Move example image path out of translatable strings ([@jbouwh] - [#158053])
+- Fix inverted kelvin issue ([@Petro31] - [#158054])
+- Bump uiprotect to 7.33.2 ([@RaHehl] - [#158057])
+- Update frontend to 20251203.1 ([@piitaya] - [#158069])
+
+[#151537]: https://github.com/home-assistant/core/pull/151537
+[#155130]: https://github.com/home-assistant/core/pull/155130
+[#155574]: https://github.com/home-assistant/core/pull/155574
+[#157330]: https://github.com/home-assistant/core/pull/157330
+[#157863]: https://github.com/home-assistant/core/pull/157863
+[#157874]: https://github.com/home-assistant/core/pull/157874
+[#157891]: https://github.com/home-assistant/core/pull/157891
+[#157898]: https://github.com/home-assistant/core/pull/157898
+[#157929]: https://github.com/home-assistant/core/pull/157929
+[#157937]: https://github.com/home-assistant/core/pull/157937
+[#157939]: https://github.com/home-assistant/core/pull/157939
+[#157941]: https://github.com/home-assistant/core/pull/157941
+[#157945]: https://github.com/home-assistant/core/pull/157945
+[#157947]: https://github.com/home-assistant/core/pull/157947
+[#157949]: https://github.com/home-assistant/core/pull/157949
+[#157957]: https://github.com/home-assistant/core/pull/157957
+[#157959]: https://github.com/home-assistant/core/pull/157959
+[#157964]: https://github.com/home-assistant/core/pull/157964
+[#157965]: https://github.com/home-assistant/core/pull/157965
+[#157967]: https://github.com/home-assistant/core/pull/157967
+[#157970]: https://github.com/home-assistant/core/pull/157970
+[#157976]: https://github.com/home-assistant/core/pull/157976
+[#157980]: https://github.com/home-assistant/core/pull/157980
+[#157992]: https://github.com/home-assistant/core/pull/157992
+[#158005]: https://github.com/home-assistant/core/pull/158005
+[#158013]: https://github.com/home-assistant/core/pull/158013
+[#158015]: https://github.com/home-assistant/core/pull/158015
+[#158020]: https://github.com/home-assistant/core/pull/158020
+[#158021]: https://github.com/home-assistant/core/pull/158021
+[#158022]: https://github.com/home-assistant/core/pull/158022
+[#158033]: https://github.com/home-assistant/core/pull/158033
+[#158036]: https://github.com/home-assistant/core/pull/158036
+[#158047]: https://github.com/home-assistant/core/pull/158047
+[#158048]: https://github.com/home-assistant/core/pull/158048
+[#158051]: https://github.com/home-assistant/core/pull/158051
+[#158053]: https://github.com/home-assistant/core/pull/158053
+[#158054]: https://github.com/home-assistant/core/pull/158054
+[#158057]: https://github.com/home-assistant/core/pull/158057
+[#158069]: https://github.com/home-assistant/core/pull/158069
+
+## Release 2025.12.2 - December 8
+
+- fix Lutron Caseta smart away subscription ([@omrishiv] - [#158082])
+- Fix legacy template entity_id field in migration ([@Petro31] - [#158105])
+- Revert "Remove Shelly redundant device entry check for sleepy devices" ([@thecode] - [#158108])
+- Ensure Roborock disconnects mqtt on unload/stop ([@allenporter] - [#158144])
+- Fix secure URLs for promotional game media in Xbox integration ([@tr4nt0r] - [#158162])
+- Add program id codes for Miele WQ1000 ([@astrandb] - [#158175])
+- Bump pymiele dependency to 0.6.1 ([@astrandb] - [#158177])
+- Bump asusrouter to 1.21.1 ([@Vaskivskyi] - [#158192])
+- Bump HueBLE to 2.1.0 ([@flip-dots] - [#158197])
+- Bump python-roborock to 3.10.10 ([@allenporter] - [#158212])
+- Be more specific about winter mode in the description ([@piitaya] - [#158230])
+- Fix description placeholders for system_bridge ([@jbouwh] - [#158232])
+- Bump google air quality api to 2.0.0 ([@Thomas55555] - [#158234])
+- Fix zwave_js service description placeholders ([@epenet] - [#158236])
+- Fix yeelight service description placeholders ([@epenet] - [#158239])
+- Fix teslemetry service description placeholders ([@epenet] - [#158240])
+- Fix multiple top-level support for template integration ([@Petro31] - [#158244])
+- Bump yt-dlp to 2025.12.08 ([@andreimoraru] - [#158253])
+- Update frontend to 20251203.2 ([@piitaya] - [#158259])
+- Skip check for onboarding done in Music Assistant integration ([@marcelveldt] - [#158270])
+
+[#157330]: https://github.com/home-assistant/core/pull/157330
+[#158071]: https://github.com/home-assistant/core/pull/158071
+[#158082]: https://github.com/home-assistant/core/pull/158082
+[#158105]: https://github.com/home-assistant/core/pull/158105
+[#158108]: https://github.com/home-assistant/core/pull/158108
+[#158144]: https://github.com/home-assistant/core/pull/158144
+[#158162]: https://github.com/home-assistant/core/pull/158162
+[#158175]: https://github.com/home-assistant/core/pull/158175
+[#158177]: https://github.com/home-assistant/core/pull/158177
+[#158192]: https://github.com/home-assistant/core/pull/158192
+[#158197]: https://github.com/home-assistant/core/pull/158197
+[#158212]: https://github.com/home-assistant/core/pull/158212
+[#158230]: https://github.com/home-assistant/core/pull/158230
+[#158232]: https://github.com/home-assistant/core/pull/158232
+[#158234]: https://github.com/home-assistant/core/pull/158234
+[#158236]: https://github.com/home-assistant/core/pull/158236
+[#158239]: https://github.com/home-assistant/core/pull/158239
+[#158240]: https://github.com/home-assistant/core/pull/158240
+[#158244]: https://github.com/home-assistant/core/pull/158244
+[#158253]: https://github.com/home-assistant/core/pull/158253
+[#158259]: https://github.com/home-assistant/core/pull/158259
+[#158270]: https://github.com/home-assistant/core/pull/158270
+[@Petro31]: https://github.com/Petro31
+[@Thomas55555]: https://github.com/Thomas55555
+[@Vaskivskyi]: https://github.com/Vaskivskyi
+[@allenporter]: https://github.com/allenporter
+[@andreimoraru]: https://github.com/andreimoraru
+[@astrandb]: https://github.com/astrandb
+[@epenet]: https://github.com/epenet
+[@flip-dots]: https://github.com/flip-dots
+[@frenck]: https://github.com/frenck
+[@jbouwh]: https://github.com/jbouwh
+[@marcelveldt]: https://github.com/marcelveldt
+[@omrishiv]: https://github.com/omrishiv
+[@piitaya]: https://github.com/piitaya
+[@thecode]: https://github.com/thecode
+[@tr4nt0r]: https://github.com/tr4nt0r
+
 [#118635]: https://github.com/home-assistant/core/pull/118635
 [#134758]: https://github.com/home-assistant/core/pull/134758
 [#138087]: https://github.com/home-assistant/core/pull/138087

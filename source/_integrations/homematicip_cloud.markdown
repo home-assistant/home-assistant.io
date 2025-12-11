@@ -36,7 +36,7 @@ ha_codeowners:
   - '@hahn-th'
 ---
 
-The [HomematicIP](https://www.homematic-ip.com/) integration platform is used as an interface to the cloud server. Since there is no official documentation about this API, everything was done via reverse engineering. Use at your own risk.
+The [HomematicIP](https://www.homematic-ip.com/) {% term integration %} is used as an interface to the cloud server. Since there is no official documentation about this API, everything was done via reverse engineering. Use at your own risk.
 
 There is currently support for the following device types within Home Assistant:
 

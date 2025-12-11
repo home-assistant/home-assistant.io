@@ -29,7 +29,7 @@ ha_dhcp: true
 ha_integration_type: hub
 ---
 
-The Tado integration platform is used as an interface to the [my.tado.com](https://my.tado.com/) website.
+The Tado {% term integration %} platform is used as an interface to the [my.tado.com](https://my.tado.com/) website.
 
 There is currently support for the following device types within Home Assistant:
 

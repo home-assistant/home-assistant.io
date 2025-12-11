@@ -18,7 +18,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The Hyperion integration allows you to integrate your
+The **Hyperion** {% term integration %} allows you to integrate your
 [Hyperion](https://docs.hyperion-project.org/) into Home Assistant. Hyperion is
 an open source Ambilight implementation which runs on many platforms.
 

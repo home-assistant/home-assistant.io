@@ -14,7 +14,7 @@ ha_codeowners:
 ha_config_flow: true
 ---
 
-The Fitbit sensor allows you to expose data from [Fitbit](https://fitbit.com/) to Home Assistant.
+The **Fitbit** {% term integration %} allows you to expose data from [Fitbit](https://fitbit.com/) to Home Assistant.
 
 ## Prerequisites
 

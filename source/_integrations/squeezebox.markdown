@@ -23,7 +23,7 @@ ha_platforms:
 ha_integration_type: hub
 ---
 
-The Squeezebox integration allows you to control music players from the [Lyrion Music Server](https://lyrion.org/) (LMS) ecosystem. Lyrion Music Server was formerly known as [Logitech Media Server](https://en.wikipedia.org/wiki/Squeezebox_%28network_music_player%29).
+The **Squeezebox** {% term integration %} allows you to control music players from the [Lyrion Music Server](https://lyrion.org/) (LMS) ecosystem. Lyrion Music Server was formerly known as [Logitech Media Server](https://en.wikipedia.org/wiki/Squeezebox_%28network_music_player%29).
 
 This integration connects to an existing <abbr title="Lyrion Music Server">LMS</abbr> server and provides both media players and sensors for monitoring server status.
 

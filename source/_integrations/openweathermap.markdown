@@ -22,7 +22,7 @@ related:
     title: Defining a custom polling interval
 ---
 
-The OpenWeatherMap weather integration uses [OpenWeatherMap](https://openweathermap.org/) as a source for meteorological and air quality data for your location.
+The OpenWeatherMap weather {% term integration %} uses [OpenWeatherMap](https://openweathermap.org/) as a source for meteorological and air quality data for your location.
 
 There is currently support for the following device types within Home Assistant:
 

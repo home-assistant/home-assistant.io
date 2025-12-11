@@ -11,7 +11,7 @@ ha_quality_scale: internal
 ha_integration_type: system
 ---
 
-The Media source integration platform allows integrations to expose media for
+The Media source {% term integration %} platform allows integrations to expose media for
 use inside Home Assistant through the Media Browser panel or through supported
 media players like Google Cast.
 
