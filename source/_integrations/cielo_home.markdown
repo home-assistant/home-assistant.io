@@ -73,8 +73,9 @@ devices in your account.
 If you add or set up a new Cielo device after configuring the integration in Home Assistant, you must reload the 
 integration: 
 
-Go to Settings → ‘Devices & Services’. Select **Cielo Home**. Open the overflow menu (⋮) in the right corner & select 
-‘Reload’.
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}. 
+2. Select **Cielo Home** and in the right corner, select the three dots {% icon "mdi:dots-vertical" %} menu.
+3. Select **Reload**.
 
 {% endnote %}
 
