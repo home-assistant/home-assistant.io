@@ -3,7 +3,7 @@ title: Airpatrol
 description: Instructions on how to integrate Airpatrol air conditioning controllers into Home Assistant.
 ha_category:
   - Climate
-ha_release: 2025.11
+ha_release: 2026.1
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
@@ -23,7 +23,7 @@ The **Airpatrol** {% term integration %} allows you to control air conditioning 
 
 
 {% important %}
-Your Airpatrol WiFi unit must be configured via the native Airpatrol application prior to being discoverable in the integration. This includes setting up the Wi-Fi connection and any initial device configuration.
+Your Airpatrol WiFi unit must be configured via the native Airpatrol application prior to being useable with this integration. This includes setting up the Wi-Fi connection and any initial device configuration.
 {% endimportant %}
 
 
