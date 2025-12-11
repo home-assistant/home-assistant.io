@@ -39,7 +39,7 @@ The following devices are certified for Works with Home Assistant:
 ### Plugs
 
 - [ZEN04 Smart Plug](https://www.getzooz.com/zooz-zen04-smart-plug/)
-- [ZEN05 Outdoor Plug](https://www.getzooz.com/zooz-zen05-outdoor-smart-plug/%20)
+- [ZEN05 Outdoor Plug](https://www.getzooz.com/zooz-zen05-outdoor-smart-plug/)
 
 ### Relays
 
