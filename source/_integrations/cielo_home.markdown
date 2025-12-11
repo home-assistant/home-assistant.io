@@ -20,7 +20,7 @@ ha_quality_scale: bronze
 The **Cielo Home** {% term integration %} integration allows you to control [Cielo](https://www.cielowigle.com) 
 devices directly from Home Assistant, using the cloud-based **Cielo Connect API**.
 
-## Supported Devices
+## Supported devices
 
 The **Cielo Home** {% term integration %} supports the following devices.
 
