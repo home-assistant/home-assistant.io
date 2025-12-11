@@ -71,7 +71,7 @@ Read the "**Using custom application credentials**"-section if you have the [clo
 {% details "Using custom application credentials" icon="mdi:account-key" %}
 
 {% important %}
-Custom Volvo application credentials have a 6-day grant period, which means you'll need to re-authenticate with Volvo every 6 days.
+Custom Volvo application credentials have a limited grant period, which means you'll need to re-authenticate with Volvo after each period.
 Data updates will stop working once the grant expires until you re-authenticate.
 
 For a better user experience, it's recommended to use the default Nabu Casa account linking instead.
