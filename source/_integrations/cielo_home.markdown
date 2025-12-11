@@ -34,7 +34,7 @@ The **Cielo Home** {% term integration %} supports the following devices.
 Before integrating the Cielo device/s with Home Assistant, ensure that: 
 
 - Your Cielo device is already registered in the **Cielo Home** app. 
-- The device is in supported devices 
+- The device is in the supported devices.
 - The device has a configured remote (automatically or manually). 
 - Your Home Assistant server has internet access. 
 - Before proceeding, ensure the Cielo device is fully compatible with Home Assistant.
@@ -53,14 +53,14 @@ To safeguard security and prevent unauthorized access, Cielo enforces the follow
 
 **Retrieving API key:** `Device [name of device] not correctly registered with remote on Sensibo cloud.`
 
-1. Visit the [Cielo Web Portal](https://home.cielowigle.com)
-2. Open the Menu by clicking the ☲ icon at the top left side.
+1. Visit the [Cielo Web Portal](https://home.cielowigle.com).
+2. Open the Menu by selecting the ☲ icon at the top left side.
 3. Select **Home Assistant** from the sidebar.
-4. The API key will be displayed. Copy the API Key from the dialog.
+4. The API key will be displayed. Copy the API key from the dialog.
 
 
 {% tip %}
-If the message _This key is already used_ appears, you must first revoke the old key before generating a new one. 
+If the message **This key is already used** appears, you must first revoke the old key before generating a new one. 
 {% endtip %}
 
 {% include integrations/config_flow.md %}
@@ -91,15 +91,15 @@ Depending on device support, some entities might not be available as the device 
 
 ### Climates
 
-The climate platform integrates the compatible Cielo devices into Home Assistant, allowing control through user 
+The climate platform integrates the compatible Cielo devices into Home Assistant, allowing control through its user 
 interface.
 
 #### Cielo Breez Max & Cielo Breez Edge Pro
 
-- **HVAC Modes (varies by device)**: Heat, Cool, Dry, Fan, Auto, Off
-- **Temperature Control**: Provide a target temperature where applicable.
-- **Fan Modes**: Provide a fan mode if applicable.
-- **Vertical Swing Position**: Provide a vertical swing position where applicable.
+- **HVAC modes** (varies by device): Heat, Cool, Dry, Fan, Auto, Off
+- **Temperature control**: Provide a target temperature where applicable.
+- **Fan modes**: Provide a fan mode if applicable.
+- **Vertical swing position**: Provide a vertical swing position where applicable.
 - **Presets**: Home, Away, Sleep, & Pets (where supported & defined)
 
 {% note %}
@@ -110,13 +110,13 @@ Some fan modes or swing positions depend on the device’s remote configuration.
 
 #### Cielo Smart Thermostat & Cielo Smart Thermostat Eco
 
-- **HVAC Modes (varies by equipment)**: Cool, Auto, Heat, Off
-- **Temperature Control**: Set the temperature setpoint.
-- **Presets**: Home, Away, Sleep & Pets (where supported and defined)
+- **HVAC modes** (varies by equipment): Cool, Auto, Heat, Off
+- **Temperature control**: Set the temperature setpoint.
+- **Presets**: Home, Away, Sleep & pets (where supported and defined)
 
 ## Data updates
 
-This integration relies on cloud polling, with data refreshed approximately every 120 seconds (2 minutes). If the Cielo API or your 
+This integration relies on cloud {% term polling %}, with data refreshed approximately every 120 seconds (2 minutes). If the Cielo API or your 
 device becomes unavailable, Home Assistant will automatically retry.
 
 - Manual changes made in the Cielo Home app or via IR remote are synced automatically on the next poll.
@@ -127,16 +127,6 @@ If the device is added after the integration, you need to reload the Cielo Home 
 
 {% endnote %}
 
-## Upcoming Features
-
-Certain features are currently not supported by this integration. These include:
-
-- Scheduling
-- Advanced device features (such as Comfy Mode, Turbo, Internal Swing & LED controls)
-- Full-state API commands
-
-These capabilities will be added in future updates.
-
 ## Actions
 
 This integration does _not_ provide any custom service actions. All controls are performed using the standard 
@@ -145,12 +135,12 @@ This integration does _not_ provide any custom service actions. All controls are
 ## API limitations
 
 - API key cannot be reused.
-- Revoking an API key will immediately disconnect Home Assistant
+- Revoking an API key will immediately disconnect Home Assistant.
 - You can generate a maximum of three API keys within last 30 days.
 
 ## Troubleshooting
 
-This integration relies on an active internet connection and access to the Cielo Home API. Here’re few things to check 
+This integration relies on an active internet connection and access to the Cielo Home API. Here are a few things to check 
 before raising an issue:
 
 - Confirm that your Home Assistant has internet access.
