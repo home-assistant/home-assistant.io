@@ -29,7 +29,7 @@ The **Cielo Home** {% term integration %} supports the following devices.
 - **Cielo Thermostat Eco**: Smart thermostat for central HVAC systems.
 - **Cielo Smart Thermostat**: Smart thermostat for central HVAC systems.
 
-## Preliminary Steps
+## Prerequisites
 
 Before integrating the Cielo device/s with Home Assistant, ensure that: 
 
