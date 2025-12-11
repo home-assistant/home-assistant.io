@@ -113,7 +113,7 @@ Some fan modes or swing positions depend on the device’s remote configuration.
 - **Temperature Control**: Set the temperature setpoint.
 - **Presets**: Home, Away, Sleep & Pets (where supported and defined)
 
-## Behind the Scenes
+## Data updates
 
 - Data is refreshed every 60 seconds via the Cielo Cloud API.
 - Manual changes made in the Cielo Home app or via IR remote are synced automatically on the next poll.
