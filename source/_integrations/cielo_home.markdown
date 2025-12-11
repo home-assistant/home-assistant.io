@@ -17,7 +17,7 @@ ha_integration_type: integration
 ha_quality_scale: bronze
 ---
 
-The **Cielo Home** {% term integration %} integration allows you to control [Cielo](https://www.cielowigle.com) devices directly from Home Assistant, using the cloud-based **Cielo Connect API**.
+The **Cielo Home** {% term integration %} allows you to control [Cielo](https://www.cielowigle.com) devices directly from Home Assistant, using the cloud-based **Cielo Connect API**.
 
 ## Supported devices
 
@@ -50,10 +50,8 @@ To safeguard security and prevent unauthorized access, Cielo enforces the follow
 
 ### Obtaining an API key
 
-**Retrieving API key:** `Device [name of device] not correctly registered with remote on Sensibo cloud.`
-
 1. Visit the [Cielo Web Portal](https://home.cielowigle.com).
-2. Open the Menu by selecting the ☲ icon at the top left side.
+2. Open the Menu by selecting the hamburger menu icon {% icon "mdi:menu" %} at the top left side.
 3. Select **Home Assistant** from the sidebar.
 4. The API key will be displayed. Copy the API key from the dialog.
 
