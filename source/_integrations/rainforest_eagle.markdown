@@ -24,13 +24,13 @@ Integrate energy usage and pricing from the Rainforest Automation's
 Eagle-200 and
 [Legacy Eagle](https://rainforestautomation.com/support/rfa-z109-eagle-support/)
 energy gateways. These devices work over Zigbee Energy Profile to connect to
-your smart meter. As such, they do not conenct to your regular Zigbee network
+your smart meter. As such, they do not connect to your regular Zigbee network
 (you don't even need a Zigbee network), but typically will need to be
-provisioned (i.e. connected to your meter) by your utility. You then connect
+provisioned (for example, connected to your meter) by your utility. You then connect
 the device to your home network and can pull energy usage via the device's
 local API. The price will only be included if it is provided by the electricity
 meter. If you picked an electricity plan in the app, the price data will not be
-availabl
+available.
 
 As the Eagle 3 runs the same API as the Eagle 200, Home Assistant will set up
 your Eagle 3 as an "Eagle 200".
