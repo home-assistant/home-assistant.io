@@ -72,6 +72,7 @@ Read the "**Using custom application credentials**"-section if you have the [clo
 
 {% important %}
 Custom Volvo application credentials have a limited grant period, which means you'll need to re-authenticate with Volvo after each period.
+The exact timing is mentioned on the developer portal in the [Refresh the access token](https://developer.volvocars.com/apis/docs/authorisation/) section.
 Data updates will stop working once the grant expires until you re-authenticate.
 
 For a better user experience, it's recommended to use the default Nabu Casa account linking instead.
