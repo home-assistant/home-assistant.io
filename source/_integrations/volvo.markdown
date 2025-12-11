@@ -85,6 +85,8 @@ For a better user experience, it's recommended to use the default Nabu Casa acco
 3. Click **View summary** and **confirm**.
 4. Grab the `client id` and `client secret` from the confirmation page and **add them** to your [application credentials](/integrations/application_credentials).
 
+For this to work, you'll need to configure [My Home Assistant](https://my.home-assistant.io/) to let it point to your local Home Assistant instance. Check the [FAQ](https://my.home-assistant.io/faq/) for more information about this feature.
+
 {% enddetails %}
 
 {% include integrations/config_flow.md %}
