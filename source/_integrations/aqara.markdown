@@ -16,3 +16,19 @@ ha_brand: true
 ---
 
 {% include integrations/wwha.md url="https://www.aqara.com/" %}
+
+## Supported devices
+
+- [Hub M3](https://www.aqara.com/en/product/hub-m3/)
+- [Valve Controller T1](https://www.aqara.com/us/product/valve-controller-t1/)
+- [LED Bulb T2 (E26, CCT)](https://www.aqara.com/en/product/led-bulb-t2/)
+- [LED Bulb T2 (E26, RGB+CT)](https://www.aqara.com/en/product/led-bulb-t2/)
+- [Smart Lock U200](https://www.aqara.com/en/product/smart-lock-u200/)
+- [Smart Lock U300](https://www.aqara.com/en/product/smart-lock-u300/)
+- [Motion and Light Sensor P2](https://www.aqara.com/en/product/motion-and-light-sensor-p2/)
+- [Door and Window Sensor P2](https://www.aqara.com/en/product/door-and-window-sensor-p2/)
+- [Presence sensor FP1E](https://www.aqara.com/en/product/presence-sensor-fp1e/)
+- [Climate Sensor](https://www.aqara.com/en/product/climate-sensor-w100/)
+- [Light Switch H2 US](https://www.aqara.com/us/product/light-switch-h2-us/)
+- [Light Switch H2 EU](https://www.aqara.com/en/product/light-switch-h2-eu/)
+- [Presence Sensor FP300](https://www.aqara.com/en/product/presence-multi-sensor-fp300/)
