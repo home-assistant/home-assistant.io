@@ -33,7 +33,7 @@ The **Cielo Home** {% term integration %} supports the following devices.
 
 Before integrating the Cielo device/s with Home Assistant, ensure that: 
 
-- Your Cielo device is already registered in the **Cielo Home app**. 
+- Your Cielo device is already registered in the **Cielo Home** app. 
 - The device is in supported devices 
 - The device has a **configured remote** (automatically or manually). 
 - Your Home Assistant server has internet access. 
