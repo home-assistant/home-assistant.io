@@ -40,7 +40,7 @@ restriction (like related patents, trademarks, and license agreements) of which 
 
 ## Attribution
 
-This Contributor License Agreement is adapted from the [GitHub CLA][github-cla].
+This Contributor License Agreement is adapted from the GitHub CLA.
 
 ## Signing
 
@@ -50,5 +50,4 @@ To sign this CLA you must first submit a pull request to a repository under the 
 
 This Contributor License Agreement (CLA) was first announced on January 21st, 2017 in [this][cla-blog] blog post and adopted January 28th, 2017.
 
-[github-cla]: https://cla.github.com/agreement
 [cla-blog]: https://home-assistant.io/blog/2017/01/21/home-assistant-governance/

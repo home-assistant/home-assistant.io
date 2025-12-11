@@ -5,11 +5,13 @@ date: 2017-03-11 08:04:05 +0000
 date_formatted: "March 11, 2017"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2017-03-0.40/social.png
 ---
 
-<a href='/components/#added_in_current_version'><img src='/images/blog/2017-03-0.40/social.png' style='border: 0;box-shadow: none;'></a>
+<a href='/integrations/#added_in_current_version'><img src='/images/blog/2017-03-0.40/social.png' style='border: 0;box-shadow: none;'></a>
 
 It's time for version 0.40 already! For this version, the main focus was on performance and bug fixes. Big thanks to [@pvizeli] for driving this effort. Startup is now super fast. We have also continued with adding warnings for components and platforms that are slowing down Home Assistant.
 
@@ -29,7 +31,7 @@ MQTT started causing "Out of Memory" errors for some people on a Raspberry Pi. W
 
 ## Turn any Android phone into an IP Camera
 
-With the new support for [IP Webcam](/components/android_ip_webcam/) added by [@robbiet480] and [@pvizeli] you are now able to re-purpose any Android phone to become a multifunctional IP webcam. Some of the cool things that you can do:
+With the new support for [IP Webcam](/integrations/android_ip_webcam/) added by [@robbiet480] and [@pvizeli] you are now able to re-purpose any Android phone to become a multifunctional IP webcam. Some of the cool things that you can do:
 
  - Integrate the Android device camera
  - Binary sensor when motion is detected
@@ -48,7 +50,7 @@ Screenshot of all the different functionality the IP webcam integration offers.
  - Blink Home Security Camera support added ([@fronzbot])
  - AppleTV has been converted to push data to Home Assistant instead of us having to poll ([@postlund])
 
-## Breaking changes
+## Backward-incompatible changes
 
 - Vera entity ids have changed. This is a one time change to migrate to a model that will prevent future conflicts.
 - The Twilio notify platforms now have to be configured via the twilio component.

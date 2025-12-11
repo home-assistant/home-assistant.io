@@ -20,7 +20,7 @@ It is now possible to disable your irregation system if it is going to be cloudy
   <img src='/images/blog/2015-09-ifttt/splash.png'>
 </p>
 
-Head over to the [setup instructions](/components/ifttt/) to get started with IFTTT. Click the read more button for some example recipes.
+Head over to the [setup instructions](/integrations/ifttt/) to get started with IFTTT. Click the read more button for some example recipes.
 
 <!--more-->
 
@@ -36,7 +36,7 @@ Maker channel setup:
 
 | Field | Value |
 | ----- | ----- |
-| URL   |  http://xxx.xxx.xxx.xxx:8123/api/services/switch/turn_off?api_password=xxxxxxxx
+| URL   |  `http://xxx.xxx.xxx.xxx:8123/api/services/switch/turn_off?api_password=xxxxxxxx`
 | METHOD | POST
 | CONTENT TYPE | application/json
 | BODY | { "entity_id": "switch.irrigation" }
@@ -52,11 +52,11 @@ This will tweet a message when an MQTT message is received that the smoke alarm 
 ```yaml
 # Configuration.yaml entry
 automation:
-- alias: Post a tweet when fire alarm is triggered
+- alias: "Post a tweet when fire alarm is triggered"
   trigger:
     platform: mqtt
     mqtt_topic: home/alarm/fire
-    mqtt_payload: 'on'
+    mqtt_payload: "on"
 
   action:
     service: ifttt.trigger
@@ -73,7 +73,7 @@ Maker channel setup:
 
 | Field | Value |
 | ----- | ----- |
-| URL   |  http://xxx.xxx.xxx.xxx:8123/api/services/light/turn_on?api_password=xxxxxxxx
+| URL   |  `http://xxx.xxx.xxx.xxx:8123/api/services/light/turn_on?api_password=xxxxxxxx`
 | METHOD | POST
 | CONTENT TYPE | application/json
 | BODY | { "entity_id": "light.kitchen" }
@@ -88,7 +88,7 @@ Maker channel setup:
 
 | Field | Value |
 | ----- | ----- |
-| URL   |  http://xxx.xxx.xxx.xxx:8123/api/services/light/turn_on?api_password=xxxxxxxx
+| URL   |  `http://xxx.xxx.xxx.xxx:8123/api/services/light/turn_on?api_password=xxxxxxxx`
 | METHOD | POST
 | CONTENT TYPE | application/json
 | BODY | { "entity_id": "group.all_lights", "flash":"yes" }

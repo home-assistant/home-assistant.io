@@ -1,47 +1,53 @@
 ---
-title: "Advanced Configuration"
-description: "Instructions to get Home Assistant configured."
+title: "Next steps"
+description: "Next steps in configuring your Home Assistant"
+related:
+  - docs: configuration/basic/
+    title: Changing basic settings
+  - docs: /docs/configuration/
+    title: configuration.yaml file
+  - docs: /common-tasks/os/#network-storage
+    title: Network storage
+  - docs: /common-tasks/general/#backups
+    title: Backups
+  - docs: /voice_control/
+    title: Voice control
+  - url: https://companion.home-assistant.io/
+    title: Home Assistant on Android and iOS
 ---
 
-Until now we have been able to configure Home Assistant purely via the user interface. However, not all options are accessible via the user interface. The other options are accessible via the Home Assistant configuration file called `configuration.yaml`. A default one is created when Home Assistant started for the first time.
+The onboarding process takes you through the initial setup for Home Assistant, such as getting the system up and running, naming your home and selecting your location. This section points you to further documentation helping you with the next steps.
 
-<div class='note'>
+## Adding other persons to Home Assistant
 
-This final step of the getting started only applies if you've installed Home Assistant via Hass.io. If you've used another installation method, [see here](/docs/configuration/).
+You can add other people to Home Assistant. They can have their own login, use Home Assistant on their devices and create their own dashboards. To add other people, refer to [Adding a person to Home Assistant](/integrations/person/#adding-a-person-to-home-assistant).
 
-</div>
+## Apps for Android and iOS
 
-We are going to help you make your first changes to `configuration.yaml`. To do this, we are going to install an add-on from the Hass.io add-on store: the HASS Configurator. To get to the add-on store, click on the menu icon in the top left, then click on Hass.io. On the new page, open the add-on store tab.
+You can use Home Assistant on your phone, smartwatch, and even in your car.
 
-<p class='img'>
-<img src='/images/hassio/screenshots/main_panel_addon_store.png' />
-From the Hass.io main panel, open the add-on store.
-</p>
+- To learn how to install Home Assistant on Android or iOS, refer to the [documentation for the Companion Apps](https://companion.home-assistant.io/).
+- Want to use your voice to control Home Assistant?
+  - Refer to the documentation on using [Assist on Android](/voice_control/android/).
 
-Under the "Core" section you will find HASS Configurator.
+## Changing the basic settings
 
- - Click on Configurator and click on INSTALL. When installation is complete, the UI will go to the add-on details page for the configurator.
- - Now start the add-on by clicking on START.
- - Open the user interface by clcking on OPEN WEB UI.
+To change basic settings such as location, unit system, and language, refer to [Changing basic settings](/docs/configuration/basic/).
 
-Now let's make a small change using the configurator: we are going to change the name and location of your Home Assistant installation.
+## Creating a backup
 
- - Click the folder icon in the top left of the configurator window to open the file browser sidebar.
- - Click the `configuration.yaml` file (in the `/config/` folder) to load it into the main Configurator edit window.
- - Find the `homeassistant:` configuration block, which should be the first thing in `configuration.yaml`. In this block, update `name`, `latitude`, `longitude`, `unit_system` and `time_zone` to match yours.
- - Click the save icon in the top right to commit changes.
- - Most changes in `configuration.yaml` require Home Assistant to be restarted to see the changes. You can verify that your changes are acceptable by running a config check. Do this by clicking on Configuration in the sidebar, click on General and click on the "Check Config" button. When it's valid, it will show the text "Configuration valid!".
- - Now Restart Home Assistant using the "restart" in the Server management section on the same page.
+You can back up your Home Assistant, add-on data, and configuration. Backups are used to restore the system (or parts of the system) if a rollback is needed. Backups are also used or to migrate your Home Assistant to new hardware. It is good practice to create a backup before updating.
 
-<p class='img'>
-<img src='/images/screenshots/configuration-validation.png' />
-Screenshot of the "General" page in the configuration panel.
-</p>
+To learn how to create a backup of your Home Assistant installation, refer to the documentation on [creating a backup](/common-tasks/general/#backups).
 
-### Editing config via Samba/Windows Networking
+## Editing the configuration.yaml and configuring file access
 
-Maybe you are not a big fan of our web editor and want to use a text editor on your computer instead. This is possible by sharing the configuration over the network using the Samba add-on, which can also be installed from the Hass.io add-on store. This will make your configuration accessible via the network tab on your computer.
+While you can configure most of Home Assistant from the user interface, for some integrations, you will need to [edit the `configuration.yaml` file](/docs/configuration/). This file contains integrations to be loaded along with their configurations. Throughout the documentation, you will find snippets that you can add to your configuration file to enable specific functionality. For starters, there is no need to edit the `configuration.yaml` file. You will be pointed to the documentation when this is needed.
 
-Go to the add-on store and look for Samba in the core section. After you have installed the add-on, click on START. Hass.io should now be available in the networking tab on your computer.
+## Setting up network storage
 
-We suggest that to edit `configuration.yaml`, you use the free text editor [Visual Studio Code](https://code.visualstudio.com/) in combination with the [Home Assistant Config Helper extension](https://marketplace.visualstudio.com/items?itemName=keesschollaart.vscode-home-assistant).
+If you need more space to store data, you can configure a [network storage](/common-tasks/os/#network-storage), for example to store backups or to access media.
+
+## Getting started with voice assistant
+
+If you want to get started with a voice assistant, refer to the documentation on [Assist](/voice_control/).

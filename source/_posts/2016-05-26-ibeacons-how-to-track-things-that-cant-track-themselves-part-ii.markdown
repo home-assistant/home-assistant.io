@@ -34,9 +34,9 @@ So if you put an iBeacon on your keys or in your car - then you can track them.
 
 It’s easier to set up OwnTracks and HA to track a mobile beacon than the fixed beacon I discussed in Part 1, because you only need to tell OwnTracks about your iBeacon. You don’t need to configure HA at all.
 
-<div class='note warning'>
+{% warning %}
 OwnTracks currently only supports mobile beacons on iOS.
-</div>
+{% endwarning %}
 
 You set up the beacon the same way as we discussed in part 1. The only difference is that instead of calling the region the name of a location (eg -drive) you call it the name of the device you want to track (eg -keys). Remember the leading ‘-’ that makes the connection more reliable.
 
@@ -60,48 +60,55 @@ With the basic tracking working - you can use automation to do things like open 
 
 ```yaml
 automation:
-    - alias: 'Open gate'
+    - alias: "Open gate"
       trigger:
         - platform: state
           entity_id: device_tracker.beacon_car
-          from: 'not_home'
-          to: 'home'
+          from: "not_home"
+          to: "home"
       condition:
         - condition: state
           entity_id: switch.gate
-          state: 'off'
+          state: "off"
       action:
           service: switch.turn_on
-          entity_id: switch.gate
+          target:
+            entity_id: switch.gate
 ```
 
 Or warn you if you leave your keys behind
 
+{% raw %}
+
 ```yaml
 automation:
-  - alias: 'Forgotten keys'
+  - alias: "Forgotten keys"
     trigger:
       platform: template
-      value_template: '{% raw %}{{ states.device_tracker.greg_gregphone.state != states.device_tracker.beacon_keys.state}}{% endraw %}'
+      value_template: '{{ states.device_tracker.greg_gregphone.state != states.device_tracker.beacon_keys.state}}'
     condition:
       condition: template
-      value_template: '{% raw %}{{ states.device_tracker.greg_gregphone.state != "home" }}{% endraw %}'
+      value_template: '{{ states.device_tracker.greg_gregphone.state != "home" }}'
     action:
       service: script.turn_on
-      entity_id: script.send_key_alert
+      target:
+        entity_id: script.send_key_alert
 
-  - alias: 'Forgotten keys - cancel'
+  - alias: "Forgotten keys - cancel"
     trigger:
       platform: template
-      value_template: '{% raw %}{{ states.device_tracker.greg_gregphone.state == states.device_tracker.beacon_keys.state }}{% endraw %}'
+      value_template: '{{ states.device_tracker.greg_gregphone.state == states.device_tracker.beacon_keys.state }}'
     condition:
       - condition: state
         entity_id: script.send_key_alert
-        state: 'on'
+        state: "on"
     action:
       service: script.turn_off
-      entity_id: script.send_key_alert
+      target:
+        entity_id: script.send_key_alert
 ```
+
+{% endraw %}
 
 ```yaml
 script:
@@ -111,8 +118,8 @@ script:
           minutes: 2
       - service: notify.notify
         data:
-            message: 'You forgot your keys'
-            target: 'device/gregs_iphone'
+            message: "You forgot your keys"
+            target: "device/gregs_iphone"
 ```
 
 
@@ -128,7 +135,7 @@ Of course you can use both fixed and mobile beacons at the same time. I want my 
 ### Buying Beacons
 This isn’t a buyer's guide, but I just wanted to mention the iBeacons I’ve been using. I think you should be able to use any iBeacon with HA and OwnTracks. You generally can’t buy beacons in your local electronics shop - so I just wanted to briefly mention the two suppliers I’ve used so far.
 
-I’ve bought quite a few iBeacons from a company called [Blue Sense Networks](http://bluesensenetworks.com/). I work in the tech startup sector in the UK so I partly chose them because they are a local start-up who seemed worth supporting. The products, support and software all seem good. I use a number of their beacons - from a simple USB dongle, to a long range beacon. All their products have batteries that can be changed (or no batteries in the case of the externally powered USB device) - and you can configure all the parameters you’d want to using their software. I had one software issue, support got back to me at a weekend(!) - and the issue was resolved with a software release two days later.
+I’ve bought quite a few iBeacons from a company called Blue Sense Networks. I work in the tech startup sector in the UK so I partly chose them because they are a local start-up who seemed worth supporting. The products, support and software all seem good. I use a number of their beacons - from a simple USB dongle, to a long range beacon. All their products have batteries that can be changed (or no batteries in the case of the externally powered USB device) - and you can configure all the parameters you’d want to using their software. I had one software issue, support got back to me at a weekend(!) - and the issue was resolved with a software release two days later.
 
 All the beacons seem fine - and the long range unit does work over a longer range than my other beacons.
 

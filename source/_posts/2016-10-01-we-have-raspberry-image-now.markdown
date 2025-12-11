@@ -12,7 +12,7 @@ Today we're happy to announce our brand new Raspberry Pi image! It is based on R
 
 This image comes pre-installed with everything you need to get started with Home Assistant right away.
 
-To get started, check out the installation instructions in [the getting started section][gs-image] or watch the latest video by [BRUHAutomation]:
+To get started, check out the installation instructions in the getting started section or watch the latest video by [BRUHAutomation]:
 
 <div class='videoWrapper'>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/iIz6XqDwHEk" frameborder="0" allowfullscreen></iframe>
@@ -28,5 +28,4 @@ As it is today there is no pre-compiled Z-Wave support but it can be installed b
 
 Happy Automating!
 
-[gs-image]: /docs/installation/hassbian/installation/
 [BRUHAutomation]: https://www.youtube.com/channel/UCLecVrux63S6aYiErxdiy4w

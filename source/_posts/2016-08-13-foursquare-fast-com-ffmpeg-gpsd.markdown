@@ -5,14 +5,16 @@ date: 2016-08-13 12:00:00 -0700
 date_formatted: "August 13, 2016"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 ---
 
 It's time for 0.26 and it's again full of new features and fixes. First I want to highlight that we are now having 500 000 monthly pageviews on the website. A big milestone for us! It's been an amazing journey. Big thanks to the Home Assistant community for being such a delightful bunch.
 
 This release includes code contributed by 31 different people. The biggest change in this release is a new unit system. Instead of picking Celsius or Fahrenheit you'll have to pick imperial or metric now. This influences the units for your temperature, distance, and weight. This will simplify any platform or component that needs to know this information. Big thanks to [@Teagan42] for her hard work on this!
 
-<img src='/images/supported_brands/foursquare.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='/images/supported_brands/ohmconnect.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='/images/supported_brands/fastdotcom.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='/images/supported_brands/gpsd.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='/images/supported_brands/ffmpeg.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' />
+<img src='/images/supported_brands/foursquare.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='/images/supported_brands/ohmconnect.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='/images/supported_brands/fastdotcom.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='/images/supported_brands/gpsd.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='https://brands.home-assistant.io/ffmpeg/logo.png' srcset='https://brands.home-assistant.io/ffmpeg/logo@2x.png 2x' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' />
 
 - Core: Introduce notion of unit system (deprecates temperature unit option) ([@Teagan42])
 - Front end: Speed improvements ([@balloob])
@@ -56,7 +58,7 @@ This release includes code contributed by 31 different people. The biggest chang
 
 - Media Player cover art would not work when an API password was set. Thanks to [@maddox] for reporting it and [@balloob] for the fix.
 
-### Breaking changes
+### Backward-incompatible changes
 
  - A new unit system has superseded the temperature unit option in the core configuration. For now it is backwards compatible, but you should update soon:
 
@@ -92,25 +94,25 @@ homeassistant:
 [@turbokongen]: https://github.com/turbokongen
 [@fabaff]: https://github.com/fabaff
 
-[Foursquare]: /components/foursquare/
-[OhmConnect]: /components/sensor.ohmconnect/
-[FFMPEG]: /components/camera.ffmpeg/
-[SMTP]: /components/notify.smtp/
-[panel_custom]: /components/panel_custom/
-[Verisure]: /components/alarm_control_panel.verisure/
-[Flux LED]: /components/light.flux_led/
-[InfluxDB]: /components/influxdb/
-[particulate]: /components/sensor.serial_pm/
-[LG Netcast TV]: /components/media_player.lg_netcast/
-[mqtt_json]: /components/light.mqtt_json/
-[Fast.com]: /components/sensor.fastdotcom/
-[pilight]: /components/pilight/
-[GPSD]: /components/sensor.gpsd/
-[heat control]: /components/thermostat.heat_control/
-[Proximity]: /components/proximity/
-[Flux]: /components/switch.flux/
-[Proliphix]: /components/proliphix/
-[Fitbit]: /components/sensor.fitbit/
-[Plex]: /components/media_player.plex/
-[Honeywell]: /components/honeywell/
+[Foursquare]: /integrations/foursquare/
+[OhmConnect]: /integrations/ohmconnect
+[FFMPEG]: /integrations/camera.ffmpeg/
+[SMTP]: /integrations/smtp
+[panel_custom]: /integrations/panel_custom/
+[Verisure]: /integrations/verisure#alarm-control-panel
+[Flux LED]: /integrations/flux_led
+[InfluxDB]: /integrations/influxdb/
+[particulate]: /integrations/serial_pm/
+[LG Netcast TV]: /integrations/lg_netcast
+[mqtt_json]: /integrations/light.mqtt
+[Fast.com]: /integrations/fastdotcom
+[pilight]: /integrations/pilight/
+[GPSD]: /integrations/gpsd
+[heat control]: /integrations/generic_thermostat
+[Proximity]: /integrations/proximity/
+[Flux]: /integrations/flux
+[Proliphix]: /integrations/proliphix/
+[Fitbit]: /integrations/fitbit
+[Plex]: /integrations/plex#media-player
+[Honeywell]: /integrations/honeywell/
 [Secrets]: /topics/secrets/

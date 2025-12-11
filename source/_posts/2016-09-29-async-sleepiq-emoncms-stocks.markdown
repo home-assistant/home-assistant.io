@@ -5,7 +5,9 @@ date: 2016-09-29 03:04:05 +0000
 date_formatted: "September 29, 2016"
 author: Paulus Schoutsen & Fabian Affolter
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 ---
 
 Two weeks ago, September 17 marked our 3 year anniversary. In this time Home Assistant managed to grow from a simple script that turned on my lights when the sun set to a kick ass open source project with the best community an open-source project could wish for. This release contains features, bug fixes and performance tweaks by a total of **50** different people! We have also managed to cross the 1000 forks on GitHub. Talking about momentum!
@@ -20,7 +22,7 @@ There now is support for two new super cool things: Beds and license plates. [@t
 
 ### Configuration validation
 
-On the voluptuous front we have also made great progress. We were able to fully remove the legacy config helpers and have migrated 323 of the 346 components and platforms that needed migrating! This does mean that for some components the configuration has slightly changed, make sure to check out the breaking changes section at the bottom for more info. Thanks everybody for reviewing the Pull requests, testing the changes, and reporting issues.
+On the voluptuous front we have also made great progress. We were able to fully remove the legacy config helpers and have migrated 323 of the 346 components and platforms that needed migrating! This does mean that for some components the configuration has slightly changed, make sure to check out the backward-incompatible changes section at the bottom for more info. Thanks everybody for reviewing the Pull requests, testing the changes, and reporting issues.
 
 ### Delayed Release
 
@@ -28,7 +30,7 @@ As you might have noticed, this release has been delayed by 5 days. This was due
 
 ### Hide automation rules
 
-Since 0.28 [automation rules](/blog/2016/09/10/notify-group-reload-api-pihole/#reload-automation-rules) can be reloaded directly from the frontend. By default all automation rules are shown. If you want to [hide an automation rule](/getting-started/automation-create-first/), use `hide_entity: true`.
+Since 0.28 [automation rules](/blog/2016/09/10/notify-group-reload-api-pihole/#reload-automation-rules) can be reloaded directly from the frontend.
 
 ### All changes
 
@@ -41,8 +43,8 @@ Since 0.28 [automation rules](/blog/2016/09/10/notify-group-reload-api-pihole/#r
 - Climate: [MySensors] is now supported ([@kaustubhphatak])
 - Control Home Assistant with [keyboard shortcuts][keyboard_remote] ([@deisi])
 - More voluptuous config validations ([@fabaff], [@kellerza], [@balloob])
-- New [Nuimo] controller support added ([@gross1989])
-- Sensor: [BOM] Weather component ([@tinglis1])
+- New Nuimo controller support added ([@gross1989])
+- Sensor: BOM Weather component ([@tinglis1])
 - Automation: Option added to hide entity ([@milaq])
 - Sensor: [Emoncms] feeds now supported ([@joyrider])
 - Sensor: Mi Flora [plant] sensor now supported ([@open-homeautomation])
@@ -98,7 +100,7 @@ Since 0.28 [automation rules](/blog/2016/09/10/notify-group-reload-api-pihole/#r
 
  - Fix handling SIGTERM and SIGHUP signals (fixes Systemd restart issues) ([@pvizeli])
 
-### Breaking changes
+### Backward-incompatible changes
 
  - The template methods `now` and `utcnow` have been changed from variables to methods. To get the current time replace `now` with `now()`.
  - `yahooweather` default name is now `yweather`. Also min and max temperature are now correctly called `Temperature Min` and `Temperature Max`.
@@ -160,27 +162,25 @@ Since 0.28 [automation rules](/blog/2016/09/10/notify-group-reload-api-pihole/#r
 [@w1ll1am23]: https://github.com/w1ll1am23
 [@wokar]: https://github.com/wokar
 
-[BOM]: /components/sensor.bom/
-[climate]: /components/climate.vera/
-[email]: /components/sensor.imap_email_content/
-[Emoncms]: /components/sensor.emoncms/
-[filtering]: /components/logbook/
-[InfluxDB]: /components/influxdb/
-[ISY]: /components/isy994/
-[KNX]: /components/sensor.knx/
-[Kodi]: /components/notify.kodi/
-[Modbus]: /components/modbus/
-[Nest]: /components/fan.nest/
-[Nuimo]: /components/nuimo_controller/
-[OpenALPR]: /components/openalpr/
-[passwordless]: /components/http/
-[Simplepush]: /components/notify.simplepush/
-[Slack]: /components/notify.slack/
-[SleepIQ]: /components/sleepiq/
-[timeout]: /components/sensor.mqtt_room/
-[Vera]: /components/cover.vera/
-[Wink]: /components/wink/
-[plant]: /components/sensor.miflora/
-[MySensors]: /components/climate.mysensors/
-[keyboard_remote]: /components/keyboard_remote
-[X10]: /components/light.x10/
+[climate]: /integrations/vera
+[email]: /integrations/imap_email_content/
+[Emoncms]: /integrations/emoncms
+[filtering]: /integrations/logbook/
+[InfluxDB]: /integrations/influxdb/
+[ISY]: /integrations/isy994/
+[KNX]: /integrations/sensor.knx/
+[Kodi]: /integrations/kodi
+[Modbus]: /integrations/modbus/
+[Nest]: /integrations/nest/
+[OpenALPR]: /integrations/openalpr_local/
+[passwordless]: /integrations/http/
+[Simplepush]: /integrations/simplepush
+[Slack]: /integrations/slack
+[SleepIQ]: /integrations/sleepiq/
+[timeout]: /integrations/mqtt_room
+[Vera]: /integrations/vera
+[Wink]: /integrations/wink/
+[plant]: /integrations/miflora
+[MySensors]: /integrations/climate.mysensors/
+[keyboard_remote]: /integrations/keyboard_remote
+[X10]: /integrations/x10

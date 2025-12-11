@@ -33,7 +33,7 @@ I've been using Adafruit for my shopping:
 
  - [Adafruit HUZZAH ESP8266 Breakout](http://www.adafruit.com/product/2471) ([assembly instructions](https://learn.adafruit.com/adafruit-huzzah-esp8266-breakout/assembly))
  - [Adafruit HDC1008 Temperature & Humidity Sensor Breakout Board](http://www.adafruit.com/product/2635) ([assembly instructions](https://learn.adafruit.com/adafruit-hdc1008-temperature-and-humidity-sensor-breakout/assembly))
- - [MQTT server](/components/mqtt/#picking-a-broker)
+ - [MQTT server](/integrations/mqtt/#picking-a-broker)
 
 _Besides this, you will need the usual hardware prototype equipment: a breadboard, some wires, soldering iron + wire, Serial USB cable._
 

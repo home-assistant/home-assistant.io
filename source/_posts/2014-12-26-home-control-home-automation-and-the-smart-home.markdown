@@ -18,9 +18,9 @@ There is no widely adopted open standard for smart device communication. This pr
 As a bare minimum a hub has to keep track of the state of each device and should be able to control them if possible. For example, it has to know which lights are on or off and offer a way to control the lights. For a sensor it only has to know the value. A hub with these capabilities offers **home control**.
 
 <p class='img'>
-  <a href='{{site_root}}/images/screenshots/nexus_7_dashboard.png'>
+  <a href='/images/screenshots/nexus_7_dashboard.png'>
     <img alt='Hub dashboard example'
-         src='{{site_root}}/images/screenshots/nexus_7_dashboard.png' />
+         src='/images/screenshots/nexus_7_dashboard.png' />
   </a>
   Example of a hub's dashboard. Showing the state of 2 persons, 4 lights and the sun.
 </p>
@@ -38,9 +38,9 @@ A glimpse today at how the future can look is the [Nest thermostat](https://nest
 All this results in the following overview of Home Automation.
 
 <p class='img'>
-  <a href='{{site_root}}/images/architecture/home_automation_landscape.png'>
+  <a href='/images/architecture/home_automation_landscape.png'>
     <img alt='Home Automation landscape'
-         src='{{site_root}}/images/architecture/home_automation_landscape.png' />
+         src='/images/architecture/home_automation_landscape.png' />
   </a>
   Overview of the home automation landscape.
 </p>

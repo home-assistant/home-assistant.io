@@ -1,45 +1,101 @@
 ---
-title: "Configuring Home Assistant"
-description: "Configuring Home Assistant."
+title: "Configuration.yaml"
+description: "Configuring Home Assistant via text files."
+related:
+  - docs: /docs/configuration/yaml/
+    title: YAML syntax
+  - docs: /docs/configuration/secrets
+    title: Storing credentials in `secrets.yaml` file
+  - docs: /common-tasks/general/#backups
+    title: Creating and restoring backups
+  - docs: /docs/tools/dev-tools/#reloading-the-yaml-configuration
+    title: Reloading the YAML configuration from developer tools
+  - docs: /common-tasks/os/#configuring-access-to-files
+    title: Configuring file access on the Operating System
+  - docs: docs/configuration/troubleshooting/
+    title: Troubleshooting the configuration
 ---
 
-When launched for the first time, Home Assistant will create a default configuration file enabling the web interface and device discovery. It can take up to a minute after startup for your devices to be discovered and appear in the user interface.
+While you can configure most of Home Assistant from the user interface, for some integrations, you need to edit the `configuration.yaml` file.
 
-The web interface can be found at `http://ip.ad.dre.ss:8123/` - for example if your Home Assistant system has the IP address `192.168.0.40` then you'll find the web interface as `http://192.168.0.40:8123/`.
+This file contains {% term integrations %} to be loaded along with their configurations. Throughout the documentation, you will find snippets that you can add to your configuration file to enable specific functionality.
 
-The location of the folder differs between operating systems:
+<p class='img'>
+<img src='/images/docs/configuration/config-yaml_via-file-editor.png' alt='Screenshot of an example of a configuration.yaml file, accessed using the File editor add-on on a Home Assistant Operating System installation.'>
+Example of a configuration.yaml file, accessed using the File editor add-on on a Home Assistant Operating System installation.
+</p>
 
-| OS | Path |
-| -- | ---- |
-| macOS | `~/.homeassistant` |
-| Linux | `~/.homeassistant` |
-| Windows | `%APPDATA%/.homeassistant` |
-| Hass.io | `/config` |
-| Docker | `/config` |
+## Editing `configuration.yaml`
 
-If you want to use a different folder for configuration, use the config command line parameter: `hass --config path/to/config`.
+How you edit your `configuration.yaml` file depends on your editor preferences and the [installation type](/installation/#about-installation-types) you used to set up Home Assistant. Follow these steps:
 
-Inside your configuration folder is the file `configuration.yaml`. This is the main file that contains integrations to be loaded with their configurations. Throughout the documentation you will find snippets that you can add to your configuration file to enable functionality.
+1. [Set up file access](#to-set-up-access-to-the-files-and-prepare-an-editor).
+2. [Locate the config directory](#to-find-the-configuration-directory).
+3. [Edit your `configuration.yaml` file](#to-edit-the-configuration-file).
+4. Save your changes and [reload the configuration](#reloading-the-configuration-to-apply-changes) to apply the changes.
 
-If you run into trouble while configuring Home Assistant, have a look at the [configuration troubleshooting page](/getting-started/troubleshooting-configuration/) and at the [configuration.yaml examples](/cookbook/#example-configurationyaml).
+### To set up access to the files and prepare an editor
 
-<div class='note tip'>
+Before you can edit a file, you need to know how to access files in Home Assistant and setup an editor.
+File access depends on your [installation type](/installation/#about-installation-types). If you use {% term "Home Assistant Operating System" %}, you can use editor add-ons, for example. If you use {% term "Home Assistant Container" %}, add-ons are not available.
 
-  Test any changes to your configuration files from the command line with `hass --script check_config`. This script allows you to test changes without the need to restart Home Assistant. Remember to run this as the user you run Home Assistant as.
+To set up file access on the Home Assistant Operating System, follow these steps:
 
-</div>
+- If you are unsure which option to choose, install the [file editor add-on](/common-tasks/os/#installing-and-using-the-file-editor-add-on).
+  - Alternatively, use the [Studio Code Server add-on](/common-tasks/os/#installing-and-using-the-visual-studio-code-vsc-add-on). This editor offers live syntax checking and auto-fill of various Home Assistant entities. But it looks more complex than the file editor.
+  - If you prefer to use a file editor on your computer, use the [Samba add-on](/common-tasks/os/#installing-and-using-the-samba-add-on).
 
-## Reloading changes
+### To find the configuration directory
 
-You will have to restart Home Assistant for most changes to `configuration.yaml` to take effect.
-You can load changes to [automations](/docs/automation/), [core (customize)](/docs/configuration/customizing-devices/), [groups](/components/group/), and [scripts](/components/script/) without restarting.
+1. To look up the path to your configuration directory, go to {% my system_health title="**Settings** > **System** > **Repairs**" %}.
+   - Select the three dots menu and select **System information**.
 
-<div class='note warning'>
+    ![Show system information option](/images/screenshots/System_information_menu.png)
 
-If you've made any changes, remember to [check your configuration](/docs/configuration/troubleshooting/#problems-with-the-configuration) before trying to reload or restart.
+2. Find out the location of the **Configuration directory**.
 
-</div>
+    ![Screenshot showing the top of the system information panel](/images/screenshots/system_information.png)
+   - Unless you changed the file structure, the default is as follows:     - 
+     - {% term "Home Assistant Operating System" %}: the `configuration.yaml` is in the `/config` folder of the installation.
+     - {% term "Home Assistant Container" %}: the `configuration.yaml` is in the config folder that you mounted in your container.
 
-## Migrating to a new system
+### To edit the configuration file
 
-If you want to migrate your configuration to a new system then you can copy the contents of your configuration folder from the current system to the new system. Be aware that some of the files you need start with `.`, which is hidden by default from both `ls` (in SSH), in Windows Explorer, and macOS Finder. You'll need to ensure that you're viewing all files before you copy them.
+Once you have located the config folder, you can edit your `configuration.yaml` file. How you edit the file depends on the editor you set up in step 1:
+
+- **If you are using the File editor add-on**: Open the add-on, navigate to the `/config` folder in the file browser on the left, and select the `configuration.yaml` file to open it in the editor.
+- **If you are using the Studio Code Server add-on**: Open the add-on, use the file explorer on the left to navigate to the `configuration.yaml` file, and select it to open in the editor.
+- **If you are using Samba to access files**: Navigate to the shared folder on your computer, locate the `configuration.yaml` file, and open it with your favorite text editor like [Notepad++](https://notepad-plus-plus.org/) or [Visual Studio Code](https://code.visualstudio.com/).
+
+{% note %}
+
+If you have watched any videos about setting up Home Assistant using `configuration.yaml` (particularly ones that are old), you might notice your default configuration file is much smaller than what the videos show. Don't be concerned, you haven't done anything wrong. Many items in the default configuration files shown in those old videos are now included in the `default_config:` line that you see in your configuration file. Refer to the [default config integration](/integrations/default_config/) for more information on what's included in that line.
+
+{% endnote %}
+
+## Validating the configuration
+
+After changing configuration or automation files, you can check if the configuration is valid. A configuration check is also applied automatically when you reload the configuration or when you restart Home Assistant.
+
+The method for running a configuration check depends on your [installation type](/installation/#about-installation-types). Check the common tasks for your installation type:
+
+- [Configuration check on Operating System](/common-tasks/os/#configuration-check)
+- [Configuration check on Container](/common-tasks/container/#configuration-check)
+
+## Reloading the configuration to apply changes
+
+For configuration changes to become effective, the configuration must be reloaded. Most integrations in Home Assistant (that do not interact with {% term devices %} or {% term services %}) can reload changes made to their configuration in `configuration.yaml` without needing to restart Home Assistant.
+
+1. Under **Settings**, select the three dots menu (top right) {% icon "mdi:dots-vertical" %}, select **Restart Home Assistant** > **Quick reload**.
+
+   ![Settings, three dot menu, restart Home Assistant](/images/docs/configuration/settings_restart_ha.png)
+
+2. If you find that your changes were not applied, you need to restart.
+   - Select **Restart Home Assistant**.
+   - Note: This interrupts automations and scripts.
+
+   ![Reload and restart buttons](/images/docs/configuration/reload_restart.png)
+
+## Troubleshooting the configuration
+
+If you run into trouble while configuring Home Assistant, refer to the [configuration troubleshooting page](/docs/configuration/troubleshooting/).

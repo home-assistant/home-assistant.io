@@ -5,13 +5,15 @@ date: 2017-02-25 08:04:05 +0000
 date_formatted: "February 25, 2017"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2017-02-0.39/social.png
 ---
 
 It's time for 0.39 and this release has some amazing new features!
 
-<a href='/components/#added_in_current_version'><img src='/images/blog/2017-02-0.39/social.png' style='border: 0;box-shadow: none;'></a>
+<a href='/integrations/#added_in_current_version'><img src='/images/blog/2017-02-0.39/social.png' style='border: 0;box-shadow: none;'></a>
 
 ## T-Shirts
 
@@ -59,13 +61,13 @@ Thanks to [Fabian][@fabaff] we have a great re-organized documentation. Is it pe
 
 Ever have some input components or integrations and get annoyed with the fact that their state is lost after a restart? Don't worry any longer. [Johann][@kellerza] has added the foundation for state restoration to Home Assistant. For the initial release support has been added to `input_select` and `input_boolean` components. We will be adding this to more integrations in the future.
 
-## Breaking changes to customize and Z-Wave "customize"
+## Backward-incompatible changes to customize and Z-Wave "customize"
 
 A couple of releases ago we introduced a new way of doing `customize`. It became a list that allowed different ways of matching the config to the entity.
 
 We realized that this was leading into a rabbit hole that we had to get out off. Besides making it unnecessarily complicated it also blocked the road to config panels. And who doesn't like config panels?
 
-So starting this release, we had to make some breaking changes to right the wrong. We will be releasing an online tool to help you convert your config to the new format later today.
+So starting this release, we had to make some backward-incompatible changes to right the wrong. We will be releasing an online tool to help you convert your config to the new format later today.
 
 [**Update: the online tool can be found here.**](https://jsfiddle.net/balloob/d2e56q6f/74/)
 
@@ -115,8 +117,8 @@ And a final shout out to [Pascal][@pvizeli]. He keeps improving the performance 
 
 - [Telegram] webhooks ([@scipioni])
 - Added [Openhome][openhome] support ([@bazwilliams])
-- [UPS][ups] sensor ([@happyleavesaoc])
-- [FEDex][fedex] sensor ([@happyleavesaoc])
+- UPS sensor ([@happyleavesaoc])
+- FEDex sensor ([@happyleavesaoc])
 - [Gstreamer][gstreamer] media player ([@happyleavesaoc])
 - [iTach Remote][itach] Platform ([@alanfischer])
 - [myq] cover component ([@arraylabs])
@@ -160,7 +162,7 @@ And a final shout out to [Pascal][@pvizeli]. He keeps improving the performance 
 - Lock - Nuki: Reduce battery drain on Nuki Lock ([@pschmitt])
 - Notify - Webostv: Only try to pair notify.webostv when not paired ([@andersonshatch])
 - KNX: Fix slow status updates from the knx bus ([@keerts])
-- HDMI CEC: HDMI_CEC customization [Breaking change] ([@balloob], [@andrey-git])
+- HDMI-CEC: HDMI_CEC customization [Breaking change] ([@balloob], [@andrey-git])
 - Sensor - Moon: Remove unit of measurement ([@fabaff])
 - Z-Wave: Add initial Z-Wave config panel ([@balloob])
 - History: Allow printing the number of states returned by history and time it took to extract and add day ([@andrey-git])
@@ -187,7 +189,7 @@ And a final shout out to [Pascal][@pvizeli]. He keeps improving the performance 
 - Sensor - Darksky: Add 'entity_picture' to Darksky component ([@aronsky])
 - Media Player - Samsungtv: Add support for waking up Samsung TVs over the network ([@justin8])
 - MQTT: Convert MQTT platforms to async ([@pvizeli])
-- tests/components/device_tracker/test_init.py: Restore for device_tracker ([@kellerza])
+- tests/integrations/device_tracker/test_init.py: Restore for device_tracker ([@kellerza])
 - Discovery: Make it possible to ignore platforms in discovery ([@postlund])
 - Image processing: Add `device_class` ([@pvizeli])
 
@@ -205,7 +207,7 @@ And a final shout out to [Pascal][@pvizeli]. He keeps improving the performance 
 
  - Prevent discovered services and devices to be handled twice (@colinodell)
 
-#### Breaking changes
+#### Backward-incompatible changes
 
  - VolvoOnCall has been extended with more features and had to be converted to a component
  - Limitlessled support for Bridge v6 and RGBWW bulbs require users to specify `version` and `port
@@ -283,31 +285,30 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@kitcorey]: https://github.com/kitcorey
 [@andersonshatch]: https://github.com/andersonshatch
 
-[telegram]: /components/webhooks/
-[pushsafer]: /components/notify.pushsafer/
-[openhome]: /components/media_player.openhome/
-[ups]: /components/sensor.ups/
-[fedex]: /components/sensor.fedex/
-[fido]: /components/sensor.fido/
-[gstreamer]: /components/media_player.gstreamer/
-[clementine]: /components/media_player.clementine/
-[ebox]: /components/sensor.ebox/
-[aurora]: /components/binary_sensor.aurora/
-[netmonitor]: /components/sensor.fritzbox_netmonitor/
-[itach]: /components/remote.itach/
-[sunflowers]: /components/light.yeelightsunflower/
-[kodi]: /components/media_player.kodi/
-[myq]: /components/cover.myq/
-[oemt]: /components/climate.oem/
-[volvo]: /components/volvooncall/
-[pocket]: /components/sensor.pocketcasts/
-[config]: /components/config/
-[history_stats]: /components/sensor.history_stats/
+[telegram]: /integrations/telegram_webhooks/
+[pushsafer]: /integrations/pushsafer
+[openhome]: /integrations/openhome
+[ups]: /integrations/ups
+[fido]: /integrations/fido
+[gstreamer]: /integrations/gstreamer
+[clementine]: /integrations/clementine
+[ebox]: /integrations/ebox
+[aurora]: /integrations/aurora
+[netmonitor]: /integrations/fritzbox#sensor_netmonitor/
+[itach]: /integrations/itach
+[sunflowers]: /integrations/yeelightsunflower/
+[kodi]: /integrations/kodi
+[myq]: /integrations/myq
+[oemt]: /integrations/oem
+[volvo]: /integrations/volvooncall/
+[pocket]: /integrations/pocketcasts
+[config]: /integrations/config/
+[history_stats]: /integrations/history_stats
 
 
 [docs]: /docs/
 [getting-started]: /getting-started/
-[docs-issue]: https://github.com/home-assistant/home-assistant.github.io/issues/1603
+[docs-issue]: https://github.com/home-assistant/home-assistant.io/issues/1603
 
 [forum]: https://community.home-assistant.io/
 [issue]: https://github.com/home-assistant/home-assistant/issues

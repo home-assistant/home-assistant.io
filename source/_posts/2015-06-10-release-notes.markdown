@@ -5,7 +5,9 @@ date: 2015-06-10 18:54 0000
 date_formatted: "June 10, 2015"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 ---
 
 Wow, almost a month has gone by since the last release and this release is *packed*. The biggest part of this release is probably one that you won't notice: the frontend has been upgraded from Polymer 0.5 to the brand new released Polymer 1.0. Polymer has been declared stable by the Google overlords which will allow us to expand functionality that was waiting for this moment to arrive.
@@ -18,25 +20,25 @@ A big improvement has been brought this release by wind-rider. He took the time 
   <img src='/images/screenshots/media_player-card.png' />   Example of the new media player cards
 </p>
 
-<div class='note'>
+{% note %}
 To update to the latest version, run <code>scripts/update</code>. Please report any issues on <a href='https://github.com/home-assistant/home-assistant/issues'>GitHub</a>.
-</div>
+{% endnote %}
 
 <!--more-->
 
 Before jumping into the newly supported platforms, here are the other improvements that are landing this release:
 
- * Fronted upgraded to Polymer 1.0 by @balloob
- * Include other YAML files using the `!include` keyword by @andythigpen
- * Switch support and bug fixes for Vera platform by @jamespcole
- * HTTP session support for the HTTP component by @jamespcole
- * Device tracker bugfixes by @Dutchy-
- * Bugfix for device tracker platform by @fbradyirl
- * Fixing Chromecast support by @wind-rider
- * Media player improvements by @balloob and @wind-rider
- * Nest thermostat bugfixes by @balloob
- * Fix the device tracker getting in a deadlock by @balloob
- * Update documentation by @fabaff
+- Fronted upgraded to Polymer 1.0 by @balloob
+- Include other YAML files using the `!include` keyword by @andythigpen
+- Switch support and bug fixes for Vera platform by @jamespcole
+- HTTP session support for the HTTP component by @jamespcole
+- Device tracker bugfixes by @Dutchy-
+- Bugfix for device tracker platform by @fbradyirl
+- Fixing Chromecast support by @wind-rider
+- Media player improvements by @balloob and @wind-rider
+- Nest thermostat bugfixes by @balloob
+- Fix the device tracker getting in a deadlock by @balloob
+- Update documentation by @fabaff
 
 __Music Player Daemon__
 <img src='/images/supported_brands/mpd.png' style='border:none; box-shadow: none; float: right;' height='50' /> Fabaff has contributed MusicPlayerDaemon support. The mpd platform allows you to control a [Music Player Daemon](http://www.musicpd.org/) from Home Assistant. Right now, only playback is supported and not playlist manipulation.
@@ -85,7 +87,7 @@ __Bitcoin sensor__
 # Example configuration.yaml entry
 sensor:
   platform: bitcoin
-  wallet: 'YOUR WALLET_ID'
+  wallet: "YOUR WALLET_ID"
   password: YOUR_ACCOUNT_PASSWORD
   currency: YOUR CURRENCY
   display_options:
@@ -141,7 +143,7 @@ notify:
 
 
 __Swiss Public transport sensor__
-The swiss public transport sensor will give you the next two departure times from a given location to another one in Switzerland. See the [component page](/components/sensor.swiss_public_transport/) for more information how to set it up.
+The swiss public transport sensor will give you the next two departure times from a given location to another one in Switzerland. See the [component page](/integrations/swiss_public_transport) for more information how to set it up.
 
 
 __Transmission turtle mode switch__

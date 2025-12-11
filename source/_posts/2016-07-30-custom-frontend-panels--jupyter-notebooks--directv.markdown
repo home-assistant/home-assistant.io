@@ -5,7 +5,9 @@ date: 2016-07-30 12:00:00 +0000
 date_formatted: "July 30, 2016"
 author: Fabian Affolter & Paulus Schoutsen
 author_twitter: fabaff
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 ---
 
 When Home Assistant started the focus has always been on making a great developer experience. Allowing anyone to add support for their favorite devices to Home Assistant easily. This focus has been a great success since we now have 339 components and platforms!
@@ -20,11 +22,11 @@ The brand-new [iFrame panel component][iframe_panel] allows you to add other web
 
 I would like to do a shoutout to [@fabianhjr]. He has started adding [typing] data ([PEP484]) to the Home Assistant core. This will help us identify issues before they are released.
 
-<img src='/images/supported_brands/russound.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/jupyter.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/directv.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' />
+<img src='/images/supported_brands/russound.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='/images/supported_brands/jupyter.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='https://brands.home-assistant.io/directv/icon.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' />
 
 - Frontend: Support for [iFrame panels][iframe_panel] to adding other sites to sidebar ([@balloob])
 - Allow components to register [custom frontend panels][custom-panels] ([@balloob])
-- Add example custom_component [react_panel][react-panel] showing custom panels ([@balloob])
+- Add example custom_component react_panel showing custom panels ([@balloob])
 - Light: [MagicLight/Flux WiFi Color LED Light][flux] support ([@Danielhiversen])
 - Script: Specify a delay [using templates][script] ([@Teagan42])
 - Media player: [Russound RNET][Russound] integration ([@laf]) 
@@ -66,7 +68,7 @@ I would like to do a shoutout to [@fabianhjr]. He has started adding [typing] da
 
 - Hotfix to make sure Z-Wave locks work again. Thanks to @tobiebooth for the quick fix.
 
-### Breaking changes
+### Backward-incompatible changes
 
 - Google Voice SMS notification support was removed.
 
@@ -101,27 +103,25 @@ I would like to do a shoutout to [@fabianhjr]. He has started adding [typing] da
 [@shoekstra]: https://github.com/shoekstra
 
 [custom-panels]: /developers/frontend_creating_custom_panels/
-[iframe_panel]: /components/panel_iframe/
-[custom]: /cookbook/custom_panel_using_react/
-[flux]: /components/light.flux_led/
+[iframe_panel]: /integrations/panel_iframe/
+[flux]: /integrations/flux_led
 [script]: /getting-started/scripts/#delay
-[Russound]: /components/media_player.russound_rnet/
-[tags]: /components/influxdb/
+[Russound]: /integrations/russound_rnet
+[tags]: /integrations/influxdb/
 [filter]: /topics/templating/
 [jupyter-notebooks]: /cookbook/#jupyter-notebooks
 [jupyter-repo]: https://github.com/home-assistant/home-assistant-notebooks
 [Jupyter]: http://jupyter.org/
 [blog]: /blog/2016/07/23/internet-of-things-data-exploration-with-jupyter-notebooks/
-[DirecTV]: /components/media_player.directv/
+[DirecTV]: /integrations/directv
 [Configuration]: /developers/python_api/#get-configuration
-[X10]: /components/light.x10/
-[IMAP]: /components/sensor.imap/
+[X10]: /integrations/x10
+[IMAP]: /integrations/imap
 [typing]: https://docs.python.org/3/library/typing.html
 [PEP484]: https://www.python.org/dev/peps/pep-0484/
-[MPC-HC]: /components/media_player.mpchc/
-[Telegram]: /components/notify.telegram/
-[react-panel]: /cookbook/custom_panel_using_react/
-[KNX]: /components/climate.knx/
-[Nest]: /components/nest/#climate
+[MPC-HC]: /integrations/mpchc
+[Telegram]: /integrations/telegram
+[KNX]: /integrations/climate.knx/
+[Nest]: /integrations/nest/#climate
 [filters]: /topics/templating/#home-assistant-template-extensions
-[Hyperion]: /components/light.hyperion/
+[Hyperion]: /integrations/hyperion

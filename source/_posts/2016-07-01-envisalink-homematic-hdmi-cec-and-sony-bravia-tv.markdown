@@ -5,7 +5,9 @@ date: 2016-07-01 00:31:00 +0000
 date_formatted: "July 1, 2016"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 ---
 
 It's time for Home Assistant 0.23 and it's full of goodies. It's also the release that bumps us over a 1000 tests and to 94% test coverage! Also our install issues on the Raspberry Pi and Synology have been resolved.
@@ -42,7 +44,7 @@ On the config side, you can now [store your passwords][secrets] in your OS keyri
 - Lock: [Vera] now supported ([@rhooper])
 - HTTP: Migrate to CherryPy WSGI server to fix install and runtime problems ([@balloob])
 
-### Breaking changes
+### Backward-incompatible changes
 
 - Homematic thermostat configuration has changed and now depends on the new [Homematic] component.
 
@@ -76,30 +78,30 @@ On the config side, you can now [store your passwords][secrets] in your OS keyri
 [@rhooper]: https://github.com/rhooper/
 [@turbokongen]: https://github.com/turbokongen/
 [@w1ll1am23]: https://github.com/w1ll1am23/
-[envi-alarm]: /components/alarm_control_panel.envisalink/
-[envi-binary-sensor]: /components/binary_sensor.envisalink/
-[envi-sensor]: /components/sensor.envisalink/
-[Envisalink]: /components/envisalink/
-[HDMI-CEC]: /components/hdmi_cec/
-[hm-binary-sensor]: /components/binary_sensor.homematic/
-[hm-light]: /components/light.homematic/
-[hm-rollershutter]: /components/homematic/
-[hm-sensor]: /components/sensor.homematic/
-[hm-switch]: /components/switch.homematic/
-[Homematic]: /components/homematic/
-[Netatmo]: /components/sensor.netatmo/
-[OneWire]: /components/sensor.onewire/
-[OpenExchangeRates]: /components/sensor.openexchangerates/
-[Pushover]: /components/notify.pushover/
+[envi-alarm]: /integrations/envisalink
+[envi-binary-sensor]: /integrations/envisalink
+[envi-sensor]: /integrations/envisalink
+[Envisalink]: /integrations/envisalink/
+[HDMI-CEC]: /integrations/hdmi_cec/
+[hm-binary-sensor]: /integrations/homematic
+[hm-light]: /integrations/homematic
+[hm-rollershutter]: /integrations/homematic/
+[hm-sensor]: /integrations/homematic
+[hm-switch]: /integrations/homematic
+[Homematic]: /integrations/homematic/
+[Netatmo]: /integrations/netatmo#sensor
+[OneWire]: /integrations/onewire
+[OpenExchangeRates]: /integrations/openexchangerates
+[Pushover]: /integrations/pushover
 [secrets]: /topics/secrets/
-[Vera]: /components/lock.vera/
-[Wink]: /components/wink/
-[zwave-garage-door]: /components/zwave/#cover
-[zwave-light]: /components/light.zwave/
-[zwave-rollershutter]: /components/zwave/#cover
-[Fixer.io]: /components/sensor.fixer/
-[persistent notifications]: /components/persistent_notification/
+[Vera]: /integrations/vera
+[Wink]: /integrations/wink/
+[zwave-garage-door]: /integrations/zwave/#cover
+[zwave-light]: /integrations/zwave
+[zwave-rollershutter]: /integrations/zwave/#cover
+[Fixer.io]: /integrations/fixer
+[persistent notifications]: /integrations/persistent_notification/
 [reload core config service]: /getting-started/customizing-devices/#reloading-customize
-[Sony Bravia TV]: /components/media_player.braviatv/
-[Raspberry Pi GPIO pins]: /components/rpi_gpio/#remote-raspberry-pi-cover
+[Sony Bravia TV]: /integrations/braviatv
+[Raspberry Pi GPIO pins]: /integrations/rpi_gpio/#remote-raspberry-pi-cover
 [elevation]: /getting-started/basic/

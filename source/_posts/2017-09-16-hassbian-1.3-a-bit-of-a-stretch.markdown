@@ -24,11 +24,10 @@ To allow you to customize your installation further, we have made a few addition
 
 To follow discussions about the development of the HASSbian image or to contribute join our [Discord chat server][discord-hassbian].
 
-To get started with the new image, check out the installation instructions on the [installing Hassbian page][install].
+To get started with the new image, check out the installation instructions on the installing Hassbian page.
 
 [landrash]: http://github.com/landrash
 [ludeeus]: http://github.com/ludeeus
 [hassbian-repo]: https://github.com/home-assistant/hassbian-scripts/
 [hassbian-config-release]: https://github.com/home-assistant/hassbian-scripts/releases/latest
-[install]: /docs/installation/hassbian/installation/
 [discord-hassbian]: https://discord.gg/RkajcgS

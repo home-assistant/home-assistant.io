@@ -9,7 +9,7 @@ categories: Video
 og_image: /images/blog/2016-05-video-all-in-one-installer/preview-video.jpg
 ---
 
-We are always hard at work at the virtual Home Assistant headquarters to make it easier for you to get started with Home Assistant. That's why [@patchedsoul] recently introduced the [all-in-one installer]. It allows you to get up and running with a complete Home Assistant setup by entering one line of code into your Raspberry Pi running Raspbian Jessie:
+We are always hard at work at the virtual Home Assistant headquarters to make it easier for you to get started with Home Assistant. That's why [@patchedsoul] recently introduced the all-in-one installer. It allows you to get up and running with a complete Home Assistant setup by entering one line of code into your Raspberry Pi running Raspbian Jessie:
 
 ```bash
 wget -Nnv https://raw.githubusercontent.com/home-assistant/fabric-home-assistant/master/hass_rpi_installer.sh && bash hass_rpi_installer.sh;
@@ -22,4 +22,3 @@ This feature wouldn't be complete if it wasn't accompanied by a new video by Ben
 </div>
 
 [@patchedsoul]: https://github.com/patchedsoul
-[all-in-one installer]: /getting-started/installation-raspberry-pi-all-in-one/

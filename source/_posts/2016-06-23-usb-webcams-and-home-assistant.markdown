@@ -10,7 +10,7 @@ og_image: /images/blog/2016-06-cranberry/social.png
 ---
 
 <img src='/images/blog/2016-06-cranberry/motion.png' style='clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;' width='200' />
-In the past month I was thinking about ways to integrate USB webcams into Home Assistant again. The main reason was that this would give those devices a second life and enable one to benefit from low-cost video surveillance. There are a couple of options available like [pygame](http://www.pygame.org/hifi.html) or [SimpleCV](http://www.simplecv.org/) but I never finished something. With the [Local File camera platform](/components/camera.local_file/) by [Landrash](https://github.com/Landrash) and [motion](http://lavrsen.dk/foswiki/bin/view/Motion/WebHome) you could integrate a local USB webcam with a few very easy steps.
+In the past month I was thinking about ways to integrate USB webcams into Home Assistant again. The main reason was that this would give those devices a second life and enable one to benefit from low-cost video surveillance. There are a couple of options available like [pygame](http://www.pygame.org/hifi.html) or [SimpleCV](http://www.simplecv.org/) but I never finished something. With the [Local File camera platform](/integrations/local_file) by [Landrash](https://github.com/Landrash) and [motion](http://lavrsen.dk/foswiki/bin/view/Motion/WebHome) you could integrate a local USB webcam with a few very easy steps.
 
 In this blog post I am using a Fedora 24 (will most likely work on other distributions too) installation with Home Assistant 0.22.1 on a Foxconn nT-330i with an old [Logitech QuickCam Orbit AF](http://support.logitech.com/en_us/product/quickcam-sphere-af) and a [Logitech HD Webcam C270](http://support.logitech.com/en_us/product/hd-webcam-c270). As a start only the Quickcam is used. No multi-camera setup for now.
 
@@ -36,7 +36,7 @@ crw-rw----+ 1 root video 81, 1 Jun 23 08:36 /dev/video1
 We need an additional software part to handle the cameras. [motion](http://lavrsen.dk/foswiki/bin/view/Motion/WebHome) is capable of monitoring the video signal from USB and network cameras, do motion detection, and other nifty stuff like saving images, add text, or basic image manipulations. Make sure that you have the [RPM Fusion repository](http://rpmfusion.org/) enabled.
 
 ```bash
-$ sudo dnf -y install motion
+sudo dnf -y install motion
 ```
 
 For our setup we need to modify the file `/etc/motion/motion.conf`. For now the most important parameters are `videodevice`, `snapshot_interval`, and `target_dir`. The other settings can be left to their defaults. We are going to use the device `/dev/video1`, use a 30 seconds interval, and set the path to `/tmp`.
@@ -91,7 +91,7 @@ $ sudo motion
 [0] [NTC] [ALL] motion_startup: Logging to file (/var/log/motion.log)
 ```
 
-Your `target_dir` will start filling up with images from your camera. `motion` will create a symlink called `lastsnap.jpg` which always point to the latest snapshot. We will setup the [Local File camera platform](/components/camera.local_file/) to use this file.
+Your `target_dir` will start filling up with images from your camera. `motion` will create a symlink called `lastsnap.jpg` which always point to the latest snapshot. We will setup the [Local File camera platform](/integrations/local_file) to use this file.
 
 ```yaml
 camera:
@@ -105,9 +105,9 @@ camera:
   The "Cranberry cam" in action
 </p>
 
-The machine with the attached USB camera will become a webcam server as well because `motion`'s built-in HTTP server is enabled by default. This means that you could connect your USB webcams to a different machine in your network, run `motion` there, adjust your firewall rules, and use Home Assistant to display the videos. Just check http://[IP of your webcam host]:8081/ to see the stream. This required more powerful hardware than using snapshots, of course.
+The machine with the attached USB camera will become a webcam server as well because `motion`'s built-in HTTP server is enabled by default. This means that you could connect your USB webcams to a different machine in your network, run `motion` there, adjust your firewall rules, and use Home Assistant to display the videos. Just check `http://[IP of your webcam host]:8081/` to see the stream. This required more powerful hardware than using snapshots, of course.
 
-In a scenario like this needs a [Generic MJPEG IP Camera ](/components/camera.mjpeg/) in your `configuration.yaml` file.
+In a scenario like this needs a [Generic MJPEG IP Camera](/integrations/mjpeg) in your `configuration.yaml` file.
 
 ```yaml
 camera:
@@ -117,4 +117,3 @@ camera:
 ```
 
 [motion](http://lavrsen.dk/foswiki/bin/view/Motion/WebHome) is a powerful tool and this blog post only showed two very simple use cases. Take a look at the [documentation](http://www.lavrsen.dk/foswiki/bin/view/Motion/MotionGuide) of `motion` to unleash its potential.
-

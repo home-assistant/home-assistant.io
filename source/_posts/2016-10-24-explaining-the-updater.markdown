@@ -26,11 +26,11 @@ Please note that this functionality is not done yet but will be available in a f
 
 As developers of Home Assistant, we will be able to see in what kind of environments Home Assistant is running. Here’s a few data points we didn’t have until now:
 
-* Total number of instances
-* Which operating systems versions and flavors are in use
-* Python version
-* What option is more popular: Docker, Virtualenv or bare metal installs?
-* How popular is our new [Raspberry Pi image][rpi-image]?
+- Total number of instances
+- Which operating systems versions and flavors are in use
+- Python version
+- What option is more popular: Docker, Virtualenv or bare metal installs?
+- How popular is our new [Raspberry Pi image][rpi-image]?
 
 
 ## Why we look up your IP address with GeoIP
@@ -45,12 +45,7 @@ We decided to have it enabled by default because we consider the information tha
 
 It is in our short-term planning to add an option to control this to our frontend.
 
-## Source Code
-The source code of our updater AWS Lambda function is now available [here][source].
-
-
 [0.31]: /blog/2016/10/22/flash-briefing-updater-hacktoberfest/#comment-2965607849
 [geolite]: https://dev.maxmind.com/geoip/geoip2/geolite2/
-[opt-out]: /components/updater/
+[opt-out]: /integrations/updater/
 [rpi-image]: /blog/2016/10/01/we-have-raspberry-image-now/
-[source]: https://github.com/home-assistant/Analytics-Receiver

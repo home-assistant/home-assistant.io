@@ -8,7 +8,10 @@ title: Home Assistant
 subtitle: Open source home automation that puts local control and privacy first.
 author: Home Assistant
 simple_search: https://www.google.com/search
-description: Open source home automation that puts local control and privacy first.
+description: >-
+  Open source home automation that puts local control and privacy first.
+  Powered by a worldwide community of tinkerers and DIY enthusiasts.
+  Perfect to run on a Raspberry Pi or a local server.
 
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
 # You can customize the format as defined in
@@ -39,12 +42,13 @@ liquid:
   error_mode: strict
 
 commonmark:
-  options: ["SMART", "FOOTNOTES"]
+  options: ["SMART", "FOOTNOTES", "UNSAFE"]
   extensions: ["strikethrough", "autolink", "table"]
 
+highlighter: none
+
 plugins:
-  - jekyll-redirect-from
-  - jekyll-time-to-read
+  - jekyll-toc
 
 paginate: 10 # Posts per page on the blog index
 paginate_path: "blog/posts/:num" # Directory base for pagination URLs eg. /posts/2/
@@ -61,9 +65,7 @@ titlecase: true # Converts page and post titles to titlecase
 # page_asides:
 
 collections:
-  components:
-    output: true
-  cookbook:
+  integrations:
     output: true
   docs:
     output: true
@@ -71,19 +73,23 @@ collections:
     output: true
   faq:
     output: true
-  lovelace:
+  dashboards:
     output: true
 
 # ----------------------- #
 #   3rd Party Settings    #
 # ----------------------- #
 
+#Search
+algolia:
+  api_key: "ba6f7e6d97b3d3d2f778978c742a47c6"
+
 # Twitter
 twitter_user: balloob
 twitter_tweet_button: true
 
 # Google Analytics
-google_analytics_tracking_id: UA-57927901-1
+# google_analytics_tracking_id: UA-57927901-1
 
 # Facebook Like
 facebook_like: true
@@ -96,11 +102,14 @@ social:
   twitter:
     account: home_assistant
 
+  mastodon:
+    account: "https://fosstodon.org/@homeassistant"
+
 # Home Assistant release details
-current_major_version: 0
-current_minor_version: 97
+current_major_version: 2025
+current_minor_version: 12
 current_patch_version: 0
-date_released: 2019-08-07
+date_released: 2025-12-03
 
 # Either # or the anchor link to latest release notes in the blog post.
 # Must be prefixed with a # and have double quotes around it.
@@ -122,6 +131,7 @@ defaults:
       featured: false
   # Defaults for blogs posts
   - scope:
+      path: ""
       type: posts
     values:
       layout: post
@@ -129,8 +139,119 @@ defaults:
       footer: true
       sharing: true
       sidebar: true
+      toc: true
+  # Enable table of contents for integrations and installations
+  #
+  # To set toc as a default value, we need to set the scope with an empty path
+  # and the collection as type
+  # https://github.com/toshimaru/jekyll-toc/issues/116#issuecomment-644205770
+  #
+  - scope:
+      path: ""
+      type: dashboards
+    values:
+      toc: true
+  - scope:
+      path: ""
+      type: integrations
+    values:
+      toc: true
+  - scope:
+      path: ""
+      type: docs
+    values:
+      toc: true
+  - scope:
+      path: "installation/*"
+    values:
+      toc: true
+  - scope:
+      path: "common-tasks/*"
+    values:
+      toc: true
+  - scope:
+      path: "getting-started/*"
+    values:
+      toc: true
+  - scope:
+      path: "more-info/*"
+    values:
+      toc: true
+  - scope:
+      path: "voice_control/*"
+    values:
+      toc: true
+  - scope:
+      path: "hassio/*"
+    values:
+      toc: true
+  # Remove some resources from sitemap
+  - scope:
+      path: "google*.html"
+    values:
+      sitemap: false
+  - scope:
+      path: "static/fonts/**/*.html"
+    values:
+      sitemap: false
+  - scope:
+      path: "static/mdi-demo.html"
+    values:
+      sitemap: false
+
+  - scope:
+      path: "blueprints/**/*.yaml"
+    values:
+      render_with_liquid: false
+      layout: none
 
 # Support for files Jekyll will normally exclude
 include:
-  - ".well-known"
+  - "_headers"
   - "_redirects"
+  - ".well-known"
+
+# Table of contents
+# https://github.com/toshimaru/jekyll-toc
+toc:
+  min_level: 2 # default: 1
+  max_level: 3 # default: 6
+
+# Configuration for installation pages
+installation:
+  container: "ghcr.io/home-assistant/home-assistant"
+  versions:
+    python: "3.13"
+  types:
+    odroid:
+      board: ODROID
+      installation_media: "eMMC module or SD card"
+      variants:
+        - name: "ODROID-N2"
+          key: "odroid-n2"
+        - name: "ODROID-N2+"
+          key: "odroid-n2"
+        - name: "ODROID-C2"
+          key: "odroid-c2"
+        - name: "ODROID-C4"
+          key: "odroid-c4"
+        - name: "ODROID-M1"
+          key: "odroid-m1"
+        - name: "ODROID-M1S"
+          key: "odroid-m1s"
+
+    raspberrypi:
+      board: Raspberry Pi
+      installation_media: "SD card"
+      variants:
+        - name: "Raspberry Pi 5"
+          key: "rpi5-64"
+        - name: "Raspberry Pi 4"
+          key: "rpi4-64"
+
+    generic-x86-64:
+      board: Generic x86-64
+      installation_media: "storage device"
+      variants:
+        - name: "Generic x86-64"
+          key: "generic-x86-64"

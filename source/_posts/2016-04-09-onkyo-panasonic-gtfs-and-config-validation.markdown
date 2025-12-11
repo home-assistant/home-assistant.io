@@ -5,7 +5,9 @@ date: 2016-04-09 23:10:00 UTC
 date_formatted: "April 9, 2016"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 ---
 
 Another awesome release ready to hit your homes. YAML can be hard for beginners and more experienced automators. So to help catch those pesky errors that sneak into your files we've been hard at work to introduce config validation! Especially huge thanks to [@jaharkes] for his hard work on this. Config validation is still in its early stages. More common platforms and components have been added but we didn't do everything yet.
@@ -41,14 +43,14 @@ Another big thing is the addition of GTFS support. You probably don't know it, b
 [@robbiet480]: https://github.com/robbiet480/
 [@srcLurker]: https://github.com/srcLurker/
 [@turbokongen]: https://github.com/turbokongen/
-[GTFS]: /components/sensor.gtfs/
-[Loop Energy]: /components/sensor.loop_energy/
-[NZBGet]: /components/sensor.nzbget/
-[Onkyo receiver]: /components/media_player.onkyo/
-[Panasonic Viera TV]: /components/media_player.panasonic_viera/
-[Raspberry PI]: /components/camera.rpi_camera/
-[Z-Wave]: /components/zwave/#climate
+[GTFS]: /integrations/gtfs
+[Loop Energy]: /integrations/loopenergy
+[NZBGet]: /integrations/nzbget
+[Onkyo receiver]: /integrations/onkyo
+[Panasonic Viera TV]: /integrations/panasonic_viera
+[Raspberry PI]: /integrations/rpi_camera
+[Z-Wave]: /integrations/zwave/#climate
 
-### Breaking changes
+### Backward-incompatible changes
 
-As of now we are not aware of any breaking changes. However, it might be that Home Assistant will not start for you because of an invalid configuration. A common mistake that people are making is that they are still referring to `execute_service` in their script configs. This should be `service`.
+As of now we are not aware of any backward-incompatible changes. However, it might be that Home Assistant will not start for you because of an invalid configuration. A common mistake that people are making is that they are still referring to `execute_service` in their script configs. This should be `service`.

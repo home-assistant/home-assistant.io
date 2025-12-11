@@ -40,7 +40,7 @@ Many things! However, here is a list of things that I am most enthusiastic about
  - Accessibility. We want to make Hass.io run on as many devices as possible, making it very easy for people to get started with a private home.
  - Integrate Mozilla's [Web Things API] to make it easier to interact with other home automation platforms. The introduced device management makes it perfectly aligned with the Web Things data model.
  - Cloud Transparency. We want to make it visible what data is being shared with Amazon Alexa and Google Home clouds.
- - Better Z-Wave. Our current integration has room for improvement. The owner of Z-Wave has announced a [public SDK](http://zwavepublic.com/), which we should explore to integrate with Home Assistant.
+ - Better Z-Wave. Our current integration has room for improvement. The owner of Z-Wave has announced a public SDK, which we should explore to integrate with Home Assistant.
 
 ## What we need to achieve this goal
 
@@ -78,7 +78,7 @@ Relying on donations makes budgeting for employees impossible without exposing t
 
 ### Is Home Assistant Cloud open source?
 
-The majority of Home Assistant Cloud is open source. The Alexa skill source code is [here](https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/components/alexa/smart_home.py) (with manual setup instructions [here](https://github.com/mike-grant/haaska/)) and the Google Assistant source code is [here](https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/components/google_assistant/smart_home.py) (with manual setup instructions [here](/components/google_assistant/)). Our account page and relayer are not open source.
+The majority of Home Assistant Cloud is open source. The Alexa skill source code is [here](https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/integrations/alexa/smart_home.py) (with manual setup instructions [here](https://github.com/mike-grant/haaska/)) and the Google Assistant source code is [here](https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/integrations/google_assistant/smart_home.py) (with manual setup instructions [here](/integrations/google_assistant/)). Our account page and relayer are not open source.
 
 ### Will you offer a lifetime plan for a one time fee?
 

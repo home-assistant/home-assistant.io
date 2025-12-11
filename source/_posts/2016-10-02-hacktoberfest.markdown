@@ -32,9 +32,9 @@ Are you not a programmer but still want to contribute to Home Assistant? Check o
 
 [logo]: /images/blog/2016-10-hacktoberfest/hacktoberfest.png
 [Hacktoberfest]: https://hacktoberfest.digitalocean.com/
-[Hacktoberfest-reg]: https://hacktoberfest.digitalocean.com/sign_up/register
+[Hacktoberfest-reg]: https://hacktoberfest.digitalocean.com/profile
 [issues]: https://github.com/home-assistant/home-assistant/labels/Hacktoberfest
-[issues-doc]: https://github.com/home-assistant/home-assistant.github.io/labels/Hacktoberfest
+[issues-doc]: https://github.com/home-assistant/home-assistant.io/labels/Hacktoberfest
 [dev-env]: /developers/development_environment/
 [dev-chat]: https://discord.gg/8X8DTH4
 [dev-forum]: https://community.home-assistant.io/c/development

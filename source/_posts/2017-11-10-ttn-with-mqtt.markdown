@@ -22,14 +22,14 @@ To check what your devices are sending, subscribe to the topic `+/devices/+/up` 
 ```bash
 $ mosquitto_sub -v -h <Region>.thethings.network -t '+/devices/+/up' -u '<AppID>' -P '<AppKey>'
 {
-	"app_id": "ha-demo",
-	"dev_id": "device01",
-	"hardware_serial": "AJDJENDNHRBFBBT",
-	"port": 1,
+    "app_id": "ha-demo",
+    "dev_id": "device01",
+    "hardware_serial": "AJDJENDNHRBFBBT",
+    "port": 1,
     [...]
 ```
 
-The payload contains details about the device itself and the sensor data. The sensor data is stored in `payload_fields`. Depending on the device configuration it may contain a single value or multiple values. 
+The payload contains details about the device itself and the sensor data. The sensor data is stored in `payload_fields`. Depending on the device configuration it may contain a single value or multiple values.
 
 ## The relay
 
@@ -77,12 +77,12 @@ client.loop_forever()
 Save it and run it. As soon as a MQTT message is received from your device you should see it on your local broker (here 192.168.0.2) if you subscribe to `#` or the topic given in the script above `home/ttn/garden_temp`.
 
 ```bash
-$ mosquitto_sub -h 192.168.0.2 -t "#" -d
+mosquitto_sub -h 192.168.0.2 -t "#" -d
 ```
 
 ## The sensor
 
-All we would need now, is a [`mqtt` sensor](/components/sensor.mqtt/) with a `value_template`. With a sophisticated custom sensor it would be possible to displaying a little more than just the state. The device is only sending the temperature `{"temperature": 7.5}` but there are other details available which the sensor should show.
+All we would need now, is a [`mqtt` sensor](/integrations/sensor.mqtt/) with a `value_template`. With a sophisticated custom sensor it would be possible to displaying a little more than just the state. The device is only sending the temperature `{"temperature": 7.5}` but there are other details available which the sensor should show.
 
 ```python
 """Support for The Things Network MQTT sensors."""
@@ -184,9 +184,9 @@ Store it in `<config_dir>/custom_components/sensor/mqtt_ttn.py` and it will hand
 
 ## The configuration
 
-Now create the [`mqtt_ttn` sensor](/components/sensor.mqtt/) entry for your device.
+Now create the [`mqtt_ttn` sensor](/integrations/sensor.mqtt/) entry for your device.
 
-```
+```yaml
 sensor:
   - platform: mqtt_ttn
     name: TTN Sensor

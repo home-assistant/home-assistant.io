@@ -1,0 +1,106 @@
+<section id="join">
+    <div class="container">
+        <h2>
+            <span class="h1">Join the</span>
+            <span class="big">Community</span>
+        </h2>
+        <p>
+            Our vibrant community is very active and super friendly.
+            We love to talk and share our passion for home
+            automation.
+        </p>
+        <div class="buttons">
+            <a href="https://creators.home-assistant.io/" class="button" target="_blank" rel="noreferrer">
+                <div class="icon">
+                    <svg>
+                        <use href="#creator" />
+                    </svg>
+                </div>
+                Creator Network
+            </a>
+            <a href="https://community.home-assistant.io/" class="button" target="_blank" rel="noreferrer">
+                <div class="icon">
+                    <svg>
+                        <use href="#forum" />
+                    </svg>
+                </div>
+                Forum
+            </a>
+            <a href="https://www.home-assistant.io/join-chat" class="button" target="_blank" rel="noreferrer">
+                <div class="icon">
+                    <svg>
+                        <use href="#discord" />
+                    </svg>
+                </div>
+                Discord
+            </a>
+            <a href="https://www.reddit.com/r/homeassistant/" class="button">
+                <div class="icon">
+                    <svg>
+                        <use href="#reddit" />
+                    </svg>
+                </div>
+                Reddit
+            </a>
+            <a href="https://www.facebook.com/homeassistantio" class="button">
+                <div class="icon">
+                    <svg>
+                        <use href="#facebook" />
+                    </svg>
+                </div>
+                Facebook
+            </a>
+        </div>
+        <div class="avatars" data-dsap data-dsap-scroll>
+            <div class="avatar"></div>
+            <div class="avatar"></div>
+            <div class="avatar"></div>
+            <div class="avatar"></div>
+            <div class="avatar"></div>
+            <div class="avatar"></div>
+            <div class="avatar"></div>
+            <div class="avatar"></div>
+            <div class="avatar"></div>
+            <div class="avatar"></div>
+            <div class="avatar"></div>
+            <div class="avatar"></div>
+        </div>
+    </div>
+</section>
+
+<script>
+    let owners = {{ site.data.codeowners | jsonify }};
+    owners = owners.sort(() => Math.random() - 0.5);
+    let lastIndex = -1;
+
+    let avatarDivs = document.querySelectorAll('#join .avatars .avatar');
+    avatarDivs.forEach((div, index) => {
+        let img = document.createElement('img');
+        div.appendChild(img);
+        if (index < owners.length) {
+            let owner = owners[index];
+            div.querySelector('img').src = `https://github.com/${owner}.png`;
+            div.title = owner;
+        }
+    });
+
+    setInterval(() => {
+        let index = Math.floor(Math.random() * avatarDivs.length);
+        if (index === lastIndex) {
+            index = (index + 1) % avatarDivs.length;
+        }
+        lastIndex = index;
+        let ownerIndex = Math.floor(Math.random() * owners.length);
+        let owner = owners[ownerIndex];
+        avatarDivs[index].classList.add('hide');
+
+        setTimeout(() => {
+            avatarDivs[index].querySelector('img').src = `https://github.com/${owner}.png`;
+            avatarDivs[index].title = owner;
+        }, 500);
+        
+        setTimeout(() => {
+            avatarDivs[index].classList.remove('hide');
+        }, 1000);
+    }, 2000);
+</script>

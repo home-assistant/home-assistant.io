@@ -13,7 +13,7 @@ Our community is amazingly helpful and creative. If you haven't been there yet, 
 
 ### SceneGen - cli for making scenes
 
-[SceneGen] is a new command line utility developed by [Andrew Cockburn] that helps with creating scene configurations for Home Assistant. To use it, you put your house in the preferred state, run SceneGen and it will print the scene configuration for your current states.
+SceneGen is a new command line utility developed by [Andrew Cockburn] that helps with creating scene configurations for Home Assistant. To use it, you put your house in the preferred state, run SceneGen and it will print the scene configuration for your current states.
 
 ### Videos
 
@@ -36,7 +36,6 @@ Muhammed Kilic has created a video how to make your Home Assistant instance acce
 </div>
 
 [chat room]: https://discord.gg/c5DvZ4e
-[SceneGen]: https://github.com/acockburn/scenegen
 [Andrew Cockburn]: https://github.com/acockburn
 [BRUH Automation]: http://www.bruhautomation.com/
 [Nick Touran]: https://partofthething.com

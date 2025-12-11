@@ -5,7 +5,9 @@ date: 2016-09-10 08:00:00 +0200
 date_formatted: "September 10, 2016"
 author: Fabian Affolter
 author_twitter: fabaff
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 ---
 
 It's already time for 0.28 thanks to our super short release cycles. Now, it' official...we hit 4000 stars on Github. That's amazing. Sorry, not as amazing as all the stuff that was going on for 0.27 but still pretty awesome.
@@ -15,7 +17,7 @@ It's already time for 0.28 thanks to our super short release cycles. Now, it' of
 This release brings you a huge improvement of the [automation] and [group] handling. Both can be reloaded without a Home Assistant restart by calling their new reload services. The automations can be controlled directly from the frontend.
 
 <p class='img'>
-  <img src='{{site_root}}/images/screenshots/automation-switches.png' />
+  <img src='/images/screenshots/automation-switches.png' />
 </p>
 
 ### Raspberry Pi installation guide
@@ -28,11 +30,11 @@ There are countless bugfixes included in this release which will make your exper
 The [Home Assistant API Documentation](https://dev-docs.home-assistant.io/en/dev/) is a great addition to the already existing user documentation. The focus is not end-users but developers who want to get details about the code without actually browsing the code on Github.
 
 ### Configuration validation
-The validation of the configuration is still on-going. Approximately 80 % is done. This means that we will propably talk about this topic in the next release notes again. To align the configuration of components and platforms we needed to break some. Please refer to the Breaking changes section to check if you need to update your configuration or simple check your log for configuration validation errors. Thanks to [@kellerza], [@fabaff], [@Teagan42], and [@pvizeli] for your effort!
+The validation of the configuration is still on-going. Approximately 80 % is done. This means that we will propably talk about this topic in the next release notes again. To align the configuration of components and platforms we needed to break some. Please refer to the Backward-incompatible changes section to check if you need to update your configuration or simple check your log for configuration validation errors. Thanks to [@kellerza], [@fabaff], [@Teagan42], and [@pvizeli] for your effort!
 
 ### All changes
 
-<img src='/images/supported_brands/xbox-live.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='/images/supported_brands/automatic.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='/images/supported_brands/pi_hole.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' />
+<img src='/images/supported_brands/xbox-live.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='https://brands.home-assistant.io/automatic/icon.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='/images/supported_brands/pi_hole.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' />
 
 - Light: Added bitfield to Flux LED since we are supporting effects ([@tchellomello])
 - Device tracker: [Owntracks] waypoint import ([@pavoni])
@@ -43,7 +45,7 @@ The validation of the configuration is still on-going. Approximately 80 % is don
 - Device tracker: Allow 'None' MAC addresses to be loaded from `known_devices` file ([@kellerza])
 - Cover: Bugfixes ([@turbokongen], [@danielperna84])
 - Sensor: Support for displaying details about [crypto currencies][Coinmarketcap] ([@fabaff])
-- Device tracker: Support for [automatic] to track your vehicles ([@Teagan42])
+- Device tracker: Support for automatic to track your vehicles ([@Teagan42])
 - Devie tracker: Add exclude option to [Nmap] device tracker ([@danieljkemp])
 - Device tracker: Improved login errors for Asus device tracker ([@kellerza])
 - Sensor: Support for displaying the status of [Xbox] Live accounts ([@mKerix])
@@ -85,7 +87,7 @@ The validation of the configuration is still on-going. Approximately 80 % is don
 - Allow changing covers using scenes ([@nvella])
 - Device tracker - Automatic: Fix polling ([@teagan42])
 
-### Breaking changes
+### Backward-incompatible changes
 
 - [OpenweatherMap] entity IDs are now like `sensor.owm_temperature`. Previously they were like `sensor.weather_temperature`. Apologies for this change, but we needed to make OpenWeatherMap more generic now that we have many weather platforms.
 - Updates of configuration variables due to configuration check or alignment with other platforms. Please update your configuration entries according to the documentation:
@@ -134,25 +136,24 @@ The validation of the configuration is still on-going. Approximately 80 % is don
 [@w1ll1am23]: https://github.com/w1ll1am23
 [@snikch]: https://github.com/snikch
 
-[modbus]: /components/modbus/
+[modbus]: /integrations/modbus/
 [rpi]: /getting-started/installation-raspberry-pi/
-[MPD]: /components/media_player.mpd/
-[Coinmarketcap]: /components/sensor.coinmarketcap
+[MPD]: /integrations/mpd
+[Coinmarketcap]: /integrations/coinmarketcap
 [template]: /topics/templating/
-[battery]: /components/sensor.linux_battery
-[group]: /components/group/
-[automation]: /components/automation/
-[Temper]: /components/sensor.temper/
-[mqtt-fan]: /components/fan.mqtt/
-[Xbox]: /components/sensor.xbox_live/
-[Nmap]: /components/device_tracker.nmap_tracker/
-[automatic]: /components/device_tracker.automatic/
-[Owntracks]: /components/device_tracker.owntracks/
-[OpenweatherMap]: /components/sensor.openweathermap/
-[OctoPrint]: /components/octoprint/
-[mfi-switch]: /components/switch.mfi/
-[mfi-sensor]: /components/sensor.mfi/
-[FireTV]: /components/media_player.firetv/
-[Kodi]: /components/media_player.kodi/
-[command-line-switch]: /components/switch.command_line/
-[command-line-cover]: /components/cover.command_line/
+[battery]: /integrations/linux_battery
+[group]: /integrations/group/
+[automation]: /integrations/automation/
+[Temper]: /integrations/temper
+[mqtt-fan]: /integrations/fan.mqtt/
+[Xbox]: /integrations/xbox_live
+[Nmap]: /integrations/nmap_tracker
+[Owntracks]: /integrations/owntracks
+[OpenweatherMap]: /integrations/openweathermap#sensor
+[OctoPrint]: /integrations/octoprint/
+[mfi-switch]: /integrations/mfi#switch
+[mfi-sensor]: /integrations/mfi#sensor
+[FireTV]: /integrations/androidtv
+[Kodi]: /integrations/kodi
+[command-line-switch]: /integrations/switch.command_line/
+[command-line-cover]: /integrations/cover.command_line/

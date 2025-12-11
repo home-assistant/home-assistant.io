@@ -5,7 +5,9 @@ date: 2016-12-03 08:04:05 +0000
 date_formatted: "December 3, 2016"
 author: Fabian Affolter et al.
 author_twitter: fabaff
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2016-12-0.34/social.png
 ---
 
@@ -13,7 +15,7 @@ Here we go... 0.34. Let's call it the "Santa Claus" release. Rudolph was faster 
 
 ### GPSLogger
 
-The work of [@dainok] let's you use your Android device, with the Geolocation feature enabled, to track itself using GPS or WiFi networks with the [GPSLogger](https://play.google.com/store/apps/details?id=com.mendhak.gpslogger) app. GPSLogger can use multiple sources: the passive one just get the latest Android known location, without activating GPS sensors or scanning for WiFi networks.
+The work of [@dainok] let's you use your Android device, with the Geolocation feature enabled, to track itself using GPS or WiFi networks with the [GPSLogger](https://github.com/mendhak/gpslogger/releases) app. GPSLogger can use multiple sources: the passive one just get the latest Android known location, without activating GPS sensors or scanning for WiFi networks.
 
 ###  Remote component
 
@@ -23,12 +25,12 @@ The brand new [`remote`][remote] component made by [@iandday] will simplify the 
 
 The [HomeMatic][homematic] component has received some updates worth mentioning:
 
-* Additional services
-  * `reconnect`: Reconnect to your CCU/Homegear without restarting Home Assistant.
-  * `set_dev_value`: Manually control a device, even if it's not supported by Home Assistant yet.
-* Support for multiple HomeMatic hosts
-* Support for HomeMatic Wired (most devices) and HomeMatic IP (a few devices)
-* Various improvements and fixes, especially for HM-Sec-Key (KeyMatic)
+- Additional services
+  - `reconnect`: Reconnect to your CCU/Homegear without restarting Home Assistant.
+  - `set_dev_value`: Manually control a device, even if it's not supported by Home Assistant yet.
+- Support for multiple HomeMatic hosts
+- Support for HomeMatic Wired (most devices) and HomeMatic IP (a few devices)
+- Various improvements and fixes, especially for HM-Sec-Key (KeyMatic)
 
 The support for multiple hosts is a result of allowing mixed configurations with wireless, wired, and IP devices. This has the drawback of making the update a breaking change (along with the renamed `set_value` service). However, the benefits and possibilities gained will be worth it.
 
@@ -36,14 +38,14 @@ The support for multiple hosts is a result of allowing mixed configurations with
 
 This release includes a new [websockets][websockets] based API by [@balloob] to power the next generation of Home Assistant frontends. The current frontend has been partly migrated to use it and will be further migrated in the future.
 
-## All changes 
+## All changes
 
 - New services and improved device support for [HomeMatic][homematic] ([@pvizeli], [@danielperna84])
 - Device tracker: New support for [GPSLogger][gpslogger] ([@dainok])
 - Sensor: Support for [Sonarr][sonarr] ([@hborawski])
 - Sensor: [World Air Quality Index][waqi] sensor ([@valentinalexeev], [@fabaff])
 - Sensor: Support for [Dutch Smart Meter Requirements][dsmr] ([@aequitas])
-- Switch: [Hook][hook] support by hooksmarthome.com ([@dasos])
+- Switch: Hook support by hooksmarthome.com ([@dasos])
 - Camera: Integration for [Nest cameras][nest-cam] ([@technicalpickles])
 - Light: Support for light effects ([@Diaoul])
 - Sensor: New [Threshold][threshold] sensor ([@fabaff])
@@ -125,7 +127,7 @@ We are working on a better solution for 0.35.
  - Fix Nest cameras without activity zones ([@technicalpickles])
  - Fix Plex doing I/O inside event loop ([@balloob])
 
-### Breaking changes
+### Backward-incompatible changes
 
 - The [HomeMatic][homematic] component now uses a different syntax for hosts and the `set_value` service has been renamed.
 - All [RFXtrx][rfxtrx] sensors will get a new entity ID.
@@ -203,27 +205,25 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@vemek]: https://github.com/vemek
 [@vkorn]: https://github.com/vkorn
 
-[amcrest]: /components/camera.amcrest/
-[boradlink]: /components/sensor.broadlink/
-[dsmr]: /components/sensor.dsmr/
-[dunehd]: /components/media_player.dunehd/
-[efergy]: /components/sensor.efergy/
-[filtering]: /components/http/
-[gpslogger]: /components/device_tracker.gpslogger/
-[harmony]: /components/remote.harmony/
-[homematic]: /components/homematic/
-[hook]: /components/switch.hook/
-[nest-cam]: /components/camera.nest/
-[nest]: /components/nest/
-[nginx]: /ecosystem/nginx/
-[nut]: /components/sensor.nut/
-[philips]: /components/media_player.philips_js/
-[remote]: /components/remote/
-[rfxtrx]: /components/rfxtrx/
-[sonarr]: /components/sensor.sonarr/
-[tellstick]: /components/tellstick/
-[temper]: /components/sensor.temper/
-[threshold]: /components/binary_sensor.threshold/
+[amcrest]: /integrations/amcrest
+[boradlink]: /integrations/broadlink#sensor
+[dsmr]: /integrations/dsmr
+[dunehd]: /integrations/dunehd
+[efergy]: /integrations/efergy
+[filtering]: /integrations/http/
+[gpslogger]: /integrations/gpslogger
+[harmony]: /integrations/harmony
+[homematic]: /integrations/homematic/
+[nest-cam]: /integrations/nest#camera
+[nest]: /integrations/nest/
+[nginx]: /docs/ecosystem/nginx
+[nut]: /integrations/nut
+[philips]: /integrations/philips_js
+[remote]: /integrations/remote/
+[rfxtrx]: /integrations/rfxtrx/
+[sonarr]: /integrations/sonarr
+[tellstick]: /integrations/tellstick/
+[temper]: /integrations/temper
+[threshold]: /integrations/threshold
 [websockets]: /developers/websocket_api/
-[waqi]: /components/sensor.waqi/
-
+[waqi]: /integrations/waqi

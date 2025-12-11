@@ -28,14 +28,14 @@ After taking some sample data from the accelerometers while each appliance was i
   Graph showing the accelerometer data
 </p>
 
-Next it was just a matter of integrating everything with Home Assistant.  I was able to use the [MQTT component](/components/mqtt/) to read the washer and dryer states from the Moteino and display it in Home Assistant.
+Next it was just a matter of integrating everything with Home Assistant.  I was able to use the [MQTT component](/integrations/mqtt/) to read the washer and dryer states from the Moteino and display it in Home Assistant.
 
 <p class='img'>
   <img src='/images/blog/2016-07-laundry-automation/screenshot-ha.png' />
   Status of the dryer and washer in Home Assistant
 </p>
 
-Next I wrote [scripts](/components/script/) that are run whenever the washer or dryer completes a load.  This is triggered by the [automation component](/getting-started/automation/).  When the laundry is complete I have the lights in the house turn red and [notify me via Join](/components/notify.joaoapps_join/).  Once the door is opened and laundry emptied another script runs that sets the lights back to normal.  So far it has been very helpful and very reliable.
+Next I wrote [scripts](/integrations/script/) that are run whenever the washer or dryer completes a load.  This is triggered by the [automation component](/getting-started/automation/).  When the laundry is complete I have the lights in the house turn red and [notify me via Join](/integrations/joaoapps_join).  Once the door is opened and laundry emptied another script runs that sets the lights back to normal.  So far it has been very helpful and very reliable.
 
 <p class='img'>
   <a href='/images/blog/2016-07-laundry-automation/protoboard.jpg'>
@@ -73,37 +73,39 @@ sensor:
     unit_of_measurement: ""
 
 automation:
-  - alias: Washer complete
+  - alias: "Washer complete"
     trigger:
       platform: state
       entity_id: sensor.washer_status
-      from: 'Running'
-      to: 'Complete'
+      from: "Running"
+      to: "Complete"
     action:
       service: script.turn_on
-      entity_id: script.washer_complete
+      target:
+        entity_id: script.washer_complete
 
-  - alias: Washer emptied
+  - alias: "Washer emptied"
     trigger:
       platform: state
       entity_id: sensor.washer_status
-      from: 'Complete'
-      to: 'Empty'
+      from: "Complete"
+      to: "Empty"
     action:
       service: scene.turn_on
-      entity_id: scene.normal
+      target:
+        entity_id: scene.normal
 
 script:
   washer_complete:
-    alias: Washer Complete
+    alias: "Washer Complete"
     sequence:
-      - alias: Join Notification
+      - alias: "Join Notification"
         service: notify.join
         data:
           message: "The washing machine has finished its cycle, please empty it!"
-      - alias: Living Room Lights Blue
+      - alias: "Living Room Lights Blue"
         service: scene.turn_on
-        data:
+        target:
           entity_id: scene.blue
 ```
 

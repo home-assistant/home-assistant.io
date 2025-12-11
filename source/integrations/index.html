@@ -1,0 +1,810 @@
+---
+title: "Integrations"
+description: "List of the built-in integrations of Home Assistant."
+sidebar: false
+is_homepage: true
+feedback: false
+body_id: components-page
+regenerate: false
+---
+
+{%- comment -%}Can't use where to count nil because of https://github.com/jekyll/jekyll/issues/6038{%- endcomment -%}
+{%- assign tot = 0 -%}
+{%- for comp in site.integrations -%}
+{%- if comp.ha_category -%}
+{%- if comp.ha_category.first -%}
+{%- assign tot = tot | plus: comp.ha_category.size -%}
+{%- else -%}
+{%- assign tot = tot | plus: 1 -%}
+{%- endif -%}
+{%- endif %}
+{%- endfor -%}
+
+{%- assign components = site.integrations | sort: 'title' -%}
+{%- assign components_by_version = site.integrations | group_components_by_release -%}
+{%- assign categories = components | map: 'ha_category' | join: ',' | downcase | split: ',' | uniq | sort -%}
+{%- assign iot_classes = "Local Push,Local Polling,Cloud Push,Cloud Polling,Assumed State,Calculated,Configurable" |
+join: ',' | split: ',' -%}
+{% assign quality_scales =
+"icon:🏆,name:platinum|icon:🥇,name:gold|icon:🥈,name:silver|icon:🥉,name:bronze|icon:🏠,name:internal|icon:💾,name:legacy"
+| split: "|"
+%}
+
+<div class="grid">
+
+  <div class="grid__item six-sixths lap-one-whole palm-one-whole">
+    <fieldset class="integration-filter integration-filter-radio">
+      <div class="filter-button">
+        <input type="radio" id="brandsAll" name="brands" value="all" data-id="brands" checked="checked" />
+        <label for="brandsAll">All</label>
+      </div>
+      <div class="filter-button">
+        <input type="radio" id="brandsFeatured" name="brands" value="featured" data-id="brands" />
+        <label for="brandsFeatured">Featured</label>
+      </div>
+      <div class="filter-button">
+        <input type="radio" id="brandsPartners" name="brands" value="partners" data-id="brands" />
+        <label for="brandsPartners">Partners</label>
+      </div>
+    </fieldset>
+  </div>
+
+  <div class="grid-filters">
+    <div class="grid__item one-quarter lap-one-whole palm-one-whole">
+      <div class="integration-filter integration-filter-select">
+        <h3 class="filter-title">Category</h3>
+        <select class="ha_category" name="category" data-id="cat">
+          <option value="#">All</option>
+          {%- for category in categories -%}
+            {%- assign category_name = "" -%}
+            {%- assign components_count = 0 -%}
+            {%- for comp in components -%}
+              {%- assign comp_categories = comp.ha_category | join: ',' | downcase -%}
+              {%- if comp_categories contains category -%}
+                {%- if category_name == "" -%}
+                  {%- for cat in comp.ha_category -%}
+                    {%- assign lower_cat = cat | downcase -%}
+                    {%- if lower_cat == category -%}
+                      {%- assign category_name = cat -%}
+                    {%- endif -%}
+                  {%- endfor -%}
+                {%- endif -%}
+                {%- assign components_count = components_count | plus: 1 -%}
+              {%- endif -%}
+            {%- endfor -%}
+            {%- if category != 'other' and components_count != 0 -%}
+              {%- if category_name == "" -%}
+                {%- assign category_name = category | capitalize -%}
+              {%- endif -%}
+              <option value='{{ category | slugify }}'>{{ category_name }}</option>
+            {%- endif -%}
+          {%- endfor -%}
+
+          <option value='other'>Other</option>
+
+        </select>
+      </div>
+    </div>
+
+    <div class="grid__item one-quarter lap-one-whole palm-one-whole">
+      <div class="integration-filter integration-filter-select">
+        <h3 class="filter-title">Version</h3>
+        <select class="ha_category" name="versions" data-id="version">
+          <option value="#">All</option>
+          {%- for group in components_by_version -%}
+          <optgroup label="{{ group.label }} ({{group.new_components_count}})">
+            {%- for version in group.versions -%}
+            <option value="{{ version.label }}">{{ version.label }}</option>
+            {%- endfor -%}
+          </optgroup>
+          {%- endfor -%}
+        </select>
+      </div>
+    </div>
+
+    <div class="grid__item one-quarter lap-one-whole palm-one-whole">
+      <div class="integration-filter integration-filter-select">
+        <h3 class="filter-title">IoT Class</h3>
+        <select class="ha_category" name="iot_classes" data-id="iot_class">
+          <option value="#">All</option>
+          {%- for iot_class in iot_classes -%}
+            {%- assign iot_class_count = components | where: 'ha_iot_class', iot_class | size -%}
+            {%- if iot_class_count != 0 -%}
+              <option value="{{ iot_class | slugify }}">{{ iot_class }}</option>
+            {%- endif -%}
+          {%- endfor -%}
+        </select>
+      </div>
+    </div>
+
+    <div class="grid__item one-quarter lap-one-whole palm-one-whole">
+      <div class="integration-filter integration-filter-select">
+        <h3 class="filter-title">Quality Scale</h3>
+        <select class="ha_category" name="quality_scales" data-id="quality_scale">
+          <option value="#">All</option>
+          {%- for quality_scale in quality_scales -%}
+            {% assign quality_scale_data = quality_scale | split: "," %}
+            {% assign quality_icon = quality_scale_data[0] | split: ":" | last %}
+            {% assign quality_name = quality_scale_data[1] | split: ":" | last %}
+            {%- assign quality_scale_count = components | where: 'ha_quality_scale', quality_name | size -%}
+            {%- if quality_scale_count != 0 -%}
+              <option value="{{ quality_name | slugify }}">{{quality_icon}} {{ quality_name | capitalize }}</option>
+            {%- endif -%}
+          {%- endfor -%}
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid__item six-sixths lap-one-whole palm-one-whole">
+    <div class="component-search">
+      <form onsubmit="event.preventDefault(); return false">
+        <input type="text" name="search" id="search" data-id="search" class="search text-input"
+          placeholder="Search integrations..." autofocus />
+      </form>
+    </div>
+  </div>
+
+
+  <div class="grid__item six-sixths lap-one-whole palm-one-whole">
+    <div class="hass-option-cards" id="componentContainer"> </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  // This object contains all components we have
+  const integrations = [
+    {%- for component in components -%}
+      {%- if component.ha_category -%}
+        {%- assign sliced_version = component.ha_release | split: '.' -%}
+        {%- assign minor_version = sliced_version[1] | plus: 0 -%}
+        {%- assign major_version = sliced_version[0] | plus: 0 -%}
+        {%- assign categories = "" | split: ',' -%}
+        {%- for ha_category in component.ha_category -%}
+          {% capture category %} "{{ ha_category | slugify | downcase }}"{% endcapture %}
+          {% assign categories = categories | push: category %}
+        {%- endfor -%}
+        {
+          url: "{{ component.url }}",
+          title: "{{component.title}}",
+          cat: [{{ categories| join: ","}}],
+          featured: {{ component.featured }},
+          version: "{{major_version}}.{{minor_version}}",
+          logo: "{{component.logo}}",
+          domain: "{{component.ha_domain}}",
+          ha_brand: "{{component.ha_brand}}",
+          wwha: {% if component.works_with %} true{% else %} false{% endif %},
+          iot_class: "{{component.ha_iot_class | slugify }}",
+          quality_scale: "{{component.ha_quality_scale}}"
+        },
+      {% endif -%}
+    {%- endfor -%}
+    false
+  ];
+  integrations.pop(); // remove placeholder element at the end
+</script>
+
+<script type="text/javascript">
+  (function () {
+    let filteredComponents = {};
+    const baseHashRegex = /(^.*)(?=\?)/;
+    const integrationSelectFilterElements = [...document.querySelectorAll('.integration-filter select')];
+    const integrationRadioFilterElements = [...document.querySelectorAll('.integration-filter input[name="brands"]')];
+    const searchInputEl = document.querySelector('.component-search input');
+    const componentContainerEl = document.querySelector('#componentContainer');
+    let searchInputDirty = false;
+
+    function init() {
+      let queryParams = new URLSearchParams(document.location.search);
+      // do the lowerCase transformation once
+      for (let i = 0; i < integrations.length; i++) {
+        const title = integrations[i].title.toLowerCase();
+        const domain = integrations[i].domain;
+        const iot_class = integrations[i].iot_class;
+        const quality_scale = integrations[i].quality_scale;
+        const title_normalized = title.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+        const title_dedashed = title.replace(/[-_]/g, " ");
+        const title_normalized_dedashed = title_normalized.replace(/[-_]/g, " ");
+
+        integrations[i].titleLC = title;
+        integrations[i].search = `${title} ${title_normalized} ${title_dedashed} ${title_normalized_dedashed} ${domain} ${iot_class} ${quality_scale}`;
+      }
+
+      // sort the components alphabetically
+      integrations.sort(function (a, b) {
+        return a.titleLC.localeCompare(b.titleLC);
+      });
+
+      //add these to the window for dynamic grabbing in matchFilterElementToQuery()
+      window.$catFilter = document.querySelector('.integration-filter select[data-id="cat"]');
+      window.$versionFilter = document.querySelector('.integration-filter select[data-id="version"]');
+      window.$iot_classFilter = document.querySelector('.integration-filter select[data-id="iot_class"]');
+      window.$quality_scaleFilter = document.querySelector('.integration-filter select[data-id="quality_scale"]');
+      window.$searchFilter = document.querySelector('.component-search input');
+      window.$brandsFilter = [...document.querySelectorAll('.integration-filter input[name="brands"]')]
+
+      //listen for changes in the hash / user clicking back or forward button in browser
+      window.addEventListener('hashchange', applyFilter);
+      window.addEventListener('popstate', applyFilter);
+
+      //on initial page load, if there's no active filters set the default to featured
+      let query = buildQueryFromURL();
+
+      if (query !== null) {
+        if (Object.keys(query).length === 0) {
+          setQueryURL('brands', 'featured');
+        } else {
+          if (query['brands'] !== 'featured') {
+            searchInputDirty = true;
+          }
+        }
+      }
+      applyFilter();
+
+      // add focus to the search field
+      setTimeout(() => searchInputEl.focus(), 1);
+    }
+    init();
+
+    // get query value pair that matches provided id from url. // for buildQueryFromURL()
+    function getQueryValue(id) {
+      let index = id.length + 2; // id + '#' and '/' => '#search/'
+      if (id === 'cat' || id === 'brands') {
+        index = 1;
+      }
+
+      // get value from #hash url
+      let query = decodeURIComponent(location.hash).substring(index).toLowerCase();
+
+      // get value from ?query url if it's present
+      let queryParams = new URLSearchParams(location.search);
+      if (queryParams.has(id)) {
+        query = queryParams.get(id);
+      }
+
+      // adjust query for wwha # url
+      if (query === 'works-with-home-assistant') {
+        query = 'partners';
+      }
+
+      return query;
+    }
+
+    // build out query object of active filters for applyFilter()
+    function buildQueryFromURL() {
+      let queryFilter = {};
+      let hash = location.hash || '';
+      let queryParams = new URLSearchParams(location.search);
+
+      if (hash.startsWith('#featured') || queryParams.get('brands') === 'featured') {
+        // only show those with featured = true
+        let query = getQueryValue('brands');
+        queryFilter.brands = query;
+      }
+
+      if (hash.startsWith('#works-with-home-assistant') || queryParams.get('brands') === 'partners') {
+        // only show those with partners = true
+        let query = getQueryValue('brands');
+        queryFilter.brands = query;
+      }
+
+      if (hash.startsWith('#search/') || queryParams.has('search')) {
+        let query = getQueryValue('search');
+        queryFilter.search = query;
+      } else {
+        // reset search box when not searching
+        $searchFilter.value = '';
+      }
+
+      if (hash.startsWith('#version/') || queryParams.has('version')) {
+        // filter by a version
+        let query = getQueryValue('version');
+        queryFilter.version = query;
+      }
+
+      if (
+        // check for old # categories urls
+        (hash.startsWith('#') || queryParams.has("cat"))
+        && !(hash.startsWith('#all'))
+        && !(hash.startsWith('#featured'))
+        && !(hash.startsWith('#works-with-home-assistant'))
+        && !(hash.startsWith('#search'))
+        && !(hash.startsWith('#version'))
+        && !(hash.startsWith('#iot_class'))
+        && !(hash.startsWith('#quality_scale'))
+      ) {
+        // regular filter categories
+        let query = getQueryValue('cat');
+        queryFilter.cat = query;
+      }
+
+      if (hash.startsWith('#iot_class/') || queryParams.has('iot_class')) {
+        let query = getQueryValue('iot_class');
+        queryFilter.iot_class = query;
+      }
+
+      if (hash.startsWith('#quality_scale/') || queryParams.has('quality_scale')) {
+        let query = getQueryValue('quality_scale');
+        queryFilter.quality_scale = query;
+      }
+
+      if (hash.startsWith('#all')) {
+        queryFilter = null;
+      }
+
+      // filter all components by comparing against query object
+      return queryFilter;
+    }
+
+    // filter all components, based on the url hash/search query string and render them into the component box
+    // if a custom query is provided, this will override all current filters, and update the url / elements accordingly
+    function applyFilter(query = false) {
+      var data = {
+        components: []
+      };
+
+      // fade-out css effect on the old elements. This is actually not visible on fast browsers
+      componentContainerEl.classList.add('remove-items');
+
+      // make sure no query exists and its not an event object being passed in
+      if (!query || query.target) {
+        query = buildQueryFromURL();
+      } else {
+        //set url to custom query filter
+        overrideQueryURL(query)
+      }
+
+      // update dom elements to match new filters
+      updateFilterButtons(query);
+      updateFilterElements(query);
+
+      data.components = integrations.filter(integration => {
+        for (let key in query) {
+          // compare against search string and categories in integration
+          if (key === 'search') {
+            if (
+              integration[key].indexOf(query[key]) === -1
+              && integration.cat.find((c) => c.includes(query[key])) == undefined
+            ) {
+              return false;
+            }
+          }
+
+          // check for matching categories in integration's category array
+          if (key === 'cat') {
+            if (!integration[key].includes(query[key])) return false;
+          }
+
+          // check for matching featured brands in integration
+          if (key === 'brands' && query[key] === 'featured') {
+            if (!(integration['featured'])) return false;
+          }
+
+          // check for matching partner brands in integration
+          if (key === 'brands' && query[key] === 'partners') {
+            if (!integration['wwha']) return false;
+          }
+
+          // check for version / iot / quality matches
+          if (!(key === 'cat' || key === 'search' || key === 'brands')) {
+            if (
+              integration[key] == undefined // match doesn't exist
+              || integration[key] != query[key] // strings dont match
+            ) {
+              return false;
+            }
+          }
+        }
+
+        return true;
+      });
+
+      // let rendered = Mustache.render(template, data);
+      let rendered;
+      if (data.components.length > 0) {
+        // Note: Assumes all data has already been sanitized
+        rendered = data.components.map(component => `
+          <a href="${component.url}" class="option-card">
+            <div class="img-container">${buildImageEl(component)}</div>
+            <div class='title'>${component.title}</div>
+          </a>
+          `).join('\n');
+      } else {
+        rendered = '<div class="alert alert-note"><p class="alert-content">No results matching this filter</p></div>';
+      }
+
+      // remove previous elements and css classes, add the new stuff and then trigger the fade-in css animation
+      componentContainerEl.innerHTML = '';
+      componentContainerEl.classList.remove('show-items');
+      componentContainerEl.classList.remove('remove-items');
+      componentContainerEl.innerHTML = rendered;
+      componentContainerEl.classList.add('show-items');
+    }
+
+    // add / update a filter in the url, upated # urls to query string urls
+    function setQueryURL(id, value) {
+      const hashExists = location.hash !== '';
+      let queryParams = new URLSearchParams(location.search);
+      let query = buildQueryFromURL();
+
+      // append new query string
+      if (hashExists) {
+        location.hash = '';
+
+        if (query !== null) {
+          let currentId = Object.keys(query)[0];
+          let currentVal = Object.values(query)[0];
+          queryParams.set(currentId, currentVal);
+        }
+      }
+
+      queryParams.set(id, value);
+      newURL = `?${queryParams.toString()}`;
+
+      if ('pushState' in history) {
+        history.pushState('', '', newURL);
+      } else {
+        location.search = newURL;
+      }
+
+      //make sure search input keeps text after url is adjusted
+      if (queryParams.has('search')) {
+        let searchText = queryParams.get('search');
+        $searchFilter.value = searchText;
+      }
+    }
+
+    //remove a filter in the url
+    function removeQueryFromURL(queryId) {
+      const hashExists = location.hash !== '';
+      let newURL;
+      const queryParams = new URLSearchParams(location.search);
+
+      if (hashExists) {
+        location.hash = '';
+      } else {
+        queryParams.delete(queryId);
+        if (queryParams.toString() !== '') {
+          let baseURL = getCleanURL();
+          newURL = `${baseURL}?${queryParams.toString()}`
+        } else {
+          newURL = getCleanURL();
+        }
+      }
+
+      if ('pushState' in history) {
+        history.pushState('', '', newURL);
+      } else {
+        location.href = newURL;
+      }
+    }
+
+    //override current url filters with a new custom filter
+    function overrideQueryURL(query) {
+      const hashExists = location.hash !== '';
+      let newURL;
+      const newSearchParams = new URLSearchParams();
+
+      if (hashExists) {
+        location.hash = '';
+      }
+
+      Object.keys(query).forEach(key => {
+        newSearchParams.set(key, query[key])
+      })
+
+      if (newSearchParams.toString() !== '') {
+        let baseURL = getCleanURL();
+        newURL = `${baseURL}?${newSearchParams.toString()}`
+      } else {
+        newURL = getCleanURL();
+      }
+
+      if ('pushState' in history) {
+        history.pushState('', '', newURL);
+      } else {
+        location.href = newURL;
+      }
+    }
+
+    function getCleanURL() {
+      const baseUrlRegex = /(^.*)(?=[\?#])/;
+      let url = '';
+      let urlMatch = location.href.match(baseUrlRegex);
+
+      if (urlMatch !== null) {
+        url = urlMatch[0];
+      }
+
+      return url;
+    }
+
+    function clearURL() {
+      history.pushState({}, '', window.location.pathname);
+    }
+
+    //update a specific filter radio / dropdown / search. used in updateFilterElements()
+    function matchFilterElementToQuery(id, query) {
+      //dynamically grab select variables
+      let $filterElement = window[`$${id}Filter`];
+      if (id === 'search') {
+        if ($filterElement.value !== query) {
+          // set value of search input
+          $filterElement.value = query;
+        }
+      } else if (id === 'brands') {
+        $filterElement.forEach(option => {
+          if (option.value.trim() === query.trim() && !option.checked) {
+            option.checked = true;
+          }
+        });
+      } else {
+        let options = [...$filterElement.querySelectorAll('option')];
+        //set the value of select dropdown if it doesn't currently match the query in the url
+        if ($filterElement.value !== query) {
+
+          // only change the select dropdown if it matches an available dropdown value
+          options.forEach(option => {
+            if (option.value === query) {
+              $filterElement.value = query;
+            }
+          })
+        }
+      }
+    }
+
+    // update all filter elements to match current filter obj
+    function updateFilterElements(queryFilter) {
+
+      let filterElements = [...document.querySelectorAll('.integration-filter select, input.search, .integration-filter input')];
+      let activeFilterElements = filterElements.filter(el => !(el.value === '#' || el.value === '' || (el.id !== 'search' && el.checked === false)));
+
+      if (queryFilter === null) {
+        // resetFilterElements will match elements to query string filter in url
+        resetFilterElements(activeFilterElements);
+        return;
+      }
+
+      // clear filters if there's more than the current queryFilter
+      if (activeFilterElements.length > Object.keys(queryFilter).length) {
+        // filter out filter elements that don't match query object
+        let filtersToReset = activeFilterElements.filter(el => {
+          for (key in queryFilter) {
+            if (el.getAttribute('data-id') === key) return false;
+          }
+          return true;
+        });
+
+        // set filter elements to default 'All' value
+        resetFilterElements(filtersToReset);
+      } else {
+        // update new filters
+        if (Object.keys(queryFilter).length) {
+          for (key in queryFilter) {
+            matchFilterElementToQuery(key, queryFilter[key]);
+          }
+        }
+      }
+    }
+
+    function resetFilterElements(elementArray) {
+      elementArray.forEach(element => {
+        let queryId = element.getAttribute('data-id');
+        if (queryId === 'search') {
+          matchFilterElementToQuery(queryId, '');
+        } else if (queryId === 'brands') {
+          matchFilterElementToQuery(queryId, 'all');
+        } else {
+          matchFilterElementToQuery(queryId, '#');
+        }
+      });
+    }
+
+    function resetAllFilters() {
+      clearURL();
+      applyFilter()
+    }
+
+    // filter button name cleanup. used in updateFilterButtons()
+    function getButtonText(id, key) {
+      let category;
+      switch (id) {
+        case 'cat':
+          category = 'Category';
+          break;
+        case 'iot_class':
+          category = 'IoT class';
+          break;
+        case 'quality_scale':
+          category = 'Quality scale';
+          break;
+        default:
+          category = id;
+      }
+
+      if (id !== 'search' && id !== 'brands') {
+        let $filterElement = window[`$${id}Filter`];
+        let options = [...$filterElement.querySelectorAll('option')]
+        let filteredOption = options.filter(option => option.value === key)[0];
+
+        if (filteredOption) {
+          return `${category}: ${filteredOption.innerText}`;
+        } else {
+          return `${category}: Not Found`;
+        }
+
+      } else {
+        return `${category}: ${key}`;
+      }
+    }
+
+    // update all filter buttons to match current obj filter
+    function updateFilterButtons(queryFilter) {
+      let filterButtonParent = document.querySelector('.component-search');
+      let currentFilterButtons = [...document.querySelectorAll('.component-search .active-filter')];
+
+      if (queryFilter === null) {
+        currentFilterButtons.forEach(button => button.remove());
+        return;
+      }
+
+      // update text of buttons if filter value has changed
+      updateFilterButtonsText(currentFilterButtons, queryFilter);
+
+      // create a filter button if missing for current filter
+      createFilterButtons(filterButtonParent, queryFilter)
+
+      // remove buttons that don't match current filter
+      if (currentFilterButtons.length >= Object.keys(queryFilter).length) {
+        // filter out buttons that don't match query obj
+        removeFilterButtons(currentFilterButtons, queryFilter)
+      }
+    }
+
+    // update text of buttons if filter value has changed // used in updateFilterButtons
+    function updateFilterButtonsText(buttons, query) {
+      buttons.forEach(button => {
+        for (key in query) {
+          if (button.dataset.id === key) {
+            // check for mismatched filter value
+            if (button.dataset.filter !== query[key]) {
+              button.dataset.filter = query[key];
+              button.innerHTML = `<span>${getButtonText(key, query[key])} <iconify-icon icon="mdi:close-circle"></iconify-icon></span>`;
+            }
+          }
+        }
+      });
+    }
+
+    // create a filter button if it's missing from current applied filter // used in updateFilterButtons
+    function createFilterButtons(buttonParent, query) {
+      for (key in query) {
+        if (document.querySelector(`.component-search .active-filter[data-id="${key}"]`) === null) {
+          let button = document.createElement('button');
+          button.innerHTML = `<span>${getButtonText(key, query[key])} <iconify-icon icon="mdi:close-circle"></iconify-icon></span>`;
+          button.classList.add('active-filter');
+          button.dataset.id = key;
+          button.dataset.filter = query[key]
+          // add click listener to button to remove filter
+          button.addEventListener('click', function () {
+            removeQueryFromURL(this.dataset.id);
+            applyFilter();
+            // remove event listener after click
+          }, { once: true });
+
+          //add button to the dom
+          buttonParent.appendChild(button);
+        }
+      }
+    }
+
+    // remove buttons that don't match current filter // used in updateFilterButtons
+    function removeFilterButtons(buttons, query) {
+      let buttonsToRemove = buttons.filter(button => {
+        for (key in query) {
+          if (button.dataset.id === key) {
+            return false;
+          }
+        }
+        return true;
+      });
+      buttonsToRemove.forEach(button => button.remove());
+    }
+
+    function buildImageEl(component) {
+      const urlBase = [
+        'https://brands.home-assistant.io',
+        component.ha_brand ? 'brands' : '_',
+        component.domain,
+        'icon'
+      ].join('/');
+
+      return `<img src="${urlBase}.png" srcset="${urlBase}@2x.png 2x" loading="lazy">`;
+    }
+
+    // update view on select change
+    integrationSelectFilterElements.forEach(select => select.addEventListener("change", () => {
+      let id = select.dataset.id;
+      let value = select.value;
+
+      if (value !== '#') {
+        // Clear any existing brand filter when selecting a category
+        if (id === 'cat') {
+          removeQueryFromURL('brands');
+        }
+        setQueryURL(id, value);
+      } else {
+        // clear current filter
+        removeQueryFromURL(id);
+      }
+
+      applyFilter();
+
+      return false;
+    }));
+
+    // update view on radio change
+    integrationRadioFilterElements.forEach(radioInput => radioInput.addEventListener("click", () => {
+      let id = radioInput.name;
+      let value = radioInput.value;
+
+      if (radioInput.checked && value !== 'all') {
+        //clear all current filters, append new brand filter selection
+        applyFilter({ 'brands': value });
+      } else if (radioInput.checked && value === 'all') {
+        // clear current filter
+        removeQueryFromURL(id);
+        applyFilter();
+      }
+
+      return false;
+    }))
+    /**
+     * Simple debounce implementation
+     */
+    function debounce(func, wait) {
+      let timeout;
+      return () => {
+        clearTimeout(timeout);
+        timeout = setTimeout(func, wait);
+      };
+    };
+
+    // update view by search text
+    let lastSearchText = '';
+    searchInputEl.addEventListener('input', debounce(() => {
+      let value = searchInputEl.value
+        .toLowerCase()
+        // sanitize input
+        .replace(/[(\?|\&\{\}\(\))]/gi, '')
+        .trim();
+      if (typeof value === "string" && value.length >= 1) {
+        if (!searchInputDirty) {
+          resetAllFilters();
+          searchInputDirty = true;
+        }
+
+        if (value !== lastSearchText) {
+          lastSearchText = value;
+
+          setQueryURL('search', value);
+          applyFilter();
+        }
+      }
+      else {
+        removeQueryFromURL('search');
+        applyFilter();
+      }
+    }, 500));
+  })();
+</script>
+
+<noscript>
+  <ul>
+    {%- for component in components -%}
+    {%- if component.ha_category -%}
+    <li><a href='{{ component.url }}'>{{ component.title }}</a></li>
+    {%- endif -%}
+    {%- endfor -%}
+  </ul>
+</noscript>

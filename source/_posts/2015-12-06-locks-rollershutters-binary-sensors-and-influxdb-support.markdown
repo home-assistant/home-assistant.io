@@ -5,7 +5,9 @@ date: 2015-12-06 12:29:00 -0700
 date_formatted: "December 6, 2015"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2015-12-release-09/facebook-09.png
 ---
 
@@ -24,15 +26,15 @@ It's been a few weeks but we managed to polish a nice new release of Home Assist
 
 To update, run `pip3 install --upgrade homeassistant`.
 
-[lock component]: /components/lock/
-[lock.wink]: /components/lock.wink/
-[binary sensor component]: /components/binary_sensor/
-[binary_sensor.arest]: /components/binary_sensor.arest/
-[binary_sensor.mqtt]: /components/binary_sensor.mqtt/
-[InfluxDB component]: /components/influxdb/
-[Ecobee]: /components/ecobee/#thermostat
-[Homematic]: /components/homematic/
-[parsing JSON values]: /components/mqtt/#processing-json
+[lock component]: /integrations/lock/
+[lock.wink]: /integrations/wink#lock
+[binary sensor component]: /integrations/binary_sensor/
+[binary_sensor.arest]: /integrations/arest#binary-sensor
+[binary_sensor.mqtt]: /integrations/binary_sensor.mqtt/
+[InfluxDB component]: /integrations/influxdb/
+[Ecobee]: /integrations/ecobee/#thermostat
+[Homematic]: /integrations/homematic/
+[parsing JSON values]: /integrations/mqtt/#processing-json
 
 [@miniconfig]: https://github.com/miniconfig
 [@fabaff]: https://github.com/fabaff

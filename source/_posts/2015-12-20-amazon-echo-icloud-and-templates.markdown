@@ -5,7 +5,9 @@ date: 2015-12-22 01:30:00 -0800
 date_formatted: "December 22, 2015"
 author: Paulus Schoutsen
 author_twitter: balloob
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2015-12-release-10/alexa-fb.png
 ---
 
@@ -30,17 +32,17 @@ Alrighty, it's time for Home Assistant 0.10. A lot amazing things have changed a
  - Binary sensor: [REST] platform added ([@fabaff])
  - Sensor: [Torque (OBD2)] platform added ([@happyleavesaoc])
 
-[iCloud]: /components/device_tracker.icloud/
-[Twitch]: /components/sensor.twitch/
+[iCloud]: /integrations/icloud
+[Twitch]: /integrations/twitch
 [Template]: /topics/templating/
-[Heatmiser]: /components/heatmiser/
-[Dweet.io]: /components/sensor.dweet/
-[Alexa/Amazon echo]: /components/alexa/
-[FritzBox]: /components/device_tracker.fritz/
-[Wink]: /components/sensor.wink/
-[ELIQ Online]: /components/sensor.eliqonline/
-[REST]: /components/binary_sensor.rest/
-[Torque (OBD2)]: /components/sensor.torque/
+[Heatmiser]: /integrations/heatmiser/
+[Dweet.io]: /integrations/dweet#sensor
+[Alexa/Amazon echo]: /integrations/alexa/
+[FritzBox]: /integrations/fritz
+[Wink]: /integrations/wink#sensor
+[ELIQ Online]: /integrations/eliqonline
+[REST]: /integrations/binary_sensor.rest/
+[Torque (OBD2)]: /integrations/torque
 [@andylockran]: https://github.com/andylockran
 [@balloob]: https://github.com/balloob
 [@caiuspb]: https://github.com/caiuspb
@@ -59,13 +61,17 @@ Alrighty, it's time for Home Assistant 0.10. A lot amazing things have changed a
 
 This release introduces templates. This will allow you to parse data before it gets processed or create messages for notifications on the fly based on data within Home Assistant. The notification component and the new Alexa/Amazon Echo component are both using the new template functionality to render responses. A template editor has been added to the developer tool section in the app so you can get instant feedback if your templates are working or not.
 
+{% raw %}
+
 ```text
-The temperature at home is {% raw %}{{ states('sensor.temperature') }}{% endraw %}.
+The temperature at home is {{ states('sensor.temperature') }}.
 ```
+
+{% endraw %}
 
 More information and examples can be found in the [template documentation][Template].
 
-### Breaking changes
+### Backward-incompatible changes
 
 Templates will now be the only way to extract data from 'raw' sources like REST, CommandSensor or MQTT. This will replace any specific option that used to do this before. This means that `precision`, `factor`, `attribute` or `json_path` etc will no longer work.
 
@@ -81,11 +87,11 @@ Affected components and platforms:
  - binary_sensor: [MQTT][binary_sensor.mqtt]
  - automation: [numeric_state][automation-numeric-state]
 
-[sensor.arest]: /components/sensor.arest/
-[sensor.command]: /components/sensor.command_sensor/
-[sensor.rest]: /components/sensor.rest/
-[sensor.mqtt]: /components/sensor.mqtt/
-[switch.mqtt]: /components/switch.mqtt/
-[light.mqtt]: /components/light.mqtt/
-[binary_sensor.mqtt]: /components/binary_sensor.mqtt/
+[sensor.arest]: /integrations/arest#sensor
+[sensor.command]: /integrations/sensor.command_line/
+[sensor.rest]: /integrations/rest
+[sensor.mqtt]: /integrations/sensor.mqtt/
+[switch.mqtt]: /integrations/switch.mqtt/
+[light.mqtt]: /integrations/light.mqtt/
+[binary_sensor.mqtt]: /integrations/binary_sensor.mqtt/
 [automation-numeric-state]: /getting-started/automation-trigger/#numeric-state-trigger

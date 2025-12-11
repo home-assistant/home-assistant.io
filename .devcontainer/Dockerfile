@@ -1,13 +1,9 @@
-FROM ruby:2.6
+ARG VARIANT=2
+FROM mcr.microsoft.com/vscode/devcontainers/ruby:${VARIANT}
 
-# Avoid warnings by switching to noninteractive
-ENV DEBIAN_FRONTEND=noninteractive
-
-# Use Bash as the default shell
-ENV SHELL=/bin/bash 
-
-# Set an environment variable to be able to detect we are in dev container
-ENV DEVCONTAINER=true
+ARG NODE_VERSION="lts/*"
+RUN su vscode -c "source /usr/local/share/nvm/nvm.sh && nvm install ${NODE_VERSION} 2>&1"
+RUN su vscode -c "/usr/local/rvm/bin/rvm fix-permissions"
 
 # Locale env vars
 ENV \
@@ -15,22 +11,10 @@ ENV \
     LANGUAGE=en_US:en \
     LC_ALL=en_US.UTF-8
 
-# Install git, process tools
-RUN apt update \
-    && apt-get install -y --no-install-recommends \
-        ack \
-        git \
-        locales \
-        procps \
-    && echo "en_US UTF-8" > /etc/locale.gen \
-    && locale-gen en_US.UTF-8 \
-    && echo 'export PS1="\\w\$ "' > /root/.bashrc \
-    && apt-get autoremove -y \
-    && apt-get clean -y \
-    && rm -rf /var/lib/apt/lists/*
-
-# Install the specific version of bundler we need
-RUN gem install bundler -v 2.0.1
-
-# Switch back to dialog for any ad-hoc use of apt-get
-ENV DEBIAN_FRONTEND=dialog
+# Install tools
+RUN \
+  apt update \
+  && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+      ack \
+  && echo "en_US UTF-8" > /etc/locale.gen \
+  && locale-gen en_US.UTF-8

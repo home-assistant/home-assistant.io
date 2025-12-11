@@ -5,7 +5,9 @@ date: 2016-11-20 00:04:05 +0000
 date_formatted: "November 20, 2016"
 author: Fabian Affolter
 author_twitter: fabaff
-categories: Release-Notes
+categories:
+- Release-Notes
+- Core
 og_image: /images/blog/2016-11-0.33/social.png
 ---
 
@@ -62,7 +64,7 @@ But a new release wouldn't be awesome if it didn't had some new goodies and this
 
 This should fix occasional performance problems that some people have reported.
 
-### Breaking changes
+### Backward-incompatible changes
 
  - We have included a fix that impacts how we generate entity ids. This only impacts devices with accented characters. Instead of being stripped out, they are now replaced with the non-accented version. So now `Tèst Mörê` will become `test_more` instead of `tst_mr`.
  - Command line switches will now use the specified object ID for their entity ID instead of basing it off the name.
@@ -96,22 +98,22 @@ Experiencing issues introduced by this release? Please report them in our [issue
 [@jchapple]: https://github.com/jchapple
 [@Khabi]: https://github.com/Khabi
 
-[api-stream]: /components/sensor.api_stream/
-[cisco]: /components/device_tracker.cisco_ios/
-[Command Line]: /components/switch.command_line/
-[Envisalink]: /components/envisalink/
-[google]: /components/calendar.google/
-[Hue]: /components/light.hue/
-[locative]: /components/device_tracker.locative/
-[mqtt-template]: /components/light.mqtt_template/
-[mqtt-will]: /components/mqtt/
-[pvoutput]: /components/sensor.pvoutput/
-[swisscom]: /components/device_tracker.swisscom/
-[TP Link]: /components/switch.tplink/
-[wink-climate]: /components/climate.wink/
-[neato]: /components/neato/
-[Emulated Hue]: /components/emulated_hue/
-[Wake on Lan switch]: /components/switch.wake_on_lan/
+[api-stream]: /integrations/sensor.websocket_api
+[cisco]: /integrations/cisco_ios
+[Command Line]: /integrations/switch.command_line/
+[Envisalink]: /integrations/envisalink/
+[google]: /integrations/calendar.google/
+[Hue]: /integrations/hue
+[locative]: /integrations/locative
+[mqtt-template]: /integrations/light.mqtt
+[mqtt-will]: /integrations/mqtt/
+[pvoutput]: /integrations/pvoutput
+[swisscom]: /integrations/swisscom
+[TP Link]: /integrations/tplink
+[wink-climate]: /integrations/wink#climate
+[neato]: /integrations/neato/
+[Emulated Hue]: /integrations/emulated_hue/
+[Wake on Lan switch]: /integrations/wake_on_lan#switch
 [template function]: /topics/templating/#home-assistant-template-extensions
-[HTTP]: /components/http/
-[MQTT]: /components/mqtt/
+[HTTP]: /integrations/http/
+[MQTT]: /integrations/mqtt/
