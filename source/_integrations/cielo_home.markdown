@@ -43,9 +43,9 @@ Before integrating the Cielo device/s with Home Assistant, ensure that:
 
 To safeguard security and prevent unauthorized access, Cielo enforces the following API security restrictions:
 
-- Each API key can be used **only once**. 
-- A **new API key cannot be generated** until the current one is **revoked**. 
-- You may generate a **maximum of 3 keys per month**. 
+- Each API key can be used only once. 
+- A new API key cannot be generated until the current one is revoked. 
+- You may generate a maximum of 3 keys per month. 
 - Once a new API key is generated, wait 60 seconds for it to be displayed on the screen.
 - Revoking an API key will disconnect Home Assistant immediately or within about a minute.
 
@@ -56,11 +56,11 @@ To safeguard security and prevent unauthorized access, Cielo enforces the follow
 1. Visit the [Cielo Web Portal](https://home.cielowigle.com)
 2. Open the Menu by clicking the ☲ icon at the top left side.
 3. Select **Home Assistant** from the sidebar.
-4. The **API key** will be displayed. **Copy** the **API Key** from the dialog.
+4. The API key will be displayed. Copy the API Key from the dialog.
 
 
 {% tip %}
-If the message “**This key is already used**” appears, you must first **revoke** the old key before generating a new one. 
+If the message _This key is already used_ appears, you must first revoke the old key before generating a new one. 
 {% endtip %}
 
 {% include integrations/config_flow.md %}
@@ -116,7 +116,9 @@ Some fan modes or swing positions depend on the device’s remote configuration.
 
 ## Data updates
 
-- Data is refreshed every 60 seconds via the Cielo Cloud API.
+This integration relies on cloud polling, with data refreshed approximately every 120 seconds (2 minutes). If the Cielo API or your 
+device becomes unavailable, Home Assistant will automatically retry.
+
 - Manual changes made in the Cielo Home app or via IR remote are synced automatically on the next poll.
 
 {% note %}
@@ -137,14 +139,8 @@ These capabilities will be added in future updates.
 
 ## Actions
 
-This integration does **not** provide any custom service actions. All controls are performed using the standard 
+This integration does _not_ provide any custom service actions. All controls are performed using the standard 
 ‘Home Assistant’ climate services.
-
-## Data Fetching and Limitations
-
-This integration relies on cloud polling, with data refreshed approximately every 60 seconds. If the Cielo API or your 
-device becomes unavailable, Home Assistant will automatically retry. You can also trigger a manual refresh using the 
-`homeassistant.update_entity` service.
 
 ## API limitations
 
