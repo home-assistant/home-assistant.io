@@ -49,7 +49,7 @@ To safeguard security and prevent unauthorized access, Cielo enforces the follow
 - Once a new API key is generated, wait 60 seconds for it to be displayed on the screen.
 - Revoking an API key will disconnect Home Assistant immediately or within about a minute.
 
-### Obtaining API Key
+### Obtaining an API key
 
 **Retrieving API key:** `Device [name of device] not correctly registered with remote on Sensibo cloud.`
 
