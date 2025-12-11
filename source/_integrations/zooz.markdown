@@ -46,7 +46,7 @@ The following devices are certified for Works with Home Assistant:
 - [ZEN16 Multi Relay](https://www.getzooz.com/zooz-zen16-multirelay/)
 - [ZEN51 Dry Contact Relay](https://www.getzooz.com/zooz-zen51-dry-contact-relay/)
 - [ZEN52 Double Relay](https://www.getzooz.com/zooz-zen52-double-relay/)
-- [ZEN52 DC Motor Controller](https://www.getzooz.com/zooz-zen53-dc-motor-controller/)
+- [ZEN53 DC Motor Controller](https://www.getzooz.com/zooz-zen53-dc-motor-controller/)
 
 ### Lighting Switches
 
