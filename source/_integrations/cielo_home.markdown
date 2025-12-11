@@ -17,8 +17,7 @@ ha_integration_type: integration
 ha_quality_scale: bronze
 ---
 
-The **Cielo Home** {% term integration %} integration allows you to control [Cielo](https://www.cielowigle.com) 
-devices directly from Home Assistant, using the cloud-based **Cielo Connect API**.
+The **Cielo Home** {% term integration %} integration allows you to control [Cielo](https://www.cielowigle.com) devices directly from Home Assistant, using the cloud-based **Cielo Connect API**.
 
 ## Supported devices
 
@@ -65,13 +64,11 @@ If the message **This key is already used** appears, you must first revoke the o
 
 {% include integrations/config_flow.md %}
 
-If authentication succeeds, Home Assistant will automatically create the climate entities for all supported Cielo 
-devices in your account.
+If authentication succeeds, Home Assistant will automatically create the climate entities for all supported Cielo devices in your account.
 
 {% note %}
 
-If you add or set up a new Cielo device after configuring the integration in Home Assistant, you must reload the 
-integration: 
+If you add or set up a new Cielo device after configuring the integration in Home Assistant, you must reload the integration: 
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %}. 
 2. Select **Cielo Home** and in the right corner, select the three dots {% icon "mdi:dots-vertical" %} menu.
@@ -91,8 +88,7 @@ Depending on device support, some entities might not be available as the device 
 
 ### Climates
 
-The climate platform integrates the compatible Cielo devices into Home Assistant, allowing control through its user 
-interface.
+The climate platform integrates the compatible Cielo devices into Home Assistant, allowing control through its user interface.
 
 #### Cielo Breez Max & Cielo Breez Edge Pro
 
@@ -116,8 +112,7 @@ Some fan modes or swing positions depend on the device’s remote configuration.
 
 ## Data updates
 
-This integration relies on cloud {% term polling %}, with data refreshed approximately every 120 seconds (2 minutes). If the Cielo API or your 
-device becomes unavailable, Home Assistant will automatically retry.
+This integration relies on cloud {% term polling %}, with data refreshed approximately every 120 seconds (2 minutes). If the Cielo API or your device becomes unavailable, Home Assistant will automatically retry.
 
 - Manual changes made in the Cielo Home app or via IR remote are synced automatically on the next poll.
 
@@ -129,8 +124,7 @@ If the device is added after the integration, you need to reload the Cielo Home 
 
 ## Actions
 
-This integration does _not_ provide any custom service actions. All controls are performed using the standard 
-‘Home Assistant’ climate services.
+This integration does _not_ provide any custom service actions. All controls are performed using the standard ‘Home Assistant’ climate services.
 
 ## API limitations
 
@@ -140,8 +134,7 @@ This integration does _not_ provide any custom service actions. All controls are
 
 ## Troubleshooting
 
-This integration relies on an active internet connection and access to the Cielo Home API. Here are a few things to check 
-before raising an issue:
+This integration relies on an active internet connection and access to the Cielo Home API. Here are a few things to check before raising an issue:
 
 - Confirm that your Home Assistant has internet access.
 - Verify that your Cielo device is online by checking its status in the Cielo Home app. 
