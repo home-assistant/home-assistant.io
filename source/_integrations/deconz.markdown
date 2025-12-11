@@ -72,7 +72,7 @@ See [deCONZ wiki](https://github.com/dresden-elektronik/deconz-rest-plugin/wiki/
 - If the suggested port does not work, try port `40850`.
 - Running a stand-alone instance of deCONZ (non add-on installation) requires a pairing between the deCONZ gateway and Home Assistant:
 
-  - To allow Home Assistant to connect with deCONZ,  go to the Phoscon UI, select **Settings** > **Gateway** > **Advanced** and select the **Authenticate app** button.
+  - To allow Home Assistant to connect with deCONZ, go to the Phoscon UI, select **Settings** > **Gateway** > **Advanced** and select the **Authenticate app** button.
     - This same information is also shown during the config flow of the deCONZ integration.
 
 {% include integrations/config_flow.md %}
