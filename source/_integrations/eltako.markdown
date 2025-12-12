@@ -27,3 +27,5 @@ The following devices are supported:
 - [Impulse switch ESR64PF-IPM](https://www.eltako.com/en/catalog/products/1760/esr64pf-ipm)
 - [Impulse switch ESR64NP-IPM](https://www.eltako.com/en/catalog/products/1759/esr64np-ipm)
 - [Shading actuator ESB64NP-IPM](https://www.eltako.com/en/catalog/products/1792/esb64np-ipm)
+- [4-channel-remote FMH4S](https://www.eltako.com/en/catalog/products/281/fmh4s-an) (via [EnOcean add-on](https://www.eltako.com/en/catalog/products/1762/eoa64))
+- [Door / window sensor FPE-1](https://www.eltako.com/en/catalog/products/483/fpe-1) (via [EnOcean add-on](https://www.eltako.com/en/catalog/products/1762/eoa64))

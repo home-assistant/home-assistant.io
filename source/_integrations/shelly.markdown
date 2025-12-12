@@ -42,7 +42,7 @@ ha_platforms:
   - update
   - valve
 ha_integration_type: device
-ha_quality_scale: silver
+ha_quality_scale: platinum
 ---
 
 Integrate [Shelly devices](https://shelly.com) into Home Assistant.
@@ -54,6 +54,13 @@ Host:
     description: "The Hostname or IP address of your Shelly device. You can find it in your router."
 Port:
     description: "Custom TCP port of the device. Change this only if the device is connected via Shelly Range Extender."
+{% endconfiguration_basic %}
+
+{% include integrations/option_flow.md %}
+
+{% configuration_basic %}
+Bluetooth scanner mode:
+  description: "The scanner mode to use for Bluetooth scanning. Bluetooth scanning can be active or passive. With active, the Shelly requests data from nearby devices. With passive, the Shelly receives unsolicited data from nearby devices."
 {% endconfiguration_basic %}
 
 ## Shelly device generations
@@ -120,8 +127,6 @@ Shelly devices do **not** support proxying active (GATT) connections.
 {% endtip %}
 
 For more details, see [Remote Adapters](/integrations/bluetooth/#remote-adapters-bluetooth-proxies) in the [Bluetooth integration](/integrations/bluetooth).
-
-{% include integrations/option_flow.md %}
 
 ## Range Extender Support
 
