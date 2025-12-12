@@ -2552,6 +2552,22 @@ weather:
 
 {% endconfiguration %}
 
+### Weather Forecast data
+
+The weather forecast options should return a list of dictionaries, where each dictionary contains [forecast information](https://www.home-assistant.io/integrations/weather/#action-weatherget_forecasts) for the current timeframe. The data is slightly different for each forecast type: `hourly`, `daily`, and `twice_daily`.
+
+#### Hourly Weather Forecast
+
+The `hourly` forecast should contain 24 dictionaries, where each dictionary represents a specific hour within the next 24 hour period. The `hourly` data should start at the current hour and end 24 hours from that point. The `datetime` in each dictionary should represent the start of the hour in your local timezone.
+
+#### Daily Weather Forecast
+
+The `daily` forecast should contain dictionaries, where each dictionary represents a specific day within any desired timeframe. The `daily` data should start at midnight tonight and end on the last day of your desired timeframe, incrementing 1 day at a time. The `datetime` in each dictionary should represent midnight for each night in your local timezone.
+
+#### Twice Daily Weather Forecast
+
+The `twice_daily` forecast should contain dictionaries, where each dictionary represents a specific 12 hour period within any desired timeframe. The `twice_daily` should start at the closest 12 hour period and end on the last 12 hour period of your desired timeframe.  The `datetime` in each dictionary should represent midnight or noon for each day in your local timezone.  Keep in mind, `is_daytime` is mandatory in every dictionary output to `twice_daily` forecasts.
+
 ### Trigger based weather - Weather Forecast from response data
 
 This example demonstrates how to use an `action` to call a [action with response data](/docs/scripts/perform-actions/#use-templates-to-handle-response-data)
