@@ -3,7 +3,7 @@ title: Hegel Amplifier
 description: Instructions on integrating Hegel amplifiers into Home Assistant.
 ha_category:
   - Media player
-ha_release: 2025.1
+ha_release: 2026.1
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
@@ -16,26 +16,30 @@ ha_quality_scale: silver
 ha_integration_type: device
 ---
 
-The `hegel` integration allows you to control your [Hegel Music Systems](https://www.hegel.com/) amplifiers from Home Assistant. It uses Hegel's official IP control protocol over TCP and supports real-time push updates for a responsive experience.
+The **Hegel** {% term integration %} allows you to control your [Hegel Music Systems](https://www.hegel.com/) amplifiers from Home Assistant. It uses Hegel's official IP control protocol over TCP and supports real-time push updates for a responsive experience.
 
 This integration provides complete control over your Hegel amplifier including power management, volume control, input selection, and mute functionality, all with instant feedback when changes are made via the front panel or remote control.
 
+{% include integrations/config_flow.md %}
+
+{% configuration_basic %}
+Host:
+description: Hostname or IP address of your Hegel amplifier.
+Port:
+description: TCP port for the amplifier control.
+default: 50001
+Name:
+description: A friendly name for your amplifier.
+Model:
+description: Your specific Hegel amplifier model for proper input mapping.
+{% endconfiguration_basic %}
+
 ## Prerequisites
 
-- Your Hegel amplifier must be connected to the same network as Home Assistant
-- The amplifier must support IP control (models H95, H120, H190, H190V, H390, H590, and Röst)
-- TCP port 50001 must be accessible between Home Assistant and your amplifier
-- UPnP/SSDP should be enabled on your network for automatic discovery
-
-
-## Configuration options
-
-When setting up the integration, you can configure the following options:
-
-- **Host**: Hostname or IP address of your Hegel amplifier
-- **Port**: TCP port for the amplifier control (default: 50001)
-- **Name**: A friendly name for your amplifier
-- **Model**: Your specific Hegel amplifier model for proper input mapping
+- Your Hegel amplifier must be connected to the same network as Home Assistant.
+- The amplifier must support IP control (models H95, H120, H190, H190V, H390, H590, and Röst).
+- TCP port 50001 must be accessible between Home Assistant and your amplifier.
+- UPnP/SSDP should be enabled on your network for automatic discovery.
 
 ## Supported models
 
@@ -94,14 +98,16 @@ Once configured, your Hegel amplifier appears as a media player entity with stan
 action: media_player.turn_on
 target:
   entity_id: media_player.hegel_amplifier
-
+```
+```yaml
 # Set volume to 70%
 action: media_player.volume_set
 target:
   entity_id: media_player.hegel_amplifier
 data:
   volume_level: 0.7
-
+```
+```yaml
 # Select input source
 action: media_player.select_source
 target:
@@ -224,7 +230,7 @@ For best reliability, configure your Hegel amplifier with a static IP address or
 1. Check network stability between Home Assistant and amplifier
 2. Verify the amplifier has a static IP or DHCP reservation
 3. Check router logs for connection drops
-4. Consider network infrastructure issues (WiFi range, switch problems)
+4. Consider network infrastructure issues (Wi-Fi range, switch problems)
 
 **Delayed response to manual changes:**
 
