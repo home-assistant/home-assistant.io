@@ -55,8 +55,6 @@ This is useful when you want to focus on specific parts of your daily schedule. 
 
 The sensor automatically handles day transitions. If the current time is past your configured time, it will show tomorrow's first trip at or after that time. This ensures you always see relevant upcoming trips matching your schedule, without the sensor becoming unavailable.
 
-The time filter helps you stay within API usage limits by focusing on relevant trips instead of constantly checking all possible departures throughout the day.
-
 ## Data source
 
 The data is provided by Nederlandse Spoorwegen through their official API, ensuring high-quality and up-to-date information about train schedules, delays, and service disruptions.
