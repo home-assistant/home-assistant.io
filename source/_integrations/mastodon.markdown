@@ -19,7 +19,7 @@ ha_config_flow: true
 ha_quality_scale: bronze
 ---
 
-The `mastodon` platform uses [Mastodon](https://joinmastodon.org/) to post status updates and get account statistics.
+The **Mastodon** {% term integration %} uses [Mastodon](https://joinmastodon.org/) to post status updates and get account statistics.
 
 ### Setup
 
