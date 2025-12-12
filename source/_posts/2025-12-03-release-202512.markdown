@@ -113,6 +113,7 @@ Now go and automate stuff!
 - [Patch releases](#patch-releases)
   - [2025.12.1 - December 5](#2025121---december-5)
   - [2025.12.2 - December 8](#2025122---december-8)
+  - [2025.12.3 - December 12](#2025123---december-12)
 - [Need help? Join the community](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
@@ -682,6 +683,86 @@ release once a week, aiming for Friday.
 [@piitaya]: https://github.com/piitaya
 [@thecode]: https://github.com/thecode
 [@tr4nt0r]: https://github.com/tr4nt0r
+
+### 2025.12.3 - December 12
+
+- Fix Tuya BitmapTypeInformation parsing ([@epenet] - [#158475])
+- Move translatable URL out of strings.json for knx integration ([@jbouwh] - [#155244])
+- Improve Tuya HVACMode handling ([@epenet] - [#158042])
+- Bump pypck to 0.9.7 ([@alengwenus] - [#158089])
+- Bump blinkpy to 0.25.1 ([@KiraPC] - [#158135])
+- Fix webhook exception when empty json data is sent ([@mikedast] - [#158254])
+- Fix roborock off peak electricity timer ([@allenporter] - [#158292])
+- Switchbot Cloud: Fixed binary sensors didn't update automatically ([@XiaoLing-git] - [#158434])
+- Add Tuya local_strategy to Tuya diagnostic ([@epenet] - [#158450])
+- Improve Roborock exception logging behavior for Zeo/Dyad devices ([@allenporter] - [#158465])
+- Fix Matter Door Lock Operating Mode select entity ([@lboue] - [#158468])
+- Bump asusrouter to 1.21.3 ([@Vaskivskyi] - [#158492])
+- Bump hanna-cloud to version 0.0.7 ([@bestycame] - [#158536])
+- Add measurement state class to ohme sensors ([@andrew-codechimp] - [#158541])
+- Bump python-roborock to 3.12.2 ([@allenporter] - [#158572])
+- Pin pycares to 4.11.0 ([@bdraco] - [#158695])
+- Add state_class to Growatt power and energy sensors ([@johanzander] - [#158705])
+- Update advanced_options display text for MQTT ([@ndrwrbgs] - [#158728])
+- Bump google air quality api to 2.0.2 ([@Thomas55555] - [#158742])
+- Migrate Blink component to use hardware_id instead of device_id ([@cdutr] - [#158765])
+- Bump ical to 12.1.1 ([@allenporter] - [#158770])
+- Bump pylamarzocco to 2.2.3 ([@zweckj] - [#158104])
+- Bump pylamarzocco to 2.2.4 ([@zweckj] - [#158774])
+- Increase Xbox update interval to 15 seconds and refactor title data handling ([@tr4nt0r] - [#158780])
+- Bump pySmartThings to 3.5.1 ([@joostlek] - [#158795])
+- Bump aioasuswrt to 1.5.2 ([@kennedyshead] - [#158727])
+
+[#155244]: https://github.com/home-assistant/core/pull/155244
+[#157330]: https://github.com/home-assistant/core/pull/157330
+[#158042]: https://github.com/home-assistant/core/pull/158042
+[#158071]: https://github.com/home-assistant/core/pull/158071
+[#158089]: https://github.com/home-assistant/core/pull/158089
+[#158104]: https://github.com/home-assistant/core/pull/158104
+[#158135]: https://github.com/home-assistant/core/pull/158135
+[#158254]: https://github.com/home-assistant/core/pull/158254
+[#158274]: https://github.com/home-assistant/core/pull/158274
+[#158292]: https://github.com/home-assistant/core/pull/158292
+[#158434]: https://github.com/home-assistant/core/pull/158434
+[#158450]: https://github.com/home-assistant/core/pull/158450
+[#158465]: https://github.com/home-assistant/core/pull/158465
+[#158468]: https://github.com/home-assistant/core/pull/158468
+[#158475]: https://github.com/home-assistant/core/pull/158475
+[#158492]: https://github.com/home-assistant/core/pull/158492
+[#158536]: https://github.com/home-assistant/core/pull/158536
+[#158541]: https://github.com/home-assistant/core/pull/158541
+[#158572]: https://github.com/home-assistant/core/pull/158572
+[#158695]: https://github.com/home-assistant/core/pull/158695
+[#158705]: https://github.com/home-assistant/core/pull/158705
+[#158727]: https://github.com/home-assistant/core/pull/158727
+[#158728]: https://github.com/home-assistant/core/pull/158728
+[#158742]: https://github.com/home-assistant/core/pull/158742
+[#158765]: https://github.com/home-assistant/core/pull/158765
+[#158770]: https://github.com/home-assistant/core/pull/158770
+[#158774]: https://github.com/home-assistant/core/pull/158774
+[#158780]: https://github.com/home-assistant/core/pull/158780
+[#158795]: https://github.com/home-assistant/core/pull/158795
+[@KiraPC]: https://github.com/KiraPC
+[@Thomas55555]: https://github.com/Thomas55555
+[@Vaskivskyi]: https://github.com/Vaskivskyi
+[@XiaoLing-git]: https://github.com/XiaoLing-git
+[@alengwenus]: https://github.com/alengwenus
+[@allenporter]: https://github.com/allenporter
+[@andrew-codechimp]: https://github.com/andrew-codechimp
+[@bdraco]: https://github.com/bdraco
+[@bestycame]: https://github.com/bestycame
+[@cdutr]: https://github.com/cdutr
+[@epenet]: https://github.com/epenet
+[@frenck]: https://github.com/frenck
+[@jbouwh]: https://github.com/jbouwh
+[@johanzander]: https://github.com/johanzander
+[@joostlek]: https://github.com/joostlek
+[@kennedyshead]: https://github.com/kennedyshead
+[@lboue]: https://github.com/lboue
+[@mikedast]: https://github.com/mikedast
+[@ndrwrbgs]: https://github.com/ndrwrbgs
+[@tr4nt0r]: https://github.com/tr4nt0r
+[@zweckj]: https://github.com/zweckj
 
 ## Need help? Join the community
 
