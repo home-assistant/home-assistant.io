@@ -16,7 +16,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The Meater Smart Meat Thermometer {% term integration %} allows for communicating with the [Meater Temperature Probe](https://meater.com/) from Apption Labs.
+The **Meater** {% term integration %} allows for communicating with the [Meater Temperature Probe](https://meater.com/) from Apption Labs.
 
 {% include integrations/config_flow.md %}
 
