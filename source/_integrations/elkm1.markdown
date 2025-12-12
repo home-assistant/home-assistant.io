@@ -542,9 +542,9 @@ The list of available phrases and words is defined in the ElkM1 ASCII Protocol d
 
 ## Debugging
 
-If you encounter issues with the ElkM1 integration, debug logs can help identify the problem.
+If you encounter issues with the ElkM1 integration, debug logs can help identify the problem. For detailed instructions on enabling debug logging, see [Enabling debug logging](/docs/configuration/troubleshooting/#enabling-debug-logging).
 
-### Enable debug logging
+Alternatively, you can manually enable debug logging in your {% term "`configuration.yaml`" %} file:
 
 1. Add the following to your {% term "`configuration.yaml`" %} file:
 
@@ -557,8 +557,6 @@ If you encounter issues with the ElkM1 integration, debug logs can help identify
 
 2. Restart Home Assistant.
 3. Check the debug logs in the `homeassistant.log` file in your Home Assistant `config` directory.
-
-For more information, see [Enabling debug logging](/docs/configuration/troubleshooting/#enabling-debug-logging).
 
 ## Removing the integration
 
