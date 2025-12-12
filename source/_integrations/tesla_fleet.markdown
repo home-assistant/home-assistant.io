@@ -14,6 +14,7 @@ ha_category:
   - Select
   - Sensor
   - Switch
+  - Update
 ha_release: 2024.8
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -33,6 +34,7 @@ ha_platforms:
   - select
   - sensor
   - switch
+  - update
 ha_integration_type: integration
 ---
 
@@ -45,7 +47,7 @@ You need to configure developer credentials and host a public key file to allow 
 - A [Tesla](https://tesla.com) account with verified email
 - A web domain to host your public key file:
   - [NGINX Home Assistant SSL proxy Add-on](https://github.com/home-assistant/addons/blob/master/nginx_proxy/DOCS.md) (recommended)
-  - External hosting service ([FleetKey.cc](https://fleetkey.cc), [MyTeslamate.com](https://app.myteslamate.com/fleet), etc.)
+  - External hosting service ([FleetKey.net](https://fleetkey.net), [MyTeslamate.com](https://app.myteslamate.com/fleet), etc.)
 
 {% warning %}
 The China region is currently not supported by this {% term integration %}.
@@ -244,6 +246,7 @@ These are the entities available in the Tesla Fleet integration. Not all entitie
 | Switch         | Charge                                     | Yes     |
 | Switch         | Defrost                                    | Yes     |
 | Switch         | Sentry mode                                | Yes     |
+| Update         | Update                                     | Yes     |
 
 ### Energy sites
 
@@ -306,13 +309,13 @@ Constant API {% term polling %} will prevent most Model S and Model X vehicles m
 
 {% include integrations/remove_device_service.md %}
 
-- Removing the {% term integration %} does not delete your Tesla Developer Application - you can remove it manually from the [Tesla Developer Dashboard](https://developer.tesla.com/en_US/dashboard) if no longer needed.
+- Removing the {% term integration %} does not delete your Tesla Developer Application - you can remove it manually from the [Tesla Developer Dashboard](https://developer.tesla.com/dashboard) if no longer needed.
 
 ## Troubleshooting
 
 - **Setup errors**: Verify your public key is accessible at the correct URL and you've completed all registration steps with Tesla
 - **Command failures**: Ensure `tesla_fleet.key` exists in your Home Assistant config directory and add your public key to vehicles via `https://tesla.com/_ak/YOUR_DOMAIN`
 - **{% term Integration %} stopped working**: Use the reconfigure option in {% my integrations title="**Settings** > **Devices & services**" %} > **Tesla Fleet**
-- **Billing errors**: Check your Tesla Developer Dashboard for usage limits and add billing information if needed
+- **Access to this resource is not authorized**: Check your [Tesla Developer Dashboard](https://developer.tesla.com/dashboard) to ensure you haven't exceeded your usage limits and add billing information if required. In certain countries, the *Fart* (remote boombox) command will also throw this error where its usage is illegal.
 
 If you have an error with your credentials, you can delete them in the {% my application_credentials title="Application Credentials" %} user interface.

@@ -11,7 +11,7 @@ ha_integration_type: system
 ha_quality_scale: internal
 ---
 
-The Home Assistant Repairs integration will inform you about issues it has found
+The Home Assistant Repairs {% term integration %} will inform you about issues it has found
 in your Home Assistant instance that should be fixed to ensure your instance
 stays healthy and running for now and in the future.
 

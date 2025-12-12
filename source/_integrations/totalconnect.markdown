@@ -19,7 +19,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `totalconnect` integration provides connectivity with Resideo Total Connect 2.0-enabled alarm systems.
+The `totalconnect` {% term integration %} provides connectivity with Resideo Total Connect 2.0-enabled alarm systems.
 
 The integration allows automations based on the state of the alarm system. For example: when the alarm is armed, turn on the outside light.
 

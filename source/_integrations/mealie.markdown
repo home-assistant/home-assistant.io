@@ -17,10 +17,21 @@ ha_platforms:
   - sensor
   - todo
 ha_integration_type: service
-ha_quality_scale: silver
+ha_quality_scale: platinum
 ---
 
 [Mealie](https://mealie.io/) is an open source, self-hosted recipe manager, meal planner, and shopping list. The Mealie {% term integration %} will fetch and allow you to create and update data held in your Mealie instance.
+
+## Use cases
+
+- View your upcoming meal plans in the calendars.
+- Use automations or your voice assistant to add items to a shopping list.
+- Use [zone presence-detection](/getting-started/presence-detection/) to remind you when you approach a store that you have items on your shopping list to pick up.
+- Search for a recipe by ingredient.
+
+## Supported versions
+
+Mealie instances version 2 and later are supported.
 
 ## Prerequisites
 
@@ -177,6 +188,16 @@ template:
 {% endraw %}
 
 {% enddetails %}
+
+## Known limitations
+
+- When editing a food item within the shopping list the item will be converted to a note style item.
+
+## Troubleshooting
+
+If you are using the Mealie add-on, use the direct URL with port number (default 9090) for the Mealie web page. Do not use the ingress URL that ends with /xxx_mealie.
+
+Before reporting an issue, enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics) and restart the integration. As soon as the issue re-occurs, stop the debug logging again (_download of debug log file will start automatically_). Further, _if still possible_, download the {% term diagnostics %} data. If you have collected the debug log and the diagnostics data, include them in the issue report.
 
 ## Removing the integration
 

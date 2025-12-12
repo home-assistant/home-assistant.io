@@ -32,6 +32,8 @@ task :generate do
   abort("Generating version data failed") unless success
   success = system "rake language_scores_data"
   abort("Generating language scores data failed") unless success
+  success = system "rake codeowners_data"
+  abort("Extracting codeowners") unless success
   success = system "jekyll build"
   abort("Generating site failed") unless success
   if ENV["CONTEXT"] != 'production'
@@ -71,6 +73,7 @@ task :preview, :listen do |t, args|
   system "rake analytics_data"
   system "rake version_data"
   system "rake language_scores_data"
+  system "rake codeowners_data"
   system "rake alerts_data"
   jekyllPid = Process.spawn({"OCTOPRESS_ENV"=>"preview"}, "jekyll build -t --watch --incremental")
   compassPid = Process.spawn("compass watch")
@@ -126,5 +129,27 @@ task :language_scores_data do
 
   File.open("#{source_dir}/_data/language_scores.json", "w") do |file|
     file.write(JSON.generate(remote_data))
+  end
+end
+
+desc "Extract CODEOWNERS and output to _data/codeowners.json"
+task :codeowners_data do
+  codeowners = []
+  File.readlines("CODEOWNERS").each do |line|
+    next if line.start_with?("#") || line.strip.empty?
+    parts = line.split
+    next if parts.length < 2
+    owners = parts[1..-1]
+    owners.each do |owner|
+      owner = owner.delete_prefix('@')
+      next if owner.include?('/')
+      codeowners << owner unless codeowners.include?(owner)
+    end
+  end
+
+  codeowners.sort!
+
+  File.open("#{source_dir}/_data/codeowners.json", "w") do |file|
+    file.write(JSON.generate(codeowners))
   end
 end

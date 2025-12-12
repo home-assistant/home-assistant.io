@@ -14,7 +14,7 @@ ha_integration_type: integration
 ha_quality_scale: legacy
 ---
 
-The Hikvision Binary Sensor is a platform that parses the event stream of a
+The **Hikvision** {% term integration %} parses the event stream of a
 [Hikvision IP Camera or NVR](https://www.hikvision.com/) and presents the
 camera/nvr events to Home Assistant as binary sensors with either an "off" or
 "on" state.

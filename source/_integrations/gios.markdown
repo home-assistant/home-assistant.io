@@ -15,7 +15,7 @@ ha_platforms:
 ha_integration_type: service
 ---
 
-The `gios` integration uses the [GIOŚ](http://powietrze.gios.gov.pl/pjp/current) web service as a source for air quality data for your location.
+The **GIOŚ** {% term integration %} uses the [GIOŚ](http://powietrze.gios.gov.pl/pjp/current) web service as a source for air quality data for your location.
 
 {% include integrations/config_flow.md %}
 
@@ -25,3 +25,9 @@ Measuring station:
 Name:
   description: "Service name in Home Assistant, by default, this is the name of your Home Assistant instance. For example `Home`."
 {% endconfiguration_basic %}
+
+## Removing the integration
+
+This integration follows standard integration removal, no extra steps are required.
+
+{% include integrations/remove_device_service.md %}

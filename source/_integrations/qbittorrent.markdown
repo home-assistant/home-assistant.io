@@ -42,6 +42,7 @@ The qBittorrent integration will add the following sensors:
 - `sensor.qbittorrent_active_torrents`: The current active torrents in qBittorrent.
 - `sensor.qbittorrent_inactive_torrents`: The current inactive torrents in qBittorrent.
 - `sensor.qbittorrent_paused_torrents`: The current paused torrents in qBittorrent.
+- `sensor.qbittorrent_errored_torrents`: The current errored torrents in qBittorrent.
 
 ## Switch
 
@@ -59,7 +60,7 @@ with a dictionary of torrents based on the provided filter.
 | Data attribute | Optional | Description                                    | Example                                             |
 | ---------------------- | -------- | ---------------------------------------------- | --------------------------------------------------- |
 | `device`               | no       | The device you'd like to check the torrents of | all, active, inactive, paused, downloading, seeding |
-| `torrent_filter`       | no       | The type of torrents you want in the response  | all, active, inactive, paused, downloading, seeding |
+| `torrent_filter`       | no       | The type of torrents you want in the response  | all, active, inactive, paused, errored, downloading, seeding |
 
 ```yaml
 action: qbittorrent.get_torrents
@@ -77,7 +78,7 @@ with a dictionary of torrents based on the provided filter.
 
 | Data attribute | Optional | Description                                   | Example                                             |
 | ---------------------- | -------- | --------------------------------------------- | --------------------------------------------------- |
-| `torrent_filter`       | no       | The type of torrents you want in the response | all, active, inactive, paused, downloading, seeding |
+| `torrent_filter`       | no       | The type of torrents you want in the response | all, active, inactive, paused, errored, downloading, seeding |
 
 ```yaml
 action: qbittorrent.get_all_torrents

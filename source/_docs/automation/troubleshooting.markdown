@@ -33,7 +33,7 @@ If you are writing automations in YAML, it is also useful to go to {% my server_
 
 When an {% term automation %} is run, all steps are recorded and a trace is made. From the UI, open **Settings**, which is located in the sidebar, then select **Automations & Scenes** to go to the automation editor or click this button directly: {% my automations badge %}
 
-From the automation editor UI, or in the automations list in the three dots menu, select **Traces**. Alternatively, select an automation entry shown in the Logbook.
+From the automation editor UI, or in the automations list in the three dots menu, select **Traces**. Alternatively, select an automation entry shown under **Activity**.
 
 ![Automation tracing example](/images/integrations/automation/automation-tracing.png)
 
@@ -44,7 +44,7 @@ The right side of the trace screen has tabs with more information:
 - **Step Details** shows data and results of the step that is currently highlighted.
 - **Automation Config** shows the full YAML configuration at the time the automation was run.
 - **Trace Timeline**, shown in the screenshot above, lists the steps that were executed and their timing.
-- **Related logbook entries**, shows a logbook for all the entries related to the specific trace.
+- **Related activity**, shows the activity for all the entries related to the specific trace.
 - **Blueprint Config** will only be shown if the automation was created from a {% term blueprint %}.
 
 The top bar shows the date and time the automation was triggered. Use the left and right arrows to view previous runs of the automation.

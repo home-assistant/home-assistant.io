@@ -27,6 +27,8 @@ The platform automatically discovers all enabled zones and sources. Each zone is
 
 This integration allows you to connect the following controllers:
 
+- Russound SMZ8
+- Russound SMZ16-PRE
 - Russound MBX-PRE
 - Russound MBX-AMP
 - Russound ACA-E5

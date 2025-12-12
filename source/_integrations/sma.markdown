@@ -14,7 +14,7 @@ ha_domain: sma
 ha_platforms:
   - diagnostics
   - sensor
-ha_integration_type: integration
+ha_integration_type: device
 ha_dhcp: true
 ---
 

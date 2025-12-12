@@ -1,0 +1,60 @@
+.animation-wrapper {
+    position: relative;
+
+    &-inner {
+        display: grid;
+        position: absolute;
+        inset: 0;
+        top: var(--header-height-small);
+        pointer-events: none;
+        z-index: 2;
+    }
+
+    canvas {
+        aspect-ratio: 16/9;
+        position: sticky;
+        top: 80px;
+        z-index: 1;
+        max-width: 400%;
+        height: 100%;
+        max-height: calc(60vh - 80px);
+        object-position: center;
+        grid-area: 1/1;
+        object-fit: contain;
+        transform: translateX(-50%);
+        margin-left: 50%;
+        display: none;
+
+        @include bp(desktop) {
+            display: block;
+            max-height: calc(100vh - 80px);
+        }
+
+    }
+}
+
+section {
+    .model-still {
+        height: calc(75vh - var(--header-height-small));
+        aspect-ratio: 16/9;
+        overflow: visible;
+        width: 100%;
+        
+        &.float{
+            position: absolute;
+            top: 40%;
+            transform: translateY(-50%);
+        }
+
+        @include bp(desktop) {
+            display: none;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            overflow: visible;
+        }
+    }
+}

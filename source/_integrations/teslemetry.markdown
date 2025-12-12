@@ -38,7 +38,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The Teslemetry integration exposes various commands and sensors from the Tesla vehicles and energy sites connected to a [Teslemetry](https://teslemetry.com/) subscription.
+The Teslemetry {% term integration %} exposes various commands and sensors from the Tesla vehicles and energy sites connected to a [Teslemetry](https://teslemetry.com/) subscription.
 
 ## Prerequisites
 
@@ -241,6 +241,7 @@ Entities in the device tracker platform specifically require the `Vehicle locati
 |Switch|Auto steering wheel heater|Yes|
 |Switch|Charge|Yes|
 |Switch|Defrost|Yes|
+|Switch|Guest mode|Yes|
 |Switch|Sentry mode|Yes|
 |Switch|Valet mode|Yes|
 |Update|Update|Yes|

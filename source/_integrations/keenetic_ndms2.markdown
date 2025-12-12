@@ -16,7 +16,7 @@ ha_ssdp: true
 ha_integration_type: integration
 ---
 
-This platform offers presence detection by examining devices connected to a [Keenetic](https://keenetic.net/)
+This {% term integration %} offers presence detection by examining devices connected to a [Keenetic](https://keenetic.net/)
 Router running NDMS firmware versions 2.05 and up. It uses telnet connection so make sure telnet is not disabled on your router.
 
 ## Configuration

@@ -43,7 +43,7 @@ ha_platforms:
   - vacuum
   - valve
   - water_heater
-ha_integration_type: integration
+ha_integration_type: service
 ha_quality_scale: platinum
 ---
 
@@ -128,11 +128,18 @@ MQTT Devices and entities can be set up through [MQTT -discovery](#mqtt-discover
 - [Climate (HVAC)](/integrations/climate.mqtt/)
 - [Cover](/integrations/cover.mqtt/)
 - [Fan](/integrations/fan.mqtt/)
+- [Image](/integrations/image.mqtt/)
 - [Light](/integrations/light.mqtt/)
 - [Lock](/integrations/lock.mqtt/)
 - [Notify](/integrations/notify.mqtt/)
+- [Number](/integrations/number.mqtt/)
+- [Select](/integrations/select.mqtt/)
 - [Sensor](/integrations/sensor.mqtt/)
+- [Siren](/integrations/siren.mqtt/)
 - [Switch](/integrations/switch.mqtt/)
+- [Text](/integrations/text.mqtt/)
+- [Valve](/integrations/valve.mqtt/)
+- [Water heater](/integrations/water_heater.mqtt/)
 
 To add an MQTT device via a Subentry, follow these steps:
 
@@ -310,8 +317,8 @@ The mandatory fields were previously limited to at least one of `connection` and
 
 For every configured MQTT entity Home Assistant automatically assigns a unique `entity_id`. If the `unique_id` option is configured, you can change the `entity_id` after creation, and the changes are stored in the Entity Registry. The `entity_id` is generated when an item is loaded the first time.
 
-If the `object_id` option is set, then this will be used to generate the `entity_id`.
-If, for example, we have configured a `sensor`, and we have set `object_id` to `test`, then Home Assistant will try to assign `sensor.test` as `entity_id`, but if this `entity_id` already exits it will append it with a suffix to make it unique, for example, `sensor.test_2`.
+If the `default_entity_id` option is set, then this will be used to generate the `entity_id`.
+If, for example, we have configured a `sensor`, and we have set `default_entity_id` to `sensor.test`, then Home Assistant will try to assign `sensor.test` as `entity_id`, but if this `entity_id` already exits it will append it with a suffix to make it unique, for example, `sensor.test_2`.
 
 This means any MQTT entity which is part of a device will [automatically have its `friendly_name` attribute prefixed with the device name](https://developers.home-assistant.io/docs/core/entity/#has_entity_name-true-mandatory-for-new-integrations)
 
@@ -734,6 +741,7 @@ support_url:
     'cont_type':           'content_type',
     'curr_temp_t':         'current_temperature_topic',
     'curr_temp_tpl':       'current_temperature_template',
+    'def_ent_id':          'default_entity_id',
     'dev':                 'device',
     'dev_cla':             'device_class',
     'dir_cmd_t':           'direction_command_topic',
@@ -801,7 +809,6 @@ support_url:
     'modes':               'modes',
     'name':                'name',
     'o':                   'origin',
-    'obj_id':              'object_id',
     'off_dly':             'off_delay',
     'on_cmd_type':         'on_command_type',
     'ops':                 'options',
@@ -1326,9 +1333,9 @@ Setting up a [light that takes JSON payloads](/integrations/light.mqtt/#json-sch
   }
   ```
 
-#### Use object_id to influence the entity id
+#### Use object_id to influence the entity ID
 
-The entity id is automatically generated from the entity's name. All MQTT integrations optionally support providing an `object_id` which will be used instead if provided.
+The entity ID is automatically generated from the entity's name. All MQTT integrations optionally support providing an `object_id` which will be used instead if provided.
 
 - Configuration topic: `homeassistant/sensor/device1/config`
 - Example configuration payload:
@@ -1375,6 +1382,7 @@ The following software has built-in support for MQTT discovery:
 - [TeddyCloud](https://github.com/toniebox-reverse-engineering/teddycloud)
 - [Teleinfo MQTT](https://fmartinou.github.io/teleinfo2mqtt) (starting with 3.0.0)
 - [Tydom2MQTT](https://tydom2mqtt.github.io/tydom2mqtt/)
+- [Updates2MQTT](https://updates2mqtt.rhizomatics.org.uk)
 - [What's up Docker?](https://fmartinou.github.io/whats-up-docker/) (starting with 3.5.0)
 - [WyzeSense2MQTT](https://github.com/raetha/wyzesense2mqtt)
 - [Xiaomi DaFang Hacks](https://github.com/EliasKotlyar/Xiaomi-Dafang-Hacks)

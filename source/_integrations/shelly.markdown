@@ -17,7 +17,6 @@ ha_category:
   - Valve
 ha_release: 0.115
 ha_codeowners:
-  - '@balloob'
   - '@bieniu'
   - '@thecode'
   - '@chemelli74'
@@ -43,7 +42,7 @@ ha_platforms:
   - update
   - valve
 ha_integration_type: device
-ha_quality_scale: silver
+ha_quality_scale: platinum
 ---
 
 Integrate [Shelly devices](https://shelly.com) into Home Assistant.
@@ -55,6 +54,13 @@ Host:
     description: "The Hostname or IP address of your Shelly device. You can find it in your router."
 Port:
     description: "Custom TCP port of the device. Change this only if the device is connected via Shelly Range Extender."
+{% endconfiguration_basic %}
+
+{% include integrations/option_flow.md %}
+
+{% configuration_basic %}
+Bluetooth scanner mode:
+  description: "The scanner mode to use for Bluetooth scanning. Bluetooth scanning can be active or passive. With active, the Shelly requests data from nearby devices. With passive, the Shelly receives unsolicited data from nearby devices."
 {% endconfiguration_basic %}
 
 ## Shelly device generations
@@ -122,8 +128,6 @@ Shelly devices do **not** support proxying active (GATT) connections.
 
 For more details, see [Remote Adapters](/integrations/bluetooth/#remote-adapters-bluetooth-proxies) in the [Bluetooth integration](/integrations/bluetooth).
 
-{% include integrations/option_flow.md %}
-
 ## Range Extender Support
 
 Shelly generation 2+ devices that are not battery-powered can act as a Range Extender.
@@ -181,7 +185,7 @@ The integration creates a sub-device for every relay (channel) and uses the foll
 - If a `Device Name` is set in the device, the integration will use it to generate the main device name and entity names assigned to the main device.
 - If a `Device Name` is not set, the integration will use the `Device ID` to generate the main device name and entity names assigned to the main device.
 - If a `Channel Name` is set in the device, the integration will use it to generate the sub-device name and entity names assigned to this sub-device (channel/relay).
-- If a `Channel Name` is set to the default value in the device, the integration will use the device name and this ddefault channel name to generate the sub-device name and entity names assigned to this sub-device (channel/relay).
+- If a `Channel Name` is set to the default value in the device, the integration will use the device name and this default channel name to generate the sub-device name and entity names assigned to this sub-device (channel/relay).
 
 Examples:
 
@@ -415,6 +419,7 @@ The integration supports the following virtual components:
 
 - `boolean` in `toggle` mode, for which a `switch` platform entity is created
 - `boolean` in `label` mode, for which a `binary_sensor` platform entity is created
+- `button` in `button` mode, for which a `button` platform entity is created
 - `enum` in `dropdown` mode, for which a `select` platform entity is created
 - `enum` in `label` mode, for which a `sensor` platform entity is created
 - `number` in `field` mode, for which a `number` platform entity in `box` mode is created
@@ -431,6 +436,12 @@ For each device script, the integration creates a `switch` entity that allows yo
 
 Shelly devices rely on [SNTP](https://en.wikipedia.org/wiki/Network_Time_Protocol#SNTP) for features like power measurement.
 Please check from the device Web UI that the configured server is reachable.
+
+## Troubleshooting
+
+1. [Enable debug logging](https://www.home-assistant.io/docs/configuration/troubleshooting/#enabling-debug-logging).
+2. Take necessary steps/actions to replicate the issue.
+3. [Disable debug logging and download logs](https://www.home-assistant.io/docs/configuration/troubleshooting/#disable-debug-logging-and-download-logs).
 
 ## Known issues and limitations
 

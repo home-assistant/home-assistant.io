@@ -30,7 +30,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The RFXtrx integration supports RFXtrx devices by [RFXCOM](http://www.rfxcom.com), which communicate in the frequency range of 433.92 MHz.
+The RFXtrx {% term integration %} supports RFXtrx devices by [RFXCOM](http://www.rfxcom.com), which communicate in the frequency range of 433.92 MHz.
 
 There is currently support for the following device types within Home Assistant:
 

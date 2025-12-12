@@ -49,7 +49,7 @@ Before you can use this device with Home Assistant, you need to install a bit of
        - Select the **Connect** button below to display a list of available USB devices. Do not connect the ESP32-S3-BOX-3 yet. We want to see the list of available USB devices first, so that it is easier to recognize the ESP device afterward.
        - If your browser does not support web serial, you will see a warning message indicating this instead of a button.
 
-           <script type="module" src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module"></script>
+           <script type="module" src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module" integrity="sha384-GTdfFVaTqjGAB6rkiyDt7OE2P/4tWRRDDzhqSVp5vM5JUTFTvziwyu9AM+ImqOyw" crossorigin="anonymous"></script>
            <esp-web-install-button manifest="https://firmware.esphome.io/wake-word-voice-assistant/esp32-s3-box-3/manifest.json"></esp-web-install-button>
 
        - **For advanced users**: The configuration files are available on GitHub:
@@ -94,7 +94,7 @@ Before you can use this device with Home Assistant, you need to install a bit of
 
        - If your browser does not support web serial, you will see a warning message indicating this instead of a button.
 
-           <script type="module" src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module"></script>
+           <script type="module" src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module" integrity="sha384-GTdfFVaTqjGAB6rkiyDt7OE2P/4tWRRDDzhqSVp5vM5JUTFTvziwyu9AM+ImqOyw" crossorigin="anonymous"></script>
            <esp-web-install-button manifest="https://firmware.esphome.io/wake-word-voice-assistant/esp32-s3-box/manifest.json"></esp-web-install-button>
 
        - **For advanced users**: The configuration files are available on GitHub:
@@ -131,7 +131,7 @@ Before you can use this device with Home Assistant, you need to install a bit of
 
        - If your browser does not support web serial, you will see a warning message indicating this instead of a button.
 
-           <script type="module" src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module"></script>
+           <script type="module" src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module" integrity="sha384-GTdfFVaTqjGAB6rkiyDt7OE2P/4tWRRDDzhqSVp5vM5JUTFTvziwyu9AM+ImqOyw" crossorigin="anonymous"></script>
            <esp-web-install-button manifest="https://firmware.esphome.io/wake-word-voice-assistant/esp32-s3-box-lite/manifest.json"></esp-web-install-button>
 
        - **For advanced users**: The configuration files are available on GitHub:

@@ -77,6 +77,7 @@ _Not all sensors are provided by all Smart Meters, only the available sensors ar
 - **Voltage sags and swells**: Number of times a voltage sag or swell has been detected.
 - **Power failures**: Two sensors indicate the number of power failures detected by the smart meter. One for all power failures and another for 'long' power failures.
 - **Peak demand**: Belgium users are starting to get charged for the peak usage per month (see [capaciteitstarief](https://www.fluvius.be/thema/factuur-en-tarieven/capaciteitstarief)). Two sensors are available: one shows the current quarterly average, and another shows the peak measured this month. Both sensors are provided directly from the smart meter and can be used to keep the peak as low as possible.
+- **Status light brightness**: Controls the brightness of the green status light. Error statuses are always visualized, even when the brightness is set to 0.
 
 External meters, like a gas or water meter, can be connected to your Smart meter. Each device is exposed as a separate {% term device %} with its own measurement.
 
@@ -124,6 +125,7 @@ The Energy Socket also has a switch to control the outlet state and a status lig
 - **Frequency (Hz)**: Net frequency.
 - **Cycles**: Number of charge cycles the battery has gone through.
 - **State of charge (%)**: The current state of charge of the battery.
+- **Status light brightness**: Controls the brightness of the LED strip. Error statuses are always visualized, even when the brightness is set to 0.
 
 #### Battery group mode
 
