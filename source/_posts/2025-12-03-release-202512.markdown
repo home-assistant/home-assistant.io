@@ -711,6 +711,7 @@ release once a week, aiming for Friday.
 - Bump pylamarzocco to 2.2.4 ([@zweckj] - [#158774])
 - Increase Xbox update interval to 15 seconds and refactor title data handling ([@tr4nt0r] - [#158780])
 - Bump pySmartThings to 3.5.1 ([@joostlek] - [#158795])
+- Bump aioasuswrt to 1.5.2 ([@kennedyshead] - [#158727])
 
 [#155244]: https://github.com/home-assistant/core/pull/155244
 [#157330]: https://github.com/home-assistant/core/pull/157330
@@ -733,6 +734,7 @@ release once a week, aiming for Friday.
 [#158572]: https://github.com/home-assistant/core/pull/158572
 [#158695]: https://github.com/home-assistant/core/pull/158695
 [#158705]: https://github.com/home-assistant/core/pull/158705
+[#158727]: https://github.com/home-assistant/core/pull/158727
 [#158728]: https://github.com/home-assistant/core/pull/158728
 [#158742]: https://github.com/home-assistant/core/pull/158742
 [#158765]: https://github.com/home-assistant/core/pull/158765
@@ -755,6 +757,7 @@ release once a week, aiming for Friday.
 [@jbouwh]: https://github.com/jbouwh
 [@johanzander]: https://github.com/johanzander
 [@joostlek]: https://github.com/joostlek
+[@kennedyshead]: https://github.com/kennedyshead
 [@lboue]: https://github.com/lboue
 [@mikedast]: https://github.com/mikedast
 [@ndrwrbgs]: https://github.com/ndrwrbgs
