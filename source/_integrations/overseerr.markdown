@@ -96,60 +96,50 @@ The Overseerr integration has the following actions:
 - `overseerr.update_issue` - Update an existing issue
 - `overseerr.delete_issue` - Delete an issue
 
-### Action `overseerr.get_requests`
+### Get requests
 
-Get a list of media requests.
+Get a list of media requests using the `overseerr.get_requests` action.
 
-| Data attribute    | Optional | Description                                                 |
-|-------------------|----------|-------------------------------------------------------------|
-| `config_entry_id` | No       | The ID of the Overseerr config entry to get data from.      |
-| `status`          | Yes      | The status to filter the results on.                        |
-| `sort_order`      | Yes      | The sort order to sort the results in (`added`/`modified`). |
-| `requested_by`    | Yes      | Filter the requests based on the user ID of the requester.  |
+- **config_entry_id** (*Required*): The ID of the Overseerr config entry to get data from.
+- **status** (*Optional*): The status to filter the results on.
+- **sort_order** (*Optional*): The sort order to sort the results in (`added`/`modified`).
+- **requested_by** (*Optional*): Filter the requests based on the user ID of the requester.
 
-### Action `overseerr.get_issues`
+### Get issues
 
-Get a list of issues from Overseerr.
+Get a list of issues from Overseerr using the `overseerr.get_issues` action.
 
-| Data attribute    | Optional | Description                                                 |
-|-------------------|----------|-------------------------------------------------------------|
-| `config_entry_id` | No       | The ID of the Overseerr config entry to get data from.      |
-| `issue_status`    | Yes      | Filter by status (`open` or `resolved`).                    |
-| `sort_order`      | Yes      | The sort order to sort the results in (`added`/`modified`). |
-| `requested_by`    | Yes      | Filter by the user ID that reported the issue.              |
+- **config_entry_id** (*Required*): The ID of the Overseerr config entry to get data from.
+- **issue_status** (*Optional*): Filter by status (`open` or `resolved`).
+- **sort_order** (*Optional*): The sort order to sort the results in (`added`/`modified`).
+- **requested_by** (*Optional*): Filter by the user ID that reported the issue.
 
-### Action `overseerr.create_issue`
+### Create issue
 
-Create a new issue in Overseerr for a specific media item.
+Create a new issue in Overseerr for a specific media item using the `overseerr.create_issue` action.
 
-| Data attribute    | Optional | Description                                                       |
-|-------------------|----------|-------------------------------------------------------------------|
-| `config_entry_id` | No       | The ID of the Overseerr config entry.                             |
-| `issue_type`      | No       | The type of issue: `1` (Video), `2` (Audio), `3` (Subtitles), `4` (Other). |
-| `message`         | No       | Description of the issue.                                         |
-| `media_id`        | No       | The TMDB ID of the media item.                                    |
-| `problem_season`  | Yes      | The season number with the issue (for TV shows). Defaults to 0.   |
-| `problem_episode` | Yes      | The episode number with the issue (for TV shows). Defaults to 0.  |
+- **config_entry_id** (*Required*): The ID of the Overseerr config entry.
+- **issue_type** (*Required*): The type of issue: `1` (Video), `2` (Audio), `3` (Subtitles), `4` (Other).
+- **message** (*Required*): Description of the issue.
+- **media_id** (*Required*): The TMDB ID of the media item.
+- **problem_season** (*Optional*): The season number with the issue (for TV shows). Defaults to 0.
+- **problem_episode** (*Optional*): The episode number with the issue (for TV shows). Defaults to 0.
 
-### Action `overseerr.update_issue`
+### Update issue
 
-Update an existing issue in Overseerr.
+Update an existing issue in Overseerr using the `overseerr.update_issue` action.
 
-| Data attribute    | Optional | Description                                                 |
-|-------------------|----------|-------------------------------------------------------------|
-| `config_entry_id` | No       | The ID of the Overseerr config entry.                       |
-| `issue_id`        | No       | The ID of the issue to update.                              |
-| `issue_status`    | Yes      | New status: `1` (Open) or `2` (Resolved).                   |
-| `message`         | Yes      | Add a comment to the issue.                                 |
+- **config_entry_id** (*Required*): The ID of the Overseerr config entry.
+- **issue_id** (*Required*): The ID of the issue to update.
+- **issue_status** (*Optional*): New status: `1` (Open) or `2` (Resolved).
+- **message** (*Optional*): Add a comment to the issue.
 
-### Action `overseerr.delete_issue`
+### Delete issue
 
-Delete an issue from Overseerr.
+Delete an issue from Overseerr using the `overseerr.delete_issue` action.
 
-| Data attribute    | Optional | Description                                    |
-|-------------------|----------|------------------------------------------------|
-| `config_entry_id` | No       | The ID of the Overseerr config entry.          |
-| `issue_id`        | No       | The ID of the issue to delete.                 |
+- **config_entry_id** (*Required*): The ID of the Overseerr config entry.
+- **issue_id** (*Required*): The ID of the issue to delete.
 
 
 ## Use cases
