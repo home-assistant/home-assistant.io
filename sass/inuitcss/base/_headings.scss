@@ -1,0 +1,61 @@
+@charset "UTF-8";
+/*------------------------------------*\
+    $HEADINGS
+\*------------------------------------*/
+/**
+ * As per: csswizardry.com/2012/02/pragmatic-practical-font-sizing-in-css
+ *
+ * When we define a heading we also define a corresponding class to go with it.
+ * This allows us to apply, say, `class=alpha` to a `h3`; a double-stranded
+ * heading hierarchy.
+ */
+h1,.alpha{
+    @include font-size($h1-size);
+}
+h2,.beta{
+    @include font-size($h2-size);
+}
+h3,.gamma{
+    @include font-size($h3-size);
+}
+h4,.delta{
+    @include font-size($h4-size);
+}
+h5,.epsilon{
+    @include font-size($h5-size);
+}
+h6,.zeta{
+    @include font-size($h6-size);
+}
+
+
+/**
+ * Heading groups and generic any-heading class.
+ * To target any heading of any level simply apply a class of `.hN`, e.g.:
+ *
+   <hgroup>
+       <h1 class=hN>inuit.css</h1>
+       <h2 class=hN>Best. Framework. Ever!</h2>
+   </hgroup>
+ *
+ */
+.hN{
+}
+hgroup .hN{
+    margin-bottom:0;
+}
+
+
+/**
+ * A series of classes for setting massive type; for use in heroes, mastheads,
+ * promos, etc.
+ */
+.giga{
+    @include font-size($giga-size);
+}
+.mega{
+    @include font-size($mega-size);
+}
+.kilo{
+    @include font-size($kilo-size);
+}

@@ -1,0 +1,24 @@
+---
+title: "CLA Login"
+description: "The Home Assistant contributor license agreement (CLA) signature page"
+---
+
+<p style="text-align: center">Please wait while we begin the signature process...</p>
+<br>
+<div id="spinner"></div>
+
+<script
+  src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+  integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs="
+  crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/spin.js/2.3.2/spin.min.js" integrity="sha256-PieqE0QdEDMppwXrTzSZQr6tWFX3W5KkyRVyF1zN3eg=" crossorigin="anonymous"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+  var spinner = new Spinner().spin(document.getElementById('spinner'));
+  var redirect = window.location.href.match(/\?pr=(.*)/);
+  if(redirect && redirect.length > 0) {
+    localStorage.setItem("pr", redirect[1]);
+  }
+  window.location = "https://github.com/login/oauth/authorize?client_id=44151bab2be25f885aa7&response_type=code&scope=user%3Aemail&redirect_uri=https%3A%2F%2Fhome-assistant.io%2Fdevelopers%2Fcla_sign%2F"
+});
+</script>

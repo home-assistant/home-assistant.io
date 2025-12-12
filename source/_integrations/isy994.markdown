@@ -1,0 +1,304 @@
+---
+title: Universal Devices ISY/IoX
+description: Instructions on how to setup an ISY controller within Home Assistant.
+ha_category:
+  - Binary sensor
+  - Button
+  - Climate
+  - Cover
+  - Fan
+  - Hub
+  - Light
+  - Lock
+  - Number
+  - Select
+  - Sensor
+  - Switch
+ha_release: 0.28
+ha_iot_class: Local Push
+ha_domain: isy994
+ha_config_flow: true
+ha_codeowners:
+  - '@bdraco'
+  - '@shbatm'
+ha_ssdp: true
+ha_platforms:
+  - binary_sensor
+  - button
+  - climate
+  - cover
+  - fan
+  - light
+  - lock
+  - number
+  - select
+  - sensor
+  - switch
+ha_dhcp: true
+ha_integration_type: hub
+---
+
+ISY is a home automation controller capable of controlling Insteon, X10, Z-Wave and Zigbee/Matter devices connected to supported hardware manufactured by [Universal Devices, Inc.](https://www.universal-devices.com/).
+
+This integration supports the legacy ISY994 hardware family, as well as current ISY-on-Anything (IoX) hardware, such as the [eisy](https://www.universal-devices.com/product/eisy-home/) or [Polisy](https://www.universal-devices.com/polisy/) devices.
+
+There is currently support for the following platforms within Home Assistant:
+
+- Binary sensor
+- Button
+- Climate
+- Cover
+- Light
+- Fan
+- Lock
+- Number
+- Select
+- Sensor
+- Switch
+
+Home Assistant is capable of communicating with any binary sensor, cover, fan, light, lock, sensor and switch that is configured on the controller. Using the programs on the controller, custom binary sensors, covers, fans, locks, and switches can also be created. Each device and the ISY hub also include a Query button to query the device.
+
+ISY Networking Module Resources can be executed using the buttons created.
+
+{% include integrations/config_flow.md %}
+
+Once the ISY controller is configured, it will automatically import any binary sensors, covers, fans, lights, locks, sensors and switches it can locate.
+
+### Configuration Options
+
+There are several options available to further customize what is imported from the ISY controller and entity behavior.
+
+- Sensor String: This is the string that is used to identify which devices are to be assumed to be sensors instead of lights or switches. If this string is found in the device name or folder, Home Assistant will consider it a sensor or binary sensor (if the device has on/off or true/false states). This is only necessary for nodes that are not automatically detected as sensors by Home Assistant. Insteon door, window, motion, and leak sensors should all be detected automatically.
+- Variable Sensor String: This is the string that is used to identify which Integer or State Variables are to be enabled by default as `number` entities. If this string is found in the device name, Home Assistant will assume it is a sensor. The default is `"HA."`.
+- Ignore String: Any devices that contain this string in their name (or folder path) will be ignored by Home Assistant. They will not become entities and will not fire `control_events`. The default is `"{IGNORE ME}"`.
+- Restore Light State: If disabled (default behavior), lights turned ON from Home Assistant without a `brightness` parameter set will turn on to the `on_level` set within the physical device. For example, on Insteon devices, this would be the same brightness as if the switch/device was turned ON. If this setting is enabled, lights that are turned on from Home Assistant will go to the last known brightness value. Both the `on_level` and `last_brightness` values are available as attributes if needed for device-specific customization.
+
+### Sensors
+
+An Insteon door/window sensor will show up as a single binary sensor rather than two discrete devices like it does in the ISY Admin Console. Note that when in "Two Nodes" mode, the sensor will have an UNKNOWN state until the sensor changes for the first time since the last Home Assistant reboot. If you do not use Insteon scenes that are controlled directly from the door sensor, you may prefer to set the sensor to "One Node" mode using the ISY Admin Panel.
+
+Each Insteon leak sensor will also show up as a single binary sensor as opposed to the two nodes seen in the ISY Admin Console. The name of the device will be based on what the parent node is named in the ISY, which is typically the one with "-Dry" at the end of the name. This may be confusing, because "On" means wet in Home Assistant. You can rename this node in Home Assistant to be more clear, see the [Customization section](/docs/configuration/customizing-devices/) of your configuration.
+
+If your leak or door/window sensor supports heartbeats, a new binary_sensor device will be added to Home Assistant to represent the battery state. The sensor will stay "Off" so long as the daily heartbeats occur. If a heartbeat is missed, the sensor will flip to "On". The name of this device will be based on the heartbeat node in the ISY.
+
+### ISY/IoX Variables
+
+Integer and State Variables from the ISY are imported as `number` entities. You can choose which variables are enabled by default by setting the "Variable Sensor String" Config Option and using it as part of the variable name in the ISY Admin Console (e.g., `HA.` in options and `HA.Variable Name` on the ISY) or you can manually enable the entities you need from the ISY Variables device in Home Assistant.
+
+### Handling Insteon or Other ISY Control Events
+
+A Home Assistant `isy994_control` event is emitted for every "control" event in the ISY's device network (as long as the device has not been ignored or disabled in Home Assistant). This allows you to write automations that trigger based on events such as Insteon button presses. You can also trigger off of the unique Insteon/Zigbee/Z-Wave events, such as double-presses, long-holds etc.
+
+```yaml
+automation:
+  - alias: "turn off living room on double tap lightswitch"
+    triggers:
+      - trigger: event
+        event_type: isy994_control
+        event_data:
+          entity_id: light.lr_track_lights_front
+          control: "DFON"
+          value: 255
+          formatted: "On"
+          uom: "100"
+          prec: "0"
+    actions:
+      - action: light.turn_off
+        target:
+          entity_id: light.lr_track_lights_rear
+```
+
+All `isy994_control` events will have an `entity_id` and `control` parameter in its `event_data`. You'll need to refer to ISY documentation for the list of every possible control type, but the common ones are:
+
+- `DON`: On button.
+- `DOF`: Off button.
+- `DFON`: "Fast On", usually from double-tapping an On button.
+- `DFOF`: "Fast Off", usually from double-tapping an Off button.
+- `FDUP`: "Fade Up", usually while holding down an On button.
+- `FDDOWN`: "Fade Down", usually while holding down an Off button.
+- `FDSTOP`: "Fade Stop", when releasing a long-held button.
+- `BRT`: "Brighten", from controllers that issue a single command to slightly brighten a light.
+- `DIM`: "Dim", from controllers that issue a single command to slightly dim a light.
+
+### Insteon Scenes & Keypad/Remote Buttons
+
+All Insteon scenes configured in the ISY Admin Console will show up as a `switch` in Home Assistant, as they do not support dimming or setting specific brightness settings as Home Assistant's `light` integration.
+
+Insteon Secondary Keypad buttons and Remote buttons are added to Home Assistant to allow support for using Control Events in Automations. These devices are added as `sensors` since they cannot be directly controlled (turned on/off); their state is the last ON level command they sent, in a range from `0` (Off) to `255` (On 100%).  Note: these devices may report incorrect states before being used after a reboot of the ISY. Secondary Keypad buttons may be turned on or off using ISY Scenes (refer to ISY Documentation for more details).
+
+### Insteon Device Configuration Support
+
+Insteon devices will include entities for setting the device On Level, Ramp Rate, and Backlight Level, if supported; as well as `button` entities for `Beep` and `Query` actions. Note: Backlight Level cannot be read from the device, so an assumed state is used. The current state in Home Assistant will be valid if the backlight is changed from Home Assistant and will also be updated if changed from the ISY Admin Console or REST command while Home Assistant is running. Additional configuration changes still require the ISY Admin Console.
+
+### Actions
+
+Once loaded, the following actions will be exposed with the `isy994.` prefix, to allow advanced control over the ISY and its connected devices:
+
+ - Actions for all Home Assistant-connected entities: `send_node_command`, `send_raw_node_command`.
+ - ISY Z-Wave Node actions: `get_zwave_parameter`, `set_zwave_parameter`, `set_zwave_lock_user_code`, `delete_zwave_lock_user_code`
+ - Generic ISY actions: `send_program_command`
+
+#### Action `isy994.send_node_command`
+
+Send a command to an ISY Device using its Home Assistant entity ID. Valid commands are: `beep`, `brighten`, `dim`, `disable`, `enable`, `fade_down`, `fade_stop`, `fade_up`, `fast_off`, `fast_on`, and `query`.
+
+| Data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id`            |     no  | Name(s) of target entities for the command, e.g., `light.front_porch`. |
+| `command` | no | The command to be sent to the device, e.g., `"fast_on"` |
+
+#### Action `isy994.send_raw_node_command`
+
+Send a "raw" (e.g., `DON`, `DOF`) ISY REST Device Command to a Node using its Home Assistant Entity ID. This is useful for devices that aren't fully supported in Home Assistant yet, such as controls for many NodeServer nodes. Refer to the ISY (or PyISY Python Module) Documentation for details of valid commands.
+
+| Data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id`            |     no  | Name(s) of target entities for the command, e.g., `light.front_porch`. |
+| `command` | no | The ISY REST Command to be sent to the device, e.g., `"DON"` |
+| `value` | yes | The integer value to be sent with the command, if required by the command, e.g., `255` |
+| `parameters` | yes | A `dict` of parameters to be sent in the query string for controlling colored bulbs or advanced parameters, e.g., `{ GV2: 0, GV3: 0, GV4: 255 }` |
+| `unit_of_measurement` | yes | The ISY Unit of Measurement (UOM) to send with the command, if required, e.g., `67` |
+
+#### Action `isy994.get_zwave_parameter`
+
+Request a Z-Wave Device parameter via the ISY. The parameter value will be returned as an entity extra state attribute with the name "ZW#" where "#" is the parameter number.
+
+| Data attribute | Optional | Description                                                                                     |
+| ---------------------- | -------- | ----------------------------------------------------------------------------------------------- |
+| `entity_id`            | no       | Name of target entity for the command, e.g., `light.front_porch`. This must be an ISY Z-Wave Node. |
+| `parameter`            | no       | The parameter number to retrieve from the end device.                                           |
+
+#### Action `isy994.set_zwave_parameter`
+
+Update a Z-Wave Device parameter via the ISY. The parameter value will also be returned as an entity extra state attribute with the name "ZW#" where "#" is the parameter number.
+
+| Data attribute | Optional | Description                                                                                     |
+| ---------------------- | -------- | ----------------------------------------------------------------------------------------------- |
+| `entity_id`            | no       | Name of target entity for the command, e.g., `light.front_porch`. This must be an ISY Z-Wave Node. |
+| `parameter`            | no       | The parameter number to set on the end device.                                                  |
+| `value`                | no       | The value to set for the parameter. May be an integer or byte string (e.g. "0xFFFF").           |
+| `size`                 | no       | The size of the parameter, either 1, 2, or 4 bytes.                                             |
+
+#### Action `isy994.set_zwave_lock_user_code`
+
+Set a Z-Wave Lock User Code via the ISY. 
+
+| Data attribute | Optional | Description                                                                                     |
+| ---------------------- | -------- | ----------------------------------------------------------------------------------------------- |
+| `entity_id`            | no       | Name of target entity for the command, e.g., `lock.front_door`. The entity must be an ISY Z-Wave Lock entity. |
+| `user_num`             | no       | The user slot number to set on the end device.                                                  |
+| `code`                 | no       | The lock code to set for the user slot.                                                         |
+
+
+#### Action `isy994.delete_zwave_lock_user_code`
+
+Delete a Z-Wave Lock User Code via the ISY. 
+
+| Data attribute | Optional | Description                                                                                     |
+| ---------------------- | -------- | ----------------------------------------------------------------------------------------------- |
+| `entity_id`            | no       | Name of target entity for the command, e.g., `lock.front_door`. The entity must be an ISY Z-Wave Lock entity. |
+| `user_num`             | no       | The user slot number to delete the code on the end device.                            |
+
+#### Action `isy994.rename_node`
+
+Rename a node or group (scene) on the ISY994. Note: this will not automatically change the Home Assistant Entity Name or Entity ID to match. The entity name and ID will only be updated after reloading the integration or restarting Home Assistant, and ONLY IF you have not already customized the name within Home Assistant.
+
+| Data attribute | Optional | Description                                                    |
+| ---------------------- | -------- | -------------------------------------------------------------- |
+| `entity_id`            | no       | Name of target entity for the command, e.g., `light.front_porch`. |
+| `name`                 | no       | The new name to use within the ISY.                         |
+
+#### Action `isy994.send_program_command`
+
+Send a command to control an ISY program or folder. Valid commands are `run`, `run_then`, `run_else`, `stop`, `enable`, `disable`, `enable_run_at_startup`, and `disable_run_at_startup`.
+
+| Data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `command` | no | The ISY Program Command to be sent, e.g., `"run"` |
+| `address` | yes | The address of the program to control (optional, use either `address` or `name`), e.g., `"04B1"` |
+| `name` | yes | The name of the program to control (optional, use either `address` or `name`), e.g., `"My Program"` |
+| `isy` | yes | (Optional) If you have more than one ISY connected, provide the name of the ISY to query (as shown on the Device Registry or as the top-first node in the ISY Admin Console).  If you have the same program name or address on multiple ISYs, omitting this will run the command on them all, e.g., `"ISY"` |
+
+### Creating Custom Devices using ISY Programs
+
+Using the Programs tab in the controller's Administrative Console, custom devices can be created that will appear natively inside of Home Assistant. Home Assistant will scan the following folders and build the device to the associated domains:
+
+```text
+My Programs
+├── HA.binary_sensor
+|   ├── Movement In House
+|   |   └── status
+|   └── Garage Open
+|   |   └── status
+├── HA.cover
+|   ├── Left Garage Door
+|   |   ├── actions
+|   |   └── status
+|   ├── Living Room Blinds
+|   |   ├── actions
+|   |   └── status
+├── HA.fan
+|   ├── Desk Fan
+|   |   ├── actions
+|   |   └── status
+|   ├── Living Room Fan
+|   |   ├── actions
+|   |   └── status
+├── HA.lock
+|   ├── Front Door
+|   |   ├── actions
+|   |   └── status
+|   ├── Back Door
+|   |   ├── actions
+|   |   └── status
+├── HA.switch
+|   ├── Dining Lights
+|   |   ├── actions
+|   |   └── status
+|   ├── Sleep Mode
+|   |   ├── actions
+|   |   └── status
+```
+
+A device is created by creating a directory, with the name for the device, under any of the following root directories:
+
+- *HA.binary_sensor* will create a binary sensor (see [Customizing Devices](/getting-started/customizing-devices/) to set the sensor class).
+- *HA.cover* will create a cover.
+- *HA.fan* will create a fan.
+- *HA.lock* will create a lock.
+- *HA.switch* will create a switch.
+
+A program, named *status*, is required under the program device directory. A program, named *actions*, is required for all program devices except for binary_sensor. Any other programs in these device directories will be ignored.
+
+<p class='img'>
+  <img src='/images/isy994/isy994_CoverExample.png' />
+</p>
+
+The *status* program requires that you create a state variable with the name of your choice. Note that you must use a state variable, not an integer variable. This variable will store the actual status of the new device and will be updated by the *action* program.
+
+![Screenshot of switch variable](/images/isy994/isy994_switch_variable_example.png)
+
+The IF clause of the *status* program in the device directory is what indicates the state of the device:
+
+- *binary_sensor* on if the clause returns true, otherwise off.
+- *cover* closed if the clause returns true, otherwise open.
+- *fan* on if the clause returns true, otherwise off.
+- *lock* locked if the clause returns true, otherwise unlocked.
+- *switch* on if the clause returns true, otherwise off.
+
+<p class='img'>
+  <img src='/images/isy994/isy994_SwitchStatusExample.png' />
+</p>
+
+The *actions* program indicates what should be performed for the following device actions:
+
+- *cover* the THEN clause is evaluated for the `open_cover` action, the ELSE clause is evaluated for the `close_cover` action.
+- *fan* the THEN clause is evaluated for the `turn_on` action, the ELSE clause is evaluated for the `turn_off` action.
+- *lock* the THEN clause is evaluated for the `lock` action, the ELSE clause is evaluated for the `unlock` action.
+- *switch* the THEN clause is evaluated for the `turn_on` action, the ELSE clause is evaluated for the `turn_off` action.
+
+<p class='img'>
+  <img src='/images/isy994/isy994_SwitchActionsExample.png' />
+</p>
+
+The example program above shows how to control a legacy X10 device from Home Assistant using an ISY controller.

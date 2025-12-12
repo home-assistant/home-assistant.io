@@ -1,0 +1,5 @@
+Contact: mailto:security@home-assistant.io
+Preferred-Languages: en
+Canonical: https://www.home-assistant.io/.well-known/security.txt
+Policy: https://www.home-assistant.io/security/
+Expires: 2032-12-31T22:59:00.000Z

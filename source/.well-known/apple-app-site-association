@@ -1,0 +1,61 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "UTQFCBPQRF.io.robbie.HomeAssistant.dev",
+        "paths": [
+          "NOT /ios/beta",
+          "NOT /ios/beta/*",
+          "/ios/*",
+          "/tag/*"
+        ]
+      },
+      {
+        "appID": "UTQFCBPQRF.io.robbie.HomeAssistant.beta",
+        "paths": [
+          "NOT /ios/beta",
+          "NOT /ios/beta/*",
+          "/ios/*",
+          "/tag/*"
+        ]
+      },
+      {
+        "appID": "UTQFCBPQRF.io.robbie.HomeAssistant",
+        "paths": [
+          "NOT /ios/beta",
+          "NOT /ios/beta/*",
+          "/ios/*",
+          "/tag/*"
+        ]
+      },
+      {
+        "appID": "QMQYCKL255.io.robbie.HomeAssistant.dev",
+        "paths": [
+          "NOT /ios/beta",
+          "NOT /ios/beta/*",
+          "/ios/*",
+          "/tag/*"
+        ]
+      },
+      {
+        "appID": "QMQYCKL255.io.robbie.HomeAssistant.beta",
+        "paths": [
+          "NOT /ios/beta",
+          "NOT /ios/beta/*",
+          "/ios/*",
+          "/tag/*"
+        ]
+      },
+      {
+        "appID": "QMQYCKL255.io.robbie.HomeAssistant",
+        "paths": [
+          "NOT /ios/beta",
+          "NOT /ios/beta/*",
+          "/ios/*",
+          "/tag/*"
+        ]
+      }
+    ]
+  }
+}

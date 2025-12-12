@@ -1,0 +1,32 @@
+<section id="buy">
+    <div class="background"></div>
+    <div class="section-inner">
+        <div class="section-inner-content">
+            <div class="container">
+                <div class="content">
+                    <div class="strap">Get the ultimate Zigbee or Thread experience for just</div>
+                    <h2 class="price"><sub>$</sub>49<span>/</span><sub>€</sub>45<sup>*</sup></h2>
+                    <div class="button buy">Buy now</div>
+                </div>
+                <p class="terms">*Recommended MSRP. Prices differ between regions due to varying local market costs
+                    and conditions, and subject to individual retailers.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    (function () {
+        const section = document.querySelector('#buy');
+        const background = section.querySelector('.background');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
+                    background.classList.add('active');
+                } else {
+                    background.classList.remove('active');
+                }
+            });
+        }, { threshold: [0, 0.5, 1] });
+        observer.observe(section);
+    })();
+</script>

@@ -1,0 +1,47 @@
+---
+title: "HASSbian 1.21 - It's about time isn't it"
+description: "New release of the HASSbian Raspberry Pi Image for Home Assistant"
+date: 2017-04-30 16:00:00 +0100
+date_formatted: "April 30, 2017"
+author: Fredrik Lindqvist
+categories: Technology
+---
+
+### Hassbian 1.21 - It's about time isn't it
+Since I, the developer of HASSbian, have been moving, started a new job and so on I've had few moments over for HASSbian development. The 1.2 release has been in pre-release for a few months now and just not communicated out that well. Hopefully this release changes that and I'll do my best to release more often. There's no simple way to update from 1.1 to 1.21 but 95% of the changes can be done by installing the [hassbian-config][hassbian-config-release] package. For more information have a look at the [hassbian-config][hassbian-repo] page.
+
+### Hassbian 1.22 - Sins of last night
+Development is sometimes fast and joyful but mistakes are made at times.
+
+With the release of 1.21 a small problem with the OpenZWave build script wasn't corrected even tough it was a known bug. Problem is simple as it's only a problem with the symlink created for to the configuration folder for OpenZWave. This has been fixed and we bring some new things since they where ready anyway. The list below has been augmented with the updated information.
+
+### Hassbian-config
+
+To allow you to customize your installation further, we have included a tool called `hassbian-config`. This tool comes with a set of packages that can easily be installed for easier customization of your Home Assistant installation. This replaces the `hassbian-scripts` functionality from 1.1.
+
+  - Install Hue. Configures the Python executable to allow usage of low numbered ports for use with Emulated Hue component that's used with Amazon Echo, Google Home and Mycroft.ai.
+ - Install Mosquitto MQTT server. Installs the latest Mosquitto package and client tools from the Mosquitto projects official repository. Now includes websocket support.
+ - Install Libcec. Adds local [HDMI-CEC support][cec].
+ - Install Open Z-Wave-pip. Installs Python Open Z-Wave from a pip package. This is the quickest and recommended way of installing Z-Wave support but does not OZWCP pre-installed.
+ - Install Open Z-Wave. Installs Python Open Z-Wave and OZWCP from git.
+ - Install Samba. Allows anyone on your network to edit your configuration from any computer. This share is unsecured and its usage is not recommended if you share your network with others.
+ - Install Tellstick. Installs the Tellstick package for controlling and using a connected Tellstick.
+ - Install Tradfri. Installs dependencies for using IKEA Trådfri.
+
+### Spring cleaning
+
+With this image there also quite a bit of cleaning of the base system and the script that generates our Raspberry Pi image.
+
+  - Replaced the `hassbian-scripts` folder with `hassbian-config`.
+  - Update `pi-gen`. Our build script has been upgraded to follow the Raspbian image closer once again. Now you could build this image with Docker if your so inclined.
+  - Added libtool and autoconf package. Dependencies for some of the pip packages.
+  - Pi ZeroW should now work with the image.
+
+To follow discussions about the development of the HASSbian image or to contribute join our [Discord chat server][discord-devs].
+
+To get started with the new image, check out the installation instructions in the getting started section.
+
+[cec]: /integrations/hdmi_cec/
+[hassbian-repo]: https://github.com/home-assistant/hassbian-scripts/
+[hassbian-config-release]: https://github.com/home-assistant/hassbian-scripts/releases/latest
+[discord-devs]: https://discord.gg/8X8DTH4

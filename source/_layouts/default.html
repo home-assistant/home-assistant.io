@@ -1,0 +1,72 @@
+{% assign url_parts = page.url | split: '/' %}
+{% assign root = url_parts[1] %}
+{% assign doc = url_parts[2] %}
+
+{% include site/head.html %}
+  <body {% if page.body_id %} id="{{ page.body_id }}"{% elsif page.layout == "landingpage" %} id="landingpage"{% endif %} class="{% if root == 'docs' or root == 'dashboards' or root == 'voice_control' or root == 'installation' or root == 'getting-started' or root == 'common-tasks' %}documentation-page{% endif %} {% if root == 'integrations' %}integration-page{% endif %} {% if page.blog_index %}blog-index{% endif %} {% if root == 'blog' %}blog-post {% if doc == 'categories' %}blog-category{% endif %}{% endif %}">
+    <header class='site-header {% if page.dark_header %}dark{% endif %}'>
+      {% include site/header.html %}
+    </header>
+
+    <div class="page-content">
+
+      {% if page.hero_unit %}
+        {% include site/hero_unit.html %}
+      {% endif %}
+
+      <div class="grid-wrapper">
+        <div class="grid grid-center">
+
+          {% if page.toc %}
+            {%- unless page.no_toc -%}
+              <aside id="toc-bar" class="grid__item desk-wide-one-sixth">
+                <section class="aside-module grid__item one-whole">
+                  <div class='section'>
+                    <h1 class="title epsilon">{% icon "mdi:toc" %} On this page</h1>
+                    {{ content | toc_only }}
+                  </div>
+                </section>
+              </aside>
+            {%- endunless -%}
+          {% endif %} 
+
+          {% if page.is_post and page.sidebar == false %}
+          <div class="grid__item four-fifths desk-wide-three-quarters lap-one-whole palm-one-whole">
+          {% elsif page.no_toc == true %}
+          <div class="grid__item one-whole desk-wide-three-quarters">  
+          {% elsif page.is_homepage or page.layout == "landingpage" %}
+          <div class="grid__item one-whole">
+          {% elsif doc=="categories" %}
+          <div class="grid__item two-thirds desk-wide-three-quarters lap-one-whole palm-one-whole">
+          {% else %}
+          <div class="grid__item two-thirds desk-wide-seven-twelfths lap-one-whole palm-one-whole">
+          {% endif %}
+
+            {% if page.is_homepage or page.layout == "landingpage"  %}
+              {{ content }}
+            {% else %}
+              {{ content | output_modder }}
+            {% endif %}
+          </div>
+
+
+          {% unless page.sidebar == false or page.layout == "landingpage" %}
+            {% if root == 'integrations' %}
+              <aside id="integration-sidebar" class="grid__item one-third desk-wide-one-quarter lap-one-whole palm-one-whole">
+              {% else %}
+              <aside id="sidebar" class="grid__item one-third desk-wide-one-quarter lap-one-whole palm-one-whole">
+            {% endif %}
+            {% include site/sidebar.html %}
+          </aside>
+          {% endunless %}
+        </div>
+      </div>
+
+      <footer>
+        {% include site/footer.html %}
+      </footer>
+
+    </div>
+    {% include javascripts/scripts.html %}
+  </body>
+</html>

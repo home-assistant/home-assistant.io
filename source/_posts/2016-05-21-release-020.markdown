@@ -1,0 +1,82 @@
+---
+title: "0.20: Roku, Last.fm, AWS, Twilio"
+description: "New release of Home Assistant is bringing a lot of great goodies for everyone. New media players, template optoins and a lot more."
+date: 2016-05-21 11:06:00 -0700
+date_formatted: "May 21, 2016"
+author: Paulus Schoutsen
+author_twitter: balloob
+categories:
+- Release-Notes
+- Core
+---
+
+<img src='https://brands.home-assistant.io/roku/icon.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='https://brands.home-assistant.io/lastfm/icon.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='150' /><img src='https://brands.home-assistant.io/gpmdp/icon.png' srcset='https://brands.home-assistant.io/gpmdp/icon@2x.png 2x' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='https://brands.home-assistant.io/twilio/icon.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='/images/supported_brands/aws_lambda.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='/images/supported_brands/aws_sns.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' /><img src='/images/supported_brands/aws_sqs.png' style='clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;' width='100' />
+
+Tons of new supported things in 0.20.
+
+- Restarting now supported without forking ([@jaharkes])
+- Add [purge days option] to recorder component ([@justyns], [@infamy])
+- Generic load_platform mechanism for entity components ([@kellerza])
+- Template: new [`relative_time`] function to render ie. `7 seconds ago` ([@robbiet480])
+- Sensor: [supervisord] now supported ([@happyleavesaoc])
+- Docker: we should no longer get SSL errors with requests ([@lwis])
+- Media Player: [Google Play Music Desktop Player] now supported ([@GreenTurtwig])
+- Notify: [Twilio SMS] platform added ([@robbiet480])
+- Device Tracker: [Asus WRT] will now default to SSH (but telnet is still an option) ([@froz])
+- Support [Nest Protect] smoke alarms ([@khabi])
+- Configurator: allow supplying a link to the user ([@mnestor])
+- Media Player: [Roku] now supported ([@bah2830])
+- Sensor: [Last.fm] now supported ([@darookee], [@GreenTurtwig])
+- Notify: Amazon Lambda, SNS, SQS now supported ([@robbiet480])
+- Light: allow human readable colors in turn_on command ([@robbiet480])
+- YAML: new include dir options [`!include_dir_merge_list`] and [`!include_dir_merge_named`] ([@happyleavesaoc])
+- Media Player: [LG Netcast TVs] now supported ([@wokar])
+- Media Player: Allow enqueuing media on Sonos ([@shaftoe])
+- Notify: [Ecobee thermostats] now supported ([@nkgilley])
+- Sensor: [Mold indicator] added ([@xifle])
+- Export to [Logentries] support added ([@omgapuppy])
+- Group more info dialog allows control of group domain if available (@fignuts)
+
+### Backward-incompatible changes
+
+- Asus WRT will now default to SSH with Telnet being an option
+
+```yaml
+device_tracker:
+  platform: asuswrt
+  protocol: telnet
+```
+
+[@bah2830]: https://github.com/bah2830
+[@darookee]: https://github.com/darookee
+[@froz]: https://github.com/froz
+[@GreenTurtwig]: https://github.com/GreenTurtwig
+[@happyleavesaoc]: https://github.com/happyleavesaoc
+[@infamy]: https://github.com/infamy
+[@jaharkes]: https://github.com/jaharkes
+[@justyns]: https://github.com/justyns
+[@kellerza]: https://github.com/kellerza
+[@khabi]: https://github.com/khabi
+[@lwis]: https://github.com/lwis
+[@mnestor]: https://github.com/mnestor
+[@nkgilley]: https://github.com/nkgilley
+[@omgapuppy]: https://github.com/omgapuppy
+[@robbiet480]: https://github.com/robbiet480
+[@shaftoe]: https://github.com/shaftoe
+[@wokar]: https://github.com/wokar
+[@xifle]: https://github.com/xifle
+[`!include_dir_merge_list`]: /topics/splitting_configuration/#advanced-usage
+[`!include_dir_merge_named`]: /topics/splitting_configuration/#advanced-usage
+[`relative_time`]: /topics/templating/#home-assistant-template-extensions
+[Asus WRT]: /integrations/asuswrt
+[Ecobee thermostats]: /integrations/ecobee
+[Google Play Music Desktop Player]: /integrations/gpmdp
+[LG Netcast TVs]: /integrations/lg_netcast
+[Logentries]: /integrations/logentries/
+[mold indicator]: /integrations/mold_indicator/
+[Nest Protect]: /integrations/nest#sensor
+[purge days option]: /integrations/recorder/
+[Roku]: /integrations/roku#media-player
+[supervisord]: /integrations/supervisord
+[Twilio SMS]: /integrations/twilio_sms
+[Last.fm]: /integrations/lastfm

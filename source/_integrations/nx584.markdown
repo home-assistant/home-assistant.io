@@ -1,0 +1,140 @@
+---
+title: NX584
+description: Instructions on how to integrate NX584 into Home Assistant.
+ha_category:
+  - Alarm
+  - Binary sensor
+ha_release: 0.13
+ha_iot_class: Local Push
+ha_domain: nx584
+ha_platforms:
+  - alarm_control_panel
+  - binary_sensor
+ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
+ha_quality_scale: legacy
+---
+
+The `nx584` {% term integration %} provides integration with GE, Caddx, Interlogix (and other brands) alarm panels that support the NX584 interface module (or have it built in). Supported panels include NX4/6/8/8E. Actual integration is done through [pynx584](https://github.com/kk7ds/pynx584) which is required for this to work.
+
+There is currently support for the following device types within Home Assistant:
+
+- [Alarm](#alarm-control-panel)
+- [Binary sensor](#binary-sensor)
+
+## Alarm control panel
+
+To enable this, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
+
+```yaml
+# Example configuration.yaml entry
+alarm_control_panel:
+  - platform: nx584
+```
+
+{% configuration %}
+host:
+  description: The host where the nx584 server process is running.
+  required: false
+  type: string
+  default: localhost
+name:
+  description: This parameter allows you to override the name.
+  required: false
+  type: string
+  default: NX584
+port:
+  description: The port where the alarm panel is listening.
+  required: false
+  type: integer
+  default: 5007
+{% endconfiguration %}
+
+## Binary sensor
+
+Enabling this binary sensor platform exposes all of your zones as binary sensors, which provides visibility through the UI as well as the ability to trigger automation actions instantly when something happens like a door opening, or a motion sensor trigger.
+
+To enable this feature, add the following lines to your {% term "`configuration.yaml`" %}:
+
+```yaml
+# Example configuration.yaml entry
+binary_sensor:
+  platform: nx584
+```
+
+{% configuration %}
+host:
+  description: This is the host where the nx584 server process is running. If unset, it is assumed to be `localhost`, which will work if the server process is running on the same system as Home Assistant.
+  required: false
+  type: string
+  default: localhost
+port:
+  description: The port where the server process is running.
+  required: false
+  type: integer
+  default: 5007
+exclude_zones:
+  description: This is a list of zone numbers that should be excluded. Use this to avoid exposing a zone that is of no interest, unconnected, etc.
+  required: false
+  type: [list, integer]
+zone_types:
+  description: This is a list of zone numbers mapped to zone types. Use this to designate zones as doors, motion sensors, smoke detectors, etc. See the list of available zone types relevant to alarm zones below.
+  required: false
+  type: list
+  keys:
+    opening:
+      description: Opening
+    motion:
+      description: Motion
+    gas:
+      description: Gas
+    smoke:
+      description: Smoke
+    moisture:
+      description: Moisture
+    safety:
+      description: Safety
+{% endconfiguration %}
+
+## Full example
+
+An extended configuration entry could look like this:
+
+```yaml
+# Full example configuration.yaml entry
+binary_sensor:
+  platform: nx584
+  host: 192.168.1.10
+  port: 5007
+  exclude_zones:
+    - 3
+    - 5
+  zone_types:
+    1: opening
+    2: opening
+    4: motion
+    6: moisture
+```
+
+## Actions
+
+### Action `bypass_zone`
+
+This action will bypass a given zone.
+
+| Data attribute | Optional | Description                     |
+| ---------------------- | -------- | ------------------------------- |
+| `entity_id`            | yes      | entity_id of the NX584 Alarm.   |
+| `zone`                 | no       | Zone number you want to bypass. |
+
+### Action `unbypass_zone`
+
+This action will unbypass a given zone.
+
+| Data attribute | Optional | Description                       |
+| ---------------------- | -------- | --------------------------------- |
+| `entity_id`            | yes      | entity_id of the NX584 Alarm.     |
+| `zone`                 | no       | Zone number you want to unbypass. |

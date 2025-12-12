@@ -1,0 +1,84 @@
+---
+title: WGL Designs W800RF32
+description: Instructions on how to integrate a W800rf32(a) into Home Assistant.
+ha_category:
+  - Binary sensor
+  - Hub
+ha_release: 0.83
+ha_iot_class: Local Push
+ha_domain: w800rf32
+ha_platforms:
+  - binary_sensor
+ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
+ha_quality_scale: legacy
+---
+
+The **WGL Designs W800RF32** {% term integration %} supports W800RF32 devices by WGL Designs which
+communicate in the frequency range of 310MHz or if you are outside Canada or the U.S., 433.92 MHz.
+
+The W800 family of RF receivers are designed to receive X10 RF signals generated from X10 products: Palm Pad
+remotes, key chain remotes, Hawkeye motion detectors, and many, many other X10 RF devices.
+
+To enable W800rf32 in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
+
+```yaml
+# Example configuration.yaml entry
+w800rf32:
+  device: PATH_TO_DEVICE
+```
+
+{% configuration %}
+device:
+  description: "The path to USB/serial device, example: /dev/ttyUSB0."
+  required: true
+  type: string
+{% endconfiguration %}
+
+## Binary sensor
+
+The `w800rf32` platform supports X10 RF binary sensors such as Palm Pad remotes, key chain remotes, Hawkeye motion detectors, and many, many other X10 RF devices. Some that have specifically been used with this are the KR19A keychain, MS16A motion detector and the RSS18 four button wall mount keypad.
+
+## Setting up your devices
+
+Once you have set up your [w800rf32 hub](/integrations/w800rf32/), add the binary sensors to your {% term "`configuration.yaml`" %}:
+
+```yaml
+# Example configuration.yaml entry
+binary_sensor:
+  - platform: w800rf32
+    devices:
+      a1:
+        name: motion_hall
+      a2:
+        name: motion_kitchen
+```
+
+{% configuration %}
+devices:
+  description: A list of devices.
+  required: true
+  type: map
+  keys:
+    name:
+      description: Override the name to use in the frontend.
+      required: false
+      type: string
+    device_class:
+      description: Sets the [class of the device](/integrations/binary_sensor/), changing the device state and icon that is displayed on the frontend.
+      required: false
+      type: device_class
+    off_delay:
+      description: For sensors that only sends 'On' state updates, this variable sets a delay after which the sensor state will be updated back to 'Off'.
+      required: false
+      type: integer
+{% endconfiguration %}
+
+Binary sensors have only two states, "on" and "off". Many door or window opening sensors will send a signal each time the door/window is open or closed. However, depending on their hardware or on their purpose, some sensors are only able to signal their "on" state:
+
+- Most motion sensors send a signal each time they detect motion. They stay "on" for a few seconds and go back to sleep, ready to signal other motion events. Usually, they do not send a signal when they go back to sleep.
+
+For those devices, use the *off_delay* parameter. It defines a delay after which a device will go back to an "Off" state. That "Off" state will be fired internally by Home Assistant, just as if the device fired it by itself. If a motion sensor can only send signals once every 5 seconds, sets the *off_delay* parameter to *seconds: 5*.

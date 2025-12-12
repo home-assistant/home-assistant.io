@@ -1,0 +1,59 @@
+## Configuration check
+
+{% if page.installation == "os" %}
+
+After changing configuration or automation files, check if the configuration is valid before restarting Home Assistant Core.
+
+### Running a configuration check from the UI
+
+1. Go to {% my profile title="your user profile" %} and enable **Advanced Mode**.
+2. Go to {% my server_controls title="**Developer tools** > **YAML**" %} and in the **Configuration validation** section, select the **Check configuration** button.
+   - This is to make sure there are no syntax errors before restarting Home Assistant.
+   - It checks for valid {% term YAML %} and valid config structures.
+3. If you need to do a more comprehensive configuration check, [run the check from the CLI](#to-run-a-configuration-check-from-the-cli).
+
+### Running a configuration check from the CLI
+
+Use the following command to check if the configuration is valid. The command line configuration check validates the {% term YAML %} files and checks for valid config structures, as well as some other elements.
+
+```bash
+ha core check
+```
+
+{% elsif page.installation == "container" %}
+
+After changing configuration files, check if the configuration is valid before restarting Home Assistant Core.
+
+_If your container name is something other than `homeassistant`, change that part in the examples below._
+
+Run the full check:
+
+```bash
+docker exec homeassistant python -m homeassistant --script check_config --config /config
+```
+
+Listing all loaded files:
+
+```bash
+docker exec homeassistant python -m homeassistant --script check_config --files
+```
+
+Viewing an integration’s configuration ([`light`](/integrations/light) in this example):
+
+```bash
+docker exec homeassistant python -m homeassistant --script check_config --info light
+```
+
+Or all integrations’ configuration
+
+```bash
+docker exec homeassistant python -m homeassistant --script check_config --info all
+```
+
+You can get help from the command line using:
+
+```bash
+docker exec homeassistant python -m homeassistant --script check_config --help
+```
+
+{% endif %}

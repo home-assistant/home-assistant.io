@@ -1,0 +1,148 @@
+@charset "UTF-8";
+@if $use-arrows == true{
+
+/*------------------------------------*\
+    $ARROWS
+\*------------------------------------*/
+/**
+ * It is a common design treatment to give an element a triangular points-out
+ * arrow, we typically build these with CSS. These following classes allow us to
+ * generate these arbitrarily with a mixin, `@arrow()`.
+ */
+
+$arrow-size:            $half-spacing-unit!default;
+$arrow-border:          1!default;
+$border:                $arrow-size;
+$arrow:                 $arrow-size - $arrow-border;
+
+/**
+ * Forms the basis for any/all CSS arrows.
+ */
+%arrow{
+    position:relative;
+
+    &:before,
+    &:after{
+        content:"";
+        position:absolute;
+        border-collapse:separate;
+    }
+    &:before{
+        border:$border solid transparent;
+    }
+    &:after{
+        border:$arrow solid transparent;
+    }
+}
+
+
+/**
+ * Define individual edges so we can combine what we need, when we need.
+ */
+%arrow--top{
+    @extend %arrow;
+
+    &:before,
+    &:after{
+        bottom:100%;
+    }
+}
+
+%arrow--upper{
+    @extend %arrow;
+
+    &:before{
+        top:$arrow;
+    }
+    &:after{
+        top:$border;
+    }
+}
+
+%arrow--middle{
+    @extend %arrow;
+
+    &:before,
+    &:after{
+        top:50%;
+        margin-top:-$border;
+    }
+    &:after{
+        margin-top:-$arrow;
+    }
+}
+
+%arrow--lower{
+    @extend %arrow;
+
+    &:before{
+        bottom:$arrow;
+    }
+    &:after{
+        bottom:$border;
+    }
+}
+
+%arrow--bottom{
+    @extend %arrow;
+
+    &:before,
+    &:after{
+        top:100%;
+    }
+}
+
+%arrow--near{
+    @extend %arrow;
+
+    &:before,
+    &:after{
+        right:100%;
+    }
+}
+
+%arrow--left{
+    @extend %arrow;
+
+    &:before{
+        left:$arrow;
+    }
+    &:after{
+        left:$border;
+    }
+}
+
+%arrow--center{
+    @extend %arrow;
+
+    &:before,
+    &:after{
+        left:50%;
+        margin-left:-$border;
+    }
+    &:after{
+        margin-left:-$arrow;
+    }
+}
+
+%arrow--right{
+    @extend %arrow;
+
+    &:before{
+        right:$arrow;
+    }
+    &:after{
+        right:$border;
+    }
+}
+
+%arrow--far{
+    @extend %arrow;
+
+    &:before,
+    &:after{
+        left:100%;
+    }
+}
+
+}//endif

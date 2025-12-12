@@ -1,0 +1,185 @@
+@charset "UTF-8";
+/*------------------------------------*\
+    $HELPER
+\*------------------------------------*/
+/**
+ * A series of helper classes to use arbitrarily. Only use a helper class if an
+ * element/component doesn’t already have a class to which you could apply this
+ * styling, e.g., if you need to float `.main-nav` left then add `float:left;` to
+ * that ruleset as opposed to adding the `.float--left` class to the markup.
+ *
+ * A lot of these classes carry `!important` as you will always want them to win
+ * out over other selectors.
+ */
+
+
+/**
+ * Add/remove floats
+ */
+.float--right   { float:right!important; }
+.float--left    { float:left !important; }
+.float--none    { float:none !important; }
+
+
+/**
+ * Text alignment
+ */
+.text--left     { text-align:left  !important; }
+.text--center   { text-align:center!important; }
+.text--right    { text-align:right !important; }
+
+
+/**
+ * Font weights
+ */
+.weight--light      { font-weight:300!important; }
+.weight--normal     { font-weight:400!important; }
+.weight--semibold   { font-weight:600!important; }
+
+
+/**
+ * Add/remove margins
+ */
+.push           { margin:       $base-spacing-unit!important; }
+.push--top      { margin-top:   $base-spacing-unit!important; }
+.push--right    { margin-right: $base-spacing-unit!important; }
+.push--bottom   { margin-bottom:$base-spacing-unit!important; }
+.push--left     { margin-left:  $base-spacing-unit!important; }
+.push--ends     { margin-top:   $base-spacing-unit!important; margin-bottom:$base-spacing-unit!important; }
+.push--sides    { margin-right: $base-spacing-unit!important; margin-left:  $base-spacing-unit!important; }
+
+.push-half          { margin:       $half-spacing-unit!important; }
+.push-half--top     { margin-top:   $half-spacing-unit!important; }
+.push-half--right   { margin-right: $half-spacing-unit!important; }
+.push-half--bottom  { margin-bottom:$half-spacing-unit!important; }
+.push-half--left    { margin-left:  $half-spacing-unit!important; }
+.push-half--ends    { margin-top:   $half-spacing-unit!important; margin-bottom:$half-spacing-unit!important; }
+.push-half--sides   { margin-right: $half-spacing-unit!important; margin-left:  $half-spacing-unit!important; }
+
+.flush          { margin:       0!important; }
+.flush--top     { margin-top:   0!important; }
+.flush--right   { margin-right: 0!important; }
+.flush--bottom  { margin-bottom:0!important; }
+.flush--left    { margin-left:  0!important; }
+.flush--ends    { margin-top:   0!important; margin-bottom:0!important; }
+.flush--sides   { margin-right: 0!important; margin-left:  0!important; }
+
+
+/**
+ * Add/remove paddings
+ */
+.soft           { padding:       $base-spacing-unit!important; }
+.soft--top      { padding-top:   $base-spacing-unit!important; }
+.soft--right    { padding-right: $base-spacing-unit!important; }
+.soft--bottom   { padding-bottom:$base-spacing-unit!important; }
+.soft--left     { padding-left:  $base-spacing-unit!important; }
+.soft--ends     { padding-top:   $base-spacing-unit!important; padding-bottom:$base-spacing-unit!important; }
+.soft--sides    { padding-right: $base-spacing-unit!important; padding-left:  $base-spacing-unit!important; }
+
+.soft-half           { padding:       $half-spacing-unit!important; }
+.soft-half--top      { padding-top:   $half-spacing-unit!important; }
+.soft-half--right    { padding-right: $half-spacing-unit!important; }
+.soft-half--bottom   { padding-bottom:$half-spacing-unit!important; }
+.soft-half--left     { padding-left:  $half-spacing-unit!important; }
+.soft-half--ends     { padding-top:   $half-spacing-unit!important; padding-bottom:$half-spacing-unit!important; }
+.soft-half--sides    { padding-right: $half-spacing-unit!important; padding-left:  $half-spacing-unit!important; }
+
+.hard           { padding:       0!important; }
+.hard--top      { padding-top:   0!important; }
+.hard--right    { padding-right: 0!important; }
+.hard--bottom   { padding-bottom:0!important; }
+.hard--left     { padding-left:  0!important; }
+.hard--ends     { padding-top:   0!important; padding-bottom:0!important; }
+.hard--sides    { padding-right: 0!important; padding-left:  0!important; }
+
+
+/**
+ * Pull items full width of `.island` parents.
+ */
+.full-bleed{
+    margin-right:-$base-spacing-unit!important;
+    margin-left: -$base-spacing-unit!important;
+
+    .islet &{
+        margin-right:-($half-spacing-unit)!important;
+        margin-left: -($half-spacing-unit)!important;
+    }
+}
+
+
+/**
+ * Add a help cursor to any element that gives the user extra information on
+ * `:hover`.
+ */
+.informative{
+    cursor:help!important;
+}
+
+
+/**
+ * Mute an object by reducing its opacity.
+ */
+.muted{
+    opacity:0.5!important;
+    filter:alpha(opacity = 50)!important;
+}
+
+
+/**
+ * Align items to the right where they imply progression/movement forward, e.g.:
+ *
+   <p class=proceed><a href=#>Read more...</a></p>
+ *
+ */
+.proceed{
+    text-align:right!important;
+}
+
+
+/**
+ * Add a right-angled quote to links that imply movement, e.g.:
+ *
+   <a href=# class=go>Read more</a>
+ *
+ */
+.go:after{
+    content:"\00A0" "\00BB"!important;
+}
+
+
+/**
+ * Apply capital case to an element (usually a `strong`).
+ */
+.caps{
+    text-transform:uppercase!important;
+}
+
+
+/**
+ * Hide content off-screen without resorting to `display:none;`, also provide
+ * breakpoint specific hidden elements.
+ */
+@mixin accessibility{
+    border:0!important;
+    clip:rect(0 0 0 0)!important;
+    height:1px!important;
+    margin:-1px!important;
+    overflow:hidden!important;
+    padding:0!important;
+    position: absolute!important;
+    width:1px!important;
+}
+.accessibility,
+.visuallyhidden{
+    @include accessibility;
+}
+@if $responsive{
+    @each $state in palm, lap, lap-and-up, portable, desk, desk-wide{
+        @include media-query(#{$state}){
+            .accessibility--#{$state},
+            .visuallyhidden--#{$state}{
+                @include accessibility;
+            }
+        }
+    }
+}

@@ -1,0 +1,18 @@
+---
+layout: none
+---
+{% assign recent_release_post = site.categories['Core'].first %}{
+  "current_version": "{{ site.current_major_version }}.{{ site.current_minor_version }}.{{ site.current_patch_version }}",
+  "release_date": "{{ site.date_released | date_to_xmlschema }}",
+  "release_notes": "{{ site.url }}{{ recent_release_post.url }}",
+  "release_notes_path": "{{ recent_release_post.url }}",
+  "release_title": "{{ recent_release_post.title }}",
+  "release_description": "{{ recent_release_post.description }}",
+  "patch_version_notes": "{{ site.patch_version_notes }}",
+  "root_url": "{{ site.url }}",
+  "semantic_version": {
+    "major": {{ site.current_major_version }},
+    "minor": {{ site.current_minor_version }},
+    "patch": {{ site.current_patch_version }}
+  }
+}

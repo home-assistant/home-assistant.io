@@ -1,0 +1,27 @@
+---
+layout: default
+is_post: true
+feedback: false
+---
+
+<article class="post">
+  {% assign post = page %}
+  {% include blog/post/article.html %}
+</article>
+
+<div id='post-comments'></div>
+
+{% if page.comments == true and site.netlify.branch == "current" %}
+<div id='discourse-comments'></div>
+
+<script type="text/javascript">
+  DiscourseEmbed = { discourseUrl: 'https://community.home-assistant.io/',
+                     discourseEmbedUrl: '{{ page.url | canonical_url }}' };
+
+  (function() {
+    var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+    d.src = DiscourseEmbed.discourseUrl + 'javascripts/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+  })();
+</script>
+{% endif %}

@@ -1,0 +1,23 @@
+@charset "UTF-8";
+@if $use-columns == true{
+
+/*------------------------------------*\
+    $COLUMNS
+\*------------------------------------*/
+/**
+ * Here we can set elements in columns of text using CSS3, e.g.:
+ *
+   <p class=text-cols--2>
+ *
+ * Demo: jsfiddle.net/inuitcss/E26Yd
+ *
+ */
+%text-cols{
+    @include vendor(column-gap, $base-spacing-unit);
+}
+.text-cols--2    { @extend %text-cols; @include vendor(column-count, 2); }
+.text-cols--3    { @extend %text-cols; @include vendor(column-count, 3); }
+.text-cols--4    { @extend %text-cols; @include vendor(column-count, 4); }
+.text-cols--5    { @extend %text-cols; @include vendor(column-count, 5); }
+
+}//endif

@@ -1,0 +1,98 @@
+---
+title: Global Caché GC-100
+description: Instructions on how to integrate gc100 with Home Assistant.
+ha_category:
+  - Binary sensor
+  - Hub
+  - Switch
+ha_release: 0.57
+ha_iot_class: Local Polling
+ha_domain: gc100
+ha_platforms:
+  - binary_sensor
+  - switch
+ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
+ha_quality_scale: legacy
+---
+
+The Global Caché GC-100 can be integrated into Home Assistant. GC-100 is a TCP-controllable
+hardware device which has an array of relays, RS232 serial ports, and flexible ports which can be programmed to be either digital inputs or IR blaster outputs. There are a variety of submodels of the GC-100 which have different amounts of each I/O type.
+
+There is currently support for the following device types within Home Assistant:
+
+- [Configuration](#configuration)
+- [Binary sensor](#binary-sensor)
+- [Switch](#switch)
+
+Currently, only relays and ports configured to be digital inputs are supported in Home Assistant. For IR support, please use the [iTach remote platform](/integrations/itach), but note that it will likely not function concurrently on the same GC100 due to limitations in the TCP socket server implementation used by Global Caché.
+
+## Configuration
+
+To enable this device, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
+
+```yaml
+# Example configuration.yaml entry
+gc100:
+  host: IP_ADDRESS
+```
+
+{% configuration %}
+host:
+  description: The hostname or IP address of your GC100 device.
+  required: true
+  type: string
+port:
+  description: The port on which the GC100 is listening.
+  required: false
+  default: 4998
+  type: integer
+{% endconfiguration %}
+
+## Binary sensor
+
+To enable this sensor, you first have to set up [gc100](#configuration), and add the following lines to your{% term "`configuration.yaml`" %} file:
+
+```yaml
+# Example configuration.yaml entry
+binary_sensor:
+  - platform: gc100
+    ports:
+      - '3:1': Doorchime
+      - '3:2': Garage Obstruction
+```
+
+{% configuration %}
+ports:
+  description: >
+    A list of module-address to name mappings in the format `'x:y': name`,
+    where x is module #, y is address.
+  required: true
+  type: list
+{% endconfiguration %}
+
+## Switch
+
+This allows you to control and monitor the relay state on your GC100.
+
+To enable this switch, you first have to set up [gc100](#configuration), and add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
+
+```yaml
+# Example configuration.yaml entry
+switch:
+  - platform: gc100
+    ports:
+      - '4:1': Siren
+      - '4:2': Sprinkler
+```
+
+{% configuration %}
+ports:
+  description: "A list of module-address to name mappings in the format 'x:y': name, where x is module #, y is address."
+  required: true
+  type: list
+{% endconfiguration %}

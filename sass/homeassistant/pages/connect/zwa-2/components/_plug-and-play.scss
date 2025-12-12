@@ -1,0 +1,214 @@
+
+section#plug-and-play {
+    background-color: #DADDE2;
+    
+    @include bp(desktop){
+        height: 80vh;
+    }
+
+    .cols {
+        align-items: flex-end;
+        justify-content: space-between;
+        flex-direction: column;
+        gap: 16px;
+
+        @include bp(tablet) {
+            flex-direction: row;
+        }
+
+        .col {
+            @include bp(tablet){
+            flex-grow: 1;
+            flex-basis: 0;
+            }
+
+            &:first-child {
+                padding: 1rem;
+                overflow: hidden;
+                z-index: 1;
+                @include bp(desktop) {
+                    border-radius: 10px;
+                    backdrop-filter: blur(10px);
+                    max-width: 560px;
+                }
+            }
+
+            &:last-child {
+                width: 100%;
+
+                @include bp(desktop) {
+                    max-width: 520px;
+                }
+            }
+        }
+    }
+
+    .model-still{
+        overflow: visible;
+        aspect-ratio: 16/9;
+        height: auto;
+        margin-bottom: -20%;
+        position: relative;
+
+        &:after{
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(218, 221, 226, 0.00) 50%, #DADDE2 100%);
+        }
+        
+        img{
+            object-position: top;
+        }
+    }
+
+
+    .section-inner {
+        align-items: flex-end;
+        z-index: 2;
+
+        &-content{
+            padding-top: 0;
+            padding-bottom: calc(var(--container-gutters) / 2);
+        }
+    }
+
+    .config-cards {
+        --enter: 0;
+        display: flex;
+        flex-direction: column;
+        backdrop-filter: blur(10px);
+        padding: 10px 14px;
+        gap: 10px;
+        border-radius: 12px;
+        border: 1px solid #ffffff;
+        background-color: rgba(255, 255, 255, 0.5);
+
+        @include bp(tablet) {
+            padding: 16px 20px;
+        }
+
+        .config-card {
+            display: grid;
+            justify-content: space-between;
+            gap: 8px;
+            grid-template-areas:
+                'content icon'
+                'progress progress';
+
+            @include bp(tablet) {}
+
+            &-title {
+                font-size: 16px;
+
+                @include bp(tablet) {
+                    font-size: 24px;
+                }
+            }
+
+            &-content {
+                grid-area: content;
+                justify-content: center;
+                display: flex;
+                flex-direction: column;
+                gap: 4px;
+            }
+
+            &-description {
+                font-size: 14px;
+                text-wrap: balance;
+
+                @include bp(tablet) {
+                    font-size: 16px;
+                }
+            }
+
+            &-icon {
+                border: 1px solid rgba(255, 255, 255, 0.5);
+                grid-area: icon;
+                width: 40px;
+                height: 40px;
+                display: grid;
+                place-items: center;
+                border-radius: 50%;
+                background-color: rgba(255, 255, 255, 0.5);
+                position: relative;
+                overflow: hidden;
+
+                @include bp(tablet) {
+                    width: 74px;
+                    height: 74px;
+                }
+
+                &:after {
+                    content: '';
+                    inset: 0;
+                    position: absolute;
+                    background-color: var(--connect-line-blue);
+                    opacity: calc(.2 * var(--enter));
+                    transition: opacity .3s ease-out;
+                }
+                
+                .check {
+                    background-color: var(--connect-line-blue);
+                    border-radius: 50%;
+                    background-image: url("data:image/svg+xml,%3Csvg width='20' height='15' viewBox='0 0 20 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7.52212 15L20 2.48521L17.5221 0L7.52212 10.0296L2.47788 4.97041L0 7.45562L7.52212 15Z' fill='white'/%3E%3C/svg%3E%0A");
+                    background-size: 50%;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    height: 26px;
+                    width: 26px;
+                    position: relative;
+                    z-index: 1;
+                    opacity: var(--enter);
+                    scale: calc(0.8 + (var(--enter) * .2));
+                    transition: opacity .3s ease-out .125s,scale .3s ease-out .125s;
+
+                    @include bp(tablet) {
+                        background-size: 20px 15px;
+                        height: 40px;
+                        width: 40px;
+
+                    }
+                }
+            }
+
+            &-progress {
+                grid-area: progress;
+                margin-top: -2px;
+                align-self: flex-end;
+                margin-bottom: 6px;
+                height: 1px;
+                position: relative;
+                isolation: isolate;
+
+                @include bp(tablet) {
+                    align-self: unset;
+                    margin-top: 8px;
+                }
+
+                &:after {
+                    content: '';
+                    height: 1px;
+                    top: 1px;
+                    left: 0;
+                    right: 0;
+                    background-color: #ffffff;
+                    position: absolute;
+                    z-index: -1;
+                }
+
+                &:before {
+                    content: '';
+                    height: 3px;
+                    left: 0;
+                    width: calc(100% * var(--enter));
+                    background-color: var(--connect-line-blue);
+                    position: absolute;
+                    border-radius: 4px;
+                    transition: width .5s ease-out;
+                }
+            }
+        }
+    }
+}

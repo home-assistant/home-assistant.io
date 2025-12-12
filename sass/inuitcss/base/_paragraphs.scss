@@ -1,0 +1,12 @@
+@charset "UTF-8";
+/*------------------------------------*\
+    $PARAGRAPHS
+\*------------------------------------*/
+/**
+ * The `.lede` class is used to make the introductory text (usually a paragraph)
+ * of a document slightly larger.
+ */
+.lede,
+.lead{
+    @include font-size($base-font-size * 1.125);
+}

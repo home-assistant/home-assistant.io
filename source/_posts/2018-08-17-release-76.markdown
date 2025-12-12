@@ -1,0 +1,400 @@
+---
+title: "0.76: Auth almost done, FleetGo, PJLink, RMV public transport"
+description: "The boys and girls in our virtual HQ have been working hard on creating yet another great release."
+date: 2018-08-17 00:01:00
+date_formatted: "August 17, 2018"
+author: Paulus Schoutsen
+author_twitter: balloob
+categories:
+- Release-Notes
+- Core
+og_image: /images/blog/2018-08-0.76/components.png
+---
+
+{% note %}
+This release has a migration, initial startup can take ~20 minutes (depends on size DB)
+{% endnote %}
+
+This release includes a database migration to allow us to store context in the database. This will make it possible in the future to introduce attribution. For example, we'll be able to say which user opened the garage door or which automation triggered the party mode at 3am.
+
+<a href='/integrations/#version/0.76'><img src='/images/blog/2018-08-0.76/components.png' style='border: 0;box-shadow: none;'></a>
+
+The auth system is entering release candidate status 🎉. If nothing major is found, it will be enabled by default starting the next release (0.77) with backwards compatibility modus turned on. If you want to get ahead of the pack, you can already easily enable it now:
+
+```yaml
+homeassistant:
+  # add this part
+  auth_providers:
+   - type: homeassistant
+   # uncomment this to enable backwards compatible API password support
+   # - type: legacy_api_password
+```
+
+For iOS users, your frontend should be a lot faster. We had an issue that forced us to serve the frontend in compatibility mode, which is slower. We haven't been able to solve [the issue](https://bugs.webkit.org/show_bug.cgi?id=174629), but found a workaround. Race on 🏎.
+
+Warning. If you are using the internal MQTT broker, we've had to make a change how the password is set. In the past it would automatically start the broker with the user `homeassistant` and a password equal to the API password. This is no longer the case and you need to configure it yourself now:
+
+```yaml
+mqtt:
+  password: mypass
+```
+
+## New Platforms
+
+- deCONZ - support for power plugs ([@Kane610] - [#15752]) ([deconz docs]) ([light.deconz docs]) ([switch.deconz docs]) (breaking change) (new-platform)
+- RitAssist / FleetGO support ([@depl0y] - [#15780]) ([device_tracker docs]) (new-platform)
+- Add support for OpenUV binary sensors and sensors ([@bachya] - [#15769]) ([openuv docs]) ([binary_sensor.openuv docs]) ([sensor.openuv docs]) (new-platform)
+- Add Enphase Envoy component ([@jesserizzo] - [#15081]) ([sensor.enphase_envoy docs]) (new-platform)
+- Add media_player.dlna_dmr component ([@StevenLooman] - [#14749]) ([media_player.dlna_dmr docs]) (new-platform)
+- Add PJLink media player platform ([@benoitlouy] - [#15083]) ([media_player.pjlink docs]) (new-platform)
+- Add RMV public transport sensor ([@cgtobi] - [#15814]) ([sensor.rmvtransport docs]) (new-platform)
+
+## New Features
+
+- Add and restore context in recorder ([@balloob] - [#15859]) (new-feature)
+
+## Release 0.76.1 - August 19
+
+- No longer show "Store login" on each login when using API password ([@balloob])
+- Add forgiving add column ([@balloob] - [#16057])
+- Tuya fix login problem and add login platform param ([@huangyupeng] - [#16058]) ([tuya docs])
+- Add notify platforms to loaded components ([@balloob] - [#16063]) ([notify docs])
+- Column syntax fix + Add a file if migration in progress ([@balloob] - [#16061])
+
+[#16057]: https://github.com/home-assistant/home-assistant/pull/16057
+[#16058]: https://github.com/home-assistant/home-assistant/pull/16058
+[#16061]: https://github.com/home-assistant/home-assistant/pull/16061
+[#16063]: https://github.com/home-assistant/home-assistant/pull/16063
+[@balloob]: https://github.com/balloob
+[@huangyupeng]: https://github.com/huangyupeng
+[notify docs]: /integrations/notify/
+[tuya docs]: /integrations/tuya/
+
+## Release 0.76.2 - August 21
+
+- Forgiving add index in migration ([@balloob] - [#16092])
+- Fix push notifications toggle ([@balloob])
+
+[#16092]: https://github.com/home-assistant/home-assistant/pull/16092
+[@balloob]: https://github.com/balloob
+
+## If you need help...
+
+...don't hesitate to use our very active [forums](https://community.home-assistant.io/) or join us for a little [chat](https://discord.gg/c5DvZ4e). The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
+
+## Reporting Issues
+
+Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
+
+<!--more-->
+
+## Backward-incompatible changes
+
+- Keenetic NDMS: user needs to have access to the TelNet interface ([@foxel] - [#15511]) ([device_tracker docs]) (breaking change)
+- openweathermap: wind speed is now correctly in km/h (fixes #15710) ([@fabaff] - [#15740]) ([weather.openweathermap docs]) (breaking change)
+- Remove Telstra notifiy component: This API has been decommissioned on the 31st of May 2018 by Telstra ([@dgomes] - [#15757]) ([notify docs]) (breaking change)
+- deCONZ - support for power plugs. Power plugs that are of type "On/Off plug-in unit" and "Smart plug" (Osram and Innr among others) will now be switches instead of lights. Entities will be found as switch.entity_id instead of light.entity_id. ([@Kane610] - [#15752]) ([deconz docs]) ([light.deconz docs]) ([switch.deconz docs]) (breaking change) (new-platform)
+- HTTP: Make sure use_x_forward_for and trusted_proxies must be configured together ([@awarecan] - [#15804]) ([http docs]) (breaking change)
+- Velbus: Backward-incompatible changes include auto-discovery support so that you don't need to specify modules manually anymore in the configuration file, but just load the velbus component which will automatically load the switch and binary_sensor platforms. In addition, the fan and light platforms are removed since these should be modeled with template platform based on velbus switches. ([@thomasdelaet] - [#13742]) ([velbus docs]) ([binary_sensor.velbus docs]) ([switch.velbus docs]) (breaking change)
+- Facebox: Events are no longer fired when a face is taught, as these are unnecessary and the info they convey is already in the logs. ([@robmarkcole] - [#15439]) ([image_processing.facebox docs]) (breaking change)
+- AMCrest switch: Fix for multiple camera switches naming of entity. May change switch entity_id. Please check your automation and update the identity-id if you have previously assigned a name to your camera as it appends the name of the camera to the switch id. ([@rafale77] - [#14028]) ([switch.amcrest docs]) (breaking change)
+- MQTT embedded broker will no longer rely on HTTP API password to automatically configure itself. You need to set own password. ([@awarecan] - [#15929]) ([mqtt docs]) (breaking change) (beta fix)
+- Remove remote.API from core.Config. Might break custom components if they rely on hass.config.api ([@awarecan] - [#15951]) ([http docs]) (breaking change) (beta fix)
+
+## Beta Fixes
+
+- Upgrade pymysensors to 0.17.0 ([@MartinHjelmare] - [#15942]) ([mysensors docs]) (beta fix)
+- Deprecate remote.api ([@balloob] - [#15955]) (beta fix)
+- Added error handling for sense API timeouts ([@kbickar] - [#15789]) ([sensor.sense docs]) (beta fix)
+- Add context to login flow ([@awarecan] - [#15914]) ([auth docs]) (beta fix)
+- MQTT embedded broker has to set its own password. ([@awarecan] - [#15929]) ([mqtt docs]) (breaking change) (beta fix)
+- Fix issue when reading worxlandroid pin code ([@GotoCode] - [#15930]) ([sensor.worxlandroid docs]) (beta fix)
+- remove-phantomjs-from-docker ([@vrih] - [#15936]) (beta fix)
+- Remove remote.API from core.Config ([@awarecan] - [#15951]) ([http docs]) (breaking change) (beta fix)
+- Allow picking intermediate Mozilla cert profile ([@balloob] - [#15957]) ([http docs]) (beta fix)
+- Use JWT for access tokens ([@balloob] - [#15972]) ([auth docs]) ([http docs]) ([websocket_api docs]) (beta fix)
+- Pin crypto ([@balloob] - [#15978]) (beta fix)
+- Teak mqtt error message for 0.76 release ([@awarecan] - [#15983]) ([mqtt docs]) (beta fix)
+- Fix 0.76 beta2 hassio token issue ([@awarecan] - [#15987]) ([hassio docs]) (beta fix)
+- Fix mysensors connection task blocking setup ([@MartinHjelmare] - [#15938]) ([mysensors docs]) (beta fix)
+- Fix Nest async from sync ([@balloob] - [#15997]) ([nest docs]) (beta fix)
+
+## All changes
+
+- Add kodi unique id based on discovery ([@rytilahti] - [#15093]) ([media_player.kodi docs])
+- Better handling of Yi camera being disconnected ([@bachya] - [#15754]) ([camera.yi docs])
+- Decouple login flow view and data entry flow view ([@awarecan] - [#15715]) ([auth docs])
+- Fixed NDMS for latest firmware ([@foxel] - [#15511]) ([device_tracker docs]) (breaking change)
+- Add disallow_untyped_calls to mypy check. ([@andrey-git] - [#15661]) ([persistent_notification docs])
+- Update pyozw to 0.4.9 ([@turbokongen] - [#15758]) ([zwave docs])
+- Convert wind speed to km/h (fixes #15710) ([@fabaff] - [#15740]) ([weather.openweathermap docs]) (breaking change)
+- Round precipitation forecast to 1 decimal place ([@priiduonu] - [#15759]) ([weather.openweathermap docs])
+- Add a "Reviewed by Hound" badge ([@salbertson] - [#15767])
+- Upgrade Mastodon.py to 1.3.1 ([@fabaff] - [#15766]) ([notify docs])
+- This component API has been decommissioned on the 31st of May 2018 by Telstra ([@dgomes] - [#15757]) ([notify docs]) (breaking change)
+- Fix docstrings ([@fabaff] - [#15770])
+- Update pynetgear to 0.4.1 (bugfixes) ([@MatMaul] - [#15768]) ([device_tracker docs])
+- Opensky altitude ([@ioangogo] - [#15273]) ([sensor.opensky docs])
+- Expose internal states and fixed on/off state of Dyson Fans ([@soraxas] - [#15716]) ([fan.dyson docs])
+- deCONZ - support for power plugs ([@Kane610] - [#15752]) ([deconz docs]) ([light.deconz docs]) ([switch.deconz docs]) (breaking change) (new-platform)
+- Add support for STATES of vacuums ([@cnrd] - [#15573]) ([vacuum docs]) ([vacuum.xiaomi_miio docs])
+- Add support for STATE_AUTO of generic_thermostat ([@niklaswa] - [#15678]) ([climate.generic_thermostat docs])
+- Revert "Add support for STATE_AUTO of generic_thermostat (#15678)" ([@awarecan] - [#15783]) ([climate.generic_thermostat docs])
+- RitAssist / FleetGO support ([@depl0y] - [#15780]) ([device_tracker docs]) (new-platform)
+- Add support for OpenUV binary sensors and sensors ([@bachya] - [#15769]) ([openuv docs]) ([binary_sensor.openuv docs]) ([sensor.openuv docs]) (new-platform)
+- Update pymediaroom to 0.6.4 ([@dgomes] - [#15786]) ([media_player.mediaroom docs])
+- Add Enphase Envoy component ([@jesserizzo] - [#15081]) ([sensor.enphase_envoy docs]) (new-platform)
+- Vacuum component: start_pause to individual start and pause commands. ([@cnrd] - [#15751]) ([vacuum docs])
+- Make sure use_x_forward_for and trusted_proxies must config together ([@awarecan] - [#15804]) ([http docs]) (breaking change)
+- Upgrade voluptuous-serialize to 2.0.0 ([@awarecan] - [#15763]) ([config docs])
+- Upgrade pylint to 2.1.0 ([@scop] - [#15811]) ([binary_sensor.bayesian docs]) ([binary_sensor.threshold docs]) ([calendar.todoist docs]) ([light.group docs]) ([sensor.min_max docs]) ([sensor.statistics docs])
+- Upgrade pytest to 3.7.1 and pytest-timeout to 1.3.1 ([@scop] - [#15809])
+- Add support for 2 Tahoma IO awning covers ([@fucm] - [#15660]) ([tahoma docs]) ([cover.tahoma docs])
+- Velbus auto-discovery ([@thomasdelaet] - [#13742]) ([velbus docs]) ([binary_sensor.velbus docs]) ([switch.velbus docs]) (breaking change)
+- Upgrade youtube_dl to 2018.08.04 ([@fabaff] - [#15837]) ([media_extractor docs])
+- Add media_player.dlna_dmr component ([@StevenLooman] - [#14749]) ([media_player.dlna_dmr docs]) (new-platform)
+- Remove 'volume' from return dict ([@mattwing] - [#15842]) ([sensor.alpha_vantage docs])
+- Upgrade shodan to 1.9.0 ([@fabaff] - [#15839]) ([sensor.shodan docs])
+- Add max_gps_accuracy option to Google Maps ([@PrimusNZ] - [#15833]) ([device_tracker docs])
+- Fix bt_home_hub_5 device tracker ([@ahobsonsayers] - [#15096]) ([device_tracker docs])
+- Change to call_service async_stop non-blocking to allow service call finish ([@awarecan] - [#15803])
+- Try to fix coveralls unstable result ([@awarecan] - [#15800])
+- Add different pop 012501 ID ([@turbokongen] - [#15838]) ([zwave docs])
+- Fix error when Series missing 'episodeFileCount' or 'episodeCount' ([@psike] - [#15824]) ([sensor.sonarr docs])
+- Add facebox auth ([@robmarkcole] - [#15439]) ([image_processing.facebox docs]) (breaking change)
+- Upgrade holidays to 0.9.6 ([@fabaff] - [#15831]) ([binary_sensor.workday docs])
+- Upgrade pysnmp to 4.4.5 ([@fabaff] - [#15854]) ([device_tracker docs]) ([sensor.snmp docs]) ([switch.snmp docs])
+- Fix HomeKit test ([@cdce8p] - [#15860])
+- Do not make internet connection during tests ([@balloob] - [#15858])
+- Upgrade pylint to 2.1.1 ([@scop] - [#15872])
+- Upgrade asynctest to 0.12.2 ([@fabaff] - [#15869])
+- Upgrade Sphinx to 1.7.6 ([@fabaff] - [#15868])
+- Upgrade requests_mock to 1.5.2 ([@fabaff] - [#15867])
+- Update based upon forum post ([@DubhAd] - [#15876]) ([device_tracker docs])
+- Upgrade netdisco to 2.0.0 ([@fabaff] - [#15885])
+- Follow changes to netdisco, separating DLNA into DLNA_DMS and DLNA_DMR ([@StevenLooman] - [#15877]) ([media_player.dlna_dmr docs])
+- Upgrade pylast to 2.4.0 ([@fabaff] - [#15886]) ([sensor.lastfm docs])
+- Add auth/authorize endpoint ([@balloob] - [#15887])
+- Upgrade locationsharinglib to 2.0.11 ([@fabaff] - [#15902]) ([device_tracker docs])
+- Refactor data entry flow ([@awarecan] - [#15883])
+- Add HomematicIP Cloud smoke detector device ([@mxworm] - [#15621]) ([binary_sensor.homematicip_cloud docs])
+- Fix for multiple camera switches naming of entity ([@rafale77] - [#14028]) ([switch.amcrest docs]) (breaking change)
+- Add realtime true/false switch for Waze ([@mountainsandcode] - [#15228]) ([sensor.waze_travel_time docs])
+- Add PJLink media player platform ([@benoitlouy] - [#15083]) ([media_player.pjlink docs]) (new-platform)
+- Some typing related fixes ([@scop] - [#15899])
+- Update August component to use py-august:0.6.0 ([@snjoetw] - [#15916]) ([august docs])
+- Misc cleanups ([@scop] - [#15907]) ([device_tracker docs]) ([sensor.irish_rail_transport docs])
+- Update radiotherm to 1.4.1 ([@craftyguy] - [#15910]) ([climate.radiotherm docs])
+- Fix bug in translations upload script ([@armills] - [#15922])
+- Add and restore context in recorder ([@balloob] - [#15859]) (new-feature)
+- Add IndieAuth 4.2.2 redirect uri at client id ([@balloob] - [#15911]) ([auth docs])
+- deCONZ - Add support for sirens ([@Kane610] - [#15896]) ([deconz docs]) ([switch.deconz docs])
+- Add RMV public transport sensor ([@cgtobi] - [#15814]) ([sensor.rmvtransport docs]) (new-platform)
+- :pencil2: Corrects typo in code comments ([@frenck] - [#15923]) ([binary_sensor.homematicip_cloud docs])
+- Upgrade pymysensors to 0.17.0 ([@MartinHjelmare] - [#15942]) ([mysensors docs]) (beta fix)
+- Deprecate remote.api ([@balloob] - [#15955]) (beta fix)
+- Added error handling for sense API timeouts ([@kbickar] - [#15789]) ([sensor.sense docs]) (beta fix)
+- Add context to login flow ([@awarecan] - [#15914]) ([auth docs]) (beta fix)
+- MQTT embedded broker has to set its own password. ([@awarecan] - [#15929]) ([mqtt docs]) (breaking change) (beta fix)
+- Fix issue when reading worxlandroid pin code ([@GotoCode] - [#15930]) ([sensor.worxlandroid docs]) (beta fix)
+- remove-phantomjs-from-docker ([@vrih] - [#15936]) (beta fix)
+- Remove remote.API from core.Config ([@awarecan] - [#15951]) ([http docs]) (breaking change) (beta fix)
+- Allow picking intermediate Mozilla cert profile ([@balloob] - [#15957]) ([http docs]) (beta fix)
+- Use JWT for access tokens ([@balloob] - [#15972]) ([auth docs]) ([http docs]) ([websocket_api docs]) (beta fix)
+- Pin crypto ([@balloob] - [#15978]) (beta fix)
+- Teak mqtt error message for 0.76 release ([@awarecan] - [#15983]) ([mqtt docs]) (beta fix)
+- Fix 0.76 beta2 hassio token issue ([@awarecan] - [#15987]) ([hassio docs]) (beta fix)
+- Fix mysensors connection task blocking setup ([@MartinHjelmare] - [#15938]) ([mysensors docs]) (beta fix)
+- Fix Nest async from sync ([@balloob] - [#15997]) ([nest docs]) (beta fix)
+
+[#13742]: https://github.com/home-assistant/home-assistant/pull/13742
+[#14028]: https://github.com/home-assistant/home-assistant/pull/14028
+[#14749]: https://github.com/home-assistant/home-assistant/pull/14749
+[#15081]: https://github.com/home-assistant/home-assistant/pull/15081
+[#15083]: https://github.com/home-assistant/home-assistant/pull/15083
+[#15093]: https://github.com/home-assistant/home-assistant/pull/15093
+[#15096]: https://github.com/home-assistant/home-assistant/pull/15096
+[#15228]: https://github.com/home-assistant/home-assistant/pull/15228
+[#15273]: https://github.com/home-assistant/home-assistant/pull/15273
+[#15439]: https://github.com/home-assistant/home-assistant/pull/15439
+[#15511]: https://github.com/home-assistant/home-assistant/pull/15511
+[#15573]: https://github.com/home-assistant/home-assistant/pull/15573
+[#15621]: https://github.com/home-assistant/home-assistant/pull/15621
+[#15660]: https://github.com/home-assistant/home-assistant/pull/15660
+[#15661]: https://github.com/home-assistant/home-assistant/pull/15661
+[#15678]: https://github.com/home-assistant/home-assistant/pull/15678
+[#15715]: https://github.com/home-assistant/home-assistant/pull/15715
+[#15716]: https://github.com/home-assistant/home-assistant/pull/15716
+[#15740]: https://github.com/home-assistant/home-assistant/pull/15740
+[#15751]: https://github.com/home-assistant/home-assistant/pull/15751
+[#15752]: https://github.com/home-assistant/home-assistant/pull/15752
+[#15754]: https://github.com/home-assistant/home-assistant/pull/15754
+[#15757]: https://github.com/home-assistant/home-assistant/pull/15757
+[#15758]: https://github.com/home-assistant/home-assistant/pull/15758
+[#15759]: https://github.com/home-assistant/home-assistant/pull/15759
+[#15763]: https://github.com/home-assistant/home-assistant/pull/15763
+[#15766]: https://github.com/home-assistant/home-assistant/pull/15766
+[#15767]: https://github.com/home-assistant/home-assistant/pull/15767
+[#15768]: https://github.com/home-assistant/home-assistant/pull/15768
+[#15769]: https://github.com/home-assistant/home-assistant/pull/15769
+[#15770]: https://github.com/home-assistant/home-assistant/pull/15770
+[#15780]: https://github.com/home-assistant/home-assistant/pull/15780
+[#15783]: https://github.com/home-assistant/home-assistant/pull/15783
+[#15786]: https://github.com/home-assistant/home-assistant/pull/15786
+[#15789]: https://github.com/home-assistant/home-assistant/pull/15789
+[#15800]: https://github.com/home-assistant/home-assistant/pull/15800
+[#15803]: https://github.com/home-assistant/home-assistant/pull/15803
+[#15804]: https://github.com/home-assistant/home-assistant/pull/15804
+[#15809]: https://github.com/home-assistant/home-assistant/pull/15809
+[#15811]: https://github.com/home-assistant/home-assistant/pull/15811
+[#15814]: https://github.com/home-assistant/home-assistant/pull/15814
+[#15824]: https://github.com/home-assistant/home-assistant/pull/15824
+[#15831]: https://github.com/home-assistant/home-assistant/pull/15831
+[#15833]: https://github.com/home-assistant/home-assistant/pull/15833
+[#15837]: https://github.com/home-assistant/home-assistant/pull/15837
+[#15838]: https://github.com/home-assistant/home-assistant/pull/15838
+[#15839]: https://github.com/home-assistant/home-assistant/pull/15839
+[#15842]: https://github.com/home-assistant/home-assistant/pull/15842
+[#15854]: https://github.com/home-assistant/home-assistant/pull/15854
+[#15858]: https://github.com/home-assistant/home-assistant/pull/15858
+[#15859]: https://github.com/home-assistant/home-assistant/pull/15859
+[#15860]: https://github.com/home-assistant/home-assistant/pull/15860
+[#15867]: https://github.com/home-assistant/home-assistant/pull/15867
+[#15868]: https://github.com/home-assistant/home-assistant/pull/15868
+[#15869]: https://github.com/home-assistant/home-assistant/pull/15869
+[#15872]: https://github.com/home-assistant/home-assistant/pull/15872
+[#15876]: https://github.com/home-assistant/home-assistant/pull/15876
+[#15877]: https://github.com/home-assistant/home-assistant/pull/15877
+[#15883]: https://github.com/home-assistant/home-assistant/pull/15883
+[#15885]: https://github.com/home-assistant/home-assistant/pull/15885
+[#15886]: https://github.com/home-assistant/home-assistant/pull/15886
+[#15887]: https://github.com/home-assistant/home-assistant/pull/15887
+[#15896]: https://github.com/home-assistant/home-assistant/pull/15896
+[#15899]: https://github.com/home-assistant/home-assistant/pull/15899
+[#15902]: https://github.com/home-assistant/home-assistant/pull/15902
+[#15907]: https://github.com/home-assistant/home-assistant/pull/15907
+[#15910]: https://github.com/home-assistant/home-assistant/pull/15910
+[#15911]: https://github.com/home-assistant/home-assistant/pull/15911
+[#15914]: https://github.com/home-assistant/home-assistant/pull/15914
+[#15916]: https://github.com/home-assistant/home-assistant/pull/15916
+[#15922]: https://github.com/home-assistant/home-assistant/pull/15922
+[#15923]: https://github.com/home-assistant/home-assistant/pull/15923
+[#15929]: https://github.com/home-assistant/home-assistant/pull/15929
+[#15930]: https://github.com/home-assistant/home-assistant/pull/15930
+[#15936]: https://github.com/home-assistant/home-assistant/pull/15936
+[#15938]: https://github.com/home-assistant/home-assistant/pull/15938
+[#15942]: https://github.com/home-assistant/home-assistant/pull/15942
+[#15951]: https://github.com/home-assistant/home-assistant/pull/15951
+[#15955]: https://github.com/home-assistant/home-assistant/pull/15955
+[#15957]: https://github.com/home-assistant/home-assistant/pull/15957
+[#15972]: https://github.com/home-assistant/home-assistant/pull/15972
+[#15978]: https://github.com/home-assistant/home-assistant/pull/15978
+[#15983]: https://github.com/home-assistant/home-assistant/pull/15983
+[#15987]: https://github.com/home-assistant/home-assistant/pull/15987
+[#15997]: https://github.com/home-assistant/home-assistant/pull/15997
+[@DubhAd]: https://github.com/DubhAd
+[@GotoCode]: https://github.com/GotoCode
+[@Kane610]: https://github.com/Kane610
+[@MartinHjelmare]: https://github.com/MartinHjelmare
+[@MatMaul]: https://github.com/MatMaul
+[@PrimusNZ]: https://github.com/PrimusNZ
+[@StevenLooman]: https://github.com/StevenLooman
+[@ahobsonsayers]: https://github.com/ahobsonsayers
+[@andrey-git]: https://github.com/andrey-git
+[@armills]: https://github.com/armills
+[@awarecan]: https://github.com/awarecan
+[@bachya]: https://github.com/bachya
+[@balloob]: https://github.com/balloob
+[@benoitlouy]: https://github.com/benoitlouy
+[@cdce8p]: https://github.com/cdce8p
+[@cgtobi]: https://github.com/cgtobi
+[@cnrd]: https://github.com/cnrd
+[@craftyguy]: https://github.com/craftyguy
+[@depl0y]: https://github.com/depl0y
+[@dgomes]: https://github.com/dgomes
+[@fabaff]: https://github.com/fabaff
+[@foxel]: https://github.com/foxel
+[@frenck]: https://github.com/frenck
+[@fucm]: https://github.com/fucm
+[@ioangogo]: https://github.com/ioangogo
+[@jesserizzo]: https://github.com/jesserizzo
+[@kbickar]: https://github.com/kbickar
+[@mattwing]: https://github.com/mattwing
+[@mountainsandcode]: https://github.com/mountainsandcode
+[@mxworm]: https://github.com/mxworm
+[@niklaswa]: https://github.com/niklaswa
+[@priiduonu]: https://github.com/priiduonu
+[@psike]: https://github.com/psike
+[@rafale77]: https://github.com/rafale77
+[@robmarkcole]: https://github.com/robmarkcole
+[@rytilahti]: https://github.com/rytilahti
+[@salbertson]: https://github.com/salbertson
+[@scop]: https://github.com/scop
+[@snjoetw]: https://github.com/snjoetw
+[@soraxas]: https://github.com/soraxas
+[@thomasdelaet]: https://github.com/thomasdelaet
+[@turbokongen]: https://github.com/turbokongen
+[@vrih]: https://github.com/vrih
+[august docs]: /integrations/august/
+[auth docs]: /integrations/auth/
+[binary_sensor.bayesian docs]: /integrations/bayesian
+[binary_sensor.homematicip_cloud docs]: /integrations/homematicip_cloud/
+[binary_sensor.openuv docs]: /integrations/openuv
+[binary_sensor.threshold docs]: /integrations/threshold
+[binary_sensor.velbus docs]: /integrations/velbus
+[binary_sensor.workday docs]: /integrations/workday
+[calendar.todoist docs]: /integrations/todoist
+[camera.yi docs]: /integrations/yi
+[climate.generic_thermostat docs]: /integrations/generic_thermostat
+[climate.radiotherm docs]: /integrations/radiotherm
+[config docs]: /integrations/config/
+[cover.tahoma docs]: /integrations/tahoma
+[deconz docs]: /integrations/deconz/
+[device_tracker docs]: /integrations/device_tracker/
+[fan.dyson docs]: /integrations/dyson#fan
+[fan.velbus docs]: /integrations/fan.velbus/
+[hassio docs]: /integrations/hassio/
+[http docs]: /integrations/http/
+[image_processing.facebox docs]: /integrations/facebox
+[light.deconz docs]: /integrations/deconz#light
+[light.group docs]: /integrations/light.group/
+[light.velbus docs]: /integrations/velbus/
+[media_extractor docs]: /integrations/media_extractor/
+[media_player.dlna_dmr docs]: /integrations/dlna_dmr
+[media_player.kodi docs]: /integrations/kodi
+[media_player.mediaroom docs]: /integrations/mediaroom
+[media_player.pjlink docs]: /integrations/pjlink
+[mqtt docs]: /integrations/mqtt/
+[mysensors docs]: /integrations/mysensors/
+[nest docs]: /integrations/nest/
+[notify docs]: /integrations/notify/
+[onboarding docs]: /integrations/onboarding/
+[openuv docs]: /integrations/openuv/
+[persistent_notification docs]: /integrations/persistent_notification/
+[sensor.alpha_vantage docs]: /integrations/alpha_vantage
+[sensor.enphase_envoy docs]: /integrations/enphase_envoy
+[sensor.irish_rail_transport docs]: /integrations/irish_rail_transport
+[sensor.lastfm docs]: /integrations/lastfm
+[sensor.min_max docs]: /integrations/min_max
+[sensor.opensky docs]: /integrations/opensky
+[sensor.openuv docs]: /integrations/openuv
+[sensor.rmvtransport docs]: /integrations/rmvtransport
+[sensor.sense docs]: /integrations/sense
+[sensor.shodan docs]: /integrations/shodan
+[sensor.snmp docs]: /integrations/snmp#sensor
+[sensor.sonarr docs]: /integrations/sonarr
+[sensor.statistics docs]: /integrations/statistics
+[sensor.waze_travel_time docs]: /integrations/waze_travel_time
+[sensor.worxlandroid docs]: /integrations/worxlandroid
+[switch.amcrest docs]: /integrations/amcrest
+[switch.deconz docs]: /integrations/deconz#switch
+[switch.snmp docs]: /integrations/snmp#switch
+[switch.velbus docs]: /integrations/velbus
+[tahoma docs]: /integrations/tahoma/
+[vacuum docs]: /integrations/vacuum/
+[vacuum.demo docs]: /integrations/vacuum.demo/
+[vacuum.xiaomi_miio docs]: /integrations/vacuum.xiaomi_miio/
+[velbus docs]: /integrations/velbus/
+[weather.openweathermap docs]: /integrations/openweathermap#weather
+[websocket_api docs]: /integrations/websocket_api/
+[zwave docs]: /integrations/zwave/

@@ -1,0 +1,256 @@
+---
+title: "CLA Signature"
+description: "The Home Assistant contributor license agreement (CLA) signature page"
+---
+
+<style type="text/css">
+  .wrapper div {
+      margin-bottom: 15px;
+  }
+  div > input, div > label {
+      display: inline-block;
+  }
+  div > input[type='text'], div > input[type='email'] {
+      width: 77%;
+  }
+
+  .wrapper div > label {
+      width: 20%;
+  }
+
+  #company_name_group {
+    display: none;
+  }
+
+  #signature_form {
+    display: none;
+  }
+
+  #complete {
+    display: none;
+  }
+
+  #error {
+    background: red;
+    color: white;
+    padding: 4px;
+    display: none;
+  }
+</style>
+
+<div id="loading">
+  <div id="spinner"></div>
+  <p>Please wait while we complete authentication and load data from GitHub...</p>
+</div>
+<div id="error"></div>
+
+<form action="#" id="signature_form">
+  <div class="wrapper">
+    <div>
+      <label>I am signing for:</label>
+      <input type="radio" name="signing_for" value="self" required checked> myself
+      <input type="radio" name="signing_for" value="company" required> my company
+    </div>
+    <div id="company_name_group">
+      <label>Company name:</label>
+      <input type="text" id="company_name" name="company_name" placeholder="Company's legal name" novalidate>
+    </div>
+    <div>
+      <label>Full name:</label>
+      <input type="text" id="name" placeholder="Full and legal name" required>
+    </div>
+    <div>
+      <label>Email:</label>
+      <!-- <input type="email" id="email" placeholder="Email" required> -->
+      <select name="email" id="email" required></select>
+    </div>
+    <div>
+      <label>GitHub Username:</label>
+      <input type="text" id="github_username" placeholder="GitHub Username" required>
+    </div>
+    <div>
+      <label>Country</label>
+      <select name="country" id="country" required></select>
+    </div>
+    <div>
+      <label>State/Region</label>
+      <select name="region" id="region" required></select>
+    </div>
+    <input type="checkbox" id="i_agree" required> <label for="i_agree"><strong>I have read and agreed to the <a href="/developers/cla/" target="_blank">Home Assistant Contributor License Agreement</a></strong></label>
+    <br>
+    <input type="hidden" id="github_user_id">
+    <button type="submit" class="btn btn-danger" id="submit">Sign CLA</button>
+  </div>
+</form>
+
+<div id="complete">
+  <h1>Thanks!</h1>
+  <p>Thank you for signing the Home Assistant Contributor license agreement. We are now redirecting you back to your pull request.</p>
+</div>
+
+<script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"></script>
+<script src="https://unpkg.com/github-api/dist/GitHub.bundle.min.js" integrity="sha384-+xz3fq/3eelwDKBA3CJY8l/0eHt1EVCfRcW40WvBl3c1Cg8c1PUaCzlKtHo5UW8g" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/spin.js/2.3.2/spin.min.js" integrity="sha256-PieqE0QdEDMppwXrTzSZQr6tWFX3W5KkyRVyF1zN3eg=" crossorigin="anonymous"></script>
+<script type="text/javascript">
+  // Countries
+  var allCountries = {{ site.data.countries | jsonify }};
+
+  function populateStates(countryElementId, stateElementId) {
+
+      var selectedCountry = document.getElementById(countryElementId).value;
+      var stateElement = document.getElementById(stateElementId);
+
+      stateElement.length = 0; // Fixed by Julian Woods
+      stateElement.options[0] = new Option('Select State/Region', '');
+      stateElement.selectedIndex = 0;
+
+      var state_arr = allCountries[selectedCountry] || [];
+
+      for (var i = 0; i < state_arr.length; i++) {
+          stateElement.options[stateElement.length] = new Option(state_arr[i], state_arr[i]);
+      }
+  }
+
+  function populateCountries(countryElementId, stateElementId) {
+      // given the id of the <select> tag as function argument, it inserts <option> tags
+      var countryNames = Object.keys(allCountries);
+      var countryElement = document.getElementById(countryElementId);
+      countryElement.length = 0;
+      countryElement.options[0] = new Option('Select Country', '-1');
+      for (var i = 0; i < countryNames.length; i++) {
+          var countryName = countryNames[i];
+          countryElement.options[countryElement.length] = new Option(countryName, countryName);
+      }
+      populateStates(countryElementId, stateElementId);
+
+      // Assigned all countries. Now assign event listener for the states.
+      if (stateElementId) {
+          countryElement.onchange = function () {
+              populateStates(countryElementId, stateElementId);
+          };
+      }
+  }
+</script>
+
+<script type="text/javascript">
+
+  function fill_fields(){
+    var token = localStorage.getItem("gh_token");
+    var gh = new GitHub({ token: token });
+    var currentUser = gh.getUser();
+    currentUser.getProfile(function(err, profile){
+      if(err){
+        console.error('Got an error when attempting to load users profile', err);
+        const errorEl = document.querySelector("#error");
+        errorEl.textContent = "Failed to load your GitHub profile: " + (err.response?.data?.message || err.message);
+        errorEl.style.display = "block";
+        $('#loading').hide();
+      } else {
+        $("#name").val(profile.name);
+        $('#github_user_id').val(profile.id);
+        $("#github_username").val(profile.login).prop('disabled', true);
+      }
+      currentUser.getEmails(function(err, emails){
+        if(err){
+          console.error('Got an error when attempting to load users emails', err);
+          const errorEl = document.querySelector("#error");
+          errorEl.textContent = "Failed to load your GitHub emails: " + (err.response?.data?.message || err.message);
+          errorEl.style.display = "block";
+          $('#loading').hide();
+        } else {
+          $.each(emails, function (i, item) {
+            $('#email').append($('<option>', { value: item.email, text: item.email }));
+          });
+          $('#loading').hide();
+          $('#signature_form').show();
+        }
+      });
+    });
+  }
+
+  function qs(key) {
+    key = key.replace(/[*+?^$.\[\]{}()|\\\/]/g, "\\$&"); // escape RegEx meta chars
+    var match = location.search.match(new RegExp("[?&]"+key+"=([^&]+)(&|$)"));
+    return match && decodeURIComponent(match[1].replace(/\+/g, " "));
+  }
+
+  $(document).ready(function(){
+    populateCountries("country", "region");
+    var spinner = new Spinner().spin(document.getElementById('spinner'));
+    var codeCheck = qs('code');
+    if (codeCheck && codeCheck.length > 0) {
+      $.ajax({
+        type: "POST",
+        url: "https://service-hub-bots.home-assistant.io/cla-sign/authorize",
+        data: JSON.stringify({"code": codeCheck}),
+        contentType: "application/json",
+      }).done(function(data){
+        var uri = window.location.toString();
+        if (uri.indexOf("?") > 0) {
+          var clean_uri = uri.substring(0, uri.indexOf("?"));
+          window.history.replaceState({}, document.title, clean_uri);
+        }
+        localStorage.setItem("gh_token", data.access_token);
+        fill_fields();
+      });
+    } else if (localStorage.getItem("gh_token") != null) {
+      fill_fields();
+    } else {
+      window.location = '/developers/cla_sign_start/';
+    }
+    $('input[name="signing_for"]').click(function(){
+      if($(this).attr('value') === "company") {
+        $('#company_name_group').show();
+      } else {
+        $('#company_name_group').hide();
+      }
+    });
+    $('#submit').click(function(e){
+      const errorEl = document.querySelector("#error")
+      if ($('form')[0].checkValidity()) {
+        e.preventDefault();
+        var payload = {
+          "country": $("#country").val(),
+          "email": $("#email").val(),
+          "name": $("#name").val(),
+          "github_username": $("#github_username").val(),
+          "region": $("#region").val(),
+          "signing_for": $('input[name="signing_for"]:checked').val(),
+          "i_agree": $("#i_agree").val(),
+          "github_user_id": $("#github_user_id").val(),
+          "pull_request": localStorage.getItem("pr"),
+        };
+        if ($("#company_name").val() != "") {
+          payload.company_name = $("#company_name").val();
+        }
+        $.ajax({
+          type: "POST",
+          url: "https://service-hub-bots.home-assistant.io/cla-sign",
+          data: JSON.stringify(payload),
+          contentType: "application/json",
+        }).done(function(data){
+          console.log("Signed!", data);
+          $('#signature_form').hide();
+          $('#complete').show();
+          if(localStorage.getItem("pr") != null) {
+            var prPieces = localStorage.getItem("pr").split("#");
+            var repo = prPieces[0];
+            var prNumber = prPieces[1];
+            setTimeout(function(){
+              window.location = 'https://github.com/'+repo+'/pull/'+prNumber;
+            }, 5000);
+          }
+          localStorage.removeItem("pr");
+          localStorage.removeItem("gh_token");
+          errorEl.style.display = "none"
+        }).fail(function(data){
+          errorEl.textContent = data.responseJSON.message;
+          errorEl.style.display = "block"
+        });
+      }
+    });
+  });
+</script>

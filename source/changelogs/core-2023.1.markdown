@@ -1,0 +1,1643 @@
+---
+title: Full Changelog for Home Assistant Core 2023.1
+description: Detailed changelog for the Home Assistant Core 2023.1 release
+---
+
+These are all the changes included in the Home Assistant Core 2023.1 release.
+
+For a summary in a more readable format:
+[Release notes blog for this release](/blog/2023/01/04/release-20231/).
+
+## Full Changelog
+
+- Add nibe heat pump climate entities ([@elupus] - [#78952])
+- Bump version to 2023.1.0dev0 ([@frenck] - [#83025])
+- Add `translation_key` property to entites ([@emontnemery] - [#82701])
+- Bump python-fullykiosk to 0.0.12 ([@r01k] - [#83029])
+- Add dialect support to google_translate ([@toddejohnson] - [#81768])
+- Update debugpy to 1.6.4 ([@frenck] - [#83042])
+- Remove home id from Tibber diagnostics ([@Danielhiversen] - [#83066])
+- Add create and delete for Google Calendar events ([@allenporter] - [#83034])
+- Add enum device_class and state options property to sensor entities ([@frenck] - [#82489])
+- Fix glob patterns for partial CI runs ([@cdce8p] - [#83086])
+- Add type annotations to some hassio API ([@emontnemery] - [#83103])
+- Migrate Tuya translations ([@frenck] - [#83105])
+- Enable strict typing of diagnostics ([@emontnemery] - [#83053])
+- Review AsusWRT sensors tests ([@ollo69] - [#71307])
+- Fix small coding style in recent overkiz code ([@nyroDev] - [#82966])
+- Add support for item removal to shopping list ([@spacegaier] - [#82992])
+- Enable strict typing of analytics ([@emontnemery] - [#83119])
+- Use enum sensor device class in HomeKit Controller ([@frenck] - [#83109])
+- Update aiobafi6 to 0.7.3 ([@bdraco] - [#83073])
+- Simplify diagnostics.DownloadDiagnosticsView ([@emontnemery] - [#83116])
+- Enable strict typing of raspberry_pi ([@emontnemery] - [#83123])
+- Enable strict typing of hardkernel ([@emontnemery] - [#83122])
+- Enable strict typing of homeassistant hardware integrations ([@emontnemery] - [#83121])
+- Address review comments for shopping list websockets ([@spacegaier] - [#83143])
+- Use UnitOfTemperature in climate entities [m-s] ([@epenet] - [#83131])
+- Remove matter services available in websocket api ([@MartinHjelmare] - [#83151])
+- Update pycomfoconnect to 0.5.1 ([@michaelarnauts] - [#83124])
+- Use enum sensor device class in PrusaLink ([@frenck] - [#83107])
+- Use enum sensor device class in Moon ([@frenck] - [#83108])
+- Bump elkm1 lib to 2.2.1 ([@gwww] - [#83026])
+- Fix OpenUV coverage ([@bachya] - [#83203])
+- Bump yalexs-ble to 1.10.3 ([@bdraco] - [#83216])
+- Bump nibe to 1.5.0 ([@elupus] - [#83185])
+- Use unit enums in demo ([@epenet] - [#83130])
+- Use UnitOfTemperature in climate entities [a-f] ([@epenet] - [#83125])
+- Add the QoS in the MQTT debug log ([@jbouwh] - [#83195])
+- Remove deprecated GCM API from html5 ([@milanmeu] - [#83229])
+- Address late KNX flow tests review ([@farmio] - [#83208])
+- Tweak black config ([@scop] - [#83230])
+- Populate suggested_area using the LIFX group name for each device ([@Djelibeybi] - [#83259])
+- Bump aiolookin to 1.0.0 ([@ANMalko] - [#83198])
+- Enable strict typing of hardware ([@emontnemery] - [#83120])
+- Code style improvements [alexa] ([@cdce8p] - [#83258])
+- Bump dessant/lock-threads from 3 to 4 (@dependabot - [#83273])
+- Use UnitOfTemperature in climate entities [t-z] ([@epenet] - [#83129])
+- Use enum sensor device class in UptimeRobot ([@frenck] - [#83111])
+- Use UnitOfTemperature in climate entities [g-l] ([@epenet] - [#83127])
+- Add @kamiyo to nws codeowners ([@kamiyo] - [#83171])
+- Failback to v4 resolver for AAAA records in DNSIP integration ([@gjohansson-ST] - [#82740])
+- Use UnitOfTemperature in water_heater entities ([@epenet] - [#83132])
+- Migrate Plugwise translations ([@frenck] - [#83286])
+- Bump package for Garage Amsterdam ([@klaasnicolaas] - [#83167])
+- Use enum sensor device class in Tomorrow.io ([@frenck] - [#83293])
+- Migrate HomeKit Controller translations ([@frenck] - [#83304])
+- Migrate WLED translations ([@frenck] - [#83296])
+- Use new device class in homematic ([@epenet] - [#83303])
+- Migrate LaMetric translations ([@frenck] - [#83298])
+- Migrate Xiaomi Miio translations ([@frenck] - [#83300])
+- Use enum sensor device class in Season ([@frenck] - [#83301])
+- Migrate MusicCast translations ([@frenck] - [#83305])
+- Migrate TOLO Sauna translations ([@frenck] - [#83306])
+- Migrate Logitech Harmony Hub translations ([@frenck] - [#83308])
+- Migrate Demo translations ([@frenck] - [#83294])
+- Update pylint to 2.15.8 ([@cdce8p] - [#83311])
+- Use enum sensor device class in Nettigo Air Monitor ([@frenck] - [#83314])
+- Refactor support for integrations to drop custom unit conversion ([@emontnemery] - [#83228])
+- Migrate Tractive translations ([@frenck] - [#83321])
+- Use UnitOfVolume in unit conversion ([@epenet] - [#83292])
+- Use new device class in meteoclimatic ([@epenet] - [#83327])
+- Use new device class in openweathermap ([@epenet] - [#83331])
+- Use new device class in aemet ([@epenet] - [#83315])
+- Use new device class in environment canada ([@epenet] - [#83297])
+- Use attributes in homematicip_cloud ([@epenet] - [#83295])
+- Update litterrobot integration to support long-term statistics ([@AliceGrey] - [#83269])
+- Use enum sensor device class in AirVisual ([@frenck] - [#83316])
+- Migrate Overkiz select translations ([@frenck] - [#83324])
+- Use new device class in meteo_france ([@epenet] - [#83325])
+- Introduce UnitOfTime enum ([@epenet] - [#83288])
+- Introduce UnitOfFrequency enum ([@epenet] - [#83289])
+- Clean up Zodiac ([@frenck] - [#83334])
+- Migrate UniFi Protect translations ([@frenck] - [#83338])
+- Use new device class in ambient_station ([@epenet] - [#83322])
+- Introduce unit enums for electric current and potential ([@epenet] - [#83287])
+- Introduce unit enums for information and data rate ([@epenet] - [#83291])
+- Validate state class and unit of measurement for non-numeric sensors ([@frenck] - [#83344])
+- Remove unused device class from Kostal Plenticore select ([@frenck] - [#83329])
+- Adjust error message and add callback in nibe heatpump climate ([@elupus] - [#83027])
+- Migrate Wolf SmartSet Service translations ([@frenck] - [#83323])
+- Use enum sensor device class in Overkiz ([@frenck] - [#83342])
+- Migrate Sensibo translations ([@frenck] - [#83310])
+- Use new device class in buienradar ([@epenet] - [#83363])
+- Use new enums in rflink ([@epenet] - [#83371])
+- Add QoS parameter to MQTT websocket_subscribe ([@jbouwh] - [#83241])
+- Use tuple in test parametrization ([@epenet] - [#83379])
+- Use new device class in rfxtrx ([@epenet] - [#83368])
+- Use new device class in ecowitt ([@epenet] - [#83364])
+- Use new device class in metoffice ([@epenet] - [#83366])
+- Use new device class in trafikverket weatherstation ([@epenet] - [#83370])
+- Use new device class in lacrosse view ([@epenet] - [#83365])
+- Allow cm in precipitation units ([@epenet] - [#83360])
+- Use new device class in darksky ([@epenet] - [#83362])
+- Use new device class in zamg ([@epenet] - [#83361])
+- Add vallox fan speed control ([@yozik04] - [#82548])
+- Use enum sensor device class in Litter-Robot ([@frenck] - [#83290])
+- Remove unused device class from Renault select ([@frenck] - [#83330])
+- Remove invalid device class from Hue connectivity sensor ([@frenck] - [#83388])
+- Use new device class in accuweather ([@epenet] - [#83318])
+- Fix icon in meteoclimatic wind bearing ([@frenck] - [#83390])
+- Use new device class in nws ([@kamiyo] - [#83172])
+- Use CoverDeviceClass in ESPHome ([@frenck] - [#83395])
+- Use CoverDeviceClass in Dynalite ([@frenck] - [#83394])
+- Blebox add thermoBox to climate ([@riokuu] - [#81090])
+- Remove str from update device class ([@frenck] - [#83399])
+- Remove str from switch device class ([@frenck] - [#83400])
+- Remove str from humidifier device class ([@frenck] - [#83397])
+- Remove str from binary sensor device class ([@frenck] - [#83393])
+- Remove str from media player device class ([@frenck] - [#83398])
+- Enforce NumberDeviceClass in number entities ([@frenck] - [#83402])
+- Remove str from cover device class ([@frenck] - [#83396])
+- Modernize Image Processing typing ([@frenck] - [#83405])
+- Use new unit enums in alexa ([@epenet] - [#83409])
+- Add Shelly support for Plus WallDimmer US ([@thecode] - [#83385])
+- Use new device class in arwn ([@epenet] - [#83406])
+- Improve zwave_js test coverage ([@raman325] - [#83372])
+- Add update of model and version for nibe ([@elupus] - [#83347])
+- Upgrade grpcio(-status) to 1.51.1 ([@frenck] - [#83420])
+- Use new unit enums in helpers ([@epenet] - [#83387])
+- Upgrade google-cloud-pubsub to 2.13.11 ([@frenck] - [#83419])
+- Shelly code quality - use properties for status ([@thecode] - [#83421])
+- Refactor Fully Kiosk and add logging details ([@r01k] - [#83028])
+- Add @nyroDev to overkiz codeowner ([@nyroDev] - [#83456])
+- Add leak detectors support for Ambient Station ([@jpettitt] - [#83357])
+- Set matter team as matter codeowners ([@MartinHjelmare] - [#83506])
+- Bump pylitterbot to 2022.12.0 ([@natekspencer] - [#83490])
+- Add new data size device class ([@epenet] - [#83376])
+- Add language to conversation and intent response ([@synesthesiam] - [#83486])
+- Add abc.ABC to classes with abstract methods ([@emontnemery] - [#83546])
+- Add new data rate device class ([@epenet] - [#83377])
+- Introduce unit enums for apparent power ([@epenet] - [#83451])
+- Introduce unit enums for irradiance ([@epenet] - [#83414])
+- Add new irradiance device class ([@epenet] - [#83452])
+- Use new device class in tellduslive ([@epenet] - [#83369])
+- Remove str from sensor device class ([@frenck] - [#83391])
+- Update opentherm_gw sensor definitions ([@epenet] - [#83533])
+- Add sensor tests for devolo_home_control ([@Shutgun] - [#74292])
+- Add new sound pressure device class ([@epenet] - [#83453])
+- Introduce unit enums for sound pressure ([@epenet] - [#83450])
+- Use new unit enums in isy994 ([@epenet] - [#83583])
+- Use ApparentPower unit and device class in integrations ([@epenet] - [#83577])
+- Use SoundPressure unit and device class in awair ([@epenet] - [#83582])
+- Use SoundPressure unit and device class in airq ([@epenet] - [#83581])
+- Use SoundPressure unit and device class in point ([@epenet] - [#83580])
+- Use new device class in netatmo ([@epenet] - [#83367])
+- Fix sensor tests in devolo Home Control ([@Shutgun] - [#83586])
+- Use UnitOfSoundPressure in demo ([@epenet] - [#83584])
+- Add entity translations to Renault ([@epenet] - [#83392])
+- Use Irradiance unit and device class in integrations ([@epenet] - [#83576])
+- Use Irradiance device class in tomorrowio ([@epenet] - [#83574])
+- Add power field to switchbot plug ([@konikoni428] - [#83495])
+- Bump dbus-fast to 1.79.0 ([@bdraco] - [#83598])
+- Update intent response ([@synesthesiam] - [#83560])
+- Bump dbus-fast to 1.80.0 ([@bdraco] - [#83601])
+- Use SoundPressure unit and device class in integrations ([@epenet] - [#83585])
+- Add new atmospheric pressure device class ([@epenet] - [#83455])
+- Add support for translating state attributes ([@emontnemery] - [#77028])
+- Make it optional to provide a title when finishing a FlowHandler ([@emontnemery] - [#83534])
+- Use UnitOfElectricCurrent in integrations ([@epenet] - [#83622])
+- Use Frequency and Current device classes in nut ([@epenet] - [#83623])
+- Use DataRate unit and device class in pyload ([@epenet] - [#83611])
+- Use DataRate unit and device class in freebox ([@epenet] - [#83612])
+- Use new unit enums in zha ([@epenet] - [#83633])
+- Update device classes in ebusd ([@epenet] - [#83530])
+- Use native `_attr_` properties for MqttEntity ([@jbouwh] - [#83639])
+- Bump actions/setup-python from 4.3.0 to 4.3.1 (@dependabot - [#83607])
+- Add types package for paho-mqtt ([@cdce8p] - [#83599])
+- Use WATER device class in suez water ([@epenet] - [#83650])
+- Use UnitOfPower.BTU_PER_HOUR in zha ([@epenet] - [#83657])
+- Google Assistant SDK integration ([@tronikos] - [#82328])
+- Use WATER device class in rainmachine ([@epenet] - [#83651])
+- Use device classes in mysensors ([@epenet] - [#83653])
+- Use WATER device class in streamlabswater ([@epenet] - [#83654])
+- Improve MQTT type hints for dict get assignments ([@jbouwh] - [#83634])
+- Use UnitOfVolume in energy integration ([@epenet] - [#83641])
+- Add bluetooth diagnostics to shelly ([@bdraco] - [#83438])
+- Use unit enums in overkiz ([@epenet] - [#83660])
+- Hide Aranet update interval by default ([@aschmitz] - [#83694])
+- Bump dbus-fast to 1.82.0 ([@bdraco] - [#83682])
+- Handle special transit errors for here_travel_time ([@eifinger] - [#83649])
+- Google Sheets: small cleanup ([@tronikos] - [#83685])
+- Add hue wall switch to deconz integration ([@Sommerzeit] - [#83700])
+- Use unit enums in vicare ([@epenet] - [#83648])
+- Adjust device class in xiaomi_miio ([@epenet] - [#83647])
+- Use DataRate unit and device class in integrations ([@epenet] - [#83610])
+- Drop title from repairs flows ([@emontnemery] - [#83627])
+- Reduce log level for linger task/timer ([@elupus] - [#83703])
+- Use GAS device class in smartthings ([@epenet] - [#83658])
+- Fix invalid unit in econet ([@epenet] - [#83656])
+- Use UnitOfVolume in integrations ([@epenet] - [#83646])
+- Try to reconnect right away when disconnected from Shelly Gen2 devices ([@bdraco] - [#83701])
+- Make google calendar fail louder on invalid google_calendars.yaml ([@allenporter] - [#83668])
+- Add homeassistant.helpers.location to loggers for travel_time integrations ([@eifinger] - [#83705])
+- Add support for battery to Yale Access Bluetooth ([@bdraco] - [#83691])
+- Add MVP humidifier support to switchbot ([@bdraco] - [#83696])
+- Connect esphome ble scanner as soon as possible ([@bdraco] - [#83728])
+- Correct deprecated volt units on yalexs_ble sensor ([@bdraco] - [#83738])
+- Bump HAP-python to 4.6.0 ([@bdraco] - [#83729])
+- ESPHome: Use MAC as unique ID ([@balloob] - [#83741])
+- Adjust esphome bluetooth client logging for unique id change ([@bdraco] - [#83742])
+- Bump pynina to 0.2.0 ([@DeerMaximum] - [#83726])
+- Align implementation of the UniFi update platform with the UniFi switch platform ([@Kane610] - [#81821])
+- Rename "Power production this week" vicare sensor ([@oischinger] - [#83771])
+- Match config entries for dlna_dmr based on device MAC, in addition to UDN ([@chishm] - [#74619])
+- Restore remote discovered devices between remote scanner restarts ([@bdraco] - [#83699])
+- Revert "Move esphome gatt services cache to be per device" #81265 ([@bdraco] - [#83793])
+- Add text platform for UniFi Protect ([@AngellusMortis] - [#83674])
+- Improve remote bluetooth scanner diagnostics and add missing test cover ([@bdraco] - [#83796])
+- Do not try to reconnect shelly on disconnected if Home Assistant is stopping ([@bdraco] - [#83805])
+- Remove device class on V_FLOW in mysensors ([@epenet] - [#83806])
+- Use device classes in volkszaehler ([@epenet] - [#83823])
+- Use POWER device class in solarlog ([@epenet] - [#83822])
+- Use device classes in solaredge_local ([@epenet] - [#83821])
+- Drop title from auth flows ([@emontnemery] - [#83628])
+- Fix incorrect usage of 'setup' vs 'set up' ([@bdr99] - [#83774])
+- Use UnitOfPower in integrations [h-r] ([@epenet] - [#83815])
+- Use device classes in sense ([@epenet] - [#83817])
+- Use unit enums in saj ([@epenet] - [#83818])
+- Use device classes in apcupsd ([@epenet] - [#83807])
+- Use POWER device class in aqualogic ([@epenet] - [#83808])
+- Use POWER device class in dte energy bridge ([@epenet] - [#83809])
+- Use POWER device class in eliqonline ([@epenet] - [#83810])
+- Use UnitOfPower in integrations [a-g] ([@epenet] - [#83812])
+- Use POWER device class in enphase_envoy ([@epenet] - [#83811])
+- Add new docs to Diagnostics information ([@AngellusMortis] - [#83767])
+- Bump PyVicare to 2.21.0 ([@oischinger] - [#83770])
+- Update aioqsw to v0.3.1 ([@Noltari] - [#83784])
+- Use UnitOfPower in integrations [s-z] ([@epenet] - [#83826])
+- Enable automatic conversion for pressures ([@epenet] - [#83525])
+- Refactor ted5000 to use entity descriptions ([@epenet] - [#83820])
+- Bump pyswitchbee to 1.7.3 ([@jafar-atili] - [#83748])
+- Refactor waterfurnace to use entity descriptions ([@epenet] - [#83824])
+- Add integration for AirVisual Pro ([@bachya] - [#79770])
+- Remove get_device call in led-ble ([@bdraco] - [#83880])
+- Remove get_device call in switchbot ([@bdraco] - [#83881])
+- bump aiolifx_themes to 0.3.0 ([@Djelibeybi] - [#83877])
+- Add PurpleAir integration ([@bachya] - [#82110])
+- Bump actions/checkout from 3.1.0 to 3.2.0 (@dependabot - [#83894])
+- Remove deprecated apcupsd YAML config ([@yuxincs] - [#83801])
+- Use DATA_SIZE device class in integrations ([@epenet] - [#83895])
+- Use DATA_SIZE device class in netgear lte ([@epenet] - [#83908])
+- Use DATA_SIZE device class in lidarr ([@epenet] - [#83907])
+- Add explanatory comment to metoffice ([@emontnemery] - [#83914])
+- Use UnitOfFrequency in integrations ([@epenet] - [#83915])
+- Fix incorrect device class in goodwe ([@epenet] - [#83917])
+- Use FREQUENCY device class in integrations ([@epenet] - [#83916])
+- Refactor huisbaasje to use entity descriptions ([@epenet] - [#83825])
+- Improve ignore_variance typing ([@cdce8p] - [#83927])
+- Add diagnostics support to PurpleAir ([@bachya] - [#82446])
+- Add stones to mass units ([@epenet] - [#83933])
+- Refactor Huawei LTE to use Entity Description ([@epenet] - [#83904])
+- Refactor fitbit descriptions to use device classes ([@epenet] - [#83936])
+- Move bluetooth watchdog into the scanner base class ([@bdraco] - [#83888])
+- Update intent response ([@synesthesiam] - [#83858])
+- Adjust additional esphome bluetooth debug messages for unique id change ([@bdraco] - [#83955])
+- Try to reconnect disconnected shelly devices as soon as they discovered by zeroconf ([@bdraco] - [#83872])
+- Bump aioshelly to 5.2.0 ([@bdraco] - [#83961])
+- Update intent response ([@synesthesiam] - [#83962])
+- Fix nobo_hub HVAC mode ([@oyvindwe] - [#83947])
+- Ensure AirVisual Pro uses long-running Samba connection ([@bachya] - [#83869])
+- Add integration_type property to AsusWrt manifest ([@ollo69] - [#83960])
+- Use UnitOfTemperature enumerator in AsusWrt ([@ollo69] - [#83958])
+- Move transmission to an updated library ([@engrbm87] - [#83932])
+- Use UnitOfMass in integrations ([@epenet] - [#83930])
+- Add re-auth flow to PurpleAir ([@bachya] - [#83445])
+- Unifi use entity description with sensors ([@Kane610] - [#81930])
+- Add strings to alert integration ([@spacegaier] - [#83926])
+- Bump yalexs_ble to 0.12.0 ([@bdraco] - [#84004])
+- Add integration-type property to androidTV manifest ([@ollo69] - [#84018])
+- Huawei LTE SSDP improvements ([@scop] - [#81643])
+- Bump `pyairvisual` to 2022.12.1 ([@bachya] - [#84013])
+- Improve data entry flow typing ([@emontnemery] - [#83901])
+- Improve data entry flow typing ([@emontnemery] - [#84030])
+- Use UnitOfLength in integrations ([@epenet] - [#84034])
+- Use UnitOfElectricPotential in integrations ([@epenet] - [#84044])
+- Fix incorrect device class in nibe heatpump ([@epenet] - [#84047])
+- Use Unit enums in MELCloud sensors ([@ollo69] - [#84036])
+- Add device classes to bloomsky ([@epenet] - [#84054])
+- Update ESPHome bluetooth repair issue for unique id change and 2022.12.0 ([@bdraco] - [#84026])
+- Fix grammatical error in HomeKit strings ([@DataBitz] - [#84043])
+- Add device classes in tesla wall connector ([@epenet] - [#84048])
+- Move unused function in withings ([@epenet] - [#84089])
+- Refactor withings constant ([@epenet] - [#84095])
+- Rename image integration to image_upload ([@frenck] - [#84063])
+- Split platform attributes in withings ([@epenet] - [#84099])
+- Improve HomeWizard request issue reporting ([@DCSBL] - [#82366])
+- Add device class to withings ([@epenet] - [#84103])
+- Fix prettier [homewizard] ([@cdce8p] - [#84122])
+- Rename Bluetooth active_update_coordinator to active_update_processor ([@bdraco] - [#84115])
+- Add device classes in starline ([@epenet] - [#84049])
+- Add device classes to pool integrations ([@epenet] - [#84050])
+- Bump `brother` and `pysnmplib` ([@bieniu] - [#84107])
+- Fix current_operation when there is no operation_mode in Overkiz DHWP ([@nyroDev] - [#84077])
+- Make manual and manual_mqtt fully asynchronous ([@bonzini] - [#83436])
+- Update pyupgrade to 3.3.1 ([@cdce8p] - [#84148])
+- Update isort to 5.11.3 ([@cdce8p] - [#84147])
+- Google Assistant SDK: Support non en-US language code ([@tronikos] - [#84028])
+- Clean up matter adapter ([@MartinHjelmare] - [#84144])
+- Add dhcp discovery for newer august/yale bridges ([@bdraco] - [#84125])
+- Bump yalexs-ble to 1.12.2 ([@bdraco] - [#84118])
+- Enable strict typing for here_travel_time ([@eifinger] - [#83814])
+- Move speedtestdotnet coordinator to separate file ([@engrbm87] - [#83979])
+- Add state_class to Tradfri battery and air quality sensors ([@J3173] - [#84185])
+- Elmax/alarm_control_panel ([@albertogeniola] - [#75365])
+- Sensor pro fix for negative temperatures ([@Ernst79] - [#84181])
+- Add re-auth flow to AirVisual Pro ([@bachya] - [#84012])
+- Save entry earlier in PurpleAir re-auth flow ([@bachya] - [#84203])
+- Add ability to add/remove PurpleAir sensors in an existing config entry ([@bachya] - [#83440])
+- Add device HmIP-DRDI3 ([@hahn-th] - [#83337])
+- Use DATA_SIZE device class in folder integration ([@epenet] - [#83897])
+- Bump PySwitchbot to 0.29.1 ([@bdraco] - [#84119])
+- Bump aiolifx-themes to 0.4.0 ([@Djelibeybi] - [#84216])
+- Use new unit enumerators in tibber ([@epenet] - [#84222])
+- Use UnitOfEnergy in integrations (o-z) ([@epenet] - [#84221])
+- Use UnitOfEnergy in integrations (a-n) ([@epenet] - [#84220])
+- Bump `nettigo air monitor` library to version 1.6.0 ([@bieniu] - [#84129])
+- Fix manual.alarm_control_panel RestoreEntity bugs ([@bonzini] - [#82990])
+- Use ENERGY device class in landisgyr heat meter ([@epenet] - [#84223])
+- Use ENERGY device class in oru ([@epenet] - [#84225])
+- Bump zeroconf to 0.44.0 ([@bdraco] - [#84166])
+- Use new unit enums in fronius ([@epenet] - [#84224])
+- Use UnitOfVolume in bmw_connected_drive ([@epenet] - [#84228])
+- Use a global const for CONF_UUID ([@michaelarnauts] - [#84093])
+- Bump gassist-text to 0.0.5 ([@tronikos] - [#84161])
+- Upgrade attrs to 22.1.0 ([@boralyl] - [#84205])
+- Clean mysensors test type errors ([@MartinHjelmare] - [#84178])
+- Use new unit enumerators in tuya ([@epenet] - [#84229])
+- Use UnitOfVolume in dsmr_reader ([@epenet] - [#84226])
+- Add POWER device class to goodwe number ([@epenet] - [#84232])
+- Adjust units in lcn ([@epenet] - [#84051])
+- Remove name key from transimssion services ([@engrbm87] - [#83974])
+- Update sentry-sdk to 1.12.1 ([@frenck] - [#84234])
+- Add integration-type property to Nut manifest ([@ollo69] - [#84020])
+- Add support for CCF volume unit ([@epenet] - [#84029])
+- Update coverage to 7.0.0 ([@frenck] - [#84237])
+- Update black to 22.12.0 ([@frenck] - [#84242])
+- Update spotipy to 2.22.0 ([@frenck] - [#84244])
+- Use UnitOfElectricCurrent in integrations ([@epenet] - [#84231])
+- Update watchdog to 2.2.0 ([@frenck] - [#84245])
+- Use a single source of data for switchbot ([@bdraco] - [#84215])
+- Migrate AirVisual Pro devices to the `airvisual_pro` domain ([@bachya] - [#83882])
+- Bump lupupy to 0.2.4 ([@majuss] - [#84252])
+- Remove `airvisual_pro` code from `airvisual` ([@bachya] - [#84254])
+- Use UnitOfPressure in integrations ([@epenet] - [#84230])
+- Remove Deutsche Bahn integration ([@frenck] - [#84236])
+- Fix Styrbar device trigger mapping in deCONZ ([@Kane610] - [#84257])
+- Shuffle some device registry WS code ([@emontnemery] - [#84243])
+- Clean up Notion config flow (and tests) ([@bachya] - [#84007])
+- Implement an active update coordinator for polling ble devices that get data from both advertisements and active connections ([@bdraco] - [#84207])
+- Add foundation for passive scanning support to switchbot ([@bdraco] - [#84260])
+- fix provider name: linky is for electricity. ([@laurent-martin] - [#84273])
+- Add more types to the todoist integration ([@boralyl] - [#84210])
+- Add tests.common.ANY ([@emontnemery] - [#84240])
+- Fix error when describing deCONZ events of removed devices ([@J3173] - [#84194])
+- Fixes some grammar mistakes ([@michaelarnauts] - [#84283])
+- Use dict.setdefault in registry migration code ([@emontnemery] - [#84277])
+- Add minor version to area registry store ([@emontnemery] - [#84280])
+- Correct zamg config flow comments ([@killer0071234] - [#81369])
+- Add aliases to entity registry items ([@emontnemery] - [#84239])
+- Use UnitOfTime in integrations (t-z) ([@epenet] - [#84291])
+- Fix matter websocket reconnect ([@MartinHjelmare] - [#84192])
+- Use UnitOfTime in integrations (h-s) ([@epenet] - [#84289])
+- Use UnitOfTime in integrations (a-g) ([@epenet] - [#84288])
+- Improve the dsmr_reader sensor names ([@Glodenox] - [#84269])
+- Revert the state class removal in dsmr_reader after bugfix ([@Glodenox] - [#84267])
+- Update `gios` library to version 2.3.0 ([@bieniu] - [#84292])
+- Remove scan_interval and manual options from speedtestdotnet ([@engrbm87] - [#84295])
+- Extract Forecast.Solar DataUpdateCoordinator into module ([@frenck] - [#83859])
+- Allow MQTT device trackers to be able to the reset the location name for auto zone inference ([@ShadowJonathan] - [#83952])
+- Bump bthome-ble to 2.4.0 ([@Ernst79] - [#84189])
+- Use UnitOfTemperature in integrations (a-d) ([@epenet] - [#84304])
+- Use UnitOfTemperature in integrations (e-h) ([@epenet] - [#84305])
+- Use UnitOfTemperature in integrations (i-m) ([@epenet] - [#84307])
+- Use UnitOfTemperature in integrations (n-o) ([@epenet] - [#84306])
+- Use UnitOfTemperature in integrations (p-s) ([@epenet] - [#84308])
+- Use UnitOfTemperature in integrations (t-z) ([@epenet] - [#84309])
+- Add aliases to device registry items ([@emontnemery] - [#84246])
+- Bump devolo-plc-api to 0.9.0 ([@Shutgun] - [#84324])
+- Handle not existing arrival/departure keys for here_travel_time ([@eifinger] - [#83754])
+- Code quality improvements for Mastodon ([@frenck] - [#84320])
+- Bump actions/stale from 6.0.1 to 7.0.0 (@dependabot - [#84333])
+- Add aliases to area registry items ([@emontnemery] - [#84294])
+- Add quarter-hour peak consumption sensors ([@Glodenox] - [#84271])
+- Introduce unit enums for volume flow rate ([@epenet] - [#84310])
+- Fix reload race in shelly when device is recently offline ([@bdraco] - [#84328])
+- Bump pyrainbird to 0.7.1 ([@allenporter] - [#84325])
+- Use unit enums in plaato ([@epenet] - [#84341])
+- Use unit enums in tasmota ([@epenet] - [#84342])
+- Use unit enums in airvisual_pro ([@epenet] - [#84346])
+- Use unit enums in honeywell ([@epenet] - [#84344])
+- Add support for translating custom attribute state ([@emontnemery] - [#83386])
+- Use unit enums in energy and sensor ([@epenet] - [#84343])
+- Use UnitOfVolumeFlowRate in integrations ([@epenet] - [#84348])
+- Bump PySwitchbot to 0.30.0 ([@bdraco] - [#84347])
+- Use unit enums in nexia ([@epenet] - [#84349])
+- Use unit enums in mold indicator ([@epenet] - [#84350])
+- Use unit enums in elkm1 ([@epenet] - [#84351])
+- Use unit enums in ruuvitag_ble ([@epenet] - [#84352])
+- Use unit enums in sensirion_ble ([@epenet] - [#84353])
+- Adjust units in lcn ([@epenet] - [#84356])
+- Update pyotp to 2.8.0 ([@frenck] - [#84339])
+- Add missing preset for overkiz Atlantic APC heating zone ([@nyroDev] - [#84008])
+- Update Blink 2FA flow description ([@timrogers] - [#84362])
+- Adjust units in lcn ([@epenet] - [#84365])
+- Prevent use of deprecated units ([@epenet] - [#83384])
+- Add ZHA Zeroconf discovery for SLZB-06 ([@Tarik2142] - [#84111])
+- Add filter for duplicate NINA warnings ([@DeerMaximum] - [#84069])
+- Zamg api timestamp issue fix ([@killer0071234] - [#84143])
+- Bump here_transit/here_routing and Implement backoff mechanism for here_travel_time ([@eifinger] - [#83976])
+- Add external handling in Overkiz AtlanticElectricalHeaterWithAdjustableTemperatureSetPoint ([@nyroDev] - [#84010])
+- Add sensor unit of measurement validation for device classes ([@frenck] - [#84366])
+- Add matter node added subscription ([@MartinHjelmare] - [#84377])
+- Fix google calendar recurrence rule create and view ([@allenporter] - [#84330])
+- Don't allow google calendar create/delete for yaml/search calendars ([@allenporter] - [#83604])
+- Update types packages ([@cdce8p] - [#84381])
+- Less tasks when receiving SSDP messages ([@StevenLooman] - [#84186])
+- Fix incorrect power factor device class usage in Fronius ([@frenck] - [#84374])
+- Fix incorrect voc device class usage in Deconz sensors ([@frenck] - [#84371])
+- Fix incorrect illuminance device class usage in Broadlink ([@frenck] - [#84373])
+- Fix incorrect co device class usage in GIOS ([@frenck] - [#84379])
+- Fix uom/device class mismatches in tests ([@frenck] - [#84372])
+- Use selector in AndroidTV option flow form ([@ollo69] - [#83761])
+- Update isort to 5.11.4 ([@cdce8p] - [#84406])
+- Improve error message when an automation fails to validate ([@emontnemery] - [#83977])
+- Add enum device class and translations to DSMR Active tariff sensor ([@J3173] - [#84253])
+- Fix issues with Color temperature conversions in Hue ([@marcelveldt] - [#83982])
+- Update actions/cache to 3.2.0 + new restore action ([@cdce8p] - [#84408])
+- Add support for entity aliases to Google Assistant ([@frenck] - [#84405])
+- Bump zeroconf to 0.47.0 ([@bdraco] - [#84420])
+- Add myself as a codeowner for rainbird ([@allenporter] - [#84421])
+- Replace async_schedule_update_ha_state for manual and manual_mqtt ([@jbouwh] - [#84395])
+- Fix incorrect signal strength device class usage in Rituals Genie ([@frenck] - [#84376])
+- Restore speed when turning a Tasmota fan back on ([@emontnemery] - [#84337])
+- String formatting and max line length - Part 1 ([@frenck] - [#84390])
+- Additional tests to improve coverage of manual and manual_mqtt ([@jbouwh] - [#84424])
+- Fix flaky automation test ([@emontnemery] - [#84428])
+- Fix incorrect voltage device class usage in RuuviTag BLE ([@frenck] - [#84380])
+- String formatting and max line length - Part 2 ([@frenck] - [#84393])
+- Improve script config tests ([@emontnemery] - [#84433])
+- Bump plexapi to 4.13.2 ([@jjlawren] - [#84416])
+- Bump yalexs-ble to 1.12.3 ([@bdraco] - [#84414])
+- Split out part of update sensor to a common UniFi entity class ([@Kane610] - [#84262])
+- String formatting and max line length - Part 3 ([@frenck] - [#84394])
+- Remove front matter parsing in homeassistant_alerts ([@ludeeus] - [#83980])
+- Fix DHWP overkiz_to_operation_mode creation list ([@nyroDev] - [#83885])
+- Add Ecobee Smart Enhanced ([@FuzzyMistborn] - [#83666])
+- Improve error message when a script fails to validate ([@emontnemery] - [#84438])
+- Fix title of Matter integration ([@marcelveldt] - [#84385])
+- Add firmware update entity for Litter-Robot 4 ([@natekspencer] - [#83590])
+- Fix Matter param order for subscribing ([@balloob] - [#84460])
+- Use first refresh method from data update coordinator in PI-Hole integration ([@mib1185] - [#84453])
+- Strip whitespace from application credentials ([@allenporter] - [#84461])
+- Upgrade ciso8601 to 2.3.0 ([@frenck] - [#84465])
+- ESPHome: do not set expected_name on APIClient ([@jesserockz] - [#84471])
+- Move Rainbird to async client library ([@allenporter] - [#84417])
+- Install all test requirements in bootstrap ([@jesserockz] - [#84469])
+- Test conversation WS API ([@balloob] - [#84466])
+- Replace attrs with dataclasses in Core exceptions ([@frenck] - [#84473])
+- Make all ARMED states available for manual_mqtt ([@bonzini] - [#84264])
+- Bump actions/setup-python from 4.3.1 to 4.4.0 (@dependabot - [#84488])
+- Round illuminance value in ZHA integration ([@bieniu] - [#84500])
+- String formatting and max line length - Part 4 ([@frenck] - [#84445])
+- Replace attrs with dataclasses in hassfest ([@frenck] - [#84475])
+- String formatting and max line length - Part 5 ([@frenck] - [#84501])
+- Switch to a different local Bluetooth adapter when one runs out of connection slots ([@bdraco] - [#84331])
+- Add blebox discovery/zeroconf ([@riokuu] - [#83837])
+- Bump yalexs_ble to 1.12.5 ([@bdraco] - [#84517])
+- Try the next best adapter after a BLE connection fails ([@bdraco] - [#84512])
+- Fix flaky Nina CI test ([@balloob] - [#84522])
+- Cleanup rainbird controller setup as feedback from previous PR ([@allenporter] - [#84504])
+- Bump pySwitchbot to 0.30.1 to fix a deadlock when services are missing ([@bdraco] - [#84521])
+- Bump zeroconf to 0.47.1 ([@bdraco] - [#84523])
+- Update nibe to 1.6.0 ([@elupus] - [#84449])
+- String formatting and max line length - Part 6 ([@frenck] - [#84525])
+- Bump zamg from 0.2.1 to 0.2.2 ([@killer0071234] - [#84526])
+- Bump actions/cache from 3.2.0 to 3.2.1 (@dependabot - [#84565])
+- Add mysensors binary sensor tests ([@MartinHjelmare] - [#84580])
+- Deprecate `set_doorbell_message` UniFi Protect service ([@AngellusMortis] - [#83675])
+- Deprecate the UniFi Protect Detected Object sensor ([@AngellusMortis] - [#83480])
+- Add mysensors switch tests ([@MartinHjelmare] - [#84585])
+- Bump pySwitchbot to 0.31.0 ([@bdraco] - [#84586])
+- Add mysensors device tracker tests ([@MartinHjelmare] - [#84589])
+- Add strict typing to simplepush ([@engrbm87] - [#84598])
+- Add strict typing to speedtestdotnet ([@engrbm87] - [#84597])
+- Fix F602 key repeated ([@yuvalabou] - [#84531])
+- String formatting and max line length - Part 7 ([@frenck] - [#84532])
+- Add recommended actions to NINA ([@DeerMaximum] - [#83775])
+- Add support for covers in Prometheus metrics ([@spyder007] - [#83763])
+- Remove lumen from Illuminance units ([@epenet] - [#84386])
+- Use Object selector for AndroidTV detection rules option ([@ollo69] - [#84412])
+- Update xknx to 2.2.0 ([@farmio] - [#84609])
+- Add mysensors light tests ([@MartinHjelmare] - [#84606])
+- Add Plugwise climate preset translations ([@frenck] - [#84617])
+- Clean mysensors test fixture loading ([@MartinHjelmare] - [#84618])
+- Add mysensors climate tests ([@MartinHjelmare] - [#84619])
+- Add mysensors cover tests ([@MartinHjelmare] - [#84626])
+- Clean mysensors update callbacks ([@MartinHjelmare] - [#84629])
+- Add `cooldown` and `respond_to_read` options for KNX expose ([@farmio] - [#84613])
+- Improve `lookin` generic typing ([@cdce8p] - [#84636])
+- Improve `gogogate2` generic typing ([@cdce8p] - [#84632])
+- KNX ConfigFlow: Validate contents of knxkeys file ([@farmio] - [#84411])
+- Return unavailable if Govee BLE sensor is in error ([@PierreAronnax] - [#84547])
+- Add climate platform to Mazda integration ([@bdr99] - [#75037])
+- Add reolink IP NVR/Camera integration ([@starkillerOG] - [#84081])
+- Improve `rainbird` generic typing ([@cdce8p] - [#84642])
+- Improve `ovo_energy` generic typing ([@cdce8p] - [#84641])
+- Improve `rdw` generic typing ([@cdce8p] - [#84643])
+- Improve `google` calendar generic typing ([@cdce8p] - [#84633])
+- Improve `kostal_plenticore` generic typing ([@cdce8p] - [#84634])
+- Improve `laundrify` generic typing ([@cdce8p] - [#84635])
+- Improve `lyric` generic typing ([@cdce8p] - [#84637])
+- Add Local calendar edit support ([@allenporter] - [#84141])
+- Use debouncer in mysensors ([@MartinHjelmare] - [#84638])
+- Improve `totalconnect` generic typing ([@cdce8p] - [#84650])
+- Improve `synology_dsm` generic typing ([@cdce8p] - [#84649])
+- Improve `surepetcare` generic typing ([@cdce8p] - [#84647])
+- Improve `steam_online` generic typing ([@cdce8p] - [#84646])
+- Update wled to 0.15.0 ([@frenck] - [#84639])
+- Improve DataUpdateCoordinator typing in integrations (1) ([@cdce8p] - [#84655])
+- Improve DataUpdateCoordinator typing in integrations (2) ([@cdce8p] - [#84656])
+- Improve DataUpdateCoordinator typing in integrations (3) ([@cdce8p] - [#84657])
+- Improve DataUpdateCoordinator typing in integrations (4) ([@cdce8p] - [#84658])
+- ISY994: Bump pyisy to 3.0.9 ([@shbatm] - [#84654])
+- Add IPv6 support to snmp sensor ([@stgraber] - [#84607])
+- Fix thundering heard in setup_again when there are many integrations ([@bdraco] - [#84670])
+- Avoid creating a task in the bluetooth watchdog when everything is OK ([@bdraco] - [#84669])
+- Switch to orjson for tests ([@elupus] - [#84674])
+- Add support for SwitchBot Lock ([@dsypniewski] - [#84673])
+- Fix SwitchBot Lock test ([@dsypniewski] - [#84682])
+- Bump actions/cache from 3.2.1 to 3.2.2 (@dependabot - [#84683])
+- Improve `omnilogic` generic typing ([@cdce8p] - [#84686])
+- Improve `meteo_france` generic typing ([@cdce8p] - [#84685])
+- KNX ConfigFlow: add selection of secure tunnel endpoint ([@farmio] - [#84651])
+- Fix zha RMS voltage ([@MattWestb] - [#84689])
+- Add nibe heat pump alarm reset button ([@elupus] - [#79427])
+- Switch to pytest-freezer ([@elupus] - [#84680])
+- Update frontend to 20221228.0 ([@bramkragten] - [#84696])
+- airzone: update aioairzone to v0.5.2 ([@Noltari] - [#84690])
+- Fix handling of CoAP 404 in homekit_controller ([@Jc2k] - [#84700])
+- Improve `risco` generic typing ([@cdce8p] - [#84644])
+- Bump python matter server to 1.0.8 ([@marcelveldt] - [#84692])
+- Update apprise to 1.2.1 ([@hmmbob] - [#84705])
+- Remove deprecated tankerkoenig YAML config ([@mib1185] - [#84711])
+- Gracefully handle caldav event with missing summary ([@allenporter] - [#84719])
+- water_heater: Add unsupported states ([@oischinger] - [#84720])
+- Remove incorrect unit for AirVisual AQI sensor ([@bachya] - [#84723])
+- Fix incorrect values for AirVisual Pro sensors ([@bachya] - [#84725])
+- Fix and upgrade minio integration ([@tkislan] - [#84545])
+- Bump pynetgear to 0.10.9 ([@starkillerOG] - [#84733])
+- Fix UUID normalisation for vendor extensions in homekit_controller thread transport ([@Jc2k] - [#84746])
+- Check google calendar API scope to determine if write access is enabled ([@allenporter] - [#84749])
+- Catch vicare errors when deactivating preset fails ([@oischinger] - [#84778])
+- Only subscribe to specific UniFi object ID ([@Kane610] - [#84787])
+- Remove `ozone` device class from OpenUV sensor ([@bachya] - [#84791])
+- Don't attempt setup on migrated AirVisual Pro in the `airvisual` domain ([@bachya] - [#84796])
+- Deprecate YAML config in PI-Hole ([@mib1185] - [#84797])
+- Fix AirVisual Pro sensors with incorrect units for their device classes ([@bachya] - [#84800])
+- Correct missing alarm reset button on nibe ([@elupus] - [#84809])
+- Fix thermobeacon WS08 models that identify with manufacturer_id 27 ([@bdraco] - [#84812])
+- ISY994: Bump PyISY to 3.0.10 ([@shbatm] - [#84821])
+- Actually try port when finding next available port for ssdp server ([@StevenLooman] - [#84206])
+- Fix growatt identification issue ([@muppet3000] - [#84628])
+- Enable unit conversion for DATA_RATE ([@epenet] - [#84698])
+- Enable unit conversion for DATA_SIZE ([@epenet] - [#84699])
+- Use pycarwings2 2.14 ([@filcole] - [#84792])
+- Add mV as a unit for voltage and enable conversions ([@jbouwh] - [#84805])
+- Add mA to SensorDeviceClass.CURRENT units ([@SukramJ] - [#84492])
+- Add option to retrieve SwitchBot Lock encryption key through config flow ([@dsypniewski] - [#84830])
+- Redesign and refactor Bravia TV config_flow ([@Drafteed] - [#84832])
+- Update frontend to 20221230.0 ([@bramkragten] - [#84842])
+- Add availability property to DSMR sensors ([@frenck] - [#84848])
+- Ensure AirVisual Pro migration includes device and entity customizations ([@bachya] - [#84798])
+- Bump pybravia to 0.2.5 ([@Drafteed] - [#84835])
+- Do not validate device classes when entity state is unknown ([@frenck] - [#84860])
+- Only reflect unavailable state in DSMR when disconnected ([@frenck] - [#84862])
+- Bump aiounifi to v43 ([@Kane610] - [#84864])
+- Bump pyroon library to 0.1.2. ([@pavoni] - [#84865])
+- Bump pyeconet to 0.1.17 ([@w1ll1am23] - [#84868])
+- Bump motionblinds to 0.6.14 ([@starkillerOG] - [#84873])
+- Process late feedback for Reolink ([@starkillerOG] - [#84884])
+- Small fixes for SwitchBot Locks ([@bdraco] - [#84888])
+- Don't include distance in PurpleAir sensor selector ([@bachya] - [#84893])
+- Fix issues with PurpleAir sensor device class and unit ([@bachya] - [#84896])
+- Use serial number for AirVisal Pro config entry unique ID ([@bachya] - [#84902])
+- Google Assistant SDK: Log command and response ([@tronikos] - [#84904])
+- Fix free/busy google calendars ([@allenporter] - [#84907])
+- Bump pydeconz to v106 ([@Kane610] - [#84914])
+- Fix haveibeenpwned user-agent string ([@ChopperRob] - [#84919])
+- Fix Climate device HVAC mode trigger UI ([@allenporter] - [#84930])
+- Fix failing HomeKit Controller diagnostics tests ([@bdraco] - [#84936])
+- Bump pySwitchbot to 0.36.1 ([@bdraco] - [#84937])
+- Fix caldav calendars with custom timezones ([@allenporter] - [#84955])
+- Handle not available add-on in hassio add-on manager ([@MartinHjelmare] - [#84943])
+- Consider 95% as closed for Motion blinds venetian blinds ([@starkillerOG] - [#84872])
+- Handle not available add-on in hassio add-on manager ([@MartinHjelmare] - [#84943])
+- Revert "Add aliases to device registry items" ([@emontnemery] - [#84976])
+- Bump motionblinds to 0.6.15 ([@starkillerOG] - [#84994])
+- Bump ZHA quirks ([@dmulcahey] - [#85004])
+- Bump home-assistant-bluetooth to 1.9.1 ([@bdraco] - [#85005])
+- Update Tibber lib to 0.26.7. Improve error handling of realtime data ([@Danielhiversen] - [#85008])
+- Update frontend to 20230102.0 ([@bramkragten] - [#85010])
+- Switch to reolink-aio ([@starkillerOG] - [#85014])
+- Bump pyatmo to v7.5.0 ([@cgtobi] - [#85016])
+- Bump httpx to 0.23.2 ([@bdraco] - [#85023])
+- Bump slixmpp to 1.8.3 ([@balloob] - [#85031])
+- Fix bluetooth not being loaded with esphome proxies when removed from default_config ([@bdraco] - [#85032])
+- Fix failing HomeKit Controller diagnostics tests ([@bdraco] - [#84936])
+- 2022.12.9 ([@balloob] - [#85030])
+- Fix integer only LCN variable values ([@alengwenus] - [#85035])
+- Update adguard to 0.6.1 ([@frenck] - [#85052])
+- Remove workaround for reloading PurpleAir upon device removal ([@bachya] - [#85086])
+- Do not reset current selection on reconfig or MQTT select ([@jbouwh] - [#85099])
+- Allow MQTT device_class or state_class to be set as `None` ([@jbouwh] - [#85106])
+- Update frontend to 20230104.0 ([@bramkragten] - [#85107])
+- Remove illuminance device class for sensors in devolo Home Control ([@Shutgun] - [#85108])
+- Handle zone exception when setting up Cloudflare ([@ludeeus] - [#85110])
+
+[#71307]: https://github.com/home-assistant/core/pull/71307
+[#74292]: https://github.com/home-assistant/core/pull/74292
+[#74619]: https://github.com/home-assistant/core/pull/74619
+[#75037]: https://github.com/home-assistant/core/pull/75037
+[#75365]: https://github.com/home-assistant/core/pull/75365
+[#77028]: https://github.com/home-assistant/core/pull/77028
+[#78952]: https://github.com/home-assistant/core/pull/78952
+[#79427]: https://github.com/home-assistant/core/pull/79427
+[#79770]: https://github.com/home-assistant/core/pull/79770
+[#81090]: https://github.com/home-assistant/core/pull/81090
+[#81369]: https://github.com/home-assistant/core/pull/81369
+[#81643]: https://github.com/home-assistant/core/pull/81643
+[#81768]: https://github.com/home-assistant/core/pull/81768
+[#81821]: https://github.com/home-assistant/core/pull/81821
+[#81930]: https://github.com/home-assistant/core/pull/81930
+[#82110]: https://github.com/home-assistant/core/pull/82110
+[#82328]: https://github.com/home-assistant/core/pull/82328
+[#82366]: https://github.com/home-assistant/core/pull/82366
+[#82446]: https://github.com/home-assistant/core/pull/82446
+[#82489]: https://github.com/home-assistant/core/pull/82489
+[#82548]: https://github.com/home-assistant/core/pull/82548
+[#82701]: https://github.com/home-assistant/core/pull/82701
+[#82740]: https://github.com/home-assistant/core/pull/82740
+[#82966]: https://github.com/home-assistant/core/pull/82966
+[#82990]: https://github.com/home-assistant/core/pull/82990
+[#82992]: https://github.com/home-assistant/core/pull/82992
+[#83025]: https://github.com/home-assistant/core/pull/83025
+[#83026]: https://github.com/home-assistant/core/pull/83026
+[#83027]: https://github.com/home-assistant/core/pull/83027
+[#83028]: https://github.com/home-assistant/core/pull/83028
+[#83029]: https://github.com/home-assistant/core/pull/83029
+[#83034]: https://github.com/home-assistant/core/pull/83034
+[#83042]: https://github.com/home-assistant/core/pull/83042
+[#83053]: https://github.com/home-assistant/core/pull/83053
+[#83066]: https://github.com/home-assistant/core/pull/83066
+[#83073]: https://github.com/home-assistant/core/pull/83073
+[#83086]: https://github.com/home-assistant/core/pull/83086
+[#83103]: https://github.com/home-assistant/core/pull/83103
+[#83105]: https://github.com/home-assistant/core/pull/83105
+[#83107]: https://github.com/home-assistant/core/pull/83107
+[#83108]: https://github.com/home-assistant/core/pull/83108
+[#83109]: https://github.com/home-assistant/core/pull/83109
+[#83111]: https://github.com/home-assistant/core/pull/83111
+[#83116]: https://github.com/home-assistant/core/pull/83116
+[#83119]: https://github.com/home-assistant/core/pull/83119
+[#83120]: https://github.com/home-assistant/core/pull/83120
+[#83121]: https://github.com/home-assistant/core/pull/83121
+[#83122]: https://github.com/home-assistant/core/pull/83122
+[#83123]: https://github.com/home-assistant/core/pull/83123
+[#83124]: https://github.com/home-assistant/core/pull/83124
+[#83125]: https://github.com/home-assistant/core/pull/83125
+[#83127]: https://github.com/home-assistant/core/pull/83127
+[#83129]: https://github.com/home-assistant/core/pull/83129
+[#83130]: https://github.com/home-assistant/core/pull/83130
+[#83131]: https://github.com/home-assistant/core/pull/83131
+[#83132]: https://github.com/home-assistant/core/pull/83132
+[#83143]: https://github.com/home-assistant/core/pull/83143
+[#83151]: https://github.com/home-assistant/core/pull/83151
+[#83167]: https://github.com/home-assistant/core/pull/83167
+[#83171]: https://github.com/home-assistant/core/pull/83171
+[#83172]: https://github.com/home-assistant/core/pull/83172
+[#83185]: https://github.com/home-assistant/core/pull/83185
+[#83195]: https://github.com/home-assistant/core/pull/83195
+[#83198]: https://github.com/home-assistant/core/pull/83198
+[#83203]: https://github.com/home-assistant/core/pull/83203
+[#83208]: https://github.com/home-assistant/core/pull/83208
+[#83216]: https://github.com/home-assistant/core/pull/83216
+[#83228]: https://github.com/home-assistant/core/pull/83228
+[#83229]: https://github.com/home-assistant/core/pull/83229
+[#83230]: https://github.com/home-assistant/core/pull/83230
+[#83241]: https://github.com/home-assistant/core/pull/83241
+[#83258]: https://github.com/home-assistant/core/pull/83258
+[#83259]: https://github.com/home-assistant/core/pull/83259
+[#83269]: https://github.com/home-assistant/core/pull/83269
+[#83273]: https://github.com/home-assistant/core/pull/83273
+[#83286]: https://github.com/home-assistant/core/pull/83286
+[#83287]: https://github.com/home-assistant/core/pull/83287
+[#83288]: https://github.com/home-assistant/core/pull/83288
+[#83289]: https://github.com/home-assistant/core/pull/83289
+[#83290]: https://github.com/home-assistant/core/pull/83290
+[#83291]: https://github.com/home-assistant/core/pull/83291
+[#83292]: https://github.com/home-assistant/core/pull/83292
+[#83293]: https://github.com/home-assistant/core/pull/83293
+[#83294]: https://github.com/home-assistant/core/pull/83294
+[#83295]: https://github.com/home-assistant/core/pull/83295
+[#83296]: https://github.com/home-assistant/core/pull/83296
+[#83297]: https://github.com/home-assistant/core/pull/83297
+[#83298]: https://github.com/home-assistant/core/pull/83298
+[#83300]: https://github.com/home-assistant/core/pull/83300
+[#83301]: https://github.com/home-assistant/core/pull/83301
+[#83303]: https://github.com/home-assistant/core/pull/83303
+[#83304]: https://github.com/home-assistant/core/pull/83304
+[#83305]: https://github.com/home-assistant/core/pull/83305
+[#83306]: https://github.com/home-assistant/core/pull/83306
+[#83308]: https://github.com/home-assistant/core/pull/83308
+[#83310]: https://github.com/home-assistant/core/pull/83310
+[#83311]: https://github.com/home-assistant/core/pull/83311
+[#83314]: https://github.com/home-assistant/core/pull/83314
+[#83315]: https://github.com/home-assistant/core/pull/83315
+[#83316]: https://github.com/home-assistant/core/pull/83316
+[#83318]: https://github.com/home-assistant/core/pull/83318
+[#83321]: https://github.com/home-assistant/core/pull/83321
+[#83322]: https://github.com/home-assistant/core/pull/83322
+[#83323]: https://github.com/home-assistant/core/pull/83323
+[#83324]: https://github.com/home-assistant/core/pull/83324
+[#83325]: https://github.com/home-assistant/core/pull/83325
+[#83327]: https://github.com/home-assistant/core/pull/83327
+[#83329]: https://github.com/home-assistant/core/pull/83329
+[#83330]: https://github.com/home-assistant/core/pull/83330
+[#83331]: https://github.com/home-assistant/core/pull/83331
+[#83334]: https://github.com/home-assistant/core/pull/83334
+[#83337]: https://github.com/home-assistant/core/pull/83337
+[#83338]: https://github.com/home-assistant/core/pull/83338
+[#83342]: https://github.com/home-assistant/core/pull/83342
+[#83344]: https://github.com/home-assistant/core/pull/83344
+[#83347]: https://github.com/home-assistant/core/pull/83347
+[#83357]: https://github.com/home-assistant/core/pull/83357
+[#83360]: https://github.com/home-assistant/core/pull/83360
+[#83361]: https://github.com/home-assistant/core/pull/83361
+[#83362]: https://github.com/home-assistant/core/pull/83362
+[#83363]: https://github.com/home-assistant/core/pull/83363
+[#83364]: https://github.com/home-assistant/core/pull/83364
+[#83365]: https://github.com/home-assistant/core/pull/83365
+[#83366]: https://github.com/home-assistant/core/pull/83366
+[#83367]: https://github.com/home-assistant/core/pull/83367
+[#83368]: https://github.com/home-assistant/core/pull/83368
+[#83369]: https://github.com/home-assistant/core/pull/83369
+[#83370]: https://github.com/home-assistant/core/pull/83370
+[#83371]: https://github.com/home-assistant/core/pull/83371
+[#83372]: https://github.com/home-assistant/core/pull/83372
+[#83376]: https://github.com/home-assistant/core/pull/83376
+[#83377]: https://github.com/home-assistant/core/pull/83377
+[#83379]: https://github.com/home-assistant/core/pull/83379
+[#83384]: https://github.com/home-assistant/core/pull/83384
+[#83385]: https://github.com/home-assistant/core/pull/83385
+[#83386]: https://github.com/home-assistant/core/pull/83386
+[#83387]: https://github.com/home-assistant/core/pull/83387
+[#83388]: https://github.com/home-assistant/core/pull/83388
+[#83390]: https://github.com/home-assistant/core/pull/83390
+[#83391]: https://github.com/home-assistant/core/pull/83391
+[#83392]: https://github.com/home-assistant/core/pull/83392
+[#83393]: https://github.com/home-assistant/core/pull/83393
+[#83394]: https://github.com/home-assistant/core/pull/83394
+[#83395]: https://github.com/home-assistant/core/pull/83395
+[#83396]: https://github.com/home-assistant/core/pull/83396
+[#83397]: https://github.com/home-assistant/core/pull/83397
+[#83398]: https://github.com/home-assistant/core/pull/83398
+[#83399]: https://github.com/home-assistant/core/pull/83399
+[#83400]: https://github.com/home-assistant/core/pull/83400
+[#83402]: https://github.com/home-assistant/core/pull/83402
+[#83405]: https://github.com/home-assistant/core/pull/83405
+[#83406]: https://github.com/home-assistant/core/pull/83406
+[#83409]: https://github.com/home-assistant/core/pull/83409
+[#83414]: https://github.com/home-assistant/core/pull/83414
+[#83419]: https://github.com/home-assistant/core/pull/83419
+[#83420]: https://github.com/home-assistant/core/pull/83420
+[#83421]: https://github.com/home-assistant/core/pull/83421
+[#83436]: https://github.com/home-assistant/core/pull/83436
+[#83438]: https://github.com/home-assistant/core/pull/83438
+[#83440]: https://github.com/home-assistant/core/pull/83440
+[#83445]: https://github.com/home-assistant/core/pull/83445
+[#83450]: https://github.com/home-assistant/core/pull/83450
+[#83451]: https://github.com/home-assistant/core/pull/83451
+[#83452]: https://github.com/home-assistant/core/pull/83452
+[#83453]: https://github.com/home-assistant/core/pull/83453
+[#83455]: https://github.com/home-assistant/core/pull/83455
+[#83456]: https://github.com/home-assistant/core/pull/83456
+[#83480]: https://github.com/home-assistant/core/pull/83480
+[#83486]: https://github.com/home-assistant/core/pull/83486
+[#83490]: https://github.com/home-assistant/core/pull/83490
+[#83495]: https://github.com/home-assistant/core/pull/83495
+[#83506]: https://github.com/home-assistant/core/pull/83506
+[#83525]: https://github.com/home-assistant/core/pull/83525
+[#83530]: https://github.com/home-assistant/core/pull/83530
+[#83533]: https://github.com/home-assistant/core/pull/83533
+[#83534]: https://github.com/home-assistant/core/pull/83534
+[#83546]: https://github.com/home-assistant/core/pull/83546
+[#83560]: https://github.com/home-assistant/core/pull/83560
+[#83574]: https://github.com/home-assistant/core/pull/83574
+[#83576]: https://github.com/home-assistant/core/pull/83576
+[#83577]: https://github.com/home-assistant/core/pull/83577
+[#83580]: https://github.com/home-assistant/core/pull/83580
+[#83581]: https://github.com/home-assistant/core/pull/83581
+[#83582]: https://github.com/home-assistant/core/pull/83582
+[#83583]: https://github.com/home-assistant/core/pull/83583
+[#83584]: https://github.com/home-assistant/core/pull/83584
+[#83585]: https://github.com/home-assistant/core/pull/83585
+[#83586]: https://github.com/home-assistant/core/pull/83586
+[#83590]: https://github.com/home-assistant/core/pull/83590
+[#83598]: https://github.com/home-assistant/core/pull/83598
+[#83599]: https://github.com/home-assistant/core/pull/83599
+[#83601]: https://github.com/home-assistant/core/pull/83601
+[#83604]: https://github.com/home-assistant/core/pull/83604
+[#83607]: https://github.com/home-assistant/core/pull/83607
+[#83610]: https://github.com/home-assistant/core/pull/83610
+[#83611]: https://github.com/home-assistant/core/pull/83611
+[#83612]: https://github.com/home-assistant/core/pull/83612
+[#83622]: https://github.com/home-assistant/core/pull/83622
+[#83623]: https://github.com/home-assistant/core/pull/83623
+[#83627]: https://github.com/home-assistant/core/pull/83627
+[#83628]: https://github.com/home-assistant/core/pull/83628
+[#83633]: https://github.com/home-assistant/core/pull/83633
+[#83634]: https://github.com/home-assistant/core/pull/83634
+[#83639]: https://github.com/home-assistant/core/pull/83639
+[#83641]: https://github.com/home-assistant/core/pull/83641
+[#83646]: https://github.com/home-assistant/core/pull/83646
+[#83647]: https://github.com/home-assistant/core/pull/83647
+[#83648]: https://github.com/home-assistant/core/pull/83648
+[#83649]: https://github.com/home-assistant/core/pull/83649
+[#83650]: https://github.com/home-assistant/core/pull/83650
+[#83651]: https://github.com/home-assistant/core/pull/83651
+[#83653]: https://github.com/home-assistant/core/pull/83653
+[#83654]: https://github.com/home-assistant/core/pull/83654
+[#83656]: https://github.com/home-assistant/core/pull/83656
+[#83657]: https://github.com/home-assistant/core/pull/83657
+[#83658]: https://github.com/home-assistant/core/pull/83658
+[#83660]: https://github.com/home-assistant/core/pull/83660
+[#83666]: https://github.com/home-assistant/core/pull/83666
+[#83668]: https://github.com/home-assistant/core/pull/83668
+[#83674]: https://github.com/home-assistant/core/pull/83674
+[#83675]: https://github.com/home-assistant/core/pull/83675
+[#83682]: https://github.com/home-assistant/core/pull/83682
+[#83685]: https://github.com/home-assistant/core/pull/83685
+[#83691]: https://github.com/home-assistant/core/pull/83691
+[#83694]: https://github.com/home-assistant/core/pull/83694
+[#83696]: https://github.com/home-assistant/core/pull/83696
+[#83699]: https://github.com/home-assistant/core/pull/83699
+[#83700]: https://github.com/home-assistant/core/pull/83700
+[#83701]: https://github.com/home-assistant/core/pull/83701
+[#83703]: https://github.com/home-assistant/core/pull/83703
+[#83705]: https://github.com/home-assistant/core/pull/83705
+[#83726]: https://github.com/home-assistant/core/pull/83726
+[#83728]: https://github.com/home-assistant/core/pull/83728
+[#83729]: https://github.com/home-assistant/core/pull/83729
+[#83738]: https://github.com/home-assistant/core/pull/83738
+[#83741]: https://github.com/home-assistant/core/pull/83741
+[#83742]: https://github.com/home-assistant/core/pull/83742
+[#83748]: https://github.com/home-assistant/core/pull/83748
+[#83754]: https://github.com/home-assistant/core/pull/83754
+[#83761]: https://github.com/home-assistant/core/pull/83761
+[#83763]: https://github.com/home-assistant/core/pull/83763
+[#83767]: https://github.com/home-assistant/core/pull/83767
+[#83770]: https://github.com/home-assistant/core/pull/83770
+[#83771]: https://github.com/home-assistant/core/pull/83771
+[#83774]: https://github.com/home-assistant/core/pull/83774
+[#83775]: https://github.com/home-assistant/core/pull/83775
+[#83784]: https://github.com/home-assistant/core/pull/83784
+[#83793]: https://github.com/home-assistant/core/pull/83793
+[#83796]: https://github.com/home-assistant/core/pull/83796
+[#83801]: https://github.com/home-assistant/core/pull/83801
+[#83805]: https://github.com/home-assistant/core/pull/83805
+[#83806]: https://github.com/home-assistant/core/pull/83806
+[#83807]: https://github.com/home-assistant/core/pull/83807
+[#83808]: https://github.com/home-assistant/core/pull/83808
+[#83809]: https://github.com/home-assistant/core/pull/83809
+[#83810]: https://github.com/home-assistant/core/pull/83810
+[#83811]: https://github.com/home-assistant/core/pull/83811
+[#83812]: https://github.com/home-assistant/core/pull/83812
+[#83814]: https://github.com/home-assistant/core/pull/83814
+[#83815]: https://github.com/home-assistant/core/pull/83815
+[#83817]: https://github.com/home-assistant/core/pull/83817
+[#83818]: https://github.com/home-assistant/core/pull/83818
+[#83820]: https://github.com/home-assistant/core/pull/83820
+[#83821]: https://github.com/home-assistant/core/pull/83821
+[#83822]: https://github.com/home-assistant/core/pull/83822
+[#83823]: https://github.com/home-assistant/core/pull/83823
+[#83824]: https://github.com/home-assistant/core/pull/83824
+[#83825]: https://github.com/home-assistant/core/pull/83825
+[#83826]: https://github.com/home-assistant/core/pull/83826
+[#83837]: https://github.com/home-assistant/core/pull/83837
+[#83858]: https://github.com/home-assistant/core/pull/83858
+[#83859]: https://github.com/home-assistant/core/pull/83859
+[#83869]: https://github.com/home-assistant/core/pull/83869
+[#83872]: https://github.com/home-assistant/core/pull/83872
+[#83877]: https://github.com/home-assistant/core/pull/83877
+[#83880]: https://github.com/home-assistant/core/pull/83880
+[#83881]: https://github.com/home-assistant/core/pull/83881
+[#83882]: https://github.com/home-assistant/core/pull/83882
+[#83885]: https://github.com/home-assistant/core/pull/83885
+[#83888]: https://github.com/home-assistant/core/pull/83888
+[#83894]: https://github.com/home-assistant/core/pull/83894
+[#83895]: https://github.com/home-assistant/core/pull/83895
+[#83897]: https://github.com/home-assistant/core/pull/83897
+[#83901]: https://github.com/home-assistant/core/pull/83901
+[#83904]: https://github.com/home-assistant/core/pull/83904
+[#83907]: https://github.com/home-assistant/core/pull/83907
+[#83908]: https://github.com/home-assistant/core/pull/83908
+[#83914]: https://github.com/home-assistant/core/pull/83914
+[#83915]: https://github.com/home-assistant/core/pull/83915
+[#83916]: https://github.com/home-assistant/core/pull/83916
+[#83917]: https://github.com/home-assistant/core/pull/83917
+[#83926]: https://github.com/home-assistant/core/pull/83926
+[#83927]: https://github.com/home-assistant/core/pull/83927
+[#83930]: https://github.com/home-assistant/core/pull/83930
+[#83932]: https://github.com/home-assistant/core/pull/83932
+[#83933]: https://github.com/home-assistant/core/pull/83933
+[#83936]: https://github.com/home-assistant/core/pull/83936
+[#83947]: https://github.com/home-assistant/core/pull/83947
+[#83952]: https://github.com/home-assistant/core/pull/83952
+[#83955]: https://github.com/home-assistant/core/pull/83955
+[#83958]: https://github.com/home-assistant/core/pull/83958
+[#83960]: https://github.com/home-assistant/core/pull/83960
+[#83961]: https://github.com/home-assistant/core/pull/83961
+[#83962]: https://github.com/home-assistant/core/pull/83962
+[#83974]: https://github.com/home-assistant/core/pull/83974
+[#83976]: https://github.com/home-assistant/core/pull/83976
+[#83977]: https://github.com/home-assistant/core/pull/83977
+[#83979]: https://github.com/home-assistant/core/pull/83979
+[#83980]: https://github.com/home-assistant/core/pull/83980
+[#83982]: https://github.com/home-assistant/core/pull/83982
+[#84004]: https://github.com/home-assistant/core/pull/84004
+[#84007]: https://github.com/home-assistant/core/pull/84007
+[#84008]: https://github.com/home-assistant/core/pull/84008
+[#84010]: https://github.com/home-assistant/core/pull/84010
+[#84012]: https://github.com/home-assistant/core/pull/84012
+[#84013]: https://github.com/home-assistant/core/pull/84013
+[#84018]: https://github.com/home-assistant/core/pull/84018
+[#84020]: https://github.com/home-assistant/core/pull/84020
+[#84026]: https://github.com/home-assistant/core/pull/84026
+[#84028]: https://github.com/home-assistant/core/pull/84028
+[#84029]: https://github.com/home-assistant/core/pull/84029
+[#84030]: https://github.com/home-assistant/core/pull/84030
+[#84034]: https://github.com/home-assistant/core/pull/84034
+[#84036]: https://github.com/home-assistant/core/pull/84036
+[#84043]: https://github.com/home-assistant/core/pull/84043
+[#84044]: https://github.com/home-assistant/core/pull/84044
+[#84047]: https://github.com/home-assistant/core/pull/84047
+[#84048]: https://github.com/home-assistant/core/pull/84048
+[#84049]: https://github.com/home-assistant/core/pull/84049
+[#84050]: https://github.com/home-assistant/core/pull/84050
+[#84051]: https://github.com/home-assistant/core/pull/84051
+[#84054]: https://github.com/home-assistant/core/pull/84054
+[#84063]: https://github.com/home-assistant/core/pull/84063
+[#84069]: https://github.com/home-assistant/core/pull/84069
+[#84077]: https://github.com/home-assistant/core/pull/84077
+[#84081]: https://github.com/home-assistant/core/pull/84081
+[#84089]: https://github.com/home-assistant/core/pull/84089
+[#84093]: https://github.com/home-assistant/core/pull/84093
+[#84095]: https://github.com/home-assistant/core/pull/84095
+[#84099]: https://github.com/home-assistant/core/pull/84099
+[#84103]: https://github.com/home-assistant/core/pull/84103
+[#84107]: https://github.com/home-assistant/core/pull/84107
+[#84111]: https://github.com/home-assistant/core/pull/84111
+[#84115]: https://github.com/home-assistant/core/pull/84115
+[#84118]: https://github.com/home-assistant/core/pull/84118
+[#84119]: https://github.com/home-assistant/core/pull/84119
+[#84122]: https://github.com/home-assistant/core/pull/84122
+[#84125]: https://github.com/home-assistant/core/pull/84125
+[#84129]: https://github.com/home-assistant/core/pull/84129
+[#84141]: https://github.com/home-assistant/core/pull/84141
+[#84143]: https://github.com/home-assistant/core/pull/84143
+[#84144]: https://github.com/home-assistant/core/pull/84144
+[#84147]: https://github.com/home-assistant/core/pull/84147
+[#84148]: https://github.com/home-assistant/core/pull/84148
+[#84161]: https://github.com/home-assistant/core/pull/84161
+[#84166]: https://github.com/home-assistant/core/pull/84166
+[#84178]: https://github.com/home-assistant/core/pull/84178
+[#84181]: https://github.com/home-assistant/core/pull/84181
+[#84185]: https://github.com/home-assistant/core/pull/84185
+[#84186]: https://github.com/home-assistant/core/pull/84186
+[#84189]: https://github.com/home-assistant/core/pull/84189
+[#84192]: https://github.com/home-assistant/core/pull/84192
+[#84194]: https://github.com/home-assistant/core/pull/84194
+[#84203]: https://github.com/home-assistant/core/pull/84203
+[#84205]: https://github.com/home-assistant/core/pull/84205
+[#84206]: https://github.com/home-assistant/core/pull/84206
+[#84207]: https://github.com/home-assistant/core/pull/84207
+[#84210]: https://github.com/home-assistant/core/pull/84210
+[#84215]: https://github.com/home-assistant/core/pull/84215
+[#84216]: https://github.com/home-assistant/core/pull/84216
+[#84220]: https://github.com/home-assistant/core/pull/84220
+[#84221]: https://github.com/home-assistant/core/pull/84221
+[#84222]: https://github.com/home-assistant/core/pull/84222
+[#84223]: https://github.com/home-assistant/core/pull/84223
+[#84224]: https://github.com/home-assistant/core/pull/84224
+[#84225]: https://github.com/home-assistant/core/pull/84225
+[#84226]: https://github.com/home-assistant/core/pull/84226
+[#84228]: https://github.com/home-assistant/core/pull/84228
+[#84229]: https://github.com/home-assistant/core/pull/84229
+[#84230]: https://github.com/home-assistant/core/pull/84230
+[#84231]: https://github.com/home-assistant/core/pull/84231
+[#84232]: https://github.com/home-assistant/core/pull/84232
+[#84234]: https://github.com/home-assistant/core/pull/84234
+[#84236]: https://github.com/home-assistant/core/pull/84236
+[#84237]: https://github.com/home-assistant/core/pull/84237
+[#84239]: https://github.com/home-assistant/core/pull/84239
+[#84240]: https://github.com/home-assistant/core/pull/84240
+[#84242]: https://github.com/home-assistant/core/pull/84242
+[#84243]: https://github.com/home-assistant/core/pull/84243
+[#84244]: https://github.com/home-assistant/core/pull/84244
+[#84245]: https://github.com/home-assistant/core/pull/84245
+[#84246]: https://github.com/home-assistant/core/pull/84246
+[#84252]: https://github.com/home-assistant/core/pull/84252
+[#84253]: https://github.com/home-assistant/core/pull/84253
+[#84254]: https://github.com/home-assistant/core/pull/84254
+[#84257]: https://github.com/home-assistant/core/pull/84257
+[#84260]: https://github.com/home-assistant/core/pull/84260
+[#84262]: https://github.com/home-assistant/core/pull/84262
+[#84264]: https://github.com/home-assistant/core/pull/84264
+[#84267]: https://github.com/home-assistant/core/pull/84267
+[#84269]: https://github.com/home-assistant/core/pull/84269
+[#84271]: https://github.com/home-assistant/core/pull/84271
+[#84273]: https://github.com/home-assistant/core/pull/84273
+[#84277]: https://github.com/home-assistant/core/pull/84277
+[#84280]: https://github.com/home-assistant/core/pull/84280
+[#84283]: https://github.com/home-assistant/core/pull/84283
+[#84288]: https://github.com/home-assistant/core/pull/84288
+[#84289]: https://github.com/home-assistant/core/pull/84289
+[#84291]: https://github.com/home-assistant/core/pull/84291
+[#84292]: https://github.com/home-assistant/core/pull/84292
+[#84294]: https://github.com/home-assistant/core/pull/84294
+[#84295]: https://github.com/home-assistant/core/pull/84295
+[#84304]: https://github.com/home-assistant/core/pull/84304
+[#84305]: https://github.com/home-assistant/core/pull/84305
+[#84306]: https://github.com/home-assistant/core/pull/84306
+[#84307]: https://github.com/home-assistant/core/pull/84307
+[#84308]: https://github.com/home-assistant/core/pull/84308
+[#84309]: https://github.com/home-assistant/core/pull/84309
+[#84310]: https://github.com/home-assistant/core/pull/84310
+[#84320]: https://github.com/home-assistant/core/pull/84320
+[#84324]: https://github.com/home-assistant/core/pull/84324
+[#84325]: https://github.com/home-assistant/core/pull/84325
+[#84328]: https://github.com/home-assistant/core/pull/84328
+[#84330]: https://github.com/home-assistant/core/pull/84330
+[#84331]: https://github.com/home-assistant/core/pull/84331
+[#84333]: https://github.com/home-assistant/core/pull/84333
+[#84337]: https://github.com/home-assistant/core/pull/84337
+[#84339]: https://github.com/home-assistant/core/pull/84339
+[#84341]: https://github.com/home-assistant/core/pull/84341
+[#84342]: https://github.com/home-assistant/core/pull/84342
+[#84343]: https://github.com/home-assistant/core/pull/84343
+[#84344]: https://github.com/home-assistant/core/pull/84344
+[#84346]: https://github.com/home-assistant/core/pull/84346
+[#84347]: https://github.com/home-assistant/core/pull/84347
+[#84348]: https://github.com/home-assistant/core/pull/84348
+[#84349]: https://github.com/home-assistant/core/pull/84349
+[#84350]: https://github.com/home-assistant/core/pull/84350
+[#84351]: https://github.com/home-assistant/core/pull/84351
+[#84352]: https://github.com/home-assistant/core/pull/84352
+[#84353]: https://github.com/home-assistant/core/pull/84353
+[#84356]: https://github.com/home-assistant/core/pull/84356
+[#84362]: https://github.com/home-assistant/core/pull/84362
+[#84365]: https://github.com/home-assistant/core/pull/84365
+[#84366]: https://github.com/home-assistant/core/pull/84366
+[#84371]: https://github.com/home-assistant/core/pull/84371
+[#84372]: https://github.com/home-assistant/core/pull/84372
+[#84373]: https://github.com/home-assistant/core/pull/84373
+[#84374]: https://github.com/home-assistant/core/pull/84374
+[#84376]: https://github.com/home-assistant/core/pull/84376
+[#84377]: https://github.com/home-assistant/core/pull/84377
+[#84379]: https://github.com/home-assistant/core/pull/84379
+[#84380]: https://github.com/home-assistant/core/pull/84380
+[#84381]: https://github.com/home-assistant/core/pull/84381
+[#84385]: https://github.com/home-assistant/core/pull/84385
+[#84386]: https://github.com/home-assistant/core/pull/84386
+[#84390]: https://github.com/home-assistant/core/pull/84390
+[#84393]: https://github.com/home-assistant/core/pull/84393
+[#84394]: https://github.com/home-assistant/core/pull/84394
+[#84395]: https://github.com/home-assistant/core/pull/84395
+[#84405]: https://github.com/home-assistant/core/pull/84405
+[#84406]: https://github.com/home-assistant/core/pull/84406
+[#84408]: https://github.com/home-assistant/core/pull/84408
+[#84411]: https://github.com/home-assistant/core/pull/84411
+[#84412]: https://github.com/home-assistant/core/pull/84412
+[#84414]: https://github.com/home-assistant/core/pull/84414
+[#84416]: https://github.com/home-assistant/core/pull/84416
+[#84417]: https://github.com/home-assistant/core/pull/84417
+[#84420]: https://github.com/home-assistant/core/pull/84420
+[#84421]: https://github.com/home-assistant/core/pull/84421
+[#84424]: https://github.com/home-assistant/core/pull/84424
+[#84428]: https://github.com/home-assistant/core/pull/84428
+[#84433]: https://github.com/home-assistant/core/pull/84433
+[#84438]: https://github.com/home-assistant/core/pull/84438
+[#84445]: https://github.com/home-assistant/core/pull/84445
+[#84449]: https://github.com/home-assistant/core/pull/84449
+[#84453]: https://github.com/home-assistant/core/pull/84453
+[#84460]: https://github.com/home-assistant/core/pull/84460
+[#84461]: https://github.com/home-assistant/core/pull/84461
+[#84465]: https://github.com/home-assistant/core/pull/84465
+[#84466]: https://github.com/home-assistant/core/pull/84466
+[#84469]: https://github.com/home-assistant/core/pull/84469
+[#84471]: https://github.com/home-assistant/core/pull/84471
+[#84473]: https://github.com/home-assistant/core/pull/84473
+[#84475]: https://github.com/home-assistant/core/pull/84475
+[#84488]: https://github.com/home-assistant/core/pull/84488
+[#84492]: https://github.com/home-assistant/core/pull/84492
+[#84500]: https://github.com/home-assistant/core/pull/84500
+[#84501]: https://github.com/home-assistant/core/pull/84501
+[#84504]: https://github.com/home-assistant/core/pull/84504
+[#84512]: https://github.com/home-assistant/core/pull/84512
+[#84517]: https://github.com/home-assistant/core/pull/84517
+[#84521]: https://github.com/home-assistant/core/pull/84521
+[#84522]: https://github.com/home-assistant/core/pull/84522
+[#84523]: https://github.com/home-assistant/core/pull/84523
+[#84525]: https://github.com/home-assistant/core/pull/84525
+[#84526]: https://github.com/home-assistant/core/pull/84526
+[#84531]: https://github.com/home-assistant/core/pull/84531
+[#84532]: https://github.com/home-assistant/core/pull/84532
+[#84545]: https://github.com/home-assistant/core/pull/84545
+[#84547]: https://github.com/home-assistant/core/pull/84547
+[#84565]: https://github.com/home-assistant/core/pull/84565
+[#84580]: https://github.com/home-assistant/core/pull/84580
+[#84585]: https://github.com/home-assistant/core/pull/84585
+[#84586]: https://github.com/home-assistant/core/pull/84586
+[#84589]: https://github.com/home-assistant/core/pull/84589
+[#84597]: https://github.com/home-assistant/core/pull/84597
+[#84598]: https://github.com/home-assistant/core/pull/84598
+[#84606]: https://github.com/home-assistant/core/pull/84606
+[#84607]: https://github.com/home-assistant/core/pull/84607
+[#84609]: https://github.com/home-assistant/core/pull/84609
+[#84613]: https://github.com/home-assistant/core/pull/84613
+[#84617]: https://github.com/home-assistant/core/pull/84617
+[#84618]: https://github.com/home-assistant/core/pull/84618
+[#84619]: https://github.com/home-assistant/core/pull/84619
+[#84626]: https://github.com/home-assistant/core/pull/84626
+[#84628]: https://github.com/home-assistant/core/pull/84628
+[#84629]: https://github.com/home-assistant/core/pull/84629
+[#84632]: https://github.com/home-assistant/core/pull/84632
+[#84633]: https://github.com/home-assistant/core/pull/84633
+[#84634]: https://github.com/home-assistant/core/pull/84634
+[#84635]: https://github.com/home-assistant/core/pull/84635
+[#84636]: https://github.com/home-assistant/core/pull/84636
+[#84637]: https://github.com/home-assistant/core/pull/84637
+[#84638]: https://github.com/home-assistant/core/pull/84638
+[#84639]: https://github.com/home-assistant/core/pull/84639
+[#84641]: https://github.com/home-assistant/core/pull/84641
+[#84642]: https://github.com/home-assistant/core/pull/84642
+[#84643]: https://github.com/home-assistant/core/pull/84643
+[#84644]: https://github.com/home-assistant/core/pull/84644
+[#84646]: https://github.com/home-assistant/core/pull/84646
+[#84647]: https://github.com/home-assistant/core/pull/84647
+[#84649]: https://github.com/home-assistant/core/pull/84649
+[#84650]: https://github.com/home-assistant/core/pull/84650
+[#84651]: https://github.com/home-assistant/core/pull/84651
+[#84654]: https://github.com/home-assistant/core/pull/84654
+[#84655]: https://github.com/home-assistant/core/pull/84655
+[#84656]: https://github.com/home-assistant/core/pull/84656
+[#84657]: https://github.com/home-assistant/core/pull/84657
+[#84658]: https://github.com/home-assistant/core/pull/84658
+[#84669]: https://github.com/home-assistant/core/pull/84669
+[#84670]: https://github.com/home-assistant/core/pull/84670
+[#84673]: https://github.com/home-assistant/core/pull/84673
+[#84674]: https://github.com/home-assistant/core/pull/84674
+[#84680]: https://github.com/home-assistant/core/pull/84680
+[#84682]: https://github.com/home-assistant/core/pull/84682
+[#84683]: https://github.com/home-assistant/core/pull/84683
+[#84685]: https://github.com/home-assistant/core/pull/84685
+[#84686]: https://github.com/home-assistant/core/pull/84686
+[#84689]: https://github.com/home-assistant/core/pull/84689
+[#84690]: https://github.com/home-assistant/core/pull/84690
+[#84692]: https://github.com/home-assistant/core/pull/84692
+[#84696]: https://github.com/home-assistant/core/pull/84696
+[#84698]: https://github.com/home-assistant/core/pull/84698
+[#84699]: https://github.com/home-assistant/core/pull/84699
+[#84700]: https://github.com/home-assistant/core/pull/84700
+[#84705]: https://github.com/home-assistant/core/pull/84705
+[#84711]: https://github.com/home-assistant/core/pull/84711
+[#84719]: https://github.com/home-assistant/core/pull/84719
+[#84720]: https://github.com/home-assistant/core/pull/84720
+[#84723]: https://github.com/home-assistant/core/pull/84723
+[#84725]: https://github.com/home-assistant/core/pull/84725
+[#84733]: https://github.com/home-assistant/core/pull/84733
+[#84746]: https://github.com/home-assistant/core/pull/84746
+[#84749]: https://github.com/home-assistant/core/pull/84749
+[#84778]: https://github.com/home-assistant/core/pull/84778
+[#84787]: https://github.com/home-assistant/core/pull/84787
+[#84791]: https://github.com/home-assistant/core/pull/84791
+[#84792]: https://github.com/home-assistant/core/pull/84792
+[#84796]: https://github.com/home-assistant/core/pull/84796
+[#84797]: https://github.com/home-assistant/core/pull/84797
+[#84798]: https://github.com/home-assistant/core/pull/84798
+[#84800]: https://github.com/home-assistant/core/pull/84800
+[#84805]: https://github.com/home-assistant/core/pull/84805
+[#84809]: https://github.com/home-assistant/core/pull/84809
+[#84812]: https://github.com/home-assistant/core/pull/84812
+[#84821]: https://github.com/home-assistant/core/pull/84821
+[#84830]: https://github.com/home-assistant/core/pull/84830
+[#84832]: https://github.com/home-assistant/core/pull/84832
+[#84835]: https://github.com/home-assistant/core/pull/84835
+[#84842]: https://github.com/home-assistant/core/pull/84842
+[#84848]: https://github.com/home-assistant/core/pull/84848
+[#84860]: https://github.com/home-assistant/core/pull/84860
+[#84862]: https://github.com/home-assistant/core/pull/84862
+[#84864]: https://github.com/home-assistant/core/pull/84864
+[#84865]: https://github.com/home-assistant/core/pull/84865
+[#84868]: https://github.com/home-assistant/core/pull/84868
+[#84872]: https://github.com/home-assistant/core/pull/84872
+[#84873]: https://github.com/home-assistant/core/pull/84873
+[#84884]: https://github.com/home-assistant/core/pull/84884
+[#84888]: https://github.com/home-assistant/core/pull/84888
+[#84893]: https://github.com/home-assistant/core/pull/84893
+[#84896]: https://github.com/home-assistant/core/pull/84896
+[#84902]: https://github.com/home-assistant/core/pull/84902
+[#84904]: https://github.com/home-assistant/core/pull/84904
+[#84907]: https://github.com/home-assistant/core/pull/84907
+[#84914]: https://github.com/home-assistant/core/pull/84914
+[#84919]: https://github.com/home-assistant/core/pull/84919
+[#84930]: https://github.com/home-assistant/core/pull/84930
+[#84936]: https://github.com/home-assistant/core/pull/84936
+[#84937]: https://github.com/home-assistant/core/pull/84937
+[#84943]: https://github.com/home-assistant/core/pull/84943
+[#84955]: https://github.com/home-assistant/core/pull/84955
+[#84976]: https://github.com/home-assistant/core/pull/84976
+[#84994]: https://github.com/home-assistant/core/pull/84994
+[#85004]: https://github.com/home-assistant/core/pull/85004
+[#85005]: https://github.com/home-assistant/core/pull/85005
+[#85008]: https://github.com/home-assistant/core/pull/85008
+[#85010]: https://github.com/home-assistant/core/pull/85010
+[#85014]: https://github.com/home-assistant/core/pull/85014
+[#85016]: https://github.com/home-assistant/core/pull/85016
+[#85023]: https://github.com/home-assistant/core/pull/85023
+[#85030]: https://github.com/home-assistant/core/pull/85030
+[#85031]: https://github.com/home-assistant/core/pull/85031
+[#85032]: https://github.com/home-assistant/core/pull/85032
+[#85035]: https://github.com/home-assistant/core/pull/85035
+[#85052]: https://github.com/home-assistant/core/pull/85052
+[#85086]: https://github.com/home-assistant/core/pull/85086
+[#85099]: https://github.com/home-assistant/core/pull/85099
+[#85106]: https://github.com/home-assistant/core/pull/85106
+[#85107]: https://github.com/home-assistant/core/pull/85107
+[#85108]: https://github.com/home-assistant/core/pull/85108
+[#85110]: https://github.com/home-assistant/core/pull/85110
+[@ANMalko]: https://github.com/ANMalko
+[@AliceGrey]: https://github.com/AliceGrey
+[@AngellusMortis]: https://github.com/AngellusMortis
+[@ChopperRob]: https://github.com/ChopperRob
+[@DCSBL]: https://github.com/DCSBL
+[@Danielhiversen]: https://github.com/Danielhiversen
+[@DataBitz]: https://github.com/DataBitz
+[@DeerMaximum]: https://github.com/DeerMaximum
+[@Djelibeybi]: https://github.com/Djelibeybi
+[@Drafteed]: https://github.com/Drafteed
+[@Ernst79]: https://github.com/Ernst79
+[@FuzzyMistborn]: https://github.com/FuzzyMistborn
+[@Glodenox]: https://github.com/Glodenox
+[@J3173]: https://github.com/J3173
+[@Jc2k]: https://github.com/Jc2k
+[@Kane610]: https://github.com/Kane610
+[@MartinHjelmare]: https://github.com/MartinHjelmare
+[@MattWestb]: https://github.com/MattWestb
+[@Noltari]: https://github.com/Noltari
+[@PierreAronnax]: https://github.com/PierreAronnax
+[@ShadowJonathan]: https://github.com/ShadowJonathan
+[@Shutgun]: https://github.com/Shutgun
+[@Sommerzeit]: https://github.com/Sommerzeit
+[@StevenLooman]: https://github.com/StevenLooman
+[@SukramJ]: https://github.com/SukramJ
+[@Tarik2142]: https://github.com/Tarik2142
+[@albertogeniola]: https://github.com/albertogeniola
+[@alengwenus]: https://github.com/alengwenus
+[@allenporter]: https://github.com/allenporter
+[@aschmitz]: https://github.com/aschmitz
+[@bachya]: https://github.com/bachya
+[@balloob]: https://github.com/balloob
+[@bdr99]: https://github.com/bdr99
+[@bdraco]: https://github.com/bdraco
+[@bieniu]: https://github.com/bieniu
+[@bonzini]: https://github.com/bonzini
+[@boralyl]: https://github.com/boralyl
+[@bramkragten]: https://github.com/bramkragten
+[@cdce8p]: https://github.com/cdce8p
+[@cgtobi]: https://github.com/cgtobi
+[@chishm]: https://github.com/chishm
+[@dmulcahey]: https://github.com/dmulcahey
+[@dsypniewski]: https://github.com/dsypniewski
+[@eifinger]: https://github.com/eifinger
+[@elupus]: https://github.com/elupus
+[@emontnemery]: https://github.com/emontnemery
+[@engrbm87]: https://github.com/engrbm87
+[@epenet]: https://github.com/epenet
+[@farmio]: https://github.com/farmio
+[@filcole]: https://github.com/filcole
+[@frenck]: https://github.com/frenck
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@gwww]: https://github.com/gwww
+[@hahn-th]: https://github.com/hahn-th
+[@hmmbob]: https://github.com/hmmbob
+[@jafar-atili]: https://github.com/jafar-atili
+[@jbouwh]: https://github.com/jbouwh
+[@jesserockz]: https://github.com/jesserockz
+[@jjlawren]: https://github.com/jjlawren
+[@jpettitt]: https://github.com/jpettitt
+[@kamiyo]: https://github.com/kamiyo
+[@killer0071234]: https://github.com/killer0071234
+[@klaasnicolaas]: https://github.com/klaasnicolaas
+[@konikoni428]: https://github.com/konikoni428
+[@laurent-martin]: https://github.com/laurent-martin
+[@ludeeus]: https://github.com/ludeeus
+[@majuss]: https://github.com/majuss
+[@marcelveldt]: https://github.com/marcelveldt
+[@mib1185]: https://github.com/mib1185
+[@michaelarnauts]: https://github.com/michaelarnauts
+[@milanmeu]: https://github.com/milanmeu
+[@muppet3000]: https://github.com/muppet3000
+[@natekspencer]: https://github.com/natekspencer
+[@nyroDev]: https://github.com/nyroDev
+[@oischinger]: https://github.com/oischinger
+[@ollo69]: https://github.com/ollo69
+[@oyvindwe]: https://github.com/oyvindwe
+[@pavoni]: https://github.com/pavoni
+[@r01k]: https://github.com/r01k
+[@raman325]: https://github.com/raman325
+[@riokuu]: https://github.com/riokuu
+[@scop]: https://github.com/scop
+[@shbatm]: https://github.com/shbatm
+[@spacegaier]: https://github.com/spacegaier
+[@spyder007]: https://github.com/spyder007
+[@starkillerOG]: https://github.com/starkillerOG
+[@stgraber]: https://github.com/stgraber
+[@synesthesiam]: https://github.com/synesthesiam
+[@thecode]: https://github.com/thecode
+[@timrogers]: https://github.com/timrogers
+[@tkislan]: https://github.com/tkislan
+[@toddejohnson]: https://github.com/toddejohnson
+[@tronikos]: https://github.com/tronikos
+[@w1ll1am23]: https://github.com/w1ll1am23
+[@yozik04]: https://github.com/yozik04
+[@yuvalabou]: https://github.com/yuvalabou
+[@yuxincs]: https://github.com/yuxincs
+[accuweather docs]: /integrations/accuweather/
+[adguard docs]: /integrations/adguard/
+[aemet docs]: /integrations/aemet/
+[airq docs]: /integrations/airq/
+[airvisual docs]: /integrations/airvisual/
+[airvisual_pro docs]: /integrations/airvisual_pro/
+[airzone docs]: /integrations/airzone/
+[alert docs]: /integrations/alert/
+[alexa docs]: /integrations/alexa/
+[almond docs]: /integrations/almond/
+[ambient_station docs]: /integrations/ambient_station/
+[analytics docs]: /integrations/analytics/
+[androidtv docs]: /integrations/androidtv/
+[apcupsd docs]: /integrations/apcupsd/
+[application_credentials docs]: /integrations/application_credentials/
+[apprise docs]: /integrations/apprise/
+[aqualogic docs]: /integrations/aqualogic/
+[aranet docs]: /integrations/aranet/
+[arwn docs]: /integrations/arwn/
+[asuswrt docs]: /integrations/asuswrt/
+[atag docs]: /integrations/atag/
+[august docs]: /integrations/august/
+[auth docs]: /integrations/auth/
+[automation docs]: /integrations/automation/
+[awair docs]: /integrations/awair/
+[baf docs]: /integrations/baf/
+[binary_sensor docs]: /integrations/binary_sensor/
+[blebox docs]: /integrations/blebox/
+[blink docs]: /integrations/blink/
+[bloomsky docs]: /integrations/bloomsky/
+[bluetooth docs]: /integrations/bluetooth/
+[bmw_connected_drive docs]: /integrations/bmw_connected_drive/
+[braviatv docs]: /integrations/braviatv/
+[broadlink docs]: /integrations/broadlink/
+[brother docs]: /integrations/brother/
+[bthome docs]: /integrations/bthome/
+[buienradar docs]: /integrations/buienradar/
+[caldav docs]: /integrations/caldav/
+[calendar docs]: /integrations/calendar/
+[canary docs]: /integrations/canary/
+[climate docs]: /integrations/climate/
+[cloud docs]: /integrations/cloud/
+[cloudflare docs]: /integrations/cloudflare/
+[comfoconnect docs]: /integrations/comfoconnect/
+[config docs]: /integrations/config/
+[conversation docs]: /integrations/conversation/
+[core docs]: /integrations/core/
+[cover docs]: /integrations/cover/
+[cpuspeed docs]: /integrations/cpuspeed/
+[darksky docs]: /integrations/darksky/
+[debugpy docs]: /integrations/debugpy/
+[deconz docs]: /integrations/deconz/
+[demo docs]: /integrations/demo/
+[deutsche_bahn docs]: /integrations/deutsche_bahn/
+[devolo_home_control docs]: /integrations/devolo_home_control/
+[devolo_home_network docs]: /integrations/devolo_home_network/
+[diagnostics docs]: /integrations/diagnostics/
+[dlna_dmr docs]: /integrations/dlna_dmr/
+[dnsip docs]: /integrations/dnsip/
+[dsmr docs]: /integrations/dsmr/
+[dsmr_reader docs]: /integrations/dsmr_reader/
+[dte_energy_bridge docs]: /integrations/dte_energy_bridge/
+[dynalite docs]: /integrations/dynalite/
+[ebusd docs]: /integrations/ebusd/
+[ecobee docs]: /integrations/ecobee/
+[econet docs]: /integrations/econet/
+[ecowitt docs]: /integrations/ecowitt/
+[eliqonline docs]: /integrations/eliqonline/
+[elkm1 docs]: /integrations/elkm1/
+[elmax docs]: /integrations/elmax/
+[energy docs]: /integrations/energy/
+[enphase_envoy docs]: /integrations/enphase_envoy/
+[environment_canada docs]: /integrations/environment_canada/
+[esphome docs]: /integrations/esphome/
+[evohome docs]: /integrations/evohome/
+[file_upload docs]: /integrations/file_upload/
+[filter docs]: /integrations/filter/
+[fitbit docs]: /integrations/fitbit/
+[flipr docs]: /integrations/flipr/
+[folder docs]: /integrations/folder/
+[folder_watcher docs]: /integrations/folder_watcher/
+[forecast_solar docs]: /integrations/forecast_solar/
+[freebox docs]: /integrations/freebox/
+[fronius docs]: /integrations/fronius/
+[frontend docs]: /integrations/frontend/
+[fully_kiosk docs]: /integrations/fully_kiosk/
+[garages_amsterdam docs]: /integrations/garages_amsterdam/
+[gios docs]: /integrations/gios/
+[goalzero docs]: /integrations/goalzero/
+[gogogate2 docs]: /integrations/gogogate2/
+[goodwe docs]: /integrations/goodwe/
+[google docs]: /integrations/google/
+[google_assistant docs]: /integrations/google_assistant/
+[google_assistant_sdk docs]: /integrations/google_assistant_sdk/
+[google_pubsub docs]: /integrations/google_pubsub/
+[google_sheets docs]: /integrations/google_sheets/
+[google_translate docs]: /integrations/google_translate/
+[google_travel_time docs]: /integrations/google_travel_time/
+[govee_ble docs]: /integrations/govee_ble/
+[gree docs]: /integrations/gree/
+[growatt_server docs]: /integrations/growatt_server/
+[hardware docs]: /integrations/hardware/
+[harmony docs]: /integrations/harmony/
+[hassio docs]: /integrations/hassio/
+[haveibeenpwned docs]: /integrations/haveibeenpwned/
+[here_travel_time docs]: /integrations/here_travel_time/
+[hive docs]: /integrations/hive/
+[homeassistant_alerts docs]: /integrations/homeassistant_alerts/
+[homeassistant_hardware docs]: /integrations/homeassistant_hardware/
+[homeassistant_sky_connect docs]: /integrations/homeassistant_sky_connect/
+[homeassistant_yellow docs]: /integrations/homeassistant_yellow/
+[homekit docs]: /integrations/homekit/
+[homekit_controller docs]: /integrations/homekit_controller/
+[homematic docs]: /integrations/homematic/
+[homematicip_cloud docs]: /integrations/homematicip_cloud/
+[homewizard docs]: /integrations/homewizard/
+[honeywell docs]: /integrations/honeywell/
+[html5 docs]: /integrations/html5/
+[huawei_lte docs]: /integrations/huawei_lte/
+[hue docs]: /integrations/hue/
+[huisbaasje docs]: /integrations/huisbaasje/
+[humidifier docs]: /integrations/humidifier/
+[image docs]: /integrations/image/
+[image_processing docs]: /integrations/image_processing/
+[image_upload docs]: /integrations/image_upload/
+[incomfort docs]: /integrations/incomfort/
+[integration docs]: /integrations/integration/
+[intent docs]: /integrations/intent/
+[iotawatt docs]: /integrations/iotawatt/
+[isy994 docs]: /integrations/isy994/
+[knx docs]: /integrations/knx/
+[kostal_plenticore docs]: /integrations/kostal_plenticore/
+[lacrosse_view docs]: /integrations/lacrosse_view/
+[lametric docs]: /integrations/lametric/
+[landisgyr_heat_meter docs]: /integrations/landisgyr_heat_meter/
+[laundrify docs]: /integrations/laundrify/
+[lcn docs]: /integrations/lcn/
+[led_ble docs]: /integrations/led_ble/
+[lifx docs]: /integrations/lifx/
+[litterrobot docs]: /integrations/litterrobot/
+[local_calendar docs]: /integrations/local_calendar/
+[lookin docs]: /integrations/lookin/
+[lupusec docs]: /integrations/lupusec/
+[lyric docs]: /integrations/lyric/
+[manual docs]: /integrations/manual/
+[manual_mqtt docs]: /integrations/manual_mqtt/
+[mastodon docs]: /integrations/mastodon/
+[matter docs]: /integrations/matter/
+[mazda docs]: /integrations/mazda/
+[media_player docs]: /integrations/media_player/
+[melcloud docs]: /integrations/melcloud/
+[meteo_france docs]: /integrations/meteo_france/
+[meteoclimatic docs]: /integrations/meteoclimatic/
+[metoffice docs]: /integrations/metoffice/
+[mill docs]: /integrations/mill/
+[minio docs]: /integrations/minio/
+[mold_indicator docs]: /integrations/mold_indicator/
+[moon docs]: /integrations/moon/
+[motion_blinds docs]: /integrations/motion_blinds/
+[mqtt docs]: /integrations/mqtt/
+[mysensors docs]: /integrations/mysensors/
+[nam docs]: /integrations/nam/
+[netatmo docs]: /integrations/netatmo/
+[netgear docs]: /integrations/netgear/
+[netgear_lte docs]: /integrations/netgear_lte/
+[nexia docs]: /integrations/nexia/
+[nibe_heatpump docs]: /integrations/nibe_heatpump/
+[nina docs]: /integrations/nina/
+[nissan_leaf docs]: /integrations/nissan_leaf/
+[nobo_hub docs]: /integrations/nobo_hub/
+[notion docs]: /integrations/notion/
+[number docs]: /integrations/number/
+[nut docs]: /integrations/nut/
+[nws docs]: /integrations/nws/
+[omnilogic docs]: /integrations/omnilogic/
+[ondilo_ico docs]: /integrations/ondilo_ico/
+[onvif docs]: /integrations/onvif/
+[opentherm_gw docs]: /integrations/opentherm_gw/
+[openuv docs]: /integrations/openuv/
+[openweathermap docs]: /integrations/openweathermap/
+[oru docs]: /integrations/oru/
+[otp docs]: /integrations/otp/
+[overkiz docs]: /integrations/overkiz/
+[ovo_energy docs]: /integrations/ovo_energy/
+[person docs]: /integrations/person/
+[pi_hole docs]: /integrations/pi_hole/
+[plaato docs]: /integrations/plaato/
+[plex docs]: /integrations/plex/
+[plugwise docs]: /integrations/plugwise/
+[point docs]: /integrations/point/
+[poolsense docs]: /integrations/poolsense/
+[prometheus docs]: /integrations/prometheus/
+[prusalink docs]: /integrations/prusalink/
+[purpleair docs]: /integrations/purpleair/
+[pyload docs]: /integrations/pyload/
+[qnap_qsw docs]: /integrations/qnap_qsw/
+[rainbird docs]: /integrations/rainbird/
+[rainmachine docs]: /integrations/rainmachine/
+[rdw docs]: /integrations/rdw/
+[recorder docs]: /integrations/recorder/
+[renault docs]: /integrations/renault/
+[reolink docs]: /integrations/reolink/
+[repairs docs]: /integrations/repairs/
+[rest docs]: /integrations/rest/
+[rflink docs]: /integrations/rflink/
+[rfxtrx docs]: /integrations/rfxtrx/
+[risco docs]: /integrations/risco/
+[rituals_perfume_genie docs]: /integrations/rituals_perfume_genie/
+[roku docs]: /integrations/roku/
+[roon docs]: /integrations/roon/
+[ruuvitag_ble docs]: /integrations/ruuvitag_ble/
+[saj docs]: /integrations/saj/
+[script docs]: /integrations/script/
+[season docs]: /integrations/season/
+[sense docs]: /integrations/sense/
+[sensibo docs]: /integrations/sensibo/
+[sensirion_ble docs]: /integrations/sensirion_ble/
+[sensor docs]: /integrations/sensor/
+[sensorpro docs]: /integrations/sensorpro/
+[sentry docs]: /integrations/sentry/
+[shelly docs]: /integrations/shelly/
+[shopping_list docs]: /integrations/shopping_list/
+[smartthings docs]: /integrations/smartthings/
+[snmp docs]: /integrations/snmp/
+[solaredge_local docs]: /integrations/solaredge_local/
+[solarlog docs]: /integrations/solarlog/
+[solax docs]: /integrations/solax/
+[speedtestdotnet docs]: /integrations/speedtestdotnet/
+[spotify docs]: /integrations/spotify/
+[ssdp docs]: /integrations/ssdp/
+[starline docs]: /integrations/starline/
+[steam_online docs]: /integrations/steam_online/
+[streamlabswater docs]: /integrations/streamlabswater/
+[suez_water docs]: /integrations/suez_water/
+[surepetcare docs]: /integrations/surepetcare/
+[switch docs]: /integrations/switch/
+[switchbee docs]: /integrations/switchbee/
+[switchbot docs]: /integrations/switchbot/
+[synology_dsm docs]: /integrations/synology_dsm/
+[system_bridge docs]: /integrations/system_bridge/
+[tado docs]: /integrations/tado/
+[tankerkoenig docs]: /integrations/tankerkoenig/
+[tasmota docs]: /integrations/tasmota/
+[ted5000 docs]: /integrations/ted5000/
+[tellduslive docs]: /integrations/tellduslive/
+[template docs]: /integrations/template/
+[tesla_wall_connector docs]: /integrations/tesla_wall_connector/
+[thermobeacon docs]: /integrations/thermobeacon/
+[tibber docs]: /integrations/tibber/
+[todoist docs]: /integrations/todoist/
+[tolo docs]: /integrations/tolo/
+[tomorrowio docs]: /integrations/tomorrowio/
+[totalconnect docs]: /integrations/totalconnect/
+[tplink docs]: /integrations/tplink/
+[tractive docs]: /integrations/tractive/
+[tradfri docs]: /integrations/tradfri/
+[trafikverket_weatherstation docs]: /integrations/trafikverket_weatherstation/
+[transmission docs]: /integrations/transmission/
+[tuya docs]: /integrations/tuya/
+[unifi docs]: /integrations/unifi/
+[unifiprotect docs]: /integrations/unifiprotect/
+[universal docs]: /integrations/universal/
+[update docs]: /integrations/update/
+[uptimerobot docs]: /integrations/uptimerobot/
+[vallox docs]: /integrations/vallox/
+[version docs]: /integrations/version/
+[vicare docs]: /integrations/vicare/
+[volkszaehler docs]: /integrations/volkszaehler/
+[wallbox docs]: /integrations/wallbox/
+[waterfurnace docs]: /integrations/waterfurnace/
+[watttime docs]: /integrations/watttime/
+[waze_travel_time docs]: /integrations/waze_travel_time/
+[withings docs]: /integrations/withings/
+[wled docs]: /integrations/wled/
+[wolflink docs]: /integrations/wolflink/
+[xiaomi_ble docs]: /integrations/xiaomi_ble/
+[xiaomi_miio docs]: /integrations/xiaomi_miio/
+[xmpp docs]: /integrations/xmpp/
+[yalexs_ble docs]: /integrations/yalexs_ble/
+[yamaha_musiccast docs]: /integrations/yamaha_musiccast/
+[zamg docs]: /integrations/zamg/
+[zeroconf docs]: /integrations/zeroconf/
+[zha docs]: /integrations/zha/
+[zodiac docs]: /integrations/zodiac/
+[zone docs]: /integrations/zone/
+[zwave_js docs]: /integrations/zwave_js/
+[zwave_me docs]: /integrations/zwave_me/

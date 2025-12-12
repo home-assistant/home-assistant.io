@@ -1,0 +1,573 @@
+---
+title: "0.47: Python Scripts, Sesame Smart Lock, Gitter, Onvif cameras"
+description: "Use Python to script Hass and enjoy a ton of new integrations. We now passed the 700 integrations!"
+date: 2017-06-17 01:04:05 +0000
+date_formatted: "June 17, 2017"
+author: Paulus Schoutsen
+author_twitter: balloob
+categories:
+- Release-Notes
+- Core
+og_image: /images/blog/2017-06-0.47/components.png
+---
+
+<a href='/integrations/#version/0.47'><img src='/images/blog/2017-06-0.47/components.png' style='border: 0;box-shadow: none;'></a>
+
+In this release a ton of new stuff! And who doesn't like new stuff? This release we're passing the 700 integrations for Home Assistant. As of today [we're 1369 days old][first-commit], which means that roughly every two days a new integration gets added!
+
+## Python Scripts
+
+The biggest change is a new type of script component: [Python scripts][python_script docs]. This new component will allow you to write scripts to manipulate Home Assistant: call services, set states and fire events. Each Python script is made available as a service. Head over to [the docs][python_script docs] to see how to get started.
+
+## Updater
+
+The updater has received a new opt-in option to let us know which components you use. This will allow us to focus development efforts on the components that are popular.
+
+```yaml
+updater:
+  include_used_components: true
+```
+
+And as a reminder. We will never share gathered data in a manner that can be used to identify anyone. We do plan on making aggregate data public soon. This will include total number of users and which hardware/software platform people use to run Home Assistant.
+
+## Z-Wave
+
+Z-Wave is also getting a big update in this release. The confusing entity_ids will be on their way out. There is a [zwave blog post] that gives more detail, but the upgrade steps will be as follows:
+
+1.  Run Home Assistant as normal and the old IDs will still be used.
+2.  The new entity IDs will be shown in the more-info dialog for each entity. Check to make sure none of them will have conflicts once the new names are applied.
+3.  Rename entities using the ui card as described in the blog post to avoid conflicts. Restart Home Assistant to observe the changes.
+4.  Update all places mentioning IDs (groups, automation, customization, etc.) in configuration.yaml.
+5.  Add `new_entity_ids: true` to your zwave config.
+6.  Restart Home Assistant to run with new IDs.
+7.  The old entity IDs will be available in the more info dialog to trace down any remaining errors.
+
+## Monkey Patching Python 3.6
+
+Some people have noticed that running Home Assistant under Python 3.6 can lead to segfaults. It seems to be related to the [earlier segfault issues][old-bug] that we experienced when we released the asyncio-based core. We thought that those issues would have been fixed when [Python bug 26617] was resolved. Although we see less reports compared to the old bug, there are still users [experiencing them][new-bug] ([gdb stacktrace points at `PyObject_GC_Del()`][gdb]).
+
+Since Python 3.6, the Task and Future classes have been moved to C. This gives a nice speed boost but also prevents us from monkey patching the Task class to avoid the segfault. [Ben Bangert] managed to brew up another monkey patch to stop Python 3.6 from using the C classes, falling back to the Python versions instead. This allows us to apply the original monkey patch again.
+
+Both monkey patches are now active by default starting version 0.47 to avoid our users experiencing segfaults. This comes at a cost of not being able to benefit from all optimizations that were introduced in Python 3.6.
+
+To run without the monkey patch, start Home Assistant with `HASS_NO_MONKEY=1 hass`. We will further investigate this issue and try to fix it in a future version of Python.
+
+[old-bug]: https://github.com/home-assistant/home-assistant/issues/3453
+[Python bug 26617]: https://bugs.python.org/issue26617
+[new-bug]: https://github.com/home-assistant/home-assistant/issues/7752
+[gdb]: https://github.com/home-assistant/home-assistant/issues/7752#issuecomment-305100009
+[Ben Bangert]: https://github.com/bbangert
+
+## Release 0.47.1 - June 21
+
+- Fix Vera lights issue #8098 ([@tsvi] - [#8101]) ([light.vera docs])
+- Fix Dyson async_add_job ([@CharlesBlonde] - [#8113]) ([fan.dyson docs]) ([sensor.dyson docs])
+- Update InfluxDB to handle datetime objects and multiple decimal points ([@philhawthorne] - [#8080]) ([influxdb docs])
+- Fixed iTach command parsing with empty data ([@alanfischer] - [#8104]) ([remote.itach docs])
+- Allow iteration in python_script ([@balloob] - [#8134]) ([python_script docs])
+
+## New platforms
+
+- Added a Taps Aff binary sensor ([@bazwilliams] - [#7880]) ([binary_sensor.tapsaff docs]) (new-platform)
+- lock.sesame: New lock platform for Sesame smart locks ([@trisk] - [#7873]) ([lock.sesame docs]) (new-platform)
+- Etherscan.io sensor ([@nkgilley] - [#7855]) ([sensor.etherscan docs]) (new-platform)
+- blockchain.info sensor ([@nkgilley] - [#7856]) ([sensor.blockchain docs]) (new-platform)
+- Add Radarr sensor ([@tboyce021] - [#7318]) ([sensor.radarr docs]) (new-platform)
+- Added buienradar sensor and weather ([@mjj4791] - [#7592]) ([sensor.buienradar docs]) ([weather.buienradar docs]) (new-platform)
+- Add support for Vanderbilt SPC alarm panels and attached sensors ([@mbrrg] - [#7663]) ([spc docs]) ([alarm_control_panel.spc docs]) ([binary_sensor.spc docs]) (new-platform)
+- Add raspihats switch ([@florincosta] - [#7665]) ([switch.raspihats docs]) (new-platform)
+- Add juicenet platform ([@jesserockz] - [#7668]) ([juicenet docs]) ([sensor.juicenet docs]) (new-platform)
+- add ripple sensor ([@nkgilley] - [#7935]) ([sensor.ripple docs]) (new-platform)
+- New component: Python Script ([@balloob] - [#7950]) ([python_script docs]) (new-platform)
+- Nadtcp component ([@mwsluis] - [#7955]) ([media_player.nadtcp docs]) (new-platform)
+- Add Gitter.im sensor ([@fabaff] - [#7998]) ([sensor.gitter docs]) (new-platform)
+- Update mailgun ([@happyleavesaoc] - [#7984]) ([mailgun docs]) ([notify.mailgun docs]) (breaking change) (new-platform)
+- Add Flexit AC climate platform ([@Sabesto] - [#7871]) ([climate.flexit docs]) (new-platform)
+
+## If you need help...
+...don't hesitate to use our very active [forums][forum] or join us for a little [chat][discord]. The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
+
+## Reporting Issues
+Experiencing issues introduced by this release? Please report them in our [issue tracker][issue]. Make sure to fill in all fields of the issue template.
+
+<!--more-->
+## Backward-incompatible changes
+
+- Update opencv config to match other image processors ([@Teagan42] - [#7864]) ([image_processing.opencv docs]) (breaking change)
+
+```yaml
+image_processing:
+  - platform: opencv
+    name: OpenCV
+    source:
+      - entity_id: camera.front_door
+    classifier:
+      faces:
+        file: /path/to/classifier
+        name: Husband
+        neighbors: 4
+        min_size: (40, 40)
+        scale: 1.1
+```
+
+- Lutron: Add configuration check and use default var names ([@fabaff] - [#7963]) ([lutron docs]) ([light.lutron docs]) (breaking change)
+
+```yaml
+lutron:
+  host: IP_ADDRESS
+  username: lutron
+  password: integration
+```
+
+- Convert mailgun to component ([@happyleavesaoc] - [#7984]) ([mailgun docs]) ([notify.mailgun docs]) (breaking change) (new-platform)
+
+```yaml
+mailgun:
+  domain: !secret mailgun_domain
+  api_key: !secret mailgun_api_key
+  sandbox: false
+
+notify:
+  - name: mailgun
+    platform: mailgun
+    recipient: !secret mailgun_recipient
+```
+
+- Z-Wave node and scene activated trigger events now use the full entity ID ([@armills] - [#7786]) ([zwave docs]) (breaking change)
+```yaml
+automation:
+  - alias: "Button 1"
+    trigger:
+      platform: event
+      event_type: zwave.scene_activated
+      event_data:
+        entity_id: living_room_remote_13
+        scene_id: 1
+```
+```yaml
+automation:
+  - alias: "Event 1"
+    trigger:
+      platform: event
+      event_type: zwave.node_event
+      event_data:
+        entity_id: zwave.living_room_remote_13
+        basic_level: 1
+```
+
+- LIFX: add multiple modes to pulse effect. The `lifx_effect_breathe` call has been deprecated. Use `lifx_effect_pulse` with the new `mode: breathe` attribute instead. ([@amelchio] - [#8016]) ([light.lifx docs]) (breaking change)
+- Use standard entity_ids for zwave entities. This also introduces a small API breakage, where `EVENT_SCENE_ACTIVATED` and `EVENT_NODE_EVENT` will no longer supply an `object_id`. They will now be tied to the node entity_id. ([@armills] - [#7786]) ([zwave docs]) ([light.zwave docs]) (breaking change)
+- Fix attribute entities. Home Assistant will no longer filter out entities that are 'falsey'. So you might see more entity attributes show up. ([@pvizeli] - [#8066]) (breaking change)
+
+## All changes
+
+- Update squeezebox.py ([@molobrakos] - [#7617]) ([media_player.squeezebox docs])
+- Fix html5 unsub ([@balloob] - [#7874]) ([notify.html5 docs])
+- Added effects to Yeelight bulbs ([@Mister-Espria] - [#7152]) ([light.yeelight docs])
+- Enocean Binary Sensor: Handle click of both rockers ([@twendt] - [#7770]) ([binary_sensor.enocean docs])
+- Support for renaming ZWave values ([@armills] - [#7780]) ([zwave docs])
+- Fix telegram_bot ([@balloob] - [#7877]) ([telegram_bot.polling docs]) ([telegram_bot.webhooks docs])
+- [light.lifx] Update aiolifx ([@amelchio] - [#7882]) ([light.lifx docs])
+- Change nad_receiver to pypi ([@joopert] - [#7852]) ([media_player.nad docs])
+- Switch pymyq to pypi ([@andrey-git] - [#7884]) ([cover.myq docs])
+- Use constants ([@fabaff] - [#7888]) ([notify.xmpp docs])
+- Upgrade pyasn1-modules to 0.0.9 ([@fabaff] - [#7887]) ([notify.xmpp docs])
+- Upgrade sendgrid to 4.2.0 ([@fabaff] - [#7886]) ([notify.sendgrid docs])
+- Upgrade python-telegram-bot to 6.0.3 ([@fabaff] - [#7885])
+- Fix MQTT camera test ([@balloob] - [#7878])
+- Added a Taps Aff binary sensor ([@bazwilliams] - [#7880]) ([binary_sensor.tapsaff docs]) (new-platform)
+- lock.sesame: New lock platform for Sesame smart locks ([@trisk] - [#7873]) ([lock.sesame docs]) (new-platform)
+- Dsmr5 revert ([@aequitas] - [#7900]) ([sensor.dsmr docs])
+- Fix typos in Wunderground component (Percipitation -> Precipitation) ([@mje-nz] - [#7901]) ([sensor.wunderground docs])
+- Add support for the expirationTime parameter. ([@perosb] - [#7895]) ([notify.html5 docs])
+- Etherscan.io sensor ([@nkgilley] - [#7855]) ([sensor.etherscan docs]) (new-platform)
+- blockchain.info sensor ([@nkgilley] - [#7856]) ([sensor.blockchain docs]) (new-platform)
+- Mqtt cover modifications ([@cribbstechnologies] - [#7841]) ([cover.mqtt docs])
+- Add Radarr sensor ([@tboyce021] - [#7318]) ([sensor.radarr docs]) (new-platform)
+- Add service to set nest away/home modes ([@mattsch] - [#7619]) ([nest docs])
+- Added buienradar sensor and weather ([@mjj4791] - [#7592]) ([sensor.buienradar docs]) ([weather.buienradar docs]) (new-platform)
+- Add support for Vanderbilt SPC alarm panels and attached sensors ([@mbrrg] - [#7663]) ([spc docs]) ([alarm_control_panel.spc docs]) ([binary_sensor.spc docs]) (new-platform)
+- Add raspihats switch ([@florincosta] - [#7665]) ([switch.raspihats docs]) (new-platform)
+- Add 'icon_template' to switch templates (similar to sensor template) ([@PhracturedBlue] - [#7862]) ([switch.template docs])
+- Fix docstring ([@fabaff] - [#7907])
+- Sync crypto-currency platforms ([@fabaff] - [#7906]) ([sensor.bitcoin docs]) ([sensor.blockchain docs]) ([sensor.coinmarketcap docs]) ([sensor.etherscan docs])
+- Move consts to 'const.py' ([@fabaff] - [#7909]) ([media_player.sonos docs]) ([sensor.imap_email_content docs]) ([sensor.pvoutput docs]) ([sensor.waqi docs])
+- Minor cleanup - Define 'CONF_ICON_TEMPLATE' constant centrally ([@PhracturedBlue] - [#7910]) ([sensor.template docs]) ([switch.template docs])
+- Do not call update() in constructor ([@fabaff] - [#7912]) ([sensor.cpuspeed docs]) ([sensor.cups docs]) ([sensor.currencylayer docs]) ([sensor.fixer docs])
+- Add juicenet platform ([@jesserockz] - [#7668]) ([juicenet docs]) ([sensor.juicenet docs]) (new-platform)
+- Bump pyEight version to fix 0hr session errors ([@mezz64] - [#7916]) ([eight_sleep docs])
+- update to pywebpush 1.0.4 which allows install on system with openssl-1.1.0 (cryptography dep) ([@perosb] - [#7915]) ([notify.html5 docs])
+- Do not call update() in constructor ([@fabaff] - [#7917]) ([sensor.dte_energy_bridge docs]) ([sensor.dublin_bus_transport docs]) ([sensor.dweet docs]) ([sensor.ebox docs]) ([sensor.ecobee docs]) ([sensor.hddtemp docs]) ([sensor.mold_indicator docs]) ([sensor.pi_hole docs]) (sensor.yahoo_finance docs)
+- Fix changes introduced with #7917 ([@fabaff] - [#7930]) ([sensor.waqi docs])
+- Do not call update() in constructor ([@fabaff] - [#7931])
+- Add service_url config option to volvooncall ([@palp] - [#7919]) ([volvooncall docs])
+- Added 'change' field to statistics sensor ([@jminn] - [#7820]) ([sensor.statistics docs])
+- add ripple sensor ([@nkgilley] - [#7935]) ([sensor.ripple docs]) (new-platform)
+- Add Yahoo! weather platform ([@fabaff] - [#7939])
+- [media_player.sonos] Send media_stop on turn_off ([@Juggels] - [#7940]) ([media_player.sonos docs])
+- update to 006 ([@joopert] - [#7945]) ([media_player.nad docs])
+- Update ping.py ([@vrs01] - [#7944]) ([device_tracker.ping docs])
+- Add option to display all input sources / Add support for favourite channels / Treat Marantz SR5008 as Denon AVR-X device ([@scarface-4711] - [#7949]) ([media_player.denonavr docs])
+- [WIP] Fix opencv ([@Teagan42] - [#7864]) ([image_processing.opencv docs]) (breaking change)
+- Upgrade coinmarketcap to 3.0.1 ([@fabaff] - [#7951]) ([sensor.coinmarketcap docs])
+- test connection without needing admin rights ([@heinemml] - [#7947])
+- Fix the negative values bug in history_stats ([@bokub] - [#7934])
+- Vera colored light support ([@alanfischer] - [#7942]) ([vera docs]) ([light.vera docs])
+- Fix typos ([@fabaff] - [#7957]) ([http docs]) ([fan.zwave docs])
+- Osram lightify, removed double set to the lightify bridge in case of brightness changes ([@commento] - [#7662]) ([light.osramlightify docs])
+- Add configuration check and use default var names ([@fabaff] - [#7963]) ([lutron docs]) ([light.lutron docs]) (breaking change)
+- lock.sesame: Update pysesame, add state attributes ([@trisk] - [#7953]) ([lock.sesame docs])
+- Fixed metadata issue ([@bazwilliams] - [#7932]) ([media_player.openhome docs])
+- Create metoffice.py ([@cyberjacob] - [#7965]) ([metoffice docs])
+- Prevent Roku doing I/O in event loop ([@balloob] - [#7969]) ([media_player.roku docs])
+- Fix platforms being able to block startup ([@balloob] - [#7970])
+- New component: Python Script ([@balloob] - [#7950]) ([python_script docs]) (new-platform)
+- Nadtcp component ([@mwsluis] - [#7955]) ([media_player.nadtcp docs]) (new-platform)
+- HomeMatic optimizations and code cleanup ([@danielperna84] - [#7986]) ([homematic docs]) ([binary_sensor.homematic docs]) ([cover.homematic docs]) ([sensor.homematic docs]) ([switch.homematic docs])
+- Update eliqonline.py ([@molobrakos] - [#7977]) ([sensor.eliqonline docs])
+- test that all lights turn off when no entity id is given ([@chilicheech] - [#7981])
+- make `last_name` field optional ([@azogue] - [#7988])
+- Bugfixing with version 0.4.4 of denonavr ([@scarface-4711] - [#7995]) ([media_player.denonavr docs])
+- Upgrade py-cpuinfo to 3.3.0 ([@fabaff] - [#7992]) ([sensor.cpuspeed docs])
+- LIFX: clean up internal color conversions ([@amelchio] - [#7964]) ([light.lifx docs])
+- LIFX: add support for setting infrared level ([@amelchio] - [#8000]) ([light.lifx docs])
+- dismiss service for persistent notifications ([@tedstriker] - [#7996]) ([persistent_notification docs])
+- Add Gitter.im sensor ([@fabaff] - [#7998]) ([sensor.gitter docs]) (new-platform)
+- Fixing Client connection error ([@sander76] - [#7991]) ([telegram_bot.polling docs])
+- Additional demo fan with only speed support ([@armills] - [#7985])
+- Update mailgun ([@happyleavesaoc] - [#7984]) ([mailgun docs]) ([notify.mailgun docs]) (breaking change) (new-platform)
+- Fixed bug in spotify component. ([@soldag] - [#7976]) ([media_player.spotify docs])
+- fixing potential null issue with optional param being parsed as a script ([@cribbstechnologies] - [#7928]) ([light.template docs])
+- Make it more flexible (fixes #7954) ([@fabaff] - [#8001]) ([image_processing.seven_segments docs])
+- Add Flexit AC climate platform ([@Sabesto] - [#7871]) ([climate.flexit docs]) (new-platform)
+- update pyripple ([@nkgilley] - [#8015]) ([sensor.ripple docs])
+- Allow put as method ([@fabaff] - [#8004]) ([switch.rest docs])
+- Configure conversation for custom actions with keywords ([@mjsir911] - [#7734]) ([conversation docs])
+- Remove globally disabled pylint issues ([@fabaff] - [#8005]) ([vera docs]) ([calendar.google docs]) ([climate.wink docs]) ([device_tracker.owntracks docs]) ([media_player.aquostv docs]) ([media_player.plex docs]) ([sensor.openevse docs])
+- entity_id for service fan.turn_off is optional ([@chilicheech] - [#7982])
+- Make percentage string values as floats/ints in InfluxDB ([@philhawthorne] - [#7879]) ([influxdb docs])
+- Take in account Spotify account permissions ([@Tommatheussen] - [#8012]) ([media_player.spotify docs])
+- Add Dyson Pure Cool Link support ([@CharlesBlonde] - [#7795])
+- Allow device_tracker platforms to specify picture and icon upon discovery ([@andrey-git] - [#8018])
+- Discover Z-Wave values by index ([@armills] - [#7853]) ([zwave docs])
+- LIFX: add multiple modes to pulse effect ([@amelchio] - [#8016]) ([light.lifx docs]) (breaking change)
+- Do not call update() in constructor ([@fabaff] - [#8048]) ([sensor.snmp docs])
+- Upgrade pysnmp to 4.3.8 ([@fabaff] - [#8044]) ([device_tracker.snmp docs]) ([sensor.snmp docs])
+- Upgrade zeroconf to 0.19.1 ([@fabaff] - [#8043]) ([zeroconf docs])
+- Vera fix for dimmable vs rgb lights ([@alanfischer] - [#8007]) ([vera docs]) ([light.vera docs])
+- Group service / dynamic handling ([@pvizeli] - [#7971]) ([group docs])
+- Adding ssocr to docker to support Seven Segments Display ([@MartyTremblay] - [#8028])
+- Added host variable to Splunk.py and updated tox tests ([@boojew] - [#8052]) ([splunk docs])
+- Restrict Python Script ([@balloob] - [#8053]) ([python_script docs])
+- Fixed the Wind sensor following new release of netatmo-api-python ([@glpatcern] - [#8030]) ([netatmo docs]) ([sensor.netatmo docs])
+- media_player.firetv - Adding support for https. ([@coolcow] - [#8022]) ([media_player.firetv docs])
+- Added ONVIF camera component ([@matt2005] - [#7979])
+- Provide entity_id to avoid sensor mixup (fixes #7636). Use async_dispatcher. Provide icon. ([@molobrakos] - [#7946]) ([volvooncall docs])
+- Updater improvements to send option component information ([@infamy] - [#7720]) ([updater docs])
+- Use standard entity_ids for zwave entities ([@armills] - [#7786]) ([zwave docs]) ([light.zwave docs]) (breaking change)
+- Update numpy 1.13.0 ([@pvizeli] - [#8059]) ([image_processing.opencv docs])
+- No update in MQTT Binary Sensor #7478 ([@pezinek] - [#8057])
+- Always enable monkey patch ([@balloob] - [#8054])
+- Add to zwave services descriptions ([@andrey-git] - [#8072])
+- Fix attribute entity ([@pvizeli] - [#8066]) (breaking change)
+- Added 'all_plants' group and support for plant groups state. ([@aronsky] - [#8063]) ([group docs]) ([plant docs])
+- Fix EntityComponent handle entities without a name ([@balloob] - [#8065])
+- Update pyunifi component to use APIError passed from pyunifi 2.13. Better accommodate login failures with wrapper in pyunifi 2.13. ([@finish06] - [#7899]) ([device_tracker.unifi docs])
+- bump usps version ([@happyleavesaoc] - [#8074])
+- bump ups ([@happyleavesaoc] - [#8075])
+
+[#7152]: https://github.com/home-assistant/home-assistant/pull/7152
+[#7318]: https://github.com/home-assistant/home-assistant/pull/7318
+[#7592]: https://github.com/home-assistant/home-assistant/pull/7592
+[#7617]: https://github.com/home-assistant/home-assistant/pull/7617
+[#7619]: https://github.com/home-assistant/home-assistant/pull/7619
+[#7662]: https://github.com/home-assistant/home-assistant/pull/7662
+[#7663]: https://github.com/home-assistant/home-assistant/pull/7663
+[#7665]: https://github.com/home-assistant/home-assistant/pull/7665
+[#7668]: https://github.com/home-assistant/home-assistant/pull/7668
+[#7720]: https://github.com/home-assistant/home-assistant/pull/7720
+[#7734]: https://github.com/home-assistant/home-assistant/pull/7734
+[#7770]: https://github.com/home-assistant/home-assistant/pull/7770
+[#7780]: https://github.com/home-assistant/home-assistant/pull/7780
+[#7786]: https://github.com/home-assistant/home-assistant/pull/7786
+[#7795]: https://github.com/home-assistant/home-assistant/pull/7795
+[#7820]: https://github.com/home-assistant/home-assistant/pull/7820
+[#7841]: https://github.com/home-assistant/home-assistant/pull/7841
+[#7852]: https://github.com/home-assistant/home-assistant/pull/7852
+[#7853]: https://github.com/home-assistant/home-assistant/pull/7853
+[#7855]: https://github.com/home-assistant/home-assistant/pull/7855
+[#7856]: https://github.com/home-assistant/home-assistant/pull/7856
+[#7862]: https://github.com/home-assistant/home-assistant/pull/7862
+[#7864]: https://github.com/home-assistant/home-assistant/pull/7864
+[#7871]: https://github.com/home-assistant/home-assistant/pull/7871
+[#7873]: https://github.com/home-assistant/home-assistant/pull/7873
+[#7874]: https://github.com/home-assistant/home-assistant/pull/7874
+[#7877]: https://github.com/home-assistant/home-assistant/pull/7877
+[#7878]: https://github.com/home-assistant/home-assistant/pull/7878
+[#7879]: https://github.com/home-assistant/home-assistant/pull/7879
+[#7880]: https://github.com/home-assistant/home-assistant/pull/7880
+[#7882]: https://github.com/home-assistant/home-assistant/pull/7882
+[#7884]: https://github.com/home-assistant/home-assistant/pull/7884
+[#7885]: https://github.com/home-assistant/home-assistant/pull/7885
+[#7886]: https://github.com/home-assistant/home-assistant/pull/7886
+[#7887]: https://github.com/home-assistant/home-assistant/pull/7887
+[#7888]: https://github.com/home-assistant/home-assistant/pull/7888
+[#7895]: https://github.com/home-assistant/home-assistant/pull/7895
+[#7899]: https://github.com/home-assistant/home-assistant/pull/7899
+[#7900]: https://github.com/home-assistant/home-assistant/pull/7900
+[#7901]: https://github.com/home-assistant/home-assistant/pull/7901
+[#7906]: https://github.com/home-assistant/home-assistant/pull/7906
+[#7907]: https://github.com/home-assistant/home-assistant/pull/7907
+[#7909]: https://github.com/home-assistant/home-assistant/pull/7909
+[#7910]: https://github.com/home-assistant/home-assistant/pull/7910
+[#7912]: https://github.com/home-assistant/home-assistant/pull/7912
+[#7915]: https://github.com/home-assistant/home-assistant/pull/7915
+[#7916]: https://github.com/home-assistant/home-assistant/pull/7916
+[#7917]: https://github.com/home-assistant/home-assistant/pull/7917
+[#7919]: https://github.com/home-assistant/home-assistant/pull/7919
+[#7928]: https://github.com/home-assistant/home-assistant/pull/7928
+[#7930]: https://github.com/home-assistant/home-assistant/pull/7930
+[#7931]: https://github.com/home-assistant/home-assistant/pull/7931
+[#7932]: https://github.com/home-assistant/home-assistant/pull/7932
+[#7934]: https://github.com/home-assistant/home-assistant/pull/7934
+[#7935]: https://github.com/home-assistant/home-assistant/pull/7935
+[#7939]: https://github.com/home-assistant/home-assistant/pull/7939
+[#7940]: https://github.com/home-assistant/home-assistant/pull/7940
+[#7942]: https://github.com/home-assistant/home-assistant/pull/7942
+[#7944]: https://github.com/home-assistant/home-assistant/pull/7944
+[#7945]: https://github.com/home-assistant/home-assistant/pull/7945
+[#7946]: https://github.com/home-assistant/home-assistant/pull/7946
+[#7947]: https://github.com/home-assistant/home-assistant/pull/7947
+[#7949]: https://github.com/home-assistant/home-assistant/pull/7949
+[#7950]: https://github.com/home-assistant/home-assistant/pull/7950
+[#7951]: https://github.com/home-assistant/home-assistant/pull/7951
+[#7953]: https://github.com/home-assistant/home-assistant/pull/7953
+[#7955]: https://github.com/home-assistant/home-assistant/pull/7955
+[#7957]: https://github.com/home-assistant/home-assistant/pull/7957
+[#7963]: https://github.com/home-assistant/home-assistant/pull/7963
+[#7964]: https://github.com/home-assistant/home-assistant/pull/7964
+[#7965]: https://github.com/home-assistant/home-assistant/pull/7965
+[#7969]: https://github.com/home-assistant/home-assistant/pull/7969
+[#7970]: https://github.com/home-assistant/home-assistant/pull/7970
+[#7971]: https://github.com/home-assistant/home-assistant/pull/7971
+[#7976]: https://github.com/home-assistant/home-assistant/pull/7976
+[#7977]: https://github.com/home-assistant/home-assistant/pull/7977
+[#7979]: https://github.com/home-assistant/home-assistant/pull/7979
+[#7981]: https://github.com/home-assistant/home-assistant/pull/7981
+[#7982]: https://github.com/home-assistant/home-assistant/pull/7982
+[#7984]: https://github.com/home-assistant/home-assistant/pull/7984
+[#7985]: https://github.com/home-assistant/home-assistant/pull/7985
+[#7986]: https://github.com/home-assistant/home-assistant/pull/7986
+[#7988]: https://github.com/home-assistant/home-assistant/pull/7988
+[#7991]: https://github.com/home-assistant/home-assistant/pull/7991
+[#7992]: https://github.com/home-assistant/home-assistant/pull/7992
+[#7995]: https://github.com/home-assistant/home-assistant/pull/7995
+[#7996]: https://github.com/home-assistant/home-assistant/pull/7996
+[#7998]: https://github.com/home-assistant/home-assistant/pull/7998
+[#8000]: https://github.com/home-assistant/home-assistant/pull/8000
+[#8001]: https://github.com/home-assistant/home-assistant/pull/8001
+[#8004]: https://github.com/home-assistant/home-assistant/pull/8004
+[#8005]: https://github.com/home-assistant/home-assistant/pull/8005
+[#8007]: https://github.com/home-assistant/home-assistant/pull/8007
+[#8012]: https://github.com/home-assistant/home-assistant/pull/8012
+[#8015]: https://github.com/home-assistant/home-assistant/pull/8015
+[#8016]: https://github.com/home-assistant/home-assistant/pull/8016
+[#8018]: https://github.com/home-assistant/home-assistant/pull/8018
+[#8022]: https://github.com/home-assistant/home-assistant/pull/8022
+[#8028]: https://github.com/home-assistant/home-assistant/pull/8028
+[#8030]: https://github.com/home-assistant/home-assistant/pull/8030
+[#8043]: https://github.com/home-assistant/home-assistant/pull/8043
+[#8044]: https://github.com/home-assistant/home-assistant/pull/8044
+[#8048]: https://github.com/home-assistant/home-assistant/pull/8048
+[#8052]: https://github.com/home-assistant/home-assistant/pull/8052
+[#8053]: https://github.com/home-assistant/home-assistant/pull/8053
+[#8054]: https://github.com/home-assistant/home-assistant/pull/8054
+[#8057]: https://github.com/home-assistant/home-assistant/pull/8057
+[#8059]: https://github.com/home-assistant/home-assistant/pull/8059
+[#8063]: https://github.com/home-assistant/home-assistant/pull/8063
+[#8065]: https://github.com/home-assistant/home-assistant/pull/8065
+[#8066]: https://github.com/home-assistant/home-assistant/pull/8066
+[#8072]: https://github.com/home-assistant/home-assistant/pull/8072
+[#8074]: https://github.com/home-assistant/home-assistant/pull/8074
+[#8075]: https://github.com/home-assistant/home-assistant/pull/8075
+[@CharlesBlonde]: https://github.com/CharlesBlonde
+[@Juggels]: https://github.com/Juggels
+[@MartyTremblay]: https://github.com/MartyTremblay
+[@Mister-Espria]: https://github.com/Mister-Espria
+[@PhracturedBlue]: https://github.com/PhracturedBlue
+[@Sabesto]: https://github.com/Sabesto
+[@Teagan42]: https://github.com/Teagan42
+[@Tommatheussen]: https://github.com/Tommatheussen
+[@aequitas]: https://github.com/aequitas
+[@alanfischer]: https://github.com/alanfischer
+[@amelchio]: https://github.com/amelchio
+[@andrey-git]: https://github.com/andrey-git
+[@armills]: https://github.com/armills
+[@aronsky]: https://github.com/aronsky
+[@azogue]: https://github.com/azogue
+[@balloob]: https://github.com/balloob
+[@bazwilliams]: https://github.com/bazwilliams
+[@bokub]: https://github.com/bokub
+[@boojew]: https://github.com/boojew
+[@chilicheech]: https://github.com/chilicheech
+[@commento]: https://github.com/commento
+[@coolcow]: https://github.com/coolcow
+[@cribbstechnologies]: https://github.com/cribbstechnologies
+[@cyberjacob]: https://github.com/cyberjacob
+[@danielperna84]: https://github.com/danielperna84
+[@fabaff]: https://github.com/fabaff
+[@finish06]: https://github.com/finish06
+[@florincosta]: https://github.com/florincosta
+[@glpatcern]: https://github.com/glpatcern
+[@happyleavesaoc]: https://github.com/happyleavesaoc
+[@heinemml]: https://github.com/heinemml
+[@infamy]: https://github.com/infamy
+[@jesserockz]: https://github.com/jesserockz
+[@jminn]: https://github.com/jminn
+[@joopert]: https://github.com/joopert
+[@matt2005]: https://github.com/matt2005
+[@mattsch]: https://github.com/mattsch
+[@mbrrg]: https://github.com/mbrrg
+[@mezz64]: https://github.com/mezz64
+[@mje-nz]: https://github.com/mje-nz
+[@mjj4791]: https://github.com/mjj4791
+[@mjsir911]: https://github.com/mjsir911
+[@molobrakos]: https://github.com/molobrakos
+[@mwsluis]: https://github.com/mwsluis
+[@nkgilley]: https://github.com/nkgilley
+[@palp]: https://github.com/palp
+[@perosb]: https://github.com/perosb
+[@pezinek]: https://github.com/pezinek
+[@philhawthorne]: https://github.com/philhawthorne
+[@pvizeli]: https://github.com/pvizeli
+[@sander76]: https://github.com/sander76
+[@scarface-4711]: https://github.com/scarface-4711
+[@soldag]: https://github.com/soldag
+[@tboyce021]: https://github.com/tboyce021
+[@tedstriker]: https://github.com/tedstriker
+[@trisk]: https://github.com/trisk
+[@twendt]: https://github.com/twendt
+[@vrs01]: https://github.com/vrs01
+[alarm_control_panel.spc docs]: /integrations/spc
+[binary_sensor.enocean docs]: /integrations/enocean#binary-sensor
+[binary_sensor.homematic docs]: /integrations/homematic
+[binary_sensor.spc docs]: /integrations/spc#binary-sensor
+[binary_sensor.tapsaff docs]: /integrations/tapsaff
+[calendar.google docs]: /integrations/calendar.google/
+[climate.flexit docs]: /integrations/flexit
+[climate.wink docs]: /integrations/wink#climate
+[conversation docs]: /integrations/conversation/
+[cover.homematic docs]: /integrations/homematic
+[cover.mqtt docs]: /integrations/cover.mqtt/
+[cover.myq docs]: /integrations/myq
+[device_tracker.__init__ docs]: /integrations/device_tracker.__init__/
+[device_tracker.owntracks docs]: /integrations/owntracks
+[device_tracker.ping docs]: /integrations/ping
+[device_tracker.snmp docs]: /integrations/snmp
+[device_tracker.unifi docs]: /integrations/unifi
+[eight_sleep docs]: /integrations/eight_sleep/
+[fan.__init__ docs]: /integrations/fan.__init__/
+[fan.demo docs]: /integrations/fan.demo/
+[fan.zwave docs]: /integrations/zwave
+[group docs]: /integrations/group/
+[homematic docs]: /integrations/homematic/
+[http docs]: /integrations/http/
+[image_processing.opencv docs]: /integrations/opencv
+[image_processing.seven_segments docs]: /integrations/seven_segments
+[influxdb docs]: /integrations/influxdb/
+[juicenet docs]: /integrations/juicenet/
+[light.lifx docs]: /integrations/lifx
+[light.lutron docs]: /integrations/lutron
+[light.osramlightify docs]: /integrations/osramlightify
+[light.template docs]: /integrations/light.template/
+[light.vera docs]: /integrations/vera
+[light.yeelight docs]: /integrations/yeelight
+[light.zwave docs]: /integrations/zwave
+[lock.sesame docs]: /integrations/sesame
+[lutron docs]: /integrations/lutron/
+[mailgun docs]: /integrations/mailgun/
+[media_player.aquostv docs]: /integrations/aquostv
+[media_player.denonavr docs]: /integrations/denonavr/
+[media_player.firetv docs]: /integrations/androidtv
+[media_player.nad docs]: /integrations/nad
+[media_player.nadtcp docs]: /integrations/nad/
+[media_player.openhome docs]: /integrations/openhome
+[media_player.plex docs]: /integrations/plex#media-player
+[media_player.roku docs]: /integrations/roku#media-player
+[media_player.sonos docs]: /integrations/sonos
+[media_player.spotify docs]: /integrations/spotify
+[media_player.squeezebox docs]: /integrations/squeezebox
+[metoffice docs]: /integrations/metoffice/
+[mqtt.__init__ docs]: /integrations/mqtt.__init__/
+[nest docs]: /integrations/nest/
+[netatmo docs]: /integrations/netatmo/
+[notify.html5 docs]: /integrations/html5
+[notify.mailgun docs]: /integrations/mailgun
+[notify.sendgrid docs]: /integrations/sendgrid
+[notify.xmpp docs]: /integrations/xmpp
+[opencv docs]: /integrations/opencv/
+[persistent_notification docs]: /integrations/persistent_notification/
+[plant docs]: /integrations/plant/
+[python_script docs]: /integrations/python_script/
+[sensor.bitcoin docs]: /integrations/bitcoin
+[sensor.blockchain docs]: /integrations/blockchain
+[sensor.buienradar docs]: /integrations/sensor.buienradar/
+[sensor.coinmarketcap docs]: /integrations/coinmarketcap
+[sensor.cpuspeed docs]: /integrations/cpuspeed
+[sensor.cups docs]: /integrations/cups
+[sensor.currencylayer docs]: /integrations/currencylayer
+[sensor.dsmr docs]: /integrations/dsmr
+[sensor.dte_energy_bridge docs]: /integrations/dte_energy_bridge
+[sensor.dublin_bus_transport docs]: /integrations/dublin_bus_transport
+[sensor.dweet docs]: /integrations/dweet#sensor
+[sensor.ebox docs]: /integrations/ebox
+[sensor.ecobee docs]: /integrations/ecobee
+[sensor.eliqonline docs]: /integrations/eliqonline
+[sensor.etherscan docs]: /integrations/etherscan
+[sensor.fixer docs]: /integrations/fixer
+[sensor.gitter docs]: /integrations/gitter
+[sensor.hddtemp docs]: /integrations/hddtemp
+[sensor.homematic docs]: /integrations/homematic
+[sensor.imap_email_content docs]: /integrations/imap_email_content/
+[sensor.juicenet docs]: /integrations/juicenet#sensor
+[sensor.mold_indicator docs]: /integrations/mold_indicator
+[sensor.netatmo docs]: /integrations/netatmo#sensor
+[sensor.openevse docs]: /integrations/openevse
+[sensor.pi_hole docs]: /integrations/pi_hole
+[sensor.pvoutput docs]: /integrations/pvoutput
+[sensor.radarr docs]: /integrations/radarr
+[sensor.ripple docs]: /integrations/ripple
+[sensor.snmp docs]: /integrations/snmp#sensor
+[sensor.statistics docs]: /integrations/statistics
+[sensor.template docs]: /integrations/template
+[sensor.waqi docs]: /integrations/waqi
+[sensor.wunderground docs]: /integrations/wunderground
+[spc docs]: /integrations/spc/
+[splunk docs]: /integrations/splunk/
+[switch.homematic docs]: /integrations/homematic
+[switch.raspihats docs]: /integrations/raspihats#switch
+[switch.rest docs]: /integrations/switch.rest/
+[switch.template docs]: /integrations/switch.template/
+[telegram_bot.__init__ docs]: /integrations/telegram_bot/
+[telegram_bot.polling docs]: /integrations/telegram_polling
+[telegram_bot.webhooks docs]: /integrations/telegram_webhooks
+[updater docs]: /integrations/updater/
+[vera docs]: /integrations/vera/
+[volvooncall docs]: /integrations/volvooncall/
+[weather.buienradar docs]: /integrations/buienradar
+[zeroconf docs]: /integrations/zeroconf/
+[zwave docs]: /integrations/zwave/
+[zwave blog post]: /blog/2017/06/15/zwave-entity-ids/
+[forum]: https://community.home-assistant.io/
+[issue]: https://github.com/home-assistant/home-assistant/issues
+[first-commit]: /help/trivia/#first-commit
+[#8080]: https://github.com/home-assistant/home-assistant/pull/8080
+[#8101]: https://github.com/home-assistant/home-assistant/pull/8101
+[#8104]: https://github.com/home-assistant/home-assistant/pull/8104
+[#8113]: https://github.com/home-assistant/home-assistant/pull/8113
+[#8134]: https://github.com/home-assistant/home-assistant/pull/8134
+[@tsvi]: https://github.com/tsvi
+[fan.dyson docs]: /integrations/dyson#fan
+[remote.itach docs]: /integrations/itach
+[sensor.dyson docs]: /integrations/dyson#sensor
+[discord]: https://discord.gg/c5DvZ4e

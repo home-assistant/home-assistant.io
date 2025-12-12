@@ -1,0 +1,1238 @@
+---
+layout: post
+title: "2024.7: Time to resize your cards!"
+description: "Home Assistant 2024.7! With timers support for Assist, resize cards on your dashboard, expose scripts to OpenAI ChatGPT and Google Gemini, taking control of blueprint-based automations, and much more."
+date: 2024-07-03 00:00:00
+date_formatted: "July 3, 2024"
+author: Franck Nijhof
+author_twitter: frenck
+comments: true
+categories:
+  - Release-Notes
+  - Core
+og_image: /images/blog/2024-07/social.png
+---
+
+<a href='/integrations/#version/2024.7'><img src='/images/blog/2024-07/social.png' style='border: 0;box-shadow: none;'></a>
+
+Home Assistant 2024.7! 🎉
+
+Get ready for a really nice release with something interesting for everyone! 🤗
+
+And not just that, I bring you these release notes from our refreshed website 🤩
+that [Madelena] and [yours truly] have been spontaneously working on over the
+past few days. We hope you like it! ❤️
+
+Some fantastic additions to [Assist](/voice_control): Timers!
+and the ability to expose your scripts to LLMs. In case you missed it,
+it has been covered and demonstrated live in our recent
+[Voice - Chapter 7 livestream!](https://www.youtube.com/watch?v=nLLO4u2Tbbo)
+which you definitely should watch. 📺
+
+The [sections view](/dashboards/sections/) becomes more feature-rich with
+every release, and this time, the [ability to resize cards](#resize-the-cards-on-your-dashboard)
+is added. Absolutely the highlight of the release for me!
+
+My second favorite highlight for this release is the ability to
+[take control of blueprint-based automations](#take-control-of-blueprint-based-automations).
+There are so many [amazing blueprints out there](https://community.home-assistant.io/c/blueprints-exchange/53/l/top?period=yearly),
+and many are perfect, but sometimes they fit 90% of what you need. Being able
+to take control of that last 10% is just amazing!
+
+Enjoy the release!
+
+../Frenck
+
+[yours truly]: https://github.com/frenck
+[Madelena]: https://github.com/Madelena
+
+<!--more-->
+
+- [Resize the cards on your dashboard](#resize-the-cards-on-your-dashboard)
+- [Data tables improvements](#data-tables-improvements)
+- [Voice \& Assist](#voice--assist)
+  - [Timers are here!](#timers-are-here)
+  - [Expand an LLM using your scripts](#expand-an-llm-using-your-scripts)
+- [Take control of blueprint-based automations](#take-control-of-blueprint-based-automations)
+- [Integrations](#integrations)
+  - [New integrations](#new-integrations)
+  - [Noteworthy improvements to existing integrations](#noteworthy-improvements-to-existing-integrations)
+  - [Integrations reaching platinum quality level](#integrations-reaching-platinum-quality-level)
+  - [Now available to set up from the UI](#now-available-to-set-up-from-the-ui)
+  - [Farewell to the following](#farewell-to-the-following)
+- [ESPHome update entities for ready-made projects](#esphome-update-entities-for-ready-made-projects)
+- [Other noteworthy changes](#other-noteworthy-changes)
+  - [Link your template entity to an existing device](#link-your-template-entity-to-an-existing-device)
+  - [Change the radius of your home zone](#change-the-radius-of-your-home-zone)
+- [Patch releases](#patch-releases)
+  - [2024.7.1 - July 5](#202471---july-5)
+  - [2024.7.2 - July 10](#202472---july-10)
+  - [2024.7.3 - July 19](#202473---july-19)
+  - [2024.7.4 - July 30](#202474---july-30)
+- [Need help? Join the community!](#need-help-join-the-community)
+- [Backward-incompatible changes](#backward-incompatible-changes)
+- [All changes](#all-changes)
+
+Don't forget to [join our release party live stream on YouTube](https://www.youtube.com/watch?v=Snk6oslMQFc)
+3 July 2024, at 20:00 GMT / 12:00 PST / 21:00 CEST!
+
+<lite-youtube videoid="Snk6oslMQFc" videotitle="Home Assistant 2024.7 Release Party"></lite-youtube>
+
+## Resize the cards on your dashboard 
+
+As [part of our roadmap](/blog/2024/06/12/roadmap-2024h1/#dashboards), we're
+continuing to make dashboard organization and customization easier and more
+intuitive. This month, we add the ability to [resize the cards] on your
+dashboard!
+
+<img src='/images/blog/2024-07/dashboard-resize-cards-example.png' style='border: 0;box-shadow: none;' alt='Screenshot showing several cards at different sizes.'>
+
+Resizing is done with a very nice slider interface, found in the card editing
+menu under the new **Layout** tab, where you can preview your changes. Make
+small 1x1 buttons or give a [map] the space it needs. This is only available on
+our experimental [sections view], which was recently released with drag-and-drop.
+
+<img src='/images/blog/2024-07/dashboard-resize-card.png' style='border: 0;box-shadow: none;' alt='Screenshot showing the card edit diaglog, with the new layout tag and its card resize capabilities.'>
+
+It works with [every card], which gives users a lot of freedom. Most cards have
+been given a built-in minimum and maximum size, to make it easier to get your
+layouts just right. If you mess up the look of a card, luckily we have included
+a revert button {% icon "mdi:restore" %} in the
+top left corner 😉.
+
+[every card]: /dashboards/cards/
+[map]: /dashboards/map/
+[part of our roadmap]: /blog/2024/06/12/roadmap-2024h1/#dashboards
+[resize the cards]: /dashboards/cards/#resizing-a-card
+[sections view]: /blog/2024/03/06/release-20243/#a-new-experimental-sections-view
+
+## Data tables improvements
+
+Like the [last release] and [release before that], we keep improving our data
+tables. We use data tables to organize information in our settings pages,
+including our devices and automations pages.
+
+With this release, we add the final big piece of the puzzle: The ability to
+customize the columns shown! 😎
+
+<img src='/images/blog/2024-07/data-tables-customize-columns.png' style='border: 0;box-shadow: none;' alt='Screenshot showing the dialog that allow customizing the order and visibility of data table columns available on the device page.'>
+
+By selecting the cog {% icon "mdi:cog" %} in
+the top right, you can not only customize the columns shown by toggling
+visibility {% icon "mdi:eye" %}, but you
+can also change the order of the columns by
+dragging {% icon "mdi:drag" %} them around.
+Making it even easier to show the data you want, in the order you want it.
+
+Your customized columns and view are stored in your browser, so you only have 
+to set them up once. They will be remembered the next time you visit the page.
+
+[last release]: /blog/2024/06/05/release-20246/#data-tables-improvements
+[release before that]: /blog/2024/05/01/release-20245/#more-features-for-our-data-tables
+
+## Voice & Assist
+
+This month, we're thrilled to bring more enhancements to [Assist's] out-of-the-box
+capabilities. We've added support for timers ⏲️ — our third most requested
+feature for voice control — and the powerful ability to expose your
+{% term scripts %} to LLMs (like [ChatGPT] and [Google Gemini]) as well! 💪
+
+If you missed it, be sure to check out our recent Voice - Chapter 7 livestream
+from June 26th, where we showcased all these exciting developments. You can
+[read more in our blog post here] and [watch the full livestream on YouTube]. 🎙️
+
+[Assist's]: /voice_control/
+[ChatGPT]: /integrations/openai_conversation/
+[Google Gemini]: /integrations/google_generative_ai_conversation
+[read more in our blog post here]: /blog/2024/06/26/voice-chapter-7/
+[watch the full livestream on YouTube]: https://www.youtube.com/watch?v=nLLO4u2Tbbo
+
+### Timers are here!
+
+You asked, and we listened! As of this release, timers are available. This
+feature allows you to create, cancel, pause, resume, and adjust timers using
+your voice, making everyday tasks like cooking much easier. And yes, you can
+set multiple timers at once! 🎉
+
+[Read more about timers in the Chapter 7 blog post](/blog/2024/06/26/voice-chapter-7/#timers-are-here).
+
+<p class='img'><lite-youtube videoid="v3mNdTsX4J0" videotitle="Voice timers with countdown text and loading bar"></lite-youtube>Timers running on an S3 Box, with countdown text and a loading bar!</p>
+
+{% note %}
+Timers are available today on [ESPHome] and [Wyoming voice satellites].
+To take advantage of this new feature, update these devices to the latest
+version.
+{% endnote %}
+
+[ESPHome]: https://esphome.io/projects/
+[Wyoming voice satellites]: https://github.com/rhasspy/wyoming-satellite
+
+### Expand an LLM using your scripts
+
+You can now expand LLM capabilities by allowing them access to (your choice)
+of your {% term scripts %}. This feature lets you precisely control what the
+LLM does in specific situations, while still benefiting from the flexibility
+and natural language processing that AIs excel at.
+
+For example, you can create a _"leaving home"_ script that performs the actions
+you want and [expose it to Assist]. This ensures that commands like
+_"I'm heading out for a couple of minutes"_ will run your predefined script,
+such as locking the door without turning off the air conditioning.
+
+[Read more about expanding LLMs with script in the Chapter 7 blog post](/blog/2024/06/26/voice-chapter-7/#expand-an-llm-with-scripts).
+
+[expose it to Assist]: /voice_control/voice_remote_expose_devices/
+
+## Take control of blueprint-based automations
+
+{% term Blueprints %} are amazing; they allow you to use {% term automations %}
+and {% term scripts %} created and shared by other awesome Home Assistant users.
+Most are easy to use and set up, but what if that great blueprint you've been
+using just needs a little tweak? Just that tiny change to make it perfect for
+your home?
+
+Well, now you can! 🎉
+
+<img src='/images/blog/2024-07/blueprint-automation-take-control.png' style='border: 0;box-shadow: none;' alt='Screenshot showing a blueprint-based automation that can be taken of using the "Take control" option in the three-dotted menu.'>
+
+You can now [take full control over the automations created from a blueprint](/docs/automation/using_blueprints/#editing-an-imported-blueprint).
+By taking control {% icon "mdi:file-edit" %},
+Home Assistant will convert the blueprint automation into a regular,
+stand-alone, automation. This allows you to make any tweak you want,
+without having to re-invent the wheel.
+
+<img src='/images/blog/2024-07/blueprint-automation-preview.png' style='border: 0;box-shadow: none;' alt='Screenshot showing a preview of how a converted blueprint automation would look like before you take control.'>
+
+The cool thing is that it shows you a preview of how the converted automation
+would look like before you take over. This way, you can see what you are getting
+into before you actually do it.
+
+{% tip %}
+Looking for some inspiration for your next automation?<br />
+Check out the [Blueprint exchange on the Home Assistant Community Forum](https://community.home-assistant.io/c/blueprints-exchange/53/l/top?period=yearly).
+{% endtip %}
+
+## Integrations
+
+Thanks to our community for keeping pace with the new {% term integrations %}
+and improvements to existing ones! You’re all awesome 🥰
+
+### New integrations
+
+We welcome the following new integrations in this release:
+
+- **[Aquacell]**, added by [@Jordi1990]  
+  Monitor your [AquaCell water-softener] from Home Assistant.
+- **[ista EcoTrend]**, added by [@tr4nt0r]  
+  The ista EcoTrend integration allows you to import your monthly heating,
+  hot water, and water consumption and costs from the ista EcoTrend service.
+- **[Mealie]**, added by [@joostlek]  
+  Mealie is a [self-hosted recipe manager] and meal planner. This integration
+  will pull in your meal plan as calendars in Home Assistant.
+- **[Knocki]**, added by [@joostlek]  
+  [Knocki](https://knocki.com/) is a smart device that turns any surface into a
+  remote control, which you can now use in Home Assistant to trigger
+  {% term automations %}.
+
+[@joostlek]: https://github.com/joostlek
+[@Jordi1990]: https://github.com/Jordi1990
+[@tr4nt0r]: https://github.com/tr4nt0r
+[AquaCell water-softener]: https://www.aquacell-waterontharder.nl/aquacell
+[Aquacell]: /integrations/aquacell
+[ista EcoTrend]: /integrations/ista_ecotrend
+[Knocki]: /integrations/knocki
+[Mealie]: /integrations/mealie
+[self-hosted recipe manager]: https://mealie.io/
+
+### Noteworthy improvements to existing integrations
+
+It is not just new {% term integrations %} that have been added; existing
+integrations are also being constantly improved. Here are some of the noteworthy
+changes to existing integrations:
+
+- The **[Matter]** integration now provides number entities that allow you to
+  configure the behavior of your Matter lights, thanks [@jvmahon]!
+- The **[TP-Link Smart Home]** integration has been fully modernized by
+  [@rytilahti], [@sdb9696], and [@bdraco]! It adds support for many new devices
+  (like hubs) and unlocks many new features in Home Assistant, including
+  light effects and presets, firmware updates, and so much more!
+- [@tronikos] has added support for integrating the camera from the tablet
+  running **[Fully Kiosk Browser]**. Furthermore, there's now an image entity
+  for taking screenshots, the ability to send notifications and text-to-speech
+  messages to the tablet, and the media player can now play videos! Nice!
+- The **[Android TV Remote]** integration now supports browsing your apps
+  directly from the media browser, thanks [@tronikos]!
+- We've seen a lot of improvements to the **[UniFi Protect]** integration,
+  thanks to [@bdraco]. [@wfltaylor] chipped in as well, adding support for
+  animal detection sensors. 🐶🐱🐰
+- The **[Android Debug Bridge]** integration now supports remote entities,
+  allowing you to remotely control your Android TV. Thanks [@ollo69]!
+- The **[Reolink]** integration has seen a lot of improvements, thanks to
+  [@starkillerOG]. Added support for manual recording, software updates
+  for more cameras, playback of the auto track lens, and support for
+  their battery-powered cameras through the [Reolink Home Hub]. 🎥
+- The **[Bang & Olufsen]** integration now supports announcements, and support
+  for Tidal has been added too! Nice work [@mj23000]!
+- [@joostlek] added the event entity to the **[Nanoleaf]** integration, allowing
+  you to trigger automations when you touch your [Nanoleaf panels]. Nice!
+- If you have a [Roborock Dyad] vacuum, you are in luck as they are now
+  supported by the **[Roborock]** integration. Awesome [@Lash-L]!
+- The **[SwitchBot]** integration added support for the [SwitchBot Lock Pro].
+  Good work [@szclsya]!
+
+[@bdraco]: https://github.com/bdraco
+[@joostlek]: https://github.com/joostlek
+[@jvmahon]: https://github.com/jvmahon
+[@Lash-L]: https://github.com/Lash-L
+[@mj23000]: https://github.com/mj23000
+[@ollo69]: https://github.com/ollo69
+[@rytilahti]: https://github.com/rytilahti
+[@sdb9696]: https://github.com/sdb9696
+[@starkillerOG]: https://github.com/starkillerOG
+[@szclsya]: https://github.com/szclsya
+[@tronikos]: https://github.com/tronikos
+[@wfltaylor]: https://github.com/wfltaylor
+[Android Debug Bridge]: /integrations/androidtv
+[Android TV Remote]: /integrations/androidtv_remote
+[Bang & Olufsen]: /integrations/bang_olufsen
+[Fully Kiosk Browser]: /integrations/fully_kiosk
+[Matter]: /integrations/matter
+[Nanoleaf panels]: https://nanoleaf.me
+[Nanoleaf]: /integrations/nanoleaf
+[Reolink Home Hub]: https://reolink.com/product/reolink-home-hub/
+[Reolink]: /integrations/reolink
+[Roborock Dyad]: https://global.roborock.com/pages/roborock-dyad-pro-combo
+[Roborock]: /integrations/roborock
+[SwitchBot Lock Pro]: https://www.switch-bot.com/products/switchbot-lock-pro
+[SwitchBot]: /integrations/switchbot
+[TP-Link Smart Home]: /integrations/tplink
+[UniFi Protect]: /integrations/unifiprotect
+
+### Integrations reaching platinum quality level
+
+The following {% term integrations %} have reached the platinum 🏆 level on our
+[integration quality scale](/docs/quality_scale). These integrations are
+the best of the best and give you an excellent out-of-the-box experience.
+
+- **[ESPHome][esphome-integration]**, done by [@jesserockz] & [@bdraco]
+- **[pyLoad]**, done by [@tr4nt0r]
+- **[Teslemetry]**, done by [@Bre77]
+
+Congratulations to all the developers who worked on these integrations!
+
+[@Bre77]: https://github.com/Bre77
+[@jesserockz]: https://github.com/jesserockz
+[@tr4nt0r]: https://github.com/tr4nt0r
+[esphome-integration]: /integrations/esphome
+[pyLoad]: /integrations/pyload
+[Teslemetry]: /integrations/teslemetry
+
+### Now available to set up from the UI
+
+While most {% term integrations %} can be set up directly from the Home Assistant
+user interface, some were only available using YAML configuration. We keep moving
+more integrations to the UI, making them more accessible for everyone
+to set up and use.
+
+The following integrations are now available via the Home Assistant UI:
+
+- **[Feedreader]**, done by [@mib1185]
+- **[Generic Hygrostat]**, done by [@elupus]
+- **[Generic Thermostat]**, done by [@elupus]
+- **[Intergas InComfort/Intouch Lan2RF gateway]**, done by [@jbouwh]
+- **[Music Player Daemon (MPD)]**, done by [@joostlek]
+- **[One-Time Password (OTP)]**, done by [@tr4nt0r]
+- **[pyLoad]**, done by [@tr4nt0r]
+- **[Statistics]**, done by [@gjohansson-ST]
+
+[@elupus]: https://github.com/elupus
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@jbouwh]: https://github.com/jbouwh
+[@joostlek]: https://github.com/joostlek
+[@mib1185]: https://github.com/mib1185
+[@tr4nt0r]: https://github.com/tr4nt0r
+[@tr4nt0r]: https://github.com/tr4nt0r
+[Feedreader]: /integrations/feedreader
+[Generic Hygrostat]: /integrations/generic_hygrostat
+[Generic Thermostat]: /integrations/generic_thermostat
+[Intergas InComfort/Intouch Lan2RF gateway]: /integrations/incomfort
+[Music Player Daemon (MPD)]: /integrations/mpd
+[One-Time Password (OTP)]: /integrations/otp
+[pyLoad]: /integrations/pyload
+[Statistics]: /integrations/statistics
+
+### Farewell to the following
+
+The following {% term integrations %} are no longer available as
+of this release:
+
+- **Aladdin Connect** has been removed, as Home Assistant cannot use the
+  upstream library at this time.
+- **Unify Circuit** was deprecated in Home Assistant 2024.5 and has now been
+  removed.
+
+## ESPHome update entities for ready-made projects
+
+Our sister project, [ESPHome] received a brand new logo this month! 🎉
+
+<img style='border: 0;box-shadow: none; padding-bottom: 16px' src='https://esphome.io/_static/logo-text-on-light.svg' alt='Logo of ESPHome'>
+
+Looks familiar, right? 😃 That is because ESPHome has [been donated] to the
+[Open Home Foundation] by [Nabu Casa]. The same foundation that the Home
+Assistant project is part of.
+
+Besides the new logo, ESPHome has added a new feature that works with this
+release of Home Assistant: The ability for makers of
+[ready-made devices or projects] running on ESPHome, to [provide updates]
+for their devices directly to Home Assistant.
+
+This means that if you have a device that is powered-by or [Made for ESPHome],
+and the maker of that device provides updates for it, you can now update that
+device directly from Home Assistant; without the need for you to build, adopt,
+or set up the ESPHome software yourself! 😎
+
+These two new features&mdash;updating from Home Assistant, and the ESPHome
+integration reaching the platinum quality level 🏆&mdash;make it easier for new
+users and creators to use this powerful platform to build a more Open Home.
+
+[been donated]: https://esphome.io/changelog/2024.6.0.html#esphome-branding
+[ESPHome]: https://esphome.io
+[Made for ESPHome]: https://esphome.io/guides/made_for_esphome
+[Nabu Casa]: https://www.nabucasa.com
+[Open Home Foundation]: https://www.openhomefoundation.org/blog/announcing-the-open-home-foundation/
+[provide updates]: https://esphome.io/changelog/2024.6.0.html#update-entities
+[ready-made devices or projects]: https://esphome.io/projects/
+
+## Other noteworthy changes
+
+There are many more improvements in this release; here are some of the other
+noteworthy changes this release:
+
+- It is now actually possible to change the username of your Home Assistant
+  account, thanks [@edenhaus] & [@bramkragten]!
+- Home Assistant will now raise a repair issue if an automation can't be set up
+  (for example, because of YAML syntax errors). Thanks [@emontnemery]!
+- We now show additional entity categories on the device page, grouping
+  [notification] entities in a "Notification" category. Furthermore, all
+  [Assist]-related entities, like [conversation agents and text-to-speech]
+  entities, are now grouped in an "Assist" category. Thanks [@balloob]!
+- [Assist] now has _"Previous"_ media player intent, adding to the list
+  of new intents we [added last release]. Nice [@OzGav]!
+- [Trend helpers] are now automatically linked to the same device as the source
+  entity they are based on. Thanks [@dougiteixeira]!
+- The [generic thermostat] and [generic hygrostat] are now available via the
+  UI, allowing you to create a thermostat or hygrostat based on existing
+  switches and sensors. Thanks [@elupus]!
+
+[@balloob]: https://github.com/balloob
+[@bramkragten]: https://github.com/bramkragten
+[@dougiteixeira]: https://github.com/dougiteixeira
+[@edenhaus]: https://github.com/edenhaus
+[@elupus]: https://github.com/elupus
+[@emontnemery]: https://github.com/emontnemery
+[@OzGav]: https://github.com/OzGav
+[added last release]: /blog/2024/06/05/release-20246/#improved-media-player-commands
+[Assist]: /voice_control/
+[conversation agents and text-to-speech]: /integrations/#voice
+[generic hygrostat]: /integrations/generic_hygrostat
+[generic thermostat]: /integrations/generic_thermostat
+[notification]: /integrations/notify
+[Trend helpers]: /integrations/trend
+
+### Link your template entity to an existing device
+
+[Template entities] are an advanced and powerful way to create your own
+{% term entities %} in Home Assistant based on any calculation or logic you
+can imagine.
+
+One of the [most requested features] for {% term template %} entities is the
+ability to assign and link them to an existing {% term device %}. Thanks
+to [@dougiteixeira], you can now do just that! 🎉
+
+<img src='/images/blog/2024-07/templates-link-to-device.png' style='border: 0;box-shadow: none;' alt='Screenshot showing you can select a device the template can be linked to, when adding a new template helper.'>
+
+Assigning a template entity to an existing device can be very useful if you have
+a template that calculates an additional sensor value for a device. For example,
+in the screenshot above, a template helper calculates the sum of two sensors
+and is linked to the device that has those sensors.
+
+{% note %}
+This feature is only available for template entities that are created
+from the UI.
+{% endnote %}
+
+[Template entities]: /integrations/template
+[@dougiteixeira]: https://github.com/dougiteixeira
+[most requested features]: https://community.home-assistant.io/t/why-cant-we-add-template-entities-to-existing-devices/467149
+
+### Change the radius of your home zone
+
+{% term Zones %} in Home Assistant are a great way to define locations on your
+map, such as your work, and trigger automations based on your location. The most
+powerful zone is undoubtedly the home zone, which you can use to determine
+if someone is home, coming home, or leaving.
+
+Until now, the radius of the home zone was fixed at 100 meters, which was not
+always ideal for everyone. Although it could be changed using YAML, as of this
+release, you can now change the radius of your home zone directly from the
+Home Assistant user interface!
+
+<img class="no-shadow" src='/images/docs/configuration/change_location_radius.webp' alt='Screenrecording of how you can now change the radius of the home zone.'><br/>
+
+{% important %}
+If you have currently configured and overridden your home zone using YAML
+configuration, this new feature will not be available to you. You can remove
+the YAML configuration and restart Home Assistant to enable UI control.
+{% endimportant %}
+
+## Patch releases
+
+We will also release patch releases for Home Assistant 2024.7 in July. These
+patch releases only contain bug fixes. Our goal is to release a patch release
+every Friday.
+
+### 2024.7.1 - July 5
+
+- Improve redaction for stream error messages ([@allenporter] - [#120867])
+- Add device class translations in Random ([@dougiteixeira] - [#120890])
+- Fix locking/unlocking transition state in Matter lock platform ([@marcelveldt] - [#121099])
+- Fix HmIP-ESI GAS sensor DeviceClass ([@ChristophCaina] - [#121106])
+- Starline: Fix "Error updating SLNet token" message in Log ([@Chupaka] - [#121122])
+- Bump inkbird-ble to 0.5.8 ([@bdraco] - [#121134])
+- Fix broken pathlib import in august integration ([@mweinelt] - [#121135])
+- Bump velbusaio to 2024.7.5 ([@Cereal2nd] - [#121156])
+- Fix `pulse counter frequency` sensors for Shelly Plus Uni ([@bieniu] - [#121178])
+- Bump youless library version 2.1.2 ([@gjong] - [#121181])
+- Bump python-kasa to 0.7.0.3 ([@sdb9696] - [#121183])
+- Fix Matter light discovery schema for DimmerSwitch ([@marcelveldt] - [#121185])
+- Listen for attribute changes of OnOff cluster in appliances ([@marcelveldt] - [#121198])
+- Bump anova-wifi to 0.15.0 ([@Lash-L] - [#121222])
+- Fix work area sensor in Husqvarna Automower ([@Thomas55555] - [#121228])
+- Revert Homematic IP Cloud unique ID changes ([@hahn-th] - [#121231])
+- Bump deebot-client to 8.1.1 ([@edenhaus] - [#121241])
+- Fix WebOS TV media player status when OFF after IDLE ([@thecode] - [#121251])
+- Bump aioaquacell to 0.1.8 ([@Jordi1990] - [#121253])
+- Bump aiowebostv to 0.4.2 ([@thecode] - [#121258])
+- Bump python-holidays to 0.52 ([@gjohansson-ST] - [#121283])
+- Fix tplink light effect behaviour when activating a scene ([@sdb9696] - [#121288])
+- Update frontend to 20240705.0 ([@bramkragten] - [#121295])
+
+[#120579]: https://github.com/home-assistant/core/pull/120579
+[#120867]: https://github.com/home-assistant/core/pull/120867
+[#120890]: https://github.com/home-assistant/core/pull/120890
+[#121099]: https://github.com/home-assistant/core/pull/121099
+[#121106]: https://github.com/home-assistant/core/pull/121106
+[#121122]: https://github.com/home-assistant/core/pull/121122
+[#121134]: https://github.com/home-assistant/core/pull/121134
+[#121135]: https://github.com/home-assistant/core/pull/121135
+[#121156]: https://github.com/home-assistant/core/pull/121156
+[#121178]: https://github.com/home-assistant/core/pull/121178
+[#121181]: https://github.com/home-assistant/core/pull/121181
+[#121183]: https://github.com/home-assistant/core/pull/121183
+[#121185]: https://github.com/home-assistant/core/pull/121185
+[#121198]: https://github.com/home-assistant/core/pull/121198
+[#121222]: https://github.com/home-assistant/core/pull/121222
+[#121228]: https://github.com/home-assistant/core/pull/121228
+[#121231]: https://github.com/home-assistant/core/pull/121231
+[#121241]: https://github.com/home-assistant/core/pull/121241
+[#121251]: https://github.com/home-assistant/core/pull/121251
+[#121253]: https://github.com/home-assistant/core/pull/121253
+[#121258]: https://github.com/home-assistant/core/pull/121258
+[#121283]: https://github.com/home-assistant/core/pull/121283
+[#121288]: https://github.com/home-assistant/core/pull/121288
+[#121295]: https://github.com/home-assistant/core/pull/121295
+[@Cereal2nd]: https://github.com/Cereal2nd
+[@ChristophCaina]: https://github.com/ChristophCaina
+[@Chupaka]: https://github.com/Chupaka
+[@Jordi1990]: https://github.com/Jordi1990
+[@Lash-L]: https://github.com/Lash-L
+[@Thomas55555]: https://github.com/Thomas55555
+[@allenporter]: https://github.com/allenporter
+[@bdraco]: https://github.com/bdraco
+[@bieniu]: https://github.com/bieniu
+[@bramkragten]: https://github.com/bramkragten
+[@dougiteixeira]: https://github.com/dougiteixeira
+[@edenhaus]: https://github.com/edenhaus
+[@frenck]: https://github.com/frenck
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@gjong]: https://github.com/gjong
+[@hahn-th]: https://github.com/hahn-th
+[@marcelveldt]: https://github.com/marcelveldt
+[@mweinelt]: https://github.com/mweinelt
+[@sdb9696]: https://github.com/sdb9696
+[@thecode]: https://github.com/thecode
+
+### 2024.7.2 - July 10
+
+- Remove legacy foreign key constraint from sqlite states table ([@bdraco] - [#120779])
+- Direct Users to App-Specific Passwords for iCloud integration to prevent MFA spam ([@rcmaehl] - [#120945])
+- LLM to handle int attributes ([@ahaverty] - [#121037])
+- Fix empty list in kodi media_player ([@TermeHansen] - [#121250])
+- Fix ombi configuration validation ([@temesinko] - [#121314])
+- Bump anova-wifi to 0.17.0 ([@Lash-L] - [#121337])
+- Fix initial Wall Connector values in Tessie ([@Bre77] - [#121353])
+- Bump psutil to 6.0.0 ([@gjohansson-ST] - [#121385])
+- Fix unnecessary logging of turn on/off feature flags in Climate ([@gjohansson-ST] - [#121387])
+- Fix timezone issue in smhi weather ([@gjohansson-ST] - [#121389])
+- Fix feature flag in climate ([@gjohansson-ST] - [#121398])
+- Allow current empty feeds to be configured in Feedreader ([@mib1185] - [#121421])
+- Fix MPD config flow ([@joostlek] - [#121431])
+- Sort mealie mealplans ([@joostlek] - [#121433])
+- Fix Mealie URL field ([@joostlek] - [#121434])
+- Bump pymodbus to 3.6.9 ([@janiversen] - [#121445])
+- Bump jaraco.abode to 5.2.1 ([@jaraco] - [#121446])
+- Bump yalexs to 6.4.2 ([@bdraco] - [#121467])
+- Bump xiaomi-ble to 0.30.1 ([@joostlek] - [#120743])
+- Bump xiaomi-ble to 0.30.2 ([@ov1d1u] - [#121471])
+- Include hass device ID in mobile app get_config webhook ([@balloob] - [#121496])
+- Fix person tracking in unifiprotect ([@bdraco] - [#121528])
+- Remove homematic state_class from GAS_POWER sensor ([@ChristophCaina] - [#121533])
+- Update vehicle to 2.2.2 ([@frenck] - [#121556])
+- Update tailscale to 0.6.1 ([@frenck] - [#121557])
+- Fix upb config flow connect ([@gwww] - [#121571])
+- Bump pyenphase to 1.20.6 ([@catsmanac] - [#121583])
+- Allow ambilight when we have connection (philips_js) ([@elupus] - [#121620])
+- Update frontend to 20240710.0 ([@piitaya] - [#121651])
+- Small fix in velbus cover for the assumed states ([@Cereal2nd] - [#121656])
+- Block icloud3 custom integration from breaking the recorder ([@frenck] - [#121658])
+- Handle errors in Fully Kiosk camera ([@tronikos] - [#121659])
+- Block places <=2.7.0 custom integration from breaking the recorder ([@frenck] - [#121662])
+- Fix state for Matter Locks (including optional door sensor) ([@marcelveldt] - [#121665])
+- Matter lock state follow-up ([@marcelveldt] - [#121669])
+- Block variable <=3.4.4 custom integration from breaking the recorder ([@frenck] - [#121670])
+
+[#120579]: https://github.com/home-assistant/core/pull/120579
+[#120743]: https://github.com/home-assistant/core/pull/120743
+[#120779]: https://github.com/home-assistant/core/pull/120779
+[#120945]: https://github.com/home-assistant/core/pull/120945
+[#121037]: https://github.com/home-assistant/core/pull/121037
+[#121250]: https://github.com/home-assistant/core/pull/121250
+[#121289]: https://github.com/home-assistant/core/pull/121289
+[#121314]: https://github.com/home-assistant/core/pull/121314
+[#121337]: https://github.com/home-assistant/core/pull/121337
+[#121353]: https://github.com/home-assistant/core/pull/121353
+[#121385]: https://github.com/home-assistant/core/pull/121385
+[#121387]: https://github.com/home-assistant/core/pull/121387
+[#121389]: https://github.com/home-assistant/core/pull/121389
+[#121398]: https://github.com/home-assistant/core/pull/121398
+[#121421]: https://github.com/home-assistant/core/pull/121421
+[#121431]: https://github.com/home-assistant/core/pull/121431
+[#121433]: https://github.com/home-assistant/core/pull/121433
+[#121434]: https://github.com/home-assistant/core/pull/121434
+[#121445]: https://github.com/home-assistant/core/pull/121445
+[#121446]: https://github.com/home-assistant/core/pull/121446
+[#121467]: https://github.com/home-assistant/core/pull/121467
+[#121471]: https://github.com/home-assistant/core/pull/121471
+[#121496]: https://github.com/home-assistant/core/pull/121496
+[#121528]: https://github.com/home-assistant/core/pull/121528
+[#121533]: https://github.com/home-assistant/core/pull/121533
+[#121556]: https://github.com/home-assistant/core/pull/121556
+[#121557]: https://github.com/home-assistant/core/pull/121557
+[#121571]: https://github.com/home-assistant/core/pull/121571
+[#121583]: https://github.com/home-assistant/core/pull/121583
+[#121620]: https://github.com/home-assistant/core/pull/121620
+[#121651]: https://github.com/home-assistant/core/pull/121651
+[#121656]: https://github.com/home-assistant/core/pull/121656
+[#121658]: https://github.com/home-assistant/core/pull/121658
+[#121659]: https://github.com/home-assistant/core/pull/121659
+[#121662]: https://github.com/home-assistant/core/pull/121662
+[#121665]: https://github.com/home-assistant/core/pull/121665
+[#121669]: https://github.com/home-assistant/core/pull/121669
+[#121670]: https://github.com/home-assistant/core/pull/121670
+[@Bre77]: https://github.com/Bre77
+[@Cereal2nd]: https://github.com/Cereal2nd
+[@ChristophCaina]: https://github.com/ChristophCaina
+[@Lash-L]: https://github.com/Lash-L
+[@TermeHansen]: https://github.com/TermeHansen
+[@ahaverty]: https://github.com/ahaverty
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@catsmanac]: https://github.com/catsmanac
+[@elupus]: https://github.com/elupus
+[@frenck]: https://github.com/frenck
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@gwww]: https://github.com/gwww
+[@janiversen]: https://github.com/janiversen
+[@jaraco]: https://github.com/jaraco
+[@joostlek]: https://github.com/joostlek
+[@marcelveldt]: https://github.com/marcelveldt
+[@mib1185]: https://github.com/mib1185
+[@ov1d1u]: https://github.com/ov1d1u
+[@piitaya]: https://github.com/piitaya
+[@rcmaehl]: https://github.com/rcmaehl
+[@temesinko]: https://github.com/temesinko
+[@tronikos]: https://github.com/tronikos
+
+### 2024.7.3 - July 19
+
+- Fix reauth error and exception in ista EcoTrend integration ([@tr4nt0r] - [#121482])
+- Retain Jellyfin config flow input on connection issue ([@j-stienstra] - [#121618])
+- Update Supla async_set_cover_position to use "REVEAL_PARTIALLY" ([@ontaptom] - [#121663])
+- Bump sunweg 3.0.2 ([@rokam] - [#121684])
+- Allow enigma2 devices to use different source bouquets ([@autinerd] - [#121686])
+- Fix tplink bug changing color temp on bulbs with light effects ([@sdb9696] - [#121696])
+- Bump knocki to 0.3.0 ([@joostlek] - [#121704])
+- Bump pyloadapi to v1.3.2 ([@tr4nt0r] - [#121709])
+- Fix update happening too early in unifiprotect ([@bdraco] - [#121714])
+- Bump knocki to 0.3.1 ([@joostlek] - [#121717])
+- Fix bad access to UniFi runtime_data when not assigned ([@Kane610] - [#121725])
+- Update Idasen Desk library to 2.6.2 ([@abmantis] - [#121729])
+- Bump opower to 0.5.2 to fix 403 forbidden errors for users with multiple accounts ([@tronikos] - [#121762])
+- Pin mashumaro version >= 3.13.1 for python 3.12.4 compatibility. ([@allenporter] - [#121782])
+- Bump pytedee_async to 0.2.20 ([@zweckj] - [#121783])
+- Add some missing tplink ouis ([@bdraco] - [#121785])
+- Use async_connect in newly bumped 0.5.8 UPB library ([@gwww] - [#121789])
+- Bump python-kasa to 0.7.0.4 ([@sdb9696] - [#121791])
+- Add missing translations to Roborock ([@jpbede] - [#121796])
+- Fix alexa does to check `current_position` correctly when handling cover range changes ([@jbouwh] - [#121798])
+- Reolink media second lens ([@starkillerOG] - [#121800])
+- Bump PySwitchbot to 0.48.1 ([@ollo69] - [#121804])
+- Bump aiolifx to 1.0.4 ([@Djelibeybi] - [#121267])
+- Bump aiolifx to 1.0.5 ([@Djelibeybi] - [#121824])
+- Log add/remove index complete at the same level as when it starts ([@bdraco] - [#121852])
+- Fix opentherm_gw availability ([@mvn23] - [#121892])
+- Fix rainforest_raven closing device due to timeout ([@cottsay] - [#121905])
+- Fix enigma2 mute ([@tgorochowik] - [#121928])
+- Fix `configuration_url` for Shelly device using IPv6 ([@bieniu] - [#121939])
+- Narrow sqlite database corruption check to ensure disk image is malformed ([@bdraco] - [#121947])
+- Bump python-holidays to 0.53 ([@gjohansson-ST] - [#122021])
+- Mark UniFi power cycle button as unavailable if PoE is not enabled on port ([@Kane610] - [#122035])
+- Fix hive not updating when boosting ([@HarryEMartland] - [#122042])
+- Update tplink device config during reauth flow ([@sdb9696] - [#122089])
+- Prevent connecting to a Shelly device that is already connected ([@thecode] - [#122105])
+- Bump tplink dependency python-kasa to 0.7.0.5 ([@sdb9696] - [#122119])
+- Update yt-dlp to 2024.07.16 ([@cdce8p] - [#122124])
+- Fix KeyError in config flow of Bring integration ([@tr4nt0r] - [#122136])
+
+[#120579]: https://github.com/home-assistant/core/pull/120579
+[#121267]: https://github.com/home-assistant/core/pull/121267
+[#121289]: https://github.com/home-assistant/core/pull/121289
+[#121482]: https://github.com/home-assistant/core/pull/121482
+[#121618]: https://github.com/home-assistant/core/pull/121618
+[#121663]: https://github.com/home-assistant/core/pull/121663
+[#121671]: https://github.com/home-assistant/core/pull/121671
+[#121684]: https://github.com/home-assistant/core/pull/121684
+[#121686]: https://github.com/home-assistant/core/pull/121686
+[#121696]: https://github.com/home-assistant/core/pull/121696
+[#121704]: https://github.com/home-assistant/core/pull/121704
+[#121709]: https://github.com/home-assistant/core/pull/121709
+[#121714]: https://github.com/home-assistant/core/pull/121714
+[#121717]: https://github.com/home-assistant/core/pull/121717
+[#121725]: https://github.com/home-assistant/core/pull/121725
+[#121729]: https://github.com/home-assistant/core/pull/121729
+[#121762]: https://github.com/home-assistant/core/pull/121762
+[#121782]: https://github.com/home-assistant/core/pull/121782
+[#121783]: https://github.com/home-assistant/core/pull/121783
+[#121785]: https://github.com/home-assistant/core/pull/121785
+[#121789]: https://github.com/home-assistant/core/pull/121789
+[#121791]: https://github.com/home-assistant/core/pull/121791
+[#121796]: https://github.com/home-assistant/core/pull/121796
+[#121798]: https://github.com/home-assistant/core/pull/121798
+[#121800]: https://github.com/home-assistant/core/pull/121800
+[#121804]: https://github.com/home-assistant/core/pull/121804
+[#121824]: https://github.com/home-assistant/core/pull/121824
+[#121852]: https://github.com/home-assistant/core/pull/121852
+[#121892]: https://github.com/home-assistant/core/pull/121892
+[#121905]: https://github.com/home-assistant/core/pull/121905
+[#121928]: https://github.com/home-assistant/core/pull/121928
+[#121939]: https://github.com/home-assistant/core/pull/121939
+[#121947]: https://github.com/home-assistant/core/pull/121947
+[#122021]: https://github.com/home-assistant/core/pull/122021
+[#122035]: https://github.com/home-assistant/core/pull/122035
+[#122042]: https://github.com/home-assistant/core/pull/122042
+[#122089]: https://github.com/home-assistant/core/pull/122089
+[#122105]: https://github.com/home-assistant/core/pull/122105
+[#122119]: https://github.com/home-assistant/core/pull/122119
+[#122124]: https://github.com/home-assistant/core/pull/122124
+[#122136]: https://github.com/home-assistant/core/pull/122136
+[@Djelibeybi]: https://github.com/Djelibeybi
+[@HarryEMartland]: https://github.com/HarryEMartland
+[@Kane610]: https://github.com/Kane610
+[@abmantis]: https://github.com/abmantis
+[@allenporter]: https://github.com/allenporter
+[@autinerd]: https://github.com/autinerd
+[@bdraco]: https://github.com/bdraco
+[@bieniu]: https://github.com/bieniu
+[@cdce8p]: https://github.com/cdce8p
+[@cottsay]: https://github.com/cottsay
+[@frenck]: https://github.com/frenck
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@gwww]: https://github.com/gwww
+[@j-stienstra]: https://github.com/j-stienstra
+[@jbouwh]: https://github.com/jbouwh
+[@joostlek]: https://github.com/joostlek
+[@jpbede]: https://github.com/jpbede
+[@mvn23]: https://github.com/mvn23
+[@ollo69]: https://github.com/ollo69
+[@ontaptom]: https://github.com/ontaptom
+[@rokam]: https://github.com/rokam
+[@sdb9696]: https://github.com/sdb9696
+[@starkillerOG]: https://github.com/starkillerOG
+[@tgorochowik]: https://github.com/tgorochowik
+[@thecode]: https://github.com/thecode
+[@tr4nt0r]: https://github.com/tr4nt0r
+[@tronikos]: https://github.com/tronikos
+[@zweckj]: https://github.com/zweckj
+
+### 2024.7.4 - July 30
+
+- Bump `aiotractive` to 0.6.0 ([@bieniu] - [#121155])
+- Ensure mqtt subscriptions are in a set ([@jbouwh] - [#122201])
+- Add Z-Wave discovery schema for ZVIDAR roller shades ([@alexschneider] - [#122332])
+- Fix device class on sensor in ViCare ([@CFenner] - [#122334])
+- Goofle Generative AI: Fix string format ([@Shulyaka] - [#122348])
+- Ensure script llm tool name does not start with a digit ([@Shulyaka] - [#122349])
+- Bump reolink-aio to 0.9.5 ([@starkillerOG] - [#122366])
+- Fix gemini api format conversion ([@Shulyaka] - [#122403])
+- Fix typo in Matter lock platform ([@marcelveldt] - [#122536])
+- Fix target service attribute on Mastodon integration ([@andrew-codechimp] - [#122546])
+- Bump aiolifx to 1.0.6 ([@Djelibeybi] - [#122569])
+- Bump deebot-client to 8.2.0 ([@edenhaus] - [#122612])
+- Bump aiohue to version 4.7.2 ([@marcelveldt] - [#122651])
+- Return unknown when data is missing in Trafikverket Weather ([@gjohansson-ST] - [#122652])
+- Retry later on OSError during apple_tv entry setup ([@bdraco] - [#122747])
+
+[#120579]: https://github.com/home-assistant/core/pull/120579
+[#121155]: https://github.com/home-assistant/core/pull/121155
+[#121289]: https://github.com/home-assistant/core/pull/121289
+[#121671]: https://github.com/home-assistant/core/pull/121671
+[#122194]: https://github.com/home-assistant/core/pull/122194
+[#122201]: https://github.com/home-assistant/core/pull/122201
+[#122332]: https://github.com/home-assistant/core/pull/122332
+[#122334]: https://github.com/home-assistant/core/pull/122334
+[#122348]: https://github.com/home-assistant/core/pull/122348
+[#122349]: https://github.com/home-assistant/core/pull/122349
+[#122366]: https://github.com/home-assistant/core/pull/122366
+[#122403]: https://github.com/home-assistant/core/pull/122403
+[#122536]: https://github.com/home-assistant/core/pull/122536
+[#122546]: https://github.com/home-assistant/core/pull/122546
+[#122569]: https://github.com/home-assistant/core/pull/122569
+[#122612]: https://github.com/home-assistant/core/pull/122612
+[#122651]: https://github.com/home-assistant/core/pull/122651
+[#122652]: https://github.com/home-assistant/core/pull/122652
+[#122747]: https://github.com/home-assistant/core/pull/122747
+[@CFenner]: https://github.com/CFenner
+[@Djelibeybi]: https://github.com/Djelibeybi
+[@Shulyaka]: https://github.com/Shulyaka
+[@alexschneider]: https://github.com/alexschneider
+[@andrew-codechimp]: https://github.com/andrew-codechimp
+[@bdraco]: https://github.com/bdraco
+[@bieniu]: https://github.com/bieniu
+[@edenhaus]: https://github.com/edenhaus
+[@frenck]: https://github.com/frenck
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@jbouwh]: https://github.com/jbouwh
+[@marcelveldt]: https://github.com/marcelveldt
+[@starkillerOG]: https://github.com/starkillerOG
+
+## Need help? Join the community!
+
+Home Assistant has a great community of users who are all more than willing
+to help each other out. So, join us!
+
+Our very active [Discord chat server](/join-chat) is an excellent place to be
+at, and don't forget to join our amazing [forums](https://community.home-assistant.io/).
+
+Found a bug or issue? Please report it in our [issue tracker](https://github.com/home-assistant/core/issues),
+to get it fixed! Or, check [our help page](/help) for guidance for more
+places you can go.
+
+Are you more into email? [Sign-up for our Building the Open Home Newsletter](/newsletter)
+to get the latest news about features, things happening in our community and
+other news about building an Open Home; straight into your inbox.
+
+## Backward-incompatible changes
+
+We do our best to avoid making changes to existing functionality that might
+unexpectedly impact your Home Assistant installation. Unfortunately, sometimes,
+it is inevitable.
+
+We always make sure to document these changes to make the transition as easy as
+possible for you. This release has the following backward-incompatible changes:
+
+{% details "Authentication" %}
+
+The legacy API password (`legacy_api_password`) authentication provider that
+was deprecated in Home Assistant 2023.12, has been removed.
+
+([@edenhaus] - [#119976]) ([documentation](/integrations/auth))
+
+[@edenhaus]: https://github.com/edenhaus
+[#119976]: https://github.com/home-assistant/core/pull/119976
+
+{% enddetails %}
+
+{% details "Azure DevOps" %}
+
+All attributes of the "latest build" sensor are now deprecated; each now has
+a dedicated sensor entity available. If you use these attributes in your
+automations or scripts, you need to adjust these to use one of the
+new sensors instead.
+
+([@timmo001] - [#114948]) ([documentation](/integrations/azure_devops))
+
+[@timmo001]: https://github.com/timmo001
+[#114948]: https://github.com/home-assistant/core/pull/114948
+
+{% enddetails %}
+
+{% details "Blink" %}
+
+The previously deprecated Blink update service has now been removed.
+
+([@gjohansson-ST] - [#119919]) ([documentation](/integrations/blink))
+
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[#119919]: https://github.com/home-assistant/core/pull/119919
+
+{% enddetails %}
+
+{% details "BMW Connected Drive" %}
+
+The charging mode and charging status sensors have been updated to use lowercase
+state values. If you use these sensors in your automations or scripts,
+you must update them to use the new lowercase values.
+
+([@rikroe] - [#118751]) ([documentation](/integrations/bmw_connected_drive))
+
+[@rikroe]: https://github.com/rikroe
+[#118751]: https://github.com/home-assistant/core/pull/118751
+
+{% enddetails %}
+
+{% details "Calendar" %}
+
+Calendar service `list_events` was deprecated in favor of `get_events` in 
+Home Assistant 2023.12 and has now been removed.
+
+Use the new `get_events` service to retrieve events from `calendar` entities
+instead.
+
+([@gjohansson-ST] - [#118663]) ([documentation](/integrations/calendar))
+
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[#118663]: https://github.com/home-assistant/core/pull/118663
+
+{% enddetails %}
+
+{% details "ComEd Hourly Pricing" %}
+
+The unit of measurement for the ComEd Hourly Pricing integration has been
+corrected from `c` to `¢/kWh`.
+
+([@themaxgross] - [#115594]) ([documentation](/integrations/comed_hourly_pricing))
+
+[@themaxgross]: https://github.com/themaxgross
+[#115594]: https://github.com/home-assistant/core/pull/115594
+
+{% enddetails %}
+
+{% details "DNS IP" %}
+
+The attribute names `Resolver` and `Querytype` have been renamed to
+`resolver` and `querytype`. If you use these in any automations or scripts,
+you need to update them to use the new lowercase names.
+
+([@gjohansson-ST] - [#119727]) ([documentation](/integrations/dnsip))
+
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[#119727]: https://github.com/home-assistant/core/pull/119727
+
+---
+
+The attributes `resolver`, `querytype`, and `ip_addresses` for the DNS IP
+sensor are excluded from the recorder and no longer stored in history.
+
+([@gjohansson-ST] - [#119726]) ([documentation](/integrations/dnsip))
+
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[#119726]: https://github.com/home-assistant/core/pull/119726
+
+{% enddetails %}
+
+{% details "Fast.com" %}
+
+The previously deprecated `speedtest` service from `fastdotcom` has been removed.
+Use the [`homeassistant.update_entity` service](/common-tasks/general/#defining-a-custom-polling-interval)
+to refresh and run a speedtest manually instead.
+
+([@gjohansson-ST] - [#119780]) ([documentation](/integrations/fastdotcom))
+
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[#119780]: https://github.com/home-assistant/core/pull/119780
+
+{% enddetails %}
+
+{% details "Intergas InComfort/Intouch Lan2RF gateway" %}
+
+Based on the boiler display code or fault code, the boiler status
+has been refactored to be signified and unique so we can start supporting
+localization.
+
+Depending on the old status texts, automations or scripts might break.
+You need to ensure your automations and scripts are updated to use the new
+status values.
+
+The new display codes are:
+
+-	0: `opentherm`
+-	15: `boiler_ext`
+-	24: `frost`
+-	37: `central_heating_rf`
+-	51: `tapwater_int`
+-	85: `sensortest`
+-	102: `central_heating`
+-	126: `standby`
+-	153: `postrun_boiler`
+-	170: `service`
+-	204: `tapwater`
+-	231: `postrun_ch`
+-	240: `boiler_int`
+-	255: `buffer`
+
+The new fault codes are:
+
+- 0: `sensor_fault_after_self_check`
+- 1: `cv_temperature_too_high`
+- 2: `s1_and_s2_interchanged`
+- 4: `no_flame_signal`
+- 5: `poor_flame_signal`
+- 6: `flame_detection_fault`
+- 8: `incorrect_fan_speed`
+- 10: `sensor_fault_s1`
+- 11: `sensor_fault_s1`
+- 12: `sensor_fault_s1`
+- 13: `sensor_fault_s1`
+- 14: `sensor_fault_s1`
+- 20: `sensor_fault_s2`
+- 21: `sensor_fault_s2`
+- 22: `sensor_fault_s2`
+- 23: `sensor_fault_s2`
+- 24: `sensor_fault_s2`
+- 27: `shortcut_outside_sensor_temperature`
+- 29: `gas_valve_relay_faulty`
+- 30: `gas_valve_relay_faulty`
+
+([@jbouwh] - [#119207]) ([documentation](/integrations/incomfort))
+
+[@jbouwh]: https://github.com/jbouwh
+[#119207]: https://github.com/home-assistant/core/pull/119207
+
+{% enddetails %}
+
+{% details "La Marzocco" %}
+
+On March 19th, 2024, La Marzocco released a machine firmware update, v3.5-rc5,
+together with a new version of the La Marzocco Home App.
+ 
+Once the app update is installed, the previous scheduling functionality is
+removed from the app, and a new scheduling mode is shown. This mode is disabled
+until the machine's firmware has also been updated.
+
+Similarly, if the machine's firmware is updated before the app, the previous
+scheduling functionality does not work.
+
+The previous calendar and auto on/off switches are replaced with calendars
+and switches per schedule.
+
+([@zweckj] - [#113935]) ([documentation](/integrations/lamarzocco))
+
+[@zweckj]: https://github.com/zweckj
+[#113935]: https://github.com/home-assistant/core/pull/113935
+
+{% enddetails %}
+
+{% details "Logitech Harmony Hub" %}
+
+The harmony switch entities that were deprecated since Home Assistant 2024.1,
+have now been removed.
+
+([@joostlek] - [#119206]) ([documentation](/integrations/harmony))
+
+[@joostlek]: https://github.com/joostlek
+[#119206]: https://github.com/home-assistant/core/pull/119206
+
+{% enddetails %}
+
+{% details "OpenWeatherMap" %}
+
+The now obsolete forecast sensors have been removed. They have been
+fully replaced by `weather.get_forecasts` service.
+
+([@freekode] - [#119922]) ([documentation](/integrations/openweathermap))
+
+[@freekode]: https://github.com/freekode
+[#119922]: https://github.com/home-assistant/core/pull/119922
+
+{% enddetails %}
+
+{% details "Shelly" %}
+
+The switch entity for controlling a Shelly Gas Valve Add-on has been removed,
+and a valve entity has taken its place. If you use the switch entity
+in your automations or scripts, you must  update them to use the new
+valve entity.
+
+([@bieniu] - [#119817]) ([documentation](/integrations/shelly))
+
+[@bieniu]: https://github.com/bieniu
+[#119817]: https://github.com/home-assistant/core/pull/119817
+
+{% enddetails %}
+
+{% details "SimpliSafe" %}
+
+SimpliSafe no longer contains functionality to set a code for use within Home
+Assistant. This was a virtual code that was not used by the SimpliSafe system.
+
+([@bachya] - [#118759]) ([documentation](/integrations/simplisafe))
+
+[@bachya]: https://github.com/bachya
+[#118759]: https://github.com/home-assistant/core/pull/118759
+
+{% enddetails %}
+
+{% details "SQL" %}
+
+An SQL query generating several columns output was putting the additional
+attributes on the SQL sensor.
+
+From now on, these are still shown as state attributes but are no longer
+recorded in the database as attributes on this particular sensor
+(as the data for these attributes are already present in the database
+from where they come).
+
+([@gjohansson-ST] - [#120170]) ([documentation](/integrations/sql))
+
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[#120170]: https://github.com/home-assistant/core/pull/120170
+
+{% enddetails %}
+
+{% details "Sun WEG" %}
+
+The new API version this integration now uses doesn't provide the kWh per kWP
+information, so that sensor is no longer available.
+
+([@rokam] - [#118435]) ([documentation](/integrations/sunweg))
+
+[@rokam]: https://github.com/rokam
+[#118435]: https://github.com/home-assistant/core/pull/118435
+
+{% enddetails %}
+
+{% details "Swiss public transport" %}
+
+Swiss public transport no longer provides additional state attributes; since
+the release of Home Assistant 2023.12, all information has been moved to
+dedicated individual sensors.
+
+([@miaucl] - [#120256]) ([documentation](/integrations/swiss_public_transport))
+
+[@miaucl]: https://github.com/miaucl
+[#120256]: https://github.com/home-assistant/core/pull/120256
+
+{% enddetails %}
+
+{% details "Tami4 Edge / Edge+" %}
+
+Due to upstream API changes, the UV & filter's last replaced date has been
+removed.
+
+Additionally, `uv_status` & `filter_status` sensor entities have been changed
+to `uv_installed` and `filter_installed`.
+
+([@Guy293] - [#119158]) ([documentation](/integrations/tami4))
+
+[@Guy293]: https://github.com/Guy293
+[#119158]: https://github.com/home-assistant/core/pull/119158
+
+{% enddetails %}
+
+{% details "UniFi Protect" %}
+
+The set default doorbell text service (`set_default_doorbell_text`) has been
+removed. UI has removed this functionality in UI Protect 4.x.
+
+It is still possible to set a custom message using the other services
+(`unifiprotect.add_doorbell_text` and `unifiprotect.remove_doorbell_text`,
+and setting it via the `select` entity), but there is no longer a default.
+
+([@bdraco] - [#119695]) ([documentation](/integrations/unifiprotect))
+
+[@bdraco]: https://github.com/bdraco
+[#119695]: https://github.com/home-assistant/core/pull/119695
+
+{% enddetails %}
+
+{% details "Utility Meter" %}
+
+The source entity, period, and CRON pattern entity state attributes have been
+removed from the sensor entity and moved to the integration diagnostics.
+
+Note that these values are constant throughout the lifetime of a utility meter.
+
+([@dgomes] - [#118637]) ([documentation](/integrations/utility_meter))
+
+[@dgomes]: https://github.com/dgomes
+[#118637]: https://github.com/home-assistant/core/pull/118637
+
+{% enddetails %}
+
+{% details "Weather" %}
+
+Weather service `get_forecast` was deprecated in favor of `get_forecasts` in
+Home Assistant 2023.12 and has now been removed.
+
+Use the new `get_forecasts` service to retrieve forecast information
+from `weather` entities instead.
+
+([@gjohansson-ST] - [#118664]) ([documentation](/integrations/weather))
+
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[#118664]: https://github.com/home-assistant/core/pull/118664
+
+{% enddetails %}
+
+{% details "WLED" %}
+
+The previously deprecated firmware binary sensor has been removed.
+Use the provided update entity for your WLED device instead.
+
+([@frenck] - [#119984]) ([documentation](/integrations/wled))
+
+[@frenck]: https://github.com/frenck
+[#119984]: https://github.com/home-assistant/core/pull/119984
+
+{% enddetails %}
+
+{% details "Z-Wave" %}
+
+With this release, you will need to update your `zwave-js-server` instance.
+
+You must use `zwave-js-server` 1.36.0 or greater (schema 36).
+- If you use the Z-Wave JS add-on, you need at least version 0.6.0.
+- If you use the Z-Wave JS UI add-on, you need at least version [3.8.2](https://github.com/hassio-addons/addon-zwave-js-ui/releases/tag/v3.8.2).
+- If you use the Z-Wave JS UI Docker container, you need at least version [9.14.2](https://github.com/zwave-js/zwave-js-ui/releases/tag/v9.14.2).
+- If you run your own Docker container or some other installation method, you will need to update your zwave-js-server instance to at least 1.36.0.
+
+([@raman325]) ([documentation](/integrations/zwave_js))
+
+[@raman325]: https://github.com/raman325
+
+{% enddetails %}
+
+If you are a custom integration developer and want to learn about changes and
+new features available for your integration: Be sure to follow our
+[developer blog][devblog]. The following are the most notable for this release:
+
+- [Excluding all state attributes from recording using MATCH_ALL](https://developers.home-assistant.io/blog/2024/06/22/excluding-state-attributes-from-recording-match-all)
+- [Forwarding setup to config entry platforms](https://developers.home-assistant.io/blog/2024/06/12/async_forward_entry_setups/)
+- [Making http path registration async safe with `async_register_static_paths`](https://developers.home-assistant.io/blog/2024/06/18/async_register_static_paths)
+
+[devblog]: https://developers.home-assistant.io/blog/
+
+## All changes
+
+Of course, there is a lot more in this release. You can find a list of
+all changes made here: [Full changelog for Home Assistant Core 2024.7](/changelogs/core-2024.7)

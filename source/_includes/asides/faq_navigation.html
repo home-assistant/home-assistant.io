@@ -1,0 +1,22 @@
+<section class="aside-module grid__item one-whole lap-one-half">
+  <div class='section'>
+    <h1 class="title epsilon">Entries</h1>
+    <ul class='divided sidebar-menu'>
+{% assign faq = site.faq | sort_natural: 'title' %}
+{% assign categories = faq | map: 'ha_category' | uniq | sort_natural %}
+
+{% for category in categories %}
+      <li>
+        <b>{{ category }}</b>
+        <ul>
+  {% for entry in faq %}
+    {% if entry.ha_category == category %}
+<li class="faq-entry"><a href='/faq#{{ entry.title | slugify }}'>{{ entry.title}}</a></li>
+    {% endif %}
+  {% endfor %}
+        </ul>
+      </li>
+{% endfor %}
+    </ul>
+  </div>
+</section>

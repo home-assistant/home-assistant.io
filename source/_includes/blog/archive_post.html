@@ -1,0 +1,21 @@
+<a href="{{ post.url }}">
+  <div class="material-card">
+    <div class="img" style="background-image: url({{ post.og_image }})"></div>
+    <div class="caption">
+      <div>
+        <div class="title">
+          {{ post.title }}
+        </div>
+        <div class="subtitle">
+          <time datetime="{{ post.date | datetime | date_to_xmlschema }}" pubdate>
+            {{ post.date | date: "<span class='month'>%b</span> <span class='day'>%d</span>"}}
+          </time>
+        </div>
+      </div>
+      <svg viewBox="0 0 24 24">
+        <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"/>
+      </svg>
+    </div>
+  </div>
+</a>
+

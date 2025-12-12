@@ -1,0 +1,124 @@
+section#hero {
+    height: calc(100vh - 68px);
+    position: relative;
+
+    .model-still {
+        z-index: 1;
+    }
+
+    .section-inner {
+        align-items: flex-end;
+    }
+
+    h1 {
+        display: flex;
+        flex-direction: column;
+
+        >span {
+            &:first-child{
+                span:last-child{
+                    font-weight: 400;
+                }
+            }
+            span {
+                color: #001A35;
+                animation: letter-fade 2s forwards .2s;
+                opacity: 1;
+
+                @for $i from 1 through 5 {
+                    &:nth-child(#{$i}) {
+                        animation-delay: calc((var(--offset) + .2s) + (.1s * #{$i}));
+                    }
+                }
+            }
+        }
+
+        >span:nth-child(1) {
+            --offset: 0s;
+            font-size: var(--typography-hero-subtitle-font-size);
+            font-weight: var(--typography-hero-subtitle-font-weight);
+            line-height: var(--typography-hero-subtitle-line-height);
+            margin: 0;
+        }
+
+        >span:nth-child(2) {
+            --offset: .4s;
+            display: flex;
+            font-size: var(--typography-hero-title-font-size);
+            font-weight: var(--typography-hero-title-font-weight);
+            letter-spacing: -5px;
+            line-height: var(--typography-hero-title-line-height);
+            margin-top: 16px;
+
+            @include bp(desktop) {
+                margin-top: 40px;
+            }
+        }
+    }
+
+    .logos {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+
+        img {
+            max-width: 50%;
+        }
+    }
+
+    .cols {
+        align-items: flex-end;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+        p {
+            color: #ffff;
+        }
+    }
+
+    .section-inner {
+        position: relative;
+        z-index: unset;
+
+        &-content {
+            z-index: 2;
+        }
+    }
+
+    .background {
+        background: #001A35;
+        inset: 0;
+        isolation: isolate;
+        position: absolute;
+
+        &:before,
+        &:after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+        }
+
+        &:before {
+            background: linear-gradient(84deg, rgba(0, 26, 53, 0.00) 33.14%, #005FBE 116.82%);
+        }
+
+        &:after {
+            background: radial-gradient(123.89% 49.86% at 48.4% 45.49%, rgba(0, 26, 53, 0.00) 0%, #0F121F 100%);
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+        }
+    }
+}
+
+@keyframes letter-fade {
+    to {
+        color: #fff;
+        opacity: 1;
+    }
+}

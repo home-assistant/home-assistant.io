@@ -1,0 +1,421 @@
+---
+title: "0.50: Voice control, History improvements, and Xiaomi"
+description: "Use your voice to control your Home."
+date: 2017-07-29 00:11:05
+date_formatted: "July 29, 2017"
+author: Paulus Schoutsen
+author_twitter: balloob
+categories:
+- Release-Notes
+- Core
+og_image: /images/blog/2017-07-0.50/components.png
+---
+
+<a href='/integrations/#version/0.50'><img src='/images/blog/2017-07-0.50/components.png' style='border: 0;box-shadow: none;'></a>
+
+Last Wednesday we released [Hass.io](/hassio/), an operating system to take care of all the updating hassles that come with running home automation at home and so much more. This is a major milestone for Home Assistant as it is our first step to offering a fully integrated solution using a bring your own hardware approach.
+
+The launch has been crazy successful. The [20 minute introduction video][hassio-intro] by BRUHAutomation already has 12.5k views in just 4 days with no less than 150 comments.
+
+Hass.io will be a great foundation for bigger and better integrated features. Stay tuned.
+
+### Adding the power of voice to integrations
+
+But enough about Hass.io, let's not forget about Home Assistant. This release has completely revamped the way how we deal with voice integrations. We turned Home Assistant into a platform to write voice apps, no matter where the processing of the voice happens. This can be done by Alexa, Google Assistant or in the Home Assistant user interface.
+
+We are super excited about the new functionality and hope that it will trigger a new type of applications and systems to be built on top of Home Assistant. This release includes a shopping list to show the new functionality. As a user you can add any item to the shopping list with your voice and also ask what is on your shopping list.
+
+```yaml
+# Example configuration.yaml entry
+shopping_list:
+```
+
+To make testing these applications easier, we've updated the conversation component. The component will now allow sentences to be configured that hook directly into the new voice functionality. Combined with the new interface it will allow for some great interactions! Check out the [developer docs][intent docs] for more information.
+
+<div class='videoWrapper'>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Ij0zDF3qwmE" frameborder="0" allowfullscreen></iframe>
+</div>
+
+### History improvements
+
+[@OverloadUT] has been recently spending a lot of time on optimizing the history database queries. This release includes PR [#8632], the first in a list of improvements that he is working on. This PR greatly improves requests for single entities by using an optimized query for this use case.
+
+The performance change in some of his tests shows this change to be about 300x faster (30 seconds to 0.1 seconds!) (There is no theoretical upper limit due to the issue with multi-entity queries getting worse the longer the current recorder run has been going.)
+
+[hassio-intro]: https://www.youtube.com/watch?v=XWPluWcYRMI&feature=youtu.be
+
+### Xiaomi integration
+
+Yes, it has happened! After being in beta for a while, the Xiaomi support is now available to all. [@danielhiversen] did an amazing job and we now support sensors, switches, lights and covers.
+
+### Velbus integration
+
+Another awesome integration is that of the Velbus home automation system which has been contributed by [@thomasdelaet]. It integrates their sensors, covers, fans, lights and switches.
+
+### Manual alarm with MQTT control
+
+A new version of the manual alarm component is now available with full MQTT control thanks to [@colinodell]. Using this you can build your own control panel to remotely arm/disarm the alarm. For example, using a [Raspberry Pi to create an alarm](https://www.hackster.io/colinodell/diy-alarm-control-panel-for-home-assistant-ac1813).
+
+## New Platforms
+
+- Initial support for Google Wifi/OnHub ([@fronzbot] - [#8485]) ([sensor.google_wifi docs]) (new-platform)
+- Xiaomi gw support ([@danielhiversen] - [#8555]) ([xiaomi docs]) ([binary_sensor.xiaomi docs]) ([cover.xiaomi docs]) ([light.xiaomi docs]) ([sensor.xiaomi docs]) ([switch.xiaomi docs]) (new-platform)
+- Add Intent component ([@balloob] - [#8434]) ([alexa docs]) ([intent_script docs]) ([shopping_list docs]) ([snips docs]) (breaking change) (new-platform)
+- Manual alarm with MQTT control ([@colinodell] - [#8257]) ([alarm_control_panel.manual_mqtt docs]) (new-platform)
+- Add component Light TPLink ([@gollo] - [#8643]) ([light.tplink docs]) (new-platform)
+- Velbus ([@thomasdelaet] - [#8076]) ([velbus docs]) ([binary_sensor.velbus docs]) ([light.velbus docs]) (new-platform)
+- Add uk_transport component. ([@robmarkcole] - [#8600]) ([sensor.uk_transport docs]) (new-platform)
+
+## Release 0.50.2 - July 31
+
+Straight to 0.50.2. We released 0.50 as 0.50.1 due to an upload error to PyPi.
+
+- Fix TP-Link light brightness issue #8744. ([@gollo] - [#8755])
+- Fix typo in script error ([@n8henrie] - [#8754])
+- Fix tradfri error spam ([@MartinHjelmare] - [#8738]) ([light.tradfri docs])
+- Media Player - Pioneer: Suppress exception if host is not available (fixes #8684) ([@fabaff] - [#8732]) ([media_player.pioneer docs])
+- Telegram Bot: Retry set_webhook up to three times, reduce timeout to 5s again ([@azogue] - [#8716]) ([telegram_bot.webhooks docs])
+- Fixed sensor issue with Google Wifi routers in bridge mode ([@fronzbot] - [#8710]) ([sensor.google_wifi docs])
+- Fix alexa cards ([@balloob] - [#8708]) ([alexa docs])
+- Fix Kodi reconnection after websocket disconnect ([@armills] - [#8704]) ([media_player.kodi docs])
+- Move I/O outside of properties for light/tplink platform ([@gollo] - [#8699]) ([light.tplink docs]) (new-platform)
+- Correctly discover GE Fan Controllers ([@armills] - [#8682]) ([zwave docs])
+- Fix Z-Wave barrier discovery for new API ([@armills] - [#8706]) ([zwave docs]) ([cover.zwave docs])
+
+## If you need help...
+...don't hesitate to use our very active [forums][forum] or join us for a little [chat][discord]. The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
+
+## Reporting Issues
+Experiencing issues introduced by this release? Please report them in our [issue tracker][issue]. Make sure to fill in all fields of the issue template.
+
+<!--more-->
+## Backward-incompatible changes
+
+- Automations: The state trigger keyword `state` and the time trigger keyword `after` were deprecated in 0.46. They have now been removed. Use `to` and `at` instead. ([@amelchio] - [#8510]) ([automation.state docs]) ([automation.time docs]) (breaking change)
+- Wink: the component is no longer supporting the `access_token` in the config. Use the new OAuth authentication or add your username and password to the config. ([@w1ll1am23] - [#8208]) ([wink docs]) (breaking change)
+- Alexa/API.AI/Snips.ai/Conversation: configuring responses to intents/sentences has been moved to a new component called `intent_script`. Conversation now allows configuring sentences to map to intents. ([@balloob] - [#8434]) ([alexa docs]) ([intent docs]) ([intent_script docs])
+ ([shopping_list docs]) ([snips docs]) (breaking change) (new-platform)
+
+```yaml
+alexa:
+snips:
+apiai:
+
+intent_script:
+  LightKitchen:
+    speech:
+      type: plain
+      text: I did the work, yay.
+    card:
+      type: simple
+      title: Lights Card
+      content: I have turned on the lights.
+    action:
+      service: light.turn_on
+      target:
+        entity_id: light.kitchen
+
+conversation:
+  intents:
+    LightKitchen:
+      - The kitchen is magic
+```
+
+- Switch fritzdect: attributes have been renamed to use underscores and no capital letters ([@thomasklingbeil] - [#8436]) (breaking change)
+- Yahoo Weather: no longer allow configuring forecasts but include all instead. ([@fanthos] - [#8626]) (breaking change)
+- The Home Assistant Z-Wave Cover implementation has been updated to support the latest development version of OpenZWave. If you are currently applying a workaround to your OpenZWave installation to support the barrier command class, you'll need to make sure you update your workaround to the latest development version of OpenZWave. ([@firstof9] - [#8574]) ([cover docs]) ([cover.zwave docs]) (breaking change)
+
+## All changes
+
+- Make deps directory persistent over upgrades ([@MartinHjelmare] - [#7801])
+- Fix check for running inside venv ([@MartinHjelmare] - [#8481])
+- Bump to KNXIP 0.5 ([@open-homeautomation] - [#8492]) ([knx docs])
+- Expose all components on hass [Concept] ([@balloob] - [#8490]) ([light docs])
+- Add bind_hass to components ([@balloob] - [#8502])
+- Persistent notification import ([@balloob] - [#8507])
+- Added additional attributes to OwnTracks device_tracker ([@binarybucks] - [#8503]) ([device_tracker.owntracks docs])
+- Added sensor state rounding ([@fronzbot] - [#8499]) ([sensor.pi_hole docs])
+- fix for a bug introduced with media support in #8282 ([@MikeChristianson] - [#8513]) ([notify.twitter docs])
+- handle timeout errors without logging.exception when updating hue lights; double quotes in log msgs ([@azogue] - [#8524]) ([light.hue docs])
+- Remove deprecated automation keywords ([@amelchio] - [#8510]) ([automation.state docs]) ([automation.time docs]) (breaking change)
+- Citybikes: Allow None as result for empty slots ([@janLo] - [#8528]) ([sensor.citybikes docs])
+- Return a 0 temperature value when none is found ([@phil-lavin] - [#8518]) ([climate.maxcube docs])
+- Fix #6469 and #6828 ([@titilambert] - [#8537])
+- Update docstrings ([@fabaff] - [#8536])
+- Upgrade TwitterAPI to 2.4.6 ([@fabaff] - [#8535]) ([notify.twitter docs])
+- Decora: Fix set brightness and improve reconnection ([@titilambert] - [#8522]) ([light.decora docs])
+- Initial support for Google Wifi/OnHub ([@fronzbot] - [#8485]) ([sensor.google_wifi docs]) (new-platform)
+- Fix exception dlib_face_identify when image is not recognized by face_recognition module ([@tchellomello] - [#8552]) ([image_processing.dlib_face_identify docs])
+- [media_extractor] Add support for custom stream queries for media_extractor ([@minchik] - [#8538]) ([media_extractor docs])
+- Report Harmony remote off if state is unknown ([@jawilson] - [#8547]) ([remote.harmony docs])
+- Upgrade the alarmdecoder dependency library from 0.12.1 to 0.12.3. ([@viswa-swami] - [#8542]) ([alarmdecoder docs])
+- turn_on_action and turn_off_action with script syntax ([@azogue] - [#8558]) ([media_player.kodi docs])
+- Extends Pi-hole sensor to support the new sensors: ([@tchellomello] - [#8549]) ([sensor.pi_hole docs])
+- Support for Wink Switch and Light groups also fix fan speed selection ([@w1ll1am23] - [#8501]) ([wink docs]) ([fan.wink docs]) ([light.wink docs]) ([switch.wink docs])
+- Added a service to write to KNX group addressed including documentation ([@open-homeautomation] - [#8491]) ([knx docs])
+- Handle manual edits to emulated_hue_ids.json ([@jawilson] - [#8560]) ([emulated_hue docs])
+- Enhance python_script to support "_getitem_" ([@sdague] - [#8541]) ([python_script docs])
+- Update persistent deps dir version in config.py ([@balloob] - [#8479])
+- Xiaomi gw support ([@danielhiversen] - [#8555]) ([xiaomi docs]) ([binary_sensor.xiaomi docs]) ([cover.xiaomi docs]) ([light.xiaomi docs]) ([sensor.xiaomi docs]) ([switch.xiaomi docs]) (new-platform)
+- fix #8263 corrected Adafruit DHT library version from 1.3.0 to 1.3.2 ([@namadori] - [#8562]) ([sensor.dht docs])
+- xiaomi bug fix ([@danielhiversen] - [#8576]) ([binary_sensor.xiaomi docs])
+- Bumped python-simplisafe version ([@bachya] - [#8578]) ([alarm_control_panel.simplisafe docs])
+- Added Time Remaining and Time Elapsed sensors for octoprint ([@w1ll1am23] - [#8581]) ([sensor.octoprint docs])
+- upgade xiaomi lib to 0.2 ([@danielhiversen] - [#8584]) ([xiaomi docs])
+- Device support for different new sensors of the xiaomi aqara gateway ([@syssi] - [#8577]) ([xiaomi docs]) ([binary_sensor.xiaomi docs]) ([sensor.xiaomi docs]) ([switch.xiaomi docs])
+- Extends Fitbit sensors to track the device battery level ([@tchellomello] - [#8583]) ([sensor.fitbit docs])
+- xiaomi binary sensor bug fix ([@danielhiversen] - [#8586]) ([binary_sensor.xiaomi docs])
+- upgrade pywebpush and PyJWT ([@perosb] - [#8588]) ([notify.html5 docs])
+- Support for Wink oauth application authorization ([@w1ll1am23] - [#8208]) ([wink docs]) (breaking change)
+- Add Intent component ([@balloob] - [#8434]) ([alexa docs]) ([intent docs]) ([intent_script docs]) ([shopping_list docs]) ([snips docs]) (breaking change) (new-platform)
+- Remove code in wink.py overwriting hass.data configurator ([@w1ll1am23] - [#8595]) ([wink docs])
+- bump python-mirobo version for more robust protocol handling, make the platform to update on startup ([@rytilahti] - [#8602]) ([switch.xiaomi_vacuum docs])
+- Binary sensor ping fixed for hassio ([@gollo] - [#8573]) ([binary_sensor.ping docs])
+- Simplified percent conversion, better logging ([@open-homeautomation] - [#8568]) ([sensor.knx docs])
+- make attributes in the fritzdect module easier to process ([@thomasklingbeil] - [#8436]) (breaking change)
+- Allow set_cover_position in scenes ([@peckham] - [#8613])
+- better but still not great ([@cribbstechnologies] - [#8618])
+- Upgrade youtube_dl to 2017.7.23 ([@fabaff] - [#8617]) ([media_extractor docs])
+- Upgrade mypy to 0.520 ([@fabaff] - [#8616])
+- REST binary sensor value_template optional ([@philhawthorne] - [#8596]) ([binary_sensor.rest docs])
+- added onvif camera fix for non-virtual env installations ([@matt2005] - [#8592]) ([camera.onvif docs])
+- Cleanup old device_tracker stuff ([@pvizeli] - [#8627])
+- Add support for using credstash as a secret store ([@justin8] - [#8494])
+- Added support for default value when environment variable is missing ([@devspacenine] - [#8484])
+- Manual alarm with MQTT control ([@colinodell] - [#8257]) ([alarm_control_panel.manual_mqtt docs]) (new-platform)
+- Catch and log Lyft API errors ([@armills] - [#8635]) ([sensor.lyft docs])
+- Tweak conversation/intent/shopping list ([@balloob] - [#8636]) ([conversation docs]) ([shopping_list docs])
+- Update dependencies cast + discovery ([@balloob] - [#8646]) ([media_player.cast docs])
+- Add component Light TPLink ([@gollo] - [#8643]) ([light.tplink docs]) (new-platform)
+- Fixes Fitbit sensor to report battery level with the expected device ([@tchellomello] - [#8647]) ([sensor.fitbit docs])
+- Upgrade aiolifx ([@amelchio] - [#8648]) ([light.lifx docs])
+- Velbus ([@thomasdelaet] - [#8076]) ([velbus docs]) ([binary_sensor.velbus docs]) ([light.velbus docs]) (new-platform)
+- Yahoo Weather update, supports forecast for more days ([@fanthos] - [#8626]) (breaking change)
+- History performance improvements for single-entity requests ([@OverloadUT] - [#8632]) ([history docs])
+- Add transition support to light.zha ([@jawilson] - [#8548]) ([light.zha docs])
+- Add uk_transport component. ([@robmarkcole] - [#8600]) ([sensor.uk_transport docs]) (new-platform)
+- Added support for SerenaHoneycombShades to Lutron Caseta ([@kfcook] - [#8662]) ([cover.lutron_caseta docs])
+- MQTT Switch: add availability_topic for online/offline status ([@abmantis] - [#8593]) ([mqtt docs]) ([switch.mqtt docs])
+- Adding support for mapping keys to value in statsd ([@Khabi] - [#8665]) ([statsd docs])
+- Upgrade fuzzywuzzy to 0.15.1 ([@fabaff] - [#8671]) ([conversation docs])
+- Upgrade libnacl to 1.5.2 ([@fabaff] - [#8670]) ([device_tracker.owntracks docs])
+- Upgrade sqlalchemy to 1.1.12 ([@fabaff] - [#8669]) ([recorder docs])
+- Upgrade pyhomematic to 0.1.30 ([@danielperna84] - [#8673]) ([homematic docs])
+- Hass.io: logo support / timeout handling ([@pvizeli] - [#8668]) ([hassio docs])
+- Updated pysnmp to 4.3.9 ([@bgehrich] - [#8675]) ([device_tracker.snmp docs]) ([sensor.snmp docs])
+- Fix COMMAND_CLASS_BARRIER_OPERATOR for dev branch of OpenZwave ([@firstof9] - [#8574]) ([cover docs]) ([cover.zwave docs]) (breaking change)
+- Shopping List: edit name / complete status ([@balloob] - [#8666]) ([shopping_list docs])
+- Support for Wink local control ([@w1ll1am23] - [#8607]) ([wink docs])
+- Persist shopping list + clear completed ([@balloob] - [#8697]) ([shopping_list docs])
+
+[#7801]: https://github.com/home-assistant/home-assistant/pull/7801
+[#8076]: https://github.com/home-assistant/home-assistant/pull/8076
+[#8208]: https://github.com/home-assistant/home-assistant/pull/8208
+[#8257]: https://github.com/home-assistant/home-assistant/pull/8257
+[#8434]: https://github.com/home-assistant/home-assistant/pull/8434
+[#8436]: https://github.com/home-assistant/home-assistant/pull/8436
+[#8479]: https://github.com/home-assistant/home-assistant/pull/8479
+[#8481]: https://github.com/home-assistant/home-assistant/pull/8481
+[#8484]: https://github.com/home-assistant/home-assistant/pull/8484
+[#8485]: https://github.com/home-assistant/home-assistant/pull/8485
+[#8490]: https://github.com/home-assistant/home-assistant/pull/8490
+[#8491]: https://github.com/home-assistant/home-assistant/pull/8491
+[#8492]: https://github.com/home-assistant/home-assistant/pull/8492
+[#8494]: https://github.com/home-assistant/home-assistant/pull/8494
+[#8499]: https://github.com/home-assistant/home-assistant/pull/8499
+[#8501]: https://github.com/home-assistant/home-assistant/pull/8501
+[#8502]: https://github.com/home-assistant/home-assistant/pull/8502
+[#8503]: https://github.com/home-assistant/home-assistant/pull/8503
+[#8507]: https://github.com/home-assistant/home-assistant/pull/8507
+[#8510]: https://github.com/home-assistant/home-assistant/pull/8510
+[#8513]: https://github.com/home-assistant/home-assistant/pull/8513
+[#8518]: https://github.com/home-assistant/home-assistant/pull/8518
+[#8522]: https://github.com/home-assistant/home-assistant/pull/8522
+[#8524]: https://github.com/home-assistant/home-assistant/pull/8524
+[#8528]: https://github.com/home-assistant/home-assistant/pull/8528
+[#8535]: https://github.com/home-assistant/home-assistant/pull/8535
+[#8536]: https://github.com/home-assistant/home-assistant/pull/8536
+[#8537]: https://github.com/home-assistant/home-assistant/pull/8537
+[#8538]: https://github.com/home-assistant/home-assistant/pull/8538
+[#8541]: https://github.com/home-assistant/home-assistant/pull/8541
+[#8542]: https://github.com/home-assistant/home-assistant/pull/8542
+[#8547]: https://github.com/home-assistant/home-assistant/pull/8547
+[#8548]: https://github.com/home-assistant/home-assistant/pull/8548
+[#8549]: https://github.com/home-assistant/home-assistant/pull/8549
+[#8552]: https://github.com/home-assistant/home-assistant/pull/8552
+[#8555]: https://github.com/home-assistant/home-assistant/pull/8555
+[#8558]: https://github.com/home-assistant/home-assistant/pull/8558
+[#8560]: https://github.com/home-assistant/home-assistant/pull/8560
+[#8562]: https://github.com/home-assistant/home-assistant/pull/8562
+[#8568]: https://github.com/home-assistant/home-assistant/pull/8568
+[#8573]: https://github.com/home-assistant/home-assistant/pull/8573
+[#8574]: https://github.com/home-assistant/home-assistant/pull/8574
+[#8576]: https://github.com/home-assistant/home-assistant/pull/8576
+[#8577]: https://github.com/home-assistant/home-assistant/pull/8577
+[#8578]: https://github.com/home-assistant/home-assistant/pull/8578
+[#8581]: https://github.com/home-assistant/home-assistant/pull/8581
+[#8583]: https://github.com/home-assistant/home-assistant/pull/8583
+[#8584]: https://github.com/home-assistant/home-assistant/pull/8584
+[#8586]: https://github.com/home-assistant/home-assistant/pull/8586
+[#8588]: https://github.com/home-assistant/home-assistant/pull/8588
+[#8592]: https://github.com/home-assistant/home-assistant/pull/8592
+[#8593]: https://github.com/home-assistant/home-assistant/pull/8593
+[#8595]: https://github.com/home-assistant/home-assistant/pull/8595
+[#8596]: https://github.com/home-assistant/home-assistant/pull/8596
+[#8600]: https://github.com/home-assistant/home-assistant/pull/8600
+[#8602]: https://github.com/home-assistant/home-assistant/pull/8602
+[#8607]: https://github.com/home-assistant/home-assistant/pull/8607
+[#8613]: https://github.com/home-assistant/home-assistant/pull/8613
+[#8616]: https://github.com/home-assistant/home-assistant/pull/8616
+[#8617]: https://github.com/home-assistant/home-assistant/pull/8617
+[#8618]: https://github.com/home-assistant/home-assistant/pull/8618
+[#8626]: https://github.com/home-assistant/home-assistant/pull/8626
+[#8627]: https://github.com/home-assistant/home-assistant/pull/8627
+[#8632]: https://github.com/home-assistant/home-assistant/pull/8632
+[#8635]: https://github.com/home-assistant/home-assistant/pull/8635
+[#8636]: https://github.com/home-assistant/home-assistant/pull/8636
+[#8643]: https://github.com/home-assistant/home-assistant/pull/8643
+[#8646]: https://github.com/home-assistant/home-assistant/pull/8646
+[#8647]: https://github.com/home-assistant/home-assistant/pull/8647
+[#8648]: https://github.com/home-assistant/home-assistant/pull/8648
+[#8662]: https://github.com/home-assistant/home-assistant/pull/8662
+[#8665]: https://github.com/home-assistant/home-assistant/pull/8665
+[#8666]: https://github.com/home-assistant/home-assistant/pull/8666
+[#8668]: https://github.com/home-assistant/home-assistant/pull/8668
+[#8669]: https://github.com/home-assistant/home-assistant/pull/8669
+[#8670]: https://github.com/home-assistant/home-assistant/pull/8670
+[#8671]: https://github.com/home-assistant/home-assistant/pull/8671
+[#8673]: https://github.com/home-assistant/home-assistant/pull/8673
+[#8675]: https://github.com/home-assistant/home-assistant/pull/8675
+[#8697]: https://github.com/home-assistant/home-assistant/pull/8697
+[@kfcook]: https://github.com/kfcook
+[@Khabi]: https://github.com/Khabi
+[@MartinHjelmare]: https://github.com/MartinHjelmare
+[@MikeChristianson]: https://github.com/MikeChristianson
+[@OverloadUT]: https://github.com/OverloadUT
+[@abmantis]: https://github.com/abmantis
+[@amelchio]: https://github.com/amelchio
+[@armills]: https://github.com/armills
+[@azogue]: https://github.com/azogue
+[@bachya]: https://github.com/bachya
+[@balloob]: https://github.com/balloob
+[@bgehrich]: https://github.com/bgehrich
+[@binarybucks]: https://github.com/binarybucks
+[@colinodell]: https://github.com/colinodell
+[@cribbstechnologies]: https://github.com/cribbstechnologies
+[@danielhiversen]: https://github.com/danielhiversen
+[@danielperna84]: https://github.com/danielperna84
+[@devspacenine]: https://github.com/devspacenine
+[@fabaff]: https://github.com/fabaff
+[@fanthos]: https://github.com/fanthos
+[@firstof9]: https://github.com/firstof9
+[@fronzbot]: https://github.com/fronzbot
+[@gollo]: https://github.com/gollo
+[@janLo]: https://github.com/janLo
+[@jawilson]: https://github.com/jawilson
+[@justin8]: https://github.com/justin8
+[@matt2005]: https://github.com/matt2005
+[@minchik]: https://github.com/minchik
+[@namadori]: https://github.com/namadori
+[@open-homeautomation]: https://github.com/open-homeautomation
+[@peckham]: https://github.com/peckham
+[@perosb]: https://github.com/perosb
+[@phil-lavin]: https://github.com/phil-lavin
+[@philhawthorne]: https://github.com/philhawthorne
+[@pvizeli]: https://github.com/pvizeli
+[@robmarkcole]: https://github.com/robmarkcole
+[@rytilahti]: https://github.com/rytilahti
+[@sdague]: https://github.com/sdague
+[@syssi]: https://github.com/syssi
+[@tchellomello]: https://github.com/tchellomello
+[@thomasdelaet]: https://github.com/thomasdelaet
+[@thomasklingbeil]: https://github.com/thomasklingbeil
+[@titilambert]: https://github.com/titilambert
+[@viswa-swami]: https://github.com/viswa-swami
+[@w1ll1am23]: https://github.com/w1ll1am23
+[alarm_control_panel.manual_mqtt docs]: /integrations/manual_mqtt/
+[alarm_control_panel.simplisafe docs]: /integrations/simplisafe
+[alarmdecoder docs]: /integrations/alarmdecoder/
+[alexa docs]: /integrations/alexa/
+[automation.state docs]: /docs/automation/trigger/#state-trigger
+[automation.time docs]: /docs/automation/trigger/#time-trigger
+[binary_sensor.ping docs]: /integrations/ping#binary-sensor
+[binary_sensor.rest docs]: /integrations/binary_sensor.rest/
+[binary_sensor.velbus docs]: /integrations/velbus
+[binary_sensor.xiaomi docs]: /integrations/binary_sensor.xiaomi_aqara/
+[camera.onvif docs]: /integrations/onvif
+[climate.maxcube docs]: /integrations/maxcube
+[conversation docs]: /integrations/conversation/
+[cover docs]: /integrations/cover/
+[cover.lutron_caseta docs]: /integrations/lutron_caseta/
+[cover.xiaomi docs]: /integrations/cover.xiaomi_aqara/
+[cover.zwave docs]: /integrations/zwave#cover
+[device_tracker.owntracks docs]: /integrations/owntracks
+[device_tracker.snmp docs]: /integrations/snmp
+[emulated_hue docs]: /integrations/emulated_hue/
+[fan.wink docs]: /integrations/wink#fan
+[hassio docs]: /hassio/
+[history docs]: /integrations/history/
+[homematic docs]: /integrations/homematic/
+[image_processing.dlib_face_identify docs]: /integrations/dlib_face_identify
+[intent docs]: /developers/intent/
+[intent_script docs]: /integrations/intent_script/
+[knx docs]: /integrations/knx/
+[light docs]: /integrations/light/
+[light.decora docs]: /integrations/decora
+[light.hue docs]: /integrations/hue
+[light.lifx docs]: /integrations/lifx
+[light.tplink docs]: /integrations/tplink
+[light.velbus docs]: /integrations/velbus/
+[light.wink docs]: /integrations/wink#light
+[light.xiaomi docs]: /integrations/light.xiaomi_aqara/
+[light.zha docs]: /integrations/zha
+[media_extractor docs]: /integrations/media_extractor/
+[media_player.cast docs]: /integrations/cast
+[media_player.kodi docs]: /integrations/kodi
+[mqtt docs]: /integrations/mqtt/
+[notify.html5 docs]: /integrations/html5
+[notify.twitter docs]: /integrations/twitter
+[python_script docs]: /integrations/python_script/
+[recorder docs]: /integrations/recorder/
+[remote.harmony docs]: /integrations/harmony
+[sensor.citybikes docs]: /integrations/citybikes
+[sensor.dht docs]: /integrations/dht
+[sensor.fitbit docs]: /integrations/fitbit
+[sensor.google_wifi docs]: /integrations/google_wifi
+[sensor.knx docs]: /integrations/sensor.knx/
+[sensor.lyft docs]: /integrations/lyft
+[sensor.octoprint docs]: /integrations/octoprint#sensor
+[sensor.pi_hole docs]: /integrations/pi_hole
+[sensor.snmp docs]: /integrations/snmp#sensor
+[sensor.uk_transport docs]: /integrations/uk_transport
+[sensor.xiaomi docs]: /integrations/sensor.xiaomi_aqara/
+[shopping_list docs]: /integrations/shopping_list/
+[snips docs]: /integrations/snips/
+[statsd docs]: /integrations/statsd/
+[switch.mqtt docs]: /integrations/switch.mqtt/
+[switch.wink docs]: /integrations/wink#switch
+[switch.xiaomi docs]: /integrations/switch.xiaomi_aqara/
+[switch.xiaomi_vacuum docs]: /integrations/vacuum.xiaomi_miio/
+[velbus docs]: /integrations/velbus/
+[wink docs]: /integrations/wink/
+[xiaomi docs]: /integrations/xiaomi_aqara
+[forum]: https://community.home-assistant.io/
+[issue]: https://github.com/home-assistant/home-assistant/issues
+[discord]: https://discord.gg/c5DvZ4e
+[#8682]: https://github.com/home-assistant/home-assistant/pull/8682
+[#8699]: https://github.com/home-assistant/home-assistant/pull/8699
+[#8704]: https://github.com/home-assistant/home-assistant/pull/8704
+[#8706]: https://github.com/home-assistant/home-assistant/pull/8706
+[#8708]: https://github.com/home-assistant/home-assistant/pull/8708
+[#8710]: https://github.com/home-assistant/home-assistant/pull/8710
+[#8716]: https://github.com/home-assistant/home-assistant/pull/8716
+[#8732]: https://github.com/home-assistant/home-assistant/pull/8732
+[#8738]: https://github.com/home-assistant/home-assistant/pull/8738
+[#8754]: https://github.com/home-assistant/home-assistant/pull/8754
+[#8755]: https://github.com/home-assistant/home-assistant/pull/8755
+[@n8henrie]: https://github.com/n8henrie
+[light.tradfri docs]: /integrations/tradfri
+[media_player.pioneer docs]: /integrations/pioneer
+[telegram_bot.webhooks docs]: /integrations/telegram_webhooks
+[zwave docs]: /integrations/zwave/

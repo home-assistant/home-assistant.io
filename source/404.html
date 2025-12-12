@@ -1,0 +1,22 @@
+---
+layout: page
+permalink: /404.html
+sidebar: false
+feedback: false
+body_id: not_found
+---
+<h2>Oh no! This page does not exist 😞</h2>
+
+<div class='search404-container'>
+    <div id="search404"></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3/dist/umd/index.min.js" integrity="sha384-f/IEhh8fvOc2ALU79emLlUqAYXyqlA/zYhM+g5GlWMk15QBjTXy05TtmfT1TbtV6" crossorigin="anonymous"></script>
+<script type="text/javascript">
+docsearch({
+  container: '#search404',
+  appId: 'FBHBYS3J0U',
+  indexName: 'home-assistant',
+  apiKey: "{{ site.algolia.api_key }}",
+});
+</script>

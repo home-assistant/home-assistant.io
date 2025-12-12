@@ -1,0 +1,34 @@
+.integration-alert-container {
+  margin: 0;
+}
+
+a.integration-alert {
+    margin: 1em 0;
+    background-color: wheat;
+    padding: 16px 24px;
+    text-decoration: none !important;
+    display: flex;
+    align-items: center;
+    color: black;
+    border-radius: 16px;
+
+    svg {
+      width: 24px;
+      margin-right: 8px;
+    }
+
+    .content {
+      flex: 1;
+    }
+
+    .learn-more {
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 16px;
+      font-size: 0.8em;
+
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.12);
+      }
+    }
+  }

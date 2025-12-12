@@ -1,0 +1,66 @@
+<script type="module" src="https://cdn.jsdelivr.net/npm/@justinribeiro/lite-youtube@1.3.1/lite-youtube.js" integrity="sha384-7o3d1sg8jSS1LMKzzIEucWtWFI1X4lFCC5gu2ylAgH3KmHcJgjTqp6LWfIvbbmf9" crossorigin="anonymous"></script>
+
+<script src="{{ '/javascripts/terminology_tooltip.js' | cache_buster }}" type="text/javascript" defer></script>
+
+<script src="{{ '/javascripts/prism.js' | cache_buster }}" type="text/javascript" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3/dist/umd/index.min.js" integrity="sha384-f/IEhh8fvOc2ALU79emLlUqAYXyqlA/zYhM+g5GlWMk15QBjTXy05TtmfT1TbtV6" crossorigin="anonymous"></script>
+<script type="text/javascript">
+  docsearch({
+    container: '#docsearch',
+    appId: 'FBHBYS3J0U',
+    indexName: 'home-assistant',
+    apiKey: "{{ site.algolia.api_key }}",
+  });
+  document.querySelector('.site-title').addEventListener('contextmenu', function (ev) {
+    ev.preventDefault();
+    document.location.assign("https://design.home-assistant.io/#brand/logo")
+  });
+</script>
+
+
+{% if page.hero_unit %}
+<script type="text/javascript">
+  {
+    const changeNavColor = () => {
+      const scrollPosition = document.documentElement.scrollTop;
+      const nav = document.querySelector("header");
+      if (scrollPosition <= 1) {
+        nav.classList.add("dark");
+      } else {
+        nav.classList.remove("dark");
+      }
+    }
+  
+    window.addEventListener("load", () => changeNavColor());
+    window.addEventListener("scroll", () => changeNavColor(), { passive: true });
+  }
+</script>
+{% endif %}
+
+<script type="text/javascript">
+  {
+    const article = document.querySelector("article.post");
+    if (article) {
+      const iframes = article.querySelectorAll("iframe[data-src]");
+      let loaded = false;
+      if (iframes) {
+        document.addEventListener('mousemove', loadLazyFrames, { passive: true, once: true });
+        document.addEventListener('touchmove', loadLazyFrames, { passive: true, once: true });
+        document.addEventListener('scroll', loadLazyFrames, { passive: true, once: true });
+  
+        function loadLazyFrames() {
+          if (loaded) return;
+          loaded = true;
+  
+          iframes.forEach((iframe) => {
+            const src = iframe.getAttribute("data-src");
+            if (src) {
+              iframe.setAttribute("src", src);
+              iframe.removeAttribute("data-src");
+            }
+          });
+        }
+      }
+    }
+  }
+</script>

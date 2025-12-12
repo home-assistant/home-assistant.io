@@ -1,0 +1,100 @@
+---
+title: "Secure remote access to Home Assistant using Tor"
+description: "Using Tor with Home Assistant and Hass.io."
+date: 2017-11-12 10:00:00 +0200
+date_formatted: "November 12, 2017"
+author: Franck Nijhof & Fabian Affolter
+author_twitter: frenck
+categories: How-To
+og_image: /images/blog/2017-11-tor/social.png
+---
+
+Routers and gateways provided by broadband internet providers are very often limited regarding features and configuration possibilities. Most of these limitations affect the opportunities that allow users to set up port-forwarding, DMZ, and DHCP reservations since the suppliers figured that average user does not want (or should not) deal with these. Making your Home Assistant instance available remotely (and securely), in this case, becomes more difficult. Are you one of those unlucky ones?
+
+There are a couple of options available to achieve a remote (and secure) accessible Home Assistant instance. However, almost all of them require you to: open one or more ports on your router, expose a public IP address, and require you to reserve a fixed IP in your DHCP server (or set up a static IP address). Examples of these are:
+
+- Combination of [DuckDNS](/integrations/duckdns/) (or similar), [Let's Encrypt](/docs/ecosystem/certificates/lets_encrypt/) (SSL), DHCP reservation, and forwarding a port to your device running Home Assistant.
+- Setup a VPN, which often requires more hardware and software. Additionally, it also requires port-forwarding, DHCP reservation and most likely [DuckDNS](/integrations/duckdns/) (or similar).
+- [SSH tunnel-ing](/blog/2017/11/02/secure-shell-tunnel/). Which still requires port-forwarding, DHCP reservation and most likely (yeah, you've guessed it) [DuckDNS](/integrations/duckdns/) (or similar).
+
+There is, however, another option available that most people do not realize: [Tor](https://www.torproject.org). [Tor](https://www.torproject.org) offers a capability that they refer to as [Tor's Hidden Services](https://www.torproject.org/docs/hidden-services.html.en), which allows you to securely access your Home Assistant installation *without* the need for all these things. No need to forward and open ports, no need to expose your public IP, no DNS entry, no need for SSL certificates, and you do not have to assign a fixed IP to the device running your Home Assistant.
+
+The most amazing part? It is super easy to set up!
+
+<!--more-->
+
+## Setting up Tor
+
+The setup is straight-forward:
+
+1. Install Tor. On a Debian-based system: `$ sudo apt-get install tor`. On Fedora: `$ sudo dnf install tor`
+2. Modify Tor's main configuration file `/etc/tor/torrc` to include the following lines:
+
+    ```bash
+    ############### This section is just for location-hidden services ###
+
+    ## Once you have configured a hidden service, you can look at the
+    ## contents of the file ".../hidden_service/hostname" for the address
+    ## to tell people.
+    ...
+    HiddenServiceDir /var/lib/tor/homeassistant/
+    HiddenServicePort 80 127.0.0.1:8123
+    ...
+    ```
+3. Restart Tor: `$ sudo systemctl restart tor`
+4. The Tor-generated hostname file contains the hostname you need to access your installation.
+
+    ```bash
+    $ sudo cat /var/lib/tor/homeassistant/hostname
+    abcdef1234567890.onion
+    ```
+
+## Tor add-on for Hass.io
+
+[Franck Nijhof (@frenck)](https://github.com/frenck) created the [Tor add-on](https://github.com/hassio-addons/addon-tor) for [Hass.io](/hassio/). This add-on makes the installation and the setup extremely simple. Go to the **Hass.io** panel, then to the **Store**, copy `https://github.com/hassio-addons/repository` into the text box of **Add-On Repositories** and save it.
+
+A new entry **Tor** will show-up in the list of add-ons. Click on it to install it. The configuration is done in **Options**. Please refer to the [Configuration documentation](https://github.com/hassio-addons/addon-tor#configuration) for further details. A possible configuration could look like the sample below (which is the default configuration).
+
+```json
+{
+  "log_level": "info",
+  "socks": false,
+  "hidden_services": true,
+  "stealth": false,
+  "client_names": [],
+  "ports": [
+    "8123:80"
+  ]
+}
+```
+
+When you are done, press **Save** and then **Start**. In the **Logs** section, you can see what the add-on is doing. Watch out for an entry like the one below, which will tell you your hostname on the Tor network.
+
+```bash
+INFO: -----------------------------------------------------------
+INFO: Your Home Assistant instance is available on Tor!
+INFO: Address: abcdef1234567890.onion
+INFO: -----------------------------------------------------------
+```
+
+Don't worry if you missed it, restarting the add-on will display it again. The details are also stored and available in the `/ssl/tor/hidden_service/hostname` file.
+
+## Tor clients
+
+To access you Home Assistant via the Tor Hidden Service, you will need a Tor client. There are multiple clients, for different devices and platforms, available. The [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en) is by far the simplest option, which is available for Windows, MacOS & Linux.
+
+Simply download and install the [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en), start it, and enter the "dot onion" address you've gained from the earlier steps (`abcdef1234567890.onion` in this case). Voila!
+
+Some other clients:
+
+- [Orbot](https://guardianproject.info/apps/orbot/) for Android
+- Orfox for Android has been deprecated. Please use [Tor Browser for Android](https://www.torproject.org/download/#android). More information about the deprecation [here](https://trac.torproject.org/projects/tor/ticket/29955).
+- [Onion Browser](https://mike.tig.as/onionbrowser/) for iOS
+
+## Cranking up security
+
+The setup described in this blog post is easy and relatively secure, but anyone who knows your `.onion` address can still connect to your Home Assistant instance (Remember to use passwords!). With all of the [discussion](https://blog.torproject.org/quick-simple-guide-tor-and-internet-things-so-far) about putting your IoT on the Tor Network, maybe you want to add an extra layer of defense, especially if you’re going to be the only one that uses it. Tor offers an additional layer of security, called "Hidden Service Authentication", usually referred to as "Stealth"-mode.
+
+This "Stealth"-mode adds an extra layer of security to your Hidden Service by only responding to a client that passes a unique secret cookie as it connects. Obviously, this requires additional configuration on the Tor client applications.
+
+The Tor Project itself provides details about a variety of topics in their [documentation](https://www.torproject.org/docs/documentation.html.en).
