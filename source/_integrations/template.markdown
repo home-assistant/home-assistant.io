@@ -401,6 +401,10 @@ binary_sensor:
       description: The sensor is `on` if the template evaluates as `True`, `yes`, `on`, `enable` or a positive number. The sensor is `unknown` if the template evaluates as `None`. Any other value will render it as `off`. The actual appearance in the frontend (`Open`/`Closed`, `Detected`/`Clear` etc) depends on the sensor's device_class value
       required: true
       type: template
+    expire_after:
+      description: The amount of seconds since the last value is received before this sensor will switch to `unavailable`.
+      required: false
+      type: integer
 
 {% endconfiguration %}
 
@@ -1923,6 +1927,10 @@ sensor:
       required: false
       type: string
       default: None
+    expire_after:
+      description: The amount of seconds since the last value is received before this sensor will switch to `unavailable`.
+      required: false
+      type: integer
 
 {% endconfiguration %}
 
