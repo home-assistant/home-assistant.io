@@ -32,7 +32,7 @@
     activated. In scripts, an action is called *sequence*.
 - term: Actor
   definition: |-
-    An entity that performs an action or initiates a changes in a system.
+    An entity that receives a control signal and performs an action in a system.
   aliases:
     - actors
 - term: Add-on
