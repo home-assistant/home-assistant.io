@@ -12,7 +12,7 @@ ha_integration_type: integration
 ha_config_flow: true
 ---
 
-The `lg_soundbar` platform allows you to control [LG Soundbars](https://www.lg.com/us/sound-bars) from Home Assistant.
+The **LG Soundbars** {% term integration %} allows you to control [LG Soundbars](https://www.lg.com/us/sound-bars) from Home Assistant.
 
 Supported devices:
 
