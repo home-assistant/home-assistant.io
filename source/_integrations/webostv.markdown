@@ -19,7 +19,7 @@ ha_integration_type: integration
 ha_quality_scale: platinum
 ---
 
-The `webostv` platform allows you to control a [LG](https://www.lg.com/) webOS TV.
+The **LG webOS TV** {% term integration %} allows you to control a [LG](https://www.lg.com/) webOS TV.
 
 There is currently support for the following device types within Home Assistant:
 

@@ -20,7 +20,7 @@ ha_integration_type: integration
 ha_config_flow: true
 ---
 
-The `lupusec` {% term integration %} allows the user to integrate their Lupusec alarm control panel and ultimately all connected sensors and other devices. For more information about the LUPUS-Electronics security system please visit their [website](https://www.lupus-electronics.de).
+The **Lupus Electronics LUPUSEC** {% term integration %} allows the user to integrate their Lupusec alarm control panel and ultimately all connected sensors and other devices. For more information about the LUPUS-Electronics security system please visit their [website](https://www.lupus-electronics.de).
 
 Supported units:
 

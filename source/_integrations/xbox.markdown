@@ -334,7 +334,7 @@ Internal examples: `http://192.168.0.2:8123/auth/external/callback`, `http://hom
 
 ## Data updates
 
-This integration syncs with Xbox Network every 10 seconds.
+This integration syncs with Xbox Network every 15 seconds.
 
 ## Troubleshooting
 
