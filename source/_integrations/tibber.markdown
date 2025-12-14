@@ -33,14 +33,14 @@ Go to [developer.tibber.com/settings/accesstoken](https://developer.tibber.com/s
 
 ## Client ID and client secret (Tibber Data API)
 
-1. Sign in to the Tibber developer portal at https://data-api.tibber.com/clients/manage.
+1. Go to the Tibber developer portal at https://data-api.tibber.com/clients/manage.
 2. Create a new client.
 3. Add a redirect URI for Home Assistant:
 
    - `https://my.home-assistant.io/redirect/oauth`
 
 4. Save the application.
-5. Copy the **client ID** and **client secret** (you will use them in Home Assistant).
+5. Copy the **client ID** and **client secret**.
 6. Open https://my.home-assistant.io/redirect/application_credentials/
 7. Add Tibber credentials and paste your client ID and client secret.
 
