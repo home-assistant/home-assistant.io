@@ -35,10 +35,10 @@ name:
   default: Battery
   type: string
 battery:
-  description: Number of the battery.
+  description: Name or number of the battery in `/sys/class/power_supply/`.
   required: false
-  default: 1
-  type: integer
+  default: "BAT1"
+  type: [string, integer]
 system:
   description: "The local system type. Support `linux` and `android`."
   required: false
