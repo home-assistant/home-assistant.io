@@ -40,8 +40,7 @@ Go to [developer.tibber.com/settings/accesstoken](https://developer.tibber.com/s
 
 4. Save the application.
 5. Copy the **client ID** and **client secret**.
-6. Open https://my.home-assistant.io/redirect/application_credentials/
-7. Add Tibber credentials and paste your client ID and client secret.
+6. Go to {% my application_credentials title="**Settings** > **Devices & services** > **Application credentials**" %}, add Tibber credentials, and paste your client ID and client secret.
 
 {% include integrations/config_flow.md %}
 
