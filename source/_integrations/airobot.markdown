@@ -101,12 +101,29 @@ The integration provides the following sensor entities to monitor your thermosta
 
 The following diagnostic sensors are disabled by default. You can enable them in the entity settings if needed:
 
-- **Device uptime**: The time (in hours) since the thermostat was last restarted.
+- **Device uptime**: The timestamp when the thermostat was last restarted.
 - **Heating uptime**: The cumulative time (in hours) the heating has been active since the thermostat was last restarted.
 
 #### System sensors
 
 - **Errors**: The current error count on the thermostat. A value of 0 indicates normal operation.
+
+### Binary sensors
+
+The integration provides the following binary sensor entities. These are disabled by default and can be enabled in the entity settings if needed:
+
+- **Heating**: Indicates whether the thermostat is actively heating (on) or idle (off). This is equivalent to the HVAC action state shown in the climate entity.
+- **Window open detected**: Indicates when the thermostat has detected an open window. Note that this feature is currently not yet functional.
+
+## Use cases
+
+The **Airobot** integration enables intelligent floor heating control with practical automation opportunities:
+
+- **Presence-based heating**: Automatically switch between HOME and AWAY presets when people leave or arrive home, optimizing comfort and energy efficiency.
+- **Smart scheduling**: Use the BOOST preset to quickly warm rooms before arrival or temporarily increase heating for guests without changing permanent setpoints.
+- **Air quality management**: Trigger ventilation or send alerts when CO₂ levels exceed healthy thresholds (requires optional CO₂ sensor).
+- **Floor protection**: Monitor floor temperature to prevent overheating of sensitive materials like wooden floors (requires floor sensor).
+- **Energy insights**: Track heating runtime and device uptime patterns to optimize schedules and identify maintenance needs.
 
 ## Data updates
 
