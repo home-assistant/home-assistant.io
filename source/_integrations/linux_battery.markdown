@@ -35,7 +35,7 @@ name:
   default: Battery
   type: string
 battery:
-  description: Name or number of the battery in `/sys/class/power_supply/`.
+  description: Name or number of the battery directory in `/sys/class/power_supply/` (for example, `BAT0`, `BAT1`, or a custom string).
   required: false
   default: BAT1
   type: [string, integer]
