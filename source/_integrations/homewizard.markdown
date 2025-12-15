@@ -133,8 +133,8 @@ The Energy Socket also has a switch to control the outlet state and a status lig
 The group of connected Plug-In Batteries can be controlled in three different modes using the **Battery group mode** select entity:
 
 - **Zero on meter**: The Plug-In Battery will try to keep the power consumption/production of your home at zero. This means that the Plug-In Battery will charge or discharge to maintain a net-zero power balance. This is the default mode.
-- **Charge to full**: All connected Plug-In Batteries will be charged to 100%, regardless of the power consumption/production of your home. When all batteries are fully charged, the Plug-In Batteries will switch to the standby mode.
-- **Standby**: Plug-In Batteries will enter standby mode. This means that the Plug-In Battery will neither charge nor discharge.
+- **Charge to full**: All connected Plug-In Battery will be charged to 100%, regardless of the power consumption/production of your home. When all batteries are fully charged, the mode will switch to the standby mode.
+- **Standby**: The Plug-In Battery will enter standby mode. This means that the Plug-In Battery will neither charge nor discharge.
 
 The **Battery group mode** select can be found in the P1 Meter device, as the P1 Meter is responsible for controlling the Plug-In Battery. This select entity is disabled by default. See [I can't find entities](#i-cant-find-entities-like-voltage-current-or-battery-group-mode) for instructions on enabling disabled entities.
 
