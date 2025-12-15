@@ -20,7 +20,6 @@ ha_brand: true
 ## Supported devices
 
 - [Hub M3](https://www.aqara.com/en/product/hub-m3/)
-- [Valve Controller T1](https://www.aqara.com/us/product/valve-controller-t1/)
 - [LED Bulb T2 (E26, CCT)](https://www.aqara.com/en/product/led-bulb-t2/)
 - [LED Bulb T2 (E26, RGB+CT)](https://www.aqara.com/en/product/led-bulb-t2/)
 - [Smart Lock U200](https://www.aqara.com/en/product/smart-lock-u200/)
