@@ -27,7 +27,6 @@ ha_brand: true
 - [Smart Lock U300](https://www.aqara.com/en/product/smart-lock-u300/)
 - [Motion and Light Sensor P2](https://www.aqara.com/en/product/motion-and-light-sensor-p2/)
 - [Door and Window Sensor P2](https://www.aqara.com/en/product/door-and-window-sensor-p2/)
-- [Presence sensor FP1E](https://www.aqara.com/en/product/presence-sensor-fp1e/)
 - [Climate Sensor](https://www.aqara.com/en/product/climate-sensor-w100/)
 - [Light Switch H2 US](https://www.aqara.com/us/product/light-switch-h2-us/)
 - [Light Switch H2 EU](https://www.aqara.com/en/product/light-switch-h2-eu/)
