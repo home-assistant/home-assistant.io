@@ -161,7 +161,11 @@ If you're experiencing authentication failures or account lockouts:
    - To disable: Go to {% my integrations title="**Settings** > **Devices & services**" %}, select the Growatt integration, click the three dots {% icon "mdi:dots-vertical" %} menu, and select **Disable**.
    - Re-enable after Home Assistant has fully restarted.
 
-4. **Automate integration management during restarts**: If you continue experiencing account lockouts, you can create an automation to automatically disable and re-enable the integration during Home Assistant restarts:
+4. **Automate integration management during restarts**: If you continue experiencing account lockouts, you can create an automation to automatically disable and re-enable the integration during Home Assistant restarts.
+
+   {% note %}
+   This automation requires the [Spook](https://spook.boo/) custom integration to function, as it provides the `homeassistant.enable_config_entry` and `homeassistant.disable_config_entry` actions.
+   {% endnote %}
 
    ```yaml
    - id: growatt_integration_enable_disable
