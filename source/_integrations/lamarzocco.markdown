@@ -64,7 +64,7 @@ Offline mode:
 By default, this integration will receive push updates from the cloud about its general status. If that is not possible it will query the cloud every 15 seconds for an update of general machine information, every 15 minutes for new statistics, every 30 minutes for updated schedules and every 8 hours for a firmware update.
 
 If your host has access to a Bluetooth adapter and your machine is within range, the integration can request updates through Bluetooth. This Bluetooth mode starts automatically if internet access is not available, or when you enable the **Offline mode** option.
-In offline mode, most entities will become unavailable. Only those marked with <iconify-icon inline title="Bluetooth" icon="material-symbols:bluetooth"></iconify-icon> in the table below ([Available platforms & entities](#available-platforms--entities)) will remain available. While in _offline mode_, Home Assistant requests an update from your machine every 60 seconds.
+In offline mode, most entities will become unavailable. Only those marked with <iconify-icon inline title="Bluetooth" icon="material-symbols:bluetooth"></iconify-icon> in the table below ([Available platforms & entities](#available-platforms--entities)) will remain available. While in **offline mode**, Home Assistant requests an update from your machine every 60 seconds.
 
 # Available platforms & entities
 
