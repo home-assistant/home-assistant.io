@@ -63,7 +63,7 @@ Offline mode:
 
 By default, this integration will receive push updates from the cloud about its general status. If that is not possible it will query the cloud every 15 seconds for an update of general machine information, every 15 minutes for new statistics, every 30 minutes for updated schedules and every 8 hours for a firmware update.
 
-If your host has access to a Bluetooth adapter and your machine is in reach, the integration can optionally request updates through Bluetooth. This mode is either initiated when access to the internet is failing or when the option **Offline mode** is enabled. In this mode most entities will become unavailable, only those marked with <iconify-icon inline title="Bluetooth" icon="material-symbols:bluetooth"></iconify-icon> in the table below ([Available platforms & entities](#available-platforms--entities)) will remain available. In _offline mode_ an update from the machine is requested every 60 seconds.
+If your host has access to a Bluetooth adapter and your machine is in reach, the integration can optionally request updates through Bluetooth. This mode is either initiated when access to the internet is failing or when the option **Offline mode** is enabled. In this mode most entities will become unavailable, only those marked with <iconify-icon inline title="Bluetooth" icon="material-symbols:bluetooth"></iconify-icon> in the table below ([Available platforms & entities](#available-platforms--entities)) will remain available. In offline mode, an update from the machine is requested every 60 seconds.
 
 # Available platforms & entities
 
