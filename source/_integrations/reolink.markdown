@@ -72,7 +72,7 @@ If an entity listed below has an asterisk (*) next to its name, it means it is d
 ## Data updates: plus (+) next to entities listed in this documentation
 
 If an entity listed below has a plus (+) next to its name, it means this entity supports push updates. These entities will have almost instant state changes. 
-For redundancy, the state of all entities is also polled every 60 seconds. For entities without a plus (+), this is the only update method. Therefore, a device's state change can take up to 60 seconds to be reflected in Home Assistant.
+For redundancy, the state of all entities is also polled. For cameras connected to a NVR/Hub, the polling interval is 10 seconds per camera, with a minimum of 60 seconds total. For directly connected cameras, the polling interval is 60 seconds. For entities without a plus (+), polling is the only update method. Therefore, a device's state change can take some time to be reflected in Home Assistant.
 An exception is the firmware update entity, which is polled every 24 hours.
 Another exception are battery cameras, most {% term entities %} are still {% term polling polls %} every 60 seconds. However, the entities that would cause the camera to wake from sleep will only be polled during the following events:
 
@@ -151,9 +151,11 @@ Depending on the supported features of the camera ([see specifications of the ca
 - Message volume (Home Hub)
 - Chime volume
 - Chime silent time
+- Audio noise reduction*
 - Guard return time
 - Motion sensitivity
 - PIR sensitivity
+- PIR interval*
 - AI face sensitivity
 - AI person sensitivity
 - AI vehicle sensitivity
@@ -249,6 +251,7 @@ Depending on the supported features of the camera ([see specifications of the ca
 - Doorbell LED (Stay off, Auto, Auto & always on at night)
 - HDR* (Off, On, Auto)
 - Binning mode* (Off, On, Auto)
+- Image exposure mode* (Auto, Low noise, Anti-smearing, Manual)
 - Clear frame rate*
 - Fluent frame rate*
 - Clear bit rate*
@@ -418,6 +421,7 @@ The following models have been tested and confirmed to work with a direct link t
 - **[RLC-823S2](https://reolink.com/product/rlc-823s2/)**
 - [RLC-830A](https://reolink.com/product/rlc-830a/)
 - [RLC-833A](https://reolink.com/product/rlc-833a/)
+- [RLC-840A](https://reolink.com/product/rlc-840a/)
 - [RLC-843A](https://reolink.com/product/rlc-843a/)
 - [RLC-1212A](https://reolink.com/product/rlc-1212a/)
 - **[RLC-1224A](https://reolink.com/product/rlc-1224a/)**

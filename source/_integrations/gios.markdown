@@ -23,3 +23,9 @@ The `gios` integration uses the [GIOŚ](http://powietrze.gios.gov.pl/pjp/current
 Measuring station:
   description: "Select a measuring station from the list."
 {% endconfiguration_basic %}
+
+## Removing the integration
+
+This integration follows standard integration removal, no extra steps are required.
+
+{% include integrations/remove_device_service.md %}

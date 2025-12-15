@@ -1,5 +1,5 @@
 ---
-title: UK Environment Agency Flood Monitoring
+title: Environment Agency Flood Gauges
 description: Monitor nearby water levels and be prepared for flooding with the UK Environment Agency API integration.
 ha_category:
   - Sensor
@@ -8,6 +8,10 @@ ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
   - '@Jc2k'
+ha_domain: eafm
+ha_platforms:
+  - sensor
+ha_integration_type: integration
 ---
 
 The `eafm` integration offers integration with the [UK Environment Agency Flood Monitoring](https://environment.data.gov.uk/flood-monitoring/doc/reference) API to provide sensors for nearby water levels. Combined with Home Assistant notifications, you could give yourself a warning if a nearby river was likely to flood your local cycle path or the only road out of your village.

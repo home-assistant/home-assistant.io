@@ -8,12 +8,14 @@ ha_release: 0.49
 ha_domain: london_underground
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ha_codeowners:
   - '@jpbede'
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
+ha_config_flow: true
 ---
 
 The `london_underground` {% term integration %} will display the status of London underground lines, as well as the overground lines and the DLR.

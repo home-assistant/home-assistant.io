@@ -10,7 +10,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@tr4nt0r'
 ha_domain: uptime_kuma
-ha_integration_type: integration
+ha_integration_type: service
 ha_platforms:
   - diagnostics
   - sensor

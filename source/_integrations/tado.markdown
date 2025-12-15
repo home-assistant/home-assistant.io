@@ -26,7 +26,7 @@ ha_platforms:
   - switch
   - water_heater
 ha_dhcp: true
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The Tado integration platform is used as an interface to the [my.tado.com](https://my.tado.com/) website.
