@@ -145,7 +145,7 @@ The **Battery group mode** select can be found in the P1 Meter device, as the P1
 - P1 Meter with firmware version 6.0300 or higher
 - kWh Meter with firmware version 5.0100 or higher
 
-Read here how you can update your device to the latest version: [How do I check if I have the latest software on my HomeWizard product?](https://helpdesk.homewizard.com/en/articles/9167578-how-do-i-check-if-i-have-the-latest-software-on-my-homewizard-product)
+To learn how to update your device to the latest version, see [How do I check if I have the latest software on my HomeWizard product?](https://helpdesk.homewizard.com/en/articles/9167578-how-do-i-check-if-i-have-the-latest-software-on-my-homewizard-product)
 {% endtip %}
 
 ## Identify
