@@ -140,7 +140,7 @@ The group of connected batteries can be controlled in three different modes usin
 The **Battery group mode** select can be found in the P1 Meter device, as the P1 Meter is responsible for controlling the Plug-In Battery. This select entity is disabled by default. See [I can't find entities](#i-cant-find-entities-like-voltage-current-or-battery-group-mode) for instructions on enabling disabled entities.
 
 {% tip %}
-"Zero mode (charge only)" and "Zero mode (discharge only)" is only available for:
+"Zero mode (charge only)" and "Zero mode (discharge only)" are only available for:
 
 - P1 Meter with firmware version 6.0300 or higher
 - kWh Meter with firmware version 5.0100 or higher
