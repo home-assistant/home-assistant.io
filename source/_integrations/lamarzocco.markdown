@@ -83,6 +83,9 @@ By default, this integration will receive push updates from the cloud about its 
 | **Preinfusion time** | Duration of preinfusion | `Linea Micra`, `Linea Mini`, `Linea Mini R` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} | only available when machine is in mode `Preinfusion` |
 | **Prebrew time on** | Duration which prebrew will be on | `Linea Micra`, `Linea Mini`, `Linea Mini R` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} | only available when machine is in mode `Prebrew` |
 | **Prebrew time off** | Duration which prebrew will wait | `Linea Micra`, `Linea Mini`, `Linea Mini R` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} | only available when machine is in mode `Prebrew` |
+| **Brew by weight Dose 1** | Weight when the machine will stop while being in *Dose 1* for Brew by weight | `Linea Mini`, `Linea Mini R` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} | only available when machine is paired with a scale |
+| **Brew by weight Dose 2** | Weight when the machine will stop while being in *Dose 2* for Brew by weight | `Linea Mini`, `Linea Mini R` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} | only available when machine is paired with a scale |
+
 
 ## Switches
 
@@ -126,6 +129,7 @@ By default, this integration will receive push updates from the cloud about its 
 | **Prebrew/-infusion mode** | Whether to use prebrew, preinfusion, or neither | `Disabled`, `Prebrew`, `Preinfusion` | `Linea Micra`, `Linea Mini`, `GS3 AV` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} |
 | **Steam level** | The level your steam boiler should run at | `1`,`2`,`3` | `Linea Micra`, `Linea Mini R` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} <iconify-icon inline title="Bluetooth" icon="material-symbols:bluetooth"></iconify-icon> |
 | **Smart standby mode** | The smart standby mode, that decides from which events the timer to standby will run. | `Last brewing`, `Power on` | `all` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} <iconify-icon inline title="Bluetooth" icon="material-symbols:bluetooth"></iconify-icon>  |
+| **Brew by weight dose mode** | Select the brew by weight mode of your machine | `Continuous`, `Dose 1`, `Dose 2` | `Linea Mini`, `Linea Mini R` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} |
 
 ## Calendar
 
