@@ -107,7 +107,7 @@ Further there are additional {% term sensor %} and {% term binary_sensor "binary
 
 ### Routines
 
-Self defined [routines](https://fritz.com/en/apps/knowledge-base/FRITZ-Box-7590/3707_Creating-a-routine-for-smart-home-devices) within the FRITZ!Box smart home configuration menu, will be integrated as {% term switch %} entities and those can be activated or deactivated from Home Assistant.
+Self-defined [routines](https://fritz.com/en/apps/knowledge-base/FRITZ-Box-7590/3707_Creating-a-routine-for-smart-home-devices) within the FRITZ!The box smart home configuration menu will be integrated as {% term switch %} entities. Those entities can be activated or deactivated from Home Assistant.
 
 ### Shutter drivers
 
