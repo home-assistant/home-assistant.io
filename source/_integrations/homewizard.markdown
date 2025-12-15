@@ -32,7 +32,7 @@ Integration for the [HomeWizard](https://www.homewizard.com/) platform. It can c
 - [Energy Socket](https://www.homewizard.com/energy-socket/): Sensors for power import/export and energy consumption, and switches for controlling the outlet (model: `HWE-SKT`).
 - [Watermeter](https://www.homewizard.com/watermeter/): Sensors for active and total water usage (model: `HWE-WTR`).
 - [kWh Meter 1-Phase](https://www.homewizard.com/kwh-meter/): Sensors for power import/export and energy consumption (model: `HWE-KWH1`, `SDM230-wifi`)..
-- [kWh Meter 3-Phase](https://www.homewizard.com/kwh-meter/): Sensors for power import/export and energy consumption (model: `HWE-KWH3`, `SDM630-wifi`).
+- [kWh Meter 3-Phase](https://www.homewizard.com/kwh-meter/): Sensors for power import/export and energy consumption (models: `HWE-KWH3`, `SDM630-wifi`).
 - [Plug-In Battery](https://www.homewizard.com/plug-in-battery/): Sensors for power import/export, energy consumption, production, and state of charge (model: `HWE-BAT`).
 
 ## Enable the API
