@@ -55,11 +55,15 @@ Password:
 {% configuration_basic %}
 Use Bluetooth:
   description: Allows you to manually disable Bluetooth communication with the machine (if available). This can be used to avoid longer timeouts, e.g., when your machine is only sometimes in range.
+Offline mode:
+  description: Allows you to enable the offline mode manually. Requires use of Bluetooth. Also see [Data updates](#data-updates).
 {% endconfiguration_basic %}
 
 ## Data updates
 
 By default, this integration will receive push updates from the cloud about its general status. If that is not possible it will query the cloud every 15 seconds for an update of general machine information, every 15 minutes for new statistics, every 30 minutes for updated schedules and every 8 hours for a firmware update.
+
+If your host has access to a Bluetooth adapter and your machine is in reach, the integration can optionally request updates through Bluetooth. This mode is either initiated when access to the internet is failing or when the option **Offline mode** is enabled. In this mode most entities will become unavailable, only those marked with <iconify-icon inline title="Bluetooth" icon="material-symbols:bluetooth"></iconify-icon> in the table below ([Available platforms & entities](#available-platforms--entities)) will remain available. In _offline mode_ an update from the machine is requested every 60 seconds.
 
 # Available platforms & entities
 
