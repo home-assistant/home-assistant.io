@@ -168,6 +168,18 @@ Go to Volvo's developer portal to view [the availability](https://developer.volv
 
 - **Location**: The car's current location.
 
+#### Images
+
+- **Exterior back**: Shows the car from the rear.
+- **Exterior back left**: Shows the car from the rear-left three-quarter angle.
+- **Exterior back right**: Shows the car from the rear-right three-quarter angle.
+- **Exterior front**: Shows the car from the front.
+- **Exterior front left**: Shows the car from the front-left three-quarter angle.
+- **Exterior front right**: Shows the car from the front-right three-quarter angle.
+- **Exterior side left**: Shows the car from the left side profile.
+- **Exterior side right**: Shows the car from the right side profile.
+- **Interior**: Shows the interior, including the dashboard, seats, and trim.
+
 #### Lock
 
 - **Lock**: Locks or unlocks the vehicle, and reports the current lock state of the vehicle.
