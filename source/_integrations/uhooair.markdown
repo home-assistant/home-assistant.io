@@ -1,7 +1,7 @@
 ---
 title: uHoo
 description: Instructions on how to integrate uHoo with Home Assistant
-ha_release: 2025.3
+ha_release: 2026.1
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@getuhoo'
