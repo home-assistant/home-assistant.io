@@ -24,10 +24,10 @@ This integration is for Eufy Security cameras and doorbells. For Eufy smart home
 
 The Eufy Security integration allows you to take the following actions:
 
-- View live camera streams from your Eufy Security cameras and doorbells
-- Take snapshots from your cameras
-- Monitor camera status in your Home Assistant dashboards
-- Include camera feeds in automations and scripts
+- View live camera streams from your Eufy Security cameras and doorbells.
+- Take snapshots with your cameras.
+- Monitor camera status in your Home Assistant dashboards.
+- Include camera feeds in automations and scripts.
 
 ## Prerequisites
 
