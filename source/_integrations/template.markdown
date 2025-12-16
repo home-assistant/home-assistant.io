@@ -5,6 +5,7 @@ ha_category:
   - Alarm Control Panel
   - Binary sensor
   - Button
+  - Climate
   - Cover
   - Event
   - Fan
@@ -30,6 +31,7 @@ ha_platforms:
   - alarm_control_panel
   - binary_sensor
   - button
+  - climate
   - cover
   - event
   - fan
@@ -59,6 +61,7 @@ There is currently support for the following device types within Home Assistant:
 - [Alarm control panel](#alarm-control-panel)
 - [Binary sensor](#binary-sensor)
 - [Button](#button)
+- [Climate](#climate)
 - [Cover](#cover)
 - [Event](#event)
 - [Fan](#fan)
@@ -562,6 +565,176 @@ button:
       description: Defines actions to run to press the button.
       required: true
       type: action
+{% endconfiguration %}
+
+## Climate
+
+The template climate platform allows you to create climate entities (thermostats) that combine states from other entities and control devices via scripts.
+
+Climate entities can be created from the frontend in the Helpers section or via YAML.
+
+{% raw %}
+
+```yaml
+# Example configuration.yaml entry
+template:
+  - climate:
+      - name: Living Room
+        unique_id: living_room_climate
+        hvac_modes:
+          - heat
+          - off
+        min_temp: 15
+        max_temp: 25
+        current_temperature: "{{ states('sensor.living_room_temperature') }}"
+        target_temperature: "{{ states('input_number.target_temp') }}"
+        hvac_mode: >
+          {% if is_state('switch.heater', 'on') %}
+            heat
+          {% else %}
+            off
+          {% endif %}
+        set_temperature:
+          - action: input_number.set_value
+            target:
+              entity_id: input_number.target_temp
+            data:
+              value: "{{ temperature }}"
+        set_hvac_mode:
+          - choose:
+              - conditions: "{{ hvac_mode == 'heat' }}"
+                sequence:
+                  - action: switch.turn_on
+                    target:
+                      entity_id: switch.heater
+              - conditions: "{{ hvac_mode == 'off' }}"
+                sequence:
+                  - action: switch.turn_off
+                    target:
+                      entity_id: switch.heater
+```
+
+{% endraw %}
+
+{% configuration climate %}
+climate:
+  description: List of climate entities.
+  required: true
+  type: map
+  keys:
+    hvac_mode:
+      description: Defines a template to get the current HVAC mode. Must return one of the values defined in `hvac_modes`.
+      required: false
+      type: template
+    hvac_modes:
+      description: A list of available HVAC modes.
+      required: true
+      type: list
+    set_hvac_mode:
+      description: Defines actions to run when the HVAC mode is changed. The variable `hvac_mode` is available in the action.
+      required: false
+      type: action
+    hvac_action:
+      description: Defines a template to get the current HVAC action (e.g. heating, cooling, idle).
+      required: false
+      type: template
+    current_temperature:
+      description: Defines a template to get the current temperature.
+      required: false
+      type: template
+    target_temperature:
+      description: Defines a template to get the target temperature.
+      required: false
+      type: template
+    target_temperature_high:
+      description: Defines a template to get the high target temperature (for heat_cool mode).
+      required: false
+      type: template
+    target_temperature_low:
+      description: Defines a template to get the low target temperature (for heat_cool mode).
+      required: false
+      type: template
+    set_temperature:
+      description: Defines actions to run when the target temperature is changed. The variables `temperature`, `target_temp_high`, `target_temp_low` and `hvac_mode` are available in the action.
+      required: false
+      type: action
+    max_temp:
+      description: The maximum temperature that can be set.
+      required: false
+      type: float
+      default: 35
+    min_temp:
+      description: The minimum temperature that can be set.
+      required: false
+      type: float
+      default: 7
+    temp_step:
+      description: The step size for the target temperature.
+      required: false
+      type: float
+      default: 1
+    precision:
+      description: The precision of the temperature measurement.
+      required: false
+      type: float
+    fan_mode:
+      description: Defines a template to get the current fan mode.
+      required: false
+      type: template
+    fan_modes:
+      description: A list of available fan modes.
+      required: false
+      type: list
+    set_fan_mode:
+      description: Defines actions to run when the fan mode is changed. The variable `fan_mode` is available in the action.
+      required: false
+      type: action
+    swing_mode:
+      description: Defines a template to get the current swing mode.
+      required: false
+      type: template
+    swing_modes:
+      description: A list of available swing modes.
+      required: false
+      type: list
+    set_swing_mode:
+      description: Defines actions to run when the swing mode is changed. The variable `swing_mode` is available in the action.
+      required: false
+      type: action
+    preset_mode:
+      description: Defines a template to get the current preset mode.
+      required: false
+      type: template
+    preset_modes:
+      description: A list of available preset modes.
+      required: false
+      type: list
+    set_preset_mode:
+      description: Defines actions to run when the preset mode is changed. The variable `preset_mode` is available in the action.
+      required: false
+      type: action
+    humidity:
+      description: Defines a template to get the current humidity.
+      required: false
+      type: template
+    target_humidity:
+      description: Defines a template to get the target humidity.
+      required: false
+      type: template
+    set_humidity:
+      description: Defines actions to run when the target humidity is changed. The variable `humidity` is available in the action.
+      required: false
+      type: action
+    min_humidity:
+      description: The minimum humidity that can be set.
+      required: false
+      type: float
+      default: 30
+    max_humidity:
+      description: The maximum humidity that can be set.
+      required: false
+      type: float
+      default: 99
 {% endconfiguration %}
 
 ## Cover
