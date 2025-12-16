@@ -40,7 +40,7 @@ Each zone will be reflected as a separate climate entity. You can set the temper
 
 ### Switch
 
-The integration will add the away mode, continuous fan, quiet mode, and turbo mode (if supported) switches to your Actron Air air conditioner.
+The integration will add the **Away** mode, **Continuous fan**, **Quiet** mode, and **Turbo** mode (if supported) switches to your Actron Air air conditioner.
 
 ## Removing the integration
 
