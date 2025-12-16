@@ -63,6 +63,19 @@ This is useful when:
 - You need to update the Device ID or password.
 - You want to switch between IP address and hostname.
 
+## Configuration options
+
+You can customize the integration settings after setup:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. On the **Airobot** integration, select **Configure**.
+3. Update the settings as needed.
+4. Select **Submit** to save the changes.
+
+### Device name
+
+You can set a custom name for your thermostat that will be stored on the thermostat itself and displayed in Home Assistant. When device is removed from Home Assistant, the custom name remains on the thermostat.
+
 ## Supported functionality
 
 The **Airobot** integration provides climate control functionality with comprehensive temperature management and preset modes, as well as detailed sensor monitoring.
@@ -101,12 +114,22 @@ The integration provides the following sensor entities to monitor your thermosta
 
 The following diagnostic sensors are disabled by default. You can enable them in the entity settings if needed:
 
-- **Device uptime**: The time (in hours) since the thermostat was last restarted.
+- **Device uptime**: The timestamp when the thermostat was last restarted.
 - **Heating uptime**: The cumulative time (in hours) the heating has been active since the thermostat was last restarted.
 
 #### System sensors
 
 - **Errors**: The current error count on the thermostat. A value of 0 indicates normal operation.
+
+## Use cases
+
+The **Airobot** integration enables intelligent floor heating control with practical automation opportunities:
+
+- **Presence-based heating**: Automatically switch between HOME and AWAY presets when people leave or arrive home, optimizing comfort and energy efficiency.
+- **Smart scheduling**: Use the BOOST preset to quickly warm rooms before arrival or temporarily increase heating for guests without changing permanent setpoints.
+- **Air quality management**: Trigger ventilation or send alerts when CO₂ levels exceed healthy thresholds (requires optional CO₂ sensor).
+- **Floor protection**: Monitor floor temperature to prevent overheating of sensitive materials like wooden floors (requires floor sensor).
+- **Energy insights**: Track heating runtime and device uptime patterns to optimize schedules and identify maintenance needs.
 
 ## Data updates
 
