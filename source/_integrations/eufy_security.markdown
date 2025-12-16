@@ -3,7 +3,7 @@ title: Eufy Security
 description: Instructions on how to integrate Eufy Security cameras into Home Assistant.
 ha_category:
   - Camera
-ha_release: 2025.1
+ha_release: 2026.1
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_domain: eufy_security
