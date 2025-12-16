@@ -33,9 +33,9 @@ The Eufy Security integration allows you to take the following actions:
 
 Before setting up this integration, you need the following:
 
-- A Eufy Security account (email and password) configured in the Eufy Security app
-- Your Eufy Security cameras or doorbells set up and working in the Eufy Security app
-- For local RTSP streaming (optional): RTSP credentials configured on your camera via the Eufy Security app
+- A Eufy Security account (email and password) configured in the Eufy Security app.
+- Your Eufy Security cameras or doorbells set up and working in the Eufy Security app.
+- For local RTSP streaming (optional): RTSP credentials configured on your camera via the Eufy Security app.
 
 {% include integrations/config_flow.md %}
 
@@ -57,8 +57,8 @@ If Eufy's servers require CAPTCHA verification during login, you will be prompte
 
 The following Eufy Security device types are supported:
 
-- **Cameras**: Indoor cameras, outdoor cameras, floodlight cameras
-- **Video doorbells**: Battery and wired video doorbells
+- **Cameras**: Indoor cameras, outdoor cameras, floodlight cameras.
+- **Video doorbells**: Battery and wired video doorbells.
 
 ## Supported functionality
 
