@@ -90,9 +90,20 @@ And in the reverse direction:
 | Arm Away | Arm |
 | Arm Home | Partial Arm |
 
-## Supported platforms:
+## Supported platforms
 
 - [Alarm control panel](/integrations/alarm_control_panel/)
 - [Binary sensor](/integrations/binary_sensor/)
 - [Sensor](/integrations/sensor/)
 - [Switch](/integrations/switch/)
+
+## Actions
+
+### Set time
+
+The `risco.set_time` action enables you to set the time of a panel on a location connection.
+
+| Data attribute    | Required | Description                                                                                |
+| ----------------- | -------- | ------------------------------------------------------------------------------------------ |
+| `config_entry_id` | yes      | The config entry ID of the alarm panel.                                                    |
+| `time`            | no       | The time to send to the alarm panel. Leave it empty to use the Home Assistant system time. |

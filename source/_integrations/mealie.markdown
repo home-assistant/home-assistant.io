@@ -63,6 +63,9 @@ The integration will create a calendar for every type of meal plan, which are up
 - Lunch
 - Dinner
 - Side
+- Dessert
+- Drink
+- Snack
 
 ## Shopping Lists
 
@@ -134,24 +137,24 @@ Import the recipe into Mealie from a URL.
 
 Set a mealplan on a specific date.
 
-| Data attribute    | Optional | Description                                         |
-|-------------------|----------|-----------------------------------------------------|
-| `config_entry_id` | No       | The ID of the Mealie config entry to get data from. |
-| `date`            | No       | The date that should be filled.                     |
-| `entry_type`      | No       | One of "breakfast", "lunch", "dinner", or "side".    |
-| `recipe_id`       | Yes      | The recipe to plan.                                 |
-| `note_title`      | Yes      | The title of the meal note.                         |
-| `note_text`       | Yes      | The description of the meal note.                   |
+| Data attribute    | Optional | Description                                                                    |
+|-------------------|----------|--------------------------------------------------------------------------------|
+| `config_entry_id` | No       | The ID of the Mealie config entry to get data from.                            |
+| `date`            | No       | The date that should be filled.                                                |
+| `entry_type`      | No       | One of "breakfast", "lunch", "dinner", "side", "drink", "dessert", or "snack".  |
+| `recipe_id`       | Yes      | The recipe to plan.                                                            |
+| `note_title`      | Yes      | The title of the meal note.                                                    |
+| `note_text`       | Yes      | The description of the meal note.                                              |
 
 ### Action `mealie.set_random_mealplan`
 
 Set a random mealplan on a specific date.
 
-| Data attribute    | Optional | Description                                         |
-|-------------------|----------|-----------------------------------------------------|
-| `config_entry_id` | No       | The ID of the Mealie config entry to get data from. |
-| `date`            | No       | The date that should be filled.                     |
-| `entry_type`      | No       | One of "breakfast", "lunch", "dinner" or "side".    |
+| Data attribute    | Optional | Description                                                                    |
+|-------------------|----------|--------------------------------------------------------------------------------|
+| `config_entry_id` | No       | The ID of the Mealie config entry to get data from.                            |
+| `date`            | No       | The date that should be filled.                                                |
+| `entry_type`      | No       | One of "breakfast", "lunch", "dinner", "side", "drink", "dessert", or "snack".  |
 
 {% tip %}
 You can get your `config_entry_id` by using actions within [Developer Tools](/docs/tools/dev-tools/), using one of the above actions and viewing the YAML.
