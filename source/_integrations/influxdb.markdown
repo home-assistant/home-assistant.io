@@ -37,7 +37,7 @@ See how to get started using InfluxDB 3:
 
 InfluxDB 3 Core and Enterprise provide [InfluxDB v1 and v2 write API compatibility](https://docs.influxdata.com/influxdb3/core/write-data/http-api/compatibility-apis/), allowing you to write data using `api_version: 2`.
 
-#### query API compatibility
+#### Query API compatibility
 
 InfluxDB 3 supports the [v1 query API](https://docs.influxdata.com/influxdb3/core/query-data/execute-queries/influxdb-v1-api/) (InfluxQL) and [v3 query API](https://docs.influxdata.com/influxdb3/core/query-data/execute-queries/influxdb-v3-api/) (SQL and InfluxQL). The v2 query API (Flux) is not supported.
 
