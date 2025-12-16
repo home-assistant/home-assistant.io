@@ -8,31 +8,18 @@ ha_codeowners:
   - '@joshsmonta'
 ha_domain: uhooair
 ha_integration_type: iot-cloud
-related:
-  - url: https://developers.home-assistant.io/docs/documenting/standards
-    title: Documentation standard
-  - url: https://developers.home-assistant.io/docs/core/integration-quality-scale/rules/
-    title: Integration Quality Scale - Rules
-  - docs: /docs/glossary/
-    title: Glossary
-  - docs: /docs/tools/quick-bar/#my-links
-    title: My link
 ---
 
-<!--- The integration documentation template provides a documentation structure as well as some example content per section. The example content is meant for inspiration, it may not apply for your integration or will at least have to be adapted. -->
-
-<!--- Use this template together with the developer documentation, under [Documentation standard](https://developers.home-assistant.io/docs/documenting/standards) and the documentation rules of the [Integration Quality Scale](https://developers.home-assistant.io/docs/core/integration-quality-scale/rules/). -->
-
-The **uHoo** {% term integration %} supports the integration of [uHoo](https://getuhoo.com) devices.
+The **uHoo** {% term integration %} lets you integrate [uHoo](https://getuhoo.com) devices into Home Assistant.
 
 ## About uHoo
 
 uHoo delivers advanced, real-time indoor air quality monitoring designed to help you understand, manage, and improve the air in your home. By measuring 9 key environmental factors, uHoo provides accurate and science-backed insights that support healthier living and smarter home automation.
 
 What sets uHoo apart is its suite of proprietary health and safety indices that go beyond raw data to show you exactly how your environment affects your well-being, helping you act before problems even start.
-- Virus Index
-- Mold Index
-- Influenza Index
+- Virus index
+- Mold index
+- Influenza index
 
 Connecting uHoo with Home Assistant unlocks even more possibilities: create air-quality-based routines, receive instant alerts, track long-term trends, and maintain a safer, more energy-efficient home environment.
 
@@ -59,23 +46,23 @@ With uHoo, you can confidently make better decisions about your indoor air and s
 ### Sensors
 
 - Temperature
-- Relative Humidity
+- Relative humidity
 - PM2.5 (Particulate Matter)
-- Total Volatile Organic Compounds (TVOC)
-- Carbon Dioxide (CO2)
-- Carbon Monoxide (CO)
-- Air Pressure
+- Total volatile organic compounds (TVOC)
+- Carbon dioxide (CO2)
+- Carbon monoxide (CO)
+- Air pressure
 - Ozone
-- Nitrogen Dioxide (NO2)
+- Nitrogen dioxide (NO2)
 
 ### Indices
 
-- Virus Index
-- Mold Index
+- Virus index
+- Mold index
 
 ### Data frequency
 
-- This integration {% term polling polls %} data from the device(s) every 5 minutes.
+- This integration {% term polling polls %} data from the devices every 5 minutes.
 
 ## Troubleshooting
 
