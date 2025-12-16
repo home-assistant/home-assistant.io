@@ -64,7 +64,8 @@ Please note, device names configured in the SwitchBot app are not transferred in
 Some SwitchBot devices need to be configured within the app before being controlled by Home Assistant, such as calibrating the cover open/close limits or pairing two covers to move together.
 
 ### Add mode
-Before adding SwitchBot devices over Bluetooth, confirm whether your Bluetooth adapter is set to *Active* or *Passive* mode in the Bluetooth integration configuration.
+
+Before adding SwitchBot devices over Bluetooth, confirm whether your Bluetooth adapter is set to **Active** or **Passive** mode in the Bluetooth integration configuration.
 
 - To open the Bluetooth integration settings, go to {% my integrations title="**Settings** > **Devices & services**" %} and select **Integrations**, then find and open the **Bluetooth** integration to check the adapter mode.
 
