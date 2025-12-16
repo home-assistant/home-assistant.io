@@ -42,21 +42,15 @@ You can add multiple entries to monitor different stops or lines.
 
 ## Supported functionality
 
-The integration creates a sensor entity for each configured stop that displays the estimated arrival time in minutes for the next train.
+The integration creates 3 timestamp sensors per line & stop combination for the 3 upcoming arrivals.
 
 ### Sensor attributes
 
-The sensor includes the following attributes:
+Each sensor includes the following attributes:
 
 - **Stop ID**: The transit stop identifier.
-- **Arrivals**: A list of upcoming train arrivals with details for each.
-
-Each item in the `arrivals` list contains:
-
 - **Route**: The train route identifier.
 - **Destination**: The final destination of the train.
-- **Minutes until**: Minutes remaining until the train arrives.
-- **Arrival time**: The scheduled arrival time in ISO format.
 
 ## Defining a custom polling interval
 
