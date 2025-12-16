@@ -4,7 +4,7 @@ description: Instructions on how to integrate real-time NYC subway arrival infor
 ha_category:
   - Transport
 ha_iot_class: Cloud Polling
-ha_release: '2025.12'
+ha_release: 2026.1
 ha_config_flow: true
 ha_codeowners:
   - '@OnFreund'
@@ -48,15 +48,15 @@ The integration creates a sensor entity for each configured stop that displays t
 
 The sensor includes the following attributes:
 
-- **stop_id**: The transit stop identifier.
-- **arrivals**: A list of upcoming train arrivals with details for each.
+- **Stop ID**: The transit stop identifier.
+- **Arrivals**: A list of upcoming train arrivals with details for each.
 
 Each item in the `arrivals` list contains:
 
-- **route**: The train route identifier.
-- **destination**: The final destination of the train.
-- **minutes_until**: Minutes remaining until the train arrives.
-- **arrival_time**: The scheduled arrival time in ISO format.
+- **Route**: The train route identifier.
+- **Destination**: The final destination of the train.
+- **Minutes until**: Minutes remaining until the train arrives.
+- **Arrival time**: The scheduled arrival time in ISO format.
 
 ## Defining a custom polling interval
 
