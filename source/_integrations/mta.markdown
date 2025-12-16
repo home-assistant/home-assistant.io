@@ -18,10 +18,6 @@ The **MTA New York City Transit** {% term integration %} provides real-time subw
 
 {% include integrations/config_flow.md %}
 
-## Configuration
-
-During setup, you will be asked to provide the following information:
-
 {% configuration_basic %}
 Line:
   description: "The subway line to monitor (for example, `1`, `A`, `L`)."
