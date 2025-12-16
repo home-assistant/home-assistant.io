@@ -25,7 +25,7 @@ Connecting uHoo with Home Assistant unlocks even more possibilities: create air-
 
 With uHoo, you can confidently make better decisions about your indoor air and stay on top of your game every day.
 
-## Supported Devices
+## Supported devices
 
 - [uHoo Smart Air Monitor](https://getuhoo.com/home/smart-air-monitor)
 - [uHoo Caeli Air Monitor](https://getuhoo.com/home/caeli)
