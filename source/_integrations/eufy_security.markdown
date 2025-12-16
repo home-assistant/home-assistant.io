@@ -14,7 +14,7 @@ ha_codeowners:
   - '@ptarjan'
 ---
 
-The Eufy Security integration allows you to view and stream your [Eufy Security](https://www.eufylife.com/security) cameras and video doorbells in Home Assistant.
+The **Eufy Security** {% term integration %} allows you to view and stream your [Eufy Security](https://www.eufylife.com/security) cameras and video doorbells in Home Assistant.
 
 {% note %}
 This integration is for Eufy Security cameras and doorbells. For Eufy smart home devices like lights and switches, see the [EufyHome](/integrations/eufy/) integration.
