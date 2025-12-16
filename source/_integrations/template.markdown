@@ -5,6 +5,7 @@ ha_category:
   - Alarm Control Panel
   - Binary sensor
   - Button
+  - Climate
   - Cover
   - Event
   - Fan
@@ -30,6 +31,7 @@ ha_platforms:
   - alarm_control_panel
   - binary_sensor
   - button
+  - climate
   - cover
   - event
   - fan
@@ -52,13 +54,14 @@ related:
     title: About blueprints
 ---
 
-The `template` integration allows creating entities which derive their values from other data. This is done by specifying [templates](/docs/configuration/templating/) for properties of an entity, like the name or the state.
+The **Template** {% term integration %} allows creating entities which derive their values from other data. This is done by specifying [templates](/docs/configuration/templating/) for properties of an entity, like the name or the state.
 
 There is currently support for the following device types within Home Assistant:
 
 - [Alarm control panel](#alarm-control-panel)
 - [Binary sensor](#binary-sensor)
 - [Button](#button)
+- [Climate](#climate)
 - [Cover](#cover)
 - [Event](#event)
 - [Fan](#fan)
@@ -562,6 +565,176 @@ button:
       description: Defines actions to run to press the button.
       required: true
       type: action
+{% endconfiguration %}
+
+## Climate
+
+The template climate platform allows you to create climate entities (thermostats) that combine states from other entities and control devices via scripts.
+
+Climate entities can be created from the frontend in the Helpers section or via YAML.
+
+{% raw %}
+
+```yaml
+# Example configuration.yaml entry
+template:
+  - climate:
+      - name: Living Room
+        unique_id: living_room_climate
+        hvac_modes:
+          - heat
+          - off
+        min_temp: 15
+        max_temp: 25
+        current_temperature: "{{ states('sensor.living_room_temperature') }}"
+        target_temperature: "{{ states('input_number.target_temp') }}"
+        hvac_mode: >
+          {% if is_state('switch.heater', 'on') %}
+            heat
+          {% else %}
+            off
+          {% endif %}
+        set_temperature:
+          - action: input_number.set_value
+            target:
+              entity_id: input_number.target_temp
+            data:
+              value: "{{ temperature }}"
+        set_hvac_mode:
+          - choose:
+              - conditions: "{{ hvac_mode == 'heat' }}"
+                sequence:
+                  - action: switch.turn_on
+                    target:
+                      entity_id: switch.heater
+              - conditions: "{{ hvac_mode == 'off' }}"
+                sequence:
+                  - action: switch.turn_off
+                    target:
+                      entity_id: switch.heater
+```
+
+{% endraw %}
+
+{% configuration climate %}
+climate:
+  description: List of climate entities.
+  required: true
+  type: map
+  keys:
+    hvac_mode:
+      description: Defines a template to get the current HVAC mode. Must return one of the values defined in `hvac_modes`.
+      required: false
+      type: template
+    hvac_modes:
+      description: A list of available HVAC modes.
+      required: true
+      type: list
+    set_hvac_mode:
+      description: Defines actions to run when the HVAC mode is changed. The variable `hvac_mode` is available in the action.
+      required: false
+      type: action
+    hvac_action:
+      description: Defines a template to get the current HVAC action (e.g. heating, cooling, idle).
+      required: false
+      type: template
+    current_temperature:
+      description: Defines a template to get the current temperature.
+      required: false
+      type: template
+    target_temperature:
+      description: Defines a template to get the target temperature.
+      required: false
+      type: template
+    target_temperature_high:
+      description: Defines a template to get the high target temperature (for heat_cool mode).
+      required: false
+      type: template
+    target_temperature_low:
+      description: Defines a template to get the low target temperature (for heat_cool mode).
+      required: false
+      type: template
+    set_temperature:
+      description: Defines actions to run when the target temperature is changed. The variables `temperature`, `target_temp_high`, `target_temp_low` and `hvac_mode` are available in the action.
+      required: false
+      type: action
+    max_temp:
+      description: The maximum temperature that can be set.
+      required: false
+      type: float
+      default: 35
+    min_temp:
+      description: The minimum temperature that can be set.
+      required: false
+      type: float
+      default: 7
+    temp_step:
+      description: The step size for the target temperature.
+      required: false
+      type: float
+      default: 1
+    precision:
+      description: The precision of the temperature measurement.
+      required: false
+      type: float
+    fan_mode:
+      description: Defines a template to get the current fan mode.
+      required: false
+      type: template
+    fan_modes:
+      description: A list of available fan modes.
+      required: false
+      type: list
+    set_fan_mode:
+      description: Defines actions to run when the fan mode is changed. The variable `fan_mode` is available in the action.
+      required: false
+      type: action
+    swing_mode:
+      description: Defines a template to get the current swing mode.
+      required: false
+      type: template
+    swing_modes:
+      description: A list of available swing modes.
+      required: false
+      type: list
+    set_swing_mode:
+      description: Defines actions to run when the swing mode is changed. The variable `swing_mode` is available in the action.
+      required: false
+      type: action
+    preset_mode:
+      description: Defines a template to get the current preset mode.
+      required: false
+      type: template
+    preset_modes:
+      description: A list of available preset modes.
+      required: false
+      type: list
+    set_preset_mode:
+      description: Defines actions to run when the preset mode is changed. The variable `preset_mode` is available in the action.
+      required: false
+      type: action
+    humidity:
+      description: Defines a template to get the current humidity.
+      required: false
+      type: template
+    target_humidity:
+      description: Defines a template to get the target humidity.
+      required: false
+      type: template
+    set_humidity:
+      description: Defines actions to run when the target humidity is changed. The variable `humidity` is available in the action.
+      required: false
+      type: action
+    min_humidity:
+      description: The minimum humidity that can be set.
+      required: false
+      type: float
+      default: 30
+    max_humidity:
+      description: The maximum humidity that can be set.
+      required: false
+      type: float
+      default: 99
 {% endconfiguration %}
 
 ## Cover
@@ -2552,6 +2725,22 @@ weather:
 
 {% endconfiguration %}
 
+### Weather Forecast data
+
+The weather forecast options should return a list of dictionaries, where each dictionary contains [forecast information](https://www.home-assistant.io/integrations/weather/#action-weatherget_forecasts) for the current timeframe. The data is slightly different for each forecast type: `hourly`, `daily`, and `twice_daily`.
+
+#### Hourly Weather Forecast
+
+The `hourly` forecast should contain 24 dictionaries, where each dictionary represents a specific hour within the next 24 hour period. The `hourly` data should start at the current hour and end 24 hours from that point. The `datetime` in each dictionary should represent the start of the hour in your local timezone.
+
+#### Daily Weather Forecast
+
+The `daily` forecast should contain dictionaries, where each dictionary represents a specific day within any desired timeframe. The `daily` data should start at midnight tonight and end on the last day of your desired timeframe, incrementing 1 day at a time. The `datetime` in each dictionary should represent midnight for each night in your local timezone.
+
+#### Twice Daily Weather Forecast
+
+The `twice_daily` forecast should contain dictionaries, where each dictionary represents a specific 12 hour period within any desired timeframe. The `twice_daily` should start at the closest 12 hour period and end on the last 12 hour period of your desired timeframe.  The `datetime` in each dictionary should represent midnight or noon for each day in your local timezone.  Keep in mind, `is_daytime` is mandatory in every dictionary output to `twice_daily` forecasts.
+
 ### Trigger based weather - Weather Forecast from response data
 
 This example demonstrates how to use an `action` to call a [action with response data](/docs/scripts/perform-actions/#use-templates-to-handle-response-data)
@@ -2792,3 +2981,359 @@ The blueprint can now be used for creating template entities.
 Event `event_template_reloaded` is fired when Template entities have been reloaded and entities thus might have changed.
 
 This event has no additional data.
+
+## Legacy template deprecation migration guide
+
+Legacy template entities are deprecated and will be removed in Home Assistant 2026.6.0. The deprecated template entities will produce a repair that guides you through the migration.
+
+### Migrating a legacy sensor into a new template section
+
+This example covers how to migrate a legacy template sensor into modern syntax.
+
+Take the example `configuration.yaml` file
+
+{% raw %}
+```yaml
+# configuration.yaml
+sensor:
+# SNMP Configuration
+- platform: snmp
+  host: 192.168.1.32
+  baseoid: 1.3.6.1.4.1.2021.10.1.3.1
+
+# Legacy template configuration
+- platform: template
+  sensors:
+    my_light_count:
+      friendly_name: Total lights on
+      unique_id: sa892hfa9sdf8
+      value_template: "{{ states.light | selectattr('state', 'eq', 'on') | list | count }}"
+```
+
+{% endraw %}
+To get started with the migration:
+
+1. Remove the `sensor` template definition from the `configuration.yaml` `sensor:` section.
+
+    Delete the following YAML from `configuration.yaml` file.
+
+{% raw %}
+    ```yaml
+    # Legacy template configuration
+    - platform: template
+      sensors:
+        my_light_count:
+          friendly_name: Total lights on
+          unique_id: sa892hfa9sdf8
+          value_template: "{{ states.light | selectattr('state', 'eq', 'on') | list | count }}"
+      ```
+{% endraw %}
+
+      Make sure to keep all the other platforms in the sensor section. Your `configuration.yaml` file would look like this after the change:
+
+    ```yaml
+    # configuration.yaml
+    sensor:
+    # SNMP Configuration
+    - platform: snmp
+      host: 192.168.1.32
+      baseoid: 1.3.6.1.4.1.2021.10.1.3.1
+    ```
+
+1. Add the modern syntax provided by the repair.
+
+    The repair would provide the following YAML.
+  
+  {% raw %}
+    ```yaml
+    template:
+    - sensor:
+      - default_entity_id: sensor.my_light_count
+        name: Total lights on
+        unique_id: sa892hfa9sdf8
+        state: '{{ states.light | selectattr(''state'', ''eq'', ''on'') | list | count }}'
+    ```
+   {% endraw %}
+  
+    This YAML should be added to the `template:` section inside `configuration.yaml`.
+
+{% raw %}
+    ```yaml
+    # configuration.yaml
+    sensor:
+      # SNMP Configuration
+    - platform: snmp
+      host: 192.168.1.32
+      baseoid: 1.3.6.1.4.1.2021.10.1.3.1
+
+    # Copied example
+    template:
+    - sensor:
+      - default_entity_id: sensor.my_light_count
+        name: Total lights on
+        unique_id: sa892hfa9sdf8
+        state: '{{ states.light | selectattr(''state'', ''eq'', ''on'') | list | count }}'
+    ```
+    {% endraw %}
+
+    If you are migrating multiple template entities, ensure there is only 1 `template:` section.  Do not keep duplicate `template:` sections.
+
+{% raw %}
+    ```yaml
+    # configuration.yaml
+    sensor:
+      # SNMP Configuration
+    - platform: snmp
+      host: 192.168.1.32
+      baseoid: 1.3.6.1.4.1.2021.10.1.3.1
+
+    template:
+    
+    # Migrated sensor
+    - sensor:
+      - default_entity_id: sensor.my_light_count
+        name: Total lights on
+        unique_id: sa892hfa9sdf8
+        state: '{{ states.light | selectattr(''state'', ''eq'', ''on'') | list | count }}'
+
+    # Migrated cover
+    - cover:
+      - default_entity_id: cover.garage
+        name: Garage Cover
+        state: '{{ is_state(''binary_sensor.relay'', ''on'') }}'
+  
+    # Migrated light
+    - light:
+      - default_entity_id: light.skylight
+        name: Skylight
+        state: '{{ is_state(''binary_sensor.crank'', ''on'') }}'
+    ```
+{% endraw %}
+
+1. Restart Home Assistant by going to **Settings** three dotted menu and selecting **Restart Home Assistant**.  Or reload template entities by going to **Developer tools** **YAML** tab and selecting the **Template entities** reload button.
+
+### Migrating a legacy sensor into an existing template section
+
+This example covers how to migrate a legacy template sensor into modern syntax.
+
+Take the example `configuration.yaml` file
+
+{% raw %}
+```yaml
+# configuration.yaml
+sensor:
+# SNMP Configuration
+- platform: snmp
+  host: 192.168.1.32
+  baseoid: 1.3.6.1.4.1.2021.10.1.3.1
+
+# Legacy template configuration
+- platform: template
+  sensors:
+    my_light_count:
+      friendly_name: Total lights on
+      unique_id: sa892hfa9sdf8
+      value_template: "{{ states.light | selectattr('state', 'eq', 'on') | list | count }}"
+
+template:
+# Existing modern template
+- binary_sensor:
+  - name: Bright Outside
+    state: "{{ states('sensor.lux_value') | float(0) > 10 }}"
+```
+{% endraw %}
+
+To get started with the migration:
+
+1. Remove the `sensor` template definition from the `configuration.yaml` `sensor:` section.
+
+    Delete the following YAML from `configuration.yaml` file.
+
+{% raw %}
+    ```yaml
+    # Legacy template configuration
+    - platform: template
+      sensors:
+        my_light_count:
+          friendly_name: Total lights on
+          unique_id: sa892hfa9sdf8
+          value_template: "{{ states.light | selectattr('state', 'eq', 'on') | list | count }}"
+      ```
+{% endraw %}
+
+      Make sure to keep all the other platforms in the sensor section. Your `configuration.yaml` file would look like this after the change:
+
+{% raw %}
+    ```yaml
+    # configuration.yaml
+    sensor:
+    # SNMP Configuration
+    - platform: snmp
+      host: 192.168.1.32
+      baseoid: 1.3.6.1.4.1.2021.10.1.3.1
+
+    template:
+    # Existing modern template
+    - binary_sensor:
+      - name: Bright Outside
+        state: "{{ states('sensor.lux_value') | float(0) > 10 }}"
+    ```
+{% endraw %}
+
+1. Add the modern syntax provided by the repair.
+
+    The repair would provide the following YAML.
+  
+  {% raw %}
+    ```yaml
+    template:
+    - sensor:
+      - default_entity_id: sensor.my_light_count
+        name: Total lights on
+        unique_id: sa892hfa9sdf8
+        state: '{{ states.light | selectattr(''state'', ''eq'', ''on'') | list | count }}'
+    ```
+{% endraw %}
+  
+    This YAML should be added to the `template:` section inside `configuration.yaml`.
+
+{% raw %}
+    ```yaml
+    # configuration.yaml
+    sensor:
+      # SNMP Configuration
+    - platform: snmp
+      host: 192.168.1.32
+      baseoid: 1.3.6.1.4.1.2021.10.1.3.1
+
+    template:
+    # Existing modern template
+    - binary_sensor:
+      - name: Bright Outside
+        state: "{{ states('sensor.lux_value') | float(0) > 10 }}"
+    
+    # Copied example
+    - sensor:
+      - default_entity_id: sensor.my_light_count
+        name: Total lights on
+        unique_id: sa892hfa9sdf8
+        state: '{{ states.light | selectattr(''state'', ''eq'', ''on'') | list | count }}'
+    ```
+{% endraw %}
+
+    In this example, `configuration.yaml` already had a `template:` section.  When copying the YAML, make sure to avoid adding double `template:` sections.
+
+1. Restart Home Assistant by going to **Settings** three dotted menu and selecting **Restart Home Assistant**.  Or reload template entities by going to **Developer tools** **YAML** tab and selecting the **Template entities** reload button.
+
+### Migrating a sensor from an included file to an included file
+
+This example covers how to migrate a legacy template sensor into modern syntax when the sensor exists in an included `sensors.yaml` file.
+
+Take the example configuration. It's a configuration that is split between 3 files, `configuration.yaml`, `sensors.yaml`, and `templates.yaml`.
+
+```yaml
+# configuration.yaml
+sensor: !include sensors.yaml
+template: !include templates.yaml
+```
+
+{% raw %}
+```yaml
+# sensors.yaml
+
+# SNMP Configuration
+- platform: snmp
+  host: 192.168.1.32
+  baseoid: 1.3.6.1.4.1.2021.10.1.3.1
+
+# Legacy template configuration
+- platform: template
+  sensors:
+    my_light_count:
+      friendly_name: Total lights on
+      unique_id: sa892hfa9sdf8
+      value_template: "{{ states.light | selectattr('state', 'eq', 'on') | list | count }}"
+```
+
+{% endraw %}
+
+{% raw %}
+```yaml
+# templates.yaml
+
+# Existing modern template
+- binary_sensor:
+  - name: Bright Outside
+    state: "{{ states('sensor.lux_value') | float(0) > 10 }}"
+```
+{% endraw %}
+
+To get started with the migration:
+
+1. Remove the `sensor` template definition from the `sensors.yaml` section.
+
+    Delete the following YAML from `sensors.yaml` file.
+
+{% raw %}
+    ```yaml
+    # Legacy template configuration
+    - platform: template
+      sensors:
+        my_light_count:
+          friendly_name: Total lights on
+          unique_id: sa892hfa9sdf8
+          value_template: "{{ states.light | selectattr('state', 'eq', 'on') | list | count }}"
+      ```
+
+{% endraw %}
+      Make sure to keep all the other platforms in the sensor file. Your `sensors.yaml` file would look like this after the change:
+
+
+    ```yaml
+    # sensors.yaml
+  
+    # SNMP Configuration
+    - platform: snmp
+      host: 192.168.1.32
+      baseoid: 1.3.6.1.4.1.2021.10.1.3.1
+    ```
+
+2. Add the modern syntax provided by the repair.
+
+    The repair would provide the following YAML.
+  
+  {% raw %}
+    ```yaml
+    template:
+    - sensor:
+      - default_entity_id: sensor.my_light_count
+        name: Total lights on
+        unique_id: sa892hfa9sdf8
+        state: '{{ states.light | selectattr(''state'', ''eq'', ''on'') | list | count }}'
+    ```
+  
+  {% endraw %}
+    This YAML should be added to the `templates.yaml` file.
+
+{% raw %}
+    ```yaml
+    # templates.yaml
+
+    # Existing modern template
+    - binary_sensor:
+      - name: Bright Outside
+        state: "{{ states('sensor.lux_value') | float(0) > 10 }}"
+    
+    # Copied example
+    - sensor:
+      - default_entity_id: sensor.my_light_count
+        name: Total lights on
+        unique_id: sa892hfa9sdf8
+        state: '{{ states.light | selectattr(''state'', ''eq'', ''on'') | list | count }}'
+    ```
+
+{% endraw %}
+
+    In this example, `configuration.yaml` already has a `template: !include templates.yaml`.  When copying the yaml, make sure to avoid adding the `template:` section inside `templates.yaml`.
+
+1. Restart Home Assistant by going to **Settings** three dotted menu and selecting **Restart Home Assistant**.  Or reload template entities by going to **Developer tools** **YAML** tab and selecting the **Template entities** reload button.
