@@ -150,10 +150,10 @@ Gets torrent details for the selected filter.
 
 This action populates [Response Data](/docs/scripts/perform-actions#use-templates-to-handle-response-data) with a dictionary of torrents based on the provided filter.
 
-| Data attribute         | Optional | Description                                                                             |
-| ---------------------- | -------- | --------------------------------------------------------------------------------------- |
-| `entry_id`             | no       | The integration entry_id                                                                |
-| `torrent_filter`       | no       | The type of torrents you want in the response (all, active, started, paused, completed) |
+| Data attribute         | Optional | Description                                                                                |
+| ---------------------- | -------- | ------------------------------------------------------------------------------------------ |
+| `entry_id`             | no       | The integration entry_id                                                                   |
+| `torrent_filter`       | no       | The type of torrents you want in the response (all, active, started, paused, or completed) |
 
 ```yaml
 action: transmission.get_torrents
