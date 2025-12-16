@@ -22,7 +22,7 @@ This integration is for Eufy Security cameras and doorbells. For Eufy smart home
 
 ## How you can use this integration
 
-The Eufy Security integration lets you:
+The Eufy Security integration allows you to take the following actions:
 
 - View live camera streams from your Eufy Security cameras and doorbells
 - Take snapshots from your cameras
@@ -31,7 +31,7 @@ The Eufy Security integration lets you:
 
 ## Prerequisites
 
-Before setting up this integration, you need:
+Before setting up this integration, you need the following:
 
 - A Eufy Security account (email and password) configured in the Eufy Security app
 - Your Eufy Security cameras or doorbells set up and working in the Eufy Security app
@@ -114,7 +114,7 @@ If live streams are not working:
 
 ### Reauthentication
 
-If your credentials change or become invalid, Home Assistant will prompt you to reauthenticate. Go to **Settings** > **Devices & Services**, find the Eufy Security integration, and follow the reauthentication prompts.
+If your credentials change or become invalid, Home Assistant will prompt you to reauthenticate. Go to {% my integrations title="**Settings** > **Devices & services**" %}, find the Eufy Security integration, and follow the reauthentication prompts.
 
 ## Removing the integration
 
