@@ -194,7 +194,7 @@ The IMAP integration has some actions for post-pressing email messages. The acti
 | `seen` | boolean | yes | If set to `true` this will mark the message as "seen". |
 
 {% important %}
-Common usage of the IMAP folder separator character:
+Make sure to use the correct IMAP folder separator char. The table below show common used IMAP folder separator characters:
 
 | Mailserver            | Separator            |
 |-----------------------|----------------------|
