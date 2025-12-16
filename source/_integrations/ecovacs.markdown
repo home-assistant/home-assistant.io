@@ -198,6 +198,56 @@ vacuum.deebot_n8_plus:
 
 {% enddetails %}
 
+### useful commands
+#### clean specific room(s)
+
+You can command the robot to clean specific rooms by using the `vacuum.send_command` service, the value parameter should be a string where the first number is the clean count and the second the room number (can be found as attribute of the vacuum entity) you can list multiple rooms by separating them with an `;`
+
+```yaml
+data:
+  command: clean_V2
+  params:
+    act: start
+    content:
+      type: freeClean
+      value: 1,3;1,7
+action: vacuum.send_command
+target:
+  device_id: 058a9bf714d680fdd9e69a7c292fc39d
+```
+#### go to point on the map
+
+You can request the robot to go to a specific point on the map. Get the coordinates with `raw_get_positions`
+
+```yaml
+action: vacuum.send_command
+metadata: {}
+target:
+  device_id: 058a9bf714d680fdd9e69a7c292fc39d
+data:
+  command: clean_V2
+  params:
+    act: start
+    content:
+      type: mapPoint
+      value: "-2900,-5500"
+```
+
+#### remote control
+
+move robot (`act` can be either `forward|backward|turnLeft|turnRight|stop`)
+
+```yaml
+action: vacuum.send_command
+target:
+  device_id: 058a9bf714d680fdd9e69a7c292fc39d
+data:
+  command: move
+  params:
+    act: forward
+    a: 0
+```
+
 ## Self-hosted configuration
 
 Depending on your setup of the self-hosted instance, you can connect to the server using the following settings:
