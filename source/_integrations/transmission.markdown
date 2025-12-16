@@ -159,7 +159,7 @@ This action populates [Response Data](/docs/scripts/perform-actions#use-template
 action: transmission.get_torrents
 data:
   entry_id: YOUR_TRANSMISSION_ENTRY_ID
-  filter: "all"
+  torrent_filter: "all"
 response_variable: torrents
 ```
 
