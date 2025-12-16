@@ -20,7 +20,7 @@ ha_quality_scale: legacy
 
 The **InfluxDB** {% term integration %} lets you transfer all state changes to an external [InfluxDB](https://influxdata.com/) database. This integration supports:
 
-- [InfluxDB 3 Core](https://docs.influxdata.com/influxdb3/core/) and [InfluxDB 3 Enterprise](https://docs.influxdata.com/influxdb3/enterprise/) – The latest InfluxDB with v1 and v2 write API compatibility. Sensors query using InfluxQL; use external tools for SQL.
+- [InfluxDB 3 Core](https://docs.influxdata.com/influxdb3/core/) and [InfluxDB 3 Enterprise](https://docs.influxdata.com/influxdb3/enterprise/) – The latest InfluxDB with v1 and v2 write API compatibility. Sensors query using InfluxQL. Use external tools for SQL.
 - [InfluxDB 2.x](https://docs.influxdata.com/influxdb/v2/) – Including [InfluxDB Cloud](https://cloud2.influxdata.com/signup). Sensors query using Flux.
 - [InfluxDB 1.x](https://docs.influxdata.com/influxdb/v1/) – Sensors query using InfluxQL.
 
@@ -33,7 +33,7 @@ See how to get started using InfluxDB 3:
 - **[InfluxDB 3 Core](https://docs.influxdata.com/influxdb3/core/get-started/)**: Free, open-source, optimized for recent data queries.
 - **[InfluxDB 3 Enterprise](https://docs.influxdata.com/influxdb3/enterprise/get-started/)**: Adds compaction for historical queries. Includes a free [At-Home license](https://docs.influxdata.com/influxdb3/enterprise/admin/license/) for non-commercial use.
 
-#### write API compatibility
+#### Write API compatibility
 
 InfluxDB 3 Core and Enterprise provide [InfluxDB v1 and v2 write API compatibility](https://docs.influxdata.com/influxdb3/core/write-data/http-api/compatibility-apis/), allowing you to write data using `api_version: 2`.
 
@@ -52,10 +52,10 @@ influxdb:
   api_version: 2
   ssl: false
   host: 192.168.6.193
-  # InfluxDB 3 default port (v1/v2 use 8086)
+  # InfluxDB 3 default (v1/v2 use 8086)
   port: 8181
   token: apiv3_YOUR_DATABASE_TOKEN
-  # Required by integration, but not validated by InfluxDB 3
+  # Required, but not validated
   organization: d1c92e4eef98a5b6
   # Maps to InfluxDB 3 database name
   bucket: gf_ha
@@ -119,7 +119,7 @@ username:
   required: inclusive
 password:
   type: string
-  description: 1.x only - Password for the database user. 2.x and 3.x - Auth token with write access. Required with `username`.
+  description: 1.x - Password for the database user. 2.x and 3.x - Auth token with write access. Required with `username`.
   required: inclusive
 database:
   type: string
@@ -624,7 +624,7 @@ sensor:
 
 {% endraw %}
 
-Note that when working with Flux queries, the resultset is broken into tables, you can see how this works in the Data Explorer of the UI. If you are operating on data created by the InfluxDB history integration, this means by default, you will have a table for each entity and each attribute of each entity (other then `unit_of_measurement` and any others you promoted to tags).
+Note that when working with Flux queries, the resultset is broken into tables, you can see how this works in the Data Explorer of the UI. If you are operating on data created by the InfluxDB history integration, this means by default, you will have a table for each entity and each attribute of each entity (other than `unit_of_measurement` and any others you promoted to tags).
 
 This is more tables compared to 1.x queries, where you have one table per `unit_of_measurement` across all entities. You can still create aggregate metrics across multiple sensors. As shown above, use the [keep](https://docs.influxdata.com/flux/v0/stdlib/universe/keep/) or [drop](https://docs.influxdata.com/flux/v0/stdlib/universe/drop/) filters. When you remove key columns, InfluxDB merges tables that share a schema for `_value` into one.
 
