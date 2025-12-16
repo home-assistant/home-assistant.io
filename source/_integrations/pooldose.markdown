@@ -159,7 +159,7 @@ This integration provides the following entities.
   - **Options**: Cubic meters (m³), Liters (L)
 - **Flow rate unit**: Flow rate measurement unit.
   - **Options**: Cubic meters per hour (m³/h), Liters per second (L/s)
-- **pH dosing type**: pH dosing type (what to add - acid or base).
+- **pH dosing type**: pH dosing type.
   - **Options**: pH+ / Alkalinity, pH- / Acid
 - **pH dosing method**: pH dosing control method.
   - **Options**: Disabled (off), Proportional control (proportional), On/Off control (on / off), Timed dosing (timed)
