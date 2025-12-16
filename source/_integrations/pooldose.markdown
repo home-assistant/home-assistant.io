@@ -4,18 +4,20 @@ description: Connect your SEKO PoolDose water treatment system to Home Assistant
 ha_category:
   - Binary sensor
   - Number
+  - Select
   - Sensor
   - Switch
   - Water Management
 ha_iot_class: Local Polling
 ha_config_flow: true
-ha_release: '2025.9'
+ha_release: '2026.1'
 ha_codeowners:
   - '@lmaertin'
 ha_domain: pooldose
 ha_platforms:
   - binary_sensor
   - number
+  - select
   - sensor
   - switch
 ha_integration_type: integration
@@ -150,6 +152,25 @@ This integration provides the following entities.
 - **Pause dosing**: Pauses or resumes the dosing process.
 - **Pump monitoring**: Enables or disables pump monitoring.
 - **Frequency input**: Enables or disables frequency input for a water meter.
+
+### Selects
+
+- **Water meter unit**: Water meter measurement unit.
+  - **Options**: Cubic meters (m³), Liters (L)
+- **Flow rate unit**: Flow rate measurement unit.
+  - **Options**: Cubic meters per hour (m³/h), Liters per second (L/s)
+- **pH dosing type**: pH dosing type (what to add - acid or base).
+  - **Options**: pH+ / Alkalinity, pH- / Acid
+- **pH dosing method**: pH dosing control method.
+  - **Options**: Disabled (off), Proportional control (proportional), On/Off control (on / off), Timed dosing (timed)
+- **ORP dosing type**: ORP/Redox dosing type.
+  - **Options**: Low intensity (low), High intensity (high)
+- **ORP dosing method**: ORP/Redox dosing control method.
+  - **Options**: Disabled (off), Proportional control (proportional), On/Off control (on / off), Timed dosing (timed)
+- **Chlorine dosing type**: Chlorine dosing type.
+  - **Options**: Low intensity (low), High intensity (high)
+- **Chlorine dosing method**: Chlorine dosing control method.
+  - **Options**: Disabled (off), Proportional control (proportional), On/Off control (on / off), Timed dosing (timed)
 
 ## Known limitations
 
