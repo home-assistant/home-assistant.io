@@ -89,13 +89,6 @@ The Overseerr integration has the following actions:
 
 - `overseerr.get_requests` - Get a list of media requests
 
-### Issue actions
-
-- `overseerr.get_issues` - Get a list of issues
-- `overseerr.create_issue` - Create a new issue for media
-- `overseerr.update_issue` - Update an existing issue
-- `overseerr.delete_issue` - Delete an issue
-
 ### Get requests
 
 Get a list of media requests using the `overseerr.get_requests` action.
@@ -105,51 +98,10 @@ Get a list of media requests using the `overseerr.get_requests` action.
 - **sort_order** (*Optional*): The sort order to sort the results in (`added`/`modified`).
 - **requested_by** (*Optional*): Filter the requests based on the user ID of the requester.
 
-### Get issues
-
-Get a list of issues from Overseerr using the `overseerr.get_issues` action.
-
-- **config_entry_id** (*Required*): The ID of the Overseerr config entry to get data from.
-- **issue_status** (*Optional*): Filter by status (`open` or `resolved`).
-- **sort_order** (*Optional*): The sort order to sort the results in (`added`/`modified`).
-- **requested_by** (*Optional*): Filter by the user ID that reported the issue.
-
-### Create issue
-
-Create a new issue in Overseerr for a specific media item using the `overseerr.create_issue` action.
-
-- **config_entry_id** (*Required*): The ID of the Overseerr config entry.
-- **issue_type** (*Required*): The type of issue: `1` (Video), `2` (Audio), `3` (Subtitles), `4` (Other).
-- **message** (*Required*): Description of the issue.
-- **media_id** (*Required*): The TMDB ID of the media item.
-- **problem_season** (*Optional*): The season number with the issue (for TV shows). Defaults to 0.
-- **problem_episode** (*Optional*): The episode number with the issue (for TV shows). Defaults to 0.
-
-### Update issue
-
-Update an existing issue in Overseerr using the `overseerr.update_issue` action.
-
-- **config_entry_id** (*Required*): The ID of the Overseerr config entry.
-- **issue_id** (*Required*): The ID of the issue to update.
-- **issue_status** (*Optional*): New status: `1` (Open) or `2` (Resolved).
-- **message** (*Optional*): Add a comment to the issue.
-
-### Delete issue
-
-Delete an issue from Overseerr using the `overseerr.delete_issue` action.
-
-- **config_entry_id** (*Required*): The ID of the Overseerr config entry.
-- **issue_id** (*Required*): The ID of the issue to delete.
-
 
 ## Use cases
 
 The integration can be used to build automations to help and notify you of new media requests and issues.
-The provided actions can be used to:
-- Automatically create issues when media playback fails
-- Send notifications about new issues
-- Resolve issues based on external triggers
-- Provide extra context to voice assistants
 
 ## Example automations
 
@@ -184,33 +136,6 @@ actions:
 {% endraw %}
 {% enddetails %}
 
-{% details "Automatically create an issue when Plex playback fails" %}
-
-{% raw %}
-
-```yaml
-alias: "Report Plex playback issue to Overseerr"
-description: "Create an issue in Overseerr when Plex media fails to play"
-triggers:
-  - trigger: state
-    entity_id:
-      - media_player.plex_living_room
-    to: "unavailable"
-conditions:
-  - condition: template
-    value_template: >-
-      {{ trigger.from_state.attributes.media_content_id is defined }}
-actions:
-  - action: overseerr.create_issue
-    data:
-      issue_type: 1  # Video issue
-      message: "Media failed to play on {{ trigger.entity_id }}"
-      media_id: "{{ trigger.from_state.attributes.media_content_id }}"
-```
-
-{% endraw %}
-{% enddetails %}
-
 {% details "Send notification when open issues exceed threshold" %}
 
 {% raw %}
@@ -229,6 +154,93 @@ actions:
       message: >-
         Warning: {{ states('sensor.overseerr_open_issues') }} open issues in Overseerr!
       title: "High Issue Count"
+```
+
+{% endraw %}
+{% enddetails %}
+
+{% details "Track audio issues trend with statistics sensor" %}
+
+{% raw %}
+
+```yaml
+alias: "Monitor audio issue trends"
+description: "Create a statistics sensor to track audio issue trends over time"
+sensor:
+  - platform: statistics
+    name: "Audio Issues Statistics"
+    entity_id: sensor.overseerr_audio_issues
+    state_characteristic: mean
+    max_age:
+      days: 7
+    sampling_size: 100
+```
+
+{% endraw %}
+{% enddetails %}
+
+{% details "Alert when video issues spike" %}
+
+{% raw %}
+
+```yaml
+alias: "Video issues spike alert"
+description: "Notify when video issues increase significantly"
+triggers:
+  - trigger: numeric_state
+    entity_id:
+      - sensor.overseerr_video_issues
+    above: 5
+actions:
+  - action: notify.mobile_app
+    data:
+      message: >-
+        Video issues are elevated: {{ states('sensor.overseerr_video_issues') }} issues detected
+      title: "Video Quality Alert"
+```
+
+{% endraw %}
+{% enddetails %}
+
+{% details "Daily issue report" %}
+
+{% raw %}
+
+```yaml
+alias: "Daily Overseerr issue summary"
+description: "Send a daily report of all issue types"
+triggers:
+  - trigger: time
+    at: "09:00:00"
+conditions:
+  - condition: numeric_state
+    entity_id: sensor.overseerr_total_issues
+    above: 0
+actions:
+  - action: notify.mobile_app
+    data:
+      title: "Overseerr Daily Report"
+      message: >-
+        Total Issues: {{ states('sensor.overseerr_total_issues') }}
+        Open: {{ states('sensor.overseerr_open_issues') }}
+        Closed: {{ states('sensor.overseerr_closed_issues') }}
+        Video: {{ states('sensor.overseerr_video_issues') }}
+        Audio: {{ states('sensor.overseerr_audio_issues') }}
+        Subtitle: {{ states('sensor.overseerr_subtitle_issues') }}
+```
+
+{% endraw %}
+{% enddetails %}
+
+{% details "Create dashboard badge for subtitle issues" %}
+
+{% raw %}
+
+```yaml
+type: entity
+entity: sensor.overseerr_subtitle_issues
+name: Subtitle Issues
+icon: mdi:subtitles
 ```
 
 {% endraw %}
