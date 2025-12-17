@@ -58,7 +58,7 @@ The biggest star of the show is the new Built-in Player, which lets you listen t
 **Users and logins**
 
 <p class="img">
-    <img src="/images/blog/2025-12-music-assistant-2-7/users.webp" alt="Screenshot of the Music Assistant app with it's new login functionality">
+    <img src="/images/blog/2025-12-music-assistant-2-7/login.webp" alt="Screenshot of the Music Assistant app with it's new login functionality">
     User profiles for the whole family!
 </p>
 
@@ -119,7 +119,7 @@ Never again be left guessing what Kurt is saying in Smells Like Teen Spirit. As 
 **Smart fading**
 
 <p class="img">
-    <img src="/images/blog/2025-12-music-assistant-2-7/login.webp" alt="Screenshot of the Music Assistant app showing the smart fades setting">
+    <img src="/images/blog/2025-12-music-assistant-2-7/crossfade.webp" alt="Screenshot of the Music Assistant app showing the smart fades setting">
     Making your playlists seamless
 </p>
 
