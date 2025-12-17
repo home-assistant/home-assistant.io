@@ -134,7 +134,7 @@ None of these updates are *small things*, but I’m running out of space, so her
 - There are now DSP presets that allow you to quickly save and apply custom configurations.  
 - Track and share your listening history, with the addition of scrobbling, with support for LastFM, ListenBrainz, and Subsonic.  
 - Several new player providers have been added, including Yamaha MusicCast, and Roku devices running Media Assistant.  
-- Added VBAN as a new input provider
+- Added VBAN as a new input provider.
 - New radio and podcast providers include Radio Paradise, Podcast Index, BBC Sounds, gPodder, iTunes Podcasts, Dl.fm, and ARD Audiothek.  
 - Can’t follow Phish on tour? Luckily, the new Phish.in provider has you covered. There’s also Nugs.net if you’re looking for more live music.  
 - Another cool hodgepodge of audio is the Internet Archive, which can now be added as a provider.  
