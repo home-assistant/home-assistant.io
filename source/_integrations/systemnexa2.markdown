@@ -35,7 +35,7 @@ The following devices are known to be supported by the integration:
 
 1. Open the app store and install the **Nexa Hem** app.
 2. Create an account.
-3. Add the device by onboarding it to your wifi, making sure its on a network reachable from Home Assistant.
+3. Add the device by onboarding it to your Wi-Fi, making sure it's on a network reachable from Home Assistant.
 
 {% include integrations/config_flow.md %}
 
