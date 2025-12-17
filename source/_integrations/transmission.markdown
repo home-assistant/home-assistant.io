@@ -119,7 +119,7 @@ The `transmission.add_torrent` action is used to add a new torrent to download.
   - **Optional**: No
 
 - **Data attribute**: `download_path`
-  - **Description**: Absolute path to the download directory. If not specified, the Transmission's default directory will be used.
+  - **Description**: The absolute path to the download directory. If not specified, the Transmission's default directory will be used.
   - **Optional**: Yes
 
 ### Action: Remove torrent
@@ -131,7 +131,7 @@ The `transmission.remove_torrent` action is used to remove a torrent from the cl
   - **Optional**: No
 
 - **Data attribute**: `id`
-  - **Description**:  ID of the torrent, can be found in the `torrent_info` attribute of the `*_torrents` sensors.
+  - **Description**:  The ID of the torrent, can be found in the `torrent_info` attribute of the `*_torrents` sensors.
   - **Optional**: No
 
 - **Data attribute**: `delete_data`
@@ -147,7 +147,7 @@ The `transmission.start_torrent` action is used to start a torrent downloading o
   - **Optional**: No
 
 - **Data attribute**: `id`
-  - **Description**:  ID of the torrent, can be found in the `torrent_info` attribute of the `*_torrents` sensors.
+  - **Description**:  The ID of the torrent, can be found in the `torrent_info` attribute of the `*_torrents` sensors.
   - **Optional**: No
 
 ### Action: Stop torrent
@@ -159,7 +159,7 @@ The `transmission.stop_torrent` action is used to stop a torrent downloading or 
   - **Optional**: No
 
 - **Data attribute**: `id`
-  - **Description**:  ID of the torrent, can be found in the `torrent_info` attribute of the `*_torrents` sensors.
+  - **Description**:  The ID of the torrent, can be found in the `torrent_info` attribute of the `*_torrents` sensors.
   - **Optional**: No
 
 ### Action: Get torrents
