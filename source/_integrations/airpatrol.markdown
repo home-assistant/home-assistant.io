@@ -53,9 +53,7 @@ The integration will create a climate entity for each air conditioning system fo
 
 ### Sensors
 
-
 The integration will create the following sensors for each air conditioning system found:
-
 
 - **Temperature**: Shows the current temperature (°C) in the room.
 - **Humidity**: Shows the current humidity in the room.
