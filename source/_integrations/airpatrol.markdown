@@ -51,14 +51,14 @@ The integration will create a climate entity for each air conditioning system fo
 - **Target temperature**: Set the desired temperature for heating or cooling.
 - **Fan mode**: Control the fan speed (if supported by your system).
 
-### Sensor
+### Sensors
 
 
-The integration will create the following sensor for each air conditioning system found:
+The integration will create the following sensors for each air conditioning system found:
 
 
-- **Temperature**: Shows the current temperature(°C) in the room.
-- **Humidity**: Shows the current humidity in room.
+- **Temperature**: Shows the current temperature (°C) in the room.
+- **Humidity**: Shows the current humidity in the room.
 
 
 ## Known limitations
