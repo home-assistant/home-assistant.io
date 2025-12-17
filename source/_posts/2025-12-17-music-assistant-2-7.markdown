@@ -74,6 +74,7 @@ You can now have different user profiles with their own music providers. No more
     <img src="/images/blog/2025-12-music-assistant-2-7/flow.webp" alt="Diagram of how Music Assistant handles remote music streaming">
     No matter where, no matter when
 </p>
+
 One feature made possible with our new login interface is remote music streaming – yes, that’s correct, Music Assistant anywhere you can connect to the internet. We’ve created a [new web app](https://app.music-assistant.io/) that allows for remote connections while you’re out and about.
 
 It uses Home Assistant Cloud’s built-in multimedia streaming capabilities (WebRTC) to help route the audio from your Music Assistant server to wherever you are. A [Home Assistant Cloud subscription](/cloud/) is not required to use this feature; a big shoutout to Nabu Casa for providing their infrastructure for free to our users. Home Assistant Cloud subscribers get access to even more powerful routing, which improves streaming in more places. This subscription also supports the full-time development of Music Assistant 🙏.
@@ -121,6 +122,7 @@ Never again be left guessing what Kurt is saying in Smells Like Teen Spirit. As 
     <img src="/images/blog/2025-12-music-assistant-2-7/login.webp" alt="Screenshot of the Music Assistant app showing the smart fades setting">
     Making your playlists seamless
 </p>
+
 Music Assistant is now your personal in-house DJ, perfectly blending one song into the next, and unlike a DJ it always takes your requests 😎. This latest update adds *Smart fading,* which takes into account the BPM of each song, to make crossfading between songs sound more natural. To turn it on, go to your player of choice, scroll down to the Audio section, and choose “Enable Smart Fades”.
 
 ## “All the small things”
