@@ -156,21 +156,21 @@ This integration provides the following entities.
 ### Selects
 
 - **Water meter unit**: Water meter measurement unit.
-  - **Options**: Cubic meters (m³), Liters (L)
+  - **Options**: Liters, Cubic meters
 - **Flow rate unit**: Flow rate measurement unit.
-  - **Options**: Cubic meters per hour (m³/h), Liters per second (L/s)
+  - **Options**: Cubic meters per hour, Liters per second
 - **pH dosing type**: pH dosing type.
-  - **Options**: pH+ / Alkalinity, pH- / Acid
+  - **Options**: pH+ / alcalyne, pH- / acid
 - **pH dosing method**: pH dosing control method.
-  - **Options**: Disabled (off), Proportional control (proportional), On/Off control (on / off), Timed dosing (timed)
+  - **Options**: Disabled, Proportional control, On/Off control, Timed dosing
 - **ORP dosing type**: ORP/Redox dosing type.
-  - **Options**: Low intensity (low), High intensity (high)
+  - **Options**: Low intensity, High intensity
 - **ORP dosing method**: ORP/Redox dosing control method.
-  - **Options**: Disabled (off), Proportional control (proportional), On/Off control (on / off), Timed dosing (timed)
+  - **Options**: Disabled, Proportional control, On/Off control, Timed dosing
 - **Chlorine dosing type**: Chlorine dosing type.
-  - **Options**: Low intensity (low), High intensity (high)
+  - **Options**: Low intensity, High intensity
 - **Chlorine dosing method**: Chlorine dosing control method.
-  - **Options**: Disabled (off), Proportional control (proportional), On/Off control (on / off), Timed dosing (timed)
+  - **Options**: Disabled, Proportional control, On/Off control, Timed dosing
 
 ## Known limitations
 
