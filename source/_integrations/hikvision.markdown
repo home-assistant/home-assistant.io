@@ -1,8 +1,9 @@
 ---
 title: Hikvision
-description: Instructions on how to set up Hikvision camera binary sensors within Home Assistant.
+description: Instructions on how to set up Hikvision camera binary sensors and camera streams within Home Assistant.
 ha_category:
   - Binary sensor
+  - Camera
 ha_release: 0.35
 ha_iot_class: Local Push
 ha_codeowners:
@@ -10,20 +11,28 @@ ha_codeowners:
 ha_domain: hikvision
 ha_platforms:
   - binary_sensor
+  - camera
 ha_integration_type: integration
 ha_quality_scale: legacy
 ---
 
-The Hikvision Binary Sensor is a platform that parses the event stream of a
-[Hikvision IP Camera or NVR](https://www.hikvision.com/) and presents the
-camera/nvr events to Home Assistant as binary sensors with either an "off" or
-"on" state.
+The Hikvision integration allows you to connect your [Hikvision IP Camera or NVR](https://www.hikvision.com/) to Home Assistant. This integration provides:
 
-The platform will automatically add all sensors to Home Assistant that are
-configured within the camera/nvr interface to "Notify the surveillance center"
-as a trigger. If you would like to hide a sensor type you can do so by either
-unchecking "Notify the surveillance center" in the camera configuration or by
-using the "ignored" customize option detailed below.
+- **Binary sensors** that parse the event stream and present camera/NVR events as binary sensors with either an "off" or "on" state
+- **Camera entities** with RTSP streaming and HTTP snapshot capabilities
+- **Video channel discovery** for NVRs with multiple connected cameras
+
+## Binary sensors
+
+The platform will automatically add binary sensors to Home Assistant for events configured on your camera or NVR. Events are detected when any of the following notification methods are enabled:
+
+- **Notify the surveillance center** (center)
+- **HTTP notification** (HTTP)
+- **Record** (commonly used on NVRs)
+- **Email notification**
+- **Beep**
+
+If you would like to hide a sensor type you can do so by either disabling the notification methods in the camera configuration or by using the "ignored" customize option detailed below.
 
 {% important %}
 In order for the sensors to work the hikvision user must have the 'Remote: Notify Surveillance Center/Trigger Alarm Output' permission which can be enabled from the user management section of the web interface. If authentication issues persist after permissions are verified, try accessing using an admin user. Certain devices will only authenticate with an admin account despite permissions being set correctly.
@@ -31,19 +40,17 @@ Also, the 'WEB Authentication' needs to be set to 'digest/basic' in the security
 {% endimportant %}
 
 For example, if you configure a camera with the name "Front Porch" that has
-motion detection and line crossing events enabled to notify the surveillance
-center the following binary sensors will be added to Home Assistant:
+motion detection and line crossing events enabled, the following binary sensors will be added to Home Assistant:
 
 ```text
 binary_sensor.front_porch_motion
 binary_sensor.front_port_line_crossing
 ```
 
-When used with a NVR device the sensors will be appended with the channel number
+When used with an NVR device the sensors will be appended with the channel number
 they represent. For example,
 if you configure an NVR with the name "Home" that supports 2 cameras with
-motion detection and line crossing events enabled to notify the surveillance
-center the following binary sensors will be added to Home Assistant:
+motion detection and line crossing events enabled, the following binary sensors will be added to Home Assistant:
 
 ```text
 binary_sensor.home_motion_1
@@ -74,10 +81,30 @@ This platform also was confirmed to work with the following Hikvison-based NVRS
 - N46PCK (Annke H800 4K NVR)
 - N48PAW (Annke 4K NVR)
 
+## Camera
+
+The integration automatically discovers video channels on your Hikvision device and creates camera entities for each enabled channel. Camera entities provide:
+
+- **RTSP streaming** for live video viewing in Home Assistant dashboards
+- **HTTP snapshots** for still image capture
+
+For NVRs with multiple connected cameras, a separate camera entity is created for each video input channel. The channel name configured on the device is used as the entity name.
+
+### NVR channel discovery
+
+When connecting to an NVR, the integration queries the device for all available video input channels. Each enabled channel becomes a camera entity in Home Assistant. For example, an NVR with 4 connected cameras named "Front Door", "Backyard", "Garage", and "Driveway" will create:
+
+```text
+camera.front_door
+camera.backyard
+camera.garage
+camera.driveway
+```
+
 ## Configuration
 
-To enable this sensor,
-add the following lines are required in your {% term "`configuration.yaml`" %} file:
+To enable this integration,
+add the following lines to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 binary_sensor:
