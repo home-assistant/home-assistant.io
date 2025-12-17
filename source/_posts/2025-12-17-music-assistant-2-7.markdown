@@ -34,7 +34,7 @@ Of course, you can always update and experience all the great new stuff without 
 
 **Marvin joins the team**
 
-Music Assistant has gained its first full-time employee at the Open Home Foundation. No, not me! My day job is Ecosystems at the foundation (which comprises all the software projects the Foundation has that are not Home Assistant itself). [Marvin](https://github.com/MarvinSchenkel) will be joining the foundation in the new year to work full-time on Music Assistant, leading the project’s day-to-day operations. Marvin has been contributing to the project for three years now, working on all sorts of parts of the project, and specifically with the Apple Music and YouTube providers.
+Music Assistant has gained its first full-time employee at the Open Home Foundation. No, not me! My day job is leading the [Ecosystems department](https://www.openhomefoundation.org/structure/) at the foundation (which comprises all the software projects the Foundation has that are not Home Assistant itself). [Marvin](https://github.com/MarvinSchenkel) will be joining the foundation in the new year to work full-time on Music Assistant, leading the project’s day-to-day operations. Marvin has been contributing to the project for three years now, working on all sorts of parts of the project, and specifically with the Apple Music and YouTube providers.
 
 Not to worry, I’m pretty obsessed with my audio setup and will still be tinkering on my little pet project 😁.
 
@@ -58,7 +58,7 @@ The biggest star of the show is the new Built-in Player, which lets you listen t
 **Users and logins**
 
 <p class="img">
-    <img src="/images/blog/2025-12-music-assistant-2-7/login.webp" alt="Screenshot of the Music Assistant app with it's new login functionality">
+    <img src="/images/blog/2025-12-music-assistant-2-7/users.webp" alt="Screenshot of the Music Assistant app with it's new login functionality">
     User profiles for the whole family!
 </p>
 
@@ -133,7 +133,8 @@ None of these updates are *small things*, but I’m running out of space, so her
 
 - There are now DSP presets that allow you to quickly save and apply custom configurations.  
 - Track and share your listening history, with the addition of scrobbling, with support for LastFM, ListenBrainz, and Subsonic.  
-- Several new player providers have been added, including Yamaha MusicCast, VBAN, and Roku devices running Media Assistant.  
+- Several new player providers have been added, including Yamaha MusicCast, and Roku devices running Media Assistant.  
+- Added VBAN as a new input provider
 - New radio and podcast providers include Radio Paradise, Podcast Index, BBC Sounds, gPodder, iTunes Podcasts, Dl.fm, and ARD Audiothek.  
 - Can’t follow Phish on tour? Luckily, the new Phish.in provider has you covered. There’s also Nugs.net if you’re looking for more live music.  
 - Another cool hodgepodge of audio is the Internet Archive, which can now be added as a provider.  
