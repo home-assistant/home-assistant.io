@@ -74,7 +74,7 @@ You can customize the integration settings after setup:
 
 ### Device name
 
-You can set a custom name for your thermostat that will be stored on the thermostat itself and displayed in Home Assistant. When device is removed from Home Assistant, the custom name remains on the thermostat.
+You can set a custom name for your thermostat that will be stored on the thermostat itself and displayed in Home Assistant. When the device is removed from Home Assistant, the custom name remains on the thermostat.
 
 ## Supported functionality
 
