@@ -40,7 +40,7 @@ The latest version of Overseerr is supported by this integration.
 
 ## Supported functionality
 
-The Overseerr intergation provides a couple of entities to Home Assistant.
+The Overseerr integration provides a couple of entities to Home Assistant.
 Below is an overview of these entities.
 
 ### Events
