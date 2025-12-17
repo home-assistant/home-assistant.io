@@ -52,7 +52,7 @@ Each sensor includes the following attributes:
 
 {% include common-tasks/define_custom_polling.md %}
 
-The default polling interval is 30 seconds.
+The default {% term polling %} interval is 30 seconds.
 
 ## Removing the integration
 
