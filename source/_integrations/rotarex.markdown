@@ -4,6 +4,11 @@ description: "Instructions on how to integrate your Rotarex gas tanks into Home 
 documentation: https://rotarexsrg.com/category/digital-measurement-system
 codeowners: ["@Rotarex"]
 iot_class: "cloud_polling"
+ha_release: 2026.1
+ha_domain: rotarex
+ha_iot_class: cloud_polling
+ha_codeowners:
+  - '@Rotarex'
 ---
 
 The Rotarex DIMES SRG {% term integration %} allows you to monitor the level, battery, and last sync time of your Rotarex DIMES SRG Camping gas tanks in Home Assistant.
