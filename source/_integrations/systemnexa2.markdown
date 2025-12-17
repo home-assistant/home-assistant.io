@@ -45,7 +45,6 @@ The following devices are known to be supported by the integration:
 
 - On
 - Off
-- Dim
 
 #### Configuration
 
@@ -53,11 +52,6 @@ The following devices are known to be supported by the integration:
 - Cloud connection enable/disable
 - LED enable/disable
 - Button enable/disable
-
-#### Diagnostic
-
-- Wifi SSID
-- Wifi dBm
 
 ## Removing the integration
 
