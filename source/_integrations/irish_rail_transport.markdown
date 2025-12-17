@@ -17,7 +17,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `irish_rail_transport` sensor will give you the time until the next two departures (within 90 minutes) from an Irish Rail station using the RTPI information.
+The **Irish Rail Transport** {% term integration %} will give you the time until the next two departures (within 90 minutes) from an Irish Rail station using the RTPI information.
 
 A station name is the full station name as specified on the Irish Rail search site, for example, `Tara Street` or `Dublin Connolly`.
 

@@ -15,7 +15,7 @@ ha_config_flow: true
 ha_integration_type: device
 ---
 
-This integration allows you to locally control a MicroBot Push (previously manufactured by Naran but now under the Keymitt brand).
+This {% term integration %} allows you to locally control a MicroBot Push (previously manufactured by Naran but now under the Keymitt brand).
 
 ### Prerequisites
 

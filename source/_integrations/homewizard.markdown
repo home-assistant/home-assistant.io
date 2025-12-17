@@ -1,6 +1,6 @@
 ---
-title: HomeWizard Energy
-description: Instructions on how to integrate HomeWizard Energy into Home Assistant.
+title: HomeWizard
+description: Instructions on how to integrate HomeWizard into Home Assistant.
 ha_release: 2022.2
 ha_category:
   - Energy
@@ -24,19 +24,20 @@ works_with:
 ha_dhcp: true
 ---
 
-Integration for the [HomeWizard Energy](https://www.homewizard.com) platform. It can collect data locally from the HomeWizard Energy products and create them as sensors in Home Assistant. Use this integration to monitor your energy, gas and water usage to optimize your energy consumption. The information collected by this integration can be used by the [Energy dashboard](/home-energy-management).
+Integration for the [HomeWizard](https://www.homewizard.com/) platform. It can collect data locally from HomeWizard products and create them as sensors in Home Assistant. Use this integration to monitor your energy, gas, and water usage to optimize your energy consumption. The information collected by this integration can be used by the [Energy dashboard](/home-energy-management).
 
 ## Supported devices
 
-- [Wi-Fi P1 Meter](https://www.homewizard.com/p1-meter): Sensors for power import/export, energy consumption (single or three phases), and information about your smart meter and gas (model: `HWE-P1`).
-- [Wi-Fi Energy Socket](https://www.homewizard.com/energy-socket): Sensors for power import/export and energy consumption, and switches for controlling the outlet (model: `HWE-SKT`).
-- [Wi-Fi Watermeter](https://www.homewizard.com/watermeter): Sensors for active and total water usage (model: `HWE-WTR`).
-- [Wi-Fi kWh Meter](https://www.homewizard.com/kwh-meter): Sensors for power import/export and energy consumption (models: `HWE-KWH1`, `HWE-KWH3`, `SDM230-wifi`, and `SDM630-wifi`.).
-- [Plug-In Battery](https://www.homewizard.com/nl/plug-in-battery/): Sensors for power import/export, energy consumption, production, and state of charge (model: `HWE-BAT`).
+- [P1 Meter](https://www.homewizard.com/p1-meter/): Sensors for power import/export, energy consumption (single or three phases), and information about your smart meter and gas (model: `HWE-P1`).
+- [Energy Socket](https://www.homewizard.com/energy-socket/): Sensors for power import/export and energy consumption, and switches for controlling the outlet (model: `HWE-SKT`).
+- [Watermeter](https://www.homewizard.com/watermeter/): Sensors for active and total water usage (model: `HWE-WTR`).
+- [kWh Meter 1-Phase](https://www.homewizard.com/kwh-meter/): Sensors for power import/export and energy consumption (model: `HWE-KWH1`, `SDM230-wifi`)..
+- [kWh Meter 3-Phase](https://www.homewizard.com/kwh-meter/): Sensors for power import/export and energy consumption (models: `HWE-KWH3`, `SDM630-wifi`).
+- [Plug-In Battery](https://www.homewizard.com/plug-in-battery/): Sensors for power import/export, energy consumption, production, and state of charge (model: `HWE-BAT`).
 
 ## Enable the API
 
-You have to enable the local API to allow Home Assistant to communicate with your device. Do this in the HomeWizard Energy app:
+You have to enable the local API to allow Home Assistant to communicate with your device. Do this in the HomeWizard app:
 
 {% tip %}
 You can skip this step if you are configuring one of the following devices:
@@ -114,7 +115,7 @@ The Energy Socket also has a switch to control the outlet state and a status lig
 ### Watermeter
 
 - **Water usage (L/min)**: Flow of water measured at that time.
-- **Total water usage (m³)**: Total water usage since the installation of the HomeWizard Water meter.
+- **Total water usage (m³)**: Total water usage since the installation of the Watermeter.
 
 ### Plug-In Battery
 
@@ -129,11 +130,11 @@ The Energy Socket also has a switch to control the outlet state and a status lig
 
 #### Battery group mode
 
-The group of connected batteries can be controlled in three different modes using the **Battery group mode** select entity:
+The group of connected Plug-In Batteries can be controlled in three different modes using the **Battery group mode** select entity:
 
 - **Zero on meter**: The Plug-In Battery will try to keep the power consumption/production of your home at zero. This means that the Plug-In Battery will charge or discharge to maintain a net-zero power balance. This is the default mode.
-- **Charge to full**: All connected Plug-In Batteries will be charged to 100%, regardless of the power consumption/production of your home. When all batteries are fully charged, the Plug-In Battery will switch to the standby mode.
-- **Standby**: Batteries will enter standby mode. This means that the Plug-In Battery will neither charge nor discharge.
+- **Charge to full**: All connected Plug-In Battery will be charged to 100%, regardless of the power consumption/production of your home. When all batteries are fully charged, the mode will switch to the standby mode.
+- **Standby**: The Plug-In Battery will enter standby mode. This means that the Plug-In Battery will neither charge nor discharge.
 
 The **Battery group mode** select can be found in the P1 Meter device, as the P1 Meter is responsible for controlling the Plug-In Battery. This select entity is disabled by default. See [I can't find entities](#i-cant-find-entities-like-voltage-current-or-battery-group-mode) for instructions on enabling disabled entities.
 
@@ -170,7 +171,7 @@ The integration is {% term polling %} new data every 5 seconds. There is no limi
 
 ### Watermeter cannot be used with batteries
 
-The Water meter can be powered via a USB-C cable and with batteries. When using batteries, it only connects to Wi-Fi every couple of hours. Because of this, the API can only be used when powered via the USB-C cable. It is not possible to use this integration when the water meter is powered by batteries.
+The Watermeter can be powered via a USB-C cable and with batteries. When using batteries, it only connects to Wi-Fi every couple of hours. Because of this, the API can only be used when powered via the USB-C cable. It is not possible to use this integration when the Watermeter is powered by batteries.
 
 ### P1 Meter may update slowly
 
@@ -193,7 +194,7 @@ It may happen that you can't find your devices or they won't show up in the inte
     - **P1 Meter**: Press the white button on the front of the P1 Meter.  
     - **Plug-In Battery**: Press the black touch button on the front of the device. You will hear a beep.
     - **kWh Meter**: Press and hold the button with the Wi‑Fi icon for two seconds. Release the button before the display shows "AP".
-    - **Energy Socket** and **Water Meter**: they do not require this step.
+    - **Energy Socket** and **Watermeter**: they do not require this step.
 2. After pressing the button, you must select **Continue** within 30 seconds to complete the setup. 
     - If the setup times out, you may need to press the button again.
     
@@ -207,4 +208,4 @@ This integration follows standard integration removal.
 
 {% include integrations/remove_device_service.md %}
 
-After deleting the integration, go to the HomeWizard Energy app and disable the local API if no other integrations are using it.
+After deleting the integration, go to the HomeWizard app and disable the local API if no other integrations are using it.

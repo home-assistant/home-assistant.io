@@ -97,7 +97,6 @@ If your sensors are showing unavailable or unknown states, check the following:
 
 2. **API service status**: Essent's API may be temporarily unavailable
    - Check {% my logs title="Settings → System → Logs" %} for error messages
-   - Open `https://www.essent.nl/api/public/tariffmanagement/dynamic-prices/v1/` in a browser or via `curl`; a JSON response confirms the service is reachable, while HTTP errors mean the API is down or blocked by your network
    - Wait and check if data returns within an hour
 
 ### Prices don't match my Essent account

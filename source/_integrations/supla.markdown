@@ -16,7 +16,7 @@ ha_integration_type: integration
 ha_quality_scale: legacy
 ---
 
-The SUPLA integration allows you to use [SUPLA](https://supla.org/) devices in Home Assistant.
+The SUPLA {% term integration %} allows you to use [SUPLA](https://supla.org/) devices in Home Assistant.
 
 SUPLA-DEV is an open source home automation system for Raspberry Pi, Arduino or ESP8266-based devices. It has its own protocols, firmware and commercially available devices, such as those produced by [Zamel](https://supla.zamel.com/en/).
 

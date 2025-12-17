@@ -17,7 +17,7 @@ ha_platforms:
 ha_integration_type: device
 ---
 
-The Sensor.Communtiy integration will query the open data API of [Sensor.Community](https://sensor.community) to monitor air quality and other weather data from a specific (self build) sensor station.
+The Sensor.Community {% term integration %} will query the open data API of [Sensor.Community](https://sensor.community) to monitor air quality and other weather data from a specific (self build) sensor station.
 
 ## Prerequisites
 
