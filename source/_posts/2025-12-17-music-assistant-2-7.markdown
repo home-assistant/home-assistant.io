@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Music Assistant 2.7 - Taking over the airwaves"
-description: ""
+description: "With a visual overhaul, new features and providers, and a custom-built streaming protocol, it's our biggest update yet!"
 date: 2025-12-17 00:00:00
 date_formatted: "December 17, 2025"
 author: Marcel van der Veldt
