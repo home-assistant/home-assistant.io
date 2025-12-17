@@ -102,3 +102,8 @@ Supported sensor/event types are:
 - Exiting Region
 - Entering Region
 
+## Removing the integration
+
+This integration follows standard integration removal.
+
+{% include integrations/remove_device_service.md %}
