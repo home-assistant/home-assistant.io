@@ -49,9 +49,9 @@ When you specify a departure time during route configuration, the integration fi
 
 This is useful when you want to focus on specific parts of your daily schedule. For example:
 
-- Set time to "08:00" for morning commute trains.
-- Set time to "17:00" to only see evening trains home.
-- Avoid seeing very early morning trains when you're interested in your regular departure.
+- Set time to "08:00" for morning commute trains
+- Set time to "17:00" to only see evening trains home
+- Avoid seeing very early morning trains when you're interested in your regular departure
 
 The sensor automatically handles day transitions. If the current time is past your configured time, it will show tomorrow's first trip at or after that time. This ensures you always see relevant upcoming trips matching your schedule, without the sensor becoming unavailable.
 
