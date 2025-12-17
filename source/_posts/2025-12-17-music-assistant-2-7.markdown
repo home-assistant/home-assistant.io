@@ -74,7 +74,7 @@ You can now have different user profiles with their own music providers. No more
     <img src="/images/blog/2025-12-music-assistant-2-7/flow.webp" alt="Diagram of how Music Assistant handles remote music streaming">
     No matter where, no matter when
 </p>
-One feature made possible with our new login interface is remote music streaming – yes, that’s correct, Music Assistant anywhere you can connect to the internet. We’ve created a [new web app](https://app.music-assistant.io/#/home) that allows for remote connections while you’re out and about.
+One feature made possible with our new login interface is remote music streaming – yes, that’s correct, Music Assistant anywhere you can connect to the internet. We’ve created a [new web app](https://app.music-assistant.io/) that allows for remote connections while you’re out and about.
 
 It uses Home Assistant Cloud’s built-in multimedia streaming capabilities (WebRTC) to help route the audio from your Music Assistant server to wherever you are. A [Home Assistant Cloud subscription](/cloud/) is not required to use this feature; a big shoutout to Nabu Casa for providing their infrastructure for free to our users. Home Assistant Cloud subscribers get access to even more powerful routing, which improves streaming in more places. This subscription also supports the full-time development of Music Assistant 🙏.
 
