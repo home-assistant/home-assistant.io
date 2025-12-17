@@ -45,7 +45,7 @@ The integration provides a station selector in the UI, so you don't need to manu
 
 The default behavior (without specifying a time) gives you information about the next available train that fits your route criteria (from, to, via stations).
 
-When you specify a departure time during route configuration, the integration filters trips to show only those departing at or after your specified time. This time-based filter compares only the time component (e.g., 17:00), ignoring the date, so it works continuously throughout the day.
+When you specify a departure time during route configuration, the integration filters trips to show only those departing at or after your specified time. This time-based filter compares only the time component (for example, 17:00), ignoring the date, so it works continuously throughout the day.
 
 This is useful when you want to focus on specific parts of your daily schedule. For example:
 
