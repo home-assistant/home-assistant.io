@@ -323,7 +323,6 @@ You can only set a Thread network as preferred if the credentials are known.
    - Importing the credentials allows a Google- or Apple-created Thread network to be the preferred network of Home Assistant.
    <img width="400" src='/images/integrations/thread/thread-preferred-network.png'>
 3. If a **Make preferred network** button becomes available, select it.
-   - Joined networks can improve coverage and latency.
    - For more information, refer to the section on [combining Thread networks](#combining-thread-networks).
 
 ### Combining Thread networks
