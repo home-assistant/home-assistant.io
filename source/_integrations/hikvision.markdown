@@ -11,6 +11,7 @@ ha_domain: hikvision
 ha_platforms:
   - binary_sensor
 ha_integration_type: integration
+ha_quality_scale: bronze
 ha_config_flow: true
 ---
 
