@@ -203,3 +203,7 @@ binary_sensor:
       field_detection_2:
         ignored: true
 ```
+
+## Removing the integration
+
+To remove this integration, remove the `hikvision` platform configuration from your {% term "`configuration.yaml`" %} file and restart Home Assistant.
