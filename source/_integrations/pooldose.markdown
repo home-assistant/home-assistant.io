@@ -10,7 +10,7 @@ ha_category:
   - Water Management
 ha_iot_class: Local Polling
 ha_config_flow: true
-ha_release: '2026.1'
+ha_release: '2025.9'
 ha_codeowners:
   - '@lmaertin'
 ha_domain: pooldose
