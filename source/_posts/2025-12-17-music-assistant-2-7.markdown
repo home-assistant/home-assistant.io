@@ -142,9 +142,11 @@ None of these updates are *small things*, but I’m running out of space, so her
 
 ## “Rebel yell”
   
+**Join the audio revolution**
+
 <p class="img">
     <img src="/images/blog/2025-12-music-assistant-2-7/playing.webp" alt="Google Nest Hub playing Music Assistant alongside a Home Assistant Voice Preview Edition">
-    Join the audio revolution
+    Music Assistant is also cast compatible!
 </p>
 
 Your music, your players – it’s time to take back control of your music and the devices you want to play it on. If you’re new to Music Assistant, check how to [get started here](https://www.music-assistant.io/). While we’re excited about these new features, we’re not hitting pause anytime soon. We’d love to hear your feedback in the comments or on [Discord](https://discord.com/invite/kaVm8hGpne).
