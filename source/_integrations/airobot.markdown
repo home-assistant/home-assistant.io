@@ -125,11 +125,11 @@ The following diagnostic sensors are disabled by default. You can enable them in
 
 The **Airobot** integration enables intelligent floor heating control with practical automation opportunities:
 
-- **Presence-based heating**: Automatically switch between HOME and AWAY presets when people leave or arrive home, optimizing comfort and energy efficiency.
-- **Smart scheduling**: Use the BOOST preset to quickly warm rooms before arrival or temporarily increase heating for guests without changing permanent setpoints.
-- **Air quality management**: Trigger ventilation or send alerts when CO₂ levels exceed healthy thresholds (requires optional CO₂ sensor).
+- Presence-based heating: Automatically switch between HOME and AWAY presets when people leave or arrive home, optimizing comfort and energy efficiency.
+- Smart scheduling: Use the BOOST preset to quickly warm rooms before arrival or temporarily increase heating for guests without changing permanent setpoints.
+- Air quality management: Trigger ventilation or send alerts when CO₂ levels exceed healthy thresholds (requires optional CO₂ sensor).
 - **Floor protection**: Monitor floor temperature to prevent overheating of sensitive materials like wooden floors (requires floor sensor).
-- **Energy insights**: Track heating runtime and device uptime patterns to optimize schedules and identify maintenance needs.
+- Energy insights: Track heating runtime and device uptime patterns to optimize schedules and identify maintenance needs.
 
 ## Data updates
 
