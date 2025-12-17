@@ -1,0 +1,360 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>0.59: Order pizza, Entity Picker, Color Wheel - Home Assistant</title>
+    <meta name="author" content="Fabian Affolter">
+    <meta name="description" content="If you don't want to create items on our shopping list with HTTP requests, just order pizza!">
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/blog/2017/12/03/release-59/">
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="0.59: Order pizza, Entity Picker, Color Wheel">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/blog/2017/12/03/release-59/">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="If you don't want to create items on our shopping list with HTTP requests, just order pizza!">
+    <meta property="og:image" content="https://home-assistant.io/images/blog/2017-12-0.59/components.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    <meta name="twitter:creator" content="@fabaff">
+    <meta name="twitter:title" content="0.59: Order pizza, Entity Picker, Color Wheel">
+    <meta name="twitter:description" content="If you don't want to create items on our shopping list with HTTP requests, just order pizza!">
+    <meta name="twitter:image" content="https://home-assistant.io/images/blog/2017-12-0.59/components.png">
+    <link href="/stylesheets/screen.css" media="screen, projection, print" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+  <body >
+    <header class='site-header'>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/docs/">Docs</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+  <li><a href='#' class='show-search'><i class="icon-search"></i></a></li>
+</ul>
+  </nav>
+  <div class='search-container' style='display: none'>
+    <div class='search'>
+      <i class="icon-search"></i>
+      <input id='search' placeholder='Search the docs…'>
+      <a href='#' class='close'><i class="icon-remove-sign"></i></a>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+    </header>
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+          <article class="post">
+  <header>
+  <h1 class="title indent">0.59: Order pizza, Entity Picker, Color Wheel</h1>
+  <div class="meta clearfix">
+    <time datetime="2017-12-03T02:00:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> December 3, 2017</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Fabian Affolter</span>
+    <span><i class='icon-time'></i> 11 minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+        <li>Release-Notes</li>
+    </ul>
+  </span>
+      <a class='comments'
+         href="#post-comments"
+         >Comments</a>
+  </div>
+</header>
+  <p><a href="/components/#version/0.59"><img src="/images/blog/2017-12-0.59/components.png" style="border: 0;box-shadow: none;" /></a></p>
+<p>We are proud to announce the availability of Home Assistant 0.59. To keep you in the loop: This is the second last release in 2017. We have stuck to our bi-weekly release cycle for another year but we decided that we will take a little break between Christmas and New Year.</p>
+<h2><a class="title-link" name="dominos-pizza-platform" href="#dominos-pizza-platform"></a> Dominos Pizza platform</h2>
+<p>With the Dominos Pizza integration made by <a href="https://github.com/wardcraigj">@wardcraigj</a> your home is now taking care that you don’t  starve. In combination with a <a href="/components/skybell/">Skybell</a> or a <a href="/components/doorbird/">DoorBird</a> you will know exactly when the pizza is in front of your door.</p>
+<h2><a class="title-link" name="color-picker" href="#color-picker"></a> Color picker</h2>
+<p><a href="https://github.com/NovapaX">@NovapaX</a> created a new color picker. While dragging the color badge with your finger, a badge will appear above your finger so you can see the current color.</p>
+<p class="img">
+    <img src="/images/blog/2017-12-0.59/color-wheel.png" alt="Screenshot of the color wheel." />
+    Screenshot of the color wheel.
+</p>
+<h2><a class="title-link" name="shopping-list-tweaks" href="#shopping-list-tweaks"></a> Shopping list tweaks</h2>
+<p><a href="https://github.com/balloob">@balloob</a> has refreshed the shopping list UI to make it more usable. It’s now possible to add items by typing, instead of just voice. Also editing has been made easier.</p>
+<h2><a class="title-link" name="entity-picker" href="#entity-picker"></a> Entity picker</h2>
+<p><a href="https://github.com/balloob">@balloob</a> improved the way if you want to pick an entity. In the automation editor, the script editor and the service section of the Developer Tools it’s much easier to identify the right one! The automation editor will only suggest relevant entities.</p>
+<p class="img">
+    <img src="/images/blog/2017-12-0.59/picker.png" alt="Screenshot of the Entity Picker." />
+    Screenshot of the of the Entity Picker.
+</p>
+<h2><a class="title-link" name="hassio-add-ons" href="#hassio-add-ons"></a> Hass.io Add-ons</h2>
+<p>If you follow our <a href="https://twitter.com/home_assistant">twitter feed</a> then you may already know that <a href="https://github.com/frenck">@frenck</a> spent some time to bring new stuff to the <a href="https://github.com/hassio-addons/repository">Community Hass.io Add-ons repository</a>.</p>
+<ul>
+  <li><a href="https://github.com/hassio-addons/addon-ide">Cloud9 IDE</a></li>
+  <li><a href="https://github.com/hassio-addons/addon-terminal">Terminal support</a></li>
+  <li>New release of the <a href="https://github.com/hassio-addons/addon-tor">Tor add-on</a></li>
+</ul>
+<h2><a class="title-link" name="new-platforms" href="#new-platforms"></a> New Platforms</h2>
+<ul>
+  <li>Support for Unifi direct access device tracker (No unifi controller software) (<a href="https://github.com/w1ll1am23">@w1ll1am23</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10097">#10097</a>) (<a href="https://home-assistant.io/components/device_tracker.unifi_direct/">device_tracker.unifi_direct docs</a>) (new-platform)</li>
+  <li>Tahoma platform for Somfy Covers and Sensors (<a href="https://github.com/philklei">@philklei</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10652">#10652</a>) (<a href="https://home-assistant.io/components/tahoma/">tahoma docs</a>) (<a href="https://home-assistant.io/components/cover.tahoma/">cover.tahoma docs</a>) (<a href="https://home-assistant.io/components/sensor.tahoma/">sensor.tahoma docs</a>) (new-platform)</li>
+  <li>New Hive Component / Platforms (<a href="https://github.com/Rendili">@Rendili</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9804">#9804</a>) (<a href="https://home-assistant.io/components/hive/">hive docs</a>) (<a href="https://home-assistant.io/components/climate.hive/">climate.hive docs</a>) (<a href="https://home-assistant.io/components/light.hive/">light.hive docs</a>) (<a href="https://home-assistant.io/components/sensor.hive/">sensor.hive docs</a>) (<a href="https://home-assistant.io/components/switch.hive/">switch.hive docs</a>) (new-platform)</li>
+  <li>Add Dominos Pizza platform (<a href="https://github.com/wardcraigj">@wardcraigj</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10379">#10379</a>) (<a href="https://home-assistant.io/components/dominos/">dominos docs</a>) (new-platform)</li>
+  <li>Add tts.baidu platform (<a href="https://github.com/zhujisheng">@zhujisheng</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10724">#10724</a>) (<a href="https://home-assistant.io/components/tts.baidu/">tts.baidu docs</a>) (new-platform)</li>
+  <li>Create ecobee weather platform (<a href="https://github.com/PhracturedBlue">@PhracturedBlue</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10869">#10869</a>) (<a href="https://home-assistant.io/components/ecobee/">ecobee docs</a>) (<a href="https://home-assistant.io/components/weather.ecobee/">weather.ecobee docs</a>) (new-platform)</li>
+</ul>
+<h2><a class="title-link" name="release-0591---december-4" href="#release-0591---december-4"></a> Release 0.59.1 - December 4</h2>
+<ul>
+  <li>Fix Notifications for Android TV (<a href="https://github.com/danielperna84">@danielperna84</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10798">#10798</a>) (<a href="https://home-assistant.io/components/notify.nfandroidtv/">notify.nfandroidtv docs</a>)</li>
+  <li>fix iOS component config generation (<a href="https://github.com/wrboyce">@wrboyce</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10923">#10923</a>)</li>
+  <li>Fix color wheel in group more info dialogs (<a href="https://github.com/NovapaX">@NovapaX</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10934">#10934</a>)</li>
+  <li>Dominos no order fix (<a href="https://github.com/wardcraigj">@wardcraigj</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10935">#10935</a>) (<a href="https://home-assistant.io/components/dominos/">dominos docs</a>)</li>
+</ul>
+<h2><a class="title-link" name="release-0592---december-6" href="#release-0592---december-6"></a> Release 0.59.2 - December 6</h2>
+<ul>
+  <li>Require FF43 for latest js (<a href="https://github.com/andrey-git">@andrey-git</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10941">#10941</a>)</li>
+  <li>Fix linksys_ap.py by inheriting DeviceScanner (<a href="https://github.com/mateuszdrab">@mateuszdrab</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10947">#10947</a>) (<a href="https://home-assistant.io/components/device_tracker.linksys_ap/">device_tracker.linksys_ap docs</a>)</li>
+  <li>Upgrade tellduslive library version (closes https://github.com/home-assistant/home-assistant/issues/10922) (<a href="https://github.com/molobrakos">@molobrakos</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10950">#10950</a>) (<a href="https://home-assistant.io/components/tellduslive/">tellduslive docs</a>)</li>
+  <li>Allow chime to work for wink siren/chime (<a href="https://github.com/w1ll1am23">@w1ll1am23</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10961">#10961</a>) (<a href="https://home-assistant.io/components/wink/">wink docs</a>)</li>
+  <li>Reload closest store on api menu request (<a href="https://github.com/wardcraigj">@wardcraigj</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10962">#10962</a>) (<a href="https://home-assistant.io/components/dominos/">dominos docs</a>)</li>
+  <li>Revert pychromecast update (<a href="https://github.com/balloob">@balloob</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10989">#10989</a>) (<a href="https://home-assistant.io/components/media_player.cast/">media_player.cast docs</a>)</li>
+</ul>
+<h2><a class="title-link" name="if-you-need-help" href="#if-you-need-help"></a> If you need help…</h2>
+<p>…don’t hesitate to use our very active <a href="https://community.home-assistant.io/">forums</a> or join us for a little <a href="https://discord.gg/c5DvZ4e">chat</a>. The release notes have comments enabled but it’s preferred if you use the former communication channels. Thanks.</p>
+<h2><a class="title-link" name="reporting-issues" href="#reporting-issues"></a> Reporting Issues</h2>
+<p>Experiencing issues introduced by this release? Please report them in our <a href="https://github.com/home-assistant/home-assistant/issues">issue tracker</a>. Make sure to fill in all fields of the issue template.</p>
+<a name="read-more"></a>
+<h2><a class="title-link" name="breaking-changes" href="#breaking-changes"></a> Breaking Changes</h2>
+<ul>
+  <li>Added cycles config option to LaMetric notifications (<a href="https://github.com/frittes">@frittes</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10656">#10656</a>) (<a href="https://home-assistant.io/components/notify.lametric/">notify.lametric docs</a>) (breaking change)</li>
+  <li>Fix name collision when using multiple Hue bridges (<a href="https://github.com/zBart">@zBart</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10486">#10486</a>) (<a href="https://home-assistant.io/components/light.hue/">light.hue docs</a>) (breaking change)</li>
+  <li>Single LEDs in Blinkt support (<a href="https://github.com/matemaciek">@matemaciek</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10581">#10581</a>) (<a href="https://home-assistant.io/components/light.blinkt/">light.blinkt docs</a>) (breaking change)</li>
+  <li>Tellduslive update with support for auto config and Local api (<a href="https://github.com/fredrike">@fredrike</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10435">#10435</a>) (<a href="https://home-assistant.io/components/tellduslive/">tellduslive docs</a>) (breaking change)</li>
+  <li>Add useragent-based detection of JS version (<a href="https://github.com/andrey-git">@andrey-git</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10776">#10776</a>) (breaking change)</li>
+</ul>
+<h2><a class="title-link" name="all-changes" href="#all-changes"></a> All changes</h2>
+<ul>
+  <li>Added unit_of_measurement to Currencylayer (<a href="https://github.com/arsaboo">@arsaboo</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10598">#10598</a>) (<a href="https://home-assistant.io/components/sensor.currencylayer/">sensor.currencylayer docs</a>)</li>
+  <li>Change generic thermostat - any toggle device as heater switch (<a href="https://github.com/milanvo">@milanvo</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10597">#10597</a>) (<a href="https://home-assistant.io/components/climate.generic_thermostat/">climate.generic_thermostat docs</a>)</li>
+  <li>Add hddtemp sensor device even if unreachable. (<a href="https://github.com/cgtobi">@cgtobi</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10623">#10623</a>) (<a href="https://home-assistant.io/components/sensor.hddtemp/">sensor.hddtemp docs</a>)</li>
+  <li>Restore target temperature for generic thermostat (<a href="https://github.com/tinloaf">@tinloaf</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10635">#10635</a>) (<a href="https://home-assistant.io/components/climate.generic_thermostat/">climate.generic_thermostat docs</a>)</li>
+  <li>Update lnetatmo (<a href="https://github.com/gieljnssns">@gieljnssns</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10631">#10631</a>) (<a href="https://home-assistant.io/components/netatmo/">netatmo docs</a>)</li>
+  <li>Support for Unifi direct access device tracker (No unifi controller software) (<a href="https://github.com/w1ll1am23">@w1ll1am23</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10097">#10097</a>) (<a href="https://home-assistant.io/components/device_tracker.unifi_direct/">device_tracker.unifi_direct docs</a>) (new-platform)</li>
+  <li>Add Facebook Notification tests (<a href="https://github.com/broox">@broox</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10642">#10642</a>)</li>
+  <li>Change some warnings to info (<a href="https://github.com/cgarwood">@cgarwood</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10386">#10386</a>) (<a href="https://home-assistant.io/components/emulated_hue/">emulated_hue docs</a>)</li>
+  <li>Added cycles config option to LaMetric notifications (<a href="https://github.com/frittes">@frittes</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10656">#10656</a>) (<a href="https://home-assistant.io/components/notify.lametric/">notify.lametric docs</a>) (breaking change)</li>
+  <li>Netatmo httperror403 fix (<a href="https://github.com/gieljnssns">@gieljnssns</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10659">#10659</a>) (<a href="https://home-assistant.io/components/netatmo/">netatmo docs</a>)</li>
+  <li>Bump dev to 0.59.0.dev0 (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10675">#10675</a>)</li>
+  <li>Include unit_of_measurement as InfluxDb field (<a href="https://github.com/PeteBa">@PeteBa</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9790">#9790</a>) (<a href="https://home-assistant.io/components/influxdb/">influxdb docs</a>)</li>
+  <li>Tahoma platform for Somfy Covers and Sensors (<a href="https://github.com/philklei">@philklei</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10652">#10652</a>) (<a href="https://home-assistant.io/components/tahoma/">tahoma docs</a>) (<a href="https://home-assistant.io/components/cover.tahoma/">cover.tahoma docs</a>) (<a href="https://home-assistant.io/components/sensor.tahoma/">sensor.tahoma docs</a>) (new-platform)</li>
+  <li>Populate measurement state field for HA states like home/not_home (<a href="https://github.com/PeteBa">@PeteBa</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9833">#9833</a>) (<a href="https://home-assistant.io/components/influxdb/">influxdb docs</a>)</li>
+  <li>Reorganize lint travis builds (<a href="https://github.com/balloob">@balloob</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10670">#10670</a>)</li>
+  <li>Refactored to new global json saving and loading (<a href="https://github.com/mnigbur">@mnigbur</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10677">#10677</a>)</li>
+  <li>Convert configurator to use markdown (<a href="https://github.com/balloob">@balloob</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10668">#10668</a>) (<a href="https://home-assistant.io/components/configurator/">configurator docs</a>) (<a href="https://home-assistant.io/components/light.hue/">light.hue docs</a>)</li>
+  <li>index.html improvements (<a href="https://github.com/balloob">@balloob</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10696">#10696</a>)</li>
+  <li>Add Arm Custom Bypass to alarm_control_panel (<a href="https://github.com/uchagani">@uchagani</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10697">#10697</a>) (<a href="https://home-assistant.io/components/alarm_control_panel/">alarm_control_panel docs</a>)</li>
+  <li>Fix conversation (<a href="https://github.com/balloob">@balloob</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10686">#10686</a>) (<a href="https://home-assistant.io/components/conversation/">conversation docs</a>)</li>
+  <li>Shopping list: add item HTTP API (<a href="https://github.com/balloob">@balloob</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10674">#10674</a>) (<a href="https://home-assistant.io/components/shopping_list/">shopping_list docs</a>)</li>
+  <li>Add presence device_class (<a href="https://github.com/arsaboo">@arsaboo</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10705">#10705</a>) (<a href="https://home-assistant.io/components/binary_sensor/">binary_sensor docs</a>)</li>
+  <li>python-miio version bumped for improved device support. (<a href="https://github.com/syssi">@syssi</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10720">#10720</a>) (<a href="https://home-assistant.io/components/fan.xiaomi_miio/">fan.xiaomi_miio docs</a>) (<a href="https://home-assistant.io/components/light.xiaomi_miio/">light.xiaomi_miio docs</a>) (<a href="https://home-assistant.io/components/switch.xiaomi_miio/">switch.xiaomi_miio docs</a>) (<a href="https://home-assistant.io/components/vacuum.xiaomi_miio/">vacuum.xiaomi_miio docs</a>)</li>
+  <li>Adding Queue count sensor (<a href="https://github.com/bigwoof">@bigwoof</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10723">#10723</a>) (<a href="https://home-assistant.io/components/sensor.sabnzbd/">sensor.sabnzbd docs</a>)</li>
+  <li>Bump pychromecast to 1.0.2 (<a href="https://github.com/OttoWinter">@OttoWinter</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10728">#10728</a>) (<a href="https://home-assistant.io/components/media_player.cast/">media_player.cast docs</a>)</li>
+  <li>Fix unit conversion for Sensibo A/C units (<a href="https://github.com/bryanyork">@bryanyork</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10692">#10692</a>) (<a href="https://home-assistant.io/components/climate.sensibo/">climate.sensibo docs</a>)</li>
+  <li>Optimised images. Saved 80 KB out of 656 KB. 12.3% overall (up to 32.1% per file) (<a href="https://github.com/grischard">@grischard</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10735">#10735</a>)</li>
+  <li>Add transmission rate (<a href="https://github.com/svenstaro">@svenstaro</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10740">#10740</a>) (<a href="https://home-assistant.io/components/sensor.fritzbox_netmonitor/">sensor.fritzbox_netmonitor docs</a>)</li>
+  <li>Update pytradfri to 4.1.0 (<a href="https://github.com/lwis">@lwis</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10521">#10521</a>) (<a href="https://home-assistant.io/components/tradfri/">tradfri docs</a>) (<a href="https://home-assistant.io/components/light.tradfri/">light.tradfri docs</a>)</li>
+  <li>Use new DoorBirdPy (v0.1.0) (<a href="https://github.com/Klikini">@Klikini</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10734">#10734</a>) (<a href="https://home-assistant.io/components/doorbird/">doorbird docs</a>)</li>
+  <li>Add fan and reduce I/O calls in radiotherm (<a href="https://github.com/TD22057">@TD22057</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10437">#10437</a>) (<a href="https://home-assistant.io/components/climate.radiotherm/">climate.radiotherm docs</a>)</li>
+  <li>New Hive Component / Platforms (<a href="https://github.com/Rendili">@Rendili</a> - <a href="https://github.com/home-assistant/home-assistant/pull/9804">#9804</a>) (<a href="https://home-assistant.io/components/hive/">hive docs</a>) (<a href="https://home-assistant.io/components/climate.hive/">climate.hive docs</a>) (<a href="https://home-assistant.io/components/light.hive/">light.hive docs</a>) (<a href="https://home-assistant.io/components/sensor.hive/">sensor.hive docs</a>) (<a href="https://home-assistant.io/components/switch.hive/">switch.hive docs</a>) (new-platform)</li>
+  <li>Temporarily fix yahoo weather API issue and add unit test. (<a href="https://github.com/cgtobi">@cgtobi</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10737">#10737</a>) (<a href="https://home-assistant.io/components/sensor.yweather/">sensor.yweather docs</a>)</li>
+  <li>Google assistant climate mode fix (<a href="https://github.com/braddparker">@braddparker</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10726">#10726</a>) (<a href="https://home-assistant.io/components/google_assistant.smart_home/">google_assistant.smart_home docs</a>)</li>
+  <li>Protect sensitive information for Amcrest cameras (<a href="https://github.com/tchellomello">@tchellomello</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10569">#10569</a>) (<a href="https://home-assistant.io/components/amcrest/">amcrest docs</a>) (<a href="https://home-assistant.io/components/camera.amcrest/">camera.amcrest docs</a>) (<a href="https://home-assistant.io/components/sensor.amcrest/">sensor.amcrest docs</a>)</li>
+  <li>InfluxDB send retry after IOError (<a href="https://github.com/janLo">@janLo</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10263">#10263</a>) (<a href="https://home-assistant.io/components/influxdb/">influxdb docs</a>)</li>
+  <li>Add Dominos Pizza platform (<a href="https://github.com/wardcraigj">@wardcraigj</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10379">#10379</a>) (<a href="https://home-assistant.io/components/dominos/">dominos docs</a>) (new-platform)</li>
+  <li>Fix name collision when using multiple Hue bridges (<a href="https://github.com/zBart">@zBart</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10486">#10486</a>) (<a href="https://home-assistant.io/components/light.hue/">light.hue docs</a>) (breaking change)</li>
+  <li>Make shell_command async (<a href="https://github.com/n8henrie">@n8henrie</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10741">#10741</a>) (<a href="https://home-assistant.io/components/shell_command/">shell_command docs</a>)</li>
+  <li>Update CODEOWNERS with hive Component / Platforms (<a href="https://github.com/Rendili">@Rendili</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10775">#10775</a>)</li>
+  <li>Bump total-connect-client version (<a href="https://github.com/uchagani">@uchagani</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10769">#10769</a>) (<a href="https://home-assistant.io/components/alarm_control_panel.totalconnect/">alarm_control_panel.totalconnect docs</a>)</li>
+  <li>Fix scene description formatting. (<a href="https://github.com/balloob">@balloob</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10785">#10785</a>)</li>
+  <li>Fixes #10773: Demo Alarm Broken (<a href="https://github.com/uchagani">@uchagani</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10777">#10777</a>) (<a href="https://home-assistant.io/components/alarm_control_panel.demo/">alarm_control_panel.demo docs</a>)</li>
+  <li>Load Ring camera only with Ring Protect plan activated (<a href="https://github.com/tchellomello">@tchellomello</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10739">#10739</a>) (<a href="https://home-assistant.io/components/ring/">ring docs</a>) (<a href="https://home-assistant.io/components/camera.ring/">camera.ring docs</a>)</li>
+  <li>system_log improvements (<a href="https://github.com/andrey-git">@andrey-git</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10709">#10709</a>) (<a href="https://home-assistant.io/components/system_log/">system_log docs</a>)</li>
+  <li>Fix WUnderground error handling, rework entity methods (<a href="https://github.com/milanvo">@milanvo</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10295">#10295</a>) (<a href="https://home-assistant.io/components/sensor.wunderground/">sensor.wunderground docs</a>)</li>
+  <li>Add away_mode_name to arlo alarm control panel (<a href="https://github.com/bcl1713">@bcl1713</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10796">#10796</a>) (<a href="https://home-assistant.io/components/alarm_control_panel.arlo/">alarm_control_panel.arlo docs</a>)</li>
+  <li>Add missing docstring (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10812">#10812</a>) (<a href="https://home-assistant.io/components/notify.pushbullet/">notify.pushbullet docs</a>)</li>
+  <li>Cloud cognito switch (<a href="https://github.com/balloob">@balloob</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10823">#10823</a>) (<a href="https://home-assistant.io/components/cloud/">cloud docs</a>) (<a href="https://home-assistant.io/components/cloud.auth_api/">cloud.auth_api docs</a>) (<a href="https://home-assistant.io/components/cloud.iot/">cloud.iot docs</a>)</li>
+  <li>Added sensor types from telldus server src (<a href="https://github.com/rasmusbe">@rasmusbe</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10787">#10787</a>) (<a href="https://home-assistant.io/components/sensor.tellduslive/">sensor.tellduslive docs</a>)</li>
+  <li>Add tts.baidu platform (<a href="https://github.com/zhujisheng">@zhujisheng</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10724">#10724</a>) (<a href="https://home-assistant.io/components/tts.baidu/">tts.baidu docs</a>) (new-platform)</li>
+  <li>make RGB values consistent as int. fixes #10766 (<a href="https://github.com/perosb">@perosb</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10782">#10782</a>)</li>
+  <li>Single LEDs in Blinkt support (<a href="https://github.com/matemaciek">@matemaciek</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10581">#10581</a>) (<a href="https://home-assistant.io/components/light.blinkt/">light.blinkt docs</a>) (breaking change)</li>
+  <li>Add debug (<a href="https://github.com/dgomes">@dgomes</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10828">#10828</a>) (<a href="https://home-assistant.io/components/sensor.serial/">sensor.serial docs</a>)</li>
+  <li>Fix “recently pair device” (<a href="https://github.com/stephenyeargin">@stephenyeargin</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10832">#10832</a>)</li>
+  <li>Fixed Yeelight’s color temperature conversion to RGB (<a href="https://github.com/chocomega">@chocomega</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10831">#10831</a>) (<a href="https://home-assistant.io/components/light.yeelight/">light.yeelight docs</a>)</li>
+  <li>Fix for Sensibo with missing temperature (<a href="https://github.com/andrey-git">@andrey-git</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10801">#10801</a>) (<a href="https://home-assistant.io/components/climate.sensibo/">climate.sensibo docs</a>)</li>
+  <li>upgrade somecomfort to 0.5.0 (<a href="https://github.com/dferrante">@dferrante</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10834">#10834</a>) (<a href="https://home-assistant.io/components/climate.honeywell/">climate.honeywell docs</a>)</li>
+  <li>Add support for logarithm in templates (<a href="https://github.com/odinuge">@odinuge</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10824">#10824</a>)</li>
+  <li>Changing handling for google_assistant groups to treat them as lights. (<a href="https://github.com/snowzach">@snowzach</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10111">#10111</a>)</li>
+  <li>Tellduslive update with support for auto config and Local api (<a href="https://github.com/fredrike">@fredrike</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10435">#10435</a>) (<a href="https://home-assistant.io/components/tellduslive/">tellduslive docs</a>) (breaking change)</li>
+  <li>KNX: Added config option for broadcasting current time to KNX bus. (<a href="https://github.com/Julius2342">@Julius2342</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10654">#10654</a>) (<a href="https://home-assistant.io/components/knx/">knx docs</a>)</li>
+  <li>Ecobee set humidity level (<a href="https://github.com/cbulock">@cbulock</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10780">#10780</a>) (<a href="https://home-assistant.io/components/ecobee/">ecobee docs</a>) (<a href="https://home-assistant.io/components/climate.ecobee/">climate.ecobee docs</a>)</li>
+  <li>Add device class for low battery (<a href="https://github.com/schmittx">@schmittx</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10829">#10829</a>) (<a href="https://home-assistant.io/components/binary_sensor/">binary_sensor docs</a>)</li>
+  <li>Tellduslive: Use magic constants for battery level. Also, the previous formula for battery level was wrong. (<a href="https://github.com/molobrakos">@molobrakos</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10788">#10788</a>) (<a href="https://home-assistant.io/components/tellduslive/">tellduslive docs</a>)</li>
+  <li>Add useragent-based detection of JS version (<a href="https://github.com/andrey-git">@andrey-git</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10776">#10776</a>) (breaking change)</li>
+  <li>add support for multiple execution per execute request (<a href="https://github.com/perosb">@perosb</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10844">#10844</a>) (<a href="https://home-assistant.io/components/google_assistant.http/">google_assistant.http docs</a>)</li>
+  <li>Upgrade HomeMatic, add devices (<a href="https://github.com/danielperna84">@danielperna84</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10845">#10845</a>) (<a href="https://home-assistant.io/components/homematic/">homematic docs</a>) (<a href="https://home-assistant.io/components/binary_sensor.homematic/">binary_sensor.homematic docs</a>) (<a href="https://home-assistant.io/components/sensor.homematic/">sensor.homematic docs</a>)</li>
+  <li>Climate component: add supported_features (<a href="https://github.com/tinloaf">@tinloaf</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10658">#10658</a>) (<a href="https://home-assistant.io/components/climate/">climate docs</a>) (<a href="https://home-assistant.io/components/climate.generic_thermostat/">climate.generic_thermostat docs</a>) (<a href="https://home-assistant.io/components/climate.mqtt/">climate.mqtt docs</a>)</li>
+  <li>Upgrade mutagen to 1.39 (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10851">#10851</a>) (<a href="https://home-assistant.io/components/tts/">tts docs</a>)</li>
+  <li>Updated codeowner for Tile device tracker (<a href="https://github.com/bachya">@bachya</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10861">#10861</a>)</li>
+  <li>Revert “KNX: Added config option for broadcasting current time to KNX bus. (#10654)” (<a href="https://github.com/Julius2342">@Julius2342</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10874">#10874</a>) (<a href="https://home-assistant.io/components/knx/">knx docs</a>)</li>
+  <li>Upgrade distro to 1.1.0 (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10850">#10850</a>) (<a href="https://home-assistant.io/components/updater/">updater docs</a>)</li>
+  <li>Bugfix trigger state with multible entities (<a href="https://github.com/pvizeli">@pvizeli</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10857">#10857</a>) (<a href="https://home-assistant.io/docs/automation/trigger/#state-trigger">automation.state docs</a>)</li>
+  <li>tellstick fix DEPENDENCIES and update tellcore-net (<a href="https://github.com/pvizeli">@pvizeli</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10859">#10859</a>) (<a href="https://home-assistant.io/components/tellstick/">tellstick docs</a>) (<a href="https://home-assistant.io/components/sensor.tellstick/">sensor.tellstick docs</a>)</li>
+  <li>Upgrade aiohttp to 2.3.5 (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10889">#10889</a>)</li>
+  <li>Upgrade fastdotcom to 0.0.3 (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10886">#10886</a>) (<a href="https://home-assistant.io/components/sensor.fastdotcom/">sensor.fastdotcom docs</a>)</li>
+  <li>Upgrade schiene to 0.19 (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10887">#10887</a>) (<a href="https://home-assistant.io/components/sensor.deutsche_bahn/">sensor.deutsche_bahn docs</a>)</li>
+  <li>Xiaomi Vacuum: remove deprecated calls (<a href="https://github.com/rytilahti">@rytilahti</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10839">#10839</a>) (<a href="https://home-assistant.io/components/vacuum.xiaomi_miio/">vacuum.xiaomi_miio docs</a>)</li>
+  <li>Create ecobee weather platform (<a href="https://github.com/PhracturedBlue">@PhracturedBlue</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10869">#10869</a>) (<a href="https://home-assistant.io/components/ecobee/">ecobee docs</a>) (<a href="https://home-assistant.io/components/weather.ecobee/">weather.ecobee docs</a>) (new-platform)</li>
+  <li>Microsoft Text-to-speech: Fixing missing en-gb support bug (<a href="https://github.com/jeroenterheerdt">@jeroenterheerdt</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10429">#10429</a>) (<a href="https://home-assistant.io/components/tts.microsoft/">tts.microsoft docs</a>)</li>
+  <li>Upgrade youtube_dl to 2017.11.26 (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10890">#10890</a>) (<a href="https://home-assistant.io/components/media_extractor/">media_extractor docs</a>)</li>
+  <li>Upgrade yarl to 0.15.0 (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10888">#10888</a>)</li>
+  <li>Fix tests (<a href="https://github.com/pvizeli">@pvizeli</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10891">#10891</a>)</li>
+  <li>Refactored WHOIS sensor to resolve assumed key errors (<a href="https://github.com/GenericStudent">@GenericStudent</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10662">#10662</a>) (<a href="https://home-assistant.io/components/sensor.whois/">sensor.whois docs</a>)</li>
+  <li>Serve latest extra_html in dev mode (<a href="https://github.com/andrey-git">@andrey-git</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10863">#10863</a>)</li>
+  <li>Reload groups after saving a change via config API (<a href="https://github.com/andrey-git">@andrey-git</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10877">#10877</a>) (<a href="https://home-assistant.io/components/config.group/">config.group docs</a>)</li>
+  <li>Fix issues from review of ecobee weather component (<a href="https://github.com/PhracturedBlue">@PhracturedBlue</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10903">#10903</a>) (<a href="https://home-assistant.io/components/weather.ecobee/">weather.ecobee docs</a>)</li>
+  <li>Bugfix #10902 (<a href="https://github.com/turbokongen">@turbokongen</a> - <a href="https://github.com/home-assistant/home-assistant/pull/10904">#10904</a>) (<a href="https://home-assistant.io/components/zwave/">zwave docs</a>)</li>
+</ul>
+</article>
+<div id='post-comments'></div>
+<div id='discourse-comments'></div>
+<script type="text/javascript">
+  DiscourseEmbed = { discourseUrl: 'https://community.home-assistant.io/',
+                     discourseEmbedUrl: 'https://home-assistant.io/blog/2017/12/03/release-59/' };
+  (function() {
+    var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+    d.src = DiscourseEmbed.discourseUrl + 'javascripts/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+  })();
+</script>
+        </div>
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <h1 class="title delta">About Home Assistant</h1>
+  <ul class="divided">
+    <li>
+      Home Assistant is an open-source home automation platform running on Python 3. Track and control all devices at home and automate control.
+    </li>
+    <li><a href='/getting-started/'>Get started with Home Assistant</a></li>
+    <li><a href='/demo/'>Try the online demo</a></li>
+    <li><a class="twitter-follow-button" href="https://twitter.com/Home_Assistant">Follow Home Assistant on Twitter</a></li>
+    <li><div class="fb-like" data-href="https://www.facebook.com/homeassistantio/" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="false"></div></li>
+  </ul>
+</section>
+<div id="fb-root"></div>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.async=true;js.src='//platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<script>(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id)){return;}js=d.createElement(s);js.id=id;js.async=true;js.src="//connect.facebook.net/en_US/all.js#appId=338291289691179&xfbml=1";fjs.parentNode.insertBefore(js,fjs);}(document,'script','facebook-jssdk'));</script>
+      <section class="sharing aside-module grid__item one-whole lap-one-half">
+  <h1 class="title delta">Share this post</h1>
+  <a href="//twitter.com/share"
+     class="twitter-share-button"
+     data-via="home_assistant"
+     data-related="home_assistant"
+     data-url="https://home-assistant.io/blog/2017/12/03/release-59/"
+     data-counturl="https://home-assistant.io/blog/2017/12/03/release-59/" >Tweet</a>
+    <div class="fb-share-button" style='top: -6px;'
+         data-href="https://home-assistant.io/blog/2017/12/03/release-59/"
+         data-layout="button_count">
+    </div>
+  <div class="g-plusone" data-size="standard"></div>
+</section>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+      <section id="recent-posts" class="aside-module grid__item one-whole lap-one-half">
+  <h1 class="title delta">Recent Posts</h1>
+  <ul class="divided">
+        <li class="post">
+          <a href="/blog/2018/03/09/release-65/">0.65: Rename entities, new filter sensor, UpCloud and Channels</a>
+        </li>
+        <li class="post">
+          <a href="/blog/2018/02/26/release-64/">0.64: Over 1000 integrations! New: HomeKit, BMW, August.</a>
+        </li>
+        <li class="post">
+          <a href="/blog/2018/02/19/cloud-update/">Cloud Update</a>
+        </li>
+        <li class="post">
+          <a href="/blog/2018/02/10/release-63/">0.63: Entity Registry, SQL Sensor, Mercedes cars</a>
+        </li>
+        <li class="post">
+          <a href="/blog/2018/02/09/disabling-disqus/">Disabling Disqus comments</a>
+        </li>
+  </ul>
+</section>
+</div>
+        </aside>
+      </div>
+    </div>
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a> (no support!).<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+  <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">home-assistant.io</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
+<script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
+<script type="text/javascript">
+docsearch({
+  apiKey: 'ae96d94b201c5444c8a443093edf3efb',
+  indexName: 'home-assistant',
+  inputSelector: '#search',
+  debug: false // Set debug to true if you want to inspect the dropdown
+});
+document.querySelector('.search .close').addEventListener('click', function(ev) {
+  ev.preventDefault();
+  document.querySelector('.search-container').style.display = 'none';
+});
+document.querySelector('.show-search').addEventListener('click', function(ev) {
+  ev.preventDefault();
+  document.querySelector('.search-container').style.display = 'block';
+  document.getElementById('toggle').checked = false;
+  document.querySelector('.search-container input').focus();
+});
+</script>
+  </body>
+</html>

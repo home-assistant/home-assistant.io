@@ -1,0 +1,302 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Plant monitor - Home Assistant</title>
+    <meta name="author" content="Home Assistant">
+    <meta name="description" content="Instructions on how to setup plant monitoring with Home Assistant.">
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/components/plant/">
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="Plant monitor">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/components/plant/">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="Instructions on how to setup plant monitoring with Home Assistant.">
+    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    <meta name="twitter:title" content="Plant monitor">
+    <meta name="twitter:description" content="Instructions on how to setup plant monitoring with Home Assistant.">
+    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
+    <link href="/stylesheets/screen.css" media="screen, projection, print" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+  <body >
+    <header class='site-header'>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/docs/">Docs</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+  <li><a href='#' class='show-search'><i class="icon-search"></i></a></li>
+</ul>
+  </nav>
+  <div class='search-container' style='display: none'>
+    <div class='search'>
+      <i class="icon-search"></i>
+      <input id='search' placeholder='Search the docs…'>
+      <a href='#' class='close'><i class="icon-remove-sign"></i></a>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+    </header>
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+          <article class="page">
+  <header>
+    <h1 class="title indent">
+      Plant monitor
+    </h1>
+  </header>
+  <hr class="divider">
+  <p>This<code class="highlighter-rouge">plant</code>component lets you merge moisture, conductivity, light intensity, temperature and battery level for a plant into a single UI element. It also supports setting minimum and maximum values for each measurement and will change its state to “problem” if it is not within those limits.</p>
+<p>To use your <code class="highlighter-rouge">plant</code> sensor in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">plant</span><span class="pi">:</span>
+  <span class="s">name_of_your_plant</span><span class="pi">:</span>
+    <span class="s">sensors</span><span class="pi">:</span>
+      <span class="s">moisture</span><span class="pi">:</span> <span class="s">sensor.my_sensor_moisture</span>
+      <span class="s">battery</span><span class="pi">:</span> <span class="s">sensor.my_sensor_battery</span>
+      <span class="s">temperature</span><span class="pi">:</span> <span class="s">sensor.my_sensor_temperature</span>
+      <span class="s">conductivity</span><span class="pi">:</span> <span class="s">sensor.my_sensor_conductivity</span>
+      <span class="s">brightness</span><span class="pi">:</span> <span class="s">sensor.my_sensor_brightness</span>
+    <span class="s">min_moisture</span><span class="pi">:</span> <span class="s">20</span>
+</code></pre>
+</div>
+<p>Configuration variables:</p>
+<ul>
+  <li><strong>entity_id</strong> (<em>Required</em>): Set by you and is used by the component as the <code class="highlighter-rouge">entity_id</code>.
+    <ul>
+      <li><strong>sensors</strong> (<em>Required</em>):
+        <ul>
+          <li><strong>moisture</strong> (<em>Optional</em>): Moisture of the plant. Measured in %. Can have a min and max value set optionally.</li>
+          <li><strong>battery</strong> (<em>Optional</em>): Battery level of the plant sensor. Measured in %. Can only have a min level set optionally.</li>
+          <li><strong>temperature:</strong> (<em>Optional</em>): Temperature of the plant. Measured in degrees Celsius. Can have a min and max value set optionally.</li>
+          <li><strong>conductivity:</strong> (<em>Optional</em>): Conductivity of the plant. Measured in µS/cm. Can have a min and max value set optionally.</li>
+          <li><strong>brightness:</strong> (<em>Optional</em>): Light exposure of the plant. Measured in Lux. Can have a min and max value set optionally.</li>
+        </ul>
+      </li>
+      <li><strong>min_moisture</strong> (<em>Optional</em>): Minimum moisture level before triggering a problem. Typical value: 20</li>
+      <li><strong>max_moisture</strong> (<em>Optional</em>): Maximum moisture level before triggering a problem. Typical value: 60</li>
+      <li><strong>min_battery</strong> (<em>Optional</em>): Minimum battery level before triggering a problem. Typical value: 20</li>
+      <li><strong>min_conductivity</strong> (<em>Optional</em>): Minimum conductivity level before triggering a problem. Typical value: 500</li>
+      <li><strong>max_conductivity</strong> (<em>Optional</em>): Maximum conductivity level before triggering a problem. Typical value: 3000</li>
+      <li><strong>min_temperature</strong> (<em>Optional</em>): Minimum temperature before triggering a problem.</li>
+      <li><strong>max_temperature</strong> (<em>Optional</em>): Maximum temperature before triggering a problem.</li>
+      <li><strong>min_brightness</strong> (<em>Optional</em>): Minimum brightness before triggering a problem. In contrast to the other values, this check is <em>not</em> looking at the current situation, but rather at the last days. A problem is only reported if the maximum brightness over the last days was lower than min_brightness. You can use this to check if the plant gets enough light during the course of the day.</li>
+      <li><strong>max_brightness</strong> (<em>Optional</em>): Maximum brightness before triggering a problem.</li>
+      <li><strong>check_days</strong> (<em>Optional</em>): time interval (in days) used when checking <strong>min_brightness</strong>, if not set, the default value is 3</li>
+    </ul>
+  </li>
+</ul>
+<h2><a class="title-link" name="examples" href="#examples"></a> Examples</h2>
+<h3>Using plain MQTT sensor to get the data</h3>
+<p>This is a practical example that uses a multiple of <code class="highlighter-rouge">MQTT sensors</code> to supply the readings used by the <code class="highlighter-rouge">plant</code> sensor.
+Another good source of this data would be the <a href="/components/sensor.miflora/">Mi Flora</a> component.</p>
+<p>If the sensor data is within the min/max values the status will be <code class="highlighter-rouge">ok</code>, if not the status will be <code class="highlighter-rouge">problem</code>. You can use this to trigger a notification, if there is a problem with your plant. Of course you can only monitor attributes of your plant, where the sensor is configured and is providing the data.</p>
+<h2>Data Source</h2>
+<p>The main sources of the data will usually be a <a href="/components/sensor.miflora/">MiFlora sensor</a> or a <a href="/components/sensor.miflora/">MQTT sensor</a> receiving the data from a <a href="https://github.com/ChristianKuehnel/plantgateway">PlantGateway</a>.</p>
+<p>If you want to get the date via a PlantGateway, this is a typical configuration for the MQTT sensors:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">plant</span><span class="pi">:</span>
+  <span class="s">simulated_plant</span><span class="pi">:</span>
+    <span class="s">sensors</span><span class="pi">:</span>
+      <span class="s">moisture</span><span class="pi">:</span> <span class="s">sensor.mqtt_plant_moisture</span>
+      <span class="s">battery</span><span class="pi">:</span> <span class="s">sensor.mqtt_plant_battery</span>
+      <span class="s">temperature</span><span class="pi">:</span> <span class="s">sensor.mqtt_plant_temperature</span>
+      <span class="s">conductivity</span><span class="pi">:</span> <span class="s">sensor.mqtt_plant_conductivity</span>
+      <span class="s">brightness</span><span class="pi">:</span> <span class="s">sensor.mqtt_plant_brightness</span>
+    <span class="s">min_moisture</span><span class="pi">:</span> <span class="s">20</span>
+    <span class="s">max_moisture</span><span class="pi">:</span> <span class="s">60</span>
+    <span class="s">min_battery</span><span class="pi">:</span> <span class="s">17</span>
+    <span class="s">min_conductivity</span><span class="pi">:</span> <span class="s">500</span>
+    <span class="s">min_temperature</span><span class="pi">:</span> <span class="s">15</span>
+    
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">my_plant_moisture</span>
+    <span class="s">state_topic</span><span class="pi">:</span> <span class="s">my_plant_topic</span>
+    <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">value_json.moisture</span><span class="nv"> </span><span class="s">}}'</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">my_plant_battery</span>
+    <span class="s">state_topic</span><span class="pi">:</span> <span class="s">my_plant_topic</span>
+    <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">value_json.battery</span><span class="nv"> </span><span class="s">}}'</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">my_plant_temperature</span>
+    <span class="s">state_topic</span><span class="pi">:</span> <span class="s">my_plant_topic</span>
+    <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">value_json.temperature</span><span class="nv"> </span><span class="s">}}'</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">my_plant_conductivity</span>
+    <span class="s">state_topic</span><span class="pi">:</span> <span class="s">my_plant_topic</span>
+    <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">value_json.conductivity</span><span class="nv"> </span><span class="s">}}'</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">my_plant_brightness</span>
+    <span class="s">state_topic</span><span class="pi">:</span> <span class="s">my_plant_topic</span>
+    <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">value_json.brightness</span><span class="nv"> </span><span class="s">}}'</span>
+</code></pre>
+</div>
+<p>You have to replace the <code class="highlighter-rouge">state_topic</code> with the value that you configured in the PlantGateway. It also depends on the global configuration of your MQTT server.</p>
+</article>
+        </div>
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/plant.markdown'>Edit this page on GitHub</a></div>
+  <div class='brand-logo-container section'>
+      <img src='/images/supported_brands/home-assistant.png' />
+  </div>
+    <div class='section'>
+      Introduced in release: 0.44
+    </div>
+    <div class='section'>
+    <h1 class="title delta">Category Other</h1>
+    <ul class='divided'>
+        <li>
+            <a href='/components/api/'>API</a>
+        </li>
+        <li>
+            <a href='/components/asterisk_mbox/'>Asterisk Voicemail</a>
+        </li>
+        <li>
+            <a href='/components/configurator/'>Configurator</a>
+        </li>
+        <li>
+            <a href='/components/demo/'>Demo platforms</a>
+        </li>
+        <li>
+            <a href='/components/discovery/'>Discovery</a>
+        </li>
+        <li>
+            <a href='/components/dominos/'>Dominos Pizza</a>
+        </li>
+        <li>
+            <a href='/components/feedreader/'>Feedreader</a>
+        </li>
+        <li>
+            <a href='/components/frontend/'>Frontend</a>
+        </li>
+        <li>
+            <a href='/components/goalfeed/'>Goalfeed</a>
+        </li>
+        <li>
+            <a href='/components/http/'>HTTP</a>
+        </li>
+        <li>
+            <a href='/components/introduction/'>Introduction</a>
+        </li>
+        <li>
+            <a href='/components/keyboard_remote/'>Keyboard Remote</a>
+        </li>
+        <li>
+            <a href='/components/mqtt_eventstream/'>MQTT Eventstream</a>
+        </li>
+        <li>
+            <a href='/components/mqtt_statestream/'>MQTT Statestream</a>
+        </li>
+        <li>
+            <a href='/components/map/'>Map</a>
+        </li>
+        <li>
+            <a href='/components/persistent_notification/'>Persistent notification</a>
+        </li>
+        <li>
+            Plant monitor
+        </li>
+        <li>
+            <a href='/components/system_log/'>System Log</a>
+        </li>
+        <li>
+            <a href='/components/sensor.upnp/'>UPNP Sensor</a>
+        </li>
+        <li>
+            <a href='/components/upnp/'>UPnP</a>
+        </li>
+        <li>
+            <a href='/components/updater/'>Updater</a>
+        </li>
+        <li>
+            <a href='/components/websocket_api/'>Websocket API</a>
+        </li>
+        <li>
+            <a href='/components/zeroconf/'>Zeroconf/Avahi/Bonjour</a>
+        </li>
+    </ul>
+    </div>
+</section>
+</div>
+        </aside>
+      </div>
+    </div>
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a> (no support!).<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+  <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">home-assistant.io</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
+<script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
+<script type="text/javascript">
+docsearch({
+  apiKey: 'ae96d94b201c5444c8a443093edf3efb',
+  indexName: 'home-assistant',
+  inputSelector: '#search',
+  debug: false // Set debug to true if you want to inspect the dropdown
+});
+document.querySelector('.search .close').addEventListener('click', function(ev) {
+  ev.preventDefault();
+  document.querySelector('.search-container').style.display = 'none';
+});
+document.querySelector('.show-search').addEventListener('click', function(ev) {
+  ev.preventDefault();
+  document.querySelector('.search-container').style.display = 'block';
+  document.getElementById('toggle').checked = false;
+  document.querySelector('.search-container input').focus();
+});
+</script>
+  </body>
+</html>

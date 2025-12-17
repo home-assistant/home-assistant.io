@@ -1,0 +1,383 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Create a new page - Home Assistant</title>
+    <meta name="author" content="Home Assistant">
+    <meta name="description" content="Create a new page for the documentation">
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/developers/documentation/create_page/">
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="Create a new page">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/developers/documentation/create_page/">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="Create a new page for the documentation">
+    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    <meta name="twitter:title" content="Create a new page">
+    <meta name="twitter:description" content="Create a new page for the documentation">
+    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
+    <link href="/stylesheets/screen.css" media="screen, projection, print" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+  <body >
+    <header class='site-header'>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/docs/">Docs</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+  <li><a href='#' class='show-search'><i class="icon-search"></i></a></li>
+</ul>
+  </nav>
+  <div class='search-container' style='display: none'>
+    <div class='search'>
+      <i class="icon-search"></i>
+      <input id='search' placeholder='Search the docs…'>
+      <a href='#' class='close'><i class="icon-remove-sign"></i></a>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+    </header>
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+          <article class="page">
+  <header>
+    <h1 class="title indent">
+      Create a new page
+    </h1>
+  </header>
+  <hr class="divider">
+  <p>For a platform or component page, the fastest way is to make a copy of an existing page and edit it. The <a href="/components/">Component overview</a> and the <a href="/cookbook/">Examples section</a> are generated automatically, so there is no need to add a link to those pages.</p>
+<p>Please honor the <a href="/developers/documentation/standards/">Standards</a> we have for the documentation.</p>
+<p>If you start from scratch with a page, you need to add a header. Different sections of the documentation may need different headers.</p>
+<div class="language-text highlighter-rouge"><pre class="highlight"><code>---
+layout: page
+title: "Awesome Sensor"
+description: "home-assistant.io web presence"
+date: 2015-06-17 08:00
+sidebar: true
+comments: false
+sharing: true
+footer: true
+ha_release: "0.38"
+ha_category: Sensor
+---
+
+Content...Written in markdown. 
+
+### {% linkable_title Linkable Header %}
+...
+</code></pre>
+</div>
+<p>There are <a href="https://jekyllrb.com/docs/variables/">pre-definied variables</a> available but usually, it’s not necessary to use them when writing documentation.</p>
+<p>A couple of points to remember:</p>
+<ul>
+  <li>Document the needed steps to retrieve API keys or access token for the third party service or device if needed.</li>
+  <li>If you’re adding a new component, for the <code class="highlighter-rouge">ha_release</code> part of the header, just increment of the current release. If the current release is 0.37, make <code class="highlighter-rouge">ha_release</code> 0.38. If it’s 0.30 or 0.40 please quote it with <code class="highlighter-rouge">" "</code>.</li>
+  <li><code class="highlighter-rouge">ha_category:</code> is needed to list the platform or component in the appropriate category on the website.</li>
+</ul>
+<h3><a class="title-link" name="configuration" href="#configuration"></a> Configuration</h3>
+<p>Every platform page should contain a configuration sample. This sample must contain only the <strong>required</strong> variables to make it easy to copy and paste it for users into their <code class="highlighter-rouge">configuration.yaml</code> file.</p>
+<p>The <strong>Configuration Variables</strong> section must use the <code class="highlighter-rouge"><span class="p">{</span><span class="err">%</span><span class="w"> </span><span class="err">configuration</span><span class="w"> </span><span class="err">%</span><span class="p">}</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">{</span><span class="err">%</span><span class="w"> </span><span class="err">endconfiguration</span><span class="w"> </span><span class="err">%</span><span class="p">}</span></code> tag.</p>
+<div class="language-text highlighter-rouge"><pre class="highlight"><code>{% configuration %}
+api_key:
+  description: The API key to access the service.
+  required: true
+  type: string
+name:
+  description: Name to use in the frontend.
+  required: false
+  default: The default name to use in the frontend.
+  type: string
+monitored_conditions:
+  description: Conditions to display in the frontend.
+  required: true
+  type: list
+  keys:
+    weather:
+      description: A human-readable text summary.
+    temperature:
+      description: The current temperature.
+{% endconfiguration %}
+
+</code></pre>
+</div>
+<p>Available keys:</p>
+<ul>
+  <li><strong><code class="highlighter-rouge">description:</code></strong>: That the variable is about.</li>
+  <li><strong><code class="highlighter-rouge">required:</code></strong>: If the variable is required.
+    <div class="language-text highlighter-rouge"><pre class="highlight"><code>required: true            #=&gt; Required
+required: false           #=&gt; Optional
+required: inclusive       #=&gt; Inclusive
+required: exclusive       #=&gt; Exclusive
+required: any string here #=&gt; Any string here
+</code></pre>
+    </div>
+  </li>
+  <li><strong><code class="highlighter-rouge">type:</code></strong>: The type of the variable. Allowed entries: <code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">time</code>, <code class="highlighter-rouge">template</code> or <code class="highlighter-rouge">map</code>. For multiple possibilities use <code class="highlighter-rouge">[string, int]</code>. If you use <code class="highlighter-rouge">map</code> then you need to define <code class="highlighter-rouge">keys:</code> (see the <a href="/components/sensor.template/"><code class="highlighter-rouge">template</code> sensor</a> for an example).</li>
+  <li><strong><code class="highlighter-rouge">default:</code></strong>: The default value for the variable.</li>
+</ul>
+<h3><a class="title-link" name="embedding-code" href="#embedding-code"></a> Embedding Code</h3>
+<p>You can use the <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#code">default markdown syntax</a> to generate syntax highlighted code. For inline code wrap your code in `.</p>
+<p>When you’re writing code that is to be executed on the terminal, prefix it with <code class="highlighter-rouge">$</code>.</p>
+<h3><a class="title-link" name="templates" href="#templates"></a> Templates</h3>
+<p>For the <a href="/topics/templating/">configuration templating</a> is <a href="http://jinja.pocoo.org/">Jinja</a> used. Check the <a href="/developers/documentation/standards/">Documentation Standards</a> for further details.</p>
+<p>If you are don’t escape templates then they will be rendered and appear blank on the website.</p>
+<h3><a class="title-link" name="html" href="#html"></a> HTML</h3>
+<p>The direct usage of HTML is supported but not recommended. The note boxes are an exception.</p>
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">'note warning'</span><span class="nt">&gt;</span>
+  You need to enable telnet on your router. 
+<span class="nt">&lt;/p&gt;</span>
+</code></pre>
+</div>
+<h3><a class="title-link" name="images-icons-and-logos" href="#images-icons-and-logos"></a> Images, icons, and logos</h3>
+<p>The images which are displayed on the pages are stored in various directories according to their purpose. If you want to use a logo and placed <code class="highlighter-rouge">logo:</code> in the file header then this image should be stored in <code class="highlighter-rouge">source/images/supported_brands</code>. The background must be transparent.</p>
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Location</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">logos</td>
+      <td style="text-align: left">source/images/supported_brands</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">blog</td>
+      <td style="text-align: left">source/images/blog</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">screenshots</td>
+      <td style="text-align: left">source/images/components</td>
+    </tr>
+  </tbody>
+</table>
+<p>Not everything (product, component, etc.) should have a logo. To show something for internal parts of Home Assistant we are using the <a href="https://materialdesignicons.com/">Material Design Icons</a>.</p>
+<h3><a class="title-link" name="linking-from-the-sidebar" href="#linking-from-the-sidebar"></a> Linking From The Sidebar</h3>
+<p>If you are adding a new page that requires linking from the sidebar you need to edit the <code class="highlighter-rouge">docs_navigation.html</code> file in <code class="highlighter-rouge">home-assistant.github.io/source/_includes/asides/docs_navigation.html</code>.</p>
+</article>
+        </div>
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/developers/documentation/create_page.markdown'>Edit this page on GitHub</a></div>
+  <div class='section'>
+    <h1 class="title delta">Development Guide</h1>
+    <ul class='divided sidebar-menu'>
+      <li>
+        <a  href='/developers/'>Introduction </a>
+        <ul>
+          <li><a  href='/developers/architecture/'>Architecture </a></li>
+          <li><a  href='/developers/architecture_components/'>Components </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/developers/development/'>Starting with Development </a>
+        <ul>
+          <li><a  href='/developers/development_environment/'>Setting up Environment </a></li>
+          <li><a  href='/developers/development_submitting/'>Submit your Work </a></li>
+          <li><a  href='/developers/development_checklist/'>Checklist </a></li>
+          <li><a  href='/developers/development_guidelines/'>Style guidelines </a></li>
+          <li><a  href='/developers/development_testing/'>Testing </a></li>
+          <li><a  href='/developers/development_catching_up/'>Catching up with Reality </a></li>
+          <li><a  href='/developers/development_validation/'>Validation </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/developers/development_101/'>Development 101 </a>
+        <ul>
+          <li><a  href='/developers/development_hass_object/'>Hass object </a></li>
+          <li><a  href='/developers/development_events/'>Events </a></li>
+          <li><a  href='/developers/development_states/'>States </a></li>
+          <li><a  href='/developers/development_services/'>Services </a></li>
+          <li><a  href='/developers/development_config/'>Config </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/developers/add_new_platform/'>Creating a new platform (to support a new device) </a>
+        <ul>
+          <li><a  href='/developers/code_review_platform/'>Checklist creating a platform </a></li>
+          <li><a  href='/developers/platform_example_sensor/'>Example sensor platform  </a></li>
+          <li><a  href='/developers/platform_example_light/'>Example light platform </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/developers/creating_components/'>Adding a new component </a>
+        <ul>
+          <li><a  href='/developers/code_review_component/'>Checklist creating a component </a></li>
+          <li><a  href='/developers/component_loading/'>Loading components </a></li>
+          <li><a  href='/developers/component_deps_and_reqs/'>Requirements & Dependencies </a></li>
+          <li><a  href='/developers/component_events/'>Handling events </a></li>
+          <li><a  href='/developers/component_states/'>States </a></li>
+          <li><a  href='/developers/component_visibility/'>Visibility </a></li>
+          <li><a  href='/developers/component_generic_discovery/'>Loading Platforms </a></li>
+          <li><a  href='/developers/component_discovery/'>Component Discovery </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/developers/intent/'>Intents (handling voice responses) </a>
+        <ul>
+          <li><a  href='/developers/intent/firing/'>Firing intents </a></li>
+          <li><a  href='/developers/intent/handling/'>Handling intents </a></li>
+          <li><a  href='/developers/intent/conversation/'>Registering sentences </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/developers/asyncio/'>Asynchronous Programming </a>
+        <ul>
+          <li><a  href='/developers/asyncio_101/'>Introduction to asyncio </a></li>
+          <li><a  href='/developers/asyncio_categorizing_functions/'>Categorizing Functions </a></li>
+          <li><a  href='/developers/asyncio_working_with_async/'>Working with Async </a></li>
+          <li><a  href='/developers/asyncio_misc/'>Miscellaneous </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/developers/frontend/'>Frontend Development </a>
+        <ul>
+          <li><a  href='/developers/frontend_add_card/'>Add State Card </a></li>
+          <li><a  href='/developers/frontend_add_more_info/'>Add More Info Dialog </a></li>
+          <li><a  href='/developers/frontend_creating_custom_panels/'>Add Custom Panels </a></li>
+          <li><a  href='/developers/frontend_creating_custom_ui/'>Add Custom UI </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/developers/internationalization/'>Internationalization </a>
+        <ul>
+          <li><a  href='/developers/internationalization/backend_localization/'>Backend Localization </a></li>
+          <li><a  href='/developers/internationalization/custom_component_localization/'>Custom Component Localization </a></li>
+          <li><a  href='/developers/internationalization/translation/'>Translation </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/developers/hassio/architecture/'>Hass.io architecture </a>
+        <ul>
+          <li><a  href='/developers/hassio/debugging/'>Debugging Hass.io </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/developers/hassio/addon_development/'>Hass.io Add-on Development </a>
+        <ul>
+          <li><a  href='/developers/hassio/addon_tutorial/'>Tutorial: Making your first add-on </a></li>
+          <li><a  href='/developers/hassio/addon_config/'>Configuration </a></li>
+          <li><a  href='/developers/hassio/addon_communication/'>Communication </a></li>
+          <li><a  href='/developers/hassio/addon_testing/'>Local Testing </a></li>
+          <li><a  href='/developers/hassio/addon_publishing/'>Publishing </a></li>
+          <li><a  href='/developers/hassio/addon_presentation/'>Presentation </a></li>
+          <li><a  href='/developers/hassio/addon_repository/'>Repositories </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/developers/api/'>API </a>
+        <ul>
+          <li><a  href='https://dev-docs.home-assistant.io/en/dev/'>Python API </a></li>
+          <li><a  href='/developers/websocket_api/'>Websocket API </a></li>
+          <li><a  href='/developers/rest_api/'>REST API </a></li>
+          <li><a  href='/developers/python_api/'>Python REST API </a></li>
+          <li><a  href='/developers/server_sent_events/'>Server-sent events </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/developers/documentation/'>Website/Documentation </a>
+        <ul>
+          <li><a  href='/developers/documentation/standards/'>Standards </a></li>
+          <li><a class='active' href='/developers/documentation/create_page/'>Create a new page </a></li>
+        </ul>
+      </li>
+      <li><a  href='/developers/helpers/'>Online helpers </a></li>
+      <li><a  href='/developers/releasing/'>Releasing </a></li>
+      <li><a  href='/developers/maintenance/'>Maintenance </a></li>
+      <li>
+        Governance
+        <ul>
+          <li><a  href='/developers/cla/'>Contributor License Agreement </a></li>
+          <li><a  href='/privacy/'>Privacy Policy </a></li>
+          <li><a  href='/tos/'>Terms of Service </a></li>
+          <li><a  href='/code_of_conduct/'>Code of Conduct </a></li>
+          <li><a  href='/developers/credits/'>Credits </a></li>
+          <li><a  href='/developers/license/'>License </a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</section>
+</div>
+        </aside>
+      </div>
+    </div>
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a> (no support!).<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+  <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">home-assistant.io</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
+<script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
+<script type="text/javascript">
+docsearch({
+  apiKey: 'ae96d94b201c5444c8a443093edf3efb',
+  indexName: 'home-assistant',
+  inputSelector: '#search',
+  debug: false // Set debug to true if you want to inspect the dropdown
+});
+document.querySelector('.search .close').addEventListener('click', function(ev) {
+  ev.preventDefault();
+  document.querySelector('.search-container').style.display = 'none';
+});
+document.querySelector('.show-search').addEventListener('click', function(ev) {
+  ev.preventDefault();
+  document.querySelector('.search-container').style.display = 'block';
+  document.getElementById('toggle').checked = false;
+  document.querySelector('.search-container input').focus();
+});
+</script>
+  </body>
+</html>

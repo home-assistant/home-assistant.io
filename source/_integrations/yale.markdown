@@ -27,7 +27,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The **Yale** integration allows you to integrate your [Yale](https://www.assaabloy.com/vn/en/solutions/products/yale) devices in Home Assistant.
+The **Yale** {% term integration %} allows you to integrate your [Yale](https://www.assaabloy.com/vn/en/solutions/products/yale) devices in Home Assistant.
 
 The login credentials used to authenticate the integration are the same as the ones used in the Yale Home app.
 

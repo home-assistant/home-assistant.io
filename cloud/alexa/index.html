@@ -1,0 +1,257 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Alexa via Home Assistant Cloud - Home Assistant</title>
+    <meta name="author" content="Home Assistant">
+    <meta name="description" content="Enable the Alexa integration via Home Assistant Cloud integration.">
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/cloud/alexa/">
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="Alexa via Home Assistant Cloud">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/cloud/alexa/">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="Enable the Alexa integration via Home Assistant Cloud integration.">
+    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    <meta name="twitter:title" content="Alexa via Home Assistant Cloud">
+    <meta name="twitter:description" content="Enable the Alexa integration via Home Assistant Cloud integration.">
+    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
+    <link href="/stylesheets/screen.css" media="screen, projection, print" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+  <body >
+    <header class='site-header'>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/docs/">Docs</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+  <li><a href='#' class='show-search'><i class="icon-search"></i></a></li>
+</ul>
+  </nav>
+  <div class='search-container' style='display: none'>
+    <div class='search'>
+      <i class="icon-search"></i>
+      <input id='search' placeholder='Search the docs…'>
+      <a href='#' class='close'><i class="icon-remove-sign"></i></a>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+    </header>
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+          <article class="page">
+    <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/cloud/alexa.markdown'>Edit this page on GitHub</a></div>
+  <header>
+    <h1 class="title indent">
+      Alexa via Home Assistant Cloud
+    </h1>
+  </header>
+  <hr class="divider">
+  <p>The Alexa integration allows users to control the entities via the <a href="https://alexa.amazon.com/spa/index.html#skills/dp/B0772J1QKB/?ref=skill_dsk_skb_sr_2">Home Assistant Smart Home skill for Alexa</a>. This means that you can say things like “Alexa, turn on the kitchen light” to control your local Home Assistant.</p>
+<p>To use this integration, you need to have:</p>
+<ul>
+  <li>The cloud component set up. <a href="/components/cloud/">Learn more</a></li>
+  <li>An Alexa enabled device like the Amazon Echo</li>
+  <li>Activated the <a href="https://alexa.amazon.com/spa/index.html#skills/dp/B0772J1QKB/?ref=skill_dsk_skb_sr_2">Home Assistant Smart Home skill for Alexa</a></li>
+</ul>
+<p>You can use <code class="highlighter-rouge">configuration.yaml</code> to configure the entities that are being shown to Alexa and how they are exposed.</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry configuring Alexa</span>
+<span class="s">cloud</span><span class="pi">:</span>
+  <span class="s">alexa</span><span class="pi">:</span>
+    <span class="s">filter</span><span class="pi">:</span>
+      <span class="s">include_entities</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="s">light.kitchen</span>
+        <span class="pi">-</span> <span class="s">light.kitchen_left</span>
+      <span class="s">include_domains</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="s">switch</span>
+      <span class="s">exclude_entities</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="s">switch.outside</span>
+    <span class="s">entity_config</span><span class="pi">:</span>
+      <span class="s">light.kitchen</span><span class="pi">:</span>
+        <span class="s">name</span><span class="pi">:</span> <span class="s">Custom Name for Alexa</span>
+        <span class="s">description</span><span class="pi">:</span> <span class="s">The light in the kitchen</span>
+      <span class="s">switch.stairs</span><span class="pi">:</span>
+        <span class="s">display_categories</span><span class="pi">:</span> <span class="s">LIGHT</span>
+</code></pre>
+</div>
+<div class="config-vars">
+  <h3><a class="title-link" name="configuration-variables" href="#configuration-variables"></a> Configuration Variables</h3>
+  <dl class="">
+    <dt><a class="title-link" name="alexa" href="#alexa"></a> alexa</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="map">map</span>)</span><span class="required">(Optional)</span><span class="description">Configuration options for the Amazon Alexa integration.</span></p>
+    </dd>
+    <dd>
+      <dl class="nested">
+        <dt><a class="title-link" name="filter" href="#filter"></a> filter</dt>
+        <dd>
+          <p class="desc"><span class="type">(<span class="map">map</span>)</span><span class="required">(Optional)</span><span class="description">Filters for entities to include/exclude from Alexa.</span></p>
+        </dd>
+        <dd>
+          <dl class="nested">
+            <dt><a class="title-link" name="include_entities" href="#include_entities"></a> include_entities</dt>
+            <dd>
+              <p class="desc"><span class="type">(<span class="list">list</span>)</span><span class="required">(Optional)</span><span class="description">Entity IDs to include.</span></p>
+            </dd>
+            <dt><a class="title-link" name="include_domains" href="#include_domains"></a> include_domains</dt>
+            <dd>
+              <p class="desc"><span class="type">(<span class="list">list</span>)</span><span class="required">(Optional)</span><span class="description">Domains to include.</span></p>
+            </dd>
+            <dt><a class="title-link" name="exclude_entities" href="#exclude_entities"></a> exclude_entities</dt>
+            <dd>
+              <p class="desc"><span class="type">(<span class="list">list</span>)</span><span class="required">(Optional)</span><span class="description">Entity IDs to exclude.</span></p>
+            </dd>
+            <dt><a class="title-link" name="exclude_domains" href="#exclude_domains"></a> exclude_domains</dt>
+            <dd>
+              <p class="desc"><span class="type">(<span class="list">list</span>)</span><span class="required">(Optional)</span><span class="description">Domains to exclude.</span></p>
+            </dd>
+          </dl>
+        </dd>
+        <dt><a class="title-link" name="entity_config" href="#entity_config"></a> entity_config</dt>
+        <dd>
+          <p class="desc"><span class="type">(<span class="map">map</span>)</span><span class="required">(Optional)</span><span class="description">Entity specific configuration for Alexa</span></p>
+        </dd>
+        <dd>
+          <dl class="nested">
+            <dt><a class="title-link" name="entity_id" href="#entity_id"></a> <code class="highlighter-rouge">&lt;ENTITY_ID&gt;</code></dt>
+            <dd>
+              <p class="desc"><span class="type">(<span class="map">map</span>)</span><span class="required">(Optional)</span><span class="description">Entity to configure</span></p>
+            </dd>
+            <dd>
+              <dl class="nested">
+                <dt><a class="title-link" name="name" href="#name"></a> name</dt>
+                <dd>
+                  <p class="desc"><span class="type">(<span class="string">string</span>)</span><span class="required">(Optional)</span><span class="description">Name of entity to show in Alexa</span></p>
+                </dd>
+                <dt><a class="title-link" name="description" href="#description"></a> description</dt>
+                <dd>
+                  <p class="desc"><span class="type">(<span class="string">string</span>)</span><span class="required">(Optional)</span><span class="description">Description of entity to show in Alexa</span></p>
+                </dd>
+                <dt><a class="title-link" name="display_categories" href="#display_categories"></a> display_categories</dt>
+                <dd>
+                  <p class="desc"><span class="type">(<span class="string">string</span>)</span><span class="required">(Optional)</span><span class="description">The display category to use in Alexa. <a href="https://developer.amazon.com/docs/device-apis/alexa-discovery.html#display-categories">Available categories</a></span></p>
+                </dd>
+              </dl>
+            </dd>
+          </dl>
+        </dd>
+      </dl>
+    </dd>
+  </dl>
+</div>
+<h3><a class="title-link" name="possible-values-for-customizing" href="#possible-values-for-customizing"></a> Possible values for customizing</h3>
+<p><em>Configuration via <code class="highlighter-rouge">customize:</code> is no longer available. Use the entity config as described above.</em></p>
+<h3><a class="title-link" name="available-domains" href="#available-domains"></a> Available domains</h3>
+<p>Currently, the following domains are available to be used with Alexa:</p>
+<ul>
+  <li>alert</li>
+  <li>automation (enables/disables)</li>
+  <li>cover</li>
+  <li>fan (supports on/off and set speed)</li>
+  <li>group</li>
+  <li>input_boolean</li>
+  <li>light</li>
+  <li>lock (lock and unlock, but unlock is untested as Amazon has disabled unlock for now)</li>
+  <li>media_player (play, pause, stop, set volume, adjust volume, next track, and previous track)</li>
+  <li>scene</li>
+  <li>script (enables/disables)</li>
+  <li>switch</li>
+</ul>
+</article>
+        </div>
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <h1 class="title delta">About Home Assistant</h1>
+  <ul class="divided">
+    <li>
+      The Home Assistant Cloud is a cloud-based service provided to supporters of the Home Assistant project.
+    </li>
+    <li>
+      <a  href='/cloud/'>Introduction </a>
+    </li>
+    <li>
+      <a  href='/cloud/'>Amazon Alexa </a>
+    </li>
+  </ul>
+</div>
+</div>
+        </aside>
+      </div>
+    </div>
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a> (no support!).<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+  <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">home-assistant.io</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
+<script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
+<script type="text/javascript">
+docsearch({
+  apiKey: 'ae96d94b201c5444c8a443093edf3efb',
+  indexName: 'home-assistant',
+  inputSelector: '#search',
+  debug: false // Set debug to true if you want to inspect the dropdown
+});
+document.querySelector('.search .close').addEventListener('click', function(ev) {
+  ev.preventDefault();
+  document.querySelector('.search-container').style.display = 'none';
+});
+document.querySelector('.show-search').addEventListener('click', function(ev) {
+  ev.preventDefault();
+  document.querySelector('.search-container').style.display = 'block';
+  document.getElementById('toggle').checked = false;
+  document.querySelector('.search-container input').focus();
+});
+</script>
+  </body>
+</html>

@@ -1,0 +1,856 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Wink - Home Assistant</title>
+    <meta name="author" content="Home Assistant">
+    <meta name="description" content="Instructions how to setup the Wink hub within Home Assistant.">
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/components/wink/">
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="Wink">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/components/wink/">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="Instructions how to setup the Wink hub within Home Assistant.">
+    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    <meta name="twitter:title" content="Wink">
+    <meta name="twitter:description" content="Instructions how to setup the Wink hub within Home Assistant.">
+    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
+    <link href="/stylesheets/screen.css" media="screen, projection, print" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+  <body >
+    <header class='site-header'>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/docs/">Docs</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+  <li><a href='#' class='show-search'><i class="icon-search"></i></a></li>
+</ul>
+  </nav>
+  <div class='search-container' style='display: none'>
+    <div class='search'>
+      <i class="icon-search"></i>
+      <input id='search' placeholder='Search the docs…'>
+      <a href='#' class='close'><i class="icon-remove-sign"></i></a>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+    </header>
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+          <article class="page">
+  <header>
+    <h1 class="title indent">
+      Wink
+    </h1>
+  </header>
+  <hr class="divider">
+  <p><a href="http://www.wink.com/">Wink</a> is a home automation hub that can control a whole wide range of devices on the market. Or, as they say in their own words:</p>
+<blockquote>
+  <p>Wink offers one, quick and simple way to connect people with the products they rely on every day in their home.</p>
+</blockquote>
+<p>Home Assistant integrates with the Wink API and automatically sets up any switches, lights, locks, fans, climate devices (thermostats, air conditioners, and water heaters), covers, sensors, alarms, and sirens.</p>
+<p>Check the related components pages for actual devices that are supported.</p>
+<h3><a class="title-link" name="authenticate-using-developerwinkcomhttpsdeveloperwinkcom" href="#authenticate-using-developerwinkcomhttpsdeveloperwinkcom"></a> Authenticate using <a href="https://developer.wink.com">developer.wink.com</a></h3>
+<p>You need to setup a developer account with Wink. This process can take a few days to get approved.</p>
+<p>Wink requests three pieces of information from the user when they sign up for a developer account.</p>
+<ol>
+  <li><code class="highlighter-rouge">Name:</code> This can be anything, for example “Home Assistant”</li>
+  <li><code class="highlighter-rouge">Website:</code> The external address of your Home Assistant instance. If not externally accessible you can use your email address.</li>
+  <li><code class="highlighter-rouge">Redirect URI:</code> This should be “http://192.168.1.5:8123/auth/wink/callback” replacing the IP with the internal IP of your Home Assistant box.</li>
+</ol>
+<p>No settings are required in the configuration.yaml other than <code class="highlighter-rouge">wink:</code> this is because you will be guided through setup via the configurator on the frontend.</p>
+<p class="note">
+When using the configurator make sure the initial setup is performed on the same local network as the Home Assistant server, if not from the same box Home Assistant is running on. This will allow for authentication redirects to happen correctly.
+</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">wink</span><span class="pi">:</span>
+</code></pre>
+</div>
+<h3><a class="title-link" name="full-oauth-authentication-legacy" href="#full-oauth-authentication-legacy"></a> Full oauth authentication (legacy).</h3>
+<p>This should be used for users that obtained their client_id and client_secret via email from Wink support prior to <a href="https://developer.wink.com">developer.wink.com’s</a> existence.</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">wink</span><span class="pi">:</span>
+  <span class="s">email</span><span class="pi">:</span> <span class="s">YOUR_WINK_EMAIL_ADDRESS</span>
+  <span class="s">password</span><span class="pi">:</span> <span class="s">YOUR_WINK_PASSWORD</span>
+  <span class="s">client_id</span><span class="pi">:</span> <span class="s">YOUR_WINK_CLIENT_ID</span>
+  <span class="s">client_secret</span><span class="pi">:</span> <span class="s">YOUR_WINK_CLIENT_SECRET</span>
+</code></pre>
+</div>
+<p>Configuration variables:</p>
+<ul>
+  <li><strong>email</strong> (<em>Required for legacy OAuth</em>): Your Wink login email.</li>
+  <li><strong>password</strong> (<em>Required for legacy OAuth</em>): Your Wink login password.</li>
+  <li><strong>client_id</strong> (<em>Required for legacy OAuth</em>): Your provided Wink client_id.</li>
+  <li><strong>client_secret</strong> (<em>Required for legacy OAuth</em>): Your provided Wink client_secret.</li>
+  <li><strong>local_control</strong> (<em>Optional</em>): If set to <code class="highlighter-rouge">True</code> state changes for lights, locks, and switches will be issued to the local hub.</li>
+</ul>
+<p>Local control:</p>
+<ul>
+  <li>
+    <p>Wink’s local control API isn’t officially documented and therefore could be broken by a hub update. For these reasons <code class="highlighter-rouge">local_control</code> defaults to <code class="highlighter-rouge">False</code>.</p>
+  </li>
+  <li>
+    <p>Using local control doesn’t appear to make commands any quicker, but does function in an internet/Wink outage.</p>
+  </li>
+  <li>
+    <p>Local control is also only available for the Wink hub v1 and v2, not the Wink relay.</p>
+  </li>
+  <li>
+    <p>Local control isn’t used during start-up of Home Assistant; this means initial setup requires an active internet connection.</p>
+  </li>
+  <li>
+    <p>Local control requests are first sent to the controlling hub. If a request fails, that request will attempt to go online.</p>
+  </li>
+</ul>
+<p class="note">
+It is possible for the hub to get into a bad state where it stops accepting local control request. If this happens, you will notice requests taking significantly longer as they are redirected online. This doesn’t happen often, but when it does, it appears to be resolved by rebooting the hub.
+The following error will be logged if the hub is rejecting local requests.
+<code class="highlighter-rouge">
+Error sending local control request. Sending request online
+</code>
+</p>
+<h3><a class="title-link" name="service-refresh_state_from_wink" href="#service-refresh_state_from_wink"></a> Service <code class="highlighter-rouge">refresh_state_from_wink</code></h3>
+<p>The Wink component only obtains the device states from the Wink API once, during startup. All updates after that are pushed via a third party called PubNub. On rare occasions where an update isn’t pushed device states can be out of sync.</p>
+<p>You can use the service wink/refresh_state_from_wink to pull the most recent state from the Wink API for all devices. If <code class="highlighter-rouge">local_control</code> is set to <code class="highlighter-rouge">True</code> states will be pulled from the devices controlling hub, not the online API.</p>
+<h3><a class="title-link" name="service-pull_newly_added_devices_from_wink" href="#service-pull_newly_added_devices_from_wink"></a> Service <code class="highlighter-rouge">pull_newly_added_devices_from_wink</code></h3>
+<p>You can use the service wink/add_new_devices to pull any newly paired Wink devices to an already running instance of Home-Assistant. Any new devices will also be added if Home-Assistant is restarted.</p>
+<h3><a class="title-link" name="service-delete_wink_device" href="#service-delete_wink_device"></a> Service <code class="highlighter-rouge">delete_wink_device</code></h3>
+<p>You can use the service wink/delete_wink_device to remove/unpair a device from Wink.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">entity_id</code></td>
+      <td>no</td>
+      <td>String that points at the <code class="highlighter-rouge">entity_id</code> of device to delete.</td>
+    </tr>
+  </tbody>
+</table>
+<h3><a class="title-link" name="service-pair_new_device" href="#service-pair_new_device"></a> Service <code class="highlighter-rouge">pair_new_device</code></h3>
+<p>You can use the service wink/pair_new_device to pair a new device to your Wink hub/relay</p>
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">hub_name</code></td>
+      <td>no</td>
+      <td>The name of the hub to pair a new device to.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">pairing_mode</code></td>
+      <td>no</td>
+      <td>One of the following [zigbee, zwave, zwave_exclusion, zwave_network_rediscovery, lutron, bluetooth, kidde]</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">kidde_radio_code</code></td>
+      <td>conditional</td>
+      <td>A string of 8 1s and 0s one for each dip switch on the kidde device left –&gt; right = 1 –&gt; 8 (Required if pairing_mode = kidde)</td>
+    </tr>
+  </tbody>
+</table>
+<p class="note">
+Calling service wink/pull_newly_added_wink_devices after a device is paired will add that new device to Home Assistant. The device will also show up on the next restart of Home Assistant.
+</p>
+<h3><a class="title-link" name="service-rename_wink_device" href="#service-rename_wink_device"></a> Service <code class="highlighter-rouge">rename_wink_device</code></h3>
+<p>You can use the service wink/rename_wink_device to change the name of a device.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">entity_id</code></td>
+      <td>no</td>
+      <td>String that points at the <code class="highlighter-rouge">entity_id</code> of device to rename.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">name</code></td>
+      <td>no</td>
+      <td>The name to change it to.</td>
+    </tr>
+  </tbody>
+</table>
+<p class="note">
+Home Assistant entity_ids for Wink devices are based on the Wink device’s name. Calling this service will not change the entity_id of the deivce until Home Assistant is restarted.
+</p>
+<p class="note">
+The Wink hub, by default, can only be accessed via the cloud. This means it requires an active internet connection and you will experience delays when controlling and updating devices (~3s).
+</p>
+<h3>Custom Wink devices and their services</h3>
+<ul>
+  <li>GoControl siren and strobe</li>
+  <li>Dome siren/chime/strobe</li>
+</ul>
+<h3><a class="title-link" name="service-set_siren_auto_shutoff" href="#service-set_siren_auto_shutoff"></a> Service <code class="highlighter-rouge">set_siren_auto_shutoff</code></h3>
+<p>You can use the service wink/set_siren_auto_shutoff to set how long the siren will sound before shuting off.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">auto_shutoff</code></td>
+      <td>no</td>
+      <td>Int. One of [None, -1, 30, 60, 120] (None and -1 are forever. Use None for gocontrol, and -1 for Dome)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">entity_id</code></td>
+      <td>yes</td>
+      <td>String or list of strings that point at <code class="highlighter-rouge">entity_id</code>s of siren.</td>
+    </tr>
+  </tbody>
+</table>
+<p>Example:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">script</span><span class="pi">:</span>
+  <span class="s">set_all_sirens_to_one_minute_auto_shutoff</span><span class="pi">:</span>
+    <span class="s">sequence</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">wink.set_siren_auto_shutoff</span>
+        <span class="s">data</span><span class="pi">:</span>
+          <span class="s">auto_shutoff</span><span class="pi">:</span> <span class="s">60</span>
+</code></pre>
+</div>
+<p class="note">
+The following services only work with the Dome siren/chime.
+</p>
+<h3><a class="title-link" name="service-set_chime_volume" href="#service-set_chime_volume"></a> Service <code class="highlighter-rouge">set_chime_volume</code></h3>
+<p>You can use the service wink/set_chime_volume to set the volume for the chime on your Dome siren/chime.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">volume</code></td>
+      <td>no</td>
+      <td>String. One of [“low”, “medium”, “high”]</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">entity_id</code></td>
+      <td>yes</td>
+      <td>String or list of strings that point at <code class="highlighter-rouge">entity_id</code>s of siren/chime.</td>
+    </tr>
+  </tbody>
+</table>
+<p>Example:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">script</span><span class="pi">:</span>
+  <span class="s">set_chime_volume_to_low_for_all_chimes</span>
+    <span class="s">sequence</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">wink.set_chime_volume</span>
+        <span class="s">data</span><span class="pi">:</span>
+          <span class="s">volume</span><span class="pi">:</span> <span class="s2">"</span><span class="s">low"</span>
+</code></pre>
+</div>
+<h3><a class="title-link" name="service-set_siren_volume" href="#service-set_siren_volume"></a> Service <code class="highlighter-rouge">set_siren_volume</code></h3>
+<p>You can use the service wink/set_chime_volume to set the volume for the chime on your Dome siren/chime.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">volume</code></td>
+      <td>no</td>
+      <td>String. One of [“low”, “medium”, “high”]</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">entity_id</code></td>
+      <td>yes</td>
+      <td>String or list of strings that point at <code class="highlighter-rouge">entity_id</code>s of siren/chime.</td>
+    </tr>
+  </tbody>
+</table>
+<p>Example:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">script</span><span class="pi">:</span>
+  <span class="s">set_siren_volume_to_low_for_all_sirens</span>
+    <span class="s">sequence</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">wink.set_siren_volume</span>
+        <span class="s">data</span><span class="pi">:</span>
+          <span class="s">volume</span><span class="pi">:</span> <span class="s2">"</span><span class="s">low"</span>
+</code></pre>
+</div>
+<h3><a class="title-link" name="service-enable_chime" href="#service-enable_chime"></a> Service <code class="highlighter-rouge">enable_chime</code></h3>
+<p>You can use the service wink/enable_chime to set the tone and enable the chime on your Dome siren/chime.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">tone</code></td>
+      <td>no</td>
+      <td>String. One of [“doorbell”, “fur_elise”, “doorbell_extended”, “alert”, “william_tell”, “rondo_alla_turca”, “police_siren”, “evacuation”, “beep_beep”, “beep”, “inactive”]</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">entity_id</code></td>
+      <td>yes</td>
+      <td>String or list of strings that point at <code class="highlighter-rouge">entity_id</code>s of siren/chime.</td>
+    </tr>
+  </tbody>
+</table>
+<p>Example:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">script</span><span class="pi">:</span>
+  <span class="s">execute_doorbell</span>
+    <span class="s">sequence</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">wink.enable_chime</span>
+        <span class="s">data</span><span class="pi">:</span>
+          <span class="s">tone</span><span class="pi">:</span> <span class="s2">"</span><span class="s">doorbell"</span>
+</code></pre>
+</div>
+<h3><a class="title-link" name="service-set_siren_tone" href="#service-set_siren_tone"></a> Service <code class="highlighter-rouge">set_siren_tone</code></h3>
+<p>You can use the service wink/set_siren_tone to set the tone on your Dome siren. This tone will be used the next time the siren is executed.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">tone</code></td>
+      <td>no</td>
+      <td>String. One of [“doorbell”, “fur_elise”, “doorbell_extended”, “alert”, “william_tell”, “rondo_alla_turca”, “police_siren”, “evacuation”, “beep_beep”, “beep”]</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">entity_id</code></td>
+      <td>yes</td>
+      <td>String or list of strings that point at <code class="highlighter-rouge">entity_id</code>s of siren/chime.</td>
+    </tr>
+  </tbody>
+</table>
+<p>Example:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">script</span><span class="pi">:</span>
+  <span class="s">set_siren_to_alert</span><span class="pi">:</span>
+    <span class="s">sequence</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">wink.set_siren_tone</span>
+        <span class="s">data</span><span class="pi">:</span>
+          <span class="s">tone</span><span class="pi">:</span> <span class="s2">"</span><span class="s">alert"</span>
+</code></pre>
+</div>
+<h3><a class="title-link" name="service-set_siren_strobe_enabled" href="#service-set_siren_strobe_enabled"></a> Service <code class="highlighter-rouge">set_siren_strobe_enabled</code></h3>
+<p>You can use the service wink/set_siren_strobe_enabled to enable or disable the strobe when the siren is executed.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">enabled</code></td>
+      <td>no</td>
+      <td>Boolean. True or False.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">entity_id</code></td>
+      <td>yes</td>
+      <td>String or list of strings that point at <code class="highlighter-rouge">entity_id</code>s of siren/chime.</td>
+    </tr>
+  </tbody>
+</table>
+<p>Example:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">script</span><span class="pi">:</span>
+  <span class="s">disable_siren_strobe</span><span class="pi">:</span>
+    <span class="s">sequence</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">wink.set_siren_strobe_enabled</span>
+        <span class="s">data</span><span class="pi">:</span>
+          <span class="s">enabled</span><span class="pi">:</span> <span class="s">False</span>
+</code></pre>
+</div>
+<h3><a class="title-link" name="service-set_chime_strobe_enabled" href="#service-set_chime_strobe_enabled"></a> Service <code class="highlighter-rouge">set_chime_strobe_enabled</code></h3>
+<p>You can use the service wink/set_chime_strobe_enabled to enable or disable the strobe when the chime is executed.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">enabled</code></td>
+      <td>no</td>
+      <td>Boolean. True or False.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">entity_id</code></td>
+      <td>yes</td>
+      <td>String or list of strings that point at <code class="highlighter-rouge">entity_id</code>s of chime/chime.</td>
+    </tr>
+  </tbody>
+</table>
+<p>Example:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">script</span><span class="pi">:</span>
+  <span class="s">disable_chime_strobe</span><span class="pi">:</span>
+    <span class="s">sequence</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">wink.set_chime_strobe_enabled</span>
+        <span class="s">data</span><span class="pi">:</span>
+          <span class="s">enabled</span><span class="pi">:</span> <span class="s">False</span>
+</code></pre>
+</div>
+</article>
+        </div>
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/wink.markdown'>Edit this page on GitHub</a></div>
+  <div class='brand-logo-container section'>
+      <img src='/images/supported_brands/wink.png' />
+  </div>
+    <div class='section'>
+      IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Cloud Polling
+    </div>
+    <div class='section'>
+      Introduced in release: pre 0.7
+    </div>
+          <div class='section'>
+          <h1 class='title delta'>Related components</h1>
+          <ul class='divided'>
+        <li><a href='/components/alarm_control_panel.wink/'>
+          Wink Alarm
+        </a></li>
+        <li><a href='/components/binary_sensor.wink/'>
+          Wink Binary Sensor
+        </a></li>
+        <li><a href='/components/climate.wink/'>
+          Wink Climate
+        </a></li>
+        <li><a href='/components/cover.wink/'>
+          Wink Cover
+        </a></li>
+        <li><a href='/components/fan.wink/'>
+          Wink Fan
+        </a></li>
+        <li><a href='/components/light.wink/'>
+          Wink Light
+        </a></li>
+        <li><a href='/components/lock.wink/'>
+          Wink Lock
+        </a></li>
+        <li><a href='/components/scene.wink/'>
+          Wink Scene
+        </a></li>
+        <li><a href='/components/sensor.wink/'>
+          Wink Sensor
+        </a></li>
+        <li><a href='/components/switch.wink/'>
+          Wink Switch
+        </a></li>
+    </ul>
+    </div>
+    <div class='section'>
+    <h1 class="title delta">Category Hub</h1>
+    <ul class='divided'>
+        <li>
+            <a href='/components/ads/'>ADS</a>
+        </li>
+        <li>
+            <a href='/components/apcupsd/'>APCUPSd</a>
+        </li>
+        <li>
+            <a href='/components/abode/'>Abode Home Security</a>
+        </li>
+        <li>
+            <a href='/components/alarmdecoder/'>AlarmDecoder Alarm</a>
+        </li>
+        <li>
+            <a href='/components/amcrest/'>Amcrest IP Camera</a>
+        </li>
+        <li>
+            <a href='/components/android_ip_webcam/'>Android IP Webcam</a>
+        </li>
+        <li>
+            <a href='/components/apple_tv/'>Apple TV</a>
+        </li>
+        <li>
+            <a href='/components/arlo/'>Arlo</a>
+        </li>
+        <li>
+            <a href='/components/august/'>August</a>
+        </li>
+        <li>
+            <a href='/components/axis/'>Axis</a>
+        </li>
+        <li>
+            <a href='/components/bmw_connected_drive/'>BMW connected drive</a>
+        </li>
+        <li>
+            <a href='/components/wemo/'>Belkin WeMo</a>
+        </li>
+        <li>
+            <a href='/components/blink/'>Blink</a>
+        </li>
+        <li>
+            <a href='/components/bloomsky/'>BloomSky</a>
+        </li>
+        <li>
+            <a href='/components/canary/'>Canary</a>
+        </li>
+        <li>
+            <a href='/components/daikin/'>Daikin AC</a>
+        </li>
+        <li>
+            <a href='/components/digital_ocean/'>Digital Ocean</a>
+        </li>
+        <li>
+            <a href='/components/doorbird/'>DoorBird</a>
+        </li>
+        <li>
+            <a href='/components/dyson/'>Dyson</a>
+        </li>
+        <li>
+            <a href='/components/egardia/'>Egardia</a>
+        </li>
+        <li>
+            <a href='/components/eight_sleep/'>Eight Sleep</a>
+        </li>
+        <li>
+            <a href='/components/emulated_hue/'>Emulated Hue Bridge</a>
+        </li>
+        <li>
+            <a href='/components/enocean/'>EnOcean</a>
+        </li>
+        <li>
+            <a href='/components/ffmpeg/'>FFmpeg</a>
+        </li>
+        <li>
+            <a href='/components/hive/'>Hive</a>
+        </li>
+        <li>
+            <a href='/components/homematic/'>Homematic</a>
+        </li>
+        <li>
+            <a href='/components/ihc/'>IHC</a>
+        </li>
+        <li>
+            <a href='/components/tradfri/'>IKEA Trådfri (Tradfri)</a>
+        </li>
+        <li>
+            <a href='/components/isy994/'>ISY994 Controller</a>
+        </li>
+        <li>
+            <a href='/components/insteon_local/'>Insteon (local)</a>
+        </li>
+        <li>
+            <a href='/components/insteon_hub/'>Insteon Hub</a>
+        </li>
+        <li>
+            <a href='/components/insteon_plm/'>Insteon PLM</a>
+        </li>
+        <li>
+            <a href='/components/joaoapps_join/'>Joaoapps Join</a>
+        </li>
+        <li>
+            <a href='/components/juicenet/'>Juicenet</a>
+        </li>
+        <li>
+            <a href='/components/knx/'>KNX</a>
+        </li>
+        <li>
+            <a href='/components/kira/'>Kira</a>
+        </li>
+        <li>
+            <a href='/components/lametric/'>LaMetric</a>
+        </li>
+        <li>
+            <a href='/components/linode/'>Linode</a>
+        </li>
+        <li>
+            <a href='/components/litejet/'>LiteJet</a>
+        </li>
+        <li>
+            <a href='/components/lutron/'>Lutron</a>
+        </li>
+        <li>
+            <a href='/components/lutron_caseta/'>Lutron Caseta</a>
+        </li>
+        <li>
+            <a href='/components/mqtt/'>MQTT</a>
+        </li>
+        <li>
+            <a href='/components/melissa/'>Melissa Climate</a>
+        </li>
+        <li>
+            <a href='/components/raincloud/'>Melnor Raincloud</a>
+        </li>
+        <li>
+            <a href='/components/mercedesme/'>Mercedes me</a>
+        </li>
+        <li>
+            <a href='/components/microsoft_face/'>Microsoft Face</a>
+        </li>
+        <li>
+            <a href='/components/mochad/'>Mochad</a>
+        </li>
+        <li>
+            <a href='/components/modbus/'>Modbus</a>
+        </li>
+        <li>
+            <a href='/components/mychevy/'>MyChevy</a>
+        </li>
+        <li>
+            <a href='/components/mysensors/'>MySensors</a>
+        </li>
+        <li>
+            <a href='/components/neato/'>Neato Robotics</a>
+        </li>
+        <li>
+            <a href='/components/nest/'>Nest</a>
+        </li>
+        <li>
+            <a href='/components/netatmo/'>Netatmo</a>
+        </li>
+        <li>
+            <a href='/components/nuheat/'>NuHeat</a>
+        </li>
+        <li>
+            <a href='/components/nuimo_controller/'>Nuimo controller</a>
+        </li>
+        <li>
+            <a href='/components/octoprint/'>OctoPrint</a>
+        </li>
+        <li>
+            <a href='/components/hue/'>Philips Hue</a>
+        </li>
+        <li>
+            <a href='/components/pilight/'>Pilight</a>
+        </li>
+        <li>
+            <a href='/components/qwikswitch/'>QwikSwitch QSUSB Hub</a>
+        </li>
+        <li>
+            <a href='/components/rflink/'>RFLink</a>
+        </li>
+        <li>
+            <a href='/components/rfxtrx/'>RFXtrx</a>
+        </li>
+        <li>
+            <a href='/components/rainbird/'>Rain Bird</a>
+        </li>
+        <li>
+            <a href='/components/sensor.rainbird/'>Rain Bird Sensor</a>
+        </li>
+        <li>
+            <a href='/components/switch.rainbird/'>Rain Bird Switch</a>
+        </li>
+        <li>
+            <a href='/components/ring/'>Ring</a>
+        </li>
+        <li>
+            <a href='/components/scsgate/'>SCSGate</a>
+        </li>
+        <li>
+            <a href='/components/spc/'>SPC</a>
+        </li>
+        <li>
+            <a href='/components/satel_integra/'>Satel Integra Alarm</a>
+        </li>
+        <li>
+            <a href='/components/skybell/'>Skybell</a>
+        </li>
+        <li>
+            <a href='/components/sleepiq/'>SleepIQ</a>
+        </li>
+        <li>
+            <a href='/components/smappee/'>Smappee</a>
+        </li>
+        <li>
+            <a href='/components/tado/'>Tado</a>
+        </li>
+        <li>
+            <a href='/components/tahoma/'>Tahoma</a>
+        </li>
+        <li>
+            <a href='/components/telegram_bot/'>Telegram chatbot</a>
+        </li>
+        <li>
+            <a href='/components/tellstick/'>TellStick</a>
+        </li>
+        <li>
+            <a href='/components/tellduslive/'>Telldus Live</a>
+        </li>
+        <li>
+            <a href='/components/tesla/'>Tesla</a>
+        </li>
+        <li>
+            <a href='/components/thethingsnetwork/'>The Things Network</a>
+        </li>
+        <li>
+            <a href='/components/toon/'>Toon</a>
+        </li>
+        <li>
+            <a href='/components/twilio/'>Twilio</a>
+        </li>
+        <li>
+            <a href='/components/usps/'>USPS</a>
+        </li>
+        <li>
+            <a href='/components/upcloud/'>UpCloud</a>
+        </li>
+        <li>
+            <a href='/components/velbus/'>Velbus</a>
+        </li>
+        <li>
+            <a href='/components/velux/'>Velux</a>
+        </li>
+        <li>
+            <a href='/components/vera/'>Vera</a>
+        </li>
+        <li>
+            <a href='/components/verisure/'>Verisure</a>
+        </li>
+        <li>
+            <a href='/components/volvooncall/'>Volvo On Call</a>
+        </li>
+        <li>
+            <a href='/components/vultr/'>Vultr</a>
+        </li>
+        <li>
+            <a href='/components/waterfurnace/'>WaterFurnace</a>
+        </li>
+        <li>
+            Wink
+        </li>
+        <li>
+            <a href='/components/xiaomi_aqara/'>Xiaomi Gateway (Aqara)</a>
+        </li>
+        <li>
+            <a href='/components/zwave/'>Z-Wave</a>
+        </li>
+        <li>
+            <a href='/components/comfoconnect/'>Zehnder ComfoAir Q Ventilation</a>
+        </li>
+        <li>
+            <a href='/components/zha/'>Zigbee Home Automation</a>
+        </li>
+        <li>
+            <a href='/components/zoneminder/'>ZoneMinder</a>
+        </li>
+        <li>
+            <a href='/components/deconz/'>deCONZ</a>
+        </li>
+        <li>
+            <a href='/components/ecobee/'>ecobee</a>
+        </li>
+        <li>
+            <a href='/components/gc100/'>gc100</a>
+        </li>
+    </ul>
+    </div>
+</section>
+</div>
+        </aside>
+      </div>
+    </div>
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a> (no support!).<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+  <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">home-assistant.io</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
+<script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
+<script type="text/javascript">
+docsearch({
+  apiKey: 'ae96d94b201c5444c8a443093edf3efb',
+  indexName: 'home-assistant',
+  inputSelector: '#search',
+  debug: false // Set debug to true if you want to inspect the dropdown
+});
+document.querySelector('.search .close').addEventListener('click', function(ev) {
+  ev.preventDefault();
+  document.querySelector('.search-container').style.display = 'none';
+});
+document.querySelector('.show-search').addEventListener('click', function(ev) {
+  ev.preventDefault();
+  document.querySelector('.search-container').style.display = 'block';
+  document.getElementById('toggle').checked = false;
+  document.querySelector('.search-container input').focus();
+});
+</script>
+  </body>
+</html>

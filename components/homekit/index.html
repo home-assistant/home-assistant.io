@@ -1,0 +1,248 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>HomeKit - Home Assistant</title>
+    <meta name="author" content="Home Assistant">
+    <meta name="description" content="Instructions how to setup the HomeKit component in Home Assistant.">
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/components/homekit/">
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="HomeKit">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/components/homekit/">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="Instructions how to setup the HomeKit component in Home Assistant.">
+    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    <meta name="twitter:title" content="HomeKit">
+    <meta name="twitter:description" content="Instructions how to setup the HomeKit component in Home Assistant.">
+    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
+    <link href="/stylesheets/screen.css" media="screen, projection, print" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+  <body >
+    <header class='site-header'>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/docs/">Docs</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+  <li><a href='#' class='show-search'><i class="icon-search"></i></a></li>
+</ul>
+  </nav>
+  <div class='search-container' style='display: none'>
+    <div class='search'>
+      <i class="icon-search"></i>
+      <input id='search' placeholder='Search the docs…'>
+      <a href='#' class='close'><i class="icon-remove-sign"></i></a>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+    </header>
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+          <article class="page">
+  <header>
+    <h1 class="title indent">
+      HomeKit
+    </h1>
+  </header>
+  <hr class="divider">
+  <p>The <code class="highlighter-rouge">HomeKit</code> component allows you to forward entities from Home Assistant to Apple <code class="highlighter-rouge">HomeKit</code>, so they could be controlled from Apple <code class="highlighter-rouge">Home</code> app and <code class="highlighter-rouge">Siri</code>.</p>
+<div class="config-vars">
+  <h3><a class="title-link" name="configuration-variables" href="#configuration-variables"></a> Configuration Variables</h3>
+  <dl class="">
+    <dt><a class="title-link" name="homekit" href="#homekit"></a> homekit</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="map">map</span>)</span><span class="required">(Required)</span><span class="description">HomeKit configuration.</span></p>
+    </dd>
+    <dd>
+      <dl class="nested">
+        <dt><a class="title-link" name="pincode" href="#pincode"></a> pincode</dt>
+        <dd>
+          <p class="desc"><span class="type">(<span class="string">string</span>)</span><span class="required">(Optional)</span><span class="description">Pin code required during setup of HomeKit Home Assistant accessory. The format needs to be ‘XXX-XX-XXX’ where X is a number between 0 and 9.</span></p>
+          <p class="default">Default value: “123-45-678”</p>
+        </dd>
+        <dt><a class="title-link" name="port" href="#port"></a> port</dt>
+        <dd>
+          <p class="desc"><span class="type">(<span class="int">int</span>)</span><span class="required">(Optional)</span><span class="description">Port for the HomeKit extension.</span></p>
+          <p class="default">Default value: 51826</p>
+        </dd>
+      </dl>
+    </dd>
+  </dl>
+</div>
+<h2><a class="title-link" name="setup" href="#setup"></a> Setup</h2>
+<p>To enable the <code class="highlighter-rouge">HomeKit</code> component in Home Assistant, add the following to your configuration file:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example for HomeKit setup</span>
+<span class="s">homekit</span><span class="pi">:</span>
+  <span class="s">pincode</span><span class="pi">:</span> <span class="s1">'</span><span class="s">123-45-678'</span>
+</code></pre>
+</div>
+<p class="note">It is not recommended to choose ‘123-45-678’ as your pin code!</p>
+<p>After Home Assistant has started, all supported entities (see the <a href="#supported-components">list</a> below which components are already integrated) will be exposed to <code class="highlighter-rouge">HomeKit</code>. To add them:</p>
+<ol>
+  <li>Open the <code class="highlighter-rouge">Home</code> App.</li>
+  <li>Choose <code class="highlighter-rouge">Add Accessory</code> and then <code class="highlighter-rouge">Don't Have a Code or Can't Scan?</code>.</li>
+  <li>The <code class="highlighter-rouge">Home Assistant</code> Bridge should be listed there. Select it and follow the instructions to complete setup.</li>
+</ol>
+<p>After the setup is completed you should be able to control your Home Assistant components through <code class="highlighter-rouge">Home</code> and <code class="highlighter-rouge">Siri</code>.</p>
+<h2><a class="title-link" name="supported-components" href="#supported-components"></a> Supported Components</h2>
+<p>The following components are currently supported:</p>
+<table>
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Type Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>alarm_control_panel</td>
+      <td>SecuritySystem</td>
+      <td>All security systems.</td>
+    </tr>
+    <tr>
+      <td>climate</td>
+      <td>Thermostat</td>
+      <td>All climate devices.</td>
+    </tr>
+    <tr>
+      <td>cover</td>
+      <td>Window</td>
+      <td>All covers that support <code class="highlighter-rouge">set_cover_position</code>.</td>
+    </tr>
+    <tr>
+      <td>sensor</td>
+      <td>TemperatureSensor</td>
+      <td>All sensors that have <code class="highlighter-rouge">Celsius</code> and <code class="highlighter-rouge">Fahrenheit</code> as their <code class="highlighter-rouge">unit_of_measurement</code>.</td>
+    </tr>
+    <tr>
+      <td>switch/remote</td>
+      <td>Switch</td>
+      <td>All switches or remotes (represented as switches).</td>
+    </tr>
+  </tbody>
+</table>
+<p class="note">Currently only devices that are setup when Home Assistant is starting can be exposed to <code class="highlighter-rouge">HomeKit</code>. This means that especially <code class="highlighter-rouge">Z-Wave</code> components are currently not supported, since they will be setup afterwards. We are working on a solution for this problem.</p>
+</article>
+        </div>
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/homekit.markdown'>Edit this page on GitHub</a></div>
+  <div class='brand-logo-container section'>
+      <img src='/images/supported_brands/apple-homekit.png' />
+  </div>
+    <div class='section'>
+      Introduced in release: 0.64
+    </div>
+    <div class='section'>
+    <h1 class="title delta">Category Voice</h1>
+    <ul class='divided'>
+        <li>
+            <a href='/components/alexa/'>Alexa / Amazon Echo</a>
+        </li>
+        <li>
+            <a href='/components/conversation/'>Conversation</a>
+        </li>
+        <li>
+            <a href='/components/dialogflow/'>Dialogflow</a>
+        </li>
+        <li>
+            <a href='/components/google_assistant/'>Google Assistant</a>
+        </li>
+        <li>
+            <a href='/components/cloud/'>Home Assistant Cloud</a>
+        </li>
+        <li>
+            HomeKit
+        </li>
+        <li>
+            <a href='/components/mycroft/'>Mycroft</a>
+        </li>
+        <li>
+            <a href='/components/snips/'>Snips</a>
+        </li>
+    </ul>
+    </div>
+</section>
+</div>
+        </aside>
+      </div>
+    </div>
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a> (no support!).<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+  <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">home-assistant.io</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
+<script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
+<script type="text/javascript">
+docsearch({
+  apiKey: 'ae96d94b201c5444c8a443093edf3efb',
+  indexName: 'home-assistant',
+  inputSelector: '#search',
+  debug: false // Set debug to true if you want to inspect the dropdown
+});
+document.querySelector('.search .close').addEventListener('click', function(ev) {
+  ev.preventDefault();
+  document.querySelector('.search-container').style.display = 'none';
+});
+document.querySelector('.show-search').addEventListener('click', function(ev) {
+  ev.preventDefault();
+  document.querySelector('.search-container').style.display = 'block';
+  document.getElementById('toggle').checked = false;
+  document.querySelector('.search-container input').focus();
+});
+</script>
+  </body>
+</html>

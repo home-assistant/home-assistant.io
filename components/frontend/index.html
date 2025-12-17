@@ -1,0 +1,327 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Frontend - Home Assistant</title>
+    <meta name="author" content="Home Assistant">
+    <meta name="description" content="Offers a frontend to Home Assistant.">
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/components/frontend/">
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="Frontend">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/components/frontend/">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="Offers a frontend to Home Assistant.">
+    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    <meta name="twitter:title" content="Frontend">
+    <meta name="twitter:description" content="Offers a frontend to Home Assistant.">
+    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
+    <link href="/stylesheets/screen.css" media="screen, projection, print" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+  <body >
+    <header class='site-header'>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/docs/">Docs</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+  <li><a href='#' class='show-search'><i class="icon-search"></i></a></li>
+</ul>
+  </nav>
+  <div class='search-container' style='display: none'>
+    <div class='search'>
+      <i class="icon-search"></i>
+      <input id='search' placeholder='Search the docs…'>
+      <a href='#' class='close'><i class="icon-remove-sign"></i></a>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+    </header>
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+          <article class="page">
+  <header>
+    <h1 class="title indent">
+      Frontend
+    </h1>
+  </header>
+  <hr class="divider">
+  <p>This offers the official frontend to control Home Assistant.</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">frontend</span><span class="pi">:</span>
+</code></pre>
+</div>
+<div class="config-vars">
+  <h3><a class="title-link" name="configuration-variables" href="#configuration-variables"></a> Configuration Variables</h3>
+  <dl class="">
+    <dt><a class="title-link" name="javascript_version" href="#javascript_version"></a> javascript_version</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="string">string</span>)</span><span class="required">(Optional)</span><span class="description">Version of the JavaScript to serve to clients. Options: <code class="highlighter-rouge">es5</code> - transpiled so old browsers understand it.  <code class="highlighter-rouge">latest</code> - not transpiled, so will work on recent browsers only. <code class="highlighter-rouge">auto</code> - select a version according to the browser user-agent. The value in the config can be overiden by putting <code class="highlighter-rouge">es5</code> or <code class="highlighter-rouge">latest</code> in the URL. For example <code class="highlighter-rouge">http://localhost:8123/states?es5</code> </span></p>
+      <p class="default">Default value: auto</p>
+    </dd>
+    <dt><a class="title-link" name="themes" href="#themes"></a> themes</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="map">map</span>)</span><span class="required">(Optional)</span><span class="description">Allow to define different themes. See below for further details.</span></p>
+    </dd>
+    <dd>
+      <dl class="nested">
+        <dt><a class="title-link" name="identifier" href="#identifier"></a> [identifier]</dt>
+        <dd>
+          <p class="desc"><span class="type">(<span class="list map">list | map</span>)</span><span class="required">(Required)</span><span class="description">Name to use in the frontend.</span></p>
+        </dd>
+        <dd>
+          <dl class="nested">
+            <dt><a class="title-link" name="css-identifier" href="#css-identifier"></a> [css-identifier]</dt>
+            <dd>
+              <p class="desc"><span class="type">(<span class="list string">list | string</span>)</span><span class="required">(Required)</span><span class="description">The CSS identifier.</span></p>
+            </dd>
+          </dl>
+        </dd>
+      </dl>
+    </dd>
+    <dt><a class="title-link" name="extra_html_url" href="#extra_html_url"></a> extra_html_url</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="list">list</span>)</span><span class="required">(Optional)</span><span class="description">List of additional <a href="/developers/frontend_creating_custom_ui/">resources</a> to load in <code class="highlighter-rouge">latest</code> javascript mode.</span></p>
+    </dd>
+    <dt><a class="title-link" name="extra_html_url_es5" href="#extra_html_url_es5"></a> extra_html_url_es5</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="list">list</span>)</span><span class="required">(Optional)</span><span class="description">List of additional <a href="/developers/frontend_creating_custom_ui/">resources</a> to load in <code class="highlighter-rouge">es5</code> javascript mode.</span></p>
+    </dd>
+    <dt><a class="title-link" name="development_repo" href="#development_repo"></a> development_repo</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="string">string</span>)</span><span class="required">(Optional)</span><span class="description">Allow to point to a directory containing frontend files instead of taking them from a pre-built PyPI package. Useful for Frontend development.</span></p>
+    </dd>
+  </dl>
+</div>
+<h2><a class="title-link" name="themes" href="#themes"></a> Themes</h2>
+<p>Starting with version 0.49 you can define themes:</p>
+<p>Example:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">frontend</span><span class="pi">:</span>
+  <span class="s">themes</span><span class="pi">:</span>
+    <span class="s">happy</span><span class="pi">:</span>
+      <span class="s">primary-color</span><span class="pi">:</span> <span class="s">pink</span>
+    <span class="s">sad</span><span class="pi">:</span>
+      <span class="s">primary-color</span><span class="pi">:</span> <span class="s">blue</span>
+</code></pre>
+</div>
+<p>The example above defined two themes named <code class="highlighter-rouge">happy</code> and <code class="highlighter-rouge">sad</code>. For each theme you can set values for CSS variables. For a partial list of variables used by the main frontend see <a href="https://github.com/home-assistant/home-assistant-polymer/blob/master/src/resources/ha-style.html">ha-style.html</a>.</p>
+<p>There are 2 themes-related services:</p>
+<ul>
+  <li><code class="highlighter-rouge">frontend.reload_themes</code>: reloads theme configuration from your <code class="highlighter-rouge">configuration.yaml</code> file.</li>
+  <li><code class="highlighter-rouge">frontend.set_theme(name)</code>: sets backend-preferred theme name.</li>
+</ul>
+<p>Example in automation:</p>
+<p>Set a theme at the startup of Home Assistant:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Set</span><span class="nv"> </span><span class="s">theme</span><span class="nv"> </span><span class="s">at</span><span class="nv"> </span><span class="s">startup'</span>
+    <span class="s">initial_state</span><span class="pi">:</span> <span class="s1">'</span><span class="s">on'</span>
+    <span class="s">trigger</span><span class="pi">:</span>
+     <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">homeassistant</span>
+       <span class="s">event</span><span class="pi">:</span> <span class="s">start</span>
+    <span class="s">action</span><span class="pi">:</span>
+      <span class="s">service</span><span class="pi">:</span> <span class="s">frontend.set_theme</span>
+      <span class="s">data</span><span class="pi">:</span>
+        <span class="s">name</span><span class="pi">:</span> <span class="s">happy</span>
+</code></pre>
+</div>
+<p>To enable “night mode”:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Set</span><span class="nv"> </span><span class="s">dark</span><span class="nv"> </span><span class="s">theme</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">night'</span>
+    <span class="s">initial_state</span><span class="pi">:</span> <span class="s">True</span>
+    <span class="s">trigger</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">time</span>
+        <span class="s">at</span><span class="pi">:</span> <span class="s1">'</span><span class="s">21:00'</span>
+    <span class="s">action</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">frontend.set_theme</span>
+        <span class="s">data</span><span class="pi">:</span>
+          <span class="s">name</span><span class="pi">:</span> <span class="s">darkred</span>
+</code></pre>
+</div>
+<h3><a class="title-link" name="manual-theme-selection" href="#manual-theme-selection"></a> Manual Theme Selection</h3>
+<p>When themes are enabled in the <code class="highlighter-rouge">configuration.yaml</code> file, a new option will show up in the Configuration panel under <strong>General</strong>  called “Set a theme.” You can then choose any installed theme from the dropdown list and it will be applied immediately.</p>
+<p class="img">
+  <img src="/images/frontend/choose-theme.png" />
+  Set a theme
+</p>
+<h2><a class="title-link" name="loading-extra-html" href="#loading-extra-html"></a> Loading extra HTML</h2>
+<p>Starting with version 0.53 you can specify extra HTML files to load.</p>
+<p>Example:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">frontend</span><span class="pi">:</span>
+  <span class="s">extra_html_url</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">https://example.com/file1.html</span>
+    <span class="pi">-</span> <span class="s">/file2.html</span>
+</code></pre>
+</div>
+<p>Those will be loaded via <code class="highlighter-rouge">&lt;link rel='import' href='' async&gt;</code> on any page (states and panels).</p>
+<h3><a class="title-link" name="manual-language-selection" href="#manual-language-selection"></a> Manual Language Selection</h3>
+<p>The browser language is automatically detected. To use a different language, go to <strong>General</strong> in the Configuration panel and select a one from “Choose a Language”. It will be applied immediately.</p>
+<p class="img">
+  <img src="/images/frontend/choose-language.png" />
+  Choose a Language
+</p>
+</article>
+        </div>
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/frontend.markdown'>Edit this page on GitHub</a></div>
+  <div class='brand-logo-container section'>
+      <img src='/images/supported_brands/home-assistant.png' />
+  </div>
+    <div class='section'>
+    <h1 class="title delta">Category Other</h1>
+    <ul class='divided'>
+        <li>
+            <a href='/components/api/'>API</a>
+        </li>
+        <li>
+            <a href='/components/asterisk_mbox/'>Asterisk Voicemail</a>
+        </li>
+        <li>
+            <a href='/components/configurator/'>Configurator</a>
+        </li>
+        <li>
+            <a href='/components/demo/'>Demo platforms</a>
+        </li>
+        <li>
+            <a href='/components/discovery/'>Discovery</a>
+        </li>
+        <li>
+            <a href='/components/dominos/'>Dominos Pizza</a>
+        </li>
+        <li>
+            <a href='/components/feedreader/'>Feedreader</a>
+        </li>
+        <li>
+            Frontend
+        </li>
+        <li>
+            <a href='/components/goalfeed/'>Goalfeed</a>
+        </li>
+        <li>
+            <a href='/components/http/'>HTTP</a>
+        </li>
+        <li>
+            <a href='/components/introduction/'>Introduction</a>
+        </li>
+        <li>
+            <a href='/components/keyboard_remote/'>Keyboard Remote</a>
+        </li>
+        <li>
+            <a href='/components/mqtt_eventstream/'>MQTT Eventstream</a>
+        </li>
+        <li>
+            <a href='/components/mqtt_statestream/'>MQTT Statestream</a>
+        </li>
+        <li>
+            <a href='/components/map/'>Map</a>
+        </li>
+        <li>
+            <a href='/components/persistent_notification/'>Persistent notification</a>
+        </li>
+        <li>
+            <a href='/components/plant/'>Plant monitor</a>
+        </li>
+        <li>
+            <a href='/components/system_log/'>System Log</a>
+        </li>
+        <li>
+            <a href='/components/sensor.upnp/'>UPNP Sensor</a>
+        </li>
+        <li>
+            <a href='/components/upnp/'>UPnP</a>
+        </li>
+        <li>
+            <a href='/components/updater/'>Updater</a>
+        </li>
+        <li>
+            <a href='/components/websocket_api/'>Websocket API</a>
+        </li>
+        <li>
+            <a href='/components/zeroconf/'>Zeroconf/Avahi/Bonjour</a>
+        </li>
+    </ul>
+    </div>
+</section>
+</div>
+        </aside>
+      </div>
+    </div>
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a> (no support!).<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+  <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">home-assistant.io</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
+<script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
+<script type="text/javascript">
+docsearch({
+  apiKey: 'ae96d94b201c5444c8a443093edf3efb',
+  indexName: 'home-assistant',
+  inputSelector: '#search',
+  debug: false // Set debug to true if you want to inspect the dropdown
+});
+document.querySelector('.search .close').addEventListener('click', function(ev) {
+  ev.preventDefault();
+  document.querySelector('.search-container').style.display = 'none';
+});
+document.querySelector('.show-search').addEventListener('click', function(ev) {
+  ev.preventDefault();
+  document.querySelector('.search-container').style.display = 'block';
+  document.getElementById('toggle').checked = false;
+  document.querySelector('.search-container input').focus();
+});
+</script>
+  </body>
+</html>

@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Announcements | Home Assistant]]></title>
+  <link href="https://home-assistant.io/blog/categories/announcements/atom.xml" rel="self"/>
+  <link href="https://home-assistant.io/"/>
+  <updated>2018-03-11T22:06:17+00:00</updated>
+  <id>https://home-assistant.io/</id>
+  <author>
+    <name><![CDATA[Home Assistant]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Introducing Home Assistant Cloud]]></title>
+    <link href="https://home-assistant.io/blog/2017/12/17/introducing-home-assistant-cloud/"/>
+    <updated>2017-12-17T03:00:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2017/12/17/introducing-home-assistant-cloud</id>
+    <content type="html"><![CDATA[Today we’re introducing the next step in the Home Assistant saga: the Home Assistant Cloud. The goal of the Home Assistant Cloud is to bridge the gap between your local Home Assistant instance and services in the cloud while delivering the maximum possible security and privacy.
+
+The first service that is supported via the Home Assistant Cloud is the Amazon Alexa Smart Home skill. This integration will allow you to control all your devices in Home Assistant via Amazon Alexa. You will be able to say _“Alexa, turn on the kitchen lights”_ and your local Home Assistant will turn on the lights. Because Alexa talks to Home Assistant, it doesn’t matter what kind of lights they are! Anything that is linked to Home Assistant will work. IKEA lights, a 10 year old X10 switch or something you’ve made yourself. As long as Home Assistant can control it, you can control it via Alexa.
+
+We have designed the Home Assistant Cloud with security in mind. When you activate the new Cloud component, your instance will create a secure connection to the Home Assistant Cloud. There is no need for any further configuration or to expose your instance to the internet.
+
+Integrations like Alexa will deliver messages to our cloud which we will forward to your local instance for processing. We just forward the response back to Alexa. This means that we do not have to store the state of your house in our cloud, we’re just the messenger!
+
+We are making the beta of the Home Assistant Cloud publicly available today. During the beta period the Home Assistant Cloud will be free to use. We are currently planning to run a beta till March 1, 2018 0:00 UTC. Once the beta ends, the Home Assistant Cloud will be part of our Community Support package which will run at $5 USD/month.
+
+By subscribing to the Community Support package you will show your support for the Home Assistant organization, its projects and its community. It will help fund development, cover our operating costs and gives you access to use Home Assistant Cloud.
+
+So if you ever felt like donating money to support the development of Home Assistant and Hass.io: sign up for the Home Assistant Cloud!
+
+### <a class='title-link' name='why-not-take-donations' href='#why-not-take-donations'></a> Why not take donations? 
+
+With donations you have to convince people to keep donating and it will be hard to plan around the amount of available money. The biggest concern is what do you do when there is not enough money. We could shut down the servers or again depend on the wallets of our developers. We could run Wikipedia style advertisements for donating, but those are even more annoying than running advertisements.
+
+## <a class='title-link' name='getting-started' href='#getting-started'></a> Getting started 
+
+Upgrade Home Assistant to 0.60 and enable the [`cloud`](/components/cloud/) and [`config`](/components/config/) components:
+
+```yaml
+# Example configuration.yaml entry
+cloud:
+config:
+```
+
+Now restart Home Assistant and navigate to the configuration panel. It will offer a new cloud section. Here you can create an account and login. Once logged in, your instance will connect to the cloud.
+
+The next step is to configure Alexa. This can be done by enabling the Home Assistant skill for Alexa and link your Home Assistant cloud account.
+
+Once you’re done, ask Alexa to discover devices (“Alexa, discover devices”) and you are all set to control them: “Alexa, turn on &lt;device name&gt;”.
+
+See the [Cloud component configuration](/components/cloud/) to learn how to filter which devices get exposed to Alexa.
+
+## <a class='title-link' name='faq' href='#faq'></a> FAQ 
+
+_Last updated: February 22, 2018_
+
+#### <a class='title-link' name='i-thought-the-home-assistant-crew-didnt-like-the-cloud' href='#i-thought-the-home-assistant-crew-didnt-like-the-cloud'></a> I thought the Home Assistant crew didn't like the cloud? 
+
+You are right, [we don't](https://home-assistant.io/blog/2016/01/19/perfect-home-automation/#your-system-should-run-at-home-not-in-the-cloud)! The Home Assistant Cloud is not an alternative to running your local Home Assistant instance. All control and automations are still running locally.
+
+Instead, the Home Assistant Cloud is an extension of your local instance. It allows to communicate with companies that force us to communicate via a public available cloud endpoint like Amazon Alexa and Google Assistant.
+
+Home Assistant Cloud is only used to route the messages to your local Home Assistant instance. All messages are processed locally.
+
+_(Some people have suggested we rename to Home Assistant Bridge to avoid this confusion)_
+
+#### <a class='title-link' name='will-home-assistant-and-hassio-remain-open-source' href='#will-home-assistant-and-hassio-remain-open-source'></a> Will Home Assistant and Hass.io remain open source? 
+
+Yes. Yes. Yes! Home Assistant is the work of hundreds of developers all working together in creating something amazing. The only thing that will require a subscription is the optional cloud functionality.
+
+#### <a class='title-link' name='where-is-the-source-code-for-the-alexa-skill' href='#where-is-the-source-code-for-the-alexa-skill'></a> Where is the source code for the Alexa skill? 
+
+All messages are processed locally and so the Alexa skill code is part of the Home Assistant code. The Home Assistant Cloud only routes the messages to your local Home Assistant instance. This means that you can audit the source code to check all the things that the cloud can do:
+
+ - [Module that processes incoming cloud messages](https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/components/cloud/iot.py)
+ - [Alexa Smart Home v3 skill](https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/components/alexa/smart_home.py)
+
+#### <a class='title-link' name='what-other-features-will-come-to-the-cloud' href='#what-other-features-will-come-to-the-cloud'></a> What other features will come to the cloud? 
+
+We have a lot of ideas! We are not going to make any promises but here are some things that we’re looking into:
+
+- Google Home / Google Assistant Smart Home skill
+- Allow easy linking of other cloud services to Home Assistant. No more local juggling with OAuth flows. For example, link your Fitbit account and the Fitbit component will show up in Home Assistant.
+- Encrypted backups of your Hass.io data
+- Text to speech powered by AWS Polly
+- Generic HTTP cloud endpoint for people to send messages to their local instance. This will allow people to build applications on top of the Home Assistant cloud.
+- IFTTT integration
+- Alexa shopping list integration
+
+#### <a class='title-link' name='what-countries-are-supported-at-launch' href='#what-countries-are-supported-at-launch'></a> What countries are supported at launch? 
+
+As of February 2018, we are live in all countries that have Alexa except for Japan (which is under certification).
+
+#### <a class='title-link' name='how-is-the-connection-made-to-the-cloud' href='#how-is-the-connection-made-to-the-cloud'></a> How is the connection made to the cloud? 
+
+The connection is made using a WebSocket connection over HTTPS. [See the source here](https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/components/cloud/iot.py).
+
+#### <a class='title-link' name='i-think-that-the-price-is-too-high-for-what-i-get' href='#i-think-that-the-price-is-too-high-for-what-i-get'></a> I think that the price is too high for what I get. 
+
+The Home Assistant Cloud functionality is a perk for becoming a supporter of the Home Assistant project. As a supporter you will help fund development, cover our operating costs and gives you access to use Home Assistant Cloud. You are not paying to just maintain the cloud servers.
+
+The perks offered for being a supporter will also extend over time, as noted in [this answer](#what-other-features-will-come-to-the-cloud).
+
+#### <a class='title-link' name='what-will-the-home-assistant-organization-do-with-the-funds-' href='#what-will-the-home-assistant-organization-do-with-the-funds-'></a> What will the Home Assistant organization do with the funds ? 
+
+The plan is to hire developers to work fulltime on Home Assistant. We have grown a lot in the last 4 years and the work load is pushing the limits of what our core developers can do. Open source burn out is very common ([1], [2]) and we want to avoid this by moving most organization and release chores to a paid position.
+
+_For more background on these topics, check out [HASS Podcast 15](https://hasspodcast.io/ha015/)._
+
+[1]: https://nolanlawson.com/2017/03/05/what-it-feels-like-to-be-an-open-source-maintainer/
+[2]: https://www.kennethreitz.org/essays/the-reality-of-developer-burnout
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Introducing Hass.io]]></title>
+    <link href="https://home-assistant.io/blog/2017/07/25/introducing-hassio/"/>
+    <updated>2017-07-25T00:02:05+00:00</updated>
+    <id>https://home-assistant.io/blog/2017/07/25/introducing-hassio</id>
+    <content type="html"><![CDATA[**TL;DR:** Today we're introducing [Hass.io]. Hass.io is an operating system that will take care of installing and updating Home Assistant, is managed from the Home Assistant UI, allows creating/restoring snapshots of your configuration and can easily be extended using [Hass.io add-ons][addons] including [Google Assistant] and [Let's Encrypt].
+
+----
+
+Home Assistant is 2 months away from being 4 years old. In that time the Internet of Things has really taken off and we've seen many new devices and services. We saw the introduction of voice assistants like Google Home and new standards like Apple HomeKit.
+
+Some things have been supported natively in Home Assistant, others have been integrated into Home Assistant via third party applications. All these moving parts caused our users to spend a lot of time maintaining their systems and applications instead of automating their homes.
+
+So we decided to take a step back from day-to-day Home Assistant development and see if we could offer a solution that makes updating a breeze for our users. A solution that you can flash to your Raspberry Pi and no longer worry about. A solution that would still be local first and respect the user's privacy.
+
+And this is how [Pascal Vizeli] came up with Hass.io, an operating system based on [ResinOS] and [Docker]. Hass.io will take care of installing and updating Home Assistant, is managed from the Home Assistant UI, allows taking/restoring snapshots of your configuration and can easily be extended using [Hass.io add-ons][addons].
+
+<p class='img'>
+<img src='/images/hassio/screenshots/dashboard.png'>
+Hass.io dashboard
+</p>
+
+To install add-ons, a user can browse the built-in add-on store and install, configure and update any available application. Want to turn your device into a Google Assistant or make your configuration accessible via Samba/Windows networking? Both are a couple of clicks away! ([Video demo - 38s, no audio][install-demo])
+
+At launch we have included a couple of [built-in add-ons][addons] like [Google Assistant], [Let's Encrypt] and [Duck DNS]. Besides our internal add-ons, it is also possible to create and share your own add-on repositories. During our beta period we've already seen some great add-ons being shared: [Homebridge][olivierg], [InfluxDB][bestlibre], [HASS Configurator][danielperna] and [AppDaemon][vkorn].
+
+As we strongly believe in the openness of technology, we are releasing Hass.io as [open source] under the Apache 2.0 license. That way any user can make sure that the code that runs in their homes is secure and safe.
+
+- [Learn more about Hass.io][Hass.io]
+- [Install Hass.io][install]
+- [Available add-ons][addons]
+
+_Some frequently asked questions are answered below in the read more section._
+
+<div class='videoWrapper'>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/XWPluWcYRMI" frameborder="0" allowfullscreen></iframe>
+</div>
+
+Hass.io has been built by [Pascal Vizeli], the UI has been made by [Paulus Schoutsen] and [BRUHAutomation] made the introduction video. Big thanks to [Resin.io] for building ResinOS and helping us get started with it. Also a big thanks to the community for early feedback, helping out with the documentation and add-on development ❤️
+
+<!--more-->
+
+#### <a class='title-link' name='will-hassio-be-the-only-way-to-run-home-assistant' href='#will-hassio-be-the-only-way-to-run-home-assistant'></a> Will Hass.io be the only way to run Home Assistant? 
+
+Hass.io is and will always be optional. You can still run Home Assistant wherever you can run Python.
+
+#### <a class='title-link' name='which-devices-are-supported-at-launch' href='#which-devices-are-supported-at-launch'></a> Which devices are supported at launch? 
+
+Initially we support the Raspberry Pi 1, 2, 3 and Intel NUC. Advanced users can also [install Hass.io on a Linux server][advanced-install].
+
+#### <a class='title-link' name='can-i-install-packages-or-scripts-on-the-machine' href='#can-i-install-packages-or-scripts-on-the-machine'></a> Can I install packages or scripts on the machine? 
+
+No, this is not possible as we're using stateless Docker containers. To install a package you'll have to write a local add-on that interacts with Home Assistant. See [our tutorial][run-local].
+
+#### <a class='title-link' name='can-i-restore-a-snapshot-on-a-different-device' href='#can-i-restore-a-snapshot-on-a-different-device'></a> Can I restore a snapshot on a different device? 
+
+Yes, any Hass.io snapshot can be restored on any device.
+
+#### <a class='title-link' name='the-hassio-configuration-panel-contains-powerful-tools-why-is-there-no-extra-security-besides-the-home-assistant-login' href='#the-hassio-configuration-panel-contains-powerful-tools-why-is-there-no-extra-security-besides-the-home-assistant-login'></a> The Hass.io configuration panel contains powerful tools. Why is there no extra security besides the Home Assistant login? 
+
+This is in the works. We have already implemented [the backend](https://github.com/home-assistant/hassio/pull/41) and plan to release the UI soon.
+
+#### <a class='title-link' name='is-there-a-roadmap' href='#is-there-a-roadmap'></a> Is there a roadmap? 
+
+We use [Pivotal Tracker] to track things that are in progress and what we might work on.
+
+[Hass.io]: /hassio
+[install]: /hassio/installation
+[Homebridge]: https://github.com/nfarina/homebridge
+[hb-hass]: https://github.com/home-assistant/homebridge-homeassistant
+[Pascal Vizeli]: https://github.com/pvizeli/
+[Paulus Schoutsen]: https://github.com/balloob/
+[ResinOS]: https://resinos.io/
+[Docker]: https://www.docker.com/
+[addons]: /addons/
+[bestlibre]: https://community.home-assistant.io/t/repository-bestlibre-addons-repository/18037
+[danielperna]: https://community.home-assistant.io/t/repository-hass-configurator/17838
+[olivierg]: https://community.home-assistant.io/t/repository-homebridge-add-on/18569
+[vkorn]: https://community.home-assistant.io/t/repository-few-addons/20659
+[install-demo]: https://youtu.be/NfyavpAg4as
+[BRUHAutomation]: https://www.youtube.com/channel/UCLecVrux63S6aYiErxdiy4w
+[open source]: https://github.com/home-assistant/hassio
+[Google Assistant]: /addons/google_assistant/
+[Let's Encrypt]: /addons/lets_encrypt/
+[Duck DNS]: /addons/duckdns/
+[advanced-install]: /hassio/installation/#alternative-install-on-generic-linux-server
+[Pivotal Tracker]: https://www.pivotaltracker.com/n/projects/2020851
+[run-local]: /hassio/run_local/
+[Resin.io]: https://resin.io
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[1 year and 22 days ago I had an idea...]]></title>
+    <link href="https://home-assistant.io/blog/2017/04/15/ios/"/>
+    <updated>2017-04-15T08:04:05+00:00</updated>
+    <id>https://home-assistant.io/blog/2017/04/15/ios</id>
+    <content type="html"><![CDATA[1 year and 22 days ago, or 387 days ago, on March 25th, 2016, I started a project to bring Home Assistant to the iPhone.
+
+I thought the existing notification and location solutions were lacking in one way or another and had wanted for _years_ to have a project I could call my own which would allow me to learn iOS development. What better way then implementing an extremely complex application like Home Assistant?
+
+I started with a lot of steam. I remember cranking out the initial work that night and showing Paulus who was astounded at how fast the UI was coming together.
+
+Little would I know how many problems I would create and uncover throughout the process. Writing a mobile app for a project that moves as fast as Home Assistant is... tricky, to say the least. In the time since I started writing the app, Home Assistant had 90 releases. I started writing the day before 0.16 was released. Now we are at 0.42.3. Time flies...
+
+I couldn't have completed the app without help and input from the community. By the end I had 700 beta testers, of which about 500 were very active in testing the app.
+
+I received emails and forum posts almost every day, even when the app would go without an update for weeks and sometimes months at a time as my life got busier and busier.
+
+I wanted this app to be done 9 months ago, at least, but my drive to add more and more features killed that idea. This really taught me the value of the MVP over the kitchen sink.
+
+It may not look the way that I wanted it to initially, with beautiful native UI components, but that's okay. What I really cared about is there. The notification and location engines are some of the most customizable and powerful available in an iOS app if I do say so myself. I made them this way to keep with the spirit of infinite flexibility that is enshrined in Home Assistant.
+
+Just because the app is released doesn't mean we are at the end of the road. It's only the beginning. There's plenty of bugs to fix still, improvements to make, features to add. Beta testing will continue, and if anything, be expanded. I do want to have a native UI someday, but that's pretty hard with how fast the project moves.
+
+The biggest request I have is for more developers on the project. As many of you know, I have my hands in many different parts of Home Assistant, from governance and organization to managing the forums to writing this app, managing the Homebridge plugin and even sometimes writing code for the actual core codebase! I can't do it all, and I'm still a new iOS developer who doesn't know all the best practices.
+
+The app is [open source](https://github.com/home-assistant/home-assistant-iOS), has been for the last few months when I first prepared to submit it to Apple for review. I invite Swift developers to come and join me in building it. Trust me, there's tons to do.
+
+**1 year and 22 days ago, on March 25th, 2016 I began work on Home Assistant for iOS.**
+
+**Today, April 16th, 2017, I am _extremely_ excited to announce that Home Assistant for iOS has been approved by Apple and is now available to download for ~~a monthly subscription starting at $9.99~~ free! (had to get a joke in here somewhere!) on the iOS App Store in every country.**
+
+<p style="text-align: center;"><a target="_blank" href="https://itunes.apple.com/us/app/home-assistant-open-source-home-automation/id1099568401?mt=8" style="display:inline-block;overflow:hidden;background:url(//linkmaker.itunes.apple.com/assets/shared/badges/en-us/appstore-lrg.svg) no-repeat;width:135px;height:40px;background-size:contain;"></a></p>
+
+_Please note, you must have Home Assistant 0.42.4 or later installed for the app to function properly._
+
+Thanks for everything so far, I'm looking forward to the road that lies ahead for Home Assistant on iOS!
+
+]]></content>
+  </entry>
+  
+</feed>

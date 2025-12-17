@@ -28,7 +28,7 @@ api: Google Tasks API
 api_link: https://console.cloud.google.com/apis/enableflow?apiid=tasks.googleapis.com
 ---
 
-The **Google Tasks** integration allows you to connect your [Google Tasks](https://support.google.com/tasks/answer/7675772)
+The **Google Tasks** {% term integration %} allows you to connect your [Google Tasks](https://support.google.com/tasks/answer/7675772)
 to Home Assistant. The integration adds a [to-do list entity](/integrations/todo) for
 each task list, allowing you to create, update, or delete items on the list
 from the **To-do list** dashboard.

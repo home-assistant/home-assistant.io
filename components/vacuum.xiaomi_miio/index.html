@@ -1,0 +1,501 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Xiaomi Mi Robot Vacuum - Home Assistant</title>
+    <meta name="author" content="Home Assistant">
+    <meta name="description" content="Instructions on how to integrate your Xiaomi Mi Robot Vacuum within Home Assistant.">
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/components/vacuum.xiaomi_miio/">
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="Xiaomi Mi Robot Vacuum">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/components/vacuum.xiaomi_miio/">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="Instructions on how to integrate your Xiaomi Mi Robot Vacuum within Home Assistant.">
+    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    <meta name="twitter:title" content="Xiaomi Mi Robot Vacuum">
+    <meta name="twitter:description" content="Instructions on how to integrate your Xiaomi Mi Robot Vacuum within Home Assistant.">
+    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
+    <link href="/stylesheets/screen.css" media="screen, projection, print" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+  <body >
+    <header class='site-header'>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/docs/">Docs</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+  <li><a href='#' class='show-search'><i class="icon-search"></i></a></li>
+</ul>
+  </nav>
+  <div class='search-container' style='display: none'>
+    <div class='search'>
+      <i class="icon-search"></i>
+      <input id='search' placeholder='Search the docs…'>
+      <a href='#' class='close'><i class="icon-remove-sign"></i></a>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+    </header>
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+          <article class="page">
+  <header>
+    <h1 class="title indent">
+      Xiaomi Mi Robot Vacuum
+    </h1>
+  </header>
+  <hr class="divider">
+  <p>The <code class="highlighter-rouge">xiaomi miio</code> vacuum platform allows you to control the state of your <a href="http://www.mi.com/roomrobot/">Xiaomi Mi Robot Vacuum</a>.</p>
+<p>Currently supported features are:</p>
+<ul>
+  <li><code class="highlighter-rouge">turn_on</code></li>
+  <li><code class="highlighter-rouge">pause</code></li>
+  <li><code class="highlighter-rouge">stop</code></li>
+  <li><code class="highlighter-rouge">return_to_home</code></li>
+  <li><code class="highlighter-rouge">turn_off</code> (stop all activity and return to dock)</li>
+  <li><code class="highlighter-rouge">locate</code></li>
+  <li><code class="highlighter-rouge">clean_spot</code></li>
+  <li><code class="highlighter-rouge">set_fan_speed</code></li>
+  <li>remote control of your robot.</li>
+</ul>
+<p>Please follow <a href="/components/vacuum.xiaomi_miio/#retrieving-the-access-token">Retrieving the Access Token</a> to retrieve the API token used in
+<code class="highlighter-rouge">configuration.yaml</code>.</p>
+<h2><a class="title-link" name="configuring-the-platform" href="#configuring-the-platform"></a> Configuring the Platform</h2>
+<p>To add a vacuum to your installation, add the following to <code class="highlighter-rouge">configuration.yaml</code>:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">vacuum</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">xiaomi_miio</span>
+    <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.1.2</span>
+    <span class="s">token</span><span class="pi">:</span> <span class="s">YOUR_TOKEN</span>
+</code></pre>
+</div>
+<p>Configuration variables:</p>
+<ul>
+  <li><strong>host</strong> (<em>Required</em>): The IP of your robot.</li>
+  <li><strong>token</strong> (<em>Required</em>): The API token of your robot.</li>
+  <li><strong>name</strong> (<em>Optional</em>): The name of your robot.</li>
+</ul>
+<h2><a class="title-link" name="platform-services" href="#platform-services"></a> Platform Services</h2>
+<p>In addition to all of the services provided by the <code class="highlighter-rouge">vacuum</code> component (<code class="highlighter-rouge">turn_on</code>, <code class="highlighter-rouge">turn_off</code>, <code class="highlighter-rouge">start_pause</code>, <code class="highlighter-rouge">stop</code>, <code class="highlighter-rouge">return_to_home</code>, <code class="highlighter-rouge">locate</code>, <code class="highlighter-rouge">set_fan_speed</code> and <code class="highlighter-rouge">send_command</code>), the <code class="highlighter-rouge">xiaomi</code> platform introduces specific services to access the remote control mode of the robot. These are:</p>
+<ul>
+  <li><code class="highlighter-rouge">xiaomi_remote_control_start</code></li>
+  <li><code class="highlighter-rouge">xiaomi_remote_control_stop</code></li>
+  <li><code class="highlighter-rouge">xiaomi_remote_control_move</code></li>
+  <li><code class="highlighter-rouge">xiaomi_remote_control_move_step</code></li>
+</ul>
+<h3><a class="title-link" name="service-vacuumxiaomi_remote_control_start" href="#service-vacuumxiaomi_remote_control_start"></a> Service <code class="highlighter-rouge">vacuum.xiaomi_remote_control_start</code></h3>
+<p>Start the remote control mode of the robot. You can then move it with <code class="highlighter-rouge">remote_control_move</code>; when done, call <code class="highlighter-rouge">remote_control_stop</code>.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">entity_id</code></td>
+      <td>yes</td>
+      <td>Only act on specific robot; default targets all</td>
+    </tr>
+  </tbody>
+</table>
+<h3><a class="title-link" name="service-vacuumxiaomi_remote_control_stop" href="#service-vacuumxiaomi_remote_control_stop"></a> Service <code class="highlighter-rouge">vacuum.xiaomi_remote_control_stop</code></h3>
+<p>Exit the remote control mode of the robot.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">entity_id</code></td>
+      <td>yes</td>
+      <td>Only act on specific robot; default targets all</td>
+    </tr>
+  </tbody>
+</table>
+<h3><a class="title-link" name="service-vacuumxiaomi_remote_control_move" href="#service-vacuumxiaomi_remote_control_move"></a> Service <code class="highlighter-rouge">vacuum.xiaomi_remote_control_move</code></h3>
+<p>Remote control the robot. Please ensure you first set it in remote control mode with <code class="highlighter-rouge">remote_control_start</code>.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">entity_id</code></td>
+      <td>yes</td>
+      <td>Only act on specific robot; default targets all</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">velocity</code></td>
+      <td>no</td>
+      <td>Speed: between -0.29 and 0.29</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">rotation</code></td>
+      <td>no</td>
+      <td>Rotation: between -179 degrees and 179 degrees</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">duration</code></td>
+      <td>no</td>
+      <td>The number of seconds that the robot should move for</td>
+    </tr>
+  </tbody>
+</table>
+<h3><a class="title-link" name="service-vacuumxiaomi_remote_control_move_step" href="#service-vacuumxiaomi_remote_control_move_step"></a> Service <code class="highlighter-rouge">vacuum.xiaomi_remote_control_move_step</code></h3>
+<p>Enter remote control mode, make one move, stop, and exit remote control mode.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">entity_id</code></td>
+      <td>yes</td>
+      <td>Only act on specific robot; default targets all</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">velocity</code></td>
+      <td>no</td>
+      <td>Speed: between -0.29 and 0.29.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">rotation</code></td>
+      <td>no</td>
+      <td>Rotation: between -179 degrees and 179 degrees.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">duration</code></td>
+      <td>no</td>
+      <td>The number of seconds that the robot should move for</td>
+    </tr>
+  </tbody>
+</table>
+<h2><a class="title-link" name="attributes" href="#attributes"></a> Attributes</h2>
+<p>In addition to <a href="/components/vacuum/#attributes">all of the attributes provided by the <code class="highlighter-rouge">vacuum</code> component</a>,
+(<code class="highlighter-rouge">battery_icon</code>, <code class="highlighter-rouge">cleaned_area</code>, <code class="highlighter-rouge">fan_speed</code>, <code class="highlighter-rouge">fan_speed_list</code>, <code class="highlighter-rouge">status</code>, and <code class="highlighter-rouge">params</code>), the <code class="highlighter-rouge">xiaomi</code> platform introduces specific attributes. These are:</p>
+<ul>
+  <li><code class="highlighter-rouge">cleaning_time</code></li>
+  <li><code class="highlighter-rouge">do_not_disturb</code></li>
+  <li><code class="highlighter-rouge">main_brush_left</code></li>
+  <li><code class="highlighter-rouge">side_brush_left</code></li>
+  <li><code class="highlighter-rouge">filter_left</code></li>
+  <li><code class="highlighter-rouge">cleaning_count</code></li>
+  <li><code class="highlighter-rouge">total_cleaned_area</code></li>
+  <li><code class="highlighter-rouge">total_cleaning_time</code></li>
+</ul>
+<p>The following table shows the units of measurement for each attribute:</p>
+<table>
+  <thead>
+    <tr>
+      <th>Attribute</th>
+      <th>Unit of measurement</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">do_not_disturb</code></td>
+      <td> </td>
+      <td>DND mode on / off</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">cleaning_time</code></td>
+      <td>minutes</td>
+      <td>Last / actual cleaning time in minutes</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">cleaned_area</code></td>
+      <td>square meter</td>
+      <td>Last / actual cleaned area in square meters</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">main_brush_left</code></td>
+      <td>hours</td>
+      <td>Hours left until a change of the main brush is needed</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">side_brush_left</code></td>
+      <td>hours</td>
+      <td>Hours left until a change of the side brush is needed</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">filter_left</code></td>
+      <td>hours</td>
+      <td>Hours left until a change of the filter is needed</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">cleaning_count</code></td>
+      <td> </td>
+      <td>Number of total cleaning cycles</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">total_cleaned_area</code></td>
+      <td>square meter</td>
+      <td>Total cleaned area in square meters</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">total_cleaning_time</code></td>
+      <td>minutes</td>
+      <td>Total cleaning time in minutes</td>
+    </tr>
+  </tbody>
+</table>
+<h2><a class="title-link" name="retrieving-the-access-token" href="#retrieving-the-access-token"></a> Retrieving the Access Token</h2>
+<p class="note">
+As per <a href="https://github.com/rytilahti/python-miio/issues/185">python-miio issue 185</a> the Mi-Home app no longer stores the token within the database (it’s retrieved from Xiaomi servers from version 5.0.31+). Currently the only known fix is to uninstall, then install a downgraded version of the apk. Apkmirror is a trusted source for older versions of the app. <a href="https://www.apkmirror.com/apk/xiaomi-inc/mihome/mihome-5-0-0-release/">Mi-Home version 5.0.0</a> is confirmed as working for the following Android methods.
+This token (32 hexadecimal characters) is required for the Xiaomi Mi Robot Vacuum, Xiaomi Philips Lights and Xiaomi IR Remote. The Xiaomi Gateway uses another security method and requires a <code class="highlighter-rouge">key</code> (16 alphanumeric chars), which can be obtained
+easily via a hidden menu item at the Mi-Home app or using the <code class="highlighter-rouge">miio</code> command line tool.
+</p>
+<h4><a class="title-link" name="miio-command-line-tool" href="#miio-command-line-tool"></a> Miio command line tool</h4>
+<p>You can install the command line tool with:</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>npm install -g miio
+</code></pre>
+</div>
+<p>Discovering devices on current network</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>miio discover
+</code></pre>
+</div>
+<p>This will list devices that are connected to the same network as your computer. Let it run for a while so it has a chance to reach all devices, as it might take a minute or two for all devices to answer.</p>
+<p>The commands outputs each device on this format:</p>
+<div class="language-text highlighter-rouge"><pre class="highlight"><code>Device ID: 48765421
+Model info: zhimi.airpurifier.m1
+Address: 192.168.100.9
+Token: token-as-hex-here via auto-token
+Support: At least basic
+</code></pre>
+</div>
+<p>The information output is:</p>
+<ul>
+  <li><strong>Device ID</strong> - the unique identifier of the device, does not change if the device is reset.</li>
+  <li><strong>Model ID</strong> - the model id if it could be determined, this indicates what type of device it is</li>
+  <li><strong>Address</strong> - the IP that the device has on the network</li>
+  <li><strong>Token</strong> - the token of the device or ??? if it could not be automatically determined</li>
+</ul>
+<h4><a class="title-link" name="windows-and-android" href="#windows-and-android"></a> Windows and Android</h4>
+<p>To fetch the token follow these instructions depending on your mobile phone platform.</p>
+<ol>
+  <li>Configure the robot with the Mi-Home app.</li>
+  <li>Download and extract the <a href="https://github.com/ultrara1n/MiToolkit/releases">MiToolKit.zip</a>.</li>
+  <li>Enable developer mode and USB debugging on the Android phone and plug it into the computer.</li>
+  <li>Change the MiToolKit language to English if you need to.</li>
+  <li>Click “Extract Token”</li>
+  <li>On the phone, you must confirm the backup. DO NOT enter any password and press the button to make the backup.</li>
+  <li>Once you have confirmed the backup the token extraction will begin, it should appear in the MiToolKit shortly.</li>
+</ol>
+<h4><a class="title-link" name="linux-and-android-not-rooted" href="#linux-and-android-not-rooted"></a> Linux and Android (not rooted)</h4>
+<p>Follow the pairing process using your phone and Mi-Home app. You will be able to retrieve the token from a SQLite file inside your phone.</p>
+<p>Before you begin you need to install <code class="highlighter-rouge">libffi-dev</code> and <code class="highlighter-rouge">libssl-dev</code> by running the command below. This is needed for <code class="highlighter-rouge">python-miio</code> to be installed correctly.</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo apt-get install libffi-dev libssl-dev
+</code></pre>
+</div>
+<p>If your Home Assistant installation is running in a <a href="/docs/installation/virtualenv/#upgrading-home-assistant">Virtualenv</a>, make sure you activate it by running the commands below.</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo su -s /bin/bash homeassistant
+<span class="gp">$ </span><span class="nb">source</span> /srv/homeassistant/bin/activate
+</code></pre>
+</div>
+<p>To fetch the token follow these instructions depending on your mobile phone platform.</p>
+<ol>
+  <li>Configure the robot with the Mi-Home app.</li>
+  <li>Enable developer mode, USB debugging and plug the Android phone into the computer.</li>
+  <li>Get ADB e.g. <code class="highlighter-rouge">apt-get install android-tools-adb</code> or <code class="highlighter-rouge">apt-get install adb</code></li>
+  <li><code class="highlighter-rouge">adb devices</code> should list your device. Consult ADB manual if necessary.</li>
+  <li>Issue a backup command via adb: <code class="highlighter-rouge">adb backup -noapk com.xiaomi.smarthome -f backup.ab</code> (set a password if prompted on your phone). Some devices may required single quotes in the command <code class="highlighter-rouge">adb backup '-noapk com.xiaomi.smarthome -f backup.ab'</code></li>
+  <li>Download the ‘ADB Backup Extractor’ from <a href="https://sourceforge.net/projects/adbextractor/files/latest/download">here</a></li>
+  <li>Extract the data from the backup: <code class="highlighter-rouge">java -jar Android\ Backup\ Utilities/Android\ Backup\ Extractor/android-backup-extractor-20171005-bin/abe.jar unpack backup.ab unpacked.tar</code> (enter the password, if prompted)</li>
+  <li>Untar the unpacked data: <code class="highlighter-rouge">tar -xvf unpacked.tar</code></li>
+  <li><code class="highlighter-rouge">sqlite3 apps/com.xiaomi.smarthome/db/miio2.db 'select token from devicerecord where name = "Mi Robot Vacuum";'</code> returns the token for your Xiaomi vacuum bot.</li>
+</ol>
+<h4><a class="title-link" name="linux-and-android-rooted" href="#linux-and-android-rooted"></a> Linux and Android (rooted!)</h4>
+<p>Follow the pairing process using your phone and Mi-Home app. You will be able to retrieve the token from a SQLite file inside your phone.</p>
+<p>Before you begin you need to install <code class="highlighter-rouge">libffi-dev</code> and <code class="highlighter-rouge">libssl-dev</code> by running the command below. This is needed for <code class="highlighter-rouge">python-miio</code> to be installed correctly.</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo apt-get install libffi-dev libssl-dev
+</code></pre>
+</div>
+<p>If your Home Assistant installation is running in a <a href="/docs/installation/virtualenv/#upgrading-home-assistant">Virtualenv</a>, make sure you activate it by running the commands below.</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo su -s /bin/bash homeassistant
+<span class="gp">$ </span><span class="nb">source</span> /srv/homeassistant/bin/activate
+</code></pre>
+</div>
+<p>To fetch the token follow these instructions depending on your mobile phone platform.</p>
+<ol>
+  <li>Configure the robot with the Mi-Home app.</li>
+  <li>Enable developer mode, USB debugging and root permission only for ADB on the Android phone and plug it into the computer.</li>
+  <li>Get ADB f.e. <code class="highlighter-rouge">apt-get install android-tools-adb</code></li>
+  <li><code class="highlighter-rouge">adb devices</code> should list your device</li>
+  <li><code class="highlighter-rouge">adb root</code> (does work for development builds only: ones with <code class="highlighter-rouge">ro.debuggable=1</code>)</li>
+  <li><code class="highlighter-rouge">adb shell</code> (for those using Magisk based root the previous command won’t work. After entering a shell, type <code class="highlighter-rouge">su</code> to enter the root shell)</li>
+  <li><code class="highlighter-rouge">echo "select name,localIP,token from devicerecord;" | sqlite3 /data/data/com.xiaomi.smarthome/databases/miio2.db</code> returns a list of all registered devices including IP address and token.</li>
+</ol>
+<h4><a class="title-link" name="ios" href="#ios"></a> iOS</h4>
+<ol>
+  <li>Configure the robot with the Mi-Home app.</li>
+  <li>Using iTunes, create an unencrypted backup of your iPhone.</li>
+  <li>Install <a href="http://www.imactools.com/iphonebackupviewer/">iBackup Viewer</a>, open it, and open your backup.</li>
+  <li>Open the “Raw Data” module.</li>
+  <li>Navigate to <code class="highlighter-rouge">com.xiaomi.mihome</code>.</li>
+  <li>Search for a file that looks like this: <code class="highlighter-rouge">123456789_mihome.sqlite</code> – note that <code class="highlighter-rouge">_mihome.sqlite</code> is <em>not</em> the correct file.</li>
+  <li>Save this file to your filesystem.</li>
+  <li>Install <a href="http://sqlitebrowser.org/">DB Browser for SQLite</a>.</li>
+  <li>Open DB Browser and load the <code class="highlighter-rouge">.sqlite</code> file you saved from your backup.</li>
+  <li>Click on the <code class="highlighter-rouge">Execute SQL</code> tab.</li>
+  <li>Input and run this query: <code class="highlighter-rouge">SELECT ZTOKEN FROM ZDEVICE WHERE ZNAME = "Mi Robot Vacuum"</code></li>
+  <li>Copy the returned 32-digit hexadecimal string to your clipboard.</li>
+  <li>Open <code class="highlighter-rouge">Terminal</code> and execute this command: <code class="highlighter-rouge">echo '0: &lt;YOUR HEXADECIMAL STRING&gt;' | xxd -r -p | openssl enc -d -aes-128-ecb -nopad -nosalt -K 00000000000000000000000000000000</code></li>
+  <li>Use the resulting string as your token.</li>
+</ol>
+</article>
+        </div>
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/vacuum.xiaomi_miio.markdown'>Edit this page on GitHub</a></div>
+  <div class='brand-logo-container section'>
+      <img src='/images/supported_brands/xiaomi.png' />
+  </div>
+    <div class='section'>
+      IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Local Polling
+    </div>
+    <div class='section'>
+      Introduced in release: 0.51
+    </div>
+    <div class='section'>
+      Source:
+      <a href='https://github.com/home-assistant/home-assistant/blob/master/homeassistant/components/vacuum/xiaomi_miio.py'>vacuum/xiaomi_miio.py</a>
+    </div>
+    <div class='section'>
+      This is a platform for
+      <a href='/components/vacuum/'>the Vacuum cleaner robots component</a>.
+    </div>
+          <div class='section'>
+          <h1 class='title delta'>Related components</h1>
+          <ul class='divided'>
+        <li><a href='/components/fan.xiaomi_miio/'>
+          Xiaomi Air Purifier
+        </a></li>
+        <li><a href='/components/remote.xiaomi_miio/'>
+          Xiaomi IR Remote
+        </a></li>
+        <li><a href='/components/light.xiaomi_miio/'>
+          Xiaomi Philips Light
+        </a></li>
+        <li><a href='/components/switch.xiaomi_miio/'>
+          Xiaomi Smart WiFi Socket and Smart Power Strip
+        </a></li>
+    </ul>
+    </div>
+    <div class='section'>
+    <h1 class="title delta">Category Vacuum</h1>
+    <ul class='divided'>
+        <li>
+            <a href='/components/vacuum.dyson/'>Dyson 360 Eye</a>
+        </li>
+        <li>
+            <a href='/components/vacuum.mqtt/'>MQTT Vacuum</a>
+        </li>
+        <li>
+            <a href='/components/vacuum.neato/'>Neato Robotics Vacuum</a>
+        </li>
+        <li>
+            Xiaomi Mi Robot Vacuum
+        </li>
+        <li>
+            <a href='/components/vacuum.roomba/'>iRobot Roomba</a>
+        </li>
+    </ul>
+    </div>
+</section>
+</div>
+        </aside>
+      </div>
+    </div>
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a> (no support!).<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+  <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">home-assistant.io</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
+<script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
+<script type="text/javascript">
+docsearch({
+  apiKey: 'ae96d94b201c5444c8a443093edf3efb',
+  indexName: 'home-assistant',
+  inputSelector: '#search',
+  debug: false // Set debug to true if you want to inspect the dropdown
+});
+document.querySelector('.search .close').addEventListener('click', function(ev) {
+  ev.preventDefault();
+  document.querySelector('.search-container').style.display = 'none';
+});
+document.querySelector('.show-search').addEventListener('click', function(ev) {
+  ev.preventDefault();
+  document.querySelector('.search-container').style.display = 'block';
+  document.getElementById('toggle').checked = false;
+  document.querySelector('.search-container input').focus();
+});
+</script>
+  </body>
+</html>

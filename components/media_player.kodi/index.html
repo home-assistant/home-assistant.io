@@ -1,0 +1,587 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Kodi - Home Assistant</title>
+    <meta name="author" content="Home Assistant">
+    <meta name="description" content="Instructions how to integrate Kodi into Home Assistant.">
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/components/media_player.kodi/">
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="Kodi">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/components/media_player.kodi/">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="Instructions how to integrate Kodi into Home Assistant.">
+    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    <meta name="twitter:title" content="Kodi">
+    <meta name="twitter:description" content="Instructions how to integrate Kodi into Home Assistant.">
+    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
+    <link href="/stylesheets/screen.css" media="screen, projection, print" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+  <body >
+    <header class='site-header'>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/docs/">Docs</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+  <li><a href='#' class='show-search'><i class="icon-search"></i></a></li>
+</ul>
+  </nav>
+  <div class='search-container' style='display: none'>
+    <div class='search'>
+      <i class="icon-search"></i>
+      <input id='search' placeholder='Search the docs…'>
+      <a href='#' class='close'><i class="icon-remove-sign"></i></a>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+    </header>
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+          <article class="page">
+  <header>
+    <h1 class="title indent">
+      Kodi
+    </h1>
+  </header>
+  <hr class="divider">
+  <p>The <code class="highlighter-rouge">kodi</code> platform allows you to control a <a href="http://kodi.tv/">Kodi</a> multimedia system from Home Assistant.</p>
+<p>To add Kodi to your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">media_player</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">kodi</span>
+    <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.0.123</span>
+</code></pre>
+</div>
+<p>Configuration variables:</p>
+<ul>
+  <li><strong>host</strong> (<em>Required</em>): The host name or address of the device that is running XBMC/Kodi.</li>
+  <li><strong>port</strong> (<em>Optional</em>): The HTTP port number. Defaults to 8080.</li>
+  <li><strong>tcp_port</strong> (<em>Optional</em>): The TCP port number. Defaults to 9090. Used for websocket connections to Kodi.</li>
+  <li><strong>name</strong> (<em>Optional</em>): The name of the device used in the frontend.</li>
+  <li><strong>proxy_ssl</strong> (<em>Optional</em>): Connect to kodi with HTTPS and WSS. Defaults to <code class="highlighter-rouge">false</code>. Useful if Kodi is behind an SSL proxy.</li>
+  <li><strong>username</strong> (<em>Optional</em>): The XBMC/Kodi HTTP username.</li>
+  <li><strong>password</strong> (<em>Optional</em>): The XBMC/Kodi HTTP password.</li>
+  <li><strong>turn_on_action</strong> (<em>Optional</em>): Home Assistant script sequence to call when turning on.</li>
+  <li><strong>turn_off_action</strong> (<em>Optional</em>): Home Assistant script sequence to call when turning off.</li>
+  <li><strong>enable_websocket</strong> (<em>Optional</em>): Enable websocket connections to Kodi via the TCP port. Defaults to <code class="highlighter-rouge">true</code>. The websocket connection allows Kodi to push updates to Home Assistant and removes the need for Home Assistant to poll. If websockets don’t work on your installation this can be set to <code class="highlighter-rouge">false</code>.</li>
+  <li><strong>timeout</strong> (<em>Optional</em>): Set timeout for connections to Kodi. Defaults to 5 seconds.</li>
+</ul>
+<h3><a class="title-link" name="service-kodi_add_to_playlist" href="#service-kodi_add_to_playlist"></a> Service <code class="highlighter-rouge">kodi_add_to_playlist</code></h3>
+<p>Add music to the default playlist (i.e. playlistid=0).</p>
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">entity_id</code></td>
+      <td>no</td>
+      <td>Name(s) of the Kodi entities where to add the media.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">media_type</code></td>
+      <td>yes</td>
+      <td>Media type identifier. It must be one of SONG or ALBUM.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">media_id</code></td>
+      <td>no</td>
+      <td>Unique Id of the media entry to add (<code class="highlighter-rouge">songid</code> or <code class="highlighter-rouge">albumid</code>). If not defined, <code class="highlighter-rouge">media_name</code> and <code class="highlighter-rouge">artist_name</code> are needed to search the Kodi music library.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">media_name</code></td>
+      <td>no</td>
+      <td>Optional media name for filtering media. Can be ‘ALL’ when <code class="highlighter-rouge">media_type</code> is ‘ALBUM’ and <code class="highlighter-rouge">artist_name</code> is specified, to add all songs from one artist.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">artist_name</code></td>
+      <td>no</td>
+      <td>Optional artist name for filtering media.</td>
+    </tr>
+  </tbody>
+</table>
+<h3><a class="title-link" name="service-kodi_call_method" href="#service-kodi_call_method"></a> Service <code class="highlighter-rouge">kodi_call_method</code></h3>
+<p>Call a <a href="http://kodi.wiki/?title=JSON-RPC_API">Kodi JSONRPC API</a> method with optional parameters. Results of the Kodi API call will be redirected in a Home Assistant event: <code class="highlighter-rouge">kodi_call_method_result</code>.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">entity_id</code></td>
+      <td>no</td>
+      <td>Name(s) of the Kodi entities where to run the API method.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">method</code></td>
+      <td>yes</td>
+      <td>Name of the Kodi JSONRPC API method to be called.</td>
+    </tr>
+    <tr>
+      <td>any other parameter</td>
+      <td>no</td>
+      <td>Optional parameters for the Kodi API call.</td>
+    </tr>
+  </tbody>
+</table>
+<h3><a class="title-link" name="event-triggering" href="#event-triggering"></a> Event triggering</h3>
+<p>When calling the <code class="highlighter-rouge">kodi_call_method</code> service, if the Kodi JSONRPC API returns data, when received by Home Assistant it will fire a <code class="highlighter-rouge">kodi_call_method_result</code> event on the event bus with the following <code class="highlighter-rouge">event_data</code>:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">entity_id</span><span class="pi">:</span> <span class="s2">"</span><span class="s">&lt;Kodi</span><span class="nv"> </span><span class="s">media_player</span><span class="nv"> </span><span class="s">entity_id&gt;"</span>
+<span class="s">result_ok</span><span class="pi">:</span> <span class="s">&lt;boolean&gt;</span>
+<span class="s">input</span><span class="pi">:</span> <span class="s">&lt;input parameters of the service call&gt;</span>
+<span class="s">result</span><span class="pi">:</span> <span class="s">&lt;data received from the Kodi API&gt;</span>
+</code></pre>
+</div>
+<h3><a class="title-link" name="kodi-turn-onoff-samples" href="#kodi-turn-onoff-samples"></a> Kodi turn on/off samples</h3>
+<p>With the <code class="highlighter-rouge">turn_on_action</code> and <code class="highlighter-rouge">turn_off_action</code> parameters you can run any combination of Home Assistant actions to turn on/off your Kodi instance. Here are a few examples of this usage, including the <strong>migration instructions for the old <code class="highlighter-rouge">turn_off_action</code> list of options</strong>.</p>
+<h4>Turn on Kodi with Wake on LAN</h4>
+<p>With this configuration, when calling <code class="highlighter-rouge">media_player/turn_on</code> on the Kodi device, a <em>magic packet</em> will be sent to the specified MAC address. To use this service, first you need to config the <a href="/components/wake_on_lan"><code class="highlighter-rouge">wake_on_lan</code></a> component in Home Assistant, which is achieved simply by adding <code class="highlighter-rouge">wake_on_lan:</code> to your <code class="highlighter-rouge">configuration.yaml</code>.</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">media_player</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">kodi</span>
+    <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.0.123</span>
+    <span class="s">turn_on_action</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">wake_on_lan.send_magic_packet</span>
+        <span class="s">data</span><span class="pi">:</span>
+          <span class="s">mac</span><span class="pi">:</span> <span class="s">aa:bb:cc:dd:ee:ff</span>
+          <span class="s">broadcast_address</span><span class="pi">:</span> <span class="s">192.168.255.255</span>
+</code></pre>
+</div>
+<h4>Turn off Kodi with API calls</h4>
+<p>Here are the equivalent ways to configure each of the old options to turn off Kodi (<code class="highlighter-rouge">quit</code>, <code class="highlighter-rouge">hibernate</code>, <code class="highlighter-rouge">suspend</code>, <code class="highlighter-rouge">reboot</code>, or <code class="highlighter-rouge">shutdown</code>):</p>
+<ul>
+  <li><strong>Quit</strong> method (before was <code class="highlighter-rouge">turn_off_action: quit</code>)</li>
+</ul>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">media_player</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">kodi</span>
+    <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.0.123</span>
+    <span class="s">turn_off_action</span><span class="pi">:</span>
+      <span class="s">service</span><span class="pi">:</span> <span class="s">media_player.kodi_call_method</span>
+      <span class="s">data</span><span class="pi">:</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">media_player.kodi</span>
+        <span class="s">method</span><span class="pi">:</span> <span class="s">Application.Quit</span>
+</code></pre>
+</div>
+<ul>
+  <li><strong>Hibernate</strong> method (before was <code class="highlighter-rouge">turn_off_action: hibernate</code>)</li>
+</ul>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">media_player</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">kodi</span>
+    <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.0.123</span>
+    <span class="s">turn_off_action</span><span class="pi">:</span>
+      <span class="s">service</span><span class="pi">:</span> <span class="s">media_player.kodi_call_method</span>
+      <span class="s">data</span><span class="pi">:</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">media_player.kodi</span>
+        <span class="s">method</span><span class="pi">:</span> <span class="s">System.Hibernate</span>
+</code></pre>
+</div>
+<ul>
+  <li><strong>Suspend</strong> method (before was <code class="highlighter-rouge">turn_off_action: suspend</code>)</li>
+</ul>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">media_player</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">kodi</span>
+    <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.0.123</span>
+    <span class="s">turn_off_action</span><span class="pi">:</span>
+      <span class="s">service</span><span class="pi">:</span> <span class="s">media_player.kodi_call_method</span>
+      <span class="s">data</span><span class="pi">:</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">media_player.kodi</span>
+        <span class="s">method</span><span class="pi">:</span> <span class="s">System.Suspend</span>
+</code></pre>
+</div>
+<ul>
+  <li><strong>Reboot</strong> method (before was <code class="highlighter-rouge">turn_off_action: reboot</code>)</li>
+</ul>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">media_player</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">kodi</span>
+    <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.0.123</span>
+    <span class="s">turn_off_action</span><span class="pi">:</span>
+      <span class="s">service</span><span class="pi">:</span> <span class="s">media_player.kodi_call_method</span>
+      <span class="s">data</span><span class="pi">:</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">media_player.kodi</span>
+        <span class="s">method</span><span class="pi">:</span> <span class="s">System.Reboot</span>
+</code></pre>
+</div>
+<ul>
+  <li><strong>Shutdown</strong> method (before was <code class="highlighter-rouge">turn_off_action: shutdown</code>)</li>
+</ul>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">media_player</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">kodi</span>
+    <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.0.123</span>
+    <span class="s">turn_off_action</span><span class="pi">:</span>
+      <span class="s">service</span><span class="pi">:</span> <span class="s">media_player.kodi_call_method</span>
+      <span class="s">data</span><span class="pi">:</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">media_player.kodi</span>
+        <span class="s">method</span><span class="pi">:</span> <span class="s">System.Shutdown</span>
+</code></pre>
+</div>
+<h4>Turn on and off the TV with the Kodi JSON-CEC Add-on</h4>
+<p>For Kodi devices running 24/7 attached to a CEC capable TV (OSMC / OpenElec and systems alike running in Rasperry Pi’s, for example), this configuration enables the optimal way to turn on/off the attached TV from Home Assistant while Kodi is always active and ready:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">media_player</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">kodi</span>
+    <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.0.123</span>
+    <span class="s">turn_on_action</span><span class="pi">:</span>
+      <span class="s">service</span><span class="pi">:</span> <span class="s">media_player.kodi_call_method</span>
+      <span class="s">data</span><span class="pi">:</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">media_player.kodi</span>
+        <span class="s">method</span><span class="pi">:</span> <span class="s">Addons.ExecuteAddon</span>
+        <span class="s">addonid</span><span class="pi">:</span> <span class="s">script.json-cec</span>
+        <span class="s">params</span><span class="pi">:</span>
+          <span class="s">command</span><span class="pi">:</span> <span class="s">activate</span>
+    <span class="s">turn_off_action</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">media_player.media_stop</span>
+      <span class="s">data</span><span class="pi">:</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">media_player.kodi</span>
+    <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">media_player.kodi_call_method</span>
+      <span class="s">data</span><span class="pi">:</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">media_player.kodi</span>
+        <span class="s">method</span><span class="pi">:</span> <span class="s">Addons.ExecuteAddon</span>
+        <span class="s">addonid</span><span class="pi">:</span> <span class="s">script.json-cec</span>
+        <span class="s">params</span><span class="pi">:</span>
+          <span class="s">command</span><span class="pi">:</span> <span class="s">standby</span>
+</code></pre>
+</div>
+<p class="note">
+This example and the following requires to have the <a href="https://github.com/joshjowen/script.json-cec">script.json-cec</a> plugin installed on your kodi player. It’ll also expose th endpoints standy, toggle and activate without authentication on your kodi player. Use this with caution.
+</p>
+<h3><a class="title-link" name="kodi-services-samples" href="#kodi-services-samples"></a> Kodi services samples</h3>
+<h4>Simple script to turn on the PVR in some channel as a time function</h4>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">script</span><span class="pi">:</span>
+  <span class="s">play_kodi_pvr</span><span class="pi">:</span>
+    <span class="s">alias</span><span class="pi">:</span> <span class="s">Turn on the silly box</span>
+    <span class="s">sequence</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">TV on</span>
+        <span class="s">service</span><span class="pi">:</span> <span class="s">media_player.turn_on</span>
+        <span class="s">data</span><span class="pi">:</span>
+          <span class="s">entity_id</span><span class="pi">:</span> <span class="s">media_player.kodi</span>
+
+      <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Play TV channel</span>
+        <span class="s">service</span><span class="pi">:</span> <span class="s">media_player.play_media</span>
+        <span class="s">data_template</span><span class="pi">:</span>
+          <span class="s">entity_id</span><span class="pi">:</span> <span class="s">media_player.kodi</span>
+          <span class="s">media_content_type</span><span class="pi">:</span> <span class="s2">"</span><span class="s">CHANNEL"</span>
+          <span class="s">media_content_id</span><span class="pi">:</span> <span class="pi">&gt;</span>
+            <span class="no">{% if (now().hour &lt; 14) or ((now().hour == 14) and (now().minute &lt; 50)) %}</span>
+              <span class="no">10</span>
+            <span class="no">{% elif (now().hour &lt; 16) %}</span>
+              <span class="no">15</span>
+            <span class="no">{% elif (now().hour &lt; 20) %}</span>
+              <span class="no">2</span>
+            <span class="no">{% elif (now().hour == 20) and (now().minute &lt; 50) %}</span>
+              <span class="no">10</span>
+            <span class="no">{% elif (now().hour == 20) or ((now().hour == 21) and (now().minute &lt; 15)) %}</span>
+              <span class="no">15</span>
+            <span class="no">{% else %}</span>
+              <span class="no">10</span>
+            <span class="no">{% endif %}</span>
+</code></pre>
+</div>
+<h4>Trigger a Kodi video library update</h4>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">script</span><span class="pi">:</span>
+  <span class="s">update_library</span><span class="pi">:</span>
+    <span class="s">alias</span><span class="pi">:</span> <span class="s">Update Kodi Library</span>
+    <span class="s">sequence</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Call Kodi update</span>
+        <span class="s">service</span><span class="pi">:</span> <span class="s">media_player.kodi_call_method</span>
+        <span class="s">data</span><span class="pi">:</span>
+          <span class="s">entity_id</span><span class="pi">:</span> <span class="s">media_player.kodi</span>
+          <span class="s">method</span><span class="pi">:</span> <span class="s">VideoLibrary.Scan</span>
+</code></pre>
+</div>
+<p>For a more complex usage of the <code class="highlighter-rouge">kodi_call_method</code> service, with event triggering of Kodi API results, you can have a look at this <a href="/cookbook/automation_kodi_dynamic_input_select/">example</a></p>
+</article>
+        </div>
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/media_player.kodi.markdown'>Edit this page on GitHub</a></div>
+  <div class='brand-logo-container section'>
+      <img src='/images/supported_brands/kodi.png' />
+  </div>
+    <div class='section'>
+      IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Local Push
+    </div>
+    <div class='section'>
+      Introduced in release: pre 0.7
+    </div>
+    <div class='section'>
+      Source:
+      <a href='https://github.com/home-assistant/home-assistant/blob/master/homeassistant/components/media_player/kodi.py'>media_player/kodi.py</a>
+    </div>
+    <div class='section'>
+      This is a platform for
+      <a href='/components/media_player/'>the Media Player component</a>.
+    </div>
+          <div class='section'>
+          <h1 class='title delta'>Related components</h1>
+          <ul class='divided'>
+        <li><a href='/components/notify.kodi/'>
+          Kodi
+        </a></li>
+    </ul>
+    </div>
+    <div class='section'>
+    <h1 class="title delta">Category Media Player</h1>
+    <ul class='divided'>
+        <li>
+            <a href='/components/media_player.anthemav/'>Anthem A/V Receivers</a>
+        </li>
+        <li>
+            <a href='/components/media_player.apple_tv/'>Apple TV Media Player</a>
+        </li>
+        <li>
+            <a href='/components/media_player.bluesound/'>Bluesound</a>
+        </li>
+        <li>
+            <a href='/components/media_player.channels/'>Channels</a>
+        </li>
+        <li>
+            <a href='/components/media_player.clementine/'>Clementine Music Player</a>
+        </li>
+        <li>
+            <a href='/components/media_player.denonavr/'>Denon AVR Network Receivers</a>
+        </li>
+        <li>
+            <a href='/components/media_player.denon/'>Denon Network Receivers</a>
+        </li>
+        <li>
+            <a href='/components/media_player.directv/'>DirecTV</a>
+        </li>
+        <li>
+            <a href='/components/media_player.dunehd/'>DuneHD media players</a>
+        </li>
+        <li>
+            <a href='/components/media_player.emby/'>Emby</a>
+        </li>
+        <li>
+            <a href='/components/media_player.firetv/'>FireTV</a>
+        </li>
+        <li>
+            <a href='/components/media_player.frontier_silicon/'>Frontier Silicon Internet Radios</a>
+        </li>
+        <li>
+            <a href='/components/media_player.cast/'>Google Cast</a>
+        </li>
+        <li>
+            <a href='/components/media_player.gpmdp/'>Google Play Music Desktop Player</a>
+        </li>
+        <li>
+            <a href='/components/media_player.gstreamer/'>Gstreamer</a>
+        </li>
+        <li>
+            Kodi
+        </li>
+        <li>
+            <a href='/components/media_player.lg_netcast/'>LG Netcast TV</a>
+        </li>
+        <li>
+            <a href='/components/media_player.webostv/'>LG webOS Smart TV</a>
+        </li>
+        <li>
+            <a href='/components/media_player.openhome/'>Linn / Openhome</a>
+        </li>
+        <li>
+            <a href='/components/media_player.squeezebox/'>Logitech Squeezebox</a>
+        </li>
+        <li>
+            <a href='/components/media_player.ue_smart_radio/'>Logitech UE Smart Radio</a>
+        </li>
+        <li>
+            <a href='/components/media_player.mpchc/'>MPC-HC</a>
+        </li>
+        <li>
+            <a href='/components/media_extractor/'>Media Extractor</a>
+        </li>
+        <li>
+            <a href='/components/media_player.mediaroom/'>Mediaroom</a>
+        </li>
+        <li>
+            <a href='/components/media_player.monoprice/'>Monoprice 6-Zone Amplifier</a>
+        </li>
+        <li>
+            <a href='/components/media_player.mpd/'>Music Player Daemon (MPD)</a>
+        </li>
+        <li>
+            <a href='/components/media_player.nad/'>NAD</a>
+        </li>
+        <li>
+            <a href='/components/media_player.nadtcp/'>NAD tcp</a>
+        </li>
+        <li>
+            <a href='/components/media_player.onkyo/'>Onkyo</a>
+        </li>
+        <li>
+            <a href='/components/media_player.liveboxplaytv/'>Orange Livebox Play TV</a>
+        </li>
+        <li>
+            <a href='/components/media_player.panasonic_viera/'>Panasonic Viera TV</a>
+        </li>
+        <li>
+            <a href='/components/media_player.pandora/'>Pandora</a>
+        </li>
+        <li>
+            <a href='/components/media_player.philips_js/'>Philips TV</a>
+        </li>
+        <li>
+            <a href='/components/media_player.pioneer/'>Pioneer Network Receivers</a>
+        </li>
+        <li>
+            <a href='/components/media_player.plex/'>Plex</a>
+        </li>
+        <li>
+            <a href='/components/sensor.plex/'>Plex Activity Monitor</a>
+        </li>
+        <li>
+            <a href='/components/media_player.roku/'>Roku</a>
+        </li>
+        <li>
+            <a href='/components/media_player.russound_rio/'>Russound RIO</a>
+        </li>
+        <li>
+            <a href='/components/media_player.russound_rnet/'>Russound RNET</a>
+        </li>
+        <li>
+            <a href='/components/media_player.samsungtv/'>Samsung Smart TV</a>
+        </li>
+        <li>
+            <a href='/components/media_player.aquostv/'>Sharp Aquos TV</a>
+        </li>
+        <li>
+            <a href='/components/media_player.snapcast/'>Snapcast</a>
+        </li>
+        <li>
+            <a href='/components/media_player.sonos/'>Sonos</a>
+        </li>
+        <li>
+            <a href='/components/media_player.braviatv/'>Sony Bravia TV</a>
+        </li>
+        <li>
+            <a href='/components/media_player.songpal/'>Sony SongPal compatible devices</a>
+        </li>
+        <li>
+            <a href='/components/media_player.soundtouch/'>Soundtouch</a>
+        </li>
+        <li>
+            <a href='/components/media_player.spotify/'>Spotify</a>
+        </li>
+        <li>
+            <a href='/components/media_player.universal/'>Universal</a>
+        </li>
+        <li>
+            <a href='/components/media_player.vlc/'>VLC</a>
+        </li>
+        <li>
+            <a href='/components/media_player.vizio/'>Vizio SmartCast TV</a>
+        </li>
+        <li>
+            <a href='/components/media_player.volumio/'>Volumio Media Player</a>
+        </li>
+        <li>
+            <a href='/components/media_player.xiaomi_tv/'>Xiaomi TV</a>
+        </li>
+        <li>
+            <a href='/components/media_player.yamaha_musiccast/'>Yamaha MusicCast Receivers</a>
+        </li>
+        <li>
+            <a href='/components/media_player.yamaha/'>Yamaha Network Receivers</a>
+        </li>
+        <li>
+            <a href='/components/media_player.ziggo_mediabox_xl/'>Ziggo Mediabox XL</a>
+        </li>
+        <li>
+            <a href='/components/media_player.cmus/'>cmus</a>
+        </li>
+        <li>
+            <a href='/components/media_player.itunes/'>iTunes</a>
+        </li>
+    </ul>
+    </div>
+</section>
+</div>
+        </aside>
+      </div>
+    </div>
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a> (no support!).<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+  <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">home-assistant.io</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
+<script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
+<script type="text/javascript">
+docsearch({
+  apiKey: 'ae96d94b201c5444c8a443093edf3efb',
+  indexName: 'home-assistant',
+  inputSelector: '#search',
+  debug: false // Set debug to true if you want to inspect the dropdown
+});
+document.querySelector('.search .close').addEventListener('click', function(ev) {
+  ev.preventDefault();
+  document.querySelector('.search-container').style.display = 'none';
+});
+document.querySelector('.show-search').addEventListener('click', function(ev) {
+  ev.preventDefault();
+  document.querySelector('.search-container').style.display = 'block';
+  document.getElementById('toggle').checked = false;
+  document.querySelector('.search-container input').focus();
+});
+</script>
+  </body>
+</html>

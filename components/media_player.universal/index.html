@@ -1,0 +1,530 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Universal - Home Assistant</title>
+    <meta name="author" content="Home Assistant">
+    <meta name="description" content="Instructions how to create a universal media player in Home Assistant.">
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/components/media_player.universal/">
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="Universal">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/components/media_player.universal/">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="Instructions how to create a universal media player in Home Assistant.">
+    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    <meta name="twitter:title" content="Universal">
+    <meta name="twitter:description" content="Instructions how to create a universal media player in Home Assistant.">
+    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
+    <link href="/stylesheets/screen.css" media="screen, projection, print" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+  <body >
+    <header class='site-header'>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/docs/">Docs</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+  <li><a href='#' class='show-search'><i class="icon-search"></i></a></li>
+</ul>
+  </nav>
+  <div class='search-container' style='display: none'>
+    <div class='search'>
+      <i class="icon-search"></i>
+      <input id='search' placeholder='Search the docs…'>
+      <a href='#' class='close'><i class="icon-remove-sign"></i></a>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+    </header>
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+          <article class="page">
+  <header>
+    <h1 class="title indent">
+      Universal
+    </h1>
+  </header>
+  <hr class="divider">
+  <p>Universal Media Players combine multiple existing entities in Home Assistant into one media player entity. This is used for creating a single entity that controls an entire media center.</p>
+<p>Multiple media player entities can be controlled from an universal media player. Additionally, the universal media player allows volume and power commands to be re-routed to other entities in Home Assistant. This allows the power and volume to control external devices like a television or audio receiver.</p>
+<p>A Universal Media Player is created in <code class="highlighter-rouge">configuration.yaml</code> as follows.</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">media_player</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">universal</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">MEDIA_PLAYER_NAME</span>
+    <span class="s">children</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">media_player.CHILD_1_ID</span>
+      <span class="pi">-</span> <span class="s">media_player.CHILD_2_ID</span>
+    <span class="s">commands</span><span class="pi">:</span>
+      <span class="s">turn_on</span><span class="pi">:</span>
+        <span class="s">service</span><span class="pi">:</span> <span class="s">SERVICE</span>
+        <span class="s">data</span><span class="pi">:</span> <span class="s">SERVICE_DATA</span>
+      <span class="s">turn_off</span><span class="pi">:</span>
+        <span class="s">service</span><span class="pi">:</span> <span class="s">SERVICE</span>
+        <span class="s">data</span><span class="pi">:</span> <span class="s">SERVICE_DATA</span>
+      <span class="s">volume_up</span><span class="pi">:</span>
+        <span class="s">service</span><span class="pi">:</span> <span class="s">SERVICE</span>
+        <span class="s">data</span><span class="pi">:</span> <span class="s">SERVICE_DATA</span>
+      <span class="s">volume_down</span><span class="pi">:</span>
+        <span class="s">service</span><span class="pi">:</span> <span class="s">SERVICE</span>
+        <span class="s">data</span><span class="pi">:</span> <span class="s">SERVICE_DATA</span>
+      <span class="s">volume_mute</span><span class="pi">:</span>
+        <span class="s">service</span><span class="pi">:</span> <span class="s">SERVICE</span>
+        <span class="s">data</span><span class="pi">:</span> <span class="s">SERVICE_DATA</span>
+    <span class="s">attributes</span><span class="pi">:</span>
+      <span class="s">is_volume_muted</span><span class="pi">:</span> <span class="s">ENTITY_ID|ATTRIBUTE</span>
+      <span class="s">state</span><span class="pi">:</span> <span class="s">ENTITY_ID|ATTRIBUTE</span>
+</code></pre>
+</div>
+<div class="config-vars">
+  <h3><a class="title-link" name="configuration-variables" href="#configuration-variables"></a> Configuration Variables</h3>
+  <dl class="">
+    <dt><a class="title-link" name="name" href="#name"></a> name</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="string">string</span>)</span><span class="required">(Required)</span><span class="description">The name to assign the player.</span></p>
+    </dd>
+    <dt><a class="title-link" name="children" href="#children"></a> children</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="list">list</span>)</span><span class="required">(Required)</span><span class="description">Ordered list of child media players this entity will control.</span></p>
+    </dd>
+    <dt><a class="title-link" name="state_template" href="#state_template"></a> state_template</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="template"><a href="/docs/configuration/templating/">template</a></span>)</span><span class="required">(Optional)</span><span class="description">A <a href="/topics/templating/">template</a> can be specified to render the state of the media player. This way, the state could depend on entities different from media players, like switches or input booleans.</span></p>
+    </dd>
+    <dt><a class="title-link" name="commands" href="#commands"></a> commands</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="string">string</span>)</span><span class="required">(Optional)</span><span class="description">Commands to be overwritten. Possible entries are <code class="highlighter-rouge">turn_on</code>, <code class="highlighter-rouge">turn_off</code>, <code class="highlighter-rouge">select_source</code>, <code class="highlighter-rouge">volume_set</code>, <code class="highlighter-rouge">volume_up</code>, <code class="highlighter-rouge">volume_down</code> and <code class="highlighter-rouge">volume_mute</code>.</span></p>
+    </dd>
+    <dt><a class="title-link" name="attributes" href="#attributes"></a> attributes</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="string">string</span>)</span><span class="required">(Optional)</span><span class="description">Attributes that can be overwritten. Possible entries are <code class="highlighter-rouge">is_volume_muted</code>, <code class="highlighter-rouge">state</code>, <code class="highlighter-rouge">source</code>, <code class="highlighter-rouge">source_list</code> and <code class="highlighter-rouge">volume_level</code>. The values should be an entity ID and state attribute separated by a pipe character (|). If the entity ID’s state should be used, then only the entity id should be provided.</span></p>
+    </dd>
+  </dl>
+</div>
+<p>The Universal Media Player will primarily imitate one of its <code class="highlighter-rouge">children</code>. The Universal Media Player will control the first child on the list that is active (not idle/off). The Universal Media Player will also inherit its state from the first active child if a <code class="highlighter-rouge">state_template</code> is not provided. Entities in the <code class="highlighter-rouge">children:</code> list must be media players, but the state template can contain any entity.</p>
+<p>It is recommended that the command <code class="highlighter-rouge">turn_on</code>, the command <code class="highlighter-rouge">turn_off</code>, and the attribute <code class="highlighter-rouge">state</code> all be provided together. The <code class="highlighter-rouge">state</code> attribute indicates if the media player is on or off. If <code class="highlighter-rouge">state</code> indicates the media player is off, this status will take precedence over the states of the children. If all the children are idle/off and <code class="highlighter-rouge">state</code> is on, the Universal Media Player’s state will be on.</p>
+<p>It is also recommended that the command <code class="highlighter-rouge">volume_up</code>, the command <code class="highlighter-rouge">volume_down</code>, the command <code class="highlighter-rouge">volume_mute</code>, and the attribute <code class="highlighter-rouge">is_volume_muted</code> all be provided together. The attribute <code class="highlighter-rouge">is_volume_muted</code> should return either True or the on state when the volume is muted. The <code class="highlighter-rouge">volume_mute</code> service should toggle the mute setting.</p>
+<p>When providing <code class="highlighter-rouge">select_source</code> as a command, it is recommended to also provide the attributes <code class="highlighter-rouge">source</code>, and <code class="highlighter-rouge">source_list</code>. The <code class="highlighter-rouge">source</code> attribute is the currently select source, while the <code class="highlighter-rouge">source_list</code> attribute is a list of all available sources.</p>
+<h2><a class="title-link" name="usage-examples" href="#usage-examples"></a> Usage examples</h2>
+<h4><a class="title-link" name="chromecast--kodi-control-with-switches" href="#chromecast--kodi-control-with-switches"></a> Chromecast &amp; Kodi control with switches</h4>
+<p>In this example, a switch is available to control the power of the television. Switches are also available to turn the volume up, turn the volume down, and mute the audio. These could be command line switches or any other entity in Home Assistant. The <code class="highlighter-rouge">turn_on</code> and <code class="highlighter-rouge">turn_off</code> commands will be redirected to the television, and the volume commands will be redirected to an audio receiver. The <code class="highlighter-rouge">select_source</code> command will be passed directly to an A/V receiver.</p>
+<p>The children are a Chromecast and a Kodi player. If the Chromecast is playing, the Universal Media Player will reflect its status. If the Chromecast is idle and Kodi is playing, the universal media player will change to reflect its status.</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">media_player</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">universal</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">Test Universal</span>
+  <span class="s">children</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">media_player.living_room_cast</span>
+    <span class="pi">-</span> <span class="s">media_player.living_room_kodi</span>
+  <span class="s">commands</span><span class="pi">:</span>
+    <span class="s">turn_on</span><span class="pi">:</span>
+      <span class="s">service</span><span class="pi">:</span> <span class="s">switch.turn_on</span>
+      <span class="s">data</span><span class="pi">:</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">switch.living_room_tv</span>
+    <span class="s">turn_off</span><span class="pi">:</span>
+      <span class="s">service</span><span class="pi">:</span> <span class="s">switch.turn_off</span>
+      <span class="s">data</span><span class="pi">:</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">switch.living_room_tv</span>
+    <span class="s">volume_up</span><span class="pi">:</span>
+      <span class="s">service</span><span class="pi">:</span> <span class="s">switch.turn_on</span>
+      <span class="s">data</span><span class="pi">:</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">switch.living_room_volume_up</span>
+    <span class="s">volume_down</span><span class="pi">:</span>
+      <span class="s">service</span><span class="pi">:</span> <span class="s">switch.turn_on</span>
+      <span class="s">data</span><span class="pi">:</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">switch.living_room_volume_down</span>
+    <span class="s">volume_mute</span><span class="pi">:</span>
+      <span class="s">service</span><span class="pi">:</span> <span class="s">switch.turn_on</span>
+      <span class="s">data</span><span class="pi">:</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">switch.living_room_mute</span>
+    <span class="s">select_source</span><span class="pi">:</span>
+      <span class="s">service</span><span class="pi">:</span> <span class="s">media_player.select_source</span>
+      <span class="s">data_template</span><span class="pi">:</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">media_player.receiver</span>
+        <span class="s">source</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">source</span><span class="nv"> </span><span class="s">}}'</span>
+    <span class="s">volume_set</span><span class="pi">:</span>
+      <span class="s">service</span><span class="pi">:</span> <span class="s">media_player.volume_set</span>
+      <span class="s">data_template</span><span class="pi">:</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">media_player.receiver</span>
+        <span class="s">volume_level</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">volume_level</span><span class="nv"> </span><span class="s">}}'</span>
+
+  <span class="s">attributes</span><span class="pi">:</span>
+    <span class="s">state</span><span class="pi">:</span> <span class="s">switch.living_room_tv</span>
+    <span class="s">is_volume_muted</span><span class="pi">:</span> <span class="s">switch.living_room_mute</span>
+    <span class="s">volume_level</span><span class="pi">:</span> <span class="s">media_player.receiver|volume_level</span>
+    <span class="s">source</span><span class="pi">:</span> <span class="s">media_player.receiver|source</span>
+    <span class="s">source_list</span><span class="pi">:</span> <span class="s">media_player.receiver|source_list</span>
+</code></pre>
+</div>
+<h4><a class="title-link" name="kodi-cec-tv-control" href="#kodi-cec-tv-control"></a> Kodi CEC-TV control</h4>
+<p>In this example, a <a href="/components/media_player.kodi/">Kodi Media Player</a> runs in a CEC capable device (OSMC/OpenElec running in a Raspberry Pi 24/7, for example), and, with the JSON-CEC Kodi addon installed, it can turn on and off the attached TV.</p>
+<p>We store the state of the attached TV in a hidden <a href="/components/input_boolean/">input boolean</a>, so we can differentiate the TV being on or off, while Kodi is always ‘idle’, and use the universal media player to render its state with a template. We can hide the Kodi Media Player too, and only show the universal one, which now can differentiate between the ‘idle’ and the ‘off’ state (being the second when it is idle and the TV is off).</p>
+<p>Because the input boolean used to store the TV state is only changing when using the Home Assistant <code class="highlighter-rouge">turn_on</code> and <code class="highlighter-rouge">turn_off</code> actions, and Kodi could be controlled by so many ways, we also define some automations to update this Input Boolean when needed.</p>
+<p>In an Apple HomeKit scene, we can now expose this universal media player as an on/off switch in Homebridge, and, that way, use Siri to turn on and off the TV.</p>
+<p>The complete configuration is:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">homeassistant</span><span class="pi">:</span>
+  <span class="s">customize</span><span class="pi">:</span>
+    <span class="s">input_boolean.kodi_tv_state</span><span class="pi">:</span>
+      <span class="s">hidden</span><span class="pi">:</span> <span class="s">true</span>
+      <span class="s">homebridge_hidden</span><span class="pi">:</span> <span class="s">true</span>
+    <span class="s">media_player.kodi</span><span class="pi">:</span>
+      <span class="s">hidden</span><span class="pi">:</span> <span class="s">true</span>
+      <span class="s">homebridge_hidden</span><span class="pi">:</span> <span class="s">true</span>
+    <span class="s">media_player.kodi_tv</span><span class="pi">:</span>
+      <span class="s">friendly_name</span><span class="pi">:</span> <span class="s">Kodi</span>
+      <span class="s">homebridge_name</span><span class="pi">:</span> <span class="s">Kodi</span>
+      <span class="s">homebridge_media_player_switch</span><span class="pi">:</span> <span class="s">on_off</span>
+
+<span class="s">input_boolean</span><span class="pi">:</span>
+  <span class="s">kodi_tv_state</span><span class="pi">:</span>
+
+<span class="s">media_player</span><span class="pi">:</span>
+<span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">universal</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">Kodi TV</span>
+  <span class="s">state_template</span><span class="pi">:</span> <span class="pi">&gt;</span>
+    <span class="no">{% if is_state('media_player.kodi', 'idle') and is_state('input_boolean.kodi_tv_state', 'off') %}</span>
+    <span class="no">off</span>
+    <span class="no">{% else %}</span>
+    <span class="no">{{ states('media_player.kodi') }}</span>
+    <span class="no">{% endif %}</span>
+  <span class="s">children</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">media_player.kodi</span>
+  <span class="s">commands</span><span class="pi">:</span>
+    <span class="s">turn_on</span><span class="pi">:</span>
+      <span class="s">service</span><span class="pi">:</span> <span class="s">media_player.turn_on</span>
+      <span class="s">data</span><span class="pi">:</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">media_player.kodi</span>
+    <span class="s">turn_off</span><span class="pi">:</span>
+      <span class="s">service</span><span class="pi">:</span> <span class="s">media_player.turn_off</span>
+      <span class="s">data</span><span class="pi">:</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">media_player.kodi</span>
+  <span class="s">attributes</span><span class="pi">:</span>
+    <span class="s">is_volume_muted</span><span class="pi">:</span> <span class="s">media_player.kodi|is_volume_muted</span>
+    <span class="s">volume_level</span><span class="pi">:</span> <span class="s">media_player.kodi|volume_level</span>
+
+<span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">kodi</span>
+  <span class="s">name</span><span class="pi">:</span> <span class="s">Kodi</span>
+  <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.1.10</span>
+  <span class="s">turn_on_action</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">input_boolean.turn_on</span>
+    <span class="s">data</span><span class="pi">:</span>
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">input_boolean.kodi_tv_state</span>
+  <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">media_player.kodi_call_method</span>
+    <span class="s">data</span><span class="pi">:</span>
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">media_player.kodi</span>
+      <span class="s">method</span><span class="pi">:</span> <span class="s">Addons.ExecuteAddon</span>
+      <span class="s">addonid</span><span class="pi">:</span> <span class="s">script.json-cec</span>
+      <span class="s">params</span><span class="pi">:</span>
+        <span class="s">command</span><span class="pi">:</span> <span class="s">activate</span>
+  <span class="s">turn_off_action</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">input_boolean.turn_off</span>
+    <span class="s">data</span><span class="pi">:</span>
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">input_boolean.kodi_tv_state</span>
+  <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">media_player.media_stop</span>
+    <span class="s">data</span><span class="pi">:</span>
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">media_player.kodi</span>
+  <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">media_player.kodi_call_method</span>
+    <span class="s">data</span><span class="pi">:</span>
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">media_player.kodi</span>
+      <span class="s">method</span><span class="pi">:</span> <span class="s">Addons.ExecuteAddon</span>
+      <span class="s">addonid</span><span class="pi">:</span> <span class="s">script.json-cec</span>
+      <span class="s">params</span><span class="pi">:</span>
+        <span class="s">command</span><span class="pi">:</span> <span class="s">standby</span>
+
+<span class="s">automation</span><span class="pi">:</span>
+<span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Turn on the TV when Kodi is activated</span>
+  <span class="s">trigger</span><span class="pi">:</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
+    <span class="s">entity_id</span><span class="pi">:</span> <span class="s">media_player.kodi_tv</span>
+    <span class="s">from</span><span class="pi">:</span> <span class="s1">'</span><span class="s">off'</span>
+    <span class="s">to</span><span class="pi">:</span> <span class="s1">'</span><span class="s">playing'</span>
+  <span class="s">action</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">media_player.turn_on</span>
+    <span class="s">entity_id</span><span class="pi">:</span> <span class="s">media_player.kodi_tv</span>
+
+<span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Turn off the TV when Kodi is in idle &gt; 15 min</span>
+  <span class="s">trigger</span><span class="pi">:</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">state</span>
+    <span class="s">entity_id</span><span class="pi">:</span> <span class="s">media_player.kodi_tv</span>
+    <span class="s">to</span><span class="pi">:</span> <span class="s1">'</span><span class="s">idle'</span>
+    <span class="s">for</span><span class="pi">:</span>
+      <span class="s">minutes</span><span class="pi">:</span> <span class="s">15</span>
+  <span class="s">action</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">media_player.turn_off</span>
+    <span class="s">entity_id</span><span class="pi">:</span> <span class="s">media_player.kodi_tv</span>
+</code></pre>
+</div>
+</article>
+        </div>
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/media_player.universal.markdown'>Edit this page on GitHub</a></div>
+  <div class='brand-logo-container section'>
+      <img src='/images/supported_brands/home-assistant.png' />
+  </div>
+    <div class='section'>
+      Source:
+      <a href='https://github.com/home-assistant/home-assistant/blob/master/homeassistant/components/media_player/universal.py'>media_player/universal.py</a>
+    </div>
+    <div class='section'>
+      This is a platform for
+      <a href='/components/media_player/'>the Media Player component</a>.
+    </div>
+    <div class='section'>
+    <h1 class="title delta">Category Media Player</h1>
+    <ul class='divided'>
+        <li>
+            <a href='/components/media_player.anthemav/'>Anthem A/V Receivers</a>
+        </li>
+        <li>
+            <a href='/components/media_player.apple_tv/'>Apple TV Media Player</a>
+        </li>
+        <li>
+            <a href='/components/media_player.bluesound/'>Bluesound</a>
+        </li>
+        <li>
+            <a href='/components/media_player.channels/'>Channels</a>
+        </li>
+        <li>
+            <a href='/components/media_player.clementine/'>Clementine Music Player</a>
+        </li>
+        <li>
+            <a href='/components/media_player.denonavr/'>Denon AVR Network Receivers</a>
+        </li>
+        <li>
+            <a href='/components/media_player.denon/'>Denon Network Receivers</a>
+        </li>
+        <li>
+            <a href='/components/media_player.directv/'>DirecTV</a>
+        </li>
+        <li>
+            <a href='/components/media_player.dunehd/'>DuneHD media players</a>
+        </li>
+        <li>
+            <a href='/components/media_player.emby/'>Emby</a>
+        </li>
+        <li>
+            <a href='/components/media_player.firetv/'>FireTV</a>
+        </li>
+        <li>
+            <a href='/components/media_player.frontier_silicon/'>Frontier Silicon Internet Radios</a>
+        </li>
+        <li>
+            <a href='/components/media_player.cast/'>Google Cast</a>
+        </li>
+        <li>
+            <a href='/components/media_player.gpmdp/'>Google Play Music Desktop Player</a>
+        </li>
+        <li>
+            <a href='/components/media_player.gstreamer/'>Gstreamer</a>
+        </li>
+        <li>
+            <a href='/components/media_player.kodi/'>Kodi</a>
+        </li>
+        <li>
+            <a href='/components/media_player.lg_netcast/'>LG Netcast TV</a>
+        </li>
+        <li>
+            <a href='/components/media_player.webostv/'>LG webOS Smart TV</a>
+        </li>
+        <li>
+            <a href='/components/media_player.openhome/'>Linn / Openhome</a>
+        </li>
+        <li>
+            <a href='/components/media_player.squeezebox/'>Logitech Squeezebox</a>
+        </li>
+        <li>
+            <a href='/components/media_player.ue_smart_radio/'>Logitech UE Smart Radio</a>
+        </li>
+        <li>
+            <a href='/components/media_player.mpchc/'>MPC-HC</a>
+        </li>
+        <li>
+            <a href='/components/media_extractor/'>Media Extractor</a>
+        </li>
+        <li>
+            <a href='/components/media_player.mediaroom/'>Mediaroom</a>
+        </li>
+        <li>
+            <a href='/components/media_player.monoprice/'>Monoprice 6-Zone Amplifier</a>
+        </li>
+        <li>
+            <a href='/components/media_player.mpd/'>Music Player Daemon (MPD)</a>
+        </li>
+        <li>
+            <a href='/components/media_player.nad/'>NAD</a>
+        </li>
+        <li>
+            <a href='/components/media_player.nadtcp/'>NAD tcp</a>
+        </li>
+        <li>
+            <a href='/components/media_player.onkyo/'>Onkyo</a>
+        </li>
+        <li>
+            <a href='/components/media_player.liveboxplaytv/'>Orange Livebox Play TV</a>
+        </li>
+        <li>
+            <a href='/components/media_player.panasonic_viera/'>Panasonic Viera TV</a>
+        </li>
+        <li>
+            <a href='/components/media_player.pandora/'>Pandora</a>
+        </li>
+        <li>
+            <a href='/components/media_player.philips_js/'>Philips TV</a>
+        </li>
+        <li>
+            <a href='/components/media_player.pioneer/'>Pioneer Network Receivers</a>
+        </li>
+        <li>
+            <a href='/components/media_player.plex/'>Plex</a>
+        </li>
+        <li>
+            <a href='/components/sensor.plex/'>Plex Activity Monitor</a>
+        </li>
+        <li>
+            <a href='/components/media_player.roku/'>Roku</a>
+        </li>
+        <li>
+            <a href='/components/media_player.russound_rio/'>Russound RIO</a>
+        </li>
+        <li>
+            <a href='/components/media_player.russound_rnet/'>Russound RNET</a>
+        </li>
+        <li>
+            <a href='/components/media_player.samsungtv/'>Samsung Smart TV</a>
+        </li>
+        <li>
+            <a href='/components/media_player.aquostv/'>Sharp Aquos TV</a>
+        </li>
+        <li>
+            <a href='/components/media_player.snapcast/'>Snapcast</a>
+        </li>
+        <li>
+            <a href='/components/media_player.sonos/'>Sonos</a>
+        </li>
+        <li>
+            <a href='/components/media_player.braviatv/'>Sony Bravia TV</a>
+        </li>
+        <li>
+            <a href='/components/media_player.songpal/'>Sony SongPal compatible devices</a>
+        </li>
+        <li>
+            <a href='/components/media_player.soundtouch/'>Soundtouch</a>
+        </li>
+        <li>
+            <a href='/components/media_player.spotify/'>Spotify</a>
+        </li>
+        <li>
+            Universal
+        </li>
+        <li>
+            <a href='/components/media_player.vlc/'>VLC</a>
+        </li>
+        <li>
+            <a href='/components/media_player.vizio/'>Vizio SmartCast TV</a>
+        </li>
+        <li>
+            <a href='/components/media_player.volumio/'>Volumio Media Player</a>
+        </li>
+        <li>
+            <a href='/components/media_player.xiaomi_tv/'>Xiaomi TV</a>
+        </li>
+        <li>
+            <a href='/components/media_player.yamaha_musiccast/'>Yamaha MusicCast Receivers</a>
+        </li>
+        <li>
+            <a href='/components/media_player.yamaha/'>Yamaha Network Receivers</a>
+        </li>
+        <li>
+            <a href='/components/media_player.ziggo_mediabox_xl/'>Ziggo Mediabox XL</a>
+        </li>
+        <li>
+            <a href='/components/media_player.cmus/'>cmus</a>
+        </li>
+        <li>
+            <a href='/components/media_player.itunes/'>iTunes</a>
+        </li>
+    </ul>
+    </div>
+</section>
+</div>
+        </aside>
+      </div>
+    </div>
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a> (no support!).<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+  <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">home-assistant.io</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
+<script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
+<script type="text/javascript">
+docsearch({
+  apiKey: 'ae96d94b201c5444c8a443093edf3efb',
+  indexName: 'home-assistant',
+  inputSelector: '#search',
+  debug: false // Set debug to true if you want to inspect the dropdown
+});
+document.querySelector('.search .close').addEventListener('click', function(ev) {
+  ev.preventDefault();
+  document.querySelector('.search-container').style.display = 'none';
+});
+document.querySelector('.show-search').addEventListener('click', function(ev) {
+  ev.preventDefault();
+  document.querySelector('.search-container').style.display = 'block';
+  document.getElementById('toggle').checked = false;
+  document.querySelector('.search-container input').focus();
+});
+</script>
+  </body>
+</html>

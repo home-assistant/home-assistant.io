@@ -1,0 +1,15 @@
+{
+  "current_version": "0.65.3",
+  "release_date": "2018-03-11T00:00:00+00:00",
+  "release_notes": "https://home-assistant.io/blog/2018/03/09/release-65/",
+  "release_notes_path": "/blog/2018/03/09/release-65/",
+  "release_title": "0.65: Rename entities, new filter sensor, UpCloud and Channels",
+  "release_description": "A new Home Assistant release full of amazing new features. Rename entities without a restart, filter out anomalies or apply other filters to data, improved HomeKit support.",
+  "patch_version_notes": "#release-0652---march-11",
+  "root_url": "https://home-assistant.io",
+  "semantic_version": {
+    "major": 0,
+    "minor": 65,
+    "patch": 3
+  }
+}

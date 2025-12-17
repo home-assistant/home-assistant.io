@@ -1,0 +1,174 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Install Home Assistant - Home Assistant</title>
+    <meta name="author" content="Home Assistant">
+    <meta name="description" content="Getting started: How to install Home Assistant.">
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/getting-started/">
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="Install Home Assistant">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/getting-started/">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="Getting started: How to install Home Assistant.">
+    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    <meta name="twitter:title" content="Install Home Assistant">
+    <meta name="twitter:description" content="Getting started: How to install Home Assistant.">
+    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
+    <link href="/stylesheets/screen.css" media="screen, projection, print" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+  <body >
+    <header class='site-header'>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/docs/">Docs</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+  <li><a href='#' class='show-search'><i class="icon-search"></i></a></li>
+</ul>
+  </nav>
+  <div class='search-container' style='display: none'>
+    <div class='search'>
+      <i class="icon-search"></i>
+      <input id='search' placeholder='Search the docs…'>
+      <a href='#' class='close'><i class="icon-remove-sign"></i></a>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+    </header>
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+          <article class="page">
+  <header>
+    <h1 class="title indent">
+      Install Home Assistant
+    </h1>
+  </header>
+  <hr class="divider">
+  <p>The goal of this getting started guide is to install <a href="/hassio/">Hass.io</a> on a Raspberry Pi 3. Hass.io is our own all in one solution that turns your Raspberry Pi into the ultimate home automation hub.</p>
+<p>Follow this guide if you want to easily get started with Home Assistant, or if you have no or little Linux experience. For advanced users or if you have no Raspberry Pi at hand, check our <a href="/docs/installation/">alternative installation methods</a>. The <a href="/faq/#home-assistant-vs-hassio">FAQ</a> explains more about the differences.</p>
+<h3><a class="title-link" name="hardware-requirements" href="#hardware-requirements"></a> Hardware requirements</h3>
+<p>We will need a few things to get started with installing Home Assistant. Links below are linking to Amazon US. If you’re not in the US, you should be able to find these items in web stores in your country.</p>
+<ul>
+  <li><a href="http://a.co/gEfMqL4">Raspberry Pi 3 model B</a> + <a href="https://www.raspberrypi.org/help/faqs/#powerReqs">Power Supply</a> (at least 2.5A)</li>
+  <li><a href="http://a.co/gslOydD">Micro SD Card</a>. Get one that is Class 10 as they are more reliable. Size 32GB or bigger recommended.</li>
+  <li>SD Card reader. Part of most laptops, and also available as <a href="http://a.co/5FCyb0N">standalone USB sticks</a> (the brand doesn’t matter, just pick the cheapest)</li>
+  <li>Ethernet cable (optional, Hass.io can work with WiFi too)</li>
+</ul>
+<h3><a class="title-link" name="software-requirements" href="#software-requirements"></a> Software requirements</h3>
+<ul>
+  <li>Download <a href="https://github.com/home-assistant/hassio-build/releases/download/1.1/resinos-hassio-1.1-raspberrypi3.img.bz2">Hass.io image for Raspberry Pi 3</a></li>
+  <li>Download <a href="https://etcher.io/">Etcher</a> to write the image to an SD card</li>
+  <li>Text Editor like <a href="https://code.visualstudio.com/">Visual Studio Code</a></li>
+</ul>
+<h3><a class="title-link" name="installing-hassio" href="#installing-hassio"></a> Installing Hass.io</h3>
+<ol>
+  <li>Put the SD card in your SD card reader.</li>
+  <li>Open Etcher, select the Hass.io image and flash it to the SD card.</li>
+  <li>WiFi setup only: open the file <code class="highlighter-rouge">system-connections/resin-sample</code> (from the <code class="highlighter-rouge">resin-boot</code> volume on the SD card) with a text editor. Change <code class="highlighter-rouge">ssid</code> to be your network name and <code class="highlighter-rouge">psk</code> to be your password. Note that the Raspberry Pi 3 is a 2.4GHz WiFi device, so do not try to connect it to a 5GHz network.</li>
+  <li>Unmount the SD card and remove it from your SD card reader.</li>
+  <li>Insert the SD card into your Raspberry Pi 3. If you are going to use an Ethernet cable, connect that too.</li>
+  <li>Connect your Raspberry Pi to the power supply so it turns on.</li>
+  <li>The Raspberry Pi will now boot up, connect to the Internet and download the latest version of Home Assistant. This will take about 20 minutes. Do not expect anything but the Home Assistant logo on the HDMI display, or any use for a keyboard or mouse.</li>
+  <li>Home Assistant will be available at <a href="http://hassio.local:8123">http://hassio.local:8123</a>. Shortly after the download has started, a simple preparation status page will be available at this URL. Point your browser there. The page refreshes automatically, and Home Assistant will be shown when the download is complete.</li>
+</ol>
+<h3><a href="/getting-started/configuration/">Next step: Configuring Home Assistant »</a></h3>
+</article>
+        </div>
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/getting-started/index.markdown'>Edit this page on GitHub</a></div>
+  <div class='section'>
+    <h1 class="title delta">Getting Started Guide</h1>
+    <ul class='divided sidebar-menu'>
+      <li><a class='active' href='/getting-started/'>Installation </a>
+      <li><a  href='/getting-started/configuration/'>Configuration </a></li>
+      <li><a  href='/getting-started/automation/'>Automation </a></li>
+      <li><a  href='/getting-started/automation-2/'>Automation 2 </a></li>
+      <li><a  href='/getting-started/presence-detection/'>Presence detection </a></li>
+      <li><a  href='/getting-started/use/'>Use it! </a></li>
+    </ul>
+  </div>
+</section>
+</div>
+        </aside>
+      </div>
+    </div>
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a> (no support!).<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+  <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">home-assistant.io</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
+<script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
+<script type="text/javascript">
+docsearch({
+  apiKey: 'ae96d94b201c5444c8a443093edf3efb',
+  indexName: 'home-assistant',
+  inputSelector: '#search',
+  debug: false // Set debug to true if you want to inspect the dropdown
+});
+document.querySelector('.search .close').addEventListener('click', function(ev) {
+  ev.preventDefault();
+  document.querySelector('.search-container').style.display = 'none';
+});
+document.querySelector('.show-search').addEventListener('click', function(ev) {
+  ev.preventDefault();
+  document.querySelector('.search-container').style.display = 'block';
+  document.getElementById('toggle').checked = false;
+  document.querySelector('.search-container input').focus();
+});
+</script>
+  </body>
+</html>

@@ -33,7 +33,7 @@ ha_zeroconf: true
 ha_dhcp: true
 ---
 
-The Home Connect integration allows users to integrate their home appliances supporting the Home Connect standard for Bosch and Siemens using the [official cloud API](https://developer.home-connect.com).
+The **Home Connect** {% term integration %} allows users to integrate their home appliances supporting the Home Connect standard for Bosch and Siemens using the [official cloud API](https://developer.home-connect.com).
 
 ## Use cases
 

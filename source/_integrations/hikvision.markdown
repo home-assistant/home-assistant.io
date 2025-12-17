@@ -16,7 +16,7 @@ ha_integration_type: integration
 ha_quality_scale: legacy
 ---
 
-The Hikvision integration allows you to connect your [Hikvision IP Camera or NVR](https://www.hikvision.com/) to Home Assistant. This integration provides:
+The **Hikvision** {% term integration %} allows you to connect your [Hikvision IP Camera or NVR](https://www.hikvision.com/) to Home Assistant. This integration provides:
 
 - **Binary sensors** that parse the event stream and present camera/NVR events as binary sensors with either an "off" or "on" state
 - **Camera entities** with RTSP streaming and HTTP snapshot capabilities

@@ -1,0 +1,618 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: How-To | Home Assistant]]></title>
+  <link href="https://home-assistant.io/blog/categories/how-to/atom.xml" rel="self"/>
+  <link href="https://home-assistant.io/"/>
+  <updated>2018-03-11T22:06:17+00:00</updated>
+  <id>https://home-assistant.io/</id>
+  <author>
+    <name><![CDATA[Home Assistant]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Set up Hass.io on top of a virtual machine]]></title>
+    <link href="https://home-assistant.io/blog/2017/11/29/hassio-virtual-machine/"/>
+    <updated>2017-11-29T06:00:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2017/11/29/hassio-virtual-machine</id>
+    <content type="html"><![CDATA[The images for the Raspberry Pi family and the Intel NUC are an easy way to get started with [Hass.io](/hassio/). For a test or if you have a system which is already hosting virtual machines then the [**Hass.io installer**](/hassio/installation/#alternative-install-on-generic-linux-server) is an option to use Hass.io in a virtualized environment. In this guide the host is a Fedora 27 system with [libvirt](https://libvirt.org/) support and the guest will be running Debian 9. Hass.io will be installed on the guest.
+
+<!--more-->
+
+Assuming that you already have setup `libvirtd`. You might need to install `virt-builder` and `virt-viewer` additionally.
+
+```bash
+$ sudo dnf -y install libguestfs-tools-c virt-install virt-viewer
+```
+
+We will create a virtual machine with Debian 9 and a 10 GB disk image in the QCOW format. Use `$ virt-builder --list` to get an overview about what's operating systems are available if you prefer to use a different system.
+
+```bash
+$ sudo virt-builder debian-9 \
+    --output /var/lib/libvirt/images/hassio.img \
+    --format qcow2 \
+    --size 10G \
+    --root-password password:test123 \
+    --hostname hassio \
+    --firstboot-command "dpkg-reconfigure openssh-server"
+[...]
+[ 147.6] Finishing off
+                   Output file: /var/lib/libvirt/images/hassio.img
+                   Output size: 10.0G
+                 Output format: qcow2
+            Total usable space: 9.3G
+                    Free space: 8.1G (87%)
+```
+
+Now, we are making our new virtual machine available for `libvirtd`. If you get an error that the OS is unknown, use `$ osinfo-query os` to get the name to use with `--os-variant`. To access the virtual machine is connected to the bridge `bridge0`.
+
+```bash
+$ sudo virt-install --name hassio --import --ram 1024 \
+     --os-variant debian9 -w bridge=bridge0 \
+     --autostart --disk /var/lib/libvirt/images/hassio.img
+```
+
+<p class='img'>
+  <img src='/images/blog/2017-11-hassio-virtual/virtual-machine-manager.png' />
+  Hass.io virtual machine in Virtual Machine Manager
+</p>
+
+Depending on your preferences you can use the Virtual Machine Manager (`virt-manager`) or `virsh` to manage the created virtual machine. Log in and create an user with `# useradd ha` and set a password with `# passwd ha`. We will need that user to make a SSH connection to the virtual machine.
+
+Log in as `ha` with the given password. If your are using the default network of `libvirtd` then the DHCP range is defined in `/var/lib/libvirt/dnsmasq/default.conf`. In this guide the virtual machine is present at 192.168.0.109.
+
+```bash
+$ ssh ha@192.168.0.109
+ha@192.168.0.109's password: 
+Linux hassio 4.9.0-3-amd64 #1 SMP Debian 4.9.30-2+deb9u3 (2017-08-06) x86_64
+[...]
+$ 
+```
+
+Install the requirements after you switch the user to `root`.
+
+```bash
+$ su
+Password: 
+root@hassio:/home/ha# 
+root@hassio:/home/ha# apt-get update
+root@hassio:/home/ha# apt-get install bash socat jq curl avahi-daemon \
+    apt-transport-https ca-certificates
+```
+
+We want the latest Docker release. This requires additional steps to set it up as unlike other distributions Debian is lacking behind with current packages.
+
+```bash
+root@hassio:/home/ha# wget https://download.docker.com/linux/debian/gpg 
+root@hassio:/home/ha# apt-key add gpg
+OK
+root@hassio:/home/ha# echo "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable" | tee -a /etc/apt/sources.list.d/docker.list
+root@hassio:/home/ha# apt-get update
+```
+
+Now, it's possible to install a current release of [Docker](https://www.docker.com/).
+
+```bash
+root@hassio:/home/ha# apt-get -y install docker-ce
+```
+
+Start `docker` and enable it.
+
+```bash
+root@hassio:/home/ha# systemctl start docker && systemctl enable docker
+```
+
+An [installation script](https://github.com/home-assistant/hassio-build/tree/master/install#install-hassio) will take care about the setup of all moving parts.
+
+```bash
+root@hassio:/home/ha# curl -sL https://raw.githubusercontent.com/home-assistant/hassio-build/master/install/hassio_install | bash -
+[INFO] Install supervisor docker
+[INFO] Install generic HostControl
+[INFO] Install startup scripts
+[INFO] Init systemd
+Created symlink /etc/systemd/system/multi-user.target.wants/hassio-supervisor.service → /etc/systemd/system/hassio-supervisor.service.
+[INFO] Start services
+```
+
+If it's done, then there will be two new containers.
+
+```bash
+root@hassio:/home/ha# docker ps
+CONTAINER ID        IMAGE                                    COMMAND                  CREATED             STATUS              PORTS               NAMES
+ada5bbfc74f0        homeassistant/qemux86-64-homeassistant   "/usr/bin/entry.sh..."   4 minutes ago       Up 4 minutes                            homeassistant
+5954ac452ffc        homeassistant/amd64-hassio-supervisor    "/usr/bin/entry.sh..."   7 minutes ago       Up 7 minutes                            hassio_supervisor
+```
+
+After a connection to the container which is containing Home Assistant is made, you will see the log output.
+
+```bash
+root@hassio:/home/ha# docker attach --sig-proxy=false ada5bbfc74f0
+2017-11-28 19:24:30 INFO (MainThread) [homeassistant.core] Bus:Handling <Event state_changed[L]: entity_id=sun.sun, old_state=<state sun.sun=below_horizon; next_dawn=2017-11-29T06:17:58+00:00,...
+```
+
+For further details about the container, `inspect` can help.
+
+```bash
+root@hassio:/home/ha# docker inspect bb32b525d1ad
+[...]
+            "OnBuild": null,
+            "Labels": {
+                "io.hass.arch": "amd64",
+                "io.hass.machine": "qemux86-64",
+                "io.hass.type": "homeassistant",
+                "io.hass.version": "0.58.1"
+            }
+[...]
+```
+
+Hass.io is now ready. The frontend is available at [http://192.168.0.109:8123](http://192.168.0.109:8123). Yes, the IP address is the one of the guest.
+
+<p class='img'>
+  <img src='/images/blog/2017-11-hassio-virtual/hassio.png' />
+  Hass.io overview
+</p>
+
+Keep in mind that there are limitations with this approach. Not all [add-ons](/addons/) will work and some don't make sense to use as the hardware is not present. E.g., use the [SSH community add-on](https://github.com/hassio-addons/addon-ssh) instead of the default [SSH add-on](/addons/ssh/).
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Secure remote access to Home Assistant using Tor]]></title>
+    <link href="https://home-assistant.io/blog/2017/11/12/tor/"/>
+    <updated>2017-11-12T08:00:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2017/11/12/tor</id>
+    <content type="html"><![CDATA[Routers and gateways provided by broadband internet providers are very often limited regarding features and configuration possibilities. Most of these limitations affect the opportunities that allow users to set up port-forwarding, DMZ, and DHCP reservations since the suppliers figured that average user does not want (or should not) deal with these. Making your Home Assistant instance available remotely (and securely), in this case, becomes more difficult. Are you one of those unlucky ones?
+
+There are a couple of options available to achieve a remote (and secure) accessible Home Assistant instance. However, almost all of them require you to: open one or more ports on your router, expose a public IP address, and require you to reserve a fixed IP in your DHCP server (or set up a static IP address). Examples of these are:
+
+- Combination of [DuckDNS](/components/duckdns/) (or similar), [Let's Encrypt](/docs/ecosystem/certificates/lets_encrypt/) (SSL), DHCP reservation, and forwarding a port to your device running Home Assistant.
+- Setup a VPN, which often requires more hardware and software. Additionally, it also requires port-forwarding, DHCP reservation and most likely [DuckDNS](/components/duckdns/) (or similar).
+- [SSH tunnel-ing](/blog/2017/11/02/secure-shell-tunnel/). Which still requires port-forwarding, DHCP reservation and most likely (yeah, you've guessed it) [DuckDNS](/components/duckdns/) (or similar).
+
+There is, however, another option available that most people do not realize: [Tor](https://www.torproject.org). [Tor](https://www.torproject.org) offers a capability that they refer to as [Tor's Hidden Services](https://www.torproject.org/docs/hidden-services.html.en), which allows you to securely access your Home Assistant installation *without* the need for all these things. No need to forward and open ports, no need to expose your public IP, no DNS entry, no need for SSL certificates, and you do not have to assign a fixed IP to the device running your Home Assistant.
+
+The most amazing part? It is super easy to set up!
+
+<!--more-->
+
+## <a class='title-link' name='setting-up-tor' href='#setting-up-tor'></a> Setting up Tor 
+
+Our [documentation](/docs/ecosystem/tor/) provides a detailed guide about setting up a [Tor's Hidden Service](https://www.torproject.org/docs/hidden-services.html.en). The setup is straight-forward:
+
+1. Install Tor. On a Debian-based system: `$ sudo apt-get install tor`. On Fedora: `$ sudo dnf install tor`
+2. Modify Tor's main configuration file `/etc/tor/torrc` to include the following lines:
+
+    ```bash
+    ############### This section is just for location-hidden services ###
+
+    ## Once you have configured a hidden service, you can look at the
+    ## contents of the file ".../hidden_service/hostname" for the address
+    ## to tell people.
+    ...
+    HiddenServiceDir /var/lib/tor/homeassistant/
+    HiddenServicePort 80 127.0.0.1:8123
+    ...
+    ```
+3. Restart Tor: `$ sudo systemctl restart tor`
+4. The Tor-generated hostname file contains the hostname you need to access your installation.
+
+    ```bash
+    $ sudo cat /var/lib/tor/homeassistant/hostname
+    abcdef1234567890.onion
+    ```
+
+## <a class='title-link' name='tor-add-on-for-hassio' href='#tor-add-on-for-hassio'></a> Tor add-on for Hass.io 
+
+[Franck Nijhof (@frenck)](https://github.com/frenck) created the [Tor add-on](https://github.com/hassio-addons/addon-tor) for [Hass.io](/hassio/). This add-on makes the installation and the setup extremely simple. Go to the **Hass.io** panel, then to the **Store**, copy `https://github.com/hassio-addons/repository` into the text box of **Add-On Repositories** and save it.
+
+A new entry **Tor** will show-up in the list of add-ons. Click on it to install it. The configuration is done in **Options**. Please refer to the [Configuration documentation](https://github.com/hassio-addons/addon-tor#configuration) for further details. A possible configuration could look like the sample below (which is the default configuration).
+
+```json
+{
+  "log_level": "info",
+  "socks": false,
+  "hidden_services": true,
+  "stealth": false,
+  "client_names": [],
+  "ports": [
+    "8123:80"
+  ]
+}
+```
+
+When you are done, press **Save** and then **Start**. In the **Logs** section, you can see what the add-on is doing. Watch out for an entry like the one below, which will tell you your hostname on the Tor network.
+
+```bash
+INFO: -----------------------------------------------------------
+INFO: Your Home Assistant instance is available on Tor!
+INFO: Address: abcdef1234567890.onion
+INFO: -----------------------------------------------------------
+```
+
+Don't worry if you missed it, restarting the add-on will display it again. The details are also stored and available in the `/ssl/tor/hidden_service/hostname` file.
+
+## <a class='title-link' name='tor-clients' href='#tor-clients'></a> Tor clients 
+
+To access you Home Assistant via the Tor Hidden Service, you will need a Tor client. There are multiple clients, for different devices and platforms, available. The [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en) is by far the simplest option, which is available for Windows, MacOS & Linux.
+
+Simply download and install the [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en), start it, and enter the "dot onion" address you've gained from the earlier steps (`abcdef1234567890.onion` in this case). Voila!
+
+Some other clients:
+
+- [Orbot](https://guardianproject.info/apps/orbot/) for Android
+- [Orfox](https://play.google.com/store/apps/details?id=info.guardianproject.orfox&hl=nl) for Android
+- [Onion Browser](https://mike.tig.as/onionbrowser/) for iOS
+
+## <a class='title-link' name='cranking-up-security' href='#cranking-up-security'></a> Cranking up security 
+
+The setup described in this blog post is easy and relatively secure, but anyone who knows your `.onion` address can still connect to your Home Assistant instance (Remember to use passwords!). With all of the [discussion](https://blog.torproject.org/quick-simple-guide-tor-and-internet-things-so-far) about putting your IoT on the Tor Network, maybe you want to add an extra layer of defense, especially if you’re going to be the only one that uses it. Tor offers an additional layer of security, called "Hidden Service Authentication", usually referred to as "Stealth"-mode.
+
+This "Stealth"-mode adds an extra layer of security to your Hidden Service by only responding to a client that passes a unique secret cookie as it connects. Obviously, this requires additional configuration on the Tor client applications.
+
+Additional information can be found in the [Tor documentation](/docs/ecosystem/tor/) and the [Tor add-on repository](https://github.com/hassio-addons/addon-tor), including how to setup the "Stealth"-mode. The Tor Project itself provides details about a variaty of topics in their  [documentation](https://www.torproject.org/docs/documentation.html.en).
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Home Assistant and The Things Network (TTN)]]></title>
+    <link href="https://home-assistant.io/blog/2017/11/10/ttn-with-mqtt/"/>
+    <updated>2017-11-10T12:00:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2017/11/10/ttn-with-mqtt</id>
+    <content type="html"><![CDATA[The Home Assistant integration for [The Things Network (TTN)](https://www.thethingsnetwork.org/) uses their [Storage](https://www.thethingsnetwork.org/docs/applications/storage/) feature to get the sensor data. The easiest way to observe TTN sensors would be [MQTT](https://www.thethingsnetwork.org/docs/applications/mqtt/) as it doesn't requires any additional configuration.
+
+At the moment Home Assistant only supports one [MQTT broker](/docs/mqtt/). This means that you can't subscribe to topics which are located on different brokers.
+
+<!--more-->
+
+## <a class='title-link' name='subscribe-to-the-ttn-broker' href='#subscribe-to-the-ttn-broker'></a> Subscribe to the TTN Broker 
+
+To check what your devices are sending, subscribe to the topic `+/devices/+/up` with a command-line tool like `mosquitto_sub`. The `<Region>` is the postfix of the **Handler** entry in your **Application overview**. `<AppID>` is the **Application ID** and `<AppKey>` is your access key. 
+
+```bash
+$ mosquitto_sub -v -h <Region>.thethings.network -t '+/devices/+/up' -u '<AppID>' -P '<AppKey>'
+{
+	"app_id": "ha-demo",
+	"dev_id": "device01",
+	"hardware_serial": "AJDJENDNHRBFBBT",
+	"port": 1,
+    [...]
+```
+
+The payload contains details about the device itself and the sensor data. The sensor data is stored in `payload_fields`. Depending on the device configuration it may contain a single value or multiple values. 
+
+## <a class='title-link' name='the-relay' href='#the-relay'></a> The relay 
+
+To be able to work locally with the MQTT data that is received from the devices connected to TTN, we need to transfer it to the local broker. With this simple script below all messages from a given device are re-published on your local MQTT broker after they are received. Modify the script with your details as outlined in the previous section.
+
+```python
+"""Relay MQTT messages from The Things Network to a local MQTT broker."""
+import paho.mqtt.client as mqtt
+import paho.mqtt.publish as publish
+
+DEVICE_NAME = '<DeviceID>'
+
+TTN_BROKER = '<Region>.thethings.network'
+TTN_USERNAME = '<AppID>'
+TTN_PASSWORD = '<AppKey>'
+TTN_TOPIC = '+/devices/{}/up'.format(DEVICE_NAME)
+
+LOCAL_BROKER = '192.168.0.2'
+LOCAL_TOPIC = 'home/ttn/garden_temp'
+
+
+def on_connect(client, userdata, flags, rc):
+    """Subscribe to topic after connection to broker is made."""
+    print("Connected with result code", str(rc))
+    client.subscribe(TTN_TOPIC)
+
+
+def on_message(client, userdata, msg):
+    """Relay message to a different broker."""
+    publish.single(
+        LOCAL_TOPIC, payload=msg.payload, qos=0, retain=False,
+        hostname=LOCAL_BROKER, port=1883, client_id='ttn-local',
+        keepalive=60, will=None, auth=None, tls=None, protocol=mqtt.MQTTv311)
+
+
+client = mqtt.Client()
+client.username_pw_set(TTN_USERNAME, password=TTN_PASSWORD)
+client.on_connect = on_connect
+client.on_message = on_message
+client.connect(TTN_BROKER, 1883, 60)
+
+client.loop_forever()
+```
+
+Save it and run it. As soon as a MQTT message is received from your device you should see it on your local broker (here 192.168.0.2) if you subscribe to `#` or the topic given in the script above `home/ttn/garden_temp`.
+
+```bash
+$ mosquitto_sub -h 192.168.0.2 -t "#" -d
+```
+
+## <a class='title-link' name='the-sensor' href='#the-sensor'></a> The sensor 
+
+All we would need now, is a [`mqtt` sensor](/components/sensor.mqtt/) with a `value_template`. With a sophisticated custom sensor it would be possible to displaying a little more than just the state. The device is only sending the temperature `{"temperature": 7.5}` but there are other details available which the sensor should show.
+
+```python
+"""Support for The Things Network MQTT sensors."""
+import asyncio
+from datetime import timedelta
+import json
+import logging
+
+import voluptuous as vol
+
+import homeassistant.components.mqtt as mqtt
+from homeassistant.components.mqtt import CONF_STATE_TOPIC
+from homeassistant.const import CONF_NAME, CONF_UNIT_OF_MEASUREMENT
+from homeassistant.core import callback
+import homeassistant.helpers.config_validation as cv
+from homeassistant.helpers.entity import Entity
+
+_LOGGER = logging.getLogger(__name__)
+
+DEFAULT_NAME = 'MQTT TTN Sensor'
+DEFAULT_FORCE_UPDATE = False
+DEPENDENCIES = ['mqtt']
+
+PLATFORM_SCHEMA = mqtt.MQTT_RO_PLATFORM_SCHEMA.extend({
+    vol.Optional(CONF_NAME, default=DEFAULT_NAME): cv.string,
+    vol.Optional(CONF_UNIT_OF_MEASUREMENT): cv.string,
+
+})
+
+
+@asyncio.coroutine
+def async_setup_platform(hass, config, async_add_devices, discovery_info=None):
+    """Set up the TTN MQTT Sensor."""
+    async_add_devices([MqttTtnSensor(
+        config.get(CONF_NAME), config.get(CONF_STATE_TOPIC),
+        config.get(CONF_UNIT_OF_MEASUREMENT))
+    ])
+
+
+class MqttTtnSensor(Entity):
+    """Representation of a sensor."""
+
+    def __init__(self, name, state_topic, unit_of_measurement):
+        """Initialize the sensor."""
+        self._state = None
+        self._name = name
+        self._unit_of_measurement = unit_of_measurement
+        self._attributes = {}
+        self._state_topic = state_topic
+
+    def async_added_to_hass(self):
+        """Subscribe to MQTT events."""
+        @callback
+        def message_received(topic, payload, qos):
+            """Handle new MQTT messages."""
+
+            try:
+                data = json.loads(payload)
+            except json.JSONDecodeError:
+                _LOGGER.error("Invalid JSON data received: %s", data)
+
+            self._state = data['payload_fields'][next(
+                iter(data['payload_fields']))]
+            self._attributes = data
+            del self._attributes['payload_fields']
+            del self._attributes['metadata']
+            self.async_schedule_update_ha_state()
+
+        return mqtt.async_subscribe(
+            self.hass, self._state_topic, message_received, 0)
+
+    @property
+    def should_poll(self):
+        """No polling needed."""
+        return False
+
+    @property
+    def name(self):
+        """Return the name of the sensor."""
+        return self._name
+
+    @property
+    def unit_of_measurement(self):
+        """Return the unit this state is expressed in."""
+        return self._unit_of_measurement
+
+    @property
+    def state_attributes(self):
+        """Return the attributes of the entity."""
+        return self._attributes
+
+    @property
+    def state(self):
+        """Return the state of the entity."""
+        return self._state
+```
+
+Store it in `<config_dir>/custom_components/sensor/mqtt_ttn.py` and it will handle the messages.
+
+## <a class='title-link' name='the-configuration' href='#the-configuration'></a> The configuration 
+
+Now create the [`mqtt_ttn` sensor](/components/sensor.mqtt/) entry for your device.
+
+```
+sensor:
+  - platform: mqtt_ttn
+    name: TTN Sensor
+    state_topic: "home/ttn/garden_temp"
+```
+
+This solution is not production-ready, scalable or stable but it could fill the gape till Home Assistant is able to connect to multiple MQTT brokers. If you have multiple devices relay all messages to your local broker and add a configuration variable to `mqtt_ttn` sensor which allows you to select the device.
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Home Assistant and SSH]]></title>
+    <link href="https://home-assistant.io/blog/2017/11/02/secure-shell-tunnel/"/>
+    <updated>2017-11-02T08:00:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2017/11/02/secure-shell-tunnel</id>
+    <content type="html"><![CDATA[Most system engineers are very familiar with [SSH (Secure shell)](https://en.wikipedia.org/wiki/Secure_Shell). This tool which contains a server part and a client part is used to access a remote system in a secure way. It can also help you if your are running Home Assistant but don't want to expose it to the public. On a Linux system SSH is often available by default. If you are using a Windows installation additional steps are required which are not covered here.
+
+In this blog post we are going to use the tunneling option of SSH to create a secure connection and forward the Home Assistant frontend to a local system. 
+
+<!--more-->
+
+The involved parties are:
+
+- **Remote system**: Where Home Assistant is running, usually in your home network.
+- **Local system**: Where you want to see the frontend.
+
+The prerequirements are that you need to allow the forwarding of port 22 from your router to the system where Home Assistant is running in your network. It might also be needed that you enable the SSH daemon by `$ sudo systemctl start sshd` on the remote system and to adjust the host firewall. If you are running [Hass.io](https://home-assistant.io/hassio/) then enable the [SSH Server add-on](https://home-assistant.io/addons/ssh/). You must also have a public IP address or hostname which can be provided by dynamic DNS (e.g., [NO-IP](https://www.noip.com/) or [DuckDNS](https://www.duckdns.org/)).
+On your local system you need only a SSH client and you need to be in a network where SSH is allowed.
+
+First let's have a look at the command we are going to use. Use `man ssh` to get more information.
+
+```bash
+$ ssh -L 8000:localhost:8123 user@[IP_ADDRESS_REMOTE]
+      |  |    |         |    |    |
+      |  |    |         |    |    |_ IP address or hostname of your router.
+      |  |    |         |    |_ Username on the remote system.
+      |  |    |         |_ Port where the application is running.
+      |  |    |_ We want the frontend on this system.
+      |  |_ The port on our local system to use (above 1024).
+      |_ We want to do local port forwarding.
+```
+
+A possible example could look like the command below. 
+
+```bash
+$ ssh -L 8000:localhost:8123 ha@192.168.0.11
+```
+
+The first time you establish the connection you need to accept the fingerprint.
+
+```bash
+The authenticity of host '192.168.0.11 (192.168.0.11)' can't be established.
+ECDSA key fingerprint is SHA256:asdf2faasd4gk45454fadr78wfadfasdfeg4vvvsae33.
+ECDSA key fingerprint is MD5:44:d4:f7:44:d4:aa:b8:de:ef:09:3e:0d:4e:12:11:09.
+Are you sure you want to continue connecting (yes/no)? 
+Warning: Permanently added '192.168.0.162' (ECDSA) to the list of known hosts.
+ha@192.168.0.11's password: 
+Last login: Fri Oct 27 17:50:09 2017
+[ha@home-assistant ~]$ 
+```
+
+Now you are able to use your frontend on your local system: [http://localhost:8000](http://localhost:8000)
+
+Things to keep in mind:
+
+- You need a public IP address or hostname (Dynamic DNS will work) if you want to use it from the internet.
+- You need to setup port forwarding on your router.
+- Don't allow `root` to use SSH. Set `PermitRootLogin no` on the remote system.
+- Your local port must be above 1024. Only `root` is allowed to forward privileged ports which are below 1024.
+- Use [SSH keys for authentication](https://docs-old.fedoraproject.org/en-US/Fedora/14/html/Deployment_Guide/s2-ssh-configuration-keypairs.html) instead of passwords to avoid bruteforce attacks.
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Home Assistant Demo]]></title>
+    <link href="https://home-assistant.io/blog/2017/10/28/demo/"/>
+    <updated>2017-10-28T08:00:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2017/10/28/demo</id>
+    <content type="html"><![CDATA[If you are planning to host a Home Assistant meetup or doing a talk, then you probably want to show Home Assistant to an audience. You could use a Wireless router, bulbs, switches, and a single board computer to do a realistic demo. For a workshop, this is what I usually do because I think that working with physical hardware is more fun for the participants. The issue is that you need time to set up, power and space. For a talk or in a location, where you only have a beamer and a table or a lectern, the physical hardware approach is not very convenient.
+
+The simplest way to show Home Assistant to others is the online demo at [https://home-assistant.io/demo/](https://home-assistant.io/demo/)
+
+<p class='img'>
+  <img src='/images/blog/2017-10-interactive-demo/online-demo.png' />
+  Home Assistant's online demo
+</p>
+
+<!--more-->
+
+## <a class='title-link' name='--demo-mode-and-demo-platform' href='#--demo-mode-and-demo-platform'></a> `--demo-mode` and Demo platform 
+To be safe for your talk, you don't want to depend on an internet connection. The demo mode [`--demo-mode`](/docs/tools/hass/) allows you to run a demo locally including the latest features. Make sure that you have a backup of your configuration.
+
+```bash
+$ hass --demo-mode
+```
+
+If you already have a `configuration.yaml` file in place then you will get a combination of your setup with all available  [`demo`](/components/demo/) platforms. This can be overwhelming for the audience. The suggestion is that you tailor the demo to your needs by only showing a few selected platforms. For example:
+
+```yaml
+sensor:
+  - platform: demo
+binary_sensor:
+  - platform: demo
+switch:
+  - platform: demo
+```
+
+<p class='img'>
+  <img src='/images/blog/2017-10-interactive-demo/demo-platforms.png' />
+  Home Assistant's demo platforms
+</p>
+
+## <a class='title-link' name='random-platforms' href='#random-platforms'></a> `random` platforms 
+Till now the frontend is static. Nothing is changing over time. Starting with 0.57 we ship a [`random` binary sensor](https://github.com/home-assistant/home-assistant.github.io/blob/next/source/_components/binary_sensor.random.markdown) platform in addition to the already available [`random` sensor](/components/sensor.random/).
+
+By adding those platform to your `configuration.yaml` file, your demo will become more interactive.
+
+```yaml
+sensor:
+  - platform: demo
+    name: Temperature
+    unit_of_measurement: "°C"
+binary_sensor:
+  - platform: random
+    name: Front Door
+  - platform: random
+    name: Back Door
+    scan_interval: 5
+```
+
+<p class='img'>
+  <img src='/images/blog/2017-10-interactive-demo/demo-random.png' />
+  Demo with `random` platforms
+</p>
+
+The `random` and the `demo` platforms can, of course, be used together. With a little work and some of the [`template`](/components/#search/template) platforms or the [`input_*`](/components/#search/input) components it would even be possible to simulate a complete apartment or a house. For a hint check the sample below:
+
+
+```yaml
+input_boolean:
+  on_off:
+    name: On or off
+binary_sensor:
+  - platform: template
+    sensors:
+      on_tester:
+        value_template: "{{ states.input_boolean.on_off.state == 'on' }}"
+        friendly_name: 'Movement'
+        device_class: motion
+```
+
+
+## <a class='title-link' name='mqtt-discovery' href='#mqtt-discovery'></a> MQTT Discovery 
+This is a section for advanced users as it will require to run a separate script. Instead of adding `demo` platforms to the configuration this setup make use of [MQTT discovery](/docs/mqtt/discovery/) and the [embedded MQTT broker](/docs/mqtt/broker/#embedded-broker). Simply add MQTT to your `configuration.yaml` file with `discovery:`
+
+```yaml
+mqtt:
+  discovery: true
+```
+
+Download the [sample script](https://github.com/home-assistant/home-assistant-dev-helper/blob/master/ha-mqtt-demo.py). It depends on [paho-mqtt](https://pypi.python.org/pypi/paho-mqtt). If you run the script inside your [Home Assistant's virtual environment](/docs/installation/virtualenv/) then you are good to go as the dependency should be present if you have used MQTT before. Otherwise, install it with `$ pip3 install paho-mqtt`. The same applies to the embedded broker.
+
+```bash
+(ha)[ha-demo]$ python3 ha-mqtt-demo.py
+Demo is running... -> CTRL + C to shutdown
+```
+
+It will create sensors, a light, and a switch and update the states as long the script is running. It possible to stop and restart script without losing the entities.
+
+Some users share their slides and other documents in [our assets repository](https://github.com/home-assistant/home-assistant-assets). Also, take a look at that repository if you need a logo for your slides.
+
+]]></content>
+  </entry>
+  
+</feed>

@@ -1,0 +1,481 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>UpCloud - Home Assistant</title>
+    <meta name="author" content="Home Assistant">
+    <meta name="description" content="Instructions how to integrate UpCloud within Home Assistant.">
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/components/upcloud/">
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="UpCloud">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/components/upcloud/">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="Instructions how to integrate UpCloud within Home Assistant.">
+    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    <meta name="twitter:title" content="UpCloud">
+    <meta name="twitter:description" content="Instructions how to integrate UpCloud within Home Assistant.">
+    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
+    <link href="/stylesheets/screen.css" media="screen, projection, print" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+  <body >
+    <header class='site-header'>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/docs/">Docs</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+  <li><a href='#' class='show-search'><i class="icon-search"></i></a></li>
+</ul>
+  </nav>
+  <div class='search-container' style='display: none'>
+    <div class='search'>
+      <i class="icon-search"></i>
+      <input id='search' placeholder='Search the docs…'>
+      <a href='#' class='close'><i class="icon-remove-sign"></i></a>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+    </header>
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+          <article class="page">
+  <header>
+    <h1 class="title indent">
+      UpCloud
+    </h1>
+  </header>
+  <hr class="divider">
+  <p>The <code class="highlighter-rouge">upcloud</code> component allows you to access the information about your <a href="https://www.upcloud.com/">UpCloud</a> servers from Home Assistant.</p>
+<p>Set up your API user credentials in your <a href="https://my.upcloud.com/">UpCloud control panel</a>.</p>
+<p>To integrate your UpCloud servers with Home Assistant, add the following section to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">upcloud</span><span class="pi">:</span>
+  <span class="s">username</span><span class="pi">:</span> <span class="s">YOUR_API_USERNAME</span>
+  <span class="s">password</span><span class="pi">:</span> <span class="s">YOUR_API_PASSWORD</span>
+</code></pre>
+</div>
+<div class="config-vars">
+  <h3><a class="title-link" name="configuration-variables" href="#configuration-variables"></a> Configuration Variables</h3>
+  <dl class="">
+    <dt><a class="title-link" name="username" href="#username"></a> username</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="string">string</span>)</span><span class="required">(Required)</span><span class="description">Your UpCloud API username.</span></p>
+    </dd>
+    <dt><a class="title-link" name="password" href="#password"></a> password</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="string">string</span>)</span><span class="required">(Required)</span><span class="description">Your UpCloud API user password.</span></p>
+    </dd>
+    <dt><a class="title-link" name="scan_interval" href="#scan_interval"></a> scan_interval</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="int">int</span>)</span><span class="required">(Optional)</span><span class="description">Update interval in seconds.</span></p>
+      <p class="default">Default value: 60</p>
+    </dd>
+  </dl>
+</div>
+</article>
+        </div>
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/upcloud.markdown'>Edit this page on GitHub</a></div>
+  <div class='brand-logo-container section'>
+      <img src='/images/supported_brands/upcloud.png' />
+  </div>
+    <div class='section'>
+      IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Cloud Polling
+    </div>
+    <div class='section'>
+      Introduced in release: 0.65
+    </div>
+          <div class='section'>
+          <h1 class='title delta'>Related components</h1>
+          <ul class='divided'>
+        <li><a href='/components/binary_sensor.upcloud/'>
+          UpCloud Binary Sensor
+        </a></li>
+        <li><a href='/components/switch.upcloud/'>
+          UpCloud Switch
+        </a></li>
+    </ul>
+    </div>
+    <div class='section'>
+    <h1 class="title delta">Category Hub</h1>
+    <ul class='divided'>
+        <li>
+            <a href='/components/ads/'>ADS</a>
+        </li>
+        <li>
+            <a href='/components/apcupsd/'>APCUPSd</a>
+        </li>
+        <li>
+            <a href='/components/abode/'>Abode Home Security</a>
+        </li>
+        <li>
+            <a href='/components/alarmdecoder/'>AlarmDecoder Alarm</a>
+        </li>
+        <li>
+            <a href='/components/amcrest/'>Amcrest IP Camera</a>
+        </li>
+        <li>
+            <a href='/components/android_ip_webcam/'>Android IP Webcam</a>
+        </li>
+        <li>
+            <a href='/components/apple_tv/'>Apple TV</a>
+        </li>
+        <li>
+            <a href='/components/arlo/'>Arlo</a>
+        </li>
+        <li>
+            <a href='/components/august/'>August</a>
+        </li>
+        <li>
+            <a href='/components/axis/'>Axis</a>
+        </li>
+        <li>
+            <a href='/components/bmw_connected_drive/'>BMW connected drive</a>
+        </li>
+        <li>
+            <a href='/components/wemo/'>Belkin WeMo</a>
+        </li>
+        <li>
+            <a href='/components/blink/'>Blink</a>
+        </li>
+        <li>
+            <a href='/components/bloomsky/'>BloomSky</a>
+        </li>
+        <li>
+            <a href='/components/canary/'>Canary</a>
+        </li>
+        <li>
+            <a href='/components/daikin/'>Daikin AC</a>
+        </li>
+        <li>
+            <a href='/components/digital_ocean/'>Digital Ocean</a>
+        </li>
+        <li>
+            <a href='/components/doorbird/'>DoorBird</a>
+        </li>
+        <li>
+            <a href='/components/dyson/'>Dyson</a>
+        </li>
+        <li>
+            <a href='/components/egardia/'>Egardia</a>
+        </li>
+        <li>
+            <a href='/components/eight_sleep/'>Eight Sleep</a>
+        </li>
+        <li>
+            <a href='/components/emulated_hue/'>Emulated Hue Bridge</a>
+        </li>
+        <li>
+            <a href='/components/enocean/'>EnOcean</a>
+        </li>
+        <li>
+            <a href='/components/ffmpeg/'>FFmpeg</a>
+        </li>
+        <li>
+            <a href='/components/hive/'>Hive</a>
+        </li>
+        <li>
+            <a href='/components/homematic/'>Homematic</a>
+        </li>
+        <li>
+            <a href='/components/ihc/'>IHC</a>
+        </li>
+        <li>
+            <a href='/components/tradfri/'>IKEA Trådfri (Tradfri)</a>
+        </li>
+        <li>
+            <a href='/components/isy994/'>ISY994 Controller</a>
+        </li>
+        <li>
+            <a href='/components/insteon_local/'>Insteon (local)</a>
+        </li>
+        <li>
+            <a href='/components/insteon_hub/'>Insteon Hub</a>
+        </li>
+        <li>
+            <a href='/components/insteon_plm/'>Insteon PLM</a>
+        </li>
+        <li>
+            <a href='/components/joaoapps_join/'>Joaoapps Join</a>
+        </li>
+        <li>
+            <a href='/components/juicenet/'>Juicenet</a>
+        </li>
+        <li>
+            <a href='/components/knx/'>KNX</a>
+        </li>
+        <li>
+            <a href='/components/kira/'>Kira</a>
+        </li>
+        <li>
+            <a href='/components/lametric/'>LaMetric</a>
+        </li>
+        <li>
+            <a href='/components/linode/'>Linode</a>
+        </li>
+        <li>
+            <a href='/components/litejet/'>LiteJet</a>
+        </li>
+        <li>
+            <a href='/components/lutron/'>Lutron</a>
+        </li>
+        <li>
+            <a href='/components/lutron_caseta/'>Lutron Caseta</a>
+        </li>
+        <li>
+            <a href='/components/mqtt/'>MQTT</a>
+        </li>
+        <li>
+            <a href='/components/melissa/'>Melissa Climate</a>
+        </li>
+        <li>
+            <a href='/components/raincloud/'>Melnor Raincloud</a>
+        </li>
+        <li>
+            <a href='/components/mercedesme/'>Mercedes me</a>
+        </li>
+        <li>
+            <a href='/components/microsoft_face/'>Microsoft Face</a>
+        </li>
+        <li>
+            <a href='/components/mochad/'>Mochad</a>
+        </li>
+        <li>
+            <a href='/components/modbus/'>Modbus</a>
+        </li>
+        <li>
+            <a href='/components/mychevy/'>MyChevy</a>
+        </li>
+        <li>
+            <a href='/components/mysensors/'>MySensors</a>
+        </li>
+        <li>
+            <a href='/components/neato/'>Neato Robotics</a>
+        </li>
+        <li>
+            <a href='/components/nest/'>Nest</a>
+        </li>
+        <li>
+            <a href='/components/netatmo/'>Netatmo</a>
+        </li>
+        <li>
+            <a href='/components/nuheat/'>NuHeat</a>
+        </li>
+        <li>
+            <a href='/components/nuimo_controller/'>Nuimo controller</a>
+        </li>
+        <li>
+            <a href='/components/octoprint/'>OctoPrint</a>
+        </li>
+        <li>
+            <a href='/components/hue/'>Philips Hue</a>
+        </li>
+        <li>
+            <a href='/components/pilight/'>Pilight</a>
+        </li>
+        <li>
+            <a href='/components/qwikswitch/'>QwikSwitch QSUSB Hub</a>
+        </li>
+        <li>
+            <a href='/components/rflink/'>RFLink</a>
+        </li>
+        <li>
+            <a href='/components/rfxtrx/'>RFXtrx</a>
+        </li>
+        <li>
+            <a href='/components/rainbird/'>Rain Bird</a>
+        </li>
+        <li>
+            <a href='/components/sensor.rainbird/'>Rain Bird Sensor</a>
+        </li>
+        <li>
+            <a href='/components/switch.rainbird/'>Rain Bird Switch</a>
+        </li>
+        <li>
+            <a href='/components/ring/'>Ring</a>
+        </li>
+        <li>
+            <a href='/components/scsgate/'>SCSGate</a>
+        </li>
+        <li>
+            <a href='/components/spc/'>SPC</a>
+        </li>
+        <li>
+            <a href='/components/satel_integra/'>Satel Integra Alarm</a>
+        </li>
+        <li>
+            <a href='/components/skybell/'>Skybell</a>
+        </li>
+        <li>
+            <a href='/components/sleepiq/'>SleepIQ</a>
+        </li>
+        <li>
+            <a href='/components/smappee/'>Smappee</a>
+        </li>
+        <li>
+            <a href='/components/tado/'>Tado</a>
+        </li>
+        <li>
+            <a href='/components/tahoma/'>Tahoma</a>
+        </li>
+        <li>
+            <a href='/components/telegram_bot/'>Telegram chatbot</a>
+        </li>
+        <li>
+            <a href='/components/tellstick/'>TellStick</a>
+        </li>
+        <li>
+            <a href='/components/tellduslive/'>Telldus Live</a>
+        </li>
+        <li>
+            <a href='/components/tesla/'>Tesla</a>
+        </li>
+        <li>
+            <a href='/components/thethingsnetwork/'>The Things Network</a>
+        </li>
+        <li>
+            <a href='/components/toon/'>Toon</a>
+        </li>
+        <li>
+            <a href='/components/twilio/'>Twilio</a>
+        </li>
+        <li>
+            <a href='/components/usps/'>USPS</a>
+        </li>
+        <li>
+            UpCloud
+        </li>
+        <li>
+            <a href='/components/velbus/'>Velbus</a>
+        </li>
+        <li>
+            <a href='/components/velux/'>Velux</a>
+        </li>
+        <li>
+            <a href='/components/vera/'>Vera</a>
+        </li>
+        <li>
+            <a href='/components/verisure/'>Verisure</a>
+        </li>
+        <li>
+            <a href='/components/volvooncall/'>Volvo On Call</a>
+        </li>
+        <li>
+            <a href='/components/vultr/'>Vultr</a>
+        </li>
+        <li>
+            <a href='/components/waterfurnace/'>WaterFurnace</a>
+        </li>
+        <li>
+            <a href='/components/wink/'>Wink</a>
+        </li>
+        <li>
+            <a href='/components/xiaomi_aqara/'>Xiaomi Gateway (Aqara)</a>
+        </li>
+        <li>
+            <a href='/components/zwave/'>Z-Wave</a>
+        </li>
+        <li>
+            <a href='/components/comfoconnect/'>Zehnder ComfoAir Q Ventilation</a>
+        </li>
+        <li>
+            <a href='/components/zha/'>Zigbee Home Automation</a>
+        </li>
+        <li>
+            <a href='/components/zoneminder/'>ZoneMinder</a>
+        </li>
+        <li>
+            <a href='/components/deconz/'>deCONZ</a>
+        </li>
+        <li>
+            <a href='/components/ecobee/'>ecobee</a>
+        </li>
+        <li>
+            <a href='/components/gc100/'>gc100</a>
+        </li>
+    </ul>
+    </div>
+</section>
+</div>
+        </aside>
+      </div>
+    </div>
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a> (no support!).<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+  <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">home-assistant.io</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
+<script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
+<script type="text/javascript">
+docsearch({
+  apiKey: 'ae96d94b201c5444c8a443093edf3efb',
+  indexName: 'home-assistant',
+  inputSelector: '#search',
+  debug: false // Set debug to true if you want to inspect the dropdown
+});
+document.querySelector('.search .close').addEventListener('click', function(ev) {
+  ev.preventDefault();
+  document.querySelector('.search-container').style.display = 'none';
+});
+document.querySelector('.show-search').addEventListener('click', function(ev) {
+  ev.preventDefault();
+  document.querySelector('.search-container').style.display = 'block';
+  document.getElementById('toggle').checked = false;
+  document.querySelector('.search-container input').focus();
+});
+</script>
+  </body>
+</html>

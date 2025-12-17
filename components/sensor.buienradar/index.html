@@ -1,0 +1,380 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Buienradar Sensor - Home Assistant</title>
+    <meta name="author" content="Home Assistant">
+    <meta name="description" content="Instructions how to integrate buienradar.nl sensor within Home Assistant.">
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/components/sensor.buienradar/">
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="Buienradar Sensor">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/components/sensor.buienradar/">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="Instructions how to integrate buienradar.nl sensor within Home Assistant.">
+    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    <meta name="twitter:title" content="Buienradar Sensor">
+    <meta name="twitter:description" content="Instructions how to integrate buienradar.nl sensor within Home Assistant.">
+    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
+    <link href="/stylesheets/screen.css" media="screen, projection, print" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+  <body >
+    <header class='site-header'>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/docs/">Docs</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+  <li><a href='#' class='show-search'><i class="icon-search"></i></a></li>
+</ul>
+  </nav>
+  <div class='search-container' style='display: none'>
+    <div class='search'>
+      <i class="icon-search"></i>
+      <input id='search' placeholder='Search the docs…'>
+      <a href='#' class='close'><i class="icon-remove-sign"></i></a>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+    </header>
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+          <article class="page">
+  <header>
+    <h1 class="title indent">
+      Buienradar Sensor
+    </h1>
+  </header>
+  <hr class="divider">
+  <p>The <code class="highlighter-rouge">buienradar</code> platform uses <a href="http://buienradar.nl/">buienradar.nl</a> as a source for current meteorological data for your location. The weather forecast is delivered by Buienradar, who provides a web service that provides detailed weather information for users in The Netherlands. The relevant weather station used will be automatically selected based on the location specified in the Home Assistant configuration (or in the buienradar weather/sensor component). A map of all available weather stations can be found <a href="https://www.google.com/maps/d/embed?mid=1NivHkTGQUOs0dwQTnTMZi8Uatj0">here</a>.</p>
+<p>The selected weather station will provide all weather data, with the exception of the forecasted precipitation. The forecasted precipitation data will be retrieved from buienradar using your actual gps-location (and not the location of the nearest weather station).</p>
+<p>To integrate <code class="highlighter-rouge">buienradar</code> with Home Assistant, add the following section to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">buienradar</span>
+    <span class="s">monitored_conditions</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">symbol</span>
+      <span class="pi">-</span> <span class="s">humidity</span>
+      <span class="pi">-</span> <span class="s">temperature</span>
+      <span class="pi">-</span> <span class="s">windspeed</span>
+      <span class="pi">-</span> <span class="s">pressure</span>
+</code></pre>
+</div>
+<p>Configuration variables:</p>
+<ul>
+  <li><strong>name</strong>  (<em>Optional</em>): You can specify a name of the component, but do not have to. If you specify a name, the sensors will get an entity name of <code class="highlighter-rouge">sensor.[name]_[default sensor display name]</code>, for example:
+    <ul>
+      <li><code class="highlighter-rouge">sensor.lopik_temperature</code>, since the name of the sensor is set to <code class="highlighter-rouge">lopik</code> and the default display name for monitored condition <code class="highlighter-rouge">temperature</code> is <code class="highlighter-rouge">Temperature</code></li>
+      <li><code class="highlighter-rouge">sensor.lopik_wind_force</code>, since the name of the sensor is set to <code class="highlighter-rouge">lopik</code> and the default display name for monitored condition <code class="highlighter-rouge">windforce</code> is <code class="highlighter-rouge">Wind force</code></li>
+    </ul>
+    <p>If no name is specified the sensors will be called <code class="highlighter-rouge">sensor.br_[default sensor display name]</code>, for example:</p>
+    <ul>
+      <li><code class="highlighter-rouge">sensor.br_wind_speed</code>, since no name has been set for the sensor and the default display name for monitored condition <code class="highlighter-rouge">windspeed</code> is <code class="highlighter-rouge">Wind speed</code></li>
+      <li><code class="highlighter-rouge">sensor.br_ground_temperature</code>, since no name has been set for the sensor and the default display name for monitored condition <code class="highlighter-rouge">groundtemperature</code> is <code class="highlighter-rouge">Ground Temperature</code></li>
+    </ul>
+  </li>
+  <li><strong>latitude</strong> (<em>Optional</em>): Latitude to use for selection of data source location. Longitude and latitude will be taken from Home Assistant configuration, but can be overridden/changed in this component to select a different location for buienradar.nl.</li>
+  <li><strong>longitude</strong> (<em>Optional</em>): Longitude to use for selection of data source location. Longitude and latitude will be taken from Home Assistant configuration, but can be overridden/changed in this component to select a different location for buienradar.nl.</li>
+  <li><strong>timeframe</strong> (<em>Optional</em>): Minutes to look ahead for precipitation forecast (5..120) [default: 60].</li>
+  <li><strong>monitored_conditions</strong> array (<em>Required</em>): One or more conditions to display in the frontend.
+    <ul>
+      <li><strong>stationname</strong>: The name of the selected meteo-station.</li>
+      <li><strong>conditioncode</strong>: A symbol and a unique code identifying the current weather condition ([a..z]).</li>
+      <li><strong>condition</strong>: A symbol and the current weather condition (clear, cloudy, fog, rainy, snowy, lightning).</li>
+      <li><strong>conditiondetailed</strong>: A symbol and detailed current weather condition (clear, partlycloudy, cloudy, partlycloudy-fog, partlycloudy-light-rain, partlycloudy-rain, light-rain, rainy, snowy-rainy, partlycloudy-light-snow, partlycloudy-snow, light-snow, snowy, partlycloudy-lightning, lightning).</li>
+      <li><strong>conditionexact</strong>: A symbol with the full current weather condition (in English).</li>
+      <li><strong>symbol</strong>: A symbol for the current weather with the full current condition (in Dutch).</li>
+      <li><strong>humidity</strong>: The relative humidity (%).</li>
+      <li><strong>temperature</strong>: The current temperature (in <a href="https://en.wikipedia.org/wiki/Celsius">C</a>).</li>
+      <li><strong>groundtemperature</strong>: The current ground temperature (in <a href="https://en.wikipedia.org/wiki/Celsius">C</a>).</li>
+      <li><strong>windspeed</strong>: The wind speed in <a href="https://en.wikipedia.org/wiki/M/s">m/s</a>.</li>
+      <li><strong>windforce</strong>: The wind speed/force in <a href="https://en.wikipedia.org/wiki/Beaufort_scale">Bft</a>.</li>
+      <li><strong>winddirection</strong>: Where the wind is coming from: N (North),Z (south), NO (North-East), etc.</li>
+      <li><strong>windazimuth</strong>: Where the wind is coming from in degrees, with true north at 0° and progressing clockwise.</li>
+      <li><strong>pressure</strong>: The sea-level air pressure in <a href="https://en.wikipedia.org/wiki/Hectopascal">hPa</a>.</li>
+      <li><strong>visibility</strong>: Visibility in meters (<a href="https://en.wikipedia.org/wiki/Metre">m</a>).</li>
+      <li><strong>windgust</strong>: The wind speed of wind gusts (<a href="https://en.wikipedia.org/wiki/M/s">m/s</a>).</li>
+      <li><strong>precipitation</strong>: The amount of precipitation/rain in mm/h.</li>
+      <li><strong>precipitation_forecast_average</strong>: The average expected precipitation/rain in mm/h within the given time-frame.</li>
+      <li><strong>precipitation_forecast_total</strong>: The total expected precipitation/rain in mm within the given time-frame. The total expected rain in the configured time-frame will be equal to <em>precipitation_forecast_total</em>/<em>timeframe</em> mm/min. So, with time-frame configured to 30 minutes and a value of 5, the expected rain is 5 mm in 30 minutes, which is the same as 10 mm/h. If time-frame is set to 90 minutes and a value of 5, the expected rain is 5 mm in 90 minutes, which is equal to 3.3 mm/h.</li>
+      <li><strong>irradiance</strong>: Sun intensity in Watt per square meter (<a href="https://en.wikipedia.org/wiki/W/m2">W/m2</a>).</li>
+      <li><strong>temperature_1d</strong> <a href="#1d"><sup>[1d]</sup></a>: The forecasted temperature (in <a href="https://en.wikipedia.org/wiki/Celsius">C</a>).</li>
+      <li><strong>mintemp_1d</strong> <a href="#1d"><sup>[1d]</sup></a>: The forecasted minimum temperature (in <a href="https://en.wikipedia.org/wiki/Celsius">C</a>).</li>
+      <li><strong>rainchance_1d</strong> <a href="#1d"><sup>[1d]</sup></a>: The forecasted chance for rain (%).</li>
+      <li><strong>sunchance_1d</strong> <a href="#1d"><sup>[1d]</sup></a>: The forecasted chance for sun (%).</li>
+      <li><strong>rain_1d</strong> <a href="#1d"><sup>[1d]</sup></a>: The forecasted amount of rain in <a href="https://en.wikipedia.org/wiki/Millimetre">mm</a>.</li>
+      <li><strong>snow_1d</strong> <a href="#1d"><sup>[1d]</sup></a>: The forecasted amount of snow in <a href="https://en.wikipedia.org/wiki/Centimetre">cm</a>.</li>
+      <li><strong>windforce_1d</strong> <a href="#1d"><sup>[1d]</sup></a>: The expected windforce in <a href="https://en.wikipedia.org/wiki/Beaufort_scale">Bft</a>.</li>
+      <li><strong>conditioncode_1d</strong> <a href="#1d"><sup>[1d]</sup></a>: Symbol and condition code of the expected condition.</li>
+      <li><strong>condition_1d</strong> <a href="#1d"><sup>[1d]</sup></a>: Symbol and expected condition.</li>
+      <li><strong>conditiondetailed_1d</strong> <a href="#1d"><sup>[1d]</sup></a>: Symbol and detailed expected condition.</li>
+      <li><strong>conditionexact_1d</strong> <a href="#1d"><sup>[1d]</sup></a>: Symbol and full expected condition (in English).</li>
+      <li><strong>symbol_1d</strong> <a href="#1d"><sup>[1d]</sup></a>: Symbol and full expected condition (in Dutch).</li>
+    </ul>
+  </li>
+</ul>
+<h2>Daily forecasts</h2>
+<p>Conditions above marked with <a name="1d">[1d]</a> are daily forecasts. To get forecast for different day, replace the number
+in <code class="highlighter-rouge">_1d</code> part of the sensor name. Valid values are from <code class="highlighter-rouge">1</code> to <code class="highlighter-rouge">5</code>.</p>
+<h2>Configuration examples</h2>
+<p>Full configuration example (excluding forecasted conditions) where location is manually specified:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">buienradar</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">volkel'</span>
+    <span class="c1"># Force 'Meetstation Volkel' to be used:</span>
+    <span class="s">latitude</span><span class="pi">:</span> <span class="s">51.65</span>
+    <span class="s">longitude</span><span class="pi">:</span> <span class="s">5.70</span>
+    <span class="s">monitored_conditions</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">stationname</span>
+      <span class="pi">-</span> <span class="s">conditioncode</span>
+      <span class="pi">-</span> <span class="s">condition</span>
+      <span class="pi">-</span> <span class="s">conditiondetailed</span>
+      <span class="pi">-</span> <span class="s">conditionexact</span>
+      <span class="pi">-</span> <span class="s">symbol</span>
+      <span class="pi">-</span> <span class="s">humidity</span>
+      <span class="pi">-</span> <span class="s">temperature</span>
+      <span class="pi">-</span> <span class="s">groundtemperature</span>
+      <span class="pi">-</span> <span class="s">windspeed</span>
+      <span class="pi">-</span> <span class="s">windforce</span>
+      <span class="pi">-</span> <span class="s">winddirection</span>
+      <span class="pi">-</span> <span class="s">windazimuth</span>
+      <span class="pi">-</span> <span class="s">pressure</span>
+      <span class="pi">-</span> <span class="s">visibility</span>
+      <span class="pi">-</span> <span class="s">windgust</span>
+      <span class="pi">-</span> <span class="s">precipitation</span>
+      <span class="pi">-</span> <span class="s">irradiance</span>
+      <span class="pi">-</span> <span class="s">precipitation_forecast_average</span>
+      <span class="pi">-</span> <span class="s">precipitation_forecast_total</span>
+</code></pre>
+</div>
+<p>Configuration example with current condition and (some) forecasted values:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Weather prediction</span>
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">buienradar</span>
+    <span class="s">monitored_conditions</span><span class="pi">:</span>
+      <span class="c1"># current condition:</span>
+      <span class="pi">-</span> <span class="s">condition</span>
+      <span class="pi">-</span> <span class="s">conditioncode</span>
+      <span class="pi">-</span> <span class="s">conditiondetailed</span>
+      <span class="pi">-</span> <span class="s">conditionexact</span>
+      <span class="pi">-</span> <span class="s">symbol</span>
+      <span class="c1"># conditions for forecasted data:</span>
+      <span class="pi">-</span> <span class="s">symbol_1d</span>
+      <span class="pi">-</span> <span class="s">symbol_2d</span>
+      <span class="pi">-</span> <span class="s">symbol_3d</span>
+      <span class="pi">-</span> <span class="s">symbol_4d</span>
+      <span class="pi">-</span> <span class="s">symbol_5d</span>
+      <span class="pi">-</span> <span class="s">temperature_1d</span>
+      <span class="pi">-</span> <span class="s">temperature_2d</span>
+      <span class="pi">-</span> <span class="s">temperature_3d</span>
+      <span class="pi">-</span> <span class="s">temperature_4d</span>
+      <span class="pi">-</span> <span class="s">temperature_5d</span>
+      <span class="pi">-</span> <span class="s">rainchance_1d</span>
+      <span class="pi">-</span> <span class="s">rainchance_2d</span>
+      <span class="pi">-</span> <span class="s">rainchance_3d</span>
+      <span class="pi">-</span> <span class="s">rainchance_4d</span>
+      <span class="pi">-</span> <span class="s">rainchance_5d</span>
+      <span class="pi">-</span> <span class="s">sunchance_1d</span>
+      <span class="pi">-</span> <span class="s">sunchance_2d</span>
+      <span class="pi">-</span> <span class="s">sunchance_3d</span>
+      <span class="pi">-</span> <span class="s">sunchance_4d</span>
+      <span class="pi">-</span> <span class="s">sunchance_5d</span>
+      <span class="pi">-</span> <span class="s">rain_1d</span>
+      <span class="pi">-</span> <span class="s">rain_2d</span>
+      <span class="pi">-</span> <span class="s">rain_3d</span>
+      <span class="pi">-</span> <span class="s">rain_4d</span>
+      <span class="pi">-</span> <span class="s">rain_5d</span>
+</code></pre>
+</div>
+<p><a href="https://www.buienradar.nl/overbuienradar/gratis-weerdata">Usage statement:</a></p>
+<blockquote>
+  <p>Buienradar makes free weather-data available for use by individuals and businesses (website/intranet). The use of the weather-data is allowed for <strong>non-commercial purposes</strong>. Please refer to the full usage statement linked above to confirm your usage or to request permission.</p>
+</blockquote>
+</article>
+        </div>
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/sensor.buienradar.markdown'>Edit this page on GitHub</a></div>
+  <div class='brand-logo-container section'>
+      <img src='/images/supported_brands/buienradar.png' />
+  </div>
+    <div class='section'>
+      IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Cloud Polling
+    </div>
+    <div class='section'>
+      Introduced in release: 0.47
+    </div>
+    <div class='section'>
+      Source:
+      <a href='https://github.com/home-assistant/home-assistant/blob/master/homeassistant/components/sensor/buienradar.py'>sensor/buienradar.py</a>
+    </div>
+          <div class='section'>
+          <h1 class='title delta'>Related components</h1>
+          <ul class='divided'>
+        <li><a href='/components/weather.buienradar/'>
+          Buienradar
+        </a></li>
+    </ul>
+    </div>
+    <div class='section'>
+    <h1 class="title delta">Category Weather</h1>
+    <ul class='divided'>
+        <li>
+            <a href='/components/weather.bom/'>BOM Australia</a>
+        </li>
+        <li>
+            <a href='/components/sensor.bom/'>BOM Australia Sensor</a>
+        </li>
+        <li>
+            <a href='/components/weather.buienradar/'>Buienradar</a>
+        </li>
+        <li>
+            Buienradar Sensor
+        </li>
+        <li>
+            <a href='/components/sensor.dwd_weather_warnings/'>DWD Weather warnings</a>
+        </li>
+        <li>
+            <a href='/components/weather.darksky/'>Dark Sky</a>
+        </li>
+        <li>
+            <a href='/components/sensor.darksky/'>Dark Sky Sensor</a>
+        </li>
+        <li>
+            <a href='/components/weather.ecobee/'>Ecobee Weather</a>
+        </li>
+        <li>
+            <a href='/components/weather.metoffice/'>Met Office</a>
+        </li>
+        <li>
+            <a href='/components/sensor.metoffice/'>Met Office Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.moon/'>Moon Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.nest_weather/'>Nest Weather Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.netatmo/'>Netatmo Sensor</a>
+        </li>
+        <li>
+            <a href='/components/weather.openweathermap/'>OpenWeatherMap</a>
+        </li>
+        <li>
+            <a href='/components/sensor.openweathermap/'>OpenWeatherMap Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sun/'>Sun</a>
+        </li>
+        <li>
+            <a href='/components/sensor.swiss_hydrological_data/'>Swiss Hydrological Data</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.tapsaff/'>Taps Aff</a>
+        </li>
+        <li>
+            <a href='/components/sensor.wunderground/'>Weather Underground (WUnderground)</a>
+        </li>
+        <li>
+            <a href='/components/sensor.worldtidesinfo/'>World Tides</a>
+        </li>
+        <li>
+            <a href='/components/sensor.yr/'>YR</a>
+        </li>
+        <li>
+            <a href='/components/weather.yweather/'>Yahoo Weather</a>
+        </li>
+        <li>
+            <a href='/components/sensor.yweather/'>Yahoo Weather Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.zamg/'>ZAMG Sensor</a>
+        </li>
+        <li>
+            <a href='/components/weather.zamg/'>ZAMG Weather</a>
+        </li>
+    </ul>
+    </div>
+</section>
+</div>
+        </aside>
+      </div>
+    </div>
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a> (no support!).<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+  <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">home-assistant.io</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
+<script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
+<script type="text/javascript">
+docsearch({
+  apiKey: 'ae96d94b201c5444c8a443093edf3efb',
+  indexName: 'home-assistant',
+  inputSelector: '#search',
+  debug: false // Set debug to true if you want to inspect the dropdown
+});
+document.querySelector('.search .close').addEventListener('click', function(ev) {
+  ev.preventDefault();
+  document.querySelector('.search-container').style.display = 'none';
+});
+document.querySelector('.show-search').addEventListener('click', function(ev) {
+  ev.preventDefault();
+  document.querySelector('.search-container').style.display = 'block';
+  document.getElementById('toggle').checked = false;
+  document.querySelector('.search-container input').focus();
+});
+</script>
+  </body>
+</html>

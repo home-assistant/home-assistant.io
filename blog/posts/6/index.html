@@ -1,0 +1,658 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Home Assistant</title>
+    <meta name="author" content="Home Assistant">
+    <meta name="description" content="Home Assistant is an open-source home automation platform running on Python 3.">
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/blog/posts/6/">
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="Home Assistant">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/blog/posts/6/">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    <meta name="twitter:title" content="Home Assistant">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
+    <link href="/stylesheets/screen.css" media="screen, projection, print" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+  <body >
+    <header class='site-header'>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/docs/">Docs</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+  <li><a href='#' class='show-search'><i class="icon-search"></i></a></li>
+</ul>
+  </nav>
+  <div class='search-container' style='display: none'>
+    <div class='search'>
+      <i class="icon-search"></i>
+      <input id='search' placeholder='Search the docs…'>
+      <a href='#' class='close'><i class="icon-remove-sign"></i></a>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+    </header>
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+  <article class="listing">
+    <header>
+  <h1 class="beta">
+    <a href="/blog/2017/05/20/automation-editor-zwave-panel-ocr/">Home Assistant 0.45: Automation editor, Z-Wave panel, OCR</a>
+  </h1>
+  <div class="meta clearfix">
+    <time datetime="2017-05-20T13:00:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> May 20, 2017</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen & Fabian Affolter</span>
+    <span><i class='icon-time'></i> 12 minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+        <li>Release-Notes</li>
+    </ul>
+  </span>
+      <a class='comments'
+         href="/blog/2017/05/20/automation-editor-zwave-panel-ocr/#post-comments"
+         >Comments</a>
+  </div>
+</header>
+  <div class="entry-content clearfix">
+    <p><a href="/components/#version/0.45"><img src="/images/blog/2017-05-0.45/components.png" style="border: 0;box-shadow: none;" /></a></p>
+<p>Welcome to another great release of Home Assistant! While some of contributors and users are gathering at PyCon US 2017, we still managed to get a great release together!</p>
+<p>First thing for this release is a feature that has been requested a lot: an automation editor! It’s still experimental - and many things are still in progress - but it works! You can create new automations and edit existing ones. If you start a new config, you’re all good to go. Otherwise check <a href="https://home-assistant.io/docs/automation/editor/">these instructions</a> to get your automations ready for editing in the UI.</p>
+<p class="img">
+  <img src="/images/blog/2017-05-0.45/trigger.png" />
+</p>
+<p>Check this <a href="https://youtu.be/0j_hWdCTip4">video</a> by <a href="https://twitter.com/BRUHautomation">Ben</a> from <a href="http://www.bruhautomation.com/">BRUHautomation</a> to see the new release in action.</p>
+<div class="videoWrapper">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/0j_hWdCTip4" frameborder="0" allowfullscreen=""></iframe>
+</div>
+<p>As the editor is experimental, there are some limitations. These include that Chrome/Chromium is the only supported browser, we don’t support all triggers and actions and there is no support for conditions yet. But the foundation is there and so if you want to contribute to this, come help!</p>
+<p>On the Z-Wave front a lot has happened. The biggest one is that we have a major extension of the Z-Wave panel thanks to <a href="https://github.com/turbokongen">@turbokongen</a>! You will now be able to change config parameters and manage your devices.</p>
+<p class="img">
+  <img src="/images/blog/2017-05-0.45/zwave.png" />
+</p>
+<p>Thanks to the work by the Python Open Z-Wave team we are now able to install it on demand from PyPi! There is no longer a need to pre-compile it yourself. This should give us the guarantee that we work with the Python Open Z-Wave version that the code expects.</p>
+<p class="note warning">
+If you have a security key set in your Open Z-Wave <code class="highlighter-rouge">options.xml</code>, copy <code class="highlighter-rouge">options.xml</code> to your Home Assistant configuration directory. This is the only place where options will get persisted. 
+</p>
+<p>Next to that <a href="https://github.com/armills">@armills</a> has lead the charge and managed to get full test coverage for Z-Wave! Thanks for all the hard work!</p>
+<p>This release also contains two integrations which could help you to make non-smart devices a little smarter. The <a href="https://home-assistant.io/components/sensor.file/"><code class="highlighter-rouge">file</code> sensor</a> and the <a href="https://home-assistant.io/components/image_processing.seven_segments/"><code class="highlighter-rouge">seven_segments</code> OCR image processing platform</a>. The first simply reads a plain-text file which was created by a logger or alike. The latter one extracts the value from a captured image that shows a seven-segments display.</p>
+<p class="img">
+  <img src="/images/blog/2017-05-0.45/power-meter.png" />
+</p>
+<p>And last, but not least, our Docker image is now based off Python 3.6. This version is faster and uses less memory than Python 3.5. Win!</p>
+<p>If you are using our <a href="https://community.home-assistant.io/t/introducing-hass-io/17296">experimental Hass.io image</a>, we made a breaking change in how the panel is served. If you have an existing installation, make sure you update your supervisor to the latest version before updating Home Assistant. If you are going to flash a new Hass.io image, make sure to only flash the new 0.8 image as linked on <a href="https://home-assistant.io/hassio/installation/">the installation page</a>.</p>
+<h2><a class="title-link" name="new-integrations" href="#new-integrations"></a> New integrations</h2>
+<ul>
+  <li>Add new raspihats component (<a href="https://github.com/florincosta">@florincosta</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7392">#7392</a>) (<a href="https://home-assistant.io/components/raspihats/">raspihats docs</a>) (new-platform)</li>
+  <li>Add datadog component (<a href="https://github.com/nunofgs">@nunofgs</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7158">#7158</a>) (<a href="https://home-assistant.io/components/datadog/">datadog docs</a>) (new-platform)</li>
+  <li>Add support for automation config panel (<a href="https://github.com/balloob">@balloob</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7509">#7509</a>) (<a href="https://home-assistant.io/docs/automation/editor/">config.automation docs</a>) (new-platform)</li>
+  <li>Z-Wave panel API (<a href="https://github.com/turbokongen">@turbokongen</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7456">#7456</a>) (<a href="https://home-assistant.io/components/zwave/">zwave docs</a>) (<a href="https://home-assistant.io/components/zwave.api/">zwave.api docs</a>) (new-platform)</li>
+  <li>myStrom Buttons support (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7099">#7099</a>) (<a href="https://home-assistant.io/components/binary_sensor.mystrom/">binary_sensor.mystrom docs</a>) (new-platform)</li>
+  <li>Support for the PiFace Digital I/O module (<a href="https://github.com/basschipper">@basschipper</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7494">#7494</a>) (<a href="https://home-assistant.io/components/rpi_pfio/">rpi_pfio docs</a>) (<a href="https://home-assistant.io/components/binary_sensor.rpi_pfio/">binary_sensor.rpi_pfio docs</a>) (<a href="https://home-assistant.io/components/switch.rpi_pfio/">switch.rpi_pfio docs</a>) (new-platform)</li>
+  <li>Add raspihats binary sensor (<a href="https://github.com/florincosta">@florincosta</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7508">#7508</a>) (<a href="https://home-assistant.io/components/binary_sensor.raspihats/">binary_sensor.raspihats docs</a>) (new-platform)</li>
+  <li>Support lutron serena shades (<a href="https://github.com/gurumitts">@gurumitts</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7565">#7565</a>) (<a href="https://home-assistant.io/components/lutron_caseta/">lutron_caseta docs</a>) (<a href="https://home-assistant.io/components/cover.lutron_caseta/">cover.lutron_caseta docs</a>) (new-platform)</li>
+  <li>Add Kira component to sensor and remote platforms (<a href="https://github.com/stu-gott">@stu-gott</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7479">#7479</a>) (<a href="https://home-assistant.io/components/kira/">kira docs</a>) (<a href="https://home-assistant.io/components/remote.kira/">remote.kira docs</a>) (<a href="https://home-assistant.io/components/sensor.kira/">sensor.kira docs</a>) (new-platform)</li>
+  <li>File sensor (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7569">#7569</a>) (<a href="https://home-assistant.io/components/sensor.file/">sensor.file docs</a>) (new-platform)</li>
+  <li>Seven segments OCR image processing (<a href="https://github.com/fabaff">@fabaff</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7632">#7632</a>) (<a href="https://home-assistant.io/components/image_processing.seven_segments/">image_processing.seven_segments docs</a>) (new-platform)</li>
+  <li>Axis component (<a href="https://github.com/Kane610">@Kane610</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7381">#7381</a>) (<a href="https://home-assistant.io/components/axis/">axis docs</a>) (new-platform)</li>
+</ul>
+<h2><a class="title-link" name="release-0451---may-22" href="#release-0451---may-22"></a> Release 0.45.1 - May 22</h2>
+<ul>
+  <li>Fix telegram chats (<a href="https://github.com/azogue">@azogue</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7689">#7689</a>) (<a href="https://home-assistant.io/components/notify.telegram/">notify.telegram docs</a>) (<a href="https://home-assistant.io/components/telegram_bot.__init__/">telegram_bot.<strong>init</strong> docs</a>)</li>
+  <li>Fix playback control of web streams (<a href="https://github.com/cgtobi">@cgtobi</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7683">#7683</a>) (<a href="https://home-assistant.io/components/media_player.volumio/">media_player.volumio docs</a>)</li>
+  <li>device_tracker.ubus: Handle empty results (<a href="https://github.com/tobygray">@tobygray</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7673">#7673</a>) (<a href="https://home-assistant.io/components/device_tracker.ubus/">device_tracker.ubus docs</a>)</li>
+  <li>Allow fetching hass.io panel without auth (<a href="https://github.com/balloob">@balloob</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7714">#7714</a>) (<a href="https://home-assistant.io/components/hassio/">hassio docs</a>)</li>
+</ul>
+<h2><a class="title-link" name="if-you-need-help" href="#if-you-need-help"></a> If you need help…</h2>
+<p>…don’t hesitate to use our very active <a href="https://community.home-assistant.io/">forums</a> or join us for a little <a href="https://discord.gg/c5DvZ4e">chat</a>. The release notes have comments enabled but it’s preferred if you use the former communication channels. Thanks.</p>
+<h2><a class="title-link" name="reporting-issues" href="#reporting-issues"></a> Reporting Issues</h2>
+<p>Experiencing issues introduced by this release? Please report them in our <a href="https://github.com/home-assistant/home-assistant/issues">issue tracker</a>. Make sure to fill in all fields of the issue template.</p>
+<h2><a class="title-link" name="breaking-changes" href="#breaking-changes"></a> Breaking changes</h2>
+<ul>
+  <li>PyPI Openzwave (<a href="https://github.com/JshWright">@JshWright</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7415">#7415</a>) (<a href="https://home-assistant.io/components/zwave/">zwave docs</a>) (breaking change)</li>
+  <li>Remove listening to <code class="highlighter-rouge">homeassistant_start</code> with event automation (<a href="https://github.com/balloob">@balloob</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7474">#7474</a>) (<a href="https://home-assistant.io/docs/configuration/events/">automation.event docs</a>) (breaking change)</li>
+</ul>
+      <a class="btn pull-right" href="/blog/2017/05/20/automation-editor-zwave-panel-ocr/#read-more">Read on &rarr;</a>
+  </div>
+  </article>
+  <hr>
+  <article class="listing">
+    <header>
+  <h1 class="beta">
+    <a href="/blog/2017/05/19/home-assistant-at-pycon-us-2017/">Home Assistant at PyCon US 2017</a>
+  </h1>
+  <div class="meta clearfix">
+    <time datetime="2017-05-19T00:00:01+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> May 19, 2017</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
+    <span><i class='icon-time'></i> Less than one minute reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+        <li>Community</li>
+    </ul>
+  </span>
+      <a class='comments'
+         href="/blog/2017/05/19/home-assistant-at-pycon-us-2017/#post-comments"
+         >Comments</a>
+  </div>
+</header>
+  <div class="entry-content clearfix">
+    <p>In just 12 hours PyCon US 2017 starts. This is an exciting conference because there will be a bunch of Home Assistant developers and users there being able to meet in person.</p>
+<p>Just like last year, we’ll be hosting a <a href="https://us.pycon.org/2017/events/open-spaces/">Home Assistant Open Space</a>. Please stop by to ask any questions you have to the available developers. <del>We haven’t reserved a slot yet but will do so tomorrow. We’ll update this post and announce it on social media as we know time and location.</del> <strong>First open-space will be Friday at 4pm in room B112.</strong></p>
+<p>We will also be taken part in the <a href="https://us.pycon.org/2017/community/sprints/">development sprints</a> from Monday-Wednesday. You only need to bring a laptop. We’ll help you get set up with a dev environment and you can be coding on top of Home Assistant in no time. <del>Exact location inside the conference center to be announced.</del> <strong>We are sitting in room A108.</strong></p>
+<p>On a final note, the Home Assistant community is very very active so don’t take it personal if we don’t remember your name, issue or contribution.</p>
+  </div>
+  </article>
+  <hr>
+  <article class="listing">
+    <header>
+  <h1 class="beta">
+    <a href="/blog/2017/05/13/home-assistant-on-orange-pi-zero/">Home Assistant on an Orange Pi Zero</a>
+  </h1>
+  <div class="meta clearfix">
+    <time datetime="2017-05-13T09:00:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> May 13, 2017</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Fabian Affolter</span>
+    <span><i class='icon-time'></i> four minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+        <li>How-To</li>
+    </ul>
+  </span>
+      <a class='comments'
+         href="/blog/2017/05/13/home-assistant-on-orange-pi-zero/#post-comments"
+         >Comments</a>
+  </div>
+</header>
+  <div class="entry-content clearfix">
+    <p>This blog post is about the setup of Home Assistant on an <a href="http://www.orangepi.org/orangepizero/">Orange Pi Zero</a>. Like the setup on a <a href="/blog/2017/05/01/home-assistant-on-raspberry-pi-zero-in-30-minutes/">Raspberry Pi Zero</a> it will only take a couple of minutes to get a fully functional super cheap (less than 18 Euro incl. casing and power supply) Home Assistant hub. The reasons to use an Orange Pi Zero beside the prize are the built-in Ethernet port and the availability.</p>
+<p class="img">
+  <img src="/images/blog/2017-05-orangepi/orangie-pi-setup.png" />
+</p>
+      <a class="btn pull-right" href="/blog/2017/05/13/home-assistant-on-orange-pi-zero/#read-more">Read on &rarr;</a>
+  </div>
+  </article>
+  <hr>
+  <article class="listing">
+    <header>
+  <h1 class="beta">
+    <a href="/blog/2017/05/07/grazer-linuxtage-2017-talk-python-everywhere/">Grazer Linuxtage 2017: Python Everywhere</a>
+  </h1>
+  <div class="meta clearfix">
+    <time datetime="2017-05-07T02:00:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> May 7, 2017</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Florian Klien</span>
+    <span><i class='icon-time'></i> Less than one minute reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+        <li>Community</li>
+        <li>Micropython</li>
+    </ul>
+  </span>
+      <a class='comments'
+         href="/blog/2017/05/07/grazer-linuxtage-2017-talk-python-everywhere/#post-comments"
+         >Comments</a>
+  </div>
+</header>
+  <div class="entry-content clearfix">
+    <p>I like Python. It’s a clean easy to read, easy to learn language. Yet when you use it for some time you still find more features to improve your coding. What I probably like most about Python is the community and the great libraries that already exist. Often solving a problem means including a pre-existing library and writing some glue code. That makes it quick to get things up and running.</p>
+<p>I just gave a talk on how you can run Python to automate your home (yes with Home-Assistant) but also with <a href="https://micropython.org">MicroPython</a>. Micropython allows you to run Python on your DIY sensors and switches around your home. Python everywhere - even on the chips that give Home-Assistant the data to be awesome.</p>
+<div class="videoWrapper">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/KNFZSSCPUyM" frameborder="0" allowfullscreen=""></iframe>
+</div>
+  </div>
+  </article>
+  <hr>
+  <article class="listing">
+    <header>
+  <h1 class="beta">
+    <a href="/blog/2017/05/06/zigbee-opencv-dlib/">Home Assistant 0.44: ZigBee, OpenCV and DLib</a>
+  </h1>
+  <div class="meta clearfix">
+    <time datetime="2017-05-06T01:04:05+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> May 6, 2017</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
+    <span><i class='icon-time'></i> 14 minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+        <li>Release-Notes</li>
+    </ul>
+  </span>
+      <a class='comments'
+         href="/blog/2017/05/06/zigbee-opencv-dlib/#post-comments"
+         >Comments</a>
+  </div>
+</header>
+  <div class="entry-content clearfix">
+    <p><a href="/components/#version/0.44"><img src="/images/blog/2017-05-0.44/components.png" style="border: 0;box-shadow: none;" /></a></p>
+<p>This release brings some great new integrations. The biggest one is the <a href="https://home-assistant.io/components/zha/">native ZigBee integration</a> by <a href="https://github.com/rcloran">Russell Cloran</a>. This will allow Home Assistant to natively control Philips Hue lights without the need for a hub! (IKEA Tradfri lights not yet due to implementing a different profile)</p>
+<p>Another great new addition is <a href="https://home-assistant.io/components/opencv/">OpenCV</a> by <a href="https://github.com/Teagan42">Teagan Glenn</a>. So now you’ll be able to unlock all the cool stuff from OpenCV right in Home Assistant. And if OpenCV is not your style, you can try out the new <a href="https://home-assistant.io/components/image_processing.dlib_face_identify/">DLib integration</a> added by <a href="https://github.com/pvizeli">Pascal Vizeli</a> in this release.</p>
+<p>This release also includes a <a href="https://home-assistant.io/components/rss_feed_template/">new component</a> to dynamically generate RSS feeds based on a template. This means that any RSS widget on your phone, tablet or computer can now be used to show Home Assistant data!</p>
+<p>And finally, for users of the config panel in the UI, we have fixed the issue with the group editor.</p>
+<p>Enjoy!</p>
+<h2><a class="title-link" name="if-you-need-help" href="#if-you-need-help"></a> If you need help…</h2>
+<p>…don’t hesitate to use our very active <a href="https://community.home-assistant.io/">forums</a> or join us for a little <a href="https://discord.gg/c5DvZ4e">chat</a>. The release notes have comments enabled but it’s preferred if you use the former communication channels. Thanks.</p>
+<h2><a class="title-link" name="reporting-issues" href="#reporting-issues"></a> Reporting Issues</h2>
+<p>Experiencing issues introduced by this release? Please report them in our <a href="https://github.com/home-assistant/home-assistant/issues">issue tracker</a>. Make sure to fill in all fields of the issue template.</p>
+<h2><a class="title-link" name="new-integrations" href="#new-integrations"></a> New integrations</h2>
+<ul>
+  <li>Pushbullet notification sensor (<a href="https://github.com/jotunacorn">@jotunacorn</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7182">#7182</a>) (<a href="https://home-assistant.io/components/sensor.pushbullet/">sensor.pushbullet docs</a>)</li>
+  <li>Add https certificate expiry sensor (<a href="https://github.com/fabfurnari">@fabfurnari</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7272">#7272</a>) (<a href="https://home-assistant.io/components/sensor.cert_expiry/">sensor.cert_expiry docs</a>)</li>
+  <li>RSS feed template (<a href="https://github.com/micw">@micw</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7032">#7032</a>) (<a href="https://home-assistant.io/components/rss_feed_template/">rss_feed_template docs</a>)</li>
+  <li>Add support for Zigbee Home Automation (<a href="https://github.com/rcloran">@rcloran</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6263">#6263</a>) (<a href="https://home-assistant.io/components/zha/">zha docs</a>) (<a href="https://home-assistant.io/components/binary_sensor.zha/">binary_sensor.zha docs</a>) (<a href="https://home-assistant.io/components/light.zha/">light.zha docs</a>) (<a href="https://home-assistant.io/components/sensor.zha/">sensor.zha docs</a>) (<a href="https://home-assistant.io/components/switch.zha/">switch.zha docs</a>)</li>
+  <li>Support for Blinkt! lights on Raspberry Pi (<a href="https://github.com/imrehg">@imrehg</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7377">#7377</a>) (<a href="https://home-assistant.io/components/light.blinkt/">light.blinkt docs</a>)</li>
+  <li>Plant automation (<a href="https://github.com/ChristianKuehnel">@ChristianKuehnel</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7131">#7131</a>) (<a href="https://home-assistant.io/components/plant/">plant docs</a>)</li>
+  <li>Add Eight sleep component (<a href="https://github.com/mezz64">@mezz64</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7275">#7275</a>) (<a href="https://home-assistant.io/components/eight_sleep/">eight_sleep docs</a>) (<a href="https://home-assistant.io/components/binary_sensor.eight_sleep/">binary_sensor.eight_sleep docs</a>) (<a href="https://home-assistant.io/components/sensor.eight_sleep/">sensor.eight_sleep docs</a>)</li>
+  <li>OpenGarage support (<a href="https://github.com/swbradshaw">@swbradshaw</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7338">#7338</a>) (<a href="https://home-assistant.io/components/cover.opengarage/">cover.opengarage docs</a>)</li>
+  <li>Add Sensibo climate platform (<a href="https://github.com/andrey-git">@andrey-git</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7379">#7379</a>) (<a href="https://home-assistant.io/components/climate/">climate docs</a>)</li>
+  <li>Pilight binary sensor components (<a href="https://github.com/zeltom">@zeltom</a> - <a href="https://github.com/home-assistant/home-assistant/pull/6774">#6774</a>) (<a href="https://home-assistant.io/components/binary_sensor.pilight/">binary_sensor.pilight docs</a>)</li>
+  <li>Opencv (<a href="https://github.com/Teagan42">@Teagan42</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7261">#7261</a>) (<a href="https://home-assistant.io/components/opencv/">opencv docs</a>) (<a href="https://home-assistant.io/components/image_processing.opencv/">image_processing.opencv docs</a>)</li>
+  <li>Enviro pHAT (<a href="https://github.com/imrehg">@imrehg</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7427">#7427</a>) (<a href="https://home-assistant.io/components/sensor.envirophat/">sensor.envirophat docs</a>)</li>
+  <li>Add support for face recognition with dlib (<a href="https://github.com/pvizeli">@pvizeli</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7421">#7421</a>) (<a href="https://home-assistant.io/components/image_processing.dlib_face_detect/">image_processing.dlib_face_detect docs</a>) (<a href="https://home-assistant.io/components/image_processing.dlib_face_identify/">image_processing.dlib_face_identify docs</a>)</li>
+</ul>
+<h2><a class="title-link" name="release-0442---may-8" href="#release-0442---may-8"></a> Release 0.44.2 - May 8</h2>
+<ul>
+  <li>Fix opening add-ons in Hass.io store that are not installed (<a href="https://github.com/balloob">@balloob</a>)</li>
+</ul>
+<h2><a class="title-link" name="release-0441---may-7" href="#release-0441---may-7"></a> Release 0.44.1 - May 7</h2>
+<ul>
+  <li>Fix opening add-ons in Hass.io store that are not installed (<a href="https://github.com/balloob">@balloob</a>)</li>
+  <li>sensor.envirophat: add missing requirement (<a href="https://github.com/imrehg">@imrehg</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7451">#7451</a>) (<a href="https://home-assistant.io/components/sensor.envirophat/">sensor.envirophat docs</a>)</li>
+  <li>Forecasts for weather underground (<a href="https://github.com/pezinek">@pezinek</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7062">#7062</a>) (<a href="https://home-assistant.io/components/sensor.wunderground/">sensor.wunderground docs</a>)</li>
+  <li>Upgrade pymysensors to 0.10.0 (<a href="https://github.com/MartinHjelmare">@MartinHjelmare</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7469">#7469</a>)</li>
+  <li>Fix plant MIN_TEMPERATURE, MAX_TEMPERATURE validation (<a href="https://github.com/frog32">@frog32</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7476">#7476</a>) (<a href="https://home-assistant.io/components/plant/">plant docs</a>)</li>
+  <li>Update to pyunifi 2.12 (<a href="https://github.com/finish06">@finish06</a> - <a href="https://github.com/home-assistant/home-assistant/pull/7468">#7468</a>) (<a href="https://home-assistant.io/components/device_tracker.unifi/">device_tracker.unifi docs</a>)</li>
+  <li>MQTT Cover: Fixed status reporting for range with non-zero base (<a href="https://github.com/cribbstechnologies">@cribbstechnologies</a>)</li>
+</ul>
+      <a class="btn pull-right" href="/blog/2017/05/06/zigbee-opencv-dlib/#read-more">Read on &rarr;</a>
+  </div>
+  </article>
+  <hr>
+  <article class="listing">
+    <header>
+  <h1 class="beta">
+    <a href="/blog/2017/05/05/podcast-init-interview/">Podcast.__init__ interview with Paulus Schoutsen</a>
+  </h1>
+  <div class="meta clearfix">
+    <time datetime="2017-05-05T02:00:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> May 5, 2017</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
+    <span><i class='icon-time'></i> Less than one minute reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+        <li>Media</li>
+    </ul>
+  </span>
+      <a class='comments'
+         href="/blog/2017/05/05/podcast-init-interview/#post-comments"
+         >Comments</a>
+  </div>
+</header>
+  <div class="entry-content clearfix">
+    <p class="img">
+<a href="https://www.podcastinit.com/"><img src="/images/blog/2017-05-podcast-init/podcast_init.png" /></a>
+</p>
+<p>Earlier this year I was interviewed by Tobias Macey from <a href="https://www.podcastinit.com/">Podcast.__init__</a> about Python and Home Assistant. Just realized that we never shared this on the blog, oops. Here it is, enjoy!</p>
+<script class="podigee-podcast-player" src="//cdn.podigee.com/podcast-player/javascripts/podigee-podcast-player.js" data-configuration="https://www.podcastinit.com?podigee_player=205" async=""></script>
+  </div>
+  </article>
+  <hr>
+  <article class="listing">
+    <header>
+  <h1 class="beta">
+    <a href="/blog/2017/05/01/home-assistant-on-raspberry-pi-zero-in-30-minutes/">Home Assistant on a Pi Zero W in 30 minutes</a>
+  </h1>
+  <div class="meta clearfix">
+    <time datetime="2017-05-01T09:00:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> May 1, 2017</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Avraham David Gelbfish</span>
+    <span><i class='icon-time'></i> 1 minute reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+        <li>How-To</li>
+    </ul>
+  </span>
+      <a class='comments'
+         href="/blog/2017/05/01/home-assistant-on-raspberry-pi-zero-in-30-minutes/#post-comments"
+         >Comments</a>
+  </div>
+</header>
+  <div class="entry-content clearfix">
+    <p class="img">
+  <img src="/images/blog/2017-05-hassbian-pi-zero/home_assistant_plus_rpi_600x315.png" />
+</p>
+<p>Saw the <a href="/blog/2017/04/30/hassbian-1.21-its-about-time/">announcement</a> yesterday for HASSbian 1.21 and got super excited?</p>
+<p>Today we’ll flash the latest HASSbian to a <a href="https://www.raspberrypi.org/products/pi-zero/">Raspberry Pi Zero W</a>.
+<strong>With an added bonus</strong> that besides for an USB cable for power, there’s no need for any cables!</p>
+<p>What you’ll need:</p>
+<ul>
+  <li>a Raspberry Pi Zero W (an amazing tiny computer with built-in wifi)</li>
+  <li>a microSD card</li>
+  <li>some source of USB power</li>
+  <li>Wifi</li>
+  <li>a desktop or laptop</li>
+</ul>
+<p>Let’s get to it!</p>
+<p>First, download the HASSbian 1.21 image from <a href="https://github.com/home-assistant/pi-gen/releases/tag/v1.21">here</a>.</p>
+<p>Unzip it.</p>
+<p>Flash it to the microSD card. If you need a flash tool, try <a href="https://etcher.io/">Etcher</a></p>
+<p>When the flashing finishes, remove it and plug it back in. You should see a drive called “boot”.</p>
+<p>Right in there, not in any folders, create a file called <code class="highlighter-rouge">wpa_supplicant.conf</code>.</p>
+<p>The contents of the configuration file should be something like this:
+(You may have to adjust for your configuration, hints <a href="https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md">here</a> )</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>network={
+    ssid="YOUR_WIFI_NETWORK_NAME_HERE"
+    psk="YOUR_WIFI_PASSWORD_HERE"
+    key_mgmt=WPA-PSK
+}
+</code></pre>
+</div>
+<p>Next stick your SD card into the Raspberry Pi Zero W, and plug it in.</p>
+<p>After about a minute, use your SSH client to connect to HASSbian (or <code class="highlighter-rouge">hassbian.local</code> from a Mac), with the username <code class="highlighter-rouge">pi</code>. The default password is <code class="highlighter-rouge">raspberry</code>.</p>
+<p>It’s a good idea to change the password. To do so, use the <code class="highlighter-rouge">passwd</code> command.</p>
+<p>Next, type the following two commands into the SSH console:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo systemctl enable install_homeassistant.service
+$ sudo systemctl start install_homeassistant.service
+</code></pre>
+</div>
+<p>Wait about 15-20 minutes and voilà you have your Home Assistant on your Raspberry Pi Zero W in 30 minutes.</p>
+<p>To try it out, go to <a href="http://hassbian:8123">http://hassbian:8123</a> or <a href="http://hassbian.local:8123">http://hassbian.local:8123</a> if you’re using Mac.</p>
+<p>For further details about HASSbian, take a look at the <a href="https://home-assistant.io/docs/hassbian/">documentation</a>.</p>
+  </div>
+  </article>
+  <hr>
+  <article class="listing">
+    <header>
+  <h1 class="beta">
+    <a href="/blog/2017/04/30/hassbian-1.21-its-about-time/">HASSbian 1.21 - It's about time isn't it</a>
+  </h1>
+  <div class="meta clearfix">
+    <time datetime="2017-04-30T15:00:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> April 30, 2017</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Fredrik Lindqvist</span>
+    <span><i class='icon-time'></i> two minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+        <li>Technology</li>
+    </ul>
+  </span>
+      <a class='comments'
+         href="/blog/2017/04/30/hassbian-1.21-its-about-time/#post-comments"
+         >Comments</a>
+  </div>
+</header>
+  <div class="entry-content clearfix">
+    <h3>Hassbian 1.21 - It’s about time isn’t it</h3>
+<p>Since I, the developer of HASSbian, have been moving, started a new job and so on I’ve had few moments over for HASSbian development. The 1.2 release has been in pre-release for a few months now and just not communicated out that well. Hopefully this release changes that and I’ll do my best to release more often. There’s no simple way to update from 1.1 to 1.21 but 95% of the changes can be done by installing the <a href="https://github.com/home-assistant/hassbian-scripts/releases/latest">hassbian-config</a> package. For more information have a look at the <a href="https://github.com/home-assistant/hassbian-scripts/">hassbian-config</a> page.</p>
+<h3>Hassbian 1.22 - Sins of last night</h3>
+<p>Development is sometimes fast and joyful but mistakes are made at times.</p>
+<p>With the release of 1.21 a small problem with the OpenZWave build script wasn’t corrected even tough it was a known bug. Problem is simple as it’s only a problem with the symlink created for to the configuration folder for OpenZWave. This has been fixed and we bring some new things since they where ready anyway. The list below has been augmented with the updated information.</p>
+<h3><a class="title-link" name="hassbian-config" href="#hassbian-config"></a> Hassbian-config</h3>
+<p>To allow you to customize your installation further, we have included a tool called <code class="highlighter-rouge">hassbian-config</code>. This tool comes with a set of packages that can easily be installed for easier customization of your Home Assistant installation. This replaces the <code class="highlighter-rouge">hassbian-scripts</code> functionality from 1.1.</p>
+<ul>
+  <li>Install Hue. Configures the Python executable to allow usage of low numbered ports for use with Emulated Hue component that’s used with Amazon Echo, Google Home and Mycroft.ai.</li>
+  <li>Install Mosquitto MQTT server. Installs the latest Mosquitto package and client tools from the Mosquitto projects official repository. Now includes websocket support.</li>
+  <li>Install Libcec. Adds local <a href="/components/hdmi_cec/">HDMI CEC support</a>.</li>
+  <li>Install Open Z-Wave-pip. Installs Python Open Z-Wave from a pip package. This is the quickest and recommended way of installing Z-Wave support but does not OZWCP pre-installed.</li>
+  <li>Install Open Z-Wave. Installs Python Open Z-Wave and OZWCP from git.</li>
+  <li>Install Samba. Allows anyone on your network to edit your configuration from any computer. This share is unsecured and it’s usage is not recommended if you share your network with others.</li>
+  <li>Install Tellstick. Installs the Tellstick package for controlling and using a connected Tellstick.</li>
+  <li>Install Tradfri. Installs dependencies for using IKEA Trådfri.</li>
+</ul>
+<h3><a class="title-link" name="spring-cleaning" href="#spring-cleaning"></a> Spring cleaning</h3>
+<p>With this image there also quite a bit of cleaning of the base system and the script that generates our Raspberry Pi image.</p>
+<ul>
+  <li>Replaced the <code class="highlighter-rouge">hassbian-scripts</code> folder with <code class="highlighter-rouge">hassbian-config</code>.</li>
+  <li>Update <code class="highlighter-rouge">pi-gen</code>. Our build script has been upgraded to follow the Raspbian image closer once again. Now you could build this image with Docker if your so inclined.</li>
+  <li>Added libtool and autoconf package. Dependencies for some of the pip packages.</li>
+  <li>Pi ZeroW should now work with the image.</li>
+</ul>
+<p>To follow discussions about the development of the HASSbian image or to contribute join our <a href="https://discord.gg/8X8DTH4">Discord chat server</a>.</p>
+<p>To get started with the new image, check out the installation instructions in the <a href="/getting-started/installation-raspberry-pi-image/">getting started section</a>.</p>
+  </div>
+  </article>
+  <hr>
+  <article class="listing">
+    <header>
+  <h1 class="beta">
+    <a href="/blog/2017/04/25/influxdb-grafana-docker/">Setting up InfluxDB and Grafana using Docker</a>
+  </h1>
+  <div class="meta clearfix">
+    <time datetime="2017-04-25T08:04:05+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> April 25, 2017</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Alok Saboo</span>
+    <span><i class='icon-time'></i> two minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+        <li>How-To</li>
+    </ul>
+  </span>
+      <a class='comments'
+         href="/blog/2017/04/25/influxdb-grafana-docker/#post-comments"
+         >Comments</a>
+  </div>
+</header>
+  <div class="entry-content clearfix">
+    <p>Home Assistant collects volumes of (time series) data that are well suited for some fancy graphs. Although the <a href="https://home-assistant.io/components/history/">History</a> component provides some nice plots, I am sure you have always wanted those fancy <a href="https://grafana.com/">Grafana</a> plots. The problem, however, is that low-powered device such as Raspberry Pi that most of us use for our Home Assistant setup are not well suited for such operation.</p>
+<p>Instead of running <a href="https://www.influxdata.com/">InfluxDB</a> and Grafana on a Raspberry Pi or a different system and go through the <a href="/blog/2015/12/07/influxdb-and-grafana/">classic approach of installing both tools separately</a>, you can run them in a Docker container on another machine. For this tutorial, I am using a Synology NAS, but the instructions should apply to other devices that can run Docker. Just follow the steps below:</p>
+<ol>
+  <li>SSH into your NAS. You may have to run <code class="highlighter-rouge">sudo su</code> if you are getting permission errors.</li>
+  <li>Download the <a href="https://hub.docker.com/r/samuelebistoletti/docker-statsd-influxdb-grafana/">docker-statsd-influxdb-grafana</a> image using the command:
+<code class="highlighter-rouge">docker pull samuelebistoletti/docker-statsd-influxdb-grafana</code></li>
+  <li>To start the container for the first-time launch:
+    <div class="highlighter-rouge"><pre class="highlight"><code>docker run -d \
+  --name docker-statsd-influxdb-grafana \
+  -p 3003:3003 \
+  -p 3004:8083 \
+  -p 8086:8086 \
+  -p 22022:22 \
+  -p 8125:8125/udp \
+  samuelebistoletti/docker-statsd-influxdb-grafana:latest
+</code></pre>
+    </div>
+  </li>
+  <li>The image should now be running and both InfluxBD and Grafana should be now up and running.</li>
+  <li>You can access InfluxDB at http://NAS_IP_ADDRESS:3004/ and Grafana at http://NAS_IP_ADDRESS:3003/</li>
+  <li>Navigate to http://NAS_IP_ADDRESS:3004/ and create the database <code class="highlighter-rouge">home_assistant</code> using the command <code class="highlighter-rouge">CREATE DATABASE home_assistant</code>.
+    <p class="img">
+  <img src="/images/blog/2017-04-influxdb-grafana/create_HA_database.png" />
+</p>
+  </li>
+  <li>Now, you need to configure Home Assistant to use InfluxDB. Since, we did not add any username/password to our database, we can simply add the following to our configuration.yaml (replace the IP address with that of the device running Docker) and restart Home Assistant to setup InfluxDB (you will have to fine tune it based on your preferences):
+    <div class="highlighter-rouge"><pre class="highlight"><code>influxdb:
+  host: 192.168.2.113
+</code></pre>
+    </div>
+  </li>
+  <li>Next, we need to configure Grafana to use InfluxDB. Navigate to http://NAS_IP_ADDRESS:3003/ to access Grafana (login with username and password <code class="highlighter-rouge">root</code>) and add your first data source. Here’s how you can configure Grafana to use InfluxDB database. Note that 192.168.2.113 is the IP address of my NAS.
+    <p class="img">
+  <img src="/images/blog/2017-04-influxdb-grafana/add_data_source.png" />
+</p>
+  </li>
+  <li>You should see <code class="highlighter-rouge">Data source is working</code> if you have configured everything correctly.</li>
+  <li>With all that configured, you are now ready for the fun stuff. You can create as many dashboards as you want and then import the same in Home Assistant.</li>
+  <li>To add the Grafana dashboard in HA, use the following config:
+    <div class="highlighter-rouge"><pre class="highlight"><code>panel_iframe:
+  router:
+    title: 'Temperature'
+    url: 'http://192.168.2.113:3003/dashboard/db/temperature?edit&amp;tab=time%20range'
+</code></pre>
+    </div>
+    <p>The URL can be obtained by clicking Share Dashboard link on your dashboard:</p>
+    <p class="img">
+  <img src="/images/blog/2017-04-influxdb-grafana/share_dashboard.png" />
+</p>
+  </li>
+</ol>
+  </div>
+  </article>
+  <hr>
+  <article class="listing">
+    <header>
+  <h1 class="beta">
+    <a href="/blog/2017/04/24/hardware-contest-2017/">Hardware Contest 2017</a>
+  </h1>
+  <div class="meta clearfix">
+    <time datetime="2017-04-24T06:00:00+00:00" pubdate data-updated="true"><i class="icon-calendar"></i> April 24, 2017</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Fabian Affolter</span>
+    <span><i class='icon-time'></i> Less than one minute reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+        <li>Community</li>
+    </ul>
+  </span>
+      <a class='comments'
+         href="/blog/2017/04/24/hardware-contest-2017/#post-comments"
+         >Comments</a>
+  </div>
+</header>
+  <div class="entry-content clearfix">
+    <p>We have four submissions for our <a href="https://home-assistant.io/blog/2017/04/01/thomas-krenn-award/">Hardware Contest 2017</a>.</p>
+<ul>
+  <li><a href="https://community.home-assistant.io/t/entry-for-hardware-contest-part-of-iot-course/14827">Part of IoT-course</a></li>
+  <li><a href="https://community.home-assistant.io/t/entry-automating-a-nursing-home/14872">Automating a nursing home!</a></li>
+  <li><a href="https://community.home-assistant.io/t/entry-dedicated-hardware-for-coding-testing-building-and-contributing-to-home-assistant/15515">Dedicated hardware for coding, testing, building, and contributing to Home Assistant</a></li>
+  <li><a href="https://community.home-assistant.io/t/entry-hassio-home-assistant-hub-for-dummies/16037">HassIO - Home Assistant hub for dummies</a></li>
+</ul>
+<p>The voting is now open. To keep things simple are we using the voting feature of the <a href="https://community.home-assistant.io/c/contest-2017">forum</a>. Vote for your choices.</p>
+<p>End of the voting period: April, 30 2017 - 23.59 UTC</p>
+  </div>
+  </article>
+  <hr>
+  <div class="pagination">
+      <a class="btn pull-left" href="/blog/posts/7">&larr; Older</a>
+    <a class="btn pull-right" href="/blog/posts/5">Newer &rarr;</a>
+  </div>
+        </div>
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <h1 class="title delta">About Home Assistant</h1>
+  <ul class="divided">
+    <li>
+      Home Assistant is an open-source home automation platform running on Python 3. Track and control all devices at home and automate control.
+    </li>
+    <li><a href='/getting-started/'>Get started with Home Assistant</a></li>
+    <li><a href='/demo/'>Try the online demo</a></li>
+    <li><a class="twitter-follow-button" href="https://twitter.com/Home_Assistant">Follow Home Assistant on Twitter</a></li>
+    <li><div class="fb-like" data-href="https://www.facebook.com/homeassistantio/" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="false"></div></li>
+  </ul>
+</section>
+<div id="fb-root"></div>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.async=true;js.src='//platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<script>(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id)){return;}js=d.createElement(s);js.id=id;js.async=true;js.src="//connect.facebook.net/en_US/all.js#appId=338291289691179&xfbml=1";fjs.parentNode.insertBefore(js,fjs);}(document,'script','facebook-jssdk'));</script>
+      <section class="aside-module grid__item one-whole lap-one-half">
+  <h1 class="title delta">Categories</h1>
+  <ul class="divided">
+      <li><a href="/blog/categories/announcements/">Announcements</a></li>
+      <li><a href="/blog/categories/cloud/">Cloud</a></li>
+      <li><a href="/blog/categories/community/">Community</a></li>
+      <li><a href="/blog/categories/device-tracking/">Device Tracking</a></li>
+      <li><a href="/blog/categories/esp8266/">ESP8266</a></li>
+      <li><a href="/blog/categories/how-to/">How To</a></li>
+      <li><a href="/blog/categories/internet-of-things/">Internet of Things</a></li>
+      <li><a href="/blog/categories/iot-data/">IoT Data</a></li>
+      <li><a href="/blog/categories/mqtt/">MQTT</a></li>
+      <li><a href="/blog/categories/media/">Media</a></li>
+      <li><a href="/blog/categories/merchandise/">Merchandise</a></li>
+      <li><a href="/blog/categories/micropython/">Micropython</a></li>
+      <li><a href="/blog/categories/organization/">Organization</a></li>
+      <li><a href="/blog/categories/owntracks/">OwnTracks</a></li>
+      <li><a href="/blog/categories/presence-detection/">Presence Detection</a></li>
+      <li><a href="/blog/categories/public-service-announcement/">Public Service Announcement</a></li>
+      <li><a href="/blog/categories/release-notes/">Release Notes</a></li>
+      <li><a href="/blog/categories/survey/">Survey</a></li>
+      <li><a href="/blog/categories/talks/">Talks</a></li>
+      <li><a href="/blog/categories/technology/">Technology</a></li>
+      <li><a href="/blog/categories/user-stories/">User Stories</a></li>
+      <li><a href="/blog/categories/video/">Video</a></li>
+      <li><a href="/blog/categories/website/">Website</a></li>
+      <li><a href="/blog/categories/ibeacons/">iBeacons</a></li>
+  </ul>
+</section>
+</div>
+        </aside>
+      </div>
+    </div>
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a> (no support!).<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+  <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">home-assistant.io</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
+<script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
+<script type="text/javascript">
+docsearch({
+  apiKey: 'ae96d94b201c5444c8a443093edf3efb',
+  indexName: 'home-assistant',
+  inputSelector: '#search',
+  debug: false // Set debug to true if you want to inspect the dropdown
+});
+document.querySelector('.search .close').addEventListener('click', function(ev) {
+  ev.preventDefault();
+  document.querySelector('.search-container').style.display = 'none';
+});
+document.querySelector('.show-search').addEventListener('click', function(ev) {
+  ev.preventDefault();
+  document.querySelector('.search-container').style.display = 'block';
+  document.getElementById('toggle').checked = false;
+  document.querySelector('.search-container input').focus();
+});
+</script>
+  </body>
+</html>

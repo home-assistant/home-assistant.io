@@ -1,0 +1,551 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Template Binary Sensor - Home Assistant</title>
+    <meta name="author" content="Home Assistant">
+    <meta name="description" content="Instructions how to integrate Template Binary Sensors into Home Assistant.">
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/components/binary_sensor.template/">
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="Template Binary Sensor">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/components/binary_sensor.template/">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="Instructions how to integrate Template Binary Sensors into Home Assistant.">
+    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    <meta name="twitter:title" content="Template Binary Sensor">
+    <meta name="twitter:description" content="Instructions how to integrate Template Binary Sensors into Home Assistant.">
+    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
+    <link href="/stylesheets/screen.css" media="screen, projection, print" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+  <body >
+    <header class='site-header'>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/docs/">Docs</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+  <li><a href='#' class='show-search'><i class="icon-search"></i></a></li>
+</ul>
+  </nav>
+  <div class='search-container' style='display: none'>
+    <div class='search'>
+      <i class="icon-search"></i>
+      <input id='search' placeholder='Search the docs…'>
+      <a href='#' class='close'><i class="icon-remove-sign"></i></a>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+    </header>
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+          <article class="page">
+  <header>
+    <h1 class="title indent">
+      Template Binary Sensor
+    </h1>
+  </header>
+  <hr class="divider">
+  <p>The <code class="highlighter-rouge">template</code> platform supports sensors which breaks out the <code class="highlighter-rouge">state</code> and
+<code class="highlighter-rouge">state_attributes</code> from other entities. The state of a Template Binary Sensor
+can only be <code class="highlighter-rouge">on</code> or <code class="highlighter-rouge">off</code>.</p>
+<p>To enable Template Binary Sensors in your installation, add the following to
+your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">binary_sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">template</span>
+    <span class="s">sensors</span><span class="pi">:</span>
+      <span class="s">sun_up</span><span class="pi">:</span>
+        <span class="s">friendly_name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Sun</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">up"</span>
+        <span class="s">value_template</span><span class="pi">:</span> <span class="pi">&gt;-</span>
+          <span class="no">{{ states.sun.sun.attributes.elevation|float &gt; 0 }}</span>
+</code></pre>
+</div>
+<div class="config-vars">
+  <h3><a class="title-link" name="configuration-variables" href="#configuration-variables"></a> Configuration Variables</h3>
+  <dl class="">
+    <dt><a class="title-link" name="sensors" href="#sensors"></a> sensors</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="map">map</span>)</span><span class="required">(Required)</span><span class="description">List of your sensors.</span></p>
+    </dd>
+    <dd>
+      <dl class="nested">
+        <dt><a class="title-link" name="sensor_name" href="#sensor_name"></a> sensor_name</dt>
+        <dd>
+          <p class="desc"><span class="type">(<span class="map">map</span>)</span><span class="required">(Required)</span><span class="description">The slug of the sensor.</span></p>
+        </dd>
+        <dd>
+          <dl class="nested">
+            <dt><a class="title-link" name="friendly_name" href="#friendly_name"></a> friendly_name</dt>
+            <dd>
+              <p class="desc"><span class="type">(<span class="string">string</span>)</span><span class="required">(Optional)</span><span class="description">Name to use in the frontend.</span></p>
+            </dd>
+            <dt><a class="title-link" name="entity_id" href="#entity_id"></a> entity_id</dt>
+            <dd>
+              <p class="desc"><span class="type">(<span class="string, list">string | list</span>)</span><span class="required">(Optional)</span><span class="description">A list of entity IDs so the sensor only reacts to state changes of these entities. This can be used if the automatic analysis fails to find all relevant entities.</span></p>
+            </dd>
+            <dt><a class="title-link" name="device_class" href="#device_class"></a> device_class</dt>
+            <dd>
+              <p class="desc"><span class="type">(<span class="device_class"><a href="/components/binary_sensor/#device_class">device_class</a></span>)</span><span class="required">(Optional)</span><span class="description">The type/class of the sensor to set the icon in the frontend.</span></p>
+              <p class="default">Default value: None</p>
+            </dd>
+            <dt><a class="title-link" name="value_template" href="#value_template"></a> value_template</dt>
+            <dd>
+              <p class="desc"><span class="type">(<span class="template"><a href="/docs/configuration/templating/">template</a></span>)</span><span class="required">(Required)</span><span class="description">Defines a template to set the state of the sensor.</span></p>
+            </dd>
+            <dt><a class="title-link" name="icon_template" href="#icon_template"></a> icon_template</dt>
+            <dd>
+              <p class="desc"><span class="type">(<span class="template"><a href="/docs/configuration/templating/">template</a></span>)</span><span class="required">(Optional)</span><span class="description">Defines a template for the icon of the sensor.</span></p>
+            </dd>
+            <dt><a class="title-link" name="entity_picture_template" href="#entity_picture_template"></a> entity_picture_template</dt>
+            <dd>
+              <p class="desc"><span class="type">(<span class="template"><a href="/docs/configuration/templating/">template</a></span>)</span><span class="required">(Optional)</span><span class="description">Defines a template for the entity picture of the sensor.</span></p>
+            </dd>
+            <dt><a class="title-link" name="delay_on" href="#delay_on"></a> delay_on</dt>
+            <dd>
+              <p class="desc"><span class="type">(<span class="time">time</span>)</span><span class="required">(Optional)</span><span class="description">The amount of time the template state must be <strong><em>met</em></strong> before this sensor will switch to <code class="highlighter-rouge">on</code>.</span></p>
+            </dd>
+            <dt><a class="title-link" name="delay_off" href="#delay_off"></a> delay_off</dt>
+            <dd>
+              <p class="desc"><span class="type">(<span class="time">time</span>)</span><span class="required">(Optional)</span><span class="description">The amount of time the template state must be <strong><em>not met</em></strong> before this sensor will switch to <code class="highlighter-rouge">off</code>.</span></p>
+            </dd>
+          </dl>
+        </dd>
+      </dl>
+    </dd>
+  </dl>
+</div>
+<h2><a class="title-link" name="considerations" href="#considerations"></a> Considerations</h2>
+<p>If you are using the state of a platform that takes extra time to load, the
+Template Binary Sensor may get an <code class="highlighter-rouge">unknown</code> state during startup. This results
+in error messages in your log file until that platform has completed loading.
+If you use <code class="highlighter-rouge">is_state()</code> function in your template, you can avoid this situation.
+For example, you would replace
+<code class="highlighter-rouge"><span class="p">{</span><span class="err">{</span><span class="w"> </span><span class="err">states.switch.source.state</span><span class="w"> </span><span class="err">==</span><span class="w"> </span><span class="err">'on'</span><span class="w"> </span><span class="p">}</span><span class="err">}</span></code>
+with this equivalent that returns <code class="highlighter-rouge">true</code>/<code class="highlighter-rouge">false</code> and never gives an unknown
+result:
+<code class="highlighter-rouge"><span class="p">{</span><span class="err">{</span><span class="w"> </span><span class="err">is_state('switch.source',</span><span class="w"> </span><span class="err">'on')</span><span class="w"> </span><span class="p">}</span><span class="err">}</span></code></p>
+<h2><a class="title-link" name="examples" href="#examples"></a> Examples</h2>
+<p>In this section you find some real life examples of how to use this sensor.</p>
+<h3><a class="title-link" name="sensor-threshold" href="#sensor-threshold"></a> Sensor Threshold</h3>
+<p>This example indicates true if a sensor is above a given threshold. Assuming a
+sensor of <code class="highlighter-rouge">furnace</code> that provides a current reading for the fan motor, we can
+determine if the furnace is running by checking that it is over some threshold:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">template</span>
+    <span class="s">sensors</span><span class="pi">:</span>
+      <span class="s">furnace_on</span><span class="pi">:</span>
+        <span class="s">friendly_name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Furnace</span><span class="nv"> </span><span class="s">Running"</span>
+        <span class="s">device_class</span><span class="pi">:</span> <span class="s">heat</span>
+        <span class="s">value_template</span><span class="pi">:</span> <span class="s2">"</span><span class="s">{{</span><span class="nv"> </span><span class="s">states('sensor.furnace')|float</span><span class="nv"> </span><span class="s">&gt;</span><span class="nv"> </span><span class="s">2.5</span><span class="nv"> </span><span class="s">}}"</span>
+</code></pre>
+</div>
+<h3><a class="title-link" name="switch-as-sensor" href="#switch-as-sensor"></a> Switch as Sensor</h3>
+<p>Some movement sensors and door/window sensors will appear as a switch. By using
+a Template Binary Sensor, the switch can be displayed as a binary sensors. The
+original switch can then be hidden by
+<a href="/getting-started/customizing-devices/">customizing</a>.</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">binary_sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">template</span>
+    <span class="s">sensors</span><span class="pi">:</span>
+      <span class="s">movement</span><span class="pi">:</span>
+        <span class="s">device_class</span><span class="pi">:</span> <span class="s">motion</span>
+        <span class="s">value_template</span><span class="pi">:</span> <span class="s2">"</span><span class="s">{{</span><span class="nv"> </span><span class="s">is_state('switch.movement',</span><span class="nv"> </span><span class="s">'on')</span><span class="nv"> </span><span class="s">}}"</span>
+      <span class="s">door</span><span class="pi">:</span>
+        <span class="s">device_class</span><span class="pi">:</span> <span class="s">opening</span>
+        <span class="s">value_template</span><span class="pi">:</span> <span class="s2">"</span><span class="s">{{</span><span class="nv"> </span><span class="s">is_state('switch.door',</span><span class="nv"> </span><span class="s">'on')</span><span class="nv"> </span><span class="s">}}"</span>
+</code></pre>
+</div>
+<h3><a class="title-link" name="combining-multiple-sensors" href="#combining-multiple-sensors"></a> Combining Multiple Sensors</h3>
+<p>This example combines multiple CO sensors into a single overall
+status. When using templates with binary sensors, you need to return
+<code class="highlighter-rouge">true</code> or <code class="highlighter-rouge">false</code> explicitly.</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">binary_sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">template</span>
+    <span class="s">sensors</span><span class="pi">:</span>
+      <span class="s">co</span><span class="pi">:</span>
+        <span class="s">friendly_name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">CO"</span>
+        <span class="s">device_class</span><span class="pi">:</span> <span class="s">gas</span>
+        <span class="s">value_template</span><span class="pi">:</span> <span class="pi">&gt;-</span>
+          <span class="no">{{ is_state('sensor.bedroom_co_status', 'Ok')</span>
+             <span class="no">and is_state('sensor.kitchen_co_status', 'Ok')</span>
+             <span class="no">and is_state('sensor.wardrobe_co_status', 'Ok') }}</span>
+</code></pre>
+</div>
+<h3><a class="title-link" name="washing-machine-running" href="#washing-machine-running"></a> Washing Machine Running</h3>
+<p>This example creates a washing machine “load running” sensor by monitoring an
+energy meter connected to the washer. During the washer’s operation, the energy
+meter will fluctuate wildly, hitting zero frequently even before the load is
+finished. By utilizing <code class="highlighter-rouge">delay_off</code>, we can have this sensor only turn off if
+there has been no washer activity for 5 minutes.</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Determine when the washing machine has a load running.</span>
+<span class="s">binary_sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">template</span>
+    <span class="s">sensors</span><span class="pi">:</span>
+      <span class="s">washing_machine</span><span class="pi">:</span>
+        <span class="s">friendly_name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Washing</span><span class="nv"> </span><span class="s">Machine"</span>
+        <span class="s">delay_off</span><span class="pi">:</span>
+          <span class="s">minutes</span><span class="pi">:</span> <span class="s">5</span>
+        <span class="s">value_template</span><span class="pi">:</span> <span class="pi">&gt;-</span>
+          <span class="no">{{ states('sensor.washing_machine_power')|float &gt; 0 }}</span>
+</code></pre>
+</div>
+<h3><a class="title-link" name="is-anyone-home" href="#is-anyone-home"></a> Is Anyone Home?</h3>
+<p>This example is determining if anyone is home based on the combination of device
+tracking and motion sensors. It’s extremely useful if you have kids/baby sitter/
+grand parents who might still be in your house that aren’t represented by a
+trackable device in Home Assistant. This is providing a composite of WiFi based
+device tracking and Z-Wave multisensor presence sensors.</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">binary_sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">template</span>
+    <span class="s">sensors</span><span class="pi">:</span>
+      <span class="s">people_home</span><span class="pi">:</span>
+        <span class="s">value_template</span><span class="pi">:</span> <span class="pi">&gt;-</span>
+          <span class="no">{{ is_state('device_tracker.sean', 'home')</span>
+             <span class="no">or is_state('device_tracker.susan', 'home')</span>
+             <span class="no">or is_state('binary_sensor.office_124', 'on')</span>
+             <span class="no">or is_state('binary_sensor.hallway_134', 'on')</span>
+             <span class="no">or is_state('binary_sensor.living_room_139', 'on')</span>
+             <span class="no">or is_state('binary_sensor.porch_ms6_1_129', 'on')</span>
+             <span class="no">or is_state('binary_sensor.family_room_144', 'on') }}</span>
+</code></pre>
+</div>
+</article>
+        </div>
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/binary_sensor.template.markdown'>Edit this page on GitHub</a></div>
+  <div class='brand-logo-container section'>
+      <img src='/images/supported_brands/home-assistant.png' />
+  </div>
+    <div class='section'>
+      IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Local Push
+    </div>
+    <div class='section'>
+      Introduced in release: 0.12
+    </div>
+    <div class='section'>
+      Source:
+      <a href='https://github.com/home-assistant/home-assistant/blob/master/homeassistant/components/binary_sensor/template.py'>binary_sensor/template.py</a>
+    </div>
+    <div class='section'>
+      This is a platform for
+      <a href='/components/binary_sensor/'>the Binary Sensor component</a>.
+    </div>
+          <div class='section'>
+          <h1 class='title delta'>Related components</h1>
+          <ul class='divided'>
+        <li><a href='/components/cover.template/'>
+          Template Cover
+        </a></li>
+        <li><a href='/components/light.template/'>
+          Template Light
+        </a></li>
+        <li><a href='/components/sensor.template/'>
+          Template Sensor
+        </a></li>
+        <li><a href='/components/switch.template/'>
+          Template Switch
+        </a></li>
+    </ul>
+    </div>
+    <div class='section'>
+    <h1 class="title delta">Category Binary Sensor</h1>
+    <ul class='divided'>
+        <li>
+            <a href='/components/binary_sensor.ads/'>ADS Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.abode/'>Abode Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.alarmdecoder/'>AlarmDecoder Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.android_ip_webcam/'>Android IP Webcam Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.august/'>August Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.aurora/'>Aurora sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.axis/'>Axis Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.bayesian/'>Bayesian Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.bbb_gpio/'>BeagleBone Black GPIO Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.blink/'>Blink Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.bloomsky/'>BloomSky Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.command_line/'>Command line Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.concord232/'>Concord232 Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.ecobee/'>Ecobee Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.ecobee/'>Ecobee Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.egardia/'>Egardia Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.eight_sleep/'>Eight Sleep Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.enocean/'>EnOcean Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.envisalink/'>Envisalink Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.ffmpeg_motion/'>FFmpeg Motion Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.ffmpeg_noise/'>FFmpeg Noise Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.flic/'>Flic Smart Button</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.http/'>HTTP Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.hikvision/'>Hikvision Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.hive/'>Hive Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.homematic/'>Homematic Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.ihc/'>IHC Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.isy994/'>ISY994 Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.insteon_plm/'>Insteon PLM Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.iss/'>International Space Station</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.knx/'>KNX Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.mqtt/'>MQTT Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.raincloud/'>Melnor Raincloud Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.mercedesme/'>Mercedes me Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.modbus/'>Modbus Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.mysensors/'>MySensors Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.nx584/'>NX584 zones</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.nest/'>Nest Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.netatmo/'>Netatmo Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.octoprint/'>OctoPrint Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.rpi_pfio/'>PiFace Digital I/O Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.pilight/'>Pilight Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.ping/'>Ping (ICMP) Binary sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.rest/'>RESTful Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.rfxtrx/'>RFXtrx Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.rpi_gpio/'>Raspberry Pi GPIO Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.raspihats/'>Raspihats Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.ring/'>Ring Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.spc/'>SPC Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.satel_integra/'>Satel Integra Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.skybell/'>Skybell Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.sleepiq/'>SleepIQ Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.tcp/'>TCP Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.tellduslive/'>Telldus Binary Sensor</a>
+        </li>
+        <li>
+            Template Binary Sensor
+        </li>
+        <li>
+            <a href='/components/binary_sensor.tesla/'>Tesla Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.threshold/'>Threshold Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.trend/'>Trend Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.velbus/'>Velbus sensors</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.vera/'>Vera Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.verisure/'>Verisure Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.wink/'>Wink Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.workday/'>Workday Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.xiaomi_aqara/'>Xiaomi Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.zwave/'>Z-Wave Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.zigbee/'>ZigBee Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.zha/'>ZigBee Home Automation Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.arest/'>aREST Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.deconz/'>deCONZ Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.gc100/'>gc100 Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.mystrom/'>myStrom Binary Sensor</a>
+        </li>
+    </ul>
+    </div>
+</section>
+</div>
+        </aside>
+      </div>
+    </div>
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a> (no support!).<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+  <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">home-assistant.io</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
+<script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
+<script type="text/javascript">
+docsearch({
+  apiKey: 'ae96d94b201c5444c8a443093edf3efb',
+  indexName: 'home-assistant',
+  inputSelector: '#search',
+  debug: false // Set debug to true if you want to inspect the dropdown
+});
+document.querySelector('.search .close').addEventListener('click', function(ev) {
+  ev.preventDefault();
+  document.querySelector('.search-container').style.display = 'none';
+});
+document.querySelector('.show-search').addEventListener('click', function(ev) {
+  ev.preventDefault();
+  document.querySelector('.search-container').style.display = 'block';
+  document.getElementById('toggle').checked = false;
+  document.querySelector('.search-container input').focus();
+});
+</script>
+  </body>
+</html>

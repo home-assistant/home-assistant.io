@@ -1,0 +1,390 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Sony SongPal compatible devices - Home Assistant</title>
+    <meta name="author" content="Home Assistant">
+    <meta name="description" content="Instructions how to integrate Sony Songpal devices into Home Assistant.">
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/components/media_player.songpal/">
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="Sony SongPal compatible devices">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/components/media_player.songpal/">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="Instructions how to integrate Sony Songpal devices into Home Assistant.">
+    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    <meta name="twitter:title" content="Sony SongPal compatible devices">
+    <meta name="twitter:description" content="Instructions how to integrate Sony Songpal devices into Home Assistant.">
+    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
+    <link href="/stylesheets/screen.css" media="screen, projection, print" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+  <body >
+    <header class='site-header'>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/docs/">Docs</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+  <li><a href='#' class='show-search'><i class="icon-search"></i></a></li>
+</ul>
+  </nav>
+  <div class='search-container' style='display: none'>
+    <div class='search'>
+      <i class="icon-search"></i>
+      <input id='search' placeholder='Search the docs…'>
+      <a href='#' class='close'><i class="icon-remove-sign"></i></a>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+    </header>
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+          <article class="page">
+  <header>
+    <h1 class="title indent">
+      Sony SongPal compatible devices
+    </h1>
+  </header>
+  <hr class="divider">
+  <p>The <code class="highlighter-rouge">songpal</code> platform allows you to control Sony’s Songpal (“<a href="https://developer.sony.com/develop/audio-control-api/">Audio Control API</a>”) compatible devices such as soundbars, AV receivers and wireless speakers from Home Assistant.</p>
+<p>Even when the API officially supports only a few devices (HT-ST5000, HT-MT500, HT-CT800, SRS-ZR5 and STR-DN1080), it has also been confirmed to work on others. <a href="http://vssupport.sony.net/en_ww/device.html">The list of supported devices</a> from Sony’s Songpal website lists devices which are likely to be compatible with this platform.</p>
+<p>If the platform works with your non-listed device, or you encounter bugs, please feel free to <a href="https://github.com/rytilahti/python-songpal">report them upstream</a>.</p>
+<p>A few notes:</p>
+<ul>
+  <li>The quick start-up mode has to be enabled in order to turn the device on.</li>
+  <li>Supports currently only one output terminal, i.e. the volume control works only on the first volume controller as reported by the backend library.</li>
+  <li>Some devices, e.g. HT-XT3, do not support decreasing the volume step-by-step correctly.</li>
+  <li>Feel free to improve the available services!</li>
+</ul>
+<h2><a class="title-link" name="configuration" href="#configuration"></a> Configuration</h2>
+<p>The platform will be loaded automatically by discovery component. If you want to manually configure it, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">media_player</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">songpal</span>
+    <span class="s">name</span><span class="pi">:</span> <span class="s">my soundbar</span>
+    <span class="s">endpoint</span><span class="pi">:</span> <span class="s">http://IP_ADDRESS:10000/sony</span>
+</code></pre>
+</div>
+<div class="config-vars">
+  <h3><a class="title-link" name="configuration-variables" href="#configuration-variables"></a> Configuration Variables</h3>
+  <dl class="">
+    <dt><a class="title-link" name="name" href="#name"></a> name</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="string">string</span>)</span><span class="required">(Optional)</span><span class="description">The name to display for this device.</span></p>
+    </dd>
+    <dt><a class="title-link" name="endpoint" href="#endpoint"></a> endpoint</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="string">string</span>)</span><span class="required">(Required)</span><span class="description">API endpoint of the device.</span></p>
+    </dd>
+  </dl>
+</div>
+<p>See <a href="https://github.com/rytilahti/python-songpal#locating-the-endpoint">python-songpal’s documentation</a> how to get your API endpoint.</p>
+<h2><a class="title-link" name="services" href="#services"></a> Services</h2>
+<p>In addition to the general <a href="https://home-assistant.io/components/media_player/#services">media player services</a>, the following services are provided:</p>
+<h3><a class="title-link" name="service-media_playersongpal_set_sound_setting" href="#service-media_playersongpal_set_sound_setting"></a> Service <code class="highlighter-rouge">media_player/songpal_set_sound_setting</code></h3>
+<p>For a list of available settings and their values use <a href="https://github.com/rytilahti/python-songpal#sound-settings"><code class="highlighter-rouge">songpal sound</code></a> command.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">entity_id</code></td>
+      <td>yes</td>
+      <td>Target entity, leave unset for all devices</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">name</code></td>
+      <td>no</td>
+      <td>Configuration variable, e.g. <code class="highlighter-rouge">nightmode</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">value</code></td>
+      <td>no</td>
+      <td>New configuration value, e.g. <code class="highlighter-rouge">on</code></td>
+    </tr>
+  </tbody>
+</table>
+</article>
+        </div>
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/media_player.songpal.markdown'>Edit this page on GitHub</a></div>
+  <div class='brand-logo-container section'>
+      <img src='/images/supported_brands/sony.png' />
+  </div>
+    <div class='section'>
+      IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Local Polling
+    </div>
+    <div class='section'>
+      Introduced in release: 0.65
+    </div>
+    <div class='section'>
+      Source:
+      <a href='https://github.com/home-assistant/home-assistant/blob/master/homeassistant/components/media_player/songpal.py'>media_player/songpal.py</a>
+    </div>
+    <div class='section'>
+      This is a platform for
+      <a href='/components/media_player/'>the Media Player component</a>.
+    </div>
+    <div class='section'>
+    <h1 class="title delta">Category Media Player</h1>
+    <ul class='divided'>
+        <li>
+            <a href='/components/media_player.anthemav/'>Anthem A/V Receivers</a>
+        </li>
+        <li>
+            <a href='/components/media_player.apple_tv/'>Apple TV Media Player</a>
+        </li>
+        <li>
+            <a href='/components/media_player.bluesound/'>Bluesound</a>
+        </li>
+        <li>
+            <a href='/components/media_player.channels/'>Channels</a>
+        </li>
+        <li>
+            <a href='/components/media_player.clementine/'>Clementine Music Player</a>
+        </li>
+        <li>
+            <a href='/components/media_player.denonavr/'>Denon AVR Network Receivers</a>
+        </li>
+        <li>
+            <a href='/components/media_player.denon/'>Denon Network Receivers</a>
+        </li>
+        <li>
+            <a href='/components/media_player.directv/'>DirecTV</a>
+        </li>
+        <li>
+            <a href='/components/media_player.dunehd/'>DuneHD media players</a>
+        </li>
+        <li>
+            <a href='/components/media_player.emby/'>Emby</a>
+        </li>
+        <li>
+            <a href='/components/media_player.firetv/'>FireTV</a>
+        </li>
+        <li>
+            <a href='/components/media_player.frontier_silicon/'>Frontier Silicon Internet Radios</a>
+        </li>
+        <li>
+            <a href='/components/media_player.cast/'>Google Cast</a>
+        </li>
+        <li>
+            <a href='/components/media_player.gpmdp/'>Google Play Music Desktop Player</a>
+        </li>
+        <li>
+            <a href='/components/media_player.gstreamer/'>Gstreamer</a>
+        </li>
+        <li>
+            <a href='/components/media_player.kodi/'>Kodi</a>
+        </li>
+        <li>
+            <a href='/components/media_player.lg_netcast/'>LG Netcast TV</a>
+        </li>
+        <li>
+            <a href='/components/media_player.webostv/'>LG webOS Smart TV</a>
+        </li>
+        <li>
+            <a href='/components/media_player.openhome/'>Linn / Openhome</a>
+        </li>
+        <li>
+            <a href='/components/media_player.squeezebox/'>Logitech Squeezebox</a>
+        </li>
+        <li>
+            <a href='/components/media_player.ue_smart_radio/'>Logitech UE Smart Radio</a>
+        </li>
+        <li>
+            <a href='/components/media_player.mpchc/'>MPC-HC</a>
+        </li>
+        <li>
+            <a href='/components/media_extractor/'>Media Extractor</a>
+        </li>
+        <li>
+            <a href='/components/media_player.mediaroom/'>Mediaroom</a>
+        </li>
+        <li>
+            <a href='/components/media_player.monoprice/'>Monoprice 6-Zone Amplifier</a>
+        </li>
+        <li>
+            <a href='/components/media_player.mpd/'>Music Player Daemon (MPD)</a>
+        </li>
+        <li>
+            <a href='/components/media_player.nad/'>NAD</a>
+        </li>
+        <li>
+            <a href='/components/media_player.nadtcp/'>NAD tcp</a>
+        </li>
+        <li>
+            <a href='/components/media_player.onkyo/'>Onkyo</a>
+        </li>
+        <li>
+            <a href='/components/media_player.liveboxplaytv/'>Orange Livebox Play TV</a>
+        </li>
+        <li>
+            <a href='/components/media_player.panasonic_viera/'>Panasonic Viera TV</a>
+        </li>
+        <li>
+            <a href='/components/media_player.pandora/'>Pandora</a>
+        </li>
+        <li>
+            <a href='/components/media_player.philips_js/'>Philips TV</a>
+        </li>
+        <li>
+            <a href='/components/media_player.pioneer/'>Pioneer Network Receivers</a>
+        </li>
+        <li>
+            <a href='/components/media_player.plex/'>Plex</a>
+        </li>
+        <li>
+            <a href='/components/sensor.plex/'>Plex Activity Monitor</a>
+        </li>
+        <li>
+            <a href='/components/media_player.roku/'>Roku</a>
+        </li>
+        <li>
+            <a href='/components/media_player.russound_rio/'>Russound RIO</a>
+        </li>
+        <li>
+            <a href='/components/media_player.russound_rnet/'>Russound RNET</a>
+        </li>
+        <li>
+            <a href='/components/media_player.samsungtv/'>Samsung Smart TV</a>
+        </li>
+        <li>
+            <a href='/components/media_player.aquostv/'>Sharp Aquos TV</a>
+        </li>
+        <li>
+            <a href='/components/media_player.snapcast/'>Snapcast</a>
+        </li>
+        <li>
+            <a href='/components/media_player.sonos/'>Sonos</a>
+        </li>
+        <li>
+            <a href='/components/media_player.braviatv/'>Sony Bravia TV</a>
+        </li>
+        <li>
+            Sony SongPal compatible devices
+        </li>
+        <li>
+            <a href='/components/media_player.soundtouch/'>Soundtouch</a>
+        </li>
+        <li>
+            <a href='/components/media_player.spotify/'>Spotify</a>
+        </li>
+        <li>
+            <a href='/components/media_player.universal/'>Universal</a>
+        </li>
+        <li>
+            <a href='/components/media_player.vlc/'>VLC</a>
+        </li>
+        <li>
+            <a href='/components/media_player.vizio/'>Vizio SmartCast TV</a>
+        </li>
+        <li>
+            <a href='/components/media_player.volumio/'>Volumio Media Player</a>
+        </li>
+        <li>
+            <a href='/components/media_player.xiaomi_tv/'>Xiaomi TV</a>
+        </li>
+        <li>
+            <a href='/components/media_player.yamaha_musiccast/'>Yamaha MusicCast Receivers</a>
+        </li>
+        <li>
+            <a href='/components/media_player.yamaha/'>Yamaha Network Receivers</a>
+        </li>
+        <li>
+            <a href='/components/media_player.ziggo_mediabox_xl/'>Ziggo Mediabox XL</a>
+        </li>
+        <li>
+            <a href='/components/media_player.cmus/'>cmus</a>
+        </li>
+        <li>
+            <a href='/components/media_player.itunes/'>iTunes</a>
+        </li>
+    </ul>
+    </div>
+</section>
+</div>
+        </aside>
+      </div>
+    </div>
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a> (no support!).<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+  <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">home-assistant.io</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
+<script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
+<script type="text/javascript">
+docsearch({
+  apiKey: 'ae96d94b201c5444c8a443093edf3efb',
+  indexName: 'home-assistant',
+  inputSelector: '#search',
+  debug: false // Set debug to true if you want to inspect the dropdown
+});
+document.querySelector('.search .close').addEventListener('click', function(ev) {
+  ev.preventDefault();
+  document.querySelector('.search-container').style.display = 'none';
+});
+document.querySelector('.show-search').addEventListener('click', function(ev) {
+  ev.preventDefault();
+  document.querySelector('.search-container').style.display = 'block';
+  document.getElementById('toggle').checked = false;
+  document.querySelector('.search-container input').focus();
+});
+</script>
+  </body>
+</html>

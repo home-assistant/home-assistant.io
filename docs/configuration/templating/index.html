@@ -1,0 +1,576 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Templating - Home Assistant</title>
+    <meta name="author" content="Home Assistant">
+    <meta name="description" content="Instructions how to use the templating feature of Home Assistant.">
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/docs/configuration/templating/">
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="Templating">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/docs/configuration/templating/">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="Instructions how to use the templating feature of Home Assistant.">
+    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    <meta name="twitter:title" content="Templating">
+    <meta name="twitter:description" content="Instructions how to use the templating feature of Home Assistant.">
+    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
+    <link href="/stylesheets/screen.css" media="screen, projection, print" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+  <body >
+    <header class='site-header'>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/docs/">Docs</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+  <li><a href='#' class='show-search'><i class="icon-search"></i></a></li>
+</ul>
+  </nav>
+  <div class='search-container' style='display: none'>
+    <div class='search'>
+      <i class="icon-search"></i>
+      <input id='search' placeholder='Search the docs…'>
+      <a href='#' class='close'><i class="icon-remove-sign"></i></a>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+    </header>
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+          <article class="page">
+    <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_docs/configuration/templating.markdown'>Edit this page on GitHub</a></div>
+  <header>
+    <h1 class="title indent">
+      Templating
+    </h1>
+  </header>
+  <hr class="divider">
+  <p>This is an advanced feature of Home Assistant. You’ll need a basic understanding of the following things:</p>
+<ul>
+  <li><a href="/developers/architecture/">Home Assistant architecture</a>, especially states.</li>
+  <li><a href="/topics/state_object/">State object</a></li>
+</ul>
+<p>Templating is a powerful feature in Home Assistant that allows the user control over information that is going into and out of the system. It is used for:</p>
+<ul>
+  <li>Formatting outgoing messages in, for example, the <a href="/components/notify/">notify</a> and <a href="/components/alexa/">alexa</a> components.</li>
+  <li>Process incoming data from sources that provide raw data, like <a href="/components/mqtt/">MQTT</a>, <a href="/components/sensor.rest/">REST sensor</a>, or the <a href="/components/sensor.command_line/">command line sensor</a>.</li>
+  <li><a href="/docs/automation/templating/">Automation Templating</a>.</li>
+</ul>
+<h2><a class="title-link" name="building-templates" href="#building-templates"></a> Building templates</h2>
+<p>Templating in Home Assistant is powered by the <a href="http://jinja.pocoo.org/">Jinja2</a> templating engine. This means that we are using their syntax and make some custom Home Assistant variables available to templates during rendering. We will not go over the basics of the syntax, as Jinja2 does a lot better job at this in their <a href="http://jinja.pocoo.org/docs/dev/templates/">Jinja2 documentation</a>.</p>
+<p class="note">
+The frontend has a template editor developer tool to help develop and debug templates.
+</p>
+<p>Templates can get big pretty fast. To keep a clear overview, consider using YAML multiline strings to define your templates:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">script</span><span class="pi">:</span>
+  <span class="s">msg_who_is_home</span><span class="pi">:</span>
+    <span class="s">sequence</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">notify.notify</span>
+        <span class="s">data_template</span><span class="pi">:</span>
+          <span class="s">message</span><span class="pi">:</span> <span class="pi">&gt;</span>
+            <span class="no">{% if is_state('device_tracker.paulus', 'home') %}</span>
+              <span class="no">Ha, Paulus is home!</span>
+            <span class="no">{% else %}</span>
+              <span class="no">Paulus is at {{ states('device_tracker.paulus') }}.</span>
+            <span class="no">{% endif %}</span>
+</code></pre>
+</div>
+<p><a href="http://jinja.pocoo.org/">Jinja2</a> supports a wide variety of operations:</p>
+<ul>
+  <li><a href="http://jinja.pocoo.org/docs/dev/templates/#math">Mathematical operation</a></li>
+  <li><a href="http://jinja.pocoo.org/docs/dev/templates/#comparisons">Comparisons</a></li>
+  <li><a href="http://jinja.pocoo.org/docs/dev/templates/#logic">Logic</a></li>
+</ul>
+<h2><a class="title-link" name="home-assistant-template-extensions" href="#home-assistant-template-extensions"></a> Home Assistant template extensions</h2>
+<p>Home Assistant adds extensions to allow templates to access all of the current states:</p>
+<ul>
+  <li>Iterating <code class="highlighter-rouge">states</code> will yield each state sorted alphabetically by entity ID.</li>
+  <li>Iterating <code class="highlighter-rouge">states.domain</code> will yield each state of that domain sorted alphabetically by entity ID.</li>
+  <li><code class="highlighter-rouge">states.sensor.temperature</code> returns the state object for <code class="highlighter-rouge">sensor.temperature</code>.</li>
+  <li><code class="highlighter-rouge">states('device_tracker.paulus')</code> will return the state string (not the object) of the given entity or <code class="highlighter-rouge">unknown</code> if it doesn’t exist.</li>
+  <li><code class="highlighter-rouge">is_state('device_tracker.paulus', 'home')</code> will test if the given entity is specified state.</li>
+  <li><code class="highlighter-rouge">is_state_attr('device_tracker.paulus', 'battery', 40)</code> will test if the given entity is specified state.</li>
+  <li><code class="highlighter-rouge">now()</code> will be rendered as current time in your time zone.
+    <ul>
+      <li>For specific values: <code class="highlighter-rouge">now().second</code>, <code class="highlighter-rouge">now().minute</code>, <code class="highlighter-rouge">now().hour</code>, <code class="highlighter-rouge">now().day</code>, <code class="highlighter-rouge">now().month</code>, <code class="highlighter-rouge">now().year</code>, <code class="highlighter-rouge">now().weekday()</code> and <code class="highlighter-rouge">now().isoweekday()</code></li>
+    </ul>
+  </li>
+  <li><code class="highlighter-rouge">utcnow()</code> will be rendered as UTC time.
+    <ul>
+      <li>For specific values: <code class="highlighter-rouge">utcnow().second</code>, <code class="highlighter-rouge">utcnow().minute</code>, <code class="highlighter-rouge">utcnow().hour</code>, <code class="highlighter-rouge">utcnow().day</code>, <code class="highlighter-rouge">utcnow().month</code>, <code class="highlighter-rouge">utcnow().year</code>, <code class="highlighter-rouge">utcnow().weekday()</code> and <code class="highlighter-rouge">utcnow().isoweekday()</code>.</li>
+    </ul>
+  </li>
+  <li><code class="highlighter-rouge">as_timestamp()</code> will convert datetime object or string to UNIX timestamp</li>
+  <li><code class="highlighter-rouge">distance()</code> will measure the distance in meters between home, entity, coordinates.</li>
+  <li><code class="highlighter-rouge">closest()</code> will find the closest entity.</li>
+  <li><code class="highlighter-rouge">float</code> will format the output as float.</li>
+  <li><code class="highlighter-rouge">strptime(string, format)</code> will parse a string to a datetime based on a <a href="https://docs.python.org/3.4/library/datetime.html#strftime-and-strptime-behavior">format</a>.</li>
+  <li><code class="highlighter-rouge">log(value, base)</code> will take the logarithm of the input. When the base is omitted, it defaults to <code class="highlighter-rouge">e</code> - the natural logarithm. Can also be used as a filter.</li>
+  <li>Filter <code class="highlighter-rouge">round(x)</code> will convert the input to a number and round it to <code class="highlighter-rouge">x</code> decimals.</li>
+  <li>Filter <code class="highlighter-rouge">timestamp_local</code>  will convert an UNIX timestamp to local time/data.</li>
+  <li>Filter <code class="highlighter-rouge">timestamp_utc</code> will convert an UNIX timestamp to UTC time/data.</li>
+  <li>Filter <code class="highlighter-rouge">timestamp_custom(format_string, local_boolean)</code> will convert an UNIX timestamp to a custom format, the use of a local timestamp is default, supporting <a href="https://docs.python.org/3/library/time.html#time.strftime">Python format options</a>.</li>
+  <li>Filter <code class="highlighter-rouge">max</code> will obtain the larget item in a sequence.</li>
+  <li>Filter <code class="highlighter-rouge">min</code> will obtain the smallest item in a sequence.</li>
+</ul>
+<p class="note">
+If your template uses an <code class="highlighter-rouge">entity_id</code> that begins with a number (example: <code class="highlighter-rouge">states.device_tracker.2008_gmc</code>) you must use a bracket syntax to avoid errors caused by rendering the <code class="highlighter-rouge">entity_id</code> improperly. In the example given, the correct syntax for the device tracker would be: <code class="highlighter-rouge">states.device_tracker['2008_gmc']</code>
+</p>
+<p class="note warning">
+Rendering templates with time is dangerous as updates only trigger templates in sensors based on entity state changes.
+</p>
+<h2><a class="title-link" name="home-assistant-template-extensions" href="#home-assistant-template-extensions"></a> Home Assistant template extensions</h2>
+<p>In templates, besides the normal <a href="/topics/state_object/">state object methods and properties</a>, there are also some extra things available:</p>
+<ul>
+  <li><code class="highlighter-rouge">states.sensor.temperature.state_with_unit</code> will print the state of the entity and, if available, the unit.</li>
+</ul>
+<h2><a class="title-link" name="examples" href="#examples"></a> Examples</h2>
+<h3><a class="title-link" name="states" href="#states"></a> States</h3>
+<p>The next two statements result in same value if state exists. The second one will result in an error if state does not exist.</p>
+<div class="language-text highlighter-rouge"><pre class="highlight"><code>{{ states('device_tracker.paulus') }}
+{{ states.device_tracker.paulus.state }}
+</code></pre>
+</div>
+<h3><a class="title-link" name="attributes" href="#attributes"></a> Attributes</h3>
+<p>Print an attribute if state is defined</p>
+<div class="language-text highlighter-rouge"><pre class="highlight"><code>{% if states.device_tracker.paulus %}
+  {{ states.device_tracker.paulus.attributes.battery }}
+{% else %}
+  ??
+{% endif %}
+</code></pre>
+</div>
+<h3><a class="title-link" name="sensor-states" href="#sensor-states"></a> Sensor states</h3>
+<p>Print out a list of all the sensor states.</p>
+<div class="language-text highlighter-rouge"><pre class="highlight"><code>{% for state in states.sensor %}
+  {{ state.entity_id }}={{ state.state }},
+{% endfor %}
+
+{% if is_state('device_tracker.paulus', 'home') %}
+  Ha, Paulus is home!
+{% else %}
+  Paulus is at {{ states('device_tracker.paulus') }}.
+{% endif %}
+
+{{ states.sensor.temperature | float + 1 }}
+
+{{ (states.sensor.temperature | float * 10) | round(2) }}
+
+{% if states('sensor.temperature') | float &gt; 20 %}
+  It is warm!
+{%endif %}
+
+{{ as_timestamp(states.binary_sensor.garage_door.last_changed) }}
+
+{{ as_timestamp(now()) - as_timestamp(states.binary_sensor.garage_door.last_changed) }}
+</code></pre>
+</div>
+<h3><a class="title-link" name="distance-examples" href="#distance-examples"></a> Distance examples</h3>
+<p>If only 1 location is passed in, Home Assistant will measure the distance from home.</p>
+<div class="language-text highlighter-rouge"><pre class="highlight"><code>Using Lat Lng coordinates: {{ distance(123.45, 123.45) }}
+
+Using State: {{ distance(states.device_tracker.paulus) }}
+
+These can also be combined in any combination:
+{{ distance(123.45, 123.45, 'device_tracker.paulus') }}
+{{ distance('device_tracker.anne_therese', 'device_tracker.paulus') }}
+</code></pre>
+</div>
+<h3><a class="title-link" name="closest-examples" href="#closest-examples"></a> Closest examples</h3>
+<p>Find entities closest to the Home Assistant location:</p>
+<div class="language-text highlighter-rouge"><pre class="highlight"><code>Query all entities: {{ closest(states) }}
+Query all entities of a specific domain: {{ closest('states.device_tracker') }}
+Query all entities in group.children: {{ closest('group.children') }}
+Query all entities in group.children: {{ closest(states.group.children) }}
+</code></pre>
+</div>
+<p>Find entities closest to a coordinate or another entity. All previous arguments still apply for 2nd argument.</p>
+<div class="language-text highlighter-rouge"><pre class="highlight"><code>Closest to a coordinate: {{ closest(23.456, 23.456, 'group.children') }}
+Closest to an entity: {{ closest('zone.school', 'group.children') }}
+Closest to an entity: {{ closest(states.zone.school, 'group.children') }}
+</code></pre>
+</div>
+<h3><a class="title-link" name="combined" href="#combined"></a> Combined</h3>
+<p>Since closest returns a state, we can combine it with distance too.</p>
+<div class="language-text highlighter-rouge"><pre class="highlight"><code>{{ closest(states).name }} is {{ distance(closest(states)) }} meters away.
+</code></pre>
+</div>
+<h2><a class="title-link" name="processing-incoming-data" href="#processing-incoming-data"></a> Processing incoming data</h2>
+<p>The other part of templating is processing incoming data. It will allow you to modify incoming data and extract only the data you care about. This will work only for platforms and components that mentioned support for this in their documentation.</p>
+<p>It depends per component or platform, but it is common to be able to define a template using the <code class="highlighter-rouge">value_template</code> configuration key. When a new value arrives, your template will be rendered while having access to the following values on top of the usual Home Assistant extensions:</p>
+<table>
+  <thead>
+    <tr>
+      <th>Variable</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">value</code></td>
+      <td>The incoming value.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">value_json</code></td>
+      <td>The incoming value parsed as JSON.</td>
+    </tr>
+  </tbody>
+</table>
+<p>This means that if the incoming values looks like the sample below:</p>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"temp"</span><span class="p">:</span><span class="w"> </span><span class="mi">21</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+<p>The template for <code class="highlighter-rouge">on</code> would be:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s1">'</span><span class="s">{{value_json.on}}'</span>
+</code></pre>
+</div>
+<p>Nested JSON in a response is supported as well</p>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"sensor"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"air"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"values"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"temp"</span><span class="p">:</span><span class="w"> </span><span class="mf">26.09</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"hum"</span><span class="p">:</span><span class="w"> </span><span class="mf">56.73</span><span class="p">,</span><span class="w">
+  </span><span class="err">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+<p>Just use the “Square bracket notation” to get the value.</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">value_json["values"]["temp"]</span><span class="nv"> </span><span class="s">}}'</span>
+</code></pre>
+</div>
+<p>The following overview contains a couple of options to get the needed values:</p>
+<div class="language-text highlighter-rouge"><pre class="highlight"><code># Incoming value:
+{"primes": [2, 3, 5, 7, 11, 13]}
+
+# Extract third prime number
+{{ value_json.primes[2] }}
+
+# Format output
+{{ "%+.1f" | value_json }}
+
+# Math
+{{ value_json | float * 1024 }}
+{{ float(value_json) * (2**10) }}
+{{ value_json | log }}
+{{ log(1000, 10) }}
+
+# Timestamps
+{{ value_json.tst | timestamp_local }}
+{{ value_json.tst | timestamp_utc }}
+{{ value_json.tst | timestamp_custom('%Y' True) }}
+</code></pre>
+</div>
+<p>To evaluate a response, go to the <img src="/images/screenshots/developer-tool-templates-icon.png" alt="template developer tool icon" class="no-shadow" height="38" /> template developer tools, create your output into “Template”, and check the result.</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code>
+<span class="pi">{</span><span class="err">%</span> <span class="nv">set value_json=</span>
+    <span class="pi">{</span><span class="s2">"</span><span class="s">name"</span><span class="pi">:</span><span class="s2">"</span><span class="s">Outside"</span><span class="pi">,</span>
+	 <span class="s2">"</span><span class="s">device"</span><span class="pi">:</span><span class="s2">"</span><span class="s">weather-ha"</span><span class="pi">,</span>
+     <span class="s2">"</span><span class="s">data"</span><span class="pi">:</span>
+	    <span class="pi">{</span><span class="s2">"</span><span class="s">temp"</span><span class="pi">:</span><span class="s2">"</span><span class="s">24C"</span><span class="pi">,</span>
+		 <span class="s2">"</span><span class="s">hum"</span><span class="pi">:</span><span class="s2">"</span><span class="s">35%"</span>
+		 <span class="pi">}</span>	<span class="pi">}</span><span class="err">%</span><span class="pi">}</span>
+
+<span class="pi">{{</span><span class="nv">value_json.data.hum</span><span class="pi">[:</span><span class="nv">-1</span><span class="pi">]}}</span>
+</code></pre>
+</div>
+</article>
+        </div>
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <div class='section'>
+    <h1 class="title delta">Topics</h1>
+    <ul class='divided sidebar-menu'>
+      <li>
+        <b><a  href='/faq/'>FAQ </a></b> |
+        <b><a  href='/docs/glossary/'>Glossary </a></b>
+      </li>
+      <li>
+        <b><a  href='/docs/installation/'>Installation </a></b>
+        <ul>
+          <li><a  href='/hassio/'>Hass.io </a></li>
+          <li><a  href='/docs/installation/virtualenv/'>Python Virtual Env </a></li>
+          <li><a  href='/docs/installation/hassbian/'>Hassbian </a></li>
+          <!--<li><a  href='/docs/installation/raspberry-pi-all-in-one/'>Raspberry Pi All-in-One </a></li>-->
+          <li><a  href='/docs/installation/updating/'>Updating </a></li>
+          <li><a  href='/docs/installation/troubleshooting/'>Troubleshooting </a></li>
+        </ul>
+      </li>
+      <li>
+        <b><a  href='/docs/configuration/'>Configuration </a></b>
+        <ul>
+          <li><a  href='/docs/configuration/yaml/'>YAML </a></li>
+          <li><a  href='/docs/configuration/basic/'>Basic information </a></li>
+          <li><a  href='/docs/configuration/devices/'>Setting up devices </a></li>
+          <li><a  href='/docs/configuration/entity-registry/'>Entity Registry </a></li>
+          <li><a  href='/docs/configuration/customizing-devices/'>Customizing entities </a></li>
+          <li><a  href='/docs/configuration/troubleshooting/'>Troubleshooting </a></li>
+          <li><a  href='/docs/configuration/securing/'>Security Check Points </a></li>
+        </ul>
+      </li>
+      <li>
+        <b>Advanced Configuration</b>
+        <ul>
+          <li><a  href='/docs/configuration/remote/'>Remote access </a></li>
+          <li><a  href='/docs/configuration/packages/'>Packages </a></li>
+          <li><a  href='/docs/configuration/splitting_configuration/'>Splitting up the configuration </a></li>
+          <li><a  href='/docs/configuration/secrets/'>Storing Secrets </a></li>
+          <li><a class='active' href='/docs/configuration/templating/'>Templating </a></li>
+          <li><a  href='/docs/configuration/group_visibility/'>Group Visibility </a></li>
+          <li><a  href='/docs/configuration/platform_options/'>Entity component platform options </a></li>
+        </ul>
+      </li>
+      <li>
+        <b>Core objects</b>
+        <ul>
+          <li><a  href='/docs/configuration/events/'>Events </a></li>
+          <li><a  href='/docs/configuration/state_object/'>State Objects </a></li>
+        </ul>
+      </li>
+      <li>
+        <b><a  href='/docs/automation/'>Automation </a></b>
+        <ul>
+          <li><a  href='/docs/automation/examples/'>Examples </a></li>
+          <li><a  href='/docs/automation/editor/'>Editor </a></li>
+          <li><a  href='/docs/automation/trigger/'>Triggers </a></li>
+          <li><a  href='/docs/automation/condition/'>Conditions </a></li>
+          <li><a  href='/docs/automation/action/'>Actions </a></li>
+          <li><a  href='/docs/automation/templating/'>Templates </a></li>
+        </ul>
+      </li>
+      <li>
+        <b><a  href='/docs/frontend/'>Frontend </a></b>
+        <ul>
+          <li><a  href='/docs/frontend/mobile/'>Android/iOS Homescreen </a></li>
+          <li><a  href='/docs/frontend/webserver/'>Web server fingerprint </a></li>
+          <li><a  href='/docs/frontend/browsers/'>Browser Compatibility List </a></li>
+        </ul>
+      </li>
+      <li>
+        <b><a  href='/docs/backend/'>Backend </a></b>
+        <ul>
+          <li><a  href='/docs/backend/database/'>Database </a></li>
+          <li><a  href='/docs/backend/updater/'>Updater </a></li>
+          <li><a  href='/developers/api/'>API </a></li>
+        </ul>
+      </li>
+      <li>
+        <b><a  href='/docs/scripts/'>Scripts </a></b>
+        <ul>
+          <li><a  href='/docs/scripts/service-calls/'>Service Calls </a></li>
+          <li><a  href='/docs/scripts/conditions/'>Conditions </a></li>
+          <li><a  href='/docs/scripts/editor/'>Editor </a></li>
+        </ul>
+      </li>
+      <li>
+        <b><a  href='/docs/tools/'>Tools and Helpers </a></b>
+        <ul>
+          <li><a  href='/docs/tools/dev-tools/'>Developer Tools </a></li>
+          <li><a  href='/docs/tools/hass/'>hass </a></li>
+          <li><a  href='/docs/tools/benchmark/'>benchmark </a></li>
+          <li><a  href='/docs/tools/check_config/'>check_config </a></li>
+          <li><a  href='/docs/tools/credstash/'>credstash </a></li>
+          <li><a  href='/docs/tools/db_migrator/'>db_migrator </a></li>
+          <li><a  href='/docs/tools/ensure_config/'>ensure_config </a></li>
+          <li><a  href='/docs/tools/influxdb_import/'>influxdb_import </a></li>
+          <li><a  href='/docs/tools/influxdb_migrator/'>influxdb_migrator </a></li>
+          <li><a  href='/docs/tools/keyring/'>keyring </a></li>
+        </ul>
+      </li>
+      <li>
+        <b><a  href='/docs/z-wave/'>Z-Wave </a></b>
+        <ul>
+          <li><a  href='/docs/z-wave/installation/'>Configuring the Z-Wave component </a></li>
+          <li><a  href='/docs/z-wave/adding/'>Adding devices </a></li>
+          <li><a  href='/docs/z-wave/control-panel/'>The Z-Wave control panel </a></li>
+          <li><a  href='/docs/z-wave/controllers/'>Controllers </a></li>
+          <li><a  href='/docs/z-wave/devices/'>Devices </a> and <a  href='/docs/z-wave/entities/'>Entities </a></li>
+          <li><a  href='/docs/z-wave/query-stage/'>Query Stages </a> for devices</li>
+          <li><a  href='/docs/z-wave/device-specific/'>Device Specific </a> configuration</li>
+          <li><a  href='/docs/z-wave/events/'>Events </a> and <a  href='/docs/z-wave/services/'>Services </a></li>
+        </ul>
+      </li>
+      <li>
+        <b><a  href='/docs/mqtt/'>MQTT </a></b>
+        <ul>
+          <li><a  href='/docs/mqtt/broker/'>Broker </a></li>
+          <li><a  href='/docs/mqtt/certificate/'>Certificate </a></li>
+          <li><a  href='/docs/mqtt/discovery/'>Discovery </a></li>
+          <li><a  href='/docs/mqtt/service/'>Publish service </a></li>
+          <li><a  href='/docs/mqtt/birth_will/'>Birth and last will messages </a></li>
+          <li><a  href='/docs/mqtt/testing/'>Testing your setup </a></li>
+          <li><a  href='/docs/mqtt/logging/'>Logging </a></li>
+          <li><a  href='/docs/mqtt/processing_json/'>Processing JSON </a></li>
+        </ul>
+      </li>
+      <li>
+        <b><a  href='/docs/ecosystem/ios/'>iOS </a></b>
+        <ul>
+          <li><a  href='/docs/ecosystem/ios/notifications/basic/'>Basic notifications </a></li>
+          <ul>
+            <li><a  href='/docs/ecosystem/ios/notifications/sounds/'>Sounds </a></li>
+            <li><a  href='/docs/ecosystem/ios/notifications/architecture/'>Architecture </a></li>
+            <li><a  href='/docs/ecosystem/ios/notifications/privacy_security_rate_limits/'>Privacy, rate limiting and security </a></li>
+          </ul>
+          <li>Advanced notifications</li>
+          <ul>
+            <li><a  href='/docs/ecosystem/ios/notifications/attachments/'>Attachments </a></li>
+            <li><a  href='/docs/ecosystem/ios/notifications/content_extensions/'>Dynamic content </a></li>
+            <li><a  href='/docs/ecosystem/ios/notifications/actions/'>Actionable notifications </a></li>
+            <li><a  href='/docs/ecosystem/ios/notifications/requesting_location_updates/'>Requesting location updates </a></li>
+          </ul>
+          <li><a  href='/docs/ecosystem/ios/location/'>Location Tracking </a></li>
+          <li><a  href='/docs/ecosystem/ios/integration/'>Integration with other apps </a></li>
+        </ul>
+      </li>
+      <li>
+        <a  href='/docs/ecosystem/'>Ecosystem </a>
+        <ul>
+          <li>
+            <a  href='/docs/autostart/'>Autostart </a>
+            <ul>
+              <li><a  href='/docs/autostart/systemd/'>systemd (Linux) </a></li>
+              <li><a  href='/docs/autostart/upstart/'>Upstart (Linux) </a></li>
+              <li><a  href='/docs/autostart/init.d/'>init.d (Linux) </a></li>
+              <li><a  href='/docs/autostart/macos/'>macOS </a></li>
+              <li><a  href='/docs/autostart/synology/'>Synology NAS </a></li>
+            </ul>
+          </li>
+          <li>
+            <a  href='/docs/ecosystem/appdaemon/'>AppDaemon </a>
+          </li>
+          <li>
+            <a  href='/docs/ecosystem/hadashboard/'>HADashboard </a>
+          </li>
+          <li>
+            <a  href='/docs/ecosystem/notebooks/'>Notebooks </a>
+            <ul>
+              <li><a  href='/docs/ecosystem/notebooks/'>Introduction </a></li>
+              <li><a  href='/docs/ecosystem/notebooks/installation/'>Installation </a></li>
+              <li><a  href='/docs/ecosystem/notebooks/graph/'>Graph </a></li>
+              <li><a  href='/docs/ecosystem/notebooks/api/'>Home Assistant API </a></li>
+              <li><a  href='/docs/ecosystem/notebooks/database/'>Database </a></li>
+              <li><a  href='/docs/ecosystem/notebooks/stats/'>Statistics </a></li>
+            </ul>
+          </li>
+          <li>
+            Remote access
+            <ul>
+              <li><a  href='/docs/ecosystem/apache/'>Apache </a></li>
+              <li><a  href='/docs/ecosystem/caddy/'>Caddy Server </a></li>
+              <li><a  href='/docs/ecosystem/nginx/'>NGINX </a></li>
+              <li><a  href='/docs/ecosystem/nginx_subdomain/'>NGINX with subdomain</a></li>
+              <li><a  href='/docs/ecosystem/tor/'>Tor Onion Service </a></li>
+            </ul>
+          </li>
+          <li>
+            <a  href='/docs/ecosystem/certificates/'>Certificates </a>
+            <ul>
+              <li><a  href='/docs/ecosystem/certificates/tls_self_signed_certificate/'>Self-signed certificate </a></li>
+              <li><a  href='/docs/ecosystem/certificates/tls_domain_certificate/'>Certificate domain owners </a></li>
+              <li><a  href='/docs/ecosystem/certificates/lets_encrypt/'>Let's Encrypt (detailed) </a></li>
+            </ul>
+          </li>
+          <li>
+            Backup
+            <ul>
+              <li><a  href='/docs/ecosystem/backup/backup_github/'>Backup to GitHub </a></li>
+              <li><a  href='/docs/ecosystem/backup/backup_dropbox/'>Backup to Dropbox </a></li>
+              <li><a  href='/docs/ecosystem/backup/backup_usb/'>Backup to USB device </a></li>
+            </ul>
+          </li>
+          <li><a  href='/docs/ecosystem/scenegen/'>scenegen </a></li>
+          <li><a  href='/docs/ecosystem/synology/'>Synology </a></li>
+          <li><a  href='/docs/ecosystem/hass-configurator/'>HASS Configurator </a></li>
+        </ul>
+    </ul>
+  </div>
+</section>
+</div>
+        </aside>
+      </div>
+    </div>
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a> (no support!).<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+  <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">home-assistant.io</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
+<script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
+<script type="text/javascript">
+docsearch({
+  apiKey: 'ae96d94b201c5444c8a443093edf3efb',
+  indexName: 'home-assistant',
+  inputSelector: '#search',
+  debug: false // Set debug to true if you want to inspect the dropdown
+});
+document.querySelector('.search .close').addEventListener('click', function(ev) {
+  ev.preventDefault();
+  document.querySelector('.search-container').style.display = 'none';
+});
+document.querySelector('.show-search').addEventListener('click', function(ev) {
+  ev.preventDefault();
+  document.querySelector('.search-container').style.display = 'block';
+  document.getElementById('toggle').checked = false;
+  document.querySelector('.search-container input').focus();
+});
+</script>
+  </body>
+</html>

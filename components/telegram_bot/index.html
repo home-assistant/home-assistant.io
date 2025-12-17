@@ -1,0 +1,1183 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Telegram chatbot - Home Assistant</title>
+    <meta name="author" content="Home Assistant">
+    <meta name="description" content="Telegram chatbot support">
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/components/telegram_bot/">
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="Telegram chatbot">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/components/telegram_bot/">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="Telegram chatbot support">
+    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    <meta name="twitter:title" content="Telegram chatbot">
+    <meta name="twitter:description" content="Telegram chatbot support">
+    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
+    <link href="/stylesheets/screen.css" media="screen, projection, print" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+  <body >
+    <header class='site-header'>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/docs/">Docs</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+  <li><a href='#' class='show-search'><i class="icon-search"></i></a></li>
+</ul>
+  </nav>
+  <div class='search-container' style='display: none'>
+    <div class='search'>
+      <i class="icon-search"></i>
+      <input id='search' placeholder='Search the docs…'>
+      <a href='#' class='close'><i class="icon-remove-sign"></i></a>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+    </header>
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+          <article class="page">
+  <header>
+    <h1 class="title indent">
+      Telegram chatbot
+    </h1>
+  </header>
+  <hr class="divider">
+  <p>Use Telegram on your mobile or desktop device to send and receive messages or commands to/from your Home Assistant.</p>
+<p>This component creates notification services to send, or edit previously sent, messages from a <a href="https://core.telegram.org/bots">Telegram Bot account</a> configured either with the <a href="/components/telegram_bot.polling/">polling</a> method or with the <a href="/components/telegram_bot.webhooks/">webhooks</a> one, and trigger events when receiving messages.</p>
+<p>If you don’t need to receive messages, you can use the <a href="/components/telegram_bot.broadcast/">broadcast</a> platform instead.</p>
+<h3><a class="title-link" name="notification-services" href="#notification-services"></a> Notification services</h3>
+<p>Available services: <code class="highlighter-rouge">send_message</code>, <code class="highlighter-rouge">send_photo</code>, <code class="highlighter-rouge">send_document</code>, <code class="highlighter-rouge">send_location</code>, <code class="highlighter-rouge">edit_message</code>, <code class="highlighter-rouge">edit_replymarkup</code>, <code class="highlighter-rouge">edit_caption</code>, <code class="highlighter-rouge">answer_callback_query</code>.</p>
+<h4><a class="title-link" name="service-telegram_botsend_message" href="#service-telegram_botsend_message"></a> Service <code class="highlighter-rouge">telegram_bot/send_message</code></h4>
+<p>Send a notification.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">message</code></td>
+      <td>no</td>
+      <td>Message body of the notification.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">title</code></td>
+      <td>yes</td>
+      <td>Optional title for your notification. Will be composed as ‘%title\n%message’.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">target</code></td>
+      <td>yes</td>
+      <td>An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">parse_mode</code></td>
+      <td>yes</td>
+      <td>Parser for the message text: <code class="highlighter-rouge">html</code> or <code class="highlighter-rouge">markdown</code>.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">disable_notification</code></td>
+      <td>yes</td>
+      <td>True/false for send the message silently. iOS users and web users will not receive a notification, Android users will receive a notification with no sound. Defaults to False.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">disable_web_page_preview</code></td>
+      <td>yes</td>
+      <td>True/false for disable link previews for links in the message.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">keyboard</code></td>
+      <td>yes</td>
+      <td>List of rows of commands, comma-separated, to make a custom keyboard. Example: <code class="highlighter-rouge">["/command1, /command2", "/command3"]</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">inline_keyboard</code></td>
+      <td>yes</td>
+      <td>List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data. Example: <code class="highlighter-rouge">["/button1, /button2", "/button3"]</code> or <code class="highlighter-rouge">[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Text btn3", "/button3"]]]</code></td>
+    </tr>
+  </tbody>
+</table>
+<h4><a class="title-link" name="service-telegram_botsend_photo" href="#service-telegram_botsend_photo"></a> Service <code class="highlighter-rouge">telegram_bot/send_photo</code></h4>
+<p>Send a photo.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">url</code></td>
+      <td>no</td>
+      <td>Remote path to an image.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">file</code></td>
+      <td>no</td>
+      <td>Local path to an image.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">caption</code></td>
+      <td>yes</td>
+      <td>The title of the image.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">username</code></td>
+      <td>yes</td>
+      <td>Username for a URL which require HTTP basic authentication.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">password</code></td>
+      <td>yes</td>
+      <td>Password for a URL which require HTTP basic authentication.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">authentication</code></td>
+      <td>yes</td>
+      <td>Define which authentication method to use. Set to <code class="highlighter-rouge">digest</code> to use HTTP digest authentication. Defaults to <code class="highlighter-rouge">basic</code>.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">target</code></td>
+      <td>yes</td>
+      <td>An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">disable_notification</code></td>
+      <td>yes</td>
+      <td>True/false for send the message silently. iOS users and web users will not receive a notification, Android users will receive a notification with no sound. Defaults to False.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">keyboard</code></td>
+      <td>yes</td>
+      <td>List of rows of commands, comma-separated, to make a custom keyboard. Example: <code class="highlighter-rouge">["/command1, /command2", "/command3"]</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">inline_keyboard</code></td>
+      <td>yes</td>
+      <td>List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data. Example: <code class="highlighter-rouge">["/button1, /button2", "/button3"]</code> or <code class="highlighter-rouge">[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Text btn3", "/button3"]]]</code></td>
+    </tr>
+  </tbody>
+</table>
+<h4><a class="title-link" name="service-telegram_botsend_video" href="#service-telegram_botsend_video"></a> Service <code class="highlighter-rouge">telegram_bot/send_video</code></h4>
+<p>Send a video.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">url</code></td>
+      <td>no</td>
+      <td>Remote path to a video.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">file</code></td>
+      <td>no</td>
+      <td>Local path to a video.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">caption</code></td>
+      <td>yes</td>
+      <td>The title of the video.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">username</code></td>
+      <td>yes</td>
+      <td>Username for a URL which requires HTTP basic authentication.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">password</code></td>
+      <td>yes</td>
+      <td>Password for a URL which requires HTTP basic authentication.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">authentication</code></td>
+      <td>yes</td>
+      <td>Define which authentication method to use. Set to <code class="highlighter-rouge">digest</code> to use HTTP digest authentication. Defaults to <code class="highlighter-rouge">basic</code>.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">target</code></td>
+      <td>yes</td>
+      <td>An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">disable_notification</code></td>
+      <td>yes</td>
+      <td>True/false to send the message silently. iOS users and web users will not receive a notification. Android users will receive a notification with no sound. Defaults to False.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">keyboard</code></td>
+      <td>yes</td>
+      <td>List of rows of commands, comma-separated, to make a custom keyboard. Example: <code class="highlighter-rouge">["/command1, /command2", "/command3"]</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">inline_keyboard</code></td>
+      <td>yes</td>
+      <td>List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data. Example: <code class="highlighter-rouge">["/button1, /button2", "/button3"]</code> or <code class="highlighter-rouge">[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Text btn3", "/button3"]]]</code></td>
+    </tr>
+  </tbody>
+</table>
+<h4><a class="title-link" name="service-telegram_botsend_document" href="#service-telegram_botsend_document"></a> Service <code class="highlighter-rouge">telegram_bot/send_document</code></h4>
+<p>Send a document.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">url</code></td>
+      <td>no</td>
+      <td>Remote path to a document.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">file</code></td>
+      <td>no</td>
+      <td>Local path to a document.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">caption</code></td>
+      <td>yes</td>
+      <td>The title of the document.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">username</code></td>
+      <td>yes</td>
+      <td>Username for a URL which require HTTP basic authentication.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">password</code></td>
+      <td>yes</td>
+      <td>Password for a URL which require HTTP basic authentication.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">authentication</code></td>
+      <td>yes</td>
+      <td>Define which authentication method to use. Set to <code class="highlighter-rouge">digest</code> to use HTTP digest authentication. Defaults to <code class="highlighter-rouge">basic</code>.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">target</code></td>
+      <td>yes</td>
+      <td>An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">disable_notification</code></td>
+      <td>yes</td>
+      <td>True/false for send the message silently. iOS users and web users will not receive a notification, Android users will receive a notification with no sound. Defaults to False.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">keyboard</code></td>
+      <td>yes</td>
+      <td>List of rows of commands, comma-separated, to make a custom keyboard. Example: <code class="highlighter-rouge">["/command1, /command2", "/command3"]</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">inline_keyboard</code></td>
+      <td>yes</td>
+      <td>List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data. Example: <code class="highlighter-rouge">["/button1, /button2", "/button3"]</code> or <code class="highlighter-rouge">[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Text btn3", "/button3"]]]</code></td>
+    </tr>
+  </tbody>
+</table>
+<h4><a class="title-link" name="service-telegram_botsend_location" href="#service-telegram_botsend_location"></a> Service <code class="highlighter-rouge">telegram_bot/send_location</code></h4>
+<p>Send a location.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">latitude</code></td>
+      <td>no</td>
+      <td>The latitude to send.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">longitude</code></td>
+      <td>no</td>
+      <td>The longitude to send.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">target</code></td>
+      <td>yes</td>
+      <td>An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">disable_notification</code></td>
+      <td>yes</td>
+      <td>True/false for send the message silently. iOS users and web users will not receive a notification, Android users will receive a notification with no sound. Defaults to False.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">keyboard</code></td>
+      <td>yes</td>
+      <td>List of rows of commands, comma-separated, to make a custom keyboard. Example: <code class="highlighter-rouge">["/command1, /command2", "/command3"]</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">inline_keyboard</code></td>
+      <td>yes</td>
+      <td>List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data. Example: <code class="highlighter-rouge">["/button1, /button2", "/button3"]</code> or <code class="highlighter-rouge">[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Text btn3", "/button3"]]]</code></td>
+    </tr>
+  </tbody>
+</table>
+<h4><a class="title-link" name="service-telegram_botedit_message" href="#service-telegram_botedit_message"></a> Service <code class="highlighter-rouge">telegram_bot/edit_message</code></h4>
+<p>Edit a previously sent message in a conversation.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">message_id</code></td>
+      <td>no</td>
+      <td>Id of the message to edit. When answering a callback from a pressed button, the id of the origin message is in: ``. You can use <code class="highlighter-rouge">"last"</code> to refer to the last message sent to <code class="highlighter-rouge">chat_id</code>.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">chat_id</code></td>
+      <td>no</td>
+      <td>The chat_id where to edit the message.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">message</code></td>
+      <td>no</td>
+      <td>Message body of the notification.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">title</code></td>
+      <td>yes</td>
+      <td>Optional title for your notification. Will be composed as ‘%title\n%message’.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">parse_mode</code></td>
+      <td>yes</td>
+      <td>Parser for the message text: <code class="highlighter-rouge">html</code> or <code class="highlighter-rouge">markdown</code>.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">disable_web_page_preview</code></td>
+      <td>yes</td>
+      <td>True/false for disable link previews for links in the message.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">inline_keyboard</code></td>
+      <td>yes</td>
+      <td>List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data. Example: <code class="highlighter-rouge">["/button1, /button2", "/button3"]</code> or <code class="highlighter-rouge">[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Text btn3", "/button3"]]]</code></td>
+    </tr>
+  </tbody>
+</table>
+<h4><a class="title-link" name="service-telegram_botedit_caption" href="#service-telegram_botedit_caption"></a> Service <code class="highlighter-rouge">telegram_bot/edit_caption</code></h4>
+<p>Edit the caption of a previously sent message.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">message_id</code></td>
+      <td>no</td>
+      <td>Id of the message to edit. When answering a callback from a pressed button, the id of the origin message is in: ``. You can use <code class="highlighter-rouge">"last"</code> to refer to the last message sent to <code class="highlighter-rouge">chat_id</code>.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">chat_id</code></td>
+      <td>no</td>
+      <td>The chat_id where to edit the caption.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">caption</code></td>
+      <td>no</td>
+      <td>Message body of the notification.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">disable_web_page_preview</code></td>
+      <td>yes</td>
+      <td>True/false for disable link previews for links in the message.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">inline_keyboard</code></td>
+      <td>yes</td>
+      <td>List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data. Example: <code class="highlighter-rouge">["/button1, /button2", "/button3"]</code> or <code class="highlighter-rouge">[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Text btn3", "/button3"]]]</code></td>
+    </tr>
+  </tbody>
+</table>
+<h4><a class="title-link" name="service-telegram_botedit_replymarkup" href="#service-telegram_botedit_replymarkup"></a> Service <code class="highlighter-rouge">telegram_bot/edit_replymarkup</code></h4>
+<p>Edit the inline keyboard of a previusly sent message.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">message_id</code></td>
+      <td>no</td>
+      <td>Id of the message to edit. When answering a callback from a pressed button, the id of the origin message is in: ``. You can use <code class="highlighter-rouge">"last"</code> to refer to the last message sent to <code class="highlighter-rouge">chat_id</code>.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">chat_id</code></td>
+      <td>no</td>
+      <td>The chat_id where to edit the reply_markup.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">disable_web_page_preview</code></td>
+      <td>yes</td>
+      <td>True/false for disable link previews for links in the message.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">inline_keyboard</code></td>
+      <td>yes</td>
+      <td>List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data. Example: <code class="highlighter-rouge">["/button1, /button2", "/button3"]</code> or <code class="highlighter-rouge">[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Text btn3", "/button3"]]]</code></td>
+    </tr>
+  </tbody>
+</table>
+<h4><a class="title-link" name="service-telegram_botanswer_callback_query" href="#service-telegram_botanswer_callback_query"></a> Service <code class="highlighter-rouge">telegram_bot/answer_callback_query</code></h4>
+<p>Respond to a callback query originated by clicking on an online keyboard button. The answer will be displayed to the user as a notification at the top of the chat screen or as an alert.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">message</code></td>
+      <td>no</td>
+      <td>Unformatted text message body of the notification.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">callback_query_id</code></td>
+      <td>no</td>
+      <td>Unique id of the callback response. In the <code class="highlighter-rouge">telegram_callback</code> event data: ``</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">show_alert</code></td>
+      <td>yes</td>
+      <td>True/false for show a permanent notification. Defaults to False.</td>
+    </tr>
+  </tbody>
+</table>
+<h4><a class="title-link" name="service-telegram_botdelete_message" href="#service-telegram_botdelete_message"></a> Service <code class="highlighter-rouge">telegram_bot/delete_message</code></h4>
+<p>Delete a previously sent message in a conversation.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">message_id</code></td>
+      <td>no</td>
+      <td>Id of the message to delete. When answering a callback from a pressed button, the id of the origin message is in: ``. You can use <code class="highlighter-rouge">"last"</code> to refer to the last message sent to <code class="highlighter-rouge">chat_id</code>.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">chat_id</code></td>
+      <td>no</td>
+      <td>The chat_id where to delete the message.</td>
+    </tr>
+  </tbody>
+</table>
+<h3><a class="title-link" name="telegram-notification-platform" href="#telegram-notification-platform"></a> <code class="highlighter-rouge">Telegram</code> notification platform</h3>
+<p>The <a href="/components/notify.telegram/">Telegram notification platform</a> requires the <code class="highlighter-rouge">telegram_bot</code> component to work with, and it’s designed to generate a customized shortcut (<code class="highlighter-rouge">notify.USERNAME</code>) to send notifications (messages, photos, documents and locations) to a particular <code class="highlighter-rouge">chat_id</code> with the old syntax, allowing backward compatibility.</p>
+<p>The required yaml configuration now reduces to:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">notify</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">NOTIFIER_NAME</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">telegram</span>
+    <span class="s">chat_id</span><span class="pi">:</span> <span class="s">USER_CHAT_ID</span>
+</code></pre>
+</div>
+<h3><a class="title-link" name="event-triggering" href="#event-triggering"></a> Event triggering</h3>
+<p>A command looks like <code class="highlighter-rouge">/thecommand</code>, or <code class="highlighter-rouge">/othercommand with some args</code>.</p>
+<p>When received by Home Assistant it will fire a <code class="highlighter-rouge">telegram_command</code> event on the event bus with the following <code class="highlighter-rouge">event_data</code>:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">command</span><span class="pi">:</span> <span class="s2">"</span><span class="s">/thecommand"</span>
+<span class="s">args</span><span class="pi">:</span> <span class="s2">"</span><span class="s">&lt;any</span><span class="nv"> </span><span class="s">other</span><span class="nv"> </span><span class="s">text</span><span class="nv"> </span><span class="s">following</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">command&gt;"</span>
+<span class="s">from_first</span><span class="pi">:</span> <span class="s2">"</span><span class="s">&lt;first</span><span class="nv"> </span><span class="s">name</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">sender&gt;"</span>
+<span class="s">from_last</span><span class="pi">:</span> <span class="s2">"</span><span class="s">&lt;last</span><span class="nv"> </span><span class="s">name</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">sender&gt;"</span>
+<span class="s">user_id</span><span class="pi">:</span> <span class="s2">"</span><span class="s">&lt;id</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">sender&gt;"</span>
+<span class="s">chat_id</span><span class="pi">:</span> <span class="s2">"</span><span class="s">&lt;origin</span><span class="nv"> </span><span class="s">chat</span><span class="nv"> </span><span class="s">id&gt;"</span>
+<span class="s">chat</span><span class="pi">:</span> <span class="s2">"</span><span class="s">&lt;chat</span><span class="nv"> </span><span class="s">info&gt;"</span>
+</code></pre>
+</div>
+<p>Any other message not starting with <code class="highlighter-rouge">/</code> will be processed as simple text, firing a <code class="highlighter-rouge">telegram_text</code> event on the event bus with the following <code class="highlighter-rouge">event_data</code>:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">text</span><span class="pi">:</span> <span class="s2">"</span><span class="s">some</span><span class="nv"> </span><span class="s">text</span><span class="nv"> </span><span class="s">received"</span>
+<span class="s">from_first</span><span class="pi">:</span> <span class="s2">"</span><span class="s">&lt;first</span><span class="nv"> </span><span class="s">name</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">sender&gt;"</span>
+<span class="s">from_last</span><span class="pi">:</span> <span class="s2">"</span><span class="s">&lt;last</span><span class="nv"> </span><span class="s">name</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">sender&gt;"</span>
+<span class="s">user_id</span><span class="pi">:</span> <span class="s2">"</span><span class="s">&lt;id</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">sender&gt;"</span>
+<span class="s">chat_id</span><span class="pi">:</span> <span class="s2">"</span><span class="s">&lt;origin</span><span class="nv"> </span><span class="s">chat</span><span class="nv"> </span><span class="s">id&gt;"</span>
+<span class="s">chat</span><span class="pi">:</span> <span class="s2">"</span><span class="s">&lt;chat</span><span class="nv"> </span><span class="s">info&gt;"</span>
+</code></pre>
+</div>
+<p>if the message is sent from a <a href="https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating">press from an inline button</a>, for example, a callback query is received, and Home Assistant will fire a <code class="highlighter-rouge">telegram_callback</code> event with:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">data</span><span class="pi">:</span> <span class="s2">"</span><span class="s">&lt;data</span><span class="nv"> </span><span class="s">associated</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">action</span><span class="nv"> </span><span class="s">callback&gt;"</span>
+<span class="s">message</span><span class="pi">:</span> <span class="s">&lt;message origin of the action callback&gt;</span>
+<span class="s">from_first</span><span class="pi">:</span> <span class="s2">"</span><span class="s">&lt;first</span><span class="nv"> </span><span class="s">name</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">sender&gt;"</span>
+<span class="s">from_last</span><span class="pi">:</span> <span class="s2">"</span><span class="s">&lt;last</span><span class="nv"> </span><span class="s">name</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">sender&gt;"</span>
+<span class="s">user_id</span><span class="pi">:</span> <span class="s2">"</span><span class="s">&lt;id</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">sender&gt;"</span>
+<span class="s">id</span><span class="pi">:</span> <span class="s2">"</span><span class="s">&lt;unique</span><span class="nv"> </span><span class="s">id</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">callback&gt;"</span>
+<span class="s">chat_instance</span><span class="pi">:</span> <span class="s2">"</span><span class="s">&lt;chat</span><span class="nv"> </span><span class="s">instance&gt;"</span>
+<span class="s">chat_id</span><span class="pi">:</span> <span class="s2">"</span><span class="s">&lt;origin</span><span class="nv"> </span><span class="s">chat</span><span class="nv"> </span><span class="s">id&gt;"</span>
+</code></pre>
+</div>
+<h3><a class="title-link" name="configuration-samples" href="#configuration-samples"></a> Configuration samples</h3>
+<p>Simple ping pong example.</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">alias</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Telegram</span><span class="nv"> </span><span class="s">bot</span><span class="nv"> </span><span class="s">that</span><span class="nv"> </span><span class="s">reply</span><span class="nv"> </span><span class="s">pong</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">ping'</span>
+<span class="s">hide_entity</span><span class="pi">:</span> <span class="s">true</span>
+<span class="s">trigger</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
+  <span class="s">event_type</span><span class="pi">:</span> <span class="s">telegram_command</span>
+  <span class="s">event_data</span><span class="pi">:</span>
+    <span class="s">command</span><span class="pi">:</span> <span class="s1">'</span><span class="s">/ping'</span>
+<span class="s">action</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">notify.notify</span>
+    <span class="s">data</span><span class="pi">:</span>
+      <span class="s">message</span><span class="pi">:</span> <span class="s1">'</span><span class="s">pong'</span>
+</code></pre>
+</div>
+<p>Example that show keyboard interaction with <code class="highlighter-rouge">notify.telegram</code></p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">trigger</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
+  <span class="s">event_type</span><span class="pi">:</span> <span class="s">telegram_command</span>
+  <span class="s">event_data</span><span class="pi">:</span>
+    <span class="s">command</span><span class="pi">:</span> <span class="s1">'</span><span class="s">/start'</span>
+<span class="s">action</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">notify.telegram</span>
+    <span class="s">data</span><span class="pi">:</span>
+      <span class="s">message</span><span class="pi">:</span> <span class="s1">'</span><span class="s">commands'</span>
+      <span class="s">data</span><span class="pi">:</span>
+        <span class="s">keyboard</span><span class="pi">:</span>
+          <span class="pi">-</span> <span class="s1">'</span><span class="s">/ping,</span><span class="nv"> </span><span class="s">/alarm'</span>
+          <span class="pi">-</span> <span class="s1">'</span><span class="s">/siren'</span>
+</code></pre>
+</div>
+<p>and an automation to trigger a related command “/siren”.</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">trigger</span><span class="pi">:</span>
+  <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
+  <span class="s">event_type</span><span class="pi">:</span> <span class="s">telegram_command</span>
+  <span class="s">event_data</span><span class="pi">:</span>
+    <span class="s">command</span><span class="pi">:</span> <span class="s1">'</span><span class="s">/siren'</span>
+<span class="s">action</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">homeassistant.turn_on</span>
+    <span class="s">entity_id</span><span class="pi">:</span> <span class="s">switch.vision_zm1601eu5_battery_operated_siren_switch_9_0</span>
+  <span class="pi">-</span> <span class="s">delay</span><span class="pi">:</span>
+      <span class="s">seconds</span><span class="pi">:</span> <span class="s">10</span>
+  <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">homeassistant.turn_off</span>
+    <span class="s">entity_id</span><span class="pi">:</span> <span class="s">switch.vision_zm1601eu5_battery_operated_siren_switch_9_0</span>
+</code></pre>
+</div>
+<p>An example to show the use of event_data in the action:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Kitchen</span><span class="nv"> </span><span class="s">Telegram</span><span class="nv"> </span><span class="s">Speak'</span>
+  <span class="s">trigger</span><span class="pi">:</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
+    <span class="s">event_type</span><span class="pi">:</span> <span class="s">telegram_command</span>
+    <span class="s">event_data</span><span class="pi">:</span>
+      <span class="s">command</span><span class="pi">:</span> <span class="s1">'</span><span class="s">/speak'</span>
+  <span class="s">action</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">notify.kitchen_echo</span>
+      <span class="s">data_template</span><span class="pi">:</span>
+        <span class="s">message</span><span class="pi">:</span> <span class="pi">&gt;</span>
+          <span class="no">Message from {{ trigger.event.data["from_first"] }}. {% for state in trigger.event.data["args"] %} {{ state }} {% endfor %}</span>
+</code></pre>
+</div>
+<h3><a class="title-link" name="sample-automations-with-callback-queries-and-inline-keyboards" href="#sample-automations-with-callback-queries-and-inline-keyboards"></a> Sample automations with callback queries and inline keyboards</h3>
+<p>Quick example to show some of the callback capabilities of inline keyboards with a dumb automation consisting in a simple repeater of normal text that presents an inline keyboard with 3 buttons: ‘EDIT’, ‘NO’ and ‘REMOVE BUTTON’:</p>
+<ul>
+  <li>Pressing ‘EDIT’ changes the sent message.</li>
+  <li>Pressing ‘NO’ only shows a brief notification (answering the callback query).</li>
+  <li>Pressing ‘REMOVE BUTTON’ changes the inline keyboard removing that button.</li>
+</ul>
+<p>Text repeater:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Telegram</span><span class="nv"> </span><span class="s">bot</span><span class="nv"> </span><span class="s">that</span><span class="nv"> </span><span class="s">repeats</span><span class="nv"> </span><span class="s">text'</span>
+  <span class="s">hide_entity</span><span class="pi">:</span> <span class="s">true</span>
+  <span class="s">trigger</span><span class="pi">:</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
+    <span class="s">event_type</span><span class="pi">:</span> <span class="s">telegram_text</span>
+  <span class="s">action</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">telegram_bot.send_message</span>
+      <span class="s">data_template</span><span class="pi">:</span>
+        <span class="s">title</span><span class="pi">:</span> <span class="s1">'</span><span class="s">*Dumb</span><span class="nv"> </span><span class="s">automation*'</span>
+        <span class="s">target</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">trigger.event.data.user_id</span><span class="nv"> </span><span class="s">}}'</span>
+        <span class="s">message</span><span class="pi">:</span> <span class="s1">'</span><span class="s">You</span><span class="nv"> </span><span class="s">said:</span><span class="nv"> </span><span class="s">{{</span><span class="nv"> </span><span class="s">trigger.event.data.text</span><span class="nv"> </span><span class="s">}}'</span>
+        <span class="s">disable_notification</span><span class="pi">:</span> <span class="s">true</span>
+        <span class="s">inline_keyboard</span><span class="pi">:</span>
+          <span class="pi">-</span> <span class="s2">"</span><span class="s">Edit</span><span class="nv"> </span><span class="s">message:/edit_msg,</span><span class="nv"> </span><span class="s">Don't:/do_nothing"</span>
+          <span class="pi">-</span> <span class="s2">"</span><span class="s">Remove</span><span class="nv"> </span><span class="s">this</span><span class="nv"> </span><span class="s">button:/remove</span><span class="nv"> </span><span class="s">button"</span>
+</code></pre>
+</div>
+<p>Message editor:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Telegram</span><span class="nv"> </span><span class="s">bot</span><span class="nv"> </span><span class="s">that</span><span class="nv"> </span><span class="s">edits</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">last</span><span class="nv"> </span><span class="s">sent</span><span class="nv"> </span><span class="s">message'</span>
+  <span class="s">hide_entity</span><span class="pi">:</span> <span class="s">true</span>
+  <span class="s">trigger</span><span class="pi">:</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
+    <span class="s">event_type</span><span class="pi">:</span> <span class="s">telegram_callback</span>
+    <span class="s">event_data</span><span class="pi">:</span>
+      <span class="s">data</span><span class="pi">:</span> <span class="s1">'</span><span class="s">/edit_msg'</span>
+  <span class="s">action</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">telegram_bot.answer_callback_query</span>
+      <span class="s">data_template</span><span class="pi">:</span>
+        <span class="s">callback_query_id</span><span class="pi">:</span> <span class="s1">'</span><span class="s">'</span>
+        <span class="s">message</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Editing</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">message!'</span>
+        <span class="s">show_alert</span><span class="pi">:</span> <span class="s">true</span>
+    <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">telegram_bot.edit_message</span>
+      <span class="s">data_template</span><span class="pi">:</span>
+        <span class="s">message_id</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">trigger.event.data.message.message_id</span><span class="nv"> </span><span class="s">}}'</span>
+        <span class="s">chat_id</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">trigger.event.data.chat_id</span><span class="nv"> </span><span class="s">}}'</span>
+        <span class="s">title</span><span class="pi">:</span> <span class="s1">'</span><span class="s">*Message</span><span class="nv"> </span><span class="s">edit*'</span>
+        <span class="s">inline_keyboard</span><span class="pi">:</span>
+          <span class="pi">-</span> <span class="s2">"</span><span class="s">Edit</span><span class="nv"> </span><span class="s">message:/edit_msg,</span><span class="nv"> </span><span class="s">Don't:/do_nothing"</span>
+          <span class="pi">-</span> <span class="s2">"</span><span class="s">Remove</span><span class="nv"> </span><span class="s">this</span><span class="nv"> </span><span class="s">button:/remove</span><span class="nv"> </span><span class="s">button"</span>
+        <span class="s">message</span><span class="pi">:</span> <span class="pi">&gt;</span>
+          <span class="no">Callback received from {% raw %}{{ trigger.event.data.from_first }}.</span>
+          <span class="no">Message id: {{ trigger.event.data.message.message_id }}.</span>
+          <span class="no">Data: {{ trigger.event.data.data }}</span>
+</code></pre>
+</div>
+<p>Keyboard editor:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Telegram</span><span class="nv"> </span><span class="s">bot</span><span class="nv"> </span><span class="s">that</span><span class="nv"> </span><span class="s">edits</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">keyboard'</span>
+  <span class="s">hide_entity</span><span class="pi">:</span> <span class="s">true</span>
+  <span class="s">trigger</span><span class="pi">:</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
+    <span class="s">event_type</span><span class="pi">:</span> <span class="s">telegram_callback</span>
+    <span class="s">event_data</span><span class="pi">:</span>
+      <span class="s">data</span><span class="pi">:</span> <span class="s1">'</span><span class="s">/remove</span><span class="nv"> </span><span class="s">button'</span>
+  <span class="s">action</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">telegram_bot.answer_callback_query</span>
+      <span class="s">data_template</span><span class="pi">:</span>
+        <span class="s">callback_query_id</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">trigger.event.data.id</span><span class="nv"> </span><span class="s">}}'</span>
+        <span class="s">message</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Callback</span><span class="nv"> </span><span class="s">received</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">editing</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">inline</span><span class="nv"> </span><span class="s">keyboard!'</span>
+    <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">telegram_bot.edit_replymarkup</span>
+      <span class="s">data_template</span><span class="pi">:</span>
+        <span class="s">message_id</span><span class="pi">:</span> <span class="s1">'</span><span class="s">last'</span>
+        <span class="s">chat_id</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">trigger.event.data.chat_id</span><span class="nv"> </span><span class="s">}}'</span>
+        <span class="s">inline_keyboard</span><span class="pi">:</span>
+          <span class="pi">-</span> <span class="s2">"</span><span class="s">Edit</span><span class="nv"> </span><span class="s">message:/edit_msg,</span><span class="nv"> </span><span class="s">Don't:/do_nothing"</span>
+</code></pre>
+</div>
+<p>Only acknowledges the ‘NO’ answer:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Telegram</span><span class="nv"> </span><span class="s">bot</span><span class="nv"> </span><span class="s">that</span><span class="nv"> </span><span class="s">simply</span><span class="nv"> </span><span class="s">acknowledges'</span>
+  <span class="s">hide_entity</span><span class="pi">:</span> <span class="s">true</span>
+  <span class="s">trigger</span><span class="pi">:</span>
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
+    <span class="s">event_type</span><span class="pi">:</span> <span class="s">telegram_callback</span>
+    <span class="s">event_data</span><span class="pi">:</span>
+      <span class="s">data</span><span class="pi">:</span> <span class="s1">'</span><span class="s">/do_nothing'</span>
+  <span class="s">action</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">telegram_bot.answer_callback_query</span>
+      <span class="s">data_template</span><span class="pi">:</span>
+        <span class="s">callback_query_id</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">trigger.event.data.id</span><span class="nv"> </span><span class="s">}}'</span>
+        <span class="s">message</span><span class="pi">:</span> <span class="s1">'</span><span class="s">OK,</span><span class="nv"> </span><span class="s">you</span><span class="nv"> </span><span class="s">said</span><span class="nv"> </span><span class="s">no!'</span>
+</code></pre>
+</div>
+<p>For a more complex usage of the <code class="highlighter-rouge">telegram_bot</code> capabilities, using <a href="/docs/ecosystem/appdaemon/tutorial/">AppDaemon</a> is advised.</p>
+<p>This is how the previous 4 automations would be through a simple AppDaemon app:</p>
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">appdaemon.appapi</span> <span class="kn">as</span> <span class="nn">appapi</span>
+
+<span class="k">class</span> <span class="nc">TelegramBotEventListener</span><span class="p">(</span><span class="n">appapi</span><span class="o">.</span><span class="n">AppDaemon</span><span class="p">):</span>
+    <span class="s">"""Event listener for Telegram bot events."""</span>
+
+    <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s">"""Listen to Telegram Bot events of interest."""</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">listen_event</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">receive_telegram_text</span><span class="p">,</span> <span class="s">'telegram_text'</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">listen_event</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">receive_telegram_callback</span><span class="p">,</span> <span class="s">'telegram_callback'</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">receive_telegram_text</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event_id</span><span class="p">,</span> <span class="n">payload_event</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="s">"""Text repeater."""</span>
+        <span class="k">assert</span> <span class="n">event_id</span> <span class="o">==</span> <span class="s">'telegram_text'</span>
+        <span class="n">user_id</span> <span class="o">=</span> <span class="n">payload_event</span><span class="p">[</span><span class="s">'user_id'</span><span class="p">]</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s">'You said: ``` </span><span class="si">%</span><span class="s">s ```'</span> <span class="o">%</span> <span class="n">payload_event</span><span class="p">[</span><span class="s">'text'</span><span class="p">]</span>
+        <span class="n">keyboard</span> <span class="o">=</span> <span class="p">[[(</span><span class="s">"Edit message"</span><span class="p">,</span> <span class="s">"/edit_msg"</span><span class="p">),</span>
+                     <span class="p">(</span><span class="s">"Don't"</span><span class="p">,</span> <span class="s">"/do_nothing"</span><span class="p">)],</span>
+                    <span class="p">[(</span><span class="s">"Remove this button"</span><span class="p">,</span> <span class="s">"/remove button"</span><span class="p">)]]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">call_service</span><span class="p">(</span><span class="s">'telegram_bot/send_message'</span><span class="p">,</span>
+                          <span class="n">title</span><span class="o">=</span><span class="s">'*Dumb automation*'</span><span class="p">,</span>
+                          <span class="n">target</span><span class="o">=</span><span class="n">user_id</span><span class="p">,</span>
+                          <span class="n">message</span><span class="o">=</span><span class="n">msg</span><span class="p">,</span>
+                          <span class="n">disable_notification</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+                          <span class="n">inline_keyboard</span><span class="o">=</span><span class="n">keyboard</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">receive_telegram_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event_id</span><span class="p">,</span> <span class="n">payload_event</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="s">"""Event listener for Telegram callback queries."""</span>
+        <span class="k">assert</span> <span class="n">event_id</span> <span class="o">==</span> <span class="s">'telegram_callback'</span>
+        <span class="n">data_callback</span> <span class="o">=</span> <span class="n">payload_event</span><span class="p">[</span><span class="s">'data'</span><span class="p">]</span>
+        <span class="n">callback_id</span> <span class="o">=</span> <span class="n">payload_event</span><span class="p">[</span><span class="s">'id'</span><span class="p">]</span>
+        <span class="n">chat_id</span> <span class="o">=</span> <span class="n">payload_event</span><span class="p">[</span><span class="s">'chat_id'</span><span class="p">]</span>
+        <span class="c"># keyboard = ["Edit message:/edit_msg, Don't:/do_nothing",</span>
+        <span class="c">#             "Remove this button:/remove button"]</span>
+        <span class="n">keyboard</span> <span class="o">=</span> <span class="p">[[(</span><span class="s">"Edit message"</span><span class="p">,</span> <span class="s">"/edit_msg"</span><span class="p">),</span>
+                     <span class="p">(</span><span class="s">"Don't"</span><span class="p">,</span> <span class="s">"/do_nothing"</span><span class="p">)],</span>
+                    <span class="p">[(</span><span class="s">"Remove this button"</span><span class="p">,</span> <span class="s">"/remove button"</span><span class="p">)]]</span>
+
+        <span class="k">if</span> <span class="n">data_callback</span> <span class="o">==</span> <span class="s">'/edit_msg'</span><span class="p">:</span>  <span class="c"># Message editor:</span>
+            <span class="c"># Answer callback query</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">call_service</span><span class="p">(</span><span class="s">'telegram_bot/answer_callback_query'</span><span class="p">,</span>
+                              <span class="n">message</span><span class="o">=</span><span class="s">'Editing the message!'</span><span class="p">,</span>
+                              <span class="n">callback_query_id</span><span class="o">=</span><span class="n">callback_id</span><span class="p">,</span>
+                              <span class="n">show_alert</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+            <span class="c"># Edit the message origin of the callback query</span>
+            <span class="n">msg_id</span> <span class="o">=</span> <span class="n">payload_event</span><span class="p">[</span><span class="s">'message'</span><span class="p">][</span><span class="s">'message_id'</span><span class="p">]</span>
+            <span class="n">user</span> <span class="o">=</span> <span class="n">payload_event</span><span class="p">[</span><span class="s">'from_first'</span><span class="p">]</span>
+            <span class="n">title</span> <span class="o">=</span> <span class="s">'*Message edit*'</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="s">'Callback received from </span><span class="si">%</span><span class="s">s. Message id: </span><span class="si">%</span><span class="s">s. Data: ``` </span><span class="si">%</span><span class="s">s ```'</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">call_service</span><span class="p">(</span><span class="s">'telegram_bot/edit_message'</span><span class="p">,</span>
+                              <span class="n">chat_id</span><span class="o">=</span><span class="n">chat_id</span><span class="p">,</span>
+                              <span class="n">message_id</span><span class="o">=</span><span class="n">msg_id</span><span class="p">,</span>
+                              <span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">,</span>
+                              <span class="n">message</span><span class="o">=</span><span class="n">msg</span> <span class="o">%</span> <span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="n">msg_id</span><span class="p">,</span> <span class="n">data_callback</span><span class="p">),</span>
+                              <span class="n">inline_keyboard</span><span class="o">=</span><span class="n">keyboard</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">data_callback</span> <span class="o">==</span> <span class="s">'/remove button'</span><span class="p">:</span>  <span class="c"># Keyboard editor:</span>
+            <span class="c"># Answer callback query</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">call_service</span><span class="p">(</span><span class="s">'telegram_bot/answer_callback_query'</span><span class="p">,</span>
+                              <span class="n">message</span><span class="o">=</span><span class="s">'Callback received for editing the '</span>
+                                      <span class="s">'inline keyboard!'</span><span class="p">,</span>
+                              <span class="n">callback_query_id</span><span class="o">=</span><span class="n">callback_id</span><span class="p">)</span>
+
+            <span class="c"># Edit the keyboard</span>
+            <span class="n">new_keyboard</span> <span class="o">=</span> <span class="n">keyboard</span><span class="p">[:</span><span class="mi">1</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">call_service</span><span class="p">(</span><span class="s">'telegram_bot/edit_replymarkup'</span><span class="p">,</span>
+                              <span class="n">chat_id</span><span class="o">=</span><span class="n">chat_id</span><span class="p">,</span>
+                              <span class="n">message_id</span><span class="o">=</span><span class="s">'last'</span><span class="p">,</span>
+                              <span class="n">inline_keyboard</span><span class="o">=</span><span class="n">new_keyboard</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">data_callback</span> <span class="o">==</span> <span class="s">'/do_nothing'</span><span class="p">:</span>  <span class="c"># Only Answer to callback query</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">call_service</span><span class="p">(</span><span class="s">'telegram_bot/answer_callback_query'</span><span class="p">,</span>
+                              <span class="n">message</span><span class="o">=</span><span class="s">'OK, you said no!'</span><span class="p">,</span>
+                              <span class="n">callback_query_id</span><span class="o">=</span><span class="n">callback_id</span><span class="p">)</span>
+</code></pre>
+</div>
+</article>
+        </div>
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/telegram_bot.markdown'>Edit this page on GitHub</a></div>
+  <div class='brand-logo-container section'>
+      <img src='/images/supported_brands/telegram.png' />
+  </div>
+    <div class='section'>
+      IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Cloud Push
+    </div>
+    <div class='section'>
+      Introduced in release: 0.42
+    </div>
+            <h1 class='title delta'>Platforms</h1>
+            <ul class='divided'>
+          <li><a href='/components/telegram_bot.broadcast/'>
+            Telegram broadcast
+          </a></li>
+          <li><a href='/components/telegram_bot.polling/'>
+            Telegram polling
+          </a></li>
+          <li><a href='/components/telegram_bot.webhooks/'>
+            Telegram webhooks
+          </a></li>
+      </ul>
+    <div class='section'>
+    <h1 class="title delta">Category Hub</h1>
+    <ul class='divided'>
+        <li>
+            <a href='/components/ads/'>ADS</a>
+        </li>
+        <li>
+            <a href='/components/apcupsd/'>APCUPSd</a>
+        </li>
+        <li>
+            <a href='/components/abode/'>Abode Home Security</a>
+        </li>
+        <li>
+            <a href='/components/alarmdecoder/'>AlarmDecoder Alarm</a>
+        </li>
+        <li>
+            <a href='/components/amcrest/'>Amcrest IP Camera</a>
+        </li>
+        <li>
+            <a href='/components/android_ip_webcam/'>Android IP Webcam</a>
+        </li>
+        <li>
+            <a href='/components/apple_tv/'>Apple TV</a>
+        </li>
+        <li>
+            <a href='/components/arlo/'>Arlo</a>
+        </li>
+        <li>
+            <a href='/components/august/'>August</a>
+        </li>
+        <li>
+            <a href='/components/axis/'>Axis</a>
+        </li>
+        <li>
+            <a href='/components/bmw_connected_drive/'>BMW connected drive</a>
+        </li>
+        <li>
+            <a href='/components/wemo/'>Belkin WeMo</a>
+        </li>
+        <li>
+            <a href='/components/blink/'>Blink</a>
+        </li>
+        <li>
+            <a href='/components/bloomsky/'>BloomSky</a>
+        </li>
+        <li>
+            <a href='/components/canary/'>Canary</a>
+        </li>
+        <li>
+            <a href='/components/daikin/'>Daikin AC</a>
+        </li>
+        <li>
+            <a href='/components/digital_ocean/'>Digital Ocean</a>
+        </li>
+        <li>
+            <a href='/components/doorbird/'>DoorBird</a>
+        </li>
+        <li>
+            <a href='/components/dyson/'>Dyson</a>
+        </li>
+        <li>
+            <a href='/components/egardia/'>Egardia</a>
+        </li>
+        <li>
+            <a href='/components/eight_sleep/'>Eight Sleep</a>
+        </li>
+        <li>
+            <a href='/components/emulated_hue/'>Emulated Hue Bridge</a>
+        </li>
+        <li>
+            <a href='/components/enocean/'>EnOcean</a>
+        </li>
+        <li>
+            <a href='/components/ffmpeg/'>FFmpeg</a>
+        </li>
+        <li>
+            <a href='/components/hive/'>Hive</a>
+        </li>
+        <li>
+            <a href='/components/homematic/'>Homematic</a>
+        </li>
+        <li>
+            <a href='/components/ihc/'>IHC</a>
+        </li>
+        <li>
+            <a href='/components/tradfri/'>IKEA Trådfri (Tradfri)</a>
+        </li>
+        <li>
+            <a href='/components/isy994/'>ISY994 Controller</a>
+        </li>
+        <li>
+            <a href='/components/insteon_local/'>Insteon (local)</a>
+        </li>
+        <li>
+            <a href='/components/insteon_hub/'>Insteon Hub</a>
+        </li>
+        <li>
+            <a href='/components/insteon_plm/'>Insteon PLM</a>
+        </li>
+        <li>
+            <a href='/components/joaoapps_join/'>Joaoapps Join</a>
+        </li>
+        <li>
+            <a href='/components/juicenet/'>Juicenet</a>
+        </li>
+        <li>
+            <a href='/components/knx/'>KNX</a>
+        </li>
+        <li>
+            <a href='/components/kira/'>Kira</a>
+        </li>
+        <li>
+            <a href='/components/lametric/'>LaMetric</a>
+        </li>
+        <li>
+            <a href='/components/linode/'>Linode</a>
+        </li>
+        <li>
+            <a href='/components/litejet/'>LiteJet</a>
+        </li>
+        <li>
+            <a href='/components/lutron/'>Lutron</a>
+        </li>
+        <li>
+            <a href='/components/lutron_caseta/'>Lutron Caseta</a>
+        </li>
+        <li>
+            <a href='/components/mqtt/'>MQTT</a>
+        </li>
+        <li>
+            <a href='/components/melissa/'>Melissa Climate</a>
+        </li>
+        <li>
+            <a href='/components/raincloud/'>Melnor Raincloud</a>
+        </li>
+        <li>
+            <a href='/components/mercedesme/'>Mercedes me</a>
+        </li>
+        <li>
+            <a href='/components/microsoft_face/'>Microsoft Face</a>
+        </li>
+        <li>
+            <a href='/components/mochad/'>Mochad</a>
+        </li>
+        <li>
+            <a href='/components/modbus/'>Modbus</a>
+        </li>
+        <li>
+            <a href='/components/mychevy/'>MyChevy</a>
+        </li>
+        <li>
+            <a href='/components/mysensors/'>MySensors</a>
+        </li>
+        <li>
+            <a href='/components/neato/'>Neato Robotics</a>
+        </li>
+        <li>
+            <a href='/components/nest/'>Nest</a>
+        </li>
+        <li>
+            <a href='/components/netatmo/'>Netatmo</a>
+        </li>
+        <li>
+            <a href='/components/nuheat/'>NuHeat</a>
+        </li>
+        <li>
+            <a href='/components/nuimo_controller/'>Nuimo controller</a>
+        </li>
+        <li>
+            <a href='/components/octoprint/'>OctoPrint</a>
+        </li>
+        <li>
+            <a href='/components/hue/'>Philips Hue</a>
+        </li>
+        <li>
+            <a href='/components/pilight/'>Pilight</a>
+        </li>
+        <li>
+            <a href='/components/qwikswitch/'>QwikSwitch QSUSB Hub</a>
+        </li>
+        <li>
+            <a href='/components/rflink/'>RFLink</a>
+        </li>
+        <li>
+            <a href='/components/rfxtrx/'>RFXtrx</a>
+        </li>
+        <li>
+            <a href='/components/rainbird/'>Rain Bird</a>
+        </li>
+        <li>
+            <a href='/components/sensor.rainbird/'>Rain Bird Sensor</a>
+        </li>
+        <li>
+            <a href='/components/switch.rainbird/'>Rain Bird Switch</a>
+        </li>
+        <li>
+            <a href='/components/ring/'>Ring</a>
+        </li>
+        <li>
+            <a href='/components/scsgate/'>SCSGate</a>
+        </li>
+        <li>
+            <a href='/components/spc/'>SPC</a>
+        </li>
+        <li>
+            <a href='/components/satel_integra/'>Satel Integra Alarm</a>
+        </li>
+        <li>
+            <a href='/components/skybell/'>Skybell</a>
+        </li>
+        <li>
+            <a href='/components/sleepiq/'>SleepIQ</a>
+        </li>
+        <li>
+            <a href='/components/smappee/'>Smappee</a>
+        </li>
+        <li>
+            <a href='/components/tado/'>Tado</a>
+        </li>
+        <li>
+            <a href='/components/tahoma/'>Tahoma</a>
+        </li>
+        <li>
+            Telegram chatbot
+        </li>
+        <li>
+            <a href='/components/tellstick/'>TellStick</a>
+        </li>
+        <li>
+            <a href='/components/tellduslive/'>Telldus Live</a>
+        </li>
+        <li>
+            <a href='/components/tesla/'>Tesla</a>
+        </li>
+        <li>
+            <a href='/components/thethingsnetwork/'>The Things Network</a>
+        </li>
+        <li>
+            <a href='/components/toon/'>Toon</a>
+        </li>
+        <li>
+            <a href='/components/twilio/'>Twilio</a>
+        </li>
+        <li>
+            <a href='/components/usps/'>USPS</a>
+        </li>
+        <li>
+            <a href='/components/upcloud/'>UpCloud</a>
+        </li>
+        <li>
+            <a href='/components/velbus/'>Velbus</a>
+        </li>
+        <li>
+            <a href='/components/velux/'>Velux</a>
+        </li>
+        <li>
+            <a href='/components/vera/'>Vera</a>
+        </li>
+        <li>
+            <a href='/components/verisure/'>Verisure</a>
+        </li>
+        <li>
+            <a href='/components/volvooncall/'>Volvo On Call</a>
+        </li>
+        <li>
+            <a href='/components/vultr/'>Vultr</a>
+        </li>
+        <li>
+            <a href='/components/waterfurnace/'>WaterFurnace</a>
+        </li>
+        <li>
+            <a href='/components/wink/'>Wink</a>
+        </li>
+        <li>
+            <a href='/components/xiaomi_aqara/'>Xiaomi Gateway (Aqara)</a>
+        </li>
+        <li>
+            <a href='/components/zwave/'>Z-Wave</a>
+        </li>
+        <li>
+            <a href='/components/comfoconnect/'>Zehnder ComfoAir Q Ventilation</a>
+        </li>
+        <li>
+            <a href='/components/zha/'>Zigbee Home Automation</a>
+        </li>
+        <li>
+            <a href='/components/zoneminder/'>ZoneMinder</a>
+        </li>
+        <li>
+            <a href='/components/deconz/'>deCONZ</a>
+        </li>
+        <li>
+            <a href='/components/ecobee/'>ecobee</a>
+        </li>
+        <li>
+            <a href='/components/gc100/'>gc100</a>
+        </li>
+    </ul>
+    </div>
+</section>
+</div>
+        </aside>
+      </div>
+    </div>
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a> (no support!).<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+  <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">home-assistant.io</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
+<script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
+<script type="text/javascript">
+docsearch({
+  apiKey: 'ae96d94b201c5444c8a443093edf3efb',
+  indexName: 'home-assistant',
+  inputSelector: '#search',
+  debug: false // Set debug to true if you want to inspect the dropdown
+});
+document.querySelector('.search .close').addEventListener('click', function(ev) {
+  ev.preventDefault();
+  document.querySelector('.search-container').style.display = 'none';
+});
+document.querySelector('.show-search').addEventListener('click', function(ev) {
+  ev.preventDefault();
+  document.querySelector('.search-container').style.display = 'block';
+  document.getElementById('toggle').checked = false;
+  document.querySelector('.search-container input').focus();
+});
+</script>
+  </body>
+</html>

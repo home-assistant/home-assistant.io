@@ -1,0 +1,620 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>deCONZ - Home Assistant</title>
+    <meta name="author" content="Home Assistant">
+    <meta name="description" content="Instructions on how to setup Conbee/Raspbee devices with deCONZ from Dresden Elektronik within Home Assistant.">
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/components/deconz/">
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="deCONZ">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/components/deconz/">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="Instructions on how to setup Conbee/Raspbee devices with deCONZ from Dresden Elektronik within Home Assistant.">
+    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    <meta name="twitter:title" content="deCONZ">
+    <meta name="twitter:description" content="Instructions on how to setup Conbee/Raspbee devices with deCONZ from Dresden Elektronik within Home Assistant.">
+    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
+    <link href="/stylesheets/screen.css" media="screen, projection, print" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+  <body >
+    <header class='site-header'>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/docs/">Docs</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+  <li><a href='#' class='show-search'><i class="icon-search"></i></a></li>
+</ul>
+  </nav>
+  <div class='search-container' style='display: none'>
+    <div class='search'>
+      <i class="icon-search"></i>
+      <input id='search' placeholder='Search the docs…'>
+      <a href='#' class='close'><i class="icon-remove-sign"></i></a>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+    </header>
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+          <article class="page">
+  <header>
+    <h1 class="title indent">
+      deCONZ
+    </h1>
+  </header>
+  <hr class="divider">
+  <p><a href="https://www.dresden-elektronik.de/funktechnik/products/software/pc/deconz/">deCONZ</a> by <a href="https://www.dresden-elektronik.de">Dresden Elektronik</a> is a software that communicates with Conbee/Raspbee Zigbee gateways and exposes Zigbee devices that are connected to the gateway.</p>
+<p><a href="http://dresden-elektronik.github.io/deconz-rest-doc/">deCONZ REST API</a>.</p>
+<p>Home Assistant will automatically discover deCONZ presence on your network, if <code class="highlighter-rouge">discovery:</code> is present in your <code class="highlighter-rouge">configuration.yaml</code> file.</p>
+<p>If you don’t have the API key, you can generate an API key for deCONZ by using the one-click functionality similar to Philips Hue. Go to Menu-&gt;Settings-&gt;Unlock Gateway in deCONZ and then use the deCONZ configurator in Home Assistant GUI to create an API key. When you’ve generated the API key from Home Assistant, the API key will be stored in deconz.conf inside the home-assistant folder.</p>
+<p>You can add the following to your configuration.yaml file if you are not using the <code class="highlighter-rouge">discovery:</code> component:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">deconz</span><span class="pi">:</span>
+  <span class="s">host</span><span class="pi">:</span> <span class="s">IP ADDRESS</span>
+</code></pre>
+</div>
+<h4><a class="title-link" name="supported-device-types" href="#supported-device-types"></a> Supported Device types</h4>
+<ul>
+  <li><a href="/components/light.deconz/">Zigbee Lights</a></li>
+  <li><a href="/components/sensor.deconz/">Humidity Sensors</a></li>
+  <li><a href="/components/sensor.deconz/">Light Level Sensors</a></li>
+  <li><a href="/components/binary_sensor.deconz/">OpenClose Detectors</a></li>
+  <li><a href="/components/binary_sensor.deconz/">Presence Detectors</a></li>
+  <li><a href="/components/sensor.deconz/">Pressure Sensors</a></li>
+  <li><a href="/components/sensor.deconz/">Switches (Remote Controls)</a></li>
+  <li><a href="/components/sensor.deconz/">Temperature Sensors</a></li>
+</ul>
+<div class="config-vars">
+  <h3><a class="title-link" name="configuration-variables" href="#configuration-variables"></a> Configuration Variables</h3>
+  <dl class="">
+    <dt><a class="title-link" name="host" href="#host"></a> host</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="string">string</span>)</span><span class="required">(Optional)</span><span class="description">The IP address of your deCONZ web server.</span></p>
+    </dd>
+    <dt><a class="title-link" name="api_key" href="#api_key"></a> api_key</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="string">string</span>)</span><span class="required">(Optional)</span><span class="description">The API key to access your deCONZ web server.</span></p>
+    </dd>
+    <dt><a class="title-link" name="port" href="#port"></a> port</dt>
+    <dd>
+      <p class="desc"><span class="type">(<span class="int">int</span>)</span><span class="required">(Optional)</span><span class="description">Configure port deCONZ web server is accessible from.</span></p>
+      <p class="default">Default value: 80</p>
+    </dd>
+  </dl>
+</div>
+<p>A full configuration could look like this:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">deconz</span><span class="pi">:</span>
+  <span class="s">host</span><span class="pi">:</span> <span class="s">127.0.0.1</span>
+  <span class="s">api_key</span><span class="pi">:</span> <span class="s">0123456789</span>
+  <span class="s">port</span><span class="pi">:</span> <span class="s">80</span>
+</code></pre>
+</div>
+<h2><a class="title-link" name="device-services" href="#device-services"></a> Device services</h2>
+<p>Available services: <code class="highlighter-rouge">configure</code>.</p>
+<h4><a class="title-link" name="service-deconzconfigure" href="#service-deconzconfigure"></a> Service <code class="highlighter-rouge">deconz/configure</code></h4>
+<p>Set attribute of device in Deconz using <a href="http://dresden-elektronik.github.io/deconz-rest-doc/rest/">Rest API</a>.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Service data attribute</th>
+      <th>Optional</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">field</code></td>
+      <td>No</td>
+      <td>String representing a specific device in deCONZ.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">entity</code></td>
+      <td>No</td>
+      <td>String representing a specific HASS entity of a device in deCONZ.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">data</code></td>
+      <td>No</td>
+      <td>Data is a JSON object with what data you want to alter.</td>
+    </tr>
+  </tbody>
+</table>
+<p>Field and entity are exclusive, i.e you can only use one in a request.</p>
+<p>{ “field”: “/lights/1”, “data”: {“name”: “light2”} }</p>
+<p>{ “entity”: “light.light1”, “data”: {“name”: “light2”} }</p>
+<p>{ “field”: “/config”, “data”: {“permitjoin”: 60} }</p>
+<h2><a class="title-link" name="remote-control-devices" href="#remote-control-devices"></a> Remote control devices</h2>
+<p>Remote controls (ZHASwitch category) will be not be exposed as a regular entity, but as events named ‘deconz_event’ with a payload of ‘id’ and ‘event’. Id will be the device name from deCONZ and Event will be the momentary state of the switch. However, a sensor entity will be created that shows the battery level of the switch as reported by deCONZ, named sensor.device_name_battery_level.</p>
+<p>Typical values for switches, the event codes are 4 numbers where the first and last number are of interest here.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Switch code</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1XXX</td>
+      <td>Button #1 up to #8</td>
+    </tr>
+    <tr>
+      <td>XXX1</td>
+      <td>Button hold</td>
+    </tr>
+    <tr>
+      <td>XXX2</td>
+      <td>Button short release</td>
+    </tr>
+    <tr>
+      <td>XXX3</td>
+      <td>Button long release</td>
+    </tr>
+  </tbody>
+</table>
+<p>Where for example on a Philips Hue Dimmer, 2001 would be holding the dim up button.</p>
+<p>For the IKEA Tradfri remote, 1 is the middle button, 2 is up, 3 is down, 4 is left, and 5 is right.</p>
+<h2><a class="title-link" name="examples" href="#examples"></a> Examples</h2>
+<h3><a class="title-link" name="step-up-and-step-down-input-number-with-wireless-dimmer" href="#step-up-and-step-down-input-number-with-wireless-dimmer"></a> Step up and step down input number with wireless dimmer</h3>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Toggle</span><span class="nv"> </span><span class="s">lamp</span><span class="nv"> </span><span class="s">from</span><span class="nv"> </span><span class="s">dimmer'</span>
+    <span class="s">initial_state</span><span class="pi">:</span> <span class="s1">'</span><span class="s">on'</span>
+    <span class="s">trigger</span><span class="pi">:</span>
+      <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
+      <span class="s">event_type</span><span class="pi">:</span> <span class="s">deconz_event</span>
+      <span class="s">event_data</span><span class="pi">:</span>
+        <span class="s">id</span><span class="pi">:</span> <span class="s">remote_control_1</span>
+        <span class="s">event</span><span class="pi">:</span> <span class="s">1002</span>
+    <span class="s">action</span><span class="pi">:</span>
+      <span class="s">service</span><span class="pi">:</span> <span class="s">light.toggle</span>
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">light.lamp</span>
+
+  <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Increase</span><span class="nv"> </span><span class="s">brightness</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">lamp</span><span class="nv"> </span><span class="s">from</span><span class="nv"> </span><span class="s">dimmer'</span>
+    <span class="s">initial_state</span><span class="pi">:</span> <span class="s1">'</span><span class="s">on'</span>
+    <span class="s">trigger</span><span class="pi">:</span>
+      <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
+      <span class="s">event_type</span><span class="pi">:</span> <span class="s">deconz_event</span>
+      <span class="s">event_data</span><span class="pi">:</span>
+        <span class="s">id</span><span class="pi">:</span> <span class="s">remote_control_1</span>
+        <span class="s">event</span><span class="pi">:</span> <span class="s">2002</span>
+    <span class="s">action</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">light.turn_on</span>
+        <span class="s">data_template</span><span class="pi">:</span>
+          <span class="s">entity_id</span><span class="pi">:</span> <span class="s">light.lamp</span>
+          <span class="s">brightness</span><span class="pi">:</span> <span class="pi">&gt;</span>
+            <span class="no">{% set bri = states.light.lamp.attributes.brightness | int %}</span>
+            <span class="no">{{ [bri+30, 249] | min }}</span>
+
+  <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Decrease</span><span class="nv"> </span><span class="s">brightness</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">lamp</span><span class="nv"> </span><span class="s">from</span><span class="nv"> </span><span class="s">dimmer'</span>
+    <span class="s">initial_state</span><span class="pi">:</span> <span class="s1">'</span><span class="s">on'</span>
+    <span class="s">trigger</span><span class="pi">:</span>
+      <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
+      <span class="s">event_type</span><span class="pi">:</span> <span class="s">deconz_event</span>
+      <span class="s">event_data</span><span class="pi">:</span>
+        <span class="s">id</span><span class="pi">:</span> <span class="s">remote_control_1</span>
+        <span class="s">event</span><span class="pi">:</span> <span class="s">3002</span>
+    <span class="s">action</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">light.turn_on</span>
+        <span class="s">data_template</span><span class="pi">:</span>
+          <span class="s">entity_id</span><span class="pi">:</span> <span class="s">light.lamp</span>
+          <span class="s">brightness</span><span class="pi">:</span> <span class="pi">&gt;</span>
+            <span class="no">{% set bri = states.light.lamp.attributes.brightness | int %}</span>
+            <span class="no">{{ [bri-30, 0] | max }}</span>
+</code></pre>
+</div>
+</article>
+        </div>
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/deconz.markdown'>Edit this page on GitHub</a></div>
+  <div class='brand-logo-container section'>
+      <img src='/images/supported_brands/deconz.jpeg' />
+  </div>
+    <div class='section'>
+      IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Local Push
+    </div>
+    <div class='section'>
+      Introduced in release: 0.61
+    </div>
+          <div class='section'>
+          <h1 class='title delta'>Related components</h1>
+          <ul class='divided'>
+        <li><a href='/components/binary_sensor.deconz/'>
+          deCONZ Binary Sensor
+        </a></li>
+        <li><a href='/components/sensor.deconz/'>
+          deCONZ Sensor
+        </a></li>
+        <li><a href='/components/light.deconz/'>
+          deCONZ lights
+        </a></li>
+        <li><a href='/components/scene.deconz/'>
+          deCONZ scenes
+        </a></li>
+    </ul>
+    </div>
+    <div class='section'>
+    <h1 class="title delta">Category Hub</h1>
+    <ul class='divided'>
+        <li>
+            <a href='/components/ads/'>ADS</a>
+        </li>
+        <li>
+            <a href='/components/apcupsd/'>APCUPSd</a>
+        </li>
+        <li>
+            <a href='/components/abode/'>Abode Home Security</a>
+        </li>
+        <li>
+            <a href='/components/alarmdecoder/'>AlarmDecoder Alarm</a>
+        </li>
+        <li>
+            <a href='/components/amcrest/'>Amcrest IP Camera</a>
+        </li>
+        <li>
+            <a href='/components/android_ip_webcam/'>Android IP Webcam</a>
+        </li>
+        <li>
+            <a href='/components/apple_tv/'>Apple TV</a>
+        </li>
+        <li>
+            <a href='/components/arlo/'>Arlo</a>
+        </li>
+        <li>
+            <a href='/components/august/'>August</a>
+        </li>
+        <li>
+            <a href='/components/axis/'>Axis</a>
+        </li>
+        <li>
+            <a href='/components/bmw_connected_drive/'>BMW connected drive</a>
+        </li>
+        <li>
+            <a href='/components/wemo/'>Belkin WeMo</a>
+        </li>
+        <li>
+            <a href='/components/blink/'>Blink</a>
+        </li>
+        <li>
+            <a href='/components/bloomsky/'>BloomSky</a>
+        </li>
+        <li>
+            <a href='/components/canary/'>Canary</a>
+        </li>
+        <li>
+            <a href='/components/daikin/'>Daikin AC</a>
+        </li>
+        <li>
+            <a href='/components/digital_ocean/'>Digital Ocean</a>
+        </li>
+        <li>
+            <a href='/components/doorbird/'>DoorBird</a>
+        </li>
+        <li>
+            <a href='/components/dyson/'>Dyson</a>
+        </li>
+        <li>
+            <a href='/components/egardia/'>Egardia</a>
+        </li>
+        <li>
+            <a href='/components/eight_sleep/'>Eight Sleep</a>
+        </li>
+        <li>
+            <a href='/components/emulated_hue/'>Emulated Hue Bridge</a>
+        </li>
+        <li>
+            <a href='/components/enocean/'>EnOcean</a>
+        </li>
+        <li>
+            <a href='/components/ffmpeg/'>FFmpeg</a>
+        </li>
+        <li>
+            <a href='/components/hive/'>Hive</a>
+        </li>
+        <li>
+            <a href='/components/homematic/'>Homematic</a>
+        </li>
+        <li>
+            <a href='/components/ihc/'>IHC</a>
+        </li>
+        <li>
+            <a href='/components/tradfri/'>IKEA Trådfri (Tradfri)</a>
+        </li>
+        <li>
+            <a href='/components/isy994/'>ISY994 Controller</a>
+        </li>
+        <li>
+            <a href='/components/insteon_local/'>Insteon (local)</a>
+        </li>
+        <li>
+            <a href='/components/insteon_hub/'>Insteon Hub</a>
+        </li>
+        <li>
+            <a href='/components/insteon_plm/'>Insteon PLM</a>
+        </li>
+        <li>
+            <a href='/components/joaoapps_join/'>Joaoapps Join</a>
+        </li>
+        <li>
+            <a href='/components/juicenet/'>Juicenet</a>
+        </li>
+        <li>
+            <a href='/components/knx/'>KNX</a>
+        </li>
+        <li>
+            <a href='/components/kira/'>Kira</a>
+        </li>
+        <li>
+            <a href='/components/lametric/'>LaMetric</a>
+        </li>
+        <li>
+            <a href='/components/linode/'>Linode</a>
+        </li>
+        <li>
+            <a href='/components/litejet/'>LiteJet</a>
+        </li>
+        <li>
+            <a href='/components/lutron/'>Lutron</a>
+        </li>
+        <li>
+            <a href='/components/lutron_caseta/'>Lutron Caseta</a>
+        </li>
+        <li>
+            <a href='/components/mqtt/'>MQTT</a>
+        </li>
+        <li>
+            <a href='/components/melissa/'>Melissa Climate</a>
+        </li>
+        <li>
+            <a href='/components/raincloud/'>Melnor Raincloud</a>
+        </li>
+        <li>
+            <a href='/components/mercedesme/'>Mercedes me</a>
+        </li>
+        <li>
+            <a href='/components/microsoft_face/'>Microsoft Face</a>
+        </li>
+        <li>
+            <a href='/components/mochad/'>Mochad</a>
+        </li>
+        <li>
+            <a href='/components/modbus/'>Modbus</a>
+        </li>
+        <li>
+            <a href='/components/mychevy/'>MyChevy</a>
+        </li>
+        <li>
+            <a href='/components/mysensors/'>MySensors</a>
+        </li>
+        <li>
+            <a href='/components/neato/'>Neato Robotics</a>
+        </li>
+        <li>
+            <a href='/components/nest/'>Nest</a>
+        </li>
+        <li>
+            <a href='/components/netatmo/'>Netatmo</a>
+        </li>
+        <li>
+            <a href='/components/nuheat/'>NuHeat</a>
+        </li>
+        <li>
+            <a href='/components/nuimo_controller/'>Nuimo controller</a>
+        </li>
+        <li>
+            <a href='/components/octoprint/'>OctoPrint</a>
+        </li>
+        <li>
+            <a href='/components/hue/'>Philips Hue</a>
+        </li>
+        <li>
+            <a href='/components/pilight/'>Pilight</a>
+        </li>
+        <li>
+            <a href='/components/qwikswitch/'>QwikSwitch QSUSB Hub</a>
+        </li>
+        <li>
+            <a href='/components/rflink/'>RFLink</a>
+        </li>
+        <li>
+            <a href='/components/rfxtrx/'>RFXtrx</a>
+        </li>
+        <li>
+            <a href='/components/rainbird/'>Rain Bird</a>
+        </li>
+        <li>
+            <a href='/components/sensor.rainbird/'>Rain Bird Sensor</a>
+        </li>
+        <li>
+            <a href='/components/switch.rainbird/'>Rain Bird Switch</a>
+        </li>
+        <li>
+            <a href='/components/ring/'>Ring</a>
+        </li>
+        <li>
+            <a href='/components/scsgate/'>SCSGate</a>
+        </li>
+        <li>
+            <a href='/components/spc/'>SPC</a>
+        </li>
+        <li>
+            <a href='/components/satel_integra/'>Satel Integra Alarm</a>
+        </li>
+        <li>
+            <a href='/components/skybell/'>Skybell</a>
+        </li>
+        <li>
+            <a href='/components/sleepiq/'>SleepIQ</a>
+        </li>
+        <li>
+            <a href='/components/smappee/'>Smappee</a>
+        </li>
+        <li>
+            <a href='/components/tado/'>Tado</a>
+        </li>
+        <li>
+            <a href='/components/tahoma/'>Tahoma</a>
+        </li>
+        <li>
+            <a href='/components/telegram_bot/'>Telegram chatbot</a>
+        </li>
+        <li>
+            <a href='/components/tellstick/'>TellStick</a>
+        </li>
+        <li>
+            <a href='/components/tellduslive/'>Telldus Live</a>
+        </li>
+        <li>
+            <a href='/components/tesla/'>Tesla</a>
+        </li>
+        <li>
+            <a href='/components/thethingsnetwork/'>The Things Network</a>
+        </li>
+        <li>
+            <a href='/components/toon/'>Toon</a>
+        </li>
+        <li>
+            <a href='/components/twilio/'>Twilio</a>
+        </li>
+        <li>
+            <a href='/components/usps/'>USPS</a>
+        </li>
+        <li>
+            <a href='/components/upcloud/'>UpCloud</a>
+        </li>
+        <li>
+            <a href='/components/velbus/'>Velbus</a>
+        </li>
+        <li>
+            <a href='/components/velux/'>Velux</a>
+        </li>
+        <li>
+            <a href='/components/vera/'>Vera</a>
+        </li>
+        <li>
+            <a href='/components/verisure/'>Verisure</a>
+        </li>
+        <li>
+            <a href='/components/volvooncall/'>Volvo On Call</a>
+        </li>
+        <li>
+            <a href='/components/vultr/'>Vultr</a>
+        </li>
+        <li>
+            <a href='/components/waterfurnace/'>WaterFurnace</a>
+        </li>
+        <li>
+            <a href='/components/wink/'>Wink</a>
+        </li>
+        <li>
+            <a href='/components/xiaomi_aqara/'>Xiaomi Gateway (Aqara)</a>
+        </li>
+        <li>
+            <a href='/components/zwave/'>Z-Wave</a>
+        </li>
+        <li>
+            <a href='/components/comfoconnect/'>Zehnder ComfoAir Q Ventilation</a>
+        </li>
+        <li>
+            <a href='/components/zha/'>Zigbee Home Automation</a>
+        </li>
+        <li>
+            <a href='/components/zoneminder/'>ZoneMinder</a>
+        </li>
+        <li>
+            deCONZ
+        </li>
+        <li>
+            <a href='/components/ecobee/'>ecobee</a>
+        </li>
+        <li>
+            <a href='/components/gc100/'>gc100</a>
+        </li>
+    </ul>
+    </div>
+</section>
+</div>
+        </aside>
+      </div>
+    </div>
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a> (no support!).<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+  <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">home-assistant.io</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
+<script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
+<script type="text/javascript">
+docsearch({
+  apiKey: 'ae96d94b201c5444c8a443093edf3efb',
+  indexName: 'home-assistant',
+  inputSelector: '#search',
+  debug: false // Set debug to true if you want to inspect the dropdown
+});
+document.querySelector('.search .close').addEventListener('click', function(ev) {
+  ev.preventDefault();
+  document.querySelector('.search-container').style.display = 'none';
+});
+document.querySelector('.show-search').addEventListener('click', function(ev) {
+  ev.preventDefault();
+  document.querySelector('.search-container').style.display = 'block';
+  document.getElementById('toggle').checked = false;
+  document.querySelector('.search-container input').focus();
+});
+</script>
+  </body>
+</html>

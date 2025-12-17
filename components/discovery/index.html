@@ -1,0 +1,297 @@
+<!doctype html>
+  <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+  <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+  <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Discovery - Home Assistant</title>
+    <meta name="author" content="Home Assistant">
+    <meta name="description" content="Instructions how to setup Home Assistant to discover new devices.">
+    <meta name="viewport" content="width=device-width">
+    <link rel="canonical" href="https://home-assistant.io/components/discovery/">
+    <meta property="fb:app_id" content="338291289691179">
+    <meta property="og:title" content="Discovery">
+    <meta property="og:site_name" content="Home Assistant">
+    <meta property="og:url" content="https://home-assistant.io/components/discovery/">
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="Instructions how to setup Home Assistant to discover new devices.">
+    <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@home_assistant">
+    <meta name="twitter:title" content="Discovery">
+    <meta name="twitter:description" content="Instructions how to setup Home Assistant to discover new devices.">
+    <meta name="twitter:image" content="https://home-assistant.io/images/default-social.png">
+    <link href="/stylesheets/screen.css" media="screen, projection, print" rel="stylesheet">
+    <link href="/atom.xml" rel="alternate" title="Home Assistant" type="application/atom+xml">
+    <link rel='shortcut icon' href='/images/favicon.ico' />
+    <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+  </head>
+  <body >
+    <header class='site-header'>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
+  <a href="/" class="site-title">
+    <img width='40' src='/demo/favicon-192x192.png'>
+    <span>Home Assistant</span>
+  </a>
+</div>
+<div class="grid__item seven-tenths lap-four-sixths palm-one-whole">
+  <nav>
+    <input type="checkbox" id="toggle">
+<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu"></label>
+<ul class="menu pull-right">
+  <li><a href="/getting-started/">Getting started</a></li>
+  <li><a href="/components/">Components</a></li>
+  <li><a href="/docs/">Docs</a></li>
+  <li><a href="/cookbook/">Examples</a></li>
+  <li><a href="/developers/">Developers</a></li>
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/help/">Need help?</a></li>
+  <li><a href='#' class='show-search'><i class="icon-search"></i></a></li>
+</ul>
+  </nav>
+  <div class='search-container' style='display: none'>
+    <div class='search'>
+      <i class="icon-search"></i>
+      <input id='search' placeholder='Search the docs…'>
+      <a href='#' class='close'><i class="icon-remove-sign"></i></a>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+    </header>
+    <div class="grid-wrapper">
+      <div class="grid grid-center">
+        <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+          <article class="page">
+  <header>
+    <h1 class="title indent">
+      Discovery
+    </h1>
+  </header>
+  <hr class="divider">
+  <p>Home Assistant can discover and automatically configure <a href="https://en.wikipedia.org/wiki/Zero-configuration_networking">zeroconf</a>/<a href="https://en.wikipedia.org/wiki/Multicast_DNS">mDNS</a> and <a href="https://en.wikipedia.org/wiki/Universal_Plug_and_Play">uPnP</a> devices on your network. Currently the <code class="highlighter-rouge">discovery</code> component can detect:</p>
+<ul>
+  <li><a href="https://home-assistant.io/components/apple_tv/">Apple TV</a></li>
+  <li><a href="https://home-assistant.io/components/axis/">Axis Communications security devices</a></li>
+  <li><a href="https://home-assistant.io/components/wemo/">Belkin WeMo switches</a></li>
+  <li><a href="https://home-assistant.io/components/media_player.bluesound/">Bluesound speakers</a></li>
+  <li><a href="https://home-assistant.io/components/media_player.soundtouch/">Bose Soundtouch speakers</a></li>
+  <li><a href="https://home-assistant.io/components/media_player.denonavr/">Denon network receivers</a></li>
+  <li><a href="https://home-assistant.io/components/media_player.directv/">DirecTV receivers</a></li>
+  <li><a href="https://home-assistant.io/components/media_player.frontier_silicon/">Frontier Silicon internet radios</a></li>
+  <li><a href="https://home-assistant.io/components/media_player.cast/">Google Cast</a></li>
+  <li><a href="https://home-assistant.io/components/tradfri/">IKEA Trådfri (Tradfri)</a></li>
+  <li><a href="https://home-assistant.io/components/media_player.openhome/">Linn / Openhome</a></li>
+  <li><a href="https://home-assistant.io/components/remote.harmony/">Logitech Harmony Hub</a></li>
+  <li><a href="https://home-assistant.io/components/media_player.squeezebox/">Logitech media server (Squeezebox)</a></li>
+  <li><a href="https://home-assistant.io/components/device_tracker.netgear/">Netgear routers</a></li>
+  <li><a href="https://home-assistant.io/components/media_player.panasonic_viera/">Panasonic Viera</a></li>
+  <li><a href="https://home-assistant.io/components/light.hue/">Philips Hue</a></li>
+  <li><a href="https://home-assistant.io/components/media_player.plex/">Plex media server</a></li>
+  <li><a href="https://home-assistant.io/components/media_player.roku/">Roku media player</a></li>
+  <li><a href="https://home-assistant.io/components/sensor.sabnzbd/">SABnzbd downloader</a></li>
+  <li><a href="https://home-assistant.io/components/media_player.samsungtv/">Samsung TVs</a></li>
+  <li><a href="https://home-assistant.io/components/media_player.sonos/">Sonos speakers</a></li>
+  <li><a href="https://home-assistant.io/components/tellduslive/">Telldus Live</a></li>
+  <li><a href="https://home-assistant.io/components/wink/">Wink</a></li>
+  <li><a href="https://home-assistant.io/components/media_player.yamaha/">Yamaha media player</a></li>
+  <li><a href="https://home-assistant.io/components/light.yeelightsunflower/">Yeelight Sunflower bulb</a></li>
+</ul>
+<p>It will be able to add Google Chromecasts and Belkin WeMo switches automatically, for Philips Hue it will require some configuration from the user.</p>
+<p>To load this component, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">discovery</span><span class="pi">:</span>
+  <span class="s">ignore</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">sonos</span>
+    <span class="pi">-</span> <span class="s">samsung_tv</span>
+</code></pre>
+</div>
+<p>Configuration variables:</p>
+<ul>
+  <li><strong>ignore</strong> (<em>Optional</em>): A list of platforms that never will be automatically configured by <code class="highlighter-rouge">discovery</code>.</li>
+</ul>
+<p>Valid values for ignore are:</p>
+<ul>
+  <li><code class="highlighter-rouge">apple_tv</code>: Apple TV</li>
+  <li><code class="highlighter-rouge">axis</code>: Axis Communications security devices</li>
+  <li><code class="highlighter-rouge">belkin_wemo</code>: Belkin WeMo switches</li>
+  <li><code class="highlighter-rouge">bluesound</code>: Bluesound speakers</li>
+  <li><code class="highlighter-rouge">bose_soundtouch</code>: Bose Soundtouch speakers</li>
+  <li><code class="highlighter-rouge">denonavr</code>: Denon network receivers</li>
+  <li><code class="highlighter-rouge">directv</code>: DirecTV receivers</li>
+  <li><code class="highlighter-rouge">frontier_silicon</code>: Frontier Silicon internet radios</li>
+  <li><code class="highlighter-rouge">google_cast</code>: Google Cast</li>
+  <li><code class="highlighter-rouge">harmony</code>: Logitech Harmony Hub</li>
+  <li><code class="highlighter-rouge">ikea_tradfri</code>: IKEA Trådfri (Tradfri)</li>
+  <li><code class="highlighter-rouge">logitech_mediaserver</code>: Logitech media server (Squeezebox)</li>
+  <li><code class="highlighter-rouge">netgear_router</code>: Netgear routers</li>
+  <li><code class="highlighter-rouge">openhome</code>: Linn / Openhome</li>
+  <li><code class="highlighter-rouge">panasonic_viera</code>: Panasonic Viera</li>
+  <li><code class="highlighter-rouge">philips_hue</code>: Philips Hue</li>
+  <li><code class="highlighter-rouge">plex_mediaserver</code>: Plex media server</li>
+  <li><code class="highlighter-rouge">roku</code>: Roku media player</li>
+  <li><code class="highlighter-rouge">sabnzbd</code>: SABnzbd downloader</li>
+  <li><code class="highlighter-rouge">samsung_tv</code>: Samsung TVs</li>
+  <li><code class="highlighter-rouge">sonos</code>: Sonos speakers</li>
+  <li><code class="highlighter-rouge">tellduslive</code>: Telldus Live</li>
+  <li><code class="highlighter-rouge">wink</code>: Wink Hub</li>
+  <li><code class="highlighter-rouge">yamaha</code>: Yamaha media player</li>
+  <li><code class="highlighter-rouge">yeelight</code>: Yeelight Sunflower bulb</li>
+</ul>
+<p class="note">
+Home Assistant must be on the same network as the devices for uPnP discovery to work.
+If running Home Assistant in a <a href="/docs/installation/docker/">Docker container</a> use switch <code class="highlighter-rouge">--net=host</code> to put it on the host’s network.
+</p>
+<p class="note warning">
+There is currently a <a href="https://bitbucket.org/al45tair/netifaces/issues/17/dll-fails-to-load-windows-81-64bit">known issue</a> with running this component on a 64-bit version of Python and Windows.
+</p>
+<p class="note">
+If you are on Windows and you’re using Python 3.5, download the <a href="http://www.lfd.uci.edu/~gohlke/pythonlibs/#netifaces">Netifaces</a> dependency.
+</p>
+<p class="note">
+If you see <code class="highlighter-rouge">Not initializing discovery because could not install dependency netdisco==0.6.1</code> in the logs, you will need to install the <code class="highlighter-rouge">python3-dev</code> or <code class="highlighter-rouge">python3-devel</code> package on your system manually (eg. <code class="highlighter-rouge">sudo apt-get install python3-dev</code> or <code class="highlighter-rouge">sudo dnf -y install python3-devel</code>). On the next restart of Home Assistant, the discovery should work. If you still get an error, check if you have a compiler (<code class="highlighter-rouge">gcc</code>) available on your system.
+<br />
+For DSM/Synology, install via debian-chroot <a href="https://community.home-assistant.io/t/error-starting-home-assistant-on-synology-for-first-time/917/15">see this forum post</a>.
+</p>
+<p>If you are developing a new platform, please read <a href="/developers/component_discovery/">how to make your platform discoverable</a> for further details.</p>
+</article>
+        </div>
+        <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+          <div class="grid">
+    <section class="aside-module grid__item one-whole lap-one-half">
+  <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_components/discovery.markdown'>Edit this page on GitHub</a></div>
+  <div class='brand-logo-container section'>
+      <img src='/images/supported_brands/home-assistant.png' />
+  </div>
+    <div class='section'>
+    <h1 class="title delta">Category Other</h1>
+    <ul class='divided'>
+        <li>
+            <a href='/components/api/'>API</a>
+        </li>
+        <li>
+            <a href='/components/asterisk_mbox/'>Asterisk Voicemail</a>
+        </li>
+        <li>
+            <a href='/components/configurator/'>Configurator</a>
+        </li>
+        <li>
+            <a href='/components/demo/'>Demo platforms</a>
+        </li>
+        <li>
+            Discovery
+        </li>
+        <li>
+            <a href='/components/dominos/'>Dominos Pizza</a>
+        </li>
+        <li>
+            <a href='/components/feedreader/'>Feedreader</a>
+        </li>
+        <li>
+            <a href='/components/frontend/'>Frontend</a>
+        </li>
+        <li>
+            <a href='/components/goalfeed/'>Goalfeed</a>
+        </li>
+        <li>
+            <a href='/components/http/'>HTTP</a>
+        </li>
+        <li>
+            <a href='/components/introduction/'>Introduction</a>
+        </li>
+        <li>
+            <a href='/components/keyboard_remote/'>Keyboard Remote</a>
+        </li>
+        <li>
+            <a href='/components/mqtt_eventstream/'>MQTT Eventstream</a>
+        </li>
+        <li>
+            <a href='/components/mqtt_statestream/'>MQTT Statestream</a>
+        </li>
+        <li>
+            <a href='/components/map/'>Map</a>
+        </li>
+        <li>
+            <a href='/components/persistent_notification/'>Persistent notification</a>
+        </li>
+        <li>
+            <a href='/components/plant/'>Plant monitor</a>
+        </li>
+        <li>
+            <a href='/components/system_log/'>System Log</a>
+        </li>
+        <li>
+            <a href='/components/sensor.upnp/'>UPNP Sensor</a>
+        </li>
+        <li>
+            <a href='/components/upnp/'>UPnP</a>
+        </li>
+        <li>
+            <a href='/components/updater/'>Updater</a>
+        </li>
+        <li>
+            <a href='/components/websocket_api/'>Websocket API</a>
+        </li>
+        <li>
+            <a href='/components/zeroconf/'>Zeroconf/Avahi/Bonjour</a>
+        </li>
+    </ul>
+    </div>
+</section>
+</div>
+        </aside>
+      </div>
+    </div>
+    <footer>
+      <div class="grid-wrapper">
+  <div class="grid">
+    <div class="grid__item">
+      <div class="copyright">
+  <a rel="me" href='https://twitter.com/home_assistant'><i class="icon-twitter"></i></a>
+  <a rel="me" href='https://facebook.com/homeassistantio'><i class="icon-facebook"></i></a>
+  <a rel="me" href='https://plus.google.com/110560654828510104551'><i class="icon-google-plus"></i></a>
+  <a rel="me" href='https://github.com/home-assistant/home-assistant'><i class="icon-github"></i></a>
+  <div class="credit">
+    Contact us at <a href='mailto:hello@home-assistant.io'>hello@home-assistant.io</a> (no support!).<br>
+    Website powered by <a href='http://jekyllrb.com/'>Jekyll</a> and the <a href='https://github.com/coogie/oscailte'>Oscalite theme</a>.<br />
+    Hosted by <a href='https://pages.github.com/'>GitHub</a> and served by <a href='https://cloudflare.com'>CloudFlare</a>.
+  </div>
+  <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">home-assistant.io</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+</div>
+    </div>
+  </div>
+</div>
+    </footer>
+    <script>
+  var _gaq=[['_setAccount','UA-57927901-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
+<script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
+<script type="text/javascript">
+docsearch({
+  apiKey: 'ae96d94b201c5444c8a443093edf3efb',
+  indexName: 'home-assistant',
+  inputSelector: '#search',
+  debug: false // Set debug to true if you want to inspect the dropdown
+});
+document.querySelector('.search .close').addEventListener('click', function(ev) {
+  ev.preventDefault();
+  document.querySelector('.search-container').style.display = 'none';
+});
+document.querySelector('.show-search').addEventListener('click', function(ev) {
+  ev.preventDefault();
+  document.querySelector('.search-container').style.display = 'block';
+  document.getElementById('toggle').checked = false;
+  document.querySelector('.search-container input').focus();
+});
+</script>
+  </body>
+</html>

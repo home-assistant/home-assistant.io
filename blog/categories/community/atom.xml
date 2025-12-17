@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Community | Home Assistant]]></title>
+  <link href="https://home-assistant.io/blog/categories/community/atom.xml" rel="self"/>
+  <link href="https://home-assistant.io/"/>
+  <updated>2018-03-11T22:06:17+00:00</updated>
+  <id>https://home-assistant.io/</id>
+  <author>
+    <name><![CDATA[Home Assistant]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Disabling Disqus comments]]></title>
+    <link href="https://home-assistant.io/blog/2018/02/09/disabling-disqus/"/>
+    <updated>2018-02-09T01:00:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2018/02/09/disabling-disqus</id>
+    <content type="html"><![CDATA[Last week, starting with the release of [Home Assistant 0.62](https://home-assistant.io/blog/2018/01/27/release-62/), we switched to using our [community forums](https://community.home-assistant.io) for comments on our blog posts. By doing so, people are able to use their existing Home Assistant community accounts to comment on our blog posts and engage with one another. It has been easier for our users to stay in the loop with one less channel to keep track off.
+
+Previously, we were using the free version of Disqus to power comments on our blog. After the switch, to preserve the old comments, we decided to keep Disqus active on the older blog post pages. However, today we decided to turn them off.
+
+Today Disqus changed their advertisement strategy and turned on irrelevant graphical advertisement above and below the comment thread ([screenshot](https://twitter.com/balloob/status/961677501725421568)). On a phone, it took so much screen real estate that it filled the whole page with an advertisement for weight loss milk. Previously, Disqus had advertisements in an unobtrusive way: showing suggested content a visitor might also be interesed in.
+
+Today we have switched all blog posts to the new commenting system and are no longer serving Disqus comments. We are exploring ways to restore the old comments.
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Thank You]]></title>
+    <link href="https://home-assistant.io/blog/2017/12/28/thank-you/"/>
+    <updated>2017-12-28T22:00:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2017/12/28/thank-you</id>
+    <content type="html"><![CDATA[2017 is almost over and this means it's time to do a little recap of our 2017. This was a great year for Home Assistant. Again, we were able to stick to our bi-weekly release cycle. There were 25 releases over the year and each release included the work of around 60 contributors.
+
+We got 10.000 stars on [GitHub], reached 10.000 commits in the main repo (over 4300 were made in 2017), got a [Thomas-Krenn award], participated in [Hacktoberfest], we have now almost 1000 integrations (the exact number is 938), we [moved to Discord] and we are up to over 2 million pageviews per month on our forum. Beside that we announced the [Home Assistant cloud] and have regular [Home Assistant Podcasts]. 
+
+We also do not want to forget to mention [Hass.io] and all the great Hass.io add-ons.
+
+Uff, what a year...Thank you, dear community for being so helpful, supportive and awesome 🙇.
+
+A very big thanks goes out to the developers of the Python language and all the open source libraries and tools that Home Assistant depends on. You are the foundation for our success and all of you can be proud of yourself.
+
+We would also like to thanks all the companies that offer their services for free to open source projects. Without these we would not be able to operate at our speed or scale. Thank you [GitHub], [TravisCI], [CloudFlare], [Discord] and [Discourse]!
+
+Some of us are taking a break and spending some quality time with family and loved ones.
+
+Stay tuned for more Home Assistant awesomeness in 2018. We will keep the pace but first: Happy New Year!
+
+-- Home Assistant Organization
+
+[CloudFlare]: https://CloudFlare.com
+[Discord]: https://discordapp.com
+[Discourse]: https://Discourse.com
+[forum]: https://community.home-assistant.io
+[GitHub]: https://GitHub.com
+[Hacktoberfest]: /blog/2017/11/04/release-57/#hacktoberfest
+[Hass.io]: https://home-assistant.io/hassio/
+[Home Assistant cloud]: /blog/2017/12/17/introducing-home-assistant-cloud/
+[Home Assistant Podcasts]: https://hasspodcast.io/
+[moved to Discord]: /blog/2017/07/03/home-assistant-is-moving-to-discord/
+[Thomas-Krenn award]: /blog/2017/04/01/thomas-krenn-award/
+[TravisCI]: https://Travis-ci.org
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Translating Home Assistant]]></title>
+    <link href="https://home-assistant.io/blog/2017/11/05/frontend-translations/"/>
+    <updated>2017-11-06T01:00:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2017/11/05/frontend-translations</id>
+    <content type="html"><![CDATA[<p class='img'>
+<img src='/images/blog/2017-11-0.57/languages.png' alt='The Home Assistant sidebar in 12 different languages'>
+The Home Assistant sidebar in 12 different languages.
+</p>
+
+## <a class='title-link' name='translations' href='#translations'></a> Translations 
+
+As mentioned in the [0.57 release notes](https://home-assistant.io/blog/2017/11/04/release-57/), Home Assistant has launched a translated frontend. With the immediate influx of translations, we’ve made integration with a translation tool a top priority. [@c727] took the initiative to evaluate several tools, and we’re happy to announce that Home Assistant will be partnering with [Lokalise](https://lokalise.co/) to manage our translations!
+
+Lokalise allows us to open up translations for all of our multilingual users willing to contribute. Users can join the project using our [public signup link](https://lokalise.co/signup/3420425759f6d6d241f598.13594006/all/), and start translating right away. We’ve created a [translation startup guide](https://home-assistant.io/developers/frontend_translation/) with additional details about how to contribute. Instructions are provided there for how to request a new language.
+
+Now that we have a system in place, expect a lot more of the interface to be translatable soon. We still have some technical hurdles to overcome, but the hardest work is behind us now. The community has already done an outstanding job of providing translations. The future is looking bright!
+
+[@c727]: https://github.com/c727
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Templates, dates and times]]></title>
+    <link href="https://home-assistant.io/blog/2017/10/15/templating-date-time/"/>
+    <updated>2017-10-15T06:00:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2017/10/15/templating-date-time</id>
+    <content type="html"><![CDATA[This [Pull Request](https://github.com/home-assistant/home-assistant/pull/9868) shows in a clear way what happens if the documentation is not as good as it should be. In short, it's about [Templating](/docs/configuration/templating/) and how people start to think about creative ways to solve it if it's not documented. Let's assume that we want the current year. There are a couple of options available to do that:
+
+- Query [JSON Test](http://date.jsontest.com/) with a [`rest` sensor](/components/sensor.rest/) and a `value_template:`.
+- Use a [`time_date` sensor ](/components/sensor.time_date/) and a template `{{ strptime(states('sensor.date'), '%Y-%m-%d').year }}`.
+- Write a script in language X and use it with the [`command` sensor](/components/sensor.command_line/) or use `date +"%Y"` as a `command:`.
+
+<!--more-->
+
+We want it simpler, right? [Templating](/docs/configuration/templating/) offers `now()` and `utcnow()`. We will stick with `now()` in this blog post but it applies to `utcnow()` as well. Our documentation said:
+
+<blockquote>
+  `now()` will be rendered as current time in your time zone.
+</blockquote>
+
+Hmmm, ...OK, that's a start. How to get the year? `{{ now() }}` gives you `2017-10-14 20:27:23.700401+02:00` which is far more than we are looking for. As an user you don't want to dive into the code but there would you find the solution. You will get a [Python `datetime` object](https://docs.python.org/3.6/library/datetime.html#datetime.datetime) from `{{ now() }}`. This means that you can access more than you think in a template: 
+
+- For the time: `now().microsecond`, `now().second`, `now().minute` and `now().hour`
+- For the date: `now().day`, `now().month` and `now().year`
+- Misc: `now().weekday()` and `now().isoweekday()`
+
+For the year it would be: `{{ now().year }}`. I guess that there are rare use cases for `now().resolution`, `now().min` and `now().max` too.
+
+[Hacktoberfest](/blog/2017/09/29/hacktoberfest/) is still running. Working on the documentation is pretty easy. If you know a nice [trick](/cookbook/), want to help improving the page of a platform or just fix typo then please do. Our [Website/Documentation section](/developers/documentation/) contains some requirements which are defined in the [Documentation Standards](/developers/documentation/standards/) and the "[Create a page](/developers/documentation/create_page/)" documentation for other useful details.
+
+Thanks to [Egor Tsinko](https://github.com/etsinko) for bringing this issue to our attention.
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Participating in Hacktoberfest]]></title>
+    <link href="https://home-assistant.io/blog/2017/09/29/hacktoberfest/"/>
+    <updated>2017-09-29T08:00:00+00:00</updated>
+    <id>https://home-assistant.io/blog/2017/09/29/hacktoberfest</id>
+    <content type="html"><![CDATA[For the second year in a row, Home Assistant will be participating in [Hacktoberfest]. Hacktoberfest is an event organized by DigitalOcean and GitHub to support and celebrate open source. The idea is that open source projects like Home Assistant will gather a bunch of entry-level bugs, features, and documentation enhancements and that you, a current or future contributor, will help us fix them. If you submit four pull-requests during October, you will have earned yourself a limited edition Hacktoberfest T-shirt!
+
+Why contribute to Home Assistant?
+
+ - Written in Python 3 with 94% test coverage
+ - Active and helpful community
+ - Friendly to new contributors
+
+Resources to get started:
+
+ - [Sign up for Hacktoberfest][Hacktoberfest-reg]
+ - [List of entry-level issues for Home Assistant][issues]
+ - [Instructions to setup your development environment][dev-env]
+ - [Home Assistant Development Chat][dev-chat]
+ - [Home Assistant Development Forums][dev-forum]
+ - [Hacktoberfest website][Hacktoberfest]
+
+Are you not a programmer but still want to contribute to Home Assistant? Check out our [list of entry-level issues for the Home Assistant website][issues-doc].
+
+Our participation for [Hacktoberfest 2016][hackt-2016] was a huge success. Join us to repeat it this year.
+
+[![Hacktober fest logo][logo]][Hacktoberfest]
+
+[logo]: /images/blog/2016-10-hacktoberfest/hacktoberfest.png
+[Hacktoberfest]: https://hacktoberfest.digitalocean.com/
+[Hacktoberfest-reg]: https://hacktoberfest.digitalocean.com/sign_up/register
+[issues]: https://github.com/home-assistant/home-assistant/labels/Hacktoberfest
+[issues-doc]: https://github.com/home-assistant/home-assistant.github.io/labels/Hacktoberfest
+[dev-env]: /developers/development_environment/
+[dev-chat]: https://discord.gg/8X8DTH4
+[dev-forum]: https://community.home-assistant.io/c/development
+[hackt-2016]: https://home-assistant.io/blog/2016/11/05/hacktoberfest-influxdb-weather/#hacktoberfest
+
+]]></content>
+  </entry>
+  
+</feed>
