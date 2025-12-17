@@ -43,7 +43,7 @@ Not to worry, I’m pretty obsessed with my audio setup and will still be tinker
 **A visual overhaul**
 
 <p class="img">
-    <img src="http://localhost:4000/images/blog/2025-12-music-assistant-2-7/overhaul.webp" alt="Screenshot of the Music Assistant app with an overhauled user interface">
+    <img src="/images/blog/2025-12-music-assistant-2-7/overhaul.webp" alt="Screenshot of the Music Assistant app with an overhauled user interface">
     A well deserved visual refresh
 </p>
 
@@ -58,7 +58,7 @@ The biggest star of the show is the new Built-in Player, which lets you listen t
 **Users and logins**
 
 <p class="img">
-    <img src="http://localhost:4000/images/blog/2025-12-music-assistant-2-7/login.webp" alt="Screenshot of the Music Assistant app with it's new login functionality">
+    <img src="/images/blog/2025-12-music-assistant-2-7/login.webp" alt="Screenshot of the Music Assistant app with it's new login functionality">
     User profiles for the whole family!
 </p>
 
@@ -71,7 +71,7 @@ You can now have different user profiles with their own music providers. No more
 **Remote music streaming**
 
 <p class="img">
-    <img src="http://localhost:4000/images/blog/2025-12-music-assistant-2-7/flow.webp" alt="Diagram of how Music Assistant handles remote music streaming">
+    <img src="/images/blog/2025-12-music-assistant-2-7/flow.webp" alt="Diagram of how Music Assistant handles remote music streaming">
     No matter where, no matter when
 </p>
 One feature made possible with our new login interface is remote music streaming – yes, that’s correct, Music Assistant anywhere you can connect to the internet. We’ve created a [new web app](https://app.music-assistant.io/#/home) that allows for remote connections while you’re out and about.
@@ -107,7 +107,7 @@ We also now support AirPlay 2 speakers as a player provider, which means perfect
 **Lyrics support**
 
 <p class="img">
-    <img src="http://localhost:4000/images/blog/2025-12-music-assistant-2-7/lyrics.webp" alt="Screenshot of the Music Assistant player with lyrics alongside album art">
+    <img src="/images/blog/2025-12-music-assistant-2-7/lyrics.webp" alt="Screenshot of the Music Assistant player with lyrics alongside album art">
     It's time for karaoke!
 </p>
 
@@ -118,7 +118,7 @@ Never again be left guessing what Kurt is saying in Smells Like Teen Spirit. As 
 **Smart fading**
 
 <p class="img">
-    <img src="http://localhost:4000/images/blog/2025-12-music-assistant-2-7/login.webp" alt="Screenshot of the Music Assistant app showing the smart fades setting">
+    <img src="/images/blog/2025-12-music-assistant-2-7/login.webp" alt="Screenshot of the Music Assistant app showing the smart fades setting">
     Making your playlists seamless
 </p>
 Music Assistant is now your personal in-house DJ, perfectly blending one song into the next, and unlike a DJ it always takes your requests 😎. This latest update adds *Smart fading,* which takes into account the BPM of each song, to make crossfading between songs sound more natural. To turn it on, go to your player of choice, scroll down to the Audio section, and choose “Enable Smart Fades”.
@@ -140,7 +140,7 @@ None of these updates are *small things*, but I’m running out of space, so her
 ## “Rebel yell”
   
 <p class="img">
-    <img src="http://localhost:4000/images/blog/2025-12-music-assistant-2-7/playing.webp" alt="Google Nest Hub playing Music Assistant alongside a Home Assistant Voice Preview Edition">
+    <img src="/images/blog/2025-12-music-assistant-2-7/playing.webp" alt="Google Nest Hub playing Music Assistant alongside a Home Assistant Voice Preview Edition">
     Join the audio revolution
 </p>
 
