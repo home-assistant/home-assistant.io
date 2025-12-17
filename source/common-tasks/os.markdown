@@ -133,5 +133,21 @@ For more information, refer to the [Labs documentation](/integrations/labs).
 <!-- Accessing Home Assistant from the commandline-->
 {% include common-tasks/commandline.md %}
 
+## Enable duplicated log file
+
+By default, Home Assistant Core logs are sent to the Systemd Journal, which can be read using the [`ha core logs` command](/common-tasks/os/#home-assistant-via-the-command-line). If you need logs to also be written to a file (`/config/home-assistant.log`), you can enable the duplicated log file option:
+
+```bash
+ha core options --duplicate-log-file=true
+ha core restart
+```
+
+To disable it:
+
+```bash
+ha core options --duplicate-log-file=false
+ha core restart
+```
+
 <!-- Enabling i2c-->
 {% include common-tasks/enable_i2c.md %}
