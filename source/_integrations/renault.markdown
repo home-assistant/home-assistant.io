@@ -32,7 +32,7 @@ This integration provides the following platforms:
 - Device tracker - to track location of your car.
 - Buttons - to start air conditioning or start/stop the charge. Please note that although available these actions do not work on all vehicles.
 - Selectors - to change the charge mode.
-- Sensors - such as battery level, outside temperature, odometer, estimated range, and charging rate.
+- Sensors - such as battery level, outside temperature, odometer, estimated range, charging rate, and tyre pressure.
 
 {% include integrations/config_flow.md %}
 

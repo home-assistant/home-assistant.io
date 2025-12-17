@@ -91,3 +91,15 @@ For example:
   }
 }
 ```
+
+## Removing the integration
+
+This integration follows standard integration removal steps.
+
+{% note %}
+Removing this integration from Home Assistant will not end or disrupt your paid subscription.
+{% endnote %}
+
+Any pickups scheduled or modified by this integration will persist after removing the integration, and they can continue to be managed using the Ridwell site or app.
+
+{% include integrations/remove_device_service.md %}

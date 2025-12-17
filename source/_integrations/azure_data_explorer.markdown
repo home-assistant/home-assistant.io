@@ -62,10 +62,10 @@ There are a few differences between the **PAYG** and **Free** versions:
 3. Write and perform the following statements one by one, replacing the placeholder content between the <> with the copied values (including the brackets).
 
 ```KQL
-// Give the Service Pricipal write access to the database
+// Give the Service Principal write access to the database
 .add database ['<databasename>'] ingestors ('aadapp=<ApplicationID>;<DirectoryID>');
 
-// Give the Service Pricipal read access to database (used for connectivity checks) 
+// Give the Service Principal read access to the database (used for connectivity checks)
 .add database ['<databasename>'] viewers ('aadapp=<ApplicationID>;<DirectoryID>');
 
 // Create a table for the data to be ingested into (replace the name and copy inserted *name* for later use)

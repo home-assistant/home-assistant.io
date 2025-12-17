@@ -87,7 +87,7 @@ The following device classes are supported for sensors:
 - **power**: Power in mW, W, kW, MW, GW or TW
 - **precipitation**: Accumulated precipitation in cm, in or mm
 - **precipitation_intensity**: Precipitation intensity in in/d, in/h, mm/d or mm/h
-- **pressure**: Pressure in Pa, kPa, hPa, bar, cbar, mbar, mmHg, inHg, inH₂O or psi
+- **pressure**: Pressure in mPa, Pa, hPa, kPa, bar, cbar, mbar, mmHg, inHg, inH₂O or psi
 - **reactive_energy**: Reactive energy in varh or kvarh
 - **reactive_power**: Reactive power in mvar, var, or kvar
 - **signal_strength**: Signal strength in dB or dBm
@@ -95,12 +95,13 @@ The following device classes are supported for sensors:
 - **speed**: Generic speed in ft/s, in/d, in/h, in/s, km/h, kn, m/s, mph, mm/d, or mm/s
 - **sulphur_dioxide**: Concentration of sulphur dioxide in µg/m³
 - **temperature**: Temperature in °C, °F or K
+- **temperature_delta**: Temperature difference between two measurements in °C, °F, or K
 - **timestamp**: Datetime object or timestamp string (ISO 8601)
 - **volatile_organic_compounds**: Concentration of volatile organic compounds in µg/m³ or mg/m³
 - **volatile_organic_compounds_parts**: Ratio of volatile organic compounds in ppm or ppb
 - **voltage**: Voltage in V, mV, µV, kV, MV
 - **volume**: Generic volume in L, mL, gal, fl. oz., m³, ft³, CCF, or MCF
-- **volume_flow_rate**: Volume flow rate in m³/h, m³/min, m³/s, ft³/min, L/h, L/min, L/s, gal/min, or mL/s
+- **volume_flow_rate**: Volume flow rate in m³/h, m³/min, m³/s, ft³/min, L/h, L/min, L/s, gal/d, gal/h, gal/min, or mL/s
 - **volume_storage**: Generic stored volume in L, mL, gal, fl. oz., m³, ft³, CCF, or MCF
 - **water**: Water consumption in L, gal, m³, ft³, CCF, or MCF
 - **weight**: Generic mass in kg, g, mg, µg, oz, lb, or st

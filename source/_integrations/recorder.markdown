@@ -34,8 +34,6 @@ The default, and recommended, database engine is [SQLite](https://www.sqlite.org
 Changing database used by the recorder may result in losing your existing history. Migrating data is not supported.
 {% endcaution %}
 
-To change the defaults for the `recorder` integration in your installation, add the following to your {% term "`configuration.yaml`" %} file:
-
 ## Disk space requirements
 
 A bare minimum requirement is to have at least as much free temporary space available as the size of your database at all times. A table rebuild, repair, or repack may happen at any time, which can result in a copy of the data on disk during the operation. Meeting the bare minimum requirement is essential during a version upgrade, where the schema may change, as this operation almost always requires making a temporary copy of part of the database.
@@ -43,6 +41,8 @@ A bare minimum requirement is to have at least as much free temporary space avai
 For example, if your database is 1.5&nbsp;GiB on disk, you must always have at least 1.5&nbsp;GiB free.
 
 ## Advanced configuration
+
+To change the defaults for the `recorder` integration in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -85,7 +85,7 @@ recorder:
       default: 10
       type: integer
     commit_interval:
-      description: How often (in seconds) the events and state changes are committed to the database. The default of `5` allows events to be committed almost right away without trashing the disk when an event storm happens. Increasing this will reduce disk I/O and may prolong disk (SD card) lifetime with the trade-off being that the database will lag (the logbook and history will not lag, because the changes are streamed to them immediatelly). If this is set to `0` (zero), commit are made as soon as possible after an event is processed.
+      description: How often (in seconds) the events and state changes are committed to the database. The default of `5` allows events to be committed almost right away without trashing the disk when an event storm happens. Increasing this will reduce disk I/O and may prolong disk (SD card) lifetime with the trade-off being that the database will lag (the activity and history will not lag, because the changes are streamed to them immediatelly). If this is set to `0` (zero), commit are made as soon as possible after an event is processed.
       required: false
       default: 5
       type: integer
@@ -149,7 +149,7 @@ recorder:
 
 {% include common-tasks/filters.md %}
 
-If you only want to hide events from your logbook, take a look at the [logbook integration](/integrations/logbook/). But if you have privacy concerns about certain events or want them in neither the history or logbook, you should use the `exclude`/`include` options of the `recorder` integration. That way they aren't even in your database, you can reduce storage and keep the database small by excluding certain often-logged events (like `sensor.last_boot`).
+If you only want to hide events from your **Activity** panel, take a look at the [Activity integration](/integrations/logbook/). But if you have privacy concerns about certain events or want them in neither the history nor activity, you should use the `exclude`/`include` options of the `recorder` integration. That way they aren't even in your database, you can reduce storage and keep the database small by excluding certain often-logged events (like `sensor.last_boot`).
 
 #### Common filtering examples
 
@@ -172,7 +172,7 @@ recorder:
       - sensor.last_boot # Comes from 'systemmonitor' sensor platform
       - sun.sun # Don't record sun data
     event_types:
-      - call_service # Don't record actions
+      - my_custom_event
 ```
 
 Defining domains and entities to record by using the `include` configuration (i.e. allowlist) is convenient if you have a lot of entities in your system and your `exclude` lists possibly get very large, so it might be better just to define the entities or domains to record.
@@ -428,7 +428,7 @@ The database engine must be `InnoDB` as `MyIASM` is not supported.
 
 ```bash
 SET GLOBAL default_storage_engine = 'InnoDB';
-CREATE DATABASE DB_NAME CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+CREATE DATABASE DB_NAME CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
 ```
 Where `DB_NAME` is the name of your database
 

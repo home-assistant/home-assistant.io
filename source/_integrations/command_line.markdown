@@ -329,8 +329,12 @@ To use your Command binary sensor in your installation, add the following to you
 command_line:
   - binary_sensor:
       command: "cat /proc/sys/net/ipv4/ip_forward"
+      payload_on: "1"
+      payload_off: "0"
   - binary_sensor:
       command: "echo 1"
+      payload_on: "1"
+      payload_off: "0"
 ```
 {% endraw%}
 

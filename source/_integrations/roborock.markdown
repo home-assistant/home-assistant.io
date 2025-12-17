@@ -443,8 +443,28 @@ Roborock servers require accepting a user agreement before using the API, which 
 4. Log back in and accept the policy.
 5. Reload the Roborock integration!
 
-### The integration tells me it cannot reach my vacuum and is using the cloud API and that this is not supported
+### The integration tells me it cannot reach my vacuum and is using the cloud API and that this is not supported or I am having any networking issues
 
 This integration has the capability to control your devices through the cloud API and the local API. If the local API is not reachable, it will just use the cloud API. We recommend only using the local API as it helps prevent any kind of rate-limiting.
 
-The steps needed to fix this issue are specific to your networking setup. Make sure your Home Assistant instance can communicate on port 58867 with the IP address of your vacuum. This may require changing firewall settings, VLAN configuration, etc.
+The steps needed to fix this issue are specific to your networking setup. Here are some general troubleshooting steps:
+
+1. Ensure your vacuum can communicate externally via port 8883.
+2. Ensure your vacuum can communicate with your Home Assistant instance on ports TCP 58867 and UDP 58866.
+3. If you are using a tool such as Pi-Hole, AdGuard, or anything else that modifies your DNS, ensure that your vacuum is exempted.
+4. Set a static IP for your vacuum.
+5. Check your router's webpage. If the device is losing connection, you need to focus on increasing your Wi-Fi network's performance.
+
+### My Device goes unavailable every night at around 3am - how can I fix this?
+
+Every night, the vacuum disconnects from the internet for about one minute and automatically reconnects. This causes the integration to go unavailable until the vacuum is reachable again. This is not an issue with the integration but rather the integration is reacting to the device's status.
+
+### The integration tells me no devices were found even though I have devices on my account.
+
+Some devices are not supported yet as they use a different protocol than other devices. Make sure you are on the latest version of Home Assistant.
+
+### I'm getting information about rate limiting in my logs - what should I do?
+
+There is rate limiting built into the Python package that this integration is built on. This is to try to help prevent your instance from overwhelming the Roborock servers and resulting in any kind of IP ban. Best practice is to disable the integration for 24 hours. 
+
+It's also important to try to determine what caused this error in your setup. A common cause some users have is that they have a script that automatically reloads the integration if it goes unavailable. Then, if the device gets stuck and runs out of battery, you are frequently reloading and that causes rate limits.

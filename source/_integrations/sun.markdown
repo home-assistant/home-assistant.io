@@ -98,7 +98,6 @@ The sensors are also available as attributes on the `sun.sun` entity for backwar
 | Next midnight | Date and time of the next solar midnight (in UTC).                                                                     |
 | Elevation     | Solar elevation. This is the angle between the sun and the horizon. Negative values mean the sun is below the horizon. |
 | Azimuth       | Solar azimuth. The angle is shown clockwise from north.                                                                |
-| `rising`      | True if the Sun is currently rising, after solar midnight and before solar noon.                                       |
 
 ## Binary sensors
 

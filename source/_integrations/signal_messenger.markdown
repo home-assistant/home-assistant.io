@@ -188,7 +188,7 @@ actions:
       message: "Message received!"
 ```
 
-**NOTE** If the parameter `mode` is set to `json-rpc`, then you can use [signal-api-receiver](https://github.com/kalbasit/signal-api-receiver) to receive from Signal as follows:
+**NOTE** If the addon's `mode` parameter is set to `json-rpc`, then you can use [signal-api-receiver](https://github.com/kalbasit/signal-api-receiver) in the configuration of Home Assistant to receive from Signal as follows:
 
 ```yaml
 - resource: "http://127.0.0.1:8105/receive/pop"
