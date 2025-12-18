@@ -1422,7 +1422,7 @@ knx:
 ```
 
 {% note %}
-At least one of `address` or `switch_address` has to be provided. If only `address` is provided, on/off will implicitly be controlled via this address - sending 0 to turn off.
+At least one of `address` or `switch_address` must be provided. If you set only `address`, Home Assistant also uses this address to switch the fan on and off by sending 0 to turn the fan off.
 {% endnote %}
 
 {% configuration %}
