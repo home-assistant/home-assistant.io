@@ -93,16 +93,22 @@ All Watts Vision + devices share common functionality:
 
 The Watts Vision + integration {% term polling polls %} data from the cloud API every 30 seconds. After sending commands (temperature changes, mode changes, or switch operations), the integration waits 7 seconds before refreshing to allow the device to process the change.
 
+## Known limitations
+
+Support for switch devices is not yet available and may be added in a future release.
+
 ## Use cases
 
-This integration can be used to:
+Watts Vision+ supports a wide range of heating systems, including underfloor heating and cooling. By integrating with Home Assistant, the Watts Vision ecosystem becomes fully interoperable with other IoT devices from any brand in your connected home, unlocking powerful automation possibilities.
 
-- Create heating schedules through Home Assistant automations
-- Integrate heating control with presence detection
-- Optimize energy consumption based on electricity rates
-- Create temperature-based scenes for different times of day
-- Monitor and log heating patterns for analysis
-- Coordinate heating zones with other smart home devices
+This integration enables you to:
+
+- **Create weather-responsive heating schedules**: Build advanced automations that adjust heating based on outdoor temperature, weather forecasts, cloud coverage, and other meteorological data for optimal comfort and energy efficiency.
+- **Integrate with your entire smart home ecosystem**: Coordinate your Watts heating system with lighting, blinds, air quality sensors, and other smart devices
+- **Optimize energy consumption intelligently**: Automatically adjust heating based on real-time electricity rates, solar panel production, or time-of-use tariffs to minimize costs while maintaining comfort.
+- **Implement presence-based heating control**: Combine with occupancy sensors, door/window contacts, or presence detection to heat only occupied rooms and automatically reduce temperatures when rooms are empty or windows are open.
+- **Design sophisticated heating programs**: Go beyond basic schedules by creating personalized heating programs that adapt to your lifestyle, seasonal changes, and specific room requirements.
+- **Monitor and analyze heating patterns**: Track energy consumption, temperature trends, and system performance over time to identify optimization opportunities.
 
 ## Example automations
 
@@ -142,6 +148,60 @@ actions:
 {% endraw %}
 
 {% enddetails %}
+
+## Troubleshooting
+
+### Devices appear as unavailable
+
+#### Symptom: Climate entities show as "Unavailable"
+
+When viewing your Watts Vision + climate entities, they show as "Unavailable" in Home Assistant.
+
+##### Description
+
+This indicates that Home Assistant cannot communicate with your devices through the Watts Vision + cloud API. This is typically caused by connectivity issues between your gateway and the Watts cloud service.
+
+##### Resolution
+
+To resolve this issue, try the following steps:
+
+1. Check the gateway status in the Watts Vision + app:
+   - Open the Watts Vision + mobile app.
+   - Verify that the gateway does not appear as offline.
+   - If the gateway shows as offline, this confirms the connectivity issue.
+2. Check the WiFi connection and pairing status of your Watts Vision + gateway:
+   - In the Watts Vision + app, go to the gateway settings.
+   - Navigate to the WiFi settings.
+   - Verify that the status shows **2/2** and is displayed in **green**.
+   - If the status is not 2/2 or not green, the gateway is not properly connected and paired to the cloud.
+3. Restart the gateway:
+   - Unplug the gateway from power.
+   - Wait 10 seconds.
+   - Plug it back in and wait for it to reconnect.
+4. Reload the integration in Home Assistant:
+   - Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+   - Find the Watts Vision + integration.
+   - Select the three-dot menu and choose **Reload**.
+
+### Newly added or removed devices not reflecting in Home Assistant
+
+#### Symptom: Added or removed devices don't appear immediately
+
+After adding a new device through the Watts Vision + app or removing an existing device, the change is not immediately visible in Home Assistant.
+
+##### Description
+
+The Home Assistant integration pools new devices every 15 minutes, so it can takes up to 15 minutes to see the new devices.
+
+##### Resolution
+
+Device additions or removals can take up to **15 minutes** to be reflected in Home Assistant. To ensure the change is processed:
+
+1. Wait for up to 15 minutes after making the change in the Watts Vision + app.
+2. If the device still doesn't appear or disappear after 15 minutes, try reloading the integration:
+   - Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+   - Find the Watts Vision + integration.
+   - Select the three-dot menu and choose **Reload**.
 
 ## Removing the integration
 
