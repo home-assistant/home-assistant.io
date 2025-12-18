@@ -1421,6 +1421,10 @@ knx:
       state_address: "9/0/2"
 ```
 
+{% note %}
+At least one of `address` or `switch_address` has to be provided. If only `address` is provided, on/off will implicitly be controlled via this address - sending 0 to turn off.
+{% endnote %}
+
 {% configuration %}
 name:
   description: A name for this device used within Home Assistant.
@@ -1428,10 +1432,18 @@ name:
   type: string
 address:
   description: KNX group address for setting the percentage or step of the fan. *DPT 5.001* or *DPT 5.010*
-  required: true
+  required: false
   type: [string, list]
 state_address:
   description: KNX group address for retrieving the percentage or step of the fan. *DPT 5.001* or *DPT 5.010*
+  required: false
+  type: [string, list]
+switch_address:
+  description: KNX group address for switching the fan on/off. *DPT 1*
+  required: false
+  type: [string, list]
+switch_state_address:
+  description: KNX group address for retrieving the on/off state of the fan. *DPT 1*
   required: false
   type: [string, list]
 oscillation_address:
