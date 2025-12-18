@@ -35,8 +35,8 @@ The Lytiva integration is configured via the Home Assistant user interface.
 4. Enter your MQTT broker details:
    - **MQTT Broker**: IP address or hostname of your MQTT broker
    - **Port**: MQTT broker port (default: 1883)
-   - **Username**: MQTT username (optional)
-   - **Password**: MQTT password (optional)
+   - **Username**: MQTT username
+   - **Password**: MQTT password
 5. Click **Submit**
 
 Home Assistant will automatically discover your Lytiva light devices via MQTT discovery.
@@ -58,9 +58,15 @@ The Lytiva integration currently supports light devices with the following featu
 
 Lytiva uses the following MQTT topic structure:
 
-- **Discovery**: `homeassistant/light/{device_id}/config`
-- **Status**: `LYT/{address}/NODE/E/STATUS` or `LYT/{address}/GROUP/E/STATUS`
-- **Command**: `LYT/{address}/NODE/E/COMMAND` or `LYT/{address}/GROUP/E/COMMAND`
+- **Discovery**: `LYT/homeassistant/{device_type}/{unique_id}/config`
+- **Integration Status**: `LYT/homeassistant/status`
+
+## Protocol Details
+
+The integration uses the [lytiva-connect](https://pypi.org/project/lytiva-connect/) library. 
+
+- **Commands**: Payloads are sent as JSON with this fields : `dimming` (0-100), `r`, `g`, `b`, or `color_temperature`.
+- **Status**: Devices return status in a nested JSON format, for example: `{"type": "cct", "cct": {"dimming": 40, "color_temperature": 50}}`.
 
 ## Options
 
@@ -69,7 +75,6 @@ After adding the integration, you can configure additional options:
 1. Go to **Settings** → **Devices & Services**
 2. Find the **Lytiva** integration
 3. Click **Configure**
-4. Adjust the **Discovery Prefix** if needed (default: `homeassistant`)
 
 ## Automation Examples
 
@@ -133,8 +138,7 @@ automation:
 ### Devices not discovered
 
 1. Verify your MQTT broker is running and accessible
-2. Check that Lytiva devices are publishing discovery messages to the correct topics
-3. Verify the discovery prefix matches (default: `homeassistant`)
+2. Check that Lytiva devices are publishing
 
 ### Devices not responding to commands
 
