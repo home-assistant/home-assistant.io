@@ -3,7 +3,7 @@ title: Watts Vision +
 description: Instructions on how to set up Watts Vision + smart heating system in Home Assistant.
 ha_category:
   - Climate
-ha_release: '2025.3'
+ha_release: '2026.1'
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@theobld-ww'
