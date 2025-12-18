@@ -7,8 +7,8 @@ ha_release: 2020.12
 ha_quality_scale: internal
 ha_domain: number
 ha_codeowners:
-  - "@home-assistant/core"
-  - "@Shulyaka"
+  - '@home-assistant/core'
+  - '@Shulyaka'
 ha_integration_type: entity
 related:
   - docs: /docs/configuration/customizing-devices/
