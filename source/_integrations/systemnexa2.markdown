@@ -39,9 +39,9 @@ The following devices are known to be supported by the integration:
 
 {% include integrations/config_flow.md %}
 
-### Key supported features
+## Supported functionality
 
-#### Control
+### Control
 
 - On
 - Off
