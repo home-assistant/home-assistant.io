@@ -64,7 +64,7 @@ To use Google Assistant, your Home Assistant configuration has to be [externally
 
 2. In the left hand menu of your project, select the **Analytics** link.
    - Select the hamburger {% icon "mdi:hamburger-menu" %} menu on the top left and select **APIs and Services**.
-3. Enable device sync ([see below for more information](#enable-device-sync)).
+3. Enable device sync ([see below for more information](#utilize-device-sync)).
     1. In the left hand menu, select **Credentials**.
     2. In the **Credentials** view, select **Create credentials** and next **Service account**.
         1. **Service account name**: Give your account a self-selected name.
@@ -78,7 +78,7 @@ To use Google Assistant, your Home Assistant configuration has to be [externally
     7. This will start a download of a JSON file.
         1. Rename the file to `SERVICE_ACCOUNT.json`.
         2. In Home Assistant, add this file to your config-folder. This will be the same folder as your {% term "`configuration.yaml`" %}.
-    8. Go to the **Search (/) for resources, documentation, products, and more** at the top middle and search for **Homegraph API** and select it.
+    8. In the navigation bar in Google Cloud, select the **magnifier** icon, search for **Homegraph API**, and select it.
     9. Enable the HomeGraph API.
 
 4. Add the `google_assistant` integration configuration to your {% term "`configuration.yaml`" %} file and restart Home Assistant following the [configuration guide](#yaml-configuration) below.

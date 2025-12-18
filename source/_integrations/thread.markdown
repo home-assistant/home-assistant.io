@@ -69,7 +69,11 @@ Thread uses the same <abbr title="radio frequency">RF</abbr> technology as Zigbe
 
 ### About Thread border routers
 
-The devices use Thread border routers to communicate outside the mesh with any IPv6-capable device. A Thread border router is connected to your network either via Wi-Fi or Ethernet and uses its <abbr title="radio frequency">RF</abbr> radio to communicate with the Thread mesh network. The <abbr title="Thread border router">TBR</abbr> routes packets between your local network and the Thread mesh. It does not look at the content of these packets, it just forwards them.
+A Thread border router is a network device that connects a Thread mesh network (consisting of low-power IoT devices) to other IP networks such as Ethernet or Wi-Fi.
+
+The IoT devices use Thread border routers to communicate outside the mesh with any IPv6-capable device. A Thread border router is connected to your network either via Wi-Fi or Ethernet and uses its <abbr title="radio frequency">RF</abbr> radio chip to communicate with the Thread mesh network. The <abbr title="Thread border router">TBR</abbr> routes packets between your local network and the Thread mesh. The border router does not look at the content of these packets, it just forwards them.
+
+The Thread border router does not control devices. Device control is handled by application layer protocols like Matter or Apple HomeKit.
 
 ![image](/images/integrations/matter/matter_thread_infographic.png)
 
@@ -322,6 +326,8 @@ You can only set a Thread network as preferred if the credentials are known.
 
    - Importing the credentials allows a Google- or Apple-created Thread network to be the preferred network of Home Assistant.
    <img width="400" src='/images/integrations/thread/thread-preferred-network.png'>
+3. If the **Make preferred network** button is shown, select it.
+   - For more information, refer to the section on [combining Thread networks](#combining-thread-networks).
 
 ### Combining Thread networks
 
