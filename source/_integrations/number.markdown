@@ -7,8 +7,8 @@ ha_release: 2020.12
 ha_quality_scale: internal
 ha_domain: number
 ha_codeowners:
-  - '@home-assistant/core'
-  - '@Shulyaka'
+  - "@home-assistant/core"
+  - "@Shulyaka"
 ha_integration_type: entity
 related:
   - docs: /docs/configuration/customizing-devices/
@@ -66,7 +66,7 @@ The following device classes are supported for numbers:
 - **nitrogen_dioxide**: Concentration of Nitrogen Dioxide in µg/m³
 - **nitrogen_monoxide**: Concentration of Nitrogen Monoxide in µg/m³
 - **nitrous_oxide**: Concentration of Nitrous Oxide in µg/m³
-- **ozone**: Concentration of Ozone in µg/m³
+- **ozone**: Concentration of Ozone in ppb or µg/m³
 - **ph**: Potential hydrogen (pH) value of a water solution
 - **pm1**: Concentration of particulate matter less than 1 micrometer in µg/m³
 - **pm25**: Concentration of particulate matter less than 2.5 micrometers in µg/m³
