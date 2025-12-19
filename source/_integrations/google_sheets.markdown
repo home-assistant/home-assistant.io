@@ -54,9 +54,10 @@ You can use the `google_sheets.append_sheet` action to add rows of data to the S
 | Data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | --------|
 | `config_entry` | no | Config entry to use. |
-| `worksheet` | yes | Name of the worksheet. Defaults to the first one in the document. | Sheet1 |
-| `add_created_column` | yes | Add `created` column containing date-time to the data being appended. Defaults to True. | True |
-| `data` | no | Data to be appended to the worksheet. This puts the data on new rows, one value per column. | {"hello": world, "cool": True, "count": 5} |
+| `worksheet` | yes | Name of the worksheet. Defaults to the first one in the document. Cannot be used together with `worksheet_id`. | `"Sheet1"` |
+| `worksheet_id` | yes | ID of the worksheet. Can be found in the URL of the sheet via the `gid` query parameter. Cannot be used together with `worksheet`. | `0` |
+| `add_created_column` | yes | Add `created` column containing date-time to the data being appended. Defaults to `True`. | `True` |
+| `data` | no | Data to be appended to the worksheet. This puts the data on new rows, one value per column. | `{"hello": world, "cool": True, "count": 5}` |
 
 {% raw %}
 
@@ -98,8 +99,9 @@ You can use the `google_sheets.get_sheet` action to retrieve rows of [data](/doc
 | Data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | --------|
 | `config_entry` | no | Config entry to use. |
-| `worksheet` | yes | Name of the worksheet. Defaults to the first one in the document. | Sheet1 |
-| `rows` | no | Maximum number of rows from the end of the worksheet to return.  | 2 |
+| `worksheet` | yes | Name of the worksheet. Defaults to the first one in the document. Cannot be used together with `worksheet_id`. | `"Sheet1"` |
+| `worksheet_id` | yes | ID of the worksheet. Can be found in the URL of the sheet via the `gid` query parameter. Cannot be used together with `worksheet`. | `0` |
+| `rows` | no | Maximum number of rows from the end of the worksheet to return.  | `2` |
 
 {% raw %}
 
