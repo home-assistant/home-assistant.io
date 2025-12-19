@@ -41,7 +41,7 @@ This integration creates a device for each tank found in your account. Each devi
 
 - **Level**: The remaining gas level in the tank (in %).
 - **Battery**: The battery level of the tank's monitoring device (in %).
-- **Last Synchronization**: The date and time of the last successful data sync with the Rotarex service.
+- **Last synchronization**: The date and time of the last successful data sync with the Rotarex service.
 
 The Level sensor also provides the following state attributes:
 
