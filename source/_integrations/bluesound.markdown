@@ -56,6 +56,10 @@ The Bluesound integration makes some custom actions available in addition to the
 
 ### Action `bluesound.join`
 
+{% note %}
+This action is deprecated. Use `media_player.join` instead.
+{% endnote %}
+
 Group players together under a single master speaker. That will make a new group or join an existing group.
 
 | Data attribute | Optional | Description                                                               |
@@ -64,6 +68,10 @@ Group players together under a single master speaker. That will make a new group
 | `entity_id`            | no       | String or list of a single `entity_id` that will group to master speaker. |
 
 ### Action `bluesound.unjoin`
+
+{% note %}
+This action is deprecated. Use `media_player.unjoin` instead.
+{% endnote %}
 
 Remove one or more speakers from a group of speakers. If no `entity_id` is provided, all speakers are unjoined.
 
