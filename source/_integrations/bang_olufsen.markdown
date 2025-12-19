@@ -5,6 +5,7 @@ ha_category:
   - Event
   - Media Player
   - Multimedia
+  - Sensor
 ha_release: 2024.2
 ha_iot_class: Local Push
 ha_domain: bang_olufsen
@@ -12,6 +13,7 @@ ha_platforms:
   - diagnostics
   - event
   - media_player
+  - sensor
 ha_codeowners:
   - '@mj23000'
 ha_config_flow: true
@@ -147,6 +149,16 @@ Only a subset of these functions are enabled by default. Change settings for the
   - Use the **Move** setting to reorder the visible functions.
 
 The function names are not available to the Mozart device, so enable [debug logging](#diagnostics-and-troubleshooting) and trigger functions to see what function IDs are associated with which functions on the remote.
+
+### Sensor
+
+#### Mozart battery level
+
+Mozart devices that have a built-in battery, such as the [Beosound A5](https://www.bang-olufsen.com/en/dk/speakers/beosound-a5) and [Beosound Level](https://www.bang-olufsen.com/en/dk/speakers/beosound-level), will have a battery level sensor.
+
+#### Beoremote One battery level
+
+Any paired Beoremote One remotes will have an associated battery level sensor. Battery level reporting from the remote is currently not very accurate, but can still be useful.
 
 ## Limitations
 
