@@ -3,6 +3,8 @@ title: SEKO PoolDose
 description: Connect your SEKO PoolDose water treatment system to Home Assistant.
 ha_category:
   - Binary sensor
+  - Number
+  - Select
   - Sensor
   - Switch
   - Water Management
@@ -14,6 +16,8 @@ ha_codeowners:
 ha_domain: pooldose
 ha_platforms:
   - binary_sensor
+  - number
+  - select
   - sensor
   - switch
 ha_integration_type: integration
@@ -122,12 +126,51 @@ This integration provides the following entities.
   - **Unit**: mV
 - **ORP calibration slope**: ORP calibration slope value.
   - **Unit**: mV
+- **Totalizer**: Total water volume accumulated.
+  - **Unit**: L, m³
+
+### Numbers
+
+- **pH target**: Target pH value for automatic dosing control.
+- **ORP target**: Target ORP (Redox) value for automatic dosing control.
+  - **Unit**: mV
+- **Chlorine target**: Target chlorine concentration for automatic dosing control.
+  - **Unit**: ppm
+- **pH overfeed alarm lower limit**: Lower threshold for pH overfeed detection.
+- **pH overfeed alarm upper limit**: Upper threshold for pH overfeed detection.
+- **ORP overfeed alarm lower limit**: Lower threshold for ORP overfeed detection.
+  - **Unit**: mV
+- **ORP overfeed alarm upper limit**: Upper threshold for ORP overfeed detection.
+  - **Unit**: mV
+- **Chlorine overfeed alarm lower limit**: Lower threshold for chlorine overfeed detection.
+  - **Unit**: ppm
+- **Chlorine overfeed alarm upper limit**: Upper threshold for chlorine overfeed detection.
+  - **Unit**: ppm
 
 ### Switches
 
 - **Pause dosing**: Pauses or resumes the dosing process.
 - **Pump monitoring**: Enables or disables pump monitoring.
 - **Frequency input**: Enables or disables frequency input for a water meter.
+
+### Selects
+
+- **Water meter unit**: Water meter measurement unit.
+  - **Options**: Liters, Cubic meters
+- **Flow rate unit**: Flow rate measurement unit.
+  - **Options**: Cubic meters per hour, Liters per second
+- **pH dosing type**: pH dosing type.
+  - **Options**: pH+ / alcalyne, pH- / acid
+- **pH dosing method**: pH dosing control method.
+  - **Options**: Disabled, Proportional control, On/Off control, Timed dosing
+- **ORP dosing type**: ORP/Redox dosing type.
+  - **Options**: Low intensity, High intensity
+- **ORP dosing method**: ORP/Redox dosing control method.
+  - **Options**: Disabled, Proportional control, On/Off control, Timed dosing
+- **Chlorine dosing type**: Chlorine dosing type.
+  - **Options**: Low intensity, High intensity
+- **Chlorine dosing method**: Chlorine dosing control method.
+  - **Options**: Disabled, Proportional control, On/Off control, Timed dosing
 
 ## Known limitations
 

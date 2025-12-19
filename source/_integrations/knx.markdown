@@ -62,6 +62,7 @@ There is currently support for the following device types within Home Assistant:
 - [Climate](#climate)
 - [Cover](#cover)
 - [Date](#date)
+- [DateTime](#datetime)
 - [Fan](#fan)
 - [Light](#light)
 - [Notify](#notify)
@@ -1267,6 +1268,10 @@ Dates that have a `state_address` configured request their current state from th
 DPT 11.001 covers the range 1990 to 2089. Year values outside of this range are not allowed.
 {% endnote %}
 
+Date entities can be created from the frontend in the KNX panel or via YAML.
+
+{% details "Configuration of KNX date entities via YAML" %}
+
 ```yaml
 # Example configuration.yaml entry
 knx:
@@ -1319,6 +1324,8 @@ entity_category:
   default: None
 {% endconfiguration %}
 
+{% enddetails %}
+
 ## DateTime
 
 The KNX datetime platform allows to send datetime values to the KNX bus and update its state from received telegrams. It can optionally respond to read requests from the KNX bus.
@@ -1333,6 +1340,10 @@ DateTimes that have a `state_address` configured request their current state fro
 System timezone is used as DPT 19.001 doesn't provide timezone information.
 Year values outside of the range 1900 to 2155 are invalid.
 {% endnote %}
+
+Datetime entities can be created from the frontend in the KNX panel or via YAML.
+
+{% details "Configuration of KNX datetime entities via YAML" %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -1386,12 +1397,18 @@ entity_category:
   default: None
 {% endconfiguration %}
 
+{% enddetails %}
+
 ## Fan
 
 The KNX fan integration is used to control KNX fans. Following control types are supported:
 
 - Percentage controlled: Fans that set the percentage directly from 0-100%.
 - Step controlled: Fans which have a fixed amount of steps to set. The integration will convert percentage to step automatically. The `max_step` attribute is set to the number of steps of the fan, not counting the `off`-step. Example: A fan supports the steps 0 to 3. To use this fan the `max_step` attribute has to be set to `3`. The integration will convert the percentage `66 %` to the step `2` when sending data to KNX.
+
+Fan entities can be created from the frontend in the KNX panel or via YAML.
+
+{% details "Configuration of KNX fan entities via YAML" %}
 
 To use your KNX fan in your installation, add the following lines to your top-level [KNX Integration](/integrations/knx) configuration key in your {% term "`configuration.yaml`" %}:
 
@@ -1404,6 +1421,10 @@ knx:
       state_address: "9/0/2"
 ```
 
+{% note %}
+At least one of `address` or `switch_address` must be provided. If you set only `address`, Home Assistant also uses this address to switch the fan on and off by sending 0 to turn the fan off.
+{% endnote %}
+
 {% configuration %}
 name:
   description: A name for this device used within Home Assistant.
@@ -1411,10 +1432,18 @@ name:
   type: string
 address:
   description: KNX group address for setting the percentage or step of the fan. *DPT 5.001* or *DPT 5.010*
-  required: true
+  required: false
   type: [string, list]
 state_address:
   description: KNX group address for retrieving the percentage or step of the fan. *DPT 5.001* or *DPT 5.010*
+  required: false
+  type: [string, list]
+switch_address:
+  description: KNX group address for switching the fan on/off. *DPT 1*
+  required: false
+  type: [string, list]
+switch_state_address:
+  description: KNX group address for retrieving the on/off state of the fan. *DPT 1*
   required: false
   type: [string, list]
 oscillation_address:
@@ -1435,6 +1464,8 @@ entity_category:
   type: string
   default: None
 {% endconfiguration %}
+
+{% enddetails %}
 
 ## Light
 
@@ -2321,6 +2352,10 @@ Times that have a `state_address` configured request their current state from th
 The `day` field of the time telegram will always be set to 0 (`no day`).
 {% endnote %}
 
+Time entities can be created from the frontend in the KNX panel or via YAML.
+
+{% details "Configuration of KNX time entities via YAML" %}
+
 ```yaml
 # Example configuration.yaml entry
 knx:
@@ -2372,6 +2407,8 @@ entity_category:
   type: string
   default: None
 {% endconfiguration %}
+
+{% enddetails %}
 
 ## Weather
 

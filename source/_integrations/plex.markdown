@@ -166,6 +166,7 @@ Required fields within the `media_content_id` payloads are marked as such, other
 - `offset`: The desired playback start position in seconds.
 - `allow_multiple`: A search must find one specific item to succeed. This parameter accepts multiple matches in a search and enqueues all found items for playback. Accepts `1` or `true` to enable.
 - `username`: A username for a local Plex user account. This is only required if the Plex server has multiple users and you wish to play media for a specific user.
+- `continuous`: Plex will automatically play the next episode in the series. Accepts `1` or `true` to enable.
 
 Simplified examples are provided for [music](#music), [TV episodes](#tv-episode), and [movies](#movie). See [advanced searches](#advanced-searches) for complex/smart search capabilities.
 
@@ -226,11 +227,11 @@ media_content_id: '{ "playlist_name": "The Best of Disco", "shuffle": "1" }'
 
 #### TV episode
 
-| Data attribute | Description                                                                                                                                                                                                                                                                                                            |
-| ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `entity_id`            | `entity_id` of the client                                                                                                                                                                                                                                                                                              |
-| `media_content_id`     | Quoted JSON containing:<br/><ul><li>`library_name` (Required)</li><li>`show_name` or `show.title`</li><li>`season_number` or `season.index`</li><li>`episode_number` or `episode.index`</li><li>`shuffle` (0 or 1)</li><li>`resume` (0 or 1)</li><li>`offset` (in seconds)</li><li>`allow_multiple` (0 or 1)</li></ul> |
-| `media_content_type`   | `EPISODE`                                                                                                                                                                                                                                                                                                              |
+| Data attribute | Description                                                                                                                                                                                                                                                                                                                                                  |
+| ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`            | `entity_id` of the client                                                                                                                                                                                                                                                                                                                            |
+| `media_content_id`     | Quoted JSON containing:<br/><ul><li>`library_name` (Required)</li><li>`show_name` or `show.title`</li><li>`season_number` or `season.index`</li><li>`episode_number` or `episode.index`</li><li>`shuffle` (0 or 1)</li><li>`resume` (0 or 1)</li><li>`offset` (in seconds)</li><li>`allow_multiple` (0 or 1)</li><li>`continuous` (0 or 1)</li></ul> |
+| `media_content_type`   | `EPISODE`                                                                                                                                                                                                                                                                                                                                            |
 
 ##### Examples:
 
@@ -258,6 +259,13 @@ media_content_type: EPISODE
 media_content_id: '{ "library_name": "News TV", "show_name": "60 Minutes", "episode.unwatched": true, "episode.inProgress": [true, false], "resume": 1, "sort": "addedAt:asc", "maxresults": 1 }'
 ```
 
+Play Rick and Morty episodes continuously starting from S2E5
+
+```yaml
+entity_id: media_player.plex_player
+media_content_type: EPISODE
+media_content_id: '{ "library_name": "Adult TV", "show_name": "Rick and Morty", "season_number": 2, "episode_number": 5, "continuous": 1}'
+```
 #### Movie
 
 | Data attribute | Description                                                                                                                                     |

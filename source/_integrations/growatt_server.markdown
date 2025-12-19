@@ -143,6 +143,102 @@ These controls directly modify your inverter's operational settings. Only change
 - **AC charge**
   - **Description**: Enable or disable AC charging
 
+## Actions
+
+The integration provides the following actions for managing Time-of-Use (TOU) battery schedules on MIN inverters:
+
+### Action `growatt_server.update_time_segment`
+
+Configure individual time segments (1-9) with battery operation mode, time range, and enable/disable state for automated battery charging and discharging schedules.
+
+{% important %}
+This action modifies your inverter's TOU scheduling settings. Incorrect configuration may affect your battery's charging/discharging behavior and energy costs. Ensure you understand your electricity tariff structure before making changes.
+{% endimportant %}
+
+**Data attributes:**
+
+- **device_id** *(string, optional)*: The device ID of the inverter. Required only when multiple devices are present
+- **segment_id** *(integer, required)*: Time segment number (1-9)
+- **batt_mode** *(string, required)*: Energy priority mode for the system:
+  - `load_first`: Prioritize powering home loads from available energy sources (solar/battery), discharge battery when needed to meet home consumption
+  - `battery_first`: Prioritize charging the battery from available sources (solar/grid)  
+  - `grid_first`: Prioritize exporting energy to grid from available sources (solar/battery), will discharge battery for grid export
+  
+  {% note %}
+  The battery mode controls when and why discharge occurs. The actual discharge rate is controlled by the **Discharge power** number entity (0-100%).
+  {% endnote %}
+- **start_time** *(time, required)*: Start time for the segment (HH:MM format)
+- **end_time** *(time, required)*: End time for the segment (HH:MM format)
+- **enabled** *(boolean, required)*: Whether this time segment is active
+
+### Action `growatt_server.read_time_segments`
+
+Read the current configuration of all 9 time segments from the inverter. This action returns the complete TOU schedule configuration.
+
+**Data attributes:**
+
+- **device_id** *(string, optional)*: The device ID of the MIN inverter. Required only when multiple devices are present
+
+## Examples
+
+### Off-peak charging schedule
+
+Charge the battery during cheap electricity hours (e.g., midnight to 6 AM):
+
+```yaml
+action: growatt_server.update_time_segment
+data:
+  segment_id: 1
+  batt_mode: "battery_first"
+  start_time: "00:00"
+  end_time: "06:00"
+  enabled: true
+  # For multiple devices, add device_id: "MIN12345"
+```
+
+{% note %}
+Remember to also set the **Charge power** number entity (0-100%) to control the charging power rate during this time period.
+{% endnote %}
+
+### Peak hour export schedule
+
+Export battery power to grid during expensive electricity hours (e.g., 4 PM to 8 PM):
+
+```yaml
+action: growatt_server.update_time_segment
+data:
+  segment_id: 2
+  batt_mode: "grid_first"
+  start_time: "16:00"
+  end_time: "20:00"
+  enabled: true
+```
+
+{% note %}
+Remember to also set the **Discharge power** number entity (0-100%) to control the discharge power rate during this time period.
+{% endnote %}
+
+### Daytime home priority schedule
+
+Prioritize home consumption during typical usage hours (e.g., 6 AM to 10 PM):
+
+```yaml
+action: growatt_server.update_time_segment
+data:
+  segment_id: 3
+  batt_mode: "load_first"
+  start_time: "06:00"
+  end_time: "22:00"
+  enabled: true
+```
+
+### Reading current TOU configuration
+
+Check your current time segment settings:
+
+```yaml
+action: growatt_server.read_time_segments
+```
 ## Troubleshooting
 
 ### Account locked or authentication failing
