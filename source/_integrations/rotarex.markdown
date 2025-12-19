@@ -62,7 +62,7 @@ The Level sensor also provides the following state attributes:
   credentials.
 - If you recently changed your password, reconfigure the integration.
 
-### Tanks are missing
+### Tanks are not visible in Home Assistant
 
 - Make sure your tanks are visible and up to date in the Rotarex app.
 - Confirm the same Rotarex account is used in the integration.
