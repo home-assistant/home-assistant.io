@@ -600,7 +600,16 @@ beolink:
 ## Diagnostics and troubleshooting
 
 The **Bang & Olufsen** integration supports [Home Assistant debug logs and diagnostics](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics).
-Where all received WebSocket events are provided through debug logs and the WebSocket connection state, config entry and media player state is provided through diagnostics.
+Where all received WebSocket events are provided through debug logs and the following is provided in the diagnostics:
+
+- Config entry
+- Mozart device
+  - WebSocket connection state
+  - Media player state
+  - Button Event states (if available)
+- Beoremote One remotes (if available)
+  - Key Event states (if available)
+  - Overall status
 
 ## Removing the integration
 
