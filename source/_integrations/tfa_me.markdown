@@ -300,8 +300,8 @@ All units are metric.
 - `rain`in **mm**: Rain fall (absolute value)
 - `rain_rel`, `rain_1_hour`, `rain_24_hours` in **mm**: Rain fall (relative value)
 - `rssi` in **1/256**: Signal strength<br>Theoretical range: 0 (bad) ... 255 (very good)<br>Practical range: 80 (bad) ... 230 (very good)|
-- `lowbatt`, 0: battery good, 1: battery bad
-- `lowbatt_txt`,  No: battery good, Yes: battery bad
+- `lowbatt`, 0: battery good, 1: battery bad, 2: battery critical bad, -1: batteries not inserted/removed
+- `lowbatt_txt`,  Good: battery good, Bad: battery bad, Critical: battery very bad, Removed: batteries not inserted/removed
 - `wind_speed`, `wind_gust` in **m/s**: Speed is the average speed of last measurement period, gust is the maximum.
 - `wind_direction`, Value range: 0...15 for the 16 main directions:<BR> 0=**N**, 1=**NNE**, 2=**NE**, 3=**ENE**, 4=**E**, 5=**ESE**, 6=**SE**, 7=**SSE**, 8=**S**, 9=**SSW**, 10=**SW**, 11=**WSW**, 12=**W**, 13=**WNW**, 14=**NW**, 15=**NNW**
 - `wind_direction_deg` in **degress**: Value range: 0...337.5 for the 16 main directions (step 22.5):<BR> 0.0=**N**, 22.5=**NNE**, 45.0=**NE**, ... 337.5=**NNW**
@@ -347,6 +347,8 @@ Depending on the measured value (value/range):
 - `lowbatt` 
   - {% icon "mdi:battery" %} full  (0)
   - {% icon "mdi:battery-alert" %} low (1)
+  - {% icon "mdi:battery-sync" %} critical (2)
+  - {% icon "mdi:battery-off" %} removed (-1)
 - `wind_direction` 
   - {% icon "mdi:compass-outline" %} default
   - {% icon "mdi:arrow-down" %} N, NNE  (0, 1)
