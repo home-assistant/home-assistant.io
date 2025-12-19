@@ -1406,6 +1406,10 @@ The KNX fan integration is used to control KNX fans. Following control types are
 - Percentage controlled: Fans that set the percentage directly from 0-100%.
 - Step controlled: Fans which have a fixed amount of steps to set. The integration will convert percentage to step automatically. The `max_step` attribute is set to the number of steps of the fan, not counting the `off`-step. Example: A fan supports the steps 0 to 3. To use this fan the `max_step` attribute has to be set to `3`. The integration will convert the percentage `66 %` to the step `2` when sending data to KNX.
 
+Fan entities can be created from the frontend in the KNX panel or via YAML.
+
+{% details "Configuration of KNX fan entities via YAML" %}
+
 To use your KNX fan in your installation, add the following lines to your top-level [KNX Integration](/integrations/knx) configuration key in your {% term "`configuration.yaml`" %}:
 
 ```yaml
@@ -1448,6 +1452,8 @@ entity_category:
   type: string
   default: None
 {% endconfiguration %}
+
+{% enddetails %}
 
 ## Light
 
