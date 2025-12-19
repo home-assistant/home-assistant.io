@@ -61,6 +61,10 @@ This integration {% term polling polls %} data from the device every 10 minutes 
 - Physical water treatment values typically change slowly and do not require frequent monitoring
 - This interval provides adequate monitoring for pool water management while maintaining device reliability
 
+### Update and write behavior
+
+Parallel reads for read-only values are avoided and write operations are serialized (one value at a time). This reduces load on the device's limited hardware and prevents race conditions.
+
 ## Supported devices
 
 The following devices are known to be supported by the integration:
