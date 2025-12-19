@@ -67,6 +67,7 @@ The following attributes can be placed inside the `data` key of the action for e
 | `bcc`                   |      yes | List of recipients to be blind-carbon-copied.
 | `from`                   |      yes | Default is current authenticated user. Typically only applies to GSuite accounts where the user has delegate access to a shared mailbox.
 | `send`                 |      yes | Default is true. Set this to false to create a draft instead. Recipients are not required in this instance.
+| `alias_from`           |      yes | Name that will be showed to the receivers instead of the user email. You have to set `from` if you want to use this option. |
 
 ### Examples
 
@@ -85,6 +86,7 @@ data:
     bcc:
       - "example4@gmail.com"
     from: "example@gmail.com"
+    alias_from: "Example alias"
 ```
 
 ### Video tutorial
