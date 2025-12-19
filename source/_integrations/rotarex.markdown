@@ -19,7 +19,7 @@ To add the **Rotarex DIMES SRG** integration to your Home Assistant instance, us
 
 [![Open your Home Assistant instance and start setting up a new integration.](https://my.home-assistant.io/badges/config_flow_start.svg)](https://my.home-assistant.io/redirect/config_flow_start/?domain=rotarex)
 
-1. In the pop-up, you will be asked to enter the **Email** and **Password** you use for the Rotarex DIMES SRG Camping mobile app.
+1. In the pop-up, you will be asked to enter the **email** and **password** you use for the Rotarex DIMES SRG Camping mobile app.
 2. After you submit the credentials, the integration is set up, and a device is created for each tank associated with your account.
 
 ## Sensors
@@ -33,4 +33,4 @@ This integration creates a device for each tank found in your account. Each devi
 The Level sensor also provides the following state attributes:
 
 - `temperature`: The last recorded temperature.
-- `last_synch`: The timestamp of the last data update.
+- `last_sync`: The timestamp of the last data update.
