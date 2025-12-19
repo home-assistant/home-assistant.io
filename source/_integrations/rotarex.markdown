@@ -58,16 +58,14 @@ The Level sensor also provides the following state attributes:
 ### Can’t sign in
 
 - Check your email and password.
-- Try signing in to the Rotarex DIMES SRG Camping app to verify your
-  credentials.
+- Try signing in to the Rotarex DIMES SRG Camping app to verify your credentials.
 - If you recently changed your password, reconfigure the integration.
 
 ### Tanks are not visible in Home Assistant
 
 - Make sure your tanks are visible and up to date in the Rotarex app.
 - Confirm the same Rotarex account is used in the integration.
-- Wait a few minutes and try reloading the integration from
-  {% my integrations title="**Settings** > **Devices & services**" %}.
+- Wait a few minutes and try reloading the integration from {% my integrations title="**Settings** > **Devices & services**" %}.
 
 ## Removing the integration
 
