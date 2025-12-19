@@ -29,11 +29,10 @@ This integration uses the official Rotarex cloud API to fetch the latest data.
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
-
-[![Open your Home Assistant instance and start setting up a new integration.](https://my.home-assistant.io/badges/config_flow_start.svg)](https://my.home-assistant.io/redirect/config_flow_start/?domain=rotarex)
-
-1. In the pop-up, you will be asked to enter the **email** and **password** you use for the Rotarex DIMES SRG Camping mobile app.
-2. After you submit the credentials, the integration is set up, and a device is created for each tank associated with your account.
+Email:
+  description: "The email address you use to sign in to the Rotarex DIMES SRG Camping app."
+Password:
+  description: "The password you use to sign in to the Rotarex DIMES SRG Camping app."
 {% endconfiguration_basic %}
 
 ## Sensors
