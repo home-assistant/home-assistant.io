@@ -50,14 +50,20 @@ The Weheat integration provides the following sensors:
 - **Outside temperature**: Outside temperature in °C
 - **Current room temperature**: Current room temperature in °C
 - **Room temperature setpoint**: Setpoint for the room temperature in °C
-- **Electricity used**: Total electricity used in kWh
-- **Energy output**: Total output generated in kWh
 - **State**: The current heat pump state
 - **DHW top temperature**: The domestic hot water temperature in the top of the vessel in °C (optional)
 - **DHW bottom temperature"**: The domestic hot water temperature in the bottom of the vessel in °C (optional)
 - **DHW pump flow**: The flow volume of the DHW pump (optional)
 - **Compressor RPM**: The rpm of the compressor fan.
 - **Compressor percentage**: The percentage of the compressor fan. Can exceed 100% for some models.
+- **Electricity used heating**: Total electricity used in kWh during central heating mode
+- **Electricity used DHW**: Total electricity used in kWh during DHW mode (optional)
+- **Electricity used cooling**: Total electricity used in kWh during cooling mode
+- **Electricity used defrost**: Total electricity used in kWh during defrost mode
+- **Energy output heating**: Total output generated in kWh during central heating mode
+- **Energy output DHW**: Total output generated in kWh during DHW mode (optional)
+- **Energy output cooling**: Total output generated in kWh during cooling mode. Note that this energy number is negative and decreasing as energy is removed from the house.
+- **Energy output defrost**: Total output generated in kWh defrost mode. Note that this energy number is negative and decreasing as energy is removed from the house.
 
 Depending on the model/installation, states for the Indoor Unit states are available:
 
