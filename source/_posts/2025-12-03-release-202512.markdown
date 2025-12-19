@@ -765,7 +765,7 @@ release once a week, aiming for Friday.
 [@tr4nt0r]: https://github.com/tr4nt0r
 [@zweckj]: https://github.com/zweckj
 
-## Release 2025.12.4 - December 19
+### 2025.12.4 - December 19
 
 - Prevent empty aliases in registries ([@FI-153] - [#156061]) ([config docs])
 - Do not check Reolink firmware at start ([@starkillerOG] - [#158275]) ([reolink docs])
