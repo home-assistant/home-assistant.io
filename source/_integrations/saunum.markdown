@@ -104,6 +104,21 @@ The **Saunum** integration provides the following entities for controlling and m
   - **Description**: Control the sauna lighting if light is connected to the control unit.
   - **Features**: Turn the sauna light on or off.
 
+### Sensor
+
+- **Temperature**
+  - **Description**: Current temperature inside the sauna.
+  - **Unit**: °C (Celsius) or °F (Fahrenheit) depending on your Home Assistant unit system.
+
+- **Heater elements active**
+  - **Description**: Number of active heating elements (0-3).
+  - **Use case**: Monitor heating intensity and power consumption.
+
+- **On time**
+  - **Description**: Total accumulated operating time of the Leil touch screen control panel since last restart.
+  - **Unit**: Seconds
+  - **Note**: This sensor is disabled by default. Enable it in the entity settings if you want to track usage statistics.
+
 ## Supported devices
 
 The following devices are known to be supported by the integration:
