@@ -9,6 +9,7 @@ ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
   - '@madpilot'
+  - '@Williamnumismatics'
 ha_domain: amberelectric
 ha_platforms:
   - binary_sensor
@@ -16,7 +17,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-[Amber](https://www.amber.com.au/) is an Australian electricity retailer that provides access to wholesale electricity prices. Customers monitor the wholesale price and shift their energy usage to cheaper, greener times. This saves them money and supports the shift to a more renewably-powered Australia.
+[Amber](https://www.amber.com.au/) is an Australian electricity retailer that provides access to wholesale electricity prices. Customers monitor the wholesale price and shift their energy usage to cheaper, greener times. This saves them money and supports the shift to a more renewably-powered Australia. Customers can also sell their unused electricity for fluctuating prices. This is different from other wholesale electricity providers as the price you sell electricity at will be different depending on demand.s
 
 Using the **Amber Electric** {% term integration %}, customers can go a step further - setting up devices to automatically shift energy usage to cheaper and greener times, based on real-time electricity prices and forecasts
 
