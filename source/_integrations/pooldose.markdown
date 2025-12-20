@@ -21,7 +21,7 @@ ha_platforms:
   - sensor
   - switch
 ha_integration_type: integration
-ha_quality_scale: bronze
+ha_quality_scale: silver
 ha_dhcp: true
 ---
 
@@ -60,6 +60,10 @@ This integration {% term polling polls %} data from the device every 10 minutes 
 - The device does not support frequent requests and may become unstable with shorter intervals
 - Physical water treatment values typically change slowly and do not require frequent monitoring
 - This interval provides adequate monitoring for pool water management while maintaining device reliability
+
+### Update and write behavior
+
+Parallel reads for read-only values are avoided and write operations are serialized (one value at a time). This reduces load on the device's limited hardware and prevents race conditions.
 
 ## Supported devices
 
