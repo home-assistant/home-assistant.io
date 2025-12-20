@@ -54,9 +54,9 @@ The integration adds the following sensors for the main air conditioner unit:
 
 Additionally, if you have installed the optional zone sensors, the following sensors will be available for each zone sensor:
 
-- **Battery**: Battery level of the zone sensor.
-- **Humidity**: Humidity measured by the zone sensor.
-- **Temperature**: Temperature measured by the zone sensor.
+- **Battery**: The battery level of the zone sensor.
+- **Humidity**: The humidity measured by the zone sensor.
+- **Temperature**: The temperature measured by the zone sensor.
 
 ### Switch
 
