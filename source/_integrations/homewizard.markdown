@@ -136,8 +136,8 @@ The group of connected batteries can be controlled in three different modes usin
 - **Zero mode (discharge only)**: The Plug-In Battery will only discharge to supply power when your home's consumption exceeds solar production, aiming to keep your home's power consumption at zero. Charging is disabled in this mode. This can be helpful when energy prices are high and you prefer to use stored energy or sell excess solar production to the grid.
 - **Manual charge mode**: All connected Plug-In Batteries will be charged to 100%, regardless of the power consumption/production of your home. When all batteries are fully charged, the Plug-In Battery will switch to the standby mode.
 - **Standby**: Batteries will enter standby mode. This means that the Plug-In Battery will neither charge nor discharge.
-
-The **Battery group mode** select can be found in the P1 Meter device, as the P1 Meter is responsible for controlling the Plug-In Battery. This select entity is disabled by default. See [I can't find entities](#i-cant-find-entities-like-voltage-current-or-battery-group-mode) for instructions on enabling disabled entities.
+- 
+You can find the **Battery group mode** select entity on the device that manages your batteries; Either your P1 Meter or kWh Meter, depending on which is set as your mains connection in the HomeWizard app. This entity is not available directly on the battery itself. If you add Plug-In Batteries after your initial setup, the **Battery group mode** entity may be disabled by default; see [I can't find entities](#i-cant-find-entities-like-voltage-current-or-battery-group-mode) for how to enable it.
 
 {% tip %}
 "Zero mode (charge only)" and "Zero mode (discharge only)" are only available for:
