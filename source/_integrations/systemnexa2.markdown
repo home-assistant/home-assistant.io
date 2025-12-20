@@ -25,11 +25,9 @@ The **System Nexa 2** {% term integration %} allows you to integrate with the **
 
 The following devices are known to be supported by the integration:
 
-- WBD-01
-- WBR-01
-- WPD-01
-- WPO-01
-- WPR-01
+- WBR-01 On/off in-wall switch/relay
+- WPO-01 Outdoor Smart Plug
+- WPR-01 Indoor Smart Plug
 
 ## Prerequisites
 
@@ -41,17 +39,23 @@ The following devices are known to be supported by the integration:
 
 ## Supported functionality
 
-### Control
+### Switches
 
-- On
-- Off
-
-#### Configuration
-
-- 433Mhz enable/disable
-- Cloud connection enable/disable
-- LED enable/disable
-- Button enable/disable
+- **Relay**
+  - **Description**: Turn on or off switch relay
+  - **Available for devices**: all
+- **433Mhz**
+  - **Description**: Controls whether device should use 433Mhz communication
+  - **Available for devices**: all
+- **Cloud Access**
+  - **Description**: Controls whether to allow cloud access for device
+  - **Available for devices**: all
+- **Physical Button**
+  - **Description**: Controls whether the onboard button should have any effect on the device
+  - **Available for devices**: all
+- **LED**
+  - **Description**: Controls whether the onboard LED should be lit at any time
+  - **Available for devices**: all
 
 ## Removing the integration
 
