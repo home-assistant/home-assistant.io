@@ -12,6 +12,7 @@ ha_codeowners:
 ha_domain: actron_air
 ha_platforms:
   - climate
+  - sensor
   - switch
 ha_integration_type: integration
 ha_quality_scale: bronze
@@ -37,6 +38,25 @@ This integration supports the Actron Air Neo and Que controllers.
 The integration will create a climate entity for the main air conditioning system found and for each zone. The main air conditioner unit will be reflected based on the name in the Actron Air app. You can set the temperature, operation mode, and fan speed through this entity.
 
 Each zone will be reflected as a separate climate entity. You can set the temperature and operation mode per zone (if supported by your air conditioner).
+
+### Sensors
+
+The integration adds the following sensors for the main air conditioner unit:
+
+- **Clean filter**: Indicates if the filter needs cleaning.
+- **Defrost mode**: Indicates if the unit is in defrost mode. This entity is disabled by default.
+- **Compressor chasing temperature**: The chasing temperature of the compressor. This entity is disabled by default.
+- **Compressor live temperature**: The live temperature of the compressor. This entity is disabled by default.
+- **Compressor mode**: The current mode of the compressor. This entity is disabled by default.
+- **Compressor speed**: The speed of the compressor. This entity is disabled by default.
+- **Compressor power**: The power usage of the compressor. This entity is disabled by default.
+- **Outdoor temperature**: The outdoor temperature measured by the unit. This entity is disabled by default.
+
+Additionally, if you have installed the optional zone sensors, the following sensors will be available for each zone sensor:
+
+- **Battery**: Battery level of the zone sensor.
+- **Humidity**: Humidity measured by the zone sensor.
+- **Temperature**: Temperature measured by the zone sensor.
 
 ### Switch
 
