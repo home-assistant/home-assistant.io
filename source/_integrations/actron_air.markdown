@@ -43,7 +43,7 @@ Each zone will be reflected as a separate climate entity. You can set the temper
 
 The integration adds the following sensors for the main air conditioner unit:
 
-- **Clean filter**: Indicates if the filter needs cleaning.
+- **Clean filter**: The status of the filter, indicating if it needs cleaning.
 - **Defrost mode**: Indicates if the unit is in defrost mode. This entity is disabled by default.
 - **Compressor chasing temperature**: The chasing temperature of the compressor. This entity is disabled by default.
 - **Compressor live temperature**: The live temperature of the compressor. This entity is disabled by default.
