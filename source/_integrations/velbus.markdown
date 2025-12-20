@@ -93,6 +93,15 @@ password:
 The pushbutton LEDs of input modules are disabled by default. These can be enabled from the **Devices** panel in the **Configuration** page of the web interface.
 {% endnote %}
 
+### VLP file import
+
+{% note %}
+This step is optional.
+{% endnote %}
+
+In the next step of the configuration, you have the option to import a Velbus VLP configuration file. This is the configuration file that you can export from the VelbusLink software.
+This will eliminate the need for a scan of the bus and will create all devices and entities based on the configuration file.
+
 ## Actions
 - `velbus.sync clock`: Synchronize Velbus time to local clock.
 - `velbus.scan`: Scan the bus for new devices.
