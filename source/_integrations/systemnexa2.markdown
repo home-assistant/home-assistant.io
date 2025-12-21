@@ -25,9 +25,11 @@ The **System Nexa 2** {% term integration %} allows you to integrate with the **
 
 The following devices are known to be supported by the integration:
 
-- WBR-01 On/off in-wall switch/relay
+- WBD-01 In-Wall Dimmer
+- WBR-01 In-Wall Switch/Relay
 - WPO-01 Outdoor Smart Plug
 - WPR-01 Indoor Smart Plug
+- WPD-01 Indoor Dimmer Plug
 
 ## Prerequisites
 
@@ -43,7 +45,7 @@ The following devices are known to be supported by the integration:
 
 - **Relay**
   - **Description**: Turn on or off switch relay
-  - **Available for devices**: all
+  - **Available for devices**: WBR-01, WPO-01, WPR-01
 - **433Mhz**
   - **Description**: Controls whether device should use 433Mhz communication
   - **Available for devices**: all
