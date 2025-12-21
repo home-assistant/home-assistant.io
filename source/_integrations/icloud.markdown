@@ -14,6 +14,7 @@ ha_domain: icloud
 ha_platforms:
   - device_tracker
   - sensor
+  - camera
 ha_integration_type: integration
 ---
 
@@ -23,6 +24,7 @@ There is currently support for the following platforms within Home Assistant:
 
 - [Device tracker](#device-tracker)
 - [Sensor](#sensor)
+- [Camera](#camera)
 
 It does require that your devices are registered with the [Find My](https://www.apple.com/icloud/find-my/) service.
 
@@ -36,10 +38,10 @@ For the notification, press "Allow", then "OK".
 
 To prevent excessive battery drainage, a dynamic interval is used for each individual device instead of a fixed interval for all devices linked to one account. The dynamic interval is based on the current zone of a device, the distance towards home and the battery level of the device.
 
-## Two Factor Authentication
+## Authentication
 
 {% important %}
-You need to use an [app-specific password](https://support.apple.com/102654) to set up this integration.
+You must use your normal AppleID and Password to set up this integration, [app-specific passwords](https://support.apple.com/102654) are not supported.
 {% endimportant %}
 
 ## In case of troubleshooting
@@ -55,6 +57,17 @@ The iCloud integration will track available devices on your iCloud account.
 ### Sensor
 
 The iCloud integration will add a battery sensor for each iCloud devices available on your iCloud account.
+
+### Camera
+
+Camera entities can be created from iCloud albums and Shared streams. These are handled as Sub entities to the main iCloud integration.
+
+Multiple Album Camera's can be added for a single account.
+
+#### Options
+
+- Image change interval: (Default: 60 seconds)
+- Randomize image selection: (Default: False)
 
 ## Actions
 
@@ -80,3 +93,7 @@ This action will display a message on your iDevice. It can also ring your device
 ### Action `icloud.lost_device`
 
 This action will put your iDevice on "lost" mode (compatible devices only). You have to provide a phone number with a suffixed [country code](https://en.wikipedia.org/wiki/List_of_country_calling_codes) and a message.
+
+### Action `icloud.next_media`
+
+This action will advance the iCloud album camera image. Randomization of the next image is provided via option, this will not update the camera parameter and only applies to the next item.
