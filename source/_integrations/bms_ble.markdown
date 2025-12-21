@@ -116,7 +116,6 @@ documentation for information on how to do this.
 
 ### Sensors
 
-- **battery charging [bool]**: indicates <code>True</code> if battery is charging.
 - **battery level [%]**: state of charge (SoC), range 100% (full) to 0% (battery empty)
 - **battery health [%]**: state of health (SoH), range 100% to 0%, not available on all BMSs
 - **charge cycles [#]**: lifetime number of charge cycles
@@ -129,15 +128,10 @@ documentation for information on how to do this.
 
 ### Diagnostic sensors
 
-- **balancer [bool]\***: indicates `True` if the battery balancer is active
-- **charge MOSFET [bool]\***: indicates `True` if the BMS charge MOSFET is activated
 - **delta cell voltage [V]**: maximum difference between any two cells in a pack
-- **discharge MOSFET [bool]\***: indicates `True` if the BMS discharge MOSFET is activated
-- **heater [bool]\***: indicates `True` if the battery being heated
 - **link quality [%]\***: successful BMS queries out of the last hundred update periods
 - **max cell voltage [V]\***: overall maximum cell voltage in the system
 - **min cell voltage [V]\***: overall minimum cell voltage in the system
-- **problem [bool]**: indicates <code>True</code> if the battery reports an issue or plausibility checks on values fail
 - **RSSI [dBm]\***: received signal strength indicator
 
 ### Attributes
@@ -148,16 +142,13 @@ Some {% term sensors %} provide additional attributes giving details about the {
 
 Sensor | Attribute | Description
 -- | -- | --
-**battery charging** | `battery_mode` | `BULK`, `ABSORPTION`, `FLOAT`
 **battery level** | `pack battery level` | array of pack battery SoC
-**balancer** | `cells` | string of `0\|1` for each balancing cell, e.g. `10001100`
 **current** | `balance current` | overall balance current
 **current** | `pack currents` | array of battery pack currents
 **cycles** | `pack cycles` | array battery pack cycles
 **delta cell voltage** | `pack delta cell voltage` | array of individual cell voltages
 **maximal cell voltage** | `cell number` | number of the cell with highest voltage
 **minimal cell voltage** | `cell number` | number of the cell with lowest voltage
-**problem** | `problem code` | problem code reported by BMS
 **temperature** | `temperature sensors` | array of temperature sensor values
 **voltage** | `pack voltages` | array of pack voltages
 
