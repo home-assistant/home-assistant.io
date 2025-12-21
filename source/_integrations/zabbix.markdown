@@ -13,6 +13,9 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
+ha_codeowners:
+  - '@kruton'
 ---
 
 The **Zabbix** {% term integration %} is the main {% term integration %} to connect to a [Zabbix](https://www.zabbix.com/) monitoring instance via the Zabbix API.
@@ -61,6 +64,11 @@ publish_states_host:
   description: The host that will receive the state changes from Home Assistant. It needs to be manually created in Zabbix first and have the template associated with it (see above).
   required: false
   type: string
+publish_string_states:
+  description: Also publish string states, i.e. states which cannot be cast to a numeric value.
+  required: false
+  type: boolean
+  default: false
 exclude:
   type: list
   description: Configure which integrations should be excluded from being published to Zabbix. ([Configure Filter](#configure-filter))
@@ -108,6 +116,7 @@ zabbix:
   username: USERNAME
   password: PASSWORD
   publish_states_host: homeassistant
+  publish_string_states: true
   exclude:
     domains:
       - device_tracker

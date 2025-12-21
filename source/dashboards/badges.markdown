@@ -10,6 +10,41 @@ Badges are widgets that sit at the top of a panel, above all the cards.
   Badges at the top of a panel.
 </p>
 
+## Adding a badge to your dashboard
+
+1. Go to {% my lovelace_dashboards title="**Settings** > **Dashboards**" %}.
+2. If you have multiple [views](/dashboards/views/), open the view to which you want to add a badge.
+3. In the top right of the screen, select the edit {% icon "mdi:edit" %} button.
+4. To add a badge, select the plus {% icon "mdi:plus" %}button.
+
+   ![Screenshot showing how to add a badge](/images/dashboards/badge_add.png)
+
+5. Select the entity for which you want to display a badge.
+6. Configure your badge.
+   - The available options depend on the entity.
+   - Add the states you want to see.
+   - If you want, add a **Name**.
+
+   ![Screenshot showing how to configure a badge](/images/dashboards/badge_configure.png)
+7. Under **Interactions**, you can define the tap behavior.
+8. If you want this badge to be visible only to specific users or under a certain condition, open the **Visibility** tab to [define those conditions](/dashboards/cards/#showing-or-hiding-a-card-or-badge-conditionally).
+   - The [available conditions](/dashboards/conditional/#conditions-options) are the same as the ones for the conditional card.
+9. Select **Save**.
+
+<p class="img">
+  <img src="/images/dashboards/adding_a_badge_to_a_dashboard.webp" alt="screencast showing how to add a badge to a dashboard">
+  Adding a badge to a dashboard.
+</p>
+
+## Removing a badge
+
+1. Go to the dashboard edit the dashboard (steps 1-3 in [adding a badge](#adding-a-badge-to-your-dashboard)).
+2. Hover over the badge to reveal the three dots {% icon "mdi:dots-vertical" %} menu.
+    ![Screenshot showing edit buttons](/images/dashboards/edit_badge.png)
+3. Select the three dots {% icon "mdi:dots-vertical" %} menu and select **Delete**.
+
+    ![Screenshot showing the three dots menu](/images/dashboards/edit_badge_menu.png)
+
 ## Entity badge
 
 The Entity badge allows you to display the state of an entity on a badge. This badge supports [actions](/dashboards/actions/).
@@ -30,8 +65,8 @@ entity:
   type: string
 name:
   required: false
-  description: Overwrites the entity name.
-  type: string
+  description: Overwrites friendly name. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/).
+  type: [string, map, list]
 icon:
   required: false
   description: Overwrites the entity icon.
@@ -46,11 +81,21 @@ show_entity_picture:
   description: If your entity has a picture, it will replace the icon.
   type: boolean
   default: false
-display_type:
+show_name:
   required: false
-  description: Type of display for the badge. It can be either `minimal` (icon only), `standard` (icon and state), or `complete` (icon, state, and name).
-  type: string
-  default: standard
+  description: Show the name
+  type: boolean
+  default: "false"
+show_icon:
+  required: false
+  description: Show the icon
+  type: boolean
+  default: "true"
+show_state:
+  required: false
+  description: Show the state.
+  type: boolean
+  default: "true"
 state_content:
   required: false
   description: >
@@ -110,15 +155,11 @@ entity:
   type: string
 name:
   required: false
-  description: Overwrites friendly name.
-  type: string
+  description: Overwrites friendly name. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/).
+  type: [string, map, list]
 icon:
   required: false
   description: Overwrites icon or entity picture. You can use any icon from [Material Design Icons](https://pictogrammers.com/library/mdi/). Prefix the icon name with `mdi:`, ie `mdi:home`.
-  type: string
-image:
-  required: false
-  description: The URL of an image.
   type: string
 conditions:
   required: false
@@ -132,9 +173,11 @@ state_filter:
 
 *only one filter will be applied: `conditions` or `state_filter` if `conditions` is not present
 
+You may also add any additional configuration options to an entity which are supported by the chosen badge type (`Entity` badge type if no type is chosen).
+
 ## Conditions options
 
-You can specify multiple `conditions`, in which case the entity will be displayed if it matches any condition.
+You can specify multiple `conditions`, in which case the entity will be displayed if it matches all conditions.
 
 ### State
 

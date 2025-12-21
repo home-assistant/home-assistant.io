@@ -9,6 +9,7 @@ ha_domain: smtp
 ha_platforms:
   - notify
 ha_integration_type: integration
+ha_quality_scale: legacy
 ---
 
 The SMTP platform allows you to deliver notifications from Home Assistant to an email recipient.
@@ -90,19 +91,16 @@ A notify integration will be created using the name without spaces. In the above
 
 ```yaml
 - alias: "Send E-Mail Every Morning"
-  description: ""
-  trigger:
+  triggers:
     - platform: time
       at: "08:00:00"
-  condition: []
-  action:
+  actions:
     - action: notify.NOTIFIER_NAME
       data:
           title: "Good Morning"
           message: "Rise and shine"
           target:
             - "morning@example.com"
-  mode: single
 ```
 
 The optional `target` field is used to specify recipient(s) for this specific action. When `target` field is not used, this message will be sent to default recipient(s), specified in the `recipient` part of the smtp notifier in `configuration.yaml`. Line breaks can be added in the body part of the email by using `\r\n`, for instance `message: "Rise and shine\r\n\r\nIt's a brand new day!"`
@@ -194,8 +192,8 @@ burglar:
                       <br>
                     </div>
                   </body>
-                  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-                  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js"></script>
+                  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" integrity="sha384-6ePHh72Rl3hKio4HiJ841psfsRJveeS+aLoaEf3BWfS+gTF0XdAqku2ka8VddikM" crossorigin="anonymous"></script>
+                  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous"></script>
               </html>
 ```
 

@@ -12,4 +12,4 @@ with the Supervisor is not supported.
 ## The solution
 
 You need to reinstall the host operating system that runs the Supervisor,
-for instructions on how to prosed with that [have a look here](/more-info/unsupported/os).
+for instructions on how to proceed with that [have a look here](/more-info/unsupported/os).

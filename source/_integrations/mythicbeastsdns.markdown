@@ -10,6 +10,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 With the `mythicbeastsdns` {% term integration %} you can automatically update your dynamic DNS entry at [Mythic Beasts](https://www.mythic-beasts.com/).

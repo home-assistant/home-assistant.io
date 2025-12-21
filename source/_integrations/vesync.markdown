@@ -4,7 +4,9 @@ description: Instructions on how to set up VeSync switches, outlets, and fans wi
 ha_category:
   - Fan
   - Light
+  - Number
   - Switch
+  - Update
 ha_release: 0.66
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -13,26 +15,37 @@ ha_codeowners:
   - '@webdjoe'
   - '@thegardenmonkey'
   - '@cdnninja'
+  - '@iprak'
+  - '@sapuseven'
 ha_domain: vesync
 ha_platforms:
+  - binary_sensor
   - diagnostics
   - fan
+  - humidifier
   - light
+  - number
+  - select
   - sensor
   - switch
+  - update
 ha_integration_type: integration
 ---
 
-The `**VeSync** {% term integration %} enables you to control smart switches and outlets connected to the VeSync App.
+The **VeSync** {% term integration %} enables you to control smart switches and outlets connected to the VeSync App.
 
 The devices must be added to the VeSync App before this {% term integration %} can discover them.
 
 The following platforms are supported:
 
-- **light**
-- **switch**
+- **binary sensor**
 - **fan**
+- **humidifier**
+- **light**
+- **number**
 - **sensor**
+- **switch**
+- **update**
 
 ## Supported devices
 
@@ -62,9 +75,17 @@ This {% term integration %} supports devices controllable by the VeSync App.  Th
 - Core 300S: Smart True HEPA Air Purifier
 - Core 400S: Smart True HEPA Air Purifier
 - Core 600S: Smart True HEPA Air Purifier
+- EverestAir: Smart Air Purifier
 - Vital 100S Smart True HEPA Air Purifier (LAP-V102S-WUS) 
 - Vital 200S Smart True HEPA Air Purifier (LAP-V201S-WUS)
 - LEVOIT Smart Wifi Air Purifier (LV-PUR131S)
+- LEVOIT Smart Tower Fan (LTF-F422S-WUS)
+
+### Humidifiers
+
+- Classic200S: Classic 200S Smart Ultrasonic Cool Mist Humidifier
+- Classic300S: Classic 300S Ultrasonic Smart Humidifier
+- Superior6000S: Superior 6000S Smart Evaporative Humidifier
 
 ## Prerequisite
 
@@ -97,11 +118,15 @@ itself. Note that prior versions of the {% term integration %} exposed these as 
 ## Fan & air quality sensors
 All VeSync air purifiers expose the remaining filter lifetime, and some also expose air quality measurements.
 
-| Sensor                                  | Description                                                        | Example |
-| --------------------------------------- | ------------------------------------------------------------------ | ------- |
-| `filter_life`           | Remaining percentage of the filter. (LV-PUR131S, Core200S/300s/400s/600s)         | 142       |
+| Sensor                  | Description                                                                            | Example   |
+| ----------------------- | -------------------------------------------------------------------------------------- | --------- |
+| `filter_life`           | Remaining percentage of the filter. (LV-PUR131S, Core200S/300s/400s/600s/EverestAir)   | 142       |
 | `air_quality`           | The current air quality reading. (LV-PUR131S, Core300s/400s/600s)                      | excellent |
-| `pm2_5`                 | The current air quality reading. (Core300s/400s/600s)                                  | 8         |
+| `pm2_5`                 | The current air quality reading. (Core300s/400s/600s/EverestAir)                       | 8         |
+
+| Switch                  | Description                                                                        | Example   |
+| ----------------------- | ---------------------------------------------------------------------------------- | --------- |
+| `display`               | Display On or Off                                                                  | On        |
 
 ## Fan exposed attributes
 
@@ -112,10 +137,43 @@ VeSync air purifiers will expose the following details depending on the features
 | `mode`                  | The current mode the device is in. (LV-PUR131S, Core200S/300s/400s)               | manual          |
 | `speed`                 | The current speed setting of the device. (LV-PUR131S, Core200S/300s/400s)         | high            |
 | `speed_list`            | The available list of speeds supported by the device. (LV-PUR131S)                | high            |
+| `oscillating`           | If the fan is currently oscillating                                               | True            |
 | `active_time`           | The number of seconds since the device has been in a non-off mode. (LV-PUR131S)   | 1598            |
 | `screen_status`         | The current status of the screen. (LV-PUR131S)                                    | on              |
 | `night_light`           | The current status of the night light (Core200S/Core400s)                         | off             |
 | `child_lock`            | The current status of the child lock (Core200S/300s/400s)                         | off             |
+
+| Select                  | Description                                                                        | Example   |
+| ----------------------- | ---------------------------------------------------------------------------------- | --------- |
+| `night_light_level`     | Night light brightness level (Values: off, dim, on).                               | off       |
+
+## Humidifier
+
+Sensors and settings exposed by VeSync humidifiers.
+
+| Sensor                  | Description                                                                        | Example   |
+| ----------------------- | ---------------------------------------------------------------------------------- | --------- |
+| `humidity`              | Current humidity (in %)                                                            | 35        |
+
+| Number                  | Description                                                                        | Example   |
+| ----------------------- | ---------------------------------------------------------------------------------- | --------- |
+| `mist_level`            | Mist level intensity (Range: 1-9, Step: 1). Only available in manual mode.         | 1         |
+
+| Select                  | Description                                                                        | Example   |
+| ----------------------- | ---------------------------------------------------------------------------------- | --------- |
+| `night_light_level`     | Night light brightness level (Values: off, dim, bright).                           | off       |
+
+| Switch                  | Description                                                                        | Example   |
+| ----------------------- | ---------------------------------------------------------------------------------- | --------- |
+| `display`               | Display On or Off                                                                  | On        |
+
+
+## Binary Sensors
+
+| Binary Sensor           | Description                                                                        | Example   |
+| ----------------------- | ---------------------------------------------------------------------------------- | --------- |
+| `water_lacks`           | Indicates whether the device needs a water refill                                  | false     |
+| `water_tank_lifted`     | Water tank is lifted                                                               | false     |
 
 ## Extracting attribute data
 

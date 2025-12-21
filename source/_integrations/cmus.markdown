@@ -9,6 +9,7 @@ ha_domain: cmus
 ha_platforms:
   - media_player
 ha_integration_type: integration
+ha_quality_scale: legacy
 ---
 
 The `cmus` platform allows you to control a [cmus](https://cmus.github.io/) music player on a remote or local machine from Home Assistant.

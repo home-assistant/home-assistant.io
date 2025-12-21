@@ -14,11 +14,13 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `saj` {% term integration %} will poll a [SAJ](https://www.saj-electric.com/) solar inverter and present the values as sensors in Home Assistant.
 
-This sensor uses the web interface and to use it, you have to be able to connect to the solar inverter from your favorite web browser.
+This sensor uses the web interface and to use it, you have to be able to connect to the solar inverter from your favorite web browser. 
+Not all inverters appear to support the local interface.
 
 There is a difference between inverters that are connected via an ethernet module and those connected via a Wi-Fi module.
 The Wi-Fi module requires a username and password for authentication where the ethernet module does not.

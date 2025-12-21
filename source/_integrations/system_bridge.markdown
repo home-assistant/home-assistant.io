@@ -11,7 +11,6 @@ ha_config_flow: true
 ha_codeowners:
   - '@timmo001'
 ha_domain: system_bridge
-ha_quality_scale: silver
 ha_platforms:
   - binary_sensor
   - media_player
@@ -66,6 +65,7 @@ This integration provides the following sensors:
 | Kernel               | Version information of the Kernel                   |
 | Latest Version       | System Bridge Latest Version                        |
 | Load                 | System load percentage                              |
+| Power Usage          | Power usage in watts (if available)                 |
 | Memory Free          | Memory (RAM) free in GB                             |
 | Memory Used          | Memory (RAM) used in GB                             |
 | Memory Used %        | Memory (RAM) % used                                 |
@@ -176,7 +176,7 @@ data:
   id: 17752
 ```
 
-This returns [Response Data](https://www.home-assistant.io/docs/scripts/service-calls#use-templates-to-handle-response-data) like the following:
+This returns [Response Data](https://www.home-assistant.io/docs/scripts/perform-actions#use-templates-to-handle-response-data) like the following:
 
 ```yaml
 id: 17752
@@ -203,7 +203,7 @@ data:
   name: discord
 ```
 
-This returns [Response Data](https://www.home-assistant.io/docs/scripts/service-calls#use-templates-to-handle-response-data) like the following:
+This returns [Response Data](https://www.home-assistant.io/docs/scripts/perform-actions#use-templates-to-handle-response-data) like the following:
 
 ```yaml
 count: 1
@@ -232,7 +232,7 @@ data:
   path: "C:\\image.jpg"
 ```
 
-This returns [Response Data](https://www.home-assistant.io/docs/scripts/service-calls#use-templates-to-handle-response-data) like the following:
+This returns [Response Data](https://www.home-assistant.io/docs/scripts/perform-actions#use-templates-to-handle-response-data) like the following:
 
 ```yaml
 id: abc123
@@ -255,7 +255,7 @@ data:
   url: "https://home-assistant.io"
 ```
 
-This returns [Response Data](https://www.home-assistant.io/docs/scripts/service-calls#use-templates-to-handle-response-data) like the following:
+This returns [Response Data](https://www.home-assistant.io/docs/scripts/perform-actions#use-templates-to-handle-response-data) like the following:
 
 ```yaml
 id: abc123
@@ -278,7 +278,7 @@ data:
   key: "a"
 ```
 
-This returns [Response Data](https://www.home-assistant.io/docs/scripts/service-calls#use-templates-to-handle-response-data) like the following:
+This returns [Response Data](https://www.home-assistant.io/docs/scripts/perform-actions#use-templates-to-handle-response-data) like the following:
 
 ```yaml
 id: abc123
@@ -301,7 +301,7 @@ data:
   text: "Hello"
 ```
 
-This returns [Response Data](https://www.home-assistant.io/docs/scripts/service-calls#use-templates-to-handle-response-data) like the following:
+This returns [Response Data](https://www.home-assistant.io/docs/scripts/perform-actions#use-templates-to-handle-response-data) like the following:
 
 ```yaml
 id: abc123
@@ -333,7 +333,7 @@ data:
   command: "sleep"
 ```
 
-This returns [Response Data](https://www.home-assistant.io/docs/scripts/service-calls#use-templates-to-handle-response-data) like the following:
+This returns [Response Data](https://www.home-assistant.io/docs/scripts/perform-actions#use-templates-to-handle-response-data) like the following:
 
 ```yaml
 id: abc123

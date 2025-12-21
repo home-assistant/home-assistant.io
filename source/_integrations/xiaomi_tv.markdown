@@ -14,6 +14,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `xiaomi_tv` {% term integration %} allows you to control a [Xiaomi TV](https://www.mi.com/global/mitv3s/65flat/).

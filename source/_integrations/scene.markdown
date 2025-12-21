@@ -25,6 +25,16 @@ Every scene entity does keep track of the timestamp of when the last time
 the scene entity was called via the Home Assistant UI or called via
 an action.
 
+<p class='img'>
+<img src='/images/integrations/scene/state_scene.png' alt='Screenshot showing the state of a scene entity in the developer tools' />
+Screenshot showing the state of a scene entity in the developer tools.
+</p>
+
+In addition, the entity can have the following states:
+
+- **Unavailable**: The entity is currently unavailable.
+- **Unknown**: The state is not yet known.
+
 ## Scenes created by integrations
 
 Some integrations like [Philips Hue](/integrations/hue), [MQTT](/integrations/mqtt), and [KNX](/integrations/knx) provide scenes. You can activate them from the Home Assistant UI or via as an action. In this case, the integration provides the preferred states to restore.
@@ -91,15 +101,15 @@ Scenes can be activated using the `scene.turn_on` action (there is no `scene.tur
 ```yaml
 # Example automation
 automation:
-  trigger:
-    platform: state
-    entity_id: device_tracker.sweetheart
-    from: "not_home"
-    to: "home"
-  action:
-    action: scene.turn_on
-    target:
-      entity_id: scene.romantic
+  triggers:
+    - trigger: state
+      entity_id: device_tracker.sweetheart
+      from: "not_home"
+      to: "home"
+  actions:
+    - action: scene.turn_on
+      target:
+        entity_id: scene.romantic
 ```
 
 ## Applying a scene without defining it
@@ -109,22 +119,22 @@ With the `scene.apply` action you are able to apply a scene without first defini
 ```yaml
 # Example automation
 automation:
-  trigger:
-    platform: state
-    entity_id: device_tracker.sweetheart
-    from: "not_home"
-    to: "home"
-  action:
-    action: scene.apply
-    data:
-      entities:
-        light.tv_back_light:
-          state: "on"
-          brightness: 100
-        light.ceiling: off
-        media_player.sony_bravia_tv:
-          state: "on"
-          source: HDMI 1
+  triggers:
+    - trigger: state
+      entity_id: device_tracker.sweetheart
+      from: "not_home"
+      to: "home"
+  actions:
+    - action: scene.apply
+      data:
+        entities:
+          light.tv_back_light:
+            state: "on"
+            brightness: 100
+          light.ceiling: off
+          media_player.sony_bravia_tv:
+            state: "on"
+            source: HDMI 1
 ```
 
 ## Using scene transitions
@@ -138,17 +148,17 @@ light will transition to the scene in 2.5 seconds.
 ```yaml
 # Example automation
 automation:
-  trigger:
-    platform: state
-    entity_id: device_tracker.sweetheart
-    from: "not_home"
-    to: "home"
-  action:
-    action: scene.turn_on
-    target:
-      entity_id: scene.romantic
-    data:
-      transition: 2.5
+  triggers:
+    - trigger: state
+      entity_id: device_tracker.sweetheart
+      from: "not_home"
+      to: "home"
+  actions:
+    - action: scene.turn_on
+      target:
+        entity_id: scene.romantic
+      data:
+        transition: 2.5
 ```
 
 Transitions are currently only support by lights, which in their turn, have
@@ -175,21 +185,21 @@ This video tutorial explains how scenes work and how you can utilize scenes on t
 ```yaml
 # Example automation using entities
 automation:
-  trigger:
-    platform: homeassistant
-    event: start
-  action:
-    action: scene.create
-    data:
-      scene_id: my_scene
-      entities:
-        light.tv_back_light:
-          state: "on"
-          brightness: 100
-        light.ceiling: off
-        media_player.sony_bravia_tv:
-          state: "on"
-          source: HDMI 1
+  triggers:
+    - trigger: homeassistant
+      event: start
+  actions:
+    - action: scene.create
+      data:
+        scene_id: my_scene
+        entities:
+          light.tv_back_light:
+            state: "on"
+            brightness: 100
+          light.ceiling: off
+          media_player.sony_bravia_tv:
+            state: "on"
+            source: HDMI 1
 ```
 
 ## Deleting dynamically created scenes
@@ -203,11 +213,11 @@ If the scene was not previously created by `scene.create`, the action will fail 
 ```yaml
 # Example automation
 automation:
-  trigger:
-    platform: state
-    entity_id: sun.sun
-    to: below_horizon
-  action:
+  triggers:
+    - trigger: state
+      entity_id: sun.sun
+      to: "below_horizon"
+  actions:
     - action: scene.delete
       data:
         entity_id: scene.my_scene
@@ -218,13 +228,13 @@ The following example turns off some entities as soon as a window opens. The sta
 ```yaml
 # Example automation using snapshot
 - alias: "Window opened"
-  trigger:
-  - platform: state
+  triggers:
+  - trigger: state
     entity_id: binary_sensor.window
     from: "off"
     to: "on"
-  condition: []
-  action:
+  conditions: []
+  actions:
   - action: scene.create
     data:
       scene_id: before
@@ -240,13 +250,13 @@ The following example turns off some entities as soon as a window opens. The sta
     data:
       hvac_mode: "off"
 - alias: "Window closed"
-  trigger:
-  - platform: state
+  triggers:
+  - trigger: state
     entity_id: binary_sensor.window
     from: "on"
     to: "off"
-  condition: []
-  action:
+  conditions: []
+  actions:
   - action: scene.turn_on
     target:
       entity_id: scene.before

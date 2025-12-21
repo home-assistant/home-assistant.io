@@ -62,7 +62,7 @@ type: markdown
 title: Packages in transit
 content: >
   {% for package in
-  states.sensor.seventeentrack_packages_in_transit.attributes.packages %}
+  states.sensor['17track_in_transit'].attributes.packages %}
 
   >- **{{ package.friendly_name }} ({{ package.tracking_number }}):** {{
   package.info_text }}
@@ -79,7 +79,6 @@ content: >
 
 The `seventeentrack.get_packages` action allows you to query the 17track API for the latest package data.
 
-
 | Data attribute | Optional | Description                                 |
 |------------------------|----------|---------------------------------------------|
 | `config_entry_id`      | No       | The ID of the 17Track service config entry. |
@@ -91,4 +90,40 @@ The `seventeentrack.get_packages` action allows you to query the 17track API for
   data:
     config_entry_id: 2b4be47a1fa7c3764f14cf756dc98991
     package_state: ["Delivered", "In transit"]
+```
+
+### Action `seventeentrack.archive_package`
+
+The `seventeentrack.archive_package` action allows you to archive a package using the 17track API.
+
+| Data attribute            | Optional | Description                                 |
+|---------------------------|----------|---------------------------------------------|
+| `config_entry_id`         | No       | The ID of the 17Track service config entry. |
+| `package_tracking_number` | No       | The package tracking number.                |
+
+```yaml
+# Example automation action to archive a package with a tracking number
+- action: seventeentrack.archive_package
+  data:
+    config_entry_id: 2b4be47a1fa7c3764f14cf756dc98991
+    package_tracking_number: RU0103445624A
+```
+
+### Action `seventeentrack.add_package`
+
+The `seventeentrack.add_package` action allows you to add a package using the 17track API.
+
+| Data attribute            | Optional | Description                                   |
+| ------------------------- | -------- | --------------------------------------------- |
+| `config_entry_id`         | No       | The selected service to add the package to.   |
+| `package_tracking_number` | No       | The package tracking number to add.           |
+| `package_friendly_name`   | No       | The friendly name of the package to be added. |
+
+```yaml
+# Example automation action to add a package with tracking number and its friendly name
+- action: seventeentrack.add_package
+  data:
+    config_entry_id: 2b4be47a1fa7c3764f14cf756dc98991
+    package_tracking_number: RU0103445624A
+    package_friendly_name: "Example Package"
 ```

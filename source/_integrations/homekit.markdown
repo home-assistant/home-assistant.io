@@ -58,6 +58,9 @@ homekit:
       binary_sensor.living_room_motion:
         linked_battery_sensor: sensor.living_room_motion_battery
         low_battery_threshold: 31
+      fan.air_purifier:
+        type: air_purifier
+        linked_filter_life_level_sensor: sensor.air_purifier_filter_life_level
       light.kitchen_table:
         name: Kitchen Table Light
       lock.front_door:
@@ -160,11 +163,23 @@ homekit:
               required: false
               type: string
             linked_doorbell_sensor:
-              description: The `entity_id` of a `binary_sensor` or `event` entity to use as the doorbell sensor of the camera accessory to enable doorbell notifications.
+              description: The `entity_id` of a `binary_sensor` or `event` entity to use as the doorbell sensor of a `lock` or `camera` accessory to enable doorbell notifications.
+              required: false
+              type: string
+            linked_filter_change_indication_binary_sensor:
+              description: The `entity_id` of a `binary_sensor` entity to use as the indicator that the filter of the air purifier accessory needs to be changed.
+              required: false
+              type: string
+            linked_filter_life_level_sensor:
+              description: The `entity_id` of a `sensor` entity to use as the filter life level of the air purifier accessory.
               required: false
               type: string
             linked_humidity_sensor:
               description: The `entity_id` of a `sensor` entity to use as the humidity sensor of the humidifier/dehumidifier accessory.
+              required: false
+              type: string
+            linked_pm25_sensor:
+              description: The `entity_id` of a `sensor` entity to use as the PM2.5 sensor of the air purifier accessory. When set, the `fan` accessory will default its `type` to `air_purifier`.
               required: false
               type: string
             linked_motion_sensor:
@@ -173,6 +188,18 @@ homekit:
               type: string
             linked_obstruction_sensor:
               description: The `entity_id` of a `binary_sensor` entity to use as the obstruction sensor of the garage door (cover) accessory to enable obstruction state tracking.
+              required: false
+              type: string
+            linked_temperature_sensor:
+              description: The `entity_id` of a `sensor` entity to use as the temperature sensor of the air purifier accessory.
+              required: false
+              type: string
+            linked_valve_duration:
+              description: The `entity_id` of an `input_number` entity to use as the default run time of a valve switch (switch type `faucet`, `shower`, `sprinkler`, or `valve`), or valve accessory. Minimum value, maximum value, and step size are set based on the linked `input_number` entity.
+              required: false
+              type: string
+            linked_valve_end_time:
+              description: The `entity_id` of a `sensor` (timestamp) entity to use for calculating the remaining time of a valve switch (switch type `faucet`, `shower`, `sprinkler`, or `valve`), or valve accessory. The end time has to be maintained in Home Assistant. HomeKit will not update the state of this sensor. The maximum value is set based on the `input_number` of `linked_valve_duration`, or uses a default of 48 hours.
               required: false
               type: string
             low_battery_threshold:
@@ -195,7 +222,7 @@ homekit:
                   required: true
                   type: string
             type:
-              description: Only for `switch` entities. Type of accessory to be created within HomeKit. Valid types are `faucet`, `outlet`, `shower`, `sprinkler`, `switch` and `valve`.
+              description: Only for `switch` and `fan` entities. Type of accessory to be created within HomeKit. Valid types for `switch` entities are `faucet`, `outlet`, `shower`, `sprinkler`, `switch` and `valve`. Valid types for `fan` entities are `fan` and `air_purifier`.
               required: false
               type: string
               default: '`switch`'
@@ -259,7 +286,7 @@ homekit:
               required: false
               type: string
               default: libx264
-              available options: copy, libx264, h264_v4l2m2m, h264_omx
+              available options: copy, libx264, h264_v4l2m2m, h264_omx, h264_qsv
             video_profile_names:
               description: Only for `camera` entities. FFmpeg video profile names for transcoding, only relevant if `video_codec` isn't `copy`. Some encoders, e.g., the Raspberry Pi's `h264_v4l2m2m`, don't use the standard `["baseline", "main", "high"]` profile names but expects `["0", "2", "4"]` instead. Use this option to override the default names, if needed.
               required: false
@@ -358,7 +385,7 @@ To add a single entity in accessory mode:
 
 ## Configure Filter
 
-By default, all entities except categorized entities (config, diagnostic, and system entities) are included. To limit which entities are being exposed to `HomeKit`, you can use the `filter` parameter. Keep in mind only [supported integrations](#supported-integrations) can be added.
+By default, all entities except hidden entities and categorized entities (config, diagnostic, and system entities) are included. To limit which entities are being exposed to `HomeKit`, you can use the `filter` parameter. Keep in mind only [supported integrations](#supported-integrations) can be added.
 
 ```yaml
 # Example filter to include specified domains and exclude specified entities
@@ -375,7 +402,7 @@ homekit:
 
 {% include common-tasks/filters.md %}
 
-Categorized entities are not included (config, diagnostic, and system entities) unless they are explicitly matched by `include_entity_globs` or `include_entities` or selected in the UI in include mode.
+Hidden entities and categorized entities (config, diagnostic, and system entities) are not included unless they are explicitly matched by `include_entity_globs` or `include_entities` or selected in the UI in include mode.
 
 ## Docker Network Isolation
 
@@ -406,7 +433,7 @@ The following integrations are currently supported:
 | Integration                                                   | Type Name              | Description                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | ------------------------------------------------------------- | ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | alarm_control_panel                                           | SecuritySystem         | All security systems.                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| automation / input_boolean / remote / scene / script / vacuum | Switch                 | All represented as switches.                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| automation / button / input_boolean / input_button / lawn_mower / remote / scene / script / vacuum | Switch                 | All represented as switches.                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | input_select / select                                         | Switch                 | Represented as a power strip with buttons for each option.                                                                                                                                                                                                                                                                                                                                                                                   |
 | binary_sensor                                                 | Sensor                 | Support for `co2`, `door`, `garage_door`, `gas`, `moisture`, `motion`, `occupancy`, `opening`, `smoke` and `window` device classes. Defaults to the `occupancy` device class for everything else.                                                                                                                                                                                                                                            |
 | camera                                                        | Camera                 | All camera devices. **HomeKit Secure Video is not supported at this time.**                                                                                                                                                                                                                                                                                                                                                                  |
@@ -417,11 +444,11 @@ The following integrations are currently supported:
 | cover                                                         | WindowCovering         | All covers that support `open_cover` and `close_cover` through value mapping. (`open` -> `>=50`; `close` -> `<50`)                                                                                                                                                                                                                                                                                                                           |
 | cover                                                         | WindowCovering         | All covers that support `open_cover`, `stop_cover` and `close_cover` through value mapping. (`open` -> `>70`; `close` -> `<30`; `stop` -> every value in between)                                                                                                                                                                                                                                                                            |
 | device_tracker / person                                       | Sensor                 | Support for `occupancy` device class.                                                                                                                                                                                                                                                                                                                                                                                                        |
-| fan                                                           | Fan                    | Support for `on / off`, `direction` and `oscillating`.                                                                                                                                                                                                                                                                                                                                                                                       |
-| fan                                                           | Fan                    | All fans that support `speed` and `speed_list` through value mapping: `speed_list` is assumed to contain values in ascending order. The numeric ranges of HomeKit map to a corresponding entry of `speed_list`. The first entry of `speed_list` should be equivalent to `off` to match HomeKit's concept of fan speeds. (Example: `speed_list` = [`off`, `low`, `high`]; `off` -> `<= 33`; `low` -> between `33` and `66`; `high` -> `> 66`) |
+| fan                                                           | Fan / AirPurifier      | Support for `on / off`, `direction` and `oscillating`. Represented as a fan by default but can be changed by using `type` within `entity_config`. Defaults to an air purifier when there's a linked PM2.5 sensor.                                                                                                                                                                                                                                                                                                                                                                                       |
+| fan                                                           | Fan / AirPurifier      | All fans that support `speed` and `speed_list` through value mapping: `speed_list` is assumed to contain values in ascending order. The numeric ranges of HomeKit map to a corresponding entry of `speed_list`. The first entry of `speed_list` should be equivalent to `off` to match HomeKit's concept of fan speeds. (Example: `speed_list` = [`off`, `low`, `high`]; `off` -> `<= 33`; `low` -> between `33` and `66`; `high` -> `> 66`). The same applies for fans represented as air purifiers (see above). |
 | humidifier                                                    | HumidifierDehumidifier | Humidifier and Dehumidifier devices.                                                                                                                                                                                                                                                                                                                                                                                                         |
 | light                                                         | Light                  | Support for `on / off`, `brightness` and `rgb_color`.                                                                                                                                                                                                                                                                                                                                                                                        |
-| lock                                                          | DoorLock               | Support for `lock / unlock`.                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| lock                                                          | DoorLock               | Support for `lock / unlock`. A doorbell event / sensor can be linked with `linked_doorbell_sensor`.                                                                                                                                                                                                                                                                                                                                                                                                             |
 | media_player                                                  | MediaPlayer            | Represented as a series of switches which control `on / off`, `play / pause`, `play / stop`, or `mute` depending on `supported_features` of entity and the `mode` list specified in `entity_config`.                                                                                                                                                                                                                                         |
 | media_player                                                  | TelevisionMediaPlayer  | All media players that have `tv` as their `device_class`.  Represented as Television and Remote accessories in HomeKit to control `on / off`, `play / pause`, `select source`, or `volume increase / decrease`, depending on `supported_features` of entity. Requires iOS 12.2/macOS 10.14.4 or later.                                                                                                                                       |
 | media_player                                                  | ReceiverMediaPlayer    | All media players that have `receiver` as their `device_class`.  Represented as Receiver and Remote accessories in HomeKit to control `on / off`, `play / pause`, `select source`, or `volume increase / decrease`, depending on `supported_features` of entity. Requires iOS 12.2/macOS 10.14.4 or later.                                                                                                                                   |
@@ -431,10 +458,10 @@ The following integrations are currently supported:
 | sensor                                                        | CarbonMonoxideSensor   | All sensors that have `carbon_monoxide` as their `device_class`                                                                                                                                                                                                                                                                                                                                                                                           |
 | sensor                                                        | CarbonDioxideSensor    | All sensors that have `co2` as part of their `entity_id` or `carbon_dioxide` as their `device_class`                                                                                                                                                                                                                                                                                                                                                    |
 | sensor                                                        | LightSensor            | All sensors that have `lm` or `lx` as their `unit_of_measurement` or `illuminance` as their `device_class`                                                                                                                                                                                                                                                                                                                                   |
-| switch                                                        | Switch                 | Represented as a switch by default but can be changed by using `type` within `entity_config`.                                                                                                                                                                                                                                                                                                                                                |
+| switch                                                        | Switch                 | Represented as a switch by default but can be changed by using `type` within `entity_config`. Valve switches (type `faucet`, `shower`, `sprinkler`, or `valve`) can be linked with `linked_valve_duration` and `linked_valve_end_time`.                                                                                                                                                                                                                                                                                                                                                |
 | water_heater                                                  | WaterHeater            | All `water_heater` devices.                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | device_automation                                             | DeviceTriggerAccessory | All devices that support triggers.                                                                                                                                                                                                                                                                                                                                                                                                           |
-| valve                                                         | Valve                 | All `valve` devices.                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| valve                                                         | Valve                  | All `valve` devices can be linked with `linked_valve_duration` and `linked_valve_end_time`.                                                                                                                                                                                                                                                                                                                                                                                                                         |
 
 # Device triggers
 
@@ -454,17 +481,17 @@ The key name will be available in the event data in the `key_name` field. Exampl
 
 ```yaml
 automation:
-  trigger:
-    platform: event
-    event_type: homekit_tv_remote_key_pressed
-    event_data:
-      key_name: arrow_right
+  triggers:
+    - trigger: event
+      event_type: homekit_tv_remote_key_pressed
+      event_data:
+        key_name: arrow_right
 
   # Send the arrow right key via a broadlink IR blaster
-  action:
-    action: broadlink.send
-    host: 192.168.1.55
-    packet: XXXXXXXX
+  actions:
+    - action: broadlink.send
+      host: 192.168.1.55
+      packet: XXXXXXXX
 ```
 
 ## Events
@@ -474,13 +501,13 @@ The HomeKit integration emits `homekit_state_change` events. These events can be
 ```yaml
 # Example for handling a HomeKit event
 automation:
-  trigger:
-    - platform: event
+  triggers:
+    - trigger: event
       event_type: homekit_state_change
       event_data:
         entity_id: cover.garage_door
         action: open_cover
-  action:
+  actions:
     - action: persistent_notification.create
       data:
         message: "The garage door got opened via HomeKit"

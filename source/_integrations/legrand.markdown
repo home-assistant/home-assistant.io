@@ -3,6 +3,7 @@ title: Legrand
 description: Connect and control your Legrand devices using the Netatmo integration
 ha_category:
   - Binary sensor
+  - Button
   - Camera
   - Climate
   - Cover
@@ -24,6 +25,7 @@ ha_codeowners:
 ha_config_flow: true
 ha_platforms:
   - binary_sensor
+  - button
   - camera
   - climate
   - cover

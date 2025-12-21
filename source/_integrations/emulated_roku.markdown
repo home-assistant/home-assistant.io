@@ -116,14 +116,14 @@ The following is an example implementation of an automation:
 # Example automation
 - id: amp_volume_up
   alias: "Increase amplifier volume"
-  trigger:
-  - platform: event
+  triggers:
+  - trigger: event
     event_type: roku_command
     event_data:
       source_name: Home Assistant
       type: keypress
       key: Fwd
-  action:
+  actions:
   - action: media_player.volume_up
     target:
       entity_id: media_player.amplifier

@@ -17,7 +17,7 @@ ha_homekit: true
 ha_dhcp: true
 ha_platforms:
   - binary_sensor
-  - Calendar
+  - calendar
   - switch
 ha_zeroconf: true
 ha_integration_type: integration

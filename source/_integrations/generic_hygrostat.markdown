@@ -33,7 +33,7 @@ If you need more specific features for your use case, the manual [YAML-configura
 
 Alternatively, this integration can be configured and set up manually via YAML
 as well. To enable the generic hygrostat in your installation, add the
-following to your `configuration.yaml` file:
+following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -121,6 +121,8 @@ sensor_stale_duration:
 Time for `min_cycle_duration` and `keep_alive` must be set as "hh:mm:ss" or it must contain at least one of the following entries: `days:`, `hours:`, `minutes:`, `seconds:` or `milliseconds:`. Alternatively, it can be an integer that represents time in seconds.
 
 ## Full YAML configuration example
+
+To be added to the {% term "`configuration.yaml`" %} file.
 
 ```yaml
 generic_hygrostat:

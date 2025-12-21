@@ -8,7 +8,7 @@ related:
     title: Add network storage
   - docs: /common-tasks/os/#using-external-data-disk
     title: Using an external data disk
-  - URL: https://yellow.home-assistant.io/guides/add-ssd-existing-installation/
+  - URL: https://support.nabucasa.com/hc/en-us/articles/25549332241949
     title: Adding an SSD to Home Assistant Yellow
 ---
 
@@ -21,34 +21,41 @@ There are several things you can do to free up some space:
 - [Uninstall unused add-ons](#uninstalling-unused-add-ons)
 - [Expand storage](#expanding-storage)
 
+## Viewing the available disk space
+
+Follow these steps to check the available free disk space.
+
+1. Go to **{% my storage title="Settings > System > Storage" %}**.
+2. Under disk metrics, hover over the status bar to view the details.
+   - {% icon "mdi:information-outline" %} The **Network storage** section only shows if you have [added network storage](/common-tasks/os/#network-storage).
+
+   ![Screenshot of the "Move datadisk" feature](/images/screenshots/storage_view_free-diskspace.png)
+
 ## Cleaning the database
 
-The Home Assistant database can get huge!
+The Home Assistant database can become very large. Follow these steps to reduce the size of the database.
 
-Luckily, there is a tool you can use to [purge the contents of the database](/integrations/recorder/#action-purge)
-
-You can [filter](/integrations/recorder/#configure-filter) what you send to
-the database, and even change how long it stores the data
-[with the `purge_keep_days` setting](/integrations/recorder/#purge_keep_days)
+1. To view the size of the current database, go to {% my system_health title="**Settings** > **System** > **Repairs**" %}.
+   - Select the three dots {% icon "mdi:dots-vertical" %} menu and select **System information**.
+   - Scroll down to the **Recorder**, and check the **Estimated database size (MiB)**.
+2. [Purge the contents of the database](/integrations/recorder/#service-purge).
+3. To slow down the growth of the database, [filter](/integrations/recorder/#configure-filter) what you send to
+the database.
+4. Change how long it stores the data, using the [`purge_keep_days` setting](/integrations/recorder/#purge_keep_days).
 
 ## Reducing space used for backups
 
 ### Deleting obsolete backups
 
-Previous backups are not included when you create a new one. But they do take up space. To delete old backups, follow these steps:
+Previous backups are not included when you create a new one. But they do take up space.
 
-1. Go to {% my backup title="**Settings** > **System** > **Backups**" %}.
-2. From the list of backups, select all the ones you want to delete, then select **Delete selected backups**.
-   - This clears up space in Home Assistant.
+1. To delete old backups, follow the steps on [deleting obsolete backups](/common-tasks/general/#deleting-obsolete-backups).
+2. Ideally, backups don't pile up on the system to begin with.
+   - To define how long automatic backups should be kept on the system, follow the steps on [setting up an automatic backup process](/common-tasks/os/#setting-up-an-automatic-backup-process).
 
 ### Storing backups outside of Home Assistant
 
-Storing backups outside of Home Assistant makes sure they don't use space on Home Assistant to begin with. It also makes sure you can [restore Home Assistant from backup](/common-tasks/os/#restoring-a-backup) in case you have an issue with your current installation.
-
-1. Go to {% my backup title="**Settings** > **System** > **Backups**" %}, and from the list of backups, select the backup you want to keep.
-2. In the dialog, select the checkbox for each component, in the three-dots menu, select **Download backup**.
-3. Store the backup somewhere safe.
-   - For example, [add network storage](/common-tasks/os/#network-storage), and then [change your default backup location](/common-tasks/os/#change-default-backup-location).
+Storing backups outside of Home Assistant makes sure they don't use space on Home Assistant to begin with. It also makes sure you can [restore Home Assistant from backup](/common-tasks/general/#restoring-a-backup) in case you have an issue with your current installation. Follow the steps on [defining backup locations](/common-tasks/general/#defining-backup-locations).
 
 ## Uninstalling unused add-ons
 
@@ -66,7 +73,7 @@ If the above steps to free up space did not help, you need to expand your storag
 
 When you are running {% term "Home Assistant Operating System" %}, you can use the following options to expand your storage:
 
-- Replace your current storage medium, for example, the SD card, with a bigger one. Use a backup to [restore Home Assistant from backup](/common-tasks/os/#restoring-a-backup) on the new SD card.
+- Replace your current storage medium, for example, the SD card, with a bigger one. Use a backup to [restore Home Assistant from backup](/common-tasks/general/#restoring-a-backup) on the new SD card.
 - [Use an external data disk](/common-tasks/os/#using-external-data-disk)
 
 ### Expanding storage on VM

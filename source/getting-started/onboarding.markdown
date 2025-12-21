@@ -19,20 +19,21 @@ After Home Assistant has been [installed](/installation/) on your device, there 
      - Select **Create my smart home**.
      - Enter a name, username, and password.
        - Make sure the username is lowercase and contains no whitespace.
+       - {% icon "mdi:info" %} **Info**: The **Name** is the name of the person that is shown in the UI. The username is used for login.
+
+        ![Set your username and password.](/images/getting-started/onboarding_username.png)
      - Store the name, username, and password somewhere safe. There is no way to recover the owner credentials.
      - Select **Create account**.
 
-    ![Set your username and password.](/images/getting-started/username.png)
-
-   - **Option 2: restore from backup**: If you want to restore a backup of a previous installation, select **Restore from backup**.
-     - Ignore the rest of this procedure and continue with the procedure on [restoring from backup](/common-tasks/os/#restoring-a-backup).
-       - If you have a Home Assistant Yellow, start with the [Yellow documentation on restoring from backup](https://yellow.home-assistant.io/guides/restore-backup/).
-       - If you have a Home Assistant Green, start with the [Green documentation on restoring from backup](https://green.home-assistant.io/guides/restore-backup/).
+   - **Option 2: restore from backup**: If you want to restore a backup of a previous installation, follow the steps on [restoring from backup](/common-tasks/general/#restoring-a-backup).
+       - If you have a Home Assistant Yellow, follow the [Yellow documentation on restoring from backup](https://support.nabucasa.com/hc/en-us/articles/25454643790237).
+       - If you have a Home Assistant Green, follow the [Green documentation on restoring from backup](https://support.nabucasa.com/hc/en-us/articles/25160431579165).
 
 3. Enter the location of your home.
-   - The location is used to configure the time zone, unit system, and currency.
-   - It is also used for automations such as showing the weather, opening the shades at sunrise, or starting the vacuum when you leave the home.
+   - The home location is used to configure the time zone, unit system, and currency.
+   - It is also used to create the home [zone](/integrations/zone/), which designates the area of your home with a default radius of 100&nbsp;m.
    - You can always change this information later in the settings.
+   - This home zone can be used for automations such as showing the weather, opening the shades at sunrise, or starting the vacuum when you leave the home.
    - After finding your location, select **Next**.
 
     ![Define your location.](/images/getting-started/onboarding_location.png)

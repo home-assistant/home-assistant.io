@@ -11,7 +11,7 @@ ha_domain: frontend
 ha_integration_type: system
 ---
 
-This offers the official frontend to control Home Assistant. This integration is enabled by default unless you've disabled or removed the [`default_config:`](/integrations/default_config/) line from your configuration. If that is the case, the following example shows you how to enable this integration manually:
+This offers the official frontend to control Home Assistant. This integration is enabled by default unless you've disabled or removed the [`default_config:`](/integrations/default_config/) line from your {% term "`configuration.yaml`" %} file. If that is the case, the following example shows you how to enable this integration manually in the {% term "`configuration.yaml`" %} file.
 
 ```yaml
 # Example configuration.yaml entry
@@ -52,6 +52,7 @@ frontend:
 ### Theme format
 
 The frontend integration allows you to create custom themes to influence the look and feel of the user interface.
+Example of a configuration entry in the {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -72,7 +73,7 @@ The example above defines two themes named `happy` and `sad`. For each theme, yo
 #### Primary and accent color
 
 Primary and accent colors are the main colors of the application.
-They can be changed it using `primary-color` and `accent-color` variables.
+They can be modified using the `primary-color` and `accent-color` variables.
 
 #### State color
 
@@ -102,7 +103,7 @@ The example above defines red color for open garage doors and brown color for in
 
 ### Unsupported theme variables
 
-Although we do our best to keep things working, the behavior of other theme variables can change between releases. For a partial list of variables used by the main frontend see [ha-style.ts](https://github.com/home-assistant/frontend/blob/master/src/resources/ha-style.ts).
+Although we do our best to keep things working, the behavior of other theme variables can change between releases. For a partial list of variables used by the main frontend see [color.globals.ts](https://github.com/home-assistant/frontend/blob/master/src/resources/theme/color/color.globals.ts).
 
 ### Dark mode support
 
@@ -163,9 +164,9 @@ There are two themes-related actions:
 ### Action `set_theme`
 
 | Data attribute | Description                                                                                         |
-| ---------------------- | --------------------------------------------------------------------------------------------------- |
-| `name`                 | Name of the theme to set, `default` for the default theme or `none` to restore to the default.      |
-| `mode`                 | If the theme should be applied in light or dark mode `light` or `dark` (Optional, default `light`). |
+| -------------- | --------------------------------------------------------------------------------------------------- |
+| `name`         | Name of the theme to set, `default` for the default theme or `none` to restore to the default.      |
+| `mode`         | If the theme should be applied in light or dark mode `light` or `dark` (Optional, default `light`). |
 
 If no dark mode backend theme is set, the light mode theme will also be used in dark mode.
 The backend theme settings will be saved and restored on a restart of Home Assistant.

@@ -10,6 +10,8 @@ related:
     title: Card header and footer
   - docs: /dashboards/cards/
     title: Dashboard cards
+  - docs: /dashboards/naming/
+    title: Card naming
 ---
 
 The entities card is the most common type of card. It groups items together into lists. It can be used to display an entity's state or attribute, but also contain buttons, web links, etc.
@@ -76,8 +78,8 @@ type:
   type: string
 name:
   required: false
-  description: Overwrites friendly name.
-  type: string
+  description: Overwrites friendly name. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/).
+  type: [string, map, list]
 icon:
   required: false
   description: Overwrites icon or entity picture.
@@ -115,6 +117,10 @@ double_tap_action:
   required: false
   description: Action taken on row double tap. See [action documentation](/dashboards/actions/#double-tap-action).
   type: map
+confirmation:
+  required: false
+  description: For entities that display a button element in the row (for example, button, lock, script), this option adds a confirmation dialog to the press of the button. See [options for confirmation](/dashboards/actions/#options-for-confirmation) for configuration options.
+  type: map
 {% endconfiguration %}
 
 ## Special row elements
@@ -146,8 +152,8 @@ suffix:
   type: string
 name:
   required: false
-  description: Overwrites friendly entity name.
-  type: string
+  description: Overwrites friendly name. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/).
+  type: [string, map, list]
 icon:
   required: false
   description: Icon to use. Defaults to icon of entity.
@@ -227,8 +233,8 @@ entities:
       type: string
     name:
       required: false
-      description: Override the friendly entity name.
-      type: string
+      description: Overwrites friendly name. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/).
+      type: [string, map, list]
       default: Entity name
     show_name:
       required: false
@@ -426,8 +432,8 @@ entities:
     name: Bed light transition
     action_name: Toggle light
     tap_action:
-      action: call-service
-      service: light.toggle
+      action: perform-action
+      perform_action: light.toggle
       data:
         entity_id: light.bed_light
         transition: 10
@@ -458,8 +464,8 @@ entities:
     name: Power cycle LibreELEC
     icon: mdi:power-cycle
     tap_action:
-      action: call-service
+      action: perform-action
       confirmation:
         text: Are you sure you want to restart?
-      service: script.libreelec_power_cycle
+      perform_action: script.libreelec_power_cycle
 ```

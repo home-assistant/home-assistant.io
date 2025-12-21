@@ -8,6 +8,8 @@ related:
     title: Themes
   - docs: /dashboards/cards/
     title: Dashboard cards
+  - docs: /dashboards/naming/
+    title: Card naming
 ---
 
 The statistic card allows you to display a statistical value for an entity.
@@ -40,8 +42,8 @@ stat_type:
   type: string
 name:
   required: false
-  description: Name of entity.
-  type: string
+  description: Overwrites friendly name. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/).
+  type: [string, map, list]
   default: Entity name.
 icon:
   required: false
@@ -64,6 +66,10 @@ footer:
   required: false
   description: Footer widget to render. See [footer documentation](/dashboards/header-footer/).
   type: map
+collection_key:
+  required: false
+  description: "If using `period: energy_date_selection`, you can set a custom key to match the optional key of an `energy-date-selection` card. This is not typically required, but can be useful if multiple date selection cards are used on the same view. See [energy documentation](/dashboards/energy/#using-multiple-collections)."
+  type: string
 {% endconfiguration %}
 
 ## Example
@@ -81,7 +87,7 @@ stat_type: change
 
 ## Options for period
 
-Periods can be configured in 3 different ways:
+Periods can be configured in 4 different ways:
 
 ### Calendar
 
@@ -175,5 +181,18 @@ period:
       hours: -2
       minutes: -20
       seconds: -10
+stat_type: change
+```
+
+### Dynamic date selection
+
+When placed on a view with an Energy date selection card, the statistic card can be linked to show data from the period selected on the date selection card.
+
+Example of a period from the date selector:
+
+```yaml
+type: statistic
+entity: sensor.energy_consumption
+period: energy_date_selection
 stat_type: change
 ```

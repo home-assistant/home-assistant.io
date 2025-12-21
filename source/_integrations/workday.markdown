@@ -3,6 +3,7 @@ title: Workday
 description: Steps to configure the binary workday sensor.
 ha_category:
   - Binary sensor
+  - Calendar
   - Utility
 ha_iot_class: Local Polling
 ha_release: 0.41
@@ -14,18 +15,22 @@ ha_codeowners:
 ha_domain: workday
 ha_platforms:
   - binary_sensor
+  - calendar
+  - diagnostics
 ha_integration_type: integration
 ---
 
-The `workday` binary sensor indicates whether the current day is a workday or not.
+The `workday` {% term integration %} indicates whether the current day is a workday or not.
 
 It allows specifying which days of the week will count as workdays and also uses the Python module [holidays](https://pypi.org/project/holidays/) to incorporate information about region-specific public holidays.
 
 This can be used to make daily automations that act differently on workdays than non-workdays. For example, you could make your bedroom lights turn on (gently) at 7 in the morning if it is a workday but wait until 11 if it is a non-working day.
 
+The `workday` {% term integration %} also provides a `calendar` entity that may be used to see upcoming workdays.
+
 ## Setup
 
-Check the [country list](https://github.com/dr-prodigy/python-holidays#available-countries) for available provinces (and other subdivisions, like states and territories) for each country.
+Check the [country list](https://github.com/vacanza/holidays#available-countries) for available provinces (and other subdivisions, like states and territories) for each country.
 
 {% include integrations/config_flow.md %}
 
@@ -52,7 +57,7 @@ Additional categories can be added through the configuration to include optional
 ## Action `workday.check_date`
 
 
-This action populates [Response Data](/docs/scripts/service-calls#use-templates-to-handle-response-data)
+This action populates [Response Data](/docs/scripts/perform-actions#use-templates-to-handle-response-data)
 providing feedback if the date is a workday or not.
 
 | Data attribute | Required | Description | Example |
@@ -83,15 +88,15 @@ Example usage for automation:
 ```yaml
 automation:
   alias: "Turn on heater on workdays"
-  trigger:
-    platform: time
-    at: "08:00:00"
-  condition:
-    condition: state
-    entity_id: binary_sensor.workday_sensor
-    state: "on"
-  action:
-    action: switch.turn_on
-    target:
-      entity_id: switch.heater
+  triggers:
+    - trigger: time
+      at: "08:00:00"
+  conditions:
+    - condition: state
+      entity_id: binary_sensor.workday_sensor
+      state: "on"
+  actions:
+    - action: switch.turn_on
+      target:
+        entity_id: switch.heater
 ```

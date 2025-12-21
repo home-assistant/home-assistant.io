@@ -9,6 +9,7 @@ ha_domain: zhong_hong
 ha_platforms:
   - climate
 ha_integration_type: integration
+ha_quality_scale: legacy
 ---
 
 The `zhong_hong` climate platform lets you control Zhonghong HVAC Gateway Controller thermostats through Home Assistant.

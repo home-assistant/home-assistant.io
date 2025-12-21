@@ -40,6 +40,8 @@ Any Gree Smart device working with the Gree+ app should be supported, including 
 - Heiwa
 - Ekokai
 - Lessar
+- Tosot
+- Wilfa
 
 ## Climate
 
@@ -60,6 +62,6 @@ Preset mode **Away** represents Gree's "8°C heating mode."
 
 Gree devices expose multiple switches to control various features:
 
-- Light Panel, turns the front panel light on/off.
-- Quiet Mode, enables/disables the quiet mode feature.
-- Xtra Fan, enables/disables extra fan mode to help remove moisture from coils.
+- **Panel light**: turns the front panel light on/off.
+- **Quiet mode**: enables/disables the quiet mode feature.
+- **Xtra fan**: enables/disables extra fan mode to help remove moisture from coils.

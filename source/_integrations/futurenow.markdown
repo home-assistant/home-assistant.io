@@ -12,6 +12,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `futurenow` light {% term integration %} allows you to use [P5](https://www.p5.hu/) FutureNow relay/dimmer units as lights. Currently supported units:

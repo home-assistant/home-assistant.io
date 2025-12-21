@@ -12,10 +12,10 @@ ha_bluetooth: true
 ha_platforms:
   - switch
 ha_config_flow: true
-ha_integration_type: hub
+ha_integration_type: device
 ---
 
-This integration allows you to locally control a [MicroBot Push](https://keymitt.com/products/microbot-push) (previously manufactured by Naran but now under the Keymitt brand).
+This integration allows you to locally control a MicroBot Push (previously manufactured by Naran but now under the Keymitt brand).
 
 ### Prerequisites
 
@@ -53,9 +53,10 @@ The integration will automatically discover devices once the [Bluetooth](/integr
 
 Due to the device going into deep sleep after extended periods of no activity, the response time can be up to a minute in extreme cases. On average it will be much quicker.
 
-{% configuration_basic %}
-"Failed to pair":
-  description: Make sure your devices are powered on, in range, and in pairing mode. Pressing the button on the MicroBot Push to take it out of deep sleep may also be beneficial.
-"No unconfigured devices found":
-  description: Make sure your devices are powered on, in range, and in pairing mode. Pressing the button on the MicroBot Push to take it out of deep sleep may also be beneficial.
-{% endconfiguration_basic %}
+{% details "Failed to pair" %}
+Make sure your devices are powered on, in range, and in pairing mode. Pressing the button on the MicroBot Push to take it out of deep sleep may also be beneficial.
+{% enddetails %}
+
+{% details "No unconfigured devices found" %}
+Make sure your devices are powered on, in range, and in pairing mode. Pressing the button on the MicroBot Push to take it out of deep sleep may also be beneficial.
+{% enddetails %}

@@ -13,7 +13,6 @@ ha_iot_class: Local Polling
 ha_codeowners:
   - '@leofig-rj'
 ha_domain: wilight
-ha_quality_scale: silver
 ha_ssdp: true
 ha_platforms:
   - cover

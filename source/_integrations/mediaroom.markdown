@@ -14,6 +14,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `mediaroom` {% term integration %} allows you to control a [Mediaroom](https://en.wikipedia.org/wiki/Ericsson_Mediaroom) Set-Top Box (STB) from Home Assistant.
@@ -69,12 +70,12 @@ The `play_media` function can be used in scripts to change channels:
 #
 change_channel:
   sequence:
-    action: media_player.play_media
-    target:
-      entity_id: media_player.mediaroom_stb
-    data:
-      media_content_id: "{{ channel_number }}"
-      media_content_type: "channel"
+    - action: media_player.play_media
+      target:
+        entity_id: media_player.mediaroom_stb
+      data:
+        media_content_id: "{{ channel_number }}"
+        media_content_type: "channel"
 ```
 
 {% endraw %}
@@ -88,12 +89,12 @@ The `play_media` function can also be used to trigger actions on the set-up-box 
 #
 press_button:
   sequence:
-    action: media_player.play_media
-    target:
-      entity_id: media_player.mediaroom_stb
-    data:
-      media_content_id: "{{ action }}"
-      media_content_type: "mediaroom"
+    - action: media_player.play_media
+      target:
+        entity_id: media_player.mediaroom_stb
+      data:
+        media_content_id: "{{ action }}"
+        media_content_type: "mediaroom"
 ```
 
 {% endraw %}

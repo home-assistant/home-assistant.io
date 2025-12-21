@@ -26,8 +26,8 @@ You can customize your dashboard using various options:
 - Use custom cards from our amazing community.
 
 <p class='img'>
-<img src='/images/dashboards/edit-dashboard.webp' alt='Screencast showing how to edit a dashboard customize a vertical stack card'>
-Screencast showing how to edit a dashboard and customize a vertical stack card.
+  <img src="/images/dashboards/section_view_rearrange_cards.gif" alt="Screencast showing how to edit a dashboard in section view and how to rearrange cards"/>
+  Screencast showing how to edit a dashboard in section view and how to rearrange cards
 </p>
 
 ## Explore the interactive demo dashboard

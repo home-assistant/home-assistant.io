@@ -12,7 +12,7 @@ ha_integration_type: integration
 ha_config_flow: true
 ---
 
-The `aftership` platform allows one to track deliveries by [AfterShip](https://www.aftership.com), a service that supports 490+ couriers worldwide. To use the tracking API functionality, the Essentials plan is required. This plan includes 100 shipments per month. There are various paid-for tiers after that.
+The `aftership` platform allows one to track deliveries by [AfterShip](https://www.aftership.com), a service that supports 490+ couriers worldwide. To use the tracking API functionality, the Pro plan is required. 
 
 The sensor value shows the number of packages that are not in `Delivered` state. As attributes are the number of packages per status.
 

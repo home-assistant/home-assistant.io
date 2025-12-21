@@ -9,6 +9,7 @@ ha_domain: avion
 ha_platforms:
   - light
 ha_integration_type: integration
+ha_quality_scale: legacy
 ---
 
 Support for the Avi-on Bluetooth dimmer switch [Avi-on](https://avi-on.com/).

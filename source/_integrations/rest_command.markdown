@@ -49,12 +49,17 @@ service_name:
       description: A string/template to send with request.
       required: false
       type: template
+    authentication:
+      description: Type of HTTP authentication. Either `basic` or `digest`.
+      required: false
+      type: string
+      default: basic
     username:
-      description: The username for basic HTTP authentication (digest is not supported).
+      description: The username for HTTP authentication.
       required: false
       type: string
     password:
-      description: The password for basic HTTP authentication (digest is not supported).
+      description: The password for HTTP authentication.
       required: false
       type: string
     timeout:
@@ -71,6 +76,16 @@ service_name:
       required: false
       type: boolean
       default: true
+    insecure_cipher:
+      description: Allow insecure ciphers for the request. This is useful for older servers/devices that do not support modern ciphers.
+      required: false
+      type: boolean
+      default: false
+    skip_url_encoding:
+      description: Skip internal URL canonicalization, which would have encoded the _host_ part by [IDNA](https://docs.aiohttp.org/en/stable/glossary.html#term-IDNA) codec and applied [requoting](https://docs.aiohttp.org/en/stable/glossary.html#term-requoting) to the _path_ and _query_ parts.
+      required: false
+      type: boolean
+      default: false
 {% endconfiguration %}
 
 ## Examples
@@ -93,9 +108,26 @@ rest_command:
     payload: "mode=off"
 ```
 
+### Using digest authentication
+
+This example shows how to use digest authentication with a REST command:
+
+```yaml
+rest_command:
+  secured_command:
+    url: "http://example.com/api/secure-endpoint"
+    method: post
+    authentication: digest
+    username: "your_username"
+    password: "your_password"
+    payload: '{"data": "example"}'
+    content_type: "application/json"
+```
+
 ### Using REST command Response in automations
 
-REST commands provide an action response in a dictionary containing `status` (containing the HTTP response code) and `content` containing the response body as text or JSON. This response can be accessed in automations using [`response_variable`](/docs/scripts/service-calls#use-templates-to-handle-response-data).
+REST commands provide an action response in a dictionary containing `status` (containing the HTTP response code), `content` containing the response body as text or JSON and `headers` containing the response headers.
+This response can be accessed in automations using [`response_variable`](/docs/scripts/perform-actions#use-templates-to-handle-response-data).
 
 The following example shows how the REST command response may be used in automations. In this case, checking the [Traefik API](https://doc.traefik.io/traefik/operations/api/) for errors.
 
@@ -105,9 +137,9 @@ The following example shows how the REST command response may be used in automat
 # Create a ToDo notification based on file contents
 automation:
   - alias: "Check API response"
-    trigger:
+    triggers:
       - ...
-    action:
+    actions:
       - action: rest_command.traefik_get_rawdata
         response_variable: traefik_response
       - if: "{{ traefik_response['status'] == 200 }}"
@@ -183,12 +215,12 @@ Call the new action from [developer tools](/docs/tools/dev-tools/) in the sideba
 ```yaml
 automation:
 - alias: "Arrive at Work"
-  trigger:
-    platform: zone
-    entity_id: device_tracker.my_device
-    zone: zone.work
-    event: enter
-  action:
+  triggers:
+    - trigger: zone
+      entity_id: device_tracker.my_device
+      zone: zone.work
+      event: enter
+  actions:
     - action: rest_command.my_request
       data:
         status: "At Work"

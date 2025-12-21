@@ -14,6 +14,7 @@ ha_integration_type: service
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The `ign_sismologia` {% term integration %} lets you integrate a GeoRSS feed provided by the 

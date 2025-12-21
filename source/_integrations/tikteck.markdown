@@ -9,6 +9,7 @@ ha_domain: tikteck
 ha_platforms:
   - light
 ha_integration_type: integration
+ha_quality_scale: legacy
 ---
 
 Support for the Bluetooth smart bulb from [Tikteck](https://www.tikteck.com/). To enable these lights, add the following lines to your {% term "`configuration.yaml`" %} file:

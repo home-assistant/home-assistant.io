@@ -12,7 +12,6 @@ ha_domain: pvoutput
 ha_platforms:
   - diagnostics
   - sensor
-ha_quality_scale: platinum
 ha_integration_type: device
 ---
 

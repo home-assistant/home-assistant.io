@@ -10,7 +10,6 @@ ha_codeowners:
   - '@chishm'
 ha_domain: dlna_dms
 ha_ssdp: true
-ha_quality_scale: platinum
 ha_integration_type: integration
 ---
 
@@ -20,7 +19,7 @@ The DLNA Digital Media Server integration allows you to browse and play media fr
 
 ## Renaming
 
-The name/title of the DMS device is the same as the title of the config entry. It can be changed on the Integrations Configuration page from the three-dot menu.
+The name/title of the DMS device is the same as the title of the config entry. It can be changed on the Integrations Configuration page from the three dots {% icon "mdi:dots-vertical" %} menu.
 
 ## Media source URIs
 

@@ -29,7 +29,7 @@ Passing the key `color_extract_url` to the {% term action %} call will download 
 | `entity_id`          | `light.shelf_leds`                    | The RGB capable light we'll set the color of                                   |
 
 {% important %}
-Ensure any [external URLs](/integrations/homeassistant/#allowlist_external_urls) or [external files](/docs/integrations/homeassistant/#allowlist_external_dirs) are authorized for use. You will receive error messages if this {% term integration %} is not allowed access to these external resources.
+Ensure any [external URLs](/integrations/homeassistant/#allowlist_external_urls) or [external files](/integrations/homeassistant/#allowlist_external_dirs) are authorized for use. You will receive error messages if this {% term integration %} is not allowed access to these external resources.
 {% endimportant %}
 
 ### URL Action
@@ -54,11 +54,11 @@ Example usage in an {% term automation %}, taking the album art present on a Chr
 #automation.yaml
 - alias: "Chromecast to Shelf Lights"
 
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: media_player.chromecast
 
-  action:
+  actions:
     - action: color_extractor.turn_on
       data_template:
         color_extract_url: "{{ states.media_player.chromecast.attributes.entity_picture }}"
@@ -71,11 +71,11 @@ With a nicer transition period of 5 seconds and setting brightness to 100% each 
 #automation.yaml
 - alias: "Nicer Chromecast to Shelf Lights"
 
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: media_player.chromecast
 
-  action:
+  actions:
     - action: color_extractor.turn_on
       data_template:
         color_extract_url: "{{ states.media_player.chromecast.attributes.entity_picture }}"

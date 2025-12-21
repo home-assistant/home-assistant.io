@@ -3,11 +3,11 @@ title: "Automation YAML"
 description: "How to use the automation integration with YAML."
 ---
 
-Automations are created in Home Assistant via the UI, but are stored in a YAML format. If you want to edit the YAML of an {% term automation %}, select the automation, click on the menu button in the top right then on **Edit in YAML**.
+Automations are created in Home Assistant via the UI, but are stored in a {% term YAML %} format. If you want to edit the {% term YAML %} of an {% term automation %}, select the automation, click on the menu button in the top right then on **Edit in YAML**.
 
 The UI will write your automations to `automations.yaml`. This file is managed by the UI and should not be edited manually.
 
-It is also possible to write your automations directly inside {% term "`configuration.yaml`" %} or other YAML files. You can do this by adding a labeled `automation` block to your `configuration.yaml`:
+It is also possible to write your automations directly inside {% term "`configuration.yaml`" %} or other {% term YAML %} files. You can do this by adding a labeled `automation` block to your `configuration.yaml`:
 
 ```yaml
 # The configuration required for the UI to work
@@ -15,8 +15,8 @@ automation: !include automations.yaml
 
 # Labeled automation block
 automation kitchen:
-  - trigger:
-      - platform: ...
+  - triggers:
+      - trigger: ...
 ```
 
 You can add as many labeled `automation` blocks as you want.
@@ -52,7 +52,7 @@ trace:
       default: 5
       required: false
 variables:
-  description: "Variables that will be available inside your templates, both in `condition` and `action`."
+  description: "Variables that will be available inside your templates, both in `conditions` and `actions`."
   required: false
   default: {}
   type: map
@@ -84,7 +84,7 @@ max_exceeded:
   required: false
   type: string
   default: warning
-trigger:
+triggers:
   description: "The trigger(s) which will start the automation. Multiple triggers can be added and the automation will start when any of these triggers trigger."
   required: true
   type: list
@@ -102,11 +102,11 @@ trigger:
         PARAMETER_NAME:
           description: "The value of the variable. Any YAML is valid. Templates can also be used to pass a value to the variable."
           type: any
-condition:
+conditions:
   description: Conditions that have to be `true` to start the automation. By default all conditions listed have to be `true`, you can use [logical conditions](/docs/scripts/conditions/#logical-conditions) to change this default behavior.
   required: false
   type: list
-action:
+actions:
   description: "The sequence of actions to be performed in the script."
   required: true
   type: list
@@ -125,10 +125,9 @@ action:
   <img src='/images/integrations/script/script_modes.jpg'>
 </p>
 
-
 ## YAML example
 
-Example of a YAML based automation that you can add to {% term "`configuration.yaml`" %}.
+Example of a {% term YAML %} based automation that you can add to {% term "`configuration.yaml`" %}.
 
 {% raw %}
 
@@ -138,16 +137,16 @@ automation my_lights:
   # Turns on lights 1 hour before sunset if people are home
   # and if people get home between 16:00-23:00
   - alias: "Rule 1 Light on in the evening"
-    trigger:
+    triggers:
       # Prefix the first line of each trigger configuration
       # with a '-' to enter multiple
-      - platform: sun
+      - trigger: sun
         event: sunset
         offset: "-01:00:00"
-      - platform: state
+      - trigger: state
         entity_id: all
         to: "home"
-    condition:
+    conditions:
       # Prefix the first line of each condition configuration
       # with a '-'' to enter multiple
       - condition: state
@@ -156,34 +155,34 @@ automation my_lights:
       - condition: time
         after: "16:00:00"
         before: "23:00:00"
-    action:
-      # With a single service entry, we don't need a '-' before service - though you can if you want to
+    actions:
+      # With a single action entry, we don't need a '-' before action - though you can if you want to
       - action: homeassistant.turn_on
         target:
           entity_id: group.living_room
 
   # Turn off lights when everybody leaves the house
   - alias: "Rule 2 - Away Mode"
-    trigger:
-      - platform: state
+    triggers:
+      - trigger: state
         entity_id: all
         to: "not_home"
-    action:
+    actions:
       - action: light.turn_off
         target:
           entity_id: all
 
   # Notify when Paulus leaves the house in the evening
   - alias: "Leave Home notification"
-    trigger:
-      - platform: zone
+    triggers:
+      - trigger: zone
         event: leave
         zone: zone.home
         entity_id: device_tracker.paulus
-    condition:
+    conditions:
       - condition: time
         after: "20:00"
-    action:
+    actions:
       - action: notify.notify
         data:
           message: "Paulus left the house"
@@ -191,12 +190,12 @@ automation my_lights:
   # Send a notification via Pushover with the event of a Xiaomi cube. Custom event from the Xiaomi integration.
   - alias: "Xiaomi Cube Action"
     initial_state: false
-    trigger:
-      - platform: event
+    triggers:
+      - trigger: event
         event_type: cube_action
         event_data:
           entity_id: binary_sensor.cube_158d000103a3de
-    action:
+    actions:
       - action: notify.pushover
         data:
           title: "Cube event detected"
@@ -207,7 +206,7 @@ automation my_lights:
 
 ## Extra options
 
-When writing automations directly in YAML, you will have access to advanced options that are not available in the user interface.
+When writing automations directly in {% term YAML %}, you will have access to advanced options that are not available in the user interface.
 
 ### Automation initial state
 
@@ -217,21 +216,21 @@ At startup, automations by default restore their last state of when Home Assista
 automation:
   - alias: "Automation Name"
     initial_state: false
-    trigger:
-      - platform: ...
+    triggers:
+      - trigger: ...
 ```
 
 ### Number of debug traces stored
 
-When using YAML you can configure the number of debugging traces stored for an automation. This is controlled with the `stored_traces` option under `trace`. Set `stored_traces` to the number of traces you wish to store for the particular automation. If not specified the default value of 5 will be used.
+When using {% term YAML %} you can configure the number of debugging traces stored for an automation. This is controlled with the `stored_traces` option under `trace`. Set `stored_traces` to the number of traces you wish to store for the particular automation. If not specified the default value of 5 will be used.
 
 ```yaml
 automation:
   - alias: "Automation Name"
     trace:
       stored_traces: 10
-    trigger:
-      - platform: ...
+    triggers:
+      - trigger: ...
 ```
 
 ## Migrating your YAML automations to `automations.yaml`
@@ -244,18 +243,18 @@ If you want to migrate your manual automations to use the editor, you'll have to
 # Example automations.yaml entry. Note, automations.yaml is always a list!
 - id: my_unique_id  # <-- Required for editor to work, for automations created with the editor the id will be automatically generated.
   alias: "Hello world"
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: sun.sun
       from: below_horizon
       to: above_horizon
-  condition:
+  conditions:
     - condition: numeric_state
       entity_id: sensor.temperature
       above: 17
       below: 25
       value_template: "{{ float(state.state) + 2 }}"
-  action:
+  actions:
     - action: light.turn_on
 ```
 
@@ -263,7 +262,7 @@ If you want to migrate your manual automations to use the editor, you'll have to
 
 ### Deleting automations
 
-When automations remain visible in the Home Assistant dashboard, even after having deleted in the YAML file, you have to delete them in the UI.
+When automations remain visible in the Home Assistant dashboard, even after having deleted in the {% term YAML %} file, you have to delete them in the UI.
 
 To delete them completely, go to UI {% my entities title="**Settings** > **Devices & services** > **Entities**" %} and find the automation in the search field or by scrolling down.
 

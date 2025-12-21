@@ -46,7 +46,7 @@ You must use your normal AppleID and Password to set up this integration, [app-s
 
 ## In case of troubleshooting
 
-Go into your Home Assistant configuration `.storage` folder and delete the `icloud` folder, then retry.
+Delete the integration's configuration (most likely in `/config/.storage/icloud`), then retry.
 
 ## Platforms
 

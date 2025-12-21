@@ -146,12 +146,35 @@ as an event trigger, with `last_event_type` as the `event_data`.
 For example, the following will trigger when the doorbell rings:
 
 ```yaml
-trigger:
-  - platform: event
+triggers:
+  - trigger: event
     event_type: SIMPLISAFE_EVENT
     event_data:
         last_event_type: doorbell_detected
 ```
+
+### Using secret alerts for sensor changes
+
+For cases where the default {% term polling %} interval of 30 seconds is too long for automations, you can use secret alerts to get push notifications of a sensor being triggered.
+
+Home Assistant will automatically set the status to triggered for binary sensor devices that have secret alerts. However, due to the way Simplisafe implements secret alerts, you can only receive push notifications when a device is triggered, not when they are cleared. Clearing a binary sensor can only be accomplished by polling.
+
+For cases where you wish to reliably determine each time a binary sensor is triggered, do the following:
+
+1. Enable the secret alert for the device in the Simplisafe App.
+2. Make a note of the serial number of the device.
+    - You can see it in the top-left corner of the page where you set the alert.
+3. Use the following event trigger:
+
+  ```yaml
+  triggers:
+    - trigger: event
+      event_type: SIMPLISAFE_EVENT
+      event_data:
+          last_event_type: secret_alert_triggered
+          last_event_sensor_serial: "abc123xyz"  # Replace with your device's serial number (use lowercase letters)
+  ```
+
 
 ### `SIMPLISAFE_NOTIFICATION`
 

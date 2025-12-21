@@ -13,6 +13,7 @@ ha_integration_type: hub
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 Receive signals from a keyboard and use it as a remote control.
@@ -93,18 +94,18 @@ And an automation rule to breathe life into it:
 ```yaml
 automation:
   alias: "Keyboard all lights on"
-  trigger:
-    platform: event
-    event_type: keyboard_remote_command_received
-    event_data:
-      device_descriptor: "/dev/input/event0"
-      key_code: 107 # inspect log to obtain desired keycode
-      type: key_down # only trigger on key_down events (optional)
+  triggers:
+    - trigger: event
+      event_type: keyboard_remote_command_received
+      event_data:
+        device_descriptor: "/dev/input/event0"
+        key_code: 107 # inspect log to obtain desired keycode
+        type: key_down # only trigger on key_down events (optional)
 
-  action:
-    action: light.turn_on
-    target:
-      entity_id: light.all
+  actions:
+    - action: light.turn_on
+      target:
+        entity_id: light.all
 ```
 
 `device_descriptor` or `device_name` may be specified in the trigger so the automation will be fired only for that keyboard. This is especially useful if you wish to use several Bluetooth remotes to control different devices. Omit them to ensure the same key triggers the automation for all keyboards/remotes.
@@ -124,10 +125,10 @@ Here's an automation example that plays a sound through a media player whenever 
 ```yaml
 automation:
   - alias: "Keyboard Connected"
-    trigger:
-      platform: event
-      event_type: keyboard_remote_connected
-    action:
+    triggers:
+      - trigger: event
+        event_type: keyboard_remote_connected
+    actions:
       - action: media_player.play_media
         target:
           entity_id: media_player.speaker
@@ -136,12 +137,12 @@ automation:
           media_content_type: music
 
   - alias: "Bluetooth Keyboard Disconnected"
-    trigger:
-      platform: event
-      event_type: keyboard_remote_disconnected
-      event_data:
-        device_name: "00:58:56:4C:C0:91"
-    action:
+    triggers:
+      - trigger: event
+        event_type: keyboard_remote_disconnected
+        event_data:
+          device_name: "00:58:56:4C:C0:91"
+    actions:
       - action: media_player.play_media
         target:
           entity_id: media_player.speaker

@@ -13,7 +13,6 @@ ha_codeowners:
   - '@Drafteed'
   - '@splinter98'
 ha_integration_type: device
-ha_config_flow: true
 ---
 
 The `lg_netcast` platform allows you to control a LG Smart TV running NetCast 3.0 (LG Smart TV models released in 2012) and NetCast 4.0 (LG Smart TV models released in 2013). For the new LG WebOS TV's use the [webostv](/integrations/webostv#media-player) platform.
@@ -39,10 +38,10 @@ wake_on_lan: # enables `wake_on_lan` integration
 # Enables the `lg_netcast` media player
 automation:
   - alias: "Turn On Living Room TV with WakeOnLan"
-    trigger:
-      - platform: lg_netcast.turn_on
+    triggers:
+      - trigger: lg_netcast.turn_on
         entity_id: media_player.lg_netcast_smart_tv
-    action:
+    actions:
       - action: wake_on_lan.send_magic_packet
         data:
           mac: AA-BB-CC-DD-EE-FF

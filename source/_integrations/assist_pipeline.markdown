@@ -6,10 +6,10 @@ ha_category:
 ha_iot_class: Local Push
 ha_release: '2023.5'
 ha_codeowners:
-  - '@balloob'
   - '@synesthesiam'
+  - '@arturpragacz'
 ha_domain: assist_pipeline
-ha_integration_type: integration
+ha_integration_type: system
 ha_quality_scale: internal
 ha_platforms:
   - select

@@ -221,7 +221,7 @@ learn more about packages, see the [Packages](/docs/configuration/packages) page
 
 That about wraps it up.
 
-If you have issues, checkout `home-assistant.log` in the configuration directory as well as your indentations. If all else fails, head over to our [Discord chat server][discord] and ask away.
+If you have issues, check the file indentations and check [the Home Assistant logs](/integrations/logger/#viewing-logs). If all else fails, head over to our [Discord chat server][discord] and ask away.
 
 ## Debugging configuration files
 
@@ -229,8 +229,6 @@ If you have many configuration files, Home Assistant provides a CLI that allows 
 
 - [Operating System](/common-tasks/os/#configuration-check)
 - [Container](/common-tasks/container/#configuration-check)
-- [Core](/common-tasks/core/#configuration-check)
-- [Supervised](/common-tasks/supervised/#configuration-check)
 
 ## Advanced usage
 
@@ -267,23 +265,23 @@ These work recursively. As an example using `!include_dir_list automation`, will
 ```yaml
 automation:
   - alias: "Automation 1"
-    trigger:
-      platform: state
-      entity_id: device_tracker.iphone
-      to: "home"
-    action:
-      action: light.turn_on
-      target:
-        entity_id: light.entryway
+    triggers:
+      - trigger: state
+        entity_id: device_tracker.iphone
+        to: "home"
+    actions:
+      - action: light.turn_on
+        target:
+          entity_id: light.entryway
   - alias: "Automation 2"
-    trigger:
-      platform: state
-      entity_id: device_tracker.iphone
-      from: "home"
-    action:
-      action: light.turn_off
-      target:
-        entity_id: light.entryway
+    triggers:
+      - trigger: state
+        entity_id: device_tracker.iphone
+        from: "home"
+    actions:
+      - action: light.turn_off
+        target:
+          entity_id: light.entryway
 ```
 
 can be turned into:
@@ -298,28 +296,28 @@ automation: !include_dir_list automation/presence/
 
 ```yaml
 alias: "Automation 1"
-trigger:
-  platform: state
-  entity_id: device_tracker.iphone
-  to: "home"
-action:
-  action: light.turn_on
-  target:
-    entity_id: light.entryway
+triggers:
+  - trigger: state
+    entity_id: device_tracker.iphone
+    to: "home"
+actions:
+  - action: light.turn_on
+    target:
+      entity_id: light.entryway
 ```
 
 `automation/presence/automation2.yaml`
 
 ```yaml
 alias: "Automation 2"
-trigger:
-  platform: state
-  entity_id: device_tracker.iphone
-  from: "home"
-action:
-  action: light.turn_off
-  target:
-    entity_id: light.entryway
+triggers:
+  - trigger: state
+    entity_id: device_tracker.iphone
+    from: "home"
+actions:
+  - action: light.turn_off
+    target:
+      entity_id: light.entryway
 ```
 
 It is important to note that each file must contain only **one** entry when using `!include_dir_list`.
@@ -333,7 +331,7 @@ It is important to note that each file must contain only **one** entry when usin
 alexa:
   intents:
     LocateIntent:
-      action:
+      actions:
         action: notify.pushover
         data:
           message: "Your location has been queried via Alexa."
@@ -371,7 +369,7 @@ alexa:
 
 ```yaml
 {% raw %}
-action:
+actions:
   action: notify.pushover
   data:
     message: "Your location has been queried via Alexa."
@@ -408,20 +406,20 @@ speech:
 ```yaml
 automation:
   - alias: "Automation 1"
-    trigger:
-      - platform: state
+    triggers:
+      - trigger: state
         entity_id: device_tracker.iphone
         to: "home"
-    action:
+    actions:
       - action: light.turn_on
         target:
           entity_id: light.entryway
   - alias: "Automation 2"
-    trigger:
-      - platform: state
+    triggers:
+      - trigger: state
         entity_id: device_tracker.iphone
         from: "home"
-    action:
+    actions:
       - action: light.turn_off
         target:
           entity_id: light.entryway
@@ -439,20 +437,20 @@ automation: !include_dir_merge_list automation/
 
 ```yaml
 - alias: "Automation 1"
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: device_tracker.iphone
       to: "home"
-  action:
+  actions:
     - action: light.turn_on
       target:
         entity_id: light.entryway
 - alias: "Automation 2"
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: device_tracker.iphone
       from: "home"
-  action:
+  actions:
     - action: light.turn_off
       target:
         entity_id: light.entryway

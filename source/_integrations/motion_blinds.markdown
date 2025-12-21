@@ -10,6 +10,7 @@ ha_codeowners:
   - '@starkillerOG'
 ha_config_flow: true
 ha_platforms:
+  - button
   - cover
   - sensor
 ha_dhcp: true
@@ -26,13 +27,16 @@ Additionally the following brands have been reported to also work with this inte
 - [Bloc Blinds](https://www.blocblinds.com/)
 - [Brel Home](https://www.brel-home.nl/)
 - [3 Day Blinds](https://www.3dayblinds.com/)
-- [Diaz](https://www.diaz.be/en/)
+- [Decorquip Dream](https://www.decorquip.com/post.php?dream)
+- [Diaz](https://www.diaz.be/)
 - [Dooya](http://www.dooya.com/)
 - [Gaviota](https://www.gaviotagroup.com/en/)
-- [Havana Shade](https://havanashade.com/)
+- Havana Shade
+- [Heicko](https://heicko.de/en/tubular-motors/controls/e-smart-home/usb-smart-home-stick-bi-direktional-1-st.html)
 - [Hurrican Shutters Wholesale](https://www.hurricaneshutterswholesale.com/)
 - [Inspired Shades](https://www.inspired-shades.com/)
-- [iSmartWindow](https://www.ismartwindow.co.nz/)
+- [iSmartWindow](https://www.autoblinds.co.nz/)
+- [Kaiser Nienhaus](https://www.kaiser-nienhaus.de/)
 - [Krispol](https://krispol.eu/en/drives/)
 - [Linx](https://linxautomation.com.au/)
 - [Madeco](https://www.madeco.fr/)
@@ -43,7 +47,8 @@ Additionally the following brands have been reported to also work with this inte
 - [Smart Rollo (SIRO)](https://smart-rollos.de/)
 - [Smartblinds](https://www.smartblinds.nl/)
 - [Smart Home](https://www.smart-home.hu)
-- [Uprise Smart Shades](http://uprisesmartshades.com)
+- [Ublockout](https://www.ublockout.com/)
+- [Uprise Smart Shades](https://upriseshades.com/)
 
 This integration allows for both directly controlling blinds that support wifi-connection and controlling Uni- and Bi-direction blinds that connect to a 433MHz WiFi bridge.
 The following bridges are reported to work with this integration:
@@ -61,6 +66,11 @@ The following bridges are reported to work with this integration:
 - Linx Hub USB
 - SIRO Connect SI7002
 - SIRO Connect SI7005
+- Heicko Smart Stick 1ST
+- DD7006A Smart Home bridge
+- Dreamhub Pro 191726
+- Dreamhub mini 191717
+- Kaiser Nienhaus Smart Stick
 
 {% include integrations/config_flow.md %}
 
@@ -71,7 +81,7 @@ In that app the key can often be found by clicking multiple times on specific pl
 
 ### Motionblinds app
 
-The Motionblinds API uses a 16 character key that can be retrieved from the official "Motionblinds" app for [IOS](https://apps.apple.com/us/app/motion-blinds/id1437234324) or [Android](https://play.google.com/store/apps/details?id=com.coulisse.motion).
+The Motionblinds API uses a 16 character key that can be retrieved from the official "Motionblinds" app for [IOS](https://apps.apple.com/app/id1437234324) or [Android](https://play.google.com/store/apps/details?id=com.coulisse.motion).
 
 Open the app, click the 3 dots in the top right corner, go to "settings", go to "Motion APP About", Please quickly tap this "Motion APP About" page 5 times, a popup will appear that gives you the key.
 
@@ -91,9 +101,24 @@ In the Brel Home app on Android go to the `me` page (home screen 4th tab), tap 5
 
 In the official Bloc Blinds app go to settings (three bars > gear icon), go to the `About` page, Tap five time on the bloc blinds icon in the middle and a pop-up with the key will be shown.
 
+### 3 Day Blinds app
+
+In the 3 Day Blinds app go to the home screen, go to settings (three bars in the upper left corner > gear icon), select `About` from the bottom, quickly tap the 3 Day Blinds icon in the center of the screen 5 times and a pop-up with the key will be shown.
+
 ### Connector app
 
-Click the about page of the connector app 5 times to get the key ([iOS app](https://apps.apple.com/us/app/connector/id1344058317), [Android app](https://play.google.com/store/apps/details?id=com.smarthome.app.connector)).
+ To get the API key ([iOS app](https://apps.apple.com/app/id1344058317), [Android app](https://play.google.com/store/apps/details?id=com.smarthome.app.connector)), follow these steps:
+ 
+  1. In the left sidebar of the app, open the **Settings** {% icon "mdi:gear-outline" %} (gear icon). 
+  2. Select the **About** page of the Connector app.
+  3. Tap the screen 5 times while being on the **About** page. 
+      - This opens a window with the API key.
+
+## Favorite position
+
+A **Go to favorite position** button entity allows you to move the blind to its favorite position. For this entity to show up, you first need to set the blind's favorite position in the mobile app, using a remote or physical buttons on the blind. Refer to the manual of your specific blind for instructions.
+
+The **Set current position as favorite** button entity allows you to change the favorite position. For this to work, the blind first needs to be put in programming mode by shortly pressing the reset button on the blind. It will start stepping (moving a small bit up-down repeatedly). You can then use the **Set current position as favorite** entity. After you are done, shortly press the reset button again to exit the programming mode.
 
 ## Top Down Bottom Up (TDBU) blinds
 
@@ -198,12 +223,11 @@ You only have to create one automation with only one Motionblinds cover as entit
 Example YAML automation for custom polling interval (every minute):
 
 ```yaml
-alias: Motionblinds polling automation
-mode: single
-trigger:
-  - platform: time_pattern
+alias: "Motionblinds polling automation"
+triggers:
+  - trigger: time_pattern
     minutes: "/1"
-action:
+actions:
   - action: homeassistant.update_entity
     target:
       entity_id: cover.motion_shade

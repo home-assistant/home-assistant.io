@@ -12,6 +12,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_quality_scale: legacy
 ---
 
 The **Ziggo Mediabox XL** {% term integration %} allows you to control a [Ziggo](https://www.ziggo.nl/) Mediabox XL from Home Assistant.

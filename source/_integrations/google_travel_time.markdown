@@ -14,22 +14,21 @@ ha_codeowners:
 ha_integration_type: integration
 ---
 
-The `google_travel_time` sensor provides travel time from the [Google Distance Matrix API](https://developers.google.com/maps/documentation/distance-matrix/).
+The `google_travel_time` sensor provides travel time from the [Google Maps Routes API](https://developers.google.com/maps/documentation/routes/overview).
 
 ## Setup
 
-You need to register for an API key by following the instructions [here](https://github.com/googlemaps/google-maps-services-python#api-keys). You only need to turn on the Distance Matrix API.
+You need to register for an API key by following the instructions [here](https://developers.google.com/maps/documentation/routes/get-api-key-v2). You only need to turn on the Routes API.
 
-[Google now requires billing](https://mapsplatform.googleblog.com/2018/05/introducing-google-maps-platform.html) to be enabled (and a valid credit card loaded) to access Google Maps APIs. The Distance Matrix API is billed at US$10 per 1000 requests, however, a US$200 per month credit is applied (20,000 requests). The sensor will update the travel time every 5 minutes, making approximately 288 calls per day. Note that at this rate, more than 2 sensors will likely exceed the free credit amount. While this call frequency can not be decreased, you may have a use case which requires the data to be updated more often, to do this you may update on-demand (see automation example below).
+Google requires billing to be enabled (and a valid credit card loaded) to access Google Maps APIs. The Routes API currently provides 5,000 free requests that take the current traffic into account. The sensor will update the travel time every 10 minutes, making approximately 144 calls per day. Note that at this rate, using more than 1 sensor may exceed the free credit limit. As the update frequency cannot be decreased, if you require more frequent data updates, consider triggering on-demand updates (see the automation example below).
 
-A quota can be set against the API to avoid exceeding the free credit amount. Set the 'Elements per day' to a limit of 645 or less. Details on how to configure a quota can be found [here](https://developers.google.com/maps/documentation/distance-matrix/usage-and-billing#set-caps)
+A quota can be set against the API to avoid exceeding the free credit amount. Set the 'Elements per day' to a limit of 161 or less. Details on how to configure a quota can be found [here](https://developers.google.com/maps/documentation/routes/report-monitor#quotas).
 
 {% include integrations/config_flow.md %}
 
 Notes:
 
 - Origin and Destination can be the address or the GPS coordinates of the location (GPS coordinates have to be separated by a comma). You can also enter an entity ID that provides this information in its state, an entity ID with latitude and longitude attributes, or zone friendly name (case sensitive).
-
 
 ## Dynamic Configuration
 
@@ -67,13 +66,12 @@ Using automatic polling can lead to calls that exceed your API limit, especially
 You can use the `homeassistant.update_entity` action to update the sensor on-demand. For example, if you want to update `sensor.morning_commute` every 2 minutes on weekday mornings, you can use the following automation:
 
 ```yaml
-- id: update_morning_commute_sensor
-  alias: "Commute - Update morning commute sensor"
+- alias: "Commute - Update morning commute sensor"
   initial_state: "on"
-  trigger:
-    - platform: time_pattern
+  triggers:
+    - trigger: time_pattern
       minutes: "/2"
-  condition:
+  conditions:
     - condition: time
       after: "08:00:00"
       before: "11:00:00"
@@ -84,7 +82,7 @@ You can use the `homeassistant.update_entity` action to update the sensor on-dem
         - wed
         - thu
         - fri
-  action:
+  actions:
     - action: homeassistant.update_entity
       target:
         entity_id: sensor.morning_commute

@@ -27,22 +27,82 @@ ha_platforms:
   - sensor
   - switch
 ha_integration_type: hub
+ha_quality_scale: bronze
 ---
 
 The **Velbus** {% term integration %} is used to control [Velbus](https://www.velbus.eu/?lang=en) modules. It supports the Velbus USB, Velbus serial and a TCP/IP gateway.
 
-The pushbutton LEDs of input modules are disabled by default. These can be enabled from the `Devices` panel in the `Configuration` page of the web interface.
+To use the Velbus integration, you need to have Velbus modules connected to a Velbus USB or TCP/IP interface.
 
 {% include integrations/config_flow.md %}
 
-The port string used in the user interface or the configuration file can have 2 formats:
+## Configuration parameters
 
-- For a serial device: `/dev/ttyUSB00`
-- For a TCP/IP device: `127.0.0.1:3678`
-- For the VMBSIG module: `tls://192.168.1.9:27015`
+During the setup you will be shown 2 choices on ways to connect to the Velbus bus:
+
+- USB
+- TCP/IP
+
+A connection test will be performed to ensure the connection is working. If successful, the integration will be added to Home Assistant.
+
+### USB
+
+The USB connection is a way to connect to the Velbus bus. You will need a Velbus USB interface to connect to the bus. The USB interface is connected to the USB port of your Home Assistant device.
+The interface USB devices are automatically detected and shown in a list.
+Select the correct USB interface from the list and select **Submit**.
+
+There will be a connection test to make sure the connection is working, and if it's working the integration will be added to Home Assistant.
+
+### TCP/IP
+
+The TCP/IP connection is a way to connect to the Velbus bus. You will need a Velbus TCP/IP interface available in your network.
+
+{% configuration_basic %}
+tls:
+    description: "Enable TLS connection towards the Velbus TCP/IP interface. This is usually needed when connecting to a signum. This is optional and can be disabled when connecting to a velser or Home Assistant add-on."
+host:
+    description: "The IP address of the Velbus TCP/IP interface."
+port:
+    description: "The port number of the Velbus TCP/IP interface."
+password:
+    description: "The password to authenticate to the Velbus TCP/IP interface. This is optional and only needed if the devie has authentication enabled."
+{% endconfiguration_basic %}
+
+#### Example: signum
+
+- tls: yes
+- host: your signum IP address
+- port: 27015
+- password: your signum password (if configured)
+
+#### Example: velser
+
+- tls: no
+- host: your velser IP address
+- port: 6000
+- password: leave empty
+
+#### Example: Home Assistant add-on
+
+- tls: depending on your configuration
+- host: your Home Assistant IP address
+- port: 27015 if you kept the default
+- password: leave empty
+
+{% note %}
+The pushbutton LEDs of input modules are disabled by default. These can be enabled from the **Devices** panel in the **Configuration** page of the web interface.
+{% endnote %}
+
+### VLP file import
+
+{% note %}
+This step is optional.
+{% endnote %}
+
+In the next step of the configuration, you have the option to import a Velbus VLP configuration file. This is the configuration file that you can export from the VelbusLink software.
+This will eliminate the need for a scan of the bus and will create all devices and entities based on the configuration file.
 
 ## Actions
-
 - `velbus.sync clock`: Synchronize Velbus time to local clock.
 - `velbus.scan`: Scan the bus for new devices.
 - `velbus.set_memo_text`: Show memo text on Velbus display modules.
@@ -54,7 +114,7 @@ You can use the `velbus.sync_clock` action to synchronize the clock of the Velbu
 
 | Data attribute | Optional | Description                              |
 | ---------------------- | -------- | ---------------------------------------- |
-| `interface`            | no       | The port used to connect to the bus (the same one as used during configuration). |
+| `config_entry`         | no       | The config_entry to send the command to. |
 
 ### Action `velbus.scan`
 
@@ -62,7 +122,7 @@ You can use the `velbus.scan` action to synchronize the modules between the bus 
 
 | Data attribute | Optional | Description                              |
 | ---------------------- | -------- | ---------------------------------------- |
-| `interface`            | no       | The port used to connect to the bus (the same one as used during configuration). |
+| `config_entry`         | no       | The config_entry to send the command to. |
 
 
 ### Action `velbus.set_memo_text`
@@ -71,7 +131,7 @@ You can use the `velbus.set_memo_text` action to provide the memo text to be dis
 
 | Data attribute | Optional | Description                              |
 | ---------------------- | -------- | ---------------------------------------- |
-| `interface`            | no       | The port used to connect to the bus (the same one as used during configuration). |
+| `config_entry`         | no       | The config_entry to send the command to. |
 | `address`              | no       | The module address in decimal format, which is displayed at the device list at the integration page. |
 | `memo_text`            | yes      | Text to be displayed on module. When no memo text is supplied the memo text will be cleared. |
 
@@ -82,11 +142,11 @@ script:
   trash_memo:
     alias: "Trash memo text"
     sequence:
-    - data:
+    - action: velbus.set_memo_text
+      data:
         address: 65
         memo_text: "It's trash day"
-        interface: "tls://192.168.1.9:27015"
-      action: velbus.set_memo_text
+        config_entry: "01JGE8XB3MNPZFA836TTZ3KZ46"
 ```
 
 ### Action `velbus.clear_cache`
@@ -96,10 +156,13 @@ Use this action when you make changes to your configuration via velbuslink.
 
 | Data attribute | Optional | Description                              |
 | ---------------------- | -------- | ---------------------------------------- |
-| `interface`            | no       | The port used to connect to the bus (the same one used during configuration). |
+| `config_entry`         | no       | The config_entry to send the command to. |
 | `address`              | no       | The module address in decimal format, which is displayed on the device list on the integration page, if provided the service will only clear the cache for this model, without an address, the full velbuscache will be cleared. |
 
+
 ## VMB7IN and the Energy dashboard
+
+The VMB7IN sensor can be integrated with Home Assistant's Energy dashboard to track your utility consumption.
 
 In some cases, the VMB7IN sensor does not report what the counter is counting. If the counter is related to an energy device, everything will work out of the box.
 But if the VMB7IN sensor is a water or gas counter, you will need to specify this in your configuration.yaml file.
@@ -115,6 +178,7 @@ The device_class attribute can have 2 values:
 - gas: if the counter represents a gas meter
 - water: if the counter represents a water meter
 
+
 ## Example automation
 
 The Velbus {% term integration %} allows you to link a Velbus button (i.e., a button of a [VMBGPOD](https://www.velbus.eu/products/view/?id=416302&lang=en) module) to a controllable {% term entity %} of Home Assistant.
@@ -122,47 +186,54 @@ The actual linking can be realized by two automation rules. One rule to control 
 
 ```yaml
 # Control light living from Velbus push_button_10
-- id: 'Control_light_living_from_Velbus'
-  alias: "Control light living using Velbus push_button_10"
-  trigger:
-  - entity_id: binary_sensor.push_button_10
-    platform: state
-    to: "on"
-  condition: []
-  action:
-  - entity_id: light.living
-    action: light.toggle
+- alias: "Control light living using Velbus push_button_10"
+  triggers:
+    - trigger: state
+      entity_id: binary_sensor.push_button_10
+      to: "on"
+  actions:
+    - action: light.toggle
+      entity_id: light.living
+      
 
 # Keep status LED push_button_10 in sync to status light living
-- id: 'Update LED of push_button_10'
-  alias: "Update LED state of push_button_10"
-  trigger:
-  - entity_id: light.living
-    platform: state
-    to: "on"
-  - entity_id: light.living
-    platform: state
-    to: "off"
-  condition: []
-  action:
-  - condition: or
-    conditions:
-    - condition: and
+- alias: "Update LED state of push_button_10"
+  triggers:
+    - trigger: state
+      entity_id: light.living
+      to: "on"
+    - trigger: state
+      entity_id: light.living
+      to: "off"
+  conditions:
+    - condition: or
       conditions:
-      - condition: state
-        entity_id: light.led_push_button_10
-        state: "on"
-      - condition: state
-        entity_id: light.living
-        state: "off"
-    - condition: and
-      conditions:
-      - condition: state
-        entity_id: light.led_push_button_10
-        state: "off"
-      - condition: state
-        entity_id: light.living
-        state: "on"
-  - entity_id: light.led_push_button_10
-    action: light.toggle
+        - condition: and
+          conditions:
+          - condition: state
+            entity_id: light.led_push_button_10
+            state: "on"
+          - condition: state
+            entity_id: light.living
+            state: "off"
+        - condition: and
+          conditions:
+            - condition: state
+              entity_id: light.led_push_button_10
+              state: "off"
+            - condition: state
+              entity_id: light.living
+              state: "on"
+  actions:
+    - action: light.toggle
+      entity_id: light.led_push_button_10
+      
 ```
+
+## Removing the integration
+
+The Velbus integration and its entities can be removed by following these steps:
+
+{% include integrations/remove_device_service.md %}
+
+Note: Removing the integration will delete all Velbus devices and their history from Home Assistant.

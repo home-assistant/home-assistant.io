@@ -20,14 +20,13 @@ Device automations are meant to be configured via the UI.
 Example:
 
 ```yaml
-- id: "123456789"
-  alias: "Light turns off"
-  trigger:
-    - platform: device
+- alias: "Light turns off"
+  triggers:
+    - trigger: device
       device_id: 7a92d5ee74014a0b86903fc669b0bcd6
       domain: light
       type: turn_off
       entity_id: light.bowl
-  action:
+  actions:
     - action: camera.turn_off
 ```

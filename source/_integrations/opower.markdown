@@ -13,6 +13,7 @@ ha_config_flow: true
 ha_platforms:
   - sensor
 ha_integration_type: integration
+ha_quality_scale: bronze
 ---
 
 The Opower integration allows you to get energy information from utilities that use [Opower](https://www.oracle.com/industries/utilities/opower-energy-efficiency/).
@@ -27,11 +28,11 @@ More than 175 utilities use Opower. Currently only the following utilities are s
   - Kentucky Power
   - Public Service Company of Oklahoma (PSO)
   - Southwestern Electric Power Company (SWEPCO)
+- Burbank Water and Power (BWP)
 - City of Austin Utilities
 - Consolidated Edison (ConEd) and subsidiaries
   - Orange & Rockland Utilities (ORU)
 - Duquesne Light Company (DQE)
-- Enmax Energy
 - Evergy
 - Exelon subsidiaries
   - Atlantic City Electric
@@ -40,19 +41,25 @@ More than 175 utilities use Opower. Currently only the following utilities are s
   - Delmarva Power
   - PECO Energy Company (PECO)
   - Potomac Electric Power Company (Pepco)
-- Mercury NZ Limited
+- Glendale Water and Power (GWP)
+- National Grid US subsidiaries
+  - National Grid Massachusetts
+  - National Grid NY Long Island
+  - National Grid NY Metro
+  - National Grid NY Upstate
 - Pacific Gas & Electric (PG&E)
 - Portland General Electric (PGE)
 - Puget Sound Energy (PSE)
 - Sacramento Municipal Utility District (SMUD)
 - Seattle City Light (SCL)
+- Southern Maryland Electric Cooperative (SMECO)
 
 When you add the Opower integration to Home Assistant, you will need to provide your utility account's authentication details to enable retrieving your energy data.
 This is typically the same information needed to access your utility's website.
 
 ## Utility Authentication Requirements
 
-For many utilities, only a username and password are required to access your accounts. Some utilities requires additional authentication information.
+For many utilities, only a username and password are required to access your accounts. Some utilities require additional authentication information.
 It might be necessary to configure your utility account with an authentication method that is compatible with the Opower integration.
 Utility-specific authentication requirements are listed below:
 
@@ -73,9 +80,16 @@ Alternatively, you can create a new TOTP secret for your account and use the "no
 
 **NOTE: At this time, ConEd only has a single TOTP set up per account. Therefore, it is important that you configure the same TOTP secret for ConEd access in both Opower and your authenticator app.**
 
-### Exelon subsidiaries
+### Exelon subsidiaries (ACE, BGE, ComEd, Delmarva, PECO, Pepco)
 
-When using Opower with any of the Exelon subsidiaries, such as BGE, ComEd, PECO, Pepco, etc., you need to actively disable two-factor authentication. Log onto the website, select **Don't use 2FA** and **Don't ask me again**. If you have already enabled 2FA, disable it.
+The integration properly supports Multi-Factor Authentication (MFA) for Exelon subsidiaries via code sent to either email or phone SMS. These subsidiaries turned on MFA automatically for customers,
+however you may not have added a phone number. This integration supports this use case, but beware that once you add a phone you most likely cannot remove it entirely.
+You will be asked to re-authenticate via MFA periodically.
+
+### Pacific Gas & Electric (PG&E)
+
+The integration properly supports Multi-Factor Authentication (MFA) for PG&E via either email or phone.
+You will be asked to re-authenticate via MFA every 180 days.
 
 {% include integrations/config_flow.md %}
 
@@ -116,10 +130,19 @@ In the configuration of the energy dashboard (**{% my config_energy title="Setti
 
 For electricity:
 
-1. Select **Add consumption** for the **Electricity grid**.
-2. Select **Opower {utility name} elec {account number} consumption** for the **consumed energy**.
+1. Select **Add consumption** under **Electricity grid**.
+2. Select **Opower {utility name} elec {account number} consumption** for **consumed energy**.
 3. Select the radio button to **Use an entity tracking the total costs**.
-4. Select **Opower {utility name} elec {account number} cost** for the **entity with the total costs**.
+4. Select **Opower {utility name} elec {account number} cost** for **entity with the total costs**.
+
+{% details "Track return to grid energy and compensation" %}
+
+1. Select **Add return** under **Electricity grid**.
+2. Select **Opower {utility name} elec {account number} return** for **energy returned to the grid**.
+3. Select the radio button to **Use an entity tracking the total received money**.
+4. Select **Opower {utility name} elec {account number} compensation** for **entity with the total compensation**.
+
+{% enddetails %}
 
 Your **Configure grid consumption** should now look like this:
 ![Screenshot configure grid consumption](/images/integrations/opower/configure_grid_consumption.png)
@@ -137,3 +160,23 @@ Your **Configure gas consumption** should now look like this:
 With the above changes your (**{% my config_energy title="Settings > Dashboards > Energy" %}**) page should now look like this:
 
 ![Screenshot Energy Configuration](/images/integrations/opower/energy_config.png)
+
+## Known limitations
+
+- There is a delay, often for up to a few days, for sensors and statistics to have up-to-date data.
+- For some utilities, there are no sensors added by this integration.
+- For some utilities, the sensors might disappear or become unavailable at the beginning of your bill period.
+- Sensors for typical monthly usage and cost are not populated for accounts younger than a year.
+- Many utilities provide granular usage (for example, daily or hourly) but not cost. They only provide cost for billing periods (for example, month). This results in showing 0 for cost.
+
+## Troubleshooting
+
+- Before opening an issue, ensure you can access the energy usage section/dashboard on your utility website and verify that the data is up-to-date there.
+- In your energy dashboard in Home Assistant, make sure you use the statistics and not the sensors.
+
+## Removing the integration
+
+{% include integrations/remove_device_service.md %}
+
+If you remove the integration, the statistics are not automatically deleted.
+You can find and delete the statistics in {% my developer_statistics title="**Developer Tools** > **Statistics**"%} and search for "opower".

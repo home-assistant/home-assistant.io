@@ -18,10 +18,12 @@ ha_platforms:
   - diagnostics
   - media_player
   - number
+  - select
   - sensor
   - switch
 ha_zeroconf: true
 ha_integration_type: integration
+ha_quality_scale: bronze
 ---
 
 The `sonos` integration allows you to control your [Sonos](https://www.sonos.com) wireless speakers from Home Assistant. It also works with IKEA Symfonisk speakers.
@@ -30,7 +32,7 @@ The `sonos` integration allows you to control your [Sonos](https://www.sonos.com
 
 ## Feature controls & sensors
 
-Speaker-level controls are exposed as `number` or `switch` entities. Additionally, various `sensor` and `binary_sensor` entities are provided.
+Speaker-level controls are exposed as `number`, `select` or `switch` entities. Additionally, various `sensor` and `binary_sensor` entities are provided.
 
 ### Controllable features
 
@@ -44,6 +46,14 @@ Speaker-level controls are exposed as `number` or `switch` entities. Additionall
 - **Devices with battery**: Battery level, Power state
 - **Home theater devices**: Audio Input Format
 - **Voice-enabled devices**: Microphone Enabled
+
+### Select
+
+The following select entities are created:
+
+- **Dialog Level**  
+  Lets you set the dialog mode on your **Sonos Arc Ultra** soundbar. You can choose from None, Low, Medium, High, or Max.
+
 
 ### Battery support notes
 
@@ -157,7 +167,7 @@ data:
     volume: 80
 ```
 
-Sonos can also play music or playlists from Spotify. Both Spotify URIs and URLs can be used directly. An example action using a playlist URI:
+Sonos can also play music or playlists from Spotify. Both Spotify URIs and URLs can be used directly. The optional `title` parameter can be used to fill the media_playlist attribute correctly. An example action using a playlist URI:
 
 ```yaml
 action: media_player.play_media
@@ -167,6 +177,8 @@ data:
   media_content_type: "playlist"
   media_content_id: "spotify:playlist:abcdefghij0123456789XY"
   enqueue: true
+  extra:
+    title: Example Playlist
 ```
 
 An example action using a Spotify URL:
@@ -342,6 +354,47 @@ Force start playing the queue, allows switching from another stream (such as rad
 | `entity_id` | yes | String or list of `entity_id`s that will start playing. It must be the coordinator if targeting a group.
 | `queue_position` | yes | Position of the song in the queue to start playing from, starts at 0.
 
+### Action `sonos.get_queue`
+
+Returns the media_players queue.
+
+| Data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | no | media_player entity id. |
+
+This example script does the following: get the queue, loop through in reverse order, and remove media containing the words "holiday".
+
+{% raw %}
+
+```yaml
+  - action: sonos.get_queue
+    target:
+      entity_id: media_player.living_room
+    response_variable: queue
+  - variables:
+      queue_len: '{{ queue["media_player.living_room"] | length }}'
+  - repeat:
+      sequence:
+        - variables:
+            title: '{{ queue["media_player.living_room"][queue_len - repeat.index]["media_title"].lower() }}'
+            album: '{{ queue["media_player.living_room"][queue_len - repeat.index]["media_album_name"].lower() }}'
+            position: '{{ queue_len - repeat.index }}'
+        - if:
+            - '{{ "holiday" in title or "holiday" in album }}'
+          then:
+            - action: sonos.remove_from_queue
+              target:
+                entity_id: media_player.living_room
+              data:
+                queue_position: '{{position}}'
+      until:
+        - condition: template
+          value_template: '{{queue_len == repeat.index}}'
+
+```
+
+{% endraw %}
+
 ### Action `sonos.remove_from_queue`
 
 Removes an item from the queue.
@@ -355,30 +408,29 @@ Removes an item from the queue.
 ```yaml
 # Example automation to remove just played song from queue
 alias: "Remove last played song from queue"
-id: Remove last played song from queue
-trigger:
-  - platform: state
+triggers:
+  - trigger: state
     entity_id: media_player.kitchen
-  - platform: state
+  - trigger: state
     entity_id: media_player.bathroom
-  - platform: state
+  - trigger: state
     entity_id: media_player.move
-condition:
-  condition: and
-  conditions:
-    # Coordinator
-    - condition: template
-      value_template: >
-        {{ state_attr( trigger.entity_id , 'group_members')[0] ==  trigger.entity_id }}
-    # Going from queue to queue
-    - condition: template
-      value_template: >
-        {{ 'queue_position' in trigger.from_state.attributes and 'queue_position' in trigger.to_state.attributes }}
-    # Moving forward
-    - condition: template
-      value_template: >
-        {{ trigger.from_state.attributes.queue_position < trigger.to_state.attributes.queue_position }}
-action:
+conditions:
+  - condition: and
+    conditions:
+      # Coordinator
+      - condition: template
+        value_template: >
+          {{ state_attr( trigger.entity_id , 'group_members')[0] ==  trigger.entity_id }}
+      # Going from queue to queue
+      - condition: template
+        value_template: >
+          {{ 'queue_position' in trigger.from_state.attributes and 'queue_position' in trigger.to_state.attributes }}
+      # Moving forward
+      - condition: template
+        value_template: >
+          {{ trigger.from_state.attributes.queue_position < trigger.to_state.attributes.queue_position }}
+actions:
   - action: sonos.remove_from_queue
     target:
       entity_id: >
@@ -424,3 +476,9 @@ sonos:
   media_player:
     advertise_addr: 192.0.2.1
 ```
+
+## Removing the integration
+
+This integration follows the standard integration removal process; no extra steps are required.
+
+{% include integrations/remove_device_service.md %}

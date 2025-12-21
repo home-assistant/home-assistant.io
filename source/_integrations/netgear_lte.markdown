@@ -98,10 +98,10 @@ The following automation example processes incoming SMS messages with the [Conve
 ```yaml
 automation:
   - alias: "SMS conversation"
-    trigger:
-      - platform: event
+    triggers:
+      - trigger: event
         event_type: netgear_lte_sms
-    action:
+    actions:
       - action: conversation.process
         data:
           text: "{{ trigger.event.data.message }}"

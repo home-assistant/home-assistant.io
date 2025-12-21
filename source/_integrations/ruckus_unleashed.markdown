@@ -1,6 +1,6 @@
 ---
-title: Ruckus Unleashed
-description: Instructions on how to integrate your Ruckus Unleashed device into Home Assistant.
+title: Ruckus
+description: Instructions on how to integrate your Ruckus Networks device into Home Assistant.
 ha_category:
   - Presence detection
 ha_release: 0.117
@@ -16,38 +16,52 @@ ha_platforms:
 ha_integration_type: hub
 ---
 
-This platform allows you to connect to a [Ruckus Unleashed](https://support.ruckuswireless.com/product_families/19-ruckus-unleashed) access point.
+This platform allows you to connect to [Ruckus](https://www.ruckusnetworks.com/) access points.
+
+[Ruckus Unleashed](https://www.ruckusnetworks.com/products/network-control-and-management/controller-less/),
+[Ruckus ZoneDirector](https://support.ruckuswireless.com/products/73),
+[Ruckus SmartZone](https://www.ruckusnetworks.com/products/network-control-and-management/network-controllers/),
+and [Ruckus One](https://www.ruckusnetworks.com/products/network-control-and-management/cloud-managed/)
+access points are supported. Access points running Standalone/Solo firmware are not supported.
 
 There is currently support for the following device types within Home Assistant:
 
-- **Presence detection** - The platform will look at devices connected to the access point and will create a `device_tracker` for each discovered device.
+- **Presence detection** - The platform will look at devices connected to the access point and will
+create a `device_tracker` for each discovered device.
 
-## Configuration
+## Prerequisites
 
-To add a Ruckus Unleashed device to your installation, go to **Settings** -> **Devices & services**, click the `+` button, then select **Ruckus** from the list of integrations.
+- **IP address / hostname**, **Username** and **Password** which you use to connect
+    to your Ruckus controller's web dashboard.
 
-It is required to configure the IP address of your **master access point**. See the section Access Points on the management web interface. And perhaps consider to set a preferred master (Admin & Services>System>System Info>Preferred master).
 
-You will have to create a user on the device which is a **Monitoring Admin**. Login to the Ruckus Unleashed admin UI and follow these steps:
+### Ruckus Unleashed
 
- - [Create a new role](https://docs.ruckuswireless.com/unleashed/200.1.9.12/t-ConfigUserRoles.html).
-   - Check **Allow Unleashed Administration**.
-   - Select the **Monitoring Admin (Monitoring and viewing operation status only)** radio button. 
- - [Create a new user](https://docs.ruckuswireless.com/unleashed/200.1.9.12/t-AddingNewUsersInternal.html) with the new role.
+You may enter the **IP address / hostname** of any access point as the Host.
+If you've configured an Unleashed Management Interface, then use this instead.
+
+### Ruckus One
+
+You'll need to use your Ruckus One dashboard to create an Application Token. Go to the bottom of the
+**Administration** > **Settings** screen and select the **Add Token** link. Choose any
+**Application Name**, for example `Home Assistant`. The **Token Scope** can be **Read Only**.
+
+When Home Assistant prompts for Ruckus connection details, use the full URL of a Ruckus One
+dashboard page as the Host (such as `https://asia.ruckus.cloud/5dd1000334cc2a01fcf28a740a6c95cf/t/dashboard`),
+your Token **Client ID** as the Username & your Token **Shared Secret** as the Password.
+
+{% include integrations/config_flow.md %}
+
+## Limitations
+
+This integration is not currently suitable for large multi-venue SmartZone or Ruckus One networks: there
+is no way to filter devices by Venue or Zone.
+
+If you've configured your access points with an extended Client Inactivity Timeout, then this is how long
+you'll need to wait for devices to be detected as `not_home`.
 
 ## Troubleshooting
 
-For this platform to work, the Ruckus Unleashed device will need to be accessible over SSH. If you are having trouble with Home Assistant not connecting, make sure the user you created above can log in to SSH and can run privileged commands.
-
-Terminal:
-
-```bash
-ssh <ruckus_ip>
-
-Please login: <username>
-Password: <password>
-Welcome to Ruckus Unleashed Network Command Line Interface
-ruckus> enable
-ruckus# exit
-Exit ruckus CLI.
-```
+For this platform to work, the Ruckus controller or Unleashed AP will need to be accessible over HTTPS.
+If you are having trouble with Home Assistant not connecting, make sure the user you have specified
+can log in to the web dashboard and view AP, WLAN, and Client information.

@@ -22,7 +22,7 @@ Open-Meteo offers free weather forecast APIs for open-source developers and
 non-commercial use. No account or API key is required to use this service.
 
 Open-Meteo collaborates with National Weather Services providing Open Data
-with 11 to 2 km resolution. Their high-performance APIs select the best
+with 1 to 11 km resolution. Their high-performance APIs select the best
 weather model for your location.
 
 {% include integrations/config_flow.md %}
