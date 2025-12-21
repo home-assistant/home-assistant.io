@@ -1,6 +1,6 @@
 ---
-title: BLE Battery Management Systems
-description: The BLE Battery Management Systems integration allows to monitor Bluetooth Low Energy (BLE) battery management systems (BMS).
+title: BLE Battery Management System
+description: The BLE Battery Management System integration allows to monitor Bluetooth Low Energy (BLE) battery management systems (BMS).
 ha_release: 2026.1
 ha_category: Energy
 ha_iot_class: Local Polling
@@ -29,11 +29,11 @@ related:
 
 <!--- Use this template together with the developer documentation, under [Documentation standard](https://developers.home-assistant.io/docs/documenting/standards) and the documentation rules of the [Integration Quality Scale](https://developers.home-assistant.io/docs/core/integration-quality-scale/rules/). -->
 
-The **BLE Battery Management Systems** {% term integration %} is used to integrate with Bluetooth Low Energy (BLE) battery management systems (BMS) of [various brands](#supported-devices). The integration exposes [basic information](#sensors) from the BMS, e.g. voltage, current, power.
+The **BLE Battery Management System** {% term integration %} is used to integrate with Bluetooth Low Energy (BLE) battery management systems (BMS) of [various brands](#supported-devices). The integration exposes [basic information](#sensors) from the BMS, e.g. voltage, current, power.
 
 <a name="safety"></a>
 {% caution %}
-The **BLE Battery Management Systems integration shall not be used for safety relevant operations!** The correctness or availability of data cannot be guaranteed (see [warranty section of the license](/developers/license)), since the implementation is mostly based on openly available information or non-validated vendor specifications.
+The **BLE Battery Management System integration shall not be used for safety relevant operations!** The correctness or availability of data cannot be guaranteed (see [warranty section of the license](/developers/license)), since the implementation is mostly based on openly available information or non-validated vendor specifications.
 Further, issues with the Bluetooth connection, e.g. disturbances, can lead to unavailable or incorrect values.
 
 **Do not rely on the reported values** to control actions required to prevent battery damage, overheating (fire), or other harmful events.
@@ -104,7 +104,7 @@ The following devices are cannot be supported by the integration:
 
 ## Supported functionality
 
-The **BLE Battery Management Systems** {% term integration %} provides the following {% term entities %}.
+The **BLE Battery Management System** {% term integration %} provides the following {% term entities %}.
 
 {% note %}
 Some of this integration's sensors are disabled by default to reduce storage
@@ -156,7 +156,7 @@ Sensor | Attribute | Description
 
 ## Data updates
 
-The **BLE Battery Management Systems** {% term integration %} {% term polling polls %} data from the device every 30 seconds by default. It is discouraged to change that value. If you still want to do so, please see the default way to define a [custom interval](/common-tasks/general/#defining-a-custom-polling-interval). Note that Bluetooth discoveries can take up to a minute in worst case. Thus, expect side effects, when going below the default of 30 seconds!
+The **BLE Battery Management System** {% term integration %} {% term polling polls %} data from the device every 30 seconds by default. It is discouraged to change that value. If you still want to do so, please see the default way to define a [custom interval](/common-tasks/general/#defining-a-custom-polling-interval). Note that Bluetooth discoveries can take up to a minute in worst case. Thus, expect side effects, when going below the default of 30 seconds!
 
 ## Known limitations
 
