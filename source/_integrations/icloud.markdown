@@ -60,14 +60,19 @@ The iCloud integration will add a battery sensor for each iCloud devices availab
 
 ### Camera
 
-Camera entities can be created from iCloud albums and Shared streams. These are handled as Sub entities to the main iCloud integration.
+Camera entities can be created from iCloud albums and shared streams. These are handled as sub-entities to the main iCloud integration.  
 
-Multiple Album Camera's can be added for a single account.
+Multiple album cameras can be added for a single account.  
 
 #### Options
 
-- Image change interval: (Default: 60 seconds)
-- Randomize image selection: (Default: False)
+{% configuration_basic %}
+Image change interval: 
+  description: The interval which the image is updated. Defaults to 60 seconds
+
+Randomize image selection: 
+  description: Whether to process images in album order or select at random. Defaults to False.
+{% endconfiguration_basic %}
 
 ## Actions
 
@@ -96,4 +101,4 @@ This action will put your iDevice on "lost" mode (compatible devices only). You 
 
 ### Action `icloud.next_media`
 
-This action will advance the iCloud album camera image. Randomization of the next image is provided via option, this will not update the camera parameter and only applies to the next item.
+This action advances the iCloud album camera to the next image in the album. If you enable the randomization option, the action shows a randomly selected image for this update only and does not change the camera's configuration or album selection.  
