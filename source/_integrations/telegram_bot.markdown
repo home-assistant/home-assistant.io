@@ -538,7 +538,7 @@ Download a file previously sent to the bot and save it to a local path on the Ho
 | ---------------- | -------- | ----------- |
 | `config_entry_id`| yes      | The config entry representing the Telegram bot to get the file. Required if you have multiple Telegram bots. |
 | `file_id`        | no       | ID of the file to get. This is provided in `telegram_attachment` event data as `file_id`. |
-| `directory_path` | yes      | Local directory path to save the file to. Defaults to `/config/telegram_bot/`. Make sure this directory is in `allowlist_external_dirs` if you want to expose files to the frontend. |
+| `directory_path` | yes      | Local directory path to save the file to. Defaults to `/config/telegram_bot/`. Make sure this directory is in `allowlist_external_dirs` if you after downloading files want to expose them to the frontend. |
 | `file_name`      | yes      | Name to save the file as. If not provided, the original file name will be used. |
 
 Example YAML usage:
