@@ -2432,11 +2432,11 @@ Weather entities can only be created via YAML.
 template:
   - weather:
       - name: "My Weather Station"
-        condition_template: "{{ states('weather.my_region') }}"
-        temperature_template: "{{ states('sensor.temperature') | float }}"
+        condition: "{{ states('weather.my_region') }}"
+        temperature: "{{ states('sensor.temperature') | float }}"
         temperature_unit: "°C"
-        humidity_template: "{{ states('sensor.humidity') | float }}"
-        forecast_daily_template: "{{ state_attr('weather.my_region', 'forecast_data') }}"
+        humidity: "{{ states('sensor.humidity') | float }}"
+        forecast_daily: "{{ state_attr('weather.my_region', 'forecast_data') }}"
 ```
 
 ```yaml
@@ -2450,11 +2450,11 @@ template:
         - sensor.humidity
     weather:
       - name: "My Weather Station"
-        condition_template: "{{ states('weather.my_region') }}"
-        temperature_template: "{{ states('sensor.temperature') | float }}"
+        condition: "{{ states('weather.my_region') }}"
+        temperature: "{{ states('sensor.temperature') | float }}"
         temperature_unit: "°C"
-        humidity_template: "{{ states('sensor.humidity') | float }}"
-        forecast_daily_template: "{{ state_attr('weather.my_region', 'forecast_data') }}"
+        humidity: "{{ states('sensor.humidity') | float }}"
+        forecast_daily: "{{ state_attr('weather.my_region', 'forecast_data') }}"
 ```
 
 {% endraw %}
@@ -2465,39 +2465,39 @@ weather:
   required: true
   type: map
   keys:
-    apparent_temperature_template:
+    apparent_temperature:
       description: The current apparent (feels-like) temperature.
       required: false
       type: template
-    cloud_coverage_template:
+    cloud_coverage:
       description: The current cloud coverage.
       required: false
       type: template
-    condition_template:
+    condition:
       description: The current weather condition.
       required: true
       type: template
-    dew_point_template:
+    dew_point:
       description: The current dew point.
       required: false
       type: template
-    forecast_daily_template:
+    forecast_daily:
       description: Daily forecast data.
       required: false
       type: template
-    forecast_hourly_template:
+    forecast_hourly:
       description: Hourly forecast data.
       required: false
       type: template
-    forecast_twice_daily_template:
+    forecast_twice_daily:
       description: Twice daily forecast data.
       required: false
       type: template
-    humidity_template:
+    humidity:
       description: The current humidity.
       required: true
       type: template
-    ozone_template:
+    ozone:
       description: The current ozone level.
       required: false
       type: template
@@ -2505,7 +2505,7 @@ weather:
       description: Unit for precipitation output. Valid options are km, mi, ft, m, cm, mm, in, yd.
       required: false
       type: string
-    pressure_template:
+    pressure:
       description: The current air pressure.
       required: false
       type: template
@@ -2513,7 +2513,7 @@ weather:
       description: Unit for pressure_template output. Valid options are Pa, hPa, kPa, bar, cbar, mbar, mmHg, inHg, psi.
       required: false
       type: string
-    temperature_template:
+    temperature:
       description: The current temperature.
       required: true
       type: template
@@ -2521,11 +2521,11 @@ weather:
       description: Unit for temperature_template output. Valid options are °C, °F, and K.
       required: false
       type: string
-    uv_index_template:
+    uv_index:
       description: The current UV index.
       required: false
       type: template
-    visibility_template:
+    visibility:
       description: The current visibility.
       required: false
       type: template
@@ -2533,11 +2533,11 @@ weather:
       description: Unit for visibility_template output. Valid options are km, mi, ft, m, cm, mm, in, yd.
       required: false
       type: string
-    wind_gust_speed_template:
+    wind_gust_speed:
       description: The current wind gust speed.
       required: false
       type: template
-    wind_speed_template:
+    wind_speed:
       description: The current wind speed.
       required: false
       type: template
@@ -2545,7 +2545,7 @@ weather:
       description: Unit for wind_speed_template output. Valid options are m/s, km/h, mph, mm/d, in/d, and in/h.
       required: false
       type: string
-    wind_bearing_template:
+    wind_bearing:
       description: The current wind bearing.
       required: false
       type: template
