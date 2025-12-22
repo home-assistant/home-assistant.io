@@ -388,7 +388,7 @@ The Teslemetry integration uses a combination of streaming and polling to fetch 
 
 ### Streaming
 
-For most modern vehicles (Model 3, Model Y, and 2021+ Model S/X), data is streamed in real-time from the vehicle to Teslemetry, and then pushed to Home Assistant via Server-Sent Events (SSE). This provides low-latency updates for sensors and states. To enable streaming, specific configuration is required on the vehicle, which can be managed in the [Teslemetry Console](https://teslemetry.com/console).
+For most modern vehicles (excluding pre-2021 Model S/X), data is streamed in real-time from the vehicle to Teslemetry, and then streamed to Home Assistant via Server-Sent Events (SSE). This provides low-latency updates for sensors and states. To enable streaming, specific configuration is required on the vehicle, which can be managed in the [Teslemetry Console](https://teslemetry.com/console).
 
 ### Polling
 
@@ -403,7 +403,7 @@ The integration is designed to not wake the vehicle to poll for data. Updates fo
 
 *   **Vehicle Sleep:** The integration will not actively wake a vehicle to fetch data. However, sending commands (such as locking, unlocking, or climate control) will wake the vehicle.
 *   **Rate Limits:** While Teslemetry handles upstream rate limiting with Tesla, excessive polling or command usage from aggressive automations may encounter temporary API limits.
-*   **Virtual Key:** Vehicles delivered in 2024 and later require a [virtual key](https://teslemetry.com/docs/topics/virtualkey) for certain commands to function.
+*   **Virtual Key:** Modern vehicles require a [virtual key](https://teslemetry.com/docs/topics/virtualkey) to operate. Please follow the instructions on the [Teslemetry Console](https://teslemetry.com/console) to set this up.
 
 ## Troubleshooting
 
