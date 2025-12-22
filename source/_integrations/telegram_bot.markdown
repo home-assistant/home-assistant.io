@@ -538,7 +538,7 @@ Download a file previously sent to the bot and save it to a local path on the Ho
 | ---------------- | -------- | ----------- |
 | `config_entry_id`| yes      | The config entry representing the Telegram bot to get the file. Required if you have multiple Telegram bots. |
 | `file_id`        | no       | ID of the file to get. This is provided in `telegram_attachment` event data as `file_id`. |
-| `directory_path` | yes      | Local directory path to save the file to. Defaults to `/config/telegram_bot/`. Make sure this directory is in `allowlist_external_dirs` if you after downloading files want to expose them to the frontend. |
+| `directory_path` | yes      | Local directory path to save the file to. Defaults to `/config/telegram_bot/`. |
 | `file_name`      | yes      | Name to save the file as. If not provided, the original file name will be used. |
 
 Example YAML usage:
@@ -556,7 +556,7 @@ data:
 
 - For file size limits and download behavior, refer to the python-telegram-bot documentation: [python-telegram-bot - get_file](https://docs.python-telegram-bot.org/en/stable/telegram.bot.html#telegram.Bot.get_file)
 - For the moment, bots can download files of up to 20 MB in size.
-- Ensure the target `directory_path` is writable by Home Assistant and included in `allowlist_external_dirs` if you need to serve or access the file from the frontend.
+- Ensure the target `directory_path` is included in `allowlist_external_dirs` if you need to serve or access the file from the frontend.
 
 {% endnote %}
 
