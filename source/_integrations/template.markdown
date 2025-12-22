@@ -1671,7 +1671,7 @@ template:
   - triggers:
       - trigger: state
         entity_id: sensor.desk_height
-  - number:
+    number:
       - name: Desk Height
         unit_of_measurement: "in"
         state: "{{ states('sensor.desk_height') }}"
