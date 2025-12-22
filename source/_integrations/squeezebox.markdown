@@ -213,6 +213,9 @@ The integration provides the following functionality:
 - **Last scan**
   - **Description**: Date of the last library scan.
 
+- **Next alarm**
+  - **Description**: Timestamp of the next enabled alarm of a player.
+
 - **Player count**
   - **Description**: Number of players on the service.
 
