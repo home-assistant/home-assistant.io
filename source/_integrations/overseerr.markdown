@@ -107,35 +107,35 @@ Get a list of media requests.
 
 ### Action get issues
 
-Get a list of reported issues with your media.
+Get a list of reported issues.
 
 - **config_entry_id** (*Required*): The Overseerr instance to get issues from.
 - **status** (*Optional*): Show all issues, only open issues, or only resolved issues.
 
 ### Action create issue
 
-Report a problem with a movie or TV show.
+Report a problem with media.
 
 - **config_entry_id** (*Required*): The Overseerr instance to create the issue in.
-- **issue_type** (*Required*): What type of problem you're reporting (video quality, audio, subtitles, or other).
-- **message** (*Required*): Describe the problem.
-- **media_id** (*Required*): The ID number of the movie or TV show with the problem.
+- **issue_type** (*Required*): The type of problem (video quality, audio, subtitles, or other).
+- **message** (*Required*): A description of the problem.
+- **media_id** (*Required*): The media ID to report the issue for.
 
 ### Action update issue
 
-Update an existing issue or add a comment to it.
+Update an existing issue or add a comment.
 
 - **config_entry_id** (*Required*): The Overseerr instance to update the issue in.
-- **issue_id** (*Required*): The issue number you want to update.
+- **issue_id** (*Required*): The issue ID to update.
 - **status** (*Optional*): Mark the issue as open or resolved.
-- **message** (*Optional*): Add a comment with additional information.
+- **message** (*Optional*): A comment with additional information.
 
 ### Action delete issue
 
-Delete an issue that was reported by mistake or is no longer needed.
+Delete an issue.
 
 - **config_entry_id** (*Required*): The Overseerr instance to delete the issue from.
-- **issue_id** (*Required*): The issue number you want to delete.
+- **issue_id** (*Required*): The issue ID to delete.
 
 
 ## Use cases
