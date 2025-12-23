@@ -96,7 +96,7 @@ The Overseerr integration has the following actions:
 - `overseerr.update_issue` - Update an existing issue
 - `overseerr.delete_issue` - Delete an issue
 
-### Get requests
+### Action get requests
 
 Get a list of media requests using the `overseerr.get_requests` action.
 
@@ -105,14 +105,14 @@ Get a list of media requests using the `overseerr.get_requests` action.
 - **sort_order** (*Optional*): Sort the requests by `added` or `modified` date.
 - **requested_by** (*Optional*): Filter the requests by the user ID that requested them.
 
-### Get issues
+### Action get issues
 
 Retrieves a list of issues from Overseerr using the `overseerr.get_issues` action.
 
 - **config_entry_id** (*Required*): The Overseerr instance to get issues from.
 - **status** (*Optional*): Filter the issues by status (`all`, `open`, `resolved`).
 
-### Create issue
+### Action create issue
 
 Creates a new issue for media in Overseerr using the `overseerr.create_issue` action.
 
@@ -121,7 +121,7 @@ Creates a new issue for media in Overseerr using the `overseerr.create_issue` ac
 - **message** (*Required*): A description of the issue.
 - **media_id** (*Required*): The media ID to report the issue for.
 
-### Update issue
+### Action update issue
 
 Updates an existing issue in Overseerr using the `overseerr.update_issue` action.
 
@@ -130,7 +130,7 @@ Updates an existing issue in Overseerr using the `overseerr.update_issue` action
 - **status** (*Optional*): Update the status of the issue (`open`, `resolved`).
 - **message** (*Optional*): Add a comment to the issue.
 
-### Delete issue
+### Action delete issue
 
 Deletes an issue from Overseerr using the `overseerr.delete_issue` action.
 
