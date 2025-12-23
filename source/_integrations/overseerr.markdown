@@ -105,12 +105,27 @@ Get a list of media requests.
 - **sort_order** (*Optional*): Sort requests by when they were added or last modified.
 - **requested_by** (*Optional*): Show only requests from a specific user.
 
+```yaml
+action: overseerr.get_requests
+data:
+  config_entry_id: "abc123"
+  status: pending
+  sort_order: added
+```
+
 ### Action get issues
 
 Get a list of reported issues.
 
 - **config_entry_id** (*Required*): The Overseerr instance to get issues from.
 - **status** (*Optional*): Show all issues, only open issues, or only resolved issues.
+
+```yaml
+action: overseerr.get_issues
+data:
+  config_entry_id: "abc123"
+  status: open
+```
 
 ### Action create issue
 
@@ -121,6 +136,15 @@ Report a problem with media.
 - **message** (*Required*): A description of the problem.
 - **media_id** (*Required*): The media ID to report the issue for.
 
+```yaml
+action: overseerr.create_issue
+data:
+  config_entry_id: "abc123"
+  issue_type: video
+  message: "Video stuttering in episode 3"
+  media_id: 12345
+```
+
 ### Action update issue
 
 Update an existing issue or add a comment.
@@ -130,12 +154,28 @@ Update an existing issue or add a comment.
 - **status** (*Optional*): Mark the issue as open or resolved.
 - **message** (*Optional*): A comment with additional information.
 
+```yaml
+action: overseerr.update_issue
+data:
+  config_entry_id: "abc123"
+  issue_id: 42
+  status: resolved
+  message: "Fixed in latest version"
+```
+
 ### Action delete issue
 
 Delete an issue.
 
 - **config_entry_id** (*Required*): The Overseerr instance to delete the issue from.
 - **issue_id** (*Required*): The issue ID to delete.
+
+```yaml
+action: overseerr.delete_issue
+data:
+  config_entry_id: "abc123"
+  issue_id: 42
+```
 
 
 ## Use cases
