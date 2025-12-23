@@ -98,44 +98,44 @@ The Overseerr integration has the following actions:
 
 ### Action get requests
 
-Get a list of media requests using the `overseerr.get_requests` action.
+Get a list of media requests.
 
 - **config_entry_id** (*Required*): The Overseerr instance to get requests from.
-- **status** (*Optional*): Filter the requests by status (`approved`, `pending`, `available`, `processing`, `unavailable`, `failed`).
-- **sort_order** (*Optional*): Sort the requests by `added` or `modified` date.
-- **requested_by** (*Optional*): Filter the requests by the user ID that requested them.
+- **status** (*Optional*): Filter requests by their status.
+- **sort_order** (*Optional*): Sort requests by when they were added or last modified.
+- **requested_by** (*Optional*): Show only requests from a specific user.
 
 ### Action get issues
 
-Retrieves a list of issues from Overseerr using the `overseerr.get_issues` action.
+Get a list of reported issues with your media.
 
 - **config_entry_id** (*Required*): The Overseerr instance to get issues from.
-- **status** (*Optional*): Filter the issues by status (`all`, `open`, `resolved`).
+- **status** (*Optional*): Show all issues, only open issues, or only resolved issues.
 
 ### Action create issue
 
-Creates a new issue for media in Overseerr using the `overseerr.create_issue` action.
+Report a problem with a movie or TV show.
 
 - **config_entry_id** (*Required*): The Overseerr instance to create the issue in.
-- **issue_type** (*Required*): The type of issue being reported (`video`, `audio`, `subtitle`, `other`).
-- **message** (*Required*): A description of the issue.
-- **media_id** (*Required*): The media ID to report the issue for.
+- **issue_type** (*Required*): What type of problem you're reporting (video quality, audio, subtitles, or other).
+- **message** (*Required*): Describe the problem.
+- **media_id** (*Required*): The ID number of the movie or TV show with the problem.
 
 ### Action update issue
 
-Updates an existing issue in Overseerr using the `overseerr.update_issue` action.
+Update an existing issue or add a comment to it.
 
 - **config_entry_id** (*Required*): The Overseerr instance to update the issue in.
-- **issue_id** (*Required*): The ID of the issue to update.
-- **status** (*Optional*): Update the status of the issue (`open`, `resolved`).
-- **message** (*Optional*): Add a comment to the issue.
+- **issue_id** (*Required*): The issue number you want to update.
+- **status** (*Optional*): Mark the issue as open or resolved.
+- **message** (*Optional*): Add a comment with additional information.
 
 ### Action delete issue
 
-Deletes an issue from Overseerr using the `overseerr.delete_issue` action.
+Delete an issue that was reported by mistake or is no longer needed.
 
 - **config_entry_id** (*Required*): The Overseerr instance to delete the issue from.
-- **issue_id** (*Required*): The ID of the issue to delete.
+- **issue_id** (*Required*): The issue number you want to delete.
 
 
 ## Use cases
