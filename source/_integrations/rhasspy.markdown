@@ -7,7 +7,6 @@ ha_iot_class: Local Push
 ha_release: '2022.8'
 ha_config_flow: true
 ha_codeowners:
-  - '@balloob'
   - '@synesthesiam'
 ha_domain: rhasspy
 ha_integration_type: integration

@@ -6,6 +6,8 @@ description: "The tile card gives you a quick overview of an entity. The card al
 related:
   - docs: /dashboards/actions/
     title: Card actions
+  - docs: /dashboards/naming/
+    title: Card naming
   - docs:  /dashboards/features/
     title: Card features
   - docs: /dashboards/cards/
@@ -33,8 +35,8 @@ entity:
   type: string
 name:
   required: false
-  description: Overwrites the entity name.
-  type: string
+  description: Overwrites friendly name. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/).
+  type: [string, map, list]
 icon:
   required: false
   description: Overwrites the entity icon.
@@ -132,7 +134,7 @@ hide_state: true
 ```yaml
 type: tile
 entity: light.living_room
-state_content: 
+state_content:
   - state
   - brightness
   - last-changed
@@ -150,6 +152,6 @@ features:
 
 ## Available colors
 
-You want to colorize the tile card? Choose one of the following colors: `primary`, `accent`, `disabled`, `red`, `pink`, `purple`, `deep-purple`, `indigo`, `blue`, `light-blue`, `cyan`, `teal`, `green`, `light-green`, `lime`, `yellow`, `amber`, `orange`, `deep-orange`, `brown`, `grey`, `blue-grey`, `black` and `white`.
+The following colors are available to colorize the tile card: `primary`, `accent`, `disabled`, `red`, `pink`, `purple`, `deep-purple`, `indigo`, `blue`, `light-blue`, `cyan`, `teal`, `green`, `light-green`, `lime`, `yellow`, `amber`, `orange`, `deep-orange`, `brown`, `grey`, `blue-grey`, `black`, `white`, or any hex color code (for example, `#93c47d`).
 
 

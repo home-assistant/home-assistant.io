@@ -8,25 +8,301 @@ ha_release: 0.99
 ha_iot_class: Cloud Polling
 ha_domain: growatt_server
 ha_platforms:
+  - number
   - sensor
+  - switch
 ha_config_flow: true
 ha_integration_type: integration
+ha_codeowners:
+  - '@johanzander'
 ---
 
-This sensor is designed to gather data from Growatt inverters, offering users a choice of various alternative endpoint servers during setup. Available options include:
+The Growatt integration enables you to retrieve data from Growatt inverters. During setup, you can choose from various regional endpoint servers:
 
-- For users in China, the Chinese server at https://openapi-cn.growatt.com/.
-- For users in North America, the North American server at https://openapi-us.growatt.com/.
-- For users in other regions, a general server at https://openapi.growatt.com/.
-- Additionally, the SMTEN server at http://server.smten.com/ serves as another alternative.
+- For users in China:
 
-Users keen to explore all current supported servers and configuration possibilities can do so by integrating this feature in Home Assistant. This integration ensures global users can select the optimal server for their Growatt inverters, boosting both the efficiency and dependability of data collection.
+  ```text
+  https://openapi-cn.growatt.com/
+  ```
 
-Once integrated, the sensor logs into the user's Growatt account and accesses the first "Plant." It then retrieves the inverters associated with this plant and generates sensors for these inverters, as well as overall plant sensors.
+- For users in North America:
+
+  ```text
+  https://openapi-us.growatt.com/
+  ```
+
+- For users in Australia and New Zealand:
+
+  ```text
+  https://openapi-au.growatt.com/
+  ```
+
+- For users in other regions:
+
+  ```text
+  https://openapi.growatt.com/
+  ```
+
+- SMTEN server:
+
+  ```text
+  http://server.smten.com/
+  ```
+
+- Era server (Atess Power):
+
+  ```text
+  http://ess-server.atesspower.com/
+  ```
+
+Selecting the appropriate server for your region or service provider improves the reliability and performance of data collection.
+
+Once configured, the integration connects to your Growatt account. If you have multiple plants, you can select which one to integrate. It will then create entities for your plant and inverters, allowing you to monitor energy production and control settings in Home Assistant.
 
 ## Prerequisites
 
 - Growatt account
-- Login credentials to that Growatt account, you will need them during setup of the integration
+- Login credentials or API token for your Growatt account, you will need them during setup of the integration
 
 {% include integrations/config_flow.md %}
+
+## Authentication
+
+The integration supports two authentication methods:
+
+- **Username and password**: Use your Growatt account credentials to authenticate.
+- **API token**: Use an API token for more secure and stable authentication using the official Growatt API. This is the preferred method - check compatibility with your inverter below.
+
+### Obtaining an API token
+
+To obtain an API token for your Growatt account:
+
+1. Log in to your Growatt account on the [Growatt server](https://server.growatt.com/).
+2. Navigate to **Settings** > **Account Management** > **API Key**.
+3. Generate or retrieve your API token.
+4. Use this token during the integration setup in Home Assistant.
+
+If your inverter supports API token, this authentication method is recommended as it uses the official Growatt API, which offers better stability, support and feature growth.
+
+### Compatibility
+
+#### Classic API
+
+When using username and password authentication the Growatt integration uses the same API as the ShinePhone app. Hence, if your inverter can be controlled via the ShinePhone app, the Growatt integration can access the same data.
+
+#### API token
+
+Authentication using API token is currently supported for the following inverters. For the integration to support additional models, they must first be supported by the [Growatt Python library](https://github.com/indykoning/PyPi_GrowattServer).
+
+**MIC 600-3300TL-X Series**: 600TL-X, 750TL-X, 800TL-X, 1000TL-X, 1500TL-X, 2000TL-X, 3000TL-X, 3300TL-X
+
+**MIN 2500-6000TL-X Series**: 2500TL-X, 3000TL-X, 3600TL-X, 4200TL-X, 4600TL-X, 5000TL-X, 6000TL-X
+
+**MIN 2500-6000TL-XE Series**: 2500TL-XE, 3000TL-XE, 3600TL-XE, 4200TL-XE, 4600TL-XE, 5000TL-XE, 6000TL-XE
+
+**MIN 2500-6000TL-XH Series**: 2500TL-XH, 3600TL-XH, 4200TL-XH, 4600TL-XH, 5000TL-XH, 6000TL-XH
+
+**MIN 2500-6000TL-XA Series**: 2500TL-XA, 3000TL-XA, 3600TL-XA, 4200TL-XA, 4600TL-XA, 5000TL-XA
+
+**MIN 3000-7600TL-XH US Series**: 3000TL-XH US, 3800TL-XH US, 5000TL-XH US, 6000TL-XH US, 7600TL-XH US, 8200TL-XH US, 9000TL-XH US, 10000TL-XH US, 11400TL-XH US
+
+**MOD 3-10KTL3-XH Series**: 3000TL3-XH, 4000TL3-XH, 5000TL3-XH, 6000TL3-XH, 7000TL3-XH, 8000TL3-XH, 9000TL3-XH, 10KTL3-XH
+
+**MID 11-30KTL3-XH Series**: 11KTL3-XH, 12KTL3-XH, 13KTL3-XH, 15KTL3-XH, 17KTL3-XH, 20KTL3-XH, 25KTL3-XH, 30KTL3-XH
+
+## Known limitations
+
+### Rate limiting with username/password authentication
+
+The classic API (username/password authentication) has strict rate limits that can result in your account being locked out for up to 24 hours if these limits are exceeded. To avoid this issue, use one of the following options:
+
+- **Option 1: Your inverter supports API token**: Use token authentication instead, as this uses the official Growatt V1 API that does not have this limitation.
+- **Option 2: Your inverter doesn't support API token**: Avoid all unnecessary integration reloads, as a reload triggers re-login via Growatt classic API.
+
+## Inverter controls
+
+When using API token authentication, the integration provides additional control entities:
+
+{% important %}
+These controls directly modify your inverter's operational settings. Only change these values if you understand their impact on your system. Incorrect settings may damage your battery, reduce system efficiency, or void your warranty. Use at your own risk.
+{% endimportant %}
+
+### Numbers
+
+- **Charge power**
+  - **Description**: Set the charge power as a percentage (0-100%)
+- **Charge stop SOC**
+  - **Description**: Set the state of charge at which charging should stop (0-100%)
+- **Discharge power**
+  - **Description**: Set the discharge power as a percentage (0-100%)
+- **Discharge stop SOC**
+  - **Description**: Set the state of charge percentage at which discharging should stop (0-100%)
+
+### Switches
+
+- **AC charge**
+  - **Description**: Enable or disable AC charging
+
+## Actions
+
+The integration provides the following actions for managing Time-of-Use (TOU) battery schedules on MIN inverters:
+
+### Action `growatt_server.update_time_segment`
+
+Configure individual time segments (1-9) with battery operation mode, time range, and enable/disable state for automated battery charging and discharging schedules.
+
+{% important %}
+This action modifies your inverter's TOU scheduling settings. Incorrect configuration may affect your battery's charging/discharging behavior and energy costs. Ensure you understand your electricity tariff structure before making changes.
+{% endimportant %}
+
+**Data attributes:**
+
+- **device_id** *(string, optional)*: The device ID of the inverter. Required only when multiple devices are present
+- **segment_id** *(integer, required)*: Time segment number (1-9)
+- **batt_mode** *(string, required)*: Energy priority mode for the system:
+  - `load_first`: Prioritize powering home loads from available energy sources (solar/battery), discharge battery when needed to meet home consumption
+  - `battery_first`: Prioritize charging the battery from available sources (solar/grid)  
+  - `grid_first`: Prioritize exporting energy to grid from available sources (solar/battery), will discharge battery for grid export
+  
+  {% note %}
+  The battery mode controls when and why discharge occurs. The actual discharge rate is controlled by the **Discharge power** number entity (0-100%).
+  {% endnote %}
+- **start_time** *(time, required)*: Start time for the segment (HH:MM format)
+- **end_time** *(time, required)*: End time for the segment (HH:MM format)
+- **enabled** *(boolean, required)*: Whether this time segment is active
+
+### Action `growatt_server.read_time_segments`
+
+Read the current configuration of all 9 time segments from the inverter. This action returns the complete TOU schedule configuration.
+
+**Data attributes:**
+
+- **device_id** *(string, optional)*: The device ID of the MIN inverter. Required only when multiple devices are present
+
+## Examples
+
+### Off-peak charging schedule
+
+Charge the battery during cheap electricity hours (e.g., midnight to 6 AM):
+
+```yaml
+action: growatt_server.update_time_segment
+data:
+  segment_id: 1
+  batt_mode: "battery_first"
+  start_time: "00:00"
+  end_time: "06:00"
+  enabled: true
+  # For multiple devices, add device_id: "MIN12345"
+```
+
+{% note %}
+Remember to also set the **Charge power** number entity (0-100%) to control the charging power rate during this time period.
+{% endnote %}
+
+### Peak hour export schedule
+
+Export battery power to grid during expensive electricity hours (e.g., 4 PM to 8 PM):
+
+```yaml
+action: growatt_server.update_time_segment
+data:
+  segment_id: 2
+  batt_mode: "grid_first"
+  start_time: "16:00"
+  end_time: "20:00"
+  enabled: true
+```
+
+{% note %}
+Remember to also set the **Discharge power** number entity (0-100%) to control the discharge power rate during this time period.
+{% endnote %}
+
+### Daytime home priority schedule
+
+Prioritize home consumption during typical usage hours (e.g., 6 AM to 10 PM):
+
+```yaml
+action: growatt_server.update_time_segment
+data:
+  segment_id: 3
+  batt_mode: "load_first"
+  start_time: "06:00"
+  end_time: "22:00"
+  enabled: true
+```
+
+### Reading current TOU configuration
+
+Check your current time segment settings:
+
+```yaml
+action: growatt_server.read_time_segments
+```
+## Troubleshooting
+
+### Account locked or authentication failing
+
+If you're experiencing authentication failures or account lockouts:
+
+1. **Accept new terms and conditions**: Open the ShinePhone mobile app and log in with your Growatt account. You may need to accept updated terms and conditions before the integration can access your account successfully.
+
+2. **Account locked due to rate limiting**: If you're using username/password authentication and your account has been locked due to rate limiting:
+   - Wait for the lockout period to expire (up to 24 hours).
+   - Consider switching to API token authentication if you have a supported inverter.
+   - Avoid frequent integration reloads, which can trigger rate limits.
+
+3. **Prevent lockouts during Home Assistant restarts**:
+   - If you experience frequent lockouts, temporarily disable the integration before restarting Home Assistant.
+   - To disable: Go to {% my integrations title="**Settings** > **Devices & services**" %}, select the Growatt integration, click the three dots {% icon "mdi:dots-vertical" %} menu, and select **Disable**.
+   - Re-enable after Home Assistant has fully restarted.
+
+4. **Automate integration management during restarts**: If you continue experiencing account lockouts, you can create an automation to automatically disable and re-enable the integration during Home Assistant restarts:
+
+   ```yaml
+   - id: growatt_integration_enable_disable
+     alias: Growatt integration enable and disable
+     description: "Temporarily disables the Growatt integration to prevent account lockouts."
+     triggers:
+       - trigger: homeassistant
+         event: start
+         id: ha_start
+       - trigger: homeassistant
+         event: shutdown
+         id: ha_shutdown
+       - trigger: event
+         event_type: homeassistant_stop
+         id: ha_restart
+     conditions: []
+     actions:
+       - choose:
+           - alias: Enable Growatt integration
+             conditions:
+               - condition: trigger
+                 id: ha_start
+             sequence:
+               - delay:
+                   minutes: 10
+               - action: homeassistant.enable_config_entry
+                 data:
+                   config_entry_id: REPLACE-WITH-YOUR-CONFIG-ENTRY-ID
+           - alias: Disable Growatt integration
+             conditions:
+               - condition: or
+                 conditions:
+                   - condition: trigger
+                     id: ha_shutdown
+                   - condition: trigger
+                     id: ha_restart
+             sequence:
+               - action: homeassistant.disable_config_entry
+                 data:
+                   config_entry_id: REPLACE-WITH-YOUR-CONFIG-ENTRY-ID
+     mode: single
+   ```
+   
+   Replace `REPLACE-WITH-YOUR-CONFIG-ENTRY-ID` with your actual Growatt integration config entry ID. You can find this ID in {% my integrations title="**Settings** > **Devices & services**" %} by selecting your Growatt integration and checking the URL or developer tools.
+
+## Removing the integration
+
+{% include integrations/remove_device_service.md %}

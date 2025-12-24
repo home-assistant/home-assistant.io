@@ -7,6 +7,7 @@ ha_release: '2024.10'
 ha_codeowners:
   - '@home-assistant/core'
   - '@synesthesiam'
+  - '@arturpragacz'
 ha_domain: assist_satellite
 ha_integration_type: entity
 ha_quality_scale: internal

@@ -70,6 +70,12 @@ For each Airzone zone (thermostat) a *climate entity* is created.
 
 ## Select
 
+For each Airzone system (HVAC machine), the following *selects* are created:
+
+| Condition           | Description                        |
+| :------------------ | :--------------------------------- |
+| Q-Adapt             | Airflow control algorithm.         |
+
 For each Airzone zone (thermostat), the following *selects* are created:
 
 | Condition           | Description                        |

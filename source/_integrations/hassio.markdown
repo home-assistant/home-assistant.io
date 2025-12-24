@@ -5,6 +5,7 @@ ha_category:
   - Backup
   - Binary sensor
   - Sensor
+  - Switch
   - Update
 ha_iot_class: Local Polling
 ha_release: 0.42
@@ -15,6 +16,7 @@ ha_platforms:
   - binary_sensor
   - diagnostics
   - sensor
+  - switch
   - update
 ha_codeowners:
   - '@home-assistant/supervisor'
@@ -71,18 +73,32 @@ For Home Assistant Host, the following sensors are available:
 
 For each installed add-on Supervisor provides following binary sensors:
 
-(These entities are disabled by default and must be reenabled to appear)
+(These entities are disabled by default and must be re-enabled to appear)
 
 | Sensor | Enabled by default | Description |
 | ------- | ------------------ | ----------- |
 | Update Available | no | Whether there is an update available for this add-on (This is deprecated, use the Update entities instead.)
 | Running | no | Whether the add-on is running or not.
 
+For each network storage Supervisor provides following binary sensors:
+
+| Sensor | Enabled by default | Description |
+| ------- | ------------------ | ----------- |
+| Connected | no | Whether the network storage is connected and working properly.
+
 For Home Assistant OS Supervisor provides following binary sensors:
 
 | Sensor | Enabled by default | Description |
 | ------- | ------------------ | ----------- |
 | Update Available | no | Whether there is an update available for OS
+
+## Switch entities
+
+For each installed add-on, the following switch is available:
+
+| Switch | Enabled by default | Description |
+| ------- | ------------------ | ----------- |
+| Running | no | Shows whether the add-on is running or not, and allows you to start or stop the add-on depending on its current state. |
 
 ## Update entities
 

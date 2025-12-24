@@ -45,3 +45,15 @@ This integration follows standard integration removal. No extra steps are requir
 Check that your storage account allows [`Shared Key` access](https://learn.microsoft.com/en-us/azure/storage/common/shared-key-authorization-prevent?tabs=portal#remediate-authorization-via-shared-key).
 
 {% enddetails %}
+
+{% details "DNS Error" %}
+
+You may encounter a `aiodns.error.DNSError: (4, 'Domain name not found')` error. 
+
+To resolve this:
+
+1. Navigate to **Settings → System → Network → DNS Servers** in Home Assistant
+2. Manually set fallback DNS servers to `1.1.1.1` (Cloudflare) and `8.8.8.8` (Google) (or any other that you prefer). This allows Home Assistant to resolve Azure domain names successfully.
+3. Restart Home Assistant to propagate the new settings.
+
+{% enddetails %}

@@ -28,7 +28,6 @@ ha_platforms:
   - select
   - sensor
   - switch
-  - time
 ha_integration_type: integration
 ha_zeroconf: true
 ha_dhcp: true
@@ -334,11 +333,18 @@ Both entities can use these options, but the availability of these will depend o
 - **Magic daily**: `dishcare_dishwasher_program_magic_daily`
 - **Super 60ºC**: `dishcare_dishwasher_program_super_60`
 - **Kurz 60ºC**: `dishcare_dishwasher_program_kurz_60`
+- **Intelligent**: `dishcare_dishwasher_program_learning_dishwasher`
 - **Express sparkle 65ºC**: `dishcare_dishwasher_program_express_sparkle_65`
 - **Machine care**: `dishcare_dishwasher_program_machine_care`
 - **Steam fresh**: `dishcare_dishwasher_program_steam_fresh`
 - **Maximum cleaning**: `dishcare_dishwasher_program_maximum_cleaning`
 - **Mixed load**: `dishcare_dishwasher_program_mixed_load`
+- **Active clean**: `heating_ventilation_air_conditioning_air_conditioner_program_active_clean`
+- **Auto**: `heating_ventilation_air_conditioning_air_conditioner_program_auto`
+- **Cool**: `heating_ventilation_air_conditioning_air_conditioner_program_cool`
+- **Dry**: `heating_ventilation_air_conditioning_air_conditioner_program_dry`
+- **Fan**: `heating_ventilation_air_conditioning_air_conditioner_program_fan`
+- **Heat**: `heating_ventilation_air_conditioning_air_conditioner_program_heat`
 - **Cotton**: `laundry_care_dryer_program_cotton`
 - **Synthetic**: `laundry_care_dryer_program_synthetic`
 - **Mix**: `laundry_care_dryer_program_mix`
@@ -393,6 +399,7 @@ Both entities can use these options, but the availability of these will depend o
 - **90 Watt**: `cooking_oven_program_microwave_90_watt`
 - **180 Watt**: `cooking_oven_program_microwave_180_watt`
 - **360 Watt**: `cooking_oven_program_microwave_360_watt`
+- **450 Watt**: `cooking_oven_program_microwave_450_watt`
 - **600 Watt**: `cooking_oven_program_microwave_600_watt`
 - **900 Watt**: `cooking_oven_program_microwave_900_watt`
 - **1000 Watt**: `cooking_oven_program_microwave_1000_watt`
@@ -479,7 +486,6 @@ Both entities can use these options, but the availability of these will depend o
     </details>
 
 #### Program options
-
 - **Reference map ID**:
   - **Description**: Defines which reference map is to be used.
   - **Availability**: Cleaning robot
@@ -501,6 +507,22 @@ Both entities can use these options, but the availability of these will depend o
     - **Silent**: `consumer_products_cleaning_robot_enum_type_cleaning_modes_silent`
     - **Standard**: `consumer_products_cleaning_robot_enum_type_cleaning_modes_standard`
     - **Power**: `consumer_products_cleaning_robot_enum_type_cleaning_modes_power`
+    - **Intelligent mode**: `consumer_products_cleaning_robot_enum_type_cleaning_mode_intelligent_mode`
+    - **Vacuum only**: `consumer_products_cleaning_robot_enum_type_cleaning_mode_vacuum_only`
+    - **Mop only**: `consumer_products_cleaning_robot_enum_type_cleaning_mode_mop_only`
+    - **Vacuum and mop**: `consumer_products_cleaning_robot_enum_type_cleaning_mode_vacuum_and_mop`
+    - **Mop after vacuum**: `consumer_products_cleaning_robot_enum_type_cleaning_mode_mop_after_vacuum`
+
+    </details>
+- **Suction power**:
+  - **Description**: Defines the suction power.
+  - **Availability**: Cleaning robot
+  - <details>
+    <summary><b>Options:</b> (click to view)</summary>
+
+    - **Silent**: `consumer_products_cleaning_robot_enum_type_suction_power_silent`
+    - **Standard**: `consumer_products_cleaning_robot_enum_type_suction_power_standard`
+    - **Max**: `consumer_products_cleaning_robot_enum_type_suction_power_max`
 
     </details>
 - **Bean amount**:
@@ -1031,8 +1053,11 @@ Starts or selects a program. If the `program` attribute is not set, this action 
 | `device_id` | no | ID of the device. |
 | `affects_to` | no | Selects if the program affected by the action should be the active or the selected program. |
 | `program` | yes | Program to select. If set, it will start or select a program depending on `affects_to`. |
+| `heating_ventilation_air_conditioning_air_conditioner_option_fan_speed_percentage` | yes | Setting to adjust the venting levels of the air conditioner as percentage. |
+| `heating_ventilation_air_conditioning_air_conditioner_option_fan_speed_mode` | yes | Setting to adjust the fan speed mode to Manual or Automatic. |
 | `consumer_products_cleaning_robot_option_reference_map_id` | yes | Defines which reference map is to be used. |
 | `consumer_products_cleaning_robot_option_cleaning_mode` | yes | Defines the favoured cleaning mode. |
+| `consumer_products_cleaning_robot_option_suction_power` | yes | Defines the suction power. |
 | `consumer_products_coffee_maker_option_bean_amount` | yes | Describes the amount of coffee beans used in a coffee machine program. |
 | `consumer_products_coffee_maker_option_fill_quantity` | yes | Describes the amount of water (in ml) used in a coffee machine program. |
 | `consumer_products_coffee_maker_option_coffee_temperature` | yes | Describes the coffee temperature used in a coffee machine program. |

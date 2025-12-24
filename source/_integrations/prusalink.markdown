@@ -6,8 +6,6 @@ ha_category:
 ha_iot_class: Local Polling
 ha_release: '2022.9'
 ha_config_flow: true
-ha_codeowners:
-  - '@balloob'
 ha_domain: prusalink
 ha_integration_type: integration
 ha_platforms:

@@ -229,6 +229,19 @@ section#faq {
                     margin: 0;
                 }
 
+                img{
+                    border-radius: 8px;
+                    display: block;
+                    max-width: 800px;
+                    width: 100%;
+                }
+
+                img,p {
+                    &:not(:last-child) {
+                        margin-bottom: 16px;
+                    }
+                }
+
                 &-animation {
                     min-height: 0;
                 }

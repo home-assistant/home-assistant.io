@@ -3,6 +3,7 @@ title: Workday
 description: Steps to configure the binary workday sensor.
 ha_category:
   - Binary sensor
+  - Calendar
   - Utility
 ha_iot_class: Local Polling
 ha_release: 0.41
@@ -14,15 +15,18 @@ ha_codeowners:
 ha_domain: workday
 ha_platforms:
   - binary_sensor
+  - calendar
   - diagnostics
 ha_integration_type: integration
 ---
 
-The `workday` binary sensor indicates whether the current day is a workday or not.
+The `workday` {% term integration %} indicates whether the current day is a workday or not.
 
 It allows specifying which days of the week will count as workdays and also uses the Python module [holidays](https://pypi.org/project/holidays/) to incorporate information about region-specific public holidays.
 
 This can be used to make daily automations that act differently on workdays than non-workdays. For example, you could make your bedroom lights turn on (gently) at 7 in the morning if it is a workday but wait until 11 if it is a non-working day.
+
+The `workday` {% term integration %} also provides a `calendar` entity that may be used to see upcoming workdays.
 
 ## Setup
 

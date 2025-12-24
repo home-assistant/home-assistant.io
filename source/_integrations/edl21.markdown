@@ -70,3 +70,5 @@ connection: &con2001
 ```
 
 Use `socket://<ip-of-host>:2001` when adding the Smart Meter and asked for a "USB device path".
+
+This trick also works for RS485-based reading heads connected over a Waveshare RS485-to-Ethernet converter if you need to place reading heads at a remote location.

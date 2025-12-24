@@ -157,12 +157,12 @@ Per default, the bulb limits the number of requests per minute to 60, a limitati
 
 {% important %}
 
-Before trying to control your light through Home Assistant, you have to set up your bulb using the Yeelight app. ( [Android](https://play.google.com/store/apps/details?id=com.yeelight.cherry&hl=fr), [IOS](https://itunes.apple.com/us/app/yeelight/id977125608?mt=8) ).
+Before trying to control your light through Home Assistant, you have to set up your bulb using the Yeelight app. ( [Android](https://play.google.com/store/apps/details?id=com.yeelight.cherry), [IOS](https://apps.apple.com/app/id977125608) ).
 In the bulb property, you have to enable "LAN Control" (previously called "Developer mode"). LAN Control may only be available with the latest firmware installed on your bulb.  Firmware can be updated in the application after connecting the bulb.
 Determine your bulb IP (using router, software, ping...).
 Currently, there is no official way to change LAN mode. However, some methods might be found here:
-- [Desktop app](https://community.home-assistant.io/t/the-easiest-method-to-enable-lan-developer-mode-on-xiaomi-bulb/727360)
-- CLI using the python-miio library: [1](https://community.home-assistant.io/t/integrate-mi-smart-led-bulb-easy-steps/312174), [2](https://community.home-assistant.io/t/integrate-mi-smart-led-bulb-warm-white-xmbgdp01ylk/290404)
+- [Desktop app](https://community.home-assistant.io/t/727360)
+- CLI using the python-miio library: [1](https://community.home-assistant.io/t/312174), [2](https://community.home-assistant.io/t/290404)
 
 {% endimportant %}
 
@@ -290,3 +290,21 @@ Enable or disable music_mode.
 |---------------------------|----------|---------------------------------------------------------------------------------------------|
 | `entity_id`               |      yes | Only act on specific lights.                                                                |
 | `music_mode`              |       no | Use 'true' or 'false' to enable / disable music_mode.                                       |
+
+
+## Troubleshooting
+
+### Device Discovery
+
+The Yeelight devices use non-standard search parameters for SSDP so devices are not visible in **the SSDP/UPnP Browser**. 
+
+If you want to check what devices are in your network, you can use [the `async-upnp-client` library](https://pypi.org/project/async-upnp-client/), and then run the following command:
+```bash
+upnp-client search \
+    --target 239.255.255.250 \
+    --target_port 1982 \
+    --bind 0.0.0.0 \
+    --search_target wifi_bulb
+```
+
+You can also look at **the Zeroconf Browser** or **the DHCP Browser**, which correctly detect Yeelight devices.

@@ -57,7 +57,7 @@ This tutorial assumes that you have [installed Home Assistant](/installation/) a
    ![Screenshot of the workday integration details page](/images/getting-started/workday_sensor_details.png)
 
 2. Select **Service**, to open the service info page.
-   - In the **Logbook**, you can see the timeline of that {% term sensor %}.
+   - Under **Activity**, you can see the timeline of that {% term sensor %}.
    - Under **Sensors**, you can see all the sensors an integration provides. Here, we have only one, but if you have a climate device, for example, you might see temperature, humidity, and battery status here.
    - You can also see that **Workday** is not used (yet) in any {% term automations %}, {% term scripts %}, or {% term scenes %}.
 

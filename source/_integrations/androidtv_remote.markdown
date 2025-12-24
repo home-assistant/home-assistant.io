@@ -17,6 +17,7 @@ ha_platforms:
   - media_player
   - remote
 ha_integration_type: device
+ha_quality_scale: platinum
 ---
 
 The **Android TV Remote** {% term integration %} allows you to control an Android TV and launching apps. For this to work, the Android TV device needs to have [Android TV Remote Service](https://play.google.com/store/apps/details?id=com.google.android.tv.remote.service) which is pre-installed on most devices (Fire TV devices are a notable exception).
@@ -583,6 +584,11 @@ cards:
 - If you are not able to connect to the Android TV device, or are asked to pair it again and again, try force-stopping the Android TV Remote Service and clearing its storage. On the Android TV device, go to **Settings** > **Apps** > **Show system apps**. Then, select **Android TV Remote Service** > **Storage** > **Clear storage**. You will have to pair again.
 - Some onscreen keyboards enabled by TV manufacturers do not support concurrent virtual and onscreen keyboard use. This presents whenever a text field is selected, such as "search" where a constant **use the keyboard on your mobile device** will show, preventing you from opening the onscreen keyboard to type. This can be overcome by either disabling your 3rd party keyboard and using the default Gboard keyboard or by deselecting **Enable IME** in the **Configure** page of the integration.
 - If you can't turn on your Nvidia Shield device, go to **Settings** > **Remotes & accessories** > **Simplified wake buttons** and disable the following options: **SHIELD 2019 Remote: Wake on power and Netflix buttons only** and **Controllers: Wake on NVIDIA or logo buttons only**.
+
+
+## Data updates
+
+Android TV devices push data directly to Home Assistant, enabling immediate updates for device state changes such as power state, volume, and current active app. But the media player entity has assumed playback state since the Android TV Remote API doesn't provide playback status.
 
 
 ## Removing the integration
