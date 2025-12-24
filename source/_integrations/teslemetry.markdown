@@ -241,6 +241,7 @@ Entities in the device tracker platform specifically require the `Vehicle locati
 |Switch|Auto steering wheel heater|Yes|
 |Switch|Charge|Yes|
 |Switch|Defrost|Yes|
+|Switch|Guest mode|Yes|
 |Switch|Sentry mode|Yes|
 |Switch|Valet mode|Yes|
 |Update|Update|Yes|

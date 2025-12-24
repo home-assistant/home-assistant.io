@@ -31,12 +31,40 @@ Generates data using AI.
 | `instructions`         | no       | String containing the specific instructions for the AI to follow when generating the text.                      |
 | `entity_id`            | yes      | String that points at an `entity_id` of an LLM task entity. If not specified, uses the default LLM task.       |
 | `structure`            | yes      | Dictionary defining the structure of the output data. When set, the AI will return structured data with the specified fields. Each field can have a `description`, `selector`, and optional `required` property. |
-| `attachments`          | yes      | List of attachments to include in the task. Each attachment is the output of the [Media Selector](https://www.home-assistant.io/docs/blueprint/selectors/#media-selector).
+| `attachments`          | yes      | List of attachments to include in the task. Each attachment is the output of the [Media Selector](/docs/blueprint/selectors/#media-selector). |
 
 The response variable is a dictionary with the following keys:
 
 - `data`: The generated text or structured data (depending on whether `structure` is specified).
 - `conversation_id`: The ID of the conversation used for the task.
+
+## Action `ai_task.generate_image`
+
+Generates image using AI.
+
+| Data attribute | Optional | Description                                                                                                     |
+| ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------- |
+| `task_name`            | no       | String that identifies the type of image generation task (for example, "floor map", "weather visualization").           |
+| `instructions`         | no       | String containing the specific instructions for the AI to follow when generating the image.                      |
+| `entity_id`            | yes      | String that points at an `entity_id` of an LLM task entity. If not specified, uses the default LLM task.       |
+| `attachments`          | yes      | List of attachments to include in the task. Each attachment is the output of the [Media Selector](/docs/blueprint/selectors/#media-selector). |
+
+The response variable is a dictionary with the following keys:
+
+- `media_source_id`: The [Media Source](/integrations/media_source/) content ID of the generated image.
+- `url`: The URL of the generated image, without the host part. The URL is only valid for one hour.
+- `revised_prompt`: Some models would overwrite the instructions to add more details or context. This is the actual prompt used by the image model.
+- `model`: The image model that was used for the image generation.
+- `mime_type`: The MIME type of the image.
+- `width`: The image width.
+- `height`: The image height.
+- `conversation_id`: The ID of the conversation used for the task.
+
+The image will also be saved in the first media directory and will be browsable with the Media Source integration.
+
+File Naming Convention:
+- Format: `{date}_{time}_{sanitized_task_name}.{ext}`
+- Example: `2025-01-19_123456_home-security-camera.png`
 
 ## Examples
 
@@ -144,6 +172,43 @@ automation:
     - action: notify.persistent_notification
       data:
         message: "{{ generated_text.data }}"
+```
+
+{% endraw %}
+
+### Weather visualization example
+
+{% raw %}
+
+```yaml
+# Example: Up-to date weather image
+automation:
+  - alias: "Update image when weather changes"
+    triggers:
+      - trigger: state
+        entity_id: weather.home
+    actions:
+      - alias: "Generate an image with AI Task"
+        action: ai_task.generate_image
+        response_variable: generated_image
+        data:
+          task_name: weather visualization
+          instructions: >-
+            New York when the weather is {{ states("weather.home") }}
+
+      - alias: "Send out a manual event to update the image entity"
+        event: new_weather_image
+        event_data:
+          url: '{{ generated_image.url }}'
+
+template:
+  - trigger:
+      - alias: "Update image when a new weather image is generated"
+        trigger: event
+        event_type: new_weather_image
+    image:
+      - name: "AI generated image of New York"
+        url: "http://localhost:8123{{ trigger.event.data.url }}"
 ```
 
 {% endraw %}

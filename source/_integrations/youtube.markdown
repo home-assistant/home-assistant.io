@@ -19,7 +19,9 @@ api_link: https://console.cloud.google.com/apis/library/youtube.googleapis.com?p
 ---
 
 The **YouTube** {% term integration %} allows you to connect YouTube channels to Home Assistant.
+
 For every channel you add, it will create sensors for:
+
 - Views count
 - Subscriber count
 - The latest uploaded video
@@ -38,3 +40,9 @@ These are not the same as the one for [Google Calendar](/integrations/google).
 {% include integrations/config_flow.md %}
 
 {% include integrations/google_oauth.md %}
+
+## Removing the integration
+
+This integration follows standard integration removal, no extra steps are required.
+
+{% include integrations/remove_device_service.md %}

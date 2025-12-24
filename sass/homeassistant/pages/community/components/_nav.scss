@@ -1,0 +1,36 @@
+section#nav {
+    --section-spacing-y: 20px;
+    @include bp(tablet) {
+        --section-spacing-y: 40px;
+    }
+
+    .nav-pills{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        
+        gap: 12px;
+
+        .nav-pill{
+            background-color: #ffffff;
+            border-radius: 32px;
+            cursor: pointer;
+            transition: background-color 0.25s ease, color 0.25s ease;
+            font-size: 12px;
+            font-weight: 500;
+            padding: 6px 12px;
+            white-space: nowrap;
+            text-decoration: none;
+            color: #002332;
+
+            &:hover{
+                background-color: var(--color-primary);
+                color: #ffffff;
+            }
+
+            @include bp(tablet) {
+                font-size: 14px;
+            }
+        }
+    }
+}

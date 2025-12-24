@@ -6,8 +6,8 @@ description: "The area card gives control of your entities in a specified area."
 related:
   - docs: /dashboards/cards/
     title: Dashboard cards
-  - docs: /dashboards/dashboards/#areas-dashboard
-    title: Areas dashboard
+  - docs: /dashboards/dashboards/#home-dashboard
+    title: Home dashboard
   - docs: /docs/organizing/areas/
     title: About areas
 ---
@@ -104,7 +104,7 @@ type: area
 area: bedroom
 display_type: picture
 navigation_path: my_bedroom
-sensor_classes: 
+sensor_classes:
   - temperature
   - humidity
 alert_classes:
@@ -116,4 +116,4 @@ features:
 
 ## Available colors
 
-You want to colorize the area card? Choose one of the following colors: `primary`, `accent`, `disabled`, `red`, `pink`, `purple`, `deep-purple`, `indigo`, `blue`, `light-blue`, `cyan`, `teal`, `green`, `light-green`, `lime`, `yellow`, `amber`, `orange`, `deep-orange`, `brown`, `grey`, `blue-grey`, `black`, and `white`.
+The following colors are available to colorize the area card: `primary`, `accent`, `disabled`, `red`, `pink`, `purple`, `deep-purple`, `indigo`, `blue`, `light-blue`, `cyan`, `teal`, `green`, `light-green`, `lime`, `yellow`, `amber`, `orange`, `deep-orange`, `brown`, `grey`, `blue-grey`, `black`, `white`, or any hex color code (for example, `#93c47d`).

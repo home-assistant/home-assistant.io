@@ -9,10 +9,11 @@ ha_domain: aladdin_connect
 ha_platforms:
   - cover
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
 ha_codeowners:
   - '@swcloudgenie'
 ha_config_flow: true
+ha_dhcp: true
 ---
 
 The Aladdin Connect integration lets you control Genie Aladdin Connect garage doors through Home Assistant.
@@ -27,9 +28,6 @@ Only doors that are owned by your Aladdin Connect account will be available. Doo
 2. Create an account.
 3. Add a device to the app.
 
-{% note %}
-For help with setup, see the [AladdinConnect documentation](https://www.geniecompany.com/aladdin-connect-support).
-{% endnote %}
 
 {% include integrations/config_flow.md %}
 
@@ -38,9 +36,3 @@ For help with setup, see the [AladdinConnect documentation](https://www.geniecom
 This integration follows standard integration removal. No extra steps are required.
 
 {% include integrations/remove_device_service.md %}
-
-## Troubleshooting
-If you see the below attached screen instead of the login page, please ensure that your
-{% term "`configuration.yaml`" %} file includes either a [`default_config:`](/integrations/default_config/) or [`cloud:`](/integrations/cloud/) section.
-
-![OAuth Error Screen](/images/integrations/aladdin_connect/oauth-screenshot.png)

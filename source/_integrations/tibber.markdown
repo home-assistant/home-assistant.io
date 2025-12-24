@@ -88,7 +88,7 @@ The hourly prices are exposed using [actions](/docs/scripts/perform-actions/). T
 
 ### Action `tibber.get_prices`
 
-Fetches hourly energy prices including price level.
+Fetches hourly energy prices.
 
 | Data attribute | Optional | Description                                           | Example             |
 | -------------- | -------- | ----------------------------------------------------- | ------------------- |
@@ -106,24 +106,20 @@ The response data is a dictionary with the energy prices for each Home. `start_t
       {
         "start_time": "2023-12-09 03:00:00+02:00",
         "price": 0.46914,
-        "level": "VERY_EXPENSIVE"
       },
       {
         "start_time": "2023-12-09 04:00:00+02:00",
         "price": 0.46914,
-        "level": "VERY_EXPENSIVE"
       }
     ],
     "Nickname_Home_2":[
       {
         "start_time": "2023-12-09 03:00:00+02:00",
         "price": 0.46914,
-        "level": "VERY_EXPENSIVE"
       },
       {
         "start_time": "2023-12-09 04:00:00+02:00",
         "price": 0.46914,
-        "level": "VERY_EXPENSIVE"
       }
     ]
   }

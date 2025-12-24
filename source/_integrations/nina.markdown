@@ -37,9 +37,9 @@ The integration includes the possibility to filter warnings in two ways via a re
 All filters are applied to lowercase text only.
 {% endnote %}
 
-#### Headline filter
+#### Headline blocklist
 
-This filter filters warnings based on the headline as a **blacklist**. In other words, if the regular expression matches the headline of the warning, the warning will be **ignored**.
+This blocklist filters warnings based on the headline. In other words, if the regular expression matches the headline of the warning, the warning will be **ignored**.
 
 Default: Match nothing (`/(?!)/`)
 

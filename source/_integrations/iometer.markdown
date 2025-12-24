@@ -6,7 +6,7 @@ ha_category:
   - Energy
   - Sensor
 ha_codeowners:
-  - '@MaestroOnICe'
+  - '@jukrebs'
 ha_quality_scale: bronze
 ha_domain: iometer
 ha_integration_type: device

@@ -16,7 +16,7 @@ or when using a voice assistant in multiple languages at the same time.
 
 ## Adding an alias of an entity
 
-There are multliple ways to add an alias of an entity:
+There are multiple ways to add an alias of an entity:
 
 - **Option 1**: Go to **Settings** > **Voice assistants**. On the **Expose** tab, select the entity for which you want to add an alias.
 ![Screenshot showing the alias editing capabilities added to the more info dialog of entities, accessed from the Voice assistants page](/images/assist/assist_aliases.png)

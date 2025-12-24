@@ -23,7 +23,7 @@ Controlling Home Assistant is done by providing <abbr title="Model Context Proto
 ## Prerequisites
 
 - You need an [MCP client](https://modelcontextprotocol.io/clients) LLM Application such as [Claude for Desktop](https://claude.ai/download).
-- Since most clients do not support native remote servers, you need an additional local MCP server remote gateway.
+- If your client does not support remote servers, you need an additional local MCP server remote gateway.
 
 For detailed configuration instructions, refer to the [Client configuration](#client-configuration) section.
 
@@ -50,8 +50,8 @@ a client and can connect to multiple MCP servers to provide context. See the
 [Model Context Protocol Introduction](https://modelcontextprotocol.io/introduction#general-architecture) for more details.
 
 The Home Assistant Model Context Protocol Server integration implements the
-[Server-Sent Events (SSE) transport](https://modelcontextprotocol.io/docs/concepts/transports#server-sent-events-sse)
-allowing streaming client-to-server communication. Most MCP clients today only support
+[Streamable HTTP protocol](https://modelcontextprotocol.io/specification/2025-06-18/basic/transports#streamable-http)
+allowing client-to-server communication using the stateless protocol. Some MCP clients only support
 [stdio](https://modelcontextprotocol.io/docs/concepts/transports#standard-input-output-stdio) transport,
 and directly run an MCP server as a local command line tool. You can 
 use an MCP proxy server like [mcp-proxy](https://github.com/sparfenyuk/mcp-proxy)
@@ -63,6 +63,9 @@ The Model Context Protocol specification has recently defined standards for
 authorization and connecting to remote servers. The standards are a *work in progress*
 and so some clients may not support the latest functionality, and the specification
 will likely continue to evolve.
+
+The Home Assistant MCP server is exposed as `/api/mcp` and requires the
+client to provide an authentication token.
 
 ### Access control
 
@@ -109,15 +112,19 @@ to allow Claude for Desktop to access Home Assistant using the SSE transport.
    which will edit `claude_desktop_config.json`. The full file location depends on your
    operating system (macOS or Windows).
 4. Add a new MCP server to the JSON file. You need to set the `SSE_URL` to the URL you use to
-   connect to Home Assistant with the path `/mcp_server/sse`. You will also need to set `API_ACCESS_TOKEN`
+   connect to Home Assistant with the path `/api/mcp`. You will also need to set `API_ACCESS_TOKEN`
    to the long live access token created above in the [access control instructions](#access-control)
     ```json
     {
       "mcpServers": {
         "Home Assistant": {
           "command": "mcp-proxy",
+          "args": [
+            "--transport=streamablehttp",
+            "--stateless",
+            "http://localhost:8123/api/mcp"
+          ],
           "env": {
-            "SSE_URL": "http://localhost:8123/mcp_server/sse",
             "API_ACCESS_TOKEN": "<your_access_token_here>"
           }
         }
@@ -144,7 +151,9 @@ to allow Claude for Desktop to access Home Assistant using the SSE transport.
         "Home Assistant": {
           "command": "mcp-proxy",
           "args": [
-            "http://localhost:8123/mcp_server/sse"
+            "--transport=streamablehttp",
+            "--stateless",
+            "http://localhost:8123/api/mcp"
           ],
           "env": {
             "API_ACCESS_TOKEN": "<your_access_token_here>"
@@ -227,9 +236,9 @@ To understand the root cause, first check debug logs on the client. For example 
 3. Select the `Home Assistant` MCP server.
 4. Select **Open Logs Folder**.
 5. View `mcp-server-Home Assistant.log`. These are known problems and their resolution:
-   - `Client error '404 Not Found' for url 'http://localhost:8123/mcp_server/sse'`:
+   - `Client error '404 Not Found' for url 'http://localhost:8123/api/mcp'`:
      this means the MCP Server integration is not configured in Home Assistant.
-   - `Client error '401 Unauthorized' for url 'http://localhost:8123/mcp_server/sse'`:
+   - `Client error '401 Unauthorized' for url 'http://localhost:8123/api/mcp'`:
      this means that the long live access token is not correct.
 ...
 

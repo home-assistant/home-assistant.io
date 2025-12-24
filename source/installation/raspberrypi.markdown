@@ -93,8 +93,6 @@ To download the image to your computer, copy the correct URL for the Raspberry P
 {% endfor %}
 {% endtabbed_block %}
 
-{% include installation_survey.html %}
-
 With the Home Assistant Operating System installed and accessible, you can now continue with onboarding.
 
 {% include getting-started/next_step.html step="Onboarding" link="/getting-started/onboarding/" %}

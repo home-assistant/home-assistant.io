@@ -91,6 +91,7 @@ The following integrations are automatically discovered by the `zeroconf` integr
  - [devolo Home Control](/integrations/devolo_home_control/)
  - [devolo Home Network](/integrations/devolo_home_network/)
  - [DoorBird](/integrations/doorbird/)
+ - [Droplet](/integrations/droplet/)
  - [ecobee](/integrations/ecobee/)
  - [EHEIM Digital](/integrations/eheimdigital/)
  - [Elexa Guardian](/integrations/guardian/)

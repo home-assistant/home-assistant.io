@@ -56,4 +56,3 @@ The climate entity controls the sauna heater and offers the following capabiliti
 ### Number
 
 - **Humidity**: Control steamer duty cycle (0-10) to adjust sauna humidity.
-

@@ -28,7 +28,7 @@ Requires Airthings hardware and a compatible Bluetooth dongle.
 
 The Airthings BLE integration will automatically discover devices once the [Bluetooth](/integrations/bluetooth) integration is enabled and functional. This will include the device name and its serial number.
 
-There are two ways of retrieving the 10-digit serial number of a Wave device:
+There are two ways of retrieving the 10-digit serial number of an Airthings device:
 1. At the back of the device, located under the magnetic backplate.
 2. Airthings app: **Device settings -> Device info -> Serial Number**
 
@@ -41,6 +41,7 @@ This integration uses the last 6 digits of the serial number.
 - Wave Mini
 - Wave Plus
 - Wave Enhance
+- Corentium Home 2
 
 ## Sensors
 

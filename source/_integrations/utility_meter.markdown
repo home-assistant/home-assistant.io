@@ -292,7 +292,7 @@ utility_meter:
 
 Additionally, you can add template sensors to compute daily and monthly total usage. Important note, in these examples,
 we use the `is_number()` [function](/docs/configuration/templating/#numeric-functions-and-filters) to verify the values
-returned from the sensors are numeric. If this evalutes to false, `None` is returned.
+returned from the sensors are numeric. If this evaluates to false, `None` is returned.
 
 {% raw %}
 

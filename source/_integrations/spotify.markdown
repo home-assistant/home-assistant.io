@@ -16,7 +16,7 @@ ha_platforms:
 ha_integration_type: service
 ---
 
-The Spotify media player integration lets you control your Spotify
+The **Spotify** {% term integration %} lets you control your Spotify
 account playback and browse the [Spotify](https://www.spotify.com/) media
 library from Home Assistant.
 
@@ -156,3 +156,9 @@ The `media_content_id` value can be obtained from the Spotify desktop app by cli
 ## Unsupported devices
 
 - **Sonos**: Although Sonos is a Spotify Connect device, it is not supported by the official Spotify API. One workaround to use Sonos players with Spotify is through [Music Assistant](https://www.music-assistant.io/) using the action `music_assistant.play_media`. Music Assistant creates another media_player entity named after the original media_player, which you can use to play from Spotify.
+
+## Removing the integration
+
+This integration follows standard integration removal, no extra steps are required.
+
+{% include integrations/remove_device_service.md %}

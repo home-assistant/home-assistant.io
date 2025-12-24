@@ -11,6 +11,7 @@ ha_codeowners:
   - '@bdr99'
 ha_platforms:
   - diagnostics
+  - select
   - sensor
   - water_heater
 ha_integration_type: integration
@@ -18,7 +19,7 @@ ha_integration_type: integration
 
 The A. O. Smith integration allows you to control a compatible A. O. Smith iCOMM-enabled water heater from Home Assistant.
 
-Before using this integration, your water heater must be connected to a Wi-Fi network and linked to your account using the A. O. Smith mobile app ([iOS](https://apps.apple.com/us/app/a-o-smith/id456489822)/[Android](https://play.google.com/store/apps/details?id=com.aosmith.warrantycheck)).
+Before using this integration, your water heater must be connected to a Wi-Fi network and linked to your account using the A. O. Smith mobile app ([iOS](https://apps.apple.com/app/id456489822)/[Android](https://play.google.com/store/apps/details?id=com.aosmith.warrantycheck)).
 
 ## Known compatible models
 
@@ -29,6 +30,11 @@ Before using this integration, your water heater must be connected to a Wi-Fi ne
 - EE12-50R55DVF
 - EE12-50H55DVF
 - EE12-55H55DVF
+- HETF-50-100
+- HPA10-40H45DV
+- HPA10-50H45DV
+- HPA10-66H45DV
+- HPA10-80H45DV
 - HPS10-50H45DV
 - HPS10-66H45DV
 - HPS10-80H45DV
@@ -38,6 +44,10 @@ Before using this integration, your water heater must be connected to a Wi-Fi ne
 - HPSX-66-DHPT 2
 - HPSX-80-DHPT
 - HPSX-80-DHPT 2
+- HPTA-40
+- HPTA-50
+- HPTA-66
+- HPTA-80
 - HPTS-50
 - HPTS-66
 - HPTS-80
@@ -74,6 +84,10 @@ This table shows the supported operation modes. The available modes will depend 
 The following sensor entities are available:
 - Hot water availability (percentage)
 - Energy usage
+
+### Select
+
+If your water heater supports the "Hot Water+" feature, a select entity will be added to control the Hot Water+ level.
 
 ## Disclaimer
 

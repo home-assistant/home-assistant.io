@@ -15,8 +15,10 @@ ha_codeowners:
 ha_domain: derivative
 ha_config_flow: true
 ha_platforms:
+  - diagnostics
   - sensor
 ha_integration_type: helper
+ha_quality_scale: internal
 ---
 
 The derivative ([Wikipedia](https://en.wikipedia.org/wiki/Derivative)) integration creates a sensor that estimates the derivative of the
@@ -65,6 +67,10 @@ name:
   required: false
   default: source entity ID derivative
   type: string
+unique_id:
+  description: An ID that uniquely identifies the derivative sensor. Set this to a unique value to allow customization through the UI.
+  required: false
+  type: string  
 round:
   description: Round the calculated derivative value to at most N decimal places.
   required: false

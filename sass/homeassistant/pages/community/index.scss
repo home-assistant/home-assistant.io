@@ -1,0 +1,20 @@
+// Setup
+@import "homeassistant/pages/community/mixins.scss";
+@import "homeassistant/pages/community/variables.scss";
+
+// Base
+@import "homeassistant/pages/community/base.scss";
+@import "homeassistant/pages/community/icon.scss";
+@import "homeassistant/pages/community/buttons.scss";
+@import "homeassistant/pages/community/event-card.scss";
+@import "homeassistant/pages/community/photos.scss";
+@import "homeassistant/pages/community/stats.scss";
+
+// Components
+@import "homeassistant/pages/community/components/nav.scss";
+@import "homeassistant/pages/community/components/hero.scss";
+@import "homeassistant/pages/community/components/global.scss";
+@import "homeassistant/pages/community/components/join.scss";
+@import "homeassistant/pages/community/components/newsletter.scss";
+@import "homeassistant/pages/community/components/meetups.scss";
+@import "homeassistant/pages/community/components/faq.scss";

@@ -22,7 +22,7 @@ ha_iot_standard: matter
 ha_brand: true
 ---
 
-{% include integrations/wwha.md url="https://www.switchbot.com/" %}
+{% include integrations/wwha.md url="https://www.switch-bot.com/" %}
 
 ## Supported devices
 
