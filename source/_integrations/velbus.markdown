@@ -104,7 +104,7 @@ This will eliminate the need for a scan of the bus and will create all devices a
 
 {% configuration_basic %}
 vlp:
-    description: "Path to the VLP file to import during re-configuration. If not provided, no VLP file will be imported and a bus scan will be performed."
+    description: "Path to the VLP file to import. If not provided, no VLP file will be imported and a bus scan will be performed."
 {% endconfiguration_basic %}
 
 If you don't have a VLP file or don't want to import it, you can skip this step, and the integration will perform a scan of the bus to discover the connected modules, but this is known to be less reliable than using a VLP file.
