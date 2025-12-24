@@ -2,7 +2,7 @@
 title: Telegram bot
 description: Telegram bot support
 ha_category:
-  - Hub
+  - Notifications
 ha_release: 0.42
 ha_iot_class: Cloud Push
 ha_config_flow: true
@@ -18,7 +18,7 @@ ha_platforms:
 ---
 
 Use Telegram on your mobile or desktop device to send and receive messages or commands to/from your Home Assistant.
-This integration creates notification actions to send, edit or receive messages from a [Telegram Bot account](https://core.telegram.org/bots).
+This integration creates notification actions to send, edit, receive messages or download attachments from a [Telegram Bot account](https://core.telegram.org/bots).
 
 ## Introduction - Telegram bot platforms
 
@@ -41,9 +41,23 @@ This implementation allows Telegram to push updates directly to your server and 
 
 ## Prerequisites
 
-### Create Telegram bot
+### Create a bot in Telegram
 
-Create your Telegram bot and [retrieve the API key](/integrations/telegram). The `api_key` will be used for adding the bot to Home Assistant during integration setup.
+To create your first [Telegram bot](https://core.telegram.org/bots#how-do-i-create-a-bot), follow these steps:
+
+1. Tell Telegram to create a bot for you:
+   - In Telegram, open a chat with [@BotFather](https://t.me/BotFather) and enter `/newbot`.
+   - Follow the instructions on screen and give your bot a name.
+   - BotFather will give you a link to your new bot and an HTTP **API token**.
+   - Store the **API token** somewhere safe, it will be used for setting up the integration later.
+2. Get your **chat ID**:
+   - Send any message to the [GetIDs bot](https://t.me/getidsbot).
+   - Then, enter `/start`.
+   - The bot will return your **chat ID** and username.
+   - Note down your **chat ID**. You will need to add this ID to the allowlist after setting up the integration to permit your new bot to send/receive messages with this target.
+3. Make the first contact with your new bot (bots are not allowed to initiate contact with users):
+   - From the conversation with BotFather, select the link to open a chat.
+   - In the chat, enter `/start`.
 
 ### Allow Telegram bot to access your Home Assistant files (Optional)
 
@@ -137,7 +151,7 @@ Parse mode:
 
 A Telegram chat ID is a unique numerical identifier for an individual user (positive) or a chat group (negative).
 You must allowlist the chat ID for the Telegram bot before it can send/receive messages for that chat.
-To allowlist the chat ID, [retrieve the chat ID](/integrations/telegram#methods-to-retrieve-a-chat_id) and create a subentry:
+To allowlist the chat ID, [retrieve the chat ID](#create-a-bot-in-telegram) and create a subentry:
 
 1. Go to **{% my integrations title="Settings > Devices & services" %}**.
 2. Select the Telegram bot integration.
@@ -196,6 +210,8 @@ Send a notification.
 | `reply_to_message_id`      | yes      | Mark the message as a reply to a previous message. In `telegram_callback` handling, for example, you can use {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %}                                                                                                                           |
 | `message_thread_id`        | yes      | Send the message to a specific topic or thread.|
 
+This action returns a [send message response](#send-message-response).
+
 ### Action `telegram_bot.send_photo`
 
 Send a photo.
@@ -213,7 +229,6 @@ Send a photo.
 | `parse_mode`           | yes      | Parser for the message text: `markdownv2`, `html`, `markdown` or `plain_text`.                                                                                                                                                                                                                            |
 | `disable_notification` | yes      | True/false for send the message silently. iOS users and web users will not receive a notification, Android users will receive a notification with no sound. Defaults to False.                                                                                                                            |
 | `verify_ssl`           | yes      | True/false for checking the SSL certificate of the server for HTTPS URLs. Defaults to True.                                                                                                                                                                                                               |
-| `timeout`              | yes      | Timeout for sending photo in seconds. Will help with timeout errors (poor internet connection, etc)                                                                                                                                                                                                       |
 | `resize_keyboard`      | yes      | True/false for resizing the keyboard vertically for optimal fit. Defaults to False.                                                                                                                                                                                                                       |
 | `one_time_keyboard`    | yes      | True/false for hiding the keyboard as soon as it’s been used. The keyboard will still be available, but clients will automatically display the usual letter-keyboard in the chat - the user can press a special button in the input field to see the custom keyboard again. Defaults to False.            |
 | `keyboard`             | yes      | List of rows of commands, comma-separated, to make a custom keyboard. `[]` to reset to no custom keyboard. Example: `["/command1, /command2", "/command3"]`                                                                                                                                               |
@@ -221,6 +236,8 @@ Send a photo.
 | `message_tag`          | yes      | Tag for sent message. In `telegram_sent` event data: {% raw %}`{{trigger.event.data.message_tag}}`{% endraw %}                                                                                                                                                                                            |
 | `reply_to_message_id`  | yes      | Mark the message as a reply to a previous message. In `telegram_callback` handling, for example, you can use {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %}                                                                                                                       |
 | `message_thread_id`    | yes      | Send the message to a specific topic or thread.|
+
+This action returns a [send message response](#send-message-response).
 
 ### Action `telegram_bot.send_video`
 
@@ -239,13 +256,14 @@ Send a video.
 | `parse_mode`           | yes      | Parser for the message text: `markdownv2`, `html`, `markdown` or `plain_text`.                                                                                                                                                                                                                            |
 | `disable_notification` | yes      | True/false to send the message silently. iOS users and web users will not receive a notification. Android users will receive a notification with no sound. Defaults to False.                                                                                                                             |
 | `verify_ssl`           | yes      | True/false for checking the SSL certificate of the server for HTTPS URLs. Defaults to True.                                                                                                                                                                                                               |
-| `timeout`              | yes      | Timeout for sending video in seconds. Will help with timeout errors (poor internet connection, etc)                                                                                                                                                                                                       |
 | `resize_keyboard`      | yes      | True/false for resizing the keyboard vertically for optimal fit. Defaults to False.                                                                                                                                                                                                                       |
 | `one_time_keyboard`    | yes      | True/false for hiding the keyboard as soon as it’s been used. The keyboard will still be available, but clients will automatically display the usual letter-keyboard in the chat - the user can press a special button in the input field to see the custom keyboard again. Defaults to False.            |
 | `keyboard`             | yes      | List of rows of commands, comma-separated, to make a custom keyboard. `[]` to reset to no custom keyboard. Example: `["/command1, /command2", "/command3"]`                                                                                                                                               |
 | `inline_keyboard`      | yes      | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data or external URL (https-only). Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Google link", "https://google.com"]]]` |
 | `reply_to_message_id`  | yes      | Mark the message as a reply to a previous message. In `telegram_callback` handling, for example, you can use {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %}                                                                                                                       |
 | `message_thread_id`    | yes      | Send the message to a specific topic or thread.|
+
+This action returns a [send message response](#send-message-response).
 
 ### Action `telegram_bot.send_animation`
 
@@ -264,7 +282,6 @@ Send an animation.
 | `parse_mode`           | yes      | Parser for the message text: `markdownv2`, `html`, `markdown` or `plain_text`.                                                                                                                                                                                                                            |
 | `disable_notification` | yes      | True/false to send the message silently. iOS users and web users will not receive a notification. Android users will receive a notification with no sound. Defaults to False.                                                                                                                             |
 | `verify_ssl`           | yes      | True/false for checking the SSL certificate of the server for HTTPS URLs. Defaults to True.                                                                                                                                                                                                               |
-| `timeout`              | yes      | Timeout for sending video in seconds. Will help with timeout errors (poor internet connection, etc)                                                                                                                                                                                                       |
 | `resize_keyboard`      | yes      | True/false for resizing the keyboard vertically for optimal fit. Defaults to False.                                                                                                                                                                                                                       |
 | `one_time_keyboard`    | yes      | True/false for hiding the keyboard as soon as it’s been used. The keyboard will still be available, but clients will automatically display the usual letter-keyboard in the chat - the user can press a special button in the input field to see the custom keyboard again. Defaults to False.            |
 | `keyboard`             | yes      | List of rows of commands, comma-separated, to make a custom keyboard. `[]` to reset to no custom keyboard. Example: `["/command1, /command2", "/command3"]`                                                                                                                                               |
@@ -272,6 +289,8 @@ Send an animation.
 | `message_tag`          | yes      | Tag for sent message. In `telegram_sent` event data: {% raw %}`{{trigger.event.data.message_tag}}`{% endraw %}                                                                                                                                                                                            |
 | `reply_to_message_id`  | yes      | Mark the message as a reply to a previous message. In `telegram_callback` handling, for example, you can use {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %}                                                                                                                       |
 | `message_thread_id`    | yes      | Send the message to a specific topic or thread.|
+
+This action returns a [send message response](#send-message-response).
 
 ### Action `telegram_bot.send_voice`
 
@@ -289,7 +308,6 @@ Send a voice message.
 | `target`               | yes      | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id.                                                                                                                                                                                       |
 | `disable_notification` | yes      | True/false to send the message silently. iOS users and web users will not receive a notification. Android users will receive a notification with no sound. Defaults to False.                                                                                                                             |
 | `verify_ssl`           | yes      | True/false for checking the SSL certificate of the server for HTTPS URLs. Defaults to True.                                                                                                                                                                                                               |
-| `timeout`              | yes      | Timeout for sending voice in seconds. Will help with timeout errors (poor internet connection, etc)                                                                                                                                                                                                       |
 | `resize_keyboard`      | yes      | True/false for resizing the keyboard vertically for optimal fit. Defaults to False.                                                                                                                                                                                                                       |
 | `one_time_keyboard`    | yes      | True/false for hiding the keyboard as soon as it’s been used. The keyboard will still be available, but clients will automatically display the usual letter-keyboard in the chat - the user can press a special button in the input field to see the custom keyboard again. Defaults to False.            |
 | `keyboard`             | yes      | List of rows of commands, comma-separated, to make a custom keyboard. `[]` to reset to no custom keyboard. Example: `["/command1, /command2", "/command3"]`                                                                                                                                               |
@@ -297,6 +315,8 @@ Send a voice message.
 | `message_tag`          | yes      | Tag for sent message. In `telegram_sent` event data: {% raw %}`{{trigger.event.data.message_tag}}`{% endraw %}                                                                                                                                                                                            |
 | `reply_to_message_id`  | yes      | Mark the message as a reply to a previous message. In `telegram_callback` handling, for example, you can use {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %}                                                                                                                       |
 | `message_thread_id`    | yes      | Send the message to a specific topic or thread.|
+
+This action returns a [send message response](#send-message-response).
 
 ### Action `telegram_bot.send_sticker`
 
@@ -314,7 +334,6 @@ Send a sticker.
 | `target`               | yes      | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id.                                                                                                                                                                                       |
 | `disable_notification` | yes      | True/false for send the message silently. iOS users and web users will not receive a notification, Android users will receive a notification with no sound. Defaults to False.                                                                                                                            |
 | `verify_ssl`           | yes      | True/false for checking the SSL certificate of the server for HTTPS URLs. Defaults to True.                                                                                                                                                                                                               |
-| `timeout`              | yes      | Timeout for sending photo in seconds. Will help with timeout errors (poor internet connection, etc)                                                                                                                                                                                                       |
 | `resize_keyboard`      | yes      | True/false for resizing the keyboard vertically for optimal fit. Defaults to False.                                                                                                                                                                                                                       |
 | `one_time_keyboard`    | yes      | True/false for hiding the keyboard as soon as it’s been used. The keyboard will still be available, but clients will automatically display the usual letter-keyboard in the chat - the user can press a special button in the input field to see the custom keyboard again. Defaults to False.            |
 | `keyboard`             | yes      | List of rows of commands, comma-separated, to make a custom keyboard. `[]` to reset to no custom keyboard. Example: `["/command1, /command2", "/command3"]`                                                                                                                                               |
@@ -322,6 +341,8 @@ Send a sticker.
 | `message_tag`          | yes      | Tag for sent message. In `telegram_sent` event data: {% raw %}`{{trigger.event.data.message_tag}}`{% endraw %}                                                                                                                                                                                            |
 | `reply_to_message_id`  | yes      | Mark the message as a reply to a previous message. In `telegram_callback` handling, for example, you can use {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %}                                                                                                                       |
 | `message_thread_id`    | yes      | Send the message to a specific topic or thread.|
+
+This action returns a [send message response](#send-message-response).
 
 ### Action `telegram_bot.send_document`
 
@@ -340,7 +361,6 @@ Send a document.
 | `parse_mode`           | yes      | Parser for the message text: `markdownv2`, `html`, `markdown` or `plain_text`.                                                                                                                                                                                                                            |
 | `disable_notification` | yes      | True/false for send the message silently. iOS users and web users will not receive a notification, Android users will receive a notification with no sound. Defaults to False.                                                                                                                            |
 | `verify_ssl`           | yes      | True/false for checking the SSL certificate of the server for HTTPS URLs. Defaults to True.                                                                                                                                                                                                               |
-| `timeout`              | yes      | Timeout for sending document in seconds. Will help with timeout errors (poor internet connection, etc)                                                                                                                                                                                                    |
 | `resize_keyboard`      | yes      | True/false for resizing the keyboard vertically for optimal fit. Defaults to False.                                                                                                                                                                                                                       |
 | `one_time_keyboard`    | yes      | True/false for hiding the keyboard as soon as it’s been used. The keyboard will still be available, but clients will automatically display the usual letter-keyboard in the chat - the user can press a special button in the input field to see the custom keyboard again. Defaults to False.            |
 | `keyboard`             | yes      | List of rows of commands, comma-separated, to make a custom keyboard. `[]` to reset to no custom keyboard. Example: `["/command1, /command2", "/command3"]`                                                                                                                                               |
@@ -348,6 +368,8 @@ Send a document.
 | `message_tag`          | yes      | Tag for sent message. In `telegram_sent` event data: {% raw %}`{{trigger.event.data.message_tag}}`{% endraw %}                                                                                                                                                                                            |
 | `reply_to_message_id`  | yes      | Mark the message as a reply to a previous message. In `telegram_callback` handling, for example, you can use {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %}                                                                                                                       |
 | `message_thread_id`    | yes      | Send the message to a specific topic or thread.|
+
+This action returns a [send message response](#send-message-response).
 
 ### Action `telegram_bot.send_location`
 
@@ -368,6 +390,8 @@ Send a location.
 | `reply_to_message_id`  | yes      | Mark the message as a reply to a previous message. In `telegram_callback` handling, for example, you can use {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %}                                                                                                                       |
 | `message_thread_id`    | yes      | Send the message to a specific topic or thread.|
 
+This action returns a [send message response](#send-message-response).
+
 ### Action `telegram_bot.send_poll`
 
 Send a poll.
@@ -382,9 +406,10 @@ Send a poll.
 | `allows_multiple_answers` | yes      | True/false for if the poll allows multiple answers, defaults to False.                                                                                                         |
 | `open_period`             | yes      | Amount of time in seconds the poll will be active after creation, 5-600.                                                                                                       |
 | `disable_notification`    | yes      | True/false for send the message silently. iOS users and web users will not receive a notification, Android users will receive a notification with no sound. Defaults to False. |
-| `timeout`                 | yes      | Timeout for sending voice in seconds. Will help with timeout errors (poor internet connection, etc)                                                                            |
 | `reply_to_message_id`     | yes      | Mark the message as a reply to a previous message. In `telegram_callback` handling, for example, you can use {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %} |
 | `message_thread_id`       | yes      | Send the message to a specific topic or thread.|
+
+This action returns a [send message response](#send-message-response).
 
 ### Action `telegram_bot.send_chat_action`
 
@@ -421,7 +446,6 @@ Edit a previously sent message media in a conversation.
 | `config_entry_id`      | yes      | The config entry representing the Telegram bot to edit the message media. Required if you have multiple Telegram bots.|
 | `message_id`           | no       | ID of the message to edit. When reacting to a pressed button, the ID of the origin message is in: {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %}. You can use `"last"` to refer to the last message sent to `chat_id`.                                                  |
 | `chat_id`              | no       | The ID of the chat in which you want to edit the message media.                                                                                                                                                                                                                                                                    |
-| `timeout`              | yes      | Timeout for sending the media in seconds. Will help with timeout errors (poor internet connection, etc)                                                                                                                                                                                                       |
 | `media_type`           | no       | The media type: `animation`, `audio`, `document`, `photo`, or `video`.  |
 | `url`                  | no       | Remote path to the media.                                                                                                                                                                                                                                                                                  |
 | `file`                 | no       | Local path to the media.                                                                                                                                                                                                                                                                                   |
@@ -498,6 +522,70 @@ Sets the bot's reaction for a given message.
 | `chat_id`           | no       | Id of the chat containing the message.                           |
 | `reaction`          | no       | Emoji to react to the message with. |
 | `is_big`            | yes      | Whether to use a large variant of the reaction animation.        |
+
+### Action `telegram_bot.download_file`
+
+Download a file previously sent to the bot and save it to a local path on the Home Assistant host.
+
+| Data attribute   | Optional | Description |
+| ---------------- | -------- | ----------- |
+| `config_entry_id`| yes      | The config entry representing the Telegram bot to get the file. Required if you have multiple Telegram bots. |
+| `file_id`        | no       | ID of the file to get. This is provided in `telegram_attachment` event data as `file_id`. |
+| `directory_path` | yes      | Local directory path to save the file to. Defaults to `/config/telegram_bot/`. |
+| `file_name`      | yes      | Name to save the file as. If not provided, the original file name will be used. |
+
+Example YAML usage:
+
+```yaml
+action: telegram_bot.download_file
+data:
+  config_entry_id: "<your_config_entry_id>"
+  file_id: "ABCD1234Efgh5678Ijkl90mnopQRStuvwx"
+  directory_path: "/config/telegram_bot/"
+  file_name: "my_downloaded_file"
+```
+
+{% note %}
+
+- For file size limits and download behavior, refer to the python-telegram-bot documentation: [python-telegram-bot - get_file](https://docs.python-telegram-bot.org/en/stable/telegram.bot.html#telegram.Bot.get_file)
+- For the moment, bots can download files of up to 20 MB in size.
+- Ensure the target `directory_path` is included in `allowlist_external_dirs` if you need to serve or access the file from the frontend.
+
+{% endnote %}
+
+## Response schemas for actions
+
+{% tip %}
+
+Responses can be accessed using the `response_variable` of actions.
+You can refer to the [send a message then edit it after a delay](#example-send_message-then-edit-it-after-a-delay) automation for an example of usage of the response.
+
+{% endtip %}
+
+### Send message response
+
+Response schema:
+
+| Data attribute | Optional | Type                 | Description                                                               |
+| -------------- | -------- | -------------------- | ------------------------------------------------------------------------- |
+| `chats`        | no       | list                 | A list of chat objects. Each object represents a successful message sent. |
+
+Chat object schema:
+
+| Data attribute | Optional | Type    | Description                             |
+| ---------------| -------- | ------- | --------------------------------------- |
+| `chat_id`      | no       | integer | The target chat_id of the sent message. |
+| `message_id`   | no       | integer | The id of the message.                  |
+
+Example response:
+
+```yaml
+chats:
+  - chat_id: 1234567890
+    message_id: 100
+  - chat_id: -1234567890
+    message_id: 200
+```
 
 ## Telegram notification platform
 
@@ -969,21 +1057,20 @@ actions:
 
 ```yaml
 actions:
-- action: notify.telegrambot
-  data:
-    title: Example Message
-    message: 'Message with *BOLD*, _ITALIC_ and `MONOSPACE` Text'
+  - action: telegram_bot.send_message
+    data:
+      title: Example Message
+      message: 'Message with *BOLD*, _ITALIC_ and `MONOSPACE` Text'
 ```
 
 ## Example: send_message with message tag
 
 ```yaml
 actions:
-- action: notify.telegrambot
-  data:
-    title: Example Message
-    message: "Message with tag"
+  - action: telegram_bot.send_message
     data:
+      title: Example Message
+      message: "Message with tag"
       message_tag: "example_tag"
 ```
 
@@ -991,23 +1078,42 @@ actions:
 
 ```yaml
 actions:
-- action: notify.telegram
-  data:
-    message: >-
-      <a href="https://www.home-assistant.io/">HA site</a>
+  - action: telegram_bot.send_message
     data:
+      message: >-
+        <a href="https://www.home-assistant.io/">HA site</a>
       parse_mode: html
       disable_web_page_preview: true
 ```
+
+## Example: send_message then edit it after a delay
+
+{% raw %}
+
+```yaml
+actions:
+  - action: telegram_bot.send_message
+    data:
+      message: testing
+    response_variable: response
+  - delay:
+      seconds: 5
+  - action: telegram_bot.edit_message
+    data:
+      message: done testing
+      chat_id: "{{ response.chats[0].chat_id }}"
+      message_id: "{{ response.chats[0].message_id }}"
+```
+
+{% endraw %}
 
 ## Example: send_message to a topic within a group
 
 ```yaml
 actions:
-- action: notify.telegram
-  data:
-    message: "Message to a topic"
+  - action: telegram_bot.send_message
     data:
+      message: "Message to a topic"
       message_thread_id: 123
 ```
 
@@ -1017,7 +1123,7 @@ actions:
 
 ```yaml
 alias: telegram send message and delete
-sequence:
+actions:
   - action: telegram_bot.send_message
     data:
       message: testing

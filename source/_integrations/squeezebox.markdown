@@ -176,11 +176,20 @@ The integration provides the following functionality:
 
 ### Binary sensors
 
-- **Needs restart**
-  - **Description**: Server Service needs to be restarted (typically, this is needed to apply updates).
+- **Alarm active**
+  - **Description**: One of the alarms on the Squeezebox player is currently going off. 
+
+- **Alarm snoozed**
+  - **Description**: One of the alarms on the Squeezebox player is currently active but snoozed. In this case the "Alarm active" binary sensor will be in state OFF.
+  
+- **Alarm upcoming**
+  - **Description**: The Squeezebox player has an alarm scheduled within the next 24 hours.
 
 - **Library rescan**
   - **Description**: The music library is currently being scanned by LMS (depending on the type of scan, some content may be unavailable).
+
+- **Needs restart**
+  - **Description**: Server Service needs to be restarted (typically, this is needed to apply updates).
 
 ### Buttons
 
@@ -203,6 +212,9 @@ The integration provides the following functionality:
 
 - **Last scan**
   - **Description**: Date of the last library scan.
+
+- **Next alarm**
+  - **Description**: Timestamp of the next enabled alarm of a player.
 
 - **Player count**
   - **Description**: Number of players on the service.

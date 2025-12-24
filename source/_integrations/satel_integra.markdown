@@ -18,12 +18,9 @@ ha_platforms:
   - diagnostics
   - switch
 ha_integration_type: device
-related:
-  - docs: /docs/configuration/
-    title: Configuration file
 ---
 
-The `satel_integra` {% term integration %} will allow Home Assistant users who own a Satel Integra alarm panel to leverage their alarm system and its sensors to provide Home Assistant with information about their homes. Connectivity between Home Assistant and the alarm is accomplished through a ETHM extension module that must be installed in the alarm. Compatible with ETHM-1 Plus module with firmware version > 2.00 (version 2.04 confirmed).
+The **Satel Integra** {% term integration %} allows you to connect your [Satel Integra alarm system](https://www.satel.pl/en/product-category/intruder-alarms/integra/) to Home Assistant to control and monitor your alarm system.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -33,15 +30,22 @@ There is currently support for the following device types within Home Assistant:
 
 The module communicates via Satel's open TCP protocol published on their website. It subscribes for new events coming from alarm system and reacts to them immediately.
 
-## Setup
+## Supported devices
 
-Please note that **ETHM-1 module is currently not supported**: it does not provide functionality used by this extension. At the moment only ETHM-1 Plus module is supported. That might change in the future, but no promises are given.
+The integration only supports the **ETHM-1 Plus**, with firmware version 2.00 or greater. Only the Integra line of alarm systems is supported.
 
-The library currently doesn't support encrypted connection to your alarm, so you need **to turn off encryption for integration protocol**. In Polish: "koduj integracje" must be unchecked. You will find this setting in your DloadX program.
+## Prerequisites
 
-A list of all partition, zone and output IDs can be acquired by running DloadX program and connecting to your alarm.
+1. Open the [DLOADX](https://www.satel.eu/nl/product/343/DLOADX,INTEGRA-en-VERSA-Alarmsysteem-installatie-programma) installer program.
+2. Open your existing project file.
+3. Open the **System and hardware structure** tab.
+4. Navigate to the **Hardware** section, expand the tree and select the **ETHM-1 Plus** module.
+5. Select the **Integration** checkbox.
+6. Clear the **Encrypted integration** checkbox. Encrypted connection is currently not supported.
 
-For the binary sensor, check the [type/class](/integrations/binary_sensor/) list for a possible visualization of your zones. Note: If no zones or outputs are specified, Home Assistant will not load any binary_sensor integrations."
+{% note %}
+If you do not have access to the DLOADX program or your project file, ask your installer to adjust the settings for you.
+{% endnote %}
 
 {% include integrations/config_flow.md %}
 
@@ -58,6 +62,7 @@ Code:
 
 After setting up the connection details, you can configure partitions, zones, and outputs as **Subentries** on the {% my integration domain="satel_integra" title="**Satel Integra**" %} integration page.
 
+A list of all partition, zone, and output IDs can be acquired by running the DLOADX program and connecting to your alarm.
 To create the respective entities, select the **Add partition**, **Add zone**, **Add output**, or **Add switchable output** buttons. Follow the instructions in the UI to set up the individual entities.
 **Result**: Each partition will have its own alarm panel. Each zone and output will have a binary sensor, and a switch will be created for each switchable output.
 

@@ -34,10 +34,9 @@ By default, the integration looks for media in a specified folder.
 If other `media_dirs` are not declared you need to use `/media/local` path for
 example in companion app notification.
 
-For Home Assistant OS, Supervised and Container users, this folder is by default
-configured in the path `/media`.
+This folder is by default configured in the path `/media`.
 
-Home Assistant OS and Supervised users can access this folder by using,
+Home Assistant OS users can access this folder by using,
 for example, the Samba add-on. Users of Home Assistant Container can
 mount a volume of their choice to `/media`.
 

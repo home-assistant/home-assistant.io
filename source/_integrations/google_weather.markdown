@@ -12,6 +12,7 @@ ha_codeowners:
 ha_integration_type: service
 ha_quality_scale: bronze
 ha_platforms:
+  - sensor
   - weather
 ---
 

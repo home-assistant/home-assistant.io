@@ -2,6 +2,7 @@
 title: Firefly III
 description: Instructions on how to integrate Firefly III with Home Assistant.
 ha_category:
+  - Finance
   - Sensor
 ha_release: '2025.11'
 ha_iot_class: Local Polling
