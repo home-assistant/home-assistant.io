@@ -34,19 +34,26 @@ lightwave:
   host: IP_ADDRESS
   lights:
     R1D3:
+      unique_id: wall_light_lwrf
       name: Wall lights
     R1D4:
+      unique_id: ceiling_light_lwrf
       name: Ceiling lights
   switches:
     R1D2:
+      unique_id: tree_socket_lwrf
       name: Tree socket
     R2D1:
+      unique_id: radio_socket_lwrf
       name: Radio socket
     R2D2:
+      unique_id: light_socket_lwrf
       name: Light socket
     R2D3:
+      unique_id: phone_socket_lwrf
       name: Phone socket
     R2D4:
+      unique_id: torch_socket_lwrf
       name: Torch socket
 ```
 
@@ -60,6 +67,10 @@ lights:
   required: false
   type: map
   keys:
+    unique_id:
+      description: Unique ID of the Light
+      required: false
+      type: string
     name:
       description: Name of the Light
       required: true
@@ -69,6 +80,10 @@ switches:
   required: false
   type: map
   keys:
+    unique_id:
+      description: Unique ID of the Switch
+      required: false
+      type: string
     name:
       description: Name of the Switch
       required: true
@@ -106,6 +121,8 @@ trv:
 
 Where IP_ADDRESS is the IP address of your Lightwave hub.
 Each `switch` or `light` requires an `id` and a `name`. The `id` takes the form `R#D#` where `R#` is the room number and `D#` is the device number.
+
+You can also use the `unique_id` parameter to set a unique ID for each device. This will allow the device to be customized in the UI, and be given aliases for voice assistants.
 
 `lights` and `switches` are optional but one of these must be present.
 
