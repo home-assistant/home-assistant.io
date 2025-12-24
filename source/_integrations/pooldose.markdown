@@ -21,7 +21,7 @@ ha_platforms:
   - sensor
   - switch
 ha_integration_type: integration
-ha_quality_scale: bronze
+ha_quality_scale: silver
 ha_dhcp: true
 ---
 
