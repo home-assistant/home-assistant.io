@@ -186,6 +186,12 @@ data:
 
 Available actions: `send_message`, `send_photo`, `send_video`, `send_animation`, `send_voice`, `send_sticker`, `send_document`, `send_location`, `send_chat_action`, `edit_message`, `edit_message_media`, `edit_caption`, `edit_replymarkup`, `answer_callback_query`, `delete_message`, `leave_chat` and `set_message_reaction`.
 
+Targets can be specified in any of the following ways:
+
+- `entity_id`
+- `config_entry_id` and `chat_id`
+- If you only have 1 bot and no targets were specified, the bot's first subentry will be used as the default target.
+
 Actions that send contents (`send_*`) will return a list of `message_id`/`chat_id` for messages delivered (in a property called `chats`). This will populate [Response Data](/docs/scripts/perform-actions#use-templates-to-handle-response-data) that you can further utilize in your automations to edit/delete the message later based on the `message_id`. See the example later on this page for usage instructions.
 
 ### Action `telegram_bot.send_message`
