@@ -108,9 +108,13 @@ style:
   description: '[Position and style the element](#how-to-use-the-style-object) using CSS.'
   type: map
   default: "position: absolute, transform: translate(-50%, -50%)"
+name:
+  required: false
+  description: Text label shown below a state badge (entity name is used if not defined). Set to null to hide.
+  type: string
 title:
   required: false
-  description: State badge tooltip. Set to null to hide.
+  description: State badge tooltip (entity name is used if not defined). Set to null to hide.
   type: string
 tap_action:
   required: false
