@@ -32,7 +32,7 @@ Before using Imou integration, you need to create an Imou Open Platform account 
 3. Follow the prompts to complete **App Information**, obtain **AppId** and **AppSecret**.
 4. Account creation completed, start integrating imou plugin.
 
-##### API Request Description
+## API Request Description
 1. Each developer's appId has a monthly quota of 30000 free API requests. The excess amount will be charged at the unit price, please refer to: https://open.imoulife.com/price ；
 2. The API request domain name is divided into three regional domain names based on global regions. Please choose the most suitable domain name according to your registered account. You can refer to: https://open.imoulife.com/book/http/develop.html ;
 3. For more API information, please refer to 'HTTP interface' chapter on https://open.imoulife.com/book/en .
@@ -63,11 +63,11 @@ Remote control to restart devices, mainly used for certain configurations that r
 Please stay tuned for more integrated feature updates.
 
 ## FAQ
-#### Quertion 1: When entering information to log in to Imou Cloud, it prompts "Invalid appId or appSecret".
-Answer: This is due to incorrect account information. Please confirm that you have entered the correct appId and appSecret, and selected the correct url domain name.
+### Quertion 1: When entering information to log in to Imou Cloud, it prompts "Invalid appId or appSecret".
+Answer: This is due to incorrect account information. Please confirm that you have entered the correct appId and appSecret, and selected the correct URL domain name.
 
-#### Quertion 2: Why did my free API quota run out quickly?
+### Quertion 2: Why did my free API quota run out quickly?
 Answer: The integrated component will periodically request platform API to update device information internally. You can extend the update cycle in the CONFIGURE column of the integration details page.
 
-#### Quertion 2: Why sometimes the button turns gray and cannot be clicked?
+### Quertion 2: Why sometimes the button turns gray and cannot be clicked?
 Answer: Button functions require the device to be online in order to operate properly, so if the device is offline, these functions will not be available. Please check if the device power or network connection is normal.
