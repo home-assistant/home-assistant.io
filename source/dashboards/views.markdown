@@ -49,7 +49,7 @@ There are four different view types:
 3. Define the view settings:
    - If you want a view title, enter the **Title**.
    - If you want to see an icon, select the [view icon](#view-icon).
-     - If an icon is defined, only the icon is shown. The text title only is shown as a tooltip. However, enabling the **Show icon and title** toggle allows to show both an icon and a text title.
+     - If an icon is defined, only the icon is shown. The text title only is shown as a tooltip. However, enabling the **Show icon and title** toggle allows to show both the icon and the text title.
      - We use [Material icons](https://pictogrammers.com/library/mdi/).
    - If you want to link to another view, define the [URL](#url-of-a-view).
    - If you want to use a previously defined theme, select the [theme](/integrations/frontend/#themes).
