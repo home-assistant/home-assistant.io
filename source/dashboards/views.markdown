@@ -49,7 +49,7 @@ There are four different view types:
 3. Define the view settings:
    - If you want a view title, enter the **Title**.
    - If you want to see an icon, select the [view icon](#view-icon).
-     - If an icon is defined, only the icon is shown. The text only shows as a tooltip.
+     - If an icon is defined, only the icon is shown. The text only shows as a tooltip. However, setting the **Show icon with title** option allows to show both an icon and a text title.
      - We use [Material icons](https://pictogrammers.com/library/mdi/).
    - If you want to link to another view, define the [URL](#url-of-a-view).
    - If you want to use a previously defined theme, select the [theme](/integrations/frontend/#themes).
@@ -115,13 +115,18 @@ Picture card configuration:
 
 ## View icon
 
-If you define a view icon, the icon instead of the title will be displayed, the title will then be used as a tool-tip. If ``
+If you define a view icon, the icon instead of the title will be displayed, the title will then be used as a tooltip. If **Show icon and title** is set, both an icon and a text title are shown.
 
-### Example
+### Examples
 
 ```yaml
 - title: Garden
   icon: mdi:flower
+```
+```yaml
+- title: Garden
+  icon: mdi:flower
+  show_icon_and_title: true
 ```
 
 ## Visible
@@ -320,7 +325,7 @@ views:
       required: false
       description: Icon-name from Material Design Icons. You can use any icon from [Material Design Icons](https://pictogrammers.com/library/mdi/). Prefix the icon name with `mdi:`, ie `mdi:home`. Only for "View", not for "Subview".
       type: string
-    show_icon_with_title:
+    show_icon_and_title:
       required: false
       description: Show both icon and text title. Only for "View", not for "Subview".
       type: boolean
