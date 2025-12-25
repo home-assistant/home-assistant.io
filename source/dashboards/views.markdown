@@ -115,7 +115,7 @@ Picture card configuration:
 
 ## View icon
 
-If you define a view icon, the icon instead of the title will be displayed, the title will then be used as a tooltip. If **Show icon and title** is set, both an icon and a text title are shown.
+If you define a view icon, the icon instead of the title will be displayed, the title will then be used as a tooltip. If **Show icon and title** is set, both the icon and the text title are shown.
 
 ### Examples
 
