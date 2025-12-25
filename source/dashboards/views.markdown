@@ -115,7 +115,7 @@ Picture card configuration:
 
 ## View icon
 
-If you define a view icon, the icon instead of the title will be displayed, the title will then be used as a tool-tip.
+If you define a view icon, the icon instead of the title will be displayed, the title will then be used as a tool-tip. If ``
 
 ### Example
 
@@ -320,6 +320,11 @@ views:
       required: false
       description: Icon-name from Material Design Icons. You can use any icon from [Material Design Icons](https://pictogrammers.com/library/mdi/). Prefix the icon name with `mdi:`, ie `mdi:home`. Only for "View", not for "Subview".
       type: string
+    show_icon_with_title:
+      required: false
+      description: Show both icon and text title. Only for "View", not for "Subview".
+      type: boolean
+      default: false      
     background:
       required: false
       description: Style the background behind the view.
