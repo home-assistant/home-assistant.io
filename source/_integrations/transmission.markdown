@@ -70,7 +70,7 @@ The Transmission integration will add the following sensors and switches.
 
 ## Event automation
 
-The Transmission integration is continuously monitoring the status of torrents in the target client. Once a torrent is started or completed, an event is triggered on the Home Assistant Bus containing the torrent name and ID, which can be used with automations.
+The Transmission integration is continuously monitoring the status of torrents in the target client. Once a torrent is started or completed, an event is triggered on the Home Assistant Bus containing the torrent name, ID, and labels, which can be used with automations.
 
 Possible events are:
 
@@ -80,24 +80,35 @@ Possible events are:
 
 Inside the event, there is the name of the torrent that is started or completed and the path where the files are downloaded, as seen in the Transmission User Interface.
 
-Example of an automation that notifies on successful download and removes the torrent from the client:
+Example of an automation that notifies on successful download and removes the torrent from the client if the torrent has a label of remove:
 
 {% raw %}
 
 ```yaml
-- alias: "Notify and remove completed torrent"
-  triggers:
-    - trigger: event
-      event_type: transmission_downloaded_torrent
-  actions:
-    - action: notify.telegram_notifier
-      data:
-        title: "Torrent completed!"
-        message: "{{trigger.event.data.name}} downloaded to {{trigger.event.data.download_path}}"
-    - action: transmission.remove_torrent
-      data:
-        entry_id: eeb52bc78e11d813a1e6bc68c8ff93c8
-        id: "{{trigger.event.data.id}}"
+alias: Transmission download complete
+description: "Notify on download complete and remove if label set."
+triggers:
+  - trigger: event
+    event_type: transmission_downloaded_torrent
+conditions: []
+actions:
+  - action: notify.persistent_notification
+    metadata: {}
+    data:
+      message: >-
+        {{trigger.event.data.name}} downloaded to
+        {{trigger.event.data.download_path}} with labels
+        {{trigger.event.data.labels}}
+  - if:
+      - condition: template
+        value_template: "{{ 'remove' in trigger.event.data.labels }}"
+    then:
+      - action: transmission.remove_torrent
+        metadata: {}
+        data:
+          delete_data: false
+          entry_id: YOUR_TRANSMISSION_CONFIG_ENTITY_ID
+          id: "{{trigger.event.data.id}}"
 ```
 
 {% endraw %}
@@ -120,6 +131,10 @@ The `transmission.add_torrent` action is used to add a new torrent to download.
 
 - **Data attribute**: `download_path`
   - **Description**: The absolute path to the download directory. If not specified, the Transmission's default directory will be used.
+  - **Optional**: Yes
+
+- **Data attribute**: `labels`
+  - **Description**: A comma-separated list of labels to assign to the torrent.
   - **Optional**: Yes
 
 ### Action: Remove torrent
