@@ -114,7 +114,7 @@ name:
   type: string
 title:
   required: false
-  description: State badge tooltip (entity name is used if not defined). Set to null to hide.
+  description: State badge tooltip. Defaults to the entity name if not provided. Set to null to hide.
   type: string
 tap_action:
   required: false
