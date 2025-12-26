@@ -86,7 +86,7 @@ Example of an automation that notifies on successful download and removes the to
 
 ```yaml
 alias: Transmission download complete
-description: "Notify on download complete and remove if label set."
+description: "Notify on download complete and remove if label set"
 triggers:
   - trigger: event
     event_type: transmission_downloaded_torrent
