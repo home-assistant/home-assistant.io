@@ -90,7 +90,6 @@ description: "Notify on download complete and remove if label set."
 triggers:
   - trigger: event
     event_type: transmission_downloaded_torrent
-conditions: []
 actions:
   - action: notify.persistent_notification
     metadata: {}
@@ -104,7 +103,6 @@ actions:
         value_template: "{{ 'remove' in trigger.event.data.labels }}"
     then:
       - action: transmission.remove_torrent
-        metadata: {}
         data:
           delete_data: false
           entry_id: YOUR_TRANSMISSION_CONFIG_ENTITY_ID
