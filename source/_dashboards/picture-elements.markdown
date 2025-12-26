@@ -110,7 +110,7 @@ style:
   default: "position: absolute, transform: translate(-50%, -50%)"
 name:
   required: false
-  description: Text label shown below a state badge (entity name is used if not defined). Set to null to hide.
+  description: An optional alternative name displayed below the state badge. Defaults to the entity name if not provided. Set to null to hide.
   type: string
 title:
   required: false
