@@ -439,7 +439,7 @@ The following integrations are automatically discovered by the Bluetooth integra
  - [Probe Plus](/integrations/probe_plus/)
  - [Qingping](/integrations/qingping/)
  - [RAPT Bluetooth](/integrations/rapt_ble/)
- - [RuuviTag BLE](/integrations/ruuvitag_ble/)
+ - [Ruuvi BLE](/integrations/ruuvitag_ble/)
  - [Sensirion BLE](/integrations/sensirion_ble/)
  - [SensorPro](/integrations/sensorpro/)
  - [SensorPush](/integrations/sensorpush/)

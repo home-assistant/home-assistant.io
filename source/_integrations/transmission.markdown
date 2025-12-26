@@ -16,6 +16,7 @@ ha_platforms:
   - sensor
   - switch
 ha_integration_type: service
+ha_quality_scale: bronze
 ---
 
 The Transmission integration allows you to monitor your [Transmission](https://www.transmissionbt.com/) BitTorrent downloads from within Home Assistant and set up automations based on that information.

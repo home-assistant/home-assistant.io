@@ -732,7 +732,7 @@ zbt-2:
     - name: SmarterHome
       ship_from: Czech Republic
       ship_to: Europe
-      url: https://smarterhome.sk/cs/zwave-pc-adaptery/home-assistant-connect-zbt-2-zigbee-a-thread-usb-adapter-2062.html 
+      url: https://smarterhome.sk/cs/adaptery-moduly-a-softver/home-assistant-connect-zbt-2-zigbee-a-thread-usb-adapter-2062.html
       logo: /images/distributors/smarter-home.png
     - name: Raspberrypi.dk
       ship_from: Denmark
@@ -802,7 +802,7 @@ zbt-2:
     - name: SmarterHome
       ship_from: Slovakia
       ship_to: Europe
-      url: https://smarterhome.sk/sk/zwave-pc-adaptery/home-assistant-connect-zbt-2-zigbee-a-thread-usb-adapter-2062.html 
+      url: https://smarterhome.sk/sk/adaptery-moduly-a-softver/home-assistant-connect-zbt-2-zigbee-a-thread-usb-adapter-2062.html
       logo: /images/distributors/smarter-home.png
     - name: Inet
       ship_from: Sweden

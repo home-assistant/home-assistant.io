@@ -8,6 +8,8 @@ related:
     title: Themes
   - docs: /dashboards/cards/
     title: Dashboard cards
+  - docs: /dashboards/naming/
+    title: Card naming
 ---
 
 The sensor card gives you a quick overview of a sensor's state with an optional graph to visualize change over time.
@@ -40,8 +42,8 @@ icon:
   type: string
 name:
   required: false
-  description: The card name.
-  type: string
+  description: Overwrites friendly name. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/).
+  type: [string, map, list]
 graph:
   required: false
   description: Type of graph (`none` or `line`).

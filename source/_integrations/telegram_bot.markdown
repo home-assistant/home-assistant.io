@@ -8,7 +8,7 @@ ha_iot_class: Cloud Push
 ha_config_flow: true
 ha_domain: telegram_bot
 ha_integration_type: integration
-ha_quality_scale: bronze
+ha_quality_scale: silver
 ha_codeowners:
   - '@hanwg'
 ha_platforms:

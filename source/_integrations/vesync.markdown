@@ -27,6 +27,7 @@ ha_platforms:
   - select
   - sensor
   - switch
+  - update
 ha_integration_type: integration
 ---
 
@@ -43,6 +44,7 @@ The following platforms are supported:
 - **number**
 - **sensor**
 - **switch**
+- **update**
 
 ## Supported devices
 

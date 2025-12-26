@@ -428,7 +428,7 @@ The database engine must be `InnoDB` as `MyIASM` is not supported.
 
 ```bash
 SET GLOBAL default_storage_engine = 'InnoDB';
-CREATE DATABASE DB_NAME CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+CREATE DATABASE DB_NAME CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
 ```
 Where `DB_NAME` is the name of your database
 

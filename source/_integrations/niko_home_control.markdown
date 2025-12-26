@@ -7,6 +7,7 @@ ha_config_flow: true
 ha_category:
   - Cover
   - Light
+  - Climate
   - Scene
 ha_iot_class: Local Push
 ha_release: 0.82
@@ -14,6 +15,7 @@ ha_domain: niko_home_control
 ha_platforms:
   - cover
   - light
+  - climate
   - scene
 ha_integration_type: integration
 related:

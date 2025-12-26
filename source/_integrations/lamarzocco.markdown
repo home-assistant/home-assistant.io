@@ -78,6 +78,7 @@ By default, this integration will receive push updates from the cloud about its 
 | Number name | Description | Available for machines | Controllable through | Remarks |
 |-------------|-------------| ---------------------- |--------------------- | ------- |
 | **Coffee target temperature** | Temperature the coffee boiler is set to | `all` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} <iconify-icon inline title="Bluetooth" icon="material-symbols:bluetooth"></iconify-icon> | - |
+| **Steam target temperature** | Temperature the steam boiler is set to | `GS3 AV`, `GS3 MP` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} <iconify-icon inline title="Bluetooth" icon="material-symbols:bluetooth"></iconify-icon> | - |
 | **Smart standby time** | Time until the machine will automatically stand by (if enabled) | `all` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} | - |
 | **Preinfusion time** | Duration of preinfusion | `Linea Micra`, `Linea Mini`, `Linea Mini R` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} | only available when machine is in mode `Preinfusion` |
 | **Prebrew time on** | Duration which prebrew will be on | `Linea Micra`, `Linea Mini`, `Linea Mini R` | {% icon "material-symbols:cloud-outline" title="La Marzocco Cloud" %} | only available when machine is in mode `Prebrew` |

@@ -11,6 +11,7 @@ ha_domain: google_assistant_sdk
 ha_codeowners:
   - '@tronikos'
 ha_integration_type: service
+ha_quality_scale: gold
 ha_platforms:
   - diagnostics
   - notify

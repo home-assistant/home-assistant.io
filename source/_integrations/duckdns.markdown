@@ -7,9 +7,6 @@ ha_iot_class: Cloud Polling
 ha_release: 0.55
 ha_domain: duckdns
 ha_integration_type: integration
-related:
-  - docs: /docs/configuration/
-    title: Configuration file
 ha_quality_scale: legacy
 ---
 
@@ -21,28 +18,16 @@ If you are running the Home Assistant DuckDNS add-on this integration is not req
 
 {% endwarning %}
 
-## Configuration
+{% include integrations/config_flow.md %}
 
-To use the integration in your installation, add the following to your {% term "`configuration.yaml`" %} file.
-{% include integrations/restart_ha_after_config_inclusion.md %}
-
-```yaml
-# Example configuration.yaml entry
-duckdns:
-  domain: YOUR_SUBDOMAIN
-  access_token: YOUR_ACCESS_TOKEN
-```
-
-{% configuration duckdns %}
+{% configuration_basic %}
   domain:
     description: Your duckdns subdomain (without the `.duckdns.org` suffix).
     required: true
-    type: string
   access_token:
     description: Your DuckDNS access token. Log in to the site to get one.
     required: true
-    type: string
-{% endconfiguration %}
+{% endconfiguration_basic %}
 
 ## Action `set_txt`
 

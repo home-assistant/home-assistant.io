@@ -11,12 +11,14 @@ ha_config_flow: true
 ha_category:
   - Binary sensor
   - Button
+  - Lock
   - Sensor
 ha_platforms:
   - binary_sensor
   - button
   - device_tracker
   - diagnostics
+  - lock
   - sensor
 ha_quality_scale: platinum
 related:
@@ -154,6 +156,7 @@ The **Volvo** integration provides the following entities.
 - **Flash**: Activates the vehicle's lights to flash briefly.
 - **Honk**: Activates the vehicle's horn for a short duration.
 - **Flash & honk**: Combines flashing lights and horn activation.
+- **Lock reduced guard**: Locks the vehicle with reduced guard.
 
 {% important %}
 Volvo removed the **Honk** and **Flash** buttons from the official app because they can drain the vehicle's 12&nbsp;V battery.
@@ -165,6 +168,10 @@ Use them with care!
 Go to Volvo's developer portal to view [the availability](https://developer.volvocars.com/apis/location/v1/overview/#availability).
 
 - **Location**: The car's current location.
+
+#### Lock
+
+- **Lock**: Locks or unlocks the vehicle, and reports the current lock state of the vehicle.
 
 #### Sensors
 
@@ -282,7 +289,7 @@ The **Volvo** integration fetches data from the API at different intervals:
 - **Every 60 minutes**: diagnostics, odometer, and statistics.
 - **Every 15 minutes**: car connectivity, fuel status, and location.
 - **Every 2 minutes**: energy data (for battery cars).
-- **Every minute**: doors and window status.
+- **Every minute**: doors, lock, and windows status.
 
 If you decide to define a custom polling interval, beware that there is a maximum of 10,000 requests per day.
 Every poll operation accounts for about a dozen calls (depends on model).

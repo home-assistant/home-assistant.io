@@ -75,7 +75,7 @@ If you manually integrate your sensors, for example, using the [MQTT](/integrati
 
 ### Troubleshooting
 
-If you are unable to select your energy sensor in the grid consumption drop-down, make sure that its value is being recorded in the Recorder settings.
+If you are unable to select your energy or power sensor in the grid consumption drop-down, make sure that its value is being recorded in the Recorder settings.
 
 [Energy integrations](/integrations/#energy)
 

@@ -55,6 +55,7 @@ You can use the `google_sheets.append_sheet` action to add rows of data to the S
 | ---------------------- | -------- | ----------- | --------|
 | `config_entry` | no | Config entry to use. |
 | `worksheet` | yes | Name of the worksheet. Defaults to the first one in the document. | Sheet1 |
+| `add_created_column` | yes | Add `created` column containing date-time to the data being appended. Defaults to True. | True |
 | `data` | no | Data to be appended to the worksheet. This puts the data on new rows, one value per column. | {"hello": world, "cool": True, "count": 5} |
 
 {% raw %}
@@ -65,6 +66,7 @@ action: google_sheets.append_sheet
 data:
   config_entry: 1b4a46c6cba0677bbfb5a8c53e8618b0
   worksheet: "Car Charging"
+  add_created_column: false
   data:
     Date: "{{ now().strftime('%-d-%b-%y') }}"
     KWh: "{{ states('input_number.car_charging_kwh')|float(0) }}"
