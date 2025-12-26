@@ -41,12 +41,13 @@ These are not the same as *Device Auth* credentials previously recommended for [
 {% include integrations/google_oauth.md %}
 
 ## Sensors
-The integration provides the following sensors, which are updated every 5 minutes:
+The integration provides the following sensors, which are updated every 6 hours:
 
 - **Total available storage**: The storage limit, if applicable. This will be unknown if the user has unlimited storage.
 - **Used storage**: The total storage usage across all Google services.
 - **Used storage in Drive**: The usage by all files in Google Drive. (disabled by default)
 - **Used storage in Drive Trash**: The usage by trashed files in Google Drive. (disabled by default)
+- **Total size of backups**: The sum of the size of all backups for the current Home Assistant's installation.
 
 For users that are part of an organization with pooled storage, information about the available storage and used storage across all services is for the organization, rather than the individual user. 
 
@@ -94,4 +95,3 @@ actions:
 ## Troubleshooting
 
 If you have an error with your credentials, you can delete them in the [Application Credentials](/integrations/application_credentials/) user interface.
-
