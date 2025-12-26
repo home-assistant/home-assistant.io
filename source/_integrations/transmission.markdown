@@ -105,7 +105,7 @@ actions:
       - action: transmission.remove_torrent
         data:
           delete_data: false
-          entry_id: YOUR_TRANSMISSION_CONFIG_ENTITY_ID
+          entry_id: YOUR_TRANSMISSION_ENTRY_ID
           id: "{{trigger.event.data.id}}"
 ```
 
