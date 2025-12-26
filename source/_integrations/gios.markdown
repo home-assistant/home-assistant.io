@@ -20,8 +20,9 @@ The `gios` integration uses the [GIOŚ](http://powietrze.gios.gov.pl/pjp/current
 ## Use cases
 
 - Monitor outdoor air quality.
-- Warn to close windows when CO2 levels are too high.
+- Warn to close windows when air quality is poor.
 - Control ventilation systems based on air quality.
+
 
 {% include integrations/config_flow.md %}
 
@@ -66,7 +67,7 @@ The following examples show how to use the integration in Home Assistant automat
 
 ### Notify when the PM10 level is too high
 
-The following example sends a notification to your mobile device when the PM10 level exceeds 100 ppm.
+The following example sends a notification to your mobile device when the PM10 level exceeds 100 µg/m³.
 
 {% raw %}
 
@@ -81,9 +82,9 @@ automation:
     actions:
       - action: notify.mobile_app_your_device
         data:
-          title: "High CO2 Level Alert"
+          title: "High PM10 Level Alert"
           message: >
-            The PM10 level is too high at {{ states('sensor.czerniawa_pm10') }} ppm.
+            The PM10 level is too high at {{ states('sensor.czerniawa_pm10') }} µg/m³.
             Avoid going outside.
 ```
 
