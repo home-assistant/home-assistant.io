@@ -100,7 +100,7 @@ actions:
         {{trigger.event.data.labels}}
   - if:
       - condition: template
-        value_template: "{{ 'remove' in trigger.event.data.labels }}"
+        value_template: "{{ 'Remove' in trigger.event.data.labels }}"
     then:
       - action: transmission.remove_torrent
         data:
