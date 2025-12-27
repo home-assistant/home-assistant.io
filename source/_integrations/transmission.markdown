@@ -80,7 +80,7 @@ Possible events are:
 
 Inside the event, there is the name of the torrent that is started or completed and the path where the files are downloaded, as seen in the Transmission User Interface.
 
-Example of an automation that notifies on successful download and removes the torrent from the client if the torrent has a label of remove:
+Example of an automation that notifies on successful download and removes the torrent from the client if the torrent has a label of Remove:
 
 {% raw %}
 
