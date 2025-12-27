@@ -78,7 +78,7 @@ The following devices are known to be supported by the integration:
 - Renogy BMS, Renogy Pro BMS
 - RoyPow batteries
 - Seplos v2 (show up as `BP[0-2]?`)
-- Seplos v3 (show up as `SP[0-99]`&#x2026;)
+- Seplos v3 (show up as `SP[00-199]B`&#x2026; or `CSY`&#x2026;)
   - CEG Carmine Energia Gratis (show up as `XZHX`&#x2026;)
 - Super-B Epsilon BMS (show up as `Epsilon-`&#x2026;)
 - TDT BMS
