@@ -53,7 +53,31 @@ Each package entry (for example, within a status sensor) contains the following 
 
 ### Dashboard summary card
 
-Use the following templated Markdown card to list all packages in transit along with their status:
+To display package information on your dashboard, first create a trigger-based template sensor that calls the `seventeentrack.get_packages` action:
+
+```yaml
+template:
+  - trigger:
+      - trigger: time_pattern
+        hours: /1
+      - trigger: homeassistant
+        event: start
+    action:
+      - action: seventeentrack.get_packages
+        data:
+          config_entry_id: YOUR_CONFIG_ENTRY_ID
+          package_state:
+            - in_transit
+        response_variable: result
+    sensor:
+      - name: "Packages in transit"
+        unique_id: packages_in_transit
+        state: "{{ result.packages | count }}"
+        attributes:
+          packages: "{{ result.packages }}"
+```
+
+Then use a templated Markdown card to list all packages in transit along with their status:
 
 {% raw %}
 
@@ -61,17 +85,19 @@ Use the following templated Markdown card to list all packages in transit along 
 type: markdown
 title: Packages in transit
 content: >
-  {% for package in
-  states.sensor['17track_in_transit'].attributes.packages %}
+  {% for package in state_attr('sensor.packages_in_transit', 'packages') %}
 
-  >- **{{ package.friendly_name }} ({{ package.tracking_number }}):** {{
+  - **{{ package.friendly_name }} ({{ package.tracking_number }}):** {{
   package.info_text }}
 
   {% endfor %}
-
 ```
 
 {% endraw %}
+
+{% tip %}
+To find your `config_entry_id`, go to {% my integrations title="**Settings** > **Devices & services**" %}, select the 17Track integration, click the three-dot menu, and select **Copy entry ID**.
+{% endtip %}
 
 ## Actions
 
