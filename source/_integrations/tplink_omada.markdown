@@ -104,6 +104,9 @@ The `tplink_omada.reconnect_client` action is used to force a Wi-Fi client to re
 - **Data attribute**: `mac`
   - **Description**: The MAC address of the Wi-Fi client to reconnect
   - **Optional**: No
+- **Data attribute**: `config_entry_id`
+  - **Description**: The instance of the Omada integration that the Wi-Fi client is connected to.
+  - **Optional**: Yes
 
 ## Removing the integration
 
