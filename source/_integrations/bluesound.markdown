@@ -96,7 +96,6 @@ Clear the sleep timer on a speaker, if one is set.
 | ---------------------- | -------- | ------------------------------------------------------------------- |
 | `entity_id`            | no       | String or list of `entity_id`s that will have their timers cleared. |
 
-
 ## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.
