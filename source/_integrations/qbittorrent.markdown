@@ -16,7 +16,7 @@ ha_platforms:
 ha_integration_type: service
 ---
 
-The `qbittorrent` platform allows you to monitor your downloads with [qBittorrent](https://www.qbittorrent.org/) from within Home Assistant and setup automations based on the information.
+The **qBittorrent** {% term integration %} allows you to monitor your downloads with [qBittorrent](https://www.qbittorrent.org/) from within Home Assistant and setup automations based on the information.
 You can control the alternative speed via the `Alternative speed` switch.
 
 ## Setup
