@@ -74,7 +74,7 @@ Integrations inside packages can only specify platform entries using configurati
 
 ## Create a packages folder
 
-One way to organize packages is to create a folder named "packages" in your Home Assistant configuration directory. In this packages folder you can store any number of packages in {% term YAML %} files, and organise those packages into {% term YAML %}-files and subfolders as you see fit. With `!include_dir_named` the file name is used as the package name. This means that file names must be globally unique, even across sub-folders. This entry in your {% term "`configuration.yaml`" %} will load all {% term YAML %}-files in this _packages_ folder and its subfolders:
+One way to organize packages is to create a folder named "packages" in your Home Assistant configuration directory. In this packages folder, you can store any number of packages in {% term YAML %} files, and organize those packages into {% term YAML %}-files and sub folders as you see fit. With `!include_dir_named` the file name is used as the package name. This means that file names must be globally unique, even across sub folders. This entry in your {% term "`configuration.yaml`" %} will load all {% term YAML %}-files in this _packages_ folder and its sub folders:
 
 ```yaml
 homeassistant:
