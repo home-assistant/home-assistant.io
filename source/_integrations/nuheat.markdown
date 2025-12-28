@@ -15,7 +15,7 @@ ha_codeowners:
   - '@tstabrawa'
 ---
 
-The `nuheat` integration lets control your connected [NuHeat Signature](https://www.nuheat.com/products/thermostats/signature-thermostat) floor heating thermostats from [NuHeat](https://www.nuheat.com/).
+The **NuHeat** {% term integration %} lets control your connected [NuHeat Signature](https://www.nuheat.com/products/thermostats/signature-thermostat) floor heating thermostats from [NuHeat](https://www.nuheat.com/).
 
 There is currently support for the following device types within Home Assistant:
 
