@@ -17,7 +17,7 @@ ha_platforms:
 ha_integration_type: service
 ---
 
-The Ridwell integration allows users to track waste recycling pickups scheduled with [Ridwell](https://www.ridwell.com).
+The **Ridwell** {% term integration %} allows users to track waste recycling pickups scheduled with [Ridwell](https://www.ridwell.com).
 
 {% include integrations/config_flow.md %}
 
