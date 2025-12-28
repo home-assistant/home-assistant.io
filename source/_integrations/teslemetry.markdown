@@ -394,16 +394,16 @@ For most modern vehicles (excluding pre-2021 Model S/X), data is streamed in rea
 
 Legacy vehicles (pre-2021 Model S/X) and Energy sites use cloud polling.
 
-*   **Legacy Vehicles:** Polled every 60 seconds.
-*   **Energy Sites:** Polled every 30 seconds.
+-   **Legacy Vehicles:** Polled every 60 seconds.
+-   **Energy Sites:** Polled every 30 seconds.
 
 The integration is designed to not wake the vehicle to poll for data. Updates for sleeping vehicles will pause until the vehicle wakes up naturally or is interacted with.
 
 ## Known limitations
 
-*   **Vehicle Sleep:** The integration will not actively wake a vehicle to fetch data. However, sending commands (such as locking, unlocking, or climate control) will wake the vehicle.
-*   **Rate Limits:** While Teslemetry handles upstream rate limiting with Tesla, excessive polling or command usage from aggressive automations may encounter temporary API limits.
-*   **Virtual Key:** Modern vehicles require a [virtual key](https://teslemetry.com/docs/topics/virtualkey) to operate. Please follow the instructions on the [Teslemetry Console](https://teslemetry.com/console) to set this up.
+-   **Vehicle Sleep:** The integration will not actively wake a vehicle to fetch data. However, sending commands (such as locking, unlocking, or climate control) will wake the vehicle.
+-   **Rate Limits:** While Teslemetry handles upstream rate limiting with Tesla, excessive polling or command usage from aggressive automations may encounter temporary API limits.
+-   **Virtual Key:** Modern vehicles require a [virtual key](https://teslemetry.com/docs/topics/virtualkey) to operate. Please follow the instructions on the [Teslemetry Console](https://teslemetry.com/console) to set this up.
 
 ## Troubleshooting
 
@@ -419,9 +419,9 @@ Timeouts can occur due to connection issues between Home Assistant, Teslemetry, 
 
 ### Common use cases
 
-*   **Solar Charging:** Automate your vehicle's charging current or state based on excess solar production to maximize renewable energy usage.
-*   **Smart Preconditioning:** Use calendar events or time-based triggers to precondition your vehicle's cabin temperature before you depart.
-*   **Automatic Garage Door:** Automatically open your garage door when you approach your home while navigating.
+-   **Solar Charging:** Automate your vehicle's charging current or state based on excess solar production to maximize renewable energy usage.
+-   **Smart Preconditioning:** Use calendar events or time-based triggers to precondition your vehicle's cabin temperature before you depart.
+-   **Automatic Garage Door:** Automatically open your garage door when you approach your home while navigating.
 
 ### Automations
 
