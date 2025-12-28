@@ -11,6 +11,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@engrbm87'
   - '@JPHutchins'
+  - '@andrew-codechimp'
 ha_domain: transmission
 ha_platforms:
   - sensor
@@ -105,43 +106,81 @@ Example of an automation that notifies on successful download and removes the to
 
 All Transmission actions require integration `entry_id`. To find it, go to **Developer tools** > **Actions**. Choose the desired action and select your integration from dropdown. Then switch to YAML mode to see `entry_id`.
 
-### Action `add_torrent`
+### Action: Add torrent
 
-Adds a new torrent to download. It can either be a URL (HTTP, HTTPS or FTP), magnet link or a local file (make sure that the path is [white listed](/integrations/homeassistant/#allowlist_external_dirs)).
+The `transmission.add_torrent` action is used to add a new torrent to download.
 
-| Data attribute | Optional | Description              |
-| ---------------------- | -------- | ------------------------ |
-| `entry_id`             | no       | The integration entry_id |
-| `torrent`              | no       | Torrent to download      |
-| `download_path`        | yes      | Absolute path to the download directory. If not specified, the Transmission's default directory will be used. |
+- **Data attribute**: `entry_id`
+  - **Description**: The ID of the Transmission config entry.
+  - **Optional**: No
 
-### Action `remove_torrent`
+- **Data attribute**: `torrent`
+  - **Description**:  The torrent to download. It can either be a URL (HTTP, HTTPS or FTP), magnet link or a local file (make sure that the path is [white listed](/integrations/homeassistant/#allowlist_external_dirs)).
+  - **Optional**: No
 
-Removes a torrent from the client.
+- **Data attribute**: `download_path`
+  - **Description**: The absolute path to the download directory. If not specified, the Transmission's default directory will be used.
+  - **Optional**: Yes
 
-| Data attribute | Optional | Description                                                                                 |
-| ---------------------- | -------- | ------------------------------------------------------------------------------------------- |
-| `entry_id`             | no       | The integration entry_id                                                                    |
-| `id`                   | no       | ID of the torrent, can be found in the `torrent_info` attribute of the `*_torrents` sensors |
-| `delete_data`          | yes      | Delete torrent data (Default: false)                                                        |
+### Action: Remove torrent
 
-### Action `start_torrent`
+The `transmission.remove_torrent` action is used to remove a torrent from the client.
 
-Starts a torrent.
+- **Data attribute**: `entry_id`
+  - **Description**: The ID of the Transmission config entry.
+  - **Optional**: No
 
-| Data attribute | Optional | Description                                                                                 |
-| ---------------------- | -------- | ------------------------------------------------------------------------------------------- |
-| `entry_id`             | no       | The integration entry_id                                                                    |
-| `id`                   | no       | ID of the torrent, can be found in the `torrent_info` attribute of the `*_torrents` sensors |
+- **Data attribute**: `id`
+  - **Description**:  The ID of the torrent, can be found in the `torrent_info` attribute of the `*_torrents` sensors.
+  - **Optional**: No
 
-### Action `stop_torrent`
+- **Data attribute**: `delete_data`
+  - **Description**: Delete torrent data (Default: false).
+  - **Optional**: Yes
 
-Stops a torrent.
+### Action: Start torrent
 
-| Data attribute | Optional | Description                                                                                 |
-| ---------------------- | -------- | ------------------------------------------------------------------------------------------- |
-| `entry_id`             | no       | The integration entry_id                                                                    |
-| `id`                   | no       | ID of the torrent, can be found in the `torrent_info` attribute of the `*_torrents` sensors |
+The `transmission.start_torrent` action is used to start a torrent downloading or seeding within the client.
+
+- **Data attribute**: `entry_id`
+  - **Description**: The ID of the Transmission config entry.
+  - **Optional**: No
+
+- **Data attribute**: `id`
+  - **Description**:  The ID of the torrent, can be found in the `torrent_info` attribute of the `*_torrents` sensors.
+  - **Optional**: No
+
+### Action: Stop torrent
+
+The `transmission.stop_torrent` action is used to stop a torrent downloading or seeding within the client.
+
+- **Data attribute**: `entry_id`
+  - **Description**: The ID of the Transmission config entry.
+  - **Optional**: No
+
+- **Data attribute**: `id`
+  - **Description**:  The ID of the torrent, can be found in the `torrent_info` attribute of the `*_torrents` sensors.
+  - **Optional**: No
+
+### Action: Get torrents
+
+This `transmission.get_torrents` action populates [Response Data](/docs/scripts/perform-actions#use-templates-to-handle-response-data) with a dictionary of torrents based on the provided filter.
+
+- **Data attribute**: `entry_id`
+  - **Description**: The ID of the Transmission config entry.
+  - **Optional**: No
+
+- **Data attribute**: `torrent_filter`
+  - **Description**:  The type of torrents you want in the response (all, active, started, paused, or completed).
+  - **Optional**: No
+
+```yaml
+action: transmission.get_torrents
+data:
+  entry_id: YOUR_TRANSMISSION_ENTRY_ID
+  torrent_filter: "all"
+response_variable: torrents
+```
 
 ## Templating
 

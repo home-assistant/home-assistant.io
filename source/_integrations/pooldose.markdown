@@ -4,6 +4,7 @@ description: Connect your SEKO PoolDose water treatment system to Home Assistant
 ha_category:
   - Binary sensor
   - Number
+  - Select
   - Sensor
   - Switch
   - Water Management
@@ -16,6 +17,7 @@ ha_domain: pooldose
 ha_platforms:
   - binary_sensor
   - number
+  - select
   - sensor
   - switch
 ha_integration_type: integration
@@ -58,6 +60,10 @@ This integration {% term polling polls %} data from the device every 10 minutes 
 - The device does not support frequent requests and may become unstable with shorter intervals
 - Physical water treatment values typically change slowly and do not require frequent monitoring
 - This interval provides adequate monitoring for pool water management while maintaining device reliability
+
+### Update and write behavior
+
+Parallel reads for read-only values are avoided and write operations are serialized (one value at a time). This reduces load on the device's limited hardware and prevents race conditions.
 
 ## Supported devices
 
@@ -150,6 +156,25 @@ This integration provides the following entities.
 - **Pause dosing**: Pauses or resumes the dosing process.
 - **Pump monitoring**: Enables or disables pump monitoring.
 - **Frequency input**: Enables or disables frequency input for a water meter.
+
+### Selects
+
+- **Water meter unit**: Water meter measurement unit.
+  - **Options**: Liters, Cubic meters
+- **Flow rate unit**: Flow rate measurement unit.
+  - **Options**: Cubic meters per hour, Liters per second
+- **pH dosing type**: pH dosing type.
+  - **Options**: pH+ / alcalyne, pH- / acid
+- **pH dosing method**: pH dosing control method.
+  - **Options**: Disabled, Proportional control, On/Off control, Timed dosing
+- **ORP dosing type**: ORP/Redox dosing type.
+  - **Options**: Low intensity, High intensity
+- **ORP dosing method**: ORP/Redox dosing control method.
+  - **Options**: Disabled, Proportional control, On/Off control, Timed dosing
+- **Chlorine dosing type**: Chlorine dosing type.
+  - **Options**: Low intensity, High intensity
+- **Chlorine dosing method**: Chlorine dosing control method.
+  - **Options**: Disabled, Proportional control, On/Off control, Timed dosing
 
 ## Known limitations
 

@@ -281,6 +281,7 @@ Features:
 
 Features:
 - get motion detection state
+- get light level
 - get battery level
 
 #### Water Leak Detector
