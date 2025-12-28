@@ -114,6 +114,7 @@ Now go and automate stuff!
   - [2025.12.1 - December 5](#2025121---december-5)
   - [2025.12.2 - December 8](#2025122---december-8)
   - [2025.12.3 - December 12](#2025123---december-12)
+  - [2025.12.4 - December 19](#2025124---december-19)
 - [Need help? Join the community](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
@@ -763,6 +764,152 @@ release once a week, aiming for Friday.
 [@ndrwrbgs]: https://github.com/ndrwrbgs
 [@tr4nt0r]: https://github.com/tr4nt0r
 [@zweckj]: https://github.com/zweckj
+
+### 2025.12.4 - December 19
+
+- Prevent empty aliases in registries ([@FI-153] - [#156061]) ([config docs])
+- Do not check Reolink firmware at start ([@starkillerOG] - [#158275]) ([reolink docs])
+- Update pynintendoparental to 2.0.0 ([@pantherale0] - [#158285]) ([nintendo_parental_controls docs])
+- Enable volvo engine status for all engine types ([@thomasddn] - [#158437]) ([volvo docs])
+- Update pynintendoparental to 2.1.0 ([@pantherale0] - [#158487]) ([nintendo_parental_controls docs])
+- Suppress roborock failures under some unavailability threshold ([@allenporter] - [#158673]) ([roborock docs])
+- Suppress verbose UPnP subscription error logs ([@ptarjan] - [#158677])
+- Fix Sonos speaker async_offline assertion failure ([@ptarjan] - [#158764]) ([sonos docs])
+- Bump pynintendoparental to 2.1.1 ([@pantherale0] - [#158779]) ([nintendo_parental_controls docs])
+- Bump aioasuswrt 1.5.3 ([@kennedyshead] - [#158882]) ([asuswrt docs])
+- Revert adding entity_category to Plugwise thermostat schedule select ([@bouwew] - [#158901]) ([plugwise docs])
+- Bump aiomealie to 1.1.1 and statically define mealplan entry types ([@andrew-codechimp] - [#158907]) ([mealie docs])
+- Update systembridgeconnector to 5.2.4, fix media source ([@timmo001] - [#158917]) ([system_bridge docs])
+- Assume cover or valve is always "running" in google assistant when the state is assumed or the position is reported to allow it to be be stopped ([@jbouwh] - [#158919]) ([google_assistant docs])
+- Bump ical to 12.1.2 ([@allenporter] - [#158965]) ([google docs]) ([local_calendar docs]) ([local_todo docs]) ([remote_calendar docs])
+- Update unnecessary error logging of unknown and unavailable source states from mold indicator ([@Petro31] - [#158979]) ([mold_indicator docs])
+- Add exception handling for rate limited or unauthorized MQTT requests ([@allenporter] - [#158997]) ([roborock docs])
+- Bump aioasuswrt to 1.5.4 ([@upsuper] - [#159038]) ([asuswrt docs])
+- Bump blinkpy to 0.25.2 ([@fronzbot] - [#159049]) ([blink docs])
+- Fix slow event state updates for remote calendar ([@allenporter] - [#159058]) ([remote_calendar docs])
+- Bump aiodns to 3.6.1 ([@mithomas] - [#159073]) ([dnsip docs])
+- Bump pysmlight to v0.2.13 ([@tl-sl] - [#159075]) ([smlight docs])
+- Improve icloud reauth flow ([@PaulCavill] - [#159081]) ([icloud docs])
+- Sonos fix media player join to avoid race condition ([@PeteRager] - [#159106]) ([sonos docs])
+- Sonos increase wait for groups timeout ([@PeteRager] - [#159108]) ([sonos docs])
+- Bump pynintendoparental 2.1.3 ([@pantherale0] - [#159120]) ([nintendo_parental_controls docs])
+- Bump soco to 0.30.13 for Sonos ([@PeteRager] - [#159123]) ([sonos docs])
+- Handle missing Miele status codes gracefully ([@astrandb] - [#159124]) ([miele docs])
+- Bump ekey-bionyxpy to version 1.0.1 ([@richardpolzer] - [#159196]) ([ekeybionyx docs])
+- Fix incorrect status updates for lcn ([@alengwenus] - [#159251]) ([lcn docs])
+- Bump python-roborock to 3.18.0 ([@Lash-L] - [#159271]) ([roborock docs])
+- Bump pypck to 0.9.8 ([@alengwenus] - [#159277]) ([lcn docs])
+- Fix AttributeError in Roborock Empty Mode entity ([@allenporter] - [#159278]) ([roborock docs])
+- Add missing strings for Shelly voltmeter sensor ([@chemelli74] - [#159332]) ([shelly docs])
+- Do not trigger reauth for addon in Music Assistant ([@arturpragacz] - [#159372]) ([music_assistant docs])
+- Align format of voltmeter strings for Shelly ([@chemelli74] - [#159394]) ([shelly docs])
+- Bump ZHA to 0.0.81 ([@puddly] - [#159396]) ([zha docs])
+- Bump python-roborock to 3.19.0 ([@allenporter] - [#159404]) ([roborock docs])
+- Remove users refresh tokens when the user get's deactivated ([@edenhaus] - [#159443])
+- Update frontend to 20251203.3 ([@bramkragten] - [#159451]) ([frontend docs])
+
+[#156061]: https://github.com/home-assistant/core/pull/156061
+[#157330]: https://github.com/home-assistant/core/pull/157330
+[#158071]: https://github.com/home-assistant/core/pull/158071
+[#158274]: https://github.com/home-assistant/core/pull/158274
+[#158275]: https://github.com/home-assistant/core/pull/158275
+[#158285]: https://github.com/home-assistant/core/pull/158285
+[#158437]: https://github.com/home-assistant/core/pull/158437
+[#158487]: https://github.com/home-assistant/core/pull/158487
+[#158673]: https://github.com/home-assistant/core/pull/158673
+[#158677]: https://github.com/home-assistant/core/pull/158677
+[#158764]: https://github.com/home-assistant/core/pull/158764
+[#158779]: https://github.com/home-assistant/core/pull/158779
+[#158811]: https://github.com/home-assistant/core/pull/158811
+[#158882]: https://github.com/home-assistant/core/pull/158882
+[#158901]: https://github.com/home-assistant/core/pull/158901
+[#158907]: https://github.com/home-assistant/core/pull/158907
+[#158917]: https://github.com/home-assistant/core/pull/158917
+[#158919]: https://github.com/home-assistant/core/pull/158919
+[#158965]: https://github.com/home-assistant/core/pull/158965
+[#158979]: https://github.com/home-assistant/core/pull/158979
+[#158997]: https://github.com/home-assistant/core/pull/158997
+[#159038]: https://github.com/home-assistant/core/pull/159038
+[#159049]: https://github.com/home-assistant/core/pull/159049
+[#159058]: https://github.com/home-assistant/core/pull/159058
+[#159073]: https://github.com/home-assistant/core/pull/159073
+[#159075]: https://github.com/home-assistant/core/pull/159075
+[#159081]: https://github.com/home-assistant/core/pull/159081
+[#159106]: https://github.com/home-assistant/core/pull/159106
+[#159108]: https://github.com/home-assistant/core/pull/159108
+[#159120]: https://github.com/home-assistant/core/pull/159120
+[#159123]: https://github.com/home-assistant/core/pull/159123
+[#159124]: https://github.com/home-assistant/core/pull/159124
+[#159196]: https://github.com/home-assistant/core/pull/159196
+[#159251]: https://github.com/home-assistant/core/pull/159251
+[#159271]: https://github.com/home-assistant/core/pull/159271
+[#159277]: https://github.com/home-assistant/core/pull/159277
+[#159278]: https://github.com/home-assistant/core/pull/159278
+[#159332]: https://github.com/home-assistant/core/pull/159332
+[#159372]: https://github.com/home-assistant/core/pull/159372
+[#159394]: https://github.com/home-assistant/core/pull/159394
+[#159396]: https://github.com/home-assistant/core/pull/159396
+[#159404]: https://github.com/home-assistant/core/pull/159404
+[#159443]: https://github.com/home-assistant/core/pull/159443
+[#159451]: https://github.com/home-assistant/core/pull/159451
+[@FI-153]: https://github.com/FI-153
+[@Lash-L]: https://github.com/Lash-L
+[@PaulCavill]: https://github.com/PaulCavill
+[@PeteRager]: https://github.com/PeteRager
+[@Petro31]: https://github.com/Petro31
+[@alengwenus]: https://github.com/alengwenus
+[@allenporter]: https://github.com/allenporter
+[@andrew-codechimp]: https://github.com/andrew-codechimp
+[@arturpragacz]: https://github.com/arturpragacz
+[@astrandb]: https://github.com/astrandb
+[@bouwew]: https://github.com/bouwew
+[@bramkragten]: https://github.com/bramkragten
+[@chemelli74]: https://github.com/chemelli74
+[@edenhaus]: https://github.com/edenhaus
+[@frenck]: https://github.com/frenck
+[@fronzbot]: https://github.com/fronzbot
+[@jbouwh]: https://github.com/jbouwh
+[@kennedyshead]: https://github.com/kennedyshead
+[@mithomas]: https://github.com/mithomas
+[@pantherale0]: https://github.com/pantherale0
+[@ptarjan]: https://github.com/ptarjan
+[@puddly]: https://github.com/puddly
+[@richardpolzer]: https://github.com/richardpolzer
+[@starkillerOG]: https://github.com/starkillerOG
+[@thomasddn]: https://github.com/thomasddn
+[@timmo001]: https://github.com/timmo001
+[@tl-sl]: https://github.com/tl-sl
+[@upsuper]: https://github.com/upsuper
+[actron_air docs]: /integrations/actron_air/
+[adax docs]: /integrations/adax/
+[adguard docs]: /integrations/adguard/
+[asuswrt docs]: /integrations/asuswrt/
+[blink docs]: /integrations/blink/
+[config docs]: /integrations/config/
+[dnsip docs]: /integrations/dnsip/
+[ekeybionyx docs]: /integrations/ekeybionyx/
+[frontend docs]: /integrations/frontend/
+[google docs]: /integrations/google/
+[google_assistant docs]: /integrations/google_assistant/
+[icloud docs]: /integrations/icloud/
+[lcn docs]: /integrations/lcn/
+[local_calendar docs]: /integrations/local_calendar/
+[local_todo docs]: /integrations/local_todo/
+[mealie docs]: /integrations/mealie/
+[miele docs]: /integrations/miele/
+[mold_indicator docs]: /integrations/mold_indicator/
+[music_assistant docs]: /integrations/music_assistant/
+[nintendo_parental_controls docs]: /integrations/nintendo_parental_controls/
+[plugwise docs]: /integrations/plugwise/
+[remote_calendar docs]: /integrations/remote_calendar/
+[reolink docs]: /integrations/reolink/
+[roborock docs]: /integrations/roborock/
+[shelly docs]: /integrations/shelly/
+[smlight docs]: /integrations/smlight/
+[sonos docs]: /integrations/sonos/
+[system_bridge docs]: /integrations/system_bridge/
+[volvo docs]: /integrations/volvo/
+[zha docs]: /integrations/zha/
 
 ## Need help? Join the community
 

@@ -8,7 +8,7 @@ ha_iot_class: Local Polling
 ha_domain: mqtt
 ---
 
-The `mqtt` climate platform lets you control your MQTT enabled HVAC devices.
+The **MQTT climate** {% term integration %} lets you control your MQTT enabled HVAC devices.
 
 ## Configuration
 

@@ -16,7 +16,7 @@ related:
 ha_config_flow: true
 ---
 
-The Media extractor {% term integration %} gets a stream URL and sends it to a media player entity. This integration can extract entity specific streams if configured accordingly.
+The **Media extractor** {% term integration %} gets a stream URL and sends it to a media player entity. This integration can extract entity specific streams if configured accordingly.
 
 {% note %}
 Media extractor doesn't transcode streams, it just tries to find a stream that matches the requested query.

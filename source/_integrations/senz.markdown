@@ -17,7 +17,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The SENZ {% term integration %} allows you to control and monitor your nVent RAYCHEM SENZ-WIFI thermostats.
+The **nVent RAYCHEM SENZ** {% term integration %} allows you to control and monitor your nVent RAYCHEM SENZ-WIFI thermostats.
 
 {% include integrations/config_flow.md %}
 

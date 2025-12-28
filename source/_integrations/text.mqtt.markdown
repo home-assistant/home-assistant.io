@@ -8,7 +8,7 @@ ha_iot_class: Configurable
 ha_domain: mqtt
 ---
 
-The `mqtt` Text platform allows you to integrate devices that show text that can be set remotely. Optionally the text state can be monitored too using MQTT.
+The **MQTT Text** {% term integration %} allows you to integrate devices that show text that can be set remotely. Optionally the text state can be monitored too using MQTT.
 
 ## Configuration
 
