@@ -34,7 +34,7 @@ During setup, you'll be asked to provide the following parameters:
 
 {% configuration_basic %}
 Server:
-  description: "Select the server region that matches your Growatt account location. See the server regions list below for available options."
+  description: "Select the server region that matches your Growatt account location. See the **Server regions** section below for available options."
 Username:
   description: "Your Growatt account username (typically your email address). Required when using username and password authentication."
 Password:
@@ -63,7 +63,7 @@ Selecting the correct server region for your account location improves the relia
 The integration supports two authentication methods:
 
 - **Username and password**: Use your Growatt account credentials for authentication.
-- **API token**: Use an API token for authentication. This is the preferred method and is officially supported by Growatt. However, this integration does not support all inverters yet - check compatibility with your inverter below. If your inverter is supported, you should use this method as it offers greater security, more features and greater stability.
+- **API token**: Use an API token for authentication. This is the officially supported method by Growatt and offers better security, more features, and improved stability. Not all inverter models are supported yet—check the **Compatibility** section below to confirm your inverter is supported.
 
 ### Obtaining an API token
 
