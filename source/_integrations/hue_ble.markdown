@@ -58,6 +58,6 @@ This integration follows standard integration removal. No extra steps are requir
 
 ## Known limitations
 
-The Bluetooth address of Hue lights is randomly generated and will change if you [factory reset](https://www.philips-hue.com/en-us/support/article/how-to-factory-reset-philips-hue-lights/000004) the light. If you factory reset a light in order to re-pair it to Home Assistant it will show up as a different device because of this.
+If you [factory reset](https://www.philips-hue.com/en-us/support/article/how-to-factory-reset-philips-hue-lights/000004) a Hue light it will be discovered as a new device even if it was previously connected to Home Assistant or ignored. This is because the Bluetooth address of Hue lights is randomly generated and changes if the light is factory reset.
 
-Hue lights connected using Zigbee still transmit on Bluetooth and will be discoverable by this integration. It is possible to use both Zigbee and Bluetooth at the same time. This can be done by pairing the light to the Zigbee hub/switch and then using the Hue app to connect to the light over Bluetooth using the QR code and then using the voice assistant pairing feature to then pair the light to Home Assistant using this integration.
+Hue lights connected using Zigbee are still discoverable and controllable by this intergration, even if they are connected to another Zigbee network or bound to a Zigbee switch. This means you can use Zigbee and Bluetooth at the same time. This can be done by pairing the light to the Zigbee hub or switch and then using the Hue app to connect to the light over Bluetooth using the QR code on the side of the light and then using the Alexa/Google pairing steps described above.
