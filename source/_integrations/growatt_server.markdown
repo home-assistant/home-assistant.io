@@ -40,7 +40,7 @@ Username:
 Password:
   description: "Your Growatt account password. Required when using username and password authentication."
 API token:
-  description: "Your Growatt API token. Required when using API token authentication. Recommended authentication method as it is officially supported by Growatt and offers greater security, stability and more features."
+  description: "Your Growatt API token used for authentication. Required when using API token authentication."
 Plant:
   description: "Select which plant to integrate if you have multiple plants registered in your Growatt account."
 {% endconfiguration_basic %}
