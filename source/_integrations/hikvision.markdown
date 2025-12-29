@@ -17,10 +17,10 @@ ha_quality_scale: bronze
 ha_config_flow: true
 ---
 
-The **Hikvision** {% term integration %} connects your [Hikvision IP Camera or NVR](https://www.hikvision.com/) to Home Assistant, providing:
+The **Hikvision** {% term integration %} connects your [Hikvision IP Camera or <abbr title="Network Video Recorder">NVR</abbr>](https://www.hikvision.com/) to Home Assistant, providing:
 
 - Binary sensors that parse the event stream and present camera/NVR events as sensors with either an "off" or "on" state
-- Camera entities with RTSP streaming and HTTP snapshot capabilities
+- Camera entities with <abbr title="Real Time Streaming Protocol">RTSP</abbr> streaming and <abbr title="Hypertext Transfer Protocol">HTTP</abbr> snapshot capabilities
 
 The platform will automatically add all sensors to Home Assistant that are
 configured within the camera/nvr interface to "Notify the surveillance center"
@@ -82,8 +82,8 @@ This platform also was confirmed to work with the following Hikvison-based NVRS
 
 The integration creates camera entities for each video channel on your Hikvision device. These camera entities support:
 
-- **RTSP streaming**: Live video streaming using the RTSP protocol
-- **HTTP snapshots**: Still image capture via the camera's HTTP API
+- RTSP streaming: Live video streaming using the RTSP protocol
+- HTTP snapshots: Still image capture via the camera's HTTP API
 
 ### NVR video channel discovery
 
@@ -106,11 +106,11 @@ The integration detects events using the camera's event stream. For standalone c
 
 For NVR devices, the integration supports extended event detection with additional notification methods beyond the standard "center" and "HTTP" methods. The following notification triggers are supported:
 
-- **Center**: Notify the surveillance center (standard method)
-- **HTTP**: HTTP notification
-- **Record**: Recording trigger
-- **Email**: Email notification trigger
-- **Beep**: Audible beep notification
+- Center: Notify the surveillance center (standard method)
+- HTTP: HTTP notification
+- Record: Recording trigger
+- Email: Email notification trigger
+- Beep: Audible beep notification
 
 This extended support allows detection of events that may be configured with non-standard notification methods on your NVR, which some devices use by default.
 
