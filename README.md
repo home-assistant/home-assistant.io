@@ -11,9 +11,9 @@ This is the source for the [Home-Assistant.io website](https://home-assistant.io
 
 You can access the site at the following URLs, depending on the target branch:
 
-- **Production** (`current` branch): https://www.home-assistant.io/
-- **Release candidate** (`rc` branch): https://rc.home-assistant.io/
-- **Development** (`next` branch): https://next.home-assistant.io/
+- **Production** (`current` branch): https://www.home-assistant.io
+- **Release candidate** (`rc` branch): https://rc.home-assistant.io
+- **Development** (`next` branch): https://next.home-assistant.io
 
 Additionally, Netlify provides a preview deployment for every pull request, linked in the first PR comment.
 
