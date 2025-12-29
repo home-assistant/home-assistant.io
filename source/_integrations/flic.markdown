@@ -15,7 +15,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `flic` {% term integration %} allows you to receive click events from [flic](https://flic.io) smart buttons.
+The **Flic** {% term integration %} allows you to receive click events from [flic](https://flic.io) smart buttons.
 
 The {% term integration %} does not directly interact with the buttons, *but communicates with a flic service* that manages the buttons. The service can run on the same instance as Home Assistant or any other reachable machine.
 

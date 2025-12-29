@@ -982,7 +982,7 @@ assistant. The conversation response can be templated.
 # Example of a templated conversation response resulting in "Testing 123"
 - variables:
     my_var: "123"
-- set_conversation_response: "{{ 'Testing ' + my_var }}":
+- set_conversation_response: "{{ 'Testing ' + my_var }}"
 ```
 
 {% endraw %}

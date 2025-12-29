@@ -25,7 +25,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `nest` integration allows you to integrate a few [supported](https://developers.google.com/nest/device-access/supported-devices) Google [Nest](https://store.google.com/us/category/connected_home?) devices in Home Assistant. This integration uses the [Smart Device Management](https://developers.google.com/nest/device-access/api) API and Google's Cloud Pubsub to efficiently listen for changes in device state or other events. See [Supported Devices](https://developers.google.com/nest/device-access/supported-devices) for all devices supported by the SDM API.
+The **Google Nest** {% term integration %} allows you to integrate a few [supported](https://developers.google.com/nest/device-access/supported-devices) Google [Nest](https://store.google.com/us/category/connected_home?) devices in Home Assistant. This integration uses the [Smart Device Management](https://developers.google.com/nest/device-access/api) API and Google's Cloud Pubsub to efficiently listen for changes in device state or other events. See [Supported Devices](https://developers.google.com/nest/device-access/supported-devices) for all devices supported by the SDM API.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -690,7 +690,7 @@ from the SDM API.
 
 ##### Resolution
 
-You can add or remove devices and permissions granted to Home Assistant in the Nest [Partner Connections Manager](https://nestservices.google.com/partnerconnections). Reload the Nest integration to make new devices available. See the [SDM API Troubleshooting](https://developers.google.com/nest/device-access/authorize#modify_account_permissions) documentation for more details.
+You can manage the devices and permissions shared with Home Assistant in the Nest [Partner Connections Manager](https://nestservices.google.com/partnerconnections). Home Assistant automatically updates to reflect any changes you make. For more details, refer to the [SDM API Troubleshooting](https://developers.google.com/nest/device-access/authorize#modify_account_permissions) documentation.
 
 #### Symptom: Thermostats do not appear in Home Assistant or are unavailable
 
@@ -698,7 +698,7 @@ There have been reports that Thermostats may not appear or are unavailable due t
 
 - Restart the Thermostat device. See [How to restart or reset a Nest thermostat](https://support.google.com/googlenest/answer/9247296) for more details.
 - In the official Nest app or on https://home.nest.com: Move the Thermostat to a different or fake/temporary room.
-- Reload the integration in Home Assistant:  Navigate to {% my integrations title="**Settings** > **Devices & services**" %}, select {% icon "mdi:dots-vertical" %} next to *Nest* and choose **Reload**.
+- Home Assistant automatically updates to reflect any changes you make and will discover new devices that appear in the API.
 
 #### Symptom: Devices do not appear when the API is disabled
 

@@ -22,7 +22,7 @@ ha_integration_type: integration
 ha_dhcp: true
 ---
 
-The ONVIF camera integration allows you to use an [ONVIF](https://www.onvif.org/) Profile S conformant device in Home Assistant. This requires the [`ffmpeg` integration](/integrations/ffmpeg/) to be already configured.
+The **ONVIF** {% term integration %} allows you to use an [ONVIF](https://www.onvif.org/) Profile S conformant device in Home Assistant. This requires the [`ffmpeg` integration](/integrations/ffmpeg/) to be already configured.
 
 {% include integrations/config_flow.md %}
 

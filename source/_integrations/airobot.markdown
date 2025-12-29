@@ -13,6 +13,8 @@ ha_quality_scale: bronze
 ha_category: []
 ha_platforms:
   - climate
+  - number
+  - sensor
 ---
 
 The **Airobot** {% term integration %} allows you to control and monitor [Airobot](https://airobothome.com/) smart thermostats for intelligent floor heating control via the local REST API. The thermostat uses adaptive learning with a <abbr title="Time Proportional Integral">TPI</abbr> algorithm to maintain stable temperatures and optimize energy efficiency. Optional built-in CO₂ and humidity sensors monitor indoor air quality for a healthier living environment.
@@ -65,7 +67,7 @@ This is useful when:
 
 ## Supported functionality
 
-The **Airobot** integration provides climate control functionality with comprehensive temperature management and preset modes.
+The **Airobot** integration provides climate control functionality with comprehensive temperature management and preset modes, detailed sensor monitoring, and advanced configuration options.
 
 ### Climate
 
@@ -85,9 +87,56 @@ The thermostat is represented as a climate entity with the following capabilitie
   - **Away**: Use the AWAY temperature setpoint (typically lower for energy savings)
   - **Boost**: Temporarily boost heating for 1 hour, then return to the previous mode
 
+### Sensors
+
+The integration provides the following sensor entities to monitor your thermostat and environment:
+
+#### Environmental sensors
+
+- **Air temperature**: The measured air temperature in the room (in °C).
+- **Floor temperature**: The measured floor temperature (in °C). Only available if a floor temperature sensor is connected to the thermostat.
+- **Humidity**: The measured relative humidity in the room (in %).
+- **Carbon dioxide**: The measured carbon dioxide concentration in the room (in ppm). Only available if the thermostat has the optional carbon dioxide sensor.
+- **Air quality index**: The calculated air quality index based on carbon dioxide levels. Only available if the thermostat has the optional carbon dioxide sensor.
+
+#### Diagnostic sensors
+
+The following diagnostic sensors are disabled by default. You can enable them in the entity settings if needed:
+
+- **Device uptime**: The timestamp when the thermostat was last restarted.
+- **Heating uptime**: The cumulative time (in hours) the heating has been active since the thermostat was last restarted.
+
+#### System sensors
+
+- **Errors**: The current error count on the thermostat. A value of 0 indicates normal operation.
+
+### Number
+
+The integration provides a configuration entity to adjust advanced thermostat settings:
+
+- **Hysteresis band**: Configure the temperature hysteresis (dead band) for heating control (0.0-0.5°C range). This setting determines how much the temperature must drop below the setpoint before heating activates. A smaller value provides tighter temperature control but may cause more frequent heating cycles. A larger value reduces heating cycles but allows more temperature variation.
+
+## Use cases
+
+The **Airobot** integration enables intelligent floor heating control with practical automation opportunities:
+
+- Presence-based heating: Automatically switch between HOME and AWAY presets when people leave or arrive home, optimizing comfort and energy efficiency.
+- Smart scheduling: Use the BOOST preset to quickly warm rooms before arrival or temporarily increase heating for guests without changing permanent setpoints.
+- Air quality management: Trigger ventilation or send alerts when CO₂ levels exceed healthy thresholds (requires optional CO₂ sensor).
+- Floor protection: Monitor floor temperature to prevent overheating of sensitive materials like wooden floors (requires floor sensor).
+- Energy insights: Track heating runtime and device uptime patterns to optimize schedules and identify maintenance needs.
+
 ## Data updates
 
 The **Airobot** integration {% term polling polls %} data from the thermostat every 30 seconds. This interval matches the thermostat's internal measurement cycle, ensuring efficient data synchronization without overwhelming the device.
+
+## Known limitations
+
+- **Local API only**: The integration only supports the local REST API. Cloud-based control through the Airobot cloud service is not supported.
+- **Manual API enablement**: The local REST API must be manually enabled on the thermostat before the integration can connect. It is disabled by default for security reasons.
+- **Firmware requirements**: Only firmware version 1.8 or later is supported. Older firmware versions do not provide the local REST API.
+- **Heating only**: The thermostat is designed for floor heating control only and does not support cooling modes.
+- **Optional sensors**: carbon dioxide and floor temperature sensors are only available if the corresponding hardware is installed in your thermostat model.
 
 ## Troubleshooting
 

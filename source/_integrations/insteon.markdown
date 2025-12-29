@@ -31,7 +31,7 @@ ha_dhcp: true
 The Insteon apps (Director or Insteon for Hub) are a paid service utilizing the Insteon cloud to control an Insteon Hub. Home Assistant does not require the use of the Insteon app but can operate in conjunction with the app if desired.
 {% endimportant %}
 
-This integration adds support for integrating your Insteon network with Home Assistant. It has been tested with all USB and serial PowerLinc Modems (PLM) including [2413U], [2448A7], [2413S] and [2412S] models. It has also been tested to work with the [2242] and [2245] Hubs.
+This {% term integration %} adds support for integrating your Insteon network with Home Assistant. It has been tested with all USB and serial PowerLinc Modems (PLM) including [2413U], [2448A7], [2413S] and [2412S] models. It has also been tested to work with the [2242] and [2245] Hubs.
 
 _If you have factory reset your device, please see the instructions [Recovering After Factory Resetting The Hub](#recovering-after-factory-resetting-the-hub) for how to proceed._
 

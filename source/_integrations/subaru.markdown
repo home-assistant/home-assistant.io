@@ -20,7 +20,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-This integration retrieves vehicle information and actuates remote services provided by [MySubaru Connected Services](https://www.subaru.com/vehicle-info/connected-services/mysubaru-connected-services.html)(formerly known as Subaru STARLINK). This service is currently only available in the USA and Canada.
+This {% term integration %} retrieves vehicle information and actuates remote services provided by [MySubaru Connected Services](https://www.subaru.com/vehicle-info/connected-services/mysubaru-connected-services.html)(formerly known as Subaru STARLINK). This service is currently only available in the USA and Canada.
 
 This integration requires a telematics equipped Subaru and an active vehicle subscription to the MySubaru service. Before using this integration, you must first register and have login credentials to [MySubaru](https://www.mysubaru.com). 
 

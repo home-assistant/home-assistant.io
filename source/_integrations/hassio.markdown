@@ -23,7 +23,7 @@ ha_codeowners:
 ha_integration_type: integration
 ---
 
-Supervisor integration allows you to monitor and control Supervisor add-ons and operating system from Home Assistant.
+The **Home Assistant Supervisor** {% term integration %} allows you to monitor and control Supervisor add-ons and operating system from Home Assistant.
 This integration is already installed if you run {% term "Home Assistant Operating System" %}. Please note that this integration
 cannot be installed on {% term "Home Assistant Container" %}.
 

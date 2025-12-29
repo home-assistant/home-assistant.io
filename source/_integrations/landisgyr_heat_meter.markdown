@@ -15,7 +15,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The Landis+Gyr Heat Meter integration for Home Assistant allows you to read the meter values from Ultraheat devices by Landis & Gyr. These devices are commonly used for district heating. The integration has been tested with the Landis & Gyr Ultraheat 50 (UH50), type LUGCUH50. Other models are likely to work as well.
+The **Landis+Gyr Heat Meter** {% term integration %} for Home Assistant allows you to read the meter values from Ultraheat devices by Landis & Gyr. These devices are commonly used for district heating. The integration has been tested with the Landis & Gyr Ultraheat 50 (UH50), type LUGCUH50. Other models are likely to work as well.
 
 The device is read through the optical interface. An (USB) IR reader is needed and connected to Home Assistant.
 

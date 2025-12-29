@@ -17,7 +17,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `kef` {% term integration %} allows you to control the KEF LS50 Wireless and [KEF LSX](https://international.kef.com/products/lsx) speakers from Home Assistant.
+The **KEF** {% term integration %} allows you to control the KEF LS50 Wireless and [KEF LSX](https://international.kef.com/products/lsx) speakers from Home Assistant.
 
 Supported devices:
 

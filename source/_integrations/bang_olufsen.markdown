@@ -19,7 +19,7 @@ ha_zeroconf: true
 ha_integration_type: device
 ---
 
-The Bang & Olufsen integration enables control of some of the features of certain [Bang & Olufsen](https://www.bang-olufsen.com/) devices through Home Assistant.
+The **Bang & Olufsen** {% term integration %} enables control of some of the features of certain [Bang & Olufsen](https://www.bang-olufsen.com/) devices through Home Assistant.
 
 ## Compatible devices
 
@@ -77,8 +77,7 @@ A number of features are available through the media player entity:
 
 #### Mozart device controls
 
-Event entities are created for each of the physical controls on your device. These controls usually have their own behaviors, so using them for automations is not always ideal.
-
+Event entities are created for each of the available physical controls on your device. These controls usually have their own behaviors, so using them for automations is not always ideal.
 Available event entities:
 
 - Bluetooth (Not available on Beosound Premiere)
@@ -100,7 +99,13 @@ All of these event entities support the following event types:
 - Very long press
 - Release of very long press
 
-All devices except the [Beoconnect Core](https://www.bang-olufsen.com/en/dk/accessories/beoconnect-core) support device controls.
+##### Button variations
+
+Many devices have the same button layout, but not all of them. These are the differences:
+
+- The [Beoconnect Core](https://www.bang-olufsen.com/en/dk/accessories/beoconnect-core) does not support device controls.
+- The [Beosound A9 5th gen](https://www.bang-olufsen.com/en/dk/speakers/beosound-a9) and the [Beosound Premiere](https://www.bang-olufsen.com/en/dk/soundbars/beosound-premiere) do not have Bluetooth or Microphone buttons
+- The [Beosound A5](https://www.bang-olufsen.com/en/dk/speakers/beosound-a5) does not have a Microphone button
 
 #### Beoremote One
 
@@ -595,7 +600,16 @@ beolink:
 ## Diagnostics and troubleshooting
 
 The **Bang & Olufsen** integration supports [Home Assistant debug logs and diagnostics](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics).
-Where all received WebSocket events are provided through debug logs and the WebSocket connection state, config entry and media player state is provided through diagnostics.
+Where all received WebSocket events are provided through debug logs and the following is provided in the diagnostics:
+
+- Config entry
+- Mozart device
+  - WebSocket connection state
+  - Media player state
+  - Button Event states (if available)
+- Beoremote One remotes (if available)
+  - Key Event states (if available)
+  - Overall status
 
 ## Removing the integration
 

@@ -11,19 +11,19 @@ ha_domain: hikvision
 ha_platforms:
   - binary_sensor
 ha_integration_type: integration
-ha_quality_scale: legacy
+ha_quality_scale: bronze
+ha_config_flow: true
 ---
 
-The Hikvision Binary Sensor is a platform that parses the event stream of a
+The **Hikvision** {% term integration %} parses the event stream of a
 [Hikvision IP Camera or NVR](https://www.hikvision.com/) and presents the
 camera/nvr events to Home Assistant as binary sensors with either an "off" or
 "on" state.
 
 The platform will automatically add all sensors to Home Assistant that are
 configured within the camera/nvr interface to "Notify the surveillance center"
-as a trigger. If you would like to hide a sensor type you can do so by either
-unchecking "Notify the surveillance center" in the camera configuration or by
-using the "ignored" customize option detailed below.
+as a trigger. If you would like to hide a sensor type you can do so by
+unchecking "Notify the surveillance center" in the camera configuration.
 
 {% important %}
 In order for the sensors to work the hikvision user must have the 'Remote: Notify Surveillance Center/Trigger Alarm Output' permission which can be enabled from the user management section of the web interface. If authentication issues persist after permissions are verified, try accessing using an admin user. Certain devices will only authenticate with an admin account despite permissions being set correctly.
@@ -74,71 +74,7 @@ This platform also was confirmed to work with the following Hikvison-based NVRS
 - N46PCK (Annke H800 4K NVR)
 - N48PAW (Annke 4K NVR)
 
-## Configuration
-
-To enable this sensor,
-add the following lines are required in your {% term "`configuration.yaml`" %} file:
-
-```yaml
-binary_sensor:
-  - platform: hikvision
-    host: IP_ADDRESS
-    username: user
-    password: pass
-```
-
-{% configuration %}
-host:
-  description: The IP address of the camera you would like to connect to.
-  required: true
-  type: string
-username:
-  description: The username to authenticate with.
-  required: true
-  type: string
-password:
-  description: The password to authenticate with.
-  required: true
-  type: string
-name:
-  description: >
-    The name you would like to give the camera in Home Assistant,
-    defaults to name defined in the camera.
-  required: false
-  type: string
-port:
-  description: The port to connect to the camera on.
-  required: false
-  type: integer
-  default: 80
-ssl:
-  description: "`true` if you want to connect with HTTPS. Be sure to set the port also."
-  required: false
-  type: boolean
-  default: false
-customize:
-  description: >
-    This attribute contains sensor-specific override values.
-    Only sensor name needs defined:
-  required: false
-  type: map
-  keys:
-    ignored:
-      description: >
-        Ignore this sensor completely. It won't be shown in
-        the Web Interface and no events are generated for it.
-      required: false
-      type: boolean
-      default: false
-    delay:
-      description: >
-        Specify the delay to wait after a sensor event ends before notifying
-        Home Assistant in seconds. This is useful to catch multiple quick trips
-        in one window without the state toggling on and off.
-      required: false
-      type: integer
-      default: 5
-{% endconfiguration %}
+{% include integrations/config_flow.md %}
 
 ### Supported types
 
@@ -166,40 +102,8 @@ Supported sensor/event types are:
 - Exiting Region
 - Entering Region
 
-## Examples
+## Removing the integration
 
-Example of a configuration in your {% term "`configuration.yaml`" %}
-that utilizes the customize options for a camera:
+This integration follows standard integration removal.
 
-```yaml
-binary_sensor:
-  - platform: hikvision
-    host: 192.168.X.X
-    port: 80
-    ssl: false
-    username: user
-    password: pass
-    customize:
-      motion:
-        delay: 30
-      line_crossing:
-        ignored: true
-```
-
-Example of a configuration in your {% term "`configuration.yaml`" %}
-that utilizes the customize options for a nvr:
-
-```yaml
-binary_sensor:
-  - platform: hikvision
-    host: 192.168.X.X
-    port: 80
-    ssl: false
-    username: user
-    password: pass
-    customize:
-      motion_1:
-        delay: 30
-      field_detection_2:
-        ignored: true
-```
+{% include integrations/remove_device_service.md %}
