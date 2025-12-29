@@ -4,6 +4,7 @@ description: Instructions on how to integrate Rheem EcoNet water heaters into Ho
 ha_category:
   - Binary sensor
   - Climate
+  - Select
   - Sensor
   - Switch
   - Water heater
@@ -32,6 +33,7 @@ EcoNet devices may be represented by one or more platforms.
 
 - [Binary sensor](#binary-sensor)
 - [Climate](#climate)
+- [Select](#select)
 - [Sensor](#sensor)
 - [Switch](#switch)
 - [Water heater](#water-heater)
@@ -44,13 +46,17 @@ The EcoNet Binary sensor platform lets you view binary states of sensors associa
 
 The EcoNet Climate platform lets you control your EcoNet thermostat. Multi-zone HVAC systems will have 1 Climate entity per zone.
 
+### Select
+
+The EcoNet Select platform lets you control your EcoNet thermostat's fan operation mode for units that support both fan modes and fan speeds.
+
 ### Sensor
 
 The EcoNet Sensor platform lets you view sensors associated with your EcoNet thermostat or water heater. For example, alert count or available hot water.
 
 ### Switch
 
-The EcoNet Switch platform let's you control the EcoNet thermostat emergency heat.
+The EcoNet Switch platform lets you control the EcoNet thermostat emergency heat.
 
 ### Water heater
 
