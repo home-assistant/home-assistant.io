@@ -245,8 +245,9 @@ One thing we are incredibly proud of in Home Assistant is our [integration quali
 
 This release, we celebrate several {% term integrations %} that have improved their quality scale:
 
-- **1 integration reached platinum** 🏆
+- **2 integrations reached platinum** 🏆
   - [KNX], thanks to [@farmio]
+  - [UniFi Protect], thanks to [@RaHehl]
 
 - **3 integrations reached silver** 🥈
   - [Autarco], thanks to [@klaasnicolaas]
@@ -269,11 +270,13 @@ A big thank you to all the contributors involved! 👏
 [@johanzander]: https://github.com/johanzander
 [@klaasnicolaas]: https://github.com/klaasnicolaas
 [@MarkGodwin]: https://github.com/MarkGodwin
+[@RaHehl]: https://github.com/RaHehl
 [Autarco]: /integrations/autarco
 [Growatt Server]: /integrations/growatt_server
 [KNX]: /integrations/knx
 [SFR Box]: /integrations/sfr_box
 [TP-Link Omada]: /integrations/tplink_omada
+[UniFi Protect]: /integrations/unifiprotect
 [Watergate]: /integrations/watergate
 
 ### Now available to set up from the UI
@@ -366,6 +369,29 @@ The "Supports hairpinning" binary sensor has been removed from the Tailscale int
 [@CraigCallender]: https://github.com/CraigCallender
 [#156728]: https://github.com/home-assistant/core/pull/156728
 [tailscale docs]: /integrations/tailscale/
+
+{% enddetails %}
+
+{% details "UniFi Protect" %}
+
+Select entity state values have been changed from their original mixed-case format to snake_case format with proper translations. This improves consistency and enables proper localization support.
+
+Affected select entities include: chime type, recording mode, infrared mode, status light mode, HDR mode, doorbell text, LCD message, and others.
+
+Example changes:
+
+- Chime type: `Mechanical` → `mechanical`, `Digital` → `digital`
+- Recording mode: `Always` → `always`, `Detections` → `detections`, `Never` → `never`
+- Infrared mode: `Auto` → `auto`, `On` → `on`, `AutoNoLEDsOn` → `auto_no_leds_on`
+- Status light mode: `On` → `on`, `Off` → `off`, `OnWhenDark` → `on_when_dark`
+- HDR mode: `Auto` → `auto`, `On` → `on`, `Off` → `off`
+
+If you have automations, scripts, or templates that check or set the state of UniFi Protect select entities, you need to update them to use the new snake_case values. The UI will continue to display properly translated, human-readable text.
+
+([@RaHehl] - [#159284]) ([unifiprotect docs])
+
+[#159284]: https://github.com/home-assistant/core/pull/159284
+[unifiprotect docs]: /integrations/unifiprotect/
 
 {% enddetails %}
 
