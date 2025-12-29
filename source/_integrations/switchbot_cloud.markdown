@@ -79,6 +79,7 @@ Please note, device names configured in the SwitchBot app are transferred into H
 - [Light Strip (WoStrip)](https://www.switchbot.jp/products/switchbot-strip-light)
 - RGBICWW Floor Lamp
 - RGBICWW Strip Light
+- [Ceiling Light / Ceiling Light Pro](https://www.switchbot.jp/pages/switchbot-ceiling-light) (Japan only)
 
 ### Locks
 
@@ -281,6 +282,7 @@ Features:
 
 Features:
 - get motion detection state
+- get light level
 - get battery level
 
 #### Water Leak Detector
@@ -331,6 +333,13 @@ Features:
 - turn on or off
 - change brightness
 - change color
+
+#### Ceiling Light / Ceiling Light Pro
+
+Features:
+- turn on or off
+- change brightness
+- change color temperature
 
 ### Locks
 

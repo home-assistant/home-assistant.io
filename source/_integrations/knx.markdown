@@ -1823,6 +1823,10 @@ entity_category:
 
 The KNX scene platform allows you to activate KNX scenes and updates scene entities when the corresponding scene number is received on the KNX bus.
 
+Scene entities can be created from the frontend in the KNX panel or via YAML.
+
+{% details "Configuration of KNX scene entities via YAML" %}
+
 ```yaml
 # Example configuration.yaml entry
 knx:
@@ -1851,6 +1855,8 @@ entity_category:
   type: string
   default: None
 {% endconfiguration %}
+
+{% enddetails %}
 
 ## Select
 

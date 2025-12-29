@@ -102,6 +102,24 @@ This step is optional.
 In the next step of the configuration, you have the option to import a Velbus VLP configuration file. This is the configuration file that you can export from the VelbusLink software.
 This will eliminate the need for a scan of the bus and will create all devices and entities based on the configuration file.
 
+{% configuration_basic %}
+vlp:
+    description: "Path to the VLP file to import. If not provided, no VLP file will be imported and a bus scan will be performed."
+{% endconfiguration_basic %}
+
+If you don't have a VLP file or don't want to import it, you can skip this step, and the integration will perform a scan of the bus to discover the connected modules, but this is known to be less reliable than using a VLP file.
+
+## Re-configuring the integration
+
+You can re-configure the Velbus integration by following these steps:
+
+{% include integrations/option_flow.md %}
+
+{% configuration_basic %}
+vlp:
+    description: "Path to the VLP file to import during re-configuration. If not provided, no VLP file will be imported and a bus scan will be performed."
+{% endconfiguration_basic %}
+
 ## Actions
 - `velbus.sync clock`: Synchronize Velbus time to local clock.
 - `velbus.scan`: Scan the bus for new devices.
