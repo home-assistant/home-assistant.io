@@ -18,8 +18,8 @@ ha_quality_scale: bronze
 
 The **Hue BLE** {% term integration %} allows you to control your Philips Hue Bluetooth lights with Home Assistant.
 
-## Prerequisiteshttps://github.com/home-assistant/core/issues/158030#issuecomment-3638225935
-https://github.com/home-assistant/core/issues/158030#issuecomment-3638225935
+## Prerequisites
+
 Before trying to connect your light(s) to Home Assistant, you must put the light(s) into pairing mode, there are two ways to achieve this.
 
 ### Alexa/Google pairing mode
