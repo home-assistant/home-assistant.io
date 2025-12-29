@@ -271,9 +271,7 @@ To get peristaltic pump status data:
 
 This integration provides diagnostics to help with debugging and troubleshooting. The diagnostics output includes:
 
-- Basic config entry information
 - The device information reported by the coordinator with sensitive values redacted.
-- Runtime state from the coordinator including update interval, last successful update, and last exception (if any).
 - The most recent data fetched from the device by the coordinator.
 
 To collect diagnostics, go to **Settings** > **Devices & Services**, open the PoolDose integration,
