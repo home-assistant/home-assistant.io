@@ -21,7 +21,7 @@ Fish Audio is positioned as a leading voice cloning service. It features the adv
 ## Prerequisites
 
 - A [Fish Audio](https://fish.audio/?fpr=homeassistant) account is required.
-- You will need an API key, which you can create from your [Fish Audio API keys dashboard](https://fish.audio/app/api-keys/).
+- You will need an API key, which you can create from your [Fish Audio API keys dashboard](https://fish.audio/app/api-keys/?fpr=homeassistant).
 - Your Home Assistant instance must have internet access to reach the Fish Audio API.
 
 {% include integrations/config_flow.md %}
@@ -42,6 +42,8 @@ The process for adding a voice involves two steps:
 2. **Voice Configuration**: Based on your filter selection, you will then be presented with the following options on the next screen:
     - **Voice Selection**: Select a voice from the dropdown list of available voices. You can also enter a custom voice ID from the Fish Audio website.
     - **Default Model**: Choose a default backend model. `s1` is the latest and most advanced model. Both `s1` and `v1.6` models support [emotional markers](#using-with-large-language-models-llms).
+    - **Latency**: Choose between `normal` (better quality) or `balanced` (faster speed).
+    - **Name**: Set the name for the TTS entity that will be created.
 
 Each voice you add creates a new TTS entity.
 
@@ -59,6 +61,7 @@ Currently supported languages include:
 - Japanese
 - Korean
 - Spanish
+- **Any**: Selecting "Any" allows Fish Audio to automatically determine the spoken language based on the input text, enabling the cross-language accent behavior described above.
 
 ## Text-to-speech (TTS)
 
@@ -77,6 +80,7 @@ action:
       options:
         voice_id: "802e3bc2b27e49c2995d23ef70e6ac89"
         backend: "s1"
+        latency: "normal"
 ```
 
 ### Using in Assist Pipelines
@@ -120,4 +124,5 @@ The LLM might then generate a response like this:
 ## Troubleshooting
 
 - **No Private Voices Appear**: If you have enabled the "Private models only" option but your cloned voices do not appear, ensure that you have created them in your Fish Audio account. It may take a few minutes for new voices to become available via the API.
+- **TTS Entity Shows Up as Double Named**: If a TTS entity is named "Adam", it might show up as "Adam Adam" in the interface. This is a known issue and has been raised to Home Assistant.
   
