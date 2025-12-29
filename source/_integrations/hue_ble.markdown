@@ -42,7 +42,7 @@ This {% term integration %} is tested to work with the following models:
 
 | Model number | Product name                                     |
 |--------------|--------------------------------------------------|
-| LCA006       | Hue White and Color 1100                         |https://github.com/home-assistant/core/issues/158030#issuecomment-3638225935
+| LCA006       | Hue White and Color 1100                         |
 | LCA011       | Hue White and Color ambiance 1100                |
 | LWA031       | Hue White 1600                                   |
 | LTO002       | Hue White ambiance filament globe bulb           |
