@@ -16,7 +16,7 @@ ha_platforms:
   - sensor
 ha_config_flow: true
 ha_dhcp: true
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The **Nuki Bridge** {% term integration %} allows you to control [Nuki Smart Locks](https://nuki.io/en/smart-lock/) via a [Nuki Bridge](https://help.nuki.io/hc/en-001/sections/360004474718-Bridge). 

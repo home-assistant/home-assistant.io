@@ -19,7 +19,7 @@ ha_platforms:
   - media_player
   - remote
   - switch
-ha_integration_type: integration
+ha_integration_type: device
 ha_zeroconf: true
 ---
 

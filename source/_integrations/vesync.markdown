@@ -1,6 +1,6 @@
 ---
 title: VeSync
-description: Instructions on how to set up VeSync devices with Home Assistant. 
+description: Instructions on how to set up VeSync devices with Home Assistant.
 ha_category:
   - Fan
   - Light

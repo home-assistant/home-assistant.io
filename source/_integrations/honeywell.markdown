@@ -17,7 +17,7 @@ ha_platforms:
   - humidifier
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The **Honeywell Total Connect Comfort** {% term integration %} integrates Home Assistant with _US-based_ [Honeywell Total Connect Comfort (TCC)](https://mytotalconnectcomfort.com/portal/) climate systems.

@@ -11,6 +11,7 @@ ha_codeowners:
 ha_domain: openrgb
 ha_platforms:
   - light
+  - select
 ha_integration_type: hub
 ha_quality_scale: silver
 ---

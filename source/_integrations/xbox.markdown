@@ -20,7 +20,7 @@ ha_platforms:
   - media_player
   - remote
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
 ha_ssdp: true
 ha_dhcp: true
 ---

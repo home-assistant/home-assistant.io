@@ -2,7 +2,8 @@
 title: eGauge
 description: eGauge Energy Monitors
 ha_release: 2026.1
-ha_category: Energy
+ha_category:
+  - Energy
 ha_quality_scale: bronze
 ha_iot_class: Local Polling
 ha_codeowners:
@@ -12,6 +13,9 @@ ha_integration_type: device
 related:
   - url: https://www.egauge.net/
     title: eGauge Home
+ha_platforms:
+  - sensor
+ha_config_flow: true
 ---
 
 The **eGauge** {% term integration %} is used to integrate with [eGauge energy monitors](https://www.egauge.net). eGauge provides energy monitors for residential and commercial applications. They are commonly used with solar energy installations. The eGauge integration can expose sensor readings from eGauge devices into Home Assistant, including energy meters that work with the Energy Dashboard.

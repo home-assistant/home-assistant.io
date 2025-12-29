@@ -16,7 +16,7 @@ ha_platforms:
   - light
   - select
   - sensor
-ha_integration_type: integration
+ha_integration_type: device
 ha_dhcp: true
 ha_codeowners:
   - '@Djelibeybi'

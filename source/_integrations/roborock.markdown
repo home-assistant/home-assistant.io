@@ -29,7 +29,7 @@ ha_platforms:
   - switch
   - time
   - vacuum
-ha_integration_type: integration
+ha_integration_type: hub
 ha_quality_scale: silver
 ha_dhcp: true
 ---

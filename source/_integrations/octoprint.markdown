@@ -21,7 +21,7 @@ ha_platforms:
   - camera
   - number
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 [OctoPrint](https://octoprint.org/) is a web interface for your 3D printer. This is the main integration to integrate OctoPrint sensors.

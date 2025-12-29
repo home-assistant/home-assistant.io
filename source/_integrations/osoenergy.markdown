@@ -15,7 +15,7 @@ ha_platforms:
   - sensor
   - water_heater
 ha_config_flow: true
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The **OSO Energy** {% term integration %} for Home Assistant allows you to interact with supported devices and services offered by [OSO Energy](https://www.osoenergy.no)

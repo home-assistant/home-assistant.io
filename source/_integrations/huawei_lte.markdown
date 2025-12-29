@@ -27,7 +27,7 @@ ha_platforms:
   - select
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 The **Huawei LTE** router and modem {% term integration %} for Home Assistant allows you to observe and control [Huawei LTE devices](https://consumer.huawei.com/en/routers/).

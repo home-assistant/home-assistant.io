@@ -12,7 +12,7 @@ ha_domain: opower
 ha_config_flow: true
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ha_quality_scale: bronze
 ---
 

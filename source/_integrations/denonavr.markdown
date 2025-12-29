@@ -13,7 +13,7 @@ ha_config_flow: true
 ha_ssdp: true
 ha_platforms:
   - media_player
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 The **Denon AVR Network Receivers** {% term integration %} allows you to control [Denon Network Receivers](https://www.denon.com/category/heos) from Home Assistant. It might be that your device is supported by the [Denon] platform.

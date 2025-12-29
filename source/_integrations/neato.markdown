@@ -17,7 +17,7 @@ ha_platforms:
   - sensor
   - switch
   - vacuum
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The **Neato** {% term integration %} allows you to control your [Neato Botvac Connected Robots][botvac-connected].

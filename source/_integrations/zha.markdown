@@ -46,7 +46,7 @@ ha_platforms:
   - switch
   - update
 ha_zeroconf: true
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The **Zigbee Home Automation** (ZHA) {% term integration %} allows you to wirelessly connect many off-the-shelf [Zigbee-based devices](https://csa-iot.org/csa-iot_products/) directly to Home Assistant, using one of many compatible hardware adapters called _Zigbee coordinators_.

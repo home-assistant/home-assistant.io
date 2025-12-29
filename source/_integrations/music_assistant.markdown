@@ -14,7 +14,8 @@ ha_platforms:
   - button
   - media_player
 ha_zeroconf: true
-ha_integration_type: integration
+ha_integration_type: service
+ha_quality_scale: bronze
 ---
 
 The **Music Assistant** (MA) {% term integration %} allows you to connect Home Assistant to a [Music Assistant Server](https://music-assistant.io/). Once configured, all [MA Players](https://music-assistant.io/player-support/) show up as Home Assistant [media player entities](/integrations/media_player/).  Media players will allow you to control media playback and see the currently playing item.

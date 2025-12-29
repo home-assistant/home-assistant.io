@@ -9,7 +9,7 @@ ha_iot_class: Cloud Push
 ha_domain: pushover
 ha_platforms:
   - notify
-ha_integration_type: integration
+ha_integration_type: service
 ha_codeowners:
   - '@engrbm87'
 ---

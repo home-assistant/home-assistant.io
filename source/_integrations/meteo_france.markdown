@@ -15,7 +15,7 @@ ha_domain: meteo_france
 ha_platforms:
   - sensor
   - weather
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 The **Météo-France** {% term integration %} uses the meteorological data from [Météo-France](http://www.meteofrance.com/) to provide weather forecast for any location in the world with a focus on France. One or more locations can be set via the front end or via the configuration file.

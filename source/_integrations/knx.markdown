@@ -48,7 +48,7 @@ ha_platforms:
   - weather
 ha_config_flow: true
 ha_integration_type: hub
-ha_quality_scale: silver
+ha_quality_scale: platinum
 ---
 
 The [KNX](https://www.knx.org) {% term integration %} connects Home Assistant to your KNX installation, allowing you to control KNX devices, act on telegrams and forward state changes from other integrations entities to your KNX bus.

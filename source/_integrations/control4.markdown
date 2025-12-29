@@ -10,13 +10,14 @@ ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
   - '@lawtancool'
+  - '@davidrecordon'
 ha_domain: control4
 ha_ssdp: true
 ha_platforms:
   - climate
   - light
   - media_player
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The **Control4** {% term integration %} allows you to control and monitor lights, Room Media, and climate devices from your local Control4 system. Your Control4 controller must be running OS 3.0+.

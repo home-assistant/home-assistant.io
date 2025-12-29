@@ -13,7 +13,7 @@ ha_platforms:
 ha_codeowners:
   - '@timmo001'
   - '@ludeeus'
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 The **GitHub** {% term integration %} allows you to monitor your favorite [GitHub](https://github.com/) public repositories.

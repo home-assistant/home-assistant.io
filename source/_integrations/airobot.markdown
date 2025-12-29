@@ -9,10 +9,11 @@ ha_domain: airobot
 ha_integration_type: device
 ha_dhcp: true
 ha_config_flow: true
-ha_quality_scale: bronze
+ha_quality_scale: silver
 ha_category: []
 ha_platforms:
   - climate
+  - diagnostics
   - number
   - sensor
 ---

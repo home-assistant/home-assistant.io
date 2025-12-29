@@ -27,7 +27,7 @@ ha_platforms:
   - sensor
   - siren
   - switch
-ha_integration_type: integration
+ha_integration_type: hub
 ha_codeowners:
   - '@sdb9696'
 ha_quality_scale: bronze

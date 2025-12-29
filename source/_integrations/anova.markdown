@@ -9,7 +9,7 @@ ha_release: 2023.5
 ha_codeowners:
   - '@Lash-L'
 ha_domain: anova
-ha_integration_type: integration
+ha_integration_type: hub
 ha_platforms:
   - sensor
 ---

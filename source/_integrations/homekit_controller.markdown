@@ -41,7 +41,7 @@ ha_platforms:
   - select
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 The [HomeKit](https://developer.apple.com/apple-home/) Device {% term integration %} allows you to connect accessories with the "Works with HomeKit" logo to Home Assistant. This integration should not be confused with the [HomeKit Bridge](/integrations/homekit/) integration, which allows you to control Home Assistant devices via HomeKit.

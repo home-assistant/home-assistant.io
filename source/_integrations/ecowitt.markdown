@@ -15,7 +15,7 @@ ha_platforms:
   - binary_sensor
   - diagnostics
   - sensor
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 {% include integrations/config_flow.md %}

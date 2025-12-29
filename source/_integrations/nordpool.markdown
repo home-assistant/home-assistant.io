@@ -14,7 +14,7 @@ ha_domain: nordpool
 ha_platforms:
   - diagnostics
   - sensor
-ha_integration_type: hub
+ha_integration_type: service
 ha_quality_scale: platinum
 ---
 

@@ -17,7 +17,7 @@ ha_platforms:
   - sensor
   - switch
 ha_zeroconf: true
-ha_integration_type: integration
+ha_integration_type: device
 ha_quality_scale: platinum
 works_with:
   - local

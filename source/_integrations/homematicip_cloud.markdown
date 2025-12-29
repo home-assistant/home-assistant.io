@@ -31,7 +31,7 @@ ha_platforms:
   - switch
   - valve
   - weather
-ha_integration_type: integration
+ha_integration_type: hub
 ha_codeowners:
   - '@hahn-th'
 ---

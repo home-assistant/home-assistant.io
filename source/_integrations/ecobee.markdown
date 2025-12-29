@@ -25,7 +25,7 @@ ha_platforms:
   - weather
 ha_zeroconf: true
 ha_homekit: true
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The **ecobee** {% term integration %} lets you control and view sensor data from [ecobee](https://ecobee.com) thermostats.

@@ -17,7 +17,7 @@ ha_platforms:
   - binary_sensor
   - event
   - sensor
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 Integrates devices that use the Xiaomi Mijia BLE MiBeacon protocol and the BLE protocols implemented in the MiScales and the MiFora plant sensor. This integration does not support Xiaomi BLE Mesh devices. The integration listens to Bluetooth broadcasts that the device makes by itself, allowing it to track the latest sensor values or events without waking the device up for polling (except HHCCJCY01, see note below). This method conserves battery lifetime.

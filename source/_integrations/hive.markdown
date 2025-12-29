@@ -23,7 +23,7 @@ ha_platforms:
   - switch
   - water_heater
 ha_config_flow: true
-ha_integration_type: integration
+ha_integration_type: hub
 ha_homekit: true
 ---
 

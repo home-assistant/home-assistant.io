@@ -16,7 +16,7 @@ ha_ssdp: true
 ha_platforms:
   - remote
   - select
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 The **Logitech Harmony Hub** {% term integration %} allows you to control the state of your [Harmony Hub Device](https://support.myharmony.com/hub).

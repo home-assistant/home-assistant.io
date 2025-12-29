@@ -44,7 +44,7 @@ ha_platforms:
   - vacuum
   - valve
   - water_heater
-ha_integration_type: integration
+ha_integration_type: hub
 related:
   - docs: /integrations/thread/
     title: Thread

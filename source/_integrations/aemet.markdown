@@ -13,7 +13,7 @@ ha_platforms:
   - image
   - sensor
   - weather
-ha_integration_type: integration
+ha_integration_type: service
 ha_codeowners:
   - '@Noltari'
 ---

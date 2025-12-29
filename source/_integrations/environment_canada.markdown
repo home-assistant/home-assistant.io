@@ -17,7 +17,7 @@ ha_codeowners:
   - '@michaeldavie'
 ha_domain: environment_canada
 ha_config_flow: true
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 The **Environment Canada** {% term integration %} provides meteorological data for Canadian locations from [Environment and Climate Change Canada](https://weather.gc.ca/index_e.html).

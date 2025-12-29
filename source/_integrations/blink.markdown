@@ -12,7 +12,6 @@ ha_release: '0.40'
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@fronzbot'
-  - '@mkmer'
 ha_domain: blink
 ha_config_flow: true
 ha_platforms:
@@ -23,7 +22,7 @@ ha_platforms:
   - sensor
   - switch
 ha_dhcp: true
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The **Blink** {% term integration %}  lets you view camera images and motion events from [Blink](https://blinkforhome.com/) camera and security systems.

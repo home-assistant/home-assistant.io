@@ -11,7 +11,7 @@ ha_codeowners:
 ha_domain: dexcom
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 The **Dexcom** {% term integration %} allows you to view your CGM data from [Dexcom](https://www.dexcom.com/) in Home Assistant.
