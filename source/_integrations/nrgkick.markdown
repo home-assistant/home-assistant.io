@@ -13,19 +13,16 @@ ha_integration_type: device
 ha_config_flow: true
 ha_zeroconf: true
 ha_platforms:
-  - binary_sensor
-  - number
   - sensor
-  - switch
 related:
-  - url: https://www.nrgkick.com/en/
+  - url: https://www.nrgkick.com/
     title: NRGkick Website
 ---
 
 The **NRGkick** {% term integration %} allows you to monitor and control
 the NRGkick mobile EV charger (Wallbox) by DiniTech with Home Assistant.
 The wallbox is smart home friendly and allows detailed monitoring with
-80+ data points and flexible control of charging behavior.
+80+ data points.
 
 The integration connects directly to the device on your local network using the
 local REST JSON API. No cloud connection is required.
@@ -96,7 +93,8 @@ Scan interval:
 
 ## Supported functionality
 
-The integration provides entities to monitor and control charging.
+The integration provides entities to monitor charging.
+Charging control will be added in a later release.
 
 ### Monitoring
 
@@ -112,19 +110,9 @@ Some sensors are only available on NRGkick SIM models (cellular and GPS).
 These entities are disabled by default and can be enabled in the entity
 settings.
 
-The integration also provides binary sensors for common on/off states, such as
-whether charging is active.
-
 ### Controls
 
-The integration provides controls to adjust charging behavior:
-
-- **Charging current** (number): Set the current limit.
-- **Charge pause** (switch): Pause or resume charging.
-- **Energy limit** (number): Set an energy limit per session. A value of 0 means
-  unlimited.
-- **Phase count** (number): Set the number of phases, if supported by the
-  device and attachment.
+Support for charging control will be added in a later release.
 
 ### Key entities
 
@@ -134,66 +122,6 @@ assume the default device name of `NRGkick`.
 - `sensor.nrgkick_charging_current`: Charging current.
 - `sensor.nrgkick_charged_energy`: Charged energy.
 - `sensor.nrgkick_status`: Charging status.
-- `binary_sensor.nrgkick_charging`: On when charging is active.
-- `switch.nrgkick_charge_pause`: Pause or resume charging.
-- `number.nrgkick_current_set`: Charging charging current.
-- `number.nrgkick_energy_limit`: Energy limit for a session (0 means unlimited).
-
-## Examples
-
-### Pause charging during peak hours
-
-This {% term automation %} pauses charging at 5 PM and resumes at 10 PM.
-
-```yaml
-automation:
-  - alias: "NRGkick - Pause charging during peak hours"
-    triggers:
-      - trigger: time
-        at: "17:00:00"
-    actions:
-      - action: switch.turn_on
-        target:
-          entity_id: switch.nrgkick_charge_pause
-
-  - alias: "NRGkick - Resume charging after peak hours"
-    triggers:
-      - trigger: time
-        at: "22:00:00"
-    actions:
-      - action: switch.turn_off
-        target:
-          entity_id: switch.nrgkick_charge_pause
-```
-
-### Start charging when solar production is sufficient
-
-This example starts charging when your solar production exceeds 3 kW.
-
-```yaml
-automation:
-  - alias: "NRGkick - Start solar charging"
-    triggers:
-      - trigger: numeric_state
-        entity_id: sensor.solar_power
-        above: 3000
-    conditions:
-      - condition: state
-        entity_id: binary_sensor.nrgkick_charging
-        state: off
-      - condition: state
-        entity_id: switch.nrgkick_charge_pause
-        state: on
-    actions:
-      - action: switch.turn_off
-        target:
-          entity_id: switch.nrgkick_charge_pause
-      - action: number.set_value
-        target:
-          entity_id: number.nrgkick_current_set
-        data:
-          value: 16
-```
 
 ## Data updates
 
@@ -204,6 +132,7 @@ The integration polls the device for updates.
 
 ## Known limitations
 
+- Charging control is not yet supported and will be added in a later release.
 - Per-phase values for L2 and L3 are only available when the power source and
   session are using multiple phases.
 - Some temperature sensors depend on the connected attachment and may not be
