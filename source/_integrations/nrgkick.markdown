@@ -72,7 +72,7 @@ password during setup.
 
 {% configuration_basic %}
 Host:
-  description: >
+  description: |
     The hostname or IP address of your NRGkick device, for example,
     `nrgkick.local` or `192.0.2.10`.
 Username:
@@ -85,7 +85,7 @@ Password:
 
 {% configuration_basic %}
 Scan interval:
-  description: >
+  description: |
     How often Home Assistant polls the device for updates.
     The default is 30 seconds.
     The allowed range is 10 to 300 seconds.
