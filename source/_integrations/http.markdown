@@ -153,8 +153,15 @@ After making changes, restart Home Assistant to apply them.
 
 ### IP whitelist
 
-You can create an `ip_whitelist.yaml` file in the root configuration folder to specify IP addresses that should never be banned, even after multiple failed login attempts. Whitelisted IPs bypass all ban checks.
+You can create an `ip_whitelist.yaml` file in the root configuration folder to specify IP addresses that are exempt from automatic IP bans. Whitelisted IPs will never be banned, regardless of the number of failed login attempts from those addresses, but they still need valid authentication to sign in.
 
+{% important %}
+IP addresses in the whitelist completely bypass all ban and brute-force
+protection checks. If a whitelisted device or network is compromised, an
+attacker can try unlimited logins from that IP without being blocked. Only
+add stable, trusted IP addresses that you control, and avoid whitelisting
+dynamic, shared, or public IPs.
+{% endimportant %}
 The whitelist file supports two formats:
 
 **List format:**
