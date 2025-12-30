@@ -36,7 +36,7 @@ The NRGkick is available in different variants, including the 16A and 32A
 models, as well as models with cellular (SIM) and GPS capabilities. All are
 compatible with this integration.
 
-The NRGkick 16A light model needs the "NRGkick App incl. Bluetooth/Wi-FI
+The NRGkick 16A light model needs the "NRGkick App incl. Bluetooth/Wi-Fi
 connectivity" as one-time upgrade to use the local API.
 {% endnote %}
 
