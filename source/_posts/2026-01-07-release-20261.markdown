@@ -189,7 +189,7 @@ It is not just new {% term integrations %} that have been added; existing ones a
 - The [Ping] integration now tracks packet loss, thanks to [@mib1185]. The new sensor shows packet loss as a percentage and is disabled by default.
 - [@Shulyaka] added support for GPT-5.2 and GPT-5.2-pro models to the [OpenAI] integration, including a new "xhigh" reasoning effort level.
 - The [HomeWizard] integration gained two new battery charge modes from [@DCSBL]: zero charge only and zero discharge only, giving you more control over your energy storage.
-- [@farmio] expanded the [KNX] UI configuration to support time, date, and datetime entities, as well as sensor entities, making it easier than ever to set up your KNX installation.
+- [@Abestanis] expanded the [KNX] UI configuration to support time, date, and datetime entities, while [@farmio] added sensor, scene, text, and fan entities, making it easier than ever to set up your KNX installation.
 - The [Squeezebox] integration now offers alarm monitoring, thanks to [@wollew]: you get binary sensors to track if an alarm is upcoming, active, or snoozed, plus a timestamp sensor showing when the next alarm is scheduled.
 - [@andrew-codechimp] added support for new meal plan types in [Mealie] 3.7, including dessert, drink, and snack plans, giving you more flexibility in your meal planning.
 - The [Hikvision] integration gained NVR support from [@ptarjan], including extended event detection and automatic discovery of video channels.
@@ -203,6 +203,7 @@ It is not just new {% term integrations %} that have been added; existing ones a
 
 A huge thank you to all the contributors who improved these integrations, and to everyone else who contributed improvements that aren't listed here. Your work makes Home Assistant better for everyone! ❤️
 
+[@Abestanis]: https://github.com/Abestanis
 [@andrew-codechimp]: https://github.com/andrew-codechimp
 [@antondalgren]: https://github.com/antondalgren
 [@DCSBL]: https://github.com/DCSBL
