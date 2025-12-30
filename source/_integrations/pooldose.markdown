@@ -275,5 +275,4 @@ This integration provides diagnostics to help with debugging and troubleshooting
 - The most recent data fetched from the device by the coordinator.
 
 To collect diagnostics, go to **Settings** > **Devices & Services**, open the PoolDose integration,
-click the three-dot menu on the integration entry and choose **Download diagnostics**. Attach the downloaded file when
-reporting issues to help maintainers investigate.
+click the three-dot menu on the integration entry and choose **Download diagnostics**. Attach the downloaded file when reporting issues to help maintainers investigate.
