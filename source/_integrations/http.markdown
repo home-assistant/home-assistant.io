@@ -151,6 +151,28 @@ To clear an IP ban, you can either:
 
 After making changes, restart Home Assistant to apply them.
 
+### IP whitelist
+
+You can create an `ip_whitelist.yaml` file in the root configuration folder to specify IP addresses that should never be banned, even after multiple failed login attempts. Whitelisted IPs bypass all ban checks.
+
+The whitelist file supports two formats:
+
+**List format:**
+```yaml
+- 192.168.1.100
+- 10.0.0.50
+- "2001:db8::1"
+```
+
+**Dict format:**
+```yaml
+192.168.1.100: {}
+10.0.0.50: {}
+"2001:db8::1": {}
+```
+
+Both IPv4 and IPv6 addresses are supported. After creating or modifying the whitelist file, restart Home Assistant to apply the changes.
+
 ## Hosting files
 
 If you want to use Home Assistant to host or serve static files then create a directory called `www` under the configuration path (`/config`). The static files in `www/` can be accessed by the following URL `http://your.domain:8123/local/`, for example `audio.mp3` would be accessed as `http://your.domain:8123/local/audio.mp3`.
