@@ -345,7 +345,7 @@ Shelly device relays are added to Home Assistant by default as `switch` entities
 
 ## Consumption type (generation 2+)
 
-Shelly device relays are added to Home Assistant by default as `switch` entities. A relay can be added as a `light` entity if **Consumption Type** value in the Shelly WebUI of the device is set to `light`.  
+Shelly device relays are added to Home Assistant by default as `switch` entities. A relay can be added as a `light` entity if **Consumption type** value in the Shelly WebUI of the device is set to `light`.  
 **Home** >> **Switches and attached inputs** >> **Consumption type** (Output settings)
 
 ## Light transition
