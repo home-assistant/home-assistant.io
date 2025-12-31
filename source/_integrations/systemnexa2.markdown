@@ -39,6 +39,11 @@ The following devices are known to be supported by the integration:
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+Host:
+    description: "The IP Address/hostname of your device. You can find it in your **Nexa Hem** app by selecting your device > **Network** > **IP**."
+{% endconfiguration_basic %}
+
 ## Supported functionality
 
 ### Switches
