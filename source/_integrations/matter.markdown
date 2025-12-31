@@ -214,7 +214,7 @@ While trying to add the Matter device, I get an error stating that _Matter is cu
 
 #### Remedy
 
-This could mean that not all required Matter modules that are needed by the Home Assistant Companion App have been downloaded yet. Try the following steps:
+This could mean that not all required Matter modules that are needed by the Home Assistant Companion App haven't been downloaded yet. Try the following steps:
 
 1. Wait up to 24 hours for the Google Play Services to download the necessary Matter modules.
 2. Make sure the requirements listed in the [prerequisites](#prerequisites) are met. This includes meeting the minimum system requirements:
