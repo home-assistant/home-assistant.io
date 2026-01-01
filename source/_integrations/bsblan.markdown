@@ -77,6 +77,49 @@ Sets the hot water heating schedule for your BSB-Lan device. Each day of the wee
 
 Time slots are defined using time pickers for easy configuration without manual formatting. You only need to specify the days you want to configure.
 
+### Action `bsblan.sync_time`
+
+Synchronizes the time on your BSB-Lan device with Home Assistant's system time. This action compares the device time with Home Assistant's time and only updates the device if there is a difference, helping maintain accurate timestamps for your heating system logs and schedules.
+
+{% configuration_basic %}
+Target:
+  description: Select the BSB-Lan device to sync. If no device is selected, all BSB-Lan devices will be synchronized.
+{% endconfiguration_basic %}
+
+**Action data attributes:**
+
+| Data attribute | Optional | Description |
+| -------------- | -------- | ----------- |
+| `device_id` | yes | The device ID of a specific BSB-Lan device. If provided, only that device will be synced. |
+
+**Examples:**
+
+Sync time for all BSB-Lan devices:
+
+```yaml
+action: bsblan.sync_time
+```
+
+Sync time for a specific device:
+
+```yaml
+action: bsblan.sync_time
+target:
+  device_id: "your_device_id"
+```
+
+Use in an automation to sync time daily:
+
+```yaml
+automation:
+  - alias: "Sync BSB-Lan time daily"
+    triggers:
+      - trigger: time
+        at: "03:00:00"
+    actions:
+      - action: bsblan.sync_time
+```
+
 ## Examples
 
 The following examples show how to use the BSB-Lan integration actions in Home Assistant automations.
@@ -227,49 +270,3 @@ To see a more detailed listing of the reported systems which are successfully us
 The integration is tested with the stable firmware version `5.0.16-20250525002819`. A newer firmware version may not work because the API could have changed.
 For autodiscovery, use the latest release. [release 5.0](https://github.com/fredlcore/BSB-LAN/releases/tag/v5.0)
 
-## Actions
-
-The **BSB-Lan** integration provides actions to control and manage your BSB-Lan devices.
-
-### Action `bsblan.sync_time`
-
-Synchronizes the time on your BSB-Lan device with Home Assistant's system time. This action compares the device time with Home Assistant's time and only updates the device if there is a difference, helping maintain accurate timestamps for your heating system logs and schedules.
-
-{% configuration_basic %}
-Target:
-  description: Select the BSB-Lan device to sync. If no device is selected, all BSB-Lan devices will be synchronized.
-{% endconfiguration_basic %}
-
-**Action data attributes:**
-
-| Data attribute | Optional | Description |
-| -------------- | -------- | ----------- |
-| `config_entry_id` | yes | The configuration entry ID of a specific BSB-Lan device. If not provided, time will be synced for all devices. |
-
-**Examples:**
-
-Sync time for all BSB-Lan devices:
-
-```yaml
-action: bsblan.sync_time
-```
-
-Sync time for a specific device:
-
-```yaml
-action: bsblan.sync_time
-data:
-  config_entry_id: "your_config_entry_id"
-```
-
-Use in an automation to sync time daily:
-
-```yaml
-automation:
-  - alias: "Sync BSB-Lan time daily"
-    triggers:
-      - trigger: time
-        at: "03:00:00"
-    actions:
-      - action: bsblan.sync_time
-```
