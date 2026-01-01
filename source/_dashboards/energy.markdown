@@ -91,6 +91,64 @@ The water consumption graph card shows the amount of water consumed per source.
 type: energy-water-graph
 ```
 
+## Water Sankey graph
+
+<p class='img'>
+  <img src='/images/dashboards/energy/water-sankey.png' alt='Screenshot of the water Sankey graph card'>
+  Screenshot of the water sankey graph card.
+</p>
+
+The water Sankey graph shows the flow of water consumption in your home. It visualizes how water flows from sources to the various consumers. Devices are grouped into floors and areas if these are configured.
+
+This card displays historical water data based on the selected date range from the energy date picker.
+
+### YAML configuration
+
+The following YAML options are available:
+
+{% configuration %}
+type:
+  required: true
+  description: "`water-sankey`"
+  type: string
+collection_key:
+  required: false
+  description: "Collection key to use for the card. This links the card to a specific energy dashboard collection."
+  type: string
+title:
+  required: false
+  description: The title of the card.
+  type: string
+layout:
+  required: false
+  description: "`vertical`, `horizontal` or `auto`. Determines the orientation (flow direction) of the card. `auto` changes it based on the screen size."
+  type: string
+  default: auto
+group_by_area:
+  required: false
+  description: Whether to group the devices by area
+  type: boolean
+  default: true
+group_by_floor:
+  required: false
+  description: Whether to group the devices by floor
+  type: boolean
+  default: true
+{% endconfiguration %}
+
+### Examples
+
+```yaml
+type: water-sankey
+```
+
+The following example orients the flow from left to right:
+
+```yaml
+type: water-sankey
+layout: horizontal
+```
+
 ## Energy distribution
 
 <p class='img'>
@@ -121,10 +179,28 @@ link_dashboard: true
 The energy sources table card shows all your energy sources, and the corresponding amount of energy.
 If setup, it will also show the costs and compensation per source and the total.
 
+### YAML configuration
+
+The following YAML options are available
+
+{% configuration %}
+type:
+  required: true
+  description: "`energy-sources-table`"
+  type: string
+types:
+  required: false
+  description: "If defined, table displays listed types of consumption only. Valid values are: `grid`, `solar`, `battery`, `gas`, and `water`."
+  type: list
+{% endconfiguration %}
+
 ### Example
 
 ```yaml
 type: energy-sources-table
+types:
+  - gas
+  - water
 ```
 
 ## Grid neutrality gauge
@@ -196,7 +272,29 @@ type: energy-self-sufficiency-gauge
 
 The devices energy graph show the energy usage per device, it is sorted by usage.
 
-By default, this card will show all your devices. Optionally, the number of devices can be limited by adding the `max_devices` option and specifying the maximum number of devices to show. If there are more devices available than shown, the devices with the highest energy usage are shown.
+### YAML configuration
+
+The following YAML options are available
+
+{% configuration %}
+type:
+  required: true
+  description: "`energy-devices-graph`"
+  type: string
+title:
+  required: false
+  description: The title of the card.
+  type: string
+max_devices:
+  required: false
+  description: By default, this card will show all your devices. Optionally, the number of devices can be limited by adding the `max_devices` option and specifying the maximum number of devices to show. If there are more devices available than shown, the devices with the highest energy usage are shown.
+  type: integer
+hide_compound_stats:
+  required: false
+  description: Hide higher level devices like breakers. These are devices that are set as `included_in_stat` of another device.
+  type: boolean
+  default: false
+{% endconfiguration %}
 
 ### Examples
 
@@ -287,13 +385,113 @@ type: energy-sankey
 layout: vertical
 ```
 
-## Using Multiple Collections
+## Power Sankey graph to visualize power flow
+
+<p class='img'>
+  <img src='/images/dashboards/energy/sankey.png' alt='Screenshot of the Sankey graph card to visualize power'>
+  Screenshot of the power Sankey graph card.
+</p>
+
+The power Sankey graph shows the real-time flow of power in your home. Unlike the energy Sankey card, which shows historical energy data based on the selected date range, this card displays current power values and is not affected by the date picker selection.
+
+It visualizes the instantaneous power flow from sources (like the grid, solar panels, and battery) to consumers in your home. Devices are grouped into floors and areas if these are configured.
+
+### YAML configuration
+
+The following YAML options are available
+
+{% configuration %}
+type:
+  required: true
+  description: "`power-sankey`"
+  type: string
+collection_key:
+  required: false
+  description: "Collection key to use for the card. This links the card to a specific energy dashboard collection. Defaults to `energy_dashboard`."
+  type: string
+  default: energy_dashboard
+title:
+  required: false
+  description: The title of the card.
+  type: string
+layout:
+  required: false
+  description: "`vertical`, `horizontal` or `auto`. Determines the orientation (flow direction) of the card. `auto` changes it based on the screen size."
+  type: string
+  default: auto
+group_by_area:
+  required: false
+  description: Whether to group the devices by area
+  type: boolean
+  default: true
+group_by_floor:
+  required: false
+  description: Whether to group the devices by floor
+  type: boolean
+  default: true
+{% endconfiguration %}
+
+### Examples
+
+```yaml
+type: power-sankey
+```
+
+The following example orients the flow from left to right:
+
+```yaml
+type: power-sankey
+layout: horizontal
+```
+
+## Power sources graph
+
+<p class='img'>
+  <img src='/images/dashboards/energy/power-sources.png' alt='Screenshot of the Sankey sources graph card'>
+  Screenshot of the power Sankey graph card.
+</p>
+
+The power sources graph shows historical power data.
+
+### YAML configuration
+
+The following YAML options are available
+
+{% configuration %}
+type:
+  required: true
+  description: "`power-sources-graph`"
+  type: string
+collection_key:
+  required: false
+  description: "Collection key to use for the card. This links the card to a specific energy dashboard collection. Defaults to `energy_dashboard`."
+  type: string
+  default: energy_dashboard
+title:
+  required: false
+  description: The title of the card.
+  type: string
+show_legend:
+  required: false
+  description: Show or hide the legend
+  type: boolean
+  default: true
+{% endconfiguration %}
+
+### Examples
+
+```yaml
+type: power-sources-graph
+```
+
+## Using multiple collections
 
 By default, all energy cards are linked to any `energy-date-selection` card on the view, and all `energy-date-selection` cards are linked to the same period. To enable multiple different date selections on the same view, it is necessary to link them to different collections. This is done by adding the variable `collection_key` to the card YAML, and giving this a value of any custom string that begins with `energy_`. (strings that do not start with `energy_` will generate an error).
 
 All energy cards support use of `collection_key` option.
 
 ### Examples
+
 Example view with multiple collections:
 
 ```yaml

@@ -12,7 +12,7 @@ ha_integration_type: integration
 ha_quality_scale: legacy
 ---
 
-The `transport_nsw` sensor will give you the time until the next departure from a Transport NSW stop for bus, train, light rail or ferry.
+The **Transport NSW** {% term integration %} will give you the time until the next departure from a Transport NSW stop for bus, train, light rail or ferry.
 
 ## Setup
 

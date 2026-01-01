@@ -15,7 +15,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `hvv_departures` sensor will display the departures of buses, trains and ferries in Hamburg.
+The **HVV Departures** {% term integration %} will display the departures of buses, trains and ferries in Hamburg.
 
 {% include integrations/config_flow.md %}
 

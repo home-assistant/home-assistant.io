@@ -26,7 +26,11 @@ ha_integration_type: integration
 ha_quality_scale: bronze
 ---
 
-The `sonos` integration allows you to control your [Sonos](https://www.sonos.com) wireless speakers from Home Assistant. It also works with IKEA Symfonisk speakers.
+The **Sonos** {% term integration %} allows you to control your [Sonos](https://www.sonos.com) wireless speakers from Home Assistant. It also works with IKEA Symfonisk speakers.
+
+## Prerequisites
+
+UPnP must be enabled on your Sonos system for this integration to work. In the Sonos app, go to **Account** > **Privacy and Security** > **UPnP** and enable the setting.
 
 {% include integrations/config_flow.md %}
 
@@ -482,3 +486,28 @@ sonos:
 This integration follows the standard integration removal process; no extra steps are required.
 
 {% include integrations/remove_device_service.md %}
+
+## Troubleshooting
+
+### 403 error when setting up the integration
+
+#### Symptom
+
+When setting up the integration you see the following error:
+
+```txt
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: http://192.168.1.1:1400/DeviceProperties/Control
+```
+
+#### Description
+
+This error means UPnP is not properly enabled on your Sonos system. The integration requires UPnP to communicate with your Sonos devices.
+
+#### Resolution
+
+To fix this issue, enable UPnP on your Sonos system:
+
+1. Open the Sonos app on your phone or tablet.
+2. Go to **Account** > **Privacy and Security** > **UPnP**.
+3. Enable the **UPnP** setting.
+4. Try setting up the integration again.

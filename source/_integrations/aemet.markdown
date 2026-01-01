@@ -18,7 +18,7 @@ ha_codeowners:
   - '@Noltari'
 ---
 
-The AEMET weather platform uses [AEMET OpenData](https://opendata.aemet.es/) as a source for current meteorological data for your location. AEMET stands for "Agencia Estatal de Meteorología", which is the Spanish Meteorological Agency.
+The **AEMET** {% term integration %} uses [AEMET OpenData](https://opendata.aemet.es/) as a source for current meteorological data for your location. AEMET stands for "Agencia Estatal de Meteorología", which is the Spanish Meteorological Agency.
 
 There is currently support for the following entity types within Home Assistant:
 

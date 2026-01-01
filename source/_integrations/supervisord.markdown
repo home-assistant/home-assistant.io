@@ -15,7 +15,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `supervisord` {% term integration %} allows you to track the states of [Supervisord](http://supervisord.org/).
+The **Supervisord** {% term integration %} allows you to track the states of [Supervisord](http://supervisord.org/).
 
 It required that you enable the HTTP feature in the `/etc/supervisord.conf` configuration file.
 

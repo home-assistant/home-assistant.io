@@ -15,7 +15,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `garadget` cover {% term integration %} lets you control [Garadget](https://www.garadget.com/) garage door futurizers through Home Assistant.
+The **Garadget** {% term integration %} lets you control [Garadget](https://www.garadget.com/) garage door futurizers through Home Assistant.
 
 ## Configuration
 
@@ -115,7 +115,7 @@ customize:
 
 {% endraw %}
 
-Some of the Garadget sensors can create a lot of clutter in the logbook.  Use this section of code in your{% term "`configuration.yaml`" %} to exclude those entries.
+Some of the Garadget sensors can create a lot of clutter in the **Activity** section. Use this section of code in your{% term "`configuration.yaml`" %} to exclude those entries.
 
 ```yaml
 logbook:

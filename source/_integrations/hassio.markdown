@@ -23,7 +23,7 @@ ha_codeowners:
 ha_integration_type: integration
 ---
 
-Supervisor integration allows you to monitor and control Supervisor add-ons and operating system from Home Assistant.
+The **Home Assistant Supervisor** {% term integration %} allows you to monitor and control Supervisor add-ons and operating system from Home Assistant.
 This integration is already installed if you run {% term "Home Assistant Operating System" %}. Please note that this integration
 cannot be installed on {% term "Home Assistant Container" %}.
 
@@ -79,6 +79,12 @@ For each installed add-on Supervisor provides following binary sensors:
 | ------- | ------------------ | ----------- |
 | Update Available | no | Whether there is an update available for this add-on (This is deprecated, use the Update entities instead.)
 | Running | no | Whether the add-on is running or not.
+
+For each network storage Supervisor provides following binary sensors:
+
+| Sensor | Enabled by default | Description |
+| ------- | ------------------ | ----------- |
+| Connected | no | Whether the network storage is connected and working properly.
 
 For Home Assistant OS Supervisor provides following binary sensors:
 

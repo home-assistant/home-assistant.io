@@ -22,7 +22,7 @@ ha_platforms:
   - sensor
   - switch
   - time
-ha_quality_scale: bronze
+ha_quality_scale: silver
 ---
 
 The **LetPot** {% term integration %} allows you to integrate your [LetPot](https://letpot.com/) hydroponic gardens/systems into Home Assistant.

@@ -20,6 +20,7 @@ ha_platforms:
   - device_tracker
   - diagnostics
   - image
+  - light
   - sensor
   - switch
   - update
@@ -64,6 +65,7 @@ There is currently support for the following device types within Home Assistant:
 
 - [Button](#button)
 - [Image](#image)
+- [Light](#light)
 - [Presence detection](#presence-detection)
 - [Actions](#actions)
 - [Switch](#switch)
@@ -175,6 +177,10 @@ Entities appear for each Zone-Based Firewall Policy. The switches can be identif
 
 Get entities reporting receiving and transmitting bandwidth per network client. These sensors are disabled by default. To enable the bandwidth sensors, on the UniFi integration page, select **Configure**, go to page 3/3 and enable the bandwidth sensors.
 
+### Wired client link speed sensor
+
+Get entities reporting the link speed for wired network clients. This sensor shows the connection speed in megabits per second (Mbit/s) between the wired client and the network switch or gateway. These sensors are disabled by default and are only available for wired clients with an active connection.
+
 ### Wlan clients sensor
 
 Entities reporting connected clients to a WLAN.
@@ -206,6 +212,18 @@ Get entities reporting the current memory utilization of a UniFi Network device.
 ### Port Bandwidth sensor
 
 Get entities reporting receiving and transmitting bandwidth per port. These sensors are disabled by default. To enable the bandwidth sensors, on the UniFi integration page, select **Configure**, go to page 3/3 and enable the bandwidth sensors.
+
+## Light
+
+The Light entities will only be available for UniFi access points that support LED ring customization. Not all access points have this capability.
+
+### LED control
+
+Provides control over the LED ring on compatible UniFi access points. Entities appear automatically for devices that support LED customization. The LED state, brightness, and color can be controlled. This feature requires admin privileges.
+
+{% note %}
+Changes may take over 5 seconds to apply as the device must adopt a new configuration. The UI updates optimistically.
+{% endnote %}
 
 ## Firmware updates
 

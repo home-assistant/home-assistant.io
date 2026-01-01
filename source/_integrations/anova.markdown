@@ -14,7 +14,7 @@ ha_platforms:
   - sensor
 ---
 
-The Anova sensor platform allows you to control [Anova](https://anovaculinary.com/pages/find-your-anova-precision-cooker) sous vides with Wi-Fi capability.
+The **Anova** {% term integration %} allows you to control [Anova](https://anovaculinary.com/pages/find-your-anova-precision-cooker) sous vides with Wi-Fi capability.
 
 Supported devices (tested):
 - AN500-10 (Anova Precision Cooker)

@@ -30,6 +30,11 @@
     Actions are used in several places in Home Assistant. As part of a script or
     automation, actions define what is going to happen once a trigger is
     activated. In scripts, an action is called *sequence*.
+- term: Actor
+  definition: |-
+    An entity that receives a control signal and performs an action in a system.
+  aliases:
+    - actors
 - term: Add-on
   definition: >-
     Add-ons are additional standalone third-party software packages that can be
@@ -296,8 +301,9 @@
     - groups
 - term: HASS
   definition: >-
-    HASS or [hass](/docs/tools/hass/) is often used as an abbreviation for Home
-    Assistant. It is also the command-line tool.
+    HASS is an abbreviation for Home Assistant that was commonly used in the past.
+    This abbreviation is no longer actively used. It is recommended to use the full
+    name "Home Assistant" instead of abbreviations.
 - term: HassOS
   definition: >-
     Another name for Home Assistant Operating System
@@ -597,7 +603,7 @@
     uses its radio frequency (RF) radio to communicate with the Thread mesh
     network. In case of Matter, the data that is forwarded is encrypted.
     Examples of Thread border routers are the Nest Hub (2nd gen), the HomePod
-    mini, and the Home Assistant Connect&nbsp;ZBT-1 together with the OpenThread Border
+    mini, and the Home Assistant Connect&nbsp;ZBT-2 together with the OpenThread Border
     Router add-on.
   link: /integrations/thread/#about-thread-border-routers
   aliases:

@@ -21,7 +21,7 @@ ha_platforms:
 ha_ssdp: true
 ---
 
-The Imeon Energy Inverter {% term integrations %} will poll an [Imeon](https://imeon-energy.com/) solar inverter in Home Assistant.
+The **Imeon Inverter** {% term integration %} will poll an [Imeon](https://imeon-energy.com/) solar inverter in Home Assistant.
 
 ## Prerequisites
 
@@ -154,6 +154,13 @@ This document provides an overview of the sensors available in the Imeon Inverte
 | `energy_building_consumption` | Energy building consumption today.  | Wh   |
 | `energy_battery_stored`       | Energy stored in battery today.     | Wh   |
 | `energy_battery_consumed`     | Energy consumed from battery today. | Wh   |
+
+### Forecast
+
+| Sensor key                      | Description                                             | Unit |
+| ------------------------------- | ------------------------------------------------------- | ---- |
+| `forecast_cons_remaining_today` | Forecast of the remaining energy consumption for today. | Wh   |
+| `forecast_prod_remaining_today` | Forecast of the remaining energy production for today.  | Wh   |
 
 ## Troubleshooting
 

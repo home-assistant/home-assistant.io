@@ -13,10 +13,10 @@ ha_platforms:
   - diagnostics
   - sensor
 ha_integration_type: integration
-ha_quality_scale: silver
+ha_quality_scale: platinum
 ---
 
-IMGW-PIB {% term integration %} uses hydrological data from [Institute of Meteorology and Water Management - National Research Institute](https://hydro.imgw.pl) to present information about rivers and water reservoirs in Poland.
+The **IMGW-PIB** {% term integration %} uses hydrological data from [Institute of Meteorology and Water Management - National Research Institute](https://hydro.imgw.pl) to present information about rivers and water reservoirs in Poland.
 
 {% include integrations/config_flow.md %}
 
