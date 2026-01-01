@@ -337,7 +337,7 @@ Documentation on the MQTT components that support MQTT discovery [can be found h
 
 MQTT discovery supports two types of discovery messages:
 
-- [Device-based discovery](/integrations/mqtt/#device-based-discovery-payload), which allows you to include several components in a single discovery message
+- [Device discovery](/integrations/mqtt/#device-discovery-payload), which allows you to include several components in a single discovery message
 - [Single component discovery](/integrations/mqtt/#single-component-discovery-payload), where you publish a separate discovery message for each component
 
 If you use a device with multiple components, it is recommended to use MQTT device discovery. It reduces the number of messages sent, and allows you to send the device information only once.
@@ -351,7 +351,7 @@ The discovery topic needs to follow a specific format:
 ```
 
 - `<discovery_prefix>`: The Discovery Prefix defaults to `homeassistant` and this prefix can be [changed](#discovery-options).
-- `<component>`: One of the supported MQTT integrations, e.g., `binary_sensor`, or `device` in case of a device-based discovery.
+- `<component>`: One of the supported MQTT integrations, e.g., `binary_sensor`, or `device` in case of device discovery.
 - `<node_id>`: (*Optional*):  ID of the node providing the topic, this is not used by Home Assistant but may be used to structure the MQTT topic. The ID of the node must only consist of characters from the character class `[a-zA-Z0-9_-]` (alphanumerics, underscore and hyphen).
 - `<object_id>`: The ID of the device. This allows for separate topics for each device. The ID of the device must only consist of characters from the character class `[a-zA-Z0-9_-]` (alphanumerics, underscore and hyphen).
 
@@ -501,16 +501,16 @@ A component config part in a device discovery payload must have the `platform` (
 
 </div>
 
-##### Migration from single component to device-based discovery
+##### Migration from single component to device discovery
 
-To allow a smooth migration from single component discovery to device-based discovery:
+To allow a smooth migration from single component discovery to device discovery:
 
 1. Ensure all entities have a `unique_id` and a `device` context.
 2. Move the `object_id` inside the discovery payload, if that is available, or use a unique ID or the component.
 3. Consider using the previous `node_id` as the new `object_id` of the device discovery topic.
 4. Ensure the `unique_id` matches and the `device` context has the correct identifiers.
 5. Send the following payload to all existing single component discovery topics: `{"migrate_discovery": true }`. This will unload the discovered item, but its settings will be retained.
-6. Switch the discovery topic to the device-based discovery topic and include all the component configurations.
+6. Switch the discovery topic to the device discovery topic and include all the component configurations.
 7. Clean up the single component discovery messages with an empty payload.
 
 During the migration steps, INFO messages will be logged to inform you about the progress of the migration.
@@ -564,7 +564,7 @@ Discovery payload single:
 
 **Step 2: Initiate migration by publishing to both discovery topics:**
 
-When these single component discovery payloads are processed, and we want to initiate migration to a device-based discovery, we need to publish ...
+When these single component discovery payloads are processed, and we want to initiate migration to device discovery, we need to publish ...
 
 ```json
 {"migrate_discovery": true }
@@ -579,7 +579,7 @@ When these single component discovery payloads are processed, and we want to ini
 Check the logs to ensure this step is executed correctly.
 {% endimportant %}
 
-**Step 3: Publish the new device-based discovery configuration:**
+**Step 3: Publish the new device discovery configuration:**
 
 Discovery topic device: `homeassistant/device/0AFFD2/config`
 Discovery id: `0AFFD2 bla` *(`0AFFD2`from discovery topic, `bla`: The key under `cmps` in the discovery payload)*
@@ -630,9 +630,9 @@ To rollback publish ...
 {"migrate_discovery": true }
 ```
 
-To the device-based discovery topic(s).
+To the device discovery topic(s).
 After that, re-publish the single component discovery payloads.
-At last, clean up the device-based discovery payloads by publishing an empty payload.
+At last, clean up the device discovery payloads by publishing an empty payload.
 
 Check the logs for every step.
 
@@ -640,7 +640,7 @@ Check the logs for every step.
 
 When using single component discovery messages, the `<component>` part in the discovery topic must be one of the supported MQTT platforms.
 
-The options in the payload are only used to set up one specific component. If a device contains multiple components, it is recommended to use [device-based discovery](/integrations/mqtt/#device-based-discovery-payload) instead.
+The options in the payload are only used to set up one specific component. If a device contains multiple components, it is recommended to use [device discovery](/integrations/mqtt/#device-discovery-payload) instead.
 
 MQTT entities can share device configuration, meaning one entity can include the full device configuration and other entities can link to that device by only setting mandatory fields.
 
@@ -692,7 +692,7 @@ In the value of configuration variables ending with `_topic`, `~` will be replac
 
 Configuration variable names in the discovery payload may be abbreviated to conserve memory when sending a discovery message from memory constrained devices.
 
-It is recommended to add information about the origin of MQTT entities by including the `origin` option (abbreviated as `o`) in the discovery payload. For device-based discovery, this information is required. The origin details will be logged in the core event log when an item is discovered or updated. Adding origin information helps with troubleshooting and provides valuable context about the source of MQTT messages in your Home Assistant setup.
+It is recommended to add information about the origin of MQTT entities by including the `origin` option (abbreviated as `o`) in the discovery payload. For device discovery, this information is required. The origin details will be logged in the core event log when an item is discovered or updated. Adding origin information helps with troubleshooting and provides valuable context about the source of MQTT messages in your Home Assistant setup.
 
 Note: These options also support abbreviations, as shown in the table below.
 
