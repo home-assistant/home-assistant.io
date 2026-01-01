@@ -14,7 +14,7 @@ ha_codeowners:
   - '@noambav'
 ---
 
-The **Fish Audio** integration brings high-quality voice cloning and a wide variety of public voices to Home Assistant. It provides a text-to-speech (TTS) service, allowing you to create expressive, human-like speech.
+The **Fish Audio** {% term integration %} brings high-quality voice cloning and a wide variety of public voices to Home Assistant. It provides a text-to-speech (TTS) service, allowing you to create expressive, human-like speech.
 
 Fish Audio is positioned as a leading voice cloning service. It features the advanced `s1` model series, which supports emotional and tone markers for more natural-sounding speech.
 
