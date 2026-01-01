@@ -172,6 +172,7 @@ Sensors and settings exposed by VeSync humidifiers.
 | Switch                  | Description                                                                        | Example   |
 | ----------------------- | ---------------------------------------------------------------------------------- | --------- |
 | `display`               | Display On or Off                                                                  | On        |
+| 'auto_off_config'       | Auto turn off when humidity target exceeded,  resume when below target             | On        |
 
 
 ## Binary Sensors
