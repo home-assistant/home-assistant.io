@@ -250,9 +250,10 @@ This release, we celebrate several {% term integrations %} that have improved th
   - [KNX], thanks to [@farmio]
   - [UniFi Protect], thanks to [@RaHehl]
 
-- **3 integrations reached silver** 🥈
+- **4 integrations reached silver** 🥈
   - [Autarco], thanks to [@klaasnicolaas]
   - [SFR Box], thanks to [@epenet]
+  - [Squeezebox], thanks to [@peteS-UK], [@pssc] and [@rajlaud]
   - [Watergate], thanks to [@adam-the-hero]
 
 - **2 integrations reached bronze** 🥉
@@ -271,11 +272,15 @@ A big thank you to all the contributors involved! 👏
 [@johanzander]: https://github.com/johanzander
 [@klaasnicolaas]: https://github.com/klaasnicolaas
 [@MarkGodwin]: https://github.com/MarkGodwin
+[@peteS-UK]: https://github.com/peteS-UK
+[@pssc]: https://github.com/pssc
 [@RaHehl]: https://github.com/RaHehl
+[@rajlaud]: https://github.com/rajlaud
 [Autarco]: /integrations/autarco
 [Growatt Server]: /integrations/growatt_server
 [KNX]: /integrations/knx
 [SFR Box]: /integrations/sfr_box
+[Squeezebox]: /integrations/squeezebox
 [TP-Link Omada]: /integrations/tplink_omada
 [UniFi Protect]: /integrations/unifiprotect
 [Watergate]: /integrations/watergate
