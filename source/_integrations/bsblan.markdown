@@ -81,16 +81,9 @@ Time slots are defined using time pickers for easy configuration without manual 
 
 Synchronize Home Assistant time to the BSB-Lan device. Only updates if device time differs from Home Assistant time.
 
-{% configuration_basic %}
-Target:
-  description: The BSB-LAN device to sync time for.
-{% endconfiguration_basic %}
-
-**Action data attributes:**
-
-| Data attribute | Optional | Description |
-| -------------- | -------- | ----------- |
-| `device_id` | yes | The BSB-LAN device to sync time for. |
+- **Target**: `device_id`
+  - **Description**: The BSB-LAN device to sync time for.
+  - **Required**: Yes
 
 **Examples:**
 
