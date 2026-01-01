@@ -15,7 +15,7 @@ ha_platforms:
 ha_integration_type: service
 ---
 
-The `gios` integration uses the [GIOŚ](http://powietrze.gios.gov.pl/pjp/current) web service as a source for air quality data for your location.
+The **GIOŚ** {% term integration %} uses the [GIOŚ](http://powietrze.gios.gov.pl/pjp/current) web service as a source for air quality data for your location.
 
 ## Use cases
 

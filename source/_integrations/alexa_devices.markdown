@@ -59,13 +59,6 @@ You must ensure the authenticator app is setup as your preferred method for 2FA.
     description: One-time password via Authenticator App.
 {% endconfiguration_basic %}
 
-{% note %}
-
-When trying to set up the integration, the form may show the message "Cannot connect".
-This means that the specified country may need a special setting.
-Open a issue with all details to investigate
-{% endnote %}
-
 ## Actions
 
 ### Available Actions
@@ -237,12 +230,13 @@ target:
 
 ## Data updates
 
-This integration {% term polling polls %} data from the device every 30 seconds by default.
+This integration {% term polling polls %} data from the device every five minutes by default.
 
 ## Known limitations
 
 - This integration requires multifactor authentication using an authentication app (such as Microsoft Authenticator). To enable MFA, in your Amazon account settings, select **Login & Security** > **2-step verification** > **Backup methods** > **Add new app**. See [Amazon's documentation](https://www.amazon.com/gp/help/customer/display.html?nodeId=G9MX9LXNWXFKMJYU) for more information.
 - Reminders may not be added to the sensor if the configured account is linked to an Alexa Household.
+- [Amazon Japan](https://www.amazon.co.jp) appears to use a different login mechanism to other locations preventing setup of the integration.   This should be resolved in a future release.
 
 ## Troubleshooting
 
@@ -270,6 +264,7 @@ You see something similar to
 
 - `Error retrieving devices state: Too many requests for path ['listEndpoints']`
 - `Error retrieving data: CannotRetrieveData('Request failed: Bad Request')`
+- `Failed to obtain notification data.  Timers and alarms have not been updated`
 
 In logs.
 

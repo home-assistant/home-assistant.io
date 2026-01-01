@@ -19,7 +19,7 @@ ha_integration_type: hub
 ha_quality_scale: bronze
 ---
 
-The Portainer {% term integration %} is used as an interface to the [Portainer API](https://docs.portainer.io/api).
+The **Portainer** {% term integration %} is used as an interface to the [Portainer API](https://docs.portainer.io/api).
 Portainer is a lightweight management UI that allows you to easily manage your Docker containers, images, networks, and volumes. It works on every Docker host or Swarm cluster.
 
 The Portainer API provides a way to manage Docker containers, images, networks, and volumes. It allows you to interact programmatically with your Docker host or Swarm cluster.

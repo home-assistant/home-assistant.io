@@ -64,10 +64,6 @@ The integration exposes the different round trip times milliseconds as entities:
 
 **These entities are disabled by default and can be enabled in the UI if needed.**
 
-{% note %}
-When run on Windows systems, the round trip time attributes are rounded to the nearest millisecond and the mdev value is unavailable.
-{% endnote %}
-
 ## Presence detection
 
 The `ping` device tracker platform offers presence detection by using `ping` to send ICMP echo requests. This can be useful when devices are running a firewall and are blocking UDP or TCP packets but responding to ICMP requests (like Android phones). This tracker doesn't need to know the MAC address since the host can be on a different subnet. This makes this an option to detect hosts on a different subnet when `nmap` or other solutions don't work since `arp` doesn't work.

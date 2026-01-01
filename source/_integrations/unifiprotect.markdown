@@ -330,7 +330,30 @@ Four URLs for proxy API endpoints:
 
 The easiest way to find the `nvr_id`, `camera_id`, `start`, and `end` times is by viewing one of the videos from UniFi Protect in the Media browser. If you open the video in a new browser tab, you will see all these values in the URL. The `start` time is close to the last_changed timestamp of the event when the sensor started detecting motion. The `end` time is close to the last_changed timestamp of the event when the sensor stopped detecting motion. Similarly, to see the `event_id` of the image, go to {% my developer_states title="**Developer Tools** > **States**" %} and find the event when the sensor started detecting motion.
 
-### Example Notification Automation with Video
+### Example notification automation with thumbnail
+
+This example sends a notification with a camera thumbnail when motion is detected. The short delay ensures that the thumbnail is available before the notification is sent.
+
+```yaml
+alias: "Motion detection with image"
+description: "Sends a notification with camera snapshot when motion is detected."
+triggers:
+  - entity_id: binary_sensor.g4_instant_motion # Replace with your camera entity
+    trigger: state
+    from: off
+    to: on
+actions:
+  - delay:
+      seconds: 2
+  - data:
+      message: "Motion detected"
+      data:
+        image: >-
+          {% raw %}/api/unifiprotect/thumbnail/{{ config_entry_id(trigger.entity_id) }}/{{ trigger.to_state.attributes.event_id }}{% endraw %}
+    action: notify.mobile_app_your_device # Replace with your notification target
+```
+
+### Example notification automation with video
 
 ```yaml
 alias: "Security: Camera Motion Notification"
@@ -355,6 +378,10 @@ max_exceeded: silent
 ```
 
 Waiting for the motion sensor to change from `on` to `off` before sending the notification is essential. Waiting ensures that the event has ended and the video is accessible; otherwise, you may get an error instead of the video link.
+
+{% note %}
+The iOS Companion App does not support video attachments via local URLs. Images work with relative paths, but for video attachments you need to use an externally accessible URL or a different delivery method.
+{% endnote %}
 
 ## Event Entities Support
 

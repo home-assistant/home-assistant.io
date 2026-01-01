@@ -11,7 +11,7 @@ ha_codeowners:
 ha_integration_type: entity
 ---
 
-The Text integration is built for the controlling and monitoring of text values on devices.
+The **Text** {% term integration %} is built for the controlling and monitoring of text values on devices.
 
 {% include integrations/building_block_integration.md %}
 

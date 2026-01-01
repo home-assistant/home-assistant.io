@@ -20,7 +20,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The Neato integration allows you to control your [Neato Botvac Connected Robots][botvac-connected].
+The **Neato** {% term integration %} allows you to control your [Neato Botvac Connected Robots][botvac-connected].
 
 There is support for the following platform types within Home Assistant:
 
