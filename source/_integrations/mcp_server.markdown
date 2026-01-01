@@ -71,6 +71,13 @@ client to provide an authentication token.
 
 #### OAuth
 
+{% note %}
+As of Jan 1st 2026, OAuth authentication only works for [Home Assistant Cloud](https://www.home-assistant.io/cloud/)
+hostnames ending in the `ui.nabu.casa` domain name. Investigations into expanding OAuth for all hostnames is being
+discussed on https://github.com/home-assistant/core/issues/153820
+{% endnote %}
+
+
 The Model Context Protocol supports OAuth for [Authorization](https://spec.modelcontextprotocol.io/specification/2025-03-26/basic/authorization/) and is fully supported by Home Assistant's
 [Authentication API](https://developers.home-assistant.io/docs/auth_api/). MCP
 Clients that support OAuth can use this to allow you to give the client access
