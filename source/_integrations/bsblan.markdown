@@ -79,18 +79,18 @@ Time slots are defined using time pickers for easy configuration without manual 
 
 ### Action `bsblan.sync_time`
 
-Synchronizes the time on your BSB-Lan device with Home Assistant's system time. This action compares the device time with Home Assistant's time and only updates the device if there is a difference, helping maintain accurate timestamps for your heating system logs and schedules.
+Synchronize Home Assistant time to the BSB-Lan device. Only updates if device time differs from Home Assistant time.
 
 {% configuration_basic %}
 Target:
-  description: Select the BSB-Lan device to sync. If no device is selected, all BSB-Lan devices will be synchronized.
+  description: The BSB-LAN device to sync time for.
 {% endconfiguration_basic %}
 
 **Action data attributes:**
 
 | Data attribute | Optional | Description |
 | -------------- | -------- | ----------- |
-| `device_id` | yes | The device ID of a specific BSB-Lan device. If provided, only that device will be synced. |
+| `device_id` | yes | The BSB-LAN device to sync time for. |
 
 **Examples:**
 
