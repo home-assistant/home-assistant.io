@@ -47,10 +47,14 @@ To add Starling account balance sensors to your installation, add the following 
 {% include integrations/restart_ha_after_config_inclusion.md %}
 ```yaml
 # Example configuration.yaml entry
+
 sensor:
   - platform: starlingbank
     accounts:
-      - access_token: YOUR_PERSONAL_ACCESS_TOKEN
+    - access_token: YOUR_PERSONAL_ACCESS_TOKEN
+      balance_types: "[effective_balance or cleared_balance]"
+      name: "[the name of the account you want to create the sensor to monitor]"
+      space_name: "[optional - the Starling Space to monitor]"
 ```
 
 {% configuration %}
@@ -63,6 +67,11 @@ name:
   required: false
   type: string
   default: Starling
+space_name:
+  description: The name of the Space you'd like to monitor - if you leave it blank, the sensor will show the account balance, and if given, only the balance of the given Space
+  required: false
+  type: string
+  default: none
 sandbox:
   description: For test purposes. Set to true if you are using an access token for a sandbox Starling account.
   required: false
