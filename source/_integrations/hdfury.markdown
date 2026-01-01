@@ -10,7 +10,6 @@ ha_codeowners:
   - '@glenndehaan'
 ha_domain: hdfury
 ha_platforms:
-  - diagnostics
   - select
 ha_integration_type: integration
 ---
