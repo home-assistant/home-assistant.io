@@ -21,6 +21,16 @@ integration_type: device
 
 The **System Nexa 2** {% term integration %} allows you to integrate with the **System Nexa 2** devices from [Nexa](https://nexa.se/smarta-hem/system-nexa-2).
 
+## Use cases
+
+The System Nexa 2 integration brings your lights, switches, and smart plugs into Home Assistant, enabling you to create a truly smart home. Here are some ways you can benefit from this integration:
+
+- **Automate your lighting and appliances** - Create automations to turn lights on at sunset, turn off devices when you leave home, or control your car heater based on outdoor temperature and your calendar to ensure a warm car before your morning commute.
+- **Enhance privacy and security** - Disable cloud access to keep all communication local, ensuring your devices work without internet connectivity.
+- **Reduce light pollution** - Turn off indicator LEDs on devices in your bedroom at night to create a better sleeping environment.
+- **Child-proof your smart home** - Disable physical buttons on specific devices to prevent children from turning critical equipment on or off.
+- **Integrate with existing remotes** - Enable 433MHz communication to continue using your existing remote controls alongside Home Assistant automation.
+
 ## Supported devices
 
 The following devices are known to be supported by the integration:
@@ -63,6 +73,110 @@ Host:
 - **LED**
   - **Description**: Controls whether the onboard LED should be lit at any time
   - **Available for devices**: all
+
+## Known limitations
+
+Currently this integration does not support:
+
+- Dimming (state, lowest/highest level, dimming method and more)
+- Device local scheduling/timers (can however be done via Home Assistant)
+- Adding remote control transmitters to control devices
+- Setting mode after power loss
+- Updating Wi-Fi settings
+- Firmware Upgrade
+- Local Auth
+
+## Data updates
+
+**System Nexa 2** devices push data directly to Home Assistant, enabling immediate updates for device state changes such as relay state and settings (433MHz, cloud access, physical button, and LED).
+
+## Examples
+
+### Turn off LEDs at night
+
+Automatically turn off device indicator LEDs during nighttime to reduce light pollution in bedrooms.
+
+```yaml
+automation:
+  - alias: "Turn off bedroom device LEDs at night"
+    triggers:
+      - trigger: time
+        at: "22:00:00"
+    actions:
+      - action: switch.turn_off
+        target:
+          entity_id:
+            - switch.bedroom_switch_led
+            - switch.bedroom_dimmer_led
+
+  - alias: "Turn on bedroom device LEDs in morning"
+    triggers:
+      - trigger: time
+        at: "07:00:00"
+    actions:
+      - action: switch.turn_on
+        target:
+          entity_id:
+            - switch.bedroom_switch_led
+            - switch.bedroom_dimmer_led
+```
+
+### Car heater automation based on temperature
+
+Start the car heater automatically before your morning commute when outdoor temperature is low.
+
+```yaml
+automation:
+  - alias: "Preheat car on cold mornings"
+    triggers:
+      - trigger: time
+        at: "06:30:00"
+    conditions:
+      - condition: numeric_state
+        entity_id: sensor.outdoor_temperature
+        below: 5
+      - condition: time
+        weekday:
+          - mon
+          - tue
+          - wed
+          - thu
+          - fri
+    actions:
+      - action: switch.turn_on
+        target:
+          entity_id: switch.garage_car_heater
+      - delay:
+          minutes: 30
+      - action: switch.turn_off
+        target:
+          entity_id: switch.garage_car_heater
+```
+
+## Troubleshooting
+
+### Cannot add device
+
+#### Symptom: Device is not discovered
+
+When trying to set up the integration, the device is not automatically discovered.
+
+##### Description
+
+The device may not be discoverable due to network issues or because automatic discovery is not working properly on your network.
+
+##### Resolution
+
+To resolve this issue, try the following steps:
+
+1. Open the **Nexa Hem** app and verify that your device is connected and working properly.
+2. If the device appears in the app:
+   - Open the device details in the **Nexa Hem** app.
+   - Go to **Network** > **IP** to find the IP address of your device.
+3. In Home Assistant, manually add the integration:
+   - Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+   - Select **Add integration** and search for **System Nexa 2**.
+   - Enter the IP address you found in the **Nexa Hem** app.
 
 ## Removing the integration
 
