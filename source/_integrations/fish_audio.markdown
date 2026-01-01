@@ -3,7 +3,7 @@ title: Fish Audio
 description: Instructions on how to setup Fish Audio integration with Home Assistant.
 ha_category:
   - Text-to-speech
-ha_release: 2025.9
+ha_release: 2026.1
 ha_iot_class: Cloud Polling
 ha_domain: fish_audio
 ha_platforms:
