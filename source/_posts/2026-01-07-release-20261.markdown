@@ -45,11 +45,11 @@ Don't forget to [join our release party live stream on YouTube](https://www.yout
 
 Happy New Year! 🥂
 
-I hope you had wonderful holidays spending time with your loved ones. We're kicking off 2026 with a smaller release, as our contributors and maintainers have been enjoying some well-deserved time off as well. But don't worry, there's still plenty of good stuff in this release!
+I hope you had a wonderful holiday, spending time with your loved ones. We're kicking off 2026 with a smaller release, as our contributors and maintainers have been enjoying some well-deserved time off as well. But don't worry, there's still plenty of good stuff in this release!
 
-Home Assistant 2026.1 brings a refreshed Home dashboard experience on mobile, with summary cards right at your fingertips without extra taps. We've also made it easier than ever to find your protocol dashboards for Matter, Zigbee, Z-Wave, and more.
+Home Assistant 2026.1 brings a refreshed Home dashboard experience on mobile, with summary cards right at your fingertips without extra taps. We’ve also made it easier than ever to navigate to the protocol connecting your devices, such as Matter, Zigbee, Z-Wave, and more.
 
-For automation enthusiasts, purpose-specific triggers continue to evolve with a bunch of new trigger types, making it simpler to express what you want to happen without thinking in technical state changes.
+For automation enthusiasts, we’re continuing our work on our even more "human-friendly" triggers, which can be enabled via Home Assistant Labs, so you can build automations using easy-to-understand language instead of technical state changes, like initiating automations if a button is pressed or someone arrives home.
 
 On the integrations front, we welcome eight new integrations to the family, including pet tracking with Fressnapf, energy monitoring with eGauge, and smart heating control with Watts Vision+. Plus, improvements to existing integrations from our amazing community contributors.
 
@@ -86,7 +86,7 @@ The [Home dashboard](/dashboards/home/) continues to evolve! In [the previous re
 
 ### Streamlined mobile navigation
 
-On mobile devices, the Home dashboard now displays summary cards (like lights, climate, security, media players, weather, and energy) directly at the top of the view, followed by your favorites and areas. This replaces the previous tab-based navigation, giving you instant access to everything that matters without extra taps.
+On mobile devices, the Home dashboard now displays summary cards (like lights, climate, security, media players, weather, and energy) directly at the top of the view, followed by your favorites and areas. This replaces the previous tab-based navigation, giving you instant access to everything that matters without any extra taps.
 
 <img src='/images/blog/2026-01/temp-home-dashboard-mobile.png' alt='Screenshot showing the Home dashboard on mobile with summary cards at the top.' class='no-shadow' />
 
@@ -106,13 +106,13 @@ In [the previous release](/blog/2025/12/03/release-202512/#purpose-specific-trig
 
 This feature is still being refined in {% my labs title="**Home Assistant Labs**" %}, but this release adds a _lot_ more trigger types, making this new approach even more useful. Here is an overview of all the new triggers added in this release:
 
-- **Button** trigger fires when a button entity has been pressed.
+- **Button** triggers fire when a button entity has been pressed.
 - **Climate** triggers now cover all common scenarios. You can trigger on HVAC mode changes, target temperature changes, or when the target temperature crosses a threshold. There are also triggers for current temperature and humidity changes, and even target humidity changes.
 - **Device tracker** triggers let you automate based on when someone entered or left home, with support for the first person arriving, last person leaving, or any change.
-- **Humidifier** triggers fire when a humidifier turns on or off, starts humidifying, or starts drying. You can also trigger on humidity changes or when humidity crosses a threshold.
+- **Humidifier** triggers will fire when a humidifier turns on or off, starts humidifying, or starts drying. You can also trigger on humidity changes or when humidity crosses a threshold.
 - **Light** triggers let you automate based on brightness changes or when brightness crosses a specific threshold.
 - **Lock** triggers can now fire when a lock is locked, unlocked, opened, or jammed.
-- **Scene** trigger fires when a scene is activated.
+- **Scene** triggers fire when a scene is activated.
 - **Siren** triggers fire when sirens are turned on or off.
 - **Update** trigger fires when an update becomes available.
 
@@ -120,9 +120,9 @@ Head over to {% my labs title="**Settings** > **System** > **Labs**" %} to enabl
 
 ## Easier navigation to protocol dashboards
 
-For an organization that loves open standards, we sure didn't promote them enough! Most people didn't even know that Home Assistant has dedicated dashboards for protocols like Matter, Zigbee, Z-Wave, and more.
+For an organization that loves the open standards that seamlessly connect our devices, we sure didn’t promote them enough! Most people didn’t even know that Home Assistant has dedicated dashboards for protocols like Matter, Zigbee, Z-Wave, and more.
 
-This release reorganizes the **Settings** page to give these open protocols a more prominent spot. The protocols section now appears right after the core settings, making it much easier to find and access your protocol-specific configurations.
+This release reorganizes the **Settings** page to give these open protocols a more prominent spot. The protocols section now appears right after the core settings, making it much easier to find all the different ways you’re connecting your devices and quickly access some very useful protocol-specific configurations.
 
 <img src='/images/blog/2026-01/temp-protocol-dashboards.png' alt='Screenshot showing the new protocols section in the Settings page with Matter, Zigbee, Z-Wave, Thread, Bluetooth, KNX, and Insteon.' class='no-shadow' />
 
