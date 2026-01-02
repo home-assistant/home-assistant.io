@@ -824,20 +824,27 @@ It is important to not judge RSSI or LQI values on their own. When troubleshooti
 {% endnote %}
 
 {% details "About RSSI (Received Signal Strength Indicator)" %}
-RSSI (Received Signal Strength Indicator) values are an indicator value of the raw signal strength between two devices. RSSI values are negative numbers in -dBm format (0 to -100 power ratio in decibels of the measured power referenced to one milliwatt). Lower negative values indicate less interference and a good signal. RSSI information is only between the endpoint device and the first hop from that device. As such, it may not necessarily show signal strength to the Zigbee Coordinator but instead could be showing signal strength to the nearest Zigbee Router device.
+RSSI (Received Signal Strength Indicator) values are an indicator value of the raw signal strength between two devices. 
 
-- Generally, anything -60 and above (meaning -50, -40, etc.) in RSSI should be considered a strong signal (not losing messages).
-- Usually, anything at -80 and below (meaning -85, -90, etc.) in RSSI should be considered a noisy environment and you risk losing messages.
+RSSI values are negative numbers in -dBm format ranging from 0 to -100 power ratio in decibels of the measured power referenced to one milliwatt. Lower negative values indicate less interference and a good signal. 
+
+The value is a measurement between the endpoint device and the first hop from that device. It may not necessarily show signal strength to the Zigbee Coordinator but instead could be showing signal strength to the nearest Zigbee Router device.
+
+Generally:
+- Values -60 and above (meaning -50, -40, etc.) indicate a strong signal and very low risk of losing messages.
+- Values at -80 and below (meaning -85, -90, etc.) indicate a "noisy" environment and you may risk losing messages.
 
 {% enddetails %}
 
 {% details "About LQI (Link Quality Index)" %}
 
-LQI (Link Quality Index) values are shown as positive numbers on a scale but can be very hard to interpret for Zigbee and not as useful for troubleshooting. This is because the Zigbee specifications (and the IEEE 802.15.4 specification) do not standardize how to perform LQI measurements. The LQI value provided by the Zigbee devices is not measured using unified standards from all device manufacturers and Zigbee stacks, and LQI is often only a measure of the last-hop link quality, which is not always useful information. As such, the values can not always be trusted.
+LQI (Link Quality Index) values are shown as positive numbers on a scale but can be very hard to interpret for Zigbee and not as useful as an individual metric for troubleshooting. 
 
-In theory, a positive high LQI value is better and a lower LQI value is worse. Depending on your devices, that might not always be the reality. Best practice is to only include LQI with other types of metrics or data points, not as a standalone indicator.
+This is due to the Zigbee and IEEE 802.15.4 specifications not standardizing how to perform LQI measurements. The LQI value provided by the Zigbee devices is not measured using unified standards from all device manufacturers and Zigbee stacks, and LQI is often only a measure of the last-hop link quality which is not always useful information.
 
-Vendor-specific examples: 
+In theory, a positive high LQI value is better, and a lower LQI value is worse. Depending on your devices, that might not always reflect the reality. A good practice is to only include LQI with other types of metrics or data points, not as a standalone indicator.
+
+Vendor-specific examples:
 
 - Zigbee devices based on Silicon Labs EmberZNet stack use positive display numbers for LQI where higher values are better and lower values are worse. 
 - Texas Instruments Z-Stack computes LQI for each received packet from the raw Received Signal Strength Index (RSSI) by linearly scaling it between the minimum and maximum defined RF power levels for the radio that in effect provides an LQI value that is based on the strength of the received signal. 
