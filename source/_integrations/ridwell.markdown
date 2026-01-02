@@ -31,7 +31,7 @@ The following choices are available for customizing the text. Each option is als
 
 {% configuration_basic %}
 Pickup status:
-    description: The current state of the individual pickup occuring that day _(Default option)_
+    description: The current state of the individual pickup occurring that day _(Default option)_
 Rotating category:
     description: The name of the rotating category selected for that pickup
 No details:
