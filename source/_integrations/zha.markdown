@@ -713,9 +713,9 @@ For devices that do not follow the standard defined in the CSA's ZCL (Zigbee Clu
 
 The project contains device-specific Python scripts called "quirks" that can resolve compliance and interoperability issues by implementing on-the-fly conversion of custom Zigbee configurations or by implementing manufacturer-specific features for specific devices.
 
-People familiar with other Zigbee gateway solutions for home automation may know similar concepts of using custom handlers/converters for non-standard devices. For example, Zigbee2MQTT (and IoBroker) uses [zigbee-herdsman converters](https://www.zigbee2mqtt.io/advanced/support-new-devices/01_support_new_devices.html) and SmartThings Classics (Legacy) platform has [Hub Connected Device Handlers](https://developer.smartthings.com/docs/devices/hub-connected/legacy).
+Other Zigbee gateway solutions have similar concepts of using custom handlers/converters for non-standard devices, such as Zigbee2MQTT (and IoBroker) using [zigbee-herdsman converters](https://www.zigbee2mqtt.io/advanced/support-new-devices/01_support_new_devices.html).
 
-If you do not want to develop such a "quirk" Python script yourself, you can submit a "device support request" as a new issue to the [ZHA Device Handlers project repository on GitHub](https://github.com/zigpy/zha-device-handlers/issues).
+If you do not want to create a "quirk" yourself, you can submit a "device support request" as a new issue to the [ZHA Device Handlers project repository on GitHub](https://github.com/zigpy/zha-device-handlers/issues).
 
 {% details "To submit a new device support request:" %}
 
