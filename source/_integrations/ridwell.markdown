@@ -23,9 +23,11 @@ The Ridwell integration allows users to track waste recycling pickups scheduled 
 
 {% include integrations/option_flow.md %}
 
-The Ridwell integration can be configured to customize the text shown in calendar event summary to display different details about pickup.
+### Event summary details
 
-The following choices are available for customizing the text. Additional information for each choice can be found in the next sections.
+The calendar event summary can be customized to display different details about a given pickup.
+
+The following choices are available for customizing the text. Each option is also detailed more in separate sections below.
 
 {% configuration_basic %}
 Pickup status:
@@ -36,21 +38,21 @@ No details:
     description: No text will be displayed after the event title
 {% endconfiguration_basic %}
 
-### Pickup status
+#### Pickup status
 
 Common statuses for an individual pickup include:
 - **initialized**: Available for customers to opt-in for pickup
 - **scheduled**: Opted-into; Ridwell will include you in their route that day
 - **notified**: Ridwell has attempted to contact customers who have not opted-in to pickups happening soon
-- **skipped**: Previously scheduled but then later unscheduled (cancelled)
+- **skipped**: Previously scheduled but then later unscheduled (canceled)
 
-### Rotating category
+#### Rotating category
 
 The rotating category will be displayed once a pickup has been scheduled successfully. 
 
 If a pickup does not have the `scheduled` status (described in the [Pickup status](#Pickup status) section), the calendar event will display the **Pickup status** value until the pickup has been scheduled.
 
-### No details
+#### No details
 
 The calendar title will show "Ridwell Pickup" only, but full details on the various pickup types will still be included in the description of the event.
 
