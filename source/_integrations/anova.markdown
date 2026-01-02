@@ -26,6 +26,14 @@ The 'nano' versions of the sous vide are not supported, but as long as your app 
 
 To add this platform to your installation, You will need your Anova username and password, and you need to have at least one sous vide connected to your account.
 
+{% important %}
+The Anova integration **requires** login via email and password.
+
+If your Anova account sign-in is through Google/Facebook/Apple, you will need to switch to the password login method.
+
+You can do this via the [Anova password reset page](https://anovaculinary.io/ali/password-reset) and then enter your new password in the Anova integration configuration.
+{% endimportant %}
+
 {% include integrations/config_flow.md %}
 
 ## Sensor
