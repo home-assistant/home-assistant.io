@@ -242,10 +242,12 @@ Group members assume state of group:
 If you are use ZiGate or Sonoff ZBBridge, there is additional configuration needed for `usb_path`.
 
 {% details "Additional ZBBridge config" %}
+
 - ZiGate USB TTL or DIN: `/dev/ttyUSB0` or `auto` to auto discover the zigate
 - PiZigate: `pizigate:/dev/ttyS0`
 - Wifi Zigate: `socket://[IP]:[PORT]` — for example `socket://192.168.1.10:9999`
 - Sonoff ZBBridge: `socket://[IP]:[PORT]` — for example `socket://192.168.1.11:8888`
+
 {% enddetails %}
 
 ### Configuration - YAML
