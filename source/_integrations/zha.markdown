@@ -704,21 +704,37 @@ These sections both provide helpful advice on improving your Zigbee network perf
 If your Zigbee device pairs/joins successfully with the ZHA {% term integration %} but does not show all of the expected entities:
 
 1. Try to re-pair/re-join the device several times.
-2. Checkout the troubleshooting section.
-3. Still not working? You may need a custom device handler. This handler will have exception handling code to work around device-specific issues.
+2. Review the troubleshooting sections.
+3. Search for similar situations in the Home Assistant [community forum or Discord chat server](https://www.home-assistant.io/help/).
+4. Still not working? You may need a custom device handler. This handler will have exception handling code to work around device-specific issues.
 
-For devices that do not follow the standard defined in the CSA's ZCL (Zigbee Cluster Library), the ZHA {% term integration %} relies on a project called "[ZHA Device Handlers (also known as "zha-quirk")](https://github.com/zigpy/zha-device-handlers)". It contains device-specific Python scripts called "quirks". These scripts can resolve compliance and interoperability issues by implementing on-the-fly conversion of custom Zigbee configurations or by implementing manufacturer-specific features for specific devices.
+#### ZHA device handlers
+For devices that do not follow the standard defined in the CSA's ZCL (Zigbee Cluster Library), the ZHA {% term integration %} relies on a project called "[ZHA Device Handlers (also known as "zha-quirk")](https://github.com/zigpy/zha-device-handlers)".
 
-People familiar with other Zigbee gateway solutions for home automation may know similar concepts of using custom Zigbee device handlers/converters for non-standard devices. For example, [Zigbee2MQTT (and IoBroker) uses zigbee-herdsman converters](https://www.zigbee2mqtt.io/advanced/support-new-devices/01_support_new_devices.html) and [SmartThings Classics (Legacy) platform has Hub Connected Device Handlers](https://developer.smartthings.com/docs/devices/hub-connected/legacy).
+The project contains device-specific Python scripts called "quirks" that can resolve compliance and interoperability issues by implementing on-the-fly conversion of custom Zigbee configurations or by implementing manufacturer-specific features for specific devices.
 
-If you do not want to develop such a "quirk" Python script yourself, you can submit a "device support request" as a new issue to the [ZHA Device Handlers project repository on GitHub](https://github.com/zigpy/zha-device-handlers/issues):
+People familiar with other Zigbee gateway solutions for home automation may know similar concepts of using custom handlers/converters for non-standard devices. For example, Zigbee2MQTT (and IoBroker) uses [zigbee-herdsman converters](https://www.zigbee2mqtt.io/advanced/support-new-devices/01_support_new_devices.html) and SmartThings Classics (Legacy) platform has [Hub Connected Device Handlers](https://developer.smartthings.com/docs/devices/hub-connected/legacy).
 
-1. Sign in to GitHub.
-2. Select **New issue** and follow the instructions.
+If you do not want to develop such a "quirk" Python script yourself, you can submit a "device support request" as a new issue to the [ZHA Device Handlers project repository on GitHub](https://github.com/zigpy/zha-device-handlers/issues).
+
+{% details "To submit a new device support request:" %}
+
+{% note %}
+
+Without device support requests, the community of volunteer developers may not be aware that your specific Zigbee device is not working correctly in ZHA.
+
+Please note that the project relies on volunteers; submitting a new device support request does not guarantee that someone will develop a custom quirk for ZHA. 
+
+{% endnote %}
+
+1. Sign in to GitHub.com (an account is required)
+2. Go to the [ZHA Device Handlers project issues page](https://github.com/zigpy/zha-device-handlers/issues)
+3. Select **New issue** and follow the instructions.
     - New device support requests require the device signature + diagnostic information.
     - You may also need to actively help in further testing or provide additional information to the volunteering developers.
 
-Note that submitting a new "device support request" does not guarantee that someone else will develop a custom "quirk" for ZHA. The project relies on volunteering developers. However, without "device support requests", the developers may not be aware that your specific Zigbee device is not working correctly in ZHA.
+{% enddetails %}
+
 
 ### Best practices to avoid pairing/connection difficulties
 
@@ -841,7 +857,10 @@ When reporting potential bugs related to the ZHA integration on the issues track
 1. Debug logs for the issue, see [debug logging](#debug-logging).
 2. Exact model and firmware of the Zigbee radio (Zigbee Coordinator adapter) being used.
 3. If the issue is related to a specific Zigbee device, provide both the **Zigbee Device Signature** and the **Diagnostics** information.
-     - Both the **Zigbee Device Signature** and the **Diagnostics** information can be found under {% my integrations title="**Settings** > **Devices & services**" %}. Select the **Zigbee Home Automation** integration. Then, select **Configure** > **Devices** (pick your device). Select **Zigbee Device Signature** and **Download Diagnostics**, respectively.
+     - Both the **Zigbee Device Signature** and the **Diagnostics** information can be found under {% my integrations title="**Settings** > **Devices & services**" %}. 
+        - Select the **Zigbee Home Automation** integration. 
+        - Then, navigate to **Configure** > **Devices** (pick your device). 
+        - Select **Zigbee Device Signature** and **Download Diagnostics**, respectively.
 
 {% tip %}
 For troubleshooting, read the following sections on this page. They provide information on improving your Zigbee network performance.
