@@ -3,8 +3,8 @@ title: Portainer
 description: Instructions on how to integrate Portainer with Home Assistant.
 ha_category:
   - Binary sensor
-  - Sensor
   - Button
+  - Sensor
   - Switch
 ha_release: '2025.10'
 ha_iot_class: Local Polling
