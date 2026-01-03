@@ -59,10 +59,12 @@ The integration exposes the different round trip times milliseconds as entities:
 - `Round Trip Time Average` - the average round trip time
 - `Round Trip Time Minimum` - the shortest round trip time
 - `Round Trip Time Maximum` - the longest round trip time
-- `Jitter` - the variation in round trip times
-- `Packet loss` - the percentage of missed ICMP replies
 
 **These entities are disabled by default and can be enabled in the UI if needed.**
+
+{% note %}
+When run on Windows systems, the round trip time attributes are rounded to the nearest millisecond and the mdev value is unavailable.
+{% endnote %}
 
 ## Presence detection
 

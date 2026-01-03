@@ -19,7 +19,7 @@ ha_platforms:
 ha_integration_type: device
 ---
 
-The **TechnoVE** {% term integration %} provides connectivity with TechnoVE Smart Charging Station through the station local API.
+The TechnoVE integration provides connectivity with TechnoVE Smart Charging Station through the station local API.
 
 {% include integrations/config_flow.md %}
 
@@ -54,12 +54,7 @@ The {% term integration %} adds the following sensors:
 - Last session energy usage
 - Wi-Fi signal strength
 - Wi-Fi network name
-- Status, one of the following values:
-  - Unplugged
-  - Plugged, waiting
-  - Plugged, charging
-  - Out of activation period
-  - High tariff period
+- Status
 
 ## Switch
 

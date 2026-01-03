@@ -42,7 +42,6 @@ ha_platforms:
   - tts
   - update
   - vacuum
-  - valve
   - water_heater
   - weather
 ha_integration_type: integration
@@ -51,7 +50,7 @@ related:
     title: Configuration file
 ---
 
-The **Demo** {% term integration %} allows you to use integrations which are providing a demo of their implementation. The demo entities are dummies but show you how the actual platform looks like. This way you can run own demonstration instance like the online [Home Assistant demo](/demo/) but combined with your own real/functional platforms.
+The `demo` {% term integration %} allows you to use integrations which are providing a demo of their implementation. The demo entities are dummies but show you how the actual platform looks like. This way you can run own demonstration instance like the online [Home Assistant demo](/demo/) but combined with your own real/functional platforms.
 
 Available demo platforms:
 
@@ -82,7 +81,6 @@ Available demo platforms:
 - [Text-to-speech](/integrations/tts/) (`tts`)
 - [Update](/integrations/update/) (`update`)
 - [Vacuum](/integrations/vacuum/) (`vacuum`)
-- [Valve](/integrations/valve/) (`valve`)
 - [Water heater](/integrations/water_heater/) (`water_heater`)
 - [Weather](/integrations/weather/) (`weather`)
 

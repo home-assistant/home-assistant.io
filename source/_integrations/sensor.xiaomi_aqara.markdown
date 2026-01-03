@@ -8,6 +8,6 @@ ha_iot_class: Local Push
 ha_domain: xiaomi_aqara
 ---
 
-The **Xiaomi Sensor** {% term integration %} allows you to get data from your [Xiaomi](https://www.mi.com/) sensors.
+The `xiaomi aqara` sensor platform allows you to get data from your [Xiaomi](https://www.mi.com/en/) sensors.
 
-The requirement is that you have set up the [Xiaomi Gateway (Aqara)](/integrations/xiaomi_aqara/) {% term integration %}.
+The requirement is that you have setup [Xiaomi aqara](/integrations/xiaomi_aqara/).

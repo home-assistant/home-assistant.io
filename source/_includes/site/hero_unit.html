@@ -5,14 +5,12 @@
         {% include custom/welcome.html %}
       </div>
       <div class="hero-demo grid__item flex__item two-fifths lap-one-whole palm-one-whole" style="text-align: center;">
-        <div class="demo-frame-wrapper">
-          <img src="/images/app-loading.webp">
-          <iframe id="HAdemo" title="Home Assistant Demo" data-src="https://demo.home-assistant.io/?frontpage">
-          </iframe>
-        </div>
+        <iframe id="HAdemo" title="Home Assistant Demo"
+          src="https://demo.home-assistant.io/?frontpage">
+        </iframe>
 
         <a id="HAdemoScreenshot" href='https://demo.home-assistant.io/' target='_blank'>
-          <img src="/images/frontpage/hero_screenshot.png" alt="Home Assistant screenshot" fetchpriority="high">
+          <img src="/images/frontpage/hero_screenshot.png" alt="Home Assistant screenshot">
         </a>
 
         <!-- <script>
@@ -29,28 +27,6 @@
             phone.style.transform = `rotateY(${rotation}deg) skewY(${skew}deg)`;
           });
         </script> -->
-
-        <script>
-          document.addEventListener('DOMContentLoaded', function () {
-            let loaded = false;
-            const lazyLoadDemo = () => {
-              if (loaded) return; // Prevent multiple loads
-              loaded = true;
-              const iframe = document.querySelector('#HAdemo[data-src]');
-              if (iframe) {
-                iframe.src = iframe.getAttribute('data-src');
-                iframe.removeAttribute('data-src');
-              }
-            };
-
-            // Load iframe on user interaction
-            document.addEventListener('scroll', lazyLoadDemo, { passive: true, once: true });
-            document.addEventListener('click', lazyLoadDemo, { passive: true, once: true });
-            document.addEventListener('mousemove', lazyLoadDemo, { passive: true, once: true });
-            document.addEventListener('touchstart', lazyLoadDemo, { passive: true, once: true });
-            document.addEventListener('touchmove', lazyLoadDemo, { passive: true, once: true });
-          });
-        </script>
       </div>
     </div>
   </div>

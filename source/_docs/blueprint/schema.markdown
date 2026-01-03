@@ -16,18 +16,16 @@ related:
 
 ## The blueprint schema
 
-Blueprint schemas currently supports three types of schema depending on its domain: [`automation`](/docs/automation/yaml/); `script`; and [`template`](/integrations/template/#using-blueprints).
-
 The configuration schema of a blueprint consists of 2 parts:
 
-1. The blueprint's high-level metadata: name, domain and, optionally, any input required from the user.
-2. The schema for the blueprint domain it describes.
+1. The blueprint's high-level metadata: name, description, the input required from the user.
+2. The schema of the thing the blueprint describes.
 
 The first part is referred to as the *blueprint schema*. It contains the
 blueprint's metadata.
 
-Minimum required metadata for a blueprint is its name and domain. In its most basic form,
-a blueprint looks like:
+The only requirement for a blueprint is a name. In its most basic form,
+a blueprint would look like:
 
 ```yaml
 blueprint:
@@ -37,9 +35,10 @@ blueprint:
 
 Although this is a valid blueprint, it is not very useful.
 
-The second part depends on its domain, the type of blueprint. For example, when creating a blueprint for an automation, the full
+The second part depends on the use case of the blueprint. For example, if you create a blueprint for an automation, the full
 schema for an [automation](/docs/automation/yaml/) applies.
 
+You can add a description of the blueprint's use case and user inputs.
 
 This is the full blueprint schema:
 
@@ -51,13 +50,13 @@ name:
 description:
   description: >
     The description of the blueprint. While optional, this field is highly
-    recommended. Describe what the blueprint does and describe the inputs the blueprint requires. The description can
+    recommended. Describe what the blueprint does and describe the inputs the blueprint provide. The description can
     include [Markdown](https://commonmark.org/help/).
   type: string
   required: false
 domain:
   description: >
-    The domain in which this blueprint is used. Currently, only three types,
+    The domain in which this blueprint is used. Currently, only
     [`automation`](/docs/automation/yaml/), `script` and [`template`](/integrations/template/#using-blueprints) are supported.
   type: string
   required: true
@@ -67,7 +66,7 @@ author:
   required: false
 homeassistant:
   description: >
-    Home Assistant version required for the blueprint to work successfully.
+    Home Assistant requirements to be able to use the blueprint successfully.
   type: map
   required: false
   keys:
@@ -91,9 +90,10 @@ input:
 
 ### Blueprint inputs
 
-A blueprint can accept one or multiple inputs from the user, but does not require any input.
+As described above, a blueprint can accept one (or multiple)
+inputs from the blueprint user.
 
-These inputs can be of any type (string, boolean, list, map). They can have
+These inputs can be of any type (string, boolean, list, dictionary). They can have
 a default value and also provide a [selector](/docs/blueprint/selectors/) that
 ensures a matching input field in the user interface.
 
@@ -126,15 +126,14 @@ A blueprint input has the following configuration:
 {% endconfiguration %}
 
 Each input field can be referred to, outside of the blueprint metadata, using
-the `!input` custom YAML tag before its name.
+the `!input` custom YAML tag.
 
-The following example shows a minimal *blueprint schema* with a single input:
+The following example shows a minimal blueprint with a single input:
 
 ```yaml
 blueprint:
   name: Example blueprint
   description: Example showing an input
-  domain: automation
   input:
     my_input:
       name: Example input
@@ -161,7 +160,7 @@ A section is differentiated from an input by the presence of an additional `inpu
 Input sections are a new feature in version 2024.6.0. Set the `min_version` for the blueprint to at least this version if using input sections. Otherwise, the blueprint will generate errors on older versions. See [this section](/docs/blueprint/schema/#min_version) for more details.
 {% endcaution %}
 
-The full configuration for an input section is below:
+The full configuration for a section is below:
 
 {% configuration %}
 
@@ -194,7 +193,7 @@ input:
 
 
 
-The following example shows a *blueprint schema* with some inputs in a section:
+The following example shows a blueprint with some inputs in a section:
 
 ```yaml
 blueprint:
@@ -232,8 +231,7 @@ variables:
 The [built-in blueprints][blueprint-built-in]
 are great examples to get a bit of a feeling of how blueprints work.
 
-Here is the built-in motion light automation blueprint.
-Note the *blueprint schema* under the blueprint key is followed by its domain schema. In this example, an automation schema.
+Here is the built-in motion light automation blueprint:
 
 ```yaml
 blueprint:

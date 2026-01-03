@@ -15,7 +15,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The **Baidu** {% term integration %} uses [Baidu TTS engine](https://cloud.baidu.com/product/speech/tts) to read a text with natural sounding voices.
+The `baidu` text-to-speech platform uses [Baidu TTS engine](https://cloud.baidu.com/product/speech/tts) to read a text with natural sounding voices.
 
 ## Configuration
 

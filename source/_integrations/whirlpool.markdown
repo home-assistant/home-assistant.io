@@ -3,7 +3,7 @@ title: Whirlpool Appliances
 description: Instructions on how to integrate Whirlpool appliances with Home Assistant.
 ha_category:
   - Climate
-  - Hub
+  - Sensor
 ha_release: '2022.10'
 ha_iot_class: Cloud Push
 ha_config_flow: true
@@ -12,71 +12,48 @@ ha_codeowners:
   - '@mkmer'
 ha_domain: whirlpool
 ha_platforms:
-  - binary_sensor
   - climate
   - diagnostics
   - sensor
 ha_integration_type: hub
-ha_quality_scale: silver
 ---
 
-The **Whirlpool Appliances** {% term integration %} allows you to connect Whirlpool and Maytag appliances to Home Assistant.
+The **Whirlpool Appliances** {% term integration %} integrates Whirlpool 6th Sense Live, and Whirlpool/Maytag Washer and Dryer appliances into Home Assistant.
 
-## Supported devices
+There is currently support for the following device types within Home Assistant:
 
-The following appliances are confirmed to be working, but other models may also work.
+- [Supported hardware](#supported-hardware)
+- [Sensor](#sensor)
+- [Climate](#climate)
 
-Air conditioners:
+## Supported hardware
 
-- Whirlpool SPIW309A2WF
-- Whirlpool SPIW312A2WF
+The following appliances are confirmed to be working, but other models that use the 6th Sense Live application may also work:
+
+Climate:
+
+- Whirlpool SPIW309A2WF / SPIW312A2WF
 - Whirlpool SPIW409A2WF
 
-Washers:
+Washer:
 
 - Whirlpool WTW6120HW2
 - Whirlpool WTW8127LW1
 - Maytag MHW8630HW0
 
-Dryers:
+Dryer:
 
 - Whirlpool WGD8127LW3
 
-## Prerequisites
-
-- Valid Whirlpool (or related brand) account credentials.
-- Registered appliances in the official Whirlpool (or related brand) mobile app.
-
 {% include integrations/config_flow.md %}
 
-{% configuration_basic %}
-Username:
-    description: "The username of your Whirlpool (or related brand) account."
-Password:
-    description: "The password of your Whirlpool (or related brand) account."
-Region:
-    description: "The region in which your account is registered."
-Brand:
-    description: "The brand of the mobile app. It may not be the same brand as the appliances."
-{% endconfiguration_basic %}
+## Sensor
 
-## Supported functionality
+The `whirlpool` sensor platform integrates Whirlpool Washer and Dryer systems into Home Assistant, allowing views of the machine state, time remaining and the "wash & go" tank fill status as sensors for each device.
 
-This {% term integration %} maps appliances to entities in Home Assistant. A single appliance may be represented by one or more entities.
+## Climate
 
-- [Binary Sensor](#binary_sensor)
-- [Climate](#climate)
-- [Sensor](#sensor)
-
-### Binary Sensor
-
-The binary sensor platform provides the following functionality:
-
-- state of the washer/dryer machine door (open/closed)
-
-### Climate
-
-The `whirlpool` climate platform integrates Whirlpool air conditioning systems into Home Assistant, allowing control of the appliance through the user interface. The current inside temperature is also displayed on the thermostat card.
+The `whirlpool` climate platform integrates Whirlpool air conditioning systems into Home Assistant, allowing control of the appliance trough the user interface. The current inside temperature is also displayed on the thermostat card.
 
 The following actions are also available:
 
@@ -85,13 +62,3 @@ The following actions are also available:
 - [**turn on/off**](/integrations/climate#action-climateturn_on)
 - [**fan mode**](/integrations/climate#action-climateset_fan_mode) (`low`, `medium`, `high`)
 - [**swing mode**](/integrations/climate#action-climateset_swing_mode) (`off`, `horizontal`)
-
-### Sensor
-
-The `whirlpool` sensor platform integrates Whirlpool Washer and Dryer systems into Home Assistant, allowing views of the machine state, time remaining, and the "wash & go" tank fill status as sensors for each device.
-
-## Removing the integration
-
-This integration follows standard integration removal. No extra steps are required.
-
-{% include integrations/remove_device_service.md %}

@@ -1,12 +1,13 @@
 ---
-title: OpenAI
+title: OpenAI Conversation
 description: Instructions on how to integrate OpenAI as a conversation agent
 ha_category:
-  - AI
   - Voice
 ha_release: 2023.2
 ha_iot_class: Cloud Polling
 ha_config_flow: true
+ha_codeowners:
+  - '@balloob'
 ha_domain: openai_conversation
 ha_integration_type: service
 ha_platforms:
@@ -22,7 +23,7 @@ related:
     title: OpenAI
 ---
 
-The **OpenAI** {% term integration %} adds a conversation agent powered by [OpenAI](https://www.openai.com) in Home Assistant.
+The OpenAI integration adds a conversation agent powered by [OpenAI](https://www.openai.com) in Home Assistant.
 
 Controlling Home Assistant is done by providing the AI access to the Assist API of Home Assistant. You can control what devices and entities it can access from the {% my voice_assistants title="exposed entities page" %}. The AI is able to provide you information about your devices and control them.
 
@@ -56,19 +57,13 @@ If you choose to not use the recommended settings, you can configure the followi
 
 {% configuration_basic %}
 Model:
-  description: The GPT language model is used for text generation. You can find more details on the available models in the [ChatGPT Documentation](https://platform.openai.com/docs/models). The default is "gpt-4o-mini".
+  description: The GPT language model is used for text generation. You can find more details on the available models in the [GPT-4o Documentation](https://platform.openai.com/docs/models/gpt-4o). The default is "gpt-4o-mini".
 Maximum Tokens to Return in Response:
   description: The maximum number of words or "tokens" that the AI model should generate in its completion of the prompt. For more information, see the [OpenAI Completion Documentation](https://platform.openai.com/docs/guides/completion/introduction).
 Temperature:
   description: A value that determines the level of creativity and risk-taking the model should use when generating text. A higher temperature means the model is more likely to generate unexpected results, while a lower temperature results in more deterministic results. See the [OpenAI Completion Documentation](https://platform.openai.com/docs/guides/completion/introduction) for more information.
 Top P:
   description: An alternative to temperature, top_p determines the proportion of the most likely word choices the model should consider when generating text. A higher top_p means the model will only consider the most likely words, while a lower top_p means a wider range of words, including less likely ones, will be considered. For more information, see the [OpenAI Completion API Reference](https://platform.openai.com/docs/api-reference/completions/create#completions/create-top_p).
-Enable web search:
-  description: Enable OpenAI-provided [Web search tool](https://openai.com/index/new-tools-for-building-agents/#web-search). Note that it is only available for gpt-4o and newer models.
-Search context size:
-  description: The search is performed with a separate fine-tuned model with its own context and its own [pricing](https://platform.openai.com/docs/pricing#built-in-tools). This parameter controls how much context is retrieved from the web to help the tool formulate a response. The tokens used by the search tool do not affect the context window of the main model. These tokens are also not carried over from one turn to another — they're simply used to formulate the tool response and then discarded. This parameter would affect the search quality, cost, and latency.
-Include home location:
-  description: This parameter allows using the location of your Home Assistant instance during search to provide more relevant search results.
 {% endconfiguration_basic %}
 
 ## Talking to Super Mario over the phone
@@ -138,7 +133,7 @@ automation:
           config_entry: abce6b8696a15e107b4bd843de722249
           size: "1024x1024"
           prompt: >-
-            New York when the weather is {{ states("weather.home") }}
+            New York when the weather is {{ states("weather.home") }}"
 
       - alias: "Send out a manual event to update the image entity"
         event: new_weather_image
@@ -146,73 +141,13 @@ automation:
           url: '{{ generated_image.url }}'
 
 template:
-  - trigger:
+  - triggers:
       - alias: "Update image when a new weather image is generated"
         trigger: event
         event_type: new_weather_image
     image:
-      - name: "AI generated image of New York"
-        url: "{{ trigger.event.data.url }}"
-```
-
-{% endraw %}
-
-### Service `openai_conversation.generate_content`
-
-Allows you to ask OpenAI to generate a content based on a prompt. This service
-populates [Response Data](/docs/scripts/service-calls#use-templates-to-handle-response-data)
-with the response from OpenAI.
-
-- **Service data attribute**: `config_entry`
-  - **Description**: Integration entry ID to use.
-  - **Example**:
-  - **Optional**: no
-
-- **Service data attribute**: `prompt`
-  - **Description**: The text to generate content from.
-  - **Example**: Describe the weather
-  - **Optional**: no
-
-- **Service data attribute**: `image_filename`
-  - **Description**: List of file names for images to include in the prompt.
-  - **Example**: /tmp/image.jpg
-  - **Optional**: yes
-
-{% raw %}
-
-```yaml
-service: openai.generate_content
-data:
-  config_entry: abce6b8696a15e107b4bd843de722249
-  prompt: >-
-    Very briefly describe what you see in this image from my doorbell camera.
-    Your message needs to be short to fit in a phone notification. Don't
-    describe stationary objects or buildings.
-  image_filename:
-    - /tmp/doorbell_snapshot.jpg
-response_variable: generated_content
-```
-
-{% endraw %}
-
-The response data field `text` will contain the generated content.
-
-Another example with multiple images:
-
-{% raw %}
-
-```yaml
-service: openai.generate_content
-data:
-  prompt: >-
-    Briefly describe what happened in the following sequence of images
-    from my driveway camera.
-  image_filename:
-    - /tmp/driveway_snapshot1.jpg
-    - /tmp/driveway_snapshot2.jpg
-    - /tmp/driveway_snapshot3.jpg
-    - /tmp/driveway_snapshot4.jpg
-response_variable: generated_content
+      name: "AI generated image of New York"
+      url: "{{ trigger.event.data.url }}"
 ```
 
 {% endraw %}

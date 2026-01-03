@@ -9,6 +9,8 @@ ha_category:
   - Switch
 ha_release: 0.21
 ha_iot_class: Local Push
+ha_codeowners:
+  - '@bdurrer'
 ha_domain: enocean
 ha_config_flow: true
 ha_platforms:

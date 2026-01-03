@@ -10,6 +10,4 @@
       restart: unless-stopped
       privileged: true
       network_mode: host
-      environment:
-        TZ: Europe/Amsterdam
 ```

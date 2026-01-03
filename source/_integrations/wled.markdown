@@ -205,11 +205,6 @@ to a preset called My Preset:
     option: "My Preset"
 ```
 
-When a preset is activated and the light state is modified afterward 
-(e.g. with a `light.turn_on` action), the preset may be reset to an empty value. 
-This can affect services such as `select.select_next`, which will start again 
-from the first option instead of continuing the cycle.
-
 ### Automation using specific palette name
 
 An automation to turn on a WLED light and select a specific palette and
@@ -248,10 +243,3 @@ Here is an example of all of these put together into an automation:
       data:
         value: 255
 ```
-
-
-## Removing the integration
-
-This integration follows standard integration removal. No extra steps are required.
-
-{% include integrations/remove_device_service.md %}

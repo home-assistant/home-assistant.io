@@ -19,7 +19,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The **Logitech Harmony Hub** {% term integration %} allows you to control the state of your [Harmony Hub Device](https://support.myharmony.com/hub).
+The `harmony` integration allows you to control the state of your [Harmony Hub Device](https://support.myharmony.com/hub).
 
 Supported units:
 
@@ -99,7 +99,6 @@ Send a single command or a set of commands to one device, device ID and availabl
 | `command`              | no       | A single command or a list of commands to send.     |
 | `num_repeats`          | yes      | The number of times to repeat the command(s).       |
 | `delay_secs`           | yes      | The number of seconds between sending each command. |
-| `hold_secs`            | yes      | The number of seconds the button on the remote is held before the release is sent. |
 
 In the file 'harmony_REMOTENAME.conf' you can find the available devices and commands, for example:
 

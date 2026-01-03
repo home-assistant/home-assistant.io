@@ -25,7 +25,7 @@ ha_dhcp: true
 ha_integration_type: device
 ---
 
-The **Elexa Guardian** {% term integration %} integrates
+The `guardian` integration integrates
 [Elexa Guardian water valve controllers](https://getguardian.com) into Home Assistant.
 
 There is currently support for the following device types within Home Assistant:

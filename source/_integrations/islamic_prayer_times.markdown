@@ -15,7 +15,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The **Islamic Prayer Times** {% term integration %} displays the various prayer times for Muslims as sensors.
+The Islamic Prayer Times (`islamic_prayer_times`) integration displays the various prayer times for Muslims as sensors.
 
 This platform calculates prayer times using the following calculation methods:
 
@@ -52,13 +52,13 @@ sensors:
 
 ## Configuration
 
-### Prayer calculation method
+### Prayer calcuation method
 
 Default: Islamic Society of North America
 
 A prayer times calculation method. Methods identify various schools of thought about how to compute the timings. If not specified, it defaults to Islamic Society of North America.
 
-### Latitude Adjustment Method
+### Latatude Adjustment Method
 
 Default: Middle of the night 
 
@@ -72,4 +72,4 @@ Default: Standard (mid sunset to sunrise)
 
 Default: Shafi
 
-Method for adjusting Asr time calculation, if not specified, it defaults to Shafi.
+Method for adjusting Asr time calcuation, if not specified, it defaults to Shafi.

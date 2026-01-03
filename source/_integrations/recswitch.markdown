@@ -15,7 +15,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The **Ankuoo REC Switch** {% term integration %} allows you to control the Ankuoo REC Switch devices.
+The `recswitch` switch {% term integration %} allows you to control the Ankuoo REC Switch devices.
 
 Supported devices (tested):
 

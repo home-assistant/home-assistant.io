@@ -22,7 +22,7 @@ ha_dhcp: true
 ha_integration_type: hub
 ---
 
-The **SimpliSafe** {% term integration %} integrates [SimpliSafe home security](https://simplisafe.com) (V2 and V3) systems into Home Assistant. Multiple SimpliSafe accounts can be accommodated.
+The `simplisafe` integration integrates [SimpliSafe home security](https://simplisafe.com) (V2 and V3) systems into Home Assistant. Multiple SimpliSafe accounts can be accommodated.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -157,9 +157,7 @@ triggers:
 
 For cases where the default {% term polling %} interval of 30 seconds is too long for automations, you can use secret alerts to get push notifications of a sensor being triggered.
 
-Home Assistant will automatically set the status to triggered for binary sensor devices that have secret alerts. However, due to the way Simplisafe implements secret alerts, you can only receive push notifications when a device is triggered, not when they are cleared. Clearing a binary sensor can only be accomplished by polling.
-
-For cases where you wish to reliably determine each time a binary sensor is triggered, do the following:
+To enable secret alerts for sensor changes, follow these steps:
 
 1. Enable the secret alert for the device in the Simplisafe App.
 2. Make a note of the serial number of the device.
@@ -175,6 +173,9 @@ For cases where you wish to reliably determine each time a binary sensor is trig
           last_event_sensor_serial: "abc123xyz"  # Replace with your device's serial number (use lowercase letters)
   ```
 
+{% note %}
+Due to the way Simplisafe implements secret alerts, you can only determine when a sensor is triggered, not when it is cleared.
+{% endnote %}
 
 ### `SIMPLISAFE_NOTIFICATION`
 

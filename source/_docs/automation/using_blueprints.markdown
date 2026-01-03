@@ -75,7 +75,7 @@ The quickest way to get these changes, is by re-importing the blueprint. This wi
 ### To re-import a blueprint
 
 1. Go to **{% my blueprints title="Settings > Automations & Scenes > Blueprints" %}**.
-2. On the blueprint that you want to re-import, select the three dots {% icon "mdi:dots-vertical" %} menu, and select **Re-import blueprint**.
+2. On the blueprint that you want to re-import, select the three-dot menu, and select **Re-import blueprint**.
 
 ## Updating an imported blueprint in YAML
 
@@ -86,7 +86,7 @@ If you do not want to [re-import the blueprint](/docs/automation/using_blueprint
 its {% term YAML %} content to keep it up to date:
 
 1. Navigate to the blueprints directory (`blueprints/automation/`).
-   The location of this directory depends on the installation type. It's
+   The location of this directory depends on the installation method. It's
    similar to how you find [`configuration.yaml`](/docs/configuration/#editing-configurationyaml).
 2. Next, you must find the blueprint to update. The path name of a blueprint consists of:
    - The username of the user that created it. The name depends on the source of the blueprint:

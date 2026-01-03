@@ -11,7 +11,6 @@ ha_iot_class: Local Polling
 ha_codeowners:
   - '@kennedyshead'
   - '@ollo69'
-  - '@Vaskivskyi'
 ha_domain: asuswrt
 ha_platforms:
   - device_tracker
@@ -20,7 +19,7 @@ ha_platforms:
 ha_integration_type: hub
 ---
 
-The **ASUSWRT** {% term integration %} can connect Home Assistant to a ASUS router that runs on ASUSWRT firmware.
+The ASUSWRT integration can connect Home Assistant to a ASUS router that runs on ASUSWRT firmware.
 
 There is currently support for the following device types within Home Assistant:
 

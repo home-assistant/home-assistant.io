@@ -19,7 +19,6 @@ ha_platforms:
   - sensor
   - switch
 ha_iot_class: Local Polling
-ha_zeroconf: true
 ---
 
 {% include integrations/supported_brand.md %}

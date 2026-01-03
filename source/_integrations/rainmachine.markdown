@@ -26,14 +26,14 @@ ha_homekit: true
 ha_integration_type: device
 ---
 
-The RainMachine {% term integration %} is the main integration to integrate all platforms related to [RainMachine smart Wi-Fi sprinkler controllers](https://www.rainmachine.com/).
+The RainMachine integration is the main integration to integrate all platforms related to [RainMachine smart Wi-Fi sprinkler controllers](https://www.rainmachine.com/).
 
 There is currently support for the following device types within Home Assistant:
 
 - Binary sensor
 - Button
 - Sensor
-- Switch
+- [Switch](#switch)
 
 Note that some entities are disabled by default. If you are missing a sensor or binary sensor, check the configured integration!
 
@@ -104,7 +104,7 @@ See details of RainMachine API here:
 | `minrh`                | no       | Min Relative Humidity (%RH)                                                                                           |
 | `maxrh`                | no       | Max Relative Humidity (%RH)                                                                                           |
 | `condition`            | no       | Current weather condition code (WNUM). See [here][wnum reference] for options.                                        |
-| `pressure`             | no       | Barometric Pressure (kPa)                                                                                             |
+| `pressure`             | no       | Barametric Pressure (kPa)                                                                                             |
 | `dewpoint`             | no       | Dew Point (°C)                                                                                                        |
 
 ### `rainmachine.restrict_watering`

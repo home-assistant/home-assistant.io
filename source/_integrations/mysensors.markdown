@@ -785,7 +785,7 @@ void receive(const MyMessage &message)
       last_dim=100;
     }
 
-    // Update controller status
+    //Update constroller status
     send_status_message();
 
   } else if ( message.type == V_PERCENTAGE ) {
@@ -794,14 +794,14 @@ void receive(const MyMessage &message)
     if ( dim_value == 0 ) {
       last_state = LIGHT_OFF;
 
-      // Update controller with dimmer value & status
+      //Update constroller with dimmer value & status
       send_dimmer_message();
       send_status_message();
     } else {
       last_state = LIGHT_ON;
       last_dim = dim_value;
 
-      // Update controller with dimmer value
+      //Update constroller with dimmer value
       send_dimmer_message();
     }
 

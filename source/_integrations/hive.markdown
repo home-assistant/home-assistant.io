@@ -2,6 +2,7 @@
 title: Hive
 description: Instructions on how to integrate Hive devices with Home Assistant.
 ha_category:
+  - Alarm
   - Binary sensor
   - Climate
   - Hub
@@ -16,6 +17,7 @@ ha_codeowners:
   - '@KJonline'
 ha_domain: hive
 ha_platforms:
+  - alarm_control_panel
   - binary_sensor
   - climate
   - light
@@ -27,14 +29,15 @@ ha_integration_type: integration
 ha_homekit: true
 ---
 
-The **Hive** {% term integration %} for Home Assistant allows you to interact with supported devices and services offered by
+The Hive integration for Home Assistant allows you to interact with supported devices and services offered by
 [hivehome.com](https://www.hivehome.com)
 
-This Hive integration uses the same username and password you use on the [Hive website](https://sso.hivehome.com) to configure it within Home Assistant. 2FA authentication must be enabled to use this integration. Once configured, Home Assistant will detect and add all Hive devices, including support for multi-zone heating.
-
 {% note %}
-Please note that the credentials used must be for the Hive account owner. Shared accounts or secondary users will not work with this integration.
+Please note that Hive shut down its North American Servers on November 30th, 2021.
+Read more about this in their [shutdown notice](https://www.hivehome.com/us/support).
 {% endnote %}
+
+This Hive integration uses the same username and password you use on the [Hive website](https://sso.hivehome.com) to configure it within Home Assistant, 2FA authentication must be enabled to use this integration. Once configured Home Assistant will detect and add all Hive devices, including support for multi-zone heating.
 
 {% include integrations/config_flow.md %}
 
@@ -117,6 +120,14 @@ script:
 ```
 
 ## Platforms
+
+### Alarm control panel
+
+The `hive` alarm control panel integration integrates your Hive alarm into Home Assistant.
+
+The platform supports the following Hive devices:
+
+- Hive Home Shield
 
 ### Binary sensor
 

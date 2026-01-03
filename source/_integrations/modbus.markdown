@@ -378,7 +378,7 @@ device_address:
 unique_id:
   description: "ID that uniquely identifies this entity.
   Slaves will be given a unique_id of <<unique_id>>_<<slave_index>>.
-  If two entities have the same unique ID, Home Assistant will raise an exception."
+  If two enities have the same unique ID, Home Assistant will raise an exception."
   required: false
   type: string
 
@@ -527,7 +527,7 @@ The master configuration like device_class are automatically copied to the slave
 
 ## Configuring climate entities
 
-The Modbus climate platform allows you to monitor a thermostat or heaters as well as set a target temperature, HVAC action, HVAC mode, swing mode, and fan state.
+The Modbus climate platform allows you to monitor a thermostat or heaters as well as set a target temperature, HVAC mode, swing mode, and fan state.
 
 Please refer to [Parameter usage](#parameters-usage-matrix) for conflicting parameters.
 
@@ -614,36 +614,11 @@ climates:
           description: "Holding register."
         input:
           description: "Input register."
-    scale:
-      description: "Scale factor (`output` = `scale` * `value` + offset) for setting target and current temperature. Cannot be used together with `current_temp_scale` or `target_temp_scale."
-      required: false
-      type: float
-      default: 1
     offset:
-      description: "Final offset for target and current temperature (`output` = `scale` * `value` + `offset). Cannot be used together with current_temp_offset or target_temp_offset`."
+      description: "Final offset for current temperature (output = scale * value + offset)."
       required: false
       type: float
       default: 0
-    current_temp_scale:
-      description: "Scale factor for current temperature (output = `current_temp_scale` * `value` + `current_temp_offset`). Cannot be used together with `scale`"
-      required: false
-      type: float
-      default: 1.0
-    current_temp_offset:
-      description: "Offset for current temperature (output` = current_temp_scale` * `value` + `current_temp_offset`). Cannot be used together with *offset*."
-      required: false
-      type: float
-      default: 0.0
-    target_temp_scale:
-      description: "Scale factor for target temperature (`output` = `target_temp_scale` * `value` + `target_temp_offset`). Cannot be used together with scale`."
-      required: false
-      type: float
-      default: 1.0
-    target_temp_offset:
-      description: "Offset for target temperature (`output` = `target_temp_scale` * `value` + `target_temp_offset`). Cannot be used together with offset`."
-      required: false
-      type: float
-      default: 0.0
     target_temp_register:
       description: "Register address for target temperature (Setpoint). Using a list, it is possible to define one register for each of the available HVAC Modes. The list has to have a fixed size of 7 registers corresponding to the 7 available HVAC Modes, as follows: Register **1: HVAC AUTO mode**; Register **2: HVAC Cool mode**; Register **3: HVAC Dry mode**; Register **4: HVAC Fan only mode**; Register **5: HVAC Heat mode**; Register **6: HVAC Heat Cool mode**; Register **7: HVAC OFF mode**. It is possible to set duplicated values for the modes where the devices don't have a related register."
       required: true
@@ -653,6 +628,11 @@ climates:
       required: false
       type: boolean
       default: false
+    scale:
+      description: "Scale factor (output = scale * value + offset) for setting target temperature."
+      required: false
+      type: float
+      default: 1
     structure:
       description: "If `data_type: custom` is specified a double-quoted Python struct is expected,
       to format the string to unpack the value. See Python documentation for details.
@@ -672,57 +652,6 @@ climates:
           description: "Swap word ABCD -> CDAB, **not valid with data types: `int16`, `uint16`**"
         word_byte:
           description: "Swap word ABCD -> DCBA, **not valid with data types: `int16`, `uint16`**"
-    hvac_action_register:
-      description: "Configuration of register for HVAC action"
-      required: false
-      type: map
-      keys:
-        address:
-          description: "Address of HVAC action register."
-          required: true
-          type: integer
-        input_type:
-          description: "Type of register, either `holding` or `input`"
-          required: false
-          default: holding
-          type: string
-        values:
-          description: "Mapping between the register values and HVAC actions"
-          required: true
-          type: map
-          keys:
-            action_off:
-              description: "Value corresponding to HVAC Off action."
-              required: false
-              type: [integer, list]
-            action_cooling:
-              description: "Value corresponding to HVAC Cooling action."
-              required: false
-              type: [integer, list]
-            action_defrosting:
-              description: "Value corresponding to HVAC Defrosting action."
-              required: false
-              type: [integer, list]
-            action_drying:
-              description: "Value corresponding to HVAC Drying action."
-              required: false
-              type: [integer, list]
-            action_fan:
-              description: "Value corresponding to HVAC Fan action."
-              required: false
-              type: [integer, list]
-            action_heating:
-              description: "Value corresponding to HVAC Heating action."
-              required: false
-              type: [integer, list]
-            action_idle:
-              description: "Value corresponding to HVAC Idle action."
-              required: false
-              type: [integer, list]
-            action_preheating:
-              description: "Value corresponding to HVAC Preheating action."
-              required: false
-              type: [integer, list]
     hvac_mode_register:
       description: "Configuration of register for HVAC mode"
       required: false
@@ -1259,26 +1188,6 @@ lights:
       required: false
       default: 0x00
       type: integer
-    brightness_address: 
-      description: "Address to read/write color brightness."
-      required: false
-      default: None
-      type: integer
-    color_temp_address:
-      description: "Address to read/write color temperature."
-      required: false
-      default: None
-      type: integer
-    min_temp:
-      description: "Minimal level of color temperature in Kelvin."
-      required: false
-      default: 2000
-      type: integer
-    max_temp:
-      description: "Maximal level of color temperature in Kelvin."
-      required: false
-      default: 7000
-      type: integer
     write_type:
       description: "Type of write request."
       required: false
@@ -1353,22 +1262,6 @@ modbus:
         slave: 2
         address: 14
         write_type: coil
-        brightness_address: 1006
-        verify:
-      - name: "light3"
-        slave: 2
-        address: 14
-        write_type: coil
-        brightness_address: 1006
-        color_temp_address: 2006
-      - name: "light4"
-        slave: 2
-        address: 14
-        write_type: coil
-        brightness_address: 1006
-        color_temp_address: 2006
-        min_temp: 2500
-        max_temp: 5500
         verify:
       - name: "Register1"
         address: 11
@@ -1454,7 +1347,7 @@ sensors:
       required: false
       type: float
     nan_value:
-      description: If a Modbus sensor has a defined NaN value, this value can be set as a hex string starting with `0x` containing one or more bytes (for example, `0xFFFF` or `0x80000000`) or provided as an integer directly. If triggered, the sensor becomes `unknown`. Please note that the hex to int conversion for `nan_value` does currently not obey home-assistants Modbus encoding using the `data_type`, `structure`, or `swap` arguments.
+      description: If a Modbus sensor has a defined NaN value, this value can be set as a hex string starting with `0x` containing one or more bytes (for example, `0xFFFF` or `0x80000000`) or provided as an integer directly. If triggered, the sensor becomes `unavailable`. Please note that the hex to int conversion for `nan_value` does currently not obey home-assistants Modbus encoding using the `data_type`, `structure`, or `swap` arguments.
       required: false
       type: string
     zero_suppress:
@@ -1481,7 +1374,7 @@ sensors:
       required: false
       type: integer
     virtual_count:
-      description: "Generates x+1 sensors (master + slaves), allowing read of multiple registers with a single read message."
+      description: "Generates x+1 sensors (master + slaves), allowing read of multiple registers with a single read messsage."
       required: false
       type: integer
     state_class:
@@ -1495,6 +1388,14 @@ sensors:
       required: false
       type: string
       default: ">f"
+    slave_count:
+      description: "Identical to `virtual_count`."
+      required: false
+      type: integer
+    virtual_count:
+      description: Generates x-1 slave sensors, allowing read of multiple registers with a single read message.
+      required: false
+      type: integer
     swap:
       description: "Swap the order of bytes/words, **not valid with `custom` and `datatype: string`**"
       required: false
@@ -1511,6 +1412,10 @@ sensors:
       description: "Unit to attach to value."
       required: false
       type: string
+    zero_suppress:
+      description: "Suppress values close to zero. If -zero_suppress <= value <= +zero_suppress --> 0. Can be float or integer"
+      required: false
+      type: float
     unique_id:
       description: ID that uniquely identifies the entity. If two sensors have the same unique ID, Home Assistant will raise an exception.
       required: false
@@ -1655,7 +1560,7 @@ switches:
 
 {% endconfiguration %}
 
-### Example: switch configuration
+### Example: switch configuration
 
 ```yaml
 # Example configuration.yaml entry
@@ -1684,7 +1589,7 @@ modbus:
 ```
 
 
-### Example: switch full configuration
+### Example: switch full configuration
 
 ```yaml
 # Example configuration.yaml entry
@@ -1741,7 +1646,7 @@ Description:
 | Attribute | Description                                                                                                                                                                                                                                                                                 |
 | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | hub       | Hub name (defaults to 'modbus_hub' when omitted)                                                                                                                                                                                                                                            |
-| slave     | Slave address (0-255, defaults to 1 when omitted)                                                                                                                                                                                                                                           |
+| slave     | Slave address (0-255)                                                                                                                                                                                                                                                                       |
 | address   | Address of the Register (e.g. 138)                                                                                                                                                                                                                                                          |
 | value     | (write_register) A single value or an array of 16-bit values. Single value will call modbus function code 0x06. Array will call modbus function code 0x10. Values might need reverse ordering. E.g., to set 0x0004 you might need to set `[4,0]`, this depend on the byte order of your CPU |
 | state     | (write_coil) A single boolean or an array of booleans. Single boolean will call modbus function code 0x05. Array will call modbus function code 0x0F                                                                                                                                        |

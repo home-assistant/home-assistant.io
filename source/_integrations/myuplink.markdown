@@ -23,7 +23,7 @@ ha_platforms:
   - sensor
   - switch
   - update
-ha_integration_type: hub
+ha_integration_type: integration
 related:
   - url: https://myuplink.com/
     title: myUplink web portal

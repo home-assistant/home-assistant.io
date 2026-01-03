@@ -8,8 +8,6 @@ related:
     title: Themes
   - docs: /dashboards/cards/
     title: Dashboard cards
-  - docs: /dashboards/naming/
-    title: Card naming
 ---
 
 The alarm panel card allows you to arm and disarm your [alarm control panel](/integrations/#alarm) {% term integrations %}.
@@ -38,8 +36,8 @@ entity:
   type: string
 name:
   required: false
-  description: Overwrites friendly name. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/).
-  type: [string, map, list]
+  description: Overwrites friendly name.
+  type: string
   default: Current state of the alarm entity.
 states:
   required: false

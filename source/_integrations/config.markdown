@@ -16,52 +16,55 @@ related:
     title: Configuration file
 ---
 
-The **Config** {% term integration %} is designed to display the **Settings** panels in the frontend to configure and manage parts of Home Assistant.
+The `config` integration is designed to display panels in the frontend to configure and manage parts of Home Assistant.
 
-This is an internal integration and is enabled by default.
+This integration is by default enabled, unless you've disabled or removed the [`default_config:`](/integrations/default_config/) line from your {% term "`configuration.yaml`" %} file. If that is the case, the following example shows you how to enable this integration manually:
 
-The **Settings** menu provides access to the following panels:
+```yaml
+# Example configuration.yaml entry
+config:
+```
 
-### Home Assistant Cloud
+### Integrations
 
-Enables you to connect to [Home Assistant Cloud](https://support.nabucasa.com/hc/en-us/articles/26260474250269-List-of-Home-Assistant-Cloud-features) to use features such as secure remote access, voice assistants, or cloud storage for backups.
+This section enables you to manage integrations for devices such as Philips Hue and Sonos from within Home Assistant.
 
-### Devices & services
+### Users
 
-Enables you to manage integrations for devices such as Philips Hue and Sonos from within Home Assistant.
+This section enables you to manage your Home Assistant users.
 
-### Automation & Scenes
+### General
 
-Enables you to create and modify automations, scenes, scripts, and blueprints from within Home Assistant.
+This section enables you to manage the name, location, and unit system of your Home Assistant installation.
 
-### Areas, labels & zones
+### Server control
 
-Enables you to organize entities according to physical or conceptual areas of your home.
+This section enables you to control Home Assistant from within Home Assistant. Check your configuration, reload the core, groups, scripts, automations, and the Home Assistant process itself with a single mouse click.
 
-### Add-ons
+<p class='img'>
+  <img src='/images/screenshots/server-management.png' />
+</p>
 
-Enables you to install and use additional standalone third-party software packages. Add-ons can only be installed on Home Assistant OS.
+### Persons
 
-### Dashboards
+This section enables you to associate users with their device tracker entities using the person integration.
 
-Enables you to add new [dashboards](/dashboards) and manage existing ones.
+### Entities
 
-### Voice assistants
+This section enables you to override the name, change the entity ID or disable an entity in Home Assistant.
 
-Enables you to create and manage [voice assistants](/voice_control/).
+### Areas
 
-### Tags
+This section enables you to organize entities to physical areas of your home.
 
-Allows you to set up NFC tags and QR codes.
+### Automation
 
-### People
+This section enables you to create and modify automations from within Home Assistant, without needing to write out the YAML code.
 
-Allows you to manage who can access Home Assistant and what rights they have to configure it.
+### Script
 
-### System
+Similar to the automation editor, this section enables you to create and modify scripts from within Home Assistant, without needing to write out the YAML code.
 
-Allows you to define things like time zone and location of your system but also to view logs, create backups, or add external network storage.
+### Customizations
 
-### About
-
-Allows you to view the {% my info title="version information" %}.
+This section enables you to customize entities within Home Assistant. Use this to set friendly names, change icons, and modify other attributes.

@@ -21,7 +21,7 @@ ha_integration_type: integration
 ha_quality_scale: platinum
 ---
 
-This {% term integration %} interacts with your [Tedee](https://tedee.com) locks by communicating with the Tedee bridge through HTTP. The integration will communicate with your lock locally.
+This integration interacts with your [Tedee](https://tedee.com) locks by communicating with the Tedee bridge through HTTP. The integration will communicate with your lock locally.
 
 ## Prerequisites
 
@@ -57,10 +57,6 @@ This integration supports
 - **Pullspring enabled**: indicates whether the pull spring setting is enabled.
 - **Semi locked**: indicates whether the lock is in a "semi-locked" position. "Semi-locked" means the lock has been turned manually and is between its normal end positions. The lock itself will be unavailable in this position.
 - **Lock uncalibrated** (disabled by default): Shows when the lock is in an "uncalibrated state".
-
-{% note %}
-The `lock.open` service will only pull the spring if the lock is configured with "**auto pull-spring enabled**" in the tedee app. That is due to a limitation in tedee's API.
-{% endnote %}
 
 ## Sensors
 

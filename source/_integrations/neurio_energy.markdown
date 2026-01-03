@@ -29,19 +29,10 @@ sensor:
   sensor_id: "SENSOR_ID"
 ```
 
-Four sensors will be created with the following names:
-
-### Consumption
+Two sensors will be created with the following names:
 
 - **Energy Usage**: Current active power usage in Watts. Updated every 10 seconds.
-- **Daily Energy Usage**: Daily power usage in kWh. Updated every 2.5 minutes.
-
-### Production
-
-- **Energy Production**: Current solar/generation power in Watts. Updated every 10 seconds.
-- **Daily Energy Production**: Daily solar/generation in kWh. Updated every 2.5 minutes.
-
-The production sensors are useful for monitoring solar panels or other energy generation sources connected to your Neurio meter.
+- **Daily Energy Usage**: Daily power usage in kWh.  Updated every 2.5 minutes.
 
 {% configuration %}
 api_key:

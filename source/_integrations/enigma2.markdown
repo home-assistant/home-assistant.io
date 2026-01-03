@@ -90,7 +90,7 @@ There are two possible solutions to resolve this problem:
 If you choose to enable VPN access without authentication, ensure your network is properly secured as OpenWebif is not designed for publicly facing the internet.
 {% endnote %}
 
-## Removing the integration
+## Remove integration
 
 This integration follows standard integration removal, no extra steps are required.
 

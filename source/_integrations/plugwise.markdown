@@ -160,6 +160,14 @@ The interval at which the integration fetches data from the gateway depends on t
 | Energy and gas entities |10 seconds|
 | Stretch entities |60 seconds|
 
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required within Home Assistant or on your Plugwise devices.
+
+{% include integrations/remove_device_service.md %}
+
+This will also remove all connected Adam devices (such as Anna, Tom or Lisa) or connected Adam/Stretch plugs.
+
 ## Actions
 
 ### Climate control actions
@@ -186,7 +194,7 @@ The available schedules depend on the [schedules](#schedule-management) you have
 
 The following HVAC modes are available:
 
-- `auto`: Thermostat schedule active – The thermostat changes presets/setpoints according to the user-created schedule.
+- `auto`: Active schedule – The thermostat changes presets/setpoints according to the schedule.
 - `cool or heat`: No active schedule – The system is manually set to cooling or heating mode, activating based on room temperature relative to the thermostat setpoint.
 
 For Adam:
@@ -310,8 +318,9 @@ A complete zone control system also known as [Adam HA](https://www.plugwise.com/
 - On/Off, OpenTherm heating and cooling support.
 - Running firmwares v3.x or v2.3.
 - Additional devices:
-  - Zone thermostats such as Anna, Emma, Lisa or Jip (see warning below on Anna connected to Adam),
-  - Valve controllers called Floor or Tom, can also function as a zone thermostat
+  - Zone thermostats such as Lisa or Anna (see warning below on Anna),
+  - A temperature sensor, Jip,
+  - Valve controllers called Floor or Tom,
   - An under-floor heating controller Koen (note: a Koen always comes with a Plug, which is the active part),
   - Smart switches, either Plug or Aqara Smart Plug.
 
@@ -330,15 +339,15 @@ A [smart thermostat](https://www.plugwise.com/en_US/products/anna), supporting:
 
 A [P1](https://www.plugwise.com/en_US/products/smile-p1) smart meter monitor for the single- or multi-phase grid power connection to your home including gas usage monitoring. Running firmware v4.x, v3.x or v2.x.
 
-#### Anna P1
-
-A smart thermostat [combined](https://www.plugwise.com/en_US/products/anna-p1) with an energy monitor can transform the way you manage energy. If your solar setup generates surplus energy and you're charged for it, this combination ensures that excess solar power is redirected efficiently. Powering your heat pump for instance to make the most of renewable energy. Do you have a setup like this? We’d love to hear your experience!
-
 ### Stretch (end-of-sale)
 
 For controlling and monitoring legacy power switches, such as the Circles or Stealths, with v3.x or v2.x Stretch firmware.
 
 ### Unsupported devices
+
+#### Anna P1
+
+A smart thermostat [combined](https://www.plugwise.com/en_US/products/anna-p1) with an energy monitor can transform the way you manage energy. If your solar setup generates surplus energy and you're charged for it, this combination ensures that excess solar power is redirected efficiently. Powering your heat pump for instance to make the most of renewable energy. Do you have a setup like this? We’d love to hear your experience!
 
 #### Stick
 
@@ -417,11 +426,3 @@ Also, there's a pause-mode that disables the active schedule and sets the away-p
 ### Idling climate actions
 
 You can only stop climate actions on an Adam, see [turn on / turn off](#turn-on--turn-off). An alternative could be to adjust your [preset mode](#set-preset-mode) to `no_frost` to stop any heating actions.
-
-## Removing the integration
-
-This integration follows standard integration removal. No extra steps are required within Home Assistant or on your Plugwise devices.
-
-{% include integrations/remove_device_service.md %}
-
-This will also remove all connected Adam devices (such as Anna, Tom or Lisa) or connected Adam/Stretch plugs.

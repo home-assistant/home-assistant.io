@@ -10,8 +10,6 @@ related:
     title: Themes
   - docs: /dashboards/cards/
     title: Dashboard cards
-  - docs: /dashboards/naming/
-    title: Card naming
 ---
 
 The picture entity card displays an entity in the form of an image. Instead of images from URL, it can also show the picture of `camera` entities.
@@ -47,7 +45,7 @@ camera_view:
   type: string
 image:
   required: false
-  description: URL of an image. To use a locally hosted image, see [Hosting](/integrations/http#hosting-files), or use a `media-source://` URL for Media content.
+  description: URL of an image. To use a locally hosted image, see [Hosting](/integrations/http#hosting-files).
   type: string
 state_image:
   required: false
@@ -68,8 +66,8 @@ fit_mode:
   default: cover
 name:
   required: false
-  description: Overwrites friendly name. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/).
-  type: [string, map, list]
+  description: Overwrite entity name.
+  type: string
 show_name:
   required: false
   description: Shows name in footer.
@@ -118,15 +116,14 @@ entity: light.bed_light
 image: /local/bed_light.png
 ```
 
-Different images for each state (supports local, web, or `media-source://` URLs):
+Different images for each state:
 
 ```yaml
 type: picture-entity
 entity: light.bed_light
 state_image:
   "on": /local/bed_light_on.png
-  "off": https://demo.home-assistant.io/stub_config/bedroom.png
-  "unavailable": media-source://image_upload/123456789
+  "off": /local/bed_light_off.png
 ```
 
 Displaying a live feed from an FFmpeg camera:

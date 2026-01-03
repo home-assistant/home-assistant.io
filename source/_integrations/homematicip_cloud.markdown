@@ -7,13 +7,11 @@ ha_category:
   - Button
   - Climate
   - Cover
-  - Event
   - Hub
   - Light
   - Lock
   - Sensor
   - Switch
-  - Valve
 ha_iot_class: Cloud Push
 ha_release: 0.66
 ha_config_flow: true
@@ -29,14 +27,13 @@ ha_platforms:
   - lock
   - sensor
   - switch
-  - valve
   - weather
 ha_integration_type: integration
 ha_codeowners:
   - '@hahn-th'
 ---
 
-The [HomematicIP](https://www.homematic-ip.com/) {% term integration %} is used as an interface to the cloud server. Since there is no official documentation about this API, everything was done via reverse engineering. Use at your own risk.
+The [HomematicIP](https://www.homematic-ip.com/) integration platform is used as an interface to the cloud server. Since there is no official documentation about this API, everything was done via reverse engineering. Use at your own risk.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -45,12 +42,10 @@ There is currently support for the following device types within Home Assistant:
 - Button
 - Climate
 - Cover
-- Event
 - Light
 - Lock
 - Sensor
 - Switch
-- Valve
 - Weather
 
 {% include integrations/config_flow.md %}
@@ -94,14 +89,6 @@ Groups are instantly created in Home Assistant when created in the native Homema
 Devices are created with a delay of 30 seconds in Home Assistant when created in the native HomematicIP APP.
 Within this delay the device registration should be completed in the App, otherwise the device name will be a default one based on the device type. This can easily be fixed in the Home Assistant entity registry afterwards.
 
-## Use HmIP-DLD Door Lock Drive in Home Assistant
-
-If you are unable to control the **HmIP-DLD** device via Home Assistant, you may need to allow the Home Assistant device to control the **HmIP-DLD** in the HomematicIP app.
-
-To do this, navigate to the **Access Control** section in your HomematicIP app and enable the necessary permissions.
-
-Currently, the **HmIP-DLD** can only be used in Home Assistant without a PIN. Ensure that no PIN is set for the device in the HomematicIP app.
-
 ## Implemented and tested devices
 
 - homematicip_cloud.alarm_control_panel
@@ -139,7 +126,7 @@ Currently, the **HmIP-DLD** can only be used in Home Assistant without a PIN. En
 - homematicip_cloud.climate
   - Climate group (*HmIP-HeatingGroup*)
   - This includes temperature/humidity measures for climate devices of a room delivered by:
-    - Wall-mounted thermostat (*HmIP-WTH, HmIP-WTH-2, HmIP-WTH-B, HmIP-WTH-1*)
+    - Wall-mounted thermostat (*HmIP-WTH, HmIP-WTH-2, HmIP-WTH-B*)
     - Brand Wall-mounted thermostat (*HmIP-BWTH, HmIP-BWTH-24*)
     - Radiator thermostat (*HmIP-eTRV, HmIP-eTRV-2, HmIP-eTRV-C*) - should also work with (*HmIP-eTRV-2-UK, HmIP-eTRV-2-B, HmIP-eTRV-2-B1*)
     - Temperature and humidity sensor (*HmIP-STH*)
@@ -162,9 +149,6 @@ Currently, the **HmIP-DLD** can only be used in Home Assistant without a PIN. En
   - Garage door module for Tormatic (*HmIP-MOD_TM*)
   - Module for Hoermann drives (*HMIP-MOD-HO*)
   - Hunter Douglas & erfal window blinds (*HMIP-HDM1*)
-
-- homematicip_cloud.event
-  - Doorbell Event for devices *HmIP-DSD-PCB* and others where ChannelRole equals DOOR_BELL_INPUT 
 
 - homematicip_cloud.light
   - Switch actuator and meter for brand switches (*HmIP-BSM*)
@@ -209,9 +193,6 @@ Currently, the **HmIP-DLD** can only be used in Home Assistant without a PIN. En
   - Switch Actuator for DIN rail mount – 4x channels (*HMIP-DRSI4*)
   - Switch Actuator for DIN rail mount – 1x channels (*HMIP-DRSI1*)
   - Switch Actuator - 2x channels (*HmIP-BS2*)
-
-- homematicip_cloud.valve
-  - Smart Watering Actuator (*ELV-SH-WSM*)
 
 - homematicip_cloud.weather
   - Weather Sensor – basic (*HmIP-SWO-B*)

@@ -10,8 +10,6 @@ related:
     title: Card header and footer
   - docs: /dashboards/cards/
     title: Dashboard cards
-  - docs: /dashboards/naming/
-    title: Card naming
 ---
 
 The entity card gives you a quick overview of your entity's state.
@@ -40,8 +38,8 @@ entity:
   type: string
 name:
   required: false
-  description: Overwrites friendly name. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/).
-  type: [string, map, list]
+  description: Name of entity.
+  type: string
   default: Entity name.
 icon:
   required: false
