@@ -14,7 +14,7 @@ ha_integration_type: integration
 ha_config_flow: true
 ---
 
-The **VIVOTEK** camera {% term integration %} allows you to integrate a VIVOTEK IP camera into Home Assistant.
+The **VIVOTEK** {% term integration %} allows you to integrate a VIVOTEK IP camera into Home Assistant.
 
 Home Assistant will serve the images via its server, making it possible to view your IP cameras while outside of your network. The endpoint is `/api/camera_proxy/camera.[name]`.
 

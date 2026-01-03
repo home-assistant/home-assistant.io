@@ -15,7 +15,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `mikrotik` platform offers presence detection by looking at connected devices to a [MikroTik RouterOS](https://mikrotik.com) based router.
+The **MikroTik** {% term integration %} offers presence detection by looking at connected devices to a [MikroTik RouterOS](https://mikrotik.com) based router.
 
 There is currently support for the following device types within Home Assistant:
 

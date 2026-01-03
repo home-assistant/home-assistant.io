@@ -22,7 +22,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `powerwall` integration allows you to integrate your [Tesla Powerwall](https://www.tesla.com/powerwall) into Home Assistant.
+The **Tesla Powerwall** {% term integration %} allows you to integrate your [Tesla Powerwall](https://www.tesla.com/powerwall) into Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 

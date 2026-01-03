@@ -95,7 +95,7 @@ The Xiaomi Gateway (Aqara) integration supports the following entities.
 
 ### Covers
 
-The cover entity allows you to control connected Aquara covers. You can do the following:
+The cover entity allows you to control connected Aqara covers. You can do the following:
 
 - Open the cover.
 - Close the cover.

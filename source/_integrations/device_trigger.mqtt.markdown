@@ -8,7 +8,7 @@ ha_iot_class: Configurable
 ha_domain: mqtt
 ---
 
-The `mqtt` device trigger platform uses an MQTT message payload to generate device trigger events.
+The **MQTT Device trigger** {% term integration %} uses an MQTT message payload to generate device trigger events.
 
 An MQTT device trigger is a better option than a [binary sensor](/integrations/binary_sensor.mqtt/) for buttons, remote controls etc.
 

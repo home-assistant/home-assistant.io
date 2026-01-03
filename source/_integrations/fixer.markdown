@@ -15,7 +15,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `fixer` {% term integration %}  will show you the current exchange rate from [Fixer.io](https://fixer.io/) which is using data from the [European Central Bank (ECB)](https://www.ecb.europa.eu).
+The **Fixer** {% term integration %}  will show you the current exchange rate from [Fixer.io](https://fixer.io/) which is using data from the [European Central Bank (ECB)](https://www.ecb.europa.eu).
 
 To get an overview about the available [currencies](https://fixer.io/symbols).
 

@@ -18,7 +18,7 @@ ha_quality_scale: silver
 ha_zeroconf: true
 ---
 
-The **Powerfox** {% term integration %} allows you to gather data from your [Poweropti](https://shop.powerfox.energy/collections/frontpage) devices, by using their cloud API and fetch the data in Home Assistant.
+The **Powerfox** {% term integration %} allows you to gather data from your [Poweropti](https://shop.powerfox.energy/collections/frontpage) devices, by using their cloud API and fetching the data in Home Assistant.
 
 [Powerfox](https://www.powerfox.energy/) is a German company that provides smart meters (Poweropti) for reading electricity, water, gas, and heat. They have their own cloud platform where you can monitor the usage of your devices and get insights into your energy consumption.
 
@@ -54,6 +54,36 @@ The integration will update its information by polling Powerfox every
 
 This integration does not provide additional actions.
 
+## Examples
+
+### Get alerted when power usage spikes
+
+Use this automation to keep an eye on sudden peaks in your electricity usage. When the Powerfox sensor reports more than 4 kW for two minutes, Home Assistant sends a notification so you can react quickly (for example by switching off large loads).
+
+{% details "Example YAML automation" %}
+{% raw %}
+
+```yaml
+alias: "Powerfox high usage alert"
+description: "Notify me when the Powerfox meter reports sustained high power draw."
+triggers:
+  - trigger: numeric_state
+    entity_id: sensor.poweropti_power
+    above: 4000
+    for:
+      minutes: 2
+actions:
+  - action: notify.mobile_app_phone
+    data:
+      title: "High consumption detected"
+      message: "Powerfox currently reports {{ states('sensor.poweropti_power') }} W."
+```
+
+{% endraw %}
+{% enddetails %}
+
+Replace the threshold value, and the `notify` target with the entities that exist in your installation.
+
 ## Supported functionality
 
 The Powerfox platform mainly provides sensors that you can use in your [energy dashboard](/energy).
@@ -83,14 +113,17 @@ It will create the following sensors:
 
 It will create the following sensors:
 
-- **Total eneregy (kWh)**: How much energy is used.
+- **Total energy (kWh)**: How much energy is used.
 - **Delta energy (kWh)**: How much energy is used since the last update.
 - **Total volume (m³)**: How much water is used.
 - **Delta volume (m³)**: How much water is used since the last update.
 
 ## Troubleshooting
 
-There are no commonly known issues with this integration.
+{% details "Cost sensors stay at zero" %}
+
+Powerfox only publishes currency fields when a tariffs are configured in their app. Set the tariff inside the Powerfox app, then wait for the next report; the Home Assistant sensors will populate once the API exposes those fields.
+{% enddetails %}
 
 ## Removing the integration
 

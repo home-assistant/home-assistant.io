@@ -31,6 +31,7 @@ We have the following integrations available for existing products that can prov
 - [HomeWizard Energy](/integrations/homewizard)
 - [StreamLabs](/integrations/streamlabswater)
 - [Suez Water](/integrations/suez_water)
+- [Watergate](/integrations/watergate)
 
 There are also products for water usage monitoring that are based on existing common IoT protocol standards:
 

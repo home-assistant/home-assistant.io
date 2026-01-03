@@ -36,7 +36,7 @@ Devices and entities are used throughout Home Assistant. To name a few examples:
 
 ## Entities
 
-Entities are the basic building blocks to hold data in Home Assistant. An {% term entity %} represents a {% term sensor %}, actor, or function in Home Assistant. Entities are used to monitor physical properties or to control other {% term entities %}. An {% term entity %} is usually part of a {% term device %} or a {% term service %}. Entities have {% term states %}.
+Entities are the basic building blocks to hold data in Home Assistant. An {% term entity %} represents a {% term sensor %}, {% term actor %}, or function in Home Assistant. Entities are used to monitor physical properties or to control other {% term entities %}. An {% term entity %} is usually part of a {% term device %} or a {% term service %}. Entities have {% term states %}.
 
 <p class='img'><img src='/images/getting-started/entities.png' style='border: 0;box-shadow: none;' alt="Screenshot showing the Entities table">Screenshot of the Entities table. Each line represents an entity.</p>
 
@@ -74,7 +74,7 @@ To learn how to use {% term scenes %}, refer to the [scene](/integrations/scene/
 
 ## Add-ons
 
-Add-ons are third-party applications that provide additional functionality in Home Assistant. Add-ons run directly alongside Home Assistant, whereas {% term integrations %} connect Home Assistant to other apps. Add-ons are only supported when using {% term "Home Assistant Operating System" %}.
+Add-ons are third-party applications that provide additional functionality in Home Assistant. Add-ons run directly alongside Home Assistant, whereas {% term integrations %} connect Home Assistant to other apps. Add-ons are only [supported](/installation/#about-installation-types) when using {% term "Home Assistant Operating System" %}.
 
 Add-ons are installed from the add-on store under {% my supervisor title="**Settings** > **Add-ons**" %}. If you are curious now and feel like installing every add-on that looks interesting: beware that add-ons can use quite a bit of resources in terms of disk space, memory, and additional load on the processor.
 

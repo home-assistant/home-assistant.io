@@ -51,7 +51,7 @@ ha_integration_type: hub
 ha_quality_scale: silver
 ---
 
-The [KNX](https://www.knx.org) integration connects Home Assistant to your KNX installation, allowing you to control KNX devices, act on telegrams and forward state changes from other integrations entities to your KNX bus.
+The [KNX](https://www.knx.org) {% term integration %} connects Home Assistant to your KNX installation, allowing you to control KNX devices, act on telegrams and forward state changes from other integrations entities to your KNX bus.
 
 This integration requires a local KNX/IP interface or router to establish the connection between Home Assistant and your KNX bus.
 
@@ -2131,6 +2131,10 @@ Text entities without a `state_address` will restore their last known state afte
 Texts that have a `state_address` configured request their current state from the KNX bus.
 {% endnote %}
 
+Text entities can be created from the frontend in the KNX panel or via YAML.
+
+{% details "Configuration of KNX text entities via YAML" %}
+
 ```yaml
 # Example configuration.yaml entry
 knx:
@@ -2180,6 +2184,8 @@ entity_category:
   type: string
   default: None
 {% endconfiguration %}
+
+{% enddetails %}
 
 ## Time
 

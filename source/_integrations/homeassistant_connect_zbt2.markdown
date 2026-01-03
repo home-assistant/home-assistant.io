@@ -16,7 +16,7 @@ ha_platforms:
 ha_quality_scale: bronze
 ---
 
-The Home Assistant Connect ZBT-2 integration provides hardware information for the hardware configuration page.
+The **Home Assistant Connect ZBT-2** {% term integration %} provides hardware information for the hardware configuration page.
 
 For documentation on the Home Assistant Connect ZBT-2, please visit the [documentation page](https://support.nabucasa.com/hc/en-us/categories/29400540866973).
 If you are looking to buy one, please visit the [product page](https://home-assistant.io/connect/zbt-2/).

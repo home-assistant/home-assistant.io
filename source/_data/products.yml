@@ -180,6 +180,11 @@ green:
       ship_to: Europe
       url: https://smartdomo.de/products/home-assistant-green
       logo: /images/distributors/smartdomo.webp
+    - name: Nurkan takaa
+      ship_from: Finland
+      ship_to: Europe
+      url: https://verkkokauppa.nurkantakaa.fi/tuote/nabu-casa-home-assistant-green/
+      logo: /images/distributors/nurkantakaa.webp
 yellow:
   name: "<strong>Home Assistant Yellow</strong>"
   distributors:
@@ -495,6 +500,11 @@ voice-pe:
       ship_to: Europe
       url: https://smartdomo.de/products/home-assistant-voice-preview-edition-sprachassistent-nabu-casa-nc-vk-9727
       logo: /images/distributors/smartdomo.webp
+    - name: Nurkan takaa
+      ship_from: Finland
+      ship_to: Europe
+      url: https://verkkokauppa.nurkantakaa.fi/tuote/nabu-casa-home-assistant-voice-preview-edition/
+      logo: /images/distributors/nurkantakaa.webp
 zwa-2:
   name: "<strong>Home Assistant</strong> Connect ZWA-2"
   distributors:
@@ -671,11 +681,11 @@ zbt-2:
   name: "<strong>Home Assistant</strong> Connect ZBT-2"
   distributors:
     # North America
-    #- name: Amazon
-    #  ship_from: US
-    #  ship_to: North America
-    #  url: To be provided on Nov 20 when activated
-    #  logo: /images/distributors/amazon.webp
+    - name: Amazon US
+      ship_from: US
+      ship_to: North America
+      url: https://www.amazon.com/dp/B0G34ZTW51
+      logo: /images/distributors/amazon.webp
     - name: Ameridorid
       ship_from: US
       ship_to: North America
@@ -854,3 +864,8 @@ zbt-2:
       ship_to: Europe
       url: https://verkkokauppa.nurkantakaa.fi/tuote/nc-zbt-9741/
       logo: /images/distributors/nurkan-takaa.webp
+    - name: Smart Guys
+      ship_from: Australia
+      ship_to: Australia
+      url: https://smartguys.com.au/product/home-assistant-zbt-2-connect-zigbee-thread-adapter/
+      logo: /images/distributors/smart-guys.webp

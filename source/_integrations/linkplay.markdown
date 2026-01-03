@@ -18,7 +18,7 @@ ha_platforms:
 ha_iot_class: Local Polling
 ---
 
-The LinkPlay {% term integrations %} for Home Assistant allows you to control various media players based on the LinkPlay protocol. The integration supports auto-discovery on your local network through [Zeroconf](/integrations/zeroconf).
+The **LinkPlay** {% term integration %} for Home Assistant allows you to control various media players based on the LinkPlay protocol. The integration supports auto-discovery on your local network through [Zeroconf](/integrations/zeroconf).
 
 {% include integrations/config_flow.md %}
 

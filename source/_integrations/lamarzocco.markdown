@@ -31,7 +31,7 @@ ha_integration_type: device
 ha_quality_scale: platinum
 ---
 
-This integration interacts with [La Marzocco](https://lamarzocco.com/it/en/) coffee machines through calls to the La Marzocco cloud API.
+This {% term integration %} interacts with [La Marzocco](https://lamarzocco.com/it/en/) coffee machines through calls to the La Marzocco cloud API.
 
 If your Home Assistant host can perform [DHCP discovery](https://www.home-assistant.io/integrations/dhcp/), your machine will be discovered automatically. Otherwise, if your machine is in Bluetooth range to your Home Assistant host and the [Bluetooth](/integrations/bluetooth) integration is fully loaded, the machine will be discovered as well.
 
