@@ -15,6 +15,6 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The SiteSage Emonitor allows local power monitoring on a per circuit basis via an [Emonitor](https://powerhousedynamics.com/solutions/sitesage/) device.
+The **SiteSage Emonitor** {% term integration %} allows local power monitoring on a per circuit basis via an [Emonitor](https://powerhousedynamics.com/solutions/sitesage/) device.
 
 {% include integrations/config_flow.md %}

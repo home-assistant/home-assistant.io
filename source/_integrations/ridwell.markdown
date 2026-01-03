@@ -21,6 +21,47 @@ The Ridwell integration allows users to track waste recycling pickups scheduled 
 
 {% include integrations/config_flow.md %}
 
+{% include integrations/option_flow.md %}
+
+### Event summary details
+
+The calendar event summary can be customized to display different details about a given pickup.
+
+The following choices are available for customizing the text. Each option is also detailed more in separate sections below.
+
+{% configuration_basic %}
+Pickup status:
+    description: The current state of the individual pickup occurring that day _(Default option)_
+Rotating category:
+    description: The name of the rotating category selected for that pickup
+No details:
+    description: No text will be displayed after the event title
+{% endconfiguration_basic %}
+
+#### Pickup status
+
+Common statuses for an individual pickup include:
+- **initialized**: Available for customers to opt-in for pickup
+- **scheduled**: Opted-into; Ridwell will include you in their route that day
+- **notified**: Ridwell has attempted to contact customers who have not opted-in to pickups happening soon
+- **skipped**: Previously scheduled but then later unscheduled (canceled)
+
+#### Rotating category
+
+The rotating category will be displayed once a pickup has been scheduled successfully. 
+
+If a pickup does not have the `scheduled` status (described in the [Pickup status](#Pickup status) section), the calendar event will display the **Pickup status** value until the pickup has been scheduled.
+
+#### No details
+
+The calendar title will show "Ridwell Pickup" only, but full details on the various pickup types will still be included in the description of the event.
+
+{% note %}
+The Ridwell integration will reload after changing this option.
+
+You may notice the Ridwell calendar disappear briefly before reappearing with the newly formatted calendar events.
+{% endnote %}
+
 ## Calendar
 
 The calendar sensor contains a `calendar` state attribute, which contains:
@@ -91,6 +132,16 @@ For example:
   }
 }
 ```
+
+## Troubleshooting
+
+{% tip %}
+The Ridwell integration checks for updated information from your Ridwell account about once every hour. 
+
+**Changes to pickups may take up to 60 minutes appear in Home Assistant.**
+{% endtip %}
+
+If pickup information in Home Assistant does not match recent changes to your Ridwell account, you can manually trigger a check for new details by reloading the Ridwell integration. On the integration overview page, choose **Reload** from the options menu on the specific account instance you want refreshed.
 
 ## Removing the integration
 

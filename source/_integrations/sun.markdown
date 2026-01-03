@@ -19,7 +19,7 @@ related:
     title: Configuration file
 ---
 
-The sun {% term integration %} calculates all sun-related times (sunrise, sunset, dawn, dusk, etc.) based on your configured home location. This means that all time-based calculations and triggers will be accurate for your specific location, as defined in your [basic configuration](/docs/configuration/basic/).
+The **Sun** {% term integration %} calculates all sun-related times (sunrise, sunset, dawn, dusk, etc.) based on your configured home location. This means that all time-based calculations and triggers will be accurate for your specific location, as defined in your [basic configuration](/docs/configuration/basic/).
 
 The sun {% term integration %} will use the location as
 {% my general title="configured in your Home Assistant configuration" %} to

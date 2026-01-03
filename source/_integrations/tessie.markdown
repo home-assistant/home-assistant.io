@@ -36,7 +36,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The Tessie {% term integration %} exposes various commands and sensors from the Tesla vehicles and energy products connected to your [Tessie](https://tessie.com/) subscription.
+The **Tessie** {% term integration %} exposes various commands and sensors from the Tesla vehicles and energy products connected to your [Tessie](https://tessie.com/) subscription.
 
 ## Prerequisites
 

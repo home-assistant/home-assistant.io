@@ -21,7 +21,7 @@ ha_ssdp: true
 ha_integration_type: device
 ---
 
-The **Bravia TV** {% term integration %} allows you to control a [Sony Bravia TV](https://www.sony.com/).
+The **Sony Bravia TV** {% term integration %} allows you to control a [Sony Bravia TV](https://www.sony.com/).
 
 Almost all [Sony Bravia TV 2013 and newer](https://info.tvsideview.sony.net/en_ww/home_device.html#bravia) are supported. For older TVs see more generic methods to control your device [below](#for-tvs-older-than-2013).
 

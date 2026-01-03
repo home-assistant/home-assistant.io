@@ -145,6 +145,29 @@ Home Assistant instance:
 
 ![Screenshot of Cursor controlling the office lights](/images/integrations/mcp_server/cursor-lights-control.png)
 
+### Example: gemini-cli
+
+1.  Install `gemini-cli` if you haven't already. You can find installation instructions at [https://geminicli.com/](https://geminicli.com/).
+2.  Open the `gemini-cli` configuration file. This is usually located at `~/.gemini/settings.json`. For more details, refer to the [gemini-cli MCP server documentation](https://geminicli.com/docs/tools/mcp-server/).
+3.  Add the following to your `mcpServers` configuration:
+
+    ```json
+    {
+      "mcpServers": {
+        "homeassistant": {
+          "httpUrl": "https://<your_home_assistant_url>/api/mcp",
+          "headers": {
+            "Authorization": "Bearer ${HOMEASSISTANT_TOKEN}"
+          }
+        }
+      }
+    }
+    ```
+
+4.  Replace `<your_home_assistant_url>` with the URL of your Home Assistant instance.
+5.  Set the `HOMEASSISTANT_TOKEN` environment variable to a [Long-Lived Access Token](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token) from your Home Assistant instance.
+6.  Save the file. You can now use Home Assistant tools within `gemini-cli`.
+
 ## Supported functionality
 
 ### Tools

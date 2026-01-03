@@ -18,7 +18,7 @@ ha_config_flow: true
 ha_integration_type: integration
 ---
 
-The OSO Energy {% term integration %} for Home Assistant allows you to interact with supported devices and services offered by [OSO Energy](https://www.osoenergy.no)
+The **OSO Energy** {% term integration %} for Home Assistant allows you to interact with supported devices and services offered by [OSO Energy](https://www.osoenergy.no)
 
 This OSO Energy integration uses a subscription key, which a user can create for his account on the [OSO Energy website](https://portal.osoenergy.no/), to configure it within Home Assistant. Once configured Home Assistant will detect and add all OSO Energy devices.
 

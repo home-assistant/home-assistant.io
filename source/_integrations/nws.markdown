@@ -17,7 +17,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `nws` platform uses the [National Weather Service](https://www.weather.gov) web API as a source for meteorological data for your location.
+The **NWS** {% term integration %} uses the [National Weather Service](https://www.weather.gov) web API as a source for meteorological data for your location.
 
 {% include integrations/config_flow.md %}
 

@@ -22,7 +22,7 @@ related:
     title: OpenAI
 ---
 
-The OpenAI {% term integration %} adds a conversation agent powered by [OpenAI](https://www.openai.com) in Home Assistant.
+The **OpenAI** {% term integration %} adds a conversation agent powered by [OpenAI](https://www.openai.com) in Home Assistant.
 
 Controlling Home Assistant is done by providing the AI access to the Assist API of Home Assistant. You can control what devices and entities it can access from the {% my voice_assistants title="exposed entities page" %}. The AI is able to provide you information about your devices and control them.
 

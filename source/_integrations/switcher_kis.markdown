@@ -25,7 +25,7 @@ ha_integration_type: integration
 ha_quality_scale: silver
 ---
 
-This `Switcher` integration allows you to control your [Switcher Devices](https://www.switcher.co.il/).
+The **Switcher** {% term integration %} allows you to control your [Switcher Devices](https://www.switcher.co.il/).
 
 Supported devices:
 

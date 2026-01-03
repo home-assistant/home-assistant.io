@@ -33,9 +33,10 @@ Before trying to connect your light(s) to Home Assistant, you must put the light
 
 This {% term integration %} is tested to work with the following models:
 
-| Model number | Product name                                     |
-|--------------|--------------------------------------------------|
-| LCA006       | Hue White and Color 1100                         |
+| Model number | Product name                                           |
+|--------------|--------------------------------------------------------|
+| LCA006       | Hue White and Color 1100                               |
+| Unknown      | Hue White and Color Ambiance Go portable accent light  |
 
 The **Philips Hue BLE** integration has been designed to work with other models as well. If you have a different model and it is working, please let us know.
 
