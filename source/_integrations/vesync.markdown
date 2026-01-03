@@ -1,11 +1,12 @@
 ---
 title: VeSync
-description: Instructions on how to set up VeSync switches, outlets, and fans within Home Assistant.
+description: Instructions on how to set up VeSync devices with Home Assistant. 
 ha_category:
   - Fan
   - Light
   - Number
   - Switch
+  - Update
 ha_release: 0.66
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -15,6 +16,7 @@ ha_codeowners:
   - '@thegardenmonkey'
   - '@cdnninja'
   - '@iprak'
+  - '@sapuseven'
 ha_domain: vesync
 ha_platforms:
   - binary_sensor
@@ -23,12 +25,14 @@ ha_platforms:
   - humidifier
   - light
   - number
+  - select
   - sensor
   - switch
+  - update
 ha_integration_type: integration
 ---
 
-The **VeSync** {% term integration %} enables you to control smart switches and outlets connected to the VeSync App.
+The **VeSync** {% term integration %} enables you to control a wide variety of Levoit devices connected to the VeSync App. Currently this integration supports most bulbs, fans, air purifiers, switches, outlets and humidifers. It does not support Cosori devices. 
 
 The devices must be added to the VeSync App before this {% term integration %} can discover them.
 
@@ -41,10 +45,11 @@ The following platforms are supported:
 - **number**
 - **sensor**
 - **switch**
+- **update**
 
 ## Supported devices
 
-This {% term integration %} supports devices controllable by the VeSync App.  The following devices are supported by this {% term integration %}:
+This {% term integration %} supports devices controllable by the VeSync App. The following devices are supported by this {% term integration %}. This list may not be exhaustive as devices have multiple model numbers within this.
 
 ### Bulbs
 - Etekcity WiFi Dimmable LED Bulb (ESL100)
@@ -80,6 +85,7 @@ This {% term integration %} supports devices controllable by the VeSync App.  Th
 
 - Classic200S: Classic 200S Smart Ultrasonic Cool Mist Humidifier
 - Classic300S: Classic 300S Ultrasonic Smart Humidifier
+- Superior6000S: Superior 6000S Smart Evaporative Humidifier
 
 ## Prerequisite
 
@@ -88,6 +94,12 @@ VeSync App. Once registration is complete, continue with the steps described in
 the configuration section below.
 
 {% include integrations/config_flow.md %}
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
 
 ## Actions
 
@@ -118,6 +130,10 @@ All VeSync air purifiers expose the remaining filter lifetime, and some also exp
 | `air_quality`           | The current air quality reading. (LV-PUR131S, Core300s/400s/600s)                      | excellent |
 | `pm2_5`                 | The current air quality reading. (Core300s/400s/600s/EverestAir)                       | 8         |
 
+| Switch                  | Description                                                                        | Example   |
+| ----------------------- | ---------------------------------------------------------------------------------- | --------- |
+| `display`               | Display On or Off                                                                  | On        |
+
 ## Fan exposed attributes
 
 VeSync air purifiers will expose the following details depending on the features supported by the model:
@@ -127,10 +143,15 @@ VeSync air purifiers will expose the following details depending on the features
 | `mode`                  | The current mode the device is in. (LV-PUR131S, Core200S/300s/400s)               | manual          |
 | `speed`                 | The current speed setting of the device. (LV-PUR131S, Core200S/300s/400s)         | high            |
 | `speed_list`            | The available list of speeds supported by the device. (LV-PUR131S)                | high            |
+| `oscillating`           | If the fan is currently oscillating                                               | True            |
 | `active_time`           | The number of seconds since the device has been in a non-off mode. (LV-PUR131S)   | 1598            |
 | `screen_status`         | The current status of the screen. (LV-PUR131S)                                    | on              |
 | `night_light`           | The current status of the night light (Core200S/Core400s)                         | off             |
 | `child_lock`            | The current status of the child lock (Core200S/300s/400s)                         | off             |
+
+| Select                  | Description                                                                        | Example   |
+| ----------------------- | ---------------------------------------------------------------------------------- | --------- |
+| `night_light_level`     | Night light brightness level (Values: off, dim, on).                               | off       |
 
 ## Humidifier
 
@@ -146,7 +167,13 @@ Sensors and settings exposed by VeSync humidifiers.
 
 | Select                  | Description                                                                        | Example   |
 | ----------------------- | ---------------------------------------------------------------------------------- | --------- |
-| `night_light_level`| Night light brightness level (Values: off, dim, bright).             | off         |
+| `night_light_level`     | Night light brightness level (Values: off, dim, bright).                           | off       |
+
+| Switch                  | Description                                                                        | Example   |
+| ----------------------- | ---------------------------------------------------------------------------------- | --------- |
+| `display`               | Display On or Off                                                                  | On        |
+| 'auto_off_config'       | Auto turn off when humidity target exceeded,  resume when below target             | On        |
+
 
 ## Binary Sensors
 

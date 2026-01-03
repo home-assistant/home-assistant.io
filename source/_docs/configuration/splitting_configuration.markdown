@@ -221,7 +221,7 @@ learn more about packages, see the [Packages](/docs/configuration/packages) page
 
 That about wraps it up.
 
-If you have issues, checkout `home-assistant.log` in the configuration directory as well as your indentations. If all else fails, head over to our [Discord chat server][discord] and ask away.
+If you have issues, check the file indentations and check [the Home Assistant logs](/integrations/logger/#viewing-logs). If all else fails, head over to our [Discord chat server][discord] and ask away.
 
 ## Debugging configuration files
 
@@ -229,8 +229,6 @@ If you have many configuration files, Home Assistant provides a CLI that allows 
 
 - [Operating System](/common-tasks/os/#configuration-check)
 - [Container](/common-tasks/container/#configuration-check)
-- [Core](/common-tasks/core/#configuration-check)
-- [Supervised](/common-tasks/supervised/#configuration-check)
 
 ## Advanced usage
 

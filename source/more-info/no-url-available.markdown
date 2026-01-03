@@ -1,6 +1,9 @@
 ---
 title: "No URL Available"
 description: "More information on how to resolve the No URL Available message in Home Assistant."
+related:
+  - url: https://support.nabucasa.com/hc/en-us/categories/24734619902749
+    title: Home Assistant Cloud user documentation
 ---
 
 When Home Assistant serves you the "No URL Available" message, you are
@@ -33,13 +36,11 @@ There are multiple options to consider:
 
 ### Using Nabu Casa Home Assistant Cloud
 
-If you have Nabu Casa's Home Assistant Cloud, the easiest way to resolve this,
-is by visiting your Home Assistant instance from the remote UI URL.
+If you have Nabu Casa's [Home Assistant Cloud](https://support.nabucasa.com/hc/en-us/categories/24734619902749), the easiest way to resolve this, is by visiting your Home Assistant instance from the remote URL.
 
-Go to **Settings** -> **Home Assistant Cloud**.
+Go to {% my cloud title="**Settings** > **Home Assistant Cloud**" %}.
 
-Visit your instance on the remote URL. Now you can set up the integration as normal, without getting the No URL
-Available message.
+Visit your instance on the remote URL. Now you can set up the integration as normal, without getting the "No URL Available" message.
 
 ### Using your instance by IP address
 
@@ -64,22 +65,22 @@ like this.
 Please note, you'll need to enable advanced mode in your user profile in order
 to set this up.
 
-Go to **Settings** -> **System** -> **Network**.
+Go to {% my network title="**Settings** > **System** > **Network**" %}.
 
-On this page, two fields that can resolve this issue: "Local Network"
-and "Internet".
+On this page, two fields that can resolve this issue: **Local Network**
+and **Internet**.
 
 - **Local Network**: The URL you type in your browser when you are **at home**,
-connected to your home network, e.g., `http://homeassistant.local:8123`
+connected to your home network. For example, `http://homeassistant.local:8123`
 - **Internet**: The URL you type in your browser when you are **not home**,
-connected to your home network, e.g., `https://example.duckdns.org`
+connected to your home network. For example, `https://example.duckdns.org`
 
 Some additional notes:
 
-- Don't use the Nabu Casa remote UI URL in any of these fields. The remote UI
+- Don't use the Nabu Casa remote UI URL in any of these fields. The remote access
   will automatically be handled correctly.
-- If the address you use, is the same for both the "**at home**" and
-  "**not home**" situations, it is recommend to only use the External URL field.
+- If the address you use is the same for both the "at home" and
+  "not home" situations, it is recommended to only use the **External URL** field.
 - The internal URL should preferably not use SSL (have `https://`) in it, as it
   might cause problems with casting to media devices.
 - If you do not have an external address for your Home Assistant instance,

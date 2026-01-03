@@ -5,6 +5,7 @@ ha_category:
   - 3D printing
   - Binary sensor
   - Button
+  - Number
   - Sensor
 ha_config_flow: true
 ha_release: 0.19
@@ -18,6 +19,7 @@ ha_platforms:
   - binary_sensor
   - button
   - camera
+  - number
   - sensor
 ha_integration_type: integration
 ---
@@ -61,10 +63,16 @@ The OctoPrint integration lets you monitor various states of your 3D printer and
 
 Supported sensors:
 
+- Actual Bed Temperature
+- Actual Tool (Nozzle) Temperature
 - Current Printer State
-- Job Completed Percentage
 - Estimated Finish Time
+- Job Completed Percentage
 - Estimated Start Time
+- Target Bed Temperature
+- Target Tool (Nozzle) Temperature
+- Current File Name
+- Current File Size
 
 ## Camera
 
@@ -75,11 +83,24 @@ The OctoPrint integration provides a camera feed if one is configured in OctoPri
 The OctoPrint integration provides the following buttons:
 
 - Pause Job
-- Resume Job
-- Stop Job
-- Shutdown System
 - Reboot System
 - Restart Octoprint
+- Resume Job
+- Shutdown System
+- Stop Job
+
+## Number
+
+The OctoPrint integration lets you set target bed and tool temperature. These writable properties return the same data as Target Temperature sensors, and additionally allow changing Target Temperature from automation, scripts, or entities card interaction.
+
+- Set Target Bed Temperature
+- Set Target Tool (Nozzle) Temperature
+
+## Actions
+
+The OctoPrint integration provides the following actions, which may be invoked from automation, scripts, or as a button interaction.
+
+- Connect to printer
 
 ## Troubleshooting
 

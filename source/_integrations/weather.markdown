@@ -11,7 +11,7 @@ ha_domain: weather
 ha_integration_type: entity
 ---
 
-The `weather` platforms gather meteorological information from web services and display the conditions and other details about the weather at the given location.
+The **Weather** {% term integration %} gather meteorological information from web services and display the conditions and other details about the weather at the given location.
 
 {% include integrations/building_block_integration.md %}
 
@@ -115,7 +115,7 @@ The response data field is a mapping of called target entities, each containing 
 
 {% details "Example template sensor using get_forecasts" %}
 
-Example template sensor that contains the hourly forecast
+Example [template sensor](/integrations/template#yaml-configuration) that contains the hourly forecast
 
 {% raw %}
 

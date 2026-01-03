@@ -36,17 +36,17 @@ For certain power user needs CM5 might provide big improvements. Some Pi 5 users
 
 ## Installing on CM5
 
-For the Home Assistant Yellow, we have [two ways to install Home Assistant OS](https://yellow.home-assistant.io/guides/reinstall-os/) onto the Compute Module. One is very easy and quick (using USB 2.0), while the other is more complex (using rpiboot). Unfortunately, due to firmware differences with CM5 it cannot boot off USB 2.0 devices (though the USB 2.0 ports work once the device is booted).
+For the Home Assistant Yellow, we have two ways to install Home Assistant OS onto the Compute Module. One is very easy and quick (using USB 2.0), while the other is more complex (using rpiboot). Unfortunately, due to firmware differences with CM5 it cannot boot off USB 2.0 devices (though the USB 2.0 ports work once the device is booted).
 
 If you already have a Yellow running Home Assistant OS, upgrading to CM5 can be a drop-in replacement, but in some circumstances it can be more complex,
 
-- **CM4 Lite (no eMMC) with NVMe storage** - Update to the latest HAOS (version 14.0 or greater - as of writing 14.0 is still pre-release, we recommend you wait for the stable release, but if you want to get the pre-release today either [join the beta channel](https://www.home-assistant.io/common-tasks/os/#running-a-beta-version) or [explicitly install](https://www.home-assistant.io/common-tasks/os/#running-a-specific-version) `14.0.rc2`), power it down, swap the CM4 Lite for a CM5 Lite, and you're good to go.
+- **CM4 Lite (no eMMC) with NVMe storage** - Update to the latest HAOS (version 14.0 or greater), power it down, swap the CM4 Lite for a CM5 Lite, and you're good to go.
 
-- **CM4 with eMMC (regardless if you are using NVMe or not)** -  Download a backup of your Home Assistant, power down your system, and install Home Assistant OS on the CM5 using [rpiboot](https://yellow.home-assistant.io/guides/reinstall-os/#:~:text=Option%202%3A%20Reinstall%20Home%20Assistant%20OS%20using%20rpiboot) (the more complex installation method). Once installed restore the backup.
+- **CM4 with eMMC (regardless if you are using NVMe or not)** -  Download a backup of your Home Assistant, power down your system, and install Home Assistant OS on the CM5 using [rpiboot](https://support.nabucasa.com/hc/en-us/articles/25485061432093-Reinstall-the-Home-Assistant-Operating-System-on-Raspberry-Pi-CM5) (the more complex installation method). Once installed restore the backup.
 
-- **New Yellow with CM5**: You will need to install Home Assistant with [rpiboot](https://yellow.home-assistant.io/guides/reinstall-os/#:~:text=Option%202%3A%20Reinstall%20Home%20Assistant%20OS%20using%20rpiboot) (the more complex installation method).
+- **New Yellow with CM5**: You will need to install Home Assistant with [rpiboot](https://support.nabucasa.com/hc/en-us/articles/25606333033501-Home-Assistant-Yellow-Kit-with-CM5) (the more complex installation method).
 
-For full details on how to set up your Home Assistant Yellow [visit our documentation](https://yellow.home-assistant.io/).
+For full details on how to set up your Home Assistant Yellow [visit our documentation](https://support.nabucasa.com/hc/en-us/categories/24734575925149-Home-Assistant-Yellow).
 
 ## CM4 is still great
 

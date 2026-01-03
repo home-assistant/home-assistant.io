@@ -15,7 +15,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `alpha_vantage` sensor platform uses [Alpha Vantage](https://www.alphavantage.co) to monitor the stock market. This platform also provides detail about exchange rates.
+The **Alpha Vantage** {% term integration %} uses [Alpha Vantage](https://www.alphavantage.co) to monitor the stock market. This platform also provides detail about exchange rates.
 
 To enable the `alpha_vantage` platform, add the following lines to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
@@ -80,7 +80,7 @@ foreign_exchange:
 
 ## API information
 
-Alpha Vantage offers two tiers of the API key, one free and one paid for. If you are using the free version, you will be limited to twenty-five queries per day. The sensor polls every 5 minutes, so you will only get data for the first two hours per day. This can be configured using the `scan_interval` variable.
+Alpha Vantage offers two tiers of the API key, one free and one paid for. If you are using the free version, you will be limited to twenty-five queries per day. The sensor polls every 5 minutes, so you will only get data for the first two hours per day. This can be configured using the `scan_interval` variable. To find the necessary symbols, you can use the search function of the API. For example, try [this SYMBOL_SEARCH query](https://www.alphavantage.co/query?function=SYMBOL_SEARCH&apikey=<your-api-key>&keywords=IBM).
 
 The paid version starts at 75 queries per minute, increasing ticker quantity quite a bit.
 

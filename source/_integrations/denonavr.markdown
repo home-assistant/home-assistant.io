@@ -16,7 +16,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `denonavr` platform allows you to control [Denon Network Receivers](https://www.denon.com/category/heos) from Home Assistant. It might be that your device is supported by the [Denon] platform.
+The **Denon AVR Network Receivers** {% term integration %} allows you to control [Denon Network Receivers](https://www.denon.com/category/heos) from Home Assistant. It might be that your device is supported by the [Denon] platform.
 
 Known supported devices:
 
@@ -38,6 +38,7 @@ Known supported devices:
 - Denon AVR-X2600H
 - Denon AVR-X2700H
 - Denon AVR-X2800H
+- Denon AVC-X2850H
 - Denon AVR-X3000
 - Denon AVR-X3200W
 - Denon AVR-X3300W
@@ -45,6 +46,7 @@ Known supported devices:
 - Denon AVR-X3500H
 - Denon AVR-X3600H
 - Denon AVR-X3700H
+- Denon AVR-X3800H
 - Denon AVC-X3800H
 - Denon AVR-X4100W
 - Denon AVR-X4300H
@@ -64,6 +66,8 @@ Known supported devices:
 - Denon AVR-3312
 - Denon AVR-3313CI
 - Denon AVR-4810
+- Denon AVR-E300
+- Denon AVR-E400
 - Denon AVR-S650H
 - Denon AVC-S660H
 - Denon AVR-S710W
@@ -77,6 +81,7 @@ Known supported devices:
 - Denon AVR-S960H
 - Denon AVR-S970H
 - Denon DN-500AV
+- Denon DRA-N5
 - Denon DRA-800H
 - Marantz AV7702
 - Marantz AV7703
@@ -109,6 +114,7 @@ Known supported devices:
 - Marantz NR1604
 - Marantz NR1606
 - Marantz NR1607
+- Marantz NR1609
 - Marantz NR1710
 - Marantz NR1711
 - Other Denon AVR receivers (untested)

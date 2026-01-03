@@ -105,7 +105,7 @@ To include messages with embedding, use these attributes underneath the `embed` 
 | `description` | yes      | Description of the embed.                                                                            |
 | `color`       | yes      | Color code of the embed.  This value is an *int*.                                                    |
 | `url`         | yes      | URL of the embed.                                                                                    |
-| `author`      | yes      | Sets the footer for the embed content.                                                               |
+| `author`      | yes      | Sets the author for the embed content.                                                               |
 | `footer`      | yes      | Sets the footer for the embed content.                                                               |
 | `thumbnail`   | yes      | Sets the thumbnail for the embed content.                                                            |
 | `image`       | yes      | Sets the image for the embed content.                                                                |

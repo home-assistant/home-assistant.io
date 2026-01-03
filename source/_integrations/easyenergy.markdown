@@ -92,6 +92,10 @@ Fetches the hourly prices for gas.
 | `start`        | yes      | Start time to get prices. Defaults to today 00:00:00 | 2023-01-01 00:00:00              |
 | `end`          | yes      | End time to get prices. Defaults to today 00:00:00   | 2023-01-01 00:00:00              |
 
+{% tip %}
+You can get your `config_entry` by using actions within the [developer tools](/docs/tools/dev-tools/): use one of the easyEnergy actions and view the YAML.
+{% endtip %}
+
 #### Response data
 
 The response data is a dictionary with the gas timestamps and prices as string and float values.
@@ -122,6 +126,10 @@ Fetches the hourly prices for energy that you use (buy).
 | `start`        | yes      | Start time to get prices. Defaults to today 00:00:00 | 2023-01-01 00:00:00              |
 | `end`          | yes      | End time to get prices. Defaults to today 00:00:00   | 2023-01-01 00:00:00              | 
 
+{% tip %}
+You can get your `config_entry` by using actions within the [developer tools](/docs/tools/dev-tools/): use one of the easyEnergy actions and view the YAML.
+{% endtip %}
+
 #### Response data
 
 The response data is a dictionary with the energy timestamps as strings and prices as float values.
@@ -150,6 +158,10 @@ Fetches the hourly prices for energy that you return (sell).
 | `config_entry` | no       | Config entry ID to use.                                 | 013713c172577bada2874a32dbe44feb |
 | `start`        | yes      | Start time to get prices. Defaults to today 00:00:00    | 2023-01-01 00:00:00              |
 | `end`          | yes      | End time to get prices from. Defaults to today 00:00:00 | 2023-01-01 00:00:00              |
+
+{% tip %}
+You can get your `config_entry` by using actions within the [developer tools](/docs/tools/dev-tools/): use one of the easyEnergy actions and view the YAML.
+{% endtip %}
 
 #### Response data
 

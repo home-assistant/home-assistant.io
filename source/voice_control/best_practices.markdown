@@ -11,7 +11,7 @@ related:
     title: Sentences starter kit
   - url: https://www.nabucasa.com/config/
     title: Home Assistant Cloud
-  - url: https://voice-pe.home-assistant.io/
+  - url: https://support.nabucasa.com/hc/en-us/categories/24451727188125-Home-Assistant-Voice-Preview-Edition
     title: Voice Preview Edition
 ---
 There are a few things you should do to get the most out of the voice assistant experience.

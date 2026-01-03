@@ -18,7 +18,7 @@ ha_platforms:
 ha_integration_type: service
 ---
 
-The OpenUV integration displays UV and Ozone data from [openuv.io](https://www.openuv.io/).
+The **OpenUV** {% term integration %} displays UV and Ozone data from [openuv.io](https://www.openuv.io/).
 
 {% warning %}
 The guidelines within this documentation constitute estimates which are intended to help

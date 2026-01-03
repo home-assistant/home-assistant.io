@@ -19,7 +19,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `ness_alarm` {% term integration %} will allow Home Assistant users who own a Ness D8x/D16x alarm system to leverage their alarm system and its sensors to provide Home Assistant with information about their homes. Connectivity between Home Assistant and the alarm is accomplished through a IP232 module that must be connected to the alarm.
+The **Ness Alarm** {% term integration %} will allow Home Assistant users who own a Ness D8x/D16x alarm system to leverage their alarm system and its sensors to provide Home Assistant with information about their homes. Connectivity between Home Assistant and the alarm is accomplished through a IP232 module that must be connected to the alarm.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -124,7 +124,7 @@ Trigger an aux output.  This requires PCB version 7.8 or higher.
 
 | Data attribute | Optional | Description                                                                                                                                                         |
 | ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `output_id`            | No       | The aux output you wish to change.  A number from 1-4.                                                                                                              |
+| `output_id`            | No       | The aux output you wish to change.  A number from 1-8.                                                                                                              |
 | `state`                | Yes      | The On/Off State, represented as true/false. Default is true.  If P14xE 8E is enabled then a value of true will pulse output x for the time specified in P14(x+4)E. |
 
 ### Action `panic`

@@ -18,7 +18,7 @@ ha_codeowners:
   - '@Noltari'
 ---
 
-The AEMET weather platform uses [AEMET OpenData](https://opendata.aemet.es/) as a source for current meteorological data for your location. AEMET stands for "Agencia Estatal de Meteorología", which is the Spanish Meteorological Agency.
+The **AEMET** {% term integration %} uses [AEMET OpenData](https://opendata.aemet.es/) as a source for current meteorological data for your location. AEMET stands for "Agencia Estatal de Meteorología", which is the Spanish Meteorological Agency.
 
 There is currently support for the following entity types within Home Assistant:
 
@@ -73,3 +73,9 @@ For each condition, the following sensors are created:
 The integration creates an image entity for the weather radar if the radar option is enabled.
 
 Details about the API are available in the [AEMET OpenData documentation](https://opendata.aemet.es/dist).
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}

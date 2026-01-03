@@ -21,7 +21,7 @@ ha_ssdp: true
 ha_integration_type: device
 ---
 
-The **Bravia TV** {% term integration %} allows you to control a [Sony Bravia TV](https://www.sony.com/).
+The **Sony Bravia TV** {% term integration %} allows you to control a [Sony Bravia TV](https://www.sony.com/).
 
 Almost all [Sony Bravia TV 2013 and newer](https://info.tvsideview.sony.net/en_ww/home_device.html#bravia) are supported. For older TVs see more generic methods to control your device [below](#for-tvs-older-than-2013).
 
@@ -153,7 +153,7 @@ data:
 
 The {% term integration %} supports `remote` {% term platform %}. It allows you to send remote control commands to your TV with the `remote.send_command` action.
 
-The commands that can be sent to the TV depend on the model of your TV. To display a list of supported commands for your TV, call the {% term action %} `remote.send_command` with non-valid command (e.g. `Test`). A list of available commands will be displayed in [Home Assistant System Logs](https://my.home-assistant.io/redirect/logs).
+The commands that can be sent to the TV depend on the model of your TV. To display a list of supported commands for your TV, call the {% term action %} `remote.send_command` with non-valid command (e.g. `Test`). A list of available commands will be displayed in [Home Assistant System Logs](https://my.home-assistant.io/redirect/logs). The list of commands can also be displayed by downloading the {% term diagnostics %} from the device info in the [Integration Settings](https://my.home-assistant.io/redirect/integration/?domain=braviatv).
 
 **Example to send `Down` key command:**
 

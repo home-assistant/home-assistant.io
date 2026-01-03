@@ -17,7 +17,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `progettihwsw` integration brings the automation experience with ProgettiHWSW boards to Home Assistant.
+The **ProgettiHWSW Automation** {% term integration %} brings the automation experience with ProgettiHWSW boards to Home Assistant.
 
 {% include integrations/config_flow.md %}
 

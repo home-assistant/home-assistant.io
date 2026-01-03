@@ -15,24 +15,31 @@ We can break up this automation into the following three parts:
 (action)     Turn the lights on in the living room
 ```
 
-The first part is the [trigger](/docs/automation/trigger/) of the automation rule. Triggers describe {% term events %} that should trigger the automation rule. In this case, it is a person arriving home, which can be observed in Home Assistant using {% term devices %}/{% term sensors %} by observing the state of Paulus changing from `not_home` to `home`.
+The first part is the [trigger](/docs/automation/trigger/) of the automation. Triggers describe {% term events %} that should trigger the automation. In this case, it is a person arriving home, which can be observed in Home Assistant using {% term devices %}/{% term sensors %} by observing the state of Paulus changing from `not_home` to `home`.
 
-The second part is the [condition](/docs/automation/condition/). Conditions are optional tests that can limit an automation rule to only work in your specific use cases. A condition will test against the current state of the system. This includes the current time, devices, people and other things like the sun. In this case, we only want to act when the sun has set.
+The second part is the [condition](/docs/automation/condition/). Conditions are optional tests that can limit an automation to only work in your specific use cases. A condition will test against the current state of the system. This includes the current time, devices, people and other things like the sun. In this case, we only want to act when the sun has set.
 
-The third part is the [action](/docs/automation/action/), which will be performed when a rule is triggered and all conditions are met. For example, it can turn a light on, set the temperature on your thermostat or activate a scene.
+The third part is the [action](/docs/automation/action/), which will be performed when an automation is triggered and all conditions are met. For example, it can turn a light on, set the temperature on your thermostat or activate a scene.
 
 {% note %}
-The difference between a condition and a trigger can be confusing as they are very similar. Triggers look at the actions, while conditions look at the current state: turning a light on versus a light being on.
+The difference between a trigger and a condition can be confusing as they are very similar.
+
+Triggers require an event to happen for the conditions to be evaluated using current state information.
+
+Event: Arrive home \
+Condition: After Sunset? \
+Action: Turn lights on
+
 {% endnote %}
 
 ## Exploring the internal state
 
-Automation rules interact directly with the internal state of Home Assistant, so you'll need to familiarize yourself with it. Home Assistant exposes its current state via the developer tools. These are available at the bottom of the sidebar in the frontend. **{% my developer_states title="Developer Tools > States" %}** will show all currently available states. An entity can be anything. A light, a switch, a person and even the sun. A state consists of the following parts:
+Automations interact directly with the internal state of Home Assistant, so you'll need to familiarize yourself with it. Home Assistant exposes its current state via the developer tools. These are available at the bottom of the sidebar in the frontend. **{% my developer_states title="Developer Tools > States" %}** will show all currently available states. An entity can be anything. A light, a switch, a person and even the sun. A state consists of the following parts:
 
 | Name | Description | Example |
 | ---- | ----- | ---- |
-| Entity ID | Unique identifier for the entity. | `light.kitchen`
-| State | The current state of the device. | `home`
+| Entity ID | Unique identifier for the entity. | `light.living_room`
+| State | The current state of the device. | `off`
 | Attributes | Extra data related to the device and/or current state. | `brightness`
 
 State changes can be used as the source of triggers and the current state can be used in conditions.

@@ -8,6 +8,17 @@ ha_domain: stt
 ha_quality_scale: internal
 ha_category: []
 ha_integration_type: entity
+related:
+  - url: https://support.nabucasa.com/hc/en-us/articles/29718084245149
+    title: Nabu Casa Cloud speech-to-text service
+  - docs: /voice_control/voice_remote_cloud_assistant/
+    title: Setting up a Nabu Casa Cloud voice assistant
+  - docs: /voice_control/voice_remote_local_assistant/
+    title: Setting up a local voice assistant
+  - docs: /voice_control/builtin_sentences/
+    title: Supported sentences to use with Assist
+  - docs: /integrations/?cat=speech-to-text
+    title: Integrations that use the speech-to-text integration
 ---
 
 A speech-to-text (STT) entity allows other integrations or applications to stream speech data to the STT API and get text back.

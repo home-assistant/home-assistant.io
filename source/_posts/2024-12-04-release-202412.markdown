@@ -99,7 +99,7 @@ it is currently set up, but it will not apply it. You can then switch to the
 actual scenery and snapshot it again once you are happy with the changes.
 
 Additionally, if you prefer {% term YAML %}, you can edit scenes directly from
-the scene editor by selecting **“Edit in YAML”** from the three-dotted 
+the scene editor by selecting **“Edit in YAML”** from the three-dotted
 {% icon "mdi:dots-vertical" %} overflow menu in the top right corner.
 
 [@karwosts]: https://github.com/karwosts
@@ -169,7 +169,7 @@ extremely hard to polish support for their language.
 The number of contributions to our [intents repository] (where we store the
 supported sentences) skyrocketed during the last month, which we all truly
 appreciate. More and more languages are becoming usable or even complete!
-You can follow the progress [here](https://home-assistant.github.io/intents/).
+You can follow the progress [here](https://ohf-voice.github.io/intents/).
 
 We won’t list them all, but rest assured, someone is likely working hard to
 ensure your native language works seamlessly, so you can use it comfortably
@@ -230,7 +230,7 @@ We now have a total of 4 scaled tiers:
 - **🏆 [Platinum](/docs/quality_scale/#-platinum)**:
   The epitome of quality, supreme code quality, and optimal performance.
 
-We also have four additional (non-scaled) special tiers: 
+We also have four additional (non-scaled) special tiers:
 
 - **❓&nbsp;[No&nbsp;score](/docs/quality_scale/#-no-score)**:
   For integrations that are not yet scored against the new scale.
@@ -253,7 +253,7 @@ developer documentation].
 
 [each integration documentation page]: /integrations/homewizard
 [Integration Quality Scale page]: /docs/quality_scale/
-[extensively documented every rule and requirement for each tier in our developer documentation]: https://developers.home-assistant.io/docs/core/integration-quality-scale/#integration-quality-scale-rules 
+[extensively documented every rule and requirement for each tier in our developer documentation]: https://developers.home-assistant.io/docs/core/integration-quality-scale/#integration-quality-scale-rules
 
 ## Integrations
 
@@ -264,16 +264,16 @@ and improvements to existing ones! You’re all awesome. 🥰
 
 We welcome the following new integrations in this release:
 
-- **[Acaia]**, added by [@zweckj]  
+- **[Acaia]**, added by [@zweckj]
   Adds support for [Acaia coffee scales] to Home Assistant.
-- **[Music Assistant]**, added by [@jozefKruszynski]  
+- **[Music Assistant]**, added by [@jozefKruszynski]
   The integration for [Music Assistant](https://music-assistant.io/) is making
   its way into Home Assistant! 🎉
-- **[NASweb]**, added by [@nasWebio]  
+- **[NASweb]**, added by [@nasWebio]
   Brings in support for the NASweb automation system to Home Assistant.
-- **[Nord Pool]**, added by [@gjohansson-ST]  
+- **[Nord Pool]**, added by [@gjohansson-ST]
   Pulls in latest energy prices from the Nord Pool energy market as sensors.
-- **[Sky Remote]**, added by [@dunnmj]  
+- **[Sky Remote]**, added by [@dunnmj]
   Control your [Sky] box using automations or from your Home Assistant
   dashboards.
 

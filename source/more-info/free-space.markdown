@@ -8,7 +8,7 @@ related:
     title: Add network storage
   - docs: /common-tasks/os/#using-external-data-disk
     title: Using an external data disk
-  - URL: https://yellow.home-assistant.io/guides/add-ssd-existing-installation/
+  - URL: https://support.nabucasa.com/hc/en-us/articles/25549332241949
     title: Adding an SSD to Home Assistant Yellow
 ---
 

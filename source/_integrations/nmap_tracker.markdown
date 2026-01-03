@@ -18,12 +18,6 @@ As an alternative to the router-based device tracking, it is possible to directl
   Please keep in mind that modern smart phones will usually turn off WiFi when they are idle. Simple trackers like this may not be reliable on their own.
 {% endnote %}
 
-{% note %}
-If you are running Home Assistant Core in a Python virtual environment, you might have to install the packages for `arp` and `nmap`.
-On Debian based hosts (for example Raspbian) do so by running `sudo apt-get install net-tools nmap`.
-On a Fedora host run `sudo dnf -y install nmap`.
-{% endnote %}
-
 {% include integrations/config_flow.md %}
 
 An example of how the Nmap scanner can be customized:

@@ -58,7 +58,7 @@ Flower Care firmware update steps:
 - Press the "+" button on the top right in the devices tab of the app
 - Add the plant sensor to the app and select an arbitrary plant
 - Wait for the synchronization of the sensor to finish, and a dialog asking for a firmware update should appear (this might take a few minutes)
-- The installed and latest firmware version can be verified by selecting the plant -> three-dot menu -> Hardware settings -> Hardware update
+- The installed and latest firmware version can be verified by selecting the plant -> three dots menu -> Hardware settings -> Hardware update
 - The Flower Care account and app are not required any further for this integration to work
 
 Also note that the battery level of the plant sensor can only be retrieved by connecting to the device (reading characteristics), while the other sensor data is broadcasted passively. To prevent battery drainage, a connection is made only once a day. Connecting to the device also requires that the device has a good signal strength.

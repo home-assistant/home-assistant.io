@@ -8,6 +8,7 @@ ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
   - '@corneyl'
+  - '@codesalatdev'
 ha_domain: picnic
 ha_platforms:
   - sensor
@@ -15,7 +16,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The Picnic integration allows one to get information from [Picnic](https://picnic.app) about orders, deliveries and cart content.
+The **Picnic** {% term integration %} allows one to get information from [Picnic](https://picnic.app) about orders, deliveries and cart content.
 
 {% include integrations/config_flow.md %}
 

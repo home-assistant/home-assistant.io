@@ -36,13 +36,9 @@ To change basic settings such as location, unit system, and language, refer to [
 
 ## Creating a backup
 
-You can back up your Home Assistant, add-on data, and configuration. Backups are used to restore a system or parts of it if a rollback is needed, or to migrate your Home Assistant to new hardware. It is good practice to create a backup before updating.
+You can back up your Home Assistant, add-on data, and configuration. Backups are used to restore the system (or parts of the system) if a rollback is needed. Backups are also used or to migrate your Home Assistant to new hardware. It is good practice to create a backup before updating.
 
-To learn how to create a backup of your Home Assistant installation, select the link below that matches your installation type.
-
-- {% term "Home Assistant Operating System" %}: [Creating a backup from OS](/common-tasks/general/#backups)
-- {% term "Home Assistant Supervised" %}: [Creating a backup from Supervised](/common-tasks/general/#backups)
-- {% term "Home Assistant Core" %} or {% term "Home Assistant Container" %}: [Creating a backup from Core or Container](/integrations/backup/)
+To learn how to create a backup of your Home Assistant installation, refer to the documentation on [creating a backup](/common-tasks/general/#backups).
 
 ## Editing the configuration.yaml and configuring file access
 
@@ -55,4 +51,3 @@ If you need more space to store data, you can configure a [network storage](/com
 ## Getting started with voice assistant
 
 If you want to get started with a voice assistant, refer to the documentation on [Assist](/voice_control/).
-

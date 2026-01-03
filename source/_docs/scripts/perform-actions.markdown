@@ -5,7 +5,7 @@ description: "Instructions on how to perform actions in Home Assistant."
 
 Various integrations allow performing {% term actions %} when a certain event occurs. The most common one is performing an action when an automation {% term trigger %} happens. But an action can also be called from a {% term script %}, a dashboard, or via voice command devices such as Amazon Echo.
 
-The configuration options to call a configuration are the same between all integrations and are described on this page.
+The configuration options to perform action are the same between all integrations and are described on this page.
 
 Examples on this page will be given as part of an automation integration configuration but different approaches can be used for other integrations too.
 

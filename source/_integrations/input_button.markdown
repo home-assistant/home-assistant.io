@@ -12,7 +12,7 @@ ha_domain: input_button
 ha_integration_type: helper
 ---
 
-The **Input button** helper integration allows you to define buttons that
+The **Input button** helper {% term integration %} allows you to define buttons that
 can be pressed via the user interface, and can be used to trigger things,
 like an automation.
 

@@ -27,26 +27,98 @@ ha_platforms:
   - sensor
   - switch
 ha_integration_type: hub
+ha_quality_scale: bronze
 ---
 
 The **Velbus** {% term integration %} is used to control [Velbus](https://www.velbus.eu/?lang=en) modules. It supports the Velbus USB, Velbus serial and a TCP/IP gateway.
 
+To use the Velbus integration, you need to have Velbus modules connected to a Velbus USB or TCP/IP interface.
 
 {% include integrations/config_flow.md %}
 
-### Configuration parameters
+## Configuration parameters
 
-The port string used in the user interface or the configuration file can have different formats depending on the type of connection:
+During the setup you will be shown 2 choices on ways to connect to the Velbus bus:
 
+- USB
+- TCP/IP
 
-- For a serial or USB devices: `/dev/ttyUSB00`
-- For a TCP/IP devices: `127.0.0.1:3678`
-- For Signum devices without authentication: `tls://192.168.1.9:27015`
-- For Signum devices with authentication: `tls://password@192.168.1.9:27015`
+A connection test will be performed to ensure the connection is working. If successful, the integration will be added to Home Assistant.
+
+### USB
+
+The USB connection is a way to connect to the Velbus bus. You will need a Velbus USB interface to connect to the bus. The USB interface is connected to the USB port of your Home Assistant device.
+The interface USB devices are automatically detected and shown in a list.
+Select the correct USB interface from the list and select **Submit**.
+
+There will be a connection test to make sure the connection is working, and if it's working the integration will be added to Home Assistant.
+
+### TCP/IP
+
+The TCP/IP connection is a way to connect to the Velbus bus. You will need a Velbus TCP/IP interface available in your network.
+
+{% configuration_basic %}
+tls:
+    description: "Enable TLS connection towards the Velbus TCP/IP interface. This is usually needed when connecting to a signum. This is optional and can be disabled when connecting to a velser or Home Assistant add-on."
+host:
+    description: "The IP address of the Velbus TCP/IP interface."
+port:
+    description: "The port number of the Velbus TCP/IP interface."
+password:
+    description: "The password to authenticate to the Velbus TCP/IP interface. This is optional and only needed if the devie has authentication enabled."
+{% endconfiguration_basic %}
+
+#### Example: signum
+
+- tls: yes
+- host: your signum IP address
+- port: 27015
+- password: your signum password (if configured)
+
+#### Example: velser
+
+- tls: no
+- host: your velser IP address
+- port: 6000
+- password: leave empty
+
+#### Example: Home Assistant add-on
+
+- tls: depending on your configuration
+- host: your Home Assistant IP address
+- port: 27015 if you kept the default
+- password: leave empty
 
 {% note %}
 The pushbutton LEDs of input modules are disabled by default. These can be enabled from the **Devices** panel in the **Configuration** page of the web interface.
 {% endnote %}
+
+### VLP file import
+
+{% note %}
+This step is optional.
+{% endnote %}
+
+In the next step of the configuration, you have the option to import a Velbus VLP configuration file. This is the configuration file that you can export from the VelbusLink software.
+This will eliminate the need for a scan of the bus and will create all devices and entities based on the configuration file.
+
+{% configuration_basic %}
+vlp:
+    description: "Path to the VLP file to import. If not provided, no VLP file will be imported and a bus scan will be performed."
+{% endconfiguration_basic %}
+
+If you don't have a VLP file or don't want to import it, you can skip this step, and the integration will perform a scan of the bus to discover the connected modules, but this is known to be less reliable than using a VLP file.
+
+## Re-configuring the integration
+
+You can re-configure the Velbus integration by following these steps:
+
+{% include integrations/option_flow.md %}
+
+{% configuration_basic %}
+vlp:
+    description: "Path to the VLP file to import during re-configuration. If not provided, no VLP file will be imported and a bus scan will be performed."
+{% endconfiguration_basic %}
 
 ## Actions
 - `velbus.sync clock`: Synchronize Velbus time to local clock.
@@ -60,7 +132,6 @@ You can use the `velbus.sync_clock` action to synchronize the clock of the Velbu
 
 | Data attribute | Optional | Description                              |
 | ---------------------- | -------- | ---------------------------------------- |
-| `interface`            | no       | The port used to connect to the bus (the same one as used during configuration). |
 | `config_entry`         | no       | The config_entry to send the command to. |
 
 ### Action `velbus.scan`
@@ -69,7 +140,6 @@ You can use the `velbus.scan` action to synchronize the modules between the bus 
 
 | Data attribute | Optional | Description                              |
 | ---------------------- | -------- | ---------------------------------------- |
-| `interface`            | no       | The port used to connect to the bus (the same one as used during configuration). |
 | `config_entry`         | no       | The config_entry to send the command to. |
 
 
@@ -79,7 +149,6 @@ You can use the `velbus.set_memo_text` action to provide the memo text to be dis
 
 | Data attribute | Optional | Description                              |
 | ---------------------- | -------- | ---------------------------------------- |
-| `interface`            | no       | The port used to connect to the bus (the same one as used during configuration). |
 | `config_entry`         | no       | The config_entry to send the command to. |
 | `address`              | no       | The module address in decimal format, which is displayed at the device list at the integration page. |
 | `memo_text`            | yes      | Text to be displayed on module. When no memo text is supplied the memo text will be cleared. |
@@ -105,7 +174,6 @@ Use this action when you make changes to your configuration via velbuslink.
 
 | Data attribute | Optional | Description                              |
 | ---------------------- | -------- | ---------------------------------------- |
-| `interface`            | no       | The port used to connect to the bus (the same one as used during configuration). |
 | `config_entry`         | no       | The config_entry to send the command to. |
 | `address`              | no       | The module address in decimal format, which is displayed on the device list on the integration page, if provided the service will only clear the cache for this model, without an address, the full velbuscache will be cleared. |
 

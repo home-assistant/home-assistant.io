@@ -92,6 +92,7 @@ My voice assistant understands me and processes the command, but I don't get a v
 The voice response is generated in Home Assistant by one of our supported text-to-speech (or {% term TTS %}) engines.
 The voice assistant device then fetches the audio file from Home Assistant and plays it back.
 
+### Local Network Settings
 For this fetching process to work, Home Assistant must communicate its own URL to the device.
 If you have a complex network setup, or if you changed this setting in the past, the URL communicated could be wrong.
 
@@ -103,6 +104,8 @@ To fix the URL, follow these steps:
   - For most users, the **Automatic** option works and is recommended.
    ![Create alias for entity name](/images/assist/local_url.png)
 
+### Missing Media Source
+If you are using YAML configuration and do not have `default_config:` make sure `media_source:` is present.
 
 ## Tweaking the Assist audio configuration for your device
 

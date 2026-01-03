@@ -15,7 +15,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `yamaha` {% term integration %} allows you to control [Yamaha Network Receivers](https://usa.yamaha.com/products/audio-visual/av-receivers-amps/rx) from Home Assistant.
+The **Yamaha Network Receivers** {% term integration %} allows you to control [Yamaha Network Receivers](https://usa.yamaha.com/products/audio-visual/av-receivers-amps/rx) from Home Assistant.
 
 Supported devices:
 

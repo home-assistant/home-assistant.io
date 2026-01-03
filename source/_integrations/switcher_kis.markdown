@@ -22,9 +22,10 @@ ha_platforms:
   - switch
 ha_config_flow: true
 ha_integration_type: integration
+ha_quality_scale: silver
 ---
 
-This `Switcher` integration allows you to control your [Switcher Devices](https://www.switcher.co.il/).
+The **Switcher** {% term integration %} allows you to control your [Switcher Devices](https://www.switcher.co.il/).
 
 Supported devices:
 
@@ -57,6 +58,8 @@ Devices that require a token:
 If you completed the integration setup but are still unable to control the device, please make sure your device's firmware is up-to-date.
 
 ## Prerequisites
+
+Before the integration can find a device, you need to connect it to your network using the Switcher app.
 
 To enhance security, certain Switcher devices require a token for operation. In order to integrate your token-based Switcher devices with Home Assistant, you'll need the following information:
 
@@ -138,3 +141,9 @@ Note: This does not affect the auto off timer.
 
 Make sure that Home Assistant host's firewall allows incoming traffic on UDP ports 10002, 10003, 20002 & 20003 and outgoing connections to Switcher device(s) on TCP ports 9957 & 10000.
 If Home Assistant and the Switcher device(s) are not on the same network, you will also need to have their traffic properly forwarded between the two networks.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}

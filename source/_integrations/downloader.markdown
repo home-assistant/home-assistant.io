@@ -8,7 +8,7 @@ ha_quality_scale: internal
 ha_domain: downloader
 ha_codeowners:
   - '@erwindouna'
-ha_integration_type: integration
+ha_integration_type: service
 ha_config_flow: true
 ---
 

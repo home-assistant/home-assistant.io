@@ -28,7 +28,7 @@ The Developer Tools is meant for **all** (not just for the developers) to quickl
 
 The YAML tab provides buttons to trigger a check of configuration files and to reload the configuration. Reloading is needed to apply changes that you've made to the configuration.
 
-It is almost the same as the option under **Settings** > three dot menu (top right) > **Restart Home Assistant** > **Quick reload**. The only difference is that **Quick reload** reloads all the configuration, whereas this YAML tab allows you to only reload one specific configuration at a time.
+It is almost the same as the option under **Settings** > three dots {% icon "mdi:dots-vertical" %} menu (top right) > **Restart Home Assistant** > **Quick reload**. The only difference is that **Quick reload** reloads all the configuration, whereas this YAML tab allows you to only reload one specific configuration at a time.
 
 ### Reloading the YAML configuration
 
@@ -149,7 +149,7 @@ Another use of the {% my developer_statistics title="statistics developer tool" 
 <svg width="24" height="24" viewBox="0 0 24 24"><path d="M22,13V22H2V19L22,13M21.68,7.06L16.86,4.46L17.7,7.24L7.58,10.24C6.63,8.95 4.82,8.67 3.53,9.62C2.24,10.57 1.96,12.38 2.91,13.67C3.85,14.97 5.67,15.24 6.96,14.29C7.67,13.78 8.1,12.97 8.14,12.09L18.26,9.09L19.1,11.87L21.68,7.06Z" /></svg>
 icon. Use date & time to search for the incorrect data point and adjust the value.
 
-![Screenshot showing adjusting the long-term statistic history value](/images/blog/2022-04/adjust-statistics.png)
+![Screenshot showing adjusting the long-term statistic history value](/images/docs/developer-tools/adjust-statistics.png)
 
 ## Assist tab
 
