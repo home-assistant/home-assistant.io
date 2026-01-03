@@ -47,6 +47,18 @@ Host:
   description: The IP address or hostname of your device. Identify this in the web interface of the device or of your router.
 {% endconfiguration_basic %}
 
+## Use cases
+
+Monitor and automate your pool water treatment with local control and alerts. Typical use cases:
+
+- Continuously monitor water parameters (temperature, pH, ORP, chlorine, flow) and display trends on a dashboard.
+- Automate dosing by adjusting `pH`, `ORP`, or `Chlorine` targets and control dosing pumps or relays.
+- Notify you when tank levels are low, a pump alarm occurs, or flow is interrupted.
+- Pause dosing or disable pump monitoring automatically during maintenance or when the pool pump is off.
+- Track the totalizer for water usage reporting and integration with energy or water management automations.
+
+These use cases let you combine sensor state, numbers, switches, and selects provided by the integration to build robust automations and alerts. Some application scenarios are described in the [Examples](#Examples) section.
+
 ## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.
@@ -175,6 +187,154 @@ This integration provides the following entities.
   - **Options**: Low intensity, High intensity
 - **Chlorine dosing method**: Chlorine dosing control method.
   - **Options**: Disabled, Proportional control, On/Off control, Timed dosing
+
+## Examples
+
+### Monitor ORP levels and send alerts
+
+This automation monitors your pool's ORP level and sends a notification when it goes outside the recommended range.
+
+```yaml
+automation:
+  - alias: "Pool ORP out of range"
+    triggers:
+      - trigger: numeric_state
+        entity_id: sensor.pool_device_orp
+        below: 650
+        id: "low"
+      - trigger: numeric_state
+        entity_id: sensor.pool_device_orp
+        above: 750
+        id: "high"
+    actions:
+      - action: notify.notify
+        data:
+          title: "Pool ORP Alert"
+          message: "ORP level is {{ trigger.id }}: {{ states('sensor.pool_device_orp') }} mV"
+```
+
+### Monitor pH levels and send alerts
+
+This automation monitors your pool's pH level and sends a notification when it goes outside the recommended range.
+
+```yaml
+automation:
+  - alias: "Pool pH out of range"
+    triggers:
+      - trigger: numeric_state
+        entity_id: sensor.pool_device_ph
+        below: 6.8
+        id: "low"
+      - trigger: numeric_state
+        entity_id: sensor.pool_device_ph
+        above: 7.6
+        id: "high"
+    actions:
+      - action: notify.notify
+        data:
+          title: "Pool pH Alert"
+          message: "pH level is {{ trigger.id }}: {{ states('sensor.pool_device_ph') }}"
+```
+
+### Pause dosing when pH is extreme
+
+This automation pauses the dosing system when the pH level reaches dangerously high or low values, preventing excessive chemical dosing.
+
+```yaml
+automation:
+  - alias: "Pause dosing on extreme pH"
+    triggers:
+      - trigger: numeric_state
+        entity_id: sensor.pool_device_ph
+        below: 6.5
+        id: "too_low"
+      - trigger: numeric_state
+        entity_id: sensor.pool_device_ph
+        above: 8.0
+        id: "too_high"
+    actions:
+      - action: switch.turn_on
+        target:
+          entity_id: switch.pool_device_pause_dosing
+      - action: notify.notify
+        data:
+          title: "Pool Dosing Paused"
+          message: "Dosing paused - pH is {{ trigger.id }}: {{ states('sensor.pool_device_ph') }}"
+```
+
+### Pool monitoring dashboard
+
+This example combines multiple card types to create a comprehensive pool monitoring view.
+
+```yaml
+type: vertical-stack
+cards:
+  - type: entities
+    title: Pool Status
+    entities:
+      - entity: sensor.pool_device_temperature
+        name: Temperature
+      - entity: sensor.pool_device_ph
+        name: pH Level
+      - entity: sensor.pool_device_orp
+        name: ORP Level
+      - entity: switch.pool_device_pause_dosing
+        name: Dosing Control
+  - type: horizontal-stack
+    cards:
+      - type: gauge
+        entity: sensor.pool_device_ph
+        name: pH
+        min: 6.5
+        max: 8.0
+        needle: true
+        segments:
+          - from: 6.5
+            color: var(--error-color)
+          - from: 6.8
+            color: var(--warning-color)
+          - from: 7.2
+            color: var(--success-color)
+          - from: 7.6
+            color: var(--warning-color)
+          - from: 7.8
+            color: var(--error-color)
+      - type: gauge
+        entity: sensor.pool_device_orp
+        name: ORP
+        unit: mV
+        min: 600
+        max: 800
+        needle: true
+        segments:
+          - from: 600
+            color: var(--error-color)
+          - from: 650
+            color: var(--success-color)
+          - from: 750
+            color: var(--error-color)
+  - type: history-graph
+    title: 24 Hour Trends
+    hours_to_show: 24
+    entities:
+      - entity: sensor.pool_device_ph
+      - entity: sensor.pool_device_orp
+      - entity: sensor.pool_device_temperature
+  - type: entities
+    title: Alarms
+    state_color: true
+    entities:
+      - entity: binary_sensor.pool_device_ph_tank_level_alarm
+        name: pH Tank Level
+      - entity: binary_sensor.pool_device_orp_tank_level_alarm
+        name: ORP Tank Level
+      - entity: binary_sensor.pool_device_ph_overfeed_alarm
+        name: pH Overfeed
+      - entity: binary_sensor.pool_device_orp_overfeed_alarm
+        name: ORP Overfeed
+      - entity: binary_sensor.pool_device_flow_rate_alarm
+        name: Flow Rate
+```
 
 ## Known limitations
 
