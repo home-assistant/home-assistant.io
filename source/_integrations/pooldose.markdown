@@ -47,36 +47,6 @@ Host:
   description: The IP address or hostname of your device. Identify this in the web interface of the device or of your router.
 {% endconfiguration_basic %}
 
-## Use cases
-
-Monitor and automate your pool water treatment with local control and alerts. Typical use cases:
-
-- Continuously monitor water parameters (temperature, pH, ORP, chlorine, flow) and display trends on a dashboard.
-- Automate dosing by adjusting `pH`, `ORP`, or `Chlorine` targets and control dosing pumps or relays.
-- Notify you when tank levels are low, a pump alarm occurs, or flow is interrupted.
-- Pause dosing or disable pump monitoring automatically during maintenance or when the pool pump is off.
-- Track the totalizer for water usage reporting and integration with energy or water management automations.
-
-These use cases let you combine sensor state, numbers, switches, and selects provided by the integration to build robust automations and alerts. Some application scenarios are described in the [Examples](#examples) section.
-
-## Removing the integration
-
-This integration follows standard integration removal. No extra steps are required.
-
-{% include integrations/remove_device_service.md %}
-
-## Data updates
-
-This integration {% term polling polls %} data from the device every 10 minutes (600 seconds) by default. This polling interval is configured to balance data freshness with device stability:
-
-- The device does not support frequent requests and may become unstable with shorter intervals
-- Physical water treatment values typically change slowly and do not require frequent monitoring
-- This interval provides adequate monitoring for pool water management while maintaining device reliability
-
-### Update and write behavior
-
-Parallel reads for read-only values are avoided and write operations are serialized (one value at a time). This reduces load on the device's limited hardware and prevents race conditions.
-
 ## Supported devices
 
 The following devices are known to be supported by the integration:
@@ -342,6 +312,18 @@ cards:
         name: Flow rate
 ```
 
+## Data updates
+
+This integration {% term polling polls %} data from the device every 10 minutes (600 seconds) by default. This polling interval is configured to balance data freshness with device stability:
+
+- The device does not support frequent requests and may become unstable with shorter intervals
+- Physical water treatment values typically change slowly and do not require frequent monitoring
+- This interval provides adequate monitoring for pool water management while maintaining device reliability
+
+### Update and write behavior
+
+Parallel reads for read-only values are avoided and write operations are serialized (one value at a time). This reduces load on the device's limited hardware and prevents race conditions.
+
 ## Known limitations
 
 ### Hardware and connectivity issues
@@ -432,6 +414,12 @@ To get peristaltic pump status data:
 2. Find the external relay configuration for the pH and ORP pumps.
 3. Enable the external relays for the pumps you want to monitor.
 4. Save the settings and restart the device if required.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
 
 ## Diagnostics
 
