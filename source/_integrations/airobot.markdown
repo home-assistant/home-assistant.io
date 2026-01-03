@@ -12,6 +12,7 @@ ha_config_flow: true
 ha_quality_scale: bronze
 ha_category: []
 ha_platforms:
+  - button
   - climate
   - number
   - sensor
@@ -115,6 +116,12 @@ The following diagnostic sensors are disabled by default. You can enable them in
 The integration provides a configuration entity to adjust advanced thermostat settings:
 
 - **Hysteresis band**: Configure the temperature hysteresis (dead band) for heating control (0.0-0.5°C range). This setting determines how much the temperature must drop below the setpoint before heating activates. A smaller value provides tighter temperature control but may cause more frequent heating cycles. A larger value reduces heating cycles but allows more temperature variation.
+
+### Button
+
+The integration provides a button entity for device management:
+
+- **Restart**: Restart the thermostat device. This performs a soft restart of the thermostat, which can be useful for troubleshooting connectivity issues or applying configuration changes. The thermostat will be temporarily unavailable during the restart process (typically 5-10 seconds).
 
 ## Use cases
 
