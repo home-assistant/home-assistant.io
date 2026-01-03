@@ -57,7 +57,7 @@ Monitor and automate your pool water treatment with local control and alerts. Ty
 - Pause dosing or disable pump monitoring automatically during maintenance or when the pool pump is off.
 - Track the totalizer for water usage reporting and integration with energy or water management automations.
 
-These use cases let you combine sensor state, numbers, switches, and selects provided by the integration to build robust automations and alerts. Some application scenarios are described in the [Examples](#Examples) section.
+These use cases let you combine sensor state, numbers, switches, and selects provided by the integration to build robust automations and alerts. Some application scenarios are described in the [Examples](#examples) section.
 
 ## Removing the integration
 
