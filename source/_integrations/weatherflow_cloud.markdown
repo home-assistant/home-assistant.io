@@ -1,5 +1,5 @@
 ---
-title: WeatherflowCloud
+title: WeatherFlow Cloud
 description: Instructions on the Cloud based WeatherFlow integration
 ha_release: 2024.3
 ha_category:
@@ -17,7 +17,7 @@ ha_domain: weatherflow_cloud
 ha_integration_type: integration
 ---
 
-The **WeatherFlow Cloud** {% term integration %} provides access to cloud provided Weather Forecast of a user's Tempest Weather Stations. In order to access the station, you will need to configure the integration with an [Api Key](https://weatherflow.github.io/Tempest/api/).
+The **WeatherFlow Cloud** integration provides access to cloud provided Weather Forecast of a user's Tempest Weather Stations. In order to access the station, you will need to configure the integration with an [Api Key](https://weatherflow.github.io/Tempest/api/).
 
 ### Which integration(s) should I use
 
@@ -84,3 +84,4 @@ There is not a straight 1-1 mapping between the Home Assistant supported weather
 | snow | snowy |
 | thunderstorm | lightning |
 | windy | windy |
+

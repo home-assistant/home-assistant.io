@@ -12,7 +12,7 @@ ha_domain: http
 ha_integration_type: system
 ---
 
-The **HTTP** {% term integration %} serves all files and data required for the Home Assistant frontend. You only need to add this to your configuration file if you want to change any of the default settings.
+The `http` integration serves all files and data required for the Home Assistant frontend. You only need to add this to your configuration file if you want to change any of the default settings.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -35,7 +35,7 @@ server_host:
   type: [list, string]
   default: "0.0.0.0, ::"
 server_port:
-  description: Allows you to specify which port Home Assistant should listen on.
+  description: Let you set a port to use.
   required: false
   type: integer
   default: 8123
@@ -75,7 +75,7 @@ ip_ban_enabled:
   type: boolean
   default: true
 login_attempts_threshold:
-  description: "Number of failed login attempts from a single IP after which it will be automatically banned if `ip_ban_enabled` is `true`. When set to -1 no new automatic bans will be added."
+  description: "Number of failed login attempt from single IP after which it will be automatically banned if `ip_ban_enabled` is `true`. When set to -1 no new automatic bans will be added."
   required: false
   type: integer
   default: -1
@@ -129,27 +129,20 @@ The `http` platforms are not real platforms within the meaning of the terminolog
 
 To use those kind of [sensors](#sensor) or [binary sensors](#binary-sensor) in your installation no configuration in Home Assistant is needed. All configuration is done on the devices themselves. This means that you must be able to edit the target URL or endpoint and the payload. The entity will be created after the first message has arrived.
 
-If you want to use an HTTP sensor, create a [Long-Lived Access Token](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token) in the Home Assistant UI in the **Security** section of your {% my profile title="**User profile**" %} page.
+If you want to use HTTP sensors, create a [Long-Lived Access Tokens](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token) in the Home Assistant UI in the **Security** section of your {% my profile title="**User profile**" %} page.
 
 All [requests](https://developers.home-assistant.io/docs/api/rest#post-apistatesentity_id) need to be sent to the endpoint of the device and must be **POST**.
 
 ## IP filtering and banning
 
-If you want to apply additional IP filtering, and automatically ban brute force attempts, set `ip_ban_enabled` to `true` and `login_attempts_threshold` to the maximum number of attempts before a ban is activated. After the first ban, an `ip_bans.yaml` file will be created in the root configuration folder. It will have the banned IP address and time in UTC when it was added:
+If you want to apply additional IP filtering, and automatically ban brute force attempts, set `ip_ban_enabled` to `true` and the maximum number of attempts. After the first ban, an `ip_bans.yaml` file will be created in the root configuration folder. It will have the banned IP address and time in UTC when it was added:
 
 ```yaml
 127.0.0.1:
   banned_at: "2016-11-16T19:20:03"
 ```
 
-After a ban is added a Persistent Notification will appear in the Home Assistant frontend.
-
-To clear an IP ban, you can either:
-
-- Remove the specific IP entry from `ip_bans.yaml`, or  
-- Delete the entire `ip_bans.yaml` file. It will be recreated automatically the next time a ban occurs.
-
-After making changes, restart Home Assistant to apply them.
+After a ban is added a Persistent Notification is populated to the Home Assistant frontend.
 
 ## Hosting files
 

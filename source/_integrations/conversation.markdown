@@ -8,12 +8,11 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
   - '@synesthesiam'
-  - '@arturpragacz'
 ha_domain: conversation
-ha_integration_type: entity
+ha_integration_type: system
 ---
 
-The **Conversation** {% term integration %} allows you to converse with Home Assistant. You can either converse by pressing the microphone in the frontend (supported browsers only (no iOS)) or by calling the `conversation.process` action with the transcribed text.
+The **Conversation** {% term integration %} allows you to converse with Home Assistant. You can either converse by pressing the microphone in the frontend (supported browsers only (no iOS)) or by calling the `conversation/process` action with the transcribed text.
 
 <p class='img'>
   <img src="/images/screenshots/voice-commands.png" />

@@ -13,7 +13,6 @@ ha_domain: balboa
 ha_platforms:
   - binary_sensor
   - climate
-  - event
   - fan
   - light
   - select
@@ -33,7 +32,6 @@ There is currently support for the following device types within Home Assistant:
 
 - Binary sensor (Filter cycles and circulation pumps)
 - Climate
-- Event (Last known fault, if any)
 - Fan (Pumps/Jets)
 - Light
 - Select (Low/high temperature range)

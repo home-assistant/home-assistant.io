@@ -12,16 +12,13 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-  - docs: /integrations/http/
-    title: HTTP integration
 ha_quality_scale: legacy
 ---
 
-The **Space API** {% term integration %} allow Hackerspaces and Makerspaces to expose information to web apps or any other application with the [SpaceAPI](https://spaceapi.io/).  It does this by exposing an API on Home Assistant that hosts the JSON payload that SpaceAPI uses.
+The `spaceapi` {% term integration %} allow Hackerspaces to expose information to web apps or any other application with the [SpaceAPI](https://spaceapi.io/).
 
 ## Configuration
 
-To configure connectivity and authentication to the API that this {% term integration %} exposes, refer to the HTTP {% term integration %} documentation.
 To setup the `spaceapi` {% term integration %} in your installation, add the following to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
 
@@ -63,21 +60,6 @@ location:
       description: The physical address of the Hackerspace.
       required: true
       type: string
-spacefed:
-  description: A flag indicating if the hackerspace uses SpaceFED, a federated login scheme so that visiting hackers can use the space Wi-Fi with their home space credentials.
-  required: false
-  type: map
-  keys:
-    spacenet:
-      description: Set to true or false depending on whether your space supports [spacenet](https://spacefed.net/index.php/Category:Howto/Spacenet)
-      required: true
-      type: boolean
-      default: false
-    spacesaml:
-      description: Set to true or false depending on whether your space uses [SpaceSAML](https://spacefed.net/index.php?title=Spacesaml)
-      required: true
-      type: boolean
-      default: false
 contact:
   description: Contact information of the Hackerspace. At least one entry is mandatory.
   required: true
@@ -153,8 +135,8 @@ contact:
       required: false
       type: string
 issue_report_channels:
-  description: "*Removed*. V15 of SpaceAPI no longer supports this. The reporting channel for issues. Valid values are `email`, `issue_mail`, `twitter` or `ml`"
-  required: false
+  description: "The reporting channel for issues. Valid values are `email`, `issue_mail`, `twitter` or `ml`"
+  required: true
   type: list
 state:
   description: The current state of the Hackerspace.
@@ -162,7 +144,7 @@ state:
   type: list
   keys:
     entity_id:
-      description: "The `entity_id` of a binary sensor that represents whether the space is currently open or closed. If the binary sensor is unavailable, the state provided will be false."
+      description: "The `entity_id` of a binary sensor that represents the current state."
       required: true
       type: string
     icon_open:
@@ -231,7 +213,7 @@ feeds:
           required: true
           type: string
 cache:
-  description: "*Removed*. V15 of SpaceAPI no longer supports this. Specifies options about caching of your SpaceAPI endpoint. Use this if you want to avoid hundreds/thousands of application instances crawling your status."
+  description: Specifies options about caching of your SpaceAPI endpoint. Use this if you want to avoid hundreds/thousands of application instances crawling your status.
   required: false
   type: map
   keys:
@@ -244,7 +226,7 @@ projects:
   required: false
   type: list
 radio_show:
-  description: "*Removed*. V15 of SpaceAPI no longer supports this. A list of radio shows that your hackerspace might broadcast."
+  description: A list of radio shows that your hackerspace might broadcast.
   required: false
   type: list
   keys:
@@ -283,7 +265,7 @@ sensors:
       type: string
 {% endconfiguration %}
 
-Although SpaceAPI supports many other sensors, this {% term integration %} only supports temperature or humidity.
+The list of sensors can be any sensor, not just temperature or humidity.
 
 ## Examples
 

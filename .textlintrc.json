@@ -1,20 +1,6 @@
 {
   "filters": {
-    "comments": true,
-    "allowlist": {
-      "allow": [
-        "2fa:",
-        "alexa:",
-        "homeassistant:",
-        "homekit:",
-        "led:",
-        "sms:",
-        "sql:",
-        "ssl:",
-        "twitter:",
-        "url:"
-      ]
-    }
+    "comments": true
   },
   "rules": {
     "common-misspellings": {
@@ -164,6 +150,7 @@
         "iTunes",
         "JSON-RPC",
         "JSON",
+        "JuiceNet",
         "Kafka",
         "KEF",
         "KNX",

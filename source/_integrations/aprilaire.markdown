@@ -17,7 +17,7 @@ ha_platforms:
 ha_integration_type: device
 ---
 
-The **AprilAire** {% term integration %} allows you to control an AprilAire thermostat.
+The AprilAire integration allows you to control an AprilAire thermostat.
 
 ## Supported Models
 

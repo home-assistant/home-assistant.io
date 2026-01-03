@@ -30,262 +30,129 @@ ha_platforms:
   - time
   - vacuum
 ha_integration_type: integration
-ha_quality_scale: silver
-ha_dhcp: true
 ---
 
-The Roborock {% term integration %} allows you to connect your [Roborock](https://us.roborock.com/pages/robot-vacuum-cleaner) robotic vacuums to your Home Assistant. Roborock vacuums are
-intelligent home cleaning robots and, depending on the specific device, may have features
-like mopping capabilities, laser navigation, and options for changing cleaning
-performance or location in the home. This integration enables you to control and
-monitor your Roborock vacuum directly from Home Assistant.
+The Roborock integration allows you to control your [Roborock](https://us.roborock.com/pages/robot-vacuum-cleaner) vacuum while using the Roborock app.
 
-The integration also allows for automation and integration with other smart home
-devices. For example, you could send a notification when the vacuum is stuck, or
-pause the vacuum when a media player starts playing music.
+This integration requires a continuous cloud connection while using the device. However, excluding map data and scenes, communication between the integration and the device is conducted locally.
 
-## Note about compatibility
-
-The newly released [Q-Series](https://us.roborock.com/pages/roborock-store#Q-Series) devices are not supported. Roborock has changed the protocol for how these devices interact. It is unclear if new devices not in the Q-series will use the existing protocol or the new protocol. Most Q-Series devices should have partial support via the [Matter](/integrations/matter/) integration.
-
-## Prerequisites
-
-1. Download the Roborock App for iOS or Android.
-2. Create an account and log in.
-3. Add your Roborock device to the Roborock App (for example, by scanning a QR code).
+Once you log in with your Roborock account, the integration will automatically discover your Roborock devices and get the needed information to communicate locally with them. Please ensure your Home Assistant instance can communicate with the local IP of your device. We recommend setting a static IP for your Roborock Vacuum to help prevent future issues. The device communicates on port 58867. Depending on your firewall, you may need to allow communication from Home Assistant to your vacuum on that port.
 
 {% include integrations/config_flow.md %}
 
-{% configuration_basic %}
-Email address:
-    description: "The email address used to sign in to the Roborock app. A verification code will be sent to this email address when adding the Roborock integration."
-Verification code:
-    description: "The verification code that is sent to your email address when adding the Roborock integration."
-{% endconfiguration_basic %}
 
-{% include integrations/option_flow.md %}
-
-The integration can be configured to specify which Roborock App features are drawn
-on the map.
-
-{% configuration_basic %}
-Charger:
-  description: Show the charger on the map.
-Cleaned area:
-  description: Show the area cleaned on the map.
-Go-to path:
-  description: Show the go-to path on the map.
-Ignored obstacles:
-  description: Show ignored obstacles on the map.
-Ignored obstacles with photo:
-  description: Show ignored obstacles with photos on the map.
-Mop path:
-  description: Show the mop path on the map.
-No carpet zones:
-  description: Show the no carpet zones on the map.
-No-go zones:
-  description: Show the no-go zones on the map
-No mopping zones:
-  description: Show the no-mop zones on the map.
-Obstacles:
-  description: Show obstacles on the map.
-Obstacles with photo:
-  description: Show obstacles with photos on the map.
-Path:
-  description: Show the path on the map.
-Predicted path:
-  description: Show the predicted path on the map.
-Vacuum position:
-  description: Show the vacuum position on the map.
-Virtual walls:
-  description: Show virtual walls on the map.
-Zones:
-  description: Show zones on the map.
-Show background:
-  description: Show a blue background behind the map instead of a transparent background.
-{% endconfiguration_basic %}
-
-## Data Updates
-
-This integration uses both local and cloud {% term polling %} and also receives
-cloud push events using MQTT. Local communication is preferred when possible.
-Map data and routines are always fetched through the cloud, and Dyad and Zeo devices are cloud only.
-
-The integration will automatically discover your Roborock devices using the cloud APIs and get
-the needed information to communicate locally with them, if supported. Please ensure your Home Assistant
-instance can communicate with the local IP of your device. We recommend setting a static IP
-for your Roborock Vacuum to help prevent future issues. The device communicates on port 58867.
-Depending on your firewall, you may need to allow communication from Home Assistant to your vacuum on that port.
-
-
-## Supported functionality
+## Robovac entities
 
 Roborock devices have a variety of features that are supported on some devices but not on others. Only entities that your device supports will be added to your integration.
 
-### Robovac devices
-
-#### Vacuum
+### Vacuum
 
 The vacuum entity holds the ability to control most things the vacuum can do, such as start a clean, return to the dock, or set the fan speed.
 
-#### Image
+### Select
 
-- **Map**
-  - **Description**: Displays a live map of your Roborock vacuum's cleaning area.
+Mop mode - Describes how to mop the floor. On some firmware, it is called 'mop route'.
 
-#### Select
+Mop intensity - How hard you would like your vacuum to mop.
 
-- **Mop mode**
-  - **Description**: Describes how to mop the floor. On some firmware, it is called 'mop route'.
+### Binary sensor
 
-- **Mop intensity**
-  - **Description**: How hard you would like your vacuum to mop.
+Cleaning - States if the vacuum has a clean currently active. This is on when the robot is actively moving around or when the robot returns to the dock when the battery is low but a clean is still active and will resume later.
 
-- **Selected map**
-  - **Description**: Choose the map that is loaded on the vacuum.
+Mop attached - States if the mop is currently attached.
 
-- **Empty mode**
-  - **Description**: You can set the "empty mode" setting including Max, Light, Balanced, and Smart.
-  - **Availability**: For vacuum equipped with an auto-empty dock
+Mop drying status - Only available on docks with drying capabilites - States if the mop is currently being driven.
 
-#### Binary sensor
+Water box attached - States if the water box is currently attached.
 
-- **Charging**
-  - **Description**: States if the vacuum is currently charging or not.
-
-- **Cleaning**
-  - **Description**: States if the vacuum is currently cleaning or not. This is on when the robot is actively moving around or when the robot returns to the dock when the battery is low but a clean is still active and will resume later.
-
-- **Mop attached**
-  - **Description**: States if the mop is currently attached.
-
-- **Mop drying status**
-  - **Description**: Only available on docks with drying capabilites - States if the mop is currently being driven.
-
-- **Water box attached**
-  - **Description**: States if the water box is currently attached.
-
-- **Water shortage**
-  - **Description**: States if the water box is low on water - 'Ok' if it has not detected a water shortage.
+Water shortage - States if the water box is low on water - 'Ok' if it has not detected a water shortage.
 
 
-#### Sensor
+### Sensor
 
-- **Cleaning area**
-  - **Description**: How much area the vacuum has cleaned in its current run. If the vacuum is not currently cleaning, how much area it has cleaned during its last run.
+Cleaning area - How much area the vacuum has cleaned in its current run.  If the vacuum is not currently cleaning, how much area it has cleaned during its last run.
 
-- **Cleaning time**
-  - **Description**: How long the vacuum has been cleaning for. If the vacuum is not currently cleaning, how long it cleaned for in its last run.
+Cleaning time - How long the vacuum has been cleaning for. If the vacuum is not currently cleaning, how long it cleaned for in its last run.
 
-- **Cleaning progress**
-  - **Description**: Only available on some newer devices - what percent of the current cleaning is completed.
+Cleaning progress - Only available on some newer devices - what percent of the current cleaning is completed.
 
-- **Dock error**
-  - **Description**: Only available on the non-basic docks - The current error of the vacuum or 'Ok' if none exists.
+Dock error - Only available on the non-basic docks - The current error of the vacuum or 'Ok' if none exist
 
-- **Main brush time left**
-  - **Description**: How much time is left before Roborock recommends you replace your main brush.
+Main brush time left - How much time is left before Roborock recommends you replace your main brush.
 
-- **Mop drying remaining time**
-  - **Description**: Only available on the non-basic docks - How much time is left until the mop is dry and ready to continue cleaning.
+Mop drying remaining time - Only available on the non-basic docks - How much time is left until the mop is dry and ready to continue cleaning.
 
-- **Side brush time left**
-  - **Description**: How much time is left before Roborock recommends you replace your side brush.
+Side brush time left - How much time is left before Roborock recommends you replace your side brush.
 
-- **Filter time left**
-  - **Description**: How much time is left before Roborock recommends you replace your vacuum's air filter.
+Filter time left - How much time is left before Roborock recommends you replace your vacuum's air filter.
 
-- **Maintenance brush time left**
-  - **Description**: How much time is left before Roborock recommends you replace your dock's maintenance brush.
+Status - The current status of your vacuum. This typically describes the action that is currently being run. For example, 'spot_cleaning' or 'docking'.
 
-- **Strainer time left**
-  - **Description**: How much time is left before Roborock recommends you replace your dock's strainer. This can refer to the water filter or the cleaning tray depending on your device.
+Last clean begin - the last time that your vacuum started cleaning.
 
-- **Status**
-  - **Description**: The current status of your vacuum. This typically describes the action that is currently being run. For example, 'spot_cleaning' or 'docking'.
+Last clean end - The last time that your vacuum finished cleaning.
 
-- **Last clean begin**
-  - **Description**: the last time that your vacuum started cleaning.
+Total cleaning time - The lifetime cleaning duration of your vacuum.
 
-- **Last clean end**
-  - **Description**: The last time that your vacuum finished cleaning.
+Total cleaning area - The lifetime cleaning area of your vacuum.
 
-- **Total cleaning time**
-  - **Description**: The lifetime cleaning duration of your vacuum.
+Total cleaning count - The lifetime cleaning count of your vacuum.
 
-- **Total cleaning area**
-  - **Description**: The lifetime cleaning area of your vacuum.
+Vacuum error - The current error with your vacuum, if there is one.
 
-- **Total cleaning count**
-  - **Description**: The lifetime cleaning count of your vacuum.
+### Time
 
-- **Vacuum error**
-  - **Description**: The current error with your vacuum, if there is one.
+Do not disturb begin - When _Do not disturb_ is enabled, the vacuum does not run or speak after this point.
 
-#### Time
+Do not disturb end - When _Do not disturb_ is enabled, the vacuum does not run or speak before this point.
 
-- **Do not disturb begin**
-  - **Description**: When _Do not disturb_ is enabled, the vacuum does not run or speak after this point.
+### Switch
 
-- **Do not disturb end**
-  - **Description**: When _Do not disturb_ is enabled, the vacuum does not run or speak before this point.
+Child lock - This disables the buttons on the vacuum. Nothing happens when the buttons are pushed.
 
-#### Switch
+Status indicator light - This is the LED on the top of your vacuum. The color changes depending on the status of your vacuum.
 
-- **Child lock**
-  - **Description**: This disables the buttons on the vacuum. Nothing happens when the buttons are pushed.
+Do not disturb - This enables _Do not disturb_ during the time frame you have set in the app or on the time entity. When _Do not disturb_ is enabled, the vacuum does not run or speak.
 
-- **Status indicator light**
-  - **Description**: This is the LED on the top of your vacuum. The color changes depending on the status of your vacuum.
+### Number
 
-- **Do not disturb**
-  - **Description**: This enables _Do not disturb_ during the time frame you have set in the app or on the time entity. When _Do not disturb_ is enabled, the vacuum does not run or speak.
+Volume - This allows you to control the volume of the robot's voice. For example, when it states "Starting cleaning". This allows you to set the volume to 0%, while the app limits it to 20%.
 
-#### Number
-
-- **Volume**
-  - **Description**: This allows you to control the volume of the robot's voice. For example, when it states "Starting cleaning". This allows you to set the volume to 0%, while the app limits it to 20%.
-
-#### Button
+### Button
 
 There are currently four buttons that allow you to reset the various maintenance items on your vacuum. Pressing the button cannot be undone. For this reason, the buttons are disabled by default to make sure they are not pressed unintentionally.
 
-- **Reset sensor consumable**
-  - **Description**: The sensors on your vacuum are expected to be cleaned after 30 hours of use.
+Reset sensor consumable - The sensors on your vacuum are expected to be cleaned after 30 hours of use.
 
-- **Reset side brush consumable**
-  - **Description**: The side brush is expected to be replaced every 200 hours.
+Reset side brush consumable - The side brush is expected to be replaced every 200 hours.
 
-- **Reset main brush consumable**
-  - **Description**: The main brush/ roller is expected to be replaced every 300 hours.
+Reset main brush consumable - The main brush/ roller is expected to be replaced every 300 hours.
 
-- **Reset air filter**
-  - **Description**: The air filter is expected to be replaced every 150 hours.
+Reset air filter - The air filter is expected to be replaced every 150 hours.
 
-In addition, some vacuums allow routines to be set up in the app. For each of those routines, a button entity will be created, allowing you to trigger it.
+### Scene
 
-#### Actions
+For every scene/routine/program you define for your vacuum, a scene entity will be created to activate it.
 
-##### Action Set Vacuum Goto Position
+### Actions
 
-The `roborock.set_vacuum_goto_position` action will set the vacuum to go to
-the specified coordinates.
+#### Action `roborock.set_vacuum_goto_position`
+
+Go the specified coordinates.
 
 - **Data attribute**: `entity_id`
   - **Description**: Only act on a specific robot.
   - **Optional**: No.
-- **Data attribute**: `x`
+- **Data attribute**: `x_coord`
   - **Description**: X-coordinate, integer value. The dock is located at x-coordinate 25500.
   - **Optional**: No.
-- **Data attribute**: `y`
+- **Data attribute**: `y_coord`
   - **Description**: Y-coordinate, integer value. The dock is located at y-coordinate 25500.
   - **Optional**: No.
 
-##### Action Get Vacuum Current Position
+#### Action `roborock.get_vacuum_current_position`
 
-The `roborock.get_vacuum_current_position` action will get the current position of the vacuum. This
-is a cloud call and should only be used for diagnostics. This is not meant to be used for
-automations. Frequent requests can lead to rate limiting. 
+Get the current position of the vacuum. This is a cloud call and should only be used for diagnostics. This is not meant to be used for automations. Frequent requests can lead to rate limiting. 
 
 - **Data attribute**: `entity_id`
   - **Description**: Only act on a specific robot.
@@ -308,66 +175,43 @@ data: {}
     y: 25168
   ```
 
-##### Action Get Maps
+### Image
 
-The `roborock.get_maps` action will return the maps available on the device and
-details about any named rooms on each map.
+You can see all the maps within your Roborock account. Keep in mind that they are device-specific. The maps require the cloud API to communicate as the maps are seemingly stored on the cloud. If someone can figure out a way around this - contributions are always welcome.
 
-- **Data attribute**: `entity_id`
-  - **Description**: Get maps for a specific device
-  - **Optional**: No.
 
-This will return the name of the map, and the room names and id numbers. See [How can I clean a specific room? ](#how-can-i-clean-a-specific-room) for more details on how to use the maps response.
-
-### Dyad devices
+## Dyad entities
 
 Roborock wet/dry vacuums currently expose some entities through an MQTT connection - it is currently cloud dependent.
 
-#### Sensor
+### Sensor
 
-- **Status**
-  - **Description**: The current status of your vacuum. This typically describes the action that is currently being run. For example, 'drying' or 'charging'.
+Status - The current status of your vacuum. This typically describes the action that is currently being run. For example, 'drying' or 'charging'.
 
-- **Battery**
-  - **Description**: The current charge of your device.
+Battery - The current charge of your device.
 
-- **Filter time left**
-  - **Description**: how long until Roborock recommends cleaning/replacing your filter.
+Filter time left - how long until Roborock recommends cleaning/replacing your filter.
 
-- **Brush time left**
-  - **Description**: how long until Roborock recommends cleaning/replacing your brush.
+Brush time left - how long until Roborock recommends cleaning/replacing your brush.
 
-- **Error**
-  - **Description**: the current error of the device - if one exists - "None" otherwise.
+Error - the current error of the device - if one exists - "None" otherwise.
 
-- **Total cleaning time**
-  - **Description**: how long you have cleaned with your wet/dry vacuum.
+Total cleaning time - how long you have cleaned with your wet/dry vacuum.
 
 
-### Zeo Entities
+## Zeo Entities
 
 Roborock Zeo One currently exposes some entities through an MQTT connection - it is currently cloud dependent.
 
-#### Sensor
+### Sensor
 
-- **State**
-  - **Description**: The current state of your washing machine. For example, 'washing' or 'rinsing'.
+State - The current state of your washing machine. For example, 'washing' or 'rinsing'.
 
-- **Countdown**
-  - **Description**: Countdown for how long until the machine starts.
+Countdown - Countdown for how long until the machine starts.
 
-- **Washing left**
-  - **Description**: The amount of time until your machine is done washing.
+Washing left - The amount of time until your machine is done washing.
 
-- **Error**
-  - **Description**: The current error of the Zeo, if one exists.
-
-## Removing the integration
-
-This integration follows standard integration removal. No extra steps are required.
-
-{% include integrations/remove_device_service.md %}
-
+Error - The current error of the Zeo, if one exists.
 
 ## FAQ
 
@@ -375,7 +219,7 @@ This integration follows standard integration removal. No extra steps are requir
 No. This integration requires information from your Roborock app to set up and uses Roborock's protocols to communicate with your device. You must have your vacuum synced to the Roborock app.
 
 ### Can I block internet access for this device?
-As of right now - no. When the vacuum is disconnected from the internet, it will attempt to disconnect itself from Wi-Fi and reconnect itself until it can reach the Roborock servers.
+As of right now - no. When the vacuum is disconnected from the internet, it will attempt to disconnect itself from Wi-Fi and reconnect itself until it can reach the Roborock servers. We are looking for the best way to handle this and see what can be blocked while still allowing the vacuum to function. 
 
 ### What devices are supported?
 If you can add your device to the Roborock app - it is supported. However, some older vacuums like the Roborock S5 must be connected using the Mi Home app and can be set up in Home Assistant through the [Xiaomi Miio](/integrations/xiaomi_miio/) integration.
@@ -443,28 +287,8 @@ Roborock servers require accepting a user agreement before using the API, which 
 4. Log back in and accept the policy.
 5. Reload the Roborock integration!
 
-### The integration tells me it cannot reach my vacuum and is using the cloud API and that this is not supported or I am having any networking issues
+### The integration tells me it cannot reach my vacuum and is using the cloud API and that this is not supported
 
 This integration has the capability to control your devices through the cloud API and the local API. If the local API is not reachable, it will just use the cloud API. We recommend only using the local API as it helps prevent any kind of rate-limiting.
 
-The steps needed to fix this issue are specific to your networking setup. Here are some general troubleshooting steps:
-
-1. Ensure your vacuum can communicate externally via port 8883.
-2. Ensure your vacuum can communicate with your Home Assistant instance on ports TCP 58867 and UDP 58866.
-3. If you are using a tool such as Pi-Hole, AdGuard, or anything else that modifies your DNS, ensure that your vacuum is exempted.
-4. Set a static IP for your vacuum.
-5. Check your router's webpage. If the device is losing connection, you need to focus on increasing your Wi-Fi network's performance.
-
-### My Device goes unavailable every night at around 3am - how can I fix this?
-
-Every night, the vacuum disconnects from the internet for about one minute and automatically reconnects. This causes the integration to go unavailable until the vacuum is reachable again. This is not an issue with the integration but rather the integration is reacting to the device's status.
-
-### The integration tells me no devices were found even though I have devices on my account.
-
-Some devices are not supported yet as they use a different protocol than other devices. Make sure you are on the latest version of Home Assistant.
-
-### I'm getting information about rate limiting in my logs - what should I do?
-
-There is rate limiting built into the Python package that this integration is built on. This is to try to help prevent your instance from overwhelming the Roborock servers and resulting in any kind of IP ban. Best practice is to disable the integration for 24 hours. 
-
-It's also important to try to determine what caused this error in your setup. A common cause some users have is that they have a script that automatically reloads the integration if it goes unavailable. Then, if the device gets stuck and runs out of battery, you are frequently reloading and that causes rate limits.
+The steps needed to fix this issue are specific to your networking setup. Make sure your Home Assistant instance can communicate on port 58867 with the IP address of your vacuum. This may require changing firewall settings, VLAN configuration, etc.

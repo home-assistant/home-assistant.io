@@ -10,8 +10,6 @@ related:
     title: Card header and footer
   - docs: /dashboards/cards/
     title: Dashboard cards
-  - docs: /dashboards/naming/
-    title: Card naming
 ---
 
 The entities card is the most common type of card. It groups items together into lists. It can be used to display an entity's state or attribute, but also contain buttons, web links, etc.
@@ -78,8 +76,8 @@ type:
   type: string
 name:
   required: false
-  description: Overwrites friendly name. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/).
-  type: [string, map, list]
+  description: Overwrites friendly name.
+  type: string
 icon:
   required: false
   description: Overwrites icon or entity picture.
@@ -152,8 +150,8 @@ suffix:
   type: string
 name:
   required: false
-  description: Overwrites friendly name. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/).
-  type: [string, map, list]
+  description: Overwrites friendly entity name.
+  type: string
 icon:
   required: false
   description: Icon to use. Defaults to icon of entity.
@@ -233,8 +231,8 @@ entities:
       type: string
     name:
       required: false
-      description: Overwrites friendly name. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/).
-      type: [string, map, list]
+      description: Override the friendly entity name.
+      type: string
       default: Entity name
     show_name:
       required: false

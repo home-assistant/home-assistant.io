@@ -17,7 +17,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The **Discogs** {% term integration %} allows you to see the current amount of records in your [Discogs](https://www.discogs.com) collection.
+The `discogs` {% term integration %} allows you to see the current amount of records in your [Discogs](https://www.discogs.com) collection.
 
 ## Setup
 

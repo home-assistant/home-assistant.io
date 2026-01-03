@@ -45,7 +45,6 @@ The following selectors are currently available:
 - [RGB color selector](#rgb-color-selector)
 - [Select selector](#select-selector)
 - [State selector](#state-selector)
-- [Statistic selector](#statistic-selector)
 - [Target selector](#target-selector)
 - [Template selector](#template-selector)
 - [Text selector](#text-selector)
@@ -84,7 +83,8 @@ The output of this selector is a list of actions. For example:
 
 ## Add-on selector
 
-This can only be used on a {% term "Home Assistant Operating System" %} installation. For {% term "Home Assistant Container" %} installations, an error will be displayed.
+This can only be used on an installation with a Supervisor. For installations
+that do not have that, an error will be displayed.
 
 The add-on selector allows the user to input an add-on slug.
 On the user interface, it will list all installed add-ons and use the slug of the
@@ -150,12 +150,6 @@ device:
         the set model.
       type: string
       required: false
-    model_id:
-      description: >
-        When set, the list of areas is limited to areas with devices that have
-        the set model ID.
-      type: string
-      required: false
 entity:
   description: >
     When entity options are provided, the list of areas is filtered by areas
@@ -173,7 +167,7 @@ entity:
       required: false
     domain:
       description: >
-        Limits the list of areas that provide entities of a certain [domain(s)](/docs/configuration/entities_domains/#domains),
+        Limits the list of areas that provide entities of a certain domain(s),
         for example, [`light`](/integrations/light) or
         [`binary_sensor`](/integrations/binary_sensor). Can be either a string
         with a single domain, or a list of string domains to limit the selection to.
@@ -191,7 +185,6 @@ entity:
       description: >
         Limits the list of areas to areas that have entities with a certain
         supported feature, for example, `light.LightEntityFeature.TRANSITION` or `climate.ClimateEntityFeature.TARGET_TEMPERATURE`. Should be a list of features.
-        For a list of supported features for each entity type, refer to the [entity documentation](https://developers.home-assistant.io/docs/core/entity).
       type: list
       required: false
 multiple:
@@ -277,8 +270,8 @@ assist_pipeline:
 
 ## Backup location selector
 
-This can only be used on an installation with a {% term "Home Assistant Operating System" %}. For {% term "Home Assistant Container" %} installations, an error
-
+This can only be used on an installation with a Supervisor (Operating System or
+Supervised). For installations of type {% term "Home Assistant Core" %} or {% term "Home Assistant Container" %}, an error
 will be displayed.
 
 The backup location selector shows a list of places a backup could go, depending
@@ -492,7 +485,7 @@ devices based on the selector configuration. The value of the input will contain
 the device ID or a list of device IDs, based on if `multiple` is set to `true`.
 
 A device selector can filter the list of devices, based on things like the
-manufacturer, model, or model ID of the device, the entities the device provides or based
+manufacturer or model of the device, the entities the device provides or based
 on the domain that provided the device.
 
 ![Screenshot of a device selector](/images/blueprints/selector-device.png)
@@ -522,7 +515,7 @@ entity:
       required: false
     domain:
       description: >
-        Limits the list of devices that provide entities of a certain [domain(s)](/docs/configuration/entities_domains/#domains),
+        Limits the list of devices that provide entities of a certain domain(s),
         for example, [`light`](/integrations/light) or
         [`binary_sensor`](/integrations/binary_sensor). Can be either a string
         with a single domain, or a list of string domains to limit the selection
@@ -541,7 +534,6 @@ entity:
       description: >
         Limits the list of devices to devices that have entities with a certain
         supported feature, for example, `light.LightEntityFeature.TRANSITION` or `climate.ClimateEntityFeature.TARGET_TEMPERATURE`. Should be a list of features.
-        For a list of supported features for each entity type, refer to the [entity documentation](https://developers.home-assistant.io/docs/core/entity).
       type: list
       required: false
 filter:
@@ -567,11 +559,6 @@ filter:
     model:
       description: >
         When set, it limits the list of devices to devices that have the set model.
-      type: string
-      required: false
-    model_id:
-      description: >
-        When set, the list of devices is limited to devices that have the set model ID.
       type: string
       required: false
 multiple:
@@ -610,7 +597,7 @@ device:
   filter:
     - integration: deconz
       manufacturer: Philips
-      model: RWL021
+      model: RWL021  
   entity:
     - domain: sensor
       device_class: battery
@@ -637,7 +624,7 @@ enable_millisecond:
   description: When `true`, the duration selector will allow selecting milliseconds.
   type: boolean
   default: false
-  required: false
+  required: false  
 {% endconfiguration %}
 
 The output of this selector is a mapping of the time values the user selected.
@@ -696,7 +683,7 @@ filter:
       required: false
     domain:
       description: >
-        Limits the list of entities to entities of a certain [domain(s)](/docs/configuration/entities_domains/#domains), for example,
+        Limits the list of entities to entities of a certain domain(s), for example,
         [`light`](/integrations/light) or
         [`binary_sensor`](/integrations/binary_sensor). Can be either a string
         with a single domain, or a list of string domains to limit the selection
@@ -720,12 +707,6 @@ multiple:
   description: >
     Allows selecting multiple entities. If set to `true`, the resulting value of
     this selector will be a list instead of a single string value.
-  type: boolean
-  default: false
-  required: false
-reorder:
-  description: >
-    Allows reordering of entities (only applies if `multiple` is set to `true`).
   type: boolean
   default: false
   required: false
@@ -765,7 +746,7 @@ entity:
 
 ## Floor selector
 
-The floor selector shows a floor finder that can pick
+The floor selector shows a floor finder that can pick 
 floors based on the selector configuration. The value of the input will be the
 floor ID. If `multiple` is set to `true`, the value is a list of floor IDs.
 
@@ -811,12 +792,6 @@ device:
         the set model.
       type: string
       required: false
-    model_id:
-      description: >
-        When set, the list only includes floors with devices that have
-        the set model ID.
-      type: string
-      required: false
 entity:
   description: >
     When entity options are provided, the list only includes floors
@@ -834,7 +809,7 @@ entity:
       required: false
     domain:
       description: >
-        When set, the list only includes floors that have entities of certain [domains](/docs/configuration/entities_domains/#domains),
+        When set, the list only includes floors that have entities of certain domains,
         for example, [`light`](/integrations/light) or
         [`binary_sensor`](/integrations/binary_sensor). Can be either a string
         with a single domain, or a list of string domains to limit the selection to.
@@ -1033,40 +1008,14 @@ The media selector is a powerful selector that allows a user to easily select
 media to play on a media device. Media can be a lot of things, for example,
 cameras, local media, text-to-speech, Home Assistant Dashboards, and many more.
 
-You are prompted to select the device used to play media. Once the device is selected, the media selector only shows media that is suitable for this device.
+The user selects the device to play media on, and automatically limits the
+selectable media suitable for the selected device.
 
 ![Screenshot of the Media selector](/images/blueprints/selector-media.png)
 
-To ask the user to select a media device and suitable media, you can use the
-media selector without any options:
-
 ```yaml
 media:
 ```
-
-You can also use the media selector with an optional `accept` filter to limit the
-media types that can be selected. The user will not be asked to pick a device.
-
-```yaml
-media:
-  accept:
-    - image/*
-```
-
-{% configuration media %}
-accept:
-  description: >
-    List of media types the user is allowed to select.
-  type: list
-  required: false
-multiple:
-  description: >
-    Allows selecting multiple media items. If set to `true`, the resulting value of
-    this selector will be a list instead of a single object.
-  type: boolean
-  default: false
-  required: false
-{% endconfiguration %}
 
 The output of the media selector, is an mapping with information about
 the selected media device and the selected media to play. There is also
@@ -1093,38 +1042,6 @@ metadata:
         media-source://tts/cloud?message=TTS+Message&language=en-US&gender=female
 ```
 
-Example output if accept filter is used. Note that the `entity_id` is not present:
-
-```yaml
-media_content_id: media-source://tts/cloud?message=TTS+Message&language=en-US&gender=female
-media_content_type: provider
-metadata:
-  title: TTS Message
-  thumbnail: https://brands.home-assistant.io/_/cloud/logo.png
-  media_class: app
-  children_media_class: null
-  navigateIds:
-    - {}
-    - media_content_type: app
-      media_content_id: media-source://tts
-    - media_content_type: provider
-      media_content_id: >-
-        media-source://tts/cloud?message=TTS+Message&language=en-US&gender=female
-```
-
-Example output when `multiple` is set to `true` (a list of media objects):
-
-```yaml
-- media_content_id: media-source://media_source/local/image1.jpg
-  media_content_type: image/jpeg
-  metadata:
-    title: image1.jpg
-- media_content_id: media-source://media_source/local/image2.jpg
-  media_content_type: image/jpeg
-  metadata:
-    title: image2.jpg
-```
-
 ## Number selector
 
 The number selector shows either a number input or a slider input, that allows
@@ -1149,11 +1066,11 @@ number:
 min:
   description: The minimum user-settable number value.
   type: [integer, float]
-  required: false
+  required: true
 max:
   description: The maximum user-settable number value.
   type: [integer, float]
-  required: false
+  required: true
 step:
   description: The step size of the number value. Set to `"any"` to allow any number.
   type: [integer, float, "any"]
@@ -1167,16 +1084,7 @@ mode:
   description: This can be either `box` or `slider` mode.
   type: string
   required: false
-  default: slider if min and max are set, otherwise box
-translation_key:
-  description: >
-    Allows translations provided by an integration where `translation_key`
-    is the translation key that is providing the unit_of_measurement string
-    translation. See the documentation on
-    [Backend Localization](https://developers.home-assistant.io/docs/internationalization/core/#selectors)
-    for more information.
-  type: string
-  required: false    
+  default: slider
 {% endconfiguration %}
 
 The output of this selector is a number, for example: `42`
@@ -1211,83 +1119,15 @@ number:
 
 The object selector can be used to input arbitrary data in YAML form. This is useful for e.g. lists and dictionaries containing data for actions. The value of the input will contain the provided data.
 
-When used without options, the selector will accept any valid YAML content, such as objects, arrays, strings, or other YAML types. The input box is displayed as an editor with syntax highlighting.
-
 ![Screenshot of an object selector](/images/blueprints/selector-object.png)
 
-```yaml
-object:
-```
-
-When used with `fields` specified, the selector will force the object to be in this format by displaying a form.
-
-![Screenshot of an object selector](/images/blueprints/selector-object-schema.png)
+This selector does not have any other options; therefore, it only has its key.
 
 ```yaml
 object:
-  label_field: name
-  description_field: percentage
-  multiple: true
-  fields:
-    name:
-      label: Name
-      selector:
-        text:
-    percentage:
-      label: Percentage
-      selector:
-        number:
-          unit_of_measurement: "%"
 ```
 
 The output of this selector is a YAML object.
-
-{% configuration object %}
-fields:
-  description: >
-    List of fields of the object.
-  type: map
-  required: false
-  keys:
-    label:
-      description: The label of the field
-      required: false
-      type: string
-    required:
-      description: If set to true, the field must be present.
-      required: false
-      default: false
-      type: boolean
-    selector:
-      description: The selector to use for this field. It can be any available selector.
-      required: true
-      type: string
-label_field:
-  description: >
-    The field to use as a label. By default, it will be the first field defined. This option is only used if `fields` option set.
-  type: string
-  required: false
-description_field:
-  description: >
-    The field to use as a description. This option is only used if `fields` option set.
-  type: string
-  required: false
-translation_key:
-  description: >
-    Allows translations provided by an integration where `translation_key`
-    is the translation key that is providing the selector option strings
-    translation. See the documentation on
-    [Backend Localization](https://developers.home-assistant.io/docs/internationalization/core/#selectors)
-    for more information.
-  type: string
-  required: false
-multiple:
-  description: >
-    Allows adding multiple objects. If set to `true`, the resulting value of this selector will be a list instead of a single YAML object. This option is only used if `fields` option set.
-  type: boolean
-  required: false
-  default: false
-{% endconfiguration %}
 
 ## QR code selector
 
@@ -1441,7 +1281,7 @@ would return ["Green"] and in the last example it returns ["g"].
 ## State selector
 
 The state selector shows a list of states for a provided entity of which
-one or more can be selected.
+one can be selected.
 
 ![Screenshot of an state selector](/images/blueprints/selector-state.png)
 
@@ -1449,43 +1289,13 @@ one or more can be selected.
 entity_id:
   description: The entity ID of which an state can be selected from.
   type: string
-  required: false
-hide_states:
-  description: The states to exclude from the list of options
-  type: list
-  required: false
-multiple:
-  description: >
-    Allows selecting multiple states. If set to `true`, the resulting value of
-    this selector will be a list instead of a single string value.
-  type: boolean
-  default: false  
+  required: true
 {% endconfiguration %}
 
 The output of this selector is the select state (not the translated or
-prettified name shown in the frontend), or a list of states if `multiple` is true.
+prettified name shown in the frontend).
 
 For example: `heat_cool`.
-
-## Statistic selector
-
-The statistic selector selects the statistic ID of an entity that records
-{% term "Long-term statistics" %}. It may resemble an entity ID (like `sensor.temperature`),
-or an external statistic ID (like `external:temperature`).
-
-![Screenshot of a statistic selector](/images/blueprints/selector-statistic.png)
-
-{% configuration statistic %}
-multiple:
-  description: >
-    If set to true, the selector returns a list of statistic IDs.
-  type: boolean
-  default: false
-  required: false
-{% endconfiguration %}
-
-The output of this selector is a string representing a statistic ID, or
-a list of statistic IDs if `multiple` is set to `true`.
 
 ## Target selector
 
@@ -1508,6 +1318,30 @@ target:
 ```
 
 {% configuration target %}
+device:
+  description: >
+    When device options are provided, the targets are limited by devices
+    that at least match the given conditions. Can be either a object or a list
+    of object.
+  type: list
+  keys:
+    integration:
+      description: >
+        Can be set to an integration domain. Limits the device targets that
+        are provided devices by the set integration domain, for example,
+        [`zha`](/integrations/zha).
+      type: string
+      required: false
+    manufacturer:
+      description: >
+        When set, it limits the targets to devices provided by the set
+        manufacturer name.
+      type: string
+      required: false
+    model:
+      description: When set, it limits the targets to devices by the set model.
+      type: string
+      required: false
 entity:
   description: >
     When entity options are provided, the targets are limited by entities
@@ -1525,7 +1359,7 @@ entity:
       required: false
     domain:
       description: >
-        Limits the targets to entities of a certain [domain(s)](/docs/configuration/entities_domains/#domains),
+        Limits the targets to entities of a certain domain(s),
         for example, [`light`](/integrations/light) or
         [`binary_sensor`](/integrations/binary_sensor). Can be either a
         with a single domain, or a list of string domains to limit the
@@ -1538,13 +1372,6 @@ entity:
         `motion` or `window`. Can be either a string with a single device_class,
         or a list of string device_class to limit the selection to.
       type: [device_class, list]
-      required: false
-    supported_features:
-      description: >
-        Limits the targets to entities with a certain supported feature, for example,
-        `light.LightEntityFeature.TRANSITION` or `climate.ClimateEntityFeature.TARGET_TEMPERATURE`. Should be a list of features.
-        For a list of supported features for each entity type, refer to the [entity documentation](https://developers.home-assistant.io/docs/core/entity).
-      type: list
       required: false
 {% endconfiguration %}
 
@@ -1571,6 +1398,18 @@ target:
   entity:
     - integration: zha
       domain: light
+```
+
+Another example using the target selector, which only shows targets that
+provide one or more remote controls, provided by the
+[deCONZ](/integrations/deconz) integration.
+
+```yaml
+target:
+  device:
+    - integration: deconz
+      manufacturer: IKEA of Sweden
+      model: TRADFRI remote control
 ```
 
 ## Template selector
@@ -1699,20 +1538,4 @@ The output of this selector is a list of triggers. For example:
 - trigger: numeric_state
   entity_id: "sensor.outside_temperature"
   below: 20
-```
-
-### Example - Merging with existing triggers
-
-If the trigger(s) should exist within a blueprint that already has some default triggers defined, and an additional customizable trigger should be merged, you need to use the `- triggers` syntax in the blueprint.
-
-```yaml
-# Example trigger selector
-input:
-  my_trigger_input:
-    selector:
-      trigger:
-triggers:
-  - triggers: !input my_trigger_input
-  - platform: numeric_state
-  [...]
 ```

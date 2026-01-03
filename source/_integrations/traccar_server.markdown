@@ -7,6 +7,8 @@ ha_category:
   - Presence detection
 ha_iot_class: Local Push
 ha_config_flow: true
+ha_codeowners:
+  - '@ludeeus'
 ha_domain: traccar_server
 ha_platforms:
   - binary_sensor
@@ -272,7 +274,7 @@ actions:
 
 {% enddetails %}
 
-#### Do something when a device is speeding
+#### Do something when a device are speeding
 
 The allows you to do something when the device "Millennium Falcon" exceeds a defined speed.
 

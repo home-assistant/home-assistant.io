@@ -18,7 +18,7 @@ ha_platforms:
 ha_integration_type: device
 ---
 
-The **JVC Projector** {% term integration %} allows for the automation of [JVC Projectors](https://www.jvc.com/usa/projectors/).
+The JVC Projector integration allows for the automation of [JVC Projectors](https://www.jvc.com/usa/projectors/).
 
 ## Supported models
 
@@ -32,6 +32,7 @@ To set up these models:
 
 1. Set a password on the projector's network setup page.
 2. Use this password when adding the JVC Projector integration in Home Assistant.
+
 
 {% include integrations/config_flow.md %}
 

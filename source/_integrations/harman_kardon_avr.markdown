@@ -15,7 +15,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The **Harman Kardon AVR** {% term integration %} allows you to control Harman Kardon Network Receivers from Home Assistant.
+The `harman_kardon_avr` platform allows you to control Harman Kardon Network Receivers from Home Assistant.
 
 Supported devices:
 

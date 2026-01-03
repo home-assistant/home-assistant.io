@@ -15,7 +15,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The **Rejseplanen** {% term integration %} will provide you with travel details for Danish public transport, using timetable data from [Rejseplanen](https://www.rejseplanen.dk/).
+The `rejseplanen` {% term integration %} will provide you with travel details for Danish public transport, using timetable data from [Rejseplanen](https://www.rejseplanen.dk/).
 
 ## Configuration
 

@@ -166,16 +166,10 @@ module Jekyll
 
       vars = SafeYAML.load(contents)
 
-      linkId = [component, platform, 'configuration-variables']
-        .compact
-        .reject(&:empty?)
-        .join('-')
-      
-
       <<~MARKUP
         <div class="config-vars">
           <h4>
-            Configuration Variables <a class="title-link" name="#{linkId}" href="##{linkId}"></a>
+            Configuration Variables <a class="title-link" name="configuration-variables" href="#configuration-variables"></a>
           </h4>
           <div class="configuration-link">
             <a href="/docs/configuration/" target="_blank">Looking for your configuration file?</a>

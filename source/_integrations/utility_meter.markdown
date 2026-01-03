@@ -65,7 +65,7 @@ Sensor always available:
     You need to understand that with this option activated, when the source entity becomes unavailable, the utility meter sensor will have the last totalized value and will not change until the source entity returns to a valid state.
 {% endconfiguration_basic %}
 
-If the meter reset cycle and reset offsets are too limited for your use case,
+If the meter reset cycle and reset offsets are to limited for your use case,
 consider using the YAML configuration below, which support CRON-style patterns
 that provide a greater flexibility.
 
@@ -292,7 +292,7 @@ utility_meter:
 
 Additionally, you can add template sensors to compute daily and monthly total usage. Important note, in these examples,
 we use the `is_number()` [function](/docs/configuration/templating/#numeric-functions-and-filters) to verify the values
-returned from the sensors are numeric. If this evaluates to false, `None` is returned.
+returned from the sensors are numeric. If this evalutes to false, `None` is returned.
 
 {% raw %}
 

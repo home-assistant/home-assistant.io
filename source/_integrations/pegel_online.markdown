@@ -14,10 +14,9 @@ ha_platforms:
 ha_codeowners:
   - '@mib1185'
 ha_integration_type: service
-ha_quality_scale: platinum
 ---
 
-This {% term integration %} uses the data from the German Federal Waterways and Shipping Administration (_Wasserstraßen- und Schifffahrtsverwaltung des Bundes_) [PEGELONLINE](https://www.pegelonline.wsv.de/) to provide different [sensors](#sensors), based on the available data of the selected measurement station.
+This integration uses the data from the German Federal Waterways and Shipping Administration (_Wasserstraßen- und Schifffahrtsverwaltung des Bundes_) [PEGELONLINE](https://www.pegelonline.wsv.de/) to provide different [sensors](#sensors), based on the available data of the selected measurement station.
 
 ## Data fetching and limitations
 

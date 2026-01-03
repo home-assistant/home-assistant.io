@@ -27,23 +27,13 @@ Badges are widgets that sit at the top of a panel, above all the cards.
 
    ![Screenshot showing how to configure a badge](/images/dashboards/badge_configure.png)
 7. Under **Interactions**, you can define the tap behavior.
-8. If you want this badge to be visible only to specific users or under a certain condition, open the **Visibility** tab to [define those conditions](/dashboards/cards/#showing-or-hiding-a-card-or-badge-conditionally).
-   - The [available conditions](/dashboards/conditional/#conditions-options) are the same as the ones for the conditional card.
+8. If you want this badge to be visible only to specific users or under a certain condition, open the **Visibility** tab to [define those conditions](/dashboards/cards/#showing-or-hiding-a-card-conditionally).
 9. Select **Save**.
 
 <p class="img">
   <img src="/images/dashboards/adding_a_badge_to_a_dashboard.webp" alt="screencast showing how to add a badge to a dashboard">
   Adding a badge to a dashboard.
 </p>
-
-## Removing a badge
-
-1. Go to the dashboard edit the dashboard (steps 1-3 in [adding a badge](#adding-a-badge-to-your-dashboard)).
-2. Hover over the badge to reveal the three dots {% icon "mdi:dots-vertical" %} menu.
-    ![Screenshot showing edit buttons](/images/dashboards/edit_badge.png)
-3. Select the three dots {% icon "mdi:dots-vertical" %} menu and select **Delete**.
-
-    ![Screenshot showing the three dots menu](/images/dashboards/edit_badge_menu.png)
 
 ## Entity badge
 
@@ -65,8 +55,8 @@ entity:
   type: string
 name:
   required: false
-  description: Overwrites friendly name. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/).
-  type: [string, map, list]
+  description: Overwrites the entity name.
+  type: string
 icon:
   required: false
   description: Overwrites the entity icon.
@@ -155,8 +145,8 @@ entity:
   type: string
 name:
   required: false
-  description: Overwrites friendly name. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/).
-  type: [string, map, list]
+  description: Overwrites friendly name.
+  type: string
 icon:
   required: false
   description: Overwrites icon or entity picture. You can use any icon from [Material Design Icons](https://pictogrammers.com/library/mdi/). Prefix the icon name with `mdi:`, ie `mdi:home`.

@@ -43,9 +43,9 @@ module Jekyll
         <<~MARKUP
           <div class="alert alert-#{@type}">
             <p class="alert-title"><iconify-icon inline icon='#{icon}'></iconify-icon> #{title}</p>
-            <div class="alert-content">
+            <p class="alert-content">
               #{contents}
-            </div>
+            </p>
           </div>
         MARKUP
       end

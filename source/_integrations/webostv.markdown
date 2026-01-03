@@ -16,10 +16,9 @@ ha_platforms:
   - media_player
   - notify
 ha_integration_type: integration
-ha_quality_scale: platinum
 ---
 
-The **LG webOS TV** {% term integration %} allows you to control a [LG](https://www.lg.com/) webOS TV.
+The `webostv` platform allows you to control a [LG](https://www.lg.com/) webOS TV.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -48,9 +47,17 @@ Sources:
 
 LG webOS TV devices running webOS 2.0 and above.
 
-## Turn on automation trigger
+## Actions
 
-To turn on your TV, you need to create an automation. You can create an automation from the user interface. From the device, create a new automation and select the **Device is requested to turn on** trigger.
+The integration provides the following actions.
+
+### Action: Turn on
+
+The `webostv.turn_on` action is used to create an automation to turn on the TV using the media player power button.
+
+| Data attribute | Optional | Description                                          |
+| ---------------------- | -------- | ---------------------------------------------------- |
+| `entity_id`            |       no | Entity requested to turn on. For example `media_player.lg_webos_tv`|
 
 If you want to use an automation to turn on an LG webOS TV, install an {% term integration %} such as the [HDMI-CEC](/integrations/hdmi_cec/) or [WakeOnLan](/integrations/wake_on_lan/). They provide an action that can be used for that.
 
@@ -60,13 +67,8 @@ Common for webOS 3.0 and higher would be to use WakeOnLan feature. To use this f
 This usually only works if the TV is connected to the same network. Routing the WakeOnLan packet to a different subnet requires special configuration on your router or may not be possible.
 {% endimportant %}
 
-Automations can also be created using YAML:
-
-The `webostv.turn_on` device trigger is used in an automation to turn on the TV when the media player power button is pressed.
-
-| Data attribute | Optional | Description                                          |
-| ---------------------- | -------- | ---------------------------------------------------- |
-| `entity_id`            |       no | Entity requested to turn on. For example `media_player.lg_webos_tv`|
+You can create an automation from the user interface, from the device create a new automation and select the  **Device is requested to turn on** automation.
+Automations can also be created using an automation action:
 
 ```yaml
 # Example configuration.yaml entry
@@ -84,10 +86,6 @@ automation:
 ```
 
 Any other [actions](/docs/automation/action/) to power on the device can be configured.
-
-## Actions
-
-The integration provides the following actions.
 
 ### Action: Select sound output
 

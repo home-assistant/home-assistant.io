@@ -9,7 +9,7 @@ ha_domain: intent_script
 ha_integration_type: integration
 ---
 
-The **Intent Script** integration allows users to configure actions and responses to intents. Intents can be fired by any integration that supports it. Examples are [Alexa](/integrations/alexa/) (Amazon Echo), [Dialogflow](/integrations/dialogflow/) (Google Assistant) and [Snips](/integrations/snips/). Internally they can be fired by [custom sentences](https://www.home-assistant.io/voice_control/custom_sentences_yaml/).
+The `intent_script` integration allows users to configure actions and responses to intents. Intents can be fired by any integration that supports it. Examples are [Alexa](/integrations/alexa/) (Amazon Echo), [Dialogflow](/integrations/dialogflow/) (Google Assistant) and [Snips](/integrations/snips/).
 
 If you are using intent script with LLMs and have parameters, make sure to mention the parameters and their types in the description.
 
@@ -105,7 +105,7 @@ available in the `action_response` variable.
 conversation:
   intents:
     EventCountToday:
-      - "How many meetings do I have today"
+      - "How many meetings do I have today?"
 
 intent_script:
   EventCountToday:
@@ -124,13 +124,3 @@ intent_script:
 ```
 
 {% endraw %}
-
-## Actions
-
-Available actions: `reload`.
-
-### Action `intent_script.reload`
-
-Reloads the intent script from the YAML-configuration, as a quicker alternative to restarting Home Assistant.
-
-This action takes no data attributes.

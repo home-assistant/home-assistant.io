@@ -15,7 +15,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@tr4nt0r'
 ha_domain: iron_os
-ha_integration_type: device
+ha_integration_type: integration
 ha_platforms:
   - binary_sensor
   - button
@@ -25,7 +25,6 @@ ha_platforms:
   - sensor
   - switch
   - update
-ha_quality_scale: platinum
 ---
 
 The **IronOS** {% term integration %} seamlessly connects Home Assistant with PINE64's Pinecil V2 soldering irons, allowing for remote monitoring and control. This integration provides real-time updates on temperature, power, and various other settings and diagnostic information.
@@ -40,7 +39,7 @@ The IronOS integration lets you monitor and control your smart soldering iron fr
 
 ## Minimum requirements
 
-- **Pinecil V2** requires IronOS v2.21 or higher to connect to Home Assistant. Please refer to the [Pinecil documentation](https://pine64.org/documentation/Pinecil/Firmware/) for update instructions.
+- **Pinecil V2** requires IronOS v2.21 or higher to connect to Home Assistant. Please refer to the [Pinecil Wiki](https://wiki.pine64.org/wiki/Pinecil_Firmware#Overview) for update instructions.
 
 ## Prerequisites
 
@@ -79,7 +78,7 @@ Home Assistant will detect nearby IronOS devices. Discovered devices will show u
 - **Raw tip voltage:** Measures the raw voltage at the soldering iron's thermocouple, which is then offset compensated and converted to the tip temperature.
 - **Tip resistance:** Indicates the resistance of the currently inserted soldering iron tip (for example, "6.2 Ω" for short tips, "8 Ω" for normal tips)
 - **Uptime:** Tracks the total operating time of the soldering iron since its last power-on.
-- **Hall effect strength:** (Optional) This feature requires the device to be [modified with a hall effect sensor](https://pine64.org/documentation/Pinecil/Modifications/Hall_effect_sensor/). If a neodymium magnet is attached to the stand, it enables proximity detection and can be utilized to calibrate when the iron enters sleep mode based on its proximity to the stand.
+- **Hall effect strength:** (Optional) This feature requires the device to be [modified with a hall effect sensor](https://wiki.pine64.org/wiki/Pinecil_Hall_Effect_Sensor). If a neodymium magnet is attached to the stand, it enables proximity detection and can be utilized to calibrate when the iron enters sleep mode based on its proximity to the stand.
 
 ## Update
 
@@ -91,8 +90,7 @@ The following controls allow you to customize the settings and options for your 
 
 ### Basic settings
 
-- **Boost:** Enables or disables the boost feature. When enabled, holding the front button temporarily raises the tip to the boost temperature.
-- **Boost temperature:** Defines the temporary temperature increase activated when holding the front button.
+- **Boost temperature:** Sets the temperature for boost mode, which temporarily overrides the soldering temperature when the front button is held down.
 - **Sleep temperature:** The temperature the device drops to after a specified period of inactivity (no movement or button presses).
 - **Sleep timeout:** The duration of inactivity required before the device enters sleep mode and drops to the sleep temperature.
 
@@ -104,8 +102,6 @@ The following controls allow you to customize the settings and options for your 
 - **Button locking mode:** Configures whether buttons can be locked to prevent accidental presses, with options for disabled, full locking, or boost only.
 - **Display orientation mode:** Sets the display orientation with options for left-handed, right-handed, or automatic adjustment.
 - **Startup behavior:** Defines the mode the device enters on power-up: disabled, sleeping mode, idle mode (heat-off until moved), or soldering mode.
-- **Soldering tip type:** Select the type of soldering tip in use: TS100 long/Hakko T12, Pinecil short, or PTS200 short. The auto-sense option enables automatic detection of the tip type. This feature requires IronOS v2.23 or higher.
-- **Hall effect sleep timeout:** Specifies the duration of inactivity after which the device enters sleep mode when a hall effect sensor (if present) detects proximity to a magnet. This feature requires IronOS v2.23 or higher.
 
 ### User interface settings
 
@@ -130,7 +126,7 @@ The following controls allow you to customize the settings and options for your 
 - **Power Delivery timeout:** Defines how long the firmware will attempt to negotiate USB-PD before switching to Quick Charge. Lower values are recommended for faster PD negotiation.
 - **Power limit:** Sets a custom wattage cap for the device to maintain the **average** power below this value. Note: Peak power cannot be controlled. When using USB-PD, the limit will be the lower of this setting and the power supply's advertised wattage.
 - **Quick Charge voltage:** Adjusts the maximum voltage for Quick Charge negotiation. Does not affect USB-PD. Ensure the setting aligns with the current rating of your power supply for safety.
-- **Power Delivery 3.1 EPR (Extended Power Range):** Enables EPR mode, allowing input voltages up to 28V with a [compatible USB-C power supply](https://pine64.org/documentation/Pinecil/Power_supplies/Power_supplies/#epr-pd31-140w-chargers). Options are *on*, *off*, and *safe* (does not dynamically request more power). The *safe* option requires IronOS v2.23 or higher.
+- **Power Delivery 3.1 EPR (Extended Power Range):** Enables EPR mode, allowing input voltages up to 28V with a [compatible USB-C power supply](https://wiki.pine64.org/wiki/Pinecil_Power_Supplies#EPR_PD3.1,_140W_Chargers)
 
 ### Advanced settings
 
@@ -153,7 +149,7 @@ Get started with this automation example for IronOS with a ready-to-use blueprin
 
 Automatically activate the fume extractor when soldering begins and deactivate it when the soldering iron is idle.
 
-{% my blueprint_import badge blueprint_url="<https://community.home-assistant.io/t/ironos-soldering-fume-extractor-automation-pinecil-v2/802156>" %}
+{% my blueprint_import badge blueprint_url="https://community.home-assistant.io/t/ironos-soldering-fume-extractor-automation-pinecil-v2/802156" %}
 
 {% details "Example YAML configuration" %}
 

@@ -6,7 +6,7 @@ date: 2023-12-07 00:00:02
 date_formatted: "December 7, 2023"
 author: Guy Sie
 comments: true
-categories: Works-with-Home-Assistant
+categories: Announcements
 og_image: /images/blog/2023-12-homewizard/homewizard-wwha-og.png
 ---
 

@@ -15,7 +15,7 @@ ha_integration_type: integration
 ha_quality_scale: legacy
 ---
 
-The **Switchmate SimplySmart Home** {% term integration %} allows you to control Switchmate [devices](https://www.mysimplysmarthome.com/products/switchmate-switches/).
+This `Switchmate` switch platform allows you to control Switchmate [devices]( https://www.mysimplysmarthome.com/products/switchmate-switches/).
 
 ## Configuration
 

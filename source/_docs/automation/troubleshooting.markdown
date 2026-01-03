@@ -11,11 +11,11 @@ Many automations can be tested directly in the automation editor UI.
 
 ### Running the entire automation
 
-In the three dots menu in the automation list or automation editor UI, select the **Run actions** button. This will execute all of the {% term actions %}, while skipping all {% term triggers %} and {% term conditions %}. This lets you test the full sequence of actions, as if the automation was triggered and all conditions were true. Note that any [trigger ID](/docs/automation/trigger/#trigger-id) used in your triggers will not be active when you test this way. The Trigger ID or any data passed by in the `trigger` data in conditions or actions can't be tested directly this way.
+In the three dots menu in the automation list or automation editor UI, select the **Run** button. This will execute all of the {% term actions %}, while skipping all {% term triggers %} and {% term conditions %}. This lets you test the full sequence of actions, as if the automation was triggered and all conditions were true. Note that any [trigger ID](/docs/automation/trigger/#trigger-id) used in your triggers will not be active when you test this way. The Trigger ID or any data passed by in the `trigger` data in conditions or actions can't be tested directly this way.
 
 You can also trigger an automation manually. This can test the conditions as if the automation was triggered by an event. Navigate to {% my developer_services title="**Developer tools** > **Actions**" %}. In the **Action** drop-down, select **Automation: Trigger**, then **Choose entity** to select the automation you are testing. Toggle whether to skip the conditions, then **Perform action**. If needed, additional `trigger` or other data can be added in the YAML view for testing. The [trigger](/docs/automation/trigger/) page has more information about data within the trigger.
 
-Testing with complex triggers, conditions, and variables can be difficult. Note that using the **Run actions** button will skip all triggers and conditions, while **Developer Tools** can be used with or without checking conditions.
+Testing with complex triggers, conditions, and variables can be difficult. Note that using the **Run** button will skip all triggers and conditions, while **Developer Tools** can be used with or without checking conditions.
 
 ### Running individual actions or conditions
 
@@ -33,7 +33,7 @@ If you are writing automations in YAML, it is also useful to go to {% my server_
 
 When an {% term automation %} is run, all steps are recorded and a trace is made. From the UI, open **Settings**, which is located in the sidebar, then select **Automations & Scenes** to go to the automation editor or click this button directly: {% my automations badge %}
 
-From the automation editor UI, or in the automations list in the three dots menu, select **Traces**. Alternatively, select an automation entry shown under **Activity**.
+From the automation editor UI, or in the automations list in the three dots menu, select **Traces**. Alternatively, select an automation entry shown in the Logbook.
 
 ![Automation tracing example](/images/integrations/automation/automation-tracing.png)
 
@@ -44,7 +44,7 @@ The right side of the trace screen has tabs with more information:
 - **Step Details** shows data and results of the step that is currently highlighted.
 - **Automation Config** shows the full YAML configuration at the time the automation was run.
 - **Trace Timeline**, shown in the screenshot above, lists the steps that were executed and their timing.
-- **Related activity**, shows the activity for all the entries related to the specific trace.
+- **Related logbook entries**, shows a logbook for all the entries related to the specific trace.
 - **Blueprint Config** will only be shown if the automation was created from a {% term blueprint %}.
 
 The top bar shows the date and time the automation was triggered. Use the left and right arrows to view previous runs of the automation.

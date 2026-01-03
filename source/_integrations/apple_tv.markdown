@@ -18,7 +18,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The **Apple TV** {% term integration %} allows you to control an Apple TV (any generation).
+The Apple TV integration allows you to control an Apple TV (any generation).
 
 There is currently support for the following entities within the Apple TV device:
 
@@ -151,8 +151,17 @@ apple_tv_sleep:
       target:
         entity_id: remote.lounge_appletv
       data:
+        hold_secs: 1
+        delay_secs: 1
         command:
-          - suspend
+          - home
+    - action: remote.send_command
+      target:
+        entity_id: remote.lounge_appletv
+      data:
+        delay_secs: 1
+        command:
+          - select
     - action: media_player.turn_off
       target:
         entity_id: media_player.lounge_appletv

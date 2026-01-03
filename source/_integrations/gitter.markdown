@@ -15,7 +15,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-This **Gitter** {% term integration %} allows one to monitor a [Gitter.im](https://gitter.im) chatroom for unread messages.
+This `gitter` {% term integration %} allows one to monitor a [Gitter.im](https://gitter.im) chatroom for unread messages.
 
 ## Configuration
 

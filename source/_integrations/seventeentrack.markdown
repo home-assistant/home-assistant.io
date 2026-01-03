@@ -14,7 +14,7 @@ ha_platforms:
 ha_integration_type: service
 ---
 
-The **17TRACK** {% term integration %} allows users to get package data tied to their [17track.net](https://www.17track.net) account. The integration creates both summary sensors, which show the number of packages in a current state (e.g., "In Transit"), as well as individual sensors for each package within the account.
+The seventeentrack {% term integration %} allows users to get package data tied to their [17track.net](https://www.17track.net) account. The integration creates both summary sensors, which show the number of packages in a current state (e.g., "In Transit"), as well as individual sensors for each package within the account.
 
 {% important %}
 Although the 17track.net website states that account passwords cannot be longer than 16 characters, users can technically set longer-than-16-character passwords. These passwords **will not** work with the used API. Therefore, please ensure that your 17track.net password does not exceed 16 characters.
@@ -107,23 +107,4 @@ The `seventeentrack.archive_package` action allows you to archive a package usin
   data:
     config_entry_id: 2b4be47a1fa7c3764f14cf756dc98991
     package_tracking_number: RU0103445624A
-```
-
-### Action `seventeentrack.add_package`
-
-The `seventeentrack.add_package` action allows you to add a package using the 17track API.
-
-| Data attribute            | Optional | Description                                   |
-| ------------------------- | -------- | --------------------------------------------- |
-| `config_entry_id`         | No       | The selected service to add the package to.   |
-| `package_tracking_number` | No       | The package tracking number to add.           |
-| `package_friendly_name`   | No       | The friendly name of the package to be added. |
-
-```yaml
-# Example automation action to add a package with tracking number and its friendly name
-- action: seventeentrack.add_package
-  data:
-    config_entry_id: 2b4be47a1fa7c3764f14cf756dc98991
-    package_tracking_number: RU0103445624A
-    package_friendly_name: "Example Package"
 ```

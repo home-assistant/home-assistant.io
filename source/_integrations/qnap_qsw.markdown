@@ -22,7 +22,7 @@ ha_integration_type: integration
 ha_dhcp: true
 ---
 
-This {% term integration %} interacts with the local API of [QNAP QSW managed switches](https://www.qnap.com/en/product/series/qsw-managed-switches).
+This integration interacts with the local API of [QNAP QSW managed switches](https://www.qnap.com/en/product/series/qsw-managed-switches).
 
 {% include integrations/config_flow.md %}
 
@@ -90,9 +90,3 @@ The following *sensors* are created for each port (or LACP):
 | Update              | Description                        |
 | :------------------ | :--------------------------------- |
 | firmware_update     | Firmware update status.            |
-
-## Removing the integration
-
-This integration follows standard integration removal. No extra steps are required.
-
-{% include integrations/remove_device_service.md %}

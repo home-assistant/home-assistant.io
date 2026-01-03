@@ -7,7 +7,8 @@ date_formatted: "July 27, 2022"
 author: Zack Barett
 author_twitter: zbarettHA
 comments: true
-categories: Works-with-Home-Assistant
+categories:
+- Announcements
 og_image: /images/blog/2022-07-27-leviton-partner/social-image.jpg
 ---
 

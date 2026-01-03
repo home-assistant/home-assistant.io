@@ -8,7 +8,6 @@ ha_category:
   - Select
   - Sensor
   - Switch
-  - Update
 ha_iot_class: Local Polling
 ha_release: 0.49
 ha_codeowners:
@@ -24,7 +23,6 @@ ha_platforms:
   - select
   - sensor
   - switch
-  - update
 ha_integration_type: device
 ha_config_flow: true
 ha_ssdp: true

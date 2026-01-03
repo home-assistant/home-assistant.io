@@ -18,7 +18,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The **Hyperion** {% term integration %} allows you to integrate your
+The Hyperion integration allows you to integrate your
 [Hyperion](https://docs.hyperion-project.org/) into Home Assistant. Hyperion is
 an open source Ambilight implementation which runs on many platforms.
 
@@ -91,7 +91,6 @@ Provided entities for controlling external sources:
 
 - `switch.[instance]_component_platform_capture`: Toggles the `Screen Capture` source
 - `switch.[instance]_component_usb_capture`: Toggles the `USB Capture` source
-- `switch.[instance]_component_audio_capture`: Toggles the `Audio Capture` source
 
 ### Control over Hyperion functionality
 

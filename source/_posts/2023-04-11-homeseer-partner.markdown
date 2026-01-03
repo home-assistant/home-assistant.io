@@ -6,7 +6,8 @@ date: 2023-04-11 00:00:00
 date_formatted: "April 11, 2023"
 author: Uwe Bernitt
 comments: true
-categories: Works-with-Home-Assistant
+categories:
+  - Announcements
 og_image: /images/blog/2023-04-11-homeseer-partner/social.png
 ---
 

@@ -81,10 +81,6 @@ Fetches the gas prices. The `config_entry` value be found using the **Actions** 
 | `start`        | yes      | Start time to get prices. Defaults to today 00:00:00 | 2023-01-01 00:00:00              |
 | `end`          | yes      | End time to get prices. Defaults to today 00:00:00   | 2023-01-01 00:00:00              |
 
-{% tip %}
-You can get your `config_entry` by using actions within the [developer tools](/docs/tools/dev-tools/): use one of the EnergyZero actions and view the YAML.
-{% endtip %}
-
 #### Response data
 
 The response data is a dictionary with the gas timestamps and prices as string and float values.
@@ -119,10 +115,6 @@ Fetches the energy prices. The `config_entry` value be found using the **Actions
 | `incl_vat`     | no       | Defines whether the prices include or exclude VAT.   | false                            |
 | `start`        | yes      | Start time to get prices. Defaults to today 00:00:00 | 2023-01-01 00:00:00              |
 | `end`          | yes      | End time to get prices. Defaults to today 00:00:00   | 2023-01-01 00:00:00              |
-
-{% tip %}
-You can get your `config_entry` by using actions within the [developer tools](/docs/tools/dev-tools/): use one of the EnergyZero actions and view the YAML.
-{% endtip %}
 
 #### Response data
 
