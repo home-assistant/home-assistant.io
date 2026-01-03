@@ -3,7 +3,7 @@ title: "Troubleshooting the ESP32-S3-BOX-3"
 related:
   - docs: /voice_control/s3_box_voice_assistant/
     title: Creating a ESP32-S3-BOX-3 voice assistant
-  - url: https://esphome.io/projects/index.html
+  - url: https://esphome.io/projects/
     title: ESPHome projects website
 ---
 
