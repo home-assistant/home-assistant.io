@@ -23,7 +23,7 @@ ha_integration_type: integration
 ha_quality_scale: platinum
 ---
 
-The **Enphase Envoy** {% term integration %} is used to integrate with the [Enphase IQ Gateway](https://enphase.com/en-us/products-and-services/envoy-and-combiner), a communication device for [Enphase](https://enphase.com/homeowners) solar inverters and batteries. In this documentation, as well as in integration entity names, the Enphase IQ Gateway is commonly referred to as `Envoy`, a name from the conception times of this integration and retained for its compact format.
+The **Enphase Envoy** {% term integration %} is used to integrate with the [Enphase IQ Gateway](https://enphase.com/installers/communication), a communication device for [Enphase](https://enphase.com/homeowners) solar inverters and batteries. In this documentation, as well as in integration entity names, the Enphase IQ Gateway is commonly referred to as `Envoy`, a name from the conception times of this integration and retained for its compact format.
 
 ## Supported devices
 
@@ -497,7 +497,7 @@ With a [net-consumption CT](#grid-sensor-entities) installed, both grid consumpt
 
 With a [total-consumption CT](#grid-balanced-importexport-sensor-entities) or a [net-consumption CT](#grid-sensor-entities) installed, the balanced grid import-export energy value is available. This value is not suited for direct use with the energy dashboard. It will require some templating to split the value into an import and export value.
 
-To split the balanced energy value **Envoy <abbr title="Envoy serial number">SN</abbr> Lifetime balanced net energy consumption** into import-export values, a sensor [blueprint template](/integrations/template/#using-blueprints) named [`Filter positive or negative value changes in a sensor entity`](https://community.home-assistant.io/t/filter-positive-or-negative-value-changes-in-a-sensor-entity/943919/1) is available in the community blueprints exchange.
+To split the balanced energy value **Envoy <abbr title="Envoy serial number">SN</abbr> Lifetime balanced net energy consumption** into import-export values, a sensor [blueprint template](/integrations/template/#using-blueprints) named [`Filter positive or negative value changes in a sensor entity`](https://community.home-assistant.io/t/943919) is available in the community blueprints exchange.
 
 Import the blueprint using the **import blueprint to** button. This will install the blueprint as `/config/blueprints/template/catsmanac/Filter_positive_or_negative_value_changes_in_sensor_entity.yaml`. Use the directions and templates in the blueprint exchange topic to implement such a split.
 
@@ -699,7 +699,7 @@ The example below shows decreases when multiple inverters reach a 1.2 MWh lifeti
 
 {% enddetails %}
 
-To correct for this issue, a sensor [blueprint template](/integrations/template/#using-blueprints) named [`Correct Envoy lifetime production energy`](https://community.home-assistant.io/t/correct-envoy-lifetime-production-energy/942918/1) is available in the community blueprints exchange.
+To correct for this issue, a sensor [blueprint template](/integrations/template/#using-blueprints) named [`Correct Envoy lifetime production energy`](https://community.home-assistant.io/t/942918) is available in the community blueprints exchange.
 
 Import the blueprint using the **import blueprint to** button. This will install the blueprint as `/config/blueprints/template/marcelhoogantink/correct_envoy_lifetime_production_energy.yaml`. Use the templates shown in the blueprint exchange to implement an entity with a corrected lifetime value.
 
