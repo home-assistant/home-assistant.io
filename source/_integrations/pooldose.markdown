@@ -209,7 +209,7 @@ automation:
     actions:
       - action: notify.notify
         data:
-          title: "Pool ORP Alert"
+          title: "Pool ORP alert"
           message: "ORP level is {{ trigger.id }}: {{ states('sensor.pool_device_orp') }} mV"
 ```
 
@@ -232,7 +232,7 @@ automation:
     actions:
       - action: notify.notify
         data:
-          title: "Pool pH Alert"
+          title: "Pool pH alert"
           message: "pH level is {{ trigger.id }}: {{ states('sensor.pool_device_ph') }}"
 ```
 
@@ -258,7 +258,7 @@ automation:
           entity_id: switch.pool_device_pause_dosing
       - action: notify.notify
         data:
-          title: "Pool Dosing Paused"
+          title: "Pool dosing paused"
           message: "Dosing paused - pH is {{ trigger.id }}: {{ states('sensor.pool_device_ph') }}"
 ```
 
@@ -270,16 +270,16 @@ This example combines multiple card types to create a comprehensive pool monitor
 type: vertical-stack
 cards:
   - type: entities
-    title: Pool Status
+    title: Pool status
     entities:
       - entity: sensor.pool_device_temperature
         name: Temperature
       - entity: sensor.pool_device_ph
-        name: pH Level
+        name: pH level
       - entity: sensor.pool_device_orp
-        name: ORP Level
+        name: ORP level
       - entity: switch.pool_device_pause_dosing
-        name: Dosing Control
+        name: Dosing control
   - type: horizontal-stack
     cards:
       - type: gauge
@@ -314,7 +314,7 @@ cards:
           - from: 750
             color: var(--error-color)
   - type: history-graph
-    title: 24 Hour Trends
+    title: 24 hour trends
     hours_to_show: 24
     entities:
       - entity: sensor.pool_device_ph
@@ -325,15 +325,15 @@ cards:
     state_color: true
     entities:
       - entity: binary_sensor.pool_device_ph_tank_level_alarm
-        name: pH Tank Level
+        name: pH tank level
       - entity: binary_sensor.pool_device_orp_tank_level_alarm
-        name: ORP Tank Level
+        name: ORP tank level
       - entity: binary_sensor.pool_device_ph_overfeed_alarm
-        name: pH Overfeed
+        name: pH overfeed
       - entity: binary_sensor.pool_device_orp_overfeed_alarm
-        name: ORP Overfeed
+        name: ORP overfeed
       - entity: binary_sensor.pool_device_flow_rate_alarm
-        name: Flow Rate
+        name: Flow rate
 ```
 
 ## Known limitations
