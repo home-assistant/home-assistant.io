@@ -30,6 +30,16 @@ implementation of an ESP8266/ESP32 webserver to control NeoPixel LEDs
 (like WS2812B, WS2811, SK6812, and similar) and SPI based chipsets
 (like WS2801 and APA102).
 
+## Use cases
+
+WLED can enhance your home automation in many ways:
+
+* **Ambient lighting effects**: Create dynamic lighting scenes that respond to music, time of day, or events in your home, adding atmosphere to any room.
+* **Status indicators**: Use different colors and effects to visualize information, such as showing your home assistant status, upcoming weather conditions, or calendar events.
+* **Entertainment and games**: Control LED strips during movie nights, gaming sessions, or parties with synchronized effects and color changes.
+* **Energy-efficient accent lighting**: Replace traditional accent lighting with power-efficient LED strips while maintaining full control and automation.
+* **Smart home notifications**: Set up visual alerts by triggering specific light effects when important events occur, like doorbell presses or security alerts.
+
 ## Prerequisites
 
 {% important %}
