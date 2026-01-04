@@ -327,22 +327,15 @@ To resolve this issue, follow these steps:
 4. Enter the correct IP address of the device if it has changed.
 5. Submit the form to update the configuration.
 
-#### Verify the device IP address
-
-If you are unsure about the correct IP address:
+If you are unsure about the correct IP address, you can try the following:
 
 - Check your router or DHCP server for the device's current IP assignment.
 - Ensure the IP address matches the device you are configuring.
 
-#### Prevent future occurrences (optional)
-
-To reduce the chance of this issue happening again:
+To reduce the chance of this issue happening again, you can:
 
 - Configure a DHCP reservation for the device in your router.
 - Assign a static IP address to the device.
-
-#### Automatic recovery
-
 In many cases, this issue resolves automatically. When Home Assistant discovers the device at a new IP address, the integration may update the configuration on its own and restore the connection without manual action.
 
 If the error persists, reconfiguring the integration with the correct IP address is required.
