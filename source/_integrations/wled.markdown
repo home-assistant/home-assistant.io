@@ -170,7 +170,7 @@ Information about new WLED releases is checked independently, once every 3 hours
 
 - The integration does not provide direct control for WLED's user-created **presets or playlists stored on the filesystem** (JSON files in `/presets.json`).
 
-## Known supported and unsupported devices
+## Supported devices
 
 The integration requires **WLED version 0.14.0 or newer**.
 Official WLED releases for ESP8266 and ESP32 are fully supported.
