@@ -34,11 +34,11 @@ implementation of an ESP8266/ESP32 webserver to control NeoPixel LEDs
 
 WLED can enhance your home automation in many ways:
 
-* **Ambient lighting effects**: Create dynamic lighting scenes that respond to music, time of day, or events in your home, adding atmosphere to any room.
-* **Status indicators**: Use different colors and effects to visualize information, such as showing your home assistant status, upcoming weather conditions, or calendar events.
-* **Entertainment and games**: Control LED strips during movie nights, gaming sessions, or parties with synchronized effects and color changes.
-* **Energy-efficient accent lighting**: Replace traditional accent lighting with power-efficient LED strips while maintaining full control and automation.
-* **Smart home notifications**: Set up visual alerts by triggering specific light effects when important events occur, like doorbell presses or security alerts.
+- **Ambient lighting effects**: Create dynamic lighting scenes that respond to music, time of day, or events in your home, adding atmosphere to any room.
+- **Status indicators**: Use different colors and effects to visualize information, such as showing your Home Assistant status, upcoming weather conditions, or calendar events.
+- **Entertainment and games**: Control LED strips during movie nights, gaming sessions, or parties with synchronized effects and color changes.
+- **Energy-efficient accent lighting**: Replace traditional accent lighting with power-efficient LED strips while maintaining full control and automation.
+- **Smart home notifications**: Set up visual alerts by triggering specific light effects when important events occur, like doorbell presses or security alerts.
 
 ## Prerequisites
 
@@ -153,22 +153,22 @@ Keep Master Light:
 
 ## Data updates
 
-By default, official WLED builds have the WebSocket server enabled, which allows the integration to receive real-time updates (“push” data) directly from the device. When the integration starts, it first attempts to connect via [WebSocket](https://kno.wled.ge/interfaces/websocket/). If the device was built without WebSocket support — for example, a custom WLED firmware compiled without that feature — the integration automatically falls back to {% term polling %}, fetching data from the device every 10 seconds by default.
+By default, official WLED builds have the WebSocket server enabled. This allows the integration to receive real-time updates ("push" data) directly from the device. When the integration starts, it first attempts to connect via [WebSocket](https://kno.wled.ge/interfaces/websocket/). If the device was built without WebSocket support — for example, a custom WLED firmware compiled without that feature — the integration automatically falls back to {% term polling %}, fetching data from the device every 10 seconds by default.
 
 Information about new WLED releases is checked independently, once every 3 hours, regardless of the number of connected devices.
 
 ## Known limitations
 
-* WLED exposes a single color model per segment in Home Assistant.
+- WLED exposes a single color model per segment in Home Assistant.
   This means that **mixed-type LED strips** — for example *RGB + CCT* or *RGBW + CCT* combinations — cannot currently have their RGB and CCT channels controlled independently in Home Assistant.
   When such strips are used, only one color temperature or hue is active at a time.
 
-* The integration relies on the WLED JSON API.
-  Custom WLED builds that disable or remove parts of the API (for example, turning off the JSON interface in favor of HTTP + MQTT only) are not supported.
+- The integration relies on the WLED JSON API.
+  Custom WLED builds that disable or remove parts of the API, such as turning off the JSON interface in favor of HTTP + MQTT only, are not supported.
 
-* Real-time effects that depend on **sound-reactive** or **2D matrix** features appear in the effect list, but may not behave correctly if the WLED instance was not compiled with those capabilities.
+- Real-time effects that depend on **sound-reactive** or **2D matrix** features appear in the effect list, but may not behave correctly if the WLED instance was not compiled with those capabilities.
 
-* The integration does not provide direct control for WLED’s user-created **presets or playlists stored on the filesystem** (JSON files in `/presets.json`).
+- The integration does not provide direct control for WLED's user-created **presets or playlists stored on the filesystem** (JSON files in `/presets.json`).
 
 ## Known supported and unsupported devices
 
@@ -179,7 +179,7 @@ Most standard digital LED chipsets supported by WLED—such as **WS2812B**, **WS
 
 Some LED configurations, however, have limited functionality:
 
-* **Analog RGB + CCT** or **digital RGBCCT** strips (for example, WS2508 or hybrid RGB + CCT setups) cannot be controlled with separate sliders for color and color temperature.
+* **Analog RGB + CCT** or **digital RGBCCT** strips, such as WS2508 or hybrid RGB + CCT setups, cannot be controlled with separate sliders for color and color temperature.
   Home Assistant can only manage one color model at a time.
 
 ## Example automations
@@ -301,11 +301,11 @@ Here is an example of all of these put together into an automation:
 
 #### Symptom
 
-**“Failed to set up: MAC address does not match the configured device. Expected to connect to device with MAC: XX:XX:XX:XX:XX:01, but connected to device with MAC: XX:XX:XX:XX:XX:02.”**
+**"Failed to set up: MAC address does not match the configured device. Expected to connect to device with MAC: XX:XX:XX:XX:XX:01, but connected to device with MAC: XX:XX:XX:XX:XX:02."**
 
 When setting up or loading the integration, Home Assistant reports that the MAC address of the connected device does not match the MAC address stored in the configuration.
 
-##### Description
+#### Description
 
 This error indicates that Home Assistant connected to a different device than expected while using the same IP address.
 
@@ -317,7 +317,7 @@ The most common cause is DHCP address reuse. This usually happens when:
 
 To avoid controlling or communicating with the wrong device, the integration validates the MAC address and stops the setup if it does not match the configured one.
 
-##### Resolution
+#### Resolution
 
 To resolve this issue, follow these steps:
 
@@ -327,21 +327,21 @@ To resolve this issue, follow these steps:
 4. Enter the correct IP address of the device if it has changed.
 5. Submit the form to update the configuration.
 
-##### Verify the device IP address
+#### Verify the device IP address
 
 If you are unsure about the correct IP address:
 
-* Check your router or DHCP server for the device’s current IP assignment.
+* Check your router or DHCP server for the device's current IP assignment.
 * Ensure the IP address matches the device you are configuring.
 
-##### Prevent future occurrences (optional)
+#### Prevent future occurrences (optional)
 
 To reduce the chance of this issue happening again:
 
-* Configure a DHCP reservation for the device in your router, or
+* Configure a DHCP reservation for the device in your router.
 * Assign a static IP address to the device.
 
-##### Automatic recovery
+#### Automatic recovery
 
 In many cases, this issue resolves automatically. When Home Assistant discovers the device at a new IP address, the integration may update the configuration on its own and restore the connection without manual action.
 
