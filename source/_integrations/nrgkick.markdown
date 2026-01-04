@@ -19,7 +19,7 @@ related:
     title: NRGkick Website
 ---
 
-The **NRGkick** {% term integration %} allows you to monitor and control
+The **NRGkick** {% term integration %} allows you to monitor
 the NRGkick mobile EV charger (Wallbox) by DiniTech with Home Assistant.
 The wallbox is smart home friendly and allows detailed monitoring with
 80+ data points.
@@ -81,16 +81,6 @@ Password:
   description: Password for HTTP Basic Authentication (optional).
 {% endconfiguration_basic %}
 
-## Configuration options
-
-{% configuration_basic %}
-Scan interval:
-  description: |
-    How often Home Assistant polls the device for updates.
-    The default is 30 seconds.
-    The allowed range is 10 to 300 seconds.
-{% endconfiguration_basic %}
-
 ## Supported functionality
 
 The integration provides entities to monitor charging.
@@ -127,8 +117,8 @@ assume the default device name of `NRGkick`.
 
 The integration polls the device for updates.
 
-- Default scan interval: 30 seconds.
-- Minimum scan interval: 10 seconds.
+- Polling interval: 30 seconds.
+- The polling interval is not user-configurable.
 
 ## Known limitations
 
@@ -154,7 +144,7 @@ If setup fails with a connection error:
 - Verify the device is powered on and connected.
 - Under **Settings** > **Devices & services**, select **NRGkick**, then reload
   the integration.
-- Increase the scan interval if your network is unstable.
+- If your network is unstable, verify Wi-Fi coverage.
 
 ### Some phase sensors are missing or show unknown
 
