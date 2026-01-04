@@ -212,7 +212,7 @@ For Sensor entities Velbus modules send periodic updates. The interval of these 
 ## Known limitations
 
 - The integration will never reprogram Velbus modules. All changes that are not implemented in the [Velbus module protocol](https://github.com/velbus/moduleprotocol) need to be done via VelbusLink software.
-- The integration does not support upgrading velbus modules firmware. This needs to be done via VelbusLink software.
+- The integration does not support upgrading Velbus modules firmware. This needs to be done via VelbusLink software.
 - For relay modules, the integration does not support the forced on/off state. This needs to be done via VelbusLink software.
 
 ## Supported functionality
@@ -246,7 +246,7 @@ Every blind module will be represented as a cover entity in Home Assistant. You 
 
 ### Button
 
-Every input module will have a button entity in Home Assistant to trigger a button press event. This can be used to trigger velbus actions from Home Assistant.
+Every input module will have a button entity in Home Assistant to trigger a button press event. This can be used to trigger Velbus actions from Home Assistant.
 
 ### Sensor
 
@@ -325,7 +325,7 @@ The following Velbus modules are currently not supported by the integration:
 
 ## Use cases
 
-1. Keep long term statistics of the velbus sensor data using Home Assistant's built-in recorder and history features.
+1. Keep long term statistics of the Velbus sensor data using Home Assistant's built-in recorder and history features.
 2. Create automations to control your Velbus devices based on time, state changes, or other sensor data.
 3. Integrate Velbus devices with other smart home devices and services supported by Home Assistant.
 4. Use voice assistants like Google Assistant or Amazon Alexa to control your Velbus devices via Home Assistant.
@@ -338,7 +338,7 @@ The following Velbus modules are currently not supported by the integration:
 
 ## Examples
 
-### Linking a velbus button to another entity
+### Linking a Velbus button to another entity
 
 The Velbus {% term integration %} allows you to link a Velbus button (i.e., a button of a [VMBGPOD](https://www.velbus.eu/products/view/?id=416302&lang=en) module) to a controllable {% term entity %} of Home Assistant.
 The actual linking can be realized by two automation rules. One rule to control the device using the push button and a second rule to update the LED state of the push button as soon as the {% term entity %} state changes.
