@@ -179,7 +179,7 @@ Most standard digital LED chipsets supported by WLED—such as **WS2812B**, **WS
 
 Some LED configurations, however, have limited functionality:
 
-* **Analog RGB + CCT** or **digital RGBCCT** strips, such as WS2508 or hybrid RGB + CCT setups, cannot be controlled with separate sliders for color and color temperature.
+- **Analog RGB + CCT** or **digital RGBCCT** strips, such as WS2508 or hybrid RGB + CCT setups, cannot be controlled with separate sliders for color and color temperature.
   Home Assistant can only manage one color model at a time.
 
 ## Example automations
