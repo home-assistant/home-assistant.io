@@ -93,6 +93,49 @@ password:
 The pushbutton LEDs of input modules are disabled by default. These can be enabled from the **Devices** panel in the **Configuration** page of the web interface.
 {% endnote %}
 
+## Troubleshooting
+
+If you encounter issues with the Velbus integration, you can enable debug logging to get more information about the problem.
+
+### Enabling debug logging
+The Velbus integration debug log can be enabled via the graphical interface or by adding the following lines to your `configuration.yaml` file:
+
+```yaml
+logger:
+  default: warning
+  logs:
+    homeassistant.components.velbus: debug
+```
+
+After enabling debug logging, restart Home Assistant and check the logs for any error messages related to the Velbus integration.
+
+### Can't connect to Velbus interface
+
+#### Connection via USB
+
+- Ensure that the Velbus USB interface is properly connected to your Home Assistant device.
+- Ensure that no other application (like VelbusLink) is using the Velbus USB interface at the same time.
+
+#### Connection via TCP/IP
+
+- Ensure that the Velbus TCP/IP interface is powered on and connected to the network.
+- Ensure that the IP address and port number are correct.
+- Ensure that any firewall or network security settings are not blocking the connection to the Velbus TCP/IP interface.
+
+#### Module not detected
+
+- Ensure that the Velbus modules are properly connected to the Velbus bus.
+- Ensure that the Velbus modules are powered on.
+- Perform a bus scan using the `velbus.scan` action to detect new modules.
+- Check the VelbusLink software to see if the modules are detected there. If they are not detected in VelbusLink, the issue is likely with the bus or modules themselves.
+- Check the Velbus integration debug logs for any error messages related to module detection.
+
+#### Common issues
+
+- If you have changed the configuration of your Velbus modules using VelbusLink software, you may need to clear the Velbus cache using the `velbus.clear_cache` action to ensure that Home Assistant has the latest configuration.
+- If you use the VLP file configuration for the integration, ensure that the VLP file is up to date and matches the configuration of your Velbus modules.
+
+
 ## Actions
 - `velbus.sync clock`: Synchronize Velbus time to local clock.
 - `velbus.scan`: Scan the bus for new devices.
@@ -151,26 +194,151 @@ Use this action when you make changes to your configuration via velbuslink.
 | `address`              | no       | The module address in decimal format, which is displayed on the device list on the integration page, if provided the service will only clear the cache for this model, without an address, the full velbuscache will be cleared. |
 
 
-## VMB7IN and the Energy dashboard
 
-The VMB7IN sensor can be integrated with Home Assistant's Energy dashboard to track your utility consumption.
+## Removing the integration
 
-In some cases, the VMB7IN sensor does not report what the counter is counting. If the counter is related to an energy device, everything will work out of the box.
-But if the VMB7IN sensor is a water or gas counter, you will need to specify this in your configuration.yaml file.
+The Velbus integration and its entities can be removed by following these steps:
 
-```yaml
-homeassistant:
-  customize:
-    sensor.eau_counter:
-      device_class: water
-```
+{% include integrations/remove_device_service.md %}
 
-The device_class attribute can have 2 values:
-- gas: if the counter represents a gas meter
-- water: if the counter represents a water meter
+Note: Removing the integration will delete all Velbus devices and their history from Home Assistant.
 
+## Data updates
 
-## Example automation
+The integration is event driven, meaning that updates are pushed from the Velbus modules to Home Assistant as soon as a change occurs. This ensures that the state of the entities in Home Assistant is always up to date.
+
+For Sensor entities Velbus modules send periodic updates. The interval of these updates is configurable via VelbusLink software.
+
+## Known limitations
+
+- The integration will never reprogram Velbus modules. All changes that are not implemented in the [Velbus module protocol](https://github.com/velbus/moduleprotocol) need to be done via VelbusLink software.
+- The integration does not support upgrading velbus modules firmware. This needs to be done via VelbusLink software.
+- For relay modules, the integration does not support the forced on/off state. This needs to be done via VelbusLink software.
+
+## Supported functionality
+
+The Velbus integration supports the following functionality:
+
+### Switch
+
+Every relay module will be represented as a switch entity in Home Assistant. You can turn the switch on and off to control the relay.
+
+### Light
+
+Every dimmer module will be represented as a light entity in Home Assistant. You can turn the light on and off and set the brightness level.
+For each input module, a light entity will be created to control the LED of the push buttons. You can turn the LED on and off and set the flash mode.
+
+### Binary sensor
+
+Every input module will be represented as a binary sensor entity in Home Assistant. The binary sensor will be on when the input is active and off when the input is inactive.
+
+### Select
+
+Every module that support programs will have a select entity in Home Assistant. You can select the program that you want to activate.
+
+### Climate
+
+Every module that supports thermostat functionality will be represented as a climate entity in Home Assistant. You can set the target temperature, the mode (heat/cool) and the preset mode (away/comfort/eco/home).
+
+### Cover
+
+Every blind module will be represented as a cover entity in Home Assistant. You can open and close the blind and if the module supports it, you can set the position of the blind.
+
+### Button
+
+Every input module will have a button entity in Home Assistant to trigger a button press event. This can be used to trigger velbus actions from Home Assistant.
+
+### Sensor
+
+Some modules expose sensors that can be used in Home Assistant.
+known and implemented sensors are:
+- energy consumption sensor
+- temperature sensor
+- light level sensor
+- PSU voltage sensor
+- PSU current sensor
+- PSU load sensor
+
+The Analog input module (VMB4AN) will have 4 sensor entities to read the analog values.
+The VMBMETEO module will have multiple sensor entities to read temperature, humidity, wind speed, wind direction and rain level.
+
+## Supported devices
+
+The Velbus integration supports a wide range of Velbus modules. A non-exhaustive list of supported modules is given below:
+
+- VMB1RYNOS
+- VMBPIRM
+- VMBPIRC
+- VMBPIRO
+- VMBGP4PIR
+- VMB1BLS
+- VMBDMI-R
+- VMBMETEO
+- VMB4AN
+- VMBEL1
+- VMBEL2
+- VMBEL4
+- VMBELO
+- VMBELPIR
+- VMBGP1-2
+- VMBGP2-2
+- VMBGP4-2
+- VMBGPOD-2
+- VMBGP4PIR-2
+- VMB1RYS
+- VMBIN
+- VMB4PB
+- VMBDALI
+- VMB4RYLD-10
+- VMB4RYNO-10
+- VMB2BLE-10
+- VMB8DC-20
+- VMB6PB-20
+- VMBPIR-20
+- VMB8IN-20
+- VMBEL1-20
+- VMBEL2-20
+- VMBEL4-20
+- VMBELO-20
+- VMBGP1-20
+- VMBGP2-20
+- VMBGP4-20
+- VMBGPO-20
+- VMBPIRO-20
+- VMBDALI-20
+- VMBEL4PIR-20
+- VMBGP4PIR-20
+- VMB2BLE-20
+
+## Unsupported devices
+
+The following Velbus modules are currently not supported by the integration:
+
+- VMBRF8S
+- VMBVP01
+- VMBCM3
+- VMBUSBIP
+- VMBKP
+- VMBSIG
+- VMBSIG-20
+- VMBSIG-21
+
+## Use cases
+
+1. Keep long term statistics of the velbus sensor data using Home Assistant's built-in recorder and history features.
+2. Create automations to control your Velbus devices based on time, state changes, or other sensor data.
+3. Integrate Velbus devices with other smart home devices and services supported by Home Assistant.
+4. Use voice assistants like Google Assistant or Amazon Alexa to control your Velbus devices via Home Assistant.
+5. Create custom dashboards in Home Assistant to monitor and control your Velbus devices.
+6. Use Home Assistant's energy management features to monitor and optimize energy consumption using Velbus energy sensors.
+7. Link Velbus buttons to other Home Assistant entities for seamless control.
+8. Automate climate control using Velbus thermostat modules integrated with Home Assistant.
+9. Monitor environmental conditions using Velbus weather modules and create automations based on sensor readings.
+10. Set up notifications for specific events, such as when a Velbus sensor detects motion or when a door is opened.
+
+## Examples
+
+### Linking a velbus button to another entity
 
 The Velbus {% term integration %} allows you to link a Velbus button (i.e., a button of a [VMBGPOD](https://www.velbus.eu/products/view/?id=416302&lang=en) module) to a controllable {% term entity %} of Home Assistant.
 The actual linking can be realized by two automation rules. One rule to control the device using the push button and a second rule to update the LED state of the push button as soon as the {% term entity %} state changes.
@@ -221,10 +389,22 @@ The actual linking can be realized by two automation rules. One rule to control 
       
 ```
 
-## Removing the integration
+### VMB7IN and the Energy dashboard
 
-The Velbus integration and its entities can be removed by following these steps:
+The VMB7IN sensor can be integrated with Home Assistant's Energy dashboard to track your utility consumption.
 
-{% include integrations/remove_device_service.md %}
+In some cases, the VMB7IN sensor does not report what the counter is counting. If the counter is related to an energy device, everything will work out of the box.
+But if the VMB7IN sensor is a water or gas counter, you will need to specify this in your configuration.yaml file.
 
-Note: Removing the integration will delete all Velbus devices and their history from Home Assistant.
+```yaml
+homeassistant:
+  customize:
+    sensor.eau_counter:
+      device_class: water
+```
+
+The device_class attribute can have 2 values:
+- gas: if the counter represents a gas meter
+- water: if the counter represents a water meter
+
+
