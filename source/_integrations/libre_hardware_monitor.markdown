@@ -23,7 +23,8 @@ Libre Hardware Monitor, a fork of Open Hardware Monitor, is free software that c
 
 - Libre Hardware Monitor is installed on the system (host) you want to monitor.
 - Libre Hardware Monitor must be running during setup.
-- In Libre Hardware Monitor, make sure **Remote web server** is active.
+- In Libre Hardware Monitor, make sure **Options** > **Remote web server** > **Run** is active.
+  - Optionally, set up authentication for the web server. You might have to restart the server for this to take effect.
 - Make sure to open the inbound port (8085 by default) on the host system's firewall.
 - In Libre Hardware Monitor, go to **File** > **Hardware** and check the devices you want to monitor.
 
@@ -41,19 +42,28 @@ Libre Hardware Monitor, a fork of Open Hardware Monitor, is free software that c
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
-host:
+Host:
   description: IP address or hostname of the system where Libre Hardware Monitor is running. This is the system you want to monitor.
-port:
+Port:
   description: The port of your Libre Hardware Monitor API. Defaults to 8085.
 {% endconfiguration_basic %}
 
 ## Configuration options
 
-All sensors will be grouped by the device they belong to. If you do not want all sensors for a device, you can disable entities via the UI after setup.
+The integration provides the following configuration options only if authentication is required:
 
-## Known limitations
+{% configuration_basic %}
+Username:
+  description: The username used to access the Libre Hardware Monitor server. Note that this is **not** your Windows username.
+Password:
+  description: The password used to access the Libre Hardware Monitor server. Note that this is **not** your Windows password.
+{% endconfiguration_basic %}
 
-Currently, setting up authentication for the Libre Hardware Monitor remote web server is not supported.
+## Supported devices
+
+Any device that is detected by Libre Hardware Monitor is supported.
+All sensors will be grouped by the device they belong to.
+If you do not want all sensors for a device, you can disable entities via the UI after setup.
 
 ## Troubleshooting
 
