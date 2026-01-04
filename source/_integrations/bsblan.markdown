@@ -41,7 +41,10 @@ or using a passkey is supported. Use either one.
 
 ### Buttons
 
-- **Sync time**: Synchronizes the device's time with Home Assistant.
+- **Sync time**
+  - **Description**: Synchronizes the BSBLan device time with Home Assistant
+  - **Available for devices**: All BSBLan devices
+  - **Remarks**: Use this if your BSBLan device time drifts or does not match Home Assistant
 
 ### Sensors
 
