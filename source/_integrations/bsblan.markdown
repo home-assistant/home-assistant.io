@@ -35,10 +35,9 @@ For authentication, HTTP authentication using a username and password or using a
 
 ### Buttons
 
-- **Sync time**
-  - **Description**: Synchronizes the BSBLan device time with Home Assistant
-  - **Available for devices**: All BSBLan devices
-  - **Remarks**: Use this if your BSBLan device time drifts or does not match Home Assistant
+- Sync time
+
+Synchronizes the BSBLan device time with Home Assistant. Use this if your BSBLan device time drifts or does not match Home Assistant
 
 ### Sensors
 
