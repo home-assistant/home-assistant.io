@@ -23,19 +23,13 @@ ha_zeroconf: true
 
 The **BSB-Lan** {% term integration %} integrates [BSBLan](https://github.com/fredlcore/BSB-LAN) devices into Home Assistant.
 
-BSBLan is a device that is made by `Frederik Holst` and with
-the help of many other contributors.
-The board v3 is designed for an Arduino Due with an Ethernet-Shield for web-based controlling
-of heating systems such as `Elco Thision`, `Brötje` and similar systems.
-Also, available is an ESP32 version of the board.
+BSBLan is a device that is made by `Frederik Holst` and with the help of many other contributors. The board v3 is designed for an Arduino Due with an Ethernet-Shield for web-based controlling of heating systems such as `Elco Thision`, `Brötje` and similar systems. Also available is an ESP32 version of the board.
 
-It can interface with the heating system over Boiler-System-Bus, Local Process Bus and PPS (Punkt-zu-Punkt Schnittstelle)
-For more information of which system it supports, take a look at their [documentation](https://docs.bsb-lan.de).
+It can interface with the heating system over Boiler-System-Bus, Local Process Bus, and <abbr title="Punkt-zu-Punkt Schnittstelle">PPS</abbr>. For more information on which systems it supports, take a look at their [documentation](https://docs.bsb-lan.de).
 
 {% include integrations/config_flow.md %}
 
-For authentication HTTP authentication using a username and password,
-or using a passkey is supported. Use either one.
+For authentication, HTTP authentication using a username and password or using a passkey is supported. Use either one.
 
 ## Supported functionality
 
@@ -63,7 +57,7 @@ The following platforms are available, depending on your system:
 
 ## Actions
 
-The integration provides the following action.
+The integration provides the following actions.
 
 ### Action: Set hot water schedule
 
@@ -100,7 +94,7 @@ Synchronize Home Assistant time to the BSB-Lan device. Only updates if device ti
   - **Description**: The BSB-LAN device to sync time for.
   - **Required**: Yes
 
-**Examples:**
+#### Examples
 
 Sync time for all BSB-Lan devices:
 
@@ -275,5 +269,5 @@ To see a more detailed listing of the reported systems which are successfully us
 
 [Supported heating systems](https://docs.bsb-lan.de/supported_heating_systems.html)
 
-The integration is tested with the stable firmware version `5.0.16-20250525002819`. A newer firmware version may not work because the API could have changed.
-For autodiscovery, use the latest release. [release 5.0](https://github.com/fredlcore/BSB-LAN/releases/tag/v5.0)
+The integration is tested with the stable firmware version `5.0.16-20250525002819`. A newer firmware version may not work because the API could have changed. For autodiscovery, use the latest release: [release 5.0](https://github.com/fredlcore/BSB-LAN/releases/tag/v5.0).
+
