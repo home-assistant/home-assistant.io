@@ -153,8 +153,9 @@ Keep Master Light:
 
 ## Data updates
 
-By default, official WLED builds have the WebSocket server enabled. This allows the integration to receive real-time updates ("push" data) directly from the device. When the integration starts, it first attempts to connect via [WebSocket](https://kno.wled.ge/interfaces/websocket/). If the device was built without WebSocket support — for example, a custom WLED firmware compiled without that feature — the integration automatically falls back to {% term polling %}, fetching data from the device every 10 seconds by default.
+By default, official WLED builds enable the WebSocket server, which lets the integration receive real-time updates ("push" data) directly from the device.
 
+When the integration starts, it first tries to connect by using [WebSocket](https://kno.wled.ge/interfaces/websocket/). If the device firmware does not support WebSockets, like a custom WLED build compiled without that feature, the integration automatically falls back to {% term polling %} and fetches data every 10 seconds by default.
 Information about new WLED releases is checked independently, once every 3 hours, regardless of the number of connected devices.
 
 ## Known limitations
