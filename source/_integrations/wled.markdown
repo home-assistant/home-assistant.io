@@ -161,7 +161,7 @@ Information about new WLED releases is checked independently, once every 3 hours
 ## Known limitations
 
 - WLED exposes a single color model per segment in Home Assistant.
-  This means that **mixed-type LED strips** — for example *RGB + CCT* or *RGBW + CCT* combinations — cannot currently have their RGB and CCT channels controlled independently in Home Assistant.
+  This means that **mixed-type LED strips** — for example **RGB + CCT** or **RGBW + CCT** combinations — cannot currently have their RGB and CCT channels controlled independently in Home Assistant.
   When such strips are used, only one color temperature or hue is active at a time.
 
 - The integration relies on the WLED JSON API.
@@ -180,8 +180,8 @@ Most standard digital LED chipsets supported by WLED—such as **WS2812B**, **WS
 
 Some LED configurations, however, have limited functionality:
 
-- **Analog RGB + CCT** or **digital RGBCCT** strips, such as WS2508 or hybrid RGB + CCT setups, cannot be controlled with separate sliders for color and color temperature.
-  Home Assistant can only manage one color model at a time.
+- **Analog RGB + CCT** or **digital RGBCCT** strips, such as **WS2508** or hybrid **RGB + CCT** setups, cannot be controlled with separate sliders for color and color temperature.
+Home Assistant can only manage one color model at a time.
 
 ## Example automations
 
