@@ -20,8 +20,8 @@ Fish Audio is positioned as a leading voice cloning service. It features the adv
 
 ## Prerequisites
 
-- A [Fish Audio](https://fish.audio/?fpr=homeassistant) account is required.
-- You will need an API key, which you can create from your [Fish Audio API keys dashboard](https://fish.audio/app/api-keys/?fpr=homeassistant).
+- A [Fish Audio](https://fish.audio) account is required.
+- You will need an API key, which you can create from your [Fish Audio API keys dashboard](https://fish.audio/app/api-keys).
 - Your Home Assistant instance must have internet access to reach the Fish Audio API.
 
 {% include integrations/config_flow.md %}
@@ -30,7 +30,7 @@ The setup is a two-step process. First, you configure the integration with your 
 
 ### Initial setup
 
-You will be asked for your [Fish Audio](https://fish.audio/?fpr=homeassistant) API key. After you provide it, the integration will be added.
+You will be asked for your [Fish Audio](https://fish.audio) API key. After you provide it, the integration will be added.
 
 ### Adding a voice
 
