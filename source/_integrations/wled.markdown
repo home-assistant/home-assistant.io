@@ -311,9 +311,9 @@ This error indicates that Home Assistant connected to a different device than ex
 
 The most common cause is DHCP address reuse. This usually happens when:
 
-* The original device was offline or temporarily disconnected.
-* The router reassigned its IP address to another device.
-* Home Assistant attempted to connect to the old IP address and reached a different device with a different MAC address.
+- The original device was offline or temporarily disconnected.
+- The router reassigned its IP address to another device.
+- Home Assistant attempted to connect to the old IP address and reached a different device with a different MAC address.
 
 To avoid controlling or communicating with the wrong device, the integration validates the MAC address and stops the setup if it does not match the configured one.
 
@@ -331,15 +331,15 @@ To resolve this issue, follow these steps:
 
 If you are unsure about the correct IP address:
 
-* Check your router or DHCP server for the device's current IP assignment.
-* Ensure the IP address matches the device you are configuring.
+- Check your router or DHCP server for the device's current IP assignment.
+- Ensure the IP address matches the device you are configuring.
 
 #### Prevent future occurrences (optional)
 
 To reduce the chance of this issue happening again:
 
-* Configure a DHCP reservation for the device in your router.
-* Assign a static IP address to the device.
+- Configure a DHCP reservation for the device in your router.
+- Assign a static IP address to the device.
 
 #### Automatic recovery
 
