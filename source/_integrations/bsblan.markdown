@@ -12,6 +12,7 @@ ha_codeowners:
   - '@liudger'
 ha_domain: bsblan
 ha_platforms:
+  - button
   - climate
   - diagnostics
   - sensor
@@ -36,16 +37,26 @@ For more information of which system it supports, take a look at their [document
 For authentication HTTP authentication using a username and password,
 or using a passkey is supported. Use either one.
 
-## Available sensors depending on your heating system
+## Supported functionality
 
-- `inside temperature`
-- `outside temperature`
-- `total energy`
+### Buttons
 
-## Available platforms depending on your system
+- **Sync time**: Synchronizes the device's time with Home Assistant.
 
-- `climate`
-- `water heater`
+### Sensors
+
+The following sensors are available, depending on your heating system:
+
+- Inside temperature
+- Outside temperature
+- Total Energy
+
+### Platforms
+
+The following platforms are available, depending on your system:
+
+- Climate
+- Water heater
 
 ## Actions
 
