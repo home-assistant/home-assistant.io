@@ -54,6 +54,9 @@ The following platforms are available, depending on your system:
 
 - Climate
 - Water heater
+- Button
+- Diagnostics
+- Sensor
 
 ## Actions
 
