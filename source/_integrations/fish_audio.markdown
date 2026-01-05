@@ -14,7 +14,7 @@ ha_codeowners:
   - '@noambav'
 ---
 
-The **Fish Audio** {% term integration %} brings high-quality voice cloning and a wide variety of public voices to Home Assistant. It provides a text-to-speech (TTS) service, allowing you to create expressive, human-like speech.
+The **Fish Audio** {% term integration %} brings high-quality voice cloning and a wide variety of public voices to Home Assistant. It provides a text-to-speech (<abbr title="text-to-speech">TTS</abbr>) service, allowing you to create expressive, human-like speech.
 
 Fish Audio is positioned as a leading voice cloning service. It features the advanced `s1` model series, which supports emotional and tone markers for more natural-sounding speech.
 
@@ -38,13 +38,14 @@ To add a text-to-speech (TTS) voice, select the **Add TTS voice** button on the 
 
 The process for adding a voice involves two steps:
 
-1. Voice filtering: 
+1. Voice filtering:
    - First, you'll choose whether to see only your private, cloned voices or also the recommended public voices from Fish Audio.
-2. **Voice Configuration**: Based on your filter selection, you will then be presented with the following options on the next screen:
-    - **Voice Selection**: Select a voice from the dropdown list of available voices. You can also enter a custom voice ID from the Fish Audio website.
-    - **Default Model**: Choose a default backend model. `s1` is the latest and most advanced model. Both `s1` and `v1.6` models support [emotional markers](#using-with-large-language-models-llms).
-    - **Latency**: Choose between `normal` (better quality) or `balanced` (faster speed).
-    - **Name**: Set the name for the TTS entity that will be created.
+2. Voice configuration:
+   - Based on your filter selection, you will then be presented with the following options on the next screen:
+      - **Voice**: Select a voice from the dropdown list of available voices. You can also enter a custom voice ID from the Fish Audio website.
+      - **AI voice model**: Choose a default backend model. `s1` is the latest and most advanced model. Both `s1` and `v1.6` models support [emotional markers](#using-with-large-language-models-llms).
+      - **Latency mode**: Choose between `normal` (better quality) or `balanced` (faster speed).
+      - **Name**: Set the name for the TTS entity that will be created.
 
 Each voice you add creates a new TTS entity.
 
@@ -62,7 +63,7 @@ Currently supported languages include:
 - Japanese
 - Korean
 - Spanish
-- **Any**: Selecting "Any" allows Fish Audio to automatically determine the spoken language based on the input text, enabling the cross-language accent behavior described above.
+- Any: Selecting **Any** allows Fish Audio to automatically determine the spoken language based on the input text, enabling the cross-language accent behavior described above.
 
 ## Text-to-speech (TTS)
 
@@ -71,7 +72,7 @@ The `tts.speak` service allows you to use Fish Audio voices in your automations 
 Example of a `tts.speak` service call in YAML:
 
 ```yaml
-action:
+actions:
   - action: tts.speak
     target:
       entity_id: tts.fish_audio
@@ -90,7 +91,7 @@ The TTS entities you create can be set as the voice for your Assist pipelines. T
 
 To configure this:
 
-1. Go to **Settings** > **Voice assistants**.
+1. Go to {% my voice_assistants title="**Settings** > **Voice assistants**" %}.
 2. Select the assistant you want to configure.
 3. In the **Text-to-speech** section, choose one of your created voices from the dropdown menu.
 
@@ -98,7 +99,7 @@ Your assistant will now use the default voice and model you configured for the F
 
 ### Using with Large Language Models (LLMs)
 
-The `s1` and `v1.6` models are capable of highly expressive speech by using special markers for emotion and tone. To leverage this with a Large Language Model (LLM), you can add instructions to your prompt that guide the LLM to generate these markers in its response. For a complete list of available markers and more advanced examples, you can refer to the [blog post on the s1 model](https://openaudio.com/blogs/s1) to help you craft the perfect prompt for your needs.
+The `s1` and `v1.6` models are capable of highly expressive speech by using special markers for emotion and tone. To leverage this with a Large Language Model (LLM), you can add instructions to your prompt that guide the LLM to generate these markers in its response. For a complete list of available markers and more advanced examples, you can refer to the [emotion control docs](https://docs.fish.audio/developer-guide/core-features/emotions) to help you craft the perfect prompt for your needs.
 
 For example, you could combine your main request with a set of instructions for the LLM like this:
 
@@ -113,7 +114,7 @@ Apply emotion control by inserting markers before text.
 - Use Emotion Markers: (angry), (sad), (excited), (surprised), (sarcastic), (joyful), (empathetic)
 - Use Tone Markers: (in a hurry tone), (shouting), (screaming), (whispering), (soft tone)
 - Use Special Markers: (laughing), (chuckling), (sobbing), (sighing), (panting), (crowd laughing)
-- Optionally add onomatopoeia with markers, e.g. "Ha,ha,ha" for laughter.
+- Optionally add onomatopoeia with markers, for example: "Ha,ha,ha" for laughter.
 - Place markers immediately before the dialogue they modify.
 - Default to neutral if no marker is specified.
 ```
@@ -124,6 +125,30 @@ The LLM might then generate a response like this:
 
 ## Troubleshooting
 
-- **No Private Voices Appear**: If you have enabled the "Private models only" option but your cloned voices do not appear, ensure that you have created them in your Fish Audio account. It may take a few minutes for new voices to become available via the API.
-- **TTS Entity Shows Up as Double Named**: If a TTS entity is named "Adam", it might show up as "Adam Adam" in the interface. This is a known issue and has been raised to Home Assistant.
+### No private voices appear
+
+#### Symptom: "No private voices available"
+
+When trying to add a voice with the "Private models only" option enabled, your cloned voices do not appear in the voice selection list.
+
+#### Description
+
+This means the private voices you created in your Fish Audio account are not yet available via the API, or they haven't been created yet.
+
+#### Resolution
+
+To resolve this issue, try the following steps:
+
+1. Make sure you have created cloned voices in your [Fish Audio account](https://fish.audio/app/my-voices/).
+2. Make sure the voices are fully processed and ready to use.
+3. Wait a few minutes for new voices to become available via the API after creation.
+
+### TTS Entity Shows Up as Double Named
+
+If a TTS entity is named "Adam", it might show up as "Adam Adam" in the interface. This is a known issue and has been raised to Home Assistant.
   
+## Removing the integration
+
+This integration follows standard integration removal.
+
+{% include integrations/remove_device_service.md %}
