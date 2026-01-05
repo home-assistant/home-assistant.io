@@ -145,7 +145,7 @@ To resolve this issue, try the following steps:
 
 ### TTS entity shows up as double named
 
-If a TTS entity is named "Adam", it might show up as "Adam Adam" in the interface. This is a known issue and has been raised to Home Assistant.
+If a TTS entity is named "Adam", it might show up as "Adam Adam" in the interface. This is currently a known issue.
   
 ## Removing the integration
 
