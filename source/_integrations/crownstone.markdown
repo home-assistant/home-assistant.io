@@ -15,7 +15,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The Crownstone {% term integration %} allows you to control your Crownstones either via the cloud or using a [Crownstone USB](#crownstone-usb) dongle.
+The **Crownstone** {% term integration %} allows you to control your Crownstones either via the cloud or using a [Crownstone USB](#crownstone-usb) dongle.
 
 The Crownstone integration supports the following Crownstone devices:
 

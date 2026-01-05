@@ -681,11 +681,11 @@ zbt-2:
   name: "<strong>Home Assistant</strong> Connect ZBT-2"
   distributors:
     # North America
-    #- name: Amazon
-    #  ship_from: US
-    #  ship_to: North America
-    #  url: To be provided on Nov 20 when activated
-    #  logo: /images/distributors/amazon.webp
+    - name: Amazon US
+      ship_from: US
+      ship_to: North America
+      url: https://www.amazon.com/dp/B0G34ZTW51
+      logo: /images/distributors/amazon.webp
     - name: Ameridorid
       ship_from: US
       ship_to: North America

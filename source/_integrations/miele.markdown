@@ -34,7 +34,7 @@ ha_zeroconf: true
 ha_quality_scale: platinum
 ---
 
-The Miele {% term integrations %} allows users to integrate their home appliances using the [official 3rd party API](https://www.miele.com/developer).
+The **Miele** {% term integration %} allows users to integrate their home appliances using the [official 3rd party API](https://www.miele.com/developer).
 
 Miele is known as a manufacturer of premium appliances for cooking, laundry care, and floor care.
 
@@ -238,7 +238,7 @@ triggers:
       - sensor.washing_machine
     to: program_ended
 actions:
-  - service: notify.notify
+  - action: notify.notify
     data:
       message: "The appliance has finished the program."
 ```

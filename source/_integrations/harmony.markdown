@@ -19,7 +19,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `harmony` integration allows you to control the state of your [Harmony Hub Device](https://support.myharmony.com/hub).
+The **Logitech Harmony Hub** {% term integration %} allows you to control the state of your [Harmony Hub Device](https://support.myharmony.com/hub).
 
 Supported units:
 

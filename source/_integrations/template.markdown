@@ -52,7 +52,7 @@ related:
     title: About blueprints
 ---
 
-The `template` integration allows creating entities which derive their values from other data. This is done by specifying [templates](/docs/configuration/templating/) for properties of an entity, like the name or the state.
+The **Template** {% term integration %} allows creating entities which derive their values from other data. This is done by specifying [templates](/docs/configuration/templating/) for properties of an entity, like the name or the state.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -320,7 +320,7 @@ alarm_control_panel:
       required: false
       type: action
     optimistic:
-      description: Flag that defines if the alarm control panel works in optimistic mode. When enabled, the alarm control panel's state will update immediately when a new option is chosen through the UI or service calls, without waiting for the template defined in `state` to update. When disabled (default), the alarm control panel will only update when the `state` template returns a new value.
+      description: Flag that defines if the alarm control panel works in optimistic mode. When enabled, the alarm control panel's state will update immediately when a new option is chosen through the UI or actions, without waiting for the template defined in `state` to update. When disabled (default), the alarm control panel will only update when the `state` template returns a new value.
       required: false
       type: boolean
       default: false
@@ -900,7 +900,7 @@ fan:
       required: false
       type: template
     optimistic:
-      description: Flag that defines if the fan works in optimistic mode. When enabled, the fan's state will update immediately when a new option is chosen through the UI or service calls, without waiting for the template defined in `state` to update. When disabled (default), the fan will only update when the `state` template returns a new value.
+      description: Flag that defines if the fan works in optimistic mode. When enabled, the fan's state will update immediately when a new option is chosen through the UI or actions, without waiting for the template defined in `state` to update. When disabled (default), the fan will only update when the `state` template returns a new value.
       required: false
       type: boolean
       default: false
@@ -1270,7 +1270,7 @@ light:
       type: template
       default: optimistic
     optimistic:
-      description: Flag that defines if the light works in optimistic mode. When enabled, the light's state will update immediately when a new option is chosen through the UI or service calls, without waiting for the template defined in `state` to update. When disabled (default), the light will only update when the `state` template returns a new value.
+      description: Flag that defines if the light works in optimistic mode. When enabled, the light's state will update immediately when a new option is chosen through the UI or actions, without waiting for the template defined in `state` to update. When disabled (default), the light will only update when the `state` template returns a new value.
       required: false
       type: boolean
       default: false
@@ -1518,7 +1518,7 @@ lock:
       required: false
       type: action
     optimistic:
-      description: Flag that defines if the lock works in optimistic mode. When enabled, the lock's state will update immediately when a new option is chosen through the UI or service calls, without waiting for the template defined in `state` to update. When disabled (default), the lock will only update when the `state` template returns a new value.
+      description: Flag that defines if the lock works in optimistic mode. When enabled, the lock's state will update immediately when a new option is chosen through the UI or actions, without waiting for the template defined in `state` to update. When disabled (default), the lock will only update when the `state` template returns a new value.
       required: false
       type: boolean
       default: false
@@ -1671,7 +1671,7 @@ template:
   - triggers:
       - trigger: state
         entity_id: sensor.desk_height
-  - number:
+    number:
       - name: Desk Height
         unit_of_measurement: "in"
         state: "{{ states('sensor.desk_height') }}"
@@ -1704,7 +1704,7 @@ number:
       type: template
       default: 0.0
     optimistic:
-      description: Flag that defines if the number works in optimistic mode. When enabled, the number's state will update immediately when changed through the UI or service calls, without waiting for the template defined in `state` to update. When disabled (default), the number will only update when the `state` template returns a new value.
+      description: Flag that defines if the number works in optimistic mode. When enabled, the number's state will update immediately when changed through the UI or actions, without waiting for the template defined in `state` to update. When disabled (default), the number will only update when the `state` template returns a new value.
       required: false
       type: boolean
       default: false
@@ -1744,7 +1744,7 @@ template:
         unique_id: automower_cutting_height
         state: "{{ states('number.automower_cutting_height_raw')|int(0) * 0.5 + 1.5 }}"
         set_value:
-          - service: number.set_value
+          - action: number.set_value
             target:
               entity_id: number.automower_cutting_height_raw
             data:
@@ -1804,7 +1804,7 @@ select:
   type: map
   keys:
     optimistic:
-      description: Flag that defines if the select works in optimistic mode. When enabled, the select's state will update immediately when a new option is chosen through the UI or service calls, without waiting for the template defined in `state` to update. When disabled (default), the select will only update when the `state` template returns a new value.
+      description: Flag that defines if the select works in optimistic mode. When enabled, the select's state will update immediately when a new option is chosen through the UI or actions, without waiting for the template defined in `state` to update. When disabled (default), the select will only update when the `state` template returns a new value.
       required: false
       type: boolean
       default: false
@@ -2059,7 +2059,7 @@ switch:
   type: map
   keys:
     optimistic:
-      description: Flag that defines if the switch works in optimistic mode. When enabled, the switch's state will update immediately when a new option is chosen through the UI or service calls, without waiting for the template defined in `state` to update. When disabled (default), the switch will only update when the `state` template returns a new value.
+      description: Flag that defines if the switch works in optimistic mode. When enabled, the switch's state will update immediately when a new option is chosen through the UI or actions, without waiting for the template defined in `state` to update. When disabled (default), the switch will only update when the `state` template returns a new value.
       required: false
       type: boolean
       default: false
@@ -2329,7 +2329,7 @@ vacuum:
       required: false
       type: action
     optimistic:
-      description: Flag that defines if the vacuum works in optimistic mode. When enabled, the vacuum's state will update immediately when a new option is chosen through the UI or service calls, without waiting for the template defined in `state` to update. When disabled (default), the vacuum will only update when the `state` template returns a new value.
+      description: Flag that defines if the vacuum works in optimistic mode. When enabled, the vacuum's state will update immediately when a new option is chosen through the UI or actions, without waiting for the template defined in `state` to update. When disabled (default), the vacuum will only update when the `state` template returns a new value.
       required: false
       type: boolean
       default: false
@@ -2551,6 +2551,22 @@ weather:
       type: template
 
 {% endconfiguration %}
+
+### Weather Forecast data
+
+The weather forecast options should return a list of dictionaries, where each dictionary contains [forecast information](https://www.home-assistant.io/integrations/weather/#action-weatherget_forecasts) for the current timeframe. The data is slightly different for each forecast type: `hourly`, `daily`, and `twice_daily`.
+
+#### Hourly Weather Forecast
+
+The `hourly` forecast should contain 24 dictionaries, where each dictionary represents a specific hour within the next 24 hour period. The `hourly` data should start at the current hour and end 24 hours from that point. The `datetime` in each dictionary should represent the start of the hour in your local timezone.
+
+#### Daily Weather Forecast
+
+The `daily` forecast should contain dictionaries, where each dictionary represents a specific day within any desired timeframe. The `daily` data should start at midnight tonight and end on the last day of your desired timeframe, incrementing 1 day at a time. The `datetime` in each dictionary should represent midnight for each night in your local timezone.
+
+#### Twice Daily Weather Forecast
+
+The `twice_daily` forecast should contain dictionaries, where each dictionary represents a specific 12 hour period within any desired timeframe. The `twice_daily` should start at the closest 12 hour period and end on the last 12 hour period of your desired timeframe.  The `datetime` in each dictionary should represent midnight or noon for each day in your local timezone.  Keep in mind, `is_daytime` is mandatory in every dictionary output to `twice_daily` forecasts.
 
 ### Trigger based weather - Weather Forecast from response data
 

@@ -33,9 +33,9 @@ We have worked with creator [Marcel Zuidwijk](https://www.zuidwijk.com) to devel
 
 #### Connect via Zigbee Energy Profile
 
-The Zigbee Energy Profile is a wireless energy standard to provide real-time information about electricity usage. This standard is available in some meters in the US, UK and Australia. This is not "normal" Zigbee as implemented by Home Assistant but requires special certified hardware.
+The Zigbee Energy Profile is a wireless energy standard to provide real-time information about electricity usage. This standard is available in some meters in the US, UK, Canada, and Australia. This is not "normal" Zigbee as implemented by Home Assistant but requires special certified hardware and often requires that the Zigbee connection be provisioned by your utility. As such, your utility, assuming they support this at all, will have a list of currently supported hardware.
 
-We are not currently aware of a device that implements this which supports a local API and is compatible with Home Assistant.
+The [Rainforest Automation Eagle](/integrations/rainforest_eagle) is one such device that implements this which supports a local API and is compatible with Home Assistant.
 
 #### Reading the meter via a pulse counter
 
@@ -48,7 +48,7 @@ We have developed [Home Assistant Glow](https://github.com/klaasnicolaas/home-as
 #### Reading the meter via a IEC62056-21
 
 The IEC62056-21 is a common protocol not only for electric meters. It uses an infrared port to read data.
-[Aquaticus](https://github.com/aquaticus) has created an [ESPHome component](https://community.home-assistant.io/t/new-iec62056-21-component/555236) for reading this data. [PiggyMeter](https://aquaticus.info/meter.html) is a complete project that allows easy installation.
+[Aquaticus](https://github.com/aquaticus) has created an [ESPHome component](https://community.home-assistant.io/t/555236) for reading this data. [PiggyMeter](https://aquaticus.info/meter.html) is a complete project that allows easy installation.
 ![Photo of PiggyMeter attached to an electricity meter](https://aquaticus.info/_images/meter_and_probe.png)
 
 #### Using (Smart Message Language) interface

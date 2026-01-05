@@ -22,7 +22,7 @@ ha_dhcp: true
 ha_integration_type: hub
 ---
 
-The `simplisafe` {% term integration %} integrates [SimpliSafe home security](https://simplisafe.com) (V2 and V3) systems into Home Assistant. Multiple SimpliSafe accounts can be accommodated.
+The **SimpliSafe** {% term integration %} integrates [SimpliSafe home security](https://simplisafe.com) (V2 and V3) systems into Home Assistant. Multiple SimpliSafe accounts can be accommodated.
 
 There is currently support for the following device types within Home Assistant:
 

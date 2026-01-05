@@ -14,7 +14,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The Dexcom {% term integration %} allows you to view your CGM data from [Dexcom](https://www.dexcom.com/) in Home Assistant.
+The **Dexcom** {% term integration %} allows you to view your CGM data from [Dexcom](https://www.dexcom.com/) in Home Assistant.
 
 ## Prerequisites
 

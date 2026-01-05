@@ -26,7 +26,7 @@ ha_homekit: true
 ha_integration_type: device
 ---
 
-The RainMachine {% term integration %} is the main integration to integrate all platforms related to [RainMachine smart Wi-Fi sprinkler controllers](https://www.rainmachine.com/).
+The **RainMachine** {% term integration %} is the main integration to integrate all platforms related to [RainMachine smart Wi-Fi sprinkler controllers](https://www.rainmachine.com/).
 
 There is currently support for the following device types within Home Assistant:
 

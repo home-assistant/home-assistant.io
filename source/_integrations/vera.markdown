@@ -50,6 +50,10 @@ and will be automatically added when HA connects to your Vera controller.
 
 {% include integrations/config_flow.md %}
 
+{% important %}
+Ensure the protocol and port are added to the **Controller URL**. For example `http://192.168.1.1:3480`.
+{% endimportant %}
+
 {% tip %}
 It is recommended to assign a static IP address to your Vera Controller. This ensures that it won't change IP addresses, so you won't have to change the `vera_controller_url` if it reboots and comes up with a different IP address. See your router's manual for details on how to set this up. If you need the MAC address of your Vera, check the label on the bottom.
 {% endtip %}

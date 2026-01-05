@@ -25,7 +25,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `zoneminder` {% term integration %} sets up Home Assistant with your [ZoneMinder](https://www.zoneminder.com) instance.
+The **ZoneMinder** {% term integration %} sets up Home Assistant with your [ZoneMinder](https://www.zoneminder.com) instance.
 
 There is currently support for the following device types within Home Assistant:
 

@@ -14,15 +14,15 @@ ha_codeowners:
 ha_integration_type: integration
 ---
 
-The `google_travel_time` sensor provides travel time from the [Google Maps Routes API](https://developers.google.com/maps/documentation/routes/overview).
+The **Google Maps Travel Time** {% term integration %} provides travel time from the [Google Maps Routes API](https://developers.google.com/maps/documentation/routes/overview).
 
 ## Setup
 
 You need to register for an API key by following the instructions [here](https://developers.google.com/maps/documentation/routes/get-api-key-v2). You only need to turn on the Routes API.
 
-Google requires billing to be enabled (and a valid credit card loaded) to access Google Maps APIs. The Routes API currently provides 5,000 free requests that take the current traffic into account. The sensor will update the travel time every 10 minutes, making approximately 144 calls per day. Note that at this rate, using more than 1 sensor may exceed the free credit limit. As the update frequency cannot be decreased, if you require more frequent data updates, consider triggering on-demand updates (see the automation example below).
+Google requires billing to be enabled (and a valid credit card loaded) to access Google Maps APIs. The Routes API currently provides 10,000 free requests per month that take the current traffic into account. The sensor will update the travel time every 10 minutes, making approximately 144 calls per day. Note that at this rate, using more than 2 sensors may exceed the free credit limit. As the update frequency cannot be decreased, if you require more frequent data updates, consider triggering on-demand updates (see the automation example below).
 
-A quota can be set against the API to avoid exceeding the free credit amount. Set the 'Elements per day' to a limit of 161 or less. Details on how to configure a quota can be found [here](https://developers.google.com/maps/documentation/routes/report-monitor#quotas).
+A quota can be set against the API to avoid exceeding the free credit amount. Set the 'Elements per day' to a limit of 322 or less. Details on how to configure a quota can be found [here](https://developers.google.com/maps/documentation/routes/report-monitor#quotas).
 
 {% include integrations/config_flow.md %}
 

@@ -152,7 +152,7 @@ As with all configuration, you can either:
 
 For more details about splitting up the configuration into multiple files, see [this page](/docs/configuration/splitting_configuration/).
 
-Check our [community forums](https://community.home-assistant.io/c/projects/themes) to find themes to use.
+Check our [community forums](https://community.home-assistant.io/c/29) to find themes to use.
 
 ## Setting themes
 

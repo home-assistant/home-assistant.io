@@ -19,7 +19,7 @@ ha_zeroconf: true
 ha_integration_type: device
 ---
 
-The Bang & Olufsen integration enables control of some of the features of certain [Bang & Olufsen](https://www.bang-olufsen.com/) devices through Home Assistant.
+The **Bang & Olufsen** {% term integration %} enables control of some of the features of certain [Bang & Olufsen](https://www.bang-olufsen.com/) devices through Home Assistant.
 
 ## Compatible devices
 

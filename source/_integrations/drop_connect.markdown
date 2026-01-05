@@ -22,7 +22,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The DROP {% term integration %} provides connectivity with
+The **DROP** {% term integration %} provides connectivity with
 [DROP smart water system](https://dropconnect.com) devices via a local MQTT API.
 
 ### Supported devices

@@ -17,7 +17,7 @@ related:
     title: Configuration file
 ---
 
-The Panasonic Viera {% term integration %} allows you to control a Panasonic Viera TV.
+The **Panasonic Viera** {% term integration %} allows you to control a Panasonic Viera TV.
 
 There is currently support for the following device types within Home Assistant:
 

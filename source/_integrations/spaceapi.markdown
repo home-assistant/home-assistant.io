@@ -17,7 +17,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `spaceapi` {% term integration %} allow Hackerspaces and Makerspaces to expose information to web apps or any other application with the [SpaceAPI](https://spaceapi.io/).  It does this by exposing an API on Home Assistant that hosts the JSON payload that SpaceAPI uses.
+The **Space API** {% term integration %} allow Hackerspaces and Makerspaces to expose information to web apps or any other application with the [SpaceAPI](https://spaceapi.io/).  It does this by exposing an API on Home Assistant that hosts the JSON payload that SpaceAPI uses.
 
 ## Configuration
 

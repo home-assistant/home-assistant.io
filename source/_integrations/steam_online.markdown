@@ -14,7 +14,7 @@ ha_codeowners:
 ha_integration_type: service
 ---
 
-The Steam {% term integration %} will allow you to track the online status of public [Steam](https://steamcommunity.com) accounts.
+The **Steam** {% term integration %} will allow you to track the online status of public [Steam](https://steamcommunity.com) accounts.
 
 {% include integrations/config_flow.md %}
 

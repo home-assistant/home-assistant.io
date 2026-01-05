@@ -16,15 +16,15 @@ related:
     title: Configuration file
 ---
 
-The `config` integration is designed to display the **Settings** panels in the frontend to configure and manage parts of Home Assistant.
+The **Config** {% term integration %} is designed to display the **Settings** panels in the frontend to configure and manage parts of Home Assistant.
 
-The `config` integration is an internal integration and is enabled by default.
+This is an internal integration and is enabled by default.
 
 The **Settings** menu provides access to the following panels:
 
 ### Home Assistant Cloud
 
-Enables you to connect to [Home Assistant Cloud](https://support.nabucasa.com/hc/en-us/articles/26260474250269-List-of-Home-Assistant-Cloud-features) to use features such as secure remote access, voice assistants, or cloud storage for backups.
+Enables you to connect to [Home Assistant Cloud](https://support.nabucasa.com/hc/articles/26260474250269) to use features such as secure remote access, voice assistants, or cloud storage for backups.
 
 ### Devices & services
 

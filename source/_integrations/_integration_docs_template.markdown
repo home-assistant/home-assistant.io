@@ -152,7 +152,7 @@ The status LEDs on the device can be quite bright.
 To tackle this, you can use this blueprint to easily automate the LEDs turning off when the sun goes down.
 
 link to the blueprint on the [blueprints
-    exchange](https://community.home-assistant.io/c/blueprints-exchange/53)
+    exchange](https://community.home-assistant.io/c/53)
 
 ## Data updates
 

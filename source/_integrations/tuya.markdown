@@ -49,7 +49,7 @@ ha_dhcp: true
 ha_integration_type: hub
 ---
 
-The Tuya {% term integration %} integrates all Powered by Tuya devices you have added to the Tuya Smart and Tuya Smart Life apps.
+The **Tuya** {% term integration %} integrates all Powered by Tuya devices you have added to the Tuya Smart and Tuya Smart Life apps.
 
 All Home Assistant platforms are supported by the Tuya integration, except the lock and remote platform.
 

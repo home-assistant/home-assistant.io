@@ -71,7 +71,8 @@ Read the "**Using custom application credentials**"-section if you have the [clo
 {% details "Using custom application credentials" icon="mdi:account-key" %}
 
 {% important %}
-Custom Volvo application credentials have a 6-day grant period, which means you'll need to re-authenticate with Volvo every 6 days.
+Custom Volvo application credentials have a limited grant period, which means you'll need to re-authenticate with Volvo after each period.
+The exact timing is mentioned on the developer portal in the [Refresh the access token](https://developer.volvocars.com/apis/docs/authorisation/) section.
 Data updates will stop working once the grant expires until you re-authenticate.
 
 For a better user experience, it's recommended to use the default Nabu Casa account linking instead.
@@ -83,6 +84,8 @@ For a better user experience, it's recommended to use the default Nabu Casa acco
    - **Redirect URI(s)**: Add `https://my.home-assistant.io/redirect/oauth`.
 3. Click **View summary** and **confirm**.
 4. Grab the `client id` and `client secret` from the confirmation page and **add them** to your [application credentials](/integrations/application_credentials).
+
+For this to work, you'll need to configure [My Home Assistant](https://my.home-assistant.io/) to let it point to your local Home Assistant instance. Check the [FAQ](https://my.home-assistant.io/faq/) for more information about this feature.
 
 {% enddetails %}
 

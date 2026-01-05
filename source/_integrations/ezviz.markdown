@@ -29,7 +29,7 @@ related:
     title: Controlling the camera from the dashboard
 ---
 
-The `ezviz` sensor platform uses the ezvizlife.com API to interact with the devices.
+The **EZVIZ** integration uses the ezvizlife.com API to interact with the devices.
 It also exposes an RTSP stream, by using the local camera IPs (so the device hosting Home Assistant has to be able to access the local IP of the cameras).
 
 As there is no official documentation for the API, the integration retrieves data from the API used in the EZVIZ mobile app, [hosted here](https://apiieu.ezvizlife.com).

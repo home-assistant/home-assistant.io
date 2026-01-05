@@ -177,7 +177,7 @@ turn_on_light:
       example: [255, 0, 0]
 ```
 
-For more examples, visit the [Scripts section](https://community.home-assistant.io/c/projects/scripts) in our forum.
+For more examples, visit the [Scripts section](https://community.home-assistant.io/c/26) in our forum.
 
 ## Actions
 

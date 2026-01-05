@@ -151,8 +151,8 @@ The configuration snippet below adds a template sensor containing the current fo
       event: start
     - platform: event
       event_type: event_template_reloaded
-  action:
-    - service: environment_canada.get_forecasts
+  actions:
+    - action: environment_canada.get_forecasts
       target:
         entity_id: weather.NAME
       response_variable: forecasts

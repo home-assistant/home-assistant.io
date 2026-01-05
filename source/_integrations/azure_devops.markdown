@@ -14,7 +14,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The Azure DevOps {% term integration %} allows you to control and monitor your
+The **Azure DevOps** {% term integration %} allows you to control and monitor your
 Azure DevOps instance in Home Assistant.
 
 {% include integrations/config_flow.md %}

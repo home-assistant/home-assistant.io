@@ -36,7 +36,7 @@ works_with:
   - local
 ---
 
-The integration allows you to control [Reolink](https://reolink.com/) NVRs or cameras. Reolink cameras are known for their local storage, without the need for a cloud subscription or account. Reolink cameras can operate fully locally on your network, putting privacy first. When blocking internet access for the Reolink devices, the Home Assistant integration, as well as the Reolink app/client, will continue to work as usual. Reolink cameras provide excellent day- and nighttime video clarity at an affordable price. An SD card in the camera offers local recording, while an optional Reolink NVR/Hub can offer a large recording capacity indoors. As evident by the list of entities in this documentation, Reolink cameras are highly configurable and tightly integrated into Home Assistant.
+The **Reolink** {% term integration %} allows you to control [Reolink](https://reolink.com/) NVRs or cameras. Reolink cameras are known for their local storage, without the need for a cloud subscription or account. Reolink cameras can operate fully locally on your network, putting privacy first. When blocking internet access for the Reolink devices, the Home Assistant integration, as well as the Reolink app/client, will continue to work as usual. Reolink cameras provide excellent day- and nighttime video clarity at an affordable price. An SD card in the camera offers local recording, while an optional Reolink NVR/Hub can offer a large recording capacity indoors. As evident by the list of entities in this documentation, Reolink cameras are highly configurable and tightly integrated into Home Assistant.
 
 This integration is officially authorized by Reolink, with @StarkillerOG as the main developer, and it is built with the support of Reolink's official resources.
 
@@ -838,7 +838,7 @@ Prerequisites:
 
 ### Battery drains fast
 
-The Reolink Home Assistant integration is supposed to only wake battery cameras once per hour for about 10 seconds, which should not have a big impact on battery life. You can check this using the **Sleep status** entity. However, there are several factors that can have significant impact on battery life:
+The Reolink Home Assistant integration is supposed to wake battery cameras only once every 6 hours for a few seconds, or to perform a data update when the battery camera wakes up on its own (at most once per hour). This should not have a significant impact on battery life. You can check the correct operation using the **Sleep status** entity. However, several factors can have a significant impact on battery life:
 
 - Make sure the **Preload camera stream** option is turned off for all battery camera entities under {% my integrations title="**Settings** > **Devices & services**" %} > Reolink integration card > **x devices** > select the battery camera > select the camera stream (do this for all enabled streams) > Gear icon {% icon "mdi:cog-outline" %}. The Preload camera stream will keep a active stream open, keeping the camera awake. This will drain the battery.
 - Make sure the **Manual Record** switch is turned off. While this switch is on, the camera will be awake and recording. Excessive use of this entity will drain the battery.
