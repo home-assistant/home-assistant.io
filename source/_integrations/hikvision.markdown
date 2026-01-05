@@ -1,8 +1,9 @@
 ---
 title: Hikvision
-description: Instructions on how to set up Hikvision camera binary sensors within Home Assistant.
+description: Instructions on how to set up Hikvision cameras and NVRs within Home Assistant.
 ha_category:
   - Binary sensor
+  - Camera
 ha_release: 0.35
 ha_iot_class: Local Push
 ha_codeowners:
@@ -10,15 +11,16 @@ ha_codeowners:
 ha_domain: hikvision
 ha_platforms:
   - binary_sensor
+  - camera
 ha_integration_type: integration
 ha_quality_scale: bronze
 ha_config_flow: true
 ---
 
-The **Hikvision** {% term integration %} parses the event stream of a
-[Hikvision IP Camera or NVR](https://www.hikvision.com/) and presents the
-camera/nvr events to Home Assistant as binary sensors with either an "off" or
-"on" state.
+The **Hikvision** {% term integration %} connects your [Hikvision IP Camera or <abbr title="Network Video Recorder">NVR</abbr>](https://www.hikvision.com/) to Home Assistant, providing:
+
+- Binary sensors that parse the event stream and present camera/NVR events as sensors with either an "off" or "on" state
+- Camera entities with <abbr title="Real Time Streaming Protocol">RTSP</abbr> streaming and <abbr title="Hypertext Transfer Protocol">HTTP</abbr> snapshot capabilities
 
 The platform will automatically add all sensors to Home Assistant that are
 configured within the camera/nvr interface to "Notify the surveillance center"
@@ -76,9 +78,45 @@ This platform also was confirmed to work with the following Hikvison-based NVRS
 
 {% include integrations/config_flow.md %}
 
-### Supported types
+## Camera
 
-Supported sensor/event types are:
+The integration creates camera entities for each video channel on your Hikvision device. These camera entities support:
+
+- RTSP streaming: Live video streaming using the RTSP protocol
+- HTTP snapshots: Still image capture via the camera's HTTP API
+
+### NVR video channel discovery
+
+When connecting to an NVR (Network Video Recorder) that manages multiple cameras, the integration automatically discovers all video channels. A separate camera entity is created for each channel, allowing you to view and manage each connected camera individually.
+
+For example, if you configure an NVR named "Home" with 4 connected cameras, the following camera entities will be created:
+
+```text
+camera.home_channel_1
+camera.home_channel_2
+camera.home_channel_3
+camera.home_channel_4
+```
+
+## Binary sensor
+
+### Event notification methods
+
+The integration detects events using the camera's event stream. For standalone cameras, events configured to "Notify the surveillance center" are automatically detected.
+
+For NVR devices, the integration supports extended event detection with additional notification methods beyond the standard "center" and "HTTP" methods. The following notification triggers are supported:
+
+- Center: Notify the surveillance center (standard method)
+- HTTP: HTTP notification
+- Record: Recording trigger
+- Email: Email notification trigger
+- Beep: Audible beep notification
+
+This extended support allows detection of events that may be configured with non-standard notification methods on your NVR, which some devices use by default.
+
+### Supported event types
+
+Supported event types are:
 
 - Motion
 - Line Crossing
