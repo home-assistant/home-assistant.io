@@ -76,7 +76,7 @@ There is support for the following platform types within Home Assistant:
 
 - **Button** - restart router, dsl/fiber/internet key connections.
 - **Device tracker** - presence detection by looking at connected devices.
-- **Image** - generate QR code for Guest Wi-Fi
+- **Image** - generate QR code for Guest Wi-Fi.
 - **Sensor** - external IP address, uptime, firmware, resources and network monitors.
 
 ## Examples
