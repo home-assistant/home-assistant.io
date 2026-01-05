@@ -139,8 +139,8 @@ automation:
       platform: state
       entity_id: binary_sensor.kitchen_motion_sensor_occupancy
       to: 'on'
-    action:
-      service: music_assistant.transfer_queue
+    actions:
+      action: music_assistant.transfer_queue
       target:
         entity_id: media_player.ma_kitchen_speaker
 ```
@@ -228,7 +228,7 @@ script:
   create_random_queue:
     mode: single
     sequence:
-      - service: music_assistant.get_library
+      - action: music_assistant.get_library
         data:
           limit: 10
           media_type: track
@@ -267,7 +267,7 @@ script:
         data:
           entity_id: media_player.ma_kitchen_speaker
         response_variable: queue_info
-      - service: input_text.set_value
+      - action: input_text.set_value
         data:
           entity_id: input_text.now_playing 
           value: {% raw %}"{{ queue_info['media_player.ma_kitchen_speaker'].current_item.name }}" {% endraw %}

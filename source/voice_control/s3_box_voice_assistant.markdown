@@ -14,7 +14,7 @@ related:
     title: Enable wake word
   - docs: /voice_control/s3-box-customize/#customizing-on-device-wake-words-microwakeword
     title: Customizing the S3-BOX with on-device wake words
-  - url: https://esphome.io/projects/index.html
+  - url: https://esphome.io/projects/
     title: ESPHome projects page
 ---
 
@@ -220,4 +220,4 @@ To update the software on your S3-BOX, follow the steps below that reflect your 
 - **Option 3**: You have manually changed the configuration file for your S3-BOX:
   - You need to compile your own firmware. To do so, either:
     - Use the ESPHome dashboard add-on within Home Assistant. While the easiest option, it tends to be the slowest and may fail, particularly on older systems or on systems with limited memory/CPU resources.
-    - Follow the steps in the [ESPHome documentation](https://esphome.io/guides/getting_started_command_line) and use a desktop-class system to compile and install the firmware. Initial setup is more complex, but the process is significantly faster and more reliable.
+    - Follow the steps in the [ESPHome documentation](https://esphome.io/guides/getting_started_command_line/) and use a desktop-class system to compile and install the firmware. Initial setup is more complex, but the process is significantly faster and more reliable.

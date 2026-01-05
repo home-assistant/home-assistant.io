@@ -126,11 +126,11 @@ automation:
       - platform: numeric_state
         entity_id: sensor.indoor_humidity
         below: 30 # Trigger when humidity drops below 30%
-    action:
-      - service: humidifier.turn_on
+    actions:
+      - action: humidifier.turn_on
         target:
           entity_id: humidifier.living_room
-      - service: humidifier.set_humidity
+      - action: humidifier.set_humidity
         target:
           entity_id: humidifier.living_room
         data:

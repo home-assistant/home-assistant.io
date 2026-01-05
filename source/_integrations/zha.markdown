@@ -605,7 +605,7 @@ If some existing devices do not resume normal functions after some time, try pow
      - Use a USB extension cable.
      - Use a USB 2.0 port or a powered USB 2.0 hub.
      - Keep the Zigbee adapter away from USB 3.0 devices.
-     - This [video](https://support.nabucasa.com/hc/en-us/articles/26124431414557) shows the effect of interference.
+     - This [video](https://support.nabucasa.com/hc/articles/26124431414557) shows the effect of interference.
 4. Reconfiguration of ZHA starts. Select **Submit**.
    - An automatic backup will be performed.
 5. Under **Migrate or re-configure**, select **Migrate to a new adapter**.

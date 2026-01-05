@@ -238,7 +238,7 @@ triggers:
       - sensor.washing_machine
     to: program_ended
 actions:
-  - service: notify.notify
+  - action: notify.notify
     data:
       message: "The appliance has finished the program."
 ```

@@ -34,7 +34,7 @@ ha_quality_scale: silver
 ha_dhcp: true
 ---
 
-The Roborock {% term integration %} allows you to connect your [Roborock](https://us.roborock.com/pages/robot-vacuum-cleaner) robotic vacuums to your Home Assistant. Roborock vacuums are
+The **Roborock** {% term integration %} allows you to connect your [Roborock](https://us.roborock.com/pages/robot-vacuum-cleaner) robotic vacuums to your Home Assistant. Roborock vacuums are
 intelligent home cleaning robots and, depending on the specific device, may have features
 like mopping capabilities, laser navigation, and options for changing cleaning
 performance or location in the home. This integration enables you to control and
