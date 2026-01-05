@@ -121,14 +121,15 @@ condition:
   - condition: state
     entity_id: binary_sensor.dishwasher_ready
     state: "on"
-action:
-  - service: switch.turn_on
+actions:
+  - action: switch.turn_on
     target:
       entity_id: switch.dishwasher
-  - service: notify.mobile_app
+  - action: notify.mobile_app
     data:
       message: "Dishwasher started during low carbon intensity period ({{ states('sensor.electricity_maps_carbon_intensity') }} gCO2eq/kWh)"
 ```
+
 {% endraw %}
 
 ### Creating a history graph to track changes
