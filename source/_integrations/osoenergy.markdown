@@ -214,7 +214,7 @@ script:
           until_temp_limit: true
 ```
 
-### Action Turn on
+### Action: Turn on
 
 You can use the `osoenergy.turn_on` action to turn on the heating on your device for one hour or until the maximum temperature is reached.
 
