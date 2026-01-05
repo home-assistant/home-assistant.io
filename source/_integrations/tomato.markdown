@@ -12,7 +12,7 @@ ha_integration_type: integration
 ha_quality_scale: legacy
 ---
 
-The `tomato` device tracker integration allows one to tracker devices which are
+The **Tomato** {% term integration %} allows one to tracker devices which are
 connected to a wireless router that is running [Tomato](https://tomato.groov.pl/)
 as firmware.
 

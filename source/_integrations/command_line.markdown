@@ -737,7 +737,7 @@ command_line:
 ### Control your VLC player
 
 This switch will control a local VLC media player
-([Source](https://community.home-assistant.io/t/vlc-player/106)).
+([Source](https://community.home-assistant.io/t/106)).
 
 {% raw %}
 ```yaml

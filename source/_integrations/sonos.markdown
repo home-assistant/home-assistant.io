@@ -26,7 +26,7 @@ ha_integration_type: integration
 ha_quality_scale: bronze
 ---
 
-The `sonos` integration allows you to control your [Sonos](https://www.sonos.com) wireless speakers from Home Assistant. It also works with IKEA Symfonisk speakers.
+The **Sonos** {% term integration %} allows you to control your [Sonos](https://www.sonos.com) wireless speakers from Home Assistant. It also works with IKEA Symfonisk speakers.
 
 ## Prerequisites
 

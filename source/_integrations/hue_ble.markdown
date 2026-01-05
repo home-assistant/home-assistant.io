@@ -21,7 +21,7 @@ The **Hue BLE** {% term integration %} allows you to control your Philips Hue Bl
 ## Prerequisites
 
 
-Before trying to connect your light(s) to Home Assistant, you must put the light(s) into pairing mode in the Philips Hue app ([Android](https://play.google.com/store/apps/details?id=com.philips.lighting.hue2), [iOS](https://apps.apple.com/us/app/philips-hue/id1055281310)).
+Before trying to connect your light(s) to Home Assistant, you must put the light(s) into pairing mode in the Philips Hue app ([Android](https://play.google.com/store/apps/details?id=com.philips.lighting.hue2), [iOS](https://apps.apple.com/app/id1055281310)).
 
 1. In the Philips Hue app, go to **Settings** > **Voice Assistants** > **Amazon Alexa** or **Google Home** > **Make Discoverable**.
 2. Once the light is in pairing mode, you can connect to it to Home Assistant. 
@@ -33,9 +33,10 @@ Before trying to connect your light(s) to Home Assistant, you must put the light
 
 This {% term integration %} is tested to work with the following models:
 
-| Model number | Product name                                     |
-|--------------|--------------------------------------------------|
-| LCA006       | Hue White and Color 1100                         |
+| Model number | Product name                                           |
+|--------------|--------------------------------------------------------|
+| LCA006       | Hue White and Color 1100                               |
+| Unknown      | Hue White and Color Ambiance Go portable accent light  |
 
 The **Philips Hue BLE** integration has been designed to work with other models as well. If you have a different model and it is working, please let us know.
 

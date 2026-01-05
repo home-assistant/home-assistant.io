@@ -809,7 +809,7 @@ type:
 
 ## Trend graph
 
-Widget that displays the a trend of the history for a numeric [sensor](/integrations/sensor).
+Widget that displays a trend of the history for a numeric [sensor](/integrations/sensor).
 
 <p class='img'>
   <img src='/images/dashboards/features/trend_graph.png' alt='Screenshot of the tile card with the trend graph feature'>
