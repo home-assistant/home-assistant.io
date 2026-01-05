@@ -267,7 +267,7 @@ script:
         data:
           entity_id: media_player.ma_kitchen_speaker
         response_variable: queue_info
-      - service: input_text.set_value
+      - action: input_text.set_value
         data:
           entity_id: input_text.now_playing 
           value: {% raw %}"{{ queue_info['media_player.ma_kitchen_speaker'].current_item.name }}" {% endraw %}
