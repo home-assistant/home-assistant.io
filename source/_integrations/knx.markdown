@@ -678,13 +678,17 @@ respond_to_read:
   default: true
 {% endconfiguration %}
 
-## Common entity configuration options
+## Entity platforms
+
+### Common entity configuration options
 
 All KNX entity platforms support the following common configuration options.
 
 {% configuration %}
 name:
-  description: An initial name for this entity. After the entity is created, this configuration setting will no longer be used. You can change the name in the Home Assistant UI.
+  description: An initial name for this entity.
+    After the entity is created, this configuration setting will no longer be used.
+    You can change the name in the Home Assistant UI.
   required: false
   type: string
 entity_category:
@@ -694,7 +698,7 @@ entity_category:
   default: None
 {% endconfiguration %}
 
-## Binary sensor
+### Binary sensor
 
 The KNX binary sensor platform allows you to monitor [KNX](https://www.knx.org/) binary sensors like window/door contacts, motion detectors, alarms, etc.
 
@@ -767,7 +771,7 @@ context_timeout:
 
 {% enddetails %}
 
-### Automation example
+#### Automation example
 
 Let's pretend you have configured a binary sensor with the name `Livingroom Switch` and you want to toggle a light when the button was pressed once and another light when the button was pressed twice.
 `context_timeout` has to be configured in order for this to work and the switch would have to send the same payloads on each press (`on` - `on` within the time window).
@@ -796,7 +800,7 @@ automation:
             - light.livingroom_floor_lamp
 ```
 
-## Button
+### Button
 
 The KNX button platform allows to send concurrent predefined values via the frontend or an action. When a user presses the button, the assigned generic raw payload is sent to the KNX bus.
 
@@ -852,7 +856,7 @@ type:
   type: [string, integer]
 {% endconfiguration %}
 
-## Climate
+### Climate
 
 The KNX climate platform is used as an interface to KNX thermostats and room controllers.
 
@@ -1137,7 +1141,7 @@ swing_horizontal_state_address:
 
 {% enddetails %}
 
-## Cover
+### Cover
 
 The KNX cover platform is used as an interface to KNX covers.
 
@@ -1239,7 +1243,7 @@ device_class:
 
 {% enddetails %}
 
-## Date
+### Date
 
 The KNX date platform allows to send date values to the KNX bus and update its state from received telegrams. It can optionally respond to read requests from the KNX bus.
 
@@ -1298,7 +1302,7 @@ sync_state:
   default: true
 {% endconfiguration %}
 
-## DateTime
+### DateTime
 
 The KNX datetime platform allows to send datetime values to the KNX bus and update its state from received telegrams. It can optionally respond to read requests from the KNX bus.
 
@@ -1358,7 +1362,7 @@ sync_state:
   default: true
 {% endconfiguration %}
 
-## Fan
+### Fan
 
 The KNX fan integration is used to control KNX fans. Following control types are supported:
 
@@ -1401,7 +1405,7 @@ max_step:
   type: integer
 {% endconfiguration %}
 
-## Light
+### Light
 
 The KNX light integration is used as an interface to control KNX actuators for lighting applications such as:
 
@@ -1540,7 +1544,7 @@ Many KNX devices can change their state internally without a message to the swit
 
 For switching/light actuators that are only controlled by a single group address and don't have dedicated state group objects you can set `state_address` to the same value as `address` if it is readable from the bus.
 
-### YAML configuration examples
+#### YAML configuration examples
 
 ```yaml
 knx:
@@ -1628,7 +1632,7 @@ knx:
 
 {% enddetails %}
 
-## Notify
+### Notify
 
 The KNX notify platform allows you to send notifications to [KNX](https://www.knx.org/) devices as DPT16 strings.
 
@@ -1653,7 +1657,7 @@ type:
   type: string
 {% endconfiguration %}
 
-### Example action
+#### Example action
 
 ```yaml
 action: notify.send_message
@@ -1662,7 +1666,7 @@ data:
   entity_id: notify.alarm
 ```
 
-## Number
+### Number
 
 The KNX number platform allows to send generic numeric values to the KNX bus and update its state from received telegrams. It can optionally respond to read requests from the KNX bus.
 
@@ -1732,7 +1736,7 @@ mode:
   default: auto
 {% endconfiguration %}
 
-## Scene
+### Scene
 
 The KNX scene platform allows you to activate KNX scenes and updates scene entities when the corresponding scene number is received on the KNX bus.
 
@@ -1758,7 +1762,7 @@ scene_number:
   type: integer
 {% endconfiguration %}
 
-## Select
+### Select
 
 The KNX select platform allows the user to define a list of values that can be selected via the frontend and can be used within conditions of automation. When a user selects a new item, the assigned generic raw payload is sent to the KNX bus. A received telegram updates the state of the select entity. It can optionally respond to read requests from the KNX bus.
 
@@ -1852,7 +1856,7 @@ sync_state:
   default: true
 {% endconfiguration %}
 
-## Sensor
+### Sensor
 
 The KNX sensor platform allows you to monitor [KNX](https://www.knx.org/) sensors.
 
@@ -1927,7 +1931,7 @@ device_class:
   type: string
 {% endconfiguration %}
 
-### Value types
+#### Value types
 
 | KNX DPT | type                          | size in byte |           range            | unit           |
 | ------: | ----------------------------- | -----------: | :------------------------: | -------------- |
@@ -2096,7 +2100,7 @@ device_class:
 |  29.011 | apparant_energy_8byte         |            8 |    ±9223372036854775807    | VAh            |
 |  29.012 | reactive_energy_8byte         |            8 |    ±9223372036854775807    | VARh           |
 
-### More examples
+#### More examples
 
 ```yaml
 # Example configuration.yaml entry
@@ -2113,7 +2117,7 @@ knx:
       state_class: measurement
 ```
 
-## Switch
+### Switch
 
 The KNX switch platform is used as an interface to switching actuators.
 
@@ -2162,7 +2166,7 @@ The optional `state_address` can be used to inform Home Assistant about state ch
 
 {% enddetails %}
 
-## Text
+### Text
 
 The KNX text platform allows to send text values to the KNX bus and update its state from received telegrams. It can optionally respond to read requests from the KNX bus.
 
@@ -2215,7 +2219,7 @@ mode:
   default: text
 {% endconfiguration %}
 
-## Time
+### Time
 
 The KNX time platform allows to send time values to the KNX bus and update its state from received telegrams. It can optionally respond to read requests from the KNX bus.
 
@@ -2274,7 +2278,7 @@ sync_state:
   default: true
 {% endconfiguration %}
 
-## Weather
+### Weather
 
 The KNX weather platform is used as an interface to KNX weather stations.
 
