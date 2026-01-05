@@ -38,7 +38,8 @@ To add a text-to-speech (TTS) voice, select the **Add TTS voice** button on the 
 
 The process for adding a voice involves two steps:
 
-1. **Voice Filtering**: First, you'll choose whether to see only your private, cloned voices or also the recommended public voices from Fish Audio.
+1. Voice filtering: 
+   - First, you'll choose whether to see only your private, cloned voices or also the recommended public voices from Fish Audio.
 2. **Voice Configuration**: Based on your filter selection, you will then be presented with the following options on the next screen:
     - **Voice Selection**: Select a voice from the dropdown list of available voices. You can also enter a custom voice ID from the Fish Audio website.
     - **Default Model**: Choose a default backend model. `s1` is the latest and most advanced model. Both `s1` and `v1.6` models support [emotional markers](#using-with-large-language-models-llms).
@@ -47,7 +48,7 @@ The process for adding a voice involves two steps:
 
 Each voice you add creates a new TTS entity.
 
-### Language and Accents
+### Language and accents
 
 Fish Audio determines the spoken language based on the input text, not a fixed language setting for the voice. This means you can give English text to a Spanish voice, and it will speak English with a Spanish accent. Similarly, providing Spanish text to an English voice will result in Spanish spoken with an English accent.
 
