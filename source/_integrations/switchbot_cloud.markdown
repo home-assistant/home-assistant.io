@@ -344,6 +344,27 @@ Features:
 - change brightness
 - change color temperature
 
+#### RGBICWW Floor Lamp / RGBICWW Strip Light
+
+Features:
+- turn on or off
+- change brightness
+- change color
+- change color temperature
+
+#### RGBIC Neon Rope Light / RGBIC Neon Wire Rope Light
+
+Features:
+- turn on or off
+- change brightness
+- change color
+
+#### Candle Warmer Lamp
+
+Features:
+- turn on or off
+- change brightness
+
 ### Locks
 
 #### Lock
