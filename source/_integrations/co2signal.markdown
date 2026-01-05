@@ -41,7 +41,7 @@ To configure and use this integration, you need to obtain a free API key from El
 Please be aware that the Free Tier API is limited to one location, called a zone. A zone represents a specific electricity grid region. These zones don't match your utility provider. You need to select and specify the zone for your home location when creating your account. For example, the United States has multiple zones like `US-CENT-SWPP` (Southwest Power Pool), `US-CAR-DUK` (Duke Energy Carolinas), or `US-CAR-CPLE` (Duke Energy Progress East).
 
 To find your zone identifier, you can:
-- Check the [Electricity Maps app](https://app.electricitymaps.com/map/live/fifteen_minutes) to see which zone covers your location. You can get the exact zone key from the URL. For France the URL looks like `.../map/zone/FR/live/...`, the zone key can be found after `.../zone/{zone key}`, in this case it would be `FR`.
+- Check the [Electricity Maps app](https://app.electricitymaps.com/map/live/fifteen_minutes) to see which zone covers your location. You can get the exact zone key from the URL. For France, the URL looks like `.../map/zone/FR/live/...`. The zone key is after `.../zone/{zone key}`. In this case, it would be `FR`.
 - Use the [Coverage table](https://app.electricitymaps.com/coverage) to find zones by geographic regions.
 
 {% include integrations/config_flow.md %}
