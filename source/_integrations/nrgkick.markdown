@@ -52,13 +52,6 @@ To enable the API:
 
 {% include integrations/config_flow.md %}
 
-### Discovery and setup
-
-Home Assistant can discover NRGkick devices automatically on your local network.
-
-- If a device is discovered, select the notification, or go to **Settings** > **Devices & services**, and add the discovered **NRGkick** integration.
-- If the device is not discovered, add it manually and enter the device host.
-
 If you enabled authentication in the NRGkick app, enter the username and password during setup.
 
 {% configuration_basic %}
