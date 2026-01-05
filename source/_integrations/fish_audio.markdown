@@ -85,7 +85,7 @@ actions:
         latency: "normal"
 ```
 
-### Using in Assist Pipelines
+### Using in Assist pipelines
 
 The TTS entities you create can be set as the voice for your Assist pipelines. This allows your voice assistant to respond using the high-quality Fish Audio voices.
 
@@ -143,7 +143,7 @@ To resolve this issue, try the following steps:
 2. Make sure the voices are fully processed and ready to use.
 3. Wait a few minutes for new voices to become available via the API after creation.
 
-### TTS Entity Shows Up as Double Named
+### TTS entity shows up as double named
 
 If a TTS entity is named "Adam", it might show up as "Adam Adam" in the interface. This is a known issue and has been raised to Home Assistant.
   
