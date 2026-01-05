@@ -111,9 +111,9 @@ For example, you could combine your main request with a set of instructions for 
 ```text
 Apply emotion control by inserting markers before text.
 
-- Use Emotion Markers: (angry), (sad), (excited), (surprised), (sarcastic), (joyful), (empathetic)
-- Use Tone Markers: (in a hurry tone), (shouting), (screaming), (whispering), (soft tone)
-- Use Special Markers: (laughing), (chuckling), (sobbing), (sighing), (panting), (crowd laughing)
+- Use emotion markers: (angry), (sad), (excited), (surprised), (sarcastic), (joyful), (empathetic)
+- Use tone markers: (in a hurry tone), (shouting), (screaming), (whispering), (soft tone)
+- Use special markers: (laughing), (chuckling), (sobbing), (sighing), (panting), (crowd laughing)
 - Optionally add onomatopoeia with markers, for example: "Ha,ha,ha" for laughter.
 - Place markers immediately before the dialogue they modify.
 - Default to neutral if no marker is specified.
