@@ -25,11 +25,16 @@ The **System Nexa 2** {% term integration %} allows you to integrate with the **
 
 The System Nexa 2 integration brings your lights, switches, and smart plugs into Home Assistant, enabling you to create a truly smart home. Here are some ways you can benefit from this integration:
 
-- **Automate your lighting and appliances** - Create automations to turn lights on at sunset, turn off devices when you leave home, or control your car heater based on outdoor temperature and your calendar to ensure a warm car before your morning commute.
-- **Enhance privacy and security** - Disable cloud access to keep all communication local, ensuring your devices work without internet connectivity.
-- **Reduce light pollution** - Turn off indicator LEDs on devices in your bedroom at night to create a better sleeping environment.
-- **Child-proof your smart home** - Disable physical buttons on specific devices to prevent children from turning critical equipment on or off.
-- **Integrate with existing remotes** - Enable 433MHz communication to continue using your existing remote controls alongside Home Assistant automation.
+- Automate your lighting and appliances
+   - Create automations to turn lights on at sunset, turn off devices when you leave home, or control your car heater based on outdoor temperature and your calendar to ensure a warm car before your morning commute.
+- Enhance privacy and security
+   - Disable cloud access to keep all communication local, ensuring your devices work without internet connectivity.
+- Reduce light pollution
+   - Turn off indicator LEDs on devices in your bedroom at night to create a better sleeping environment.
+- Child-proof your smart home
+   - Disable physical buttons on specific devices to prevent children from turning critical equipment on or off.
+- Integrate with existing remotes
+   - Enable 433MHz communication to continue using your existing remote controls alongside Home Assistant automation.
 
 ## Supported devices
 
@@ -76,15 +81,15 @@ Host:
 
 ## Known limitations
 
-Currently this integration does not support:
+Currently this integration does not support the following functionality:
 
 - Dimming (state, lowest/highest level, dimming method and more)
 - Device local scheduling/timers (can however be done via Home Assistant)
 - Adding remote control transmitters to control devices
 - Setting mode after power loss
 - Updating Wi-Fi settings
-- Firmware Upgrade
-- Local Auth
+- Firmware upgrade
+- Local authentication
 
 ## Data updates
 
