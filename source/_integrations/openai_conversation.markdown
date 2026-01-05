@@ -181,7 +181,7 @@ with the response from OpenAI.
 {% raw %}
 
 ```yaml
-action: openai.generate_content
+action: openai_conversation.generate_content
 data:
   config_entry: abce6b8696a15e107b4bd843de722249
   prompt: >-
@@ -202,7 +202,7 @@ Another example with multiple images:
 {% raw %}
 
 ```yaml
-action: openai.generate_content
+action: openai_conversation.generate_content
 data:
   prompt: >-
     Briefly describe what happened in the following sequence of images
