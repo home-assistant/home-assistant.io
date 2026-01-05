@@ -68,7 +68,7 @@ Password:
 
 The integration provides entities to monitor charging. Charging control will be added in a later release.
 
-### Monitoring
+### Sensors
 
 The integration creates sensors for common measurements, including:
 
