@@ -97,7 +97,7 @@ Entity IDs depend on your device name in Home Assistant. The examples below assu
 The integration {% term polling polls %} the device for updates.
 
 - Polling interval: 30 seconds.
-- The polling interval is not user-configurable.
+- You cannot change the polling interval.
 
 ## Known limitations
 
