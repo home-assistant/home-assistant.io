@@ -15,7 +15,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The Mullvad VPN integration uses the [Mullvad](https://mullvad.net/) VPN API to detect if your Home Assistant instance is connected to the Mullvad VPN service.
+The **Mullvad VPN** {% term integration %} uses the [Mullvad](https://mullvad.net/) VPN API to detect if your Home Assistant instance is connected to the Mullvad VPN service.
 
 ![](/images/screenshots/mullvad_vpn_sample_sensor_connected.png)
 

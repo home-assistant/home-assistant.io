@@ -11,7 +11,7 @@ ha_domain: weather
 ha_integration_type: entity
 ---
 
-The `weather` platforms gather meteorological information from web services and display the conditions and other details about the weather at the given location.
+The **Weather** {% term integration %} gather meteorological information from web services and display the conditions and other details about the weather at the given location.
 
 {% include integrations/building_block_integration.md %}
 

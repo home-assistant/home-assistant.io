@@ -14,7 +14,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `ps4` integration allows you to control a
+The **Sony PlayStation 4** {% term integration %} allows you to control a
 [Sony PlayStation 4 console](https://www.playstation.com/ps4/).
 
 ## Requirements

@@ -26,7 +26,7 @@ ha_integration_type: integration
 ha_dhcp: true
 ---
 
-This integration interacts with the Local API of [Airzone HVAC zoning systems](https://www.airzone.es/en/).
+This {% term integration %} interacts with the Local API of [Airzone HVAC zoning systems](https://www.airzone.es/en/).
 
 A typical Airzone device has a *parent zone* (Master Thermostat) per HVAC system, which is the only zone where the HVAC mode can be changed. The rest are *child zones* which can only enable or disable the HVAC and adjust the desired temperature on that specific zone.
 

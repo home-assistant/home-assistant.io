@@ -12,7 +12,7 @@ ha_integration_type: integration
 ha_quality_scale: legacy
 ---
 
-The `zhong_hong` climate platform lets you control Zhonghong HVAC Gateway Controller thermostats through Home Assistant.
+The **ZhongHong** {% term integration %} lets you control Zhonghong HVAC Gateway Controller thermostats through Home Assistant.
 
 To set it up, add the following information to your {% term "`configuration.yaml`" %} file:
 

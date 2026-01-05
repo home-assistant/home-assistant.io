@@ -10,7 +10,7 @@ ha_integration_type: integration
 ha_quality_scale: legacy
 ---
 
-The `thingspeak` integrations makes Home Assistant communicate with the [ThingSpeak API](https://thingspeak.mathworks.com/).
+The **ThingSpeak** {% term integration %} makes Home Assistant communicate with the [ThingSpeak API](https://thingspeak.mathworks.com/).
 For now, it records exactly one entity at once, which is great for testing purposes. For long-time storage you should rely on the [InfluxDB integration](/integrations/influxdb/).
 
 ## Configuration

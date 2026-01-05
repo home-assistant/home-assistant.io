@@ -16,7 +16,7 @@ ha_quality_scale: legacy
 ha_config_flow: true
 ---
 
-The `prowl` {% term integration %} uses [Prowl](https://www.prowlapp.com/) to deliver push notifications from Home Assistant to your iOS device.
+The **Prowl** {% term integration %} uses [Prowl](https://www.prowlapp.com/) to deliver push notifications from Home Assistant to your iOS device.
 
 Go to the [Prowl website](https://www.prowlapp.com/) and create a new API key.
 

@@ -13,6 +13,8 @@ ha_quality_scale: bronze
 ha_category: []
 ha_platforms:
   - climate
+  - number
+  - sensor
 ---
 
 The **Airobot** {% term integration %} allows you to control and monitor [Airobot](https://airobothome.com/) smart thermostats for intelligent floor heating control via the local REST API. The thermostat uses adaptive learning with a <abbr title="Time Proportional Integral">TPI</abbr> algorithm to maintain stable temperatures and optimize energy efficiency. Optional built-in CO₂ and humidity sensors monitor indoor air quality for a healthier living environment.
@@ -65,7 +67,7 @@ This is useful when:
 
 ## Supported functionality
 
-The **Airobot** integration provides climate control functionality with comprehensive temperature management and preset modes, as well as detailed sensor monitoring.
+The **Airobot** integration provides climate control functionality with comprehensive temperature management and preset modes, detailed sensor monitoring, and advanced configuration options.
 
 ### Climate
 
@@ -101,12 +103,28 @@ The integration provides the following sensor entities to monitor your thermosta
 
 The following diagnostic sensors are disabled by default. You can enable them in the entity settings if needed:
 
-- **Device uptime**: The time (in hours) since the thermostat was last restarted.
+- **Device uptime**: The timestamp when the thermostat was last restarted.
 - **Heating uptime**: The cumulative time (in hours) the heating has been active since the thermostat was last restarted.
 
 #### System sensors
 
 - **Errors**: The current error count on the thermostat. A value of 0 indicates normal operation.
+
+### Number
+
+The integration provides a configuration entity to adjust advanced thermostat settings:
+
+- **Hysteresis band**: Configure the temperature hysteresis (dead band) for heating control (0.0-0.5°C range). This setting determines how much the temperature must drop below the setpoint before heating activates. A smaller value provides tighter temperature control but may cause more frequent heating cycles. A larger value reduces heating cycles but allows more temperature variation.
+
+## Use cases
+
+The **Airobot** integration enables intelligent floor heating control with practical automation opportunities:
+
+- Presence-based heating: Automatically switch between HOME and AWAY presets when people leave or arrive home, optimizing comfort and energy efficiency.
+- Smart scheduling: Use the BOOST preset to quickly warm rooms before arrival or temporarily increase heating for guests without changing permanent setpoints.
+- Air quality management: Trigger ventilation or send alerts when CO₂ levels exceed healthy thresholds (requires optional CO₂ sensor).
+- Floor protection: Monitor floor temperature to prevent overheating of sensitive materials like wooden floors (requires floor sensor).
+- Energy insights: Track heating runtime and device uptime patterns to optimize schedules and identify maintenance needs.
 
 ## Data updates
 

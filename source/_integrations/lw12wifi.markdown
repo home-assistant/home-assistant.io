@@ -15,7 +15,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `lw12wifi` light {% term integration %} supports Lagute LW-12 Wifi LED controller.
+The **LAGUTE LW-12** {% term integration %} supports Lagute LW-12 Wifi LED controller.
 
 ## Configuration
 

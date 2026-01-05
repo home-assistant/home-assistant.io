@@ -15,7 +15,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `osramlightify` {% term integration %} allows you to integrate your [Osram Lightify](https://www.osram.com/cb/lightify/index.jsp) into Home Assistant.
+The **Osramlightify** {% term integration %} allows you to integrate your [Osram Lightify](https://www.osram.com/cb/lightify/index.jsp) into Home Assistant.
 
 To enable the {% term integration %}, add it to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}

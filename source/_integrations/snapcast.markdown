@@ -14,7 +14,7 @@ ha_codeowners:
   - '@luar123'
 ---
 
-The Snapcast integration allows you to control [Snapcast](https://github.com/badaix/snapcast) from Home Assistant.
+The **Snapcast** {% term integration %} allows you to control [Snapcast](https://github.com/badaix/snapcast) from Home Assistant.
 
 {% include integrations/config_flow.md %}
 

@@ -15,7 +15,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-This `openevse` sensor {% term integration %} pulls data from an [OpenEVSE](https://www.openevse.com/) Charging station equipped with an ESP8266-based Wi-Fi connection.
+The **OpenEVSE** {% term integration %} pulls data from an [OpenEVSE](https://www.openevse.com/) Charging station equipped with an ESP8266-based Wi-Fi connection.
 
 ## Configuration
 

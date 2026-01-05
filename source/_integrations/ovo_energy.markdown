@@ -15,7 +15,7 @@ ha_platforms:
 ha_integration_type: service
 ---
 
-The `ovo_energy` integration allows you to monitor your energy consumption data
+The **OVO Energy** {% term integration %} allows you to monitor your energy consumption data
 in Home Assistant.
 
 Currently, this integration only supports OVO Energy in the UK.

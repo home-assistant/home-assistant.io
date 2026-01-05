@@ -22,7 +22,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-IHC Controller {% term integration %} for Home Assistant allows you to connect the LK IHC controller to Home Assistant. The controller is sold under other names in different countries - "ELKO Living system" in Sweden and Norway.
+The **IHC Controller** {% term integration %} for Home Assistant allows you to connect the LK IHC controller to Home Assistant. The controller is sold under other names in different countries - "ELKO Living system" in Sweden and Norway.
 
 There is currently support for the following device types within Home Assistant:
 
