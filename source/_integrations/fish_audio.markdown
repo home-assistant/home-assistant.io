@@ -72,7 +72,7 @@ Example of a `tts.speak` service call in YAML:
 
 ```yaml
 action:
-  - service: tts.speak
+  - action: tts.speak
     target:
       entity_id: tts.fish_audio
     data:
