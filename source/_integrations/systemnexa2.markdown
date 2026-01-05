@@ -34,7 +34,7 @@ The System Nexa 2 integration brings your lights, switches, and smart plugs into
 - Child-proof your smart home
    - Disable physical buttons on specific devices to prevent children from turning critical equipment on or off.
 - Integrate with existing remotes
-   - Enable 433MHz communication to continue using your existing remote controls alongside Home Assistant automation.
+   - Enable 433 MHz communication to continue using your existing remote controls alongside Home Assistant automation.
 
 ## Supported devices
 
