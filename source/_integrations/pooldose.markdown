@@ -266,3 +266,13 @@ To get peristaltic pump status data:
 2. Find the external relay configuration for the pH and ORP pumps.
 3. Enable the external relays for the pumps you want to monitor.
 4. Save the settings and restart the device if required.
+
+## Diagnostics
+
+This integration provides diagnostics to help with debugging and troubleshooting. The diagnostics output includes:
+
+- The device information reported by the coordinator with sensitive values redacted.
+- The most recent data fetched from the device by the coordinator.
+
+To collect diagnostics, go to **Settings** > **Devices & Services**, open the PoolDose integration,
+click the three-dot menu on the integration entry and choose **Download diagnostics**. Attach the downloaded file when reporting issues to help maintainers investigate.
