@@ -197,7 +197,7 @@ It is strongly encouraged to review the guidance for [Zigbee interference avoida
 3. After submitting, the {% term integration %} will try to detect the radio type automatically. 
   - If unsuccessful, you will get a new pop-up to continue with additional configuration: 
     - **Radio Type**
-      {% configuration_basic "Radio Types and Hardware" %}
+      {% configuration_basic  %}
       `ezsp`:
         description: "Silicon Labs EmberZNet protocol (e.g., Home Assistant ZBT-1 or ZBT-2, Elelabs, HUSBZB-1, Telegesis)"
       `deconz`:
