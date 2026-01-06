@@ -186,7 +186,7 @@ The following devices are known to be supported by the integration:
 
 Examples of automations you can create using the Saunum integration.
 
-### Sauna Ready Notification with Light
+### Sauna ready notification with light
 
 Send a notification and turn on the sauna light when the target temperature is reached.
 
