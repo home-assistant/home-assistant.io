@@ -5,7 +5,7 @@ ha_category:
   - Energy
 ha_iot_class: Local Polling
 ha_quality_scale: bronze
-ha_release: 2026.1
+ha_release: 2026.2
 ha_codeowners:
   - "@andijakl"
 ha_domain: nrgkick
