@@ -222,7 +222,7 @@ A template sensor to add VAT and fixed cost is useful to get the actual energy c
 
 Create a helper using the UI.
 
-1. Go to {% my integrations title="**Settings** > **Devices & Services**" %} and at the top, choose the **Helpers** tab.
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and at the top, choose the **Helpers** tab.
 2. In the bottom right corner, select **Create helper**.
 3. Select **Template** and **Template a sensor**.
 4. Enter the fields as shown below.

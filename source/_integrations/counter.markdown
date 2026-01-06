@@ -17,7 +17,7 @@ The **Counter** {% term integration %} allows one to count occurrences fired by 
 ## Configuration
 
 The preferred way to configure counter helpers is via the user interface. To add one, go to
-**{% my helpers title="Settings > Devices & Services > Helpers" %}** and click the add button;
+**{% my helpers title="Settings > Devices & services > Helpers" %}** and click the add button;
 next choose the **{% my config_flow_start domain=page.ha_domain title=page.title %}** option.
 
 To be able to add **Helpers** via the user interface you should have

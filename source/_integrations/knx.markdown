@@ -678,7 +678,27 @@ respond_to_read:
   default: true
 {% endconfiguration %}
 
-## Binary sensor
+## Entity platforms
+
+### Common entity configuration options
+
+All KNX entity platforms support the following common configuration options.
+
+{% configuration %}
+name:
+  description: An initial name for this entity.
+    After the entity is created, this configuration setting will no longer be used.
+    You can change the name in the Home Assistant UI.
+  required: false
+  type: string
+entity_category:
+  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  required: false
+  type: string
+  default: None
+{% endconfiguration %}
+
+### Binary sensor
 
 The KNX binary sensor platform allows you to monitor [KNX](https://www.knx.org/) binary sensors like window/door contacts, motion detectors, alarms, etc.
 
@@ -699,15 +719,13 @@ knx:
       state_address: "6/0/2"
 ```
 
+See also the [common entity configuration options](#common-entity-configuration-options).
+
 {% configuration %}
 state_address:
   description: KNX group address of the binary sensor. *DPT 1*
   required: true
   type: [string, list]
-name:
-  description: A name for this device used within Home Assistant.
-  required: false
-  type: string
 sync_state:
   description: Actively read the value from the bus. The maximum time interval (`<minutes>`) is 1440. The following values are valid
 
@@ -749,16 +767,11 @@ context_timeout:
   required: false
   type: float
   default: None
-entity_category:
-  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
-  required: false
-  type: string
-  default: None
 {% endconfiguration %}
 
 {% enddetails %}
 
-### Automation example
+#### Automation example
 
 Let's pretend you have configured a binary sensor with the name `Livingroom Switch` and you want to toggle a light when the button was pressed once and another light when the button was pressed twice.
 `context_timeout` has to be configured in order for this to work and the switch would have to send the same payloads on each press (`on` - `on` within the time window).
@@ -787,7 +800,7 @@ automation:
             - light.livingroom_floor_lamp
 ```
 
-## Button
+### Button
 
 The KNX button platform allows to send concurrent predefined values via the frontend or an action. When a user presses the button, the assigned generic raw payload is sent to the KNX bus.
 
@@ -816,11 +829,9 @@ When `type` is used `value` is required, `payload` is invalid.
 When `payload_length` is used `value` is invalid.
 {% endimportant %}
 
+See also the [common entity configuration options](#common-entity-configuration-options).
+
 {% configuration %}
-name:
-  description: A name for this device used within Home Assistant.
-  required: false
-  type: string
 address:
   description: Group address to send to.
   required: true
@@ -843,14 +854,9 @@ type:
   description: A type from the [value types table](/integrations/knx/#value-types) to encode the configured `value`.
   required: false
   type: [string, integer]
-entity_category:
-  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
-  required: false
-  type: string
-  default: None
 {% endconfiguration %}
 
-## Climate
+### Climate
 
 The KNX climate platform is used as an interface to KNX thermostats and room controllers.
 
@@ -955,12 +961,9 @@ Supported preset modes for your KNX thermostats are found automatically. This ca
 - `economy`
 - `building_protection`
 
+See also the [common entity configuration options](#common-entity-configuration-options).
+
 {% configuration %}
-name:
-  description: A name for this device used within Home Assistant.
-  required: false
-  default: KNX Climate
-  type: string
 temperature_address:
   description: KNX group address for reading current room temperature from KNX bus. *DPT 9.001*
   required: true
@@ -1134,16 +1137,11 @@ swing_horizontal_state_address:
   description: KNX address for gathering the current state (on/off) of the horizontal swing. *DPT 1*
   required: false
   type: [string, list]
-entity_category:
-  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
-  required: false
-  type: string
-  default: None
 {% endconfiguration %}
 
 {% enddetails %}
 
-## Cover
+### Cover
 
 The KNX cover platform is used as an interface to KNX covers.
 
@@ -1181,12 +1179,9 @@ knx:
       travelling_time_up: 40
 ```
 
+See also the [common entity configuration options](#common-entity-configuration-options).
+
 {% configuration %}
-name:
-  description: A name for this device used within Home Assistant.
-  required: false
-  default: KNX Cover
-  type: string
 move_long_address:
   description: KNX group address for moving the cover full up or down. *DPT 1*
   required: false
@@ -1244,16 +1239,11 @@ device_class:
   description: Sets the [class of the device](/integrations/cover/), changing the device state and icon that is displayed on the frontend.
   required: false
   type: string
-entity_category:
-  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
-  required: false
-  type: string
-  default: None
 {% endconfiguration %}
 
 {% enddetails %}
 
-## Date
+### Date
 
 The KNX date platform allows to send date values to the KNX bus and update its state from received telegrams. It can optionally respond to read requests from the KNX bus.
 
@@ -1276,11 +1266,9 @@ knx:
       state_address: "0/0/2"
 ```
 
+See also the [common entity configuration options](#common-entity-configuration-options).
+
 {% configuration %}
-name:
-  description: A name for this device used within Home Assistant.
-  required: false
-  type: string
 address:
   description: The group address to which new values will be sent. *DPT 11.001*
   required: true
@@ -1312,14 +1300,9 @@ sync_state:
   required: false
   type: [boolean, string, integer]
   default: true
-entity_category:
-  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
-  required: false
-  type: string
-  default: None
 {% endconfiguration %}
 
-## DateTime
+### DateTime
 
 The KNX datetime platform allows to send datetime values to the KNX bus and update its state from received telegrams. It can optionally respond to read requests from the KNX bus.
 
@@ -1343,11 +1326,9 @@ knx:
       state_address: "0/0/4"
 ```
 
+See also the [common entity configuration options](#common-entity-configuration-options).
+
 {% configuration %}
-name:
-  description: A name for this device used within Home Assistant.
-  required: false
-  type: string
 address:
   description: The group address to which new values will be sent. *DPT 19.001*
   required: true
@@ -1379,14 +1360,9 @@ sync_state:
   required: false
   type: [boolean, string, integer]
   default: true
-entity_category:
-  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
-  required: false
-  type: string
-  default: None
 {% endconfiguration %}
 
-## Fan
+### Fan
 
 The KNX fan integration is used to control KNX fans. Following control types are supported:
 
@@ -1404,11 +1380,9 @@ knx:
       state_address: "9/0/2"
 ```
 
+See also the [common entity configuration options](#common-entity-configuration-options).
+
 {% configuration %}
-name:
-  description: A name for this device used within Home Assistant.
-  required: false
-  type: string
 address:
   description: KNX group address for setting the percentage or step of the fan. *DPT 5.001* or *DPT 5.010*
   required: true
@@ -1429,14 +1403,9 @@ max_step:
   description: The maximum amount of steps for a step-controlled fan. If set, the integration will convert percentages to steps automatically.
   required: false
   type: integer
-entity_category:
-  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
-  required: false
-  type: string
-  default: None
 {% endconfiguration %}
 
-## Light
+### Light
 
 The KNX light integration is used as an interface to control KNX actuators for lighting applications such as:
 
@@ -1449,6 +1418,8 @@ Light entities can be created from the frontend in the KNX panel or via YAML.
 
 {% details "Configuration of KNX light entities via YAML" %}
 
+See also the [common entity configuration options](#common-entity-configuration-options).
+
 {% configuration %}
 address:
   description: KNX group address for switching the light on and off. *DPT 1.001*
@@ -1458,10 +1429,6 @@ state_address:
   description: KNX group address for retrieving the switch state of the light. *DPT 1.001*
   required: false
   type: [string, list]
-name:
-  description: A name for this device used within Home Assistant.
-  required: false
-  type: string
 brightness_address:
   description: KNX group address for setting the brightness of the light in percent (absolute dimming). *DPT 5.001*
   required: false
@@ -1571,18 +1538,13 @@ max_kelvin:
   required: false
   type: integer
   default: 6000
-entity_category:
-  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
-  required: false
-  type: string
-  default: None
 {% endconfiguration %}
 
 Many KNX devices can change their state internally without a message to the switch address on the KNX bus, e.g., if you configure a scene or a timer on a channel. The optional `state_address` can be used to inform Home Assistant about these state changes. If a KNX message is seen on the bus addressed to the given `state_address` (in most cases from the light actuator), it will overwrite the state of the object.
 
 For switching/light actuators that are only controlled by a single group address and don't have dedicated state group objects you can set `state_address` to the same value as `address` if it is readable from the bus.
 
-### YAML configuration examples
+#### YAML configuration examples
 
 ```yaml
 knx:
@@ -1670,7 +1632,7 @@ knx:
 
 {% enddetails %}
 
-## Notify
+### Notify
 
 The KNX notify platform allows you to send notifications to [KNX](https://www.knx.org/) devices as DPT16 strings.
 
@@ -1681,28 +1643,21 @@ knx:
       address: "5/1/10"
 ```
 
+See also the [common entity configuration options](#common-entity-configuration-options).
+
 {% configuration %}
 address:
   description: KNX group address the notification will be sent to. *DPT 16*
   required: true
   type: [string, list]
-name:
-  description: A name for this device used within Home Assistant.
-  required: false
-  type: string
 type:
   description: A DPT identifier representing a text value ("string" or "latin_1" - see [KNX Sensor](#sensor)) used to encode the notification.
   required: false
   default: "latin_1"
   type: string
-entity_category:
-  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
-  required: false
-  type: string
-  default: None
 {% endconfiguration %}
 
-### Example action
+#### Example action
 
 ```yaml
 action: notify.send_message
@@ -1711,7 +1666,7 @@ data:
   entity_id: notify.alarm
 ```
 
-## Number
+### Number
 
 The KNX number platform allows to send generic numeric values to the KNX bus and update its state from received telegrams. It can optionally respond to read requests from the KNX bus.
 
@@ -1742,11 +1697,9 @@ knx:
       mode: slider
 ```
 
+See also the [common entity configuration options](#common-entity-configuration-options).
+
 {% configuration %}
-name:
-  description: A name for this device used within Home Assistant.
-  required: false
-  type: string
 address:
   description: The group address to which new values will be sent.
   required: true
@@ -1781,14 +1734,9 @@ mode:
   required: false
   type: string
   default: auto
-entity_category:
-  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
-  required: false
-  type: string
-  default: None
 {% endconfiguration %}
 
-## Scene
+### Scene
 
 The KNX scene platform allows you to activate KNX scenes and updates scene entities when the corresponding scene number is received on the KNX bus.
 
@@ -1801,6 +1749,8 @@ knx:
       scene_number: 23
 ```
 
+See also the [common entity configuration options](#common-entity-configuration-options).
+
 {% configuration %}
 address:
   description: KNX group address for the scene. *DPT 17.001*
@@ -1810,18 +1760,9 @@ scene_number:
   description: KNX scene number to be activated (range 1..64 ).
   required: true
   type: integer
-name:
-  description: A name for this device used within Home Assistant.
-  required: false
-  type: string
-entity_category:
-  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
-  required: false
-  type: string
-  default: None
 {% endconfiguration %}
 
-## Select
+### Select
 
 The KNX select platform allows the user to define a list of values that can be selected via the frontend and can be used within conditions of automation. When a user selects a new item, the assigned generic raw payload is sent to the KNX bus. A received telegram updates the state of the select entity. It can optionally respond to read requests from the KNX bus.
 
@@ -1862,11 +1803,9 @@ knx:
           payload: 4
 ```
 
+See also the [common entity configuration options](#common-entity-configuration-options).
+
 {% configuration %}
-name:
-  description: A name for this device used within Home Assistant.
-  required: false
-  type: string
 address:
   description: The group address to which new values will be sent.
   required: true
@@ -1915,14 +1854,9 @@ sync_state:
   required: false
   type: [boolean, string, integer]
   default: true
-entity_category:
-  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
-  required: false
-  type: string
-  default: None
 {% endconfiguration %}
 
-## Sensor
+### Sensor
 
 The KNX sensor platform allows you to monitor [KNX](https://www.knx.org/) sensors.
 
@@ -1953,6 +1887,8 @@ knx:
       sync_state: every 30
 ```
 
+See also the [common entity configuration options](#common-entity-configuration-options).
+
 {% configuration %}
 state_address:
   description: KNX group address of the sensor.
@@ -1962,10 +1898,6 @@ type:
   description: A type from the [value types table](/integrations/knx/#value-types) below must be defined. The DPT of the group address should match the expected KNX DPT to be parsed correctly.
   required: true
   type: [string, integer]
-name:
-  description: A name for this device used within Home Assistant.
-  required: false
-  type: string
 sync_state:
   description: Actively read the value from the bus. The maximum time interval (`<minutes>`) is 1440. The following values are valid
 
@@ -1993,18 +1925,13 @@ state_class:
   description: Sets the [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor.
   required: false
   type: string
-entity_category:
-  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
-  required: false
-  type: string
-  default: None
 device_class:
   description: Overrides the [class of the device](/integrations/sensor/), changing the device state and icon that is displayed on the frontend.
   required: false
   type: string
 {% endconfiguration %}
 
-### Value types
+#### Value types
 
 | KNX DPT | type                          | size in byte |           range            | unit           |
 | ------: | ----------------------------- | -----------: | :------------------------: | -------------- |
@@ -2173,7 +2100,7 @@ device_class:
 |  29.011 | apparant_energy_8byte         |            8 |    ±9223372036854775807    | VAh            |
 |  29.012 | reactive_energy_8byte         |            8 |    ±9223372036854775807    | VARh           |
 
-### More examples
+#### More examples
 
 ```yaml
 # Example configuration.yaml entry
@@ -2190,7 +2117,7 @@ knx:
       state_class: measurement
 ```
 
-## Switch
+### Switch
 
 The KNX switch platform is used as an interface to switching actuators.
 
@@ -2208,16 +2135,13 @@ knx:
       address: "1/1/6"
 ```
 
+See also the [common entity configuration options](#common-entity-configuration-options).
+
 {% configuration %}
 address:
   description: KNX group address for switching the switch on/off. *DPT 1*
   required: true
   type: [string, list]
-name:
-  description: A name for this device used within Home Assistant.
-  required: false
-  default: KNX Switch
-  type: string
 state_address:
   description: Separate KNX group address for retrieving the switch state. *DPT 1*
   required: false
@@ -2232,11 +2156,6 @@ respond_to_read:
   required: false
   type: boolean
   default: false
-entity_category:
-  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
-  required: false
-  type: string
-  default: None
 device_class:
   description: Sets the [class of the device](/integrations/switch/), changing the device state and icon that is displayed on the frontend.
   required: false
@@ -2247,7 +2166,7 @@ The optional `state_address` can be used to inform Home Assistant about state ch
 
 {% enddetails %}
 
-## Text
+### Text
 
 The KNX text platform allows to send text values to the KNX bus and update its state from received telegrams. It can optionally respond to read requests from the KNX bus.
 
@@ -2272,11 +2191,9 @@ knx:
       respond_to_read: true
 ```
 
+See also the [common entity configuration options](#common-entity-configuration-options).
+
 {% configuration %}
-name:
-  description: A name for this device used within Home Assistant.
-  required: false
-  type: string
 address:
   description: The group address to which new values will be sent.
   required: true
@@ -2300,14 +2217,9 @@ mode:
   required: false
   type: string
   default: text
-entity_category:
-  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
-  required: false
-  type: string
-  default: None
 {% endconfiguration %}
 
-## Time
+### Time
 
 The KNX time platform allows to send time values to the KNX bus and update its state from received telegrams. It can optionally respond to read requests from the KNX bus.
 
@@ -2330,11 +2242,9 @@ knx:
       state_address: "0/0/2"
 ```
 
+See also the [common entity configuration options](#common-entity-configuration-options).
+
 {% configuration %}
-name:
-  description: A name for this device used within Home Assistant.
-  required: false
-  type: string
 address:
   description: The group address to which new values will be sent. *DPT 10.001*
   required: true
@@ -2366,14 +2276,9 @@ sync_state:
   required: false
   type: [boolean, string, integer]
   default: true
-entity_category:
-  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
-  required: false
-  type: string
-  default: None
 {% endconfiguration %}
 
-## Weather
+### Weather
 
 The KNX weather platform is used as an interface to KNX weather stations.
 
@@ -2399,12 +2304,9 @@ knx:
       sync_state: true
 ```
 
+See also the [common entity configuration options](#common-entity-configuration-options).
+
 {% configuration %}
-name:
-  description: A name for this device used within Home Assistant.
-  required: false
-  default: KNX Weather
-  type: string
 address_temperature:
   description: KNX group address for reading current outside temperature from KNX bus. *DPT 9.001*
   required: true
@@ -2475,11 +2377,6 @@ sync_state:
   required: false
   type: [boolean, string, integer]
   default: true
-entity_category:
-  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
-  required: false
-  type: string
-  default: None
 {% endconfiguration %}
 
 ## Known limitations

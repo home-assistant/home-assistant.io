@@ -58,7 +58,7 @@ your smart home and issue commands and get responses.
 
 ## Setting up the phone in Home Assistant
 
-1. In Home Assistant, go to {% my config_flow_start domain="voip" title="**Settings** > **Devices & Services** > **Add integration**" %} and add the **Voice over IP** integration.
+1. In Home Assistant, go to {% my config_flow_start domain="voip" title="**Settings** > **Devices & services** > **Add integration**" %} and add the **Voice over IP** integration.
     ![Voice over IP integration](/images/assist/voip_install.png)
 2. Once you see the integration, pick up the phone.
    - You should now hear the message *This is your smart home speaking. Your phone is connected, but you must configure it within Home Assistant.*
