@@ -32,10 +32,10 @@ Before setting up this integration, you must complete the following steps in the
 2. Create an account or sign in to your existing account.
 3. Add your Ecocomfort 2.0 device to the app via Bluetooth.
 4. Complete the device setup and configuration in the app (network connection, device name, etc.).
-5. Verify that the device appears as **Online** in the IntelliClima+ app.
+5. Verify that the device appears as Online in the IntelliClima+ app.
 
 Once your device is set up and responding in the IntelliClima+ app, you can add the integration to Home Assistant.
-5. Verify that the device appears as **Online** in the IntelliClima+ app.
+5. Verify that the device appears as Online in the IntelliClima+ app.
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
