@@ -724,18 +724,28 @@ Note that submitting a new "device support request" does not guarantee that some
 
 If you experience problems pairing a device, verify that you follow best practices to avoid pairing/connection issues:
 
-- Check that your setup and environment are optimized to avoid interference.
-  - As interference avoidance is an extremely important topic on its own, please read and follow the tips in the separate section below about Zigbee interference avoidance and network range/coverage optimization.
-- Check that you have enough Zigbee router devices (also known as Zigbee signal repeaters or range extenders) and if you do not have any, invest and add some mains-powered devices that will work as Zigbee routers.
-  - Aim to start out with mains-powered devices before adding battery-operated devices as a "weak" Zigbee network mesh (e.g., the device is too far from the Zigbee coordinator or a Zigbee router) may prevent some devices from being paired. Zigbee router devices are also needed to increase the maximum of devices that can be connected to your Zigbee mesh network.
-  - Note that some Zigbee devices are not fully compatible with all brands of Zigbee router devices. Xiaomi/Aqara devices are for example known not to work with Zigbee router devices from Centralite, General Electrics, Iris, Ledvance/OSRAM, LIGHTIFY/Sylvania, Orvibo, PEQ, Securifi, and SmartThings/Samsung. Better results can usually be achieved by using mains-powered devices IKEA and Nue/3A Home or dedicated DIY routing devices based on Texas Instruments CC253x/CC26x2 and XBee Series 2/3 Zigbee radios.
-- If possible try to pair your Zigbee devices in their intended final location, (and not pair it next to the Zigbee coordinator and then need to move it after).
-  - Pairing a Zigbee device next to the Zigbee coordinator and then moving it later can result in dropped/lost connections or other issues.
-    - If the device you want to add is not brand new and as such never paired before then you always have to make sure to first manually reset the device to its factory default settings before you will be able to add/pair it.
-- Some battery-operated Zigbee devices are known to have problems with pairing if they have Low battery voltage.
-  - Some people have reported replacing the battery on their newly received Xiaomi/Aqara devices solved pairing issues.
-- Be patient as the pairing of some Zigbee devices may require multiple attempts and you may sometimes need to try again and again.
-  - Some devices, like example those from Xiaomi/Aqara, are known to not be 100% compliant with the standard Zigbee specifications and may therefore require many paring attempts over 10-20 minutes or longer.
+1. Reduce network interference:
+    - Check that your setup and environment are optimized to avoid interference.
+    - Interference avoidance is an extremely important topic on its own. Review the tips in the separate section below about Zigbee interference avoidance and network range/coverage optimization.
+2. Strengthen your network:
+    - Check that you have enough Zigbee router devices (Zigbee signal repeaters or range extenders).
+    - If you do not have any, you should add additional mains-powered devices to serve as Zigbee routers.
+    - Aim to start with mains-powered devices before adding battery-operated devices. 
+      - A "weak" Zigbee network mesh may prevent some devices from being paired (such as a device being too far from a Zigbee router or coordinator). 
+    - Zigbee router devices are also needed to increase the maximum of devices that can be connected to your Zigbee mesh network.
+    - Some Zigbee devices are not fully compatible with all brands of Zigbee router devices. 
+      - Xiaomi/Aqara devices known not to work with Zigbee router devices from Centralite, General Electrics, Iris, Ledvance/OSRAM, LIGHTIFY/Sylvania, Orvibo, PEQ, Securifi, and SmartThings/Samsung. 
+    - Better results can usually be achieved by using mains-powered devices IKEA and Nue/3A Home or dedicated DIY routing devices based on Texas Instruments CC253x/CC26x2 and XBee Series 2/3 Zigbee radios.
+3. Plan your pairing:
+    - Try to pair Zigbee devices where you intend to use them:
+      - Avoid pairing next to the Zigbee coordinator if you intend to move its location afterward.
+      - Pairing a device next to the coordinator and moving it later can result in degraded connections.
+    - If the device you want to add has been previously paired to another network, you will likely need to manually factory-reset the device in order to add/pair it.
+    - Some battery-operated Zigbee devices are known to have problems with pairing if they have low battery voltage.
+      - Some people have reported replacing the battery on their newly received Xiaomi/Aqara devices solved pairing issues.
+4. Be patient:
+    - The pairing of some Zigbee devices may require multiple or repeated attempts.
+    - Some devices, such as those from Xiaomi/Aqara, may not be fully compliant with Zigbee standards and may therefore require many paring attempts over 10-20 minutes or longer.
 
 ### Zigbee interference avoidance and network range/coverage optimization
 
