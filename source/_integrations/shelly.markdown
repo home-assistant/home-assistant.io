@@ -386,6 +386,58 @@ Trigger reboot of device.
 - Reboot
   - triggers the reboot
 
+## Actions
+
+The integration provides the following actions for non-sleeping Gen2+ devices:
+
+### Action: Get KVS value
+
+The `shelly.get_kvs_value` action is used to get a value from the device's Key-Value Storage. The retrieved value can be text, a number, a boolean, a null value, a dictionary, or a list.
+
+- **Data attribute**: `device_id`
+  - **Description**: The ID of the Shelly device to get the KVS value from.
+  - **Optional**: No
+- **Data attribute**: `key`
+  - **Description**: The name of the key for which the KVS value will be retrieved.
+  - **Optional**: No
+
+### Action: Set KVS value
+
+The `shelly.set_kvs_value` action is used to set a value in the device's Key-Value Storage.
+
+- **Data attribute**: `device_id`
+  - **Description**: The ID of the Shelly device to set the KVS value.
+  - **Optional**: No
+- **Data attribute**: `key`
+  - **Description**: The name of the key under which the KVS value will be stored.
+  - **Optional**: No
+- **Data attribute**: `value`
+  - **Description**: Value to set. The value can be text, a number, a boolean, a null value, a dictionary, or a list.
+  - **Optional**: No
+
+### Example: Creating a sensor for the KVS value
+
+The following example creates a temperature sensor that will retrieve a temperature value from the KVS for the key `my_temperature_value` every 10 minutes.
+
+```yaml
+# Example configuration.yaml entry
+template:
+  - trigger:
+      - platform: time_pattern
+        minutes: /10
+    action:
+      - action: shelly.get_kvs_value
+        data:
+          device_id: e4c0e031f68a8fbe08c50eda5e189a70
+          key: my_temperature_value
+        response_variable: temperature_variable
+    sensor:
+      - name: My temperature
+        state: "{{ temperature_variable.value }}"
+        unit_of_measurement: °C
+        device_class: temperature
+```
+
 ## Shelly Thermostatic Radiator Valve (TRV)
 
 Shelly TRV generates 2 entities that can be used to control the device behavior: `climate` and `number`.

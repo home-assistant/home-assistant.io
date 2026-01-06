@@ -17,7 +17,7 @@ ha_integration_type: integration
 ha_dhcp: true
 ---
 
-The `obihai` integration allows you to view the call status for your [Obihai devices](https://www.obitalk.com/info/products#home_section).
+The **Obihai** {% term integration %} allows you to view the call status for your [Obihai devices](https://www.obitalk.com/info/products#home_section).
 
 {% include integrations/config_flow.md %}
 

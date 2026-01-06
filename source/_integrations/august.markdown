@@ -27,7 +27,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `august` integration allows you to integrate your [August](https://august.com/) and some Yale Access devices in Home Assistant.
+The **August** {% term integration %} allows you to integrate your [August](https://august.com/) and some Yale Access devices in Home Assistant.
 
 For devices that use the [Yale Home](https://yalehome.com/global) app, the [Yale](/integrations/yale) integration should be used instead.
 

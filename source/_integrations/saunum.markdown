@@ -16,9 +16,11 @@ related:
     title: Saunum Leil product page
 ha_category: []
 ha_platforms:
+  - binary_sensor
   - climate
   - diagnostics
   - light
+  - sensor
 ---
 
 The **Saunum** {% term integration %} integrates your [Saunum Leil](https://saunum.com/en/product/control-devices/) sauna control unit with Home Assistant. [Saunum](https://saunum.com/) is an Estonian company that creates advanced sauna heaters and control systems with smart features.
@@ -67,6 +69,10 @@ The Saunum Leil control unit natively operates in Celsius, even if Fahrenheit is
 3. **Adjust the fan mode** (optional) to control the sauna air circulation fan speed.
 
 Once started, the sauna begins heating to the target temperature and automatically turns off after the configured duration. During an active session, you cannot change the sauna type, sauna duration, or fan duration settings.
+
+{% note %}
+You cannot start a sauna session when the sauna door is open. The control unit will prevent heating from starting as a safety measure. Close the sauna door before attempting to start a heating session. You can monitor the door status using the **Door open** binary sensor.
+{% endnote %}
 
 ### Fan mode settings
 
@@ -123,11 +129,144 @@ The **Saunum** integration provides the following entities for controlling and m
   - **Unit**: Seconds
   - **Note**: This sensor is disabled by default. Enable it in the entity settings if you want to track usage statistics.
 
+### Binary sensor
+
+- **Door open**
+  - **Description**: Indicates whether the sauna door is currently open.
+  - **Device class**: Door
+  - **Use case**: Monitor sauna door status for safety and automation purposes.
+
+- **Door open during heating alarm**
+  - **Description**: Safety alarm triggered when the sauna door is opened while the heater is actively running.
+  - **Device class**: Problem
+  - **Category**: Diagnostic
+  - **Use case**: Important safety alert to prevent overheating and ensure safe operation.
+
+- **Door open too long alarm**
+  - **Description**: Alarm triggered when the sauna door has been left open for an extended period.
+  - **Device class**: Problem
+  - **Category**: Diagnostic
+  - **Use case**: Alerts you to potential energy waste or forgotten open door.
+
+- **Thermal cutoff alarm**
+  - **Description**: Critical safety alarm triggered when the thermal safety cutoff has activated due to excessive heat.
+  - **Device class**: Problem
+  - **Category**: Diagnostic
+  - **Use case**: Immediate attention required - indicates a serious overheating condition.
+
+- **Internal temperature alarm**
+  - **Description**: Alarm triggered when the internal electronics temperature is too high.
+  - **Device class**: Problem
+  - **Category**: Diagnostic
+  - **Use case**: Indicates potential ventilation or cooling issues with the control unit.
+
+- **Temperature sensor shorted alarm**
+  - **Description**: Diagnostic alarm indicating the temperature sensor has a short circuit.
+  - **Device class**: Problem
+  - **Category**: Diagnostic
+  - **Use case**: Sensor malfunction requiring technical service.
+
+- **Temperature sensor disconnected alarm**
+  - **Description**: Diagnostic alarm indicating the temperature sensor is disconnected or has an open circuit.
+  - **Device class**: Problem
+  - **Category**: Diagnostic
+  - **Use case**: Sensor connection issue requiring technical service.
+
+{% important %}
+Monitor the alarm binary sensors regularly. Any active alarm sensor indicates a potential safety or operational issue that should be addressed immediately. The sauna heater will automatically shut down when safety alarms are triggered.
+{% endimportant %}
+
 ## Supported devices
 
 The following devices are known to be supported by the integration:
 
 - Saunum Leil touch screen control panel
+
+## Automations
+
+Examples of automations you can create using the Saunum integration.
+
+### Sauna ready notification with light
+
+Send a notification and turn on the sauna light when the target temperature is reached.
+
+{% my blueprint_import badge blueprint_url="https://gist.github.com/mettolen/080ec51210ec1d726b7f5279b64c63c2" %}
+
+{% details "Example YAML configuration" %}
+
+{% raw %}
+
+```yaml
+blueprint:
+  name: Sauna Ready Notification with Light
+  description: Sends a notification and turns on the sauna light when the target temperature is reached
+  domain: automation
+  input:
+    sauna_climate:
+      name: Sauna Climate Entity
+      description: The climate entity that controls your sauna
+      selector:
+        entity:
+          domain: climate
+    sauna_light:
+      name: Sauna Light Entity
+      description: The light entity in your sauna
+      selector:
+        entity:
+          domain: light
+    notify_service:
+      name: Notification Service
+      description: The notification service to use (e.g., mobile_app_your_phone)
+      selector:
+        text:
+    notification_title:
+      name: Notification Title
+      description: Title for the notification
+      default: "🧖 Sauna is Ready!"
+      selector:
+        text:
+    notification_message:
+      name: Notification Message
+      description: Message body (use {{temperature}} for the target temperature)
+      default: "Your sauna has reached {{temperature}}°C. Enjoy!"
+      selector:
+        text:
+          multiline: true
+
+mode: single
+
+trigger:
+  - platform: template
+    value_template: >
+      {{ state_attr(sauna_climate, 'current_temperature') | float(0) >=
+         state_attr(sauna_climate, 'temperature') | float(0) }}
+
+condition:
+  - condition: state
+    entity_id: !input sauna_climate
+    state: heat
+
+action:
+  - action: light.turn_on
+    target:
+      entity_id: !input sauna_light
+  - action: notify.{{ notify_service }}
+    data:
+      title: !input notification_title
+      message: !input notification_message
+      data:
+        notification_icon: "mdi:radiator"
+        tag: "sauna-ready"
+
+variables:
+  sauna_climate: !input sauna_climate
+  notify_service: !input notify_service
+  temperature: "{{ state_attr(sauna_climate, 'temperature') }}"
+```
+
+{% endraw %}
+
+{% enddetails %}
 
 ## Data updates
 

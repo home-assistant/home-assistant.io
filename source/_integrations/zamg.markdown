@@ -16,7 +16,7 @@ ha_codeowners:
   - '@killer0071234'
 ---
 
-The `GeoSphere Austria` platform uses meteorological details published by the Austrian weather service [GeoSphere Austria](https://www.geosphere.at).
+The **GeoSphere Austria** {% term integration %} uses meteorological details published by the Austrian weather service [GeoSphere Austria](https://www.geosphere.at).
 
 With this integration, it is possible to get weather station data from up to 228 different GeoSphere stations across Austria. The integration uses the [datahub-api](https://dataset.api.hub.geosphere.at/v1/docs/index.html).
 

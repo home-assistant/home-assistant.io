@@ -16,7 +16,7 @@ ha_platforms:
 ha_integration_type: service
 ---
 
-The `slack` platform allows you to deliver notifications from Home Assistant to [Slack](https://slack.com/).
+The **Slack** {% term integration %} allows you to deliver notifications from Home Assistant to [Slack](https://slack.com/).
 
 ![](/images/integrations/slack/slack-message.png)
 

@@ -40,6 +40,8 @@ The integration fetches:
 
 This results in 4,464 requests per month, meaning you could have up to 2 locations and still stay under the 10,000 free usage cap.
 
+The `weather.get_forecasts` action uses the cached forecast data and will not issue any additional API calls to Google. You can use this action safely in templates or automations without affecting your quota usage.
+
 ## Known limitations
 
 - Weather forecast information isn't currently available in South Korea and Japan. Refer to the [Google Help Center](https://support.google.com/websearch/answer/13687874).
@@ -53,3 +55,4 @@ This results in 4,464 requests per month, meaning you could have up to 2 locatio
 ## Removing the integration
 
 {% include integrations/remove_device_service.md %}
+

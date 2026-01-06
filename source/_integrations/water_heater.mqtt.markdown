@@ -8,7 +8,7 @@ ha_iot_class: Local Polling
 ha_domain: mqtt
 ---
 
-The `mqtt` water heater platform lets you control your MQTT enabled water heater devices.
+The **MQTT water heater** {% term integration %} lets you control your MQTT enabled water heater devices.
 
 ## Configuration
 

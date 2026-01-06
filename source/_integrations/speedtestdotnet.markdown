@@ -16,7 +16,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The Speedtest.net integration uses the [Speedtest.net](https://speedtest.net/) web service to measure network bandwidth performance.
+The **Speedtest.net** {% term integration %} uses the [Speedtest.net](https://speedtest.net/) web service to measure network bandwidth performance.
 
 {% include integrations/config_flow.md %}
 

@@ -16,7 +16,7 @@ ha_codeowners:
 ha_integration_type: integration
 ---
 
-The GitHub integration allows you to monitor your favorite [GitHub](https://github.com/) public repositories.
+The **GitHub** {% term integration %} allows you to monitor your favorite [GitHub](https://github.com/) public repositories.
 
 {% include integrations/config_flow.md %}
 

@@ -14,7 +14,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The Israel rail integration will give you the next three departure times from a given location to another one in Israel rail.
+The **Israel Railways** {% term integration %} will give you the next three departure times from a given location to another one in Israel rail.
 
 {% include integrations/config_flow.md %}
 

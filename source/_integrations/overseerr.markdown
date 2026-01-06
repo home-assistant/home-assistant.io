@@ -40,7 +40,7 @@ The latest version of Overseerr is supported by this integration.
 
 ## Supported functionality
 
-The Overseerr intergation provides a couple of entities to Home Assistant.
+The Overseerr integration provides a couple of entities to Home Assistant.
 Below is an overview of these entities.
 
 ### Events
@@ -58,7 +58,10 @@ Relevant data about the request are stored in the attributes.
 
 ### Sensors
 
-The integration also provides statistics for the requests stored in Overseerr.
+The integration provides statistics for both requests and issues stored in Overseerr.
+
+#### Request sensors
+
 There are sensors for:
  - Total requests
  - Movie requests
@@ -68,28 +71,37 @@ There are sensors for:
  - Processing requests
  - Available requests
 
+#### Issue sensors
+
+There are sensors for:
+ - Total issues
+ - Open issues
+ - Closed issues
+ - Video issues
+ - Audio issues
+ - Subtitle issues
+
 ## Actions
 
 The Overseerr integration has the following actions:
 
-- Get requests
+### Request actions
 
-### Action get requests
+- `overseerr.get_requests` - Get a list of media requests
 
-Get a list of media requests using `overseerr.get_requests`.
+### Get requests
 
-| Data attribute    | Optional | Description                                                 |
-|-------------------|----------|-------------------------------------------------------------|
-| `config_entry_id` | No       | The ID of the Overseerr config entry to get data from.      |
-| `status`          | Yes      | The status to filter the results on.                        |
-| `sort_order`      | Yes      | The sort order to sort the results in (`added`/`modified`). |
-| `requested_by`    | Yes      | Filter the requests based on the user ID of the requester.  |
+Get a list of media requests using the `overseerr.get_requests` action.
+
+- **config_entry_id** (*Required*): The ID of the Overseerr config entry to get data from.
+- **status** (*Optional*): The status to filter the results on.
+- **sort_order** (*Optional*): The sort order to sort the results in (`added`/`modified`).
+- **requested_by** (*Optional*): Filter the requests based on the user ID of the requester.
 
 
 ## Use cases
 
-The integration can be used to build automations to help and notify you of new media requests.
-The provided actions can be used to provide extra context to voice assistants.
+The integration can be used to build automations to help and notify you of new media requests and issues.
 
 ## Example automations
 
@@ -119,6 +131,116 @@ actions:
       message: >-
         {{ state_attr('event.overseerr_last_media_event', 'subject') }} has been
         requested
+```
+
+{% endraw %}
+{% enddetails %}
+
+{% details "Send notification when open issues exceed threshold" %}
+
+{% raw %}
+
+```yaml
+alias: "Notify when too many open issues"
+description: "Alert when open issues in Overseerr exceed 10"
+triggers:
+  - trigger: numeric_state
+    entity_id:
+      - sensor.overseerr_open_issues
+    above: 10
+actions:
+  - action: notify.mobile_app
+    data:
+      message: >-
+        Warning: {{ states('sensor.overseerr_open_issues') }} open issues in Overseerr!
+      title: "High Issue Count"
+```
+
+{% endraw %}
+{% enddetails %}
+
+{% details "Track audio issues trend with statistics sensor" %}
+
+{% raw %}
+
+```yaml
+alias: "Monitor audio issue trends"
+description: "Create a statistics sensor to track audio issue trends over time"
+sensor:
+  - platform: statistics
+    name: "Audio Issues Statistics"
+    entity_id: sensor.overseerr_audio_issues
+    state_characteristic: mean
+    max_age:
+      days: 7
+    sampling_size: 100
+```
+
+{% endraw %}
+{% enddetails %}
+
+{% details "Alert when video issues spike" %}
+
+{% raw %}
+
+```yaml
+alias: "Video issues spike alert"
+description: "Notify when video issues increase significantly"
+triggers:
+  - trigger: numeric_state
+    entity_id:
+      - sensor.overseerr_video_issues
+    above: 5
+actions:
+  - action: notify.mobile_app
+    data:
+      message: >-
+        Video issues are elevated: {{ states('sensor.overseerr_video_issues') }} issues detected
+      title: "Video Quality Alert"
+```
+
+{% endraw %}
+{% enddetails %}
+
+{% details "Daily issue report" %}
+
+{% raw %}
+
+```yaml
+alias: "Daily Overseerr issue summary"
+description: "Send a daily report of all issue types"
+triggers:
+  - trigger: time
+    at: "09:00:00"
+conditions:
+  - condition: numeric_state
+    entity_id: sensor.overseerr_total_issues
+    above: 0
+actions:
+  - action: notify.mobile_app
+    data:
+      title: "Overseerr Daily Report"
+      message: >-
+        Total Issues: {{ states('sensor.overseerr_total_issues') }}
+        Open: {{ states('sensor.overseerr_open_issues') }}
+        Closed: {{ states('sensor.overseerr_closed_issues') }}
+        Video: {{ states('sensor.overseerr_video_issues') }}
+        Audio: {{ states('sensor.overseerr_audio_issues') }}
+        Subtitle: {{ states('sensor.overseerr_subtitle_issues') }}
+```
+
+{% endraw %}
+{% enddetails %}
+
+{% details "Create dashboard badge for subtitle issues" %}
+
+{% raw %}
+
+```yaml
+type: entity
+entity: sensor.overseerr_subtitle_issues
+name: Subtitle Issues
+icon: mdi:subtitles
 ```
 
 {% endraw %}

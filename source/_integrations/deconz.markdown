@@ -64,9 +64,18 @@ Otherwise, use [community container](https://github.com/deconz-community/deconz-
 
 See [deCONZ wiki](https://github.com/dresden-elektronik/deconz-rest-plugin/wiki/Supported-Devices) for a list of supported devices.
 
-{% include integrations/config_flow.md %}
+## Prerequisites
 
-Running a stand-alone instance of deCONZ (non add-on installation) requires a pairing between the deCONZ gateway and Home Assistant. To allow Home Assistant to connect with deCONZ go to the Phoscon UI select **Settings** > **Gateway** > **Advanced** and select the **Authenticate app** button. This same information is also shown during the config flow of the deCONZ integration.
+- If the adapter isn't discovered automatically by Home Assistant, and you add the integration manually, you need the hostname of deCONZ and the port.
+- If you are running the add-on, you can see the hostname on the add-on page under [**Settings** > **Add-ons** > **deCONZ**](https://my.home-assistant.io/redirect/supervisor_addon/?addon=core_deconz), under **Hostname**.
+  - For example: `core-deconz`
+- If the suggested port does not work, try port `40850`.
+- Running a stand-alone instance of deCONZ (non-add-on installation) requires a pairing between the deCONZ gateway and Home Assistant:
+
+  - To allow Home Assistant to connect with deCONZ, go to the Phoscon UI, select **Settings** > **Gateway** > **Advanced** and select the **Authenticate app** button.
+    - This same information is also shown during the config flow of the deCONZ integration.
+
+{% include integrations/config_flow.md %}
 
 ## Debugging integration
 

@@ -15,7 +15,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `garadget` cover {% term integration %} lets you control [Garadget](https://www.garadget.com/) garage door futurizers through Home Assistant.
+The **Garadget** {% term integration %} lets you control [Garadget](https://www.garadget.com/) garage door futurizers through Home Assistant.
 
 ## Configuration
 

@@ -11,6 +11,7 @@ ha_codeowners:
 ha_domain: sunricher_dali
 ha_platforms:
   - light
+  - scene
 ha_integration_type: integration
 ha_quality_scale: bronze
 related:
@@ -49,6 +50,10 @@ Each DALI lighting device connected to the gateway is represented as a light ent
 - On/off and brightness control (all DALI DT6 and DT8 devices)
 - Color temperature (DALI DT8 Tc devices)
 - Color control (DALI DT8 RGB, XY, RGBW, and RGBWA devices)
+
+### Scenes
+
+DALI scenes configured on the gateway are automatically imported into Home Assistant as scene entities. Each scene can be activated to apply pre-configured lighting settings to the associated DALI devices. Scenes must be created and edited on the Sunricher DALI gateway; creating or editing scenes from Home Assistant is not supported.
 
 ## Data updates
 

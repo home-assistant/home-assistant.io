@@ -53,6 +53,10 @@ The OpenRGB integration provides the following entities:
 
 For each RGB device connected to OpenRGB, the integration creates a light entity to control all the LEDs on that device as a single unit.
 
+### Select
+
+For each OpenRGB server device, a select entity is created that allows selecting the profiles configured in the OpenRGB application.
+
 ## Data updates
 
 The **OpenRGB** integration {% term polling polls %} data from the OpenRGB SDK server **every 15 seconds**.
@@ -72,7 +76,8 @@ The integration will then reconnect to the OpenRGB SDK server with the new setti
 
 - The light state shown in Home Assistant may not always reflect the actual device state. Most RGB devices don't report their status back to OpenRGB, so it assumes the state based on the last command sent. If other applications control the same devices, the state reported by OpenRGB (and thus Home Assistant) may be outdated.
 - Changes made directly in the OpenRGB application may not be immediately reflected in Home Assistant (the integration polls for updates every 15 seconds).
-- Some OpenRGB features like per-zone and per-LED control are not yet supported through Home Assistant
+- Some OpenRGB features like per-zone and per-LED control are not yet supported through Home Assistant.
+- The profile select entity cannot be used to determine which profile is currently active as this information is not [currently](https://gitlab.com/CalcProgrammer1/OpenRGB/-/issues/5178) provided by the OpenRGB SDK server.
 
 ## Troubleshooting
 

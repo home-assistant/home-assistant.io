@@ -4,6 +4,7 @@ description: Connect your SEKO PoolDose water treatment system to Home Assistant
 ha_category:
   - Binary sensor
   - Number
+  - Select
   - Sensor
   - Switch
   - Water Management
@@ -16,14 +17,15 @@ ha_domain: pooldose
 ha_platforms:
   - binary_sensor
   - number
+  - select
   - sensor
   - switch
 ha_integration_type: integration
-ha_quality_scale: bronze
+ha_quality_scale: silver
 ha_dhcp: true
 ---
 
-The PoolDose integration connects a [SEKO](https://www.seko.com/) water treatment system with Home Assistant. SEKO is a manufacturer of various monitoring and control devices for pools and spas.
+The **SEKO PoolDose** {% term integration %} connects a [SEKO](https://www.seko.com/) water treatment system with Home Assistant. SEKO is a manufacturer of various monitoring and control devices for pools and spas.
 
 This integration uses an undocumented local HTTP API. It provides live readings for pool sensors such as temperature, pH, ORP/Redox, alarm status, relay states, as well as configuration parameters.
 
@@ -58,6 +60,10 @@ This integration {% term polling polls %} data from the device every 10 minutes 
 - The device does not support frequent requests and may become unstable with shorter intervals
 - Physical water treatment values typically change slowly and do not require frequent monitoring
 - This interval provides adequate monitoring for pool water management while maintaining device reliability
+
+### Update and write behavior
+
+Parallel reads for read-only values are avoided and write operations are serialized (one value at a time). This reduces load on the device's limited hardware and prevents race conditions.
 
 ## Supported devices
 
@@ -151,6 +157,25 @@ This integration provides the following entities.
 - **Pump monitoring**: Enables or disables pump monitoring.
 - **Frequency input**: Enables or disables frequency input for a water meter.
 
+### Selects
+
+- **Water meter unit**: Water meter measurement unit.
+  - **Options**: Liters, Cubic meters
+- **Flow rate unit**: Flow rate measurement unit.
+  - **Options**: Cubic meters per hour, Liters per second
+- **pH dosing type**: pH dosing type.
+  - **Options**: pH+ / alcalyne, pH- / acid
+- **pH dosing method**: pH dosing control method.
+  - **Options**: Disabled, Proportional control, On/Off control, Timed dosing
+- **ORP dosing type**: ORP/Redox dosing type.
+  - **Options**: Low intensity, High intensity
+- **ORP dosing method**: ORP/Redox dosing control method.
+  - **Options**: Disabled, Proportional control, On/Off control, Timed dosing
+- **Chlorine dosing type**: Chlorine dosing type.
+  - **Options**: Low intensity, High intensity
+- **Chlorine dosing method**: Chlorine dosing control method.
+  - **Options**: Disabled, Proportional control, On/Off control, Timed dosing
+
 ## Known limitations
 
 ### Hardware and connectivity issues
@@ -241,3 +266,13 @@ To get peristaltic pump status data:
 2. Find the external relay configuration for the pH and ORP pumps.
 3. Enable the external relays for the pumps you want to monitor.
 4. Save the settings and restart the device if required.
+
+## Diagnostics
+
+This integration provides diagnostics to help with debugging and troubleshooting. The diagnostics output includes:
+
+- The device information reported by the coordinator with sensitive values redacted.
+- The most recent data fetched from the device by the coordinator.
+
+To collect diagnostics, go to **Settings** > **Devices & Services**, open the PoolDose integration,
+click the three-dot menu on the integration entry and choose **Download diagnostics**. Attach the downloaded file when reporting issues to help maintainers investigate.

@@ -23,7 +23,7 @@ ha_dhcp: true
 ha_quality_scale: platinum
 ---
 
-This integration links Home Assistant with your Intergas gateway, including the boiler and any room thermostats attached to it.
+This {% term integration %} links Home Assistant with your Intergas gateway, including the boiler and any room thermostats attached to it.
 The integration uses the [incomfort-client](https://pypi.org/project/incomfort-client/) library.
 
 ### Supported devices
