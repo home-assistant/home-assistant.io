@@ -16,7 +16,7 @@ ha_integration_type: device
 ha_quality_scale: bronze
 ---
 
-The **Hypontech Cloud** {% term integration %} allows you to monitor your Hypontech solar inverter system through the Hypontech Cloud platform and integrate the data into your Home Assistant installation.
+The **Hypontech Cloud** {% term integration %} allows you to monitor your Hypontech solar inverter system through the [Hypontech Cloud](https://www.hypon.cloud) platform and integrate the data into your Home Assistant installation.
 
 ## Supported devices
 
@@ -44,13 +44,11 @@ Password:
 
 ### Sensors
 
-The integration provides the following sensors:
+The integration provides one **Plant** device for each location (e.g. Balcony, Garden, Home, Office) and one **Overview** (aggregation) device. Each has the following sensors:
 
-| Name | Unit | Description |
-|------|------|-------------|
-| Power | W | Current power production from your solar system |
-| Today energy | kWh | Total energy produced today |
-| Lifetime energy | kWh | Total energy produced since installation |
+- **Power** (W): Current power production from your solar system
+- **Today energy** (kWh): Total energy produced today
+- **Lifetime energy** (kWh): Total energy produced since installation
 
 All sensors are updated every minute.
 
