@@ -41,16 +41,16 @@ No details:
 #### Pickup status
 
 Common statuses for an individual pickup include:
-- **initialized**: Available for customers to opt-in for pickup
-- **scheduled**: Opted-into; Ridwell will include you in their route that day
-- **notified**: Ridwell has attempted to contact customers who have not opted-in to pickups happening soon
-- **skipped**: Previously scheduled but then later unscheduled (canceled)
+- `initialized`: Available for customers to opt-in for pickup
+- `scheduled`: Opted-into; Ridwell will include you in their route that day
+- `notified`: Ridwell has attempted to contact customers who have not opted-in to pickups happening soon
+- `skipped`: Previously scheduled but then later unscheduled (canceled)
 
 #### Rotating category
 
 The rotating category will be displayed once a pickup has been scheduled successfully. 
 
-If a pickup does not have the `scheduled` status (described in the [Pickup status](#Pickup status) section), the calendar event will display the **Pickup status** value until the pickup has been scheduled.
+If a pickup does not have the `scheduled` status, the calendar event will display the **Pickup status** values described under [Pickup status](#pickup-status) until the pickup has a `scheduled` status.
 
 #### No details
 
