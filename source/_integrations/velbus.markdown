@@ -312,16 +312,16 @@ After enabling debug logging, restart Home Assistant and check the logs for any 
 
 This error indicates that Home Assistant is unable to connect to the Velbus interface.
 
-#### Description
+#### Resolution
 
-This is likely caused by one of the following issues:
+Try the following steps:
 - For USB connections:
-  - The Velbus USB interface is not properly connected to the Home Assistant device.
-  - Another application (like VelbusLink) is using the Velbus USB interface at the same time.
+  - Make sure the Velbus USB interface is properly connected to the Home Assistant device.
+  - Make sure no other application (like VelbusLink) is using the Velbus USB interface at the same time.
 - For TCP/IP connections:
-  - The Velbus TCP/IP interface is not powered on or not connected to the network.
-  - The IP address or port number is incorrect.
-  - A firewall or network security settings are blocking the connection to the Velbus TCP/IP interface
+  - Make sure the Velbus TCP/IP interface is powered on and connected to the network.
+  - Make sure the IP address and the port number are correct.
+  - Make sure the firewall or network security settings are not blocking the connection to the Velbus TCP/IP interface
 
 ### Module not detected
 
