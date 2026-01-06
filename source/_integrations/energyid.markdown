@@ -47,7 +47,7 @@ Provisioning Secret:
 
 After the initial setup, you can manage which Home Assistant sensors send data to EnergyID.
 
-1. Go to {% my integrations title="**Settings > Devices & Services**" %}.
+1. Go to {% my integrations title="**Settings > Devices & services**" %}.
 2. Find the EnergyID integration and select **Configure**.
 
 From here, you can add new sensor mappings. When adding a mapping, you will be asked for the following:

@@ -31,7 +31,7 @@ The username and password required for this integration are the same credentials
 
 ## Options
 
-The Control4 {% term integration %} offers additional options in {% my integrations title="**Settings** > **Devices & Services**" %} > **Control4** > **Options**:
+The Control4 {% term integration %} offers additional options in {% my integrations title="**Settings** > **Devices & services**" %} > **Control4** > **Options**:
 
 {% configuration %}
 Seconds between updates:

@@ -73,7 +73,7 @@ For the quickest way to get your local Assist pipeline started, follow these ste
    - Install the speech-to-text add-on of your choice, either {% my supervisor_addon addon="core_speech-to-phrase" title="**Speech-to-Phrase**" %} or {% my supervisor_addon addon="core_whisper" title="**Whisper**" %}.
    - Install {% my supervisor_addon addon="core_piper" title="**Piper**" %} for text-to-speech.
    - Start the add-ons.
-   - Once the add-ons are started, head over to the integrations under {% my integrations title="**Settings** > **Devices & Services**" %}.
+   - Once the add-ons are started, head over to the integrations under {% my integrations title="**Settings** > **Devices & services**" %}.
      - You should now see both services being discovered by the [Wyoming integration](/integrations/wyoming/).
        ![Whisper and Piper integrations](/images/assist/piper-whisper-install-new-02.png)
    - For each integration, select **Add**.
