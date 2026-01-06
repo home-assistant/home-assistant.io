@@ -739,15 +739,25 @@ If you experience problems pairing a device, verify that you follow best practic
 
 ### Zigbee interference avoidance and network range/coverage optimization
 
-Sources of interference for radios can lead to transmission/reception loss or connection problems and show symptoms such as errors/failures when sending and receiving Zigbee messages/signals that can cause significant degradation in performance or even prevent devices from communicating at all. Below are some basic but essential tips for getting a good setup starting point to achieve better signal quality, improved coverage, and extended range.
+Sources of interference for radios can lead to connection problems, errors in sending and receiving Zigbee messages/signals, and significant degradation in performance. Implementing some good practicies can serve as a starting point to achieve better signal quality and reception, improved coverage, and extended range.
 
-Following all these optimization tips below should significantly improve the reception of your Zigbee radio adapter. The below insights describe working around the well-known limitations of low-power/low-bandwidth 2.4 GHz digital radios. It can that way resolve or avoid many known issues caused by interference or poor placement of your Zigbee radio adapter or devices.
+It is important to understand the known limitations of low-power/low-bandwidth 2.4 GHz digital radios to avoid issues caused by interference or poor placement of your Zigbee radio adapter or devices.
 
-All electric devices/appliances, especially computers and computer peripherals, generate [EMI/EMF/RMI (electromagnetic fields that cause electromagnetic interference (often called radio-frequency interference, also commonly called signal noise in layman's terms)](https://en.wikipedia.org/wiki/Electromagnetic_interference), which can interfere with signals transmissions on the 2.4 GHz radio band frequency, and in practice partially degrade or even fully jam the wireless communication messages between your Zigbee adapter/devices.
+All electric devices/appliances, especially computers and computer peripherals, generate EMI/EMF/RMI (electromagnetic fields that cause [electromagnetic interference](https://en.wikipedia.org/wiki/Electromagnetic_interference)). This is often called _radio-frequency interference_ or _signal noise_, and it can interfere with signal transmissions over 2.4 GHz radios. It can partially degrade or even fully jam wireless communications between your Zigbee adapter and devices.
 
-For example, interference from USB 3.x ports, unshielded USB 3.x devices, and non-shielded USB 3.x peripheral cables are especially infamously known to affect 2.4 GHz radio reception for low-power/low-bandwidth devices. Therefore you should always place your Zigbee adapter far away as possible from any potential sources of EMI/EMI/RMI, preferably by using an adequately long shielded USB extension cable connected to a USB 2.0 port.
+Examples of real-world interference sources include:
 
-Zigbee also uses [mesh networking topology](https://en.wikipedia.org/wiki/Mesh_networking), which means that most mains-powered devices are a "Zigbee Router" that can act as a signal repeater and range extended by transmitting data over long distances by passing data messages through the Zigbee network mesh of intermediate devices to reach more distant Zigbee devices. Thus to have a healthy Zigbee network, you need many Zigbee Router devices relatively close to each other in order to achieve good coverage and range.
+- Signal noise from USB 3.x ports, 
+- Unshielded USB 3.x devices,
+- Non-shielded USB 3.x peripheral cables 
+    - These are widely known to affect 2.4 GHz radio reception for low-power/low-bandwidth devices.
+    - You should always place your Zigbee adapter far away as possible from any potential sources of EMI/EMI/RMI, preferably by using an adequately long shielded USB extension cable connected to a USB 2.0 port.
+
+Zigbee relies on a concept of [mesh networking](https://en.wikipedia.org/wiki/Mesh_networking) with most mains-powered devices being "Zigbee Routers" that act as signal repeaters and range extenders. Collectively, they transmit data over long distances by passing data messages through the Zigbee network mesh of intermediate devices to reach more distant Zigbee devices. 
+
+{% tip %}
+To have a healthy Zigbee network, you need many Zigbee Router devices relatively close to each other in order to achieve good coverage and range.
+{% endtip %}
 
 #### Actions to optimize Zigbee Coordinator radio hardware
 
