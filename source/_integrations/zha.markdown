@@ -189,37 +189,33 @@ It is strongly encouraged to review the guidance for [Zigbee interference avoida
 
 {% include integrations/config_flow.md %}
 
-1. In the popup dialog, select the serial port from the available options:
-  - **Serial Device Path** 
-    - You should see a list of serial ports detected on the system. 
+1. In the popup dialog, select the **Serial Device Path** from the detected options on your system.
     - Choose the one to which your radio is connected.
 2. Select **Submit**.
-3. After submitting, the {% term integration %} will try to detect the radio type automatically. 
-  - If unsuccessful, you will get a new pop-up to continue with additional configuration: 
-    - **Radio Type**:
-      {% configuration_basic  %}
-      ezsp:
-        description: "Silicon Labs EmberZNet protocol (e.g., Home Assistant ZBT-1 or ZBT-2, Elelabs, HUSBZB-1, Telegesis)"
-      deconz:
-        description: "dresden elektronik deCONZ protocol (e.g., ConBee I/II, RaspBee I/II)"
-      znp:
-        description: "Texas Instruments (e.g., CC253x, CC26x2, CC13x2)"
-      zigate:
-        description: "ZiGate Serial protocol (e.g., ZiGate USB-TTL, PiZiGate, ZiGate WiFi)"
-      xbee:
-        description: "Digi XBee ZB Coordinator Firmware protocol (e.g., Digi XBee Series 2, 2C, 3)"
-      {% endconfiguration_basic %}
-
-      - Select **Submit** to save radio type.
-    - **Serial device path**
-      - Most devices need at the very least the serial device path, such as `/dev/ttyUSB0`, but it is recommended to use device path from `/dev/serial/by-id` folder (e.g., `/dev/serial/by-id/usb-Silicon_Labs_HubZ_Smart_Home_Controller_C0F003D3-if01-port0`).
-      - A list of available device paths can be found in {% my hardware title="Settings > System > Hardware" %} > **dot menu** > **All Hardware**.
-    - **Port speed** (not applicable for all radios)
-    - **Data flow control** (not applicable for all radios)
-4. Press `Submit`. 
-  - If unsuccessful, an error will be displayed in the popup. 
-  - An error is likely if Home Assistant can't access the USB device or your device is not up to date. 
-  - Refer to [Troubleshooting](#troubleshooting) below for more information.
+3. After submitting, the {% term integration %} will try to detect the radio type automatically.
+4. If unsuccessful, you will get a new pop-up to set your radio type: 
+    - Select your **Radio Type** and click **Submit**:
+        {% configuration_basic  %}
+        ezsp:
+          description: "Silicon Labs EmberZNet protocol (e.g., Home Assistant ZBT-1 or ZBT-2, Elelabs, HUSBZB-1, Telegesis)"
+        deconz:
+          description: "dresden elektronik deCONZ protocol (e.g., ConBee I/II, RaspBee I/II)"
+        znp:
+          description: "Texas Instruments (e.g., CC253x, CC26x2, CC13x2)"
+        zigate:
+          description: "ZiGate Serial protocol (e.g., ZiGate USB-TTL, PiZiGate, ZiGate WiFi)"
+        xbee:
+          description: "Digi XBee ZB Coordinator Firmware protocol (e.g., Digi XBee Series 2, 2C, 3)"
+        {% endconfiguration_basic %}
+5. Enter the **Serial device path**:
+    - Most devices need at the very least the serial device path, such as `/dev/ttyUSB0`, but it is recommended to use device path from `/dev/serial/by-id` folder (e.g., `/dev/serial/by-id/usb-Silicon_Labs_HubZ_Smart_Home_Controller_C0F003D3-if01-port0`).
+    - A list of available device paths can be found in {% my hardware title="Settings > System > Hardware" %} > **dot menu** > **All Hardware**.
+6. Set the **Port speed** (not applicable for all radios)
+7. Set the **Data flow control** (not applicable for all radios)
+8. Press **Submit**.
+    - If unsuccessful, an error will be displayed in the popup. 
+    - An error is likely if Home Assistant can't access the USB device or your device is not up to date. 
+    - Refer to [Troubleshooting](#troubleshooting) below for more information.
 
 ### ZiGate or Sonoff ZBBridge devices
 
