@@ -1,15 +1,17 @@
 ---
 title: "Rotarex DIMES SRG"
 description: "Instructions on how to integrate your Rotarex gas tanks into Home Assistant."
-documentation: https://rotarexsrg.com/category/digital-measurement-system
 ha_release: 2026.1
 ha_domain: rotarex
 ha_iot_class: cloud_polling
 ha_codeowners:
   - '@Rotarex'
+related:
+  - url: https://rotarexsrg.com/category/digital-measurement-system
+    title: Rotarex digital measurement system product page
 ---
 
-The **Rotarex DIMES SRG** {% term integration %} allows you to monitor your Rotarex DIMES SRG Camping gas tanks in Home Assistant.
+The **Rotarex DIMES SRG** {% term integration %} allows you to monitor your [Rotarex DIMES SRG Camping gas tanks](https://rotarexsrg.com/category/digital-measurement-system) in Home Assistant.
 
 This integration uses the official Rotarex cloud API to fetch the latest data.
 
@@ -23,8 +25,6 @@ This integration uses the official Rotarex cloud API to fetch the latest data.
 2. Create a Rotarex account, then sign in.
 3. Add your tank to the app and confirm it syncs.
 4. Have your app login credentials (email and password) ready.
-
-## Configuration
 
 {% include integrations/config_flow.md %}
 
