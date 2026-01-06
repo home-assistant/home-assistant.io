@@ -25,7 +25,7 @@ There are different ways to enable {% term entities %}. You can enable a single 
 
    ![Screenshot showing how to enable or disable multiple automations](/images/organizing/enable_disable.png)
 
-## Related topics
+### Related topics
 
 - [Customizing entities](/docs/configuration/customizing-devices/)
 - [Grouping your assets](/docs/organizing/)
