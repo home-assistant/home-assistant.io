@@ -8,7 +8,7 @@ ha_codeowners:
 ha_domain: saunum
 ha_integration_type: device
 ha_config_flow: true
-ha_quality_scale: gold
+ha_quality_scale: silver
 related:
   - url: https://www.saunum.com/
     title: Saunum
