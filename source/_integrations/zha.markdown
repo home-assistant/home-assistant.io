@@ -193,20 +193,14 @@ It is strongly encouraged to review the guidance for [Zigbee interference avoida
     - Choose the one to which your radio is connected.
 2. Select **Submit**.
 3. After submitting, the {% term integration %} will try to detect the radio type automatically.
-4. If unsuccessful, you will get a new pop-up to set your radio type: 
-    - Select your **Radio Type** and click **Submit**:
-        {% configuration_basic  %}
-        ezsp:
-          description: "Silicon Labs EmberZNet protocol (e.g., Home Assistant ZBT-1 or ZBT-2, Elelabs, HUSBZB-1, Telegesis)"
-        deconz:
-          description: "dresden elektronik deCONZ protocol (e.g., ConBee I/II, RaspBee I/II)"
-        znp:
-          description: "Texas Instruments (e.g., CC253x, CC26x2, CC13x2)"
-        zigate:
-          description: "ZiGate Serial protocol (e.g., ZiGate USB-TTL, PiZiGate, ZiGate WiFi)"
-        xbee:
-          description: "Digi XBee ZB Coordinator Firmware protocol (e.g., Digi XBee Series 2, 2C, 3)"
-        {% endconfiguration_basic %}
+4. If unsuccessful, you will need to manually set your radio type: 
+    - Choose your **Radio Type**:
+        - **ezsp**: Silicon Labs EmberZNet protocol (e.g., Home Assistant ZBT-1 or ZBT-2, Elelabs, HUSBZB-1, Telegesis)
+        - **deconz**: dresden elektronik deCONZ protocol (e.g., ConBee I/II, RaspBee I/II)
+        - **znp**: Texas Instruments (e.g., CC253x, CC26x2, CC13x2)
+        - **zigate**: ZiGate Serial protocol (e.g., ZiGate USB-TTL, PiZiGate, ZiGate WiFi)
+        - **xbee**: Digi XBee ZB Coordinator Firmware protocol (e.g., Digi XBee Series 2, 2C, 3)
+    - Select **Submit** to proceed to the next step.
 5. Enter the **Serial device path**:
     - Most devices need at the very least the serial device path, such as `/dev/ttyUSB0`, but it is recommended to use device path from `/dev/serial/by-id` folder (e.g., `/dev/serial/by-id/usb-Silicon_Labs_HubZ_Smart_Home_Controller_C0F003D3-if01-port0`).
     - A list of available device paths can be found in {% my hardware title="Settings > System > Hardware" %} > **dot menu** > **All Hardware**.
