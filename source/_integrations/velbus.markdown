@@ -346,7 +346,7 @@ This is likely caused by one of the following issues:
 #### Resolution
 
 - Check if Velbuslink software detects all modules correctly.
-- If this is the case file a bug report including debug logs, diagnostics and your VLP file.
+- If the Velbuslink software detects all modules, but they do not show in Home Assistant, file a bug report including debug logs, diagnostics, and your VLP file.
 
 ## Supported devices
 
