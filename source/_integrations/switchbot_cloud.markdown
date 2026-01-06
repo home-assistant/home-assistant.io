@@ -137,6 +137,10 @@ Please note, device names configured in the SwitchBot app are transferred into H
 
 - [Smart Radiator Thermostat](https://www.switch-bot.com/products/switchbot-smart-radiator-thermostat)
 
+### Image
+
+- [AI Art Frame](https://www.switch-bot.com/products/switchbot-ai-art-frame)
+
 ## Supported functionality
 
 ### Plugs and switches
@@ -478,6 +482,17 @@ Features:
 - get temperature
 - set mode
 - get battery
+
+
+### Image
+
+#### AI Art Frame
+
+Features:
+- get battery
+- get display mode
+- switch picture
+- display current picture
 
 ## Important considerations
 
