@@ -96,7 +96,6 @@ The following commands are currently supported depending on device type and manu
 - input_hdmi4
 - input_tuner
 - left
-- literal
 - play
 - power 
 - replay
@@ -108,6 +107,8 @@ The following commands are currently supported depending on device type and manu
 - volume_down
 - volume_mute
 - volume_up
+
+Strings can be be typed by using the command `Lit_STRING` (e.g. `Lit_example` will type "example"). Punctuation and spaces are allowed in the string.
 
 ##### Example
 

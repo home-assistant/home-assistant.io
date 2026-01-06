@@ -18,7 +18,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The Mobile App integration allows Home Assistant mobile apps to easily integrate with Home Assistant.
+The **Mobile App** {% term integration %} allows Home Assistant mobile apps to easily integrate with Home Assistant.
 
 If you are planning to use a mobile application that integrates with Home Assistant, we recommend that you keep this integration enabled.
 

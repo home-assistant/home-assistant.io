@@ -15,7 +15,7 @@ ha_codeowners:
 ha_config_flow: true
 ---
 
-The IMAP integration is observing your [IMAP server](https://en.wikipedia.org/wiki/Internet_Message_Access_Protocol). It can report the number of unread emails and can send a custom event that can be used to trigger an automation. Other search criteria can be used, as shown in the example below.
+The **IMAP** {% term integration %} is observing your [IMAP server](https://en.wikipedia.org/wiki/Internet_Message_Access_Protocol). It can report the number of unread emails and can send a custom event that can be used to trigger an automation. Other search criteria can be used, as shown in the example below.
 
 {% include integrations/config_flow.md %}
 
@@ -190,8 +190,22 @@ The IMAP integration has some actions for post-pressing email messages. The acti
 | -- | -- | -- | -- |
 | `entry_id` | string | no | The IMAP config entry ID. |
 | `uid` | string |  no | The `uid` of the message to be marked as seen. To be found in the message's event data. |
-| `target_folder` | string | no | The name of the target folder, for example `INBOX.Trash` where the message should be moved to. |
+| `target_folder` | string | no | The name of the target folder, for example `INBOX/Trash` (or `INBOX.Trash`) on older systems, where the message should be moved to. |
 | `seen` | boolean | yes | If set to `true` this will mark the message as "seen". |
+
+{% important %}
+Make sure to use the correct IMAP folder separator char. The table below show common used IMAP folder separator characters:
+
+| Mailserver            | Separator            |
+|-----------------------|----------------------|
+| Gmail                 | /                    |
+| Dovecot               | . (but often /)      |
+| Courier IMAP          | .                    |
+| Cyrus IMAP            | /                    |
+| Microsoft Exchange    | /                    |
+| Zimbra                | /                    |
+| Yahoo Mail            | /                    |
+{% endimportant %}
 
 #### Action `delete` - Delete the IMAP message
 
@@ -201,7 +215,7 @@ The IMAP integration has some actions for post-pressing email messages. The acti
 | `uid` | string | no | The `uid` of the message to be deleted. To be found in the message's event data. |
 
 {% caution %}
-When these actions are used in an automation, make sure the right triggers and filtering are set up. When messages are deleted or modified, they cannot be recovered. When multiple IMAP entries are set up, make sure the messages are filtered by the `entry_id` as well to ensure the correct messages are processed. Do not use these actions unless you know what you are doing.
+When these actions are used in an automation, make sure the right triggers and filtering are set up. When messages are deleted, moved or modified, they cannot be recovered. When multiple IMAP entries are set up, make sure the messages are filtered by the `entry_id` as well to ensure the correct messages are processed. Do not use these actions unless you know what you are doing.
 {% endcaution %}
 
 #### Action `fetch` - Fetch the an IMAP message

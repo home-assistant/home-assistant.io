@@ -15,7 +15,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `openhardwaremonitor` {% term integration %} uses your [Open Hardware Monitor](https://openhardwaremonitor.org/) installation as a source for sensors that will display system information.
+The **Open Hardware Monitor** {% term integration %} uses your [Open Hardware Monitor](https://openhardwaremonitor.org/) installation as a source for sensors that will display system information.
 
 ## Setup
 

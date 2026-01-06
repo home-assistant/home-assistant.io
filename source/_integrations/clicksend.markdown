@@ -15,7 +15,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `clicksend` platform uses [ClickSend](https://clicksend.com) to deliver notifications from Home Assistant.
+The **ClickSend SMS** {% term integration %} uses [ClickSend](https://clicksend.com) to deliver notifications from Home Assistant.
 
 ## Prerequisites
 
