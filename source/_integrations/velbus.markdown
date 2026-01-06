@@ -345,7 +345,7 @@ This is likely caused by one of the following issues:
 
 #### Resolution
 
-- Chek that Velbuslink software detects all modules correctly.
+- Check if Velbuslink software detects all modules correctly.
 - If this is the case file a bug report including debug logs, diagnostics and your VLP file.
 
 ## Supported devices
