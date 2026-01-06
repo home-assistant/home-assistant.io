@@ -222,6 +222,19 @@ A list of available device paths can be found in {% my hardware title="Settings 
 
 Press `Submit`. The success dialog will appear or an error will be displayed in the popup. An error is likely if Home Assistant can't access the USB device or your device is not up to date. Refer to [Troubleshooting](#troubleshooting) below for more information.
 
+### ZiGate or Sonoff ZBBridge devices
+
+If you are use ZiGate or Sonoff ZBBridge, there is additional configuration needed for `usb_path`.
+
+{% details "Additional ZBBridge config" %}
+
+- ZiGate USB TTL or DIN: `/dev/ttyUSB0` or `auto` to auto discover the zigate
+- PiZigate: `pizigate:/dev/ttyS0`
+- Wifi Zigate: `socket://[IP]:[PORT]` — for example `socket://192.168.1.10:9999`
+- Sonoff ZBBridge: `socket://[IP]:[PORT]` — for example `socket://192.168.1.11:8888`
+
+{% enddetails %}
+
 ### Global Options
 
 There are a few global options available once ZHA has been configured. Press **Configure** to access these settings.
@@ -236,19 +249,6 @@ Enable enhanced brightness slider during light transition:
 Group members assume state of group:
   description: "When using ZHA groups, turning on a ZHA group light makes the ZHA group members optimistically change their state to \"on\", instead of waiting and polling the lights when off. _(default: on)_"
 {% endconfiguration_basic %}
-
-### ZiGate or Sonoff ZBBridge devices
-
-If you are use ZiGate or Sonoff ZBBridge, there is additional configuration needed for `usb_path`.
-
-{% details "Additional ZBBridge config" %}
-
-- ZiGate USB TTL or DIN: `/dev/ttyUSB0` or `auto` to auto discover the zigate
-- PiZigate: `pizigate:/dev/ttyS0`
-- Wifi Zigate: `socket://[IP]:[PORT]` — for example `socket://192.168.1.10:9999`
-- Sonoff ZBBridge: `socket://[IP]:[PORT]` — for example `socket://192.168.1.11:8888`
-
-{% enddetails %}
 
 ### Configuration - YAML
 
