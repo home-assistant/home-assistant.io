@@ -19,7 +19,7 @@ related:
     title: NRGkick Website
 ---
 
-The **NRGkick** {% term integration %} allows you to monitor the NRGkick mobile EV charger (Wallbox) by DiniTech with Home Assistant. The wallbox is smart home friendly and allows detailed monitoring with 80+ data points.
+The **NRGkick** {% term integration %} allows you to monitor the [NRGkick](https://www.nrgkick.com/) mobile EV charger (Wallbox) by DiniTech with Home Assistant. The wallbox is smart home friendly and allows detailed monitoring with 80+ data points.
 
 The integration connects directly to the device on your local network using the local REST JSON API. No cloud connection is required.
 
