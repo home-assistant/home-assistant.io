@@ -76,146 +76,119 @@ The integration creates the following sensors:
 
 ##### General
 
-| Sensor        | Unit | Class / Statistics    | Description                       |
-| ------------- | ---- | --------------------- | --------------------------------- |
-| Rated current | A    | current (measurement) | Max rated current of the NRGkick. |
+- **Rated current** (A): Max rated current of the NRGkick.
 
 ##### Connector
 
-| Sensor                | Unit | Class / Statistics    | Description                                |
-| --------------------- | ---- | --------------------- | ------------------------------------------ |
-| Connector phase count | —    |                       | Phase count of the connected attachment.   |
-| Connector max current | A    | current (measurement) | Max current of the connected attachment.   |
-| Connector type        | —    |                       | Attachment type (for example Type 2, CEE). |
-| Connector serial      | —    |                       | Attachment serial number.                  |
+- **Connector phase count**: Phase count of the connected attachment.
+- **Connector max current** (A): Max current of the connected attachment.
+- **Connector type**: Attachment type (for example Type 2, CEE, domestic).
+- **Connector serial**: Attachment serial number.
 
 ##### Grid
 
-| Sensor         | Unit | Class / Statistics      | Description                                               |
-| -------------- | ---- | ----------------------- | --------------------------------------------------------- |
-| Grid voltage   | V    | voltage (measurement)   | Detected grid voltage type.                               |
-| Grid frequency | Hz   | frequency (measurement) | Detected grid frequency.                                  |
-| Grid phases    | —    |                         | Connected phases on grid side (for example L1, L1/L2/L3). |
+- **Grid voltage** (V): Detected grid voltage type.
+- **Grid frequency** (Hz): Detected grid frequency.
+- **Grid phases**: Connected phases on grid side (for example L1, L1/L2/L3).
 
 ##### Network
 
-| Sensor          | Unit | Class / Statistics            | Description                                            |
-| --------------- | ---- | ----------------------------- | ------------------------------------------------------ |
-| IP address      | —    |                               | IP address of the NRGkick device.                      |
-| MAC address     | —    |                               | MAC address of the NRGkick device.                     |
-| SSID            | —    |                               | Wi-Fi network name of the currently connected network. |
-| Signal strength | dBm  | signal_strength (measurement) | Wi-Fi signal strength (RSSI).                          |
+- **IP address**: IP address of the NRGkick device.
+- **MAC address**: MAC address of the NRGkick device.
+- **SSID**: Wi-Fi network name of the currently connected network.
+- **Signal strength** (dBm): Wi-Fi signal strength (RSSI).
 
 ##### Cellular (only if available)
 
-These sensors are only available on NRGkick SIM models and are disabled by
-default.
+These sensors are only available on NRGkick SIM models and are disabled by default.
 
-| Sensor                   | Unit | Class / Statistics            | Description                      |
-| ------------------------ | ---- | ----------------------------- | -------------------------------- |
-| Cellular operator        | —    |                               | Cellular network operator.       |
-| Cellular signal strength | dBm  | signal_strength (measurement) | Cellular signal strength (RSSI). |
-| Cellular mode            | —    |                               | Cellular mode.                   |
+- **Cellular operator**: Cellular network operator.
+- **Cellular signal strength** (dBm): Cellular signal strength (RSSI).
+- **Cellular mode**: Cellular mode.
 
 ##### GPS (only if available)
 
-These sensors are only available on NRGkick SIM models and are disabled by
-default.
+These sensors are only available on NRGkick SIM models and are disabled by default.
 
-| Sensor        | Unit | Class / Statistics | Description    |
-| ------------- | ---- | ------------------ | -------------- |
-| GPS latitude  | °    | measurement        | GPS latitude.  |
-| GPS longitude | °    | measurement        | GPS longitude. |
-| GPS altitude  | m    | measurement        | GPS altitude.  |
-| GPS accuracy  | m    | measurement        | GPS accuracy.  |
+- **GPS latitude** (°): GPS latitude.
+- **GPS longitude** (°): GPS longitude.
+- **GPS altitude** (m): GPS altitude.
+- **GPS accuracy** (m): GPS accuracy.
 
 ##### Versions
 
 These sensors are disabled by default.
 
-| Sensor           | Unit | Class / Statistics | Description                   |
-| ---------------- | ---- | ------------------ | ----------------------------- |
-| Software version | —    |                    | SmartModule software version. |
-| Hardware version | —    |                    | SmartModule hardware version. |
+- **Software version**: SmartModule software version.
+- **Hardware version**: SmartModule hardware version.
 
 #### Device control
 
-These values are exposed as sensors for monitoring. Setting charging parameters
-from Home Assistant is not supported in this version of the integration.
+These values are exposed as sensors for monitoring. Setting charging parameters from Home Assistant is not supported in this version of the integration.
 
-| Sensor               | Unit | Class / Statistics    | Description                          |
-| -------------------- | ---- | --------------------- | ------------------------------------ |
-| Charging current set | A    | current (measurement) | User-set charging current setpoint.  |
-| Charge pause         | —    |                       | Charge pause state (0/1).            |
-| Energy limit         | kWh  | energy (total)        | User-set energy limit setpoint.      |
-| Phase count          | —    |                       | User-set maximum charge phase count. |
+- **Charging current set** (A): User-set charging current setpoint (Range: 6.0 - rated_current (16.0A / 32.0A)).
+- **Charge pause**: Charge pause state (0 = no pause / 1 = pause).
+- **Energy limit** (kWh): User-set energy limit setpoint (0 = no limit, >0 limit).
+- **Phase count**: User-set maximum charge phase count (Note: Only set-able if phase-switch got enabled within the NRGkick-App. Range 1-3).
 
 #### Device values
 
 ##### Energy
 
-| Sensor               | Unit | Class / Statistics        | Description                                           |
-| -------------------- | ---- | ------------------------- | ----------------------------------------------------- |
-| Total charged energy | kWh  | energy (total_increasing) | Total charged energy overall.                         |
-| Charged energy       | kWh  | energy (total_increasing) | Charged energy during the most recent charge session. |
+- **Total charged energy** (kWh): Total charged energy overall.
+- **Charged energy** (kWh): Charged energy during the most recent charge session.
 
 ##### Powerflow
 
-| Sensor                   | Unit | Class / Statistics           | Description                                          |
-| ------------------------ | ---- | ---------------------------- | ---------------------------------------------------- |
-| Charging current         | A    | current (measurement)        | Max current signaled to the EV.                      |
-| Peak power               | W    | power (measurement)          | Highest power during the most recent charge session. |
-| Total active power       | W    | power (measurement)          | Total active power across all phases.                |
-| Total reactive power     | var  | reactive_power (measurement) | Total reactive power across all phases.              |
-| Total apparent power     | VA   | apparent_power (measurement) | Total apparent power across all phases.              |
-| Total power factor       | %    | power_factor (measurement)   | Power factor across all phases.                      |
-| Charging voltage         | V    | voltage (measurement)        | Average charging voltage across phases.              |
-| Powerflow grid frequency | Hz   | frequency (measurement)      | Grid frequency reported in powerflow data.           |
-| L1 voltage               | V    | voltage (measurement)        | Voltage on phase L1.                                 |
-| L1 current               | A    | current (measurement)        | Current on phase L1.                                 |
-| L1 active power          | W    | power (measurement)          | Active power on phase L1.                            |
-| L1 reactive power        | var  | reactive_power (measurement) | Reactive power on phase L1.                          |
-| L1 apparent power        | VA   | apparent_power (measurement) | Apparent power on phase L1.                          |
-| L1 power factor          | %    | power_factor (measurement)   | Power factor on phase L1.                            |
-| L2 voltage               | V    | voltage (measurement)        | Voltage on phase L2.                                 |
-| L2 current               | A    | current (measurement)        | Current on phase L2.                                 |
-| L2 active power          | W    | power (measurement)          | Active power on phase L2.                            |
-| L2 reactive power        | var  | reactive_power (measurement) | Reactive power on phase L2.                          |
-| L2 apparent power        | VA   | apparent_power (measurement) | Apparent power on phase L2.                          |
-| L2 power factor          | %    | power_factor (measurement)   | Power factor on phase L2.                            |
-| L3 voltage               | V    | voltage (measurement)        | Voltage on phase L3.                                 |
-| L3 current               | A    | current (measurement)        | Current on phase L3.                                 |
-| L3 active power          | W    | power (measurement)          | Active power on phase L3.                            |
-| L3 reactive power        | var  | reactive_power (measurement) | Reactive power on phase L3.                          |
-| L3 apparent power        | VA   | apparent_power (measurement) | Apparent power on phase L3.                          |
-| L3 power factor          | %    | power_factor (measurement)   | Power factor on phase L3.                            |
-| Neutral current          | A    | current (measurement)        | Current on neutral conductor (N).                    |
+- **Charging current** (A): Max current signaled to the EV.
+- **Peak power** (W): Highest power during the most recent charge session.
+- **Total active power** (W): Total active power across all phases.
+- **Total reactive power** (var): Total reactive power across all phases.
+- **Total apparent power** (VA): Total apparent power across all phases.
+- **Total power factor** (%): Power factor across all phases.
+- **Charging voltage** (V): Average charging voltage across phases.
+- **Powerflow grid frequency** (Hz): Grid frequency reported in powerflow data.
+- **L1 voltage** (V): Voltage on phase L1.
+- **L1 current** (A): Current on phase L1.
+- **L1 active power** (W): Active power on phase L1.
+- **L1 reactive power** (var): Reactive power on phase L1.
+- **L1 apparent power** (VA): Apparent power on phase L1.
+- **L1 power factor** (%): Power factor on phase L1.
+- **L2 voltage** (V): Voltage on phase L2.
+- **L2 current** (A): Current on phase L2.
+- **L2 active power** (W): Active power on phase L2.
+- **L2 reactive power** (var): Reactive power on phase L2.
+- **L2 apparent power** (VA): Apparent power on phase L2.
+- **L2 power factor** (%): Power factor on phase L2.
+- **L3 voltage** (V): Voltage on phase L3.
+- **L3 current** (A): Current on phase L3.
+- **L3 active power** (W): Active power on phase L3.
+- **L3 reactive power** (var): Reactive power on phase L3.
+- **L3 apparent power** (VA): Apparent power on phase L3.
+- **L3 power factor** (%): Power factor on phase L3.
+- **Neutral current** (A): Current on neutral conductor (N).
 
 ##### General
 
-| Sensor                | Unit | Class / Statistics     | Description                                                        |
-| --------------------- | ---- | ---------------------- | ------------------------------------------------------------------ |
-| Charging rate         | —    | measurement            | Charging rate (value from device API is in km/h).                  |
-| Vehicle connect time  | s    | duration (measurement) | Connect time of the most recent charge session.                    |
-| Vehicle charging time | s    | duration (measurement) | Charging time of the most recent charge session.                   |
-| Status                | —    |                        | Charging status (for example standby, connected, charging, error). |
-| Charge permitted      | —    |                        | Whether charging is permitted by the device (0/1).                 |
-| Relay state           | —    |                        | Current switched relay state (for example active phases).          |
-| Charge count          | —    | total_increasing       | Vehicle plug-in cycle count.                                       |
-| RCD trigger           | —    |                        | Indicates if the RCD got triggered and which type.                 |
-| Warning code          | —    |                        | Current warning code reported by the device.                       |
-| Error code            | —    |                        | Current error code reported by the device.                         |
+- **Charging rate**: Charging rate with considered user defined average consumption of the EV in Kilometer per Hour.
+- **Vehicle connect time** (s): Connect time of the most recent charge session.
+- **Vehicle charging time** (s): Charging time of the most recent charge session.
+- **Status**: Charging status (for example standby, connected, charging, error).
+- **Charge permitted**: Whether the EV is allowed to charge (1) or not (0).
+- **Relay state**: Current switched relay state (for example active phases).
+- **Charge count**: Vehicle plug-in cycle count.
+- **RCD trigger**: Indicates if the RCD got triggered and which type.
+- **Warning code**: Current warning code reported by the device.
+- **Error code**: Current error code reported by the device.
 
 ##### Temperatures
 
-| Sensor                      | Unit | Class / Statistics        | Description                            |
-| --------------------------- | ---- | ------------------------- | -------------------------------------- |
-| Housing temperature         | °C   | temperature (measurement) | NRGkick housing temperature.           |
-| Connector L1 temperature    | °C   | temperature (measurement) | Attachment phase 1 temperature.        |
-| Connector L2 temperature    | °C   | temperature (measurement) | Attachment phase 2 temperature.        |
-| Connector L3 temperature    | °C   | temperature (measurement) | Attachment phase 3 temperature.        |
-| Domestic plug 1 temperature | °C   | temperature (measurement) | Domestic attachment pin 1 temperature. |
-| Domestic plug 2 temperature | °C   | temperature (measurement) | Domestic attachment pin 2 temperature. |
+- **Housing temperature** (°C): NRGkick housing temperature.
+- **Connector L1 temperature** (°C): Attachment phase 1 temperature.
+- **Connector L2 temperature** (°C): Attachment phase 2 temperature.
+- **Connector L3 temperature** (°C): Attachment phase 3 temperature.
+- **Domestic plug 1 temperature** (°C): Domestic attachment pin 1 temperature.
+- **Domestic plug 2 temperature** (°C): Domestic attachment pin 2 temperature.
 
 ### Controls
 
