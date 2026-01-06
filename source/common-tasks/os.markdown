@@ -151,8 +151,5 @@ ha core rebuild
 ha core restart
 ```
 
-
-**Important**: rebuilding the Home Assistant Core (`ha core rebuild`) is required for the changes to take effect.
-
 <!-- Enabling i2c-->
 {% include common-tasks/enable_i2c.md %}
