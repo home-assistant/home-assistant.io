@@ -415,12 +415,6 @@ To get peristaltic pump status data:
 3. Enable the external relays for the pumps you want to monitor.
 4. Save the settings and restart the device if required.
 
-## Removing the integration
-
-This integration follows standard integration removal. No extra steps are required.
-
-{% include integrations/remove_device_service.md %}
-
 ## Diagnostics
 
 This integration provides diagnostics to help with debugging and troubleshooting. The diagnostics output includes:
@@ -430,3 +424,9 @@ This integration provides diagnostics to help with debugging and troubleshooting
 
 To collect diagnostics, go to **Settings** > **Devices & Services**, open the PoolDose integration,
 click the three-dot menu on the integration entry and choose **Download diagnostics**. Attach the downloaded file when reporting issues to help maintainers investigate.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
