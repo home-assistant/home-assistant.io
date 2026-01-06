@@ -1,7 +1,7 @@
 ---
 title: "Rotarex DIMES SRG"
 description: "Instructions on how to integrate your Rotarex gas tanks into Home Assistant."
-ha_release: 2026.1
+ha_release: 2026.2
 ha_domain: rotarex
 ha_iot_class: cloud_polling
 ha_codeowners:
