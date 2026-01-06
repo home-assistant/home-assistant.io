@@ -179,48 +179,49 @@ If you find an opportunity to improve this information, refer to the section on 
 
 ## Configuration requirements
 
+{% important %}
 Be sure to connect a compatible radio module and restart Home Assistant before proceeding with configuration.
+{% endimportant %}
 
-ZHA will automatically create a Zigbee network once it is configured with a Zigbee coordinator; you can then add compatible devices.
+ZHA will automatically create a Zigbee network once configured with a Zigbee coordinator; you can then add compatible devices.
 
-It is highly recommended to review the guidance for [Zigbee interference avoidance and network range/coverage optimization)](#zigbee-interference-avoidance-and-network-rangecoverage-optimization).
+It is strongly encouraged to review the guidance for [Zigbee interference avoidance and network range/coverage optimization)](#zigbee-interference-avoidance-and-network-rangecoverage-optimization).
 
 {% include integrations/config_flow.md %}
 
-In the popup:
+1. In the popup dialog, select the serial port from the available options:
 
-- Serial Device Path - List of detected serial ports on the system. You need to pick one to which your
-radio is connected
-- Submit
+  - **Serial Device Path** - List of detected serial ports on the system. You need to pick one to which your radio is connected
 
-Press `Submit` and the {% term integration %} will try to detect radio type automatically. If unsuccessful, you will get
-a new pop-up asking for a radio type. In the pop-up:
+2. Select **Submit**
 
-- Radio Type
+3. After submitting, the {% term integration %} will try to detect the radio type automatically. 
 
-| Radio Type | Zigbee Radio Hardware                                                                           |
-| ---------- | ----------------------------------------------------------------------------------------------- |
-| `ezsp`     | Silicon Labs EmberZNet protocol (e.g., Home Assistant SkyConnect, Elelabs, HUSBZB-1, Telegesis) |
-| `deconz`   | dresden elektronik deCONZ protocol (e.g., ConBee I/II, RaspBee I/II)                            |
-| `znp`      | Texas Instruments (e.g., CC253x, CC26x2, CC13x2)                                                |
-| `zigate`   | ZiGate Serial protocol (e.g., ZiGate USB-TTL, PiZiGate, ZiGate WiFi)                            |
-| `xbee`     | Digi XBee ZB Coordinator Firmware protocol (e.g., Digi XBee Series 2, 2C, 3)                    |
+  - If unsuccessful, you will get a new pop-up asking for a radio type. 
+  - In the pop-up, continue with additional configuration:
+    - Radio Type
 
-- Submit
+      | Radio Type | Zigbee Radio Hardware                                                                           |
+      | ---------- | ----------------------------------------------------------------------------------------------- |
+      | `ezsp`     | Silicon Labs EmberZNet protocol (e.g., Home Assistant ZBT-1 or ZBT-2, Elelabs, HUSBZB-1, Telegesis) |
+      | `deconz`   | dresden elektronik deCONZ protocol (e.g., ConBee I/II, RaspBee I/II)                            |
+      | `znp`      | Texas Instruments (e.g., CC253x, CC26x2, CC13x2)                                                |
+      | `zigate`   | ZiGate Serial protocol (e.g., ZiGate USB-TTL, PiZiGate, ZiGate WiFi)                            |
+      | `xbee`     | Digi XBee ZB Coordinator Firmware protocol (e.g., Digi XBee Series 2, 2C, 3)                    |
 
-Press `Submit` to save radio type and you will get a new form asking for port settings specific for this
-radio type. In the pop-up:
+      - Select **Submit** to save radio type.
+    - Enter additional information about the chosen radio type:
 
-- Serial device path
-- port speed (not applicable for all radios)
-- data flow control (not applicable for all radios)
+      - Serial device path
+        - Most devices need at the very least the serial device path, such as `/dev/ttyUSB0`, but it is recommended to use device path from `/dev/serial/by-id` folder (e.g., `/dev/serial/by-id/usb-Silicon_Labs_HubZ_Smart_Home_Controller_C0F003D3-if01-port0`).
+        - A list of available device paths can be found in {% my hardware title="Settings > System > Hardware" %} > **dot menu** > **All Hardware**.
+      - Port speed _(not applicable for all radios)_
+      - Data flow control _(not applicable for all radios)_
 
-Most devices need at the very least the serial device path, like `/dev/ttyUSB0`, but it is recommended to use
-device path from `/dev/serial/by-id` folder,
-e.g., `/dev/serial/by-id/usb-Silicon_Labs_HubZ_Smart_Home_Controller_C0F003D3-if01-port0`
-A list of available device paths can be found in {% my hardware title="Settings > System > Hardware" %} > **dot menu** > **All Hardware**.
-
-Press `Submit`. The success dialog will appear or an error will be displayed in the popup. An error is likely if Home Assistant can't access the USB device or your device is not up to date. Refer to [Troubleshooting](#troubleshooting) below for more information.
+4. Press `Submit`. 
+  - If unsuccessful, an error will be displayed in the popup. 
+  - An error is likely if Home Assistant can't access the USB device or your device is not up to date. 
+  - Refer to [Troubleshooting](#troubleshooting) below for more information.
 
 ### ZiGate or Sonoff ZBBridge devices
 
