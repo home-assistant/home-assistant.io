@@ -316,9 +316,9 @@ cards:
 
 This integration {% term polling polls %} data from the device every 10 minutes (600 seconds) by default. This polling interval is configured to balance data freshness with device stability:
 
-- The device does not support frequent requests and may become unstable with shorter intervals
-- Physical water treatment values typically change slowly and do not require frequent monitoring
-- This interval provides adequate monitoring for pool water management while maintaining device reliability
+- The device does not support frequent requests and may become unstable with shorter intervals.
+- Physical water treatment values typically change slowly and do not require frequent monitoring.
+- This interval provides adequate monitoring for pool water management while maintaining device reliability.
 
 ### Update and write behavior
 
