@@ -44,7 +44,7 @@ Password:
 
 ### Sensors
 
-The integration provides one **Plant** device for each location (e.g. Balcony, Garden, Home, Office) and one **Overview** (aggregation) device. Each has the following sensors:
+The integration provides one **Plant** device for each location (for example: Balcony, Garden, Home, Office) and one **Overview** (aggregation) device. Each has the following sensors:
 
 - **Power** (W): Current power production from your solar system
 - **Today energy** (kWh): Total energy produced today
