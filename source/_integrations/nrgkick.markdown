@@ -229,7 +229,7 @@ If setup fails with a connection error:
 ### Entities show unavailable
 
 - Verify the device is powered on and connected.
-- Under **Settings** > **Devices & services**, select **NRGkick**, then reload the integration.
+- Under {% my integrations title="**Settings** > **Devices & services**" %}*, select **NRGkick**, then reload the integration.
 - If your network is unstable, verify Wi-Fi coverage.
 
 ### Some phase sensors are missing or show as unknown
