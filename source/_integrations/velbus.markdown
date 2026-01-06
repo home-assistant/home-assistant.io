@@ -323,11 +323,6 @@ This is likely caused by one of the following issues:
   - The IP address or port number is incorrect.
   - A firewall or network security settings are blocking the connection to the Velbus TCP/IP interface
 
-#### Resolution
-
-- For USB connections, follow the steps in the "Connection via USB" section.
-- For TCP/IP connections, follow the steps in the "Connection via TCP/IP" section.
-
 ### Module not detected
 
 #### Symptom: "Certain modules are not detected by the integration"
