@@ -15,7 +15,7 @@ ha_integration_type: integration
 ha_quality_scale: bronze
 ---
 
-The **Mammotion** {% term integration %} provides BLE and Wi-Fi connectivity with Mammotion products from Home Assistant.
+The **Mammotion** {% term integration %} provides BLE and Wi-Fi connectivity with [Mammotion](https://www.mammotion.com) products from Home Assistant.
 
 ## Prerequisites
 
