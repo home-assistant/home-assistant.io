@@ -308,7 +308,7 @@ After enabling debug logging, restart Home Assistant and check the logs for any 
 
 ### Can't connect to Velbus interface
 
-#### Symptom: “Unable to setup volbus”
+#### Symptom: “Unable to setup Velbus”
 
 This error indicates that Home Assistant is unable to connect to the Velbus interface.
 
