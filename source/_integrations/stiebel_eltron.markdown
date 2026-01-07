@@ -61,13 +61,8 @@ The following preset modes are supported. The STIEBEL ELTRON modes are mapped an
 {% configuration_basic %}
 Host:
   description: "The IP address of the ISG. You can find it in your router."
-  required: true
-  type: string
 Port:
-  description: The TCP port for Modbus.
-  required: false
-  default: 502
-  type: integer
+  description: "The TCP port for Modbus. Default: 502"
 {% endconfiguration_basic %}
 
 ## Removing the integration
