@@ -288,6 +288,11 @@ For sensor entities, Velbus modules send periodic updates. The interval of these
 
 If you encounter issues with the Velbus integration, you can enable debug logging to get more information about the problem.
 
+#### Common issues
+
+- If you have changed the configuration of your Velbus modules using VelbusLink software, you may need to clear the Velbus cache using the `velbus.clear_cache` action to ensure that Home Assistant has the latest configuration.
+- If you use the VLP file configuration for the integration, ensure that the VLP file is up to date and matches the configuration of your Velbus modules.
+
 ### Enabling debug logging
 
 The Velbus integration debug log can be enabled via the graphical interface or by adding the following lines to your {% term "`configuration.yaml`" %} file:
@@ -303,29 +308,45 @@ After enabling debug logging, restart Home Assistant and check the logs for any 
 
 ### Can't connect to Velbus interface
 
-#### Connection via USB
+#### Symptom: “Unable to setup volbus”
 
-- Ensure that the Velbus USB interface is properly connected to your Home Assistant device.
-- Ensure that no other application (like VelbusLink) is using the Velbus USB interface at the same time.
+This error indicates that Home Assistant is unable to connect to the Velbus interface.
 
-#### Connection via TCP/IP
+#### Description
 
-- Ensure that the Velbus TCP/IP interface is powered on and connected to the network.
-- Ensure that the IP address and port number are correct.
-- Ensure that any firewall or network security settings are not blocking the connection to the Velbus TCP/IP interface.
+This is likely caused by one of the following issues:
+- For USB connections:
+  - The Velbus USB interface is not properly connected to the Home Assistant device.
+  - Another application (like VelbusLink) is using the Velbus USB interface at the same time.
+- For TCP/IP connections:
+  - The Velbus TCP/IP interface is not powered on or not connected to the network.
+  - The IP address or port number is incorrect.
+  - A firewall or network security settings are blocking the connection to the Velbus TCP/IP interface
 
-#### Module not detected
+#### Resolution
 
-- Ensure that the Velbus modules are properly connected to the Velbus bus.
-- Ensure that the Velbus modules are powered on.
-- Perform a bus scan using the `velbus.scan` action to detect new modules.
-- Check the VelbusLink software to see if the modules are detected there. If they are not detected in VelbusLink, the issue is likely with the bus or modules themselves.
-- Check the Velbus integration debug logs for any error messages related to module detection.
+- For USB connections, follow the steps in the "Connection via USB" section.
+- For TCP/IP connections, follow the steps in the "Connection via TCP/IP" section.
 
-#### Common issues
+### Module not detected
 
-- If you have changed the configuration of your Velbus modules using VelbusLink software, you may need to clear the Velbus cache using the `velbus.clear_cache` action to ensure that Home Assistant has the latest configuration.
-- If you use the VLP file configuration for the integration, ensure that the VLP file is up to date and matches the configuration of your Velbus modules.
+#### Symptom: "Certain modules are not detected by the integration"
+
+This issue indicates that some Velbus modules are not detected by the Velbus integration.
+
+#### Description
+
+This is likely caused by one of the following issues:
+- The Velbus modules are not properly connected to the Velbus bus.
+- The Velbus modules are not powered on.
+- The Velbus bus scan has not been performed after adding new modules.
+- The Velbus modules are not detected by the VelbusLink software.
+- There are error messages in the Velbus integration debug logs related to module detection.
+
+#### Resolution
+
+- Chek that Velbuslink software detects all modules correctly.
+- If this is the case file a bug report including debug logs, diagnostics and your VLP file.
 
 ## Supported devices
 
