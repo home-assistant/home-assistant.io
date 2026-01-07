@@ -21,11 +21,11 @@ The **Fluss+** {% term integration %} allows you to control [Fluss+](https://flu
 - A Fluss+ device (Can order here: https://fluss.io/flussplus).
 - A Fluss+ account.
 - The Fluss+ app installed on your smart phone.
-- A  Fluss+ device physcially connected to your device (for example, a garage door opener).
+- A Fluss+ device physcially connected to your device (for example, a garage door opener).
 - Fluss+ device connected to your Wi-Fi network and has internet access.
 - During setup of the integration in Home Assistant, you will be prompted to input your API key.
   - You can request an API key in the Fluss+ app under your profile settings.
-  - The API key will youu to access your Fluss+ devices and trigger them through Home Assistant.
+  - The API key will allow you to access your Fluss+ devices and trigger them through Home Assistant.
 
 {% include integrations/config_flow.md %}
 
