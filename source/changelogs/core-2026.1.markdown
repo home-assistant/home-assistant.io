@@ -6,7 +6,7 @@ replace_regex: \s\(\[?[a-z0-9\-\s_]+\]?\)$
 
 These are all the changes included in the Home Assistant 2026.1 release.
 For a summary in a more readable format
-[Release notes blog for this release](/blog/2026/01/07/release-202601/).
+[Release notes blog for this release](/blog/2026/01/07/release-20261/).
 
 ## Beta Fixes
 
