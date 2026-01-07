@@ -378,7 +378,7 @@ Both entities can use these options, but the availability of these will depend o
 - **Pre-heating**: `cooking_oven_program_heating_mode_pre_heating`
 - **Hot air**: `cooking_oven_program_heating_mode_hot_air`
 - **Hot air eco**: `cooking_oven_program_heating_mode_hot_air_eco`
-- ** Hot air gentle**: `cooking_oven_program_heating_mode_hot_air_gentle`
+- **Hot air gentle**: `cooking_oven_program_heating_mode_hot_air_gentle`
 - **Hot air grilling**: `cooking_oven_program_heating_mode_hot_air_grilling`
 - **Top bottom heating**: `cooking_oven_program_heating_mode_top_bottom_heating`
 - **Top bottom heating eco**: `cooking_oven_program_heating_mode_top_bottom_heating_eco`
