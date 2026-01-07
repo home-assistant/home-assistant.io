@@ -5,6 +5,7 @@ ha_category:
   - Button
   - Presence detection
   - Sensor
+  - Switch
 ha_release: 2023.9
 ha_domain: vodafone_station
 ha_config_flow: true
@@ -17,6 +18,7 @@ ha_platforms:
   - device_tracker
   - diagnostics
   - sensor
+  - switch
 ha_integration_type: hub
 ha_quality_scale: platinum
 ---
@@ -72,9 +74,10 @@ UltraHub:
 
 There is support for the following platform types within Home Assistant:
 
+- **Button** - restart router, dsl/fiber/internet key connections.
 - **Device tracker** - presence detection by looking at connected devices.
 - **Sensor** - external IP address, uptime, firmware, resources and network monitors.
-- **Button** - restart router, dsl/fiber/internet key connections.
+- **Switch** - enable/disable main and guest Wi-Fi.
 
 ## Examples
 
