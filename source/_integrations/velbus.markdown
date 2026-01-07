@@ -295,16 +295,7 @@ If you encounter issues with the Velbus integration, you can enable debug loggin
 
 ### Enabling debug logging
 
-The Velbus integration debug log can be enabled via the graphical interface or by adding the following lines to your {% term "`configuration.yaml`" %} file:
-
-```yaml
-logger:
-  default: warning
-  logs:
-    homeassistant.components.velbus: debug
-```
-
-After enabling debug logging, restart Home Assistant and check the logs for any error messages related to the Velbus integration.
+To enable debug logging for the Velbus integration, you can check [Home Assistant Troubleshooting documentation](https://www.home-assistant.io/docs/configuration/troubleshooting/#debug-logs-and-diagnostics) for more information.
 
 ### Can't connect to Velbus interface
 
