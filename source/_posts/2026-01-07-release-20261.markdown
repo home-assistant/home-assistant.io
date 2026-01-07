@@ -287,6 +287,7 @@ There are many more improvements in this release; here are some of the other not
 - Got a Matter speaker? [@lboue] added volume control support to the [Matter] integration, exposing a volume slider entity for Matter speakers using the LevelControl cluster.
 - The [statistics graph card][dashboard-statistics-graph] now includes a link to the history panel in its header, just like the history graph card already had. Selecting the link takes you directly to the history with the same entities and time range pre-selected, thanks to [@joepio].
 - When using the [state badge element][dashboard-state-badge] in your picture elements card, you can now set a custom `name` option, giving you more flexibility in your dashboard designs, thanks to [@ildar170975].
+- In 2025.11 we [improved the logging efficiency][improved-logging-efficiency] by disabling the duplicated log file. This release adds a [new configuration option][duplicate-log-file-option] to re-enable it if needed. If you are using the official Terminal & SSH add-on, make sure it is updated to 9.22.0 or higher to be able to use that option. The Advanced SSH & Web Terminal add-on has not been updated yet, but will be soon.
 - For integration developers: [@bramkragten] added a new **choose selector**, allowing users to select between different input types in the UI. You'll start seeing this pop up in various places where flexible input is needed.
 
 [@bramkragten]: https://github.com/bramkragten
@@ -296,6 +297,8 @@ There are many more improvements in this release; here are some of the other not
 [@StaleLoafOfBread]: https://github.com/StaleLoafOfBread
 [dashboard-state-badge]: /dashboards/picture-elements/#state-badge
 [dashboard-statistics-graph]: /dashboards/statistics-graph/
+[improved-logging-efficiency]: /blog/2025/11/05/release-202511/#improved-logging-efficiency
+[duplicate-log-file-option]: /common-tasks/os/#enable-duplicate-log-file
 
 ### Energy dashboard date picker
 
