@@ -3,7 +3,7 @@ title: Mammotion
 description: Instructions on how to integrate Mammotion robotic lawn mowers with Home Assistant.
 ha_category:
   - Lawn Mower
-ha_release: 2026.01
+ha_release: 2026.2
 ha_iot_class: Cloud Push
 ha_config_flow: true
 ha_codeowners:
