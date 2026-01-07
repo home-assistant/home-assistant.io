@@ -140,7 +140,7 @@ Known and implemented sensors are:
 - PSU load sensor
 
 The Analog input module (VMB4AN) will have 4 sensor entities to read the analog values.
-The VMBMETEO module will have multiple sensor entities to read temperature, humidity, wind speed, wind direction and rain level.
+The VMBMETEO module will have multiple sensor entities to read temperature, humidity, wind speed, wind direction, and rain level.
 
 
 ## Actions
@@ -289,6 +289,7 @@ For sensor entities, Velbus modules send periodic updates. The interval of these
 If you encounter issues with the Velbus integration, you can enable debug logging to get more information about the problem.
 
 ### Enabling debug logging
+
 The Velbus integration debug log can be enabled via the graphical interface or by adding the following lines to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
