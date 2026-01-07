@@ -54,12 +54,12 @@ One sensor per found network interface will be created
 ### Pressure Stall Information (PSI)
 
 PSI can tell you if your system is limited by CPU, memory or IO.
-Unlike memory utilization, PSI can actually tell you, if you system is having not enough memory.
+Unlike memory utilization, PSI can actually tell you if your system doesn't have enough memory.
 
 The `some` line indicates the share of time in which at least some tasks are stalled on a given resource.
 The `full` line indicates the share of time in which all non-idle tasks are stalled on a given resource simultaneously.
-In this state actual CPU cycles are going to waste, and a workload that spends extended time in this state is considered to be thrashing.
-This has severe impact on performance, and it’s useful to distinguish this situation from a state where some tasks are stalled but the CPU is still doing productive work.
+In this state, actual CPU cycles are wasted, and a workload that spends extended time in this state is considered to be thrashing.
+This has a severe impact on performance, and it’s useful to distinguish this situation from a state where some tasks are stalled, but the CPU is still doing productive work.
 As such, time spent in this subset of the stall state is tracked separately and exported in the `full` averages.
 
 - Memory Pressure Some/Full 10s, 60s, 300s Average in %
