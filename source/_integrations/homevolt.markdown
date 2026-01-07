@@ -1,6 +1,6 @@
 ---
 title: Homevolt
-description: Connect Homevolt devices locally to expose sensors in Home Assistant.
+description: Connect Homevolt batteries locally to expose sensors in Home Assistant.
 ha_category:
   - Energy
   - Sensor
