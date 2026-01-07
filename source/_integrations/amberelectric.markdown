@@ -9,7 +9,6 @@ ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
   - '@madpilot'
-  - '@Williamnumismatics'
 ha_domain: amberelectric
 ha_platforms:
   - binary_sensor
