@@ -132,12 +132,12 @@ Every input module will have a button entity in Home Assistant to trigger a butt
 Some modules expose sensors that can be used in Home Assistant.
 Known and implemented sensors are:
 
-- energy consumption sensor
-- temperature sensor
-- light level sensor
-- PSU voltage sensor
-- PSU current sensor
-- PSU load sensor
+- energy consumption sensor: kWh
+- temperature sensor: °C
+- light level sensor: Lux
+- PSU voltage sensor: Voltage
+- PSU current sensor: Amps
+- PSU load sensor: Percentage
 
 The Analog input module (VMB4AN) will have 4 sensor entities to read the analog values.
 The VMBMETEO module will have multiple sensor entities to read temperature, humidity, wind speed, wind direction, and rain level.
