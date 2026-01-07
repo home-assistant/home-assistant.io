@@ -20,6 +20,7 @@ ha_platforms:
   - climate
   - diagnostics
   - light
+  - number
   - sensor
 ---
 
@@ -113,6 +114,22 @@ The **Saunum** integration provides the following entities for controlling and m
 - **Sauna light**
   - **Description**: Control the sauna lighting if light is connected to the control unit.
   - **Features**: Turn the sauna light on or off.
+
+### Number
+
+- **Sauna duration**
+  - **Description**: Configure how long the sauna session will run before automatically turning off.
+  - **Unit**: Minutes
+  - **Range**: 1-720 minutes (0-12 hours)
+  - **Default**: 120 minutes (2 hours) when not set
+  - **Note**: Cannot be changed during an active sauna session.
+
+- **Fan duration**
+  - **Description**: Configure how long the sauna air circulation fan runs before automatically turning off.
+  - **Unit**: Minutes
+  - **Range**: 1-30 minutes
+  - **Default**: 15 minutes when not set
+  - **Note**: Cannot be changed during an active sauna session.
 
 ### Sensor
 
