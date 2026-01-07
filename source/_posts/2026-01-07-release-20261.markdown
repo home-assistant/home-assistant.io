@@ -88,7 +88,7 @@ The [Home dashboard](/dashboards/home/) continues to evolve! In [the previous re
 
 On mobile devices, the Home dashboard now displays summary cards (like lights, climate, security, media players, weather, and energy) directly at the top of the view, followed by your favorites and areas. This replaces the previous tab-based navigation, giving you instant access to everything that matters without any extra taps.
 
-<img src='/images/blog/2026-01/temp-home-dashboard-mobile.png' alt='Screenshot showing the Home dashboard on mobile with summary cards at the top.' class='no-shadow' />
+<img src='/images/blog/2026-01/home-dashboard-mobile.png' alt='Screenshot showing the Home dashboard on mobile with summary cards at the top.' class='no-shadow' />
 
 The desktop experience remains unchanged, with summaries displayed in the sidebar under the **For you** heading.
 
@@ -96,7 +96,7 @@ The desktop experience remains unchanged, with summaries displayed in the sideba
 
 Ever wondered where your devices went after you removed them from an area? A new **Devices** page now appears on the Home dashboard, showing all devices that aren't currently assigned to a specific area. This makes it easy to find and control those "orphaned" devices without hunting through the settings.
 
-<p class='img'><img src='/images/blog/2026-01/temp-home-dashboard-devices.png' alt='Screenshot showing the Devices page on the Home dashboard for unassigned devices.'/>The new Devices page shows devices not assigned to any area.</p>
+<p class='img'><img src='/images/blog/2026-01/home-dashboard-devices.png' alt='Screenshot showing the Devices page on the Home dashboard for unassigned devices.'/>The new Devices page shows devices not assigned to any area.</p>
 
 ## Purpose-specific triggers and conditions progress
 
@@ -124,7 +124,7 @@ For an organization that loves the open standards that seamlessly connect our de
 
 This release reorganizes the **Settings** page to give these open protocols a more prominent spot. The protocols section now appears right after the core settings, making it much easier to find all the different ways you’re connecting your devices and quickly access some very useful protocol-specific configurations.
 
-<img src='/images/blog/2026-01/temp-protocol-dashboards.png' alt='Screenshot showing the new protocols section in the Settings page with Matter, Zigbee, Z-Wave, Thread, Bluetooth, KNX, and Insteon.' class='no-shadow' />
+<img src='/images/blog/2026-01/protocol-dashboards.png' alt='Screenshot showing the new protocols section in the Settings page with Matter, Zigbee, Z-Wave, Thread, Bluetooth, KNX, and Insteon.' class='no-shadow' />
 
 The menu items only appear when you have the corresponding integration set up, so you'll only see what's relevant to your setup.
 
@@ -323,7 +323,7 @@ In [the previous release](/blog/2025/12/03/release-202512/#power-and-water-in-th
 
 This release fixes that! The date picker is now sticky at the bottom of the screen, so you can easily switch between days, weeks, or months without losing sight of the graph you're viewing. This also makes it much easier to access on mobile devices.
 
-<img src='/images/blog/2026-01/temp-energy-dashboard-period-selector.png' alt='Screenshot showing the Energy dashboard with the date picker fixed at the bottom of the screen.' class='no-shadow' />
+<img src='/images/blog/2026-01/energy-dashboard-period-selector.png' alt='Screenshot showing the Energy dashboard with the date picker fixed at the bottom of the screen.' class='no-shadow' />
 
 ### ESPHome action responses
 
