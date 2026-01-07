@@ -38,19 +38,19 @@ After signing in, the flow guides you through selecting a country, state, and ci
 
 The integration adds the following sensors for your selected city:
 
-- `Fajr prayer time`
-- `Sunrise`
-- `Dhuhr prayer time`
-- `Asr prayer time`
-- `Maghrib prayer time`
-- `Isha prayer time`
-- `Qibla time`
-- `Hijri date`
-- `Gregorian date`
+- Fajr prayer time
+- Sunrise
+- Dhuhr prayer time
+- Asr prayer time
+- Maghrib prayer time
+- Isha prayer time
+- Qibla time
+- Hijri date
+- Gregorian date
 
 ## Actions
 
-- `diyanet.refresh`: Fetch the latest prayer times immediately. Provide `config_entry_id` to refresh a specific entry or leave it empty to refresh all loaded Diyanet entries.
+- **diyanet.refresh:** Fetch the latest prayer times immediately. Provide **config_entry_id** to refresh a specific entry or leave it empty to refresh all loaded Diyanet entries.
 
 ## Data updates
 
