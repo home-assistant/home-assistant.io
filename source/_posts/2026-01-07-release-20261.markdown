@@ -82,13 +82,19 @@ This feature is still being refined in {% my labs title="**Home Assistant Labs**
 
 - **Button** triggers fire when a button entity has been pressed.
 - **Climate** triggers now cover all common scenarios. You can trigger on HVAC mode changes, target temperature changes, or when the target temperature crosses a threshold. There are also triggers for current temperature and humidity changes, and even target humidity changes.
-- **Device tracker** triggers let you automate based on when someone entered or left home, with support for the first person arriving, last person leaving, or any change.
+- **Device tracker** triggers let you automate based on when a device entered or left home, with support for the first device arriving, last device leaving, or any change. Don't worry, person-specific triggers are coming soon, the device tracker ones were simply available sooner.
 - **Humidifier** triggers will fire when a humidifier turns on or off, starts humidifying, or starts drying. You can also trigger on humidity changes or when humidity crosses a threshold.
 - **Light** triggers let you automate based on brightness changes or when brightness crosses a specific threshold.
 - **Lock** triggers can now fire when a lock is locked, unlocked, opened, or jammed.
 - **Scene** triggers fire when a scene is activated.
 - **Siren** triggers fire when sirens are turned on or off.
 - **Update** trigger fires when an update becomes available.
+
+As the new purpose-specific triggers and conditions all support targeting something bigger than a simple entity (an area, a floor, or even a label), we also redesigned how the target gets displayed on the automation flow.
+
+The goal of this change is to allow you to quickly glance and your automation, and understand its purpose.
+
+<img src='/images/blog/2026-01/target_summary_automation_editor.png' alt='Screenshot showing the new target summary in the automation editor.' class='no-shadow' />
 
 Head over to {% my labs title="**Settings** > **System** > **Labs**" %} to enable purpose-specific triggers and conditions and give them a try!
 
