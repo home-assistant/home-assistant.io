@@ -55,7 +55,6 @@ The following preset modes are supported. The STIEBEL ELTRON modes are mapped an
 - Manual mode (PRESET_MANUAL)
 - Emergency mode (PRESET_EMERGENCY)
 
-## Installation
 
 {% include integrations/config_flow.md %}
 
