@@ -288,7 +288,7 @@ For sensor entities, Velbus modules send periodic updates. The interval of these
 
 If you encounter issues with the Velbus integration, you can enable debug logging to get more information about the problem.
 
-#### Common issues
+### Common issues
 
 - If you have changed the configuration of your Velbus modules using VelbusLink software, you may need to clear the Velbus cache using the `velbus.clear_cache` action to ensure that Home Assistant has the latest configuration.
 - If you use the VLP file configuration for the integration, ensure that the VLP file is up to date and matches the configuration of your Velbus modules.
