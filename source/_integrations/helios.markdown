@@ -69,34 +69,36 @@ The four standard Vallox profiles are supported:
 
 Set the fan speed of the `Home` profile. Action: `helios.set_profile_fan_speed_home`
 
-| Data attribute | Optional | Description                                     |
-|------------------------|----------|-------------------------------------------------|
-| `fan_speed`            |       no | Fan speed in %. `Integer`, between 0 and 100.   |
+- **Data attribute**: `set_profile_fan_speed_home`
+    - **Description**: Fan speed in %. `Integer`, between 0 and 100.
+    - **Optional**: No
 
 ### Action Set profile fan speed away 
 
 Set the fan speed of the `Away` profile. Action: `helios.set_profile_fan_speed_away`
 
-| Data attribute | Optional | Description                                     |
-|------------------------|----------|-------------------------------------------------|
-| `fan_speed`            |       no | Fan speed in %. `Integer`, between 0 and 100.   |
+- **Data attribute**: `set_profile_fan_speed_away`
+    - **Description**: Fan speed in %. `Integer`, between 0 and 100.
+    - **Optional**: No
 
 ### Action Set profile fan speed boost 
 
 Set the fan speed of the `Boost` profile. Action: `helios.set_profile_fan_speed_boost`
 
-| Data attribute | Optional | Description                                     |
-|------------------------|----------|-------------------------------------------------|
-| `fan_speed`            |       no | Fan speed in %. `Integer`, between 0 and 100.   |
+- **Data attribute**: `set_profile_fan_speed_boost`
+    - **Description**: Fan speed in %. `Integer`, between 0 and 100.
+    - **Optional**: No
 
 ### Action Set profile
 
 Set the profile, and optionally a duration for the profile to be active. Action: `helios.set_profile`
 
-| Data attribute | Optional | Description                                                                                                                                                                           |
-|----------------|---------:|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `profile`      |       no | Profile to set, one of `home`, `away`, `boost`, `fireplace`, or `extra`.                                                                                                              |
-| `duration`     |      yes | Duration to activate the profile for; in minutes. `Integer` between 1 and 65535. Only applies to  `boost`, `fireplace` or `extra` profiles. 65535 sets the profile without a timeout. |
+- **Data attribute**: `profile`
+    - **Description**: Profile to set, one of `home`, `away`, `boost`, `fireplace`, or `extra`.
+      - **Optional**: No
+- **Data attribute**: `duration`
+    - **Description**: Duration to activate the profile for; in minutes. `Integer` between 1 and 65535. Only applies to  `boost`, `fireplace` or `extra` profiles. 65535 sets the profile without a timeout.
+        - **Optional**: Yes
 
 ## Removing the integration
 
