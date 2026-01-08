@@ -5,11 +5,13 @@ ha_iot_class: Local Polling
 ha_config_flow: true
 ha_release: 2026.2
 ha_category:
+  - Button
   - Select
 ha_codeowners:
   - '@glenndehaan'
 ha_domain: hdfury
 ha_platforms:
+  - button
   - select
 ha_integration_type: integration
 ---
@@ -37,6 +39,11 @@ Host:
 
 The integration will fetch data from each device.
 Below is a complete overview of the entities this integration provides.
+
+### Button
+
+- Issue hotplug (Sends a command to hotplug TX & RX connected devices)
+- Restart (Reboot the device remotely)
 
 ### Select
 
