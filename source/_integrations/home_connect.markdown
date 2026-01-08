@@ -378,6 +378,7 @@ Both entities can use these options, but the availability of these will depend o
 - **Pre-heating**: `cooking_oven_program_heating_mode_pre_heating`
 - **Hot air**: `cooking_oven_program_heating_mode_hot_air`
 - **Hot air eco**: `cooking_oven_program_heating_mode_hot_air_eco`
+- **Hot air gentle**: `cooking_oven_program_heating_mode_hot_air_gentle`
 - **Hot air grilling**: `cooking_oven_program_heating_mode_hot_air_grilling`
 - **Top bottom heating**: `cooking_oven_program_heating_mode_top_bottom_heating`
 - **Top bottom heating eco**: `cooking_oven_program_heating_mode_top_bottom_heating_eco`
@@ -404,6 +405,7 @@ Both entities can use these options, but the availability of these will depend o
 - **900 Watt**: `cooking_oven_program_microwave_900_watt`
 - **1000 Watt**: `cooking_oven_program_microwave_1000_watt`
 - **Max**: `cooking_oven_program_microwave_max`
+- **Steam mode**: `cooking_oven_program_steam_modes_steam`
 - **Warming drawer**: `cooking_oven_program_heating_mode_warming_drawer`
 - **Auto 30ºC**: `laundry_care_washer_program_auto_30`
 - **Auto 40ºC**: `laundry_care_washer_program_auto_40`
@@ -431,7 +433,7 @@ Both entities can use these options, but the availability of these will depend o
 - **Rinse spin drain**: `laundry_care_washer_program_rinse_rinse_spin_drain`
 - **Sensitive**: `laundry_care_washer_program_sensitive`
 - **Shirts blouses**: `laundry_care_washer_program_shirts_blouses`
-- **Spin/drain**: `laundry_care_washer_program_spin_drain`
+- **Spin/drain**: `laundry_care_washer_program_spin_spin_drain`
 - **Sport fitness**: `laundry_care_washer_program_sport_fitness`
 - **Towels**: `laundry_care_washer_program_towels`
 - **Super 15 min**: `laundry_care_washer_program_super_153045_super_15`
