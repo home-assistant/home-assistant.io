@@ -330,6 +330,7 @@ Both entities can use these options, but the availability of these will depend o
 - **Intensive 45ºC**: `dishcare_dishwasher_program_intensiv_45`
 - **Auto half load**: `dishcare_dishwasher_program_auto_half_load`
 - **Intensive power**: `dishcare_dishwasher_program_intensiv_power`
+- **Intensive fixed zone**: `dishcare_dishwasher_program_intensive_fixed_zone`
 - **Magic daily**: `dishcare_dishwasher_program_magic_daily`
 - **Super 60ºC**: `dishcare_dishwasher_program_super_60`
 - **Kurz 60ºC**: `dishcare_dishwasher_program_kurz_60`
