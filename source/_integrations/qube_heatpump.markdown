@@ -19,7 +19,7 @@ The **Qube Heat Pump** {% term integration %} allows you to control and monitor 
 
 {% configuration_basic %}
 Host:
-  description: The IP address or hostname of your Qube Heat Pump (default: `qube.local`).
+  description: The IP address or hostname of your Qube Heat Pump (default is `qube.local`).
 {% endconfiguration_basic %}
 
 ## Configuration options
