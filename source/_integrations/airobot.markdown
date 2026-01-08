@@ -149,7 +149,7 @@ Send a notification when the air quality exceeds a specified threshold.
 
 ```yaml
 blueprint:
-  name: Air Quality Alert
+  name: Airobot Air Quality Alert
   description: Send notification when air quality exceeds threshold
   domain: automation
   input:
@@ -162,7 +162,7 @@ blueprint:
     threshold:
       name: Threshold
       description: Alert when value goes above this number
-      default: 800
+      default: 1000
       selector:
         number:
           min: 0
@@ -174,6 +174,19 @@ blueprint:
         device:
           filter:
             - integration: mobile_app
+    notification_title:
+      name: Notification Title
+      description: Title of the notification
+      default: "Poor Air Quality"
+      selector:
+        text:
+    notification_message:
+      name: Notification Message
+      description: Message body (use {{ trigger.to_state.state }} for current value and {{ trigger.above }} for threshold)
+      default: "Air quality in {{ area_name(trigger.entity_id) }} is {{ trigger.to_state.state }} (threshold: {{ trigger.above | int }})"
+      selector:
+        text:
+          multiline: true
 
 trigger:
   - platform: numeric_state
@@ -182,14 +195,14 @@ trigger:
 
 condition:
   - condition: template
-    value_template: "{{ trigger.from_state.state | float(0) < !input threshold }}"
+    value_template: "{{ trigger.from_state.state | float(0) < trigger.to_state.state | float(0) }}"
 
 action:
   - device_id: !input notify_device
     domain: mobile_app
     type: notify
-    title: "Poor Air Quality"
-    message: "Air quality is {{ states(!input air_quality_sensor) }} (threshold: {{ !input threshold }})"
+    title: !input notification_title
+    message: !input notification_message
 ```
 
 {% endraw %}
