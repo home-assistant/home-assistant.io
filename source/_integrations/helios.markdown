@@ -65,33 +65,33 @@ The four standard Vallox profiles are supported:
 
 ## Fan actions
 
-### Action `helios.set_profile_fan_speed_home`
+### Action Set profile fan speed home `
 
-Set the fan speed of the `Home` profile.
-
-| Data attribute | Optional | Description                                     |
-|------------------------|----------|-------------------------------------------------|
-| `fan_speed`            |       no | Fan speed in %. `Integer`, between 0 and 100.   |
-
-### Action `helios.set_profile_fan_speed_away`
-
-Set the fan speed of the `Away` profile.
+Set the fan speed of the `Home` profile. Action: `helios.set_profile_fan_speed_home`
 
 | Data attribute | Optional | Description                                     |
 |------------------------|----------|-------------------------------------------------|
 | `fan_speed`            |       no | Fan speed in %. `Integer`, between 0 and 100.   |
 
-### Action `helios.set_profile_fan_speed_boost`
+### Action Set profile fan speed away 
 
-Set the fan speed of the `Boost` profile.
+Set the fan speed of the `Away` profile. Action: `helios.set_profile_fan_speed_away`
 
 | Data attribute | Optional | Description                                     |
 |------------------------|----------|-------------------------------------------------|
 | `fan_speed`            |       no | Fan speed in %. `Integer`, between 0 and 100.   |
 
-### Action `helios.set_profile`
+### Action Set profile fan speed boost 
 
-Set the profile, and optionally a duration for the profile to be active.
+Set the fan speed of the `Boost` profile. Action: `helios.set_profile_fan_speed_boost`
+
+| Data attribut## Fan actione | Optional | Description                                     |
+|------------------------|----------|-------------------------------------------------|
+| `fan_speed`            |       no | Fan speed in %. `Integer`, between 0 and 100.   |
+
+### Action Set profile
+
+Set the profile, and optionally a duration for the profile to be active. Action: `helios.set_profile`
 
 | Data attribute | Optional | Description                                                                                                                                                                           |
 |----------------|---------:|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
