@@ -3,7 +3,7 @@ title: HDFury
 description: Instructions on how to integrate HDFury devices within Home Assistant.
 ha_iot_class: Local Polling
 ha_config_flow: true
-ha_release: 2026.1
+ha_release: 2026.2
 ha_category:
   - Select
 ha_codeowners:
@@ -14,7 +14,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The [HDFury](https://hdfury.com/) {% term integration %} allows you to control and monitor your HDFury device.
+The **HDFury** {% term integration %} allows you to control and monitor your [HDFury](https://hdfury.com/) device.
 
 ## Use cases
 
