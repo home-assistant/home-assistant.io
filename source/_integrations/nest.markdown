@@ -43,7 +43,7 @@ You are in control of the information and capabilities exposed to Home Assistant
 - The Nest Device Access Console Pub/Sub setup process has changed as of January 23rd 2025. **Please make sure you are using the latest version of Home Assistant.**
 
 - The Nest Smart Device Management (SDM) API **requires a US$5 fee**. Before buying, make sure your device is [supported](https://developers.google.com/nest/device-access/supported-devices).
-- This integration is incompatible with the [Google Advanced Protection Program](https://landing.google.com/intl/en_in/advancedprotection/). See [Known limitations](#google-advanced-protection-program) below for workarounds.
+- The SDM API is also incompatible with some Google Account types or Security settings, including Google Workspace and the Advanced Protection Program. See [Known limitations](#known-limitations) below.
 
 ## Configuration
 
@@ -536,6 +536,17 @@ This feature is enabled by the following permissions:
 
 ## Known limitations
 
+### Google account types
+
+There are limitations to which Google accounts can use the SDM API. See the [Device Access Registration](https://developers.google.com/nest/device-access/registration) documentation for details.
+
+The primary limitations are the following:
+
+- Google Workspace accounts are not supported. Only consumer accounts (for example, gmail.com) can be used.
+- Once a Google Account is associated with your Device Access Project, it cannot be changed. Be sure you are signed in to the correct Google Account before continuing.
+
+Keep in mind, the US$5 registration fee is non-refundable.
+
 ### Google Advanced Protection Program
 
 The "Restricted" API scopes required for device control are automatically blocked for [Google Advanced Protection Program](https://landing.google.com/intl/en_in/advancedprotection/) users.
@@ -555,17 +566,6 @@ Workaround: If you have enabled AP, create and use a secondary, standard Google 
 {% endimportant %}
 
 *[AP]: Advanced Protection Program
-
-### Google account types
-
-There are limitations to which Google accounts can use the SDM API. See the [Device Access Registration](https://developers.google.com/nest/device-access/registration) documentation for details.
-
-The primary limitations are the following:
-
-- Google Workspace accounts are not supported. Only consumer accounts (for example, gmail.com) can be used.
-- Once a Google Account is associated with your Device Access Project, it cannot be changed. Be sure you are signed in to the correct Google Account before continuing.
-
-Keep in mind, the US$5 registration fee is non-refundable.
 
 ### Google Home App migration and cameras
 
