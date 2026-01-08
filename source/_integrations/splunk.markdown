@@ -17,9 +17,36 @@ ha_quality_scale: legacy
 
 The `splunk` integration makes it possible to log all state changes to an external [Splunk](https://splunk.com/) database using Splunk's HTTP Event Collector (HEC) feature. You can either use this alone, or with the Home Assistant for Splunk [app](https://github.com/miniconfig/splunk-homeassistant). Since the HEC feature is new to Splunk, you will need to use at least version 6.3.
 
+{% include integrations/config_flow.md %}
+
 ## Configuration
 
-To use the `splunk` integration in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+The Splunk integration can be configured through the Home Assistant user interface or through {% term "`configuration.yaml`" %}.
+
+### Configuration via the user interface
+
+To add the Splunk integration to your Home Assistant instance, use this My button:
+
+{% my config_flow_start badge domain=page.ha_domain %}
+
+{% details "Manual configuration steps" %}
+
+If the above My button doesn't work, you can also perform the following steps manually:
+
+- Browse to your Home Assistant instance.
+- Go to {% my integrations title="**Settings** > **Devices & Services**" %}.
+- In the bottom right corner, select the
+  {% my config_flow_start badge icon domain=page.ha_domain %} button.
+- From the list, select **Splunk**.
+- Follow the instructions on screen to complete the setup.
+
+{% enddetails %}
+
+### Configuration via YAML
+
+YAML configuration is supported for advanced filtering options. If you need to filter which entities are sent to Splunk, you must use YAML configuration.
+
+To use the `splunk` integration with YAML configuration, add the following to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
