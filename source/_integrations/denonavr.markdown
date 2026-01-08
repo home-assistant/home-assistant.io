@@ -83,11 +83,11 @@ Known supported devices:
 - Denon DN-500AV
 - Denon DRA-N5
 - Denon DRA-800H
+- Marantz AV 20
 - Marantz AV7702
 - Marantz AV7703
 - Marantz AV7704
 - Marantz AV8802A
-- Marantz AV 20
 - Marantz CINEMA 50
 - Marantz CINEMA 60
 - Marantz CINEMA 70s
