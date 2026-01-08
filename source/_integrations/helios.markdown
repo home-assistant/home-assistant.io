@@ -85,7 +85,7 @@ Set the fan speed of the `Away` profile. Action: `helios.set_profile_fan_speed_a
 
 Set the fan speed of the `Boost` profile. Action: `helios.set_profile_fan_speed_boost`
 
-| Data attribut## Fan actione | Optional | Description                                     |
+| Data attribute | Optional | Description                                     |
 |------------------------|----------|-------------------------------------------------|
 | `fan_speed`            |       no | Fan speed in %. `Integer`, between 0 and 100.   |
 
