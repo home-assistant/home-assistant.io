@@ -3,6 +3,7 @@ title: Qube Heat Pump
 description: Instructions on how to integrate Qube Heat Pump within Home Assistant.
 ha_release: 2026.2
 ha_iot_class: Local Polling
+config_flow: true
 ha_codeowners:
   - '@MattieGit'
 ha_domain: qube_heatpump
