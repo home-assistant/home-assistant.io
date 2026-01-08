@@ -83,6 +83,7 @@ The diagnostic sensors are:
 - **Serial number**
   - **Unit**: None
   - **Description**: Displays the inverter serial number as reported by the device, which can help you match the device in Home Assistant with labels on the physical inverter or with entries in the SAJ web interface
+
 ## Troubleshooting
 
 If your device is not discovered automatically, you can set it up manually by entering the IP address or hostname.
