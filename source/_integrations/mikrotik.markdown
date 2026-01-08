@@ -36,7 +36,7 @@ set api disabled=no port=8728
 
 Web Frontend:
 
-Go to **IP** -> **Services** -> **API** and enable it.
+Go to **IP** > **Services** > **API** and enable it.
 
 Make sure that port 8728 or the port you choose is accessible from your network.
 

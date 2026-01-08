@@ -34,7 +34,7 @@ There are two Dexcom Share servers, `US` for United States customers, and `OUS` 
 
 ### Unit of measurement
 
-The integrations allow both `mg/dL` and `mmol/l` units of measurement for blood glucose values. To change your preferred unit of measurement, go to **Settings** -> **Devices & services** in the UI, and click `OPTIONS`.
+The integrations allow both `mg/dL` and `mmol/l` units of measurement for blood glucose values. To change your preferred unit of measurement, go to {% my integrations title="**Settings** > **Devices & services**" %} in the UI, and click `OPTIONS`.
 
 ## Sensor
 

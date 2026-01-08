@@ -217,7 +217,7 @@ Use a skill or spell from your Habitica character on a specific task to affect i
 - **Warrior**: `smash`
 - **Mage**: `fireball`
 
-To use task aliases, make sure **Developer Mode** is enabled under [**Settings -> Site Data**](https://habitica.com/user/settings/siteData). Task aliases can only be edited via the **Habitica** web client.
+To use task aliases, make sure **Developer Mode** is enabled under [**Settings** > **Site Data**](https://habitica.com/user/settings/siteData). Task aliases can only be edited via the **Habitica** web client.
 
 ### Action `habitica.accept_quest`
 

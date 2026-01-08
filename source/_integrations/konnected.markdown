@@ -309,7 +309,7 @@ konnected:
 
 ## Unique IDs and the Entity Registry
 
-Beginning in Home Assistant release 0.90, unique IDs are generated for each sensor or switch entity. This enables end users to modify the entity names and entity IDs through the Home Assistant UI at **Settings** -> **Devices & services** -> **Entities**.
+Beginning in Home Assistant release 0.90, unique IDs are generated for each sensor or switch entity. This enables end users to modify the entity names and entity IDs through the Home Assistant UI at {% my entities title="**Settings** > **Devices & services** > **Entities**" %}.
 
 Unique IDs are internally generated as follows:
 
