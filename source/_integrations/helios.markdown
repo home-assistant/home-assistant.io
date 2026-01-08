@@ -25,7 +25,7 @@ The **Helios** {% term integration %} lets you control any Helios ventilation un
 
 {% include integrations/config_flow.md %}
 
-## Platforms
+## Supported functionality
 
 ### Fan
 
