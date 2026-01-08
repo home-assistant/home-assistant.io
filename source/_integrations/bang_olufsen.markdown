@@ -10,6 +10,7 @@ ha_release: 2024.2
 ha_iot_class: Local Push
 ha_domain: bang_olufsen
 ha_platforms:
+  - binary_sensor
   - diagnostics
   - event
   - media_player
@@ -159,6 +160,12 @@ Mozart devices that have a built-in battery, such as the [Beosound A5](https://w
 #### Beoremote One battery level
 
 Any paired Beoremote One remotes will have an associated battery level sensor. Battery level reporting from the remote is currently not very accurate, but can still be useful.
+
+### Binary Sensor
+
+#### Mozart battery charging
+
+Mozart devices that have a built-in battery, such as the [Beosound A5](https://www.bang-olufsen.com/en/dk/speakers/beosound-a5) and [Beosound Level](https://www.bang-olufsen.com/en/dk/speakers/beosound-level), will have a battery charging binary sensor.
 
 ## Limitations
 
