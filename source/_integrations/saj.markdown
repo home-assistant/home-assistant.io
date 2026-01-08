@@ -68,8 +68,21 @@ The integration provides the following energy-related sensors:
 
 ### Diagnostic sensors
 
-The integration also provides diagnostic sensors for IP address, connection type, and serial number.
+The integration also provides diagnostic sensors that help you understand and troubleshoot the connection to your inverter.
 
+The diagnostic sensors are:
+
+- **Inverter IP address**
+  - **Unit**: None
+  - **Description**: Shows the IP address that Home Assistant currently uses to connect to the inverter, which is useful when your router assigns dynamic IP addresses
+
+- **Connection type**
+  - **Unit**: None
+  - **Description**: Indicates whether the integration is using the Ethernet module or the Wi-Fi module to communicate with the inverter
+
+- **Serial number**
+  - **Unit**: None
+  - **Description**: Displays the inverter serial number as reported by the device, which can help you match the device in Home Assistant with labels on the physical inverter or with entries in the SAJ web interface
 ## Troubleshooting
 
 If your device is not discovered automatically, you can set it up manually by entering the IP address or hostname.
