@@ -6,7 +6,7 @@ ha_category:
   - Sensor
   - Switch
 ha_config_flow: true
-ha_release: 0.96
+ha_release: 2026.2
 ha_iot_class: Local Polling
 ha_domain: helios
 ha_platforms:
