@@ -42,7 +42,7 @@ password:
   description: "Password for logging in to SAJ Solar Inverter (only used when type is 'wifi' but can be skipped if the inverter still has the default credentials, which may be empty)."
 {% endconfiguration_basic %}
 
-The SAJ Solar Inverter *may* also be discovered on your local network via DHCP.
+The SAJ Solar Inverter may also be discovered on your local network via DHCP.
 
 During setup, you will be prompted to select the connection type (Ethernet or Wi-Fi) and provide the necessary information. Wi-Fi connections may require username and password.
 
