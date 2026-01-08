@@ -626,9 +626,12 @@ Where all received WebSocket events are provided through debug logs and the foll
   - WebSocket connection state
   - Media player state
   - Button Event states (if available)
+  - Battery level Sensor (if available)
+  - Battery charging Binary Sensor (if available)
 - Beoremote One remotes (if available)
   - Key Event states (if available)
   - Overall status
+  - Battery level Sensor (if available)
 
 ## Removing the integration
 
