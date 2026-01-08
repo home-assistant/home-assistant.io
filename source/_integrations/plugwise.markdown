@@ -47,7 +47,7 @@ Plugwise gateways on your network are automatically discovered and displayed on 
 
 {% configuration_basic %}
 Host:
-  description: "The hostname or IP address of your gateway. For example: `192.168.1.25`. You can find it in your router or in the Plugwise app using the **Settings** icon (&#9776;) -> **System** -> **Network**. In the Plugwise App, to locate a specific device, select **Gateways** on the main screen, choose your desired gateway, and then follow the previous instructions. Normally, the gateway(s) are automatically discovered, and you don't have to provide the hostname or IP address."
+  description: "The hostname or IP address of your gateway. For example: `192.168.1.25`. You can find it in your router or in the Plugwise app using the **Settings** icon (&#9776;) > **System** > **Network**. In the Plugwise App, to locate a specific device, select **Gateways** on the main screen, choose your desired gateway, and then follow the previous instructions. Normally, the gateway(s) are automatically discovered, and you don't have to provide the hostname or IP address."
 Username:
   description: "Username to log in to the gateway. This should be 'smile' for most devices, or 'stretch' for a Stretch."
 Password:

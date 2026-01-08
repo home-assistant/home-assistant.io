@@ -51,7 +51,7 @@ A brand new Reolink camera needs to be connected to the network and initialized.
 
 {% configuration_basic %}
 Host:
-  description: "The hostname or IP address of your Reolink device. For example: '192.168.1.25'. You can find it in your router or in the Reolink app under **Settings** -> **Device** (top icon) -> **Networkinformation** -> **IP-address**. Normally, the Reolink device is automatically discovered, and you do not need to provide this."
+  description: "The hostname or IP address of your Reolink device. For example: '192.168.1.25'. You can find it in your router or in the Reolink app under **Settings** > **Device** (top icon) > **Networkinformation** > **IP-address**. Normally, the Reolink device is automatically discovered, and you do not need to provide this."
 Username:
   description: "Username to log in to the Reolink device itself. Not the Reolink cloud account."
 Password:
