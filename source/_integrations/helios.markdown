@@ -6,7 +6,7 @@ ha_category:
   - Sensor
   - Switch
 ha_config_flow: true
-ha_release: 0.96
+ha_release: 2026.2
 ha_iot_class: Local Polling
 ha_domain: helios
 ha_platforms:
@@ -25,7 +25,7 @@ The **Helios** {% term integration %} lets you control any Helios ventilation un
 
 {% include integrations/config_flow.md %}
 
-## Platforms
+## Supported functionality
 
 ### Fan
 
@@ -97,3 +97,9 @@ Set the profile, and optionally a duration for the profile to be active. Action:
 |----------------|---------:|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `profile`      |       no | Profile to set, one of `home`, `away`, `boost`, `fireplace`, or `extra`.                                                                                                              |
 | `duration`     |      yes | Duration to activate the profile for; in minutes. `Integer` between 1 and 65535. Only applies to  `boost`, `fireplace` or `extra` profiles. 65535 sets the profile without a timeout. |
+
+## Removing the integration
+
+This integration follows standard integration removal.
+
+{% include integrations/remove_device_service.md %}
