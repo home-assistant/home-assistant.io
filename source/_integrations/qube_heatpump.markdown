@@ -57,5 +57,7 @@ The **Qube Heat Pump** integration exposes various entities to monitor and contr
 - **Status**: Operation hours and system counters (h).
 
 ## Removing the integration
+
 This integration follows standard integration removal.
+
 {% include integrations/remove_device_service.md %}
