@@ -1,7 +1,7 @@
 ---
 title: Qube Heat Pump
 description: Instructions on how to integrate Qube Heat Pump within Home Assistant.
-ha_release: 2025.3
+ha_release: 2026.2
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@MattieGit'
@@ -9,9 +9,6 @@ ha_domain: qube_heatpump
 ha_integration_type: hub
 ---
 
-<!--- The integration documentation template provides a documentation structure as well as some example content per section. The example content is meant for inspiration, it may not apply for your integration or will at least have to be adapted. -->
-
-<!--- Use this template together with the developer documentation, under [Documentation standard](https://developers.home-assistant.io/docs/documenting/standards) and the documentation rules of the [Integration Quality Scale](https://developers.home-assistant.io/docs/core/integration-quality-scale/rules/). -->
 
 The **Qube Heat Pump** {% term integration %} allows you to control and monitor [Qube](https://www.hr-energy.com/nl/pvt-systemen/onderdelen/qube-warmtepomp/) heat pumps via the Modbus TCP protocol.
 
