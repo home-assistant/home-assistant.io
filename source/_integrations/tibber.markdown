@@ -102,14 +102,7 @@ If you have a Tibber Pulse it will also show the electricity consumption in real
 
 ## Binary sensor
 
-The Tibber integration provides binary sensors that monitor various conditions related to your electricity service.
-
-### Available binary sensors
-
-- **Power outage**: Indicates whether there is a power outage at your location. The sensor is `on` when a power outage is detected and `off` when power is available.
-- **High electricity price**: Indicates if the current electricity price is above a user-defined threshold. The sensor is `on` when the price exceeds the threshold and `off` when it is below. The threshold can be configured in the integration settings.
-
-These binary sensors can be used in automations to trigger actions based on power outages or high electricity prices.
+The Tibber integration provides binary sensors.
 
 ## Actions
 
