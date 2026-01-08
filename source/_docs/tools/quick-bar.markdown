@@ -32,7 +32,7 @@ The application must have focus for the hotkey to register. If the dialog doesn'
 
 *Hotkey: `e`*
 
-Similar to {% my entities title="Settings -> Devices & services -> Entities" %}, but more lightweight and accessible from anywhere in the frontend.
+Similar to {% my entities title="**Settings** > **Devices & services** > **Entities**" %}, but more lightweight and accessible from anywhere in the frontend.
 
 <p class='img'>
   <img src='/images/docs/quick-bar/quick-bar-entity-filter.gif' alt='Quick Bar'>
@@ -47,7 +47,7 @@ This is helpful when, say, you are in the middle of writing an automation and ne
 
 *Hotkey: `d`*
 
-Similar to {% my entities title="Settings -> Devices & services -> Devices" %}, but accessible from anywhere in the frontend.
+Similar to {% my entities title="**Settings** > **Devices & services** > **Devices**" %}, but accessible from anywhere in the frontend.
 
 Once launched, start typing your device name to get back a filtered list of your devices. Clicking on a device (or hitting `enter` when the desired device is highlighted) will open the selected device detail page.
 

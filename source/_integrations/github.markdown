@@ -28,7 +28,7 @@ The integration works by subscribing to events on the repository to provide a pu
 
 ## Remove authorization
 
-After you have removed the integration from {% my integrations title="Settings -> Devices & services" %}, you need to manually revoke OAuth app authorization.
+After you have removed the integration from {% my integrations title="**Settings** > **Devices & services**" %}, you need to manually revoke OAuth app authorization.
 
 1. Go to your [Authorized OAuth Apps](https://github.com/settings/applications)
 2. Find the "Home Assistant GitHub Integration" application

@@ -623,6 +623,38 @@ data:
 Technically `select.first`, `select.last`, `select.previous`, `select.next` are available as well, but as there's no logical sequence in the values to select, their use is not advocated.
 {% endnote %}
 
+## Envoy replacement
+
+When the physical Envoy needs to be replaced, some preparation is needed to assure data continuation from the old one. This description assumes that the new Envoy replaces the old one in the existing installation and is connected in the same way. The new Envoy will have a different serial number and probably a different IP address.  
+
+### Background
+
+In the Home Assistant configuration, the Envoy entities are identified by their unique identification. The Envoy serial number is part of this unique_id. For micro-inverters, Enpower and/or Encharge devices, the unique_id contains the serial number of these devices instead of the Envoy serial number.
+
+The actual data stored in states, short- and long-term statistics, is identified by an entity identifier. This entity_id is registered in the entity configuration as well. Using the entity_id, the data in the data stores is connected to the entity. Similar to the unique_id, this entity_id contains the serial number of the Envoy, micro-inverters, Enpower, and/or Encharge devices.
+
+When adding the new Envoy, new entities are created, each containing the new Envoy's serial number in unique_id and entity_id. For the Envoy data, this results in states and short- and long-term statistics starting from that point in time. Data from the old Envoy can not be seen in the new Envoy. For the micro-inverters and Enpower/Encharge device data, the serial numbers remain the same, and data will continue from the old data.
+
+To 'chain' the data of the old Envoy to the new Envoy, the entities of the new Envoy should connect to the existing data. To do so, we need to make sure the existing data can be found when using the new entity_id that contains the new Envoy serial number. This can be done by updating the entity_id of the old Envoy entities and replacing their old serial numbers with the new Envoy serial number. See [customizing entities](/docs/configuration/customizing-devices/) for how to change the entity_id. This should be done **before** the new Envoy is configured in Home Assistant.
+
+### Replacement process
+
+Do not add the new Envoy to Home Assistant yet, even if it shows as discovered. First, complete the steps below.
+
+1. Find all entities for the old Envoy.
+   1. Go to {% my entities title="**Settings** > **Devices & services** > **Entities**" %}.
+   2. Use the filter to filter the Enphase_envoy integration. Also include disabled entities.
+2. For each entity inspect the entity ID field ([customizing entities](/docs/configuration/customizing-devices/)) and replace the old Envoy serial number by the new Envoy serial number.
+3. Update any actions, cards, scripts, automations, dashboards, and other tools that use the original entity_id to use the new entity_id.
+4. Once completed, remove the old Envoy from Home Assistant
+5. Only now add the new Envoy to Home Assistant. The data from the old Envoy should now be visible in the new Envoy.
+
+### Post replacement awareness
+
+Even though the data continues from the old envoy, there will be a discontinuity in time and/or value for entities. The lifetime values for Envoy and/or connected devices will most likely start from zero again, unless they were transferred between the old and new physical Envoy, if possible. Such discontinuity will be visible in trends and may affect any automations, calculations, and more.
+
+When used with the energy dashboard, it may result in a peak at the start of the new data. Although the energy dashboard probably handles any reset to zero well. If any peaks occur, correct the first statistics entry of new data in {% my developer_statistics title="**Developer Tools** > **Statistics**"%} and set the value to zero. (See [Statistics Tab](https://www.home-assistant.io/docs/tools/dev-tools/#statistics-tab))
+
 ## Known issues and limitations
 
 ### Firmware changes

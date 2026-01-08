@@ -19,7 +19,7 @@ stays healthy and running for now and in the future.
 
 The repairs integration is by default enabled. No action is required to
 enable it. You can find the Home Assistant Repairs dashboard in 
-{% my repairs title="**Settings** -> **System** -> **Repairs**" %}.
+{% my repairs title="**Settings** > **System** > **Repairs**" %}.
 
 {% my repairs badge %}
 
@@ -37,7 +37,7 @@ in the repairs dashboard is shown in the sidebar on the "Settings" menu item.
 The settings menu item shows the number of pending updates and repairable issues.
 </p>
 
-Navigate to {% my repairs title="**Settings** -> **System** -> **Repairs**" %}
+Navigate to {% my repairs title="**Settings** > **System** > **Repairs**" %}
 to see the list of issues that need your attention.
 
 Each issue listed will either provide you the opportunity to fix the issue
