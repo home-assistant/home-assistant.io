@@ -19,7 +19,7 @@ The **Homevolt** {% term integration %} lets Home Assistant read local data from
 
 {% include integrations/config_flow.md %}
 
-API access must be explicitly enabled on the Homevolt device; contact Tibber Customer Support to verify activate the API.
+API access must be explicitly enabled on the Homevolt device; contact Tibber Customer Support to activate the API.
 Configuration needs the device IP address and, if set on the device, a password. 
 
 ## Sensors
