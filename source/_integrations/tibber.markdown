@@ -2,6 +2,7 @@
 title: Tibber
 description: Instructions on how to integrate Tibber within Home Assistant.
 ha_category:
+  - Binary sensor
   - Energy
   - Notifications
   - Sensor
@@ -12,6 +13,7 @@ ha_codeowners:
 ha_domain: tibber
 ha_config_flow: true
 ha_platforms:
+  - binary_sensor
   - diagnostics
   - notify
   - sensor
@@ -23,6 +25,7 @@ If you have a [Tibber Pulse](https://tibber.com/no/store/produkt/pulse) or [Watt
 
 There is currently support for the following device types within Home Assistant:
 
+- [Binary sensor](#binary-sensor)
 - [Notifications](#notifications)
 - [Sensor](#sensor)
 
@@ -97,7 +100,16 @@ If you have a Tibber Pulse it will also show the electricity consumption in real
 - Maximum charging current
 - Offline fallback charging current
 
-</div>
+## Binary sensor
+
+The Tibber integration provides binary sensors that monitor various conditions related to your electricity service.
+
+### Available binary sensors
+
+- **Power outage**: Indicates whether there is a power outage at your location. The sensor is `on` when a power outage is detected and `off` when power is available.
+- **High electricity price**: Indicates if the current electricity price is above a user-defined threshold. The sensor is `on` when the price exceeds the threshold and `off` when it is below. The threshold can be configured in the integration settings.
+
+These binary sensors can be used in automations to trigger actions based on power outages or high electricity prices.
 
 ## Actions
 
