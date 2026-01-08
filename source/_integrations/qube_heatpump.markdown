@@ -1,19 +1,31 @@
 ---
 title: Qube Heat Pump
 description: Instructions on how to integrate Qube Heat Pump within Home Assistant.
-ha_category:
-  - HVAC
-ha_release: '2025.2'
+ha_release: 2025.3
 ha_iot_class: Local Polling
-ha_config_flow: true
 ha_codeowners:
   - '@MattieGit'
 ha_domain: qube_heatpump
-ha_platforms:
-  - sensor
+ha_integration_type: hub
 ---
 
+<!--- The integration documentation template provides a documentation structure as well as some example content per section. The example content is meant for inspiration, it may not apply for your integration or will at least have to be adapted. -->
+
+<!--- Use this template together with the developer documentation, under [Documentation standard](https://developers.home-assistant.io/docs/documenting/standards) and the documentation rules of the [Integration Quality Scale](https://developers.home-assistant.io/docs/core/integration-quality-scale/rules/). -->
+
 The **Qube Heat Pump** {% term integration %} allows you to control and monitor [Qube](https://www.hr-energy.com/nl/pvt-systemen/onderdelen/qube-warmtepomp/) heat pumps via the Modbus TCP protocol.
+
+## Supported devices
+
+The following devices are known to be supported by the integration:
+
+- Qube heat pump
+
+## Unsupported devices
+
+The following devices are not supported by the integration:
+
+- Qbooster heat pump (the predecessor of the Qube heat pump)
 
 {% include integrations/config_flow.md %}
 
@@ -35,14 +47,14 @@ Label:
 
 ## Supported functionality
 
-The integration exposes various entities to monitor and control your heat pump.
+The **Qube Heat Pump** integration exposes various entities to monitor and control your heat pump.
 
 ### Sensor
 
-- **Temperatures**: inlet (°C), outlet (°C), buffer (°C), outside (°C), and domestic hot water (DHW) temperatures (°C).
+- **Temperatures**: inlet (°C), outlet (°C), buffer (°C), outside (°C), central heating (CH) and domestic hot water (DHW) temperatures (°C).
 - **Flow**: Current flow rate (L/min).
 - **Power and energy**: standby power and total electric consumption (kWh).
-- **Status**: Operation hours and system counters.
+- **Status**: Operation hours and system counters (h).
 
 ## Removing the integration
 This integration follows standard integration removal.
