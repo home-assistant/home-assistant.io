@@ -657,6 +657,12 @@ When used with the energy dashboard, it may result in a peak at the start of the
 
 ## Known issues and limitations
 
+### Reported issues
+
+For reported issues in GitHub, refer to [issues list for the Enphase Envoy integration](https://github.com/home-assistant/core/issues?q=label%3A%22integration%3A+enphase_envoy%22).
+
+For topics in the Home Assistant community, use this [filter of topics that contain the text Enphase](https://community.home-assistant.io/search?q=enphase%20order%3Alatest).
+
 ### Firmware changes
 
 [Envoy firmware](https://enphase.com/installers/resources/documentation/communication?&f[0]=document%3A217) versions come with changing behavior, features, and potential issues. Firmware is pushed to the Envoy by Enphase, while 'not always communicated in detail upfront'. This may result in sudden changes in the Envoy behavior and is always accompanied by an outage while Envoy is being updated.
