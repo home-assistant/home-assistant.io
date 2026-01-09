@@ -7,6 +7,7 @@ ha_release: 2026.2
 ha_category:
   - Button
   - Select
+  - Sensor
   - Switch
 ha_codeowners:
   - '@glenndehaan'
@@ -14,6 +15,7 @@ ha_domain: hdfury
 ha_platforms:
   - button
   - select
+  - sensor
   - switch
 ha_integration_type: integration
 ---
