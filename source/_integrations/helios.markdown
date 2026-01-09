@@ -65,9 +65,9 @@ The four standard Vallox profiles are supported:
 
 ## Fan actions
 
-### Action Set profile fan speed home `
+### Action: Set profile fan speed home `
 
-Set the fan speed of the `Home` profile. Action: `helios.set_profile_fan_speed_home`
+The `helios.set_profile_fan_speed_home` action sets the fan speed of the `Home` profile.
 
 - **Data attribute**: `set_profile_fan_speed_home`
     - **Description**: Fan speed in %. `Integer`, between 0 and 100.
