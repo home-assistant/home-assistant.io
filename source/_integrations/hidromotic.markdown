@@ -26,16 +26,16 @@ The **Hidromotic** {% term integration %} allows you to control and monitor [Hid
 
 The following devices are supported by this integration:
 
-- **CHI Smart** - Full-featured irrigation controller with support for multiple zones, tanks, and pump control.
-- **CHI Smart Mini** - Compact version with fewer flooding zones, occupying 3 DIN module spaces.
+- **CHI Smart** - Full-featured irrigation controller with support for multiple zones, tanks, and pump control
+- **CHI Smart Mini** - Compact version with fewer flooding zones, occupying 3 DIN module spaces
 
 ## Prerequisites
 
 Before setting up this integration, ensure that:
 
-1. Your Hidromotic device is powered on and connected to your local network.
-2. You know the IP address of your device. You can find this in your router's DHCP client list or by using the Hidromotic mobile app.
-3. Home Assistant can reach the device on your network. This typically means both devices need to be on the same network, unless you have configured advanced routing.
+1. Your Hidromotic device is powered on and connected to your local network
+2. You know the IP address of your device. You can find this in your router's DHCP client list or by using the Hidromotic mobile app
+3. Home Assistant can reach the device on your network. This typically means both devices need to be on the same network, unless you have configured advanced routing
 
 {% include integrations/config_flow.md %}
 
@@ -50,18 +50,18 @@ Host:
 
 The integration creates switch entities for:
 
-- **Zone switches** - Control each irrigation zone individually. Turn on to start irrigation, turn off to stop.
-- **Auto Irrigation** - Enable or disable the automatic irrigation schedule programmed on the device.
+- **Zone switches** - Control each irrigation zone individually. Turn on to start irrigation, turn off to stop
+- **Auto Irrigation** - Enable or disable the automatic irrigation schedule programmed on the device
 
 ### Sensors
 
-- **Pump status** - Shows the current state of the pump. The integration reports the following status values: `off`, `on`, `recovery`, and `no_water` (no water detected).
-- **Tank level** - Shows the water level status for each tank. The integration reports the following status values: `full`, `empty`, `medium`, `sensor_fail` (sensor failure), and `level_fail` (invalid or out-of-range level reading).
+- **Pump status** - Shows the current state of the pump. The integration reports the following status values: `off`, `on`, `recovery`, and `no_water` (no water detected)
+- **Tank level** - Shows the water level status for each tank. The integration reports the following status values: `full`, `empty`, `medium`, `sensor_fail` (sensor failure), and `level_fail` (invalid or out-of-range level reading)
 
 ### Binary sensors
 
-- **Tank full** - Indicates when a tank is full.
-- **Tank empty** - Indicates when a tank is empty.
+- **Tank full** - Indicates when a tank is full
+- **Tank empty** - Indicates when a tank is empty
 
 ## Data updates
 
@@ -78,19 +78,19 @@ The integration uses WebSocket connections for real-time updates. When the devic
 
 If you see a "Failed to connect" error during setup:
 
-1. Verify the IP address is correct.
-2. Ensure the device is powered on and connected to your network.
-3. Check that Home Assistant can reach the device (try pinging the IP address).
-4. Make sure no firewall is blocking WebSocket connections (port 80).
+1. Verify the IP address is correct
+2. Ensure the device is powered on and connected to your network
+3. Check that Home Assistant can reach the device (try pinging the IP address)
+4. Make sure no firewall is blocking WebSocket connections (port 80)
 
 ### Device becomes unavailable
 
 If the device shows as unavailable after working initially:
 
-1. Check that the device is still powered on.
-2. Verify the network connection to the device.
-3. The device may have obtained a new IP address - check your router's DHCP leases.
-4. Consider assigning a static IP address to the device to prevent this issue.
+1. Check that the device is still powered on
+2. Verify the network connection to the device
+3. The device may have obtained a new IP address - check your router's DHCP leases
+4. Consider assigning a static IP address to the device to prevent this issue
 
 ## Removing the integration
 
