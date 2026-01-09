@@ -1,7 +1,7 @@
 ---
 title: Indevolt
 description: Instructions on how to integrate your Indevolt device with Home Assistant.
-ha_release: 2026.1
+ha_release: 2026.2
 ha_category:
   - Energy
 ha_iot_class: Local Polling
@@ -19,7 +19,7 @@ The Indevolt {% term integration %} enables direct local communication between H
 
 ## Use cases
 
-With this integration, you can monitor energy production and consumption as well as battery status, manage battery working modes and control real-time charging/discharging behavior, and configure power limits and other battery protection settings.
+With this integration, you can monitor energy production and consumption as well as battery status, manage battery working mode, and control real-time charging/discharging behavior.
 
 ## Supported devices
 
@@ -96,14 +96,6 @@ All Generation 1 sensors, plus:
 - Battery pack 1-5 voltage (V)
 - Battery pack 1-5 current (A)
 
-### Configurations (Generation 2 only)
-
-- Discharge limit: Set the minimum battery level (emergency power/SOC, %)
-- Max AC output power: Configure maximum discharge power (W)
-- Inverter input limit: Set maximum PV input power (W)
-- Feed-in power limit: Configure grid feed-in power limit (W)
-- Grid charging: Enable or disable charging from the grid (switch)
-
 ### Actions
 
 #### Change battery working mode
@@ -165,7 +157,6 @@ The Indevolt integration automatically retrieves data from your devices by polli
 
 ## Known limitations
 
-- Configuration controls (numbers and switches) are only available for Generation 2 devices (SolidFlex2000/PowerFlex2000).
 - Some sensors are device generation-specific and may not appear for all models.
 - Some sensors / configurations available in the app are not (yet) available in the integration.
 
