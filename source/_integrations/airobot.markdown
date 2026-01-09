@@ -133,6 +133,82 @@ The **Airobot** integration enables intelligent floor heating control with pract
 - Floor protection: Monitor floor temperature to prevent overheating of sensitive materials like wooden floors (requires floor sensor).
 - Energy insights: Track heating runtime and device uptime patterns to optimize schedules and identify maintenance needs.
 
+## Automations
+
+Examples of automations you can create using the Airobot integration.
+
+### Air quality alert
+
+Send a notification when the air quality exceeds a specified threshold.
+
+{% my blueprint_import badge blueprint_url="https://gist.github.com/mettolen/eb1cc475fef238fdb34147891eb12b0a" %}
+
+{% details "Example YAML configuration" %}
+
+{% raw %}
+
+```yaml
+blueprint:
+  name: Airobot Air Quality Alert
+  description: Send notification when air quality exceeds threshold
+  domain: automation
+  input:
+    air_quality_sensor:
+      name: Air Quality Sensor
+      selector:
+        entity:
+          filter:
+            - domain: sensor
+    threshold:
+      name: Threshold
+      description: Alert when value goes above this number
+      default: 1000
+      selector:
+        number:
+          min: 0
+          max: 2000
+    notify_device:
+      name: Mobile Device
+      description: Device to send notification to
+      selector:
+        device:
+          filter:
+            - integration: mobile_app
+    notification_title:
+      name: Notification Title
+      description: Title of the notification
+      default: "Poor Air Quality"
+      selector:
+        text:
+    notification_message:
+      name: Notification Message
+      description: Message body (use {{ trigger.to_state.state }} for current value and {{ trigger.above }} for threshold)
+      default: "Air quality in {{ area_name(trigger.entity_id) }} is {{ trigger.to_state.state }} (threshold: {{ trigger.above | int }})"
+      selector:
+        text:
+          multiline: true
+
+trigger:
+  - platform: numeric_state
+    entity_id: !input air_quality_sensor
+    above: !input threshold
+
+condition:
+  - condition: template
+    value_template: "{{ trigger.from_state.state | float(0) < trigger.to_state.state | float(0) }}"
+
+action:
+  - device_id: !input notify_device
+    domain: mobile_app
+    type: notify
+    title: !input notification_title
+    message: !input notification_message
+```
+
+{% endraw %}
+
+{% enddetails %}
+
 ## Data updates
 
 The **Airobot** integration {% term polling polls %} data from the thermostat every 30 seconds. This interval matches the thermostat's internal measurement cycle, ensuring efficient data synchronization without overwhelming the device.
