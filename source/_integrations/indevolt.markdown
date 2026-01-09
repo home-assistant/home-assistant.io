@@ -15,13 +15,11 @@ ha_domain: indevolt
 ha_integration_type: integration
 ---
 
-The Indevolt integration {% term integration %} enables direct local communication between Home Assistant and your [Indevolt](https://www.indevolt.com/) energy storage devices.
+The Indevolt {% term integration %} enables direct local communication between Home Assistant and your [Indevolt](https://www.indevolt.com/) energy storage devices.
 
 ## Use cases
 
-- Monitor energy production and consumption, as well as battery status.
-- Manage battery working modes and control real-time charging/discharging behavior.
-- Configure power limits and other battery (protection) settings.
+With this integration, you can monitor energy production and consumption as well as battery status, manage battery working modes and control real-time charging/discharging behavior, and configure power limits and other battery protection settings.
 
 ## Supported devices
 
