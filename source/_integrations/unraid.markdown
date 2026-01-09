@@ -1,6 +1,6 @@
 ---
-title: Unraid
-description: Instructions on how to integrate your Unraid server with Home Assistant.
+title: unRAID
+description: Instructions on how to integrate your unRAID server with Home Assistant.
 ha_category:
   - Binary sensor
   - Button
@@ -23,15 +23,15 @@ ha_integration_type: hub
 ha_quality_scale: platinum
 ---
 
-The **Unraid** {% term integration %} allows you to monitor and control your [Unraid](https://unraid.net/) server from Home Assistant. This integration connects via the Unraid GraphQL API, which is available in Unraid 7.2.0 and newer.
+The **unRAID** {% term integration %} allows you to monitor and control your [unRAID](https://unraid.net/) server from Home Assistant. This integration connects via the unRAID GraphQL API, which is available in unRAID 7.2.0 and newer.
 
 {% include integrations/config_flow.md %}
 
 ## Prerequisites
 
-Before setting up this integration, you need to generate an API key on your Unraid server:
+Before setting up this integration, you need to generate an API key on your unRAID server:
 
-1. Log in to your Unraid web interface.
+1. Log in to your unRAID web interface.
 2. Go to **Settings** > **Management Access** > **API Keys**.
 3. Select **Add API Key**.
 4. Set the **Role** to **ADMIN** (required for full functionality).
@@ -47,13 +47,13 @@ The following options are available during setup:
 
 {% configuration_basic %}
 Server IP or Hostname:
-  description: The IP address (e.g., `192.168.1.100`) or hostname of your Unraid server.
+  description: The IP address (e.g., `192.168.1.100`) or hostname of your unRAID server.
 API Key:
-  description: The API key generated from your Unraid server with ADMIN role permissions.
+  description: The API key generated from your unRAID server with ADMIN role permissions.
 HTTP Port:
-  description: The HTTP port (default 80). Only change if modified in Unraid Settings > Management Access.
+  description: The HTTP port (default 80). Only change if modified in unRAID Settings > Management Access.
 HTTPS Port:
-  description: The HTTPS port (default 443). Only change if modified in Unraid Settings > Management Access.
+  description: The HTTPS port (default 443). Only change if modified in unRAID Settings > Management Access.
 {% endconfiguration_basic %}
 
 ## Sensors
@@ -67,7 +67,7 @@ The integration creates the following system-level sensors:
 - **CPU temperature**: Processor temperature (if available)
 - **CPU power**: Processor power consumption in watts (if available)
 - **Uptime**: System uptime as a timestamp
-- **Active notifications**: Count of unread notifications on the Unraid server
+- **Active notifications**: Count of unread notifications on the unRAID server
 
 ### Array sensors
 
@@ -90,11 +90,11 @@ For each user share configured on your server:
 
 ### Flash drive sensor
 
-- **Flash usage**: USB flash drive usage for the Unraid boot device
+- **Flash usage**: USB flash drive usage for the unRAID boot device
 
 ### UPS sensors (if connected)
 
-If your Unraid server has a UPS connected:
+If your unRAID server has a UPS connected:
 
 - **Battery level**: Current UPS battery percentage
 - **Load**: UPS load percentage
@@ -157,7 +157,7 @@ For each disk:
 
 ## Data updates
 
-The integration polls your Unraid server for updates. The default polling interval is 30 seconds. You can [define a custom polling interval](/common-tasks/general/#defining-a-custom-polling-interval) if needed.
+The integration polls your unRAID server for updates. The default polling interval is 30 seconds. You can [define a custom polling interval](/common-tasks/general/#defining-a-custom-polling-interval) if needed.
 
 {% note %}
 Frequent polling will prevent disks from spinning down. Consider increasing the polling interval if disk spin-down is important to you.
@@ -165,7 +165,7 @@ Frequent polling will prevent disks from spinning down. Consider increasing the 
 
 ## Known limitations
 
-- Requires Unraid 7.2.0 or newer (GraphQL API v4.21.0+)
+- Requires unRAID 7.2.0 or newer (GraphQL API v4.21.0+)
 - The API key must have ADMIN role for full functionality
 - Some sensors may not be available depending on your hardware configuration (for example, CPU temperature requires motherboard support)
 
@@ -175,18 +175,18 @@ Frequent polling will prevent disks from spinning down. Consider increasing the 
 
 - Verify the IP address or hostname is correct and reachable from Home Assistant.
 - Ensure the correct HTTP/HTTPS ports are configured.
-- Check that your Unraid server is running and accessible on your network.
+- Check that your unRAID server is running and accessible on your network.
 
 ### Invalid authentication error
 
 - Verify the API key is correct and has not expired.
 - Ensure the API key has the ADMIN role assigned.
-- Try generating a new API key in Unraid Settings > Management Access > API Keys.
+- Try generating a new API key in unRAID Settings > Management Access > API Keys.
 
 ### Unsupported version error
 
-- This integration requires Unraid 7.2.0 or newer.
-- Update your Unraid server to the latest version.
+- This integration requires unRAID 7.2.0 or newer.
+- Update your unRAID server to the latest version.
 
 ### Missing sensors
 
@@ -194,10 +194,10 @@ Some sensors require specific hardware or configuration:
 
 - **CPU temperature**: Requires motherboard sensor support
 - **CPU power**: Requires processor power monitoring support
-- **UPS sensors**: Requires a UPS connected and configured in Unraid
+- **UPS sensors**: Requires a UPS connected and configured in unRAID
 
 ## Removing the integration
 
 {% include integrations/remove_device_service.md %}
 
-After removing the integration, you may optionally delete the API key from your Unraid server in **Settings** > **Management Access** > **API Keys**.
+After removing the integration, you may optionally delete the API key from your unRAID server in **Settings** > **Management Access** > **API Keys**.
