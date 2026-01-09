@@ -77,3 +77,7 @@ type:
   required: true
   type: string
 {% endconfiguration %}
+
+## HACS kwb-heating-integration
+There is a better KWB-Heating Integation available via HACS. It supports a wide variety of KWB Heating Systems via the TCP Modus and the New KWB Comfort 4 Interface. 
+See [kwb-heating-integration](https://github.com/cgfm/kwb-heating-integration/blob/main/README.md).
