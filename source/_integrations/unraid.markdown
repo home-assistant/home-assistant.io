@@ -47,7 +47,7 @@ The following options are available during setup:
 
 {% configuration_basic %}
 Server IP or Hostname:
-  description: The IP address (e.g., `192.168.1.100`) or hostname of your unRAID server.
+  description: The IP address (for example, `192.168.1.100`) or hostname of your unRAID server.
 API Key:
   description: The API key generated from your unRAID server with ADMIN role permissions.
 HTTP Port:
