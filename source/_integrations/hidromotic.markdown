@@ -70,7 +70,7 @@ The integration uses WebSocket connections for real-time updates. When the devic
 ## Known limitations
 
 - The integration requires the device to be on the local network. Cloud or remote access is not supported.
-- Zone schedules and timers are configured on the device itself and cannot be modified through Home Assistant. Use the Auto Irrigation switch to enable/disable the programmed schedules.
+- Zone schedules and timers are configured on the device itself and cannot be modified through Home Assistant. Use the Auto Irrigation switch to enable or disable the programmed schedules.
 
 ## Troubleshooting
 
