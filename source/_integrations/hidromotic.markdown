@@ -27,7 +27,7 @@ The **Hidromotic** {% term integration %} allows you to control and monitor [Hid
 The following devices are supported by this integration:
 
 - **CHI Smart** - Full-featured irrigation controller with support for multiple zones, tanks, and pump control.
-- **CHI Smart Mini** - Compact version with fewer flooding zones, with the size of 3 DIN sockets.
+- **CHI Smart Mini** - Compact version with fewer flooding zones, occupying 3 DIN module spaces.
 
 ## Prerequisites
 
@@ -35,7 +35,7 @@ Before setting up this integration, ensure that:
 
 1. Your Hidromotic device is powered on and connected to your local network.
 2. You know the IP address of your device. You can find this in your router's DHCP client list or by using the Hidromotic mobile app.
-3. Home Assistant can reach the device on your network. This typically means they need to be on the same network, unless you have configured advanced routing.
+3. Home Assistant can reach the device on your network. This typically means both devices need to be on the same network, unless you have configured advanced routing.
 
 {% include integrations/config_flow.md %}
 
