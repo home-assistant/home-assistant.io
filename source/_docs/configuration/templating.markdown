@@ -500,6 +500,7 @@ The same thing can also be expressed as a test:
 - `floor_name(lookup_value)` returns the floor name for a given device ID, entity ID, area ID, or floor ID. Can also be used as a filter.
 - `floor_areas(floor_name_or_id)` returns the list of area IDs tied to a given floor ID or name. Can also be used as a filter.
 - `floor_entities(floor_name_or_id)` returns the list of entity IDs tied to a given floor ID or name. Can also be used as a filter.
+- `floor_icon(lookup_value)` returns the floor icon for a given floor name or alias, area name or alias, entity ID or device ID. Can also be used as a filter.
 
 #### Floors examples
 
@@ -541,6 +542,18 @@ The same thing can also be expressed as a test:
 {{ floor_areas('first_floor') }}  # ['living_room', 'kitchen']
 ```
 
+```text
+{{ floor_icon('First floor alias') }}  # 'mdi:home-floor-1'
+```
+
+```text
+{{ floor_icon('my_device_id') }}  # 'mdi:home-floor-1'
+```
+
+```text
+{{ floor_icon('sensor.sony') }}  # 'mdi:home-floor-1'
+```
+
 {% endraw %}
 
 ### Areas
@@ -550,6 +563,7 @@ The same thing can also be expressed as a test:
 - `area_name(lookup_value)` returns the area name for a given device ID, entity ID, or area ID. Can also be used as a filter.
 - `area_entities(area_name_or_id)` returns the list of entity IDs tied to a given area ID or name. Can also be used as a filter.
 - `area_devices(area_name_or_id)` returns the list of device IDs tied to a given area ID or name. Can also be used as a filter.
+- `area_icon(lookup_value)` returns the area icon for a given device ID, entity ID, or area ID. Can also be used as a filter.
 
 #### Areas examples
 
@@ -593,6 +607,18 @@ The same thing can also be expressed as a test:
 
 ```text
 {{ area_devices('Living Room') }}  # ['my_device_id']
+```
+
+```text
+{{ area_icon('deadbeefdeadbeefdeadbeefdeadbeef') }}  # 'mdi:sofa'
+```
+
+```text
+{{ area_icon('my_device_id') }}  # 'mdi:sofa'
+```
+
+```text
+{{ area_icon('sensor.sony') }}  # 'mdi:sofa'
 ```
 
 {% endraw %}
@@ -1439,9 +1465,9 @@ used with `apply`), or any other value your code might produce.
 Using action responses we can collect information from various entities at the same time.
 Using the `merge_response` template we can merge several responses into one list.
 
-| Variable       | Description                                     |
-| -------------- | ----------------------------------              |
-| `value`        | The incoming value (must be an action response). |
+| Variable | Description                                      |
+| -------- | ------------------------------------------------ |
+| `value`  | The incoming value (must be an action response). |
 
 The `entity_id` key is appended to each dictionary within the template output list as a reference of origin. If the input dictionary already contains an `entity_id` key, the template will fail.
 
