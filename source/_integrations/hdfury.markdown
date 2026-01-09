@@ -25,6 +25,7 @@ The **HDFury** {% term integration %} allows you to control and monitor your [HD
 - Monitor current device state.
 - Control the HDMI port selectors and operation state.
 - Control audio muting, and display/relay configuration.
+- Monitor HDMI input, output, and audio signal status.
 
 ## Supported devices
 
@@ -53,6 +54,23 @@ Below is a complete overview of the entities this integration provides.
 - Operation Mode (Controls the device Operation Mode, Splitter/Matrix/etc.)
 - Port Select TX0 (Controls the HDMI source selection for output TX0)
 - Port Select TX1 (Controls the HDMI source selection for output TX1)
+
+### Sensor
+
+- Audio TX0 (Current audio format/status on HDMI output TX0)
+- Audio TX1 (Current audio format/status on HDMI output TX1)
+- Audio output (Current audio format/status on HDMI output AUD)
+- eARC/ARC status (Current eARC or ARC connection state)
+- EDID TXA0 (EDID received from TX0 audio channel)
+- EDID TXA1 (EDID received from TX1 audio channel)
+- EDID AUDA (EDID received from AUD audio output)
+- Input RX0 (Status and signal information for HDMI input RX0)
+- Input RX1 (Status and signal information for HDMI input RX1)
+- EDID TX0 (EDID received from TX0 video channel)
+- EDID TX1 (EDID received from TX1 video channel)
+- EDID AUD (EDID received from AUD video channel)
+- Output TX0 (Status and signal information for HDMI output TX0)
+- Output TX1 (Status and signal information for HDMI output TX1)
 
 ### Switch
 
