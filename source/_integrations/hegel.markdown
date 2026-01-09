@@ -25,11 +25,6 @@ This integration provides complete control over your Hegel amplifier including p
 {% configuration_basic %}
 Host:
   description: Hostname or IP address of your Hegel amplifier.
-Port:
-  description: TCP port for the amplifier control.
-  default: 50001
-Name:
-  description: A friendly name for your amplifier.
 Model:
   description: Your specific Hegel amplifier model for proper input mapping.
 {% endconfiguration_basic %}
@@ -81,6 +76,7 @@ The integration features robust connection management:
 Each Hegel model has specific input configurations that are automatically mapped:
 
 - **H95**: Analog 1, Analog 2, Coaxial, Optical 1-3, USB, Network
+- **H120**: Balanced, Analog 1-2, Coaxial, Optical 1-3, USB, Network
 - **H190**: Balanced, Analog 1-2, Coaxial, Optical 1-3, USB, Network
 - **H190V**: XLR, Analog 1-2, Coaxial, Optical 1-3, USB, Network, Phono
 - **H390**: XLR, Analog 1-2, BNC, Coaxial, Optical 1-3, USB, Network
