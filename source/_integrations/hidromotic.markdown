@@ -55,8 +55,8 @@ The integration creates switch entities for:
 
 ### Sensors
 
-- **Pump status** - Shows the current state of the pump (off, on, recovery, no_water).
-- **Tank level** - Shows the water level status for each tank (full, empty, medium, sensor_fail, level_fail).
+- **Pump status** - Shows the current state of the pump. The integration reports the following status values: `off`, `on`, `recovery`, and `no_water` (no water detected).
+- **Tank level** - Shows the water level status for each tank. The integration reports the following status values: `full`, `empty`, `medium`, `sensor_fail` (sensor failure), and `level_fail` (invalid or out-of-range level reading).
 
 ### Binary sensors
 
