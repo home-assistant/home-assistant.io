@@ -16,7 +16,7 @@ ha_integration_type: service
 ha_quality_scale: bronze
 ---
 
-The **Opower** {% term integration %} allows you to get energy information from utilities that use [Opower](https://www.oracle.com/industries/utilities/opower-energy-efficiency/).
+The **Opower** {% term integration %} allows you to get energy information from utilities that use [Opower](https://www.oracle.com/utilities/opower-energy-efficiency/).
 
 More than 175 utilities use Opower. Currently only the following utilities are supported by this integration:
 
@@ -53,6 +53,7 @@ More than 175 utilities use Opower. Currently only the following utilities are s
 - Sacramento Municipal Utility District (SMUD)
 - Seattle City Light (SCL)
 - Southern Maryland Electric Cooperative (SMECO)
+- Southwest Gas
 
 When you add the Opower integration to Home Assistant, you will need to provide your utility account's authentication details to enable retrieving your energy data.
 This is typically the same information needed to access your utility's website.
@@ -62,6 +63,10 @@ This is typically the same information needed to access your utility's website.
 For many utilities, only a username and password are required to access your accounts. Some utilities require additional authentication information.
 It might be necessary to configure your utility account with an authentication method that is compatible with the Opower integration.
 Utility-specific authentication requirements are listed below:
+
+### Burbank Water and Power (BWP)
+
+You need to first create an account at <https://bwp.opower.com/> and use those credentials when you set up the integration.
 
 ### Consolidated Edison (ConEd)
 
