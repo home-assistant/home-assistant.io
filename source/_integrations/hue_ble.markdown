@@ -50,10 +50,6 @@ This {% term integration %} is tested to work with the following models:
 | LTO002       | Hue White ambiance filament globe bulb           |
 | Unknown      | Hue White and Color Ambiance Go portable accent light  |
 
-
-
-
-
 The **Philips Hue BLE** integration has been designed to work with other models as well. If you have a different model and it is working, please let us know.
 
 ## Removing the integration
