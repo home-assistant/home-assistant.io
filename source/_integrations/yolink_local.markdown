@@ -16,25 +16,26 @@ ha_platforms:
 ha_integration_type: hub
 ---
 
-Integrates [YoLink](https://www.yosmart.com/) Devices into Home Assistant locally.
+The **YoLink** {% term integration %} integrates [YoLink](https://www.yosmart.com/) devices into Home Assistant locally.
 
-## Requirements
+## Prerequisites
 
-This integration requires a YoSmart Local Hub (YS1606).
+- YoSmart Local Hub (YS1606)
+- The YoLink app installed
+- YoLink account
+- Client ID and client secret of the YoLink local API
 
-## Setup
+### Setting up the hub and finding the client credentials
 
-This integration requires the YoLink APP and a YoLink account.
-
-Install YoLink APP for [Android](https://play.google.com/store/apps/details?id=com.yosmart.yolink)  
-Install YoLink APP for [IOS](https://apps.apple.com/us/app/yolink/id1457639983)
-
-1. Add the Local Hub via the YoLink app.
-2. Click the **Local Network** button on the Local Hub's main page.
-3. Click the **Create Subnet** button to create the local network.
-4. The **Net Id** from the **General** tab of the Local Network page is required when adding the integration.
-5. On the Local Network page, navigate to the **Integrations** tab and enable the Local API, making sure that both the HTTP and MQTT protocols are enabled.
-6. The **Client Id** and **Client Secret** from the **Local API** are required when adding the integration.
+1. Install the YoLink app:
+   - [Android](https://play.google.com/store/apps/details?id=com.yosmart.yolink)
+   - [IOS](https://apps.apple.com/us/app/yolink/id1457639983)
+2. Add the Local Hub via the YoLink app.
+3. Click the **Local Network** button on the Local Hub's main page.
+4. Click the **Create Subnet** button to create the local network.
+5. The **Net Id** from the **General** tab of the Local Network page is required when adding the integration.
+6. On the Local Network page, navigate to the **Integrations** tab and enable the Local API, making sure that both the HTTP and MQTT protocols are enabled.
+7. The **Client Id** and **Client Secret** from the **Local API** are required when adding the integration.
 
 ## Supported device list
 
