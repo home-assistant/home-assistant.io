@@ -1,5 +1,5 @@
 ---
-title: SMN - Servicio Meteorológico Nacional Argentina
+title: Servicio Meteorológico Nacional de Argentina (SMN)
 description: Instructions on how to integrate SMN within Home Assistant.
 ha_category:
   - Weather
@@ -14,7 +14,7 @@ ha_platforms:
 ha_integration_type: service
 ---
 
-The **SMN - Servicio Meteorológico Nacional** {% term integration %} uses [smn.gob.ar](https://met.no/) web services as a source for meteorological data for your location. The weather forecast is delivered by the **National Weather Service of Argentina**.
+The **Servicio Meteorológico Nacional de Argentina (SMN)** {% term integration %} uses [smn.gob.ar](https://met.no/) web services as a source for meteorological data for your location. The weather forecast is delivered by the **National Weather Service of Argentina**.
 
 {% include integrations/config_flow.md %}
 
