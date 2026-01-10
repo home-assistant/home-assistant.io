@@ -165,6 +165,18 @@ google_assistant:
   exposed_domains:
     - switch
     - light
+  filter:
+    include_domains:
+      - alarm_control_panel
+      - light
+    include_entities:
+      - switch.kitchen
+    exclude_entities:
+      - light.kitchen
+    include_entity_globs:
+      - binary_sensor.*_occupancy
+    exclude_entity_globs:
+      - light.kitchen_*
   entity_config:
     switch.kitchen:
       name: CUSTOM_NAME_FOR_GOOGLE_ASSISTANT
@@ -213,6 +225,35 @@ exposed_domains:
   description: List of entity domains to expose to Google Assistant if `expose_by_default` is set to true. This has no effect if `expose_by_default` is set to false.
   required: false
   type: list
+filter:
+  description: "Filters to include and exclude entities from being exposed. `include_domains`, `include_entities`, `exclude_domains`, `exclude_entities` and `include_entity_globs`, `exclude_entity_globs` are supported."
+  required: false
+  type: map
+  keys:
+    include_domains:
+      description: Domains to include.
+      required: false
+      type: list
+    include_entities:
+      description: Entities to include.
+      required: false
+      type: list
+    include_entity_globs:
+      description: Include entities matching a glob pattern.
+      required: false
+      type: list
+    exclude_domains:
+      description: Domains to exclude.
+      required: false
+      type: list
+    exclude_entities:
+      description: Entities to exclude.
+      required: false
+      type: list
+    exclude_entity_globs:
+      description: Exclude entities matching a glob pattern.
+      required: false
+      type: list
 entity_config:
   description: Entity specific configuration for Google Assistant
   required: false
