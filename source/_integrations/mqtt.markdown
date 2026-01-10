@@ -1345,6 +1345,7 @@ Setting up a [light that takes JSON payloads](/integrations/light.mqtt/#json-sch
 
 The following software has built-in support for MQTT discovery:
 
+- [anpr2mqtt](https://anpr2mqtt.rhizomatics.org.uk)
 - [ArduinoHA](https://github.com/dawidchyrzynski/arduino-home-assistant)
 - [Arilux AL-LC0X LED controllers](https://github.com/smrtnt/Arilux_AL-LC0X)
 - [ble2mqtt](https://github.com/devbis/ble2mqtt)
