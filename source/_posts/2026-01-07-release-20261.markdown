@@ -23,7 +23,7 @@ Home Assistant 2026.1 brings a refreshed Home dashboard experience on mobile, wi
 
 For automation enthusiasts, we’re continuing our work on our even more "human-friendly" triggers, which can be enabled via Home Assistant Labs, so you can build automations using easy-to-understand language instead of technical state changes, like initiating automations if a button is pressed or someone arrives home.
 
-On the integrations front, we welcome eight new integrations to the family, including pet tracking with Fressnapf, energy monitoring with eGauge, and smart heating control with Watts Vision+. Plus, improvements to existing integrations from our amazing community contributors.
+On the integrations front, we welcome eight new integrations to the family, including pet tracking with Fressnapf, energy monitoring with eGauge, and smart heating control with Watts Vision +. Plus, improvements to existing integrations from our amazing community contributors.
 
 I wish you a happy and healthy 2026! Enjoy the release!
 
@@ -92,7 +92,7 @@ This feature is still being refined in {% my labs title="**Home Assistant Labs**
 
 As the new purpose-specific triggers and conditions all support targeting something bigger than a simple entity (an area, a floor, or even a label), we also redesigned how the target gets displayed on the automation flow.
 
-The goal of this change is to allow you to quickly glance and your automation, and understand its purpose.
+The goal of this change is to allow you to quickly glance at your automation, and understand its purpose.
 
 <img src='/images/blog/2026-01/target_summary_automation_editor.png' alt='Screenshot showing the new target summary in the automation editor.' class='no-shadow' />
 
@@ -116,8 +116,8 @@ Thanks to our community for keeping pace with the new {% term integrations %} an
 
 We welcome the following new integrations in this release:
 
-- **[Airpatrol]**, added by [@antondalgren]  
-  Control your air conditioning units through Airpatrol WiFi devices directly from Home Assistant.
+- **[AirPatrol]**, added by [@antondalgren]  
+  Control your air conditioning units through AirPatrol Wi-Fi devices directly from Home Assistant.
 - **[eGauge]**, added by [@neggert]  
   Integrate eGauge energy monitors for residential and commercial applications, commonly used with solar energy installations.
 - **[Fluss+]**, added by [@Marcello17]  
@@ -141,7 +141,7 @@ We welcome the following new integrations in this release:
 [@noambav]: https://github.com/noambav
 [@ryanjones-gentex]: https://github.com/ryanjones-gentex
 [@theobld-ww]: https://github.com/theobld-ww
-[Airpatrol]: /integrations/airpatrol
+[AirPatrol]: /integrations/airpatrol
 [eGauge]: /integrations/egauge
 [Fish Audio]: /integrations/fish_audio
 [Fluss+]: /integrations/fluss
@@ -165,7 +165,7 @@ It is not just new {% term integrations %} that have been added; existing ones a
 - The [Matter] integration gained three new diagnostic binary sensors for thermostat remote sensing status from [@lboue], helping you keep an eye on your climate system.
 - [@joostlek] added lots of new sensors to the [SmartThings] integration, including air quality sensors for PM1, PM2.5, and PM10, hood filter usage tracking, fridge temperature sensors for One Door refrigerators, and fan speed control for range hoods.
 - [Roborock] owners with Q7 devices can now integrate them thanks to [@Lash-L], who added basic read-only support with sensors for battery, status, and cleaning data.
-- [@mib1185] improved the [FRITZ!Box Smart Home] integration by adding switch entities that let you enable or disable FRITZ! Smarthome routines (triggers) directly from Home Assistant.
+- [@mib1185] improved the [FRITZ!SmartHome] integration by adding switch entities that let you enable or disable FRITZ! Smart Home routines (triggers) directly from Home Assistant.
 - The [Ping] integration now tracks packet loss, thanks to [@mib1185]. The new sensor shows packet loss as a percentage and is disabled by default.
 - [@Shulyaka] added support for GPT-5.2 and GPT-5.2-pro models to the [OpenAI] integration, including a new "xhigh" reasoning effort level.
 - The [HomeWizard] integration gained two new battery charge modes from [@DCSBL]: zero charge only and zero discharge only, giving you more control over your energy storage.
@@ -204,7 +204,7 @@ A huge thank you to all the contributors who improved these integrations, and to
 [Actron Air]: /integrations/actron_air
 [AirPatrol]: /integrations/airpatrol
 [Airobot]: /integrations/airobot
-[FRITZ!Box Smart Home]: /integrations/fritzbox
+[FRITZ!SmartHome]: /integrations/fritzbox
 [Hikvision]: /integrations/hikvision
 [HomeWizard]: /integrations/homewizard
 [KNX]: /integrations/knx
@@ -408,7 +408,7 @@ The `advancedSleep` fan mode has been changed to `advanced_sleep`. If you have a
 
 {% enddetails %}
 
-If you are a custom integration developer and want to learn about changes and new features available for your integration: Be sure to follow our [developer blog][devblog].
+If you are a custom integration developer and want to learn about changes and new features available for your integration, be sure to follow our [developer blog][devblog].
 
 [devblog]: https://developers.home-assistant.io/blog/
 
