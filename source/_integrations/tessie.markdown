@@ -398,24 +398,6 @@ automation:
           entity_id: cover.garage_door
 ```
 
-### Enable sentry mode when leaving home
-
-This automation enables sentry mode when your vehicle leaves home:
-
-```yaml
-automation:
-  - alias: "Enable sentry mode when leaving"
-    trigger:
-      - platform: zone
-        entity_id: device_tracker.my_tesla_location
-        zone: zone.home
-        event: leave
-    action:
-      - action: switch.turn_on
-        target:
-          entity_id: switch.my_tesla_sentry_mode
-```
-
 ### Notify when charging is complete
 
 This automation sends a notification when your vehicle has finished charging:
