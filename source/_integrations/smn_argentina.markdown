@@ -26,7 +26,7 @@ SMN provides daily weather forecasts for four time slots: early morning (3 AM), 
 
 ### Action `smn_argentina.get_alerts_for_location`
 
-Get weather alerts for a specific **SMN location ID** (for example ` 4864` queries for alerts for Buenos Aires City). Returns active alerts with severity levels, descriptions, and instructions for use in automations.
+Get weather alerts for a specific **SMN location ID** (for example `4864` queries for alerts for Buenos Aires City). Returns active alerts with severity levels, descriptions, and instructions for use in automations.
 
 | Data attribute | Optional | Description |
 | ---------------------- |----------| ----------- |
