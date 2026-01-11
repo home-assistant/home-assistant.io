@@ -3,6 +3,7 @@ title: NuHeat
 description: Instructions on how to integrate your NuHeat Signature thermostats within Home Assistant.
 ha_category:
   - Climate
+  - Energy
 ha_release: 0.61
 ha_iot_class: Cloud Polling
 ha_domain: nuheat
@@ -10,22 +11,59 @@ ha_config_flow: true
 ha_dhcp: true
 ha_platforms:
   - climate
+  - sensor
 ha_integration_type: integration
 ha_codeowners:
   - '@tstabrawa'
 ---
 
-The **NuHeat** {% term integration %} lets control your connected [NuHeat Signature](https://www.nuheat.com/products/thermostats/signature-thermostat) floor heating thermostats from [NuHeat](https://www.nuheat.com/).
+The **NuHeat** {% term integration %} lets you control your connected [NuHeat Signature](https://www.nuheat.com/products/thermostats/signature-thermostat) floor heating thermostats from [NuHeat](https://www.nuheat.com/).
 
 There is currently support for the following device types within Home Assistant:
 
 - Climate
+- Sensor
 
 ## Prerequisites
 
 First, you will need to obtain your thermostat's numeric serial number or ID by logging into [MyNuHeat.com](https://mynuheat.com/) and selecting your thermostat(s).
 
 {% include integrations/config_flow.md %}
+
+## Sensors
+
+The integration provides the following sensors:
+
+### Heating time
+
+Reports the total heating time (in minutes) for the current day. This sensor is always available.
+
+### Energy
+
+Reports the energy consumption (in kWh) for the current day. This sensor is compatible with the Home Assistant [Energy dashboard](/docs/energy/).
+
+{% note %}
+The energy sensor requires either:
+- Watt density configured in the NuHeat app, or
+- Floor area and watt density configured in the integration options (see below)
+
+If neither is configured, only the heating time sensor will be available.
+{% endnote %}
+
+## Configuration options
+
+You can configure the integration to calculate energy consumption from heating time by providing your floor specifications. This is useful if you haven't configured watt density in the NuHeat app.
+
+To configure, go to **Settings** > **Devices & services** > **NuHeat** > **Configure**.
+
+{% configuration_basic %}
+Heated floor area:
+  description: The total area covered by your heated floor mat in square feet.
+Watt density:
+  description: Power output per square foot. Most NuHeat mats are 12 watts/sqft (the default).
+{% endconfiguration_basic %}
+
+When floor area is configured, energy is calculated as: `floor_area × watt_density × heating_minutes / 60 / 1000`.
 
 ## Concepts
 
