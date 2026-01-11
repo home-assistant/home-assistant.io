@@ -1,4 +1,6 @@
-var remarkrc = {
+"use strict";
+
+const remarkrc = {
   settings: {
     bullet: "-",
     commonmark: true,
@@ -8,15 +10,32 @@ var remarkrc = {
     listItemIndent: 1,
     strong: "*",
   },
+
   plugins: [
     ["frontmatter"],
+
+    // Code block hygiene
     ["lint-fenced-code-flag"],
     ["lint-no-shell-dollars"],
+
+    // Heading hygiene
     ["remark-lint-heading-increment"],
     ["remark-lint-heading-style", "atx"],
+
+    // List consistency
     ["remark-lint-unordered-list-marker-style", "-"],
     ["remark-lint-ordered-list-marker-style", "."],
     ["remark-lint-ordered-list-marker-value"],
+
+    // ✅ Added: spacing + readability (no visual output change)
+    ["remark-lint-no-multiple-toplevel-headings"],
+    ["remark-lint-no-duplicate-headings"],
+
+    // ✅ Added: prevent broken Markdown formatting
+    ["remark-lint-no-empty-sections"],
+    ["remark-lint-no-heading-punctuation"],
+
+    // Branding / wording consistency rules
     [
       "remark-lint-prohibited-strings",
       [
@@ -30,9 +49,14 @@ var remarkrc = {
         },
         { no: "Speech-[Tt]o-Text", yes: "Speech-to-text" },
         { no: "Text-[Tt]o-Speech", yes: "Text-to-speech" },
+
+        // ✅ Added: common spelling consistency (safe + no output changes)
+        { no: "HomeAssistant", yes: "Home Assistant" },
+        { no: "websocket", yes: "WebSocket" },
       ],
     ],
   ],
 };
 
 module.exports = remarkrc;
+
