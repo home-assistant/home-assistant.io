@@ -18,7 +18,7 @@ ha_platforms:
   - sensor
   - switch
   - update
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 The **Pi-hole** {% term integration %} allows you to retrieve statistics and interact with a

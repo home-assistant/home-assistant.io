@@ -20,7 +20,7 @@ ha_codeowners:
   - '@tr4nt0r'
 ha_config_flow: true
 ha_quality_scale: bronze
-ha_integration_type: service
+ha_integration_type: hub
 related:
   - url: https://playstation.com/
     title: Playstation

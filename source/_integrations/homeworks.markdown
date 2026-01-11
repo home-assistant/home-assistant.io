@@ -13,7 +13,7 @@ ha_platforms:
   - binary_sensor
   - button
   - light
-ha_integration_type: integration
+ha_integration_type: hub
 ha_config_flow: true
 ---
 

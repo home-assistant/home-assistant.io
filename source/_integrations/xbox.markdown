@@ -20,7 +20,7 @@ ha_platforms:
   - media_player
   - remote
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
 ha_ssdp: true
 ha_dhcp: true
 ---
@@ -42,6 +42,12 @@ The Home Assistant Xbox {% term integration %} lets you monitor and control Xbox
 - Home Assistant connects to **Xbox Network** via OAuth2 using Home Assistant Cloud’s account-linking service. To use this, your {% term "configuration.yaml" %} must include either `cloud:` or `default_config:`.
 
 {% include integrations/config_flow.md %}
+
+## Track online status of friends
+
+The **Xbox integration** allows tracking the online status, activity, and other information of your friends. To add a friend, go to {% my integration domain="xbox" title="**Settings** > **Devices & services** > **Xbox**" %} and select **{% icon "mdi:plus" %} Add friend**.
+
+Once added, a new device will appear with the same set of entities available for your own Xbox account, allowing you to track your friend’s activity.
 
 ## Supported devices
 
@@ -262,7 +268,7 @@ elements:
 
 ## Binary sensor
 
-The Xbox binary sensor platform automatically keeps track of your "**Favorite** friends". In your friends list, select **Change friendship > Favorite** to have that person automatically pulled into Home Assistant.
+The **Xbox binary sensor platform** automatically tracks the online status and activity of your own account as well as your friends.
 
 | Entity Name                      | Description                                                            |
 | -------------------------------- | ---------------------------------------------------------------------- |
@@ -272,7 +278,7 @@ The Xbox binary sensor platform automatically keeps track of your "**Favorite** 
 
 ## Sensor
 
-Just like the binary sensors, the Xbox sensor platform automatically keeps track of your "**Favorite** friends".
+Similar to binary sensors, the **Xbox sensor platform** monitors your account and friends, providing detailed information about their activity and achievements.
 
 | Entity Name      | Description                                                                |
 | ---------------- | -------------------------------------------------------------------------- |
@@ -284,12 +290,19 @@ Just like the binary sensors, the Xbox sensor platform automatically keeps track
 | **Last online**  | Displays the last time the friend was active online.                       |
 | **In party**     | Shows the number of people in the user’s party chat if they are currently in one. |
 | **Now playing**  | Shows the title of the game currently being played. Additional details such as a short description, genre, developer, age rating, and achievement progress are available in the entity's attributes. |
+
+### Storage sensors
+
+These sensors track the storage on your own **Xbox consoles** and connected storage devices.
+
+| Entity Name      | Description                                                                |
+| ---------------- | -------------------------------------------------------------------------- |
 | **Total space: *{name}*** | Reports the total storage capacity of the device. A separate sensor is created for each Xbox console and connected internal and external storage device. |
 | **Free space: *{name}*** | Reports the available (unused) storage space on the device. A separate sensor is created for each Xbox console and connected internal and external storage device. |
 
 ## Image
 
-For your account and each of your favorite friends, several image entities are available:
+For your account and each of your friends, several image entities are available:
 
 | Entity Name      | Description                                                                            |
 | ---------------- | -------------------------------------------------------------------------------------- |

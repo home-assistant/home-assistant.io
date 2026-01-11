@@ -3,6 +3,7 @@ title: SwitchBot Bluetooth
 description: Instructions on how to set up SwitchBot Devices.
 ha_category:
   - Binary sensor
+  - Button
   - Climate
   - Cover
   - Fan
@@ -27,6 +28,7 @@ works_with:
 ha_bluetooth: true
 ha_platforms:
   - binary_sensor
+  - button
   - climate
   - cover
   - diagnostics
@@ -38,7 +40,7 @@ ha_platforms:
   - switch
   - vacuum
 ha_config_flow: true
-ha_integration_type: integration
+ha_integration_type: device
 ha_quality_scale: gold
 ---
 
@@ -63,7 +65,24 @@ Please note, device names configured in the SwitchBot app are not transferred in
 
 Some SwitchBot devices need to be configured within the app before being controlled by Home Assistant, such as calibrating the cover open/close limits or pairing two covers to move together.
 
+### Add mode
 
+Before adding SwitchBot devices over Bluetooth, confirm whether your Bluetooth adapter is set to **Active** or **Passive** mode in the Bluetooth integration configuration.
+
+- To open the Bluetooth integration settings, go to {% my integrations title="**Settings** > **Devices & services**" %} and select **Integrations**, then find and open the **Bluetooth** integration to check the adapter mode.
+
+- Active mode
+  - Devices are normally discovered automatically.
+  - If a device is not discovered automatically:
+    - For devices with a physical button, press and hold the button to enter pairing mode.
+    - For devices without a button, power-cycle the device to trigger pairing mode.
+    - If the device still cannot be discovered, try syncing devices from your SwitchBot account by selecting  the **SwitchBot** integration and signing in.
+
+- Passive mode
+  - Devices cannot be discovered via local Bluetooth scanning and must be synchronized through your SwitchBot account.
+  - To sync devices from your account, go to {% my integrations title="**Settings** > **Devices & services**" %}, open **Integrations**, select **SwitchBot**, select  the integration to open the login window, and sign in. If the local Bluetooth scan detects devices that are linked to your SwitchBot account and within range, you can add them after signing in.
+
+If you still cannot add a device, make sure it is powered on, within Bluetooth range, and not connected to another app. If necessary, follow the manufacturer's reset instructions or consult SwitchBot support.
 
 ### Adding encrypted SwitchBot devices
 
@@ -185,6 +204,10 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 ### Climates
 
 - [Smart Radiator Thermostat](https://www.switch-bot.com/products/switchbot-smart-radiator-thermostat)
+
+### Buttons
+
+- [Art Frame](https://www.switch-bot.com/products/switchbot-ai-art-frame)
 
 ## Works with Home Assistant
 
@@ -740,7 +763,7 @@ Features:
 
 climate entities are added for smart radiator thermostat
 
-This is an encryed device.
+This is an encrypted device.
 
 Features:
 
@@ -748,6 +771,19 @@ Features:
 - turn off
 - set mode
 - set target temperature
+
+### Buttons
+
+button entities are added for art frame.
+
+This is an encrypted device.
+
+Note: Users need to preset images in the app.
+
+Features:
+- next image
+- previous image
+
 
 ## Data updates
 

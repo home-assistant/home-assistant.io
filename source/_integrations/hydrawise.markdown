@@ -20,7 +20,7 @@ ha_platforms:
   - sensor
   - switch
   - valve
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The **Hunter Hydrawise** {% term integration %} allows you to integrate your [Hunter Hydrawise](https://hydrawise.com) Wi-Fi irrigation controller system in Home Assistant.

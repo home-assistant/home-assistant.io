@@ -11,97 +11,39 @@ ha_domain: vivotek
 ha_platforms:
   - camera
 ha_integration_type: integration
-related:
-  - docs: /docs/configuration/
-    title: Configuration file
-ha_quality_scale: legacy
+ha_config_flow: true
 ---
 
 The **VIVOTEK** {% term integration %} allows you to integrate a VIVOTEK IP camera into Home Assistant.
 
 Home Assistant will serve the images via its server, making it possible to view your IP cameras while outside of your network. The endpoint is `/api/camera_proxy/camera.[name]`.
 
-## Configuration
+{% include integrations/config_flow.md %}
 
-To enable this camera in your installation, add the following to your {% term "`configuration.yaml`" %} file.
-{% include integrations/restart_ha_after_config_inclusion.md %}
-
-```yaml
-# Example configuration.yaml entry
-camera:
-  - platform: vivotek
-    ip_address: IP_ADDRESS
-    username: USERNAME
-    password: PASSWORD
-```
-
-{% configuration %}
+{% configuration_basic %}
 ip_address:
-  description: "The IP address of your camera, e.g., `192.168.1.2`."
-  required: true
-  type: string
+  description: The IP address of your camera, e.g., `192.168.1.2`.
+port:
+  description: The port number.
 name:
-  description: This parameter allows you to override the name of your camera.
-  required: false
-  default: VIVOTEK Camera
-  type: string
+  description: The name of your camera.
 username:
   description: The username for accessing your camera.
-  required: true
-  type: string
 password:
   description: The password for accessing your camera.
-  required: true
-  type: string
 authentication:
-  description: "Type for authenticating the requests `basic` or `digest`."
-  required: false
-  default: basic
-  type: string
+  description: "Type for authenticating the requests with `basic` or `digest`."
 security_level:
   description: The security level of the user accessing your camera. This could be `admin` or `viewer`.
-  required: false
-  default: admin
-  type: string
 ssl:
   description: Enable or disable SSL. Set to false to use an HTTP-only camera.
-  required: false
-  default: false
-  type: boolean
 verify_ssl:
   description: Enable or disable SSL certificate verification. Set to false to use an HTTP-only camera, or you have a self-signed SSL certificate and haven't installed the CA certificate to enable verification.
-  required: false
-  default: true
-  type: boolean
 framerate:
   description: The number of frames-per-second (FPS) of the stream. Can cause heavy traffic on the network and/or heavy load on the camera.
-  required: false
-  default: 2
-  type: integer
 stream_path:
-  description: This parameter allows you to override the stream path.
-  required: false
-  default: live.sdp
-  type: string
-{% endconfiguration %}
-
-### Advanced configuration
-
-```yaml
-# Example configuration.yaml entry
-camera:
-  - platform: vivotek
-    name: Front door camera
-    ip_address: 192.168.1.2
-    ssl: true
-    username: !secret fd_camera_username
-    password: !secret fd_camera_pwd
-    authentication: digest
-    security_level: admin
-    verify_ssl: false
-    framerate: 5
-    stream_path: live2.sdp
-```
+  description: This parameter allows you to override the stream path. The default is `live.sdp`.
+{% endconfiguration_basic %}
 
 ### Actions
 

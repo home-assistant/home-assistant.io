@@ -24,7 +24,7 @@ ha_platforms:
   - sensor
   - switch
 ha_zeroconf: true
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 The **Freebox** {% term integration %} allows you to observe and control [Freebox router](https://www.free.fr/freebox/).

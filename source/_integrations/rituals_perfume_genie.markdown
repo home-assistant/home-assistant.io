@@ -13,6 +13,7 @@ ha_category:
 ha_codeowners:
   - '@milanmeu'
   - '@frenck'
+  - '@quebulm'
 ha_domain: rituals_perfume_genie
 ha_platforms:
   - binary_sensor

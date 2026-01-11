@@ -77,8 +77,7 @@ A number of features are available through the media player entity:
 
 #### Mozart device controls
 
-Event entities are created for each of the physical controls on your device. These controls usually have their own behaviors, so using them for automations is not always ideal.
-
+Event entities are created for each of the available physical controls on your device. These controls usually have their own behaviors, so using them for automations is not always ideal.
 Available event entities:
 
 - Bluetooth (Not available on Beosound Premiere)
@@ -100,7 +99,13 @@ All of these event entities support the following event types:
 - Very long press
 - Release of very long press
 
-All devices except the [Beoconnect Core](https://www.bang-olufsen.com/en/dk/accessories/beoconnect-core) support device controls.
+##### Button variations
+
+Many devices have the same button layout, but not all of them. These are the differences:
+
+- The [Beoconnect Core](https://www.bang-olufsen.com/en/dk/accessories/beoconnect-core) does not support device controls.
+- The [Beosound A9 5th gen](https://www.bang-olufsen.com/en/dk/speakers/beosound-a9) and the [Beosound Premiere](https://www.bang-olufsen.com/en/dk/soundbars/beosound-premiere) do not have Bluetooth or Microphone buttons
+- The [Beosound A5](https://www.bang-olufsen.com/en/dk/speakers/beosound-a5) does not have a Microphone button
 
 #### Beoremote One
 
@@ -566,11 +571,19 @@ WebSocket notifications received from the device are fired as events in Home Ass
 
 To find Deezer playlist, album URIs, and user IDs for Deezer flows, the Deezer website has to be accessed. When navigating to an album, the URL will look something like: <https://www.deezer.com/en/album/ALBUM_ID>, and this needs to be converted to: `album:ALBUM_ID` and the same applies to playlists, which have the format: `playlist:PLAYLIST_ID`.
 
-Additionally a Deezer user ID can be found at <https://www.deezer.com/en/profile/USER_ID> by selecting the active user in a web browser.
+Deezer user IDs can be found at <https://www.deezer.com/en/profile/USER_ID> by selecting the active user in a web browser.
+
+Additionally, Deezer IDs for currently playing tracks can be found in the `media_content_id` attribute in the `media_player` entity.
 
 ### Getting Tidal URIs
 
 Tidal playlists, album URIs and track IDs are available via the Tidal website. When navigating to an album, the URL will look something like <https://listen.tidal.com/album/ALBUM_ID/>, and this needs to be converted to `album:ALBUM_ID`. The same applies to playlists, which have the format `playlist:PLAYLIST_ID`. Individual tracks can be found by sharing the track and selecting the `Copy track link` method, which should yield a link of the format <https://tidal.com/browse/track/TRACK_ID?u>, this can be played by extracting the track id `TRACK_ID`.
+
+Additionally, Tidal IDs for currently playing tracks can be found in the `media_content_id` attribute in the `media_player` entity.
+
+### Getting B&O Radio station IDs
+
+Radio station IDs for currently playing stations can be found in the `media_content_id` attribute in the `media_player` entity.
 
 ### Beolink
 
@@ -587,7 +600,16 @@ beolink:
 ## Diagnostics and troubleshooting
 
 The **Bang & Olufsen** integration supports [Home Assistant debug logs and diagnostics](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics).
-Where all received WebSocket events are provided through debug logs and the WebSocket connection state, config entry and media player state is provided through diagnostics.
+Where all received WebSocket events are provided through debug logs and the following is provided in the diagnostics:
+
+- Config entry
+- Mozart device
+  - WebSocket connection state
+  - Media player state
+  - Button Event states (if available)
+- Beoremote One remotes (if available)
+  - Key Event states (if available)
+  - Overall status
 
 ## Removing the integration
 

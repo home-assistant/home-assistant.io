@@ -16,7 +16,7 @@ ha_platforms:
   - sensor
 ha_config_flow: true
 ha_dhcp: true
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The **Nuki Bridge** {% term integration %} allows you to control [Nuki Smart Locks](https://nuki.io/en/smart-lock/) via a [Nuki Bridge](https://help.nuki.io/hc/en-001/sections/360004474718-Bridge). 
@@ -24,7 +24,7 @@ Many Nuki Smart Locks also support [local integrations](#local-integration-alter
 
 ## Prerequisites
 
-To add a Nuki bridge to your installation, you need to connect the device to wifi, enable developer mode and define a port and an access token. This can be achieved using the [Android app](https://play.google.com/store/apps/details?id=io.nuki) or [iPhone app](https://apps.apple.com/app/nuki-smart-lock/id1044998081). Go to manage my devices, and select the bridge or wifi enabled smart lock and connect to the device. Turn on the HTTP API and check the details in the screen. Please note that the API token should be 6-20 characters long, even though the app allows you to set a longer one.
+To add a Nuki bridge to your installation, you need to connect the device to wifi, enable developer mode and define a port and an access token. This can be achieved using the [Android app](https://play.google.com/store/apps/details?id=io.nuki) or [iPhone app](https://apps.apple.com/app/id1044998081). Go to manage my devices, and select the bridge or wifi enabled smart lock and connect to the device. Turn on the HTTP API and check the details in the screen. Please note that the API token should be 6-20 characters long, even though the app allows you to set a longer one.
 For faster updates, the callback function of the Nuki bridge can be used. This requires your Home Assistant to be reachable via HTTP by the Nuki bridge, as HTTPS is not supported by the Nuki bridge.
 
 {% include integrations/config_flow.md %}

@@ -17,7 +17,7 @@ ha_platforms:
   - sensor
   - switch
 ha_zeroconf: true
-ha_integration_type: integration
+ha_integration_type: device
 ha_quality_scale: platinum
 works_with:
   - local
@@ -70,7 +70,7 @@ The HomeWizard integration provides sensors about what your device is measuring 
 _Not all sensors are provided by all Smart Meters, only the available sensors are shown in the integration._
 
 - **Energy import/export (kWh)**: Total energy imported or exported since installation of your smart meter. Each tariff has its own sensor (e.g., T1, T2) and a sensor for the combined value.
-- **Power (W)**: Active power measured, each phase has its own sensor.
+- **Power (W)**: Active consumed power measured, each phase has its own sensor. The sensors reading will negative if the power is generated.
 - **Voltage (V)**: Active voltage measured, each phase has its own sensor.
 - **Current (A)**: Active current measured, each phase has its own sensor.
 - **Tariff**: Current tariff that is used. Can be used to keep consumption as low as possible during peak hours.
@@ -85,7 +85,8 @@ External meters, like a gas or water meter, can be connected to your Smart meter
 ### kWh Meter
 
 - **Energy import/export (kWh)**: Total energy imported or exported measured by kWh meter.
-- **Power (W)**: Active power that is measured, each phase has its own sensor.
+- **Power (W)**: Active consumed power that is measured, each phase has its own sensor. The sensors reading will negative if the power is generated.
+- **Production power (W)**: Active production power measured. The reading will negative if the power is consumed. This sensor can be used in the energy dashboard as solar production power sensor.
 - **Voltage (V)**: Active voltage measured, each phase has its own sensor.
 - **Current (A)**: Active current measured, each phase has its own sensor.
 - **Frequency (Hz)**: Net frequency.
@@ -95,7 +96,8 @@ External meters, like a gas or water meter, can be connected to your Smart meter
 ### Energy Socket
 
 - **Energy import/export (kWh)**: Total energy imported or exported measured by Energy Socket.
-- **Power (W)**: Active power that is measured.
+- **Power (W)**: Active power that is measured. The sensors reading will negative if the power is generated.
+- **Production power (W)**: Active production power measured. The reading will negative if the power is consumed. This sensor can be used in the energy dashboard as solar production power sensor.
 - **Voltage (V)**: Active voltage measured.
 - **Current (A)**: Active current measured.
 - **Frequency (Hz)**: Net frequency.
@@ -120,7 +122,8 @@ The Energy Socket also has a switch to control the outlet state and a status lig
 ### Plug-In Battery
 
 - **Energy import/export (kWh)**: Total energy imported or exported by the battery.
-- **Power (W)**: Active power consumed or produced by the battery.
+- **Power (W)**: Active power consumed or produced by the battery. The sensors reading will negative if the power is generated.
+- **Production power (W)**: Active production power measured. The sensors reading will negative if the power is consumed. This sensor is to be used in the energy dashboard as battery power sensor.
 - **Voltage (V)**: Active voltage measured.
 - **Current (A)**: Active current consumed or produced by the battery.
 - **Frequency (Hz)**: Net frequency.
@@ -132,11 +135,22 @@ The Energy Socket also has a switch to control the outlet state and a status lig
 
 The group of connected Plug-In Batteries can be controlled in three different modes using the **Battery group mode** select entity:
 
-- **Zero on meter**: The Plug-In Battery will try to keep the power consumption/production of your home at zero. This means that the Plug-In Battery will charge or discharge to maintain a net-zero power balance. This is the default mode.
-- **Charge to full**: All connected Plug-In Battery will be charged to 100%, regardless of the power consumption/production of your home. When all batteries are fully charged, the mode will switch to the standby mode.
-- **Standby**: The Plug-In Battery will enter standby mode. This means that the Plug-In Battery will neither charge nor discharge.
+- **Zero mode**: In this mode, the Plug-In Battery works to keep your home's net power consumption or production as close to zero as possible. The battery will automatically charge or discharge to maintain a balanced power flow. This is the default setting and helps you maximize self-consumption and minimize grid interaction.
+- **Zero mode (charge only)**: The Plug-In Battery will only charge to absorb excess solar production, aiming to keep your home's power production at zero. Discharging is disabled in this mode. This is useful if you want to store solar energy for later use, such as during the evening or when energy prices are higher.
+- **Zero mode (discharge only)**: The Plug-In Battery will only discharge to supply power when your home's consumption exceeds solar production, aiming to keep your home's power consumption at zero. Charging is disabled in this mode. This can be helpful when energy prices are high and you prefer to use stored energy or sell excess solar production to the grid.
+- **Manual charge mode**: All connected Plug-In Batteries will be charged to 100%, regardless of the power consumption/production of your home. When all batteries are fully charged, the Plug-In Battery will switch to the standby mode.
+- **Standby**: Batteries will enter standby mode. This means that the Plug-In Battery will neither charge nor discharge.
 
-The **Battery group mode** select can be found in the P1 Meter device, as the P1 Meter is responsible for controlling the Plug-In Battery. This select entity is disabled by default. See [I can't find entities](#i-cant-find-entities-like-voltage-current-or-battery-group-mode) for instructions on enabling disabled entities.
+You can find the **Battery group mode** select entity on the device that manages your batteries: either your P1 Meter or kWh Meter, depending on which is set as your mains connection in the HomeWizard app. This entity is not available directly on the battery itself. If you add Plug-In Batteries after your initial setup, the **Battery group mode** entity may be disabled by default; see [I can't find entities](#i-cant-find-entities-like-voltage-current-or-battery-group-mode) for how to enable it.
+
+{% tip %}
+"Zero mode (charge only)" and "Zero mode (discharge only)" are only available for:
+
+- P1 Meter with firmware version 6.0300 or higher
+- kWh Meter with firmware version 5.0100 or higher
+
+To learn how to update your device to the latest version, see [How do I check if I have the latest software on my HomeWizard product?](https://helpdesk.homewizard.com/en/articles/9167578-how-do-i-check-if-i-have-the-latest-software-on-my-homewizard-product)
+{% endtip %}
 
 ## Identify
 
@@ -155,7 +169,7 @@ This feature is not available for the Plug-In Battery. Cloud communication is re
 
 If you know the energy characteristics of your washing machine, you can create an automation that sends a notification when the energy usage drops below a certain threshold. This can notify you when your washing machine is done. You can use the following blueprint for this:
 
-- [Appliance Power Monitor Blueprint With Elapsed Time and Energy Used Variables](https://community.home-assistant.io/t/appliance-power-monitor-blueprint-with-elapsed-time-and-energy-used-variables/549073), created by [@Jhonattan-Souza](https://community.home-assistant.io/u/jhonattan-souza)
+- [Appliance Power Monitor Blueprint With Elapsed Time and Energy Used Variables](https://community.home-assistant.io/t/549073), created by [@Jhonattan-Souza](https://community.home-assistant.io/u/jhonattan-souza)
 
 ### Add your Energy data to the Energy dashboard
 

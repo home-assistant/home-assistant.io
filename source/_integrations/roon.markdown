@@ -15,7 +15,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The Roon integration allows you to control [RoonLabs](https://roonlabs.com/) music players from Home Assistant.
+The **Roon** {% term integration %} allows you to control [RoonLabs](https://roonlabs.com/) music players from Home Assistant.
 
 This integration uses Roon Core, a Roon application that runs on a machine on your network. Via Roon Core, Home Assistant can control all the Roon music players on your network.
 

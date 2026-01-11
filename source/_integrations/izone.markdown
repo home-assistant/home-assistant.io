@@ -12,7 +12,7 @@ ha_domain: izone
 ha_homekit: true
 ha_platforms:
   - climate
-ha_integration_type: integration
+ha_integration_type: hub
 related:
   - docs: /docs/configuration/
     title: Configuration file

@@ -9,7 +9,7 @@ ha_release: 0.85
 ha_domain: nmbs
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 related:
   - docs: /docs/configuration/
     title: Configuration file
