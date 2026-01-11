@@ -56,7 +56,7 @@ _A huge thank you to all the contributors who made this release possible! And a 
 
 ## Home dashboard improvements
 
-The [Home dashboard](/dashboards) continues to evolve! In [the previous release](/blog/2025/12/03/release-202512/#more-dashboard-improvements), we introduced a brand-new sidebar layout, weather tiles, and energy distribution summaries. This release takes it even further with a streamlined mobile experience and better device management.
+The [Home dashboard](/dashboards/dashboards/#home-dashboard) continues to evolve! In [the previous release](/blog/2025/12/03/release-202512/#more-dashboard-improvements), we introduced a brand-new sidebar layout, weather tiles, and energy distribution summaries. This release takes it even further with a streamlined mobile experience and better device management.
 
 ### Streamlined mobile navigation
 
