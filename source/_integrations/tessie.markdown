@@ -71,10 +71,9 @@ This integration supports all Tesla vehicle models and energy products:
 - Cybertruck
 
 **Energy products:**
-- Powerwall
+- Powerwall 2/3
 - Powerwall+
-- Solar Panels
-- Solar Roof
+- Solar Inverters
 
 ## Prerequisites
 
