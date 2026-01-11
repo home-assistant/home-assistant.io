@@ -49,7 +49,7 @@ Make sure to monitor the cost. If you make too many requests, you will be charge
 
 ### Sensor
 
-The integration will create the following sensors, if they are available for the selected region:
+The integration will create the following sensors, if they are available for the selected region.
 For your local air quality you can find more details [here](https://developers.google.com/maps/documentation/air-quality/laqis)
 
 - **Universal Air Quality Index (UAQI)**  
