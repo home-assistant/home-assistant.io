@@ -21,7 +21,7 @@ ha_codeowners:
 ha_integration_type: integration
 ---
 
-The **Helios** {% term integration %} lets you control any Helios ventilation unit that is supported by the [helios_websocket_api](https://github.com/helios-ventilatoren-com/helios_websocket_api) (follow the link for a list of supported units). Detailed Product information [here](https://www.heliosventilatoren.de/en/products/ventilation-with-heat-recovery/domestic-units-for-wall-ceiling-installation).
+The **Helios** {% term integration %} lets you control any [Helios ventilation unit](https://www.heliosventilatoren.de/en/products/ventilation-with-heat-recovery/domestic-units-for-wall-ceiling-installation) that is supported by the [helios_websocket_api](https://github.com/helios-ventilatoren-com/helios_websocket_api) (follow the link for a list of supported units). 
 
 {% include integrations/config_flow.md %}
 
