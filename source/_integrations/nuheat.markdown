@@ -54,7 +54,7 @@ If neither is configured, only the heating time sensor will be available.
 
 You can configure the integration to calculate energy consumption from heating time by providing your floor specifications. This is useful if you haven't configured watt density in the NuHeat app.
 
-To configure, go to **Settings** > **Devices & services** > **NuHeat** > **Configure**.
+To configure, go to {% my integrations title="**Settings** > **Devices & services**" %} > **NuHeat** > **Configure**.
 
 {% configuration_basic %}
 Heated floor area:
