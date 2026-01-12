@@ -1,3 +1,8 @@
+---
+name: blog post converter
+description: Use this if the user wants to convert a blog post from Google Docs markdown to the format used in the Home Assistant website.
+---
+
 # Create Blog Post
 
 Convert a draft markdown file into a properly formatted Home Assistant blog post.
