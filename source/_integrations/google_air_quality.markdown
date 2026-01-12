@@ -49,7 +49,7 @@ Make sure to monitor the cost. If you make too many requests, you will be charge
 
 ### Sensor
 
-The integration will create the following sensors:
+The integration will create the following sensors, if they are available for the selected region.
 For your local air quality you can find more details [here](https://developers.google.com/maps/documentation/air-quality/laqis)
 
 - **Universal Air Quality Index (UAQI)**  
@@ -62,7 +62,7 @@ For your local air quality you can find more details [here](https://developers.g
   *The pollutant that most significantly influences the UAQI value. Possible values include: PM2.5, PM10, Ozone (O₃), Nitrogen Dioxide (NO₂), Sulphur Dioxide (SO₂), Carbon Monoxide (CO)*
 
 - **Local Air Quality Index**  
-  *A regionally calibrated AQI value, where available.*
+  *A regionally calibrated AQI value.*
 
 - **Local Category**  
   *Descriptive category for the local AQI. The values can differ from the ones set as UAQI Category.*
@@ -70,23 +70,36 @@ For your local air quality you can find more details [here](https://developers.g
 - **Local Dominant Pollutant**  
   *The pollutant that most significantly influences the local AQI. The values can differ from the ones set as UAQI Dominant Pollutant.*
 
+- **Ammonia (CH₃)**  
+  *Ammonia concentration.*
+
+- **Benzene (C₆H₆)**  
+  *Benzene concentration.*
+
+- **Carbon Monoxide (CO)**  
+  *Carbon monoxide concentration.*
+
+- **Nitrogen Dioxide (NO₂)**  
+  *Nitrogen dioxide concentration.*
+
+- **Nitrogen Monoxide (NO)**  
+  *Nitrogen dioxide concentration.*
+
+- **Non-methane hydrocarbons (NMHC)**  
+  *Non-methane hydrocarbons concentration.*
+
+- **Ozone (O₃)**  
+  *Ground-level ozone concentration.*
+
 - **PM2.5**  
   *Particulate matter smaller than 2.5 µm in diameter.*
 
 - **PM10**  
   *Particulate matter smaller than 10 µm in diameter.*
 
-- **Ozone (O₃)**  
-  *Ground-level ozone concentration.*
-
-- **Nitrogen Dioxide (NO₂)**  
-  *Nitrogen dioxide concentration.*
-
 - **Sulphur Dioxide (SO₂)**  
   *Sulphur dioxide concentration.*
 
-- **Carbon Monoxide (CO)**  
-  *Carbon monoxide concentration.*
 
 ## Removing the integration
 

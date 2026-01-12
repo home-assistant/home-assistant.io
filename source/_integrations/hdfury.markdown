@@ -7,12 +7,14 @@ ha_release: 2026.2
 ha_category:
   - Button
   - Select
+  - Switch
 ha_codeowners:
   - '@glenndehaan'
 ha_domain: hdfury
 ha_platforms:
   - button
   - select
+  - switch
 ha_integration_type: integration
 ---
 
@@ -22,6 +24,7 @@ The **HDFury** {% term integration %} allows you to control and monitor your [HD
 
 - Monitor current device state.
 - Control the HDMI port selectors and operation state.
+- Control audio muting, and display/relay configuration.
 
 ## Supported devices
 
@@ -50,6 +53,19 @@ Below is a complete overview of the entities this integration provides.
 - Operation Mode (Controls the device Operation Mode, Splitter/Matrix/etc.)
 - Port Select TX0 (Controls the HDMI source selection for output TX0)
 - Port Select TX1 (Controls the HDMI source selection for output TX1)
+
+### Switch
+
+- Auto switch inputs (Automatically switches to the active HDMI input)
+- HTPC mode RX0 (Enables HTPC-optimized mode for HDMI input RX0)
+- HTPC mode RX1 (Enables HTPC-optimized mode for HDMI input RX1)
+- HTPC mode RX2 (Enables HTPC-optimized mode for HDMI input RX2)
+- HTPC mode RX3 (Enables HTPC-optimized mode for HDMI input RX3)
+- Infrared (Enables or disables the IR receiver)
+- Mute audio TX0 (Mutes audio output on HDMI output TX0)
+- Mute audio TX1 (Mutes audio output on HDMI output TX1)
+- OLED display (Turns the front-panel OLED display on or off)
+- Relay (Controls the onboard relay output)
 
 ## Removing the integration
 
