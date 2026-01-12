@@ -21,26 +21,6 @@ The `splunk` integration makes it possible to log all state changes to an extern
 
 ## Configuration
 
-The Splunk integration can be configured through the Home Assistant user interface or through {% term "`configuration.yaml`" %}.
-
-### Configuration via the user interface
-
-To add the Splunk integration to your Home Assistant instance, use this My button:
-
-{% my config_flow_start badge domain=page.ha_domain %}
-
-{% details "Manual configuration steps" %}
-
-If the above My button doesn't work, you can also perform the following steps manually:
-
-- Browse to your Home Assistant instance.
-- Go to {% my integrations title="**Settings** > **Devices & Services**" %}.
-- In the bottom right corner, select the
-  {% my config_flow_start badge icon domain=page.ha_domain %} button.
-- From the list, select **Splunk**.
-- Follow the instructions on screen to complete the setup.
-
-{% enddetails %}
 
 ### Configuration via YAML
 
