@@ -54,7 +54,7 @@ The date platform allows you to set the filter change date.
 
 ## Profile switching
 
-For convenient switching of ventilation profiles in the GUI, just click on the `Helios` fan {% term entity %} to get a drop-down menu to select from. Alternatively, the action `fan/set_preset_mode` can be used.
+For convenient switching of ventilation profiles in the GUI, select the `Helios` fan {% term entity %} to get a drop-down menu to select from. Alternatively, the action `fan/set_preset_mode` can be used.
 
 The four standard Vallox profiles are supported:
 
