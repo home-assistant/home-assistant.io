@@ -67,22 +67,14 @@ input_select:
 ```
 
 {% note %}
-**Entity identifiers and names**: In the example above, `threat` is the entity identifier (also called the entity key). This becomes part of the full entity ID: `input_select.threat`. The `name:` property is the optional friendly name shown in the UI ("Threat level").
+**Entity identifiers and names**: In the example above, `threat` defines the object ID part of the entity ID: `input_select.threat`. The `name:` property is the optional friendly name shown in the UI ("Threat level").
 
 Entity identifiers should follow these rules:
 - Use lowercase letters, numbers, and underscores only
 - Cannot start or end with an underscore
 - This creates a "slugified" version suitable for use in entity IDs
 
-For example, if you wanted a friendly name "Living Room Temperature", you might use `living_room_temperature` as the identifier:
-
-```yaml
-sensor:
-  living_room_temperature:
-    name: "Living Room Temperature"
-```
-
-This creates the entity ID `sensor.living_room_temperature` with the friendly name "Living Room Temperature" displayed in the UI.
+Note that for most integrations, it's recommended to use the UI to create and configure entities rather than defining them in YAML.
 {% endnote %}
 
 ### Example of nested mapping
