@@ -285,6 +285,60 @@ sensors:
 
 Although SpaceAPI supports many other sensors, this {% term integration %} only supports temperature or humidity.
 
+## Accessing the API
+
+Once configured, the SpaceAPI endpoint is available at:
+
+```text
+https://[DOMAIN_OR_IP_WITH_PORT]/api/spaceapi
+```
+
+Replace `[DOMAIN_OR_IP_WITH_PORT]` with your Home Assistant instance's domain or IP address and port (for example: `http://192.168.1.100:8123/api/spaceapi` or `https://homeassistant.local:8123/api/spaceapi`).
+
+### API version
+
+This {% term integration %} implements SpaceAPI **version 13** (v0.13).
+
+### Authentication
+
+By default, the SpaceAPI endpoint requires authentication. To access it, you need to include a long-lived access token in the request header.
+
+To make the endpoint publicly accessible without authentication (recommended for SpaceAPI use cases), add the following to your {% term "`configuration.yaml`" %}:
+
+```yaml
+http:
+  cors_allowed_origins:
+    - https://spaceapi.io
+  ip_ban_enabled: false
+```
+
+Then configure the Home Assistant [HTTP integration](/integrations/http/) to allow unauthenticated access to the SpaceAPI endpoint:
+
+```yaml
+homeassistant:
+  auth_providers:
+    - type: homeassistant
+  allowlist_external_dirs:
+    - /api/spaceapi
+```
+
+Alternatively, if you want to keep authentication enabled, you can access the API using a [long-lived access token](/docs/authentication/#your-account-profile). Include the token in your request:
+
+```bash
+curl -H "Authorization: Bearer YOUR_LONG_LIVED_ACCESS_TOKEN" \
+  http://YOUR_HOME_ASSISTANT_URL:8123/api/spaceapi
+```
+
+### Testing the endpoint
+
+You can test your SpaceAPI endpoint using curl:
+
+```bash
+curl http://YOUR_HOME_ASSISTANT_URL:8123/api/spaceapi
+```
+
+The response will be a JSON payload conforming to the SpaceAPI v0.13 specification, containing information about your hackerspace including status, location, contact details, and sensor data.
+
 ## Examples
 
 In this section you find some real-life examples of how to use this integration.
