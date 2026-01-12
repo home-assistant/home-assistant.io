@@ -8,9 +8,7 @@ ha_iot_class: Local Polling
 ha_codeowners:
   - '@xirt'
 ha_platforms:
-  - number
   - sensor
-  - switch
 ha_domain: indevolt
 ha_integration_type: integration
 ---
@@ -19,7 +17,7 @@ The Indevolt {% term integration %} enables direct local communication between H
 
 ## Use cases
 
-With this integration, you can monitor energy production and consumption as well as battery status, manage battery working mode, and control real-time charging/discharging behavior.
+With this integration, you can monitor energy production and consumption as well as battery status, manage battery working mode.
 
 ## Supported devices
 
@@ -46,7 +44,7 @@ Port:
 
 ## Supported functionality
 
-The Indevolt integration provides sensors for monitoring your device, as well as controls for managing battery operation.
+The Indevolt integration provides sensors for monitoring your device (read only).
 
 ### Sensors
 
@@ -95,61 +93,6 @@ All Generation 1 sensors, plus:
 - Battery pack 1-5 temperature (°C)
 - Battery pack 1-5 voltage (V)
 - Battery pack 1-5 current (A)
-
-### Actions
-
-#### Change battery working mode
-
-Change the working mode of your Indevolt device.
-
-```yaml
-action: indevolt.change_mode
-target:
-  device_id: YOUR_DEVICE_ID
-data:
-  mode: "self_consumed_prioritized"
-```
-
-Available modes:
-
-- `self_consumed_prioritized`: Prioritize self-consumption
-- `real_time_control`: Real-time control mode
-- `charge_discharge_schedule`: Schedule-based charging/discharging
-
-#### Charge battery (real-time mode)
-
-Configure the battery to start charging with specified power to the target SOC. The device will automatically switch to real-time control mode if needed.
-
-```yaml
-action: indevolt.charge
-target:
-  device_id: YOUR_DEVICE_ID
-data:
-  power: 1000
-  target_soc: 100
-```
-
-#### Discharge battery (real-time mode)
-
-Configure the battery to start discharging to power your home. The device will automatically switch to real-time control mode if needed.
-
-```yaml
-action: indevolt.discharge
-target:
-  device_id: YOUR_DEVICE_ID
-data:
-  power: 800
-```
-
-#### Stop battery (real-time mode)
-
-Put the battery into standby mode. The device will automatically switch to real-time control mode if needed.
-
-```yaml
-action: indevolt.stop
-target:
-  device_id: YOUR_DEVICE_ID
-```
 
 ## Data updates
 
