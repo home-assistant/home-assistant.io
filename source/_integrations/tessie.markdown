@@ -402,6 +402,7 @@ automation:
 
 This automation sends a notification when your vehicle has finished charging:
 
+{% raw %}
 ```yaml
 automation:
   - alias: "Notify when Tesla charging complete"
@@ -419,6 +420,7 @@ automation:
         data:
           message: "Tesla charging is complete at {{ states('sensor.my_tesla_battery_level') }}%"
 ```
+{% endraw %}
 
 ## Troubleshooting
 
