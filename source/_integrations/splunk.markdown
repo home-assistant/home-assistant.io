@@ -21,20 +21,6 @@ The `splunk` integration makes it possible to log all state changes to an extern
 
 ## Configuration
 
-
-### Configuration via YAML
-
-YAML configuration is supported for advanced filtering options. If you need to filter which entities are sent to Splunk, you must use YAML configuration.
-
-To use the `splunk` integration with YAML configuration, add the following to your {% term "`configuration.yaml`" %} file.
-{% include integrations/restart_ha_after_config_inclusion.md %}
-
-```yaml
-# Example configuration.yaml entry
-splunk:
-  token: YOUR_SPLUNK_TOKEN
-```
-
 {% configuration %}
 token:
   description: The HTTP Event Collector Token already created in your Splunk instance.
