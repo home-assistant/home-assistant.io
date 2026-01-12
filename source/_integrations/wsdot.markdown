@@ -25,7 +25,7 @@ The **Washington State Department of Transportation (WSDOT)** {% term integratio
 
 First, you need to get a free Traveler Information `api_key` from the [WSDOT API webpage](https://wsdot.com/traffic/api/). Just enter your email address to instantly get the key.
 
-Once you have the code, you are ready to configure your **wsdot** sensors.
+Once you have the key, you are ready to configure your **wsdot** sensors.
 
 {% include integrations/config_flow.md %}
 
