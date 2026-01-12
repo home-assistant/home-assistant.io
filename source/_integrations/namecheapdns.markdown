@@ -1,5 +1,5 @@
 ---
-title: Namecheap FreeDNS
+title: Namecheap DynamicDNS
 description: Keep your namecheap dynamic DNS up to date
 ha_category:
   - Network
@@ -13,7 +13,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-With the **Namecheap FreeDNS** {% term integration %} you can automatically update your dynamic DNS entry hosted by Namecheap's [FreeDNS](https://www.namecheap.com/store/domains/freedns/) service.
+With the **Namecheap DynamicDNS** {% term integration %} you can automatically update your dynamic DNS entry hosted by Namecheap's [FreeDNS](https://www.namecheap.com/store/domains/freedns/) or [PremiumDNS](https://www.namecheap.com/security/premiumdns/) services.
 
 {% important %}
 Namecheap only supports updating IPv4 addresses.

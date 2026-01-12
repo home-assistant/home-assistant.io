@@ -22,6 +22,8 @@ The **Powerfox** {% term integration %} allows you to gather data from your [Pow
 
 [Powerfox](https://www.powerfox.energy/) is a German company that provides smart meters (Poweropti) for reading electricity, water, gas, and heat. They have their own cloud platform where you can monitor the usage of your devices and get insights into your energy consumption.
 
+The Powerfox FLOW device delivers its measurements via a daily/hourly report endpoint, while other devices provide real-time data.
+
 {% include integrations/config_flow.md %}
 
 ### Configuration parameters
@@ -42,13 +44,12 @@ Not all Poweropti devices are supported currently. Check the list below to see i
 | PA 201901 / PA 201902 | Power meter | Yes        |
 | PB 202001             | Power meter | Yes        |
 | WA 201902             | Water meter | Yes        |
-| Powerfox FLOW         | Gas meter   | No         |
+| Powerfox FLOW         | Gas meter   | Yes (report) |
 | HA 201902             | Heat meter  | Yes        |
 
 ## Data updates
 
-The integration will update its information by polling Powerfox every
-10 seconds. This ensures the data in Home Assistant is up to date.
+The integration polls the Powerfox cloud every 10 seconds. Power, heat, and water meters return real-time snapshots. The Powerfox FLOW relies on the hourly/daily report endpoint. The coordinator still polls every 10 seconds, but the values refresh whenever Powerfox publishes a new block in the report.
 
 ## Actions
 
@@ -117,6 +118,25 @@ It will create the following sensors:
 - **Delta energy (kWh)**: How much energy is used since the last update.
 - **Total volume (m³)**: How much water is used.
 - **Delta volume (m³)**: How much water is used since the last update.
+
+### Powerfox FLOW gas meter
+
+FLOW data is exposed via the Powerfox report endpoint and provides daily/hourly aggregates. The integration creates:
+
+- **Gas consumption today (m³)**: How much gas is consumed today.
+- **Gas consumption energy today (kWh)**: How much gas energy is consumed today.
+- **Current gas consumption (m³)**: Current gas consumption rate.
+- **Current gas consumption energy (kWh)**: Current gas consumption energy rate.
+- **Gas cost today (€)**: Total gas cost today (requires tariff in the Powerfox app).
+- **Minimum consumption today (m³)**: Lowest hourly consumption observed so far today.
+- **Maximum consumption today (m³)**: Highest hourly consumption observed so far today.
+- **Average consumption today (m³)**: Average hourly consumption observed so far today.
+- **Minimum consumption energy today (kWh)**: Lowest hourly energy consumption observed so far today.
+- **Maximum consumption energy today (kWh)**: Highest hourly energy consumption observed so far today.
+- **Average consumption energy today (kWh)**: Average hourly energy consumption observed so far today.
+- **Maximum gas cost today (€)**: Highest hourly gas cost observed so far today.
+
+The energy-based variants are disabled by default in the entity registry. Enable them if you have a gas-to-kWh conversion configured in Powerfox.
 
 ## Troubleshooting
 
