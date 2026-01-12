@@ -10,7 +10,6 @@ const remarkrc = {
     listItemIndent: 1,
     strong: "*",
   },
-
   plugins: [
     ["frontmatter"],
 
@@ -27,15 +26,7 @@ const remarkrc = {
     ["remark-lint-ordered-list-marker-style", "."],
     ["remark-lint-ordered-list-marker-value"],
 
-    // ✅ Added: spacing + readability (no visual output change)
-    ["remark-lint-no-multiple-toplevel-headings"],
-    ["remark-lint-no-duplicate-headings"],
-
-    // ✅ Added: prevent broken Markdown formatting
-    ["remark-lint-no-empty-sections"],
-    ["remark-lint-no-heading-punctuation"],
-
-    // Branding / wording consistency rules
+    // Branding and consistency
     [
       "remark-lint-prohibited-strings",
       [
@@ -50,13 +41,12 @@ const remarkrc = {
         { no: "Speech-[Tt]o-Text", yes: "Speech-to-text" },
         { no: "Text-[Tt]o-Speech", yes: "Text-to-speech" },
 
-        // ✅ Added: common spelling consistency (safe + no output changes)
+        // ✅ Safe additions (do not require new packages)
         { no: "HomeAssistant", yes: "Home Assistant" },
-        { no: "websocket", yes: "WebSocket" },
+        { no: "websocket", yes: "WebSocket" }
       ],
     ],
   ],
 };
 
 module.exports = remarkrc;
-
