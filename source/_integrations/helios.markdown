@@ -97,7 +97,7 @@ The `helios.set_profile` sets the profile and, optionally, the duration for whic
     - **Description**: Profile to set, one of `home`, `away`, `boost`, `fireplace`, or `extra`.
       - **Optional**: No
 - **Data attribute**: `duration`
-    - **Description**: Duration to activate the profile for; in minutes. `Integer` between 1 and 65535. Only applies to  `boost`, `fireplace` or `extra` profiles. 65535 sets the profile without a timeout.
+    - **Description**: Duration to activate the profile for; in minutes. `Integer` between 1 and 65535. Only applies to  `boost`, `fireplace`, or `extra` profiles. 65535 sets the profile without a timeout.
         - **Optional**: Yes
 
 ## Removing the integration
