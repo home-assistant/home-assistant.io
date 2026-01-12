@@ -44,6 +44,8 @@ I wish you a happy and healthy 2026! Enjoy the release!
 - [Other noteworthy changes](#other-noteworthy-changes)
   - [Energy dashboard date picker](#energy-dashboard-date-picker)
   - [ESPHome action responses](#esphome-action-responses)
+- [Patch releases](#patch-releases)
+  - [2026.1.1 - January 12](#202611---january-12)
 - [Need help? Join the community](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
@@ -320,6 +322,157 @@ To get started, check out the [ESPHome documentation on action responses][esphom
 
 [ESPHome 2025.12]: https://esphome.io/changelog/2025.12.0/#api-action-responses
 [esphome-action-responses]: https://esphome.io/components/api/#action-responses
+
+## Patch releases
+
+### 2026.1.1 - January 12
+
+- Fix Hikvision NVR binary sensors not being detected ([@ptarjan] - [#160254]) ([hikvision docs])
+- Bump eheimdigital to 1.5.0 ([@autinerd] - [#160312]) ([eheimdigital docs])
+- Bump ZHA to 0.0.84 ([@TheJulianJES] - [#160440]) ([zha docs])
+- Bump pyOverkiz to 1.19.4 ([@iMicknl] - [#160457]) ([overkiz docs])
+- Fix JSON serialization of time objects in anthropic tool results ([@dcermak] - [#160459]) ([anthropic docs])
+- Add asyncio-level timeout to Backblaze B2 uploads ([@ElCruncharino] - [#160468]) ([backblaze_b2 docs])
+- Fix Requirement parsing in RequirementsManager ([@epenet] - [#160485])
+- Add Nettleie optimization option ([@osohotwateriot] - [#160494]) ([osoenergy docs])
+- Bump python-otbr-api to 2.7.1 ([@emontnemery] - [#160496]) ([thread docs]) ([otbr docs])
+- fix rain sensor for some rare velux windows ([@wollew] - [#160504]) ([velux docs])
+- Fix trigger selectors ([@bramkragten] - [#160519]) ([climate docs]) ([light docs]) ([humidifier docs])
+- Bump Intergas Incomfort-client to v0.6.11 ([@jbouwh] - [#160520]) ([incomfort docs])
+- Revert "Update voluptuous and voluptuous-openapi" ([@synesthesiam] - [#160530])
+- Bump serialx to v0.6.2 ([@puddly] - [#160545]) ([zha docs]) ([homeassistant_hardware docs])
+- Catch any migration failures in Teslemetry ([@Bre77] - [#160549]) ([teslemetry docs])
+- Fix AttributeError for missing/incomplete health data in Tractive ([@bieniu] - [#160553]) ([tractive docs])
+- Bump pysilero-vad to 3.1.0 ([@synesthesiam] - [#160554]) ([assist_pipeline docs])
+- Fix for older Fritzbox models which do not support smarthome triggers ([@mib1185] - [#160555]) ([fritzbox docs])
+- Bump google-air-quality-api to 2.1.2 ([@Thomas55555] - [#160561]) ([google_air_quality docs])
+- Fix Climate signal in Teslemetry ([@Bre77] - [#160571]) ([teslemetry docs])
+- Bump pysma to 1.1.0 ([@kellerza] - [#160583]) ([sma docs])
+- Bump opower to 0.16.1 ([@tronikos] - [#160588]) ([opower docs])
+- Fix config flow bug in Tesla Fleet ([@Bre77] - [#160591]) ([tesla_fleet docs])
+- Add missing segment speed icons for WLED ([@Tommatheussen] - [#160597]) ([wled docs])
+- Better handling of ratelimiting from Tibber ([@Danielhiversen] - [#160599]) ([tibber docs])
+- Change device class to energy_storage for some enphase_envoy battery entities ([@catsmanac] - [#160603]) ([enphase_envoy docs])
+- Fix Z-Wave creating notification binary sensor for idle state ([@MartinHjelmare] - [#160604]) ([zwave_js docs])
+- Bump pynintendoparental to 2.3.2 ([@pantherale0] - [#160626]) ([nintendo_parental_controls docs])
+- Update frontend to 20260107.1 ([@bramkragten] - [#160644]) ([frontend docs])
+- Bump pyhik to 0.4.0 ([@ptarjan] - [#160654]) ([hikvision docs])
+- Bump greeclimate to 2.1.1 ([@cmroche] - [#160683]) ([gree docs])
+- Bump pysilero-vad to 3.2.0 ([@synesthesiam] - [#160691]) ([assist_pipeline docs])
+- Revert bthome-ble back to 3.16.0 to fix missing data ([@Ernst79] - [#160694]) ([bthome docs])
+- Fix missing key for brew by weight in lamarzocco ([@zweckj] - [#160722]) ([lamarzocco docs])
+- Bump pytado 0.18.16 ([@erwindouna] - [#160724]) ([tado docs])
+- Bump python-homewizard-energy to 10.0.1 ([@DCSBL] - [#160736]) ([homewizard docs])
+- Fix fitbit icon ([@joostlek] - [#160750]) ([fitbit docs])
+
+[#159957]: https://github.com/home-assistant/core/pull/159957
+[#160254]: https://github.com/home-assistant/core/pull/160254
+[#160312]: https://github.com/home-assistant/core/pull/160312
+[#160440]: https://github.com/home-assistant/core/pull/160440
+[#160457]: https://github.com/home-assistant/core/pull/160457
+[#160459]: https://github.com/home-assistant/core/pull/160459
+[#160468]: https://github.com/home-assistant/core/pull/160468
+[#160485]: https://github.com/home-assistant/core/pull/160485
+[#160494]: https://github.com/home-assistant/core/pull/160494
+[#160496]: https://github.com/home-assistant/core/pull/160496
+[#160504]: https://github.com/home-assistant/core/pull/160504
+[#160519]: https://github.com/home-assistant/core/pull/160519
+[#160520]: https://github.com/home-assistant/core/pull/160520
+[#160530]: https://github.com/home-assistant/core/pull/160530
+[#160545]: https://github.com/home-assistant/core/pull/160545
+[#160549]: https://github.com/home-assistant/core/pull/160549
+[#160553]: https://github.com/home-assistant/core/pull/160553
+[#160554]: https://github.com/home-assistant/core/pull/160554
+[#160555]: https://github.com/home-assistant/core/pull/160555
+[#160561]: https://github.com/home-assistant/core/pull/160561
+[#160571]: https://github.com/home-assistant/core/pull/160571
+[#160583]: https://github.com/home-assistant/core/pull/160583
+[#160588]: https://github.com/home-assistant/core/pull/160588
+[#160591]: https://github.com/home-assistant/core/pull/160591
+[#160597]: https://github.com/home-assistant/core/pull/160597
+[#160599]: https://github.com/home-assistant/core/pull/160599
+[#160603]: https://github.com/home-assistant/core/pull/160603
+[#160604]: https://github.com/home-assistant/core/pull/160604
+[#160626]: https://github.com/home-assistant/core/pull/160626
+[#160644]: https://github.com/home-assistant/core/pull/160644
+[#160654]: https://github.com/home-assistant/core/pull/160654
+[#160683]: https://github.com/home-assistant/core/pull/160683
+[#160691]: https://github.com/home-assistant/core/pull/160691
+[#160694]: https://github.com/home-assistant/core/pull/160694
+[#160722]: https://github.com/home-assistant/core/pull/160722
+[#160724]: https://github.com/home-assistant/core/pull/160724
+[#160736]: https://github.com/home-assistant/core/pull/160736
+[#160750]: https://github.com/home-assistant/core/pull/160750
+[@Bre77]: https://github.com/Bre77
+[@DCSBL]: https://github.com/DCSBL
+[@Danielhiversen]: https://github.com/Danielhiversen
+[@ElCruncharino]: https://github.com/ElCruncharino
+[@Ernst79]: https://github.com/Ernst79
+[@MartinHjelmare]: https://github.com/MartinHjelmare
+[@TheJulianJES]: https://github.com/TheJulianJES
+[@Thomas55555]: https://github.com/Thomas55555
+[@Tommatheussen]: https://github.com/Tommatheussen
+[@autinerd]: https://github.com/autinerd
+[@bieniu]: https://github.com/bieniu
+[@bramkragten]: https://github.com/bramkragten
+[@catsmanac]: https://github.com/catsmanac
+[@cmroche]: https://github.com/cmroche
+[@dcermak]: https://github.com/dcermak
+[@emontnemery]: https://github.com/emontnemery
+[@epenet]: https://github.com/epenet
+[@erwindouna]: https://github.com/erwindouna
+[@frenck]: https://github.com/frenck
+[@iMicknl]: https://github.com/iMicknl
+[@jbouwh]: https://github.com/jbouwh
+[@joostlek]: https://github.com/joostlek
+[@kellerza]: https://github.com/kellerza
+[@mib1185]: https://github.com/mib1185
+[@osohotwateriot]: https://github.com/osohotwateriot
+[@pantherale0]: https://github.com/pantherale0
+[@ptarjan]: https://github.com/ptarjan
+[@puddly]: https://github.com/puddly
+[@synesthesiam]: https://github.com/synesthesiam
+[@tronikos]: https://github.com/tronikos
+[@wollew]: https://github.com/wollew
+[@zweckj]: https://github.com/zweckj
+[accuweather docs]: /integrations/accuweather/
+[actron_air docs]: /integrations/actron_air/
+[adax docs]: /integrations/adax/
+[anthropic docs]: /integrations/anthropic/
+[assist_pipeline docs]: /integrations/assist_pipeline/
+[backblaze_b2 docs]: /integrations/backblaze_b2/
+[bthome docs]: /integrations/bthome/
+[climate docs]: /integrations/climate/
+[eheimdigital docs]: /integrations/eheimdigital/
+[enphase_envoy docs]: /integrations/enphase_envoy/
+[fitbit docs]: /integrations/fitbit/
+[fritzbox docs]: /integrations/fritzbox/
+[frontend docs]: /integrations/frontend/
+[google_air_quality docs]: /integrations/google_air_quality/
+[gree docs]: /integrations/gree/
+[hikvision docs]: /integrations/hikvision/
+[homeassistant_hardware docs]: /integrations/homeassistant_hardware/
+[homewizard docs]: /integrations/homewizard/
+[humidifier docs]: /integrations/humidifier/
+[incomfort docs]: /integrations/incomfort/
+[lamarzocco docs]: /integrations/lamarzocco/
+[light docs]: /integrations/light/
+[nintendo_parental_controls docs]: /integrations/nintendo_parental_controls/
+[opower docs]: /integrations/opower/
+[osoenergy docs]: /integrations/osoenergy/
+[otbr docs]: /integrations/otbr/
+[overkiz docs]: /integrations/overkiz/
+[sma docs]: /integrations/sma/
+[tado docs]: /integrations/tado/
+[tesla_fleet docs]: /integrations/tesla_fleet/
+[teslemetry docs]: /integrations/teslemetry/
+[thread docs]: /integrations/thread/
+[tibber docs]: /integrations/tibber/
+[tractive docs]: /integrations/tractive/
+[velux docs]: /integrations/velux/
+[wled docs]: /integrations/wled/
+[zha docs]: /integrations/zha/
+[zwave_js docs]: /integrations/zwave_js/
 
 ## Need help? Join the community
 
