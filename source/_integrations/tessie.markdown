@@ -479,11 +479,7 @@ Energy product data should update regularly without restrictions.
 
 ## Diagnostics
 
-The Tessie integration supports diagnostic data collection to help troubleshoot issues. If you're experiencing problems with the integration, you can download diagnostic information to include when reporting issues.
-
-To download diagnostics:
-
-{% include integrations/diagnostics_download.md %}
+The Tessie integration supports [diagnostic data collection](/docs/configuration/troubleshooting/#download-diagnostics) to help troubleshoot issues. If you're experiencing problems with the integration, you can download diagnostic information to include when reporting issues.
 
 The diagnostic data contains a complete copy of all API data received from Tessie for your devices. This information can be helpful for developers when investigating issues.
 
