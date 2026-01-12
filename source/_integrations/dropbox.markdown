@@ -24,13 +24,13 @@ By default, this integration will use the Home Assistant Cloud Account Linking s
 {% details "Using custom application credentials" icon="mdi:account-key" %}
 
 1. Go to the [Dropbox App Console](https://www.dropbox.com/developers/apps) and create an app.
-2. Choose "Scoped access" for the API and "Full Dropbox" for the access type.
+2. Choose **Scoped access** for the API and **Full Dropbox** for the access type.
 3. Give the app a name, like "Home Assistant".
-4. Take note of the "App key" and "App secret". These are the application credentials for your newly created app.
-5. In the "OAuth 2" section, under "Redirect URIs", enter the following URL: `https://my.home-assistant.io/redirect/oauth` and click "Add".
-6. On the Permissions tab, select the following: `files.metadata.write`, `files.metadata.read`, `files.content.write`, `files.content.read`.
-7. In Home Assistant, in Settings -> Devices & services -> top right "..." menu -> Application credentials, click the button to add an application credential.
-8. Select Dropbox and enter the name of your app. For the client ID and client secret, enter the app key and app secret from step 4. Click "Add".
+4. Take note of the **App key** and **App secret**. These are the application credentials for your newly created app.
+5. In the **OAuth 2** section, under **Redirect URIs**, enter the following URL: `https://my.home-assistant.io/redirect/oauth` and select **Add**.
+6. On the **Permissions** tab, select the following: `files.metadata.write`, `files.metadata.read`, `files.content.write`, `files.content.read`.
+7. In Home Assistant, in {% my integrations title="**Settings** > **Devices & services**" %} in the top-right three dots {% icon "mdi:dots-vertical" %} menu > **Application credentials**, select the button to add an application credential.
+8. Select Dropbox and enter the name of your app. For the client ID and client secret, enter the app key and app secret from step 4 and select **Add**.
 
 {% enddetails %}
 
