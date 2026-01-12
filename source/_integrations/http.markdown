@@ -120,7 +120,7 @@ http:
 ```
 
 {% important %}
-When a network mask is provided, you must use the network address (e.g., `192.168.1.0/24`), not a host address (e.g., `192.168.1.50/24`).
+When a network mask is provided, you must use the network address (for example, `192.168.1.0/24`), not a host address (for example, `192.168.1.50/24`).
 {% endimportant %}
 
 ## APIs
