@@ -29,9 +29,9 @@ API Key:
 
 The Sonarr integration will add the following sensors:
 
-- **Upcoming**: The number of upcoming episodes. Attributes include series title and episode identifier for each upcoming episode (e.g., `The Andy Griffith Show: "S01E01"`).
-- **Commands**: The number of commands being run. Attributes include command name and status for each running command (e.g., `RefreshSeries: "completed"`). (disabled by default)
-- **Disk Space**: Available disk space in gigabytes across all storage locations. Attributes include detailed disk space information for each storage path showing free/total space and usage percentage (e.g., `/mnt/storage1: "250.50/500.00GB (50.10%)"`). (disabled by default)
-- **Queue**: The number of episodes in the download queue. Attributes include series title with episode identifier and download progress percentage for each queued item (e.g., `The Andy Griffith Show S01E01: "45.32%"`). (disabled by default)
-- **Shows**: The number of series in Sonarr. Attributes include series title and episode statistics for each show (e.g., `The Andy Griffith Show: "120/249 Episodes"`). (disabled by default)
-- **Wanted**: The number of episodes still wanted. Attributes include series title with episode identifier and air date for each wanted episode (e.g., `The Andy Griffith Show S02E05: "2024-03-15T20:00:00-04:00"`). (disabled by default)
+- **Upcoming**: The number of upcoming episodes. Attributes include series title and episode identifier for each upcoming episode (for example, `The Andy Griffith Show: "S01E01"`).
+- **Commands**: The number of commands being run. Attributes include command name and status for each running command (for example, `RefreshSeries: "completed"`). (disabled by default)
+- **Disk Space**: Available disk space in gigabytes across all storage locations. Attributes include detailed disk space information for each storage path showing free/total space and usage percentage (for example, `/mnt/storage1: "250.50/500.00GB (50.10%)"`). (disabled by default)
+- **Queue**: The number of episodes in the download queue. Attributes include series title with episode identifier and download progress percentage for each queued item (for example, `The Andy Griffith Show S01E01: "45.32%"`). (disabled by default)
+- **Shows**: The number of series in Sonarr. Attributes include series title and episode statistics for each show (for example, `The Andy Griffith Show: "120/249 Episodes"`). (disabled by default)
+- **Wanted**: The number of episodes still wanted. Attributes include series title with episode identifier and air date for each wanted episode (for example, `The Andy Griffith Show S02E05: "2024-03-15T20:00:00-04:00"`). (disabled by default)
