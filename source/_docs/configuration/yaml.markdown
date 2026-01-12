@@ -66,6 +66,25 @@ input_select:
     initial: 0
 ```
 
+{% note %}
+**Entity identifiers and names**: In the example above, `threat` is the entity identifier (also called the entity key). This becomes part of the full entity ID: `input_select.threat`. The `name:` property is the optional friendly name shown in the UI ("Threat level").
+
+Entity identifiers should follow these rules:
+- Use lowercase letters, numbers, and underscores only
+- Cannot start or end with an underscore
+- This creates a "slugified" version suitable for use in entity IDs
+
+For example, if you wanted a friendly name "Living Room Temperature", you might use `living_room_temperature` as the identifier:
+
+```yaml
+sensor:
+  living_room_temperature:
+    name: "Living Room Temperature"
+```
+
+This creates the entity ID `sensor.living_room_temperature` with the friendly name "Living Room Temperature" displayed in the UI.
+{% endnote %}
+
 ### Example of nested mapping
 
 The following example shows nesting a collection of mappings in a mapping. In Home Assistant, this would create two sensors that each use the MQTT platform but have different values for their `state_topic` (one of the properties used for MQTT sensors).
