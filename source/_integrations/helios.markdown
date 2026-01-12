@@ -73,25 +73,25 @@ The `helios.set_profile_fan_speed_home` action sets the fan speed of the `Home` 
     - **Description**: Fan speed in %. `Integer`, between 0 and 100.
     - **Optional**: No
 
-### Action Set profile fan speed away 
+### Action: Set profile fan speed away 
 
-Set the fan speed of the `Away` profile. Action: `helios.set_profile_fan_speed_away`
+The `helios.set_profile_fan_speed_away` sets the fan speed of the `Away` profile.
 
 - **Data attribute**: `set_profile_fan_speed_away`
     - **Description**: Fan speed in %. `Integer`, between 0 and 100.
     - **Optional**: No
 
-### Action Set profile fan speed boost 
+### Action: Set profile fan speed boost 
 
-Set the fan speed of the `Boost` profile. Action: `helios.set_profile_fan_speed_boost`
+The `helios.set_profile_fan_speed_boost` action sets the fan speed of the `Boost` profile.
 
 - **Data attribute**: `set_profile_fan_speed_boost`
     - **Description**: Fan speed in %. `Integer`, between 0 and 100.
     - **Optional**: No
 
-### Action Set profile
+### Action: Set profile
 
-Set the profile, and optionally a duration for the profile to be active. Action: `helios.set_profile`
+The `helios.set_profile` sets the profile and, optionally, the duration for which the profile is active. 
 
 - **Data attribute**: `profile`
     - **Description**: Profile to set, one of `home`, `away`, `boost`, `fireplace`, or `extra`.
