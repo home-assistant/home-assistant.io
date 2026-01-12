@@ -24,7 +24,7 @@ ha_platforms:
   - event
   - lock
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The **August** {% term integration %} allows you to integrate your [August](https://august.com/) and some Yale Access devices in Home Assistant.

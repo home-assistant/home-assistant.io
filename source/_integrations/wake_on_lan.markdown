@@ -14,7 +14,7 @@ ha_platforms:
   - switch
 ha_codeowners:
   - '@ntilley905'
-ha_integration_type: integration
+ha_integration_type: service
 related:
   - docs: /docs/configuration/
     title: Configuration file

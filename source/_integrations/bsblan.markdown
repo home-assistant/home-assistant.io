@@ -46,6 +46,178 @@ or using a passkey is supported. Use either one.
 - `climate`
 - `water heater`
 
+## Actions
+
+The integration provides the following action.
+
+### Action `bsblan.set_hot_water_schedule`
+
+Sets the hot water heating schedule for your BSB-Lan device. Each day of the week can have one or more time slots when hot water heating should be active.
+
+- **Target**: `device_id`
+  - **Description**: The BSB-Lan device to configure.
+  - **Required**: Yes
+- **Data attributes**:
+  - **`monday_slots`**: List of time slots for Monday. Each slot contains `start_time` and `end_time`.
+    - **Optional**: Yes
+  - **`tuesday_slots`**: List of time slots for Tuesday. Each slot contains `start_time` and `end_time`.
+    - **Optional**: Yes
+  - **`wednesday_slots`**: List of time slots for Wednesday. Each slot contains `start_time` and `end_time`.
+    - **Optional**: Yes
+  - **`thursday_slots`**: List of time slots for Thursday. Each slot contains `start_time` and `end_time`.
+    - **Optional**: Yes
+  - **`friday_slots`**: List of time slots for Friday. Each slot contains `start_time` and `end_time`.
+    - **Optional**: Yes
+  - **`saturday_slots`**: List of time slots for Saturday. Each slot contains `start_time` and `end_time`.
+    - **Optional**: Yes
+  - **`sunday_slots`**: List of time slots for Sunday. Each slot contains `start_time` and `end_time`.
+    - **Optional**: Yes
+  - **`standard_values_slots`**: List of standard/default time slots. Each slot contains `start_time` and `end_time`.
+    - **Optional**: Yes
+
+Time slots are defined using time pickers for easy configuration without manual formatting. You only need to specify the days you want to configure.
+
+## Examples
+
+The following examples show how to use the BSB-Lan integration actions in Home Assistant automations.
+
+### Setting a weekday and weekend schedule
+
+This example sets different schedules for weekdays and weekends. Each day can have multiple time slots.
+
+```yaml
+action: bsblan.set_hot_water_schedule
+target:
+  device_id: abc123device456
+data:
+  monday_slots:
+    - start_time: "06:00:00"
+      end_time: "08:00:00"
+    - start_time: "17:00:00"
+      end_time: "21:00:00"
+  tuesday_slots:
+    - start_time: "06:00:00"
+      end_time: "08:00:00"
+    - start_time: "17:00:00"
+      end_time: "21:00:00"
+  wednesday_slots:
+    - start_time: "06:00:00"
+      end_time: "08:00:00"
+    - start_time: "17:00:00"
+      end_time: "21:00:00"
+  thursday_slots:
+    - start_time: "06:00:00"
+      end_time: "08:00:00"
+    - start_time: "17:00:00"
+      end_time: "21:00:00"
+  friday_slots:
+    - start_time: "06:00:00"
+      end_time: "08:00:00"
+    - start_time: "17:00:00"
+      end_time: "21:00:00"
+  saturday_slots:
+    - start_time: "08:00:00"
+      end_time: "22:00:00"
+  sunday_slots:
+    - start_time: "08:00:00"
+      end_time: "22:00:00"
+```
+
+### Seasonal schedule automation
+
+This example automatically adjusts the hot water schedule based on the season.
+
+{% raw %}
+
+```yaml
+automation:
+  - alias: "Set hot water schedule - winter"
+    triggers:
+      - trigger: state
+        entity_id: sensor.season
+        to: winter
+    actions:
+      - action: bsblan.set_hot_water_schedule
+        target:
+          device_id: "{{ device_id('water_heater.bsblan_hot_water') }}"
+        data:
+          monday_slots:
+            - start_time: "05:00:00"
+              end_time: "08:30:00"
+            - start_time: "16:00:00"
+              end_time: "23:00:00"
+          tuesday_slots:
+            - start_time: "05:00:00"
+              end_time: "08:30:00"
+            - start_time: "16:00:00"
+              end_time: "23:00:00"
+          wednesday_slots:
+            - start_time: "05:00:00"
+              end_time: "08:30:00"
+            - start_time: "16:00:00"
+              end_time: "23:00:00"
+          thursday_slots:
+            - start_time: "05:00:00"
+              end_time: "08:30:00"
+            - start_time: "16:00:00"
+              end_time: "23:00:00"
+          friday_slots:
+            - start_time: "05:00:00"
+              end_time: "08:30:00"
+            - start_time: "16:00:00"
+              end_time: "23:00:00"
+          saturday_slots:
+            - start_time: "07:00:00"
+              end_time: "23:00:00"
+          sunday_slots:
+            - start_time: "07:00:00"
+              end_time: "23:00:00"
+
+  - alias: "Set hot water schedule - summer"
+    triggers:
+      - trigger: state
+        entity_id: sensor.season
+        to: summer
+    actions:
+      - action: bsblan.set_hot_water_schedule
+        target:
+          device_id: "{{ device_id('water_heater.bsblan_hot_water') }}"
+        data:
+          monday_slots:
+            - start_time: "06:00:00"
+              end_time: "07:00:00"
+            - start_time: "18:00:00"
+              end_time: "20:00:00"
+          tuesday_slots:
+            - start_time: "06:00:00"
+              end_time: "07:00:00"
+            - start_time: "18:00:00"
+              end_time: "20:00:00"
+          wednesday_slots:
+            - start_time: "06:00:00"
+              end_time: "07:00:00"
+            - start_time: "18:00:00"
+              end_time: "20:00:00"
+          thursday_slots:
+            - start_time: "06:00:00"
+              end_time: "07:00:00"
+            - start_time: "18:00:00"
+              end_time: "20:00:00"
+          friday_slots:
+            - start_time: "06:00:00"
+              end_time: "07:00:00"
+            - start_time: "18:00:00"
+              end_time: "20:00:00"
+          saturday_slots:
+            - start_time: "08:00:00"
+              end_time: "21:00:00"
+          sunday_slots:
+            - start_time: "08:00:00"
+              end_time: "21:00:00"
+```
+
+{% endraw %}
+
 For more documentation of the BSBLan device, check the [manual](https://docs.bsb-lan.de).
 
 To see a more detailed listing of the reported systems which are successfully used with BSB-LAN, please follow the corresponding link:

@@ -3,6 +3,7 @@ title: ReCollect Waste
 description: Instructions on how to set up ReCollect Waste sensor within Home Assistant.
 ha_category:
   - Sensor
+  - Calendar
 ha_release: 0.87
 ha_iot_class: Cloud Polling
 ha_domain: recollect_waste
@@ -16,7 +17,7 @@ ha_platforms:
 ha_integration_type: service
 ---
 
-The `recollect_waste` integration allows you to track the next scheduled waste pickup and what type of waste from [ReCollect Waste](https://recollect.net/waste-haulers/).
+The **ReCollect Waste** {% term integration %} allows you to track the next scheduled waste pickup and what type of waste from [ReCollect Waste](https://recollect.net/waste-haulers/).
 
 To use this integration, you must know both your ReCollect Place and Service IDs. In general, cities/municipalities that utilize ReCollect will give you a way to subscribe to a calendar with pickup dates. If you examine the iCal URL for this calendar, the Place and Service IDs are embedded in it:
 

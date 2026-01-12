@@ -4,9 +4,9 @@ description: "Options for regaining access"
 related:
   - docs: /common-tasks/os/#listing-all-users-from-the-command-line
     title: Listing all usernames via command line
-  - url: https://support.nabucasa.com/hc/en-us/articles/25463622043165
+  - url: https://support.nabucasa.com/hc/articles/25463622043165
     title: Reset the Yellow
-  - url: https://support.nabucasa.com/hc/en-us/articles/25161225495837
+  - url: https://support.nabucasa.com/hc/articles/25161225495837
     title: Reset the Green
 ---
 
@@ -25,10 +25,10 @@ You are the **owner** of the Home Assistant server and you cannot login because 
    - you are using the {% term "Home Assistant Operating System" %}
    - you have access to the Home Assistant server.
 2. Open a terminal connection to Home Assistant:
-   - If you are using a Home Assistant Green, follow these steps [to access the console](https://support.nabucasa.com/hc/en-us/articles/25153288092829).
+   - If you are using a Home Assistant Green, follow these steps [to access the console](https://support.nabucasa.com/hc/articles/25153288092829).
    - If you are using a Home Assistant Yellow, follow these steps:
-     - [to access the console from Windows](https://support.nabucasa.com/hc/en-us/articles/25454894609693)
-     - [to access the console from Linux or macOS](https://support.nabucasa.com/hc/en-us/articles/25454972435357).
+     - [to access the console from Windows](https://support.nabucasa.com/hc/articles/25454894609693)
+     - [to access the console from Linux or macOS](https://support.nabucasa.com/hc/articles/25454972435357).
    - If you are using another system, connect keyboard and monitor. The procedure might be similar the one used for Green.
    - If you are using a Home Assistant OVA (virtualization image):
      - Access the system console by opening the terminal through your virtualization platform's interface (for example, Proxmox, VMware, VirtualBox).
@@ -71,9 +71,9 @@ Use this procedure only if the following conditions are met:
 
 1. If you are using a Home Assistant Yellow or Green, refer to their documentation.
    - If you are using a Home Assistant Yellow, refer to the following procedure:
-     - [Resetting the owner password on Home Assistant Yellow](https://support.nabucasa.com/hc/en-us/articles/25455301907997)
+     - [Resetting the owner password on Home Assistant Yellow](https://support.nabucasa.com/hc/articles/25455301907997)
    - If you are using a Home Assistant Green, refer to the following procedure:
-     - [Resetting the owner password on Home Assistant Green](https://support.nabucasa.com/hc/en-us/articles/25142896227357)
+     - [Resetting the owner password on Home Assistant Green](https://support.nabucasa.com/hc/articles/25142896227357)
 2. If you are not using a Yellow or Green: Connect to the console of the Home Assistant server:
    - If you are using a virtual machine, connect to your virtual machine console.
    - If you are using another board, connect a keyboard and monitor to your device and access the terminal. The procedure is likely very similar to the one described for the Home Assistant Green.
@@ -112,8 +112,8 @@ If you lose the password associated with the owner account and the steps above d
 - If you have an external backup with an administrator account of which you still know the login credentials, you can restore that backup.
 - If you do not have a backup, resetting the device will erase all data.
 
-- If you have a Home Assistant Green, [reset the Green](https://support.nabucasa.com/hc/en-us/articles/25161225495837).
-- If you have a Home Assistant Yellow, [reset the Yellow](https://support.nabucasa.com/hc/en-us/articles/25463622043165).
+- If you have a Home Assistant Green, [reset the Green](https://support.nabucasa.com/hc/articles/25161225495837).
+- If you have a Home Assistant Yellow, [reset the Yellow](https://support.nabucasa.com/hc/articles/25463622043165).
 
 ## Recovering data for Home Assistant
 

@@ -14,7 +14,7 @@ ha_domain: icloud
 ha_platforms:
   - device_tracker
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The **Apple iCloud** {% term integration %} allows you to detect presence using the [iCloud](https://www.icloud.com/) service. iCloud allows users to track their location on iOS devices.

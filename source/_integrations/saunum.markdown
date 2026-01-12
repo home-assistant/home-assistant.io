@@ -16,9 +16,11 @@ related:
     title: Saunum Leil product page
 ha_category: []
 ha_platforms:
+  - binary_sensor
   - climate
   - diagnostics
   - light
+  - sensor
 ---
 
 The **Saunum** {% term integration %} integrates your [Saunum Leil](https://saunum.com/en/product/control-devices/) sauna control unit with Home Assistant. [Saunum](https://saunum.com/) is an Estonian company that creates advanced sauna heaters and control systems with smart features.
@@ -68,6 +70,10 @@ The Saunum Leil control unit natively operates in Celsius, even if Fahrenheit is
 
 Once started, the sauna begins heating to the target temperature and automatically turns off after the configured duration. During an active session, you cannot change the sauna type, sauna duration, or fan duration settings.
 
+{% note %}
+You cannot start a sauna session when the sauna door is open. The control unit will prevent heating from starting as a safety measure. Close the sauna door before attempting to start a heating session. You can monitor the door status using the **Door open** binary sensor.
+{% endnote %}
+
 ### Fan mode settings
 
 The sauna heater has a built-in ventilation fan that helps circulate air and maintain even temperature distribution. You can adjust the fan speed during an active sauna session using the climate entity's fan mode control:
@@ -107,6 +113,68 @@ The **Saunum** integration provides the following entities for controlling and m
 - **Sauna light**
   - **Description**: Control the sauna lighting if light is connected to the control unit.
   - **Features**: Turn the sauna light on or off.
+
+### Sensor
+
+- **Temperature**
+  - **Description**: Current temperature inside the sauna.
+  - **Unit**: °C (Celsius) or °F (Fahrenheit) depending on your Home Assistant unit system.
+
+- **Heater elements active**
+  - **Description**: Number of active heating elements (0-3).
+  - **Use case**: Monitor heating intensity and power consumption.
+
+- **On time**
+  - **Description**: Total accumulated operating time of the Leil touch screen control panel since last restart.
+  - **Unit**: Seconds
+  - **Note**: This sensor is disabled by default. Enable it in the entity settings if you want to track usage statistics.
+
+### Binary sensor
+
+- **Door open**
+  - **Description**: Indicates whether the sauna door is currently open.
+  - **Device class**: Door
+  - **Use case**: Monitor sauna door status for safety and automation purposes.
+
+- **Door open during heating alarm**
+  - **Description**: Safety alarm triggered when the sauna door is opened while the heater is actively running.
+  - **Device class**: Problem
+  - **Category**: Diagnostic
+  - **Use case**: Important safety alert to prevent overheating and ensure safe operation.
+
+- **Door open too long alarm**
+  - **Description**: Alarm triggered when the sauna door has been left open for an extended period.
+  - **Device class**: Problem
+  - **Category**: Diagnostic
+  - **Use case**: Alerts you to potential energy waste or forgotten open door.
+
+- **Thermal cutoff alarm**
+  - **Description**: Critical safety alarm triggered when the thermal safety cutoff has activated due to excessive heat.
+  - **Device class**: Problem
+  - **Category**: Diagnostic
+  - **Use case**: Immediate attention required - indicates a serious overheating condition.
+
+- **Internal temperature alarm**
+  - **Description**: Alarm triggered when the internal electronics temperature is too high.
+  - **Device class**: Problem
+  - **Category**: Diagnostic
+  - **Use case**: Indicates potential ventilation or cooling issues with the control unit.
+
+- **Temperature sensor shorted alarm**
+  - **Description**: Diagnostic alarm indicating the temperature sensor has a short circuit.
+  - **Device class**: Problem
+  - **Category**: Diagnostic
+  - **Use case**: Sensor malfunction requiring technical service.
+
+- **Temperature sensor disconnected alarm**
+  - **Description**: Diagnostic alarm indicating the temperature sensor is disconnected or has an open circuit.
+  - **Device class**: Problem
+  - **Category**: Diagnostic
+  - **Use case**: Sensor connection issue requiring technical service.
+
+{% important %}
+Monitor the alarm binary sensors regularly. Any active alarm sensor indicates a potential safety or operational issue that should be addressed immediately. The sauna heater will automatically shut down when safety alarms are triggered.
+{% endimportant %}
 
 ## Supported devices
 

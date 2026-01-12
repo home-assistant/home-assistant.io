@@ -71,7 +71,7 @@ Some other rules:
 - Use the word "Home Assistant" in full, and not "HA" or "HASS". 
 - Use sentence-style capitalization for headings and titles.
 - Use **bold** to mark up UI strings. For example:
-    - Under **Settings** > **Devices & Services**, select **Integrations**.
+    - Under **Settings** > **Devices & services**, select **Integrations**.
 - Do not use "e.g.", "i.e.", "etc.", or "etcetera". Use "like", "for example",
   or "such as" instead.
 - Lists

@@ -1,0 +1,570 @@
+---
+layout: post
+title: "2026.1: Home is where the dashboard is 🥂"
+description: "Refreshed Home dashboard on mobile, more purpose-specific triggers, easier access to protocol dashboards, eight new integrations, and more!"
+date: 2026-01-07 00:00:00
+date_formatted: "January 7, 2026"
+author: Franck Nijhof
+author_twitter: frenck
+comments: true
+categories:
+  - Release-Notes
+  - Core
+og_image: /images/blog/2026-01/social.png
+---
+
+<lite-youtube videoid="aU6yqlh-ptw" videotitle="Home Assistant 2026.1 Release Party"></lite-youtube>
+
+Happy New Year! 🥂
+
+I hope you had a wonderful holiday, spending time with your loved ones. We're kicking off 2026 with a smaller release, as our contributors and maintainers have been enjoying some well-deserved time off as well. But don't worry, there's still plenty of good stuff in this release!
+
+Home Assistant 2026.1 brings a refreshed Home dashboard experience on mobile, with summary cards right at your fingertips without extra taps. We’ve also made it easier than ever to navigate to the protocol connecting your devices, such as Zigbee, Z-Wave, Thread and more.
+
+For automation enthusiasts, we’re continuing our work on our even more "human-friendly" triggers, which can be enabled via Home Assistant Labs, so you can build automations using easy-to-understand language instead of technical state changes, like initiating automations if a button is pressed or someone arrives home.
+
+On the integrations front, we welcome eight new integrations to the family, including pet tracking with Fressnapf, energy monitoring with eGauge, and smart heating control with Watts Vision +. Plus, improvements to existing integrations from our amazing community contributors.
+
+I wish you a happy and healthy 2026! Enjoy the release!
+
+../Frenck
+
+<!--more-->
+
+- [Home dashboard improvements](#home-dashboard-improvements)
+  - [Streamlined mobile navigation](#streamlined-mobile-navigation)
+  - [New devices page](#new-devices-page)
+- [Purpose-specific triggers and conditions progress](#purpose-specific-triggers-and-conditions-progress)
+- [Easier navigation to protocol dashboards](#easier-navigation-to-protocol-dashboards)
+- [Integrations](#integrations)
+  - [New integrations](#new-integrations)
+  - [Noteworthy improvements to existing integrations](#noteworthy-improvements-to-existing-integrations)
+  - [Integration quality scale achievements](#integration-quality-scale-achievements)
+  - [Now available to set up from the UI](#now-available-to-set-up-from-the-ui)
+- [Other noteworthy changes](#other-noteworthy-changes)
+  - [Energy dashboard date picker](#energy-dashboard-date-picker)
+  - [ESPHome action responses](#esphome-action-responses)
+- [Patch releases](#patch-releases)
+  - [2026.1.1 - January 12](#202611---january-12)
+- [Need help? Join the community](#need-help-join-the-community)
+- [Backward-incompatible changes](#backward-incompatible-changes)
+- [All changes](#all-changes)
+
+_A huge thank you to all the contributors who made this release possible! And a special shout-out to [@bramkragten], [@piitaya], and [@abmantis] who helped write the release notes for this release. ❤️_
+
+[@abmantis]: https://github.com/abmantis
+[@bramkragten]: https://github.com/bramkragten
+[@piitaya]: https://github.com/piitaya
+
+## Home dashboard improvements
+
+The [Home dashboard](/dashboards/dashboards/#home-dashboard) continues to evolve! In [the previous release](/blog/2025/12/03/release-202512/#more-dashboard-improvements), we introduced a brand-new sidebar layout, weather tiles, and energy distribution summaries. This release takes it even further with a streamlined mobile experience and better device management.
+
+### Streamlined mobile navigation
+
+On mobile devices, the Home dashboard now displays summary cards (like lights, climate, security, media players, weather, and energy) directly at the top of the view, followed by your favorites and areas. This replaces the previous tab-based navigation, giving you instant access to everything that matters without any extra taps.
+
+<img src='/images/blog/2026-01/home-dashboard-mobile.png' alt='Screenshot showing the Home dashboard on mobile with summary cards at the top.' class='no-shadow' />
+
+The desktop experience remains unchanged, with summaries displayed in the sidebar under the **For you** heading.
+
+### New devices page
+
+Ever wondered where your devices went after you removed them from an area? A new **Devices** page now appears on the Home dashboard, showing all devices that aren't currently assigned to a specific area. This makes it easy to find and control those "orphaned" devices without hunting through the settings.
+
+<p class='img'><img src='/images/blog/2026-01/home-dashboard-devices.png' alt='Screenshot showing the Devices page on the Home dashboard for unassigned devices.'/>The new Devices page shows devices not assigned to any area.</p>
+
+## Purpose-specific triggers and conditions progress
+
+In [the previous release](/blog/2025/12/03/release-202512/#purpose-specific-triggers-and-conditions), we introduced purpose-specific triggers and conditions. Instead of thinking in technical state changes, you can now simply pick things like "When a light turns on" or "If the climate is heating" when building your automations.
+
+<img src='/images/blog/2025-12/purpose-specific-triggers.png' alt='Screenshot showing the new purpose-specific triggers and conditions in the automation editor.' class='no-shadow' />
+
+This feature is still being refined in {% my labs title="**Home Assistant Labs**" %}, but this release adds a _lot_ more trigger types, making this new approach even more useful. Here is an overview of all the new triggers added in this release:
+
+- **Button** triggers fire when a button entity has been pressed.
+- **Climate** triggers now cover all common scenarios. You can trigger on HVAC mode changes, target temperature changes, or when the target temperature crosses a threshold. There are also triggers for current temperature and humidity changes, and even target humidity changes.
+- **Device tracker** triggers let you automate based on when a device entered or left home, with support for the first device arriving, last device leaving, or any change. Don't worry, person-specific triggers are coming soon, the device tracker ones were simply available sooner.
+- **Humidifier** triggers will fire when a humidifier turns on or off, starts humidifying, or starts drying. You can also trigger on humidity changes or when humidity crosses a threshold.
+- **Light** triggers let you automate based on brightness changes or when brightness crosses a specific threshold.
+- **Lock** triggers can now fire when a lock is locked, unlocked, opened, or jammed.
+- **Scene** triggers fire when a scene is activated.
+- **Siren** triggers fire when sirens are turned on or off.
+- **Update** trigger fires when an update becomes available.
+
+As the new purpose-specific triggers and conditions all support targeting something bigger than a simple entity (an area, a floor, or even a label), we also redesigned how the target gets displayed on the automation flow.
+
+The goal of this change is to allow you to quickly glance at your automation, and understand its purpose.
+
+<img src='/images/blog/2026-01/target_summary_automation_editor.png' alt='Screenshot showing the new target summary in the automation editor.' class='no-shadow' />
+
+Head over to {% my labs title="**Settings** > **System** > **Labs**" %} to enable purpose-specific triggers and conditions and give them a try!
+
+## Easier navigation to protocol dashboards
+
+For an organization that loves the open standards that seamlessly connect our devices, we sure didn’t promote them enough! Most people didn’t even know that Home Assistant has dedicated dashboards for protocols like Zigbee, Z-Wave, and more.
+
+This release reorganizes the **Settings** page to give these open protocols a more prominent spot. The protocols section now appears right after the core settings, making it much easier to find all the different ways you’re connecting your devices and quickly access some very useful protocol-specific configurations.
+
+<img src='/images/blog/2026-01/protocol-dashboards.png' alt='Screenshot showing the new protocols section in the Settings page with Matter, Zigbee, Z-Wave, Thread, Bluetooth, KNX, and Insteon.' class='no-shadow' />
+
+The menu items only appear when you have the corresponding integration set up, so you'll only see what's relevant to your setup.
+
+## Integrations
+
+Thanks to our community for keeping pace with the new {% term integrations %} and improvements to existing ones! You're all awesome 🥰
+
+### New integrations
+
+We welcome the following new integrations in this release:
+
+- **[AirPatrol]**, added by [@antondalgren]  
+  Control your air conditioning units through AirPatrol Wi-Fi devices directly from Home Assistant.
+- **[eGauge]**, added by [@neggert]  
+  Integrate eGauge energy monitors for residential and commercial applications, commonly used with solar energy installations.
+- **[Fluss+]**, added by [@Marcello17]  
+  Connect your Fluss+ Button to Home Assistant for quick and easy control of your smart home.
+- **[Fish Audio]**, added by [@noambav]  
+  Use Fish Audio's text-to-speech service to generate natural-sounding speech in Home Assistant.
+- **[Fressnapf Tracker]**, added by [@eifinger]  
+  Track the location of your pets and monitor their activity using Fressnapf GPS Trackers.
+- **[HomeLink]**, added by [@ryanjones-gentex]  
+  Integrate your HomeLink devices to trigger smart home routines from the comfort of your vehicle.
+- **[Watts Vision +]**, added by [@theobld-ww]  
+  Control your Watts Vision + smart heating system, allowing remote control of individual home heating zones.
+- **[WebRTC]**, added by [@balloob]  
+  An internal integration providing WebRTC functionality for camera streaming in Home Assistant.
+
+[@antondalgren]: https://github.com/antondalgren
+[@balloob]: https://github.com/balloob
+[@eifinger]: https://github.com/eifinger
+[@Marcello17]: https://github.com/Marcello17
+[@neggert]: https://github.com/neggert
+[@noambav]: https://github.com/noambav
+[@ryanjones-gentex]: https://github.com/ryanjones-gentex
+[@theobld-ww]: https://github.com/theobld-ww
+[AirPatrol]: /integrations/airpatrol
+[eGauge]: /integrations/egauge
+[Fish Audio]: /integrations/fish_audio
+[Fluss+]: /integrations/fluss
+[Fressnapf Tracker]: /integrations/fressnapf_tracker
+[HomeLink]: /integrations/gentex_homelink
+[Watts Vision +]: /integrations/watts
+[WebRTC]: /integrations/web_rtc
+
+This release also has new virtual integrations. Virtual integrations are stubs that are handled by other (existing) integrations to help with findability. These ones are new:
+
+- **[Levoit]**, provided by [VeSync], added by [@timmo001]
+
+[@timmo001]: https://github.com/timmo001
+[Levoit]: /integrations/levoit
+[VeSync]: /integrations/vesync
+
+### Noteworthy improvements to existing integrations
+
+It is not just new {% term integrations %} that have been added; existing ones are also being constantly improved. Here are some of the noteworthy changes to existing integrations:
+
+- The [Matter] integration gained three new diagnostic binary sensors for thermostat remote sensing status from [@lboue], helping you keep an eye on your climate system.
+- [@joostlek] added lots of new sensors to the [SmartThings] integration, including air quality sensors for PM1, PM2.5, and PM10, hood filter usage tracking, fridge temperature sensors for One Door refrigerators, and fan speed control for range hoods.
+- [Roborock] owners with Q7 devices can now integrate them thanks to [@Lash-L], who added basic read-only support with sensors for battery, status, and cleaning data.
+- [@mib1185] improved the [FRITZ!SmartHome] integration by adding switch entities that let you enable or disable FRITZ! Smart Home routines (triggers) directly from Home Assistant.
+- The [Ping] integration now tracks packet loss, thanks to [@mib1185]. The new sensor shows packet loss as a percentage and is disabled by default.
+- [@Shulyaka] added support for GPT-5.2 and GPT-5.2-pro models to the [OpenAI] integration, including a new "xhigh" reasoning effort level.
+- The [HomeWizard] integration gained two new battery charge modes from [@DCSBL]: zero charge only and zero discharge only, giving you more control over your energy storage.
+- [@Abestanis] expanded the [KNX] UI configuration to support time, date, and datetime entities, while [@farmio] added sensor, scene, text, and fan entities, making it easier than ever to set up your KNX installation.
+- The [Squeezebox] integration now offers alarm monitoring, thanks to [@wollew]: you get binary sensors to track if an alarm is upcoming, active, or snoozed, plus a timestamp sensor showing when the next alarm is scheduled.
+- [@andrew-codechimp] added support for new meal plan types in [Mealie] 3.7, including dessert, drink, and snack plans, giving you more flexibility in your meal planning.
+- The [Hikvision] integration gained NVR support from [@ptarjan], including extended event detection and automatic discovery of video channels.
+- [@FredericMa] added a `set_time` action to the [Risco] integration, allowing you to sync your local alarm panel's clock and fix those pesky clock drift issues.
+- The [Nederlandse Spoorwegen] integration got a major overhaul from [@heindrichpaul], splitting the monolithic sensor into over 15 individual sensors, one for each train route, making it much easier to track specific journeys.
+- [@zweckj] added a beautiful entity picture of your coffee machine to the [La Marzocco] integration's main switch entity.
+- The [Actron Air] integration gained a new switch platform from [@kclif9], exposing Away Mode, Continuous Fan, Quiet Mode, and Turbo Mode controls.
+- [@Djelibeybi] gave the [Pooldose] integration a massive upgrade: you now get water meter sensors for monitoring levels, number entities for configuring dosing targets, and select entities for controlling your pool's operating mode.
+- The [AirPatrol] integration now lets you monitor temperature and humidity, thanks to new sensor entities added by [@antondalgren].
+- [@mettolen] added sensor and number platforms to the [Airobot] integration, letting you monitor air quality data and control hysteresis band settings.
+
+A huge thank you to all the contributors who improved these integrations, and to everyone else who contributed improvements that aren't listed here. Your work makes Home Assistant better for everyone! ❤️
+
+[@Abestanis]: https://github.com/Abestanis
+[@andrew-codechimp]: https://github.com/andrew-codechimp
+[@antondalgren]: https://github.com/antondalgren
+[@DCSBL]: https://github.com/DCSBL
+[@Djelibeybi]: https://github.com/Djelibeybi
+[@farmio]: https://github.com/farmio
+[@FredericMa]: https://github.com/FredericMa
+[@heindrichpaul]: https://github.com/heindrichpaul
+[@joostlek]: https://github.com/joostlek
+[@kclif9]: https://github.com/kclif9
+[@Lash-L]: https://github.com/Lash-L
+[@lboue]: https://github.com/lboue
+[@mettolen]: https://github.com/mettolen
+[@mib1185]: https://github.com/mib1185
+[@ptarjan]: https://github.com/ptarjan
+[@Shulyaka]: https://github.com/Shulyaka
+[@wollew]: https://github.com/wollew
+[@zweckj]: https://github.com/zweckj
+[Actron Air]: /integrations/actron_air
+[AirPatrol]: /integrations/airpatrol
+[Airobot]: /integrations/airobot
+[FRITZ!SmartHome]: /integrations/fritzbox
+[Hikvision]: /integrations/hikvision
+[HomeWizard]: /integrations/homewizard
+[KNX]: /integrations/knx
+[La Marzocco]: /integrations/lamarzocco
+[Matter]: /integrations/matter
+[Mealie]: /integrations/mealie
+[Nederlandse Spoorwegen]: /integrations/nederlandse_spoorwegen
+[OpenAI]: /integrations/openai_conversation
+[Ping]: /integrations/ping
+[Pooldose]: /integrations/pooldose
+[Risco]: /integrations/risco
+[Roborock]: /integrations/roborock
+[SmartThings]: /integrations/smartthings
+[Squeezebox]: /integrations/squeezebox
+
+### Integration quality scale achievements
+
+One thing we are incredibly proud of in Home Assistant is our [integration quality scale]. This scale helps us and our contributors to ensure integrations are of high quality, maintainable, and provide the best possible user experience.
+
+This release, we celebrate several {% term integrations %} that have improved their quality scale:
+
+- **2 integrations reached platinum** 🏆
+  - [KNX], thanks to [@farmio]
+  - [UniFi Protect], thanks to [@RaHehl]
+
+- **4 integrations reached silver** 🥈
+  - [Autarco], thanks to [@klaasnicolaas]
+  - [SFR Box], thanks to [@epenet]
+  - [Squeezebox], thanks to [@peteS-UK], [@pssc] and [@rajlaud]
+  - [Watergate], thanks to [@adam-the-hero]
+
+- **2 integrations reached bronze** 🥉
+  - [Growatt Server], thanks to [@johanzander]
+  - [TP-Link Omada], thanks to [@MarkGodwin]
+
+This is a huge achievement for these integrations and their maintainers. The effort and dedication required to reach these quality levels is significant, as it involves extensive testing, documentation, error handling, and often complete rewrites of parts of the integration.
+
+A big thank you to all the contributors involved! 👏
+
+[integration quality scale]: /docs/quality_scale/
+
+[@adam-the-hero]: https://github.com/adam-the-hero
+[@epenet]: https://github.com/epenet
+[@farmio]: https://github.com/farmio
+[@johanzander]: https://github.com/johanzander
+[@klaasnicolaas]: https://github.com/klaasnicolaas
+[@MarkGodwin]: https://github.com/MarkGodwin
+[@peteS-UK]: https://github.com/peteS-UK
+[@pssc]: https://github.com/pssc
+[@RaHehl]: https://github.com/RaHehl
+[@rajlaud]: https://github.com/rajlaud
+[Autarco]: /integrations/autarco
+[Growatt Server]: /integrations/growatt_server
+[KNX]: /integrations/knx
+[SFR Box]: /integrations/sfr_box
+[Squeezebox]: /integrations/squeezebox
+[TP-Link Omada]: /integrations/tplink_omada
+[UniFi Protect]: /integrations/unifiprotect
+[Watergate]: /integrations/watergate
+
+### Now available to set up from the UI
+
+While most {% term integrations %} can be set up directly from the Home Assistant user interface, some were only available using YAML configuration. We keep moving more integrations to the UI, making them more accessible for everyone to set up and use.
+
+The following integrations are now available via the Home Assistant UI:
+
+- **[Hikvision]**, done by [@ptarjan]
+- **[VIVOTEK]**, done by [@HarlemSquirrel]
+
+[@HarlemSquirrel]: https://github.com/HarlemSquirrel
+[@ptarjan]: https://github.com/ptarjan
+[Hikvision]: /integrations/hikvision
+[VIVOTEK]: /integrations/vivotek
+
+## Other noteworthy changes
+
+There are many more improvements in this release; here are some of the other noteworthy changes:
+
+- If you monitor your home's oil tank or other slow flow rates, you might appreciate the new **gallons per day** unit of volume flow rate added by [@StaleLoafOfBread]. This unit is particularly useful for tracking daily consumption rates of heating oil or similar resources.
+- Got a Matter speaker? [@lboue] added volume control support to the [Matter] integration, exposing a volume slider entity for Matter speakers using the LevelControl cluster.
+- The [statistics graph card][dashboard-statistics-graph] now includes a link to the history panel in its header, just like the history graph card already had. Selecting the link takes you directly to the history with the same entities and time range pre-selected, thanks to [@joepio].
+- When using the [state badge element][dashboard-state-badge] in your picture elements card, you can now set a custom `name` option, giving you more flexibility in your dashboard designs, thanks to [@ildar170975].
+- In 2025.11 we [improved the logging efficiency][improved-logging-efficiency] by disabling the duplicated log file. This release adds a [new configuration option][duplicate-log-file-option] to re-enable it if needed. If you are using the official Terminal & SSH add-on, make sure it is updated to 9.22.0 or higher to be able to use that option. The Advanced SSH & Web Terminal add-on has not been updated yet, but will be soon.
+- For integration developers: [@bramkragten] added a new **choose selector**, allowing users to select between different input types in the UI. You'll start seeing this pop up in various places where flexible input is needed.
+
+[@bramkragten]: https://github.com/bramkragten
+[@ildar170975]: https://github.com/ildar170975
+[@joepio]: https://github.com/joepio
+[@lboue]: https://github.com/lboue
+[@StaleLoafOfBread]: https://github.com/StaleLoafOfBread
+[dashboard-state-badge]: /dashboards/picture-elements/#state-badge
+[dashboard-statistics-graph]: /dashboards/statistics-graph/
+[improved-logging-efficiency]: /blog/2025/11/05/release-202511/#improved-logging-efficiency
+[duplicate-log-file-option]: /common-tasks/os/#enable-duplicate-log-file
+
+### Energy dashboard date picker
+
+In [the previous release](/blog/2025/12/03/release-202512/#power-and-water-in-the-energy-dashboard), the Energy dashboard received a big update with real-time power monitoring and downstream water tracking. However, some of you noticed that navigating between periods required scrolling back up, making it harder to compare data while looking at graphs further down the page.
+
+This release fixes that! The date picker is now sticky at the bottom of the screen, so you can easily switch between days, weeks, or months without losing sight of the graph you're viewing. This also makes it much easier to access on mobile devices.
+
+<img src='/images/blog/2026-01/energy-dashboard-period-selector.png' alt='Screenshot showing the Energy dashboard with the date picker fixed at the bottom of the screen.' class='no-shadow' />
+
+### ESPHome action responses
+
+[ESPHome 2025.12] introduced a powerful new feature called [API action responses][esphome-action-responses], enabling true bidirectional communication between your ESPHome devices and Home Assistant. With this release, Home Assistant now fully supports receiving these responses!
+
+Previously, when calling an action on an ESPHome device, communication was one-way: you could send a command, but the device couldn't send structured data back. Now, your ESPHome devices can return JSON data in response to actions, unlocking new possibilities like querying device configuration, reading sensor values on demand, or retrieving diagnostic information.
+
+This is particularly useful for actions that answer questions rather than perform tasks. For example, you could create an action that returns your device's current Wi-Fi signal strength, firmware version, or any custom sensor readings, all as structured data you can use in your automations.
+
+To get started, check out the [ESPHome documentation on action responses][esphome-action-responses] for configuration examples.
+
+[ESPHome 2025.12]: https://esphome.io/changelog/2025.12.0/#api-action-responses
+[esphome-action-responses]: https://esphome.io/components/api/#action-responses
+
+## Patch releases
+
+### 2026.1.1 - January 12
+
+- Fix Hikvision NVR binary sensors not being detected ([@ptarjan] - [#160254]) ([hikvision docs])
+- Bump eheimdigital to 1.5.0 ([@autinerd] - [#160312]) ([eheimdigital docs])
+- Bump ZHA to 0.0.84 ([@TheJulianJES] - [#160440]) ([zha docs])
+- Bump pyOverkiz to 1.19.4 ([@iMicknl] - [#160457]) ([overkiz docs])
+- Fix JSON serialization of time objects in anthropic tool results ([@dcermak] - [#160459]) ([anthropic docs])
+- Add asyncio-level timeout to Backblaze B2 uploads ([@ElCruncharino] - [#160468]) ([backblaze_b2 docs])
+- Fix Requirement parsing in RequirementsManager ([@epenet] - [#160485])
+- Add Nettleie optimization option ([@osohotwateriot] - [#160494]) ([osoenergy docs])
+- Bump python-otbr-api to 2.7.1 ([@emontnemery] - [#160496]) ([thread docs]) ([otbr docs])
+- fix rain sensor for some rare velux windows ([@wollew] - [#160504]) ([velux docs])
+- Fix trigger selectors ([@bramkragten] - [#160519]) ([climate docs]) ([light docs]) ([humidifier docs])
+- Bump Intergas Incomfort-client to v0.6.11 ([@jbouwh] - [#160520]) ([incomfort docs])
+- Revert "Update voluptuous and voluptuous-openapi" ([@synesthesiam] - [#160530])
+- Bump serialx to v0.6.2 ([@puddly] - [#160545]) ([zha docs]) ([homeassistant_hardware docs])
+- Catch any migration failures in Teslemetry ([@Bre77] - [#160549]) ([teslemetry docs])
+- Fix AttributeError for missing/incomplete health data in Tractive ([@bieniu] - [#160553]) ([tractive docs])
+- Bump pysilero-vad to 3.1.0 ([@synesthesiam] - [#160554]) ([assist_pipeline docs])
+- Fix for older Fritzbox models which do not support smarthome triggers ([@mib1185] - [#160555]) ([fritzbox docs])
+- Bump google-air-quality-api to 2.1.2 ([@Thomas55555] - [#160561]) ([google_air_quality docs])
+- Fix Climate signal in Teslemetry ([@Bre77] - [#160571]) ([teslemetry docs])
+- Bump pysma to 1.1.0 ([@kellerza] - [#160583]) ([sma docs])
+- Bump opower to 0.16.1 ([@tronikos] - [#160588]) ([opower docs])
+- Fix config flow bug in Tesla Fleet ([@Bre77] - [#160591]) ([tesla_fleet docs])
+- Add missing segment speed icons for WLED ([@Tommatheussen] - [#160597]) ([wled docs])
+- Better handling of ratelimiting from Tibber ([@Danielhiversen] - [#160599]) ([tibber docs])
+- Change device class to energy_storage for some enphase_envoy battery entities ([@catsmanac] - [#160603]) ([enphase_envoy docs])
+- Fix Z-Wave creating notification binary sensor for idle state ([@MartinHjelmare] - [#160604]) ([zwave_js docs])
+- Bump pynintendoparental to 2.3.2 ([@pantherale0] - [#160626]) ([nintendo_parental_controls docs])
+- Update frontend to 20260107.1 ([@bramkragten] - [#160644]) ([frontend docs])
+- Bump pyhik to 0.4.0 ([@ptarjan] - [#160654]) ([hikvision docs])
+- Bump greeclimate to 2.1.1 ([@cmroche] - [#160683]) ([gree docs])
+- Bump pysilero-vad to 3.2.0 ([@synesthesiam] - [#160691]) ([assist_pipeline docs])
+- Revert bthome-ble back to 3.16.0 to fix missing data ([@Ernst79] - [#160694]) ([bthome docs])
+- Fix missing key for brew by weight in lamarzocco ([@zweckj] - [#160722]) ([lamarzocco docs])
+- Bump pytado 0.18.16 ([@erwindouna] - [#160724]) ([tado docs])
+- Bump python-homewizard-energy to 10.0.1 ([@DCSBL] - [#160736]) ([homewizard docs])
+- Fix fitbit icon ([@joostlek] - [#160750]) ([fitbit docs])
+
+[#159957]: https://github.com/home-assistant/core/pull/159957
+[#160254]: https://github.com/home-assistant/core/pull/160254
+[#160312]: https://github.com/home-assistant/core/pull/160312
+[#160440]: https://github.com/home-assistant/core/pull/160440
+[#160457]: https://github.com/home-assistant/core/pull/160457
+[#160459]: https://github.com/home-assistant/core/pull/160459
+[#160468]: https://github.com/home-assistant/core/pull/160468
+[#160485]: https://github.com/home-assistant/core/pull/160485
+[#160494]: https://github.com/home-assistant/core/pull/160494
+[#160496]: https://github.com/home-assistant/core/pull/160496
+[#160504]: https://github.com/home-assistant/core/pull/160504
+[#160519]: https://github.com/home-assistant/core/pull/160519
+[#160520]: https://github.com/home-assistant/core/pull/160520
+[#160530]: https://github.com/home-assistant/core/pull/160530
+[#160545]: https://github.com/home-assistant/core/pull/160545
+[#160549]: https://github.com/home-assistant/core/pull/160549
+[#160553]: https://github.com/home-assistant/core/pull/160553
+[#160554]: https://github.com/home-assistant/core/pull/160554
+[#160555]: https://github.com/home-assistant/core/pull/160555
+[#160561]: https://github.com/home-assistant/core/pull/160561
+[#160571]: https://github.com/home-assistant/core/pull/160571
+[#160583]: https://github.com/home-assistant/core/pull/160583
+[#160588]: https://github.com/home-assistant/core/pull/160588
+[#160591]: https://github.com/home-assistant/core/pull/160591
+[#160597]: https://github.com/home-assistant/core/pull/160597
+[#160599]: https://github.com/home-assistant/core/pull/160599
+[#160603]: https://github.com/home-assistant/core/pull/160603
+[#160604]: https://github.com/home-assistant/core/pull/160604
+[#160626]: https://github.com/home-assistant/core/pull/160626
+[#160644]: https://github.com/home-assistant/core/pull/160644
+[#160654]: https://github.com/home-assistant/core/pull/160654
+[#160683]: https://github.com/home-assistant/core/pull/160683
+[#160691]: https://github.com/home-assistant/core/pull/160691
+[#160694]: https://github.com/home-assistant/core/pull/160694
+[#160722]: https://github.com/home-assistant/core/pull/160722
+[#160724]: https://github.com/home-assistant/core/pull/160724
+[#160736]: https://github.com/home-assistant/core/pull/160736
+[#160750]: https://github.com/home-assistant/core/pull/160750
+[@Bre77]: https://github.com/Bre77
+[@DCSBL]: https://github.com/DCSBL
+[@Danielhiversen]: https://github.com/Danielhiversen
+[@ElCruncharino]: https://github.com/ElCruncharino
+[@Ernst79]: https://github.com/Ernst79
+[@MartinHjelmare]: https://github.com/MartinHjelmare
+[@TheJulianJES]: https://github.com/TheJulianJES
+[@Thomas55555]: https://github.com/Thomas55555
+[@Tommatheussen]: https://github.com/Tommatheussen
+[@autinerd]: https://github.com/autinerd
+[@bieniu]: https://github.com/bieniu
+[@bramkragten]: https://github.com/bramkragten
+[@catsmanac]: https://github.com/catsmanac
+[@cmroche]: https://github.com/cmroche
+[@dcermak]: https://github.com/dcermak
+[@emontnemery]: https://github.com/emontnemery
+[@epenet]: https://github.com/epenet
+[@erwindouna]: https://github.com/erwindouna
+[@frenck]: https://github.com/frenck
+[@iMicknl]: https://github.com/iMicknl
+[@jbouwh]: https://github.com/jbouwh
+[@joostlek]: https://github.com/joostlek
+[@kellerza]: https://github.com/kellerza
+[@mib1185]: https://github.com/mib1185
+[@osohotwateriot]: https://github.com/osohotwateriot
+[@pantherale0]: https://github.com/pantherale0
+[@ptarjan]: https://github.com/ptarjan
+[@puddly]: https://github.com/puddly
+[@synesthesiam]: https://github.com/synesthesiam
+[@tronikos]: https://github.com/tronikos
+[@wollew]: https://github.com/wollew
+[@zweckj]: https://github.com/zweckj
+[accuweather docs]: /integrations/accuweather/
+[actron_air docs]: /integrations/actron_air/
+[adax docs]: /integrations/adax/
+[anthropic docs]: /integrations/anthropic/
+[assist_pipeline docs]: /integrations/assist_pipeline/
+[backblaze_b2 docs]: /integrations/backblaze_b2/
+[bthome docs]: /integrations/bthome/
+[climate docs]: /integrations/climate/
+[eheimdigital docs]: /integrations/eheimdigital/
+[enphase_envoy docs]: /integrations/enphase_envoy/
+[fitbit docs]: /integrations/fitbit/
+[fritzbox docs]: /integrations/fritzbox/
+[frontend docs]: /integrations/frontend/
+[google_air_quality docs]: /integrations/google_air_quality/
+[gree docs]: /integrations/gree/
+[hikvision docs]: /integrations/hikvision/
+[homeassistant_hardware docs]: /integrations/homeassistant_hardware/
+[homewizard docs]: /integrations/homewizard/
+[humidifier docs]: /integrations/humidifier/
+[incomfort docs]: /integrations/incomfort/
+[lamarzocco docs]: /integrations/lamarzocco/
+[light docs]: /integrations/light/
+[nintendo_parental_controls docs]: /integrations/nintendo_parental_controls/
+[opower docs]: /integrations/opower/
+[osoenergy docs]: /integrations/osoenergy/
+[otbr docs]: /integrations/otbr/
+[overkiz docs]: /integrations/overkiz/
+[sma docs]: /integrations/sma/
+[tado docs]: /integrations/tado/
+[tesla_fleet docs]: /integrations/tesla_fleet/
+[teslemetry docs]: /integrations/teslemetry/
+[thread docs]: /integrations/thread/
+[tibber docs]: /integrations/tibber/
+[tractive docs]: /integrations/tractive/
+[velux docs]: /integrations/velux/
+[wled docs]: /integrations/wled/
+[zha docs]: /integrations/zha/
+[zwave_js docs]: /integrations/zwave_js/
+
+## Need help? Join the community
+
+Home Assistant has a great community of users who are all more than willing to help each other out. So, join us!
+
+Our very active [Discord chat server](/join-chat) is an excellent place to be, and don't forget to join our amazing [forums](https://community.home-assistant.io/).
+
+Found a bug or issue? Please report it in our [issue tracker](https://github.com/home-assistant/core/issues) to get it fixed! Or check [our help page](/help) for guidance on more places you can go.
+
+Are you more into email? [Sign up for the Open Home Foundation Newsletter](/newsletter) to get the latest news about features, things happening in our community, and other projects that support the Open Home straight into your inbox.
+
+## Backward-incompatible changes
+
+We do our best to avoid making changes to existing functionality that might unexpectedly impact your Home Assistant installation. Unfortunately, sometimes it is inevitable.
+
+We always make sure to document these changes to make the transition as easy as possible for you. This release has the following backward-incompatible changes:
+
+{% details "Coolmaster" %}
+
+The climate entities provided by the Coolmaster integration now use `medium` for the medium fan mode; before this change, it was `med`. If your automations are using `med` when setting or querying the fan speed, you'll have to change it to `medium`.
+
+([@tan-lawrence] - [#157253]) ([coolmaster docs])
+
+[@tan-lawrence]: https://github.com/tan-lawrence
+[#157253]: https://github.com/home-assistant/core/pull/157253
+[coolmaster docs]: /integrations/coolmaster/
+
+{% enddetails %}
+
+{% details "Tailscale" %}
+
+The "Supports hairpinning" binary sensor has been removed from the Tailscale integration. According to the official Tailscale API documentation, this information is no longer tracked and will always return null.
+
+([@CraigCallender] - [#156728]) ([tailscale docs])
+
+[@CraigCallender]: https://github.com/CraigCallender
+[#156728]: https://github.com/home-assistant/core/pull/156728
+[tailscale docs]: /integrations/tailscale/
+
+{% enddetails %}
+
+{% details "UniFi Protect" %}
+
+Select entity state values have been changed from their original mixed-case format to snake_case format with proper translations. This improves consistency and enables proper localization support.
+
+Affected select entities include: chime type, recording mode, infrared mode, status light mode, HDR mode, doorbell text, LCD message, and others.
+
+Example changes:
+
+- Chime type: `Mechanical` → `mechanical`, `Digital` → `digital`
+- Recording mode: `Always` → `always`, `Detections` → `detections`, `Never` → `never`
+- Infrared mode: `Auto` → `auto`, `On` → `on`, `AutoNoLEDsOn` → `auto_no_leds_on`
+- Status light mode: `On` → `on`, `Off` → `off`, `OnWhenDark` → `on_when_dark`
+- HDR mode: `Auto` → `auto`, `On` → `on`, `Off` → `off`
+
+If you have automations, scripts, or templates that check or set the state of UniFi Protect select entities, you need to update them to use the new snake_case values. The UI will continue to display properly translated, human-readable text.
+
+([@RaHehl] - [#159284]) ([unifiprotect docs])
+
+[#159284]: https://github.com/home-assistant/core/pull/159284
+[unifiprotect docs]: /integrations/unifiprotect/
+
+{% enddetails %}
+
+{% details "Telegram bot" %}
+
+Allowing extra/unused parameters has been removed from the action for Telegram bot. Only users who have used undefined parameters for Telegram bot actions are affected. If you are affected, remove such parameters from your automations and scripts. Supported parameters can be found in the [Telegram bot notification actions](/integrations/telegram_bot/#notification-actions) documentation.
+
+([@hanwg] - [#158886]) ([telegram_bot docs])
+
+[@hanwg]: https://github.com/hanwg
+[#158886]: https://github.com/home-assistant/core/pull/158886
+[telegram_bot docs]: /integrations/telegram_bot/
+
+{% enddetails %}
+
+{% details "VeSync" %}
+
+The `advancedSleep` fan mode has been changed to `advanced_sleep`. If you have automations or scripts using this fan mode, please update them accordingly.
+
+([@cdnninja] - [#158956]) ([vesync docs])
+
+[@cdnninja]: https://github.com/cdnninja
+[#158956]: https://github.com/home-assistant/core/pull/158956
+[vesync docs]: /integrations/vesync/
+
+{% enddetails %}
+
+If you are a custom integration developer and want to learn about changes and new features available for your integration, be sure to follow our [developer blog][devblog].
+
+[devblog]: https://developers.home-assistant.io/blog/
+
+## All changes
+
+Of course, there is a lot more in this release. You can find a list of all changes made here: [Full changelog for Home Assistant Core 2026.1](/changelogs/core-2026.1).
