@@ -47,7 +47,7 @@ This integration provides comprehensive control and monitoring of your Tesla veh
 - Control climate (heating, cooling, seat heaters, steering wheel heater)
 - Lock/unlock doors and control windows, trunk, frunk, and charge port
 - Start/stop charging and set charge limits
-- Enable sentry mode, valet mode, and defrost mode
+- Enable Sentry mode, valet mode, and defrost mode
 - Flash lights, honk horn, and trigger HomeLink
 - Track vehicle location and navigation destination
 - Install software updates
