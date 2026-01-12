@@ -1,6 +1,6 @@
 ---
-title: HEMS echonet lite
-description: Instructions on how to integrate ECHONET Lite devices using the HEMS echonet lite integration.
+title: HEMS Echonet Lite
+description: Instructions on how to integrate ECHONET Lite devices using the HEMS Echonet Lite integration.
 ha_release: 2026.2
 ha_iot_class: Local Polling
 ha_codeowners:
@@ -13,7 +13,7 @@ related:
     title: ECHONET Consortium (Japanese only)
 ---
 
-The **HEMS echonet lite** {% term integration %} allows you to integrate ECHONET Lite compatible devices into Home Assistant. [ECHONET Lite](https://echonet.jp/) is a communication protocol standard widely used in Japan for smart home appliances, including air conditioners, solar power systems, storage batteries, and more.
+The **HEMS Echonet Lite** {% term integration %} allows you to integrate ECHONET Lite compatible devices into Home Assistant. [ECHONET Lite](https://echonet.jp/) is a communication protocol standard widely used in Japan for smart home appliances, including air conditioners, solar power systems, storage batteries, and more.
 
 This integration automatically discovers ECHONET Lite devices on your local network using multicast communication (224.0.23.0:3610) and creates entities based on the device capabilities.
 
@@ -109,7 +109,7 @@ Network interface:
 
 ## Configuration options
 
-The integration provides the following configuration options, which can be changed after setup via {% my integrations title="**Settings** > **Devices & services**" %} > **HEMS echonet lite** > **Configure**:
+The integration provides the following configuration options, which can be changed after setup via {% my integrations title="**Settings** > **Devices & services**" %} > **HEMS Echonet Lite** > **Configure**:
 
 {% configuration_basic %}
 Polling interval:
@@ -120,7 +120,7 @@ Enable experimental device classes:
 
 ## Supported functionality
 
-The **HEMS echonet lite** integration provides the following entity platforms based on device capabilities.
+The **HEMS Echonet Lite** integration provides the following entity platforms based on device capabilities.
 
 ### Switches
 
@@ -133,7 +133,7 @@ On/off control for features such as:
 
 ## Data updates
 
-The **HEMS echonet lite** integration uses both {% term polling %} and event-driven updates:
+The **HEMS Echonet Lite** integration uses both {% term polling %} and event-driven updates:
 
 - **Polling interval**: Device properties are polled at the interval specified in the [configuration options](#configuration-options) (default: 60 seconds).
 - **Discovery interval**: New devices are discovered every hour via multicast.
@@ -168,7 +168,7 @@ To resolve this issue, try the following steps:
 
 1. If the missing device is an experimental device class, enable **Enable experimental device classes** in the [configuration options](#configuration-options).
 2. Some devices may take longer to respond. Wait a few minutes and check again, as discovery runs periodically.
-3. Try reloading the integration from {% my integrations title="**Settings** > **Devices & services**" %} > **HEMS echonet lite** > {% icon "mdi:dots-vertical" %} > **Reload**.
+3. Try reloading the integration from {% my integrations title="**Settings** > **Devices & services**" %} > **HEMS Echonet Lite** > {% icon "mdi:dots-vertical" %} > **Reload**.
 4. Verify the missing device supports ECHONET Lite. Some appliances have ECHONET Lite disabled by default and require enabling via the manufacturer's app or settings.
 
 ### Devices show as unavailable
