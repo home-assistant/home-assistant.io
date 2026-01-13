@@ -17,7 +17,10 @@ With the **Namecheap DynamicDNS** {% term integration %} you can automatically u
 
 ## Prerequisites
 
-To set up the integration, you need the **host** ( `@` to update the root domain) and the **domain** you want to update, as well as the **Dynamic DNS password** for the domain. You can find the Dynamic DNS password in your [Namecheap account](https://ap.www.namecheap.com/) under Domain List > Manage > Advanced DNS > Dynamic DNS.
+Before setting up the integration, you need the following elements:
+
+ - Have a [Namecheap account](https://ap.www.namecheap.com/).
+ - The **host** ( `@` to update the root domain) and the **domain** you want to update, as well as the **Dynamic DNS password** for the domain. You can find the Dynamic DNS password in your [Namecheap account](https://ap.www.namecheap.com/) under **Domain List** > **Manage** > **Advanced DNS** > **Dynamic DNS**.
 
 {% important %}
 Namecheap only supports updating IPv4 addresses.
