@@ -641,7 +641,7 @@ knx:
     - type: temperature
       entity_id: sensor.kitchen_temperature
       address: "0/0/2"
-      cooldown: 
+      cooldown:
         minutes: 10
       periodic_send:
         hours: 1
@@ -680,7 +680,7 @@ attribute:
   type: string
   required: false
 default:
-  description: The value to send if the entity state is unavailable or unknown or the attribute is missing. If not set, nothing is sent then, but the last known value remains available for read requests.
+  description: The value to send if the entity state is unavailable or unknown, or if the attribute is not set. If `default` is omitted, nothing is sent in these cases, but the last known value remains available for read requests.
   type: [boolean, string, integer, float]
   default: None
   required: false
@@ -695,7 +695,7 @@ cooldown:
   required: false
   default: 0
 periodic_send:
-  description: Time interval (in seconds or as a time period) to automatically resend the current value to the KNX bus, even if it hasn't changed. Set to `0` to disable.
+  description: Time interval (in seconds or as a time period) to automatically resend the current value to the KNX bus, even if it hasn't changed. `0` disables periodic sending.
   type: [time, float]
   required: false
   default: 0
