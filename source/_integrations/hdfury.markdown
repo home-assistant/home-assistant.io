@@ -74,7 +74,7 @@ Below is a complete overview of the entities this integration provides.
 - Output TX0 (Status and signal information for HDMI output TX0)
 - Output TX1 (Status and signal information for HDMI output TX1)
 
-### Switch
+### Switches
 
 - Auto switch inputs (Automatically switches to the active HDMI input)
 - HTPC mode RX0 (Enables HTPC-optimized mode for HDMI input RX0)
