@@ -32,7 +32,6 @@ Get weather alerts for a specific **SMN location ID** (for example `4864` querie
 
 {% configuration_basic %}
 location_id:
-  required: true
   description: SMN location ID (displayed in the URL when viewing "More details" from a location)
 {% endconfiguration_basic %}  
 
