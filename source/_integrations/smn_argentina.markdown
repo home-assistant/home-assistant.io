@@ -24,13 +24,19 @@ SMN provides daily weather forecasts for four time slots: early morning (3 AM), 
 
 ## Actions
 
-### Action `smn_argentina.get_alerts_for_location`
+The integration provides the following actions.
+
+### Action: Get alerts for location
 
 Get weather alerts for a specific **SMN location ID** (for example `4864` queries for alerts for Buenos Aires City). Returns active alerts with severity levels, descriptions, and instructions for use in automations.
 
-| Data attribute | Optional | Description |
-| ---------------------- |----------| ----------- |
-| `location_id` | no       | SMN location ID (displayed in the URL when viewing "More details" from a location)  
+{% configuration_basic %}
+location_id:
+  required: true
+  description: SMN location ID (displayed in the URL when viewing "More details" from a location)
+{% endconfiguration_basic %}  
+
+## Examples
 
 The following is an example of an action call and response for a location experiencing a severe weather alert.  
 
@@ -77,3 +83,9 @@ max_level: 3
 area_id: 3402
 updated: "2026-01-10T14:11:51-03:00"
 ```
+
+## Removing the integration
+
+This integration follows standard integration removal, no extra steps are required.
+
+{% include integrations/remove_device_service.md %}
