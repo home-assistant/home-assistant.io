@@ -68,23 +68,27 @@ Some other rules:
 - If a paragraph/markdown isn't written in a flowing text style, it must
   be adjusted.
 - Do not use CAPS for emphasis. Use italics instead.
+- Do not use **bold** for emphasis or to replace a heading. Bold is mainly used for
+  UI strings.
+- Use **bold** to mark up UI strings and use > in breadcrumbs. For example:
+    - Under **Settings** > **Devices & services**, select **Integrations**.
 - Use the word "Home Assistant" in full, and not "HA" or "HASS". 
 - Use sentence-style capitalization for headings and titles.
-- Use **bold** to mark up UI strings. For example:
-    - Under **Settings** > **Devices & services**, select **Integrations**.
 - Do not use "e.g.", "i.e.", "etc.", or "etcetera". Use "like", "for example",
   or "such as" instead.
 - Lists
     - Lists should be surrounded by blank lines.
-    - Use numbers list for sequential steps, procedures, or prioritized items.
-    - Use bullet lists for non-sequential items, or when the order does not
+    - Use a numbered list for sequential steps, procedures, or prioritized items.
+    - Use a bulleted list for non-sequential items, or when the order does not
       matter.
     - Begin each item in the list with a capital letter, unless there is a
       reason not to (like it is a command or a code block).
     - Don’t use semicolons, commas, or conjunctions (like and or or) at the end
       of list items.
-    - Don’t use a period at the end of list items unless they’re complete
-      sentences, even if the complete sentence is very short.
+    - If at least one item in a list is a complete sentence, use periods at the end
+      of all items in that list.
+    - Don’t use a period at the end of list items if none of the items are complete
+      sentences.
 
 ## The tech behind the website
 
