@@ -3,7 +3,7 @@ title: YoLink Local
 description: Instructions on how to integrate YoLink Devices into Home Assistant (Local).
 ha_category:
   - Binary sensor
-ha_release: 2026.1
+ha_release: 2026.2
 ha_category: Hub
 ha_iot_class: Local Push
 ha_quality_scale: bronze
@@ -31,11 +31,13 @@ The **YoLink** {% term integration %} integrates [YoLink](https://www.yosmart.co
    - [Android](https://play.google.com/store/apps/details?id=com.yosmart.yolink)
    - [IOS](https://apps.apple.com/us/app/yolink/id1457639983)
 2. Add the Local Hub via the YoLink app.
-3. Click the **Local Network** button on the Local Hub's main page.
-4. Click the **Create Subnet** button to create the local network.
+3. On the Local Hub's main page, select the **Local Network** button.
+4. To create the local network, select the **Create Subnet** button.
 5. The **Net Id** from the **General** tab of the Local Network page is required when adding the integration.
 6. On the Local Network page, navigate to the **Integrations** tab and enable the Local API, making sure that both the HTTP and MQTT protocols are enabled.
 7. The **Client Id** and **Client Secret** from the **Local API** are required when adding the integration.
+
+{% include integrations/config_flow.md %}
 
 ## Supported device list
 
@@ -48,3 +50,9 @@ The integration is tested and verified for the following devices from YoLink:
 - YS7906-UC (Water Leak Sensor 4)
 - YS7916-UC (Water Leak Sensor 4 MoveAlert)
 - YS7914-UC (Leak Sensor)
+
+## Removing the integration
+
+This integration follows standard integration removal.
+
+{% include integrations/remove_device_service.md %}
