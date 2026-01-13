@@ -104,6 +104,25 @@ If you have a Tibber Pulse it will also show the electricity consumption in real
 
 The Tibber integration provides binary sensors.
 
+## Available binary sensors
+
+
+### Charger sensors
+
+- Charging: Indicates whether the charger is currently charging a vehicle
+- Plug: Indicates whether a vehicle is plugged into the charger
+
+### EV sensors
+
+- Charging: Indicates whether the EV is currently charging
+- Plug: Indicates whether the EV is plugged in
+
+### Heaters
+
+- Power: Indicates whether the smart plug or thermostat is powered on
+
+
+
 ## Actions
 
 The hourly prices are exposed using [actions](/docs/scripts/perform-actions/). The actions populate [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data) with price data.
