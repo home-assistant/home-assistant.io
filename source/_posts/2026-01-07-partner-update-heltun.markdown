@@ -18,7 +18,7 @@ Last month – and indeed last year! – we published a [blog recapping the high
 
 Despite reaching out to Heltun multiple times during 2025 to discuss renewing their Works with Home Assistant contract with the Open Home Foundation, we haven’t been able to connect. As their previous contract has now lapsed, we’re formally removing Heltun from the Works with Home Assistant program.
 
-We have no specific issues with the Heltun devices, and hope they will continue to be compatible with Home Assistant – as Z-Wave devices operate on an open standard, they should continue to function. However, without a contract, Heltun has no formal obligation to provide ongoing support such as firmware updates via Z-Wave JS.
+We have no specific issues with the Heltun devices, and hope they will continue to be compatible with Home Assistant – as Z-Wave devices operate on an open standard, they should continue to function. However, without a contract, Heltun has no formal obligation to provide ongoing support, such as firmware updates via Z-Wave JS.
 
 This is an example of why the contract is more than just paperwork. It’s intrinsic to the badging as it outlines, in a legal and binding document, our partners’ commitment to the community, keeping devices working long-term, and the values we all care about. Without it, we can’t maintain certification.
 
