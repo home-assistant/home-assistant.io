@@ -33,9 +33,9 @@ The **YoLink** {% term integration %} integrates [YoLink](https://www.yosmart.co
 2. Add the Local Hub via the YoLink app.
 3. On the Local Hub's main page, select the **Local Network** button.
 4. To create the local network, select the **Create Subnet** button.
-5. The **Net Id** from the **General** tab of the Local Network page is required when adding the integration.
+5. The **Net ID** from the **General** tab of the Local Network page is required when adding the integration.
 6. On the Local Network page, navigate to the **Integrations** tab and enable the Local API, making sure that both the HTTP and MQTT protocols are enabled.
-7. The **Client Id** and **Client Secret** from the **Local API** are required when adding the integration.
+7. The **Client ID** and **Client Secret** from the **Local API** are required when adding the integration.
 
 {% include integrations/config_flow.md %}
 
