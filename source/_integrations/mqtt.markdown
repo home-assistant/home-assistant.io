@@ -422,6 +422,10 @@ The component specific options are placed as mappings under the `components` key
 }
 ```
 
+{% note %}
+A list with supported abbreviations [can be found here](/integrations/mqtt/#supported-abbreviations-in-mqtt-discovery-messages).
+{% endnote %}
+
 The components id's under the `components` (`cmps`) key, are used as part of the discovery identification. A `platform` (`p`) config option is required for each component config that is added to identify the component platform. Also required is a `unique_id` for entity-based components.
 
 To remove the components, publish an empty (retained) string payload to the discovery topic. This will remove the component and clear the published discovery payload. It will also remove the device entry if there are no further references to it.
@@ -1290,6 +1294,10 @@ Setting up a switch using topic prefix and abbreviated configuration variable na
    "stat_t":"~/state"
 }
 ```
+
+{% note %}
+A list with supported abbreviations [can be found here](/integrations/mqtt/#supported-abbreviations-in-mqtt-discovery-messages).
+{% endnote %}
 
 #### Another example using abbreviations topic name and base topic
 
