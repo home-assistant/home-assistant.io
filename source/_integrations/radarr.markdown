@@ -36,4 +36,4 @@ A calendar entity will be created indicating the day of release and the type of 
 - **Disk space**: Shows the disk space available to Radarr in gigabytes. A separate sensor is created for each storage path configured in Radarr (for example: `sensor.radarr_disk_space_movies`).
 - **Movies**: Shows the number of movies in the Radarr database. (disabled by default)
 - **Queue**: The number of movies in the download queue. Attributes include movie title and download progress percentage for each queued item (for example: `The Matrix Reloaded: "45.32%"`). (disabled by default)
-- **Start Time**: The time when Radarr was last restarted. (disabled by default)
+- **Start time**: The time when Radarr was last restarted. (disabled by default)
