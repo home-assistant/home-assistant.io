@@ -30,10 +30,9 @@ The integration provides the following actions.
 
 The `smn_argentina.get_alerts_for_location` action is used to fetch weather alerts for a specific SMN location ID. Returns active alerts with severity levels, descriptions, and instructions for use in automations.
 
-{% configuration_basic %}
-location_id:
-  description: SMN location ID (displayed in the URL when viewing "More details" from a location)
-{% endconfiguration_basic %}  
+- **Data attribute**: `location_id`
+  - **Description**: SMN location ID (displayed in the URL when viewing "More details" from a location)
+  - **Optional**: No
 
 ## Examples
 
