@@ -148,19 +148,11 @@ ha_codeowners:
 ha_domain: my_integration
 ha_integration_type: integration
 related:
-  - url: https://developers.home-assistant.io/docs/documenting/standards
-    title: Documentation standard
-  - url: https://developers.home-assistant.io/docs/core/integration-quality-scale/rules/
-    title: Integration Quality Scale - Rules
-  - docs: /docs/glossary/
-    title: Glossary
-  - docs: /docs/tools/quick-bar/#my-links
-    title: My link
+  - url: https://support.nabucasa.com/hc/en-us/articles/24737667232413
+    title: Getting started with Home Assistant Green
+  - docs: /docs/configuration/troubleshooting/#debug-logs-and-diagnostics
+    title: Debug logs and diagnostics
 ---
-
-<!--- The integration documentation template provides a documentation structure as well as some example content per section. The example content is meant for inspiration, it may not apply for your integration or will at least have to be adapted. -->
-
-<!--- Use this template together with the developer documentation, under [Documentation standard](https://developers.home-assistant.io/docs/documenting/standards) and the documentation rules of the [Integration Quality Scale](https://developers.home-assistant.io/docs/core/integration-quality-scale/rules/). -->
 
 The **My integration** {% term integration %} is used to integrate with the devices of [MyCompany](https://www.mycompany.com). MyCompany creates various smart home appliances and devices and are known for their MyProduct.
 Use case: When you combine it with their other device you can do x.
