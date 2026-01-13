@@ -28,7 +28,7 @@ The integration provides the following actions.
 
 ### Action: Get alerts for location
 
-Get weather alerts for a specific **SMN location ID** (for example `4864` queries for alerts for Buenos Aires City). Returns active alerts with severity levels, descriptions, and instructions for use in automations.
+The `smn_argentina.get_alerts_for_location` action is used to fetch weather alerts for a specific SMN location ID. Returns active alerts with severity levels, descriptions, and instructions for use in automations.
 
 {% configuration_basic %}
 location_id:
@@ -37,7 +37,7 @@ location_id:
 
 ## Examples
 
-The following is an example of an action call and response for a location experiencing a severe weather alert.  
+The following is an example of an action call and response for a location experiencing a severe weather alert.
 
 ```yaml
 action: smn_argentina.get_alerts_for_location
