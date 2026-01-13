@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Partner update: Heltun removed from Works with Home Assistant"
-description: "Heltun has been removed from the Works with Home Assistant program after their contract lapsed without renewal."
+description: "In the interest of transparency, we're announcing the formal removal of Heltun from the Works with Home Assistant program."
 date: 2026-01-13 00:00:00
 date_formatted: "January 13, 2026"
 author: Miranda Bishop
