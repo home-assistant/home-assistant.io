@@ -15,35 +15,28 @@ ha_quality_scale: legacy
 
 With the **Namecheap DynamicDNS** {% term integration %} you can automatically update your dynamic DNS entry hosted by Namecheap's [FreeDNS](https://www.namecheap.com/store/domains/freedns/) or [PremiumDNS](https://www.namecheap.com/security/premiumdns/) services.
 
+## Prerequisites
+
+Before setting up the integration, you need the following elements:
+
+ - Have a [Namecheap account](https://ap.www.namecheap.com/).
+ - The **host** ( `@` to update the root domain) and the **domain** you want to update, as well as the **Dynamic DNS password** for the domain. You can find the Dynamic DNS password in your [Namecheap account](https://ap.www.namecheap.com/) under **Domain List** > **Manage** > **Advanced DNS** > **Dynamic DNS**.
+
 {% important %}
 Namecheap only supports updating IPv4 addresses.
 {% endimportant %}
 
-## Configuration
+{% include integrations/config_flow.md %}
 
-To use the {% term integration %} in your installation, add the following to your {% term "`configuration.yaml`" %} file.
-{% include integrations/restart_ha_after_config_inclusion.md %}
+### Configuration parameters
 
-```yaml
-# Example configuration.yaml entry
-namecheapdns:
-  domain: example.com
-  password: YOUR_PASSWORD
-```
-
-{% configuration %}
+{% configuration_basic %}
   host:
-    description: The host part or "subdomain" part you want to update.
-    required: false
-    type: string
+    description: The host to update ('home' for home.example.com). Use '@' to update the root domain
   domain:
-    description: Your root domain (example.com).
-    required: true
-    type: string
+    description: The domain to update ('example.com')
   password:
-    description: The Namecheap "Dynamic DNS Password" you can find under the "Advanced DNS" tab.
-    required: true
-    type: string
-{% endconfiguration %}
+    description: Dynamic DNS password for the domain
+{% endconfiguration_basic %}
 
 See Namecheap's [How do I set up a Host for Dynamic DNS?](https://www.namecheap.com/support/knowledgebase/article.aspx/43/11/how-do-i-set-up-a-host-for-dynamic-dns) guide for further instructions.
