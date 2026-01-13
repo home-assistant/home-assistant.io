@@ -42,7 +42,7 @@ const remarkrc = {
         { no: "Text-[Tt]o-Speech", yes: "Text-to-speech" },
 
         //  Safe additions (do not require new packages)
-        { no: "HomeAssistant", yes: "Home Assistant" },
+        { no: "Home Assistant", yes: "Home Assistant" },
         { no: "websocket", yes: "WebSocket" }
       ],
     ],
