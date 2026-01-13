@@ -15,43 +15,44 @@ related:
 
 # Victron Energy Integration
 
-The Victron Energy integration allows you to connect your Victron Energy devices (such as solar charge controllers, battery monitors, and inverters) to Home Assistant via MQTT (through the use of a Venus OS device acting as a gateway)
+The Victron Energy integration lets you connect your Victron Energy system to Home Assistant. It uses a GX device , like an Ekrano GX or Cerbo GX, as a gateway and communicates locally via MQTT.
 
-## Supported Devices
+With this integration, devices connected to your GX device, such as solar charge controllers, battery monitors, and inverters are automatically discovered and added to Home Assistant.
 
-This integration supports Victron Energy devices that have:
-- Built-in MQTT capabilities (Cerbo GX, Venus GX, etc.)
-- Home Assistant MQTT discovery enabled
-- Network connectivity (Ethernet, Wi-Fi, or cellular)
+## Required and Supported Devices
+
+This integration requires a GX device with the following requirements:
+- Running Venus OS v3.70 or newer
+- Connected via Ethernet or Wi-Fi
 
 Common supported devices include:
-- Cerbo GX
-- Ekrano GX
-- Any GX device supporting v3.70 and up.
+- GX devices (Ekrano GX, Cerbo GX)
+		   
+										
 - MPPT Solar Charge Controllers
 - BMV Battery Monitors
-- MultiPlus Inverter/Chargers
-- Phoenix Inverters
+- Inverter/Chargers (MultiPlus, Quattro, Multi RS)
+- Inverters
 
 ## Features
 
-Once configured, this integration will automatically discover and add entities for:
+Once set up, Home Assistant will automatically create entities for your Victron system, including:
 
 - **Sensors**: Battery voltage, current, power, solar panel output, AC loads, etc.
 - **Binary Sensors**: Alarm states, relay statuses
 - **Switches**: Relay controls, inverter on/off
 - **Number Controls**: Voltage limits, charge current limits
 
-All discovered entities will appear in Home Assistant with appropriate device classes, units of measurement, and friendly names.
+All entities use appropriate units, device classes, and clear names.
 
 ## Prerequisites
 
-Before setting up this integration, ensure that:
+Make sure the following requirements are met:
 
-1. **You have a Venus OS device running 3.70~61 or higher**
+1. **Your GX device is running Venus OS. v3.70 or newer**
 
 2. **MQTT is enabled on your Victron device (for Venus OS version ..TBD.. and lower)**:
-   - Access your device's web interface
+   - Access your device's screen or web interface
    - Navigate to Settings > Integrations and enable MQTT Access
    - Note the IP address of your device
 
@@ -59,7 +60,7 @@ Before setting up this integration, ensure that:
 
 ### Automatic Discovery
 
-If your Victron Energy device supports SSDP (Service Discovery Protocol), it may be automatically discovered by Home Assistant:
+If your GX device supports SSDP (Service Discovery Protocol), it may be automatically discovered by Home Assistant:
 
 1. Go to **Settings** > **Devices & Services**
 2. Look for a discovered "Victron Energy" device
@@ -76,15 +77,17 @@ If automatic discovery doesn't work:
 
 #### Setup Process
 
-1. **Enter Device Information (only for manual setup)**:
-   - **Host**: Enter the IP address or hostname of your Victron Energy device
+1. **Enter Device Information (only for manual setup)**
+   - **Host**: Enter the IP address or hostname of your GX device
    - Example: `192.168.1.100` or `venus.local`
 
-2. **Enter password**:
-   - You'll always be prompted for a password, but if your Local Network Security Profile is set to Unsecured, this can be left empty.
+2. **Set Password**:
+   - You will always be asked for a password:
+     - If your Local Network Security Profile is set to Unsecured, this can be left empty
+     - Otherwise, enter the GX Password
 
 3. **Discovery**:
-   - The integration will connect to your device and discover available entities
+   - Home Assistant connects to the device and discovers available entities
    - This process may take up to 30 seconds
 
 4. **Completion**:
@@ -106,65 +109,69 @@ After setup, you can access device settings through:
 ## Security Considerations
 
 ### Local Network Security Profile
-- The integration always connects to the MQTT broker on the GX Device using TLS and port 8883
-- The MQTT connection always uses authenticates using a token that is generated during the configuration step
-- To generate this token, the GX Password is necessary when the Local Network Security Profile is set to Secure or Weak. When the Local Network Security Profile is set to Unsecured, the password can be left empty
+- The integration always tries to connect to the GX device using MQTT over TLS (port 8883)
+- Authentication uses a token that is created during setup
+- When the Local Network Security Profile is set to Secure or Weak, the GX password is required to create this token
+- When set to Unsecured, the password can be left empty
 
 ### Network Security
-- Ensure your Victron device is only accessible on your trusted local network
-- Consider using VLANs to isolate IoT devices if security is a concern
-- Regularly update your device firmware for security patches
+- Ensure your Victron device is only accessible on your trusted local network, do not expose it to Internet.
+- Consider using VLANs if you want extra isolation for IoT devices
+- Keep device firmware up to date to receive security fixes
 
 ## Troubleshooting
 
 ### Device Not Discovered
-- Verify MQTT is enabled on your Victron device
-- Check that Home Assistant MQTT discovery is enabled in device settings
-- Ensure the device is on the same network as Home Assistant
-- Try manual setup using the device's IP address
+- Make sure MQTT is enabled on the GX device
+- Check that SSDP discovery is enabled in Home Assistant
+- Confirm the GX device and Home Assistant are on the same network and can talk (firewall rules for example).
+- Try adding the integration manually using the GX device IP address
 
 ### Connection Failed
-- **Check Network Connectivity**: Verify the device IP address is correct and reachable
-- **Firewall Issues**: Ensure port 8883 is not blocked
-- **Device Settings**: Confirm MQTT services are running on the device
+- **Check Network Connectivity**: Verify the device IP address or hostname is correct and reachable
+- **Firewall Issues**: Ensure port 8883 is not blocked by a firewall
+- **Device Settings**: Confirm MQTT services are running on the GX device
 
-### Authentication Failed  
-- Verify the secure profile password is correct
-- Check MQTT user credentials in device settings
-- Ensure the Local Network Security Profile is properly configured on the device
+### Authentication Failed
+- Double-check the GX Password
+												
+- Verify the Local Network Security Profile setting
 
 ### No Entities Discovered
 - Wait up to 30 seconds for discovery to complete
 - Verify Home Assistant MQTT discovery is enabled on the device
-- Check that the device has active sensors/controls to discover
+- Confirm the GX device has active sensors or controls
 - Restart the integration if discovery appears stuck
+- If you wish to try the integration on a standalone GX device, you can enable the Demo Mode in Venus OS.
 
 ### Missing Entities
-- Some entities may be disabled by default (especially diagnostic sensors)
-- Check **Settings** > **Devices & Services** > **Victron Energy** > **Entities** 
-- Enable desired entities manually
+- Some entities (especially diagnostic ones) may be disabled by default
+- Check **Settings** > **Devices & Services** > **Victron Energy** > **Entities**
+- Enable any entities you want to use
 
 ## Support
 
 ### Getting Help
-- Check the [Home Assistant Community Forum](https://community.home-assistant.io/) for Victron Energy discussions
-- Review Victron Energy documentation for device-specific MQTT configuration
-- Consult your device manual for networking and MQTT setup instructions
+- Visit the [Home Assistant Community Forum](https://community.home-assistant.io/) for Victron-related discussions
+- Check Victron Energy documentation for MQTT and GX device setup
+- Refer to the device manual for networking details
 
 ### Reporting Issues
-- Ensure you're running the latest Home Assistant version
-- Include device model and firmware version when reporting issues
-- Enable debug logging for the `victronenergy` component if requested
 
-### Additional Resources
+When reporting a problem, please:
+- Ensure you're running the latest Home Assistant version
+- Include the GX device model, Venus OS version, and Home Assistant version
+- Enable debug logging for the `victronenergy` component (if requested)
+
+### Useful Links
 - [Victron Energy MQTT Documentation](https://www.victronenergy.com/live/venus_os:mqtt)
-- [Home Assistant MQTT Integration](https://www.home-assistant.io/integrations/mqtt/)
+- [Victron Energy Community](https://community.victronenergy.com)
 
 ## Removing the Integration
 
 To remove the Victron Energy integration from Home Assistant:
 
-1. **Remove via UI**: 
+1. **Remove via UI**:
    - Go to **Settings** > **Devices & Services**
    - Find the **Victron Energy** integration
    - Click the three-dot menu and select **Delete**
