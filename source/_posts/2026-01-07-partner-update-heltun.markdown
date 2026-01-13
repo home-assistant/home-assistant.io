@@ -24,7 +24,7 @@ This is an example of why the contract is more than just paperwork. It’s intri
 
 ## What happens now
 
-Heltun’s integration page will now be removed from the partner filter, and an update has been published on our original Heltun launch blog stating the information is no longer applicable. They are now also prohibited from using the Works with badge on relevant marketing materials.
+Heltun’s integration page will now be removed from the partner filter, and an update has been published on our original Heltun launch blog stating that the information is no longer applicable. They are now also prohibited from using the Works with badge on relevant marketing materials.
 
 As we have no problems with the devices themselves, we will be happy to welcome Heltun back into the program should they wish to re-engage in the future.
 
