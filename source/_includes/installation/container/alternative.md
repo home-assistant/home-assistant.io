@@ -1,8 +1,11 @@
 ### Synology NAS
 
-Note: different Synology NAS models support the Container Manager package and/or the Virtual Machine Manager (VMM) package. The Container Manager package may install Home Assistant Container. The Virtual Machine Manager package may install Home Assistant Operating System. For more details on VMM, see [Community Guides: Installation on Synology Virtual Machine Manager](https://community.home-assistant.io/t/installation-on-synology-virtual-machine-manager/281608), compatibility information at https://www.synology.com/en-us/dsm/packages/Virtualization, and [Requirements and Limitations](https://kb.synology.com/en-us/DSM/help/Virtualization/requirements_and_limitations?version=7). The following focuses on installing Home Assistant Container with Container Manager.
-
 Synology with DSM now supports container management through the Container Manager package, allowing you to install Home Assistant without the need for command-line. For details about the package (including compatibility-information, if your NAS is supported), see <https://www.synology.com/en-us/dsm/packages/ContainerManager>
+
+{% note %}
+Some Synology models support Home Assistant Operating System via the Virtual Machine Manager (VMM) package. For more details see the [Community Guide](https://community.home-assistant.io/t/installation-on-synology-virtual-machine-manager/281608), [compatibility information](https://www.synology.com/en-us/dsm/packages/Virtualization), and [Requirements and Limitations](https://kb.synology.com/en-us/DSM/help/Virtualization/requirements_and_limitations?version=7).
+{% endnote %}
+
 The steps would be:
 
 - Using Synology's Package Center, install the "Container Manager" package
