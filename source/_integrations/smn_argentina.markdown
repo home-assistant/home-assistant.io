@@ -14,7 +14,7 @@ ha_platforms:
 ha_integration_type: service
 ---
 
-The **Servicio Meteorológico Nacional de Argentina (SMN)** {% term integration %} uses [smn.gob.ar](https://smn.gob.ar/) web services as a source for meteorological data for your location. The weather forecast is delivered by the **National Weather Service of Argentina**.
+The **Servicio Meteorológico Nacional de Argentina (SMN)** {% term integration %} uses [smn.gob.ar](https://smn.gob.ar) web services as a source for meteorological data for your location. The weather forecast is delivered by the [National Weather Service of Argentina](https://www.argentina.gob.ar/smn).
 
 {% include integrations/config_flow.md %}
 
@@ -26,7 +26,7 @@ SMN provides daily weather forecasts for four time slots: early morning (3 AM), 
 
 ### Action `smn_argentina.get_alerts_for_location`
 
-Get weather alerts for a specific **SMN location ID** (for example ` 4864` queries for alerts for Buenos Aires City). Returns active alerts with severity levels, descriptions, and instructions for use in automations.
+Get weather alerts for a specific **SMN location ID** (for example `4864` queries for alerts for Buenos Aires City). Returns active alerts with severity levels, descriptions, and instructions for use in automations.
 
 | Data attribute | Optional | Description |
 | ---------------------- |----------| ----------- |
