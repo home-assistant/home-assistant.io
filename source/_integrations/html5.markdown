@@ -43,7 +43,10 @@ Assuming you have already configured the platform:
 
 {% my profile badge %}
 
-1. Open Home Assistant in Chrome, Firefox or the webapp in iOS and load the user profile page by clicking the My button above or by clicking your user account initials at the bottom of the sidebar. Assuming you have met all the [requirements](#requirements) above then you should see a new toggle for "Receive notifications". If the toggle is greyed out, ensure you are viewing Home Assistant via its external HTTPS address (and that you have configured the `notify` HTML5 integration in Home Assistant). If the toggle is not visible, ensure you are not in the user configuration (Sidebar, Configuration, Users, View User).
+1. Open the Home Assistant **User Profile** page in [a supported browser](#requirements). Load the user profile page by clicking the **User Profile** button above or by clicking your user account initials at the bottom of the sidebar.
+    - Assuming you have met all the [requirements](#requirements) above, you should see a new toggle for **Receive notifications**.
+    - If the toggle is greyed out, ensure you are viewing Home Assistant via its external HTTPS address. Also make sure you have configured the `notify` HTML5 integration in Home Assistant.
+    - If the toggle is not visible, ensure you are not in the user configuration (Sidebar, Configuration, Users, View User).
 2. Turn on the toggle, and name the device you're using in the alert that appears.
 3. Within a few seconds you should be prompted to allow notifications from Home Assistant.
 4. Assuming you accept, that's all there is to it!
