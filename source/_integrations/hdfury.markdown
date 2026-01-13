@@ -57,7 +57,7 @@ Below is a complete overview of the entities this integration provides.
 - Port Select TX0 (Controls the HDMI source selection for output TX0)
 - Port Select TX1 (Controls the HDMI source selection for output TX1)
 
-### Sensor
+### Sensors
 
 - Audio TX0 (Current audio format/status on HDMI output TX0)
 - Audio TX1 (Current audio format/status on HDMI output TX1)
