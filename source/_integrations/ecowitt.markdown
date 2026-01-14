@@ -27,6 +27,7 @@ The following devices have been reported to work with the **Ecowitt** {% term in
 ### Gateway/Hub
 
 - GW2000A Wi-Fi Hub
+- GW3000 Ethernet and Wi-Fi Gateway with Data Storage
 
 ### Sensors
 
