@@ -31,6 +31,8 @@ The following devices have been reported to work with the **Ecowitt** {% term in
 ### Sensors
 
 - WH51 Wireless Soil Moisture Sensor
+- WH40 Wireless Self-Emptying Rain Collector Rainfall Sensor
+- WH57 Outdoor Wireless Lightning Detection Sensor
 - WS90 Wireless 7-in-1 Electronic Sensor
 
 {% include integrations/config_flow.md %}
