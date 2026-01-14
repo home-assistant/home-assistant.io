@@ -90,6 +90,10 @@ Some other rules:
     - Don’t use a period at the end of list items if none of the items are complete
       sentences.
 
+## Terminology
+
+- Follow the terminology rules listed in .textlintrc.json in this repository.
+
 ## The tech behind the website
 
 The Home Assistant website is built using Jekyll and thus the pages are written
