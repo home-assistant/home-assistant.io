@@ -144,6 +144,7 @@ GEM
     sass-embedded (1.97.2-arm64-darwin)
       google-protobuf (~> 4.31)
     sass-embedded (1.97.2-x86_64-linux-gnu)
+      google-protobuf (~> 4.31)
     sass-globbing (1.1.5)
       sass (>= 3.1)
     sassc (2.1.0)
