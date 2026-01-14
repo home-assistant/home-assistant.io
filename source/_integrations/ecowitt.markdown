@@ -100,9 +100,12 @@ The **Ecowitt** {% term integration %} provides the following {% term entities %
 
 #### Solar and UV
 
-- **Light intensity**: Illuminance measurement in lux (lx). Lux measures the amount of light falling on a surface. Typical values include direct sunlight (32,000-100,000 lx), overcast day (1,000 lx), office lighting (320-500 lx), living room (50-150 lx), and full moon (1 lx).
+- **Light intensity**: Illuminance measurement in lux (lx). Lux measures the amount of light falling on a surface.
+  - Typical values include direct sunlight (32,000-100,000 lx), overcast day (1,000 lx), office lighting (320-500 lx), living room (50-150 lx), and full moon (1 lx).
 - **Solar radiation**: Solar irradiance. Native unit is watts per square meter (W/m²). Can be displayed in BTU/(h⋅ft²) or W/m² based on your preferences.
-- **UV index**: Current UV index value. The UV index is a standardized measurement of ultraviolet radiation strength from the sun. Values range from 0-2 (low risk), 3-5 (moderate), 6-7 (high), 8-10 (very high), to 11+ (extreme). Higher values indicate greater risk from unprotected sun exposure.
+- **UV index**: Current UV index value. The UV index is a standardized measurement of ultraviolet radiation strength from the sun.
+  - Values range from 0-2 (low risk), 3-5 (moderate), 6-7 (high), 8-10 (very high), to 11+ (extreme).
+  - Higher values indicate greater risk from unprotected sun exposure.
 
 #### Weather
 
