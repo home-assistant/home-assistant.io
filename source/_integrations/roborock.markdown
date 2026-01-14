@@ -473,8 +473,8 @@ It's also important to try to determine what caused this error in your setup. A 
 
 ### When I try to add the integration - it says my region is incorrect
 
-We recommend using the 'Auto' setting for your region, but if that doesn't work as you have accounts in multiple regions here are a few steps we recommend taking:
+We recommend using the "Auto" setting for your region, but if that doesn't work because you have accounts in multiple regions here are a few steps we recommend taking:
 
-1) If you ever accidentally created a Roborock account in the wrong roborock server region, please make sure you delete it using the Roborock App.
-2) The Roborock server region for your account may not always be associated with your actual country.  While setting up the integration, you may select the Roborock server region that you want to sign in with, there are four options: US, EU, RU, CN and you may need to try a different region that you would expect. Most users outside of Russia or China are in the US and EU Roborock server regions.
+1) If you ever accidentally created a Roborock account in the wrong roborock server region, delete it using the Roborock App.
+2) The Roborock server region for your account may not always be associated with your actual country.  While setting up the integration, you may select the Roborock server region that you want to sign in with, with four available options: US, EU, RU, or CN, and you may need to try a different region that you would expect. Most users outside of Russia or China are in the US and EU Roborock server regions.
 3) Please note that the "Region" that is shown in the app is actually what country your account is registered to and does not always match the region the integration is looking for. 
