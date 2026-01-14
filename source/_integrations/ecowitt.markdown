@@ -35,7 +35,7 @@ The integration will display a Server IP / Host Name, Path, and Port. You can in
 2. In the top-right corner, select the ellipsis icon ({% icon "mdi:dots-horizontal" %}).
    - From the list, select **Others**.
    - Select the **DIY Upload Servers** button, and from the **Supported Servers List**, select **Customized**.
-   - From the **Protocol Type Same As:** list, select **Ecowitt**.
+   - From the **Protocol Type Same As** list, select **Ecowitt**.
    - Enter the Server IP / Host Name, Path, and Port from the integration.
      - The path has to match! Remove the first forward slash from the path, as the app will prepend one.
 3. Save your settings.
@@ -43,7 +43,7 @@ The integration will display a Server IP / Host Name, Path, and Port. You can in
 **Option 2**: Navigate to the Ecowitt web UI in a browser at the station IP address:
 
 1. Select **Weather Services** then scroll down to the **Customized** section.
-2. Under **Customized**, select 🔘 Enable and **Protocol Type Same As:** 🔘 Ecowitt.
+2. Under **Customized**, select 🔘 Enable and **Protocol Type Same As** 🔘 Ecowitt.
 3. Enter the Server IP / Host Name, Path, and Port from the integration.
 4. Save your settings.
 
