@@ -1296,7 +1296,7 @@ Setting up a switch using topic prefix and abbreviated configuration variable na
 ```
 
 {% note %}
-A list with supported abbreviations [can be found here](/integrations/mqtt/#supported-abbreviations-in-mqtt-discovery-messages).
+To see what each abbreviation stands for, refer to the [list of supported abbreviations in MQTT discovery messages](/integrations/mqtt/#supported-abbreviations-in-mqtt-discovery-messages).
 {% endnote %}
 
 #### Another example using abbreviations topic name and base topic
