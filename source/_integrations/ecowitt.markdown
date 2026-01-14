@@ -28,18 +28,24 @@ The **Ecowitt** {% term integration %} works by first creating a callback endpoi
 
 The integration will display a Server IP / Host Name, Path, and Port. You can input it into the Ecowitt configuration in one of two ways:
 
-1. Use the Ecowitt App (on your phone):
-    - Select the Menu Icon ({% icon "mdi:menu" %}) on the upper left, then **My Devices** → **Pick your station**
-    - Select the Ellipsis Icon ({% icon "mdi:dots-horizontal" %}) → **Others**
-    - Select **DIY Upload Servers** → **Customized**
-    - Make sure to choose 'Protocol Type Same As: Ecowitt'
-    - Enter the Server IP / Host Name, Path, and Port from the integration. _Note: The path has to match! Remove the first forward slash from the path, as the app will prepend one._
-    - Save
-1. Navigate to the Ecowitt web UI in a browser at the station IP address:
-    - Select **Weather Services** then scroll down to 'Customized'
-    - Make sure to select 'Customized: 🔘 Enable' and 'Protocol Type Same As: 🔘 Ecowitt'
-    - Enter the Server IP / Host Name, Path, and Port from the integration.
-    - Save
+**Option 1**: Use the Ecowitt app (on your phone):
+
+1. In the top-left corner, select the menu icon ({% icon "mdi:menu" %}) and select **Devices**.
+   - Under **My Devices**, select your Ecowitt station.
+2. In the top-right corner, select the ellipsis icon ({% icon "mdi:dots-horizontal" %}).
+   - From the list, select **Others**.
+   - Select the **DIY Upload Servers** button, and from the **Supported Servers List**, select **Customized**.
+   - From the **Protocol Type Same As:** list, select **Ecowitt**.
+   - Enter the Server IP / Host Name, Path, and Port from the integration.
+     - The path has to match! Remove the first forward slash from the path, as the app will prepend one.
+3. Save your settings.
+
+**Option 2**: Navigate to the Ecowitt web UI in a browser at the station IP address:
+
+1. Select **Weather Services** then scroll down to the **Customized** section.
+2. Under **Customized**, select 🔘 Enable and **Protocol Type Same As:** 🔘 Ecowitt.
+3. Enter the Server IP / Host Name, Path, and Port from the integration.
+4. Save your settings.
 
 ## TLS/SSL limitations
 
