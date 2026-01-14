@@ -92,7 +92,7 @@ Some other rules:
 
 ## Terminology
 
-- Follow the terminology rules listed in .textlintrc.json in this repository.
+- Follow the terminology rules listed in `.textlintrc.json` in this repository.
 
 ## The tech behind the website
 
