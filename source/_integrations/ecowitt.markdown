@@ -20,6 +20,12 @@ ha_integration_type: device
 
 The **Ecowitt** {% term integration %} allows you to integrate [Ecowitt](https://www.ecowitt.com/) devices into Home Assistant.
 
+## Supported devices
+
+The following devices have been reported to work with the **Ecowitt** {% term integration %}:
+
+- GW2000 Wi-Fi Hub
+
 {% include integrations/config_flow.md %}
 
 ## Ecowitt Weather Station configuration
