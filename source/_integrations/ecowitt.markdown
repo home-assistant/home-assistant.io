@@ -41,6 +41,70 @@ The integration will display a Server IP / Host Name, Path, and Port. You can in
     - Enter the Server IP / Host Name, Path, and Port from the integration.
     - Save
 
+## Supported functionality
+
+The **Ecowitt** {% term integration %} provides the following {% term entities %}. Available entities depend on which sensors are connected to your weather station.
+
+### Binary sensors
+
+- **Battery status**: Indicates low battery conditions for wireless sensors.
+- **Leak sensor**: Detects water leaks when using compatible water leak detection sensors.
+- **Rain state**: Indicates whether it is currently raining.
+
+### Sensors
+
+#### Air quality
+
+- **CO2**: Carbon dioxide concentration. Native unit is parts per million (ppm). Can be displayed in ppb (parts per billion) or other concentration units based on your preferences.
+- **PM1**: Ultra-fine particulate matter 1.0 concentration. Native unit is micrograms per cubic meter (µg/m³). Can be displayed in mg/m³, g/m³, or µg/ft³ based on your preferences.
+- **PM2.5**: Fine particulate matter 2.5 concentration. Native unit is micrograms per cubic meter (µg/m³). Can be displayed in mg/m³, g/m³, or µg/ft³ based on your preferences.
+- **PM4**: Particulate matter 4.0 concentration. Native unit is micrograms per cubic meter (µg/m³). Can be displayed in mg/m³, g/m³, or µg/ft³ based on your preferences.
+- **PM10**: Coarse particulate matter 10 concentration. Native unit is micrograms per cubic meter (µg/m³). Can be displayed in mg/m³, g/m³, or µg/ft³ based on your preferences.
+
+#### Lightning detection
+
+- **Lightning count**: Total number of lightning strikes detected.
+- **Lightning distance**: Distance to the last detected lightning strike. Native unit is kilometers (km) or miles (mi) depending on your Home Assistant unit system. Can be displayed in m, ft, cm, in, yd, or nmi (nautical miles) based on your preferences.
+
+#### Power and diagnostics
+
+- **Battery level**: Battery percentage for wireless sensors.
+- **Battery voltage**: Battery voltage for connected sensors in volts (V).
+- **Signal strength**: Signal quality indicator for wireless sensors in percentage.
+
+#### Precipitation
+
+- **Rain rate**: Current rainfall intensity. Native unit is millimeters per hour (mm/h) or inches per hour (in/h) depending on your Home Assistant unit system. Can be displayed in mm/d or in/d based on your preferences.
+- **Rainfall**: Total rainfall accumulation. Native unit is millimeters (mm) or inches (in) depending on your Home Assistant unit system. Can be displayed in cm based on your preferences.
+- **Daily rainfall**: Rainfall amount for the current day. Native unit is millimeters (mm) or inches (in) depending on your Home Assistant unit system. Can be displayed in cm based on your preferences.
+- **Weekly rainfall**: Rainfall amount for the current week. Native unit is millimeters (mm) or inches (in) depending on your Home Assistant unit system. Can be displayed in cm based on your preferences.
+- **Monthly rainfall**: Rainfall amount for the current month. Native unit is millimeters (mm) or inches (in) depending on your Home Assistant unit system. Can be displayed in cm based on your preferences.
+- **Yearly rainfall**: Rainfall amount for the current year. Native unit is millimeters (mm) or inches (in) depending on your Home Assistant unit system. Can be displayed in cm based on your preferences.
+
+#### Soil
+
+- **Soil moisture**: Soil moisture percentage for connected soil moisture sensors.
+- **Soil temperature**: Temperature readings from soil temperature sensors. Native unit is degrees Celsius (°C) or Fahrenheit (°F) depending on your Home Assistant unit system. Can be displayed in K (Kelvin) based on your preferences.
+
+#### Solar and UV
+
+- **Light intensity**: Illuminance measurement in lux (lx).
+- **Solar radiation**: Solar irradiance. Native unit is watts per square meter (W/m²). Can be displayed in BTU/(h⋅ft²) or W/m² based on your preferences.
+- **UV index**: Current UV index value.
+
+#### Weather
+
+- **Barometric pressure**: Atmospheric pressure. Native unit is hectopascals (hPa) or inches of mercury (inHg) depending on your Home Assistant unit system. Can be displayed in Pa, kPa, bar, mbar, mmHg, psi, or other pressure units based on your preferences.
+- **Dew point**: Calculated dew point temperature. Native unit is degrees Celsius (°C) or Fahrenheit (°F) depending on your Home Assistant unit system. Can be displayed in K (Kelvin) based on your preferences.
+- **Humidity**: Indoor and outdoor humidity percentage.
+- **Temperature**: Indoor and outdoor temperature measurements. Native unit is degrees Celsius (°C) or Fahrenheit (°F) depending on your Home Assistant unit system. Can be displayed in K (Kelvin) based on your preferences.
+
+#### Wind
+
+- **Wind direction**: Wind direction in degrees (°).
+- **Wind gust**: Maximum wind gust speed. Native unit is kilometers per hour (km/h) or miles per hour (mph) depending on your Home Assistant unit system. Can be displayed in m/s, kn (knots), ft/s, Beaufort, or other speed units based on your preferences.
+- **Wind speed**: Current wind speed. Native unit is kilometers per hour (km/h) or miles per hour (mph) depending on your Home Assistant unit system. Can be displayed in m/s, kn (knots), ft/s, Beaufort, or other speed units based on your preferences.
+
 ## TLS/SSL limitations
 
 Ecowitt devices do not support TLS/SSL connections (HTTPS). If your Home Assistant instance is configured to use HTTPS only, the Ecowitt integration will not work properly. You must ensure your Home Assistant instance is accessible via HTTP (non-secure) for the Ecowitt devices to successfully send data.
