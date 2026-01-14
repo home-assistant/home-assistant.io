@@ -110,7 +110,15 @@ The **Ecowitt** {% term integration %} provides the following {% term entities %
 #### Weather
 
 - **Barometric pressure**: Atmospheric pressure. Native unit is hectopascals (hPa) or inches of mercury (inHg) depending on your Home Assistant unit system. Can be displayed in Pa, kPa, bar, mbar, mmHg, psi, or other pressure units based on your preferences.
+  - Barometric pressure measures the weight of air pressing down on the Earth's surface.
+  - Standard sea level pressure is around 1013 hPa (29.92 inHg).
+  - High pressure typically indicates fair weather, while low pressure indicates clouds and precipitation.
+  - Rapidly falling pressure often signals approaching storms.
 - **Dew point**: Calculated dew point temperature. Native unit is degrees Celsius (°C) or Fahrenheit (°F) depending on your Home Assistant unit system. Can be displayed in K (Kelvin) based on your preferences.
+  - Dew point is the temperature at which air becomes saturated with moisture and condensation begins to form.
+  - Higher dew points indicate more moisture in the air.
+  - Comfortable levels are below 13°C (55°F), muggy is 16-18°C (60-65°F), oppressive is above 21°C (70°F).
+  - Dew point is a better indicator of humidity comfort than relative humidity.
 - **Humidity**: Indoor and outdoor humidity percentage.
 - **Temperature**: Indoor and outdoor temperature measurements. Native unit is degrees Celsius (°C) or Fahrenheit (°F) depending on your Home Assistant unit system. Can be displayed in K (Kelvin) based on your preferences.
 
