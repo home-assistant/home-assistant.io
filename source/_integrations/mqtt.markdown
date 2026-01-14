@@ -423,7 +423,7 @@ The component specific options are placed as mappings under the `components` key
 ```
 
 {% note %}
-A list with supported abbreviations [can be found here](/integrations/mqtt/#supported-abbreviations-in-mqtt-discovery-messages).
+To see what each abbreviation stands for, refer to the [list of supported abbreviations in MQTT discovery messages](/integrations/mqtt/#supported-abbreviations-in-mqtt-discovery-messages).
 {% endnote %}
 
 The components id's under the `components` (`cmps`) key, are used as part of the discovery identification. A `platform` (`p`) config option is required for each component config that is added to identify the component platform. Also required is a `unique_id` for entity-based components.
