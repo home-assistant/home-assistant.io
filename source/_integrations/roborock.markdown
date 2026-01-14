@@ -46,7 +46,7 @@ pause the vacuum when a media player starts playing music.
 
 ## Note about compatibility
 
-The newly released [Q-Series](https://us.roborock.com/pages/roborock-store#Q-Series) devices are not supported. Roborock has changed the protocol for how these devices interact. It is unclear if new devices not in the Q-series will use the existing protocol or the new protocol. Most Q-Series devices should have partial support via the [Matter](/integrations/matter/) integration.
+The newly released [Q-Series](https://us.roborock.com/pages/roborock-store#Q-Series) devices are not fully supported. Roborock has changed the protocol for how these devices interact. It is unclear if new devices not in the Q-series will use the existing protocol or the new protocol. Most Q-Series devices should have partial support via the [Matter](/integrations/matter/) integration.
 
 ## Prerequisites
 
@@ -59,6 +59,8 @@ The newly released [Q-Series](https://us.roborock.com/pages/roborock-store#Q-Ser
 {% configuration_basic %}
 Email address:
     description: "The email address used to sign in to the Roborock app. A verification code will be sent to this email address when adding the Roborock integration."
+Region:
+    description: "The region that your Roborock account was created in. Leave this set to Auto unless you are having issues."
 Verification code:
     description: "The verification code that is sent to your email address when adding the Roborock integration."
 {% endconfiguration_basic %}
@@ -468,3 +470,11 @@ Some devices are not supported yet as they use a different protocol than other d
 There is rate limiting built into the Python package that this integration is built on. This is to try to help prevent your instance from overwhelming the Roborock servers and resulting in any kind of IP ban. Best practice is to disable the integration for 24 hours. 
 
 It's also important to try to determine what caused this error in your setup. A common cause some users have is that they have a script that automatically reloads the integration if it goes unavailable. Then, if the device gets stuck and runs out of battery, you are frequently reloading and that causes rate limits.
+
+### When I try to add the integration - it says my region is incorrect
+
+We recommend using the 'Auto' setting for your region, but if that doesn't work as you have accounts in multiple regions here are a few steps we recommend taking:
+
+1) If you ever accidentally created a Roborock account in the wrong region - please make sure you delete it. 
+2) While setting up the integration, you may select the region that you want to sign in with, there are four options: US, EU, RU, CN. It is not always intuitive what region your country is in, so you might have to try a couple. Most countries outside of Russia or China are in US and EU.
+3) Please note that the "Region" that is shown in the app is actually what country your account is registered to and does not always match the region the integration is looking for. 
