@@ -24,7 +24,14 @@ The **Ecowitt** {% term integration %} allows you to integrate [Ecowitt](https:/
 
 The following devices have been reported to work with the **Ecowitt** {% term integration %}:
 
-- GW2000 Wi-Fi Hub
+### Gateway/Hub
+
+- GW2000A Wi-Fi Hub
+
+### Sensors
+
+- WH51 Wireless Soil Moisture Sensor
+- WS90 Wireless 7-in-1 Electronic Sensor
 
 {% include integrations/config_flow.md %}
 
