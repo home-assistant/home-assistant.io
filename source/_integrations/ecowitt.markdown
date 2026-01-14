@@ -55,11 +55,23 @@ The **Ecowitt** {% term integration %} provides the following {% term entities %
 
 #### Air quality
 
-- **CO2**: Carbon dioxide concentration. Native unit is parts per million (ppm). Can be displayed in ppb (parts per billion) or other concentration units based on your preferences.
-- **PM1**: Ultra-fine particulate matter 1.0 concentration. Native unit is micrograms per cubic meter (µg/m³). Can be displayed in mg/m³, g/m³, or µg/ft³ based on your preferences.
-- **PM2.5**: Fine particulate matter 2.5 concentration. Native unit is micrograms per cubic meter (µg/m³). Can be displayed in mg/m³, g/m³, or µg/ft³ based on your preferences.
-- **PM4**: Particulate matter 4.0 concentration. Native unit is micrograms per cubic meter (µg/m³). Can be displayed in mg/m³, g/m³, or µg/ft³ based on your preferences.
-- **PM10**: Coarse particulate matter 10 concentration. Native unit is micrograms per cubic meter (µg/m³). Can be displayed in mg/m³, g/m³, or µg/ft³ based on your preferences.
+- **CO2**: Carbon dioxide concentration.
+  - Native unit is parts per million (ppm). Can be displayed in ppb (parts per billion) or other concentration units based on your preferences.
+  - Outdoor air is typically around 400 ppm.
+  - Good air quality is below 1,000 ppm, acceptable is 1,000-1,500 ppm, and poor ventilation is above 2,000 ppm.
+- **PM1**: Ultra-fine particulate matter 1.0 concentration.
+  - Native unit is micrograms per cubic meter (µg/m³). Can be displayed in mg/m³, g/m³, or µg/ft³ based on your preferences.
+  - Measures airborne particles with a diameter of 1 micrometer or smaller, such as combustion particles and ultrafine dust.
+  - Good air quality is below 15 µg/m³, moderate is 15-35 µg/m³, and unhealthy is above 35 µg/m³.
+- **PM2.5**: Fine particulate matter 2.5 concentration.
+  - Native unit is micrograms per cubic meter (µg/m³). Can be displayed in mg/m³, g/m³, or µg/ft³ based on your preferences.
+  - Measures particles with a diameter of 2.5 micrometers or smaller, such as smoke, haze, and fine dust.
+  - Good air quality is below 12 µg/m³, moderate is 12-35 µg/m³, and unhealthy is above 55 µg/m³.
+- **PM4**: Particulate matter 4.0 concentration. Native unit is micrograms per cubic meter (µg/m³). Can be displayed in mg/m³, g/m³, or µg/ft³ based on your preferences. Measures particles with a diameter of 4 micrometers or smaller.
+- **PM10**: Coarse particulate matter 10 concentration.
+  - Native unit is micrograms per cubic meter (µg/m³). Can be displayed in mg/m³, g/m³, or µg/ft³ based on your preferences.
+  - Measures particles with a diameter of 10 micrometers or smaller, including dust, pollen, and mold spores.
+  - Good air quality is below 54 µg/m³, moderate is 55-154 µg/m³, and unhealthy is above 255 µg/m³.
 
 #### Lightning detection
 
