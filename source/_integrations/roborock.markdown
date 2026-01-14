@@ -60,7 +60,7 @@ The newly released [Q-Series](https://us.roborock.com/pages/roborock-store#Q-Ser
 Email address:
     description: "The email address used to sign in to the Roborock app. A verification code will be sent to this email address when adding the Roborock integration."
 Roborock server Region:
-    description: "The region that your Roborock account was created in. Leave this set to Auto unless you are having issues."
+    description: "The region that your Roborock account was created in. Leave this set to Auto unless you are having issues. See troubleshooting steps below."
 Verification code:
     description: "The verification code that is sent to your email address when adding the Roborock integration."
 {% endconfiguration_basic %}
@@ -475,6 +475,6 @@ It's also important to try to determine what caused this error in your setup. A 
 
 We recommend using the 'Auto' setting for your region, but if that doesn't work as you have accounts in multiple regions here are a few steps we recommend taking:
 
-1) If you ever accidentally created a Roborock account in the wrong region - please make sure you delete it. 
-2) While setting up the integration, you may select the region that you want to sign in with, there are four options: US, EU, RU, CN. It is not always intuitive what region your country is in, so you might have to try a couple. Most countries outside of Russia or China are in US and EU.
+1) If you ever accidentally created a Roborock account in the wrong roborock server region, please make sure you delete it using the Roborock App.
+2) The Roborock server region for your account may not always be associated with your actual country.  While setting up the integration, you may select the Roborock server region that you want to sign in with, there are four options: US, EU, RU, CN and you may need to try a different region that you would expect. Most users outside of Russia or China are in the US and EU Roborock server regions.
 3) Please note that the "Region" that is shown in the app is actually what country your account is registered to and does not always match the region the integration is looking for. 
