@@ -87,33 +87,33 @@ If `restore` is set to `true`, the `initial` value will only be used when no pre
 
 Available actions: `increment`, `decrement`, `reset`, and `set_value`.
 
-### Action: Increment
+### Action `counter.increment`
 
-The `counter.increment` action allows you to increment the counter with 1 or the given value for the steps.
-
-| Data attribute | Optional | Description                                                           |
-| ---------------------- | -------- | --------------------------------------------------------------------- |
-| `entity_id`            | no       | Name of the entity to take action, e.g., `counter.my_custom_counter`. |
-
-### Action: Decrement
-
-The `counter.decrement` action allows you to decrement the counter with 1 or the given value for the steps.
+Increments the counter with 1 or the given value for the steps.
 
 | Data attribute | Optional | Description                                                           |
 | ---------------------- | -------- | --------------------------------------------------------------------- |
 | `entity_id`            | no       | Name of the entity to take action, e.g., `counter.my_custom_counter`. |
 
-### Action: Reset
+### Action `counter.decrement`
 
-The `counter.reset` action allows you to reset the counter to its initial value.
+Decrements the counter with 1 or the given value for the steps.
 
 | Data attribute | Optional | Description                                                           |
 | ---------------------- | -------- | --------------------------------------------------------------------- |
 | `entity_id`            | no       | Name of the entity to take action, e.g., `counter.my_custom_counter`. |
 
-### Action: Set value
+### Action `counter.reset`
 
-The `counter.set_value` action allows you to set the counter to a specific value.
+With this action the counter is reset to its initial value.
+
+| Data attribute | Optional | Description                                                           |
+| ---------------------- | -------- | --------------------------------------------------------------------- |
+| `entity_id`            | no       | Name of the entity to take action, e.g., `counter.my_custom_counter`. |
+
+### Action `counter.set_value`
+
+This action allows setting the counter to a specific value.
 
 | Data attribute | Optional | Description                                                           |
 | ---------------------- | -------- | --------------------------------------------------------------------- |

@@ -777,8 +777,8 @@ command_line:
 
 Available actions: `reload`.
 
-### Action: Reload
+### Action `command_line.reload`
 
-The `command_line.reload` action allows you to reload all `command_line` entities.
+Reload all `command_line` entities.
 
 This action takes no data attributes.

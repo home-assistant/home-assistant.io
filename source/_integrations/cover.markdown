@@ -84,9 +84,9 @@ automation:
         entity_id: cover.demo
 ```
 
-### Action: Set cover position
+### Action `cover.set_cover_position`
 
-The `cover.set_cover_position` action allows you to set cover position of one or multiple covers.
+Set cover position of one or multiple covers.
 
 | Data attribute | Optional | Description                                                                                          |
 | -------------- | -------- | ---------------------------------------------------------------------------------------------------- |
@@ -108,9 +108,9 @@ automation:
         position: 50
 ```
 
-### Action: Set cover tilt position
+### Action `cover.set_cover_tilt_position`
 
-The `cover.set_cover_tilt_position` action allows you to set cover tilt position of one or multiple covers.
+Set cover tilt position of one or multiple covers.
 
 | Data attribute  | Optional | Description                                                                                          |
 | --------------- | -------- | ---------------------------------------------------------------------------------------------------- |

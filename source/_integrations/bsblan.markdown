@@ -50,9 +50,9 @@ or using a passkey is supported. Use either one.
 
 The integration provides the following action.
 
-### Action: Set hot water schedule
+### Action `bsblan.set_hot_water_schedule`
 
-The `bsblan.set_hot_water_schedule` action allows you to set the hot water heating schedule for your BSB-Lan device. Each day of the week can have one or more time slots when hot water heating should be active.
+Sets the hot water heating schedule for your BSB-Lan device. Each day of the week can have one or more time slots when hot water heating should be active.
 
 - **Target**: `device_id`
   - **Description**: The BSB-Lan device to configure.
