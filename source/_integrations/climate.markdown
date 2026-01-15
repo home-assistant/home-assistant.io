@@ -41,7 +41,7 @@ Not all climate {% term actions %}  may be available for your platform. You can 
 
 ### Action: Set auxiliary heat
 
-The `climate.set_aux_heat` action allows you to turn auxiliary heater on/off for climate device
+The `climate.set_aux_heat` action allows you to turn the auxiliary heater on/off for the climate device.
 
 | Data attribute | Required | Description |
 | ---------------------- | -------- | ----------- |
@@ -65,7 +65,7 @@ automation:
 
 ### Action: Set preset mode
 
-The `climate.set_preset_mode` action allows you to set preset mode for climate device. Away mode changes the target temperature permanently to a temperature
+The `climate.set_preset_mode` action allows you to set the preset mode for a climate device. Away mode changes the target temperature permanently to a temperature
 reflecting a situation where the climate device is set to save energy. For example, this may be used to emulate a
 "vacation mode."
 
@@ -91,7 +91,7 @@ automation:
 
 ### Action: Set temperature
 
-The `climate.set_temperature` action allows you to set target temperature of climate device
+The `climate.set_temperature` action allows you to set the target temperature of a climate device.
 
 | Data attribute | Required | Description |
 | ---------------------- | -------- | ----------- |
@@ -136,7 +136,7 @@ automation:
 
 ### Action: Set humidity
 
-The `climate.set_humidity` action allows you to set target humidity of climate device
+The `climate.set_humidity` action allows you to set the target humidity of a climate device.
 
 | Data attribute | Required | Description |
 | ---------------------- | -------- | ----------- |
@@ -160,7 +160,7 @@ automation:
 
 ### Action: Set fan mode
 
-The `climate.set_fan_mode` action allows you to set fan operation for climate device
+The `climate.set_fan_mode` action allows you to set fan operation for a climate device.
 
 | Data attribute | Required | Description |
 | ---------------------- | -------- | ----------- |
@@ -184,7 +184,7 @@ automation:
 
 ### Action: Set HVAC mode
 
-The `climate.set_hvac_mode` action allows you to set climate device's HVAC mode
+The `climate.set_hvac_mode` action allows you to set the climate device's HVAC mode.
 
 | Data attribute | Required | Description |
 | ---------------------- | -------- | ----------- |
@@ -208,7 +208,7 @@ automation:
 
 ### Action: Set swing mode
 
-The `climate.set_swing_mode` action allows you to set swing operation mode for climate device
+The `climate.set_swing_mode` action allows you to set swing operation mode for a climate device.
 
 | Data attribute | Required | Description |
 | ---------------------- | -------- | ----------- |
@@ -232,7 +232,7 @@ automation:
 
 ### Action: Set swing horizontal mode
 
-The `climate.set_swing_horizontal_mode` action allows you to set horizontal swing operation mode for climate device
+The `climate.set_swing_horizontal_mode` action allows you to set horizontal swing operation mode for a climate device.
 
 | Data attribute          | Required | Description                                                                                                                       |
 | ----------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------- |
@@ -256,7 +256,7 @@ automation:
 
 ### Action: Turn on
 
-The `climate.turn_on` action allows you to turn climate device on. This is only supported if the climate device supports being turned off.
+The `climate.turn_on` action allows you to turn the climate device on. This is only supported if the climate device supports being turned off.
 
 | Data attribute | Required | Description |
 | ---------------------- | -------- | ----------- |
@@ -264,7 +264,7 @@ The `climate.turn_on` action allows you to turn climate device on. This is only 
 
 ### Action: Turn off
 
-The `climate.turn_off` action allows you to turn climate device off. This is only supported if the climate device has the HVAC mode `off`.
+The `climate.turn_off` action allows you to turn the climate device off. This is supported only if the climate device is in HVAC mode `off`.
 
 | Data attribute | Required | Description |
 | ---------------------- | -------- | ----------- |
@@ -272,7 +272,7 @@ The `climate.turn_off` action allows you to turn climate device off. This is onl
 
 ### Action: Toggle
 
-The `climate.toggle` action allows you to toggle climate device. This is only supported if the climate device supports being turned on and off.
+The `climate.toggle` action allows you to toggle the climate device. This is only supported if the climate device supports being turned on and off.
 
 | Data attribute | Required | Description |
 | ---------------------- | -------- | ----------- |
