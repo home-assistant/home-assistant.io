@@ -451,7 +451,7 @@ Additional devices in the [Compatible hardware](#compatible-hardware) section ma
 
 The `zha.permit` action opens the network for joining new devices.
 
-To add new devices to the network, click the **Actions** tab in **Developer tools** and type `zha.permit` in the **Action** dropdown box. Next, follow the device instructions for adding, scanning or factory reset.
+To add new devices to the network, click the **Actions** tab in **Developer tools** and type `zha.permit` in the **Action** dropdown box. Next, follow the device instructions for adding, scanning, or performing a factory reset.
 
 | Data       | Optional | Description                                                                    |
 | ---------- | -------- | ------------------------------------------------------------------------------ |
