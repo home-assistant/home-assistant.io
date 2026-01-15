@@ -4,6 +4,7 @@ description: Instructions on how to integrate the Cookidoo todo list with Home A
 ha_category:
   - Calendar
   - To-do list
+  - Calendar
 ha_iot_class: Cloud Polling
 ha_release: 2025.1
 ha_config_flow: true

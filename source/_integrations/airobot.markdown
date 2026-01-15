@@ -12,8 +12,8 @@ ha_config_flow: true
 ha_quality_scale: silver
 ha_category: []
 ha_platforms:
+  - button
   - climate
-  - diagnostics
   - number
   - sensor
 ---
@@ -117,6 +117,13 @@ The integration provides a configuration entity to adjust advanced thermostat se
 
 - **Hysteresis band**: Configure the temperature hysteresis (dead band) for heating control (0.0-0.5°C range). This setting determines how much the temperature must drop below the setpoint before heating activates. A smaller value provides tighter temperature control but may cause more frequent heating cycles. A larger value reduces heating cycles but allows more temperature variation.
 
+### Button
+
+The integration provides button entities for device management:
+
+- **Restart**: Restart the thermostat device. This performs a soft restart of the thermostat, which can be useful for troubleshooting connectivity issues or applying configuration changes. The thermostat will be temporarily unavailable during the restart process (typically 5-10 seconds).
+- **Recalibrate CO₂**: Initiates manual CO₂ sensor calibration by setting the current air as the new 400 ppm reference value. Only available if the thermostat has the optional carbon dioxide sensor. Not recommended for typical use as the CO₂ sensor has an auto-calibration algorithm enabled by default. Only activate this if the air is clean (fresh outdoor air) and auto-calibration needs to be manually overridden.
+
 ## Use cases
 
 The **Airobot** integration enables intelligent floor heating control with practical automation opportunities:
@@ -126,6 +133,82 @@ The **Airobot** integration enables intelligent floor heating control with pract
 - Air quality management: Trigger ventilation or send alerts when CO₂ levels exceed healthy thresholds (requires optional CO₂ sensor).
 - Floor protection: Monitor floor temperature to prevent overheating of sensitive materials like wooden floors (requires floor sensor).
 - Energy insights: Track heating runtime and device uptime patterns to optimize schedules and identify maintenance needs.
+
+## Automations
+
+Examples of automations you can create using the Airobot integration.
+
+### Air quality alert
+
+Send a notification when the air quality exceeds a specified threshold.
+
+{% my blueprint_import badge blueprint_url="https://gist.github.com/mettolen/eb1cc475fef238fdb34147891eb12b0a" %}
+
+{% details "Example YAML configuration" %}
+
+{% raw %}
+
+```yaml
+blueprint:
+  name: Airobot Air Quality Alert
+  description: Send notification when air quality exceeds threshold
+  domain: automation
+  input:
+    air_quality_sensor:
+      name: Air Quality Sensor
+      selector:
+        entity:
+          filter:
+            - domain: sensor
+    threshold:
+      name: Threshold
+      description: Alert when value goes above this number
+      default: 1000
+      selector:
+        number:
+          min: 0
+          max: 2000
+    notify_device:
+      name: Mobile Device
+      description: Device to send notification to
+      selector:
+        device:
+          filter:
+            - integration: mobile_app
+    notification_title:
+      name: Notification Title
+      description: Title of the notification
+      default: "Poor Air Quality"
+      selector:
+        text:
+    notification_message:
+      name: Notification Message
+      description: Message body (use {{ trigger.to_state.state }} for current value and {{ trigger.above }} for threshold)
+      default: "Air quality in {{ area_name(trigger.entity_id) }} is {{ trigger.to_state.state }} (threshold: {{ trigger.above | int }})"
+      selector:
+        text:
+          multiline: true
+
+trigger:
+  - platform: numeric_state
+    entity_id: !input air_quality_sensor
+    above: !input threshold
+
+condition:
+  - condition: template
+    value_template: "{{ trigger.from_state.state | float(0) < trigger.to_state.state | float(0) }}"
+
+action:
+  - device_id: !input notify_device
+    domain: mobile_app
+    type: notify
+    title: !input notification_title
+    message: !input notification_message
+```
+
+{% endraw %}
+
+{% enddetails %}
 
 ## Data updates
 

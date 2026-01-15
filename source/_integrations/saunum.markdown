@@ -20,6 +20,7 @@ ha_platforms:
   - climate
   - diagnostics
   - light
+  - number
   - sensor
 ---
 
@@ -114,6 +115,22 @@ The **Saunum** integration provides the following entities for controlling and m
   - **Description**: Control the sauna lighting if light is connected to the control unit.
   - **Features**: Turn the sauna light on or off.
 
+### Number
+
+- **Sauna duration**
+  - **Description**: Configure how long the sauna session will run before automatically turning off.
+  - **Unit**: Minutes
+  - **Range**: 1-720 minutes (0-12 hours)
+  - **Default**: 120 minutes (2 hours) when not set
+  - **Note**: Cannot be changed during an active sauna session.
+
+- **Fan duration**
+  - **Description**: Configure how long the sauna air circulation fan runs before automatically turning off.
+  - **Unit**: Minutes
+  - **Range**: 1-30 minutes
+  - **Default**: 15 minutes when not set
+  - **Note**: Cannot be changed during an active sauna session.
+
 ### Sensor
 
 - **Temperature**
@@ -181,6 +198,92 @@ Monitor the alarm binary sensors regularly. Any active alarm sensor indicates a 
 The following devices are known to be supported by the integration:
 
 - Saunum Leil touch screen control panel
+
+## Automations
+
+Examples of automations you can create using the Saunum integration.
+
+### Sauna ready notification with light
+
+Send a notification and turn on the sauna light when the target temperature is reached.
+
+{% my blueprint_import badge blueprint_url="https://gist.github.com/mettolen/080ec51210ec1d726b7f5279b64c63c2" %}
+
+{% details "Example YAML configuration" %}
+
+{% raw %}
+
+```yaml
+blueprint:
+  name: Sauna Ready Notification with Light
+  description: Sends a notification and turns on the sauna light when the target temperature is reached
+  domain: automation
+  input:
+    sauna_climate:
+      name: Sauna Climate Entity
+      description: The climate entity that controls your sauna
+      selector:
+        entity:
+          domain: climate
+    sauna_light:
+      name: Sauna Light Entity
+      description: The light entity in your sauna
+      selector:
+        entity:
+          domain: light
+    notify_service:
+      name: Notification Service
+      description: The notification service to use (e.g., mobile_app_your_phone)
+      selector:
+        text:
+    notification_title:
+      name: Notification Title
+      description: Title for the notification
+      default: "🧖 Sauna is Ready!"
+      selector:
+        text:
+    notification_message:
+      name: Notification Message
+      description: Message body (use {{temperature}} for the target temperature)
+      default: "Your sauna has reached {{temperature}}°C. Enjoy!"
+      selector:
+        text:
+          multiline: true
+
+mode: single
+
+trigger:
+  - platform: template
+    value_template: >
+      {{ state_attr(sauna_climate, 'current_temperature') | float(0) >=
+         state_attr(sauna_climate, 'temperature') | float(0) }}
+
+condition:
+  - condition: state
+    entity_id: !input sauna_climate
+    state: heat
+
+action:
+  - action: light.turn_on
+    target:
+      entity_id: !input sauna_light
+  - action: notify.{{ notify_service }}
+    data:
+      title: !input notification_title
+      message: !input notification_message
+      data:
+        notification_icon: "mdi:radiator"
+        tag: "sauna-ready"
+
+variables:
+  sauna_climate: !input sauna_climate
+  notify_service: !input notify_service
+  temperature: "{{ state_attr(sauna_climate, 'temperature') }}"
+```
+
+{% endraw %}
+
+{% enddetails %}
 
 ## Data updates
 

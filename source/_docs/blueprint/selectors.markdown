@@ -638,6 +638,11 @@ enable_millisecond:
   type: boolean
   default: false
   required: false
+allow_negative:
+  description: When `true`, the duration selector will allow for selecting positive or negative values.
+  type: boolean
+  default: false
+  required: false
 {% endconfiguration %}
 
 The output of this selector is a mapping of the time values the user selected.
