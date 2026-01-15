@@ -98,8 +98,12 @@ The following device classes are supported for numbers:
 
 ## Actions
 
-The Number entities registers the following actions:
+### Action: Set value
 
-| Action      | Data                                      | Description                                 |
-| ----------- | ----------------------------------------- | ------------------------------------------- |
-| `set_value` | `value`<br>`entity_id(s)`<br>`area_id(s)` | Set the value of specific `number` entities |
+The `number.set_value` action sets the value of specific number entities.
+
+| Data attribute | Optional | Description                                 |
+| -------------- | -------- | ------------------------------------------- |
+| `entity_id`    | yes      | Only act on specific number entities. |
+| `area_id`      | yes      | Only act on number entities in specific areas. |
+| `value`        | no       | The value to set. |
