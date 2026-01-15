@@ -38,7 +38,7 @@ ha_integration_type: hub
 
 The **Tessie** {% term integration %} exposes various commands and sensors from the Tesla vehicles and energy products connected to your [Tessie](https://tessie.com/) subscription.
 
-## What this integration allows
+## How you can use this integration
 
 This integration provides comprehensive control and monitoring of your Tesla vehicles and energy products through Home Assistant:
 
@@ -61,7 +61,7 @@ This integration provides comprehensive control and monitoring of your Tesla veh
 - Manage charging from grid and storm watch settings
 - Monitor grid services and virtual power plant (VPP) participation
 
-## Compatible devices
+## Supported devices
 
 This integration supports all Tesla vehicle models and energy products:
 
@@ -320,10 +320,10 @@ This automation preconditions your Tesla 15 minutes before a scheduled departure
 ```yaml
 automation:
   - alias: "Precondition Tesla before work"
-    trigger:
-      - platform: time
+    triggers:
+      - trigger: time
         at: "07:45:00"
-    condition:
+    conditions:
       - condition: time
         weekday:
           - mon
@@ -331,7 +331,7 @@ automation:
           - wed
           - thu
           - fri
-    action:
+    actions:
       - action: climate.turn_on
         target:
           entity_id: climate.my_tesla
@@ -346,17 +346,17 @@ This automation starts charging when electricity rates are lowest:
 ```yaml
 automation:
   - alias: "Charge Tesla during off-peak hours"
-    trigger:
-      - platform: time
+    triggers:
+      - trigger: time
         at: "23:00:00"
-    condition:
+    conditions:
       - condition: numeric_state
         entity_id: sensor.my_tesla_battery_level
         below: 80
       - condition: state
         entity_id: binary_sensor.my_tesla_battery_charging
         state: "off"
-    action:
+    actions:
       - action: switch.turn_on
         target:
           entity_id: switch.my_tesla_charge
@@ -369,15 +369,15 @@ This automation stops charging when the desired charge level is reached:
 ```yaml
 automation:
   - alias: "Stop Tesla charging at 80%"
-    trigger:
-      - platform: numeric_state
+    triggers:
+      - trigger: numeric_state
         entity_id: sensor.my_tesla_battery_level
         above: 79
-    condition:
+    conditions:
       - condition: state
         entity_id: binary_sensor.my_tesla_battery_charging
         state: "on"
-    action:
+    actions:
       - action: switch.turn_off
         target:
           entity_id: switch.my_tesla_charge
@@ -390,12 +390,12 @@ This automation opens your garage door when your Tesla arrives home:
 ```yaml
 automation:
   - alias: "Open garage when Tesla arrives"
-    trigger:
-      - platform: zone
+    triggers:
+      - trigger: zone
         entity_id: device_tracker.my_tesla_location
         zone: zone.home
         event: enter
-    action:
+    actions:
       - action: cover.open_cover
         target:
           entity_id: cover.garage_door
@@ -409,16 +409,16 @@ This automation sends a notification when your vehicle has finished charging:
 ```yaml
 automation:
   - alias: "Notify when Tesla charging complete"
-    trigger:
-      - platform: state
+    triggers:
+      - trigger: state
         entity_id: binary_sensor.my_tesla_battery_charging
         from: "on"
         to: "off"
-    condition:
+    conditions:
       - condition: numeric_state
         entity_id: sensor.my_tesla_battery_level
         above: 79
-    action:
+    actions:
       - action: notify.mobile_app
         data:
           message: "Tesla charging is complete at {{ states('sensor.my_tesla_battery_level') }}%"
@@ -445,6 +445,7 @@ To enable command signing:
 Once configured, all commands from Tessie (including those sent through Home Assistant) will be signed with Tessie's private key. The vehicle verifies each command before execution, preventing unauthorized access even if your API token is compromised.
 
 Command signing is compatible with:
+
 - Model 3 and Model Y (all years)
 - Model S and Model X (2021 or newer)
 
