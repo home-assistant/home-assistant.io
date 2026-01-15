@@ -574,7 +574,7 @@ The `zwave_js.multicast_set_value` action sets a value on multiple Z-Wave device
 
 ### Action: Invoke CC API
 
-The `zwave_js.invoke_cc_api` action uses the Command Class API directly. In most cases, the `zwave_js.set_value` action will accomplish what you need to, but some Command Classes have API commands that can't be accessed via that action. Refer to the [Z-Wave JS Command Class documentation](https://zwave-js.github.io/node-zwave-js/#/api/CCs/index) for the available APIs and arguments. Be sure to know what you are doing when calling this action.
+The `zwave_js.invoke_cc_api` action uses the Command Class API directly. In most cases, the `zwave_js.set_value` action will accomplish what you need, but some Command Classes have API commands that can't be accessed via that action. Refer to the [Z-Wave JS Command Class documentation](https://zwave-js.github.io/node-zwave-js/#/api/CCs/index) for the available APIs and arguments. Be sure to know what you are doing when calling this action.
 
 | Data attribute  | Required | Description                                                                                                                                                                                                                                                                                                            |
 | --------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
