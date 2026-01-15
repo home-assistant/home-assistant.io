@@ -165,7 +165,7 @@ The `utility_meter.reset` action resets the Utility Meter. All sensors tracking 
 
 ### Action: Calibrate
 
-The `utility_meter.calibrate` action calibrates the Utility Meter. Change the value of a given sensor.
+The `utility_meter.calibrate` action calibrates the Utility Meter by changing the value of a given sensor.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
