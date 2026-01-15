@@ -38,7 +38,7 @@ ha_dhcp: true
 ## Actions
 
 The LaMetric integration provides actions to interact with your LaMetric
-device(s). Those action can be used in, for example, automations.
+device(s). Those actions can be used, for example, in automations.
 
 ### Action: Chart
 
