@@ -287,9 +287,9 @@ data:
 
 The Sonos integration makes various custom actions available in addition to the [standard media player actions](/integrations/media_player/#actions).
 
-### Action `sonos.snapshot`
+### Action: Snapshot
 
-Take a snapshot of what is currently playing on one or more speakers. This action, and the following one, are useful if you want to play a doorbell or notification sound and resume playback afterwards.
+The `sonos.snapshot` action takes a snapshot of what is currently playing on one or more speakers. This action, and the following one, are useful if you want to play a doorbell or notification sound and resume playback afterwards.
 
 {% note %}
 The queue is not snapshotted and must be left untouched until the restore. Using `media_player.play_media` is safe and can be used to play a notification sound, including [TTS](/integrations/tts/) announcements.
@@ -300,9 +300,9 @@ The queue is not snapshotted and must be left untouched until the restore. Using
 | `entity_id` | yes | The speakers to snapshot. To target all Sonos devices, use `all`.
 | `with_group` | yes | Should we also snapshot the group layout and the state of other speakers in the group, defaults to true.
 
-### Action `sonos.restore`
+### Action: Restore
 
-Restore a previously taken snapshot of one or more speakers.
+The `sonos.restore` action restores a previously taken snapshot of one or more speakers.
 
 {% note %}
 The playing queue is not snapshotted. Using `sonos.restore` on a speaker that has replaced its queue will restore the playing position, but in the new queue!
@@ -317,26 +317,26 @@ A cloud queue cannot be restarted. This includes queues started from within Spot
 | `entity_id` | yes | String or list of `entity_id`s that should have their snapshot restored. To target all Sonos devices, use `all`.
 | `with_group` | yes | Should we also restore the group layout and the state of other speakers in the group, defaults to true.
 
-### Action `sonos.set_sleep_timer`
+### Action: Set sleep timer
 
-Sets a timer that will turn off a speaker by tapering the volume down to 0 after a certain amount of time. Protip: If you set the sleep_time value to 0, then the speaker will immediately start tapering the volume down.
+The `sonos.set_sleep_timer` action sets a timer that will turn off a speaker by tapering the volume down to 0 after a certain amount of time. Protip: If you set the sleep_time value to 0, then the speaker will immediately start tapering the volume down.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of `entity_id`s that will have their timers set.
 | `sleep_time` | no | Integer number of seconds that the speaker should wait until it starts tapering. Cannot exceed 86399 (one day).
 
-### Action `sonos.clear_sleep_timer`
+### Action: Clear sleep timer
 
-Clear the sleep timer on a speaker, if one is set.
+The `sonos.clear_sleep_timer` action clears the sleep timer on a speaker, if one is set.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | no | String or list of `entity_id`s that will have their timers cleared. Must be a coordinator speaker.
 
-### Action `sonos.update_alarm`
+### Action: Update alarm
 
-Update an existing Sonos alarm.
+The `sonos.update_alarm` action updates an existing Sonos alarm.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -347,9 +347,9 @@ Update an existing Sonos alarm.
 | `enabled` | yes | Boolean for whether or not to enable this alarm.
 | `include_linked_zones` | yes | Boolean that defines if the alarm also plays on grouped players.
 
-### Action `sonos.play_queue`
+### Action: Play queue
 
-Starts playing the Sonos queue.
+The `sonos.play_queue` action starts playing the Sonos queue.
 
 Force start playing the queue, allows switching from another stream (such as radio) to playing the queue.
 
@@ -358,9 +358,9 @@ Force start playing the queue, allows switching from another stream (such as rad
 | `entity_id` | yes | String or list of `entity_id`s that will start playing. It must be the coordinator if targeting a group.
 | `queue_position` | yes | Position of the song in the queue to start playing from, starts at 0.
 
-### Action `sonos.get_queue`
+### Action: Get queue
 
-Returns the media_players queue.
+The `sonos.get_queue` action returns the media player's queue.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -399,9 +399,9 @@ This example script does the following: get the queue, loop through in reverse o
 
 {% endraw %}
 
-### Action `sonos.remove_from_queue`
+### Action: Remove from queue
 
-Removes an item from the queue.
+The `sonos.remove_from_queue` action removes an item from the queue.
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of `entity_id`s that will remove an item from the queue. It must be the coordinator if targeting a group.
