@@ -10,6 +10,7 @@ ha_codeowners:
   - '@niracler'
 ha_domain: sunricher_dali
 ha_platforms:
+  - button
   - light
   - scene
 ha_integration_type: integration
@@ -54,6 +55,10 @@ Each DALI lighting device connected to the gateway is represented as a light ent
 ### Scenes
 
 DALI scenes configured on the gateway are automatically imported into Home Assistant as scene entities. Each scene can be activated to apply pre-configured lighting settings to the associated DALI devices. Scenes must be created and edited on the Sunricher DALI gateway; creating or editing scenes from Home Assistant is not supported.
+
+### Buttons
+
+Each DALI lighting device has an **Identify** button. Pressing this button triggers the physical device to blink briefly, helping you locate a specific fixture in an installation with many lights. This is useful during initial setup or troubleshooting.
 
 ## Data updates
 

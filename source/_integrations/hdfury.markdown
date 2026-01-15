@@ -7,6 +7,7 @@ ha_release: 2026.2
 ha_category:
   - Button
   - Select
+  - Sensor
   - Switch
 ha_codeowners:
   - '@glenndehaan'
@@ -14,6 +15,7 @@ ha_domain: hdfury
 ha_platforms:
   - button
   - select
+  - sensor
   - switch
 ha_integration_type: integration
 ---
@@ -25,6 +27,7 @@ The **HDFury** {% term integration %} allows you to control and monitor your [HD
 - Monitor current device state.
 - Control the HDMI port selectors and operation state.
 - Control audio muting, and display/relay configuration.
+- Monitor HDMI input, output, and audio signal status.
 
 ## Supported devices
 
@@ -54,7 +57,24 @@ Below is a complete overview of the entities this integration provides.
 - Port Select TX0 (Controls the HDMI source selection for output TX0)
 - Port Select TX1 (Controls the HDMI source selection for output TX1)
 
-### Switch
+### Sensors
+
+- Audio TX0 (Current audio format/status on HDMI output TX0)
+- Audio TX1 (Current audio format/status on HDMI output TX1)
+- Audio output (Current audio format/status on HDMI output AUD)
+- eARC/ARC status (Current eARC or ARC connection state)
+- EDID TXA0 (EDID received from TX0 audio channel)
+- EDID TXA1 (EDID received from TX1 audio channel)
+- EDID AUDA (EDID received from AUD audio output)
+- Input RX0 (Status and signal information for HDMI input RX0)
+- Input RX1 (Status and signal information for HDMI input RX1)
+- EDID TX0 (EDID received from TX0 video channel)
+- EDID TX1 (EDID received from TX1 video channel)
+- EDID AUD (EDID received from AUD video channel)
+- Output TX0 (Status and signal information for HDMI output TX0)
+- Output TX1 (Status and signal information for HDMI output TX1)
+
+### Switches
 
 - Auto switch inputs (Automatically switches to the active HDMI input)
 - HTPC mode RX0 (Enables HTPC-optimized mode for HDMI input RX0)
