@@ -60,7 +60,7 @@ The newly released [Q-Series](https://us.roborock.com/pages/roborock-store#Q-Ser
 Email address:
     description: "The email address used to sign in to the Roborock app. A verification code will be sent to this email address when adding the Roborock integration."
 Roborock server Region:
-    description: "The region that your Roborock account was created in. Leave this set to Auto unless you are having issues. See troubleshooting steps below."
+    description: "The region that your Roborock account was created in. Leave this set to **Auto** unless you are having issues. See troubleshooting steps below."
 Verification code:
     description: "The verification code that is sent to your email address when adding the Roborock integration."
 {% endconfiguration_basic %}
