@@ -48,9 +48,9 @@ Versions of Pi-hole before version 6 (released in Feb 2025) use an API Key if th
 
 The platform provides the following actions to interact with your Pi-hole. Use switch entities when calling the actions.
 
-### Action `pi_hole.disable`
+### Action: Disable
 
-Disables configured Pi-hole(s) for the specified amount of time.
+The `pi_hole.disable` action disables configured Pi-hole(s) for the specified amount of time.
 
 | Data attribute | Required | Type | Description |
 | ---------------------- | -------- | -------- | ----------- |
