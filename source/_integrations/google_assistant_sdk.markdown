@@ -219,9 +219,9 @@ responses:
       The drumsticks 🍗
 ```
 
-### Action `notify.google_assistant_sdk`
+### Action: Broadcast message
 
-You can use the `notify.google_assistant_sdk` action to broadcast messages to Google Assistant speakers and displays without interrupting music/video playback.
+The `notify.google_assistant_sdk` action allows you to broadcast messages to Google Assistant speakers and displays without interrupting music/video playback.
 
 | Data attribute | Optional | Description                 | Example                      |
 | ---------------------- | -------- | --------------------------- | ---------------------------- |

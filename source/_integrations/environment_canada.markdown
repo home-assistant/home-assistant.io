@@ -171,17 +171,17 @@ The configuration snippet below adds a template sensor containing the current fo
 
 ## Actions
 
-### Action `environment_canada.get_forecasts`
+### Action: Get forecasts
 
-Get the raw forecast data from Environment Canada. Returns both the `daily_forecast` and the `hourly_forecast` data.
+The `environment_canada.get_forecasts` action allows you to get the raw forecast data from Environment Canada. It returns both the `daily_forecast` and the `hourly_forecast` data.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | Weather entity to get forecast for.
 
-### Action `environment_canada.set_radar_type`
+### Action: Set radar type
 
-Sets the type of radar to retrieve for the camera.
+The `environment_canada.set_radar_type` action allows you to set the type of radar to retrieve for the camera.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
