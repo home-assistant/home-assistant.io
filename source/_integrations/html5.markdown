@@ -46,8 +46,8 @@ Assuming you have already configured the platform:
 1. Open the Home Assistant {% my profile title="**User profile**" %} page in [a supported browser](#requirements). 
    - To open the page, select the **User Profile** link above or in Home Assistant, select your user account initials at the bottom of the sidebar.
 2. Assuming you have met all the [requirements](#requirements) above, you should see a **Receive notifications** toggle.
-  - If the toggle is greyed out, make sure you are viewing Home Assistant via its external HTTPS address. 
-  - Also, make sure you have added the {% my integrations title="**HTML5 Push Notifications**" domain="html5" %} integration to Home Assistant.
+   - If the toggle is greyed out, make sure you are viewing Home Assistant via its external HTTPS address. 
+   - Also, make sure you have added the {% my integrations title="**HTML5 Push Notifications**" domain="html5" %} integration to Home Assistant.
 3. Turn on the toggle and name the device.
 4. Within a few seconds, you should be prompted to allow notifications from Home Assistant.
 5. Assuming you accept, that's all there is to it!
