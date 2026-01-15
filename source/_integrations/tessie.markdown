@@ -63,7 +63,7 @@ This integration provides comprehensive control and monitoring of your Tesla veh
 
 This integration supports all Tesla vehicle models and energy products:
 
-**Vehicles:**
+### Vehicles
 - Model 3
 - Model Y
 - Model S
