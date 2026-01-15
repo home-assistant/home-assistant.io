@@ -84,9 +84,9 @@ Pick an icon from [Material Design Icons](https://pictogrammers.com/library/mdi/
 
 ## Actions
 
-### Action `timer.start`
+### Action: Start
 
-Starts or restarts a timer with the provided duration. If no duration is given, it will either restart with its initial value, or continue a paused timer with the remaining duration. If a new duration is provided, this will be the duration for the timer until it finishes or is canceled, which then will reset the duration back to the original configured value. The duration can be specified as a number of seconds or the easier to read `01:23:45` format.  
+The `timer.start` action starts or restarts a timer with the provided duration. If no duration is given, it will either restart with its initial value, or continue a paused timer with the remaining duration. If a new duration is provided, this will be the duration for the timer until it finishes or is canceled, which then will reset the duration back to the original configured value. The duration can be specified as a number of seconds or the easier to read `01:23:45` format.  
 You can also use `entity_id: all` and all active timers will be started.
 
 | Data attribute | Optional | Description |
@@ -94,42 +94,42 @@ You can also use `entity_id: all` and all active timers will be started.
 | `entity_id`            |      no  | Name of the entity to take action, e.g., `timer.timer0`. |
 | `duration`             |      yes | Duration in seconds or `01:23:45` format until the timer finishes. |
 
-### Action `timer.change`
+### Action: Change
 
-Change an active timer. This changes the duration of the timer with the duration given. You can also use `entity_id: all` and all active timers will be changed. You cannot extend the duration beyond that set by `timer.start`.
+The `timer.change` action changes an active timer. This changes the duration of the timer with the duration given. You can also use `entity_id: all` and all active timers will be changed. You cannot extend the duration beyond that set by `timer.start`.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id`            |      no  | Name of the entity to take action, e.g., `timer.timer0`. |
 | `duration`             |      no  | Duration in seconds or `00:00:00` to add or subtract from the running timer. |
 
-### Action `timer.pause`
+### Action: Pause
 
-Pause a running timer. This will retain the remaining duration for later continuation. To resume a timer use the `timer.start` action without passing a duration. You can also use `entity_id: all` and all active timers will be paused. 
-
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            |      no  | Name of the entity to take action, e.g., `timer.timer0`. |
-
-### Action `timer.cancel`
-
-Cancel a running or paused timer. This resets the duration to the last known initial value without firing the `timer.finished` event. You can also use `entity_id: all` and all active and paused timers will be canceled.
+The `timer.pause` action pauses a running timer. This will retain the remaining duration for later continuation. To resume a timer use the `timer.start` action without passing a duration. You can also use `entity_id: all` and all active timers will be paused. 
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id`            |      no  | Name of the entity to take action, e.g., `timer.timer0`. |
 
-### Action `timer.finish`
+### Action: Cancel
 
-Manually finish a running or paused timer earlier than scheduled. You can also use `entity_id: all` and all active and paused timers will be finished.
+The `timer.cancel` action cancels a running or paused timer. This resets the duration to the last known initial value without firing the `timer.finished` event. You can also use `entity_id: all` and all active and paused timers will be canceled.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id`            |      no  | Name of the entity to take action, e.g., `timer.timer0`. |
 
-### Action `timer.reload`
+### Action: Finish
 
-Reload `timer`'s configuration without restarting Home Assistant itself. This action takes no data attributes.
+The `timer.finish` action manually finishes a running or paused timer earlier than scheduled. You can also use `entity_id: all` and all active and paused timers will be finished.
+
+| Data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id`            |      no  | Name of the entity to take action, e.g., `timer.timer0`. |
+
+### Action: Reload
+
+The `timer.reload` action reloads `timer`'s configuration without restarting Home Assistant itself. This action takes no data attributes.
 
 ### Using the action
 
