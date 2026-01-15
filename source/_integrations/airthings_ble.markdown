@@ -15,7 +15,7 @@ ha_bluetooth: true
 ha_platforms:
   - sensor
 ha_config_flow: true
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 Integrates Airthings BLE {% term sensors %} into Home Assistant.

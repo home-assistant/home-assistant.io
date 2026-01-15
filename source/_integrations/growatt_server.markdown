@@ -12,7 +12,7 @@ ha_platforms:
   - sensor
   - switch
 ha_config_flow: true
-ha_integration_type: integration
+ha_integration_type: hub
 ha_codeowners:
   - '@johanzander'
 ---

@@ -3,6 +3,8 @@ title: VÁGNER POOL
 description: Connect and control your VÁGNER POOL devices using the SEKO PoolDose integration
 ha_category:
   - Binary sensor
+  - Number
+  - Select
   - Sensor
   - Switch
   - Water Management
@@ -16,6 +18,8 @@ ha_codeowners:
 ha_config_flow: true
 ha_platforms:
   - binary_sensor
+  - number
+  - select
   - sensor
   - switch
 ha_iot_class: Local Polling

@@ -12,7 +12,7 @@ ha_platforms:
 ha_codeowners:
   - '@thrawnarn'
   - '@LouisChrist'
-ha_integration_type: integration
+ha_integration_type: device
 related:
   - docs: /docs/configuration/
     title: Configuration file

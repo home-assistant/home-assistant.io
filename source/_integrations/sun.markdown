@@ -10,7 +10,7 @@ ha_codeowners:
 ha_iot_class: Calculated
 ha_domain: sun
 ha_config_flow: true
-ha_integration_type: integration
+ha_integration_type: service
 ha_platforms:
   - binary_sensor
   - sensor

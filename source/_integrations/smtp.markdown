@@ -8,13 +8,238 @@ ha_release: pre 0.7
 ha_domain: smtp
 ha_platforms:
   - notify
+  - sensor
 ha_integration_type: integration
 ha_quality_scale: legacy
+ha_config_flow: true
+ha_codeowners:
+  - '@manjotsc'
 ---
 
 The **SMTP** {% term integration %} allows you to deliver notifications from Home Assistant to an email recipient.
 
-To enable notification by email in your installation, add the following to your {% term "`configuration.yaml`" %} file:
+{% include integrations/config_flow.md %}
+
+Check your email provider configuration or help pages to get the correct SMTP settings.
+
+{% configuration_basic %}
+Mail server:
+  description: Your SMTP server address (e.g., smtp.gmail.com, smtp.office365.com).
+Port:
+  description: "SMTP port. Common ports: 587 (STARTTLS), 465 (SSL/TLS), 25 (unencrypted)."
+Security:
+  description: "Connection security: STARTTLS (recommended), SSL/TLS, or None."
+Login:
+  description: Your email address or account username.
+Password:
+  description: Account password or app-specific password.
+From address:
+  description: The email address notifications will be sent from.
+From name:
+  description: Friendly name shown in emails. Can be overwritten per service call.
+To address:
+  description: Default recipient. Can be overwritten per service call. Comma-separate multiple.
+Connection timeout:
+  description: How long to wait for server response (1-60 seconds).
+Verify SSL certificate:
+  description: Validate the server's SSL certificate. Ignored when security is set to None.
+Enable debug logging:
+  description: Log detailed SMTP communication for troubleshooting.
+{% endconfiguration_basic %}
+
+## Sensors
+
+The integration provides the following sensors:
+
+- **Last sent**: Timestamp of the last successfully sent email.
+- **Last error**: The last error message encountered when sending failed.
+
+## Actions
+
+### Action `smtp.send_message`
+
+Send an email message via SMTP.
+
+| Data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `config_entry` | no | The SMTP account to send from. |
+| `message` | yes | Plain text body. Supports templates. Optional if HTML content is provided. |
+| `subject` | yes | Subject line. Supports templates. |
+| `to` | yes | List of recipient email addresses. Leave empty to use default from setup. |
+| `from_name` | yes | Override the sender name for this message. |
+| `html` | yes | HTML formatted content. Supports Jinja2 templates. |
+| `images` | yes | List of image file paths to attach. |
+
+{% important %}
+When adding images, make sure the folders containing the attachments are added to `allowlist_external_dirs`. See: [Setup basic documentation](/integrations/homeassistant/#allowlist_external_dirs)
+{% endimportant %}
+
+#### Example automation
+
+```yaml
+- alias: "Send E-Mail Every Morning"
+  triggers:
+    - trigger: time
+      at: "08:00:00"
+  actions:
+    - action: smtp.send_message
+      data:
+        config_entry: YOUR_CONFIG_ENTRY_ID
+        subject: "Good Morning"
+        message: "Rise and shine"
+        to:
+          - "morning@example.com"
+```
+
+#### Example with HTML and images
+
+```yaml
+- alias: "Burglar Alarm"
+  triggers:
+    - trigger: state
+      entity_id: binary_sensor.motion
+      to: "on"
+  actions:
+    - action: smtp.send_message
+      data:
+        config_entry: YOUR_CONFIG_ENTRY_ID
+        subject: "Intruder alert"
+        message: "Intruder alert at apartment!!"
+        images:
+          - /config/www/snapshot1.jpg
+          - /config/www/snapshot2.jpg
+        html: |
+          <!DOCTYPE html>
+          <html>
+            <body>
+              <h1>Intruder Alert!</h1>
+              <p>Motion detected at apartment.</p>
+              <img src="cid:snapshot1.jpg" alt="Snapshot 1" />
+              <img src="cid:snapshot2.jpg" alt="Snapshot 2" />
+            </body>
+          </html>
+```
+
+The `images` field adds image attachments to the email. If `html` is defined, the images can be referenced in-line using `src="cid:image_name.ext"` where `image_name.ext` is the basename of the image file.
+
+#### Example with templated HTML
+
+This example sends a styled email with Home Assistant update status using Jinja2 templates:
+
+{% raw %}
+```yaml
+- alias: "Send Update Status Email"
+  triggers:
+    - trigger: state
+      entity_id: update.home_assistant_core_update
+  actions:
+    - action: smtp.send_message
+      data:
+        config_entry: YOUR_CONFIG_ENTRY_ID
+        subject: "Home Assistant Update Status"
+        message: "Home Assistant is running version {{ state_attr('update.home_assistant_core_update', 'installed_version') }}"
+        html: |
+          ...
+```
+
+```html
+<!doctype html>
+<html>
+  <body style="margin:0;padding:16px;font-family:Arial,Helvetica,sans-serif;background:#f6f7f9;">
+    <div style="max-width:520px;margin:0 auto;background:#ffffff;
+                border:1px solid #e5e7eb;border-radius:12px;padding:18px;">
+
+      <div style="font-size:18px;font-weight:700;margin-bottom:12px;">
+        Home Assistant Core – Update Status
+      </div>
+
+      <table width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;">
+        <tr>
+          <td style="padding:6px 0;font-weight:600;">Installed Version</td>
+          <td style="padding:6px 0;text-align:right;">
+            {{ state_attr('update.home_assistant_core_update', 'installed_version') }}
+          </td>
+        </tr>
+
+        <tr>
+          <td style="padding:6px 0;font-weight:600;">Latest Version</td>
+          <td style="padding:6px 0;text-align:right;">
+            {{ state_attr('update.home_assistant_core_update', 'latest_version') }}
+          </td>
+        </tr>
+
+        <tr>
+          <td style="padding:6px 0;font-weight:600;">Auto Update</td>
+          <td style="padding:6px 0;text-align:right;">
+            {{ 'Enabled' if state_attr('update.home_assistant_core_update', 'auto_update') else 'Disabled' }}
+          </td>
+        </tr>
+
+        <tr>
+          <td style="padding:6px 0;font-weight:600;">Update In Progress</td>
+          <td style="padding:6px 0;text-align:right;">
+            {{ 'Yes' if state_attr('update.home_assistant_core_update', 'in_progress') else 'No' }}
+          </td>
+        </tr>
+      </table>
+
+      <div style="margin-top:12px;padding-top:10px;border-top:1px solid #f0f0f0;">
+        <a href="{{ state_attr('update.home_assistant_core_update', 'release_url') }}"
+           style="font-size:13px;color:#2563eb;text-decoration:none;">
+          View Release Notes
+        </a>
+      </div>
+
+      <div style="margin-top:10px;font-size:12px;color:#6b7280;">
+        Generated: {{ now().strftime('%Y-%m-%d %H:%M:%S') }}
+      </div>
+
+    </div>
+  </body>
+</html>
+```
+{% endraw %}
+
+## Specific email provider configuration
+
+Check below some configurations examples for specific email providers.
+
+### Google Mail
+
+Use the following settings for Gmail:
+
+- **Mail server**: `smtp.gmail.com`
+- **Port**: `587`
+- **Security**: STARTTLS
+
+Google has some extra layers of protection that need special attention. You must use [an application-specific password](https://support.google.com/mail/answer/185833) in your notification configuration.
+
+If any of the following conditions are met you will not be able to create an app password:
+
+- You do not have 2-step verification enabled on your account.
+- You have 2-step verification enabled but have only added a security key as an authentication mechanism.
+- Your Google account is enrolled in Google's [Advanced Protection Program](https://landing.google.com/advancedprotection/).
+- Your Google account belongs to a Google Workspace that has disabled this feature.
+
+### Outlook / Microsoft 365
+
+- **Mail server**: `smtp.office365.com`
+- **Port**: `587`
+- **Security**: STARTTLS
+
+### Yahoo Mail
+
+- **Mail server**: `smtp.mail.yahoo.com`
+- **Port**: `587`
+- **Security**: STARTTLS
+
+## YAML configuration
+
+{% important %}
+YAML configuration is deprecated. Existing YAML configurations will be automatically imported. New setups should use the UI configuration above.
+{% endimportant %}
+
+To enable notification by email via YAML, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -25,8 +250,6 @@ notify:
     recipient: "YOUR_RECIPIENT"
 ```
 
-Check your email provider configuration or help pages to get the correct SMTP settings. A restart of Home Assistant is required to pick up the configuration changes.
-
 {% configuration %}
 name:
   description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the `notify.NOTIFIER_NAME` action.
@@ -34,11 +257,11 @@ name:
   type: string
   default: notify
 sender:
-  description: email address of the sender.
+  description: Email address of the sender.
   required: true
   type: string
 recipient:
-  description: Default email address of the recipient of the notification. This can be a recipient address or a list of addresses for multiple recipients.<br>This is where you want to send your email notifications by default (when not specifying `target` in the action). Any email address(es) specified in the action's `target` field will override this recipient content.
+  description: Default email address of the recipient of the notification. This can be a recipient address or a list of addresses for multiple recipients.
   required: true
   type: [list, string]
 server:
@@ -85,152 +308,4 @@ verify_ssl:
   default: true
 {% endconfiguration %}
 
-### Usage
-
-A notify integration will be created using the name without spaces. In the above example, it will be called `notify.NOTIFIER_NAME`. To use the SMTP notification, refer to it in an automation or script like in this example:
-
-```yaml
-- alias: "Send E-Mail Every Morning"
-  triggers:
-    - platform: time
-      at: "08:00:00"
-  actions:
-    - action: notify.NOTIFIER_NAME
-      data:
-          title: "Good Morning"
-          message: "Rise and shine"
-          target:
-            - "morning@example.com"
-```
-
-The optional `target` field is used to specify recipient(s) for this specific action. When `target` field is not used, this message will be sent to default recipient(s), specified in the `recipient` part of the smtp notifier in `configuration.yaml`. Line breaks can be added in the body part of the email by using `\r\n`, for instance `message: "Rise and shine\r\n\r\nIt's a brand new day!"`
-
-Another example attaching images stored locally in a script:
-
-```yaml
-burglar:
-  alias: "Burglar Alarm"
-  sequence:
-    - action: shell_command.snapshot
-    - delay:
-          seconds: 1
-    - action: notify.NOTIFIER_NAME
-      data:
-          title: "Intruder alert"
-          message: "Intruder alert at apartment!!"
-          target:
-            - "my_intruder_alert@example.com"
-          data:
-              images:
-                  - /home/pi/snapshot1.jpg
-                  - /home/pi/snapshot2.jpg
-```
-
-The optional `html` field makes a custom text/HTML multi-part message, allowing total freedom for sending rich HTML emails by defining the HTML content. In them, if you need to include images, you can pass both arguments (`html` and `images`). The images will be attached with the basename of the images, so they can be included in the html page with `src="cid:image_name.ext"`.
-
-The optional `images` field adds image attachments to the email. If `html` is defined, the images need to be added to the message in-line as described above (and as shown in the example below). If `html` is not defined, images will be added as separate attachments.
-
-{% important %}
-When adding images, make sure the folders containing the attachments are added to `allowlist_external_dirs`.<br>See: [Setup basic documentation](/integrations/homeassistant/#allowlist_external_dirs)
-{% endimportant %}
-
-```yaml
-burglar:
-  alias: "Burglar Alarm"
-  sequence:
-    - action: shell_command.snapshot
-    - delay:
-          seconds: 1
-    - action: notify.NOTIFIER_NAME
-      data:
-          message: "Intruder alert at apartment!!"
-          data:
-            images:
-              - /home/pi/snapshot1.jpg
-              - /home/pi/snapshot2.jpg
-            html: >
-              <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-              <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
-                  <head>
-                      <meta charset="UTF-8">
-                      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-                      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                      <title>Intruder alert</title>
-                      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css">
-                      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-                      <style type="text/css">
-                          @font-face {
-                            font-family: 'Open Sans';
-                            font-style: normal;
-                            font-weight: 300;
-                            src: local('Open Sans Light'), local('OpenSans-Light'), url(http://fonts.gstatic.com/s/opensans/v13/DXI1ORHCpsQm3Vp6mXoaTZS3E-kSBmtLoNJPDtbj2Pk.ttf) format('truetype');
-                          }
-                          h1,h2,h3,h4,h5,h6 {
-                              font-family:'Open Sans',Arial,sans-serif;
-                              font-weight:400;
-                              margin:10px 0
-                          }
-                      </style>
-                  </head>
-                  <body>
-                    <div class="jumbotron jumbotron-fluid" style="background-color: #f00a2d; color: white;">
-                        <div class="container py-0">
-                            <h1>Intruder alert at apartment!!</h1>
-                        </div>
-                    </div>
-                    <div class="container-fluid">
-                      <div class="row">
-                        <div class="col-xs-12 col-md-6 px-0">
-                          <img class="rounded" style="width: 100%;"
-                              alt="snapshot1" src="cid:snapshot1.jpg" />
-                        </div>
-                        <div class="col-xs-12 col-md-6 px-0">
-                          <img class="rounded" style="width: 100%;"
-                              alt="snapshot2" src="cid:snapshot2.jpg" />
-                        </div>
-                      </div>
-                      <br>
-                    </div>
-                  </body>
-                  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" integrity="sha384-6ePHh72Rl3hKio4HiJ841psfsRJveeS+aLoaEf3BWfS+gTF0XdAqku2ka8VddikM" crossorigin="anonymous"></script>
-                  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous"></script>
-              </html>
-```
-
 To learn more about how to use notifications in your automations, please see the [getting started with automation page](/getting-started/automation/).
-
-## Specific email provider configuration
-
-Check below some configurations examples for specific email providers.
-If you are in doubt about the SMTP settings required, check your email provider configuration or help pages for more information about its specific SMTP configuration.
-
-### Google Mail
-
-A sample configuration entry for Google Mail.
-
-```yaml
-# Example configuration.yaml entry for Google Mail.
-notify:
-  - name: "NOTIFIER_NAME"
-    platform: smtp
-    server: "smtp.gmail.com"
-    port: 587
-    timeout: 15
-    sender: "YOUR_USERNAME@gmail.com"
-    encryption: starttls
-    username: "YOUR_USERNAME@gmail.com"
-    password: "YOUR_APP_PASSWORD"
-    recipient:
-      - "RECIPIENT_1@example.com"
-      - "RECIPIENT_N@example.com"
-    sender_name: "SENDER_NAME"
-```
-
-Google has some extra layers of protection that need special attention. You must use [an application-specific password](https://support.google.com/mail/answer/185833) in your notification configuration.
-
-If any of the following conditions are met you will not be able to create an app password:
-
-- You do not have 2-step verification enabled on your account.
-- You have 2-step verification enabled but have only added a security key as an authentication mechanism.
-- Your Google account is enrolled in Google's [Advanced Protection Program](https://landing.google.com/advancedprotection/).
-- Your Google account belongs to a Google Workspace that has disabled this feature. Accounts owned by a school, business, or other organization are examples of Google Workspace accounts.

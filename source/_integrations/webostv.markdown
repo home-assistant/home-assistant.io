@@ -15,7 +15,7 @@ ha_platforms:
   - diagnostics
   - media_player
   - notify
-ha_integration_type: integration
+ha_integration_type: device
 ha_quality_scale: platinum
 ---
 

@@ -54,7 +54,7 @@ Host:
 
 The integration provides the following configuration options. By entering your HEOS Account login information, the integration will be able to access streaming services, playlists, favorites, and other features. The integration will validate and sign in to your HEOS Account when credentials are entered or updated, and will ensure the HEOS System remains logged in while the credentials remain valid. Clearing the credentials will sign the HEOS System out of your account.
 
-1. Go to **{% my integrations icon title="Settings > Devices & Services" %}**.
+1. Go to **{% my integrations icon title="Settings > Devices & services" %}**.
 2. Select **Denon HEOS**. Select **Configure**.
 3. Enter or clear your HEOS Account credentials.
 4. Select **Submit** to save the options.
@@ -70,7 +70,7 @@ Password:
 
 Once setup, the host name or IP address used to access the HEOS System can be changed by reconfiguring the integration.
 
-1. Go to **{% my integrations icon title="Settings > Devices & Services" %}**.
+1. Go to **{% my integrations icon title="Settings > Devices & services" %}**.
 2. Select **Denon HEOS**. Click the three dots {% icon "mdi:dots-vertical" %} menu and then select **Reconfigure**.
 3. Enter a new [host name or IP address](/integrations/heos/#host).
 4. Click Submit to complete the reconfiguration.
@@ -79,7 +79,7 @@ Once setup, the host name or IP address used to access the HEOS System can be ch
 
 This integration follows standard integration removal. No extra steps are required.
 
-1. Go to **{% my integrations icon title="Settings > Devices & Services" %}**.
+1. Go to **{% my integrations icon title="Settings > Devices & services" %}**.
 2. Select **Denon HEOS**. Click the three dots {% icon "mdi:dots-vertical" %} menu and then select **Delete**.
 
 ## Actions

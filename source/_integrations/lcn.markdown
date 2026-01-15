@@ -11,7 +11,7 @@ ha_category:
   - Sensor
   - Switch
 ha_release: 0.85
-ha_iot_class: Local Push
+ha_iot_class: Local Polling
 ha_codeowners:
   - '@alengwenus'
 ha_domain: lcn
@@ -24,8 +24,8 @@ ha_platforms:
   - sensor
   - switch
 ha_config_flow: true
-ha_integration_type: integration
-ha_quality_scale: bronze
+ha_integration_type: hub
+ha_quality_scale: silver
 ---
 
 The **LCN** {% term integration %} for Home Assistant allows you to connect to [LCN](https://www.lcn.eu/) hardware devices.

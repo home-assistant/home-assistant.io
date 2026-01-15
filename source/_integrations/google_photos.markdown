@@ -9,7 +9,7 @@ ha_config_flow: true
 ha_domain: google_photos
 ha_codeowners:
   - '@allenporter'
-ha_integration_type: integration
+ha_integration_type: service
 related:
   - docs: /integrations/media_source
     title: Media source integration documentation

@@ -19,7 +19,7 @@ ha_platforms:
   - sensor
   - update
 ha_zeroconf: true
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 The **Plex Media Server** {% term integration %} allows you to connect Home Assistant to a [Plex Media Server](https://plex.tv). Once configured, actively streaming [Plex Clients](https://www.plex.tv/apps-devices/) show up as [media players](/integrations/media_player/) and report playback status and library sizes via [sensors](/integrations/sensor/) in Home Assistant. Media players will allow you to control media playback and see the current playing item.
@@ -43,7 +43,7 @@ If your router enforces DNS rebind protection, connections to the local `plex.di
 
 ### Integration options
 
-Several options are provided to adjust the behavior of `media_player` entities. These can be changed at **Plex** -> **Options** on the Integrations page.
+Several options are provided to adjust the behavior of `media_player` entities. These can be changed at **Plex** > **Options** on the Integrations page.
 
 **Use episode art**: Display TV episode art instead of TV show art.
 
@@ -394,5 +394,5 @@ Refresh a Plex library to scan for new and updated media.
 
 ## Notes
 
-- The Plex integration supports multiple Plex servers. Additional connections can be configured under **Settings** -> **Devices & services**.
+- The Plex integration supports multiple Plex servers. Additional connections can be configured under {% my integrations title="**Settings** > **Devices & services**" %}.
 - Movies must be located under the 'Movies' section in a Plex library to properly view the 'playing' state.

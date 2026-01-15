@@ -35,7 +35,7 @@ ha_platforms:
   - sensor
   - switch
   - vacuum
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The **Xiaomi Home** {% term integration %} supports the following devices:

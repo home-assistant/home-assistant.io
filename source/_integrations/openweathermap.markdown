@@ -16,7 +16,7 @@ ha_domain: openweathermap
 ha_platforms:
   - sensor
   - weather
-ha_integration_type: integration
+ha_integration_type: service
 related:
   - docs: /common-tasks/general/#defining-a-custom-polling-interval
     title: Defining a custom polling interval

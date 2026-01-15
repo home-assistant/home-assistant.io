@@ -277,7 +277,7 @@ Use to remove a privacy zone from a camera.
 #### Example Usage
 
 ```yaml
-service: unifiprotect.get_user_keyring_info
+action: unifiprotect.get_user_keyring_info
 data:
   device_id: your_device_id_here
 ```
@@ -495,8 +495,8 @@ condition:
          (trigger.event.data.new_state.attributes.ulp_id|default('')) != '' and
          trigger.event.data.new_state.attributes.ulp_id in ['ALLOWED_ID1', 'ALLOWED_ID2']
        }}{% endraw %}
-action:
-  - service: notify.mobile_app_your_device # Replace with your notification target
+actions:
+  - action: notify.mobile_app_your_device # Replace with your notification target
     data:
       {% raw %}message: "Fingerprint identified with ID: {{ trigger.event.data.new_state.attributes.ulp_id }}"{% endraw %}
       title: "Fingerprint Scan Notification"

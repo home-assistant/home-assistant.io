@@ -28,7 +28,7 @@ ha_platforms:
   - select
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: hub
 ha_zeroconf: true
 ha_dhcp: true
 ---
@@ -1124,7 +1124,7 @@ triggers:
       - sensor.appliance_operation_state
     to: finished
 actions:
-  - service: notify.notify
+  - action: notify.notify
     data:
       message: "The appliance has finished the program."
 ```
@@ -1156,14 +1156,14 @@ actions:
         after: '22:00:00'
         before: '06:00:00'
     then:
-      - service: home_connect.set_program_and_options
+      - action: home_connect.set_program_and_options
         data:
           device_id: "your_device_id"
           affects_to: "active_program"
           program: "dishcare_dishwasher_program_eco_50"
           dishcare_dishwasher_option_silence_on_demand: true
     else:
-      - service: home_connect.set_program_and_options
+      - action: home_connect.set_program_and_options
         data:
           device_id: "your_device_id"
           affects_to: "active_program"

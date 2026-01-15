@@ -14,7 +14,7 @@ ha_platforms:
   - cover
   - sensor
 ha_dhcp: true
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The **Motionblinds** {% term integration %} allows you to control [Motionblinds](https://motionblinds.com/) from [Coulisse B.V.](https://coulisse.com/).

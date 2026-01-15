@@ -9,7 +9,7 @@ ha_codeowners:
   - '@hunterjm'
 ha_domain: duke_energy
 ha_config_flow: true
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 The **Duke Energy** {% term integration %} allows you to get energy information from [Duke Energy](https://www.duke-energy.com/).

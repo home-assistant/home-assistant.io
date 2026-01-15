@@ -17,7 +17,7 @@ ha_platforms:
   - cover
   - light
   - scene
-ha_integration_type: integration
+ha_integration_type: hub
 related:
   - docs: /docs/configuration/
     title: Configuration file

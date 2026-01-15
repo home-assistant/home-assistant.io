@@ -17,7 +17,7 @@ ha_codeowners:
   - '@michaeldavie'
 ha_domain: environment_canada
 ha_config_flow: true
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 The **Environment Canada** {% term integration %} provides meteorological data for Canadian locations from [Environment and Climate Change Canada](https://weather.gc.ca/index_e.html).
@@ -151,8 +151,8 @@ The configuration snippet below adds a template sensor containing the current fo
       event: start
     - platform: event
       event_type: event_template_reloaded
-  action:
-    - service: environment_canada.get_forecasts
+  actions:
+    - action: environment_canada.get_forecasts
       target:
         entity_id: weather.NAME
       response_variable: forecasts

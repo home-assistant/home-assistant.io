@@ -16,7 +16,7 @@ ha_platforms:
   - sensor
 ha_codeowners:
   - '@tkdrob'
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 The **NETGEAR LTE** {% term integration %} for Home Assistant allows you to observe and control [NETGEAR LTE modems](https://www.netgear.com/home/mobile-wifi/lte-modems/).

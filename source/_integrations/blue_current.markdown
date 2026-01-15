@@ -17,7 +17,7 @@ ha_platforms:
   - button
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 [Blue Current](https://www.bluecurrent.nl/) is an Dutch company that makes electric car chargers.
