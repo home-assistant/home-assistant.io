@@ -174,8 +174,8 @@ The theme settings will be saved and restored on a restart of Home Assistant.
 
 ### Manual theme selection
 
-When themes are enabled in the {% term "`configuration.yaml`" %} file, a new option will show up in the user profile page (accessed by clicking your user account initials at the bottom of the sidebar). You can then choose any installed theme from the dropdown list and it will be applied immediately.
-This will overrule the theme settings set by the above actions, and will only be applied to the current device.
+When themes are enabled in the {% term "`configuration.yaml`" %} file, a new option will show up in the user profile page (accessed by clicking your user account initials at the bottom of the sidebar). You can then choose any installed theme from the dropdown list, and it will be applied immediately.
+This overrides the theme settings set by the above actions and is saved to your user profile, so it applies across devices for that user.
 
 <p class='img'>
   <img src='/images/frontend/user-theme.png' />
