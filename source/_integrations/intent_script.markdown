@@ -131,8 +131,8 @@ intent_script:
 
 Available actions: `reload`.
 
-### Action `intent_script.reload`
+### Action: Reload
 
-Reloads the intent script from the YAML-configuration, as a quicker alternative to restarting Home Assistant.
+The `intent_script.reload` action reloads the intent script from the YAML configuration, as a quicker alternative to restarting Home Assistant.
 
 This action takes no data attributes.
