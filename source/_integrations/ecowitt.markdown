@@ -26,7 +26,7 @@ The following devices have been reported to work with the **Ecowitt** {% term in
 
 ### Gateway/Hub
 
-- GW1200 Weather Station Gateway
+- GW1200 Wi-Fi Gateway
 - GW2000 Ethernet and Wi-Fi Gateway
 - GW3000 Ethernet and Wi-Fi Gateway with Data Storage
 
