@@ -41,7 +41,7 @@ Not all climate {% term actions %}  may be available for your platform. You can 
 
 ### Action: Set auxiliary heat
 
-The `climate.set_aux_heat` action allows you to turn auxiliary heater on/off for climate device
+The `climate.set_aux_heat` action allows you to turn auxiliary heater on/off for a climate device
 
 | Data attribute | Required | Description |
 | ---------------------- | -------- | ----------- |
