@@ -55,7 +55,7 @@ A workaround if you want to publish your Home Assistant installation on Internet
 
 ### Action: Play everywhere
 
-The `soundtouch.play_everywhere` action creates a multi-room (zone) from a master and plays same content on all other devices (slaves).
+The `soundtouch.play_everywhere` action creates a multi-room (zone) from a master and plays the same content on all other devices (slaves).
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
