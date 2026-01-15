@@ -184,7 +184,7 @@ automation:
 
 ### Action: Set HVAC mode
 
-The `climate.set_hvac_mode` action allows you to set climate device's HVAC mode
+The `climate.set_hvac_mode` action allows you to set the climate device's HVAC mode.
 
 | Data attribute | Required | Description |
 | ---------------------- | -------- | ----------- |
