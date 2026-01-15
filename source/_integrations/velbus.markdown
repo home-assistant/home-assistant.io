@@ -107,41 +107,6 @@ For each input module, a light entity will be created to control the LED of the 
 The pushbutton LEDs of input modules are disabled by default. These can be enabled from the **Devices** panel in the **Configuration** page of the web interface.
 {% endnote %}
 
-### Binary sensor
-
-Every input module will be represented as a binary sensor entity in Home Assistant. The binary sensor will be on when the input is active and off when the input is inactive.
-
-### Select
-
-Every module that supports programs will have a select entity in Home Assistant. You can select the program that you want to activate.
-
-### Climate
-
-Every module that supports thermostat functionality will be represented as a climate entity in Home Assistant. You can set the target temperature, the mode (heat/cool) and the preset mode (away/comfort/eco/home).
-
-### Cover
-
-Every blind module will be represented as a cover entity in Home Assistant. You can open and close the blind and if the module supports it, you can set the position of the blind.
-
-### Button
-
-Every input module will have a button entity in Home Assistant to trigger a button press event. This can be used to trigger Velbus actions from Home Assistant.
-
-### Sensor
-
-Some modules expose sensors that can be used in Home Assistant.
-Known and implemented sensors are:
-
-- energy consumption sensor: kWh
-- temperature sensor: °C
-- light level sensor: Lux
-- PSU voltage sensor: Voltage
-- PSU current sensor: Amps
-- PSU load sensor: Percentage
-
-The Analog input module (VMB4AN) will have 4 sensor entities to read the analog values.
-The VMBMETEO module will have multiple sensor entities to read temperature, humidity, wind speed, wind direction, and rain level.
-
 ### VLP file import
 
 {% note %}

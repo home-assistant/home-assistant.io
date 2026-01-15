@@ -7,13 +7,13 @@ ha_release: '2026.1'
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@theobld-ww'
-  - '@devender-verma-ww'
   - '@ssi-spyro'
+  - '@devender-verma-ww'
 ha_domain: watts
 ha_config_flow: true
 ha_platforms:
   - climate
-ha_integration_type: integration
+ha_integration_type: hub
 ha_quality_scale: bronze
 ---
 

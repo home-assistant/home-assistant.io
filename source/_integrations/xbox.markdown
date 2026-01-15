@@ -347,7 +347,7 @@ Internal examples: `http://192.168.0.2:8123/auth/external/callback`, `http://hom
 
 ## Data updates
 
-This integration syncs with Xbox Network every 15 seconds.
+This integration synchronizes your consoles with the Xbox Network every 10 minutes. Console status, including power state and currently playing media, is refreshed every 10 seconds. Presence information is updated every 30 seconds.
 
 ## Troubleshooting
 
