@@ -1047,9 +1047,9 @@ Some devices only have the state `on` and turn off is not supported by the appli
 The Home Connect integration makes various actions available.
 Available actions: `set_program_and_options`, and `change_setting`
 
-### Action `home_connect.set_program_and_options`
+### Action: Set program and options
 
-Starts or selects a program. If the `program` attribute is not set, this action sets the options for the active or the selected program.
+The `home_connect.set_program_and_options` action starts or selects a program. If the `program` attribute is not set, this action sets the options for the active or the selected program.
 
 | Data attribute    | Optional | Description                                      |
 |---------------------------|----------|--------------------------------------------------|
@@ -1093,9 +1093,9 @@ Starts or selects a program. If the `program` attribute is not set, this action 
 | `laundry_care_washer_option_i_dos2_active` | yes | Defines if the detergent feed is activated / deactivated. (i-Dos content 2) |
 | `laundry_care_washer_option_vario_perfect` | yes | Defines if a cycle saves energy (Eco Perfect) or time (Speed Perfect). |
 
-### Action `home_connect.change_setting`
+### Action: Change setting
 
-Changes a setting.
+The `home_connect.change_setting` action changes a setting.
 
 | Data attribute    | Optional | Description                                      |
 |---------------------------|----------|--------------------------------------------------|
