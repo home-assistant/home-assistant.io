@@ -1573,7 +1573,7 @@ Many KNX devices can change their state internally without a message to the swit
 
 For switching/light actuators that are only controlled by a single group address and don't have dedicated state group objects you can set `state_address` to the same value as `address` if it is readable from the bus.
 
-#### YAML configuration examples
+### YAML configuration examples
 
 ```yaml
 knx:
