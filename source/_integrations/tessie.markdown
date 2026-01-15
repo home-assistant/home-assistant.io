@@ -42,7 +42,7 @@ The Tessie {% term integration %} exposes various commands and sensors from the 
 
 This integration provides comprehensive control and monitoring of your Tesla vehicles and energy products through Home Assistant:
 
-**Vehicle control:**
+### Vehicle control
 - Monitor battery level, range, charging status, and location
 - Control climate (heating, cooling, seat heaters, steering wheel heater)
 - Lock/unlock doors and control windows, trunk, frunk, and charge port
@@ -52,7 +52,7 @@ This integration provides comprehensive control and monitoring of your Tesla veh
 - Track vehicle location and navigation destination
 - Install software updates
 
-**Energy product monitoring and control:**
+### Energy product monitoring and control
 - Monitor battery power, grid power, solar power, and load consumption
 - View energy reserves and state of charge
 - Control backup reserve and operating modes
@@ -70,7 +70,7 @@ This integration supports all Tesla vehicle models and energy products:
 - Model X
 - Cybertruck
 
-**Energy products:**
+### Energy products
 - Powerwall 2/3
 - Powerwall+
 - Solar Inverters
@@ -434,10 +434,10 @@ Most Tesla vehicles manufactured in 2021 or later require command signing for se
 
 To enable command signing:
 
-1. Open the Tessie app on your mobile device
-2. Navigate to your vehicle settings
-3. Follow the prompts to set up a [Tesla Virtual Key](https://www.tesla.com/_ak/tessie.com)
-4. This installs Tessie's unique encryption fingerprint on your vehicle
+1. Open the Tessie app on your mobile device.
+2. Navigate to your vehicle settings.
+3. Follow the prompts to set up a [Tesla Virtual Key](https://www.tesla.com/_ak/tessie.com).
+    - This installs Tessie's unique encryption fingerprint on your vehicle.
 
 Once configured, all commands from Tessie (including those sent through Home Assistant) will be signed with Tessie's private key. The vehicle verifies each command before execution, preventing unauthorized access even if your API token is compromised.
 
