@@ -185,7 +185,7 @@ To interact with schedules from {% term scripts %} and {% term automations %}, t
 
 ### Action: Reload
 
-The `schedule.reload` action reloads the schedule's configuration from YAML without the need of restarting Home Assistant itself.
+The `schedule.reload` action reloads the schedule's configuration from YAML without the need to restart Home Assistant itself.
 
 ### Action: Get schedule
 
