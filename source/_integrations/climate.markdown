@@ -41,7 +41,7 @@ Not all climate {% term actions %}  may be available for your platform. You can 
 
 ### Action: Set auxiliary heat
 
-The `climate.set_aux_heat` action allows you to turn auxiliary heater on/off for climate device
+The `climate.set_aux_heat` action allows you to turn the auxiliary heater on or off for the climate device.
 
 | Data attribute | Required | Description |
 | ---------------------- | -------- | ----------- |
@@ -91,7 +91,7 @@ automation:
 
 ### Action: Set temperature
 
-The `climate.set_temperature` action allows you to set target temperature of climate device
+The `climate.set_temperature` action allows you to set the target temperature of a climate device.
 
 | Data attribute | Required | Description |
 | ---------------------- | -------- | ----------- |
@@ -136,7 +136,7 @@ automation:
 
 ### Action: Set humidity
 
-The `climate.set_humidity` action allows you to set target humidity of climate device
+The `climate.set_humidity` action allows you to set the target humidity of a climate device.
 
 | Data attribute | Required | Description |
 | ---------------------- | -------- | ----------- |
@@ -160,7 +160,7 @@ automation:
 
 ### Action: Set fan mode
 
-The `climate.set_fan_mode` action allows you to set fan operation for climate device
+The `climate.set_fan_mode` action allows you to set fan operation for climate device.
 
 | Data attribute | Required | Description |
 | ---------------------- | -------- | ----------- |
@@ -208,7 +208,7 @@ automation:
 
 ### Action: Set swing mode
 
-The `climate.set_swing_mode` action allows you to set swing operation mode for climate device
+The `climate.set_swing_mode` action allows you to set the swing operation mode for a climate device.
 
 | Data attribute | Required | Description |
 | ---------------------- | -------- | ----------- |
@@ -232,7 +232,7 @@ automation:
 
 ### Action: Set swing horizontal mode
 
-The `climate.set_swing_horizontal_mode` action allows you to set horizontal swing operation mode for climate device
+The `climate.set_swing_horizontal_mode` action allows you to set horizontal swing operation mode for climate device.
 
 | Data attribute          | Required | Description                                                                                                                       |
 | ----------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------- |
