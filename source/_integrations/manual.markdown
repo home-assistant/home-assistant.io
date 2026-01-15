@@ -16,7 +16,7 @@ related:
     title: Configuration file
 ---
 
-The `manual` alarm control panel {% term integration %} enables you to create an alarm system in Home Assistant.
+The **Manual Alarm control panel** {% term integration %} enables you to create an alarm system in Home Assistant.
 
 ## Configuration
 

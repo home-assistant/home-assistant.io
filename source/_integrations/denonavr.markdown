@@ -16,7 +16,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `denonavr` platform allows you to control [Denon Network Receivers](https://www.denon.com/category/heos) from Home Assistant. It might be that your device is supported by the [Denon] platform.
+The **Denon AVR Network Receivers** {% term integration %} allows you to control [Denon Network Receivers](https://www.denon.com/category/heos) from Home Assistant. It might be that your device is supported by the [Denon] platform.
 
 Known supported devices:
 
@@ -38,6 +38,7 @@ Known supported devices:
 - Denon AVR-X2600H
 - Denon AVR-X2700H
 - Denon AVR-X2800H
+- Denon AVC-X2850H
 - Denon AVR-X3000
 - Denon AVR-X3200W
 - Denon AVR-X3300W

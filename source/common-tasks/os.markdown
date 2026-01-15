@@ -139,6 +139,7 @@ By default, Home Assistant Core logs are sent to the Systemd Journal, which can 
 
 ```bash
 ha core options --duplicate-log-file=true
+ha core rebuild
 ha core restart
 ```
 
@@ -146,6 +147,7 @@ To disable it:
 
 ```bash
 ha core options --duplicate-log-file=false
+ha core rebuild
 ha core restart
 ```
 

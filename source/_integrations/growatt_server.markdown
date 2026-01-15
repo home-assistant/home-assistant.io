@@ -17,61 +17,53 @@ ha_codeowners:
   - '@johanzander'
 ---
 
-The Growatt integration enables you to retrieve data from Growatt inverters. During setup, you can choose from various regional endpoint servers:
+The **Growatt** {% term integration %} enables you to retrieve data from Growatt inverters and control certain inverter settings.
 
-- For users in China:
+Once configured, the integration connects to your Growatt account and creates entities for your plant and inverters, allowing you to monitor energy production and control settings in Home Assistant. You can select from various regional server endpoints during setup to ensure optimal connectivity for your account location.
 
-  ```text
-  https://openapi-cn.growatt.com/
-  ```
-
-- For users in North America:
-
-  ```text
-  https://openapi-us.growatt.com/
-  ```
-
-- For users in Australia and New Zealand:
-
-  ```text
-  https://openapi-au.growatt.com/
-  ```
-
-- For users in other regions:
-
-  ```text
-  https://openapi.growatt.com/
-  ```
-
-- SMTEN server:
-
-  ```text
-  http://server.smten.com/
-  ```
-
-- Era server (Atess Power):
-
-  ```text
-  http://ess-server.atesspower.com/
-  ```
-
-Selecting the appropriate server for your region or service provider improves the reliability and performance of data collection.
-
-Once configured, the integration connects to your Growatt account. If you have multiple plants, you can select which one to integrate. It will then create entities for your plant and inverters, allowing you to monitor energy production and control settings in Home Assistant.
+If you have multiple plants registered in your Growatt account, you can select which one to integrate during the setup process.
 
 ## Prerequisites
 
-- Growatt account
-- Login credentials or API token for your Growatt account, you will need them during setup of the integration
+- A Growatt system and account
+- Login credentials (username and password) or API token for your Growatt account
 
 {% include integrations/config_flow.md %}
+
+During setup, you'll be asked to provide the following parameters:
+
+{% configuration_basic %}
+Server:
+  description: "Select the server region that matches your Growatt account location. See the **Server regions** section below for available options."
+Username:
+  description: "Your Growatt account username (typically your email address). Required when using username and password authentication."
+Password:
+  description: "Your Growatt account password. Required when using username and password authentication."
+API token:
+  description: "Your Growatt API token used for authentication. Required when using API token authentication."
+Plant:
+  description: "Select which plant to integrate if you have multiple plants registered in your Growatt account."
+{% endconfiguration_basic %}
+
+### Server regions
+
+The **Server** parameter offers the following options:
+
+- **North America**: For accounts registered in the United States or Canada. Uses `https://openapi-us.growatt.com/`
+- **Australia/New Zealand**: For accounts registered in Australia or New Zealand. Uses `https://openapi-au.growatt.com/`
+- **China**: For accounts registered in China. Uses `https://openapi-cn.growatt.com/`
+- **Other regions**: Default option to be used for all locations worldwide except those listed above. Uses `https://openapi.growatt.com/`
+- **SMTEN server**: For SMTEN-branded systems. Uses `http://server.smten.com/`
+- **Era server (Atess Power)**: For Atess Power systems. Uses `http://ess-server.atesspower.com/`
+
+Selecting the correct server region for your account location improves the reliability and performance of data collection.
 
 ## Authentication
 
 The integration supports two authentication methods:
 
-- **Username and password**: Use your Growatt account credentials to authenticate.
-- **API token**: Use an API token for more secure and stable authentication using the official Growatt API. This is the preferred method - check compatibility with your inverter below.
+- **Username and password**: Use your Growatt account credentials for authentication.
+- **API token**: Use an API token for authentication. This is the officially supported method by Growatt and offers better security, more features, and improved stability. Not all inverter models are supported yet—check the **Compatibility** section below to confirm your inverter is supported.
 
 ### Obtaining an API token
 
@@ -82,7 +74,6 @@ To obtain an API token for your Growatt account:
 3. Generate or retrieve your API token.
 4. Use this token during the integration setup in Home Assistant.
 
-If your inverter supports API token, this authentication method is recommended as it uses the official Growatt API, which offers better stability, support and feature growth.
 
 ### Compatibility
 
@@ -161,9 +152,9 @@ This action modifies your inverter's TOU scheduling settings. Incorrect configur
 - **segment_id** *(integer, required)*: Time segment number (1-9)
 - **batt_mode** *(string, required)*: Energy priority mode for the system:
   - `load_first`: Prioritize powering home loads from available energy sources (solar/battery), discharge battery when needed to meet home consumption
-  - `battery_first`: Prioritize charging the battery from available sources (solar/grid)  
+  - `battery_first`: Prioritize charging the battery from available sources (solar/grid)
   - `grid_first`: Prioritize exporting energy to grid from available sources (solar/battery), will discharge battery for grid export
-  
+
   {% note %}
   The battery mode controls when and why discharge occurs. The actual discharge rate is controlled by the **Discharge power** number entity (0-100%).
   {% endnote %}
@@ -239,6 +230,7 @@ Check your current time segment settings:
 ```yaml
 action: growatt_server.read_time_segments
 ```
+
 ## Troubleshooting
 
 ### Account locked or authentication failing
@@ -256,52 +248,6 @@ If you're experiencing authentication failures or account lockouts:
    - If you experience frequent lockouts, temporarily disable the integration before restarting Home Assistant.
    - To disable: Go to {% my integrations title="**Settings** > **Devices & services**" %}, select the Growatt integration, click the three dots {% icon "mdi:dots-vertical" %} menu, and select **Disable**.
    - Re-enable after Home Assistant has fully restarted.
-
-4. **Automate integration management during restarts**: If you continue experiencing account lockouts, you can create an automation to automatically disable and re-enable the integration during Home Assistant restarts:
-
-   ```yaml
-   - id: growatt_integration_enable_disable
-     alias: Growatt integration enable and disable
-     description: "Temporarily disables the Growatt integration to prevent account lockouts."
-     triggers:
-       - trigger: homeassistant
-         event: start
-         id: ha_start
-       - trigger: homeassistant
-         event: shutdown
-         id: ha_shutdown
-       - trigger: event
-         event_type: homeassistant_stop
-         id: ha_restart
-     conditions: []
-     actions:
-       - choose:
-           - alias: Enable Growatt integration
-             conditions:
-               - condition: trigger
-                 id: ha_start
-             sequence:
-               - delay:
-                   minutes: 10
-               - action: homeassistant.enable_config_entry
-                 data:
-                   config_entry_id: REPLACE-WITH-YOUR-CONFIG-ENTRY-ID
-           - alias: Disable Growatt integration
-             conditions:
-               - condition: or
-                 conditions:
-                   - condition: trigger
-                     id: ha_shutdown
-                   - condition: trigger
-                     id: ha_restart
-             sequence:
-               - action: homeassistant.disable_config_entry
-                 data:
-                   config_entry_id: REPLACE-WITH-YOUR-CONFIG-ENTRY-ID
-     mode: single
-   ```
-   
-   Replace `REPLACE-WITH-YOUR-CONFIG-ENTRY-ID` with your actual Growatt integration config entry ID. You can find this ID in {% my integrations title="**Settings** > **Devices & services**" %} by selecting your Growatt integration and checking the URL or developer tools.
 
 ## Removing the integration
 

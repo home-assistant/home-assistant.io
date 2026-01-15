@@ -21,7 +21,7 @@ ha_platforms:
 ha_ssdp: true
 ---
 
-The Imeon Energy Inverter {% term integrations %} will poll an [Imeon](https://imeon-energy.com/) solar inverter in Home Assistant.
+The **Imeon Inverter** {% term integration %} will poll an [Imeon](https://imeon-energy.com/) solar inverter in Home Assistant.
 
 ## Prerequisites
 

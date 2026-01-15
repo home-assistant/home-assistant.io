@@ -15,7 +15,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `sendgrid` notification {% term integration %} sends email notifications via [SendGrid](https://sendgrid.com/), a proven cloud-based email platform.
+The **SendGrid** {% term integration %} sends email notifications via [SendGrid](https://sendgrid.com/), a proven cloud-based email platform.
 
 ## Setup
 

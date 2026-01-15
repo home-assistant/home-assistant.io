@@ -11,6 +11,7 @@ ha_codeowners:
   - '@niracler'
 ha_domain: sunricher_dali
 ha_platforms:
+  - button
   - light
   - scene
   - sensor
@@ -63,6 +64,9 @@ DALI sensor devices connected to the gateway are represented as sensor entities:
 
 - **Motion sensor**: Reports motion detection state (Detected, Clear, or Unknown)
 - **Illuminance sensor**: Reports ambient light level in lux
+### Buttons
+
+Each DALI lighting device has an **Identify** button. Pressing this button triggers the physical device to blink briefly, helping you locate a specific fixture in an installation with many lights. This is useful during initial setup or troubleshooting.
 
 ## Data updates
 

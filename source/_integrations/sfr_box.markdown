@@ -17,7 +17,7 @@ ha_platforms:
 ha_integration_type: device
 ---
 
-The SFR Box integration offers integration with the **SFR** broadband router.
+The **SFR Box** {% term integration %} offers integration with the **SFR** broadband router.
 
 This integration provides the following platforms:
 

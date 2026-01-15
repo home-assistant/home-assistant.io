@@ -49,7 +49,7 @@ ha_zeroconf: true
 ha_integration_type: integration
 ---
 
-The Zigbee Home Automation (ZHA) {% term integration %} allows you to wirelessly connect many off-the-shelf [Zigbee-based devices](https://csa-iot.org/csa-iot_products/) directly to Home Assistant, using one of many compatible hardware adapters called _Zigbee coordinators_.
+The **Zigbee Home Automation** (ZHA) {% term integration %} allows you to wirelessly connect many off-the-shelf [Zigbee-based devices](https://csa-iot.org/csa-iot_products/) directly to Home Assistant, using one of many compatible hardware adapters called _Zigbee coordinators_.
 
 This {% term integration %} currently supports the following device types within Home Assistant:
 
@@ -326,7 +326,6 @@ To see OTA updates for a device, it must support OTA updates and firmware images
 - IKEA
 - Inovelli
 - Ledvance/OSRAM
-- SALUS/Computime
 - Sonoff/iTead
 - Third Reality
 

@@ -3,6 +3,7 @@ title: SwitchBot Bluetooth
 description: Instructions on how to set up SwitchBot Devices.
 ha_category:
   - Binary sensor
+  - Button
   - Climate
   - Cover
   - Fan
@@ -27,6 +28,7 @@ works_with:
 ha_bluetooth: true
 ha_platforms:
   - binary_sensor
+  - button
   - climate
   - cover
   - diagnostics
@@ -42,7 +44,7 @@ ha_integration_type: integration
 ha_quality_scale: gold
 ---
 
-The SwitchBot integration allows you to control SwitchBot [devices](https://www.switch-bot.com/) such as sensors, locks, shades, lights, plugs, robot vacuums, hubs and etc.
+The **SwitchBot Bluetooth** {% term integration %} allows you to control SwitchBot [devices](https://www.switch-bot.com/) such as sensors, locks, shades, lights, plugs, robot vacuums, hubs and etc.
 
 ## How you can use this integration
 
@@ -202,6 +204,10 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 ### Climates
 
 - [Smart Radiator Thermostat](https://www.switch-bot.com/products/switchbot-smart-radiator-thermostat)
+
+### Buttons
+
+- [Art Frame](https://www.switch-bot.com/products/switchbot-ai-art-frame)
 
 ## Works with Home Assistant
 
@@ -757,7 +763,7 @@ Features:
 
 climate entities are added for smart radiator thermostat
 
-This is an encryed device.
+This is an encrypted device.
 
 Features:
 
@@ -765,6 +771,19 @@ Features:
 - turn off
 - set mode
 - set target temperature
+
+### Buttons
+
+button entities are added for art frame.
+
+This is an encrypted device.
+
+Note: Users need to preset images in the app.
+
+Features:
+- next image
+- previous image
+
 
 ## Data updates
 

@@ -30,6 +30,11 @@
     Actions are used in several places in Home Assistant. As part of a script or
     automation, actions define what is going to happen once a trigger is
     activated. In scripts, an action is called *sequence*.
+- term: Actor
+  definition: |-
+    An entity that receives a control signal and performs an action in a system.
+  aliases:
+    - actors
 - term: Add-on
   definition: >-
     Add-ons are additional standalone third-party software packages that can be

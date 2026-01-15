@@ -18,7 +18,7 @@ related:
     title: Configuration file
 ---
 
-The **Sky Remote** {% term integration %} lets you control a [Sky](https://www.sky.com/) box using Home Assistant.
+The **Sky Remote Control** {% term integration %} lets you control a [Sky](https://www.sky.com/) box using Home Assistant.
 
 ## Supported models
 
