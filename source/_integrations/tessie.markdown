@@ -43,6 +43,7 @@ The Tessie {% term integration %} exposes various commands and sensors from the 
 This integration provides comprehensive control and monitoring of your Tesla vehicles and energy products through Home Assistant:
 
 ### Vehicle control
+
 - Monitor battery level, range, charging status, and location
 - Control climate (heating, cooling, seat heaters, steering wheel heater)
 - Lock/unlock doors and control windows, trunk, frunk, and charge port
@@ -53,6 +54,7 @@ This integration provides comprehensive control and monitoring of your Tesla veh
 - Install software updates
 
 ### Energy product monitoring and control
+
 - Monitor battery power, grid power, solar power, and load consumption
 - View energy reserves and state of charge
 - Control backup reserve and operating modes
@@ -64,6 +66,7 @@ This integration provides comprehensive control and monitoring of your Tesla veh
 This integration supports all Tesla vehicle models and energy products:
 
 ### Vehicles
+
 - Model 3
 - Model Y
 - Model S
@@ -71,6 +74,7 @@ This integration supports all Tesla vehicle models and energy products:
 - Cybertruck
 
 ### Energy products
+
 - Powerwall 2/3
 - Powerwall+
 - Solar Inverters
@@ -81,7 +85,6 @@ You must have an active [Tessie](https://my.tessie.com/) subscription, generate 
 
 {% include integrations/config_flow.md %}
 
-## Configuration
 
 Once the integration is set up, all connected Tesla vehicles and energy products will be automatically added to Home Assistant. Note that reconfiguration through the UI is not currently supported. If you need to change your API token or reconnect your account, you will need to remove and re-add the integration.
 
