@@ -31,18 +31,18 @@ The **Renson** {% term integration %} pulls in data from the Renson Endura delta
 
 ## Actions
 
-### Action `renson.set_timer_level`
+### Action: Set timer level
 
-Set the ventilation timer.
+The `renson.set_timer_level` action sets the ventilation timer.
 
   | Data attribute | Required | Description | Example |
   | ---------------------- | -------- | ----------- | ------- |
   | `timer_level`| yes | Level setting | |
   | `minutes` | yes | Time of the timer (0 will disable the timer) | |
 
-### Action `renson.set_breeze`
+### Action: Set breeze
 
-Set the breeze function of the ventilation system.
+The `renson.set_breeze` action sets the breeze function of the ventilation system.
 
   | Data attribute | Required | Description | Example |
   | ---------------------- | -------- | ----------- | ------- |
@@ -50,9 +50,9 @@ Set the breeze function of the ventilation system.
   | `temperature` | no | Temperature when the breeze function should be activated in °C | |
   | `activate` | yes | Activate or disable the breeze feature | `2020-05-01T17:45:00` |
 
-### Action `renson.set_pollution_settings`
+### Action: Set pollution settings
 
-Set all the pollution settings of the ventilation system.
+The `renson.set_pollution_settings` action sets all the pollution settings of the ventilation system.
 
   | Data attribute | Required | Description | Example |
   | ---------------------- | -------- | ----------- | ------- |
