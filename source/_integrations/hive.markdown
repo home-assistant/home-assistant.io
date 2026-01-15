@@ -48,7 +48,7 @@ Menu: *Configuration* > *Integrations* > *Select your new integration* > *Press 
 
 ### Action: Boost heating on
 
-The `hive.boost_heating_on` action sets your heating to boost for a period of time at a certain target temperature. Individual TRVs can also be boosted in the same way using this action.
+The `hive.boost_heating_on` action sets your heating to boost for a period of time at a certain target temperature. Individual TRVs can also be boosted in the same way, using this action.
 
 | Data attribute | Optional | Description                                                            |
 | ---------------------- | -------- | ---------------------------------------------------------------------- |
