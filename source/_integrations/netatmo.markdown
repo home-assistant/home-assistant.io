@@ -152,7 +152,7 @@ The `netatmo.set_temperature_with_time_period` action sets the target temperatur
 
 The `netatmo.clear_temperature_setting` action clears any temperature setting for a Netatmo climate device reverting it to the current preset or schedule.
 
-### Action: Set persons home
+### Action: Set persons as at home
 
 The `netatmo.set_persons_home` action sets a list of persons as at home. Person's name must match a name known by the Netatmo Smart Indoor Camera.
 
