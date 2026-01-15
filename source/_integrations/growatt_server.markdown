@@ -138,9 +138,9 @@ These controls directly modify your inverter's operational settings. Only change
 
 The integration provides the following actions for managing Time-of-Use (TOU) battery schedules on MIN inverters:
 
-### Action `growatt_server.update_time_segment`
+### Action: Update time segment
 
-Configure individual time segments (1-9) with battery operation mode, time range, and enable/disable state for automated battery charging and discharging schedules.
+The `growatt_server.update_time_segment` action configures individual time segments (1-9) with battery operation mode, time range, and enable/disable state for automated battery charging and discharging schedules.
 
 {% important %}
 This action modifies your inverter's TOU scheduling settings. Incorrect configuration may affect your battery's charging/discharging behavior and energy costs. Ensure you understand your electricity tariff structure before making changes.
@@ -162,9 +162,9 @@ This action modifies your inverter's TOU scheduling settings. Incorrect configur
 - **end_time** *(time, required)*: End time for the segment (HH:MM format)
 - **enabled** *(boolean, required)*: Whether this time segment is active
 
-### Action `growatt_server.read_time_segments`
+### Action: Read time segments
 
-Read the current configuration of all 9 time segments from the inverter. This action returns the complete TOU schedule configuration.
+The `growatt_server.read_time_segments` action reads the current configuration of all 9 time segments from the inverter and returns the complete TOU schedule configuration.
 
 **Data attributes:**
 

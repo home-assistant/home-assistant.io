@@ -65,7 +65,7 @@ automation:
 
 ### Action: Set preset mode
 
-The `climate.set_preset_mode` action allows you to set the preset mode for a climate device. Away mode changes the target temperature permanently to a temperature
+The `climate.set_preset_mode` action allows you to set the preset mode for climate device. Away mode changes the target temperature permanently to a temperature
 reflecting a situation where the climate device is set to save energy. For example, this may be used to emulate a
 "vacation mode."
 
@@ -160,7 +160,7 @@ automation:
 
 ### Action: Set fan mode
 
-The `climate.set_fan_mode` action allows you to set fan operation for a climate device.
+The `climate.set_fan_mode` action allows you to set the fan operation for a climate device.
 
 | Data attribute | Required | Description |
 | ---------------------- | -------- | ----------- |
@@ -208,7 +208,7 @@ automation:
 
 ### Action: Set swing mode
 
-The `climate.set_swing_mode` action allows you to set swing operation mode for a climate device.
+The `climate.set_swing_mode` action allows you to set the swing operation mode for a climate device.
 
 | Data attribute | Required | Description |
 | ---------------------- | -------- | ----------- |
@@ -232,7 +232,7 @@ automation:
 
 ### Action: Set swing horizontal mode
 
-The `climate.set_swing_horizontal_mode` action allows you to set horizontal swing operation mode for a climate device.
+The `climate.set_swing_horizontal_mode` action allows you to set the horizontal swing operation mode for the climate device.
 
 | Data attribute          | Required | Description                                                                                                                       |
 | ----------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------- |
