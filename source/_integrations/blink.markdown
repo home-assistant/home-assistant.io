@@ -83,7 +83,9 @@ homeassistant:
     - '/tmp'
     - '/path/to/whitelist'
 ```
+
 ### Action: Save recent clips
+
 
 The `blink.save_recent_clips` action allows you to save the recent video clips of a camera to a local file in the pattern `%Y%m%d_%H%M%S_{name}.mp4`. Note that in most cases, Home Assistant will need to know that the directory is writable via the `allowlist_external_dirs` in your {% term "`configuration.yaml`" %} file.
 
