@@ -1200,18 +1200,18 @@ Clean mode and Motor speed can only be set when the device is turned on.
 
 ### Actions
 
-### Action `humidifier.set_humidity`
+### Action: Set humidity
 
-Set the target humidity.
+The `humidifier.set_humidity` action sets the target humidity.
 
 | Data attribute | Optional | Description                                           |
 | ---------------------- | -------- | ----------------------------------------------------- |
 | `entity_id`            | no       | Only act on a specific Xiaomi humidifier entity.      |
 | `humidity`             | no       | Target humidity                                       |
 
-### Action `humidifier.set_mode`
+### Action: Set humidifier mode
 
-Set the humidifier operation mode.
+The `humidifier.set_mode` action sets the humidifier operation mode.
 
 | Data attribute | Optional | Description                                           |
 | ---------------------- | -------- | ----------------------------------------------------- |
@@ -1222,26 +1222,26 @@ Set the humidifier operation mode.
 | `entity_id`            | no       | Only act on a specific Xiaomi fan entity.      |
 | `percentage`           | no       | Fan speed. Percentage speed setting            |
 
-### Action `fan.set_preset_mode`
+### Action: Set fan preset mode
 
-Set the fan operation mode.
+The `fan.set_preset_mode` action sets the fan operation mode.
 
 | Data attribute | Optional | Description                                    |
 | ---------------------- | -------- | ---------------------------------------------- |
 | `entity_id`            | no       | Only act on a specific Xiaomi fan entity.      |
 | `preset_mode`          | no       | The fan operation mode                         |
 
-### Action `xiaomi_miio.fan_reset_filter` (Air Purifier 2 only)
+### Action: Reset filter (Air Purifier 2 only)
 
-Reset the filter lifetime and usage.
+The `xiaomi_miio.fan_reset_filter` action resets the filter lifetime and usage.
 
 | Data attribute | Optional | Description                                    |
 | ---------------------- | -------- | ---------------------------------------------- |
 | `entity_id`            | no       | Only act on a specific Xiaomi fan entity.      |
 
-### Action `xiaomi_miio.fan_set_extra_features` (Air Purifier only)
+### Action: Set extra features (Air Purifier only)
 
-Set the extra features.
+The `xiaomi_miio.fan_set_extra_features` action sets the extra features.
 
 | Data attribute | Optional | Description                                    |
 | ---------------------- | -------- | ---------------------------------------------- |
@@ -1482,9 +1482,9 @@ In addition to all of the actions provided by the `vacuum` {% term integration %
 - `xiaomi_miio.vacuum_remote_control_move`
 - `xiaomi_miio.vacuum_remote_control_move_step`
 
-### Action `xiaomi_miio.vacuum_clean_zone`
+### Action: Clean zone
 
-Start the cleaning operation in the areas selected for the number of repeats indicated.
+The `xiaomi_miio.vacuum_clean_zone` action starts the cleaning operation in the areas selected for the number of repeats indicated.
 
 - **Data attribute**: `entity_id`
   - **Description**: Only act on a specific robot.
@@ -1567,9 +1567,9 @@ automation:
               - 26496
 ```
 
-### Action `xiaomi_miio.vacuum_clean_segment`
+### Action: Clean segment
 
-Clean the specified segment/room. A room is identified by a number. Instructions on how to find the valid room numbers and determine what rooms they map to, read the section [Retrieving room numbers](#retrieving-room-numbers).
+The `xiaomi_miio.vacuum_clean_segment` action cleans the specified segment/room. A room is identified by a number. Instructions on how to find the valid room numbers and determine what rooms they map to, read the section [Retrieving room numbers](#retrieving-room-numbers).
 
 - **Data attribute**: `entity_id`
   - **Description**: Only act on a specific robot.
@@ -1628,9 +1628,9 @@ automation:
           segments: [1, 1]
 ```
 
-### Action `xiaomi_miio.vacuum_goto`
+### Action: Go to coordinates
 
-Go the specified coordinates.
+The `xiaomi_miio.vacuum_goto` action sends the vacuum to the specified coordinates.
 
 - **Data attribute**: `entity_id`
   - **Description**: Only act on a specific robot.
@@ -1644,34 +1644,34 @@ Go the specified coordinates.
 
 Note: If your vacuum is in motion and does not respond to the `xiaomi_miio.vacuum_goto` command, call the `vacuum.pause` or `vacuum.stop` action first.
 
-### Action `xiaomi_miio.vacuum_remote_control_start`
+### Action: Start remote control
 
-Start the remote control mode of the robot. You can then move it with `remote_control_move`; when done, call `remote_control_stop`.
-
-| Data attribute | Optional | Description                  |
-| -------------- | -------- | ---------------------------- |
-| `entity_id`    | no       | Only act on a specific robot |
-
-### Action `xiaomi_miio.vacuum_remote_control_stop`
-
-Exit the remote control mode of the robot.
+The `xiaomi_miio.vacuum_remote_control_start` action starts the remote control mode of the robot. You can then move it with `remote_control_move`; when done, call `remote_control_stop`.
 
 | Data attribute | Optional | Description                  |
 | -------------- | -------- | ---------------------------- |
 | `entity_id`    | no       | Only act on a specific robot |
 
-### Action `xiaomi_miio.vacuuNm_remote_control_move`
+### Action: Stop remote control
 
-Remote control the robot. Please ensure you first set it in remote control mode with `remote_control_start`.
+The `xiaomi_miio.vacuum_remote_control_stop` action exits the remote control mode of the robot.
+
+| Data attribute | Optional | Description                  |
+| -------------- | -------- | ---------------------------- |
+| `entity_id`    | no       | Only act on a specific robot |
+
+### Action: Remote control move
+
+The `xiaomi_miio.vacuum_remote_control_move` action remote controls the robot. Please ensure you first set it in remote control mode with `remote_control_start`.
 
 - `entity_id`: Only act on a specific robot. Not optional.
 - `velocity`: Speed: between -0.29 and 0.29. Not optional.
 - `rotation`: Rotation: between -179 degrees and 179 degrees. Not optional.
 - `duration`: The number of milliseconds that the robot should move for. Not optional.
 
-### Action `xiaomi_miio.vacuum_remote_control_move_step`
+### Action: Remote control move step
 
-Enter remote control mode, make one move, stop, and exit remote control mode.
+The `xiaomi_miio.vacuum_remote_control_move_step` action enters remote control mode, makes one move, stops, and exits remote control mode.
 
 - **entity_id**: Only act on a specific robot. Not optional.
 - **velocity**: Speed: between -0.29 and 0.29. Not optional.
@@ -1913,67 +1913,67 @@ Supported models: `philips.light.moonlight`
 
 ### Actions
 
-### Action `xiaomi_miio.light_set_scene`
+### Action: Set scene
 
-Set one of the 4 available fixed scenes.
+The `xiaomi_miio.light_set_scene` action sets one of the 4 available fixed scenes.
 
 | Data attribute | Optional | Description                                      |
 | ---------------------- | -------- | ------------------------------------------------ |
 | `entity_id`            | no       | Only act on a specific Xiaomi light entity.      |
 | `scene`                | no       | Scene, between 1 and 4.                          |
 
-### Action `xiaomi_miio.light_set_delayed_turn_off`
+### Action: Set delayed turn off
 
-Delayed turn off.
+The `xiaomi_miio.light_set_delayed_turn_off` action sets a delayed turn off.
 
 | Data attribute | Optional | Description                                      |
 | ---------------------- | -------- | ------------------------------------------------ |
 | `entity_id`            | no       | Only act on a specific Xiaomi light entity.      |
 | `time_period`          | no       | Time period for the delayed turn off.            |
 
-### Action `xiaomi_miio.light_reminder_on` (Eyecare Smart Lamp 2 only)
+### Action: Turn on reminder (Eyecare Smart Lamp 2 only)
 
-Enable the eye fatigue reminder/notification.
-
-| Data attribute | Optional | Description                                      |
-| ---------------------- | -------- | ------------------------------------------------ |
-| `entity_id`            | no       | Only act on a specific Xiaomi light entity.      |
-
-### Action `xiaomi_miio.light_reminder_off` (Eyecare Smart Lamp 2 only)
-
-Disable the eye fatigue reminder/notification.
+The `xiaomi_miio.light_reminder_on` action enables the eye fatigue reminder/notification.
 
 | Data attribute | Optional | Description                                      |
 | ---------------------- | -------- | ------------------------------------------------ |
 | `entity_id`            | no       | Only act on a specific Xiaomi light entity.      |
 
-### Action `xiaomi_miio.light_night_light_mode_on` (Eyecare Smart Lamp 2 only)
+### Action: Turn off reminder (Eyecare Smart Lamp 2 only)
 
-Turn the smart night light mode on.
-
-| Data attribute | Optional | Description                                      |
-| ---------------------- | -------- | ------------------------------------------------ |
-| `entity_id`            | no       | Only act on a specific Xiaomi light entity.      |
-
-### Action `xiaomi_miio.light_night_light_mode_off` (Eyecare Smart Lamp 2 only)
-
-Turn the smart night light mode off.
+The `xiaomi_miio.light_reminder_off` action disables the eye fatigue reminder/notification.
 
 | Data attribute | Optional | Description                                      |
 | ---------------------- | -------- | ------------------------------------------------ |
 | `entity_id`            | no       | Only act on a specific Xiaomi light entity.      |
 
-### Action `xiaomi_miio.light_eyecare_mode_on` (Eyecare Smart Lamp 2 only)
+### Action: Turn on night light mode (Eyecare Smart Lamp 2 only)
 
-Turn the eyecare mode on.
+The `xiaomi_miio.light_night_light_mode_on` action turns the smart night light mode on.
 
 | Data attribute | Optional | Description                                      |
 | ---------------------- | -------- | ------------------------------------------------ |
 | `entity_id`            | no       | Only act on a specific Xiaomi light entity.      |
 
-### Action `xiaomi_miio.light_eyecare_mode_off` (Eyecare Smart Lamp 2 only)
+### Action: Turn off night light mode (Eyecare Smart Lamp 2 only)
 
-Turn the eyecare mode off.
+The `xiaomi_miio.light_night_light_mode_off` action turns the smart night light mode off.
+
+| Data attribute | Optional | Description                                      |
+| ---------------------- | -------- | ------------------------------------------------ |
+| `entity_id`            | no       | Only act on a specific Xiaomi light entity.      |
+
+### Action: Turn on eyecare mode (Eyecare Smart Lamp 2 only)
+
+The `xiaomi_miio.light_eyecare_mode_on` action turns the eyecare mode on.
+
+| Data attribute | Optional | Description                                      |
+| ---------------------- | -------- | ------------------------------------------------ |
+| `entity_id`            | no       | Only act on a specific Xiaomi light entity.      |
+
+### Action: Turn off eyecare mode (Eyecare Smart Lamp 2 only)
+
+The `xiaomi_miio.light_eyecare_mode_off` action turns the eyecare mode off.
 
 | Data attribute | Optional | Description                                      |
 | ---------------------- | -------- | ------------------------------------------------ |
@@ -2027,17 +2027,17 @@ Supported models: `lumi.acpartner.v3` (the socket of the `acpartner.v1` and `v2`
 
 ### Actions
 
-### Action `xiaomi_miio.switch_set_wifi_led_on` (Power Strip only)
+### Action: Turn on WiFi LED (Power Strip only)
 
-Turn the wifi LED on.
+The `xiaomi_miio.switch_set_wifi_led_on` action turns the WiFi LED on.
 
 | Data attribute | Optional | Description                                       |
 | ---------------------- | -------- | ------------------------------------------------- |
 | `entity_id`            | no       | Only act on a specific Xiaomi switch entity.      |
 
-### Action `xiaomi_miio.switch_set_wifi_led_off` (Power Strip only)
+### Action: Turn off WiFi LED (Power Strip only)
 
-Turn the wifi LED off.
+The `xiaomi_miio.switch_set_wifi_led_off` action turns the WiFi LED off.
 
 | Data attribute | Optional | Description                                       |
 | ---------------------- | -------- | ------------------------------------------------- |
@@ -2048,9 +2048,9 @@ Turn the wifi LED off.
 | `entity_id`            | no       | Only act on a specific Xiaomi switch entity.      |
 | `price`                | no       | Power price, between 0 and 999.                   |
 
-### Action `xiaomi_miio.switch_set_power_mode` (Power Strip V1 only)
+### Action: Set power mode (Power Strip V1 only)
 
-Set the power mode.
+The `xiaomi_miio.switch_set_power_mode` action sets the power mode.
 
 | Data attribute | Optional | Description                                       |
 | ---------------------- | -------- | ------------------------------------------------- |

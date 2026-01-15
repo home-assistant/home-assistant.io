@@ -175,26 +175,26 @@ vlp:
 - `velbus.set_memo_text`: Show memo text on Velbus display modules.
 - `velbus.clear_cache`: Clear the full velbuscache or the cache for one module only.
 
-### Action `velbus.sync_clock`
+### Action: Sync clock
 
-You can use the `velbus.sync_clock` action to synchronize the clock of the Velbus modules to the clock of the machine running Home Assistant. This is the same as the 'sync clock' button at the VelbusLink software.
-
-| Data attribute | Optional | Description                              |
-| ---------------------- | -------- | ---------------------------------------- |
-| `config_entry`         | no       | The config_entry to send the command to. |
-
-### Action `velbus.scan`
-
-You can use the `velbus.scan` action to synchronize the modules between the bus and Home Assistant. This is the same as the 'scan' button at the VelbusLink software.
+The `velbus.sync_clock` action synchronizes the clock of the Velbus modules to the clock of the machine running Home Assistant. This is the same as the 'sync clock' button at the VelbusLink software.
 
 | Data attribute | Optional | Description                              |
 | ---------------------- | -------- | ---------------------------------------- |
 | `config_entry`         | no       | The config_entry to send the command to. |
 
+### Action: Scan
 
-### Action `velbus.set_memo_text`
+The `velbus.scan` action synchronizes the modules between the bus and Home Assistant. This is the same as the 'scan' button at the VelbusLink software.
 
-You can use the `velbus.set_memo_text` action to provide the memo text to be displayed at Velbus modules like VMBGPO(D) and VMBELO.
+| Data attribute | Optional | Description                              |
+| ---------------------- | -------- | ---------------------------------------- |
+| `config_entry`         | no       | The config_entry to send the command to. |
+
+
+### Action: Set memo text
+
+The `velbus.set_memo_text` action provides the memo text to be displayed at Velbus modules like VMBGPO(D) and VMBELO.
 
 | Data attribute | Optional | Description                              |
 | ---------------------- | -------- | ---------------------------------------- |
@@ -216,10 +216,9 @@ script:
         config_entry: "01JGE8XB3MNPZFA836TTZ3KZ46"
 ```
 
-### Action `velbus.clear_cache`
+### Action: Clear cache
 
-You can use the `velbus.clear_cache` action to clear the cache of one module or the full cache. Once the clear happens, the integration will start a new scan.
-Use this action when you make changes to your configuration via velbuslink.
+The `velbus.clear_cache` action clears the cache of one module or the full cache. Once the clear happens, the integration will start a new scan. Use this action when you make changes to your configuration via velbuslink.
 
 | Data attribute | Optional | Description                              |
 | ---------------------- | -------- | ---------------------------------------- |
