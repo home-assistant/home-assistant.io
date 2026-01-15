@@ -175,7 +175,7 @@ A list of various intents can be found [here](https://gist.github.com/mcfrojd/9e
 
 ### Action: Learn sendevent (for faster ADB commands)
 
-The `androidtv.learn_sendevent` action allows you to learn device-specific commands for faster ADB operations. When sending commands like UP, DOWN, HOME, etc. via ADB, the device can be slow to respond. The problem isn't ADB, but rather the Android command `input` that is used to perform those actions. A faster way to send these commands is using the Android `sendevent` command. The challenge is that these commands are device-specific. To assist users in learning commands for their device, the Android debug bridge integration provides the `androidtv.learn_sendevent` action. Its usage is as follows:
+When sending commands like UP, DOWN, HOME, etc. via ADB, the device can be slow to respond. The problem isn't ADB, but rather the Android command `input` that is used to perform those actions. A faster way to send these commands is using the Android `sendevent` command. The challenge is that these commands are device-specific. To assist users in learning commands for their device, the Android debug bridge integration provides the `androidtv.learn_sendevent` action. Its usage is as follows:
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
