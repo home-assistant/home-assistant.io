@@ -25,11 +25,22 @@ This integration may only work with an Internet connection that supports IPv4.
 
 {% include integrations/config_flow.md %}
 
-### Data updates
+{% configuration_basic %}
+City/county:
+  description: "City/county to receive warnings for. Grouped for better searchability."
+Maximum warnings:
+  description: "Maximum warnings fetched per city/county"
+Affected area filter:
+  description: "Whitelist regex to filter warnings based on affected areas. For details see below."
+Headline blocklist:
+  description: "Blacklist regex to filter warning based on headlines. For details see below."
+{% endconfiguration_basic %}
+
+## Data updates
 
 The integration checks for warnings every 5 minutes.
 
-### Filter
+## Filter
 
 The integration includes the possibility to filter warnings in two ways via a regex.
 
@@ -37,33 +48,33 @@ The integration includes the possibility to filter warnings in two ways via a re
 All filters are applied to lowercase text only.
 {% endnote %}
 
-#### Headline blocklist
+### Headline blocklist
 
 This blocklist filters warnings based on the headline. In other words, if the regular expression matches the headline of the warning, the warning will be **ignored**.
 
 Default: Match nothing (`/(?!)/`)
 
-##### Example
+#### Example
 
 Ignore warnings that contain the word `corona`
 
 Regex: `.*corona.*` <br>
 Headline: `corona-verordnung des landes: warnstufe durch landesgesundheitsamt ausgerufen`
 
-#### Affected area filter
+### Affected area filter
 
 This filter **whitelists** warnings based on the affected area. In other words, if the regular expression matches the area, the warning will be **displayed**.
 
 Default: Match all (`.*`)
 
-##### Example
+#### Example
 
 Show only warnings from the city of nagold.
 
 Regex: `.*nagold.*` <br>
 Areas: `gemeinde oberreichenbach, gemeinde neuweiler, stadt nagold`
 
-### Attributes
+## Attributes
 
 | Attribute    | Description                            |
 | ------------ | -------------------------------------- |
