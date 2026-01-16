@@ -46,6 +46,16 @@ Access token:
 
 The integration will create sensors for the Mastodon account showing total followers, following, and posts. Sensors are updated once an hour.
 
+## Binary sensors
+
+- **Bot**: Indicates whether the account performs automated actions, is not actively monitored, or identifies as a bot.
+- **Discoverable**: Indicates whether the account is discoverable. Public posts and the profile may be featured or recommended across Mastodon.
+- **Indexable**: Indicates whether public posts may appear in search results on Mastodon.
+- **Muted**: Indicates whether the account has been silenced.
+- **Moved**: Indicates that the account is inactive because the user has moved to a new account.
+- **Suspended**: Indicates whether the account has been suspended.
+- **Memorial**: Indicates whether the account is marked as a memorial.
+
 ## Actions
 
 The Mastodon integration has the following actions:
