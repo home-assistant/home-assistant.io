@@ -15,7 +15,7 @@ related:
     title: openWakeWord
 ---
 
-Wake words are special words or phrases that tell a voice assistant that a command is about to be spoken. The device then switches from passive to active listening. Examples are: Hey Google, Hey Siri, or Alexa. Home Assistant supports its own wake words, such as Hey Nabu.
+Wake words are special words or phrases that tell a voice assistant that a command is about to be spoken. The device then switches from passive to active listening. Examples are: Hey Google, Hey Siri, or Alexa. Home Assistant supports its own wake words, such as Okay Nabu.
 
 If you want to know more about this topic check [the Home Assistant approach to wake words](/voice_control/about_wake_word/).
 
