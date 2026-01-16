@@ -58,6 +58,8 @@ As of **March 21st 2025**, Tado has changed the authentication method. This mean
 
 {% important %}
 As of **January 1st 2026**, Tado is heavily rate limiting the API. The rate limit is based on a daily quota and is different per subscription type. If affected, the Tado integration will fail to authenticate and/or receive new data. This will result in the integration not working. The reset time is 12:00 CET.
+
+Consider using a [custom polling interval](#defining-a-custom-polling-interval) suiting your needs.
 {% endimportant %}
 
 ### Migrate to new authentication method
@@ -80,6 +82,14 @@ Your device has to be at home at least once before showing up as *home* or *away
 Polling Tado API for presence information will happen at most once every 30 seconds.
 
 Beware that the Tado (v2) API does not provide GPS location of devices, only a bearing, therefore Home Assistant only uses `home`/`not-home` status.
+
+## Data updates
+
+The integration normally updates every five minutes. For more detailed steps on how to define a custom polling interval, follow the procedure below.
+
+### Defining a custom polling interval
+
+{% include common-tasks/define_custom_polling.md %}
 
 ## Actions
 
