@@ -216,7 +216,7 @@ exposed_domains:
   required: false
   type: list
 exposed_labels:
-  description: List of labels, where entities having any of these labels will be exposed.
+  description: A list of labels; entities assigned any of these labels will be exposed.
   required: false
   type: list
 entity_config:
