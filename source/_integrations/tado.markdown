@@ -57,7 +57,7 @@ As of **March 21st 2025**, Tado has changed the authentication method. This mean
 4. Once the authentication is completed, go back to Home Assistant. Wait a few seconds for the loading screen to finish. You are now connected with Tado!
 
 {% important %}
-As of **January first 2026**, Tado is heavily rate limiting the API. The rate limit is based on a daily quota and is different per subscription type. If affected, the Tado integration will fail to authenticate and/or receive new data. This will result in the integration not working. The reset time is 12:00 CET.
+As of **January 1st 2026**, Tado is heavily rate limiting the API. The rate limit is based on a daily quota and is different per subscription type. If affected, the Tado integration will fail to authenticate and/or receive new data. This will result in the integration not working. The reset time is 12:00 CET.
 {% endimportant %}
 
 ### Migrate to new authentication method
