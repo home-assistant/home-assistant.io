@@ -9,13 +9,19 @@ ha_domain: airobot
 ha_integration_type: device
 ha_dhcp: true
 ha_config_flow: true
-ha_quality_scale: bronze
+ha_quality_scale: gold
+related:
+  - url: https://airobothome.com/
+    title: Airobot
+  - url: https://airobothome.com/heat-control-products/
+    title: Airobot Heat Control Products
 ha_category: []
 ha_platforms:
   - button
   - climate
   - number
   - sensor
+  - switch
 ---
 
 The **Airobot** {% term integration %} allows you to control and monitor [Airobot](https://airobothome.com/) smart thermostats for intelligent floor heating control via the local REST API. The thermostat uses adaptive learning with a <abbr title="Time Proportional Integral">TPI</abbr> algorithm to maintain stable temperatures and optimize energy efficiency. Optional built-in CO₂ and humidity sensors monitor indoor air quality for a healthier living environment.
@@ -124,6 +130,13 @@ The integration provides button entities for device management:
 - **Restart**: Restart the thermostat device. This performs a soft restart of the thermostat, which can be useful for troubleshooting connectivity issues or applying configuration changes. The thermostat will be temporarily unavailable during the restart process (typically 5-10 seconds).
 - **Recalibrate CO₂**: Initiates manual CO₂ sensor calibration by setting the current air as the new 400 ppm reference value. Only available if the thermostat has the optional carbon dioxide sensor. Not recommended for typical use as the CO₂ sensor has an auto-calibration algorithm enabled by default. Only activate this if the air is clean (fresh outdoor air) and auto-calibration needs to be manually overridden.
 
+### Switch
+
+The integration provides switch entities for controlling thermostat features:
+
+- **Child lock**: Enable or disable the child lock feature on the thermostat. When enabled, the physical buttons on the thermostat are locked to prevent accidental or unauthorized changes to settings.
+- **Actuator exercise disabled**: Enable or disable the actuator exercise function. To prevent valve sticking, the actuator exercise periodically switches off the valve for 8 minutes at least every 96 hours. This entity is disabled by default.
+
 ## Use cases
 
 The **Airobot** integration enables intelligent floor heating control with practical automation opportunities:
@@ -142,7 +155,9 @@ Examples of automations you can create using the Airobot integration.
 
 Send a notification when the air quality exceeds a specified threshold.
 
-{% my blueprint_import badge blueprint_url="https://gist.github.com/mettolen/eb1cc475fef238fdb34147891eb12b0a" %}
+<!-- markdownlint-disable MD034 -->
+{% my blueprint_import badge blueprint_url="https://gist.github.com/mettolen/9711306e401c027edbdca4c287c2f65f" %}
+<!-- markdownlint-enable MD034 -->
 
 {% details "Example YAML configuration" %}
 
@@ -220,7 +235,7 @@ The **Airobot** integration {% term polling polls %} data from the thermostat ev
 - **Manual API enablement**: The local REST API must be manually enabled on the thermostat before the integration can connect. It is disabled by default for security reasons.
 - **Firmware requirements**: Only firmware version 1.8 or later is supported. Older firmware versions do not provide the local REST API.
 - **Heating only**: The thermostat is designed for floor heating control only and does not support cooling modes.
-- **Optional sensors**: carbon dioxide and floor temperature sensors are only available if the corresponding hardware is installed in your thermostat model.
+- **Optional sensors**: Carbon dioxide and floor temperature sensors are only available if the corresponding hardware is installed in your thermostat model.
 
 ## Troubleshooting
 
