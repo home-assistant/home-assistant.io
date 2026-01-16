@@ -993,7 +993,7 @@ features:
       - light
       - fan
       - switch
-  - entity_id: light.kitchen_counter
+      - entity_id: light.kitchen_counter
 ```
 
 {% configuration features %}
@@ -1003,6 +1003,6 @@ type:
   type: string
 controls:
   required: true
-  description: List of controls to show on the card. The list can contain domain names like `light`, `fan`, and `switch`, or specific entities using `entity_id: <entity_id>`.
+  description: List of controls to show on the card. The list can contain domain names like `light`, `fan`, and `switch`, or mappings that specify a particular entity by using the `entity_id` key, as shown in the example above.
   type: list
 {% endconfiguration %}
