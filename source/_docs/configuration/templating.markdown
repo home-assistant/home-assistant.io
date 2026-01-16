@@ -24,7 +24,7 @@ Templating in Home Assistant is powered by the [Jinja2](https://palletsprojects.
 
 We will not go over the basics of the syntax, as Jinja2 does a great job of this in their [templates documentation](https://jinja.palletsprojects.com/en/latest/templates/).
 
-The frontend has a {% my developer_template title="template editor tool" %} to help develop and debug templates. Navigate to {% my developer_template title="Developer Tools > Template" %}, create your template in the _Template editor_ and check the results on the right.
+The frontend has a template editor tool to help develop and debug templates. Go to {% my developer_template title="**Developer tools** > **Template**" %}, create your template in the **Template editor** and check the results on the right.
 
 Templates can get big pretty fast. To keep a clear overview, consider using YAML multiline strings to define your templates:
 
@@ -1693,7 +1693,7 @@ The following overview contains a couple of options to get the needed values:
 
 {% endraw %}
 
-To evaluate a response, go to **{% my developer_template title="Developer Tools > Template" %}**, create your output in "Template editor", and check the result.
+To evaluate a response, go to {% my developer_template title="**Developer tools** > **Template**" %}, create your output in **Template editor**, and check the result.
 
 {% raw %}
 

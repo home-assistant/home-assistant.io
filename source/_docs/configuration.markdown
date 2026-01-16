@@ -63,9 +63,9 @@ To set up file access on the Home Assistant Operating System, follow these steps
 
 Once you have located the config folder, you can edit your `configuration.yaml` file. How you edit the file depends on the editor you set up in step 1:
 
-- **If you are using the File editor add-on**: Open the add-on, navigate to the `/config` folder in the file browser on the left, and select the `configuration.yaml` file to open it in the editor.
-- **If you are using the Studio Code Server add-on**: Open the add-on, use the file explorer on the left to navigate to the `configuration.yaml` file, and select it to open in the editor.
-- **If you are using Samba to access files**: Navigate to the shared folder on your computer, locate the `configuration.yaml` file, and open it with your favorite text editor like [Notepad++](https://notepad-plus-plus.org/) or [Visual Studio Code](https://code.visualstudio.com/).
+- **If you are using the File editor add-on**: Open the add-on, go to the `/config` folder in the file browser on the left, and select the `configuration.yaml` file to open it in the editor.
+- **If you are using the Studio Code Server add-on**: Open the add-on, use the file explorer on the left to go to the `configuration.yaml` file, and select it to open in the editor.
+- **If you are using Samba to access files**: Go to the shared folder on your computer, locate the `configuration.yaml` file, and open it with your favorite text editor like [Notepad++](https://notepad-plus-plus.org/) or [Visual Studio Code](https://code.visualstudio.com/).
 
 {% note %}
 
