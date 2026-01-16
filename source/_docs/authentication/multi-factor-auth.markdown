@@ -47,8 +47,7 @@ You will need an authenticator app on your phone. We recommend either [Google Au
     Please treat the secret key like a password - never expose it to others.
     {% endcaution %}
 
-5. Your phone app will now start generating a different six-digit code every thirty seconds or so. 
-6. Enter one of these into Home Assistant under the QR code where it asks for a **Code**.
+5. Your phone app will now start generating a different six-digit code every thirty seconds or so. Enter one of these into Home Assistant under the QR code where it asks for a **Code**.
    - **Result**: Home Assistant and your phone app are now in sync and you can now use the code displayed in the app to log in.
 
 #### Using TOTP
