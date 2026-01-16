@@ -993,7 +993,7 @@ features:
       - light
       - fan
       - switch
-      - entity_id: light.kitchen_counter
+  - entity_id: light.kitchen_counter
 ```
 
 {% configuration features %}
