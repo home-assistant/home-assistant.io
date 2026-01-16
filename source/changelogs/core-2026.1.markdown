@@ -1145,8 +1145,6 @@ For a summary in a more readable format
 
 ## Release 2026.1.2 - January 16
 
-- 2026.1.0 ([@frenck] - [#159957])
-- 2026.1.1 ([@bramkragten] - [#160771])
 - Fix Airzone Q-Adapt select entities ([@Noltari] - [#160695])
 - Revert back to microVAD ([@synesthesiam] - [#160821])
 - Bump opower to 0.16.2 ([@tronikos] - [#160822])
