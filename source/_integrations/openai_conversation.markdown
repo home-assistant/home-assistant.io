@@ -32,7 +32,6 @@ This integration requires an API key to use, [which you can generate here.](http
 
 {% include integrations/config_flow.md %}
 
-{% include integrations/config_flow.md %}
 
 {% configuration_basic %}
 API key:
@@ -227,7 +226,6 @@ response_variable: generated_content
 ## Known Limitations
 
 Currently the integration does not have any known limitations.
-
 
 ## Removing the integration
 
