@@ -27,7 +27,7 @@ After configuring this {% term integration %}, the binary sensors automatically 
 
 {% important %}
 You should have at least one VM or container entry configured within Home Assistant, else this integration won't do anything.
-You should have the [Proxmox permissions](#proxmox-permissions) ready, before creating the integration.
+You should have the [Proxmox permissions](#proxmox-permissions) ready before creating the integration.
 {% endimportant %}
 
 {% include integrations/config_flow.md %}
