@@ -9,6 +9,7 @@ ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
   - '@elmurato'
+  - '@zachdeibert'
 ha_domain: minecraft_server
 ha_platforms:
   - binary_sensor
