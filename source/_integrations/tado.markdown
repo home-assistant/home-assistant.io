@@ -6,6 +6,7 @@ ha_category:
   - Climate
   - Hub
   - Presence detection
+  - Select
   - Sensor
   - Switch
   - Water heater
@@ -21,6 +22,7 @@ ha_platforms:
   - binary_sensor
   - climate
   - diagnostics
+  - select
   - sensor
   - switch
   - water_heater
@@ -36,6 +38,7 @@ There is currently support for the following device types within Home Assistant:
 - Climate - for every Tado zone.
 - Water heater - for water heater zones.
 - [Presence detection](#presence-detection)
+- Select - for choosing which schedule layout is active for a zone (the **Schedule Days** select entity).
 - Sensor - for some additional information of the zones.
 - Weather - for information about the current weather at the location of your Tado home.
 - Switch - for controlling child lock on supported devices.
@@ -89,6 +92,21 @@ The integration normally updates every five minutes. For more detailed steps on 
 ### Defining a custom polling interval
 
 {% include common-tasks/define_custom_polling.md %}
+
+## Schedule Days
+
+For each Tado zone, the **Schedule Days** select entity (`select.<room>_schedule_days`) exposes the layout of that zone's active heating schedule. Tado offers three schedule layouts, and changing the selection switches the zone between them:
+
+- **Mon - Sun** (`one_day`): a single schedule applied to every day of the week.
+- **Mon - Fri, Sat, Sun** (`three_day`): one schedule for weekdays, with separate
+  schedules for Saturday and Sunday.
+- **Mon, Tue, Wed, Thu, Fri, Sat, Sun** (`seven_day`): an individual schedule for each day.
+
+{% note %}
+
+The **Schedule Days** select entity is disabled by default, since not everyone needs it and keeping it enabled results in additional Tado API calls. You can manually enable it in **{% my entities title="**Settings** > **Devices & services** > **Entities**" %}** > the select entity you want to enable > {% icon "mdi:cog" %} > **Enabled**.
+
+{% endnote %}
 
 ## Actions
 
