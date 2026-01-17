@@ -82,7 +82,7 @@ The JVC Projector remote platform will create a [Remote](/integrations/remote/) 
 The JVC Projector binary sensor platform will create the following [Binary Sensor](/integrations/binary_sensor/) entity:
 
 - **Power**
-  - **Description**: Indicates whether the projector is powered on. This is true when the projector has a status of "on" or "warming", and false when the status is "cooling" or "standby".
+  - **Description**: Indicates whether the projector is powered on. Returns true when the projector has a status of "on" or "warming", and false when the status is "cooling" or "standby".
   - **Available for models**: all
 
 ## Sensor
@@ -94,7 +94,7 @@ The JVC Projector sensor platform will create the following [Sensors](/integrati
   - **Available for models**: all
 
 - **Status**
-  - **Description**: The current power status of the projector.
+  - **Description**: The power status of the projector.
   - **Available for models**: all
 
 - **Light time**
@@ -102,27 +102,27 @@ The JVC Projector sensor platform will create the following [Sensors](/integrati
   - **Available for models**: all
 
 - **Source**
-  - **Description**: The current signal resolution.
+  - **Description**: The signal resolution.
   - **Available for models**: all
 
 - **Color depth**
-  - **Description**: The current signal color depth.
+  - **Description**: The signal color depth.
   - **Available for models**: all
 
 - **Color space**
-  - **Description**: The current signal color space.
+  - **Description**: The signal color space.
   - **Available for models**: all
 
 - **HDR**
-  - **Description**: The current signal HDR mode.
+  - **Description**: The signal HDR mode.
   - **Available for models**: all
 
 - **HDR processing**
-  - **Description**: The current signal HDR Processing mode.
+  - **Description**: The signal HDR processing mode.
   - **Available for models**: all
 
 - **Picture mode**
-  - **Description**: The current signal Picture mode.
+  - **Description**: The signal picture mode.
   - **Available for models**: all
 
 ## Select
@@ -130,41 +130,41 @@ The JVC Projector sensor platform will create the following [Sensors](/integrati
 The JVC Projector select platform will create the following [Select](/integrations/select/) entities. Note that some of these selects are disabled by default.
 
 - **Input**
-  - **Description**: Select the HDMI input source.
+  - **Description**: The HDMI input source.
   - **Options**: hdmi1, hdmi2
   - **Available for models**: all
 
 - **Installation mode**
-  - **Description**: The current installation mode.
+  - **Description**: The installation mode.
   - **Options**: Dependent on your detected model.
   - **Available for models**: all
 
 - **Light power**
-  - **Description**: The current light power setting.
+  - **Description**: The light power setting.
   - **Options**: Dependent on your detected model.
   - **Available for models**: all
 
 - **Dynamic control**
-  - **Description**: The current dynamic control setting.
+  - **Description**: The dynamic control setting.
   - **Options**: Dependent on your detected model.
   - **Available for models**: all
 
 - **Low latency mode**
-  - **Description**: The current low latency mode setting.
+  - **Description**: The low latency mode setting.
   - **Options**: off, on
   - **Available for models**: all
 
 - **Clear motion drive**
-  - **Description**: The current clear motion drive setting.
+  - **Description**: The clear motion drive setting.
   - **Options**: Dependent on your detected model.
   - **Available for models**: all
 
 - **Anamorphic**
-  - **Description**: The current anamorphic setting.
+  - **Description**: The anamorphic setting.
   - **Options**: Dependent on your detected model.
   - **Available for models**: all
 
 - **E-Shift**
-  - **Description**: The current E-Shift setting.
+  - **Description**: The E-Shift setting.
   - **Options**: off, on
   - **Available for models**: all
