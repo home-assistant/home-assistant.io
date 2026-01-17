@@ -36,6 +36,19 @@ Headline blocklist:
   description: "Blacklist regex to filter warning based on headlines. For details see below."
 {% endconfiguration_basic %}
 
+{% include integrations/option_flow.md %}
+
+{% configuration_basic %}
+City/county:
+  description: "City/county to receive warnings for. Grouped for better searchability."
+Maximum warnings:
+  description: "Maximum warnings fetched per city/county"
+Affected area filter:
+  description: "Whitelist regex to filter warnings based on affected areas. For details see below."
+Headline blocklist:
+  description: "Blacklist regex to filter warning based on headlines. For details see below."
+{% endconfiguration_basic %}
+
 ## Data updates
 
 The integration checks for warnings every 5 minutes.
