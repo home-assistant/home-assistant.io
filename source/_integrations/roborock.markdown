@@ -168,6 +168,9 @@ The vacuum entity holds the ability to control most things the vacuum can do, su
 - **Water shortage**
   - **Description**: States if the water box is low on water - 'Ok' if it has not detected a water shortage.
 
+- **Cleaning fluid**
+  - **Description**: Only available on docks with cleaning fluid capabilities - 'Ok' if it has not detected a cleaning fluid shortage.
+
 
 #### Sensor
 
