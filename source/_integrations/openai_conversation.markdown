@@ -216,3 +216,18 @@ response_variable: generated_content
 ```
 
 {% endraw %}
+
+## Using a custom OpenAI API endpoint (example for Azure OpenAI)
+
+### Configuring Azure Models
+
+1. Deploy an [Azure AI Foundry](https://portal.azure.com/#create/Microsoft.CognitiveServicesAIFoundry) instance to a region supported by the [Responses API](https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/responses?tabs=python-secure#region-availability).
+2. Deploy a chat completion model in your AI Foundry instance, such as `gpt-4o-mini` or `gpt-4.1-mini`.
+3. To generate images using the `generate_image` action, deploy the `dall-e-3` model.
+
+### Setting up the integration
+
+1. When configuring the OpenAI integration, enter your API key from the Azure Portal or the AI Foundry website.
+2. Set the **Custom API endpoint** to your OpenAI endpoint from the Azure Portal (for example, `https://your-resource.openai.azure.com/`) and append `openai/v1/` to the URL. The full endpoint should look like `https://your-resource.openai.azure.com/openai/v1/`.
+3. Set the **default_query** parameter to `api-version=preview`. Azure OpenAI requires an API version, and using `preview` ensures you always have access to the latest features.
+4. If you deployed a model other than the default `gpt-4o-mini`, you need to configure it after creating the integration. Open each device of the OpenAI integration, then in the settings, disable the **Recommended model settings** checkbox and enter your model name in the **Model** field. The name must exactly match the name of your deployment.
