@@ -26,18 +26,17 @@ The **Victron Remote Monitoring** (VRM) {% term integration %} pulls site statis
 
 ## Supported devices
 
-The integration brings devices and metrics from your VRM site into Home Assistant, including:
+The integration can work with any energy system that reports data to your Victron VRM site. If a device shows up in VRM, the integration can usually read from it in Home Assistant.
 
-- Victron system, VEBus and settings
-- Grid meters and other energy meters
-- PV inverters
-- Solar chargers
-- Inverters
-- Generators
-- EV chargers
-- Temperature sensors
-- Tank level sensors
+Typical setups include combinations of:
 
+- Victron power systems and VEBus-based devices
+- Grid and other energy meters
+- Solar components, like PV inverters and solar chargers
+- Backup and auxiliary power sources, like inverters and generators
+- Site loads and infrastructure, like EV chargers, temperature probes, and tank level sensors
+
+For a detailed overview of which measurements are available for each device type, see the *Device metrics* section below.
 ## Prerequisites
 
 - <abbr title="Victron Remote Monitoring">VRM</abbr> access token. Keep this secret. Create one in the VRM Portal under **Preferences** > **Integrations** > **Access tokens** or use [this link](https://vrm.victronenergy.com/access-tokens).
