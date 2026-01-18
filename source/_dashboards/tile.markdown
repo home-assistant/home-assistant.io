@@ -61,6 +61,11 @@ hide_state:
   description: Hide the entity state.
   type: boolean
   default: false
+hide_icon:
+  required: false
+  description: Hide the entity icon. When enabled, icon tap actions (`icon_tap_action`, `icon_hold_action`, `icon_double_tap_action`) are also disabled.
+  type: boolean
+  default: false
 state_content:
   required: false
   description: >
@@ -129,6 +134,12 @@ type: tile
 entity: person.anne_therese
 vertical: true
 hide_state: true
+```
+
+```yaml
+type: tile
+entity: light.living_room
+hide_icon: true
 ```
 
 ```yaml
