@@ -31,7 +31,7 @@ The Sonarr integration will add the following sensors:
 
 - **Upcoming**: The number of upcoming episodes.
 - **Commands**: The number of commands being run. (disabled by default)
-- **Disk Space**: Available disk space in gigabytes across all storage locations. (disabled by default)
+- **Disk space**: Available disk space in gigabytes across all storage locations. (disabled by default)
 - **Queue**: The number of episodes in the download queue. (disabled by default)
 - **Shows**: The number of series in Sonarr. (disabled by default)
 - **Wanted**: The number of episodes still wanted. (disabled by default)
