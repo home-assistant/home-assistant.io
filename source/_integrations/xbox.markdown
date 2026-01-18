@@ -286,6 +286,7 @@ Just like the binary sensors, the Xbox sensor platform automatically keeps track
 | **Now playing**  | Shows the title of the game currently being played. Additional details such as a short description, genre, developer, age rating, and achievement progress are available in the entity's attributes. |
 | **Total space: *{name}*** | Reports the total storage capacity of the device. A separate sensor is created for each Xbox console and connected internal and external storage device. |
 | **Free space: *{name}*** | Reports the available (unused) storage space on the device. A separate sensor is created for each Xbox console and connected internal and external storage device. |
+| **Recently played games** | Shows the count of recently played games (up to 10 games). This sensor tracks your gaming activity and restores its state after Home Assistant restarts. Use the `get_recently_played_games` service to access detailed information about each game. |
 
 ## Image
 
@@ -300,6 +301,57 @@ For your account and each of your favorite friends, several image entities are a
 ## Media source
 
 The Xbox media source platform lets your browse your own and community gameclips or screenshots, as well as promotional images for games you've played, through the Media Browser panel. As with any other media source {% term integration %}, you can also send these clips to supported media players like Chromecast.
+
+## Services
+
+The Xbox {% term integration %} provides the following service to access detailed gaming information.
+
+### Service `xbox.get_recently_played_games`
+
+Retrieves detailed information about your recently played games from Xbox Network. This service returns comprehensive data about up to 10 recently played games, including achievement progress, gamerscore, timestamps, and game metadata. You can use this service to create custom template sensors or automations based on your gaming activity.
+
+The service returns the following information:
+
+- **xuid**: The Xbox User ID of the account
+- **account_name**: The display name of your Xbox account
+- **games**: A list of recently played games, where each game includes:
+  - **title**: The name of the game
+  - **title_id**: The unique game identifier
+  - **last_played**: ISO timestamp of when you last played the game
+  - **achievements_earned**: Number of achievements you've unlocked
+  - **achievements_total**: Total number of achievements available in the game
+  - **gamerscore_earned**: Gamerscore points you've earned
+  - **gamerscore_total**: Total gamerscore points available in the game
+  - **achievement_progress**: Achievement completion percentage (0-100)
+  - **image_url**: Game cover art URL (poster or logo)
+
+| Data attribute   | Optional | Description                                              |
+| ---------------- | -------- | -------------------------------------------------------- |
+| `config_entry_id` | no       | The Xbox configuration entry ID to get data from. You can find this in {% my integrations title="**Settings** > **Devices & services**" %} by selecting the Xbox integration, then selecting the three dots menu {% icon "mdi:dots-vertical" %} and selecting **Download diagnostics**. |
+
+#### Example template sensor using the service
+
+You can create template sensors that call this service to track specific gaming metrics. Here's an example that creates a sensor showing your total gamerscore from recently played games:
+
+```yaml
+template:
+  - trigger:
+      - trigger: time_pattern
+        minutes: "/30"
+    action:
+      - action: xbox.get_recently_played_games
+        data:
+          config_entry_id: "your_config_entry_id_here"
+        response_variable: xbox_data
+    sensor:
+      - name: "Total recent gamerscore"
+        unique_id: total_recent_gamerscore
+        state: >
+          {% raw %}{{ xbox_data.games | sum(attribute='gamerscore_earned') }}{% endraw %}
+        attributes:
+          games_played: >
+            {% raw %}{{ xbox_data.games | length }}{% endraw %}
+```
 
 ## Manual OAuth2 configuration
 
