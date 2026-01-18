@@ -32,6 +32,7 @@ Typical setups include combinations of:
 
 - Victron power systems and VEBus-based devices
 - Grid and other energy meters
+- Batteries
 - Solar components, like PV inverters and solar chargers
 - Backup and auxiliary power sources, like inverters and generators
 - Site loads and infrastructure, like EV chargers, temperature probes, and tank level sensors
@@ -113,6 +114,7 @@ The following device categories expose metrics in Home Assistant. The exact enti
 - PV inverters
 - Solar chargers
 - Inverters
+- Batteries
 - Generators
 - EV chargers
 - Temperature sensors
