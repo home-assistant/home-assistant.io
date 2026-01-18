@@ -70,6 +70,10 @@ tap_action:
   required: false
   description: Action taken on card tap. See [action documentation](/dashboards/actions/#tap-action). By default, it will show the "more-info" dialog.
   type: map
+show_tap_action_indicator:
+  required: false
+  description: Show an indicator icon for the configured tap action. By default, when a `tap_action` is explicitly configured, an icon is displayed to indicate the action type (for example, a chevron for navigation, an external link icon for URLs). Set to `false` to hide the indicator.
+  type: boolean
 hold_action:
   required: false
   description: Action taken on tap-and-hold. See [action documentation](/dashboards/actions/#hold-action).
