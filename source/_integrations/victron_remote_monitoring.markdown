@@ -22,11 +22,25 @@ related:
 ha_quality_scale: bronze
 ---
 
-The **Victron Remote Monitoring** (VRM) {% term integration %} pulls site statistics, solar production and consumption forecasts from [Victron Energy](https://www.victronenergy.com/)'s <abbr title="Victron Remote Monitoring">VRM</abbr> portal into Home Assistant. It provides day-ahead, next-hour, and six-day outlooks for both production and consumption. It also includes peak-time predictions. The integration requires at least 30 days of VRM history before forecasts become available.
+The **Victron Remote Monitoring** (VRM) {% term integration %} pulls site statistics, device data, and solar production and consumption forecasts from [Victron Energy](https://www.victronenergy.com/)'s <abbr title="Victron Remote Monitoring">VRM</abbr> portal into Home Assistant. It provides day-ahead, next-hour, and six-day outlooks for both production and consumption. It also includes peak-time predictions. The integration requires at least 30 days of VRM history before forecasts become available.
+
+## Supported devices
+
+The integration brings devices and metrics from your VRM site into Home Assistant, including:
+
+- Victron system, VEBus and settings
+- Grid meters and other energy meters
+- PV inverters
+- Solar chargers
+- Inverters
+- Generators
+- EV chargers
+- Temperature sensors
+- Tank level sensors
 
 ## Prerequisites
 
-- <abbr title="Victron Remote Monitoring">VRM</abbr> access token (keep this secret!). Create one in the VRM Portal under **Preferences** > **Integrations** > **Access tokens** or use [this link](https://vrm.victronenergy.com/access-tokens).
+- <abbr title="Victron Remote Monitoring">VRM</abbr> access token. Keep this secret. Create one in the VRM Portal under **Preferences** > **Integrations** > **Access tokens** or use [this link](https://vrm.victronenergy.com/access-tokens).
 - Access to your site(s) with the account used to create the token.
 
 ### Forecast requirements
@@ -49,9 +63,21 @@ Your <abbr title="Victron Remote Monitoring">VRM</abbr> access token grants full
 2. After validation, the integration automatically fetches the list of sites available to that token.
 3. Select your site from the dropdown and finish the setup.
 
+## Configuration options
+
+The integration provides the following configuration options:
+
+{% configuration_basic %}
+Update frequency:
+  description: >
+    How often device metrics are updated, in seconds. Use 0 to update
+    immediately. Set a value from 1 to 3600 to throttle updates and reduce
+    update volume. Default: 5 seconds.
+{% endconfiguration_basic %}
+
 ## Data updates
 
-The <abbr title="Victron Remote Monitoring">VRM</abbr> integration fetches fresh data from the VRM API every 60 minutes.
+The <abbr title="Victron Remote Monitoring">VRM</abbr> integration updates forecast data from the VRM API every 60 minutes. Device metrics update based on the **Update frequency** option, which defaults to 5 seconds.
 
 ## Sensor entities
 
@@ -79,23 +105,38 @@ The <abbr title="Victron Remote Monitoring">VRM</abbr> integration fetches fresh
 - Peak consumption time — Today
 - Peak consumption time — Tomorrow
 
+### Device metrics
+
+The following device categories expose metrics in Home Assistant. The exact entities depend on your VRM site and connected devices.
+
+- Victron system, VEBus and settings
+- Grid meters and other energy meters
+- PV inverters
+- Solar chargers
+- Inverters
+- Generators
+- EV chargers
+- Temperature sensors
+- Tank level sensors
+
 ## Adding Victron Remote Monitoring to the Energy dashboard
 
 Solar production forecasts can be added to the built-in [Energy dashboard](/docs/energy/) to visualize expected solar production alongside your actual energy data.
 
-### Prerequisites 
+### Prerequisites
 
-- You must first add your solar panels to the Energy dashboard. 
-   - If you have not already done so, follow the instructions in the [Energy dashboard documentation](/docs/energy/) to add your solar panels.
+- You must first add your solar panels to the Energy dashboard.
+- If you have not already done so, follow the instructions in the [Energy dashboard documentation](/docs/energy/) to add your solar panels.
 
 ### To add Victron Remote Monitoring to the Energy dashboard
 
 1. Go to {% my energy title="**Settings** > **Dashboards** > **Energy**" %}.
 2. In the **Solar panels** section, edit your solar panels and enable the **Forecast production** option.
 3. Select the desired Victron Remote Monitoring installation from the list of available forecast providers.
-4. Select **Save**. 
-   - No additional parameters are required. The integration retrieves the forecast from your VRM data.
-   - **Result**: The forecast will now appear in your Energy dashboard's solar production graph.
+4. Select **Save**
+
+    - No additional parameters are required. The integration retrieves the forecast from your VRM data.
+    - **Result**: The forecast will now appear in your Energy dashboard's solar production graph.
 
 ## Troubleshooting
 
