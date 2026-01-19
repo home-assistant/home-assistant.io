@@ -83,19 +83,16 @@ The integration creates the following sensors:
 - **Connector phase count**: Phase count of the connected attachment.
 - **Connector max current** (A): Max current of the connected attachment.
 - **Connector type**: Attachment type (for example Type 2, CEE, domestic).
-- **Connector serial**: Attachment serial number.
+- **Connector serial**: Attachment serial number (disabled by default).
 
 ##### Grid
 
 - **Grid voltage** (V): Detected grid voltage type.
 - **Grid frequency** (Hz): Detected grid frequency.
-- **Grid phases**: Connected phases on grid side (for example L1, L1/L2/L3).
 
 ##### Network
 
-- **IP address**: IP address of the NRGkick device.
-- **MAC address**: MAC address of the NRGkick device.
-- **SSID**: Wi-Fi network name of the currently connected network.
+- **SSID**: Wi-Fi network name of the currently connected network (disabled by default).
 - **Signal strength** (dBm): Wi-Fi signal strength (RSSI).
 
 ##### Cellular (only if available)
@@ -105,31 +102,6 @@ These sensors are only available on NRGkick SIM models and are disabled by defau
 - **Cellular operator**: Cellular network operator.
 - **Cellular signal strength** (dBm): Cellular signal strength (RSSI).
 - **Cellular mode**: Cellular mode.
-
-##### GPS (only if available)
-
-These sensors are only available on NRGkick SIM models and are disabled by default.
-
-- **GPS latitude** (°): GPS latitude.
-- **GPS longitude** (°): GPS longitude.
-- **GPS altitude** (m): GPS altitude.
-- **GPS accuracy** (m): GPS accuracy.
-
-##### Versions
-
-These sensors are disabled by default.
-
-- **Software version**: SmartModule software version.
-- **Hardware version**: SmartModule hardware version.
-
-#### Device control
-
-These values are exposed as sensors for monitoring. Setting charging parameters from Home Assistant is not supported in this version of the integration.
-
-- **Charging current set** (A): User-set charging current setpoint (Range: 6.0 - rated_current (16.0A / 32.0A)).
-- **Charge pause**: Charge pause state (0 = no pause / 1 = pause).
-- **Energy limit** (kWh): User-set energy limit setpoint (0 = no limit, >0 limit).
-- **Phase count**: User-set maximum charge phase count (Note: Only set-able if phase-switch got enabled within the NRGkick-App. Range 1-3).
 
 #### Device values
 
@@ -141,41 +113,39 @@ These values are exposed as sensors for monitoring. Setting charging parameters 
 ##### Powerflow
 
 - **Charging current** (A): Max current signaled to the EV.
-- **Peak power** (W): Highest power during the most recent charge session.
+- **Peak power** (W): Highest power during the most recent charge session (disabled by default).
 - **Total active power** (W): Total active power across all phases.
-- **Total reactive power** (var): Total reactive power across all phases.
-- **Total apparent power** (VA): Total apparent power across all phases.
-- **Total power factor** (%): Power factor across all phases.
+- **Total reactive power** (var): Total reactive power across all phases (disabled by default).
+- **Total apparent power** (VA): Total apparent power across all phases (disabled by default).
+- **Total power factor** (%): Power factor across all phases (disabled by default).
 - **Charging voltage** (V): Average charging voltage across phases.
-- **Powerflow grid frequency** (Hz): Grid frequency reported in powerflow data.
-- **L1 voltage** (V): Voltage on phase L1.
+- **Powerflow grid frequency** (Hz): Grid frequency reported in powerflow data (disabled by default).
+- **L1 voltage** (V): Voltage on phase L1 (disabled by default).
 - **L1 current** (A): Current on phase L1.
 - **L1 active power** (W): Active power on phase L1.
-- **L1 reactive power** (var): Reactive power on phase L1.
-- **L1 apparent power** (VA): Apparent power on phase L1.
-- **L1 power factor** (%): Power factor on phase L1.
-- **L2 voltage** (V): Voltage on phase L2.
+- **L1 reactive power** (var): Reactive power on phase L1 (disabled by default).
+- **L1 apparent power** (VA): Apparent power on phase L1 (disabled by default).
+- **L1 power factor** (%): Power factor on phase L1 (disabled by default).
+- **L2 voltage** (V): Voltage on phase L2 (disabled by default).
 - **L2 current** (A): Current on phase L2.
 - **L2 active power** (W): Active power on phase L2.
-- **L2 reactive power** (var): Reactive power on phase L2.
-- **L2 apparent power** (VA): Apparent power on phase L2.
-- **L2 power factor** (%): Power factor on phase L2.
-- **L3 voltage** (V): Voltage on phase L3.
+- **L2 reactive power** (var): Reactive power on phase L2 (disabled by default).
+- **L2 apparent power** (VA): Apparent power on phase L2 (disabled by default).
+- **L2 power factor** (%): Power factor on phase L2 (disabled by default).
+- **L3 voltage** (V): Voltage on phase L3 (disabled by default).
 - **L3 current** (A): Current on phase L3.
 - **L3 active power** (W): Active power on phase L3.
-- **L3 reactive power** (var): Reactive power on phase L3.
-- **L3 apparent power** (VA): Apparent power on phase L3.
-- **L3 power factor** (%): Power factor on phase L3.
-- **Neutral current** (A): Current on neutral conductor (N).
+- **L3 reactive power** (var): Reactive power on phase L3 (disabled by default).
+- **L3 apparent power** (VA): Apparent power on phase L3 (disabled by default).
+- **L3 power factor** (%): Power factor on phase L3 (disabled by default).
+- **Neutral current** (A): Current on neutral conductor (N) (disabled by default).
 
 ##### General
 
 - **Charging rate**: Charging rate with considered user defined average consumption of the EV in Kilometer per Hour.
-- **Vehicle connect time** (s): Connect time of the most recent charge session.
+- **Vehicle connected since**: Timestamp derived from the device-reported connection time.
 - **Vehicle charging time** (s): Charging time of the most recent charge session.
 - **Status**: Charging status (for example standby, connected, charging, error).
-- **Charge permitted**: Whether the EV is allowed to charge (1) or not (0).
-- **Relay state**: Current switched relay state (for example active phases).
 - **Charge count**: Vehicle plug-in cycle count.
 - **RCD trigger**: Indicates if the RCD got triggered and which type.
 - **Warning code**: Current warning code reported by the device.
@@ -192,7 +162,7 @@ These values are exposed as sensors for monitoring. Setting charging parameters 
 
 ### Controls
 
-Support for charging control will be added in a later release.
+Support for getting more details about the charging status as well as charging control will be added in a later release.
 
 ### Key entities
 
