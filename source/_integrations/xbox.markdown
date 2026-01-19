@@ -306,9 +306,9 @@ The Xbox media source platform lets your browse your own and community gameclips
 
 The Xbox {% term integration %} provides the following service to access detailed gaming information.
 
-### Service `xbox.get_recently_played_games`
+### Service: Get recently played games
 
-Retrieves detailed information about your recently played games from Xbox Network. This service returns comprehensive data about up to 10 recently played games, including achievement progress, gamerscore, timestamps, and game metadata. You can use this service to create custom template sensors or automations based on your gaming activity.
+Retrieves detailed information about your recently played games from Xbox Network using the `xbox.get_recently_played_games` service. This service returns comprehensive data about up to 10 recently played games, including achievement progress, gamerscore, timestamps, and game metadata. You can use this service to create custom template sensors or automations based on your gaming activity.
 
 The service returns the following information:
 
