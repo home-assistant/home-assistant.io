@@ -27,9 +27,9 @@ related:
     title: AWS Bedrock console
 ---
 
-The **AWS Bedrock** {% term integration %} adds conversation agents and AI task entities powered by [Amazon Bedrock](https://aws.amazon.com/bedrock/) foundation models in Home Assistant. AWS Bedrock provides access to multiple AI models from providers including Anthropic Claude, Amazon Nova, Meta Llama, Mistral, and more.
+The **AWS Bedrock** {% term integration %} adds conversation agents and AI task entities powered by [Amazon Bedrock](https://aws.amazon.com/bedrock/) foundation models in Home Assistant. AWS Bedrock provides access to multiple AI models from providers including Anthropic Claude, Amazon Nova, Meta Llama, Mistral, and more.  You can use this to control your lights using natural voice commands powered by Claude or Nova models
 
-Controlling Home Assistant is done by providing the AI access to the Assist API of Home Assistant. You can control what devices and entities it can access from the {% my voice_assistants title="exposed entities page" %}. The AI can provide you information about your devices and control them.
+Controlling Home Assistant is done by providing the AI access to the Assist <abbr title="Application Programming Interface">API</abbr> of Home Assistant. You can control what devices and entities it can access from the {% my voice_assistants title="exposed entities page" %}. The AI can provide you information about your devices and control them.
 
 This integration does not integrate with [sentence triggers](/docs/automation/trigger/#sentence-trigger).
 
@@ -42,7 +42,7 @@ Before setting up this integration, you need:
 ### AWS account requirements
 
 1. An active AWS account. If you don't have one, [sign up for AWS](https://portal.aws.amazon.com/billing/signup).
-2. An IAM user with programmatic access (Access Key ID and Secret Access Key) or temporary credentials.
+2. An <abbr title="Identity and Access Management">IAM</abbr> user with programmatic access (Access Key ID and Secret Access Key) or temporary credentials.
 3. IAM permissions for AWS Bedrock and AWS Marketplace.
 
 ### IAM permissions
@@ -210,7 +210,7 @@ Anthropic Claude models excel at complex reasoning and analysis:
 - **Claude 3 Sonnet** (`anthropic.claude-3-sonnet-*`) - Strong performance, faster responses
 - **Claude 3 Haiku** (`anthropic.claude-3-haiku-*`) - Fast and cost-effective
 
-Claude models support XML tags for structured prompts and can process PDF documents with citations. They support both text and image inputs (vision).
+Claude models support <abbr title="Extensible Markup Language">XML</abbr> tags for structured prompts and can process PDF documents with citations. They support both text and image inputs (vision).
 
 #### Other supported models
 
@@ -285,7 +285,7 @@ automation:
       - action: conversation.process
         data:
           agent_id: conversation.aws_bedrock_conversation
-          text: "It's getting hot outside. What should I do with my home climate?"
+          text: "It's hot outside. What should I do with my home climate?"
 ```
 
 ## Using AI task entities
@@ -331,7 +331,7 @@ The AI automatically calls the appropriate tools to fulfill your requests. Tool 
 Vision-enabled models can process:
 
 - **Images**: JPEG, PNG, GIF, WebP formats
-- **PDF documents**: Full PDF document analysis
+- **PDF documents**: Full <abbr title="Portable Document Format">PDF</abbr> document analysis
 
 Attachments are automatically converted to the format required by AWS Bedrock.
 
@@ -495,7 +495,7 @@ aws bedrock list-foundation-models --region us-east-1
   - `eu-central-1` (Europe - Frankfurt)
 - If running Home Assistant in a container or isolated environment, ensure it can access external networks
 - Check AWS service health at the [AWS Service Health Dashboard](https://health.aws.amazon.com/health/status)
-- Verify your DNS can resolve `*.amazonaws.com` domains
+- Verify your <abbr title="Domain Name System">DNS</abbr> can resolve `*.amazonaws.com` domains
 
 ### Web search not working
 
