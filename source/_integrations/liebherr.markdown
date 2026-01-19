@@ -177,15 +177,15 @@ The API key provided is incorrect, expired, or was regenerated in the SmartDevic
 
 The API key is valid, but no appliances are currently connected to the Liebherr SmartDevice cloud service.
 
-1. **Check appliance connectivity**:
+1. Check appliance connectivity:
    - Open the SmartDevice app and verify your appliances are shown as connected (not just registered).
    - Ensure your appliances have an active WiFi connection.
 
-2. **Reconnect appliances**:
+2. Reconnect appliances:
    - If your appliances show as disconnected in the app, reconnect them to your WiFi network.
    - Follow the [setup instructions](https://go.liebherr.com/cb2ct1) to reconnect.
 
-3. **Wait for synchronization**:
+3. Wait for synchronization:
    - After reconnecting appliances, wait a few minutes for them to synchronize with the cloud service.
    - Try setting up the integration again.
 
