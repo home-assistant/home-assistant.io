@@ -21,36 +21,48 @@ The `splunk` integration makes it possible to log all state changes to an extern
 
 ## Configuration
 
+The Splunk integration is configured through the Home Assistant user interface. YAML configuration is only used when you need to filter which entities are sent to Splunk.
+
+This integration supports a single instance only.
+
+### Configuration via the user interface
+
+To add the Splunk integration to your Home Assistant instance, use this My button:
+
+{% my config_flow_start badge domain=page.ha_domain %}
+
+{% details "Manual configuration steps" %}
+
+If the above My button doesn't work, you can also perform the following steps manually:
+
+- Browse to your Home Assistant instance.
+- Go to {% my integrations title="**Settings** > **Devices & Services**" %}.
+- In the bottom right corner, select the
+  {% my config_flow_start badge icon domain=page.ha_domain %} button.
+- From the list, select **Splunk**.
+- Follow the instructions on screen to complete the setup.
+
+{% enddetails %}
+
+### Configuration via YAML
+
+YAML configuration is only required if you need to filter which entities are sent to Splunk. The integration supports a single instance, and entity filters defined in YAML will be applied to the config entry.
+
+If you don't need entity filtering, use the UI configuration instead.
+
+To configure entity filtering, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
+
+```yaml
+# Example configuration.yaml entry with entity filter
+splunk:
+  filter:
+    include_domains:
+      - sensor
+      - binary_sensor
+```
+
 {% configuration %}
-token:
-  description: The HTTP Event Collector Token already created in your Splunk instance.
-  required: true
-  type: string
-host:
-  description: "IP address or host name of your Splunk host, e.g., 192.168.1.10."
-  required: false
-  default: localhost
-  type: string
-port:
-  description: Port to use.
-  required: false
-  default: 8088
-  type: integer
-ssl:
-  description: Use HTTPS instead of HTTP to connect.
-  required: false
-  default: false
-  type: boolean
-verify_ssl:
-  description: Allows you do disable checking of the SSL certificate.
-  required: false
-  default: true
-  type: boolean
-name:
-  description: This parameter allows you to specify a friendly name to send to Splunk as the host, instead of using the name of the HEC.
-  required: false
-  default: "`HASS`"
-  type: string
 filter:
   description: Filters for entities to be included/excluded from Splunk. Default is to include all entities. ([Configure Filter](#configure-filter))
   required: false
@@ -89,7 +101,6 @@ By default, no entity will be excluded. To limit which entities are being expose
 ```yaml
 # Example filter to include specified domains and exclude specified entities
 splunk:
-  token: YOUR_SPLUNK_TOKEN
   filter:
     include_domains:
       - alarm_control_panel
