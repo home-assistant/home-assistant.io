@@ -5,7 +5,7 @@ green:
     - name: Amazon US
       ship_from: US
       ship_to: North America
-      url: https://www.amazon.com/dp/B0CXVKSG19?maas=maas_adg_BB51722E249D328CABB2F6DF1F8976CC_afap_abs&ref_=aa_maas&tag=maas
+      url: https://www.amazon.com/dp/B0CXVKSG19
       logo: /images/distributors/amazon.webp
     - name: Apollo Automation
       ship_from: US & Canada
@@ -522,7 +522,7 @@ zwa-2:
     - name: Amazon
       ship_from: US
       ship_to: North America
-      url: https://www.amazon.com/dp/B0FL858V4Q?maas=maas_adg_73AFDD563FE8A4927464DA26BC06556F_afap_abs&ref_=aa_maas&tag=maas
+      url: https://www.amazon.com/dp/B0FL858V4Q
       logo: /images/distributors/amazon.webp
     - name: Apollo Automation
       ship_from: US & Canada

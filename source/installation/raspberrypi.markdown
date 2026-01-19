@@ -14,11 +14,11 @@ Included section for this page is located under source/_includes/installation
 
 We will need a few things to get started with installing Home Assistant.
 
-- [Raspberry Pi 5](https://amzn.to/3UH6TcD) or [Raspberry Pi 4](https://amzn.to/2S0Gcl1) with [power supply](https://amzn.to/2ReZ2Vq) (make sure to choose a model with at least 2&nbsp;GB of RAM).
-- [Micro SD Card](https://amzn.to/2X0Z2di).
+- [Raspberry Pi 5](https://www.amazon.com/dp/B0CRSPKPNG) or [Raspberry Pi 4](https://www.amazon.com/dp/B07TC2BK1X) with [power supply](https://www.amazon.com/dp/B07TYQRXTK) (make sure to choose a model with at least 2&nbsp;GB of RAM).
+- [Micro SD Card](https://www.amazon.com/dp/B07G3GMRYF).
   - Ideally get one that is [Application Class 2](https://www.sdcard.org/developers/overview/application/index.html). Check for the label **A2** on the card. Application Class 2 cards perform better especially on small read and write operations and are better suited to host applications.
   - Make sure to use a card that provides at least 32&nbsp;GB.
-- SD Card reader. This is already part of most laptops, but you can purchase a [standalone USB adapter](https://amzn.to/4lkMfsu) if you don't have one. The brand doesn't matter, just pick the cheapest.
+- SD Card reader. This is already part of most laptops, but you can purchase a [standalone USB adapter](https://www.amazon.com/dp/B0B9QZ4W4Y) if you don't have one. The brand doesn't matter, just pick the cheapest.
 - [Ethernet cable](https://amzn.com/dp/B00N2VISLW). Required for installation. After installation, Home Assistant can work with Wi-Fi, but an Ethernet connection is more reliable and highly recommended.
 
 {% note %}

@@ -161,6 +161,6 @@ Give your voice assistant personality using the OpenAI integration.
 </p>
 
 [voip]: https://www.home-assistant.io/integrations/voip/
-[ht801]: https://amzn.to/40k7mRa
+[ht801]: https://www.amazon.com/dp/B06XW1BQHC
 
 _Some links on this page are affiliate links and purchases using these links support the Home Assistant project._

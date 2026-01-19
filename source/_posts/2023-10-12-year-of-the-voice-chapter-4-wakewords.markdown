@@ -213,6 +213,6 @@ Thanks to our language leaders for extending the sentence support to all the var
 [Piper]: https://github.com/rhasspy/piper/
 [own-wake-word]: /voice_control/create_wake_word/
 [my-wake-word-addon]: https://my.home-assistant.io/redirect/supervisor_addon/?addon=core_openwakeword
-[Anker PowerConf S330]: https://amzn.to/3tzXUhD
+[Anker PowerConf S330]: https://www.amazon.com/dp/B09FJ7LWX4
 [ESPHome]: https://esphome.io
 [nabucasa]: https://www.nabucasa.com
