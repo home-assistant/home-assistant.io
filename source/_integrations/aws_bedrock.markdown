@@ -461,7 +461,7 @@ To add more conversation agents or AI task entities:
 - Confirm the IAM user has programmatic access enabled (not just console access)
 - Try using the AWS managed policy `AmazonBedrockFullAccess` for troubleshooting
 
-To verify your credentials are working, you can test them using the AWS CLI:
+To verify your credentials are working, you can test them using the AWS <abbr title="Command Line Interface">CLI</abbr>:
 
 ```bash
 aws bedrock list-foundation-models --region us-east-1
