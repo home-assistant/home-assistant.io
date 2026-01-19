@@ -61,7 +61,7 @@ This integration syncs your public IP with your (sub)domain's DNS record every 5
 
 The **Namecheap DynamicDNS** integration relies on an active internet connection to update the DNS record of your (sub)domain. If you encounter issues, verify that your network connection is stable and the Namecheap DynamicDNS service is reachable. Additionally, the Namecheap DynamicDNS service itself may experience downtime, whether unexpected or due to scheduled maintenance.
 
-In any case, when reporting an issue, please enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics), restart the integration, and as soon as the issue reoccurs, stop the debug logging again (*download of debug log file will start automatically*).
+In any case, before reporting an issue, please enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics), restart the integration, and as soon as the issue reoccurs, stop the debug logging again (*download of debug log file will start automatically*).
 
 ## Removing the integration
 
