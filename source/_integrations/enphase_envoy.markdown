@@ -50,6 +50,10 @@ This integration does not work with:
   - an Enlighten cloud username and password.
   - Home Assistant 2023.9 or newer.
 
+{% note %}
+Currently, Multi Factor Authentication for the Enlighten account is not supported by this integration. It should be disabled during Envoy configuration and token refresh.
+{% endnote %}
+
 {% include integrations/config_flow.md %}
 
 ### Required Manual input
@@ -762,6 +766,17 @@ Envoy Metered with a net-consumption CT measures current and energy exchange bet
 In multiphase installations with batteries, in countries with phase-balancing grid meters, the battery will export to the grid on one phase the amount it lacks on another phase. This other phase pulls the missing amount from the grid, as if it is using the grid as a 'transport' between phases. Since the grid meter will balance the amount imported and exported on the two phases, the net result is zero. The Envoy multiphase net-consumption CTs, however, will report the amounts on both phases, resulting in too high export on one and too high import on the other. One may consider using the `lifetime balanced net energy consumption` which is the sum of grid import and export to eliminate this effect. This would require some templating to split these values into import and export values. Alternatively, use the `current net power consumption` or `balanced net power consumption` with a Riemann integral sum helper.
 
 ## Troubleshooting
+
+### Enlighten authentication issues
+
+If you experience authentication errors during the configuration of the Envoy, ensure if Multi Factor Authentication (MFA) is disabled for your Enlighten account. Currently, this integration does not support MFA for token retrieval. If any of the below errors show, verify if MFA is disabled.
+
+- Before HA version 2026.1.2: KeyError: 'is_consumer'
+- As of HA version 2026.1.2
+  - KeyError: 'session_id'
+  - EnvoyAuthenticationError: No session id in Enlighten login reply, disable Multi Factor Authentication
+
+These error may also appear in the log upon token refresh, 11 months after initial token collection.
 
 ### Periodic network connection issues
 
