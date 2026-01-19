@@ -451,7 +451,7 @@ To add more conversation agents or AI task entities:
 
 **Symptom**: "Invalid AWS credentials" error or authentication failure during setup
 
-**Solution**: 
+**Solution**:
 
 - Verify your Access Key ID and Secret Access Key are correctly entered without extra spaces
 - Ensure your IAM user or role has the required Amazon Bedrock permissions (`bedrock:InvokeModel`, `bedrock:Converse`, `bedrock:ListFoundationModels`)
@@ -471,7 +471,7 @@ aws bedrock list-foundation-models --region us-east-1
 
 **Symptom**: Model-specific access errors such as "AccessDeniedException" or "ResourceNotFoundException" when trying to use a model
 
-**Solution**: 
+**Solution**:
 
 - Verify the model is available in your selected AWS region by checking the [supported models documentation](https://docs.aws.amazon.com/bedrock/latest/userguide/models-supported.html)
 - For Anthropic Claude models, you may need to submit use case details through the AWS Bedrock console on first use. This is a one-time requirement that provides immediate access after submission.
@@ -484,7 +484,7 @@ aws bedrock list-foundation-models --region us-east-1
 
 **Symptom**: Connection timeouts, network errors, or "Unable to reach AWS Bedrock" messages
 
-**Solution**: 
+**Solution**:
 
 - Verify your internet connection is working and can reach AWS services
 - Check that your firewall or network security groups allow outbound HTTPS (port 443) connections to AWS
@@ -501,7 +501,7 @@ aws bedrock list-foundation-models --region us-east-1
 
 **Symptom**: "Google API error" or no search results
 
-**Solution**: 
+**Solution**:
 
 - Verify your Google API Key is valid and active
 - Ensure the Custom Search API is enabled in Google Cloud Console
@@ -513,7 +513,7 @@ aws bedrock list-foundation-models --region us-east-1
 
 **Symptom**: Model not using tools correctly or not controlling devices
 
-**Solution**: 
+**Solution**:
 
 - Ensure you're using a model that supports tool use
 - Verify entities are [exposed](/voice_control/voice_remote_expose_devices/) to the conversation agent
