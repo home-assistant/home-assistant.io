@@ -536,7 +536,7 @@ logger:
 ## Privacy and security
 
 - **Credentials**: AWS credentials are stored securely in Home Assistant's encrypted storage
-- **Data transmission**: All API calls use HTTPS to communicate with AWS Bedrock
+- **Data transmission**: All API calls use <abbr title="Hypertext Transfer Protocol Secure">HTTPS</abbr> to communicate with AWS Bedrock
 - **Model processing**: Your data is processed according to [AWS Bedrock's data privacy policies](https://aws.amazon.com/bedrock/data-privacy/)
 - **Web search**: When enabled, search queries and web content are sent to Google's Custom Search API
 - **Third-party services**: This integration only transmits data to AWS and Google (if web search is enabled)
