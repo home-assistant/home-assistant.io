@@ -30,31 +30,31 @@ The **Liebherr** {% term integration %} allows you to control and monitor [Liebh
 
 The following appliances are supported by the integration:
 
-- Liebherr SmartDevice refrigerators and freezers with WiFi connectivity
+- Liebherr SmartDevice refrigerators and freezers with Wi-Fi connectivity
 
 ## Prerequisites
 
 Before setting up the integration, you need to obtain an API key from the Liebherr SmartDevice app:
 
-1. **Connect your appliance**: Download the [SmartDevice app](https://smartdevice.onelink.me/OrY5/8neax8lp) and connect your Liebherr appliance to your home WiFi network. Follow the [setup instructions](https://go.liebherr.com/cb2ct1) to complete the initial configuration.
+1. Connect your appliance: Download the [SmartDevice app](https://smartdevice.onelink.me/OrY5/8neax8lp) and connect your Liebherr appliance to your home WiFi network. Follow the [setup instructions](https://go.liebherr.com/cb2ct1) to complete the initial configuration.
 
-2. **Get your API key**:
-   - Open the SmartDevice app
-   - Go to **Settings**
-   - Select **Become a beta tester**
-   - Activate the **Beta testing HomeAPI**
-   - Select **Generate new key**
-   - Copy the API key
+2. Get your API key:
+   - Open the SmartDevice app.
+   - Go to **Settings**.
+   - Select **Become a beta tester**.
+   - Activate the **Beta testing HomeAPI**.
+   - Select **Generate new key**.
+   - Copy the API key.
 
    {% note %}
    **Important**: The API key can only be copied once from the app. Once you leave the screen, it cannot be retrieved again. If you lose your API key, you'll need to generate a new one.
    {% endnote %}
 
-3. **Verify connectivity**: Only appliances that are connected to the internet via the SmartDevice app can be accessed through the HomeAPI. Appliances that are only registered but not actively connected will not appear in Home Assistant.
+3. Verify connectivity: Only appliances that are connected to the internet via the SmartDevice app can be accessed through the HomeAPI. Appliances that are only registered but not actively connected will not appear in Home Assistant.
 
 {% include integrations/config_flow.md %}
 
-The integration can be automatically discovered via Zeroconf when your appliances are on the same network. If automatic discovery does not work, you can manually add the integration.
+The integration can be automatically discovered when your appliances are on the same network. If automatic discovery does not work, you can manually add the integration.
 
 {% configuration_basic %}
 API key:
@@ -104,10 +104,10 @@ The Liebherr appliances operate based on the temperature unit selected on the de
 
 The **Liebherr** integration enables smart refrigerator and freezer management with practical automation opportunities:
 
-- **Energy optimization**: Adjust cooling temperatures based on door sensors or usage patterns to save energy.
-- **Temperature monitoring**: Send alerts when temperatures exceed safe food storage thresholds.
-- **Vacation mode**: Automatically adjust temperature settings when you're away from home for extended periods.
-- **Smart scheduling**: Integrate with your daily routines to optimize cooling performance and energy consumption.
+- Energy optimization: Adjust cooling temperatures based on door sensors or usage patterns to save energy.
+- Temperature monitoring: Send alerts when temperatures exceed safe food storage thresholds.
+- Vacation mode: Automatically adjust temperature settings when you're away from home for extended periods.
+- Smart scheduling: Integrate with your daily routines to optimize cooling performance and energy consumption.
 
 ## Data updates
 
@@ -123,10 +123,10 @@ If you have more than 2 devices, it is recommended to increase the polling inter
 
 ## Known limitations
 
-- **Cloud dependency**: The integration requires internet connectivity to communicate with the Liebherr SmartDevice HomeAPI cloud service. If your internet connection is down, you won't be able to control your appliances through Home Assistant.
-- **Beta API**: The SmartDevice HomeAPI is currently in beta. Features and functionality may change as Liebherr continues to develop the API.
-- **API key limitations**: The API key can only be copied once from the SmartDevice app. If you lose it, you'll need to generate a new one.
-- **Connected devices only**: Only appliances that are actively connected to the internet via WiFi appear in Home Assistant. Registered but disconnected appliances are not accessible.
+- Cloud dependency: The integration requires internet connectivity to communicate with the Liebherr SmartDevice HomeAPI cloud service. If your internet connection is down, you won't be able to control your appliances through Home Assistant.
+- Beta API: The SmartDevice HomeAPI is currently in beta. Features and functionality may change as Liebherr continues to develop the API.
+- API key limitations: The API key can only be copied once from the SmartDevice app. If you lose it, you'll need to generate a new one.
+- Connected devices only: Only appliances that are actively connected to the internet via Wi-Fi appear in Home Assistant. Registered but disconnected appliances are not accessible.
 
 ## Troubleshooting
 
@@ -140,19 +140,19 @@ This error indicates that Home Assistant cannot establish a connection to the Li
 
 To resolve this issue, try the following steps:
 
-1. **Check internet connectivity**:
+1. Check internet connectivity:
    - Ensure your Home Assistant instance has an active internet connection.
    - Verify that you can access `https://home-api.smartdevice.liebherr.com` from your network.
 
-2. **Verify API key**:
+2. Verify the API key:
    - Double-check that you copied the complete API key from the SmartDevice app.
    - Ensure there are no extra spaces or characters.
 
-3. **Check API status**:
+3. Check the API status:
    - The SmartDevice HomeAPI is a beta service and may occasionally be unavailable.
    - Wait a few minutes and try again.
 
-4. **Regenerate API key** (if needed):
+4. Regenerate the API key (if needed):
    - If you suspect the API key is invalid, generate a new one in the SmartDevice app (**Settings** > **Become a beta tester** > **Generate new key**).
 
 {% enddetails %}
@@ -197,15 +197,15 @@ The API key is valid, but no appliances are currently connected to the Liebherr 
 
 The integration loses connection to the Liebherr cloud service. This can happen due to internet connectivity issues, API service interruptions, or appliance offline status.
 
-1. **Check internet connectivity**:
+1. Check internet connectivity:
    - Ensure your Home Assistant instance has a stable internet connection.
-   - Verify your appliances are connected to WiFi and online in the SmartDevice app.
+   - Verify your appliances are connected to Wi-Fi and online in the SmartDevice app.
 
-2. **Check API service status**:
+2. Check the API service status:
    - The SmartDevice HomeAPI is a beta service and may occasionally be unavailable.
    - Wait a few minutes for the service to recover.
 
-3. **Restart integration**:
+3. Restart the integration:
    - Go to {% my integrations title="**Settings** > **Devices & services**" %}.
    - Select the **Liebherr** integration.
    - Select the three-dot menu {% icon "mdi:dots-vertical" %} and choose **Reload**.
