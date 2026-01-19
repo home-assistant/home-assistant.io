@@ -163,7 +163,7 @@ To resolve this issue, try the following steps:
 
 The API key provided is incorrect, expired, or was regenerated in the SmartDevice app.
 
-1. **Generate new API key**:
+1. **Generate a new API key:
    - In the SmartDevice app, go to **Settings** > **Become a beta tester**.
    - Generate a new API key.
    - Copy it immediately (you can only copy it once).
