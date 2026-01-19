@@ -11,7 +11,7 @@ ha_iot_class: Local Polling
 ha_domain: libre_hardware_monitor
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: device
 ha_quality_scale: silver
 ---
 

@@ -24,7 +24,7 @@ ha_platforms:
   - light
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The **microBees** {% term integration %} allows you to control your [microBees devices](https://www.microbees.com/) such as plugs and wall switches.

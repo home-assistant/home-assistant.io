@@ -308,17 +308,12 @@ For reading all messages sent on the topic `homeassistant` to a broker running o
 mosquitto_sub -h 127.0.0.1 -v -t "homeassistant/#"
 ```
 
-## Sharing of device configuration
-
-MQTT entities can share device configuration, meaning one entity can include the full device configuration and other entities can link to that device by only setting mandatory fields.
-The mandatory fields were previously limited to at least one of `connection` and `identifiers`, but have now been extended to at least one of `connection` and `identifiers` as well as the `name`.
-
 ## Naming of MQTT Entities
 
 For every configured MQTT entity Home Assistant automatically assigns a unique `entity_id`. If the `unique_id` option is configured, you can change the `entity_id` after creation, and the changes are stored in the Entity Registry. The `entity_id` is generated when an item is loaded the first time.
 
 If the `default_entity_id` option is set, then this will be used to generate the `entity_id`.
-If, for example, we have configured a `sensor`, and we have set `default_entity_id` to `sensor.test`, then Home Assistant will try to assign `sensor.test` as `entity_id`, but if this `entity_id` already exits it will append it with a suffix to make it unique, for example, `sensor.test_2`.
+If, for example, we have configured a `sensor`, and we have set `default_entity_id` to `sensor.test`, then Home Assistant will try to assign `sensor.test` as `entity_id`. If `sensor.test` already exists, Home Assistant will append a suffix to make it unique, for example, `sensor.test_2`.
 
 This means any MQTT entity which is part of a device will [automatically have its `friendly_name` attribute prefixed with the device name](https://developers.home-assistant.io/docs/core/entity/#has_entity_name-true-mandatory-for-new-integrations)
 
@@ -329,7 +324,7 @@ Note that on each MQTT entity, the `has_entity_name` attribute will be set to `T
 
 ## MQTT Discovery
 
-The discovery of MQTT devices will enable one to use MQTT devices with only minimal configuration effort on the side of Home Assistant. The configuration is done on the device itself and the topic used by the device. Similar to the [HTTP binary sensor](/integrations/http/#binary-sensor) and the [HTTP sensor](/integrations/http/#sensor). To prevent multiple identical entries if a device reconnects, a unique identifier is necessary. Two parts are required on the device side: The configuration topic which contains the necessary device type and unique identifier, and the remaining device configuration without the device type.
+The discovery of MQTT devices will enable one to use MQTT devices with only minimal configuration effort on the side of Home Assistant. The configuration is done on the device itself and the topic used by the device. Similar to the [HTTP binary sensor](/integrations/http/#binary-sensor) and the [HTTP sensor](/integrations/http/#sensor). To prevent multiple identical entries if a device reconnects, a unique identifier is necessary. Two parts are required on the device side: The configuration topic, and the device configuration as payload.
 
 MQTT discovery is enabled by default, but can be disabled. The prefix for the discovery topic (default `homeassistant`) can be changed.
 See the [MQTT Options sections](#configure-mqtt-options)
@@ -340,6 +335,13 @@ Documentation on the MQTT components that support MQTT discovery [can be found h
 
 ### Discovery messages
 
+MQTT discovery supports two types of discovery messages:
+
+- [Device discovery](/integrations/mqtt/#device-discovery-payload), which allows you to include several components in a single discovery message
+- [Single component discovery](/integrations/mqtt/#single-component-discovery-payload), where you publish a separate discovery message for each component
+
+If you use a device with multiple components, it is recommended to use MQTT device discovery. It reduces the number of messages sent, and allows you to send the device information only once.
+
 #### Discovery topic
 
 The discovery topic needs to follow a specific format:
@@ -349,20 +351,21 @@ The discovery topic needs to follow a specific format:
 ```
 
 - `<discovery_prefix>`: The Discovery Prefix defaults to `homeassistant` and this prefix can be [changed](#discovery-options).
-- `<component>`: One of the supported MQTT integrations, e.g., `binary_sensor`, or `device` in case of a device discovery.
+- `<component>`: One of the supported MQTT integrations, e.g., `binary_sensor`, or `device` in case of device discovery.
 - `<node_id>`: (*Optional*):  ID of the node providing the topic, this is not used by Home Assistant but may be used to structure the MQTT topic. The ID of the node must only consist of characters from the character class `[a-zA-Z0-9_-]` (alphanumerics, underscore and hyphen).
-- `<object_id>`: The ID of the device. This is only to allow for separate topics for each device and is not used for the `entity_id`. The ID of the device must only consist of characters from the character class `[a-zA-Z0-9_-]` (alphanumerics, underscore and hyphen).
+- `<object_id>`: The ID of the device. This allows for separate topics for each device. The ID of the device must only consist of characters from the character class `[a-zA-Z0-9_-]` (alphanumerics, underscore and hyphen).
 
-The `<node_id>` level can be used by clients to only subscribe to their own (command) topics by using one wildcard topic like `<discovery_prefix>/+/<node_id>/+/set`.
+> **Note:** The `<object_id>` in the topic does not influence the resulting `entity_id`; use `default_entity_id` if you need to control the `entity_id`.
+The `<node_id>` is optional, and can be used by clients to subscribe to their own (command) topics by using one wildcard topic like `<discovery_prefix>/+/<node_id>/+/set`.
 
-Best practice for entities with a `unique_id` is to set `<object_id>` to `unique_id` and omit the `<node_id>`.
+Best practice for entities with a `unique_id` is to set `<object_id>` to the `unique_id` and omit the `<node_id>`.
 
 #### Device discovery payload
 
 A device can send a discovery payload to expose all components for a device.
 The `<component>` part in the discovery topic must be set to `device`.
 
-As an alternative, it is also possible a device [can send a discovery payload for each component](/integrations/mqtt/#single-component-discovery-payload) it wants to set up.
+As an alternative, it is also possible for a device [to send a discovery payload for each component](/integrations/mqtt/#single-component-discovery-payload) it wants to set up.
 
 The shared options at the root level of the JSON message must include:
 
@@ -418,6 +421,10 @@ The component specific options are placed as mappings under the `components` key
   "qos": 2
 }
 ```
+
+{% note %}
+To see what each abbreviation stands for, refer to the [list of supported abbreviations in MQTT discovery messages](/integrations/mqtt/#supported-abbreviations-in-mqtt-discovery-messages).
+{% endnote %}
 
 The components id's under the `components` (`cmps`) key, are used as part of the discovery identification. A `platform` (`p`) config option is required for each component config that is added to identify the component platform. Also required is a `unique_id` for entity-based components.
 
@@ -498,16 +505,16 @@ A component config part in a device discovery payload must have the `platform` (
 
 </div>
 
-##### Migration from single component to device-based discovery
+##### Migration from single component to device discovery
 
-To allow a smooth migration from single component discovery to device-based discovery:
+To allow a smooth migration from single component discovery to device discovery:
 
 1. Ensure all entities have a `unique_id` and a `device` context.
 2. Move the `object_id` inside the discovery payload, if that is available, or use a unique ID or the component.
 3. Consider using the previous `node_id` as the new `object_id` of the device discovery topic.
 4. Ensure the `unique_id` matches and the `device` context has the correct identifiers.
 5. Send the following payload to all existing single component discovery topics: `{"migrate_discovery": true }`. This will unload the discovered item, but its settings will be retained.
-6. Switch the discovery topic to the device-based discovery topic and include all the component configurations.
+6. Switch the discovery topic to the device discovery topic and include all the component configurations.
 7. Clean up the single component discovery messages with an empty payload.
 
 During the migration steps, INFO messages will be logged to inform you about the progress of the migration.
@@ -561,7 +568,7 @@ Discovery payload single:
 
 **Step 2: Initiate migration by publishing to both discovery topics:**
 
-When these single component discovery payloads are processed, and we want to initiate migration to a device-based discovery, we need to publish ...
+When these single component discovery payloads are processed, and we want to initiate migration to device discovery, we need to publish ...
 
 ```json
 {"migrate_discovery": true }
@@ -576,7 +583,7 @@ When these single component discovery payloads are processed, and we want to ini
 Check the logs to ensure this step is executed correctly.
 {% endimportant %}
 
-**Step 3: Publish the new device-based discovery configuration:**
+**Step 3: Publish the new device discovery configuration:**
 
 Discovery topic device: `homeassistant/device/0AFFD2/config`
 Discovery id: `0AFFD2 bla` *(`0AFFD2`from discovery topic, `bla`: The key under `cmps` in the discovery payload)*
@@ -627,16 +634,23 @@ To rollback publish ...
 {"migrate_discovery": true }
 ```
 
-To the device-based discovery topic(s).
+To the device discovery topic(s).
 After that, re-publish the single component discovery payloads.
-At last, clean up the device-based discovery payloads by publishing an empty payload.
+At last, clean up the device discovery payloads by publishing an empty payload.
 
 Check the logs for every step.
 
 #### Single component discovery payload
 
-The `<component>` part in the discovery topic must be one of the supported MQTT-platforms.
-The options in the payload are only used to set up one specific component. If there are more components, more discovery payloads need to be sent for the other components, and it is then recommended to use [device-based discovery](/integrations/mqtt/#device-discovery-payload) instead.
+When using single component discovery messages, the `<component>` part in the discovery topic must be one of the supported MQTT platforms.
+
+The options in the payload are only used to set up one specific component. If a device contains multiple components, it is recommended to use [device discovery](/integrations/mqtt/#device-discovery-payload) instead.
+
+MQTT entities can share device configuration, meaning one entity can include the full device configuration and other entities can link to that device by only setting mandatory fields.
+
+{% important %}
+The mandatory fields were previously limited to at least one of `connection` and `identifiers`, but have now been extended to at least one of `connection` and `identifiers` as well as the `name`.
+{% endimportant %}
 
 Example discovery payload:
 
@@ -682,7 +696,7 @@ In the value of configuration variables ending with `_topic`, `~` will be replac
 
 Configuration variable names in the discovery payload may be abbreviated to conserve memory when sending a discovery message from memory constrained devices.
 
-It is recommended to add information about the origin of MQTT entities by including the `origin` option (abbreviated as `o`) in the discovery payload. For device-based discovery, this information is required. The origin details will be logged in the core event log when an item is discovered or updated. Adding origin information helps with troubleshooting and provides valuable context about the source of MQTT messages in your Home Assistant setup.
+It is recommended to add information about the origin of MQTT entities by including the `origin` option (abbreviated as `o`) in the discovery payload. For device discovery, this information is required. The origin details will be logged in the core event log when an item is discovered or updated. Adding origin information helps with troubleshooting and provides valuable context about the source of MQTT messages in your Home Assistant setup.
 
 Note: These options also support abbreviations, as shown in the table below.
 
@@ -846,8 +860,6 @@ support_url:
     'pl_osc_off':          'payload_oscillation_off',
     'pl_osc_on':           'payload_oscillation_on',
     'pl_paus':             'payload_pause',
-    'pl_stop':             'payload_stop',
-    'pl_strt':             'payload_start',
     'pl_prs':              'payload_press',
     'pl_ret':              'payload_return_to_base',
     'pl_rst':              'payload_reset',
@@ -1283,6 +1295,10 @@ Setting up a switch using topic prefix and abbreviated configuration variable na
 }
 ```
 
+{% note %}
+To see what each abbreviation stands for, refer to the [list of supported abbreviations in MQTT discovery messages](/integrations/mqtt/#supported-abbreviations-in-mqtt-discovery-messages).
+{% endnote %}
+
 #### Another example using abbreviations topic name and base topic
 
 Setting up a [light that takes JSON payloads](/integrations/light.mqtt/#json-schema), with abbreviated configuration variable names:
@@ -1333,27 +1349,11 @@ Setting up a [light that takes JSON payloads](/integrations/light.mqtt/#json-sch
   }
   ```
 
-#### Use object_id to influence the entity ID
-
-The entity ID is automatically generated from the entity's name. All MQTT integrations optionally support providing an `object_id` which will be used instead if provided.
-
-- Configuration topic: `homeassistant/sensor/device1/config`
-- Example configuration payload:
-
-```json
-{
-  "name":"My Super Device",
-  "object_id":"my_super_device",
-  "state_topic": "homeassistant/sensor/device1/state"
- }
-```
-
-In the example above, the entity_id will be `sensor.my_super_device` instead of `sensor.device1`.
-
 ### Support by third-party tools
 
 The following software has built-in support for MQTT discovery:
 
+- [anpr2mqtt](https://anpr2mqtt.rhizomatics.org.uk)
 - [ArduinoHA](https://github.com/dawidchyrzynski/arduino-home-assistant)
 - [Arilux AL-LC0X LED controllers](https://github.com/smrtnt/Arilux_AL-LC0X)
 - [ble2mqtt](https://github.com/devbis/ble2mqtt)
@@ -1374,6 +1374,7 @@ The following software has built-in support for MQTT discovery:
 - [Nuki Smart Lock 3.0 Pro](https://support.nuki.io/hc/articles/12947926779409-MQTT-support), [more info](https://developer.nuki.io/t/mqtt-api-specification-v1-3/17626)
 - [OpenMQTTGateway](https://github.com/1technophile/OpenMQTTGateway)
 - [OTGateway](https://github.com/Laxilef/OTGateway)
+- [rethink](https://github.com/anszom/rethink)
 - [room-assistant](https://github.com/mKeRix/room-assistant) (starting with 1.1.0)
 - [SmartHome](https://github.com/roncoa/SmartHome)
 - [SpeedTest-CLI MQTT](https://github.com/adorobis/speedtest-CLI2mqtt)
@@ -1501,7 +1502,9 @@ script:
 
 The MQTT integration will register the `mqtt.publish` action, which allows publishing messages to MQTT topics.
 
-### Action `mqtt.publish`
+### Action: Publish
+
+The `mqtt.publish` action publishes a message to an MQTT topic.
 
 | Data attribute | Optional | Description                                                  |
 | ---------------------- | -------- | ------------------------------------------------------------ |
@@ -1588,9 +1591,9 @@ qos: 2
 retain: true
 ```
 
-### Action `mqtt.dump`
+### Action: Dump
 
-Listen to the specified topic matcher and dumps all received messages within a specific duration into the file `mqtt_dump.txt` in your configuration folder. This is useful when debugging a problem.
+The `mqtt.dump` action listens to the specified topic matcher and dumps all received messages within a specific duration into the file `mqtt_dump.txt` in your configuration folder. This is useful when debugging a problem.
 
 | Data attribute | Optional | Description                                                                 |
 | ---------------------- | -------- | --------------------------------------------------------------------------- |

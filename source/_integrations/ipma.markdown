@@ -13,7 +13,7 @@ ha_platforms:
   - diagnostics
   - sensor
   - weather
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 The **IPMA** {% term integration %} uses the [Instituto Português do Mar e Atmosfera](https://www.ipma.pt/) as a source for current and forecast meteorological data.

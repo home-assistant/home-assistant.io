@@ -98,9 +98,9 @@ Available {% term actions %}:
 - `set_guest_wifi_password`
 - `dial`
 
-### Action `set_guest_wifi_password`
+### Action: Set guest Wi-Fi password
 
-Set a new password for the guest wifi. The password Length must be between 8 and 63 characters long.
+The `fritz.set_guest_wifi_password` action allows you to set a new password for the guest Wi-Fi. The password length must be between 8 and 63 characters long.
 
 | Data attribute | Required | Description |
 | --- | --- | --- |
@@ -108,9 +108,9 @@ Set a new password for the guest wifi. The password Length must be between 8 and
 | `password` | no | New password for the guest wifi (_will be auto-generated if not defined_) |
 | `length` | no | Length of the auto-generated password. (_default 12_) |
 
-### Action `dial`
+### Action: Dial
 
-Makes the FRITZ!Box dial a phone number.
+The `fritz.dial` action allows you to make the FRITZ!Box dial a phone number.
 
 | Data attribute | Required | Description |
 | --- | --- | --- |

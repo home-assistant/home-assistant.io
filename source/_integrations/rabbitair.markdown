@@ -15,7 +15,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The Rabbit Air integration lets you control your air purifier over the local network. The following device models are currently supported:
+The **Rabbit Air** {% term integration %} lets you control your air purifier over the local network. The following device models are currently supported:
 
 - MinusA2 (2-nd generation)
 - A3

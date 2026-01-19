@@ -17,7 +17,7 @@ ha_integration_type: integration
 ha_zeroconf: true
 ---
 
-The **ROMY** integration allows you to control your [ROMY](https://www.romyrobot.com) vacuum robot.
+The **ROMY** {% term integration %} allows you to control your [ROMY](https://www.romyrobot.com) vacuum robot.
 
 This integration currently supports the following models:
 

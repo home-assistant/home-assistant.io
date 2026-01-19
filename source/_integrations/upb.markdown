@@ -96,9 +96,9 @@ the table below. Note that this table does not apply to blink rates, only to bri
 | 22.5 minutes    | 45 minutes       | 30 minutes
 | 45 minutes      | ∞                | 1 hour
 
-### Action `upb.light_fade_start`
+### Action: Light fade start
 
-Starts a transition of a light to the specified level. Lights that are not dimmable ignore the fade start command.
+The `upb.light_fade_start` action starts a transition of a light to the specified level. Lights that are not dimmable ignore the fade start command.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -107,45 +107,34 @@ Starts a transition of a light to the specified level. Lights that are not dimma
 | `brightness_pct`| no* | Number between 0 and 100 in percentage that specifies how bright the light should be, where 0 means the light is off, 1 is the minimum brightness and 100 is the maximum brightness. *Only one of `brightness` and `brightness_pct` may be used.
 | `rate` | yes | Number that represents the time (in seconds) the light should take to transition to the new state. See section on "Rate Transition Time" for how this time value is interpreted.
 
-### Action `upb.light_fade_stop`
+### Action: Light fade stop
 
-Stop a light when transitioning from one light level to another. Stops either a fade or a goto (goto occurs when using a `light.turn_on` or `light.turn_off`.
+The `upb.light_fade_stop` action stops a light when transitioning from one light level to another. Stops either a fade or a goto (goto occurs when using a `light.turn_on` or `light.turn_off`).
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | UPB light which to stop fading operation.
 
-### Action `upb.light_blink`
+### Action: Light blink
 
-Start a light blinking.
+The `upb.light_blink` action starts a light blinking.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | UPB light which to blink.
 | `rate` | no | Number between 0 and 4.25 that represents the time (in seconds) the rate the light blinks. Note the UPB implementation limits the blink rate to no faster than 1/3 of a second.
 
-### Action `upb.scene_deactivate`
+### Action: Scene deactivate
 
-Deactivate a scene. The term “deactivate” is a general UPB term that usually means to turn to the OFF state, but each individual device manufacturer can define it differently for their device.
+The `upb.scene_deactivate` action deactivates a scene. The term "deactivate" is a general UPB term that usually means to turn to the OFF state, but each individual device manufacturer can define it differently for their device.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | UPB scene to deactivate.
 
-### Action `upb.scene_goto`
+### Action: Scene goto
 
-Starts a transition of a scene to the specified level.
-
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | UPB scene to transition.
-| `brightness` | no* | Integer between 0 and 255 for how bright the scene should be, where 0 means the scene is off, 1 is the minimum brightness and 255 is the maximum brightness. *Only one of `brightness` and `brightness_pct` may be used.
-| `brightness_pct`| no* | Number between 0 and 100 in percentage that specifies how bright the scene should be, where 0 means the scene is off, 1 is the minimum brightness and 100 is the maximum brightness. *Only one of `brightness` and `brightness_pct` may be used.
-| `rate` | yes | Number that represents the time (in seconds) the light should take to transition to the new state. See section on "Rate Transition Time" for how this time value is interpreted.
-
-### Action `upb.scene_fade_start`
-
-Starts a transition of a scene to the specified level. Lights within the scene that are not dimmable ignore the fade start command.
+The `upb.scene_goto` action starts a transition of a scene to the specified level.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -154,17 +143,28 @@ Starts a transition of a scene to the specified level. Lights within the scene t
 | `brightness_pct`| no* | Number between 0 and 100 in percentage that specifies how bright the scene should be, where 0 means the scene is off, 1 is the minimum brightness and 100 is the maximum brightness. *Only one of `brightness` and `brightness_pct` may be used.
 | `rate` | yes | Number that represents the time (in seconds) the light should take to transition to the new state. See section on "Rate Transition Time" for how this time value is interpreted.
 
-### Action `upb.scene_fade_stop`
+### Action: Scene fade start
 
-Stop a scene when transitioning from one light level to another. Stops either a fade or a goto.
+The `upb.scene_fade_start` action starts a transition of a scene to the specified level. Lights within the scene that are not dimmable ignore the fade start command.
+
+| Data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | yes | UPB scene to transition.
+| `brightness` | no* | Integer between 0 and 255 for how bright the scene should be, where 0 means the scene is off, 1 is the minimum brightness and 255 is the maximum brightness. *Only one of `brightness` and `brightness_pct` may be used.
+| `brightness_pct`| no* | Number between 0 and 100 in percentage that specifies how bright the scene should be, where 0 means the scene is off, 1 is the minimum brightness and 100 is the maximum brightness. *Only one of `brightness` and `brightness_pct` may be used.
+| `rate` | yes | Number that represents the time (in seconds) the light should take to transition to the new state. See section on "Rate Transition Time" for how this time value is interpreted.
+
+### Action: Scene fade stop
+
+The `upb.scene_fade_stop` action stops a scene when transitioning from one light level to another. Stops either a fade or a goto.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | UPB scene which to stop fading operation.
 
-### Action `upb.scene_blink`
+### Action: Scene blink
 
-Start a scene blinking.
+The `upb.scene_blink` action starts a scene blinking.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |

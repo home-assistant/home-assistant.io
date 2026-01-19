@@ -13,7 +13,7 @@ ha_config_flow: true
 ha_platforms:
   - sensor
   - weather
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 The **Met Office** weather {% term integration %} uses the Met Office's [DataHub API](https://www.metoffice.gov.uk/services/data/met-office-weather-datahub) for weather data.

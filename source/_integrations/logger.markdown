@@ -139,10 +139,10 @@ logger:
 
 ## Actions
 
-### Action `set_default_level`
+### Action: Set default level
 
-You can alter the default log level (for integrations without a specified log
-level) using the `logger.set_default_level` action.
+The `logger.set_default_level` action alters the default log level (for integrations without a specified log
+level).
 
 An example call might look like this:
 
@@ -152,9 +152,9 @@ data:
   level: info
 ```
 
-### Action `set_level`
+### Action: Set level
 
-You can alter log level for one or several integrations using the `logger.set_level` action.
+The `logger.set_level` action alters the log level for one or several integrations.
 It accepts the same format as `logs` in the configuration.
 
 An example call might look like this:

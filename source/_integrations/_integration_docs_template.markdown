@@ -138,7 +138,7 @@ The integration provides the following actions.
 
 ### Action: Get schedule
 
-The `my_integration.get_schedule` action is used to fetch a schedule from the integration.
+The `my_integration.get_schedule` action allows you to fetch a schedule from the integration.
 
 - **Data attribute**: `config_entry_id`
   - **Description**: The ID of the config entry to get the schedule from.
@@ -152,7 +152,7 @@ The status LEDs on the device can be quite bright.
 To tackle this, you can use this blueprint to easily automate the LEDs turning off when the sun goes down.
 
 link to the blueprint on the [blueprints
-    exchange](https://community.home-assistant.io/c/blueprints-exchange/53)
+    exchange](https://community.home-assistant.io/c/53)
 
 ## Data updates
 

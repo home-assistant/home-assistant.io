@@ -43,9 +43,9 @@ automation:
 See [Automation Trigger Variables: Persistent Notification](/docs/automation/templating/#persistent-notification) 
 for additional trigger data available for conditions or actions.
 
-### Action
+### Action: Create
 
-The `persistent_notification.create` action takes in `message`, `title`, and `notification_id`.
+The `persistent_notification.create` action creates a persistent notification with a message, title, and notification ID.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |

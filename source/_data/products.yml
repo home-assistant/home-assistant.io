@@ -49,6 +49,11 @@ green:
       ship_to: Australia
       url: https://www.smarthome.com.au/product/home-assistant-green/
       logo: /images/distributors/smarthome.webp
+    - name: Apollo Automation
+      ship_from: Australia
+      ship_to: Australia
+      url: https://apolloautomation.com/products/home-assistant-green
+      logo: /images/distributors/apollo.webp
       # Europe
     - name: Alza.cz
       ship_from: Czech Republic
@@ -399,6 +404,11 @@ voice-pe:
       ship_to: Australia
       url: https://smartguys.com.au/product/home-assistant-voice-preview-edition/
       logo: /images/distributors/smart-guys.webp
+    - name: Apollo Automation
+      ship_from: Australia
+      ship_to: Australia
+      url: https://apolloautomation.com/products/home-assistant-voice
+      logo: /images/distributors/apollo.webp
       # Europe
     - name: Alza.cz
       ship_from: Czech Republic

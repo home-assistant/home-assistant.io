@@ -364,7 +364,7 @@ Minimum recommended assignments:
     4. Check the box for **Customize configuration before install**.
     5. Under **Network Selection**, select your bridge.
     6. Under customization select **Overview** > **Firmware** > **UEFI x86_64: ...**. Make sure to select a non-secureboot version of OVMF (does not contain the word `secure`, `secboot`, etc.), e.g., `/usr/share/edk2/ovmf/OVMF_CODE.fd`.
-    7. Click **Add Hardware** (bottom left), and select **Channel**.
+    7. Select **Add Hardware** (bottom left), and select **Channel**.
     8. Select device type: **unix**.
     9. Select name: **org.qemu.guest_agent.0**.
     10. Finally, select **Begin Installation** (upper left corner).
@@ -426,7 +426,7 @@ Minimum recommended assignments:
 
       ## Edit the VM settings
 
-      11. In Windows Explorer, navigate to the storage location of your newly created VM, for example under `C:\home-assistant`.
+      11. In Windows Explorer, go to the storage location of your newly created VM, for example under `C:\home-assistant`.
       12. Delete the `home-assistant.vmdk` file.
       3. In the `Downloads` folder, find the `haos_ova_xx.x.vmdk` file. 
          - If you haven't unzipped the archive, unzip it.

@@ -23,7 +23,7 @@ ha_zeroconf: true
 ha_integration_type: integration
 ---
 
-The `rachio` platform allows you to control your [Rachio irrigation system](https://rachio.com/).
+The **Rachio** {% term integration %} allows you to control your [Rachio irrigation system](https://rachio.com/).
 
 There is currently support for the following device types within Home Assistant:
 
