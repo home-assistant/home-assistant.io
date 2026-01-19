@@ -477,7 +477,7 @@ Energy product data should update regularly without restrictions.
 
 - **Passenger temperature control**: The passenger set temperature is shown as a sensor but cannot be changed through Tessie or Home Assistant. Only the driver's temperature can be controlled.
 - **Field update frequency**: Some vehicle data fields may not update frequently depending on your Tessie subscription tier and field configuration settings.
-- **No reconfiguration**: The integration cannot be reconfigured through the UI. To change your API token or settings, you must remove and re-add the integration.
+- **No reconfiguration**: The integration cannot be reconfigured through the UI. To change your API token, you must remove and re-add the integration.
 - **Software updates**: Vehicle software updates can only be installed from Home Assistant after they have finished downloading to the vehicle.
 
 ## Diagnostics
