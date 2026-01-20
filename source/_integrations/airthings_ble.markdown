@@ -57,6 +57,4 @@ Sensor entities added to Home Assistant, depending on the device model:
 
 ## Removing the integration
 
-This integration follows standard integration removal. No extra steps are required.
-
 {% include integrations/remove_device_service.md %}
