@@ -490,7 +490,6 @@ Features:
 
 Features:
 - get battery
-- get display mode
 - switch picture
 - display current picture
 
