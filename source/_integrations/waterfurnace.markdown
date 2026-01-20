@@ -33,7 +33,19 @@ The sensors provided include:
 
 ## Configuration
 
+
+## Prerequisites
+
 To use Waterfurnace in your installation, you need to configure the integration with your Symphony Waterfurnace account.
+
+{% include integrations/config_flow.md %}
+
+{% configuration_basic %}
+username:
+  description: The email address for your Symphony WaterFurnace account
+password:
+  description: The password for your Symphony WaterFurnace account
+{% endconfiguration_basic %}
 
 ## Limitations
 
