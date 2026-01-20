@@ -712,7 +712,7 @@ These issues may result in log entries like:
 Entity sensor.envoy_123456789012_energy_consumption_today from integration enphase_envoy has state class total_increasing, but its state is not strictly increasing. Triggered by state 12.345 (12.543) with last_updated set to 2025-09-05T18:00:23.432536+00:00. Please create a bug report at ...
 ```
 
-If these entries occur frequently and are a nuisance then disable the entity. It's data is at best doubtful.
+If these entries occur frequently and are a nuisance then disable the entity. Its data is at best doubtful.
 
 ### Lifetime reset
 

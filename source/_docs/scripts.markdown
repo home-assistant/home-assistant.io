@@ -452,7 +452,7 @@ repeat:
 {% endraw %}
 
 Other types are accepted as list items, for example, each item can be a
-template, or even an mapping of key/value pairs.
+template, or even a mapping of key/value pairs.
 
 {% raw %}
 
