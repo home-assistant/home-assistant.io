@@ -4,12 +4,12 @@ description: Instructions on how to integrate AWS Bedrock foundation models as a
 ha_category:
   - AI
   - Voice
-ha_release: 2026.1.2
+ha_release: 2026.2.0
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
   - '@jflatten'
-ha_domain: aws_bedrock
+ha_domain: amazon
 ha_integration_type: service
 ha_platforms:
   - conversation
