@@ -59,7 +59,7 @@ Storing backups outside of Home Assistant makes sure they don't use space on Hom
 
 ## Uninstalling unused add-ons
 
-Apps can take a lot of space, not just the add-on itself but also their data.
+Apps can take a lot of space, not just the app itself but also their data.
 
 1. Go to {% my supervisor title="**Settings** > **Apps**" %}.
 2. Look at your installed add-ons and identify the ones you no longer use.

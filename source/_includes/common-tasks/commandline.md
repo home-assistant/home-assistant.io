@@ -1,6 +1,6 @@
 ## Home Assistant via the command line
 
-On the [SSH command line](/common-tasks/os/#installing-and-using-the-ssh-app), you can use the `ha` command to retrieve logs, check the details of connected hardware, and more.
+On the [SSH command line](/common-tasks/os/), you can use the `ha` command to retrieve logs, check the details of connected hardware, and more.
 
 ### Home Assistant
 
