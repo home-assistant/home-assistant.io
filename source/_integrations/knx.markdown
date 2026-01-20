@@ -1752,6 +1752,10 @@ Number entities without a `state_address` will restore their last known state af
 Numbers that have a `state_address` configured request their current state from the KNX bus.
 {% endnote %}
 
+Number entities can be created from the frontend in the KNX panel or via YAML.
+
+{% details "Configuration of KNX number entities via YAML" %}
+
 ```yaml
 # Example configuration.yaml entry
 knx:
@@ -1818,6 +1822,8 @@ entity_category:
   type: string
   default: None
 {% endconfiguration %}
+
+{% enddetails %}
 
 ## Scene
 
