@@ -11,7 +11,7 @@
 
    - **Upload picture** lets you pick an image from the system used to show your Home Assistant UI.
    - **Local path** lets you pick an image stored on Home Assistant. For example: `/homeassistant/images/lights_view_background_image.jpg`.
-     - To store an image on Home Assistant, you need to [configure access to files](/common-tasks/os/#configuring-access-to-files), for example via [Samba](/common-tasks/os/#installing-and-using-the-samba-add-on) or the [Studio Code Server](/common-tasks/os/#installing-and-using-the-visual-studio-code-vsc-add-on) add-on.
+     - To store an image on Home Assistant, you need to [configure access to files](/common-tasks/os/#configuring-access-to-files), for example via [Samba](/common-tasks/os/#installing-and-using-the-samba-add-on) or the [Studio Code Server](/common-tasks/os/#installing-and-using-the-visual-studio-code-vsc-add-on) app.
    - **web URL** let you use an image from the web. For example `https://www.home-assistant.io/images/frontpage/assist_wake_word.png`.
 
 3. Define the parameters that are specific to the {{ title | downcase }}.
