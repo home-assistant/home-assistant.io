@@ -82,7 +82,7 @@ The following device classes are supported for numbers:
 - **signal_strength**: Signal strength in dB or dBm
 - **sound_pressure**: Sound pressure in dB or dBA
 - **speed**: Generic speed in ft/s, in/d, in/h, in/s, km/h, kn, m/s, mph, mm/d, or mm/s
-- **sulphur_dioxide**: Concentration of sulphur dioxide in µg/m³
+- **sulphur_dioxide**: Concentration of sulphur dioxide in ppb, µg/m³
 - **temperature**: Temperature in °C, °F or K
 - **temperature_delta**: Temperature representing a difference between two values in °C, °F or K
 - **volatile_organic_compounds**: Concentration of volatile organic compounds in µg/m³ or mg/m³
