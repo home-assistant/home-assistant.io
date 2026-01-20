@@ -6,7 +6,7 @@ date: 2025-04-16 00:00:01
 date_formatted: "April 16, 2025"
 author: Paulus Schoutsen
 comments: true
-categories: Announcements
+categories: Announcements, State-of-the-Open-Home
 og_image: /images/blog/2025-04-SOTOH/art.jpg
 ---
 <lite-youtube videoid="o4Vctz1_KYE" videotitle="State of the Open Home 2025"></lite-youtube>
