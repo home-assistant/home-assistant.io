@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "State of the Open Home 2026: join us live in Utrecht, the Netherlands!"
-description: "Join us in Utrecht on April 8 for State of the Open Home 2026. Your chance to celebrate, connect, and discover what's next – visit our site to learn more!"
+description: "Join us in Utrecht, the Netherlands, on April 8 for State of the Open Home 2026. Your chance to celebrate, connect, and discover what's next – visit our site to learn more!"
 date: 2026-01-20 00:00:00
 date_formatted: "January 20, 2026"
 author: Paulus Schoutsen
