@@ -457,7 +457,7 @@ layout: null
 /getting-started/autostart-macos https://community.home-assistant.io/t/autostart-on-macos/199500
 /getting-started/autostart-systemd https://community.home-assistant.io/t/autostart-using-systemd/199497
 
-# Add-ons
+# Apps
 /addons/cec_scan https://github.com/home-assistant/addons/blob/master/cec_scan/README.md
 /addons/check_config https://github.com/home-assistant/addons/blob/master/check_config/README.md
 /addons/configurator https://github.com/home-assistant/addons/blob/master/configurator/README.md
