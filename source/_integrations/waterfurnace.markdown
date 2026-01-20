@@ -10,7 +10,7 @@ ha_platforms:
   - sensor
 ha_integration_type: integration
 ha_config_flow: true
-ha_quality_scale: bronze
+ha_quality_scale: legacy
 ---
 
 The **WaterFurnace** {% term integration %} communicates with the WaterFurnace Symphony website's WebSocket to show you many of the sensors in your system. While not an official API, this is the same backend the Symphony website is based on, and should be reasonably stable.
