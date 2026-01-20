@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "State of the Open Home 2026: join us live in Utrecht!"
+title: "State of the Open Home 2026: join us live in Utrecht, the Netherlands!"
 description: "Join us in Utrecht on April 8 for State of the Open Home 2026. Your chance to celebrate, connect, and discover what's next – visit our site to learn more!"
 date: 2026-01-20 00:00:00
 date_formatted: "January 20, 2026"
@@ -14,7 +14,7 @@ og_image: /images/blog/2026-01-state-of-the-open-home-2026/art.webp
 
 It’s time to celebrate what we’ve built together, and get excited about what’s coming next – at <a href="https://sotoh.openhomefoundation.org/" target="_blank">State of the Open Home</a>, our annual look at how we’re championing privacy, choice, and sustainability in the smart home. And this year, we’re doing something new: inviting you to be part of the action in our audience! 🎉
 
-That’s right, you don’t have to watch from home – you can join us live in Utrecht, Netherlands, on Wednesday, April 8.<!--more-->
+That’s right, you don’t have to watch from home – you can join us live in Utrecht, the Netherlands, on Wednesday, April 8.<!--more-->
 
 ## This year’s theme: Building in the open
 
@@ -36,8 +36,8 @@ And that’s just the start. Expect special guests, a few surprises, and the kin
 
 ## Tickets available soon!
 
-Limited spots will be available for our live audience in Utrecht. Tickets will be available from early February – and they’ll go fast, so stay tuned for details! We’ll also be livestreaming globally for those who can’t make it in person.
+Limited spots will be available for our live audience in Utrecht, the Netherlands. Tickets will be available from early February – and they’ll go fast, so stay tuned for details! We’ll also be livestreaming globally for those who can’t make it in person.
 
 Visit our new <a href="https://sotoh.openhomefoundation.org/" target="_blank">State of the Open Home website</a> to learn more, and be sure to follow us on [Fosstodon](https://fosstodon.org/@openhomefoundation), [Bluesky](https://bsky.app/profile/openhomefoundation.org), [Instagram](https://www.instagram.com/openhomefoundation/) or [Facebook](https://www.facebook.com/p/Open-Home-Foundation-61558575472603/) so you don’t miss the ticket drop!
 
-📅 Mark your calendars now: Wednesday, April 8, Utrecht.
+📅 Mark your calendars now: Wednesday, April 8, Utrecht, the Netherlands.
