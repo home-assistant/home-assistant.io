@@ -12,7 +12,7 @@ og_image: /images/blog/2026-01-partner-update-heltun/art.webp
 
 <img src='/images/blog/2026-01-partner-update-heltun/art.webp' style='border: 0;box-shadow: none;' alt="Partner update: HELTUN removed from Works with Home Assistant">
 
-Last month – and indeed last year! – we published a [blog recapping the highlights](/blog/2025/12/09/wwha-2025-recap/) from the Works with Home Assistant program in 2025. As with any certification program, our partnerships evolve: some start anew, some grow bigger and stronger, and some naturally run their course. In the interest of visibility for our community, we want to share an update about one such change. When a partner leaves the program, we believe it’s important to document this openly so you get the full picture.
+Last month – and indeed last year! – we published a [blog recapping the highlights](/blog/2025/12/09/wwha-2025-recap/) from the Works with Home Assistant program in 2025. As with any certification program, our partnerships evolve: some start anew, some grow bigger and stronger, and some naturally run their course. In the interest of visibility for our community, we want to share an update about one such change. When a partner leaves the program, we believe it’s important to document this openly so you get the full picture.<!--more-->
 
 ## Why we’re making a change
 
