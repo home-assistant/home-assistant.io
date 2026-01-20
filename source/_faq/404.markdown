@@ -8,6 +8,6 @@ This error indicates the image, whether for updating to Home Assistant or instal
 Please note, if you are running the operating system as a virtual machine; the default VM image is only about 6GB. Many VM users run into this as they have not allocated enough storage. 32GB is the minimum recommended size.
 
 You will need to explore your own system to determine where space has gone.
-Using `df -h` in the SSH app console to you can quickly check to see if you have space available.
+Using `df -h` in the SSH app console you can quickly check to see if you have space available.
 
 If there is plenty of space available then you might check to see if you are having network issues that are preventing images from being downloaded.
