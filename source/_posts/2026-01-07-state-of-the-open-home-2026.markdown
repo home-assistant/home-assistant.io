@@ -7,10 +7,10 @@ date_formatted: "January 20, 2026"
 author: Paulus Schoutsen
 comments: true
 categories: Announcements State-of-the-Open-Home
-og_image: /images/blog/2026-01-partner-update-heltun/art.webp
+og_image: /images/blog/2026-01-state-of-the-open-home-2026/art.webp
 ---
 
-<img src='/images/blog/2026-01-sotoh-2026/art.webp' style='border: 0;box-shadow: none;' alt="State of the Open Home 2026: join us live in Utrecht!">
+<img src='/images/blog/2026-01-state-of-the-open-home-2026/art.webp' style='border: 0;box-shadow: none;' alt="State of the Open Home 2026: join us live in Utrecht!">
 
 It’s time to celebrate what we’ve built together, and get excited about what’s coming next – at <a href="https://sotoh.openhomefoundation.org/" target="_blank">State of the Open Home</a>, our annual look at how we’re championing privacy, choice, and sustainability in the smart home. And this year, we’re doing something new: inviting you to be part of the action in our audience! 🎉
 
