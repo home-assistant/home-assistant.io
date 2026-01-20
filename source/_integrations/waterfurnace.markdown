@@ -9,6 +9,7 @@ ha_domain: waterfurnace
 ha_platforms:
   - sensor
 ha_integration_type: integration
+ha_config_flow: true
 ha_quality_scale: bronze
 ---
 
