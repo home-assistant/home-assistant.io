@@ -75,7 +75,7 @@ The following device classes are supported for sensors:
 - **moisture**: Percentage of water in a substance in %
 - **monetary**: The monetary value ([ISO 4217](https://en.wikipedia.org/wiki/ISO_4217#Active_codes))
 - **nitrogen_dioxide**: Concentration of Nitrogen Dioxide in ppb, µg/m³
-- **nitrogen_monoxide**: Concentration of Nitrogen Monoxide in µg/m³
+- **nitrogen_monoxide**: Concentration of Nitrogen Monoxide in ppb, µg/m³
 - **nitrous_oxide**: Concentration of Nitrous Oxide in µg/m³
 - **ozone**: Concentration of Ozone in bbp or µg/m³
 - **ph**: Potential hydrogen (pH) value of a water solution
