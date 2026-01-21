@@ -46,7 +46,7 @@ frontend:
     required: false
     type: string
   development_pr:
-    description: Allows you to point to a specific frontend [pull request](github.com/home-assistant/frontend) containing frontend files instead of taking them from a prebuilt PyPI package. Useful for Frontend development. This requires `github_token` to be set.
+    description: "Allows you to point to a specific frontend [pull request](https://github.com/home-assistant/frontend) containing frontend files instead of taking them from a prebuilt PyPI package. Useful for Frontend development. This requires `github_token` to be set."
     required: false
     type: number
   github_token:
