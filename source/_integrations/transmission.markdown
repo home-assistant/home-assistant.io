@@ -177,7 +177,7 @@ The `transmission.stop_torrent` action is used to stop a torrent downloading or 
 
 ### Action: Get torrents
 
-This `transmission.get_torrents` action populates [Response Data](/docs/scripts/perform-actions#use-templates-to-handle-response-data) with a dictionary of torrents based on the provided filter.
+The `transmission.get_torrents` action populates [Response Data](/docs/scripts/perform-actions#use-templates-to-handle-response-data) with a dictionary of torrents based on the provided filter.
 
 - **Data attribute**: `entry_id`
   - **Description**: The ID of the Transmission config entry.

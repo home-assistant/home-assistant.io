@@ -46,6 +46,7 @@ I wish you a happy and healthy 2026! Enjoy the release!
   - [ESPHome action responses](#esphome-action-responses)
 - [Patch releases](#patch-releases)
   - [2026.1.1 - January 12](#202611---january-12)
+  - [2026.1.2 - January 16](#202612---january-16)
 - [Need help? Join the community](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
@@ -325,45 +326,49 @@ To get started, check out the [ESPHome documentation on action responses][esphom
 
 ## Patch releases
 
+We will also release patch releases for Home Assistant 2026.1 in January.
+These patch releases only contain bug fixes. Our goal is to release a patch
+release once a week, aiming for Friday.
+
 ### 2026.1.1 - January 12
 
-- Fix Hikvision NVR binary sensors not being detected ([@ptarjan] - [#160254]) ([hikvision docs])
-- Bump eheimdigital to 1.5.0 ([@autinerd] - [#160312]) ([eheimdigital docs])
-- Bump ZHA to 0.0.84 ([@TheJulianJES] - [#160440]) ([zha docs])
-- Bump pyOverkiz to 1.19.4 ([@iMicknl] - [#160457]) ([overkiz docs])
-- Fix JSON serialization of time objects in anthropic tool results ([@dcermak] - [#160459]) ([anthropic docs])
-- Add asyncio-level timeout to Backblaze B2 uploads ([@ElCruncharino] - [#160468]) ([backblaze_b2 docs])
+- Fix Hikvision NVR binary sensors not being detected ([@ptarjan] - [#160254])
+- Bump eheimdigital to 1.5.0 ([@autinerd] - [#160312])
+- Bump ZHA to 0.0.84 ([@TheJulianJES] - [#160440])
+- Bump pyOverkiz to 1.19.4 ([@iMicknl] - [#160457])
+- Fix JSON serialization of time objects in anthropic tool results ([@dcermak] - [#160459])
+- Add asyncio-level timeout to Backblaze B2 uploads ([@ElCruncharino] - [#160468])
 - Fix Requirement parsing in RequirementsManager ([@epenet] - [#160485])
-- Add Nettleie optimization option ([@osohotwateriot] - [#160494]) ([osoenergy docs])
-- Bump python-otbr-api to 2.7.1 ([@emontnemery] - [#160496]) ([thread docs]) ([otbr docs])
-- fix rain sensor for some rare velux windows ([@wollew] - [#160504]) ([velux docs])
-- Fix trigger selectors ([@bramkragten] - [#160519]) ([climate docs]) ([light docs]) ([humidifier docs])
-- Bump Intergas Incomfort-client to v0.6.11 ([@jbouwh] - [#160520]) ([incomfort docs])
+- Add Nettleie optimization option ([@osohotwateriot] - [#160494])
+- Bump python-otbr-api to 2.7.1 ([@emontnemery] - [#160496])
+- fix rain sensor for some rare velux windows ([@wollew] - [#160504])
+- Fix trigger selectors ([@bramkragten] - [#160519])
+- Bump Intergas Incomfort-client to v0.6.11 ([@jbouwh] - [#160520])
 - Revert "Update voluptuous and voluptuous-openapi" ([@synesthesiam] - [#160530])
-- Bump serialx to v0.6.2 ([@puddly] - [#160545]) ([zha docs]) ([homeassistant_hardware docs])
-- Catch any migration failures in Teslemetry ([@Bre77] - [#160549]) ([teslemetry docs])
-- Fix AttributeError for missing/incomplete health data in Tractive ([@bieniu] - [#160553]) ([tractive docs])
-- Bump pysilero-vad to 3.1.0 ([@synesthesiam] - [#160554]) ([assist_pipeline docs])
-- Fix for older Fritzbox models which do not support smarthome triggers ([@mib1185] - [#160555]) ([fritzbox docs])
-- Bump google-air-quality-api to 2.1.2 ([@Thomas55555] - [#160561]) ([google_air_quality docs])
-- Fix Climate signal in Teslemetry ([@Bre77] - [#160571]) ([teslemetry docs])
-- Bump pysma to 1.1.0 ([@kellerza] - [#160583]) ([sma docs])
-- Bump opower to 0.16.1 ([@tronikos] - [#160588]) ([opower docs])
-- Fix config flow bug in Tesla Fleet ([@Bre77] - [#160591]) ([tesla_fleet docs])
-- Add missing segment speed icons for WLED ([@Tommatheussen] - [#160597]) ([wled docs])
-- Better handling of ratelimiting from Tibber ([@Danielhiversen] - [#160599]) ([tibber docs])
-- Change device class to energy_storage for some enphase_envoy battery entities ([@catsmanac] - [#160603]) ([enphase_envoy docs])
-- Fix Z-Wave creating notification binary sensor for idle state ([@MartinHjelmare] - [#160604]) ([zwave_js docs])
-- Bump pynintendoparental to 2.3.2 ([@pantherale0] - [#160626]) ([nintendo_parental_controls docs])
-- Update frontend to 20260107.1 ([@bramkragten] - [#160644]) ([frontend docs])
-- Bump pyhik to 0.4.0 ([@ptarjan] - [#160654]) ([hikvision docs])
-- Bump greeclimate to 2.1.1 ([@cmroche] - [#160683]) ([gree docs])
-- Bump pysilero-vad to 3.2.0 ([@synesthesiam] - [#160691]) ([assist_pipeline docs])
-- Revert bthome-ble back to 3.16.0 to fix missing data ([@Ernst79] - [#160694]) ([bthome docs])
-- Fix missing key for brew by weight in lamarzocco ([@zweckj] - [#160722]) ([lamarzocco docs])
-- Bump pytado 0.18.16 ([@erwindouna] - [#160724]) ([tado docs])
-- Bump python-homewizard-energy to 10.0.1 ([@DCSBL] - [#160736]) ([homewizard docs])
-- Fix fitbit icon ([@joostlek] - [#160750]) ([fitbit docs])
+- Bump serialx to v0.6.2 ([@puddly] - [#160545])
+- Catch any migration failures in Teslemetry ([@Bre77] - [#160549])
+- Fix AttributeError for missing/incomplete health data in Tractive ([@bieniu] - [#160553])
+- Bump pysilero-vad to 3.1.0 ([@synesthesiam] - [#160554])
+- Fix for older Fritzbox models which do not support smarthome triggers ([@mib1185] - [#160555])
+- Bump google-air-quality-api to 2.1.2 ([@Thomas55555] - [#160561])
+- Fix Climate signal in Teslemetry ([@Bre77] - [#160571])
+- Bump pysma to 1.1.0 ([@kellerza] - [#160583])
+- Bump opower to 0.16.1 ([@tronikos] - [#160588])
+- Fix config flow bug in Tesla Fleet ([@Bre77] - [#160591])
+- Add missing segment speed icons for WLED ([@Tommatheussen] - [#160597])
+- Better handling of ratelimiting from Tibber ([@Danielhiversen] - [#160599])
+- Change device class to energy_storage for some enphase_envoy battery entities ([@catsmanac] - [#160603])
+- Fix Z-Wave creating notification binary sensor for idle state ([@MartinHjelmare] - [#160604])
+- Bump pynintendoparental to 2.3.2 ([@pantherale0] - [#160626])
+- Update frontend to 20260107.1 ([@bramkragten] - [#160644])
+- Bump pyhik to 0.4.0 ([@ptarjan] - [#160654])
+- Bump greeclimate to 2.1.1 ([@cmroche] - [#160683])
+- Bump pysilero-vad to 3.2.0 ([@synesthesiam] - [#160691])
+- Revert bthome-ble back to 3.16.0 to fix missing data ([@Ernst79] - [#160694])
+- Fix missing key for brew by weight in lamarzocco ([@zweckj] - [#160722])
+- Bump pytado 0.18.16 ([@erwindouna] - [#160724])
+- Bump python-homewizard-energy to 10.0.1 ([@DCSBL] - [#160736])
+- Fix fitbit icon ([@joostlek] - [#160750])
 
 [#159957]: https://github.com/home-assistant/core/pull/159957
 [#160254]: https://github.com/home-assistant/core/pull/160254
@@ -473,6 +478,62 @@ To get started, check out the [ESPHome documentation on action responses][esphom
 [wled docs]: /integrations/wled/
 [zha docs]: /integrations/zha/
 [zwave_js docs]: /integrations/zwave_js/
+
+### 2026.1.2 - January 16
+
+- Fix Airzone Q-Adapt select entities ([@Noltari] - [#160695])
+- Revert back to microVAD ([@synesthesiam] - [#160821])
+- Bump opower to 0.16.2 ([@tronikos] - [#160822])
+- accept leading zeros in sms_code for fressnapf_tracker ([@eifinger] - [#160834])
+- Add support for packaging version >= 26 on the version bump script ([@edenhaus] - [#160858])
+- Update PyNaCl to 1.6.2 ([@cdce8p] - [#160909])
+- Bump pyenphase from 2.4.2 to 2.4.3 ([@catsmanac] - [#160912])
+- Decrease Essent update interval to 1 hour ([@jaapp] - [#160959])
+- Bump opower to 0.16.3 ([@tronikos] - [#160961])
+- Bump PySrDaliGateway from 0.18.0 to 0.19.3 ([@niracler] - [#160972])
+- Add descriptions to openai_conversation ([@zweckj] - [#160979])
+- Clean up unnecessary Z-Wave "device config changed" repairs ([@AlCalzone] - [#161000])
+- Update knx-frontend to 2026.1.15.112308 ([@farmio] - [#161004])
+- Require admin for blueprint ws commands ([@edenhaus] - [#161008])
+- Bump aiomealie to 1.2.0 ([@andrew-codechimp] - [#161058])
+- Update frontend to 20260107.2 ([@bramkragten] - [#161061])
+- Update aioairzone to v1.0.5 ([@Noltari] - [#160688])
+
+[#159957]: https://github.com/home-assistant/core/pull/159957
+[#160688]: https://github.com/home-assistant/core/pull/160688
+[#160695]: https://github.com/home-assistant/core/pull/160695
+[#160771]: https://github.com/home-assistant/core/pull/160771
+[#160821]: https://github.com/home-assistant/core/pull/160821
+[#160822]: https://github.com/home-assistant/core/pull/160822
+[#160834]: https://github.com/home-assistant/core/pull/160834
+[#160858]: https://github.com/home-assistant/core/pull/160858
+[#160909]: https://github.com/home-assistant/core/pull/160909
+[#160912]: https://github.com/home-assistant/core/pull/160912
+[#160959]: https://github.com/home-assistant/core/pull/160959
+[#160961]: https://github.com/home-assistant/core/pull/160961
+[#160972]: https://github.com/home-assistant/core/pull/160972
+[#160979]: https://github.com/home-assistant/core/pull/160979
+[#161000]: https://github.com/home-assistant/core/pull/161000
+[#161004]: https://github.com/home-assistant/core/pull/161004
+[#161008]: https://github.com/home-assistant/core/pull/161008
+[#161058]: https://github.com/home-assistant/core/pull/161058
+[#161061]: https://github.com/home-assistant/core/pull/161061
+[@AlCalzone]: https://github.com/AlCalzone
+[@Noltari]: https://github.com/Noltari
+[@andrew-codechimp]: https://github.com/andrew-codechimp
+[@bramkragten]: https://github.com/bramkragten
+[@catsmanac]: https://github.com/catsmanac
+[@cdce8p]: https://github.com/cdce8p
+[@edenhaus]: https://github.com/edenhaus
+[@eifinger]: https://github.com/eifinger
+[@farmio]: https://github.com/farmio
+[@frenck]: https://github.com/frenck
+[@jaapp]: https://github.com/jaapp
+[@niracler]: https://github.com/niracler
+[@synesthesiam]: https://github.com/synesthesiam
+[@tronikos]: https://github.com/tronikos
+[@zweckj]: https://github.com/zweckj
+
 
 ## Need help? Join the community
 

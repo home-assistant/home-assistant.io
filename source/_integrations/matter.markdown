@@ -366,9 +366,9 @@ The Matter integration has the following actions:
 
 - `matter.water_heater_boost`
 
-### Action `matter.water_heater_boost`
+### Action: Water heater boost
 
-Enables water heater boost for a specific duration.
+The `matter.water_heater_boost` action enables water heater boost for a specific duration.
 
 | Data attribute        | Optional | Description                                                        |
 |----------------------|----------|--------------------------------------------------------------------|

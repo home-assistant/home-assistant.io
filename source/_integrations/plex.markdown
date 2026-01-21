@@ -155,9 +155,9 @@ The Plex media player platform will create media player entities for each connec
 
 By default, the Plex integration will create media player entities for all local, managed, and shared users on the Plex server. To customize which users or client types to monitor, adjust the "*Monitored users*", "*Ignore new managed/shared users*", and "*Ignore Plex Web clients*" options described under [Integration Options](#integration-options).
 
-### Action `media_player.play_media`
+### Action: Play media
 
-Play media hosted on a Plex server on a Plex client or other supported device.
+The `media_player.play_media` action plays media hosted on a Plex server on a Plex client or other supported device.
 
 Required fields within the `media_content_id` payloads are marked as such, others are optional. There are special parameters that can be added to any query:
 
@@ -382,9 +382,9 @@ media_content_id: 'plex://{ "playlist_name": "Party Mix" }'
 
 ## Additional actions
 
-### Action `plex.refresh_library`
+### Action: Refresh library
 
-Refresh a Plex library to scan for new and updated media.
+The `plex.refresh_library` action refreshes a Plex library to scan for new and updated media.
 
 | Data attribute | Required | Description                                                | Example          |
 | ---------------------- | -------- | ---------------------------------------------------------- | ---------------- |

@@ -447,11 +447,11 @@ Additional devices in the [Compatible hardware](#compatible-hardware) section ma
 
 ## Actions
 
-### Action `zha.permit`
+### Action: Permit
 
-To add new devices to the network, call the `permit` action on the `zha` domain. Do this by clicking the **Actions** tab in **Developer tools** and typing `zha.permit` in the **Action** dropdown box. Next, follow the device instructions for adding, scanning or factory reset.
+The `zha.permit` action opens the network for joining new devices.
 
-This action opens network for joining new devices.
+To add new devices to the network, click the **Actions** tab in **Developer tools** and type `zha.permit` in the **Action** dropdown box. Next, follow the device instructions for adding, scanning, or performing a factory reset.
 
 | Data       | Optional | Description                                                                    |
 | ---------- | -------- | ------------------------------------------------------------------------------ |
@@ -475,42 +475,42 @@ from the same group:
     - Embrighten
 {% endnote %}
 
-### Action `zha.remove`
+### Action: Remove
 
-This action removes an existing device from the network. You can find the IEEE address of the device on the device card of Zigbee devices. An example of an IEEE address data parameter format is `00:0d::6f:00:05:7d:2d:34`.
+The `zha.remove` action removes an existing device from the network. You can find the IEEE address of the device on the device card of Zigbee devices. An example of an IEEE address data parameter format is `00:0d::6f:00:05:7d:2d:34`.
 
 | Data   | Optional | Description                          |
 | ------ | -------- | ------------------------------------ |
 | `ieee` | no       | IEEE address of the device to remove |
 
-### Action `zha.set_lock_user_code`
+### Action: Set lock user code
 
-This action sets a lock code on a Zigbee lock.
+The `zha.set_lock_user_code` action sets a lock code on a Zigbee lock.
 
 | Data        | Optional | Description                                                                |
 | ----------- | -------- | -------------------------------------------------------------------------- |
 | `code_slot` | no       | Which lock code slot to store the code. Ex. 1-32 will work for Kwikset 954 |
 | `user_code` | no       | Code to set on the lock. Ex. Kwikset accepts numbers 4-8 digits in length  |
 
-### Action `zha.clear_lock_user_code`
+### Action: Clear lock user code
 
-This action clears a lock code from a Zigbee lock.
+The `zha.clear_lock_user_code` action clears a lock code from a Zigbee lock.
 
 | Data        | Optional | Description                   |
 | ----------- | -------- | ----------------------------- |
 | `code_slot` | no       | Which lock code slot to clear |
 
-### Action `zha.enable_lock_user_code`
+### Action: Enable lock user code
 
-This action enables a lock code on a Zigbee lock.
+The `zha.enable_lock_user_code` action enables a lock code on a Zigbee lock.
 
 | Data        | Optional | Description                    |
 | ----------- | -------- | ------------------------------ |
 | `code_slot` | no       | Which lock code slot to enable |
 
-### Action `zha.disable_lock_user_code`
+### Action: Disable lock user code
 
-This action disables a lock code on a Zigbee lock.
+The `zha.disable_lock_user_code` action disables a lock code on a Zigbee lock.
 
 | Data        | Optional | Description                     |
 | ----------- | -------- | ------------------------------- |

@@ -369,7 +369,7 @@ In general, the state trigger fires when the state of any of given entities **ch
   - If for your use case this is undesired, you could consider using the automation to set an [`input_datetime`](/integrations/input_datetime) to the desired time and then use that [`input_datetime`](/integrations/input_datetime) as an automation trigger to perform the desired actions at the set time.
 
 {% tip %}
-The values you see in your overview will often not be the same as the actual state of the entity. For instance, the overview may show `Connected` when the underlying entity is actually `on`. You should check the state of the entity by checking the states in the developer tool, under {% my developer_states title="**Developer Tools** > **States**" %}.
+The values you see in your overview will often not be the same as the actual state of the entity. For instance, the overview may show `Connected` when the underlying entity is actually `on`. You should check the state of the entity by checking the states in the developer tool, under {% my developer_states title="**Developer tools** > **States**" %}.
 {% endtip %}
 
 ### Examples
@@ -602,7 +602,7 @@ A very thorough explanation of this is available in the Wikipedia article about 
 
 ## Tag trigger
 
-Fires when a [tag](/integrations/tag) is scanned. For example, a NFC tag is
+Fires when a [tag](/integrations/tag) is scanned. For example, an NFC tag is
 scanned using the Home Assistant Companion mobile application.
 
 ```yaml
@@ -996,9 +996,9 @@ You can run this automation by sending an HTTP POST request to `http://your-home
 curl -X POST -d 'key=value&key2=value2' https://your-home-assistant:8123/api/webhook/some_hook_id
 ```
 
-Webhooks support HTTP POST, PUT, HEAD, and GET requests; PUT requests are recommended. HTTP GET and HEAD requests are not enabled by default but can be enabled by adding them to the `allowed_methods` option. The request methods can also be configured in the UI by clicking the settings gear menu button beside the Webhook ID.
+Webhooks support HTTP POST, PUT, HEAD, and GET requests; PUT requests are recommended. HTTP GET and HEAD requests are not enabled by default but can be enabled by adding them to the `allowed_methods` option. The request methods can also be configured in the UI by selecting the settings gear menu button beside the Webhook ID.
 
-By default, webhook triggers can only be accessed from devices on the same network as Home Assistant or via [Nabu Casa Cloud webhooks](https://www.nabucasa.com/config/webhooks/). The `local_only` option should be set to `false` to allow webhooks to be triggered directly via the internet. This option can also be configured in the UI by clicking the settings gear menu button beside the Webhook ID.
+By default, webhook triggers can only be accessed from devices on the same network as Home Assistant or via [Nabu Casa Cloud webhooks](https://www.nabucasa.com/config/webhooks/). The `local_only` option should be set to `false` to allow webhooks to be triggered directly via the internet. This option can also be configured in the UI by selecting the settings gear menu button beside the Webhook ID.
 
 Remember to use an HTTPS URL if you've secured your Home Assistant installation with SSL/TLS.
 

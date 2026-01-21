@@ -46,9 +46,9 @@ Menu: *Configuration* > *Integrations* > *Select your new integration* > *Press 
   
 ## Actions
 
-### Action `hive.boost_heating_on`
+### Action: Boost heating on
 
-You can use the action `hive.boost_heating_on` to set your heating to boost for a period of time at a certain target temperature". Individual TRVs can also be boosted in the same way, using this action.
+The `hive.boost_heating_on` action sets your heating to boost for a period of time at a certain target temperature. Individual TRVs can also be boosted in the same way, using this action.
 
 | Data attribute | Optional | Description                                                            |
 | ---------------------- | -------- | ---------------------------------------------------------------------- |
@@ -71,9 +71,9 @@ script:
           temperature: "20.5"
 ```
 
-### Action `hive.boost_heating_off`
+### Action: Boost heating off
 
-You can use the `hive.boost_heating_off` action to turn your heating boost off.
+The `hive.boost_heating_off` action turns your heating boost off.
 
 | Data attribute | Optional | Description                                    |
 | ---------------------- | -------- | ---------------------------------------------- |
@@ -91,9 +91,9 @@ script:
           entity_id: "climate.heating"
 ```
 
-### Action `hive.boost_hot_water`
+### Action: Boost hot water
 
-You can use the `hive.boost_hot_water` action to set your hot water to boost for a period of time.
+The `hive.boost_hot_water` action sets your hot water to boost for a period of time.
 
 | Data attribute | Optional | Description                                                             |
 | ---------------------- | -------- | ----------------------------------------------------------------------- |

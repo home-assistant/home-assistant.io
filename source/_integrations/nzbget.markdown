@@ -73,7 +73,9 @@ Available actions:
 - `resume`: Resume the download queue.
 - `set_speed`: Set the download queue speed limit.
 
-### Action `nzbget/set_speed`
+### Action: Set speed
+
+The `nzbget.set_speed` action sets the download queue speed limit.
 
 | Data attribute | Optional | Description                                                                                     |
 | ---------------------- | -------- | ----------------------------------------------------------------------------------------------- |
