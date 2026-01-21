@@ -20,7 +20,7 @@ The **Duck DNS** {% term integration %} keeps your Duck DNS subdomain in sync wi
 
 {% note %}
 
-If you are running the Home Assistant Duck DNS app this integration is not required. The app will keep your IP updated with Duck DNS.
+If you are running the Home Assistant Duck DNS app, this integration is not required. The app will keep your IP updated with Duck DNS.
 
 {% endnote %}
 
