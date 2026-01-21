@@ -136,7 +136,7 @@ We’ve been focusing on the [M5STACK ATOM Echo][atom-echo] for testing and deve
 [ESPHome Voice Assistant documentation.](https://esphome.io/components/voice_assistant.html)
 
 [ESPHome]: https://esphome.io
-[atom-echo]: https://shop.m5stack.com/products/atom-echo-smart-speaker-dev-kit?ref=NabuCasa
+[atom-echo]: https://shop.m5stack.com/products/atom-echo-smart-speaker-dev-kit
 
 ## World’s Most Private Voice Assistant
 
