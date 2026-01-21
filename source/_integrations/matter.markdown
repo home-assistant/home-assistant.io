@@ -129,7 +129,7 @@ Make sure you have all these components ready before trying to add a Matter devi
     - If you run Home Assistant OS in a regular setup: select **Submit**.
       - This will install the official Home Assistant Matter Server app.
       - Note that the official Home Assistant Matter Server app is not supported on 32-bit platforms.
-    - If you are already running the Matter server in another Home Assistant app, in or a custom container:
+    - If you are already running the Matter server in another Home Assistant app or a custom container:
       - Deselect the checkbox, then select **Submit**.
       - In the next step, provide the URL to your Matter server.
 
