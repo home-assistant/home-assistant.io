@@ -85,7 +85,7 @@ Turning off **Query log** stops all sensor updates. AdGuard requires query loggi
 The integration provides an {% term update %} entity to check for and install AdGuard Home software updates.
 
 {% note %}
-The update entity is not available for Docker-based installations of AdGuard Home (_those also not for the [AdGuard Home app](https://github.com/hassio-addons/addon-adguard-home), but for the app its own update entity is created by the supervisor_).
+The update entity is not available for Docker-based installations of AdGuard Home. For the [Home Assistant AdGuard Home app](https://github.com/hassio-addons/addon-adguard-home), its own update entity is created by the supervisor.
 {% endnote %}
 
 ## Actions
