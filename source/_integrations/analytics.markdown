@@ -80,7 +80,7 @@ This includes:
 
 If your system includes the Supervisor, this will also contain:
 
-- For each add-on
+- For each Home Assistant app
   - Name
   - Version
   - If protection mode is enabled
@@ -137,7 +137,7 @@ This includes:
 
 If your system includes the Supervisor, this will also contain:
 
-- Number of installed add-ons
+- Number of installed Home Assistant apps
 
 {% details "Example payload" %}
 
