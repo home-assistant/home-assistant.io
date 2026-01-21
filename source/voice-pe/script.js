@@ -15,7 +15,6 @@ document.addEventListener('DOMContentLoaded', function () {
     registerCarousels();
     registerVideoModal();
     registerBurgerIcon();
-    registerCycleLocalCloud();
     registerLanguageSelectChange();
     registerFeatureCycle();
     registerFaqItems();
@@ -29,7 +28,7 @@ function addBodyLoaded() {
 
 let languageSelect = null;
 function registerNiceSelect() {
-    languageSelect = NiceSelect.bind(document.querySelector("select#language-select"), { searchable: true });
+    languageSelect = NiceSelect.bind(document.querySelector("select#language-select"), { searchable: true, placeholder: 'Select your language' });
 }
 
 function scrollIfFragment() {
@@ -437,47 +436,6 @@ function registerBurgerIcon() {
     });
 }
 
-function registerCycleLocalCloud() {
-    // add intersection observer to #product-features. Only execute once
-    const sides = document.querySelector('#local-cloud .sides');
-    if (!sides) return;
-
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                observer.disconnect();
-                // set css variable for
-                let lastSide = 'cloud';
-                let interval = null;
-                interval = setInterval(() => {
-                    // toggle between data-side="local" and data-side="cloud"
-                    sides.setAttribute('data-side', '');
-                    setTimeout(() => {
-                        lastSide = lastSide === 'local' ? 'cloud' : 'local';
-                        sides.setAttribute('data-side', lastSide);
-                    }, 500);
-                }, 5000);
-
-                // if hover on left side, set to local
-                sides.querySelector('.side.local').addEventListener('mouseenter', function () {
-                    clearInterval(interval);
-                    sides.setAttribute('data-side', 'local');
-                });
-
-                // if hover on right side, set to cloud
-                sides.querySelector('.side.cloud').addEventListener('mouseenter', function () {
-                    clearInterval(interval);
-                    sides.setAttribute('data-side', 'cloud');
-                });
-            }
-        });
-    }, {
-        threshold: .5
-    });
-
-    observer.observe(sides);
-}
-
 function registerLanguageSelectChange() {
     const browserLocale = navigator.language || navigator.userLanguage;
 
@@ -488,97 +446,32 @@ function registerLanguageSelectChange() {
     });
 }
 
-function updateLanguageSupports(locale = null) {
-    let data = {
-        "en-US": [3, 3],
-        "es-ES": [3, 3],
-        "pt-BR": [3, 3],
-        "pt-PT": [2, 2],
-        "de-DE": [3, 3],
-        "de-CH": [0, 2],
-        "it-IT": [2, 2],
-        "ru-RU": [2, 2],
-        "ja-JP": [0, 0],
-        "tr-TR": [0, 1],
-        "ko-KR": [0, 1],
-        "fr-FR": [0, 3],
-        "ca-ES": [0, 3],
-        "pl-PL": [0, 3],
-        "nl-BE": [0, 3],
-        "nl-NL": [0, 3],
-        "id-ID": [0, 1],
-        "zh-HK": [0, 2],
-        "zh-CN": [0, 1],
-        "ms-MY": [0, 1],
-        "sv-SE": [0, 2],
-        "uk-UA": [0, 2],
-        "th-TH": [0, 1],
-        "vi-VN": [0, 1],
-        "fi-FI": [0, 3],
-        "no-NO": [0, 0],
-        "gl-ES": [0, 2],
-        "ar-JO": [0, 2],
-        "ur-IN": [0, 0],
-        "el-GR": [0, 1],
-        "ro-RO": [0, 3],
-        "da-DK": [0, 2],
-        "ta-IN": [0, 0],
-        "hr-HR": [0, 3],
-        "mk-MK": [0, 0],
-        "sk-SK": [0, 1],
-        "he-IL": [0, 2],
-        "sr-RS": [0, 1],
-        "hu-HU": [0, 3],
-        "bg-BG": [0, 2],
-        "cs-CZ": [0, 1],
-        "bs-BA": [0, 0],
-        "sl-SI": [0, 2],
-        "az-AZ": [0, 0],
-        "et-EE": [0, 1],
-        "lv-LV": [0, 1],
-        "af-ZA": [0, 0],
-        "cy-GB": [0, 0],
-        "fa-IR": [0, 1],
-        "lt-LT": [0, 1],
-        "jv-ID": [0, 0],
-        "sw-KE": [0, 0],
-        "sw-TZ": [0, 0],
-        "is-IS": [0, 1],
-        "mt-MT": [0, 0],
-        "ps-AF": [0, 0],
-        "mr-IN": [0, 0],
-        "bn-IN": [0, 0],
-        "lb-LU": [0, 0],
-        "hi-IN": [0, 0],
-        "gu-IN": [0, 0],
-        "km-KH": [0, 0],
-        "ne-NP": [0, 0],
-        "lo-LA": [0, 0],
-        "te-IN": [0, 1],
-        "kn-IN": [0, 0],
-        "ml-IN": [0, 1],
-        "kk-KZ": [0, 0],
-        "so-SO": [0, 0],
-        "uz-UZ": [0, 0],
-        "ka-GE": [0, 1],
-        "my-MM": [0, 0],
-        "mn-MN": [0, 0],
-        "hy-AM": [0, 0],
-        "am-ET": [0, 0],
-        "nb-NO": [0, 3],
-        "eu-ES": [0, 1],
-        "fil-PH": [0, 0],
-        "ga-IE": [0, 0],
-        "si-LK": [0, 0],
-        "sq-AL": [0, 0],
-        "su-ID": [0, 0],
-        "wuu-CN": [0, 0],
-        "yue-CN": [0, 0],
-        "zu-ZA": [0, 0]
-    };
+const languageDescriptions = {
+    'local': {
+        0: 'Running this language locally is not supported.',
+        1: 'Full local processing is supported for this language, which requires powerful hardware (Intel N100 or greater) to provide adequate performance.',
+        2: 'Focused local processing is supported for this language, which works on even low-powered systems, but is limited to home control commands.',
+        3: 'Both Focused and Full local processing are supported for this language.'
+    },
+    'cloud': {
+        0: 'Cloud processing is not supported for this language.',
+        1: 'Cloud processing is supported for this language, allowing fast and accurate processing even on low-powered Home Assistant systems.'
+    }
+}
 
-    let elems = document.querySelectorAll('.supported-cards .supported-card');
-    if (!elems) return;
+function updateLanguageSupports(locale = null) {
+    let data = window.language_scores;
+    if(!data || !locale) {
+        console.warn('No language data available or locale not provided.');
+        return;
+    }
+
+    const localElem = document.querySelector('.supported-cards .supported-card.local');
+    const cloudElem = document.querySelector('.supported-cards .supported-card.cloud');
+    if (!localElem || !cloudElem) return;
+    
+    const localElemDescription = localElem.querySelector('.description');
+    const cloudElemDescription = cloudElem.querySelector('.description');
 
     let supports = data[locale];
     let foundLocale = locale;
@@ -595,12 +488,27 @@ function updateLanguageSupports(locale = null) {
     document.querySelector('#language-select').value = foundLocale;
     languageSelect.update();
 
-    elems.forEach(elem => elem.setAttribute('data-state', '-1'));
+    if (supports.focused_local === 0 && supports.full_local === 0) {
+        localElem.setAttribute('data-state', '0');
+        localElemDescription.innerHTML = languageDescriptions.local[0];
+    } else if (supports.full_local > 0 && supports.focused_local === 0) {
+        localElem.setAttribute('data-state', '1');
+        localElemDescription.innerHTML = languageDescriptions.local[1];
+    } else if (supports.focused_local > 0 && supports.full_local === 0) {
+        localElem.setAttribute('data-state', '2');
+        localElemDescription.innerHTML = languageDescriptions.local[2];
+    } else if (supports.focused_local > 0 && supports.full_local > 0) {
+        localElem.setAttribute('data-state', '3');
+        localElemDescription.innerHTML = languageDescriptions.local[3];
+    }
 
-    elems.forEach((elem, index) => {
-        // set data-state to the value of the value
-        elem.setAttribute('data-state', supports[index]);
-    });
+    if (supports.cloud === 0) {
+        cloudElem.setAttribute('data-state', '0');
+        cloudElemDescription.innerHTML = languageDescriptions.cloud[0];
+    } else if (supports.cloud > 0) {
+        cloudElem.setAttribute('data-state', '3');
+        cloudElemDescription.innerHTML = languageDescriptions.cloud[1];
+    }
 
 }
 

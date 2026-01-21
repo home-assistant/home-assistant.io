@@ -74,7 +74,7 @@ CREATE TABLE statistics_meta (
         unit_of_measurement VARCHAR(255),
         has_mean BOOLEAN,
         has_sum BOOLEAN,
-        name VARCHAR(255),
+        name VARCHAR(255), mean_type INTEGER NOT NULL DEFAULT 0,
         PRIMARY KEY (id)
 )
 
@@ -86,14 +86,6 @@ CREATE TABLE recorder_runs (
         created DATETIME NOT NULL,
         PRIMARY KEY (run_id)
 )
-
-CREATE TABLE migration_changes (
-        migration_id VARCHAR(255) NOT NULL,
-        version SMALLINT NOT NULL,
-        PRIMARY KEY (migration_id)
-)
-
-
 
 CREATE TABLE schema_changes (
         change_id INTEGER NOT NULL,
@@ -137,7 +129,6 @@ CREATE TABLE states (
         event_id SMALLINT,
         last_changed CHAR(0),
         last_changed_ts FLOAT,
-        last_reported_ts FLOAT,
         last_updated CHAR(0),
         last_updated_ts FLOAT,
         old_state_id INTEGER,
@@ -149,7 +140,7 @@ CREATE TABLE states (
         context_id_bin BLOB,
         context_user_id_bin BLOB,
         context_parent_id_bin BLOB,
-        metadata_id INTEGER,
+        metadata_id INTEGER, last_reported_ts FLOAT,
         PRIMARY KEY (state_id),
         FOREIGN KEY(old_state_id) REFERENCES states (state_id),
         FOREIGN KEY(attributes_id) REFERENCES state_attributes (attributes_id),
@@ -169,7 +160,7 @@ CREATE TABLE statistics (
         last_reset CHAR(0),
         last_reset_ts FLOAT,
         state FLOAT,
-        sum FLOAT,
+        sum FLOAT, mean_weight FLOAT,
         PRIMARY KEY (id),
         FOREIGN KEY(metadata_id) REFERENCES statistics_meta (id) ON DELETE CASCADE
 )
@@ -187,7 +178,7 @@ CREATE TABLE statistics_short_term (
         last_reset CHAR(0),
         last_reset_ts FLOAT,
         state FLOAT,
-        sum FLOAT,
+        sum FLOAT, mean_weight FLOAT,
         PRIMARY KEY (id),
         FOREIGN KEY(metadata_id) REFERENCES statistics_meta (id) ON DELETE CASCADE
 )
@@ -212,27 +203,33 @@ CREATE INDEX ix_events_data_id ON events (data_id)
 
 CREATE INDEX ix_events_event_type_id_time_fired_ts ON events (event_type_id, time_fired_ts)
 
-CREATE INDEX ix_events_context_id_bin ON events (context_id_bin)
-
 CREATE INDEX ix_events_time_fired_ts ON events (time_fired_ts)
 
+CREATE INDEX ix_events_context_id_bin ON events (context_id_bin)
+
+CREATE INDEX ix_states_context_id_bin ON states (context_id_bin)
+
 CREATE INDEX ix_states_attributes_id ON states (attributes_id)
+
+CREATE INDEX ix_states_last_updated_ts ON states (last_updated_ts)
 
 CREATE INDEX ix_states_metadata_id_last_updated_ts ON states (metadata_id, last_updated_ts)
 
 CREATE INDEX ix_states_old_state_id ON states (old_state_id)
 
-CREATE INDEX ix_states_context_id_bin ON states (context_id_bin)
-
-CREATE INDEX ix_states_last_updated_ts ON states (last_updated_ts)
+CREATE INDEX ix_statistics_start_ts ON statistics (start_ts)
 
 CREATE UNIQUE INDEX ix_statistics_statistic_id_start_ts ON statistics (metadata_id, start_ts)
 
-CREATE INDEX ix_statistics_start_ts ON statistics (start_ts)
+CREATE UNIQUE INDEX ix_statistics_short_term_statistic_id_start_ts ON statistics_short_term (metadata_id, start_ts)
 
 CREATE INDEX ix_statistics_short_term_start_ts ON statistics_short_term (start_ts)
 
-CREATE UNIQUE INDEX ix_statistics_short_term_statistic_id_start_ts ON statistics_short_term (metadata_id, start_ts)
+CREATE TABLE migration_changes (
+        migration_id VARCHAR(255) NOT NULL,
+        version SMALLINT NOT NULL,
+        PRIMARY KEY (migration_id)
+)
 ```
 
 To only show the details about the `states` table (since we are using that one in the next examples):

@@ -18,11 +18,11 @@ ha_platforms:
   - light
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: device
 ha_zeroconf: true
 ---
 
-[BleBox](https://blebox.eu/?lang=en) produces small, low-power, surprisingly affordable, feature-rich WiFi devices for serverless home automation.
+[BleBox](https://blebox.eu/) produces small, low-power, surprisingly affordable, feature-rich WiFi devices for serverless home automation.
 
 {% include integrations/config_flow.md %}
 

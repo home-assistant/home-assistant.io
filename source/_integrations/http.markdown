@@ -12,7 +12,7 @@ ha_domain: http
 ha_integration_type: system
 ---
 
-The `http` integration serves all files and data required for the Home Assistant frontend. You only need to add this to your configuration file if you want to change any of the default settings.
+The **HTTP** {% term integration %} serves all files and data required for the Home Assistant frontend. You only need to add this to your configuration file if you want to change any of the default settings.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -119,6 +119,10 @@ http:
     - 172.30.33.0/24  # You may also provide the subnet mask
 ```
 
+{% important %}
+When a network mask is provided, you must use the network address (for example, `192.168.1.0/24`), not a host address (for example, `192.168.1.50/24`).
+{% endimportant %}
+
 ## APIs
 
 On top of the `http` integration is a [REST API](https://developers.home-assistant.io/docs/api/rest/), [Python API](https://developers.home-assistant.io/docs/api_lib_index/) and [WebSocket API](https://developers.home-assistant.io/docs/api/websocket/) available.
@@ -135,7 +139,7 @@ All [requests](https://developers.home-assistant.io/docs/api/rest#post-apistates
 
 ## IP filtering and banning
 
-If you want to apply additional IP filtering, and automatically ban brute force attempts, set `ip_ban_enabled` to `true` and the maximum number of attempts. After the first ban, an `ip_bans.yaml` file will be created in the root configuration folder. It will have the banned IP address and time in UTC when it was added:
+If you want to apply additional IP filtering, and automatically ban brute force attempts, set `ip_ban_enabled` to `true` and `login_attempts_threshold` to the maximum number of attempts before a ban is activated. After the first ban, an `ip_bans.yaml` file will be created in the root configuration folder. It will have the banned IP address and time in UTC when it was added:
 
 ```yaml
 127.0.0.1:

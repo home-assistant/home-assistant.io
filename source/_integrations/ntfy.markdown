@@ -2,6 +2,7 @@
 title: ntfy
 description: Instructions on how to integrate ntfy with Home Assistant.
 ha_category:
+  - Event
   - Notifications
 ha_iot_class: Cloud Push
 ha_release: 2025.5
@@ -9,11 +10,13 @@ ha_config_flow: true
 ha_codeowners:
   - '@tr4nt0r'
 ha_domain: ntfy
-ha_integration_type: integration
+ha_integration_type: service
 ha_platforms:
   - diagnostics
+  - event
   - notify
-ha_quality_scale: bronze
+  - sensor
+ha_quality_scale: platinum
 ---
 
 The **ntfy** {% term integration %} allows publishing push notifications on [ntfy.sh](https://ntfy.sh/) or other ntfy services.
@@ -24,7 +27,7 @@ The **ntfy** {% term integration %} allows publishing push notifications on [ntf
 
 ## How you can use this integration
 
-The ntfy integration can be used to send push notifications from automations and scripts in real-time to your mobile devices and desktops.
+The ntfy integration can be used to send and receive messages via an [ntfy](https://ntfy.sh/) server. For example, to send a notification from Home Assistant to your mobile or send messages from a script to Home Assistant.
 
 ## Prerequisites
 
@@ -43,7 +46,7 @@ The ntfy integration can be used to send push notifications from automations and
 
 3. **Adding a topic**
 
-    To set up topics for notifications, select the three-dot {% icon "mdi:dots-vertical" %} menu next to the entry of the previously configured ntfy service, then click **{% icon "mdi:plus" %} Add topic**.
+    To set up topics for notifications, select **{% icon "mdi:plus" %} Add topic**, then, if prompted, select the ntfy service you previously configured.
 
     You can now choose one of the following options:
 
@@ -100,6 +103,132 @@ data:
 {% endraw %}
 
 {% enddetails %}
+
+## Events
+
+An {% term event %} {% term entity %} is created for each configured topic. These entities subscribe to their respective topics and receive notifications from the **ntfy** service in real-time. Each event entity exposes the full contents of the notification through its attributes. These attributes include links, attachments, tags, and other metadata.
+
+You can use {% term event %} {% term entities %} in automations. For example, to trigger actions in Home Assistant, or to forward notifications to other devices for further processing or alerting.
+
+{% details "Example YAML configuration" %}
+
+{% raw %}
+
+```yaml
+triggers:
+  - trigger: numeric_state
+    entity_id:
+      - event.mytopic
+    attribute: priority
+    above: 4
+actions:
+  - action: notify.mobile_app_your_device
+    data:
+      message: "Received new ntfy notification"
+```
+
+{% endraw %}
+
+{% enddetails %}
+
+## Actions
+
+### Publish notification
+
+For more customizable notifications, use the `ntfy.publish` action instead of `notify.send_message`. With `ntfy.publish`, you can take full advantage of the **ntfy** service's capabilities. These include setting a priority, adding links, attachments, tags, and emojis.
+
+#### Parameters
+
+- `title`: Title for your notification message.
+- `message`: Your notification message.
+- `markdown`: Enable Markdown formatting for the message body. See the Markdown guide for syntax details: [https://www.markdownguide.org/basic-syntax/](https://www.markdownguide.org/basic-syntax/).
+- `tags`: Add tags or emojis to the notification. Emojis (using shortcodes like `smile`) will appear in the notification title or message. Other tags will be displayed below the notification content.
+- `priority`: All messages have a priority, which defines how urgently your phone notifies you, depending on the configured vibration patterns, notification sounds, and visibility in the notification drawer or pop-over.
+- `click`: URL that is opened when the notification is clicked.
+- `delay`: Set a delay for message delivery. The minimum delay is 10 seconds, and the maximum delay is 3 days.
+- `attach`: Attach images or other files by URL.
+- `email`: Specify the address to forward the notification to, for example `mail@example.com`.
+- `call`: Phone number to call and read the message out loud using text-to-speech. Requires ntfy Pro and prior phone number verification.
+- `icon`: Include an icon that will appear next to the text of the notification. Only JPEG and PNG images are supported.
+
+{% details "Example YAML configuration" %}
+
+{% raw %}
+
+```yaml
+action: ntfy.publish
+data:
+  title: "Server Alert"
+  message: "CPU usage exceeded 90%."
+  priority: "5"
+  click: "https://homeassistant.local"
+  tags:
+    - rotating_light
+target:
+  entity_id: notify.mytopic
+```
+
+{% endraw %}
+
+{% enddetails %}
+
+{% note %}
+
+All parameters are optional. If `message` is left empty, the notification will use the default text: `triggered`. If `priority` is not specified, the default priority (3) will be used.
+
+{% endnote %}
+
+{% tip %}
+
+Check out the [emoji reference](https://docs.ntfy.sh/emojis/) for a full list of supported emoji shortcodes.
+
+{% endtip %}
+
+## Sensors
+
+The **ntfy** integration adds a device representing the service, along with various sensors that display your usage statistics and current account limits.
+
+### 📊 Message stats
+
+- **Messages published**: The total number of messages sent today.
+- **Messages remaining**: The number of messages that can still be sent before the daily limit is reached.
+- **Messages usage limit**: The maximum number of messages allowed per day on the account.
+- **Messages expiry duration**: The duration for which published messages are cached before automatic deletion.
+
+### ✉️ Email stats
+
+- **Emails sent**: The number of email notifications sent today.
+- **Emails remaining**: The number of email notifications that can still be sent today.
+- **Email usage limit**: The daily limit for email notifications on the account.
+
+### 📞 Phone call stats
+
+- **Phone calls made**: The total phone call alerts made today.
+- **Phone calls remaining**: The number of phone call alerts that can still be made today.
+- **Phone calls usage limit**: The maximum number of phone call alerts allowed per day on the account.
+
+### 🔒 Reserved topics
+
+- **Reserved topics**: The number of reserved topics currently assigned to the account.
+- **Reserved topics remaining**: The number of topics that can still be reserved.
+- **Reserved topics limit**: The maximum number of reserved topics allowed for the account.
+
+### 📎 Attachment stats
+
+- **Attachment storage**: The amount of storage space currently used by file attachments.
+- **Attachment storage remaining**: The remaining storage capacity available for attachments.
+- **Attachment storage limit**: The total storage quota allocated for attachments.
+- **Attachment expiry duration**: The duration attachments are retained before being automatically deleted.
+- **Attachment file size limit**: The maximum allowed size for a single attachment file.
+- **Attachment bandwidth limit**: The daily bandwidth cap for uploading and downloading attachments.
+
+### ⭐ Account
+
+- **Subscription tier**: The subscription plan currently assigned to the ntfy account.
+
+## Data updates
+
+The integration retrieves data from **ntfy.sh** (or your own ntfy instance) every 15 minutes to update the usage statistics sensors.
 
 ## Known limitations
 

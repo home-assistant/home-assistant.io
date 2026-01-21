@@ -12,10 +12,10 @@ ha_domain: plaato
 ha_platforms:
   - binary_sensor
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
-This integration sets up integration with [Plaato](https://www.plaato.io/) Airlock and Keg.
+This {% term integration %} sets up integration with [Plaato](https://www.plaato.io/) Airlock and Keg.
 
 ### Plaato Airlock
 

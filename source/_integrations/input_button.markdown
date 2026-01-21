@@ -12,14 +12,14 @@ ha_domain: input_button
 ha_integration_type: helper
 ---
 
-The **Input button** helper integration allows you to define buttons that
+The **Input button** helper {% term integration %} allows you to define buttons that
 can be pressed via the user interface, and can be used to trigger things,
 like an automation.
 
 ## Configuration
 
 The preferred way to configure button helpers is via the user interface.
-To add one, go to **{% my helpers title="Settings -> Devices & services -> Helpers" %}**
+To add one, go to **{% my helpers title="**Settings** > **Devices & services** > **Helpers**" %}**
 and click the add button; next choose the **{% my config_flow_start domain="input_button" title="Button" %}** option.
 
 To be able to add **Helpers** via the user interface you should have

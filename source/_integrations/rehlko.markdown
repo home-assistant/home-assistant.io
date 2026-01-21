@@ -69,6 +69,7 @@ Provides the overall status of the generator.
 | `ReadyToRun` | Generator is ready to run in case of a power outage. |
 | `Running` | Generator is running. |
 | `RunningExercise` | Generator is currently running its exercise program. |
+| `Shutdown` | Generator is shut down due to a failure and **will not** run in case of a power outage. |
 | `SwitchStateOff` | Generator is turned off and **will not** run in case of a power outage. |
 
 #### Engine state
@@ -105,6 +106,7 @@ These are the generator models that have been tested:
 - [20RESA](https://resources.kohler.com/power/kohler/residential/pdf/tp6804.pdf)
 - [20RCA](https://www.kohlerhomeenergy.rehlko.com/products/home+generators/20rca)
 - [14RESA](https://www.kohler.com/content/dam/kohler-com-NA/Lifestyle/PDF/PDF-tp6803.pdf)
+- [30RCL](https://www.kohlerhomeenergy.rehlko.com/products/home+generators/30rcla)
 
 ## Removing the integration
 

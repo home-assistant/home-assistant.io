@@ -8,7 +8,6 @@ ha_iot_class: Cloud Push
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
-  - '@ludeeus'
 ha_domain: analytics
 ha_integration_type: system
 ---

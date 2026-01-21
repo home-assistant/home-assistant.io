@@ -8,42 +8,59 @@ ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
   - '@music-assistant'
+  - '@arturpragacz'
 ha_domain: music_assistant
 ha_platforms:
+  - button
   - media_player
 ha_zeroconf: true
-ha_integration_type: integration
+ha_integration_type: service
+ha_quality_scale: bronze
 ---
 
-The **Music Assistant** (MA) {% term integration %} allows you to connect Home Assistant to a [Music Assistant Server](https://music-assistant.io/) (Required version 2.4 or later). Once configured, all [MA Players](https://music-assistant.io/player-support/) show up as Home Assistant [media player entities](/integrations/media_player/).  Media players will allow you to control media playback and see the currently playing item.
+The **Music Assistant** (MA) {% term integration %} allows you to connect Home Assistant to a [Music Assistant Server](https://music-assistant.io/). Once configured, all [MA Players](https://music-assistant.io/player-support/) show up as Home Assistant [media player entities](/integrations/media_player/).  Media players will allow you to control media playback and see the currently playing item.
 
-There is currently support for the following Home Assistant Platforms:
+## Prerequisites
 
-- [Media player](#media-player)
-
-All of the Home Assistant [Media Player Control Actions](https://www.home-assistant.io/integrations/media_player/#media-control-actions) are supported.
-
-The `media_content_id` payload for `media_player.play_media` can be any of the following:
-
-- The name of a track, artist, or album. For example, `Queen`.
-- A track or album combined with the artist's name. For example, `Queen - Innuendo`.
-- A streaming provider URI. For example, `spotify://artist/12345`.
-
-The `media_content_id` payload for `media_player.browse_media` must be a URI of the form `library://artist/1`, `library://album/20`, or `spotify://album/5zj4Ej0FrlJQaSo0d6cttH`. The type of item that the URI refers to must be an album or artist.
-
-These URIs can be obtained from, for example, the output of the `get_library` or `search` actions described below or the `media_player.browse_media` action from Home Assistant. 
+Before installing this integration, ensure you have a running Music Assistant server. Instructions for installing the Music Assistant server are available in the [Music Assistant documentation](https://www.music-assistant.io/installation/)
 
 {% include integrations/config_flow.md %}
 
 ### Manual configuration
 
-Under normal circumstances, Home Assistant automatically discovers your running Music Assistant Server. If there is something special about the Home Assistant or MA setup (for example, the MA server is running as a remote Docker container) or discovery is not working, you can manually specify the URL to your Music Assistant server. If the Music Assistant Server is not installed, then follow these [installation instructions](https://music-assistant.io/installation/).
+Under normal circumstances, Home Assistant automatically discovers your running Music Assistant server. If there is something special about the Home Assistant or Music Assistant setup (for example, the Music Assistant server is running as a remote Docker container) or discovery is not working, you can manually specify the URL to your Music Assistant server.
 
 ## Supported functionality
+
+There is currently support for the following Home Assistant Platforms:
+
+- [Media player](#media-player-entities)
+- [Button](#favorite-current-song-button)
+
+
+All of the Home Assistant [Media Player Control Actions](https://www.home-assistant.io/integrations/media_player/#media-control-actions) are supported.
+
+If using `media_player.play_media`, then note the `media_content_id` payload can be any of the following:
+
+- The name of a track, artist, or album. For example, `Queen`.
+- A track or album combined with the artist's name. For example, `Queen - Innuendo`.
+- A streaming provider URI. For example, `spotify://artist/12345`.
+- A streaming provider URL. For example, `https://open.spotify.com/track/31cWPvM99ZHxMl3mdgiw4I`.
+
+If using `media_player.browse_media`, then the `media_content_id` payload must be a URI of the form `library://artist/1`, `library://album/20`, or `spotify://album/5zj4Ej0FrlJQaSo0d6cttH`. The type of item that the URI refers to must be an album or artist.
+
+These URIs can, for example, be obtained from the output of the `get_library` or `search` actions described below or the `media_player.browse_media` action from Home Assistant. 
+
+Streaming provider URLs can be obtained from the web interface of the provider.
 
 ### Media player entities
 
 The Music Assistant integration creates media player entities for all players and groups available in MA, including those imported from Home Assistant. This is needed to provide the full functionality Music Assistant has to offer. This full functionality includes transfer of the playing queue of music from one player to another, automatic pausing of playback during announcements, and richer options for selecting the media for playback. These entities will display media information, playback progress, and playback controls.
+
+### Favorite current song button
+
+The Music Assistant integration creates a button entity for each player to favorite the current song. Pressing this button (manually or by automation) adds the current song to your Music Assistant favorites. This works for songs stored locally as well as for tracks from streaming providers. It also works with remote content such as Spotify Connect, AirPlay, or a radio station, as long as the external source provides an artist and title combination (and optionally the album). 
+
 
 ## Actions
 
@@ -123,8 +140,8 @@ automation:
       platform: state
       entity_id: binary_sensor.kitchen_motion_sensor_occupancy
       to: 'on'
-    action:
-      service: music_assistant.transfer_queue
+    actions:
+      action: music_assistant.transfer_queue
       target:
         entity_id: media_player.ma_kitchen_speaker
 ```
@@ -212,7 +229,7 @@ script:
   create_random_queue:
     mode: single
     sequence:
-      - service: music_assistant.get_library
+      - action: music_assistant.get_library
         data:
           limit: 10
           media_type: track
@@ -251,7 +268,7 @@ script:
         data:
           entity_id: media_player.ma_kitchen_speaker
         response_variable: queue_info
-      - service: input_text.set_value
+      - action: input_text.set_value
         data:
           entity_id: input_text.now_playing 
           value: {% raw %}"{{ queue_info['media_player.ma_kitchen_speaker'].current_item.name }}" {% endraw %}
@@ -260,6 +277,12 @@ script:
 ## Notes
 
 - Any Home Assistant players added to Music Assistant will appear duplicated as the MA version of the player is created. The original HA player can be hidden if desired.
+
+## Supported devices
+
+This integration requires Music Assistant server version 2.4 or later. The integration can connect to Music Assistant servers hosted as an add-on or in a separate Docker container.
+
+Music Assistant supports a [wide range of devices](https://www.music-assistant.io/player-support/) both natively and through the [Home Assistant provider](https://www.music-assistant.io/player-support/ha/). The Home Assistant provider, when installed, allows any Home Assistant media player to appear as a player in Music Assistant and thereby benefit from the advanced playback functionality that Music Assistant provides. As a general note, if there is a native Music Assistant provider then devices should be added via that method instead of using the HA media player. Any limitations associated with the providers are described on the related Player Provider page in the [Music Assistant documentation](https://www.music-assistant.io/).
 
 ## Known limitations
 

@@ -5,18 +5,20 @@ ha_category:
   - Media player
 ha_domain: linkplay
 ha_zeroconf: true
-ha_integration_type: integration
+ha_integration_type: hub
 ha_release: 2024.8
 ha_codeowners:
   - '@Velleman'
 ha_config_flow: true
 ha_platforms:
-  - media_player
   - button
+  - diagnostics
+  - media_player
+  - select
 ha_iot_class: Local Polling
 ---
 
-The LinkPlay {% term integrations %} for Home Assistant allows you to control various media players based on the LinkPlay protocol. The integration supports auto-discovery on your local network through [Zeroconf](/integrations/zeroconf).
+The **LinkPlay** {% term integration %} for Home Assistant allows you to control various media players based on the LinkPlay protocol. The integration supports auto-discovery on your local network through [Zeroconf](/integrations/zeroconf).
 
 {% include integrations/config_flow.md %}
 
@@ -40,9 +42,9 @@ The button entities provide some additional LinkPlay features available on the d
 
 The LinkPlay integration makes various custom actions available in addition to the [standard media player actions](/integrations/media_player/#actions).
 
-### Action `linkplay.play_preset`
+### Action: Play preset
 
-Play a preset on a LinkPlay media player. 
+The `linkplay.play_preset` action plays a preset on a LinkPlay media player. 
 
 {% note %}
 Companion apps, such as 4stream, allow to save music presets (for example, Spotify playlists). This action can be used to start playing these presets. 

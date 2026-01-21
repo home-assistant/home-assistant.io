@@ -18,7 +18,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `xmpp` notification {% term integration %} allows you to deliver notifications from Home Assistant to a [Jabber (XMPP)](https://xmpp.org/) account.
+The **Jabber (XMPP)** {% term integration %} allows you to deliver notifications from Home Assistant to a [Jabber (XMPP)](https://xmpp.org/) account.
 
 ## Configuration
 
@@ -57,7 +57,7 @@ password:
   required: true
   type: string
 recipient:
-  description: The Jabber IDs (JID) that will receive the messages.
+  description: Default Jabber IDs (JID) that will receive the notification. This can be a JID or a list of JIDs for multiple recipients.<br>This is where you want to send your Jabber notifications by default (when not specifying target in the action). Any JID(s) specified in the action’s target field will override this recipient content.
   required: true
   type: [string, list]
 tls:
@@ -74,6 +74,11 @@ room:
   description: "Room's name (e.g., example@conference.jabber.org). If set, send a message to chatroom instead of the recipient."
   required: false
   type: string
+title:
+  description: Default message title. To make it empty, set it to `""`.
+  required: false
+  type: string
+  default: "Home Assistant"
 {% endconfiguration %}
 
 {% note %}
@@ -90,7 +95,7 @@ You can send text messages and images as well as other files through Jabber.
 Here are some examples on how to set up a script, that can be run from an automation.
 
 Number 1 shows a classical, text-only message. The Title is optional, although if omitted,
-`Home-Assistant` will be set. To keep it empty set it to `""`.
+it will be set to the component's `title` configuration variable. To keep it empty, set it to `""`.
 
 ```yaml
 # Example script.yaml entry

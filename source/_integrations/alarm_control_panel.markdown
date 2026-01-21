@@ -12,12 +12,12 @@ ha_integration_type: entity
 related:
   - docs: /integrations/manual/
     title: Manual alarm
-  - docs: /integrations/alarm_control_panel.template/
+  - docs: /integrations/template/#alarm-control-panel
     title: Template alarm
 ---
 
 Home Assistant can give you an interface which is similar to a classic alarm system.
-Please see [manual alarm](/integrations/manual) or [template alarm](/integrations/alarm_control_panel.template) for alarm configuration.
+Please see [manual alarm](/integrations/manual) or [template alarm](/integrations/template/#alarm-control-panel) for alarm configuration.
 
 {% include integrations/building_block_integration.md %}
 

@@ -24,7 +24,7 @@ Templating in Home Assistant is powered by the [Jinja2](https://palletsprojects.
 
 We will not go over the basics of the syntax, as Jinja2 does a great job of this in their [templates documentation](https://jinja.palletsprojects.com/en/latest/templates/).
 
-The frontend has a {% my developer_template title="template editor tool" %} to help develop and debug templates. Navigate to {% my developer_template title="Developer Tools > Template" %}, create your template in the _Template editor_ and check the results on the right.
+The frontend has a template editor tool to help develop and debug templates. Go to {% my developer_template title="**Developer tools** > **Template**" %}, create your template in the **Template editor** and check the results on the right.
 
 Templates can get big pretty fast. To keep a clear overview, consider using YAML multiline strings to define your templates:
 
@@ -97,7 +97,7 @@ In your automations, you could then reuse this macro by importing it:
 {{ format_entity('sensor.temperature') }}
 ```
 
-{$ endraw %}
+{% endraw %}
 
 Home Assistant also allows you to write macros with non-string return values by
 taking a named argument called `returns` and calling it with a return value.  Once created,
@@ -623,6 +623,7 @@ If there is more than one entry with the same title, the entities for all the ma
 - `labels()` returns the full list of label IDs, or those for a given area ID, device ID, or entity ID.
 - `label_id(lookup_value)` returns the label ID for a given label name.
 - `label_name(lookup_value)` returns the label name for a given label ID.
+- `label_description(lookup_value)` returns the label description for a given label ID.
 - `label_areas(label_name_or_id)` returns the list of area IDs tied to a given label ID or name.
 - `label_devices(label_name_or_id)` returns the list of device IDs tied to a given label ID or name.
 - `label_entities(label_name_or_id)` returns the list of entity IDs tied to a given label ID or name.
@@ -810,7 +811,7 @@ A precision of 0 returns all available units, default is 1.
 
 - Filter `timestamp_local(default)` converts a UNIX timestamp to the ISO format string representation as date/time in your local timezone. If that fails, returns the `default` value, or if omitted raises an error. If a custom string format is needed in the string, use `timestamp_custom` instead.
 - Filter `timestamp_utc(default)` converts a UNIX timestamp to the ISO format string representation representation as date/time in UTC timezone. If that fails, returns the `default` value, or if omitted raises an error. If a custom string format is needed in the string, use `timestamp_custom` instead.
-- Filter `timestamp_custom(format_string, local=True, default)` converts an UNIX timestamp to its string representation based on a custom format, the use of a local timezone is the default. If that fails, returns the `default` value, or if omitted raises an error. Supports the standard [Python time formatting options](https://docs.python.org/3/library/time.html#time.strftime).
+- Filter `timestamp_custom(format_string, local=True, default)` converts a UNIX timestamp to its string representation based on a custom format, the use of a local timezone is the default. If that fails, returns the `default` value, or if omitted raises an error. Supports the standard [Python time formatting options](https://docs.python.org/3/library/time.html#time.strftime).
 
 {% tip %}
 [UNIX timestamp](https://en.wikipedia.org/wiki/Unix_time) is the number of seconds that have elapsed since 00:00:00 UTC on 1 January 1970. Therefore, if used as a function's argument, it can be substituted with a numeric value (`int` or `float`).
@@ -902,6 +903,29 @@ The temperature is 25°C
 
 {% endraw %}
 
+`from_json(default)` function will attempt to convert the input to `json`. If that fails, returns the `default` value, or if omitted raises an error.
+
+#### Template
+
+{% raw %}
+
+```text
+{% set result = 'not json'|from_json('not json') %}
+The value is {{ result }}
+```
+
+{% endraw %}
+
+#### Output
+
+{% raw %}
+
+```text
+The value is not json
+```
+
+{% endraw %}
+
 ### Is defined
 
 Sometimes a template should only return if a value or object is defined, if not, the supplied default value should be returned. This can be useful to validate a JSON payload.
@@ -921,7 +945,7 @@ This will throw an error `UndefinedError: 'value_json' is undefined` if the JSON
 
 ### Version
 
-- `version()` Returns a [AwesomeVersion object](https://github.com/ludeeus/awesomeversion) for the value given inside the brackets.
+- `version()` Returns an [AwesomeVersion object](https://github.com/ludeeus/awesomeversion) for the value given inside the brackets.
   - This is also available as a filter (`| version`).
 
 Examples:
@@ -1084,19 +1108,28 @@ The numeric functions and filters raise an error if the input is not a valid num
   Like `float` and `int`, `bool` has a filter form. Using `none` as the default value is particularly useful in combination with the [immediate if filter](#immediate-if-iif): it can handle all three possible cases in a single line.
 
 - `log(value, base, default)` will take the logarithm of the input. When the base is omitted, it defaults to `e` - the natural logarithm. If `value` or `base` can't be converted to a `float`, returns the `default` value, or if omitted raises an error. Can also be used as a filter.
-- `sin(value, default)` will return the sine of the input. If `value` can't be converted to a `float`, returns the `default` value, or if omitted raises an error. Can be used as a filter.
-- `cos(value, default)` will return the cosine of the input. If `value` can't be converted to a `float`, returns the `default` value, or if omitted raises an error. Can be used as a filter.
-- `tan(value, default)` will return the tangent of the input. If `value` can't be converted to a `float`, returns the `default` value, or if omitted raises an error. Can be used as a filter.
-- `asin(value, default)` will return the arcus sine of the input. If `value` can't be converted to a `float`, returns the `default` value, or if omitted raises an error. Can be used as a filter.
-- `acos(value, default)` will return the arcus cosine of the input. If `value` can't be converted to a `float`, returns the `default` value, or if omitted raises an error. Can be used as a filter.
-- `atan(value, default)` will return the arcus tangent of the input. If `value` can't be converted to a `float`, returns the `default` value, or if omitted raises an error. Can be used as a filter.
-- `atan2(y, x, default)` will return the four quadrant arcus tangent of y / x. If `y` or `x` can't be converted to a `float`, returns the `default` value, or if omitted raises an error. Can be used as a filter.
+- `sin(value, default)` will return the sine of the input. The input value is in radians. If `value` can't be converted to a `float`, returns the `default` value, or if omitted raises an error. Can be used as a filter.
+- `cos(value, default)` will return the cosine of the input. The input value is in radians. If `value` can't be converted to a `float`, returns the `default` value, or if omitted raises an error. Can be used as a filter.
+- `tan(value, default)` will return the tangent of the input. The input value is in radians. If `value` can't be converted to a `float`, returns the `default` value, or if omitted raises an error. Can be used as a filter.
+- `asin(value, default)` will return the arcus sine of the input. The return value is in radians. If `value` can't be converted to a `float`, returns the `default` value, or if omitted raises an error. Can be used as a filter.
+- `acos(value, default)` will return the arcus cosine of the input. The return value is in radians. If `value` can't be converted to a `float`, returns the `default` value, or if omitted raises an error. Can be used as a filter.
+- `atan(value, default)` will return the arcus tangent of the input. The return value is in radians. If `value` can't be converted to a `float`, returns the `default` value, or if omitted raises an error. Can be used as a filter.
+- `atan2(y, x, default)` will return the four quadrant arcus tangent of y / x. The return value is in radians. If `y` or `x` can't be converted to a `float`, returns the `default` value, or if omitted raises an error. Can be used as a filter.
 - `sqrt(value, default)` will return the square root of the input. If `value` can't be converted to a `float`, returns the `default` value, or if omitted raises an error. Can be used as a filter.
 - `max([x, y, ...])` will obtain the largest item in a sequence. Uses the same parameters as the built-in [max](https://jinja.palletsprojects.com/en/latest/templates/#jinja-filters.max) filter.
 - `min([x, y, ...])` will obtain the smallest item in a sequence. Uses the same parameters as the built-in [min](https://jinja.palletsprojects.com/en/latest/templates/#jinja-filters.min) filter.
 - `average([x, y, ...], default)` will return the average value of the sequence. If list is empty or contains non-numeric value, returns the `default` value, or if omitted raises an error. Can be used as a filter.
 - `median([x, y, ...], default)` will return the median value of the sequence. If list is empty or contains non-numeric value, returns the `default` value, or if omitted raises an error. Can be used as a filter.
 - `statistical_mode([x, y, ...], default)` will return the statistical mode value (most frequent occurrence) of the sequence. If the list is empty, it returns the `default` value, or if omitted raises an error. It can be used as a filter.
+- `clamp(v, min, max)` limits the value `v` to be between `min` and `max`, [clamping at the edges](https://en.wikipedia.org/wiki/Clamp_(function)). If any of the arguments cannot be converted to a float, an error is raised. Can be used as a filter.
+- `wrap(v, min, max)` limits the value to be between min and max, wrapping the value at the edges. In mathematical terms, this is [modular arithmetic](https://en.wikipedia.org/wiki/Modular_arithmetic), sometimes called "clock face math". If `v`, `min`, or `max` cannot be converted to numbers, an error is raised. Can be used as a filter.
+- `remap(v, in_min, in_max, out_min, out_max, *, [steps], [edges])` remaps a value `v` from the range `in_min`..`in_max` to the range `out_min`..`out_max`.
+  If any of the values `v`, `in_min`, `in_max`, `out_min`, `out_max` cannot be converted to numbers, an error is raised. Can be used as a filter.
+  - You can optionally set the `edges` parameter to control how out-of-bounds input values are handled:
+    - `edges='clamp'` (the default) will clamp the output to the min/max output range.
+    - `edges='wrap'` will wrap the input value around the input range before remapping.
+    - `edges='mirror'` will bounce the input value back and forth within the input range before remapping.
+  - You can optionally set the `steps` parameter to a positive integer to quantize the output to a number of discrete steps.
 - `e` mathematical constant, approximately 2.71828.
 - `pi` mathematical constant, approximately 3.14159.
 - `tau` mathematical constant, approximately 6.28318.
@@ -1660,7 +1693,7 @@ The following overview contains a couple of options to get the needed values:
 
 {% endraw %}
 
-To evaluate a response, go to **{% my developer_template title="Developer Tools > Template" %}**, create your output in "Template editor", and check the result.
+To evaluate a response, go to {% my developer_template title="**Developer tools** > **Template**" %}, create your output in **Template editor**, and check the result.
 
 {% raw %}
 

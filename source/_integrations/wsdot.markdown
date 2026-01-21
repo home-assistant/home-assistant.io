@@ -8,11 +8,12 @@ ha_release: 0.37
 ha_domain: wsdot
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 related:
   - docs: /docs/configuration/
     title: Configuration file
 ha_quality_scale: legacy
+ha_config_flow: true
 ---
 
 The **Washington State Department of Transportation (WSDOT)** {% term integration %} will give you travel time information from the [Washington State Department of Transportation (WSDOT)](https://wsdot.com/).

@@ -12,10 +12,11 @@ ha_domain: opower
 ha_config_flow: true
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
+ha_quality_scale: bronze
 ---
 
-The Opower integration allows you to get energy information from utilities that use [Opower](https://www.oracle.com/industries/utilities/opower-energy-efficiency/).
+The **Opower** {% term integration %} allows you to get energy information from utilities that use [Opower](https://www.oracle.com/utilities/opower-energy-efficiency/).
 
 More than 175 utilities use Opower. Currently only the following utilities are supported by this integration:
 
@@ -27,13 +28,11 @@ More than 175 utilities use Opower. Currently only the following utilities are s
   - Kentucky Power
   - Public Service Company of Oklahoma (PSO)
   - Southwestern Electric Power Company (SWEPCO)
-- Arizona Public Service (APS)
 - Burbank Water and Power (BWP)
 - City of Austin Utilities
 - Consolidated Edison (ConEd) and subsidiaries
   - Orange & Rockland Utilities (ORU)
 - Duquesne Light Company (DQE)
-- Enmax Energy
 - Evergy
 - Exelon subsidiaries
   - Atlantic City Electric
@@ -43,7 +42,6 @@ More than 175 utilities use Opower. Currently only the following utilities are s
   - PECO Energy Company (PECO)
   - Potomac Electric Power Company (Pepco)
 - Glendale Water and Power (GWP)
-- Mercury NZ Limited
 - National Grid US subsidiaries
   - National Grid Massachusetts
   - National Grid NY Long Island
@@ -54,6 +52,8 @@ More than 175 utilities use Opower. Currently only the following utilities are s
 - Puget Sound Energy (PSE)
 - Sacramento Municipal Utility District (SMUD)
 - Seattle City Light (SCL)
+- Southern Maryland Electric Cooperative (SMECO)
+- Southwest Gas
 
 When you add the Opower integration to Home Assistant, you will need to provide your utility account's authentication details to enable retrieving your energy data.
 This is typically the same information needed to access your utility's website.
@@ -63,6 +63,10 @@ This is typically the same information needed to access your utility's website.
 For many utilities, only a username and password are required to access your accounts. Some utilities require additional authentication information.
 It might be necessary to configure your utility account with an authentication method that is compatible with the Opower integration.
 Utility-specific authentication requirements are listed below:
+
+### Burbank Water and Power (BWP)
+
+You need to first create an account at <https://bwp.opower.com/> and use those credentials when you set up the integration.
 
 ### Consolidated Edison (ConEd)
 
@@ -81,11 +85,16 @@ Alternatively, you can create a new TOTP secret for your account and use the "no
 
 **NOTE: At this time, ConEd only has a single TOTP set up per account. Therefore, it is important that you configure the same TOTP secret for ConEd access in both Opower and your authenticator app.**
 
-### Exelon subsidiaries
+### Exelon subsidiaries (ACE, BGE, ComEd, Delmarva, PECO, Pepco)
 
-When using Opower with any of the Exelon subsidiaries, such as BGE, ComEd, PECO, Pepco, etc., you need to actively disable two-factor authentication.
-Before proceeding, make sure you understand the security implications of disabling 2FA.
-Log onto the website, select **Don't use 2FA** and **Don't ask me again**. If you have already enabled 2FA, you most likely cannot disable it, which unfortunately means you cannot use this integration.
+The integration properly supports Multi-Factor Authentication (MFA) for Exelon subsidiaries via code sent to either email or phone SMS. These subsidiaries turned on MFA automatically for customers,
+however you may not have added a phone number. This integration supports this use case, but beware that once you add a phone you most likely cannot remove it entirely.
+You will be asked to re-authenticate via MFA periodically.
+
+### Pacific Gas & Electric (PG&E)
+
+The integration properly supports Multi-Factor Authentication (MFA) for PG&E via either email or phone.
+You will be asked to re-authenticate via MFA every 180 days.
 
 {% include integrations/config_flow.md %}
 
@@ -169,3 +178,10 @@ With the above changes your (**{% my config_energy title="Settings > Dashboards 
 
 - Before opening an issue, ensure you can access the energy usage section/dashboard on your utility website and verify that the data is up-to-date there.
 - In your energy dashboard in Home Assistant, make sure you use the statistics and not the sensors.
+
+## Removing the integration
+
+{% include integrations/remove_device_service.md %}
+
+If you remove the integration, the statistics are not automatically deleted.
+You can find and delete the statistics in {% my developer_statistics title="**Developer Tools** > **Statistics**"%} and search for "opower".

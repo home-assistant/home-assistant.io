@@ -44,9 +44,9 @@ Available actions: `water_heater.set_temperature`, `water_heater.turn_away_mode_
 Not all water heater actions may be available for your platform. Be sure to check the available actions Home Assistant has enabled by checking **Developer Tools** > **Actions**.
 {% endtip %}
 
-### Action `water_heater.set_temperature`
+### Action: Set temperature
 
-Sets target temperature of water heater device.
+The `water_heater.set_temperature` action sets the target temperature of the water heater device.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -70,9 +70,9 @@ automation:
         operation_mode: eco
 ```
 
-### Action `water_heater.set_operation_mode`
+### Action: Set operation mode
 
-Set operation mode for water heater device
+The `water_heater.set_operation_mode` action sets the operation mode for the water heater device.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -94,9 +94,9 @@ automation:
         operation_mode: eco
 ```
 
-### Action `water_heater.set_away_mode`
+### Action: Set away mode
 
-Turn away mode on or off for water heater device
+The `water_heater.set_away_mode` action turns away mode on or off for the water heater device.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -118,17 +118,17 @@ automation:
         away_mode: true
 ```
 
-### Action `water_heater.turn_on`
+### Action: Turn on
 
-Turn water heater device on.
+The `water_heater.turn_on` action turns the water heater device on.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that define the entity ID(s) of water heater device(s) to control. To target all water heater devices, use `all`. |
 
-### Action `water_heater.turn_off`
+### Action: Turn off
 
-Turn water heater device off.
+The `water_heater.turn_off` action turns the water heater device off.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |

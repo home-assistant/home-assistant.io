@@ -16,7 +16,7 @@ Remember to follow the [securing checklist](/docs/configuration/securing/) befor
 
 ## Home Assistant Cloud
 
-Users of <a href="https://www.nabucasa.com">Home Assistant Cloud</a> can use the <a href="https://www.nabucasa.com/config/remote/">Remote UI</a> without requiring any configuration.
+Users of <a href="https://www.nabucasa.com">Home Assistant Cloud</a> can use the <a href="https://www.nabucasa.com/config/remote/">Home Assistant Cloud remote access</a> feature without requiring any configuration.
 
 A unique remote URL will be generated and given to you along with a certificate so all your traffic to Home Assistant is encrypted automatically.
 
@@ -35,7 +35,7 @@ A problem with making a port accessible is that some Internet Service Providers 
 If you cannot access your Home Assistant installation remotely, remember to check if your ISP provides you with a dedicated IP, instead of one shared with other users via a [CG-NAT](https://en.wikipedia.org/wiki/Carrier-grade_NAT). This is becoming fairly common nowadays due to the shortage of IPv4 addresses. Some, if not most ISPs will require you to pay an extra fee to be assigned a dedicated IPv4 address.
 
 {% caution %}
-Just putting a port up is not secure. You should definitely consider encrypting your traffic if you are accessing your Home Assistant installation remotely. For details, please check the [set up encryption using Let's Encrypt](/blog/2017/09/27/effortless-encryption-with-lets-encrypt-and-duckdns/) blog post or this [detailed guide](https://community.home-assistant.io/t/certificate-authority-and-self-signed-certificate-for-ssl-tls/196970) to using Let's Encrypt with Home Assistant.
+Just putting a port up is not secure. You should definitely consider encrypting your traffic if you are accessing your Home Assistant installation remotely. For details, please check the [set up encryption using Let's Encrypt](/blog/2017/09/27/effortless-encryption-with-lets-encrypt-and-duckdns/) blog post or this [detailed guide](https://community.home-assistant.io/t/196970) to using Let's Encrypt with Home Assistant.
 {% endcaution %}
 
 ## Adding a remote URL to Home Assistant

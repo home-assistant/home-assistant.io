@@ -9,7 +9,7 @@ related:
     title: Creating a local assistant
   - docs: /voice_control/voice_remote_expose_devices/
     title: Exposing devices to Assist
-  - url: https://support.nabucasa.com/hc/en-us/categories/24451727188125-Home-Assistant-Voice-Preview-Edition
+  - url: https://support.nabucasa.com/hc/categories/24451727188125
     title: Voice Preview Edition - Documentation
 ---
 
@@ -48,8 +48,8 @@ To have the fastest processing voice assistant experience, follow these steps:
 
 6. That's it. You can now speak to your device, and the device can answer in the language you defined.
 
-
 ## Next steps
-Once Assist is configured, now can now start using it. You can now talk through your device ([Android](/voice_control/android/), [iOS](/voice_control/apple/) or [Voice Preview edition](https://support.nabucasa.com/hc/en-us/categories/24451727188125-Home-Assistant-Voice-Preview-Edition).
+
+Once Assist is configured, you can start using it. You can now talk through your device ([Android](/voice_control/android/), [iOS](/voice_control/apple/) or [Voice Preview edition](https://support.nabucasa.com/hc/en-us/categories/24451727188125-Home-Assistant-Voice-Preview-Edition).
 
 To get the best out of the voice interaction, don't forget to check the [best practices](/voice_control/best_practices/).

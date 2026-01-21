@@ -28,6 +28,10 @@ These models are also recognizable by the required curved salt blocks.
 - [HarveyArc Water Softener](https://www.harveywatersofteners.co.uk/products/water-softeners/harveyarc-water-softener)
 - [TwinTec Cobalt](https://www.twintec.com/our-products/tt-cobalt/)
 
+The Mijn AquaCell app can be found on the [Apple App Store](https://apps.apple.com/app/id1632415201) or on [Google Play](https://play.google.com/store/apps/details?id=com.aquacell.sws).
+
+The myHarvey app can be found on the [Apple App Store](https://apps.apple.com/app/id1551338436) or on [Google Play](https://play.google.com/store/apps/details?id=com.harvey.sws).
+
 ## Prerequisites
 
 The softener needs to be set up with the official app before being able to integrate it in Home Assistant.

@@ -29,8 +29,8 @@ ha_platforms:
   - select
   - sensor
   - switch
-  - time
 ha_iot_class: Cloud Push
+ha_dhcp: true
 ha_zeroconf: true
 ---
 

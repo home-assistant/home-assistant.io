@@ -8,165 +8,63 @@ ha_category:
   - Switch
 ha_release: 0.54
 ha_iot_class: Local Push
+ha_config_flow: true
+ha_codeowners:
+  - '@Tommatheussen'
 ha_domain: satel_integra
 ha_platforms:
   - alarm_control_panel
   - binary_sensor
+  - diagnostics
   - switch
-ha_integration_type: integration
-related:
-  - docs: /docs/configuration/
-    title: Configuration file
-ha_quality_scale: legacy
+ha_integration_type: device
 ---
 
-The `satel_integra` {% term integration %} will allow Home Assistant users who own a Satel Integra alarm panel to leverage their alarm system and its sensors to provide Home Assistant with information about their homes. Connectivity between Home Assistant and the alarm is accomplished through a ETHM extension module that must be installed in the alarm. Compatible with ETHM-1 Plus module with firmware version > 2.00 (version 2.04 confirmed).
+The **Satel Integra** {% term integration %} allows you to connect your [Satel Integra alarm system](https://www.satel.pl/en/product-category/intruder-alarms/integra/) to Home Assistant to control and monitor your alarm system.
 
 There is currently support for the following device types within Home Assistant:
 
 - Binary sensor: Reports on zone or output statuses
-- Switch: allows for setting states of selected outputs 
+- Switch: allows for setting states of selected outputs
 - Alarm control panel: represents the zones (in Polish: "strefa"). Reports its status, and can be used to arm/disarm the partition
 
 The module communicates via Satel's open TCP protocol published on their website. It subscribes for new events coming from alarm system and reacts to them immediately.
 
-## Setup
+## Supported devices
 
-Please note that **ETHM-1 module is currently not supported**: it does not provide functionality used by this extension. At the moment only ETHM-1 Plus module is supported. That might change in the future, but no promises are given.
+The integration only supports the **ETHM-1 Plus**, with firmware version 2.00 or greater. Only the Integra line of alarm systems is supported.
 
-The library currently doesn't support encrypted connection to your alarm, so you need **to turn off encryption for integration protocol**. In Polish: "koduj integracje" must be unchecked. You will find this setting in your DloadX program.
+## Prerequisites
 
-A list of all partition, zone and output IDs can be acquired by running DloadX program and connecting to your alarm.
+1. Open the [DLOADX](https://www.satel.eu/nl/product/343/DLOADX,INTEGRA-en-VERSA-Alarmsysteem-installatie-programma) installer program.
+2. Open your existing project file.
+3. Open the **System and hardware structure** tab.
+4. Navigate to the **Hardware** section, expand the tree and select the **ETHM-1 Plus** module.
+5. Select the **Integration** checkbox.
+6. Clear the **Encrypted integration** checkbox. Encrypted connection is currently not supported.
 
-For the binary sensor, check the [type/class](/integrations/binary_sensor/) list for a possible visualization of your zones. Note: If no zones or outputs are specified, Home Assistant will not load any binary_sensor integrations."
+{% note %}
+If you do not have access to the DLOADX program or your project file, ask your installer to adjust the settings for you.
+{% endnote %}
 
-## Configuration
+{% include integrations/config_flow.md %}
 
-A `satel_integra` section must be present in the {% term "`configuration.yaml`" %} file.
-{% include integrations/restart_ha_after_config_inclusion.md %}
+{% configuration_basic %}
+Host:
+  description: The IP address of the Satel Integra ETHM module.
+Port:
+  description: The port on which the ETHM module listens for clients using the integration protocol.
+Code:
+  description: Optional code that will be used to toggle switchable outputs.
+{% endconfiguration_basic %}
 
-```yaml
-# Example configuration.yaml entry
-satel_integra:
-  host: IP_ADDRESS
-```
+## Configuring partitions, zones, and outputs
 
-{% configuration %}
-host:
-  description: The IP address of the Satel Integra ETHM module on your home network, if using socket type.
-  required: true
-  default: localhost
-  type: string
-port:
-  description: The port on which the ETHM module listens for clients using integration protocol.
-  required: false
-  default: 7094
-  type: integer
-code:
-  description: User password, it's needed for making use of the switchable_outputs. It's recommended not to use admin password.
-  required: false
-  type: string
-partitions:
-  description: List of the partitions to operate on.
-  required: false
-  type: [integer, list]
-  keys:
-    name:
-      description: Name of the partition.
-      required: true
-      type: string    
-    arm_home_mode:
-      description: The mode in which the partition is armed when 'arm home' is used. Possible options are `1`,`2` or `3`. For more information on what the differences are between them, please refer to Satel Integra manual.
-      required: false
-      default: 1
-      type: integer
-zones:
-  description: "This parameter lists the zones (or inputs) that will be visible by Home Assistant. For each zone, a proper ID must be given as well as its name. The name is arbitrary and does not need to match the one specified in Satel Integra alarm configuration."
-  required: false
-  type: [integer, list]
-  keys:
-    name:
-      description: Name of the zone.
-      required: true
-      type: string
-    type:
-      description: The zone type.
-      required: false
-      default: motion
-      type: string
-outputs:
-  description: "Very similar to zones, but with outputs. Satel Integra uses outputs to inform external systems about different events. For example power failure, or that alarm started counting for exit or some other user-defined condition. They may be used for simple alarm-based automation. For more information please refer to Satel homepage and forums."
-  required: false
-  type: [integer, list]
-  keys:
-    name:
-      description: Name of the output.
-      required: true
-      type: string
-    type:
-      description: The type of the device - just for presentation.
-      required: false
-      default: motion
-      type: string
-switchable_outputs:
-  description: "Switchable outputs. These will show up as switches within Home Assistant."
-  required: false
-  type: [integer, list]
-  keys:
-    name:
-      description: Name of the output.
-      required: true
-      type: string
-{% endconfiguration %}
+After setting up the connection details, you can configure partitions, zones, and outputs as **Subentries** on the {% my integration domain="satel_integra" title="**Satel Integra**" %} integration page.
 
-## Full examples
-
-```yaml
-# Example configuration.yaml entry
-satel_integra:
-  host: 192.168.1.100
-  port: 7094
-  partitions:
-    01:
-      name: "House"
-      arm_home_mode: 2
-    02:
-      name: "Garage"
-  zones:
-    01:
-      name: "Bedroom"
-      type: "motion"
-    02:
-      name: "Hall"
-      type: "motion"
-    30:
-      name: "Kitchen - smoke"
-      type: "smoke"
-    113:
-      name: "Entry door"
-      type: "opening"
-  outputs:
-    05:
-      name: "Garden lights trigger"
-      type: "light"
-    09:
-      name: "Gate opening trigger"
-      type: "opening"
-    30:
-      name: "Alarm triggered"
-      type: "safety"
-    32:
-      name: "Alarm power problem"
-      type: "safety"
-  switchable_outputs:
-    05:
-      name: "Gate open"
-    06:
-      name: "Gate close"    
-    14:
-      name: "Garden light"
-      
-```
+A list of all partition, zone, and output IDs can be acquired by running the DLOADX program and connecting to your alarm.
+To create the respective entities, select the **Add partition**, **Add zone**, **Add output**, or **Add switchable output** buttons. Follow the instructions in the UI to set up the individual entities.
+**Result**: Each partition will have its own alarm panel. Each zone and output will have a binary sensor, and a switch will be created for each switchable output.
 
 Having configured the zones and the outputs, you can use them for automation, such as to react on the movement in your bedroom.
 For example:
@@ -182,3 +80,9 @@ For example:
       target:
         entity_id: input_boolean.movement_detected
 ```
+
+## Removing the integration
+
+This integration follows standard integration removal. Once the integration is removed, consider disabling the communication ability to the ETHM-1 Plus module using DLOADX to reduce security risks.
+
+{% include integrations/remove_device_service.md %}

@@ -15,7 +15,7 @@ ha_platforms:
 ha_integration_type: hub
 ---
 
-The TRIGGERcmd {% term integration %} allows you to run commands on computers via [TRIGGERcmd](https://triggercmd.com/) with Home Assistant.
+The **TRIGGERcmd** {% term integration %} allows you to run commands on computers via [TRIGGERcmd](https://triggercmd.com/) with Home Assistant.
 
 
 ## Prerequisites

@@ -12,6 +12,7 @@ ha_platforms:
   - diagnostics
 ha_codeowners:
   - '@Thomas55555'
+  - '@allenporter'
 ha_integration_type: service
 ha_quality_scale: silver
 ---

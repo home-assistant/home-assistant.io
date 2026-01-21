@@ -15,9 +15,10 @@ ha_platforms:
   - diagnostics
   - sensor
 ha_integration_type: device
+ha_quality_scale: silver
 ---
 
-The SFR Box integration offers integration with the **SFR** broadband router.
+The **SFR Box** {% term integration %} offers integration with the **SFR** broadband router.
 
 This integration provides the following platforms:
 
@@ -26,6 +27,15 @@ This integration provides the following platforms:
 - Sensors - such as ADSL line status, attenuation, noise and data rate.
 
 {% include integrations/config_flow.md %}
+
+{% configuration_basic %}
+Host:
+  description: "The hostname, IP address, or full URL of your SFR device."
+Username (optional):
+  description: "The username for accessing your SFR box's web interface. The default is 'admin'."
+Password (optional):
+  description: "The password for accessing your SFR box's web interface. The default is the Wi-Fi security key found on the device label."
+{% endconfiguration_basic %}
 
 ## Compatibility
 

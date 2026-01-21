@@ -26,7 +26,7 @@ related:
     title: Configuration file
 ---
 
-The `tellduslive` {% term integration %} let you connect to the [Telldus Live](https://live.telldus.com) API. It's cloud platform that connects to your Tellstick Net or Tellstick ZNet connected gear at home.
+The **Telldus Live** {% term integration %} let you connect to the [Telldus Live](https://live.telldus.com) API. It's cloud platform that connects to your Tellstick Net or Tellstick ZNet connected gear at home.
 
 {% important %}
 You need a [Telldus Premium](https://telldus.com/en/telldus-premium/) subscription to access the Cloud API (https://telldus.com/en/important-announcement-english/).

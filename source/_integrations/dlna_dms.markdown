@@ -10,16 +10,16 @@ ha_codeowners:
   - '@chishm'
 ha_domain: dlna_dms
 ha_ssdp: true
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
-The DLNA Digital Media Server integration allows you to browse and play media from a [DLNA Digital Media Server](https://www.dlna.org/). Configured DMS devices act as a [Media Source](/integrations/media_source/) and can be browsed in the Media panel.
+The **DLNA Digital Media Server** {% term integration %} allows you to browse and play media from a [DLNA Digital Media Server](https://www.dlna.org/). Configured DMS devices act as a [Media Source](/integrations/media_source/) and can be browsed in the Media panel.
 
 {% include integrations/config_flow.md %}
 
 ## Renaming
 
-The name/title of the DMS device is the same as the title of the config entry. It can be changed on the Integrations Configuration page from the three-dot menu.
+The name/title of the DMS device is the same as the title of the config entry. It can be changed on the Integrations Configuration page from the three dots {% icon "mdi:dots-vertical" %} menu.
 
 ## Media source URIs
 

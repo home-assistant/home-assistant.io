@@ -19,4 +19,3 @@ This {% term integration %} discovers nearby Zerproc lights and adds them to Hom
 {% include integrations/config_flow.md %}
 
 The {% term integration %} will scan for nearby devices, and is completed if any are found. No additional configuration is required. The integration will perform a BLE scan every 60 seconds to search for new devices.
-

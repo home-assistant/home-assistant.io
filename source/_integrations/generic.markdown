@@ -15,7 +15,7 @@ ha_config_flow: true
 ha_integration_type: device
 ---
 
-The `generic` camera platform allows you to integrate any IP camera or other URL into Home Assistant. Templates can be used to generate the URLs on the fly.
+The **Generic Camera** {% term integration %} allows you to integrate any IP camera or other URL into Home Assistant. Templates can be used to generate the URLs on the fly.
 
 Home Assistant will serve the images via its server, making it possible to view your IP cameras while outside of your network. The endpoint is `/api/camera_proxy/camera.[name]`.
 
@@ -34,25 +34,29 @@ Username:
   description: The username for accessing your camera. Note that this applies to both still_image_url and stream_source.
 Password:
   description: The password for accessing your camera. Note that this applies to both still_image_url and stream_source.
-Authentication:
-  description: "Type for authenticating the requests `basic` or `digest`."
-Limit refetch to URL change:
-  description: Limits re-fetching of the remote image to when the URL changes. Only relevant if using a template to fetch the remote image.
-Frame Rate:
-  description: The number of frames-per-second (FPS) of the stream. Can cause heavy traffic on the network and/or heavy load on the camera.
-Verify SSL certificate:
-  description: Enable or disable SSL certificate verification. Set to false to use an http-only camera, or you have a self-signed SSL certificate and haven't installed the CA certificate to enable verification.
-RTSP transport protocol:
-  description: "Set the RTSP transport protocol to `tcp`, `udp`, `udp_multicast` or `http`."
-Use wallclock as timestamps:
-  description: ([Advanced Mode](/blog/2019/07/17/release-96/#advanced-mode) only) Rewrite the camera timestamps. This may help with playback or crashing issues from Wi-Fi cameras or cameras of certain brands (e.g., EZVIZ).
+Advanced settings:
+  description: Advanced settings are only needed for special cases. Leave them unchanged unless you know what you are doing.
+  keys:
+    Frame Rate:
+      description: The number of frames-per-second (FPS) of the stream. Can cause heavy traffic on the network and/or heavy load on the camera.
+    Verify SSL certificate:
+      description: Enable or disable SSL certificate verification. Set to false to use an http-only camera, or you have a self-signed SSL certificate and haven't installed the CA certificate to enable verification.
+    RTSP transport protocol:
+      description: "Set the RTSP transport protocol to `tcp`, `udp`, `udp_multicast` or `http`."
+    Authentication:
+      description: "Type for authenticating the requests `basic` or `digest`."
+    Limit refetch to URL change:
+      description: Limits re-fetching of the remote image to when the URL changes. Only relevant if using a template to fetch the remote image.
+    Use wallclock as timestamps:
+      description: ([Advanced Mode](/blog/2019/07/17/release-96/#advanced-mode) only) Rewrite the camera timestamps. This may help with playback or crashing issues from Wi-Fi cameras or cameras of certain brands (e.g., EZVIZ).
 {% endconfiguration_basic %}
 
 <p class='img'>
   <a href='/examples/google_maps_card/'>
     <img src='/images/integrations/camera/generic-google-maps.png' alt='Screenshot showing Google Maps integration in Home Assistant front end.'>
     Example showing the Generic camera platform pointing at a dynamic Google Map image.
-  </a>
+  <img src='/images/integrations/camera/generic-google-maps.png' alt='Screenshot showing Google Maps integration in Home Assistant front end.'>
+  Example showing the Generic camera platform pointing at a dynamic Google Map image.
 </p>
 
 ## Examples

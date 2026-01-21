@@ -119,5 +119,9 @@ article {
     .meta {
       margin-bottom: 3em;
     }
+
+    > header + img + p{
+      margin-top: 24px;
+    }
   }
 }

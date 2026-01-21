@@ -26,7 +26,7 @@ ha_dhcp: true
 ha_quality_scale: silver
 ---
 
-The [SMLIGHT](https://smlight.tech) SLZB-06x ethernet Zigbee coordinators provide a reliable and convenient way to integrate Zigbee devices into your smart home setup. By placing the Zigbee gateway closer to your devices, you can improve connectivity and reduce interference, avoiding the limitations of gateways hidden in cupboards or distant locations.
+The [SMLIGHT](https://smlight.tech) SLZB-06x Ethernet Zigbee coordinators provide a reliable and convenient way to integrate Zigbee devices into your smart home setup. By placing the Zigbee gateway closer to your devices, you can improve connectivity and reduce interference, avoiding the limitations of gateways hidden in cupboards or distant locations.
 
 The **SMLIGHT SLZB** {% term integration %} allows you to monitor and manage your SLZB devices directly from Home Assistant. This integration provides direct access to many features available in the SLZB device's web UI, such as managing firmware updates, monitoring device health through diagnostic sensors, and controlling settings like LED modes or restarting the device. These features can also be incorporated into your automations for central control.
 
@@ -41,8 +41,13 @@ You need a supported SLZB-06 adapter.
 - [SLZB-06Mg24](https://smlight.tech/product/slzb-06mg24)
 - [SLZB-06p7](https://smlight.tech/product/slzb-06p7)
 - [SLZB-06p10](https://smlight.tech/product/slzb-06p10/)
-- [SLZB-MR1](https://smlight.tech/product/slzb-mr1/) - Additional entities will be created for the second Zigbee radio, including Zigbee firmware updates, temperature sensor, and firmware type. (Note: the Zigbee restart and flash mode buttons are shared between both radios.) Requires core firmware `v2.8.x` or later.
-  
+
+Multi radio devices - Additional entities will be created for the second Zigbee radio, including Zigbee firmware updates, temperature sensor, router reconnect button, and firmware type. (Note: the Zigbee restart and flash mode buttons are shared between both radios.) Requires core firmware `v2.8.x` or later.
+
+- [SLZB-MR1](https://smlight.tech/product/slzb-mr1/)
+- [SLZB-MR2](https://smlight.tech/product/slzb-mr2/)
+- [SLZB-MR3](https://smlight.tech/product/slzb-mr3/)
+
 Core firmware on your SLZB-06x device must be `v2.3.6` or newer. If you have an older `v2.x.x` version, you can update from within Home Assistant. If you have `v0.9.9`, update using the [SMLIGHT web flasher](https://smlight.tech/flasher/#SLZB-06) before installing this integration.
 
 {% include integrations/config_flow.md %}

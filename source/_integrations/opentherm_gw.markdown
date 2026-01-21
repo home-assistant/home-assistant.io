@@ -21,10 +21,10 @@ ha_platforms:
   - select
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
-The `opentherm_gw` integration is used to control the [OpenTherm Gateway](https://otgw.tclcode.com/) from Home Assistant.
+The **OpenTherm Gateway** {% term integration %} is used to control the [OpenTherm Gateway](https://otgw.tclcode.com/) from Home Assistant.
 
 This integration will add three devices to Home Assistant for each configured gateway. The main control of the integration is a single `climate` entity which can be found on the added `OpenTherm Thermostat` device. All added devices have a collection of `sensor` and `binary_sensor` entities, which are disabled by default. To enable them, follow the steps on [enabling entities](/common-tasks/general/#enabling-or-disabling-entities).
 

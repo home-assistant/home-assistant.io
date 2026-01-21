@@ -8,7 +8,7 @@ ha_iot_class: Configurable
 ha_domain: mqtt
 ---
 
-The `mqtt` lock platform lets you control your MQTT enabled locks.
+The **MQTT Lock** {% term integration %} lets you control your MQTT enabled locks.
 
 ## Configuration
 
@@ -21,7 +21,9 @@ Optimistic mode can be forced, even if state topic is available. Try to enable i
 It's mandatory for locks to support `lock` and `unlock`. A lock may optionally support `open`, (e.g. to open the bolt in addition to the latch), in this case, `payload_open` is required in the configuration. If the lock is in optimistic mode, it will change states to `unlocked` when handling the `open` command.
 
 An MQTT lock can also report the intermediate states `unlocking`, `locking` or `jammed` if the motor reports a jammed state.
-To enable MQTT locks in your installation, add the following to your {% term "`configuration.yaml`" %} file:
+
+To use an MQTT lock in your installation, [add a MQTT device as a subentry](/integrations/mqtt/#configuration), or add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -29,6 +31,8 @@ mqtt:
   - lock:
       command_topic: "home/frontdoor/set"
 ```
+
+Alternatively, a more advanced approach is to set it up via [MQTT discovery](/integrations/mqtt/#mqtt-discovery).
 
 {% configuration %}
 availability:
@@ -78,6 +82,10 @@ command_template:
 command_topic:
   description: The MQTT topic to publish commands to change the lock state.
   required: true
+  type: string
+default_entity_id:
+  description: Use `default_entity_id` instead of name for automatic generation of the entity ID. For example, `lock.foobar`. When used without a `unique_id`, the entity ID will update during restart or reload if the entity ID is available.  If the entity ID already exists, the entity ID will be created with a number at the end. When used with a `unique_id`, the `default_entity_id` is only used when the entity is added for the first time. When set, this overrides a user-customized entity ID if the entity was deleted and added again.
+  required: false
   type: string
 device:
   description: 'Information about the device this lock is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device.'
@@ -167,10 +175,6 @@ name:
   required: false
   type: string
   default: MQTT Lock
-object_id:
-  description: Used instead of `name` for automatic generation of `entity_id`
-  required: false
-  type: string
 optimistic:
   description: Flag that defines if lock works in optimistic mode.
   required: false

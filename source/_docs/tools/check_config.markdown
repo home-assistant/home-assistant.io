@@ -16,7 +16,7 @@ The script has further options like checking configuration files which are not l
 
 ```bash
 $ hass --script check_config -h
-usage: hass [-h] [--script {check_config}] [-c CONFIG] [-i [INFO]] [-f] [-s]
+usage: hass [-h] [--script {check_config}] [-c CONFIG] [-i [INFO]] [-f] [-s] [--json] [--fail-on-warnings]
 
 Check Home Assistant configuration.
 
@@ -30,4 +30,6 @@ optional arguments:
                         Show a portion of the config
   -f, --files           Show used configuration files
   -s, --secrets         Show secret information
+  --json                Output JSON format
+  --fail-on-warnings    Exit non-zero if warnings are present
 ```

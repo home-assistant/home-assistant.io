@@ -26,7 +26,7 @@ ha_platforms:
   - sensor
   - switch
 ha_integration_type: hub
-ha_quality_scale: silver
+ha_quality_scale: platinum
 ---
 
 The **Comelit SimpleHome** {% term integration %} allows you to control your [Comelit home automation devices](https://comelitgroup.it/installatore/offerta/home-building-automation/).
@@ -93,10 +93,10 @@ automation:
         condition: state
         entity_id: group.person_family
         state: "not_home"
-  action:
+  actions:
     entity_id:
       - cover.group_home_covers
-    service: cover.close_cover
+    action: cover.close_cover
 ```
 
 ## Data updates

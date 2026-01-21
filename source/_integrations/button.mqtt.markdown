@@ -8,7 +8,10 @@ ha_iot_class: Configurable
 ha_domain: mqtt
 ---
 
-The `mqtt` button platform lets you send an MQTT message when the button is pressed in the frontend or the button press action is called. This can be used to expose some service of a remote device, for example reboot.
+The **MQTT button** {% term integration %} lets you send an MQTT message when the button is pressed in the frontend or the button press action is called. This can be used to expose some service of a remote device, for example reboot.
+
+To use an MQTT button in your installation, [add a MQTT device as a subentry](/integrations/mqtt/#configuration), or add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ## Configuration
 
@@ -18,6 +21,8 @@ mqtt:
   - button:
       command_topic: "home/bedroom/switch1/reboot"
 ```
+
+Alternatively, a more advanced approach is to set it up via [MQTT discovery](/integrations/mqtt/#mqtt-discovery).
 
 {% configuration %}
 availability:
@@ -63,6 +68,10 @@ command_template:
 command_topic:
   description: The MQTT topic to publish commands to trigger the button.
   required: true
+  type: string
+default_entity_id:
+  description: Use `default_entity_id` instead of name for automatic generation of the entity ID. For example, `button.foobar`. When used without a `unique_id`, the entity ID will update during restart or reload if the entity ID is available.  If the entity ID already exists, the entity ID will be created with a number at the end. When used with a `unique_id`, the `default_entity_id` is only used when the entity is added for the first time. When set, this overrides a user-customized entity ID if the entity was deleted and added again.
+  required: false
   type: string
 device:
   description: "Information about the device this button is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device."
@@ -156,10 +165,6 @@ name:
   required: false
   type: string
   default: MQTT Button
-object_id:
-  description: Used instead of `name` for automatic generation of `entity_id`
-  required: false
-  type: string
 payload_available:
   description: The payload that represents the available state.
   required: false

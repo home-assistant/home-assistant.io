@@ -42,7 +42,10 @@ In addition, the entity can have the following states:
 - **Unknown**: The state is not yet known.
 
 Because the {% term state %} of a button entity in Home Assistant is a timestamp, it
-means we can use it in our automations. For example:
+changes every time the button is pressed. This means we can trigger automations on
+any state change of the button entity, which effectively captures when the button
+is pressed. We don't need to use the actual timestamp value; we only care that the
+state changed, indicating a button press:
 
 ```yaml
 triggers:

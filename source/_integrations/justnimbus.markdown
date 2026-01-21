@@ -9,12 +9,12 @@ ha_domain: justnimbus
 ha_platforms:
   - sensor
 ha_config_flow: true
-ha_integration_type: integration
+ha_integration_type: device
 ha_codeowners:
   - '@kvanzuijlen'
 ---
 
-The JustNimbus integration queries the JustNimbus API used by the JustNimbus web dashboard.
+The **JustNimbus** {% term integration %} queries the JustNimbus API used by the JustNimbus web dashboard.
 This integration allows you to collect and save data to get a historical overview of your water bag
 usage.
 

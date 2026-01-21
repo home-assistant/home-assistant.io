@@ -18,7 +18,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `tibber` integration provides a sensor with the current electricity price if you are a [Tibber](https://tibber.com/) customer.
+The **Tibber** {% term integration %} provides a sensor with the current electricity price if you are a [Tibber](https://tibber.com/) customer.
 If you have a [Tibber Pulse](https://tibber.com/no/store/produkt/pulse) or [Watty](https://tibber.com/se/store/produkt/watty-smart-energimatare) it will also show the electricity consumption in real-time. You get a sensor for monthly consumption, monthly cost, and monthly peak hour. If you do have a real-time meter it is updated once every hour, otherwise it is updated once per day. Statistics with hourly consumption and cost data is generated that can be used in the [Energy Dashboard](/docs/energy/) (the ids are `tibber:energy_consumption_HOMEID` and `tibber:energy_totalcost_HOMEID`). If you produce energy there are also statistics with hourly production and profit data generated which can also be used there (the ids are `tibber:energy_production_HOMEID` and `tibber:energy_profit_HOMEID`).
 
 There is currently support for the following device types within Home Assistant:
@@ -29,6 +29,18 @@ There is currently support for the following device types within Home Assistant:
 ## Setup
 
 Go to [developer.tibber.com/settings/accesstoken](https://developer.tibber.com/settings/accesstoken) to get your API token.
+
+
+## Client ID and client secret (Tibber Data API)
+
+1. Go to the Tibber developer portal at https://data-api.tibber.com/clients/manage.
+2. Create a new client.
+3. Add a redirect URI for Home Assistant:
+   - `https://my.home-assistant.io/redirect/oauth`
+
+4. Save the application.
+5. Copy the **client ID** and **client secret**.
+6. Go to {% my application_credentials title="**Settings** > **Devices & services** > **Application credentials**" %}, add Tibber credentials, and paste your client ID and client secret.
 
 {% include integrations/config_flow.md %}
 
@@ -79,6 +91,11 @@ If you have a Tibber Pulse it will also show the electricity consumption in real
 - Monthly net consumption
 - Monthly peak hour
 - Time of max hour consumption
+- Storage state of charge
+- Storage target state of charge
+- Remaining range
+- Maximum charging current
+- Offline fallback charging current
 
 </div>
 
@@ -86,9 +103,9 @@ If you have a Tibber Pulse it will also show the electricity consumption in real
 
 The hourly prices are exposed using [actions](/docs/scripts/perform-actions/). The actions populate [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data) with price data.
 
-### Action `tibber.get_prices`
+### Action: Get prices
 
-Fetches hourly energy prices including price level.
+The `tibber.get_prices` action fetches hourly energy prices.
 
 | Data attribute | Optional | Description                                           | Example             |
 | -------------- | -------- | ----------------------------------------------------- | ------------------- |
@@ -106,24 +123,20 @@ The response data is a dictionary with the energy prices for each Home. `start_t
       {
         "start_time": "2023-12-09 03:00:00+02:00",
         "price": 0.46914,
-        "level": "VERY_EXPENSIVE"
       },
       {
         "start_time": "2023-12-09 04:00:00+02:00",
         "price": 0.46914,
-        "level": "VERY_EXPENSIVE"
       }
     ],
     "Nickname_Home_2":[
       {
         "start_time": "2023-12-09 03:00:00+02:00",
         "price": 0.46914,
-        "level": "VERY_EXPENSIVE"
       },
       {
         "start_time": "2023-12-09 04:00:00+02:00",
         "price": 0.46914,
-        "level": "VERY_EXPENSIVE"
       }
     ]
   }
