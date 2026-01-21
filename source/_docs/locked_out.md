@@ -99,7 +99,7 @@ Only the owner can change other user's passwords.
 
 1. In the bottom left, select your user to go to the {% my profile title="**Profile**" %} page and make sure **Advanced Mode** is activated.
 2. Go to {% my people title="**Settings** > **People**" %} and select the person for which you want to change the password.
-3. At the bottom of the dialog box, select **Change Password**.
+3. At the bottom of the dialog box, select **Change password**.
    - Note: this is available as the owner, not administrator.
 4. Enter the new password, and select **OK**.
 5. Confirm the new password by entering it again, and select **OK** again.

@@ -341,6 +341,8 @@ automation:
 
 ### Action: Send
 
+The `rfxtrx.send` action sends a custom event using the RFXtrx device.
+
 Simulate a button being pressed:
 
 ```yaml

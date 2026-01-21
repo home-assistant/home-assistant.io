@@ -52,9 +52,9 @@ The Mastodon integration has the following actions:
 
 - `mastodon.post`
 
-### Action `mastodon.post`
+### Action: Post
 
-Post a status to your Mastodon account
+The `mastodon.post` action posts a status to your Mastodon account.
 
 | Data attribute              | Optional | Description                                                                                                                                                                                                                                                        |
 | --------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |

@@ -153,9 +153,9 @@ data:
   delay_secs: 0.6
 ```
 
-### Action `harmony.change_channel`
+### Action: Change channel
 
-Sends the change channel command to the Harmony HUB
+The `harmony.change_channel` action sends the change channel command to the Harmony Hub.
 
 | Data attribute | Optional | Description                 |
 | ---------------------- | -------- | --------------------------- |
@@ -172,9 +172,9 @@ data:
   channel: 200
 ```
 
-### Action `harmony.sync`
+### Action: Sync
 
-Force synchronization between the Harmony device and the Harmony cloud.
+The `harmony.sync` action forces synchronization between the Harmony device and the Harmony cloud.
 
 | Data attribute | Optional | Description          |
 | ---------------------- | -------- | -------------------- |

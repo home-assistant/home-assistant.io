@@ -30,9 +30,9 @@ This integration uses Roon Core, a Roon application that runs on a machine on yo
 
 ## Actions
 
-### Action `media_player.play_media`
+### Action: Play media
 
-Roon uses a path based on the roon browser hierarchy to specify which media to play. You can find this by using the media browser, or by following the examples below. If roon can't follow the path you will find an error in the log that will show which part of the path roon could not follow, and the possibilities at that point.
+The `media_player.play_media` action plays media on a Roon player. Roon uses a path based on the Roon browser hierarchy to specify which media to play. You can find this by using the media browser, or by following the examples below. If roon can't follow the path you will find an error in the log that will show which part of the path roon could not follow, and the possibilities at that point.
 
 | Data attribute | Optional | Description                                                             |
 | ---------------------- | -------- | ----------------------------------------------------------------------- |
@@ -42,9 +42,9 @@ Roon uses a path based on the roon browser hierarchy to specify which media to p
 
  For example to play the album Harvest by Neil Young you should set `media_content_id` to `Library/Artists/Neil Young/Harvest` and to play BBC Radio 4 you would set `media_content_id` to `My Live Radio/BBC Radio 4`
 
-### Action `roon.transfer`
+### Action: Transfer
 
-Transfer playback from one player to another.
+The `roon.transfer` action transfers playback from one player to another.
 
 | Data attribute | Optional | Description                   |
 | ---------------------- | -------- | ----------------------------- |

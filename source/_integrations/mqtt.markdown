@@ -1502,7 +1502,9 @@ script:
 
 The MQTT integration will register the `mqtt.publish` action, which allows publishing messages to MQTT topics.
 
-### Action `mqtt.publish`
+### Action: Publish
+
+The `mqtt.publish` action publishes a message to an MQTT topic.
 
 | Data attribute | Optional | Description                                                  |
 | ---------------------- | -------- | ------------------------------------------------------------ |
@@ -1589,9 +1591,9 @@ qos: 2
 retain: true
 ```
 
-### Action `mqtt.dump`
+### Action: Dump
 
-Listen to the specified topic matcher and dumps all received messages within a specific duration into the file `mqtt_dump.txt` in your configuration folder. This is useful when debugging a problem.
+The `mqtt.dump` action listens to the specified topic matcher and dumps all received messages within a specific duration into the file `mqtt_dump.txt` in your configuration folder. This is useful when debugging a problem.
 
 | Data attribute | Optional | Description                                                                 |
 | ---------------------- | -------- | --------------------------------------------------------------------------- |

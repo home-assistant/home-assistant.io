@@ -39,25 +39,25 @@ Available actions:
 `start_recording`, `stop_recording`,
 `turn_on`, `turn_off`, `toggle`, `enable_motion_detection`,`disable_motion_detection`
 
-### Action `enable_alerts`/`disable_alerts`
+### Action: Enable alerts / disable alerts
 
-These actions enable or disable the device's alert events within Agent DVR.
-
-Data attribute | Optional | Description
--|-|-
-`entity_id` | no | Name(s) of entities, e.g., `camera.living_room_camera`.
-
-### Action `start_recording`/`stop_recording`
-
-These actions start or stop the device recording.
+The `agent_dvr.enable_alerts` and `agent_dvr.disable_alerts` actions are used to enable or disable the device's alert events within Agent DVR.
 
 Data attribute | Optional | Description
 -|-|-
 `entity_id` | no | Name(s) of entities, e.g., `camera.living_room_camera`.
 
-### Action `turn_on`/`turn_off`/`toggle`
+### Action: Start recording / stop recording
 
-These actions turn on, off or toggle the device enabled state within Agent DVR
+The `agent_dvr.start_recording` and `agent_dvr.stop_recording` actions are used to start or stop the device recording.
+
+Data attribute | Optional | Description
+-|-|-
+`entity_id` | no | Name(s) of entities, e.g., `camera.living_room_camera`.
+
+### Action: Turn on / turn off / toggle
+
+The `agent_dvr.turn_on`, `agent_dvr.turn_off`, and `agent_dvr.toggle` actions are used to turn on, off or toggle the device enabled state within Agent DVR.
 
 Data attribute | Optional | Description
 -|-|-
