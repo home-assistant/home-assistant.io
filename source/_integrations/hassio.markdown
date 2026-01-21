@@ -64,7 +64,7 @@ For Home Assistant Host, the following sensors are available:
 | Sensor | Enabled by default | Description |
 | ------- | ------------------ | ----------- |
 | OS Agent Version | no | The version of the installed OS Agent
-| Apparmor Version | no | The version of add-onarmor
+| Apparmor Version | no | The version of apparmor
 | Disk Free | no | Free space (in GB) left on the device
 | Disk Total | no | Total space (in GB) on the device
 | Disk Used | no | Used space (in GB) on the device
@@ -73,7 +73,7 @@ For Home Assistant Host, the following sensors are available:
 
 For each installed add-on Supervisor provides following binary sensors:
 
-(These entities are disabled by default and must be re-enabled to add-onear)
+(These entities are disabled by default and must be re-enabled to appear)
 
 | Sensor | Enabled by default | Description |
 | ------- | ------------------ | ----------- |
