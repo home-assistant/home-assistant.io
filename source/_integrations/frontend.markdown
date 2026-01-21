@@ -50,7 +50,7 @@ frontend:
     required: false
     type: number
   github_token:
-    description: "GitHub token to use when fetching frontend files from a specific pull request. Required when `development_pr` is set. You can create a personal access token at `https://github.com/settings/tokens with role `repo`."
+    description: "GitHub token to use when fetching frontend files from a specific pull request. Required when `development_pr` is set. You can create a personal access token at `https://github.com/settings/tokens` with role `repo`."
     required: false
     type: string
 {% endconfiguration %}
