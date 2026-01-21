@@ -3,16 +3,20 @@ title: "Autoskope"
 description: "Instructions on how to integrate Autoskope devices into Home Assistant."
 ha_category:
   - Device tracker
-ha_release: 2025.8
+  - Binary sensor
+  - Sensor
+ha_release: 2026.2
 ha_iot_class: cloud_polling
 ha_domain: autoskope
 ha_platforms:
+  - binary_sensor
   - device_tracker
+  - sensor
 ha_config_flow: true
 ha_integration_type: integration
 ha_codeowners:
   - '@mcisk'
-ha_quality_scale: silver
+ha_quality_scale: bronze
 ---
 
 The **Autoskope** {% term integration %} allows you to integrate your [Autoskope](https://autoskope.de) vehicle tracking devices with Home Assistant. Autoskope provides GPS tracking devices and cloud services for vehicles and other assets, offering features like location tracking, voltage monitoring, and various alerts.
@@ -53,15 +57,26 @@ The following attributes are provided:
 | `latitude`         | Latitude coordinate of the vehicle.                                         | `54.12345`                     |
 | `longitude`        | Longitude coordinate of the vehicle.                                        | `12.54321`                     |
 | `gps_accuracy`     | Estimated accuracy of the GPS signal in meters.                             | `3.0`                          |
-| `battery_voltage`  | Voltage of the device's internal battery (if available).                    | `4.1`                          |
-| `external_voltage` | Voltage of the vehicle's main battery connected to the device (if available). | `12.5`                         |
-| `gps_quality`      | Raw GPS quality indicator from the API (used to calculate `gps_accuracy`).  | `1.5`                          |
-| `imei`             | Unique IMEI number of the tracking device.                                  | `123456789012345`              |
-| `model`            | Model name/type of the tracking device.                                     | `Autoskope V3`                 |
-| `speed`            | Current speed of the vehicle in the unit system configured in Home Assistant. | `55.0`                         |
-| `park_mode`        | Boolean indicating if the device reports being in park mode.                | `true` / `false`               |
-| `last_update`      | Timestamp of the last position update received from the API (UTC).          | `2025-01-01T10:05:00Z`         |
-| `activity`         | Current activity state derived from `park_mode` and `speed`.                | `parked` / `moving`            |
+
+### Binary Sensor
+
+The following binary sensor is created for each vehicle:
+
+* **Motion:** Indicates if the vehicle is in motion. This sensor is ON when the vehicle is moving and OFF when parked. Uses the park mode status reported by the device with intelligent detection based on GPS, vibration sensors, and time analysis.
+
+### Sensors
+
+The following sensor entities are created for each vehicle:
+
+| Sensor             | Description                                      | Unit          | Device Class |
+| ------------------ | ------------------------------------------------ | ------------- | ------------ |
+| Battery voltage    | Internal battery voltage of the tracking device | V             | `voltage`    |
+| External voltage   | Vehicle's main battery voltage                  | V             | `voltage`    |
+| Speed              | Current vehicle speed                            | km/h or mph   | `speed`      |
+| GPS quality        | Raw GPS quality indicator (lower is better)     | -             | -            |
+| GPS accuracy       | Calculated GPS accuracy based on quality        | meters        | `distance`   |
+
+All entities support proper device grouping, unique IDs for the entity registry, and translations.
 
 Note: Sensor entities for battery voltages and other values are planned for a future update.
 
