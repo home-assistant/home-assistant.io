@@ -1,6 +1,6 @@
 ---
 title: Home Assistant Supervisor
-description: Control Supervisor Apps and OS from Home Assistant
+description: Control Supervisor Add-ons and OS from Home Assistant
 ha_category:
   - Backup
   - Binary sensor
@@ -112,7 +112,7 @@ Start an add-on.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `addon` | no | App slug
+| `addon` | no | Add-on slug
 
 ### Action hassio.addon_stop
 
@@ -120,7 +120,7 @@ Stop an add-on.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `addon` | no | App slug
+| `addon` | no | Add-on slug
 
 ### Action hassio.addon_restart
 
@@ -128,7 +128,7 @@ Restart an add-on.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `addon` | no | App slug
+| `addon` | no | Add-on slug
 
 ### Action hassio.addon_stdin
 
@@ -136,7 +136,7 @@ Write data to add-on stdin.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `addon` | no | App slug
+| `addon` | no | Add-on slug
 
 ### Action hassio.host_reboot
 
