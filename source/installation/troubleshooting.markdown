@@ -78,7 +78,7 @@ You are in the onboarding procedure, but the process seems stuck at the step **P
      - During first startup, time will be synchronized. Ensure NTP is allowed in your network.
      - During first startup, Home Assistant completes the installation. It needs access to the following URLs:
        - version.home-assistant.io: to fetch new version information.
-       - github.com: to update metadata of the app store.
+       - github.com: to update metadata of the Home Assistant app store.
        - ghcr.io: the GitHub container registry to fetch new Home Assistant updates.
 3. After changing your network environment, wait a few minutes. Home Assistant will try to reconnect.
 4. [Reach out to our community for help](https://www.home-assistant.io/help/).
