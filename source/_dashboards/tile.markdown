@@ -178,7 +178,7 @@ The tile card supports theme variables to customize the appearance of the primar
 
 ### Example Theme Configuration
 
-This theme example changes the appearance of the tile card so that it is suitable for viewing at a distance from a wall panel.
+This theme example changes the appearance of the tile card so that it is suitable for viewing at a distance from a wall panel or nest display.
 
 ```yaml
 Panel:
