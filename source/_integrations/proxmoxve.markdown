@@ -32,6 +32,21 @@ You should have the [Proxmox permissions](#proxmox-permissions) ready before cre
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+"Host":
+  description: "Address of your Proxmox instance. Example: `https://proxmox.example.com`."
+"Port":
+  description: "Port to connect to Proxmox. Default is `8006`."
+"Realm":
+  description: "Authentication source of Proxmox. Default is `PAM`."
+"Username":
+  description: "Configured user to authenticate."
+"Password":
+  description: "Password associated with the username."
+"Verify SSL certificate":
+  description: "Enable SSL certificate verification for secure connections."
+{% endconfiguration_basic %}
+
 ## Proxmox Permissions
 
 To be able to retrieve the status of VMs and containers, the user used to connect must minimally have the `VM.Audit` privilege. Below is a guide to how to configure a new user with the minimum required permissions.
