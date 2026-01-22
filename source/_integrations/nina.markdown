@@ -19,10 +19,6 @@ The [NINA](https://www.bbk.bund.de/DE/Warnung-Vorsorge/Warn-App-NINA/warn-app-ni
 
 For each county/city it creates warning slots that change to Unsafe when warnings are present. The text of the warning and the metadata are stored in the attributes of the slots.
 
-{% important %}
-This integration may only work with an Internet connection that supports IPv4.
-{% endimportant %}
-
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
@@ -48,10 +44,6 @@ Affected area filter:
 Headline blocklist:
   description: "Blacklist regex to filter warning based on headlines. For details see below."
 {% endconfiguration_basic %}
-
-## Data updates
-
-The integration checks for warnings every 5 minutes.
 
 ## Filter
 
@@ -105,6 +97,10 @@ Areas: `gemeinde oberreichenbach, gemeinde neuweiler, stadt nagold`
 ## Data updates
 
 The integration checks for warnings every 5 minutes.
+
+## Known limitations
+
+This integration may only work with an Internet connection that supports IPv4.
 
 ## Removing the integration
 
