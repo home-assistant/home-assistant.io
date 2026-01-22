@@ -602,7 +602,7 @@ A very thorough explanation of this is available in the Wikipedia article about 
 
 ## Tag trigger
 
-Fires when a [tag](/integrations/tag) is scanned. For example, a NFC tag is
+Fires when a [tag](/integrations/tag) is scanned. For example, an NFC tag is
 scanned using the Home Assistant Companion mobile application.
 
 ```yaml

@@ -811,7 +811,7 @@ A precision of 0 returns all available units, default is 1.
 
 - Filter `timestamp_local(default)` converts a UNIX timestamp to the ISO format string representation as date/time in your local timezone. If that fails, returns the `default` value, or if omitted raises an error. If a custom string format is needed in the string, use `timestamp_custom` instead.
 - Filter `timestamp_utc(default)` converts a UNIX timestamp to the ISO format string representation representation as date/time in UTC timezone. If that fails, returns the `default` value, or if omitted raises an error. If a custom string format is needed in the string, use `timestamp_custom` instead.
-- Filter `timestamp_custom(format_string, local=True, default)` converts an UNIX timestamp to its string representation based on a custom format, the use of a local timezone is the default. If that fails, returns the `default` value, or if omitted raises an error. Supports the standard [Python time formatting options](https://docs.python.org/3/library/time.html#time.strftime).
+- Filter `timestamp_custom(format_string, local=True, default)` converts a UNIX timestamp to its string representation based on a custom format, the use of a local timezone is the default. If that fails, returns the `default` value, or if omitted raises an error. Supports the standard [Python time formatting options](https://docs.python.org/3/library/time.html#time.strftime).
 
 {% tip %}
 [UNIX timestamp](https://en.wikipedia.org/wiki/Unix_time) is the number of seconds that have elapsed since 00:00:00 UTC on 1 January 1970. Therefore, if used as a function's argument, it can be substituted with a numeric value (`int` or `float`).
@@ -945,7 +945,7 @@ This will throw an error `UndefinedError: 'value_json' is undefined` if the JSON
 
 ### Version
 
-- `version()` Returns a [AwesomeVersion object](https://github.com/ludeeus/awesomeversion) for the value given inside the brackets.
+- `version()` Returns an [AwesomeVersion object](https://github.com/ludeeus/awesomeversion) for the value given inside the brackets.
   - This is also available as a filter (`| version`).
 
 Examples:

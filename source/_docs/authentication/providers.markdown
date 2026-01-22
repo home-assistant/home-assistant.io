@@ -157,6 +157,11 @@ homeassistant:
 
 Assuming you have only the owner created though onboarding process, no other users ever created. The above example configuration will allow you directly access Home Assistant main page if you access from your internal network (192.168.0.0/24) or from localhost (127.0.0.1). If you get a login abort error, then you can change to use Home Assistant Authentication Provider to login, if you access your Home Assistant instance from outside network.
 
+{% note %}
+The order of `auth_providers` is critical as providers are evaluated top to bottom.
+To enable skip login as intended, the `trusted_networks` provider must be listed before the `homeassistant` provider. If `type: homeassistant` is configured first, Home Assistant will immediately present the login page and the skip login logic will never be reached, even if the client is on a trusted network.
+{% endnote %}
+
 ### Command line
 
 The command line auth provider executes a configurable shell command to perform user authentication. Two environment variables, `username` and `password`, are passed to the command. Access is granted when the command exits successfully (with exit code 0).

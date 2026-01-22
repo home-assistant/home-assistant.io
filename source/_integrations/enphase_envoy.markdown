@@ -50,6 +50,10 @@ This integration does not work with:
   - an Enlighten cloud username and password.
   - Home Assistant 2023.9 or newer.
 
+{% note %}
+Currently, Multi Factor Authentication for the Enlighten account is not supported by this integration. It should be disabled during Envoy configuration and token refresh.
+{% endnote %}
+
 {% include integrations/config_flow.md %}
 
 ### Required Manual input
@@ -708,7 +712,7 @@ These issues may result in log entries like:
 Entity sensor.envoy_123456789012_energy_consumption_today from integration enphase_envoy has state class total_increasing, but its state is not strictly increasing. Triggered by state 12.345 (12.543) with last_updated set to 2025-09-05T18:00:23.432536+00:00. Please create a bug report at ...
 ```
 
-If these entries occur frequently and are a nuisance then disable the entity. It's data is at best doubtful.
+If these entries occur frequently and are a nuisance then disable the entity. Its data is at best doubtful.
 
 ### Lifetime reset
 
@@ -762,6 +766,17 @@ Envoy Metered with a net-consumption CT measures current and energy exchange bet
 In multiphase installations with batteries, in countries with phase-balancing grid meters, the battery will export to the grid on one phase the amount it lacks on another phase. This other phase pulls the missing amount from the grid, as if it is using the grid as a 'transport' between phases. Since the grid meter will balance the amount imported and exported on the two phases, the net result is zero. The Envoy multiphase net-consumption CTs, however, will report the amounts on both phases, resulting in too high export on one and too high import on the other. One may consider using the `lifetime balanced net energy consumption` which is the sum of grid import and export to eliminate this effect. This would require some templating to split these values into import and export values. Alternatively, use the `current net power consumption` or `balanced net power consumption` with a Riemann integral sum helper.
 
 ## Troubleshooting
+
+### Enlighten authentication issues
+
+If you experience authentication errors during the configuration of the Envoy, ensure if Multi Factor Authentication (MFA) is disabled for your Enlighten account. Currently, this integration does not support MFA for token retrieval. If any of the below errors show, verify if MFA is disabled.
+
+- Before HA version 2026.1.2: KeyError: 'is_consumer'
+- As of HA version 2026.1.2
+  - KeyError: 'session_id'
+  - EnvoyAuthenticationError: No session id in Enlighten login reply, disable Multi Factor Authentication
+
+These error may also appear in the log upon token refresh, 11 months after initial token collection.
 
 ### Periodic network connection issues
 
