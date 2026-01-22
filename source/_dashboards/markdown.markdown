@@ -203,7 +203,7 @@ Here's an example creating a status notification with an icon and multi-line tex
 ```html
   <table role="presentation">
     <tr>
-      <td rowspan="3" width="70" >
+      <td rowspan="3" width="70">
         <img src="/local/icons/alert.png" width="48" height="48"/>
       </td>
       <td><strong>System Status Alert</strong></td>
