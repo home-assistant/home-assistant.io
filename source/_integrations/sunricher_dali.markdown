@@ -64,6 +64,10 @@ DALI sensor devices connected to the gateway are represented as sensor entities:
 
 - **Illuminance sensor**: Reports ambient light level in lux
 
+Each DALI light device also provides:
+
+- **Energy sensor**: Tracks cumulative energy consumption in Wh. This sensor is compatible with the Energy Dashboard and updates when the device reports energy data.
+
 ### Buttons
 
 Each DALI lighting device has an **Identify** button. Pressing this button triggers the physical device to blink briefly, helping you locate a specific fixture in an installation with many lights. This is useful during initial setup or troubleshooting.
