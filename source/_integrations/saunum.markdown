@@ -107,7 +107,7 @@ The sauna heater has a built-in ventilation fan that helps circulate air and mai
 The fan mode can only be changed when a sauna session is active (heating mode is on). When the sauna is off, the fan mode setting is not available.
 {% endnote %}
 
-{% important %}
+{% warning %}
 **Fire and burn hazards**: Flammable materials such as towels, clothes, or cleaning supplies left on or near the sauna heater can ignite and cause fire, leading to property damage, serious injury, or death. Hot sauna surfaces can cause severe burns.
 
 Never leave a heating sauna unattended for extended periods. Always ensure proper ventilation and never place flammable materials near or on the sauna heater. Keep the sauna area clear of combustible items before starting a heating session.
@@ -124,7 +124,7 @@ When controlling your sauna remotely through Home Assistant:
 
 {% enddetails %}
 
-{% endimportant %}
+{% endwarning %}
 
 ## Supported functionality
 
