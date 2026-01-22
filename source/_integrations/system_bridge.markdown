@@ -341,3 +341,59 @@ type: POWER_SLEEPING
 data: {}
 message: Sleeping
 ```
+
+### Action `system_bridge.get_commands`
+
+Gets the list of available commands from the command allowlist configured on the System Bridge device. Commands must be added to the allowlist in the System Bridge settings before they can be executed.
+
+{% my developer_call_service service="system_bridge.get_commands" title="Show action in your Home Assistant instance." %}
+
+```yaml
+action: system_bridge.get_commands
+data:
+  bridge: "deviceid"
+```
+
+This returns [Response Data](https://www.home-assistant.io/docs/scripts/perform-actions#use-templates-to-handle-response-data) like the following:
+
+```yaml
+count: 1
+commands:
+  - id: "run-script"
+    name: "Run Script"
+    command: "/home/user/scripts/backup.sh"
+    workingDir: "/home/user/scripts"
+    arguments: ["--verbose"]
+```
+
+### Action `system_bridge.execute_command`
+
+Executes a command on the remote system. The command must be in the command allowlist configured on the System Bridge device. Use the `get_commands` action to retrieve the list of available command IDs.
+
+{% my developer_call_service service="system_bridge.execute_command" title="Show action in your Home Assistant instance." %}
+
+```yaml
+action: system_bridge.execute_command
+data:
+  bridge: "deviceid"
+  command_id: "run-script"
+  timeout: 30
+```
+
+| Parameter | Description |
+| --------- | ----------- |
+| bridge | The device ID of the System Bridge device. |
+| command_id | The ID of the command to execute (from the command allowlist). |
+| timeout | Optional. Maximum time to wait for command completion in seconds (default: 300, max: 600). |
+
+This returns [Response Data](https://www.home-assistant.io/docs/scripts/perform-actions#use-templates-to-handle-response-data) like the following:
+
+```yaml
+commandID: "run-script"
+exitCode: 0
+stdout: |
+  Starting backup...
+  Backup completed successfully
+stderr: ""
+error: null
+```
