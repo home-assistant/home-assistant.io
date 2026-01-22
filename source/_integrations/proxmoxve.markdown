@@ -33,17 +33,17 @@ You should have the [Proxmox permissions](#proxmox-permissions) ready before cre
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
-"Host":
+Host:
   description: "Address of your Proxmox instance. Example: `https://proxmox.example.com`."
-"Port":
+Port:
   description: "Port to connect to Proxmox. Default is `8006`."
-"Realm":
+Realm:
   description: "Authentication source of Proxmox. Default is `PAM`."
-"Username":
+Username:
   description: "Configured user to authenticate."
-"Password":
+Password:
   description: "Password associated with the username."
-"Verify SSL certificate":
+Verify SSL certificate:
   description: "Enable SSL certificate verification for secure connections."
 {% endconfiguration_basic %}
 
