@@ -44,10 +44,10 @@ To get started, add the {% term integration %} to your {% term "`configuration.y
 tellstick:
 ```
 
-There is a [Home Assistant TellStick app](/addons/tellstick/) available in the Home Assistant app store.
+There is a [TellStick app for Home Assistant](/addons/tellstick/) (formerly known as TellStick add-on) available in the Home Assistant app store.
 
 ```yaml
-# Example configuration.yaml entry with the Home Assistant TellStick app
+# Example configuration.yaml entry with the TellStick app
 tellstick:
   host: core-tellstick
   port: [50800, 50801]
@@ -60,7 +60,7 @@ signal_repetitions:
   type: integer
   default: 1
 host:
-  description: If you run TellStick on another server or with the Home Assistant TellStick app.
+  description: If you run TellStick on another server or with the TellStick app for Home Assistant.
   required: inclusive
   type: string
 port:
