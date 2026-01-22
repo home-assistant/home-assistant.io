@@ -102,6 +102,10 @@ Areas: `gemeinde oberreichenbach, gemeinde neuweiler, stadt nagold`
 | `start` | *(time)* Starting time and date (UTC) of the issued warning. Can be empty. |
 | `expires` | *(time)* Expiration time and date (UTC) of the issued warning. Can be empty. |
 
+## Data updates
+
+The integration checks for warnings every 5 minutes.
+
 ## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.
