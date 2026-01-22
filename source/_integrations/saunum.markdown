@@ -8,7 +8,7 @@ ha_codeowners:
 ha_domain: saunum
 ha_integration_type: device
 ha_config_flow: true
-ha_quality_scale: silver
+ha_quality_scale: platinum
 related:
   - url: https://www.saunum.com/
     title: Saunum
@@ -44,7 +44,7 @@ Host:
     description: "The IP address of your Saunum Leil control unit. You can find it in the Leil touch panel under **Settings** > **Modbus Settings**."
 {% endconfiguration_basic %}
 
-## Changing temperature unit
+{% details "Changing temperature unit" %}
 
 The temperature unit displayed in Home Assistant is controlled by your Home Assistant system settings, not by the integration or the Leil touch panel settings.
 
@@ -60,6 +60,8 @@ The Saunum Leil control unit natively operates in Celsius, even if Fahrenheit is
 
 - Celsius: 40-100°C
 - Fahrenheit: 104-212°F
+
+{% enddetails %}
 
 ## Using the sauna
 
@@ -105,8 +107,12 @@ The sauna heater has a built-in ventilation fan that helps circulate air and mai
 The fan mode can only be changed when a sauna session is active (heating mode is on). When the sauna is off, the fan mode setting is not available.
 {% endnote %}
 
-{% important %}
-Never leave a heating sauna unattended for extended periods. Always ensure proper ventilation and never place flammable materials near or on the sauna heater. Sauna surfaces, especially near the heater, can cause severe burns. Use caution when the sauna is hot.
+{% warning %}
+**Fire and burn hazards**: Flammable materials such as towels, clothes, or cleaning supplies left on or near the sauna heater can ignite and cause fire, leading to property damage, serious injury, or death. Hot sauna surfaces can cause severe burns.
+
+Never leave a heating sauna unattended for extended periods. Always ensure proper ventilation and never place flammable materials near or on the sauna heater. Keep the sauna area clear of combustible items before starting a heating session.
+
+{% details "Remote control safety guidelines" %}
 
 When controlling your sauna remotely through Home Assistant:
 
@@ -114,11 +120,15 @@ When controlling your sauna remotely through Home Assistant:
 - Ensure no flammable materials have been left in or near the sauna.
 - Set appropriate session durations to prevent prolonged unattended operation.
 - Monitor alarm sensors regularly for any safety issues.
-{% endimportant %}
+- Sauna surfaces, especially near the heater, can cause severe burns. Use caution when the sauna is hot.
+
+{% enddetails %}
+
+{% endwarning %}
 
 ## Supported functionality
 
-The **Saunum** integration provides the following entities for controlling and monitoring your sauna.
+The **Saunum** integration provides the following entities.
 
 ### Climate
 
@@ -126,29 +136,29 @@ The **Saunum** integration provides the following entities for controlling and m
   - **Description**: Main climate control for your sauna, allowing you to set target temperature and control heating.
   - **Features**: Temperature control, HVAC modes (off, heat), fan mode (off, low, medium, high), preset mode (sauna type selection).
 
-### Light
+### Lights
 
 - **Sauna light**
   - **Description**: Control the sauna lighting if light is connected to the control unit.
   - **Features**: Turn the sauna light on or off.
 
-### Number
+### Numbers
 
 - **Sauna duration**
   - **Description**: Configure how long the sauna session will run before automatically turning off.
   - **Unit**: Minutes
   - **Range**: 1-720 minutes (0-12 hours)
   - **Default**: 120 minutes (2 hours) when not set
-  - **Note**: Cannot be changed during an active sauna session.
+  - **Remarks**: Cannot be changed during an active sauna session.
 
 - **Fan duration**
   - **Description**: Configure how long the sauna air circulation fan runs before automatically turning off.
   - **Unit**: Minutes
   - **Range**: 1-30 minutes
   - **Default**: 15 minutes when not set
-  - **Note**: Cannot be changed during an active sauna session.
+  - **Remarks**: Cannot be changed during an active sauna session.
 
-### Sensor
+### Sensors
 
 - **Temperature**
   - **Description**: Current temperature inside the sauna.
@@ -161,9 +171,9 @@ The **Saunum** integration provides the following entities for controlling and m
 - **On time**
   - **Description**: Total accumulated operating time of the Leil touch screen control panel since last restart.
   - **Unit**: Seconds
-  - **Note**: This sensor is disabled by default. Enable it in the entity settings if you want to track usage statistics.
+  - **Remarks**: This sensor is disabled by default. Enable it in the entity settings if you want to track usage statistics.
 
-### Binary sensor
+### Binary sensors
 
 - **Door open**
   - **Description**: Indicates whether the sauna door is currently open.
@@ -224,7 +234,9 @@ Examples of automations you can create using the Saunum integration.
 
 Send a notification and turn on the sauna light when the target temperature is reached.
 
-{% my blueprint_import badge blueprint_url="https://gist.github.com/mettolen/080ec51210ec1d726b7f5279b64c63c2" %}
+<!-- markdownlint-disable MD034 -->
+{% my blueprint_import badge blueprint_url="https://gist.github.com/mettolen/ba601a443eb037d83ed1dc6185258e60" %}
+<!-- markdownlint-enable MD034 -->
 
 {% details "Example YAML configuration" %}
 
@@ -248,54 +260,56 @@ blueprint:
       selector:
         entity:
           domain: light
-    notify_service:
-      name: Notification Service
-      description: The notification service to use (e.g., mobile_app_your_phone)
+    notify_device:
+      name: Mobile Device
+      description: Device to send notification to
       selector:
-        text:
+        device:
+          filter:
+            - integration: mobile_app
     notification_title:
       name: Notification Title
       description: Title for the notification
-      default: "🧖 Sauna is Ready!"
+      default: "Sauna is Ready!"
       selector:
         text:
     notification_message:
       name: Notification Message
-      description: Message body (use {{temperature}} for the target temperature)
-      default: "Your sauna has reached {{temperature}}°C. Enjoy!"
+      description: Message body
+      default: "Your sauna has reached {target_temperature}°C. Enjoy!"
       selector:
         text:
           multiline: true
 
-mode: single
-
-trigger:
-  - platform: template
-    value_template: >
-      {{ state_attr(sauna_climate, 'current_temperature') | float(0) >=
-         state_attr(sauna_climate, 'temperature') | float(0) }}
-
-condition:
-  - condition: state
-    entity_id: !input sauna_climate
-    state: heat
-
-action:
-  - action: light.turn_on
-    target:
-      entity_id: !input sauna_light
-  - action: notify.{{ notify_service }}
-    data:
-      title: !input notification_title
-      message: !input notification_message
-      data:
-        notification_icon: "mdi:radiator"
-        tag: "sauna-ready"
+mode: restart
 
 variables:
   sauna_climate: !input sauna_climate
-  notify_service: !input notify_service
-  temperature: "{{ state_attr(sauna_climate, 'temperature') }}"
+  notification_message: !input notification_message
+
+trigger:
+  - platform: state
+    entity_id: !input sauna_climate
+    to: "heat"
+    from: "off"
+    id: session_start
+
+action:
+  - wait_template: >
+      {% set current = state_attr(sauna_climate, 'current_temperature') | float(0) %}
+      {% set target = state_attr(sauna_climate, 'temperature') | float(0) %}
+      {{ current >= target }}
+    continue_on_timeout: false
+  - action: light.turn_on
+    target:
+      entity_id: !input sauna_light
+  - device_id: !input notify_device
+    domain: mobile_app
+    type: notify
+    title: !input notification_title
+    message: >
+      {% set target_temperature = state_attr(sauna_climate, 'temperature') | int %}
+      {{ notification_message.replace('{target_temperature}', target_temperature | string) }}
 ```
 
 {% endraw %}
@@ -314,17 +328,13 @@ The **Saunum** integration {% term polling polls %} data from the control unit e
 
 ## Troubleshooting
 
-### Cannot connect to the device
+{% details "Cannot connect to the device" %}
 
-#### Symptom: "Failed to connect to the device"
+**Symptom:** "Failed to connect to the device"
 
 When trying to set up the integration, you receive an error message that the connection failed.
 
-#### Description
-
 This typically means the control unit is not reachable on your network, or the Modbus TCP settings are incorrect.
-
-#### Resolution
 
 To resolve this issue, try the following steps:
 
@@ -339,17 +349,15 @@ To resolve this issue, try the following steps:
    - Check your router and firewall settings.
 5. Ensure no other device or software is already communicating with the control unit on the same Modbus connection.
 
-### Entities show as unavailable
+{% enddetails %}
 
-#### Symptom: All entities show as "unavailable"
+{% details "Entities show as unavailable" %}
+
+**Symptom:** All entities show as "unavailable"
 
 After successful setup, the entities appear but show unavailable status.
 
-#### Description
-
 This indicates the integration successfully connected initially but is now unable to communicate with the control unit.
-
-#### Resolution
 
 1. Check that the control unit is still powered on.
 2. Verify network connectivity between Home Assistant and the control unit.
@@ -357,6 +365,8 @@ This indicates the integration successfully connected initially but is now unabl
    - Consider setting a static IP address for the control unit in your router.
    - If the IP address changed, remove and re-add the integration with the new address.
 4. Restart the Saunum Leil control unit if communication issues persist.
+
+{% enddetails %}
 
 ## Removing the integration
 
