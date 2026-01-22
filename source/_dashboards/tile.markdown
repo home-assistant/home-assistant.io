@@ -161,6 +161,7 @@ The tile card supports theme variables to customize the appearance of the primar
 ### Available Variables
 
 **Primary Text:**
+
 - `ha-tile-info-primary-font-size` - Font size of the primary text (default: `var(--ha-font-size-m)`)
 - `ha-tile-info-primary-font-weight` - Font weight of the primary text (default: `var(--ha-font-weight-medium)`)
 - `ha-tile-info-primary-line-height` - Line height of the primary text (default: `var(--ha-line-height-normal)`)
@@ -168,6 +169,7 @@ The tile card supports theme variables to customize the appearance of the primar
 - `ha-tile-info-primary-color` - Color of the primary text (default: `var(--primary-text-color)`)
 
 **Secondary Text:**
+
 - `ha-tile-info-secondary-font-size` - Font size of the secondary text (default: `var(--ha-font-size-s)`)
 - `ha-tile-info-secondary-font-weight` - Font weight of the secondary text (default: `var(--ha-font-weight-normal)`)
 - `ha-tile-info-secondary-line-height` - Line height of the secondary text (default: `var(--ha-line-height-condensed)`)
@@ -179,7 +181,7 @@ The tile card supports theme variables to customize the appearance of the primar
 This theme example changes the appearance of the tile card so that it is suitable for viewing at a distance from a wall panel.
 
 ```yaml
-Panel theme:
+Panel:
   # Primary text styling
   ha-tile-info-primary-font-size: 1rem
   ha-tile-info-primary-font-weight: 500
