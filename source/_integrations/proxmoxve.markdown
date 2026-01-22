@@ -47,7 +47,7 @@ Verify SSL certificate:
   description: "Enable SSL certificate verification for secure connections."
 {% endconfiguration_basic %}
 
-## Proxmox Permissions
+## Proxmox permissions
 
 To be able to retrieve the status of VMs and containers, the user used to connect must minimally have the `VM.Audit` privilege. Below is a guide to how to configure a new user with the minimum required permissions.
 
