@@ -47,7 +47,7 @@ You need to grab your API key from your SABnzbd instance in order to configure t
 
 {% configuration_basic %}
 URL:
-    description: "The full URL, including port, of your SABnzbd server. Example: `http://localhost:8080` or `http://a02368d7-sabnzbd:8080`, if you are using the SABnzbd app for Home Assistant ."
+    description: "The full URL, including port, of your SABnzbd server. Example: `http://localhost:8080` or `http://a02368d7-sabnzbd:8080`, if you are using the SABnzbd app for Home Assistant."
 API key:
     description: "The API key of your SABnzbd server. You can find this in the SABnzbd web interface under **Config** {% icon "mdi:settings" %} (top right) > **General** > **Security**."
 {% endconfiguration_basic %}
