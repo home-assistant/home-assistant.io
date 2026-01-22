@@ -153,3 +153,41 @@ features:
 ## Available colors
 
 The following colors are available to colorize the tile card: `primary`, `accent`, `disabled`, `red`, `pink`, `purple`, `deep-purple`, `indigo`, `blue`, `light-blue`, `cyan`, `teal`, `green`, `light-green`, `lime`, `yellow`, `amber`, `orange`, `deep-orange`, `brown`, `grey`, `blue-grey`, `black`, `white`, or any hex color code (for example, `#93c47d`).
+
+## Theme Variables
+
+The tile card supports theme variables to customize the appearance of the primary and secondary text. These variables can be set in your theme configuration.
+
+### Available Variables
+
+**Primary Text:**
+- `ha-tile-info-primary-font-size` - Font size of the primary text (default: `var(--ha-font-size-m)`)
+- `ha-tile-info-primary-font-weight` - Font weight of the primary text (default: `var(--ha-font-weight-medium)`)
+- `ha-tile-info-primary-line-height` - Line height of the primary text (default: `var(--ha-line-height-normal)`)
+- `ha-tile-info-primary-letter-spacing` - Letter spacing of the primary text (default: `0.1px`)
+- `ha-tile-info-primary-color` - Color of the primary text (default: `var(--primary-text-color)`)
+
+**Secondary Text:**
+- `ha-tile-info-secondary-font-size` - Font size of the secondary text (default: `var(--ha-font-size-s)`)
+- `ha-tile-info-secondary-font-weight` - Font weight of the secondary text (default: `var(--ha-font-weight-normal)`)
+- `ha-tile-info-secondary-line-height` - Line height of the secondary text (default: `var(--ha-line-height-condensed)`)
+- `ha-tile-info-secondary-letter-spacing` - Letter spacing of the secondary text (default: `0.4px`)
+- `ha-tile-info-secondary-color` - Color of the secondary text (default: `var(--primary-text-color)`)
+
+### Example Theme Configuration
+
+This theme example changes the appearance of the tile card so that it is suitable for viewing at a distance from a wall panel.
+
+```yaml
+Panel theme:
+  # Primary text styling
+  ha-tile-info-primary-font-size: 1rem
+  ha-tile-info-primary-font-weight: 500
+  ha-tile-info-primary-color: steelblue
+  # Secondary text styling
+  ha-tile-info-secondary-font-size: 0.875rem
+  ha-tile-info-secondary-font-weight: 400
+  ha-tile-info-secondary-color: gray
+  modes:
+    dark:
+      ha-tile-info-secondary-color: lightgray
