@@ -21,7 +21,7 @@ The {% term integration %} does not directly interact with the buttons, *but com
 
 ## Action setup
 
-If you are using the Home Assistant Operating System, you can run the service locally by [installing](/common-tasks/os#installing-third-party-add-ons) the flicd add-on from [pschmitt's repository](https://github.com/pschmitt/home-assistant-addons).
+If you are using the Home Assistant Operating System, you can run the service locally by [installing](/common-tasks/os#installing-third-party-apps) the Home Assistant flicd app from [pschmitt's repository](https://github.com/pschmitt/home-assistant-addons).
 
 For instructions on how to install the service manually, visit the GitHub repository of the service for [Linux](https://github.com/50ButtonsEach/fliclib-linux-hci), [macOS](https://github.com/50ButtonsEach/flic-service-osx) or [Windows](https://github.com/50ButtonsEach/fliclib-windows).
 
