@@ -57,7 +57,7 @@ There is currently support for the following device types within Home Assistant:
 
 ## Recommended way of running deCONZ
 
-An official Home Assistant app for deCONZ is available in the Home Assistant app store.
+An official deCONZ app for Home Assistant (formerly known as deCONZ add-on) is available in the Home Assistant app store.
 Otherwise, use [community container](https://github.com/deconz-community/deconz-docker) for your deCONZ needs.
 
 ### Supported devices
@@ -67,7 +67,7 @@ See [deCONZ wiki](https://github.com/dresden-elektronik/deconz-rest-plugin/wiki/
 ## Prerequisites
 
 - If the adapter isn't discovered automatically by Home Assistant, and you add the integration manually, you need the hostname of deCONZ and the port.
-- If you are running the Home Assistant app, you can see the hostname on the app page under [**Settings** > **App** > **deCONZ**](https://my.home-assistant.io/redirect/supervisor_addon/?addon=core_deconz), under **Hostname**.
+- If you are running the deCONZ app for Home Assistant, you can see the hostname on the app page under [**Settings** > **App** > **deCONZ**](https://my.home-assistant.io/redirect/supervisor_addon/?addon=core_deconz), under **Hostname**.
   - For example: `core-deconz`
 - If the suggested port does not work, try port `40850`.
 - Running a stand-alone instance of deCONZ (non-app installation) requires a pairing between the deCONZ gateway and Home Assistant:

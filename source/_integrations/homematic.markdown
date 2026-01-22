@@ -95,7 +95,7 @@ Configuration variables (interface):
 
 {% configuration %}
 host:
-  description: IP address or hostname of CCU/Homegear device or Home Assistant app.
+  description: IP address or hostname of CCU/Homegear device or app for Home Assistant.
   required: true
   type: string
 port:

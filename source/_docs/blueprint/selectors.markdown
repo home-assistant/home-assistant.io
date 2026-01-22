@@ -16,7 +16,7 @@ blueprint easier to use from the UI.
 The following selectors are currently available:
 
 - [Action selector](#action-selector)
-- [Home Assistant app selector](#home-assistant-app-selector)
+- [App selector](#home-assistant-app-selector)
 - [Area selector](#area-selector)
 - [Attribute selector](#attribute-selector)
 - [Assist pipeline selector](#assist-pipeline-selector)
@@ -82,24 +82,24 @@ The output of this selector is a list of actions. For example:
   metadata: {}
 ```
 
-## Home Assistant app selector
+## App selector (formerly known as add-on selector)
 
 This can only be used on a {% term "Home Assistant Operating System" %} installation. For {% term "Home Assistant Container" %} installations, an error will be displayed.
 
-The Home Assistant app selector allows you to input a Home Assistant app slug.
+The app selector allows you to input an app slug.
 On the user interface, it will list all installed Home Assistant apps and use the slug of the
-selected Home Assistant app.
+selected app.
 
-![Screenshot of a Home Assistant app selector](/images/blueprints/selector-addon.png)
+![Screenshot of an app selector](/images/blueprints/selector-addon.png)
 
 This selector does not have any other options; therefore, it only has its key.
 
 ```yaml
-# Example Home Assistant app selector
+# Example app selector
 addon:
 ```
 
-The output of this selector is the slug of the selected Home Assistant app.
+The output of this selector is the slug of the selected app.
 For example: `core_ssh`.
 
 ## Area selector
