@@ -108,7 +108,9 @@ The fan mode can only be changed when a sauna session is active (heating mode is
 {% endnote %}
 
 {% important %}
-Never leave a heating sauna unattended for extended periods. Always ensure proper ventilation and never place flammable materials near or on the sauna heater.
+**Fire and burn hazards**: Flammable materials such as towels, clothes, or cleaning supplies left on or near the sauna heater can ignite and cause fire, leading to property damage, serious injury, or death. Hot sauna surfaces can cause severe burns.
+
+Never leave a heating sauna unattended for extended periods. Always ensure proper ventilation and never place flammable materials near or on the sauna heater. Keep the sauna area clear of combustible items before starting a heating session.
 
 {% details "Remote control safety guidelines" %}
 
