@@ -196,7 +196,6 @@ Tables marked with `role="presentation"` have:
 - No padding by default
 - Middle vertical alignment for cells
 
-
 Example: Status Card
 Here's an example creating a status notification with an icon and multi-line text:
 
