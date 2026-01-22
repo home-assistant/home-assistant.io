@@ -20,7 +20,7 @@ There is currently support for the following device types within Home Assistant:
 - [Sensor](#sensor)
 
 {% warning %}
-The option `server_host` should only be used on a Home Assistant Core installation!
+The option `server_host` should only be used on a Home Assistant Container installation!
 {% endwarning %}
 
 ```yaml
