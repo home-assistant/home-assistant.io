@@ -71,9 +71,26 @@ The Saunum Leil control unit natively operates in Celsius, even if Fahrenheit is
 
 Once started, the sauna begins heating to the target temperature and automatically turns off after the configured duration. During an active session, you cannot change the sauna type, sauna duration, or fan duration settings.
 
+### Sauna type preset modes
+
+The Saunum Leil control unit supports three sauna type presets that can store different configurations for temperature, sauna duration, and fan duration. These presets allow you start your sauna session with different settings quickly.
+
+You can select the active preset using the climate entity's preset mode control. The preset determines the default values for temperature, duration, and fan settings when starting a sauna session.
+
 {% note %}
-You cannot start a sauna session when the sauna door is open. The control unit will prevent heating from starting as a safety measure. Close the sauna door before attempting to start a heating session. You can monitor the door status using the **Door open** binary sensor.
+The preset mode (sauna type) can only be changed when the sauna session is not active.
 {% endnote %}
+
+#### Customizing preset names
+
+Preset names can be configured on the Saunum Leil control unit itself. You can also customize the preset names in Home Assistant to match the names configured on your device:
+
+1. Go to the Saunum integration in {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Select **Configure** for your Saunum Leil device.
+3. Enter custom names for each of the three sauna type presets to match those configured on your Leil touch panel (for example, **Finnish Sauna**, **Quick Session**, **Deep Heat**).
+4. Select **Submit** to save your changes.
+
+The custom preset names will immediately appear in the climate entity's preset mode selector, making it easier to identify and select your preferred sauna configuration.
 
 ### Fan mode settings
 
@@ -107,7 +124,7 @@ The **Saunum** integration provides the following entities for controlling and m
 
 - **Sauna**
   - **Description**: Main climate control for your sauna, allowing you to set target temperature and control heating.
-  - **Features**: Temperature control, HVAC modes (off, heat), fan mode (off, low, medium, high).
+  - **Features**: Temperature control, HVAC modes (off, heat), fan mode (off, low, medium, high), preset mode (sauna type selection).
 
 ### Light
 
