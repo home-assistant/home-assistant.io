@@ -16,10 +16,10 @@ The Rhasspy {% term integration %} allows you to use your [Rhasspy voice assista
 
 {% include integrations/config_flow.md %}
 
-Rhasspy comes in two flavors. If you want to just try out, you can connect a microphone and speaker to the machine running Home Assistant and install Rhasspy Junior as an add-on. Once installed, you can say any of [these pre-defined sentences](https://github.com/rhasspy/rhasspy-junior#domains).
+Rhasspy comes in two flavors. If you want to just try out, you can connect a microphone and speaker to the machine running Home Assistant and install Rhasspy Junior as an app for Home Assistant. Once installed, you can say any of [these pre-defined sentences](https://github.com/rhasspy/rhasspy-junior#domains).
 
 {% my supervisor_addon badge addon="47701997_rhasspy_junior" repository_url="https://github.com/rhasspy/hassio-addons" %}
 
-For advanced users that have experience with Rhasspy and want to learn more. The full version of Rhasspy allows tweaking every single possible setting and requires you to do so before you can use it. It can also be installed as an add-on:
+For advanced users that have experience with Rhasspy and want to learn more. The full version of Rhasspy allows tweaking every single possible setting and requires you to do so before you can use it. It can also be installed as an app:
 
 {% my supervisor_addon badge addon="47701997_rhasspy" repository_url="https://github.com/rhasspy/hassio-addons" %}
