@@ -264,7 +264,7 @@ You can trigger Name Conflict Resolution in several ways:
 
 Each ESPHome device must have a **unique name**. This name is important for mDNS announcements, ensuring that the device can be properly discovered, quickly reconnected when it comes online or wakes from deep sleep (for devices that support deep sleep), and correctly linked to the [**ESPHome Device Builder**](https://my.home-assistant.io/redirect/supervisor_addon/?addon=5c53de3b_esphome&repository_url=https%3A%2F%2Fgithub.com%2Fesphome%2Fhome-assistant-addon) app. It's also crucial for **DHCP discovery** if mDNS is not available.
 
-Using duplicate names can lead to connection issues, failed discovery, and unexpected behavior with both the integration and the app in Home Assistant (formerly known as add-on).
+Using duplicate names can lead to connection issues, failed discovery, and unexpected behavior with both the integration and the app for Home Assistant (formerly known as add-on).
 
 ## Removing the integration
 

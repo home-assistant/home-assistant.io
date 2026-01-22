@@ -13,7 +13,7 @@ ha_config_flow: true
 
 The **OpenThread Border Router** {% term integration %} allows calling an OpenThread Border Router's REST API from Python and via WebSocket.
 
-This integration is installed automatically when the **OpenThread Border Router** app for Home Assistant (formerly known as OpenThread Border Router add-on) is installed. For Home Assistant Yellow, Connect&nbsp;ZBT-1, or Connect&nbsp;ZBT-2 refer to the following procedures:
+This integration is installed automatically when the **OpenThread Border Router** app for Home Assistant (formerly known as add-on) is installed. For Home Assistant Yellow, Connect&nbsp;ZBT-1, or Connect&nbsp;ZBT-2 refer to the following procedures:
 
 - [Enabling Thread on Home Assistant Yellow](https://support.nabucasa.com/hc/en-us/articles/25742476767517)
 - [Enabling Thread on Home Assistant Connect ZBT-1](https://support.nabucasa.com/hc/en-us/sections/26122472719517)
