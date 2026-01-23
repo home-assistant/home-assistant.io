@@ -18,6 +18,7 @@ ha_category:
   - Switch
   - Vacuum
   - Valve
+  - Text
 ha_iot_class: Cloud Push
 ha_release: 0.74
 ha_config_flow: true
@@ -45,6 +46,7 @@ ha_platforms:
   - switch
   - vacuum
   - valve
+  - text
 ha_dhcp: true
 ha_integration_type: hub
 ---
