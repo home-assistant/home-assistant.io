@@ -1198,6 +1198,60 @@ For a summary in a more readable format
 [@tronikos]: https://github.com/tronikos
 [@zweckj]: https://github.com/zweckj
 
+## Release 2026.1.3 - January 23
+
+- Bump uiprotect to 8.1.1 ([@RaHehl] - [#160816])
+- Update list of supported locations for London Air ([@allanlewis] - [#160884])
+- Bump onedrive-personal-sdk to 0.1.0 ([@zweckj] - [#160976])
+- Adjust battery voltage sensor display precision for Matter devices ([@lboue] - [#161088])
+- Fix color temperature attributes in wiz ([@arturpragacz] - [#161125])
+- Bump xiaomi-ble to 1.4.3 ([@terop] - [#161132])
+- Bump opower to 0.16.4 ([@tronikos] - [#161153])
+- Fix detection of multiple smart object types in single event ([@RaHehl] - [#161189])
+- Fix icons for 'moving' state ([@stickpin] - [#161194])
+- Bump onedrive-personal-sdk to 0.1.1 ([@zweckj] - [#161337])
+- Bump uiprotect to 10.0.0 ([@RaHehl] - [#161350])
+- Migrate config entries to string unique id ([@edenhaus] - [#161370])
+- Bump uiprotect to 10.0.1 ([@RaHehl] - [#161397])
+- Bump Insteon panel to 0.6.1 ([@teharris1] - [#161411])
+- Bump music-assistant-client to 1.3.3 ([@arturpragacz] - [#161438])
+- Revert deprecation of `server_host` for container installations ([@emontnemery] - [#161443])
+- Bump opower to 0.16.5 ([@tronikos] - [#161450])
+
+[#159957]: https://github.com/home-assistant/core/pull/159957
+[#160771]: https://github.com/home-assistant/core/pull/160771
+[#160816]: https://github.com/home-assistant/core/pull/160816
+[#160884]: https://github.com/home-assistant/core/pull/160884
+[#160976]: https://github.com/home-assistant/core/pull/160976
+[#161085]: https://github.com/home-assistant/core/pull/161085
+[#161088]: https://github.com/home-assistant/core/pull/161088
+[#161125]: https://github.com/home-assistant/core/pull/161125
+[#161132]: https://github.com/home-assistant/core/pull/161132
+[#161153]: https://github.com/home-assistant/core/pull/161153
+[#161189]: https://github.com/home-assistant/core/pull/161189
+[#161194]: https://github.com/home-assistant/core/pull/161194
+[#161337]: https://github.com/home-assistant/core/pull/161337
+[#161350]: https://github.com/home-assistant/core/pull/161350
+[#161370]: https://github.com/home-assistant/core/pull/161370
+[#161397]: https://github.com/home-assistant/core/pull/161397
+[#161411]: https://github.com/home-assistant/core/pull/161411
+[#161438]: https://github.com/home-assistant/core/pull/161438
+[#161443]: https://github.com/home-assistant/core/pull/161443
+[#161450]: https://github.com/home-assistant/core/pull/161450
+[@RaHehl]: https://github.com/RaHehl
+[@allanlewis]: https://github.com/allanlewis
+[@arturpragacz]: https://github.com/arturpragacz
+[@bramkragten]: https://github.com/bramkragten
+[@edenhaus]: https://github.com/edenhaus
+[@emontnemery]: https://github.com/emontnemery
+[@frenck]: https://github.com/frenck
+[@lboue]: https://github.com/lboue
+[@stickpin]: https://github.com/stickpin
+[@teharris1]: https://github.com/teharris1
+[@terop]: https://github.com/terop
+[@tronikos]: https://github.com/tronikos
+[@zweckj]: https://github.com/zweckj
+
 [#136460]: https://github.com/home-assistant/core/pull/136460
 [#139015]: https://github.com/home-assistant/core/pull/139015
 [#139925]: https://github.com/home-assistant/core/pull/139925
