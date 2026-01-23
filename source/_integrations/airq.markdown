@@ -72,7 +72,9 @@ Currently, the integration supports the following sensors:
 | Pressure             | hPa                 |
 | Relative Pressure    | hPa                 |
 | Propane              | %                   |
-| Refrigerant          | µg/m³               |
+| Refrigerant R-32     | %                   |
+| Refrigerant R-454B   | %                   |
+| Refrigerant R-454C   | %                   |
 | SiH4                 | µg/m³               |
 | SO2                  | µg/m³               |
 | Noise                | dBa                 |
