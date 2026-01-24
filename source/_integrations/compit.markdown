@@ -11,6 +11,7 @@ ha_codeowners:
 ha_domain: compit
 ha_platforms:
   - climate
+  - sensor
 ha_integration_type: hub
 ha_quality_scale: bronze
 ---
