@@ -210,6 +210,40 @@ The `media_player.unjoin` action unjoins a media player from any player groups.
 | ---------------------- | -------- | ---------------------------------------------------- |
 | `entity_id`            |      yes | Unjoin this media player from any player groups.     |
 
+#### Action: Get groupable players
+
+The `media_player.get_groupable_players` action returns a list of media players that can be grouped together with the specified media player for synchronous playback. This action allows media player cards to automatically retrieve a list of groupable players.
+
+This action is only available for media players that support the `GROUPING` feature.
+
+| Data attribute | Required | Description                                            |
+| -------------- | -------- | ------------------------------------------------------ |
+| `entity_id`    | yes      | The media player entity to find groupable players for. |
+
+The action returns a dictionary containing a `result` key with a list of compatible media player entity IDs that can be used with the `media_player.join` action.
+
+| Field | Description |
+| ------- | ----------- |
+| `result` | List of entity IDs that can be grouped with the specified media player |
+
+**Example action:**
+
+```yaml
+action: media_player.get_groupable_players
+target:
+  entity_id: media_player.living_room
+```
+
+**Example response:**
+
+```yaml
+media_player.living_room:
+  result:
+    - media_player.kitchen
+    - media_player.bedroom
+    - media_player.office
+```
+
 #### Action: Browse media
 
 The `media_player.browse_media` action provides access to browsing the media tree provided by the integration. Similar in functionality to browsing media through the media player UI. Common use cases include automations that need to navigate media libraries and find media by specific categories.
@@ -249,7 +283,7 @@ media_player.living_room:
   media_class: directory
   media_content_type: root
   media_content_id: ""
-  # children_media_class indicates that all items in the children array are directories  
+  # children_media_class indicates that all items in the children array are directories
   children_media_class: directory
   children:
     - title: Favorites
