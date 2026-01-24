@@ -53,9 +53,26 @@ Alternatively, the IRK of an Android phone and/or secondary device can be obtain
 4. Connect the Android phone to a computer with [adb](https://developer.android.com/tools/adb) installed.
 5. Establish an adb connection (`adb connect...`), then run the command: `adb bugreport scanwatch`.
 6. In the generated `scanwatch.zip` file, locate and extract `FS\data\misc\bluetooth\logs\btsnoop_hci.log`.
-7. Open `btsnoop_hci.log` in [Wireshark](https://www.wireshark.org/download.html) and search for `btsmp.id_resolving_key`.
-8. Select one of the frames and expand the "Bluetooth Security Manager Protocol." The hex dump will show either the sending or receiving device IRK.
-9. Reverse the value displayed. For example, if it is `763af6c7f7d94ad6c262158e2320544e`, the IRK to use would be: `4e5420238e1562c2d64ad9f7c7f63a76`.
+7. Open `btsnoop_hci.log` in [Wireshark](https://www.wireshark.org/download.html) and search (i.e. "Apply display filter") for `btsmp.id_resolving_key`.
+   <details>
+   <summary><b>Click here</b> for troubleshooting advice</summary>
+
+      - Users have reported success by **repeating the entire above procedure several times**, including toggling Bluetooth off/on and unpairing the secondary device.
+      - Users have reported success by searching for `_ws.col.info matches "Sent LE Add Device to Resolving List"` instead.
+
+    </details>
+8. Select a frame with your phone in the "Source" column (for the phone's IRK) or with your phone in the "Destination" column (for the secondary device's IRK). Expand the "Bluetooth Security Manager Protocol." Copy the value of "Identity Resolving Key".
+   <details>
+   <summary><b>Click here</b> for troubleshooting advice</summary>
+
+    - In case you searched for `_ws.col.info matches "Sent LE Add Device to Resolving List"`, select any frame, expand "Bluetooth HCI Command - LE Add Device to Resolving List" and copy the value of "Local IRK" for the phone's IRK or the value of "Peer IRK" for the secondary device's IRK.
+
+    </details>
+9. Lastly please consider these instructions carefully: First reverse the original value and **then swap each character pair** of the reversed value.
+   
+   For example, if the original value is (colons added for clarity) `76`:`3a`:**`f6`**:`c7`:`f7`:`d9`:`4a`:`d6`:`c2`:`62`:`15`:`8e`:`23`:`20`:`54`:`4e`, the IRK to use would be: `4e`:`54`:`20`:`23`:`8e`:`15`:`62`:`c2`:`d6`:`4a`:`d9`:`f7`:`c7`:**`f6`**:`3a`:`76` - note each byte (character pair, e.g. **`f6`**) stays the same, but their order is reversed.
+   
+   When submitting the final result into the integration, there should be no colons i.e. submit `4e5420238e1562c2d64ad9f7c7f63a76`.
 
 ### On Windows - for any devices that will connect to a computer
 
