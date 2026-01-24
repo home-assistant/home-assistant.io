@@ -1,0 +1,30 @@
+@import "homeassistant/pages/connect/mixins.scss";
+@import "homeassistant/pages/connect/variables.scss";
+@import "homeassistant/pages/connect/base.scss";
+@import "homeassistant/pages/connect/badge.scss";
+@import "homeassistant/pages/connect/header.scss";
+@import "homeassistant/pages/connect/buttons.scss";
+
+// ZBT-2 specific styles
+@import "homeassistant/pages/connect/zbt-2/variables.scss";
+@import "homeassistant/pages/connect/zbt-2/base.scss";
+@import "homeassistant/pages/connect/zbt-2/animations.scss";
+@import "homeassistant/pages/connect/zbt-2/debug.scss";
+
+@import "homeassistant/pages/connect/zbt-2/components/light-section.scss";
+
+@import "homeassistant/pages/connect/zbt-2/components/hero.scss";
+@import "homeassistant/pages/connect/zbt-2/components/features.scss"; 
+@import "homeassistant/pages/connect/zbt-2/components/chipset.scss"; 
+@import "homeassistant/pages/connect/zbt-2/components/collaboration.scss"; 
+@import "homeassistant/pages/connect/zbt-2/components/long-range.scss"; 
+@import "homeassistant/pages/connect/zbt-2/components/home.scss";
+@import "homeassistant/pages/connect/zbt-2/components/second-generation-platform.scss";
+@import "homeassistant/pages/connect/zbt-2/components/faq.scss";
+@import "homeassistant/pages/connect/zbt-2/components/build.scss";
+@import "homeassistant/pages/connect/zbt-2/components/buy.scss";
+@import "homeassistant/pages/connect/zbt-2/components/zigbee-thread.scss";
+@import "homeassistant/pages/connect/zbt-2/components/built-for-home-assistant.scss";
+@import "homeassistant/pages/connect/zbt-2/components/declutter.scss";
+@import "homeassistant/pages/connect/zbt-2/components/plug-and-play.scss";
+@import "homeassistant/pages/connect/zbt-2/components/specs.scss";

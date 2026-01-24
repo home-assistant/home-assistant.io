@@ -15,7 +15,14 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `telegram` {% term integration %} uses [Telegram](https://www.telegram.org) to deliver notifications from Home Assistant to your Telegram application(s).
+{% warning %}
+
+The **Telegram** integration has been marked for deprecation and will be removed in the future.
+Please use the [Telegram bot integration](/integrations/telegram_bot) instead.
+
+{% endwarning %}
+
+The **Telegram** {% term integration %} uses [Telegram](https://www.telegram.org) to deliver notifications from Home Assistant to your Telegram application(s).
 
 ## Setup example
 

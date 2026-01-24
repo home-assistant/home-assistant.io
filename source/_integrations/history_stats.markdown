@@ -11,6 +11,7 @@ ha_quality_scale: internal
 ha_domain: history_stats
 ha_config_flow: true
 ha_platforms:
+  - diagnostics
   - sensor
 ha_integration_type: helper
 related:

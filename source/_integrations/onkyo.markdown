@@ -17,7 +17,7 @@ ha_ssdp: true
 ha_quality_scale: bronze
 ---
 
-The `onkyo` {% term integration %} allows you to control [Onkyo](https://www.onkyo.com) and [Integra](http://www.integrahometheater.com) (from 2011 onward) and also [Pioneer](https://www.pioneerelectronics.com) (from 2016 onward) receivers using Home Assistant.
+The **Onkyo** {% term integration %} allows you to control [Onkyo](https://www.onkyo.com) and [Integra](http://www.integrahometheater.com) (from 2011 onward) and also [Pioneer](https://www.pioneerelectronics.com) (from 2016 onward) receivers using Home Assistant.
 Please be aware that you need to enable "Network Standby" for this integration to work with your hardware.
 
 {% include integrations/config_flow.md %}

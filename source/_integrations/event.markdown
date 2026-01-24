@@ -118,7 +118,18 @@ This section shows a similar example to the example automation shown above in YA
    - Type `event` and select your button entity.
    - **Important**: Leave the other fields **empty**.
      ![Select button event as trigger](/images/integrations/event/matter_trigger_on_button_event.png)
-4. Define the condition when something should happen.
+4. Prevent the automation from running on unavailable or unknown states.
+   - On the trigger you just created, select the three dots {% icon "mdi:dots-vertical" %} menu and select **Edit in YAML**.
+   - Add the following lines at the bottom of the YAML editor:
+     ```yaml
+     not_from:
+       - unavailable
+     not_to:
+       - unavailable
+       - unknown
+     ```
+       - Note: The `not_from` section prevents running when the entity returns from being unavailable (e.g. when an ESPHome device finishes rebooting). This cannot currently be achieved with the visual condition editors.
+5. Define the condition when something should happen.
    - Under **Then do**, select **Add action**.
    - Type `choose` and select **Add condition**.
    - Select **Entity** > **State** and select your button event entity from the list.
@@ -126,12 +137,12 @@ This section shows a similar example to the example automation shown above in YA
    - Under **State**, select the state change you want to act as trigger, for example **Pressed once**.
      - **Pressed once** is the event type. But the state of this event is the timestamp of when the button was pressed. This is why we automate on the state change so that it is triggered every time the button is pressed.
      ![Condition - button pressed](/images/integrations/event/matter_condition_button_pressed.png)
-5. Define what should happen when your automation is triggered (when the button is pressed, for example).
+6. Define what should happen when your automation is triggered (when the button is pressed, for example).
    - Select **Add action** and define your action.
-6. Repeat these steps for each event type you want to monitor.
+7. Repeat these steps for each event type you want to monitor.
    - In this example, we want to do something else when the button was pressed twice.
      ![Condition - add another option when the button is pressed twice](/images/integrations/event/matter_button_option_2.png)
-7. **Save** the automation.
+8. **Save** the automation.
 
 ## Device class
 

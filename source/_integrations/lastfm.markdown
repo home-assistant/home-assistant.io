@@ -14,7 +14,7 @@ ha_codeowners:
   - '@joostlek'
 ---
 
-The `lastfm` sensor platform will allow you to see whenever a user starts scrobbling, their play count, last song played, and top song played on [Last.fm](https://www.last.fm/).
+The **Last.fm** {% term integration %} will allow you to see whenever a user starts scrobbling, their play count, last song played, and top song played on [Last.fm](https://www.last.fm/).
 
 ## Prerequisites
 

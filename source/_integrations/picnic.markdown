@@ -16,7 +16,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The Picnic integration allows one to get information from [Picnic](https://picnic.app) about orders, deliveries and cart content.
+The **Picnic** {% term integration %} allows one to get information from [Picnic](https://picnic.app) about orders, deliveries and cart content.
 
 {% include integrations/config_flow.md %}
 

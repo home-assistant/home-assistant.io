@@ -36,7 +36,7 @@ ha_codeowners:
   - '@hahn-th'
 ---
 
-The [HomematicIP](https://www.homematic-ip.com/) integration platform is used as an interface to the cloud server. Since there is no official documentation about this API, everything was done via reverse engineering. Use at your own risk.
+The [HomematicIP](https://www.homematic-ip.com/) {% term integration %} is used as an interface to the cloud server. Since there is no official documentation about this API, everything was done via reverse engineering. Use at your own risk.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -139,7 +139,7 @@ Currently, the **HmIP-DLD** can only be used in Home Assistant without a PIN. En
 - homematicip_cloud.climate
   - Climate group (*HmIP-HeatingGroup*)
   - This includes temperature/humidity measures for climate devices of a room delivered by:
-    - Wall-mounted thermostat (*HmIP-WTH, HmIP-WTH-2, HmIP-WTH-B*)
+    - Wall-mounted thermostat (*HmIP-WTH, HmIP-WTH-2, HmIP-WTH-B, HmIP-WTH-1*)
     - Brand Wall-mounted thermostat (*HmIP-BWTH, HmIP-BWTH-24*)
     - Radiator thermostat (*HmIP-eTRV, HmIP-eTRV-2, HmIP-eTRV-C*) - should also work with (*HmIP-eTRV-2-UK, HmIP-eTRV-2-B, HmIP-eTRV-2-B1*)
     - Temperature and humidity sensor (*HmIP-STH*)

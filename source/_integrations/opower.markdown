@@ -13,9 +13,10 @@ ha_config_flow: true
 ha_platforms:
   - sensor
 ha_integration_type: integration
+ha_quality_scale: bronze
 ---
 
-The Opower integration allows you to get energy information from utilities that use [Opower](https://www.oracle.com/industries/utilities/opower-energy-efficiency/).
+The **Opower** {% term integration %} allows you to get energy information from utilities that use [Opower](https://www.oracle.com/industries/utilities/opower-energy-efficiency/).
 
 More than 175 utilities use Opower. Currently only the following utilities are supported by this integration:
 
@@ -32,7 +33,6 @@ More than 175 utilities use Opower. Currently only the following utilities are s
 - Consolidated Edison (ConEd) and subsidiaries
   - Orange & Rockland Utilities (ORU)
 - Duquesne Light Company (DQE)
-- Enmax Energy
 - Evergy
 - Exelon subsidiaries
   - Atlantic City Electric

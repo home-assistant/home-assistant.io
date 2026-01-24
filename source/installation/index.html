@@ -20,7 +20,7 @@ toc: true
   <h2>Plug and play with Home Assistant Green</h2>
   <p>
     The affordable Home Assistant Green is the easiest way to start using
-    Home Assistant. It's plug-and-play and comes with [Home Assistant Operating System](/installation/#about-installation-types) already installed.
+    Home Assistant. It's plug-and-play and comes with <a href="/installation/#about-installation-types">Home Assistant Operating System</a> already installed.
   </p>
 
   <div class="installations-card">
@@ -52,7 +52,7 @@ toc: true
               %}</a
             >
             <a
-              href="https://support.nabucasa.com/hc/en-us/categories/24638797677853-Home-Assistant-Green"
+              href="https://support.nabucasa.com/hc/en-us/articles/24737667232413"
               class="button"
               target="_blank"
               >View tutorial {% include assets/chevron_right.html %}</a
@@ -94,7 +94,7 @@ toc: true
             <div>
               <b>TOOLS REQUIRED</b>
               <ul>
-                <li>Raspberry Pi 4 or 5 with power supply</li>
+                <li>Raspberry Pi 4 or 5 with power supply (minimum 2 GB RAM)</li>
                 <li>MicroSD card</li>
                 <li>Ethernet connection</li>
               </ul>
@@ -124,10 +124,15 @@ toc: true
     minimalistic operating system designed to run the Home Assistant ecosystem
     on single board computers (like the Home Assistant Green or a Raspberry Pi) or Virtual Machines. It
     is the most convenient option in terms of installation and maintenance and it supports
-    {% term "add-ons" %}. Home Assistant Operating System is
+    {% term "apps" %}. Home Assistant Operating System is
     the recommended installation type for most users.</li>
     <li>
-      <b>Home Assistant Container:</b> Container-based installation of Home Assistant. You need to bring your own system (such as Linux) with container orchestration (like Docker), and manually handle updates. Home Assistant Container installations don’t have access to {% term "add-ons" %}.
+      <b>Home Assistant Container:</b> Container-based installation of Home Assistant. You need to bring your own system (such as Linux) with container orchestration (like Docker), and manually handle updates. Home Assistant Container installations don’t have access to {% term "apps" %}.
+      <ul>
+        <li>
+          <b>Note</b>: Some integrations, such as <b>Thread</b> and <b>Z-Wave</b>, are controlled by {% term "apps" %}. There is no out-of-the-box support for these on Container installations.
+        </li>
+      </ul>
     </li>
   </ul>
 

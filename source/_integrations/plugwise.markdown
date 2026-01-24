@@ -186,7 +186,7 @@ The available schedules depend on the [schedules](#schedule-management) you have
 
 The following HVAC modes are available:
 
-- `auto`: Active schedule – The thermostat changes presets/setpoints according to the schedule.
+- `auto`: Thermostat schedule active – The thermostat changes presets/setpoints according to the user-created schedule.
 - `cool or heat`: No active schedule – The system is manually set to cooling or heating mode, activating based on room temperature relative to the thermostat setpoint.
 
 For Adam:
@@ -310,9 +310,8 @@ A complete zone control system also known as [Adam HA](https://www.plugwise.com/
 - On/Off, OpenTherm heating and cooling support.
 - Running firmwares v3.x or v2.3.
 - Additional devices:
-  - Zone thermostats such as Lisa or Anna (see warning below on Anna),
-  - A temperature sensor, Jip,
-  - Valve controllers called Floor or Tom,
+  - Zone thermostats such as Anna, Emma, Lisa or Jip (see warning below on Anna connected to Adam),
+  - Valve controllers called Floor or Tom, can also function as a zone thermostat
   - An under-floor heating controller Koen (note: a Koen always comes with a Plug, which is the active part),
   - Smart switches, either Plug or Aqara Smart Plug.
 
@@ -331,15 +330,15 @@ A [smart thermostat](https://www.plugwise.com/en_US/products/anna), supporting:
 
 A [P1](https://www.plugwise.com/en_US/products/smile-p1) smart meter monitor for the single- or multi-phase grid power connection to your home including gas usage monitoring. Running firmware v4.x, v3.x or v2.x.
 
+#### Anna P1
+
+A smart thermostat [combined](https://www.plugwise.com/en_US/products/anna-p1) with an energy monitor can transform the way you manage energy. If your solar setup generates surplus energy and you're charged for it, this combination ensures that excess solar power is redirected efficiently. Powering your heat pump for instance to make the most of renewable energy. Do you have a setup like this? We’d love to hear your experience!
+
 ### Stretch (end-of-sale)
 
 For controlling and monitoring legacy power switches, such as the Circles or Stealths, with v3.x or v2.x Stretch firmware.
 
 ### Unsupported devices
-
-#### Anna P1
-
-A smart thermostat [combined](https://www.plugwise.com/en_US/products/anna-p1) with an energy monitor can transform the way you manage energy. If your solar setup generates surplus energy and you're charged for it, this combination ensures that excess solar power is redirected efficiently. Powering your heat pump for instance to make the most of renewable energy. Do you have a setup like this? We’d love to hear your experience!
 
 #### Stick
 

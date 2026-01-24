@@ -29,13 +29,20 @@ ha_integration_type: hub
 ha_quality_scale: bronze
 ---
 
-The Litter-Robot integration allows you to monitor and control your Wi-Fi-enabled, automatic, self-cleaning litter box and pet feeders. If you have pet profiles set up, you can also track your pet's weight.
+The **Litter-Robot** {% term integration %} allows you to monitor and control your Wi-Fi-enabled, automatic, self-cleaning litter box and pet feeders. If you have pet profiles set up, you can also track your pet's weight.
 
 ## Prerequisites
 
 Before using this integration, you’ll need a Whisker account and a Wi-Fi-enabled Litter-Robot or Feeder-Robot linked to it. You can do this via the Whisker app.
 
 {% include integrations/config_flow.md %}
+
+{% configuration_basic %}
+Username:
+    description: "The email address of your Whisker account."
+Password:
+    description: "The password of your Whisker account."
+{% endconfiguration_basic %}
 
 ## Entities
 

@@ -325,7 +325,7 @@ This can be used to take different actions based on whether or not the condition
 
 ## Fire an event
 
-This {% term action %} allows you to fire an event. Events can be used for many things. It could trigger an {% term automation %} or indicate to another integration that something is happening. For instance, in the below example it is used to create an entry in the logbook.
+This {% term action %} allows you to fire an event. Events can be used for many things. It could trigger an {% term automation %} or indicate to another integration that something is happening. For instance, in the below example it is used to create an entry in the **Activity** panel.
 
 ```yaml
 - alias: "Fire LOGBOOK_ENTRY event"
@@ -982,7 +982,7 @@ assistant. The conversation response can be templated.
 # Example of a templated conversation response resulting in "Testing 123"
 - variables:
     my_var: "123"
-- set_conversation_response: "{{ 'Testing ' + my_var }}":
+- set_conversation_response: "{{ 'Testing ' + my_var }}"
 ```
 
 {% endraw %}

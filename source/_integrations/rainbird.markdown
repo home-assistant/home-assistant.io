@@ -23,7 +23,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-This Rain Bird integration allows interacting with [LNK WiFi](https://www.rainbird.com/products/lnk-wifi-module) module of the Rain Bird Irrigation system in Home Assistant.
+This Rain Bird {% term integration %} allows interacting with [LNK WiFi](https://www.rainbird.com/products/lnk-wifi-module) module of the Rain Bird Irrigation system in Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 

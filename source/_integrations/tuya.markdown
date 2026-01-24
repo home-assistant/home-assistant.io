@@ -49,7 +49,7 @@ ha_dhcp: true
 ha_integration_type: hub
 ---
 
-The Tuya integration integrates all Powered by Tuya devices you have added to the Tuya Smart and Tuya Smart Life apps.
+The **Tuya** {% term integration %} integrates all Powered by Tuya devices you have added to the Tuya Smart and Tuya Smart Life apps.
 
 All Home Assistant platforms are supported by the Tuya integration, except the lock and remote platform.
 
@@ -95,7 +95,7 @@ Tuya supports scenes in their app. These allow triggering some of the more compl
 
 ## Troubleshooting
 
-### Unsupported device or missing device functionnality
+### Unsupported device or missing device functionality
 
 This integration relies on the official [Python SDK provided by Tuya](https://github.com/tuya/tuya-device-sharing-sdk), which does not expose all functionality available in SmartLife.
 

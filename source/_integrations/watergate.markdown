@@ -19,7 +19,7 @@ ha_quality_scale: bronze
 ha_integration_type: integration
 ---
 
-The **Watergate** integration integrates your Watergate Devices (currently Sonic Wi-Fi) with your Home Assistant.
+The **Watergate** {% term integration %} integrates your Watergate Devices (currently Sonic Wi-Fi) with your Home Assistant.
 With this integration, you are able to:
 
 - Control your valve

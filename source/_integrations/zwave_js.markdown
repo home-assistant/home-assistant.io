@@ -326,7 +326,7 @@ It is recommended to back up your Z-Wave network before resetting the device.
 
 
     ![Screenshot showing the device panel of a Z-Wave adapter](/images/integrations/z-wave/z-wave-controller-commands.png)
-4. On the device info page, check the logbook. When you see that the status entity became unavailable, the reset process is finished.
+4. On the device info page, check the **Activity** panel. When you see that the status entity became unavailable, the reset process is finished.
    - You can now unplug the adapter and use it to start a new network, or pass it on to someone else.
 5. If you no longer need the Z-Wave integration, you can [remove it](#removing-z-wave-js-from-home-assistant) from Home Assistant.
 
@@ -378,7 +378,9 @@ The following features can be accessed from the device panel of any Z-Wave devic
 - **Configure:** Provides an easy way to look up and update configuration parameters for the device. While there is an existing action for setting configuration parameter values, this UI may sometimes be quicker to use for one-off changes.
 - **Re-interview:** Forces the device to go through the interview process again so that Z-Wave-JS can discover all of its capabilities. Can be helpful if you don't see all the expected entities for your device.
 - **Rebuild routes:** Discovers new routes between the adapter and the device. Use this if you think you are experiencing unexpected delays or RF issues with your device. Your device may be less responsive during this process.
-- **Remove failed:** Removes the device from the adapter without excluding the device from the network. Can be used when a device has failed and it can't go through the normal exclusion process.
+- **Delete:** Opens a dialog with the following options for removing the device:
+   - Removing it from the network using exclusion
+   - Removing a failed device from the adapter without excluding it from the network
 - **[Statistics](https://zwave-js.github.io/node-zwave-js/#/api/node?id=quotstatistics-updatedquot):** Provides statistics about communication between this device and the adapter, allowing you to troubleshoot RF issues with the device.
 - **Update:** Updates a device's firmware using a manually uploaded firmware file. Only some devices support this feature (adapters and devices with the Firmware Update Metadata Command Class).
 - **Download diagnostics:** Exports a JSON file describing the entities of this specific device.
@@ -920,13 +922,13 @@ The chart below illustrates Options 1 and 2, which are available for Home Assist
 
 **Option 1: The official Z-Wave JS add-on, as described above**
 
-_This option is only available for {% term "Home Assistant Operating System" %} (the recommended installation type) and {% term "Home Assistant Supervised" %} installations._
+_This option is only available for {% term "Home Assistant Operating System" %} (the recommended installation type) installations._
 
 This add-on can only be configured via the built-in Z-Wave control panel in Home Assistant. If you followed the standard [installation procedure](#setting-up-a-z-wave-js-server), this is how you are running the Z-Wave JS server.
 
 **Option 2: The Z-Wave JS UI add-on installed from the community add-on store**
 
-_This option is only available for {% term "Home Assistant Operating System" %} (the recommended installation type) and {% term "Home Assistant Supervised" %} installations._
+_This option is only available for {% term "Home Assistant Operating System" %} (the recommended installation type) installations._
 
 This add-on includes the Z-Wave JS Server as part of the Z-Wave JS UI application. The Z-Wave network can be configured via the built-in Z-Wave control panel in Home Assistant and alternatively via the Z-Wave control panel built into Z-Wave JS UI. It provides you with a full-fledged, attractive, and feature-complete UI to manage your Z-Wave nodes and settings, which may support more advanced use cases as development continues on the Z-Wave control panel.
 

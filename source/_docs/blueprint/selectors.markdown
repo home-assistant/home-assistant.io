@@ -16,7 +16,7 @@ blueprint easier to use from the UI.
 The following selectors are currently available:
 
 - [Action selector](#action-selector)
-- [Add-on selector](#add-on-selector)
+- [App selector](#home-assistant-app-selector)
 - [Area selector](#area-selector)
 - [Attribute selector](#attribute-selector)
 - [Assist pipeline selector](#assist-pipeline-selector)
@@ -82,24 +82,24 @@ The output of this selector is a list of actions. For example:
   metadata: {}
 ```
 
-## Add-on selector
+## App selector (formerly known as add-on selector)
 
 This can only be used on a {% term "Home Assistant Operating System" %} installation. For {% term "Home Assistant Container" %} installations, an error will be displayed.
 
-The add-on selector allows the user to input an add-on slug.
-On the user interface, it will list all installed add-ons and use the slug of the
-selected add-on.
+The app selector allows you to input an app slug.
+On the user interface, it will list all installed Home Assistant apps and use the slug of the
+selected app.
 
-![Screenshot of an add-on selector](/images/blueprints/selector-addon.png)
+![Screenshot of an app selector](/images/blueprints/selector-addon.png)
 
 This selector does not have any other options; therefore, it only has its key.
 
 ```yaml
-# Example add-on selector
+# Example app selector
 addon:
 ```
 
-The output of this selector is the slug of the selected add-on.
+The output of this selector is the slug of the selected app.
 For example: `core_ssh`.
 
 ## Area selector
@@ -191,6 +191,7 @@ entity:
       description: >
         Limits the list of areas to areas that have entities with a certain
         supported feature, for example, `light.LightEntityFeature.TRANSITION` or `climate.ClimateEntityFeature.TARGET_TEMPERATURE`. Should be a list of features.
+        For a list of supported features for each entity type, refer to the [entity documentation](https://developers.home-assistant.io/docs/core/entity).
       type: list
       required: false
 multiple:
@@ -540,6 +541,7 @@ entity:
       description: >
         Limits the list of devices to devices that have entities with a certain
         supported feature, for example, `light.LightEntityFeature.TRANSITION` or `climate.ClimateEntityFeature.TARGET_TEMPERATURE`. Should be a list of features.
+        For a list of supported features for each entity type, refer to the [entity documentation](https://developers.home-assistant.io/docs/core/entity).
       type: list
       required: false
 filter:
@@ -633,6 +635,11 @@ enable_day:
   required: false
 enable_millisecond:
   description: When `true`, the duration selector will allow selecting milliseconds.
+  type: boolean
+  default: false
+  required: false
+allow_negative:
+  description: When `true`, the duration selector will allow for selecting positive or negative values.
   type: boolean
   default: false
   required: false
@@ -1057,6 +1064,13 @@ accept:
     List of media types the user is allowed to select.
   type: list
   required: false
+multiple:
+  description: >
+    Allows selecting multiple media items. If set to `true`, the resulting value of
+    this selector will be a list instead of a single object.
+  type: boolean
+  default: false
+  required: false
 {% endconfiguration %}
 
 The output of the media selector, is an mapping with information about
@@ -1101,6 +1115,19 @@ metadata:
     - media_content_type: provider
       media_content_id: >-
         media-source://tts/cloud?message=TTS+Message&language=en-US&gender=female
+```
+
+Example output when `multiple` is set to `true` (a list of media objects):
+
+```yaml
+- media_content_id: media-source://media_source/local/image1.jpg
+  media_content_type: image/jpeg
+  metadata:
+    title: image1.jpg
+- media_content_id: media-source://media_source/local/image2.jpg
+  media_content_type: image/jpeg
+  metadata:
+    title: image2.jpg
 ```
 
 ## Number selector
@@ -1189,7 +1216,7 @@ number:
 
 The object selector can be used to input arbitrary data in YAML form. This is useful for e.g. lists and dictionaries containing data for actions. The value of the input will contain the provided data.
 
-When used without options, the selector will accept a free form object.
+When used without options, the selector will accept any valid YAML content, such as objects, arrays, strings, or other YAML types. The input box is displayed as an editor with syntax highlighting.
 
 ![Screenshot of an object selector](/images/blueprints/selector-object.png)
 
@@ -1486,34 +1513,6 @@ target:
 ```
 
 {% configuration target %}
-device:
-  description: >
-    When device options are provided, the targets are limited by devices
-    that at least match the given conditions. Can be either a object or a list
-    of object.
-  type: list
-  keys:
-    integration:
-      description: >
-        Can be set to an integration domain. Limits the device targets that
-        are provided devices by the set integration domain, for example,
-        [`zha`](/integrations/zha).
-      type: string
-      required: false
-    manufacturer:
-      description: >
-        When set, it limits the targets to devices provided by the set
-        manufacturer name.
-      type: string
-      required: false
-    model:
-      description: When set, it limits the targets to devices by the set model.
-      type: string
-      required: false
-    model_id:
-      description: When set, the targets are limited to devices that have the set model ID.
-      type: string
-      required: false
 entity:
   description: >
     When entity options are provided, the targets are limited by entities
@@ -1545,6 +1544,13 @@ entity:
         or a list of string device_class to limit the selection to.
       type: [device_class, list]
       required: false
+    supported_features:
+      description: >
+        Limits the targets to entities with a certain supported feature, for example,
+        `light.LightEntityFeature.TRANSITION` or `climate.ClimateEntityFeature.TARGET_TEMPERATURE`. Should be a list of features.
+        For a list of supported features for each entity type, refer to the [entity documentation](https://developers.home-assistant.io/docs/core/entity).
+      type: list
+      required: false
 {% endconfiguration %}
 
 {% important %}
@@ -1570,18 +1576,6 @@ target:
   entity:
     - integration: zha
       domain: light
-```
-
-Another example using the target selector, which only shows targets that
-provide one or more remote controls, provided by the
-[deCONZ](/integrations/deconz) integration.
-
-```yaml
-target:
-  device:
-    - integration: deconz
-      manufacturer: IKEA of Sweden
-      model: TRADFRI remote control
 ```
 
 ## Template selector

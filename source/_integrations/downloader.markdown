@@ -8,7 +8,7 @@ ha_quality_scale: internal
 ha_domain: downloader
 ha_codeowners:
   - '@erwindouna'
-ha_integration_type: integration
+ha_integration_type: service
 ha_config_flow: true
 ---
 
@@ -34,6 +34,7 @@ This will download the file from the given URL.
 | `subdir`               |      yes | Download into subdirectory of **download_dir** |
 | `filename`             |      yes | Determine the filename.                        |
 | `overwrite`            |      yes | Whether to overwrite the file or not, defaults to `false`. |
+| `headers`              |      yes | Dictionary of custom HTTP headers to add to the request.  |
 
 ### Download status events
 

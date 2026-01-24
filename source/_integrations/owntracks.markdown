@@ -42,7 +42,7 @@ By default, the integration listens for incoming messages from OwnTracks via HTT
 
 ### Configuring the app - iOS
 
-1. [Install the OwnTracks application for iOS.](https://itunes.apple.com/us/app/owntracks/id692424691?mt=8)
+1. [Install the OwnTracks application for iOS.](https://apps.apple.com/app/id692424691)
 2. In the OwnTracks app, tap the (i) in the top left and select **Settings**. 
 3. Change the following settings:
 

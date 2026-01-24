@@ -20,7 +20,7 @@ ha_platforms:
 ha_quality_scale: bronze
 ---
 
-The `smarla` {% term integration %} enables Home Assistant to integrate [Swing2Sleep](https://swing2sleep.de) (Smarla) motorized cradles. This integration will allow you to control your Smarla device.
+The **Swing2Sleep Smarla** {% term integration %} enables Home Assistant to integrate [Swing2Sleep](https://swing2sleep.de) (Smarla) motorized cradles. This integration will allow you to control your Smarla device.
 
 ## Requirements
 

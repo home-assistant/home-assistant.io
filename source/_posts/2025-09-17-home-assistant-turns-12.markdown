@@ -42,7 +42,7 @@ In my opinion, the best thing about Home Assistant is its flexibility - you can 
 
 - Inspired by [PowerDisplayESPHome](https://github.com/johannyren/PowerDisplayESPHome/tree/main), JannickBlmndl [made an LED matrix](https://gitlab.com/JannickBlmndl/ESPHome-Dynamic-Prices-LEDMatrix) that helps their household be more sustainable by being energy flexible. It displays the live energy prices from their energy provider. 📊
 
-- [Tano Spirits](https://www.youtube.com/@TanoSpirits) in Melbourne, Australia, uses Home Assistant to automate their Japanese Shochu distillery, inspired by the brewing automations at [Little Island Brewing Co](https://libc.co/brewing-process/) in Singapore. 🍻
+- [Tano Spirits](https://www.youtube.com/@TanoSpirits) in Melbourne, Australia, uses Home Assistant to automate their Japanese Shochu distillery, inspired by a small brewing company in Singapore. 🍻
 
 - Several years ago, HillPhantom found that Home Assistant wasn’t quite ready for him. Over the past year, though, he’s now got Ollama set up with his Home Assistant Voice Preview Edition and has been building guides on how to make your own [mmWave radar sensors in Home Assistant](https://www.youtube.com/watch?v=Gb-4l93st8A). 👋🏻
 

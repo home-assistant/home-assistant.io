@@ -260,7 +260,7 @@ Enable/disable Smart Home/Away and Follow Me modes.
 
 ### Service `ecobee.set_sensors_in_climate`
 
-Set which sensors are active on a termostat for a specific climate program.
+Set which sensors are active on a thermostat for a specific climate program.
 
 | Service data attribute | Optional | Description                                                                                                                                         |
 | ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |

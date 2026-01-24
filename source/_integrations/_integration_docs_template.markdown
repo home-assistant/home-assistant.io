@@ -6,7 +6,7 @@ ha_iot_class: Local Push
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: my_integration
-ha_integration_type: integration
+ha_integration_type: hub
 related:
   - url: https://developers.home-assistant.io/docs/documenting/standards
     title: Documentation standard

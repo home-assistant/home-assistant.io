@@ -1,5 +1,5 @@
 ---
-title: Konnected.io
+title: Konnected.io (Legacy)
 description: Connect wired alarm sensors and siren using the NodeMCU based Konnected Alarm Panel
 ha_category:
   - Alarm
@@ -20,7 +20,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `konnected` integration lets you connect wired sensors and switches to a Konnected Alarm Panel, or NodeMCU ESP8226 based device running the [open source Konnected software](https://github.com/konnected-io/konnected-security). Reuse the wired sensors and siren from an old or pre-wired alarm system installation and integrate them directly into Home Assistant.
+The **Konnected.io (Legacy)** {% term integration %} lets you connect wired sensors and switches to a Konnected Alarm Panel, or NodeMCU ESP8226 based device running the [open source Konnected software](https://github.com/konnected-io/konnected-security). Reuse the wired sensors and siren from an old or pre-wired alarm system installation and integrate them directly into Home Assistant.
 
 {% warning %}
 
@@ -148,7 +148,7 @@ devices:
   type: list
   keys:
     id:
-      description: The MAC address (Konnected Alarm Panel) or Device ID (Konnected Alarm Panel Pro) of the Konnected device. MAC addresses must be formatted with colons/punctuation removed, for example, `68c63a8bcd53`. You can usually find the mac address in your router's client list. Or, check the `home-assistant.log` for log messages from automatically discovered devices. Device ID can be found on the device Status Page which is accessible via the Konnected Mobile App.
+      description: The MAC address (Konnected Alarm Panel) or Device ID (Konnected Alarm Panel Pro) of the Konnected device. MAC addresses must be formatted with colons/punctuation removed, for example, `68c63a8bcd53`. You can usually find the mac address in your router's client list. Or, check [the Home Assistant logs](/integrations/logger/#viewing-logs) for log messages from automatically discovered devices. Device ID can be found on the device Status Page which is accessible via the Konnected Mobile App.
       required: true
       type: string
     binary_sensors:

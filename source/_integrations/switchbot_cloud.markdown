@@ -21,6 +21,7 @@ ha_codeowners:
   - '@SeraphicRav'
   - '@laurence-presland'
   - '@Gigatrappeur'
+  - '@XiaoLing-git'
 ha_domain: switchbot_cloud
 ha_platforms:
   - binary_sensor
@@ -38,7 +39,7 @@ ha_config_flow: true
 ha_integration_type: hub
 ---
 
-The SwitchBot Cloud integration allows you to control SwitchBot [devices](https://www.switch-bot.com/) connected through the SwitchBot hub.
+The **SwitchBot Cloud** {% term integration %} allows you to control SwitchBot [devices](https://www.switch-bot.com/) connected through the SwitchBot hub.
 
 ## Prerequisites
 
@@ -54,6 +55,7 @@ Please note, device names configured in the SwitchBot app are transferred into H
 ### Plugs and switches
 
 - [Bot (WoHand)](https://switch-bot.com/pages/switchbot-bot)
+- [Relay Switch 2PM](https://www.switch-bot.com/products/switchbot-relay-switch-2pm)
 - [Relay Switch 1](https://www.switch-bot.com/products/switchbot-relay-switch-1)
 - [Relay Switch 1PM](https://www.switch-bot.com/products/switchbot-relay-switch-1pm)
 - [Plug Mini (WoPlug)](https://www.switch-bot.com/products/switchbot-plug-mini)
@@ -75,13 +77,22 @@ Please note, device names configured in the SwitchBot app are transferred into H
 - [Floor Lamp](https://www.switch-bot.com/products/switchbot-floor-lamp)
 - [Color Bulb (WoBulb)](https://switch-bot.com/pages/switchbot-color-bulb)
 - [Light Strip (WoStrip)](https://www.switchbot.jp/products/switchbot-strip-light)
-- RGBICWW Floor Lamp
-- RGBICWW Strip Light
+- [RGBICWW Floor Lamp](https://www.switch-bot.com/products/switchbot-rgbicww-floor-lamp)
+- [RGBICWW Strip Light](https://www.switch-bot.com/products/switchbot-rgbicww-strip-light)
+- [Ceiling Light / Ceiling Light Pro](https://www.switchbot.jp/pages/switchbot-ceiling-light) (Japan only)
+- [RGBIC Neon Rope Light](https://www.switch-bot.com/products/switchbot-rgbic-neon-rope-light)
+- [RGBIC Neon Wire Rope Light](https://www.switch-bot.com/products/switchbot-rgbic-neon-wire-rope-light)
+- [Candle Warmer Lamp](https://www.switch-bot.com/products/switchbot-candle-warmer-lamp)
 
 ### Locks
 
 - [Lock (WoLock)](https://switch-bot.com/pages/switchbot-lock)
 - [Lock Pro (WoLockPro)](https://www.switch-bot.com/pages/switchbot-lock-pro)
+- Lock Pro Wifi
+- Lock Lite
+- [Lock Ultra](https://www.switch-bot.com/products/switchbot-lock-ultra)
+- Lock Vision
+- Lock Vision Pro
 
 ### Sensors
 
@@ -93,6 +104,8 @@ Please note, device names configured in the SwitchBot app are transferred into H
 - [Contact Sensor](https://www.switch-bot.com/products/contact-sensor)
 - [Motion Sensor](https://www.switch-bot.com/products/motion-sensor)
 - [Water Leak Detector](https://www.switch-bot.com/products/switchbot-water-leak-detector)
+- [Climate Panel](https://www.switch-bot.com/products/switchbot-home-climate-panel)
+- [Presence Sensor](https://www.switch-bot.com/products/switchbot-presence-sensor)
 
 ### Hubs
 
@@ -112,6 +125,7 @@ Please note, device names configured in the SwitchBot app are transferred into H
 - [K10+](https://www.switch-bot.com/products/switchbot-mini-robot-vacuum-k10)
 - [K10+ Pro](https://www.switch-bot.com/products/switchbot-mini-robot-vacuum-k10-pro)
 - [K10+ Pro Combo](https://www.switch-bot.com/products/switchbot-k10-pro-combo)
+- [K11+](https://www.switch-bot.com/products/switchbot-robot-vacuum-k11)
 - [K20+ Pro](https://www.switchbot.jp/products/switchbot-robot-vacuum-cleaner-k20-pro)
 - [S20](https://www.switch-bot.com/products/switchbot-floor-cleaning-robot-s20)
 - [S10](https://www.switch-bot.com/products/switchbot-floor-cleaning-robot-s10)
@@ -123,6 +137,10 @@ Please note, device names configured in the SwitchBot app are transferred into H
 - [Circulator Fan](https://www.switch-bot.com/products/switchbot-battery-circulator-fan)
 - [Air Purifier](https://www.switch-bot.com/products/switchbot-air-purifier)
 - [Air Purifier Table](https://www.switch-bot.com/products/switchbot-air-purifier-table)
+
+### Water heater
+
+- [Smart Radiator Thermostat](https://www.switch-bot.com/products/switchbot-smart-radiator-thermostat)
 
 ## Supported functionality
 
@@ -141,6 +159,16 @@ Features:
 Features:
 - turn on or off
 - get power consumption readings
+
+#### Relay Switch 2PM
+
+Features:
+displayed as two switches with the following properties or actions individually,
+- turn on or off
+- get power
+- get voltage
+- get current
+- get daily used electricity or power consumption
 
 #### Relay Switch 1
 
@@ -258,11 +286,27 @@ Features:
 - get motion detection state
 - get battery level
 
+#### Presence Sensor
+
+Features:
+- get motion detection state
+- get light level
+- get battery level
+
 #### Water Leak Detector
 
 Features:
 - get leak state
 - get battery level
+
+#### Climate Panel
+
+Features:
+- get temperature
+- get humidity
+- get battery level
+- light detect
+- motion detect
 
 ### Lights
 
@@ -297,6 +341,34 @@ Features:
 - turn on or off
 - change brightness
 - change color
+
+#### Ceiling Light / Ceiling Light Pro
+
+Features:
+- turn on or off
+- change brightness
+- change color temperature
+
+#### RGBICWW Floor Lamp / RGBICWW Strip Light
+
+Features:
+- turn on or off
+- change brightness
+- change color
+- change color temperature
+
+#### RGBIC Neon Rope Light / RGBIC Neon Wire Rope Light
+
+Features:
+- turn on or off
+- change brightness
+- change color
+
+#### Candle Warmer Lamp
+
+Features:
+- turn on or off
+- change brightness
 
 ### Locks
 
@@ -389,7 +461,7 @@ Features:
 
 ### Vacuums
 
-Vacuum entities are added for K10+, K10+ Pro, K10+ Pro Combo, K20+ Pro, S10, S20.
+Vacuum entities are added for K10+, K10+ Pro, K10+ Pro Combo, K11+, K20+ Pro, S10, S20.
 
 Features:
 - get states
@@ -397,6 +469,19 @@ Features:
 - pause
 - set cleaning mode
 - return to base
+- get battery
+
+
+### Water Heater
+
+#### Smart Radiator Thermostat
+
+Features:
+- turn on
+- turn off
+- set temperature
+- get temperature
+- set mode
 - get battery
 
 ## Important considerations

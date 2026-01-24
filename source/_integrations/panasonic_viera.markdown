@@ -17,7 +17,7 @@ related:
     title: Configuration file
 ---
 
-The Panasonic Viera {% term integration %} allows you to control a Panasonic Viera TV.
+The **Panasonic Viera** {% term integration %} allows you to control a Panasonic Viera TV.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -141,6 +141,7 @@ The list with all known valid keys can be found [here](https://github.com/floria
 - TX-40DX700B
 - TX-42AS650
 - TX-49DX650B
+- TX-49FXW654
 - TX-50DX700B
 - TX-55ASM655
 - TX-55ASW654

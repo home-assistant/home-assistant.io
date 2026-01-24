@@ -1,6 +1,6 @@
 ## Network storage
 
-You can configure both Network File System (NFS) and Samba/Windows (CIFS) targets to be used within Home Assistant and add-ons.
+You can configure both Network File System (NFS) and Samba/Windows (CIFS) targets to be used within Home Assistant and apps.
 To list all your currently connected network storages, go to **{% my storage title="Settings > System > Storage" %}** in the UI.
 
 {% if page.installation == "os" %}
@@ -65,9 +65,9 @@ Server:
 Backup:
   description: This will become a target. You can use it when creating an automatic or manual backup. The first storage you add of this type becomes your new default target. If you want to change the default target, [check out the documentation below](#change-default-local-backup-location).
 Media:
-  description: A new directory with the name you gave your network storage will be created under `/media`. This directory can be accessed by Home Assistant and add-ons.
+  description: A new directory with the name you gave your network storage will be created under `/media`. This directory can be accessed by Home Assistant and apps.
 Share:
-  description: A new directory with the name you gave your network storage will be created under `/share`.  This directory can be accessed by Home Assistant and add-ons.
+  description: A new directory with the name you gave your network storage will be created under `/share`.  This directory can be accessed by Home Assistant and apps.
 {% endconfiguration_basic %}
 
 ### Change default local backup location

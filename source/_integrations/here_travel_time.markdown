@@ -14,7 +14,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `here_travel_time` sensor provides travel time from the [HERE Routing API](https://www.here.com/docs/bundle/routing-api-developer-guide-v8/page/README.html).
+The **HERE Travel Time** {% term integration %} provides travel time from the [HERE Routing API](https://www.here.com/docs/bundle/routing-api-developer-guide-v8/page/README.html).
 
 ## Setup
 
@@ -91,3 +91,9 @@ automation:
       target:
         entity_id: sensor.morning_commute
 ```
+
+For more detailed steps on how to define a custom polling interval, follow the procedure below.
+
+### Defining a custom polling interval
+
+{% include common-tasks/define_custom_polling.md %}

@@ -105,6 +105,7 @@ The integration is tested and verified for the following devices from YoLink:
 - YS8023-UC (Hygrometer Thermometer)
 - YS4102-UC (Sprinkler)
 - YS4103-UC (Sprinkler Timer)
+- YS7914-UC (Leak Sensor)
 
 ## Actions
 

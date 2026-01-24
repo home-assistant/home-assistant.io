@@ -14,7 +14,7 @@ ha_codeowners:
   - '@engrbm87'
 ---
 
-The `simplepush` platform uses [Simplepush](https://simplepush.io/) to deliver notifications from Home Assistant to your Android and iOS device. Unlike similar apps the Simplepush app requires no registration and supports end-to-end encryption.
+The **Simplepush** {% term integration %} uses [Simplepush](https://simplepush.io/) to deliver notifications from Home Assistant to your Android and iOS device. Unlike similar apps the Simplepush app requires no registration and supports end-to-end encryption.
 
 {% include integrations/config_flow.md %}
 

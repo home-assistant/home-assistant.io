@@ -16,6 +16,7 @@ ha_codeowners:
 ha_domain: tasmota
 ha_platforms:
   - binary_sensor
+  - camera
   - cover
   - fan
   - light
@@ -24,7 +25,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-This integration allows you to control [Tasmota](https://tasmota.github.io/docs/) devices over MQTT.
+This {% term integration %} allows you to control [Tasmota](https://tasmota.github.io/docs/) devices over MQTT.
 
 ## Requirements
 

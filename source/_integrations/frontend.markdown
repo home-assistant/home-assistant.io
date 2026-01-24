@@ -165,16 +165,17 @@ There are two themes-related actions:
 
 | Data attribute | Description                                                                                         |
 | -------------- | --------------------------------------------------------------------------------------------------- |
-| `name`         | Name of the theme to set, `default` for the default theme or `none` to restore to the default.      |
-| `mode`         | If the theme should be applied in light or dark mode `light` or `dark` (Optional, default `light`). |
+| `name`         | Name of the theme to be used by default. Set `default` to use the default _Home Assistant_ theme. If omitted, the previous setting will be retained. |
+| `name_dark`    | Name of the theme to be used by default for dark mode. Set `default` to use the default _Home Assistant_ theme, or `none` to delete the dark mode override. If omitted, the previous setting will be retained. |
 
-If no dark mode backend theme is set, the light mode theme will also be used in dark mode.
-The backend theme settings will be saved and restored on a restart of Home Assistant.
+If the dark mode has never been set, or has been erased by setting `name_dark` to `none`, the light mode theme will also be used in dark mode.
+
+The theme settings will be saved and restored on a restart of Home Assistant.
 
 ### Manual theme selection
 
-When themes are enabled in the {% term "`configuration.yaml`" %} file, a new option will show up in the user profile page (accessed by clicking your user account initials at the bottom of the sidebar). You can then choose any installed theme from the dropdown list and it will be applied immediately.
-This will overrule the theme settings set by the above actions, and will only be applied to the current device.
+When themes are enabled in the {% term "`configuration.yaml`" %} file, a new option will show up in the user profile page (accessed by clicking your user account initials at the bottom of the sidebar). You can then choose any installed theme from the dropdown list, and it will be applied immediately.
+This overrides the theme settings set by the above actions and is saved to your user profile, so it applies across devices for that user.
 
 <p class='img'>
   <img src='/images/frontend/user-theme.png' />
