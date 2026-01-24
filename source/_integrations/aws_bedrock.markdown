@@ -89,11 +89,11 @@ AWS Bedrock is available in multiple regions worldwide. The integration supports
 
 {% configuration_basic %}
 AWS Access Key ID:
-description: Your AWS IAM user access key ID. This is a 20-character alphanumeric string (for example, `AKIAIOSFODNN7EXAMPLE`).
+    description: Your AWS IAM user access key ID. This is a 20-character alphanumeric string (for example, `AKIAIOSFODNN7EXAMPLE`).
 AWS Secret Access Key:
-description: Your AWS IAM user secret access key. This is a 40-character string that should be kept secure.
+    description: Your AWS IAM user secret access key. This is a 40-character string that should be kept secure.
 AWS Region:
-description: The AWS region where you want to use Bedrock services. Choose a region based on your location and the models you want to access. For example, `us-east-1` for US East (N. Virginia) or `eu-central-1` for Europe (Frankfurt).
+    description: The AWS region where you want to use Bedrock services. Choose a region based on your location and the models you want to access. For example, `us-east-1` for US East (N. Virginia) or `eu-central-1` for Europe (Frankfurt).
 {% endconfiguration_basic %}
 
 {% tip %}
@@ -115,15 +115,15 @@ After adding the integration, you can configure conversation agents and AI task 
 
 {% configuration_basic %}
 Name:
-description: Custom name for the conversation agent.
+    description: Custom name for the conversation agent.
 Instructions:
-description: Instructions for the AI on how it should respond to your requests. It is written using [Home Assistant Templating](/docs/configuration/templating/).
+    description: Instructions for the AI on how it should respond to your requests. It is written using [Home Assistant Templating](/docs/configuration/templating/).
 Model:
-description: The Amazon Nova model to use for generating responses. Choose from Nova Pro (default), Nova Lite, or Nova Micro.
+    description: The Amazon Nova model to use for generating responses. Choose from Nova Pro (default), Nova Lite, or Nova Micro.
 Maximum Tokens to Return in Response:
-description: The maximum number of tokens to generate in the response. Default is 3000, which is recommended for tool use with home control.
+    description: The maximum number of tokens to generate in the response. Default is 3000, which is recommended for tool use with home control.
 Temperature:
-description: Controls randomness in responses. Use values closer to `0` for more deterministic responses and closer to `1` for more creative responses. When tool use is enabled, temperature is automatically set to `0` for Amazon Nova models for optimal performance.
+    description: Controls randomness in responses. Use values closer to `0` for more deterministic responses and closer to `1` for more creative responses. When tool use is enabled, temperature is automatically set to `0` for Amazon Nova models for optimal performance.
 {% endconfiguration_basic %}
 
 ### AI task configuration
