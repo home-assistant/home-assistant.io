@@ -22,7 +22,7 @@ as a sensor.
 {% include integrations/config_flow.md %}
 {% configuration_basic %}
 Type of season definition:
-  description: "Select a season definition from the list."
+  description: "Choose how seasons are set: by astronomical dates or by meteorological months."
 {% endconfiguration_basic %}
 
 For information on the difference between astronomical and meteorological seasons please see the link below:
