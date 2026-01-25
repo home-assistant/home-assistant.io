@@ -258,6 +258,7 @@ Depending on the supported features of the camera ([see specifications of the ca
 - Fluent bit rate*
 - Chime motion ringtone
 - Chime person ringtone
+- Chime pet ringtone
 - Chime vehicle ringtone
 - Chime visitor ringtone
 - Hub alarm ringtone
