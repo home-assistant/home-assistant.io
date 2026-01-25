@@ -151,6 +151,8 @@ To clear an IP ban, you can either:
 
 After making changes, restart Home Assistant to apply them.
 
+You can also use the `http.unban` action to unban all banned IP addresses without restart.
+
 ## Hosting files
 
 If you want to use Home Assistant to host or serve static files then create a directory called `www` under the configuration path (`/config`). The static files in `www/` can be accessed by the following URL `http://your.domain:8123/local/`, for example `audio.mp3` would be accessed as `http://your.domain:8123/local/audio.mp3`.
@@ -298,3 +300,10 @@ $ curl -X GET -H "Authorization: Bearer LONG_LIVED_ACCESS_TOKEN" \
 ```
 
 For more examples please visit the [HTTP binary sensor](#examples) page.
+
+
+## Actions
+
+### Action `http.unban`
+
+This action can be used to unban all banned IP addresses.
