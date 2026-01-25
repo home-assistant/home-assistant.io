@@ -1,6 +1,6 @@
 ---
-title: Eltako (EnOcean)
-description: Connect and control your Eltako EnOcean devices
+title: Eltako Series 14
+description: Connect and control your Eltako Series 14 devices
 ha_release: 2026.2
 ha_category:
   - Hub
@@ -10,11 +10,11 @@ ha_quality_scale: bronze
 ha_config_flow: true
 ha_codeowners:
   - '@jtjart'
-ha_domain: eltako_enocean
+ha_domain: eltako_series14
 ha_integration_type: hub
 ---
 
-The **Eltako (EnOcean)** {% term integration %} is used to integrate with the devices of [Eltako's](https://www.eltako.com) Series 14 and their [EnOcean](https://www.enocean.com) devices.
+The **Eltako Series 14** {% term integration %} is used to integrate with the devices of [Eltako's](https://www.eltako.com) Series 14.
 
 ## Supported gateways
 
@@ -51,7 +51,7 @@ Message delay:
 
 ## Supported devices
 
-The **Eltako (EnOcean)** integration provides the following {% term devices %}.
+The **Eltako Series 14** integration provides the following {% term devices %}.
 
 {% details "Manual configuration steps" icon="mdi:cursor-hand" %}
 
@@ -88,7 +88,7 @@ Model:
 
 ## Data updates
 
-The **Eltako (EnOcean)** devices push their state to the integration.
+The **Eltako** devices push their state to the integration.
 
 ## Known limitations
 
