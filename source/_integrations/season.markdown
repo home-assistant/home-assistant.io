@@ -20,6 +20,10 @@ The **Season** {% term integration %} will provide the current astronomical or m
 as a sensor.
 
 {% include integrations/config_flow.md %}
+{% configuration_basic %}
+Type of season definition:
+  description: "Select a season definition from the list."
+{% endconfiguration_basic %}
 
 For information on the difference between astronomical and meteorological seasons please see the link below:
 
