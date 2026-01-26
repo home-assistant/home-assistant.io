@@ -34,12 +34,12 @@ The OpenEVSE integration allows you to monitor your [OpenEVSE](https://openevse.
 The integration provides the following sensor entities:
 
  - **Charging status**: Current operational state of the charger (for example: **Connected**, **Charging**, **Not Connected**)                                                                          
-  - **Charge time elapsed** (seconds): Duration of the current charging session                                                                                                             
-  - **Usage this session** (Wh): Energy consumed during the current charging session                                                                                                        
-  - **Total energy usage** (Wh): Cumulative energy consumption of the device                                                                                                                
-  - **Ambient temperature** (°C): Environmental temperature reading from the charger                                                                                                        
-  - **IR temperature** (°C): Infrared sensor temperature reading (disabled by default)                                                                                                      
-  - **RTC temperature** (°C): Real-time clock sensor temperature reading (disabled by default)  
+- **Charge time elapsed** (seconds): Duration of the current charging session                                                                                                             
+- **Usage this session** (Wh): Energy consumed during the current charging session                                                                                                        
+- **Total energy usage** (Wh): Cumulative energy consumption of the device                                                                                                                
+- **Ambient temperature** (°C): Environmental temperature reading from the charger                                                                                                        
+- **IR temperature** (°C): Infrared sensor temperature reading (disabled by default)                                                                                                      
+- **RTC temperature** (°C): Real-time clock sensor temperature reading (disabled by default)  
 
 {% note %}
 The IR and RTC temperature sensors are disabled by default. To enable them, go to the device page, click on the entity, and toggle the "Enabled" switch.
