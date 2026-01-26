@@ -77,25 +77,7 @@ Withings will validate (with HTTP HEAD) these requirements each time you save yo
 The {% term integration %} automatically detects if you can use webhooks. This enables the {% term integration %} only to update when there is new data.
 The binary sensor for sleep will only work if the {% term integration %} can establish webhooks with Withings.
 
-### Webhook detection and troubleshooting
 
-If you're having issues with webhook detection or your Withings Sleep Mat "in bed" entity is not showing up, please follow these troubleshooting steps:
-
-1. **Verify webhook status**: Check your Home Assistant logs for messages about webhook registration. Successful webhook registration will show a message like "Successfully registered Withings webhook".
-2. **Network accessibility**: For webhooks to work, your Home Assistant instance must be accessible from the internet. This requires:
-   - A public IP address 
-   - Port forwarding configured on your router (typically port 443 or 8123)
-   - A domain name pointing to your public IP or using a dynamic DNS service (like DuckDNS)
-   - SSL certificate configured (Let's Encrypt or a trusted certificate)
-3. **Check Withings cloud connectivity**: If webhook registration fails, the integration will fall back to polling, which only updates every 5 minutes and doesn't support sleep sensors.
-4. **Enable debug logging**: To see detailed information about webhook registration, enable debug logging by adding the following to your `configuration.yaml`:
-   
-   ```yaml
-   logger:
-     default: warning
-     logs:
-       homeassistant.components.withings: debug
-   ```
 
 {% note %}
 Sleep sensors will only appear when the integration can successfully receive webhook updates from Withings and find sleep data within the last day.
@@ -131,6 +113,18 @@ If you're having issues with your Withings Sleep Mat or other devices not appear
 If you're still having issues after following these steps, enable debug logging to gather more information about what might be preventing the integration from working properly.
 {% endnote %}
 
+### Webhook detection and troubleshooting
+
+If you're having issues with webhook detection or your Withings Sleep Mat "in bed" entity is not showing up, please follow these troubleshooting steps:
+
+1. **Verify webhook status**: Check your Home Assistant logs for messages about webhook registration. Successful webhook registration will show a message like "Successfully registered Withings webhook".
+2. **Network accessibility**: For webhooks to work, your Home Assistant instance must be accessible from the internet. This requires:
+   - A public IP address 
+   - Port forwarding configured on your router (typically port 443 or 8123)
+   - A domain name pointing to your public IP or using a dynamic DNS service (like DuckDNS)
+   - SSL certificate configured (Let's Encrypt or a trusted certificate)
+3. **Check Withings cloud connectivity**: If webhook registration fails, the integration will fall back to polling, which only updates every 5 minutes and doesn't support sleep sensors.
+4. **Enable debug logging**: To see detailed information about webhook registration, enable debug logging
 ## Removing the integration
 
 This integration follows standard integration removal, no extra steps are required.
