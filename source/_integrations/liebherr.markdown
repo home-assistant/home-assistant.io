@@ -19,7 +19,8 @@ related:
     title: Liebherr SmartDevice HomeAPI
   - docs: /common-tasks/general/#defining-a-custom-polling-interval
     title: Defining a custom polling interval
-ha_category: []
+ha_category:
+  - Appliance
 ha_platforms:
   - climate
 ---
