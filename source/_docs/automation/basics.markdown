@@ -34,7 +34,7 @@ Action: Turn lights on
 
 ## Exploring the internal state
 
-Automations interact directly with the internal state of Home Assistant, so you'll need to familiarize yourself with it. Home Assistant exposes its current state via the developer tools. These are available at the bottom of the sidebar in the frontend. **{% my developer_states title="Developer Tools > States" %}** will show all currently available states. An entity can be anything. A light, a switch, a person and even the sun. A state consists of the following parts:
+Automations interact directly with the internal state of Home Assistant, so you'll need to familiarize yourself with it. Home Assistant exposes its current state via the developer tools. These are available at the bottom of the sidebar in the frontend. {% my developer_states title="**Developer tools** > **States**" %} will show all currently available states. An entity can be anything. A light, a switch, a person and even the sun. A state consists of the following parts:
 
 | Name | Description | Example |
 | ---- | ----- | ---- |

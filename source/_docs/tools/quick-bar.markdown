@@ -25,21 +25,21 @@ Type these from anywhere in the application to launch the dialog.
 | Assist | `a` | Open the Home Assistant Assist dialog.
 
 {% important %}
-The application must have focus for the hotkey to register. If the dialog doesn't launch, try clicking into an empty part of the main content area of Home Assistant and type it again.
+The application must have focus for the hotkey to register. If the dialog doesn't launch, try selecting an empty part of the main content area of Home Assistant and type it again.
 {% endimportant %}
 
 ## Entity filter
 
 *Hotkey: `e`*
 
-Similar to {% my entities title="Settings -> Devices & Services -> Entities" %}, but more lightweight and accessible from anywhere in the frontend.
+Similar to {% my entities title="**Settings** > **Devices & services** > **Entities**" %}, but more lightweight and accessible from anywhere in the frontend.
 
 <p class='img'>
   <img src='/images/docs/quick-bar/quick-bar-entity-filter.gif' alt='Quick Bar'>
   Filter for entities in Quick Bar's entity filter mode
 </p>
 
-Once launched, start typing your entity id (or ["bits and pieces" of your entity id](#search-by-bits-and-pieces-rather-than-an-exact-substring)) to get back a filtered list of entities. Clicking on an entity (or hitting `enter` when the desired entity is highlighted) will open the "More Info" dialog for that entity.
+Once launched, start typing your entity id (or ["bits and pieces" of your entity id](#search-by-bits-and-pieces-rather-than-an-exact-substring)) to get back a filtered list of entities. Selecting an entity (or hitting `enter` when the desired entity is highlighted) will open the **More info** dialog for that entity.
 
 This is helpful when, say, you are in the middle of writing an automation and need some quick insight about an entity but don't want to navigate away to Developer Tools.
 
@@ -47,9 +47,9 @@ This is helpful when, say, you are in the middle of writing an automation and ne
 
 *Hotkey: `d`*
 
-Similar to {% my entities title="Settings -> Devices & Services -> Devices" %}, but accessible from anywhere in the frontend.
+Similar to {% my entities title="**Settings** > **Devices & services** > **Devices**" %}, but accessible from anywhere in the frontend.
 
-Once launched, start typing your device name to get back a filtered list of your devices. Clicking on a device (or hitting `enter` when the desired device is highlighted) will open the selected device detail page.
+Once launched, start typing your device name to get back a filtered list of your devices. Selecting a device (or hitting `enter` when the desired device is highlighted) will open the selected device detail page.
 
 This is helpful when you need to quickly access a device's detail page without navigating your way through the menu.
 
@@ -58,7 +58,7 @@ This is helpful when you need to quickly access a device's detail page without n
 
 *Hotkey: `c`*
 
-Run various commands from anywhere without having to navigate to another view.
+Run various commands from anywhere without having to go to another view.
 
 <p class='img'>
   <img src='/images/docs/quick-bar/quick-bar-command-mode.gif' alt='Quick Bar'>
@@ -90,7 +90,7 @@ Learn more about [voice assistants](/voice_control).
 
 ## Disabling shortcuts
 
-You can enable or disable all of Home Assistant's keyboard shortcuts by going to your User Profile and clicking the "Keyboard Shortcuts" toggle button.
+You can enable or disable all of Home Assistant's keyboard shortcuts by going to your User Profile and selecting the **Keyboard shortcuts** toggle button.
 
 <p class='img'>
   <img src='/images/docs/quick-bar/disable-shortcuts-toggle.png' alt='Toggle for enabling or disabling keyboard shortcuts'>
@@ -113,7 +113,7 @@ If "light.hue_ceiling_light" has been named "Chandelier", you can type either "h
 
 ### Use the enter key any time to open the top result in the list
 
-As soon as the item you wanted shows up at the top of your filtered results, just hit "enter" to activate it -- no need to arrow down to the item, or click with your mouse.
+As soon as the item you wanted shows up at the top of your filtered results, just hit "enter" to activate it -- no need to arrow down to the item, or select with your mouse.
 
 ### Use arrow keys to move around the list
 
@@ -123,7 +123,7 @@ When in the item list, use the up arrow `↑` to navigate up the item list, and 
 
 ### Typing more letters will always add to your filter string
 
-Say you've just used arrow keys to navigate half-way down the list, and want to add more text to your filter. You don't need to click back into the text field, just start typing new letters and they'll append to your filter.
+Say you've just used arrow keys to navigate half-way down the list, and want to add more text to your filter. You don't need to select back into the text field, just start typing new letters and they'll append to your filter.
 
 ## Troubleshooting
 
@@ -132,7 +132,7 @@ Say you've just used arrow keys to navigate half-way down the list, and want to 
 There are a few possible reasons why the quick bar dialog won't launch:
 
 1. Your user is not an admin.
-2. The application lost focus. Try clicking into the main content area of the application and typing the shortcut again.
+2. The application lost focus. Try selecting the main content area of the application and typing the shortcut again.
 3. You have disabled Keyboard Shortcuts in your User Profile settings.
 4. Shortcut is marked by browser as non-overridable. Firefox does this with some shortcuts, for example. But this shouldn't be a problem with single-key shortcuts currently used by the Quick Bar.
 5. Some other application or browser extension is using or overriding the shortcut. Try disabling the extension.
@@ -141,9 +141,9 @@ There are a few possible reasons why the quick bar dialog won't launch:
 
 The command list only shows commands that are available to you based on your user settings, and loaded integrations.
 
-For example, if you don't have `automations:` in your config, then you won't see the "Reload Automations" command.
+For example, if you don't have `automations:` in your config, then you won't see the **Reload Automations** command.
 
-If "Advanced Mode" is turned off in User Settings, then any command related to advanced mode will not appear in the list.
+If **Advanced Mode** is turned off in User Settings, then any command related to advanced mode will not appear in the list.
 
 If a command is missing that you feel is in error, please create an issue on GitHub.
 

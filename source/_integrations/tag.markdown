@@ -22,7 +22,7 @@ To make tags accessible to anyone in your house hold, there is also a [standalon
 
 ## Writing your first tag
 
-The easiest way to get started with tags is to use NFC tags ([stickers](https://amzn.to/3bQU0nN), [cards](https://amzn.to/2RlqPzM)) with the official Home Assistant mobile apps. Once you have written a card, hover it with your phone to scan it.
+The easiest way to get started with tags is to use NFC tags ([stickers](https://www.amazon.com/dp/B07N38MMTT), [cards](https://www.amazon.com/dp/B074M9J5L3)) with the official Home Assistant mobile apps. Once you have written a card, hover it with your phone to scan it.
 
 <lite-youtube videoid="Xc120lClUgA" videotitle="Writing a tag (iOS)" posterquality="maxresdefault"></lite-youtube>
 
@@ -100,13 +100,13 @@ Then scan a tag on the reader and note down the `device_id` from the `data` sect
 
 ## Printing tags
 
-NFC tags come in many different shapes and formats. [NFC Stickers](https://amzn.to/3bQU0nN) are great to make existing objects scannable, like books or photos. But another fun use case is to get printable NFC cards. The great thing about these cards is that they are very accessible. Kids as young as 1 year old will be able to use it.
+NFC tags come in many different shapes and formats. [NFC Stickers](https://www.amazon.com/dp/B07N38MMTT) are great to make existing objects scannable, like books or photos. But another fun use case is to get printable NFC cards. The great thing about these cards is that they are very accessible. Kids as young as 1 year old will be able to use it.
 
 To get started with printing cards, you need the following hardware:
 
 - [Canon TS702a Inkjet Printer](https://www.amazon.com/TS702a-Compact-Connected-Inkjet-Printer/dp/B09TG8F4YS/)
-- [Compatible card printing tray](https://amzn.to/3hq59x2)
-- [Printable NFC cards](https://amzn.to/3iqHpKx)
+- [Compatible card printing tray](https://www.amazon.com/dp/B07T28MXMK)
+- [Printable NFC cards](https://www.amazon.com/dp/B072FK4RZD)
 
 The seller of above tray + cards also made an [ID card printing app](https://brainstormidsupply.com/try-id-maker/) available to prepare printable PDFs. It runs fully in your browser and no data is sent to their server. If you've used above equipment, pick Canon MP tray as what you're printing on.
 

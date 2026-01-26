@@ -50,6 +50,10 @@ and will be automatically added when HA connects to your Vera controller.
 
 {% include integrations/config_flow.md %}
 
+{% important %}
+Ensure the protocol and port are added to the **Controller URL**. For example `http://192.168.1.1:3480`.
+{% endimportant %}
+
 {% tip %}
 It is recommended to assign a static IP address to your Vera Controller. This ensures that it won't change IP addresses, so you won't have to change the `vera_controller_url` if it reboots and comes up with a different IP address. See your router's manual for details on how to set this up. If you need the MAC address of your Vera, check the label on the bottom.
 {% endtip %}
@@ -65,7 +69,7 @@ You can find the Vera device id either via the advanced properties of the device
 
 ### Using Z-Wave devices in automation
 
-If you want to use a Z-Wave device from the Vera controller in Home Assistant automation, you'll need the {% term entity %} id. In the Home Assistant UI you'll find all entities listed under **Developer Tools** -> **States**. Look for entities that contain 'Vera Device Id' in their attributes, and you'll find the {% term entity %} id on the left.
+If you want to use a Z-Wave device from the Vera controller in Home Assistant automation, you'll need the {% term entity %} id. In the Home Assistant UI you'll find all entities listed under {% my developer_states title="**Developer Tools** > **States**" %}. Look for entities that contain 'Vera Device Id' in their attributes, and you'll find the {% term entity %} id on the left.
 
 ### Sensor
 

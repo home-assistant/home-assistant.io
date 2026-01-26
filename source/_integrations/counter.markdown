@@ -17,7 +17,7 @@ The **Counter** {% term integration %} allows one to count occurrences fired by 
 ## Configuration
 
 The preferred way to configure counter helpers is via the user interface. To add one, go to
-**{% my helpers title="Settings > Devices & Services > Helpers" %}** and click the add button;
+**{% my helpers title="Settings > Devices & services > Helpers" %}** and click the add button;
 next choose the **{% my config_flow_start domain=page.ha_domain title=page.title %}** option.
 
 To be able to add **Helpers** via the user interface you should have
@@ -87,33 +87,33 @@ If `restore` is set to `true`, the `initial` value will only be used when no pre
 
 Available actions: `increment`, `decrement`, `reset`, and `set_value`.
 
-### Action `counter.increment`
+### Action: Increment
 
-Increments the counter with 1 or the given value for the steps.
-
-| Data attribute | Optional | Description                                                           |
-| ---------------------- | -------- | --------------------------------------------------------------------- |
-| `entity_id`            | no       | Name of the entity to take action, e.g., `counter.my_custom_counter`. |
-
-### Action `counter.decrement`
-
-Decrements the counter with 1 or the given value for the steps.
+The `counter.increment` action allows you to increment the counter with 1 or the given value for the steps.
 
 | Data attribute | Optional | Description                                                           |
 | ---------------------- | -------- | --------------------------------------------------------------------- |
 | `entity_id`            | no       | Name of the entity to take action, e.g., `counter.my_custom_counter`. |
 
-### Action `counter.reset`
+### Action: Decrement
 
-With this action the counter is reset to its initial value.
+The `counter.decrement` action allows you to decrement the counter with 1 or the given value for the steps.
 
 | Data attribute | Optional | Description                                                           |
 | ---------------------- | -------- | --------------------------------------------------------------------- |
 | `entity_id`            | no       | Name of the entity to take action, e.g., `counter.my_custom_counter`. |
 
-### Action `counter.set_value`
+### Action: Reset
 
-This action allows setting the counter to a specific value.
+The `counter.reset` action allows you to reset the counter to its initial value.
+
+| Data attribute | Optional | Description                                                           |
+| ---------------------- | -------- | --------------------------------------------------------------------- |
+| `entity_id`            | no       | Name of the entity to take action, e.g., `counter.my_custom_counter`. |
+
+### Action: Set value
+
+The `counter.set_value` action allows you to set the counter to a specific value.
 
 | Data attribute | Optional | Description                                                           |
 | ---------------------- | -------- | --------------------------------------------------------------------- |

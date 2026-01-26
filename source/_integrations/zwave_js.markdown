@@ -387,9 +387,9 @@ The following features can be accessed from the device panel of any Z-Wave devic
 
 ## Actions
 
-### Action `zwave_js.set_config_parameter`
+### Action: Set config parameter
 
-This action will update a configuration parameter. To update multiple partial parameters in a single call, use the `zwave_js.bulk_set_partial_config_parameters` action.
+The `zwave_js.set_config_parameter` action updates a configuration parameter. To update multiple partial parameters in a single call, use the `zwave_js.bulk_set_partial_config_parameters` action.
 
 | Data attribute | Required | Description                                                                                                                                                                                                                                                                |
 | -------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -442,9 +442,9 @@ data:
   value: "Blink"
 ```
 
-### Action `zwave_js.bulk_set_partial_config_parameters`
+### Action: Bulk set partial config parameters
 
-This action will bulk set multiple partial configuration parameters. Be warned that correctly using this action requires advanced knowledge of Z-Wave.
+The `zwave_js.bulk_set_partial_config_parameters` action bulk sets multiple partial configuration parameters. Be warned that correctly using this action requires advanced knowledge of Z-Wave.
 
 | Data attribute | Required | Description                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | -------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -529,18 +529,18 @@ data:
     "Quick Strip Effect Intensity Scale": "Fine"
 ```
 
-### Action `zwave_js.refresh_value`
+### Action: Refresh value
 
-This action will refresh the value(s) for an entity. This action will generate extra traffic on your Z-Wave network and should be used sparingly. Updates from devices on battery may take some time to be received.
+The `zwave_js.refresh_value` action refreshes the value(s) for an entity. This action will generate extra traffic on your Z-Wave network and should be used sparingly. Updates from devices on battery may take some time to be received.
 
 | Data attribute       | Required | Description                                                                                                                                      |
 | -------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `entity_id`          | yes      | Entity or list of entities to refresh values for.                                                                                                |
 | `refresh_all_values` | no       | Whether all values should be refreshed. If  `false`, only the primary value will be refreshed. If  `true`, all watched values will be refreshed. |
 
-### Action `zwave_js.set_value`
+### Action: Set value
 
-This action will set a value on a Z-Wave device. It is for advanced use cases where you need to modify the state of a node and can't do it using native Home Assistant entity functionality. Be warned that correctly using this action requires advanced knowledge of Z-Wave. The action provides minimal validation and blindly calls the Z-Wave JS API, so if you are having trouble using it, it is likely because you are providing an incorrect value somewhere. To set a config parameter, you should use the `zwave_js.set_config_parameter` or `zwave_js.bulk_set_partial_config_parameters` action instead of this one.
+The `zwave_js.set_value` action sets a value on a Z-Wave device. It is for advanced use cases where you need to modify the state of a node and can't do it using native Home Assistant entity functionality. Be warned that correctly using this action requires advanced knowledge of Z-Wave. The action provides minimal validation and blindly calls the Z-Wave JS API, so if you are having trouble using it, it is likely because you are providing an incorrect value somewhere. To set a config parameter, you should use the `zwave_js.set_config_parameter` or `zwave_js.bulk_set_partial_config_parameters` action instead of this one.
 
 | Data attribute    | Required | Description                                                                                                                                                                                                                                                             |
 | ----------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -555,9 +555,9 @@ This action will set a value on a Z-Wave device. It is for advanced use cases wh
 | `options`         | no       | Set value options map. Refer to the Z-Wave JS documentation for more information on what options can be set.                                                                                                                                                            |
 | `wait_for_result` | no       | Boolean that indicates whether or not to wait for a response from the node. If not included in the payload, the integration will decide whether to wait or not. If set to `true`, note that the action can take a while if setting a value on an asleep battery device. |
 
-### Action `zwave_js.multicast_set_value`
+### Action: Multicast set value
 
-This action will set a value on multiple Z-Wave devices using multicast. It is for advanced use cases where you need to set the same value on multiple nodes simultaneously. Be warned that correctly using this action requires advanced knowledge of Z-Wave. The action provides minimal validation beyond what is necessary to properly call the Z-Wave JS API, so if you are having trouble using it, it is likely because you are providing an incorrect value somewhere.
+The `zwave_js.multicast_set_value` action sets a value on multiple Z-Wave devices using multicast. It is for advanced use cases where you need to set the same value on multiple nodes simultaneously. Be warned that correctly using this action requires advanced knowledge of Z-Wave. The action provides minimal validation beyond what is necessary to properly call the Z-Wave JS API, so if you are having trouble using it, it is likely because you are providing an incorrect value somewhere.
 
 | Data attribute  | Required | Description                                                                                                                                                                                                                                                                                                                                                                                 |
 | --------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -572,9 +572,9 @@ This action will set a value on multiple Z-Wave devices using multicast. It is f
 | `value`         | yes      | The new value that you want to set.                                                                                                                                                                                                                                                                                                                                                         |
 | `options`       | no       | Set value options map. Refer to the Z-Wave JS documentation for more information on what options can be set.                                                                                                                                                                                                                                                                                |
 
-### Action `zwave_js.invoke_cc_api`
+### Action: Invoke Command Class API
 
-Leverage this action to use the Command Class API directly. In most cases, the `zwave_js.set_value` action will accomplish what you need to, but some Command Classes have API commands that can't be accessed via that action. Refer to the [Z-Wave JS Command Class documentation](https://zwave-js.github.io/node-zwave-js/#/api/CCs/index) for the available APIs and arguments. Be sure to know what you are doing when calling this action.
+The `zwave_js.invoke_cc_api` action uses the Command Class API directly. In most cases, the `zwave_js.set_value` action will accomplish what you need, but some Command Classes have API commands that can't be accessed via that action. Refer to the [Z-Wave JS Command Class documentation](https://zwave-js.github.io/node-zwave-js/#/api/CCs/index) for the available APIs and arguments. Be sure to know what you are doing when calling this action.
 
 | Data attribute  | Required | Description                                                                                                                                                                                                                                                                                                            |
 | --------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -586,10 +586,9 @@ Leverage this action to use the Command Class API directly. In most cases, the `
 | `method_name`   | yes      | The name of the method that is being called from the CC API.                                                                                                                                                                                                                                                           |
 | `parameters`    | yes      | A list of parameters to pass to the CC API method.                                                                                                                                                                                                                                                                     |
 
-### Action `zwave_js.refresh_notifications`
+### Action: Refresh notifications
 
-This action will refresh the notifications of a given type on a device that
-supports the Notification Command Class.
+The `zwave_js.refresh_notifications` action refreshes the notifications of a given type on a device that supports the Notification Command Class.
 
 | Data attribute       | Required | Description                                                                                                                                            |
 | -------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -599,9 +598,9 @@ supports the Notification Command Class.
 | `notification_type`  | yes      | The type of notification to refresh.                                                                                                                   |
 | `notification_event` | no       | The notification event to refresh.                                                                                                                     |
 
-### Action `zwave_js.reset_meter`
+### Action: Reset meter
 
-This action will reset the meters on a device that supports the Meter Command Class.
+The `zwave_js.reset_meter` action resets the meters on a device that supports the Meter Command Class.
 
 | Data attribute | Required | Description                                                                                                 |
 | -------------- | -------- | ----------------------------------------------------------------------------------------------------------- |
@@ -609,9 +608,9 @@ This action will reset the meters on a device that supports the Meter Command Cl
 | `meter_type`   | no       | If supported by the device, indicates the type of meter to reset. Not all devices support this option.      |
 | `value`        | no       | If supported by the device, indicates the value to reset the meter to. Not all devices support this option. |
 
-### Action `zwave_js.set_lock_configuration`
+### Action: Set lock configuration
 
-This action will set the configuration of a lock.
+The `zwave_js.set_lock_configuration` action sets the configuration of a lock.
 
 | Data attribute          | Required | Description                                                                                              |
 | ----------------------- | -------- | -------------------------------------------------------------------------------------------------------- |
@@ -623,10 +622,9 @@ This action will set the configuration of a lock.
 | `twist_assist`          | no       | Enable Twist Assist.                                                                                     |
 | `block_to_block`        | no       | Enable block-to-block functionality.                                                                     |
 
-### Action `zwave_js.set_lock_usercode`
+### Action: Set lock usercode
 
-This action will set the usercode of a lock to X at code slot Y.
-Valid usercodes are at least 4 digits.
+The `zwave_js.set_lock_usercode` action sets the usercode of a lock to X at code slot Y. Valid usercodes are at least 4 digits.
 
 | Data attribute | Required | Description                                          |
 | -------------- | -------- | ---------------------------------------------------- |
@@ -634,9 +632,9 @@ Valid usercodes are at least 4 digits.
 | `code_slot`    | yes      | The code slot to set the usercode into.              |
 | `usercode`     | yes      | The code to set in the slot.                         |
 
-### Action `zwave_js.clear_lock_usercode`
+### Action: Clear lock usercode
 
-This action will clear the usercode of a lock in code slot X.
+The `zwave_js.clear_lock_usercode` action clears the usercode of a lock in code slot X.
 Valid code slots are between 1-254.
 
 | Data attribute | Required | Description                                            |

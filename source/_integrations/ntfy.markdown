@@ -150,6 +150,7 @@ For more customizable notifications, use the `ntfy.publish` action instead of `n
 - `email`: Specify the address to forward the notification to, for example `mail@example.com`.
 - `call`: Phone number to call and read the message out loud using text-to-speech. Requires ntfy Pro and prior phone number verification.
 - `icon`: Include an icon that will appear next to the text of the notification. Only JPEG and PNG images are supported.
+- `sequence_id`: Enter a message or sequence ID to update an existing notification, or specify a sequence ID to reference later when updating, clearing (mark as read and dismiss), or deleting a notification. See [**Updating + deleting notifications**](https://docs.ntfy.sh/publish/#updating-deleting-notifications)
 
 {% details "Example YAML configuration" %}
 
