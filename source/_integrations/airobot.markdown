@@ -100,7 +100,7 @@ The thermostat is represented as a climate {% term entity %} with the following 
 
 - **Preset modes**
   - **Description**: Select the operating mode for the thermostat.
-  - **Options**: Home (use the HOME temperature setpoint), Away (use the AWAY temperature setpoint, typically lower for energy savings), Boost (temporarily boost heating for 1 hour, then return to the previous mode)
+  - **Options**: Home (use the HOME temperature setpoint), Away (use the AWAY temperature setpoint, typically lower for energy savings), Boost (temporarily boost heating for 1 hour, then return to the previous mode).
 
 ### Sensors
 
