@@ -109,7 +109,19 @@ Sleep sensors (including the "in bed" binary sensor) require successful webhook 
 #### Resolution
 
 Check if webhooks are working properly as described in the [data updates](#data-updates) section above.
-- **In bed entity missing**: This entity specifically requires webhook functionality to work. If it's not appearing, ensure your Home Assistant instance is accessible from the internet and webhooks are properly registered.
+### In bed entity missing
+
+#### Symptom
+
+The **In bed** entity does not show up.
+
+#### Description
+
+This entity specifically requires webhook functionality to work. 
+
+#### Resolution
+
+Ensure your Home Assistant instance is accessible from the internet and webhooks are properly registered.
 - **Check logs**: Enable debug logging to see webhook registration status as described in the Data Updates section.
 
 ### General Troubleshooting Steps
