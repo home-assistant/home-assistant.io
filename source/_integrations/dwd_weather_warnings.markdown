@@ -56,7 +56,7 @@ In the attribute name `x` is the counter of the warning starting from `1`.
 The following example reads out the headline and its description of the DWD warnings above 2 to your local media player.
 
 {% raw %}
-```
+```yaml
 alias: DWD-Warning at level 3
 description: DWD-Warnings at level 3
 triggers:
