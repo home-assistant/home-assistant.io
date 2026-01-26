@@ -122,7 +122,7 @@ This entity specifically requires webhook functionality to work.
 #### Resolution
 
 Ensure your Home Assistant instance is accessible from the internet and webhooks are properly registered.
-- **Check logs**: Enable debug logging to see webhook registration status as described in the Data Updates section.
+- [Enable debug logging](https://www.home-assistant.io/docs/configuration/troubleshooting/#debug-logs-and-diagnostics) to see webhook registration status as described in the [data updates](#data-updates) section.
 
 ### General Troubleshooting Steps
 1. Make sure your Withings device is properly set up in the Withings app and showing data
