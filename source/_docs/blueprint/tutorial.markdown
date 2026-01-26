@@ -251,7 +251,7 @@ actions:
 
 ## Using the blueprint via the UI
 
-1. To configure your blueprint via the UI, go to {% my blueprints title="**Settings** > **Automations & Scenes** > **Blueprints**" %}.
+1. To configure your blueprint via the UI, go to {% my blueprints title="**Settings** > **Automations & scenes** > **Blueprints**" %}.
 2. Find the **Motion Light Tutorial** blueprint and select **Create Automation**.
 
 {% important %}
@@ -279,7 +279,7 @@ For this tutorial, we're going to share it on GitHub Gists. This is a good optio
    - **Filename including extension**: `motion_light_tutorial.yaml`
    - **Content** is the content of the blueprint file.
 2. Select **Create Gist**.
-3. To share your blueprint with other people, copy the URL of your new Gist. They can import it by going to {% my blueprint_import title="**Settings** > **Automations & Scenes** > **Blueprints**" %} and select **Import blueprint**.
+3. To share your blueprint with other people, copy the URL of your new Gist. They can import it by going to {% my blueprint_import title="**Settings** > **Automations & scenes** > **Blueprints**" %} and select **Import blueprint**.
 4. Celebrate! Cheers to you. You created your first blueprint and helped someone in the community.
 
 ### Share on the Blueprint Exchange

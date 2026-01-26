@@ -6,18 +6,19 @@ ha_category:
   - Light
   - Number
   - Switch
-ha_release: 2026.1
+  - Update
+ha_release: 0.66
 ha_domain: levoit
 ha_integration_type: virtual
 ha_supporting_domain: vesync
 ha_supporting_integration: VeSync
 ha_codeowners:
-  - "@markperdue"
-  - "@webdjoe"
-  - "@thegardenmonkey"
-  - "@cdnninja"
-  - "@iprak"
-  - "@sapuseven"
+  - '@markperdue'
+  - '@webdjoe'
+  - '@thegardenmonkey'
+  - '@cdnninja'
+  - '@iprak'
+  - '@sapuseven'
 ha_config_flow: true
 ha_platforms:
   - binary_sensor

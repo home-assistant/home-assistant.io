@@ -3,6 +3,7 @@ title: Vodafone Station
 description: Instructions on how to integrate Vodafone Station routers into Home Assistant.
 ha_category:
   - Button
+  - Image
   - Presence detection
   - Sensor
   - Switch
@@ -17,6 +18,7 @@ ha_platforms:
   - button
   - device_tracker
   - diagnostics
+  - image
   - sensor
   - switch
 ha_integration_type: hub
@@ -76,6 +78,7 @@ There is support for the following platform types within Home Assistant:
 
 - **Button** - restart router, dsl/fiber/internet key connections.
 - **Device tracker** - presence detection by looking at connected devices.
+- **Image** - generate QR code for Guest Wi-Fi.
 - **Sensor** - external IP address, uptime, firmware, resources and network monitors.
 - **Switch** - enable/disable main and guest Wi-Fi.
 

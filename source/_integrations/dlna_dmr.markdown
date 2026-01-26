@@ -12,7 +12,7 @@ ha_domain: dlna_dmr
 ha_platforms:
   - media_player
 ha_ssdp: true
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 The **DLNA Digital Media Renderer** {% term integration %} allows you to control a [DLNA Digital Media Renderer](https://www.dlna.org/), such as DLNA enabled TVs or radios.

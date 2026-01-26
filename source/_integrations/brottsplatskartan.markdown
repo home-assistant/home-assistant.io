@@ -12,7 +12,7 @@ ha_codeowners:
 ha_domain: brottsplatskartan
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 The **Brottsplatskartan** {% term integration %} allows one to track reported incidents occurring in a given area. Incidents include anything reported to [Brottsplatskartan](https://brottsplatskartan.se). The sensor only counts incidents from the current day.

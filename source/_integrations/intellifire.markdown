@@ -24,7 +24,7 @@ ha_platforms:
   - sensor
   - switch
 ha_dhcp: true
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 IntelliFire Wi-Fi fireplace modules provide app-based and Alexa control to various fireplaces. The modules do expose an unencrypted HTTP endpoint on the network that provides status information. This integration will read that URL and create a set of sensors displaying the current fireplace state.

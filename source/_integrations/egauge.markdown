@@ -2,7 +2,8 @@
 title: eGauge
 description: eGauge Energy Monitors
 ha_release: 2026.1
-ha_category: Energy
+ha_category:
+  - Energy
 ha_quality_scale: bronze
 ha_iot_class: Local Polling
 ha_codeowners:
@@ -12,6 +13,9 @@ ha_integration_type: device
 related:
   - url: https://www.egauge.net/
     title: eGauge Home
+ha_platforms:
+  - sensor
+ha_config_flow: true
 ---
 
 The **eGauge** {% term integration %} is used to integrate with [eGauge energy monitors](https://www.egauge.net). eGauge provides energy monitors for residential and commercial applications. They are commonly used with solar energy installations. The eGauge integration can expose sensor readings from eGauge devices into Home Assistant, including energy meters that work with the Energy Dashboard.
@@ -44,15 +48,15 @@ Consult the [eGauge Configuration Guide](https://www.egauge.net/media/support/do
 
 In this installation, solar inverters are wired into your electrical panel.
 
-- `grid_in  = [= ] max(0, $"grid")`
-- `grid_out = [= ] max(0, -$"grid")`
+- `grid_in  = [= ] [Power (W)] max(0, $"grid")`
+- `grid_out = [= ] [Power (W)] max(0, -$"grid")`
 
 #### Direct-feed
 
 In this installation, solar inverters feed directly into the grid.
 
-- `grid_in = [= ] max(0, $"grid"-$"solar")`
-- `grid_out = [= ] max(0, $"solar"-$"grid")`
+- `grid_in = [= ] [Power (W)] max(0, $"grid"-$"solar")`
+- `grid_out = [= ] [Power (W)] max(0, $"solar"-$"grid")`
 
 #### Other installations
 

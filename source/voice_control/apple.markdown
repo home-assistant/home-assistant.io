@@ -7,7 +7,7 @@ related:
     title: Best practices with Assist
   - url: https://companion.home-assistant.io/docs/getting_started/
     title: Home Assistant Companion App
-  - url: https://support.nabucasa.com/hc/en-us/categories/24451727188125-Home-Assistant-Voice-Preview-Edition
+  - url: https://support.nabucasa.com/hc/categories/24451727188125
     title: Voice Preview Edition
 ---
 

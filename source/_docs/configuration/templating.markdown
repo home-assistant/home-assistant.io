@@ -24,7 +24,7 @@ Templating in Home Assistant is powered by the [Jinja2](https://palletsprojects.
 
 We will not go over the basics of the syntax, as Jinja2 does a great job of this in their [templates documentation](https://jinja.palletsprojects.com/en/latest/templates/).
 
-The frontend has a {% my developer_template title="template editor tool" %} to help develop and debug templates. Navigate to {% my developer_template title="Developer Tools > Template" %}, create your template in the _Template editor_ and check the results on the right.
+The frontend has a template editor tool to help develop and debug templates. Go to {% my developer_template title="**Developer tools** > **Template**" %}, create your template in the **Template editor** and check the results on the right.
 
 Templates can get big pretty fast. To keep a clear overview, consider using YAML multiline strings to define your templates:
 
@@ -475,7 +475,7 @@ The same thing can also be expressed as a test:
 ### Config entries
 
 - `config_entry_id(entity_id)` returns the config entry ID for a given entity ID. Can also be used as a filter.
-- `config_entry_attr(config_entry_id, attr)` returns the value of `attr` for the config entry of the given entity ID. Can also be used as a filter. The following attributes are allowed: `domain`, `title`, `state`, `source`, `disabled_by`. Not supported in [limited templates](#limited-templates).
+- `config_entry_attr(config_entry_id, attr)` returns the value of `attr` for the config entry of the given entity ID. Can also be used as a filter. The following attributes are allowed: `domain`, `title`, `state`, `source`, `disabled_by`, `pref_disable_polling`. Not supported in [limited templates](#limited-templates).
 
 #### Config entries examples
 
@@ -811,7 +811,7 @@ A precision of 0 returns all available units, default is 1.
 
 - Filter `timestamp_local(default)` converts a UNIX timestamp to the ISO format string representation as date/time in your local timezone. If that fails, returns the `default` value, or if omitted raises an error. If a custom string format is needed in the string, use `timestamp_custom` instead.
 - Filter `timestamp_utc(default)` converts a UNIX timestamp to the ISO format string representation representation as date/time in UTC timezone. If that fails, returns the `default` value, or if omitted raises an error. If a custom string format is needed in the string, use `timestamp_custom` instead.
-- Filter `timestamp_custom(format_string, local=True, default)` converts an UNIX timestamp to its string representation based on a custom format, the use of a local timezone is the default. If that fails, returns the `default` value, or if omitted raises an error. Supports the standard [Python time formatting options](https://docs.python.org/3/library/time.html#time.strftime).
+- Filter `timestamp_custom(format_string, local=True, default)` converts a UNIX timestamp to its string representation based on a custom format, the use of a local timezone is the default. If that fails, returns the `default` value, or if omitted raises an error. Supports the standard [Python time formatting options](https://docs.python.org/3/library/time.html#time.strftime).
 
 {% tip %}
 [UNIX timestamp](https://en.wikipedia.org/wiki/Unix_time) is the number of seconds that have elapsed since 00:00:00 UTC on 1 January 1970. Therefore, if used as a function's argument, it can be substituted with a numeric value (`int` or `float`).
@@ -945,7 +945,7 @@ This will throw an error `UndefinedError: 'value_json' is undefined` if the JSON
 
 ### Version
 
-- `version()` Returns a [AwesomeVersion object](https://github.com/ludeeus/awesomeversion) for the value given inside the brackets.
+- `version()` Returns an [AwesomeVersion object](https://github.com/ludeeus/awesomeversion) for the value given inside the brackets.
   - This is also available as a filter (`| version`).
 
 Examples:
@@ -1693,7 +1693,7 @@ The following overview contains a couple of options to get the needed values:
 
 {% endraw %}
 
-To evaluate a response, go to **{% my developer_template title="Developer Tools > Template" %}**, create your output in "Template editor", and check the result.
+To evaluate a response, go to {% my developer_template title="**Developer tools** > **Template**" %}, create your output in **Template editor**, and check the result.
 
 {% raw %}
 

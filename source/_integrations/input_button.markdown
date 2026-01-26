@@ -19,7 +19,7 @@ like an automation.
 ## Configuration
 
 The preferred way to configure button helpers is via the user interface.
-To add one, go to **{% my helpers title="Settings -> Devices & services -> Helpers" %}**
+To add one, go to **{% my helpers title="**Settings** > **Devices & services** > **Helpers**" %}**
 and click the add button; next choose the **{% my config_flow_start domain="input_button" title="Button" %}** option.
 
 To be able to add **Helpers** via the user interface you should have
