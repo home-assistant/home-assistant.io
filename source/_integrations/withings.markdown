@@ -108,7 +108,8 @@ Sleep sensors (including the "in bed" binary sensor) require successful webhook 
 
 #### Resolution
 
-Check if webhooks are working properly as described in the [data updates](#data-updates) section above.
+Check if webhooks are working properly as described in the [data updates](#data-updates) section.
+
 ### In bed entity missing
 
 #### Symptom
