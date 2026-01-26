@@ -20,21 +20,14 @@ ha_integration_type: device
 
 The OpenEVSE integration allows you to monitor your [OpenEVSE](https://openevse.com/) electric vehicle charging station equipped with ESP8266/ESP32-based Wi-Fi connectivity.
 
+## Prerequisites
+
+- The OpenEVSE charger is on the same network as Home Assistant.
+
 {% include integrations/config_flow.md %}
 
 ## Configuration
 
-### Automatic discovery
-
-If your OpenEVSE charger is on the same network as Home Assistant, it will be automatically discovered via Zeroconf/mDNS. You will receive a notification to set up the discovered device.
-
-### Manual configuration
-
-1. Go to **Settings** > **Devices & Services**.
-2. Click **+ Add Integration** in the bottom right corner.
-3. Search for and select **OpenEVSE**.
-4. Enter the IP address or hostname of your OpenEVSE charger.
-5. If your charger requires authentication, you will be prompted to enter your username and password.
 
 ## Sensors
 
@@ -58,11 +51,6 @@ The IR and RTC temperature sensors are disabled by default. To enable them, go t
 
 If you have configured HTTP authentication on your OpenEVSE charger (recommended for security), the integration will prompt you to enter your credentials during setup. These credentials are stored securely in Home Assistant's configuration.
 
-## Removing the integration
-
-This integration follows standard integration removal. No extra steps are required.
-
-{% include integrations/remove_device_service.md %}
 
 ## Migrating from YAML configuration
 
@@ -90,3 +78,9 @@ The integration will continue to work using the imported UI configuration.
 - Double-check your username and password.
 - Verify that HTTP authentication is enabled on your OpenEVSE charger if you're being prompted for credentials.
 - Try accessing the OpenEVSE web interface directly in a browser to confirm your credentials work.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
