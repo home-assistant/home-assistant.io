@@ -19,7 +19,7 @@ ha_platforms:
 ha_integration_type: device
 ---
 
-The TechnoVE integration provides connectivity with TechnoVE Smart Charging Station through the station local API.
+The **TechnoVE** {% term integration %} provides connectivity with TechnoVE Smart Charging Station through the station local API.
 
 {% include integrations/config_flow.md %}
 

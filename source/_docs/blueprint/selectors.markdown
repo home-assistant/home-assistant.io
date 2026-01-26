@@ -127,7 +127,7 @@ device:
   description: >
     When device options are provided, the list of areas is filtered by areas
     that at least provide one device that matches the given conditions. Can be
-    either a object or a list of object.
+    either an object or a list of objects.
   type: list
   required: false
   keys:
@@ -191,6 +191,7 @@ entity:
       description: >
         Limits the list of areas to areas that have entities with a certain
         supported feature, for example, `light.LightEntityFeature.TRANSITION` or `climate.ClimateEntityFeature.TARGET_TEMPERATURE`. Should be a list of features.
+        For a list of supported features for each entity type, refer to the [entity documentation](https://developers.home-assistant.io/docs/core/entity).
       type: list
       required: false
 multiple:
@@ -253,7 +254,7 @@ This allows for selecting, e.g., the "Effect" attribute from a light entity, or 
 
 {% configuration attribute %}
 entity_id:
-  description: The entity ID of which an state attribute can be selected from.
+  description: The entity ID of which a state attribute can be selected from.
   type: string
   required: true
 {% endconfiguration %}
@@ -508,7 +509,7 @@ entity:
   description: >
     When entity options are provided, the list of devices is filtered by devices
     that at least provide one entity that matches the given conditions. Can be
-    either a object or a list of object.
+    either an object or a list of objects.
   type: list
   required: false
   keys:
@@ -540,13 +541,14 @@ entity:
       description: >
         Limits the list of devices to devices that have entities with a certain
         supported feature, for example, `light.LightEntityFeature.TRANSITION` or `climate.ClimateEntityFeature.TARGET_TEMPERATURE`. Should be a list of features.
+        For a list of supported features for each entity type, refer to the [entity documentation](https://developers.home-assistant.io/docs/core/entity).
       type: list
       required: false
 filter:
   description: >
     When filter options are provided, the list of devices is filtered by devices
     that at least provide one entity that matches the given conditions. Can be either
-    a object or a list of object.
+    an object or a list of objects.
   type: list
   required: false
   keys:
@@ -987,7 +989,7 @@ no_sort:
   required: false
 {% endconfiguration %}
 
-The output of this selector is a RFC 5646 language code.
+The output of this selector is an RFC 5646 language code.
 
 ## Location selector
 
@@ -1057,9 +1059,16 @@ accept:
     List of media types the user is allowed to select.
   type: list
   required: false
+multiple:
+  description: >
+    Allows selecting multiple media items. If set to `true`, the resulting value of
+    this selector will be a list instead of a single object.
+  type: boolean
+  default: false
+  required: false
 {% endconfiguration %}
 
-The output of the media selector, is an mapping with information about
+The output of the media selector is a mapping with information about
 the selected media device and the selected media to play. There is also
 metadata, which is used by the frontend and should not be used in the
 backend.
@@ -1101,6 +1110,19 @@ metadata:
     - media_content_type: provider
       media_content_id: >-
         media-source://tts/cloud?message=TTS+Message&language=en-US&gender=female
+```
+
+Example output when `multiple` is set to `true` (a list of media objects):
+
+```yaml
+- media_content_id: media-source://media_source/local/image1.jpg
+  media_content_type: image/jpeg
+  metadata:
+    title: image1.jpg
+- media_content_id: media-source://media_source/local/image2.jpg
+  media_content_type: image/jpeg
+  metadata:
+    title: image2.jpg
 ```
 
 ## Number selector
@@ -1302,7 +1324,7 @@ qr_code:
 
 ## RGB color selector
 
-The RGB color selector allows the user to select an color from a color picker
+The RGB color selector allows the user to select a color from a color picker
 from the user interface, and returns the RGB color value.
 
 ![Screenshot of the RGB Color selector](/images/blueprints/selector-color-rgb.png)
@@ -1421,7 +1443,7 @@ would return ["Green"] and in the last example it returns ["g"].
 The state selector shows a list of states for a provided entity of which
 one or more can be selected.
 
-![Screenshot of an state selector](/images/blueprints/selector-state.png)
+![Screenshot of a state selector](/images/blueprints/selector-state.png)
 
 {% configuration state %}
 entity_id:
@@ -1489,8 +1511,8 @@ target:
 entity:
   description: >
     When entity options are provided, the targets are limited by entities
-    that at least match the given conditions. Can be either a object or a list
-    of object.
+    that at least match the given conditions. Can be either an object or a list
+    of objects.
   type: list
   required: false
   keys:
@@ -1516,6 +1538,13 @@ entity:
         `motion` or `window`. Can be either a string with a single device_class,
         or a list of string device_class to limit the selection to.
       type: [device_class, list]
+      required: false
+    supported_features:
+      description: >
+        Limits the targets to entities with a certain supported feature, for example,
+        `light.LightEntityFeature.TRANSITION` or `climate.ClimateEntityFeature.TARGET_TEMPERATURE`. Should be a list of features.
+        For a list of supported features for each entity type, refer to the [entity documentation](https://developers.home-assistant.io/docs/core/entity).
+      type: list
       required: false
 {% endconfiguration %}
 

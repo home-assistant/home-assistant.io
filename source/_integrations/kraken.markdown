@@ -12,10 +12,10 @@ ha_codeowners:
 ha_domain: kraken
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
-The Kraken integration allows you to monitor exchange rates on [kraken.com](https://www.kraken.com/).
+The **Kraken** {% term integration %} allows you to monitor exchange rates on [kraken.com](https://www.kraken.com/).
 For a list of tradable asset pairs check [this kraken support article](https://support.kraken.com/articles/kraken-markets).
 
 {% include integrations/config_flow.md %}

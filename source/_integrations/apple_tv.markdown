@@ -15,10 +15,10 @@ ha_zeroconf: true
 ha_platforms:
   - media_player
   - remote
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
-The Apple TV integration allows you to control an Apple TV (any generation).
+The **Apple TV** {% term integration %} allows you to control an Apple TV (any generation).
 
 There is currently support for the following entities within the Apple TV device:
 

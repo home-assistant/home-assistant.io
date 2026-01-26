@@ -93,10 +93,10 @@ automation:
         condition: state
         entity_id: group.person_family
         state: "not_home"
-  action:
+  actions:
     entity_id:
       - cover.group_home_covers
-    service: cover.close_cover
+    action: cover.close_cover
 ```
 
 ## Data updates

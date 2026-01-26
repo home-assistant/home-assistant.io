@@ -59,22 +59,15 @@ You must ensure the authenticator app is setup as your preferred method for 2FA.
     description: One-time password via Authenticator App.
 {% endconfiguration_basic %}
 
-{% note %}
-
-When trying to set up the integration, the form may show the message "Cannot connect".
-This means that the specified country may need a special setting.
-Open a issue with all details to investigate
-{% endnote %}
-
 ## Actions
 
 ### Available Actions
 
 Available actions: `notify.send_message`, `alexa_devices.send_sound`, `alexa_devices.send_text_command`
 
-#### Action `notify.send_message`
+### Action: Send message
 
-Devices with appropriate functionality will have speak and announce notify entities created. These can be used as the target for the `notify.send_message` action.
+The `notify.send_message` action allows you to send messages to devices with appropriate functionality that have speak and announce notify entities created.
 
 | Data attribute | Optional | Description |
 | -------------- | -------- | ----------------------------------------- |
@@ -94,18 +87,22 @@ Amazon provide a set of [sounds you can use](https://developer.amazon.com/en-US/
 
 {% enddetails %}
 
-#### Action `alexa_devices.send_text_command`
+### Action: Send text command
 
-This action essentially allows you to control Alexa using text commands rather than speech. You should be able to request anything you would via speech using this action.
+The `alexa_devices.send_text_command` action allows you to control Alexa using text commands rather than speech. You should be able to request anything you would via speech using this action.
 
 | Data attribute | Optional | Description |
 | -------------- | -------- | ----------------------------------------- |
 | `device_id` | no | Device on which you want to run action |
 | `text_command` | no | Command to send |
 
-#### Action `alexa_devices.send_sound`
+### Action: Send sound
 
-This action allows you to play one of the built-in Alexa sounds. The full list of sounds is available in [Amazon's documentation (needs authentication)](https://alexa.amazon.com/api/behaviors/entities?skillId=amzn1.ask.1p.sound)
+The `alexa_devices.send_sound` action allows you to play one of the built-in Alexa sounds. The full list of sounds is available in [Amazon's documentation (needs authentication)](https://alexa.amazon.com/api/behaviors/entities?skillId=amzn1.ask.1p.sound)
+
+{%tip%}
+Additional sounds are available through advanced markup using the `notify.send_message` [action](#action-notifysend_message)
+{%endtip%}
 
 | Data attribute | Optional | Description |
 | -------------- | -------- | ----------------------------------------- |
@@ -233,12 +230,13 @@ target:
 
 ## Data updates
 
-This integration {% term polling polls %} data from the device every 30 seconds by default.
+This integration {% term polling polls %} data from the device every five minutes by default.
 
 ## Known limitations
 
 - This integration requires multifactor authentication using an authentication app (such as Microsoft Authenticator). To enable MFA, in your Amazon account settings, select **Login & Security** > **2-step verification** > **Backup methods** > **Add new app**. See [Amazon's documentation](https://www.amazon.com/gp/help/customer/display.html?nodeId=G9MX9LXNWXFKMJYU) for more information.
 - Reminders may not be added to the sensor if the configured account is linked to an Alexa Household.
+- [Amazon Japan](https://www.amazon.co.jp) appears to use a different login mechanism to other locations preventing setup of the integration.   This should be resolved in a future release.
 
 ## Troubleshooting
 
@@ -266,6 +264,7 @@ You see something similar to
 
 - `Error retrieving devices state: Too many requests for path ['listEndpoints']`
 - `Error retrieving data: CannotRetrieveData('Request failed: Bad Request')`
+- `Failed to obtain notification data.  Timers and alarms have not been updated`
 
 In logs.
 

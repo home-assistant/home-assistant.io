@@ -12,7 +12,7 @@ ha_domain: inkbird
 ha_config_flow: true
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 Integrates [INKBIRD](https://www.inkbird.com/) devices into Home Assistant.

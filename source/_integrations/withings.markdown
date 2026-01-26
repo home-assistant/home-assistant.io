@@ -82,6 +82,18 @@ The binary sensor for sleep will only work if the {% term integration %} can est
 Sleep sensors will only appear when the integration can successfully receive webhook updates from Withings and find sleep data within the last day.
 {% endnote %}
 
+### Webhook requirements
+
+For webhooks to work, your Home Assistant instance must be reachable by the Withings cloud service. The following requirements must be met:
+
+1. Your Home Assistant instance must be reachable from the internet.
+2. Withings requires HTTPS specifically on port 443. Using HTTPS on a non-standard port (such as 8443) will not work.
+3. The certificate must be signed by a globally recognized Certificate Authority (for example, Let's Encrypt). Self-signed certificates will not work.
+
+{% important %}
+If webhooks cannot be established, some sensors will not be available. In particular, the sleep binary sensor has no polling fallback and requires working webhooks to function.
+{% endimportant %}
+
 ## Available data
 
 The {% term integration %} provides several entities, some of which are dynamically enabled if data is available.

@@ -89,7 +89,7 @@ The following device classes are supported for numbers:
 - **volatile_organic_compounds_parts**: Ratio of volatile organic compounds in ppm or ppb
 - **voltage**: Voltage in V, mV, µV, kV, MV
 - **volume**: Generic volume in L, mL, gal, fl. oz., m³, ft³, CCF, or MCF
-- **volume_flow_rate**: Volume flow rate in m³/h, m³/min, m³/s, ft³/min, L/h, L/min, L/s, gal/h, gal/min, or mL/s
+- **volume_flow_rate**: Volume flow rate in m³/h, m³/min, m³/s, ft³/min, L/h, L/min, L/s, gal/d, gal/h, gal/min, or mL/s
 - **volume_storage**: Generic stored volume in L, mL, gal, fl. oz., m³, ft³, CCF, or MCF
 - **water**: Water consumption in L, gal, m³, ft³, CCF, or MCF
 - **weight**: Generic mass in kg, g, mg, µg, oz, lb, or st
@@ -98,8 +98,12 @@ The following device classes are supported for numbers:
 
 ## Actions
 
-The Number entities registers the following actions:
+### Action: Set value
 
-| Action      | Data                                      | Description                                 |
-| ----------- | ----------------------------------------- | ------------------------------------------- |
-| `set_value` | `value`<br>`entity_id(s)`<br>`area_id(s)` | Set the value of specific `number` entities |
+The `number.set_value` action sets the value of specific number entities.
+
+| Data attribute | Optional | Description                                 |
+| -------------- | -------- | ------------------------------------------- |
+| `entity_id`    | yes      | Only act on specific number entities. |
+| `area_id`      | yes      | Only act on number entities in specific areas. |
+| `value`        | no       | The value to set. |

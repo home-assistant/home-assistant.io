@@ -42,9 +42,9 @@ Screenshot showing the state of a text-to-speech entity in the developer tools.
 
 ## Actions
 
-### Action speak
+### Action: Speak
 
-Modern platforms will create entities under the `tts` domain, where each entity represents one text-to-speech service provider. These entities may be used as targets for the `tts.speak` action.
+The `tts.speak` action sends text to speech to a media player. Modern platforms will create entities under the `tts` domain, where each entity represents one text-to-speech service provider. These entities may be used as targets for the `tts.speak` action.
 
 The `tts.speak` action supports `message`, `language`, `cache`, `media_player_entity_id` and `options` options. The text that should be spoken is set with `message`, and the media player that should output the sound is selected with `media_player_entity_id`. The language can be set with `language`, using the format required by the target entity platform (refer to specific platform documentation). See [cache section](#cache) for information on `cache` option. Additional settings can be specified with the `options` option, which include preferred audio settings (see [preferred audio settings](#preferred-audio-settings) section for more info) and further settings of the target entity platform, e.g., _voice, motion, speed, etc._ (refer to specific platform documentation for any supported settings).
 
@@ -57,9 +57,9 @@ data:
   message: "May the force be with you."
 ```
 
-### Action say (legacy)
+### Action: Say (legacy)
 
-The `say` action supports `message`, `language`, `cache` and `options` options. The text that should be spoken is set with `message`. The language can be set with `language`, using the format required by the platform (refer to specific platform documentation). See [cache section](#cache) for information on `cache` option. Additional settings can be specified with the `options` option, which include preferred audio settings (see [preferred audio settings](#preferred-audio-settings) section for more info) and further settings of the target platform, e.g., _voice, motion, speed, etc._ (refer to specific platform documentation for any supported settings). Since release 0.92, action name can be defined in configuration `service_name` option.
+The `say` action sends text to speech to a media player. The `say` action supports `message`, `language`, `cache` and `options` options. The text that should be spoken is set with `message`. The language can be set with `language`, using the format required by the platform (refer to specific platform documentation). See [cache section](#cache) for information on `cache` option. Additional settings can be specified with the `options` option, which include preferred audio settings (see [preferred audio settings](#preferred-audio-settings) section for more info) and further settings of the target platform, e.g., _voice, motion, speed, etc._ (refer to specific platform documentation for any supported settings). Since release 0.92, action name can be defined in configuration `service_name` option.
 
 Say to all `media_player` entities:
 

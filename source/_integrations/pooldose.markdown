@@ -2,7 +2,11 @@
 title: SEKO PoolDose
 description: Connect your SEKO PoolDose water treatment system to Home Assistant.
 ha_category:
+  - Binary sensor
+  - Number
+  - Select
   - Sensor
+  - Switch
   - Water Management
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -11,15 +15,19 @@ ha_codeowners:
   - '@lmaertin'
 ha_domain: pooldose
 ha_platforms:
+  - binary_sensor
+  - number
+  - select
   - sensor
+  - switch
 ha_integration_type: integration
-ha_quality_scale: bronze
+ha_quality_scale: silver
 ha_dhcp: true
 ---
 
-The PoolDose integration connects a [SEKO](https://www.seko.com/) water treatment system with Home Assistant. SEKO is a manufacturer of various monitoring and control devices for pools and spas.
+The **SEKO PoolDose** {% term integration %} connects a [SEKO](https://www.seko.com/) water treatment system with Home Assistant. SEKO is a manufacturer of various monitoring and control devices for pools and spas.
 
-This integration uses an undocumented local HTTP API. It provides live readings for pool sensors such as temperature, pH, ORP/Redox, as well as configuration parameters.
+This integration uses an undocumented local HTTP API. It provides live readings for pool sensors such as temperature, pH, ORP/Redox, alarm status, relay states, as well as configuration parameters.
 
 ## Prerequisites
 
@@ -29,7 +37,7 @@ This integration uses an undocumented local HTTP API. It provides live readings 
 2. Browse to the IP address or hostname. Use HTTP and port 80.
    1. Log in to the web interface.
    2. Verify that sensor data is displayed, such as water temperature or pH values shown as gauges.
-   3. Deactivate the device password, i.e., set it to 0000.
+   3. Deactivate the device password, that is, set it to 0000.
 3. Optional: Block the device’s internet access to guarantee fully local operation and prevent potentially breaking firmware updates.
 
 {% include integrations/config_flow.md %}
@@ -53,33 +61,120 @@ This integration {% term polling polls %} data from the device every 10 minutes 
 - Physical water treatment values typically change slowly and do not require frequent monitoring
 - This interval provides adequate monitoring for pool water management while maintaining device reliability
 
+### Update and write behavior
+
+Parallel reads for read-only values are avoided and write operations are serialized (one value at a time). This reduces load on the device's limited hardware and prevents race conditions.
+
 ## Supported devices
 
 The following devices are known to be supported by the integration:
 
-- SEKO PoolDose Dual/Double (API v1)
+- SEKO PoolDose Double
+- VÁGNER POOL VA DOS BASIC
+- VÁGNER POOL VA DOS EXACT
 
 ## Supported functionality
 
-### Sensor entities
+This integration provides the following entities.
 
-| Identifier | Unit | Description | States |
-|--------|------|-------------|--------|
-| **temperature** | °C/°F | water temperature | — |
-| **ph** | — | pH value | — |
-| **orp** | mV | Current ORP (Redox) value | — |
-| **ph_type_dosing** | — | Type of pH dosing being used | pH+, pH- |
-| **peristaltic_ph_dosing** | — | pH peristaltic dosing mode | Off, Proportional, On/Off, Timed |
-| **ofa_ph_value** | min | Time threshold for pH overfeed alerts | — |
-| **orp_type_dosing** | — | Type of ORP dosing being used | Low, High |
-| **peristaltic_orp_dosing** | — | ORP peristaltic dosing mode | Off, Proportional, On/Off, Timed |
-| **ofa_orp_value** | min | Time threshold for ORP overfeed alerts | — |
-| **ph_calibration_type** | — | Type of pH calibration being used | Off, Reference, 1 point, 2 points |
-| **ph_calibration_offset** | mV | pH calibration offset value | — |
-| **ph_calibration_slope** | mV | pH calibration slope value | — |
-| **orp_calibration_type** | — | Type of ORP calibration being used | Off, Reference, 1 point |
-| **orp_calibration_offset** | mV | ORP calibration offset value | — |
-| **orp_calibration_slope** | mV | ORP calibration slope value | — |
+### Binary sensors
+
+- **Recirculation pump alarm**: Recirculation pump issue.
+- **pH tank level alarm**: Low pH dosing solution level.
+- **ORP tank level alarm**: Low ORP dosing solution level.
+- **Chlorine tank level alarm**: Low chlorine dosing solution level.
+- **Flow rate alarm**: Water flow issues.
+- **pH overfeed alarm**: Excessive pH dosing detected.
+- **ORP overfeed alarm**: Excessive ORP dosing detected.
+- **Alarm relay**: Main alarm relay state.
+- **Auxiliary relay 1**: Auxiliary relay 1 output state.
+- **Auxiliary relay 2**: Auxiliary relay 2 output state.
+- **Auxiliary relay 3**: Auxiliary relay 3 output state.
+
+### Sensors
+
+- **Temperature**: Water temperature.
+  - **Unit**: °C, °F
+- **pH**: pH value.
+- **ORP**: Current ORP (Redox) value.
+  - **Unit**: mV
+- **Chlorine**: Chlorine concentration.
+  - **Unit**: ppm
+- **Flow rate**: Water flow rate.
+  - **Unit**: L/s, m³/h
+- **pH type dosing**: Type of pH dosing being used.
+  - **Values**: pH+, pH-
+- **Peristaltic pH dosing**: pH peristaltic dosing mode.
+  - **Values**: Off, Proportional, On/Off, Timed
+- **Overfeed alert pH time**: Time threshold for pH overfeed alerts.
+  - **Unit**: min
+- **ORP type dosing**: Type of ORP dosing being used.
+  - **Values**: Low, High
+- **Peristaltic ORP dosing**: ORP peristaltic dosing mode.
+  - **Values**: Off, Proportional, On/Off, Timed
+- **Chlorine type dosing**: Type of chlorine dosing being used.
+  - **Values**: Low, High
+- **Peristaltic chlorine dosing**: Chlorine peristaltic dosing mode.
+  - **Values**: Off, Proportional, On/Off, Timed
+- **Overfeed alert ORP time**: Time threshold for ORP overfeed alerts.
+  - **Unit**: min
+- **pH calibration type**: Type of pH calibration being used.
+  - **Values**: Off, Reference, 1 point, 2 points
+- **pH calibration offset**: pH calibration offset value.
+  - **Unit**: mV
+- **pH calibration slope**: pH calibration slope value.
+  - **Unit**: mV
+- **ORP calibration type**: Type of ORP calibration being used.
+  - **Values**: Off, Reference, 1 point
+- **ORP calibration offset**: ORP calibration offset value.
+  - **Unit**: mV
+- **ORP calibration slope**: ORP calibration slope value.
+  - **Unit**: mV
+- **Totalizer**: Total water volume accumulated.
+  - **Unit**: L, m³
+
+### Numbers
+
+- **pH target**: Target pH value for automatic dosing control.
+- **ORP target**: Target ORP (Redox) value for automatic dosing control.
+  - **Unit**: mV
+- **Chlorine target**: Target chlorine concentration for automatic dosing control.
+  - **Unit**: ppm
+- **pH overfeed alarm lower limit**: Lower threshold for pH overfeed detection.
+- **pH overfeed alarm upper limit**: Upper threshold for pH overfeed detection.
+- **ORP overfeed alarm lower limit**: Lower threshold for ORP overfeed detection.
+  - **Unit**: mV
+- **ORP overfeed alarm upper limit**: Upper threshold for ORP overfeed detection.
+  - **Unit**: mV
+- **Chlorine overfeed alarm lower limit**: Lower threshold for chlorine overfeed detection.
+  - **Unit**: ppm
+- **Chlorine overfeed alarm upper limit**: Upper threshold for chlorine overfeed detection.
+  - **Unit**: ppm
+
+### Switches
+
+- **Pause dosing**: Pauses or resumes the dosing process.
+- **Pump monitoring**: Enables or disables pump monitoring.
+- **Frequency input**: Enables or disables frequency input for a water meter.
+
+### Selects
+
+- **Water meter unit**: Water meter measurement unit.
+  - **Options**: Liters, Cubic meters
+- **Flow rate unit**: Flow rate measurement unit.
+  - **Options**: Cubic meters per hour, Liters per second
+- **pH dosing type**: pH dosing type.
+  - **Options**: pH+ / alcalyne, pH- / acid
+- **pH dosing method**: pH dosing control method.
+  - **Options**: Disabled, Proportional control, On/Off control, Timed dosing
+- **ORP dosing type**: ORP/Redox dosing type.
+  - **Options**: Low intensity, High intensity
+- **ORP dosing method**: ORP/Redox dosing control method.
+  - **Options**: Disabled, Proportional control, On/Off control, Timed dosing
+- **Chlorine dosing type**: Chlorine dosing type.
+  - **Options**: Low intensity, High intensity
+- **Chlorine dosing method**: Chlorine dosing control method.
+  - **Options**: Disabled, Proportional control, On/Off control, Timed dosing
 
 ## Known limitations
 

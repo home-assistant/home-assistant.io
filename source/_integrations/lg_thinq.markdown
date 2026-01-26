@@ -20,13 +20,13 @@ ha_platforms:
   - switch
   - vacuum
   - water_heater
-ha_integration_type: integration
+ha_integration_type: hub
 ha_codeowners:
   - '@LG-ThinQ-Integration'
 ha_dhcp: true
 ---
 
-The **LG ThinQ** integration allows you to connect LG ThinQ devices to Home Assistant. The features of this integration include:
+The **LG ThinQ** {% term integration %} allows you to connect LG ThinQ devices to Home Assistant. The features of this integration include:
 
 - Control LG appliances as Home Assistant entities through the LG ThinQ Connect API.
 

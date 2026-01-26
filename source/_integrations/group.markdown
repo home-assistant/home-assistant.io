@@ -39,7 +39,7 @@ ha_platforms:
 ha_integration_type: helper
 ---
 
-The group integration lets you combine multiple entities into a single entity. Entities that are members of a group can be controlled and monitored as a whole.
+The **Group** {% term integration %} lets you combine multiple entities into a single entity. Entities that are members of a group can be controlled and monitored as a whole.
 
 This can be useful, for example, in cases where you want to control multiple bulbs in a light fixture as a single light in Home Assistant. You also have the option of hiding the individual member entities in a group.
 
@@ -164,7 +164,7 @@ In short, when any group member entity is `unlocked`, the group will also be `un
 
 ## Managing groups
 
-To edit a group, **{% my helpers title="Settings -> Devices & services -> Helpers" %}**. Find and select the group from the list.
+To edit a group, **{% my helpers title="**Settings** > **Devices & services** > **Helpers**" %}**. Find and select the group from the list.
 
 ![Group members](/images/integrations/group/Group_settings.png)
 
@@ -356,7 +356,7 @@ unit_of_measurement:
   type: string
   required: false
 device_class:
-  description: Only available for `sensor` group. Set the device class for the sensor according to [available options](/integrations/sensor/#device-class).
+  description: Only available for `binary-sensor` or `sensor` group. Set the device class according to available options for [binary sensors](/integrations/binary_sensor/#device-class) or [sensors](/integrations/sensor/#device-class) respectively.
   type: string
   required: false
 state_class:

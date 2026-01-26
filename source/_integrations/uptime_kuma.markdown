@@ -4,6 +4,7 @@ description: Instructions on how to integrate Uptime Kuma with Home Assistant.
 ha_category:
   - Sensor
   - Update
+  - System monitor
 ha_iot_class: Cloud Polling
 ha_release: 2025.8
 ha_config_flow: true
@@ -127,7 +128,14 @@ This integration retrieves data from your Uptime Kuma instance every 30 seconds.
 
 ## Known limitations
 
-- Uptime Kuma's API does not expose unique identifiers for monitors. Because of this, using the same name for multiple monitors will cause only one of them to appear in Home Assistant. Renaming a monitor will result in new entities being created, while the old (stale) entities will remain unless manually removed.
+- When using Uptime Kuma versions prior to v2.0.0, Uptime Kuma's API does not expose unique identifiers for monitors. Because of this, using the same name for multiple monitors will cause only one of them to appear in Home Assistant. Renaming a monitor will result in new entities being created, while the old (stale) entities will remain unless manually removed.
+- Paused monitors are not exposed by the API, so Home Assistant cannot distinguish between a deleted monitor and a paused one. As a result, if you delete an Uptime Kuma monitor, the corresponding device entry in Home Assistant must be removed manually.
+
+{% note %}
+
+To remove a monitor from Home Assistant, go to {% my integration domain="uptime_kuma" title="**Settings** > **Devices & services** > **Uptime Kuma**" %} select the three dots {% icon "mdi:dots-vertical" %} menu next to the device entry you want to remove. Then select **Remove device**.
+
+{% endnote %}
 
 ## Troubleshooting
 

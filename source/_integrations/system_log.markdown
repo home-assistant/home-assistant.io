@@ -9,7 +9,7 @@ ha_domain: system_log
 ha_integration_type: system
 ---
 
-The `system_log` integration stores information about all logged errors and warnings in Home Assistant. To view your logs, navigate to {% my logs title="**Settings** > **System** > **Logs**" %} (condensed and full raw logs are available). In order to not overload Home Assistant with log data, only the 50 last errors and warnings will be stored inside a condensed log. Older entries are automatically discarded from a condensed log; a full raw log keeps all records. It is possible to change the number of stored log entries in a condensed log using the parameter `max_entries`.
+The **System Log** {% term integration %} stores information about all logged errors and warnings in Home Assistant. To view your logs, navigate to {% my logs title="**Settings** > **System** > **Logs**" %} (condensed and full raw logs are available). In order to not overload Home Assistant with log data, only the 50 last errors and warnings will be stored inside a condensed log. Older entries are automatically discarded from a condensed log; a full raw log keeps all records. It is possible to change the number of stored log entries in a condensed log using the parameter `max_entries`.
 
 ## Configuration
 
@@ -35,13 +35,13 @@ fire_event:
 
 ## Actions
 
-### Action `clear`
+### Action: Clear
 
-To manually clear the system log, use this action.
+The `system_log.clear` action manually clears the system log.
 
-### Action `write`
+### Action: Write
 
-Write a log entry
+The `system_log.write` action writes a log entry.
 
 | Data attribute | Optional | Description                                                                    |
 | ---------------------- | -------- | ------------------------------------------------------------------------------ |

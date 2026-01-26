@@ -12,7 +12,7 @@ ha_domain: input_boolean
 ha_integration_type: helper
 ---
 
-The **Input boolean** helper integration allows you to define boolean values that
+The **Input boolean** helper {% term integration %} allows you to define boolean values that
 can be controlled via the user interface and can be used within conditions of
 an {% term automation %}. This can for example be used to disable or enable certain
 automations by using them in their {% term conditions %}.

@@ -44,7 +44,7 @@ ha_platforms:
   - vacuum
   - valve
   - water_heater
-ha_integration_type: integration
+ha_integration_type: hub
 related:
   - docs: /integrations/thread/
     title: Thread
@@ -55,7 +55,7 @@ related:
 ha_zeroconf: true
 ---
 
-The Matter integration allows you to control Matter devices on your local Wi-Fi or {% term Thread %} network.
+The **Matter** {% term integration %} allows you to control Matter devices on your local Wi-Fi or {% term Thread %} network.
 
 For communicating with Matter devices, the Home Assistant integration runs its own "Matter controller" as add-on. This Matter Server add-on runs the controller software as a separate process and connects your Matter network (called Fabric in technical terms) and Home Assistant. The Home Assistant Matter integration connects to this server via a WebSocket connection.
 
@@ -147,12 +147,12 @@ Make sure you have all these components ready before trying to add a Matter devi
     - At a minimum, have Android version 8.1. Recommended is version 12 or higher.
     - Have the latest version of the Home Assistant Companion app, installed from the Play Store (full version).
     - If you are using {% term Thread %}: Make sure there is a Thread border router device (Nest Hub (2nd Gen) or Nest Wi-Fi Pro or Home Assistant with the OpenThread Border Router add-on) present in your home network.
-      - If you are using OpenThread (for Connect ZBT-1/SkyConnect) as border router, make sure you followed the steps in the [Thread documentation](/integrations/thread#turning-home-assistant-into-a-thread-border-router).
+      - If you are using OpenThread (for Connect ZBT-1, ZBT-2, or SkyConnect) as border router, make sure you followed the steps in the [Thread documentation](/integrations/thread#turning-home-assistant-into-a-thread-border-router).
   - **iPhone**
     - Have the iOS version 16 or higher
     - Have the latest version of the Home Assistant Companion app installed.
     - If you are using {% term Thread %}: Make sure there is a Thread border router device (HomePod Mini or V2, Apple TV 4K or Home Assistant with the OpenThread Border Router add-on) present in your home network.
-      - If you are using OpenThread (for Connect ZBT-1/SkyConnect) as border router, make sure you followed the steps in the [Thread documentation](/integrations/thread#turning-home-assistant-into-a-thread-border-router).
+      - If you are using OpenThread (for Connect ZBT-1, ZBT-2, or SkyConnect) as border router, make sure you followed the steps in the [Thread documentation](/integrations/thread#turning-home-assistant-into-a-thread-border-router).
 - Make sure the phone is in close range of the border router and your device.
 - If you are adding a Wi-Fi-based Matter device: Matter devices often use the 2.4&nbsp;GHz frequency for Wi-Fi. For this reason, make sure your phone is in the same 2.4&nbsp;GHz network where you want to operate your devices.
 
@@ -194,7 +194,7 @@ This guide describes how to add a new device. This will use the Bluetooth connec
       - This starts the commissioning process which may take a few minutes.
    - If you're adding a test board (e.g. ESP32 running the example apps) and commissioning fails, you might need to take some actions in the Google Developer console, have a look at any instructions for your test device.
    - Once the process is complete, select **Done**.
-5. To view the device details, go to {% my integrations title="**Settings** > **Devices & Services**" %} and select the **Matter** integration.
+5. To view the device details, go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **Matter** integration.
 6. By default, the device gets a factory specified name. To rename it, on the device page, select the pencil {% icon "mdi:edit" %} to edit and rename the device.
    ![image](/images/integrations/matter/matter-android-rename.png)
 7. Your device is now ready to use.
@@ -278,7 +278,7 @@ To allow Home Assistant to control the Matter device that has already been added
 
 ### Using a Matter bridge
 
-For some ecosystems, you can add some of their non-Matter devices into Home Assistant via a *Matter bridge*. Examples of Matter bridges are the SwitchBot&nbsp;Hub&nbsp;2, Aqara&nbsp;Hub&nbsp;M2, Ikea&nbsp;Dirigera, or the Philips Hue Bridge. Using a bridge allows you to keep controlling these devices via their native App, while having them available in Home Assistant at the same time. The Aquara Hub, for example, uses a cloud-based integration. By bridging it into Home Assistant via Matter (instead of using their cloud-based integration), you can make it use local communication.
+For some ecosystems, you can add some of their non-Matter devices into Home Assistant via a *Matter bridge*. Examples of Matter bridges are the SwitchBot&nbsp;Hub&nbsp;2, Aqara&nbsp;Hub&nbsp;M2, Ikea&nbsp;Dirigera, or the Philips Hue Bridge. Using a bridge allows you to keep controlling these devices via their native App, while having them available in Home Assistant at the same time. The Aqara Hub, for example, uses a cloud-based integration. By bridging it into Home Assistant via Matter (instead of using their cloud-based integration), you can make it use local communication.
 
 Home Assistant, as a Matter controller, only supports **control** of Matter devices. Home Assistant is not a bridge itself and it cannot turn existing devices within Home Assistant into Matter compatible devices.
 
@@ -366,9 +366,9 @@ The Matter integration has the following actions:
 
 - `matter.water_heater_boost`
 
-### Action `matter.water_heater_boost`
+### Action: Water heater boost
 
-Enables water heater boost for a specific duration.
+The `matter.water_heater_boost` action enables water heater boost for a specific duration.
 
 | Data attribute        | Optional | Description                                                        |
 |----------------------|----------|--------------------------------------------------------------------|

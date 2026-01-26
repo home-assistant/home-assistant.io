@@ -24,7 +24,7 @@ Templating in Home Assistant is powered by the [Jinja2](https://palletsprojects.
 
 We will not go over the basics of the syntax, as Jinja2 does a great job of this in their [templates documentation](https://jinja.palletsprojects.com/en/latest/templates/).
 
-The frontend has a {% my developer_template title="template editor tool" %} to help develop and debug templates. Navigate to {% my developer_template title="Developer Tools > Template" %}, create your template in the _Template editor_ and check the results on the right.
+The frontend has a template editor tool to help develop and debug templates. Go to {% my developer_template title="**Developer tools** > **Template**" %}, create your template in the **Template editor** and check the results on the right.
 
 Templates can get big pretty fast. To keep a clear overview, consider using YAML multiline strings to define your templates:
 
@@ -811,7 +811,7 @@ A precision of 0 returns all available units, default is 1.
 
 - Filter `timestamp_local(default)` converts a UNIX timestamp to the ISO format string representation as date/time in your local timezone. If that fails, returns the `default` value, or if omitted raises an error. If a custom string format is needed in the string, use `timestamp_custom` instead.
 - Filter `timestamp_utc(default)` converts a UNIX timestamp to the ISO format string representation representation as date/time in UTC timezone. If that fails, returns the `default` value, or if omitted raises an error. If a custom string format is needed in the string, use `timestamp_custom` instead.
-- Filter `timestamp_custom(format_string, local=True, default)` converts an UNIX timestamp to its string representation based on a custom format, the use of a local timezone is the default. If that fails, returns the `default` value, or if omitted raises an error. Supports the standard [Python time formatting options](https://docs.python.org/3/library/time.html#time.strftime).
+- Filter `timestamp_custom(format_string, local=True, default)` converts a UNIX timestamp to its string representation based on a custom format, the use of a local timezone is the default. If that fails, returns the `default` value, or if omitted raises an error. Supports the standard [Python time formatting options](https://docs.python.org/3/library/time.html#time.strftime).
 
 {% tip %}
 [UNIX timestamp](https://en.wikipedia.org/wiki/Unix_time) is the number of seconds that have elapsed since 00:00:00 UTC on 1 January 1970. Therefore, if used as a function's argument, it can be substituted with a numeric value (`int` or `float`).
@@ -945,7 +945,7 @@ This will throw an error `UndefinedError: 'value_json' is undefined` if the JSON
 
 ### Version
 
-- `version()` Returns a [AwesomeVersion object](https://github.com/ludeeus/awesomeversion) for the value given inside the brackets.
+- `version()` Returns an [AwesomeVersion object](https://github.com/ludeeus/awesomeversion) for the value given inside the brackets.
   - This is also available as a filter (`| version`).
 
 Examples:
@@ -1121,6 +1121,15 @@ The numeric functions and filters raise an error if the input is not a valid num
 - `average([x, y, ...], default)` will return the average value of the sequence. If list is empty or contains non-numeric value, returns the `default` value, or if omitted raises an error. Can be used as a filter.
 - `median([x, y, ...], default)` will return the median value of the sequence. If list is empty or contains non-numeric value, returns the `default` value, or if omitted raises an error. Can be used as a filter.
 - `statistical_mode([x, y, ...], default)` will return the statistical mode value (most frequent occurrence) of the sequence. If the list is empty, it returns the `default` value, or if omitted raises an error. It can be used as a filter.
+- `clamp(v, min, max)` limits the value `v` to be between `min` and `max`, [clamping at the edges](https://en.wikipedia.org/wiki/Clamp_(function)). If any of the arguments cannot be converted to a float, an error is raised. Can be used as a filter.
+- `wrap(v, min, max)` limits the value to be between min and max, wrapping the value at the edges. In mathematical terms, this is [modular arithmetic](https://en.wikipedia.org/wiki/Modular_arithmetic), sometimes called "clock face math". If `v`, `min`, or `max` cannot be converted to numbers, an error is raised. Can be used as a filter.
+- `remap(v, in_min, in_max, out_min, out_max, *, [steps], [edges])` remaps a value `v` from the range `in_min`..`in_max` to the range `out_min`..`out_max`.
+  If any of the values `v`, `in_min`, `in_max`, `out_min`, `out_max` cannot be converted to numbers, an error is raised. Can be used as a filter.
+  - You can optionally set the `edges` parameter to control how out-of-bounds input values are handled:
+    - `edges='clamp'` (the default) will clamp the output to the min/max output range.
+    - `edges='wrap'` will wrap the input value around the input range before remapping.
+    - `edges='mirror'` will bounce the input value back and forth within the input range before remapping.
+  - You can optionally set the `steps` parameter to a positive integer to quantize the output to a number of discrete steps.
 - `e` mathematical constant, approximately 2.71828.
 - `pi` mathematical constant, approximately 3.14159.
 - `tau` mathematical constant, approximately 6.28318.
@@ -1684,7 +1693,7 @@ The following overview contains a couple of options to get the needed values:
 
 {% endraw %}
 
-To evaluate a response, go to **{% my developer_template title="Developer Tools > Template" %}**, create your output in "Template editor", and check the result.
+To evaluate a response, go to {% my developer_template title="**Developer tools** > **Template**" %}, create your output in **Template editor**, and check the result.
 
 {% raw %}
 

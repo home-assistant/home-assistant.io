@@ -39,7 +39,7 @@ ha_config_flow: true
 ha_integration_type: hub
 ---
 
-The SwitchBot Cloud integration allows you to control SwitchBot [devices](https://www.switch-bot.com/) connected through the SwitchBot hub.
+The **SwitchBot Cloud** {% term integration %} allows you to control SwitchBot [devices](https://www.switch-bot.com/) connected through the SwitchBot hub.
 
 ## Prerequisites
 
@@ -79,6 +79,7 @@ Please note, device names configured in the SwitchBot app are transferred into H
 - [Light Strip (WoStrip)](https://www.switchbot.jp/products/switchbot-strip-light)
 - RGBICWW Floor Lamp
 - RGBICWW Strip Light
+- [Ceiling Light / Ceiling Light Pro](https://www.switchbot.jp/pages/switchbot-ceiling-light) (Japan only)
 
 ### Locks
 
@@ -128,6 +129,10 @@ Please note, device names configured in the SwitchBot app are transferred into H
 - [Circulator Fan](https://www.switch-bot.com/products/switchbot-battery-circulator-fan)
 - [Air Purifier](https://www.switch-bot.com/products/switchbot-air-purifier)
 - [Air Purifier Table](https://www.switch-bot.com/products/switchbot-air-purifier-table)
+
+### Water heater
+
+- [Smart Radiator Thermostat](https://www.switch-bot.com/products/switchbot-smart-radiator-thermostat)
 
 ## Supported functionality
 
@@ -277,6 +282,7 @@ Features:
 
 Features:
 - get motion detection state
+- get light level
 - get battery level
 
 #### Water Leak Detector
@@ -327,6 +333,13 @@ Features:
 - turn on or off
 - change brightness
 - change color
+
+#### Ceiling Light / Ceiling Light Pro
+
+Features:
+- turn on or off
+- change brightness
+- change color temperature
 
 ### Locks
 
@@ -427,6 +440,19 @@ Features:
 - pause
 - set cleaning mode
 - return to base
+- get battery
+
+
+### Water Heater
+
+#### Smart Radiator Thermostat
+
+Features:
+- turn on
+- turn off
+- set temperature
+- get temperature
+- set mode
 - get battery
 
 ## Important considerations

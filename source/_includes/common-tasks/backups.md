@@ -135,7 +135,7 @@ There are two ways to download the backup from Home Assistant Cloud:
 
 - **Option 2**: From your Home Assistant Cloud account
   1. Log in to your [Home Assistant Cloud account](https://account.nabucasa.com/).
-  2. Under **Stored files**, you can see the latest available backup file. Select the download button.
+  2. Under **Stored files**, you can see the latest available backup file. Select the **Download** button.
 
 ### Deleting obsolete backups
 
@@ -192,7 +192,7 @@ You can use a backup during the onboarding process to restore your configuration
 
 ##### To restore a backup during onboarding
 
-1. If you are migrating to a new device and you had controllers or radios connected (such as a Z-Wave stick or Connect&nbsp;ZBT-1):
+1. If you are migrating to a new device and you had controllers or radios connected (such as a Z-Wave stick or a Connect&nbsp;ZBT-2):
    - make sure to plug them into the new device.
 2. You can either restore a backup from your local machine or a backup stored on Home Assistant Cloud:
    - **Option 1**: restoring from a local backup.

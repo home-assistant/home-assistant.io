@@ -40,7 +40,7 @@ A sensor platform for Belgian, Dutch, Luxembourg and Swedish Smart Meters which 
 
 ### Options
 
-To configure options for DSMR integration go to **Settings** -> **Devices & services** and press **Options** on the DSMR card.
+To configure options for DSMR integration go to {% my integrations title="**Settings** > **Devices & services**" %} and press **Options** on the DSMR card.
 
 #### Time between updates
 

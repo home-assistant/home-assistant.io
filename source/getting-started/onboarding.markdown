@@ -26,8 +26,8 @@ After Home Assistant has been [installed](/installation/) on your device, there 
      - Select **Create account**.
 
    - **Option 2: restore from backup**: If you want to restore a backup of a previous installation, follow the steps on [restoring from backup](/common-tasks/general/#restoring-a-backup).
-       - If you have a Home Assistant Yellow, follow the [Yellow documentation on restoring from backup](https://support.nabucasa.com/hc/en-us/articles/25454643790237).
-       - If you have a Home Assistant Green, follow the [Green documentation on restoring from backup](https://support.nabucasa.com/hc/en-us/articles/25160431579165).
+       - If you have a Home Assistant Yellow, follow the [Yellow documentation on restoring from backup](https://support.nabucasa.com/hc/articles/25454643790237).
+       - If you have a Home Assistant Green, follow the [Green documentation on restoring from backup](https://support.nabucasa.com/hc/articles/25160431579165).
 
 3. Enter the location of your home.
    - The home location is used to configure the time zone, unit system, and currency.
@@ -45,13 +45,7 @@ After Home Assistant has been [installed](/installation/) on your device, there 
     - To confirm, select **Next**.
    ![Share anonymized data](/images/getting-started/onboarding_share_anonymized_info.png)
 
-5. Check out the {% term devices %} Home Assistant has discovered on your network.
-    - Don't be alarmed if you see fewer items than shown below; you can always manually add devices later.
-    - Select **Finish**.
-    ![Discovery of devices on your network.](/images/getting-started/onboarding_devices.png)
-
-6. {% icon "mdi:party-popper" %} You’ve now got Home Assistant up and running.
-   - You now see the default [dashboard](/dashboards/).
-   - If some of your devices were discovered and set up automatically, this shows those devices.
+5. {% icon "mdi:party-popper" %} You’ve now got Home Assistant up and running.
+   - Press **Finish** and you now see the default [dashboard](/dashboards/).
 
 {% include getting-started/next_step.html step="Concepts & Terminology" link="/getting-started/concepts-terminology/" %}

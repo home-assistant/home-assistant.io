@@ -15,10 +15,10 @@ ha_zeroconf: true
 ha_platforms:
   - media_player
   - notify
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
-The `kodi` platform allows you to control a [Kodi](https://kodi.tv/) multimedia system from Home Assistant.
+The **Kodi** {% term integration %} allows you to control a [Kodi](https://kodi.tv/) multimedia system from Home Assistant.
 
 The preferred way to set up the Kodi platform is through discovery, which requires an enabled [web interface](https://kodi.wiki/view/Web_interface) on your Kodi installation.
 
