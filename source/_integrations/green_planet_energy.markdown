@@ -42,3 +42,7 @@ The **Green Planet Energy** integration provides the following sensors.
 This integration follows standard integration removal.
 
 {% include integrations/remove_device_service.md %}
+
+## Disclaimer
+
+This plugin is third-party and not offered by Green Planet Energy eG.
