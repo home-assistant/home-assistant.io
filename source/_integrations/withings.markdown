@@ -78,7 +78,6 @@ The {% term integration %} automatically detects if you can use webhooks. This e
 The binary sensor for sleep will only work if the {% term integration %} can establish webhooks with Withings.
 
 
-
 {% note %}
 Sleep sensors will only appear when the integration can successfully receive webhook updates from Withings and find sleep data within the last day.
 {% endnote %}
@@ -97,8 +96,19 @@ Workout calendar and the workout and activity sensors show if the latest availab
 
 If you're having issues with your Withings Sleep Mat or other devices not appearing, follow these steps:
 
-### Webhook and Sleep Sensor Issues
-- **Sleep sensors not appearing**: Sleep sensors (including the "in bed" binary sensor) require successful webhook registration. If your Withings Sleep Mat entities are not showing up, check if webhooks are working properly as described in the Data Updates section above.
+### Sleep sensors not appearing
+
+#### Symptom
+
+Your Withings Sleep Mat entities are not showing up.
+
+#### Description
+
+Sleep sensors (including the "in bed" binary sensor) require successful webhook registration. 
+
+#### Resolution
+
+Check if webhooks are working properly as described in the [data updates](#data-updates) section above.
 - **In bed entity missing**: This entity specifically requires webhook functionality to work. If it's not appearing, ensure your Home Assistant instance is accessible from the internet and webhooks are properly registered.
 - **Check logs**: Enable debug logging to see webhook registration status as described in the Data Updates section.
 
