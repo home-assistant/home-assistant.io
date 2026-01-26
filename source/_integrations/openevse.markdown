@@ -18,7 +18,7 @@ ha_platforms:
 ha_integration_type: device
 ---
 
-The OpenEVSE integration allows you to monitor your [OpenEVSE](https://openevse.com/) electric vehicle charging station equipped with ESP8266/ESP32-based Wi-Fi connectivity.
+The **OpenEVSE** {% term integration %} allows you to monitor your [OpenEVSE](https://openevse.com/) electric vehicle charging station equipped with ESP8266/ESP32-based Wi-Fi connectivity.
 
 ## Prerequisites
 
