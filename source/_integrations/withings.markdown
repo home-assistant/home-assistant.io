@@ -123,14 +123,15 @@ This entity specifically requires webhook functionality to work.
 #### Resolution
 
 - Ensure your Home Assistant instance is accessible from the internet and webhooks are properly registered.
-- [Enable debug logging](https://www.home-assistant.io/docs/configuration/troubleshooting/#debug-logs-and-diagnostics) to see webhook registration status as described in the [data updates](#data-updates) section.
+- [Enable debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics) to see webhook registration status as described in the [data updates](#data-updates) section.
 
-### General Troubleshooting Steps
-1. Make sure your Withings device is properly set up in the Withings app and showing data
-2. Verify that data exists in your Withings account from within the last 14 days (or last day for sleep data)
-3. Wait up to 15 minutes after adding the integration for all entities to appear
-4. If using a sleep mat, ensure it has recorded sleep data within the last day
-5. Restart the integration by removing and re-adding it if entities still don't appear after verifying the above
+### General troubleshooting steps
+
+1. Make sure your Withings device is properly set up in the Withings app and showing data.
+2. Verify that data exists in your Withings account from within the last 14 days (or last day for sleep data).
+3. Wait up to 15 minutes after adding the integration for all entities to appear.
+4. If using a sleep mat, ensure it has recorded sleep data within the last day.
+5. Restart the integration by removing and re-adding it if entities still don't appear after verifying the above.
 
 {% note %}
 If you're still having issues after following these steps, enable debug logging to gather more information about what might be preventing the integration from working properly.
@@ -140,14 +141,14 @@ If you're still having issues after following these steps, enable debug logging 
 
 If you're having issues with webhook detection or your Withings Sleep Mat "in bed" entity is not showing up, please follow these troubleshooting steps:
 
-1. **Verify webhook status**: Check your Home Assistant logs for messages about webhook registration. Successful webhook registration will show a message like "Successfully registered Withings webhook".
-2. **Network accessibility**: For webhooks to work, your Home Assistant instance must be accessible from the internet. This requires:
+1. Verify webhook status: Check your Home Assistant logs for messages about webhook registration. Successful webhook registration will show a message like "Successfully registered Withings webhook".
+2. Check network accessibility: For webhooks to work, your Home Assistant instance must be accessible from the internet. This requires the following:
    - A public IP address 
    - Port forwarding configured on your router (typically port 443 or 8123)
    - A domain name pointing to your public IP or using a dynamic DNS service (like DuckDNS)
    - SSL certificate configured (Let's Encrypt or a trusted certificate)
-3. **Check Withings cloud connectivity**: If webhook registration fails, the integration will fall back to polling, which only updates every 5 minutes and doesn't support sleep sensors.
-4. **Enable debug logging**: To see detailed information about webhook registration, enable debug logging
+3. Check Withings cloud connectivity: If webhook registration fails, the integration will fall back to polling, which only updates every 5 minutes and doesn't support sleep sensors.
+4. Enable debug logging: To see detailed information about webhook registration,  [enable debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics).
 ## Removing the integration
 
 This integration follows standard integration removal, no extra steps are required.
