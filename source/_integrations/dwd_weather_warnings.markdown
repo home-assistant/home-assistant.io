@@ -81,9 +81,9 @@ actions:
       entity_id: media_player.<your_mediaplayer>
     data:
       message: >
-        Achtung! Es gibt {{
+        Warning! There are {{
         state_attr('sensor.<your_city>_current_warning_level',
-        'warning_count') }} Unwetterwarnungen des Deutschen Wetterdienstes.·  {%
+        'warning_count') }} weather-warnings from DWD.·  {%
         for i in range(0,
         (state_attr('sensor.<your_city>_current_warning_level',
         'warning_count')|int) + 1 | int ) %}
@@ -91,7 +91,7 @@ actions:
           {% set description = state_attr('sensor.<your_city>_current_warning_level', 'warning_' ~ i ~ '_description') %}
           {% set instruction = state_attr('sensor.stadt_osnabruck_current_warning_level', 'warning_' ~ i ~ '_instruction') %}
           {% if headline and description %} 
-            Warnung {{ i }}:
+            Warning {{ i }}:
           {% if headline %} {{ headline }} {% endif %}
           {% if description %} {{ description }} {% endif %}
           {% if instruction %} {{ instruction }} {% endif %}
