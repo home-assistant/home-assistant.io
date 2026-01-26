@@ -56,9 +56,9 @@ Available actions: `humidifier.set_mode`, `humidifier.set_humidity`, `humidifier
 Not all humidifier actions may be available for your platform. Be sure to check the available actions Home Assistant has enabled by checking the **Actions** page in the [Developer Tools](/docs/tools/dev-tools/).
 {% endtip %}
 
-### Action `humidifier.set_mode`
+### Action: Set mode
 
-Set mode for the humidifier device. This action is only available if the device supports operating in several working modes. The list of available modes and the device functionality in every mode depend on the device itself.
+The `humidifier.set_mode` action sets the mode for the humidifier device. This action is only available if the device supports operating in several working modes. The list of available modes and the device functionality in every mode depend on the device itself.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -80,9 +80,9 @@ automation:
         mode: "eco"
 ```
 
-### Action `humidifier.set_humidity`
+### Action: Set humidity
 
-Set target humidity of the humidifier device
+The `humidifier.set_humidity` action sets the target humidity of the humidifier device.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -104,25 +104,25 @@ automation:
         humidity: 60
 ```
 
-### Action `humidifier.turn_on`
+### Action: Turn on
 
-Turn the humidifier device on.
-
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that point at `entity_id`'s of humidifier devices to control.
-
-### Action `humidifier.turn_off`
-
-Turn the humidifier device off.
+The `humidifier.turn_on` action turns the humidifier device on.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that point at `entity_id`'s of humidifier devices to control.
 
-### Action `humidifier.toggle`
+### Action: Turn off
 
-Toggle the humidifier device on/off.
+The `humidifier.turn_off` action turns the humidifier device off.
+
+| Data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | yes | String or list of strings that point at `entity_id`'s of humidifier devices to control.
+
+### Action: Toggle
+
+The `humidifier.toggle` action toggles the humidifier device on/off.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |

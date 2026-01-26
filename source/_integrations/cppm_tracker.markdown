@@ -12,7 +12,7 @@ ha_integration_type: integration
 ha_quality_scale: legacy
 ---
 
-This platform allows you to detect presence by looking at connected devices to [Aruba Clearpass](https://www.arubanetworks.com/products/security/network-access-control/).
+This {% term integration %} allows you to detect presence by looking at connected devices to [Aruba Clearpass](https://www.arubanetworks.com/products/security/network-access-control/).
 
 Supported platforms (tested):
 

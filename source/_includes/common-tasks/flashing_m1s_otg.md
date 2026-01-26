@@ -41,7 +41,7 @@ Note: This commands will render your current Home Assistant OS installation unbo
 Use the local terminal (HDMI/keyboard) to access the system console. On the Home Assistant CLI (command line), enter `login` to enter the root shell and use `curl` to download an image and `dd` it to the eMMC block device:
 
 ```sh
-curl https://dn.odroid.com/RK3566/ODROID-M1S/Installer/ODROID-M1S_EMMC2UMS.img | dd of=/dev/mmcblk0
+curl -L -A "Mozilla/5.0" https://dn.odroid.com/RK3566/ODROID-M1S/Installer/ODROID-M1S_EMMC2UMS.img | sudo dd of=/dev/mmcblk0 bs=4M status=progress conv=fsync
 ```
 
 This way, the device will start in the UMS mode on the next boot with the SD card removed. Follow the [Install over USB from PC](https://wiki.odroid.com/odroid-m1s/getting_started/os_installation_guide#install_over_usb_from_pc) to install a different operating system.

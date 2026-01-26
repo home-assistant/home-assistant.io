@@ -53,43 +53,31 @@ related:
 
 The **Z-Wave** {% term integration %} allows you to control a Z-Wave network from Home Assistant via the [Z-Wave JS](https://zwave-js.github.io/node-zwave-js/#/) driver.
 
-## Device compatibility
-
-You do not need a Z-Wave adapter that is specifically designed for the Z-Wave integration in Home Assistant. The Z-Wave integration in Home Assistant can be operated with any Z-Wave network with other Z-Wave certified devices from other manufacturers. All mains operated nodes within the network will act as repeaters regardless of vendor to increase reliability of the network.
-
 ## Getting started
 
-This sections shows you how to set up a Z-Wave JS server and how to add your first Z-Wave device to Home Assistant. It also introduces you to some of the basic terminology.
+This section shows how to set up a Z-Wave network and how to add a Z-Wave end device to that network.
 
-### Z-Wave terminology and Home Assistant
+A Z-Wave network in Home Assistant includes the following elements:
 
-Throughout this documentation, Home Assistant terminology is used. For some of the concepts, the terminology does not correspond to the terminology used in Z-Wave documentation. The table below provides equivalents for some of those terms. For more Z-Wave term definitions, refer to the [terminology section](#z-wave-terminology).
+- a Z-Wave adapter (for example, [Home Assistant Connect ZWA-2](/connect/zwa-2))
+- a Z-Wave server (for example, the **Z-Wave JS** add-on)
+- this Z-Wave integration
+- Z-Wave end devices
 
-| Z-Wave functionality | Home Assistant | Definition |
-| -------------------- | -------------- | ---------- |
-| barrier operator | cover | |
-| controller | adapter, when referring to the hardware device that provides the Z-Wave functionality. The term controller is still used when referring to the network role (such as primary, secondary controller)  | |
-| exclusion | remove | The process of removing a node from the Z-Wave network |
-| [inclusion](#classic-inclusion-versus-smartstart) | add | The process of adding a node to the Z-Wave network |
-| multilevel switch | represented by different entity types: light, fan etc. | |
-| replication | copy (not supported in Home Assistant) | The process of copying network information from one adapter to another. Not supported in Home Assistant. |
-| window covering | cover | |
+### Setting up a Z-Wave server in Home Assistant
 
-### Prerequisites
+This section shows how to set up a Z-Wave server using the **Z-Wave JS** add-on in Home Assistant.
 
-To run a Z-Wave network, you need the following elements:
+For other ways to set up a Z-Wave server, refer to the [advanced installation instructions](#advanced-installation-instructions).
 
-- A [supported Z-Wave adapter](/docs/z-wave/controllers/#supported-z-wave-usb-sticks--hardware-modules). First-time user? For recommendations on what to buy, go [here](#which-z-wave-adapter-should-i-buy).
-- A running [Z-Wave JS server](#setting-up-a-z-wave-js-server).
-- An installed Z-Wave integration in Home Assistant.
+Once you have set up the Z-Wave server, you can [add devices to the network](#adding-a-new-device-to-the-z-wave-network).
 
-### Setting up a Z-Wave JS server
+#### Prerequisites
 
-If you are running {% term "Home Assistant Operating System" %} or {% term "Home Assistant Supervised" %}, the easiest way to get started is by using the built-in Z-Wave JS add-on in Home Assistant.
+- A [supported Z-Wave adapter](/docs/z-wave/controllers/#supported-z-wave-usb-sticks--hardware-modules). 
+  - First-time user? For recommendations, refer to the [what-to-buy-section](#which-z-wave-adapter-should-i-buy).
 
-For other ways to setup a Z-Wave server, refer to the [advanced installation instructions](#advanced-installation-instructions).
-
-Follow these steps:
+#### To set up a Z-Wave server
 
 1. Open the Home Assistant user interface.
 2. Plug the Z-Wave adapter into the device running Home Assistant.
@@ -97,21 +85,7 @@ Follow these steps:
    - In the dialog, select **Recommended installation**.
      - This will install the Z-Wave JS add-on on the Home Assistant server.
    - Add the device to an {% term area %} and select **Finish**.
-   - **Troubleshooting**: If your adapter is not recognized, follow these steps:
-
-{% details "Manual setup steps" %}
-Use this My button:
-
-{% my config_flow_start badge domain="zwave_js" %}, or follow these steps:
-
-- Browse to your Home Assistant instance.
-- Go to **{% my integrations title="Settings > Devices & services" %}**.
-- In the bottom right, select the
-  **{% my config_flow_start icon domain="zwave_js" %}** button.
-- From the list, select **Z-Wave**.
-- Follow the instructions on screen to complete the setup.
-
-{% enddetails %}
+   - **Troubleshooting**: If your adapter is not recognized, follow [these steps](#my-z-wave-adapter-isnt-recognized-automatically-during-setup).
 
 3. Wait for the installation to complete.
 4. Depending on your Home Assistant version, you may be prompted for network security keys.
@@ -121,7 +95,7 @@ Use this My button:
 5. Wait for the Z-Wave JS add-on to start up.
 6. Once the installation is complete, the **Device info** of the Z-Wave adapter is shown.
    - You successfully installed the Z-Wave integration and the Z-Wave JS add-on.
-   - You can now [add](/integrations/zwave_js/#adding-a-new-device-to-the-z-wave-network) devices to the Z-Wave network.
+   - You can now [add devices](/integrations/zwave_js/#adding-a-new-device-to-the-z-wave-network) to the Z-Wave network.
 
 {% note %}
 While your Z-Wave mesh is permanently stored on your adapter, the additional metadata is not. When the Z-Wave integration starts up the first time, it will interview your entire Z-Wave network. Depending on the number of devices paired with the Z-Wave adapter, this can take a while. You can speed up this process by manually waking up your battery-powered devices. Most of the time, this is a button press on those devices (see their manual). It is not necessary to exclude and re-include devices from the mesh.
@@ -242,7 +216,7 @@ If you are using the Z-Wave JS add-on, Home Assistant automatically changes the 
 
 - Administrator rights in Home Assistant
 - All your Z-Wave devices must be specified for that region
-- Note: this procedure only applies if your adapter is [set up using the Z-Wave JS add-on](#setting-up-a-z-wave-js-server)
+- Note: this procedure only applies if your adapter is [set up using the Z-Wave JS add-on](#to-set-a-up-a-z-wave-server)
 
 ### To override the radio frequency region of your Z-Wave adapter
 
@@ -352,7 +326,7 @@ It is recommended to back up your Z-Wave network before resetting the device.
 
 
     ![Screenshot showing the device panel of a Z-Wave adapter](/images/integrations/z-wave/z-wave-controller-commands.png)
-4. On the device info page, check the logbook. When you see that the status entity became unavailable, the reset process is finished.
+4. On the device info page, check the **Activity** panel. When you see that the status entity became unavailable, the reset process is finished.
    - You can now unplug the adapter and use it to start a new network, or pass it on to someone else.
 5. If you no longer need the Z-Wave integration, you can [remove it](#removing-z-wave-js-from-home-assistant) from Home Assistant.
 
@@ -404,16 +378,18 @@ The following features can be accessed from the device panel of any Z-Wave devic
 - **Configure:** Provides an easy way to look up and update configuration parameters for the device. While there is an existing action for setting configuration parameter values, this UI may sometimes be quicker to use for one-off changes.
 - **Re-interview:** Forces the device to go through the interview process again so that Z-Wave-JS can discover all of its capabilities. Can be helpful if you don't see all the expected entities for your device.
 - **Rebuild routes:** Discovers new routes between the adapter and the device. Use this if you think you are experiencing unexpected delays or RF issues with your device. Your device may be less responsive during this process.
-- **Remove failed:** Removes the device from the adapter without excluding the device from the network. Can be used when a device has failed and it can't go through the normal exclusion process.
+- **Delete:** Opens a dialog with the following options for removing the device:
+   - Removing it from the network using exclusion
+   - Removing a failed device from the adapter without excluding it from the network
 - **[Statistics](https://zwave-js.github.io/node-zwave-js/#/api/node?id=quotstatistics-updatedquot):** Provides statistics about communication between this device and the adapter, allowing you to troubleshoot RF issues with the device.
 - **Update:** Updates a device's firmware using a manually uploaded firmware file. Only some devices support this feature (adapters and devices with the Firmware Update Metadata Command Class).
 - **Download diagnostics:** Exports a JSON file describing the entities of this specific device.
 
 ## Actions
 
-### Action `zwave_js.set_config_parameter`
+### Action: Set config parameter
 
-This action will update a configuration parameter. To update multiple partial parameters in a single call, use the `zwave_js.bulk_set_partial_config_parameters` action.
+The `zwave_js.set_config_parameter` action updates a configuration parameter. To update multiple partial parameters in a single call, use the `zwave_js.bulk_set_partial_config_parameters` action.
 
 | Data attribute | Required | Description                                                                                                                                                                                                                                                                |
 | -------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -466,9 +442,9 @@ data:
   value: "Blink"
 ```
 
-### Action `zwave_js.bulk_set_partial_config_parameters`
+### Action: Bulk set partial config parameters
 
-This action will bulk set multiple partial configuration parameters. Be warned that correctly using this action requires advanced knowledge of Z-Wave.
+The `zwave_js.bulk_set_partial_config_parameters` action bulk sets multiple partial configuration parameters. Be warned that correctly using this action requires advanced knowledge of Z-Wave.
 
 | Data attribute | Required | Description                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | -------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -553,18 +529,18 @@ data:
     "Quick Strip Effect Intensity Scale": "Fine"
 ```
 
-### Action `zwave_js.refresh_value`
+### Action: Refresh value
 
-This action will refresh the value(s) for an entity. This action will generate extra traffic on your Z-Wave network and should be used sparingly. Updates from devices on battery may take some time to be received.
+The `zwave_js.refresh_value` action refreshes the value(s) for an entity. This action will generate extra traffic on your Z-Wave network and should be used sparingly. Updates from devices on battery may take some time to be received.
 
 | Data attribute       | Required | Description                                                                                                                                      |
 | -------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `entity_id`          | yes      | Entity or list of entities to refresh values for.                                                                                                |
 | `refresh_all_values` | no       | Whether all values should be refreshed. If  `false`, only the primary value will be refreshed. If  `true`, all watched values will be refreshed. |
 
-### Action `zwave_js.set_value`
+### Action: Set value
 
-This action will set a value on a Z-Wave device. It is for advanced use cases where you need to modify the state of a node and can't do it using native Home Assistant entity functionality. Be warned that correctly using this action requires advanced knowledge of Z-Wave. The action provides minimal validation and blindly calls the Z-Wave JS API, so if you are having trouble using it, it is likely because you are providing an incorrect value somewhere. To set a config parameter, you should use the `zwave_js.set_config_parameter` or `zwave_js.bulk_set_partial_config_parameters` action instead of this one.
+The `zwave_js.set_value` action sets a value on a Z-Wave device. It is for advanced use cases where you need to modify the state of a node and can't do it using native Home Assistant entity functionality. Be warned that correctly using this action requires advanced knowledge of Z-Wave. The action provides minimal validation and blindly calls the Z-Wave JS API, so if you are having trouble using it, it is likely because you are providing an incorrect value somewhere. To set a config parameter, you should use the `zwave_js.set_config_parameter` or `zwave_js.bulk_set_partial_config_parameters` action instead of this one.
 
 | Data attribute    | Required | Description                                                                                                                                                                                                                                                             |
 | ----------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -579,9 +555,9 @@ This action will set a value on a Z-Wave device. It is for advanced use cases wh
 | `options`         | no       | Set value options map. Refer to the Z-Wave JS documentation for more information on what options can be set.                                                                                                                                                            |
 | `wait_for_result` | no       | Boolean that indicates whether or not to wait for a response from the node. If not included in the payload, the integration will decide whether to wait or not. If set to `true`, note that the action can take a while if setting a value on an asleep battery device. |
 
-### Action `zwave_js.multicast_set_value`
+### Action: Multicast set value
 
-This action will set a value on multiple Z-Wave devices using multicast. It is for advanced use cases where you need to set the same value on multiple nodes simultaneously. Be warned that correctly using this action requires advanced knowledge of Z-Wave. The action provides minimal validation beyond what is necessary to properly call the Z-Wave JS API, so if you are having trouble using it, it is likely because you are providing an incorrect value somewhere.
+The `zwave_js.multicast_set_value` action sets a value on multiple Z-Wave devices using multicast. It is for advanced use cases where you need to set the same value on multiple nodes simultaneously. Be warned that correctly using this action requires advanced knowledge of Z-Wave. The action provides minimal validation beyond what is necessary to properly call the Z-Wave JS API, so if you are having trouble using it, it is likely because you are providing an incorrect value somewhere.
 
 | Data attribute  | Required | Description                                                                                                                                                                                                                                                                                                                                                                                 |
 | --------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -596,9 +572,9 @@ This action will set a value on multiple Z-Wave devices using multicast. It is f
 | `value`         | yes      | The new value that you want to set.                                                                                                                                                                                                                                                                                                                                                         |
 | `options`       | no       | Set value options map. Refer to the Z-Wave JS documentation for more information on what options can be set.                                                                                                                                                                                                                                                                                |
 
-### Action `zwave_js.invoke_cc_api`
+### Action: Invoke Command Class API
 
-Leverage this action to use the Command Class API directly. In most cases, the `zwave_js.set_value` action will accomplish what you need to, but some Command Classes have API commands that can't be accessed via that action. Refer to the [Z-Wave JS Command Class documentation](https://zwave-js.github.io/node-zwave-js/#/api/CCs/index) for the available APIs and arguments. Be sure to know what you are doing when calling this action.
+The `zwave_js.invoke_cc_api` action uses the Command Class API directly. In most cases, the `zwave_js.set_value` action will accomplish what you need, but some Command Classes have API commands that can't be accessed via that action. Refer to the [Z-Wave JS Command Class documentation](https://zwave-js.github.io/node-zwave-js/#/api/CCs/index) for the available APIs and arguments. Be sure to know what you are doing when calling this action.
 
 | Data attribute  | Required | Description                                                                                                                                                                                                                                                                                                            |
 | --------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -610,10 +586,9 @@ Leverage this action to use the Command Class API directly. In most cases, the `
 | `method_name`   | yes      | The name of the method that is being called from the CC API.                                                                                                                                                                                                                                                           |
 | `parameters`    | yes      | A list of parameters to pass to the CC API method.                                                                                                                                                                                                                                                                     |
 
-### Action `zwave_js.refresh_notifications`
+### Action: Refresh notifications
 
-This action will refresh the notifications of a given type on a device that
-supports the Notification Command Class.
+The `zwave_js.refresh_notifications` action refreshes the notifications of a given type on a device that supports the Notification Command Class.
 
 | Data attribute       | Required | Description                                                                                                                                            |
 | -------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -623,9 +598,9 @@ supports the Notification Command Class.
 | `notification_type`  | yes      | The type of notification to refresh.                                                                                                                   |
 | `notification_event` | no       | The notification event to refresh.                                                                                                                     |
 
-### Action `zwave_js.reset_meter`
+### Action: Reset meter
 
-This action will reset the meters on a device that supports the Meter Command Class.
+The `zwave_js.reset_meter` action resets the meters on a device that supports the Meter Command Class.
 
 | Data attribute | Required | Description                                                                                                 |
 | -------------- | -------- | ----------------------------------------------------------------------------------------------------------- |
@@ -633,9 +608,9 @@ This action will reset the meters on a device that supports the Meter Command Cl
 | `meter_type`   | no       | If supported by the device, indicates the type of meter to reset. Not all devices support this option.      |
 | `value`        | no       | If supported by the device, indicates the value to reset the meter to. Not all devices support this option. |
 
-### Action `zwave_js.set_lock_configuration`
+### Action: Set lock configuration
 
-This action will set the configuration of a lock.
+The `zwave_js.set_lock_configuration` action sets the configuration of a lock.
 
 | Data attribute          | Required | Description                                                                                              |
 | ----------------------- | -------- | -------------------------------------------------------------------------------------------------------- |
@@ -647,10 +622,9 @@ This action will set the configuration of a lock.
 | `twist_assist`          | no       | Enable Twist Assist.                                                                                     |
 | `block_to_block`        | no       | Enable block-to-block functionality.                                                                     |
 
-### Action `zwave_js.set_lock_usercode`
+### Action: Set lock usercode
 
-This action will set the usercode of a lock to X at code slot Y.
-Valid usercodes are at least 4 digits.
+The `zwave_js.set_lock_usercode` action sets the usercode of a lock to X at code slot Y. Valid usercodes are at least 4 digits.
 
 | Data attribute | Required | Description                                          |
 | -------------- | -------- | ---------------------------------------------------- |
@@ -658,9 +632,9 @@ Valid usercodes are at least 4 digits.
 | `code_slot`    | yes      | The code slot to set the usercode into.              |
 | `usercode`     | yes      | The code to set in the slot.                         |
 
-### Action `zwave_js.clear_lock_usercode`
+### Action: Clear lock usercode
 
-This action will clear the usercode of a lock in code slot X.
+The `zwave_js.clear_lock_usercode` action clears the usercode of a lock in code slot X.
 Valid code slots are between 1-254.
 
 | Data attribute | Required | Description                                            |
@@ -946,13 +920,13 @@ The chart below illustrates Options 1 and 2, which are available for Home Assist
 
 **Option 1: The official Z-Wave JS add-on, as described above**
 
-_This option is only available for {% term "Home Assistant Operating System" %} (the recommended installation type) and {% term "Home Assistant Supervised" %} installations._
+_This option is only available for {% term "Home Assistant Operating System" %} (the recommended installation type) installations._
 
 This add-on can only be configured via the built-in Z-Wave control panel in Home Assistant. If you followed the standard [installation procedure](#setting-up-a-z-wave-js-server), this is how you are running the Z-Wave JS server.
 
 **Option 2: The Z-Wave JS UI add-on installed from the community add-on store**
 
-_This option is only available for {% term "Home Assistant Operating System" %} (the recommended installation type) and {% term "Home Assistant Supervised" %} installations._
+_This option is only available for {% term "Home Assistant Operating System" %} (the recommended installation type) installations._
 
 This add-on includes the Z-Wave JS Server as part of the Z-Wave JS UI application. The Z-Wave network can be configured via the built-in Z-Wave control panel in Home Assistant and alternatively via the Z-Wave control panel built into Z-Wave JS UI. It provides you with a full-fledged, attractive, and feature-complete UI to manage your Z-Wave nodes and settings, which may support more advanced use cases as development continues on the Z-Wave control panel.
 
@@ -1137,6 +1111,19 @@ After ensuring you are using an extension cable, rebuild network routes.
 
 The combination of these two steps corrects a large number of reported difficulties.
 
+### My Z-Wave adapter isn't recognized automatically during setup
+
+If your Z-Wave adapter doesn't show up in the **Discovered** section automatically, try adding it manually:
+
+1. Check the hardware:
+   - Make sure the adapter is powered on.
+   - Make sure the cable you are using supports data, not power only.
+2. Go to **{% my integrations title="Settings > Devices & services" %}**.
+3. In the bottom right, select the
+  **{% my config_flow_start icon domain="zwave_js" %}** button and select **Z-Wave**.
+4. Follow the instructions on screen to complete the setup.
+5. If it is still not discovered, [check for interference](#im-having-a-problem-what-to-do-first).
+
 ### I have an Aeotec Gen5 adapter, and it isn't detected on my Raspberry Pi&nbsp;4?
 
 The first-generation Gen5 adapter has a known bug when plugged into a Pi&nbsp;4 and possibly other systems. Aeotec released the Gen5+ stick to correct this bug. Gen5 users can plug their adapters into a USB&nbsp;2.0 hub in order to overcome the issue.
@@ -1291,7 +1278,17 @@ No further action is required and the SmartStart product will be added automatic
 
 ### Terminology mapping table
 
-For some of the concepts, the terminology used in Home Assistant does not correspond to the terminology used in Z-Wave documentation. Refer to the [terminology mapping table](#z-wave-terminology-and-home-assistant) for a list of term equivalents.
+Throughout this documentation, Home Assistant terminology is used. For some of the concepts, the terminology does not correspond to the terminology used in Z-Wave documentation. The table below provides equivalents for some of those terms.
+
+| Z-Wave functionality | Home Assistant | Definition |
+| -------------------- | -------------- | ---------- |
+| barrier operator | cover | |
+| controller | adapter, when referring to the hardware device that provides the Z-Wave functionality. The term controller is still used when referring to the network role (such as primary, secondary controller)  | |
+| exclusion | remove | The process of removing a node from the Z-Wave network |
+| [inclusion](#classic-inclusion-versus-smartstart) | add | The process of adding a node to the Z-Wave network |
+| multilevel switch | represented by different entity types: light, fan etc. | |
+| replication | copy (not supported in Home Assistant) | The process of copying network information from one adapter to another. Not supported in Home Assistant. |
+| window covering | cover | |
 
 ## Removing Z-Wave JS from Home Assistant
 

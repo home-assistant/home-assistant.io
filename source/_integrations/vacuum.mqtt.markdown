@@ -7,7 +7,7 @@ ha_release: 0.54
 ha_domain: mqtt
 ---
 
-The `mqtt` vacuum {% term integration %} allows you to control your MQTT-enabled vacuum.
+The **MQTT Vacuum** {% term integration %} allows you to control your MQTT-enabled vacuum.
 The initial state of the MQTT vacuum {% term entity %} will set to `unknown` and can be reset by a device by sending a `null` payload as state.
 
 ## Configuration
@@ -64,6 +64,10 @@ availability_topic:
   type: string
 command_topic:
   description: The MQTT topic to publish commands to control the vacuum.
+  required: false
+  type: string
+default_entity_id:
+  description: Use `default_entity_id` instead of name for automatic generation of the entity ID. For example, `vacuum.foobar`. When used without a `unique_id`, the entity ID will update during restart or reload if the entity ID is available.  If the entity ID already exists, the entity ID will be created with a number at the end. When used with a `unique_id`, the `default_entity_id` is only used when the entity is added for the first time. When set, this overrides a user-customized entity ID if the entity was deleted and added again.
   required: false
   type: string
 device:
@@ -141,10 +145,6 @@ name:
   required: false
   type: string
   default: MQTT Vacuum
-object_id:
-  description: Used `object_id` instead of `name` for automatic generation of `entity_id`. This only works when the entity is added for the first time. When set, this overrides a user-customized Entity ID in case the entity was deleted and added again.
-  required: false
-  type: string
 payload_available:
   description: The payload that represents the available state.
   required: false

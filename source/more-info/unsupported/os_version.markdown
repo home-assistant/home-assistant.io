@@ -15,12 +15,15 @@ including Home Assistant Core or Add-on updates.
 
 ## The solution
 
+Since you've not updated your system in a while, we recommend to [create a backup](/common-tasks/general/#backups)
+before updating your system. Make sure to download the backup or store it at
+a remote location.
+
 To resolve this issue, update your Home Assistant Operating System version. Go
 to {% my updates title="**System** > **Updates**" %} to update the operating
 system. If you don't see the update you may have skipped it in the past. To see
 previously skipped updates, select the three dots {% icon "mdi:dots-vertical" %}
-menu and select **Show skipped updates**.
+enabling skipped updates no new OS updates appear, you may need to use [the CLI to update to the latest OS version {{site.data.version_data.hassos['ova']}}](/common-tasks/os/#to-update-the-home-assistant-operating-system).
 
 If your system is significantly out of date you may need to update multiple times
-to get to the latest version. The next one will appear in the UI after the prior
-one is complete.
+to get to the latest version.

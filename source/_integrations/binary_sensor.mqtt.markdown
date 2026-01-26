@@ -8,7 +8,7 @@ ha_iot_class: Configurable
 ha_domain: mqtt
 ---
 
-The `mqtt` binary sensor platform uses an MQTT message received to set the binary sensor's state to `on`, `off` or `unknown`.
+The **MQTT binary sensor** {% term integration %} uses an MQTT message received to set the binary sensor's state to `on`, `off` or `unknown`.
 
 The state will be updated only after a new message is published on `state_topic` matching `payload_on`, `payload_off` or `None`. If these messages are published with the `retain` flag set,
 the binary sensor will receive an instant state update after subscription and Home Assistant will display the correct state on startup.
@@ -67,6 +67,10 @@ availability_template:
   type: template
 availability_topic:
   description: "The MQTT topic subscribed to receive birth and LWT messages from the MQTT device. If `availability` is not defined, the binary sensor will always be considered `available` and its state will be `on`, `off` or `unknown`. If `availability` is defined, the binary sensor will be considered as `unavailable` by default and the sensor's initial state will be `unavailable`. Must not be used together with `availability`."
+  required: false
+  type: string
+default_entity_id:
+  description: Use `default_entity_id` instead of name for automatic generation of the entity ID. For example, `binary_sensor.foobar`. When used without a `unique_id`, the entity ID will update during restart or reload if the entity ID is available.  If the entity ID already exists, the entity ID will be created with a number at the end. When used with a `unique_id`, the `default_entity_id` is only used when the entity is added for the first time. When set, this overrides a user-customized entity ID if the entity was deleted and added again.
   required: false
   type: string
 device:
@@ -170,10 +174,6 @@ name:
   required: false
   type: string
   default: MQTT binary sensor
-object_id:
-  description: Used `object_id` instead of `name` for automatic generation of `entity_id`. This only works when the entity is added for the first time. When set, this overrides a user-customized Entity ID in case the entity was deleted and added again.
-  required: false
-  type: string
 off_delay:
   description: "For sensors that only send `on` state updates (like PIRs), this variable sets a delay in seconds after which the sensor's state will be updated back to `off`."
   required: false

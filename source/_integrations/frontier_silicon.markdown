@@ -8,7 +8,7 @@ ha_release: '0.40'
 ha_domain: frontier_silicon
 ha_platforms:
   - media_player
-ha_integration_type: integration
+ha_integration_type: device
 ha_codeowners:
   - '@wlcrs'
 ha_ssdp: true

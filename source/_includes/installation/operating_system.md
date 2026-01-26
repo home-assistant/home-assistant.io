@@ -14,31 +14,31 @@ You will need a few things to get started with installing Home Assistant. The li
 
 To get started, we suggest the ODROID-N2+, the board that powers our [Home Assistant Blue](/blue/), or the ODROID-M1.
 
-If unavailable, we also recommend the [ODROID-C4](https://ameridroid.com/products/odroid-c4?ref=eeb6nfw07e).
+If unavailable, we also recommend the [ODROID-C4](https://ameridroid.com/products/odroid-c4).
 
 Home Assistant bundles (US market):
 
 The bundles come with Home Assistant pre-installed.
 
-- [ODROID-N2+: 2 GB RAM / 16 GB eMMC](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44748729286935?ref=eeb6nfw07e)
-- [ODROID-N2+: 4 GB RAM / 64 GB eMMC](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44748729221399?ref=eeb6nfw07e)
-- ODROID-M1: 4 GB RAM / 256 GB NVMe / [16 GB &micro;SD](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44929573028119?ref=eeb6nfw07e) or [16 GB eMMC](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44994940567831?ref=eeb6nfw07e)
-- ODROID-M1: 8 GB RAM / 256 GB NVMe / [16 GB &micro;SD](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44929573093655?ref=eeb6nfw07e) or [16 GB eMMC](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44994940633367?ref=eeb6nfw07e)
-- [ODROID-M1: 8 GB RAM / 1 TB NVMe / 64 GB eMMC](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44994940698903?ref=eeb6nfw07e)
+- [ODROID-N2+: 2 GB RAM / 16 GB eMMC](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44748729286935)
+- [ODROID-N2+: 4 GB RAM / 64 GB eMMC](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44748729221399)
+- ODROID-M1: 4 GB RAM / 256 GB NVMe / [16 GB &micro;SD](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44929573028119) or [16 GB eMMC](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44994940567831)
+- ODROID-M1: 8 GB RAM / 256 GB NVMe / [16 GB &micro;SD](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44929573093655) or [16 GB eMMC](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44994940633367)
+- [ODROID-M1: 8 GB RAM / 1 TB NVMe / 64 GB eMMC](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44994940698903)
 
 Variants without pre-installed Home Assistant:
 
-- ODROID-N2+, [2 GB RAM](https://ameridroid.com/products/odroid-n2-plus?variant=40371828719650?ref=eeb6nfw07e) or [4 GB RAM](https://ameridroid.com/products/odroid-n2-plus?variant=40371828752418?ref=eeb6nfw07e)
-- [ODROID-C4](https://ameridroid.com/products/odroid-c4?ref=eeb6nfw07e)
-- [ODROID-M1](https://ameridroid.com/products/odroid-M1?ref=eeb6nfw07e)
-- ODROID-M1S, [4 GB RAM](https://ameridroid.com/products/odroid-m1s?variant=47425396474135?ref=eeb6nfw07e) or [8 GB RAM](https://ameridroid.com/products/odroid-m1s?variant=47425396506903?ref=eeb6nfw07e)
+- ODROID-N2+, [2 GB RAM](https://ameridroid.com/products/odroid-n2-plus?variant=40371828719650) or [4 GB RAM](https://ameridroid.com/products/odroid-n2-plus?variant=40371828752418)
+- [ODROID-C4](https://ameridroid.com/products/odroid-c4)
+- [ODROID-M1](https://ameridroid.com/products/odroid-M1)
+- ODROID-M1S, [4 GB RAM](https://ameridroid.com/products/odroid-m1s?variant=47425396474135) or [8 GB RAM](https://ameridroid.com/products/odroid-m1s?variant=47425396506903)
 
 Related components:
 
-- [Power Supply](https://ameridroid.com/products/12v-2a-power-supply-plug?ref=eeb6nfw07e)
-- [CR2032 Coin Cell](https://ameridroid.com/products/rtc-bios-battery?ref=eeb6nfw07e)
-- [eMMC Module](https://ameridroid.com/products/emmc-module-n2-linux-red-dot?ref=eeb6nfw07e)
-- [Case](https://ameridroid.com/products/odroid-n2-case?ref=eeb6nfw07e)
+- [Power Supply](https://ameridroid.com/products/12v-2a-power-supply-plug)
+- [CR2032 Coin Cell](https://ameridroid.com/products/rtc-bios-battery)
+- [eMMC Module](https://ameridroid.com/products/emmc-module-n2-linux-red-dot)
+- [Case](https://ameridroid.com/products/odroid-n2-case)
 
 *These are affiliated links. We get commissions for purchases made through links in this post.*
 
@@ -180,53 +180,51 @@ Use this method only if Method 1 does not work for you.
 4. Download the image to your computer.
    - Copy the URL for the image.
    - If there are multiple links below, make sure to select the correct link for your version of {{site.installation.types[page.installation_type].board}}.
-{% if site.installation.types[page.installation_type].variants.size > 1 %}
-{% tabbed_block %}
-{% for variant in site.installation.types[page.installation_type].variants %}
+    {% if site.installation.types[page.installation_type].variants.size > 1 %}
+    {% tabbed_block %}
+    {% for variant in site.installation.types[page.installation_type].variants %}
 
-- title: {{ variant.name }}
-  content: |
+    - title: {{ variant.name }}
+      content: |
+
+        ```text
+        {{release_url}}/{{site.data.version_data.hassos[variant.key]}}/haos_{{ variant.key }}-{{site.data.version_data.hassos[variant.key]}}.img.xz
+        ```
+
+        {% if variant.key == "odroid-n2" %}
+        [Guide: Flashing ODROID-N2 using OTG-USB](/installation/odroid#flashing-an-odroid-n2)
+        {% elsif variant.key == "odroid-m1s" %}
+        [Guide: Flashing ODROID-M1S using OTG-USB](/installation/odroid#flashing-an-odroid-m1s)
+        {% elsif variant.key == "rpi4" or variant.key == "rpi3" %}
+          *(64-bit is recommended)*
+        {% endif %}
+
+    {% endfor %}
+    {% endtabbed_block %}
+    {% else %}
 
     ```text
-    {{release_url}}/{{site.data.version_data.hassos[variant.key]}}/haos_{{ variant.key }}-{{site.data.version_data.hassos[variant.key]}}.img.xz
+    {% assign board_key = site.installation.types[page.installation_type].variants[0].key %}
+    {{release_url}}/{{site.data.version_data.hassos[board_key]}}/haos_{{ board_key }}-{{site.data.version_data.hassos[board_key]}}.img.xz
     ```
 
-    {% if variant.key == "odroid-n2" %}
-    [Guide: Flashing ODROID-N2 using OTG-USB](/installation/odroid#flashing-an-odroid-n2)
-    {% elsif variant.key == "odroid-m1s" %}
-    [Guide: Flashing ODROID-M1S using OTG-USB](/installation/odroid#flashing-an-odroid-m1s)
-    {% elsif variant.key == "rpi4" or variant.key == "rpi3" %}
-      *(64-bit is recommended)*
     {% endif %}
 
-{% endfor %}
-{% endtabbed_block %}
-{% else %}
-
-```text
-{% assign board_key = site.installation.types[page.installation_type].variants[0].key %}
-{{release_url}}/{{site.data.version_data.hassos[board_key]}}/haos_{{ board_key }}-{{site.data.version_data.hassos[board_key]}}.img.xz
-```
-
-{% endif %}
-
-*Select and copy the URL or use the "copy" button that appear when you hover it.*
-
+    *Select and copy the URL or use the "copy" button that appears when you hover it.*
 5. Paste the URL into your browser to start the download.
 6. Extract the file you just downloaded.
 7. Select **Flash from file** and select the image you just extracted.
    - Do not use **Flash from URL**. It does not work on some systems.
-
-  ![Screenshot of the Etcher software showing flash from URL selected.](/images/installation/etcher1_file.png)
+    ![Screenshot of the Etcher software showing flash from URL selected.](/images/installation/etcher1_file.png)
 8. **Select target**.
-![Screenshot of the Etcher software showing the select target button highlighted.](/images/installation/etcher3.png)
+    ![Screenshot of the Etcher software showing the select target button highlighted.](/images/installation/etcher3.png)
 9. Select the boot medium ({{site.installation.types[page.installation_type].installation_media}}) you want to use for your installation.
-![Screenshot of the Etcher software showing the targets available.](/images/installation/etcher4.png)
+    ![Screenshot of the Etcher software showing the targets available.](/images/installation/etcher4.png)
 10. Select **Flash!** to start writing the image.
-   - If the operation fails, decompress the .xz file and try again.
-![Screenshot of the Etcher software showing the Flash button highlighted.](/images/installation/etcher5.png)
-   - When Balena Etcher has finished writing the image, you will see a confirmation.
-![Screenshot of the Etcher software showing that the installation has completed.](/images/installation/etcher6.png)
+    - If the operation fails, decompress the .xz file and try again.
+    ![Screenshot of the Etcher software showing the Flash button highlighted.](/images/installation/etcher5.png)
+    - When Balena Etcher has finished writing the image, you will see a confirmation.
+    ![Screenshot of the Etcher software showing that the installation has completed.](/images/installation/etcher6.png)
 
 ### Start up your {{site.installation.types[page.installation_type].board}}
 
@@ -304,7 +302,7 @@ Follow this guide if you already are running a supported virtual machine hypervi
 
 ### Create the virtual machine
 
-Load the appliance image into your virtual machine hypervisor. (Note: You are free to assign as much resources as you wish to the VM, please assign enough based on your add-on needs).
+Load the appliance image into your virtual machine hypervisor. (Note: You are free to assign as much resources as you wish to the VM, please assign enough based on your app needs).
 
 Minimum recommended assignments:
 
@@ -321,7 +319,7 @@ Minimum recommended assignments:
 - title: VirtualBox
   content: |
     1. Create a new virtual machine.
-    2. Select type **Linux**, subtype **Oracle Linux** and version **Oracle Linux (ARM 64-bit)**.
+    2. Select type **Linux**, subtype **Oracle Linux** and version **Oracle Linux (64-bit)** or **Oracle Linux (ARM 64-bit)** depending on your hardware.
     3. Under **Hardware**, select the amount of memory and number of CPUs. Then, select **Enable EFI**.
        - Make sure **EFI** is enabled. If EFI is not enabled, HAOS won't boot.
     4. Under **Hard Disk**, select **Use an existing virtual hard disk file**, select the unzipped VDI file from above.
@@ -366,7 +364,7 @@ Minimum recommended assignments:
     4. Check the box for **Customize configuration before install**.
     5. Under **Network Selection**, select your bridge.
     6. Under customization select **Overview** > **Firmware** > **UEFI x86_64: ...**. Make sure to select a non-secureboot version of OVMF (does not contain the word `secure`, `secboot`, etc.), e.g., `/usr/share/edk2/ovmf/OVMF_CODE.fd`.
-    7. Click **Add Hardware** (bottom left), and select **Channel**.
+    7. Select **Add Hardware** (bottom left), and select **Channel**.
     8. Select device type: **unix**.
     9. Select name: **org.qemu.guest_agent.0**.
     10. Finally, select **Begin Installation** (upper left corner).
@@ -428,7 +426,7 @@ Minimum recommended assignments:
 
       ## Edit the VM settings
 
-      11. In Windows Explorer, navigate to the storage location of your newly created VM, for example under `C:\home-assistant`.
+      11. In Windows Explorer, go to the storage location of your newly created VM, for example under `C:\home-assistant`.
       12. Delete the `home-assistant.vmdk` file.
       3. In the `Downloads` folder, find the `haos_ova_xx.x.vmdk` file. 
          - If you haven't unzipped the archive, unzip it.
@@ -469,8 +467,6 @@ Minimum recommended assignments:
 3. Once completed, you will be able to reach Home Assistant on <a href="http://homeassistant.local:8123" target="_blank">homeassistant.local:8123</a>. If you are running an older Windows version or have a stricter network configuration, you might need to access Home Assistant at <a href="http://homeassistant:8123" target="_blank">homeassistant:8123</a> or `http://X.X.X.X:8123` (replace X.X.X.X with your virtual machine’s IP address).
 
 {% endif %}
-
-{% include installation_survey.html %}
 
 With the Home Assistant Operating System installed and accessible, you can continue with onboarding.
 

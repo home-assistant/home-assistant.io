@@ -1,0 +1,132 @@
+.container {
+    display: flex;
+    margin: 0 auto;
+    max-width: calc(var(--container-max-width) + (var(--container-gutters) * 2));
+    padding: 12px calc(var(--container-gutters) / 2);
+    width: 100%;
+    height: 100%;
+
+    @include bp(desktop) {
+        padding: 12px var(--container-gutters);
+    }
+
+    &-full {
+        margin: 0 auto;
+        padding: 0 calc(var(--container-gutters) / 2);
+        max-width: calc(var(--container-full-max-width) + (var(--container-gutters) * 2));
+        width: 100%;
+
+        @include bp(desktop) {
+            padding: 0 var(--container-gutters);
+        }
+    }
+}
+
+footer{
+    isolation: isolate;
+    position: relative;
+    &:before{
+        content: '';
+        position: absolute;
+        height: 500px;
+        left: 0;
+        right: 0;
+        bottom: 100%;
+        background: linear-gradient(180deg, #F5F6FA 0%, #FFFFFF 100%);
+    }
+}
+
+html{
+    scroll-padding-top: 92px;
+}
+
+#landingpage {
+    background-color: #F5F6FA;
+    color: #002332;
+
+    height: auto;
+
+    .page-content {
+        overflow-x: clip;
+        padding-top: 68px;
+    }
+
+    .content {
+        max-width: unset;
+        margin: 0;
+    }
+
+    img {
+        box-shadow: unset;
+        vertical-align: unset;
+        border: unset;
+    }
+
+    .spacer {
+        display: none;
+    }
+}
+
+section {
+    padding: var(--section-spacing-y) 0;
+    position: relative;
+    z-index: 1;
+}
+
+main#page-community {
+    h1,
+    .h1 {
+        @include h1;
+    }
+
+    h2,
+    .h2 {
+        @include h2;
+    }
+
+    h3,
+    .h3 {
+        @include h3;
+        text-transform: unset;
+        letter-spacing: unset;
+    }
+
+    h4,
+    .h4 {
+        @include h4;
+    }
+
+    h5,
+    .h5 {
+        @include h5;
+    }
+
+    h6,
+    .h6 {
+        @include h6;
+    }
+
+    .small {
+        @include small;
+    }
+
+    .big {
+        @include big;
+    }
+
+    p {
+        color: var(--typography-paragraph-color);
+        font-size: var(--typography-paragraph-font-size);
+        font-weight: var(--typography-paragraph-font-weight);
+        line-height: var(--typography-paragraph-line-height);
+        margin: 0;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    figure {
+        margin: 0;
+    }
+}

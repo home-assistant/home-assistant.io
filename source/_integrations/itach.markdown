@@ -15,7 +15,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `itach` remote {% term integration %} allows you to control IR devices with a Global Caché iTach Device and GC-100 devices. The Global Cache IR API are similar across their product line. See API documentation links at the end of this page.
+The **Global Caché iTach TCP/IP to IR** {% term integration %} allows you to control IR devices with a Global Caché iTach Device and GC-100 devices. The Global Cache IR API are similar across their product line. See API documentation links at the end of this page.
 
 In order to utilize the digital input (binary sensor) and relay (switch) features of your Global Cache device you will need to use the [gc100 integration](/integrations/gc100) and associated platforms.
 

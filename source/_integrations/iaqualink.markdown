@@ -19,7 +19,7 @@ ha_platforms:
   - light
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 [iAqualink](https://www.iaqualink.com/) by [Jandy](https://www.jandy.com/) allows you to control your pool anytime, anywhere.

@@ -8,7 +8,7 @@ ha_iot_class: Configurable
 ha_domain: mqtt
 ---
 
-The `mqtt` Update platform allows you to integrate devices that might expose firmware/software installed and the latest versions through MQTT into Home Assistant as an Update entity. Every time a message under the `topic` in the configuration is received, the entity will be updated in Home Assistant.
+The **MQTT Update** {% term integration %} allows you to integrate devices that might expose firmware/software installed and the latest versions through MQTT into Home Assistant as an Update entity. Every time a message under the `topic` in the configuration is received, the entity will be updated in Home Assistant.
 
 ## Configuration
 
@@ -64,6 +64,10 @@ availability_template:
   type: template
 command_topic:
   description: The MQTT topic to publish `payload_install` to start installing process.
+  required: false
+  type: string
+default_entity_id:
+  description: Use `default_entity_id` instead of name for automatic generation of the entity ID. For example, `update.foobar`. When used without a `unique_id`, the entity ID will update during restart or reload if the entity ID is available.  If the entity ID already exists, the entity ID will be created with a number at the end. When used with a `unique_id`, the `default_entity_id` is only used when the entity is added for the first time. When set, this overrides a user-customized entity ID if the entity was deleted and added again.
   required: false
   type: string
 device:
@@ -168,10 +172,6 @@ latest_version_topic:
   type: string
 name:
   description: The name of the Update. Can be set to `null` if only the device name is relevant.
-  required: false
-  type: string
-object_id:
-  description: Used `object_id` instead of `name` for automatic generation of `entity_id`. This only works when the entity is added for the first time. When set, this overrides a user-customized Entity ID in case the entity was deleted and added again.
   required: false
   type: string
 payload_install:

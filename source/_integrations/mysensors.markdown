@@ -20,7 +20,7 @@ ha_platforms:
   - switch
   - text
 ha_config_flow: true
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The [MySensors](https://www.mysensors.org) project combines devices like Arduino, ESP8266, Raspberry Pi, NRF24L01+ and RFM69 to build affordable sensor networks. This integration will automatically add all available devices to Home Assistant, after [presentation](#presentation) is done. That is, you do not need to add anything to your configuration for the devices for them to be added. Go to the **states** section of the developer tools to find the devices that have been identified.
@@ -785,7 +785,7 @@ void receive(const MyMessage &message)
       last_dim=100;
     }
 
-    //Update constroller status
+    // Update controller status
     send_status_message();
 
   } else if ( message.type == V_PERCENTAGE ) {
@@ -794,14 +794,14 @@ void receive(const MyMessage &message)
     if ( dim_value == 0 ) {
       last_state = LIGHT_OFF;
 
-      //Update constroller with dimmer value & status
+      // Update controller with dimmer value & status
       send_dimmer_message();
       send_status_message();
     } else {
       last_state = LIGHT_ON;
       last_dim = dim_value;
 
-      //Update constroller with dimmer value
+      // Update controller with dimmer value
       send_dimmer_message();
     }
 

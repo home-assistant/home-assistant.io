@@ -15,11 +15,11 @@ ha_platforms:
 ha_integration_type: service
 ---
 
-The **Airly** {% term integration %} uses the [Airly](https://airly.eu/) web service as a source for air quality data for your location.
+The **Airly** {% term integration %} uses the [Airly](https://airly.org/) web service as a source for air quality data for your location.
 
 ## Setup
 
-To generate an Airly API key, go to [Airly for developers](https://developer.airly.eu/register) page.
+To generate an Airly API key, go to [Airly for developers](https://developer.airly.org/register) page.
 
 {% include integrations/config_flow.md %}
 

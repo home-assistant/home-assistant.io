@@ -11,11 +11,11 @@ It can happen that you run into trouble while configuring Home Assistant. Perhap
 
 Before we dive into common issues, make sure you know where your configuration directory is. Home Assistant will print out the configuration directory it is using when starting up.
 
-Whenever an integration or configuration option results in a warning, it will be stored in `home-assistant.log` in the configuration directory. This file is reset on start of Home Assistant.
+Whenever an integration or configuration option results in a warning, it will be stored in [the logs](/integrations/logger/#viewing-logs).
 
 ## My integration does not show up
 
-When an integration does not show up, many different things can be the case. Before you try any of these steps, make sure to look at the `home-assistant.log` file and see if there are any errors related to your integration you are trying to set up.
+When an integration does not show up, many different things can be the case. Before you try any of these steps, make sure to look at the [the logs](/integrations/logger/#viewing-logs) and see if there are any errors related to your integration you are trying to set up.
 
 If you have incorrect entries in your configuration files you can use the configuration check command (below) to assist in identifying them.
 
@@ -41,7 +41,7 @@ sensor:
     ...
 ```
 
-Another common problem is that a required configuration setting is missing. If this is the case, the integration will report this to `home-assistant.log`. You can have a look at [the various integration pages](/integrations/) for instructions on how to setup the integrations.
+Another common problem is that a required configuration setting is missing. If this is the case, the integration will report this in [the logs](/integrations/logger/#viewing-logs). You can have a look at [the various integration pages](/integrations/) for instructions on how to setup the integrations.
 
 See the [logger](/integrations/logger/) integration for instructions on how to define the level of logging you require for specific modules.
 
@@ -49,7 +49,7 @@ If you find any errors or want to expand the documentation, please [let us know]
 
 #### Problems with dependencies
 
-Almost all integrations have external dependencies to communicate with your devices and services. Sometimes Home Assistant is unable to install the necessary dependencies. If this is the case, it should show up in `home-assistant.log`.
+Almost all integrations have external dependencies to communicate with your devices and services. Sometimes Home Assistant is unable to install the necessary dependencies. If this is the case, it should show up in [the logs](/integrations/logger/#viewing-logs).
 
 The first step is trying to restart Home Assistant and see if the problem persists. If it does, look at the log to see what the error is. If you can't figure it out, please [report it](https://github.com/home-assistant/core/issues) so we can investigate what is going on.
 

@@ -8,7 +8,7 @@ ha_iot_class: Configurable
 ha_domain: mqtt
 ---
 
-This `mqtt` sensor platform uses the MQTT message payload as the sensor value. If messages in this `state_topic` are published with *RETAIN* flag, the sensor will receive an instant update with last known value. Otherwise, the initial state will be undefined.
+The **MQTT Sensor** {% term integration %} uses the MQTT message payload as the sensor value. If messages in this `state_topic` are published with *RETAIN* flag, the sensor will receive an instant update with last known value. Otherwise, the initial state will be undefined.
 
 ## Configuration
 
@@ -61,6 +61,10 @@ availability_template:
   type: template
 availability_topic:
   description: The MQTT topic subscribed to receive availability (online/offline) updates.
+  required: false
+  type: string
+default_entity_id:
+  description: Use `default_entity_id` instead of name for automatic generation of the entity ID. For example, `sensor.foobar`. When used without a `unique_id`, the entity ID will update during restart or reload if the entity ID is available.  If the entity ID already exists, the entity ID will be created with a number at the end. When used with a `unique_id`, the `default_entity_id` is only used when the entity is added for the first time. When set, this overrides a user-customized entity ID if the entity was deleted and added again.
   required: false
   type: string
 device:
@@ -169,10 +173,6 @@ name:
   required: false
   type: string
   default: MQTT Sensor
-object_id:
-  description: Used `object_id` instead of `name` for automatic generation of `entity_id`. This only works when the entity is added for the first time. When set, this overrides a user-customized Entity ID in case the entity was deleted and added again.
-  required: false
-  type: string
 options:
   description: List of allowed sensor state value. An empty list is not allowed. The sensor's `device_class` must be set to `enum`. The `options` option cannot be used together with `state_class` or `unit_of_measurement`.
   required: false

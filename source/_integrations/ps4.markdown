@@ -14,13 +14,13 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `ps4` integration allows you to control a
-[Sony PlayStation 4 console](https://www.playstation.com/en-us/explore/ps4/).
+The **Sony PlayStation 4** {% term integration %} allows you to control a
+[Sony PlayStation 4 console](https://www.playstation.com/ps4/).
 
 ## Requirements
 
 - Android or iOS device
-- PS4 Second Screen App for [Android](https://play.google.com/store/apps/details?id=com.playstation.mobile2ndscreen&hl=en_US) or [iOS](https://itunes.apple.com/us/app/ps4-second-screen/id1201372796?mt=8) installed on device.
+- PS4 Second Screen App for [Android](https://play.google.com/store/apps/details?id=com.playstation.mobile2ndscreen) or [iOS](https://apps.apple.com/app/id1201372796) installed on device.
 
 ## Set up
 
