@@ -149,6 +149,7 @@ If you're having issues with webhook detection or your Withings Sleep Mat "in be
    - SSL certificate configured (Let's Encrypt or a trusted certificate)
 3. Check Withings cloud connectivity: If webhook registration fails, the integration will fall back to polling, which only updates every 5 minutes and doesn't support sleep sensors.
 4. Enable debug logging: To see detailed information about webhook registration,  [enable debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics).
+
 ## Removing the integration
 
 This integration follows standard integration removal, no extra steps are required.
