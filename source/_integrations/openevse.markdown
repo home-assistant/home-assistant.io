@@ -33,7 +33,7 @@ The **OpenEVSE** {% term integration %} allows you to monitor your [OpenEVSE](ht
 
 The integration provides the following sensor entities:
 
- - **Charging status**: Current operational state of the charger (for example: **Connected**, **Charging**, **Not Connected**)                                                                          
+- **Charging status**: Current operational state of the charger (for example: **Connected**, **Charging**, **Not Connected**)                                                                          
 - **Charge time elapsed** (seconds): Duration of the current charging session                                                                                                             
 - **Usage this session** (Wh): Energy consumed during the current charging session                                                                                                        
 - **Total energy usage** (Wh): Cumulative energy consumption of the device                                                                                                                
