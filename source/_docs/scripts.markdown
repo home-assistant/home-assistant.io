@@ -452,7 +452,7 @@ repeat:
 {% endraw %}
 
 Other types are accepted as list items, for example, each item can be a
-template, or even an mapping of key/value pairs.
+template, or even a mapping of key/value pairs.
 
 {% raw %}
 
@@ -982,7 +982,7 @@ assistant. The conversation response can be templated.
 # Example of a templated conversation response resulting in "Testing 123"
 - variables:
     my_var: "123"
-- set_conversation_response: "{{ 'Testing ' + my_var }}"
+- set_conversation_response: "{{ 'Testing ' ~ my_var }}"
 ```
 
 {% endraw %}

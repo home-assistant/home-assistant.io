@@ -19,7 +19,7 @@ There is currently a big wave of people interested in running Home Assistant ([t
 
 Home Assistant comes in [different flavors](/installation/#compare-installation-methods). As a new user, you want to use our operating system. It is what powers Home Assistant Yellow and turns the device into a user-friendly home automation hub that is easy to maintain.
 
-**The best device that runs Home Assistant that is in stock is the [ODROID-N2+ Home Assistant Bundle](https://ameridroid.com/collections/kits/products/odroid-n2-home-assistant-blue-bundle-limited-edition?ref=eeb6nfw07e) from Ameridroid.** This bundle contains the ODROID-N2+ which is what also powers our [Home Assistant Blue](/blue/). It comes with Home Assistant pre-installed so it's ready to go. It's in stock today.
+**The best device that runs Home Assistant that is in stock is the [ODROID-N2+ Home Assistant Bundle](https://ameridroid.com/collections/kits/products/odroid-n2-home-assistant-blue-bundle-limited-edition) from Ameridroid.** This bundle contains the ODROID-N2+ which is what also powers our [Home Assistant Blue](/blue/). It comes with Home Assistant pre-installed so it's ready to go. It's in stock today.
 
 The ODROID-N2+ can also be bought from other stores or directly from the manufacturer, [Hardkernel](https://www.hardkernel.com/shop/odroid-n2-with-4gbyte-ram-2/). These configurations will not come with Home Assistant pre-installed and require following the [Home Assistant installation guide](/installation/odroid).
 

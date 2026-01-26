@@ -42,9 +42,9 @@ The button entities provide some additional LinkPlay features available on the d
 
 The LinkPlay integration makes various custom actions available in addition to the [standard media player actions](/integrations/media_player/#actions).
 
-### Action `linkplay.play_preset`
+### Action: Play preset
 
-Play a preset on a LinkPlay media player. 
+The `linkplay.play_preset` action plays a preset on a LinkPlay media player. 
 
 {% note %}
 Companion apps, such as 4stream, allow to save music presets (for example, Spotify playlists). This action can be used to start playing these presets. 

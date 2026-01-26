@@ -50,9 +50,9 @@ or using a passkey is supported. Use either one.
 
 The integration provides the following action.
 
-### Action `bsblan.set_hot_water_schedule`
+### Action: Set hot water schedule
 
-Sets the hot water heating schedule for your BSB-Lan device. Each day of the week can have one or more time slots when hot water heating should be active.
+The `bsblan.set_hot_water_schedule` action allows you to set the hot water heating schedule for your BSB-Lan device. Each day of the week can have one or more time slots when hot water heating should be active.
 
 - **Target**: `device_id`
   - **Description**: The BSB-Lan device to configure.
@@ -262,4 +262,3 @@ To see a more detailed listing of the reported systems which are successfully us
 
 The integration is tested with the stable firmware version `5.0.16-20250525002819`. A newer firmware version may not work because the API could have changed.
 For autodiscovery, use the latest release. [release 5.0](https://github.com/fredlcore/BSB-LAN/releases/tag/v5.0)
-

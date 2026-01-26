@@ -19,6 +19,7 @@ ha_category: []
 ha_platforms:
   - button
   - climate
+  - diagnostics
   - number
   - sensor
   - switch

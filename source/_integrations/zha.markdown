@@ -46,7 +46,7 @@ ha_platforms:
   - switch
   - update
 ha_zeroconf: true
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The **Zigbee Home Automation** (ZHA) {% term integration %} allows you to wirelessly connect many off-the-shelf [Zigbee-based devices](https://csa-iot.org/csa-iot_products/) directly to Home Assistant, using one of many compatible hardware adapters called _Zigbee coordinators_.
@@ -447,11 +447,11 @@ Additional devices in the [Compatible hardware](#compatible-hardware) section ma
 
 ## Actions
 
-### Action `zha.permit`
+### Action: Permit
 
-To add new devices to the network, call the `permit` action on the `zha` domain. Do this by clicking the **Actions** tab in **Developer tools** and typing `zha.permit` in the **Action** dropdown box. Next, follow the device instructions for adding, scanning or factory reset.
+The `zha.permit` action opens the network for joining new devices.
 
-This action opens network for joining new devices.
+To add new devices to the network, click the **Actions** tab in **Developer tools** and type `zha.permit` in the **Action** dropdown box. Next, follow the device instructions for adding, scanning, or performing a factory reset.
 
 | Data       | Optional | Description                                                                    |
 | ---------- | -------- | ------------------------------------------------------------------------------ |
@@ -475,42 +475,42 @@ from the same group:
     - Embrighten
 {% endnote %}
 
-### Action `zha.remove`
+### Action: Remove
 
-This action removes an existing device from the network. You can find the IEEE address of the device on the device card of Zigbee devices. An example of an IEEE address data parameter format is `00:0d::6f:00:05:7d:2d:34`.
+The `zha.remove` action removes an existing device from the network. You can find the IEEE address of the device on the device card of Zigbee devices. An example of an IEEE address data parameter format is `00:0d::6f:00:05:7d:2d:34`.
 
 | Data   | Optional | Description                          |
 | ------ | -------- | ------------------------------------ |
 | `ieee` | no       | IEEE address of the device to remove |
 
-### Action `zha.set_lock_user_code`
+### Action: Set lock user code
 
-This action sets a lock code on a Zigbee lock.
+The `zha.set_lock_user_code` action sets a lock code on a Zigbee lock.
 
 | Data        | Optional | Description                                                                |
 | ----------- | -------- | -------------------------------------------------------------------------- |
 | `code_slot` | no       | Which lock code slot to store the code. Ex. 1-32 will work for Kwikset 954 |
 | `user_code` | no       | Code to set on the lock. Ex. Kwikset accepts numbers 4-8 digits in length  |
 
-### Action `zha.clear_lock_user_code`
+### Action: Clear lock user code
 
-This action clears a lock code from a Zigbee lock.
+The `zha.clear_lock_user_code` action clears a lock code from a Zigbee lock.
 
 | Data        | Optional | Description                   |
 | ----------- | -------- | ----------------------------- |
 | `code_slot` | no       | Which lock code slot to clear |
 
-### Action `zha.enable_lock_user_code`
+### Action: Enable lock user code
 
-This action enables a lock code on a Zigbee lock.
+The `zha.enable_lock_user_code` action enables a lock code on a Zigbee lock.
 
 | Data        | Optional | Description                    |
 | ----------- | -------- | ------------------------------ |
 | `code_slot` | no       | Which lock code slot to enable |
 
-### Action `zha.disable_lock_user_code`
+### Action: Disable lock user code
 
-This action disables a lock code on a Zigbee lock.
+The `zha.disable_lock_user_code` action disables a lock code on a Zigbee lock.
 
 | Data        | Optional | Description                     |
 | ----------- | -------- | ------------------------------- |
@@ -605,7 +605,7 @@ If some existing devices do not resume normal functions after some time, try pow
      - Use a USB extension cable.
      - Use a USB 2.0 port or a powered USB 2.0 hub.
      - Keep the Zigbee adapter away from USB 3.0 devices.
-     - This [video](https://support.nabucasa.com/hc/en-us/articles/26124431414557) shows the effect of interference.
+     - This [video](https://support.nabucasa.com/hc/articles/26124431414557) shows the effect of interference.
 4. Reconfiguration of ZHA starts. Select **Submit**.
    - An automatic backup will be performed.
 5. Under **Migrate or re-configure**, select **Migrate to a new adapter**.
@@ -704,50 +704,86 @@ These sections both provide helpful advice on improving your Zigbee network perf
 If your Zigbee device pairs/joins successfully with the ZHA {% term integration %} but does not show all of the expected entities:
 
 1. Try to re-pair/re-join the device several times.
-2. Checkout the troubleshooting section.
-3. Still not working? You may need a custom device handler. This handler will have exception handling code to work around device-specific issues.
+2. Review the troubleshooting sections.
+3. Search for similar situations in the Home Assistant [community forum or Discord chat server](https://www.home-assistant.io/help/).
+4. Still not working? You may need a custom device handler. This handler will have exception handling code to work around device-specific issues.
 
-For devices that do not follow the standard defined in the CSA's ZCL (Zigbee Cluster Library), the ZHA {% term integration %} relies on a project called "[ZHA Device Handlers (also known as "zha-quirk")](https://github.com/zigpy/zha-device-handlers)". It contains device-specific Python scripts called "quirks". These scripts can resolve compliance and interoperability issues by implementing on-the-fly conversion of custom Zigbee configurations or by implementing manufacturer-specific features for specific devices.
+#### ZHA device handlers
+For devices that do not follow the standard defined in the CSA's ZCL (Zigbee Cluster Library), the ZHA {% term integration %} relies on a project called "[ZHA Device Handlers (also known as "zha-quirk")](https://github.com/zigpy/zha-device-handlers)".
 
-People familiar with other Zigbee gateway solutions for home automation may know similar concepts of using custom Zigbee device handlers/converters for non-standard devices. For example, [Zigbee2MQTT (and IoBroker) uses zigbee-herdsman converters](https://www.zigbee2mqtt.io/advanced/support-new-devices/01_support_new_devices.html) and [SmartThings Classics (Legacy) platform has Hub Connected Device Handlers](https://developer.smartthings.com/docs/devices/hub-connected/legacy).
+The project contains device-specific Python scripts called "quirks" that can resolve compliance and interoperability issues by implementing on-the-fly conversion of custom Zigbee configurations or by implementing manufacturer-specific features for specific devices.
 
-If you do not want to develop such a "quirk" Python script yourself, you can submit a "device support request" as a new issue to the [ZHA Device Handlers project repository on GitHub](https://github.com/zigpy/zha-device-handlers/issues):
+Other Zigbee gateway solutions have similar concepts of using custom handlers/converters for non-standard devices, such as Zigbee2MQTT (and IoBroker) using [zigbee-herdsman converters](https://www.zigbee2mqtt.io/advanced/support-new-devices/01_support_new_devices.html).
 
-1. Sign in to GitHub.
-2. Select **New issue** and follow the instructions.
+If you do not want to create a "quirk" yourself, you can submit a "device support request" as a new issue to the [ZHA Device Handlers project repository on GitHub](https://github.com/zigpy/zha-device-handlers/issues).
+
+{% details "To submit a new device support request:" %}
+
+{% note %}
+
+Without device support requests, the community of volunteer developers may not be aware that your specific Zigbee device is not working correctly in ZHA.
+
+Please note that the project relies on volunteers; submitting a new device support request does not guarantee that someone will develop a custom quirk for ZHA. 
+
+{% endnote %}
+
+1. Sign in to GitHub.com (an account is required)
+2. Go to the [ZHA Device Handlers project issues page](https://github.com/zigpy/zha-device-handlers/issues)
+3. Select **New issue** and follow the instructions.
     - New device support requests require the device signature + diagnostic information.
     - You may also need to actively help in further testing or provide additional information to the volunteering developers.
 
-Note that submitting a new "device support request" does not guarantee that someone else will develop a custom "quirk" for ZHA. The project relies on volunteering developers. However, without "device support requests", the developers may not be aware that your specific Zigbee device is not working correctly in ZHA.
+{% enddetails %}
+
 
 ### Best practices to avoid pairing/connection difficulties
 
 If you experience problems pairing a device, verify that you follow best practices to avoid pairing/connection issues:
 
-- Check that your setup and environment are optimized to avoid interference.
-  - As interference avoidance is an extremely important topic on its own, please read and follow the tips in the separate section below about Zigbee interference avoidance and network range/coverage optimization.
-- Check that you have enough Zigbee router devices (also known as Zigbee signal repeaters or range extenders) and if you do not have any, invest and add some mains-powered devices that will work as Zigbee routers.
-  - Aim to start out with mains-powered devices before adding battery-operated devices as a "weak" Zigbee network mesh (e.g., the device is too far from the Zigbee coordinator or a Zigbee router) may prevent some devices from being paired. Zigbee router devices are also needed to increase the maximum of devices that can be connected to your Zigbee mesh network.
-  - Note that some Zigbee devices are not fully compatible with all brands of Zigbee router devices. Xiaomi/Aqara devices are for example known not to work with Zigbee router devices from Centralite, General Electrics, Iris, Ledvance/OSRAM, LIGHTIFY/Sylvania, Orvibo, PEQ, Securifi, and SmartThings/Samsung. Better results can usually be achieved by using mains-powered devices IKEA and Nue/3A Home or dedicated DIY routing devices based on Texas Instruments CC253x/CC26x2 and XBee Series 2/3 Zigbee radios.
-- If possible try to pair your Zigbee devices in their intended final location, (and not pair it next to the Zigbee coordinator and then need to move it after).
-  - Pairing a Zigbee device next to the Zigbee coordinator and then moving it later can result in dropped/lost connections or other issues.
-    - If the device you want to add is not brand new and as such never paired before then you always have to make sure to first manually reset the device to its factory default settings before you will be able to add/pair it.
-- Some battery-operated Zigbee devices are known to have problems with pairing if they have Low battery voltage.
-  - Some people have reported replacing the battery on their newly received Xiaomi/Aqara devices solved pairing issues.
-- Be patient as the pairing of some Zigbee devices may require multiple attempts and you may sometimes need to try again and again.
-  - Some devices, like example those from Xiaomi/Aqara, are known to not be 100% compliant with the standard Zigbee specifications and may therefore require many paring attempts over 10-20 minutes or longer.
+1. Reduce network interference:
+    - Check that your setup and environment are optimized to avoid interference.
+    - Interference avoidance is an extremely important topic on its own. Review the tips in the separate section below about Zigbee interference avoidance and network range/coverage optimization.
+2. Strengthen your network:
+    - Check that you have enough Zigbee router devices (Zigbee signal repeaters or range extenders).
+    - If you do not have any, you should add additional mains-powered devices to serve as Zigbee routers.
+    - Aim to start with mains-powered devices before adding battery-operated devices. 
+      - A "weak" Zigbee network mesh may prevent some devices from being paired (such as a device being too far from a Zigbee router or coordinator). 
+    - Zigbee router devices are also needed to increase the maximum of devices that can be connected to your Zigbee mesh network.
+    - Some Zigbee devices are not fully compatible with all brands of Zigbee router devices. 
+      - Xiaomi/Aqara devices known not to work with Zigbee router devices from Centralite, General Electrics, Iris, Ledvance/OSRAM, LIGHTIFY/Sylvania, Orvibo, PEQ, Securifi, and SmartThings/Samsung. 
+    - Better results can usually be achieved by using mains-powered devices IKEA and Nue/3A Home or dedicated DIY routing devices based on Texas Instruments CC253x/CC26x2 and XBee Series 2/3 Zigbee radios.
+3. Plan your pairing:
+    - Try to pair Zigbee devices where you intend to use them:
+      - Avoid pairing next to the Zigbee coordinator if you intend to move its location afterward.
+      - Pairing a device next to the coordinator and moving it later can result in degraded connections.
+    - If the device you want to add has been previously paired to another network, you will likely need to manually factory-reset the device in order to add/pair it.
+    - Some battery-operated Zigbee devices are known to have problems with pairing if they have low battery voltage.
+      - Some people have reported replacing the battery on their newly received Xiaomi/Aqara devices solved pairing issues.
+4. Be patient:
+    - The pairing of some Zigbee devices may require multiple or repeated attempts.
+    - Some devices, such as those from Xiaomi/Aqara, may not be fully compliant with Zigbee standards and may therefore require many paring attempts over 10-20 minutes or longer.
 
 ### Zigbee interference avoidance and network range/coverage optimization
 
-Sources of interference for radios can lead to transmission/reception loss or connection problems and show symptoms such as errors/failures when sending and receiving Zigbee messages/signals that can cause significant degradation in performance or even prevent devices from communicating at all. Below are some basic but essential tips for getting a good setup starting point to achieve better signal quality, improved coverage, and extended range.
+Sources of interference for radios can lead to connection problems, errors in sending and receiving Zigbee messages/signals, and significant degradation in performance. Implementing some good practicies can serve as a starting point to achieve better signal quality and reception, improved coverage, and extended range.
 
-Following all these optimization tips below should significantly improve the reception of your Zigbee radio adapter. The below insights describe working around the well-known limitations of low-power/low-bandwidth 2.4 GHz digital radios. It can that way resolve or avoid many known issues caused by interference or poor placement of your Zigbee radio adapter or devices.
+It is important to understand the known limitations of low-power/low-bandwidth 2.4 GHz digital radios to avoid issues caused by interference or poor placement of your Zigbee radio adapter or devices.
 
-All electric devices/appliances, especially computers and computer peripherals, generate [EMI/EMF/RMI (electromagnetic fields that cause electromagnetic interference (often called radio-frequency interference, also commonly called signal noise in layman's terms)](https://en.wikipedia.org/wiki/Electromagnetic_interference), which can interfere with signals transmissions on the 2.4 GHz radio band frequency, and in practice partially degrade or even fully jam the wireless communication messages between your Zigbee adapter/devices.
+All electric devices/appliances, especially computers and computer peripherals, generate EMI/EMF/RMI (electromagnetic fields that cause [electromagnetic interference](https://en.wikipedia.org/wiki/Electromagnetic_interference)). This is often called _radio-frequency interference_ or _signal noise_, and it can interfere with signal transmissions over 2.4 GHz radios. It can partially degrade or even fully jam wireless communications between your Zigbee adapter and devices.
 
-For example, interference from USB 3.x ports, unshielded USB 3.x devices, and non-shielded USB 3.x peripheral cables are especially infamously known to affect 2.4 GHz radio reception for low-power/low-bandwidth devices. Therefore you should always place your Zigbee adapter far away as possible from any potential sources of EMI/EMI/RMI, preferably by using an adequately long shielded USB extension cable connected to a USB 2.0 port.
+Examples of real-world interference sources include:
 
-Zigbee also uses [mesh networking topology](https://en.wikipedia.org/wiki/Mesh_networking), which means that most mains-powered devices are a "Zigbee Router" that can act as a signal repeater and range extended by transmitting data over long distances by passing data messages through the Zigbee network mesh of intermediate devices to reach more distant Zigbee devices. Thus to have a healthy Zigbee network, you need many Zigbee Router devices relatively close to each other in order to achieve good coverage and range.
+- Signal noise from USB 3.x ports, 
+- Unshielded USB 3.x devices,
+- Non-shielded USB 3.x peripheral cables 
+    - These are widely known to affect 2.4 GHz radio reception for low-power/low-bandwidth devices.
+    - You should always place your Zigbee adapter far away as possible from any potential sources of EMI/EMI/RMI, preferably by using an adequately long shielded USB extension cable connected to a USB 2.0 port.
+
+Zigbee relies on a concept of [mesh networking](https://en.wikipedia.org/wiki/Mesh_networking) with most mains-powered devices being "Zigbee Routers" that act as signal repeaters and range extenders. Collectively, they transmit data over long distances by passing data messages through the Zigbee network mesh of intermediate devices to reach more distant Zigbee devices. 
+
+{% tip %}
+To have a healthy Zigbee network, you need many Zigbee Router devices relatively close to each other in order to achieve good coverage and range.
+{% endtip %}
 
 #### Actions to optimize Zigbee Coordinator radio hardware
 
@@ -817,20 +853,42 @@ This is what causes devices to show a missing link. Even though the device is no
 
 #### How to interpret RSSI and LQI values
 
-Interpreting RSSI and LQI values can be complex, as metrics of network health and communication quality are provided by the devices themselves, and each device could get to its results in different ways. Unless you are a Zigbee specialist yourself or are guided by one, please ignore those values. They can be misleading. If you delve into this, it is important to understand not to judge RSSI or LQI values on their own. When troubleshooting Zigbee messages that are being dropped, you must interpret the combination of both RSSI and LQI.
+Interpreting RSSI and LQI values can be complex, as metrics of network health and communication quality are provided by the devices themselves, and each device could get to its results in different ways. Unless you are a Zigbee specialist yourself or are guided by one, please ignore those values. They can be misleading. 
 
-RSSI (Received Signal Strength Indicator) values are an indicator value of the raw signal strength between two devices. RSSI values are negative numbers in -dBm format (0 to -100 power ratio in decibels of the measured power referenced to one milliwatt). Lower negative values indicate less interference and a good signal. RSSI information is only between the endpoint device and the first hop from that device. As such, it may not necessarily show signal strength to the Zigbee Coordinator but instead could be showing signal strength to the nearest Zigbee Router device.
+{% note %}
+It is important to not judge RSSI or LQI values on their own. When troubleshooting Zigbee messages that are being dropped, you must interpret the combination of both RSSI and LQI.
+{% endnote %}
 
-- Generally, anything -60 and above (meaning -50, -40, etc.) in RSSI should be considered a strong signal (not losing messages).
-- Usually, anything at -80 and below (meaning -85, -90, etc.) in RSSI should be considered a noisy environment and you risk losing messages.
+{% details "About RSSI (Received Signal Strength Indicator)" %}
+RSSI (Received Signal Strength Indicator) values are an indicator value of the raw signal strength between two devices. 
 
-LQI (Link Quality Index) values are shown as positive numbers on a scale but can be very hard to interpret for Zigbee and not as useful for troubleshooting. This is because the Zigbee specifications and the (IEEE 802.15.4 specification) do not standardize how to perform LQI measurements. The LQI value provided by the Zigbee devices is not measured using unified standards from all device manufacturers and Zigbee stacks, and often, LQI is only a measure of the last-hop link quality anyway, which is most of the time not useful information as such the values can not always be trusted.
+RSSI values are negative numbers in -dBm format ranging from 0 to -100 power ratio in decibels of the measured power referenced to one milliwatt. Lower negative values indicate less interference and a good signal. 
 
-For example, Zigbee devices based on Silicon Labs EmberZNet stack use positive display numbers for LQI, where higher is better and lower is worse. The Texas Instruments Z-Stack computes LQI for each received packet from the raw “received signal strength index” (RSSI) by linearly scaling it between the minimum and maximum defined RF power levels for the radio that more or less just provides an LQI value that, based on the strength of the received signal. This can be misleading in case you have a noisy environment with interference within the same frequency range (as the RSSI value may be shown as increased even though the true link quality decreases). Other manufacturers and Zigbee stacks measure and calculate LQI values in another way.
+The value is a measurement between the endpoint device and the first hop from that device. It may not necessarily show signal strength to the Zigbee Coordinator but instead could be showing signal strength to the nearest Zigbee Router device.
 
-In theory, a positive high LQI value is better, and a lower LQI value is worse, but depending on your devices, that might not always be the reality.
+Generally:
+- Values -60 and above (meaning -50, -40, etc.) indicate a strong signal and very low risk of losing messages.
+- Values at -80 and below (meaning -85, -90, etc.) indicate a "noisy" environment and you may risk losing messages.
 
-- Best practice is to ignore LQI value.
+{% enddetails %}
+
+{% details "About LQI (Link Quality Index)" %}
+
+LQI (Link Quality Index) values are shown as positive numbers on a scale but can be very hard to interpret for Zigbee and not as useful as an individual metric for troubleshooting. 
+
+This is due to the Zigbee and IEEE 802.15.4 specifications not standardizing how to perform LQI measurements. The LQI value provided by the Zigbee devices is not measured using unified standards from all device manufacturers and Zigbee stacks, and LQI is often only a measure of the last-hop link quality which is not always useful information.
+
+In theory, a positive high LQI value is better, and a lower LQI value is worse. Depending on your devices, that might not always reflect the reality. A good practice is to only include LQI with other types of metrics or data points, not as a standalone indicator.
+
+Vendor-specific examples:
+
+- Zigbee devices based on Silicon Labs EmberZNet stack use positive display numbers for LQI where higher values are better and lower values are worse. 
+- Texas Instruments Z-Stack computes LQI for each received packet from the raw Received Signal Strength Index (RSSI) by linearly scaling it between the minimum and maximum defined RF power levels for the radio that in effect provides an LQI value that is based on the strength of the received signal. 
+  - This can be misleading in case you have a noisy environment with interference within the same frequency range as the RSSI value may be shown as increased even though the true link quality decreases.
+- Other manufacturers and Zigbee stacks measure and calculate LQI values in another way.
+
+{% enddetails %}
+
 
 ### Reporting issues
 
@@ -841,7 +899,10 @@ When reporting potential bugs related to the ZHA integration on the issues track
 1. Debug logs for the issue, see [debug logging](#debug-logging).
 2. Exact model and firmware of the Zigbee radio (Zigbee Coordinator adapter) being used.
 3. If the issue is related to a specific Zigbee device, provide both the **Zigbee Device Signature** and the **Diagnostics** information.
-     - Both the **Zigbee Device Signature** and the **Diagnostics** information can be found under {% my integrations title="**Settings** > **Devices & services**" %}. Select the **Zigbee Home Automation** integration. Then, select **Configure** > **Devices** (pick your device). Select **Zigbee Device Signature** and **Download Diagnostics**, respectively.
+     - Both the **Zigbee Device Signature** and the **Diagnostics** information can be found under {% my integrations title="**Settings** > **Devices & services**" %}. 
+        - Select the **Zigbee Home Automation** integration. 
+        - Then, navigate to **Configure** > **Devices** (pick your device). 
+        - Select **Zigbee Device Signature** and **Download Diagnostics**, respectively.
 
 {% tip %}
 For troubleshooting, read the following sections on this page. They provide information on improving your Zigbee network performance.

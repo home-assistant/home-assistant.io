@@ -20,7 +20,7 @@ ha_platforms:
   - media_player
   - remote
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
 ha_ssdp: true
 ha_dhcp: true
 ---
@@ -58,9 +58,9 @@ Once added, a new device will appear with the same set of entities available for
 
 The Xbox media player platform will create media player entities for each console linked to your Microsoft account. These entities will display the active app and playback controls as well as a media browser implementation, allowing you to launch any installed application.
 
-### Action `play_media`
+### Action: Play media
 
-Launches an application on the Xbox console using the application's product ID. Also supports "Home" to navigate to the dashboard.
+The `play_media` action launches an application on the Xbox console using the application's product ID. Also supports "Home" to navigate to the dashboard.
 
 You can find Product IDs using the **{% my developer_events title="Developer Tools > Events" %}** tab and listening to the `call_service` event. In a new browser tab, navigate to the media browser for your console and click on an App/Game to see the product ID in the event.
 
@@ -88,7 +88,9 @@ media_content_id: "9WZDNCRFJ3TJ" # Netflix
 
 The Xbox remote platform will create Remote entities for each console linked to your Microsoft Account. These entities will allow you to turn on/off and send controller or text input to your console.
 
-### Action `send_command`
+### Action: Send command
+
+The `send_command` action sends controller commands or text input to the Xbox console.
 
 | Data attribute | Optional | Description                                                       |
 | ---------------------- | -------- | --------------------------------------------------------- |

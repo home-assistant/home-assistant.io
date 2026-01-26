@@ -12,7 +12,7 @@ ha_domain: izone
 ha_homekit: true
 ha_platforms:
   - climate
-ha_integration_type: integration
+ha_integration_type: hub
 related:
   - docs: /docs/configuration/
     title: Configuration file
@@ -125,18 +125,18 @@ This will help you to find network connection issues etc.
 
 ## Actions
 
-### Action `izone.airflow_min`
+### Action: Set minimum airflow
 
-Set the minimum airflow for a particular zone.
+The `izone.airflow_min` action sets the minimum airflow for a particular zone.
 
 | Data attribute | Optional | Description                                    |
 | ---------------------- | -------- | ---------------------------------------------- |
 | `entity_id`            | yes      | izone Zone entity. For example `climate.bed_2` |
 | `airflow`              | no       | Airflow percent in 5% increments               |
 
-### Action `izone.airflow_max`
+### Action: Set maximum airflow
 
-Set the maximum airflow for a particular zone.
+The `izone.airflow_max` action sets the maximum airflow for a particular zone.
 
 | Data attribute | Optional | Description                                    |
 | ---------------------- | -------- | ---------------------------------------------- |

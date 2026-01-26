@@ -88,6 +88,11 @@ Please note, device names configured in the SwitchBot app are transferred into H
 
 - [Lock (WoLock)](https://switch-bot.com/pages/switchbot-lock)
 - [Lock Pro (WoLockPro)](https://www.switch-bot.com/pages/switchbot-lock-pro)
+- Lock Pro Wifi
+- Lock Lite
+- [Lock Ultra](https://www.switch-bot.com/products/switchbot-lock-ultra)
+- Lock Vision
+- Lock Vision Pro
 
 ### Sensors
 

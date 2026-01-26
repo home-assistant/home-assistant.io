@@ -105,90 +105,72 @@ The `netatmo` switch platform provides support for Legrand/BTicino switches and 
 
 ## Actions
 
-### Set Outdoor Camera Light Mode
+### Action: Set outdoor camera light mode
 
-`set_camera_light_mode`
-
-Set the outdoor camera light mode.
+The `netatmo.set_camera_light_mode` action sets the outdoor camera light mode.
 
 | Data attribute | Required | Description                |
 | ---------------------- | -------- | -------------------------- |
 | `camera_light_mode`    | Yes      | Outdoor camera light mode. |
 
-### Set Schedule
+### Action: Set schedule
 
-`set_schedule`
-
-Set the heating schedule.
+The `netatmo.set_schedule` action sets the heating schedule.
 
 | Data attribute | Required | Description                           |
 | ---------------------- | -------- | ------------------------------------- |
 | `schedule_name`        | Yes      | The name of the schedule to activate. |
 
-### Set preset mode with end date & time
+### Action: Set preset mode with end date & time
 
-`set_preset_mode_with_end_datetime`
-
-Set the preset mode for a Netatmo climate device. The preset mode must match a preset mode configured at Netatmo.
+The `netatmo.set_preset_mode_with_end_datetime` action sets the preset mode for a Netatmo climate device. The preset mode must match a preset mode configured at Netatmo.
 
 | Data attribute | Required | Description                                                 |
 | ---------------------- | -------- | ----------------------------------------------------------- |
 | `preset_mode`          | Yes      | Climate preset mode such as Schedule, Away, or Frost Guard. |
 | `end_datetime`         | Yes      | Date & time until which the preset will be active.          |
 
-### Set temperature with end date & time
+### Action: Set temperature with end date & time
 
-`set_temperature_with_end_datetime`
-
-Sets the target temperature for a Netatmo climate device with an end date & time.
+The `netatmo.set_temperature_with_end_datetime` action sets the target temperature for a Netatmo climate device with an end date & time.
 
 | Data attribute | Required | Description                                              |
 | ---------------------- | -------- | -------------------------------------------------------- |
 | `target_temperature`   | Yes      | The target temperature for the device.                   |
 | `end_datetime`         | Yes      | Date & time the target temperature will be active until. |
 
-### Set temperature with time period
+### Action: Set temperature with time period
 
-`set_temperature_with_time_period`
-
-Sets the target temperature for a Netatmo climate device as well as the time period during which this target temperature applies.
+The `netatmo.set_temperature_with_time_period` action sets the target temperature for a Netatmo climate device as well as the time period during which this target temperature applies.
 
 | Data attribute | Required | Description                                                 |
 | ---------------------- | -------- | ----------------------------------------------------------- |
 | `target_temperature`   | Yes      | The target temperature for the device.                      |
 | `time_period`          | Yes      | Time period during which the target temperature is applied. |
 
-### Clear temperature setting
+### Action: Clear temperature setting
 
-`clear_temperature_setting`
+The `netatmo.clear_temperature_setting` action clears any temperature setting for a Netatmo climate device reverting it to the current preset or schedule.
 
-Clears any temperature setting for a Netatmo climate device reverting it to the current preset or schedule.
+### Action: Set persons as at home
 
-### Set Person Home
-
-`set_persons_home`
-
-Set a list of persons as at home. Person's name must match a name known by the Netatmo Smart Indoor Camera.
+The `netatmo.set_persons_home` action sets a list of persons as at home. Person's name must match a name known by the Netatmo Smart Indoor Camera.
 
 | Data attribute | Required | Description    |
 | ---------------------- | -------- | -------------- |
 | `persons`              | Yes      | List of names. |
 
-### Set Person Away
+### Action: Set person away
 
-`set_person_away`
-
-Set a person away. If no person is set the home will be marked as empty. Person's name must match a name known by the Netatmo Smart Indoor Camera.
+The `netatmo.set_person_away` action sets a person away. If no person is set the home will be marked as empty. Person's name must match a name known by the Netatmo Smart Indoor Camera.
 
 | Data attribute | Required | Description    |
 | ---------------------- | -------- | -------------- |
 | `person`               | Yes      | Person's name. |
 
-### (Un-)Register Webhooks
+### Action: Register webhook and unregister webhook
 
-`register_webhook` and `unregister_webhook`
-
-Actions to manually register and unregister the webhook.
+The `netatmo.register_webhook` and `netatmo.unregister_webhook` actions manually register and unregister the webhook.
 
 ## Webhook Events
 
@@ -323,7 +305,7 @@ During the process you have to choose the new Application Credentials name.
 
 ### Receiving events
 
-To confirm your Home Assistant instance is receiving events via webhooks, you can listen to `netatmo_event` in {% my developer_events title="Developer Tools -> Events" %}.
+To confirm your Home Assistant instance is receiving events via webhooks, you can listen to `netatmo_event` in {% my developer_events title="**Developer Tools** > **Events**" %}.
 
 ### Light
 

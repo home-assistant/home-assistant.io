@@ -24,7 +24,7 @@ ha_platforms:
   - siren
   - switch
   - update
-ha_integration_type: integration
+ha_integration_type: hub
 ha_dhcp: true
 ha_quality_scale: platinum
 related:
@@ -36,7 +36,7 @@ works_with:
   - local
 ---
 
-The integration allows you to control [Reolink](https://reolink.com/) NVRs or cameras. Reolink cameras are known for their local storage, without the need for a cloud subscription or account. Reolink cameras can operate fully locally on your network, putting privacy first. When blocking internet access for the Reolink devices, the Home Assistant integration, as well as the Reolink app/client, will continue to work as usual. Reolink cameras provide excellent day- and nighttime video clarity at an affordable price. An SD card in the camera offers local recording, while an optional Reolink NVR/Hub can offer a large recording capacity indoors. As evident by the list of entities in this documentation, Reolink cameras are highly configurable and tightly integrated into Home Assistant.
+The **Reolink** {% term integration %} allows you to control [Reolink](https://reolink.com/) NVRs or cameras. Reolink cameras are known for their local storage, without the need for a cloud subscription or account. Reolink cameras can operate fully locally on your network, putting privacy first. When blocking internet access for the Reolink devices, the Home Assistant integration, as well as the Reolink app/client, will continue to work as usual. Reolink cameras provide excellent day- and nighttime video clarity at an affordable price. An SD card in the camera offers local recording, while an optional Reolink NVR/Hub can offer a large recording capacity indoors. As evident by the list of entities in this documentation, Reolink cameras are highly configurable and tightly integrated into Home Assistant.
 
 This integration is officially authorized by Reolink, with @StarkillerOG as the main developer, and it is built with the support of Reolink's official resources.
 
@@ -51,7 +51,7 @@ A brand new Reolink camera needs to be connected to the network and initialized.
 
 {% configuration_basic %}
 Host:
-  description: "The hostname or IP address of your Reolink device. For example: '192.168.1.25'. You can find it in your router or in the Reolink app under **Settings** -> **Device** (top icon) -> **Networkinformation** -> **IP-address**. Normally, the Reolink device is automatically discovered, and you do not need to provide this."
+  description: "The hostname or IP address of your Reolink device. For example: '192.168.1.25'. You can find it in your router or in the Reolink app under **Settings** > **Device** (top icon) > **Networkinformation** > **IP-address**. Normally, the Reolink device is automatically discovered, and you do not need to provide this."
 Username:
   description: "Username to log in to the Reolink device itself. Not the Reolink cloud account."
 Password:
@@ -394,6 +394,7 @@ The following models have been tested and confirmed to work with a direct link t
 - [E1 Outdoor](https://reolink.com/product/e1-outdoor/)
 - [E1 Outdoor PoE](https://reolink.com/product/e1-outdoor-poe/)
 - [E1 Outdoor Pro](https://reolink.com/product/e1-outdoor-pro/)
+- [E331](https://reolink.com/product/e331/)
 - [Elite Floodlight WiFi](https://reolink.com/product/elite-floodlight-wifi/) (needs mains power, cannot be integrated when powered through USB)
 - [FE-P](https://reolink.com/product/fe-p/) (only "fisheye" or "5-in-1" view for the streams, not "dual panoramic", "quad", "cylindrical", "defished", or "hemispheric" view)
 - [FE-W](https://reolink.com/product/fe-w/) (only "fisheye" or "5-in-1" view for the streams, not "dual panoramic", "quad", "cylindrical", "defished", or "hemispheric" view)

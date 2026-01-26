@@ -35,13 +35,13 @@ fire_event:
 
 ## Actions
 
-### Action `clear`
+### Action: Clear
 
-To manually clear the system log, use this action.
+The `system_log.clear` action manually clears the system log.
 
-### Action `write`
+### Action: Write
 
-Write a log entry
+The `system_log.write` action writes a log entry.
 
 | Data attribute | Optional | Description                                                                    |
 | ---------------------- | -------- | ------------------------------------------------------------------------------ |

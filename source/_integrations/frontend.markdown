@@ -152,7 +152,7 @@ As with all configuration, you can either:
 
 For more details about splitting up the configuration into multiple files, see [this page](/docs/configuration/splitting_configuration/).
 
-Check our [community forums](https://community.home-assistant.io/c/projects/themes) to find themes to use.
+Check our [community forums](https://community.home-assistant.io/c/29) to find themes to use.
 
 ## Setting themes
 
@@ -161,7 +161,9 @@ There are two themes-related actions:
 - `frontend.reload_themes`: Reloads theme configuration from your {% term "`configuration.yaml`" %} file.
 - `frontend.set_theme`: Sets backend-preferred theme name.
 
-### Action `set_theme`
+### Action: Set theme
+
+The `frontend.set_theme` action allows you to set the theme used by the frontend.
 
 | Data attribute | Description                                                                                         |
 | -------------- | --------------------------------------------------------------------------------------------------- |

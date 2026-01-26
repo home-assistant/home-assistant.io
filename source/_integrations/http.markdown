@@ -20,7 +20,7 @@ There is currently support for the following device types within Home Assistant:
 - [Sensor](#sensor)
 
 {% warning %}
-The option `server_host` should only be used on a Home Assistant Core installation!
+The option `server_host` should only be used on a Home Assistant Container installation!
 {% endwarning %}
 
 ```yaml
@@ -118,6 +118,10 @@ http:
     - 10.0.0.200      # Add the IP address of the proxy server
     - 172.30.33.0/24  # You may also provide the subnet mask
 ```
+
+{% important %}
+When a network mask is provided, you must use the network address (for example, `192.168.1.0/24`), not a host address (for example, `192.168.1.50/24`).
+{% endimportant %}
 
 ## APIs
 

@@ -16,7 +16,7 @@ ha_codeowners:
 ha_integration_type: service
 ---
 
-This Radarr integration pulls data from a given [Radarr](https://radarr.video/) instance.
+The **Radarr** {% term integration %} pulls data from a given [Radarr](https://radarr.video/) instance.
 Your API key can be found in Settings > General in the Radarr Web UI.
 
 {% include integrations/config_flow.md %}

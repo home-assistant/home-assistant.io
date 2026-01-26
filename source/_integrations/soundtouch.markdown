@@ -53,36 +53,35 @@ A workaround if you want to publish your Home Assistant installation on Internet
 
 ## Actions
 
-### Action `play_everywhere`
+### Action: Play everywhere
 
-Create a multi-room (zone) from a master and play same content on all other
- devices (slaves)
+The `soundtouch.play_everywhere` action creates a multi-room (zone) from a master and plays the same content on all other devices (slaves).
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `master` | no | `entity_id` of the master device
 
-### Action `create_zone`
+### Action: Create zone
 
-Create a multi-room (zone) from a master and play on selected slaves
+The `soundtouch.create_zone` action creates a multi-room (zone) from a master and plays on selected slaves.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `master` | no | `entity_id` of the master device|
 | `slaves` | no | List of slaves `entity_id`      |
 
-### Action `add_zone_slave`
+### Action: Add zone slave
 
-Add slave(s) to an existing zone
+The `soundtouch.add_zone_slave` action adds slave(s) to an existing zone.
 
 | Data attribute | Optional | Description  |
 | ---------------------- | -------- | ------------ |
 | `master` | no | `entity_id` of the master device |
 | `slaves` | no | List of slaves `entity_id` to add|
 
-### Action `remove_zone_slave`
+### Action: Remove zone slave
 
-Remove slave(s) from an existing zone.
+The `soundtouch.remove_zone_slave` action removes slave(s) from an existing zone.
 
 Removing the last slave will destroy the zone. You will need to
 create a new zone in order to be able to add slave(s) again
