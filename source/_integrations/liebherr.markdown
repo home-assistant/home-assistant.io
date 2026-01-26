@@ -136,8 +136,6 @@ If you have more than 2 devices, it is recommended to increase the polling inter
 
 When trying to set up the integration, Home Assistant cannot establish a connection to the Liebherr SmartDevice HomeAPI cloud service.
 
-This error indicates that Home Assistant cannot establish a connection to the Liebherr SmartDevice HomeAPI cloud service.
-
 To resolve this issue, try the following steps:
 
 1. Check internet connectivity:
