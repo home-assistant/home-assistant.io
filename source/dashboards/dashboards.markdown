@@ -35,7 +35,7 @@ Screenshot of the Dashboard list.
 
 Built-in dashboards that are available in the sidebar by default:
 
-- [Home dashboard](#home-dashboard). Category: built-in. If you set another dashboard as default, the Home dashboard is no longer shown in the sidebar by default.
+- [Home dashboard](#home-dashboard). Category: built-in. It is shown in the sidebar only while it is set as your default dashboard. If you set another dashboard as default, that dashboard appears in the sidebar instead.
 - [Activity dashboard](#activity-dashboard). Category: built-in.
 - Energy dashboard. Category: built-in.
 - [History dashboard](#history-dashboard). Category: built-in.
