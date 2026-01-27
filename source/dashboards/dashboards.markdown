@@ -201,18 +201,24 @@ lovelace:
       type: css
   # Add YAML dashboards
   dashboards:
-    lovelace-generated:
+    my-home: # Needs to contain a hyphen (-)
       mode: yaml
-      filename: generated.yaml
-      title: Generated
-      icon: mdi:tools
+      filename: my-home.yaml
+      title: My home
+      icon: mdi:home-outline
       show_in_sidebar: true
-      require_admin: true
-    lovelace-hidden:
+    dashboard-hidden:
       mode: yaml
+      filename: hidden.yaml
       title: Hidden
       show_in_sidebar: false
-      filename: hidden.yaml
+    dashboard-admin:
+      mode: yaml
+      title: Admin
+      icon: mdi:tools
+      show_in_sidebar: true
+      require_admin: false
+      filename: admin.yaml
 ```
 
 {% configuration dashboards %}
