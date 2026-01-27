@@ -33,7 +33,7 @@ your smart home. Issue commands and get responses!
 - Have [enabled a wake word](/voice_control/install_wake_word_add_on/) for your voice assistant
 - The password to your 2.4&nbsp;GHz Wi-Fi network
 - Chrome (or a Chromium-based browser like Edge) on desktop (not Android/iOS)
-- [M5Stack ATOM Echo Development Kit](https://shop.m5stack.com/products/atom-echo-smart-speaker-dev-kit?ref=NabuCasa)
+- [M5Stack ATOM Echo Development Kit](https://shop.m5stack.com/products/atom-echo-smart-speaker-dev-kit)
 - USB-C cable to connect the ATOM Echo
 
 ## Installing the software onto the ATOM Echo

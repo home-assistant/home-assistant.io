@@ -29,12 +29,12 @@ ha_platforms:
   - switch
   - time
   - vacuum
-ha_integration_type: integration
+ha_integration_type: hub
 ha_quality_scale: silver
 ha_dhcp: true
 ---
 
-The Roborock {% term integration %} allows you to connect your [Roborock](https://us.roborock.com/pages/robot-vacuum-cleaner) robotic vacuums to your Home Assistant. Roborock vacuums are
+The **Roborock** {% term integration %} allows you to connect your [Roborock](https://us.roborock.com/pages/robot-vacuum-cleaner) robotic vacuums to your Home Assistant. Roborock vacuums are
 intelligent home cleaning robots and, depending on the specific device, may have features
 like mopping capabilities, laser navigation, and options for changing cleaning
 performance or location in the home. This integration enables you to control and
@@ -167,6 +167,9 @@ The vacuum entity holds the ability to control most things the vacuum can do, su
 
 - **Water shortage**
   - **Description**: States if the water box is low on water - 'Ok' if it has not detected a water shortage.
+
+- **Cleaning fluid**
+  - **Description**: Only available on docks with cleaning fluid capabilities - States if the dock is low on cleaning fluid, or the cleaning fluid container is not installed.
 
 
 #### Sensor

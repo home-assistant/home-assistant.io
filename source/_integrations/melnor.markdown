@@ -16,7 +16,7 @@ ha_platforms:
   - sensor
   - switch
   - time
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 The **Melnor Bluetooth** {% term integration %} allows you to control your Melnor Bluetooth watering valves.

@@ -122,5 +122,5 @@ Context is a property used in state objects and events. It ties {% term events %
   ```
 
   {% endraw %}
-  result type: `string` representing an user id code e.g.  
+  result type: `string` representing a user id code e.g.
   `01K9SF2R36KRV5N4PTC38SKS4LW6`

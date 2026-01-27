@@ -90,7 +90,7 @@ Tracks the most recently reported location of the vehicle. The vehicle reports i
 
 Subaru integration options are set via:
 
-**Settings** -> **Devices & services** -> **Subaru** -> **Options**.
+{% my integrations title="**Settings** > **Devices & services**" %} > **Subaru** > **Options**.
 
 - **Enable vehicle polling *[Default: off]*:** When enabled, vehicle polling will send a remote command to your vehicle every 2 hours to obtain new sensor data. This involves "waking" your vehicle and requesting that it send new data to Subaru servers. Without vehicle polling, new sensor data is only received when the vehicle automatically pushes data (normally after engine shutdown). This option only applies to vehicles with Security Plus subscriptions because it uses a "locate" command to request the data.
 

@@ -77,6 +77,10 @@ Below is a complete overview of the entities this integration provides.
 ### Switches
 
 - Auto switch inputs (Automatically switches to the active HDMI input)
+- CEC RX0 (Enables or disables HDMI-CEC on input RX0)
+- CEC RX1 (Enables or disables HDMI-CEC on input RX1)
+- CEC RX2 (Enables or disables HDMI-CEC on input RX2)
+- CEC RX3 (Enables or disables HDMI-CEC on input RX3)
 - HTPC mode RX0 (Enables HTPC-optimized mode for HDMI input RX0)
 - HTPC mode RX1 (Enables HTPC-optimized mode for HDMI input RX1)
 - HTPC mode RX2 (Enables HTPC-optimized mode for HDMI input RX2)

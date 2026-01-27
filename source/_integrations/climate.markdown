@@ -36,12 +36,12 @@ An HVAC entity can have the following states, depending on the specific climate 
 Available actions: `climate.set_aux_heat`, `climate.set_preset_mode`, `climate.set_temperature`, `climate.set_humidity`, `climate.set_fan_mode`, `climate.set_hvac_mode`, `climate.set_swing_mode`, `climate.set_swing_horizontal_mode`, `climate.turn_on`, `climate.turn_off`, `climate.toggle`
 
 {% tip %}
-Not all climate {% term actions %}  may be available for your platform. You can check which climate action are available under **Developer Tools** -> **Actions**.
+Not all climate {% term actions %}  may be available for your platform. You can check which climate action are available under {% my developer_call_service title="**Developer Tools** > **Actions**" %}.
 {% endtip %}
 
-### Action `climate.set_aux_heat`
+### Action: Set auxiliary heat
 
-Turn auxiliary heater on/off for climate device
+The `climate.set_aux_heat` action allows you to turn the auxiliary heater on/off for the climate device.
 
 | Data attribute | Required | Description |
 | ---------------------- | -------- | ----------- |
@@ -63,9 +63,9 @@ automation:
         aux_heat: true
 ```
 
-### Action `climate.set_preset_mode`
+### Action: Set preset mode
 
-Set preset mode for climate device. Away mode changes the target temperature permanently to a temperature
+The `climate.set_preset_mode` action allows you to set the preset mode for climate device. Away mode changes the target temperature permanently to a temperature
 reflecting a situation where the climate device is set to save energy. For example, this may be used to emulate a
 "vacation mode."
 
@@ -89,9 +89,9 @@ automation:
         preset_mode: "eco"
 ```
 
-### Action `climate.set_temperature`
+### Action: Set temperature
 
-Set target temperature of climate device
+The `climate.set_temperature` action allows you to set the target temperature of a climate device.
 
 | Data attribute | Required | Description |
 | ---------------------- | -------- | ----------- |
@@ -134,9 +134,9 @@ automation:
         hvac_mode: heat_cool
 ```
 
-### Action `climate.set_humidity`
+### Action: Set humidity
 
-Set target humidity of climate device
+The `climate.set_humidity` action allows you to set the target humidity of a climate device.
 
 | Data attribute | Required | Description |
 | ---------------------- | -------- | ----------- |
@@ -158,9 +158,9 @@ automation:
         humidity: 60
 ```
 
-### Action `climate.set_fan_mode`
+### Action: Set fan mode
 
-Set fan operation for climate device
+The `climate.set_fan_mode` action allows you to set the fan operation for a climate device.
 
 | Data attribute | Required | Description |
 | ---------------------- | -------- | ----------- |
@@ -182,9 +182,9 @@ automation:
         fan_mode: "low"
 ```
 
-### Action `climate.set_hvac_mode`
+### Action: Set HVAC mode
 
-Set climate device's HVAC mode
+The `climate.set_hvac_mode` action allows you to set the climate device's HVAC mode.
 
 | Data attribute | Required | Description |
 | ---------------------- | -------- | ----------- |
@@ -206,9 +206,9 @@ automation:
         hvac_mode: heat
 ```
 
-### Action `climate.set_swing_mode`
+### Action: Set swing mode
 
-Set swing operation mode for climate device
+The `climate.set_swing_mode` action allows you to set the swing operation mode for a climate device.
 
 | Data attribute | Required | Description |
 | ---------------------- | -------- | ----------- |
@@ -230,9 +230,9 @@ automation:
         swing_mode: both
 ```
 
-### Action `climate.set_swing_horizontal_mode`
+### Action: Set swing horizontal mode
 
-Set horizontal swing operation mode for climate device
+The `climate.set_swing_horizontal_mode` action allows you to set the horizontal swing operation mode for the climate device.
 
 | Data attribute          | Required | Description                                                                                                                       |
 | ----------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------- |
@@ -254,25 +254,25 @@ automation:
         swing_horizontal_mode: on
 ```
 
-### Action `climate.turn_on`
+### Action: Turn on
 
-Turn climate device on. This is only supported if the climate device supports being turned off.
-
-| Data attribute | Required | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | No | String or list of strings that define the entity ID(s) of climate device(s) to control. To target all climate devices, use `all`.
-
-### Action `climate.turn_off`
-
-Turn climate device off. This is only supported if the climate device has the HVAC mode `off`.
+The `climate.turn_on` action allows you to turn the climate device on. This is only supported if the climate device supports being turned off.
 
 | Data attribute | Required | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | No | String or list of strings that define the entity ID(s) of climate device(s) to control. To target all climate devices, use `all`.
 
-### Action `climate.toggle`
+### Action: Turn off
 
-Toggle climate device. This is only supported if the climate device supports being turned on and off.
+The `climate.turn_off` action allows you to turn the climate device off. This is supported only if the climate device is in HVAC mode `off`.
+
+| Data attribute | Required | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | No | String or list of strings that define the entity ID(s) of climate device(s) to control. To target all climate devices, use `all`.
+
+### Action: Toggle
+
+The `climate.toggle` action allows you to toggle the climate device. This is only supported if the climate device supports being turned on and off.
 
 | Data attribute | Required | Description |
 | ---------------------- | -------- | ----------- |

@@ -2,6 +2,7 @@
 title: Cookidoo
 description: Instructions on how to integrate the Cookidoo todo list with Home Assistant.
 ha_category:
+  - Calendar
   - To-do list
   - Calendar
 ha_iot_class: Cloud Polling
