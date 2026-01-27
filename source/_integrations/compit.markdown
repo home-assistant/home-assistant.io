@@ -65,6 +65,76 @@ This integration supports most of Compit device models across thermostats, contr
 - [SHC](https://compit.pl/produkty/osprzet/67-czujnik-stezenia-dwutlenku-wegla-wilgotnosci-i-temperatury-w-pomieszczeniach-shc.html?ic=1) – CO₂, humidity, and temperature sensor
 - [SPM](https://compit.pl/produkty/osprzet/87-czujnik-jakosci-powietrza-spm.html?ic=1) – Air quality sensor
 
+## Supported functionality
+
+The **Compit** integration provides the following entities.
+
+### Binary sensors
+
+Binary sensors provide status information about your Compit devices.
+
+### Selects
+
+- **Language**
+  - **Description**: Language of the device interface.
+  - **Options**: Polish, English
+  - **Available for devices**: Nano Color, Nano Color 2, Nano One
+
+- **Aero by pass**
+  - **Description**: Bypass mode for ventilation systems.
+  - **Options**: Off, Auto, On
+  - **Available for devices**: Nano Color, Nano Color 2
+
+- **Nano work mode**
+  - **Description**: Operating mode for the thermostat.
+  - **Options**: Manual 3, Manual 2, Manual 1, Manual 0, Schedule, Christmas, Out of home
+  - **Available for devices**: Nano One
+
+- **Operating mode**
+  - **Description**: Primary operating mode of the device.
+  - **Options**: Disabled, Eco, Hybrid (for R900, r490, R480); Disabled, Auto, Eco (for r470)
+  - **Available for devices**: R900, r490, r470, R480
+
+- **Work mode**
+  - **Description**: Seasonal operating mode.
+  - **Options**: Winter, Summer, Cooling
+  - **Available for devices**: r490
+
+- **Heating source of correction**
+  - **Description**: Source for heating temperature corrections.
+  - **Options**: No corrections, Schedule, Thermostat, Nano nr 1, Nano nr 2, Nano nr 3, Nano nr 4, Nano nr 5 (r470); Disabled, No corrections, Schedule, Thermostat, Nano nr 1, Nano nr 2, Nano nr 3, Nano nr 4, Nano nr 5 (BioMax742)
+  - **Available for devices**: r470, BioMax742
+
+- **SolarComp operating mode**
+  - **Description**: Operating mode for solar controllers.
+  - **Options**: Auto, De-icing, Holiday, Disabled
+  - **Available for devices**: SolarComp971, SolarComp971C, SolarComp 951
+
+- **Mixer mode zone 1**
+  - **Description**: Zone 1 mixing valve operating mode.
+  - **Options**: Disabled, Without thermostat, Schedule, Thermostat, Nano nr 1, Nano nr 2, Nano nr 3, Nano nr 4, Nano nr 5
+  - **Available for devices**: BioMax775, BioMax772
+
+- **Mixer mode zone 2**
+  - **Description**: Zone 2 mixing valve operating mode.
+  - **Options**: Disabled, Without thermostat, Schedule, Thermostat, Nano nr 1, Nano nr 2, Nano nr 3, Nano nr 4, Nano nr 5
+  - **Available for devices**: BioMax775, BioMax772
+
+- **Mixer mode**
+  - **Description**: Mixing valve operating mode.
+  - **Options**: No corrections, Schedule, Thermostat, Nano nr 1, Nano nr 2, Nano nr 3, Nano nr 4, Nano nr 5 (R350 T3); Disabled, No corrections, Schedule, Thermostat, Nano nr 1, Nano nr 2, Nano nr 3, Nano nr 4, Nano nr 5 (BioMax742)
+  - **Available for devices**: R350 T3, BioMax742
+
+- **DHW circulation**
+  - **Description**: Domestic hot water circulation mode.
+  - **Options**: Disabled, Constant, Schedule
+  - **Available for devices**: BioMax775, BioMax742, BioMax772
+
+- **Buffer mode**
+  - **Description**: Buffer tank operating mode.
+  - **Options**: Schedule, Manual, Disabled
+  - **Available for devices**: R480
+
 ## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.
