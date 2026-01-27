@@ -20,7 +20,7 @@ related:
   - docs: /common-tasks/general/#defining-a-custom-polling-interval
     title: Defining a custom polling interval
 ha_category:
-  - Appliance
+  - Sensor
 ha_platforms:
   - climate
 ---
