@@ -2,6 +2,7 @@
 title: Sunricher DALI
 description: Instructions on how to integrate Sunricher DALI with Home Assistant.
 ha_category:
+  - Binary sensor
   - Light
   - Sensor
 ha_release: 2025.11
@@ -11,6 +12,7 @@ ha_codeowners:
   - '@niracler'
 ha_domain: sunricher_dali
 ha_platforms:
+  - binary_sensor
   - button
   - light
   - scene
@@ -64,6 +66,21 @@ DALI scenes configured on the gateway are automatically imported into Home Assis
 DALI sensor devices connected to the gateway are represented as sensor entities:
 
 - **Illuminance sensor**: Reports ambient light level in lux
+
+### Binary sensors
+
+DALI motion sensor devices create two binary sensor entities:
+
+- **Motion**: Instantaneous motion detection. Turns on when movement is detected and off when movement stops.
+- **Occupancy**: Persistent presence detection. Turns on when any activity is detected (motion, occupancy, or presence) and remains on until the area becomes vacant.
+
+| Device event | Motion sensor | Occupancy sensor |
+| ------------ | ------------- | ---------------- |
+| MOTION       | On            | On               |
+| NO_MOTION    | Off           | No change        |
+| OCCUPANCY    | No change     | On               |
+| PRESENCE     | No change     | On               |
+| VACANT       | No change     | Off              |
 
 ### Buttons
 
