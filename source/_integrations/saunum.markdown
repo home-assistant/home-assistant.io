@@ -73,6 +73,10 @@ The Saunum Leil control unit natively operates in Celsius, even if Fahrenheit is
 
 Once started, the sauna begins heating to the target temperature and automatically turns off after the configured duration. During an active session, you cannot change the sauna type, sauna duration, or fan duration settings.
 
+{% note %}
+You cannot start a sauna session when the sauna door is open. The control unit will prevent heating from starting as a safety measure. Close the sauna door before attempting to start a heating session. You can monitor the door status using the **Door open** binary sensor.
+{% endnote %}
+
 ### Sauna type preset modes
 
 The Saunum Leil control unit supports three sauna type presets that can store different configurations for temperature, sauna duration, and fan duration. These presets allow you start your sauna session with different settings quickly.

@@ -4,13 +4,13 @@ description: Instructions on how to integrate Google Air Quality into Home Assis
 ha_category:
   - Sensor
 ha_release: 2025.12
-ha_iot_class: Cloud Poll
+ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
   - '@Thomas55555'
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ha_domain: google_air_quality
 ha_quality_scale: bronze
 ---
@@ -104,4 +104,3 @@ For your local air quality you can find more details [here](https://developers.g
 ## Removing the integration
 
 {% include integrations/remove_device_service.md %}
-

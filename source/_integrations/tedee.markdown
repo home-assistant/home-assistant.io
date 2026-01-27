@@ -17,7 +17,7 @@ ha_platforms:
 ha_codeowners:
   - '@patrickhilker'
   - '@zweckj'
-ha_integration_type: integration
+ha_integration_type: hub
 ha_quality_scale: platinum
 ---
 
@@ -39,9 +39,9 @@ The integration will try to configure webhooks to receive near-real-time push up
 
 {% configuration_basic %}
 Host:
-  description: "The IP address of your bridge. You can find it in your router or in the Tedee app under **Bridge Settings** -> **Local API**."
+  description: "The IP address of your bridge. You can find it in your router or in the Tedee app under **Bridge Settings** > **Local API**."
 Local Access Token:
-  description: "The local access token for your bridge. You can find it in the Tedee app under **Bridge Settings** -> **Local API**."
+  description: "The local access token for your bridge. You can find it in the Tedee app under **Bridge Settings** > **Local API**."
 {% endconfiguration_basic %}
 
 ## Supported devices

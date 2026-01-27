@@ -106,49 +106,49 @@ For all your installed add-ons, Home Assistant Core, Home Assistant Supervisor, 
 
 ## Actions
 
-### Action hassio.addon_start
+### Action: Start add-on
 
-Start an add-on.
-
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `addon` | no | Add-on slug
-
-### Action hassio.addon_stop
-
-Stop an add-on.
+The `hassio.addon_start` action starts an add-on.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `addon` | no | Add-on slug
 
-### Action hassio.addon_restart
+### Action: Stop add-on
 
-Restart an add-on.
-
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `addon` | no | Add-on slug
-
-### Action hassio.addon_stdin
-
-Write data to add-on stdin.
+The `hassio.addon_stop` action stops an add-on.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `addon` | no | Add-on slug
 
-### Action hassio.host_reboot
+### Action: Restart add-on
 
-Reboot the host system.
+The `hassio.addon_restart` action restarts an add-on.
 
-### Action hassio.host_shutdown
+| Data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `addon` | no | Add-on slug
 
-Shutdown the host system.
+### Action: Write to add-on stdin
 
-### Action hassio.backup_full
+The `hassio.addon_stdin` action writes data to add-on stdin.
 
-Create a full backup.
+| Data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `addon` | no | Add-on slug
+
+### Action: Reboot host
+
+The `hassio.host_reboot` action reboots the host system.
+
+### Action: Shut down host
+
+The `hassio.host_shutdown` action shuts down the host system.
+
+### Action: Create full backup
+
+The `hassio.backup_full` action creates a full backup.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -158,9 +158,9 @@ Create a full backup.
 | `location` | yes | Alternate backup location instead of using the default location for backups
 | `homeassistant_exclude_database` | yes | Exclude the Home Assistant database file from backup
 
-### Action hassio.backup_partial
+### Action: Create partial backup
 
-Create a partial backup.
+The `hassio.backup_partial` action creates a partial backup.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -173,18 +173,18 @@ Create a partial backup.
 | `homeassistant` | yes | Include Home Assistant and associated config in backup
 | `homeassistant_exclude_database` | yes | Exclude the Home Assistant database file from backup
 
-### Action hassio.restore_full
+### Action: Restore from full backup
 
-Restore from full backup.
+The `hassio.restore_full` action restores from a full backup.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `slug` | no | Slug of backup to restore from
 | `password` | yes | Optional password for backup
 
-### Action hassio.restore_partial
+### Action: Restore from partial backup
 
-Restore from partial backup.
+The `hassio.restore_partial` action restores from a partial backup.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |

@@ -14,7 +14,7 @@ ha_platforms:
   - select
   - sensor
   - water_heater
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The **A. O. Smith** {% term integration %} allows you to control a compatible A. O. Smith iCOMM-enabled water heater from Home Assistant.

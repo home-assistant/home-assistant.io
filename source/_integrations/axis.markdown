@@ -51,7 +51,7 @@ If you are having issues and want to report a problem, always start with making 
 
 ### Troubleshooting discovery
 
-If your device is not discovered. On your camera, go to **System Options** -> **Advanced** -> **Plain Configuration**. Change the drop-down box to `network` and click `Select Group`. If `Network Interface I0 ZeroConf` contains the `169.x.x.x` IP address, unchecked the box next to `Enabled` for this section and click `Save`.
+If your device is not discovered. On your camera, go to **System Options** > **Advanced** > **Plain Configuration**. Change the drop-down box to `network` and click `Select Group`. If `Network Interface I0 ZeroConf` contains the `169.x.x.x` IP address, unchecked the box next to `Enabled` for this section and click `Save`.
 
 ### Internet access required for full integration
 

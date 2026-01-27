@@ -47,7 +47,7 @@ You need to grab your API key from your SABnzbd instance in order to configure t
 
 {% configuration_basic %}
 URL:
-    description: "The full URL, including port, of your SABnzbd server. Example: `http://localhost:8080` or `http://a02368d7-sabnzbd:8080`, if you are using the add-on."
+    description: "The full URL, including port, of your SABnzbd server. Example: `http://localhost:8080` or `http://a02368d7-sabnzbd:8080`, if you are using the SABnzbd app for Home Assistant."
 API key:
     description: "The API key of your SABnzbd server. You can find this in the SABnzbd web interface under **Config** {% icon "mdi:settings" %} (top right) > **General** > **Security**."
 {% endconfiguration_basic %}
@@ -238,13 +238,13 @@ The SABnzbd integration {% term polling polls %} data from your SABnzbd server e
 5. Firewall settings: Check that your firewall allows connections to SABnzbd's port.
 6. Enable debug logging: Temporarily enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics) for the SABnzbd integration to get more detailed error messages.
 
-### SABnzbd add-on specific issues
+### SABnzbd app-specific issues
 
-If you're using the SABnzbd Home Assistant add-on:
+If you're using the SABnzbd app for Home Assistant (formerly known as add-on):
 
 1. Use internal URL: Use `http://a02368d7-sabnzbd:8080` instead of `localhost`.
-2. Check add-on logs: Review the SABnzbd add-on logs for any error messages.
-3. Add-on configuration: Ensure the add-on is properly configured and started.
+2. Check app logs: Review the SABnzbd app logs for any error messages.
+3. App configuration: Ensure the app is properly configured and started.
 
 ## Removing the integration
 

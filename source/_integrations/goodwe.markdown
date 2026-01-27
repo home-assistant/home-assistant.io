@@ -17,7 +17,7 @@ ha_platforms:
   - number
   - select
   - sensor
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 The **GoodWe** {% term integration %} will poll a [GoodWe](http://www.goodwe.com/) solar inverter over the local network and present its runtime values as sensors in Home Assistant.

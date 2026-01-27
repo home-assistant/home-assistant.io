@@ -21,7 +21,7 @@ ha_platforms:
   - select
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 The **OpenTherm Gateway** {% term integration %} is used to control the [OpenTherm Gateway](https://otgw.tclcode.com/) from Home Assistant.

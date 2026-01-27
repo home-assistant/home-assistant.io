@@ -12,7 +12,7 @@ ha_codeowners:
 ha_integration_type: system
 ---
 
-This integration is by default enabled as dependency of the [`history`](/integrations/history/) integration.
+The **Recorder** {% term integration %} is by default enabled as dependency of the [`history`](/integrations/history/) integration.
 
 {% important %}
 This integration constantly saves data. If you use the default configuration, the data will be saved on the media Home Assistant is installed on. In case of Raspberry Pi with an SD card, it might affect your system's reaction time and life expectancy of the storage medium (the SD card). It is therefore recommended to set the [commit_interval](/integrations/recorder#commit_interval) to higher value, e.g. 30s, limit the amount of stored data (e.g., by excluding devices) or store the data elsewhere (e.g., another system).
@@ -207,10 +207,9 @@ recorder:
 
 ## Actions
 
-### Action `purge`
+### Action: Purge
 
-Perform the action `recorder.purge` to start a purge task which deletes events and states older than x days, according to `keep_days` action data.
-Note that purging will not immediately decrease disk space usage but it will significantly slow down further growth.
+The `recorder.purge` action starts a purge task which deletes events and states older than x days, according to `keep_days` action data. Note that purging will not immediately decrease disk space usage but it will significantly slow down further growth.
 
 | Data attribute | Optional | Description                                                                                                                                                                                                                                                                                                             |
 | ---------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -218,9 +217,9 @@ Note that purging will not immediately decrease disk space usage but it will sig
 | `repack`               | yes      | When using SQLite or PostgreSQL this will rewrite the entire database. When using MySQL or MariaDB it will optimize or recreate the events and states tables. This is a heavy operation that can cause slowdowns and increased disk space usage while it runs. Only supported by SQLite, PostgreSQL, MySQL and MariaDB. |
 | `apply_filter`         | yes      | Apply entity_id and event_type filter in addition to time based purge. Useful in combination with `include` / `exclude` filter to remove falsely added states and events. Combine with `repack: true` to reduce database size.                                                                                          |
 
-### Action `purge_entities`
+### Action: Purge entities
 
-Perform the action `recorder.purge_entities` to start a task that purges events and states from the recorder database that match any of the specified `entity_id`, `domains`, and `entity_globs` fields. At least one of the three selection criteria fields must be provided.
+The `recorder.purge_entities` action starts a task that purges events and states from the recorder database that match any of the specified `entity_id`, `domains`, and `entity_globs` fields. At least one of the three selection criteria fields must be provided.
 
 | Data attribute | Optional | Description                                                                                                           |
 | ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------------- |
@@ -245,17 +244,17 @@ actions:
       entity_id: sensor.power_sensor_0
 ```
 
-### Action `disable`
+### Action: Disable
 
-Perform the action `recorder.disable` to stop saving events and states to the database.
+The `recorder.disable` action stops saving events and states to the database.
 
-### Action `enable`
+### Action: Enable
 
-Perform the action `recorder.enable` to start again saving events and states to the database. This is the opposite of `recorder.disable`.
+The `recorder.enable` action starts again saving events and states to the database. This is the opposite of `recorder.disable`.
 
-### Action `get_statistics`
+### Action: Get statistics
 
-Perform the action `recorder.get_statistics` to retrieve statistics for one or more entities from the recorder database. This action is useful for automations or scripts that need to access historical statistics, such as mean, min, max, or sum values, for supported entities like sensors.
+The `recorder.get_statistics` action retrieves statistics for one or more entities from the recorder database. This action is useful for automations or scripts that need to access historical statistics, such as mean, min, max, or sum values, for supported entities like sensors.
 
 {% note %}
 Statistics are only available for entities that store {% term "Long-term statistics" %}

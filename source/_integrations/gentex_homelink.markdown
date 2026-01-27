@@ -12,6 +12,7 @@ ha_codeowners:
 ha_domain: gentex_homelink
 ha_platforms:
   - binary_sensor
+  - event
 ha_integration_type: integration
 ha_quality_scale: bronze
 ---
