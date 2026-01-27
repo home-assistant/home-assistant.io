@@ -113,7 +113,7 @@ Play an announcement which is accessible via URL on a Music Assistant player. Ho
 - **Data attribute**: `pre_announce_url`
   - **Optional**: Yes.
   - **Description**: URL to the pre-announcement sound.
-  - **Example**: `http://someremotesite.com/chime.mp3`
+  - **Example**: `https://someremotesite.com/chime.mp3`
 - **Data attribute**: `announce_volume`
   - **Optional**: Yes.
   - **Description**: Use a forced volume level for the announcement. Omit to use the player default.
