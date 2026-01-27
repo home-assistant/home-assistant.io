@@ -6,8 +6,8 @@ ha_category:
   - Sensor
 ha_release: 0.67
 ha_codeowners:
-  - "@fabaff"
-  - "@andrew-codechimp"
+  - '@fabaff'
+  - '@andrew-codechimp'
 ha_domain: mastodon
 ha_iot_class: Cloud Polling
 ha_platforms:
@@ -33,13 +33,13 @@ Select **Submit** to create the application and generate the key, secret, and to
 
 {% configuration_basic %}
 URL:
-description: The URL of your Mastodon instance, for example `https://mastodon.social`.
+  description: The URL of your Mastodon instance, for example `https://mastodon.social`.
 Client key:
-description: The client key for the application created within your Mastodon account web interface.
+  description: The client key for the application created within your Mastodon account web interface.
 Client secret:
-description: The client secret for the application created within your Mastodon account web interface.
+  description: The client secret for the application created within your Mastodon account web interface.
 Access token:
-description: The access token for the application created within your Mastodon account web interface.
+  description: The access token for the application created within your Mastodon account web interface.
 {% endconfiguration_basic %}
 
 ## Sensors
@@ -74,24 +74,24 @@ The Mastodon integration has the following actions:
 
 The `mastodon.post` action posts a status to your Mastodon account.
 
-| Data attribute      | Optional | Description                                                                                                                                                                                                                                                        |
-| ------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `config_entry_id`   | No       | The ID of the Mastodon config entry to post to.                                                                                                                                                                                                                    |
-| `status`            | No       | The status text to post.                                                                                                                                                                                                                                           |
-| `visibility`        | Yes      | If not used, will default to account setting. `public`: post will be public, `unlisted`: post will be public but not appear on the public timeline, `private`: post will only be visible to followers, and `direct`: post will only be visible to mentioned users. |
-| `idempotency_key`   | Yes      | A unique key to prevent duplicate posts for up to one hour. Common strategies include using a hash of the status text or a static string.                                                                                                                          |
-| `content_warning`   | Yes      | Text will be shown as a warning before the text of the status. If not used, no warning will be displayed.                                                                                                                                                          |
-| `language`          | Yes      | The language of the post. If not used, the language that is set in the Mastodon account is used.                                                                                                                                                                   |
-| `media`             | Yes      | Attach an image or video to the post.                                                                                                                                                                                                                              |
-| `media_description` | Yes      | If an image or video is attached, will add a description for this media for people with visual impairments.                                                                                                                                                        |
-| `media_warning`     | Yes      | If an image or video is attached, `True` will mark the media as sensitive. `False` is default.                                                                                                                                                                     |
+| Data attribute              | Optional | Description                                                                                                                                                                                                                                                        |
+| --------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `config_entry_id`           | No       | The ID of the Mastodon config entry to post to.                                                                                                                                                                                                                    |
+| `status`                    | No       | The status text to post.                                                                                                                                                                                                                                           |
+| `visibility`                | Yes      | If not used, will default to account setting. `public`: post will be public, `unlisted`: post will be public but not appear on the public timeline, `private`: post will only be visible to followers, and `direct`: post will only be visible to mentioned users. |
+| `idempotency_key`           | Yes      | A unique key to prevent duplicate posts for up to one hour. Common strategies include using a hash of the status text or a static string. |
+| `content_warning`           | Yes      | Text will be shown as a warning before the text of the status. If not used, no warning will be displayed.                                                                                                                                                          |
+| `language`                  | Yes      | The language of the post. If not used, the language that is set in the Mastodon account is used. |
+| `media`                     | Yes      | Attach an image or video to the post.                                                                                                                                                                                                                              |
+| `media_description`         | Yes      | If an image or video is attached, will add a description for this media for people with visual impairments.                                                                                                                                                        |
+| `media_warning`             | Yes      | If an image or video is attached, `True` will mark the media as sensitive. `False` is default.                                                                                                                                                                     |
 
 {% tip %}
 You can get your `config_entry_id` by using actions within [Developer Tools](/docs/tools/dev-tools/), using one of the above actions and viewing the YAML.
 {% endtip %}
 
 {% note %}
-Mastodon holds idempotency keys for up to one hour and subsequent posts using the same key will be ignored by your Mastodon instance. If not used, the post will be published without any duplicate check. The timeframe is controlled by your Mastodon instance, not Home Assistant.
+Mastodon holds idempotency keys for up to one hour and subsequent posts using the same key will be ignored by your Mastodon instance. If not used, the post will be published without any duplicate check. The timeframe is controlled by your Mastodon instance, not Home Assistant. 
 {% endnote %}
 
 ### Examples
@@ -145,7 +145,7 @@ actions:
     data:
       config_entry_id: YOUR_MASTODON_CONFIG_ENTITY_ID
       status: "{{ toot }}"
-      idempotency_key: { { toot | md5 } }
+      idempotency_key: {{ toot | md5 }}
 ```
 
 {% endraw %}
