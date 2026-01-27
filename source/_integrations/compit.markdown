@@ -65,6 +65,48 @@ This integration supports most of Compit device models across thermostats, contr
 - [SHC](https://compit.pl/produkty/osprzet/67-czujnik-stezenia-dwutlenku-wegla-wilgotnosci-i-temperatury-w-pomieszczeniach-shc.html?ic=1) – CO₂, humidity, and temperature sensor
 - [SPM](https://compit.pl/produkty/osprzet/87-czujnik-jakosci-powietrza-spm.html?ic=1) – Air quality sensor
 
+## Supported functionality
+
+The **Compit** integration provides the following entities.
+
+### Binary sensors
+
+- **Airing**
+  - **Description**: Indicates whether a window is open for airing.
+  - **Available for devices**: Nano Color 2
+
+- **Battery charging**
+  - **Description**: Indicates whether the battery is currently charging.
+  - **Available for devices**: AF-1
+
+- **CO₂ alert**
+  - **Description**: Indicates whether the CO₂ level has exceeded the threshold.
+  - **Available for devices**: SPM - Nano Color 2
+
+- **CO₂ level**
+  - **Description**: Indicates whether the CO₂ level is problematic.
+  - **Available for devices**: Nano Color, Nano Color 2, SPM - Nano Color, SPM - Nano Color 2
+
+- **Dust alert**
+  - **Description**: Indicates whether the dust level has exceeded the threshold.
+  - **Available for devices**: SPM - Nano Color 2
+
+- **Has battery**
+  - **Description**: Indicates whether the device has a battery installed.
+  - **Available for devices**: AF-1
+
+- **Has external power**
+  - **Description**: Indicates whether the device is connected to external power.
+  - **Available for devices**: AF-1
+
+- **Pump status**
+  - **Description**: Indicates whether the pump is currently running.
+  - **Available for devices**: AF-1
+
+- **Temperature alert**
+  - **Description**: Indicates whether the temperature has exceeded the threshold.
+  - **Available for devices**: SPM - Nano Color 2
+
 ## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.
