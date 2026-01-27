@@ -85,13 +85,13 @@ Currently, the integration supports the following sensors:
 
 PM1, PM25, and PM10 correspond to concentrations of particulates with diameter less than 1µm, 2.5µm, and 10µm respectively
 
-### Virtual Sensors and Indices
+### Virtual sensors and indices
 
-All four supported indices — Health, Performance, Mold, and Virus — operate on a consistent scale: **0% (High Risk)** to **100% (No Risk/Optimal).**
+All four supported indices—Health, Performance, Mold, and Virus—operate on a consistent scale: **0% (High Risk)** to **100% (No Risk/Optimal).**
 
 - **Virus Index:** Uses CO2 as a proxy for aerosol load. It evaluates the sufficiency of room ventilation to minimize the risk of airborne pathogen transmission.
 - **Mold Index:** Assesses the long-term risk of mold formation by analyzing temperature and relative humidity trends.
-- **Activation:** Virtual sensors such as "Relative Pressure," "Virus Index," and "Mold Index" are deactivated by default. You can enable them in the air-Q mobile app under **Settings** -> **Sensors**.
+- **Activation:** Virtual sensors such as "Relative Pressure," "Virus Index," and "Mold Index" are deactivated by default. You can enable them in the air-Q mobile app under **Settings** > **Sensors**.
 
 ## Additional configuration
 
