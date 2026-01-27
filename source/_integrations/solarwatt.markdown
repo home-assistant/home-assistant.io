@@ -8,7 +8,7 @@ ha_category:
 ha_iot_class: Local Polling
 ha_quality_scale: bronze
 ha_config_flow: true
-ha_release: 0.36
+ha_release: 2026.3
 ha_codeowners:
   - '@christiangeie'
 ha_domain: solarwatt
@@ -24,7 +24,7 @@ The **Solarwatt** {% term integration %} allows Home Assistant to read live data
 
 The following devices are known to be supported by the integration:
 
-- Battery Flex
+- Battery flex
 
 ## Unsupported devices
 
@@ -38,8 +38,6 @@ The following devices are not supported by the integration:
 - No authentication is required.
 
 {% include integrations/config_flow.md %}
-
-<!--- In case your integration is used via a config flow: -->
 
 {% configuration_basic %}
 Host:
