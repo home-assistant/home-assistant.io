@@ -10,7 +10,7 @@ ha_domain: caldav
 ha_platforms:
   - calendar
   - todo
-ha_integration_type: integration
+ha_integration_type: service
 ha_config_flow: true
 related:
   - docs: /integrations/todo

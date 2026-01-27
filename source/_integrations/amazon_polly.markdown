@@ -132,7 +132,7 @@ Say with break:
 Say with specific voice and engine as options:
 
 ```yaml
-- service: tts.amazon_polly_say
+- action: tts.amazon_polly_say
   data:
     message: "Hello from Amazon Polly"
     entity_id: media_player.living_room
@@ -142,8 +142,8 @@ Say with specific voice and engine as options:
       engine: generative
 ```
 
-
 ## Advanced usage
+
 Amazon Polly supports accented bilingual voices and you may find that you'd prefer the voice you like be slowed down, or speeded up. If the speed of the voice is a concern, Amazon Polly provides the ability to modify this using SSML tags. First enable SSML in configuration:
 
 ```yaml

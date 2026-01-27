@@ -115,9 +115,9 @@ For Switcher cover control devices (Switcher Runner, Switcher Runner S11, Switch
 
 For Switcher power control devices (Switcher Touch, Switcher V2/V4) the integration provides the following sensors:
 
-### Action: `switcher_kis.set_auto_off`
+### Action: Set auto off
 
-You can use the `switcher_kis.set_auto_off` action to set the auto-off configuration setting for the device.
+The `switcher_kis.set_auto_off` action sets the auto-off configuration setting for the device.
 
 Meaning the device will turn itself off when reaching the auto-off configuration limit.
 
@@ -126,9 +126,9 @@ Meaning the device will turn itself off when reaching the auto-off configuration
 | `entity_id`   | Yes       | Name of the entity id associated with the integration, used for permission validation  | switch.switcher_kis_boiler |
 | `auto_off`    | Yes       | Time period string containing hours and minutes                                        | "02:30"                    |
 
-### Action: `switcher_kis.turn_on_with_timer`
+### Action: Turn on with timer
 
-You can use the `switcher_kis.turn_on_with_timer` action to turn on the switcher device with timer.
+The `switcher_kis.turn_on_with_timer` action turns on the switcher device with a timer.
 
 Meaning the device will turn itself off when timer ends.
 Note: This does not affect the auto off timer.

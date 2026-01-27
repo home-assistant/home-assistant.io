@@ -6,9 +6,10 @@ ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@pantherale0'
 ha_domain: nintendo_parental_controls
-ha_integration_type: integration
+ha_integration_type: service
 ha_platforms:
   - number
+  - select
   - sensor
   - switch
   - time

@@ -43,6 +43,7 @@ You are in control of the information and capabilities exposed to Home Assistant
 - The Nest Device Access Console Pub/Sub setup process has changed as of January 23rd 2025. **Please make sure you are using the latest version of Home Assistant.**
 
 - The Nest Smart Device Management (SDM) API **requires a US$5 fee**. Before buying, make sure your device is [supported](https://developers.google.com/nest/device-access/supported-devices).
+- The SDM API is also incompatible with some Google Account types or Security settings, including Google Workspace and the Advanced Protection Program. See [Known limitations](#known-limitations) below.
 
 ## Configuration
 
@@ -545,6 +546,26 @@ The primary limitations are the following:
 - Once a Google Account is associated with your Device Access Project, it cannot be changed. Be sure you are signed in to the correct Google Account before continuing.
 
 Keep in mind, the US$5 registration fee is non-refundable.
+
+### Google Advanced Protection Program
+
+The "Restricted" API scopes required for device control are automatically blocked for [Google Advanced Protection Program](https://landing.google.com/intl/en_in/advancedprotection/) users.
+
+{% important %}
+Workaround: If you have enabled AP, create and use a secondary, standard Google Account (non-AP) to host the devices:
+
+1. Create a new Google Account *without* Advanced Protection (if you don't have one already).
+
+2. Create a new **Home** in the Google Home app using this new account.
+
+3. Remove your Nest devices from your main account and re-add them to this new **Home**. Note that this may delete saved video history or settings for some devices.
+
+4. Invite your main account (the one with AP) as a **Family Member** to the new **Home**. This allows you to retain control in the Google Home app on your phone.
+
+5. Connect Home Assistant using the new standard account credentials.
+{% endimportant %}
+
+*[AP]: Advanced Protection Program
 
 ### Google Home App migration and cameras
 

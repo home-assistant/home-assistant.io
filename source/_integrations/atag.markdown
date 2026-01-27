@@ -15,7 +15,7 @@ ha_platforms:
   - climate
   - sensor
   - water_heater
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 The **Atag** {% term integration %} allows Home Assistant to connect to [Atag One](https://www.atagverwarming.nl) thermostats, reporting and setting its status.

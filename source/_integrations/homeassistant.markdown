@@ -310,13 +310,13 @@ homeassistant:
 
 The `homeassistant` integration provides actions for controlling Home Assistant itself, as well as generic controls for any entity.
 
-### Action `homeassistant.check_config`
+### Action: Check configuration
 
-Reads the configuration files and checks them for correctness, but **does not** load them into Home Assistant. Creates a persistent notification and log entry if errors are found.
+The `homeassistant.check_config` action reads the configuration files and checks them for correctness, but does not load them into Home Assistant. It creates a persistent notification and log entry if errors are found.
 
-### Action `homeassistant.reload_all`
+### Action: Reload all
 
-Reload all YAML configuration that can be reloaded without restarting Home Assistant.
+The `homeassistant.reload_all` action reloads all YAML configuration that can be reloaded without restarting Home Assistant.
 
 It calls the `reload` action on all domains that have it available. Additionally,
 it reloads the core configuration (equivalent to calling
@@ -325,14 +325,13 @@ it reloads the core configuration (equivalent to calling
 Prior to reloading, a basic configuration check is performed. If that fails, the reload
 will not be performed and will raise an error.
 
-### Action `homeassistant.reload_custom_templates`
+### Action: Reload custom templates
 
-Reload all Jinja templates in the `config/custom_templates` directory. Changes to these templates
-will take effect the next time an importing template is rendered.
+The `homeassistant.reload_custom_templates` action reloads all Jinja templates in the `config/custom_templates` directory. Changes to these templates will take effect the next time an importing template is rendered.
 
-### Action `homeassistant.reload_config_entry`
+### Action: Reload config entry
 
-Reloads an integration config entry.
+The `homeassistant.reload_config_entry` action reloads an integration config entry.
 
 | Data attribute | Description                                                |
 | -------------- | ---------------------------------------------------------- |
@@ -341,23 +340,23 @@ Reloads an integration config entry.
 | `device_id`    | List of device ids used to reference a config entry.       |
 | `entry_id`     | A single config entry id used to reference a config entry. |
 
-### Action `homeassistant.reload_core_config`
+### Action: Reload core config
 
-Reloads the core configuration under `homeassistant:` and all linked files. Once loaded the new configuration is applied. New `customize:` information will be applied the next time the state of the entity gets updated.
+The `homeassistant.reload_core_config` action reloads the core configuration under `homeassistant:` and all linked files. Once loaded, the new configuration is applied. New `customize:` information will be applied the next time the state of the entity gets updated.
 
-### Action `homeassistant.restart`
+### Action: Restart
 
-Restarts the Home Assistant instance (also reloading the configuration on start).
+The `homeassistant.restart` action restarts the Home Assistant instance (also reloading the configuration on start).
 
-This will also do a configuration check before doing a restart. If the configuration check fails then Home Assistant will not be restarted, instead a persistent notification with the ID `persistent_notification.homeassistant_check_config` will be created. The logs will show details on what failed the configuration check.
+This action also performs a configuration check before doing a restart. If the configuration check fails, Home Assistant will not be restarted. Instead, a persistent notification with the ID `persistent_notification.homeassistant_check_config` will be created. The logs will show details on what failed the configuration check.
 
-### Action `homeassistant.stop`
+### Action: Stop
 
-Stops the Home Assistant instance. Home Assistant must be restarted from the Host device to run again.
+The `homeassistant.stop` action stops the Home Assistant instance. Home Assistant must be restarted from the host device to run again.
 
-### Action `homeassistant.set_location`
+### Action: Set location
 
-Update the location of the Home Assistant default zone (usually "Home").
+The `homeassistant.set_location` action updates the location of the Home Assistant default zone (usually "Home").
 
 | Data attribute | Optional | Description                 |
 | -------------- | -------- | --------------------------- |
@@ -376,12 +375,9 @@ actions:
       elevation: 120
 ```
 
-### Action `homeassistant.toggle`
+### Action: Toggle
 
-Generic action to toggle devices on/off. Same usage as the
-`light.toggle`, `switch.toggle`, etc. actions. The difference with this
-action compared the others, is that is can be used to mix different domains,
-for example, a light and a switch can be toggled in a single action.
+The `homeassistant.toggle` action is a generic action to toggle devices on/off. It has the same usage as the `light.toggle`, `switch.toggle`, and other toggle actions. The difference with this action compared to the others is that it can be used to mix different domains. For example, a light and a switch can be toggled in a single action.
 
 | Data attribute | Optional | Description                                   |
 | -------------- | -------- | --------------------------------------------- |
@@ -398,12 +394,9 @@ actions:
         - switch.tv
 ```
 
-### Action `homeassistant.turn_on`
+### Action: Turn on
 
-Generic action to toggle devices on. Same usage as the
-`light.turn_on`, `switch.turn_on`, etc. actions. The difference with this
-action compared the others, is that is can be used to mix different domains,
-for example, a light and a switch can be turned on in a single action.
+The `homeassistant.turn_on` action is a generic action to turn devices on. It has the same usage as the `light.turn_on`, `switch.turn_on`, and other turn on actions. The difference with this action compared to the others is that it can be used to mix different domains. For example, a light and a switch can be turned on in a single action.
 
 | Data attribute | Optional | Description                             |
 | -------------- | -------- | --------------------------------------- |
@@ -420,12 +413,9 @@ actions:
         - switch.tv
 ```
 
-### Action `homeassistant.turn_off` 
+### Action: Turn off
 
-Generic action to toggle devices off. Same usage as the
-`light.turn_off`, `switch.turn_off`, etc. actions. The difference with this
-action compared the others, is that is can be used to mix different domains,
-for example, a light and a switch can be turned off in a single action.
+The `homeassistant.turn_off` action is a generic action to turn devices off. It has the same usage as the `light.turn_off`, `switch.turn_off`, and other turn off actions. The difference with this action compared to the others is that it can be used to mix different domains. For example, a light and a switch can be turned off in a single action.
 
 | Data attribute | Optional | Description                              |
 | -------------- | -------- | ---------------------------------------- |
@@ -442,9 +432,9 @@ actions:
         - switch.tv
 ```
 
-### Action `homeassistant.update_entity`
+### Action: Update entity
 
-Force one or more entities to update its data rather than wait for the next scheduled update.
+The `homeassistant.update_entity` action forces one or more entities to update their data rather than wait for the next scheduled update.
 
 | Data attribute | Optional | Description                                             |
 | -------------- | -------- | ------------------------------------------------------- |
@@ -461,9 +451,8 @@ actions:
       - switch.coffe_pot
 ```
 
-### Action `homeassistant.save_persistent_states`
+### Action: Save persistent states
 
-Save the persistent states (for entities derived from RestoreEntity) immediately.
-Maintain the normal periodic saving interval.
+The `homeassistant.save_persistent_states` action saves the persistent states (for entities derived from RestoreEntity) immediately while maintaining the normal periodic saving interval.
 
-Normally these states are saved at startup, every 15 minutes and at shutdown.
+Normally, these states are saved at startup, every 15 minutes, and at shutdown.

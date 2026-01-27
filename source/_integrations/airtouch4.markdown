@@ -9,7 +9,7 @@ ha_config_flow: true
 ha_domain: airtouch4
 ha_platforms:
   - climate
-ha_integration_type: integration
+ha_integration_type: device
 ha_codeowners:
   - '@samsinnamon'
 ---

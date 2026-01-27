@@ -163,7 +163,7 @@ In short, when any group member entity is `unlocked`, the group will also be `un
 
 ## Managing groups
 
-To edit a group, **{% my helpers title="Settings -> Devices & services -> Helpers" %}**. Find and select the group from the list.
+To edit a group, **{% my helpers title="**Settings** > **Devices & services** > **Helpers**" %}**. Find and select the group from the list.
 
 ![Group members](/images/integrations/group/Group_settings.png)
 
