@@ -12,7 +12,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The MJPEG IP Camera integration allows you to integrate IP cameras which are
+The **MJPEG IP Camera** {% term integration %} allows you to integrate IP cameras which are
 capable to stream their video with MJPEG (Motion JPEG) into Home Assistant.
 
 ## Prerequisites

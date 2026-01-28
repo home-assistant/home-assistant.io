@@ -219,7 +219,7 @@ If you want to help translate that into your native language,
 [join the frontend team on Localize](https://developers.home-assistant.io/docs/translations).
 
 But we did not stop there! Now add-ons can provide
-[translation files](https://developers.home-assistant.io/docs/add-ons/configuration#add-on-translations)
+[translation files](https://developers.home-assistant.io/docs/apps/configuration#app-translations)
 for configuration options and network descriptions that
 are shown in the frontend.
 

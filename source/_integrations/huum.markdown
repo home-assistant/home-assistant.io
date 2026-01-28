@@ -18,7 +18,7 @@ ha_platforms:
   - climate
   - light
   - number
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 Integrates [Huum](https://huum.eu/) saunas into Home Assistant.

@@ -152,7 +152,7 @@ focus:
   type: boolean
 {% endconfiguration %}
 
-## Options for geolocation sources:
+## Options for geolocation sources
 
 If you define geolocation sources as objects instead of strings (by adding `source:` before the ID), you can add more customization and configuration.
 

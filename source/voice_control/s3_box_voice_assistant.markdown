@@ -14,7 +14,7 @@ related:
     title: Enable wake word
   - docs: /voice_control/s3-box-customize/#customizing-on-device-wake-words-microwakeword
     title: Customizing the S3-BOX with on-device wake words
-  - url: https://esphome.io/projects/index.html
+  - url: https://esphome.io/projects/
     title: ESPHome projects page
 ---
 
@@ -194,14 +194,14 @@ Before you can use this device with Home Assistant, you need to install a bit of
 ## Turning off microphone or screen
 
 1. If you do not want to Assist to listen to you for a while, you can turn off the microphone.
-   - Go to {% my integrations title="**Settings** > **Devices & Services**" %} and select the **ESPHome** integration.
+   - Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **ESPHome** integration.
       - Under **ESP32-S3-BOX-3**, select **1 device**.
       - Enable **Mute**.
       - The screen of the ESP32-S3-BOX-3 will turn off, too.
 
       ![Toggle to enable/disable Mute](/images/assist/wake_word_disable.png)
 2. If you want to just use the wake word, but do not want to use the screen, you can turn it off.
-   - Go to {% my integrations title="**Settings** > **Devices & Services**" %} and select the **ESPHome** integration.
+   - Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **ESPHome** integration.
      - Under **ESP32-S3-BOX-3**, select **1 device**.
      - Disable **Screen**.
 
@@ -220,4 +220,4 @@ To update the software on your S3-BOX, follow the steps below that reflect your 
 - **Option 3**: You have manually changed the configuration file for your S3-BOX:
   - You need to compile your own firmware. To do so, either:
     - Use the ESPHome dashboard add-on within Home Assistant. While the easiest option, it tends to be the slowest and may fail, particularly on older systems or on systems with limited memory/CPU resources.
-    - Follow the steps in the [ESPHome documentation](https://esphome.io/guides/getting_started_command_line) and use a desktop-class system to compile and install the firmware. Initial setup is more complex, but the process is significantly faster and more reliable.
+    - Follow the steps in the [ESPHome documentation](https://esphome.io/guides/getting_started_command_line/) and use a desktop-class system to compile and install the firmware. Initial setup is more complex, but the process is significantly faster and more reliable.

@@ -9,9 +9,7 @@ ha_domain: waterfurnace
 ha_platforms:
   - sensor
 ha_integration_type: integration
-related:
-  - docs: /docs/configuration/
-    title: Configuration file
+ha_config_flow: true
 ha_quality_scale: legacy
 ---
 
@@ -36,28 +34,23 @@ The sensors provided include:
 
 ## Configuration
 
-To use Waterfurnace in your installation, add the following to your {% term "`configuration.yaml`" %} file.
-{% include integrations/restart_ha_after_config_inclusion.md %}
 
-```yaml
-# Example configuration.yaml entry
-waterfurnace:
-  username: YOUR_USERNAME
-  password: YOUR_PASSWORD
-```
+## Prerequisites
 
-{% configuration %}
+To use Waterfurnace in your installation, you need to configure the integration with your Symphony Waterfurnace account.
+
+{% include integrations/config_flow.md %}
+
+{% configuration_basic %}
 username:
   description: The email address for your Symphony WaterFurnace account
-  required: true
-  type: string
 password:
   description: The password for your Symphony WaterFurnace account
-  required: true
-  type: string
-{% endconfiguration %}
+{% endconfiguration_basic %}
 
 ## Limitations
+
+If your account has more than one device or location, only the first device on the first location will be used.
 
 The WebSocket interface used by this module requires active polling to prevent the server side shuts down the connection. By default, this polling is happening every 10 seconds. All sensors are updated during every polling cycle.
 

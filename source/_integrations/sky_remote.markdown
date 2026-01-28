@@ -18,7 +18,7 @@ related:
     title: Configuration file
 ---
 
-The **Sky Remote** {% term integration %} lets you control a [Sky](https://www.sky.com/) box using Home Assistant.
+The **Sky Remote Control** {% term integration %} lets you control a [Sky](https://www.sky.com/) box using Home Assistant.
 
 ## Supported models
 
@@ -37,9 +37,9 @@ host:
 
 The Sky Remote platform will create a [Remote](/integrations/remote/) entity for the device. This entity allows you to send commands via the `remote.send_command` action.
 
-### Action `remote.send_command`
+### Action: Send command
 
-Send a single command or a set of commands to one Sky box.
+The `remote.send_command` action sends a single command or a set of commands to one Sky box.
 
 | Data attribute | Optional | Description                                         |
 | ---------------------- | -------- | --------------------------------------------------- |
