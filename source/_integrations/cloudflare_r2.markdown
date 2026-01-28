@@ -1,7 +1,7 @@
 ---
 title: Cloudflare R2
 description: Instructions on how to setup Cloudflare R2 bucket to be used as a backup location.
-ha_release: 2025.10
+ha_release: 2026.2
 ha_category:
   - Backup
 ha_iot_class: Cloud Push
@@ -23,11 +23,11 @@ This integration requires an existing R2 bucket and admin access to the bucket s
 
 1. Log in to your [Cloudflare Dashboard](https://dash.cloudflare.com/).
 2. On the sidebar, go to **Storage & databases**, click on **R2 object storage** and then **Overview**.
-3. Click **+ Create bucket**.
+3. Select **+ Create bucket**.
 4. Choose a unique **Bucket name** (e.g., `home-assistant-backups-123456`).
 5. Select your preferred [location](https://developers.cloudflare.com/r2/reference/data-location/).
 6. Select your preferred [storage class](https://developers.cloudflare.com/r2/buckets/storage-classes/#set-default-storage-class-for-buckets) (Standard is fine, as Infrequent Access is still in beta)
-7. Click **Create bucket**.
+7. Select **Create bucket**.
 
 Make a note of the bucket name — you’ll need it later.
 
@@ -57,32 +57,19 @@ To create a new Secret Key that can access the R2 bucket:
 
 {% include integrations/config_flow.md %}
 
-{% configuration %}
+{% configuration_basic %}
 Access key ID:
   description: "Access key ID to connect to Cloudflare R2 (this is your Account ID)."
-  required: true
-  type: string
 Secret access key:
   description: "Secret access key to connect to Cloudflare R2. See [Cloudflare documentation](https://developers.cloudflare.com/r2/api/tokens/)"
-  required: true
-  type: string
 Bucket name:
   description: "R2 bucket name to store the backups. Bucket must already exist and be writable by the provided credentials."
-  required: true
-  type: string
 Endpoint URL:
   description: "Cloudflare R2 S3-compatible endpoint."
-  required: true
-  type: string
 Folder prefix:
   description: "Optional folder path inside the bucket. For example, `backups/homeassistant`"
-  required: false
-  type: string
 {% endconfiguration %}
 
-## Known limitations
-
-None.
 
 ## Removing the integration
 
