@@ -14,6 +14,7 @@ ha_codeowners:
 ha_domain: openevse
 ha_zeroconf: true
 ha_platforms:
+  - number
   - sensor
 ha_integration_type: device
 ---
