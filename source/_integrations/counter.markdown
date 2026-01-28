@@ -122,7 +122,7 @@ The `counter.set_value` action allows you to set the counter to a specific value
 
 ### Use the action
 
-Select the **Actions** tab from within **Developer Tools**. Choose **counter** from the list of **Domains**, select the **Actions**, enter something like the sample below into the **data** field, and select **Perform action**.
+Go to {% my developer_services title="**Settings** > **Developer tools** > **Actions**" %}. Choose **counter** from the list of **Domains**, select the **Actions**, enter something like the sample below into the **data** field, and select **Perform action**.
 
 ```json
 {
