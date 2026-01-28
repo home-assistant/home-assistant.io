@@ -4,7 +4,7 @@ description: Integration to control Prana recuperators.
 ha_release: 2026.2
 ha_iot_class: Local Polling
 ha_codeowners:
-  - '@home-assistant/core'
+  - @prana-dev-official
 ha_domain: prana
 ha_integration_type: integration
 related:
@@ -43,18 +43,6 @@ This integration is discovered automatically over mDNS. There is no user input s
 
 The integration exposes the following entities.
 
-#### Fans / sliders
-
-- **Supply fan** (slider)
-  - Description: Controls the supply (incoming) motor of the recuperator
-  - Available actions: Turn on/off, set speed
-  - Presets: Supports _Night_ and _Boost_ (preset_mode). _Night_ sets a minimal, quiet speed. _Boost_ temporarily increases fan output.
-
-- **Extract fan** (slider)
-  - Description: Controls the extract (exhaust) motor of the recuperator
-  - Available actions: Turn on/off, set speed
-  - Presets: Supports _Night_ and _Boost_ (preset_mode). _Night_ sets a minimal, quiet speed. _Boost_ temporarily increases fan output.
-
 #### Switches
 
 - **Auto**
@@ -68,68 +56,39 @@ The integration exposes the following entities.
 - **Bound**
   - Description: Bind or synchronize both fans and related parameters
 
-#### Selects
 
-- **Operation mode**
-  - Description: Select the overall operating mode, if available
-  - Options: *Auto*, *Manual*, *Boost*, *Sleep*
-
-#### Sensors
-
-- **Inside temperature 1**
-  - Description: Indoor temperature, sensor 1
-- **Inside temperature 2**
-  - Description: Indoor temperature, sensor 2
-- **Outside temperature 1**
-  - Description: Outdoor temperature, sensor 1
-- **Outside temperature 2**
-  - Description: Outdoor temperature, sensor 2
-- **Supply temperature**
-  - Description: Supply air temperature
-- **Exhaust temperature**
-  - Description: Exhaust air temperature
-- **Supply fan speed**
-  - Description: Current supply fan speed
-- **Extract fan speed**
-  - Description: Current extract fan speed
-- **VOC**
-  - Description: Volatile organic compound level, an indicator of air quality
-- **CO2**
-  - Description: Carbon dioxide level in the room
-- **Humidity**
-  - Description: Relative humidity in the room
-- **Filter status**
-  - Description: Filter status (OK, Replace)
-- **Fault code**
-  - Description: Current fault code, if any
-
-Note: The available sensors depend on the device model and firmware. If your device does not expose a sensor, the corresponding entity will not be created.
-
-#### Light / slider
-
-- **Display brightness**
-  - Description: Slider to set the device display brightness (0–100)
-
-#### Buttons
-
-- **Reset filter**
-  - Description: Reset the filter replacement counter after you physically replace the filter
 
 ## Actions
 
-- prana.set_fan_speed
-  - Data attribute: `fan` (one of `supply`, `extract`)
-  - Data attribute: `speed`
-  - Description: Set the speed of the specified fan. For example:
-    - `fan: "supply"`, `speed: 3` or `fan: "extract"`, `speed: 50`
+The Prana integration supports standard Home Assistant switch actions and can be used in automations and scripts.
 
-- prana.set_mode
-  - Data attribute: `mode`
-  - Description: Set the operating mode (`Auto`, `Manual`, `Boost`, `Sleep`)
+### Supported actions
 
-- prana.set_display_brightness
-  - Data attribute: `brightness`
-  - Description: Set the device display brightness (0–100)
+The following actions are supported for all Prana switch entities:
+
+- `switch.turn_on`
+- `switch.turn_off`
+
+### Example automation
+
+Turn on Prana recuperator auto mode for weekend:
+
+```yaml
+description: "Turn on Prana recuperator auto mode for weekend"
+mode: single
+triggers:
+  - trigger: time
+    at: "00:00:00"
+    weekday:
+      - sat
+      - sun
+conditions: []
+actions:
+  - type: turn_on
+    device_id: cd68b39c80e151000d12d7474d944ba1
+    entity_id: 28014e751edb9977fa03eb3ecee02cbe
+    domain: switch
+```
 
 ## Data updates
 
