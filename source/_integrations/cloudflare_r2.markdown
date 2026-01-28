@@ -68,7 +68,7 @@ Endpoint URL:
   description: "Cloudflare R2 S3-compatible endpoint."
 Folder prefix:
   description: "Optional folder path inside the bucket. For example, `backups/homeassistant`"
-{% endconfiguration %}
+{% endconfiguration_basic %}
 
 
 ## Removing the integration
