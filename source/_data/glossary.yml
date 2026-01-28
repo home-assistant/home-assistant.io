@@ -35,17 +35,17 @@
     An entity that receives a control signal and performs an action in a system.
   aliases:
     - actors
-- term: Add-on
+- term: App
   definition: >-
-    Add-ons are additional standalone third-party software packages that can be
-    installed on Home Assistant OS. Most of these, add-on provided, applications
+    Apps, formerly known as add-ons, are additional standalone third-party software packages that can be
+    installed on Home Assistant OS. Most of these applications
     can be integrated into Home Assistant using integrations. Examples of
-    add-ons are: an MQTT broker, database service or a file server.
+    apps are: an MQTT broker, database service, or a file server.
   excerpt: >
-    Add-ons are additional standalone third-party software packages that can be
+    Apps are additional standalone third-party software packages that can be
     installed on Home Assistant OS.
   aliases:
-    - add-ons
+    - apps
   link: /getting-started/concepts-terminology/#add-ons
 - term: Area
   definition: >-
@@ -333,28 +333,28 @@
   definition: >-
     The Home Assistant Supervised installation type is a full UI managed home automation ecosystem
     that runs the Home Assistant Core program, the Home Assistant Supervisor and
-    add-ons. It comes pre-installed on Home Assistant OS, but can be installed
+    apps. It comes pre-installed on Home Assistant OS, but can be installed
     standalone on Debian Linux systems. It leverages Docker, which is managed by
     the Home Assistant Supervisor. The
     [Home Assistant Supervised installation type is deprecated](https://www.home-assistant.io/blog/2025/05/22/deprecating-core-and-supervised-installation-methods-and-32-bit-systems/).
   excerpt: >-
     The Home Assistant Supervised installation type is a full UI managed home automation ecosystem
     that runs the Home Assistant Core program, the Home Assistant Supervisor and
-    add-ons. It comes pre-installed on Home Assistant OS, but can be installed
+    apps. It comes pre-installed on Home Assistant OS, but can be installed
     standalone on Debian Linux systems. It leverages Docker, which is managed by
     the Home Assistant Supervisor. The Home Assistant Supervised installation type is deprecated.
 - term: Home Assistant Supervisor
   definition: >-
     The Home Assistant Supervisor is a program that manages a Home Assistant
     installation, taking care of installing and updating Home Assistant,
-    add-ons, itself, and, if used, updating the Home Assistant Operating System.
+    apps, itself, and, if used, updating the Home Assistant Operating System.
 - term: Home Assistant Operating System
   definition: >-
     Home Assistant OS, the Home Assistant Operating System, is an embedded,
     minimalistic, operating system designed to run the Home Assistant ecosystem
     on single board computers (like the Raspberry Pi) or Virtual Machines. It
     includes Home Assistant Core, the Home Assistant Supervisor, and supports
-    add-ons. Home Assistant Supervisor keeps it up to date, removing the need
+    apps. Home Assistant Supervisor keeps it up to date, removing the need
     for you to manage an operating system. Home Assistant Operating System is
     the recommended installation type for most users.
 - term: Host
@@ -604,7 +604,7 @@
     network. In case of Matter, the data that is forwarded is encrypted.
     Examples of Thread border routers are the Nest Hub (2nd gen), the HomePod
     mini, and the Home Assistant Connect&nbsp;ZBT-2 together with the OpenThread Border
-    Router add-on.
+    Router app.
   link: /integrations/thread/#about-thread-border-routers
   aliases:
     - Thread border routers
@@ -625,7 +625,7 @@
   definition: >-
     An update entity is an entity that indicates if an update is available for a
     device or service. This can be any update, be it a firmware update
-    for a device like a light bulb or router, or a software update for an add-on or a container.
+    for a device like a light bulb or router, or a software update for an app or a container.
   excerpt: >
     An update entity is an entity that indicates if an update is available for a
     device or service.

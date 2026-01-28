@@ -128,7 +128,7 @@ The [HTTP integration](/integrations/http) must **not** be configured to use an 
 
 This is because the Google Assistant device will connect directly to the IP of your Home Assistant instance and will fail if it encounters an invalid SSL certificate.
 
-For secure remote access, use a reverse proxy such as the {% my supervisor_addon addon="core_nginx_proxy" title="NGINX SSL" %} add-on instead of directing external traffic straight to Home Assistant.
+For secure remote access, use a reverse proxy such as the {% my supervisor_addon addon="core_nginx_proxy" title="NGINX SSL" %} app (formerly known as NGINX SSL add-on) instead of directing external traffic straight to Home Assistant.
 {% endimportant %}
 
 1. Open the project you created in the [Google Developer Console](https://console.home.google.com/projects).

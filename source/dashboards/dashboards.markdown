@@ -35,11 +35,11 @@ Screenshot of the Dashboard list.
 
 Built-in dashboards that are available in the sidebar by default:
 
-- [Activity dashboard](#activity-dashboard) Category: built-in.
+- [Home dashboard](#home-dashboard). Category: built-in. It is shown in the sidebar only while it is set as your default dashboard. If you set another dashboard as default, that dashboard appears in the sidebar instead.
+- [Activity dashboard](#activity-dashboard). Category: built-in.
 - Energy dashboard. Category: built-in.
 - [History dashboard](#history-dashboard). Category: built-in.
-- [Map dashboard](#map-dashboard): Category: user-created. The Map dashboard is an exception: it is available out of the box, but you can edit it freely. This is why it is categorized as **User-created** dashboard.
-- [Overview dashboard](#creating-a-new-dashboard). Category: built-in.
+- [Map dashboard](#map-dashboard). Category: user-created. The Map dashboard is an exception: it is available out of the box, but you can edit it freely. This is why it is categorized as **User-created** dashboard.
 - [To-do lists dashboard](#to-do-lists-dashboard). Category: built-in.
 
 <p class='img'>
@@ -51,7 +51,6 @@ Screenshot of the Dashboard list on a new installation.
 
 Some of the built-in dashboards are not shown in the sidebar by default, but are listed under {% my lovelace_dashboards title="**Settings** > **Dashboards**" %}.
 
-- [Home dashboard](#home-dashboard)
 - **Lights** dashboards: Overview of your lights, [grouped](/docs/organizing/) by [floors](/docs/organizing/floors/) and [areas](/docs/organizing/areas/).
 - **Security** dashboards: Overview of your security-related devices, [grouped](/docs/organizing/) by [floors](/docs/organizing/floors/) and [areas](/docs/organizing/areas/). The security-related devices include devices such as alarm, lock, camera, doors/covers, motion sensors, and binary sensor.
 - **Climate** dashboards: Overview of your climate devices, [grouped](/docs/organizing/) by [floors](/docs/organizing/floors/) and [areas](/docs/organizing/areas/). The climate dashboard includes devices such as heating and cooling devices, windows, and fans.
@@ -188,80 +187,44 @@ If you do not use one of the predefined dashboards, or created a dashboard you n
 3. In the dialog, select **Delete**.
    ![Deleting a dashboard](/images/dashboards/delete_dashboard.png)
 
-## Using YAML for the Overview dashboard
+## Adding YAML dashboards
 
-To change the **Overview** dashboard, create a new file `ui-lovelace.yaml` in your configuration directory and add the following section to your `configuration.yaml` and restart Home Assistant:
-
-```yaml
-lovelace:
-  mode: yaml
-```
-
-A good way to start this file is to copy and paste the "Raw configuration" from the UI so your manual configuration starts the same as your existing UI.
-
-- In your sidebar, select **Overview**.
-- In the top-right corner, select the pencil icon.
-- Select the three dots {% icon "mdi:dots-vertical" %} menu and select **Raw configuration editor**.
-- There you see the configuration for your current dashboard. Copy that into the `<config>/ui-lovelace.yaml` file.
-
-Once you take control of your UI via YAML, the Home Assistant interface for modifying it won't be available anymore, and new entities will not automatically be added to your UI.
-
-When you make changes to `ui-lovelace.yaml`, you don't have to restart Home Assistant or refresh the page. Just hit the refresh button in the menu at the top of the UI.
-
-To revert back to using the UI to edit your dashboard, remove the `lovelace` section from your `configuration.yaml` and copy the contents of your `ui-lovelace.yaml` into the raw configuration section of Home Assistant and restart.
-
-## Adding more dashboards with YAML
-
-It is also possible to use YAML to define multiple dashboards. Each dashboard will be loaded from its own YAML file.
+You can use YAML to define dashboards. Each YAML dashboard is loaded from its own YAML file. To add YAML dashboards, in your `configuration.yaml` file create a `dashboards:` section under the top-level `lovelace:` key.
 
 ```yaml
 lovelace:
-  mode: yaml
-  # Include external resources only add when mode is yaml, otherwise manage in the resources in the dashboard configuration panel.
+  # Include external resources
   resources:
     - url: /local/my-custom-card.js
       type: module
     - url: /local/my-webfont.css
       type: css
-  # Add more dashboards
+  # Add YAML dashboards
   dashboards:
-    lovelace-generated: # Needs to contain a hyphen (-)
+    my-home: # Needs to contain a hyphen (-)
       mode: yaml
-      filename: notexist.yaml
-      title: Generated
+      filename: my-home.yaml
+      title: My home
+      icon: mdi:home-outline
+      show_in_sidebar: true
+    dashboard-hidden:
+      mode: yaml
+      filename: hidden.yaml
+      title: Hidden
+      show_in_sidebar: false
+    dashboard-admin:
+      mode: yaml
+      title: Admin
       icon: mdi:tools
       show_in_sidebar: true
-      require_admin: true
-    lovelace-hidden:
-      mode: yaml
-      title: hidden
-      show_in_sidebar: false
-      filename: hidden.yaml
-```
-
-You can also add YAML dashboards when your main dashboard is UI configured:
-
-```yaml
-lovelace:
-  mode: storage
-  # Add yaml dashboards
-  dashboards:
-    lovelace-yaml:
-      mode: yaml
-      title: YAML
-      icon: mdi:script
-      show_in_sidebar: true
-      filename: dashboards.yaml
+      require_admin: false
+      filename: admin.yaml
 ```
 
 {% configuration dashboards %}
-mode:
-  required: true
-  description: "In what mode should the main dashboard be, `yaml` or `storage` (UI managed)."
-  type: string
 resources:
   required: false
-  description: "List of resources that should be loaded. Only use this when mode is `yaml`. If you change anything here, click the three dots {% icon "mdi:dots-vertical" %} menu (top-right) and click on `Reload resources` to pick up changes without restarting Home Assistant. You can also call `lovelace.reload_resources` action directly."
+  description: "List of resources that should be loaded. If you change anything here, click the three dots {% icon "mdi:dots-vertical" %} menu (top-right) and click **Reload resources** to pick up changes without restarting Home Assistant. You can also call `lovelace.reload_resources` action directly."
   type: list
   keys:
     url:

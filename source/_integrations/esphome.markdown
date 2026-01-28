@@ -39,6 +39,7 @@ ha_platforms:
   - time
   - update
   - valve
+  - water_heater
 ha_integration_type: device
 ha_dhcp: true
 ha_quality_scale: platinum
@@ -193,11 +194,11 @@ The entity will be named `Hálószoba klíma Árvíztűrő tükörfúrógép` an
 
 ### Viewing live logs
 
-To troubleshoot your ESPHome devices, you can easily view live logs, whether you're using the [**ESPHome Device Builder Add-on**](https://my.home-assistant.io/redirect/supervisor_addon/?addon=5c53de3b_esphome&repository_url=https%3A%2F%2Fgithub.com%2Fesphome%2Fhome-assistant-addon) or the **ESPHome CLI**. The logs contain detailed information such as Wi-Fi connection status, errors, and debug messages, which can help you identify and resolve issues with your device.
+To troubleshoot your ESPHome devices, you can easily view live logs, whether you're using the [**ESPHome Device Builder**](https://my.home-assistant.io/redirect/supervisor_addon/?addon=5c53de3b_esphome&repository_url=https%3A%2F%2Fgithub.com%2Fesphome%2Fhome-assistant-addon) or the **ESPHome CLI**. The logs contain detailed information such as Wi-Fi connection status, errors, and debug messages, which can help you identify and resolve issues with your device.
 
-#### Using the [**ESPHome Device Builder Add-on**](https://my.home-assistant.io/redirect/supervisor_addon/?addon=5c53de3b_esphome&repository_url=https%3A%2F%2Fgithub.com%2Fesphome%2Fhome-assistant-addon)
+#### Using the [**ESPHome Device Builder**](https://my.home-assistant.io/redirect/supervisor_addon/?addon=5c53de3b_esphome&repository_url=https%3A%2F%2Fgithub.com%2Fesphome%2Fhome-assistant-addon)
 
-1. In the [**ESPHome Device Builder Add-on**](https://my.home-assistant.io/redirect/supervisor_addon/?addon=5c53de3b_esphome&repository_url=https%3A%2F%2Fgithub.com%2Fesphome%2Fhome-assistant-addon) add-on, find the device you're working with.
+1. In the [**ESPHome Device Builder**](https://my.home-assistant.io/redirect/supervisor_addon/?addon=5c53de3b_esphome&repository_url=https%3A%2F%2Fgithub.com%2Fesphome%2Fhome-assistant-addon) app, find the device you're working with.
 2. Click the **LOGS** button to open the log view.
 
 #### Using the **ESPHome CLI**
@@ -262,9 +263,9 @@ You can trigger Name Conflict Resolution in several ways:
 
 ## Known limitations
 
-Each ESPHome device must have a **unique name**. This name is important for mDNS announcements, ensuring that the device can be properly discovered, quickly reconnected when it comes online or wakes from deep sleep (for devices that support deep sleep), and correctly linked to the [**ESPHome Device Builder Add-on**](https://my.home-assistant.io/redirect/supervisor_addon/?addon=5c53de3b_esphome&repository_url=https%3A%2F%2Fgithub.com%2Fesphome%2Fhome-assistant-addon). It's also crucial for **DHCP discovery** if mDNS is not available.
+Each ESPHome device must have a **unique name**. This name is important for mDNS announcements, ensuring that the device can be properly discovered, quickly reconnected when it comes online or wakes from deep sleep (for devices that support deep sleep), and correctly linked to the [**ESPHome Device Builder**](https://my.home-assistant.io/redirect/supervisor_addon/?addon=5c53de3b_esphome&repository_url=https%3A%2F%2Fgithub.com%2Fesphome%2Fhome-assistant-addon) app. It's also crucial for **DHCP discovery** if mDNS is not available.
 
-Using duplicate names can lead to connection issues, failed discovery, and unexpected behavior with both the integration and the add-on.
+Using duplicate names can lead to connection issues, failed discovery, and unexpected behavior with both the integration and the app for Home Assistant (formerly known as add-on).
 
 ## Removing the integration
 

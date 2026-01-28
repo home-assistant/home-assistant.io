@@ -13,7 +13,7 @@ ha_domain: watts
 ha_config_flow: true
 ha_platforms:
   - climate
-ha_integration_type: integration
+ha_integration_type: hub
 ha_quality_scale: bronze
 ---
 

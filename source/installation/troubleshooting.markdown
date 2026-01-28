@@ -26,7 +26,7 @@ To resolve this issue, try the following steps:
      - During first startup, time will be synchronized. Ensure NTP is allowed in your network.
      - During first startup, Home Assistant completes the installation. It needs access to the following URLs:
        - version.home-assistant.io: to fetch new version information.
-       - github.com: to update metadata of the add-on store.
+       - github.com: to update metadata of the Home Assistant app store.
        - ghcr.io: the GitHub container registry to fetch new Home Assistant updates.
 3. Make sure the system on which you opened the browser to access Home Assistant is connected to the same network as Home Assistant.
    - For example, if the system your Browser runs on is using Wi-Fi, make sure it is using the same Wi-Fi Home Assistant is connected to.
@@ -57,7 +57,7 @@ You are in the onboarding procedure, but you get the message **Error installing 
      - During first startup, time will be synchronized. Ensure NTP is allowed in your network.
      - During first startup, Home Assistant completes the installation. It needs access to the following URLs:
        - version.home-assistant.io: to fetch new version information.
-       - github.com: to update metadata of the add-on store.
+       - github.com: to update metadata of the Home Assistant app store.
        - ghcr.io: the GitHub container registry to fetch new Home Assistant updates.
 2. After changing your network environment, wait a few minutes. Home Assistant will try to reconnect.
 3. [Reach out to our community for help](https://www.home-assistant.io/help/).
@@ -78,7 +78,7 @@ You are in the onboarding procedure, but the process seems stuck at the step **P
      - During first startup, time will be synchronized. Ensure NTP is allowed in your network.
      - During first startup, Home Assistant completes the installation. It needs access to the following URLs:
        - version.home-assistant.io: to fetch new version information.
-       - github.com: to update metadata of the add-on store.
+       - github.com: to update metadata of the Home Assistant app store.
        - ghcr.io: the GitHub container registry to fetch new Home Assistant updates.
 3. After changing your network environment, wait a few minutes. Home Assistant will try to reconnect.
 4. [Reach out to our community for help](https://www.home-assistant.io/help/).

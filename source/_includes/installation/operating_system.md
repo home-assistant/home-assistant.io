@@ -302,7 +302,7 @@ Follow this guide if you already are running a supported virtual machine hypervi
 
 ### Create the virtual machine
 
-Load the appliance image into your virtual machine hypervisor. (Note: You are free to assign as much resources as you wish to the VM, please assign enough based on your add-on needs).
+Load the appliance image into your virtual machine hypervisor. (Note: You are free to assign as much resources as you wish to the VM, please assign enough based on your app needs).
 
 Minimum recommended assignments:
 

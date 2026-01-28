@@ -72,14 +72,14 @@ To learn how to use {% term scenes %}, refer to the [scene](/integrations/scene/
 
 ![Scenes](/images/getting-started/scene_02.png)
 
-## Add-ons
+## Apps
 
-Add-ons are third-party applications that provide additional functionality in Home Assistant. Add-ons run directly alongside Home Assistant, whereas {% term integrations %} connect Home Assistant to other apps. Add-ons are only [supported](/installation/#about-installation-types) when using {% term "Home Assistant Operating System" %}.
+Apps are third-party applications that provide additional functionality in Home Assistant. Apps run directly alongside Home Assistant, whereas {% term integrations %} connect Home Assistant to other apps. Apps are only [supported](/installation/#about-installation-types) when using {% term "Home Assistant Operating System" %}.
 
-Add-ons are installed from the add-on store under {% my supervisor title="**Settings** > **Add-ons**" %}. If you are curious now and feel like installing every add-on that looks interesting: beware that add-ons can use quite a bit of resources in terms of disk space, memory, and additional load on the processor.
+Apps are installed from the app store under {% my supervisor title="**Settings** > **Apps**" %}. If you are curious now and feel like installing every app that looks interesting: beware that apps can use quite a bit of resources in terms of disk space, memory, and additional load on the processor.
 
-Among the most used add-ons are the ones that provide [file access and edit files](/docs/configuration/#to-set-up-access-to-the-files-and-prepare-an-editor) in Home Assistant.
+Among the most used apps are the ones that provide [file access and edit files](/docs/configuration/#to-set-up-access-to-the-files-and-prepare-an-editor) in Home Assistant.
 
-<p class='img'><img src='/images/getting-started/add-ons.png' style='border: 0;box-shadow: none;' alt="Screenshot of the add-on page">Screenshot of the add-on page, showing all the installed add-ons on a test system.</p>
+<p class='img'><img src='/images/getting-started/add-ons.png' style='border: 0;box-shadow: none;' alt="Screenshot of the app page">Screenshot of the app page, showing all the installed apps on a test system.</p>
 
 {% include getting-started/next_step.html step="Edit the dashboard" link="/getting-started/onboarding_dashboard/" %}

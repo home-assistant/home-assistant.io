@@ -176,6 +176,172 @@ This integration provides the following entities.
 - **Chlorine dosing method**: Chlorine dosing control method.
   - **Options**: Disabled, Proportional control, On/Off control, Timed dosing
 
+## Examples
+
+### Monitor ORP levels and send alerts
+
+This automation monitors your pool's ORP level and sends a notification when it goes outside the recommended range.
+
+{% raw %}
+```yaml
+automation:
+  - alias: "Pool ORP out of range"
+    triggers:
+      - trigger: numeric_state
+        entity_id: sensor.pool_device_orp
+        below: 650
+        id: "low"
+      - trigger: numeric_state
+        entity_id: sensor.pool_device_orp
+        above: 750
+        id: "high"
+    actions:
+      - action: notify.notify
+        data:
+          title: "Pool ORP alert"
+          message: "ORP level is {{ trigger.id }}: {{ states('sensor.pool_device_orp') }} mV"
+```
+{% endraw %}
+
+### Monitor pH levels and send alerts
+
+This automation monitors your pool's pH level and sends a notification when it goes outside the recommended range.
+
+{% raw %}
+```yaml
+automation:
+  - alias: "Pool pH out of range"
+    triggers:
+      - trigger: numeric_state
+        entity_id: sensor.pool_device_ph
+        below: 6.8
+        id: "low"
+      - trigger: numeric_state
+        entity_id: sensor.pool_device_ph
+        above: 7.6
+        id: "high"
+    actions:
+      - action: notify.notify
+        data:
+          title: "Pool pH alert"
+          message: "pH level is {{ trigger.id }}: {{ states('sensor.pool_device_ph') }}"
+```
+{% endraw %}
+
+### Pause dosing when pH is extreme
+
+This automation pauses the dosing system when the pH level reaches dangerously high or low values, preventing excessive chemical dosing.
+
+{% raw %}
+```yaml
+automation:
+  - alias: "Pause dosing on extreme pH"
+    triggers:
+      - trigger: numeric_state
+        entity_id: sensor.pool_device_ph
+        below: 6.5
+        id: "too_low"
+      - trigger: numeric_state
+        entity_id: sensor.pool_device_ph
+        above: 8.0
+        id: "too_high"
+    actions:
+      - action: switch.turn_on
+        target:
+          entity_id: switch.pool_device_pause_dosing
+      - action: notify.notify
+        data:
+          title: "Pool dosing paused"
+          message: "Dosing paused - pH is {{ trigger.id }}: {{ states('sensor.pool_device_ph') }}"
+```
+{% endraw %}
+
+### Pool monitoring dashboard
+
+This example combines multiple card types to create a comprehensive pool monitoring view.
+
+```yaml
+type: vertical-stack
+cards:
+  - type: entities
+    title: Pool status
+    entities:
+      - entity: sensor.pool_device_temperature
+        name: Temperature
+      - entity: sensor.pool_device_ph
+        name: pH level
+      - entity: sensor.pool_device_orp
+        name: ORP level
+      - entity: switch.pool_device_pause_dosing
+        name: Dosing control
+  - type: horizontal-stack
+    cards:
+      - type: gauge
+        entity: sensor.pool_device_ph
+        name: pH
+        min: 6.5
+        max: 8.0
+        needle: true
+        segments:
+          - from: 6.5
+            color: var(--error-color)
+          - from: 6.8
+            color: var(--warning-color)
+          - from: 7.2
+            color: var(--success-color)
+          - from: 7.6
+            color: var(--warning-color)
+          - from: 7.8
+            color: var(--error-color)
+      - type: gauge
+        entity: sensor.pool_device_orp
+        name: ORP
+        unit: mV
+        min: 600
+        max: 800
+        needle: true
+        segments:
+          - from: 600
+            color: var(--error-color)
+          - from: 650
+            color: var(--success-color)
+          - from: 750
+            color: var(--error-color)
+  - type: history-graph
+    title: 24 hour trends
+    hours_to_show: 24
+    entities:
+      - entity: sensor.pool_device_ph
+      - entity: sensor.pool_device_orp
+      - entity: sensor.pool_device_temperature
+  - type: entities
+    title: Alarms
+    state_color: true
+    entities:
+      - entity: binary_sensor.pool_device_ph_tank_level_alarm
+        name: pH tank level
+      - entity: binary_sensor.pool_device_orp_tank_level_alarm
+        name: ORP tank level
+      - entity: binary_sensor.pool_device_ph_overfeed_alarm
+        name: pH overfeed
+      - entity: binary_sensor.pool_device_orp_overfeed_alarm
+        name: ORP overfeed
+      - entity: binary_sensor.pool_device_flow_rate_alarm
+        name: Flow rate
+```
+
+## Data updates
+
+This integration {% term polling polls %} data from the device every 10 minutes (600 seconds) by default. This polling interval is configured to balance data freshness with device stability:
+
+- The device does not support frequent requests and may become unstable with shorter intervals.
+- Physical water treatment values typically change slowly and do not require frequent monitoring.
+- This interval provides adequate monitoring for pool water management while maintaining device reliability.
+
+### Update and write behavior
+
+Parallel reads for read-only values are avoided and write operations are serialized (one value at a time). This reduces load on the device's limited hardware and prevents race conditions.
+
 ## Known limitations
 
 ### Hardware and connectivity issues
@@ -266,3 +432,19 @@ To get peristaltic pump status data:
 2. Find the external relay configuration for the pH and ORP pumps.
 3. Enable the external relays for the pumps you want to monitor.
 4. Save the settings and restart the device if required.
+
+## Diagnostics
+
+This integration provides diagnostics to help with debugging and troubleshooting. The diagnostics output includes:
+
+- The device information reported by the coordinator with sensitive values redacted.
+- The most recent data fetched from the device by the coordinator.
+
+To collect diagnostics, go to **Settings** > **Devices & Services**, open the PoolDose integration,
+click the three-dot menu on the integration entry and choose **Download diagnostics**. Attach the downloaded file when reporting issues to help maintainers investigate.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}

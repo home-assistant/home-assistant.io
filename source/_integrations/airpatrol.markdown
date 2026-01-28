@@ -1,5 +1,5 @@
 ---
-title: AirPatrol
+title: Airpatrol
 description: Instructions on how to integrate Airpatrol air conditioning controllers into Home Assistant.
 ha_category:
   - Climate
