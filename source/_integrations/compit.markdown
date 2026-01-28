@@ -65,6 +65,11 @@ This integration supports most of Compit device models across thermostats, contr
 - [SHC](https://compit.pl/produkty/osprzet/67-czujnik-stezenia-dwutlenku-wegla-wilgotnosci-i-temperatury-w-pomieszczeniach-shc.html?ic=1) – CO₂, humidity, and temperature sensor
 - [SPM](https://compit.pl/produkty/osprzet/87-czujnik-jakosci-powietrza-spm.html?ic=1) – Air quality sensor
 
+{% note %}
+To match the device names in Compit iNext, the SHC sensor is displayed as `SPM - Nano Color` and the SPM sensor is displayed as `SPM - Nano Color 2` in Home Assistant.
+{% endnote %}
+
+
 ## Supported functionality
 
 The **Compit** integration provides the following entities.
@@ -81,15 +86,15 @@ The **Compit** integration provides the following entities.
 
 - **CO₂ alert**
   - **Description**: Indicates whether the CO₂ level has exceeded the threshold.
-  - **Available for devices**: SPM module when connected to Nano Color 2 (Room thermostat)
+  - **Available for devices**: SPM (Air quality sensor)
 
 - **CO₂ level**
   - **Description**: Indicates whether the CO₂ level is problematic.
-  - **Available for devices**: Nano Color (Room thermostat), Nano Color 2 (Room thermostat), SPM (Air quality sensor)
+  - **Available for devices**: Nano Color (Room thermostat), Nano Color 2 (Room thermostat), SPM (Air quality sensor), SHC (CO₂, humidity, and temperature sensor)
 
 - **Dust alert**
   - **Description**: Indicates whether the dust level has exceeded the threshold.
-  - **Available for devices**: SPM module when connected to Nano Color 2 (Room thermostat)
+  - **Available for devices**: SPM (Air quality sensor)
 
 - **Has battery**
   - **Description**: Indicates whether the device has a battery installed.
@@ -105,7 +110,7 @@ The **Compit** integration provides the following entities.
 
 - **Temperature alert**
   - **Description**: Indicates whether the temperature has exceeded the threshold.
-  - **Available for devices**: SPM module when connected to Nano Color 2 (Room thermostat)
+  - **Available for devices**: SPM (Air quality sensor)
 
 ## Removing the integration
 
