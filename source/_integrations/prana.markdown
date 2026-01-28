@@ -1,7 +1,7 @@
 ---
 title: Prana recuperators
 description: Integration to control Prana recuperators fans, modes, and sensors.
-ha_release: 2025.11.1
+ha_release: 2026.2
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@home-assistant/core'
