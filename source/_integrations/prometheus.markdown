@@ -15,7 +15,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `prometheus` {% term integration %} exposes metrics in a format which [Prometheus](https://prometheus.io/) can read.
+The **Prometheus** {% term integration %} exposes metrics in a format which [Prometheus](https://prometheus.io/) can read.
 
 ## Configuration
 

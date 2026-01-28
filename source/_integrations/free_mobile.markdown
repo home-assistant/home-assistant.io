@@ -15,7 +15,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `free_mobile` {% term integration %} uses the French mobile operator [Free Mobile](http://mobile.free.fr/) to send SMS to your own cell phone.
+The **Free Mobile** {% term integration %} uses the French mobile operator [Free Mobile](http://mobile.free.fr/) to send SMS to your own cell phone.
 
 ## Prerequisites
 

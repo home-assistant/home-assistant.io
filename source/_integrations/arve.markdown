@@ -12,7 +12,7 @@ ha_codeowners:
 ha_domain: arve
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
 ha_config_flow: true
 ---
 

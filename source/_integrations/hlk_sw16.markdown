@@ -12,7 +12,7 @@ ha_domain: hlk_sw16
 ha_config_flow: true
 ha_platforms:
   - switch
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 The HLK-SW16 by [Hi-Link](http://www.hlktech.net/) is a simple networkable 16 port relay device.

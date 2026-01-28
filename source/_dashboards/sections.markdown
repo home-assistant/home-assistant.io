@@ -52,7 +52,7 @@ You can group cards without using horizontal or vertical stack cards.
 </p>
 
 1. To add a title, select the **Add title** button. The title supports [Markdown](https://commonmark.org/help/) and [templating](/docs/configuration/templating/).
-2. To add badges, elect the **Add badge** button. Follow [steps on adding badges](/dashboards/badges) to see the different possible options.
+2. To add badges, select the **Add badge** button. Follow [steps on adding badges](/dashboards/badges) to see the different possible options.
 3. To change the title and badges disposition, select the edit {% icon "mdi:edit" %} button to access header settings.
 
 ![Edit view heading section button](/images/dashboards/sections_view_header_editor.png)
@@ -106,7 +106,7 @@ In the sections view, you can rearrange sections and cards by dragging them to a
 
 You can choose to show or hide certain sections based on different conditions. The [available conditions](/dashboards/conditional/#card-conditions) are the same as that for the conditional card.
 
-To edit the section visibility conditions, select the edit {% icon "mdi:edit" %} button and then click on the visibility tab.
+To edit the section visibility conditions, select the edit {% icon "mdi:edit" %} button and then select the **Visibility** tab.
 
 ## Check out the demo
 

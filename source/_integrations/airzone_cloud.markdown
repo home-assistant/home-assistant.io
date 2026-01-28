@@ -22,10 +22,10 @@ ha_platforms:
   - water_heater
 ha_codeowners:
   - '@Noltari'
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
-This integration interacts with the Cloud API of [Airzone devices](https://www.airzone.es/en/).
+This {% term integration %} interacts with the Cloud API of [Airzone devices](https://www.airzone.es/en/).
 
 There are two main types of Airzone devices:
 - [Aidoo](https://www.airzonecontrol.com/aa/en/control-solutions/aidoo/wi-fi/) / [Aidoo Pro](https://www.airzonecontrol.com/aa/en/control-solutions/aidoo/pro/)

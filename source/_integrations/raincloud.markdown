@@ -22,7 +22,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `raincloud` {% term integration %} allows you to integrate your [Melnor RainCloud](https://wifiaquatimer.com) sprinkler system in Home Assistant.
+The **Melnor RainCloud** {% term integration %} allows you to integrate your [Melnor RainCloud](https://wifiaquatimer.com) sprinkler system in Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 

@@ -29,12 +29,12 @@ ha_platforms:
   - switch
   - time
   - vacuum
-ha_integration_type: integration
+ha_integration_type: hub
 ha_quality_scale: silver
 ha_dhcp: true
 ---
 
-The Roborock {% term integration %} allows you to connect your [Roborock](https://us.roborock.com/pages/robot-vacuum-cleaner) robotic vacuums to your Home Assistant. Roborock vacuums are
+The **Roborock** {% term integration %} allows you to connect your [Roborock](https://us.roborock.com/pages/robot-vacuum-cleaner) robotic vacuums to your Home Assistant. Roborock vacuums are
 intelligent home cleaning robots and, depending on the specific device, may have features
 like mopping capabilities, laser navigation, and options for changing cleaning
 performance or location in the home. This integration enables you to control and
@@ -167,6 +167,15 @@ The vacuum entity holds the ability to control most things the vacuum can do, su
 
 - **Water shortage**
   - **Description**: States if the water box is low on water - 'Ok' if it has not detected a water shortage.
+
+- **Cleaning fluid**
+  - **Description**: Only available on docks with cleaning fluid capabilities - States if the dock is low on cleaning fluid, or the cleaning fluid container is not installed.
+
+- **Clean water box**
+  - **Description**: Only available on docks with water tanks built-in. States if the dock is out of clean water, or if the clean water box is not installed.
+
+- **Dirty water box**
+  - **Description**: Only available on docks with dirty water tanks built-in. States if the dirty water tank is full, or if the dirty water box is not installed.
 
 
 #### Sensor
@@ -392,7 +401,7 @@ We are working on adding a lot of features to the core integration. We have reve
 ### How can I clean a specific room?
 We plan to make the process simpler in the future, but for now, it is a multi-step process.
 1. Make sure to first name the rooms in the Roborock app; otherwise, they won't appear in the debug log.
-2. Go to {% my developer_call_service service="roborock.get_maps" title="**Developer Tools** > **Actions** > **Roborock: Get Maps**" %}. Select your vacuum as the entity. Note that room IDs and names are only updated on the currently selected map.
+2. Go to {% my developer_call_service service="roborock.get_maps" title="**Settings** > **Developer tools** > **Actions** > **Roborock: Get Maps**" %}. Select your vacuum as the entity. Note that room IDs and names are only updated on the currently selected map.
 
    - **Request**: Your request should look like:
 
@@ -414,7 +423,7 @@ We plan to make the process simpler in the future, but for now, it is a multi-st
               "17": Living room
       ```
 
-3. Go back to {% my developer_call_service service="vacuum.send_command" title="**Developer Tools** > **Actions** > **Vacuum: Send Command**" %} then type `app_segment_clean` as your command and `segments` with a list of the 2-digit IDs you want to clean. Then, add `repeat` with a number (ranging from 1 to 3) to determine how many times you want to clean these areas.
+3. Go back to {% my developer_call_service service="vacuum.send_command" title="**Settings** > **Developer tools** > **Actions** > **Vacuum: Send Command**" %} then type `app_segment_clean` as your command and `segments` with a list of the 2-digit IDs you want to clean. Then, add `repeat` with a number (ranging from 1 to 3) to determine how many times you want to clean these areas.
 
 Example:
 

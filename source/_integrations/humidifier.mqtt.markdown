@@ -8,7 +8,7 @@ ha_iot_class: Configurable
 ha_domain: mqtt
 ---
 
-The `mqtt` humidifier platform lets you control your MQTT enabled humidifiers.
+The **MQTT Humidifier** {% term integration %} lets you control your MQTT enabled humidifiers.
 
 ## Configuration
 

@@ -14,9 +14,9 @@ ha_platforms:
   - button
   - climate
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
-The `coolmaster` climate platform lets you control HVAC through [CoolMasterNet](https://coolautomation.com/products/coolmasternet/).
+The **CoolMasterNet** {% term integration %} lets you control HVAC through [CoolMasterNet](https://coolautomation.com/products/coolmasternet/).
 
 {% include integrations/config_flow.md %}

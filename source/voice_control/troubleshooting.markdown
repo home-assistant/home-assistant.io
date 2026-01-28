@@ -16,7 +16,7 @@ This section lists a few steps that may help you troubleshoot issues with Assist
 
 If you want to test if a sentence works in a specific language without actually executing the commands, use the sentence parser in the **Developer tools**.
 
-1. Go to  {% my developer_assist title="**Developer tools** > **Assist**" %}.
+1. Go to {% my developer_assist title="**Settings** > **Developer tools** > **Assist**" %}.
 2. In the sentence parser, select the language and enter the sentence you want to test.
 3. The debug tool shows you the following:
    - The intent triggered.
@@ -156,4 +156,4 @@ You think there is an issue with background noise or speaker volume? In some cas
     - If the audio is too quiet, increase either the `auto_gain` (max.&nbsp;31) or the `volume_multiplier` (no maximum, but a too high value will cause distortion eventually).
 13. Note: Collecting debug recordings impacts your disk space.
     - Once you have found a configuration that works, delete the folder with the audio files.
-    - In the `configuration.yaml` file, delete the `assist_pipeline entry` and restart Home Assistant.
+    - In the `configuration.yaml` file, delete the `assist_pipeline` entry and restart Home Assistant.
