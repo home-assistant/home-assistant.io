@@ -17,7 +17,7 @@ ha_platforms:
   - binary_sensor
   - calendar
   - diagnostics
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 The **Workday** {% term integration %} indicates whether the current day is a workday or not.

@@ -13,7 +13,7 @@ ha_platforms:
   - camera
   - number
   - switch
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 The **Foscam** {% term integration %} allows you to watch the live stream of your [Foscam](https://www.foscam.com) IP camera in Home Assistant.

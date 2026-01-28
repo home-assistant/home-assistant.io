@@ -32,6 +32,12 @@ This integration requires an API key to use, [which you can generate here.](http
 
 {% include integrations/config_flow.md %}
 
+
+{% configuration_basic %}
+API key:
+  description: "API key from OpenAI for authentication."
+{% endconfiguration_basic %}
+
 ## Generate an API Key
 
 The OpenAI key is used to authenticate requests to the OpenAI API. To generate an API key take the following steps:
@@ -157,23 +163,23 @@ template:
 
 {% endraw %}
 
-### Service `openai_conversation.generate_content`
+### Action: Generate content
 
-Allows you to ask OpenAI to generate a content based on a prompt. This service
+The `openai_conversation.generate_content` action allows you to ask OpenAI to generate a content based on a prompt. This action
 populates [Response Data](/docs/scripts/service-calls#use-templates-to-handle-response-data)
 with the response from OpenAI.
 
-- **Service data attribute**: `config_entry`
+- **Data attribute**: `config_entry`
   - **Description**: Integration entry ID to use.
   - **Example**:
   - **Optional**: no
 
-- **Service data attribute**: `prompt`
+- **Data attribute**: `prompt`
   - **Description**: The text to generate content from.
   - **Example**: Describe the weather
   - **Optional**: no
 
-- **Service data attribute**: `image_filename`
+- **Data attribute**: `image_filename`
   - **Description**: List of file names for images to include in the prompt.
   - **Example**: /tmp/image.jpg
   - **Optional**: yes
@@ -181,7 +187,7 @@ with the response from OpenAI.
 {% raw %}
 
 ```yaml
-service: openai.generate_content
+action: openai_conversation.generate_content
 data:
   config_entry: abce6b8696a15e107b4bd843de722249
   prompt: >-
@@ -202,7 +208,7 @@ Another example with multiple images:
 {% raw %}
 
 ```yaml
-service: openai.generate_content
+action: openai_conversation.generate_content
 data:
   prompt: >-
     Briefly describe what happened in the following sequence of images
@@ -216,3 +222,13 @@ response_variable: generated_content
 ```
 
 {% endraw %}
+
+## Known Limitations
+
+Currently the integration does not have any known limitations.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}

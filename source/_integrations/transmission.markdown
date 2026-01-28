@@ -29,7 +29,7 @@ Before setting up the Transmission integration, ensure you have:
 1. Transmission installed and running on your network.
 2. The IP address or hostname and port of your Transmission instance.
 3. The username and password of your Transmission instance, if set.
-4. Your Transmission client must first be configured to allow remote access. In your Transmission client navigate to **Preferences** -> **Remote** tab and then click the **Allow remote access** checkbox.
+4. Your Transmission client must first be configured to allow remote access. In your Transmission client navigate to **Preferences** > **Remote** tab and then click the **Allow remote access** checkbox.
 
 {% include integrations/config_flow.md %}
 
@@ -177,7 +177,7 @@ The `transmission.stop_torrent` action is used to stop a torrent downloading or 
 
 ### Action: Get torrents
 
-This `transmission.get_torrents` action populates [Response Data](/docs/scripts/perform-actions#use-templates-to-handle-response-data) with a dictionary of torrents based on the provided filter.
+The `transmission.get_torrents` action populates [Response Data](/docs/scripts/perform-actions#use-templates-to-handle-response-data) with a dictionary of torrents based on the provided filter.
 
 - **Data attribute**: `entry_id`
   - **Description**: The ID of the Transmission config entry.
@@ -199,7 +199,7 @@ response_variable: torrents
 
 ### Attribute `torrent_info`
 
-All `*_torrents` sensors e.g. `sensor.transmission_total_torrents` or `sensor.transmission_started_torrents` have a state attribute `torrent_info` that contains information about the torrents that are currently in a corresponding state. You can see this information in **Developer Tools** -> **States** -> `sensor.transmission_total_torrents` -> **Attributes**, or by adding a [Markdown card](/dashboards/markdown/) to a dashboard with the following code:
+All `*_torrents` sensors e.g. `sensor.transmission_total_torrents` or `sensor.transmission_started_torrents` have a state attribute `torrent_info` that contains information about the torrents that are currently in a corresponding state. You can see this information in {% my developer_states title="**Developer Tools** > **States**" %} > `sensor.transmission_total_torrents` > **Attributes**, or by adding a [Markdown card](/dashboards/markdown/) to a dashboard with the following code:
 
 {% raw %}
 

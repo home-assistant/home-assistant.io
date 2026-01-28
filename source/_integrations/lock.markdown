@@ -36,9 +36,9 @@ A lock entity can have the following states:
 
 A lock integration provides the following actions:
 
-### Action `lock.lock` 
+### Action: Lock
 
-Lock your door, the attribute should appear under a 'data' attribute for the action.
+The `lock.lock` action locks your door.
 
 | Data attribute | Optional | Description                  |
 | -------------- | -------- | ---------------------------- |
@@ -53,9 +53,9 @@ actions:
     entity_id: lock.my_place
 ```
 
-### Action `lock.unlock` 
+### Action: Unlock
 
-Unlock your door, the attribute should appear under a 'data' attribute for the action.
+The `lock.unlock` action unlocks your door.
 
 | Data attribute | Optional | Description                  |
 | -------------- | -------- | ---------------------------- |

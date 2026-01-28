@@ -20,7 +20,7 @@ ha_platforms:
   - light
 ha_zeroconf: true
 ha_ssdp: true
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 The **Nanoleaf** {% term integration %} allows you to control and monitor Nanoleaf Light Panels, Canvas, Shapes, Elements, and Lines.

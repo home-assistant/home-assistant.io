@@ -40,7 +40,7 @@ Once the Home Assistant Container is running Home Assistant should be accessible
 
 If you change the configuration, you have to restart the server. To do that you have 3 options.
 
-1. In your Home Assistant UI, go to the **Settings** > **System** and click the **Restart** button.
+1. In your Home Assistant UI, go to {% my config title="**Settings** > **System**" %} and in the top-right corner, select the three dots {% icon "mdi:dots-vertical" %} menu. Then, select **Restart Home Assistant**.
 2. You can go to the **Developer Tools** > **Actions**, select `homeassistant.restart` and select **Perform action**.
 3. Restart it from a terminal.
 

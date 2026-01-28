@@ -24,53 +24,53 @@ Your shopping list will be accessible from the sidebar, and you can optionally a
 
 You can add or remove items from your shopping list by using the following actions.
 
-### Action `shopping_list.add_item`
+### Action: Add item
 
-Add an item to the shopping list.
+The `shopping_list.add_item` action adds an item to the shopping list.
 
 | Data attribute | Optional | Description                              |
 | ---------------------- | -------- | ---------------------------------------- |
 | `name`                 | no       | Name of the item to add. Example: "Milk" |
 
-### Action `shopping_list.remove_item`
+### Action: Remove item
 
-Remove the first item with matching name from the shopping list.
+The `shopping_list.remove_item` action removes the first item with matching name from the shopping list.
 
 | Data attribute | Optional | Description                                 |
 | ---------------------- | -------- | ------------------------------------------- |
 | `name`                 | no       | Name of the item to remove. Example: "Milk" |
 
-### Action `shopping_list.complete_item`
+### Action: Complete item
 
-Mark the first item with matching name as completed in the shopping list. It does not remove the item.
+The `shopping_list.complete_item` action marks the first item with matching name as completed in the shopping list. It does not remove the item.
 
 | Data attribute | Optional | Description                                            |
 | ---------------------- | -------- | ------------------------------------------------------ |
 | `name`                 | no       | Name of the item to mark as completed. Example: "Milk" |
 
-### Action `shopping_list.incomplete_item`
+### Action: Incomplete item
 
-Mark the first item with matching name as incomplete in the shopping list.
+The `shopping_list.incomplete_item` action marks the first item with matching name as incomplete in the shopping list.
 
 | Data attribute | Optional | Description                                             |
 | ---------------------- | -------- | ------------------------------------------------------- |
 | `name`                 | no       | Name of the item to mark as incomplete. Example: "Milk" |
 
-### Action `shopping_list.complete_all`
+### Action: Complete all
 
-Mark all items as completed in the shopping list (without removing them from the list).
+The `shopping_list.complete_all` action marks all items as completed in the shopping list (without removing them from the list).
 
-### Action `shopping_list.incomplete_all`
+### Action: Incomplete all
 
-Mark all items as incomplete in the shopping list.
+The `shopping_list.incomplete_all` action marks all items as incomplete in the shopping list.
 
-### Action `shopping_list.clear_completed_items`
+### Action: Clear completed items
 
-Clear completed items from the shopping list.
+The `shopping_list.clear_completed_items` action clears completed items from the shopping list.
 
-### Action `shopping_list.sort`
+### Action: Sort
 
-Sort all items by name in the shopping list.
+The `shopping_list.sort` action sorts all items by name in the shopping list.
 
 | Data attribute | Optional | Description                                                         |
 | ---------------------- | -------- | ------------------------------------------------------------------- |

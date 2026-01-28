@@ -13,7 +13,7 @@ ha_platforms:
   - diagnostics
   - sensor
 ha_zeroconf: true
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 The **Pure Energie** {% term integration %} integrates the [Pure Energie Monitor](https://pure-energie.nl/kennisbank/pure-energie-meter/)

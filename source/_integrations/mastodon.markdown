@@ -44,7 +44,15 @@ Access token:
 
 ## Sensors
 
-The integration will create sensors for the Mastodon account showing total followers, following, and posts. Sensors are updated once an hour.
+The integration will create the following sensors for the Mastodon account:
+
+- **Followers**: The total number of accounts that follow this account.
+- **Following**: The total number of accounts this account follows.
+- **Posts**: The total number of posts published by the account.
+- **Last post**: When the last post was published
+- **Username**: Displays the account username and avatar, plus attributes like display name, bio, and creation date.
+
+Sensors are updated once an hour.
 
 ## Binary sensors
 
@@ -62,9 +70,9 @@ The Mastodon integration has the following actions:
 
 - `mastodon.post`
 
-### Action `mastodon.post`
+### Action: Post
 
-Post a status to your Mastodon account
+The `mastodon.post` action posts a status to your Mastodon account.
 
 | Data attribute              | Optional | Description                                                                                                                                                                                                                                                        |
 | --------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |

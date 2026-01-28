@@ -13,7 +13,7 @@ ha_domain: powerfox
 ha_platforms:
   - diagnostics
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
 ha_quality_scale: silver
 ha_zeroconf: true
 ---

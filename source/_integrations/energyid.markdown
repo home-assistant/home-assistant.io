@@ -11,6 +11,7 @@ ha_codeowners:
   - '@JrtPec'
   - '@Molier'
 ha_release: 2025.12
+ha_quality_scale: silver
 ---
 
 The **EnergyID** {% term integration %} connects your Home Assistant to [EnergyID](https://www.energyid.eu/)—a cloud platform for energy monitoring and optimization. This integration uploads your Home Assistant sensor data and provides advanced analytics and performance tracking for solar, battery, energy consumption, and more.
@@ -47,7 +48,7 @@ Provisioning Secret:
 
 After the initial setup, you can manage which Home Assistant sensors send data to EnergyID.
 
-1. Go to {% my integrations title="**Settings > Devices & Services**" %}.
+1. Go to {% my integrations title="**Settings > Devices & services**" %}.
 2. Find the EnergyID integration and select **Configure**.
 
 From here, you can add new sensor mappings. When adding a mapping, you will be asked for the following:

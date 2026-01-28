@@ -766,7 +766,7 @@ This release migrates the integration away from the older username/password meth
 When you update Home Assistant, the existing Traccar integration will need to be re-authenticated:
 
 1. Generate an API Token on your Traccar server (you'll find this option in your Traccar server's user settings).
-2. Go to **Settings** > **Devices & Services** > **Traccar Server**.
+2. Go to **Settings** > **Devices & services** > **Traccar Server**.
 3. Click "Reconfigure" and enter your new API Token when prompted.
 
 Once you've done this, your Traccar devices and entities will work exactly as they did before.

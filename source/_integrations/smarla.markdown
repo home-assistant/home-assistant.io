@@ -58,4 +58,4 @@ This integration follows standard integration removal.
 
 {% include integrations/remove_device_service.md %}
 
-After deleting the integration, go to the Swing2Sleep app and remove the "Home Assistant" entry under **Settings** -> **Connected devices** as well.
+After deleting the integration, go to the Swing2Sleep app and remove the "Home Assistant" entry under **Settings** > **Connected devices** as well.
