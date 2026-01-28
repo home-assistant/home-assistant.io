@@ -23,7 +23,7 @@ Use case: If you have a Prana recuperator and want to automate ventilation, moni
 ## Unsupported devices
 
 - Models without a local network interface
-- Devices with firmware older than 47
+- Devices with firmware version 46 or below
 
 ## Prerequisites
 
