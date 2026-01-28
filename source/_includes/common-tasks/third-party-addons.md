@@ -11,7 +11,7 @@ To add an app repository, follow these steps:
 1. Copy the URL of the repository.
    - The URL is the git repository clone URL (on GitHub, use the Code button and copy the HTTPS URL).
    - This documentation uses an example app repository. It is not practically useful but follows the same steps.
-   - If you are interested in app development, refer to our [Home Assistant app development documentation](https://developers.home-assistant.io/docs/add-ons).
+   - If you are interested in app development, refer to our [Home Assistant app development documentation](https://developers.home-assistant.io/docs/apps/).
 
         ```text
         https://github.com/home-assistant/hassio-addons-example
