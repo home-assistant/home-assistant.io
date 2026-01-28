@@ -61,18 +61,31 @@ Zones have three modes available, closed, open, and auto. These are mapped to Ho
 
 ## Control zone (climate control mode)
 
-With multiple climate-controlled zones, you can't set the target temperature of the control but set the target temperature
-for each individual zone.
+When your iZone system has multiple climate-controlled zones, the target temperature behavior depends on your system configuration:
 
-The climate controller then selects the zone that is furthest away from the target and feeds the current temperature and
-target temperature into the air conditioner unit, closing any other zones that have already reached their target.
+### When you can set the controller's target temperature
 
-In this mode the current control zone that has been selected is reported, as is the read-only target temperature for that 
-zone (read-only, set the value via the individual zones). The current temperature will also be that of the control
-zone.
+You can set the target temperature directly on the controller in these situations:
 
-You can add configure to read these values into sensors (in {% term "`configuration.yaml`" %}), 
-along with the supply temperature (use the ID of your unit):
+- Your system is in RAS mode (return air sensor mode, not master/slave mode)
+- Your system is in master mode, but the control zone is set to zone 13 (the master unit itself) or an invalid zone number
+- Any of your zones don't have a temperature sensor installed
+
+In these cases, you can set the target temperature on the controller entity just like any other climate entity.
+
+### When you set temperatures on individual zones
+
+When your system is in master mode with a valid control zone (and all zones have temperature sensors), you set the target temperature for each individual zone instead of the controller.
+
+The climate controller automatically selects the zone that is furthest from its target temperature and uses that zone's current and target temperatures to control the air conditioner unit, closing zones that have already reached their target.
+
+In this mode, the controller entity reports:
+
+- The current control zone that has been selected
+- The target temperature for that zone (read-only on the controller; set it via the individual zone entities)
+- The current temperature of the control zone
+
+You can configure sensors to read these values (in {% term "`configuration.yaml`" %}), along with the supply temperature (use the ID of your unit):
 
 {% raw %}
 
@@ -85,7 +98,7 @@ template:
       state: "{{ state_attr('climate.izone_controller_0000XXXXX','control_zone_name') }}"
     - name: "Target temperature"
       state: "{{ state_attr('climate.izone_controller_0000XXXXX','control_zone_setpoint') }}"
-      unit_of_measurement: "°C" 
+      unit_of_measurement: "°C"
     - name : "Supply temperature"
       state: "{{ state_attr('climate.izone_controller_0000XXXXX','supply_temperature') }}"
       unit_of_measurement: "°C"
@@ -130,15 +143,15 @@ This will help you to find network connection issues etc.
 The `izone.airflow_min` action sets the minimum airflow for a particular zone.
 
 | Data attribute | Optional | Description                                    |
-| ---------------------- | -------- | ---------------------------------------------- |
-| `entity_id`            | yes      | izone Zone entity. For example `climate.bed_2` |
-| `airflow`              | no       | Airflow percent in 5% increments               |
+| -------------- | -------- | ---------------------------------------------- |
+| `entity_id`    | yes      | izone Zone entity. For example `climate.bed_2` |
+| `airflow`      | no       | Airflow percent in 5% increments               |
 
 ### Action: Set maximum airflow
 
 The `izone.airflow_max` action sets the maximum airflow for a particular zone.
 
 | Data attribute | Optional | Description                                    |
-| ---------------------- | -------- | ---------------------------------------------- |
-| `entity_id`            | yes      | izone Zone entity. For example `climate.bed_2` |
-| `airflow`              | no       | Airflow percent in 5% increments               |
+| -------------- | -------- | ---------------------------------------------- |
+| `entity_id`    | yes      | izone Zone entity. For example `climate.bed_2` |
+| `airflow`      | no       | Airflow percent in 5% increments               |

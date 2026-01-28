@@ -58,7 +58,7 @@ You can create an API key by logging into your Uptime Kuma instance, navigating 
 
 ## Update
 
-- **Uptime Kuma version**: The update entity indicates if Uptime Kuma is up-to-date or if there is a newer Uptime Kuma version available. For more information on how to update your Uptime Kuma instance, please refer to the [documentation](https://github.com/louislam/uptime-kuma/wiki/%F0%9F%86%99-How-to-Update). If you are using the Uptime Kuma community add-on, you will receive an update notification in Home Assistant as soon as the add-on is updated.
+- **Uptime Kuma version**: The update entity indicates if Uptime Kuma is up-to-date or if there is a newer Uptime Kuma version available. For more information on how to update your Uptime Kuma instance, please refer to the [documentation](https://github.com/louislam/uptime-kuma/wiki/%F0%9F%86%99-How-to-Update). If you are using the Uptime Kuma community app for Home Assistant (formerly known as Uptime Kuma add-on), you will receive an update notification in Home Assistant as soon as the Uptime Kuma community app is updated.
 
 ## Automations
 

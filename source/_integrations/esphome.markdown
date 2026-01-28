@@ -39,6 +39,7 @@ ha_platforms:
   - time
   - update
   - valve
+  - water_heater
 ha_integration_type: device
 ha_dhcp: true
 ha_quality_scale: platinum
