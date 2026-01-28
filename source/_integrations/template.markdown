@@ -2937,7 +2937,7 @@ To get started with the migration:
     ```
 {% endraw %}
 
-1. Restart Home Assistant by going to **Settings** three dotted menu and selecting **Restart Home Assistant**.  Or reload template entities by going to **Developer tools** **YAML** tab and selecting the **Template entities** reload button.
+1. Restart Home Assistant by going to **Settings** three dotted menu and selecting **Restart Home Assistant**.  Or reload template entities by going to {% my server_controls title="**Settings** > **Developer tools** > **YAML**" %} and selecting the **Template entities** reload button.
 
 ### Migrating a legacy sensor into an existing template section
 
@@ -3050,7 +3050,7 @@ To get started with the migration:
 
     In this example, `configuration.yaml` already had a `template:` section.  When copying the YAML, make sure to avoid adding double `template:` sections.
 
-1. Restart Home Assistant by going to **Settings** three dotted menu and selecting **Restart Home Assistant**.  Or reload template entities by going to **Developer tools** **YAML** tab and selecting the **Template entities** reload button.
+1. Restart Home Assistant by going to **Settings** three dotted menu and selecting **Restart Home Assistant**.  Or reload template entities by going to {% my server_controls title="**Settings** > **Developer tools** > **YAML**" %} and selecting the **Template entities** reload button.
 
 ### Migrating a sensor from an included file to an included file
 
@@ -3163,4 +3163,4 @@ To get started with the migration:
 
     In this example, `configuration.yaml` already has a `template: !include templates.yaml`.  When copying the yaml, make sure to avoid adding the `template:` section inside `templates.yaml`.
 
-1. Restart Home Assistant by going to **Settings** three dotted menu and selecting **Restart Home Assistant**.  Or reload template entities by going to **Developer tools** **YAML** tab and selecting the **Template entities** reload button.
+1. Restart Home Assistant by going to **Settings** three dotted menu and selecting **Restart Home Assistant**.  Or reload template entities by going to {% my server_controls title="**Settings** > **Developer tools** > **YAML**" %} and selecting the **Template entities** reload button.

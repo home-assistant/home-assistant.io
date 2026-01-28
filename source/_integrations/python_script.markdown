@@ -91,7 +91,7 @@ hass.bus.fire("hello_world_event", {"wow": "from a Python script!"})
 
 This script doesn't output anything. However, you can view the events being fired in the Developer tools.
 
-From a separate browser window or tab, go to `Developer Tools -> Events` and at `Listen to events` type `hello_world_event` and then press `Start listening`. You should see something like this:
+From a separate browser window or tab, go to `Developer tools -> Events` and at `Listen to events` type `hello_world_event` and then press `Start listening`. You should see something like this:
 
 ```yaml
 event_type: hello_world_event

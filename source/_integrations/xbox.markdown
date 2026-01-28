@@ -62,7 +62,7 @@ The Xbox media player platform will create media player entities for each consol
 
 The `play_media` action launches an application on the Xbox console using the application's product ID. Also supports "Home" to navigate to the dashboard.
 
-You can find Product IDs using the **{% my developer_events title="Developer Tools > Events" %}** tab and listening to the `call_service` event. In a new browser tab, navigate to the media browser for your console and click on an App/Game to see the product ID in the event.
+You can find Product IDs using the {% my developer_events title="**Settings** > **Developer tools** > **Events**" %} tab and listening to the `call_service` event. In a new browser tab, navigate to the media browser for your console and click on an App/Game to see the product ID in the event.
 
 | Data attribute         | Description                           |
 | ---------------------- | --------------------------------------|
