@@ -101,9 +101,31 @@ _A huge thank you to all the contributors who made this release possible! And a 
 
 [@frenck]: https://github.com/frenck
 
-## Home dashboard
+## A New Way to View Your Home
 
-Lorem ipsum; things like now the home panel is a default dashboard, disocvered devices are shown, etc.
+The Home Dashboard is now Overview as it becomes the official default standard, replacing the old "Overview" for all new instances. If you’re a long-time user who never customized your default view, we’ll suggest the switch to you; otherwise, you can find it in Settings > Dashboards to try it out whenever you're ready.
+
+Liked the old Overview as a way to build your custom dashboards? You can still do it - Go to Settings > Dashboards > Create and pick the Overview (legacy) template.
+
+### Discovered Devices at a Glance
+
+Check out the new card in the For You section! It instantly displays any new devices your Home Assistant has discovered, allowing you to add them on the spot or jump straight to device management without digging through menus.
+
+### Area Assignments Made Easy
+
+In the last release we added a dedicated "Devices" area within the Home Dashboard to catch everything currently unassigned. Now this section provides quick prompts to help you categorize your devices into the right rooms, keeping your setup organized with minimal effort.
+
+### Faster Area Edits
+
+Need to swap the area temperature sensor? Area pages now feature a shortcut in the Edit button. This lets you jump straight to the area's configuration to update primary sensors like humidity or temperature in seconds.
+
+Also, we’ve tidied up the interface by removing awkward empty spaces and fixing issues with some back arrows. Navigating through your sub-menus should now feel as smooth and predictable as you'd expect.
+
+### UX & Visual Upgrades
+
+A **Modern Look in the default theme**: We’ve retired the old blue top bar in favor of a clean, consistent theme that matches our Settings page. This distraction-free design lets your cards and data take center stage.
+
+**Personalized Themes**: Themes have moved! You can now find and toggle your favorite looks directly within your User Profile, making it easier to switch styles on the fly.
 
 ## Device database: We need your help!
 
