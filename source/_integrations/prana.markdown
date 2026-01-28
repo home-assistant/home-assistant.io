@@ -12,7 +12,7 @@ related:
     title: Prana
 ---
 
-The **Prana recuperators** integration adds support for Prana recuperators to Home Assistant. You can control motors and operating modes, and read a range of sensors provided by the device.
+The **Prana recuperators** {% term integration %} lets you control your Prana recuperator. You can manage motors and their operating modes, and monitor a range of sensors provided by the device.
 
 Use case: If you have a Prana recuperator and want to automate ventilation, monitor filter status, or integrate the recuperator with other Home Assistant automations, this integration helps you do that.
 
