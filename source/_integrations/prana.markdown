@@ -4,7 +4,7 @@ description: Integration to control Prana recuperators.
 ha_release: 2026.2
 ha_iot_class: Local Polling
 ha_codeowners:
-  - @prana-dev-official
+  -'@prana-dev-official'
 ha_domain: prana
 ha_integration_type: integration
 related:
