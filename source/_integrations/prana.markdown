@@ -56,40 +56,6 @@ The integration exposes the following entities.
 - **Bound**
   - Description: Bind or synchronize both fans and related parameters
 
-
-
-## Actions
-
-The Prana integration supports standard Home Assistant switch actions and can be used in automations and scripts.
-
-### Supported actions
-
-The following actions are supported for all Prana switch entities:
-
-- `switch.turn_on`
-- `switch.turn_off`
-
-### Example automation
-
-Turn on Prana recuperator auto mode for weekend:
-
-```yaml
-description: "Turn on Prana recuperator auto mode for weekend"
-mode: single
-triggers:
-  - trigger: time
-    at: "00:00:00"
-    weekday:
-      - sat
-      - sun
-conditions: []
-actions:
-  - type: turn_on
-    device_id: cd68b39c80e151000d12d7474d944ba1
-    entity_id: 28014e751edb9977fa03eb3ecee02cbe
-    domain: switch
-```
-
 ## Data updates
 
 The integration uses local polling. By default, Home Assistant polls the device every 10 seconds. If the device stops responding, entities are marked as *unavailable* until communication is restored.
