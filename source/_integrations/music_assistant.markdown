@@ -213,7 +213,7 @@ Perform a local search on the Music Assistant library. This provides programmati
   - **Example**: `Home`
 - **Data attribute**: `order_by`
   - **Optional**: Yes.
-  - **Description**: Sort the list by this field. View available sorting options in the Developer Tools > Actions > music_assistant.get_library action.
+  - **Description**: Sort the list by this field. View available sorting options in the Developer tools > Actions > music_assistant.get_library action.
   - **Example**: `year`
 - **Data attribute**: `album_artists_only`
   - **Optional**: Yes.
