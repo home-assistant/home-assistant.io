@@ -3,7 +3,7 @@ title: "Quick bar"
 description: "Dialog for quickly accessing entities or running commands."
 ---
 
-The **Quick bar** allows you to quickly look up entities or run commands without needing to navigate away from your current view (Similar to the "quick open" feature in VS Code, Chrome Developer Tools, etc).
+The **Quick bar** allows you to quickly look up entities or run commands without needing to navigate away from your current view (Similar to the "quick open" feature in VS Code, Chrome Developer tools, etc).
 
 It can be launched from anywhere in the frontend using [hotkeys](#hotkeys).
 
@@ -41,7 +41,7 @@ Similar to {% my entities title="**Settings** > **Devices & services** > **Entit
 
 Once launched, start typing your entity id (or ["bits and pieces" of your entity id](#search-by-bits-and-pieces-rather-than-an-exact-substring)) to get back a filtered list of entities. Selecting an entity (or hitting `enter` when the desired entity is highlighted) will open the **More info** dialog for that entity.
 
-This is helpful when, say, you are in the middle of writing an automation and need some quick insight about an entity but don't want to navigate away to Developer Tools.
+This is helpful when, say, you are in the middle of writing an automation and need some quick insight about an entity but don't want to navigate away to Developer tools.
 
 ## Device filter
 
