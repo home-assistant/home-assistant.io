@@ -111,7 +111,7 @@ Binary sensors provide status information about your Compit devices.
 - **SolarComp operating mode**
   - **Description**: Operating mode for solar controllers.
   - **Options**: Auto, De-icing, Holiday, Disabled
-  - **Available for devices**: SolarComp 951 (Solar system controller), SolarComp971 (Solar system controller), SolarComp971C (Solar system controller)
+  - **Available for devices**: SolarComp951 (Solar system controller), SolarComp971 (Solar system controller) and SolarComp971C (Solar system controller)
 
 - **Mixer mode zone 1**
   - **Description**: Zone 1 mixing valve operating mode.
