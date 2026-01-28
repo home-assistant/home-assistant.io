@@ -21,15 +21,15 @@ related:
     title: Adding a Matter device to Home Assistant
   - docs: /integrations/homekit_controller/#adding-a-homekit-device-through-thread
     title: Adding an Apple HomeKit device through Thread
-  - url: https://support.nabucasa.com/hc/en-us/sections/26122472719517
+  - url: https://support.nabucasa.com/hc/sections/26122472719517
     title: Enabling Thread on Connect ZBT-1
-  - url: https://support.nabucasa.com/hc/en-us/sections/31260019451421
+  - url: https://support.nabucasa.com/hc/sections/31260019451421
     title: Enabling Thread on Connect ZBT-2
-  - url: https://support.nabucasa.com/hc/en-us/articles/25742476767517
+  - url: https://support.nabucasa.com/hc/articles/25742476767517
     title: Enabling Thread on Yellow
 ---
 
-The Thread integration helps you track the different Thread networks in your home and store the Thread network credentials (similar to a Wi-Fi password). The Thread integration in Home Assistant is currently still a work in progress.
+The **Thread** {% term integration %} helps you track the different Thread networks in your home and store the Thread network credentials (similar to a Wi-Fi password). The Thread integration in Home Assistant is currently still a work in progress.
 
 You do not need to install this integration. The Thread integration shows up automatically when Home Assistant detects a [border router](#about-thread-border-routers).
 
@@ -69,7 +69,11 @@ Thread uses the same <abbr title="radio frequency">RF</abbr> technology as Zigbe
 
 ### About Thread border routers
 
-The devices use Thread border routers to communicate outside the mesh with any IPv6-capable device. A Thread border router is connected to your network either via Wi-Fi or Ethernet and uses its <abbr title="radio frequency">RF</abbr> radio to communicate with the Thread mesh network. The <abbr title="Thread border router">TBR</abbr> routes packets between your local network and the Thread mesh. It does not look at the content of these packets, it just forwards them.
+A Thread border router is a network device that connects a Thread mesh network (consisting of low-power IoT devices) to other IP networks such as Ethernet or Wi-Fi.
+
+The IoT devices use Thread border routers to communicate outside the mesh with any IPv6-capable device. A Thread border router is connected to your network either via Wi-Fi or Ethernet and uses its <abbr title="radio frequency">RF</abbr> radio chip to communicate with the Thread mesh network. The <abbr title="Thread border router">TBR</abbr> routes packets between your local network and the Thread mesh. The border router does not look at the content of these packets, it just forwards them.
+
+The Thread border router does not control devices. Device control is handled by application layer protocols like Matter or Apple HomeKit.
 
 ![image](/images/integrations/matter/matter_thread_infographic.png)
 
@@ -103,6 +107,7 @@ Out of the box, Home Assistant Connect&nbsp;ZBT-1, [Connect&nbsp;ZBT-2](/connect
 
 - **Displays**: Nest Hub (2nd gen), Nest Hub Max
 - **Wi-Fi routers**: Nest Wifi Pro (Wi-Fi 6E), Nest Wifi
+- **TVs**: Google TV Streamer (4K)
 
 #### Apple
 
@@ -138,9 +143,9 @@ Follow these steps if you want to turn Home Assistant into a Thread border route
 #### To make Home Assistant your first Thread network
 
 1. To enable Thread support on your Home Assistant Yellow, Connect&nbsp;ZBT-1, or [Connect&nbsp;ZBT-2](/connect/zbt-2/), you need to install the **OpenThread Border Router** add-on. Follow the corresponding procedure:
-   - [Enable Thread on Home Assistant Yellow](https://support.nabucasa.com/hc/en-us/articles/25742476767517).
-   - [Enable Thread on Home Assistant Connect ZBT-1](https://support.nabucasa.com/hc/en-us/sections/26122472719517).
-   - [Enable Thread on Home Assistant Connect ZBT-2](https://support.nabucasa.com/hc/en-us/sections/31260019451421).
+   - [Enable Thread on Home Assistant Yellow](https://support.nabucasa.com/hc/articles/25742476767517).
+   - [Enable Thread on Home Assistant Connect ZBT-1](https://support.nabucasa.com/hc/sections/26122472719517).
+   - [Enable Thread on Home Assistant Connect ZBT-2](https://support.nabucasa.com/hc/sections/31260019451421).
    - [Adding a Thread adapter to Home Assistant](#adding-a-thread-adapter-to-home-assistant).
 
 2. Make sure the Home Assistant Thread network is defined as preferred network.
@@ -194,9 +199,9 @@ Note: the steps and images here show the process with a Google Thread network. B
    ![image](/images/integrations/thread/thread-google-br.png)
 
 5. To enable Thread support, you need to install the **OpenThread Border Router** add-on. Follow the corresponding procedure:
-   - [Enable Thread on Home Assistant Yellow](https://support.nabucasa.com/hc/en-us/articles/25742476767517).
-   - [Enable Thread on Home Assistant Connect ZBT-1](https://support.nabucasa.com/hc/en-us/sections/26122472719517).
-   - [Enable Thread on Home Assistant Connect ZBT-2](https://support.nabucasa.com/hc/en-us/sections/31260019451421).
+   - [Enable Thread on Home Assistant Yellow](https://support.nabucasa.com/hc/articles/25742476767517).
+   - [Enable Thread on Home Assistant Connect ZBT-1](https://support.nabucasa.com/hc/sections/26122472719517).
+   - [Enable Thread on Home Assistant Connect ZBT-2](https://support.nabucasa.com/hc/sections/31260019451421).
    - [Adding a Thread adapter to Home Assistant](#adding-a-thread-adapter-to-home-assistant).
    - **Result**: The network now shows as the preferred network, joined with the third-party network.
 
@@ -209,9 +214,9 @@ Follow these steps if you want to set up a third-party Thread adapter.
 
 If you have a Home Assistant Thread adapter, follow the corresponding instructions instead:
 
-- [Enable Thread on Home Assistant Yellow](https://support.nabucasa.com/hc/en-us/articles/25742476767517).
-- [Enable Thread on Home Assistant Connect ZBT-1](https://support.nabucasa.com/hc/en-us/sections/26122472719517).
-- [Enable Thread on Home Assistant Connect ZBT-2](https://support.nabucasa.com/hc/en-us/sections/31260019451421).
+- [Enable Thread on Home Assistant Yellow](https://support.nabucasa.com/hc/articles/25742476767517).
+- [Enable Thread on Home Assistant Connect ZBT-1](https://support.nabucasa.com/hc/sections/26122472719517).
+- [Enable Thread on Home Assistant Connect ZBT-2](https://support.nabucasa.com/hc/sections/31260019451421).
 
 ### Prerequisites
 
@@ -248,7 +253,7 @@ If you have a Home Assistant Thread adapter, follow the corresponding instructio
 
 Follow these steps if you already have a Thread adapter running but want to switch to a new adapter.
 
-If you want to migrate to a Home Assistant Connect ZBT-2, follow the steps in the [Home Assistant Connect ZBT-2 documentation](https://support.nabucasa.com/hc/en-us/articles/32087461954589).
+If you want to migrate to a Home Assistant Connect ZBT-2, follow the steps in the [Home Assistant Connect ZBT-2 documentation](https://support.nabucasa.com/hc/articles/32087461954589).
 
 ### Prerequisites
 
@@ -321,6 +326,8 @@ You can only set a Thread network as preferred if the credentials are known.
 
    - Importing the credentials allows a Google- or Apple-created Thread network to be the preferred network of Home Assistant.
    <img width="400" src='/images/integrations/thread/thread-preferred-network.png'>
+3. If the **Make preferred network** button is shown, select it.
+   - For more information, refer to the section on [combining Thread networks](#combining-thread-networks).
 
 ### Combining Thread networks
 

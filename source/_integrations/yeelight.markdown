@@ -211,18 +211,18 @@ This {% term integration %} is tested to work with the following models. If you 
 
 ## Actions
 
-### Action `yeelight.set_mode`
+### Action: Set mode
 
-Set an operation mode.
+The `yeelight.set_mode` action sets an operation mode.
 
 | Data attribute    | Optional | Description                                                                                 |
 |---------------------------|----------|---------------------------------------------------------------------------------------------|
 | `entity_id`               |      yes | Only act on specific lights.                                                                |
 | `mode`                    |       no | Operation mode. Valid values are 'last', 'normal', 'rgb', 'hsv', 'color_flow', 'moonlight'. |
 
-### Action `yeelight.start_flow`
+### Action: Start flow
 
-Start flow with specified transitions
+The `yeelight.start_flow` action starts a flow with specified transitions.
 
 | Data attribute    | Optional | Description                                                                                 |
 |---------------------------|----------|---------------------------------------------------------------------------------------------|
@@ -231,9 +231,9 @@ Start flow with specified transitions
 | `action`                  |      yes | The action to take after the flow stops. Can be 'recover', 'stay', 'off'. Default 'recover' |
 | `transitions`             |       no | Array of transitions. See [custom effects](#custom-effects).                                |
 
-### Action `yeelight.set_color_scene`
+### Action: Set color scene
 
-Changes the light to the specified RGB color and brightness. If the light is off, it will be turned on.
+The `yeelight.set_color_scene` action changes the light to the specified RGB color and brightness. If the light is off, it will be turned on.
 
 | Data attribute    | Optional | Description                                                                                 |
 |---------------------------|----------|---------------------------------------------------------------------------------------------|
@@ -241,9 +241,9 @@ Changes the light to the specified RGB color and brightness. If the light is off
 | `rgb_color`               |       no | A list containing three integers between 0 and 255 representing the RGB color you want the light to be. Three comma-separated integers that represent the color in RGB, within square brackets.|
 | `brightness`              |       no | The brightness value to set (1-100).                                                        |
 
-### Action `yeelight.set_hsv_scene`
+### Action: Set HSV scene
 
-Changes the light to the specified HSV color and brightness. If the light is off, it will be turned on.
+The `yeelight.set_hsv_scene` action changes the light to the specified HSV color and brightness. If the light is off, it will be turned on.
 
 | Data attribute    | Optional | Description                                                                                 |
 |---------------------------|----------|---------------------------------------------------------------------------------------------|
@@ -251,9 +251,9 @@ Changes the light to the specified HSV color and brightness. If the light is off
 | `hs_color`                |       no | A list containing two floats representing the hue and saturation of the color you want the light to be. Hue is scaled 0-360, and saturation is scaled 0-100.    |
 | `brightness`              |       no | The brightness value to set (1-100).                                                        |
 
-### Action `yeelight.set_color_temp_scene`
+### Action: Set color temperature scene
 
-Changes the light to the specified color temperature. If the light is off, it will be turned on.
+The `yeelight.set_color_temp_scene` action changes the light to the specified color temperature. If the light is off, it will be turned on.
 
 | Data attribute    | Optional | Description                                                                                 |
 |---------------------------|----------|---------------------------------------------------------------------------------------------|
@@ -261,9 +261,9 @@ Changes the light to the specified color temperature. If the light is off, it wi
 | `kelvin`                  |       no | Color temperature in Kelvin.                                                                |
 | `brightness`              |       no | The brightness value to set (1-100).                                                        |
 
-### Action `yeelight.set_color_flow_scene`
+### Action: Set color flow scene
 
-Starts a color flow. Difference between this and [yeelight.start_flow](#action-yeelightstart_flow), this action uses different a Yeelight API call. If the light was off, it will be turned on. There might be some firmware differences in handling complex flows, etc.
+The `yeelight.set_color_flow_scene` action starts a color flow. Difference between this and [yeelight.start_flow](#action-yeelightstart_flow), this action uses a different Yeelight API call. If the light was off, it will be turned on. There might be some firmware differences in handling complex flows, etc.
 
 | Data attribute    | Optional | Description                                                                                 |
 |---------------------------|----------|---------------------------------------------------------------------------------------------|
@@ -272,9 +272,9 @@ Starts a color flow. Difference between this and [yeelight.start_flow](#action-y
 | `action`                  |      yes | The action to take after the flow stops. Can be 'recover', 'stay', 'off'. Default 'recover' |
 | `transitions`             |       no | Array of transitions. See [custom effects](#custom-effects).                                |
 
-### Action `yeelight.set_auto_delay_off_scene`
+### Action: Set auto delay off scene
 
-Turns the light on to the specified brightness and sets a timer to turn it back off after the given number of minutes. If the light is off, it will be turned on.
+The `yeelight.set_auto_delay_off_scene` action turns the light on to the specified brightness and sets a timer to turn it back off after the given number of minutes. If the light is off, it will be turned on.
 
 | Data attribute    | Optional | Description                                                                                 |
 |---------------------------|----------|---------------------------------------------------------------------------------------------|
@@ -282,9 +282,9 @@ Turns the light on to the specified brightness and sets a timer to turn it back 
 | `minutes`                 |       no | The minutes to wait before automatically turning the light off.                             |
 | `brightness`              |       no | The brightness value to set (1-100).                                                        |
 
-### Action `yeelight.set_music_mode`
+### Action: Set music mode
 
-Enable or disable music_mode.
+The `yeelight.set_music_mode` action enables or disables music_mode.
 
 | Data attribute    | Optional | Description                                                                                 |
 |---------------------------|----------|---------------------------------------------------------------------------------------------|

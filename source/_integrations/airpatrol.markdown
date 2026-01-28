@@ -11,10 +11,10 @@ ha_codeowners:
 ha_domain: airpatrol
 ha_platforms:
   - climate
-ha_integration_type: integration
+  - sensor
+ha_integration_type: device
 ha_quality_scale: bronze
 ---
-
 
 The **Airpatrol** {% term integration %} allows you to control air conditioning units through [Airpatrol](https://www.airpatrol.com/) devices in Home Assistant.
 
@@ -50,6 +50,13 @@ The integration will create a climate entity for each air conditioning system fo
 - **HVAC mode**: Set the operation mode, such as off, heat, and cool.
 - **Target temperature**: Set the desired temperature for heating or cooling.
 - **Fan mode**: Control the fan speed (if supported by your system).
+
+### Sensors
+
+The integration will create the following sensors for each air conditioning system found:
+
+- **Temperature**: Shows the current temperature (°C) in the room.
+- **Humidity**: Shows the current humidity in the room.
 
 
 ## Known limitations

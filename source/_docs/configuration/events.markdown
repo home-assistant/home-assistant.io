@@ -37,7 +37,7 @@ In addition, all events contain a `data` dictionary with event-specific informat
 
 ### `call_service`
 
-This event is fired when an service action is performed
+This event is fired when a service action is performed
 
 | Field             | Description                                                            |
 | ----------------- | ---------------------------------------------------------------------- |

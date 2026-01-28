@@ -15,7 +15,7 @@ ha_integration_type: hub
 ha_quality_scale: bronze
 ---
 
-The Compit {% term integration %} allows you to integrate air conditioning, ventilation, and heating controllers with Home Assistant. You need a Compit iNext account, which you can set up at [inext.compit.pl](https://inext.compit.pl).
+The **Compit** {% term integration %} allows you to integrate air conditioning, ventilation, and heating controllers with Home Assistant. You need a Compit iNext account, which you can set up at [inext.compit.pl](https://inext.compit.pl).
 
 ## Prerequisites
 

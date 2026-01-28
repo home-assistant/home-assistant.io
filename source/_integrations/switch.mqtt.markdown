@@ -8,7 +8,7 @@ ha_iot_class: Configurable
 ha_domain: mqtt
 ---
 
-The `mqtt` switch platform lets you control your MQTT enabled switches.
+The **MQTT Switch** {% term integration %} lets you control your MQTT enabled switches.
 
 ## Configuration
 

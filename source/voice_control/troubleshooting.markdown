@@ -156,4 +156,4 @@ You think there is an issue with background noise or speaker volume? In some cas
     - If the audio is too quiet, increase either the `auto_gain` (max.&nbsp;31) or the `volume_multiplier` (no maximum, but a too high value will cause distortion eventually).
 13. Note: Collecting debug recordings impacts your disk space.
     - Once you have found a configuration that works, delete the folder with the audio files.
-    - In the `configuration.yaml` file, delete the `assist_pipeline entry` and restart Home Assistant.
+    - In the `configuration.yaml` file, delete the `assist_pipeline` entry and restart Home Assistant.

@@ -18,7 +18,7 @@ For example, on the automations page, you can create the categories “Notificat
 
 Follow these steps to create a new category.
 
-1. Go to {% my automations title="**Settings** > **Automations & Scenes**" %} and open the respective tab.
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and open the respective tab.
 2. In the top left,  select the **Filters** button.
 
     ![Select the filter button](/images/organizing/filters_01.png)
@@ -29,7 +29,7 @@ Follow these steps to create a new category.
 
 ## Assigning a category
 
-1. Go to {% my automations title="**Settings** > **Automations & Scenes**" %} and open the respective tab.
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and open the respective tab.
 2. To assign a category to a single item:
    - Find the item in the list and select the three dots {% icon "mdi:dots-vertical" %} menu.
    - Select **Assign category** and select the category from the list.
@@ -48,7 +48,7 @@ Follow these steps to create a new category.
 
 To rename or delete a category, follow these steps:
 
-1. Go to {% my automations title="**Settings** > **Automations & Scenes**" %} and open the respective tab.
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and open the respective tab.
 2. In the top left, select the **Filters** button.
 
     ![Select the filter button](/images/organizing/filters_01.png)

@@ -13,7 +13,7 @@ ha_codeowners:
 ha_zeroconf: true
 ha_platforms:
   - media_player
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 {% include integrations/config_flow.md %}

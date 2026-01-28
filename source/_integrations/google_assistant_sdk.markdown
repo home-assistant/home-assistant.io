@@ -20,7 +20,7 @@ api: Google Assistant API
 api_link: https://console.developers.google.com/apis/api/embeddedassistant.googleapis.com/overview
 ---
 
-The Google Assistant SDK integration allows Home Assistant to interact with Google Assistant. If you want to use Google Assistant (for example, from your phone or Google Home device) to interact with your Home Assistant managed devices, then you want the [Google Assistant](/integrations/google_assistant) integration.
+The **Google Assistant SDK** {% term integration %} allows Home Assistant to interact with Google Assistant. If you want to use Google Assistant (for example, from your phone or Google Home device) to interact with your Home Assistant managed devices, then you want the [Google Assistant](/integrations/google_assistant) integration.
 
 This integration allows:
 
@@ -219,9 +219,9 @@ responses:
       The drumsticks 🍗
 ```
 
-### Action `notify.google_assistant_sdk`
+### Action: Broadcast message
 
-You can use the `notify.google_assistant_sdk` action to broadcast messages to Google Assistant speakers and displays without interrupting music/video playback.
+The `notify.google_assistant_sdk` action allows you to broadcast messages to Google Assistant speakers and displays without interrupting music/video playback.
 
 | Data attribute | Optional | Description                 | Example                      |
 | ---------------------- | -------- | --------------------------- | ---------------------------- |

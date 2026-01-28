@@ -27,7 +27,7 @@ Screenshot of the to-do list card.
 
 ## Adding a to-do list card
 
-1. [Add the card using the Add card button](/dashboards/cards/#adding-cards-to-your-dashboard).
+1. [Add the card using the **Add card** button](/dashboards/cards/#adding-cards-to-your-dashboard).
    - In the **By card** dialog, select the **To-do list** card.
 2. In the **Entity** dropdown menu, select your list type.
    - If it is your first time working with to-do lists, there is only **Shopping list** in the menu.

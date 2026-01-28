@@ -11,7 +11,7 @@ ha_codeowners:
 ha_domain: electrasmart
 ha_platforms:
   - climate
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 [Electra Air](https://www.electra-air.co.il), is a company which manufactures and sells Air Conditioners.
