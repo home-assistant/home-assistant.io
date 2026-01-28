@@ -171,6 +171,12 @@ The vacuum entity holds the ability to control most things the vacuum can do, su
 - **Cleaning fluid**
   - **Description**: Only available on docks with cleaning fluid capabilities - States if the dock is low on cleaning fluid, or the cleaning fluid container is not installed.
 
+- **Clean Water Box**
+  - **Description**: Only available on docks with water tanks built in - States if the dock is out of clean water, or the clean water box is not installed.
+
+- **Clean Water Box**
+  - **Description**: Only available on docks with dirty water tanks built in - States if the dirty water tank is full, or the dirty water box is not installed.
+
 
 #### Sensor
 
