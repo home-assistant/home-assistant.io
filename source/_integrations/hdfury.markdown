@@ -126,6 +126,10 @@ automation:
 
 {% endraw %}
 
+## Known limitations
+
+The HDFury integration currently has no known limitations.
+
 ## Troubleshooting
 
 If you're experiencing issues with your HDFury integration, try these general troubleshooting steps:
