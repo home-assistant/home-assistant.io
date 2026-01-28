@@ -447,9 +447,9 @@ The first will allow specifying a temperature, the second instead of a percentag
  will be disabled.
 As soon as you change the temperature, it gets enabled again.
 
-## Shelly Gas with Valve add-on
+## Shelly Gas with Valve app
 
-If you have the Valve add-on connected to Shelly Gas, the integration will create two entities for the valve. The `valve` entity allows you to control the valve, the `sensor` entity shows exact states of the valve.
+If you have the Valve app (formerly known as Valve add-on) connected to Shelly Gas, the integration will create two entities for the valve. The `valve` entity allows you to control the valve, the `sensor` entity shows exact states of the valve.
 
 ## CoAP port (generation 1)
 

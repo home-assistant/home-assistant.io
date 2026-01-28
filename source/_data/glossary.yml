@@ -46,7 +46,7 @@
     installed on Home Assistant OS.
   aliases:
     - apps
-  link: /getting-started/concepts-terminology/#add-ons
+  link: /getting-started/concepts-terminology/#apps
 - term: Area
   definition: >-
     An area in Home Assistant is a [logical grouping](/docs/organizing/) of devices and entities that
