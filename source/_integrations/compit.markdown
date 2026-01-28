@@ -55,15 +55,22 @@ This integration supports most of Compit device models across thermostats, contr
 - [R350 T3](https://compit.pl/produkty/sterowniki-instalacji/42-dwustopniowy-sterownik-temperatury-regulator-pi-regulator-krokowy-sterowanie-3-punktowe-r350-07.html?ic=1) – Universal controller
 - [R350.M](https://compit.pl/produkty/sterowniki-uniwerslane/85-pogodowy-regulator-temperatury-obiegu-grzewczego-z-mieszaczem-r350m.html?ic=1) – Universal controller
 - [R470](https://compit.pl/produkty/sterowniki-pomp-ciepla/10-sterownik-pompy-ciepla-r470-one.html?ic=1), R480 – Heat pump controllers
-- [R490](https://compit.pl/produkty/sterowniki-pomp-ciepla/12-sterownik-pompy-ciepla-r490-one.html?ic=1) – Heat pump controller
+- [R490](https://compit.pl/produkty/sterowniki-pomp-ciepla/12-sterownik-pompy-ciepla-R490-one.html?ic=1) – Heat pump controller
 - [R770RS](https://compit.pl/produkty/sterowniki-do-kotlow/83-pogodowy-regulator-kotla-retortowego-i-instalacji-grzewczej-r771-2.html?ic=1), [R771RS](https://compit.pl/produkty/sterowniki-do-kotlow/83-pogodowy-regulator-kotla-retortowego-i-instalacji-grzewczej-r771-2.html?ic=1) – Boiler controllers
 - [R810](https://compit.pl/produkty/sterowniki-instalacji/43-pogodowy-regulator-temperatury-obiegu-grzewczego-r810.html?ic=1) – Heating circuit controller
 - [R900](https://compit.pl/produkty/sterowniki-pomp-ciepla/89-r900.html?ic=1) – Heat pump controller
+- [SolarComp951](https://compit.pl/produkty/regulatory-solarne/22-sterownik-ukladu-solarnego-solarcomp-951.html) – Solar system controller
+- [SolarComp971](https://compit.pl/produkty/regulatory-solarne/23-sterownik-ukladu-solarnego-z-pwm-solarcomp-971.html) – Solar system controller
+- [SolarComp971C](https://compit.pl/produkty/regulatory-solarne/70-sterownik-ukladu-solarnego-z-pwm-solarcomp-971c.html) – Solar system controller
 
 ### Sensors
 
 - [SHC](https://compit.pl/produkty/osprzet/67-czujnik-stezenia-dwutlenku-wegla-wilgotnosci-i-temperatury-w-pomieszczeniach-shc.html?ic=1) – CO₂, humidity, and temperature sensor
 - [SPM](https://compit.pl/produkty/osprzet/87-czujnik-jakosci-powietrza-spm.html?ic=1) – Air quality sensor
+
+{% note %}
+When the SPM sensor is connected to a Nano Color thermostat, it is displayed as `SPM - Nano Color` in Home Assistant. When connected to a Nano Color 2 thermostat, it is displayed as `SPM - Nano Color 2`.
+{% endnote %}
 
 ## Supported functionality
 
@@ -77,241 +84,278 @@ The integration provides various sensors depending on your device model. Below i
 
 - **Outdoor temperature**
   - **Description**: Current outdoor temperature.
-  - **Available for devices**: R 810, R350 T3, Nano Color, CO2 SHC, r470, BioMax742, R350.CWU, BioMax772, SPM - Nano Color 2, R770RS / R771RS, BioMax775, R350.M, Nano Color 2, R 900, SPM - Nano Color, AF-1
+  - **Available for devices**:
+    - R810 (Heating circuit controller)
+    - R350 T3 (Universal controller)
+    - Nano Color (Room thermostat)
+    - CO2 SHC (CO₂, humidity, and temperature sensor)
+    - R470 (Heat pump controller)
+    - BioMax742 (Pellet boiler controller)
+    - R350.CWU (Universal controller)
+    - BioMax772 (Pellet boiler controller)
+    - R770RS / R771RS (Boiler controllers)
+    - BioMax775 (Pellet boiler controller)
+    - R350.M (Universal controller)
+    - Nano Color 2 (Room thermostat)
+    - R900 (Heat pump controller)
+    - SPM (Air quality sensor)
+    - AF-1 (Anti-freeze system)
 
 - **Boiler temperature**
   - **Description**: Current temperature of the boiler.
-  - **Available for devices**: BioMax742, BioMax772, R770RS / R771RS, BioMax775, EL750
+  - **Available for devices**:
+    - BioMax742 (Pellet boiler controller)
+    - BioMax772 (Pellet boiler controller)
+    - R770RS / R771RS (Boiler controllers)
+    - BioMax775 (Pellet boiler controller)
+    - EL750 (Electric boiler controller)
 
 - **Calculated heating temperature**
   - **Description**: Calculated target heating temperature.
-  - **Available for devices**: R 810, BWC310
+  - **Available for devices**: R810 (Heating circuit controller), BWC310 (Mixing valve controller)
 
 - **Target heating temperature**
   - **Description**: Target heating temperature setting.
-  - **Available for devices**: R 810, BWC310
+  - **Available for devices**: R810 (Heating circuit controller), BWC310 (Mixing valve controller)
 
 - **Return circuit temperature**
   - **Description**: Temperature of the return circuit.
-  - **Available for devices**: R 810, AF-1
+  - **Available for devices**: R810 (Heating circuit controller), AF-1 (Anti-freeze system)
 
 - **Calculated target temperature**
   - **Description**: Calculated target temperature for the system.
-  - **Available for devices**: R350 T3, R350.CWU
+  - **Available for devices**: R350 T3 (Universal controller), R350.CWU (Universal controller)
 
 - **Circuit target temperature**
   - **Description**: Target temperature for the heating circuit.
-  - **Available for devices**: R350 T3
+  - **Available for devices**: R350 T3 (Universal controller)
 
 - **Mixer temperature**
   - **Description**: Temperature at the mixer valve.
-  - **Available for devices**: R350 T3, R350.M
+  - **Available for devices**: R350 T3 (Universal controller), R350.M (Universal controller)
 
 - **Mixer temperature zone 1**
   - **Description**: Mixer temperature for zone 1.
-  - **Available for devices**: R770RS / R771RS
+  - **Available for devices**: R770RS / R771RS (Boiler controllers)
 
 - **Mixer temperature zone 2**
   - **Description**: Mixer temperature for zone 2.
-  - **Available for devices**: R770RS / R771RS
+  - **Available for devices**: R770RS / R771RS (Boiler controllers)
 
 - **Collector temperature**
   - **Description**: Temperature of the solar collector.
-  - **Available for devices**: SolarComp 951, SolarComp971, SolarComp971C
+  - **Available for devices**:
+    - SolarComp 951 (Solar system controller)
+    - SolarComp971 (Solar system controller)
+    - SolarComp971C (Solar system controller)
 
 - **Tank temperature T2 (bottom)**
   - **Description**: Temperature at the bottom of the tank (sensor T2).
-  - **Available for devices**: SolarComp 951, SolarComp971, SolarComp971C
+  - **Available for devices**:
+    - SolarComp 951 (Solar system controller)
+    - SolarComp971 (Solar system controller)
+    - SolarComp971C (Solar system controller)
 
 - **Tank temperature T3 (top)**
   - **Description**: Temperature at the top of the tank (sensor T3).
-  - **Available for devices**: SolarComp 951, SolarComp971, SolarComp971C
+  - **Available for devices**:
+    - SolarComp 951 (Solar system controller)
+    - SolarComp971 (Solar system controller)
+    - SolarComp971C (Solar system controller)
 
 - **Tank temperature T4**
   - **Description**: Temperature at sensor T4 location.
-  - **Available for devices**: SolarComp 951
+  - **Available for devices**: SolarComp 951 (Solar system controller)
 
 - **DHW temperature**
   - **Description**: Domestic hot water temperature.
-  - **Available for devices**: EL750
+  - **Available for devices**: EL750 (Electric boiler controller)
 
 - **DHW measured temperature**
   - **Description**: Measured domestic hot water temperature.
-  - **Available for devices**: R350.CWU, R480
+  - **Available for devices**: R350.CWU (Universal controller), R480 (Heat pump controller)
 
 - **Buffer return temperature**
   - **Description**: Temperature of the buffer return.
-  - **Available for devices**: EL750
+  - **Available for devices**: EL750 (Electric boiler controller)
 
 - **Lower source temperature**
   - **Description**: Temperature of the lower heat source.
-  - **Available for devices**: r490
+  - **Available for devices**: R490 (Heat pump controller)
 
 - **Upper source temperature**
   - **Description**: Temperature of the upper heat source.
-  - **Available for devices**: r490
+  - **Available for devices**: R490 (Heat pump controller)
 
 - **Actual buffer temperature**
   - **Description**: Current buffer temperature.
-  - **Available for devices**: R480, R 900
+  - **Available for devices**: R480 (Heat pump controller), R900 (Heat pump controller)
 
 - **Actual DHW temperature**
   - **Description**: Current domestic hot water temperature.
-  - **Available for devices**: R480, R 900
+  - **Available for devices**: R480 (Heat pump controller), R900 (Heat pump controller)
 
 - **Protection temperature**
   - **Description**: Protection temperature sensor reading.
-  - **Available for devices**: R350.M
+  - **Available for devices**: R350.M (Universal controller)
 
 - **Buffer set temperature**
   - **Description**: Buffer temperature setpoint.
-  - **Available for devices**: R377B
+  - **Available for devices**: R377B (Controller)
 
 - **Actual heating circuit temperature zone 1**
   - **Description**: Current temperature in heating circuit zone 1.
-  - **Available for devices**: R 900
+  - **Available for devices**: R900 (Heat pump controller)
 
 - **Actual heating circuit temperature zone 2**
   - **Description**: Current temperature in heating circuit zone 2.
-  - **Available for devices**: R 900
+  - **Available for devices**: R900 (Heat pump controller)
 
 - **Actual heating circuit temperature zone 3**
   - **Description**: Current temperature in heating circuit zone 3.
-  - **Available for devices**: R 900
+  - **Available for devices**: R900 (Heat pump controller)
 
 - **Actual heating circuit temperature zone 4**
   - **Description**: Current temperature in heating circuit zone 4.
-  - **Available for devices**: R 900
+  - **Available for devices**: R900 (Heat pump controller)
 
 - **Actual upper source temperature**
   - **Description**: Current upper source temperature.
-  - **Available for devices**: R 900
+  - **Available for devices**: R900 (Heat pump controller)
 
 - **Calculated buffer temperature**
   - **Description**: Calculated buffer temperature.
-  - **Available for devices**: R 900
+  - **Available for devices**: R900 (Heat pump controller)
 
 - **Calculated DHW temperature**
   - **Description**: Calculated domestic hot water temperature.
-  - **Available for devices**: R 900
+  - **Available for devices**: R900 (Heat pump controller)
 
 - **Calculated upper source temperature**
   - **Description**: Calculated upper source temperature.
-  - **Available for devices**: R 900
+  - **Available for devices**: R900 (Heat pump controller)
 
 - **Heating target temperature zone 1**
   - **Description**: Target heating temperature for zone 1.
-  - **Available for devices**: R 900
+  - **Available for devices**: R900 (Heat pump controller)
 
 - **Heating target temperature zone 2**
   - **Description**: Target heating temperature for zone 2.
-  - **Available for devices**: R 900
+  - **Available for devices**: R900 (Heat pump controller)
 
 - **Heating target temperature zone 3**
   - **Description**: Target heating temperature for zone 3.
-  - **Available for devices**: R 900
+  - **Available for devices**: R900 (Heat pump controller)
 
 - **Heating target temperature zone 4**
   - **Description**: Target heating temperature for zone 4.
-  - **Available for devices**: R 900
+  - **Available for devices**: R900 (Heat pump controller)
 
 #### Air quality sensors
 
 - **PM2.5 level**
   - **Description**: PM2.5 particulate matter status level (normal, warning, exceeded).
-  - **Available for devices**: Nano Color, Nano Color 2
+  - **Available for devices**: Nano Color (Room thermostat), Nano Color 2 (Room thermostat)
 
 - **PM10 level**
   - **Description**: PM10 particulate matter status level (normal, warning, exceeded).
-  - **Available for devices**: Nano Color, Nano Color 2
+  - **Available for devices**: Nano Color (Room thermostat), Nano Color 2 (Room thermostat)
 
 - **PM2.5 measured**
   - **Description**: PM2.5 particulate matter concentration in µg/m³.
-  - **Available for devices**: SPM - Nano Color 2, SPM - Nano Color
+  - **Available for devices**: SPM (Air quality sensor)
 
 - **PM10 measured**
   - **Description**: PM10 particulate matter concentration in µg/m³.
-  - **Available for devices**: SPM - Nano Color 2, SPM - Nano Color
+  - **Available for devices**: SPM (Air quality sensor)
 
 - **PM1 level measured**
   - **Description**: PM1 particulate matter concentration in µg/m³.
-  - **Available for devices**: SPM - Nano Color 2
+  - **Available for devices**: SPM - Nano Color 2 (Air quality sensor connected to Nano Color 2)
 
 - **PM4 level measured**
   - **Description**: PM4 particulate matter concentration in µg/m³.
-  - **Available for devices**: SPM - Nano Color 2
+  - **Available for devices**: SPM - Nano Color 2 (Air quality sensor connected to Nano Color 2)
 
 - **CO₂ level**
   - **Description**: Carbon dioxide concentration in ppm.
-  - **Available for devices**: SPM - Nano Color 2
+  - **Available for devices**: SPM - Nano Color 2 (Air quality sensor connected to Nano Color 2)
 
 - **CO₂ percent**
   - **Description**: Carbon dioxide level as percentage.
-  - **Available for devices**: SPM - Nano Color 2
+  - **Available for devices**: SPM - Nano Color 2 (Air quality sensor connected to Nano Color 2)
 
 #### Humidity sensors
 
 - **Humidity**
   - **Description**: Relative humidity in percent.
-  - **Available for devices**: CO2 SHC, SPM - Nano Color 2, SPM - Nano Color
+  - **Available for devices**: SHC (CO₂, humidity, and temperature sensor), SPM (Air quality sensor)
 
 #### Power and energy sensors
 
 - **Collector power**
   - **Description**: Current power output from solar collector in kW.
-  - **Available for devices**: SolarComp 951, SolarComp971, SolarComp971C
+  - **Available for devices**:
+    - SolarComp 951 (Solar system controller)
+    - SolarComp971 (Solar system controller)
+    - SolarComp971C (Solar system controller)
 
 - **Energy today**
   - **Description**: Energy collected today in kWh.
-  - **Available for devices**: SolarComp971, SolarComp971C
+  - **Available for devices**: SolarComp971 (Solar system controller), SolarComp971C (Solar system controller)
 
 - **Energy consumption**
   - **Description**: Current energy consumption in MW.
-  - **Available for devices**: SolarComp 971SD1
+  - **Available for devices**: SolarComp 971SD1 (Solar system controller)
 
 - **Energy total**
   - **Description**: Total energy consumed in kWh.
-  - **Available for devices**: R350.CWU
+  - **Available for devices**: R350.CWU (Universal controller)
 
 - **Energy yesterday**
   - **Description**: Energy consumed yesterday in kWh.
-  - **Available for devices**: R350.CWU
+  - **Available for devices**: R350.CWU (Universal controller)
 
 - **Energy smart grid yesterday**
   - **Description**: Energy consumed via smart grid yesterday in kWh.
-  - **Available for devices**: R350.CWU
+  - **Available for devices**: R350.CWU (Universal controller)
 
 #### Fuel and battery sensors
 
 - **Fuel level**
   - **Description**: Current fuel level in percent.
-  - **Available for devices**: BioMax742, BioMax772, R770RS / R771RS, BioMax775
+  - **Available for devices**:
+    - BioMax742 (Pellet boiler controller)
+    - BioMax772 (Pellet boiler controller)
+    - BioMax775 (Pellet boiler controller)
+    - R770RS (Boiler controller)
+    - R771RS (Boiler controller)
 
 - **Battery level**
   - **Description**: Battery charge level in percent.
-  - **Available for devices**: AF-1
+  - **Available for devices**: AF-1 (Anti-freeze system)
 
 - **Charging power**
   - **Description**: Battery charging current in mA.
-  - **Available for devices**: AF-1
+  - **Available for devices**: AF-1 (Anti-freeze system)
 
 #### Diagnostic sensors
 
 - **Ventilation alarm**
   - **Description**: Ventilation system alarm status.
-  - **Available for devices**: Nano Color, Nano Color 2
+  - **Available for devices**: Nano Color (Room thermostat), Nano Color 2 (Room thermostat)
 
 - **Ventilation gear**
   - **Description**: Current ventilation gear setting.
-  - **Available for devices**: Nano Color 2
+  - **Available for devices**: Nano Color 2 (Room thermostat)
 
 - **Alarm code**
   - **Description**: System alarm code.
-  - **Available for devices**: AF-1
+  - **Available for devices**: AF-1 (Anti-freeze system)
 
 - **PK1 function**
   - **Description**: PK1 function mode status.
-  - **Available for devices**: Combo
+  - **Available for devices**: Combo (Combo module)
 
 {% note %}
 The available sensors depend on your specific Compit device configuration like installed sensors. Not all sensors will be available for every device.
