@@ -66,7 +66,7 @@ This integration supports most of Compit device models across thermostats, contr
 - [SPM](https://compit.pl/produkty/osprzet/87-czujnik-jakosci-powietrza-spm.html?ic=1) – Air quality sensor
 
 {% note %}
-To match the device names in Compit iNext, the SHC sensor is displayed as `SPM - Nano Color` and the SPM sensor is displayed as `SPM - Nano Color 2` in Home Assistant.
+When the SPM sensor is connected to a Nano Color thermostat, it is displayed as `SPM - Nano Color` in Home Assistant. When connected to a Nano Color 2 thermostat, it is displayed as `SPM - Nano Color 2`.
 {% endnote %}
 
 
@@ -86,7 +86,7 @@ The **Compit** integration provides the following entities.
 
 - **CO₂ alert**
   - **Description**: Indicates whether the CO₂ level has exceeded the threshold.
-  - **Available for devices**: SPM (Air quality sensor)
+  - **Available for devices**: SPM - Nano Color 2 (Air quality sensor connected to Nano Color 2)
 
 - **CO₂ level**
   - **Description**: Indicates whether the CO₂ level is problematic.
@@ -94,7 +94,7 @@ The **Compit** integration provides the following entities.
 
 - **Dust alert**
   - **Description**: Indicates whether the dust level has exceeded the threshold.
-  - **Available for devices**: SPM (Air quality sensor)
+  - **Available for devices**: SPM - Nano Color 2 (Air quality sensor connected to Nano Color 2)
 
 - **Has battery**
   - **Description**: Indicates whether the device has a battery installed.
@@ -110,7 +110,7 @@ The **Compit** integration provides the following entities.
 
 - **Temperature alert**
   - **Description**: Indicates whether the temperature has exceeded the threshold.
-  - **Available for devices**: SPM (Air quality sensor)
+  - **Available for devices**: SPM - Nano Color 2 (Air quality sensor connected to Nano Color 2)
 
 ## Removing the integration
 
