@@ -331,6 +331,7 @@ It is not just new {% term integrations %} that have been added; existing ones a
 - [@terop] added an Indoor Air Quality Score (IAQS) sensor to the [Ruuvi] integration. Great!
 - The [Home Connect] integration can now start dishwasher programs directly from Home Assistant, thanks to [@JesusSanchezLopez]!
 - [@pandanz] added an ambient temperature sensor to the [ToGrill] integration. Keep an eye on the temperature around your grill 🍗, not just inside it!
+- [@tr4nt0r] added support for sequence IDs to the [ntfy] integration, allowing notifications to be updated, and added two new actions to dismiss and delete notifications.
 
 [@arturpragacz]: https://github.com/arturpragacz
 [@cdnninja]: https://github.com/cdnninja
@@ -349,6 +350,7 @@ It is not just new {% term integrations %} that have been added; existing ones a
 [@starkillerOG]: https://github.com/starkillerOG
 [@terop]: https://github.com/terop
 [@vmonkey]: https://github.com/vmonkey
+[@tr4nt0r]: https://github.com/tr4nt0r
 [Bang & Olufsen]: /integrations/bang_olufsen
 [ESPHome]: /integrations/esphome
 [Hikvision]: /integrations/hikvision
@@ -366,6 +368,7 @@ It is not just new {% term integrations %} that have been added; existing ones a
 [Tibber]: /integrations/tibber
 [ToGrill]: /integrations/togrill
 [VeSync]: /integrations/vesync
+[ntfy]: /integrations/ntfy
 
 ### Integration quality scale achievements
 
