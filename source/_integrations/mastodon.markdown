@@ -50,7 +50,7 @@ The integration will create the following sensors for the Mastodon account:
 - **Following**: The total number of accounts this account follows.
 - **Posts**: The total number of posts published by the account.
 - **Last post**: When the last post was published
-- **Username**: Displays username and avatar of the account.
+- **Username**: Displays username and avatar of the account, plus details of display name, bio, and creation date.
 
 Sensors are updated once an hour.
 
