@@ -80,6 +80,6 @@ Apps are installed from the app store under {% my supervisor title="**Settings**
 
 Among the most used apps are the ones that provide [file access and edit files](/docs/configuration/#to-set-up-access-to-the-files-and-prepare-an-editor) in Home Assistant.
 
-<p class='img'><img src='/images/getting-started/app-store.png' style='border: 0;box-shadow: none;' alt="Screenshot of the app page">Screenshot of the app store, showing all the installed apps on a test system.</p>
+<p class='img'><img src='/images/getting-started/app-store.png' style='border: 0;box-shadow: none;' alt="Screenshot of the app store, showing all the installed apps on a test system">Screenshot of the app store, showing all the installed apps on a test system.</p>
 
 {% include getting-started/next_step.html step="Edit the dashboard" link="/getting-started/onboarding_dashboard/" %}
