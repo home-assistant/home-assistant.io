@@ -73,39 +73,39 @@ The **Compit** integration provides the following entities.
 
 - **Airing**
   - **Description**: Indicates whether a window is open for airing.
-  - **Available for devices**: Nano Color 2
+  - **Available for devices**: Nano Color 2 (Room thermostat)
 
 - **Battery charging**
   - **Description**: Indicates whether the battery is currently charging.
-  - **Available for devices**: AF-1
+  - **Available for devices**: AF-1 (Anti-freeze system)
 
 - **CO₂ alert**
   - **Description**: Indicates whether the CO₂ level has exceeded the threshold.
-  - **Available for devices**: SPM - Nano Color 2
+  - **Available for devices**: SPM module when connected to Nano Color 2 (Room thermostat)
 
 - **CO₂ level**
   - **Description**: Indicates whether the CO₂ level is problematic.
-  - **Available for devices**: Nano Color, Nano Color 2, SPM - Nano Color, SPM - Nano Color 2
+  - **Available for devices**: Nano Color (Room thermostat), Nano Color 2 (Room thermostat), SPM (Air quality sensor)
 
 - **Dust alert**
   - **Description**: Indicates whether the dust level has exceeded the threshold.
-  - **Available for devices**: SPM - Nano Color 2
+  - **Available for devices**: SPM module when connected to Nano Color 2 (Room thermostat)
 
 - **Has battery**
   - **Description**: Indicates whether the device has a battery installed.
-  - **Available for devices**: AF-1
+  - **Available for devices**: AF-1 (Anti-freeze system)
 
 - **Has external power**
   - **Description**: Indicates whether the device is connected to external power.
-  - **Available for devices**: AF-1
+  - **Available for devices**: AF-1 (Anti-freeze system)
 
 - **Pump status**
   - **Description**: Indicates whether the pump is currently running.
-  - **Available for devices**: AF-1
+  - **Available for devices**: AF-1 (Anti-freeze system)
 
 - **Temperature alert**
   - **Description**: Indicates whether the temperature has exceeded the threshold.
-  - **Available for devices**: SPM - Nano Color 2
+  - **Available for devices**: SPM module when connected to Nano Color 2 (Room thermostat)
 
 ## Removing the integration
 
