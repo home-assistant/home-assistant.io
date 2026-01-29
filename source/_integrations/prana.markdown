@@ -76,8 +76,8 @@ The integration uses local polling. By default, Home Assistant polls the device 
 
 ### Entities show as unavailable
 
-- Check the device network connection
-- Ensure the device is powered on and reachable; entities become available automatically when communication is restored
+- Check the device network connection.
+- Ensure the device is powered on and reachable; entities become available automatically when communication is restored.
 
 ## Community notes
 
