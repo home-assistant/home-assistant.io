@@ -51,6 +51,24 @@ There is currently support for the following device types within Home Assistant:
 - Sensor - for monitoring various elements of containers and endpoints.
 - Button - for restarting containers.
 
+## Actions
+
+Portainer provides the following actions.
+
+### Action: Prune images
+
+The `portainer.prune_images` can be used to prune unused images more granually, such as a duration and/or if images are dangling.
+
+- **Data attribute**: `device_id`
+    - **Description**: The ID of the device/endpoint to prune images on.
+    - **Optional**: No
+- **Data attribute**: `until`
+    - **Description**: The duration in time in the past.
+    - **Optional**: Yes
+- **Data attribute**: `dangling`
+    - **Description**: If true, only prune dangling images.
+    - **Optional**: Yes
+
 ## Data updates
 
 The integration normally updates every 60 seconds. For more detailed steps on how to define a custom polling interval, follow the procedure below.
