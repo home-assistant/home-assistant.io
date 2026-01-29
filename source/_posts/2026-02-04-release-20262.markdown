@@ -110,13 +110,19 @@ _A huge thank you to all the contributors who made this release possible! And a 
 
 The Home Dashboard is now Overview as it becomes the official default standard, replacing the old "Overview" for all new instances. If you’re a long-time user who never customized your default view, we’ll suggest the switch to you; otherwise, you can find it in {% my dashboards title="**Settings** > **Dashboards**" %} to try it out whenever you're ready.
 
+<img src='source/images/blog/2026-02/new-overview.png' alt='Screenshot of the new Overview page' class='no-shadow' />
+
 Liked the old Overview as a way to build your custom dashboards? You can still do it. Go to {% my dashboards title="**Settings** > **Dashboards**" %}, select **Create**, and pick the **Overview (legacy)** template.
 
 ### Discovered devices at a glance
 
+<img src='source/images/blog/2026-02/discovered-devices.png' alt='Screenshot of the modal view to add discovered devices from Overview' class='no-shadow' />
+
 Check out the new card in the **For You** section! It instantly displays any new devices your Home Assistant has discovered, allowing you to add them on the spot or jump straight to device management without digging through menus.
 
 ### Area assignments made easy
+
+<img src='source/images/blog/2026-02/assign-devices-page.png' alt='Screenshot of assigning devices to areas from Devices page in Overview' class='no-shadow' />
 
 In the last release we added a dedicated **Devices** area within the Home Dashboard to catch everything currently unassigned. Now this section provides quick prompts to help you categorize your devices into the right rooms, keeping your setup organized with minimal effort.
 
@@ -130,7 +136,7 @@ Also, we’ve tidied up the interface by removing awkward empty spaces and fixin
 
 **Modern look in the default theme**: We've retired the old blue top bar in favor of a clean, consistent theme that matches our **Settings** page. This distraction-free design lets your cards and data take center stage.
 
-**Personalized themes**: Themes have moved! You can now find and toggle your favorite looks directly within your {% my profile title="**User profile**" %}, making it easier to switch styles on the fly.
+**Personalized themes per user**: Themes have moved! You can now find and toggle your favorite looks directly within your {% my profile title="**User profile**" %}, making it easier to set up a theme that works for you in any device you are logged in.
 
 ## Device database: We need your help!
 
