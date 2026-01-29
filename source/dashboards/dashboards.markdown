@@ -219,7 +219,7 @@ lovelace:
       title: Admin
       icon: mdi:tools
       show_in_sidebar: true
-      require_admin: false
+      require_admin: true
       filename: admin.yaml
 ```
 
