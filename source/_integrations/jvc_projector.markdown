@@ -150,11 +150,6 @@ The JVC Projector select platform will create the following [Select](/integratio
   - **Options**: Dependent on your detected model.
   - **Available for models**: all
 
-- **Low latency mode**
-  - **Description**: The low latency mode setting.
-  - **Options**: off, on
-  - **Available for models**: all
-
 - **Clear motion drive**
   - **Description**: The clear motion drive setting.
   - **Options**: Dependent on your detected model.
@@ -163,9 +158,4 @@ The JVC Projector select platform will create the following [Select](/integratio
 - **Anamorphic**
   - **Description**: The anamorphic setting.
   - **Options**: Dependent on your detected model.
-  - **Available for models**: all
-
-- **E-Shift**
-  - **Description**: The E-Shift setting.
-  - **Options**: off, on
   - **Available for models**: all
