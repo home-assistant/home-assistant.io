@@ -226,7 +226,7 @@ lovelace:
 {% configuration dashboards %}
 resource_mode:
   required: false
-  description: "Controls how resources are loaded. Set to `yaml` to load resources from the `resources` key in YAML configuration. Set to `storage` to manage resources through the UI. If not specified, defaults to `storage`."
+  description: "Controls how resources are loaded. Set to `yaml` to load resources from the `resources` key in YAML configuration. Set to `storage` to manage resources through the UI."
   type: string
   default: storage
 resources:
