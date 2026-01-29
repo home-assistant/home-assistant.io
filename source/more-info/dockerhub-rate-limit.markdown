@@ -26,7 +26,7 @@ To use your Docker Hub credentials with the Supervisor:
 3. Select **Install app**.
 4. In the top-right corner of the screen, select the three dots {% icon "mdi:dots-vertical" %} menu, and select **Registries**.
 
-5. In the dialog that opens up, select **Add new registry** and enter `hub.docker.com` as the registry followed by your credentials:
+5. In the dialog that opens up, select **Add new registry** and enter `docker.io` as the registry followed by your credentials:
 
     <p class='img'>
     <img src='/images/screenshots/supervisor_registry_dockerhub.png' alt='Adding authentication for Docker Hub in the Supervisor panel.'>
