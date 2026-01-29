@@ -85,4 +85,8 @@ The integration uses local polling. By default, Home Assistant polls the device 
 
 ## Removing the integration
 
-This integration follows standard integration removal in Home Assistant. After you remove the integration from Home Assistant, we recommend checking the device settings in the Prana Online 2.0 app.
+This integration follows standard integration removal in Home Assistant. 
+
+{% include integrations/remove_device_service.md %}
+
+After you remove the integration from Home Assistant, we recommend checking the device settings in the Prana Online 2.0 app.
