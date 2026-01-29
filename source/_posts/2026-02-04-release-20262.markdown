@@ -386,10 +386,11 @@ This release, we celebrate several {% term integrations %} that have improved th
   - [Duck DNS], thanks to [@tr4nt0r]
   - [Saunum], thanks to [@mettolen]
 
-- **3 integrations reached silver** 🥈
+- **4 integrations reached silver** 🥈
   - [Feedreader], thanks to [@mib1185]
   - [NINA], thanks to [@DeerMaximum]
   - [Velbus], thanks to [@cereal2nd]
+  - [Velux], thanks to [@wollew]
 
 - **1 integration reached bronze** 🥉
   - [TP-Link Omada], thanks to [@MarkGodwin]
@@ -406,6 +407,7 @@ A big thank you to all the contributors involved! 👏
 [@mettolen]: https://github.com/mettolen
 [@mib1185]: https://github.com/mib1185
 [@tr4nt0r]: https://github.com/tr4nt0r
+[@wollew]: https://github.com/wollew
 [Airobot]: /integrations/airobot
 [Duck DNS]: /integrations/duckdns
 [Feedreader]: /integrations/feedreader
@@ -413,6 +415,7 @@ A big thank you to all the contributors involved! 👏
 [Saunum]: /integrations/saunum
 [TP-Link Omada]: /integrations/tplink_omada
 [Velbus]: /integrations/velbus
+[Velux]: /integrations/velux
 
 ### Now available to set up from the UI
 
