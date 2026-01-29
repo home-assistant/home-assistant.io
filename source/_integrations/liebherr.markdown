@@ -1,7 +1,7 @@
 ---
 title: Liebherr
 description: Instructions on how to integrate Liebherr SmartDevice appliances into Home Assistant.
-ha_release: 2026.03
+ha_release: 2026.3
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@mettolen'
