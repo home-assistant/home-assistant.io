@@ -62,9 +62,9 @@ The integration uses local polling. By default, Home Assistant polls the device 
 
 ## Known limitations
 
-- No official support for some older Prana models
-- Some indicators or device-specific details may only be available in the manufacturer's app
-- This integration does not provide cloud or remote control
+- No official support for some older Prana models.
+- Some indicators or device-specific details may only be available in the manufacturer's app.
+- This integration does not provide cloud or remote control.
 
 ## Troubleshooting
 
