@@ -29,13 +29,7 @@ Use case: If you have a Prana recuperator and want to automate ventilation, moni
 
 1. Connect the Prana recuperator to the same local network as Home Assistant.
 
-## Configuration
-
-This integration is installed via a **config flow** and uses mDNS to discover devices on your local network. Setup is two clicks: select the discovered device and confirm to add it.
-
-### Discovery
-
-This integration is discovered automatically over mDNS. There is no user input step. Select the discovered device and confirm to add it.
+{% include integrations/config_flow.md %}
 
 ## Supported functionality
 
