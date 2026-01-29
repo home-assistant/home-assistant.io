@@ -70,9 +70,9 @@ The integration uses local polling. By default, Home Assistant polls the device 
 
 ### Device is not discovered
 
-1. Make sure Home Assistant and the Prana device are on the same local network
-2. Restart the device and Home Assistant
-3. Check whether mDNS/LLMNR is allowed by your router
+1. Make sure Home Assistant and the Prana device are on the same local network.
+2. Restart the device and Home Assistant.
+3. Check whether mDNS/LLMNR is allowed by your router.
 
 ### Entities show as unavailable
 
