@@ -231,7 +231,7 @@ resource_mode:
   default: storage
 resources:
   required: false
-  description: "List of resources that should be loaded. Requires `resource_mode: yaml` to take effect. If you change anything here, click the three dots {% icon "mdi:dots-vertical" %} menu (top-right) and click **Reload resources** to pick up changes without restarting Home Assistant. You can also call `lovelace.reload_resources` action directly."
+  description: "List of resources that should be loaded. Requires `resource_mode: yaml` to take effect. If you change anything here, click the three dots {% icon "mdi:dots-vertical" %} menu (top-right) and click **Reload resources** to pick up changes without restarting Home Assistant. You can also call the `lovelace.reload_resources` {% term action %} directly."
   type: list
   keys:
     url:
