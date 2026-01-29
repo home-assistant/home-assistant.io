@@ -43,7 +43,7 @@ Before you can use this device with Home Assistant, you need to install a bit of
 1. Make sure this page is opened in a Chromium-based browser on a desktop. It does not work on a tablet or phone.
    - Select the **Connect** button below. If your browser does not support web serial, you will see a warning instead of a button.
 
-      <script type="module" src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module" integrity="sha384-GTdfFVaTqjGAB6rkiyDt7OE2P/4tWRRDDzhqSVp5vM5JUTFTvziwyu9AM+ImqOyw" crossorigin="anonymous"></script>
+      <script type="module" src="https://unpkg.com/esp-web-tools@10.2.1/dist/web/install-button.js?module" integrity="sha384-2Ea4WL8tjFb0qQKUqBoX45KlPVoUgL+Z3zUqsD0MHmtJ3faDbfNyZulLg/LfYDUZ" crossorigin="anonymous"></script>
       <esp-web-install-button manifest="https://firmware.esphome.io/wake-word-voice-assistant/m5stack-atom-echo/manifest.json"></esp-web-install-button>
    - **For advanced users**: The configuration file is available on [GitHub](https://github.com/esphome/wake-word-voice-assistants/blob/main/m5stack-atom-echo/m5stack-atom-echo.yaml).
 
@@ -109,7 +109,7 @@ If you no longer use the device or want to pass it on to someone else, you can r
 1. Make sure this page is opened in a Chromium-based browser on a desktop. It does not work on a tablet or phone.
    - Select the **Connect** button below. If your browser does not support web serial, you will see a warning instead of a button.
 
-      <script type="module" src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module" integrity="sha384-GTdfFVaTqjGAB6rkiyDt7OE2P/4tWRRDDzhqSVp5vM5JUTFTvziwyu9AM+ImqOyw" crossorigin="anonymous"></script>
+      <script type="module" src="https://unpkg.com/esp-web-tools@10.2.1/dist/web/install-button.js?module" integrity="sha384-2Ea4WL8tjFb0qQKUqBoX45KlPVoUgL+Z3zUqsD0MHmtJ3faDbfNyZulLg/LfYDUZ" crossorigin="anonymous"></script>
       <esp-web-install-button manifest="https://firmware.esphome.io/wake-word-voice-assistant/m5stack-atom-echo/manifest.json"></esp-web-install-button>
 
 2. To connect the ATOM Echo to your computer, follow these steps:
