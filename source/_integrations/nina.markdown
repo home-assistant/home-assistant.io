@@ -81,7 +81,31 @@ Show only warnings from the city of nagold.
 Regex: `.*nagold.*` <br>
 Areas: `gemeinde oberreichenbach, gemeinde neuweiler, stadt nagold`
 
-## Attributes
+## Supported functionality
+
+### Entities
+
+This integration provides the following entities for each warning slot.
+
+#### Sensors
+
+- **Affected areas**:
+  - **Description**: Areas affected by the warning.
+  - **Remarks**: Shorted to 250 chars. To get all areas please use the `nina.get_affected_areas` action.
+- **Headline**: Headline of the warning.
+- **More information URL**: URL with further information about the warning.
+- **Sender**: Sender of the warning.
+- **Severity**:
+  - **Description**: Severity of the warning.
+  - **Options**: Extreme, Severe, Moderate, Minor, Unknown
+
+#### Binary sensors
+
+- **Warning**:
+  - **Description**: Presents of a warning.
+  - **Attributes**: Available attributes are listed below.
+
+### Attributes
 
 The following attributes are available for the warnings.
 
