@@ -657,7 +657,7 @@ Do not add the new Envoy to Home Assistant yet, even if it shows as discovered. 
 
 Even though the data continues from the old envoy, there will be a discontinuity in time and/or value for entities. The lifetime values for Envoy and/or connected devices will most likely start from zero again, unless they were transferred between the old and new physical Envoy, if possible. Such discontinuity will be visible in trends and may affect any automations, calculations, and more.
 
-When used with the energy dashboard, it may result in a peak at the start of the new data. Although the energy dashboard probably handles any reset to zero well. If any peaks occur, correct the first statistics entry of new data in {% my developer_statistics title="**Developer Tools** > **Statistics**"%} and set the value to zero. (See [Statistics Tab](https://www.home-assistant.io/docs/tools/dev-tools/#statistics-tab))
+When used with the energy dashboard, it may result in a peak at the start of the new data. Although the energy dashboard probably handles any reset to zero well. If any peaks occur, correct the first statistics entry of new data in {% my developer_statistics title="**Settings** > **Developer tools** > **Statistics**"%} and set the value to zero. (See [Statistics Tab](https://www.home-assistant.io/docs/tools/dev-tools/#statistics-tab))
 
 ## Known issues and limitations
 
@@ -716,7 +716,7 @@ If these entries occur frequently and are a nuisance then disable the entity. It
 
 ### Lifetime reset
 
-Envoy Metered without installed CT, running older firmware versions, reportedly resets **Lifetime energy production** to 0 when reaching 1.2 MWh. For use with the energy dashboard, the reset is not an issue. In a recent firmware version 8.x.x the reset is solved, but results in a one-time step change to the full lifetime value. This has impact on the energy dashboard, it can be solved by setting the statistics value for that moment to 0 in  [Developer Tools: Statistics](/docs/tools/dev-tools/#statistics-tab)
+Envoy Metered without installed CT, running older firmware versions, reportedly resets **Lifetime energy production** to 0 when reaching 1.2 MWh. For use with the energy dashboard, the reset is not an issue. In a recent firmware version 8.x.x the reset is solved, but results in a one-time step change to the full lifetime value. This has impact on the energy dashboard, it can be solved by setting the statistics value for that moment to 0 in  [Developer tools: Statistics](/docs/tools/dev-tools/#statistics-tab)
 
 {% details "History example for Envoy Lifetime energy production value reset" %}
 

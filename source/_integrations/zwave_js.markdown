@@ -60,13 +60,13 @@ This section shows how to set up a Z-Wave network and how to add a Z-Wave end de
 A Z-Wave network in Home Assistant includes the following elements:
 
 - a Z-Wave adapter (for example, [Home Assistant Connect ZWA-2](/connect/zwa-2))
-- a Z-Wave server (for example, the **Z-Wave JS** add-on)
+- a Z-Wave server (for example, the **Z-Wave JS** app (formerly known as an add-on))
 - this Z-Wave integration
 - Z-Wave end devices
 
 ### Setting up a Z-Wave server in Home Assistant
 
-This section shows how to set up a Z-Wave server using the **Z-Wave JS** add-on in Home Assistant.
+This section shows how to set up a Z-Wave server using the **Z-Wave JS** app in Home Assistant.
 
 For other ways to set up a Z-Wave server, refer to the [advanced installation instructions](#advanced-installation-instructions).
 
@@ -83,7 +83,7 @@ Once you have set up the Z-Wave server, you can [add devices to the network](#ad
 2. Plug the Z-Wave adapter into the device running Home Assistant.
    - Most likely, your adapter will be recognized automatically.
    - In the dialog, select **Recommended installation**.
-     - This will install the Z-Wave JS add-on on the Home Assistant server.
+     - This will install the Z-Wave JS app on the Home Assistant server.
    - Add the device to an {% term area %} and select **Finish**.
    - **Troubleshooting**: If your adapter is not recognized, follow [these steps](#my-z-wave-adapter-isnt-recognized-automatically-during-setup).
 
@@ -92,9 +92,9 @@ Once you have set up the Z-Wave server, you can [add devices to the network](#ad
    - If you are using Z-Wave for the first time, leave all the fields empty and select **Submit**. The system will generate network security keys for you.
    - If this Z-Wave adapter has already been paired with secure devices, you need to enter the previously used network key as the S0 network key. S2 security keys will be automatically generated for you.
    - Make sure that you keep a backup of these keys in a safe place in case you need to move your Z-Wave adapter to another device. Copy and paste them somewhere safe.
-5. Wait for the Z-Wave JS add-on to start up.
+5. Wait for the Z-Wave JS app to start up.
 6. Once the installation is complete, the **Device info** of the Z-Wave adapter is shown.
-   - You successfully installed the Z-Wave integration and the Z-Wave JS add-on.
+   - You successfully installed the Z-Wave integration and the Z-Wave JS app.
    - You can now [add devices](/integrations/zwave_js/#adding-a-new-device-to-the-z-wave-network) to the Z-Wave network.
 
 {% note %}
@@ -152,7 +152,7 @@ Do this before using the device with another adapter, or when you don't use the 
 Do this if you have an existing Z-Wave network and want to replace its adapter with a new adapter. The Z-Wave integration with all its entities will stay in Home Assistant. The new adapter is added to Home Assistant and paired with the existing network.
 
 {% tip %}
-You cannot run two Z-Wave adapters simultaneously using the same add-on. If you only run one add-on, you need to migrate the network. If you want to run two adapters, you would need to install another add-on, such as Z-Wave JS UI.
+You cannot run two Z-Wave adapters simultaneously using the same app. If you only run one app, you need to migrate the network. If you want to run two adapters, you would need to install another app, such as Z-Wave JS UI.
 {% endtip %}
 
 ### Prerequisites
@@ -206,21 +206,21 @@ The video below shows how a Z-Wave network is migrated to a Home Assistant Conne
 
 <lite-youtube videoid="3-1YV9i5M30" videotitle="Example showing how to migrate to a Home Assistant Connect ZWA-2" posterquality="maxresdefault"></lite-youtube>
 
-## Overriding the radio frequency region of the adapter in the Z-Wave JS add-on
+## Overriding the radio frequency region of the adapter in the Z-Wave JS app
 
 The frequency used by Z-Wave devices depends on your region. For 700 and 800 series adapters, this frequency can be changed. The frequency of end devices cannot, so you need to make sure to buy devices specific to your region.
 
-If you are using the Z-Wave JS add-on, Home Assistant automatically changes the radio frequency region to match the region/country you're in. If needed, you can override this setting.
+If you are using the Z-Wave JS app, Home Assistant automatically changes the radio frequency region to match the region/country you're in. If needed, you can override this setting.
 
 ### Prerequisites
 
 - Administrator rights in Home Assistant
 - All your Z-Wave devices must be specified for that region
-- Note: this procedure only applies if your adapter is [set up using the Z-Wave JS add-on](#to-set-a-up-a-z-wave-server)
+- Note: this procedure only applies if your adapter is [set up using the Z-Wave JS app](#to-set-up-a-z-wave-server)
 
 ### To override the radio frequency region of your Z-Wave adapter
 
-1. Go to {% my supervisor_addon addon="core_zwave_js" title="**Settings** > **Add-ons** > **Z-Wave JS**" %}.
+1. Go to {% my supervisor_addon addon="core_zwave_js" title="**Settings** > **Apps** > **Z-Wave JS**" %}.
 2. Open the **Configuration** tab.
 3. In the **Options** section, select the **Radio Frequency Region**.
    - **Automatic** sets the region based on the location defined under {% my general title="**Settings** > **System** > **General**" %}.
@@ -907,7 +907,7 @@ In addition to the [standard automation trigger data](/docs/automation/templatin
 
 ## Advanced installation instructions
 
-If you are using Home Assistant Container or you don't want to use the built-in Z-Wave JS Server add-on, you will need to run the Z-Wave JS server yourself, to which the Z-Wave integration will connect.
+If you are using Home Assistant Container or you do not want to use the built-in Z-Wave JS app, you need to run the Z-Wave JS Server yourself, which the Z-Wave integration will connect to.
 
 ### Running [Z-Wave JS Server](https://github.com/zwave-js/zwave-js-server)
 
@@ -918,23 +918,23 @@ The chart below illustrates Options 1 and 2, which are available for Home Assist
 
 ![Overview of installation options 1 and 2](/images/integrations/z-wave/z-wave-server-install-options-1-2.png)
 
-**Option 1: The official Z-Wave JS add-on, as described above**
+**Option 1: The official Z-Wave JS app, as described above**
 
 _This option is only available for {% term "Home Assistant Operating System" %} (the recommended installation type) installations._
 
-This add-on can only be configured via the built-in Z-Wave control panel in Home Assistant. If you followed the standard [installation procedure](#setting-up-a-z-wave-js-server), this is how you are running the Z-Wave JS server.
+This app (formerly known as an add-on) can only be configured via the built-in Z-Wave control panel in Home Assistant. If you followed the standard [installation procedure](#setting-up-a-z-wave-js-server), this is how you are running the Z-Wave JS server.
 
-**Option 2: The Z-Wave JS UI add-on installed from the community add-on store**
+**Option 2: The Z-Wave JS UI app installed from the community app store**
 
 _This option is only available for {% term "Home Assistant Operating System" %} (the recommended installation type) installations._
 
-This add-on includes the Z-Wave JS Server as part of the Z-Wave JS UI application. The Z-Wave network can be configured via the built-in Z-Wave control panel in Home Assistant and alternatively via the Z-Wave control panel built into Z-Wave JS UI. It provides you with a full-fledged, attractive, and feature-complete UI to manage your Z-Wave nodes and settings, which may support more advanced use cases as development continues on the Z-Wave control panel.
+This app (formerly known as an add-on) includes the Z-Wave JS Server as part of the Z-Wave JS UI application. The Z-Wave network can be configured via the built-in Z-Wave control panel in Home Assistant and alternatively via the Z-Wave control panel built into Z-Wave JS UI. It provides you with a full-fledged, attractive, and feature-complete UI to manage your Z-Wave nodes and settings, which may support more advanced use cases as development continues on the Z-Wave control panel.
 
 **Option 3: The Z-Wave JS UI Docker container**
 
 This is the recommended approach if you're running Home Assistant Container. See the [Z-Wave JS UI documentation](https://zwave-js.github.io/zwave-js-ui//#/getting-started/quick-start) for instructions.
 
-This method provides the same server application and UI as the Z-Wave JS UI add-on. After installing the Docker image, make sure you enable the WS Server in the Home Assistant section of Settings page.
+This method provides the same server application and UI as the Z-Wave JS UI app. After installing the Docker image, make sure you enable the **WS Server** in the **Home Assistant** section of the **Settings** page.
 
 **Option 4: Run the Z-Wave JS server yourself**
 
@@ -947,7 +947,7 @@ This is considered a very advanced use case. In this case you run the Z-Wave JS 
 {% note %}
 **Network keys** are used to connect securely to compatible devices. The network keys consist of 32 hexadecimal characters, for example, `2232666D100F795E5BB17F0A1BB7A146` (do not use this one, pick a random one). Without network keys security enabled devices cannot be added securely and will not function correctly. You must provide these network keys in the configuration part of the Z-Wave JS Server.
 
-For new installations, unique default keys will be auto-generated for you by the Z-Wave JS add-on. You can also generate those network keys in the Settings section of Z-Wave JS UI.
+For new installations, unique default keys will be auto-generated for you by the Z-Wave JS app. You can also generate those network keys in the Settings section of Z-Wave JS UI.
 
 Make sure that you keep a backup of these keys in a safe place. You will need to enter the same keys to be able to access securely paired devices.
 {% endnote %}
@@ -956,9 +956,9 @@ Make sure that you keep a backup of these keys in a safe place. You will need to
 
 Once you have the Z-Wave JS server up and running, you need to install and configure the integration in Home Assistant (as described above).
 
-If you're running full Home Assistant with supervisor, you will be presented with a dialog that asks if you want to use the Z-Wave JS Supervisor add-on. You **must** uncheck this box if you are running the Z-Wave JS server in any manner other than the official Z-Wave JS add-on, including using Z-Wave JS UI add-on.
+If you're running full Home Assistant with supervisor, you will be presented with a dialog that asks if you want to use the Z-Wave JS Supervisor app. You **must** uncheck this box if you are running the Z-Wave JS server in any manner other than the official Z-Wave JS app, including using Z-Wave JS UI app.
 
-If you're not running the supervisor or you've unchecked the above-mentioned box, you will be asked to enter a WebSocket URL (defaults to ws://localhost:3000). It is very important that you fill in the correct (Docker) IP/hostname here. For example for the Z-Wave JS UI add-on this is `ws://a0d7b954-zwavejs2mqtt:3000`.
+If you're not running the supervisor or you've unchecked the above-mentioned box, you will be asked to enter a WebSocket URL (defaults to ws://localhost:3000). It is very important that you fill in the correct (Docker) IP/hostname here. For example for the Z-Wave JS UI app this is `ws://a0d7b954-zwavejs2mqtt:3000`.
 
 ## FAQ: Supported devices and Command Classes
 
@@ -991,32 +991,32 @@ Some Z-Wave adapters can be auto-discovered, which can simplify the Z-Wave setup
 
 Additional devices may be discoverable, however only devices that have been confirmed discoverable are listed above.
 
-### What happened to Zwavejs2Mqtt or the Z-Wave JS to MQTT add-on?
+### What happened to Zwavejs2Mqtt or the Z-Wave JS to MQTT app?
 
 Zwavejs2Mqtt was renamed Z-Wave JS UI in September 2022. They are synonymous with no difference between their capabilities.
 
 ### Can I switch between Z-Wave JS and Z-Wave JS UI?
 
-You can switch between the official Z-Wave JS add-on and the Z-Wave JS UI add-on. However, you cannot run them both at the same time. Only one of them can be active at the same time.
+You can switch between the official Z-Wave JS app and the Z-Wave JS UI app. However, you cannot run them both at the same time. Only one of them can be active at the same time.
 
-### How to switch from Z-Wave JS to the Z-Wave JS UI add-on?
+### How to switch from Z-Wave JS to the Z-Wave JS UI app?
 
-You can switch from the official **Z-Wave JS** add-on to the community **Z-Wave JS UI** add-on. However, you cannot run them both at the same time. Only one of the add-ons can be active at the same time.
+You can switch from the official **Z-Wave JS** app to the community **Z-Wave JS UI** app. However, you cannot run them both at the same time. Only one of the apps can be active at the same time.
 
-Both add-ons communicate with Home Assistant via the same **Z-Wave** {% term integration %}.
+Both apps communicate with Home Assistant via the same **Z-Wave** {% term integration %}.
 
-1. Note your network security keys from the official add-on.
-   - In your browser, open {% my supervisor_addon addon="core_zwave_js" title="**Settings** > **Add-ons** > **Z-Wave JS**" %}.  
+1. Note your network security keys from the official app.
+   - In your browser, open {% my supervisor_addon addon="core_zwave_js" title="**Settings** > **Apps** > **Z-Wave JS**" %}.  
    - From the three dots {% icon "mdi:dots-vertical" %} menu, select **Edit in YAML**.
    - You should see about 12 lines of YAML, including items like `device: xxx` and `s2_access_control_key: xxx`.  Select all and copy them somewhere safe.  You will need them later.
 
-2. Install and start the community **Z-Wave JS UI** add-on.
-   - In your browser, open {% my supervisor_store title="**Settings** > **Add-ons** > **Add-on Store**" %}.
+2. Install and start the community **Z-Wave JS UI** app.
+   - In your browser, open {% my supervisor_store title="**Settings** > **Apps** > **App store**" %}.
    - Select **Install**, then **Start**.
-   - It may take a while for the add-on to start up.
+   - It may take a while for the app to start up.
 
 3. Note the WebSocket URL that the integration will use to communicate with Z-Wave JS.
-    - Within the same **Z-Wave JS UI** add-on from step 2, open the **Documentation** tab.
+    - Within the same **Z-Wave JS UI** app from step 2, open the **Documentation** tab.
     - Search (Ctrl-F) for a link that begins with "ws://".  For example, `ws://a0d7b954-zwavejs2mqtt:3000`.
     - Copy that URL somewhere safe.  You will need it later.
 
@@ -1025,12 +1025,12 @@ Both add-ons communicate with Home Assistant via the same **Z-Wave** {% term int
    - Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **Z-Wave** integration.  
    - Select the three-dot {% icon "mdi:dots-vertical" %} menu next to the **Z-Wave JS** top row.
    - From the menu, select **Reconfigure**, then **Reconfigure current adapter**.
-   - Uncheck **Use the Z-Wave JS Supervisor add-on**.
+   - Uncheck **Use the Z-Wave JS Supervisor app**.
    - Keep this tab open.
 
-5. Configure the new add-on using the information saved in step 1.
+5. Configure the new app using the information saved in step 1.
    - Switch back to your initial browser tab.
-   - Within the **Z-Wave JS UI** add-on, switch back to the **Info tab** and select **Open Web UI**.
+   - Within the **Z-Wave JS UI** app, switch back to the **Info tab** and select **Open Web UI**.
    - Open the **Settings** {% icon "mdi:cog" %} page and expand the **Z-Wave** section.
    - Fill out the subsections for **Serial Port**, **Security Keys**, and **RF Region**.
    - Save your changes.
@@ -1039,19 +1039,19 @@ Both add-ons communicate with Home Assistant via the same **Z-Wave** {% term int
    - Switch back to the tab from step 4.
    - Under **WebSocket URL**, enter the URL you saved in step 3.
 
-7. Uninstall the official add-on.
-   - Go to {% my supervisor_addon addon="core_zwave_js" title="**Settings** > **Add-ons** > **Z-Wave JS**" %} and select **Uninstall**.
-   - You are asked if you want to delete the related data. 
-   - Keep it if you think you might switch back to the **Z-Wave JS** add-on later.
+7. Uninstall the official app.
+   - Go to {% my supervisor_addon addon="core_zwave_js" title="**Settings** > **Apps** > **Z-Wave JS**" %} and select **Uninstall**.
+   - You are asked if you want to delete the related data.
+   - Keep it if you think you might switch back to the **Z-Wave JS** app later.
 
 ### How to migrate from one adapter to a new adapter using Z-Wave JS UI?
 
-If you are currently using [Z-Wave JS UI](https://zwave-js.github.io/zwave-js-ui/#/) instead of the official **Z-Wave JS** add-on and want to start using a new adapter, you can migrate your network inside **Z-Wave JS UI**.
+If you are currently using [Z-Wave JS UI](https://zwave-js.github.io/zwave-js-ui/#/) instead of the official **Z-Wave JS** app and want to start using a new adapter, you can migrate your network inside **Z-Wave JS UI**.
 
 1. Before starting migration, disable the **Z-Wave** integration.
    - Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the Z-Wave integration and select the three dots {% icon "mdi:dots-vertical" %} menu and select **Disable**.
 2. Do the migration in Z-Wave JS UI.
-   - If you are using the **Z-Wave JS UI** add-on, go to {% my supervisor_addon addon="core_zwave_jsa0d7b954_zwavejs2mqtt" title="**Settings** > **Add-ons** > **Z-Wave JS UI**" %}
+   - If you are using the **Z-Wave JS UI** app, go to {% my supervisor_addon addon="core_zwave_jsa0d7b954_zwavejs2mqtt" title="**Settings** > **Apps** > **Z-Wave JS UI**" %}
    - Open the Z-Wave JS UI control panel and in the bottom-right corner, select the purple **Advanced actions** button.
    - Under **NVM Management**, select **Backup**.
    - Unplug the current adapter and connect the new adapter.
@@ -1064,10 +1064,10 @@ If you are currently using [Z-Wave JS UI](https://zwave-js.github.io/zwave-js-ui
 
 4. Enable the Z-Wave integration again.
 
-### What's the benefit of using Z-Wave JS UI add-on?
+### What's the benefit of using Z-Wave JS UI app?
 
-You might wonder what the benefit is of using the [Z-Wave JS UI](https://zwave-js.github.io/zwave-js-ui/#/README) add-on instead of the official **Z-Wave JS** add-on.
-The official **Z-Wave JS** add-on provides the Z-Wave Server in its bare minimum variant, just enough to serve the Home Assistant integration.
+You might wonder what the benefit is of using the [Z-Wave JS UI](https://zwave-js.github.io/zwave-js-ui/#/README) app instead of the official **Z-Wave JS** app.
+The official **Z-Wave JS** app provides the Z-Wave Server in its bare minimum variant, just enough to serve the Home Assistant integration.
 
 The **Z-Wave JS UI** project includes the Z-Wave JS Server for convenience but also provides a Z-Wave control panel and the ability to serve your Z-Wave network to MQTT. This allows you to use the control panel, and if you so choose, to also use MQTT at the same time. For example, some users may use MQTT to interact with Z-Wave from other devices, while the Home Assistant integration still works (as long as you keep the WS Server enabled in Z-Wave JS UI).
 
@@ -1095,9 +1095,9 @@ Security S2 does not impose additional network traffic and provides additional b
 
 By default, Z-Wave prefers Security S2, if supported. Security S0 is used only when absolutely necessary.
 
-### Where can I see the security keys in the Z-Wave JS add-on?
+### Where can I see the security keys in the Z-Wave JS app?
 
-After the initial setup of the Z-Wave adapter, you can view the security keys in the Z-Wave JS add-on. Go to {% my supervisor_addon addon="core_zwave_js" title="**Settings** > **Add-ons** > **Z-Wave JS**" %} and open the **Configuration** tab. You can now see the three S2 keys and the S0 key. The network security key is a legacy configuration setting, identical to the S0 key.
+After the initial setup of the Z-Wave adapter, you can view the security keys in the Z-Wave JS app. Go to {% my supervisor_addon addon="core_zwave_js" title="**Settings** > **Apps** > **Z-Wave JS**" %} and open the **Configuration** tab. You can now see the three S2 keys and the S0 key. The network security key is a legacy configuration setting, identical to the S0 key.
 
 ## FAQ: Troubleshooting topics
 
@@ -1140,7 +1140,7 @@ Your device might not send automatic status updates to the adapter. While the be
 
 Z-Wave does not automatically poll devices on a regular basis. Polling can quickly lead to network congestion and should be used very sparingly and only where necessary.
 
-- We provide a `zwave_js.refresh_value` action to allow you to manually poll a value, for example from an automation that only polls a device when there is motion in that same room. If you **really** need polling, you can enable this in Z-Wave JS UI but not in the official add-on.
+- We provide a `zwave_js.refresh_value` action to allow you to manually poll a value, for example from an automation that only polls a device when there is motion in that same room. If you **really** need polling, you can enable this in Z-Wave JS UI but not in the official app.
 
 - Z-Wave JS UI allows you to configure scheduled polling on a per-value basis, which you can use to keep certain values updated. It also allows you to poll individual values on-demand from your automations, which should be preferred over blindly polling all the time if possible.
 
@@ -1292,7 +1292,7 @@ Throughout this documentation, Home Assistant terminology is used. For some of t
 
 ## Removing Z-Wave JS from Home Assistant
 
-This removes all paired Z-Wave devices and their entities, the Z-Wave JS add-on, and the Z-Wave integration from Home Assistant.
+This removes all paired Z-Wave devices and their entities, the Z-Wave JS app, and the Z-Wave integration from Home Assistant.
 
 ### To remove Z-Wave JS from Home Assistant
 
@@ -1305,9 +1305,9 @@ This removes all paired Z-Wave devices and their entities, the Z-Wave JS add-on,
    - Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the integration card.
    - Next to the integration entry, select the three dots {% icon "mdi:dots-vertical" %} menu.
    - Select **Delete**.
-3. If it hasn't been deleted automatically, remove the Z-Wave JS add-on.
-   - Go to {% my supervisor_addon addon="core_zwave_js" title="**Settings** > **Add-ons** > **Z-Wave JS**" %}.
+3. If it hasn't been deleted automatically, remove the Z-Wave JS app.
+   - Go to {% my supervisor_addon addon="core_zwave_js" title="**Settings** > **Apps** > **Z-Wave JS**" %}.
    - Select **Uninstall**.
-   - Decide whether to also delete the data related to the add-on or whether to keep it.
+   - Decide whether to also delete the data related to the app or whether to keep it.
 4. Done. Z-Wave JS is now completely removed from your Home Assistant server.
    - You can now use your Z-Wave devices and adapter on a new server.

@@ -181,7 +181,7 @@ HVAC mode:
 
 **Proposed action use:**
 
-1. Go to [Developer Tools](https://my.home-assistant.io/redirect/server_controls/).
+1. Go to {% my server_controls title="**Settings** > **Developer Tools** > **YAML**" %}.
 2. Switch to the **Actions** page.
 3. Use the `sensibo.get_device_capabilities` action.
 4. Select the `climate` entity as the target.
