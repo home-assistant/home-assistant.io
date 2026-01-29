@@ -85,6 +85,10 @@ Alternatively, you can create a new TOTP secret for your account and use the "no
 
 **NOTE: At this time, ConEd only has a single TOTP set up per account. Therefore, it is important that you configure the same TOTP secret for ConEd access in both Opower and your authenticator app.**
 
+**Troubleshooting: "2FA code was invalid" error**
+
+If authentication fails despite correct credentials and TOTP secret, this might be due to your Home Assistant server's clock and the ConEd server's clock being out of sync. TOTP codes are only valid within 30-second windows. Try updating and restarting Home Assistant Core, which may resolve the issue. Some users have reported needing to restart multiple times before the issue gets resolved.
+
 ### Exelon subsidiaries (ACE, BGE, ComEd, Delmarva, PECO, Pepco)
 
 The integration properly supports Multi-Factor Authentication (MFA) for Exelon subsidiaries via code sent to either email or phone SMS. These subsidiaries turned on MFA automatically for customers,
