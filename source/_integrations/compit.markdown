@@ -359,7 +359,7 @@ The integration provides various sensors depending on your device model. Below i
   - **Available for devices**: Combo (Combo module)
 
 {% note %}
-The available sensors depend on your specific Compit device configuration like installed sensors. Not all sensors will be available for every device.
+The available sensors depend on your specific Compit device configuration. Not all sensors will be available for every device.
 {% endnote %}
 
 ## Removing the integration
