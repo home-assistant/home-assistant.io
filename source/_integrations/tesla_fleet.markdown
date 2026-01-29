@@ -221,6 +221,7 @@ These are the entities available in the Tesla Fleet integration. Not all entitie
 | Sensor         | Charging                                   | Yes     |
 | Sensor         | Distance to arrival                        | Yes     |
 | Sensor         | Driver temperature setting                 | No      |
+| Sensor         | Energy remaining                           | Yes     |
 | Sensor         | Estimate battery range                     | No      |
 | Sensor         | Fast charger type                          | No      |
 | Sensor         | Ideal battery range                        | No      |
