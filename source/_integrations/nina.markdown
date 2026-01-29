@@ -19,7 +19,7 @@ ha_integration_type: service
 
 The [NINA](https://www.bbk.bund.de/DE/Warnung-Vorsorge/Warn-App-NINA/warn-app-nina_node.html) {% term integration %} displays warnings from the [Bundesamt für Bevölkerungsschutz und Katastrophenhilfe](https://www.bbk.bund.de/) in Germany.
 
-For each county/city it creates warning slots that change to Unsafe when warnings are present. The details of the warning provided in separate entities.
+For each county/city it creates warning slots that change to Unsafe when warnings are present. The details of the warning are provided in separate entities.
 
 {% include integrations/config_flow.md %}
 
