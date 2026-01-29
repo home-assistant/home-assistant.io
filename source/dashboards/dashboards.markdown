@@ -244,7 +244,7 @@ resources:
       type: string
 dashboards:
   required: false
-  description: "Additional YAML dashboards. The key is used for the URL and should contain a hyphen (`-`). For backward compatibility, `lovelace` is also a valid key."
+  description: "Additional YAML dashboards. The key is used for the URL and should contain a hyphen (`-`), except for `lovelace` which is allowed for backward compatibility."
   type: map
   keys:
     mode:
