@@ -66,7 +66,7 @@ Sensors are updated once an hour.
 
 ## Actions
 
-All Mastodon actions require integration `config_entry_id`. To find it, go to **Developer tools** > **Actions**. Choose the desired action and select your integration from dropdown. Then switch to YAML mode to see `config_entry_id`.
+All Mastodon actions require integration `config_entry_id`. To find it, go to **Developer tools** > **Actions**. Choose the desired action and select your integration from the dropdown. Then switch to YAML mode to see `config_entry_id`.
 
 ### Action: Account lookup
 
