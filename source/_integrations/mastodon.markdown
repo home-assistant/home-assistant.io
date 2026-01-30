@@ -77,7 +77,7 @@ The `mastodon.account_lookup` action is used to get details of an account.
   - **Optional**: No
 
 - **Data attribute**: `account_name`
-  - **Description**: The account name to lookup, in the format @user@instance. Will only return accounts that are federatated with your instance.
+  - **Description**: The account name to lookup, in the format @user@instance. Will only return accounts that are federated with your instance.
   - **Optional**: No
 
 ### Action: Post
