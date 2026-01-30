@@ -75,8 +75,6 @@ Here's an example of the sensor in use:
 While the UI-based configuration is recommended, you can also manually configure routes using YAML if needed. This allows you to customize sensor names or select specific route IDs.
 
 
-{% include integrations/restart_ha_after_config_inclusion.md %}
-
 To find the Travel Time ID for your routes, visit <https://wsdot.com/Traffic/api/TravelTimes/TravelTimesREST.svc/GetTravelTimesAsJson?AccessCode=[your_api_key_here]> (substitute your API key). This returns a JSON list of all available routes. Search for the `TravelTimeID` field to find the number you need.
 
 ## Troubleshooting
