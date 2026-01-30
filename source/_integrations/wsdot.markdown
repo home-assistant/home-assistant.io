@@ -73,8 +73,6 @@ Figuring out which Travel Time ID (`id`) is associated with your routes is a bit
 substituting your `api_key`, you will get a list of all available routes.
 Search through it and then find the key `TravelTimeID`.
 That tells you the number you need.
-<<<<<<< HEAD
-=======
 
 ## Troubleshooting
 
@@ -128,4 +126,3 @@ You may have to wait up to 4 minutes for initial durations to populate.
 This integration follows standard integration removal.
 
 {% include integrations/remove_device_service.md %}
->>>>>>> 65a80b342 (expand wsdot structure)
