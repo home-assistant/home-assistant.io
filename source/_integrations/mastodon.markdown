@@ -6,8 +6,8 @@ ha_category:
   - Sensor
 ha_release: 0.67
 ha_codeowners:
-  - '@fabaff'
-  - '@andrew-codechimp'
+  - "@fabaff"
+  - "@andrew-codechimp"
 ha_domain: mastodon
 ha_iot_class: Cloud Polling
 ha_platforms:
@@ -33,13 +33,13 @@ Select **Submit** to create the application and generate the key, secret, and to
 
 {% configuration_basic %}
 URL:
-  description: The URL of your Mastodon instance, for example `https://mastodon.social`.
+description: The URL of your Mastodon instance, for example `https://mastodon.social`.
 Client key:
-  description: The client key for the application created within your Mastodon account web interface.
+description: The client key for the application created within your Mastodon account web interface.
 Client secret:
-  description: The client secret for the application created within your Mastodon account web interface.
+description: The client secret for the application created within your Mastodon account web interface.
 Access token:
-  description: The access token for the application created within your Mastodon account web interface.
+description: The access token for the application created within your Mastodon account web interface.
 {% endconfiguration_basic %}
 
 ## Sensors
@@ -68,7 +68,7 @@ Sensors are updated once an hour.
 
 All Mastodon actions require integration `config_entry_id`. To find it, go to **Developer tools** > **Actions**. Choose the desired action and select your integration from the dropdown. Then switch to YAML mode to see `config_entry_id`.
 
-### Action: Lookup account
+### Action: Look up account
 
 The `mastodon.lookup_account` action is used to get details of an account.
 
@@ -121,7 +121,7 @@ The `mastodon.post` action posts a status to your Mastodon account.
   - **Optional**: Yes
 
 {% note %}
-Mastodon holds idempotency keys for up to one hour and subsequent posts using the same key will be ignored by your Mastodon instance. If not used, the post will be published without any duplicate check. The timeframe is controlled by your Mastodon instance, not Home Assistant. 
+Mastodon holds idempotency keys for up to one hour and subsequent posts using the same key will be ignored by your Mastodon instance. If not used, the post will be published without any duplicate check. The timeframe is controlled by your Mastodon instance, not Home Assistant.
 {% endnote %}
 
 ### Examples
@@ -175,7 +175,7 @@ actions:
     data:
       config_entry_id: YOUR_MASTODON_CONFIG_ENTITY_ID
       status: "{{ toot }}"
-      idempotency_key: {{ toot | md5 }}
+      idempotency_key: { { toot | md5 } }
 ```
 
 {% endraw %}
