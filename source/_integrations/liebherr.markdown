@@ -9,7 +9,7 @@ ha_domain: liebherr
 ha_integration_type: hub
 ha_zeroconf: true
 ha_config_flow: true
-ha_quality_scale: silver
+ha_quality_scale: bronze
 related:
   - url: https://home.liebherr.com/
     title: Liebherr
