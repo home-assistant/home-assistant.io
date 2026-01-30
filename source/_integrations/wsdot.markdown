@@ -23,29 +23,36 @@ The **Washington State Department of Transportation (WSDOT)** {% term integratio
 
 ## Prerequisites
 
-First, you need to get a free Traveler Information `api_key` from the [WSDOT API webpage](https://wsdot.com/traffic/api/). Just enter your email address to instantly get the key.
-
-Once you have the key, you are ready to configure your **WSDOT** sensors.
+You need to get a free Traveler Information API key from the [WSDOT API webpage](https://wsdot.com/traffic/api/). Enter your email address to instantly receive the key.
 
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
-api_key:
-  description: Your API key from WSDOT.
-travel_time:
-  description: List of routes.
-  keys:
-    id:
-      description: ID of the route.
-    name:
-      description: Name of the route.
-      default: Just uses `id`
+API key:
+  description: Your API key from WSDOT. This is a series of eight, four, four, four, and twelve hexadecimal components separated by dashes (for example, `0123456a-789b-012c-345d-6789012345ef`).
 {% endconfiguration_basic %}
+
+### Adding travel time routes
+
+After you've set up the integration with your API key, you can add individual travel time routes:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. On the **WSDOT** integration card, select **Add entry**.
+3. Select the route you want to monitor from the dropdown list.
+4. Select **Submit**.
+
+You can add as many routes as you need by repeating these steps. Each route will create a separate sensor showing the current travel time for that route.
 
 ## Supported functionality
 
+The **WSDOT** integration provides the following functionality.
+
+### Sensors
+
+- **Travel time sensors**: Display the current travel time in minutes for each configured route. The sensor updates every 2 minutes with the latest data from WSDOT.
+
 {% note %}
-**WSDOT** does provide information about ferry schedules, mountain passes, tolls, etc. but so far only Travel Time data is available on this platform.
+While WSDOT provides information about ferry schedules, mountain passes, and tolls, this integration currently supports only travel time data.
 {% endnote %}
 
 ## Examples
@@ -65,14 +72,24 @@ Here's an example of the sensor in use:
 
 ## Advanced configuration
 
-If you would like to manually curate the sensors provided by **WSDOT**, you can edit your {% term "`configuration.yaml`" %} file to remove, rename, or re-add routes.
+While the UI-based configuration is recommended, you can also manually configure routes using YAML if needed. This allows you to customize sensor names or select specific route IDs.
+
+To manually configure routes, add the following to your {% term "`configuration.yaml`" %} file:
+
+```yaml
+# Example configuration.yaml entry
+sensor:
+  - platform: wsdot
+    api_key: YOUR_API_KEY_HERE
+    travel_time:
+      - id: 96
+        name: I-90 Eastbound HOV
+      - id: 97
+```
+
 {% include integrations/restart_ha_after_config_inclusion.md %}
 
-Figuring out which Travel Time ID (`id`) is associated with your routes is a bit of a challenge. If you visit
-<https://wsdot.com/Traffic/api/TravelTimes/TravelTimesREST.svc/GetTravelTimesAsJson?AccessCode=[your_api_key_here]>
-substituting your `api_key`, you will get a list of all available routes.
-Search through it and then find the key `TravelTimeID`.
-That tells you the number you need.
+To find the Travel Time ID for your routes, visit <https://wsdot.com/Traffic/api/TravelTimes/TravelTimesREST.svc/GetTravelTimesAsJson?AccessCode=[your_api_key_here]> (substitute your API key). This returns a JSON list of all available routes. Search for the `TravelTimeID` field to find the number you need.
 
 ## Troubleshooting
 
@@ -114,7 +131,7 @@ To resolve this issue, try the following steps:
 
 ##### Description
 
-One or more **WSDOT** element content diaplays `unknown`.
+One or more **WSDOT** sensor displays `unknown`.
 
 ##### Resolution
 
