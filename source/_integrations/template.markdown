@@ -635,7 +635,7 @@ climate:
       required: false
       type: action
     hvac_action:
-      description: Defines a template to get the current HVAC action (e.g. heating, cooling, idle).
+      description: Defines a template to get the current HVAC action (for example, heating, cooling, or idle).
       required: false
       type: template
     current_temperature:
@@ -655,7 +655,7 @@ climate:
       required: false
       type: template
     set_temperature:
-      description: Defines actions to run when the target temperature is changed. The variables `temperature`, `target_temp_high`, `target_temp_low` and `hvac_mode` are available in the action.
+      description: Defines actions to run when the target temperature is changed. The variables `temperature`, `target_temp_high`, `target_temp_low`, and `hvac_mode` are available in the action.
       required: false
       type: action
     max_temp:
