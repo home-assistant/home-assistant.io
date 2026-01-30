@@ -25,7 +25,7 @@ The **Washington State Department of Transportation (WSDOT)** {% term integratio
 
 First, you need to get a free Traveler Information `api_key` from the [WSDOT API webpage](https://wsdot.com/traffic/api/). Just enter your email address to instantly get the key.
 
-Once you have the key, you are ready to configure your **wsdot** sensors.
+Once you have the key, you are ready to configure your **WSDOT** sensors.
 
 {% include integrations/config_flow.md %}
 
@@ -45,7 +45,7 @@ travel_time:
 ## Supported functionality
 
 {% note %}
-WSDOT does provide information about ferry schedules, mountain passes, tolls, etc. but so far only Travel Time data is available on this platform.
+**WSDOT** does provide information about ferry schedules, mountain passes, tolls, etc. but so far only Travel Time data is available on this platform.
 {% endnote %}
 
 ## Examples
@@ -61,11 +61,11 @@ Here's an example of the sensor in use:
 
 ## Data updates
 
-**wsdot** retrieves travel time updates every 2 minutes. This is not currently configurable.
+**WSDOT** retrieves travel time updates every 2 minutes. This is not currently configurable.
 
 ## Advanced configuration
 
-If you would like to manually curate the sensors provided by **wsdot**, you can edit your {% term "`configuration.yaml`" %} file to remove, rename, or re-add routes.
+If you would like to manually curate the sensors provided by **WSDOT**, you can edit your {% term "`configuration.yaml`" %} file to remove, rename, or re-add routes.
 {% include integrations/restart_ha_after_config_inclusion.md %}
 
 Figuring out which Travel Time ID (`id`) is associated with your routes is a bit of a challenge. If you visit
@@ -114,11 +114,11 @@ To resolve this issue, try the following steps:
 
 ##### Description
 
-One or more **wsdot** element content diaplays `unknown`.
+One or more **WSDOT** element content diaplays `unknown`.
 
 ##### Resolution
 
-The **wsdot** travel sensors poll for new travel times every 2 minutes.
+The **WSDOT** travel sensors poll for new travel times every 2 minutes.
 You may have to wait up to 4 minutes for initial durations to populate.
 
 ## Removing the integration
