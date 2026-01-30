@@ -83,7 +83,7 @@ sensor:
     api_key: YOUR_API_KEY_HERE
     travel_time:
       - id: 96
-        name: I-90 Eastbound HOV
+        name: "I-90 Eastbound HOV"
       - id: 97
 ```
 
