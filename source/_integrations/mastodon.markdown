@@ -93,7 +93,7 @@ The `mastodon.post` action posts a status to your Mastodon account.
   - **Optional**: No
 
 - **Data attribute**: `visibility`
-  - **Description**: If not used, will default to account setting. `public`: post will be public, `unlisted`: post will be public but not appear on the public timeline `private`: post will only be visible to followers, and `direct`: post will only be visible to mentioned users.
+  - **Description**: If not used, will default to account setting. `public`: post will be public, `unlisted`: post will be public but not appear on the public timeline, `private`: post will only be visible to followers, and `direct`: post will only be visible to mentioned users.
   - **Optional**: Yes
 
 - **Data attribute**: `idempotency_key`
