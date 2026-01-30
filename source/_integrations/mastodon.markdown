@@ -68,9 +68,9 @@ Sensors are updated once an hour.
 
 All Mastodon actions require integration `config_entry_id`. To find it, go to **Developer tools** > **Actions**. Choose the desired action and select your integration from the dropdown. Then switch to YAML mode to see `config_entry_id`.
 
-### Action: Account lookup
+### Action: Lookup account
 
-The `mastodon.account_lookup` action is used to get details of an account.
+The `mastodon.lookup_account` action is used to get details of an account.
 
 - **Data attribute**: `config_entry_id`
   - **Description**: The ID of the Mastodon config entry.
