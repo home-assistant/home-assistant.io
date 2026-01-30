@@ -156,7 +156,7 @@ The JVC Projector select platform will create the following [Select](/integratio
   - **Options**: Dependent on your detected model.
   - **Available for models**: all
 
-### Switch
+## Switch
 
 The JVC Projector switch platform will create the following Switch entities.  Some of these switches are disabled by default and may not be available for your model.
 
