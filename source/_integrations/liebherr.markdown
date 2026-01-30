@@ -78,7 +78,7 @@ For appliances with multiple cooling zones (for example, a fridge-freezer combin
 - **Middle zone**: The middle compartment (if present)
 - **Bottom zone**: The lowermost cooling compartment (if present)
 
-{% details "Changing temperature unit" %}
+{% details "Changing the temperature unit" %}
 
 The temperature unit displayed in Home Assistant is controlled by your Home Assistant system settings, not by the integration or the appliance settings.
 
