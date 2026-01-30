@@ -74,18 +74,6 @@ Here's an example of the sensor in use:
 
 While the UI-based configuration is recommended, you can also manually configure routes using YAML if needed. This allows you to customize sensor names or select specific route IDs.
 
-To manually configure routes, add the following to your {% term "`configuration.yaml`" %} file:
-
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: wsdot
-    api_key: YOUR_API_KEY_HERE
-    travel_time:
-      - id: 96
-        name: "I-90 Eastbound HOV"
-      - id: 97
-```
 
 {% include integrations/restart_ha_after_config_inclusion.md %}
 
