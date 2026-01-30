@@ -1,6 +1,6 @@
 ---
 title: Photo Frame
-description: Instructions on how to setup Photo Frame in Home Assistant.
+description: Instructions on how to set up Photo Frame in Home Assistant.
 ha_category:
   - Image
   - Utility
