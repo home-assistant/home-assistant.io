@@ -124,7 +124,7 @@ The JVC Projector sensor platform will create the following [Sensors](/integrati
 
 ## Select
 
-The JVC Projector select platform will create the following [Select](/integrations/select/) entities.  Some of these selects are disabled by default and may not be available for your model.
+The JVC Projector select platform will create the following [Select](/integrations/select/) entities. Some of these selects are disabled by default and may not be available for your model.
 
 - **Input**
   - **Description**: The HDMI input source.
@@ -158,7 +158,7 @@ The JVC Projector select platform will create the following [Select](/integratio
 
 ## Switch
 
-The JVC Projector switch platform will create the following Switch entities.  Some of these switches are disabled by default and may not be available for your model.
+The JVC Projector switch platform will create the following Switch entities. Some of these switches are disabled by default and may not be available for your model.
 
 - **E-Shift**
   - **Description**: The E-Shift mode setting.
