@@ -1011,7 +1011,7 @@ Both apps communicate with Home Assistant via the same **Z-Wave** {% term integr
    - You should see about 12 lines of YAML, including items like `device: xxx` and `s2_access_control_key: xxx`.  Select all and copy them somewhere safe.  You will need them later.
 
 2. Install and start the community **Z-Wave JS UI** app.
-   - In your browser, open {% my supervisor_store title="**Settings** > **Apps** > **App store**" %}.
+   - In your browser, open {% my supervisor_store title="**Settings** > **Apps** > **Install app**" %}.
    - Select **Install**, then **Start**.
    - It may take a while for the app to start up.
 
