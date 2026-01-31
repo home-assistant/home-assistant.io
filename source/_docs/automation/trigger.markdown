@@ -417,7 +417,7 @@ automation:
       to:
 ```
 
-If you want to trigger on all state changes *except* specific ones, use `not_from` or `not_to`  The `not_from` and `not_to` options are the counter parts of `from` and `to`. They can be used to trigger on state changes that are **not** the specified state.
+If you want to trigger on all state changes *except* specific ones, use `not_from` or `not_to`  The `not_from` and `not_to` options are the counterparts of `from` and `to`. They can be used to trigger on state changes that are **not** the specified state.
 
 ```yaml
 automation:

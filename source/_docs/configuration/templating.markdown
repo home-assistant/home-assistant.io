@@ -120,7 +120,7 @@ just macros that render to strings.
 
 ## Home Assistant template extensions
 
-Extensions allow templates to access all of the Home Assistant specific states and adds other convenience functions and filters.
+Extensions allow templates to access all the Home Assistant specific states and adds other convenience functions and filters.
 
 ### Limited templates
 
@@ -749,7 +749,7 @@ Examples using `iif`:
 {% warning %}
 The immediate if filter does not short-circuit like you might expect with a typical conditional statement. The `if_true`, `if_false` and `if_none` expressions will all be evaluated and the filter will simply return one of the resulting values. This means you cannot use this filter to prevent executing an expression which would result in an error.
 
-For example, if you wanted to select a field from `trigger` in an automation based on the platform you might go to make this template: `trigger.platform == 'event' | iif(trigger.event.data.message, trigger.to_state.state)`. This won't work because both expressions will be evaluated and one will fail since the field doesn't exist. Instead you have to do this `trigger.event.data.message if trigger.platform == 'event' else trigger.to_state.state`. This form of the expression short-circuits so if the platform is `event` the expression `trigger.to_state.state` will never be evaluated and won't cause an error.
+For example, if you wanted to select a field from `trigger` in an automation based on the platform you might go to make this template: `trigger.platform == 'event' | iif(trigger.event.data.message, trigger.to_state.state)`. This won't work because both expressions will be evaluated and one will fail since the field doesn't exist. Instead, you have to do this `trigger.event.data.message if trigger.platform == 'event' else trigger.to_state.state`. This form of the expression short-circuits so if the platform is `event` the expression `trigger.to_state.state` will never be evaluated and won't cause an error.
 {% endwarning%}
 
 ### Time
@@ -1199,7 +1199,7 @@ The entities are {{ entities | join(', ') }}
 
 ### Functions and filters to process raw data
 
-These functions are used to process raw value's in a `bytes` format to values in a native Python type or vice-versa.
+These functions are used to process raw value's in a `bytes` format to values in a native Python type or vice versa.
 The `pack` and `unpack` functions can also be used as a filter. They make use of the Python 3 `struct` library.
 See: [Python struct library documentation](https://docs.python.org/3/library/struct.html)
 
@@ -1230,7 +1230,7 @@ Some examples:
 - Filter `value | from_hex` Decodes a hex string to raw bytes.
 - Filter `value | base64_encode` Encodes a string or bytes to a base 64 string.
 - Filter `value | base64_decode` Decodes a base 64 string to a string, by default utf-8 encoding is used.
-- Filter `value | base64_decode("ascii")` Decodes a base 64 string to a string, using ascii encoding.
+- Filter `value | base64_decode("ascii")` Decodes a base 64 string to a string, using ASCII encoding.
 - Filter `value | base64_decode(None)` Decodes a base 64 string to raw bytes.
 
 <div class='note'>
