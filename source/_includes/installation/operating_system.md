@@ -318,7 +318,7 @@ Minimum recommended assignments:
 - title: VirtualBox
   content: |
     
-    #### 1. Create the virtual machine
+    #### Create the virtual machine
     
     1. Open VirtualBox and click the **New** button (the blue star).
     2. **Name:** Type Home Assistant.
@@ -326,18 +326,18 @@ Minimum recommended assignments:
     4. **Type & Version:** Select **Linux**, then select **Oracle Linux (64-bit)** (or **ARM 64-bit** if you are using a Mac with an M1/M2/M3 chip).
     5. Click **Next**.
  
-    #### 2. Configure Hardware
+    #### Configure hardware
     1. **Base Memory:** Move the slider to at least **2048 MB** (2GB).
     2. **Number of CPUs:** Move the slider to at least **2**.
     3. **EFI:** Check the box for **Enable EFI (special OSes only)**. This is required for Home Assistant to boot.
     4. Click **Next**.
 
-    #### 3. Finalizing the wizard
+    #### Finalizing the wizard
 
     1. On the **Virtual Hard Disk** screen, leave the settings as they are (it will suggest creating a new disk). We will swap this for your downloaded file in the next step.
     2. Click **Finish**.
 
-    #### 4. Attach the Home Assistant disk (VDI)
+    #### Attach the Home Assistant disk (VDI)
 
     1. Click on your new "Home Assistant" VM in the left-hand list and click the **Settings** icon (the orange gear).
     2. Go to the **Storage** section on the left menu.
@@ -347,7 +347,7 @@ Minimum recommended assignments:
     6. Find and select the `.vdi` file you previously downloaded and unzipped.
     7. Click **Choose** to confirm the file.
 
-    #### 5. Configure Network
+    #### Configure network
 
     1. While still in the **Settings** window, go to the **Network** section.
     2. Change the **Attached to** setting from "NAT" to **Bridged Adapter**.
