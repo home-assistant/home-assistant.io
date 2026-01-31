@@ -13,7 +13,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `graphite` {% term integration %} records all events and state changes and feeds the data to a [graphite](http://graphiteapp.org/) instance.
+The **Graphite** {% term integration %} records all events and state changes and feeds the data to a [graphite](http://graphiteapp.org/) instance.
 
 To enable this {% term integration %}, add the following lines to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}

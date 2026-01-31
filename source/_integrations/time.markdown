@@ -37,9 +37,9 @@ In addition, the entity can have the following states:
 
 Available actions: `time.set_value`
 
-### Action `time.set_value`
+### Action: Set value
 
-Set a new value for the time entity.
+The `time.set_value` action sets a new value for the time entity.
 
 | Data attribute | Optional | Description                                                                |
 | -------------- | -------- | -------------------------------------------------------------------------- |

@@ -3,6 +3,9 @@ title: Portainer
 description: Instructions on how to integrate Portainer with Home Assistant.
 ha_category:
   - Binary sensor
+  - Button
+  - Sensor
+  - Switch
 ha_release: '2025.10'
 ha_iot_class: Local Polling
 ha_codeowners:
@@ -11,14 +14,15 @@ ha_domain: portainer
 ha_config_flow: true
 ha_platforms:
   - binary_sensor
-  - switch
-  - sensor
   - button
-ha_integration_type: integration
+  - diagnostics
+  - sensor
+  - switch
+ha_integration_type: hub
 ha_quality_scale: bronze
 ---
 
-The Portainer {% term integration %} is used as an interface to the [Portainer API](https://docs.portainer.io/api).
+The **Portainer** {% term integration %} is used as an interface to the [Portainer API](https://docs.portainer.io/api).
 Portainer is a lightweight management UI that allows you to easily manage your Docker containers, images, networks, and volumes. It works on every Docker host or Swarm cluster.
 
 The Portainer API provides a way to manage Docker containers, images, networks, and volumes. It allows you to interact programmatically with your Docker host or Swarm cluster.
@@ -40,16 +44,59 @@ Create a Portainer Access Token by following these steps:
 
 ## Supported functionality
 
-{% note %}
-This integration is currently being actively developed and tested. More platforms and features will be added in the future.
-{% endnote %}
-
 There is currently support for the following device types within Home Assistant:
 
 - Binary sensor - for monitoring the status of Portainer services.
 - Switch - for turning on and off containers.
-- Sensor - for monitoring various elements of containers.
-- Button - for restarting containers.
+- Sensor - for monitoring various elements of containers and endpoints.
+- Button - for restarting containers and pruning unused images.
+
+## Examples
+
+The following examples show how to use the AirGradient integration in Home Assistant automations. These examples are just a starting point, and you can use them as inspiration to create your own automations.
+
+### Notify when a container went down
+
+The following example sends a notification to your mobile device when a container went down.
+
+{% raw %}
+
+```yaml
+automation:
+  - alias: "Container went down"
+    triggers:
+      - trigger: state
+        entity_id:
+          - sensor.container_state
+        to:
+          - exited
+
+    actions:
+      - action: notify.mobile_app_your_device
+        data:
+          title: "Container alert"
+          message: "Container went down!"
+```
+
+{% endraw %}
+
+## Actions
+
+Portainer provides the following actions.
+
+### Action: Prune images
+
+The `portainer.prune_images` can be used to prune unused images more granually, such as a duration and/or if images are dangling.
+
+- **Data attribute**: `device_id`
+    - **Description**: The ID of the device/endpoint to prune images on.
+    - **Optional**: No
+- **Data attribute**: `until`
+    - **Description**: The duration in time in the past.
+    - **Optional**: Yes
+- **Data attribute**: `dangling`
+    - **Description**: If true, only prune dangling images.
+    - **Optional**: Yes
 
 ## Data updates
 

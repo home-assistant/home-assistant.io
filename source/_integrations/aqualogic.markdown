@@ -18,7 +18,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The AquaLogic integration provides connectivity to a Hayward/Goldline AquaLogic/ProLogic pool controller. Note that an RS-485 to Ethernet adapter connected to the pool controller is required.
+The **AquaLogic** {% term integration %} provides connectivity to a Hayward/Goldline AquaLogic/ProLogic pool controller. Note that an RS-485 to Ethernet adapter connected to the pool controller is required.
 
 There is currently support for the following device types within Home Assistant:
 

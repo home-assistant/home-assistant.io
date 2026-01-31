@@ -91,15 +91,53 @@ Currently, the following devices and entities are supported:
 #### Select
 
 - **Filter mode**: Setting the filter mode
-  - Manual mode: The filter uses the **manual speed**
-  - Pulse mode: The filter uses a high and low pulse, the speeds are configured via **high pulse speed** and **low pulse speed**, the durations are configured via **high pulse duration** and **low pulse duration**
-  - Bio mode: The filter uses a day and night rhythm, the speeds are configured via **day speed** and **night speed**, the start times of day and night are configured via **day start time** and **night start time**
+  - **Manual mode**: The filter uses the **manual speed**.
+  - **Pulse mode**: The filter uses a high and low pulse. The speeds are configured via **high pulse speed** and **low pulse speed**. The durations are configured via **high pulse duration** and **low pulse duration**.
+  - **Bio mode**: The filter uses a day and night rhythm. The speeds are configured via **day speed** and **night speed**. The start times of day and night are configured via **day start time** and **night start time**.
 
 #### Sensor
 
 - **Current pump speed**: Displays the current pump speed
 - **Remaining hours until service**: Displays the remaining time until the filter needs to be serviced
 - **Error code**: Displays the current error code of the device (No error, Rotor stuck, air in filter)
+
+#### Switch
+
+- **Pump**: Turning on and off the filter pump
+
+#### Time
+
+- **Day start time**: Setting the start time for the day pump speed in Bio mode
+- **Night start time**: Setting the start time for the night pump speed in Bio mode
+
+### [EHEIM professionel5e](https://eheim.com/en_GB/aquatics/technology/external-filters/professionel-5e/)
+
+#### Number
+
+- **High pulse duration**: Setting the duration of the high pulse in Pulse mode
+- **Low pulse duration**: Setting the duration of the low pulse in Pulse mode
+
+#### Select
+
+- **Filter mode**: Setting the filter mode
+  - **Manual mode**: The filter uses the **manual speed**.
+  - **Constant flow mode**: The filter uses the **constant flow speed**.
+  - **Pulse mode**: The filter uses a high and low pulse. The speeds are configured via **high pulse speed** and **low pulse speed**. The durations are configured via **high pulse duration** and **low pulse duration**.
+  - **Bio mode**: The filter uses a day and night rhythm. The speeds are configured via **day speed** and **night speed**. The start times of day and night are configured via **day start time** and **night start time**.
+- **Manual speed**: Setting the pump speed in Manual mode
+- **Constant flow speed**: Setting the pump speed in Constant flow mode
+- **Day speed**: Setting the pump speed for the day in Bio mode
+- **Night speed**: Setting the pump speed for the night in Bio mode
+- **High pulse speed**: Setting the pump speed for the high pulse in Pulse mode
+- **Low pulse speed**: Setting the pump speed for the low pulse in Pulse mode
+
+#### Sensor
+
+- **Current pump speed**: Displays the current pump speed
+- **Remaining hours until service**: Displays the remaining time until the filter needs to be serviced
+- **Operating time**: Displays the operating time
+- **Remaining off time**: Displays the remaining time before the pump turns on again after turning it off
+- **Remaining off time after feeding**: Displays the remaining time before the pump turns on again after receiving a signal from the autofeeder
 
 #### Switch
 

@@ -12,7 +12,7 @@ ha_domain: persistent_notification
 ha_integration_type: system
 ---
 
-The `persistent_notification` integration can be used to show a notification on the frontend that has to be dismissed by the user.
+The **Persistent Notification** {% term integration %} can be used to show a notification on the frontend that has to be dismissed by the user.
 
 <p class='img'>
   <img src='/images/screenshots/persistent-notification.png' />
@@ -43,9 +43,9 @@ automation:
 See [Automation Trigger Variables: Persistent Notification](/docs/automation/templating/#persistent-notification) 
 for additional trigger data available for conditions or actions.
 
-### Action
+### Action: Create
 
-The `persistent_notification.create` action takes in `message`, `title`, and `notification_id`.
+The `persistent_notification.create` action creates a persistent notification with a message, title, and notification ID.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -120,7 +120,7 @@ The message attribute supports the [Markdown formatting syntax](https://daringfi
 
 ### Create a persistent notification
 
-Choose the **{% my developer_services title="Actions" %}** tab from the **Developer Tools** sidebar item, then select the {% my developer_services service="persistent_notification.create" title="`persistent_notification.create`" %} action from the **Action** dropdown. Enter something like the sample below into the **data** field and press the **Perform action** button.
+Go to {% my developer_services title="**Settings** > **Developer tools** > **Actions**" %}, then select the {% my developer_services service="persistent_notification.create" title="`persistent_notification.create`" %} action from the **Action** dropdown. Enter something like the sample below into the **data** field and press the **Perform action** button.
 
 ```json
 {

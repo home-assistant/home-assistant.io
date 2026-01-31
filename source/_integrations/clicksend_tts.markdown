@@ -12,7 +12,7 @@ ha_integration_type: integration
 ha_quality_scale: legacy
 ---
 
-The `clicksend_tts` platform uses [ClickSend](https://clicksend.com) to deliver text-to-speech (TTS) notifications from Home Assistant.
+The **ClickSend TTS** {% term integration %} uses [ClickSend](https://clicksend.com) to deliver text-to-speech (TTS) notifications from Home Assistant.
 
 After creating your account, you should now be able to obtain your `username` and `api_key` [here](https://dashboard.clicksend.com/account/subaccounts).
 
@@ -41,11 +41,11 @@ api_key:
   required: true
   type: string
 recipient:
-  description: An [E.164](https://en.wikipedia.org/wiki/E.164) formatted phone number, like `+14151234567`. This is the phone number that you want to call and notify via TTS, see [ClickSend Documentation](https://developers.clicksend.com/docs/rest/v3/#Send-Voice-Message) for more info.
+  description: An [E.164](https://en.wikipedia.org/wiki/E.164) formatted phone number, like `+14151234567`. This is the phone number that you want to call and notify via TTS, see [ClickSend Documentation](https://developers.clicksend.com/docs/messaging/voice-messaging/other/send-voice-message) for more info.
   required: true
   type: string
 language:
-  description: The language you want to use to convert the message to audio. Accepted values are found in the [ClickSend Documentation](https://developers.clicksend.com/docs/rest/v3/#Send-Voice-Message).
+  description: The language you want to use to convert the message to audio. Accepted values are found in the [ClickSend Documentation](https://developers.clicksend.com/docs/messaging/voice-messaging/other/send-voice-message).
   required: false
   default: en-us
   type: string

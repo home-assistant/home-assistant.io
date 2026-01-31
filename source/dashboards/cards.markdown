@@ -40,7 +40,11 @@ A card can be added to a dashboard directly [from the view](#to-add-a-card-from-
 
 ### To add a card from a view
 
-1. In the bottom right of the view, select **Add card**.
+1. Depending on your dasboard view layout:
+   - For Sections layout, you need to click {% icon "mdi:plus" %} in the section (bottom left) in the section.
+     ![Add card in sections layout](/images/dashboards/add_card_sections_layout.png)
+   - For other layout types (i.e. Masonry, Panel or Sidebar) In the bottom right of the view, select **Add card**.
+     ![Add card in masonary layout](/images/dashboards/add_card_masonary_layout.png)
 
 2. There are two methods to add a card:
    - If you have an idea of what card type you want to use for an entity, add **By card** type:

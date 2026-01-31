@@ -17,7 +17,7 @@ api2: Google Sheets API
 api2_link: https://console.cloud.google.com/apis/enableflow?apiid=sheets.googleapis.com
 ---
 
-The Google Sheets integration allows you to connect your [Google Drive](https://drive.google.com) to Home Assistant. The integration adds an action to allow you to append rows to a Sheets document. The idea is that you can store data on there for further processing. When you set up a config entry, your drive will have a new sheet called Home Assistant. You can then rename this to whatever you like.
+The **Google Sheets** {% term integration %} allows you to connect your [Google Drive](https://drive.google.com) to Home Assistant. The integration adds an action to allow you to append rows to a Sheets document. The idea is that you can store data on there for further processing. When you set up a config entry, your drive will have a new sheet called Home Assistant. You can then rename this to whatever you like.
 
 **Note**:
 The integration currently only has access to that one document that is created during setup.
@@ -45,9 +45,9 @@ This video tutorial explains how to set up the Google Sheets integration and how
 
 <lite-youtube videoid="hgGMgoxLYwo" videotitle="How to use Google Sheets in Home Assistant - TUTORIAL" posterquality="maxresdefault"></lite-youtube>
 
-### Action `google_sheets.append_sheet`
+### Action: Append sheet
 
-You can use the `google_sheets.append_sheet` action to add rows of data to the Sheets document created at setup.
+The `google_sheets.append_sheet` action allows you to add rows of data to the Sheets document created at setup.
 
 {% details "Create event action details" %}
 
@@ -55,6 +55,7 @@ You can use the `google_sheets.append_sheet` action to add rows of data to the S
 | ---------------------- | -------- | ----------- | --------|
 | `config_entry` | no | Config entry to use. |
 | `worksheet` | yes | Name of the worksheet. Defaults to the first one in the document. | Sheet1 |
+| `add_created_column` | yes | Add `created` column containing date-time to the data being appended. Defaults to True. | True |
 | `data` | no | Data to be appended to the worksheet. This puts the data on new rows, one value per column. | {"hello": world, "cool": True, "count": 5} |
 
 {% raw %}
@@ -65,6 +66,7 @@ action: google_sheets.append_sheet
 data:
   config_entry: 1b4a46c6cba0677bbfb5a8c53e8618b0
   worksheet: "Car Charging"
+  add_created_column: false
   data:
     Date: "{{ now().strftime('%-d-%b-%y') }}"
     KWh: "{{ states('input_number.car_charging_kwh')|float(0) }}"
@@ -89,7 +91,7 @@ data:
 
 ### Action: Get sheet
 
-You can use the `google_sheets.get_sheet` action to retrieve rows of [data] (/docs/scripts/perform-actions#use-templates-to-handle-response-data) from a Sheets document.
+You can use the `google_sheets.get_sheet` action to retrieve rows of [data](/docs/scripts/perform-actions#use-templates-to-handle-response-data) from a Sheets document.
 
 {% details "Create event action details" %}
 
