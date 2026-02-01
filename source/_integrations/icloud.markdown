@@ -2,7 +2,7 @@
 title: Apple iCloud
 description: Instructions on how to use iCloud to track devices in Home Assistant.
 ha_category:
-  - Media source  
+  - Media source
   - Presence detection
   - Sensor
 ha_iot_class: Cloud Polling
