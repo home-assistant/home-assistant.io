@@ -3,6 +3,7 @@ title: Compit
 description: Instructions on how to integrate Compit devices within Home Assistant.
 ha_category:
   - Climate
+  - Water Heater
 ha_release: '2025.10'
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -12,6 +13,7 @@ ha_domain: compit
 ha_platforms:
   - climate
   - select
+  - water_heater
 ha_integration_type: hub
 ha_quality_scale: bronze
 ---
@@ -137,6 +139,19 @@ Binary sensors provide status information about your Compit devices.
   - **Description**: Buffer tank operating mode.
   - **Options**: Schedule, Manual, Disabled
   - **Available for devices**: R480 (Heat pump controller)
+
+### Water heaters
+
+- **Water heater**
+  - **Description**: Controls the domestic hot water parameters.
+  - **Available for devices**: BioMax742, BioMax772, BioMax775, EL750, R350.CWU, R377B, R470, R480, R490, R770RS, R771RS, R900, SolarComp951, SolarComp971, SolarComp971C
+  - **Remarks**:
+    - Solar controllers and R350.CWU only support setting the target temperature.
+    - Other devices also support On/Off and operation modes.
+      - State `off` maps to `off` in Compit
+      - State `performance` maps to `on` in Compit
+      - State `eco` maps to `schedule` in Compit
+    - Solar controllers don't support current temperature attribute.
 
 ## Removing the integration
 
