@@ -145,6 +145,32 @@ name:
       type: string
 {% endconfiguration %}
 
+### State Attribute
+
+Displays a state attribute for an entity using the object syntax.
+
+```yaml
+name:
+  type: attribute
+  attribute: "state_attribute"
+```
+
+{% configuration name-attribute %}
+name:
+  required: false
+  description: Name configuration object.
+  type: map
+  keys:
+    type:
+      required: true
+      description: "Type of name to display. Use `attribute` to show a state attribute."
+      type: string
+    attribute:
+      required: true
+      description: The state attribute to display.
+      type: string
+{% endconfiguration %}
+
 ## Combining multiple name parts
 
 You can combine multiple name components by using a list. This allows you to create hybrid names with contextual information. A space is automatically added between each component.
