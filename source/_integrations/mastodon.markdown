@@ -175,7 +175,7 @@ actions:
     data:
       config_entry_id: YOUR_MASTODON_CONFIG_ENTITY_ID
       status: "{{ toot }}"
-      idempotency_key: { { toot | md5 } }
+      idempotency_key: {{ toot | md5 }}
 ```
 
 {% endraw %}
