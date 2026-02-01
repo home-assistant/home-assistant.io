@@ -452,8 +452,6 @@ The following models have been tested and confirmed to work with a direct link t
 
 *These models are discontinued and not sold anymore, they will continue to work with Home Assistant.
 
-†Requires a [camera hardware version](https://support.reolink.com/hc/en-us/articles/900000638583-Introduction-to-the-Hardware-Version-of-Reolink-Cameras/) that supports remote access.  All 5MP or newer E1 Pro models (where the hardware version includes "5MP") meet this requirement.  Most sellers (including ReoLink) do not explicitly state the hardware version, so verify the resolution is 5MP or greater to ensure compatibility.
-
 ### Tested battery-powered models
 
 Battery-powered Reolink cameras can be used with Home Assistant with the help of a [Reolink Home Hub](https://reolink.com/product/reolink-home-hub/) or NVR. The Home Hub/NVR will act as a bridge between the battery-powered cameras and Home Assistant, conserving the battery life. All features of the battery-powered cameras will be available just like regular-powered cameras. Viewing the camera stream in Home Assistant will keep the battery camera awake during viewing, consuming battery life. Therefore, ensure you do not use the camera stream on a dashboard that is constantly being viewed, like a wall panel dashboard. You can check proper operation by ensuring that the "Sleep status" entity will go to "Sleeping" if the battery camera is not being actively used.
