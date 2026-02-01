@@ -33,13 +33,13 @@ Select **Submit** to create the application and generate the key, secret, and to
 
 {% configuration_basic %}
 URL:
-description: The URL of your Mastodon instance, for example `https://mastodon.social`.
+  description: The URL of your Mastodon instance, for example `https://mastodon.social`.
 Client key:
-description: The client key for the application created within your Mastodon account web interface.
+  description: The client key for the application created within your Mastodon account web interface.
 Client secret:
-description: The client secret for the application created within your Mastodon account web interface.
+  description: The client secret for the application created within your Mastodon account web interface.
 Access token:
-description: The access token for the application created within your Mastodon account web interface.
+  description: The access token for the application created within your Mastodon account web interface.
 {% endconfiguration_basic %}
 
 ## Sensors
