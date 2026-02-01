@@ -70,14 +70,14 @@ All Mastodon actions require integration `config_entry_id`. To find it, go to **
 
 ### Action: Get account
 
-The `mastodon.get_account` action is used to get details of an account.
+The `mastodon.get_account` action is used to get details of an account. Will only return accounts that are federated with your instance.
 
 - **Data attribute**: `config_entry_id`
   - **Description**: The ID of the Mastodon config entry.
   - **Optional**: No
 
 - **Data attribute**: `account_name`
-  - **Description**: The account name to get, in the format @user@instance. Will only return accounts that are federated with your instance.
+  - **Description**: The account name to get, in the format @user@instance.
   - **Optional**: No
 
 ### Action: Post
