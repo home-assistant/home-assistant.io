@@ -6,8 +6,8 @@ ha_category:
   - Sensor
 ha_release: 0.67
 ha_codeowners:
-  - "@fabaff"
-  - "@andrew-codechimp"
+  - '@fabaff'
+  - '@andrew-codechimp'
 ha_domain: mastodon
 ha_iot_class: Cloud Polling
 ha_platforms:
