@@ -88,7 +88,7 @@ The integration creates number entities for controlling the setpoint temperature
 
 The temperature range and unit depend on your appliance's capabilities and settings.
 
-For appliances with multiple cooling zones (for example, a fridge-freezer combination), a separate number entity is created for each zone:
+For appliances with multiple cooling zones (like a fridge-freezer combination), a separate number entity is created for each zone:
 
 - **Top zone setpoint**: Target temperature for the uppermost compartment
 - **Middle zone setpoint**: Target temperature for the middle compartment (if present)
@@ -100,7 +100,7 @@ The integration creates temperature sensors for each cooling zone in your applia
 
 - **Zone temperature**: The current temperature measured inside the cooling zone.
 
-For appliances with multiple cooling zones (for example, a fridge-freezer combination), a separate sensor is created for each zone:
+For appliances with multiple cooling zones (like a fridge-freezer combination), a separate sensor is created for each zone:
 
 - **Top zone**: The uppermost cooling compartment
 - **Middle zone**: The middle compartment (if present)
