@@ -82,6 +82,6 @@ The `icloud.display_message` action displays a message on your iDevice. It can a
 
 The `icloud.lost_device` action puts your iDevice on "lost" mode (compatible devices only). You have to provide a phone number with a suffixed [country code](https://en.wikipedia.org/wiki/List_of_country_calling_codes) and a message.
 
-## Media browser
+## Media source
 
 iCloud photo albums and shared streams are displayed in the media browser, "Media" > "iCloud". This will display a list of configured iCloud accounts, selecting the account will give a choice of "Albums" and "Shared Streams". Selection of these will give a list of available photo albums, and selecting these will display the current contents of the album.
