@@ -77,7 +77,7 @@ The `mastodon.get_account` action is used to get details of an account. Will onl
   - **Optional**: No
 
 - **Data attribute**: `account_name`
-  - **Description**: The account name to get, in the format @user@instance.
+  - **Description**: The account name to get, in the format `@user@instance`.
   - **Optional**: No
 
 ### Action: Post
