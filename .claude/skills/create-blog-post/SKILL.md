@@ -17,7 +17,7 @@ Convert a draft markdown file into a properly formatted Home Assistant blog post
 
 This skill automates the process of converting a draft markdown file with metadata into a production-ready Home Assistant blog post. It:
 
-1. **Parses metadata** - Extracts author, date, category, OG image/title/description from the draft
+1. **Parses metadata** - Extracts author, date, categories, OG image/title/description from the draft
 2. **Converts images** - Finds any base64 encoded images, converts them to WebP format (max 900px width), and saves them in the appropriate blog images directory
 3. **Fixes links** - Converts any relative Home Assistant links to absolute URLs (e.g., `/integrations/foo` → `https://www.home-assistant.io/integrations/foo`)
 4. **Creates blog post** - Generates a properly formatted blog post file in `source/_posts/` with:
@@ -45,6 +45,7 @@ custom-url-slug
 
 **Category (see [current list](https://www.home-assistant.io/blog/)):**
 Category Name (or comma-separated: Category1, Category2)
+*Note: Categories will be converted to YAML list format in the blog post front matter*
 
 **OG image** (optional):
 (Image path or base64)
@@ -72,7 +73,7 @@ Creates a production-ready blog post at:
 ## Process
 
 1. Read and parse the draft markdown file
-2. Extract all metadata (author, date, category, URL slug, OG fields)
+2. Extract all metadata (author, date, categories, URL slug, OG fields) and convert categories to YAML list format
 3. Determine URL slug: use custom slug if provided, otherwise auto-generate from blog title
 4. Find and convert any base64 images to WebP:
    - Use `cwebp` to convert with `-resize 900 0 -q 85`
@@ -112,5 +113,5 @@ Would create:
 - Always adds `<!--more-->` after the first paragraph for proper blog excerpts
 - Follows the exact format of existing Home Assistant blog posts
 - **URL slug** is optional - if not provided, it will be auto-generated from the blog title by converting to lowercase and replacing spaces with hyphens
-- **Categories** should be formatted as a YAML list in the front matter (e.g., `categories:\n  - Announcements`). Multiple categories can be specified by separating them with commas in the metadata
+- **Categories** are automatically converted to YAML list format in the front matter. Single category becomes `categories:\n  - Announcements`, multiple categories (comma-separated in metadata) become `categories:\n  - Category1\n  - Category2`
 - **External links** (links to any domain or subdomain except www.home-assistant.io) should have `target="_blank"` added to open in a new tab using Kramdown syntax: `[link](url){:target="_blank"}`. This includes subdomains like my.home-assistant.io, works-with.home-assistant.io, etc. Only links to www.home-assistant.io or home-assistant.io should remain as-is
