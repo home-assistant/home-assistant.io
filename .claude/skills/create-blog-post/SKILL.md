@@ -83,10 +83,11 @@ Creates a production-ready blog post at:
    - `/blog/...` → `https://www.home-assistant.io/blog/...`
    - `/integrations/...` → `https://www.home-assistant.io/integrations/...`
    - `/docs/...` → `https://www.home-assistant.io/docs/...`
-6. Add `target="_blank"` to external links:
-   - Any link that goes to a different domain or subdomain should have `target="_blank"` added
-   - Only links to `www.home-assistant.io` or `home-assistant.io` (the current site) should NOT have `target="_blank"`
-   - All subdomains like `my.home-assistant.io`, `works-with.home-assistant.io`, etc. should have `target="_blank"` added
+6. Convert external links to HTML `<a>` tags with `target="_blank"`:
+   - Any link that goes to a different domain or subdomain should be converted from Markdown to HTML `<a>` tag with `target="_blank" rel="noopener"`
+   - Format: `<a href="URL" target="_blank" rel="noopener">link text</a>`
+   - Only links to `www.home-assistant.io` or `home-assistant.io` (the current site) should remain as Markdown links
+   - All subdomains like `my.home-assistant.io`, `works-with.home-assistant.io`, etc. should be converted to `<a>` tags with `target="_blank" rel="noopener"`
 7. Create blog post file with proper structure:
    - Front matter with all fields
    - Hero image after front matter
@@ -114,4 +115,4 @@ Would create:
 - Follows the exact format of existing Home Assistant blog posts
 - **URL slug** is optional - if not provided, it will be auto-generated from the blog title by converting to lowercase and replacing spaces with hyphens
 - **Categories** are automatically converted to YAML list format in the front matter. Single category becomes `categories:\n  - Announcements`, multiple categories (comma-separated in metadata) become `categories:\n  - Category1\n  - Category2`
-- **External links** (links to any domain or subdomain except www.home-assistant.io) should have `target="_blank"` added to open in a new tab using Kramdown syntax: `[link](url){:target="_blank"}`. This includes subdomains like my.home-assistant.io, works-with.home-assistant.io, etc. Only links to www.home-assistant.io or home-assistant.io should remain as-is
+- **External links** (links to any domain or subdomain except www.home-assistant.io) should be converted to HTML `<a>` tags with `target="_blank" rel="noopener"` to open in a new tab. Format: `<a href="URL" target="_blank" rel="noopener">link text</a>`. This includes subdomains like my.home-assistant.io, works-with.home-assistant.io, etc. Only links to www.home-assistant.io or home-assistant.io should remain as Markdown links
