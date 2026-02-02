@@ -112,9 +112,9 @@ Some devices, such as the Insignia F30 series, disappear from the network when t
 
 ## Actions
 
-### `media_player.select_source`
+### Action: Select source
 
-You can launch an app on your device using the `media_player.select_source` command. Simply provide the app ID as the `source`.  You can also stop an app by prefixing the app ID with a `!`. For example, you could define [scripts](/docs/scripts) to start and stop Netflix as follows:
+The `media_player.select_source` action allows you to launch an app on your device. Simply provide the app ID as the `source`.  You can also stop an app by prefixing the app ID with a `!`. For example, you could define [scripts](/docs/scripts) to start and stop Netflix as follows:
 
 ```yaml
 start_netflix:
@@ -173,7 +173,7 @@ You can also use the command `GET_PROPERTIES` to retrieve the properties used by
 
 A list of various intents can be found [here](https://gist.github.com/mcfrojd/9e6875e1db5c089b1e3ddeb7dba0f304).
 
-### `androidtv.learn_sendevent` (for faster ADB commands)
+### Action: Learn sendevent (for faster ADB commands)
 
 When sending commands like UP, DOWN, HOME, etc. via ADB, the device can be slow to respond. The problem isn't ADB, but rather the Android command `input` that is used to perform those actions. A faster way to send these commands is using the Android `sendevent` command. The challenge is that these commands are device-specific. To assist users in learning commands for their device, the Android debug bridge integration provides the `androidtv.learn_sendevent` action. Its usage is as follows:
 
@@ -207,9 +207,9 @@ to this:
     command: "sendevent /dev/input/event4 4 4 786979 && sendevent /dev/input/event4 1 172 1 && sendevent /dev/input/event4 0 0 0 && sendevent /dev/input/event4 4 4 786979 && sendevent /dev/input/event4 1 172 0 && sendevent /dev/input/event4 0 0 0"
 ```
 
-### `androidtv.download` and `androidtv.upload`
+### Action: Download and upload
 
-You can use the `androidtv.download` action to download a file from your Android / Fire TV device to your Home Assistant instance.
+The `androidtv.download` action allows you to download a file from your Android / Fire TV device to your Home Assistant instance.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -217,7 +217,7 @@ You can use the `androidtv.download` action to download a file from your Android
 | `device_path`          |       no | The filepath on the Android / Fire TV device.
 | `local_path`           |       no | The filepath on your Home Assistant instance.
 
-Similarly, you can use the `androidtv.upload` action to upload a file from Home Assistant instance to Android / Fire TV devices.
+The `androidtv.upload` action allows you to upload a file from your Home Assistant instance to Android / Fire TV devices.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |

@@ -21,6 +21,7 @@ ha_platforms:
   - switch
   - update
 ha_integration_type: hub
+ha_quality_scale: silver
 ---
 
 The **Squeezebox** {% term integration %} allows you to control music players from the [Lyrion Music Server](https://lyrion.org/) (LMS) ecosystem. Lyrion Music Server was formerly known as [Logitech Media Server](https://en.wikipedia.org/wiki/Squeezebox_%28network_music_player%29).
@@ -248,9 +249,9 @@ This integration will notify you when updates are available on the LMS for the L
 
 The integration provides the following actions.
 
-#### Action `call_method`
+#### Action: Call method
 
-Call a custom Squeezebox JSON-RPC API.
+The `squeezebox.call_method` action calls a custom Squeezebox JSON-RPC API.
 
 See documentation for this interface on `http://HOST:PORT/html/docs/cli-api.html?player=` where HOST and PORT are the host name and port for your Lyrion Music Server.
 

@@ -16,7 +16,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-This integration connects with a [Read Your Meter Pro](https://rym-pro.com/) account to get water meter reads into Home Assistant.
+The **Read Your Meter Pro** {% term integration %} connects with a [Read Your Meter Pro](https://rym-pro.com/) account to get water meter reads into Home Assistant.
 
 {% include integrations/config_flow.md %}
 

@@ -9,7 +9,7 @@ ha_domain: imap
 ha_platforms:
   - diagnostics
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ha_codeowners:
   - '@jbouwh'
 ha_config_flow: true

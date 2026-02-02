@@ -39,7 +39,7 @@ Extra attributes of `Water usage yesterday` sensor:
 The integration provides statistics containing all available data from Suez.
 The data is fetched every 12 hours and is updated once a day by Suez.
 
-You can find the statistics in {% my developer_statistics title="**Developer Tools** > **Statistics**"%} and search for "suez_water".
+You can find the statistics in {% my developer_statistics title="**Settings** > **Developer tools** > **Statistics**"%} and search for "suez_water".
 **Note: Due to Suez's daily update schedule, data for the current day will not be available, and yesterday's data may be delayed depending on when you check**
 
 At the initial setup, the integration pulls historical daily usage since the counter installation.

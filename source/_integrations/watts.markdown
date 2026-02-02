@@ -7,8 +7,8 @@ ha_release: '2026.1'
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@theobld-ww'
-  - '@ssi-spyro'
   - '@devender-verma-ww'
+  - '@ssi-spyro'
 ha_domain: watts
 ha_config_flow: true
 ha_platforms:

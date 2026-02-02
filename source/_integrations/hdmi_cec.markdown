@@ -21,9 +21,9 @@ The **HDMI-CEC** {% term integration %} provides actions that allow selecting th
 
 ### Home Assistant OS
 
-To test if HDMI-CEC will work on your Home Assistant OS installation, you can use the official **CEC Scanner** add-on. Run this add-on to see if your hardware has HDMI-CEC capabilities and which devices are connected. Do not have this add-on **Start on boot** as it will interfere with the integration. 
+To test if HDMI-CEC will work on your Home Assistant OS installation, you can use the official CEC Scanner app for Home Assistant (formerly known as CEC Scanner add-on). Run this app to see if your hardware has HDMI-CEC capabilities and which devices are connected. Do not have this app **Start on boot**, as it will interfere with the integration.
 
-Once you've run the add-on, you can use the resulting scan information to configure the integration.
+Once you've run the CEC Scanner app, you can use the resulting scan information to configure the integration.
 
 ### Adapter
 

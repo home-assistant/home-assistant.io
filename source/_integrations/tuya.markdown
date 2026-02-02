@@ -84,7 +84,7 @@ To scan the QR code in the Smart Life app:
 
 After adding new devices to your Tuya account through the Smart Life or Tuya Smart app, you need to reload the Tuya integration in Home Assistant for the new devices to appear:
 
-1. Go to **{% my integrations title="Settings > Devices & Services" %}**
+1. Go to **{% my integrations title="Settings > Devices & services" %}**
 2. Find the Tuya integration
 3. Click the three dots menu
 4. Select **Reload**
@@ -101,7 +101,7 @@ This integration relies on the official [Python SDK provided by Tuya](https://gi
 
 The data points provided by the SDK are visible in the Home Assistant device diagnostics JSON file, under the `status`, `status_range` and `function` keys:
 
-1. Go to **{% my integrations title="Settings > Devices & Services" %}**
+1. Go to **{% my integrations title="Settings > Devices & services" %}**
 2. Find the Tuya integration
 3. Select the device
 4. Under the device information, click the three dots menu

@@ -50,3 +50,57 @@ Device tracker entity:
 {% note %}
 In the attribute name `x` is the counter of the warning starting from `1`.
 {% endnote %}
+
+### Some example automations
+
+The following example reads out the headline and its description of the DWD warnings above 2 to your local media player.
+
+{% raw %}
+```yaml
+alias: DWD-Warning at level 3
+description: DWD-Warnings at level 3
+triggers:
+  - entity_id: sensor.<your_city>_current_warning_level
+    above: 2
+    trigger: numeric_state
+conditions:
+  - condition: state
+    entity_id: sensor.<your_city>_current_warning_level
+    state: "3"
+  - condition: time
+    after: "06:20:00"
+  - condition: time
+    before: "22:00:00"
+actions:
+  - data:
+      volume_level: 0.14
+    target:
+      device_id: <your_device_id>
+    action: media_player.volume_set
+  - target:
+      entity_id: media_player.<your_mediaplayer>
+    data:
+      message: >
+        Warning! There are {{
+        state_attr('sensor.<your_city>_current_warning_level',
+        'warning_count') }} weather-warnings from DWD.·  {%
+        for i in range(0,
+        (state_attr('sensor.<your_city>_current_warning_level',
+        'warning_count')|int) + 1 | int ) %}
+          {% set headline = state_attr('sensor.<your_city>_current_warning_level', 'warning_' ~ i ~ '_headline') %}
+          {% set description = state_attr('sensor.<your_city>_current_warning_level', 'warning_' ~ i ~ '_description') %}
+          {% set instruction = state_attr('sensor.stadt_osnabruck_current_warning_level', 'warning_' ~ i ~ '_instruction') %}
+          {% if headline and description %} 
+            Warning {{ i }}:
+          {% if headline %} {{ headline }} {% endif %}
+          {% if description %} {{ description }} {% endif %}
+          {% if instruction %} {{ instruction }} {% endif %}
+          {% endif %}
+        {% endfor %}
+    action: tts.google_translate_say
+    enabled: true
+mode: single
+```
+{% endraw %}
+
+Substitute `<your_city>`, your `<your_device_id>` and `<your_mediaplayer>` with your entity-names.

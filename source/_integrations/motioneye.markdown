@@ -14,7 +14,7 @@ ha_platforms:
   - camera
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The **motionEye** {% term integration %} allows you to integrate your

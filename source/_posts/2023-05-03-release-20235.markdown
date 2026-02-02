@@ -239,7 +239,7 @@ changes this release:
 [onvif]: /integrations/onvif
 [openai conversation]: /integrations/openai_conversation
 [person]: /integrations/person
-[shelly blu button1]: https://www.shelly.cloud/en/products/shop/shelly-blu-button1?tracking=A7FsiPIfUWsFpnfKHa8SRyUYLXjr2hPq
+[shelly blu button1]: https://www.shelly.cloud/en/products/shop/shelly-blu-button1
 [shopping list]: /integrations/shopping_list
 [simplepush]: /integrations/simplepush
 [supervisor]: /integrations/hassio
