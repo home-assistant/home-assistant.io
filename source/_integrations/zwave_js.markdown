@@ -643,7 +643,8 @@ Valid code slots are between 1-254.
 | `code_slot`    | yes      | The code slot to clear the usercode from.              |
 
 ### Action: Get lock usercode
-The `zwave_js.get_lock_usercode` action retrieves usercodes from a lock. You can query a specific code slot or retrieve all code slots at once. Returns the usercode and in-use status for each slot.
+
+The `zwave_js.get_lock_usercode` action retrieves [usercodes](/docs/scripts/perform-actions#use-templates-to-handle-response-data) from a lock. You can query a specific code slot or retrieve all code slots at once. Returns the usercode and in-use status for each slot.
 
 | Data attribute | Required | Description                                                                                                                                   |
 | -------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -651,7 +652,22 @@ The `zwave_js.get_lock_usercode` action retrieves usercodes from a lock. You can
 | `code_slot`    | no       | The code slot to retrieve. If not specified, all code slots are returned.                                                                     |
 | `refresh`      | no       | Whether to poll the lock for fresh data instead of using cached values. Only supported when querying a single code slot. Defaults to `false`. |
 
-**Note:** The `refresh` parameter is only available when querying a single code slot. When retrieving all code slots, only cached values are returned to avoid performance issues.  
+{% note %}
+When retrieving all code slots, only cached values are returned to avoid performance issues.
+{% endnote %}
+
+{% details "Example action response" %}
+
+```yaml
+"1":
+  usercode: "1234"
+  in_use: true
+"2":
+  usercode: ""
+  in_use: false
+```
+
+{% enddetails %}
 
 ## Events
 
