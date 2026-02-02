@@ -22,7 +22,7 @@ This skill automates the process of converting a draft markdown file with metada
 3. **Fixes links** - Converts any relative Home Assistant links to absolute URLs (e.g., `/integrations/foo` → `https://www.home-assistant.io/integrations/foo`)
 4. **Creates blog post** - Generates a properly formatted blog post file in `source/_posts/` with:
    - Correct filename format: `YYYY-MM-DD-slug.markdown`
-   - Complete Jekyll front matter with layout, title, description, date, author, categories, og_image
+   - Complete Jekyll front matter with layout, title, description, date, author, categories (YAML list format), og_image
    - Hero image with proper styling
    - `<!--more-->` tag after the intro paragraph
    - Clean, production-ready content
@@ -44,7 +44,7 @@ DD-MM-YYYY
 custom-url-slug
 
 **Category (see [current list](https://www.home-assistant.io/blog/)):**
-Category Name
+Category Name (or comma-separated: Category1, Category2)
 
 **OG image** (optional):
 (Image path or base64)
@@ -108,3 +108,4 @@ Would create:
 - Always adds `<!--more-->` after the first paragraph for proper blog excerpts
 - Follows the exact format of existing Home Assistant blog posts
 - **URL slug** is optional - if not provided, it will be auto-generated from the blog title by converting to lowercase and replacing spaces with hyphens
+- **Categories** should be formatted as a YAML list in the front matter (e.g., `categories:\n  - Announcements`). Multiple categories can be specified by separating them with commas in the metadata
