@@ -51,6 +51,12 @@ There is currently support for the following device types within Home Assistant:
 - Sensor - for monitoring various elements of containers and endpoints.
 - Button - for restarting containers.
 
+## Supported devices
+
+There is support for endpoints and their linked containers.
+
+Docker API Engine needs to equal or above version 1.44. Older versions are [https://docs.docker.com/reference/api/engine/#deprecated-api-versions](deprecated). 
+
 ## Data updates
 
 The integration normally updates every 60 seconds. For more detailed steps on how to define a custom polling interval, follow the procedure below.
