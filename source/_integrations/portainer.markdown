@@ -55,7 +55,7 @@ There is currently support for the following device types within Home Assistant:
 
 There is support for endpoints and their linked containers.
 
-Docker API Engine needs to equal or above version 1.44. Older versions are [https://docs.docker.com/reference/api/engine/#deprecated-api-versions](deprecated). 
+Docker API Engine needs to be equal to or above version 1.44. Older versions are [deprecated](https://docs.docker.com/reference/api/engine/#deprecated-api-versions). 
 
 ## Data updates
 
