@@ -80,7 +80,8 @@ Creates a production-ready blog post at:
      - Must be the first image in content (directly under the title)
      - If no image under title, ERROR and stop conversion
      - Move to `source/images/blog/YYYY-MM-slug/art.webp`
-     - Link in blog post as first image after front matter
+     - Link in blog post as first image after front matter WITHOUT any wrapper tags (no `<p>` tag)
+     - Use the blog title (from OG title or main blog title) as the alt text for the hero image
    - **Additional images (image2, image3, etc.)**:
      - Look for corresponding PNG files in project root `create-blog-post/` (e.g., `image2.png`, `image3.png`)
      - Convert each to WebP using `cwebp -resize 900 0 -q 85`
@@ -107,7 +108,7 @@ Creates a production-ready blog post at:
    - Strip out any `\`` characters that aren't part of code blocks or inline code
 10. Create blog post file with proper structure:
    - Front matter with all fields
-   - Hero image after front matter
+   - Hero image after front matter: `<img src="/images/blog/YYYY-MM-slug/art.webp" alt="Blog Title Here" style="border: 0;box-shadow: none;">` (IMPORTANT: Use double quotes for all HTML attributes to prevent issues with apostrophes in alt text; no wrapper tags, alt text uses blog title)
    - Intro paragraph
    - `<!--more-->` tag
    - Rest of content
@@ -134,6 +135,9 @@ This would create:
   - `image3` in the draft = `image3.png` (converted to `image3.webp`)
   - And so on...
   - The first image MUST appear directly under the title or conversion will fail
+  - Hero image alt text must use the blog title (from OG title or main title)
+  - Hero image should NOT be wrapped in any tags (no `<p>` wrapper)
+  - CRITICAL: Hero image HTML must use double quotes for all attributes (src, alt, style) to prevent breaking when alt text contains apostrophes
 - If `cwebp` is not installed, will prompt to install: `sudo apt-get install -y webp`
 - The skill will clean up metadata sections and formatting issues
 - Always adds `<!--more-->` after the first paragraph for proper blog excerpts
