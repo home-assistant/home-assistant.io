@@ -10,7 +10,7 @@ ha_domain: pushbullet
 ha_platforms:
   - notify
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ha_codeowners:
   - '@engrbm87'
 ha_config_flow: true

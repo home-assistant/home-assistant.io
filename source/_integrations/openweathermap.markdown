@@ -16,7 +16,7 @@ ha_domain: openweathermap
 ha_platforms:
   - sensor
   - weather
-ha_integration_type: integration
+ha_integration_type: service
 related:
   - docs: /common-tasks/general/#defining-a-custom-polling-interval
     title: Defining a custom polling interval
@@ -118,9 +118,9 @@ If you want to change the weather location, you will need to delete and re-add t
 
 Details about the API are available in the [OpenWeatherMap documentation](https://openweathermap.org/api).
 
-### Action `openweathermap.get_minute_forecast`
+### Action: Get minute forecast
 
-This action populates [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data)
+The `openweathermap.get_minute_forecast` action populates [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data)
 with a mapping of minute-by-minute precipitation forecasts (rain or snow) for the next hour.
 
 **Note:** Minute forecast is available only when the OWM integration mode is set to `v3.0`. The action will fail if the mode is set to `current`, `forecast`, or `air_pollution`.

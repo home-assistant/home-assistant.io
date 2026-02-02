@@ -39,64 +39,123 @@ To set up these models:
 
 The JVC Projector remote platform will create a [Remote](/integrations/remote/) entity for the device. This entity allows you to send the following commands via the [remote.send_command](/integrations/remote/) action.
 
-- `menu`
-- `up`
-- `down`
-- `left`
-- `right`
-- `ok`
-- `back`
-- `info`
-- `input`
-- `hide`
-- `mpc`
-- `cmd`
-- `advanced_menu`
-- `picture_mode`
-- `color_profile`
-- `lens_control`
-- `setting_memory`
-- `gamma_settings`
-- `hdmi_1`
-- `hdmi_2`
-- `mode_1`
-- `mode_2`
-- `mode_3`
-- `lens_ap`
-- `gamma`
-- `color_temp`
-- `natural`
-- `cinema`
-- `anamo`
-- `3d_format`
+- menu
+- up
+- down
+- left
+- right
+- ok
+- back
+- info
+- input
+- hide
+- mpc
+- cmd
+- advanced-menu
+- anamorphic
+- cinema
+- color-profile
+- color-temp
+- gamma-settings
+- gamma
+- hdmi1
+- hdmi2
+- lens-aperture
+- lens-control
+- mode-1
+- mode-2
+- mode-3
+- mode-4
+- mode-5
+- mode-6
+- mode-7
+- mode-8
+- mode-9
+- mode-10
+- natural
+- picture-adjust
+- picture-mode
+- setting-memory
+- 3d-format
 
-### Binary sensor
+## Binary sensor
 
-The following sensor types are supported:
+The JVC Projector binary sensor platform will create the following [Binary Sensor](/integrations/binary_sensor/) entity:
 
-- Power on is True when projector is in status "on", "warming"
+- **Power**
+  - **Description**: Indicates whether the projector is powered on. Returns true when the projector has a status of "on" or "warming", and false when the status is "cooling" or "standby".
+  - **Available for models**: all
 
-### Sensor
+## Sensor
 
-Introduces two sensors to detect Power Status and HDMI Input.
+The JVC Projector sensor platform will create the following [Sensors](/integrations/sensor/) entities. Note that some of these sensors are disabled by default.
 
-Detailed Power Status values:
+- **Model name**
+  - **Description**: The model series of the JVC Projector. Note this value will be different than your projector model name since the JVC communication protocol only identifies the model series by an internal code. In parentheses is the library's own identifier for the communication protocol version being used.
+  - **Available for models**: all
 
-- `standby`
-- `on`
-- `warming`
-- `cooling`
-- `error`
+- **Status**
+  - **Description**: The power status of the projector.
+  - **Available for models**: all
 
-Please note that if the projector is off, it will not respond to remote polling and will show as *unavailable*.
+- **Light time**
+  - **Description**: The number of hours on the light source (lamp/laser).
+  - **Available for models**: all
 
-Detailed HDMI Input values:
+- **Source**
+  - **Description**: The signal resolution.
+  - **Available for models**: all
 
-- `hdmi1`
-- `hdmi2`
+- **Color depth**
+  - **Description**: The signal color depth.
+  - **Available for models**: all
 
-### Selects
+- **Color space**
+  - **Description**: The signal color space.
+  - **Available for models**: all
 
-The following Select entities are added. They allow changing the device state from a list of options.
+- **HDR**
+  - **Description**: The signal HDR mode.
+  - **Available for models**: all
 
-- `input`
+- **HDR processing**
+  - **Description**: The signal HDR processing mode.
+  - **Available for models**: all
+
+- **Picture mode**
+  - **Description**: The signal picture mode.
+  - **Available for models**: all
+
+## Select
+
+The JVC Projector select platform will create the following [Select](/integrations/select/) entities. Note that some of these selects are disabled by default.
+
+- **Input**
+  - **Description**: The HDMI input source.
+  - **Options**: hdmi1, hdmi2
+  - **Available for models**: all
+
+- **Installation mode**
+  - **Description**: The installation mode.
+  - **Options**: Dependent on your detected model.
+  - **Available for models**: all
+
+- **Light power**
+  - **Description**: The light power setting.
+  - **Options**: Dependent on your detected model.
+  - **Available for models**: all
+
+- **Dynamic control**
+  - **Description**: The dynamic control setting.
+  - **Options**: Dependent on your detected model.
+  - **Available for models**: all
+
+- **Clear motion drive**
+  - **Description**: The clear motion drive setting.
+  - **Options**: Dependent on your detected model.
+  - **Available for models**: all
+
+- **Anamorphic**
+  - **Description**: The anamorphic setting.
+  - **Options**: Dependent on your detected model.
+  - **Available for models**: all

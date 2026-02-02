@@ -31,7 +31,7 @@ If you have the {% term "Home Assistant Operating System" %} installed, you rece
 - {% term "Home Assistant Operating System" %}
 - {% term "Home Assistant Supervisor" %}
 - {% term "Home Assistant Core" %}
-- {% term "Add-ons" %}, if you have any installed
+- {% term "Apps" %}, if you have any installed
 
 Each of these components needs to be updated separately.
 
@@ -139,6 +139,7 @@ By default, Home Assistant Core logs are sent to the Systemd Journal, which can 
 
 ```bash
 ha core options --duplicate-log-file=true
+ha core rebuild
 ha core restart
 ```
 
@@ -146,6 +147,7 @@ To disable it:
 
 ```bash
 ha core options --duplicate-log-file=false
+ha core rebuild
 ha core restart
 ```
 

@@ -14,7 +14,7 @@ ha_config_flow: true
 ha_platforms:
   - binary_sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 The **ProgettiHWSW Automation** {% term integration %} brings the automation experience with ProgettiHWSW boards to Home Assistant.

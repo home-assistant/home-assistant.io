@@ -16,7 +16,7 @@ ha_platforms:
   - binary_sensor
   - climate
   - switch
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The **LIVISI Smart Home** {% term integration %} allows you to connect your LIVISI Smart Home Controller (SHC) to Home Assistant. The SHC can control compatible devices from RWE/innogy connected to it.

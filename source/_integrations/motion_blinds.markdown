@@ -14,7 +14,7 @@ ha_platforms:
   - cover
   - sensor
 ha_dhcp: true
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The **Motionblinds** {% term integration %} allows you to control [Motionblinds](https://motionblinds.com/) from [Coulisse B.V.](https://coulisse.com/).
@@ -104,6 +104,10 @@ In the official Bloc Blinds app go to settings (three bars > gear icon), go to t
 ### 3 Day Blinds app
 
 In the 3 Day Blinds app go to the home screen, go to settings (three bars in the upper left corner > gear icon), select `About` from the bottom, quickly tap the 3 Day Blinds icon in the center of the screen 5 times and a pop-up with the key will be shown.
+
+### Blindsgalore AMP app
+
+In the Blindsgalore AMP app go to the home screen, go to settings (three bars in the upper left corner), tap your profile picture, select `About` from the bottom, quickly tap the AMP icon in the center of the screen 5 times and a pop-up with the key will be shown.
 
 ### Connector app
 

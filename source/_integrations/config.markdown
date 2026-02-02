@@ -24,7 +24,7 @@ The **Settings** menu provides access to the following panels:
 
 ### Home Assistant Cloud
 
-Enables you to connect to [Home Assistant Cloud](https://support.nabucasa.com/hc/en-us/articles/26260474250269-List-of-Home-Assistant-Cloud-features) to use features such as secure remote access, voice assistants, or cloud storage for backups.
+Enables you to connect to [Home Assistant Cloud](https://support.nabucasa.com/hc/articles/26260474250269) to use features such as secure remote access, voice assistants, or cloud storage for backups.
 
 ### Devices & services
 
@@ -38,9 +38,9 @@ Enables you to create and modify automations, scenes, scripts, and blueprints fr
 
 Enables you to organize entities according to physical or conceptual areas of your home.
 
-### Add-ons
+### Apps for Home Assistant (formerly known as add-ons)
 
-Enables you to install and use additional standalone third-party software packages. Add-ons can only be installed on Home Assistant OS.
+Enables you to install and use additional standalone third-party software packages. Apps can only be installed on Home Assistant OS.
 
 ### Dashboards
 

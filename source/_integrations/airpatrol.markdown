@@ -11,10 +11,10 @@ ha_codeowners:
 ha_domain: airpatrol
 ha_platforms:
   - climate
-ha_integration_type: integration
+  - sensor
+ha_integration_type: device
 ha_quality_scale: bronze
 ---
-
 
 The **Airpatrol** {% term integration %} allows you to control air conditioning units through [Airpatrol](https://www.airpatrol.com/) devices in Home Assistant.
 
