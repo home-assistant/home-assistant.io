@@ -23,7 +23,7 @@ Having easy access to this wealth of data changes everything. With the device da
 
 Of course, there are some excellent device databases and compatibility lists already available. Our own <a href="https://works-with.home-assistant.io/" target="_blank" rel="noopener">Works with Home Assistant</a> (WWHA) program puts products through their paces in home settings, which has taught us how vital real-world testing is. But to really understand how devices perform across the incredibly diverse range of setups out there (different integrations, hardware combinations, network connections, and protocols) we need data at a much larger scale. That's what makes the device database different: it's thousands of real homes opting in to contribute real anonymized data. And that's only possible with your help.
 
-## **Building together**
+## Building together
 
 Creating the device database is a big job, and we're going to need your help to do it. Before we build a shiny new website or complex search engine, the first step is to make sure the data you opt to share with us is accurate, anonymized, and meaningful, so we're prioritizing:
 
@@ -32,31 +32,31 @@ Creating the device database is a big job, and we're going to need your help to 
 * **Laying the groundwork:** To prepare the first stage of this initiative, we invited members of the Open Home Foundation, our commercial partners, and a range of Home Assistant users, to opt into sharing their device data with us. This collaborative start has helped us aggregate more than **2,000 unique devices across more than 160 integrations**, with lots more to come.
 * **Transparency:** We've launched an initial public dashboard for aggregated statistics and data downloads, giving you a first look at the insights as they grow. Of course, we won't stop there, as we're approaching this step-by-step…
 
-## **Nothing happens overnight**
+## Nothing happens overnight
 
 Like everything we do, the Device database initiative follows a steady, iterative approach, which takes time. We want to be honest: **nothing happens overnight**. We don't believe in hiding away for years behind closed doors just to launch our vision of a "perfect" finished product (spoiler: there's no such thing as perfect!). Instead, in the true open source fashion, we build in the open, release early experiments, and refine them based on how our community actually uses them.
 
 Right now, in these early stages, our focus is on **planting the seeds and gathering the first shoots of real-world information**, as well as your feedback. This way, the tools we build later can grow and evolve alongside your needs.
 
-## **The next steps**
+## The next steps
 
 Following our iterative philosophy, we have a roadmap of small, manageable milestones designed to gather feedback at every step:
 
-### **1\. Launching in Home Assistant Labs**
+### 1. Launching in Home Assistant Labs
 
 We are introducing the Open Home Foundation device database as a Labs feature in the **2026.2 release of Home Assistant**. The idea is to broaden visibility and reach a wider audience (hello, that means you 👋) willing to contribute by opting in to share their device data and providing valuable feedback.
 
-### **2\. Putting the data in your hands**
+### 2. Putting the data in your hands
 
-Building on the further insights and feedback we gather, we're planning to launch the first public device database web interface in the first half of 2026\. The plan is to make it easier for you to explore and interact with the information, beyond simple statistical dashboards.
+Building on the further insights and feedback we gather, we're planning to launch the first public device database web interface in the first half of 2026. The plan is to make it easier for you to explore and interact with the information, beyond simple statistical dashboards.
 
 While this initial version will be far from the final version (if there ever is one!). By getting it into your hands as early as possible, we can better understand where to go next, and make sure our future work is focused on the most valuable features for you.
 
-### **3\. Encouraging community contributions**
+### 3. Encouraging community contributions
 
 Right from the start, we're establishing simple flows to enable you to contribute more easily, allowing you to enrich the device database by adding real-world insights, all under the watch of our community. The result: an authentic and unbiased source of truth that helps everyone make informed decisions when it comes to privacy, choice, and sustainability in the smart home.
 
-## **Now it's over to you!**
+## Now it's over to you!
 
 Because this project belongs to the community, we need your perspective early and often to help shape what comes next.
 
