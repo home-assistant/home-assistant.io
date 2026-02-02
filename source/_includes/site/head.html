@@ -29,7 +29,7 @@
     <meta name="twitter:image" content="{{ page.og_image | default: "/images/default-social.png" | prepend: site.url }}">
     {% if layout.is_post %}{% assign words = page.content | strip_html | number_of_words %}{% assign reading_time = words | divided_by: 200 %}{% if reading_time < 1 %}{% assign reading_time = 1 %}{% endif %}
     <meta name="twitter:label1" value="Reading time">
-    <meta name="twitter:data1" value="~{{ reading_time }} min">
+    <meta name="twitter:data1" value="~{{ reading_time }} minutes">
     <meta name="twitter:label2" value="Written by">
     <meta name="twitter:data2" value="{{ page.author | default: site.author }}">
     {% endif %}
