@@ -1,5 +1,5 @@
 ---
-name: blog post converter
+name: create-blog-post
 description: Use this if the user wants to convert a blog post from Google Docs markdown to the format used in the Home Assistant website.
 ---
 
