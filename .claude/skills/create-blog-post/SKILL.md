@@ -40,6 +40,9 @@ Author Name
 **Date:**
 DD-MM-YYYY
 
+**URL slug:** (optional)
+custom-url-slug
+
 **Category (see [current list](https://www.home-assistant.io/blog/)):**
 Category Name
 
@@ -69,22 +72,23 @@ Creates a production-ready blog post at:
 ## Process
 
 1. Read and parse the draft markdown file
-2. Extract all metadata (author, date, category, OG fields)
-3. Find and convert any base64 images to WebP:
+2. Extract all metadata (author, date, category, URL slug, OG fields)
+3. Determine URL slug: use custom slug if provided, otherwise auto-generate from blog title
+4. Find and convert any base64 images to WebP:
    - Use `cwebp` to convert with `-resize 900 0 -q 85`
    - Save to `source/images/blog/YYYY-MM-slug/`
    - Replace base64 references with proper image paths
-4. Convert relative HA links to absolute:
+5. Convert relative HA links to absolute:
    - `/blog/...` → `https://www.home-assistant.io/blog/...`
    - `/integrations/...` → `https://www.home-assistant.io/integrations/...`
    - `/docs/...` → `https://www.home-assistant.io/docs/...`
-5. Create blog post file with proper structure:
+6. Create blog post file with proper structure:
    - Front matter with all fields
    - Hero image after front matter
    - Intro paragraph
    - `<!--more-->` tag
    - Rest of content
-6. Verify the blog post structure matches existing posts
+7. Verify the blog post structure matches existing posts
 
 ## Example
 
@@ -103,3 +107,4 @@ Would create:
 - The skill will clean up metadata sections and formatting issues
 - Always adds `<!--more-->` after the first paragraph for proper blog excerpts
 - Follows the exact format of existing Home Assistant blog posts
+- **URL slug** is optional - if not provided, it will be auto-generated from the blog title by converting to lowercase and replacing spaces with hyphens
