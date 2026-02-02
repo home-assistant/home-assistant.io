@@ -49,10 +49,10 @@ custom-url-slug
 Category Name (or comma-separated: Category1, Category2)
 *Note: Categories will be converted to YAML list format in the blog post front matter*
 
-**OG title** (optional):
+**OG title**:
 Title text
 
-**OG / Meta description** (optional):
+**OG / Meta description**:
 Description text
 
 ---
