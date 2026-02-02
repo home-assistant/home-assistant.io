@@ -59,6 +59,10 @@ The integration normally updates every 60 seconds. For more detailed steps on ho
 
 {% include common-tasks/define_custom_polling.md %}
 
+## Known limitations
+
+Currently the integration does not support stacks or Edge computing.
+
 ## Removing the integration
 
 This integration follows standard integration removal.
