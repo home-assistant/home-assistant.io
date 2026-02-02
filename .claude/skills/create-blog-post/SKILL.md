@@ -82,13 +82,17 @@ Creates a production-ready blog post at:
    - `/blog/...` → `https://www.home-assistant.io/blog/...`
    - `/integrations/...` → `https://www.home-assistant.io/integrations/...`
    - `/docs/...` → `https://www.home-assistant.io/docs/...`
-6. Create blog post file with proper structure:
+6. Add `target="_blank"` to external links:
+   - Any link that goes to a different domain or subdomain should have `target="_blank"` added
+   - Only links to `www.home-assistant.io` or `home-assistant.io` (the current site) should NOT have `target="_blank"`
+   - All subdomains like `my.home-assistant.io`, `works-with.home-assistant.io`, etc. should have `target="_blank"` added
+7. Create blog post file with proper structure:
    - Front matter with all fields
    - Hero image after front matter
    - Intro paragraph
    - `<!--more-->` tag
    - Rest of content
-7. Verify the blog post structure matches existing posts
+8. Verify the blog post structure matches existing posts
 
 ## Example
 
@@ -109,3 +113,4 @@ Would create:
 - Follows the exact format of existing Home Assistant blog posts
 - **URL slug** is optional - if not provided, it will be auto-generated from the blog title by converting to lowercase and replacing spaces with hyphens
 - **Categories** should be formatted as a YAML list in the front matter (e.g., `categories:\n  - Announcements`). Multiple categories can be specified by separating them with commas in the metadata
+- **External links** (links to any domain or subdomain except www.home-assistant.io) should have `target="_blank"` added to open in a new tab using Kramdown syntax: `[link](url){:target="_blank"}`. This includes subdomains like my.home-assistant.io, works-with.home-assistant.io, etc. Only links to www.home-assistant.io or home-assistant.io should remain as-is
