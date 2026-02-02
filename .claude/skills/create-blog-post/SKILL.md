@@ -88,13 +88,18 @@ Creates a production-ready blog post at:
    - Format: `<a href="URL" target="_blank" rel="noopener">link text</a>`
    - Only links to `www.home-assistant.io` or `home-assistant.io` (the current site) should remain as Markdown links
    - All subdomains like `my.home-assistant.io`, `works-with.home-assistant.io`, etc. should be converted to `<a>` tags with `target="_blank" rel="noopener"`
-7. Create blog post file with proper structure:
+7. Remove bold formatting from headings:
+   - Convert `## **Heading**` to `## Heading`
+   - Remove any `**` or `__` from all heading levels (# through ######)
+8. Remove any backticks from the content:
+   - Strip out any `\`` characters that aren't part of code blocks or inline code
+9. Create blog post file with proper structure:
    - Front matter with all fields
    - Hero image after front matter
    - Intro paragraph
    - `<!--more-->` tag
    - Rest of content
-8. Verify the blog post structure matches existing posts
+10. Verify the blog post structure matches existing posts
 
 ## Example
 
