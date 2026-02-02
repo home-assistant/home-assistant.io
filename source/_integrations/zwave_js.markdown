@@ -643,7 +643,7 @@ Valid code slots are between 1-254.
 | `code_slot`    | yes      | The code slot to clear the usercode from.              |
 
 ### Action: Get lock usercode
-The `zwave_js.get_lock_usercode` action retrieves user codes from a lock. You can query a specific code slot or retrieve all code slots at once. Returns the usercode and in-use status for each slot.
+The `zwave_js.get_lock_usercode` action retrieves usercodes from a lock. You can query a specific code slot or retrieve all code slots at once. Returns the usercode and in-use status for each slot.
 
 | Data attribute | Required | Description                                                                                                                                   |
 | -------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
