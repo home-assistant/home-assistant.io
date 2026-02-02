@@ -183,9 +183,9 @@ For more examples, visit the [Scripts section](https://community.home-assistant.
 
 Available actions: `reload`.
 
-### Action `python_script.reload`
+### Action: Reload
 
-Reload all available python_scripts from the `<config>/python_scripts` folder, as a quicker alternative to restarting Home Assistant.
+The `python_script.reload` action reloads all available python_scripts from the `<config>/python_scripts` folder, as a quicker alternative to restarting Home Assistant.
 
 Use this when creating a new Python script, or after updating the `<config>/python_scripts/services.yaml` file. 
 

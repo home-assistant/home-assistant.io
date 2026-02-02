@@ -138,7 +138,7 @@ The integration provides the following actions.
 
 ### Action: Get schedule
 
-The `my_integration.get_schedule` action is used to fetch a schedule from the integration.
+The `my_integration.get_schedule` action allows you to fetch a schedule from the integration.
 
 - **Data attribute**: `config_entry_id`
   - **Description**: The ID of the config entry to get the schedule from.

@@ -422,6 +422,10 @@ The component specific options are placed as mappings under the `components` key
 }
 ```
 
+{% note %}
+To see what each abbreviation stands for, refer to the [list of supported abbreviations in MQTT discovery messages](/integrations/mqtt/#supported-abbreviations-in-mqtt-discovery-messages).
+{% endnote %}
+
 The components id's under the `components` (`cmps`) key, are used as part of the discovery identification. A `platform` (`p`) config option is required for each component config that is added to identify the component platform. Also required is a `unique_id` for entity-based components.
 
 To remove the components, publish an empty (retained) string payload to the discovery topic. This will remove the component and clear the published discovery payload. It will also remove the device entry if there are no further references to it.
@@ -1291,6 +1295,10 @@ Setting up a switch using topic prefix and abbreviated configuration variable na
 }
 ```
 
+{% note %}
+To see what each abbreviation stands for, refer to the [list of supported abbreviations in MQTT discovery messages](/integrations/mqtt/#supported-abbreviations-in-mqtt-discovery-messages).
+{% endnote %}
+
 #### Another example using abbreviations topic name and base topic
 
 Setting up a [light that takes JSON payloads](/integrations/light.mqtt/#json-schema), with abbreviated configuration variable names:
@@ -1494,7 +1502,9 @@ script:
 
 The MQTT integration will register the `mqtt.publish` action, which allows publishing messages to MQTT topics.
 
-### Action `mqtt.publish`
+### Action: Publish
+
+The `mqtt.publish` action publishes a message to an MQTT topic.
 
 | Data attribute | Optional | Description                                                  |
 | ---------------------- | -------- | ------------------------------------------------------------ |
@@ -1581,9 +1591,9 @@ qos: 2
 retain: true
 ```
 
-### Action `mqtt.dump`
+### Action: Dump
 
-Listen to the specified topic matcher and dumps all received messages within a specific duration into the file `mqtt_dump.txt` in your configuration folder. This is useful when debugging a problem.
+The `mqtt.dump` action listens to the specified topic matcher and dumps all received messages within a specific duration into the file `mqtt_dump.txt` in your configuration folder. This is useful when debugging a problem.
 
 | Data attribute | Optional | Description                                                                 |
 | ---------------------- | -------- | --------------------------------------------------------------------------- |

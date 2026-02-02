@@ -68,23 +68,31 @@ Some other rules:
 - If a paragraph/markdown isn't written in a flowing text style, it must
   be adjusted.
 - Do not use CAPS for emphasis. Use italics instead.
+- Do not use **bold** for emphasis or to replace a heading. Bold is mainly used for
+  UI strings.
+- Use **bold** to mark up UI strings and use > in breadcrumbs. For example:
+    - Under **Settings** > **Devices & services**, select **Integrations**.
 - Use the word "Home Assistant" in full, and not "HA" or "HASS". 
 - Use sentence-style capitalization for headings and titles.
-- Use **bold** to mark up UI strings. For example:
-    - Under **Settings** > **Devices & services**, select **Integrations**.
 - Do not use "e.g.", "i.e.", "etc.", or "etcetera". Use "like", "for example",
   or "such as" instead.
-- Lists
+- Lists:
     - Lists should be surrounded by blank lines.
-    - Use numbers list for sequential steps, procedures, or prioritized items.
-    - Use bullet lists for non-sequential items, or when the order does not
+    - Use a numbered list for sequential steps, procedures, or prioritized items.
+    - Use a bulleted list for non-sequential items, or when the order does not
       matter.
     - Begin each item in the list with a capital letter, unless there is a
       reason not to (like it is a command or a code block).
     - Don’t use semicolons, commas, or conjunctions (like and or or) at the end
       of list items.
-    - Don’t use a period at the end of list items unless they’re complete
-      sentences, even if the complete sentence is very short.
+    - If at least one item in a list is a complete sentence, use periods at the end
+      of all items in that list.
+    - Don’t use a period at the end of list items if none of the items are complete
+      sentences.
+
+## Terminology
+
+- Follow the terminology rules listed in `.textlintrc.json` in this repository.
 
 ## The tech behind the website
 
@@ -148,19 +156,11 @@ ha_codeowners:
 ha_domain: my_integration
 ha_integration_type: integration
 related:
-  - url: https://developers.home-assistant.io/docs/documenting/standards
-    title: Documentation standard
-  - url: https://developers.home-assistant.io/docs/core/integration-quality-scale/rules/
-    title: Integration Quality Scale - Rules
-  - docs: /docs/glossary/
-    title: Glossary
-  - docs: /docs/tools/quick-bar/#my-links
-    title: My link
+  - url: https://support.nabucasa.com/hc/en-us/articles/24737667232413
+    title: Getting started with Home Assistant Green
+  - docs: /docs/configuration/troubleshooting/#debug-logs-and-diagnostics
+    title: Debug logs and diagnostics
 ---
-
-<!--- The integration documentation template provides a documentation structure as well as some example content per section. The example content is meant for inspiration, it may not apply for your integration or will at least have to be adapted. -->
-
-<!--- Use this template together with the developer documentation, under [Documentation standard](https://developers.home-assistant.io/docs/documenting/standards) and the documentation rules of the [Integration Quality Scale](https://developers.home-assistant.io/docs/core/integration-quality-scale/rules/). -->
 
 The **My integration** {% term integration %} is used to integrate with the devices of [MyCompany](https://www.mycompany.com). MyCompany creates various smart home appliances and devices and are known for their MyProduct.
 Use case: When you combine it with their other device you can do x.

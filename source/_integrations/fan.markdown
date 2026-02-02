@@ -37,9 +37,9 @@ Not all fan actions may be available for your platform. You can check which acti
 
 {% endnote %}
 
-### Action `fan.set_percentage`
+### Action: Set percentage
 
-Sets the speed percentage for fan device.
+The `fan.set_percentage` action allows you to set the speed percentage for a fan device.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -61,9 +61,9 @@ automation:
         percentage: 33
 ```
 
-### Action `fan.set_preset_mode`
+### Action: Set preset mode
 
-Sets a preset mode for the fan device. Available preset modes are defined by the integration that supplies the fan entity to Home Assistant. For example, the ESPHome [Speed Fan](https://esphome.io/components/fan/speed/) component provides three available presets by default: `Low`, `Medium`, and `High`.
+The `fan.set_preset_mode` action allows you to set a preset mode for a fan device. Available preset modes are defined by the integration that supplies the fan entity to Home Assistant. For example, the ESPHome [Speed Fan](https://esphome.io/components/fan/speed/) component provides three available presets by default: `Low`, `Medium`, and `High`.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -85,9 +85,9 @@ automation:
         preset_mode: auto
 ```
 
-### Action `fan.set_direction`
+### Action: Set direction
 
-Sets the rotation for fan device.
+The `fan.set_direction` action allows you to set the rotation for a fan device.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -109,9 +109,9 @@ automation:
         direction: forward
 ```
 
-### Action `fan.oscillate`
+### Action: Oscillate
 
-Sets the oscillation for fan device.
+The `fan.oscillate` action allows you to set the oscillation for a fan device.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -133,9 +133,9 @@ automation:
         oscillating: True
 ```
 
-### Action `fan.turn_on`
+### Action: Turn on
 
-Turn fan device on. This is only supported if the fan device supports being turned off. See a similar example under `fan.turn_off`.
+The `fan.turn_on` action allows you to turn a fan device on. This is only supported if the fan device supports being turned off. See a similar example under `fan.turn_off`.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -143,9 +143,9 @@ Turn fan device on. This is only supported if the fan device supports being turn
 | `percentage` | yes | Percentage speed setting
 | `preset_mode` | yes | The preset mode
 
-### Action `fan.turn_off`
+### Action: Turn off
 
-Turn fan device off. This is only supported if the fan device supports being turned on.
+The `fan.turn_off` action allows you to turn a fan device off. This is only supported if the fan device supports being turned on.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |

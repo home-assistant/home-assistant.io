@@ -4,7 +4,7 @@ title: "Enabling a wake word"
 
 This tutorial shows how you can *enable* a wake word in Home Assistant. It does not describe how to *use* it. 
 
-To *use* the wake word, you need some extra hardware. A low cost option is the [M5Stack ATOM Echo Development Kit](https://shop.m5stack.com/products/atom-echo-smart-speaker-dev-kit?ref=NabuCasa). To set that up, follow the [$13 voice assistant for Home Assistant](/voice_control/thirteen-usd-voice-remote/). Note that the Home Assistant Voice Preview does not currently support custom wake words.
+To *use* the wake word, you need some extra hardware. A low cost option is the [M5Stack ATOM Echo Development Kit](https://shop.m5stack.com/products/atom-echo-smart-speaker-dev-kit). To set that up, follow the [$13 voice assistant for Home Assistant](/voice_control/thirteen-usd-voice-remote/). Note that the Home Assistant Voice Preview does not currently support custom wake words.
 
 ## To enable a wake word
 
@@ -59,7 +59,7 @@ Enabling a wake word consists of 2 steps:
 
 ### Extra hardware to use wake word
 
-- [M5Stack ATOM Echo Development Kit](https://shop.m5stack.com/products/atom-echo-smart-speaker-dev-kit?ref=NabuCasa)
+- [M5Stack ATOM Echo Development Kit](https://shop.m5stack.com/products/atom-echo-smart-speaker-dev-kit)
   - [Tutorial: $13 voice assistant for Home Assistant](/voice_control/thirteen-usd-voice-remote/)
-- [ESP32-S3-BOX-3](https://www.aliexpress.us/item/1005005920207976.html?gatewayAdapt=4itemAdapt)
+- [ESP32-S3-BOX-3](https://www.aliexpress.us/item/1005005920207976.html)
   - [Tutorial: ESP32-S3-BOX-3 voice assistant](/voice_control/s3_box_voice_assistant/)

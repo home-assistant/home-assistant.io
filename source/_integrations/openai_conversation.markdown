@@ -32,6 +32,12 @@ This integration requires an API key to use, [which you can generate here.](http
 
 {% include integrations/config_flow.md %}
 
+
+{% configuration_basic %}
+API key:
+  description: "API key from OpenAI for authentication."
+{% endconfiguration_basic %}
+
 ## Generate an API Key
 
 The OpenAI key is used to authenticate requests to the OpenAI API. To generate an API key take the following steps:
@@ -216,3 +222,13 @@ response_variable: generated_content
 ```
 
 {% endraw %}
+
+## Known Limitations
+
+Currently the integration does not have any known limitations.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}

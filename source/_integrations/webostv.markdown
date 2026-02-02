@@ -115,7 +115,7 @@ The `webostv.command` action is used to send a generic command to the TV.
 | Data attribute | Optional | Description                                                                                                                                                                          |
 | ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `entity_id`            | no       | Target a specific webostv media player.                                                                                                                                              |
-| `command`              | no       | Endpoint for the command, e.g.,  `system.launcher/open`.  The full list of known endpoints is available at <https://github.com/bendavid/aiopylgtv/blob/master/aiopylgtv/endpoints.py> |
+| `command`              | no       | Endpoint for the command, e.g.,  `system.launcher/open`.  The full list of known endpoints is available at <https://github.com/home-assistant-libs/aiowebostv/blob/main/aiowebostv/endpoints.py> |
 | `payload`             | yes      | An optional payload to provide to the endpoint in the format of key value pair(s). |
 
 ```yaml

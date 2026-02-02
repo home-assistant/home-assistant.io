@@ -47,9 +47,9 @@ In the Hue concept you can create (dynamic) scenes for the lights within rooms a
 
 It is advised to use Hue scenes for controlling multiple lights at once for a smooth experience. If you individually control multiple lights and/or use Home Assistant scenes, each light command will be sent to each light one by one which doesn't give a very good user experience, while using a Hue scene sends commands to all lights at once in an optimized way, resulting in a smooth experience.
 
-### Action `hue.activate_scene`
+### Action: Activate scene
 
-To have more control over Hue scenes we've implemented a secondary, more advanced action to activate a Hue scene and set some properties at the same time, such as the Dynamic mode and/or brightness.
+The `hue.activate_scene` action provides more control over Hue scenes by allowing you to activate a Hue scene and set some properties at the same time, such as the Dynamic mode and/or brightness.
 
 | Data attribute | Required | Description                                                                                   |
 | ---------------------- | -------- | --------------------------------------------------------------------------------------------- |

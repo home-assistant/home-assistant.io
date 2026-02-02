@@ -249,9 +249,9 @@ This integration will notify you when updates are available on the LMS for the L
 
 The integration provides the following actions.
 
-#### Action `call_method`
+#### Action: Call method
 
-Call a custom Squeezebox JSON-RPC API.
+The `squeezebox.call_method` action calls a custom Squeezebox JSON-RPC API.
 
 See documentation for this interface on `http://HOST:PORT/html/docs/cli-api.html?player=` where HOST and PORT are the host name and port for your Lyrion Music Server.
 

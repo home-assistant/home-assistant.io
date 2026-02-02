@@ -7,7 +7,7 @@ Home Assistant uses databases to store {% term events %} and parameters for hist
 
 The database file is stored in your [configuration directory](/docs/configuration/#to-find-the-configuration-directory) (e.g., `<path to config dir>/home-assistant_v2.db`); however, other databases can be used. If you prefer to run a database server (e.g.,  PostgreSQL), use the [`recorder`](/integrations/recorder/) integration.
 
-To work with SQLite database manually from the command-line, you will need an [installation](https://www.sqlitetutorial.net/download-install-sqlite/) of `sqlite3`. Alternatively [DB Browser for SQLite](https://sqlitebrowser.org/) provides a viewer for exploring the database data and an editor for executing SQL commands.
+To work with SQLite database manually from the command-line, you will need an [installation](https://www.sqlitetutorial.net/download-install-sqlite/) of `sqlite3`. Alternatively, [DB Browser for SQLite](https://sqlitebrowser.org/) provides a viewer for exploring the database data and an editor for executing SQL commands.
 First load your database with `sqlite3`:
 
 ```bash

@@ -90,18 +90,18 @@ Group volume actions: `heos.group_volume_set`, `heos.group_volume_down`, and `he
 
 Queue actions: `heos.get_queue`, `heos.move_queue_item`, and `heos.remove_from_queue` to manage a player's queue items.
 
-### Action `heos.group_volume_set`
+### Action: Set group volume
 
-Sets the group's volume while preserving member volume ratios. This action can be called on any entity in a group.
+The `heos.group_volume_set` action sets the group's volume while preserving member volume ratios. This action can be called on any entity in a group.
 
 | Data attribute | Optional | Description                                      |
 |------------------------|----------|------------------------------------------------------------------|
 | `entity_id`            |      yes | A media player entity that is joined to a group.                  |
 | `volume_level`         |       no | The volume level, where 0 is inaudible, 1 is the maximum volume. |
 
-### Action `heos.get_queue`
+### Action: Get queue
 
-Returns the items in the player's queue. This can be used to inspect the current play queue of target players.
+The `heos.get_queue` action returns the items in the player's queue. This action can be used to inspect the current play queue of target players.
 
 | Data attribute | Optional | Description                                      |
 |------------------------|----------|------------------------------------------------------------------|
@@ -130,9 +130,9 @@ media_player.office:
       album_id: "134788273"
 ```
 
-### Action `heos.move_queue_item`
+### Action: Move queue item
 
-Move one or more items in the target player's queue, effectively reordering the play queue. The play queue can be enumerated by using the `heos.get_queue` service.
+The `heos.move_queue_item` action moves one or more items in the target player's queue, effectively reordering the play queue. The play queue can be enumerated by using the `heos.get_queue` action.
 
 Example action data payload that moves the second item to the top of the play queue:
 
@@ -151,9 +151,9 @@ data:
 | `queue_ids`            | no       | The IDs (indexes) of the items in the queue to move.    |
 | `destination_position` | no       | The destination position in the queue (starting at 1).  |
 
-### Action `heos.remove_from_queue`
+### Action: Remove from queue
 
-Removes one or more items from the target player(s) queue. The play queue can be enumerated by using the `heos.get_queue` service. Example action data payload:
+The `heos.remove_from_queue` action removes one or more items from the target player(s) queue. The play queue can be enumerated by using the `heos.get_queue` action. Example action data payload:
 
 ```yaml
 action: heos.remove_from_queue

@@ -54,3 +54,7 @@ Sensor entities added to Home Assistant, depending on the device model:
 - VOC
 - Co2
 - Battery
+
+## Removing the integration
+
+{% include integrations/remove_device_service.md %}

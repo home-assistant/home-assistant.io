@@ -101,7 +101,7 @@ To find your `config_entry_id`, go to {% my integrations title="**Settings** > *
 
 ## Actions
 
-### Action `seventeentrack.get_packages`
+### Action: Get packages
 
 The `seventeentrack.get_packages` action allows you to query the 17track API for the latest package data.
 
@@ -118,7 +118,7 @@ The `seventeentrack.get_packages` action allows you to query the 17track API for
     package_state: ["Delivered", "In transit"]
 ```
 
-### Action `seventeentrack.archive_package`
+### Action: Archive package
 
 The `seventeentrack.archive_package` action allows you to archive a package using the 17track API.
 
@@ -135,7 +135,7 @@ The `seventeentrack.archive_package` action allows you to archive a package usin
     package_tracking_number: RU0103445624A
 ```
 
-### Action `seventeentrack.add_package`
+### Action: Add package
 
 The `seventeentrack.add_package` action allows you to add a package using the 17track API.
 

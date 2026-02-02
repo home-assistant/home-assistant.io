@@ -45,25 +45,25 @@ Once loaded, the `camera` platform will expose actions that can be called to per
 
 Available actions: `enable_motion_detection`, `disable_motion_detection`, `play_stream`, `record`, `snapshot`, `turn_off` and `turn_on`.
 
-### Action `enable_motion_detection`
+### Action: Enable motion detection
 
-Enable the motion detection in a camera.
+The `camera.enable_motion_detection` action allows you to enable the motion detection in a camera.
 
 | Data attribute | Optional | Description                                                                        |
 | -------------- | -------- | ---------------------------------------------------------------------------------- |
 | `entity_id`    | yes      | Name(s) of entities to enable motion detection, e.g., `camera.living_room_camera`. |
 
-### Action `disable_motion_detection`
+### Action: Disable motion detection
 
-Disable the motion detection in a camera.
+The `camera.disable_motion_detection` action allows you to disable the motion detection in a camera.
 
 | Data attribute | Optional | Description                                                                         |
 | -------------- | -------- | ----------------------------------------------------------------------------------- |
 | `entity_id`    | yes      | Name(s) of entities to disable motion detection, e.g., `camera.living_room_camera`. |
 
-### Action `play_stream`
+### Action: Play stream
 
-Play a live stream from a camera to selected media player(s). Requires [`stream`](/integrations/stream) integration to be set up.
+The `camera.play_stream` action allows you to play a live stream from a camera to selected media player(s). Requires [`stream`](/integrations/stream) integration to be set up.
 
 | Data attribute | Optional | Description                                                                                 |
 | -------------- | -------- | ------------------------------------------------------------------------------------------- |
@@ -82,9 +82,9 @@ actions:
       media_player: media_player.chromecast
 ```
 
-### Action `record`
+### Action: Record
 
-Make a `.mp4` recording from a camera stream. Requires `stream` integration to be set up.
+The `camera.record` action allows you to make a `.mp4` recording from a camera stream. Requires `stream` integration to be set up.
 
 Both `duration` and `lookback` options are suggestions, but should be consistent per camera.  The actual length of the recording may vary. It is suggested that you tweak these settings to fit your needs.
 
@@ -114,9 +114,9 @@ actions:
 
 {% endraw %}
 
-### Action `snapshot`
+### Action: Snapshot
 
-Take a snapshot from a camera.
+The `camera.snapshot` action allows you to take a snapshot from a camera.
 
 | Data attribute | Optional | Description                                                                                                        |
 | -------------- | -------- | ------------------------------------------------------------------------------------------------------------------ |
@@ -142,17 +142,17 @@ actions:
 
 {% endraw %}
 
-### Action `turn_off`
+### Action: Turn off
 
-Turn off camera. Not all camera models support this action, please consult individual camera page.
+The `camera.turn_off` action allows you to turn off a camera. Not all camera models support this action, please consult individual camera page.
 
 | Data attribute | Optional | Description                                                         |
 | -------------- | -------- | ------------------------------------------------------------------- |
 | `entity_id`    | yes      | Name(s) of entities to turn off, e.g., `camera.living_room_camera`. |
 
-### Action `turn_on`
+### Action: Turn on
 
-Turn on camera. Not all camera models support this action, please consult individual camera page.
+The `camera.turn_on` action allows you to turn on a camera. Not all camera models support this action, please consult individual camera page.
 
 | Data attribute | Optional | Description                                                        |
 | -------------- | -------- | ------------------------------------------------------------------ |
