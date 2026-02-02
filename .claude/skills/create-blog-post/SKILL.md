@@ -9,8 +9,10 @@ Convert a draft markdown file into a properly formatted Home Assistant blog post
 
 ## Usage
 
+Place your draft blog post markdown file in the project root `create-blog-post/` directory (e.g., `/workspaces/home-assistant.io/create-blog-post/`), then run:
+
 ```
-/create-blog-post <path-to-draft-file>
+/create-blog-post
 ```
 
 ## What This Skill Does
