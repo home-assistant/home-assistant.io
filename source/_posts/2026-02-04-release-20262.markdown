@@ -150,11 +150,11 @@ We’ve been working with early contributors to lay the groundwork, and the [res
 
 Since we’re still in the early stages, the device database lives in {% my labs title="**Home Assistant Labs**" %}, where you can opt in to share anonymized information about the devices in your home.
 
-<img src='/images/blog/2026-02/temp-labs-device-database-analytics.png' alt='Screenshot of the device analytics section in Home Assistant Labs.' class='no-shadow' />
+<img src='/images/blog/2026-02/temp-sharing-your-devices-with-ohf-device-database.png' alt='Screenshot of the device analytics sharing option in Home Assistant Analytics.' class='no-shadow' />
 
 By introducing it in Labs, we have also introduced an additional section called **Device analytics** in {% my analytics title="**Home Assistant Analytics**" %}. If you opt in, you are of course able to opt out at any time.
 
-<img src='/images/blog/2026-02/temp-sharing-your-devices-with-ohf-device-database.png' alt='Screenshot of the device analytics sharing option in Home Assistant Analytics.' class='no-shadow' />
+<img src='/images/blog/2026-02/temp-labs-device-database-analytics.png' alt='Screenshot of the device analytics section in Home Assistant Labs.' class='no-shadow' />
 
 **Privacy is our foundation.** We collect zero personal data, period. Only aggregated, anonymized device information is shared if someone chooses to opt in, providing valuable insights while keeping your privacy intact. Read our [Data Use Statement](https://www.openhomefoundation.org/device-database-data-use-statement/) for complete details.
 
