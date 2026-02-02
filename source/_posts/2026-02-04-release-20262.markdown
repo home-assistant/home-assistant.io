@@ -142,7 +142,7 @@ Also, we’ve tidied up the interface by removing awkward empty spaces and fixin
 
 Finding reliable information about smart home devices before you buy them can be challenging. That’s why we’re building the **Open Home Foundation device database**: a community-powered resource that helps you make informed decisions based on real-world data.
 
-We’ve been working with early contributors to lay the groundwork, and the [results are already impressive](https://openhomefoundation.grafana.net/public-dashboards/1cb22c82e90c4f64afb366c6125a8489): over **2,000 unique devices** across more than **160 integrations** have been submitted by Home Assistant users who opted in to share their anonymized data.
+We’ve been working with early contributors to lay the groundwork, and the [results are already impressive](https://openhomefoundation.grafana.net/public-dashboards/1cb22c82e90c4f64afb366c6125a8489): over **10,000 unique devices** across more than **260 integrations** have been submitted by Home Assistant users who opted in to share their anonymized data.
 
 <img src='/images/blog/2026-02/temp-device-database-statistics.png' alt='Screenshot of the publicly available statistics dashboard for the open home foundation device database.' class='no-shadow' />
 
@@ -160,15 +160,13 @@ By introducing it in Labs, we have also introduced an additional section called 
 
 ### See the data in action
 
-We’ve launched an [initial public dashboard](https://openhomefoundation.grafana.net/public-dashboards/1cb22c82e90c4f64afb366c6125a8489) where you can explore aggregated statistics and download data as it grows. This is just our first step. We want to build what comes next together with you.
+We’ve launched an [initial public dashboard](https://openhomefoundation.grafana.net/public-dashboards/1cb22c82e90c4f64afb366c6125a8489) where you can explore aggregated statistics as it grows. This is just our first step. We want to build what comes next together with you.
 
 ### Join us in building something meaningful
 
 Head to {% my labs title="**Settings** > **System** > **Labs**" %} to enable device analytics and start contributing your real-world anonymized device data to help others make better choices.
 
-Read our blog post for more details and join the conversation in our Discord project channel; we’d love to hear your ideas, feedback, and questions as we shape this resource together.
-
-**TODO**: Add link to the above sentence.
+Read our [blog post](https://www.home-assistant.io/blog/2026/02/02/about-device-database/) for more details and join the conversation in our Discord project channel; we’d love to hear your ideas, feedback, and questions as we shape this resource together.
 
 ## Add-ons are now called Apps
 
