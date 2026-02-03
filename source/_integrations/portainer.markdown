@@ -108,7 +108,7 @@ The integration normally updates every 60 seconds. For more detailed steps on ho
 
 ## Known limitations
 
-Currently the integration does not support stacks or Edge computing.
+Currently, the integration does not support stacks or Edge computing.
 
 ## Removing the integration
 
