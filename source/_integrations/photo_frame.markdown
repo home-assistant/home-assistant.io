@@ -4,7 +4,7 @@ description: Instructions on how to set up Photo Frame in Home Assistant.
 ha_category:
   - Image
   - Utility
-ha_release: 2025.12
+ha_release: 2026.3
 ha_iot_class: Calculated
 ha_qa_scale: bronze
 ha_codeowners:
