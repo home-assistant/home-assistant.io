@@ -1,32 +1,33 @@
 ---
-title: "Quick bar"
+title: "Quick search"
 description: "Dialog for quickly accessing entities or running commands."
 ---
 
-The **Quick bar** allows you to quickly look up entities or run commands without needing to navigate away from your current view (Similar to the "quick open" feature in VS Code, Chrome Developer tools, etc).
+The **Quick search** allows you to find entities and to run commands without needing to navigate away from your current view.
 
-It can be launched from anywhere in the frontend using [hotkeys](#hotkeys).
+It can be launched from anywhere in the frontend using [hotkeys](#hotkeys). Use Control+K on Windows and Command+K on macOS to open the Quick search.
 
 <p class='img'>
-  <img src='/images/docs/quick-bar/quick-bar-demo.gif' alt='Quick Bar'>
-  Quick Bar for accessing entities and running commands
+  <img src='/images/docs/quick-search/ctrl-k-shortcut.webp' alt='Quick Bar'>
+  Use Control+K on Windows and Command+K on macOS to open the Quick search for accessing entities and running commands
 </p>
 
 ## Hotkeys
 
 Type these from anywhere in the application to launch the dialog.
 
-| Mode  | Hotkey | Switch Modes
+| Mode  | Hotkey | Description |
 | ------------- | ------------- | ------------- |
-| Entity Filter | `e` | Type `>` at start of input to switch to command palette. Type `#` at start of input to switch to device filter.
-| Command Palette | `c` | Remove `>` from start of input to switch to entity filter.
-| Device Filter | `d` | Remove `#` from start of input to switch to entity filter.
-| Create [`my`](/integrations/my) link | `m` | Open a new tab to create a my link to the page you are on.
-| Assist | `a` | Open the Home Assistant Assist dialog.
+| Quick search  | `ctrl + k` (Windows) / `cmd + k` (macOS) | Open the Quick search dialog. |
+| Entity filter | `e` | Opens the entity filter in the Quick search. |
+| Command palette | `c` | Opens the command palette in the Quick search. |
+| Device filter | `d` | Opens the device filter in the Quick search. |
+| Create [`my`](/integrations/my) link | `m` | Opens a new tab to create a my link to the page you are on. |
+| Assist | `a` | Opens the Home Assistant Assist dialog. |
 
-{% important %}
+{% tip %}
 The application must have focus for the hotkey to register. If the dialog doesn't launch, try selecting an empty part of the main content area of Home Assistant and type it again.
-{% endimportant %}
+{% endtip %}
 
 ## Entity filter
 
@@ -35,8 +36,8 @@ The application must have focus for the hotkey to register. If the dialog doesn'
 Similar to {% my entities title="**Settings** > **Devices & services** > **Entities**" %}, but more lightweight and accessible from anywhere in the frontend.
 
 <p class='img'>
-  <img src='/images/docs/quick-bar/quick-bar-entity-filter.gif' alt='Quick Bar'>
-  Filter for entities in Quick Bar's entity filter mode
+  <img src='/images/docs/quick-search/e-shortcut.webp' alt='Quick search entity filter mode'>
+  Press E to filter for entities in the Quick search's entity filter mode
 </p>
 
 Once launched, start typing your entity id (or ["bits and pieces" of your entity id](#search-by-bits-and-pieces-rather-than-an-exact-substring)) to get back a filtered list of entities. Selecting an entity (or hitting `enter` when the desired entity is highlighted) will open the **More info** dialog for that entity.
@@ -53,6 +54,10 @@ Once launched, start typing your device name to get back a filtered list of your
 
 This is helpful when you need to quickly access a device's detail page without navigating your way through the menu.
 
+<p class='img'>
+  <img src='/images/docs/quick-search/d-shortcut.webp' alt='Press D to search for devices'>
+  Press D to start a quick search for devices
+</p>
 
 ## Command palette
 
@@ -61,8 +66,8 @@ This is helpful when you need to quickly access a device's detail page without n
 Run various commands from anywhere without having to go to another view.
 
 <p class='img'>
-  <img src='/images/docs/quick-bar/quick-bar-command-mode.gif' alt='Quick Bar'>
-  Run commands in Quick Bar's "command palette"
+  <img src='/images/docs/quick-search/c-shortcut.webp' alt='Quick search command mode'>
+  Run commands in the **Quick search**'s "command palette"
 </p>
 
 ### Currently-supported commands
@@ -93,7 +98,7 @@ Learn more about [voice assistants](/voice_control).
 You can enable or disable all of Home Assistant's keyboard shortcuts by going to your User Profile and selecting the **Keyboard shortcuts** toggle button.
 
 <p class='img'>
-  <img src='/images/docs/quick-bar/disable-shortcuts-toggle.png' alt='Toggle for enabling or disabling keyboard shortcuts'>
+  <img src='/images/docs/quick-search/disable-shortcuts-toggle.png' alt='Toggle for enabling or disabling keyboard shortcuts'>
   Toggle button for enabling/disabling keyboard shortcuts added by Home Assistant.
 </p>
 
@@ -103,7 +108,7 @@ You can enable or disable all of Home Assistant's keyboard shortcuts by going to
 
 We know something like "**light.ch**" should match "**light.ch**andelier". Similarly, "**telev**" should match "media_player.**telev**ision".
 
-But with Quick Bar, "**lich**" would also match "**li**ght.**ch**andelier", and "**plyrtv**" would also match "media_**pl**a**y**e**r**.**t**ele**v**ision". It checks letter *sequences* rather than exact substrings.
+But with **Quick search**, "**lich**" would also match "**li**ght.**ch**andelier", and "**plyrtv**" would also match "media_**pl**a**y**e**r**.**t**ele**v**ision". It checks letter *sequences* rather than exact substrings.
 
 One nice use-case for this is that you can quickly filter out an entire domain of entities with just a couple letters and a period. For example, "**li.**" will match any "**light.***" entities. Continuing with "li.ch" would bring up the chandelier right away.
 
@@ -129,12 +134,12 @@ Say you've just used arrow keys to navigate half-way down the list, and want to 
 
 ### Dialog doesn't launch using hotkeys
 
-There are a few possible reasons why the quick bar dialog won't launch:
+There are a few possible reasons why the **Quick search** dialog won't launch:
 
 1. Your user is not an admin.
 2. The application lost focus. Try selecting the main content area of the application and typing the shortcut again.
 3. You have disabled Keyboard Shortcuts in your User Profile settings.
-4. Shortcut is marked by browser as non-overridable. Firefox does this with some shortcuts, for example. But this shouldn't be a problem with single-key shortcuts currently used by the Quick Bar.
+4. Shortcut is marked by browser as non-overridable. Firefox does this with some shortcuts, for example. But this shouldn't be a problem with single-key shortcuts currently used by the **Quick search**.
 5. Some other application or browser extension is using or overriding the shortcut. Try disabling the extension.
 
 ### A command is missing
