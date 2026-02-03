@@ -76,6 +76,78 @@ The **Compit** integration provides the following entities.
 
 Binary sensors provide status information about your Compit devices.
 
+### Numbers
+
+Numbers let you adjust temperature set points and configuration values on your
+Compit devices.
+
+- **Comfort target temperature**
+  - **Description**: Target room temperature for comfort mode.
+  - **Range**: 0–40 °C
+  - **Available for devices**: Nano One (Room thermostat), Nano Color (Room thermostat), Nano Color 2 (Room thermostat)
+
+- **Eco target temperature**
+  - **Description**: Target room temperature for eco mode.
+  - **Range**: 0–40 °C
+  - **Available for devices**: Nano One (Room thermostat)
+
+- **Holiday target temperature**
+  - **Description**: Target room temperature while you are on holiday.
+  - **Range**: 0–40 °C
+  - **Available for devices**: Nano One (Room thermostat)
+
+- **Eco winter target temperature**
+  - **Description**: Target room temperature for eco mode during the winter
+    season.
+  - **Range**: 0–40 °C
+  - **Available for devices**: Nano Color (Room thermostat), Nano Color 2 (Room thermostat)
+
+- **Eco cooling target temperature**
+  - **Description**: Target room temperature for eco mode during cooling.
+  - **Range**: 0–40 °C
+  - **Available for devices**: Nano Color (Room thermostat), Nano Color 2 (Room thermostat)
+
+- **Out-of-home target temperature**
+  - **Description**: Target room temperature when nobody is at home.
+  - **Range**: 0–40 °C
+  - **Available for devices**: Nano Color (Room thermostat), Nano Color 2 (Room thermostat)
+
+- **Constant target temperature**
+  - **Description**: Constant target temperature for the heating circuit.
+  - **Range**: 0–95 °C
+  - **Available for devices**: R810 (Heating circuit controller)
+
+- **Heating constant target temperature**
+  - **Description**: Constant target temperature for the heat pump heating
+    circuit.
+  - **Range**: 0–95 °C
+  - **Available for devices**: R470 (Heat pump controller)
+
+- **Mixer target temperature**
+  - **Description**: Target temperature for the mixing valve circuit.
+  - **Range**: 0–90 °C
+  - **Available for devices**: R350.M (Universal controller)
+
+- **Mixer target temperature zone 1**
+  - **Description**: Target temperature for mixing valve circuit in zone 1.
+  - **Range**: 0–95 °C
+  - **Available for devices**: R770RS (Boiler controller), R771RS (Boiler controller)
+
+- **Mixer target temperature zone 2**
+  - **Description**: Target temperature for mixing valve circuit in zone 2.
+  - **Range**: 0–95 °C
+  - **Available for devices**: R770RS (Boiler controller), R771RS (Boiler controller)
+
+- **Boiler target temperature**
+  - **Description**: Target temperature for the boiler.
+  - **Range**: 0–95 °C
+  - **Available for devices**: BioMax742 (Pellet boiler controller), EL750 (Electric boiler controller)
+
+- **Boiler constant target temperature**
+  - **Description**: Constant target temperature for the boiler.
+  - **Range**: 0–90 °C
+  - **Available for devices**: BioMax742 (Pellet boiler controller), BioMax772 (Pellet boiler controller), BioMax775 (Pellet boiler controller)
+
 ### Selects
 
 - **Language**
