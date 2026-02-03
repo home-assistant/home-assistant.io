@@ -1075,3 +1075,7 @@ to avoid errors and error messages when the entity isn’t ready yet
 - Textual contents in YAML parameters, follow the same writing style as the
   documentation. For example, the `title` parameters contents should be
   following sentence-style capitalization.
+
+### Blog posts
+
+When adding a new blog post to the `source/_posts` folder, the author specified in the `author` field of the front matter must exist as a top-level key in the `source/_data/people.yml` file. If the author is not present in the `people.yml` file, they must be added before the blog post can be published.
