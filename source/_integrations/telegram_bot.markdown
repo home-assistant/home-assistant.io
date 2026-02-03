@@ -32,6 +32,9 @@ Telegram implementation to support **sending messages only**. Your Home Assistan
 ### Polling
 
 Telegram chatbot polling implementation.
+This implementation fetches data from Telegram via long polling with a timeout of 10 seconds.
+(In long polling, the bot will wait until the timeout expires before fetching the data again if there are no updates from Telegram.)
+
 Your Home Assistant instance does not have to be exposed to the internet.
 
 ### Webhooks
@@ -82,7 +85,7 @@ If you plan to use the `Webhooks` platform, you will need to allow Telegram to c
 
 #### Home Assistant Cloud
 
-If you have a Home Assistant Cloud subscription, you can [enable remote access](https://support.nabucasa.com/hc/en-us/articles/26474279202973-Enabling-remote-access-to-Home-Assistant#to-activate-remote-control-from-outside-your-network) to your Home Assistant.
+If you have a Home Assistant Cloud subscription, you can [enable remote access](https://support.nabucasa.com/hc/articles/26474279202973#to-activate-remote-access-from-outside-your-network) to your Home Assistant.
 
 #### Reverse proxy
 
@@ -120,6 +123,8 @@ Platform:
   description: The Telegram bot type, either `Broadcast`, `Polling` or `Webhooks`.
 API key:
   description: The API token of your bot.
+API endpoint:
+  description: The endpoint of the Telegram bot API server. You should only change this value if you are using a self-hosted or third-party [Telegram bot API server](https://core.telegram.org/bots/api#using-a-local-bot-api-server). Changing this value will result in a *10-minute lockout* on the official Telegram bot API server. Defaults to the official Telegram bot API server at `https://api.telegram.org`.
 Proxy URL:
   description: Proxy URL if working behind one, optionally including username and password. (`socks5://username:password@proxy_ip:proxy_port`).
 {% endconfiguration_basic %}
@@ -139,9 +144,6 @@ Trusted networks:
 {% endconfiguration_basic %}
 
 {% include integrations/option_flow.md %}
-
-The integration can be configured to use a default parse mode for messages.
-
 {% configuration_basic %}
 Parse mode:
   description: Default parser for messages if not explicit in message data, either `markdown` (legacy), `markdownv2`, `html` or `plain_text`. Refer to Telegram's [formatting options](https://core.telegram.org/bots/api#formatting-options) for more information.
@@ -484,7 +486,6 @@ Edit the caption of a previously sent message.
 | `chat_id`                  | no       | The chat_id where to edit the caption.                                                                                                                                                                                                                                                                    |
 | `message_id`               | no       | Id of the message to edit. When answering a callback from a pressed button, the id of the origin message is in: {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %}. You can use `"last"` to refer to the last message sent to `chat_id`.                                                  |
 | `caption`                  | no       | Message body of the notification.                                                                                                                                                                                                                                                                         |
-| `disable_web_page_preview` | yes      | True/false for disable link previews for links in the message.                                                                                                                                                                                                                                            |
 | `inline_keyboard`          | yes      | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data or external URL (https-only). Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Google link", "https://google.com"]]]` |
 
 ### Action `telegram_bot.edit_replymarkup`
@@ -497,7 +498,6 @@ Edit the inline keyboard of a previously sent message.
 | `config_entry_id`          | yes      | The config entry representing the Telegram bot to edit the inline keyboard. Required if you have multiple Telegram bots.|
 | `chat_id`                  | no       | The chat_id where to edit the reply_markup.                                                                                                                                                                                                                                                               |
 | `message_id`               | no       | Id of the message to edit. When answering a callback from a pressed button, the id of the origin message is in: {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %}. You can use `"last"` to refer to the last message sent to `chat_id`.                                                  |
-| `disable_web_page_preview` | yes      | True/false for disable link previews for links in the message.                                                                                                                                                                                                                                            |
 | `inline_keyboard`          | yes      | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data or external URL (https-only). Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Google link", "https://google.com"]]]` |
 
 ### Action `telegram_bot.answer_callback_query`

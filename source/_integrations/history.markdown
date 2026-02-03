@@ -16,7 +16,7 @@ related:
     title: Home Assistant Data Science Portal
 ---
 
-The **History** integration tracks everything that is going on within Home
+The **History** {% term integration %} tracks everything that is going on within Home
 Assistant and allows the user to browse through it. It depends on the [`recorder`](/integrations/recorder/)
 integration for storing the data and uses the same database setting.
 If any entities are excluded from being recorded,

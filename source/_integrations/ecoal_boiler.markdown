@@ -16,7 +16,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `ecoal_boiler` {% term integration %} is the base for pumps and sensors managed by [esterownik.pl eCoal boiler controller](https://esterownik.pl/nasze-produkty/ecoal).
+The **eSterownik eCoal.pl Boiler** {% term integration %} is the base for pumps and sensors managed by [esterownik.pl eCoal boiler controller](https://esterownik.pl/nasze-produkty/ecoal).
 
 ## Configuration
 

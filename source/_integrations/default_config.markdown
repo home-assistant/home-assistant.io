@@ -16,7 +16,6 @@ This {% term integration %} is a meta-component and configures a default set of 
 - [Assist pipeline](/integrations/assist_pipeline/) (`assist_pipeline`)
 - [Backup](/integrations/backup/) (`backup`)
 - [Bluetooth](/integrations/bluetooth/) (`bluetooth`)
-- [Cloud](/integrations/cloud/) (`cloud`)
 - [Configuration](/integrations/config/) (`config`)
 - [Conversation](/integrations/conversation/) (`conversation`)
 - [DHCP discovery](/integrations/dhcp/) (`dhcp`)

@@ -17,7 +17,7 @@ api2: Google Sheets API
 api2_link: https://console.cloud.google.com/apis/enableflow?apiid=sheets.googleapis.com
 ---
 
-The Google Sheets integration allows you to connect your [Google Drive](https://drive.google.com) to Home Assistant. The integration adds an action to allow you to append rows to a Sheets document. The idea is that you can store data on there for further processing. When you set up a config entry, your drive will have a new sheet called Home Assistant. You can then rename this to whatever you like.
+The **Google Sheets** {% term integration %} allows you to connect your [Google Drive](https://drive.google.com) to Home Assistant. The integration adds an action to allow you to append rows to a Sheets document. The idea is that you can store data on there for further processing. When you set up a config entry, your drive will have a new sheet called Home Assistant. You can then rename this to whatever you like.
 
 **Note**:
 The integration currently only has access to that one document that is created during setup.
@@ -45,9 +45,9 @@ This video tutorial explains how to set up the Google Sheets integration and how
 
 <lite-youtube videoid="hgGMgoxLYwo" videotitle="How to use Google Sheets in Home Assistant - TUTORIAL" posterquality="maxresdefault"></lite-youtube>
 
-### Action `google_sheets.append_sheet`
+### Action: Append sheet
 
-You can use the `google_sheets.append_sheet` action to add rows of data to the Sheets document created at setup.
+The `google_sheets.append_sheet` action allows you to add rows of data to the Sheets document created at setup.
 
 {% details "Create event action details" %}
 

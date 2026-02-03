@@ -56,6 +56,6 @@ Apollo Automation devices work locally and integrate seamlessly with the [ESPHom
 
 The following devices are known to be supported by the integration. They are certified under the [Works with Home Assistant](https://partner.home-assistant.io/) program.
 
-- [MTR-1 Multi-Target Radar Multisensor For Home Assistant (LD2450)](https://apolloautomation.com/products/mtr-1) - A tiny, but powerful radar-based (mmWave) presence sensor that can pack in many other sensors.
-- [MSR-2 mmWave Multisensor For Home Assistant (LD2410B)](https://apolloautomation.com/products/msr-2) - An even smaller multisensor that is the successor of the initial community feedback-driven design.
-- [AIR-1 Air Quality Sensor For Home Assistant](https://apolloautomation.com/products/air-1) - A small air quality multisensor that can be extended to incorporate a huge variety of sensors.
+- [MTR-1 Multi-Target Radar Multisensor (LD2450)](https://apolloautomation.com/products/mtr-1) - A tiny, but powerful radar-based (mmWave) presence sensor that can pack in many other sensors.
+- [MSR-2 mmWave Multisensor (LD2410B)](https://apolloautomation.com/products/msr-2) - An even smaller multisensor that is the successor of the initial community feedback-driven design.
+- [AIR-1 Air Quality Sensor](https://apolloautomation.com/products/air-1) - A small air quality multisensor that can be extended to incorporate a huge variety of sensors.

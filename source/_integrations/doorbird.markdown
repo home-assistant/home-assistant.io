@@ -19,7 +19,7 @@ ha_platforms:
   - button
   - camera
   - event
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 The **DoorBird** {% term integration %} allows you to integrate your [DoorBird](https://www.doorbird.com/) device in Home Assistant.

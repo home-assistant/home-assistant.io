@@ -28,12 +28,12 @@ ha_platforms:
   - select
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: hub
 ha_zeroconf: true
 ha_dhcp: true
 ---
 
-The Home Connect integration allows users to integrate their home appliances supporting the Home Connect standard for Bosch and Siemens using the [official cloud API](https://developer.home-connect.com).
+The **Home Connect** {% term integration %} allows users to integrate their home appliances supporting the Home Connect standard for Bosch and Siemens using the [official cloud API](https://developer.home-connect.com).
 
 ## Use cases
 
@@ -330,6 +330,7 @@ Both entities can use these options, but the availability of these will depend o
 - **Intensive 45ºC**: `dishcare_dishwasher_program_intensiv_45`
 - **Auto half load**: `dishcare_dishwasher_program_auto_half_load`
 - **Intensive power**: `dishcare_dishwasher_program_intensiv_power`
+- **Intensive fixed zone**: `dishcare_dishwasher_program_intensive_fixed_zone`
 - **Magic daily**: `dishcare_dishwasher_program_magic_daily`
 - **Super 60ºC**: `dishcare_dishwasher_program_super_60`
 - **Kurz 60ºC**: `dishcare_dishwasher_program_kurz_60`
@@ -378,6 +379,7 @@ Both entities can use these options, but the availability of these will depend o
 - **Pre-heating**: `cooking_oven_program_heating_mode_pre_heating`
 - **Hot air**: `cooking_oven_program_heating_mode_hot_air`
 - **Hot air eco**: `cooking_oven_program_heating_mode_hot_air_eco`
+- **Hot air gentle**: `cooking_oven_program_heating_mode_hot_air_gentle`
 - **Hot air grilling**: `cooking_oven_program_heating_mode_hot_air_grilling`
 - **Top bottom heating**: `cooking_oven_program_heating_mode_top_bottom_heating`
 - **Top bottom heating eco**: `cooking_oven_program_heating_mode_top_bottom_heating_eco`
@@ -404,37 +406,41 @@ Both entities can use these options, but the availability of these will depend o
 - **900 Watt**: `cooking_oven_program_microwave_900_watt`
 - **1000 Watt**: `cooking_oven_program_microwave_1000_watt`
 - **Max**: `cooking_oven_program_microwave_max`
+- **Steam mode**: `cooking_oven_program_steam_modes_steam`
 - **Warming drawer**: `cooking_oven_program_heating_mode_warming_drawer`
-- **Cotton**: `laundry_care_washer_program_cotton`
-- **Cotton eco**: `laundry_care_washer_program_cotton_cotton_eco`
-- **Cotton eco 40/60ºC**: `laundry_care_washer_program_cotton_eco_4060`
-- **Cotton color**: `laundry_care_washer_program_cotton_colour`
-- **Easy care**: `laundry_care_washer_program_easy_care`
-- **Mix**: `laundry_care_washer_program_mix`
-- **Mix night wash**: `laundry_care_washer_program_mix_night_wash`
-- **Delicates silk**: `laundry_care_washer_program_delicates_silk`
-- **Wool**: `laundry_care_washer_program_wool`
-- **Sensitive**: `laundry_care_washer_program_sensitive`
 - **Auto 30ºC**: `laundry_care_washer_program_auto_30`
 - **Auto 40ºC**: `laundry_care_washer_program_auto_40`
 - **Auto 60ºC**: `laundry_care_washer_program_auto_60`
 - **Chiffon**: `laundry_care_washer_program_chiffon`
+- **Cotton**: `laundry_care_washer_program_cotton`
+- **Cotton color**: `laundry_care_washer_program_cotton_colour`
+- **Cotton eco**: `laundry_care_washer_program_cotton_cotton_eco`
+- **Cotton eco 40/60ºC**: `laundry_care_washer_program_cotton_eco_4060`
 - **Curtains**: `laundry_care_washer_program_curtains`
 - **Dark wash**: `laundry_care_washer_program_dark_wash`
+- **Delicates silk**: `laundry_care_washer_program_delicates_silk`
 - **Dessous**: `laundry_care_washer_program_dessous`
+- **Down duvet**: `laundry_care_washer_program_down_duvet_duvet`
+- **Drum clean**: `laundry_care_washer_program_drum_clean`
+- **Easy care**: `laundry_care_washer_program_easy_care`
+- **Hygiene**: `laundry_care_washer_program_hygiene_plus`
+- **Mix**: `laundry_care_washer_program_mix`
+- **Mix night wash**: `laundry_care_washer_program_mix_night_wash`
 - **Monsoon**: `laundry_care_washer_program_monsoon`
 - **Outdoor**: `laundry_care_washer_program_outdoor`
 - **Plush toy**: `laundry_care_washer_program_plush_toy`
+- **Power speed <59 min**: `laundry_care_washer_program_power_speed_59`
+- **Rinse**: `laundry_care_washer_program_rinse`
+- **Rinse spin drain**: `laundry_care_washer_program_rinse_rinse_spin_drain`
+- **Sensitive**: `laundry_care_washer_program_sensitive`
 - **Shirts blouses**: `laundry_care_washer_program_shirts_blouses`
+- **Spin/drain**: `laundry_care_washer_program_spin_drain`
 - **Sport fitness**: `laundry_care_washer_program_sport_fitness`
 - **Towels**: `laundry_care_washer_program_towels`
-- **Water proof**: `laundry_care_washer_program_water_proof`
-- **Power speed <59 min**: `laundry_care_washer_program_power_speed_59`
 - **Super 15 min**: `laundry_care_washer_program_super_153045_super_15`
 - **Super 15/30 min**: `laundry_care_washer_program_super_153045_super_1530`
-- **Down duvet**: `laundry_care_washer_program_down_duvet_duvet`
-- **Rinse spin drain**: `laundry_care_washer_program_rinse_rinse_spin_drain`
-- **Drum clean**: `laundry_care_washer_program_drum_clean`
+- **Water proof**: `laundry_care_washer_program_water_proof`
+- **Wool**: `laundry_care_washer_program_wool`
 - **Cotton**: `laundry_care_washer_dryer_program_cotton`
 - **Cotton eco 40/60ºC**: `laundry_care_washer_dryer_program_cotton_eco_4060`
 - **Mix**: `laundry_care_washer_dryer_program_mix`
@@ -1044,9 +1050,9 @@ Some devices only have the state `on` and turn off is not supported by the appli
 The Home Connect integration makes various actions available.
 Available actions: `set_program_and_options`, and `change_setting`
 
-### Action `home_connect.set_program_and_options`
+### Action: Set program and options
 
-Starts or selects a program. If the `program` attribute is not set, this action sets the options for the active or the selected program.
+The `home_connect.set_program_and_options` action starts or selects a program. If the `program` attribute is not set, this action sets the options for the active or the selected program.
 
 | Data attribute    | Optional | Description                                      |
 |---------------------------|----------|--------------------------------------------------|
@@ -1090,9 +1096,9 @@ Starts or selects a program. If the `program` attribute is not set, this action 
 | `laundry_care_washer_option_i_dos2_active` | yes | Defines if the detergent feed is activated / deactivated. (i-Dos content 2) |
 | `laundry_care_washer_option_vario_perfect` | yes | Defines if a cycle saves energy (Eco Perfect) or time (Speed Perfect). |
 
-### Action `home_connect.change_setting`
+### Action: Change setting
 
-Changes a setting.
+The `home_connect.change_setting` action changes a setting.
 
 | Data attribute    | Optional | Description                                      |
 |---------------------------|----------|--------------------------------------------------|
@@ -1118,7 +1124,7 @@ triggers:
       - sensor.appliance_operation_state
     to: finished
 actions:
-  - service: notify.notify
+  - action: notify.notify
     data:
       message: "The appliance has finished the program."
 ```
@@ -1150,14 +1156,14 @@ actions:
         after: '22:00:00'
         before: '06:00:00'
     then:
-      - service: home_connect.set_program_and_options
+      - action: home_connect.set_program_and_options
         data:
           device_id: "your_device_id"
           affects_to: "active_program"
           program: "dishcare_dishwasher_program_eco_50"
           dishcare_dishwasher_option_silence_on_demand: true
     else:
-      - service: home_connect.set_program_and_options
+      - action: home_connect.set_program_and_options
         data:
           device_id: "your_device_id"
           affects_to: "active_program"
