@@ -239,6 +239,10 @@ Starts a sauna session with custom duration, target temperature, and fan duratio
 | `target_temperature` | No | Target temperature in Celsius (40-100). Defaults to 80. |
 | `fan_duration` | No | Fan duration in minutes (1-30). Defaults to 10. |
 
+{% tip %}
+To find your Saunum `config_entry_id`, go to {% my integrations title="**Settings** > **Devices & services**" %}, select the Saunum integration, select the three-dots menu {% icon "mdi:dots-vertical" %}, and select **Copy entry ID**.  
+You can also open **Developer tools** > **Actions**, pick the `saunum.start_session` action, and switch to the YAML view to see the `config_entry_id` that Home Assistant uses.
+{% endtip %}
 {% note %}
 You cannot start a sauna session when the sauna door is open. The control unit will prevent heating from starting as a safety measure.
 {% endnote %}
