@@ -47,7 +47,7 @@ Before setting up the integration, you need to obtain an API key from the Liebhe
    - Select **Become a beta tester**.
    - Activate the **Beta testing HomeAPI**.
    - Select **Generate new key**.
-   - Copy the API key. Note: The API key can only be copied once from the app.
+   - Copy the API key. The API key can only be copied once from the app.
 
 3. Verify connectivity: Only appliances that are connected to the internet via the SmartDevice app can be accessed through the HomeAPI. Appliances that are only registered but not actively connected will not appear in Home Assistant.
 
