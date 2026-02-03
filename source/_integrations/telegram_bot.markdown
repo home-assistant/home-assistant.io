@@ -447,7 +447,7 @@ Edit a previously sent message in a conversation.
 | -------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `entity_id`                | yes      | Notify entities where each entity has its corresponding Telegram bot and target for editing the message. |
 | `config_entry_id`          | yes      | The config entry representing the Telegram bot to edit the message. Required if you have multiple Telegram bots.|
-| `chat_id`                  | no       | The chat_id where to edit the message.                                                                                                                                                                                                                                                                    |
+| `chat_id`                  | yes      | The chat_id where to edit the message.                                                                                                                                                                                                                                                                    |
 | `message_id`               | no       | Id of the message to edit. When answering a callback from a pressed button, the id of the origin message is in: {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %}. You can use `"last"` to refer to the last message sent to `chat_id`.                                                  |
 | `message`                  | no       | Message body of the notification.                                                                                                                                                                                                                                                                         |
 | `title`                    | yes      | Optional title for your notification. Will be composed as '%title\n%message'.                                                                                                                                                                                                                             |
@@ -463,7 +463,7 @@ Edit a previously sent message media in a conversation.
 | -------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `entity_id`            | yes      | Notify entities where each entity has its corresponding Telegram bot and target for editing the message media. |
 | `config_entry_id`      | yes      | The config entry representing the Telegram bot to edit the message media. Required if you have multiple Telegram bots.|
-| `chat_id`              | no       | The ID of the chat in which you want to edit the message media.                                                                                                                                                                                                                                                                    |
+| `chat_id`              | yes      | The ID of the chat in which you want to edit the message media.                                                                                                                                                                                                                                                                    |
 | `message_id`           | no       | ID of the message to edit. When reacting to a pressed button, the ID of the origin message is in: {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %}. You can use `"last"` to refer to the last message sent to `chat_id`.                                                  |
 | `media_type`           | no       | The media type: `animation`, `audio`, `document`, `photo`, or `video`.  |
 | `url`                  | no       | Remote path to the media.                                                                                                                                                                                                                                                                                  |
@@ -483,7 +483,7 @@ Edit the caption of a previously sent message.
 | -------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `entity_id`                | yes      | Notify entities where each entity has its corresponding Telegram bot and target for editing the caption. |
 | `config_entry_id`          | yes      | The config entry representing the Telegram bot to edit the caption. Required if you have multiple Telegram bots.|
-| `chat_id`                  | no       | The chat_id where to edit the caption.                                                                                                                                                                                                                                                                    |
+| `chat_id`                  | yes      | The chat_id where to edit the caption.                                                                                                                                                                                                                                                                    |
 | `message_id`               | no       | Id of the message to edit. When answering a callback from a pressed button, the id of the origin message is in: {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %}. You can use `"last"` to refer to the last message sent to `chat_id`.                                                  |
 | `caption`                  | no       | Message body of the notification.                                                                                                                                                                                                                                                                         |
 | `inline_keyboard`          | yes      | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data or external URL (https-only). Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Google link", "https://google.com"]]]` |
@@ -496,7 +496,7 @@ Edit the inline keyboard of a previously sent message.
 | -------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `entity_id`                | yes      | Notify entities where each entity has its corresponding Telegram bot and target for editing the inline keyboard. |
 | `config_entry_id`          | yes      | The config entry representing the Telegram bot to edit the inline keyboard. Required if you have multiple Telegram bots.|
-| `chat_id`                  | no       | The chat_id where to edit the reply_markup.                                                                                                                                                                                                                                                               |
+| `chat_id`                  | yes      | The chat_id where to edit the reply_markup.                                                                                                                                                                                                                                                               |
 | `message_id`               | no       | Id of the message to edit. When answering a callback from a pressed button, the id of the origin message is in: {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %}. You can use `"last"` to refer to the last message sent to `chat_id`.                                                  |
 | `inline_keyboard`          | yes      | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data or external URL (https-only). Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Google link", "https://google.com"]]]` |
 
@@ -519,7 +519,7 @@ Delete a previously sent message in a conversation.
 | ---------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `entity_id`            | yes      | Notify entities where each entity has its corresponding Telegram bot and target for deleting the message. |
 | `config_entry_id`      | yes      | The config entry representing the Telegram bot to delete the message. Required if you have multiple Telegram bots.|
-| `chat_id`              | no       | The chat_id where to delete the message.                                                                                                                                                                                                                   |
+| `chat_id`              | yes      | The chat_id where to delete the message.                                                                                                                                                                                                                   |
 | `message_id`           | no       | Id of the message to delete. When answering a callback from a pressed button, the id of the origin message is in: {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %}. You can use `"last"` to refer to the last message sent to `chat_id`. |
 
 ### Action `telegram_bot.leave_chat`
@@ -530,7 +530,7 @@ Remove the bot from the chat group where it was added.
 | ---------------------- | -------- | ----------------------------------------- |
 | `entity_id`            | yes      | Notify entities where each entity has its corresponding Telegram bot and target for leaving the chat. |
 | `config_entry_id`      | yes      | The config entry representing the Telegram bot to leave the chat. Required if you have multiple Telegram bots.|
-| `chat_id`              | no       | The chat_id from where to remove the bot. |
+| `chat_id`              | yes      | The chat_id from where to remove the bot. |
 
 ### Action `telegram_bot.set_message_reaction`
 
@@ -540,7 +540,7 @@ Sets the bot's reaction for a given message.
 | ------------------- | -------- | ---------------------------------------------------------------- |
 | `entity_id`         | yes      | Notify entities where each entity has its corresponding Telegram bot and target for sending the message. |
 | `config_entry_id`   | yes      | The config entry representing the Telegram bot to set the message reaction. Required if you have multiple Telegram bots. |
-| `chat_id`           | no       | Id of the chat containing the message.                           |
+| `chat_id`           | yes      | Id of the chat containing the message.                           |
 | `message_id`        | no       | Id of the message to react to.                                   |
 | `reaction`          | no       | Emoji to react to the message with. |
 | `is_big`            | yes      | Whether to use a large variant of the reaction animation.        |
