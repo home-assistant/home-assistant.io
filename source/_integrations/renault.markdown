@@ -30,7 +30,7 @@ This integration provides the following platforms:
 
 - Binary sensors - such as plug and charge status.
 - Device tracker - to track location of your car.
-- Buttons - to start air conditioning or start/stop the charge. Please note that although available these actions do not work on all vehicles.
+- Buttons - to start air conditioning, start/stop the charge, flash lights and sound horn. Please note that although available these actions do not work on all vehicles.
 - Selectors - to change the charge mode.
 - Sensors - such as battery level, outside temperature, odometer, estimated range, charging rate, and tyre pressure.
 
@@ -137,22 +137,6 @@ Notes:
     startTime: 'T12:00Z'
     duration: 15 
 ```
-
-### Action: Flash lights
-
-The `renault.flash_lights` action flashes the lights of a vehicle.
-
-  | Data attribute | Required | Description |
-  | ---------------------- | -------- | ----------- |
-  | `vehicle`| yes | device_id of the vehicle |
-
-### Action: Sound horn
-
-The `renault.sound_horn` action sounds the horn of a vehicle.
-
-  | Data attribute | Required | Description |
-  | ---------------------- | -------- | ----------- |
-  | `vehicle`| yes | device_id of the vehicle |
 
 ## Known limitations
 
