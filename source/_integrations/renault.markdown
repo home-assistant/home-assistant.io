@@ -140,7 +140,7 @@ Notes:
 
 ### Action: Flash lights
 
-The `renault.flash_lights` action flashes the light of a vehicle.
+The `renault.flash_lights` action flashes the lights of a vehicle.
 
   | Data attribute | Required | Description |
   | ---------------------- | -------- | ----------- |
