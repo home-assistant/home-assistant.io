@@ -19,7 +19,7 @@ ha_platforms:
   - binary_sensor
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 The **Tesla Powerwall** {% term integration %} allows you to integrate your [Tesla Powerwall](https://www.tesla.com/powerwall) into Home Assistant.

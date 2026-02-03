@@ -61,9 +61,9 @@ studio mode is enabled, your battery will not be used and bypassed.
 
 ## Actions
 
-### Action `elgato.identify`
+### Action: Identify
 
-The identify action shortly blinks the Elgato light. Originally meant as
+The `elgato.identify` action allows you to shortly blink the Elgato light. Originally meant as
 a way to identify which light you are talking to; it can also be used as
 an action to create a visual notification.
 

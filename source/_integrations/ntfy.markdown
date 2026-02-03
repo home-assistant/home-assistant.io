@@ -185,6 +185,54 @@ Check out the [emoji reference](https://docs.ntfy.sh/emojis/) for a full list of
 
 {% endtip %}
 
+### Dismiss notification
+
+The `ntfy.clear` action dismisses a previously sent message from a ntfy topic by marking it as read.
+
+#### Parameters
+
+- `sequence_id`: The message ID or sequence ID of the notification to dismiss.
+
+{% details "Example YAML configuration" %}
+
+{% raw %}
+
+```yaml
+action: ntfy.clear
+target:
+  entity_id: notify.mytopic
+data:
+  sequence_id: my-download-123
+```
+
+{% endraw %}
+
+{% enddetails %}
+
+### Delete notification
+
+The `ntfy.delete` action deletes a message from a ntfy topic.
+
+#### Parameters
+
+- `sequence_id`: The message ID or sequence ID of the notification to delete.
+
+{% details "Example YAML configuration" %}
+
+{% raw %}
+
+```yaml
+action: ntfy.delete
+target:
+  entity_id: notify.mytopic
+data:
+  sequence_id: my-download-123
+```
+
+{% endraw %}
+
+{% enddetails %}
+
 ## Sensors
 
 The **ntfy** integration adds a device representing the service, along with various sensors that display your usage statistics and current account limits.

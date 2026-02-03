@@ -15,7 +15,7 @@ ha_platforms:
   - sensor
   - water_heater
 ha_config_flow: true
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The **OSO Energy** {% term integration %} for Home Assistant allows you to interact with supported devices and services offered by [OSO Energy](https://www.osoenergy.no)
@@ -24,13 +24,13 @@ This OSO Energy integration uses a subscription key, which a user can create for
 
 {% include integrations/config_flow.md %}
 
-## Services
+## Actions
 
-### Service `osoenergy.get_profile`
+### Action: Get profile
 
-You can use the service `osoenergy.get_profile` to get the temperature profile for a water heater. Each temperature corresponds to a given local hour during the current day. For example, a temperature at index 1 corresponds to 01:00 local time.
+You can use the `osoenergy.get_profile` action to get the temperature profile for a water heater. Each temperature corresponds to a given local hour during the current day. For example, a temperature at index 1 corresponds to 01:00 local time.
 
-| Service data attribute | Optional | Description                                        |
+| Data attribute | Optional | Description                                        |
 | ---------------------- | -------- | -------------------------------------------------- |
 | `entity_id`            | no       | String, name of entity. For example: `water_heater.heater` |
 
@@ -41,7 +41,7 @@ Example:
 script:
   get_profile:
     sequence:
-      - service: osoenergy.get_profile
+      - action: osoenergy.get_profile
         target:
           entity_id: water_heater.heater
 ```
@@ -76,11 +76,11 @@ water_heater.heater:
     - 70
 ```
 
-### Service `osoenergy.set_profile`
+### Action: Set profile
 
-You can use the service `osoenergy.set_profile` to set the temperature profile for a water heater.
+You can use the `osoenergy.set_profile` action to set the temperature profile for a water heater.
 
-| Service data attribute | Optional | Description                                        |
+| Data attribute | Optional | Description                                        |
 | ---------------------- | -------- | -------------------------------------------------- |
 | `entity_id`            | no       | String, Name of entity e.g., `water_heater.heater` |
 | `hour_00`              | yes      | The temperature at hour 00:00 (Local) for a heater   |
@@ -115,7 +115,7 @@ Example:
 script:
   set_profile:
     sequence:
-      - service: osoenergy.set_profile
+      - action: osoenergy.set_profile
         target:
           entity_id: water_heater.heater
         data:
@@ -145,11 +145,11 @@ script:
           hour_23: 70
 ```
 
-### Service `osoenergy.set_v40_min`
+### Action: Set v40 min
 
-You can use the service `osoenergy.set_v40_min` to set the minimum quantity of water at 40°C for a water heater.
+You can use the `osoenergy.set_v40_min` action to set the minimum quantity of water at 40°C for a water heater.
 
-| Service data attribute | Optional | Description                                                                   |
+| Data attribute | Optional | Description                                                                   |
 | ---------------------- | -------- | ----------------------------------------------------------------------------- |
 | `entity_id`            | no       | String, name of entity. For example:  `water_heater.heater`        f entity e.g., `water_heater.heater`                            |
 | `v40_min`              | no       | Specify the minimum quantity of water at 40°C for a water heater.  For example, `240` |
@@ -161,18 +161,18 @@ Examples:
 script:
   set_v40:
     sequence:
-      - service: osoenergy.set_v40_min
+      - action: osoenergy.set_v40_min
         target:
           entity_id: water_heater.heater
         data:
           v40_min: 240
 ```
 
-### Service `osoenergy.turn_away_mode_on`
+### Action: Turn away mode on
 
-You can use the service `osoenergy.turn_away_mode_on` to enable Away Mode for a water heater for a period of time in the range from 1 to 365 days.
+You can use the `osoenergy.turn_away_mode_on` action to enable Away Mode for a water heater for a period of time in the range from 1 to 365 days.
 
-| Service data attribute | Optional | Description                                        |
+| Data attribute | Optional | Description                                        |
 | ---------------------- | -------- | -------------------------------------------------- |
 | `entity_id`            | no       | String, name of entity. For example: `water_heater.heater` |
 | `duration_days`        | no       | Number of days to keep Away Mode active (1-365).   |
@@ -184,18 +184,18 @@ Example:
 script:
   turn_away_mode_on:
     sequence:
-      - service: osoenergy.turn_away_mode_on
+      - action: osoenergy.turn_away_mode_on
         target:
           entity_id: water_heater.heater
         data:
           duration_days: 7
 ```
 
-### Service `osoenergy.turn_off`
+### Action: Turn off
 
-You can use the service `osoenergy.turn_off` to turn off the heating on your device for one hour or until the minimum temperature is reached.
+You can use the `osoenergy.turn_off` action to turn off the heating on your device for one hour or until the minimum temperature is reached.
 
-| Service data attribute | Optional | Description                                                                                                       |
+| Data attribute | Optional | Description                                                                                                       |
 | ---------------------- | -------- | ----------------------------------------------------------------------------------------------------------------- |
 | `entity_id`            | no       | String, name of entity. For example:  `water_heater.heater`                                                                |
 | `until_temp_limit`     | no       | Choose, if the heating should be off until the minimum temperature (`True`) is reached, or for one hour (`False`). For example, `True` |
@@ -207,18 +207,18 @@ Examples:
 script:
   turn_off:
     sequence:
-      - service: osoenergy.turn_off
+      - action: osoenergy.turn_off
         target:
           entity_id: water_heater.heater
         data:
           until_temp_limit: true
 ```
 
-### Service `osoenergy.turn_on`
+### Action: Turn on
 
-You can use the service `osoenergy.turn_on` to turn on the heating on your device for one hour or until the maximum temperature is reached.
+You can use the `osoenergy.turn_on` action to turn on the heating on your device for one hour or until the maximum temperature is reached.
 
-| Service data attribute | Optional | Description                                                                                                      |
+| Data attribute | Optional | Description                                                                                                      |
 | ---------------------- | -------- | ---------------------------------------------------------------------------------------------------------------- |
 | `entity_id`            | no       | String, name of entity. For example: `water_heater.heater`                                                               |
 | `until_temp_limit`     | no       | Choose, if the heating should be on until the maximum temperature (`True`) is reached, or for one hour (`False`). For example, `True` |
@@ -230,7 +230,7 @@ Examples:
 script:
   turn_on:
     sequence:
-      - service: osoenergy.turn_on
+      - action: osoenergy.turn_on
         target:
           entity_id: water_heater.heater
         data:

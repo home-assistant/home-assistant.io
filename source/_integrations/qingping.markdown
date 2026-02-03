@@ -14,7 +14,7 @@ ha_config_flow: true
 ha_platforms:
   - binary_sensor
   - sensor
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 Integrates [Qingping](https://qingping.co/) devices into Home Assistant.

@@ -24,4 +24,3 @@ Integrates energy usage and pricing from the Rainforest Automation's [Eagle 3](h
 As the Eagle 3 runs the same API as the Eagle 200, Home Assistant will set up your Eagle 3 as an "Eagle 200".
 
 {% include integrations/config_flow.md %}
-

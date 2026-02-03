@@ -14,7 +14,7 @@ ha_codeowners:
 ha_config_flow: true
 ---
 
-The **Roth Touchline SL** climate integration enables you to control [Roth Touchline SL](https://www.roth-uk.com/products/control-systems/roth-touchliner-sl-wireless-system) underfloor heating systems.
+The **Roth Touchline SL** {% term integration %} enables you to control [Roth Touchline SL](https://www.roth-uk.com/products/control-systems/roth-touchliner-sl-wireless-system) underfloor heating systems.
 
 ## Prerequisites
 

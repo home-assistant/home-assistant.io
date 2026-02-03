@@ -12,7 +12,7 @@ ha_codeowners:
 ha_domain: kraken
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 The **Kraken** {% term integration %} allows you to monitor exchange rates on [kraken.com](https://www.kraken.com/).
