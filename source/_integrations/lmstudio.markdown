@@ -52,7 +52,7 @@ Base URL:
 
 API Key:
   description: |
-    Optional API key for authentication if you've configured one in LM Studio. Leave empty if no authentication is required. more info : [https://lmstudio.ai/docs/developer/core/authentication](https://lmstudio.ai/docs/developer/core/authentication)
+    Optional API key for authentication if you've configured one in LM Studio. Leave empty if no authentication is required. More info : [https://lmstudio.ai/docs/developer/core/authentication](https://lmstudio.ai/docs/developer/core/authentication)
 {% endconfiguration_basic %}
 
 ### Conversation agent options
