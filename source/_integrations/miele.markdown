@@ -173,7 +173,7 @@ Climate entities are used to control target temperatures in refrigerators, freez
   - **TwinDos level**: Two sensors displaying the remaining level in the detergent containers in applicable washing machines. If the device does not support this sensor, the value is shown as `Unknown`.
   - **PowerDisk level**: A sensor displaying the remaining level in the detergent container in applicable dishwashers. If the device does not support this sensor, the value is shown as `Unknown`.
   - **Rinse aid level**: A sensor displaying the remaining level in the detergent container in dishwashers.
-  - **Salt level**: A sensor displaying the remaining level in the detergent container in dishwashers.
+  - **Salt level**: A sensor displaying the remaining level in the salt container in dishwashers.
 {% enddetails %}
 
 ### Switch
