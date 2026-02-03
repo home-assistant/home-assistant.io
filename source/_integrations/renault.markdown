@@ -138,6 +138,22 @@ Notes:
     duration: 15 
 ```
 
+### Action: Flash lights
+
+The `renault.flash_lights` action flashes the light of a vehicle.
+
+  | Data attribute | Required | Description |
+  | ---------------------- | -------- | ----------- |
+  | `vehicle`| yes | device_id of the vehicle |
+
+### Action: Sound horn
+
+The `renault.sound_horn` action sounds the horn of a vehicle.
+
+  | Data attribute | Required | Description |
+  | ---------------------- | -------- | ----------- |
+  | `vehicle`| yes | device_id of the vehicle |
+
 ## Known limitations
 
 - Some of the features may require a subscription such as the *Pack EV Remote Control* and/or the *Pack Smart Navigation* subscription.
