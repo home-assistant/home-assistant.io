@@ -18,7 +18,10 @@ Place your draft blog post markdown file in the project root `create-blog-post/`
 ## What This Skill Does
 
 Automates conversion of a draft markdown file with metadata into a production-ready Home Assistant blog post:
-- Extracts metadata (author, date, categories, OG fields)
+
+- Extracts metadata (blog title, author, publish date, category, Social/OpenGraph fields)
+- Removes "# Blog notes/preparations" section and lines with ☝️ emoji
+- Converts `### **– Summary break / Read more –**` to `<!--more-->`
 - Processes hero image and any additional images
 - Converts external links to HTML `<a>` tags with `target="_blank"`
 - Formats content (removes bold from headings, fixes link references)
@@ -33,74 +36,98 @@ Automates conversion of a draft markdown file with metadata into a production-re
 ## Draft File Format
 
 ```markdown
-# Blog metadata
+# Metadata
+
+**Blog title:** Your Blog Title
 
 **Author:** Author Name
 
-**Date:** DD-MM-YYYY
+**Publish date:** DD-MM-YYYY
 
-**URL slug:** custom-url-slug (optional - auto-generated from title if omitted)
+**Category:** Category Name
 
-**Category (see [current list](https://www.home-assistant.io/blog/)):**
-Category Name (or comma-separated for multiple: Category1, Category2)
+**Social/OpenGraph title** (Usually same as the blog title, visibility mostly limited to 50-60 characters)**:**
+A short title.
 
-**OG title:** (Usually same as the blog title, visibility mostly limited to 50-60 characters)
+**Social/OpenGraph description** (120-158 characters):
+Influences SEO ranking. Include the main keyword, describe what readers will find, and give them a clear reason to click.
 
-**OG / Meta description:** Description text (120-158 characters)
+# Blog notes/preparations
 
----
+☝️ Any lines with the pointer emoji can be removed during processing
 
-Your Blog Title
+# Blog content
+
 ![][image1]
 
 Your intro paragraph here...
 
+### **– Summary break / Read more –**
+
 Rest of content...
 ```
 
-**Note:** The `![][image1]` reference should appear directly under the title. This will be replaced with the `art.webp` hero image.
+**Notes:**
+
+- The `![][image1]` reference should appear at the start of the "# Blog content" section. This will be replaced with the `art.webp` hero image.
+- URL slug is optional and will be auto-generated from the blog title if not provided in metadata
+- Lines beginning with ☝️ emoji are instructions and will be removed during processing
+- The `### **– Summary break / Read more –**` marker will be converted to `<!--more-->`
 
 ## Output
 
 Creates a production-ready blog post at:
+
 - `source/_posts/YYYY-MM-DD-slug.markdown` - The formatted blog post
-- `source/images/blog/YYYY-MM-slug/art.webp` - OG/hero image (moved from create-blog-post/)
+- `source/images/blog/YYYY-MM-slug/art.webp` - OG/hero image (moved from `create-blog-post/`)
 - `source/images/blog/YYYY-MM-slug/image2.webp`, `image3.webp`, etc. - Additional images (converted from PNGs)
 
 ## Conversion Process
 
 ### 1. Parse Metadata
-- Extract author, date, categories (convert to YAML list), URL slug, OG fields
-- Auto-generate slug from title if not provided (lowercase, hyphens for spaces)
+
+- Extract blog title, author, publish date, category (convert to YAML list), Social/OpenGraph title and description
+- Auto-generate URL slug from blog title (lowercase, hyphens for spaces, remove special characters)
+- Remove "# Blog notes/preparations" section and all content under it (up to "# Blog content")
+- Remove all lines that start with ☝️ emoji (instruction lines)
+- Convert `### **– Summary break / Read more –**` marker to `<!--more-->`
 
 ### 2. Process Images
+
 **Hero image (`art.webp`):**
+
 - Move to `source/images/blog/YYYY-MM-slug/art.webp`
-- Insert after front matter as: `<img src="/images/blog/YYYY-MM-slug/art.webp" alt="Blog Title" style="border: 0;box-shadow: none;">`
+- Replace `![][image1]` reference in "# Blog content" section with: `<img src="/images/blog/YYYY-MM-slug/art.webp" alt="Blog Title" style="border: 0;box-shadow: none;">`
 - CRITICAL: Use double quotes for all HTML attributes (prevents breaking on apostrophes in alt text)
-- Alt text uses the OG title or blog title
+- Alt text uses the Social/OpenGraph title or blog title
 - No wrapper tags (no `<p>` tag)
 
 **Additional images (if any):**
+
 - Find `image2.png`, `image3.png`, etc. in `create-blog-post/` directory
 - Convert to WebP: `cwebp -resize 900 0 -q 85 input.png -o output.webp`
 - Move to `source/images/blog/YYYY-MM-slug/`
 - Update references in content
 
 ### 3. Transform Links
+
 **External links** (different domains/subdomains):
+
 - Convert to: `<a href="URL" target="_blank" rel="noopener">text</a>`
 - Includes: `my.home-assistant.io`, `partner.home-assistant.io`, etc.
 
-**Internal links** (www.home-assistant.io only):
+**Internal links** (`www.home-assistant.io` only):
+
 - Keep as Markdown links: `[text](/path)`
 
 ### 4. Clean Content
+
 - **Headings**: Remove bold formatting (`## **Title**` → `## Title`)
 - **Heading levels**: If content starts with H1 (`#`), demote all headings one level (content should start at H2)
 - **Backticks**: Strip erroneous `\`` characters (preserve code blocks/inline code)
 
 ### 5. Build Blog Post
+
 - Create `source/_posts/YYYY-MM-DD-slug.markdown`
 - Jekyll front matter (layout, title, description, date, date_formatted, author, categories, og_image)
 - Hero image (no wrapper)
@@ -117,6 +144,7 @@ Creates a production-ready blog post at:
 2. Run `/create-blog-post`
 
 This would create:
+
 - `source/_posts/2026-01-13-partner-update.markdown`
 - `source/images/blog/2026-01-partner/art.webp`
 - `source/images/blog/2026-01-partner/image2.webp`, `image3.webp` (if additional images exist)
@@ -124,20 +152,29 @@ This would create:
 ## Important Notes
 
 **Image references:**
-- Draft: `![][image1]` (directly under title) → Output: `art.webp` hero image
+
+- Draft: `![][image1]` (at start of "# Blog content" section) → Output: `art.webp` hero image
 - Draft: `![][image2]` → Look for `image2.png`, convert to `image2.webp`
 - Draft: `![][image3]` → Look for `image3.png`, convert to `image3.webp`
 
 **Requirements:**
-- Hero image reference MUST appear directly under the blog title
+
+- Hero image reference should appear at the start of the "# Blog content" section
 - `cwebp` tool required for PNG→WebP conversion (install: `sudo apt-get install -y webp`)
 
+**Content processing:**
+
+- Remove "# Blog notes/preparations" section entirely
+- Remove all lines starting with ☝️ emoji (instruction lines)
+- Convert `### **– Summary break / Read more –**` to `<!--more-->`
+
 **Output format:**
+
 - Filename: `YYYY-MM-DD-slug.markdown`
 - Image directory: `source/images/blog/YYYY-MM-slug/`
-- `<!--more-->` tag automatically placed after first paragraph
 - Categories in YAML list format (even single category)
 
 **Link handling:**
+
 - Only `www.home-assistant.io` and `home-assistant.io` stay as Markdown links
 - All other domains/subdomains → HTML `<a>` tags with `target="_blank" rel="noopener"`
