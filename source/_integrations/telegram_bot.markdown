@@ -598,7 +598,7 @@ Chat object schema:
 | ---------------| -------- | ------- | --------------------------------------- |
 | `chat_id`      | no       | integer | The target chat_id of the sent message. |
 | `message_id`   | no       | integer | The id of the message.                  |
-| `entity_id`    | yes      | string  | The entity id of the notify entity. Value is only present if notify entity was specified when sending the message. |
+| `entity_id`    | no       | string  | The entity id of the notify entity. |
 
 Example response:
 
