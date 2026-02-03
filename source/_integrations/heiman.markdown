@@ -5,8 +5,6 @@ ha_release: '2026.2'
 ha_iot_class: Local Push
 ha_domain: heiman
 ha_integration_type: brand
-works_with:
-  - matter
 ha_iot_standard: matter
 ha_brand: true
 ---
