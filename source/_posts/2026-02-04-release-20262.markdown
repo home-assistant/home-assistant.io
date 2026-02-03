@@ -152,7 +152,7 @@ Since we’re still in the early stages, the device database lives in {% my labs
 
 <img src='/images/blog/2026-02/temp-sharing-your-devices-with-ohf-device-database.png' alt='Screenshot of the device analytics sharing option in Home Assistant Analytics.' class='no-shadow' />
 
-By introducing it in Labs, we have also introduced an additional section called **Device analytics** in {% my analytics title="**Home Assistant Analytics**" %}. If you opt in, you are of course able to opt out at any time.
+By introducing it in Home Assistant Labs, we have also added a new section called **Device analytics** to {% my analytics title="**Home Assistant Analytics**" %}. If you opt in, you are, of course, able to opt out at any time.
 
 <img src='/images/blog/2026-02/temp-labs-device-database-analytics.png' alt='Screenshot of the device analytics section in Home Assistant Labs.' class='no-shadow' />
 
