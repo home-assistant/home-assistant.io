@@ -226,21 +226,21 @@ Monitor the alarm binary sensors regularly. Any active alarm sensor indicates a 
 
 ## Actions
 
-The Saunum integration provides the following actions.
+The **Saunum** integration provides the following actions.
 
-### Action `saunum.start_session`
+### Action: Start session
 
-Starts a sauna session with custom duration, target temperature, and fan duration. This action provides more granular control than the climate entity, allowing you to specify all session parameters in a single call.
+The `saunum.start_session` action starts a sauna session with custom duration, target temperature, and fan duration. This action provides more granular control than the climate entity, allowing you to specify all session parameters in a single call.
 
 | Data attribute | Required | Description |
-| ---------------------- | -------- | ----------- |
+| -------------- | -------- | ----------- |
 | `config_entry_id` | Yes | The config entry ID of the Saunum device. |
 | `duration` | No | Session duration in minutes (1-720). Defaults to 120. |
 | `target_temperature` | No | Target temperature in Celsius (40-100). Defaults to 80. |
 | `fan_duration` | No | Fan duration in minutes (1-30). Defaults to 10. |
 
 {% tip %}
-To find your Saunum `config_entry_id`, go to {% my integrations title="**Settings** > **Devices & services**" %}, select the Saunum integration, select the three-dots menu {% icon "mdi:dots-vertical" %}, and select **Copy entry ID**.  
+To find your Saunum `config_entry_id`, go to {% my integrations title="**Settings** > **Devices & services**" %}, select the Saunum integration, select the three-dots menu {% icon "mdi:dots-vertical" %}, and select **Copy entry ID**.
 You can also open **Developer tools** > **Actions**, pick the `saunum.start_session` action, and switch to the YAML view to see the `config_entry_id` that Home Assistant uses.
 {% endtip %}
 {% note %}
