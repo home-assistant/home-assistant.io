@@ -188,11 +188,11 @@ data:
 
 Available actions: `send_message`, `send_photo`, `send_video`, `send_animation`, `send_voice`, `send_sticker`, `send_document`, `send_location`, `send_chat_action`, `edit_message`, `edit_message_media`, `edit_caption`, `edit_replymarkup`, `answer_callback_query`, `delete_message`, `leave_chat` and `set_message_reaction`.
 
-Targets can be specified in any of the following ways:
+Chat targets can be specified in any of the following ways:
 
 - `entity_id`
 - `config_entry_id` and `chat_id`
-- If you only have 1 bot and no targets were specified, the bot's first subentry will be used as the default target.
+- If you only have 1 bot and no chat targets (`entity_id` or `chat_id`) were specified, the bot's first subentry will be used as the default chat.
 
 Actions that send contents (`send_*`) will return a list of `message_id`/`chat_id` for messages delivered (in a property called `chats`). This will populate [Response Data](/docs/scripts/perform-actions#use-templates-to-handle-response-data) that you can further utilize in your automations to edit/delete the message later based on the `message_id`. See the example later on this page for usage instructions.
 
@@ -202,7 +202,7 @@ Send a notification.
 
 | Data attribute     | Optional | Description                                                                                                                                                                                                                                                                                               |
 | -------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `entity_id`                | yes      | Notify entities where each entity has its corresponding Telegram bot and target for sending the message. |
+| `entity_id`                | yes      | Notify entities where each entity has its corresponding Telegram bot and chat for sending the message. |
 | `config_entry_id`          | yes      | The config entry representing the Telegram bot to send the message. Required if you have multiple Telegram bots.|
 | `chat_id`                  | yes      | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id.                                                                                                                                                                                       |
 | `title`                    | yes      | Optional title for your notification. Will be composed as '%title\n%message'.                                                                                                                                                                                                                             |
@@ -226,7 +226,7 @@ Send a photo.
 
 | Data attribute | Optional | Description                                                                                                                                                                                                                                                                                               |
 | ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `entity_id`            | yes      | Notify entities where each entity has its corresponding Telegram bot and target for sending the photo. |
+| `entity_id`            | yes      | Notify entities where each entity has its corresponding Telegram bot and chat for sending the photo. |
 | `config_entry_id`      | yes      | The config entry representing the Telegram bot to send the photo. Required if you have multiple Telegram bots.|
 | `chat_id`              | yes      | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id.                                                                                                                                                                                       |
 | `url`                  | no       | Remote path to an image.                                                                                                                                                                                                                                                                                  |
@@ -254,7 +254,7 @@ Send a video.
 
 | Data attribute | Optional | Description                                                                                                                                                                                                                                                                                               |
 | ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `entity_id`            | yes      | Notify entities where each entity has its corresponding Telegram bot and target for sending the video. |
+| `entity_id`            | yes      | Notify entities where each entity has its corresponding Telegram bot and chat for sending the video. |
 | `config_entry_id`      | yes      | The config entry representing the Telegram bot to send the video. Required if you have multiple Telegram bots.|
 | `chat_id`              | yes      | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id.                                                                                                                                                                                       |
 | `url`                  | no       | Remote path to a video.                                                                                                                                                                                                                                                                                   |
@@ -281,7 +281,7 @@ Send an animation.
 
 | Data attribute | Optional | Description                                                                                                                                                                                                                                                                                               |
 | ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `entity_id`            | yes      | Notify entities where each entity has its corresponding Telegram bot and target for sending the animation. |
+| `entity_id`            | yes      | Notify entities where each entity has its corresponding Telegram bot and chat for sending the animation. |
 | `config_entry_id`      | yes      | The config entry representing the Telegram bot to send the animation. Required if you have multiple Telegram bots.|
 | `chat_id`              | yes      | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id.                                                                                                                                                                                       |
 | `url`                  | no       | Remote path to a GIF or H.264/MPEG-4 AVC video without sound.                                                                                                                                                                                                                                             |
@@ -309,7 +309,7 @@ Send a voice message.
 
 | Data attribute | Optional | Description                                                                                                                                                                                                                                                                                               |
 | ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `entity_id`            | yes      | Notify entities where each entity has its corresponding Telegram bot and target for sending the voice message. |
+| `entity_id`            | yes      | Notify entities where each entity has its corresponding Telegram bot and chat for sending the voice message. |
 | `config_entry_id`      | yes      | The config entry representing the Telegram bot to send the voice message. Required if you have multiple Telegram bots.|
 | `chat_id`              | yes      | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id.                                                                                                                                                                                       |
 | `url`                  | no       | Remote path to a voice message.                                                                                                                                                                                                                                                                           |
@@ -336,7 +336,7 @@ Send a sticker.
 
 | Data attribute | Optional | Description                                                                                                                                                                                                                                                                                               |
 | ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `entity_id`            | yes      | Notify entities where each entity has its corresponding Telegram bot and target for sending the sticker. |
+| `entity_id`            | yes      | Notify entities where each entity has its corresponding Telegram bot and chat for sending the sticker. |
 | `config_entry_id`      | yes      | The config entry representing the Telegram bot to send the sticker. Required if you have multiple Telegram bots.|
 | `chat_id`              | yes      | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id.                                                                                                                                                                                       |
 | `url`                  | no       | Remote path to a static .webp or animated .tgs sticker.                                                                                                                                                                                                                                                   |
@@ -363,7 +363,7 @@ Send a document.
 
 | Data attribute | Optional | Description                                                                                                                                                                                                                                                                                               |
 | ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `entity_id`            | yes      | Notify entities where each entity has its corresponding Telegram bot and target for sending the document. |
+| `entity_id`            | yes      | Notify entities where each entity has its corresponding Telegram bot and chat for sending the document. |
 | `config_entry_id`      | yes      | The config entry representing the Telegram bot to send the document. Required if you have multiple Telegram bots.|
 | `chat_id`              | yes      | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id.                                                                                                                                                                                       |
 | `url`                  | no       | Remote path to a document.                                                                                                                                                                                                                                                                                |
@@ -391,7 +391,7 @@ Send a location.
 
 | Data attribute | Optional | Description                                                                                                                                                                                                                                                                                               |
 | ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `entity_id`            | yes      | Notify entities where each entity has its corresponding Telegram bot and target for sending the location. |
+| `entity_id`            | yes      | Notify entities where each entity has its corresponding Telegram bot and chat for sending the location. |
 | `config_entry_id`      | yes      | The config entry representing the Telegram bot to send the location. Required if you have multiple Telegram bots.|
 | `chat_id`              | yes      | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed `chat_id`.                                                                                                                                                                                     |
 | `latitude`             | no       | The latitude to send.                                                                                                                                                                                                                                                                                     |
@@ -413,7 +413,7 @@ Send a poll.
 
 | Data attribute    | Optional | Description                                                                                                                                                                    |
 | ------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `entity_id`               | yes      | Notify entities where each entity has its corresponding Telegram bot and target for sending the poll. |
+| `entity_id`               | yes      | Notify entities where each entity has its corresponding Telegram bot and chat for sending the poll. |
 | `config_entry_id`         | yes      | The config entry representing the Telegram bot to send the poll. Required if you have multiple Telegram bots.|
 | `chat_id`                 | yes      | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed `chat_id`.                                                          |
 | `question`                | no       | Poll question, 1-300 characters.                                                                                                                                               |
@@ -433,7 +433,7 @@ Send a chat action. Use it to notify the user with the relevant "typing" action 
 
 | Data attribute     | Optional | Description                                                                                                                                                                                                                                                                                               |
 | -------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `entity_id`                | yes      | Notify entities where each entity has its corresponding Telegram bot and target for sending the chat action. |
+| `entity_id`                | yes      | Notify entities where each entity has its corresponding Telegram bot and chat for sending the chat action. |
 | `config_entry_id`          | yes      | The configuration entry representing the Telegram bot to send the message. Required if you have multiple Telegram bots.|
 | `chat_id`                  | yes      | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id.                                                                                                                                                                                       |
 | `chat_action`               | no      | Chat action to be sent: `typing`, `upload_photo`, `record_video`, `upload_video`, `record_voice`, `upload_voice`, `upload_document`, `choose_sticker`, `find_location`, `record_video_note`, `upload_video_note`.         |
@@ -445,7 +445,7 @@ Edit a previously sent message in a conversation.
 
 | Data attribute     | Optional | Description                                                                                                                                                                                                                                                                                               |
 | -------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `entity_id`                | yes      | Notify entities where each entity has its corresponding Telegram bot and target for editing the message. |
+| `entity_id`                | yes      | Notify entities where each entity has its corresponding Telegram bot and chat for editing the message. |
 | `config_entry_id`          | yes      | The config entry representing the Telegram bot to edit the message. Required if you have multiple Telegram bots.|
 | `chat_id`                  | yes      | The chat_id where to edit the message.                                                                                                                                                                                                                                                                    |
 | `message_id`               | no       | Id of the message to edit. When answering a callback from a pressed button, the id of the origin message is in: {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %}. You can use `"last"` to refer to the last message sent to `chat_id`.                                                  |
@@ -461,7 +461,7 @@ Edit a previously sent message media in a conversation.
 
 | Data attribute     | Optional | Description                                                                                                                                                                                                                                                                                               |
 | -------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `entity_id`            | yes      | Notify entities where each entity has its corresponding Telegram bot and target for editing the message media. |
+| `entity_id`            | yes      | Notify entities where each entity has its corresponding Telegram bot and chat for editing the message media. |
 | `config_entry_id`      | yes      | The config entry representing the Telegram bot to edit the message media. Required if you have multiple Telegram bots.|
 | `chat_id`              | yes      | The ID of the chat in which you want to edit the message media.                                                                                                                                                                                                                                                                    |
 | `message_id`           | no       | ID of the message to edit. When reacting to a pressed button, the ID of the origin message is in: {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %}. You can use `"last"` to refer to the last message sent to `chat_id`.                                                  |
@@ -481,7 +481,7 @@ Edit the caption of a previously sent message.
 
 | Data attribute     | Optional | Description                                                                                                                                                                                                                                                                                               |
 | -------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `entity_id`                | yes      | Notify entities where each entity has its corresponding Telegram bot and target for editing the caption. |
+| `entity_id`                | yes      | Notify entities where each entity has its corresponding Telegram bot and chat for editing the caption. |
 | `config_entry_id`          | yes      | The config entry representing the Telegram bot to edit the caption. Required if you have multiple Telegram bots.|
 | `chat_id`                  | yes      | The chat_id where to edit the caption.                                                                                                                                                                                                                                                                    |
 | `message_id`               | no       | Id of the message to edit. When answering a callback from a pressed button, the id of the origin message is in: {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %}. You can use `"last"` to refer to the last message sent to `chat_id`.                                                  |
@@ -494,7 +494,7 @@ Edit the inline keyboard of a previously sent message.
 
 | Data attribute     | Optional | Description                                                                                                                                                                                                                                                                                               |
 | -------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `entity_id`                | yes      | Notify entities where each entity has its corresponding Telegram bot and target for editing the inline keyboard. |
+| `entity_id`                | yes      | Notify entities where each entity has its corresponding Telegram bot and chat for editing the inline keyboard. |
 | `config_entry_id`          | yes      | The config entry representing the Telegram bot to edit the inline keyboard. Required if you have multiple Telegram bots.|
 | `chat_id`                  | yes      | The chat_id where to edit the reply_markup.                                                                                                                                                                                                                                                               |
 | `message_id`               | no       | Id of the message to edit. When answering a callback from a pressed button, the id of the origin message is in: {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %}. You can use `"last"` to refer to the last message sent to `chat_id`.                                                  |
@@ -517,7 +517,7 @@ Delete a previously sent message in a conversation.
 
 | Data attribute | Optional | Description                                                                                                                                                                                                                                                |
 | ---------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `entity_id`            | yes      | Notify entities where each entity has its corresponding Telegram bot and target for deleting the message. |
+| `entity_id`            | yes      | Notify entities where each entity has its corresponding Telegram bot and chat for deleting the message. |
 | `config_entry_id`      | yes      | The config entry representing the Telegram bot to delete the message. Required if you have multiple Telegram bots.|
 | `chat_id`              | yes      | The chat_id where to delete the message.                                                                                                                                                                                                                   |
 | `message_id`           | no       | Id of the message to delete. When answering a callback from a pressed button, the id of the origin message is in: {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %}. You can use `"last"` to refer to the last message sent to `chat_id`. |
@@ -528,7 +528,7 @@ Remove the bot from the chat group where it was added.
 
 | Data attribute         | Optional | Description                               |
 | ---------------------- | -------- | ----------------------------------------- |
-| `entity_id`            | yes      | Notify entities where each entity has its corresponding Telegram bot and target for leaving the chat. |
+| `entity_id`            | yes      | Notify entities where each entity has its corresponding Telegram bot and chat for leaving the chat. |
 | `config_entry_id`      | yes      | The config entry representing the Telegram bot to leave the chat. Required if you have multiple Telegram bots.|
 | `chat_id`              | yes      | The chat_id from where to remove the bot. |
 
@@ -538,7 +538,7 @@ Sets the bot's reaction for a given message.
 
 | Data data attribute | Optional | Description                                                      |
 | ------------------- | -------- | ---------------------------------------------------------------- |
-| `entity_id`         | yes      | Notify entities where each entity has its corresponding Telegram bot and target for sending the message. |
+| `entity_id`         | yes      | Notify entities where each entity has its corresponding Telegram bot and chat for sending the message. |
 | `config_entry_id`   | yes      | The config entry representing the Telegram bot to set the message reaction. Required if you have multiple Telegram bots. |
 | `chat_id`           | yes      | Id of the chat containing the message.                           |
 | `message_id`        | no       | Id of the message to react to.                                   |
