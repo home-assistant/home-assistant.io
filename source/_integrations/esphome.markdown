@@ -214,7 +214,7 @@ If you want the device to send logs without requiring you to be actively monitor
 
 2. To adjust the logging level, there are two options:
     - enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics),
-    - or use the [Developer Tools](/docs/tools/dev-tools/#actions-tab) to call the [`logger.set_level`](/integrations/logger/#action-set_level) action to specify the desired level:
+    - or use the [Developer tools](/docs/tools/dev-tools/#actions-tab) to call the [`logger.set_level`](/integrations/logger/#action-set_level) action to specify the desired level:
 
       ```yaml
       action: logger.set_level

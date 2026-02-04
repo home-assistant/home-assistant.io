@@ -36,7 +36,7 @@ An HVAC entity can have the following states, depending on the specific climate 
 Available actions: `climate.set_aux_heat`, `climate.set_preset_mode`, `climate.set_temperature`, `climate.set_humidity`, `climate.set_fan_mode`, `climate.set_hvac_mode`, `climate.set_swing_mode`, `climate.set_swing_horizontal_mode`, `climate.turn_on`, `climate.turn_off`, `climate.toggle`
 
 {% tip %}
-Not all climate {% term actions %}  may be available for your platform. You can check which climate action are available under {% my developer_call_service title="**Developer Tools** > **Actions**" %}.
+Not all climate {% term actions %}  may be available for your platform. You can check which climate action are available under {% my developer_call_service title="**Settings** > **Developer tools** > **Actions**" %}.
 {% endtip %}
 
 ### Action: Set auxiliary heat

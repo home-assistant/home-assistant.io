@@ -50,7 +50,7 @@ The integration will create the following sensors for the Mastodon account:
 - **Following**: The total number of accounts this account follows.
 - **Posts**: The total number of posts published by the account.
 - **Last post**: When the last post was published
-- **Username**: Displays username and avatar of the account, plus details like display name, bio, creation date, and extra fields of the account as entity attributes.
+- **Username**: Displays the account username and avatar, plus attributes like display name, bio, and creation date.
 
 Sensors are updated once an hour.
 
@@ -87,7 +87,7 @@ The `mastodon.post` action posts a status to your Mastodon account.
 | `media_warning`             | Yes      | If an image or video is attached, `True` will mark the media as sensitive. `False` is default.                                                                                                                                                                     |
 
 {% tip %}
-You can get your `config_entry_id` by using actions within [Developer Tools](/docs/tools/dev-tools/), using one of the above actions and viewing the YAML.
+You can get your `config_entry_id` by using actions within [Developer tools](/docs/tools/dev-tools/), using one of the above actions and viewing the YAML.
 {% endtip %}
 
 {% note %}

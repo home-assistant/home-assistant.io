@@ -125,7 +125,7 @@ Note the unit for gas is CCF (centum cubic feet). 1 CCF is one hundred cubic fee
 ## Energy
 
 Because utilities only release usage/cost data with a 48-hour delay, the integration inserts data into statistic objects.
-You can find the statistics in {% my developer_statistics title="**Developer Tools** > **Statistics**"%} and search for "opower".
+You can find the statistics in {% my developer_statistics title="**Settings** > **Developer tools** > **Statistics**"%} and search for "opower".
 **This delay means that there will be no data in the energy dashboard for today and likely yesterday** (depending on time of day you are checking).
 
 At the initial setup, the integration pulls historical monthly usage/cost since the account activation. If the utility provides more granular data, it pulls daily usage/cost for the past 3 years and hourly usage/cost for the past 2 months (note: typically, utilities provide only monthly or daily data for gas).
@@ -184,4 +184,4 @@ With the above changes your (**{% my config_energy title="Settings > Dashboards 
 {% include integrations/remove_device_service.md %}
 
 If you remove the integration, the statistics are not automatically deleted.
-You can find and delete the statistics in {% my developer_statistics title="**Developer Tools** > **Statistics**"%} and search for "opower".
+You can find and delete the statistics in {% my developer_statistics title="**Settings** > **Developer tools** > **Statistics**"%} and search for "opower".

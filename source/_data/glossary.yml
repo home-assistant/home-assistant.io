@@ -46,7 +46,7 @@
     installed on Home Assistant OS.
   aliases:
     - apps
-  link: /getting-started/concepts-terminology/#add-ons
+  link: /getting-started/concepts-terminology/#apps
 - term: Area
   definition: >-
     An area in Home Assistant is a [logical grouping](/docs/organizing/) of devices and entities that
@@ -495,7 +495,7 @@
     Assistant** (top right) > **Quick reload**. If you do not see the **Quick
     reload** option in the menu, you need to enable **Advanced mode** in your
     user settings. More granular reload options are available in *YAML
-    configuration reloading* section in **Developer tools** > **YAML**.
+    configuration reloading* section in **Settings** > **Developer tools** > **YAML**.
   excerpt: >
     Applies the changes made to Home Assistant configuration files. Changes are
     normally automatically updated. However, changes made outside of the front

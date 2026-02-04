@@ -123,7 +123,7 @@ automation:
 
 {% endraw %}
 
-You can find the `event_data` `id` by going to {% my developer_events title="**Developer Tools** > **Events**" %} and listening to "button_pressed" events. Then hit a button on the device and you should see an event.
+You can find the `event_data` `id` by going to {% my developer_events title="**Settings** > **Developer tools** > **Events**" %} and listening to "button_pressed" events. Then hit a button on the device and you should see an event.
 
 ## Light
 

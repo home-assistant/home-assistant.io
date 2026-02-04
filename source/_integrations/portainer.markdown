@@ -49,7 +49,60 @@ There is currently support for the following device types within Home Assistant:
 - Binary sensor - for monitoring the status of Portainer services.
 - Switch - for turning on and off containers.
 - Sensor - for monitoring various elements of containers and endpoints.
-- Button - for restarting containers.
+- Button - for restarting containers and pruning unused images.
+
+## Examples
+
+The following examples show how to use the AirGradient integration in Home Assistant automations. These examples are just a starting point, and you can use them as inspiration to create your own automations.
+
+### Notify when a container went down
+
+The following example sends a notification to your mobile device when a container went down.
+
+{% raw %}
+
+```yaml
+automation:
+  - alias: "Container went down"
+    triggers:
+      - trigger: state
+        entity_id:
+          - sensor.container_state
+        to:
+          - exited
+
+    actions:
+      - action: notify.mobile_app_your_device
+        data:
+          title: "Container alert"
+          message: "Container went down!"
+```
+
+{% endraw %}
+
+## Actions
+
+Portainer provides the following actions.
+
+### Action: Prune images
+
+The `portainer.prune_images` can be used to prune unused images more granually, such as a duration and/or if images are dangling.
+
+- **Data attribute**: `device_id`
+    - **Description**: The ID of the device/endpoint to prune images on.
+    - **Optional**: No
+- **Data attribute**: `until`
+    - **Description**: The duration in time in the past.
+    - **Optional**: Yes
+- **Data attribute**: `dangling`
+    - **Description**: If true, only prune dangling images.
+    - **Optional**: Yes
+
+## Supported devices
+
+There is support for endpoints and their linked containers.
+
+Docker API Engine needs to be equal to or above version 1.44. Older versions are [deprecated](https://docs.docker.com/reference/api/engine/#deprecated-api-versions). 
 
 ## Data updates
 
@@ -58,6 +111,10 @@ The integration normally updates every 60 seconds. For more detailed steps on ho
 ### Defining a custom polling interval
 
 {% include common-tasks/define_custom_polling.md %}
+
+## Known limitations
+
+Currently, the integration does not support stacks or Edge computing.
 
 ## Removing the integration
 

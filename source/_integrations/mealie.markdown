@@ -157,7 +157,7 @@ The `mealie.set_random_mealplan` action sets a random meal plan on a specific da
 | `entry_type`      | No       | One of "breakfast", "lunch", "dinner", "side", "drink", "dessert", or "snack".  |
 
 {% tip %}
-You can get your `config_entry_id` by using actions within [Developer Tools](/docs/tools/dev-tools/), using one of the above actions and viewing the YAML.
+You can get your `config_entry_id` by using actions within [Developer tools](/docs/tools/dev-tools/), using one of the above actions and viewing the YAML.
 {% endtip %}
 
 ## Examples
