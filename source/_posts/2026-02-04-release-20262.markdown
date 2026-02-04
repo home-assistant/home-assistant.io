@@ -98,6 +98,7 @@ Enjoy the (beta) release!
   - [Now available to set up from the UI](#now-available-to-set-up-from-the-ui)
 - [Other noteworthy changes](#other-noteworthy-changes)
   - [Add buttons to your heading card](#add-buttons-to-your-heading-card)
+  - [Pick specific entities in your area card](#pick-specific-entities-in-your-area-card)
 - [Need help? Join the community](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
@@ -241,7 +242,7 @@ Head over to {% my labs title="**Settings** > **System** > **Labs**" %} to enabl
 
 Meet the **distribution card**, a brand new dashboard card that visualizes how values are distributed across multiple entities. It displays your data as a proportional horizontal bar chart with an interactive legend, perfect for seeing at a glance where your power, storage, or any other measurable quantity is going.
 
-<img src='/images/blog/2026-02/temp-distribution-card.png' alt='Screenshot of a the two distribution cards on a desktop, providing a new way of insight into your data.' class='no-shadow' />
+<img src='/images/blog/2026-02/distribution-card.png' alt='Screenshot of a the two distribution cards on a desktop, providing a new way of insight into your data.' class='no-shadow' />
 
 The card is fully interactive: click on legend items to hide or show entities (the percentages recalculate dynamically), and click on bar segments to open the more-info dialog for that entity. When you have many entities, the legend shows the first items with a **More** button to expand the rest.
 
@@ -261,7 +262,7 @@ Thanks to [@jlpouffier] for building this card! 🎉
 
 We continue to make it easier to access and find things in Home Assistant. The quick bar has been completely redesigned and is now simply called **Quick search**. Think of it as the command center for your entire Home Assistant: navigate anywhere, run commands, find entities, devices, or areas, all from a single, unified search.
 
-<img src='/images/blog/2026-02/temp-quick-search.png' alt='Screenshot of the Quick search interface showing category filters and search results.' class='no-shadow' />
+<img src='/images/blog/2026-02/quick-search.png' alt='Screenshot of the Quick search interface showing category filters and search results.' class='no-shadow' />
 
 Open Quick search from anywhere by pressing <kbd>⌘</kbd> + <kbd>K</kbd> on macOS or <kbd>Ctrl</kbd> + <kbd>K</kbd> on Windows and Linux. The new design features category filters at the top: **Navigate**, **Commands**, **Entities**, **Devices**, and **Areas**. Select a filter to instantly narrow your results, or just start typing to search across everything.
 
@@ -449,7 +450,6 @@ There are many more improvements in this release; here are some of the other not
 - The sidebar now features a subtle scroll fade effect and keeps **Settings** always visible at the bottom, so you never have to scroll to find it. Thanks, [@ildar170975]!
 - The **Developer tools** have been moved to the {% my general title="**Settings**" %} area. We moved it to keep all administrative tools in one place.
 - [@MindFreeze] added tap action and image tap action options to the area card, giving you more control over what happens when you interact with your areas.
-- The area card now supports entities as control buttons, thanks to [@MindFreeze].
 - The entity card now supports actions, thanks to [@ildar170975]. Configure tap, hold, or double-tap actions to trigger anything you want directly from the card.
 - [@Thomas55555] added parts per billion (ppb) as a valid unit of measurement for sulfur dioxide sensors and number entities.
 - The Energy dashboard now supports power sensors in other formats without the need for a template sensor thanks to [@MindFreeze]. You can now use a single sensor with an inverted polarity for grid or battery. You can also configure two separte positive sensors for charge and discharge (or import/export).
@@ -465,15 +465,21 @@ There are many more improvements in this release; here are some of the other not
 
 The heading card now supports button badges, giving you a new way to add quick actions right alongside your section headings. Display an icon, text, or both, pick a custom color, and configure tap, hold, or double-tap actions to trigger anything you want.
 
-<p class='img'>
-<img src='/images/blog/2026-02/temp-heading-card-buttons.png' alt='Screenshot of a heading card with button badges for quick actions.' class='no-shadow' />
-</p>
+<img src='/images/blog/2026-02/heading-card-buttons.png' alt='Screenshot of a heading card with button badges for quick actions.' class='no-shadow' />
 
 You can also set visibility conditions to show or hide buttons based on entity states. Combined with the existing entity badges, this makes the heading card a versatile anchor for your dashboard sections, whether you want to display status information, provide quick controls, or both.
 
 Thanks to [@piitaya] for this addition! 🎉
 
 [@piitaya]: https://github.com/piitaya
+
+### Pick specific entities in your area card
+
+The area card now lets you select individual entities as control buttons, not just entire domains. Previously, adding a light control meant showing all lights in the area. Now you can pick exactly which entities appear.
+
+<img src='/images/blog/2026-02/area-card-entities.png' alt='Screenshot of the area card control configuration showing entity selection.' class='no-shadow' />
+
+Great job, [@MindFreeze]! 🎉
 
 ## Need help? Join the community
 
