@@ -379,7 +379,7 @@ Liquid syntax is used for templating in Jekyll and used within Markdown.
 
 ### My links
 
-To indicate a location in the UI, you can use a [My link](https://www.home-assistant.io/docs/tools/quick-bar/#my-links).
+To indicate a location in the UI, you can use a [My link](https://www.home-assistant.io/docs/tools/quick-search/#my-links).
 Selecting a My link opens that page in their own Home Assistant installation.
 
 For example: `"Go to {% my integrations title="**Settings** > **Devices & services**" %} and select your integration."`
