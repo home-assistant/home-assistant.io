@@ -242,7 +242,7 @@ Head over to {% my labs title="**Settings** > **System** > **Labs**" %} to enabl
 
 Meet the **distribution card**, a brand new dashboard card that visualizes how values are distributed across multiple entities. It displays your data as a proportional horizontal bar chart with an interactive legend, perfect for seeing at a glance where your power, storage, or any other measurable quantity is going.
 
-<img src='/images/blog/2026-02/distribution-card.png' alt='Screenshot of a the two distribution cards on a desktop, providing a new way of insight into your data.' class='no-shadow' />
+<img src='/images/blog/2026-02/distribution-card.png' alt='Screenshot of two distribution cards on a desktop, providing new insights into your data.' class='no-shadow' />
 
 The card is fully interactive: click on legend items to hide or show entities (the percentages recalculate dynamically), and click on bar segments to open the more-info dialog for that entity. When you have many entities, the legend shows the first items with a **More** button to expand the rest.
 
@@ -475,7 +475,7 @@ Thanks to [@piitaya] for this addition! 🎉
 
 ### Pick specific entities in your area card
 
-The area card now lets you select individual entities as control buttons, not just entire domains. Previously, adding a light control meant showing all lights in the area. Now you can pick exactly which entities appear.
+The area card now lets you select individual entities as control buttons, not just entire types of entities like all lights or all switches in the area. Previously, adding a light control meant showing all lights in the area. Now you can pick exactly which entities appear.
 
 <img src='/images/blog/2026-02/area-card-entities.png' alt='Screenshot of the area card control configuration showing entity selection.' class='no-shadow' />
 
