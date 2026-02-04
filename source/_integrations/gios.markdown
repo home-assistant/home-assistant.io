@@ -91,7 +91,7 @@ automation:
 ## Known limitations
 
 - The availability of sensors depends on the selected measurement station. Not all stations provide data for all pollutants or indices.
-- The data provider may publish new measurements less frequently than every 30 minutes, so consecutive polls can return unchanged data.
+- The data provider may publish new measurements less frequently than every 30 minutes, so consecutive {% term polling polls %} can return unchanged data.
 
 ## Troubleshooting
 
