@@ -449,8 +449,10 @@ There are many more improvements in this release; here are some of the other not
 - The sidebar now features a subtle scroll fade effect and keeps **Settings** always visible at the bottom, so you never have to scroll to find it. Thanks, [@ildar170975]!
 - The **Developer tools** have been moved to the {% my general title="**Settings**" %} area. We moved it to keep all administrative tools in one place.
 - [@MindFreeze] added tap action and image tap action options to the area card, giving you more control over what happens when you interact with your areas.
+- The area card now supports entities as control buttons, thanks to [@MindFreeze].
 - The entity card now supports actions, thanks to [@ildar170975]. Configure tap, hold, or double-tap actions to trigger anything you want directly from the card.
 - [@Thomas55555] added parts per billion (ppb) as a valid unit of measurement for sulfur dioxide sensors and number entities.
+- The Energy dashboard now supports power sensors in other formats without the need for a template sensor thanks to [@MindFreeze]. You can now use a single sensor with an inverted polarity for grid or battery. You can also configure two separte positive sensors for charge and discharge (or import/export).
 
 [@ildar170975]: https://github.com/ildar170975
 [@karwosts]: https://github.com/karwosts
