@@ -51,12 +51,15 @@ The WMS WebControl pro *may* also be discovered on your local network via DHCP.
 ## Covers
 
 - *Awnings*, *volant awnings* (vertical drop sun shades), and *roller shutters/blinds* can be opened, closed, set to a certain position, and stopped.
-- *Slat-based blinds* can additionally have their slats rotated open, closed or to a specific rotation angle.
-- Home Assistant treats the slat rotation as a linear scale from fully open to fully closed. The integration
-  uses the maximum rotation angle as the fully closed position. The minimum (reverse) angle is not treated
-  as fully open. When you set the slats to the open position in Home Assistant, they move to the position
-  where the slats are parallel to the ground. You can change the minimum and maximum rotation angles via
-  configuration entities, see [numbers](#numbers).
+- *Slat-based blinds* can additionally have their slats rotated open, closed, or to a specific rotation angle.
+
+### Rotation Support
+
+Home Assistant treats the slat rotation as a linear scale from fully open to fully closed. The integration
+uses the maximum rotation angle as the fully closed position, but the minimum (reverse) angle is not treated
+as fully open. When you set the slats to the open position in Home Assistant, they move to the position
+where the slats are parallel to the ground as expected. You can change the minimum and maximum rotation
+angles via configuration [number](#numbers) entities or [automatic learning](#automatic-learning).
 
 ## Lights
 
@@ -66,11 +69,14 @@ The WMS WebControl pro *may* also be discovered on your local network via DHCP.
 
 - *Slat-based blinds* will have configuration entities to overwrite the minimum and maximum rotation angle.
   This is required as the WMS WebControl pro currently reports invalid minimum and maximum rotation values.
-  The number entities persist across Home Assistant restarts and are updated automatically on slat rotation
-  to allow automatic learning of the valid rotation range based on the current rotation angle. For learning,
-  it is sufficient to rotate *slat-based blinds* to both end positions while Home Assistant is connected.
 - *Slat-drives supporting rotation* will also have a diagnostic entity to control the raw rotation angle.
   This is especially useful for *slat-based roofs* which currently have no other way to be controlled.
+
+### Automatic Learning
+
+The number entities persist across Home Assistant restarts and are updated automatically on slat rotation
+to allow automatic learning of the valid rotation range based on the current rotation angle. For learning,
+it is sufficient to rotate *slat-based blinds* to both end positions while Home Assistant is connected.
 
 ## Scenes
 
