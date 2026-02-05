@@ -23,10 +23,12 @@ Backup encryption is enabled by default and can be disabled as shown in the [bac
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
+Tenant ID:
+  description: "Tenant ID of the Entra ID tenant where the account to be used with the integration lives."
 Client ID:
-  description: "Application ID of the app registration to be used with the integration. Uses Home Assistant provided by default."
+  description: "Application ID of the app registration to be used with the integration."
 Client secret:
-  description: "Application secret for the app registration. Uses Home Assistant provided by default."
+  description: "Application secret for the app registration."
 Folder path:
   description: "The path of the folder where to store backups."
 
@@ -45,15 +47,7 @@ The integration will request the following permissions on your OneDrive for the 
 
 ## Getting application credentials
 
-This integration comes with a predefined set of [application credentials](https://www.home-assistant.io/integrations/application_credentials/) through Home Assistant account linking. This means you should not need to provide credentials, but get redirected to Microsoft's sign-in page.
-
-Even if you use the default credentials, nobody will ever have access to your data except you, as the app does not have permission to do anything on its own. It only works with a signed-in user (it only has `delegated` not `application permissions`). 
-
-However, if you want to use your own credentials, follow [this guide by Microsoft on registering an application](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app?tabs=certificate) to create your own client ID and secret.
-
-{% tip %}
-You will need an Azure tenant with an active Azure subscription to create your own client credentials.
-{% endtip %}
+You'll need to follow [this guide by Microsoft on registering an application](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app?tabs=certificate) to create your own client ID and secret.
 
 Make sure to configure the following settings on the app registration:
 
@@ -63,10 +57,7 @@ Make sure to configure the following settings on the app registration:
 
 ## Troubleshooting
 
-{% details "Default credentials not available" %}
-
-If the integration asks you for a `client ID` and a `client secret`, that likely means you disabled part of the `default_config` in your Home Assistant configuration. For account linking to work you'll need `my` & `cloud` integrations loaded.
-{% enddetails %}
+Currently we don't have any known troubleshooting steps, if you find something please create a documentation PR. Thanks!
 
 ## Removing the integration
 
