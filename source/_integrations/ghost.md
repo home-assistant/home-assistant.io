@@ -19,7 +19,7 @@ The **Ghost** {% term integration %} allows you to monitor your [Ghost](https://
 
 ## Prerequisites
 
-- A Ghost site
+- A Ghost site running version 5.0 or later
 - A Ghost administrator staff user account
 
 ### Create a Ghost Admin API integration
@@ -38,23 +38,27 @@ Admin API Key:
     description: "The Admin API key for your Ghost site. You can find it in the Ghost Admin under **Settings** > **Integrations** > **Custom**."
 {% endconfiguration_basic %}
 
-## Sensors
+## Supported functionality
 
-The Ghost integration provides the following sensors:
+### Entities
 
-### Member metrics
+The **Ghost** integration provides the following entities.
+
+#### Sensors
+
+##### Member metrics
 
 - **Total Members**: Total number of subscribers
 - **Paid Members**: Number of paying subscribers
 - **Free Members**: Number of free subscribers
 - **Comped Members**: Number of complimentary subscribers
 
-### Revenue metrics
+##### Revenue metrics
 
 - **MRR**: Monthly Recurring Revenue (USD)
 - **ARR**: Annual Recurring Revenue (USD)
 
-### Content metrics
+##### Content metrics
 
 - **Published Posts**: Number of published posts
 - **Draft Posts**: Number of draft posts
@@ -62,7 +66,7 @@ The Ghost integration provides the following sensors:
 - **Latest Post**: Title of the most recent post
 - **Total Comments**: Total number of comments
 
-### Email newsletter metrics
+##### Email newsletter metrics
 
 - **Latest Email**: Title of the most recent newsletter
 - **Latest Email Sent**: Number of emails sent
@@ -71,12 +75,12 @@ The Ghost integration provides the following sensors:
 - **Latest Email Clicked**: Number of link clicks
 - **Latest Email Click Rate**: Click rate percentage
 
-### SocialWeb (ActivityPub) metrics
+##### SocialWeb (ActivityPub) metrics
 
 - **SocialWeb Followers**: Number of Fediverse followers
 - **SocialWeb Following**: Number of accounts being followed
 
-### Newsletter subscribers
+##### Newsletter subscribers
 
 For each active newsletter on your Ghost site, an additional sensor is created showing the subscriber count for that newsletter.
 
@@ -84,35 +88,7 @@ For each active newsletter on your Ghost site, an additional sensor is created s
 
 The integration {% term polling polls %} your Ghost site every 5 minutes to update sensor data.
 
-## Webhook events
-
-If your Home Assistant instance is accessible via HTTPS (for example, via Nabu Casa), the integration will automatically create webhooks in Ghost to receive real-time events:
-
-- **ghost_member_added**: Fired when a new member signs up
-- **ghost_member_deleted**: Fired when a member is removed
-- **ghost_post_published**: Fired when a post is published
-- **ghost_post_unpublished**: Fired when a post is unpublished
-
-These events can be used in automations.
-
 ## Example automations
-
-### Notify when a new member signs up
-
-```yaml
-automation:
-  - alias: "New Ghost member notification"
-    triggers:
-      - trigger: event
-        event_type: ghost_member_added
-    actions:
-      - action: notify.mobile_app
-        data:
-          title: "New subscriber!"
-          message: >
-            {{ trigger.event.data.name or trigger.event.data.email }}
-            just signed up
-```
 
 ### Announce milestone member counts
 
@@ -134,7 +110,6 @@ automation:
 
 ## Known limitations
 
-- Webhook events require your Home Assistant instance to be accessible via HTTPS (for example, via Nabu Casa). Without HTTPS, only polling updates are available.
 - Revenue metrics (MRR/ARR) are only available for sites with Stripe connected.
 - ActivityPub/SocialWeb metrics require Ghost 6 or later with ActivityPub enabled.
 
@@ -209,24 +184,6 @@ To resolve this issue, check the following:
 
 1. Verify you are running Ghost 6 or later.
 2. Ensure ActivityPub is enabled in your Ghost settings.
-
-### Webhooks not working
-
-#### Symptom: Webhook events are not firing
-
-Events like `ghost_member_added` are not triggering automations.
-
-##### Description
-
-Webhooks require your Home Assistant instance to be accessible via HTTPS from the internet.
-
-##### Resolution
-
-To resolve this issue, try the following steps:
-
-1. Ensure your Home Assistant instance is accessible via HTTPS (for example, via Nabu Casa).
-2. Check that your reverse proxy or firewall allows incoming connections from your Ghost site.
-3. Verify the webhooks were created in Ghost under **Settings** > **Integrations** > **Your Integration**.
 
 ## Removing the integration
 
