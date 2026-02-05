@@ -21,7 +21,7 @@ Samba app. If you haven't installed the **Samba** app yet, you can do
 so by browsing to the {% my supervisor title="**Settings** > **Apps**" %} panel. 
 Next, select **Install app** and search for the **Samba** app.
 
-On the **Samba** app page, you can find a tab called "Documentation" with
+On the **Samba** app page, you can find a tab called **Documentation** with
 the app installation and usage instructions. After that, you can copy/move
 media onto your device using drag and drop in your file explorer.
 
