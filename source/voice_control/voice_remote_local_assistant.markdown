@@ -109,7 +109,7 @@ View some of the options in the video below. Explained by Mike Hansen, creator o
 
 <lite-youtube videoid="Tk-pnm7FY7c" videoStartAt="1589" videotitle="Configure your local Assist pipeline for your setup"></lite-youtube>
 
-The options are also documented in the add-on itself. Go to the {% my supervisor_app app="core_whisper" title="**Whisper**" %} or the {% my supervisor_app app="core_piper" title="**Piper**" %} add-on and open the **Documentation** page.
+The options are also documented in the app itself. Go to the {% my supervisor_app app="core_whisper" title="**Whisper**" %} or the {% my supervisor_app app="core_piper" title="**Piper**" %} app and open the **Documentation** page.
 
 Also be sure to check the specific tutorial for [using Piper in Automations](/voice_control/using_tts_in_automation/)
 

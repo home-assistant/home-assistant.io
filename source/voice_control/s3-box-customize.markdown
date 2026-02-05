@@ -143,7 +143,7 @@ If your images have transparency, you can define the background color in the con
 #### To add your images to the configuration
 
 1. In Home Assistant, go to [**Settings** > **Add-ons** > **ESPHome**](https://my.home-assistant.io/redirect/supervisor_app/?app=5c53de3b_esphome), and **Open Web UI**.
-2. On the **ESP32-S3-BOX-3** add-on, select edit.
+2. On the **ESP32-S3-BOX-3** app, select edit.
    - **Result**: An editor opens, showing the configuration file.
    ![ESP32-S3-BOX-3 config file](/images/assist/esp32-adopt-s3-01.png)
 

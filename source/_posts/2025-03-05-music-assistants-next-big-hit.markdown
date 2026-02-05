@@ -86,7 +86,7 @@ A huge thank you to everyone who contributed to this release---whether through c
 
 If you haven't updated yet, now's the time! And if you haven't used it yet, you can install Music Assistant as a Home Assistant Add-on,
 
-[<img src='https://my.home-assistant.io/badges/supervisor_app.svg' style='border: 0;box-shadow: none;' alt="!Open your Home Assistant instance and show the dashboard of an add-on.">](https://my.home-assistant.io/redirect/supervisor_app/?app=d5369777_music_assistant)
+[<img src='https://my.home-assistant.io/badges/supervisor_app.svg' style='border: 0;box-shadow: none;' alt="Open your Home Assistant instance and show the dashboard of an app.">](https://my.home-assistant.io/redirect/supervisor_app/?app=d5369777_music_assistant)
 
 For more on getting started with Music Assistant, [read the documentation](https://www.music-assistant.io/installation/).
 
