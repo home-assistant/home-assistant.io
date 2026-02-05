@@ -62,7 +62,7 @@ Usage:
   ha [command]
 
 Available Commands:
-  addons         Install, update, remove and configure Home Assistant add-ons
+  addons         Install, update, remove and configure Home Assistant apps
   audio          Audio device handling.
   authentication Authentication for Home Assistant users.
   backups        Create, restore and remove backups
