@@ -58,7 +58,6 @@ For users that are part of an organization with pooled storage, information abou
 
 Get started with these automation examples.
 
-> [!IMPORTANT]
 > In the examples below, remember to replace `your_email_gmail_com` with the actual ID of your sensors (found in **Settings** > **Devices & Services** > **Entities**) and replace `notify.mobile_app_your_device` with your actual notifier.
 
 ### Send alert when drive is near storage limit
