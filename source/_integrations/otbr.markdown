@@ -23,4 +23,4 @@ Installing this integration manually is an advanced use case, for example if you
 
 {% include integrations/config_flow.md %}
 
-To view the app documentation, go to {% my supervisor_addon title="**Settings** > **Apps** > **OpenThread Border Router**" addon="core_openthread_border_router" %} and select the **Documentation** tab.
+To view the app documentation, go to {% my supervisor_app title="**Settings** > **Apps** > **OpenThread Border Router**" app="core_openthread_border_router" %} and select the **Documentation** tab.

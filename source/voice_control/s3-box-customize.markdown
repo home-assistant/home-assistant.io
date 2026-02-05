@@ -54,7 +54,7 @@ Before you can import new illustrations, you need to install the ESPHome add-on 
 
 1. Make sure the ESP32-S3-BOX-3 is up and running and connected to your Wi-Fi.
 2. Go to **Settings** > **Add-ons** and check if you have the **ESPHome** add-on installed.
-   - If you haven't done so, go to [**Settings** > **Add-ons** > **ESPHome**](https://my.home-assistant.io/redirect/supervisor_addon/?addon=5c53de3b_esphome) to install the add-on.
+   - If you haven't done so, go to [**Settings** > **Add-ons** > **ESPHome**](https://my.home-assistant.io/redirect/supervisor_app/?app=5c53de3b_esphome) to install the add-on.
 3. Start the add-on and select **Open web UI**.
 4. In the ESPHome add-on dashboard, on the **ESP32-S3-BOX-3** card, select **Adopt**.
 
@@ -142,7 +142,7 @@ If your images have transparency, you can define the background color in the con
 
 #### To add your images to the configuration
 
-1. In Home Assistant, go to [**Settings** > **Add-ons** > **ESPHome**](https://my.home-assistant.io/redirect/supervisor_addon/?addon=5c53de3b_esphome), and **Open Web UI**.
+1. In Home Assistant, go to [**Settings** > **Add-ons** > **ESPHome**](https://my.home-assistant.io/redirect/supervisor_app/?app=5c53de3b_esphome), and **Open Web UI**.
 2. On the **ESP32-S3-BOX-3** add-on, select edit.
    - **Result**: An editor opens, showing the configuration file.
    ![ESP32-S3-BOX-3 config file](/images/assist/esp32-adopt-s3-01.png)
@@ -214,7 +214,7 @@ You can change the on-device wake word (microWakeWord) that is used on your S3-B
 ### To customize the S3-BOX-3 with on-device wake words
 
 1. If you haven't done so already, [adopt the device in the ESPHome add-on](#adopting-the-device-in-the-esphome-add-on).
-2. In Home Assistant, go to [**Settings** > **Add-ons** > **ESPHome**](https://my.home-assistant.io/redirect/supervisor_addon/?addon=5c53de3b_esphome), and **Open Web UI**.
+2. In Home Assistant, go to [**Settings** > **Add-ons** > **ESPHome**](https://my.home-assistant.io/redirect/supervisor_app/?app=5c53de3b_esphome), and **Open Web UI**.
 3. On the **ESP32-S3-BOX-3** entry, select edit.
    - **Result**: An editor opens, showing the configuration file.
    ![ESP32-S3-BOX-3 config file](/images/assist/esp32-adopt-s3-01.png)

@@ -136,7 +136,7 @@ keys are need.
 
 Getting your media files (pictures, images, soundbites, music) into your
 local media folder required you to use the
-{% my supervisor_addon addon="core_samba" title="Samba add-on" %} (or something
+{% my supervisor_app app="core_samba" title="Samba add-on" %} (or something
 similar).
 
 Can we improve this experience? Sure we can!

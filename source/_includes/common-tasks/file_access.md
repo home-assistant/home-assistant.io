@@ -21,7 +21,7 @@ The **Samba** app allows you to share the directories on Home Assistant with oth
 
 To install the app, follow these steps:
 
-1. Go to {% my supervisor_addon title="**Settings** > **Apps** > **Samba share**" addon="core_samba" %} and select **Install**.
+1. Go to {% my supervisor_app title="**Settings** > **Apps** > **Samba share**" app="core_samba" %} and select **Install**.
 2. On the **Configuration** tab, define **Username** and **Password**, store them in a safe place, and save your changes.
    - You can specify any username and password.
    - They are not related to the login credentials you use to log in to Home Assistant or to log in to the computer from which you are accessing the files.
@@ -61,7 +61,7 @@ Example of a configuration.yaml file, accessed using the Studio Code Server app 
 
 To install and use the  **Studio Code Server** in Home Assistant, follow these steps:
 
-1. To install the app, go to {% my supervisor_addon title="**Settings** > **Apps** > **Studio Code Server**" addon="a0d7b954_vscode" %} and install the app.
+1. To install the app, go to {% my supervisor_app title="**Settings** > **Apps** > **Studio Code Server**" app="a0d7b954_vscode" %} and install the app.
 2. Once you have the app installed, if you want, select the **Show in sidebar** option. Then, select **Start**.
 3. For information on configuration settings, open the **Documentation** tab.
 4. To start browsing, on the **Info** tab, select **Open Web UI**.
@@ -79,7 +79,7 @@ Example of a configuration.yaml file, accessed using the File editor app on a Ho
 
 To install and use the File Editor in Home Assistant, follow these steps:
 
-1. To install the app, go to {% my supervisor_addon title="**Settings** > **Apps** > **File editor**" addon="core_configurator" %}.
+1. To install the app, go to {% my supervisor_app title="**Settings** > **Apps** > **File editor**" app="core_configurator" %}.
    - Once you have the app installed, you can edit files within your `/config` directory.
 2. If you want to be able to access directories outside the `/config` directory, in the app, open the **Configuration** tab and disable the **Enforce basepath** option.
    - Note: The **Enforce basepath** option is intended to protect you from inadvertently making changes to settings files.
@@ -105,7 +105,7 @@ The **Terminal & SSH** app provides the following functionalities:
 To get started with the **Terminal & SSH** app, follow these steps:
 
 1. In the bottom left, select your user to open the {% my profile title="**Profile**" %} page. Make sure **Advanced Mode** is enabled.
-2. To install the app, go to the app store under [**Settings** > **Apps**](https://my.home-assistant.io/redirect/supervisor_addon/?addon=core_ssh) and install the **Terminal & SSH** app.
+2. To install the app, go to the app store under [**Settings** > **Apps**](https://my.home-assistant.io/redirect/supervisor_app/?app=core_ssh) and install the **Terminal & SSH** app.
 3. To use the web terminal, **start** the app, then select **Open Web UI**.
    - You can now start typing your [commands](/common-tasks/os#home-assistant-via-the-command-line).
 4. If you want to access from an ssh client, you need to enter credentials:

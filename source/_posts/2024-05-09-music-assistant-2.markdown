@@ -16,7 +16,7 @@ Today, exactly five years ago, I, Marcel, started working on [Music Assistant](h
 Music Assistant is what I’d like to call a “music library manager” – it gives you full control of playing YOUR music on your players. Just like Home Assistant centralizes all your devices and services to work together, Music Assistant does the same with your music sources and smart audio-playing devices.
 
 To just play with Music Assistant without reading what it is (yes, we know you!):
-{% my supervisor_addon badge addon="d5369777_music_assistant" repository_url="https://github.com/music-assistant/home-assistant-addon" %}
+{% my supervisor_app badge app="d5369777_music_assistant" repository_url="https://github.com/music-assistant/home-assistant-addon" %}
 
 <!--more-->
 
@@ -55,7 +55,7 @@ After many years of development and testing with the amazing community, we can f
 
 Even though Music Assistant is an HA Add-on, it can be installed from start to finish via [HACS](https://hacs.xyz/). You simply install the integration, which will automatically install and manage the add-on for you. The integration allows you to control your devices with automations and voice control.
 
-{% my supervisor_addon badge addon="d5369777_music_assistant" repository_url="https://github.com/music-assistant/home-assistant-addon" %}
+{% my supervisor_app badge app="d5369777_music_assistant" repository_url="https://github.com/music-assistant/home-assistant-addon" %}
 
 _Music Assistant is distributed as a <a href="https://www.home-assistant.io/addons">Home Assistant add-on</a> – our way to easily extend your Home Assistant installation with third party applications. To install it as a Docker container, follow the <a href="https://music-assistant.io/installation/#tertiary-installation-method-docker-image">MA installation instructions</a>._
 

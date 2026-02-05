@@ -98,7 +98,7 @@ If you're a Home Assistant OS user here is the installation method (If you're no
 
 1. Make a [backup of your system](https://my.home-assistant.io/redirect/backup/) and download it to another device for safekeeping.
 
-2. Install the addon: Using [this link](https://my.home-assistant.io/redirect/supervisor_addon/?repository_url=https%3A%2F%2Fgithub.com%2Fhacs%2Faddons&addon=cb646a50_get), add the HACS add-on repository, and install the add-on it links to, [![Open your Home Assistant instance and show the dashboard of an add-on.](https://my.home-assistant.io/badges/supervisor_addon.svg)](https://my.home-assistant.io/redirect/supervisor_addon/?repository_url=https%3A%2F%2Fgithub.com%2Fhacs%2Faddons&addon=cb646a50_get)
+2. Install the addon: Using [this link](https://my.home-assistant.io/redirect/supervisor_app/?repository_url=https%3A%2F%2Fgithub.com%2Fhacs%2Faddons&app=cb646a50_get), add the HACS add-on repository, and install the add-on it links to, [![Open your Home Assistant instance and show the dashboard of an add-on.](https://my.home-assistant.io/badges/supervisor_app.svg)](https://my.home-assistant.io/redirect/supervisor_app/?repository_url=https%3A%2F%2Fgithub.com%2Fhacs%2Faddons&app=cb646a50_get)
 
 3. Start the add-on (no need to "start on boot", you should only need to run this once).
 

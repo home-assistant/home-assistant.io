@@ -16,7 +16,7 @@ module Jekyll
             #{args}
 
             Valid syntax:
-              {% my <redirect> [title="Link name"] [badge] [icon[="icon-puzzle-piece"]] [addon="core_ssh"] [blueprint_url="http://example.com/blueprint.yaml"] [domain="hue"] [brand="philips"] [service="light.turn_on"] %}
+              {% my <redirect> [title="Link name"] [badge] [icon[="icon-puzzle-piece"]] [app="core_ssh"] [blueprint_url="http://example.com/blueprint.yaml"] [domain="hue"] [brand="philips"] [service="light.turn_on"] %}
           MSG
         end
       end

@@ -20,7 +20,7 @@ Enabling a wake word consists of 2 steps:
 
 ### Installing the openWakeWord add-on
 
-1. Go to {% my supervisor_addon addon="core_openwakeword" title="**Settings** > **Add-ons** > **openWakeWord**" %} and select **Install**.
+1. Go to {% my supervisor_app app="core_openwakeword" title="**Settings** > **Add-ons** > **openWakeWord**" %} and select **Install**.
 2. **Start** the add-on.
 3. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
    - Under **Discovered**, you should now see the **openWakeWord** component of the **Wyoming** integration.

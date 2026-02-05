@@ -154,7 +154,7 @@ A device context and one or more entities can be added to the subentry.
 Your first step to get MQTT and Home Assistant working is to choose a broker.
 
 The easiest option is to install the official Mosquitto Broker app for Home Assistant (formerly known as Mosquitto Broker add-on). You can choose to set up and configure this app automatically when you set up the MQTT integration. Home Assistant will automatically generate and assign a safe username and password, and no further attention is required. This also works if you have already set up this app yourself in advance.
-You can set up additional logins for your MQTT devices and services using the [Mosquitto app configuration](https://my.home-assistant.io/redirect/supervisor_addon/?addon=core_mosquitto).
+You can set up additional logins for your MQTT devices and services using the [Mosquitto app configuration](https://my.home-assistant.io/redirect/supervisor_app/?app=core_mosquitto).
 
 {% important %}
 When MQTT is set up with the official Mosquitto MQTT broker app, the broker's credentials are generated and kept secret. If the official Mosquitto MQTT broker needs to be re-installed, make sure you save a copy of the app user options, like the additional logins. After re-installing the app, the MQTT integration will automatically update the new password for the re-installed broker. It will then reconnect automatically.

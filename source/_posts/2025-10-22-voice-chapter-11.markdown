@@ -111,7 +111,7 @@ To demonstrate the benefit of streaming, we asked an LLM to “[tell me a long s
 
 ## New Piper voices
 
-Piper, our homegrown text-to-speech tool, continues to grow with support for several new languages! These new voices were trained from publicly available voice datasets, and are available now in the [Piper add-on](https://my.home-assistant.io/redirect/supervisor_addon/?addon=core_piper):
+Piper, our homegrown text-to-speech tool, continues to grow with support for several new languages! These new voices were trained from publicly available voice datasets, and are available now in the [Piper add-on](https://my.home-assistant.io/redirect/supervisor_app/?app=core_piper):
 
 * Daniela (Argentinian Spanish)  
 * Pratham, Priyamvada, Rohan (Hindi)  

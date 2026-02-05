@@ -233,9 +233,9 @@ If you have a Home Assistant Thread adapter, follow the corresponding instructio
 ### To add a Thread adapter to the OpenThread Border Router app
 
 1. Install the **OpenThread Border Router** app.
-   - Go to {% my supervisor_addon title="**Settings** > **Apps**" addon="core_openthread_border_router" %} and select the **OpenThread Border Router** app.
+   - Go to {% my supervisor_app title="**Settings** > **Apps**" app="core_openthread_border_router" %} and select the **OpenThread Border Router** app.
 2. Plug the adapter into the extension cable and plug it into the Home Assistant hub.
-3. Go to {% my supervisor_addon title="**Settings** > **Apps** > **OpenThread Border Router**" addon="core_openthread_border_router" %} and select the **Configuration** tab.
+3. Go to {% my supervisor_app title="**Settings** > **Apps** > **OpenThread Border Router**" app="core_openthread_border_router" %} and select the **Configuration** tab.
 4. Under **Devices**, select your adapter.
 5. Enter the **Baudrate** as specified in the documentation of your adapter.
    - If you can't find the baudrate, try `460800` or contact the manufacturer's support.
@@ -272,7 +272,7 @@ If you want to migrate to a Home Assistant Connect ZBT-2, follow the steps in th
 ### To migrate an existing Thread network to a new adapter
 
 1. Plug the new adapter into the extension cable and plug it into the Home Assistant hub.
-2. Go to {% my supervisor_addon title="**Settings** > **Apps** > **OpenThread Border Router**" addon="core_openthread_border_router" %} and select the **Configuration** tab.
+2. Go to {% my supervisor_app title="**Settings** > **Apps** > **OpenThread Border Router**" app="core_openthread_border_router" %} and select the **Configuration** tab.
 3. Under **Devices**, select your adapter.
 4. Enter the **Baudrate** as specified in the documentation of your adapter.
    - If you can't find the baudrate, try `460800` or contact the manufacturer's support.

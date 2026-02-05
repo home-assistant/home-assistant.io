@@ -316,4 +316,4 @@ This integration follows standard integration removal.
 
 {% include integrations/remove_device_service.md %}
 
-After deleting the integration, go to the {% my supervisor_addon title="**Settings** > **Apps**" addon="music_assistant" %} and remove the **Music Assistant** app from there as well (if installed).
+After deleting the integration, go to the {% my supervisor_app title="**Settings** > **Apps**" app="music_assistant" %} and remove the **Music Assistant** app from there as well (if installed).

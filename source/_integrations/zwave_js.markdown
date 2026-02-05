@@ -220,7 +220,7 @@ If you are using the Z-Wave JS app, Home Assistant automatically changes the rad
 
 ### To override the radio frequency region of your Z-Wave adapter
 
-1. Go to {% my supervisor_addon addon="core_zwave_js" title="**Settings** > **Apps** > **Z-Wave JS**" %}.
+1. Go to {% my supervisor_app app="core_zwave_js" title="**Settings** > **Apps** > **Z-Wave JS**" %}.
 2. Open the **Configuration** tab.
 3. In the **Options** section, select the **Radio Frequency Region**.
    - **Automatic** sets the region based on the location defined under {% my general title="**Settings** > **System** > **General**" %}.
@@ -1006,7 +1006,7 @@ You can switch from the official **Z-Wave JS** app to the community **Z-Wave JS 
 Both apps communicate with Home Assistant via the same **Z-Wave** {% term integration %}.
 
 1. Note your network security keys from the official app.
-   - In your browser, open {% my supervisor_addon addon="core_zwave_js" title="**Settings** > **Apps** > **Z-Wave JS**" %}.  
+   - In your browser, open {% my supervisor_app app="core_zwave_js" title="**Settings** > **Apps** > **Z-Wave JS**" %}.  
    - From the three dots {% icon "mdi:dots-vertical" %} menu, select **Edit in YAML**.
    - You should see about 12 lines of YAML, including items like `device: xxx` and `s2_access_control_key: xxx`.  Select all and copy them somewhere safe.  You will need them later.
 
@@ -1040,7 +1040,7 @@ Both apps communicate with Home Assistant via the same **Z-Wave** {% term integr
    - Under **WebSocket URL**, enter the URL you saved in step 3.
 
 7. Uninstall the official app.
-   - Go to {% my supervisor_addon addon="core_zwave_js" title="**Settings** > **Apps** > **Z-Wave JS**" %} and select **Uninstall**.
+   - Go to {% my supervisor_app app="core_zwave_js" title="**Settings** > **Apps** > **Z-Wave JS**" %} and select **Uninstall**.
    - You are asked if you want to delete the related data.
    - Keep it if you think you might switch back to the **Z-Wave JS** app later.
 
@@ -1051,7 +1051,7 @@ If you are currently using [Z-Wave JS UI](https://zwave-js.github.io/zwave-js-ui
 1. Before starting migration, disable the **Z-Wave** integration.
    - Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the Z-Wave integration and select the three dots {% icon "mdi:dots-vertical" %} menu and select **Disable**.
 2. Do the migration in Z-Wave JS UI.
-   - If you are using the **Z-Wave JS UI** app, go to {% my supervisor_addon addon="core_zwave_jsa0d7b954_zwavejs2mqtt" title="**Settings** > **Apps** > **Z-Wave JS UI**" %}
+   - If you are using the **Z-Wave JS UI** app, go to {% my supervisor_app app="core_zwave_jsa0d7b954_zwavejs2mqtt" title="**Settings** > **Apps** > **Z-Wave JS UI**" %}
    - Open the Z-Wave JS UI control panel and in the bottom-right corner, select the purple **Advanced actions** button.
    - Under **NVM Management**, select **Backup**.
    - Unplug the current adapter and connect the new adapter.
@@ -1097,7 +1097,7 @@ By default, Z-Wave prefers Security S2, if supported. Security S0 is used only w
 
 ### Where can I see the security keys in the Z-Wave JS app?
 
-After the initial setup of the Z-Wave adapter, you can view the security keys in the Z-Wave JS app. Go to {% my supervisor_addon addon="core_zwave_js" title="**Settings** > **Apps** > **Z-Wave JS**" %} and open the **Configuration** tab. You can now see the three S2 keys and the S0 key. The network security key is a legacy configuration setting, identical to the S0 key.
+After the initial setup of the Z-Wave adapter, you can view the security keys in the Z-Wave JS app. Go to {% my supervisor_app app="core_zwave_js" title="**Settings** > **Apps** > **Z-Wave JS**" %} and open the **Configuration** tab. You can now see the three S2 keys and the S0 key. The network security key is a legacy configuration setting, identical to the S0 key.
 
 ## FAQ: Troubleshooting topics
 
@@ -1306,7 +1306,7 @@ This removes all paired Z-Wave devices and their entities, the Z-Wave JS app, an
    - Next to the integration entry, select the three dots {% icon "mdi:dots-vertical" %} menu.
    - Select **Delete**.
 3. If it hasn't been deleted automatically, remove the Z-Wave JS app.
-   - Go to {% my supervisor_addon addon="core_zwave_js" title="**Settings** > **Apps** > **Z-Wave JS**" %}.
+   - Go to {% my supervisor_app app="core_zwave_js" title="**Settings** > **Apps** > **Z-Wave JS**" %}.
    - Select **Uninstall**.
    - Decide whether to also delete the data related to the app or whether to keep it.
 4. Done. Z-Wave JS is now completely removed from your Home Assistant server.

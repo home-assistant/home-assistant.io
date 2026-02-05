@@ -54,7 +54,7 @@ Speech-to-Phrase is launching with support for English, French, German, Dutch, S
 
 We're working on updating the Voice wizard to include Speech-to-Phrase. Until then, you need to install the add-on manually:
 
-[<img src='https://my.home-assistant.io/badges/supervisor_addon.svg' style='border: 0;box-shadow: none;' alt="!Open your Home Assistant instance and show the dashboard of an add-on.">](https://my.home-assistant.io/redirect/supervisor_addon/?addon=core_speech-to-phrase)
+[<img src='https://my.home-assistant.io/badges/supervisor_app.svg' style='border: 0;box-shadow: none;' alt="!Open your Home Assistant instance and show the dashboard of an add-on.">](https://my.home-assistant.io/redirect/supervisor_app/?app=core_speech-to-phrase)
 
 ## Building an Open Voice Ecosystem
 
