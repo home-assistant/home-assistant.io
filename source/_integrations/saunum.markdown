@@ -14,7 +14,8 @@ related:
     title: Saunum
   - url: https://saunum.com/en/product/control-devices/
     title: Saunum Leil product page
-ha_category: []
+ha_category:
+  - Climate
 ha_platforms:
   - binary_sensor
   - climate
@@ -232,30 +233,38 @@ The **Saunum** integration provides the following actions.
 
 The `saunum.start_session` action starts a sauna session with custom duration, target temperature, and fan duration. This action provides more granular control than the climate entity, allowing you to specify all session parameters in a single call.
 
-| Data attribute | Required | Description |
-| -------------- | -------- | ----------- |
-| `config_entry_id` | Yes | The config entry ID of the Saunum device. |
-| `duration` | No | Session duration in minutes (1-720). Defaults to 120. |
-| `target_temperature` | No | Target temperature in Celsius (40-100). Defaults to 80. |
-| `fan_duration` | No | Fan duration in minutes (1-30). Defaults to 10. |
+- **Data attribute**: `entity_id`
+  - **Description**: The entity ID of the Saunum climate entity.
+  - **Required**: Yes
 
-{% tip %}
-To find your Saunum `config_entry_id`, go to {% my integrations title="**Settings** > **Devices & services**" %}, select the Saunum integration, select the three-dots menu {% icon "mdi:dots-vertical" %}, and select **Copy entry ID**.
-You can also open **Developer tools** > **Actions**, pick the `saunum.start_session` action, and switch to the YAML view to see the `config_entry_id` that Home Assistant uses.
-{% endtip %}
+- **Data attribute**: `duration`
+  - **Description**: Session duration as a time period (for example, `{"hours": 2}`). Defaults to 2 hours.
+  - **Required**: No
+
+- **Data attribute**: `target_temperature`
+  - **Description**: Target temperature in Celsius (40-100). Defaults to 80.
+  - **Required**: No
+
+- **Data attribute**: `fan_duration`
+  - **Description**: Fan duration as a time period (for example, `{"minutes": 10}`). Defaults to 10 minutes.
+  - **Required**: No
+
 {% note %}
-You cannot start a sauna session when the sauna door is open. The control unit will prevent heating from starting as a safety measure.
+You cannot start a sauna session when the sauna door is open. The control unit will prevent heating as a safety measure.
 {% endnote %}
 
 #### Example
 
 ```yaml
 action: saunum.start_session
+target:
+  entity_id: climate.saunum_leil
 data:
-  config_entry_id: 01234567890abcdef01234567890abcd
-  duration: 120
+  duration:
+    hours: 2
   target_temperature: 80
-  fan_duration: 10
+  fan_duration:
+    minutes: 10
 ```
 
 ## Supported devices
