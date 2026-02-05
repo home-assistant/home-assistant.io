@@ -21,6 +21,7 @@ The **OneDrive for Business** {% term integration %} allows you to use [OneDrive
 Backup encryption is enabled by default and can be disabled as shown in the [backup documentation](/common-tasks/general/#to-define-the-backup-location-for-automatic-backups).
 
 {% include integrations/config_flow.md %}
+
 {% configuration_basic %}
 Client ID:
   description: "Application ID of the app registration to be used with the integration. Uses Home Assistant provided by default."
