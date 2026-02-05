@@ -13,7 +13,7 @@ ha_integration_type: entity
 
 An infrared {% term entity %} represents an infrared transmitter device, allowing other integrations to send IR commands to control devices such as TVs, air conditioners, and other IR-controlled appliances.
 
-The infrared integration acts as an abstraction layer between IR emitter hardware (such as ESPHome) and device-specific integrations that provide control for IR-controlled devices (such as TVs or air conditioners from various brands).
+The **Infrared** {% term integration %} acts as an abstraction layer between IR emitter hardware (such as ESPHome) and device-specific integrations that provide control for IR-controlled devices (such as TVs or air conditioners from various brands).
 
 {% include integrations/building_block_integration.md %}
 
