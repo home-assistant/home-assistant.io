@@ -55,7 +55,7 @@ Please be aware that Fitbit has very low rate limits, 150 per user per hour. The
 
 The unit system that the sensor will use is based on the country you set in your Fitbit profile.
 
-## Notes and troubleshooting
+## Troubleshooting
 
 ### Resetting a broken or incorrect configuration
 
