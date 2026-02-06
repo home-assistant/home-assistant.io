@@ -430,7 +430,7 @@ script:
 This repeat form accepts a list of items to iterate over. The list of items
 can be a pre-defined list, or a list created by a template.
 
-The sequence is ran for each item in the list, and current item in the
+The sequence is run for each item in the list, and current item in the
 iteration is available as `repeat.item`.
 
 The following example will turn a list of lights:

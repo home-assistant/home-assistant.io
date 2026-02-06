@@ -20,9 +20,11 @@ related:
   - docs: /common-tasks/general/#defining-a-custom-polling-interval
     title: Defining a custom polling interval
 ha_category:
+  - Number
   - Sensor
 ha_platforms:
-  - climate
+  - number
+  - sensor
 ---
 
 The **Liebherr** {% term integration %} allows you to control and monitor [Liebherr](https://home.liebherr.com/) SmartDevice refrigerators and freezers via the cloud-based [SmartDevice HomeAPI](https://developer.liebherr.com/apis/smartdevice-homeapi/). With this integration, you can monitor temperatures, adjust cooling settings, and create automations to alert you when temperatures exceed safe food storage thresholds.
@@ -45,11 +47,7 @@ Before setting up the integration, you need to obtain an API key from the Liebhe
    - Select **Become a beta tester**.
    - Activate the **Beta testing HomeAPI**.
    - Select **Generate new key**.
-   - Copy the API key.
-
-   {% note %}
-   **Important**: The API key can only be copied once from the app. Once you leave the screen, it cannot be retrieved again. If you lose your API key, you'll need to generate a new one.
-   {% endnote %}
+   - Copy the API key. The API key can only be copied once from the app.
 
 3. Verify connectivity: Only appliances that are connected to the internet via the SmartDevice app can be accessed through the HomeAPI. Appliances that are only registered but not actively connected will not appear in Home Assistant.
 
@@ -62,32 +60,7 @@ API key:
     description: "The API key from the Liebherr SmartDevice app (**Settings** > **Become a beta tester**). Note: The API key can only be copied once from the app."
 {% endconfiguration_basic %}
 
-## Supported functionality
-
-The **Liebherr** integration provides climate control functionality for refrigerator and freezer zones in your SmartDevice appliances.
-
-### Climate
-
-Each cooling or freezing zone in your appliance is represented as a climate entity with the following capabilities:
-
-- **Current temperature**: Displays the actual temperature measured in the zone.
-- **Target temperature**: Shows and allows you to set the desired temperature for the zone.
-  - Temperature range varies by zone type (cooling or freezing)
-  - Adjustments are in whole degree increments
-- **HVAC mode**: Always set to Cool for these cooling-only appliances.
-- **Temperature unit**: Displays temperature in Celsius or Fahrenheit based on your Home Assistant settings.
-
-#### Multi-zone appliances
-
-For appliances with multiple cooling zones (for example, a fridge-freezer combination):
-
-- **Top zone**: The uppermost cooling compartment
-- **Middle zone**: The middle compartment (if present)
-- **Bottom zone**: The lowermost cooling compartment (if present)
-
-Each zone has independent temperature control.
-
-## Changing temperature unit
+{% details "Changing the temperature unit" %}
 
 The temperature unit displayed in Home Assistant is controlled by your Home Assistant system settings, not by the integration or the appliance settings.
 
@@ -100,6 +73,38 @@ To change between Celsius and Fahrenheit:
 3. The temperature entities will automatically update to display in your chosen unit.
 
 The Liebherr appliances operate based on the temperature unit selected on the device itself. Home Assistant displays temperatures in the unit system you configure in your Home Assistant settings, automatically converting between Celsius and Fahrenheit as needed.
+
+{% enddetails %}
+
+## Supported functionality
+
+The **Liebherr** integration provides temperature monitoring and control for refrigerator and freezer zones in your SmartDevice appliances.
+
+### Numbers
+
+The integration creates number entities for controlling the setpoint temperature of each cooling zone.
+
+- **Setpoint**: The target temperature for the cooling zone. Adjust this value to change the desired temperature.
+
+The temperature range and unit depend on your appliance's capabilities and settings.
+
+For appliances with multiple cooling zones (like a fridge-freezer combination), a separate number entity is created for each zone:
+
+- **Top zone setpoint**: Target temperature for the uppermost compartment
+- **Middle zone setpoint**: Target temperature for the middle compartment (if present)
+- **Bottom zone setpoint**: Target temperature for the lowermost compartment (if present)
+
+### Sensors
+
+The integration creates temperature sensors for each cooling zone in your appliance.
+
+- **Zone temperature**: The current temperature measured inside the cooling zone.
+
+For appliances with multiple cooling zones (like a fridge-freezer combination), a separate sensor is created for each zone:
+
+- **Top zone**: The uppermost cooling compartment
+- **Middle zone**: The middle compartment (if present)
+- **Bottom zone**: The lowermost cooling compartment (if present)
 
 ## Use cases
 
@@ -156,17 +161,23 @@ To resolve this issue, try the following steps:
 
 {% enddetails %}
 
-{% details "Invalid authentication error" %}
+{% details "Invalid or expired API key" %}
 
-**Symptom:** "Invalid authentication" error when entering the API key
+**Symptom:** "Invalid authentication" error during setup, or integration shows "Requires reconfiguration" status
 
-The API key provided is incorrect, expired, or was regenerated in the SmartDevice app.
+The API key is incorrect, expired, or was regenerated in the SmartDevice app. This can also happen if there was a service-side change that invalidated your credentials.
 
-1. **Generate a new API key:**
-   - In the SmartDevice app, go to **Settings** > **Become a beta tester**.
-   - Generate a new API key.
-   - Copy it immediately (you can only copy it once).
-   - Use the new API key in Home Assistant.
+To resolve this issue, generate a new API key and update the integration:
+
+1. In the SmartDevice app, go to **Settings** > **Become a beta tester** > **Generate new key**.
+2. Copy the new API key immediately (you can only copy it once).
+3. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+4. Find the **Liebherr** integration and select **Reconfigure**.
+5. Enter the new API key and select **Submit**.
+
+{% note %}
+Generating a new API key in the SmartDevice app will invalidate your previous key. Make sure to update Home Assistant immediately after generating a new key.
+{% endnote %}
 
 {% enddetails %}
 
