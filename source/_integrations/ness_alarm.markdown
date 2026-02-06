@@ -46,19 +46,6 @@ Incorrect configuration of these settings will prevent the integration from func
 
 {% include integrations/config_flow.md %}
 
-{% details "Manual configuration steps" %}
-
-If the above My button doesn't work, you can also perform the following steps manually:
-
-1. Browse to your Home Assistant instance.
-2. Go to **Settings** > **Devices & Services**.
-3. In the bottom right corner, select the **Add Integration** button.
-4. From the list, select **Ness Alarm**.
-5. Follow the instructions on screen to complete the setup:
-   - Enter the **Host** (IP address or hostname of your IP232 module)
-   - Enter the **Port** (typically 4999 or 2401)
-   - Optionally enable **Infer arming state** if you have a panel version <v5.8
-
 {% enddetails %}
 
 #### Managing Zones
