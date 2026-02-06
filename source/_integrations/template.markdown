@@ -799,7 +799,9 @@ event:
 
 ## Fan
 
-The template fan platform allows you to create fans with templates to define the state and scripts to define each action. You can create template fans from the Home Assistant frontend under **Settings** > **Devices & services** > **Helpers**, or define them in YAML in your `configuration.yaml` file.
+The template fan platform allows you to create fans with templates to define the state and scripts to define each action.
+
+Fan entities can be created from the frontend in the Helpers section or via YAML.
 
 {% raw %}
 
