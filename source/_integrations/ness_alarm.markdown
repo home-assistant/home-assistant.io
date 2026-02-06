@@ -16,10 +16,11 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
+ha_quality_scale: silver
+ha_config_flow: true
 ---
 
-The **Ness Alarm** {% term integration %} will allow Home Assistant users who own a Ness D8x/D16x alarm system to leverage their alarm system and its sensors to provide Home Assistant with information about their homes. Connectivity between Home Assistant and the alarm is accomplished through a IP232 module that must be connected to the alarm.
+The **Ness Alarm** {% term integration %} allows Home Assistant users who own a Ness D8x/D16x alarm system to leverage their alarm system and its sensors to provide Home Assistant with information about their homes. Connectivity between Home Assistant and the alarm is accomplished through an IP232 module that must be connected to the alarm.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -28,16 +29,55 @@ There is currently support for the following device types within Home Assistant:
 
 The module communicates via the [Ness D8x/D16x ASCII protocol](https://ia802202.us.archive.org/16/items/ness-d-8x-d-16x-serial-interface.-ascii-protocol/Ness%20D8x%20D16x%20Serial%20Interface.%20ASCII%20Protocol.pdf).
 
+{% include integrations/config_flow.md %}
+
 ## Configuration
 
-A `ness_alarm` section must be present in the {% term "`configuration.yaml`" %} file and contain the following options as required:
+### UI Configuration (Recommended)
+
+To add the Ness Alarm integration to your Home Assistant instance, use this My button:
+
+{% my config_flow_start badge domain=page.ha_domain %}
+
+{% details "Manual configuration steps" %}
+
+If the above My button doesn't work, you can also perform the following steps manually:
+
+1. Browse to your Home Assistant instance.
+2. Go to **Settings** > **Devices & Services**.
+3. In the bottom right corner, select the **Add Integration** button.
+4. From the list, select **Ness Alarm**.
+5. Follow the instructions on screen to complete the setup:
+   - Enter the **Host** (IP address or hostname of your IP232 module)
+   - Enter the **Port** (typically 1992 or 2401)
+   - Optionally enable **Infer arming state** if you have a panel version <v5.8
+
+{% enddetails %}
+
+#### Managing Zones
+
+After setting up the integration, you can add zones through the UI:
+
+1. Go to **Settings** > **Devices & Services**.
+2. Find the **Ness Alarm** integration and select **Configure**.
+3. Select **Add zone** to add a new zone.
+4. Enter the zone number (1-32) and select the zone type (device class).
+5. The zone will appear as a separate device in Home Assistant.
+
+You can reconfigure a zone's device class at any time by selecting the zone's configure button.
+
+### YAML Configuration (Legacy)
+
 {% include integrations/restart_ha_after_config_inclusion.md %}
+
+Alternatively, you can configure the integration via YAML. Existing YAML configurations will be automatically imported to the UI on the next Home Assistant restart.
 
 ```yaml
 # Example configuration.yaml entry
 ness_alarm:
   host: alarm.local
   port: 2401
+  infer_arming_state: false
   zones:
     - name: Garage
       id: 1
@@ -50,87 +90,3 @@ ness_alarm:
     - name: Front Door
       id: 5
       type: door
-```
-
-{% configuration %}
-host:
-  description: The hostname of the IP232 module on your home network.
-  required: true
-  type: string
-port:
-  description: The port on which the IP232 module listens for clients.
-  required: true
-  type: integer
-scan_interval:
-  description: "Time interval between updates. Supported formats: `scan_interval: 'HH:MM:SS'`, `scan_interval: 'HH:MM'` and Time period dictionary (see example below)."
-  required: false
-  default: "00:01:00"
-  type: time
-infer_arming_state:
-  description: Infer the disarmed arming state only via system status events. This works around a bug with some panels (`<v5.8`) which emit `update.status = []` when they are armed.
-  required: false
-  default: false
-  type: boolean
-zones:
-  description: List of zones to add
-  required: false
-  type: list
-  keys:
-    zone_id:
-      description: ID of the zone on the alarm system (i.e Zone 1 -> Zone 16).
-      required: true
-      type: integer
-    name:
-      description: Name of the zone.
-      required: true
-      type: string
-    type:
-      description: The zone type. Can be any [binary_sensor device class](/integrations/binary_sensor/#device-class).
-      required: false
-      default: motion
-      type: string
-{% endconfiguration %}
-
-### Time period dictionary example
-
-```yaml
-scan_interval:
-  # At least one of these must be specified:
-  days: 0
-  hours: 0
-  minutes: 0
-  seconds: 10
-  milliseconds: 0
-```
-
-### Alarm System Configuration
-
-As part of the installation process of the IP232 module, the device will need to be configured with the correct settings. From the [iComms Manual](https://ness.zendesk.com/hc/en-us/articles/360021989074-iComms-Manual), there are 3 essential steps:
-1. Setting up the IP232 module with the correct baud rate (9600).
-2. Ensuring connectivity of the device on either a DHCP assigned or Static IP address.
-3. Setting the alarm panel up to allow for serial control. On D8x/D16x panels this is enabled by setting `P 199 E` `1E` to `6E` to be `ON` (6E available on v6 panels and later only).
-
-If the settings in steps 1 and 2 are not set correctly, the integration will not be able to communicate properly with the device. If the `P 199 E` from step 3 is not configured properly, data will not be sent to the integration when events occur.
-
-{% important %}
-Incorrect configuration of these settings will prevent the integration from functioning properly.
-{% endimportant %}
-
-## Actions
-
-### Action `aux`
-
-Trigger an aux output.  This requires PCB version 7.8 or higher.
-
-| Data attribute | Optional | Description                                                                                                                                                         |
-| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `output_id`            | No       | The aux output you wish to change.  A number from 1-8.                                                                                                              |
-| `state`                | Yes      | The On/Off State, represented as true/false. Default is true.  If P14xE 8E is enabled then a value of true will pulse output x for the time specified in P14(x+4)E. |
-
-### Action `panic`
-
-Trigger a panic
-
-| Data attribute | Optional | Description                                |
-| ---------------------- | -------- | ------------------------------------------ |
-| `code`                 | No       | The user code to use to trigger the panic. |
