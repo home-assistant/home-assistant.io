@@ -458,7 +458,7 @@ Features:
 - get humidity
 - get carbon dioxide
 - get battery level
-- automatic datetime sync with Home Assistant. Disabled by default, turn on in the device options on the **SwitchBot Bluetooth** integration page.
+- automatic datetime sync with Home Assistant. Enabled by default, turn off in the device options on the **SwitchBot Bluetooth** integration page.
 - force-sync the device datetime with Home Assistant. Available on the device's details page.
 - set display time format (12h/24h)
 
