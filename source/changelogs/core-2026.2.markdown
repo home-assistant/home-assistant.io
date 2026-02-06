@@ -1663,3 +1663,57 @@ For a summary in a more readable format
 [@ziv1234]: https://github.com/ziv1234
 [@zweckj]: https://github.com/zweckj
 [@zxdavb]: https://github.com/zxdavb
+
+## Release 2026.2.1 - February 6
+
+- Fix redundant `off` preset in Tuya climate ([@epenet] - [#161040])
+- Fix device_class of backup reserve sensor ([@jonootto] - [#161178])
+- Bump evohome-async to 1.1.3 ([@zxdavb] - [#162232])
+- Bump google_air_quality_api to 3.0.1 ([@Thomas55555] - [#162233])
+- Bump denonavr to 1.3.2 ([@ol-iver] - [#162271])
+- Fix multipart upload to use consistent part sizes for R2/S3 ([@corrreia] - [#162278])
+- Add mapping for `stopped` state to `denonavr` media player ([@ol-iver] - [#162283])
+- Fix unicode escaping in MCP server tool response ([@luochen1990] - [#162319])
+- Bump pyenphase to 2.4.5 ([@catsmanac] - [#162324])
+- Fix Shelly Linkedgo Thermostat status update ([@thecode] - [#162339])
+- Update pynintendoparental requirement to version 2.3.2.1 ([@pantherale0] - [#162362])
+- Fix conversion of data for todo.* actions ([@boralyl] - [#162366])
+- Bump python-smarttub to 0.0.47 ([@mdz] - [#162367])
+- Add missing config flow strings to SmartTub ([@mdz] - [#162375])
+- Remove entity id overwrite for ambient station ([@joostlek] - [#162403])
+- Bump librehardwaremonitor-api to version 1.9.1 ([@Sab44] - [#162409])
+- Remove double unit of measurement for yardian ([@joostlek] - [#162412])
+- Fix invalid yardian snaphots ([@epenet] - [#162422])
+- Make bad entity ID detection more lenient ([@arturpragacz] - [#162425])
+- Bump aioamazondevices to 11.1.3 ([@jamesonuk] - [#162437])
+
+[#161040]: https://github.com/home-assistant/core/pull/161040
+[#161178]: https://github.com/home-assistant/core/pull/161178
+[#162224]: https://github.com/home-assistant/core/pull/162224
+[#162232]: https://github.com/home-assistant/core/pull/162232
+[#162233]: https://github.com/home-assistant/core/pull/162233
+[#162271]: https://github.com/home-assistant/core/pull/162271
+[#162278]: https://github.com/home-assistant/core/pull/162278
+[#162283]: https://github.com/home-assistant/core/pull/162283
+[#162319]: https://github.com/home-assistant/core/pull/162319
+[#162324]: https://github.com/home-assistant/core/pull/162324
+[#162339]: https://github.com/home-assistant/core/pull/162339
+[#162362]: https://github.com/home-assistant/core/pull/162362
+[#162366]: https://github.com/home-assistant/core/pull/162366
+[#162367]: https://github.com/home-assistant/core/pull/162367
+[#162375]: https://github.com/home-assistant/core/pull/162375
+[#162403]: https://github.com/home-assistant/core/pull/162403
+[#162409]: https://github.com/home-assistant/core/pull/162409
+[#162412]: https://github.com/home-assistant/core/pull/162412
+[#162422]: https://github.com/home-assistant/core/pull/162422
+[#162425]: https://github.com/home-assistant/core/pull/162425
+[#162437]: https://github.com/home-assistant/core/pull/162437
+[@Sab44]: https://github.com/Sab44
+[@arturpragacz]: https://github.com/arturpragacz
+[@boralyl]: https://github.com/boralyl
+[@corrreia]: https://github.com/corrreia
+[@jamesonuk]: https://github.com/jamesonuk
+[@jonootto]: https://github.com/jonootto
+[@luochen1990]: https://github.com/luochen1990
+[@mdz]: https://github.com/mdz
+[@pantherale0]: https://github.com/pantherale0
