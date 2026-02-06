@@ -58,6 +58,8 @@ Enjoy the release!
 - [Other noteworthy changes](#other-noteworthy-changes)
   - [Add buttons to your heading card](#add-buttons-to-your-heading-card)
   - [Pick specific entities in your area card](#pick-specific-entities-in-your-area-card)
+- [Patch releases](#patch-releases)
+  - [2026.2.1 - February 6](#202621---february-6)
 - [Need help? Join the community](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
@@ -443,6 +445,74 @@ The area card now lets you select individual entities as control buttons, not ju
 <img src='/images/blog/2026-02/area-card-entities.png' alt='Screenshot of the area card control configuration showing entity selection.' class='no-shadow' />
 
 Great job, [@MindFreeze]! 🎉
+
+## Patch releases
+
+We will also release patch releases for Home Assistant 2026.2 in February.
+These patch releases only contain bug fixes. Our goal is to release a patch
+release once a week, aiming for Friday.
+
+### 2026.2.1 - February 6
+
+- Fix redundant `off` preset in Tuya climate ([@epenet] - [#161040])
+- Fix device_class of backup reserve sensor ([@jonootto] - [#161178])
+- Bump evohome-async to 1.1.3 ([@zxdavb] - [#162232])
+- Bump google_air_quality_api to 3.0.1 ([@Thomas55555] - [#162233])
+- Bump denonavr to 1.3.2 ([@ol-iver] - [#162271])
+- Fix multipart upload to use consistent part sizes for R2/S3 ([@corrreia] - [#162278])
+- Add mapping for `stopped` state to `denonavr` media player ([@ol-iver] - [#162283])
+- Fix unicode escaping in MCP server tool response ([@luochen1990] - [#162319])
+- Bump pyenphase to 2.4.5 ([@catsmanac] - [#162324])
+- Fix Shelly Linkedgo Thermostat status update ([@thecode] - [#162339])
+- Update pynintendoparental requirement to version 2.3.2.1 ([@pantherale0] - [#162362])
+- Fix conversion of data for todo.* actions ([@boralyl] - [#162366])
+- Bump python-smarttub to 0.0.47 ([@mdz] - [#162367])
+- Add missing config flow strings to SmartTub ([@mdz] - [#162375])
+- Remove entity id overwrite for ambient station ([@joostlek] - [#162403])
+- Bump librehardwaremonitor-api to version 1.9.1 ([@Sab44] - [#162409])
+- Remove double unit of measurement for yardian ([@joostlek] - [#162412])
+- Fix invalid yardian snapshots ([@epenet] - [#162422])
+- Make bad entity ID detection more lenient ([@arturpragacz] - [#162425])
+- Bump aioamazondevices to 11.1.3 ([@jamesonuk] - [#162437])
+
+[#161040]: https://github.com/home-assistant/core/pull/161040
+[#161178]: https://github.com/home-assistant/core/pull/161178
+[#162224]: https://github.com/home-assistant/core/pull/162224
+[#162232]: https://github.com/home-assistant/core/pull/162232
+[#162233]: https://github.com/home-assistant/core/pull/162233
+[#162271]: https://github.com/home-assistant/core/pull/162271
+[#162278]: https://github.com/home-assistant/core/pull/162278
+[#162283]: https://github.com/home-assistant/core/pull/162283
+[#162319]: https://github.com/home-assistant/core/pull/162319
+[#162324]: https://github.com/home-assistant/core/pull/162324
+[#162339]: https://github.com/home-assistant/core/pull/162339
+[#162362]: https://github.com/home-assistant/core/pull/162362
+[#162366]: https://github.com/home-assistant/core/pull/162366
+[#162367]: https://github.com/home-assistant/core/pull/162367
+[#162375]: https://github.com/home-assistant/core/pull/162375
+[#162403]: https://github.com/home-assistant/core/pull/162403
+[#162409]: https://github.com/home-assistant/core/pull/162409
+[#162412]: https://github.com/home-assistant/core/pull/162412
+[#162422]: https://github.com/home-assistant/core/pull/162422
+[#162425]: https://github.com/home-assistant/core/pull/162425
+[#162437]: https://github.com/home-assistant/core/pull/162437
+[@Sab44]: https://github.com/Sab44
+[@Thomas55555]: https://github.com/Thomas55555
+[@arturpragacz]: https://github.com/arturpragacz
+[@boralyl]: https://github.com/boralyl
+[@catsmanac]: https://github.com/catsmanac
+[@corrreia]: https://github.com/corrreia
+[@epenet]: https://github.com/epenet
+[@frenck]: https://github.com/frenck
+[@jamesonuk]: https://github.com/jamesonuk
+[@jonootto]: https://github.com/jonootto
+[@joostlek]: https://github.com/joostlek
+[@luochen1990]: https://github.com/luochen1990
+[@mdz]: https://github.com/mdz
+[@ol-iver]: https://github.com/ol-iver
+[@pantherale0]: https://github.com/pantherale0
+[@thecode]: https://github.com/thecode
+[@zxdavb]: https://github.com/zxdavb
 
 ## Need help? Join the community
 
