@@ -8,6 +8,7 @@ ha_release: 0.85
 ha_iot_class: Local Push
 ha_codeowners:
   - '@nickw444'
+  - '@poshy163'
 ha_domain: ness_alarm
 ha_platforms:
   - alarm_control_panel
@@ -44,14 +45,6 @@ Incorrect configuration of these settings will prevent the integration from func
 
 
 {% include integrations/config_flow.md %}
-
-## Configuration
-
-### UI Configuration (Recommended)
-
-To add the Ness Alarm integration to your Home Assistant instance, use this My button:
-
-{% my config_flow_start badge domain=page.ha_domain %}
 
 {% details "Manual configuration steps" %}
 
