@@ -103,3 +103,6 @@ Trigger a panic
 | Data attribute | Optional | Description                                |
 | ---------------------- | -------- | ------------------------------------------ |
 | `code`                 | No       | The user code to use to trigger the panic. |
+
+
+```
