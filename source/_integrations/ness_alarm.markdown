@@ -82,6 +82,7 @@ ness_alarm:
     - name: Front Door
       id: 5
       type: door
+```
 
 ## Actions
 
@@ -102,5 +103,3 @@ Trigger a panic
 | ---------------------- | -------- | ------------------------------------------ |
 | `code`                 | No       | The user code to use to trigger the panic. |
 
-
-```
