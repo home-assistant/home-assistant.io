@@ -58,13 +58,13 @@ For users that are part of an organization with pooled storage, information abou
 
 Get started with these automation examples.
 
-> In the examples below, remember to replace `your_email_gmail_com` with the actual ID of your sensors (found in **Settings** > **Devices & Services** > **Entities**) and replace `notify.mobile_app_your_device` with your actual notifier.
-
 ### Send alert when drive is near storage limit
 
 Send an alert when the drive usage is close to the storage limit and needs clean up.
 
 {% details "Example YAML configuration" %}
+
+Create an automation with the following code. Remember to replace `your_email_gmail_com` with the actual ID of your sensors (found in **Settings** > **Devices & Services** > **Entities**) and replace `notify.mobile_app_your_device` with your actual notifier.
 
 {% raw %}
 
@@ -72,9 +72,11 @@ Send an alert when the drive usage is close to the storage limit and needs clean
 alias: Alert when Google Account is close to storage limit
 description: Send notification to phone when drive needs clean up.
 triggers:
-  - trigger: numeric_state
-    entity_id: sensor.your_email_gmail_com_used_storage
-    above: "{{ states('sensor.your_email_gmail_com_total_available_storage') | float * 0.9 }}"
+  - trigger: template
+    value_template: >
+      {% set used = states('sensor.your_email_gmail_com_used_storage') | float(0) %}
+      {% set total = states('sensor.your_email_gmail_com_total_available_storage') | float(0) %}
+      {{ used > (total * 0.9) }}
 actions:
   - action: notify.mobile_app_your_device
     data:
