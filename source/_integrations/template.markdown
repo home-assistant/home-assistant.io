@@ -799,7 +799,7 @@ event:
 
 ## Fan
 
-The template fan platform allows you to create fans with templates to define the state and scripts to define each action.
+The template fan platform allows you to create fans with templates to define the state and scripts to define each action. You can create template fans from the Home Assistant frontend under **Settings** > **Devices & services** > **Helpers**, or define them in YAML in your `configuration.yaml` file.
 
 {% raw %}
 
@@ -1118,6 +1118,8 @@ image:
 ## Light
 
 The template light platform allows you to create lights with templates to define the state and scripts to define each action.
+
+Light entities can be created from the frontend in the Helpers section or via YAML.
 
 {% raw %}
 
@@ -1452,6 +1454,8 @@ template:
 ## Lock
 
 The template lock platform allows you to create locks with templates to define the state and scripts to define each action.
+
+Lock entities can be created from the frontend in the Helpers section or via YAML.
 
 {% raw %}
 
@@ -2259,6 +2263,8 @@ update:
 
 The template vacuum platform allows you to create vacuum entities with templates to define the state and scripts to define each action.
 
+Vacuum entities can be created from the frontend in the Helpers section or via YAML.
+
 {% raw %}
 
 ```yaml
@@ -2414,6 +2420,8 @@ vacuum:
 ## Weather
 
 The template weather platform allows you to create weather entities with templates to define the state and attributes.
+
+Weather entities can be created from the frontend in the Helpers section or via YAML.
 
 {% raw %}
 
