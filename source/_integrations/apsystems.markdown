@@ -62,4 +62,8 @@ There has been a discussion about the inverter's lifetime being shortened when u
 
 Make sure the local API is activated and set to **Continuously**. For that, connect to the inverter via Bluetooth using the app and go to **Settings** > **Local Mode**, set the switch **Enable Local Mode** to on and make sure to set this to **Continuously**.
 
+{% note %}
+If the **Local Mode** option is not visible under **Settings**, the device may still be connected to the APsystems cloud. To access the setting, open the APsystems app, remove the device from the cloud or log out, and then connect to the inverter directly via Bluetooth. The **Local Mode** option should then appear under **Settings**.
+{% endnote %}
+
 {% include integrations/config_flow.md %}
