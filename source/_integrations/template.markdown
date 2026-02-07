@@ -801,7 +801,7 @@ event:
 
 The template fan platform allows you to create fans with templates to define the state and scripts to define each action.
 
-Fan entities can only be created from YAML.
+Fan entities can be created from the frontend in the Helpers section or via YAML.
 
 {% raw %}
 
@@ -1121,7 +1121,7 @@ image:
 
 The template light platform allows you to create lights with templates to define the state and scripts to define each action.
 
-Light entities can only be created from YAML.
+Light entities can be created from the frontend in the Helpers section or via YAML.
 
 {% raw %}
 
@@ -1457,7 +1457,7 @@ template:
 
 The template lock platform allows you to create locks with templates to define the state and scripts to define each action.
 
-Lock entities can only be created from YAML.
+Lock entities can be created from the frontend in the Helpers section or via YAML.
 
 {% raw %}
 
@@ -2265,7 +2265,7 @@ update:
 
 The template vacuum platform allows you to create vacuum entities with templates to define the state and scripts to define each action.
 
-Vacuum entities can only be created via YAML.
+Vacuum entities can be created from the frontend in the Helpers section or via YAML.
 
 {% raw %}
 
@@ -2423,7 +2423,7 @@ vacuum:
 
 The template weather platform allows you to create weather entities with templates to define the state and attributes.
 
-Weather entities can only be created via YAML.
+Weather entities can be created from the frontend in the Helpers section or via YAML.
 
 {% raw %}
 
