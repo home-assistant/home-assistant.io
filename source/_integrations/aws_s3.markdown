@@ -116,9 +116,9 @@ The integration will test the connection and confirm access to your S3 bucket.
 
 ## Sensors
 
-The integration provides the following sensor, which are updated every 6 hours:
+The integration provides the following sensor, which is updated every 6 hours:
 
-- **Total size of backups**: The sum of the size of all backups.
+- **Total size of backups**: The combined size of all Home Assistant backups stored in the configured S3 bucket for this Home Assistant installation.
 
 ## Known limitations
 
