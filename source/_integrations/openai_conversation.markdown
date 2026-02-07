@@ -49,6 +49,14 @@ The OpenAI key is used to authenticate requests to the OpenAI API. To generate a
 
 {% include integrations/option_flow.md %}
 
+The integration provides the following types of subentries:
+
+- [Conversation](/integrations/conversation)
+- [AI Task](/integrations/ai_task)
+- [Text-to-speech (TTS)](/integrations/tts)
+
+The Conversation and AI Task subentries have the following configuration options (some of them may be unavailable due to subentry type or model choice):
+
 {% configuration_basic %}
 Instructions:
   description: Instructions for the AI on how it should respond to your requests. It is written using [Home Assistant Templating](/docs/configuration/templating/).
@@ -75,6 +83,15 @@ Search context size:
   description: The search is performed with a separate fine-tuned model with its own context and its own [pricing](https://platform.openai.com/docs/pricing#built-in-tools). This parameter controls how much context is retrieved from the web to help the tool formulate a response. The tokens used by the search tool do not affect the context window of the main model. These tokens are also not carried over from one turn to another — they're simply used to formulate the tool response and then discarded. This parameter would affect the search quality, cost, and latency.
 Include home location:
   description: This parameter allows using the location of your Home Assistant instance during search to provide more relevant search results.
+{% endconfiguration_basic %}
+
+The Text-to-speech subentries have the following configuration options:
+
+{% configuration_basic %}
+Instructions:
+  description: Instructions for the AI on how it should read your text. You can prompt the model to control aspects of speech, including accent, emotional range, intonation, impressions, speed of speech, tone, whispering, and more. Templates are not supported here.
+Speed of the generated speech:
+  description: Additionally adjust the speed of the speech.
 {% endconfiguration_basic %}
 
 ## Talking to Super Mario over the phone
