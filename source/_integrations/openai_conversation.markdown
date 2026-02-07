@@ -83,6 +83,12 @@ You can use an OpenAI Conversation integration to [talk to Super Mario and, if d
 
 ## Actions
 
+{% note %}
+
+The actions below are deprecated and will be removed in the future. Please use the corresponding [AI Task](/integrations/ai_task/) actions instead.
+
+{% endnote %}
+
 ### Action `openai_conversation.generate_image`
 
 Allows you to ask OpenAI to generate an image based on a prompt. This action
