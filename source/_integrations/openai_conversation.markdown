@@ -51,9 +51,9 @@ The OpenAI key is used to authenticate requests to the OpenAI API. To generate a
 
 The integration provides the following types of subentries:
 
-- [Conversation](/integrations/conversation)
-- [AI Task](/integrations/ai_task)
-- [Text-to-speech (TTS)](/integrations/tts)
+- [Conversation](/integrations/conversation/)
+- [AI Task](/integrations/ai_task/)
+- [Text-to-speech (TTS)](/integrations/tts/)
 
 The Conversation and AI Task subentries have the following configuration options (some of them may be unavailable due to subentry type or model choice):
 
@@ -85,7 +85,7 @@ Include home location:
   description: This parameter allows using the location of your Home Assistant instance during search to provide more relevant search results.
 {% endconfiguration_basic %}
 
-The Text-to-speech subentries have the following configuration options:
+The Text-to-speech (TTS) subentries have the following configuration options:
 
 {% configuration_basic %}
 Instructions:
