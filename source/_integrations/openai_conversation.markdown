@@ -91,7 +91,8 @@ The Text-to-speech subentries have the following configuration options:
 Instructions:
   description: Instructions for the AI on how it should read your text. You can prompt the model to control aspects of speech, including accent, emotional range, intonation, impressions, speed of speech, tone, whispering, and more. Templates are not supported here.
 Speed of the generated speech:
-  description: Additionally adjust the speed of the speech.
+  description: Additionally adjust the speed of the speech. Accepts values between 0.25 and 4.0, where 1.0 is the default speed.
+
 {% endconfiguration_basic %}
 
 ## Talking to Super Mario over the phone
