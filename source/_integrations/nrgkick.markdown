@@ -167,7 +167,7 @@ The integration creates the following controls. Additional controls will be adde
 
 #### Switches
 
-- **Charging enabled**: Enable or pause charging.
+- **Charging enabled**: Turn on to enable charging. Turn off to pause charging.
 
 ### Key entities
 
@@ -176,7 +176,7 @@ Entity IDs depend on your device name in Home Assistant. The examples below assu
 - `sensor.nrgkick_charging_current`: Charging current.
 - `sensor.nrgkick_charged_energy`: Charged energy.
 - `sensor.nrgkick_status`: Charging status.
-- `switch.nrgkick_charging_enabled`: Enable or pause charging.
+- `switch.nrgkick_charging_enabled`: Turn on to enable charging. Turn off to pause charging.
 
 ## Data updates
 
