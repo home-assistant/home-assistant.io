@@ -12,8 +12,6 @@ related:
     title: Views
   - docs: /dashboards/
     title: Introduction to dashboards
-  - docs: /dashboards/#get-started-with-your-own-dashboard/
-    title: Take control of the default dashboard
 ---
 
 Each dashboard is made up of cards.
