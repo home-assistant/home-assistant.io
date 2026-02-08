@@ -22,6 +22,7 @@ An {% term automation %} can be triggered by an {% term event %}, a certain {% t
 - [Template trigger](#template-trigger)
 - [Time trigger](#time-trigger)
 - [Time pattern trigger](#time-pattern-trigger)
+- [Timer trigger](#timer-trigger)
 - [Persistent notification trigger](#persistent-notification-trigger)
 - [Webhook trigger](#webhook-trigger)
 - [Zone trigger](#zone-trigger)
@@ -948,6 +949,21 @@ automation 3:
 {% note %}
 Do not prefix numbers with a zero - using `'01'` instead of `'1'` for example will result in errors.
 {% endnote %}
+
+## Timer trigger
+
+Timer trigger fires when any of the selected timer events fire for the selected entity. You can select more than one event per trigger.
+
+```yaml
+automation:
+  triggers:
+    - trigger: timer
+      entity_id: timer.test
+      # Possible values: start, finish, pause, cancel
+      events:
+        - pause
+        - cancel
+```
 
 ## Persistent notification trigger
 
