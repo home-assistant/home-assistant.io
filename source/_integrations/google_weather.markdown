@@ -12,6 +12,7 @@ ha_codeowners:
 ha_integration_type: service
 ha_quality_scale: bronze
 ha_platforms:
+  - sensor
   - weather
 ---
 
@@ -38,6 +39,8 @@ The integration fetches:
 - hourly weather forecast for the next 24 hours every 1 hour
 
 This results in 4,464 requests per month, meaning you could have up to 2 locations and still stay under the 10,000 free usage cap.
+
+The `weather.get_forecasts` action uses the cached forecast data and will not issue any additional API calls to Google. You can use this action safely in templates or automations without affecting your quota usage.
 
 ## Known limitations
 

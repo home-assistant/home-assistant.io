@@ -30,7 +30,7 @@ ha_platforms:
   - select
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The **BMW Connected Drive** {% term integration %} lets you retrieve data of your BMW or MINI vehicle from the MyBMW portal (previously BMW Connected Drive).

@@ -8,7 +8,7 @@ ha_iot_class: Local Polling
 ha_domain: rest
 ---
 
-The `rest` sensor platform is consuming a given endpoint which is exposed by a [RESTful API](https://en.wikipedia.org/wiki/Representational_state_transfer) of a device, an application, or a web service. The sensor has support for GET and POST requests.
+The **RESTful Sensor** {% term integration %} is consuming a given endpoint which is exposed by a [RESTful API](https://en.wikipedia.org/wiki/Representational_state_transfer) of a device, an application, or a web service. The sensor has support for GET and POST requests.
 
 _Tip:_ If you want to create multiple `sensors` using the same endpoint, use the [RESTful](/integrations/rest) configuration instructions.
 

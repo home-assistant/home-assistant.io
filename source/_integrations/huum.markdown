@@ -6,6 +6,7 @@ ha_category:
   - Climate
   - Light
   - Number
+  - Sensor
 ha_release: 2024.2
 ha_iot_class: Cloud Polling
 ha_codeowners:
@@ -18,7 +19,8 @@ ha_platforms:
   - climate
   - light
   - number
-ha_integration_type: integration
+  - sensor
+ha_integration_type: device
 ---
 
 Integrates [Huum](https://huum.eu/) saunas into Home Assistant.
@@ -41,6 +43,10 @@ sauna by mistake.
 ### Binary sensors
 
 - **Door**: Sauna door state (open or closed).
+
+### Sensors
+
+- **Temperature**: Current sauna temperature in degrees Celsius.
 
 ### Climate
 

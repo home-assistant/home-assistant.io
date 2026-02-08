@@ -10,7 +10,7 @@ related:
     title: Configuration file
 ---
 
-The `ifttt` {% term integration %} allows you to integrate security systems that have no open API but can be controlled through [IFTTT](https://ifttt.com/explore).
+The **IFTTT** {% term integration %} allows you to integrate security systems that have no open API but can be controlled through [IFTTT](https://ifttt.com/explore).
 
 This {% term integration %} depends on the [IFTTT](/integrations/ifttt/) Home Assistant integration. See the integrations documentation to set it up.
 

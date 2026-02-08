@@ -18,11 +18,11 @@ ha_platforms:
   - update
 ha_codeowners:
   - '@Noltari'
-ha_integration_type: integration
+ha_integration_type: device
 ha_dhcp: true
 ---
 
-This integration interacts with the local API of [QNAP QSW managed switches](https://www.qnap.com/en/product/series/qsw-managed-switches).
+This {% term integration %} interacts with the local API of [QNAP QSW managed switches](https://www.qnap.com/en/product/series/qsw-managed-switches).
 
 {% include integrations/config_flow.md %}
 

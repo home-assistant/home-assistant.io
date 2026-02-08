@@ -14,7 +14,7 @@ ha_domain: rehlko
 ha_platforms:
   - binary_sensor
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
 ha_quality_scale: silver
 ---
 
@@ -69,6 +69,7 @@ Provides the overall status of the generator.
 | `ReadyToRun` | Generator is ready to run in case of a power outage. |
 | `Running` | Generator is running. |
 | `RunningExercise` | Generator is currently running its exercise program. |
+| `Shutdown` | Generator is shut down due to a failure and **will not** run in case of a power outage. |
 | `SwitchStateOff` | Generator is turned off and **will not** run in case of a power outage. |
 
 #### Engine state

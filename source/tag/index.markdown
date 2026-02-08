@@ -14,7 +14,7 @@ If you arrived here after scanning a tag on iOS, and you have the [Home Assistan
 2. Choose "Open in 'Home Assistant'"
 3. Attempt to scan the tag again
 
-If you do not have it, you must [install the iOS app](https://apps.apple.com/us/app/home-assistant/id1099568401?mt=8) for these tags to function.
+If you do not have it, you must [install the iOS app](https://apps.apple.com/app/home-assistant/id1099568401?mt=8) for these tags to function.
 
 ## Android
 
