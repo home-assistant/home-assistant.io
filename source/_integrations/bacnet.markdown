@@ -1,0 +1,119 @@
+---
+title: BACnet
+description: Instructions on how to integrate BACnet devices with Home Assistant.
+ha_category:
+  - Sensor
+ha_release: "2025.x"
+ha_iot_class: Local Push
+ha_config_flow: true
+ha_codeowners:
+  - "@fishloa"
+ha_domain: bacnet
+ha_integration_type: hub
+ha_quality_scale: silver
+ha_platforms:
+  - binary_sensor
+  - sensor
+---
+
+The BACnet integration allows you to monitor [BACnet](https://www.bacnet.org/) devices on your local network. BACnet (Building Automation and Control Networks) is a communication protocol commonly used in building automation systems for HVAC, lighting, access control, and fire detection.
+
+This integration uses [BACpypes3](https://github.com/JoelBender/BACpypes3) to communicate with BACnet/IP devices.
+
+## Prerequisites
+
+- One or more BACnet/IP devices accessible on your local network
+- The Home Assistant host must be on the same network (or routed) as the BACnet devices
+- BACnet devices must support BACnet/IP (UDP port 47808 by default)
+
+{% include integrations/config_flow.md %}
+
+## Installation parameters
+
+The setup process has two stages: adding a **hub** (BACnet client) and then adding **devices**.
+
+### Hub setup
+
+{% configuration_basic %}
+IP address:
+  description: "The IP address of the network interface to bind the BACnet client to. Select a specific interface, enter one manually, or choose `0.0.0.0` to listen on all interfaces."
+{% endconfiguration_basic %}
+
+### Device setup
+
+After the hub is configured, BACnet devices are discovered automatically using BACnet *Who-Is* broadcasts. You can also add devices manually.
+
+#### Automatic discovery
+
+{% configuration_basic %}
+Device:
+  description: "The BACnet device to add to Home Assistant. Devices are shown with their name, vendor, model, and network address."
+{% endconfiguration_basic %}
+
+After selecting a device, the integration reads the device's object list. You can then choose which objects to monitor:
+
+{% configuration_basic %}
+Objects:
+  description: "The BACnet objects to monitor from this device. Each object becomes a sensor or binary sensor entity in Home Assistant."
+{% endconfiguration_basic %}
+
+#### Manual configuration
+
+{% configuration_basic %}
+Device instance ID:
+  description: "The BACnet device instance number."
+Device network address:
+  description: "The IP address and port of the BACnet device (for example, `192.168.1.100:47808`)."
+{% endconfiguration_basic %}
+
+## Configuration parameters
+
+After a device is set up, you can change which BACnet objects are monitored through the integration options.
+
+{% configuration_basic %}
+Objects:
+  description: "The BACnet objects to monitor from this device. Deselect objects you no longer want to track, or select new ones that were discovered."
+{% endconfiguration_basic %}
+
+## Reconfiguration
+
+You can reconfigure both hub and device entries:
+
+- **Hub**: Update the network interface IP address
+- **Device**: Update the device network address (for example, if the device IP changed)
+
+## Supported object types
+
+The integration creates entities for the following BACnet object types:
+
+| BACnet object type | Home Assistant platform |
+| --- | --- |
+| Analog Input | Sensor |
+| Analog Output | Sensor |
+| Analog Value | Sensor |
+| Binary Input | Binary sensor |
+| Binary Output | Binary sensor |
+| Binary Value | Binary sensor |
+| Multi-state Input | Sensor |
+| Multi-state Output | Sensor |
+| Multi-state Value | Sensor |
+
+## Data updates
+
+The integration uses a hybrid update strategy:
+
+- **Change of Value (COV) subscriptions**: For supported objects, the device pushes value changes to Home Assistant in real time
+- **Polling**: Objects without COV support are polled at a regular interval as a fallback
+
+## Removal
+
+{% include integrations/remove_device_service.md %}
+
+Removing the hub entry will disconnect from the BACnet network and remove all associated device entries.
+
+## Known limitations
+
+- Only BACnet/IP is supported (not MS/TP or other data link layers)
+- The integration binds to a single network interface per hub
+- BACnet routing (BBMD) is not currently supported
+- Write operations to BACnet objects are not supported (read-only)
