@@ -21,22 +21,31 @@ and create them as sensors in Home Assistant.
 
 {% include integrations/config_flow.md %}
 
-## Energy management
+## Energy management and sensor availability
 
 You can use the energy sensors directly with the Home Assistant energy dashboard.
+
+IoTaWatt **Inputs** are available as sensors and are shown on the device screen in the Visual Interface. 
+
+Any **Outputs** that you create within the IoTaWatt unit itself are also made available as sensors for use in the Energy Dashboard, templates, etc. however they are not listed within the User Interface card for the Device because of the Home Assistant Policy on Unique Naming. If you start typing the name of a defined IoTaWatt output when configuring the Energy Dashboard or in a Template/Helper then Home Assistant will suggest the completion of the sensor name. 
+
+## Energy Production Systems
 
 If you have an energy production system such as solar panels, follow these instructions:
 
 ### Configure IoTaWatt
 
-You will need to configure two new IoTaWatt output sensors:
+You will need to configure IoTaWatt output sensors for Consumption, Export and Production. 
+
+For example:
 
 | Name | Unit | Formula
 | - | - | -
 | MainsConsumption|Watts|`(Main_In_Red + Main_In_White + Main_In_Blue) max 0`
 | MainsExport|Watts|`((Main_In_Red + Main_In_White + Main_In_Blue) min 0) abs`
+| Solar|Watts|`((Solar_Red max 0) + (Solar_White max 0) + (Solar_Blue max 0)`
 
-Replace `(Main_In_Red + Main_In_White + Main_In_Blue)` with the correct formula for your main feed.
+Replace `(Main_In_Red + Main_In_White + Main_In_Blue)` with the correct formula for your main feed.  
 
 #### Using a solar net system
 
@@ -48,6 +57,8 @@ If you have two solar sensors named `Solar1` and `Solar2` you would use:
 `(Main_In_Red + Main_In_White + Main_In_Blue - Solar1 - Solar2)`
 
 ### Configure Energy Management
+
+The IoTaWatt Outputs are available for use:
 
 In the Grid Consumption settings, select `MainsConsumption.wh`  
 In the Return to grid settings, select `MainsExport.wh`  
