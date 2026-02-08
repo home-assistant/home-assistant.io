@@ -67,7 +67,7 @@ Password:
 
 ## Supported functionality
 
-The integration provides entities to monitor charging and to enable or pause charging. Additional charging controls will be added in a later release.
+The integration provides entities to monitor charging and enable or pause charging. Additional charging controls will be added in a later release.
 
 ### Sensors
 
