@@ -43,7 +43,7 @@ For example:
 | - | - | - |
 | MainsConsumption|Watts|`(Main_In_Red + Main_In_White + Main_In_Blue) max 0` |
 | MainsExport|Watts|`((Main_In_Red + Main_In_White + Main_In_Blue) min 0) abs` |
-| Solar|Watts|`((Solar_Red max 0) + (Solar_White max 0) + (Solar_Blue max 0)` |
+| Solar|Watts|`((Solar_Red max 0) + (Solar_White max 0) + (Solar_Blue max 0))` |
 
 Replace `(Main_In_Red + Main_In_White + Main_In_Blue)` with the correct formula for your main feed.  
 
