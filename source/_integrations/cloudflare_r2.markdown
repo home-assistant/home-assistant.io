@@ -59,7 +59,7 @@ To create a new Secret Key that can access the R2 bucket:
 
 {% configuration_basic %}
 Access key ID:
-  description: "Access key ID to connect to Cloudflare R2 (this is your Account ID)."
+  description: "Access key ID to connect to Cloudflare R2."
 Secret access key:
   description: "Secret access key to connect to Cloudflare R2. See [Cloudflare documentation](https://developers.cloudflare.com/r2/api/tokens/)"
 Bucket name:
