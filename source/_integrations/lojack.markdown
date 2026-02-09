@@ -206,7 +206,7 @@ automation:
 ```
 
 ### Low battery voltage alert
-
+{% raw %}
 ```yaml
 automation:
   - alias: "Alert on low vehicle battery"
@@ -222,6 +222,7 @@ automation:
             {{ states('sensor.lojack_camry_battery_voltage') }}V.
             This may indicate the battery needs attention.
 ```
+{% endraw %}
 
 ### Movement detection at night
 
