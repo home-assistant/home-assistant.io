@@ -67,13 +67,28 @@ The integration supports two authentication methods:
 
 ### Obtaining an API token
 
-To obtain an API token for your Growatt account:
+You can generate an API token using either the web interface or the ShinePhone mobile app.
+
+{% details "Generate API token via web interface" %}
 
 1. Log in to your Growatt account on the [Growatt server](https://server.growatt.com/).
 2. Navigate to **Settings** > **Account Management** > **API Key**.
-3. Generate or retrieve your API token.
-4. Use this token during the integration setup in Home Assistant.
+3. Select **Generate** or **Retrieve** to get your API token.
+4. Copy the token and use it during the integration setup in Home Assistant.
 
+{% enddetails %}
+
+{% details "Generate API token via ShinePhone mobile app" %}
+
+1. Download and install the **ShinePhone** app from the [App Store (iOS)](https://apps.apple.com/us/app/shinephone/id1500039308) or [Google Play Store (Android)](https://play.google.com/store/apps/details?id=com.growatt.shinephone).
+2. Log in with your Account Manager username (visitor accounts cannot generate API tokens).
+3. Go to the **Me** tab.
+4. Select your username.
+5. Select **API Token**.
+6. Select **Reopen** to generate a new API token.
+7. Copy the token and use it during the integration setup in Home Assistant.
+
+{% enddetails %}
 
 ### Compatibility
 
@@ -233,6 +248,16 @@ action: growatt_server.read_time_segments
 
 ## Troubleshooting
 
+### API token authentication shows "No plant found" error
+
+If you're getting a "No plant found" error when using API token authentication, but username/password authentication works correctly, the problem is often related to how the API token was created.
+
+Some people have reported that API tokens generated via the web interface do not work properly, while tokens generated in the ShinePhone mobile app work correctly.
+
+Try the following steps:
+
+1. Generate a new API token using the **ShinePhone mobile app** instead of the web interface.
+2. Reconfigure the Growatt integration in Home Assistant to use the new API token. See the **Obtaining an API token** section above for detailed instructions on generating and using a token via the mobile app.
 ### Account locked or authentication failing
 
 If you're experiencing authentication failures or account lockouts:
@@ -248,6 +273,43 @@ If you're experiencing authentication failures or account lockouts:
    - If you experience frequent lockouts, temporarily disable the integration before restarting Home Assistant.
    - To disable: Go to {% my integrations title="**Settings** > **Devices & services**" %}, select the Growatt integration, click the three dots {% icon "mdi:dots-vertical" %} menu, and select **Disable**.
    - Re-enable after Home Assistant has fully restarted.
+
+### Enable debug logging
+
+To help diagnose issues, enable debug logging:
+
+1. Add the following to your {% term "`configuration.yaml`" %} file:
+
+   ```yaml
+   logger:
+     logs:
+       homeassistant.components.growatt_server: debug
+   ```
+
+2. Restart Home Assistant.
+3. Try to set up or reload the integration.
+4. Check the logs under {% my logs title="**Settings** > **System** > **Logs**" %}.
+
+For more information about debug logging, see [debug logs and diagnostics](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics).
+
+### Reporting issues
+
+If you encounter problems with the integration that you cannot resolve using the troubleshooting steps above:
+
+1. Enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics) for the integration.
+2. Reload the integration from {% my integrations title="**Settings** > **Devices & services**" %}, select **Growatt**, open the three dots menu {% icon "mdi:dots-vertical" %}, then select **Reload**.
+3. Wait for the issue to occur or try to reproduce it.
+4. Download the logs from {% my logs title="**Settings** > **System** > **Logs**" %}.
+5. If possible, also download the [diagnostics](/integrations/diagnostics) data for the integration.
+6. [Report the issue](https://github.com/home-assistant/core/issues) on GitHub, including:
+   - The debug logs
+   - The diagnostics data
+   - Your inverter model
+   - Screenshots
+   - A clear description of the problem
+   - Steps to reproduce the issue
+
+Providing debug logs will help resolve your issue much faster.
 
 ## Removing the integration
 
