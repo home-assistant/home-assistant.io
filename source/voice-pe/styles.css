@@ -2900,93 +2900,108 @@ section#hero .bg-gradient {
 }
 
 section#collaboration {
-    background-color: #83e0f1;
+  background-color: #49daf5;
+}
+
+section#collaboration .container {
+  position: relative;
+  z-index: 1;
 }
 
 section#collaboration .collaboration-card {
   width: 96%;
-  max-width: 1120px;
+  max-width: 400px;
   margin: 0 auto;
-    background-color: #000;
-    background-image: url('/images/connect/zwa-2/collaboration-bg.webp');
-    background-position: center bottom;
-    background-repeat: no-repeat;
-    background-size: 700px;
-    min-height: 532px;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    border-radius: 16px;
-    padding: 40px 20px;
+  background-color: #000;
+  background-image: url('/images/voice-pe/collaboration/collaboration-bg--mobile.webp');
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 16px;
+  padding: 40px 20px 0;
 }
 
-@media (min-width: 780px) {
-    section#collaboration .collaboration-card {
-        background-position: center left;
-        background-size: 50%;
-        justify-content: center;
-        min-height: 330px;
-    }
+@media (min-width: 768px) {
+  section#collaboration .collaboration-card {
+    max-width: 1120px;
+    background-image: url('/images/voice-pe/collaboration/collaboration-bg--desktop.webp');
+    background-position: 30% center;
+    background-size: cover;
+    justify-content: center;
+    min-height: 440px;
+    padding: 38px 20px;
+  }
+}
+
+@media (min-width: 1200px) {
+  section#collaboration .collaboration-card {
+    min-height: 360px;
+    background-position: left center;
+  }
 }
 
 section#collaboration .collaboration-card h3 {
-    text-transform: none;
-    text-wrap: balance;
-    font-size: 24px;
-    margin-bottom: 16px;
-    line-height: 1.1;
-    margin-top: 0;
+  text-transform: none;
+  text-wrap: balance;
+  font-size: 24px;
+  margin-bottom: 16px;
+  line-height: 1.1;
+  margin-top: 0;
 }
 
-@media (min-width: 780px) {
-    section#collaboration .collaboration-card h3 {
-        font-size: 32px;
-        margin-bottom: 12px;
-    }
+@media (min-width: 768px) {
+  section#collaboration .collaboration-card h3 {
+    font-size: 32px;
+    margin-bottom: 12px;
+  }
 }
 
 section#collaboration .collaboration-card .partner {
-    font-weight: 300;
-    align-items: center;
-    display: flex;
-    gap: 16px;
-    font-size: 16px;
-    margin-bottom: 12px;
+  font-weight: 300;
+  align-items: center;
+  display: flex;
+  gap: 16px;
+  font-size: 16px;
+  margin-bottom: 12px;
 }
 
-@media (min-width: 780px) {
-    section#collaboration .collaboration-card .partner {
-        font-size: 20px;
-        margin-bottom: 0;
-    }
+@media (min-width: 768px) {
+  section#collaboration .collaboration-card .partner {
+    font-size: 20px;
+    margin-bottom: 0;
+  }
 }
 
 section#collaboration .collaboration-card .partner img {
-    height: 25px;
+  height: 25px;
 }
 
-@media (min-width: 780px) {
-    section#collaboration .collaboration-card .partner img {
-        height: 30px;
-    }
+@media (min-width: 768px) {
+  section#collaboration .collaboration-card .partner img {
+    height: 30px;
+  }
 }
 
 section#collaboration .collaboration-card .collaboration-card-inner {
-    margin-left: auto;
-    display: flex;
-    flex-direction: column;
-    z-index: 1;
+  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
 }
 
-@media (min-width: 780px) {
-    section#collaboration .collaboration-card .collaboration-card-inner {
-        gap: 18px;
-        width: calc(6 / 12 * 100%);
-    }
+@media (min-width: 768px) {
+  section#collaboration .collaboration-card .collaboration-card-inner {
+    gap: 18px;
+    width: calc(6 / 12 * 100%);
+  }
 }
 
 section#collaboration .collaboration-card .collaboration-card-inner p {
-    font-size: 16px;
+  font-size: 16px;
 }
 
 .vpe-main #controls {
