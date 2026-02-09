@@ -34,11 +34,11 @@ implementation of an ESP8266/ESP32 webserver to control NeoPixel LEDs
 
 WLED can enhance your home automation in many ways:
 
-- **Ambient lighting effects**: Create dynamic lighting scenes that respond to music, time of day, or events in your home, adding atmosphere to any room.
-- **Status indicators**: Use different colors and effects to visualize information, such as showing your Home Assistant status, upcoming weather conditions, or calendar events.
-- **Entertainment and games**: Control LED strips during movie nights, gaming sessions, or parties with synchronized effects and color changes.
-- **Energy-efficient accent lighting**: Replace traditional accent lighting with power-efficient LED strips while maintaining full control and automation.
-- **Smart home notifications**: Set up visual alerts by triggering specific light effects when important events occur, like doorbell presses or security alerts.
+- Ambient lighting effects: Create dynamic lighting scenes that respond to music, time of day, or events in your home, adding atmosphere to any room.
+- Status indicators: Use different colors and effects to visualize information, such as showing your Home Assistant status, upcoming weather conditions, or calendar events.
+- Entertainment and games: Control LED strips during movie nights, gaming sessions, or parties with synchronized effects and color changes.
+- Energy-efficient accent lighting: Replace traditional accent lighting with power-efficient LED strips while maintaining full control and automation.
+- Smart home notifications: Set up visual alerts by triggering specific light effects when important events occur, like doorbell presses or security alerts.
 
 ## Prerequisites
 
