@@ -250,12 +250,14 @@ action: growatt_server.read_time_segments
 
 ### API token authentication shows "No plant found" error
 
-If you're getting a "No plant found" error when using API token authentication, but username/password authentication works correctly:
+If you're getting a "No plant found" error when using API token authentication, but username/password authentication works correctly, the problem is often related to how the API token was created.
 
-1. Try generating a new API token using the **ShinePhone mobile app** instead of the web interface.
-2. Some users have reported that API tokens generated via the web interface don't work properly, while tokens generated via the app work correctly.
-3. See the **Obtaining an API token** section above for detailed instructions on generating a token via the mobile app.
+Some people have reported that API tokens generated via the web interface do not work properly, while tokens generated in the ShinePhone mobile app work correctly.
 
+Try the following steps:
+
+1. Generate a new API token using the **ShinePhone mobile app** instead of the web interface.
+2. Reconfigure the Growatt integration in Home Assistant to use the new API token. See the **Obtaining an API token** section above for detailed instructions on generating and using a token via the mobile app.
 ### Account locked or authentication failing
 
 If you're experiencing authentication failures or account lockouts:
