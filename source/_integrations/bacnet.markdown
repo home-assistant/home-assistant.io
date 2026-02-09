@@ -2,7 +2,10 @@
 title: BACnet
 description: Instructions on how to integrate BACnet devices with Home Assistant.
 ha_category:
+  - Number
+  - Select
   - Sensor
+  - Switch
 ha_release: "2025.x"
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -13,7 +16,10 @@ ha_integration_type: hub
 ha_quality_scale: silver
 ha_platforms:
   - binary_sensor
+  - number
+  - select
   - sensor
+  - switch
 ---
 
 The **BACnet** {% term integration %} allows you to monitor [BACnet](https://www.bacnet.org/) devices on your local network. BACnet (Building Automation and Control Networks) is a communication protocol commonly used in building automation systems for <abbr title="heating, ventilation, and air conditioning">HVAC</abbr>, lighting, access control, and fire detection.
@@ -52,7 +58,7 @@ After selecting a device, the integration reads the device's object list. You ca
 
 {% configuration_basic %}
 Objects:
-  description: "The BACnet objects to monitor from this device. Each object becomes a sensor or binary sensor entity in Home Assistant."
+  description: "The BACnet objects to add from this device. Each object becomes an entity in Home Assistant (sensor, binary sensor, number, switch, or select depending on the object type)."
 {% endconfiguration_basic %}
 
 #### Manual configuration
@@ -88,22 +94,39 @@ The **BACnet** integration provides the following entities.
 
 #### Sensors
 
-The integration creates sensor entities for the following BACnet object types:
+The integration creates read-only sensor entities for the following BACnet object types:
 
 - Analog Input
-- Analog Output
 - Analog Value
 - Multi-state Input
-- Multi-state Output
 - Multi-state Value
 
 #### Binary sensors
 
-The integration creates binary sensor entities for the following BACnet object types:
+The integration creates read-only binary sensor entities for the following BACnet object types:
 
 - Binary Input
-- Binary Output
 - Binary Value
+
+#### Numbers
+
+The integration creates writable number entities for the following BACnet object types:
+
+- Analog Output
+
+#### Switches
+
+The integration creates writable switch entities for the following BACnet object types:
+
+- Binary Output
+
+#### Selects
+
+The integration creates writable select entities for the following BACnet object types:
+
+- Multi-state Output
+
+All write operations use BACnet priority 16 (the lowest priority).
 
 ## Data updates
 
@@ -117,7 +140,7 @@ The integration uses a hybrid update strategy:
 - Only BACnet/IP is supported (not MS/TP or other data link layers).
 - The integration binds to a single network interface per hub.
 - BACnet routing (<abbr title="BACnet Broadcast Management Device">BBMD</abbr>) is not currently supported.
-- Write operations to BACnet objects are not supported (read-only).
+- Write operations are limited to output object types (analog-output, binary-output, multi-state-output) at priority 16.
 
 ## Removing the integration
 
