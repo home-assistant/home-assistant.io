@@ -16,7 +16,7 @@ ha_platforms:
   - sensor
 ---
 
-The BACnet integration allows you to monitor [BACnet](https://www.bacnet.org/) devices on your local network. BACnet (Building Automation and Control Networks) is a communication protocol commonly used in building automation systems for HVAC, lighting, access control, and fire detection.
+The **BACnet** {% term integration %} allows you to monitor [BACnet](https://www.bacnet.org/) devices on your local network. BACnet (Building Automation and Control Networks) is a communication protocol commonly used in building automation systems for <abbr title="heating, ventilation, and air conditioning">HVAC</abbr>, lighting, access control, and fire detection.
 
 This integration uses [BACpypes3](https://github.com/JoelBender/BACpypes3) to communicate with BACnet/IP devices.
 
@@ -28,9 +28,7 @@ This integration uses [BACpypes3](https://github.com/JoelBender/BACpypes3) to co
 
 {% include integrations/config_flow.md %}
 
-## Installation parameters
-
-The setup process has two stages: adding a **hub** (BACnet client) and then adding **devices**.
+The setup process has two stages: adding a hub (BACnet client) and then adding devices.
 
 ### Hub setup
 
@@ -41,7 +39,7 @@ IP address:
 
 ### Device setup
 
-After the hub is configured, BACnet devices are discovered automatically using BACnet *Who-Is* broadcasts. You can also add devices manually.
+After the hub is configured, BACnet devices are discovered automatically using BACnet _Who-Is_ broadcasts. You can also add devices manually.
 
 #### Automatic discovery
 
@@ -66,7 +64,7 @@ Device network address:
   description: "The IP address and port of the BACnet device (for example, `192.168.1.100:47808`)."
 {% endconfiguration_basic %}
 
-## Configuration parameters
+## Configuration options
 
 After a device is set up, you can change which BACnet objects are monitored through the integration options.
 
@@ -75,45 +73,54 @@ Objects:
   description: "The BACnet objects to monitor from this device. Deselect objects you no longer want to track, or select new ones that were discovered."
 {% endconfiguration_basic %}
 
-## Reconfiguration
+### Reconfiguration
 
 You can reconfigure both hub and device entries:
 
-- **Hub**: Update the network interface IP address
-- **Device**: Update the device network address (for example, if the device IP changed)
+- **Hub**: Update the network interface IP address.
+- **Device**: Update the device network address (for example, if the device IP changed).
 
-## Supported object types
+## Supported functionality
 
-The integration creates entities for the following BACnet object types:
+### Entities
 
-| BACnet object type | Home Assistant platform |
-| --- | --- |
-| Analog Input | Sensor |
-| Analog Output | Sensor |
-| Analog Value | Sensor |
-| Binary Input | Binary sensor |
-| Binary Output | Binary sensor |
-| Binary Value | Binary sensor |
-| Multi-state Input | Sensor |
-| Multi-state Output | Sensor |
-| Multi-state Value | Sensor |
+The **BACnet** integration provides the following entities.
+
+#### Sensors
+
+The integration creates sensor entities for the following BACnet object types:
+
+- Analog Input
+- Analog Output
+- Analog Value
+- Multi-state Input
+- Multi-state Output
+- Multi-state Value
+
+#### Binary sensors
+
+The integration creates binary sensor entities for the following BACnet object types:
+
+- Binary Input
+- Binary Output
+- Binary Value
 
 ## Data updates
 
 The integration uses a hybrid update strategy:
 
-- **Change of Value (COV) subscriptions**: For supported objects, the device pushes value changes to Home Assistant in real time
-- **Polling**: Objects without COV support are polled at a regular interval as a fallback
+- **Change of Value (COV) subscriptions**: For supported objects, the device pushes value changes to Home Assistant in real time.
+- **Polling**: Objects without COV support are polled at a regular interval as a fallback.
 
-## Removal
+## Known limitations
+
+- Only BACnet/IP is supported (not MS/TP or other data link layers).
+- The integration binds to a single network interface per hub.
+- BACnet routing (<abbr title="BACnet Broadcast Management Device">BBMD</abbr>) is not currently supported.
+- Write operations to BACnet objects are not supported (read-only).
+
+## Removing the integration
 
 {% include integrations/remove_device_service.md %}
 
 Removing the hub entry will disconnect from the BACnet network and remove all associated device entries.
-
-## Known limitations
-
-- Only BACnet/IP is supported (not MS/TP or other data link layers)
-- The integration binds to a single network interface per hub
-- BACnet routing (BBMD) is not currently supported
-- Write operations to BACnet objects are not supported (read-only)
