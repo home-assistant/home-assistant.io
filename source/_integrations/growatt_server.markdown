@@ -290,7 +290,7 @@ To help diagnose issues, enable debug logging:
 
 For more information about debug logging, see [debug logs and diagnostics](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics).
 
-## Reporting issues
+### Reporting issues
 
 If you encounter problems with the integration that you cannot resolve using the troubleshooting steps above:
 
