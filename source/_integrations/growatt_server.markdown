@@ -297,7 +297,7 @@ For more information about debug logging, see [debug logs and diagnostics](/docs
 If you encounter problems with the integration that you cannot resolve using the troubleshooting steps above:
 
 1. Enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics) for the integration.
-2. Restart the integration.
+2. Reload the integration from {% my integrations title="**Settings** > **Devices & services**" %}, select **Growatt**, open the three dots menu {% icon "mdi:dots-vertical" %}, then select **Reload**.
 3. Wait for the issue to occur or try to reproduce it.
 4. Download the logs from {% my logs title="**Settings** > **System** > **Logs**" %}.
 5. If possible, also download the [diagnostics](/integrations/diagnostics) data for the integration.
