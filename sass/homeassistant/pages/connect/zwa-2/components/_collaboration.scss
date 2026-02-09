@@ -1,24 +1,33 @@
 section#collaboration {
-    margin-top: 120px;
+    margin-top: 80px;
+
+    @include bp(desktop) {
+        margin-top: 120px;
+    }
 
     .card {
-        background-color: #000;
+        background-color: transparent;
         background-image: url('/images/connect/zwa-2/collaboration-bg.webp');
-        background-position: center bottom;
+        background-position: bottom left;
         background-repeat: no-repeat;
-        background-size: 700px;
-        min-height: 532px;
+        background-size: contain;
+        min-height: 450px;
         display: flex;
         align-items: center;
         flex-direction: column;
         border-radius: 16px;
-        padding: 40px 20px;
+        padding: 0 20px;
         
         @include bp(tablet) {
             background-position: center left;
-            background-size: 50%;
+            background-size: 70%;
             justify-content: center;
             min-height: 330px;
+        }
+
+        @include bp(desktop) {
+            padding: 40px 20px;
+            background-size: 60%;
         }
 
         h3 {
