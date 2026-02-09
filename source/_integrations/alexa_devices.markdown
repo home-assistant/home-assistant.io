@@ -63,7 +63,7 @@ You must ensure the authenticator app is setup as your preferred method for 2FA.
 
 ### Available Actions
 
-Available actions: `notify.send_message`, `alexa_devices.send_sound`, `alexa_devices.send_text_command`
+Available actions: `notify.send_message`, `alexa_devices.send_sound`, `alexa_devices.send_text_command`, `alexa_devices.send_info_skill`
 
 ### Action: Send message
 
@@ -108,6 +108,15 @@ Additional sounds are available through advanced markup using the `notify.send_m
 | -------------- | -------- | ----------------------------------------- |
 | `device_id` | no | Device on which you want to play sound |
 | `sound` | no | The name of the sound to play |
+
+### Action: Send Info Skill
+
+The `alexa_devices.send_info_skill` action allows you to run some of the inbuilt Alexa actions that output things like the date, a weather forecast, or tell you a joke.
+
+| Data attribute | Optional | Description |
+| -------------- | -------- | ----------------------------------------- |
+| `device_id` | no | Device on which you want to run action |
+| `info_skill` | no | The info skill you want to run |
 
 ## Sensors
 
