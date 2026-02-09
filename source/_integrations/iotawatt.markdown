@@ -27,15 +27,15 @@ You can use the energy sensors directly with the Home Assistant energy dashboard
 
 IoTaWatt **Inputs** are available as sensors and are shown on the device screen in the Visual Interface. 
 
-Any **Outputs** that you create within the IoTaWatt unit itself are also made available as sensors for use in the Energy Dashboard, templates, etc. however they are not listed within the User Interface card for the Device because of the Home Assistant Policy on Unique Naming. If you start typing the name of a defined IoTaWatt output when configuring the Energy Dashboard or in a Template/Helper then Home Assistant will suggest the completion of the sensor name. 
+Any **Outputs** you create within the IoTaWatt unit are also available as sensors for use in the Energy Dashboard and templates. However, they are not listed on the Device's User Interface card because of the Home Assistant policy on unique naming. If you start typing the name of a defined IoTaWatt output when configuring the Energy Dashboard or in a Template/Helper, Home Assistant will suggest completing the sensor name. 
 
-## Energy Production Systems
+## Energy production systems
 
 If you have an energy production system such as solar panels, follow these instructions:
 
 ### Configure IoTaWatt
 
-You will need to configure IoTaWatt output sensors for Consumption, Export and Production. 
+You will need to configure IoTaWatt output sensors for Consumption, Export, and Production. 
 
 For example:
 
