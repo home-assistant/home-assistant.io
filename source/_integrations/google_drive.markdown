@@ -85,6 +85,48 @@ actions:
 {% endraw %}
 {% enddetails %}
 
+## Sensors
+The integration provides the following sensors, which are updated every 6 hours:
+
+- **Total available storage**: The storage limit, if applicable. This will be unknown if the user has unlimited storage.
+- **Used storage**: The total storage usage across all Google services.
+- **Used storage in Drive**: The usage by all files in Google Drive. This entity is disabled by default.
+- **Used storage in Drive Trash**: The usage by trashed files in Google Drive. This entity is disabled by default.
+- **Total size of backups**: The sum of the size of all backups for the current Home Assistant's installation.
+
+For users that are part of an organization with pooled storage, information about the available storage and used storage across all services is for the organization, rather than the individual user.
+
+## Examples
+
+Get started with these automation examples.
+
+### Send alert when drive is near storage limit
+
+Send an alert when the drive usage is close to the storage limit and needs clean up.
+
+{% details "Example YAML configuration" %}
+
+{% raw %}
+
+```yaml
+alias: Alert when Google Account is close to storage limit
+description: Send notification to phone when drive needs clean up.
+triggers:
+  - trigger: numeric_state
+    entity_id: sensor.example_gmail_com_used_storage
+    above: "{{ states('sensor.example_gmail_com_total_available_storage') | float * 0.9 }}"
+actions:
+  - action: notify.mobile_app_iphone
+    data:
+      title: Google Account is almost full!
+      message: >
+        Google Account has used up {{ states('sensor.example_gmail_com_used_storage') }}GB of {{
+        states('sensor.example_gmail_com_total_available_storage') | float }}GB.
+```
+
+{% endraw %}
+{% enddetails %}
+
 ## Removing the integration
 
 {% include integrations/remove_device_service.md %}

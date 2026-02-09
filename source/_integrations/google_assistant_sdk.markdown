@@ -115,7 +115,7 @@ This guide is for advanced users only. It requires creating an OAuth client ID o
 
 {% details "Enable personal results" %}
 
-1. Go to  **{% my developer_services title="Developer Tools > Actions" %}** and issue a query that requires personal results, for example call `google_assistant_sdk.send_text_command` with `command: "what is my name"`
+1. Go to  {% my developer_services title="**Settings** > **Developer tools** > **Actions**" %} and issue a query that requires personal results, for example call `google_assistant_sdk.send_text_command` with `command: "what is my name"`
 2. On your phone, you should receive a notification **Allow personal answers** **Allow Google Assistant to answer your questions about your calendar, trips, and more**.
 3. DO NOT tap on **ALLOW** (it won't work until you enter a device name). Instead, tap on the notification text.
 4. If the app doesn't open, you need to retry on a device running Android 12. If you don't have such a device, you can use an Android emulator.

@@ -180,7 +180,7 @@ For {% term "Home Assistant Container" %} installations, the log information is 
 You can read it with the command-line tool `cat` or follow it dynamically
 with `tail -f`.
 
-You can use the example below, when logged in through the [SSH add-on](/common-tasks/os/#installing-and-using-the-ssh-add-on):
+You can use the example below, when logged in through the [SSH app for Home Assistant](/common-tasks/os/#installing-and-using-the-ssh-app) (formerly known as SSH add-on):
 
 ```bash
 tail -f /config/home-assistant.log

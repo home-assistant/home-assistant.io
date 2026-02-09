@@ -369,7 +369,7 @@ In general, the state trigger fires when the state of any of given entities **ch
   - If for your use case this is undesired, you could consider using the automation to set an [`input_datetime`](/integrations/input_datetime) to the desired time and then use that [`input_datetime`](/integrations/input_datetime) as an automation trigger to perform the desired actions at the set time.
 
 {% tip %}
-The values you see in your overview will often not be the same as the actual state of the entity. For instance, the overview may show `Connected` when the underlying entity is actually `on`. You should check the state of the entity by checking the states in the developer tool, under {% my developer_states title="**Developer tools** > **States**" %}.
+The values you see in your overview will often not be the same as the actual state of the entity. For instance, the overview may show `Connected` when the underlying entity is actually `on`. You should check the state of the entity by checking the states in the developer tool, under {% my developer_states title="**Settings** > **Developer tools** > **States**" %}.
 {% endtip %}
 
 ### Examples
@@ -417,7 +417,7 @@ automation:
       to:
 ```
 
-If you want to trigger on all state changes *except* specific ones, use `not_from` or `not_to`  The `not_from` and `not_to` options are the counter parts of `from` and `to`. They can be used to trigger on state changes that are **not** the specified state.
+If you want to trigger on all state changes *except* specific ones, use `not_from` or `not_to`  The `not_from` and `not_to` options are the counterparts of `from` and `to`. They can be used to trigger on state changes that are **not** the specified state.
 
 ```yaml
 automation:

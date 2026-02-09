@@ -50,7 +50,7 @@ This event is fired when a service action is performed
 
 This event is fired when a new integration has been loaded and initialized.
 
-Please note that while this event is fired for each loaded integration during Home Assistant startup, the automation engine of Home Assistant is started last. Thus this event can not be used to run automations during startup as it would have missed these events.
+Please note that while this event is fired for each loaded integration during Home Assistant startup, the automation engine of Home Assistant is started last. Thus, this event can not be used to run automations during startup as it would have missed these events.
 
 | Field       | Description                                                                 |
 | ----------- | --------------------------------------------------------------------------- |

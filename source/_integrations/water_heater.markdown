@@ -41,7 +41,7 @@ A water heater entity can have the following states:
 Available actions: `water_heater.set_temperature`, `water_heater.turn_away_mode_on`, `water_heater.turn_away_mode_off`, `water_heater.set_operation_mode`, `water_heater.turn_on`, `water_heater.turn_off`
 
 {% tip %}
-Not all water heater actions may be available for your platform. Be sure to check the available actions Home Assistant has enabled by checking **Developer Tools** > **Actions**.
+Not all water heater actions may be available for your platform. Be sure to check the available actions Home Assistant has enabled by checking {% my developer_services title="**Settings** > **Developer tools** > **Actions**" %}.
 {% endtip %}
 
 ### Action: Set temperature

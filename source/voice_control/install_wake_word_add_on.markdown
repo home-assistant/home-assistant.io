@@ -2,7 +2,7 @@
 title: "Enabling a wake word"
 ---
 
-This tutorial shows how you can *enable* a wake word in Home Assistant. It does not describe how to *use* it. 
+This tutorial shows how you can *enable* a wake word in Home Assistant. It does not describe how to *use* it.
 
 To *use* the wake word, you need some extra hardware. A low cost option is the [M5Stack ATOM Echo Development Kit](https://shop.m5stack.com/products/atom-echo-smart-speaker-dev-kit). To set that up, follow the [$13 voice assistant for Home Assistant](/voice_control/thirteen-usd-voice-remote/). Note that the Home Assistant Voice Preview does not currently support custom wake words.
 
@@ -10,7 +10,7 @@ To *use* the wake word, you need some extra hardware. A low cost option is the [
 
 Enabling a wake word consists of 2 steps:
 
-1. Installing the openWakeWord add-on.
+1. Installing the **openWakeWord** app (formerly known as an add-on).
 2. Enabling the wake word for a specific voice assistant.
 
 ### Prerequisites
@@ -18,14 +18,14 @@ Enabling a wake word consists of 2 steps:
 - Home Assistant version 2023.10 or later, installed with the Home Assistant Operating System
 - [Home Assistant Cloud](/voice_control/voice_remote_cloud_assistant/) or a manually configured [local Assist pipeline](/voice_control/voice_remote_local_assistant)
 
-### Installing the openWakeWord add-on
+### Installing the openWakeWord app
 
-1. Go to {% my supervisor_addon addon="core_openwakeword" title="**Settings** > **Add-ons** > **openWakeWord**" %} and select **Install**.
-2. **Start** the add-on.
+1. Go to {% my supervisor_addon addon="core_openwakeword" title="**Settings** > **Apps** > **openWakeWord**" %} and select **Install**.
+2. **Start** the app.
 3. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
    - Under **Discovered**, you should now see the **openWakeWord** component of the **Wyoming** integration.
    - Select **Configure** and **Submit**.
-   - **Result**: You have successfully installed the openWakeWord add-on and Wyoming integration.
+   - **Result**: You have successfully installed the openWakeWord app and Wyoming integration.
 
 ### Enabling wake word for your voice assistant
 

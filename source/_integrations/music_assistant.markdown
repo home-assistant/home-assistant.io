@@ -110,6 +110,10 @@ Play an announcement which is accessible via URL on a Music Assistant player. Ho
   - **Optional**: Yes.
   - **Description**: Use pre-announcement sound. Omit to use the player default.
   - **Example**: `true`
+- **Data attribute**: `pre_announce_url`
+  - **Optional**: Yes.
+  - **Description**: URL to the pre-announcement sound.
+  - **Example**: `https://someremotesite.com/chime.mp3`
 - **Data attribute**: `announce_volume`
   - **Optional**: Yes.
   - **Description**: Use a forced volume level for the announcement. Omit to use the player default.
@@ -209,7 +213,7 @@ Perform a local search on the Music Assistant library. This provides programmati
   - **Example**: `Home`
 - **Data attribute**: `order_by`
   - **Optional**: Yes.
-  - **Description**: Sort the list by this field. View available sorting options in the Developer Tools > Actions > music_assistant.get_library action.
+  - **Description**: Sort the list by this field. View available sorting options in the Developer tools > Actions > music_assistant.get_library action.
   - **Example**: `year`
 - **Data attribute**: `album_artists_only`
   - **Optional**: Yes.
@@ -280,7 +284,7 @@ script:
 
 ## Supported devices
 
-This integration requires Music Assistant server version 2.4 or later. The integration can connect to Music Assistant servers hosted as an add-on or in a separate Docker container.
+This integration requires Music Assistant server version 2.4 or later. The integration can connect to Music Assistant servers hosted as an app or in a separate Docker container.
 
 Music Assistant supports a [wide range of devices](https://www.music-assistant.io/player-support/) both natively and through the [Home Assistant provider](https://www.music-assistant.io/player-support/ha/). The Home Assistant provider, when installed, allows any Home Assistant media player to appear as a player in Music Assistant and thereby benefit from the advanced playback functionality that Music Assistant provides. As a general note, if there is a native Music Assistant provider then devices should be added via that method instead of using the HA media player. Any limitations associated with the providers are described on the related Player Provider page in the [Music Assistant documentation](https://www.music-assistant.io/).
 
@@ -300,7 +304,7 @@ When trying to set up a script or automation via the GUI, no MA actions can be f
 
 ##### Description
 
-This means the add-on may have been installed, but the integration has not.
+This means the app may have been installed, but the integration has not.
 
 ##### Resolution
 
@@ -312,4 +316,4 @@ This integration follows standard integration removal.
 
 {% include integrations/remove_device_service.md %}
 
-After deleting the integration, go to the {% my supervisor_addon title="**Settings** > **Add-ons**" addon="music_assistant" %} and remove the **Music Assistant** add-on from there as well (if installed).
+After deleting the integration, go to the {% my supervisor_addon title="**Settings** > **Apps**" addon="music_assistant" %} and remove the **Music Assistant** app from there as well (if installed).
