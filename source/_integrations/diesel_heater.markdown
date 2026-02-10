@@ -43,7 +43,9 @@ This integration supports diesel heaters from multiple brands that use compatibl
 Before setting up this integration:
 
 1. Your diesel heater must be powered on and within Bluetooth range (typically 10-30 meters).
-2. **Unpair the heater from your phone.** BLE devices can only maintain one active connection. If the heater is paired with the heater app on your phone, Home Assistant cannot connect.
+2. Unpair the heater from your phone.
+   - BLE devices can only maintain one active connection.
+   - If the heater is paired with the heater app on your phone, Home Assistant cannot connect.
 3. The [Bluetooth](/integrations/bluetooth) integration must be set up and functional.
 
 {% include integrations/config_flow.md %}
@@ -67,7 +69,9 @@ Max auto offset:
     description: "Maximum automatic offset when using an external sensor, from 1 to 9 °C."
 {% endconfiguration_basic %}
 
-## Entities
+## Supported functionality
+
+The **Diesel Heater** integration provides the following entities:
 
 ### Climate
 
@@ -82,7 +86,8 @@ The climate entity provides thermostat control:
 ### Device not discovered
 
 1. Ensure the heater is powered on.
-2. **Unpair the heater from your phone's Bluetooth settings.** This is the most common issue.
+2. Unpair the heater from your phone's Bluetooth settings.
+   - This is the most common issue.
 3. Close the heater app completely.
 4. Check that the Bluetooth integration is active.
 
@@ -94,19 +99,13 @@ The climate entity provides thermostat control:
 
 ### Temperature control not working
 
-Temperature control only works in **Temperature Mode**. If available, check the Running Mode setting and switch from Level Mode if needed.
+Temperature control only works in temperature mode. If available, check the running mode setting and switch from level mode if needed.
 
 ### Commands not responding
 
 1. Verify the correct PIN is configured (default: 1234).
 2. Check that no other device (phone app) is connected to the heater.
-3. Enable debug logging:
-
-```yaml
-logger:
-  logs:
-    homeassistant.components.diesel_heater: debug
-```
+3. For advanced troubleshooting, see [enable debug logging and diagnostics](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics).
 
 ## Removing the integration
 
