@@ -46,7 +46,7 @@ Incorrect configuration of these settings will prevent the integration from func
 
 {% include integrations/config_flow.md %}
 
-#### Managing Zones
+### Managing zones
 
 After setting up the integration, you can add zones through the UI:
 
