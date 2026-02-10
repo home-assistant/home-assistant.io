@@ -24,8 +24,6 @@ ha_platforms:
 
 The **BACnet** {% term integration %} allows you to monitor [BACnet](https://www.bacnet.org/) devices on your local network. BACnet (Building Automation and Control Networks) is a communication protocol commonly used in building automation systems for <abbr title="heating, ventilation, and air conditioning">HVAC</abbr>, lighting, access control, and fire detection.
 
-This integration uses [BACpypes3](https://github.com/JoelBender/BACpypes3) to communicate with BACnet/IP devices.
-
 ## Prerequisites
 
 - One or more BACnet/IP devices accessible on your local network
