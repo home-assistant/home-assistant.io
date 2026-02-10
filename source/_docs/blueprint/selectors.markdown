@@ -90,7 +90,7 @@ The app selector (formerly known as add-on selector) allows you to input an app 
 On the user interface, it will list all installed Home Assistant apps and use the slug of the
 selected app.
 
-![Screenshot of an app selector](/images/blueprints/selector-addon.png)
+![Screenshot of an app selector](/images/blueprints/selector-apps.png)
 
 This selector does not have any other options; therefore, it only has its key.
 
