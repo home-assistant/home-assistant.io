@@ -58,32 +58,6 @@ After setting up the integration, you can add zones through the UI:
 
 You can reconfigure a zone's device class at any time by selecting the zone's configure button.
 
-### YAML Configuration (Legacy)
-
-{% include integrations/restart_ha_after_config_inclusion.md %}
-
-Alternatively, you can configure the integration via YAML. Existing YAML configurations will be automatically imported to the UI on the next Home Assistant restart.
-
-```yaml
-# Example configuration.yaml entry
-ness_alarm:
-  host: alarm.local
-  port: 2401
-  infer_arming_state: false
-  zones:
-    - name: Garage
-      id: 1
-    - name: Storeroom
-      id: 2
-    - name: Kitchen
-      id: 3
-    - name: Front Entrance
-      id: 4
-    - name: Front Door
-      id: 5
-      type: door
-```
-
 ## Actions
 
 ### Action `aux`
