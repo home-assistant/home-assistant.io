@@ -57,8 +57,8 @@ The integration supports the following Watts Vision + devices:
 - BT-TH02-RF
 - PR03-RF
 - PR03-RF16
-- BT-WR03 RF
-- BT-WR02 RF
+- BT-WR03-RF
+- BT-WR02-RF
 
 ## Supported functionality
 
