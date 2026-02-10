@@ -96,7 +96,7 @@ This selector does not have any other options; therefore, it only has its key.
 
 ```yaml
 # Example app selector
-addon:
+app:
 ```
 
 The output of this selector is the slug of the selected app.
