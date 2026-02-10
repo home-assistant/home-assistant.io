@@ -51,8 +51,6 @@ Host:
   description: "The hostname or IP address of the IP232 module on your home network."
 Port:
   description: "The port on which the IP232 module listens for clients."
-Scan interval:
-  description: "Time interval between updates."
 Infer arming state:
   description: "Infer the disarmed arming state only via system status events. This works around a bug with some panels (`<v5.8`) which emit `update.status = []` when they are armed."
 {% endconfiguration_basic %}
