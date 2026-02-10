@@ -12,7 +12,7 @@ group :development do
   gem 'sassc', '2.1.0'
   gem 'sass-embedded', '1.97.3'
   gem 'rubocop', '1.84.1'
-  gem 'ruby-lsp', '0.26.5'
+  gem 'ruby-lsp', '0.26.6'
   gem 'rackup', '2.3.1'
 end
 
