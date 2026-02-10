@@ -4,6 +4,7 @@ description: Instructions on how to integrate Teslemetry within Home Assistant.
 ha_category:
   - Binary sensor
   - Button
+  - Calendar
   - Car
   - Climate
   - Cover
@@ -24,6 +25,7 @@ ha_domain: teslemetry
 ha_platforms:
   - binary_sensor
   - button
+  - calendar
   - climate
   - cover
   - device_tracker
@@ -56,6 +58,7 @@ These are the entities available in the Teslemetry integration. Not all entities
 
 |Domain|Name|Enabled|
 |---|---|---|
+|Calendar|Charging schedule|No|
 |Binary sensor|Automatic blind spot camera|No|
 |Binary sensor|Automatic emergency braking off|No|
 |Binary sensor|Battery heater|No|
