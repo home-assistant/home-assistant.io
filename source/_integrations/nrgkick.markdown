@@ -7,7 +7,7 @@ ha_iot_class: Local Polling
 ha_quality_scale: bronze
 ha_release: 2026.2
 ha_codeowners:
-  - "@andijakl"
+  - '@andijakl'
 ha_domain: nrgkick
 ha_integration_type: device
 ha_config_flow: true

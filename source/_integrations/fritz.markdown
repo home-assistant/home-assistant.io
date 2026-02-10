@@ -29,6 +29,7 @@ ha_integration_type: hub
 related:
   - docs: /common-tasks/general/#enabling-or-disabling-entities
     title: Enabling or disabling entities
+ha_quality_scale: bronze
 ---
 
 The **FRITZ!Box Tools** {% term integration %} allows you to control your [FRITZ!Box](https://en.fritz.com/products/fritzbox/) router (by FRITZ!, formerly AVM) and have presence detection for connected network devices.

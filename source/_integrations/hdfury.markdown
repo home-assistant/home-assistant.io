@@ -14,10 +14,13 @@ ha_codeowners:
 ha_domain: hdfury
 ha_platforms:
   - button
+  - diagnostics
   - select
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: device
+ha_quality_scale: silver
+ha_zeroconf: true
 ---
 
 The **HDFury** {% term integration %} allows you to control and monitor your [HDFury](https://hdfury.com/) device.
