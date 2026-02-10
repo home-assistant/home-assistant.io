@@ -53,12 +53,8 @@ The **IntelliClima** integration provides the following entities for each discov
 
 - **Fan** (Main control entity)
   - **Description**: Control the ventilation system's operation mode and speed.
-  - **Supported preset modes**:
-    - **forward**: Intake mode (supply air into the room)
-    - **reverse**: Extract mode (exhaust air into the room)
-    - **alternate**: Alternating mode (cycles between intake and extract)
-    - **sensor**: Sensor-based mode based on in-app specified sensor thresholds, but with fixed speed if over thresholds. Corresponds to Manual Sensor mode in-app
-    - **auto**: Full automatic mode that follows in-app programs and sensor thresholds for speeds and modes
+  - **Supported preset mode**:
+    - **auto**: Full automatic mode that follows in-app programs and sensor thresholds for speeds and direction modes
   - **Speed control**: Adjustable from 0-100%, mapped to 5 possible fan control values:
     - **0%**: Off
     - **25%**: Sleep
