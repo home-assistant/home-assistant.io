@@ -59,7 +59,7 @@ Infer arming state:
 
 After setting up the integration, you can add zones through the UI:
 
-1. Go to **Settings** > **Devices & Services**.
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
 2. Find the **Ness Alarm** integration and select **Configure**.
 3. Select **Add zone** to add a new zone.
 4. Enter the zone number (1-32) and select the zone type (device class).
