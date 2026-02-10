@@ -34,18 +34,18 @@ This integration uses [BACpypes3](https://github.com/JoelBender/BACpypes3) to co
 
 {% include integrations/config_flow.md %}
 
-The setup process has two stages: adding a hub (BACnet client) and then adding devices.
+When you add this integration, the configuration flow guides you through two stages: first configuring a hub (BACnet client), and then adding devices.
 
-### Hub setup
+### Stage 1: Hub setup
 
 {% configuration_basic %}
 IP address:
   description: "The IP address of the network interface to bind the BACnet client to. Select a specific interface, enter one manually, or choose `0.0.0.0` to listen on all interfaces."
 {% endconfiguration_basic %}
 
-### Device setup
+### Stage 2: Device setup
 
-After the hub is configured, BACnet devices are discovered automatically using BACnet _Who-Is_ broadcasts. You can also add devices manually.
+After the hub is configured, you can add BACnet devices. The integration discovers devices automatically using BACnet _Who-Is_ broadcasts. You can also add devices manually.
 
 #### Automatic discovery
 
