@@ -57,6 +57,8 @@ Infer arming state:
 
 ### Managing zones
 
+Adding zones allows you to monitor individual areas of your home, such as doors, windows, and motion sensors. Each zone appears as a binary sensor in Home Assistant.
+
 After setting up the integration, you can add zones through the UI:
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
