@@ -171,6 +171,9 @@ Climate entities are used to control target temperatures in refrigerators, freez
   - **Finish**: Shows the estimated date and time when the program will finish. If you've set a delayed start, it shows when the appliance is expected to complete the cycle, including the delay time.
   - **Plate**: Four to six sensors that show the current state of hob heating plates. The status mimics the display on the actual hob. For example, 0 is off, 5 is approximately 50% power, and "B" is power boost. Plates can only be monitored from Home Assistant, not controlled.
   - **TwinDos level**: Two sensors displaying the remaining level in the detergent containers in applicable washing machines. If the device does not support this sensor, the value is shown as `Unknown`.
+  - **PowerDisk level**: A sensor displaying the remaining level in the detergent container in applicable dishwashers. If the device does not support this sensor, the value is shown as `Unknown`.
+  - **Rinse aid level**: A sensor displaying the remaining level in the rinse aid container in dishwashers.
+  - **Salt level**: A sensor displaying the remaining level in the salt container in dishwashers.
 {% enddetails %}
 
 ### Switch

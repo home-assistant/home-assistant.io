@@ -27,7 +27,7 @@ ha_platforms:
   - sensor
   - switch
 ha_integration_type: hub
-ha_quality_scale: bronze
+ha_quality_scale: silver
 ---
 
 The **Velbus** {% term integration %} is used to control [Velbus](https://www.velbus.eu/?lang=en) modules. It supports the Velbus USB, Velbus serial and a TCP/IP gateway.
@@ -440,4 +440,3 @@ The Velbus integration and its entities can be removed by following these steps:
 {% include integrations/remove_device_service.md %}
 
 Note: Removing the integration will delete all Velbus devices and their history from Home Assistant.
-

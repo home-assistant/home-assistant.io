@@ -3,8 +3,8 @@ title: Uptime Kuma
 description: Instructions on how to integrate Uptime Kuma with Home Assistant.
 ha_category:
   - Sensor
-  - Update
   - System monitor
+  - Update
 ha_iot_class: Cloud Polling
 ha_release: 2025.8
 ha_config_flow: true

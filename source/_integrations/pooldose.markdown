@@ -16,12 +16,13 @@ ha_codeowners:
 ha_domain: pooldose
 ha_platforms:
   - binary_sensor
+  - diagnostics
   - number
   - select
   - sensor
   - switch
-ha_integration_type: integration
-ha_quality_scale: silver
+ha_integration_type: device
+ha_quality_scale: platinum
 ha_dhcp: true
 ---
 
