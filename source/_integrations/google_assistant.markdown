@@ -200,7 +200,7 @@ service_account:
       required: true
       type: string
 report_state:
-  description: Actively report state changes on entities. This speeds up response time for actions affecting multiple entities since Google Assistant knows pre-hand what state they are. It is also required for some features on visual controls.
+  description: Actively report state changes on entities. This speeds up response time for actions affecting multiple entities since Google Assistant knows beforehand what state they are. It is also required for some features on visual controls.
   required: false
   default: false
   type: boolean
