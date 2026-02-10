@@ -24,10 +24,10 @@ The **LoJack** {% term integration %} connects Home Assistant to vehicles equipp
 
 Each vehicle device provides:
 
-- A **device tracker** entity for real-time GPS location on the map
+- A **device tracker** entity that shows the vehicle's current or last known GPS location on the map
 - **Sensors** for odometer, speed, battery voltage, and last-reported timestamp
 - **Binary sensors** for connectivity status and movement detection
-- A **button** entity to request a live GPS fix directly from the vehicle's hardware
+- A **Refresh location** button entity that requests a live GPS fix directly from the vehicle's hardware
 
 LoJack/Spireon is a vehicle tracking and recovery service primarily available in the United States. The hardware is typically installed by a dealership at the time of vehicle purchase. You need an active Spireon/LoJack account with at least one enrolled vehicle to use this integration.
 
@@ -170,7 +170,7 @@ The **LoJack** integration {% term polling polls %} data from the Spireon cloud 
 
 ### Polling the server cache
 
-Calling the `homeassistant.update_entity` action (or triggering a coordinator refresh) re-fetches the last known location already stored on the Spireon server. This is fast and lightweight but only returns whatever location the server already has. If the vehicle has not reported in recently, you will get stale data.
+Calling the `homeassistant.update_entity` action re-fetches the last known location already stored on the Spireon server. This is fast and lightweight but only returns whatever location the server already has. If the vehicle has not reported in recently, you will get stale data.
 
 Use this approach when you want to check the location more frequently than every 5 minutes, or when you need a quick, low-overhead update.
 
@@ -206,7 +206,7 @@ automation:
 ```
 
 ### Low battery voltage alert
-
+{% raw %}
 ```yaml
 automation:
   - alias: "Alert on low vehicle battery"
@@ -222,9 +222,10 @@ automation:
             {{ states('sensor.lojack_camry_battery_voltage') }}V.
             This may indicate the battery needs attention.
 ```
+{% endraw %}
 
 ### Movement detection at night
-
+{% raw %}
 ```yaml
 automation:
   - alias: "Alert when vehicle starts moving at night"
@@ -241,11 +242,11 @@ automation:
         data:
           message: "Your vehicle has started moving after hours!"
 ```
-
+{% endraw %}
 ### On-demand active tracking
 
 For situations where you need frequent, accurate location updates (for example, actively tracking a vehicle), you can combine a live GPS fix request with a server poll. Use an input boolean to control when tracking is active to avoid unnecessary battery drain.
-
+{% raw %}
 ```yaml
 automation:
   - alias: "Active tracking - request GPS every 3 minutes"
@@ -269,7 +270,7 @@ automation:
         target:
           entity_id: device_tracker.lojack_camry
 ```
-
+{% endraw %}
 {% tip %}
 Running active tracking continuously (24/7) wakes the LoJack hardware every few minutes, which increases battery draw and cellular data usage. Consider using conditions to limit active tracking to when it is actually needed.
 {% endtip %}
@@ -347,7 +348,7 @@ If you see "Rate limited by LoJack API" in the logs, the integration has automat
 ### Enabling debug logging
 
 To enable debug logging for the LoJack integration, add the following to your {% term "`configuration.yaml`" %}:
-
+{% raw %}
 ```yaml
 logger:
   default: info
@@ -355,7 +356,7 @@ logger:
     homeassistant.components.lojack: debug
     lojack_api: debug
 ```
-
+{% endraw %}
 ## Removing the integration
 
 This integration follows standard integration removal.
