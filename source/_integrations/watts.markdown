@@ -90,8 +90,8 @@ Each climate entity exposes additional attributes:
 
 The integration creates a switch entity for each compatible switch device in your Watts Vision + system. Each switch entity provides:
 
-- **On and off control**: Toggle the device on or off
-- **State reporting**: View the current state of the device
+- On and off control: Toggle the device on or off
+- State reporting: View the current state of the device
 
 ### Shared functionality
 
