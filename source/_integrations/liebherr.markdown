@@ -22,9 +22,11 @@ related:
 ha_category:
   - Number
   - Sensor
+  - Switch
 ha_platforms:
   - number
   - sensor
+  - switch
 ---
 
 The **Liebherr** {% term integration %} allows you to control and monitor [Liebherr](https://home.liebherr.com/) SmartDevice refrigerators and freezers via the cloud-based [SmartDevice HomeAPI](https://developer.liebherr.com/apis/smartdevice-homeapi/). With this integration, you can monitor temperatures, adjust cooling settings, and create automations to alert you when temperatures exceed safe food storage thresholds.
@@ -105,6 +107,24 @@ For appliances with multiple cooling zones (like a fridge-freezer combination), 
 - **Top zone**: The uppermost cooling compartment
 - **Middle zone**: The middle compartment (if present)
 - **Bottom zone**: The lowermost cooling compartment (if present)
+
+### Switches
+
+The integration creates switch entities for special operating modes available on your appliance. Not all switches may be available depending on your appliance model and its capabilities.
+
+#### Zone-based switches
+
+These switches apply to individual cooling zones. For appliances with multiple zones, a separate switch is created for each zone:
+
+- **SuperCool**: Rapidly lowers the refrigerator compartment temperature to +2°C for up to 12 hours. Designed to quickly cool large amounts of newly stored food or drinks, preventing the interior temperature from rising and ensuring optimal food preservation.
+- **SuperFrost**: Quickly lowers the freezer temperature to -32°C (-26°F), creating cold reserves for vitamin-preserving freezing. The function automatically returns to normal mode once the freezing process is complete, after 65 hours at the most, helping to save electricity.
+
+#### Device-wide switches
+
+These switches apply to the entire appliance:
+
+- **Party mode**: A 24-hour convenience setting that prepares the appliance for entertaining by maximizing cooling performance. It automatically activates SuperCool for rapid chilling of drinks and SuperFrost for freezing food, while boosting ice production if available.
+- **Night mode**: Optimizes kitchen tranquility by silencing all appliance sounds, halting the IceMaker, and dimming interior LED lighting to a soft glow.
 
 ## Use cases
 
