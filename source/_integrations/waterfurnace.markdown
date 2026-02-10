@@ -23,7 +23,8 @@ The sensors provided include:
 - Thermostat Setpoint
 - Thermostat Current Temp
 - Leaving Air Temp
-- Entering Water Loop Temp
+- Entering / Leaving Water Loop Temp
+- Water Flow Rate
 - Current Humidity
 - Current Humidity Setpoint
 - Total system power (in Watts)
