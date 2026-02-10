@@ -30,7 +30,7 @@ There is currently support for the following device types within Home Assistant:
 
 The module communicates via the [Ness D8x/D16x ASCII protocol](https://ia802202.us.archive.org/16/items/ness-d-8x-d-16x-serial-interface.-ascii-protocol/Ness%20D8x%20D16x%20Serial%20Interface.%20ASCII%20Protocol.pdf).
 
-### Alarm System Configuration
+## Prerequisites
 
 As part of the installation process of the IP232 module, the device will need to be configured with the correct settings. From the [iComms Manual](https://ness.zendesk.com/hc/en-us/articles/360021989074-iComms-Manual), there are 3 essential steps:
 1. Setting up the IP232 module with the correct baud rate (9600).
