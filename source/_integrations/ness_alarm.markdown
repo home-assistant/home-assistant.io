@@ -33,6 +33,7 @@ The module communicates via the [Ness D8x/D16x ASCII protocol](https://ia802202.
 ## Prerequisites
 
 As part of the installation process of the IP232 module, the device will need to be configured with the correct settings. From the [iComms Manual](https://ness.zendesk.com/hc/en-us/articles/360021989074-iComms-Manual), there are 3 essential steps:
+
 1. Setting up the IP232 module with the correct baud rate (9600).
 2. Ensuring connectivity of the device on either a DHCP assigned or Static IP address.
 3. Setting the alarm panel up to allow for serial control. On D8x/D16x panels this is enabled by setting `P 199 E` `1E` to `6E` to be `ON` (6E available on v6 panels and later only).
@@ -43,8 +44,18 @@ If the settings in steps 1 and 2 are not set correctly, the integration will not
 Incorrect configuration of these settings will prevent the integration from functioning properly.
 {% endimportant %}
 
-
 {% include integrations/config_flow.md %}
+
+{% configuration_basic %}
+Host:
+  description: "The hostname or IP address of the IP232 module on your home network."
+Port:
+  description: "The port on which the IP232 module listens for clients."
+Scan interval:
+  description: "Time interval between updates."
+Infer arming state:
+  description: "Infer the disarmed arming state only via system status events. This works around a bug with some panels (`<v5.8`) which emit `update.status = []` when they are armed."
+{% endconfiguration_basic %}
 
 ### Managing zones
 
@@ -76,4 +87,3 @@ Trigger a panic
 | Data attribute | Optional | Description                                |
 | ---------------------- | -------- | ------------------------------------------ |
 | `code`                 | No       | The user code to use to trigger the panic. |
-
