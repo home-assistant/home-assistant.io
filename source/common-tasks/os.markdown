@@ -6,7 +6,7 @@ installation_name: "Operating System"
 related:
   - docs: /docs/configuration/
 ---
-This section will provide guides to some common tasks and information which you will need in order to run, maintain, and edit your Home Assistant OS system. For further details on any particular subject, make sure to refer to the documentation for specific add-ons or topics listed here.
+This section will provide guides to some common tasks and information which you will need in order to run, maintain, and edit your Home Assistant OS system. For further details on any particular subject, make sure to refer to the documentation for specific apps (formerly known as add-ons) or topics listed here.
 
 {% include common-tasks/file_access.md %}
 
@@ -31,7 +31,7 @@ If you have the {% term "Home Assistant Operating System" %} installed, you rece
 - {% term "Home Assistant Operating System" %}
 - {% term "Home Assistant Supervisor" %}
 - {% term "Home Assistant Core" %}
-- {% term "Add-ons" %}, if you have any installed
+- {% term "Apps" %}, if you have any installed
 
 Each of these components needs to be updated separately.
 

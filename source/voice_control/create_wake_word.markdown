@@ -6,7 +6,7 @@ related:
   - docs: /voice_control/custom_sentences/
     title: Custom Sentences
   - docs: /common-tasks/os/#configuring-access-to-files
-    title: Installing the Samba add-on
+    title: Installing the Samba app
   - docs: /voice_control/about_wake_word/
     title: About wake words
   - url: https://colab.research.google.com/drive/1q1oe2zOyZp7UsB3jJiQ1IFn8z5YfjwEb?usp=sharing#scrollTo=1cbqBebHXjFD
@@ -27,7 +27,7 @@ To *use* the wake word, you need some extra hardware. A low cost option is the [
 
 Enabling a wake word consists of 2 steps:
 
-1. Installing the openWakeWord add-on.
+1. Installing the **openWakeWord** app.
 2. Enabling the wake word for a specific voice assistant.
 
 ### Prerequisites
@@ -36,14 +36,14 @@ Enabling a wake word consists of 2 steps:
 - Assist configured either with [Home Assistant Cloud](/voice_control/voice_remote_cloud_assistant/) or a manually configured [local Assist pipeline](/voice_control/voice_remote_local_assistant)
 - All the [Best Practices](/voice_control/best_practices) we recommend.
 
-### Installing the openWakeWord add-on
+### Installing the openWakeWord app
 
-1. Go to {% my supervisor_addon addon="core_openwakeword" title="**Settings** > **Add-ons** > **openWakeWord**" %} and select **Install**.
-2. **Start** the add-on.
+1. Go to {% my supervisor_addon addon="core_openwakeword" title="**Settings** > **Apps** > **openWakeWord**" %} and select **Install**.
+2. **Start** the app.
 3. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
    - Under **Discovered**, you should now see the **openWakeWord** component of the **Wyoming** integration.
    - Select **Configure** and **Submit**.
-   - **Result**: You have successfully installed the **openWakeWord** add-on and **Wyoming** integration.
+   - **Result**: You have successfully installed the **openWakeWord** app and **Wyoming** integration.
 
 ### To enable wake word for your voice assistant
 
@@ -118,7 +118,7 @@ Depending on the word, training a model on your own wake word may take a few ite
 
 ### To add your personal wake word to Home Assistant
 
-1. Make sure you have the [Samba add-on installed](/common-tasks/os/#configuring-access-to-files).
+1. Make sure you have the [Samba app installed](/common-tasks/os/#configuring-access-to-files).
 2. On your computer, access your Home Assistant server via Samba.
    - Open the `share` folder and create a new folder `openwakeword` so that you have `/share/openwakeword`.
 3. Drop your shiny new wake word model file (`.tflite`) into that folder.
@@ -127,7 +127,7 @@ Depending on the word, training a model on your own wake word may take a few ite
    - Or, edit an existing assistant.
 5. Under **Wake word**, select **openwakeword**.
    - Then, select your own personal wake word.
-   - If there is no **Wake word** option, make sure you have the add-on installed and successfully completed the [$13 voice assistant for Home Assistant](/voice_control/thirteen-usd-voice-remote/) tutorial.
+   - If there is no **Wake word** option, make sure you have the app installed and successfully completed the [$13 voice assistant for Home Assistant](/voice_control/thirteen-usd-voice-remote/) tutorial.
 6. Enable this new assistant on your ATOM Echo device.
    - Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **ESPHome** integration.
       - Under **M5Stack ATOM Echo**, select **1 device**.

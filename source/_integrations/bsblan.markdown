@@ -77,6 +77,42 @@ The `bsblan.set_hot_water_schedule` action allows you to set the hot water heati
 
 Time slots are defined using time pickers for easy configuration without manual formatting. You only need to specify the days you want to configure.
 
+### Action `bsblan.sync_time`
+
+Synchronize Home Assistant time to the BSB-Lan device. Only updates if device time differs from Home Assistant time.
+
+- **Target**: `device_id`
+  - **Description**: The BSB-LAN device to sync time for.
+  - **Required**: Yes
+
+**Examples:**
+
+Sync time for all BSB-Lan devices:
+
+```yaml
+action: bsblan.sync_time
+```
+
+Sync time for a specific device:
+
+```yaml
+action: bsblan.sync_time
+target:
+  device_id: "your_device_id"
+```
+
+Use in an automation to sync time daily:
+
+```yaml
+automation:
+  - alias: "Sync BSB-Lan time daily"
+    triggers:
+      - trigger: time
+        at: "03:00:00"
+    actions:
+      - action: bsblan.sync_time
+```
+
 ## Examples
 
 The following examples show how to use the BSB-Lan integration actions in Home Assistant automations.

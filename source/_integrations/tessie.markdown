@@ -217,6 +217,7 @@ The integration will create sensor entities for a variety of metrics related to 
 - Charger current
 - Charger power
 - Charger voltage
+- Energy remaining
 
 #### Climate state
 

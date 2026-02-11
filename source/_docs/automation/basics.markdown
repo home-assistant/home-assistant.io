@@ -34,7 +34,7 @@ Action: Turn lights on
 
 ## Exploring the internal state
 
-Automations interact directly with the internal state of Home Assistant, so you'll need to familiarize yourself with it. Home Assistant exposes its current state via the developer tools. These are available at the bottom of the sidebar in the frontend. {% my developer_states title="**Developer tools** > **States**" %} will show all currently available states. An entity can be anything. A light, a switch, a person and even the sun. A state consists of the following parts:
+Automations interact directly with the internal state of Home Assistant, so you'll need to familiarize yourself with it. Home Assistant exposes its current state via the developer tools. These are available at the bottom of the sidebar in the frontend. {% my developer_states title="**Settings** > **Developer tools** > **States**" %} will show all currently available states. An entity can be anything. A light, a switch, a person and even the sun. A state consists of the following parts:
 
 | Name | Description | Example |
 | ---- | ----- | ---- |
@@ -44,7 +44,7 @@ Automations interact directly with the internal state of Home Assistant, so you'
 
 State changes can be used as the source of triggers and the current state can be used in conditions.
 
-To explore the available *actions* open the {% my developer_services title="**Developer tools** > **Actions**" %}. *Actions* allow changing anything. For example, turn on a light, run a script, or enable a scene. Each *action* has a domain and a name. For example, the *action* {% my developer_call_service service="light.turn_on" %} is capable of turning on any light in your system. Parameters can be passed to an *action* to indicate, for example, which device to activate or which color to use.
+To explore the available *actions* open the {% my developer_services title="**Settings** > **Developer tools** > **Actions**" %}. *Actions* allow changing anything. For example, turn on a light, run a script, or enable a scene. Each *action* has a domain and a name. For example, the *action* {% my developer_call_service service="light.turn_on" %} is capable of turning on any light in your system. Parameters can be passed to an *action* to indicate, for example, which device to activate or which color to use.
 
 ## Creating automations
 

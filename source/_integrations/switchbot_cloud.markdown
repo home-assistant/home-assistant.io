@@ -77,14 +77,22 @@ Please note, device names configured in the SwitchBot app are transferred into H
 - [Floor Lamp](https://www.switch-bot.com/products/switchbot-floor-lamp)
 - [Color Bulb (WoBulb)](https://switch-bot.com/pages/switchbot-color-bulb)
 - [Light Strip (WoStrip)](https://www.switchbot.jp/products/switchbot-strip-light)
-- RGBICWW Floor Lamp
-- RGBICWW Strip Light
+- [RGBICWW Floor Lamp](https://www.switch-bot.com/products/switchbot-rgbicww-floor-lamp)
+- [RGBICWW Strip Light](https://www.switch-bot.com/products/switchbot-rgbicww-strip-light)
 - [Ceiling Light / Ceiling Light Pro](https://www.switchbot.jp/pages/switchbot-ceiling-light) (Japan only)
+- [RGBIC Neon Rope Light](https://www.switch-bot.com/products/switchbot-rgbic-neon-rope-light)
+- [RGBIC Neon Wire Rope Light](https://www.switch-bot.com/products/switchbot-rgbic-neon-wire-rope-light)
+- [Candle Warmer Lamp](https://www.switch-bot.com/products/switchbot-candle-warmer-lamp)
 
 ### Locks
 
 - [Lock (WoLock)](https://switch-bot.com/pages/switchbot-lock)
 - [Lock Pro (WoLockPro)](https://www.switch-bot.com/pages/switchbot-lock-pro)
+- Lock Pro Wifi
+- Lock Lite
+- [Lock Ultra](https://www.switch-bot.com/products/switchbot-lock-ultra)
+- Lock Vision
+- Lock Vision Pro
 
 ### Sensors
 
@@ -340,6 +348,27 @@ Features:
 - turn on or off
 - change brightness
 - change color temperature
+
+#### RGBICWW Floor Lamp / RGBICWW Strip Light
+
+Features:
+- turn on or off
+- change brightness
+- change color
+- change color temperature
+
+#### RGBIC Neon Rope Light / RGBIC Neon Wire Rope Light
+
+Features:
+- turn on or off
+- change brightness
+- change color
+
+#### Candle Warmer Lamp
+
+Features:
+- turn on or off
+- change brightness
 
 ### Locks
 

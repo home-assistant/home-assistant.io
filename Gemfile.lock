@@ -27,13 +27,17 @@ GEM
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0)
     eventmachine (1.2.7)
+    ffi (1.17.3-aarch64-linux-gnu)
     ffi (1.17.3-arm64-darwin)
     ffi (1.17.3-x86_64-linux-gnu)
     forwardable-extended (2.6.0)
-    google-protobuf (4.33.4-arm64-darwin)
+    google-protobuf (4.33.5-aarch64-linux-gnu)
       bigdecimal
       rake (>= 13)
-    google-protobuf (4.33.4-x86_64-linux-gnu)
+    google-protobuf (4.33.5-arm64-darwin)
+      bigdecimal
+      rake (>= 13)
+    google-protobuf (4.33.5-x86_64-linux-gnu)
       bigdecimal
       rake (>= 13)
     http_parser.rb (0.8.1)
@@ -70,7 +74,7 @@ GEM
       nokogiri (~> 1.12)
     jekyll-watch (2.2.1)
       listen (~> 3.0)
-    json (2.18.0)
+    json (2.18.1)
     kramdown (2.5.2)
       rexml (>= 3.4.4)
     kramdown-parser-gfm (1.1.0)
@@ -87,6 +91,8 @@ GEM
     multi_json (1.19.1)
     mustermann (3.0.4)
       ruby2_keywords (~> 0.0.1)
+    nokogiri (1.18.10-aarch64-linux-gnu)
+      racc (~> 1.4)
     nokogiri (1.18.10-arm64-darwin)
       racc (~> 1.4)
     nokogiri (1.18.10-x86_64-linux-gnu)
@@ -121,7 +127,7 @@ GEM
     regexp_parser (2.11.3)
     rexml (3.4.4)
     rouge (4.7.0)
-    rubocop (1.84.0)
+    rubocop (1.84.1)
       json (~> 2.3)
       language_server-protocol (~> 3.17.0.2)
       lint_roller (~> 1.1.0)
@@ -135,7 +141,7 @@ GEM
     rubocop-ast (1.49.0)
       parser (>= 3.3.7.2)
       prism (~> 1.7)
-    ruby-lsp (0.26.5)
+    ruby-lsp (0.26.6)
       language_server-protocol (~> 3.17.0)
       prism (>= 1.2, < 2.0)
       rbs (>= 3, < 5)
@@ -143,10 +149,9 @@ GEM
     ruby2_keywords (0.0.5)
     safe_yaml (1.0.5)
     sass (3.4.25)
-    sass-embedded (1.97.3-arm64-darwin)
+    sass-embedded (1.97.3)
       google-protobuf (~> 4.31)
-    sass-embedded (1.97.3-x86_64-linux-gnu)
-      google-protobuf (~> 4.31)
+      rake (>= 13)
     sass-globbing (1.1.5)
       sass (>= 3.1)
     sassc (2.1.0)
@@ -173,6 +178,7 @@ GEM
     webrick (1.9.2)
 
 PLATFORMS
+  aarch64-linux
   arm64-darwin-23
   x86_64-linux
 
@@ -186,8 +192,8 @@ DEPENDENCIES
   nokogiri (= 1.18.10)
   rackup (= 2.3.1)
   rake (= 13.3.1)
-  rubocop (= 1.84.0)
-  ruby-lsp (= 0.26.5)
+  rubocop (= 1.84.1)
+  ruby-lsp (= 0.26.6)
   sass-embedded (= 1.97.3)
   sass-globbing (= 1.1.5)
   sassc (= 2.1.0)
