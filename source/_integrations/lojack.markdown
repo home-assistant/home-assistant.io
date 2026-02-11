@@ -225,7 +225,6 @@ automation:
 {% endraw %}
 
 ### Movement detection at night
-{% raw %}
 ```yaml
 automation:
   - alias: "Alert when vehicle starts moving at night"
@@ -242,11 +241,9 @@ automation:
         data:
           message: "Your vehicle has started moving after hours!"
 ```
-{% endraw %}
 ### On-demand active tracking
 
 For situations where you need frequent, accurate location updates (for example, actively tracking a vehicle), you can combine a live GPS fix request with a server poll. Use an input boolean to control when tracking is active to avoid unnecessary battery drain.
-{% raw %}
 ```yaml
 automation:
   - alias: "Active tracking - request GPS every 3 minutes"
@@ -270,7 +267,6 @@ automation:
         target:
           entity_id: device_tracker.lojack_camry
 ```
-{% endraw %}
 {% tip %}
 Running active tracking continuously (24/7) wakes the LoJack hardware every few minutes, which increases battery draw and cellular data usage. Consider using conditions to limit active tracking to when it is actually needed.
 {% endtip %}
@@ -348,7 +344,6 @@ If you see "Rate limited by LoJack API" in the logs, the integration has automat
 ### Enabling debug logging
 
 To enable debug logging for the LoJack integration, add the following to your {% term "`configuration.yaml`" %}:
-{% raw %}
 ```yaml
 logger:
   default: info
@@ -356,7 +351,6 @@ logger:
     homeassistant.components.lojack: debug
     lojack_api: debug
 ```
-{% endraw %}
 ## Removing the integration
 
 This integration follows standard integration removal.
