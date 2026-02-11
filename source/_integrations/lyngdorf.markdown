@@ -108,7 +108,7 @@ The **Lyngdorf** integration uses local push to receive real-time updates from t
 ## Known limitations
 
 - The integration has only been tested with the Lyngdorf MP-60. Other models may not support all features.
-- Only local network control is supported. Remote access requires Home Assistant remote access to be configured.
+- Only local network control is supported.
 
 ## Troubleshooting
 
