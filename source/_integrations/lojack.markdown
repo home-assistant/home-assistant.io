@@ -5,7 +5,7 @@ ha_category:
   - Car
   - Presence detection
   - Sensor
-ha_release: '2025.3'
+ha_release: '2026.3'
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_quality_scale: bronze
@@ -24,10 +24,10 @@ The **LoJack** {% term integration %} connects Home Assistant to vehicles equipp
 
 Each vehicle device provides:
 
-- A **device tracker** entity that shows the vehicle's current or last known GPS location on the map
+- A device tracker entity that shows the vehicle's current or last known GPS location on the map.
 - **Sensors** for odometer, speed, battery voltage, and last-reported timestamp
-- **Binary sensors** for connectivity status and movement detection
-- A **Refresh location** button entity that requests a live GPS fix directly from the vehicle's hardware
+- Binary sensors for connectivity status and movement detection.
+- A Refresh location button entity that requests a live GPS fix directly from the vehicle's hardware.
 
 LoJack/Spireon is a vehicle tracking and recovery service primarily available in the United States. The hardware is typically installed by a dealership at the time of vehicle purchase. You need an active Spireon/LoJack account with at least one enrolled vehicle to use this integration.
 
