@@ -136,7 +136,7 @@ All Alexa-enabled devices have timestamp sensors that show the next scheduled al
 
 - **Particulate Matter** - 10 μm & 2.5 μm
 - **Carbon Monoxide**
-- **Volatile Organic Compounds**
+- **Volatile Organic Compounds Index**
 - **Air Quality Index**
 
 ## Supported functionality
