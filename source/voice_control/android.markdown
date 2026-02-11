@@ -38,8 +38,11 @@ Wake word detection continuously monitors audio for wake words, which has a noti
 {% endimportant %}
 
 {% note %}
-Wake word detection on Android uses more battery than "Ok Google" because Google Assistant has access to dedicated low-power hardware for wake word detection on supported devices. Unfortunately, Google does not make this specialized hardware accessible to third-party app developers, forcing apps like Home Assistant to rely on standard audio processing, which consumes more power by keeping the CPU on all the time. This platform limitation means third-party voice assistants cannot achieve the same battery efficiency as Google's built-in assistant, despite using the same wake word detection technology (microWakeWord).
+Wake word detection on Android uses more battery than "Ok Google" because Google Assistant has access to dedicated low-power hardware for wake word detection on supported devices. Unfortunately, Google does not make this specialized hardware accessible to third-party app developers, forcing apps like Home Assistant to rely on standard audio processing, which consumes more power by keeping the CPU on all the time. This platform limitation means third-party voice assistants cannot achieve the same battery efficiency as Google's built-in assistant.
 {% endnote %}
+
+Wake word detection runs entirely on your Android device, which means it works without an active internet connection (though executing commands still requires connectivity to your Home Assistant instance). When multiple devices detect the same wake word simultaneously (like another Android phone or a Voice Preview Edition), only the first device to capture the wake word will keep the Assist session open while other devices automatically cancel their sessions.
+
 ### Enabling wake word detection on Android
 
 To enable wake word detection on your Android device, follow these steps:
@@ -60,17 +63,7 @@ To enable wake word detection on your Android device, follow these steps:
    - Hey Jarvis
    - Hey Mycroft
    **Result**:  Once enabled, wake word detection works even when your device is locked or the app is in the background.
- 6. To use Assist on Android, say your chosen wake word, wait for the listening prompt, and then speak your command.   
-
-Once enabled, wake word detection works even when your device is locked or the app is in the background. Simply say your chosen wake word, wait for the listening prompt, and then speak your command.
-
-{% note %}
-Wake word detection runs entirely on your Android device. This means it works without an active internet connection (though executing commands still requires connectivity to your Home Assistant instance).
-{% endnote %}
-
-{% note %}
-Wake word detection coordinates with other devices in your home. If multiple devices detect the same wake word simultaneously (like another Android phone or a Voice Preview Edition), only the first device to capture the wake word will keep the Assist session open. The other devices will automatically cancel their sessions.
-{% endnote %}
+6. To use Assist on Android, say your chosen wake word, wait for the listening prompt, and then speak your command.
 
 #### Controlling wake word detection from Home Assistant
 
