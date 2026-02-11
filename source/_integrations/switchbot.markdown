@@ -333,14 +333,14 @@ Features:
 - get light level
 - get battery level
 - get calibration state
-- enable slow mode
+- enable curtain movement speed
 
-Curtain slow mode is configured from the device options. Slow mode is primarily designed for Curtain 3 models, and older Curtain models may ignore the setting.
+Curtain movement speed is configured from the device options. Curtain movement speed is primarily designed for Curtain 3 models. Older Curtain models may ignore the setting.
 
-1. To enable slow mode, go to {% my integrations title="**Settings** > **Devices & services**" %}.
+1. To enable **Curtain movement speed**, go to {% my integrations title="**Settings** > **Devices & services**" %}.
 2. Find the SwitchBot integration and select the curtain device you want to configure.
 3. Select **Configure** for that device.
-4. In the **Options** dialog, enable **Curtain slow mode**.
+4. In the **Options** dialog, enable **Curtain movement speed**.
 
 #### Blind Tilt
 
