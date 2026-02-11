@@ -230,7 +230,7 @@ Depending on the supported features of the camera ([see specifications of the ca
 - Restart*
 
 **PTZ left**, **right**, **up**, **down**, **left up**, **left down**, **right up**, **right down**, **zoom in** and **zoom out** will continually move the camera in the respective position until the **PTZ stop** is called or the hardware limit is reached.
-**PTZ continuous rotation** will keep rotating the camera untill **PTZ stop** is called or **PTZ continuous rotation** is called again.
+**PTZ continuous rotation** will keep rotating the camera until **PTZ stop** is called or **PTZ continuous rotation** is called again.
 
 **Guard set current position** will set the current position as the new guard position.
 
