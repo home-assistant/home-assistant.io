@@ -137,8 +137,8 @@ For the **crossline**, **intrusion**, **linger**, **item forgotten**, and **item
 
 Depending on the supported features of the camera ([see specifications of the camera model on Reolink.com](#tested-models)), number entities are added for:
 
-- Optical zoom control
-- Focus control
+- Optical zoom control+
+- Focus control+
 - Floodlight turn on brightness*+
 - Floodlight event brightness*+
 - Infrared light brightness
@@ -356,8 +356,8 @@ Depending on the supported features of the camera ([see specifications of the ca
 - Person type+ (man, woman)
 - Animal type+ (dog, cat)
 - Vehicle type+ (sedan, SUV, pickup truck, motorcycle)
-- PTZ pan position
-- PTZ tilt position
+- PTZ pan position+
+- PTZ tilt position+
 - Day night state+ (color, black and white, color with floodlight)
 - Wi-Fi signal*
 - CPU usage*

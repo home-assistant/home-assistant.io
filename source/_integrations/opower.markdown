@@ -104,6 +104,11 @@ You will be asked to re-authenticate via MFA every 180 days.
 
 ## Sensors
 
+The integration adds the following diagnostic sensors for each account:
+
+- Last changed
+- Last updated
+
 The integration adds the following sensors only if your utility provides forecasted usage/cost:
 
 For electricity:
@@ -173,8 +178,8 @@ With the above changes your (**{% my config_energy title="Settings > Dashboards 
 ## Known limitations
 
 - There is a delay, often for up to a few days, for sensors and statistics to have up-to-date data.
-- For some utilities, there are no sensors added by this integration.
-- For some utilities, the sensors might disappear or become unavailable at the beginning of your bill period.
+- For some utilities, there are no usage/cost sensors added by this integration.
+- For some utilities, the usage/cost sensors might disappear or become unavailable at the beginning of your bill period.
 - Sensors for typical monthly usage and cost are not populated for accounts younger than a year.
 - Many utilities provide granular usage (for example, daily or hourly) but not cost. They only provide cost for billing periods (for example, month). This results in showing 0 for cost.
 
