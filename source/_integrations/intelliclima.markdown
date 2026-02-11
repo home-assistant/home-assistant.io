@@ -120,7 +120,7 @@ Try the following steps:
    - Wait for the device to come back online.
 
 5. Check Home Assistant logs: Look for error messages in the Home Assistant logs for more details about the connection failure:
-   - Go to **Settings** → **System** → **Logs**.
+   - Go to {% my logs title="**Settings** > **System** > **Logs**" %}.
    - Search for "intelliclima" messages.
 
 ### Integration fails to authenticate
