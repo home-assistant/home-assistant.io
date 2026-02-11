@@ -650,11 +650,6 @@ The `zwave_js.get_lock_usercode` action retrieves [usercodes](/docs/scripts/perf
 | -------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | `entity_id`    | no       | Lock entity or list of entities to get usercodes from.                                                                                        |
 | `code_slot`    | no       | The code slot to retrieve. If not specified, all code slots are returned.                                                                     |
-| `refresh`      | no       | Whether to poll the lock for fresh data instead of using cached values. Only supported when querying a single code slot. Defaults to `false`. |
-
-{% note %}
-When retrieving all code slots, only cached values are returned to avoid performance issues.
-{% endnote %}
 
 {% details "Example action response" %}
 
