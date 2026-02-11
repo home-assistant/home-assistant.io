@@ -69,7 +69,7 @@ collections:
     output: true
   docs:
     output: true
-  addons:
+  apps:
     output: true
   faq:
     output: true
