@@ -35,6 +35,7 @@ Before setting up this integration, you must complete the following steps in the
 5. Verify that the device appears as Online in the IntelliClima+ app.
 
 Once your device is set up and responding in the IntelliClima+ app, you can add the integration to Home Assistant.
+
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
