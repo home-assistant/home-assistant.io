@@ -19,11 +19,11 @@ ha_integration_type: device
 ha_quality_scale: silver
 ---
 
-The **Lyngdorf** {% term integration %} allows you to control [Lyngdorf](https://lyngdorf.steinwaylyngdorf.com/electronics/) audio processors from Home Assistant. Lyngdorf Audio manufactures high-end audio processors and amplifiers featuring advanced room correction technology called RoomPerfect. With this integration, you can control power, volume, source selection, audio modes, and various audio processing parameters directly from Home Assistant.
+The **Lyngdorf** {% term integration %} allows you to control [Lyngdorf] audio processors and amplifiers from Home Assistant. Lyngdorf Audio is known for their RoomPerfect room correction technology. This integration lets you control power, volume, source selection, sound modes, and audio processing parameters.
+
+[Lyngdorf]: https://lyngdorf.steinwaylyngdorf.com/electronics/
 
 ## Supported devices
-
-The following devices are supported by the integration:
 
 - [MP-40](https://lyngdorf.steinwaylyngdorf.com/lyngdorf-mp-40/)
 - MP-50
@@ -33,102 +33,84 @@ The following devices are supported by the integration:
 - [TDAI-3400](https://lyngdorf.steinwaylyngdorf.com/lyngdorf-tdai-3400/)
 
 {% note %}
-The MP-60 is the only model that has been tested in the wild so far. Other models should work but may not support all features. If you have a different model, please report any issues on GitHub.
+The MP-60 is the only model that has been tested in the wild so far. Other models should work but may not support all features. If you have a different model, please report any issues on [GitHub](https://github.com/home-assistant/core/issues).
 {% endnote %}
 
 ## Prerequisites
 
 - Your Lyngdorf device must be connected to the same network as Home Assistant.
-- UPnP/SSDP must be enabled on your network for automatic discovery.
 
 {% include integrations/config_flow.md %}
 
-If automatic discovery doesn't find your device, you can add the integration manually by entering the hostname or IP address of your Lyngdorf device.
+{% configuration_basic %}
+Host:
+  description: "The hostname or IP address of your Lyngdorf device."
+{% endconfiguration_basic %}
 
 ## Supported functionality
 
-### Entities
+### Media players
 
-The **Lyngdorf** integration provides the following entities.
+The integration creates two media player {% term entities %}:
 
-#### Media players
+- **Main zone**: Controls your Lyngdorf device, including power, volume, mute, source selection, and sound mode.
+- **Zone B**: Controls the Zone B output, including power, volume, mute, and source selection.
 
-- **Main zone**
-  - Controls your Lyngdorf device, including power, volume, mute, source selection, and sound mode.
-- **Zone B**
-  - Controls the Zone B output, including power, volume, mute, and source selection.
+### Numbers
 
-#### Numbers
+- **Lip sync**: Adjusts the lip sync delay (0 to 200 ms in 1 ms steps).
+- **Trim bass**: Adjusts the bass level (-12.0 to +12.0 dB in 0.5 dB steps).
+- **Trim treble**: Adjusts the treble level (-12.0 to +12.0 dB in 0.5 dB steps).
+- **Trim centre**: Adjusts the center channel level (-10.0 to +10.0 dB in 0.5 dB steps).
+- **Trim height**: Adjusts the height speaker level (-10.0 to +10.0 dB in 0.5 dB steps).
+- **Trim LFE**: Adjusts the low frequency effects level (-10.0 to +10.0 dB in 0.5 dB steps).
+- **Trim surround**: Adjusts the surround speaker level (-10.0 to +10.0 dB in 0.5 dB steps).
 
-- **Lip sync**
-  - Adjusts the lip sync delay (0 to 200 ms in 1 ms steps).
-- **Trim bass**
-  - Adjusts the bass level (-12.0 to +12.0 dB in 0.5 dB steps).
-- **Trim treble**
-  - Adjusts the treble level (-12.0 to +12.0 dB in 0.5 dB steps).
-- **Trim centre**
-  - Adjusts the center channel level (-10.0 to +10.0 dB in 0.5 dB steps).
-- **Trim height**
-  - Adjusts the height speaker level (-10.0 to +10.0 dB in 0.5 dB steps).
-- **Trim LFE**
-  - Adjusts the low frequency effects level (-10.0 to +10.0 dB in 0.5 dB steps).
-- **Trim surround**
-  - Adjusts the surround speaker level (-10.0 to +10.0 dB in 0.5 dB steps).
+### Selects
 
-#### Selects
+- **RoomPerfect position**: Chooses the RoomPerfect listening position (such as Global or Focus 1).
+- **Voicing**: Selects the RoomPerfect voicing preset (such as Neutral, Music, or Relaxed).
 
-- **RoomPerfect position**
-  - Chooses the RoomPerfect listening position (such as Global or Focus 1).
-- **Voicing**
-  - Selects the RoomPerfect voicing preset (such as Neutral, Music, or Relaxed).
+### Sensors
 
-#### Sensors
+All sensor entities are {% term diagnostic %} and report the current signal information from the device.
 
-All sensor entities are diagnostic and report the current signal information from the device.
-
-- **Audio information**
-  - Shows the current audio signal format (such as PCM or Dolby Atmos).
-- **Audio input**
-  - Shows the active audio input connector.
-- **Video information**
-  - Shows the current video signal format.
-- **Video input**
-  - Shows the active video input connector.
-- **Streaming source**
-  - Shows the current streaming source name.
-- **Zone B audio input**
-  - Shows the active audio input for Zone B.
-- **Zone B streaming source**
-  - Shows the current streaming source for Zone B.
+- **Audio information**: The current audio signal format (such as PCM or Dolby Atmos).
+- **Audio input**: The active audio input connector.
+- **Video information**: The current video signal format.
+- **Video input**: The active video input connector.
+- **Streaming source**: The current streaming source name.
+- **Zone B audio input**: The active audio input for Zone B.
+- **Zone B streaming source**: The current streaming source for Zone B.
 
 ## Data updates
 
-The **Lyngdorf** integration uses local push to receive real-time updates from the device over a TCP connection. State changes on the device are pushed to Home Assistant immediately.
+The **Lyngdorf** integration uses {% term local_push %} to receive real-time updates from the device over a TCP connection. State changes on the device are pushed to Home Assistant immediately.
 
 ## Known limitations
 
-- The integration has only been tested with the Lyngdorf MP-60. Other models may not support all features.
+- Only the MP-60 has been tested. Other models may not support all features.
 - Only local network control is supported.
 
 ## Troubleshooting
 
 ### Device not discovered
 
-#### Symptom: "Device not found during setup"
+#### Symptom: Device is not automatically discovered
 
-The Lyngdorf device is not automatically discovered by Home Assistant.
+The Lyngdorf device does not show up as a discovered device in Home Assistant.
 
 #### Resolution
 
 To resolve this issue, try the following steps:
 
 1. Make sure your Lyngdorf device is powered on and connected to the same network as Home Assistant.
-2. Check that UPnP/SSDP is enabled on your router.
-3. Try adding the device manually using its IP address.
+2. Check that UPnP/SSDP is not blocked on your network.
+3. Add the device manually using its IP address.
 
 ### Connection issues
 
-#### Symptom: "Device unavailable"
+#### Symptom: Device shows as unavailable
 
 The integration shows as unavailable or disconnects frequently.
 
@@ -142,6 +124,6 @@ To resolve this issue, try the following steps:
 
 ## Removing the integration
 
-This integration follows standard integration removal.
+This integration follows standard integration removal. No extra steps are required.
 
 {% include integrations/remove_device_service.md %}
