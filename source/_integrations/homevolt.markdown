@@ -12,7 +12,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@danielhiversen'
 ha_integration_type: device
-ha_release: 2026.2
+ha_release: 2026.3
 ---
 
 The **Homevolt** {% term integration %} lets Home Assistant read local data from your Homevolt battery over your network, no cloud required.
