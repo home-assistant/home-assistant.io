@@ -76,10 +76,13 @@ The **Compit** integration provides the following entities.
 
 Binary sensors provide status information about your Compit devices.
 
+### Climate
+
+The climate entity reflects the current heating or cooling state and the **active** target temperature. Use the climate entity when you want to change the target temperature temporarily or for the current session (for example, turning up the heat for the evening). The climate entity is where you set what temperature the device is aiming for right now.
+
 ### Numbers
 
-Numbers let you adjust temperature set points and configuration values on your
-Compit devices.
+Number entities let you set **default** temperature setpoints and other configuration values. These are the preset target temperatures used for each operating mode (such as Comfort, Eco, or Holiday). They are not used for temporary or one-off changes; for those, use the climate entity instead.
 
 - **Comfort target temperature**
   - **Description**: Target room temperature for comfort mode.
