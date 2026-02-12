@@ -37,10 +37,19 @@ The integration supports the following devices:
 {% configuration_basic %}
 Host:
   description: "The IP address of your device. You can find it in your router or in the Indevolt app."
-Port:
-  description: "The TCP port of the device, 8080 by default."
 
 {% endconfiguration_basic %}
+
+The Indevolt integration communicates with your device over its standard TCP port (8080), which is used automatically by Home Assistant and does not need to be configured manually.
+### Manual configuration
+
+Alternatively, you can configure the Indevolt integration by adding it to your `configuration.yaml`:
+
+```yaml
+indevolt:
+```
+
+This enables UDP broadcast listening for automatic device discovery on your local network.
 
 ## Supported functionality
 
@@ -51,7 +60,8 @@ The Indevolt integration provides sensors for monitoring your device (read only)
 #### BK1600/BK1600Ultra (Generation 1)
 
 - Serial number
-- Working mode
+- Device mode (overal setup of the device, for example standalone/cluster)
+- Energy mode (battery and energy management strategy, for example Self-Consumped Prioritized/Price-Based Strategy)
 - DC input power (2 channels, W)
 - Daily production (kWh)
 - Cumulative production (kWh)
