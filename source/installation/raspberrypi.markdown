@@ -48,7 +48,7 @@ This guide shows how to install the {% term "Home Assistant Operating System" %}
    1. To start the process, select **Next**, then choose **Write**.
    2. Wait for the Home Assistant OS to be written to the SD card.
     ![Select write](/images/installation/rpi_choose_write.png)
-7. Eject the SD card.
+7. Select **Finish** and eject the SD card.
 
 ### Start up your Raspberry Pi
 
