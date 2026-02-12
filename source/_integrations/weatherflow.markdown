@@ -71,6 +71,7 @@ This {% term integration %} will expose these {% term event %} {% term entities 
 
 Additionally the following diagnostic sensors are available:
 
+- Battery level (percentage)
 - Battery voltage
 - Signal strength
 - Uptime
