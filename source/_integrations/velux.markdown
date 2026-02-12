@@ -18,6 +18,7 @@ ha_platforms:
   - button
   - cover
   - light
+  - number
   - scene
 ha_integration_type: hub
 ha_dhcp: true
@@ -33,6 +34,7 @@ There is currently support for the following device types within Home Assistant:
 - Button (Reboot button on the gateway device to reboot the KLF 200 gateway)
 - Cover
 - Light
+- Number (Allows control of the power of an Exterior Heating devices connected to the gateway from 0% to 100%)
 - Scene
 
 Rain sensors of supported windows do not report automatically and must be polled every 5 minutes. For this reason, they are disabled by default, because polling uses more radio bandwidth and battery power than simply reporting changed window positions.
