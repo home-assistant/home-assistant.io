@@ -6,6 +6,7 @@ ha_category:
   - Image
   - Presence detection
   - Sensor
+  - Switch
 ha_release: 2023.9
 ha_domain: vodafone_station
 ha_config_flow: true
@@ -19,6 +20,7 @@ ha_platforms:
   - diagnostics
   - image
   - sensor
+  - switch
 ha_integration_type: hub
 ha_quality_scale: platinum
 ---
@@ -78,6 +80,7 @@ There is support for the following platform types within Home Assistant:
 - **Device tracker** - presence detection by looking at connected devices.
 - **Image** - generate QR code for Guest Wi-Fi.
 - **Sensor** - external IP address, uptime, firmware, resources and network monitors.
+- **Switch** - enable/disable main and guest Wi-Fi.
 
 ## Examples
 

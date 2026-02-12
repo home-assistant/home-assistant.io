@@ -247,9 +247,9 @@ Now the scene has a state; it also got logbook entries.
 ## Search in the configuration panel
 
 There is now a search in the top right of the configuration dashboard, which
-opens the [Quick Bar](/docs/tools/quick-bar/). This also works on mobile devices.
+opens the [Quick Bar](/docs/tools/quick-search/). This also works on mobile devices.
 
-It allows you to access and search for just about anything within
+It allows you to access and search forst about anything within
 Home Assistant. From accessing add-ons, configuration panels,
 and even entities and devices.
 

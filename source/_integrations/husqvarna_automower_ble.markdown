@@ -12,7 +12,7 @@ ha_codeowners:
 ha_platforms:
   - lawn_mower
   - sensor
-ha_integration_type: integration
+ha_integration_type: device
 ha_domain: husqvarna_automower_ble
 ---
 

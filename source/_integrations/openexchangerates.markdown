@@ -9,7 +9,7 @@ ha_release: 0.23
 ha_domain: openexchangerates
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ha_codeowners:
   - '@MartinHjelmare'
 ---

@@ -968,7 +968,7 @@ This release contains several changes to the configuration menu. These are the
 most important changes.
 
 - The `Configuration` menu has been renamed to `Settings`.
-- `Helpers` moved to `Devices & Services`.
+- `Helpers` moved to `Devices & services`.
 - `Blueprints` moved to `Automations & Scenes`.
 - `Areas` is now grouped with `Zones.
 - Dashboard `Resources` moved to overflow menu*.

@@ -9,7 +9,7 @@ ha_domain: google_translate
 ha_platforms:
   - tts
 ha_config_flow: true
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 The **Google Translate text-to-speech** {% term integration %} uses the unofficial [Google Translate text-to-speech engine](https://translate.google.com/) to read a text with natural sounding voices. Contrary to what the name suggests, the integration only does text-to-speech and does not translate messages sent to it.

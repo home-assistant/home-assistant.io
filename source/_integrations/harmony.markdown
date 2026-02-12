@@ -16,7 +16,7 @@ ha_ssdp: true
 ha_platforms:
   - remote
   - select
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 The **Logitech Harmony Hub** {% term integration %} allows you to control the state of your [Harmony Hub Device](https://support.myharmony.com/hub).
@@ -33,7 +33,7 @@ Supported units:
 
 **Note:** Depending on the firmware, you may need to enable XMPP for this integration to work. From your Harmony app, go to: **Menu** > **Harmony Setup** > **Add/Edit Devices & Activities** > **Remote & Hub** > **Enable XMPP**.
 
-Once the Logitech Harmony Hub has been configured, the default activity and duration in seconds between sending commands to a device can be adjusted in the settings via **Settings** -> **Devices & services** >> **Your Logitech Harmony Hub**
+Once the Logitech Harmony Hub has been configured, the default activity and duration in seconds between sending commands to a device can be adjusted in the settings via {% my integrations title="**Settings** > **Devices & services**" %} > **Your Logitech Harmony Hub**
 
 ### Configuration file
 
@@ -153,9 +153,9 @@ data:
   delay_secs: 0.6
 ```
 
-### Action `harmony.change_channel`
+### Action: Change channel
 
-Sends the change channel command to the Harmony HUB
+The `harmony.change_channel` action sends the change channel command to the Harmony Hub.
 
 | Data attribute | Optional | Description                 |
 | ---------------------- | -------- | --------------------------- |
@@ -172,9 +172,9 @@ data:
   channel: 200
 ```
 
-### Action `harmony.sync`
+### Action: Sync
 
-Force synchronization between the Harmony device and the Harmony cloud.
+The `harmony.sync` action forces synchronization between the Harmony device and the Harmony cloud.
 
 | Data attribute | Optional | Description          |
 | ---------------------- | -------- | -------------------- |

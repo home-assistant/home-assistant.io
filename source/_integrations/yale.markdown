@@ -1,5 +1,5 @@
 ---
-title: Yale
+title: Yale Home
 description: Instructions on how to integrate your Yale devices into Home Assistant.
 ha_category:
   - Binary sensor

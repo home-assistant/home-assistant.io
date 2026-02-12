@@ -6,17 +6,18 @@ ha_category:
 ha_release: 0.103
 ha_iot_class: Local Polling
 ha_codeowners:
-  - '@erwindouna'
   - '@jhollowe'
   - '@Corbeno'
+  - '@erwindouna'
 ha_domain: proxmoxve
 ha_platforms:
   - binary_sensor
-ha_integration_type: integration
+ha_integration_type: service
 related:
   - docs: /docs/configuration/
     title: Configuration file
 ha_quality_scale: legacy
+ha_config_flow: true
 ---
 
 [Proxmox VE](https://www.proxmox.com/en/) is an open-source server virtualization environment. This integration allows you to poll various data from your instance.
