@@ -119,9 +119,10 @@ The integration provides a configuration entity to adjust advanced thermostat se
 
 ### Button
 
-The integration provides a button entity for device management:
+The integration provides button entities for device management:
 
 - **Restart**: Restart the thermostat device. This performs a soft restart of the thermostat, which can be useful for troubleshooting connectivity issues or applying configuration changes. The thermostat will be temporarily unavailable during the restart process (typically 5-10 seconds).
+- **Recalibrate CO₂**: Initiates manual CO₂ sensor calibration by setting the current air as the new 400 ppm reference value. Only available if the thermostat has the optional carbon dioxide sensor. Not recommended for typical use as the CO₂ sensor has an auto-calibration algorithm enabled by default. Only activate this if the air is clean (fresh outdoor air) and auto-calibration needs to be manually overridden.
 
 ## Use cases
 
