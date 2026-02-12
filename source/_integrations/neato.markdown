@@ -17,7 +17,7 @@ ha_platforms:
   - sensor
   - switch
   - vacuum
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The **Neato** {% term integration %} allows you to control your [Neato Botvac Connected Robots][botvac-connected].
@@ -95,9 +95,9 @@ And a specific integration-specific action:
 
 - `neato.custom_cleaning`
 
-#### Action `neato.custom_cleaning`
+#### Action: Custom cleaning
 
-Starts a custom cleaning of your house. You can set the various options like in the mobile application (mode, map usage, navigation mode, zone).
+The `neato.custom_cleaning` action starts a custom cleaning of your house. You can set the various options like in the mobile application (mode, map usage, navigation mode, zone).
 
 {% note %}
 Not all Botvac models support all the attributes. Only the Neato Botvac D7 supports the `zone` attribute.

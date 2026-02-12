@@ -11,7 +11,7 @@ ha_codeowners:
 ha_domain: pvpc_hourly_pricing
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 This {% term integration %} uses the official API to get the hourly price of electricity in Spain from <https://www.esios.ree.es/en/pvpc>.

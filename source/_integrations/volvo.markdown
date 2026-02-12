@@ -23,7 +23,7 @@ ha_platforms:
 ha_quality_scale: platinum
 related:
   - url: https://developer.volvocars.com/
-    title: Volvo developers portal
+    title: Volvo developer portal
 ---
 
 The **Volvo** {% term integration %} is used to integrate your [Volvo](https://www.volvocars.com/) vehicle.
@@ -325,4 +325,4 @@ This integration follows standard integration removal.
 
 {% include integrations/remove_device_service.md %}
 
-After deleting the integration, go to the app of the manufacturer and remove the Home Assistant integration from there as well.
+After deleting the integration, go to the [API applications page](https://developer.volvocars.com/account/#your-api-applications) on Volvo's developer portal and delete the app you use for the Home Assistant integration.

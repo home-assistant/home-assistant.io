@@ -15,7 +15,8 @@ ha_platforms:
   - light
   - sensor
   - switch
-ha_integration_type: device
+ha_integration_type: hub
+ha_quality_scale: bronze
 ---
 
 The **Fressnapf Tracker** {% term integration %} allows you to integrate [Fressnapf GPS Trackers](https://tracker.fressnapf.de/) into Home Assistant.

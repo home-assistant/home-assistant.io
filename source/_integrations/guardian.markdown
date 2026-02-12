@@ -40,25 +40,25 @@ There is currently support for the following device types within Home Assistant:
 
 ## Actions
 
-### `guardian.pair_sensor`
+### Action: Pair sensor
 
-Add a new paired sensor to the valve controller.
-
-| Data attribute | Optional | Description                                      |
-| ---------------------- | -------- | ------------------------------------------------ |
-| `uid`                    | yes      | The unique device ID on the bottom of the sensor.|
-
-### `guardian.unpair_sensor`
-
-Remove a paired sensor from the valve controller.
+The `guardian.pair_sensor` action adds a new paired sensor to the valve controller.
 
 | Data attribute | Optional | Description                                      |
 | ---------------------- | -------- | ------------------------------------------------ |
 | `uid`                    | yes      | The unique device ID on the bottom of the sensor.|
 
-### `guardian.upgrade_firmware`
+### Action: Unpair sensor
 
-Upgrade the device firmware.
+The `guardian.unpair_sensor` action removes a paired sensor from the valve controller.
+
+| Data attribute | Optional | Description                                      |
+| ---------------------- | -------- | ------------------------------------------------ |
+| `uid`                    | yes      | The unique device ID on the bottom of the sensor.|
+
+### Action: Upgrade firmware
+
+The `guardian.upgrade_firmware` action upgrades the device firmware.
 
 | Data attribute | Optional | Description                                      |
 | ---------------------- | -------- | ------------------------------------------------ |

@@ -3,6 +3,7 @@ title: Uptime Kuma
 description: Instructions on how to integrate Uptime Kuma with Home Assistant.
 ha_category:
   - Sensor
+  - System monitor
   - Update
 ha_iot_class: Cloud Polling
 ha_release: 2025.8
@@ -54,10 +55,12 @@ You can create an API key by logging into your Uptime Kuma instance, navigating 
 - **Monitored hostname**: The hostname or IP address being monitored (if applicable).
 - **Monitored port**: The port number used by the monitored service (if applicable).
 - **Monitored URL**: The full URL of the monitored service (if applicable).
+- **Uptime (1/30/365 days)**: Uptime ratio in percent, calculated over a sliding window of 1, 30, or 365 days.
+- **Response time Ø (1/30/365 days)**: Average response time calculated over a sliding window of 1, 30, or 365 days.
 
 ## Update
 
-- **Uptime Kuma version**: The update entity indicates if Uptime Kuma is up-to-date or if there is a newer Uptime Kuma version available. For more information on how to update your Uptime Kuma instance, please refer to the [documentation](https://github.com/louislam/uptime-kuma/wiki/%F0%9F%86%99-How-to-Update). If you are using the Uptime Kuma community add-on, you will receive an update notification in Home Assistant as soon as the add-on is updated.
+- **Uptime Kuma version**: The update entity indicates if Uptime Kuma is up-to-date or if there is a newer Uptime Kuma version available. For more information on how to update your Uptime Kuma instance, please refer to the [documentation](https://github.com/louislam/uptime-kuma/wiki/%F0%9F%86%99-How-to-Update). If you are using the Uptime Kuma community app for Home Assistant (formerly known as Uptime Kuma add-on), you will receive an update notification in Home Assistant as soon as the Uptime Kuma community app is updated.
 
 ## Automations
 
