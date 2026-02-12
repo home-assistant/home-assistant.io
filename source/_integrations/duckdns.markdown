@@ -6,10 +6,11 @@ ha_category:
 ha_iot_class: Cloud Polling
 ha_release: 0.55
 ha_domain: duckdns
-ha_integration_type: integration
+ha_integration_type: service
 ha_codeowners:
   - '@tr4nt0r'
 ha_config_flow: true
+ha_quality_scale: platinum
 ---
 
 The **Duck DNS** {% term integration %} keeps your Duck DNS subdomain in sync with your current public IP address.

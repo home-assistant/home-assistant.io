@@ -48,21 +48,21 @@ The chart shows the default illustrations. The next steps show you how to change
 - [ESP32-S3-BOX-3](https://www.aliexpress.us/item/1005005920207976.html). The ESP32-S3-BOX-Lite or the ESP32-S3-BOX also work, but they are not currently on the market.
 - Successfully completed the [ESP32-S3-BOX-3 voice assistant](/voice_control/s3_box_voice_assistant/) tutorial
 
-### Adopting the device in the ESPHome add-on
+### Adopting the device in the ESPHome app
 
-Before you can import new illustrations, you need to install the ESPHome add-on and adopt the device in the add-on.
+Before you can import new illustrations, you need to install the ESPHome app (formerly known as an add-on) and adopt the device in the app.
 
 1. Make sure the ESP32-S3-BOX-3 is up and running and connected to your Wi-Fi.
-2. Go to **Settings** > **Add-ons** and check if you have the **ESPHome** add-on installed.
-   - If you haven't done so, go to [**Settings** > **Add-ons** > **ESPHome**](https://my.home-assistant.io/redirect/supervisor_addon/?addon=5c53de3b_esphome) to install the add-on.
-3. Start the add-on and select **Open web UI**.
-4. In the ESPHome add-on dashboard, on the **ESP32-S3-BOX-3** card, select **Adopt**.
+2. Go to **Settings** > **Apps** and check if you have the **ESPHome** app installed.
+   - If you haven't done so, go to [**Settings** > **Apps** > **ESPHome**](https://my.home-assistant.io/redirect/supervisor_addon/?addon=5c53de3b_esphome) to install the app.
+3. Start the app and select **Open web UI**.
+4. In the ESPHome app dashboard, on the **ESP32-S3-BOX-3** card, select **Adopt**.
 
-   ![Adopt the ESP32-S3-BOX-3 in the ESPHome add-on](/images/assist/esp32-adopt-s3.png)
+   ![Adopt the ESP32-S3-BOX-3 in the ESPHome app](/images/assist/esp32-adopt-s3.png)
 5. If you like, give it a new name. Then, select **Adopt**.
    - Adopting an ESPHome device allows us to customize the existing software.
    - **Result**: The status will change to **Online**.
-6. Now that you have set up the ESPHome add-on, continue with one of the 2 different methods to add custom images:
+6. Now that you have set up the ESPHome app, continue with one of the 2 different methods to add custom images:
    - [Option 1: Using images from a community repository](#option-1-using-images-from-a-community-repository)
    - [Option 2: Using your own images](#option-2-using-your-own-illustrations)
 
@@ -73,7 +73,7 @@ If you want to use your own images, skip this procedure and go to [Option 2: Usi
 
 #### To use images from the community
 
-1. On the **ESP32-S3-BOX-3** add-on, select edit.
+1. On the **ESP32-S3-BOX-3** app, select edit.
    - **Result**: An editor opens, showing the configuration file.
    ![ESP32-S3-BOX-3 config file](/images/assist/esp32-adopt-s3-01.png)
 2. For inspiration, we have prepared some images for you.
@@ -133,7 +133,7 @@ If your images have transparency, you can define the background color in the con
    - There's a [template](#to-draw-your-own-images) for it.
 2. Copy all 6 images into a folder. For example: `voice_assistant_gfx`.
 3. Make sure you have [access to your configuration files](/common-tasks/os/#configuring-access-to-files).
-   - [Install the Samba add-on](/common-tasks/os/#installing-and-using-the-samba-add-on).
+   - [Install the Samba app](/common-tasks/os/#installing-and-using-the-samba-app).
    - This allows you to copy multiple files at once.
 4. Copy your image folder into the configuration folder:
    - Open the `config` folder and open the `ESPHome` folder.
@@ -142,8 +142,8 @@ If your images have transparency, you can define the background color in the con
 
 #### To add your images to the configuration
 
-1. In Home Assistant, go to [**Settings** > **Add-ons** > **ESPHome**](https://my.home-assistant.io/redirect/supervisor_addon/?addon=5c53de3b_esphome), and **Open Web UI**.
-2. On the **ESP32-S3-BOX-3** add-on, select edit.
+1. In Home Assistant, go to [**Settings** > **Apps** > **ESPHome**](https://my.home-assistant.io/redirect/supervisor_addon/?addon=5c53de3b_esphome), and **Open Web UI**.
+2. On the **ESP32-S3-BOX-3** app, select edit.
    - **Result**: An editor opens, showing the configuration file.
    ![ESP32-S3-BOX-3 config file](/images/assist/esp32-adopt-s3-01.png)
 
@@ -213,8 +213,8 @@ You can change the on-device wake word (microWakeWord) that is used on your S3-B
 
 ### To customize the S3-BOX-3 with on-device wake words
 
-1. If you haven't done so already, [adopt the device in the ESPHome add-on](#adopting-the-device-in-the-esphome-add-on).
-2. In Home Assistant, go to [**Settings** > **Add-ons** > **ESPHome**](https://my.home-assistant.io/redirect/supervisor_addon/?addon=5c53de3b_esphome), and **Open Web UI**.
+1. If you haven't done so already, [adopt the device in the ESPHome app](#adopting-the-device-in-the-esphome-app).
+2. In Home Assistant, go to [**Settings** > **Apps** > **ESPHome**](https://my.home-assistant.io/redirect/supervisor_addon/?addon=5c53de3b_esphome), and **Open Web UI**.
 3. On the **ESP32-S3-BOX-3** entry, select edit.
    - **Result**: An editor opens, showing the configuration file.
    ![ESP32-S3-BOX-3 config file](/images/assist/esp32-adopt-s3-01.png)

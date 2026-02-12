@@ -147,6 +147,8 @@ For more customizable notifications, use the `ntfy.publish` action instead of `n
 - `click`: URL that is opened when the notification is clicked.
 - `delay`: Set a delay for message delivery. The minimum delay is 10 seconds, and the maximum delay is 3 days.
 - `attach`: Attach images or other files by URL.
+- `attach_file`: Attach images or other files by uploading from a local file or camera media source. When selecting a camera, the current snapshot will be uploaded and attached to the notification.
+- `filename`: Specify a custom filename for the attachment, including the file extension (for example, attachment.jpg). If not provided, the original filename from local file will be used.
 - `email`: Specify the address to forward the notification to, for example `mail@example.com`.
 - `call`: Phone number to call and read the message out loud using text-to-speech. Requires ntfy Pro and prior phone number verification.
 - `icon`: Include an icon that will appear next to the text of the notification. Only JPEG and PNG images are supported.

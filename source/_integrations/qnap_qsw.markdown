@@ -18,7 +18,7 @@ ha_platforms:
   - update
 ha_codeowners:
   - '@Noltari'
-ha_integration_type: integration
+ha_integration_type: device
 ha_dhcp: true
 ---
 

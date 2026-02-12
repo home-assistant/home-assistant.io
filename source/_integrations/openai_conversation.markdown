@@ -49,6 +49,14 @@ The OpenAI key is used to authenticate requests to the OpenAI API. To generate a
 
 {% include integrations/option_flow.md %}
 
+The integration provides the following types of subentries:
+
+- [Conversation](/integrations/conversation/)
+- [AI Task](/integrations/ai_task/)
+- [Text-to-speech (TTS)](/integrations/tts/)
+
+The Conversation and AI Task subentries have the following configuration options (some of them may be unavailable due to subentry type or model choice):
+
 {% configuration_basic %}
 Instructions:
   description: Instructions for the AI on how it should respond to your requests. It is written using [Home Assistant Templating](/docs/configuration/templating/).
@@ -77,11 +85,27 @@ Include home location:
   description: This parameter allows using the location of your Home Assistant instance during search to provide more relevant search results.
 {% endconfiguration_basic %}
 
+The Text-to-speech (TTS) subentries have the following configuration options:
+
+{% configuration_basic %}
+Instructions:
+  description: Instructions for the AI on how it should read your text. You can prompt the model to control aspects of speech, including accent, emotional range, intonation, impressions, speed of speech, tone, whispering, and more. Templates are not supported here.
+Speed:
+  description: Additionally adjust the speed of the generated speech. Accepts values between 0.25 and 4.0, where 1.0 is the default speed.
+
+{% endconfiguration_basic %}
+
 ## Talking to Super Mario over the phone
 
 You can use an OpenAI Conversation integration to [talk to Super Mario and, if desired, have it control devices](/voice_control/assist_create_open_ai_personality/) in your home.
 
 ## Actions
+
+{% note %}
+
+The actions below are deprecated and will be removed in the future. Please use the corresponding [AI Task](/integrations/ai_task/) actions instead.
+
+{% endnote %}
 
 ### Action `openai_conversation.generate_image`
 

@@ -13,6 +13,7 @@ ha_codeowners:
 ha_config_flow: true
 ha_zeroconf: true
 ha_platforms:
+  - binary_sensor
   - media_player
   - remote
 ha_integration_type: device

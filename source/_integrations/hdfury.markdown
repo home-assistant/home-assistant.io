@@ -14,10 +14,13 @@ ha_codeowners:
 ha_domain: hdfury
 ha_platforms:
   - button
+  - diagnostics
   - select
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: device
+ha_quality_scale: silver
+ha_zeroconf: true
 ---
 
 The **HDFury** {% term integration %} allows you to control and monitor your [HDFury](https://hdfury.com/) device.
@@ -33,6 +36,7 @@ The **HDFury** {% term integration %} allows you to control and monitor your [HD
 
 - [VRROOM](https://hdfury.com/product/8k-vrroom-40gbps/)
 - [Diva](https://hdfury.com/product/4k-diva-18gbps/)
+- [Vertex 2](https://hdfury.com/product/4k-vertex2-18gbps/)
 
 {% include integrations/config_flow.md %}
 

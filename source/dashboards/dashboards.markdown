@@ -193,7 +193,9 @@ You can use YAML to define dashboards. Each YAML dashboard is loaded from its ow
 
 ```yaml
 lovelace:
-  # Include external resources
+  # Use resource_mode to load resources from YAML
+  resource_mode: yaml
+  # Include external resources (requires resource_mode: yaml)
   resources:
     - url: /local/my-custom-card.js
       type: module
@@ -217,14 +219,19 @@ lovelace:
       title: Admin
       icon: mdi:tools
       show_in_sidebar: true
-      require_admin: false
+      require_admin: true
       filename: admin.yaml
 ```
 
 {% configuration dashboards %}
+resource_mode:
+  required: false
+  description: "Controls how resources are loaded. Set to `yaml` to load resources from the `resources` key in YAML configuration. Set to `storage` to manage resources through the UI."
+  type: string
+  default: storage
 resources:
   required: false
-  description: "List of resources that should be loaded. If you change anything here, click the three dots {% icon "mdi:dots-vertical" %} menu (top-right) and click **Reload resources** to pick up changes without restarting Home Assistant. You can also call `lovelace.reload_resources` action directly."
+  description: "List of resources that should be loaded. Requires `resource_mode: yaml` to take effect. After changing the YAML configuration, select the three dots {% icon "mdi:dots-vertical" %} menu (top-right) and select **Reload resources** to pick up changes without restarting Home Assistant. You can also call the `lovelace.reload_resources` action directly."
   type: list
   keys:
     url:
@@ -237,7 +244,7 @@ resources:
       type: string
 dashboards:
   required: false
-  description: Additional YAML dashboards. The key is used for the URL and should contain a hyphen (`-`)
+  description: "Additional YAML dashboards. The key is used for the URL and should contain a hyphen (`-`), except for `lovelace`, which is allowed for backward compatibility."
   type: map
   keys:
     mode:

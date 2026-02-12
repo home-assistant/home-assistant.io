@@ -137,8 +137,8 @@ For the **crossline**, **intrusion**, **linger**, **item forgotten**, and **item
 
 Depending on the supported features of the camera ([see specifications of the camera model on Reolink.com](#tested-models)), number entities are added for:
 
-- Optical zoom control
-- Focus control
+- Optical zoom control+
+- Focus control+
 - Floodlight turn on brightness*+
 - Floodlight event brightness*+
 - Infrared light brightness
@@ -217,14 +217,20 @@ Depending on the supported features of the camera ([see specifications of the ca
 - PTZ right
 - PTZ up
 - PTZ down
+- PTZ left up*
+- PTZ left down*
+- PTZ right up*
+- PTZ right down*
 - PTZ calibrate
 - PTZ zoom in*
 - PTZ zoom out*
+- PTZ continuous rotation*
 - Guard go to
 - Guard set current position
 - Restart*
 
-**PTZ left**, **right**, **up**, **down**, **zoom in** and **zoom out** will continually move the camera in the respective position until the **PTZ stop** is called or the hardware limit is reached.
+**PTZ left**, **right**, **up**, **down**, **left up**, **left down**, **right up**, **right down**, **zoom in** and **zoom out** will continually move the camera in the respective position until the **PTZ stop** is called or the hardware limit is reached.
+**PTZ continuous rotation** will keep rotating the camera until **PTZ stop** is called or **PTZ continuous rotation** is called again.
 
 **Guard set current position** will set the current position as the new guard position.
 
@@ -356,8 +362,8 @@ Depending on the supported features of the camera ([see specifications of the ca
 - Person type+ (man, woman)
 - Animal type+ (dog, cat)
 - Vehicle type+ (sedan, SUV, pickup truck, motorcycle)
-- PTZ pan position
-- PTZ tilt position
+- PTZ pan position+
+- PTZ tilt position+
 - Day night state+ (color, black and white, color with floodlight)
 - Wi-Fi signal*
 - CPU usage*
@@ -390,7 +396,8 @@ The following models have been tested and confirmed to work with a direct link t
 - C2 Pro*
 - [CX410](https://reolink.com/product/cx410/)
 - [CX810](https://reolink.com/product/cx810/)
-- [E1 Pro](https://reolink.com/product/e1-pro/) (5MP models - hardware version IPC_NT1NA45MP - or newer†)
+- [E1](https://reolink.com/product/e1/)
+- [E1 Pro](https://reolink.com/product/e1-pro/)
 - [E1 Zoom](https://reolink.com/product/e1-zoom/)
 - [E1 Outdoor](https://reolink.com/product/e1-outdoor/)
 - [E1 Outdoor PoE](https://reolink.com/product/e1-outdoor-poe/)
@@ -444,14 +451,13 @@ The following models have been tested and confirmed to work with a direct link t
 - [Reolink Floodlight PoE and Wi-Fi*](https://reolink.com/product/reolink-floodlight/)
 - [Reolink Home Hub](https://reolink.com/product/reolink-home-hub/)
 - [Reolink Home Hub Pro](https://reolink.com/product/reolink-home-hub-pro/)
+- [Reolink Lumus](https://reolink.com/product/reolink-lumus/)
 - **[Reolink TrackMix PoE](https://reolink.com/product/reolink-trackmix-poe/)**
 - [Reolink TrackMix Wi-Fi](https://reolink.com/product/reolink-trackmix-wifi/)
 - Reolink Video Doorbell ([PoE Black](https://reolink.com/product/reolink-video-doorbell/), [PoE White](https://reolink.com/product/reolink-video-doorbell/))
 - **Reolink Video Doorbell ([Wi-Fi Black](https://reolink.com/product/reolink-video-doorbell-wifi/), [Wi-Fi White](https://reolink.com/product/reolink-video-doorbell-wifi/))**
 
 *These models are discontinued and not sold anymore, they will continue to work with Home Assistant.
-
-†Requires a [camera hardware version](https://support.reolink.com/hc/en-us/articles/900000638583-Introduction-to-the-Hardware-Version-of-Reolink-Cameras/) that supports remote access.  All 5MP or newer E1 Pro models (where the hardware version includes "5MP") meet this requirement.  Most sellers (including ReoLink) do not explicitly state the hardware version, so verify the resolution is 5MP or greater to ensure compatibility.
 
 ### Tested battery-powered models
 
@@ -486,9 +492,6 @@ Reolink provides [this larger list of battery camera models](https://support.reo
 The following models are lacking the HTTP web server API and can, therefore, not work directly with this integration.
 However, these cameras can work with this integration through an NVR or Home Hub in which the NVR/Home Hub is connected to Home Assistant.
 
-- E1 Pro (The IPC_NT1NA45MP hardware version also works with a direct connection)
-- E1
-- Reolink Lumus
 - B400*
 - B500*
 - B500W*

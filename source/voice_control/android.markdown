@@ -5,6 +5,8 @@ related:
     title: Exposing devices to Assist
   - docs: /voice_control/best_practices/
     title: Best practices with Assist
+  - docs: /voice_control/about_wake_word/
+    title: About wake words
   - url: https://companion.home-assistant.io/docs/getting_started/
     title: Home Assistant Companion App
   - url: https://support.nabucasa.com/hc/categories/24451727188125
@@ -26,6 +28,48 @@ Assist can be used on Android phones and tablets using the [Home Assistant Compa
 1. On your phone, open Home Assistant.
 2. In the top-right corner, select the three-dots menu and select **Assist**.
 3. [Give a command](/voice_control/custom_sentences/).
+
+### About wake word detection on Android
+
+Wake word detection allows you to activate Assist hands-free by saying a wake word like "Hey Jarvis" or "Hey Nabu". Your Android device uses [microWakeWord](/voice_control/about_wake_word/#about-on-device-wake-word-processing-microwakeword) to process wake words locally on the device, which means your audio stays private and no audio is sent to Home Assistant until after the wake word is detected.
+
+{% important %}
+Wake word detection continuously monitors audio for wake words, which has a noticeable impact on battery life. Consider disabling wake word detection when you don't need it or [control it remotely from Home Assistant](#controlling-wake-word-detection-from-home-assistant) to turn it on only when needed.
+{% endimportant %}
+
+{% note %}
+Wake word detection on Android uses more battery than "Ok Google" because Google Assistant has access to dedicated low-power hardware for wake word detection on supported devices. Unfortunately, Google does not make this specialized hardware accessible to third-party app developers, forcing apps like Home Assistant to rely on standard audio processing, which consumes more power by keeping the CPU on all the time. This platform limitation means third-party voice assistants cannot achieve the same battery efficiency as Google's built-in assistant.
+{% endnote %}
+
+Wake word detection runs entirely on your Android device, which means it works without an active internet connection (though executing commands still requires connectivity to your Home Assistant instance). When multiple devices detect the same wake word simultaneously (like another Android phone or a Voice Preview Edition), only the first device to capture the wake word will keep the Assist session open while other devices automatically cancel their sessions.
+
+### Enabling wake word detection on Android
+
+To enable wake word detection on your Android device, follow these steps:
+#### Prerequisites
+
+- Home Assistant Companion App version 2026.2.3 or later
+- Assist set as the [default assistant app](#setting-up-home-assistant-assist-as-default-assistant-app)
+- [Home Assistant Cloud](/voice_control/voice_remote_cloud_assistant/) or a manually configured [local Assist pipeline](/voice_control/voice_remote_local_assistant)
+
+#### To enable wake word detection
+
+1. On your Android phone, open the **Home Assistant** app.
+2. Go to **Settings** > **Companion app**.
+3. Open **Assist for Android**.
+4. Enable **Wake word detection**.
+5. Select a wake word from the available options:
+   - Hey Nabu
+   - Hey Jarvis
+   - Hey Mycroft
+   **Result**:  Once enabled, wake word detection works even when your device is locked or the app is in the background.
+6. To use Assist on Android, say your chosen wake word, wait for the listening prompt, and then speak your command.
+
+#### Controlling wake word detection from Home Assistant
+
+You can turn wake word detection on or off remotely from Home Assistant. This is useful for automations that enable wake word detection only when you're at home or during specific times to save battery.
+
+Use the `command_wake_word_detection` command with `turn_on` or `turn_off` to control wake word detection. For details on how to send commands to the companion app, see the [notification commands documentation](https://companion.home-assistant.io/docs/notifications/notification-commands/).
 
 ### Setting up Home Assistant Assist as default assistant app
 
