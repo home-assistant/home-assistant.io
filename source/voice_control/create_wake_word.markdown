@@ -80,6 +80,8 @@ _Want to know more about how this all works? Check out the [openWakeWord](https:
 
 Depending on the word, training a model on your own wake word may take a few iterations and a bit of tweaking. This guide will take you through the process step by step.
 
+Another, more user-friendly, option is https://openwakeword.com . This platform is basically a UI and a hosted backend that runs an adaptation of the Openwakeword repo on github. Generation of new wake words will require credits (due to GPU computing) but there is a free library of already generated wake words and a useful test interface to test the wake words before downloading.
+
 ### Prerequisites
 
 - Latest version of Home Assistant, installed with the Home Assistant Operating System
