@@ -589,9 +589,11 @@ remove:
 
 Expose Home Assistant entity states and attributes to the KNX bus so other KNX devices can react to changes or read the latest values. You can also broadcast current time and date.
 
-### Time exposures
+### Serve current time
 
-Use time exposures to broadcast the current local time, date, or combined date and time to the KNX bus every hour.
+You can broadcast the current local time, date, or combined date and time to the KNX bus every hour. This can be configured via the KNX config panel or via YAML.
+
+{% details "Configuration of time exposures via YAML" %}
 
 ```yaml
 knx:
@@ -610,6 +612,8 @@ type:
   type: string
   required: true
 {% endconfiguration %}
+
+{% enddetails %}
 
 ### Entity exposures
 
