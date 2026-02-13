@@ -94,11 +94,11 @@ All Generation 1 sensors, plus:
 - Bypass input energy (Wh)
 - Off-grid output energy (kWh)
 - Total AC output energy (kWh)
-- Master serial number
-- Master SOC (%)
-- Master temperature (°C)
-- Master voltage (V)
-- Master current (A)
+- Main serial number
+- Main SOC (%)
+- Main temperature (°C)
+- Main voltage (V)
+- Main current (A)
 - Battery pack 1-5 serial number
 - Battery pack 1-5 SOC (%)
 - Battery pack 1-5 temperature (°C)
