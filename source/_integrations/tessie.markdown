@@ -205,6 +205,16 @@ Cooled seats:
 
 The integration will create sensor entities for a variety of metrics related to your vehicles:
 
+#### Battery health state
+
+- Battery module temperature max
+- Battery module temperature min
+- Battery pack current
+- Battery pack voltage
+- Energy remaining
+- Lifetime energy used
+- Phantom drain
+
 #### Charge state
 
 - Battery charging
