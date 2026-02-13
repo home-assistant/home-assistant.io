@@ -215,7 +215,7 @@ Get entities reporting receiving and transmitting bandwidth per port. These sens
 
 ### Port link speed sensor
 
-Get entities reporting the link negotiation speed for network device ports. This sensor shows the physical connection speed in megabits per second (Mbit/s) at which each port negotiated its link. These sensors are disabled by default.
+Get entities reporting the link negotiation speed for network device ports. These sensors show the connection speed in megabits per second (Mbit/s) at which each port negotiated its link. Entities are disabled by default.
 
 ## Light
 
