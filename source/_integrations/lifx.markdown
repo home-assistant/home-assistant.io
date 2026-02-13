@@ -16,7 +16,7 @@ ha_platforms:
   - light
   - select
   - sensor
-ha_integration_type: integration
+ha_integration_type: device
 ha_dhcp: true
 ha_codeowners:
   - '@Djelibeybi'
@@ -32,9 +32,9 @@ LIFX lights allow a change of color and brightness even when they are turned off
 
 The normal `light.turn_on` call cannot be used for this because it always turns the power on. Thus, LIFX has its own `set_state` action that allows color changes without affecting the current power state.
 
-### Action `lifx.set_state`
+### Action: Set state
 
-Change the light to a new state.
+The `lifx.set_state` action changes the light to a new state.
 
 | Data attribute | Description |
 | ---------------------- | ----------- |
@@ -58,7 +58,9 @@ You can control the HEV LEDs in LIFX Clean bulbs using the `set_hev_cycle_state`
 
 To determine whether or not a HEV cycle is currently running, Home Assistant exposes a Clean Cycle binary sensor for all HEV-enabled bulbs. This sensor can be used to trigger automations to occur when a HEV cycle starts or stops. To reduce network load, HEV cycle status is only checked every 10 seconds so this sensor may not update instantaneously.
 
-### Action `lifx.set_hev_cycle_state`
+### Action: Set HEV cycle state
+
+The `lifx.set_hev_cycle_state` action starts or stops a HEV (or "Clean") cycle on LIFX Clean bulbs.
 
 | Data attribute | Description |
 | ---------------------- | ----------- |
@@ -88,9 +90,9 @@ To apply a theme as part of an automation, use the `select.select_option` action
 
 The following themes are available: `autumn`, `blissful`, `bias_lighting`, `calaveras`, `cheerful`, `christmas`, `dream`, `energizing`, `epic`, `evening`, `exciting`, `fantasy`, `focusing`, `gentle`, `halloween`, `hanukkah`, `holly`, `hygge`, `independence`, `intense`, `love`, `kwanzaa`, `mellow`, `party`, `peaceful`, `powerful`, `proud`, `pumpkin`, `relaxing`, `romance`, `santa`, `serene`, `shamrock`, `soothing`, `spacey`, `sports`, `spring`, `stardust`, `thanksgiving`, `tranquil`, `warming`, `zombie`.
 
-### Action `lifx.paint_theme`
+### Action: Paint theme
 
-This action allows you to paint either one of the predefined themes listed above, or you can specify a custom palette and create your own theme. Your palette must be a list of at least two colors each defined as a list of four integer values representing hue, saturation, brightness, and kelvin (in that order). See below for the allowed range for each value.
+The `lifx.paint_theme` action paints either one of the predefined themes listed above, or you can specify a custom palette and create your own theme. Your palette must be a list of at least two colors each defined as a list of four integer values representing hue, saturation, brightness, and kelvin (in that order). See below for the allowed range for each value.
 
 If you provide a value for both `palette` and `theme`, then the palette will override the theme. If neither is provided, the `exciting` theme is used by default.
 
@@ -144,9 +146,9 @@ All hardware-based effects can be stopped and started regardless of the device's
 
 All the available light effects and their options are listed below.
 
-### Action `lifx.effect_pulse`
+### Action: Pulse effect
 
-Run a software-based flash effect by changing to a color and then back.
+The `lifx.effect_pulse` action runs a software-based flash effect by changing to a color and then back.
 
 | Data attribute | Description |
 | ---------------------- | ----------- |
@@ -160,9 +162,9 @@ Run a software-based flash effect by changing to a color and then back.
 | `mode` | The way to change between colors. Valid modes: `blink` (default - direct transition to new color for 'period' time with original color between cycles), `breathe` (color fade transition to new color and back to original), `ping` (short pulse of new color), `strobe` (light turns off between color changes), `solid`(light does not return to original color between cycles).
 | `power_on` | Set this to False to skip the effect on lights that are turned off (defaults to True).
 
-### Action `lifx.effect_colorloop`
+### Action: Colorloop effect
 
-Run a software-based effect that continuously loops colors around the color wheel. All participating lights will coordinate to keep similar (but not identical) colors.
+The `lifx.effect_colorloop` action runs a software-based effect that continuously loops colors around the color wheel. All participating lights will coordinate to keep similar (but not identical) colors.
 
 | Data attribute | Description |
 | ---------------------- | ----------- |
@@ -177,9 +179,9 @@ Run a software-based effect that continuously loops colors around the color whee
 | `spread` | Maximum color difference between participating lights, in degrees on a color wheel (ranges from 0 to 359).
 | `power_on` | Set this to False to skip the effect on lights that are turned off (defaults to True).
 
-### Action `lifx.effect_flame`
+### Action: Flame effect
 
-Run a hardware-based effect on LIFX matrix devices that creates a flame effect on the device. The device will be powered on by default, but this can be overridden by setting `power_on` to `false`. The `speed` attribute controls the speed of the flames.
+The `lifx.effect_flame` action runs a hardware-based effect on LIFX matrix devices that creates a flame effect on the device. The device will be powered on by default, but this can be overridden by setting `power_on` to `false`. The `speed` attribute controls the speed of the flames.
 
 | Data attribute | Description |
 | ---------------------- | ----------- |
@@ -187,9 +189,9 @@ Run a hardware-based effect on LIFX matrix devices that creates a flame effect o
 | `speed` | Duration in seconds for the effect to travel the length of the device (min: 1s, max: 25s)
 | `power_on` | Whether to turn the light on before starting the effect (optional, default: true)
 
-### Action `lifx.effect_morph`
+### Action: Morph effect
 
-Run a hardware-based effect on LIFX matrix devices that animates blobs of colors across the device. The `speed` attribute controls the speed of the movement.
+The `lifx.effect_morph` action runs a hardware-based effect on LIFX matrix devices that animates blobs of colors across the device. The `speed` attribute controls the speed of the movement.
 
 You must provide a `palette` or `theme` to use for the effect, but not both. The `palette` attribute allows you to select the colors used by the effect, while the `theme` attribute allows you to select one of the pre-configured themes which match those found in the LIFX smartphone app.
 
@@ -203,9 +205,9 @@ The device will be powered on by default, but this can be overridden by setting 
 | `theme` | The theme to use for the effect. See above for a list of available themes (optional, overridden by palette). |
 | `power_on` | Whether to turn the light on before starting the effect (optional, default: true) |
 
-### Action `lifx.effect_sky`
+### Action: Sky effect
 
-Run a hardware-based effect on LIFX Ceiling devices that animates a sky scene across the device. The effect emulates three different types of sky: Sunrise, Sunset, and Clouds.
+The `lifx.effect_sky` action runs a hardware-based effect on LIFX Ceiling devices that animates a sky scene across the device. The effect emulates three different types of sky: Sunrise, Sunset, and Clouds.
 The default values and palette used by each sky type match those used by the LIFX smartphone app.
 
 | Data attribute | Description                                                                         |
@@ -248,9 +250,9 @@ data:
     - [40, 0, 100, 6500]  # Final sun: cool white
 ```
 
-### Action `lifx.effect_move`
+### Action: Move effect
 
-Run a hardware-based effect on LIFX multizone devices that move the current colors on the device in a particular direction. The direction and speed of the animation are controlled by the `speed` and `direction` attributes. You can change the effect's colors while running using the `lifx.set_state` action.
+The `lifx.effect_move` action runs a hardware-based effect on LIFX multizone devices that moves the current colors on the device in a particular direction. The direction and speed of the animation are controlled by the `speed` and `direction` attributes. You can change the effect's colors while running using the `lifx.set_state` action.
 
 The effect will not be visible if all LEDs on the device are set to the same color and is ignored by unsupported devices.
 
@@ -262,9 +264,9 @@ The effect will not be visible if all LEDs on the device are set to the same col
 | `theme` | The theme to use for the effect. See above for a list of available themes (optional). |
 | `power_on` | Whether to turn the light on before starting the effect (optional, default: true) |
 
-### Action `lifx.effect_stop`
+### Action: Stop effect
 
-Run an effect that does nothing, thereby stopping any software or hardware effect that might be running.
+The `lifx.effect_stop` action runs an effect that does nothing, thereby stopping any software or hardware effect that might be running.
 
 | Data attribute | Description |
 | ---------------------- | ----------- |

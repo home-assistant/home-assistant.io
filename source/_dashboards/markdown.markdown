@@ -184,3 +184,34 @@ content: >-
   <ha-qr-code data='hallo' error-correction-level="quartile" scale="6"
   center-image="https://brands.home-assistant.io/_/tuya/icon@2x.png"></ha-qr-code>
 ```
+
+## Presentation Tables
+
+HTML tables with `role="presentation"` receive special styling optimized for layout purposes rather than data display. These tables are useful for creating structured layouts with icons, status information, and formatted content.
+
+### Default Styling
+
+Tables marked with `role="presentation"` have:
+- No borders by default
+- No padding by default
+- Middle vertical alignment for cells
+
+Example: Status Card
+Here's an example creating a status notification with an icon and multi-line text:
+
+```html
+  <table role="presentation">
+    <tr>
+      <td rowspan="3" width="70">
+        <img src="/local/icons/alert.png" width="48" height="48"/>
+      </td>
+      <td><strong>System Status Alert</strong></td>
+    </tr>
+    <tr>
+      <td>Priority: High - Requires attention</td>
+    </tr>
+    <tr>
+      <td>Active since: 2024-01-22 14:30</td>
+    </tr>
+  </table>
+```

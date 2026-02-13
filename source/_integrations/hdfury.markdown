@@ -14,10 +14,13 @@ ha_codeowners:
 ha_domain: hdfury
 ha_platforms:
   - button
+  - diagnostics
   - select
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: device
+ha_quality_scale: silver
+ha_zeroconf: true
 ---
 
 The **HDFury** {% term integration %} allows you to control and monitor your [HDFury](https://hdfury.com/) device.
@@ -33,6 +36,7 @@ The **HDFury** {% term integration %} allows you to control and monitor your [HD
 
 - [VRROOM](https://hdfury.com/product/8k-vrroom-40gbps/)
 - [Diva](https://hdfury.com/product/4k-diva-18gbps/)
+- [Vertex 2](https://hdfury.com/product/4k-vertex2-18gbps/)
 
 {% include integrations/config_flow.md %}
 
@@ -77,6 +81,10 @@ Below is a complete overview of the entities this integration provides.
 ### Switches
 
 - Auto switch inputs (Automatically switches to the active HDMI input)
+- CEC RX0 (Enables or disables HDMI-CEC on input RX0)
+- CEC RX1 (Enables or disables HDMI-CEC on input RX1)
+- CEC RX2 (Enables or disables HDMI-CEC on input RX2)
+- CEC RX3 (Enables or disables HDMI-CEC on input RX3)
 - HTPC mode RX0 (Enables HTPC-optimized mode for HDMI input RX0)
 - HTPC mode RX1 (Enables HTPC-optimized mode for HDMI input RX1)
 - HTPC mode RX2 (Enables HTPC-optimized mode for HDMI input RX2)
@@ -86,6 +94,57 @@ Below is a complete overview of the entities this integration provides.
 - Mute audio TX1 (Mutes audio output on HDMI output TX1)
 - OLED display (Turns the front-panel OLED display on or off)
 - Relay (Controls the onboard relay output)
+
+## Data updates
+
+This integration uses local {% term polling %}, meaning it checks for changes to all entities by regularly communicating with the HDFury device.
+
+The integration will retrieve data from the device every minute.
+
+## Examples
+
+The following examples show how to use the HDFury integration in Home Assistant automations.
+These examples are just a starting point, and you can use them as inspiration to create your own automations.
+
+### Switch HDMI input
+
+The following example switches the HDFury input to the correct source when the media player powers on.
+
+{% raw %}
+
+```yaml
+automation:
+  - alias: "Switch HDFury input to Nvidia SHIELD when powered on"
+    triggers:
+      - trigger: state
+        entity_id:
+          - remote.nvidia_shield
+        to:
+          - "on"
+        from:
+          - "off"
+
+    actions:
+      - action: select.select_option
+        target:
+          entity_id: select.hdfury_port_selector_tx0
+        data:
+          option: 1
+```
+
+{% endraw %}
+
+## Known limitations
+
+The HDFury integration currently has no known limitations.
+
+## Troubleshooting
+
+If you're experiencing issues with your HDFury integration, try these general troubleshooting steps:
+
+1. Make sure your HDFury device is powered on and properly connected to your home network.
+2. Verify that the OLED screen on the HDFury device shows an IP address.
+3. If the integration shows as unavailable, try restarting both your HDFury device and Home Assistant.
 
 ## Removing the integration
 

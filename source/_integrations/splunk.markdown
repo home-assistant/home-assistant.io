@@ -17,49 +17,26 @@ ha_quality_scale: legacy
 
 The **Splunk** {% term integration %} makes it possible to log all state changes to an external [Splunk](https://splunk.com/) database using Splunk's HTTP Event Collector (HEC) feature. You can either use this alone, or with the Home Assistant for Splunk [app](https://github.com/miniconfig/splunk-homeassistant). Since the HEC feature is new to Splunk, you will need to use at least version 6.3.
 
-## Configuration
+{% include integrations/config_flow.md %}
 
-To use the `splunk` integration in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+## Filters
+
+Optionally, add the following lines to your {% term "`configuration.yaml`" %} file for filtering which entities are sent to Splunk:
+
 {% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
-# Example configuration.yaml entry
+# Example configuration.yaml entry with entity filter
 splunk:
-  token: YOUR_SPLUNK_TOKEN
+  filter:
+    include_domains:
+      - sensor
+      - binary_sensor
 ```
 
 {% configuration %}
-token:
-  description: The HTTP Event Collector Token already created in your Splunk instance.
-  required: true
-  type: string
-host:
-  description: "IP address or host name of your Splunk host, e.g., 192.168.1.10."
-  required: false
-  default: localhost
-  type: string
-port:
-  description: Port to use.
-  required: false
-  default: 8088
-  type: integer
-ssl:
-  description: Use HTTPS instead of HTTP to connect.
-  required: false
-  default: false
-  type: boolean
-verify_ssl:
-  description: Allows you do disable checking of the SSL certificate.
-  required: false
-  default: true
-  type: boolean
-name:
-  description: This parameter allows you to specify a friendly name to send to Splunk as the host, instead of using the name of the HEC.
-  required: false
-  default: "`HASS`"
-  type: string
 filter:
-  description: Filters for entities to be included/excluded from Splunk. Default is to include all entities. ([Configure Filter](#configure-filter))
+  description: Filters for entities to be included/excluded from Splunk. Default is to include all entities. ([Configuring a filter](#configuring-a-filter))
   required: false
   type: map
   keys:
@@ -89,14 +66,13 @@ filter:
       type: list
 {% endconfiguration %}
 
-### Configure filter
+### Configuring a filter
 
-By default, no entity will be excluded. To limit which entities are being exposed to `Splunk`, you can use the `filter` parameter.
+By default, no entity will be excluded. To limit which entities are exposed to Splunk, you can use the `filter` parameter.
 
 ```yaml
 # Example filter to include specified domains and exclude specified entities
 splunk:
-  token: YOUR_SPLUNK_TOKEN
   filter:
     include_domains:
       - alarm_control_panel

@@ -79,7 +79,7 @@ Please note that to update all light statuses, only one query to the bridge is a
 
 If a group has associated scenes, they will be imported as light effects and visible in `Effect`
 dropdown on UI. You can apply a scene by clicking an item from the dropdown or by calling
-`light.turn_on` service:
+`light.turn_on` action:
 
 ```yaml
   - action: light.turn_on

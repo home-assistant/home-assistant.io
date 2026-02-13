@@ -81,9 +81,9 @@ For the dynamic gas prices, only entities are created that display the
 
 The energy and gas prices are exposed using [actions](/docs/scripts/perform-actions/). The actions populate [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data) with price data.
 
-### Action `easyenergy.get_gas_prices`
+### Action: Get gas prices
 
-Fetches the hourly prices for gas.
+The `easyenergy.get_gas_prices` action allows you to fetch the hourly prices for gas.
 
 | Data attribute | Optional | Description                                          | Example                          |
 | -------------- | -------- | ---------------------------------------------------- | -------------------------------- |
@@ -115,9 +115,9 @@ The response data is a dictionary with the gas timestamps and prices as string a
 }
 ```
 
-### Action `easyenergy.get_energy_usage_prices`
+### Action: Get energy usage prices
 
-Fetches the hourly prices for energy that you use (buy).
+The `easyenergy.get_energy_usage_prices` action allows you to fetch the hourly prices for energy that you use (buy).
 
 | Data attribute | Optional | Description                                          | Example                          |
 | -------------- | -------- | ---------------------------------------------------- | -------------------------------- |
@@ -149,9 +149,9 @@ The response data is a dictionary with the energy timestamps as strings and pric
 }
 ```
 
-### Action `easyenergy.get_energy_return_prices`
+### Action: Get energy return prices
 
-Fetches the hourly prices for energy that you return (sell).
+The `easyenergy.get_energy_return_prices` action allows you to fetch the hourly prices for energy that you return (sell).
 
 | Data attribute | Optional | Description                                             | Example                          |
 | -------------- | -------- | ------------------------------------------------------- | -------------------------------- |

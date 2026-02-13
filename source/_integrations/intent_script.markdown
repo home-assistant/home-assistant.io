@@ -7,6 +7,8 @@ ha_release: '0.50'
 ha_quality_scale: internal
 ha_domain: intent_script
 ha_integration_type: integration
+ha_codeowners:
+  - '@arturpragacz'
 ---
 
 The **Intent Script** integration allows users to configure actions and responses to intents. Intents can be fired by any integration that supports it. Examples are [Alexa](/integrations/alexa/) (Amazon Echo), [Dialogflow](/integrations/dialogflow/) (Google Assistant) and [Snips](/integrations/snips/). Internally they can be fired by [custom sentences](https://www.home-assistant.io/voice_control/custom_sentences_yaml/).
@@ -129,8 +131,8 @@ intent_script:
 
 Available actions: `reload`.
 
-### Action `intent_script.reload`
+### Action: Reload
 
-Reloads the intent script from the YAML-configuration, as a quicker alternative to restarting Home Assistant.
+The `intent_script.reload` action reloads the intent script from the YAML configuration, as a quicker alternative to restarting Home Assistant.
 
 This action takes no data attributes.

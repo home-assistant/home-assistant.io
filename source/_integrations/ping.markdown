@@ -13,7 +13,7 @@ ha_platforms:
   - binary_sensor
   - device_tracker
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ha_config_flow: true
 ha_codeowners:
   - '@jpbede'

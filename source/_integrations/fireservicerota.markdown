@@ -15,7 +15,7 @@ ha_platforms:
   - binary_sensor
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 FireServiceRota is a powerful and flexible availability, scheduling and dispatching system for firefighters.

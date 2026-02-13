@@ -17,7 +17,7 @@ ha_codeowners:
   - '@michaeldavie'
 ha_domain: environment_canada
 ha_config_flow: true
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 The **Environment Canada** {% term integration %} provides meteorological data for Canadian locations from [Environment and Climate Change Canada](https://weather.gc.ca/index_e.html).
@@ -151,8 +151,8 @@ The configuration snippet below adds a template sensor containing the current fo
       event: start
     - platform: event
       event_type: event_template_reloaded
-  action:
-    - service: environment_canada.get_forecasts
+  actions:
+    - action: environment_canada.get_forecasts
       target:
         entity_id: weather.NAME
       response_variable: forecasts
@@ -171,17 +171,17 @@ The configuration snippet below adds a template sensor containing the current fo
 
 ## Actions
 
-### Action `environment_canada.get_forecasts`
+### Action: Get forecasts
 
-Get the raw forecast data from Environment Canada. Returns both the `daily_forecast` and the `hourly_forecast` data.
+The `environment_canada.get_forecasts` action allows you to get the raw forecast data from Environment Canada. It returns both the `daily_forecast` and the `hourly_forecast` data.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | Weather entity to get forecast for.
 
-### Action `environment_canada.set_radar_type`
+### Action: Set radar type
 
-Sets the type of radar to retrieve for the camera.
+The `environment_canada.set_radar_type` action allows you to set the type of radar to retrieve for the camera.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
