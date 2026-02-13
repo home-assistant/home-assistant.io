@@ -26,7 +26,7 @@ ha_homekit: true
 ha_integration_type: device
 ---
 
-The RainMachine {% term integration %} is the main integration to integrate all platforms related to [RainMachine smart Wi-Fi sprinkler controllers](https://www.rainmachine.com/).
+The **RainMachine** {% term integration %} is the main integration to integrate all platforms related to [RainMachine smart Wi-Fi sprinkler controllers](https://www.rainmachine.com/).
 
 There is currently support for the following device types within Home Assistant:
 
@@ -64,26 +64,26 @@ Actions accept either device IDs or entity IDs, depending on the nature of the a
   - `rainmachine.stop_program`
   - `rainmachine.stop_zone`
 
-### `rainmachine.pause_watering`
+### Action: Pause watering
 
-Pause all watering activities for a number of seconds. After the pause is complete, the previous watering activities will resume. Note that controllers can only be paused for a maximum of 12 hours.
+The `rainmachine.pause_watering` action pauses all watering activities for a number of seconds. After the pause is complete, the previous watering activities will resume. Note that controllers can only be paused for a maximum of 12 hours.
 
 | Data attribute | Optional | Description                    |
 | ---------------------- | -------- | ------------------------------ |
 | `seconds`              | no       | The number of seconds to pause |
 
-### `rainmachine.push_flow_meter_data`
+### Action: Push flow meter data
 
-Push Flow Meter data from Home Assistant to the RainMachine device.
+The `rainmachine.push_flow_meter_data` action pushes flow meter data from Home Assistant to the RainMachine device.
 
 | Data attribute | Optional | Description                                                                                                |
 | ---------------------- | -------- | ---------------------------------------------------------------------------------------------------------- |
 | `value`                | no       | The flow meter value to send. May be any positive number.                                                  |
 | `unit_of_measurement`  | yes      | The flow meter units to send. String must be one of "clicks", "gal", "litre", or "m3"  (default: "litre"). |
 
-### `rainmachine.push_weather_data`
+### Action: Push weather data
 
-Push Weather Data from Home Assistant to the RainMachine device.
+The `rainmachine.push_weather_data` action pushes weather data from Home Assistant to the RainMachine device.
 
 Local Weather Push service should be enabled from Settings > Weather > Developer tab for RainMachine to consider the values being sent. Units must be sent in metric; no conversions are performed by the integration. Note: RAIN and QPF values shouldn't be sent as cumulative values but the measured/forecasted values for each hour or day. The RainMachine Mixer will sum all RAIN or QPF values in the current day to have the day total RAIN or QPF.
 
@@ -107,45 +107,45 @@ See details of RainMachine API here:
 | `pressure`             | no       | Barometric Pressure (kPa)                                                                                             |
 | `dewpoint`             | no       | Dew Point (°C)                                                                                                        |
 
-### `rainmachine.restrict_watering`
+### Action: Restrict watering
 
-Restrict any and all watering activities from staring for a time period.
+The `rainmachine.restrict_watering` action restricts any and all watering activities from starting for a time period.
 
 | Data attribute | Optional | Description                    |
 | ---------------------- | -------- | ------------------------------ |
 | `duration`              | no       | The time period to restrict (e.g., "01:00:00") |
 
-### `rainmachine.start_program`
+### Action: Start program
 
-Start a RainMachine program.
+The `rainmachine.start_program` action starts a RainMachine program.
 
-### `rainmachine.start_zone`
+### Action: Start zone
 
-Start a RainMachine zone for a set number of seconds.
+The `rainmachine.start_zone` action starts a RainMachine zone for a set number of seconds.
 
 | Data attribute | Optional | Description                                           |
 | ---------------------- | -------- | ----------------------------------------------------- |
 | `zone_run_time`        | yes      | The number of seconds to run; defaults to 600 seconds |
 
-### `rainmachine.stop_all`
+### Action: Stop all
 
-Stop all watering activities.
+The `rainmachine.stop_all` action stops all watering activities.
 
-### `rainmachine.stop_program`
+### Action: Stop program
 
-Stop a RainMachine program.
+The `rainmachine.stop_program` action stops a RainMachine program.
 
-### `rainmachine.stop_zone`
+### Action: Stop zone
 
-Stop a RainMachine zone.
+The `rainmachine.stop_zone` action stops a RainMachine zone.
 
-### `rainmachine.unpause_watering`
+### Action: Unpause watering
 
-Unpause all paused watering activities.
+The `rainmachine.unpause_watering` action unpauses all paused watering activities.
 
-### `rainmachine.unrestrict_watering`
+### Action: Unrestrict watering
 
-Remove all watering restrictions enforced by `rainmachine.restrict_watering`.
+The `rainmachine.unrestrict_watering` action removes all watering restrictions enforced by `rainmachine.restrict_watering`.
 
 ## Controlling Your Device
 

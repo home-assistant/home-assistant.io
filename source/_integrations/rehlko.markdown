@@ -14,7 +14,7 @@ ha_domain: rehlko
 ha_platforms:
   - binary_sensor
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
 ha_quality_scale: silver
 ---
 

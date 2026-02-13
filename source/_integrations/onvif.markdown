@@ -18,7 +18,7 @@ ha_platforms:
   - event
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: device
 ha_dhcp: true
 ---
 
@@ -121,4 +121,4 @@ Update the camera configuration to output at least one video stream in H.264 for
 
 #### Cause 
 
-Many newer cameras, particularly those with higher resolutions that benefit from H.265's improved video coding, support H.265 (HEVC) by default, while the ONVIF integration looks for H.264 (AVC) video streams to find cameras. 
+Many newer cameras, particularly those with higher resolutions that benefit from H.265's improved video coding, support H.265 (HEVC) by default, while the ONVIF integration looks for H.264 (AVC) video streams to find cameras.

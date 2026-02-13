@@ -36,9 +36,9 @@ These are not the same as *Device Auth* credentials previously recommended for [
 
 If you have an error with your credentials you can delete them in the [Application Credentials](/integrations/application_credentials/) user interface.
 
-### Action `google_mail.set_vacation`
+### Action: Set vacation
 
-You can use the `google_mail.set_vacation` action to set vacation options.
+The `google_mail.set_vacation` action allows you to set vacation options.
 
 {% details "Create event action  details" %}
 

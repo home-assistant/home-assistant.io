@@ -13,7 +13,7 @@ ha_domain: picnic
 ha_platforms:
   - sensor
   - todo
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 The **Picnic** {% term integration %} allows one to get information from [Picnic](https://picnic.app) about orders, deliveries and cart content.
