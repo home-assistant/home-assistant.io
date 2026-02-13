@@ -76,8 +76,5 @@ The Home Assistant Core log typically shows: the message Failed to fetch user pr
 
 This is usually caused by missing permissions. The Fitbit integration requires the **Profile** scope. If **Profile** is not enabled during authorization, Home Assistant cannot fetch the user profile and the setup fails.
 
-The Home Assistant Core log typically shows:
-
-> Failed to fetch user profile for Fitbit API: Error from fitbit API
 
 Enable **Profile** in the Fitbit permission settings and repeat the authorization.
