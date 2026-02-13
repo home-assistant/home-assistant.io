@@ -77,3 +77,9 @@ Maximum web searches:
 Include home location:
   description: The parameter allows you to localize search results based on the Home Assistant location.
 {% endconfiguration_basic %}
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
