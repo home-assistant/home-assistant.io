@@ -1,32 +1,37 @@
 section#collaboration {
     margin-top: 80px;
+    margin-bottom: 40px;
 
     @include bp(desktop) {
         margin-top: 120px;
+        margin-bottom: 0;
     }
 
     .card {
         background-color: transparent;
-        background-image: url('/images/connect/zwa-2/collaboration-bg.webp');
-        background-position: bottom left;
+        background-image: url('/images/connect/zwa-2/zwa-2-device--mobile.webp');
+        background-position: top left;
         background-repeat: no-repeat;
         background-size: contain;
-        min-height: 450px;
+        min-height: 475px;
         display: flex;
-        align-items: center;
         flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
         border-radius: 16px;
         padding: 0 20px;
         
         @include bp(tablet) {
-            background-position: center left;
-            background-size: 70%;
+            background-image: url('/images/connect/zwa-2/zwa-2-device.png');
+            background-position: bottom left;
+            background-size: 65%;
             justify-content: center;
             min-height: 330px;
         }
 
         @include bp(desktop) {
             padding: 40px 20px;
+            background-position: bottom 75% left;
             background-size: 60%;
         }
 
