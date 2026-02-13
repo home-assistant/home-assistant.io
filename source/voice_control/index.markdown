@@ -49,7 +49,9 @@ Another things you can do to further push your setup:
 
 - Voice assistant devices allow you to add Assist to a room and respond to wake words. Follow our tutorial to [create your own for just $13.](/voice_control/thirteen-usd-voice-remote/)
 
-- You can use [ESPHome](https://www.esphome.io/components/voice_assistant/) to create your own awesome voice assistant, like [@piitaya](https://github.com/piitaya) did with his 3D printed R5 droid:
+- Enable [wake word detection on your Android phone](/voice_control/android/#using-wake-word-detection-on-android) to activate Assist hands-free by saying "Hey Jarvis" or "Hey Nabu", even when your phone is locked.
+
+- You can use [ESPHome](https://www.esphome.io/components/voice_assistant/) to create your own awesome voice assistant, like [@piitaya](https://github.com/piitaya) did with his 3D printed R5 droid.
 
 - If you are interested in a voice assistant that is not always listening, consider using Assist on an analog phone. It will only listen when you pick up the horn, and the responses are for your ears only. Follow our tutorial to create your own [analog phone voice assistant](/voice_control/worlds-most-private-voice-assistant/).
 

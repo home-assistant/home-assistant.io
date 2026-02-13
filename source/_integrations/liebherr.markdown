@@ -20,8 +20,10 @@ related:
   - docs: /common-tasks/general/#defining-a-custom-polling-interval
     title: Defining a custom polling interval
 ha_category:
+  - Number
   - Sensor
 ha_platforms:
+  - number
   - sensor
 ---
 
@@ -45,11 +47,7 @@ Before setting up the integration, you need to obtain an API key from the Liebhe
    - Select **Become a beta tester**.
    - Activate the **Beta testing HomeAPI**.
    - Select **Generate new key**.
-   - Copy the API key.
-
-   {% note %}
-   **Important**: The API key can only be copied once from the app. Once you leave the screen, it cannot be retrieved again. If you lose your API key, you'll need to generate a new one.
-   {% endnote %}
+   - Copy the API key. The API key can only be copied once from the app.
 
 3. Verify connectivity: Only appliances that are connected to the internet via the SmartDevice app can be accessed through the HomeAPI. Appliances that are only registered but not actively connected will not appear in Home Assistant.
 
@@ -61,22 +59,6 @@ The integration can be automatically discovered when your appliances are on the 
 API key:
     description: "The API key from the Liebherr SmartDevice app (**Settings** > **Become a beta tester**). Note: The API key can only be copied once from the app."
 {% endconfiguration_basic %}
-
-## Supported functionality
-
-The **Liebherr** integration provides temperature monitoring for refrigerator and freezer zones in your SmartDevice appliances.
-
-### Sensors
-
-The integration creates temperature sensors for each cooling zone in your appliance.
-
-- **Zone temperature**: The current temperature measured inside the cooling zone.
-
-For appliances with multiple cooling zones (for example, a fridge-freezer combination), a separate sensor is created for each zone:
-
-- **Top zone**: The uppermost cooling compartment
-- **Middle zone**: The middle compartment (if present)
-- **Bottom zone**: The lowermost cooling compartment (if present)
 
 {% details "Changing the temperature unit" %}
 
@@ -93,6 +75,36 @@ To change between Celsius and Fahrenheit:
 The Liebherr appliances operate based on the temperature unit selected on the device itself. Home Assistant displays temperatures in the unit system you configure in your Home Assistant settings, automatically converting between Celsius and Fahrenheit as needed.
 
 {% enddetails %}
+
+## Supported functionality
+
+The **Liebherr** integration provides temperature monitoring and control for refrigerator and freezer zones in your SmartDevice appliances.
+
+### Numbers
+
+The integration creates number entities for controlling the setpoint temperature of each cooling zone.
+
+- **Setpoint**: The target temperature for the cooling zone. Adjust this value to change the desired temperature.
+
+The temperature range and unit depend on your appliance's capabilities and settings.
+
+For appliances with multiple cooling zones (like a fridge-freezer combination), a separate number entity is created for each zone:
+
+- **Top zone setpoint**: Target temperature for the uppermost compartment
+- **Middle zone setpoint**: Target temperature for the middle compartment (if present)
+- **Bottom zone setpoint**: Target temperature for the lowermost compartment (if present)
+
+### Sensors
+
+The integration creates temperature sensors for each cooling zone in your appliance.
+
+- **Zone temperature**: The current temperature measured inside the cooling zone.
+
+For appliances with multiple cooling zones (like a fridge-freezer combination), a separate sensor is created for each zone:
+
+- **Top zone**: The uppermost cooling compartment
+- **Middle zone**: The middle compartment (if present)
+- **Bottom zone**: The lowermost cooling compartment (if present)
 
 ## Use cases
 

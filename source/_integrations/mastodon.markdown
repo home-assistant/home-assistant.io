@@ -11,6 +11,7 @@ ha_codeowners:
 ha_domain: mastodon
 ha_iot_class: Cloud Polling
 ha_platforms:
+  - binary_sensor
   - diagnostics
   - notify
   - sensor

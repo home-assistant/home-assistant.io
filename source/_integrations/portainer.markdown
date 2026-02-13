@@ -98,6 +98,12 @@ The `portainer.prune_images` can be used to prune unused images more granually, 
     - **Description**: If true, only prune dangling images.
     - **Optional**: Yes
 
+## Supported devices
+
+There is support for endpoints and their linked containers.
+
+Docker API Engine needs to be equal to or above version 1.44. Older versions are [deprecated](https://docs.docker.com/reference/api/engine/#deprecated-api-versions). 
+
 ## Data updates
 
 The integration normally updates every 60 seconds. For more detailed steps on how to define a custom polling interval, follow the procedure below.
@@ -105,6 +111,10 @@ The integration normally updates every 60 seconds. For more detailed steps on ho
 ### Defining a custom polling interval
 
 {% include common-tasks/define_custom_polling.md %}
+
+## Known limitations
+
+Currently, the integration does not support stacks or Edge computing.
 
 ## Removing the integration
 

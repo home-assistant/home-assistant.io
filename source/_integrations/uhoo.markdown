@@ -7,7 +7,12 @@ ha_codeowners:
   - '@getuhoo'
   - '@joshsmonta'
 ha_domain: uhoo
-ha_integration_type: hub
+ha_integration_type: integration
+ha_category: []
+ha_quality_scale: bronze
+ha_platforms:
+  - sensor
+ha_config_flow: true
 ---
 
 The **uHoo** {% term integration %} lets you integrate [uHoo](https://getuhoo.com) devices into Home Assistant.
