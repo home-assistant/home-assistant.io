@@ -591,7 +591,7 @@ Expose Home Assistant entity states and attributes to the KNX bus so other KNX d
 
 ### Serve current time
 
-You can broadcast the current local time, date, or combined date and time to the KNX bus every hour. This can be configured via the KNX config panel or via YAML.
+You can broadcast the current local time, date, or combined date and time to the KNX bus every hour. This can be configured from the frontend in the KNX panel or via YAML.
 
 {% details "Configuration of time exposures via YAML" %}
 
