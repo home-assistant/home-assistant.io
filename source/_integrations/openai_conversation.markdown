@@ -92,7 +92,7 @@ The Speech-to-text (STT) subentries have the following configuration options:
 Instructions:
   description: Instructions that can be used to improve the quality of the transcripts by giving the model additional context similarly to how you would prompt other LLMs. The model will try to match the style, language, and context of the prompt. You can also use it to pass a dictionary of the correct spellings of common misunderstood words. Check the [OpenAI guide on prompting STT models](https://developers.openai.com/api/docs/guides/speech-to-text#prompting) for additional hints. Templates are not supported here.
 Model:
-  description: The Speech-to-text model for audio transcription
+  description: The Speech-to-text model for audio transcription.
 
 {% endconfiguration_basic %}
 
