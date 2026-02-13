@@ -88,14 +88,14 @@ Include home location:
   description: The parameter allows you to localize search results based on the Home Assistant location.
 {% endconfiguration_basic %}
 
-## Use Cases
+## Use cases
 
 The integration provides `conversation` and `ai_task` entities powered by Anthropic API. Please refer to the corresponding integrations for more details and examples:
 
 - [Conversation](/integrations/conversation/)
 - [AI Task](/integrations/ai_task/)
 
-## Known Limitations
+## Known limitations
 
 This integration does not integrate with [sentence triggers](/docs/automation/trigger/#sentence-trigger).
 
