@@ -333,7 +333,7 @@ Features:
 - get light level
 - get battery level
 - get calibration state
-- enable curtain movement speed
+- set curtain movement speed
 
 Curtain movement speed is configured from the device options. Curtain movement speed is primarily designed for Curtain 3 models. Older Curtain models may ignore the setting.
 
