@@ -997,6 +997,19 @@ section#hero .bg-gradient {
   height: calc(100% + var(--sticky-header-height));
 }
 
+section#hero .logos {
+  width: 100%;
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  z-index: 2;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(20px);
+}
+
 .vpe-main .bg-gradient .grid:before {
   background-image:
     linear-gradient(to right, rgba(255, 255, 255, 0.075) 1px, transparent 1px),
@@ -2846,6 +2859,7 @@ section#hero .bg-gradient {
 .vpe-main #pricing .wrapper.outer {
   max-width: 2160px;
   overflow: hidden;
+  border-radius: 0;
 }
 
 .vpe-main #pricing .image-overlay {
@@ -2900,7 +2914,20 @@ section#hero .bg-gradient {
 }
 
 section#collaboration {
+  max-width: 2160px;
+  transition: border-radius 0.5s;
+  border-radius: 0 0 var(--wrapper-radius) var(--wrapper-radius);
+  margin: 0 auto;
   background-color: #49daf5;
+  padding-top: 0;
+  margin-top: calc(var(--grid-m) * -1);
+  z-index: 2;
+}
+
+@media (min-width: 768px) {
+  section#collaboration {
+    padding-bottom: calc(var(--grid-m) * 2);
+  }
 }
 
 section#collaboration .container {
@@ -2909,7 +2936,7 @@ section#collaboration .container {
 }
 
 section#collaboration .collaboration-card {
-  width: 96%;
+  width: calc((var(--columns) * (var(--grid-m) * 2)));
   max-width: 400px;
   margin: 0 auto;
   background-color: #000;
@@ -2917,7 +2944,7 @@ section#collaboration .collaboration-card {
   background-position: center bottom;
   background-repeat: no-repeat;
   background-size: cover;
-  min-height: 600px;
+  min-height: 640px;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -2996,6 +3023,12 @@ section#collaboration .collaboration-card .collaboration-card-inner {
 @media (min-width: 768px) {
   section#collaboration .collaboration-card .collaboration-card-inner {
     gap: 18px;
+    width: calc(7 / 12 * 100%);
+  }
+}
+
+@media (min-width: 1200px) {
+  section#collaboration .collaboration-card .collaboration-card-inner {
     width: calc(6 / 12 * 100%);
   }
 }
@@ -5882,5 +5915,29 @@ section#collaboration .collaboration-card .collaboration-card-inner p {
 
   80% {
     height: 5px;
+  }
+}
+
+.nc-collaboration {
+    /* position: absolute; */
+}
+
+.nc-collaboration.mobile {
+  display: block;
+}
+
+@media (min-width: 1200px) {
+  .nc-collaboration.mobile {
+    display: none;
+  }
+}
+
+.nc-collaboration.desktop {
+  display: none;
+}
+
+@media (min-width: 1200px) {
+  .nc-collaboration.desktop {
+    display: block;
   }
 }
