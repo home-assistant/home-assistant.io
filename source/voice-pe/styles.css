@@ -997,10 +997,14 @@ section#hero .bg-gradient {
   height: calc(100% + var(--sticky-header-height));
 }
 
+section#hero .wrapper.tall {
+  position: static;
+}
+
 section#hero .logos {
-  width: 100%;
+  min-width: 320px;
   position: absolute;
-  bottom: 1.5rem;
+  bottom: 24px;
   left: 50%;
   z-index: 2;
   transform: translateX(-50%);
@@ -1008,6 +1012,12 @@ section#hero .logos {
   align-items: center;
   justify-content: center;
   backdrop-filter: blur(20px);
+}
+
+@media (min-width: 768px) {
+  section#hero .logos {
+    bottom: 34px;
+  }
 }
 
 .vpe-main .bg-gradient .grid:before {
