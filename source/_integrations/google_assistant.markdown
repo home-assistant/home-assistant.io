@@ -247,6 +247,7 @@ entity_config:
 Currently, the following domains are available to be used with Google Assistant, listed with their default types:
 
 - alarm_control_panel (arm/disarm)
+- binary_sensor (entities with device class: `door`, `lock`, `opening`, `window`, `garage_door`, `smoke`, `co`)
 - button (scene)
 - camera (streaming, requires compatible camera)
 - climate (on/off, temperature setting, hvac_mode)
@@ -265,7 +266,7 @@ Currently, the following domains are available to be used with Google Assistant,
 - scene
 - script (scene)
 - select
-- sensor (temperature setting for temperature sensors and humidity setting for humidity sensors)
+- sensor (entities with device class: `aqi`, `humidity`, `temperature`)
 - switch (on/off)
 - vacuum (dock/start/stop/pause)
 - valve (open/close/set position/stop/start=toggle valve)
