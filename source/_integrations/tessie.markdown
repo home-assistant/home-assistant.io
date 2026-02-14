@@ -258,27 +258,27 @@ The integration will show vehicle software updates and their installation progre
 
 #### Energy history
 
-- Battery charged
-- Battery discharged
-- Battery exported (disabled)
-- Battery imported from generator (disabled)
-- Battery imported from grid (disabled)
-- Battery imported from solar (disabled)
-- Consumer imported from battery (disabled)
-- Consumer imported from generator (disabled)
-- Consumer imported from grid (disabled)
-- Consumer imported from solar (disabled)
+- Battery charged from generator (disabled)
+- Battery charged from grid (disabled)
+- Battery charged from solar (disabled)
+- Battery discharged (disabled)
+- Energy consumed from battery (disabled)
+- Energy consumed from generator (disabled)
+- Energy consumed from grid (disabled)
+- Energy consumed from solar (disabled)
 - Generator exported (disabled)
-- Grid exported
 - Grid exported from battery (disabled)
 - Grid exported from generator (disabled)
 - Grid exported from solar (disabled)
 - Grid imported
 - Grid services exported (disabled)
 - Grid services imported (disabled)
-- Home usage
 - Solar exported (disabled)
-- Solar generated
+- Total battery charged
+- Total battery discharged
+- Total grid exported
+- Total home usage
+- Total solar generated
 
 ### Switch
 
