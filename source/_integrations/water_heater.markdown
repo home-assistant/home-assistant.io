@@ -10,12 +10,6 @@ ha_codeowners:
 ha_integration_type: entity
 ---
 
-{% warning %}
-
-Warning: Misconfiguring Water Heater automation may allow water temperatures to drop into ranges between 25°C to 45°C (77°F and 113°F) which allows for Legionella bacteria growth. This can pose serious health risks, including death from Legionnaires' disease. Maintain water temperature ≥ 60°C (140°F) for bacterial safety.
-
-{% endwarning %}
-
 The **Water heater** {% term integration %} is built for the controlling and monitoring of hot water heaters.
 
 To enable this {% term integration %}, pick one of the platforms, and add it to your {% term "`configuration.yaml`" %}:
@@ -25,6 +19,12 @@ To enable this {% term integration %}, pick one of the platforms, and add it to 
 water_heater:
   platform: demo
 ```
+
+{% warning %}
+
+ Misconfiguring Water Heater automations may allow water temperatures to drop into ranges between 25°C to 45°C (77°F and 113°F) which allows for Legionella bacteria growth. This can pose serious health risks, including death from Legionnaires' disease. Maintain water temperature ≥ 60°C (140°F) for bacterial safety.
+
+{% endwarning %}
 
 ## The state of a water heater entity
 
