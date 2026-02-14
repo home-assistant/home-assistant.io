@@ -266,7 +266,7 @@ Currently, the following domains are available to be used with Google Assistant,
 - scene
 - script (scene)
 - select
-- sensor (entities with device class: `aqi`, `humidity`, `temperature`)
+- sensor (entities with device class: `aqi`, `carbon_dioxide`, `humidity`, `temperature`)
 - switch (on/off)
 - vacuum (dock/start/stop/pause)
 - valve (open/close/set position/stop/start=toggle valve)
