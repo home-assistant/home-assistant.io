@@ -120,7 +120,20 @@ Home Assistant instance:
 Claude Code supports remote MCP servers, making it easy to connect to your Home Assistant instance:
 
 1. Install [Claude Code](https://claude.com/product/claude-code) and log in.
-2. In your shell, type `claude mcp add-json "HA" '{"type":"http","url":"https://<your_home_assistant_url>/api/mcp","oauth":{"clientId":"http://localhost:12345","callbackPort":12345}}' --client-secret` (note "HA", "https://<your_home_assistant_url> and "12345" as the callback port are up to you to populate).
+2. In your shell, run the following command:
+
+   ```bash
+   claude mcp add-json "HA" '{
+     "type": "http",
+     "url": "https://<your_home_assistant_url>/api/mcp",
+     "oauth": {
+       "clientId": "http://localhost:12345",
+       "callbackPort": 12345
+     }
+   }' --client-secret
+   ```
+   The name "HA", the URL "https://<your_home_assistant_url>", and the callback port "12345" are examples; adjust them to match your setup.
+
 3. Start `claude` and type `/mcp`. Navigate to your MCP listing (for example, **HA**) and press Enter. Select **Authenticate** to open a web browser to your Home Assistant login page.
 4. After you authenticate to your Home Assistant server, Home Assistant will tell you that you can close the web browser.
 5. You can now enable tools from Home Assistant when chatting with Claude, allowing you to control Home Assistant in a similar way to how you control it through the Voice Assistant. Claude will ask you for permission before calling any tools.
