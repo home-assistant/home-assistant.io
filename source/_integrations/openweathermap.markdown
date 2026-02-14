@@ -281,7 +281,7 @@ weather.openweathermap:
 | `air_quality_index` | Air Quality Index, where 1 = Good, 2 = Fair, 3 = Moderate, 4 = Poor, and 5 = Very Poor. |
 | `carbon_monoxide`   | Concentration of CO (Carbon monoxide), µg/m³.                                           |
 | `nitrogen_monoxide` | Concentration of NO (Nitrogen monoxide), µg/m³.                                         |
-| `nitrogen_dioxide`  | Concentration of NO2 (Nitrogen dioxide), µg/m³ (converted to ppb/ppm).                   |
+| `nitrogen_dioxide`  | Concentration of NO2 (Nitrogen dioxide). Reported in µg/m³ and can be converted by Home Assistant to ppb or ppm. |
 | `ozone`             | Concentration of O3 (Ozone), µg/m³.                                                     |
 | `sulphur_dioxide`   | Concentration of SO2 (Sulphur dioxide), µg/m³.                                          |
 | `pm2_5`             | Concentration of PM2.5 (Fine particulate matter), µg/m³.                                |
