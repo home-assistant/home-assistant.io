@@ -256,6 +256,30 @@ The integration will show vehicle software updates and their installation progre
 - Power
 - State code
 
+#### Energy history
+
+- Battery charged
+- Battery discharged
+- Battery exported (disabled)
+- Battery imported from generator (disabled)
+- Battery imported from grid (disabled)
+- Battery imported from solar (disabled)
+- Consumer imported from battery (disabled)
+- Consumer imported from generator (disabled)
+- Consumer imported from grid (disabled)
+- Consumer imported from solar (disabled)
+- Generator exported (disabled)
+- Grid exported
+- Grid exported from battery (disabled)
+- Grid exported from generator (disabled)
+- Grid exported from solar (disabled)
+- Grid imported
+- Grid services exported (disabled)
+- Grid services imported (disabled)
+- Home usage
+- Solar exported (disabled)
+- Solar generated
+
 ### Switch
 
 - Allow charging from grid
@@ -263,8 +287,8 @@ The integration will show vehicle software updates and their installation progre
 
 ## Energy dashboard
 
-The Tesla Fleet API only provides power data for Powerwall and Solar products. This means they cannot be used on the energy dashboard directly.
+The energy history sensors provide cumulative energy values (kWh) that can be used directly on the [energy dashboard](/docs/energy/).
 
-Energy flows can be calculated from `Battery power` and `Grid power` sensors using a [Template Sensor](/integrations/template/) to separate the positive and negative values into positive import and export values.
+Alternatively, energy flows can be calculated from `Battery power` and `Grid power` sensors using a [Template Sensor](/integrations/template/) to separate the positive and negative values into positive import and export values.
 The `Load power`, `Solar power`, and the templated sensors can then use a [Riemann Sum](/integrations/integration/) to convert their instant power (kW) values into cumulative energy values (kWh),
 which then can be used within the energy dashboard.
