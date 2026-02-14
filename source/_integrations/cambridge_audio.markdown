@@ -72,20 +72,24 @@ The integration provides a few entities to configure the device settings. The fo
 - Audio output (Speaker select)
 - Control Bus mode
 - Room correction
+- Equalizer state and presets
 
 ### Pre-Amp
-When Pre-Amp mode is enabled, Home Assistant can control the output volume of your Pre-Amplifier. 
+
+When Pre-Amp mode is enabled, Home Assistant can control the output volume of your Pre-Amplifier.
 
 ### Control Bus
+
 When Control Bus mode is enabled, Home Assistant can control the output volume of your Power Amplifier when it is connected to a Cambridge Audio network player using the Control Bus interface. In this case Pre-Amp mode can be disabled, the network player will send the signal with full volume to the power amplifier and the volume of the power amplifier can be controlled using volume up and down controls. Control Bus does not support setting the volume to a certain value, it can only increase and decrease the current volume.
 
 ## Playing media
 
-Cambridge Audio supports playing a variety of formats using the `media_player.play_media` action. 
+Cambridge Audio supports playing a variety of formats using the `media_player.play_media` action.
 
 ### Examples:
 
 Cambridge Audio can recall any stored presets saved on the device. An example action using a preset:
+
 ```yaml
 action: media_player.play_media
 target:
@@ -107,6 +111,7 @@ data:
 ```
 
 An example action using an internet radio url:
+
 ```yaml
 action: media_player.play_media
 target:
@@ -118,7 +123,7 @@ data:
 
 ## Browsing media
 
-The Cambridge Audio integration allows you to browse saved presets from your dashboard. 
+The Cambridge Audio integration allows you to browse saved presets from your dashboard.
 All stored presets will be categorized into playlists, artists, and tracks.
 
 ## Troubleshooting
@@ -130,10 +135,10 @@ The interface automatically sets which controls are available depending on which
 
 ### The ability to change volume is missing
 
-Volume control is only supported on all-in-one amps, or streamers with pre-amp mode.
-Likely, the device is not configured to be in pre-amp mode.
-This can be changed by navigating to the IP address of the device in a web browser,
-or selecting settings in the StreamMagic app and setting **Pre-Amp** to **On**.
+Volume control is only supported on all-in-one amps, streamers with pre-amp mode or when the streamer is connected to an amplifier via control bus.
+Likely, the device is not configured to be in pre-amp mode or the control bus is not activated.
+These settings can be changed by navigating to the IP address of the device in a web browser, selecting settings in the StreamMagic app or directly in the device view of the integration.
+Make sure to either set **Pre-Amp** to **On** or **Control Bus mode** to **Amplifier**.
 
 ### Turning on the device doesn't work from Home Assistant
 
