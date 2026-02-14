@@ -16,7 +16,7 @@ blueprint easier to use from the UI.
 The following selectors are currently available:
 
 - [Action selector](#action-selector)
-- [App selector](#home-assistant-app-selector)
+- [App selector](#app-selector-formerly-known-as-add-on-selector)
 - [Area selector](#area-selector)
 - [Attribute selector](#attribute-selector)
 - [Assist pipeline selector](#assist-pipeline-selector)
@@ -664,8 +664,8 @@ will contain the entity ID, or list of entity IDs, based on if `multiple` is
 set to `true`.
 
 An entity selector can filter the list of entities, based on things like the
-class of the device, the domain of the entity or the domain that provided the
-entity.
+manufacturer, model, or model ID of the device the entity belongs to, the
+device class, the domain of the entity, or the domain that provided the entity.
 
 ![Screenshot of an entity selector](/images/blueprints/selector-entity.png)
 
@@ -697,6 +697,24 @@ filter:
         Can be set to an integration domain. Limits the list of entities to entities
         provided by the set integration domain, for example,
         [`zha`](/integrations/zha).
+      type: string
+      required: false
+    manufacturer:
+      description: >
+        When set, it limits the list of entities to entities that belong to devices
+        provided by the set manufacturer name.
+      type: string
+      required: false
+    model:
+      description: >
+        When set, it limits the list of entities to entities that belong to devices
+        that have the set model.
+      type: string
+      required: false
+    model_id:
+      description: >
+        When set, the list of entities is limited to entities that belong to devices
+        that have the set model ID.
       type: string
       required: false
     domain:
@@ -1181,7 +1199,7 @@ translation_key:
     [Backend Localization](https://developers.home-assistant.io/docs/internationalization/core/#selectors)
     for more information.
   type: string
-  required: false    
+  required: false
 {% endconfiguration %}
 
 The output of this selector is a number, for example: `42`
@@ -1526,6 +1544,24 @@ entity:
         Can be set to an integration domain. Limits targets to entities
         provided by the set integration domain, for example,
         [`zha`](/integrations/zha).
+      type: string
+      required: false
+    manufacturer:
+      description: >
+        When set, it limits the targets to entities that belong to devices provided
+        by the set manufacturer name.
+      type: string
+      required: false
+    model:
+      description: >
+        When set, it limits the targets to entities that belong to devices that have
+        the set model.
+      type: string
+      required: false
+    model_id:
+      description: >
+        When set, the targets are limited to entities that belong to devices that have
+        the set model ID.
       type: string
       required: false
     domain:
