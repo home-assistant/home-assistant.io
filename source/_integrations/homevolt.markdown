@@ -22,6 +22,13 @@ The **Homevolt** {% term integration %} lets Home Assistant read local data from
 API access must be explicitly enabled on the Homevolt device; contact Tibber Customer Support to activate the API.
 Configuration needs the device IP address and, if set on the device, a password. 
 
+{% configuration_basic %}
+Host:
+ description: "The IP address or hostname of your Homevolt device. You can find it in your router or via the device's discovery."
+Password:
+ description: "The password for your Homevolt device, if it is password protected. Leave empty if no password is set."
+{% endconfiguration_basic %}
+
 ## Sensors
 
 The {% term integration %} creates sensors reported by the device, including:
