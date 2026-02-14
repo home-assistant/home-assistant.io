@@ -226,6 +226,7 @@ The integration will show vehicle software updates and their installation progre
 - Backup capable
 - Grid services enabled
 - Grid services active
+- Grid status
 - Storm watch active
 
 ### Number
@@ -245,6 +246,7 @@ The integration will show vehicle software updates and their installation progre
 - Generator power
 - Grid power
 - Grid services power
+- Island status
 - Load power
 - Percentage charged
 - Solar power
