@@ -81,6 +81,7 @@ Below is a complete overview of the entities this integration provides.
 ### Switches
 
 - Auto switch inputs (Automatically switches to the active HDMI input)
+- CEC (Enables or disables HDMI-CEC on all inputs and outputs)
 - CEC RX0 (Enables or disables HDMI-CEC on input RX0)
 - CEC RX1 (Enables or disables HDMI-CEC on input RX1)
 - CEC RX2 (Enables or disables HDMI-CEC on input RX2)
@@ -94,6 +95,8 @@ Below is a complete overview of the entities this integration provides.
 - Mute audio TX1 (Mutes audio output on HDMI output TX1)
 - OLED display (Turns the front-panel OLED display on or off)
 - Relay (Controls the onboard relay output)
+- TX0 force +5v (Forces the +5v line on the HDMI cable for TX0 to be active)
+- TX1 force +5v (Forces the +5v line on the HDMI cable for TX1 to be active)
 
 ## Data updates
 
