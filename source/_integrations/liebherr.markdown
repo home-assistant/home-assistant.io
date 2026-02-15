@@ -123,8 +123,8 @@ These switches apply to individual cooling zones. For appliances with multiple z
 
 These switches apply to the entire appliance:
 
-- **Party Mode**: A 24-hour convenience setting that prepares the appliance for entertaining by maximizing cooling performance. It automatically activates SuperCool for rapid chilling of drinks and SuperFrost for freezing food, while boosting ice production if available.
-- **Night Mode**: Optimizes kitchen tranquility by silencing all appliance sounds, halting the IceMaker, and dimming interior LED lighting to a soft glow.
+- **Party mode**: A 24-hour convenience setting that prepares the appliance for entertaining by maximizing cooling performance. It automatically activates SuperCool for rapid chilling of drinks and SuperFrost for freezing food, while boosting ice production if available.
+- **Night mode**: Optimizes kitchen tranquility by silencing all appliance sounds, halting the IceMaker, and dimming interior LED lighting to a soft glow.
 
 ## Use cases
 
@@ -139,54 +139,27 @@ The **Liebherr** integration enables smart refrigerator and freezer management w
 
 Examples of automations you can create using the Liebherr integration.
 
-### Night Mode schedule
+### Night mode schedule
 
 Schedule your Liebherr appliance to automatically enable night mode at bedtime and disable it in the morning for quieter overnight operation.
-
-<!-- markdownlint-disable MD034 -->
-{% my blueprint_import badge blueprint_url="https://gist.github.com/mettolen/6b742d07f9176231b7c3a9ef8a0f5221" %}
-<!-- markdownlint-enable MD034 -->
 
 {% details "Example YAML configuration" %}
 
 {% raw %}
 
 ```yaml
-blueprint:
-  name: Liebherr Night Mode Schedule
-  description: Schedule your Liebherr appliance to automatically enable Night Mode at bedtime and disable it in the morning for quieter overnight operation.
-  domain: automation
-  input:
-    night_mode_switch:
-      name: Night Mode Switch
-      description: The Liebherr Night Mode switch entity
-      selector:
-        entity:
-          filter:
-            - domain: switch
-              integration: liebherr
-    start_time:
-      name: Start Time
-      description: Time to enable Night Mode
-      default: "22:00:00"
-      selector:
-        time:
-    end_time:
-      name: End Time
-      description: Time to disable Night Mode
-      default: "07:00:00"
-      selector:
-        time:
-
-trigger:
-  - platform: time
-    at: !input start_time
+alias: Liebherr Night Mode Schedule
+description: >-
+  Automatically enable night mode at bedtime and disable it in the morning for
+  quieter overnight operation.
+triggers:
+  - trigger: time
+    at: "22:00:00"
     id: night_mode_on
-  - platform: time
-    at: !input end_time
+  - trigger: time
+    at: "07:00:00"
     id: night_mode_off
-
-action:
+actions:
   - choose:
       - conditions:
           - condition: trigger
@@ -194,14 +167,15 @@ action:
         sequence:
           - action: switch.turn_on
             target:
-              entity_id: !input night_mode_switch
+              entity_id: switch.my_fridge_night_mode
       - conditions:
           - condition: trigger
             id: night_mode_off
         sequence:
           - action: switch.turn_off
             target:
-              entity_id: !input night_mode_switch
+              entity_id: switch.my_fridge_night_mode
+mode: single
 ```
 
 {% endraw %}
