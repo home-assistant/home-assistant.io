@@ -209,6 +209,11 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 
 - [Art Frame](https://www.switch-bot.com/products/switchbot-ai-art-frame)
 
+### Keypad Visions
+
+- [Keypad Vision](https://www.switch-bot.com/products/switchbot-keypad-vision)
+- [Keypad Vision Pro](https://www.switch-bot.com/products/switchbot-keypad-vision-pro)
+
 ## Works with Home Assistant
 
 SwitchBot is committed to making sure their products are up-to-date and ready to use in Home Assistant.
@@ -517,6 +522,21 @@ Features:
 - get battery
 - motion detection state
 - light detection state
+
+#### Keypad Vision (Pro)
+
+This is an encrypted device. For testing, you can execute the actions that this device supports individually within the development tools.
+
+Actions:
+- add_password
+
+Examples:
+```yaml
+action: switchbot.add_password
+data:
+  device_id: c2d01328efd261f586e56d914e3af07e
+  password: 123456
+```
 
 ### Lights
 
