@@ -140,7 +140,9 @@ For **AutoWithEco**, the period of time is a `duration` is up to 24 hours.
         entity_id: climate.my_home
       data:
         mode: AutoWithEco
-        duration: {hours: 1, minutes: 30}
+        duration:
+          hours: 1
+          minutes: 30
 ```
 
 For the other modes, such as **Away**, the duration is a `period` of days, where 1 day will revert at midnight tonight, and 2 days reverts at midnight tomorrow.
@@ -152,7 +154,8 @@ For the other modes, such as **Away**, the duration is a `period` of days, where
         entity_id: climate.my_home
       data:
         mode: Away
-        period: {days: 30}
+        period:
+          days: 30
 ```
 
 ### evohome.reset_system
@@ -164,7 +167,6 @@ This action will set the operating mode of the system to **AutoWithReset**, whic
     - action: evohome.reset_system
       target:
         entity_id: climate.my_home
-      data:
 ```
 
 Rarely, systems do not support **AutoWithReset**, in which case the integration will set the operating mode of the system to **Auto**, and set all the zones to **FollowSchedule**.
@@ -178,7 +180,6 @@ This action will immediately pull the latest state data from the vendor's server
     - action: evohome.refresh_system
       target:
         entity_id: climate.my_home
-      data:
 ```
 
 ### evohome.set_zone_override
