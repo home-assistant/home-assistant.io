@@ -18,6 +18,7 @@ ha_platforms:
   - button
   - device_tracker
   - diagnostics
+  - number
   - select
   - sensor
 ha_integration_type: hub
@@ -31,6 +32,7 @@ This integration provides the following platforms:
 - Binary sensors - such as plug and charge status.
 - Buttons - to start air conditioning, start/stop the charge, flash lights, and sound horn. Please note that although available, these actions do not work on all vehicles.
 - Device tracker - to track location of your car.
+- Numbers - to set battery charge limits (minimum and target charge levels for electric vehicles).
 - Selectors - to change the charge mode.
 - Sensors - such as battery level, outside temperature, odometer, estimated range, charging rate, and tyre pressure.
 
@@ -51,10 +53,23 @@ All vehicles linked to the account should then get added as devices, with sensor
 
 In some situations, some of the features may require a subscription such as the *Pack EV Remote Control* and/or the *Pack Smart Navigation* subscription.
 
+## Battery charge limits
+
+For electric vehicles that support battery State of Charge (SoC) control, the integration provides two number entities to configure charging limits:
+
+- **Minimum charge level**: Sets the minimum battery charge level (range: 15-45%, step: 5%). This ensures the battery maintains at least this charge level.
+- **Target charge level**: Sets the target battery charge level (range: 55-100%, step: 5%). Charging will stop when the battery reaches this level.
+
+These controls allow you to optimize battery health and charging costs by limiting how much the battery charges. For example, setting a target of 80% can help preserve long-term battery health, while setting a higher minimum level ensures you always have enough charge for daily use.
+
+{% note %}
+Battery charge limit controls are only available for electric vehicles that support the SoC levels endpoint. This feature may require an active subscription to services such as *Pack EV Remote Control*.
+{% endnote %}
+
 ## Data updates
 
 Due to rate limitations from the Renault servers, the integration limits {% term polling %} to 60 data requests/hour.
-For a single vehicle with all 7 endpoints available, the integration fetches data from the device every 7 minutes.
+For a single vehicle with all available endpoints (typically 7-9 depending on the vehicle and features), the integration fetches data from the device every 7-9 minutes.
 
 ## Actions
 
