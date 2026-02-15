@@ -117,7 +117,7 @@ The `mealie.get_recipe` action gets the recipe for a specified recipe ID or slug
 
 The `mealie.get_recipes` action gets a list of recipes that match your search terms. You can use this action to find the recipe ID or slug. The response includes a brief description of each recipe. To view full details and steps for a specific recipe, use the `mealie.get_recipe` action afterwards.
 
-Please note the behavior of the search function depends on the backend used for Mealie (see [documentation](https://docs.mealie.io/documentation/getting-started/faq/#what-is-fuzzy-search-and-how-do-i-use-it)). In the case of postgresql backend, the search will be fuzzy, otherwise it will be literal.                          |
+Please note the behavior of the search function depends on the backend used for Mealie (see [documentation](https://docs.mealie.io/documentation/getting-started/faq/#what-is-fuzzy-search-and-how-do-i-use-it)). In the case of postgresql backend, the search will be fuzzy, otherwise it will be literal.
 
 - **Data attribute**: `config_entry_id`
   - **Description**: The ID of the Mealie config entry to get data from.
@@ -129,7 +129,7 @@ Please note the behavior of the search function depends on the backend used for 
 
 - **Data attribute**: `result_limit`
   - **Description**: The maximum number of recipes to return.
-  - **Optional**: Yes  
+  - **Optional**: Yes
 
 ### Action: Import recipe
 
@@ -140,12 +140,12 @@ The `mealie.import_recipe` action imports a recipe into Mealie from a URL.
   - **Optional**: No
 
 - **Data attribute**: `url`
-  - **Description**:  The URL of the recipe.
+  - **Description**: The URL of the recipe.
   - **Optional**: No
 
 - **Data attribute**: `include_tags`
   - **Description**: Include tags from the website to the recipe. (false by default)
-  - **Optional**: Yes  
+  - **Optional**: Yes
 
 ### Action: Set meal plan
 
@@ -156,7 +156,7 @@ The `mealie.set_mealplan` action sets a meal plan on a specific date.
   - **Optional**: No
 
 - **Data attribute**: `date`
-  - **Description**:  The date that should be filled. 
+  - **Description**: The date that should be filled. 
   - **Optional**: No
 
 - **Data attribute**: `entry_type`
@@ -184,7 +184,7 @@ The `mealie.set_random_mealplan` action sets a random meal plan on a specific da
   - **Optional**: No
 
 - **Data attribute**: `date`
-  - **Description**:  The date that should be filled. 
+  - **Description**: The date that should be filled. 
   - **Optional**: No
 
 - **Data attribute**: `entry_type`
@@ -200,7 +200,7 @@ The `mealie.get_shopping_list_items` action gets the shopping list items for a s
   - **Optional**: No
 
 - **Data attribute**: `shopping_list`
-  - **Description**:  The name or id of the shopping list.
+  - **Description**: The name or ID of the shopping list.
   - **Optional**: No
 
 ## Examples
