@@ -68,10 +68,10 @@ This is an IoT cloud-polling integration and the recommended minimum `scan_inter
 
 ## Locations, controllers and zones
 
-Evohome CH/DHW systems are implemented as a temperature control system (TCS), which consist a _controller_, 1-12 heating _zones_ and, optionally, a _DHW_ relay:
+Evohome CH/DHW systems are implemented as a temperature control system (TCS) that consists of a _controller_, 1–12 heating _zones_, and, optionally, a _DHW_ relay:
 
-- The TCS/controller (e.g., a house) is used for operating modes such as home, away, economy, etc.
-- Heating zones (e.g., rooms) are used for the target temperature.
+- The TCS/controller (for example, a house) is used for operating modes such as home, away, and economy.
+- Heating zones (for example, a room) are used for the target temperature.
 
 Most users will have a single location with a single TCS, but multiple locations are supported by the vendor's API. Currently, this integration supports only a single location, and exposes only the first TCS in that location.
 
@@ -81,7 +81,7 @@ Each zone is represented as a **Climate** entity which will expose the zone's op
 
 The Evohome controller is also represented as a **Climate** entity that will expose the current operating mode. A controller has neither a current temperature nor a setpoint, but as all **Climate** entities are required by Home Assistant to report a temperature, this is calculated as the average of all the zones.
 
-The DHW relay is represented as a **WaterHeater** entity which will report its current temperature and can be turned on or off. Due to limitations with the vendor's public API, the setpoint is not reported and cannot be changed.
+The DHW relay is represented as a **Water heater** entity which will report its current temperature and can be turned on or off. Due to limitations with the vendor's public API, the setpoint is not reported and cannot be changed.
 
 Note that there is limited support for schedules: they cannot be changed and there is no facility to backup/restore that data (see [here](https://evohome.readthedocs.io/en/latest/) for such functionality).
 
