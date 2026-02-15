@@ -193,7 +193,7 @@ The `mealie.set_random_mealplan` action sets a random meal plan on a specific da
 
 ### Action: Get shopping list items
 
-The `mealie.get_shopping_list_items` action gets the shopping list items for a shopping list.
+The `mealie.get_shopping_list_items` action gets the shopping list items for a shopping list, including structured data for labels, units, and food.
 
 - **Data attribute**: `config_entry_id`
   - **Description**: The ID of the Mealie config entry to get data from.
