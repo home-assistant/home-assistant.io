@@ -120,9 +120,9 @@ This integration allows you to view and control the Freebox alarm control panel.
 
 ## Action
 
-### Action `freebox.reboot`
+### Action: Reboot
 
-This action will reboot your Freebox router. It does not take any parameter. Be aware there is no confirmation.
+The `freebox.reboot` action allows you to reboot your Freebox router. It does not take any parameter. Be aware there is no confirmation.
 
 ## Switch
 

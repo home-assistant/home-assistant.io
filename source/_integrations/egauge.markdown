@@ -48,15 +48,15 @@ Consult the [eGauge Configuration Guide](https://www.egauge.net/media/support/do
 
 In this installation, solar inverters are wired into your electrical panel.
 
-- `grid_in  = [= ] max(0, $"grid")`
-- `grid_out = [= ] max(0, -$"grid")`
+- `grid_in  = [= ] [Power (W)] max(0, $"grid")`
+- `grid_out = [= ] [Power (W)] max(0, -$"grid")`
 
 #### Direct-feed
 
 In this installation, solar inverters feed directly into the grid.
 
-- `grid_in = [= ] max(0, $"grid"-$"solar")`
-- `grid_out = [= ] max(0, $"solar"-$"grid")`
+- `grid_in = [= ] [Power (W)] max(0, $"grid"-$"solar")`
+- `grid_out = [= ] [Power (W)] max(0, $"solar"-$"grid")`
 
 #### Other installations
 

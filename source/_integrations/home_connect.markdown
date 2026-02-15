@@ -330,6 +330,7 @@ Both entities can use these options, but the availability of these will depend o
 - **Intensive 45ºC**: `dishcare_dishwasher_program_intensiv_45`
 - **Auto half load**: `dishcare_dishwasher_program_auto_half_load`
 - **Intensive power**: `dishcare_dishwasher_program_intensiv_power`
+- **Intensive fixed zone**: `dishcare_dishwasher_program_intensive_fixed_zone`
 - **Magic daily**: `dishcare_dishwasher_program_magic_daily`
 - **Super 60ºC**: `dishcare_dishwasher_program_super_60`
 - **Kurz 60ºC**: `dishcare_dishwasher_program_kurz_60`
@@ -378,6 +379,7 @@ Both entities can use these options, but the availability of these will depend o
 - **Pre-heating**: `cooking_oven_program_heating_mode_pre_heating`
 - **Hot air**: `cooking_oven_program_heating_mode_hot_air`
 - **Hot air eco**: `cooking_oven_program_heating_mode_hot_air_eco`
+- **Hot air gentle**: `cooking_oven_program_heating_mode_hot_air_gentle`
 - **Hot air grilling**: `cooking_oven_program_heating_mode_hot_air_grilling`
 - **Top bottom heating**: `cooking_oven_program_heating_mode_top_bottom_heating`
 - **Top bottom heating eco**: `cooking_oven_program_heating_mode_top_bottom_heating_eco`
@@ -404,6 +406,7 @@ Both entities can use these options, but the availability of these will depend o
 - **900 Watt**: `cooking_oven_program_microwave_900_watt`
 - **1000 Watt**: `cooking_oven_program_microwave_1000_watt`
 - **Max**: `cooking_oven_program_microwave_max`
+- **Steam mode**: `cooking_oven_program_steam_modes_steam`
 - **Warming drawer**: `cooking_oven_program_heating_mode_warming_drawer`
 - **Auto 30ºC**: `laundry_care_washer_program_auto_30`
 - **Auto 40ºC**: `laundry_care_washer_program_auto_40`
@@ -1047,9 +1050,9 @@ Some devices only have the state `on` and turn off is not supported by the appli
 The Home Connect integration makes various actions available.
 Available actions: `set_program_and_options`, and `change_setting`
 
-### Action `home_connect.set_program_and_options`
+### Action: Set program and options
 
-Starts or selects a program. If the `program` attribute is not set, this action sets the options for the active or the selected program.
+The `home_connect.set_program_and_options` action starts or selects a program. If the `program` attribute is not set, this action sets the options for the active or the selected program.
 
 | Data attribute    | Optional | Description                                      |
 |---------------------------|----------|--------------------------------------------------|
@@ -1093,9 +1096,9 @@ Starts or selects a program. If the `program` attribute is not set, this action 
 | `laundry_care_washer_option_i_dos2_active` | yes | Defines if the detergent feed is activated / deactivated. (i-Dos content 2) |
 | `laundry_care_washer_option_vario_perfect` | yes | Defines if a cycle saves energy (Eco Perfect) or time (Speed Perfect). |
 
-### Action `home_connect.change_setting`
+### Action: Change setting
 
-Changes a setting.
+The `home_connect.change_setting` action changes a setting.
 
 | Data attribute    | Optional | Description                                      |
 |---------------------------|----------|--------------------------------------------------|

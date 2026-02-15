@@ -67,7 +67,7 @@ The method used to reset a password depends on your user rights:
 
 Use this procedure only if the following conditions are met:
 
-- You can access the Home Assistant console **on the device itself** (not via the SSH terminal from the add-ons).
+- You can access the Home Assistant console **on the device itself** (not via the SSH terminal from the apps).
 
 1. If you are using a Home Assistant Yellow or Green, refer to their documentation.
    - If you are using a Home Assistant Yellow, refer to the following procedure:
@@ -99,7 +99,7 @@ Only the owner can change other user's passwords.
 
 1. In the bottom left, select your user to go to the {% my profile title="**Profile**" %} page and make sure **Advanced Mode** is activated.
 2. Go to {% my people title="**Settings** > **People**" %} and select the person for which you want to change the password.
-3. At the bottom of the dialog box, select **Change Password**.
+3. At the bottom of the dialog box, select **Change password**.
    - Note: this is available as the owner, not administrator.
 4. Enter the new password, and select **OK**.
 5. Confirm the new password by entering it again, and select **OK** again.
@@ -130,7 +130,7 @@ If you’re using a Raspberry Pi, you're likely going to have to pull the power 
 Once you're connected, you'll see a running dmesg log. Hit the enter key to interrupt the log.
 Sign in as "root". There is no password.
 
-You will then be at the Home Assistant CLI, where you can run the custom commands. These are the same as you would run using the SSH add-on but without using `ha` in front of it. For example:
+You will then be at the Home Assistant CLI, where you can run the custom commands. These are the same as you would run using the SSH app but without using `ha` in front of it. For example:
 
 - `core logs` for Home Assistant Core log
 - `supervisor logs` for supervisor logs

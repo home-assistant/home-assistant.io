@@ -46,7 +46,7 @@ You need to configure developer credentials and host a public key file to allow 
 
 - A [Tesla](https://tesla.com) account with verified email
 - A web domain to host your public key file:
-  - [NGINX Home Assistant SSL proxy Add-on](https://github.com/home-assistant/addons/blob/master/nginx_proxy/DOCS.md) (recommended)
+  - [NGINX Home Assistant SSL proxy app](https://github.com/home-assistant/addons/blob/master/nginx_proxy/DOCS.md) (recommended)
   - External hosting service ([FleetKey.net](https://fleetkey.net), [MyTeslamate.com](https://app.myteslamate.com/fleet), etc.)
 
 {% warning %}
@@ -112,7 +112,7 @@ Create a Tesla Developer Application to connect Home Assistant with the Tesla Fl
    - Use your smartphone to scan the QR code or enter the address to install your public key on your vehicles with the Tesla app.
    - This process needs to be repeated for each vehicle, excluding Model S and Model X vehicles manufactured before 2021.
 
-## Hosting with NGINX Add-on (optional)
+## Hosting with NGINX app (optional)
 
 1. Create the NGINX configuration:
 
@@ -124,12 +124,12 @@ Create a Tesla Developer Application to connect Home Assistant with the Tesla Fl
 
 2. Copy the public key shown during setup to `/share/tesla`
 
-3. Configure the NGINX Add-on:
-    - Go to **Settings** > **Add-ons** > **NGINX Home Assistant SSL proxy** > **Configuration**
+3. Configure the NGINX app:
+    - Go to **Settings** > **Apps** > **NGINX Home Assistant SSL proxy** > **Configuration**
     - Change `customize.active` from `false` to `true`
     - Leave `config.default` at its default value: `nginx_proxy_default*.conf`
 
-4. Restart the NGINX Add-on and verify your public key is accessible at:
+4. Restart the NGINX app and verify your public key is accessible at:
  `https://yourdomain.com/.well-known/appspecific/com.tesla.3p.public-key.pem`
 
 ## Data updates

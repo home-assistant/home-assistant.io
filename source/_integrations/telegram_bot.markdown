@@ -123,6 +123,8 @@ Platform:
   description: The Telegram bot type, either `Broadcast`, `Polling` or `Webhooks`.
 API key:
   description: The API token of your bot.
+API endpoint:
+  description: The endpoint of the Telegram bot API server. You should only change this value if you are using a self-hosted or third-party [Telegram bot API server](https://core.telegram.org/bots/api#using-a-local-bot-api-server). Changing this value will result in a *10-minute lockout* on the official Telegram bot API server. Defaults to the official Telegram bot API server at `https://api.telegram.org`.
 Proxy URL:
   description: Proxy URL if working behind one, optionally including username and password. (`socks5://username:password@proxy_ip:proxy_port`).
 {% endconfiguration_basic %}
@@ -142,9 +144,6 @@ Trusted networks:
 {% endconfiguration_basic %}
 
 {% include integrations/option_flow.md %}
-
-The integration can be configured to use a default parse mode for messages.
-
 {% configuration_basic %}
 Parse mode:
   description: Default parser for messages if not explicit in message data, either `markdown` (legacy), `markdownv2`, `html` or `plain_text`. Refer to Telegram's [formatting options](https://core.telegram.org/bots/api#formatting-options) for more information.
@@ -452,6 +451,7 @@ Edit a previously sent message media in a conversation.
 | `url`                  | no       | Remote path to the media.                                                                                                                                                                                                                                                                                  |
 | `file`                 | no       | Local path to the media.                                                                                                                                                                                                                                                                                   |
 | `caption`              | yes      | The title of the media.                                                                                                                                                                                                                                                                                   |
+| `parse_mode`               | yes      | Parser for the message text: `markdownv2`, `html`, `markdown` or `plain_text`.                                                                                                                                                                                                                            |
 | `authentication`       | yes      | Define which authentication method to use. Set to `basic` for HTTP basic authentication, `digest` for HTTP digest authentication, or `bearer_token` for OAuth 2.0 bearer token authentication.                                                                                                                           |
 | `username`             | yes      | Username for a URL which requires HTTP `basic` or `digest` authentication.                                                                                                                                                                                                                                                    |
 | `password`             | yes      | Password (or bearer token) for a URL that requires authentication.                                                                                                                                                                                                                                   |
@@ -468,6 +468,7 @@ Edit the caption of a previously sent message.
 | `message_id`               | no       | Id of the message to edit. When answering a callback from a pressed button, the id of the origin message is in: {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %}. You can use `"last"` to refer to the last message sent to `chat_id`.                                                  |
 | `chat_id`                  | no       | The chat_id where to edit the caption.                                                                                                                                                                                                                                                                    |
 | `caption`                  | no       | Message body of the notification.                                                                                                                                                                                                                                                                         |
+| `parse_mode`               | yes      | Parser for the message text: `markdownv2`, `html`, `markdown` or `plain_text`.                                                                                                                                                                                                                            |
 | `inline_keyboard`          | yes      | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data or external URL (https-only). Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Google link", "https://google.com"]]]` |
 
 ### Action `telegram_bot.edit_replymarkup`

@@ -205,59 +205,59 @@ Available {% term actions %}:
 `start_tour`, `stop_tour`, and
 `ptz_control`
 
-### Action `enable_audio`/`disable_audio`
+### Action: Enable audio / disable audio
 
-These {% term actions %} enable or disable the camera's audio stream.
-
-| Data attribute | Optional | Description                                                                                                                  |
-| ---------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| `entity_id`            | no       | The entity ID of the camera to control. May be a list of multiple entity IDs. To target all cameras, set entity ID to `all`. |
-
-### Action `enable_motion_recording`/`disable_motion_recording`
-
-These {% term actions %} enable or disable the camera to record a clip to its configured storage location when motion is detected.
+The `amcrest.enable_audio` and `amcrest.disable_audio` {% term actions %} allow you to enable or disable the camera's audio stream.
 
 | Data attribute | Optional | Description                                                                                                                  |
 | ---------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------- |
 | `entity_id`            | no       | The entity ID of the camera to control. May be a list of multiple entity IDs. To target all cameras, set entity ID to `all`. |
 
-### Action `enable_recording`/`disable_recording`
+### Action: Enable motion recording / disable motion recording
 
-These actions enable or disable the camera to continuously record to its configured storage location.
+The `amcrest.enable_motion_recording` and `amcrest.disable_motion_recording` {% term actions %} allow you to enable or disable the camera to record a clip to its configured storage location when motion is detected.
 
 | Data attribute | Optional | Description                                                                                                                  |
 | ---------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------- |
 | `entity_id`            | no       | The entity ID of the camera to control. May be a list of multiple entity IDs. To target all cameras, set entity ID to `all`. |
 
-### Action `goto_preset`
+### Action: Enable recording / disable recording
 
-This action will cause the camera to move to one of the <abbr title="pan, tilt, and zoom">PTZ</abbr> locations configured within the camera.
+The `amcrest.enable_recording` and `amcrest.disable_recording` actions allow you to enable or disable the camera to continuously record to its configured storage location.
+
+| Data attribute | Optional | Description                                                                                                                  |
+| ---------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`            | no       | The entity ID of the camera to control. May be a list of multiple entity IDs. To target all cameras, set entity ID to `all`. |
+
+### Action: Go to preset
+
+The `amcrest.goto_preset` action allows you to move the camera to one of the <abbr title="pan, tilt, and zoom">PTZ</abbr> locations configured within the camera.
 
 | Data attribute | Optional | Description                                                                                                                  |
 | ---------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------- |
 | `entity_id`            | no       | The entity ID of the camera to control. May be a list of multiple entity IDs. To target all cameras, set entity ID to `all`. |
 | `preset`               | no       | Preset number, starting from 1.                                                                                              |
 
-### Action `set_color_bw`
+### Action: Set color BW
 
-This action will set the color mode of the camera.
+The `amcrest.set_color_bw` action allows you to set the color mode of the camera.
 
 | Data attribute | Optional | Description                                                                                                                  |
 | ---------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------- |
 | `entity_id`            | no       | The entity ID of the camera to control. May be a list of multiple entity IDs. To target all cameras, set entity ID to `all`. |
 | `color_bw`             | no       | One of `auto`, `bw` or `color`.                                                                                              |
 
-### Action `start_tour`/`stop_tour`
+### Action: Start tour / stop tour
 
-These actions start or stop the camera's <abbr title="pan, tilt, and zoom">PTZ</abbr> tour function.
+The `amcrest.start_tour` and `amcrest.stop_tour` actions allow you to start or stop the camera's <abbr title="pan, tilt, and zoom">PTZ</abbr> tour function.
 
 | Data attribute | Optional | Description                                                                                                                  |
 | ---------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------- |
 | `entity_id`            | no       | The entity ID of the camera to control. May be a list of multiple entity IDs. To target all cameras, set entity ID to `all`. |
 
-### Action `ptz_control`
+### Action: PTZ control
 
-If your Amcrest or Dahua camera supports <abbr title="pan, tilt, and zoom">PTZ</abbr>, you will be able to pan, tilt or zoom your camera.  
+The `amcrest.ptz_control` action allows you to pan, tilt or zoom your camera if your Amcrest or Dahua camera supports <abbr title="pan, tilt, and zoom">PTZ</abbr>.  
 
 | Data attribute | Optional | Description                                                                                                                                        |
 | ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |

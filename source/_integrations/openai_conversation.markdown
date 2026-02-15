@@ -32,6 +32,12 @@ This integration requires an API key to use, [which you can generate here.](http
 
 {% include integrations/config_flow.md %}
 
+
+{% configuration_basic %}
+API key:
+  description: "API key from OpenAI for authentication."
+{% endconfiguration_basic %}
+
 ## Generate an API Key
 
 The OpenAI key is used to authenticate requests to the OpenAI API. To generate an API key take the following steps:
@@ -115,7 +121,7 @@ to generate a new image of New York in the current weather state.
 The resulting image entity can be used in, for example, a card on your dashboard.
 
 The *config_entry* is installation specific. To get the value, make sure the integration has been installed.
-Then, go to {% my developer_services title="**Developer Tools** > **Actions**" %}. Ensure you are in UI mode and enter the following below:
+Then, go to {% my developer_services title="**Settings** > **Developer tools** > **Actions**" %}. Ensure you are in UI mode and enter the following below:
 
 ![Open AI Conversation UI Mode](/images/integrations/openai_conversation/openai_developer_tools_ui.png)
 
@@ -216,3 +222,13 @@ response_variable: generated_content
 ```
 
 {% endraw %}
+
+## Known Limitations
+
+Currently the integration does not have any known limitations.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}

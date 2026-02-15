@@ -186,7 +186,7 @@ script:
           method: System.Shutdown
 ```
 
-#### Turn on and off the TV with the Kodi JSON-CEC Add-on
+#### Turn on and off the TV with the Kodi JSON-CEC app
 
 For Kodi devices running 24/7 attached to a CEC capable TV (OSMC / OpenElec and systems alike running in Rasperry Pi's, for example), this configuration enables the optimal way to turn on/off the attached TV from Home Assistant while Kodi is always active and ready:
 

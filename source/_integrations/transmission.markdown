@@ -177,7 +177,7 @@ The `transmission.stop_torrent` action is used to stop a torrent downloading or 
 
 ### Action: Get torrents
 
-This `transmission.get_torrents` action populates [Response Data](/docs/scripts/perform-actions#use-templates-to-handle-response-data) with a dictionary of torrents based on the provided filter.
+The `transmission.get_torrents` action populates [Response Data](/docs/scripts/perform-actions#use-templates-to-handle-response-data) with a dictionary of torrents based on the provided filter.
 
 - **Data attribute**: `entry_id`
   - **Description**: The ID of the Transmission config entry.
@@ -199,7 +199,7 @@ response_variable: torrents
 
 ### Attribute `torrent_info`
 
-All `*_torrents` sensors e.g. `sensor.transmission_total_torrents` or `sensor.transmission_started_torrents` have a state attribute `torrent_info` that contains information about the torrents that are currently in a corresponding state. You can see this information in {% my developer_states title="**Developer Tools** > **States**" %} > `sensor.transmission_total_torrents` > **Attributes**, or by adding a [Markdown card](/dashboards/markdown/) to a dashboard with the following code:
+All `*_torrents` sensors e.g. `sensor.transmission_total_torrents` or `sensor.transmission_started_torrents` have a state attribute `torrent_info` that contains information about the torrents that are currently in a corresponding state. You can see this information in {% my developer_states title="**Settings** > **Developer tools** > **States**" %} > `sensor.transmission_total_torrents` > **Attributes**, or by adding a [Markdown card](/dashboards/markdown/) to a dashboard with the following code:
 
 {% raw %}
 

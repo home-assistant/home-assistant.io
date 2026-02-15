@@ -27,7 +27,7 @@ You need a Duke Energy account to use this integration. During installation of t
 ## Energy
 
 Because Duke Energy only releases usage data with around a 48-hour delay, the integration inserts data into statistic objects.
-You can find the statistics in {% my developer_statistics title="**Developer Tools** > **Statistics**"%} and search for "duke_energy".
+You can find the statistics in {% my developer_statistics title="**Settings** > **Developer tools** > **Statistics**"%} and search for "duke_energy".
 **This delay means that there will be no data in the energy dashboard for today and likely yesterday** (depending on time of day you are checking).
 
 At the initial setup, the integration pulls historical hourly usage since the account activation. Duke Energy typically only keeps this data for the past 3 years.

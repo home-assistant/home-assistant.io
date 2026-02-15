@@ -191,7 +191,7 @@ After adding a new device through the Watts Vision + app or removing an existing
 
 ##### Description
 
-The Home Assistant integration pools new devices every 15 minutes, so it can takes up to 15 minutes to see the new devices.
+The Home Assistant integration {% term polling polls %} new devices every 15 minutes, so it can take up to 15 minutes to see the new devices.
 
 ##### Resolution
 
