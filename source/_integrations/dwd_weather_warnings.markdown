@@ -26,7 +26,7 @@ Warncell ID or name:
 Device tracker entity:
   description: A `device_tracker` entity that will be used to identify the warncell. The entity *has* to contain the attributes `latitude` and `longitude`. Setting either this field or `Warncell ID or name` is required, but not both.
 Filter expired warnings:
-  description: Hides warnings where the end time is in the past, regardless if they are still returned from the API.
+  description: Hides warnings where the end time is in the past, regardless of whether they are still returned by the API.
 {% endconfiguration_basic %}
 
 ### Attributes
