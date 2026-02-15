@@ -124,7 +124,7 @@ Please note the behavior of the search function depends on the backend used for 
   - **Optional**: No
 
 - **Data attribute**: `search_terms`
-  - **Description**:  Search terms on which all the properties of recipes are searched.
+  - **Description**: Search terms on which all the properties of recipes are searched.
   - **Optional**: Yes
 
 - **Data attribute**: `result_limit`
