@@ -9,7 +9,7 @@ ha_domain: liebherr
 ha_integration_type: hub
 ha_zeroconf: true
 ha_config_flow: true
-ha_quality_scale: bronze
+ha_quality_scale: silver
 related:
   - url: https://home.liebherr.com/
     title: Liebherr
@@ -134,6 +134,79 @@ The **Liebherr** integration enables smart refrigerator and freezer management w
 - Temperature monitoring: Send alerts when temperatures exceed safe food storage thresholds.
 - Vacation mode: Automatically adjust temperature settings when you're away from home for extended periods.
 - Smart scheduling: Integrate with your daily routines to optimize cooling performance and energy consumption.
+
+## Automations
+
+Examples of automations you can create using the Liebherr integration.
+
+### Night Mode schedule
+
+Schedule your Liebherr appliance to automatically enable Night Mode at bedtime and disable it in the morning for quieter overnight operation.
+
+<!-- markdownlint-disable MD034 -->
+{% my blueprint_import badge blueprint_url="https://gist.github.com/mettolen/6b742d07f9176231b7c3a9ef8a0f5221" %}
+<!-- markdownlint-enable MD034 -->
+
+{% details "Example YAML configuration" %}
+
+{% raw %}
+
+```yaml
+blueprint:
+  name: Liebherr Night Mode Schedule
+  description: Schedule your Liebherr appliance to automatically enable Night Mode at bedtime and disable it in the morning for quieter overnight operation.
+  domain: automation
+  input:
+    night_mode_switch:
+      name: Night Mode Switch
+      description: The Liebherr Night Mode switch entity
+      selector:
+        entity:
+          filter:
+            - domain: switch
+              integration: liebherr
+    start_time:
+      name: Start Time
+      description: Time to enable Night Mode
+      default: "22:00:00"
+      selector:
+        time:
+    end_time:
+      name: End Time
+      description: Time to disable Night Mode
+      default: "07:00:00"
+      selector:
+        time:
+
+trigger:
+  - platform: time
+    at: !input start_time
+    id: night_mode_on
+  - platform: time
+    at: !input end_time
+    id: night_mode_off
+
+action:
+  - choose:
+      - conditions:
+          - condition: trigger
+            id: night_mode_on
+        sequence:
+          - action: switch.turn_on
+            target:
+              entity_id: !input night_mode_switch
+      - conditions:
+          - condition: trigger
+            id: night_mode_off
+        sequence:
+          - action: switch.turn_off
+            target:
+              entity_id: !input night_mode_switch
+```
+
+{% endraw %}
+
+{% enddetails %}
 
 ## Data updates
 
