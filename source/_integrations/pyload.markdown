@@ -36,7 +36,7 @@ The **pyLoad** integration allows you to monitor and control your downloads dire
 
 To set up the pyLoad integration, you must have a running pyLoad instance on your home server, NAS, or any other device. An always-on device is recommended. Ensure that pyLoad's web interface is accessible for Home Assistant.
 
-If you haven't set up pyLoad yet, an easy way to get it up and running is by installing the [pyLoad-ng add-on for Home Assistant](https://github.com/tr4nt0r/pyload-ng).
+If you haven't set up pyLoad yet, an easy way to get it up and running is by installing the [pyLoad-ng app for Home Assistant](https://github.com/tr4nt0r/pyload-ng).
 
 - During the setup process in Home Assistant, you will need:
   - pyLoad account credentials – A valid *username* and *password* to authenticate with pyLoad.

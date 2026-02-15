@@ -20,9 +20,9 @@ Screenshot of Home Assistant's developer tools.
 | Statistics | Shows a list of long-term statistic entities                        |
 | Assist     | Lets you see how Home Assistant Assist processes a sentence         |
 
-## What can I do with Developer Tools?
+## What can I do with Developer tools?
 
-The Developer Tools is meant for **all** (not just for the developers) to quickly try out things - like performing actions, updating states, raising events, and publishing messages in MQTT). It is also a necessary tool for those who write custom automations and scripts by hand. The following describes each of the sections in detail.
+The Developer tools is meant for **all** (not just for the developers) to quickly try out things - like performing actions, updating states, raising events, and publishing messages in MQTT). It is also a necessary tool for those who write custom automations and scripts by hand. The following describes each of the sections in detail.
 
 ## YAML tab
 
@@ -34,7 +34,7 @@ It is almost the same as the option under **Settings** > three dots {% icon "mdi
 
 For configuration changes to become effective, the configuration must be reloaded. Most integrations in Home Assistant (that do not interact with {% term devices %} or {% term services %}) can reload changes made to their configuration in {% term "`configuration.yaml`" %} without needing to restart Home Assistant.
 
-1. Go to {% my server_controls title="**Developer tools** > **YAML**" %} and scroll down to the YAML configuration reloading section (alternatively, hit ["c"](/docs/tools/quick-bar/) anywhere in the UI and search for "reload").
+1. Go to {% my server_controls title="**Developer tools** > **YAML**" %} and scroll down to the YAML configuration reloading section (alternatively, hit ["c"](/docs/tools/quick-search/) anywhere in the UI and search for "reload").
    - You are presented with a list of integrations, such as **Automations** or **Conversation**.
 
     ![Reload configuration changes](/images/docs/configuration/reloading_config.png)

@@ -72,7 +72,7 @@ The energy and gas prices are exposed using [actions](/docs/scripts/perform-acti
 
 ### Action: Get gas prices
 
-The `energyzero.get_gas_prices` action allows you to fetch the gas prices. The `config_entry` value be found using the **Actions** tab in the **Developer Tools**, selecting the desired entity and then switching to YAML.
+The `energyzero.get_gas_prices` action allows you to fetch the gas prices. The `config_entry` value be found using the **Actions** tab in the **Developer tools**, selecting the desired entity and then switching to YAML.
 
 | Data attribute | Optional | Description                                          | Example                          |
 | -------------- | -------- | ---------------------------------------------------- | -------------------------------- |
@@ -111,7 +111,7 @@ The response data is a dictionary with the gas timestamps and prices as string a
 
 ### Action: Get energy prices
 
-The `energyzero.get_energy_prices` action allows you to fetch the energy prices. The `config_entry` value be found using the **Actions** tab in the **Developer Tools**, selecting the desired entity and then switching to YAML.
+The `energyzero.get_energy_prices` action allows you to fetch the energy prices. The `config_entry` value be found using the **Actions** tab in the **Developer tools**, selecting the desired entity and then switching to YAML.
 
 | Data attribute | Optional | Description                                          | Example                          |
 | -------------- | -------- | ---------------------------------------------------- | -------------------------------- |

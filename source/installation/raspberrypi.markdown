@@ -33,22 +33,22 @@ This guide shows how to install the {% term "Home Assistant Operating System" %}
 
 1. Download and install the Raspberry Pi Imager on your computer as described under [https://www.raspberrypi.com/software/](https://www.raspberrypi.com/software/).
    - **Troubleshooting**: If Raspberry Pi Imager is not supported by your platform, you can [download the Home Assistant image](#downloading-the-home-assistant-image) and use another imaging tool, such as Balena Etcher.
-2. Open the Raspberry Pi Imager and select your Raspberry Pi device.
+2. Open the Raspberry Pi Imager and select **OS**.
     ![Open Raspberry Pi Imager](/images/installation/rpi_imager_start.png)
-3. Choose the operating system:
-   1. Select **Choose OS**.
-   2. Select **Other specific-purpose OS** > **Home assistants and home automation** > **Home Assistant**.
-   3. Choose the Home Assistant OS that matches your hardware (RPi&nbsp;3, RPi&nbsp;4, or RPi&nbsp;5).
-    ![Choose the operating system](/images/installation/rpi-ha.webp)
-4. Choose the storage:
+3. Choose the operating system type:
+   - Select **Other specific-purpose OS** > **Home automation** > **Home Assistant**.
+    ![Choose the operating system type: Other specific-purpose OS](/images/installation/rpi-ha-1.webp)
+4. Choose the Home Assistant OS that matches your hardware (RPi&nbsp;3, RPi&nbsp;4, or RPi&nbsp;5).
+    ![Choose the Home Assistant OS](/images/installation/rpi-ha-2.webp)
+5. Choose the storage:
    1. Insert the SD card into the computer. Note: the contents of the card will be overwritten.
    2. Select your SD card.
     ![Select the storage](/images/installation/rpi-select-sd-card.png)
-5. Write the installer onto the SD card:
-   1. To start the process, select **Next**.
+6. Write the installer onto the SD card:
+   1. To start the process, select **Next**, then choose **Write**.
    2. Wait for the Home Assistant OS to be written to the SD card.
-    ![Select write](/images/installation/rpi_choose_next.png)
-6. Eject the SD card.
+    ![Select write](/images/installation/rpi_choose_write.png)
+7. Select **Finish** and eject the SD card.
 
 ### Start up your Raspberry Pi
 

@@ -62,7 +62,7 @@ The Xbox media player platform will create media player entities for each consol
 
 The `play_media` action launches an application on the Xbox console using the application's product ID. Also supports "Home" to navigate to the dashboard.
 
-You can find Product IDs using the **{% my developer_events title="Developer Tools > Events" %}** tab and listening to the `call_service` event. In a new browser tab, navigate to the media browser for your console and click on an App/Game to see the product ID in the event.
+You can find Product IDs using the {% my developer_events title="**Settings** > **Developer tools** > **Events**" %} tab and listening to the `call_service` event. In a new browser tab, navigate to the media browser for your console and click on an App/Game to see the product ID in the event.
 
 | Data attribute         | Description                           |
 | ---------------------- | --------------------------------------|
@@ -349,7 +349,11 @@ Internal examples: `http://192.168.0.2:8123/auth/external/callback`, `http://hom
 
 ## Data updates
 
-This integration syncs with Xbox Network every 15 seconds.
+This integration synchronizes your consoles with the Xbox Network every 10 minutes. Console status, including power state and currently playing media, is refreshed every 10 seconds. Presence information is updated every 30 seconds.
+
+## Known limitations
+
+- Xbox consoles cannot be woken up through Home Assistant when they are in **energy saving**. When an Xbox is turned off, it will eventually enter energy saving automatically. To enable remote wake via Home Assistant, the console must be set to **sleep mode** in the power options. Be aware that this mode consumes significantly more energy compared to **shutdown (energy saving) mode**. For more details, see the [Xbox documentation on power modes](https://support.xbox.com/en-US/help/hardware-network/power/learn-about-power-modes).
 
 ## Troubleshooting
 

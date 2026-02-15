@@ -72,7 +72,7 @@ actions:
 
 ## Use the actions
 
-Go to the **Developer Tools**, then to **Actions** in the frontend, and choose `lock.lock`, `lock.unlock` or `lock.open` from the list of available actions. Enter something like the sample below into the **data** field and select **Perform action**.
+Go to {% my developer_services title="**Settings** > **Developer tools** > **Actions**" %}, and choose `lock.lock`, `lock.unlock` or `lock.open` from the list of available actions. Enter something like the sample below into the **data** field and select **Perform action**.
 
 ```json
 {"entity_id":"lock.front_door"}

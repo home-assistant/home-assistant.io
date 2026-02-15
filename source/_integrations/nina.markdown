@@ -13,15 +13,12 @@ ha_platforms:
   - binary_sensor
   - diagnostics
 ha_integration_type: service
+ha_quality_scale: silver
 ---
 
 The [NINA](https://www.bbk.bund.de/DE/Warnung-Vorsorge/Warn-App-NINA/warn-app-nina_node.html) {% term integration %} displays warnings from the [Bundesamt für Bevölkerungsschutz und Katastrophenhilfe](https://www.bbk.bund.de/) in Germany.
 
 For each county/city it creates warning slots that change to Unsafe when warnings are present. The text of the warning and the metadata are stored in the attributes of the slots.
-
-{% important %}
-This integration may only work with an Internet connection that supports IPv4.
-{% endimportant %}
 
 {% include integrations/config_flow.md %}
 
@@ -48,10 +45,6 @@ Affected area filter:
 Headline blocklist:
   description: "Blacklist regex to filter warning based on headlines. For details see below."
 {% endconfiguration_basic %}
-
-## Data updates
-
-The integration checks for warnings every 5 minutes.
 
 ## Filter
 
@@ -101,6 +94,14 @@ Areas: `gemeinde oberreichenbach, gemeinde neuweiler, stadt nagold`
 | `sent` | *(time)* Transmission time and date (UTC) of the issued warning. |
 | `start` | *(time)* Starting time and date (UTC) of the issued warning. Can be empty. |
 | `expires` | *(time)* Expiration time and date (UTC) of the issued warning. Can be empty. |
+
+## Data updates
+
+The integration checks for warnings every 5 minutes.
+
+## Known limitations
+
+This integration may only work with an Internet connection that supports IPv4.
 
 ## Removing the integration
 

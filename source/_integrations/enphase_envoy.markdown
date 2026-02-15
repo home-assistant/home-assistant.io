@@ -478,6 +478,12 @@ The firmware version is not available as an entity, but rather as an attribute o
 
 {% endraw %}
 
+### Firmware update alert
+
+To receive a notification when the firmware is updated, use this [Enphase Envoy Firmware update notification](https://community.home-assistant.io/t/enphase-envoy-firmware-update-notification/983651) automation [blueprint](https://www.home-assistant.io/docs/blueprint/) from the community blueprints exchange.
+
+Import the blueprint using the **import blueprint to** button. This will install the blueprint as `/config/blueprints/automation/catsmanac/Track_envoy_firmware.yaml`. Use the [automation example](https://community.home-assistant.io/t/enphase-envoy-firmware-update-notification/983651#p-3741023-example-10) shown in the blueprint exchange to implement an automation that will create a notification when the firmware changes.
+
 ## Energy dashboard
 
 This integration provides several entities suitable for the energy dashboard.
@@ -657,7 +663,7 @@ Do not add the new Envoy to Home Assistant yet, even if it shows as discovered. 
 
 Even though the data continues from the old envoy, there will be a discontinuity in time and/or value for entities. The lifetime values for Envoy and/or connected devices will most likely start from zero again, unless they were transferred between the old and new physical Envoy, if possible. Such discontinuity will be visible in trends and may affect any automations, calculations, and more.
 
-When used with the energy dashboard, it may result in a peak at the start of the new data. Although the energy dashboard probably handles any reset to zero well. If any peaks occur, correct the first statistics entry of new data in {% my developer_statistics title="**Developer Tools** > **Statistics**"%} and set the value to zero. (See [Statistics Tab](https://www.home-assistant.io/docs/tools/dev-tools/#statistics-tab))
+When used with the energy dashboard, it may result in a peak at the start of the new data. Although the energy dashboard probably handles any reset to zero well. If any peaks occur, correct the first statistics entry of new data in {% my developer_statistics title="**Settings** > **Developer tools** > **Statistics**"%} and set the value to zero. (See [Statistics Tab](https://www.home-assistant.io/docs/tools/dev-tools/#statistics-tab))
 
 ## Known issues and limitations
 
@@ -716,7 +722,7 @@ If these entries occur frequently and are a nuisance then disable the entity. It
 
 ### Lifetime reset
 
-Envoy Metered without installed CT, running older firmware versions, reportedly resets **Lifetime energy production** to 0 when reaching 1.2 MWh. For use with the energy dashboard, the reset is not an issue. In a recent firmware version 8.x.x the reset is solved, but results in a one-time step change to the full lifetime value. This has impact on the energy dashboard, it can be solved by setting the statistics value for that moment to 0 in  [Developer Tools: Statistics](/docs/tools/dev-tools/#statistics-tab)
+Envoy Metered without installed CT, running older firmware versions, reportedly resets **Lifetime energy production** to 0 when reaching 1.2 MWh. For use with the energy dashboard, the reset is not an issue. In a recent firmware version 8.x.x the reset is solved, but results in a one-time step change to the full lifetime value. This has impact on the energy dashboard, it can be solved by setting the statistics value for that moment to 0 in  [Developer tools: Statistics](/docs/tools/dev-tools/#statistics-tab)
 
 {% details "History example for Envoy Lifetime energy production value reset" %}
 

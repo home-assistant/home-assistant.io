@@ -38,9 +38,9 @@ Enables you to create and modify automations, scenes, scripts, and blueprints fr
 
 Enables you to organize entities according to physical or conceptual areas of your home.
 
-### Add-ons
+### Apps for Home Assistant (formerly known as add-ons)
 
-Enables you to install and use additional standalone third-party software packages. Add-ons can only be installed on Home Assistant OS.
+Enables you to install and use additional standalone third-party software packages. Apps can only be installed on Home Assistant OS.
 
 ### Dashboards
 

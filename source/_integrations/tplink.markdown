@@ -201,7 +201,7 @@ If required, you can manually trigger an update via **Developer tools** > **Acti
 
 - Take note of the known limitation for subnets above.
 - Ensure that your username is your TP-Link cloud username, which is your *case-sensitive* email address.
-- Ensure you have enabled **Tapo Lab** > **Third-Party Compatibility** in the Tapo app. You may need to factory reset and re-add to the Tapo app after this step.
+- Ensure you have enabled **Tapo Lab** > **Third-Party Compatibility** in the Tapo app. You may need to factory reset and re-add to the Tapo app after this step. This appears to break connections for some power strip and outlet models and the intregration gives a communication error instead of notifying you that you need to change this setting in the app.
 - Disable or remove any custom integrations that interact with TPLink devices supported by this integration.
 - Ensure stable network connectivity between Home Assistant and the device.
 - Unplug existing TP-Link/Tapo devices on your network before onboarding a new device. The TP-Link Simple Setup (TSS) protocol, which shares credentials from existing devices, can break authentication. If issues persist, factory reset the new device and re-add it without other TP-Link devices active.
