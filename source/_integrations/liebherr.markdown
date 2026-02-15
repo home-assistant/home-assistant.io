@@ -141,7 +141,7 @@ Examples of automations you can create using the Liebherr integration.
 
 ### Night Mode schedule
 
-Schedule your Liebherr appliance to automatically enable Night Mode at bedtime and disable it in the morning for quieter overnight operation.
+Schedule your Liebherr appliance to automatically enable night mode at bedtime and disable it in the morning for quieter overnight operation.
 
 <!-- markdownlint-disable MD034 -->
 {% my blueprint_import badge blueprint_url="https://gist.github.com/mettolen/6b742d07f9176231b7c3a9ef8a0f5221" %}
