@@ -66,26 +66,28 @@ scan_interval:
 
 This is an IoT cloud-polling integration and the recommended minimum `scan_interval` is 180 seconds. Testing has indicated that this is a safe interval that - by itself - shouldn't cause you to be rate-limited by the vendor. There is little value in shorter intervals, as this integration will automatically force a refresh shortly after any configuration changes.
 
-## Locations and zones
+## Locations, controllers and zones
 
-TCC systems are implemented as a _location_, which consist of 1-12 _zones_ and, optionally, a DHW controller:
+Evohome CH/DHW systems are implemented as a temperature control system (TCS), which consist a _controller_, 1-12 heating _zones_ and, optionally, a _DHW_ relay:
 
-- The system location (e.g., a house) is used for operating modes such as home, away, economy, etc.
+- The TCS/controller (e.g., a house) is used for operating modes such as home, away, economy, etc.
 - Heating zones (e.g., rooms) are used for the target temperature.
+
+Most users will have a single location with a single TCS, but multiple locations are supported by the vendor's API. Currently, this integration supports only a single location, and exposes only the first TCS in that location.
 
 ### Evohome
 
-Each zone is represented as a **Climate** entity which will expose the zone's operating mode, current temperature and setpoint.
+Each zone is represented as a **Climate** entity which will expose the zone's operating mode, current temperature and setpoint. Due to limitations with the vendor's public API, there is no cooling functionality.
 
-The Evohome location (controller) is also represented as a **Climate** entity that will expose the location's operating mode. Locations have neither a current temperature nor a setpoint, but as all **Climate** entities are required by Home Assistant to report a temperature, this is calculated as the average of all the zones.
+The Evohome controller is also represented as a **Climate** entity that will expose the current operating mode. A controller has neither a current temperature nor a setpoint, but as all **Climate** entities are required by Home Assistant to report a temperature, this is calculated as the average of all the zones.
 
-The DHW controller is represented as a **WaterHeater** entity which will report its current temperature and can be turned on or off. Due to limitations with the vendor's RESTful API, the setpoint is not reported and cannot be changed.
+The DHW relay is represented as a **WaterHeater** entity which will report its current temperature and can be turned on or off. Due to limitations with the vendor's public API, the setpoint is not reported and cannot be changed.
 
 Note that there is limited support for schedules: they cannot be changed and there is no facility to backup/restore that data (see [here](https://evohome.readthedocs.io/en/latest/) for such functionality).
 
 ### Round thermostat
 
-These systems use an internet gateway rather than an Evohome controller. They usually have only one Round Thermostat, although they can have two. Systems with one such thermostat will still appear as two **Climate** entities, one for location mode (away, economy, etc.), and another for the zone setpoint.
+These systems use an internet gateway rather than an Evohome controller. They usually have only one Round Thermostat, although they can have two. A TCS with one such device will still appear as two **Climate** entities; one for the controller, and another for the zone.
 
 ## Temperature precision
 
@@ -95,7 +97,7 @@ Therefore, depending upon the above, Home Assistant will display/record current 
 
 ## System modes, zone overrides and inheritance
 
-TCC locations can support up to six distinct operating modes: **Auto**, **AutoWithEco**, **Away**, **DayOff**, **HeatingOff**, and **Custom**. Not all systems support all modes.
+TCC systems can support up to six distinct operating modes: **Auto**, **AutoWithEco**, **Away**, **DayOff**, **HeatingOff**, and **Custom**. Not all systems support all modes.
 
 Zones support three setpoint modes: **FollowSchedule**, **TemporaryOverride**, and **PermanentOverride** but 'inherit' an operating mode from their location (the actual algorithm for this is a little more complicated than indicated below - please see the vendor's documentation).
 
@@ -106,22 +108,24 @@ For **FollowSchedule**, a zone's `setpoint` (target temperature) is a function o
 
 If the zone's target temperature is changed then it will either be a **TemporaryOverride** or a **PermanentOverride**, depending. A **TemporaryOverride** will revert to **FollowSchedule** after some specified time. A **PermanentOverride** is a permanent change until some subsequent intervention is made. Zones can be switched between the two override modes without changing the target temperature.
 
-For some location modes all zones will have a setpoint enforced upon them, regardless of their own mode:
+For some system modes all zones will have a setpoint enforced upon them, regardless of their own mode:
 
 - **Away** setpoints to 12 °C
 - **HeatingOff** setpoints to a minimum, usually 4 °C
 
-For **Away**, the DHW controller will also be turned off.
+For **Away**, the DHW relay will also be turned off.
 
-Some locations have a hidden mode, **AutoWithReset**, that will behave as **Auto**, and will reset all zones to **FollowSchedule**.
+Some systems have a hidden mode, **AutoWithReset**, that will behave as **Auto**, and will reset all zones to **FollowSchedule**.
 
 In the Home Assistant schema, all this is done via a combination of `HVAC_MODE` and `PRESET_MODE` (but also see the state attributes `system_mode_status` and `setpoint_status`, below).
 
 ## Action calls
 
-This integration provides its own actions to expose the full functionality of TCC systems beyond the limitations of Home Assistant's standardized schema. Mostly, this relates to specifying the duration of mode changes, after which time the entities revert to **Auto** or **FollowSchedule** (for locations and zones, respectively).
+This integration provides its own actions to expose the full functionality of TCC systems beyond the limitations of Home Assistant's standardized schema. Mostly, this relates to specifying the duration of mode changes, after which time the entities revert to **Auto** or **FollowSchedule** (for TCS and its zones, respectively).
 
-It is recommended to use the native actions (e.g., `evohome.set_system_mode`) instead of Home Assistant's generic equivalents (e.g., `climate.set_hvac_mode`) whenever possible. However, it may be necessary to use the generic actions for integration with 3rd party systems such as Amazon Alexa or Google Home.
+It is recommended to use the native actions (e.g., `evohome.set_system_mode`) instead of Home Assistant's generic equivalents (e.g., `climate.set_hvac_mode`) whenever **possible**. However, it may be necessary to use the generic actions for integration with 3rd party systems such as Amazon Alexa or Google Home.
+
+Actions that deal with the system as a whole require the `entity_id` of the controller. Other actions require the `entity_id` of a zone.
 
 ### evohome.set_system_mode
 
@@ -132,6 +136,8 @@ For **AutoWithEco**, the period of time is a `duration` is up to 24 hours.
 ```yaml
 - actions:
     - action: evohome.set_system_mode
+      target:
+        entity_id: climate.my_home
       data:
         mode: AutoWithEco
         duration: {hours: 1, minutes: 30}
@@ -142,6 +148,8 @@ For the other modes, such as **Away**, the duration is a `period` of days, where
 ```yaml
 - actions:
     - action: evohome.set_system_mode
+      target:
+        entity_id: climate.my_home
       data:
         mode: Away
         period: {days: 30}
@@ -149,13 +157,29 @@ For the other modes, such as **Away**, the duration is a `period` of days, where
 
 ### evohome.reset_system
 
-This action will set the operating mode of the system to **AutoWithReset**, and reset all the zones to **FollowSchedule**.
+This action will set the operating mode of the system to **AutoWithReset**, which will reset all the zones to **FollowSchedule**.
 
-Not all systems support this feature.
+```yaml
+- actions:
+    - action: evohome.reset_system
+      target:
+        entity_id: climate.my_home
+      data:
+```
+
+Rarely, systems do not support **AutoWithReset**, in which case the integration will set the operating mode of the system to **Auto**, and set all the zones to **FollowSchedule**.
 
 ### evohome.refresh_system
 
 This action will immediately pull the latest state data from the vendor's servers rather than waiting for the next `scan_interval`.
+
+```yaml
+- actions:
+    - action: evohome.refresh_system
+      target:
+        entity_id: climate.my_home
+      data:
+```
 
 ### evohome.set_zone_override
 
@@ -190,7 +214,7 @@ This action is used to set a zone, as identified by its `entity_id`, to **Follow
 
 The actual operating mode of Evohome entities can be tracked via their state attributes, which includes a JSON data structure for the current state called `status`.
 
-For the location (controller), see `system_mode_status`:
+For the controller, see `system_mode_status`:
 
 {% raw %}
 
@@ -204,7 +228,7 @@ For the location (controller), see `system_mode_status`:
 
 {% endraw %}
 
-For the Zones, it is `setpoint_status`:
+For the zones, it is `setpoint_status`:
 
 {% raw %}
 
@@ -214,7 +238,7 @@ For the Zones, it is `setpoint_status`:
 
 {% endraw %}
 
-The Zones will expose the current/upcoming scheduled `setpoints`:
+The zones will expose the current/upcoming scheduled `setpoints`:
 
 {% raw %}
 
