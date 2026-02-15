@@ -16,6 +16,11 @@ ha_integration_type: hub
 
 ICO by [Ondilo](https://ondilo.com/en/) is a small connected device that you simply drop into the pool or spa. ICO continuously analyzes the water quality of your pool/spa and notifies you via its application. ICO provides personalized recommendations so that you use the right products in the right proportions at the right time.
 
+> [!IMPORTANT]
+> **Credentials Notice**  
+> Please use the password from the **Ondilo mobile app**.  
+> The password used to log in on the Ondilo website usually **does not work** for the Home Assistant/API authentication, as it is **not linked to the API**.
+
 There is currently support for the following information within Home Assistant:
 
 - Water Temperature
