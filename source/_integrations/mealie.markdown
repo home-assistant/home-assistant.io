@@ -8,8 +8,8 @@ ha_config_flow: true
 ha_release: 2024.7
 ha_iot_class: Local Polling
 ha_codeowners:
-  - '@joostlek'
-  - '@andrew-codechimp'
+  - "@joostlek"
+  - "@andrew-codechimp"
 ha_domain: mealie
 ha_platforms:
   - calendar
@@ -48,11 +48,11 @@ You create your API token on your Mealie installation:
 
 {% configuration_basic %}
 URL:
-  description: The URL of your Mealie installation.
+description: The URL of your Mealie installation.
 API token:
-  description: The API token for your Mealie installation you generated in the prerequisites.
+description: The API token for your Mealie installation you generated in the prerequisites.
 Verify SSL certificate:
-  description: Enable this unless you are using a self-signed certificate on your Mealie installation.
+description: Enable this unless you are using a self-signed certificate on your Mealie installation.
 {% endconfiguration_basic %}
 
 ## Available calendars
@@ -156,7 +156,7 @@ The `mealie.set_mealplan` action sets a meal plan on a specific date.
   - **Optional**: No
 
 - **Data attribute**: `date`
-  - **Description**: The date that should be filled. 
+  - **Description**: The date that should be filled.
   - **Optional**: No
 
 - **Data attribute**: `entry_type`
@@ -184,7 +184,7 @@ The `mealie.set_random_mealplan` action sets a random meal plan on a specific da
   - **Optional**: No
 
 - **Data attribute**: `date`
-  - **Description**: The date that should be filled. 
+  - **Description**: The date that should be filled.
   - **Optional**: No
 
 - **Data attribute**: `entry_type`
@@ -195,12 +195,8 @@ The `mealie.set_random_mealplan` action sets a random meal plan on a specific da
 
 The `mealie.get_shopping_list_items` action gets the shopping list items for a shopping list, including structured data for labels, units, and food.
 
-- **Data attribute**: `config_entry_id`
-  - **Description**: The ID of the Mealie config entry to get data from.
-  - **Optional**: No
-
-- **Data attribute**: `shopping_list`
-  - **Description**: The name or ID of the shopping list.
+- **Data attribute**: `entity_id`
+  - **Description**: The ID of the Mealie ToDo list entity. May be a list of multiple entity IDs.
   - **Optional**: No
 
 ## Examples
