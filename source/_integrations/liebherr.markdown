@@ -20,9 +20,13 @@ related:
   - docs: /common-tasks/general/#defining-a-custom-polling-interval
     title: Defining a custom polling interval
 ha_category:
+  - Number
   - Sensor
+  - Switch
 ha_platforms:
+  - number
   - sensor
+  - switch
 ---
 
 The **Liebherr** {% term integration %} allows you to control and monitor [Liebherr](https://home.liebherr.com/) SmartDevice refrigerators and freezers via the cloud-based [SmartDevice HomeAPI](https://developer.liebherr.com/apis/smartdevice-homeapi/). With this integration, you can monitor temperatures, adjust cooling settings, and create automations to alert you when temperatures exceed safe food storage thresholds.
@@ -45,11 +49,7 @@ Before setting up the integration, you need to obtain an API key from the Liebhe
    - Select **Become a beta tester**.
    - Activate the **Beta testing HomeAPI**.
    - Select **Generate new key**.
-   - Copy the API key.
-
-   {% note %}
-   **Important**: The API key can only be copied once from the app. Once you leave the screen, it cannot be retrieved again. If you lose your API key, you'll need to generate a new one.
-   {% endnote %}
+   - Copy the API key. The API key can only be copied once from the app.
 
 3. Verify connectivity: Only appliances that are connected to the internet via the SmartDevice app can be accessed through the HomeAPI. Appliances that are only registered but not actively connected will not appear in Home Assistant.
 
@@ -61,22 +61,6 @@ The integration can be automatically discovered when your appliances are on the 
 API key:
     description: "The API key from the Liebherr SmartDevice app (**Settings** > **Become a beta tester**). Note: The API key can only be copied once from the app."
 {% endconfiguration_basic %}
-
-## Supported functionality
-
-The **Liebherr** integration provides temperature monitoring for refrigerator and freezer zones in your SmartDevice appliances.
-
-### Sensors
-
-The integration creates temperature sensors for each cooling zone in your appliance.
-
-- **Zone temperature**: The current temperature measured inside the cooling zone.
-
-For appliances with multiple cooling zones (for example, a fridge-freezer combination), a separate sensor is created for each zone:
-
-- **Top zone**: The uppermost cooling compartment
-- **Middle zone**: The middle compartment (if present)
-- **Bottom zone**: The lowermost cooling compartment (if present)
 
 {% details "Changing the temperature unit" %}
 
@@ -93,6 +77,54 @@ To change between Celsius and Fahrenheit:
 The Liebherr appliances operate based on the temperature unit selected on the device itself. Home Assistant displays temperatures in the unit system you configure in your Home Assistant settings, automatically converting between Celsius and Fahrenheit as needed.
 
 {% enddetails %}
+
+## Supported functionality
+
+The **Liebherr** integration provides temperature monitoring and control for refrigerator and freezer zones in your SmartDevice appliances.
+
+### Numbers
+
+The integration creates number entities for controlling the setpoint temperature of each cooling zone.
+
+- **Setpoint**: The target temperature for the cooling zone. Adjust this value to change the desired temperature.
+
+The temperature range and unit depend on your appliance's capabilities and settings.
+
+For appliances with multiple cooling zones (like a fridge-freezer combination), a separate number entity is created for each zone:
+
+- **Top zone setpoint**: Target temperature for the uppermost compartment
+- **Middle zone setpoint**: Target temperature for the middle compartment (if present)
+- **Bottom zone setpoint**: Target temperature for the lowermost compartment (if present)
+
+### Sensors
+
+The integration creates temperature sensors for each cooling zone in your appliance.
+
+- **Zone temperature**: The current temperature measured inside the cooling zone.
+
+For appliances with multiple cooling zones (like a fridge-freezer combination), a separate sensor is created for each zone:
+
+- **Top zone**: The uppermost cooling compartment
+- **Middle zone**: The middle compartment (if present)
+- **Bottom zone**: The lowermost cooling compartment (if present)
+
+### Switches
+
+The integration creates switch entities for special operating modes available on your appliance. Not all switches may be available depending on your appliance model and its capabilities.
+
+#### Zone-based switches
+
+These switches apply to individual cooling zones. For appliances with multiple zones, a separate switch is created for each zone:
+
+- **SuperCool**: Rapidly lowers the refrigerator compartment temperature to +2°C for up to 12 hours. Designed to quickly cool large amounts of newly stored food or drinks, preventing the interior temperature from rising and ensuring optimal food preservation.
+- **SuperFrost**: Quickly lowers the freezer temperature to -32°C (-26°F), creating cold reserves for vitamin-preserving freezing. The function automatically returns to normal mode once the freezing process is complete, after 65 hours at the most, helping to save electricity.
+
+#### Device-wide switches
+
+These switches apply to the entire appliance:
+
+- **Party mode**: A 24-hour convenience setting that prepares the appliance for entertaining by maximizing cooling performance. It automatically activates SuperCool for rapid chilling of drinks and SuperFrost for freezing food, while boosting ice production if available.
+- **Night mode**: Optimizes kitchen tranquility by silencing all appliance sounds, halting the IceMaker, and dimming interior LED lighting to a soft glow.
 
 ## Use cases
 

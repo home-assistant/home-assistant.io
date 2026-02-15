@@ -14,7 +14,7 @@ related:
     title: Integration Quality Scale - Rules
   - docs: /docs/glossary/
     title: Glossary
-  - docs: /docs/tools/quick-bar/#my-links
+  - docs: /docs/tools/quick-search/#my-links
     title: My link
 ---
 

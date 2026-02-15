@@ -22,7 +22,7 @@ ha_platforms:
   - sensor
   - switch
   - time
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 The **Renson** {% term integration %} pulls in data from the Renson Endura delta device. Most of the sensors that can be monitored from inside the Android/iOS application can be monitored with this integration.

@@ -905,7 +905,7 @@ fan:
       type: boolean
       default: false
     oscillating:
-      description: "Defines a template to get the oscillation state of the fan. Valid values: `true`, `false`."
+      description: "Defines a template to get the oscillation state of the fan. The fan is oscillating if the template evaluates to `1`, `true`, `yes`, `on`, or `enable`.  The fan is not oscillating if the template evaluates to `0`, `false`, `no`, `off`, or `disable`."
       required: false
       type: template
     percentage:
@@ -943,7 +943,7 @@ fan:
       type: integer
       default: 100
     state:
-      description: "Defines a template to get the state of the fan. Valid values: `on`, `off`."
+      description: "Defines a template to get the state of the fan. The fan is `on` if the template evaluates to `1`, `true`, `yes`, `on`, or `enable`.  The fan is `off` if the template evaluates to `0`, `false`, `no`, `off`, or `disable`. The fan is `unknown` if the template evaluates as `None`."
       required: true
       type: template
     turn_on:
@@ -1318,7 +1318,7 @@ light:
       required: false
       type: action
     state:
-      description: Defines a template to set the state of the light. If not defined, the switch will optimistically assume all commands are successful.
+      description: Defines a template to set the state of the light. If not defined, the light will optimistically assume all commands are successful. The light is `on` if the template evaluates to `1`, `true`, `yes`, `on`, or `enable`.  The light is `off` if the template evaluates to `0`, `false`, `no`, `off`, or `disable`. The light is `unknown` if the template evaluates as `None`.
       required: false
       type: template
       default: optimistic
@@ -1523,7 +1523,7 @@ lock:
       type: boolean
       default: false
     state:
-      description: Defines a template to set the state of the lock. Valid output values from the template are `locked`, `unlocked`, `open`, `locking`, `unlocking`, `opening`, and `jammed`, which are directly mapped to the corresponding states. In addition, `true` and `on` are valid as synonyms to `locked` while `false` and `off` are valid as synonyms to `unlocked`.
+      description: Defines a template to set the state of the lock. Valid output values from the template are `locked`, `unlocked`, `open`, `locking`, `unlocking`, `opening`, and `jammed`, which are directly mapped to the corresponding states. In addition,  `1`, `true`, `yes`, `on`, and `enable` are valid as synonyms to `locked` while `0`, `false`, `no`, `off`, and `disable` are valid as synonyms to `unlocked`. If the template produces a `None` value the state will be set to `unknown`.
       required: false
       default: optimistic
       type: template
@@ -1814,7 +1814,7 @@ select:
       type: template
     select_option:
       description: Defines actions to run to select an option from the `options` list. The variable `option` will contain the option selected.
-      required: true
+      required: false
       type: action
     state:
       description: Template for the select's current value. When omitted, the state will be set to the `option` provided by the `select_option` action.
@@ -2064,7 +2064,7 @@ switch:
       type: boolean
       default: false
     state:
-      description: Defines a template to set the state of the switch. If not defined, the switch will optimistically assume all commands are successful.
+      description: Defines a template to set the state of the switch. If not defined, the switch will optimistically assume all commands are successful. The switch is `on` if the template evaluates to `1`, `true`, `yes`, `on`, or `enable`.  The switch is `off` if the template evaluates to `0`, `false`, `no`, `off`, or `disable`. The switch is `unknown` if the template evaluates as `None`.
       required: false
       type: template
       default: optimistic
