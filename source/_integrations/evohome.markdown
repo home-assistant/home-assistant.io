@@ -123,7 +123,7 @@ In the Home Assistant schema, all this is done via a combination of `HVAC_MODE` 
 
 This integration provides its own actions to expose the full functionality of TCC systems beyond the limitations of Home Assistant's standardized schema. Mostly, this relates to specifying the duration of mode changes, after which time the entities revert to **Auto** or **FollowSchedule** (for TCS and its zones, respectively).
 
-It is recommended to use the native actions (e.g., `evohome.set_system_mode`) instead of Home Assistant's generic equivalents (e.g., `climate.set_hvac_mode`) whenever **possible**. However, it may be necessary to use the generic actions for integration with 3rd party systems such as Amazon Alexa or Google Home.
+It is recommended to use the native actions (e.g., `evohome.set_system_mode`) instead of Home Assistant's generic equivalents (e.g., `climate.set_hvac_mode`) whenever _possible_. However, it may be necessary to use the generic actions for integration with 3rd party systems such as Amazon Alexa or Google Home.
 
 Actions that deal with the system as a whole require the `entity_id` of the controller. Other actions require the `entity_id` of a zone.
 
