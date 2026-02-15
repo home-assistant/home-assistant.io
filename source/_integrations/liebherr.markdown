@@ -123,8 +123,8 @@ These switches apply to individual cooling zones. For appliances with multiple z
 
 These switches apply to the entire appliance:
 
-- **Party mode**: A 24-hour convenience setting that prepares the appliance for entertaining by maximizing cooling performance. It automatically activates SuperCool for rapid chilling of drinks and SuperFrost for freezing food, while boosting ice production if available.
-- **Night mode**: Optimizes kitchen tranquility by silencing all appliance sounds, halting the IceMaker, and dimming interior LED lighting to a soft glow.
+- **Party Mode**: A 24-hour convenience setting that prepares the appliance for entertaining by maximizing cooling performance. It automatically activates SuperCool for rapid chilling of drinks and SuperFrost for freezing food, while boosting ice production if available.
+- **Night Mode**: Optimizes kitchen tranquility by silencing all appliance sounds, halting the IceMaker, and dimming interior LED lighting to a soft glow.
 
 ## Use cases
 
