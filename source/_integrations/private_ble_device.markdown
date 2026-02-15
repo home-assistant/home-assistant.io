@@ -65,7 +65,7 @@ Alternatively, the IRK of an Android phone and/or secondary device can be obtain
    <details>
    <summary><b>Click here</b> for troubleshooting advice</summary>
 
-    - If searched for `_ws.col.info matches "Sent LE Add Device to Resolving List"`, select any frame, expand "Bluetooth HCI Command - LE Add Device to Resolving List" and copy the value of "Local IRK" for the phone's IRK or the value of "Peer IRK" for the secondary device's IRK.
+    - If you searched for `_ws.col.info matches "Sent LE Add Device to Resolving List"`, select any frame, expand "Bluetooth HCI Command - LE Add Device to Resolving List" and copy the value of "Local IRK" for the phone's IRK or the value of "Peer IRK" for the secondary device's IRK.
 
     </details>
 9. The value needs to be converted by reversing the byte order: First reverse the original value and **then swap each character pair** of the reversed value.
