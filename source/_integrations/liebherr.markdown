@@ -300,15 +300,19 @@ The API key is valid, but no appliances are currently connected to the Liebherr 
 
 The integration loses connection to the Liebherr cloud service. This can happen due to internet connectivity issues, API service interruptions, or appliance offline status.
 
-1. Check internet connectivity:
+1. Check for API rate limiting:
+   - If you performed many actions in quick succession, the API may temporarily rate limit your requests.
+   - Wait a few minutes for the rate limit to reset, and the appliances should become available again.
+
+2. Check internet connectivity:
    - Ensure your Home Assistant instance has a stable internet connection.
    - Verify your appliances are connected to Wi-Fi and online in the SmartDevice app.
 
-2. Check the API service status:
+3. Check the API service status:
    - The SmartDevice HomeAPI is a beta service and may occasionally be unavailable.
    - Wait a few minutes for the service to recover.
 
-3. Restart the integration:
+4. Restart the integration:
    - Go to {% my integrations title="**Settings** > **Devices & services**" %}.
    - Select the **Liebherr** integration.
    - Select the three-dot menu {% icon "mdi:dots-vertical" %} and choose **Reload**.
