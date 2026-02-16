@@ -41,13 +41,13 @@ Minutes after sunset for Havdalah:
   description: By default havdalah time is considered the moment the sun is 8.5 degrees below the horizon. By specifying this offset, havdalah time will be calculated as a static time offset relative to sunset.
 
 Daily events to display:
-  description: Select which daily events should appear in the daily events calendar. By default, all daily events are displayed, including the Hebrew date and halachic prayer times.
+  description: Select which daily events should appear in the daily events calendar. By default, the Hebrew date, sunrise, sunset, and nightfall are displayed.
 
 Learning schedule to display:
   description: Select which learning schedules should appear in the learning schedule calendar. Currently, Daf Yomi is the only available option.
 
 Yearly events to display:
-  description: Select which yearly events should appear in the yearly events calendar. By default, holidays, Torah portion, and Omer count are displayed. You can also add candle lighting and Havdalah times.
+  description: Select which yearly events should appear in the yearly events calendar. By default, holidays, Torah portion, candle lighting, and Havdalah are displayed. You can also add the Omer count.
 {% endconfiguration_basic %}
 
 ## Calendars
@@ -72,7 +72,7 @@ The daily events calendar shows time-based events that occur every day, such as 
 - **Shkia**: Sunset
 - **T'set Hakochavim**: Nightfall
 
-By default, all daily events are displayed.
+By default, the Hebrew date, sunrise (Netz Hachama), sunset (Shkia), and nightfall (T'set Hakochavim) are displayed.
 
 ### Learning schedule
 
@@ -90,7 +90,7 @@ The yearly events calendar shows events tied to the Jewish calendar year, such a
 - **Candle lighting**: Timed events for Shabbat and holiday candle lighting based on your location and configured offset
 - **Havdalah**: Timed events for Shabbat and holiday Havdalah based on your location and configured offset
 
-By default, holidays, Torah portion, and Omer count are displayed. Candle lighting and Havdalah can be added through the configuration options.
+By default, holidays, Torah portion, candle lighting, and Havdalah are displayed. The Omer count can be added through the configuration options.
 
 ## Sensor list
 
