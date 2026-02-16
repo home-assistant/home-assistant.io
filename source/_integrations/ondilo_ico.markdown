@@ -26,6 +26,7 @@ There is currently support for the following information within Home Assistant:
 - RSSI
 
 Sensors will be created for all those data.
+
 ## Prerequisites
 
 - Password from the **Ondilo mobile app**.
