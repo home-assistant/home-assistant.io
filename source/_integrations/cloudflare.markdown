@@ -8,12 +8,13 @@ ha_iot_class: Cloud Push
 ha_codeowners:
   - '@ludeeus'
   - '@ctalkington'
+  - '@cypherbits'
 ha_domain: cloudflare
 ha_config_flow: true
-ha_integration_type: service
+ha_integration_type: integration
 ---
 
-With the **Cloudflare** {% term integration %}, you can keep your Cloudflare DNS records up to date.
+The **Cloudflare** {% term integration %} allows you to keep your [Cloudflare](https://www.cloudflare.com/) DNS records up to date.
 
 The integration runs every hour, but can also be triggered by running the {% my developer_services title="`cloudflare.update_records` action" service="cloudflare.update_records" %}.
 
@@ -26,6 +27,25 @@ An easy way to create this is to start with the "Edit zone DNS" template then ad
 [Cloudflare API Tokens Guide](https://developers.cloudflare.com/fundamentals/api/get-started/create-token/)
 
 {% include integrations/config_flow.md %}
+
+## Supported functionality
+
+### Sensors
+
+The integration provides the following sensors:
+
+- **External IP**: The current external IP address of your Home Assistant instance.
+- **Last Update**: The timestamp of the last successful update of the DNS records.
+
+### Switches
+
+The integration provides a switch for each configured DNS record to toggle the [Cloudflare Proxy](https://developers.cloudflare.com/dns/manage-dns-records/reference/proxied-dns-records/) status.
+
+## Actions
+
+### Action: Update records
+
+The `cloudflare.update_records` action is used to manually trigger an update of the Cloudflare records for all configured zones.
 
 ## Additional information
 
@@ -47,13 +67,9 @@ Due to a limitation in the Cloudflare API, you can not use this integration with
 
 #### Record types
 
-This integration can only update A records. 
-
-#### Zones
-
-This integration can only have 1 instance and manage 1 Zone/TLD.
+This integration can only update A records.
 
 #### Reconfiguration
 
-This integration must be deleted and re-added to change the Zone and A record selection.
+To change the Zone and A record selection, the integration needs to be removed and added again.
 You cannot view which records were selected or view the API Token once the integration is configured.
