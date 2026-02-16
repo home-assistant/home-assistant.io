@@ -58,7 +58,7 @@ The integration does not provide complete support for Powersensor water sensors 
 
 This integration does not provide any custom actions.
 
-## Removal
+## Removing the integration
 
 This integration follows standard integration removal.
 
