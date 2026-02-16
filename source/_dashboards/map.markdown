@@ -109,8 +109,8 @@ cluster:
   default: true
 conditions:
   required: false
-  description: List of conditions to check for entity visibility. See [description](#conditions-options).*
-  type: list  
+  description: List of conditions to check for entity visibility. See [description](#conditions-options).
+  type: list
 {% endconfiguration %}
 
 {% important %}
