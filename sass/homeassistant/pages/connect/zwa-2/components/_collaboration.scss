@@ -13,7 +13,7 @@ section#collaboration {
         background-position: top left;
         background-repeat: no-repeat;
         background-size: contain;
-        min-height: 475px;
+        min-height: 490px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -22,7 +22,7 @@ section#collaboration {
         padding: 0 20px;
         
         @include bp(tablet) {
-            background-image: url('/images/connect/zwa-2/zwa-2-device.png');
+            background-image: url('/images/connect/zwa-2/zwa-2-device.webp');
             background-position: bottom left;
             background-size: 65%;
             justify-content: center;
