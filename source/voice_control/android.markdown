@@ -42,9 +42,9 @@ To define Home Assistant Assist as default assistant app on your Android phone, 
 6. Select **Home Assistant**.
 7. Go back to the **Home Assistant** app. You should now see that **Assist** is your default assistant.
 8. Start Assist using the gesture to start an assistant. The gesture may differ depending on your Android version:
-   - Swipe from the bottom left corner
-   - Long press the power button
-   - Hold the home button (square button at the bottom)
+   - Swipe from the bottom left corner.
+   - Long press the power button.
+   - Hold the home button (square button at the bottom).
 9. You can now also start Assist from your lock screen.
    <lite-youtube videoid="8TsutVHj7LQ" videotitle="Use Home Assistant from anywhere on Android"></lite-youtube>
 
