@@ -4,7 +4,7 @@ description: Instructions on how to integrate real-time NYC subway arrival infor
 ha_category:
   - Transport
 ha_iot_class: Cloud Polling
-ha_release: 2026.1
+ha_release: 2026.3
 ha_config_flow: true
 ha_codeowners:
   - '@OnFreund'
