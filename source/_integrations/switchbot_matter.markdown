@@ -22,7 +22,7 @@ ha_iot_standard: matter
 ha_brand: true
 ---
 
-{% include integrations/wwha.md url="https://www.switchbot.com/" %}
+{% include integrations/wwha.md url="https://www.switch-bot.com/" %}
 
 ## Supported devices
 
@@ -45,4 +45,5 @@ SwitchBot also has Matter devices that are certified for use via one of their Ma
 
 - [SwitchBot Air Purifier](https://www.switch-bot.com/products/switchbot-air-purifier)
 - [SwitchBot Air Purifier Table](https://www.switch-bot.com/products/switchbot-air-purifier-table)
-- [SwitchBot Multitasking Robot K20 + Pro](https://www.switch-bot.com/products/switchbot-multitasking-household-robot-k20-pro)
+- [SwitchBot Multitasking Robot K20+ Pro](https://www.switch-bot.com/products/switchbot-multitasking-household-robot-k20-pro)
+- [SwitchBot Multitasking Robot K11+](https://www.switch-bot.com/products/switchbot-robot-vacuum-k11)

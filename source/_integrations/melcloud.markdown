@@ -12,12 +12,12 @@ ha_platforms:
   - diagnostics
   - sensor
   - water_heater
-ha_integration_type: integration
+ha_integration_type: device
 ha_codeowners:
   - '@erwindouna'
 ---
 
-The `melcloud` integration integrates Mitsubishi Electric's [MELCloud](https://www.melcloud.com/) enabled devices into Home Assistant.
+The **MELCloud** {% term integration %} integrates Mitsubishi Electric's [MELCloud](https://www.melcloud.com/) enabled devices into Home Assistant.
 
 ## Device support
 
@@ -62,6 +62,7 @@ Swing mode can also be used to control vertical vane position.
 The following attributes are available for `sensor` platform entities:
 
 - Room temperature
+- Outside temperature
 - Energy - The total consumed energy in kWh. **Not supported by all models.**
 - Daily energy - Energy consumption within a 24h window in kWh. This reading resets at midnight on the timezone of the MELCloud service. The exact time needs to be determined by following the sensor value until a reset is detected.
 

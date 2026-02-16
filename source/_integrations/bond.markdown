@@ -25,7 +25,7 @@ ha_platforms:
   - fan
   - light
   - switch
-ha_integration_type: integration
+ha_integration_type: hub
 ha_dhcp: true
 ---
 

@@ -8,10 +8,11 @@ ha_config_flow: true
 ha_release: 2025.7
 ha_iot_class: Local Push
 ha_codeowners:
-  - '@ghowevege'
+  - '@thulrus'
 ha_domain: vegehub
 ha_platforms:
   - sensor
+  - switch
 ha_integration_type: integration
 related:
   - url: https://vegetronix.com/Products/ha/VG-HUB-RELAY/

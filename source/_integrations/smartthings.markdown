@@ -47,7 +47,7 @@ ha_platforms:
   - valve
   - water_heater
 ha_dhcp: true
-ha_integration_type: integration
+ha_integration_type: hub
 ha_codeowners:
   - '@joostlek'
 ha_quality_scale: bronze
@@ -194,7 +194,21 @@ The SmartThings number platform lets you control the amount of washer rinse cycl
 
 ### Select
 
-The SmartThings Select platform can be used to remotely turn on a dryer and washer. Be aware that for them to work, the Remote control has to be turned on.
+The SmartThings Select platform can be used to remotely turn on a dryer, a washer and a dishwasher. Be aware that for them to work, the Remote control has to be turned on.
+
+The following SmartThings capabilities are supported for Select entities:
+
+| SmartThings capability                                                                                                                     |
+| ------------------------------------------------------------------------------------------------------------------------------------------ |
+| `custom.washerSoilLevel`                                                                                                                   |
+| `custom.washerSpinLevel`                                                                                                                   |
+| `custom.washerWaterTemperature`                                                                                                            |
+| [`dishwasherOperatingState`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#dishwasherOperatingState)  |
+| [`dryerOperatingState`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#dryerOperatingState)            |
+| `samsungce.autoDispenseDetergent`                                                                                                          |
+| `samsungce.flexibleAutoDispenseDetergent`                                                                                                  |
+| `samsungce.lamp`                                                                                                                           |
+| [`washerOperatingState`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#washerOperatingState)          |
 
 ### Sensor
 

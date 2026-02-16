@@ -13,11 +13,11 @@ ha_platforms:
   - binary_sensor
   - sensor
   - vacuum
-ha_integration_type: integration
+ha_integration_type: device
 ha_zeroconf: true
 ---
 
-The **ROMY** integration allows you to control your [ROMY](https://www.romyrobot.com) vacuum robot.
+The **ROMY** {% term integration %} allows you to control your [ROMY](https://www.romyrobot.com) vacuum robot.
 
 This integration currently supports the following models:
 

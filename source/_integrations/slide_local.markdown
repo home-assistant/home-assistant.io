@@ -19,7 +19,7 @@ ha_zeroconf: true
 ha_quality_scale: gold
 ---
 
-The Slide Local {% term integration %} allows you to integrate your [Slide](https://slide.store/) devices in Home Assistant using the local API.
+The **Slide Local** {% term integration %} allows you to integrate your [Slide](https://slide.store/) devices in Home Assistant using the local API.
 
 ## Supported devices
 
