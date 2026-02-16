@@ -77,7 +77,7 @@ The following device classes are supported for sensors:
 - **nitrogen_dioxide**: Concentration of Nitrogen Dioxide in µg/m³
 - **nitrogen_monoxide**: Concentration of Nitrogen Monoxide in ppb, µg/m³
 - **nitrous_oxide**: Concentration of Nitrous Oxide in µg/m³
-- **ozone**: Concentration of Ozone in ppb or µg/m³
+- **ozone**: Concentration of Ozone in ppb, ppm, or µg/m³
 - **ph**: Potential hydrogen (pH) value of a water solution
 - **pm1**: Concentration of particulate matter less than 1 micrometer in µg/m³
 - **pm25**: Concentration of particulate matter less than 2.5 micrometers in µg/m³

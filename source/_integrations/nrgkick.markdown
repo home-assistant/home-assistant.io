@@ -14,6 +14,7 @@ ha_config_flow: true
 ha_zeroconf: true
 ha_platforms:
   - sensor
+  - switch
 related:
   - url: https://www.nrgkick.com/
     title: NRGkick Website
@@ -66,7 +67,7 @@ Password:
 
 ## Supported functionality
 
-The integration provides entities to monitor charging. Charging control will be added in a later release.
+The integration provides entities to monitor charging and enable or pause charging. Additional charging controls will be added in a later release.
 
 ### Sensors
 
@@ -162,7 +163,11 @@ These sensors are only available on NRGkick SIM models and are disabled by defau
 
 ### Controls
 
-Support for getting more details about the charging status as well as charging control will be added in a later release.
+The integration creates the following controls. Additional controls will be added in a later release.
+
+#### Switches
+
+- **Charging enabled**: Turn on to enable charging. Turn off to pause charging.
 
 ### Key entities
 
@@ -171,6 +176,7 @@ Entity IDs depend on your device name in Home Assistant. The examples below assu
 - `sensor.nrgkick_charging_current`: Charging current.
 - `sensor.nrgkick_charged_energy`: Charged energy.
 - `sensor.nrgkick_status`: Charging status.
+- `switch.nrgkick_charging_enabled`: Turn on to enable charging. Turn off to pause charging.
 
 ## Data updates
 
@@ -181,7 +187,7 @@ The integration {% term polling polls %} the device for updates.
 
 ## Known limitations
 
-- Charging control is not yet supported and will be added in a later release.
+- Charging control is currently limited to enabling or pausing charging.
 - Per-phase values for L2 and L3 are only available when the power source and session are using multiple phases.
 - Some temperature sensors depend on the connected attachment and may not be available.
 - Cellular and GPS sensors are only available on SIM models.
@@ -199,7 +205,7 @@ If setup fails with a connection error:
 ### Entities show unavailable
 
 - Verify the device is powered on and connected.
-- Under {% my integrations title="**Settings** > **Devices & services**" %}*, select **NRGkick**, then reload the integration.
+- Under {% my integrations title="**Settings** > **Devices & services**" %}, select **NRGkick**, then reload the integration.
 - If your network is unstable, verify Wi-Fi coverage.
 
 ### Some phase sensors are missing or show as unknown
