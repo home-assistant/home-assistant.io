@@ -11,6 +11,7 @@ ha_codeowners:
 ha_domain: compit
 ha_platforms:
   - climate
+  - select
 ha_integration_type: hub
 ha_quality_scale: bronze
 ---
@@ -58,11 +59,84 @@ This integration supports most of Compit device models across thermostats, contr
 - [R770RS](https://compit.pl/produkty/sterowniki-do-kotlow/83-pogodowy-regulator-kotla-retortowego-i-instalacji-grzewczej-r771-2.html?ic=1), [R771RS](https://compit.pl/produkty/sterowniki-do-kotlow/83-pogodowy-regulator-kotla-retortowego-i-instalacji-grzewczej-r771-2.html?ic=1) – Boiler controllers
 - [R810](https://compit.pl/produkty/sterowniki-instalacji/43-pogodowy-regulator-temperatury-obiegu-grzewczego-r810.html?ic=1) – Heating circuit controller
 - [R900](https://compit.pl/produkty/sterowniki-pomp-ciepla/89-r900.html?ic=1) – Heat pump controller
+- [SolarComp951](https://compit.pl/produkty/regulatory-solarne/22-sterownik-ukladu-solarnego-solarcomp-951.html) – Solar system controller
+- [SolarComp971](https://compit.pl/produkty/regulatory-solarne/23-sterownik-ukladu-solarnego-z-pwm-solarcomp-971.html) – Solar system controller
+- [SolarComp971C](https://compit.pl/produkty/regulatory-solarne/70-sterownik-ukladu-solarnego-z-pwm-solarcomp-971c.html) – Solar system controller
 
 ### Sensors
 
 - [SHC](https://compit.pl/produkty/osprzet/67-czujnik-stezenia-dwutlenku-wegla-wilgotnosci-i-temperatury-w-pomieszczeniach-shc.html?ic=1) – CO₂, humidity, and temperature sensor
 - [SPM](https://compit.pl/produkty/osprzet/87-czujnik-jakosci-powietrza-spm.html?ic=1) – Air quality sensor
+
+## Supported functionality
+
+The **Compit** integration provides the following entities.
+
+### Binary sensors
+
+Binary sensors provide status information about your Compit devices.
+
+### Selects
+
+- **Language**
+  - **Description**: Language of the device interface.
+  - **Options**: Polish, English
+  - **Available for devices**: Nano Color (Room thermostat), Nano Color 2 (Room thermostat), Nano One (Room thermostat)
+
+- **Aero by pass**
+  - **Description**: Bypass mode for ventilation systems.
+  - **Options**: Off, Auto, On
+  - **Available for devices**: Nano Color (Room thermostat), Nano Color 2 (Room thermostat)
+
+- **Nano work mode**
+  - **Description**: Operating mode for the thermostat.
+  - **Options**: Manual 3, Manual 2, Manual 1, Manual 0, Schedule, Christmas, Out of home
+  - **Available for devices**: Nano One (Room thermostat)
+
+- **Operating mode**
+  - **Description**: Primary operating mode of the device.
+  - **Options**: Disabled, Eco, Hybrid (for R900, R490, R480); Disabled, Auto, Eco (for R470)
+  - **Available for devices**: R900 (Heat pump controller), R490 (Heat pump controller), R470 (Heat pump controller), R480 (Heat pump controller)
+
+- **Work mode**
+  - **Description**: Seasonal operating mode.
+  - **Options**: Winter, Summer, Cooling
+  - **Available for devices**: R490 (Heat pump controller)
+
+- **Heating source of correction**
+  - **Description**: Source for heating temperature corrections.
+  - **Options**: No corrections, Schedule, Thermostat, Nano nr 1, Nano nr 2, Nano nr 3, Nano nr 4, Nano nr 5
+  - **Available for devices**: R470 (Heat pump controller), BioMax742 (Pellet boiler controller)
+
+- **SolarComp operating mode**
+  - **Description**: Operating mode for solar controllers.
+  - **Options**: Auto, De-icing, Holiday, Disabled
+  - **Available for devices**: SolarComp951 (Solar system controller), SolarComp971 (Solar system controller) and SolarComp971C (Solar system controller)
+
+- **Mixer mode zone 1**
+  - **Description**: Zone 1 mixing valve operating mode.
+  - **Options**: Disabled, Without thermostat, Schedule, Thermostat, Nano nr 1, Nano nr 2, Nano nr 3, Nano nr 4, Nano nr 5
+  - **Available for devices**: BioMax775 (Pellet boiler controller), BioMax772 (Pellet boiler controller)
+
+- **Mixer mode zone 2**
+  - **Description**: Zone 2 mixing valve operating mode.
+  - **Options**: Disabled, Without thermostat, Schedule, Thermostat, Nano nr 1, Nano nr 2, Nano nr 3, Nano nr 4, Nano nr 5
+  - **Available for devices**: BioMax775 (Pellet boiler controller), BioMax772 (Pellet boiler controller)
+
+- **Mixer mode**
+  - **Description**: Mixing valve operating mode.
+  - **Options**: No corrections, Schedule, Thermostat, Nano nr 1, Nano nr 2, Nano nr 3, Nano nr 4, Nano nr 5
+  - **Available for devices**: R350 T3 (Universal controller), BioMax742 (Pellet boiler controller)
+
+- **DHW circulation**
+  - **Description**: Domestic hot water circulation mode.
+  - **Options**: Disabled, Constant, Schedule
+  - **Available for devices**: BioMax775 (Pellet boiler controller), BioMax742 (Pellet boiler controller), BioMax772 (Pellet boiler controller)
+
+- **Buffer mode**
+  - **Description**: Buffer tank operating mode.
+  - **Options**: Schedule, Manual, Disabled
+  - **Available for devices**: R480 (Heat pump controller)
 
 ## Removing the integration
 

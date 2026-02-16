@@ -26,15 +26,15 @@ On top of the page you see a red banner. On the **Overview** page, you see a **R
 
 When Home Assistant is in recovery mode, there was an issue with the configuration.
 
-Recovery mode loads a minimum set of integrations to allow troubleshooting the configuration. Recovery mode will use the parts of the configuration that was used the last time Home Assistant started successfully. You can still see the user interface, the settings, and add-ons.
+Recovery mode loads a minimum set of integrations to allow troubleshooting the configuration. Recovery mode will use the parts of the configuration that was used the last time Home Assistant started successfully. You can still see the user interface, the settings, and apps.
 
 ### Resolution
 
 You need to identify the issue in the configuration files and fix it there. The issue could be caused by something as simple as an invalid {% term YAML %} file.
 
-- If you are running {% term "Home Assistant Operating System" %}, you can install an add-on such as Studio Code Server to edit the configuration file if needed.
+- If you are running {% term "Home Assistant Operating System" %}, you can install an app such as Studio Code Server to edit the configuration file if needed.
 - If you are still logged in, you can [edit your configuration](/docs/configuration/#editing-configurationyaml).
-  - In the Home Assistant user interface, open the add-on you usually use and edit the configuration file.
+  - In the Home Assistant user interface, open the app you usually use and edit the configuration file.
 - Restart Home Assistant.
 - If you are locked out because you forgot your password, you cannot edit the configuration file from the user interface. Follow the steps to [reset your password](/docs/locked_out/).
 

@@ -12,7 +12,7 @@ ha_platforms:
 ha_codeowners:
   - '@xLarry'
 ha_config_flow: true
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 Monitor the status of your washing machine or dryer within Home Assistant using a [laundrify](https://laundrify.de/) WiFi power plug.

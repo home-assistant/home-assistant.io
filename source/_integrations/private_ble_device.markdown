@@ -10,7 +10,7 @@ ha_platforms:
   - device_tracker
   - sensor
 ha_config_flow: true
-ha_integration_type: integration
+ha_integration_type: device
 ha_codeowners:
   - '@Jc2k'
 ---

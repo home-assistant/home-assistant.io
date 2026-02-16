@@ -606,9 +606,9 @@ The switch entity allows you to get data from your [Xiaomi aqara](https://www.mi
 
 The gateway provides the following actions:
 
-### Action `xiaomi_aqara.play_ringtone`
+### Action: Play ringtone
 
-Play a specific ringtone. The version of the gateway firmware must be `1.4.1_145` at least. Take a look at the examples below.
+The `xiaomi_aqara.play_ringtone` action plays a specific ringtone. The version of the gateway firmware must be `1.4.1_145` at least. Take a look at the examples below.
 
 | Data attribute | Optional | Description                             |
 | -------------- | -------- | --------------------------------------- |
@@ -646,25 +646,25 @@ Allowed values of the `ringtone_id` are:
   - 29 - Thinker
 - Custom ringtones (uploaded by the Mi Home app) starting from 10001
 
-### Action `xiaomi_aqara.stop_ringtone`
+### Action: Stop ringtone
 
-Stops a playing ringtone immediately.
-
-| Data attribute | Optional | Description                             |
-| -------------- | -------- | --------------------------------------- |
-| `gw_mac`       | no       | MAC address of the Xiaomi Aqara Gateway |
-
-### Action `xiaomi_aqara.add_device`
-
-Enables the join permission of the Xiaomi Aqara Gateway for 30 seconds. A new device can be added afterwards by pressing the pairing button once.
+The `xiaomi_aqara.stop_ringtone` action stops a playing ringtone immediately.
 
 | Data attribute | Optional | Description                             |
 | -------------- | -------- | --------------------------------------- |
 | `gw_mac`       | no       | MAC address of the Xiaomi Aqara Gateway |
 
-### Action `xiaomi_aqara.remove_device`
+### Action: Add device
 
-Removes a specific device. The removal is required if a device shall be paired with another gateway.
+The `xiaomi_aqara.add_device` action enables the join permission of the Xiaomi Aqara Gateway for 30 seconds. A new device can be added afterwards by pressing the pairing button once.
+
+| Data attribute | Optional | Description                             |
+| -------------- | -------- | --------------------------------------- |
+| `gw_mac`       | no       | MAC address of the Xiaomi Aqara Gateway |
+
+### Action: Remove device
+
+The `xiaomi_aqara.remove_device` action removes a specific device. The removal is required if a device shall be paired with another gateway.
 
 | Data attribute | Optional | Description                              |
 | -------------- | -------- | ---------------------------------------- |

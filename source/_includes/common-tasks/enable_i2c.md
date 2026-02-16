@@ -48,16 +48,13 @@ Alternatively, by attaching a keyboard and screen to your device, you can access
 You can enable I2C via this terminal:
 
 - Login as `root`.
-- Type `login` and press enter to access the shell.
-- Type the following to enable I2C, you may need to replace `sda1` with `sdb1` or `mmcblk0p1` depending on your platform:
+- Type `login` and press enter to access the shell:
 
   ```shell
-  mkdir /tmp/mnt
-  mount /dev/sda1 /tmp/mnt
-  mkdir -p /tmp/mnt/modules
-  echo -ne i2c-dev>/tmp/mnt/modules/rpi-i2c.conf
-  echo dtparam=i2c_vc=on >> /tmp/mnt/config.txt
-  echo dtparam=i2c_arm=on >> /tmp/mnt/config.txt
+  mkdir -p /mnt/boot/CONFIG/modules
+  echo i2c-dev > /mnt/boot/CONFIG/modules/rpi-i2c.conf
+  echo dtparam=i2c_vc=on >> /mnt/boot/config.txt
+  echo dtparam=i2c_arm=on >> /mnt/boot/config.txt
   sync
   reboot
   ```

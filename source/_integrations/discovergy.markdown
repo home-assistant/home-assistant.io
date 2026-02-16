@@ -99,8 +99,8 @@ automation:
         above: 3000
         for:
           minutes: 5
-    action:
-      - service: notify.mobile_app_your_device
+    actions:
+      - action: notify.mobile_app_your_device
         data:
           message: "High power consumption detected: {{ states('sensor.electricity_example_street_11_total_power') }} W"
 ```
@@ -121,8 +121,8 @@ automation:
       - condition: numeric_state
         entity_id: sensor.electricity_example_street_11_total_power
         above: 0  # Positive value means grid consumption
-    action:
-      - service: switch.turn_off
+    actions:
+      - action: switch.turn_off
         target:
           entity_id: switch.high_power_device
 ```

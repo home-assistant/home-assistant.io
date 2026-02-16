@@ -5,7 +5,7 @@ ha_category:
   - Climate
 ha_release: 2024.9
 ha_domain: fujitsu_fglair
-ha_integration_type: integration
+ha_integration_type: hub
 ha_codeowners:
   - '@crevetor'
 ha_config_flow: true

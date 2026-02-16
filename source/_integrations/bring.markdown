@@ -40,7 +40,7 @@ Available as a mobile app on [Google Play for Android](https://play.google.com/s
 
 - **Automated notifications**: Receive alerts on your phone when essential items are added to your list or when the quantity of items reaches a set value.
 - **List updates based on events**: Automatically add items to your shopping list when appliances are low on supplies, like dishwasher salt, or need routine maintenance, such as tub cleaner for the washer.
-- **Voice control**: Use voice assistants connected to Home Assistant to add items to your **Bring!** list.
+- **Voice control**: Add items to your **Bring!** shopping list using [Assist](/voice_control/), Home Assistant’s voice assistant.
 - **Geofencing**: Receive reminders when you are near a specific store and need to pick up items, based on your location.
 
 ## Prerequisites

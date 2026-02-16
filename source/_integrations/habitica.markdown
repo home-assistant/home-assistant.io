@@ -201,9 +201,9 @@ For details about each of these entities, see the descriptions above under [**Se
 
 ## Actions
 
-### Action `habitica.cast_skill`
+### Action: Cast skill
 
-Use a skill or spell from your Habitica character on a specific task to affect its progress or status.
+The `habitica.cast_skill` action uses a skill or spell from your Habitica character on a specific task to affect its progress or status.
 
 | Data attribute | Optional |  Description                                                                                                      |
 | -------------- | -------- | ----------------------------------------------------------------------------------------------------------------- |
@@ -217,35 +217,35 @@ Use a skill or spell from your Habitica character on a specific task to affect i
 - **Warrior**: `smash`
 - **Mage**: `fireball`
 
-To use task aliases, make sure **Developer Mode** is enabled under [**Settings -> Site Data**](https://habitica.com/user/settings/siteData). Task aliases can only be edited via the **Habitica** web client.
+To use task aliases, make sure **Developer Mode** is enabled under [**Settings** > **Site Data**](https://habitica.com/user/settings/siteData). Task aliases can only be edited via the **Habitica** web client.
 
-### Action `habitica.accept_quest`
+### Action: Accept quest
 
-Accept a pending invitation to a quest. For an example, see the [`Auto-accept quest invitation`](#auto-accept-quest-invitation) automation, which demonstrates how this action can be used to automatically accept quest invitations.
+The `habitica.accept_quest` action accepts a pending invitation to a quest. For an example, see the [`Auto-accept quest invitation`](#auto-accept-quest-invitation) automation, which demonstrates how this action can be used to automatically accept quest invitations.
 
 | Data attribute | Optional | Description                                                    |
 | -------------- | -------- | -------------------------------------------------------------- |
 | `config_entry` | no       | Config entry of the character to accept the quest.             |
 
-### Action `habitica.reject_quest`
+### Action: Reject quest
 
-Reject a pending invitation to a quest.
+The `habitica.reject_quest` action rejects a pending invitation to a quest.
 
 | Data attribute | Optional | Description                                                    |
 | -------------- | -------- | -------------------------------------------------------------- |
 | `config_entry` | no       | Config entry of the character to reject the quest.             |
 
-### Action `habitica.leave_quest`
+### Action: Leave quest
 
-Leave the current quest you are participating in.
+The `habitica.leave_quest` action allows you to leave the current quest you are participating in.
 
 | Data attribute | Optional | Description                                                    |
 | -------------- | -------- | -------------------------------------------------------------- |
 | `config_entry` | no       | Config entry of the character to leave the quest.              |
 
-### Action `habitica.abort_quest` 🔒
+### Action: Abort quest 🔒
 
-Terminate your party's ongoing quest. All progress will be lost, and the quest roll returned to the owner's inventory. Only the quest leader or group leader can perform this action.
+The `habitica.abort_quest` action terminates your party's ongoing quest. All progress will be lost, and the quest roll is returned to the owner's inventory. Only the quest leader or group leader can perform this action.
 
 | Data attribute | Optional | Description                                                    |
 | -------------- | -------- | -------------------------------------------------------------- |
@@ -257,25 +257,25 @@ Actions marked with 🔒 have usage restrictions. See action descriptions for de
 
 {% endnote %}
 
-### Action `habitica.start_quest` 🔒
+### Action: Start quest 🔒
 
-Begin the quest immediately, bypassing any pending invitations that haven't been accepted or rejected. Only the quest leader or group leader can perform this action.
+The `habitica.start_quest` action begins the quest immediately, bypassing any pending invitations that haven't been accepted or rejected. Only the quest leader or group leader can perform this action.
 
 | Data attribute | Optional | Description                                                    |
 | -------------- | -------- | -------------------------------------------------------------- |
 | `config_entry` | no       | Config entry of the character to force-start the quest.        |
 
-### Action `habitica.cancel_quest` 🔒
+### Action: Cancel quest 🔒
 
-Cancel a quest that has not yet started. All accepted and pending invitations will be canceled, and the quest roll returned to the owner's inventory. Only the quest leader or group leader can perform this action.
+The `habitica.cancel_quest` action cancels a quest that has not yet started. All accepted and pending invitations will be canceled, and the quest roll is returned to the owner's inventory. Only the quest leader or group leader can perform this action.
 
 | Data attribute | Optional | Description                                                    |
 | -------------- | -------- | -------------------------------------------------------------- |
 | `config_entry` | no       | Config entry of the character to cancel the quest.             |
 
-### Action `habitica.score_habit`
+### Action: Score habit
 
-Increase the positive or negative streak of a habit.
+The `habitica.score_habit` action increases the positive or negative streak of a habit.
 
 | Data attribute | Optional |  Description                                                                                                      |
 | -------------- | -------- | ----------------------------------------------------------------------------------------------------------------- |
@@ -283,18 +283,18 @@ Increase the positive or negative streak of a habit.
 | `task`         | no       |  The name, `task ID`, or **alias** of the habit to track.                                                         |
 | `direction`    | no       |  `up` for positive progress or `down` for negative progress you want to track for your habit.                     |
 
-### Action `habitica.score_reward`
+### Action: Score reward
 
-Buy a custom reward with gold.
+The `habitica.score_reward` action buys a custom reward with gold.
 
 | Data attribute | Optional |  Description                                                                                                      |
 | -------------- | -------- | ----------------------------------------------------------------------------------------------------------------- |
 | `config_entry` | no       |  Config entry of the character buying the reward.                                                                 |
 | `task`         | no       |  The name, `task ID`, or **alias** of the custom reward to buy.                                                   |
 
-### Action `habitica.transformation`
+### Action: Transformation
 
-Use a transformation item from your Habitica character's inventory on a member of your party or yourself.
+The `habitica.transformation` action uses a transformation item from your Habitica character's inventory on a member of your party or yourself.
 
 | Data attribute | Optional |  Description                                                                                                      |
 | -------------- | -------- | ----------------------------------------------------------------------------------------------------------------- |
@@ -309,9 +309,9 @@ Use a transformation item from your Habitica character's inventory on a member o
 - **Seafoam**: `seafoam` (transforms into a starfish)
 - **Shiny seed**: `shiny_seed` (transforms into flower)
 
-### Action `habitica.get_tasks`
+### Action: Get tasks
 
-Fetch tasks from your Habitica account, with optional filters to narrow down the results for more precise task retrieval.
+The `habitica.get_tasks` action fetches tasks from your Habitica account, with optional filters to narrow down the results for more precise task retrieval.
 
 | Data attribute   | Optional | Description                                                                                              |
 | ---------------- | -------- | -------------------------------------------------------------------------------------------------------- |
@@ -322,9 +322,9 @@ Fetch tasks from your Habitica account, with optional filters to narrow down the
 | `tag`            | yes      | Filter tasks that have one or more of the selected tags.                                                 |
 | `keyword`        | yes      | Filter tasks by keyword, searching across titles, notes, and checklists.                                 |
 
-### Action `habitica.update_reward`
+### Action: Update reward
 
-Updates a specific reward for the selected Habitica character.
+The `habitica.update_reward` action updates a specific reward for the selected Habitica character.
 
 | Data attribute | Optional | Description                                                                                  |
 | -------------- | -------- | -------------------------------------------------------------------------------------------- |
@@ -337,9 +337,9 @@ Updates a specific reward for the selected Habitica character.
 | `remove_tag`   | yes      | Remove tags from the Habitica reward.                                                        |
 | `alias`        | yes      | A task alias can be used instead of the name or task ID. Only dashes, underscores, and alphanumeric characters are supported. The task alias must be unique among all your tasks. |
 
-### Action `habitica.create_reward`
+### Action: Create reward
 
-Creates a reward for the selected Habitica character.
+The `habitica.create_reward` action creates a reward for the selected Habitica character.
 
 | Data attribute | Optional | Description                                                                                  |
 | -------------- | -------- | -------------------------------------------------------------------------------------------- |
@@ -350,9 +350,9 @@ Creates a reward for the selected Habitica character.
 | `tag`          | yes      | Add tags to the Habitica reward. If a tag does not already exist, a new one will be created. |
 | `alias`        | yes      | A task alias can be used instead of the name or task ID. Only dashes, underscores, and alphanumeric characters are supported. The task alias must be unique among all your tasks. |
 
-### Action `habitica.update_habit`
+### Action: Update habit
 
-Updates a specific habit for the selected Habitica character.
+The `habitica.update_habit` action updates a specific habit for the selected Habitica character.
 
 | Data attribute | Optional | Description                                                                                  |
 | -------------- | -------- | -------------------------------------------------------------------------------------------- |
@@ -369,9 +369,9 @@ Updates a specific habit for the selected Habitica character.
 | `counter_down` | yes      | Update the down counter of a negative habit.                                                 |
 | `alias`        | yes      | A task alias can be used instead of the name or task ID. Only dashes, underscores, and alphanumeric characters are supported. The task alias must be unique among all your tasks. |
 
-### Action `habitica.create_habit`
+### Action: Create habit
 
-Creates a habit for the selected Habitica character.
+The `habitica.create_habit` action creates a habit for the selected Habitica character.
 
 | Data attribute | Optional | Description                                                                                  |
 | -------------- | -------- | -------------------------------------------------------------------------------------------- |
@@ -384,9 +384,9 @@ Creates a habit for the selected Habitica character.
 | `tag`          | yes      | Add tags to the Habitica habit. If a tag does not already exist, a new one will be created.  |
 | `alias`        | yes      | A task alias can be used instead of the name or task ID. Only dashes, underscores, and alphanumeric characters are supported. The task alias must be unique among all your tasks. |
 
-### Action `habitica.update_todo`
+### Action: Update to-do
 
-Updates a specific to-do for the selected Habitica character.
+The `habitica.update_todo` action updates a specific to-do for the selected Habitica character.
 
 | Data attribute | Optional | Description                                                                                  |
 | -------------- | -------- | -------------------------------------------------------------------------------------------- |
@@ -409,9 +409,9 @@ Updates a specific to-do for the selected Habitica character.
 | `remove_tag`   | yes      | Remove tags from the Habitica to-do.                                                         |
 | `alias`        | yes      | A task alias can be used instead of the name or task ID. Only dashes, underscores, and alphanumeric characters are supported. The task alias must be unique among all your tasks. |
 
-### Action `habitica.create_todo`
+### Action: Create to-do
 
-Creates a to-do for the selected Habitica character.
+The `habitica.create_todo` action creates a to-do for the selected Habitica character.
 
 | Data attribute | Optional | Description                                                                                  |
 | -------------- | -------- | -------------------------------------------------------------------------------------------- |
@@ -426,9 +426,9 @@ Creates a to-do for the selected Habitica character.
 | `tag`          | yes      | Add tags to the Habitica to-do. If a tag does not already exist, a new one will be created.  |
 | `alias`        | yes      | A task alias can be used instead of the name or task ID. Only dashes, underscores, and alphanumeric characters are supported. The task alias must be unique among all your tasks. |
 
-### Action `habitica.update_daily`
+### Action: Update daily
 
-Updates a specific daily for the selected Habitica character.
+The `habitica.update_daily` action updates a specific daily for the selected Habitica character.
 
 | Data attribute | Optional | Description                                                                                  |
 | -------------- | -------- | -------------------------------------------------------------------------------------------- |
@@ -455,9 +455,9 @@ Updates a specific daily for the selected Habitica character.
 | `streak`       | yes      | Adjust or reset the streak counter of the daily.                                             |
 | `alias`        | yes      | A task alias can be used instead of the name or task ID. Only dashes, underscores, and alphanumeric characters are supported. The task alias must be unique among all your tasks. |
 
-### Action `habitica.create_daily`
+### Action: Create daily
 
-Creates a daily for the selected Habitica character.
+The `habitica.create_daily` action creates a daily for the selected Habitica character.
 
 | Data attribute | Optional | Description                                                                                  |
 | -------------- | -------- | -------------------------------------------------------------------------------------------- |

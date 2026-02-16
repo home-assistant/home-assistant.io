@@ -12,19 +12,19 @@ ha_domain: plaato
 ha_platforms:
   - binary_sensor
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 This {% term integration %} sets up integration with [Plaato](https://www.plaato.io/) Airlock and Keg.
 
 ### Plaato Airlock
 
-A tool for beer brewers that wants a unique insight into the fermentation process.
+A tool for beer brewers who want a unique insight into the fermentation process.
 With this integration, you get all your fermentation data available in Home Assistant!
 
 ### Plaato Keg
 
-The first all-in-one system that keeps a track of important aspects of your keg’s, including:
+The first all-in-one system that keeps track of important aspects of your kegs, including:
 
 - The Level of beer inside the keg
 - Pouring Status

@@ -13,6 +13,7 @@ ha_category:
 ha_codeowners:
   - '@milanmeu'
   - '@frenck'
+  - '@quebulm'
 ha_domain: rituals_perfume_genie
 ha_platforms:
   - binary_sensor
@@ -21,7 +22,7 @@ ha_platforms:
   - select
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The [Rituals Perfume Genie](https://www.rituals.com/perfume-genie-b2b.html) {% term integration %} allows you to control and monitor your Rituals perfume diffusers connected to your Rituals account.

@@ -16,7 +16,7 @@ ha_dhcp: true
 ha_platforms:
   - binary_sensor
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
 related:
   - docs: /docs/configuration/
     title: Configuration file
@@ -30,7 +30,7 @@ Flume monitors the real-time status of your home water meter. Allowing the end-u
 
 You can find your Client ID and Client Secret under "API Access" on the [settings page](https://portal.flumewater.com/#settings).
 
-To add `Flume` to your installation, go to **Settings** -> **Devices & services** in the UI, click the button with `+` sign and from the list of integrations select **Flume**.
+To add `Flume` to your installation, go to {% my integrations title="**Settings** > **Devices & services**" %} in the UI, click the button with `+` sign and from the list of integrations select **Flume**.
 
 ## Notifications
 
