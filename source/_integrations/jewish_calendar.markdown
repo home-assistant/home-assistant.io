@@ -40,27 +40,57 @@ Minutes before sunset for candle lighting:
 Minutes after sunset for Havdalah:
   description: By default havdalah time is considered the moment the sun is 8.5 degrees below the horizon. By specifying this offset, havdalah time will be calculated as a static time offset relative to sunset.
 
-Calendar events to display:
-  description: Select which Jewish calendar events should be displayed in the calendar entity. By default, Hebrew date, holidays, weekly portion, Omer count, and Daf Yomi are displayed. You can also add candle lighting and Havdalah times.
+Daily events to display:
+  description: Select which daily events should appear in the daily events calendar. By default, all daily events are displayed, including the Hebrew date and halachic prayer times.
+
+Learning schedule to display:
+  description: Select which learning schedules should appear in the learning schedule calendar. Currently, Daf Yomi is the only available option.
+
+Yearly events to display:
+  description: Select which yearly events should appear in the yearly events calendar. By default, holidays, Torah portion, and Omer count are displayed. You can also add candle lighting and Havdalah times.
 {% endconfiguration_basic %}
 
-## Calendar
+## Calendars
 
-The **Jewish Calendar** {% term integration %} provides a calendar entity that displays various Jewish calendar events based on your configuration. You can customize which event types are displayed through the integration options.
+The **Jewish Calendar** {% term integration %} provides three calendar entities, each focusing on a different type of Jewish calendar event. You can customize which event types are displayed in each calendar through the integration's configuration options.
 
-### Available calendar event types
+### Daily events
 
-The following event types can be configured to appear in the calendar:
+The daily events calendar shows time-based events that occur every day, such as the Hebrew date and halachic prayer times. The following event types can be configured:
 
-- **Hebrew date**: Shows the Hebrew date for each day (for example, "1 Tishrei 5779").
-- **Jewish holidays**: Displays all Jewish holidays, including Rosh Hashana, Yom Kippur, Sukkot, Chanukah, Purim, Pesach, Shavuot, and more.
-- **Torah portion**: Shows the weekly Torah portion (Parshat Hashavua) for the week.
-- **Omer count**: Displays the daily Omer count during the 49 days between Pesach and Shavuot.
-- **Daf Yomi**: Shows the daily Talmud study page according to the Daf Yomi cycle.
-- **Candle lighting**: Creates timed events for Shabbat and holiday candle lighting based on your location and configured offset.
-- **Havdalah**: Creates timed events for Shabbat and holiday Havdalah based on your location and configured offset.
+- **Hebrew date**: The Hebrew date for each day (for example, "1 Tishrei 5779")
+- **Alot Hashachar**: Halachic dawn
+- **Netz Hachama**: Halachic sunrise
+- **Sof Zman Shema (Gr"A)**: Latest time for Shema according to the Gr"a
+- **Sof Zman Shema (Mg"A)**: Latest time for Shema according to the Mg"A
+- **Sof Zman Tefilla (Gr"A)**: Latest time for Tefilla according to the Gr"a
+- **Sof Zman Tefilla (Mg"A)**: Latest time for Tefilla according to the Mg"A
+- **Chatzot Hayom**: Halachic midday
+- **Mincha Gedola**: Earliest time for Mincha
+- **Mincha Ketana**: Preferable time for Mincha
+- **Plag Hamincha**: Plag Hamincha
+- **Shkia**: Sunset
+- **T'set Hakochavim**: Nightfall
 
-By default, the calendar includes Hebrew date, holidays, weekly portion, Omer count, and Daf Yomi events. You can add or remove event types through the integration's configuration options.
+By default, all daily events are displayed.
+
+### Learning schedule
+
+The learning schedule calendar shows daily study schedules. This calendar is disabled by default and can be enabled through the entity settings. The following event types can be configured:
+
+- **Daf Yomi**: The daily Talmud study page according to the Daf Yomi cycle
+
+### Yearly events
+
+The yearly events calendar shows events tied to the Jewish calendar year, such as holidays and the weekly Torah portion. The following event types can be configured:
+
+- **Jewish holidays**: Jewish holidays, including Rosh Hashana, Yom Kippur, Sukkot, Chanukah, Purim, Pesach, Shavuot, and more
+- **Torah portion**: The weekly Torah portion (Parshat Hashavua)
+- **Omer count**: The daily Omer count during the 49 days between Pesach and Shavuot
+- **Candle lighting**: Timed events for Shabbat and holiday candle lighting based on your location and configured offset
+- **Havdalah**: Timed events for Shabbat and holiday Havdalah based on your location and configured offset
+
+By default, holidays, Torah portion, and Omer count are displayed. Candle lighting and Havdalah can be added through the configuration options.
 
 ## Sensor list
 
