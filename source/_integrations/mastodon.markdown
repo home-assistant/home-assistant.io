@@ -17,7 +17,7 @@ ha_platforms:
   - sensor
 ha_integration_type: service
 ha_config_flow: true
-ha_quality_scale: bronze
+ha_quality_scale: silver
 ---
 
 The **Mastodon** {% term integration %} uses [Mastodon](https://joinmastodon.org/) to post status updates and get account statistics.
