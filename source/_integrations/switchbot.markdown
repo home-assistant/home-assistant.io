@@ -10,6 +10,7 @@ ha_category:
   - Humidifier
   - Light
   - Lock
+  - Select
   - Sensor
   - Switch
   - Vacuum
@@ -36,6 +37,7 @@ ha_platforms:
   - humidifier
   - light
   - lock
+  - select
   - sensor
   - switch
   - vacuum
