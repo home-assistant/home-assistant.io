@@ -282,11 +282,3 @@ If problems persist:
 4. Test basic connectivity using `telnet <amplifier_ip> 50001`
 5. Report issues on the [Home Assistant Community Forum](https://community.home-assistant.io/) with the "hegel" tag
 
-## Technical details
-
-- **Protocol**: TCP/IP using Hegel's proprietary command set
-- **Default port**: 50001
-- **Discovery**: SSDP/UPnP MediaRenderer detection
-- **Update method**: Real-time push notifications with fallback polling every hour
-- **Reconnection**: Exponential backoff (1s, 2s, 4s, 8s, up to 60s maximum)
-- **Quality scale**: Silver tier - enhanced reliability and error handling
