@@ -26,6 +26,42 @@ The **InfluxDB** {% term integration %} lets you transfer all state changes to a
 
 The configuration differs between versions. The documentation below notes when fields apply to specific versions.
 
+{% include integrations/config_flow.md %}
+
+### InfluxDB 1 Configuration
+
+{% configuration_basic %}
+URL:
+    description: "The URL to the InfluxDB Host."
+Username:
+    description: "Database username with read/write privileges."
+Password:
+    description: "Password for the database user."
+Database:
+    description: "Database name. You must create the database before you can write to it."
+Verify SSL:
+    description: "Verify SSL certificate for HTTPS request."
+SSL CA Certificate:
+    description: "Optional path of a CA certificate to be used during SSL verification."
+{% endconfiguration_basic %}
+
+### InfluxDB 2 and 3 Configuration
+
+{% configuration_basic %}
+URL:
+    description: "The URL to the InfluxDB Host."
+Organization:
+    description: "Organization ID. For InfluxDB 2.x, find this in your installation URL after /orgs. For InfluxDB 3, this value is required but not validated—use any value."
+Bucket:
+    description: "For InfluxDB 2.x, the bucket name. For InfluxDB 3, this maps to the database name."
+Token:
+    description: "Auth token with write access."
+Verify SSL:
+    description: "Verify SSL certificate for HTTPS request."
+SSL CA Certificate:
+    description: "Optional path of a CA certificate to be used during SSL verification."
+{% endconfiguration_basic %}
+
 ### InfluxDB 3 (Core and Enterprise)
 
 See how to get started using InfluxDB 3:
