@@ -1,9 +1,10 @@
 ---
 title: Indevolt
 description: Instructions on how to integrate your Indevolt device with Home Assistant.
-ha_release: 2026.2
+ha_release: 2026.3
 ha_category:
   - Energy
+  - Sensor
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@xirt'
@@ -41,16 +42,6 @@ Host:
 {% endconfiguration_basic %}
 
 The Indevolt integration communicates with your device over its standard TCP port (8080), which is used automatically by Home Assistant and does not need to be configured manually.
-
-### Manual configuration
-
-Alternatively, you can configure the Indevolt integration by adding it to your `configuration.yaml`:
-
-```yaml
-indevolt:
-```
-
-This enables UDP broadcast listening for automatic device discovery on your local network.
 
 ## Supported functionality
 
