@@ -12,7 +12,7 @@ ha_domain: hvv_departures
 ha_platforms:
   - binary_sensor
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 The **HVV Departures** {% term integration %} will display the departures of buses, trains and ferries in Hamburg.

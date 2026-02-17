@@ -11,7 +11,7 @@ ha_config_flow: true
 ha_platforms:
   - media_player
   - remote
-ha_integration_type: integration
+ha_integration_type: device
 related:
   - docs: /docs/configuration/
     title: Configuration file

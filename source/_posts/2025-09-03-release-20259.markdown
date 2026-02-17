@@ -713,7 +713,7 @@ The August integration now uses OAuth authentication with Yale August's official
 
 When you update Home Assistant, you'll be prompted to re-authenticate your August account:
 
-1. Select the notification or go to **Settings** → **Devices & Services** → **August**
+1. Select the notification or go to **Settings** → **Devices & services** → **August**
 2. Select "Reconfigure" and follow the OAuth flow to sign in
 3. Once authenticated, your devices will work exactly as before
 

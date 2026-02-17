@@ -91,7 +91,7 @@ hass.bus.fire("hello_world_event", {"wow": "from a Python script!"})
 
 This script doesn't output anything. However, you can view the events being fired in the Developer tools.
 
-From a separate browser window or tab, go to `Developer Tools -> Events` and at `Listen to events` type `hello_world_event` and then press `Start listening`. You should see something like this:
+From a separate browser window or tab, go to `Developer tools -> Events` and at `Listen to events` type `hello_world_event` and then press `Start listening`. You should see something like this:
 
 ```yaml
 event_type: hello_world_event
@@ -177,15 +177,15 @@ turn_on_light:
       example: [255, 0, 0]
 ```
 
-For more examples, visit the [Scripts section](https://community.home-assistant.io/c/projects/scripts) in our forum.
+For more examples, visit the [Scripts section](https://community.home-assistant.io/c/26) in our forum.
 
 ## Actions
 
 Available actions: `reload`.
 
-### Action `python_script.reload`
+### Action: Reload
 
-Reload all available python_scripts from the `<config>/python_scripts` folder, as a quicker alternative to restarting Home Assistant.
+The `python_script.reload` action reloads all available python_scripts from the `<config>/python_scripts` folder, as a quicker alternative to restarting Home Assistant.
 
 Use this when creating a new Python script, or after updating the `<config>/python_scripts/services.yaml` file. 
 
