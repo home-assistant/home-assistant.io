@@ -18,7 +18,7 @@ related:
     title: Nexia (Cloud)
 ---
 
-The **Trane Local** {% term integration %} allows you to locally control [Trane](https://www.trane.com/) and [American Standard](https://www.americanstandardair.com/) thermostats over your local network using a direct mTLS connection. No cloud connection is required.
+The **Trane Local** {% term integration %} allows you to locally control [Trane](https://www.trane.com/) and [American Standard](https://www.americanstandardair.com/) thermostats over your local network using a direct <abbr title="mutual TLS">mTLS</abbr> connection. No cloud connection is required.
 
 This is the local counterpart to the [Nexia](/integrations/nexia/) cloud integration. If your thermostat supports local control, this integration provides faster response times and does not depend on internet connectivity.
 
@@ -27,7 +27,7 @@ This is the local counterpart to the [Nexia](/integrations/nexia/) cloud integra
 Before setting up this integration, you must:
 
 1. Assign a **static IP address** to your thermostat on your network.
-2. Put the thermostat in **pairing mode**: Menu > Settings > Network > Advanced Setup > Remote Connection > Pair.
+2. Put the thermostat in _pairing mode_: Go to **Menu** > **Settings** > **Network** > **Advanced Setup** > **Remote Connection** > **Pair**.
 
 ## Supported devices
 
@@ -36,7 +36,7 @@ Before setting up this integration, you must:
 
 {% include integrations/config_flow.md %}
 
-## Switch
+## Switches
 
 The integration provides a **Hold** switch for each zone. When enabled, the thermostat maintains its current setpoints indefinitely (permanent hold). When disabled, the thermostat follows its programmed schedule.
 
