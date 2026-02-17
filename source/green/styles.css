@@ -1654,6 +1654,133 @@ h4.heading-small {
   color: #14cc9e;
 }
 
+section#collaboration {
+  margin: 0 auto 6em;
+  color: #002E3E;
+}
+
+@media (min-width: 768px) {
+  section#collaboration {
+    margin-bottom: 12em;
+  }
+}
+
+section#collaboration .container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+
+section#collaboration .card {
+  max-width: 1320px;
+  margin: 0 auto;
+  background-color: #DDEDF0;
+  background-image: url('/images/green/collaboration/ha-green-hub--mobile.webp');
+  background-position: left top;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  min-height: 580px;
+  display: flex;
+  align-items: center;
+  flex-direction: column-reverse;
+  border-radius: 12px;
+  padding: 20px 20px 10px;
+}
+
+@media (min-width: 768px) {
+  section#collaboration .card {
+    background-image: url('/images/green/collaboration/ha-green-hub.webp');
+    background-position: -350px center;
+    background-size: cover;
+    justify-content: center;
+    min-height: 440px;
+    padding: 40px;
+    border-radius: 32px;
+  }
+}
+
+@media (min-width: 1024px) {
+  section#collaboration .card {
+    min-height: 330px;
+    background-size: 60%;
+    background-position: -15% center;
+  }
+}
+
+@media (min-width: 1200px) {
+  section#collaboration .card {
+    background-size: 60%;
+    background-position: left center;
+  }
+}
+
+section#collaboration .card h3 {
+  text-transform: none;
+  text-wrap: balance;
+  font-size: 24px;
+  margin-bottom: 16px;
+  line-height: 1.1;
+  margin-top: 0;
+}
+
+@media (min-width: 768px) {
+  section#collaboration .card h3 {
+    font-size: 32px;
+    margin-bottom: 12px;
+  }
+}
+
+section#collaboration .card .partner {
+  font-weight: 300;
+  align-items: center;
+  display: flex;
+  gap: 16px;
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+
+@media (min-width: 768px) {
+  section#collaboration .card .partner {
+    font-size: 20px;
+    margin-bottom: 0;
+  }
+}
+
+section#collaboration .card .partner img {
+  height: 25px;
+}
+
+@media (min-width: 768px) {
+  section#collaboration .card .partner img {
+    height: 30px;
+  }
+}
+
+section#collaboration .card .card-inner {
+  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+}
+
+@media (min-width: 768px) {
+  section#collaboration .card .card-inner {
+    gap: 18px;
+    width: calc(7 / 12 * 100%);
+  }
+}
+
+@media (min-width: 1200px) {
+  section#collaboration .card .card-inner {
+    width: calc(6 / 12 * 100%);
+  }
+}
+
+section#collaboration .card .card-inner p {
+  font-size: 16px;
+}
+
+
 .spin-section {
   grid-column-gap: 4em;
   justify-content: space-between;
