@@ -1014,6 +1014,10 @@ section#hero .logos {
   backdrop-filter: blur(20px);
 }
 
+section#hero .logos img {
+  border-radius: 0;
+}
+
 @media (min-width: 768px) {
   section#hero .logos {
     bottom: 34px;
@@ -3015,6 +3019,7 @@ section#collaboration .collaboration-card .partner {
 
 section#collaboration .collaboration-card .partner img {
   height: 25px;
+  border-radius: 0;
 }
 
 @media (min-width: 768px) {
