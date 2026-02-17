@@ -5,6 +5,7 @@ ha_category:
   - Number
   - Sensor
   - Switch
+  - Update
 ha_iot_class: Cloud Push
 ha_release: 2025.6
 ha_codeowners:
@@ -17,6 +18,7 @@ ha_platforms:
   - number
   - sensor
   - switch
+  - update
 ha_quality_scale: bronze
 ---
 
@@ -51,6 +53,7 @@ This component will set up the following entities:
 | `period`       | `sensor` | Displays the current measured period of the oscillation.    |
 | `activity`     | `sensor` | Displays the current measured activity level.               |
 | `swing_count`  | `sensor` | Displays the total number of swings.                        |
+| `update`       | `update` | Allows to track/update Smarla's firmware.                   |
 
 ## Removing the integration
 
