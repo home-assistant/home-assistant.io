@@ -68,7 +68,7 @@ The integration provides the following sensors, which are updated every 5 minute
 - **Drive state**: Calculated state of your drive, based on the storage left. Possible values: `Normal`, `Nearing limit`, `Critical`, `Exceeded`.
 
 {% note %}
-A drive that is in **Drive state** `Exceeded` will be automatically frozen (meaning you can't upload any more backups & files), until you clear up enough storage.
+A drive in **Drive state** `Exceeded` will be automatically frozen (meaning you can't upload any more backups & files) until you free up enough storage.
 {% endnote %}
 
 ## Troubleshooting
