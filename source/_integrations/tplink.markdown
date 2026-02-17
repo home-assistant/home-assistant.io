@@ -107,7 +107,7 @@ Alternatively, you can factory reset and then prevent the device from accessing 
 
 ### Supported Tapo[^1] devices
 
-- **Plugs**: P100, P110, P110M, P115, P125M, P135, TP15
+- **Plugs**: P100, P105, P110, P110M, P115, P125M, P135, TP15
 - **Power Strips**: P210M, P300, P304M, P306, TP25
 - **Wall Switches**: S210, S220, S500D, S505, S505D
 - **Bulbs**: L510B, L510E, L530E, L630
