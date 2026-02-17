@@ -1,7 +1,7 @@
 ---
 title: Teltonika
 description: Instructions on how to integrate Teltonika routers with Home Assistant.
-ha_release: 2026.1
+ha_release: 2026.3
 ha_iot_class: Local Polling
 ha_codeowners:
   - "@karlbeecken"
