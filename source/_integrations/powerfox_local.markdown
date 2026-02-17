@@ -1,10 +1,10 @@
 ---
 title: Powerfox Local
-description: Instructions on how to integrate a Powerfox Poweropti device locally within Home Assistant.
+description: Instructions on how to integrate a Powerfox device locally with Home Assistant.
 ha_category:
   - Energy
   - Sensor
-ha_release: "2026.X"
+ha_release: 2026.3
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
@@ -34,11 +34,9 @@ This integration only supports **power meters**. If you need support for water, 
 
 The local interface is available for the following Poweropti models:
 
-| Device    | Type        | Supported |
-| --------- | ----------- | --------- |
-| PA 201901 | Power meter | Yes       |
-| PA 201902 | Power meter | Yes       |
-| PB 202001 | Power meter (poweropti+) | Yes |
+- PA 201901
+- PA 201902
+- PB 202001 (poweropti+)
 
 {% include integrations/config_flow.md %}
 
