@@ -6,10 +6,6 @@ html {
   position: absolute;
 }
 
-article.page {
-  overflow: clip;
-}
-
 @media only screen and (max-width: 480px) {
   #landingpage .site-header {
     background-color: #ffffff;
@@ -36,6 +32,8 @@ article.page {
 
 #landingpage .page-content {
   height: auto;
+  overflow-x: unset;
+  overflow-y: unset;
 }
 
 #landingpage .content {
@@ -579,6 +577,7 @@ button,
   background-color: #f2f4f9;
   position: relative;
   top: 0;
+  overflow: hidden;
 }
 
 .section.overflow {
