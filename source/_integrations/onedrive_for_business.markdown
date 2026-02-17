@@ -62,10 +62,10 @@ Make sure to configure the following settings on the app registration:
 
 The integration provides the following sensors, which are updated every 5 minutes:
 
-- **Total available storage**: The total size of your drive (disabled by default)
-- **Used storage**: The amount of storage you have used up
-- **Remaining storage**: The amount of storage that is left in your drive
-- **Drive state**: Calculated state of your drive, based on the storage left. Possible values: `Normal`, `Nearing limit`, `Critical`, `Exceeded`
+- **Total available storage**: The total size of your drive (disabled by default).
+- **Used storage**: The amount of storage you have used up.
+- **Remaining storage**: The amount of storage that is left in your drive.
+- **Drive state**: Calculated state of your drive, based on the storage left. Possible values: `Normal`, `Nearing limit`, `Critical`, `Exceeded`.
 
 {% note %}
 A drive that is in **Drive state** `Exceeded` will be automatically frozen (meaning you can't upload any more backups & files), until you clear up enough storage.
