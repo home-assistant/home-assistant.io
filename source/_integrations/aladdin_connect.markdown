@@ -55,16 +55,6 @@ The **Aladdin Connect** integration provides the following entities.
   - **Entity category**: Diagnostic
   - **Remarks**: Disabled by default. To use this sensor, enable it manually from the entity's settings.
 
-## Data updates
-
-Door status and battery level are updated by {% term polling %} the Aladdin Connect cloud service every 15 seconds. All communication goes through the cloud API. There is no local or push-based option.
-
-## Known limitations
-
-- Only doors that are owned by your Aladdin Connect account are available. Doors that your account has been granted shared access to are not supported.
-- There is no position control. You can open or close the door, but you cannot stop it at a specific position.
-- All communication goes through the cloud. There is no local or LAN-based control, so the integration stops working if your internet connection drops.
-- A Home Assistant Cloud subscription is required for authentication.
 
 ## Examples
 
