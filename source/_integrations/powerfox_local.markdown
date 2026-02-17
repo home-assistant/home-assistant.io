@@ -53,7 +53,7 @@ API key:
 
 ## Automatic discovery
 
-If your Poweropti device is on the same network as Home Assistant, it will be discovered automatically via mDNS/Zeroconf. You only need to confirm the setup, no manual entry of host or API key is required.
+If your Poweropti device is on the same network as Home Assistant, it will be discovered automatically via mDNS/Zeroconf. You only need to confirm the setup. No manual entry of the host or API key is required.
 
 ## Data updates
 
