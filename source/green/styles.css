@@ -1423,6 +1423,22 @@ h4.heading-small {
   position: relative;
 }
 
+.hero-header-wrapper .logos {
+  margin-top: 2rem;
+  justify-self: flex-start;
+  overflow: hidden;
+}
+
+.hero-header-wrapper .logos .collaboration-badge {
+  transform: translate(0, 300px);
+  transition: transform 0.3s;
+  transition-delay: 0.15s;
+}
+
+.hero-header-wrapper .logos.show .collaboration-badge {
+  transform: none;
+}
+
 .sub-hero-section {
   height: auto;
   min-height: 100vh;
