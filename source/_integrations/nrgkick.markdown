@@ -166,7 +166,11 @@ These sensors are only available on NRGkick SIM models and are disabled by defau
 
 The integration creates the following controls.
 
+#### Switches
+
 - **Charging enabled**: Turn on to enable charging. Turn off to pause charging.
+
+#### Numbers
 - **Charging current** (A): Set the charging current (6 A to the maximum supported by your device and the connected attachment).
 - **Phase count**: Set the number of phases (1 to 3, depending on the connected attachment).
 - **Energy limit** (Wh): Set an energy limit for the current charging session (0 = no limit).
