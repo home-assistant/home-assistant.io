@@ -8,7 +8,6 @@ ha_release: pre 0.7
 ha_domain: smtp
 ha_platforms:
   - notify
-  - sensor
 ha_integration_type: integration
 ha_quality_scale: legacy
 ha_config_flow: true
@@ -46,13 +45,6 @@ Verify SSL certificate:
 Enable debug logging:
   description: Log detailed SMTP communication for troubleshooting.
 {% endconfiguration_basic %}
-
-## Sensors
-
-The integration provides the following sensors:
-
-- **Last sent**: Timestamp of the last successfully sent email.
-- **Last error**: The last error message encountered when sending failed.
 
 ## Actions
 
