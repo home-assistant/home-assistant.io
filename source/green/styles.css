@@ -577,7 +577,6 @@ button,
   background-color: #f2f4f9;
   position: relative;
   top: 0;
-  overflow: hidden;
 }
 
 .section.overflow {
