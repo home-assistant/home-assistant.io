@@ -55,6 +55,8 @@ You can create an API key by logging into your Uptime Kuma instance, navigating 
 - **Monitored hostname**: The hostname or IP address being monitored (if applicable).
 - **Monitored port**: The port number used by the monitored service (if applicable).
 - **Monitored URL**: The full URL of the monitored service (if applicable).
+- **Uptime (1/30/365 days)**: Uptime ratio in percent, calculated over a sliding window of 1, 30, or 365 days.
+- **Response time Ø (1/30/365 days)**: Average response time calculated over a sliding window of 1, 30, or 365 days.
 
 ## Update
 

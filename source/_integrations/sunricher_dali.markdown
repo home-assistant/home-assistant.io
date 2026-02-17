@@ -67,6 +67,10 @@ DALI sensor devices connected to the gateway are represented as sensor entities:
 
 - **Illuminance sensor**: Reports ambient light level in lux
 
+Each DALI light device also provides:
+
+- **Energy sensor**: Tracks cumulative energy consumption in Wh. This sensor is compatible with the Energy Dashboard and updates when the device reports energy data.
+
 ### Binary sensors
 
 DALI motion sensor devices create two binary sensor entities:

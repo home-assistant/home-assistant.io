@@ -213,6 +213,10 @@ Get entities reporting the current memory utilization of a UniFi Network device.
 
 Get entities reporting receiving and transmitting bandwidth per port. These sensors are disabled by default. To enable the bandwidth sensors, on the UniFi integration page, select **Configure**, go to page 3/3 and enable the bandwidth sensors.
 
+### Port link speed sensor
+
+Get entities reporting the link negotiation speed for network device ports. These sensors show the connection speed in megabits per second (Mbit/s) at which each port negotiated its link. Entities are disabled by default.
+
 ## Light
 
 The Light entities will only be available for UniFi access points that support LED ring customization. Not all access points have this capability.

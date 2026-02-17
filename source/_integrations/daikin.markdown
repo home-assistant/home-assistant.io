@@ -68,6 +68,17 @@ The `daikin` climate platform integrates Daikin air conditioning systems into Ho
 
 Current inside temperature is displayed.
 
+When your controller supports zone temperature control (AirBase/SKYFi), the integration also exposes one climate entity per zone.
+
+### Zone climate entities
+
+- Each zone climate entity can set the temperature within a ±2 °C window around the system set point.
+- Turning a zone on or off continues to rely on the existing zone switch entities. The zone climate entity is exclusively for temperature management.
+- Even when a zone is switched off you can adjust its target temperature; Daikin applies the stored set point as soon as the zone is re-enabled.
+- Only controllers that advertise Linear Zone Control and expose the zone temperature tables (for example AirHub Touch Zone Controller, AirBase/SKYFi models with Linear Zone Control) create these extra climate entities.
+
+The primary Daikin climate continues to provide the `zone_temps` attribute for a quick overview of all zone targets.
+
 {% note %}
   
 Some models do not support setting of **fan speed** or **swing mode**.

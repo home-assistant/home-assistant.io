@@ -19,11 +19,12 @@ ha_platforms:
   - cover
   - light
   - scene
+  - switch
 ha_integration_type: hub
 ha_dhcp: true
 ---
 
-The [Velux](https://www.velux.com/) {% term integration %} for Home Assistant allows you to connect to a Velux KLF 200 interface, to control [io-homecontrol](http://www.io-homecontrol.com) devices like windows and blinds. The module allows you to start scenes configured within KLF 200.
+The [Velux](https://www.velux.com/) {% term integration %} for Home Assistant allows you to connect to a Velux KLF 200 interface so you can control [io-homecontrol](http://www.io-homecontrol.com) devices, such as windows, blinds, lights, and switches. The integration lets you start scenes configured on the KLF 200.
 
 At least firmware version > 2.0.0.0 is required on the KLF 200 device. The firmware images may be obtained from the [vendor's website](https://www.velux.com/klf200) and may be imported via the web interface of your KLF 200.
 
@@ -34,6 +35,7 @@ There is currently support for the following device types within Home Assistant:
 - Cover
 - Light
 - Scene
+- Switch
 
 Rain sensors of supported windows do not report automatically and must be polled every 5 minutes. For this reason, they are disabled by default, because polling uses more radio bandwidth and battery power than simply reporting changed window positions.
 

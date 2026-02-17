@@ -37,7 +37,7 @@ There is support for the following device families within Home Assistant:
 - **Amazon Echo Show**
 - **Amazon Fire TV Stick**
 - **Amazon Fire Tablet**
-
+- **Amazon Air Quality Monitor**
 - **Third-party devices** with built-in Alexa capabilities.
 
 {% warning %}
@@ -131,6 +131,13 @@ All Alexa-enabled devices have timestamp sensors that show the next scheduled al
 - **Temperature**
 - **Illuminance**
 - **Wi-Fi and Bluetooth connectivity**
+
+#### Air Quality Monitor sensors
+
+- **Particulate Matter** - 10 μm & 2.5 μm
+- **Carbon Monoxide**
+- **Volatile Organic Compounds Index**
+- **Air Quality Index**
 
 ## Supported functionality
 
