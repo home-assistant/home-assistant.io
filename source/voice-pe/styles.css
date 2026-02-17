@@ -2928,7 +2928,7 @@ section#collaboration {
   transition: border-radius 0.5s;
   border-radius: 0 0 var(--wrapper-radius) var(--wrapper-radius);
   margin: 0 auto;
-  background-color: #49daf5;
+  background-color: #00DAF5;
   padding-top: 0;
   margin-top: calc(var(--grid-m) * -1);
   z-index: 2;
