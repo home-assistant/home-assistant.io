@@ -6,6 +6,10 @@ html {
   position: absolute;
 }
 
+article.page {
+  overflow: clip;
+}
+
 @media only screen and (max-width: 480px) {
   #landingpage .site-header {
     background-color: #ffffff;
@@ -32,8 +36,6 @@ html {
 
 #landingpage .page-content {
   height: auto;
-  overflow-x: unset;
-  overflow-y: unset;
 }
 
 #landingpage .content {
@@ -1424,6 +1426,7 @@ h4.heading-small {
 }
 
 .hero-header-wrapper .logos {
+  max-width: 390px;
   margin-top: 2rem;
   justify-self: flex-start;
   overflow: hidden;
