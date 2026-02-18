@@ -23,8 +23,8 @@ ha_quality_scale: legacy
 - The HTTP Event Collector (HEC) must be enabled and a token created. To set this up in Splunk:
   1. Go to **Settings** > **Data inputs**.
   2. Select **HTTP Event Collector**.
-  3. Click **Global Settings** and ensure HEC is **Enabled**.
-  4. Click **New Token** and follow the prompts to create a token for Home Assistant.
+  3. Select **Global Settings** and ensure HEC is **Enabled**.
+  4. Select **New Token** and follow the prompts to create a token for Home Assistant.
   5. Copy the generated token value for use in the configuration below.
 
 ## Configuration
