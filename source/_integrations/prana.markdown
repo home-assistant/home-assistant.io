@@ -4,7 +4,7 @@ description: Integration to control Prana recuperators.
 ha_release: 2026.2
 ha_iot_class: Local Polling
 ha_codeowners:
-  -'@prana-dev-official'
+  - '@prana-dev-official'
 ha_domain: prana
 ha_integration_type: integration
 related:
@@ -12,18 +12,18 @@ related:
     title: Prana
 ---
 
-The **Prana recuperators** {% term integration %} lets you control your Prana recuperator. You can manage motors and their operating modes, and monitor a range of sensors provided by the device.
+The Prana recuperators {% term integration %} lets you control your Prana recuperator. You can manage motors and their operating modes, and monitor a range of sensors provided by the device.
 
 Use case: If you have a Prana recuperator and want to automate ventilation, monitor filter status, or integrate the recuperator with other Home Assistant automations, this integration helps you do that.
 
 ## Supported devices
 
-- Devices with Wi‑Fi control and firmware version 47 or newer
+- Devices with Wi‑Fi control and firmware version 49 or newer
 
 ## Unsupported devices
 
 - Models without a local network interface
-- Devices with firmware version 46 or below
+- Devices with firmware version 48 or below
 
 ## Prerequisites
 
@@ -37,18 +37,36 @@ Use case: If you have a Prana recuperator and want to automate ventilation, moni
 
 The integration exposes the following entities.
 
+#### Fans
+
+The integration provides fan entities to control the recuperator's speed and airflow. Note: The availability of specific fan entities depends dynamically on the state of the Bound switch.
+
+- Bounded
+  - Controls both supply and extract fans simultaneously with a single speed setting.
+  - *Availability:* Available only when the Bound switch is ON.
+- Supply
+  - Controls the fresh air intake speed independently.
+  - *Availability:* Available only when the Bound switch is OFF.
+- Extract
+  - Controls the exhaust air speed independently.
+  - *Availability:* Available only when the Bound switch is OFF.
+
+All fan entities support speed control (0-100%) and the following presets:
+- Night: Sets the device to silent, minimum speed operation.
+- Boost: Sets the device to maximum speed.
+
 #### Switches
 
-- **Auto**
-  - Description: Enable automatic control
-- **Auto+**
-  - Description: Enhanced automatic mode with quieter operation
-- **Winter**
-  - Description: Winter mode for defrosting behavior
-- **Heater**
-  - Description: Turn on heater (if available)
-- **Bound**
-  - Description: Bind or synchronize both fans and related parameters
+- Auto
+  - Description: Enable automatic control based on sensor readings.
+- Auto+
+  - Description: Enhanced automatic mode with quieter operation limits.
+- Winter
+  - Description: Winter mode to prevent icing and manage defrosting.
+- Heater
+  - Description: Turn on the mini-heating element (if equipped).
+- Bound
+  - Description: Synchronizes supply and extract fans. When enabled, you control the Bounded fan. When disabled, you control Supply and Extract fans separately.
 
 ## Data updates
 
@@ -72,10 +90,11 @@ The integration uses local polling. By default, Home Assistant polls the device 
 
 - Check the device network connection.
 - Ensure the device is powered on and reachable; entities become available automatically when communication is restored.
+- For Fans: Remember that Supply and Extract fans become unavailable when Bound mode is active (and vice versa). This is expected behavior.
 
 ## Community notes
 
-- If you have a model that does not work as expected, add a note in the repository or community and include the model and firmware version
+- If you have a model that does not work as expected, add a note in the repository or community and include the model and firmware version.
 
 ## Removing the integration
 
