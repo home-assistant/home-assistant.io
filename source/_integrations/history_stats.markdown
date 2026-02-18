@@ -48,7 +48,7 @@ End:
   description: When to stop the measure (timestamp or datetime). Can be a template.
 Duration:
   description: Duration of the measure.
-State Class:
+State class:
   description: The [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor.
 {% endconfiguration_basic %}
 
