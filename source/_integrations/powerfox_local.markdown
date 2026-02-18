@@ -55,7 +55,7 @@ If your Poweropti device is on the same network as Home Assistant, it will be di
 
 ## Data updates
 
-The integration polls the Poweropti device every 5 seconds and provides real-time measurements.
+The integration {% term polling polls %} the Poweropti device every 5 seconds and provides real-time measurements.
 
 ## Actions
 
