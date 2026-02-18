@@ -83,7 +83,7 @@ The `mastodon.get_account` action is used to get details of an account. Will onl
 
 ### Action: Mute account
 
-The `mastodon.mute_account` action is used to mute an account you follow.
+The `mastodon.mute_account` action is used to mute an account you follow, which stops their posts appearing in your timeline.
 
 - **Data attribute**: `config_entry_id`
   - **Description**: The ID of the Mastodon config entry.
@@ -110,7 +110,7 @@ The `mastodon.unmute_account` action is used to un-mute a previously muted accou
   - **Optional**: No
 
 - **Data attribute**: `account_name`
-  - **Description**: The account name to unmute, in the format `@user@instance`.
+  - **Description**: The account name to un-mute, in the format `@user@instance`.
   - **Optional**: No
 
 ### Action: Post
