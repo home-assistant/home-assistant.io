@@ -89,7 +89,7 @@ For each active newsletter on your Ghost site, an additional sensor is created s
 
 The integration {% term polling polls %} your Ghost site every 5 minutes to update sensor data.
 
-## Example automations
+## Examples
 
 ### Announce milestone member counts
 
