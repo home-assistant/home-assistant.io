@@ -6,6 +6,7 @@ ha_config_flow: true
 ha_release: 2026.2
 ha_category:
   - Button
+  - Number
   - Select
   - Sensor
   - Switch
@@ -15,6 +16,7 @@ ha_domain: hdfury
 ha_platforms:
   - button
   - diagnostics
+  - number
   - select
   - sensor
   - switch
