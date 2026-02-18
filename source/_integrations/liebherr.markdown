@@ -148,7 +148,7 @@ Schedule your Liebherr appliance to automatically enable night mode at bedtime a
 {% raw %}
 
 ```yaml
-alias: Liebherr Night Mode Schedule
+alias: "Liebherr Night Mode Schedule"
 description: >-
   Automatically enable night mode at bedtime and disable it in the morning for
   quieter overnight operation.
