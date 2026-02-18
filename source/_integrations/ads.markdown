@@ -130,6 +130,9 @@ light:
   - platform: ads
     adsvar: GVL.enable_light
     adsvar_brightness: GVL.brightness
+    adsvar_color_temp_kelvin: GVL.color_temp_kelvin
+    min_color_temp_kelvin: 2700
+    max_color_temp_kelvin: 6500
 ```
 
 {% configuration %}
@@ -141,6 +144,18 @@ adsvar_brightness:
   required: false
   description: The name of the variable that controls the brightness, use an unsigned integer on the PLC side
   type: string
+adsvar_color_temp_kelvin:
+  required: false
+  description: The name of the variable that controls the color temperature in Kelvin, use an unsigned integer on the PLC side
+  type: string
+min_color_temp_kelvin:
+  required: false
+  description: The minimum color temperature in Kelvin (default is 2000)
+  type: integer
+max_color_temp_kelvin:
+  required: false
+  description: The maximum color temperature in Kelvin (default is 6500)
+  type: integer
 name:
   required: false
   description: An identifier for the Light in the frontend
@@ -279,10 +294,6 @@ TYPE E_SampleA :
 END_TYPE
 ```
 
-## Valve
-
-The `ads` valve entity accesses a boolean variable on the connected ADS device. The variable is identified by its name.
-
 To use your ADS device, you first have to set up your [ADS hub](#configuration) and then add the following to your {% term "`configuration.yaml`" %}
 file:
 
@@ -298,9 +309,6 @@ select:
       - "Manual"
       - "Guest"
       - "Error"
-valve:
-  - platform: ads
-    adsvar: MAIN.bValveControl
 ```
 
 {% configuration %}
@@ -311,6 +319,31 @@ adsvar:
 options:
   required: true
   description: The available options to select from.
+  type: string
+name:
+  required: false
+  description: An identifier for the select in the frontend.
+  type: string
+{% endconfiguration %}
+
+## Valve
+
+The `ads` valve entity accesses a boolean variable on the connected ADS device. The variable is identified by its name.
+
+To use your ADS device, you first have to set up your [ADS hub](#configuration) and then add the following to your {% term "`configuration.yaml`" %}
+file:
+
+```yaml
+# Example configuration.yaml entry
+valve:
+  - platform: ads
+    adsvar: MAIN.bValveControl
+```
+
+{% configuration %}
+adsvar:
+  required: true
+  description: The name of the variable which you want to access on the ADS device.
   type: string
 name:
   required: false

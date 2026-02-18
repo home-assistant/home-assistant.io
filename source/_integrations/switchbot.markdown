@@ -10,6 +10,7 @@ ha_category:
   - Humidifier
   - Light
   - Lock
+  - Select
   - Sensor
   - Switch
   - Vacuum
@@ -36,6 +37,7 @@ ha_platforms:
   - humidifier
   - light
   - lock
+  - select
   - sensor
   - switch
   - vacuum
@@ -208,6 +210,11 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 ### Buttons
 
 - [Art Frame](https://www.switch-bot.com/products/switchbot-ai-art-frame)
+
+### Keypad Visions
+
+- [Keypad Vision](https://www.switch-bot.com/products/switchbot-keypad-vision)
+- [Keypad Vision Pro](https://www.switch-bot.com/products/switchbot-keypad-vision-pro)
 
 ## Works with Home Assistant
 
@@ -466,6 +473,7 @@ Features:
 - get humidity
 - get carbon dioxide
 - get battery level
+- set display time format (12h/24h)
 
 #### Contact Sensor
 
@@ -517,6 +525,21 @@ Features:
 - get battery
 - motion detection state
 - light detection state
+
+#### Keypad Vision (Pro)
+
+This is an encrypted device. For testing, you can execute the actions that this device supports individually within the development tools.
+
+Actions:
+- add_password
+
+Examples:
+```yaml
+action: switchbot.add_password
+data:
+  device_id: c2d01328efd261f586e56d914e3af07e
+  password: 123456
+```
 
 ### Lights
 

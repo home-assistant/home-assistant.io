@@ -62,9 +62,12 @@ In the dialog, it is possible to create, edit and remove public weather sensors.
 
 To edit an existing area, enter its name and follow the dialog.
 
+By default, the opening entity *device class* (e.g. `door`, `window`) shows up as best match to Netatmo configuration. You can manually change its icon (e.g. `mdi:cupboard` for `furniture`) to better match the real appliance when no matching device class in Home Assistant.
+
 ## Binary sensor
 
-The `netatmo` binary sensor platform is showing the connectivity for the [Netatmo Smart Home Weather Station](https://www.netatmo.com/smart-weather-station).
+The binary sensor platform shows connectivity entities for the [Netatmo Smart Home Weather Station](https://www.netatmo.com/smart-weather-station).
+It also exposes [Netatmo Smart Door and Window Sensors](https://www.netatmo.com/smart-door-and-window-sensors) as *opening* binary sensors (open/closed) and provides additional connectivity entity.
 
 ## Button
 

@@ -29,6 +29,27 @@ Assist can be used on Android phones and tablets using the [Home Assistant Compa
 2. In the top-right corner, select the three-dots menu and select **Assist**.
 3. [Give a command](/voice_control/custom_sentences/).
 
+### Setting up Home Assistant Assist as default assistant app
+
+To define Home Assistant Assist as default assistant app on your Android phone, follow these steps:
+
+1. On your Android phone, open the **Home Assistant** app.
+2. Go to **Settings** > **Companion app**.
+3. Select **Assist for Android**.
+4. Select **Set as default**.
+5. In the system settings that open, select **Default digital assistant app**.
+   - On some Android versions, this might be labeled **Voice Assistant** or **Assist app**.
+6. Select **Home Assistant**.
+7. Go back to the **Home Assistant** app. You should now see that **Assist** is your default assistant.
+8. Start Assist using the gesture to start an assistant. The gesture may differ depending on your Android version:
+   - Swipe from the bottom left corner.
+   - Long press the power button.
+   - Hold the home button (square button at the bottom).
+9. You can now also start Assist from your lock screen.
+   <lite-youtube videoid="8TsutVHj7LQ" videotitle="Use Home Assistant from anywhere on Android"></lite-youtube>
+
+To activate Assist hands-free, [enable wake word detection](#enabling-wake-word-detection-on-android).
+
 ### About wake word detection on Android
 
 Wake word detection allows you to activate Assist hands-free by saying a wake word like "Hey Jarvis" or "Hey Nabu". Your Android device uses [microWakeWord](/voice_control/about_wake_word/#about-on-device-wake-word-processing-microwakeword) to process wake words locally on the device, which means your audio stays private and no audio is sent to Home Assistant until after the wake word is detected.
@@ -70,27 +91,6 @@ To enable wake word detection on your Android device, follow these steps:
 You can turn wake word detection on or off remotely from Home Assistant. This is useful for automations that enable wake word detection only when you're at home or during specific times to save battery.
 
 Use the `command_wake_word_detection` command with `turn_on` or `turn_off` to control wake word detection. For details on how to send commands to the companion app, see the [notification commands documentation](https://companion.home-assistant.io/docs/notifications/notification-commands/).
-
-### Setting up Home Assistant Assist as default assistant app
-
-This section was written using an Android 13. Depending on your flavor of Android, the exact steps may vary.
-
-To define Home Assistant Assist as default assistant app on your Android phone, follow these steps:
-
-1. On the Android phone, go to **Settings** > **Apps** > **Default apps**.
-2. Under **Digital assistant app**, select **Default digital assistant app**.
-   - On some Android versions, this might be under **Digital & voice input** > **Default digital assistant app** > **Voice Assistant**.
-3. Select **Home Assistant**.
-
-   - On some Android versions, you might be able to change the assistant's language settings here by selecting the cogwheel {% icon "mdi:cog-outline" %}.
-4. Go back one step. The **Default digital assistant app** should now show *Home Assistant* as the default.
-5. Leave the **Settings**.
-6. Start Assist using the gesture to start an assistant. The gesture may differ depending on the version.
-   - Swipe from the bottom left corner.
-   - Long press the power button.
-   - Hold the home button (square button at the bottom).
-7. You can now also start Assist from your lock screen.
-   <lite-youtube videoid="8TsutVHj7LQ" videotitle="Use Home Assistant from anywhere on Android"></lite-youtube>
 
 ### Using Assist with multiple Home Assistant servers
 
