@@ -55,6 +55,11 @@ Below is a complete overview of the entities this integration provides.
 - Issue hotplug (Sends a command to hotplug TX & RX connected devices)
 - Restart (Reboot the device remotely)
 
+### Number
+
+- OLED fade timer (Controls time before the front-panel OLED display fades out)
+- Restart timer (Controls interval for automatic device restarts)
+
 ### Select
 
 - Operation Mode (Controls the device Operation Mode, Splitter/Matrix/etc.)
