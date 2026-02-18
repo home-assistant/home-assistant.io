@@ -474,6 +474,31 @@ Features:
 - get carbon dioxide
 - get battery level
 - set display time format (12h/24h)
+- sync the device datetime with Home Assistant
+
+##### Syncing the device datetime with Home Assistant automatically
+
+The integration adds a "Sync Date and Time" button to the device's details page. You can set up your own 
+automation that triggers that button regularly. Here's a simple example for `configuration.yaml`:
+
+{% raw %}
+
+```yaml
+automation:
+  - alias: "Daily SwitchBot CO2 Time Sync"
+    description: "Triggers the date and time sync for the Meter Pro CO2 every night"
+    trigger:
+      - platform: time
+        # Trigger optimized for DST (summer/winter) time changes that usually happen at 02:00am.
+        at: "03:00:00"
+    action:
+      - action: button.press
+        target:
+          # Replace with your actual entity ID
+          entity_id: button.<your_device_name>_sync_date_and_time
+```
+
+{% endraw %}
 
 #### Contact Sensor
 
