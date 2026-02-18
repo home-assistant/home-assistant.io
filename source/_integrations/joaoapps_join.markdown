@@ -16,7 +16,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `joaoapps_join` {% term integration %} exposes actions from
+The **Joaoapps Join** {% term integration %} exposes actions from
 [Join](https://joaoapps.com/join). In Home Assistant, the Joaoapps Join features are
 divided up in two locations, the Join integration, and the Joaoapps Join notify platform.
 The notify platform allows us to send messages to Joaoapps Join devices, the integration

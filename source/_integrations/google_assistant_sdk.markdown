@@ -20,12 +20,11 @@ api: Google Assistant API
 api_link: https://console.developers.google.com/apis/api/embeddedassistant.googleapis.com/overview
 ---
 
-The Google Assistant SDK integration allows Home Assistant to interact with Google Assistant. If you want to use Google Assistant (for example, from your phone or Google Home device) to interact with your Home Assistant managed devices, then you want the [Google Assistant](/integrations/google_assistant) integration.
+The **Google Assistant SDK** {% term integration %} allows Home Assistant to interact with Google Assistant. If you want to use Google Assistant (for example, from your phone or Google Home device) to interact with your Home Assistant managed devices, then you want the [Google Assistant](/integrations/google_assistant) integration.
 
 This integration allows:
 
 - Sending text commands to Google Assistant to control devices supported by Google Assistant but not by Home Assistant. Examples:
-  - Set Nest Guard to home and guarding
   - Start vacuuming
   - Stream front door on living room TV
   - Turn off kitchen TV
@@ -116,7 +115,7 @@ This guide is for advanced users only. It requires creating an OAuth client ID o
 
 {% details "Enable personal results" %}
 
-1. Go to  **{% my developer_services title="Developer Tools > Actions" %}** and issue a query that requires personal results, for example call `google_assistant_sdk.send_text_command` with `command: "what is my name"`
+1. Go to  {% my developer_services title="**Settings** > **Developer tools** > **Actions**" %} and issue a query that requires personal results, for example call `google_assistant_sdk.send_text_command` with `command: "what is my name"`
 2. On your phone, you should receive a notification **Allow personal answers** **Allow Google Assistant to answer your questions about your calendar, trips, and more**.
 3. DO NOT tap on **ALLOW** (it won't work until you enter a device name). Instead, tap on the notification text.
 4. If the app doesn't open, you need to retry on a device running Android 12. If you don't have such a device, you can use an Android emulator.
@@ -220,9 +219,9 @@ responses:
       The drumsticks 🍗
 ```
 
-### Action `notify.google_assistant_sdk`
+### Action: Broadcast message
 
-You can use the `notify.google_assistant_sdk` action to broadcast messages to Google Assistant speakers and displays without interrupting music/video playback.
+The `notify.google_assistant_sdk` action allows you to broadcast messages to Google Assistant speakers and displays without interrupting music/video playback.
 
 | Data attribute | Optional | Description                 | Example                      |
 | ---------------------- | -------- | --------------------------- | ---------------------------- |

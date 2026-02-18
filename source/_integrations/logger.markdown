@@ -11,7 +11,7 @@ ha_domain: logger
 ha_integration_type: system
 ---
 
-The `logger` integration lets you define the level of logging activities in Home
+The **Logger** {% term integration %} lets you define the level of logging activities in Home
 Assistant.
 
 To enable the `logger` integration in your installation,
@@ -139,10 +139,10 @@ logger:
 
 ## Actions
 
-### Action `set_default_level`
+### Action: Set default level
 
-You can alter the default log level (for integrations without a specified log
-level) using the `logger.set_default_level` action.
+The `logger.set_default_level` action alters the default log level (for integrations without a specified log
+level).
 
 An example call might look like this:
 
@@ -152,9 +152,9 @@ data:
   level: info
 ```
 
-### Action `set_level`
+### Action: Set level
 
-You can alter log level for one or several integrations using the `logger.set_level` action.
+The `logger.set_level` action alters the log level for one or several integrations.
 It accepts the same format as `logs` in the configuration.
 
 An example call might look like this:
@@ -180,7 +180,7 @@ For {% term "Home Assistant Container" %} installations, the log information is 
 You can read it with the command-line tool `cat` or follow it dynamically
 with `tail -f`.
 
-You can use the example below, when logged in through the [SSH add-on](/common-tasks/os/#installing-and-using-the-ssh-add-on):
+You can use the example below, when logged in through the [SSH app for Home Assistant](/common-tasks/os/#installing-and-using-the-ssh-app) (formerly known as SSH add-on):
 
 ```bash
 tail -f /config/home-assistant.log

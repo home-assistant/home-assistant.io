@@ -28,7 +28,7 @@ ha_codeowners:
 ha_integration_type: hub
 ---
 
-The FRITZ!SmartHome integration for Home Assistant allows you to integrate [FRITZ! Smart Home](https://fritz.com/en/collections/smart-home/) (_former AVM FRITZ!DECT_) devices like plugs, thermostats or shutter drivers as also trigger so called smart home templates (_contains settings for Smart Home devices of the same type_).
+The **FRITZ!SmartHome** {% term integration %} for Home Assistant allows you to integrate [FRITZ! Smart Home](https://fritz.com/en/collections/smart-home/) (_former AVM FRITZ!DECT_) devices like plugs, thermostats or shutter drivers as also trigger so called smart home templates (_contains settings for Smart Home devices of the same type_).
 
 #### Tested devices
 
@@ -104,6 +104,10 @@ Further there are additional {% term sensor %} and {% term binary_sensor "binary
 - Temperature
 - Total Energy
 - Voltage
+
+### Routines
+
+Self-defined [routines](https://fritz.com/en/apps/knowledge-base/FRITZ-Box-7590/3707_Creating-a-routine-for-smart-home-devices) within the FRITZ!The box smart home configuration menu will be integrated as {% term switch %} entities. Those entities can be activated or deactivated from Home Assistant.
 
 ### Shutter drivers
 

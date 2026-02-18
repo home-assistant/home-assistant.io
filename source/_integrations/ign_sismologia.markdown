@@ -17,7 +17,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `ign_sismologia` {% term integration %} lets you integrate a GeoRSS feed provided by the 
+The **IGN Sismología** {% term integration %} lets you integrate a GeoRSS feed provided by the 
 Spanish [Instituto Geográfico Nacional](https://www.ign.es/) with information 
 about seismic events like earthquakes on the Iberian Peninsula and Canary 
 Islands. It retrieves incidents from a feed and shows information of those 

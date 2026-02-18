@@ -17,7 +17,7 @@ ha_platforms:
   - light
   - number
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 [Fjäråskupan](https://fjaraskupan.se/) allows you to control your Bluetooth equipped kitchen fan.

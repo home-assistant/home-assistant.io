@@ -15,7 +15,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `google_maps` {% term integration %} allows you to detect presence using the unofficial API of [Google Maps Location Sharing](https://myaccount.google.com/locationsharing).
+The **Google Maps** {% term integration %} allows you to detect presence using the unofficial API of [Google Maps Location Sharing](https://myaccount.google.com/locationsharing).
 
 ## Setup
 

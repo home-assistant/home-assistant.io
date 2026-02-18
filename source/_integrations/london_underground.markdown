@@ -14,11 +14,10 @@ ha_codeowners:
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ha_config_flow: true
 ---
 
-The `london_underground` {% term integration %} will display the status of London underground lines, as well as the overground lines and the DLR.
+The **London Underground** {% term integration %} will display the status of London underground lines, as well as the overground lines and the DLR.
 
 There 20 possible values that the line can report:
 - `Special Service`

@@ -14,4 +14,4 @@ In the meanwhile, we have also been working on the Google Assistant integration.
 
 In less than 2 weeks the open beta is about to expire. We're still working on setting up the company and payment system so we can start accepting payments. Until we do, Home Assistant Cloud will remain free.
 
-[alexa skill]: https://alexa.amazon.com/spa/index.html#skills/dp/B0772J1QKB/?ref=skill_dsk_skb_sr_2
+[alexa skill]: https://alexa.amazon.com/spa/index.html#skills/dp/B0772J1QKB/

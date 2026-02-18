@@ -60,6 +60,7 @@ Currently, the integration supports the following sensors:
 | Hydrogen             | µg/m³               |
 | Hydrogen Peroxide    | µg/m³               |
 | Methane              | %                   |
+| Mold Index           | %                   |
 | N2O                  | µg/m³               |
 | NO                   | µg/m³               |
 | NO2                  | µg/m³               |
@@ -72,7 +73,9 @@ Currently, the integration supports the following sensors:
 | Pressure             | hPa                 |
 | Relative Pressure    | hPa                 |
 | Propane              | %                   |
-| Refrigerant          | µg/m³               |
+| Refrigerant R-32     | %                   |
+| Refrigerant R-454B   | %                   |
+| Refrigerant R-454C   | %                   |
 | SiH4                 | µg/m³               |
 | SO2                  | µg/m³               |
 | Noise                | dBa                 |
@@ -85,9 +88,13 @@ Currently, the integration supports the following sensors:
 
 PM1, PM25, and PM10 correspond to concentrations of particulates with diameter less than 1µm, 2.5µm, and 10µm respectively
 
-Virus Index uses CO2 as a proxy for potential aerosol load and can be seen as an indicator of ventilation sufficiency (0 %: insufficient ventilation, 100 %: all fine).
+### Virtual sensors and indices
 
-Virtual sensors "Relative Pressure" and "Virus Index" are introduced in firmware v1.80.0 but deactivated by default. You can activate them in the air-Q mobile application under "Advanced settings".
+All four supported indices—Health, Performance, Mold, and Virus—operate on a consistent scale: **0% (High Risk)** to **100% (No Risk/Optimal).**
+
+- **Virus Index:** Uses CO2 as a proxy for aerosol load. It evaluates the sufficiency of room ventilation to minimize the risk of airborne pathogen transmission.
+- **Mold Index:** Assesses the long-term risk of mold formation by analyzing temperature and relative humidity trends.
+- **Activation:** Virtual sensors such as "Relative Pressure," "Virus Index," and "Mold Index" are deactivated by default. You can enable them in the air-Q mobile app under **Settings** > **Sensors**.
 
 ## Additional configuration
 
