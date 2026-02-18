@@ -4,7 +4,7 @@ description: Instructions on how to integrate Busch-Jaeger iNet Radio devices in
 ha_category:
   - Media player
 ha_iot_class: Local Push
-ha_release: "2026.3"
+ha_release: 2026.3
 ha_domain: inet
 ha_platforms:
   - media_player
