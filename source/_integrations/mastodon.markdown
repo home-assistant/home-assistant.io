@@ -26,7 +26,7 @@ The **Mastodon** {% term integration %} uses [Mastodon](https://joinmastodon.org
 
 Go to **Preferences** in the Mastodon web interface, then to **Development** and create a new application.
 
-Check at a minimum the following scopes **read:accounts**, **write:statuses**, **write:media**, and **write:mutes**.
+Select at a minimum the following scopes: **read:accounts**, **write:statuses**, **write:media**, and **write:mutes**.
 
 Select **Submit** to create the application and generate the key, secret, and token required for the integration.
 
@@ -256,37 +256,22 @@ This will post a status to Mastodon that includes an image, with a description, 
 
 {% details "Example of muting an account you follow while you are on holiday" %}
 
-This automation will look for an event in your calendar and mute the specified account whilst the event is active, and un-mute at the end of the event.
+This automation will look for an event in your calendar and mute the specified account while the event is active, and un-mute at the end of the event.
 
 {% raw %}
 
 ```yaml
 alias: Mastodon mute example
-description: "Mute a Mastodon account whilst a calendar event is active"
+description: "Mute a Mastodon account while a calendar event is active"
 triggers:
   - trigger: calendar.event_started
     target:
       entity_id: calendar.YOUR_CALENDAR
-    options:
-      offset:
-        days: 0
-        hours: 0
-        minutes: 0
-        seconds: 0
-      offset_type: before
     id: start
-  - trigger: calendar.event_started
+  - trigger: calendar.event_ended
     target:
       entity_id: calendar.YOUR_CALENDAR
-    options:
-      offset:
-        days: 0
-        hours: 0
-        minutes: 0
-        seconds: 0
-      offset_type: after
     id: end
-conditions: []
 actions:
   - choose:
       - conditions:
@@ -295,7 +280,6 @@ actions:
               - start
         sequence:
           - action: mastodon.mute_account
-            metadata: {}
             data:
               config_entry_id: YOUR_MASTODON_CONFIG_ENTITY_ID
               account_name: "@commute-news@mytown.online"
@@ -305,11 +289,9 @@ actions:
               - end
         sequence:
           - action: mastodon.unmute_account
-            metadata: {}
             data:
               config_entry_id: YOUR_MASTODON_CONFIG_ENTITY_ID
               account_name: "@commute-news@mytown.online"
-mode: single
 ```
 
 {% endraw %}
@@ -328,11 +310,15 @@ The integration does not provide functionality to get the stream, favorite, book
 
 #### Symptom: “Errors appear in the log when using an action”
 
-Actions require specific permissions within your Mastodon account to read or write, ensure that you have set these appropriately within your Mastodon account, please see the [setup instructions](#setup).
+When using actions errors relating to permissions are shown in the logs.
 
 #### Description
 
-This means the settings on the device are incorrect, since the device needs to be enabled for local communication.
+Actions require specific permissions within your Mastodon account to read or write data.
+
+#### Resolution
+
+Ensure that you have set these appropriately within your Mastodon account, please see the [setup instructions](#setup).
 
 ## Removing the integration
 
