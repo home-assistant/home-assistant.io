@@ -245,13 +245,3 @@ Debug logs show:
 - `RX (push): <response>` - Real-time updates from amplifier
 - `Connection attempt failed: <error> — retrying in X.Xs` - Temporary connection loss with automatic retry
 
-### Getting additional help
-
-If problems persist:
-
-1. Enable debug logging and collect logs showing the issue
-2. Note your Hegel model and any firmware version information
-3. Document your network setup (router model, VLANs, firewall configuration)
-4. Test basic connectivity using `telnet <amplifier_ip> 50001`
-5. Report issues on the [Home Assistant Community Forum](https://community.home-assistant.io/) with the "hegel" tag
-
