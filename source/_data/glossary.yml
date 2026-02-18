@@ -99,8 +99,8 @@
 - term: Blueprint
   definition: >-
     A blueprint is a [script](/getting-started/concepts-terminology/#scripts), [automation](/getting-started/concepts-terminology/#automation), or [template](/integrations/template/) entity configuration with certain parts
-    marked as configurable. This allows users to create multiple scripts,
-    automations or template entities based on the same blueprint, with each having its own
+    marked as configurable. This allows you to create multiple scripts,
+    automations, or template entities based on the same blueprint, with each having its own
     configuration-specific settings. Blueprints are shared by the community on
     the [blueprints
     exchange](https://community.home-assistant.io/c/53) in
@@ -511,7 +511,7 @@
 
 - term: Script
   definition: >
-    Scripts are components that allow users to specify a sequence of actions to
+    Scripts are components that allow you to specify a sequence of actions to
     be executed by Home Assistant when turned on.
   link: /docs/scripts/
   aliases:

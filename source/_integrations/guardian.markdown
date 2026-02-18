@@ -33,8 +33,8 @@ There is currently support for the following device types within Home Assistant:
 - **Binary sensor**: reports the status of the onboard leak detector and access point
 - **Button**: add various configuration controls
 - **Sensor**: reports on the device's detected temperature and uptime
-- **Switch**: allows the user to enable and disable the onboard access point
-- **Valve**: allows the user to open and close the valve
+- **Switch**: allows you to enable and disable the onboard access point
+- **Valve**: allows you to open and close the valve
 
 {% include integrations/config_flow.md %}
 

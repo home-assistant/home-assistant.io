@@ -60,7 +60,7 @@ If no selector is defined, a text input for a single line will be shown.
 
 ## Action selector
 
-The action selector allows the user to input one or more sequences of actions.
+The action selector allows you to input one or more sequences of actions.
 On the user interface, the action part of the automation editor will be shown.
 The value of the input will contain a list of actions to perform.
 
@@ -296,7 +296,7 @@ backup_location:
 
 ## Boolean selector
 
-The boolean selector shows a toggle that allows the user to turn on or off
+The boolean selector shows a toggle that allows you to turn on or off
 the selected option.
 
 ![Screenshot of a boolean selector](/images/blueprints/selector-boolean.png)
@@ -344,7 +344,7 @@ The output of this selector is the number representing the chosen color temperat
 
 ## Condition selector
 
-The condition selector allows the user to input one or more conditions.
+The condition selector allows you to input one or more conditions.
 On the user interface, the condition part of the automation editor will be shown.
 The value of the input will contain a list of conditions.
 
@@ -367,7 +367,7 @@ The output of this selector is a list of conditions. For example:
 
 ## Config entry selector
 
-The config entry selector allows the user to select an integration
+The config entry selector allows you to select an integration
 configuration entry. The selector returns the entry ID of the selected
 integration configuration entry.
 
@@ -388,7 +388,7 @@ The output of this selector is the entry ID of the config entry, for example, `6
 
 ## Constant selector
 
-The constant selector shows a toggle that allows the user to enable the selected option.
+The constant selector shows a toggle that allows you to enable the selected option.
 This is similar to the [boolean selector](#boolean-selector), the difference
 is that the constant selector has no value when it's not enabled.
 
@@ -455,7 +455,7 @@ The output of this selector is an ISO 3166 country code.
 
 ## Date selector
 
-The date selector shows a date input that allows the user to specify a date.
+The date selector shows a date input that allows you to specify a date.
 
 ![Screenshot of the Date selector](/images/blueprints/selector-date.png)
 
@@ -470,7 +470,7 @@ The output of this selector will contain the date in Year-Month-Day
 
 ## Date & time selector
 
-The date selector shows a date and time input that allows the user to specify a
+The date selector shows a date and time input that allows you to specify a
 date with a specific time.
 
 ![Screenshot of the Date & time selector](/images/blueprints/selector-datetime.png)
@@ -911,7 +911,7 @@ floor:
 
 ## Icon selector
 
-The icon selector shows an icon picker that allows the user to select an icon.
+The icon selector shows an icon picker that allows you to select an icon.
 
 ```yaml
 icon:
@@ -1329,7 +1329,7 @@ qr_code:
 
 ## RGB color selector
 
-The RGB color selector allows the user to select a color from a color picker
+The RGB color selector allows you to select a color from a color picker
 from the user interface, and returns the RGB color value.
 
 ![Screenshot of the RGB Color selector](/images/blueprints/selector-color-rgb.png)
@@ -1669,7 +1669,7 @@ The output of this selector will contain the selected theme, for example:
 
 ## Time selector
 
-The time selector shows a time input that allows the user to specify a time
+The time selector shows a time input that allows you to specify a time
 of the day.
 
 ![Screenshot of a time selector](/images/blueprints/selector-time.png)
@@ -1685,7 +1685,7 @@ for example, `23:59:59`.
 
 ## Trigger selector
 
-The triggers selector allows the user to input one or more triggers.
+The triggers selector allows you to input one or more triggers.
 On the user interface, the trigger part of the automation editor is shown.
 The value of the input contains a list of triggers.
 
