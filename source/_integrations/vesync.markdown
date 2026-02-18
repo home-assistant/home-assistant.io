@@ -86,6 +86,7 @@ This {% term integration %} supports devices controllable by the VeSync App. The
 
 - Classic200S: Classic 200S Smart Ultrasonic Cool Mist Humidifier
 - Classic300S: Classic 300S Ultrasonic Smart Humidifier
+- LV600S: Smart Hybrid Ultrasonic humidifier
 - Superior6000S: Superior 6000S Smart Evaporative Humidifier
 
 ### Air Fryers
@@ -167,10 +168,10 @@ Sensors and settings exposed by VeSync humidifiers.
 | ----------------------- | ---------------------------------------------------------------------------------- | --------- |
 | `humidity`              | Current humidity (in %)                                                            | 35        |
 
-| Number                  | Description                                                                        | Example   |
-| ----------------------- | ---------------------------------------------------------------------------------- | --------- |
-| `mist_level`            | Mist level intensity (Range: 1-9, Step: 1). Only available in manual mode.         | 1         |
-| `warm_mist_level`       | Warm mist level intensity (Range: 0-3, Step: 1)                                    | 3         |
+| Number                  | Description                                                                                          | Example   |
+| ----------------------- | ---------------------------------------------------------------------------------------------------- | --------- |
+| `mist_level`            | Mist level intensity (Range: 1-9, Step: 1). Only available in manual mode.                           | 1         |
+| `warm_mist_level`       | Warm mist level intensity (Range: 0-3, Step: 1). Only available for supported models such as LV600S. | 3         |
 
 | Select                  | Description                                                                        | Example   |
 | ----------------------- | ---------------------------------------------------------------------------------- | --------- |
@@ -200,6 +201,20 @@ Sensors and settings exposed by VeSync Air Fryers.
 | `cook_set_time`         | The number of minutes for cooking                                                      | 15        |
 | `remaining_time`        | The numbers of minutes left in cooking or preheating                                   | 8         |
 | `preheat_set_time`      | The number of minutes for pre heating                                                  | 10        |
+
+## Entities that are supported for all devices
+
+| Sensor            | Description                      | Example |
+| ----------------- | -------------------------------- | ------- |
+| `timer_remaining` | Remaining timer time in minutes. | 60      |
+
+| Number           | Description                                      | Example |
+| ---------------- | ------------------------------------------------ | ------- |
+| `timer_duration` | Duration for the timer. (Range: 0-720, Step: 1). | 60      |
+
+| Button        | Description                      |
+| ------------- | -------------------------------- |
+| `clear_timer` | Clear and remove existing timer. |
 
 ## Extracting attribute data
 
