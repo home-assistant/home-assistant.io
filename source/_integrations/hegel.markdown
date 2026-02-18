@@ -84,12 +84,6 @@ Each Hegel model has specific input configurations that are automatically mapped
 
 ## Using the integration
 
-target:
-  entity_id: media_player.hegel_amplifier
-data:
-  source: "Optical 1"
-```
-
 ### Automation examples
 
 **Turn on amplifier with TV:**
