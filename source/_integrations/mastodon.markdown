@@ -254,9 +254,9 @@ This will post a status to Mastodon that includes an image, with a description, 
 
 {% enddetails %}
 
-{% details "Example mute a local transport account whilst you are on holiday" %}
+{% details "Example of muting an account you follow, whilst you are on holiday" %}
 
-This automation will look for an event in your calendar and mute the specified account whilst the event is active, and unmute at the end of the event.
+This automation will look for an event in your calendar and mute the specified account whilst the event is active, and un-mute at the end of the event.
 
 {% raw %}
 
