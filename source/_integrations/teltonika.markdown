@@ -9,6 +9,9 @@ ha_domain: teltonika
 ha_integration_type: device
 ha_dhcp: true
 ha_config_flow: true
+ha_quality_scale: bronze
+ha_category: Sensor
+ha_platforms: Sensor
 related:
   - url: https://teltonika-networks.com/
     title: Teltonika Networks
