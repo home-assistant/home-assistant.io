@@ -485,13 +485,11 @@ The integration adds a **Sync Date and Time** button to the device's details pag
 ```yaml
 automation:
   - alias: "Daily SwitchBot CO2 Time Sync"
-    description: >-
-      Triggers the date and time sync for the Meter Pro CO2 every
-      night.
+    description: "Sync  date and time sync for the Meter Pro CO2 every night."
     trigger:
     triggers:
       - trigger: time
-        # Trigger optimized for DST (summer/winter) time changes that usually happen at 02:00am.
+        # Ensures the time is in sync after a DST (summer/winter) time change.
         at: "03:00:00"
     actions:
       - action: button.press
