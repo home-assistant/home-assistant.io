@@ -86,7 +86,7 @@ This {% term integration %} supports devices controllable by the VeSync App. The
 
 - Classic200S: Classic 200S Smart Ultrasonic Cool Mist Humidifier
 - Classic300S: Classic 300S Ultrasonic Smart Humidifier
-- LV600S: Smart Hybrid Ultrasonic humidifier
+- LV600S: Smart Hybrid Ultrasonic Humidifier
 - Superior6000S: Superior 6000S Smart Evaporative Humidifier
 
 ### Air Fryers
@@ -110,7 +110,7 @@ This integration follows standard integration removal. No extra steps are requir
 ## Actions
 
 | Action           | Description                                        |
-|------------------|----------------------------------------------------|
+| ---------------- | -------------------------------------------------- |
 | `update_devices` | Poll Vesync server to find and add any new devices |
 
 ## Power & energy sensors
@@ -180,7 +180,7 @@ Sensors and settings exposed by VeSync humidifiers.
 | Switch                  | Description                                                                        | Example   |
 | ----------------------- | ---------------------------------------------------------------------------------- | --------- |
 | `display`               | Display On or Off                                                                  | On        |
-| `auto_off_config`       | Auto turn off when humidity target exceeded,  resume when below target             | On        |
+| `auto_off_config`       | Auto turn off when humidity target exceeded, resume when below target              | On        |
 
 ## Binary Sensors
 
@@ -202,15 +202,15 @@ Sensors and settings exposed by VeSync Air Fryers.
 | `remaining_time`        | The numbers of minutes left in cooking or preheating                                   | 8         |
 | `preheat_set_time`      | The number of minutes for pre heating                                                  | 10        |
 
-## Entities that are supported for all devices
+## Timer Entities
 
 | Sensor            | Description                      | Example |
 | ----------------- | -------------------------------- | ------- |
 | `timer_remaining` | Remaining timer time in minutes. | 60      |
 
-| Number           | Description                                      | Example |
-| ---------------- | ------------------------------------------------ | ------- |
-| `timer_duration` | Duration for the timer. (Range: 0-720, Step: 1). | 60      |
+| Number           | Description                                        | Example |
+| ---------------- | -------------------------------------------------- | ------- |
+| `timer_duration` | Timer duration in minutes (Range: 0-720, Step: 1). | 60      |
 
 | Button        | Description                      |
 | ------------- | -------------------------------- |
