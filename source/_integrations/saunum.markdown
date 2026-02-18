@@ -305,7 +305,7 @@ variables:
 triggers:
   - trigger: state
     entity_id: climate.saunum_leil
-    to: heat
+    to: "heat"
     from: "off"
     id: session_start
 
