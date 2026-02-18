@@ -94,7 +94,7 @@ The `mastodon.mute_account` action is used to mute an account you follow.
   - **Optional**: No
 
 - **Data attribute**: `duration`
-  - **Description**: The duration, in hours, to mute the account, if omitted the account will be muted indefinitely.
+  - **Description**: The duration to mute the account, if omitted the account will be muted indefinitely.
   - **Optional**: Yes
 
 - **Data attribute**: `hide_notifications`
