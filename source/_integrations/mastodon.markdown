@@ -329,7 +329,7 @@ The integration does not provide functionality to get the stream, favorite, book
 
 #### Symptom: “Errors appear in the log when using an action”
 
-Actions require specific permissions within your Mastodon account to read or write, ensure that you have set these appropriately within your account, please see the [setup instructions](#setup).
+Actions require specific permissions within your Mastodon account to read or write, ensure that you have set these appropriately within your Mastodon account, please see the [setup instructions](#setup).
 
 #### Description
 
