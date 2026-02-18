@@ -103,14 +103,14 @@ The `mastodon.mute_account` action is used to mute an account you follow, which 
 
 ### Action: Unmute account
 
-The `mastodon.unmute_account` action is used to un-mute a previously muted account.
+The `mastodon.unmute_account` action is used to unmute a previously muted account.
 
 - **Data attribute**: `config_entry_id`
   - **Description**: The ID of the Mastodon config entry.
   - **Optional**: No
 
 - **Data attribute**: `account_name`
-  - **Description**: The account name to un-mute, in the format `@user@instance`.
+  - **Description**: The account name to unmute, in the format `@user@instance`.
   - **Optional**: No
 
 ### Action: Post
@@ -256,7 +256,7 @@ This will post a status to Mastodon that includes an image, with a description, 
 
 {% details "Example of muting an account you follow while you are on holiday" %}
 
-This automation will look for an event in your calendar and mute the specified account while the event is active, and un-mute at the end of the event.
+This automation will look for an event in your calendar and mute the specified account while the event is active, and unmute at the end of the event.
 
 {% raw %}
 
