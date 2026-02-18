@@ -52,6 +52,7 @@ The following platforms are supported:
 This {% term integration %} supports devices controllable by the VeSync App. The following devices are supported by this {% term integration %}. This list may not be exhaustive as devices have multiple model numbers within this.
 
 ### Bulbs
+
 - Etekcity WiFi Dimmable LED Bulb (ESL100)
 - Etekcity WiFi Dimmable and Tunable White LED Bulb (ESL100CW)
 
@@ -76,7 +77,7 @@ This {% term integration %} supports devices controllable by the VeSync App. The
 - Core 400S: Smart True HEPA Air Purifier
 - Core 600S: Smart True HEPA Air Purifier
 - EverestAir: Smart Air Purifier
-- Vital 100S Smart True HEPA Air Purifier (LAP-V102S-WUS) 
+- Vital 100S Smart True HEPA Air Purifier (LAP-V102S-WUS)
 - Vital 200S Smart True HEPA Air Purifier (LAP-V201S-WUS)
 - LEVOIT Smart Wifi Air Purifier (LV-PUR131S)
 - LEVOIT Smart Tower Fan (LTF-F422S-WUS)
@@ -107,8 +108,8 @@ This integration follows standard integration removal. No extra steps are requir
 
 ## Actions
 
-| Action | Description |
-|---------|-------------|
+| Action           | Description                                        |
+|------------------|----------------------------------------------------|
 | `update_devices` | Poll Vesync server to find and add any new devices |
 
 ## Power & energy sensors
@@ -126,6 +127,7 @@ itself. Note that prior versions of the {% term integration %} exposed these as 
 | `sensor.<outlet name>_energy_use_yearly`  | Total energy usage for year start from 12:01AM on Jan 1 in kWh          | 105.25  |
 
 ## Fan & air quality sensors
+
 All VeSync air purifiers expose the remaining filter lifetime, and some also expose air quality measurements.
 
 | Sensor                  | Description                                                                            | Example   |
@@ -176,8 +178,7 @@ Sensors and settings exposed by VeSync humidifiers.
 | Switch                  | Description                                                                        | Example   |
 | ----------------------- | ---------------------------------------------------------------------------------- | --------- |
 | `display`               | Display On or Off                                                                  | On        |
-| 'auto_off_config'       | Auto turn off when humidity target exceeded,  resume when below target             | On        |
-
+| `auto_off_config`       | Auto turn off when humidity target exceeded,  resume when below target             | On        |
 
 ## Binary Sensors
 
@@ -198,7 +199,6 @@ Sensors and settings exposed by VeSync Air Fryers.
 | `cook_set_time`         | The number of minutes for cooking                                                      | 15        |
 | `remaining_time`        | The numbers of minutes left in cooking or preheating                                   | 8         |
 | `preheat_set_time`      | The number of minutes for pre heating                                                  | 10        |
-
 
 ## Extracting attribute data
 
