@@ -109,13 +109,18 @@ It will create the following sensors:
 
 {% details "Cannot connect to the device" %}
 
-Make sure the Poweropti device is powered on and connected to the same network as Home Assistant. Verify that the host (IP address or hostname) and API key are correct. The default API key is the 12-character device ID printed on the label of the device.
+1. Make sure the Poweropti device is powered on and connected to the same network as Home Assistant. 
+2. Verify that the host (IP address or hostname) and API key are correct. 
+   - The default API key is the 12-character device ID printed on the label of the device.
 
 {% enddetails %}
 
 {% details "401 Unauthorized error" %}
 
-The local interface is only available with an active **powerfox PRO Service** subscription. Verify that your device is activated for the PRO Service in the Powerfox app or shop. Also make sure the firmware version of your device is **v2.02.07 or higher**.
+The local interface is only available with an active **powerfox PRO Service** subscription. 
+
+1. Verify that your device is activated for the PRO Service in the Powerfox app or shop. 
+2. Also, make sure the firmware version of your device is *v2.02.07 or higher*.
 
 {% enddetails %}
 
