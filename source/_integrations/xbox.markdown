@@ -20,7 +20,7 @@ ha_platforms:
   - media_player
   - remote
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
 ha_ssdp: true
 ha_dhcp: true
 ---
@@ -43,6 +43,12 @@ The Home Assistant Xbox {% term integration %} lets you monitor and control Xbox
 
 {% include integrations/config_flow.md %}
 
+## Track online status of friends
+
+The **Xbox integration** allows tracking the online status, activity, and other information of your friends. To add a friend, go to {% my integration domain="xbox" title="**Settings** > **Devices & services** > **Xbox**" %} and select **{% icon "mdi:plus" %} Add friend**.
+
+Once added, a new device will appear with the same set of entities available for your own Xbox account, allowing you to track your friend’s activity.
+
 ## Supported devices
 
 - Xbox One (S/X)
@@ -52,11 +58,11 @@ The Home Assistant Xbox {% term integration %} lets you monitor and control Xbox
 
 The Xbox media player platform will create media player entities for each console linked to your Microsoft account. These entities will display the active app and playback controls as well as a media browser implementation, allowing you to launch any installed application.
 
-### Action `play_media`
+### Action: Play media
 
-Launches an application on the Xbox console using the application's product ID. Also supports "Home" to navigate to the dashboard.
+The `play_media` action launches an application on the Xbox console using the application's product ID. Also supports "Home" to navigate to the dashboard.
 
-You can find Product IDs using the **{% my developer_events title="Developer Tools > Events" %}** tab and listening to the `call_service` event. In a new browser tab, navigate to the media browser for your console and click on an App/Game to see the product ID in the event.
+You can find Product IDs using the {% my developer_events title="**Settings** > **Developer tools** > **Events**" %} tab and listening to the `call_service` event. In a new browser tab, navigate to the media browser for your console and click on an App/Game to see the product ID in the event.
 
 | Data attribute         | Description                           |
 | ---------------------- | --------------------------------------|
@@ -82,7 +88,9 @@ media_content_id: "9WZDNCRFJ3TJ" # Netflix
 
 The Xbox remote platform will create Remote entities for each console linked to your Microsoft Account. These entities will allow you to turn on/off and send controller or text input to your console.
 
-### Action `send_command`
+### Action: Send command
+
+The `send_command` action sends controller commands or text input to the Xbox console.
 
 | Data attribute | Optional | Description                                                       |
 | ---------------------- | -------- | --------------------------------------------------------- |
@@ -262,7 +270,7 @@ elements:
 
 ## Binary sensor
 
-The Xbox binary sensor platform automatically keeps track of your "**Favorite** friends". In your friends list, select **Change friendship > Favorite** to have that person automatically pulled into Home Assistant.
+The **Xbox binary sensor platform** automatically tracks the online status and activity of your own account as well as your friends.
 
 | Entity Name                      | Description                                                            |
 | -------------------------------- | ---------------------------------------------------------------------- |
@@ -272,7 +280,7 @@ The Xbox binary sensor platform automatically keeps track of your "**Favorite** 
 
 ## Sensor
 
-Just like the binary sensors, the Xbox sensor platform automatically keeps track of your "**Favorite** friends".
+Similar to binary sensors, the **Xbox sensor platform** monitors your account and friends, providing detailed information about their activity and achievements.
 
 | Entity Name      | Description                                                                |
 | ---------------- | -------------------------------------------------------------------------- |
@@ -284,12 +292,19 @@ Just like the binary sensors, the Xbox sensor platform automatically keeps track
 | **Last online**  | Displays the last time the friend was active online.                       |
 | **In party**     | Shows the number of people in the user’s party chat if they are currently in one. |
 | **Now playing**  | Shows the title of the game currently being played. Additional details such as a short description, genre, developer, age rating, and achievement progress are available in the entity's attributes. |
+
+### Storage sensors
+
+These sensors track the storage on your own **Xbox consoles** and connected storage devices.
+
+| Entity Name      | Description                                                                |
+| ---------------- | -------------------------------------------------------------------------- |
 | **Total space: *{name}*** | Reports the total storage capacity of the device. A separate sensor is created for each Xbox console and connected internal and external storage device. |
 | **Free space: *{name}*** | Reports the available (unused) storage space on the device. A separate sensor is created for each Xbox console and connected internal and external storage device. |
 
 ## Image
 
-For your account and each of your favorite friends, several image entities are available:
+For your account and each of your friends, several image entities are available:
 
 | Entity Name      | Description                                                                            |
 | ---------------- | -------------------------------------------------------------------------------------- |
@@ -334,7 +349,11 @@ Internal examples: `http://192.168.0.2:8123/auth/external/callback`, `http://hom
 
 ## Data updates
 
-This integration syncs with Xbox Network every 15 seconds.
+This integration synchronizes your consoles with the Xbox Network every 10 minutes. Console status, including power state and currently playing media, is refreshed every 10 seconds. Presence information is updated every 30 seconds.
+
+## Known limitations
+
+- Xbox consoles cannot be woken up through Home Assistant when they are in **energy saving**. When an Xbox is turned off, it will eventually enter energy saving automatically. To enable remote wake via Home Assistant, the console must be set to **sleep mode** in the power options. Be aware that this mode consumes significantly more energy compared to **shutdown (energy saving) mode**. For more details, see the [Xbox documentation on power modes](https://support.xbox.com/en-US/help/hardware-network/power/learn-about-power-modes).
 
 ## Troubleshooting
 

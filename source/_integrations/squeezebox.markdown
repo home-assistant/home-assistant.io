@@ -21,6 +21,7 @@ ha_platforms:
   - switch
   - update
 ha_integration_type: hub
+ha_quality_scale: silver
 ---
 
 The **Squeezebox** {% term integration %} allows you to control music players from the [Lyrion Music Server](https://lyrion.org/) (LMS) ecosystem. Lyrion Music Server was formerly known as [Logitech Media Server](https://en.wikipedia.org/wiki/Squeezebox_%28network_music_player%29).
@@ -176,11 +177,20 @@ The integration provides the following functionality:
 
 ### Binary sensors
 
-- **Needs restart**
-  - **Description**: Server Service needs to be restarted (typically, this is needed to apply updates).
+- **Alarm active**
+  - **Description**: One of the alarms on the Squeezebox player is currently going off. 
+
+- **Alarm snoozed**
+  - **Description**: One of the alarms on the Squeezebox player is currently active but snoozed. In this case the "Alarm active" binary sensor will be in state OFF.
+  
+- **Alarm upcoming**
+  - **Description**: The Squeezebox player has an alarm scheduled within the next 24 hours.
 
 - **Library rescan**
   - **Description**: The music library is currently being scanned by LMS (depending on the type of scan, some content may be unavailable).
+
+- **Needs restart**
+  - **Description**: Server Service needs to be restarted (typically, this is needed to apply updates).
 
 ### Buttons
 
@@ -203,6 +213,9 @@ The integration provides the following functionality:
 
 - **Last scan**
   - **Description**: Date of the last library scan.
+
+- **Next alarm**
+  - **Description**: Timestamp of the next enabled alarm of a player.
 
 - **Player count**
   - **Description**: Number of players on the service.
@@ -236,9 +249,9 @@ This integration will notify you when updates are available on the LMS for the L
 
 The integration provides the following actions.
 
-#### Action `call_method`
+#### Action: Call method
 
-Call a custom Squeezebox JSON-RPC API.
+The `squeezebox.call_method` action calls a custom Squeezebox JSON-RPC API.
 
 See documentation for this interface on `http://HOST:PORT/html/docs/cli-api.html?player=` where HOST and PORT are the host name and port for your Lyrion Music Server.
 

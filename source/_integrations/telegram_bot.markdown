@@ -18,7 +18,7 @@ ha_platforms:
 ---
 
 Use Telegram on your mobile or desktop device to send and receive messages or commands to/from your Home Assistant.
-This integration creates notification actions to send, edit or receive messages from a [Telegram Bot account](https://core.telegram.org/bots).
+This integration creates notification actions to send, edit, receive messages or download attachments from a [Telegram Bot account](https://core.telegram.org/bots).
 
 ## Introduction - Telegram bot platforms
 
@@ -85,7 +85,7 @@ If you plan to use the `Webhooks` platform, you will need to allow Telegram to c
 
 #### Home Assistant Cloud
 
-If you have a Home Assistant Cloud subscription, you can [enable remote access](https://support.nabucasa.com/hc/en-us/articles/26474279202973-Enabling-remote-access-to-Home-Assistant#to-activate-remote-control-from-outside-your-network) to your Home Assistant.
+If you have a Home Assistant Cloud subscription, you can [enable remote access](https://support.nabucasa.com/hc/articles/26474279202973#to-activate-remote-access-from-outside-your-network) to your Home Assistant.
 
 #### Reverse proxy
 
@@ -123,6 +123,8 @@ Platform:
   description: The Telegram bot type, either `Broadcast`, `Polling` or `Webhooks`.
 API key:
   description: The API token of your bot.
+API endpoint:
+  description: The endpoint of the Telegram bot API server. You should only change this value if you are using a self-hosted or third-party [Telegram bot API server](https://core.telegram.org/bots/api#using-a-local-bot-api-server). Changing this value will result in a *10-minute lockout* on the official Telegram bot API server. Defaults to the official Telegram bot API server at `https://api.telegram.org`.
 Proxy URL:
   description: Proxy URL if working behind one, optionally including username and password. (`socks5://username:password@proxy_ip:proxy_port`).
 {% endconfiguration_basic %}
@@ -142,9 +144,6 @@ Trusted networks:
 {% endconfiguration_basic %}
 
 {% include integrations/option_flow.md %}
-
-The integration can be configured to use a default parse mode for messages.
-
 {% configuration_basic %}
 Parse mode:
   description: Default parser for messages if not explicit in message data, either `markdown` (legacy), `markdownv2`, `html` or `plain_text`. Refer to Telegram's [formatting options](https://core.telegram.org/bots/api#formatting-options) for more information.
@@ -231,7 +230,6 @@ Send a photo.
 | `parse_mode`           | yes      | Parser for the message text: `markdownv2`, `html`, `markdown` or `plain_text`.                                                                                                                                                                                                                            |
 | `disable_notification` | yes      | True/false for send the message silently. iOS users and web users will not receive a notification, Android users will receive a notification with no sound. Defaults to False.                                                                                                                            |
 | `verify_ssl`           | yes      | True/false for checking the SSL certificate of the server for HTTPS URLs. Defaults to True.                                                                                                                                                                                                               |
-| `timeout`              | yes      | Timeout for sending photo in seconds. Will help with timeout errors (poor internet connection, etc)                                                                                                                                                                                                       |
 | `resize_keyboard`      | yes      | True/false for resizing the keyboard vertically for optimal fit. Defaults to False.                                                                                                                                                                                                                       |
 | `one_time_keyboard`    | yes      | True/false for hiding the keyboard as soon as it’s been used. The keyboard will still be available, but clients will automatically display the usual letter-keyboard in the chat - the user can press a special button in the input field to see the custom keyboard again. Defaults to False.            |
 | `keyboard`             | yes      | List of rows of commands, comma-separated, to make a custom keyboard. `[]` to reset to no custom keyboard. Example: `["/command1, /command2", "/command3"]`                                                                                                                                               |
@@ -259,7 +257,6 @@ Send a video.
 | `parse_mode`           | yes      | Parser for the message text: `markdownv2`, `html`, `markdown` or `plain_text`.                                                                                                                                                                                                                            |
 | `disable_notification` | yes      | True/false to send the message silently. iOS users and web users will not receive a notification. Android users will receive a notification with no sound. Defaults to False.                                                                                                                             |
 | `verify_ssl`           | yes      | True/false for checking the SSL certificate of the server for HTTPS URLs. Defaults to True.                                                                                                                                                                                                               |
-| `timeout`              | yes      | Timeout for sending video in seconds. Will help with timeout errors (poor internet connection, etc)                                                                                                                                                                                                       |
 | `resize_keyboard`      | yes      | True/false for resizing the keyboard vertically for optimal fit. Defaults to False.                                                                                                                                                                                                                       |
 | `one_time_keyboard`    | yes      | True/false for hiding the keyboard as soon as it’s been used. The keyboard will still be available, but clients will automatically display the usual letter-keyboard in the chat - the user can press a special button in the input field to see the custom keyboard again. Defaults to False.            |
 | `keyboard`             | yes      | List of rows of commands, comma-separated, to make a custom keyboard. `[]` to reset to no custom keyboard. Example: `["/command1, /command2", "/command3"]`                                                                                                                                               |
@@ -286,7 +283,6 @@ Send an animation.
 | `parse_mode`           | yes      | Parser for the message text: `markdownv2`, `html`, `markdown` or `plain_text`.                                                                                                                                                                                                                            |
 | `disable_notification` | yes      | True/false to send the message silently. iOS users and web users will not receive a notification. Android users will receive a notification with no sound. Defaults to False.                                                                                                                             |
 | `verify_ssl`           | yes      | True/false for checking the SSL certificate of the server for HTTPS URLs. Defaults to True.                                                                                                                                                                                                               |
-| `timeout`              | yes      | Timeout for sending video in seconds. Will help with timeout errors (poor internet connection, etc)                                                                                                                                                                                                       |
 | `resize_keyboard`      | yes      | True/false for resizing the keyboard vertically for optimal fit. Defaults to False.                                                                                                                                                                                                                       |
 | `one_time_keyboard`    | yes      | True/false for hiding the keyboard as soon as it’s been used. The keyboard will still be available, but clients will automatically display the usual letter-keyboard in the chat - the user can press a special button in the input field to see the custom keyboard again. Defaults to False.            |
 | `keyboard`             | yes      | List of rows of commands, comma-separated, to make a custom keyboard. `[]` to reset to no custom keyboard. Example: `["/command1, /command2", "/command3"]`                                                                                                                                               |
@@ -313,7 +309,6 @@ Send a voice message.
 | `target`               | yes      | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id.                                                                                                                                                                                       |
 | `disable_notification` | yes      | True/false to send the message silently. iOS users and web users will not receive a notification. Android users will receive a notification with no sound. Defaults to False.                                                                                                                             |
 | `verify_ssl`           | yes      | True/false for checking the SSL certificate of the server for HTTPS URLs. Defaults to True.                                                                                                                                                                                                               |
-| `timeout`              | yes      | Timeout for sending voice in seconds. Will help with timeout errors (poor internet connection, etc)                                                                                                                                                                                                       |
 | `resize_keyboard`      | yes      | True/false for resizing the keyboard vertically for optimal fit. Defaults to False.                                                                                                                                                                                                                       |
 | `one_time_keyboard`    | yes      | True/false for hiding the keyboard as soon as it’s been used. The keyboard will still be available, but clients will automatically display the usual letter-keyboard in the chat - the user can press a special button in the input field to see the custom keyboard again. Defaults to False.            |
 | `keyboard`             | yes      | List of rows of commands, comma-separated, to make a custom keyboard. `[]` to reset to no custom keyboard. Example: `["/command1, /command2", "/command3"]`                                                                                                                                               |
@@ -340,7 +335,6 @@ Send a sticker.
 | `target`               | yes      | An array of pre-authorized chat_ids or user_ids to send the notification to. Defaults to the first allowed chat_id.                                                                                                                                                                                       |
 | `disable_notification` | yes      | True/false for send the message silently. iOS users and web users will not receive a notification, Android users will receive a notification with no sound. Defaults to False.                                                                                                                            |
 | `verify_ssl`           | yes      | True/false for checking the SSL certificate of the server for HTTPS URLs. Defaults to True.                                                                                                                                                                                                               |
-| `timeout`              | yes      | Timeout for sending photo in seconds. Will help with timeout errors (poor internet connection, etc)                                                                                                                                                                                                       |
 | `resize_keyboard`      | yes      | True/false for resizing the keyboard vertically for optimal fit. Defaults to False.                                                                                                                                                                                                                       |
 | `one_time_keyboard`    | yes      | True/false for hiding the keyboard as soon as it’s been used. The keyboard will still be available, but clients will automatically display the usual letter-keyboard in the chat - the user can press a special button in the input field to see the custom keyboard again. Defaults to False.            |
 | `keyboard`             | yes      | List of rows of commands, comma-separated, to make a custom keyboard. `[]` to reset to no custom keyboard. Example: `["/command1, /command2", "/command3"]`                                                                                                                                               |
@@ -368,7 +362,6 @@ Send a document.
 | `parse_mode`           | yes      | Parser for the message text: `markdownv2`, `html`, `markdown` or `plain_text`.                                                                                                                                                                                                                            |
 | `disable_notification` | yes      | True/false for send the message silently. iOS users and web users will not receive a notification, Android users will receive a notification with no sound. Defaults to False.                                                                                                                            |
 | `verify_ssl`           | yes      | True/false for checking the SSL certificate of the server for HTTPS URLs. Defaults to True.                                                                                                                                                                                                               |
-| `timeout`              | yes      | Timeout for sending document in seconds. Will help with timeout errors (poor internet connection, etc)                                                                                                                                                                                                    |
 | `resize_keyboard`      | yes      | True/false for resizing the keyboard vertically for optimal fit. Defaults to False.                                                                                                                                                                                                                       |
 | `one_time_keyboard`    | yes      | True/false for hiding the keyboard as soon as it’s been used. The keyboard will still be available, but clients will automatically display the usual letter-keyboard in the chat - the user can press a special button in the input field to see the custom keyboard again. Defaults to False.            |
 | `keyboard`             | yes      | List of rows of commands, comma-separated, to make a custom keyboard. `[]` to reset to no custom keyboard. Example: `["/command1, /command2", "/command3"]`                                                                                                                                               |
@@ -414,7 +407,6 @@ Send a poll.
 | `allows_multiple_answers` | yes      | True/false for if the poll allows multiple answers, defaults to False.                                                                                                         |
 | `open_period`             | yes      | Amount of time in seconds the poll will be active after creation, 5-600.                                                                                                       |
 | `disable_notification`    | yes      | True/false for send the message silently. iOS users and web users will not receive a notification, Android users will receive a notification with no sound. Defaults to False. |
-| `timeout`                 | yes      | Timeout for sending voice in seconds. Will help with timeout errors (poor internet connection, etc)                                                                            |
 | `reply_to_message_id`     | yes      | Mark the message as a reply to a previous message. In `telegram_callback` handling, for example, you can use {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %} |
 | `message_thread_id`       | yes      | Send the message to a specific topic or thread.|
 
@@ -455,11 +447,11 @@ Edit a previously sent message media in a conversation.
 | `config_entry_id`      | yes      | The config entry representing the Telegram bot to edit the message media. Required if you have multiple Telegram bots.|
 | `message_id`           | no       | ID of the message to edit. When reacting to a pressed button, the ID of the origin message is in: {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %}. You can use `"last"` to refer to the last message sent to `chat_id`.                                                  |
 | `chat_id`              | no       | The ID of the chat in which you want to edit the message media.                                                                                                                                                                                                                                                                    |
-| `timeout`              | yes      | Timeout for sending the media in seconds. Will help with timeout errors (poor internet connection, etc)                                                                                                                                                                                                       |
 | `media_type`           | no       | The media type: `animation`, `audio`, `document`, `photo`, or `video`.  |
 | `url`                  | no       | Remote path to the media.                                                                                                                                                                                                                                                                                  |
 | `file`                 | no       | Local path to the media.                                                                                                                                                                                                                                                                                   |
 | `caption`              | yes      | The title of the media.                                                                                                                                                                                                                                                                                   |
+| `parse_mode`               | yes      | Parser for the message text: `markdownv2`, `html`, `markdown` or `plain_text`.                                                                                                                                                                                                                            |
 | `authentication`       | yes      | Define which authentication method to use. Set to `basic` for HTTP basic authentication, `digest` for HTTP digest authentication, or `bearer_token` for OAuth 2.0 bearer token authentication.                                                                                                                           |
 | `username`             | yes      | Username for a URL which requires HTTP `basic` or `digest` authentication.                                                                                                                                                                                                                                                    |
 | `password`             | yes      | Password (or bearer token) for a URL that requires authentication.                                                                                                                                                                                                                                   |
@@ -476,6 +468,7 @@ Edit the caption of a previously sent message.
 | `message_id`               | no       | Id of the message to edit. When answering a callback from a pressed button, the id of the origin message is in: {% raw %}`{{ trigger.event.data.message.message_id }}`{% endraw %}. You can use `"last"` to refer to the last message sent to `chat_id`.                                                  |
 | `chat_id`                  | no       | The chat_id where to edit the caption.                                                                                                                                                                                                                                                                    |
 | `caption`                  | no       | Message body of the notification.                                                                                                                                                                                                                                                                         |
+| `parse_mode`               | yes      | Parser for the message text: `markdownv2`, `html`, `markdown` or `plain_text`.                                                                                                                                                                                                                            |
 | `inline_keyboard`          | yes      | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data or external URL (https-only). Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Google link", "https://google.com"]]]` |
 
 ### Action `telegram_bot.edit_replymarkup`
@@ -530,6 +523,36 @@ Sets the bot's reaction for a given message.
 | `chat_id`           | no       | Id of the chat containing the message.                           |
 | `reaction`          | no       | Emoji to react to the message with. |
 | `is_big`            | yes      | Whether to use a large variant of the reaction animation.        |
+
+### Action `telegram_bot.download_file`
+
+Download a file previously sent to the bot and save it to a local path on the Home Assistant host.
+
+| Data attribute   | Optional | Description |
+| ---------------- | -------- | ----------- |
+| `config_entry_id`| yes      | The config entry representing the Telegram bot to get the file. Required if you have multiple Telegram bots. |
+| `file_id`        | no       | ID of the file to get. This is provided in `telegram_attachment` event data as `file_id`. |
+| `directory_path` | yes      | Local directory path to save the file to. Defaults to `/config/telegram_bot/`. |
+| `file_name`      | yes      | Name to save the file as. If not provided, the original file name will be used. |
+
+Example YAML usage:
+
+```yaml
+action: telegram_bot.download_file
+data:
+  config_entry_id: "<your_config_entry_id>"
+  file_id: "ABCD1234Efgh5678Ijkl90mnopQRStuvwx"
+  directory_path: "/config/telegram_bot/"
+  file_name: "my_downloaded_file"
+```
+
+{% note %}
+
+- For file size limits and download behavior, refer to the python-telegram-bot documentation: [python-telegram-bot - get_file](https://docs.python-telegram-bot.org/en/stable/telegram.bot.html#telegram.Bot.get_file)
+- For the moment, bots can download files of up to 20 MB in size.
+- Ensure the target `directory_path` is included in `allowlist_external_dirs` if you need to serve or access the file from the frontend.
+
+{% endnote %}
 
 ## Response schemas for actions
 

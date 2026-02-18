@@ -6,7 +6,7 @@ installation_name: "Operating System"
 related:
   - docs: /docs/configuration/
 ---
-This section will provide guides to some common tasks and information which you will need in order to run, maintain, and edit your Home Assistant OS system. For further details on any particular subject, make sure to refer to the documentation for specific add-ons or topics listed here.
+This section will provide guides to some common tasks and information which you will need in order to run, maintain, and edit your Home Assistant OS system. For further details on any particular subject, make sure to refer to the documentation for specific apps (formerly known as add-ons) or topics listed here.
 
 {% include common-tasks/file_access.md %}
 
@@ -31,7 +31,7 @@ If you have the {% term "Home Assistant Operating System" %} installed, you rece
 - {% term "Home Assistant Operating System" %}
 - {% term "Home Assistant Supervisor" %}
 - {% term "Home Assistant Core" %}
-- {% term "Add-ons" %}, if you have any installed
+- {% term "Apps" %}, if you have any installed
 
 Each of these components needs to be updated separately.
 
@@ -132,6 +132,24 @@ For more information, refer to the [Labs documentation](/integrations/labs).
 
 <!-- Accessing Home Assistant from the commandline-->
 {% include common-tasks/commandline.md %}
+
+## Enable duplicate log file
+
+By default, Home Assistant Core logs are sent to the Systemd Journal, which can be read using the [`ha core logs` command](/common-tasks/os/#home-assistant-via-the-command-line). If you need logs to also be written to a file (`/config/home-assistant.log`), you can enable the duplicated log file option using the [command line](/common-tasks/os/#home-assistant-via-the-command-line):
+
+```bash
+ha core options --duplicate-log-file=true
+ha core rebuild
+ha core restart
+```
+
+To disable it:
+
+```bash
+ha core options --duplicate-log-file=false
+ha core rebuild
+ha core restart
+```
 
 <!-- Enabling i2c-->
 {% include common-tasks/enable_i2c.md %}

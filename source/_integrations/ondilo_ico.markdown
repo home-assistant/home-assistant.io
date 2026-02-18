@@ -27,6 +27,10 @@ There is currently support for the following information within Home Assistant:
 
 Sensors will be created for all those data.
 
+## Prerequisites
+
+- Password from the **Ondilo mobile app**.
+   - The password used to log in to the Ondilo website usually does not work for the Home Assistant/API authentication, as it is not linked to the API.
 {% include integrations/config_flow.md %}
 
 ## Known limitations

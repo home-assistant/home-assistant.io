@@ -17,11 +17,11 @@ ha_platforms:
   - select
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: hub
 ha_domain: schlage
 ---
 
-The Schlage {% term integration %} provides connectivity with Schlage WiFi smart locks through Schlage's cloud API.
+The **Schlage** {% term integration %} provides connectivity with Schlage WiFi smart locks through Schlage's cloud API.
 
 ## Known working devices
 

@@ -31,8 +31,6 @@ Controlling Home Assistant is done by providing the AI access to the Assist API 
 
 Legal note: Individuals and hobbyists are welcome to use the Anthropic API [for personal use](https://support.anthropic.com/en/articles/8987200-can-i-use-the-claude-api-for-individual-use), however, please note that the use of the API is subject to their [Commercial Terms of Service](https://www.anthropic.com/legal/commercial-terms), regardless of whether you are an individual or representing a company.
 
-This integration does not integrate with [sentence triggers](/docs/automation/trigger/#sentence-trigger).
-
 ## Prerequisites
 
 - This integration requires an API key to use, [which you can generate here.](https://console.anthropic.com/settings/keys). 
@@ -48,7 +46,17 @@ The Anthropic API key is used to authenticate requests to the Anthropic API. To 
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+API key:
+  description: "API key from Anthropic for authentication."
+{% endconfiguration_basic %}
+
 {% include integrations/option_flow.md %}
+
+The integration provides the following types of subentries:
+
+- [Conversation](/integrations/conversation/)
+- [AI Task](/integrations/ai_task/)
 
 {% configuration_basic %}
 Instructions:
@@ -70,6 +78,8 @@ Temperature:
   description: Amount of randomness injected into the response. Use `temperature` closer to `0.0` for analytical / multiple choice, and closer to `1.0` for creative and generative tasks. Note that even with `temperature` of `0.0`, the results will not be fully deterministic. This parameter is ignored if extended thinking is enabled (see below).
 Thinking budget:
   description: For models with [extending thinking](https://docs.anthropic.com/en/docs/build-with-claude/extended-thinking) support, such as Claude 3.7 Sonnet, this parameter determines the maximum number of tokens Claude is allowed use for its internal reasoning process. Larger budgets can improve response quality by enabling more thorough analysis for complex problems, although Claude may not use the entire budget allocated, especially at ranges above 32K. Anthropic suggests starting at the minimum and increasing the thinking budget incrementally to find the optimal range for Claude to perform well for your use case. Higher token counts may allow you to achieve more comprehensive and nuanced reasoning, but there may also be diminishing returns depending on the task. Be prepared for potentially longer response times due to the additional processing required for the reasoning process. The value must always be less than the `Maximum Tokens` specified. If the value is below `1024`, then extended thinking is disabled. This parameter is ignored if the model does not support extended thinking.
+Thinking effort:
+  description: Newer models (starting from Claude 4.6) use the [effort](https://platform.claude.com/docs/en/build-with-claude/effort) parameter, instead of the thinking budget, to control how many tokens Claude uses when responding, trading off between response thoroughness and token efficiency.
 Enable web search:
   description: Enable the server-side [Web search tool](https://docs.claude.com/en/docs/agents-and-tools/tool-use/web-search-tool) for direct access to real-time web content, allowing it to answer questions with up-to-date information beyond its knowledge cutoff. Please note that this tool has its own [pricing](https://docs.claude.com/en/docs/agents-and-tools/tool-use/web-search-tool#usage-and-pricing).
 Maximum web searches:
@@ -77,3 +87,20 @@ Maximum web searches:
 Include home location:
   description: The parameter allows you to localize search results based on the Home Assistant location.
 {% endconfiguration_basic %}
+
+## Use cases
+
+The integration provides `conversation` and `ai_task` entities powered by Anthropic API. Please refer to the corresponding integrations for more details and examples:
+
+- [Conversation](/integrations/conversation/)
+- [AI Task](/integrations/ai_task/)
+
+## Known limitations
+
+This integration does not integrate with [sentence triggers](/docs/automation/trigger/#sentence-trigger).
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}

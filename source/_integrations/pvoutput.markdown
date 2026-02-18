@@ -15,6 +15,6 @@ ha_platforms:
 ha_integration_type: device
 ---
 
-The PVOutput {% term integration %} consumes information from [PVOutput](https://pvoutput.org/) which was uploaded by your solar photovoltaic (PV) system.
+The **PVOutput** {% term integration %} consumes information from [PVOutput](https://pvoutput.org/) which was uploaded by your solar photovoltaic (PV) system.
 
 {% include integrations/config_flow.md %}

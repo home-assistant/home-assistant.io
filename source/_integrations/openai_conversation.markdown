@@ -22,7 +22,7 @@ related:
     title: OpenAI
 ---
 
-The OpenAI {% term integration %} adds a conversation agent powered by [OpenAI](https://www.openai.com) in Home Assistant.
+The **OpenAI** {% term integration %} adds a conversation agent powered by [OpenAI](https://www.openai.com) in Home Assistant.
 
 Controlling Home Assistant is done by providing the AI access to the Assist API of Home Assistant. You can control what devices and entities it can access from the {% my voice_assistants title="exposed entities page" %}. The AI is able to provide you information about your devices and control them.
 
@@ -31,6 +31,12 @@ This integration does not integrate with [sentence triggers](/docs/automation/tr
 This integration requires an API key to use, [which you can generate here.](https://platform.openai.com/account/api-keys). This is a paid service, we advise you to monitor your costs in the [OpenAI portal](https://platform.openai.com/account) closely and configure [usage limits](https://platform.openai.com/account/billing/limits) to avoid unwanted costs associated with using the service.
 
 {% include integrations/config_flow.md %}
+
+
+{% configuration_basic %}
+API key:
+  description: "API key from OpenAI for authentication."
+{% endconfiguration_basic %}
 
 ## Generate an API Key
 
@@ -115,7 +121,7 @@ to generate a new image of New York in the current weather state.
 The resulting image entity can be used in, for example, a card on your dashboard.
 
 The *config_entry* is installation specific. To get the value, make sure the integration has been installed.
-Then, go to {% my developer_services title="**Developer Tools** > **Actions**" %}. Ensure you are in UI mode and enter the following below:
+Then, go to {% my developer_services title="**Settings** > **Developer tools** > **Actions**" %}. Ensure you are in UI mode and enter the following below:
 
 ![Open AI Conversation UI Mode](/images/integrations/openai_conversation/openai_developer_tools_ui.png)
 
@@ -157,23 +163,23 @@ template:
 
 {% endraw %}
 
-### Service `openai_conversation.generate_content`
+### Action: Generate content
 
-Allows you to ask OpenAI to generate a content based on a prompt. This service
+The `openai_conversation.generate_content` action allows you to ask OpenAI to generate a content based on a prompt. This action
 populates [Response Data](/docs/scripts/service-calls#use-templates-to-handle-response-data)
 with the response from OpenAI.
 
-- **Service data attribute**: `config_entry`
+- **Data attribute**: `config_entry`
   - **Description**: Integration entry ID to use.
   - **Example**:
   - **Optional**: no
 
-- **Service data attribute**: `prompt`
+- **Data attribute**: `prompt`
   - **Description**: The text to generate content from.
   - **Example**: Describe the weather
   - **Optional**: no
 
-- **Service data attribute**: `image_filename`
+- **Data attribute**: `image_filename`
   - **Description**: List of file names for images to include in the prompt.
   - **Example**: /tmp/image.jpg
   - **Optional**: yes
@@ -181,7 +187,7 @@ with the response from OpenAI.
 {% raw %}
 
 ```yaml
-service: openai.generate_content
+action: openai_conversation.generate_content
 data:
   config_entry: abce6b8696a15e107b4bd843de722249
   prompt: >-
@@ -202,7 +208,7 @@ Another example with multiple images:
 {% raw %}
 
 ```yaml
-service: openai.generate_content
+action: openai_conversation.generate_content
 data:
   prompt: >-
     Briefly describe what happened in the following sequence of images
@@ -216,3 +222,13 @@ response_variable: generated_content
 ```
 
 {% endraw %}
+
+## Known Limitations
+
+Currently the integration does not have any known limitations.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}

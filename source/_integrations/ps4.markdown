@@ -11,10 +11,10 @@ ha_codeowners:
 ha_domain: ps4
 ha_platforms:
   - media_player
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
-The `ps4` integration allows you to control a
+The **Sony PlayStation 4** {% term integration %} allows you to control a
 [Sony PlayStation 4 console](https://www.playstation.com/ps4/).
 
 ## Requirements

@@ -56,9 +56,9 @@ The initial process can be a bit time consuming and tedious, but it only has to 
 
 ## Actions
 
-### Action `dynalite.request_area_preset`
+### Action: Request area preset
 
-Send a command on the Dynalite network asking an area to report its currently selected preset. Normally, channel 1 (default) is used, but in some implementation, specific areas will need other channels.
+The `dynalite.request_area_preset` action allows you to send a command on the Dynalite network asking an area to report its currently selected preset. Normally, channel 1 (default) is used, but in some implementation, specific areas will need other channels.
 
 {% note %}
 
@@ -72,9 +72,9 @@ This does not return the area preset. It sends a network command asking the area
 | `area`                 | no       | Area for the requested channel.                                                           |
 | `channel`              | no       | Which channel to request.                                                                 |
 
-### Action `dynalite.request_channel_level`
+### Action: Request channel level
 
-Send a command on the Dynalite network asking a specific channel in an area to report its current level.
+The `dynalite.request_channel_level` action allows you to send a command on the Dynalite network asking a specific channel in an area to report its current level.
 
 {% note %}
 

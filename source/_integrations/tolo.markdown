@@ -25,7 +25,7 @@ ha_dhcp: true
 ha_integration_type: integration
 ---
 
-The TOLO {% term integration %} allows to control [Steamtec TOLO](https://www.tolosauna.com/) devices with Home Assistant.
+The **TOLO Sauna** {% term integration %} allows to control [Steamtec TOLO](https://www.tolosauna.com/) devices with Home Assistant.
 
 
 ## Prerequisites

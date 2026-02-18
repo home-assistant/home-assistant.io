@@ -119,7 +119,7 @@ For more options about `speak`, see the Speak section on the main [TTS](/integra
 A `tts.speak` service call can look like:
 
 ```yaml
-service: tts.speak
+action: tts.speak
 target:
   entity_id: tts.google_cloud
 data:

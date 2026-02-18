@@ -11,10 +11,10 @@ ha_codeowners:
 ha_domain: pvpc_hourly_pricing
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
-This sensor uses the official API to get the hourly price of electricity in Spain from <https://www.esios.ree.es/en/pvpc>.
+This {% term integration %} uses the official API to get the hourly price of electricity in Spain from <https://www.esios.ree.es/en/pvpc>.
 
 Specifically, it shows the current __active energy invoicing price (FEU)__ in €/kWh, which is the energy term hourly price applied in the consumers' electrical bill with a contracted power not exceeding 15 kW and which are under the PVPC (Voluntary Price for Small Consumer).
 

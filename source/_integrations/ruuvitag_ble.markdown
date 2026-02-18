@@ -12,7 +12,7 @@ ha_domain: ruuvitag_ble
 ha_config_flow: true
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 Integrates [Ruuvi](https://ruuvi.com/)'s RuuviTag and Ruuvi Air BLE devices into Home Assistant.

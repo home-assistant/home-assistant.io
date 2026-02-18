@@ -20,7 +20,7 @@ ha_platforms:
   - sensor
   - switch
   - valve
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The **Hunter Hydrawise** {% term integration %} allows you to integrate your [Hunter Hydrawise](https://hydrawise.com) Wi-Fi irrigation controller system in Home Assistant.
@@ -86,27 +86,27 @@ Due to changes in the Hydrawise API the status of the Auto Watering switches has
 
 The Hydrawise integration makes various custom {% term actions %} available.
 
-### Action `hydrawise.start_watering`
+### Action: Start watering
 
-Starts a watering cycle in an irrigation zone.
+The `hydrawise.start_watering` action starts a watering cycle in an irrigation zone.
 
 | Data attribute | Optional | Description                                                                                                                                                                                     |
 | -------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `entity_id`    | no       | The irrigation zone in which to start watering.                                                                                                                                                 |
 | `duration`     | yes      | The length of time (in minutes) to run a watering cycle. If not specified (or zero), the default watering duration set in the Hydrawise mobile or web app for the irrigation zone will be used. |
 
-### Action `hydrawise.suspend`
+### Action: Suspend
 
-Suspends automatic watering in an irrigation zone until a specified date.
+The `hydrawise.suspend` action suspends automatic watering in an irrigation zone until a specified date.
 
 | Data attribute | Optional | Description                                                                                |
 | -------------- | -------- | ------------------------------------------------------------------------------------------ |
 | `entity_id`    | no       | The irrigation zone in which to suspend watering.                                          |
 | `until`        | no       | The date & time when automatic watering should be resumed. For example, `2024-08-30 08:30` |
 
-### Action `hydrawise.resume`
+### Action: Resume
 
-Resumes automatic watering in an irrigation zone.
+The `hydrawise.resume` action resumes automatic watering in an irrigation zone.
 
 | Data attribute | Optional | Description                                      |
 | -------------- | -------- | ------------------------------------------------ |
