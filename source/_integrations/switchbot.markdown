@@ -489,11 +489,11 @@ automation:
       Triggers the date and time sync for the Meter Pro CO2 every
       night.
     trigger:
-      - platform: time
-        # Trigger optimized for daylight saving time changes.
-        # These usually happen at 02:00am.
+    triggers:
+      - trigger: time
+        # Trigger optimized for DST (summer/winter) time changes that usually happen at 02:00am.
         at: "03:00:00"
-    action:
+    actions:
       - action: button.press
         target:
           # Replace with your actual entity ID
