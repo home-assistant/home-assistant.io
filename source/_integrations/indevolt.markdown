@@ -51,7 +51,6 @@ The Indevolt integration provides sensors for monitoring your device (read only)
 
 #### BK1600/BK1600Ultra (Generation 1)
 
-- Serial number
 - Device mode (overal setup of the device, for example standalone/cluster)
 - Energy mode (battery and energy management strategy, for example Self-Consumped Prioritized/Price-Based Strategy)
 - DC input power (2 channels, W)
@@ -85,11 +84,11 @@ All Generation 1 sensors, plus:
 - Bypass input energy (Wh)
 - Off-grid output energy (kWh)
 - Total AC output energy (kWh)
-- Main serial number
-- Main SOC (%)
-- Main temperature (°C)
-- Main voltage (V)
-- Main current (A)
+- Main battery serial number
+- Main battery SOC (%)
+- Main battery temperature (°C)
+- Main battery voltage (V)
+- Main battery current (A)
 - Battery pack 1-5 serial number
 - Battery pack 1-5 SOC (%)
 - Battery pack 1-5 temperature (°C)
