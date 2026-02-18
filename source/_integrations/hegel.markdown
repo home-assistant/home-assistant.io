@@ -84,27 +84,6 @@ Each Hegel model has specific input configurations that are automatically mapped
 
 ## Using the integration
 
-### Basic media player controls
-
-Once configured, your Hegel amplifier appears as a media player entity with standard controls:
-
-```yaml
-# Turn on the amplifier
-action: media_player.turn_on
-target:
-  entity_id: media_player.hegel_amplifier
-```
-```yaml
-# Set volume to 70%
-action: media_player.volume_set
-target:
-  entity_id: media_player.hegel_amplifier
-data:
-  volume_level: 0.7
-```
-```yaml
-# Select input source
-action: media_player.select_source
 target:
   entity_id: media_player.hegel_amplifier
 data:
