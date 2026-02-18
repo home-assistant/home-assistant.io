@@ -259,7 +259,7 @@ This event triggers when a user-defined event is received from the device.
 
 - **Attributes**:
   - `command`: The command received.
-  - `params`: The parameters received.
+  - `parameters`: The parameters received.
 
 ## Examples
 
