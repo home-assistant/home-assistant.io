@@ -99,7 +99,7 @@ The `mastodon.mute_account` action is used to mute an account you follow, which 
 
 - **Data attribute**: `hide_notifications`
   - **Description**: Hide notifications as well as muting the account, defaults to hide.
-  - **Optional**: No
+  - **Optional**: Yes
 
 ### Action: Unmute account
 
@@ -297,7 +297,6 @@ actions:
           - action: mastodon.mute_account
             metadata: {}
             data:
-              hide_notifications: true
               config_entry_id: YOUR_MASTODON_CONFIG_ENTITY_ID
               account_name: "@commute-news@mytown.online"
       - conditions:
