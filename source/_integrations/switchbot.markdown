@@ -478,7 +478,7 @@ Features:
 
 ##### Syncing the device date and time with Home Assistant automatically
 
-The integration adds a **Sync Date and Time** button to the device's details page. You can set up your own automation that triggers that button regularly. Here's a simple example for `configuration.yaml`:
+The integration adds a **Sync date and time** button to the device's details page. You can set up your own automation that triggers that button regularly. Here's a simple example for `configuration.yaml`:
 
 {% raw %}
 
