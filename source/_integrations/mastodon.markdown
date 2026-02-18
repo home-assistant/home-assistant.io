@@ -22,11 +22,11 @@ ha_quality_scale: bronze
 
 The **Mastodon** {% term integration %} uses [Mastodon](https://joinmastodon.org/) to post status updates and get account statistics.
 
-### Setup
+## Setup
 
 Go to **Preferences** in the Mastodon web interface, then to **Development** and create a new application.
 
-Check the following scopes **read:accounts**, **write:statuses** and **write:media**.
+Check at a minimum the following scopes **read:accounts**, **write:statuses**, **write:media**, and **write:mutes**.
 
 Select **Submit** to create the application and generate the key, secret, and token required for the integration.
 
@@ -79,6 +79,38 @@ The `mastodon.get_account` action is used to get details of an account. Will onl
 
 - **Data attribute**: `account_name`
   - **Description**: The account name to get, in the format `@user@instance`.
+  - **Optional**: No
+
+### Action: Mute account
+
+The `mastodon.mute_account` action is used to mute an account you follow.
+
+- **Data attribute**: `config_entry_id`
+  - **Description**: The ID of the Mastodon config entry.
+  - **Optional**: No
+
+- **Data attribute**: `account_name`
+  - **Description**: The account name to mute, in the format `@user@instance`.
+  - **Optional**: No
+
+- **Data attribute**: `duration`
+  - **Description**: The duration, in hours, to mute the account, if omitted the account will be muted indefinitely.
+  - **Optional**: Yes
+
+- **Data attribute**: `hide_notifications`
+  - **Description**: Hide notifications as well as muting the account, defaults to hide.
+  - **Optional**: No
+
+### Action: Unmute account
+
+The `mastodon.unmute_account` action is used to un-mute a previously muted account.
+
+- **Data attribute**: `config_entry_id`
+  - **Description**: The ID of the Mastodon config entry.
+  - **Optional**: No
+
+- **Data attribute**: `account_name`
+  - **Description**: The account name to unmute, in the format `@user@instance`.
   - **Optional**: No
 
 ### Action: Post
@@ -222,11 +254,86 @@ This will post a status to Mastodon that includes an image, with a description, 
 
 {% enddetails %}
 
+{% details "Example mute a local transport account whilst you are on holiday" %}
+
+This automation will look for an event in your calendar and mute the specified account whilst the event is active, and unmute at the end of the event.
+
+{% raw %}
+
+```yaml
+alias: Mastodon mute example
+description: "Mute a Mastodon account whilst a calendar event is active"
+triggers:
+  - trigger: calendar.event_started
+    target:
+      entity_id: calendar.YOUR_CALENDAR
+    options:
+      offset:
+        days: 0
+        hours: 0
+        minutes: 0
+        seconds: 0
+      offset_type: before
+    id: start
+  - trigger: calendar.event_started
+    target:
+      entity_id: calendar.YOUR_CALENDAR
+    options:
+      offset:
+        days: 0
+        hours: 0
+        minutes: 0
+        seconds: 0
+      offset_type: after
+    id: end
+conditions: []
+actions:
+  - choose:
+      - conditions:
+          - condition: trigger
+            id:
+              - start
+        sequence:
+          - action: mastodon.mute_account
+            metadata: {}
+            data:
+              hide_notifications: true
+              config_entry_id: YOUR_MASTODON_CONFIG_ENTITY_ID
+              account_name: "@commute-news@mytown.online"
+      - conditions:
+          - condition: trigger
+            id:
+              - end
+        sequence:
+          - action: mastodon.unmute_account
+            metadata: {}
+            data:
+              config_entry_id: YOUR_MASTODON_CONFIG_ENTITY_ID
+              account_name: "@commute-news@mytown.online"
+mode: single
+```
+
+{% endraw %}
+
+{% enddetails %}
+
 For more on how to use notifications in your automations, please see the [getting started with automation page](/getting-started/automation/).
 
 ## Known limitations
 
-The integration only allows reading the status of the authenticated account and posting to that account. It does not provide functionality to get the stream, favorite, bookmark, or boost posts of that account.
+The integration does not provide functionality to get the stream, favorite, bookmark, or boost posts of that account.
+
+## Troubleshooting
+
+### Unable to use actions
+
+#### Symptom: “Errors appear in the log when using an action”
+
+Actions require specific permissions within your Mastodon account to read or write, ensure that you have set these appropriately within your account, please see the [setup instructions](#setup).
+
+#### Description
+
+This means the settings on the device are incorrect, since the device needs to be enabled for local communication.
 
 ## Removing the integration
 
