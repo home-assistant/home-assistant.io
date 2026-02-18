@@ -112,7 +112,7 @@ state_class:
   description: "[state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor. May be `null`, `measurement`, or `total_increasing` (not allowed for `ratio` type)."
   required: false
   default: measurement
-  type: string  
+  type: string
 {% endconfiguration %}
 
 {% note %}
