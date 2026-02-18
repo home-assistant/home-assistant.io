@@ -48,7 +48,7 @@ To add a bus arrival sensor:
 4. Select the stop from the list. Direction information is included with each stop.
 
 {% note %}
-Bus tracking requires an API key. If you did not provide one during initial setup, you will be prompted to add one through the reauthentication flow.
+Bus tracking requires an API key. If you did not provide one during initial setup, you will be prompted to enter one when you attempt to add a bus stop.
 {% endnote %}
 
 ## Supported functionality
