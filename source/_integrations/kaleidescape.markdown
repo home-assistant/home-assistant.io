@@ -13,6 +13,7 @@ ha_codeowners:
   - '@SteveEasley'
 ha_domain: kaleidescape
 ha_platforms:
+  - event
   - media_player
   - remote
   - sensor
@@ -224,6 +225,45 @@ The Cinemascape mode of the current movie.
 - native
 
 Additional details about the values provided by the sensors can be found in Kaleidescape's [Control Protocol Reference Manual](https://www.kaleidescape.com/wp-content/uploads/Kaleidescape-System-Control-Protocol-Reference-Manual.pdf).
+
+## Event
+
+The Kaleidescape event platform creates [Event](/integrations/event/) entities for the device. These entities trigger when specific events occur on the Kaleidescape system.
+
+### Volume state queried
+
+This event triggers when the volume state is queried from the mobile app.
+
+### Volume level set
+
+This event triggers when the volume level is set in the mobile app.
+
+- **Attributes**:
+  - `volume_level`: The new volume level.
+
+### Volume up pressed
+
+This event triggers when the volume up button is pressed on the remote or in the mobile app.
+
+### Volume down pressed
+
+This event triggers when the volume down button is pressed on the remote or in the mobile app.
+
+### Volume mute toggled
+
+This event triggers when the mute button is toggled on the remote or in the mobile app.
+
+### User-defined event
+
+This event triggers when a user-defined event is received from the device.
+
+- **Attributes**:
+  - `command`: The command received.
+  - `params`: The parameters received.
+
+## Examples
+
+### Theater lights
 
 A typical automation might look like the example below, which turns up the lights when the _media_location_ sensor leaves the _content_ state.
 
