@@ -24,10 +24,11 @@ The **Ghost** {% term integration %} allows you to monitor your [Ghost](https://
 
 ### Create a Ghost Admin API integration
 
-1. [Create a new custom integration in Ghost](https://account.ghost.org/?r=settings/integrations/new)
-2. Give it a name (for example, "Home Assistant")
-3. Copy the **API URL**
-4. Copy the **Admin API Key**
+1. In Ghost Admin, go to **Settings** > **Integrations**.
+2. Under **Custom Integrations**, select **Add custom integration**.
+3. Enter a name, like **Home Assistant**.
+4. Copy the **API URL**.
+5. Copy the **Admin API Key**.
 
 {% include integrations/config_flow.md %}
 
@@ -92,6 +93,7 @@ The integration {% term polling polls %} your Ghost site every 5 minutes to upda
 
 ### Announce milestone member counts
 
+{% raw %}
 ```yaml
 automation:
   - alias: "Member milestone celebration"
@@ -107,6 +109,7 @@ automation:
           title: "Milestone reached!"
           message: "You now have {{ trigger.to_state.state }} members!"
 ```
+{% endraw %}
 
 ## Known limitations
 
