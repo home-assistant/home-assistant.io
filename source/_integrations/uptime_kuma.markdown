@@ -131,7 +131,7 @@ If you'd like a single binary sensor that reflects the global status of your Upt
 1. Open your Home Assistant Dashboard.
 2. Go to {% my helpers title="**Settings** > **Devices & services** > **Helpers**" %}.
 3. Select **Create helper**.
-4. Navigate to **Templates > Binary sensor**.
+4. Go to **Templates** > **Binary sensor**.
 5. Fill in the name, for example **Uptime Kuma global status**.
 6. Select the device class **problem**.
 7. Paste the following state template:
