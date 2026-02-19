@@ -27,7 +27,8 @@ This is the local counterpart to the [Nexia](/integrations/nexia/) cloud integra
 Before setting up this integration, you must:
 
 1. Assign a **static IP address** to your thermostat on your network.
-2. Put the thermostat in _pairing mode_: Go to **Menu** > **Settings** > **Network** > **Advanced Setup** > **Remote Connection** > **Pair**.
+2. Put the thermostat in _pairing mode_: 
+   - In the UI of your thermostat, go to **Menu** > **Settings** > **Network** > **Advanced Setup** > **Remote Connection** > **Pair**.
 
 ## Supported devices
 
