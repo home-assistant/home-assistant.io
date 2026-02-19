@@ -14,7 +14,7 @@ ha_domain: nexa
 ha_dhcp: true
 ha_zeroconf: true
 ha_quality_scale: bronze
-integration_type: device
+integration_type: hub
 ---
 
 The **System Nexa 2** {% term integration %} allows you to integrate with the **System Nexa 2** devices from [Nexa](https://nexa.se/smarta-hem/system-nexa-2).
