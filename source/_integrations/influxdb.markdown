@@ -24,7 +24,7 @@ The **InfluxDB** {% term integration %} lets you transfer all state changes to a
 - [InfluxDB 2.x](https://docs.influxdata.com/influxdb/v2/) – Including [InfluxDB Cloud](https://cloud2.influxdata.com/signup). Sensors query using Flux.
 - [InfluxDB 1.x](https://docs.influxdata.com/influxdb/v1/) – Sensors query using InfluxQL.
 
-For more information on configuration of InfluxDB, refer to the [influxdb_configuration](#influxdb-configuration) section below.
+For more information on configuration of InfluxDB, refer to the [InfluxDB configuration](#influxdb-configuration) section below.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -61,18 +61,18 @@ SSL CA Certificate:
 URL:
     description: "The URL of your InfluxDB host."
 Organization:
-    description: "Organization ID. For InfluxDB 2.x, find this in your installation URL after /orgs. For InfluxDB 3, this value is required but not validated—use any value."
+    description: "Organization ID. For InfluxDB 2.x, find this in your installation URL after `/orgs`. For InfluxDB 3, this value is required but not validated—use any value."
 Bucket:
     description: "For InfluxDB 2.x, the bucket name. For InfluxDB 3, this maps to the database name."
 Token:
-    description: "Auth token with write access."
+    description: "Authentication token with write access."
 Verify SSL:
     description: "Verify SSL certificate for HTTPS requests."
 SSL CA Certificate:
     description: "Upload an optional CA certificate to use for SSL verification. Accepted formats: `.pem`, `.crt`, `.cer`, `.der`."
 {% endconfiguration_basic %}
 
-### Additional Options
+### Additional options
 
 Additional options can be configured via YAML.
 
@@ -258,7 +258,7 @@ influxdb:
       - weather.home
 ```
 
-### InfluxDB Configuration
+### InfluxDB configuration
 
 #### Authentication
 
