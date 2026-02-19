@@ -119,7 +119,7 @@ device_class:
 
 ## Light
 
-The `ads` light platform allows you to control your connected ADS lights.
+The `ads` light platform allows you to control your connected ADS lights (on/off, brightness, color temperature, RGB, RGBW, hue/saturation).
 
 To use your ADS device, you first have to set up your [ADS hub](#configuration) and then add the following to your {% term "`configuration.yaml`" %}
 file:
@@ -130,37 +130,103 @@ light:
   - platform: ads
     adsvar: GVL.enable_light
     adsvar_brightness: GVL.brightness
+    min_brightness: 0
+    max_brightness: 100
     adsvar_color_temp_kelvin: GVL.color_temp_kelvin
     min_color_temp_kelvin: 2700
     max_color_temp_kelvin: 6500
+    adsvar_red: GVL.light_red
+    adsvar_green: GVL.light_green
+    adsvar_blue: GVL.light_blue
+    adsvar_white: GVL.light_white
+    adsvar_hue: GVL.light_hue
+    adsvar_saturation: GVL.light_saturation
+    adsvar_color_mode: GVL.light_color_mode
 ```
+
+On the PLC side, red, green, blue and white channel variables must be **USINT** (0–255). Use `UINT` for brightness, color temperature, hue, saturation and color mode.
 
 {% configuration %}
 adsvar:
   required: true
-  description: The name of the boolean variable that switches the light on
+  description: The name of the boolean variable that switches the light on. Use a `BOOL` type on the PLC side.
   type: string
 adsvar_brightness:
   required: false
-  description: The name of the variable that controls the brightness, use an unsigned integer on the PLC side
+  description: The name of the variable that controls the brightness. Use an unsigned integer (`UINT`) on the PLC side. The raw PLC value is scaled between `min_brightness` and `max_brightness`.
   type: string
+min_brightness:
+  required: false
+  description: The minimum raw brightness value written to the PLC. Defaults to `0`.
+  type: integer
+max_brightness:
+  required: false
+  description: The maximum raw brightness value written to the PLC. Defaults to `255` (no scaling). Set to `100` if your PLC expects 0–100 %.
+  type: integer
 adsvar_color_temp_kelvin:
   required: false
-  description: The name of the variable that controls the color temperature in Kelvin, use an unsigned integer on the PLC side
+  description: The name of the variable that controls the color temperature in Kelvin. Use an unsigned integer (`UINT`) on the PLC side.
   type: string
 min_color_temp_kelvin:
   required: false
-  description: The minimum color temperature in Kelvin (default is 2000)
+  description: The minimum color temperature in Kelvin. Defaults to 2000 K.
   type: integer
 max_color_temp_kelvin:
   required: false
-  description: The maximum color temperature in Kelvin (default is 6500)
+  description: The maximum color temperature in Kelvin. Defaults to 6500 K.
   type: integer
+adsvar_red:
+  required: false
+  description: The name of the variable that controls the red channel. Use **USINT** (0–255) on the PLC side. Required together with `adsvar_green` and `adsvar_blue` to enable RGB or RGBW color mode.
+  type: string
+adsvar_green:
+  required: false
+  description: The name of the variable that controls the green channel. Use **USINT** (0–255) on the PLC side. Required together with `adsvar_red` and `adsvar_blue` to enable RGB or RGBW color mode.
+  type: string
+adsvar_blue:
+  required: false
+  description: The name of the variable that controls the blue channel. Use **USINT** (0–255) on the PLC side. Required together with `adsvar_red` and `adsvar_green` to enable RGB or RGBW color mode.
+  type: string
+adsvar_white:
+  required: false
+  description: The name of the variable that controls the white channel. Use **USINT** (0–255) on the PLC side. When configured together with `adsvar_red`, `adsvar_green`, and `adsvar_blue`, RGBW color mode is enabled.
+  type: string
+adsvar_hue:
+  required: false
+  description: The name of the variable that controls the hue in degrees (0–360). Use `UINT` on the PLC side. Must be configured together with `adsvar_saturation` to enable HS color mode.
+  type: string
+adsvar_saturation:
+  required: false
+  description: The name of the variable that controls the saturation in percent (0–100). Use `UINT` on the PLC side. Must be configured together with `adsvar_hue` to enable HS color mode.
+  type: string
+adsvar_color_mode:
+  required: false
+  description: >-
+    The name of the variable that the PLC uses to report the currently active color mode. Use `UINT` on the PLC side. The value is interpreted as a bitmask:
+    `1` = on/off, `2` = brightness, `4` = color temperature, `8` = hue/saturation, `16` = RGB, `32` = white channel, `48` (16+32) = RGBW.
+    When this variable is not configured, the active color mode is determined statically from the configured channel variables.
+  type: string
 name:
   required: false
-  description: An identifier for the Light in the frontend
+  description: An identifier for the light in the frontend.
   type: string
 {% endconfiguration %}
+
+### Color mode bitmask reference
+
+When `adsvar_color_mode` is used, the PLC writes a bitmask value to signal which color mode is currently active:
+
+| PLC value | Bits set | Active color mode |
+| --------- | -------- | ----------------- |
+| 1         | Bit 0    | On/Off only |
+| 2         | Bit 1    | Brightness |
+| 4         | Bit 2    | Color temperature |
+| 8         | Bit 3    | Hue/Saturation |
+| 16        | Bit 4    | RGB |
+| 32        | Bit 5    | White channel |
+| 48        | Bit 4+5  | RGBW |
+
+If the PLC reports a mode that is not covered by the configured channel variables, Home Assistant falls back to the statically determined default mode.
 
 ## Sensor
 
