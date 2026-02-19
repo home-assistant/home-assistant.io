@@ -13,6 +13,7 @@ ha_codeowners:
 ha_domain: yardian
 ha_platforms:
   - binary_sensor
+  - sensor
   - switch
 ha_integration_type: integration
 ---

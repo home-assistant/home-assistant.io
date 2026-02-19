@@ -116,7 +116,7 @@ The same goes for the keyboard shortcuts; the plan is to add more so you can
 quickly perform actions and navigate Home Assistant from anywhere with
 a couple of key presses!
 
-[Check the documentation for more information and usage tips](/docs/tools/quick-bar/).
+[Check the documentation for more information and usage tips](/docs/tools/quick-search).
 
 [@donkawechico]: https://github.com/donkawechico
 

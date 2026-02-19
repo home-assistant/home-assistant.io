@@ -1,0 +1,89 @@
+section#collaboration {
+    margin-top: 80px;
+    margin-bottom: 40px;
+
+    @include bp(desktop) {
+        margin-top: 120px;
+        margin-bottom: 0;
+    }
+
+    .card {
+        background-color: transparent;
+        background-image: url('/images/connect/zwa-2/zwa-2-device--mobile.webp');
+        background-position: top left;
+        background-repeat: no-repeat;
+        background-size: contain;
+        min-height: 490px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
+        border-radius: 16px;
+        padding: 0 20px;
+        
+        @include bp(tablet) {
+            background-image: url('/images/connect/zwa-2/zwa-2-device.webp');
+            background-position: bottom left;
+            background-size: 65%;
+            justify-content: center;
+            min-height: 330px;
+        }
+
+        @include bp(desktop) {
+            padding: 40px 20px;
+            background-position: bottom 75% left;
+            background-size: 60%;
+        }
+
+        h3 {
+            text-transform: none;
+            text-wrap: balance;
+            font-size: 24px;
+            margin-bottom: 16px;
+            line-height: 1.1;
+
+            @include bp(tablet) {
+                font-size: 32px;
+                margin-bottom: 12px;
+            }
+        }
+
+        .partner {
+            font-weight: 300;
+            align-items: center;
+            display: flex;
+            gap: 16px;
+            font-size: 16px;
+            margin-bottom: 12px;
+
+            @include bp(tablet) {
+                font-size: 20px;
+                margin-bottom: 0;
+            }
+
+            img {
+                height: 25px;
+
+                @include bp(tablet) {
+                    height: 30px;
+                }
+            }
+        }
+
+        .card-inner {
+            margin-left: auto;
+            display: flex;
+            flex-direction: column;
+            z-index: 1;
+            
+            @include bp(tablet) {
+                gap: 18px;
+                width: calc(6 / 12 * 100%);
+            }
+
+            p {
+                font-size: 16px;
+            }
+        }
+    }
+}

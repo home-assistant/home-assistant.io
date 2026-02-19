@@ -133,7 +133,7 @@ The `timer.reload` action reloads `timer`'s configuration without restarting Hom
 
 ### Using the action
 
-Navigate to **Developer Tools** > **Actions** and select the `timer.start` action, then click the **Fill Example Data** button. Now change the `entity_id` and `duration` and select **Perform action** button.
+Go to {% my developer_services title="**Settings** > **Developer tools** > **Actions**" %} and select the `timer.start` action, then click the **Fill Example Data** button. Now change the `entity_id` and `duration` and select **Perform action** button.
 
 ## Examples
 

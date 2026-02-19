@@ -53,7 +53,7 @@ The following device classes are supported for humidifiers:
 Available actions: `humidifier.set_mode`, `humidifier.set_humidity`, `humidifier.turn_on`, `humidifier.turn_off`, `humidifier.toggle`
 
 {% tip %}
-Not all humidifier actions may be available for your platform. Be sure to check the available actions Home Assistant has enabled by checking the **Actions** page in the [Developer Tools](/docs/tools/dev-tools/).
+Not all humidifier actions may be available for your platform. Be sure to check the available actions Home Assistant has enabled by checking the **Actions** page in the [Developer tools](/docs/tools/dev-tools/).
 {% endtip %}
 
 ### Action: Set mode

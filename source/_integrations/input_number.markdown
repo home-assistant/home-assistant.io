@@ -12,7 +12,7 @@ ha_domain: input_number
 ha_integration_type: helper
 ---
 
-The **Input number** {% term integration %} allows the user to define values that can be controlled via the frontend and can be used within conditions of automation. The frontend can display a slider, or a numeric input box. Changes to the slider or numeric input box generate state events. These state events can be utilized as `automation` triggers as well.
+The **Input number** {% term integration %} allows you to define values that can be controlled via the frontend and can be used within conditions of automation. The frontend can display a slider, or a numeric input box. Changes to the slider or numeric input box generate state events. These state events can be utilized as `automation` triggers as well.
 
 The preferred way to configure an input number is via the user interface at **{% my helpers title="Settings > Devices & services > Helpers" %}**. Click the add button and then choose the **{% my config_flow_start domain="input_number" title="Number" %}** option.
 

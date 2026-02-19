@@ -32,7 +32,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The **VeSync** {% term integration %} enables you to control a wide variety of Levoit devices connected to the VeSync App. Currently this integration supports most bulbs, fans, air purifiers, switches, outlets and humidifers. It does not support Cosori devices. 
+The **VeSync** {% term integration %} enables you to control a wide variety of Levoit devices connected to the VeSync App. Currently this integration supports most bulbs, fans, air purifiers, switches, outlets, humidifers and select air fryers.
 
 The devices must be added to the VeSync App before this {% term integration %} can discover them.
 
@@ -86,6 +86,10 @@ This {% term integration %} supports devices controllable by the VeSync App. The
 - Classic200S: Classic 200S Smart Ultrasonic Cool Mist Humidifier
 - Classic300S: Classic 300S Ultrasonic Smart Humidifier
 - Superior6000S: Superior 6000S Smart Evaporative Humidifier
+
+### Air Fryers
+
+- Cosori 3.7 and 5.8 Quart Air Fryer
 
 ## Prerequisite
 
@@ -172,6 +176,7 @@ Sensors and settings exposed by VeSync humidifiers.
 | Switch                  | Description                                                                        | Example   |
 | ----------------------- | ---------------------------------------------------------------------------------- | --------- |
 | `display`               | Display On or Off                                                                  | On        |
+| 'auto_off_config'       | Auto turn off when humidity target exceeded,  resume when below target             | On        |
 
 
 ## Binary Sensors
@@ -180,6 +185,20 @@ Sensors and settings exposed by VeSync humidifiers.
 | ----------------------- | ---------------------------------------------------------------------------------- | --------- |
 | `water_lacks`           | Indicates whether the device needs a water refill                                  | false     |
 | `water_tank_lifted`     | Water tank is lifted                                                               | false     |
+
+## Air Fryers
+
+Sensors and settings exposed by VeSync Air Fryers.
+
+| Sensor                  | Description                                                                            | Example   |
+| ----------------------- | -------------------------------------------------------------------------------------- | --------- |
+| `cook_status`           | Current status of the fryer                                                            | cooking   |
+| `current_temp`          | Current internal temperature of the fryer,  Unknown when off.                          | 150C      |
+| `cook_set_temp`         | The target cooking temperature                                                         | 165C      |
+| `cook_set_time`         | The number of minutes for cooking                                                      | 15        |
+| `remaining_time`        | The numbers of minutes left in cooking or preheating                                   | 8         |
+| `preheat_set_time`      | The number of minutes for pre heating                                                  | 10        |
+
 
 ## Extracting attribute data
 

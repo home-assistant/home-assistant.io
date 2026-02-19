@@ -123,6 +123,8 @@ Platform:
   description: The Telegram bot type, either `Broadcast`, `Polling` or `Webhooks`.
 API key:
   description: The API token of your bot.
+API endpoint:
+  description: The endpoint of the Telegram bot API server. You should only change this value if you are using a self-hosted or third-party [Telegram bot API server](https://core.telegram.org/bots/api#using-a-local-bot-api-server). Changing this value will result in a *10-minute lockout* on the official Telegram bot API server. Defaults to the official Telegram bot API server at `https://api.telegram.org`.
 Proxy URL:
   description: Proxy URL if working behind one, optionally including username and password. (`socks5://username:password@proxy_ip:proxy_port`).
 {% endconfiguration_basic %}
@@ -142,9 +144,6 @@ Trusted networks:
 {% endconfiguration_basic %}
 
 {% include integrations/option_flow.md %}
-
-The integration can be configured to use a default parse mode for messages.
-
 {% configuration_basic %}
 Parse mode:
   description: Default parser for messages if not explicit in message data, either `markdown` (legacy), `markdownv2`, `html` or `plain_text`. Refer to Telegram's [formatting options](https://core.telegram.org/bots/api#formatting-options) for more information.

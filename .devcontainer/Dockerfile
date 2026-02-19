@@ -2,6 +2,10 @@ ARG VARIANT=2
 FROM mcr.microsoft.com/vscode/devcontainers/ruby:${VARIANT}
 
 ARG NODE_VERSION="lts/*"
+
+# Fix: Remove the broken Yarn repository from the apt sources.
+# This prevents 'apt-get update' from failing due to the missing GPG key.
+RUN rm -f /etc/apt/sources.list.d/yarn.list
 RUN su vscode -c "source /usr/local/share/nvm/nvm.sh && nvm install ${NODE_VERSION} 2>&1"
 RUN su vscode -c "/usr/local/rvm/bin/rvm fix-permissions"
 

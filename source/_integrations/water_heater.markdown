@@ -20,6 +20,12 @@ water_heater:
   platform: demo
 ```
 
+{% warning %}
+
+ Misconfiguring Water Heater automations may allow water temperatures to drop into ranges between 25°C to 45°C (77°F and 113°F) which allows for Legionella bacteria growth. This can pose serious health risks, including death from Legionnaires' disease. Maintain water temperature ≥ 60°C (140°F) for bacterial safety.
+
+{% endwarning %}
+
 ## The state of a water heater entity
 
 A water heater entity can have the following states:
@@ -41,7 +47,7 @@ A water heater entity can have the following states:
 Available actions: `water_heater.set_temperature`, `water_heater.turn_away_mode_on`, `water_heater.turn_away_mode_off`, `water_heater.set_operation_mode`, `water_heater.turn_on`, `water_heater.turn_off`
 
 {% tip %}
-Not all water heater actions may be available for your platform. Be sure to check the available actions Home Assistant has enabled by checking **Developer Tools** > **Actions**.
+Not all water heater actions may be available for your platform. Be sure to check the available actions Home Assistant has enabled by checking {% my developer_services title="**Settings** > **Developer tools** > **Actions**" %}.
 {% endtip %}
 
 ### Action: Set temperature

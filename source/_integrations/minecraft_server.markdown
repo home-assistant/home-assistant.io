@@ -9,6 +9,7 @@ ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
   - '@elmurato'
+  - '@zachdeibert'
 ha_domain: minecraft_server
 ha_platforms:
   - binary_sensor
@@ -22,8 +23,8 @@ ha_quality_scale: silver
 
 ## Prerequisites
 
-- Minecraft Java Edition servers must be version 1.7 or newer, since older versions don't expose any information.
-- The configuration parameter `enable-status` must be set to `true` in the server configuration file (`server.properties`).
+- Minecraft Java Edition servers must be version 1.4 or newer.
+- The configuration parameter `enable-status` must be set to `true` in the server configuration file (`server.properties`) for 1.7 or newer servers.
 
 {% include integrations/config_flow.md %}
 
@@ -68,7 +69,7 @@ For Bedrock Edition servers following sensors are provided additionally:
 - Map name
 
 {% note %}
-Player names are only available on Java Edition servers. Depending on the server, the player names list may not be shown completely. Some servers and plugins limit or completely hide this list or even replace the player names with fake ones to show some custom messages there.
+Player names are only available on Java Edition 1.7 or later servers. Depending on the server, the player names list may not be shown completely. Some servers and plugins limit or completely hide this list or even replace the player names with fake ones to show some custom messages there.
 {% endnote %}
 
 ## Removing the integration

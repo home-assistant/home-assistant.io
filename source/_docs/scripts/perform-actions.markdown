@@ -10,7 +10,7 @@ The configuration options to perform action are the same between all integration
 Examples on this page will be given as part of an automation integration configuration but different approaches can be used for other integrations too.
 
 {% tip %}
-Use the **Actions** tab under **Developer tools** to discover available actions.
+Use the **Actions** tab under {% my developer_services title="**Settings** > **Developer tools** > **Actions**" %} to discover available actions.
 {% endtip %}
 
 ### The basics
