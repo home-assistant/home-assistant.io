@@ -49,7 +49,7 @@ blueprint:
         extra_snooze_time:
           name: Extra snooze time (optional)
           description: >
-            Override the snooze duration for this alarm (1–60 minutes). 
+            Override the snooze duration for this alarm (1-60 minutes). 
             Leave blank to use the default snooze time set in the Sleep as Android app.
           selector:
             number:
@@ -67,7 +67,7 @@ blueprint:
         alarm_label:
           name: Alarm label
           description: >
-            The label of the alarm to modify.  
+            The label of the alarm to modify.
             Must explicitly set **in the Sleep as Android app** for this action to work.  
             If multiple alarms share this label, only one will be changed (no guarantee which).
           selector:
