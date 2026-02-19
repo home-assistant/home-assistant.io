@@ -122,6 +122,85 @@ triggers:
 
 {% enddetails %}
 
+## Userful resources
+
+### Global status binary sensor
+
+If you'd like a single binary sensor that reflects the global status of your Uptime Kuma monitors, you can create a template binary sensor. This sensor will report a problem whenever one or more selected monitors are in a problem state (for example, down, pending, or maintenance).
+
+1. Open you Home Assistant Dasboard
+2. Go to [**{% icon "mdi:cog" %} Settings → {% icon "mdi:devices" %} Devices & services → {% icon "mdi:tools" %} Helpers**](https://my.home-assistant.io/redirect/helpers/).
+3. Select **{% icon "mdi:plus" %} Create helper**
+4. Navigate to **{% icon "mdi:code-braces" %} Templates → Binary sensor**.
+5. Fill in the name, for example **Uptime Kuma global status**
+6. Select the device class **problem**
+7. Paste the following state template:
+
+{% raw %}
+
+```jinja
+{% set problems = ['down', 'pending', 'maintenance'] %}
+{% set has_label = 'my-label'%}
+{% set entities = integration_entities('uptime_kuma') | select('match', '.*_status*') %}
+{% set alerts = expand(entities) | selectattr('state', 'in', problems ) | selectattr('entity_id', 'in', label_entities(has_label))  | list %}
+{{ alerts | count }}
+```
+
+{% endraw %}
+
+{% important %}
+
+- Replace `my-label` with your actual label name.
+- Adjust `.*_status*` if your Home Assistant or entity naming differs.
+- Add the chosen label to all the Uptime Kuma status sensors you want included in this global check.
+
+{% endimportant %}
+
+### Dynamic uptime overview card
+
+This example demonstrates how to create an overview for your dashboard using the custom cards:
+
+- [**Uptime card**](https://github.com/dylandoamaral/uptime-card)
+- [**Auto-entities**](https://github.com/thomasloven/lovelace-auto-entities)
+
+Together, these allow you to dynamically display all **Uptime Kuma** monitors on your dashboard, without having to edit the card each time monitors are added or removed, simply by adding a label.
+
+{% raw %}
+
+```yaml
+type: custom:auto-entities
+card:
+  type: entities
+filter:
+  include:
+    - options:
+        type: custom:uptime-card
+        entities:
+          - this.entity_id
+        icon: mdi:clock
+        status_adaptive_color: true
+        ok: up
+        ko:
+          - down
+          - pending
+          - maintenance
+        none:
+          - unavailable
+          - unknown
+      entity_id: sensor.*_status*
+      label: my-label
+      integration: uptime_kuma
+```
+
+{% endraw %}
+
+{% important %}
+
+- Change `my-label` to match your actual label.
+- Adjust `sensor.*_status*` if your Home Assistant or entity naming differs.
+
+{% endimportant %}
+
 ## Data updates
 
 This integration retrieves data from your Uptime Kuma instance every 30 seconds.
