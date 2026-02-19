@@ -694,6 +694,6 @@ layout: null
 /more-info/unsupported/privileged /more-info/unhealthy/privileged
 
 # Music Assistant blog redirects
-/blog/2025/12/17/music-assistant-2-7/ https://www.music-assistant.io/blog/2025/12/17/music-assistant-2-7/
-/blog/2025/03/05/music-assistants-next-big-hit/ https://www.music-assistant.io/blog/2025/03/05/music-assistants-next-big-hit/
-/blog/2024/05/09/music-assistant-2/ https://www.music-assistant.io/blog/2024/05/09/music-assistant-2/
+/blog/2025/12/17/music-assistant-2-7/ https://www.music-assistant.io/blog/2025/12/17/music-assistant-2-7/ 301!
+/blog/2025/03/05/music-assistants-next-big-hit/ https://www.music-assistant.io/blog/2025/03/05/music-assistants-next-big-hit/ 301!
+/blog/2024/05/09/music-assistant-2/ https://www.music-assistant.io/blog/2024/05/09/music-assistant-2/ 301!
