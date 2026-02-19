@@ -151,7 +151,7 @@ If you'd like a single binary sensor that reflects the global status of your Upt
 {% important %}
 
 - Replace `my-label` with your actual label name.
-- Adjust `sensor.*_status*` if your Home Assistant or entity naming differs.
+- Adjust `sensor.*_status*` if your Home Assistant language or entity naming differs.
 - Add the chosen label to all the Uptime Kuma status sensors you want included in this global check.
 
 {% endimportant %}
@@ -197,7 +197,7 @@ filter:
 {% important %}
 
 - Change `my-label` to match your actual label.
-- Adjust `sensor.*_status*` if your Home Assistant or entity naming differs.
+- Adjust `sensor.*_status*` if your Home Assistant language or entity naming differs.
 
 {% endimportant %}
 
