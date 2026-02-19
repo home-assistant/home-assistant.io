@@ -55,7 +55,7 @@ SSL CA Certificate:
     description: "Upload an optional CA certificate to use for SSL verification. Accepted formats: `.pem`, `.crt`, `.cer`, `.der`."
 {% endconfiguration_basic %}
 
-### InfluxDB 2.x and 3 configuration options
+### InfluxDB 2.x and 3.x configuration options
 
 {% configuration_basic %}
 URL:
@@ -193,7 +193,7 @@ component_config_glob:
 
 ### Configure filter
 
-By default, no entity will be excluded. To limit which entities are being exposed to `InfluxDB`, you can use the `include` and `exclude` parameters.
+By default, no entity will be excluded. To limit which entities are being exposed to InfluxDB, you can use the `include` and `exclude` parameters.
 
 ```yaml
 # Example filter to include specified domains and exclude specified entities
@@ -221,14 +221,14 @@ influxdb:
   default_measurement: state
   exclude:
     entities:
-       - entity.id1
-       - entity.id2
+      - entity.id1
+      - entity.id2
     domains:
-       - automation
+      - automation
   include:
     entities:
-       - entity.id3
-       - entity.id4
+      - entity.id3
+      - entity.id4
   tags:
     instance: prod
     source: hass
