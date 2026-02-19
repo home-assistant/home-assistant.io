@@ -120,13 +120,13 @@ The integration will test the connection and confirm access to your S3 bucket.
 
 The optional prefix option allows you to organize your backups within a specific path inside your S3 bucket. This is useful when you want to:
 
-- Store backups in a dedicated folder (e.g., `home-assistant/backups/`)
+- Store backups in a dedicated folder (for example, `home-assistant/backups/`)
 - Use the same S3 bucket for multiple purposes
 - Manage multiple Home Assistant instances with separate backup directories
 
 ### Examples
 
-**Without prefix**: Backups are stored at the root of your bucket
+#### Without prefix: Backups are stored at the root of your bucket
 
 ```txt
 s3://my-bucket/
@@ -136,7 +136,7 @@ s3://my-bucket/
 └── backup-2025-02-02.metadata.json
 ```
 
-**With prefix `home-assistant`**: Backups are stored in a subdirectory
+#### With prefix `home-assistant`: Backups are stored in a subdirectory
 
 ```txt
 s3://my-bucket/
@@ -147,7 +147,7 @@ s3://my-bucket/
     └── backup-2025-02-02.metadata.json
 ```
 
-**With nested prefix `backups/home-assistant`**: Backups are stored in nested subdirectories
+#### With nested prefix `backups/home-assistant`: Backups are stored in nested subdirectories
 
 ```txt
 s3://my-bucket/
@@ -159,7 +159,7 @@ s3://my-bucket/
         └── backup-2025-02-02.metadata.json
 ```
 
-The prefix is automatically normalized, so you can enter it with or without leading/trailing slashes (e.g., `home-assistant`, `/home-assistant`, `home-assistant/` will all work the same way).
+The prefix is automatically normalized, so you can enter it with or without leading/trailing slashes (for example, `home-assistant`, `/home-assistant`, `home-assistant/` will all work the same way).
 
 ## Sensors
 
