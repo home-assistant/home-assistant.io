@@ -476,7 +476,7 @@ Features:
 - set display time format (12h/24h)
 - sync the device date and time with Home Assistant
 
-##### Syncing the device date and time with Home Assistant automatically
+{% details "Syncing the device date and time with Home Assistant automatically" %} 
 
 The integration adds a **Sync date and time** button to the device's details page. You can set up your own automation that triggers that button regularly. Here's a simple example for `configuration.yaml`:
 
@@ -499,6 +499,7 @@ automation:
 ```
 
 {% endraw %}
+{% enddetails %}
 
 #### Contact Sensor
 
