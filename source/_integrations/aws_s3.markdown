@@ -161,6 +161,12 @@ s3://my-bucket/
 
 The prefix is automatically normalized, so you can enter it with or without leading/trailing slashes (e.g., `home-assistant`, `/home-assistant`, `home-assistant/` will all work the same way).
 
+## Sensors
+
+The integration provides the following sensor, which is updated every 6 hours:
+
+- **Total size of backups**: The combined size of all Home Assistant backups stored in the configured S3 bucket for this Home Assistant installation.
+
 ## Known limitations
 
 The AWS S3 integration has the following limitations:

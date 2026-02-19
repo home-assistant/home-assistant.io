@@ -608,7 +608,7 @@ If some existing devices do not resume normal functions after some time, try pow
      - This [video](https://support.nabucasa.com/hc/articles/26124431414557) shows the effect of interference.
 4. Reconfiguration of ZHA starts. Select **Submit**.
    - An automatic backup will be performed.
-5. Under **Migrate or re-configure**, select **Migrate to a new adapter**.
+5. Under **Migrate or change adapter settings**, select **Migrate to a new adapter**.
 6. Select the new Zigbee adapter from the list of serial ports and select **Submit**.
 7. Choose what backup to use for migration:
    - **Option 1**: To use the backup that was created during this migration, select **Migrate automatically (recommended)**.
