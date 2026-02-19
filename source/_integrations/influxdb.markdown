@@ -28,11 +28,13 @@ The configuration differs between versions. The documentation below notes when f
 
 {% include integrations/config_flow.md %}
 
-### InfluxDB 1 Configuration
+If you have an existing YAML configuration, it will be imported automatically as a config entry. Additional options such as entity filters, tags, and measurement attributes are configured via YAML. For details, refer to the [configuration](#configuration) section below.
+
+### InfluxDB 1.x configuration options
 
 {% configuration_basic %}
 URL:
-    description: "The URL to the InfluxDB Host."
+    description: "The URL of your InfluxDB host."
 Username:
     description: "Database username with read/write privileges."
 Password:
@@ -40,16 +42,16 @@ Password:
 Database:
     description: "Database name. You must create the database before you can write to it."
 Verify SSL:
-    description: "Verify SSL certificate for HTTPS request."
+    description: "Verify SSL certificate for HTTPS requests."
 SSL CA Certificate:
-    description: "Optional path of a CA certificate to be used during SSL verification."
+    description: "Upload an optional CA certificate to use for SSL verification. Accepted formats: `.pem`, `.crt`, `.cer`, `.der`."
 {% endconfiguration_basic %}
 
-### InfluxDB 2 and 3 Configuration
+### InfluxDB 2.x and 3 configuration options
 
 {% configuration_basic %}
 URL:
-    description: "The URL to the InfluxDB Host."
+    description: "The URL of your InfluxDB host."
 Organization:
     description: "Organization ID. For InfluxDB 2.x, find this in your installation URL after /orgs. For InfluxDB 3, this value is required but not validated—use any value."
 Bucket:
@@ -57,9 +59,9 @@ Bucket:
 Token:
     description: "Auth token with write access."
 Verify SSL:
-    description: "Verify SSL certificate for HTTPS request."
+    description: "Verify SSL certificate for HTTPS requests."
 SSL CA Certificate:
-    description: "Optional path of a CA certificate to be used during SSL verification."
+    description: "Upload an optional CA certificate to use for SSL verification. Accepted formats: `.pem`, `.crt`, `.cer`, `.der`."
 {% endconfiguration_basic %}
 
 ### InfluxDB 3 (Core and Enterprise)
