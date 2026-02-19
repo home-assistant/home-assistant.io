@@ -128,12 +128,12 @@ triggers:
 
 If you'd like a single binary sensor that reflects the global status of your Uptime Kuma monitors, you can create a template binary sensor. This sensor will report a problem whenever one or more selected monitors are in a problem state (for example, down, pending, or maintenance).
 
-1. Open your Home Assistant Dashboard
+1. Open your Home Assistant Dashboard.
 2. Go to **{% icon "mdi:cog" %} Settings → {% icon "mdi:devices" %} Devices & services → {% icon "mdi:tools" %}** {% my helpers title="**Helpers**" %}.
-3. Select **{% icon "mdi:plus" %} Create helper**
+3. Select **{% icon "mdi:plus" %} Create helper**.
 4. Navigate to **{% icon "mdi:code-braces" %} Templates → Binary sensor**.
-5. Fill in the name, for example **Uptime Kuma global status**
-6. Select the device class **problem**
+5. Fill in the name, for example **Uptime Kuma global status**.
+6. Select the device class **problem**.
 7. Paste the following state template:
 
 {% raw %}
