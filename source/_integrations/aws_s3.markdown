@@ -101,6 +101,8 @@ Bucket Name:
   description: "S3 bucket name to store the backups. Bucket must already exist and be writable by the provided credentials."
 Endpoint URL:
   description: "Endpoint URL provided to [Boto3 Session](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/core/session.html). Region-specific [AWS S3 endpoints](https://docs.aws.amazon.com/general/latest/gr/s3.html) are available in their documentation. Defaults to `https://s3.eu-central-1.amazonaws.com/`."
+Prefix (optional):
+  description: "A path prefix within the S3 bucket where backups will be stored. For example, `home-assistant` will store backups in `s3://bucket-name/home-assistant/`. This is useful for organizing backups when using the same bucket for multiple purposes. Leading and trailing slashes will be automatically removed."
 {% endconfiguration_basic %}
 
 ## Setting up the AWS S3 integration in Home Assistant
@@ -113,6 +115,48 @@ Endpoint URL:
    - The region endpoint (e.g., `https://s3.eu-central-1.amazonaws.com/`)
 
 The integration will test the connection and confirm access to your S3 bucket.
+
+## Using S3 prefix
+
+The optional prefix option allows you to organize your backups within a specific path inside your S3 bucket. This is useful when you want to:
+
+- Store backups in a dedicated folder (e.g., `home-assistant/backups/`)
+- Use the same S3 bucket for multiple purposes
+- Manage multiple Home Assistant instances with separate backup directories
+
+### Examples
+
+**Without prefix**: Backups are stored at the root of your bucket
+```
+s3://my-bucket/
+├── backup-2025-02-01.tar
+├── backup-2025-02-01.metadata.json
+├── backup-2025-02-02.tar
+└── backup-2025-02-02.metadata.json
+```
+
+**With prefix `home-assistant`**: Backups are stored in a subdirectory
+```
+s3://my-bucket/
+└── home-assistant/
+    ├── backup-2025-02-01.tar
+    ├── backup-2025-02-01.metadata.json
+    ├── backup-2025-02-02.tar
+    └── backup-2025-02-02.metadata.json
+```
+
+**With nested prefix `backups/home-assistant`**: Backups are stored in nested subdirectories
+```
+s3://my-bucket/
+└── backups/
+    └── home-assistant/
+        ├── backup-2025-02-01.tar
+        ├── backup-2025-02-01.metadata.json
+        ├── backup-2025-02-02.tar
+        └── backup-2025-02-02.metadata.json
+```
+
+The prefix is automatically normalized, so you can enter it with or without leading/trailing slashes (e.g., `home-assistant`, `/home-assistant`, `home-assistant/` will all work the same way).
 
 ## Known limitations
 
