@@ -28,7 +28,7 @@ The configuration differs between versions. The documentation below notes when f
 
 {% include integrations/config_flow.md %}
 
-If you have an existing YAML configuration, it will be imported automatically as a config entry. Additional options such as entity filters, tags, and measurement attributes are configured via YAML. For details, refer to the [configuration](#configuration) section below.
+If you have an existing YAML configuration, it will be imported automatically as a config entry. Additional options such as entity filters, tags, and measurement attributes are configured via YAML. For details, refer to the [configuration](#additional-options) section below.
 
 ### InfluxDB 1.x configuration options
 
@@ -65,6 +65,8 @@ SSL CA Certificate:
 {% endconfiguration_basic %}
 
 ### Additional Options
+
+Additional options can be configured via YAML.
 
 {% include integrations/restart_ha_after_config_inclusion.md %}
 
@@ -181,6 +183,73 @@ component_config_glob:
       required: false
 {% endconfiguration %}
 
+### Configure filter
+
+By default, no entity will be excluded. To limit which entities are being exposed to `InfluxDB`, you can use the `include` and `exclude` parameters.
+
+```yaml
+# Example filter to include specified domains and exclude specified entities
+influxdb:
+  include:
+    domains:
+      - alarm_control_panel
+      - light
+    entity_globs:
+      - binary_sensor.*_occupancy
+  exclude:
+    entities:
+      - light.kitchen_light
+```
+
+{% include common-tasks/filters.md %}
+
+### Examples
+
+#### Example 1
+
+```yaml
+influxdb:
+  max_retries: 3
+  default_measurement: state
+  exclude:
+    entities:
+       - entity.id1
+       - entity.id2
+    domains:
+       - automation
+  include:
+    entities:
+       - entity.id3
+       - entity.id4
+  tags:
+    instance: prod
+    source: hass
+```
+
+#### Example 2
+
+```yaml
+influxdb:
+  tags:
+    source: HA
+  tags_attributes:
+    - friendly_name
+  default_measurement: units
+  exclude:
+    entities:
+      - zone.home
+    domains:
+      - persistent_notification
+      - person
+  include:
+    domains:
+      - sensor
+      - binary_sensor
+      - sun
+    entities:
+      - weather.home
+```
+
 ### InfluxDB 3 (Core and Enterprise)
 
 See how to get started using InfluxDB 3:
@@ -199,23 +268,6 @@ InfluxDB 3 supports the [v1 query API](https://docs.influxdata.com/influxdb3/cor
 {% note %}
 **Tools for querying:** Query InfluxDB 3 using SQL or InfluxQL with external tools such as [InfluxDB 3 Explorer](https://docs.influxdata.com/influxdb3/explorer/get-started/) or [Grafana](https://docs.influxdata.com/influxdb3/core/visualize-data/grafana/).
 {% endnote %}
-
-#### Example configuration for InfluxDB 3
-
-```yaml
-influxdb:
-  api_version: 2
-  ssl: false
-  host: 192.168.6.193
-  # InfluxDB 3 default (v1/v2 use 8086)
-  port: 8181
-  token: apiv3_YOUR_DATABASE_TOKEN
-  # Required, but not validated
-  organization: d1c92e4eef98a5b6
-  # Maps to InfluxDB 3 database name
-  bucket: gf_ha
-  measurement_attr: entity_id
-```
 
 Generate tokens using the [`influxdb3` CLI](https://docs.influxdata.com/influxdb3/core/admin/tokens/create/) or [InfluxDB 3 Explorer](https://docs.influxdata.com/influxdb3/explorer/).
 
@@ -236,89 +288,6 @@ Authentication requirements vary by version:
 - **InfluxDB 1.x**: Authentication optional (disabled by default). If running on the same host with default settings, no configuration is needed.
 
 For InfluxDB 1.x, you must first [create a database](https://docs.influxdata.com/influxdb/v1/introduction/get-started/#creating-a-database) named `home_assistant`. InfluxDB 2.x and 3.x create buckets/databases automatically.
-
-
-
-## Configure filter
-
-By default, no entity will be excluded. To limit which entities are being exposed to `InfluxDB`, you can use the `include` and `exclude` parameters.
-
-```yaml
-# Example filter to include specified domains and exclude specified entities
-influxdb:
-  include:
-    domains:
-      - alarm_control_panel
-      - light
-    entity_globs:
-      - binary_sensor.*_occupancy
-  exclude:
-    entities:
-      - light.kitchen_light
-```
-
-{% include common-tasks/filters.md %}
-
-## Examples
-
-### Full configuration for InfluxDB 1.x
-
-```yaml
-influxdb:
-  host: 192.168.1.190
-  port: 20000
-  database: DB_TO_STORE_EVENTS
-  username: MY_USERNAME
-  password: MY_PASSWORD
-  ssl: true
-  verify_ssl: true
-  max_retries: 3
-  default_measurement: state
-  exclude:
-    entities:
-       - entity.id1
-       - entity.id2
-    domains:
-       - automation
-  include:
-    entities:
-       - entity.id3
-       - entity.id4
-  tags:
-    instance: prod
-    source: hass
-```
-
-### Full configuration for InfluxDB 2.x
-
-```yaml
-influxdb:
-  api_version: 2
-  ssl: false
-  host: localhost
-  port: 9999
-  token: GENERATED_AUTH_TOKEN
-  organization: RANDOM_16_DIGIT_HEX_ID
-  bucket: BUCKET_NAME
-  tags:
-    source: HA
-  tags_attributes:
-    - friendly_name
-  default_measurement: units
-  exclude:
-    entities:
-      - zone.home
-    domains:
-      - persistent_notification
-      - person
-  include:
-    domains:
-      - sensor
-      - binary_sensor
-      - sun
-    entities:
-      - weather.home
-```
 
 ## Sensor
 
