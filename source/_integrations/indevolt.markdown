@@ -18,7 +18,7 @@ The Indevolt {% term integration %} enables direct local communication between H
 
 ## Use cases
 
-With this integration, you can monitor energy production and consumption as well as battery status, and configure power limits and other battery protection settings.
+With this integration, you can monitor energy production and consumption as well as battery status, manage battery working modes and control real-time charging/discharging behavior, and configure power limits and other battery protection settings.
 
 ## Supported devices
 
@@ -106,6 +106,61 @@ In addition to the read-only sensors listed above, the Indevolt integration also
 - Allow grid charging: Enable or disable charging from the grid (switch)
 - Bypass socket: Enable or disable the bypass socket (switch)
 - LED indicator: Enable or disable the LED indicator (switch)
+
+### Actions
+
+#### Change battery energy mode
+
+Change the working mode of your Indevolt device.
+
+```yaml
+action: indevolt.change_energy_mode
+target:
+  device_id: YOUR_DEVICE_ID
+data:
+  mode: "self_consumed_prioritized"
+```
+
+Available modes:
+
+- `self_consumed_prioritized`: Prioritize self-consumption
+- `real_time_control`: Real-time control mode
+- `charge_discharge_schedule`: Schedule-based charging/discharging
+
+#### Charge battery (real-time control mode)
+
+Configure the battery to start charging with specified max. power to the target SOC. The device will automatically switch to real-time control mode if needed.
+
+```yaml
+action: indevolt.charge
+target:
+  device_id: YOUR_DEVICE_ID
+data:
+  power: 1000
+  target_soc: 100
+```
+
+#### Discharge battery (real-time control mode)
+
+Configure the battery to start discharging with specified max. power to the target SOC. The device will automatically switch to real-time control mode if needed.
+
+```yaml
+action: indevolt.discharge
+target:
+  device_id: YOUR_DEVICE_ID
+data:
+  power: 800
+  target_soc: 10
+```
+
+#### Stop battery (real-time control mode)
+
+Put the battery into standby mode (idle).
+
+```yaml
+action: indevolt.stop
+target:
+  device_id: YOUR_DEVICE_ID
 
 ## Data updates
 
