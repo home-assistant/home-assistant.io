@@ -64,129 +64,11 @@ SSL CA Certificate:
     description: "Upload an optional CA certificate to use for SSL verification. Accepted formats: `.pem`, `.crt`, `.cer`, `.der`."
 {% endconfiguration_basic %}
 
-### InfluxDB 3 (Core and Enterprise)
-
-See how to get started using InfluxDB 3:
-
-- **[InfluxDB 3 Core](https://docs.influxdata.com/influxdb3/core/get-started/)**: Free, open-source, optimized for recent data queries.
-- **[InfluxDB 3 Enterprise](https://docs.influxdata.com/influxdb3/enterprise/get-started/)**: Adds compaction for historical queries. Includes a free [At-Home license](https://docs.influxdata.com/influxdb3/enterprise/admin/license/) for non-commercial use.
-
-#### Write API compatibility
-
-InfluxDB 3 Core and Enterprise provide [InfluxDB v1 and v2 write API compatibility](https://docs.influxdata.com/influxdb3/core/write-data/http-api/compatibility-apis/), allowing you to write data using `api_version: 2`.
-
-#### Query API compatibility
-
-InfluxDB 3 supports the [v1 query API](https://docs.influxdata.com/influxdb3/core/query-data/execute-queries/influxdb-v1-api/) (InfluxQL) and [v3 query API](https://docs.influxdata.com/influxdb3/core/query-data/execute-queries/influxdb-v3-api/) (SQL and InfluxQL). The v2 query API (Flux) is not supported.
-
-{% note %}
-**Tools for querying:** Query InfluxDB 3 using SQL or InfluxQL with external tools such as [InfluxDB 3 Explorer](https://docs.influxdata.com/influxdb3/explorer/get-started/) or [Grafana](https://docs.influxdata.com/influxdb3/core/visualize-data/grafana/).
-{% endnote %}
-
-#### Example configuration for InfluxDB 3
-
-```yaml
-influxdb:
-  api_version: 2
-  ssl: false
-  host: 192.168.6.193
-  # InfluxDB 3 default (v1/v2 use 8086)
-  port: 8181
-  token: apiv3_YOUR_DATABASE_TOKEN
-  # Required, but not validated
-  organization: d1c92e4eef98a5b6
-  # Maps to InfluxDB 3 database name
-  bucket: gf_ha
-  measurement_attr: entity_id
-```
-
-Generate tokens using the [`influxdb3` CLI](https://docs.influxdata.com/influxdb3/core/admin/tokens/create/) or [InfluxDB 3 Explorer](https://docs.influxdata.com/influxdb3/explorer/).
-
-There is currently support for the following device types within Home Assistant:
-
-- [Sensor](#sensor)
-
-{% note %}
-The `influxdb` database integration runs parallel to the Home Assistant database. It does not replace it.
-{% endnote %}
-
-## Configuration
-
-Authentication requirements vary by version:
-
-- **InfluxDB 3**: Authentication optional (enabled by default). Use `api_version: 2` with a `token`. See [example above](#example-configuration-for-influxdb-3).
-- **InfluxDB 2.x**: Requires authentication. Use `api_version: 2` with a `token` and `organization`.
-- **InfluxDB 1.x**: Authentication optional (disabled by default). If running on the same host with default settings, no configuration is needed.
+### Additional Options
 
 {% include integrations/restart_ha_after_config_inclusion.md %}
 
-```yaml
-# Minimal configuration for InfluxDB 1.x with authentication disabled
-influxdb:
-```
-
-For InfluxDB 1.x, you must first [create a database](https://docs.influxdata.com/influxdb/v1/introduction/get-started/#creating-a-database) named `home_assistant`. InfluxDB 2.x and 3.x create buckets/databases automatically.
-
 {% configuration %}
-api_version:
-  type: string
-  description: API version to use. Valid values are `1` or `2`.
-  default: "1"
-ssl:
-  type: boolean
-  description: Use HTTPS instead of HTTP. Defaults to `true` for 2.x, `false` for 1.x.
-  required: false
-  default: false
-host:
-  type: string
-  description: IP address or domain of your database host. For InfluxDB Cloud, defaults to `us-west-2-1.aws.cloud2.influxdata.com`.
-  required: false
-  default: localhost
-port:
-  type: integer
-  description: Port to use. InfluxDB 3 defaults to 8181; v1 and v2 default to 8086.
-  required: false
-  default: 8086
-path:
-  type: string
-  description: Path to use if InfluxDB is behind a reverse proxy.
-  required: false
-username:
-  type: string
-  description: 1.x only - Database username with read/write privileges.
-  required: inclusive
-password:
-  type: string
-  description: 1.x - Password for the database user. 2.x and 3.x - Auth token with write access. Required with `username`.
-  required: inclusive
-database:
-  type: string
-  description: 1.x and 3.x - Database name. For 1.x, you must create the database before you can write to it.
-  required: false
-  default: home_assistant
-verify_ssl:
-  type: boolean
-  description: Verify SSL certificate for HTTPS request. This can take on boolean values `false` or `true`.
-  required: false
-  default: true
-ssl_ca_cert:
-  type: string
-  description: Optional path of a CA certificate to be used during SSL verification.
-  required: false
-  default: None
-token:
-  type: string
-  description: 2.x and 3.x - Auth token with write access. For InfluxDB 3, generate using the `influxdb3` CLI or Explorer UI.
-  required: inclusive
-organization:
-  type: string
-  description: "2.x and 3.x - Organization ID. For InfluxDB 2.x, find this in your installation URL after `/orgs`. For InfluxDB 3, this value is required but not validated—use any value."
-  required: inclusive
-bucket:
-  type: string
-  description: 2.x and 3.x - For InfluxDB 2.x, the bucket name. For InfluxDB 3, this maps to the database name.
-  required: false
-  default: Home Assistant
 max_retries:
   type: integer
   description: Set this to allow the integration to retry if there was a network error when transmitting data.
@@ -298,6 +180,64 @@ component_config_glob:
       description: The list of attribute names to ignore when reporting to InfluxDB. Will be merged with the default `ignore_attributes` list when processing a state change event for a particular entity.
       required: false
 {% endconfiguration %}
+
+### InfluxDB 3 (Core and Enterprise)
+
+See how to get started using InfluxDB 3:
+
+- **[InfluxDB 3 Core](https://docs.influxdata.com/influxdb3/core/get-started/)**: Free, open-source, optimized for recent data queries.
+- **[InfluxDB 3 Enterprise](https://docs.influxdata.com/influxdb3/enterprise/get-started/)**: Adds compaction for historical queries. Includes a free [At-Home license](https://docs.influxdata.com/influxdb3/enterprise/admin/license/) for non-commercial use.
+
+#### Write API compatibility
+
+InfluxDB 3 Core and Enterprise provide [InfluxDB v1 and v2 write API compatibility](https://docs.influxdata.com/influxdb3/core/write-data/http-api/compatibility-apis/), allowing you to write data using `api_version: 2`.
+
+#### Query API compatibility
+
+InfluxDB 3 supports the [v1 query API](https://docs.influxdata.com/influxdb3/core/query-data/execute-queries/influxdb-v1-api/) (InfluxQL) and [v3 query API](https://docs.influxdata.com/influxdb3/core/query-data/execute-queries/influxdb-v3-api/) (SQL and InfluxQL). The v2 query API (Flux) is not supported.
+
+{% note %}
+**Tools for querying:** Query InfluxDB 3 using SQL or InfluxQL with external tools such as [InfluxDB 3 Explorer](https://docs.influxdata.com/influxdb3/explorer/get-started/) or [Grafana](https://docs.influxdata.com/influxdb3/core/visualize-data/grafana/).
+{% endnote %}
+
+#### Example configuration for InfluxDB 3
+
+```yaml
+influxdb:
+  api_version: 2
+  ssl: false
+  host: 192.168.6.193
+  # InfluxDB 3 default (v1/v2 use 8086)
+  port: 8181
+  token: apiv3_YOUR_DATABASE_TOKEN
+  # Required, but not validated
+  organization: d1c92e4eef98a5b6
+  # Maps to InfluxDB 3 database name
+  bucket: gf_ha
+  measurement_attr: entity_id
+```
+
+Generate tokens using the [`influxdb3` CLI](https://docs.influxdata.com/influxdb3/core/admin/tokens/create/) or [InfluxDB 3 Explorer](https://docs.influxdata.com/influxdb3/explorer/).
+
+There is currently support for the following device types within Home Assistant:
+
+- [Sensor](#sensor)
+
+{% note %}
+The `influxdb` database integration runs parallel to the Home Assistant database. It does not replace it.
+{% endnote %}
+
+## Configuration
+
+Authentication requirements vary by version:
+
+- **InfluxDB 3**: Authentication optional (enabled by default). Use `api_version: 2` with a `token`. See [example above](#example-configuration-for-influxdb-3).
+- **InfluxDB 2.x**: Requires authentication. Use `api_version: 2` with a `token` and `organization`.
+- **InfluxDB 1.x**: Authentication optional (disabled by default). If running on the same host with default settings, no configuration is needed.
+
+For InfluxDB 1.x, you must first [create a database](https://docs.influxdata.com/influxdb/v1/introduction/get-started/#creating-a-database) named `home_assistant`. InfluxDB 2.x and 3.x create buckets/databases automatically.
+
+
 
 ## Configure filter
 
