@@ -65,7 +65,6 @@ If you choose to keep them, the previously stored (and possibly incorrect) crede
 
 To fully reset the configuration, the stored application credentials must also be removed (see [Deleting application credentials](/integrations/application_credentials/#deleting-application-credentials)).
 
-
 ### “Connection failed” after authorization
 
 #### Symptom
