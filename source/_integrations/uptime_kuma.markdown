@@ -33,7 +33,7 @@ This integration allows you to track the status of your **Uptime Kuma** monitors
 
 To set up the **Uptime Kuma** integration, you need an **API key** and the **URL** of your Uptime Kuma instance (for example: `https://uptime.example.org`).
 
-You can create an API key by logging into your Uptime Kuma instance, navigating to **{% icon "mdi:cog" %} Settings > API Keys** and selecting **{% icon "mdi:plus" %}Add API Key**.
+You can create an API key by logging in to your Uptime Kuma instance, navigating to **Settings** > **API Keys**, and selecting **Add API Key**.
 
 {% include integrations/config_flow.md %}
 
