@@ -485,7 +485,7 @@ The integration adds a **Sync date and time** button to the device's details pag
 ```yaml
 automation:
   - alias: "Daily SwitchBot CO2 Time Sync"
-    description: "Sync  date and time sync for the Meter Pro CO2 every night."
+    description: "Sync date and time sync for the Meter Pro CO2 every night."
     trigger:
     triggers:
       - trigger: time
