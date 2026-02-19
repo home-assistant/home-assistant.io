@@ -18,6 +18,7 @@ ha_platforms:
   - button
   - cover
   - light
+  - number
   - scene
   - switch
 ha_integration_type: hub
@@ -34,6 +35,7 @@ There is currently support for the following device types within Home Assistant:
 - Button (Reboot button on the gateway device to reboot the KLF 200 gateway)
 - Cover
 - Light
+- Number (controls the power level of exterior heating devices connected to the gateway, from 0% to 100%)
 - Scene
 - Switch
 
