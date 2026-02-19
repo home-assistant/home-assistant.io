@@ -10,11 +10,11 @@ ha_release: 2026.3
 ha_iot_class: Local Push
 ha_codeowners:
   - '@konsulten'
-ha_domain: nexa
+ha_domain: systemnexa2
 ha_dhcp: true
 ha_zeroconf: true
-ha_quality_scale: bronze
-integration_type: hub
+ha_quality_scale: silver
+ha_integration_type: device
 ---
 
 The **System Nexa 2** {% term integration %} allows you to integrate with the **System Nexa 2** devices from [Nexa](https://nexa.se/smarta-hem/system-nexa-2).
@@ -64,8 +64,8 @@ Host:
 - **Relay**
   - **Description**: Turn on or off switch relay
   - **Available for devices**: WBR-01, WPO-01, WPR-01
-- **433Mhz**
-  - **Description**: Controls whether device should use 433Mhz communication
+- **433 Mhz**
+  - **Description**: Controls whether device should use 433 Mhz communication
   - **Available for devices**: all
 - **Cloud Access**
   - **Description**: Controls whether to allow cloud access for device
