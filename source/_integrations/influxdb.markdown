@@ -24,7 +24,7 @@ The **InfluxDB** {% term integration %} lets you transfer all state changes to a
 - [InfluxDB 2.x](https://docs.influxdata.com/influxdb/v2/) – Including [InfluxDB Cloud](https://cloud2.influxdata.com/signup). Sensors query using Flux.
 - [InfluxDB 1.x](https://docs.influxdata.com/influxdb/v1/) – Sensors query using InfluxQL.
 
-The configuration differs between versions. The documentation below notes when fields apply to specific versions.
+For more information on configuration of InfluxDB, refer to the [influxdb_configuration](#influxdb-configuration) section below.
 
 There is currently support for the following device types within Home Assistant:
 
