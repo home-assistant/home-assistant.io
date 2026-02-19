@@ -103,6 +103,9 @@ In addition to the read-only sensors listed above, the Indevolt integration also
 - Max AC output power: Configure maximum discharge power (W)
 - Inverter input limit: Set maximum PV input power (W)
 - Feed-in power limit: Configure grid feed-in power limit (W)
+- Grid charging: Enable or disable charging from the grid (switch)
+- Bypass: Enable or disable the bypass (switch)
+- LED indicator: Enable or disable the led indicator (switch)
 
 ## Data updates
 
