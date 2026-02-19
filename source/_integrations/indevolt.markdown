@@ -18,7 +18,7 @@ The Indevolt {% term integration %} enables direct local communication between H
 
 ## Use cases
 
-With this integration, you can monitor energy production and consumption as well as battery status, manage battery working mode.
+With this integration, you can monitor energy production and consumption as well as battery status, and configure power limits and other battery protection settings.
 
 ## Supported devices
 
@@ -94,6 +94,13 @@ All Generation 1 sensors, plus:
 - Battery pack 1-5 temperature (°C)
 - Battery pack 1-5 voltage (V)
 - Battery pack 1-5 current (A)
+
+### Configurations (Generation 2 only)
+
+- Discharge limit: Set the minimum battery level (emergency power/SOC, %)
+- Max AC output power: Configure maximum discharge power (W)
+- Inverter input limit: Set maximum PV input power (W)
+- Feed-in power limit: Configure grid feed-in power limit (W)
 
 ## Data updates
 
