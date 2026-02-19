@@ -26,9 +26,17 @@ The **InfluxDB** {% term integration %} lets you transfer all state changes to a
 
 The configuration differs between versions. The documentation below notes when fields apply to specific versions.
 
+There is currently support for the following device types within Home Assistant:
+
+- [Sensor](#sensor)
+
+{% note %}
+The `influxdb` database integration runs parallel to the Home Assistant database. It does not replace it.
+{% endnote %}
+
 {% include integrations/config_flow.md %}
 
-If you have an existing YAML configuration, it will be imported automatically as a config entry. Additional options such as entity filters, tags, and measurement attributes are configured via YAML. For details, refer to the [configuration](#additional-options) section below.
+If you have an existing YAML configuration, it will be imported automatically as a config entry. Additional options such as entity filters, tags, and measurement attributes are configured via YAML. For details, refer to the [options](#additional-options) section below.
 
 ### InfluxDB 1.x configuration options
 
@@ -250,18 +258,28 @@ influxdb:
       - weather.home
 ```
 
-### InfluxDB 3 (Core and Enterprise)
+### InfluxDB Configuration
+
+#### Authentication
+
+- **InfluxDB 3**: Authentication optional (enabled by default). Token can be generated via InfluxDB.
+- **InfluxDB 2.x**: Requires authentication. Token can be generated via InfluxDB.
+- **InfluxDB 1.x**: Authentication optional (disabled by default). If running on the same host with default settings, leave user and password empty.
+
+For InfluxDB 1.x, you must first [create a database](https://docs.influxdata.com/influxdb/v1/introduction/get-started/#creating-a-database) named `home_assistant`. InfluxDB 2.x and 3.x create buckets/databases automatically.
+
+#### InfluxDB 3 (Core and Enterprise)
 
 See how to get started using InfluxDB 3:
 
 - **[InfluxDB 3 Core](https://docs.influxdata.com/influxdb3/core/get-started/)**: Free, open-source, optimized for recent data queries.
 - **[InfluxDB 3 Enterprise](https://docs.influxdata.com/influxdb3/enterprise/get-started/)**: Adds compaction for historical queries. Includes a free [At-Home license](https://docs.influxdata.com/influxdb3/enterprise/admin/license/) for non-commercial use.
 
-#### Write API compatibility
+##### Write API compatibility
 
 InfluxDB 3 Core and Enterprise provide [InfluxDB v1 and v2 write API compatibility](https://docs.influxdata.com/influxdb3/core/write-data/http-api/compatibility-apis/), allowing you to write data using `api_version: 2`.
 
-#### Query API compatibility
+##### Query API compatibility
 
 InfluxDB 3 supports the [v1 query API](https://docs.influxdata.com/influxdb3/core/query-data/execute-queries/influxdb-v1-api/) (InfluxQL) and [v3 query API](https://docs.influxdata.com/influxdb3/core/query-data/execute-queries/influxdb-v3-api/) (SQL and InfluxQL). The v2 query API (Flux) is not supported.
 
@@ -270,24 +288,6 @@ InfluxDB 3 supports the [v1 query API](https://docs.influxdata.com/influxdb3/cor
 {% endnote %}
 
 Generate tokens using the [`influxdb3` CLI](https://docs.influxdata.com/influxdb3/core/admin/tokens/create/) or [InfluxDB 3 Explorer](https://docs.influxdata.com/influxdb3/explorer/).
-
-There is currently support for the following device types within Home Assistant:
-
-- [Sensor](#sensor)
-
-{% note %}
-The `influxdb` database integration runs parallel to the Home Assistant database. It does not replace it.
-{% endnote %}
-
-## Configuration
-
-Authentication requirements vary by version:
-
-- **InfluxDB 3**: Authentication optional (enabled by default). Use `api_version: 2` with a `token`. See [example above](#example-configuration-for-influxdb-3).
-- **InfluxDB 2.x**: Requires authentication. Use `api_version: 2` with a `token` and `organization`.
-- **InfluxDB 1.x**: Authentication optional (disabled by default). If running on the same host with default settings, no configuration is needed.
-
-For InfluxDB 1.x, you must first [create a database](https://docs.influxdata.com/influxdb/v1/introduction/get-started/#creating-a-database) named `home_assistant`. InfluxDB 2.x and 3.x create buckets/databases automatically.
 
 ## Sensor
 
