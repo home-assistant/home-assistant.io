@@ -97,6 +97,7 @@ All Generation 1 sensors, plus:
 
 ### Configurations (Generation 2 only)
 
+In addition to the read-only sensors listed above, the Indevolt integration also exposes the following configurable entities for supported Generation 2 devices. You can change these settings from Home Assistant, and they are applied directly to your inverter.
 - Discharge limit: Set the minimum battery level (emergency power/SOC, %)
 - Max AC output power: Configure maximum discharge power (W)
 - Inverter input limit: Set maximum PV input power (W)
