@@ -127,7 +127,8 @@ The optional prefix option allows you to organize your backups within a specific
 ### Examples
 
 **Without prefix**: Backups are stored at the root of your bucket
-```
+
+```txt
 s3://my-bucket/
 ├── backup-2025-02-01.tar
 ├── backup-2025-02-01.metadata.json
@@ -136,7 +137,8 @@ s3://my-bucket/
 ```
 
 **With prefix `home-assistant`**: Backups are stored in a subdirectory
-```
+
+```txt
 s3://my-bucket/
 └── home-assistant/
     ├── backup-2025-02-01.tar
@@ -146,7 +148,8 @@ s3://my-bucket/
 ```
 
 **With nested prefix `backups/home-assistant`**: Backups are stored in nested subdirectories
-```
+
+```txt
 s3://my-bucket/
 └── backups/
     └── home-assistant/
