@@ -62,7 +62,7 @@ The Indevolt integration provides sensors for monitoring your device (read only)
 - Total DC output power (W)
 - Battery power (W)
 - Battery charge/discharge state
-- Battery SOC (%)
+- Battery <abbr title="State of Charge">SOC</abbr> (%)
 - Battery daily charging energy (kWh)
 - Battery daily discharging energy (kWh)
 - Battery total charging energy (kWh)
@@ -109,7 +109,7 @@ In addition to the read-only sensors listed above, the Indevolt integration also
 
 ### Actions
 
-#### Change the energy mode of the battery
+#### Action: Change the energy mode of the battery
 
 The `indevolt.change_energy_mode` action changes the energy mode of your Indevolt device.
 
@@ -129,18 +129,18 @@ action: indevolt.change_energy_mode
 target:
   device_id: YOUR_DEVICE_ID
 data:
-  mode: "self_consumed_prioritized"
+  mode: self_consumed_prioritized
 ```
 
-#### Charge the battery (real-time control mode)
+#### Action: Charge the battery (real-time control mode)
 
 The `indevolt.change_energy_mode` action configures the battery to start charging with specified maximum power to the target SOC. The device will automatically switch to real-time control mode if needed.
 
 | Data attribute | Optional | Description                                                                                         |
 | ------------------------- | --------------------------------------------------------------------------------------------------- |
 | `device_id`    | No       | The `entity_id` of the Indevolt device(s)                                                           |
-| `power`        | No       | The maximum charging power                                                                          |
-| `target_soc`   | No       | The target SOC: charging will stop when reached                                                     |
+| `power`        | No       | The maximum charging power (0 - 2400W)                                                              |
+| `target_soc`   | No       | The target SOC (%): charging will stop when reached                                                     |
 
 ```yaml
 action: indevolt.charge
@@ -151,15 +151,15 @@ data:
   target_soc: 100
 ```
 
-#### Discharge the battery (real-time control mode)
+#### Action: Discharge the battery (real-time control mode)
 
 The `indevolt.change_energy_mode` action configure the battery to start discharging with specified maximum power to the target SOC. The device will automatically switch to real-time control mode if needed.
 
 | Data attribute | Optional | Description                                                                                         |
 | ------------------------- | --------------------------------------------------------------------------------------------------- |
 | `device_id`    | No       | The `entity_id` of the Indevolt device(s)                                                           |
-| `power`        | No       | The maximum discharging power, keeping network limitations in mind                                  |
-| `target_soc`   | No       | The target SOC: discharging will stop when reached                                                  |
+| `power`        | No       | The maximum discharging power (0 - 2400W), keeping network limitations in mind                      |
+| `target_soc`   | No       | The target SOC (%): discharging will stop when reached                                                  |
 
 ```yaml
 action: indevolt.discharge
@@ -170,7 +170,7 @@ data:
   target_soc: 10
 ```
 
-#### Stop the battery (real-time control mode)
+#### Action: Stop the battery (real-time control mode)
 
 The `indevolt.change_energy_mode` actions puts the battery into standby mode (idle).
 
