@@ -14,6 +14,8 @@ related:
   - docs: /common-tasks/general/#backups
     title: Backups
 ha_quality_scale: bronze
+ha_platforms:
+  - sensor
 ---
 
 The **OneDrive for Business** {% term integration %} allows you to use [OneDrive for Business](https://www.microsoft.com/en-us/microsoft-365/onedrive/online-cloud-storage) for [Home Assistant Backups](/common-tasks/general/#backups).
@@ -54,6 +56,20 @@ Make sure to configure the following settings on the app registration:
 - **Supported account types**: Choose one of `Accounts in this organizational directory only` (recommended), `Accounts in any organizational directory`, `Accounts in any organizational directory (Any Microsoft Entra ID tenant - Multitenant) and personal Microsoft accounts`
 - **Redirect URI**: Type: `Web`, URL: `https://my.home-assistant.io/redirect/oauth`
 
+
+
+## Sensors
+
+The integration provides the following sensors, which are updated every 5 minutes:
+
+- **Total available storage**: The total size of your drive (disabled by default).
+- **Used storage**: The amount of storage you have used up.
+- **Remaining storage**: The amount of storage that is left in your drive.
+- **Drive state**: Calculated state of your drive, based on the storage left. Possible values: `Normal`, `Nearing limit`, `Critical`, `Exceeded`.
+
+{% note %}
+A drive in **Drive state** `Exceeded` will be automatically frozen (meaning you can't upload any more backups & files) until you free up enough storage.
+{% endnote %}
 
 ## Troubleshooting
 

@@ -24,6 +24,10 @@ The **Powerfox** {% term integration %} allows you to gather data from your [Pow
 
 The Powerfox FLOW device delivers its measurements via a daily/hourly report endpoint, while other devices provide real-time data.
 
+{% note %}
+If you have a **PA 201901**, **PA 201902**, or **PB 202001** (poweropti+) and prefer to poll your device locally without relying on the cloud, see the [Powerfox Local](/integrations/powerfox_local) integration.
+{% endnote %}
+
 {% include integrations/config_flow.md %}
 
 ### Configuration parameters
