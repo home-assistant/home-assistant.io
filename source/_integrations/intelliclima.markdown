@@ -71,7 +71,7 @@ The **IntelliClima** integration provides the following entities for each discov
     - **forward**: Intake mode (supply air into the room)
     - **reverse**: Extract mode (exhaust air into the room)
     - **alternate**: Alternating mode (cycles between intake and extract)
-    - **sensor**: Sensor-based mode based on in-app specified sensor thresholds, but with fixed speed if over thresholds. Corresponds to Manual Sensor mode in-app
+    - **sensor**: Sensor-based mode that uses sensor thresholds configured in the app, with a fixed speed when the thresholds are exceeded. Corresponds to the Manual sensor mode in the app.
   - **Available for devices**: Ecocomfort 2.0
 
 ## Data updates
