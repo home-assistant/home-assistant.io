@@ -107,7 +107,7 @@ There is currently support for the following device types within Home Assistant:
 | Stack | Starts or stops all containers in a stack. |
 ## Examples
 
-The following examples show how to use the AirGradient integration in Home Assistant automations. These examples are just a starting point, and you can use them as inspiration to create your own automations.
+The following examples show how to use the Portainer integration in Home Assistant automations. These examples are just a starting point, and you can use them as inspiration to create your own automations.
 
 ### Notify when a container went down
 
