@@ -102,7 +102,6 @@ automation:
           entity_id: fan.ecocomfort_2
         data:
           percentage: 100
-    mode: single
 
   - alias: "Daytime low-speed ventilation"
     description: "Reduce ventilation during day when people are home"
@@ -115,7 +114,6 @@ automation:
           entity_id: fan.ecocomfort_2
         data:
           percentage: 25
-    mode: single
 ```
 
 ## Known limitations
