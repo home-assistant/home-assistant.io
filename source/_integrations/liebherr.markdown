@@ -118,7 +118,7 @@ The integration creates select entities for special features available on your a
 
 - **IceMaker**: Controls the automatic ice maker. Options are Off, On, and MaxIce (if supported by the appliance). MaxIce temporarily increases ice production for occasions when you need more ice.
 - **HydroBreeze**: Controls the HydroBreeze misting system that keeps fruits and vegetables fresh by periodically spraying a fine mist. Options are Off, Low, Medium, and High.
-- **BioFresh-Plus**: Controls the BioFresh-Plus compartment temperature setting. Options represent temperature combinations for the two BioFresh-Plus drawers (e.g., 0|0, 0|-2, -2|-2, -2|0), allowing you to optimize storage conditions for different types of fresh food.
+- **BioFresh-Plus**: Controls the BioFresh-Plus compartment temperature setting. Options represent temperature combinations for the two BioFresh-Plus drawers (for example 0|0, 0|-2, -2|-2, -2|0), allowing you to optimize storage conditions for different types of fresh food.
 
 ### Switches
 
