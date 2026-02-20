@@ -2,4 +2,4 @@ In the United States and Canada, many electricity, gas, and water meters use [AM
 
 The community project [rtlamr2mqtt](https://github.com/allangood/rtlamr2mqtt) packages this into a Home Assistant add-on that automatically publishes your meter readings via MQTT discovery, making them available in Home Assistant without any physical connection to the meter.
 
-This approach works with a wide range of Itron, Badger, and other AMR-compatible meters commonly deployed by US and Canadian utilities.
+This approach can work with many Itron, Badger, and other AMR-compatible meters commonly deployed by US and Canadian utilities, but compatibility varies by meter model and region, and some meters use encryption. Check the [rtlamr wiki](https://github.com/bemasher/rtlamr/wiki/Compatible-Meters) to confirm that your specific meter type is supported.
