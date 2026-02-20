@@ -58,7 +58,7 @@ The Weheat integration provides the following sensors:
 - **Energy output heating**: Total output generated in kWh during central heating mode
 - **Energy output DHW**: Total output generated in kWh during DHW mode (optional)
 - **Energy output cooling**: Total output generated in kWh during cooling mode. Note that this energy number is negative and decreasing as energy is removed from the house.
-- **Energy output defrost**: Total output generated in kWh defrost mode. Note that this energy number is negative and decreasing as energy is removed from the house.
+- **Energy output defrost**: Total output generated in kWh during defrost mode. Note that this energy number is negative and decreasing as energy is removed from the house.
 - **Energy output**: Total output generated in kWh
 - **State**: The current heat pump state
 - **DHW top temperature**: The domestic hot water temperature in the top of the vessel in °C (optional)
