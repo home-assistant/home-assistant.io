@@ -130,10 +130,9 @@ automation:
   - alias: "Adjust ventilation by air quality"
     description: "Increase ventilation when VOC levels are high"
     triggers:
-      - platform: numeric_state
+      - trigger: numeric_state
         entity_id: sensor.ecocomfort_2_voc
         above: 300
-    conditions: []
     actions:
       - action: fan.set_percentage
         target:
@@ -145,10 +144,9 @@ automation:
   - alias: "Reduce ventilation when air quality improves"
     description: "Lower ventilation speed when VOC levels normalize"
     triggers:
-      - platform: numeric_state
+      - trigger: numeric_state
         entity_id: sensor.ecocomfort_2_voc
         below: 150
-    conditions: []
     actions:
       - action: fan.set_percentage
         target:
@@ -167,9 +165,8 @@ automation:
   - alias: "Nighttime high-speed ventilation"
     description: "Run ventilation at high speed during night for air exchange"
     triggers:
-      - platform: time
+      - trigger: time
         at: "22:00:00"
-    conditions: []
     actions:
       - action: fan.set_percentage
         target:
@@ -181,9 +178,8 @@ automation:
   - alias: "Daytime low-speed ventilation"
     description: "Reduce ventilation during day when people are home"
     triggers:
-      - platform: time
+      - trigger: time
         at: "07:00:00"
-    conditions: []
     actions:
       - action: fan.set_percentage
         target:
@@ -202,10 +198,9 @@ automation:
   - alias: "Filter cleaning reminder"
     description: "Notify when filter needs cleaning"
     triggers:
-      - platform: state
+      - trigger: state
         entity_id: binary_sensor.ecocomfort_2_filter_cleaning
         to: "on"
-    conditions: []
     actions:
       - action: notify.notify
         data:
