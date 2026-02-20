@@ -322,7 +322,7 @@ If the capability is available in the SmartThings API but not yet supported by t
 
 ### Viewing device diagnostics
 
-The SmartThings integration includes a diagnostics platform that allows you to download detailed information for troubleshooting purposes. Diagnostics are available at two levels:
+The SmartThings integration provides diagnostics that allow you to download detailed information for troubleshooting purposes. Diagnostics are available at two levels:
 
 #### Device diagnostics
 
