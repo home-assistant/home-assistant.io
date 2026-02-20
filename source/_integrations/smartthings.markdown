@@ -97,7 +97,7 @@ In Home Assistant, a binary sensor entity will be created for each of the follow
 | `custom.ovenCavityStatus`                                                                                                       |
 | `custom.waterFilter`                                                                                                            |
 | [`filterStatus`](https://developer.smartthings.com/docs/devices/capabilities/proposed#filterStatus)                             |
-| `gasDetector`                                                                                                                   |
+| [`gasDetector`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#gasDetector)                 |
 | [`motionSensor`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#motionSensor)               |
 | [`presenceSensor`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#presenceSensor)           |
 | [`remoteControlStatus`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#remoteControlStatus) |
@@ -113,11 +113,11 @@ In Home Assistant, a binary sensor entity will be created for each of the follow
 
 The SmartThings Button platform provides the following buttons:
 
-| SmartThings capability   | Button                |
-|--------------------------|-----------------------|
-| `ovenOperatingState`     | Stop                  |
-| `custom.waterFilter`     | Reset water filter    |
-| `samsungce.hoodFilter`   | Reset hood filter     |
+| SmartThings capability                                                                                                            | Button                |
+|-----------------------------------------------------------------------------------------------------------------------------------|-----------------------|
+| [`ovenOperatingState`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#ovenOperatingState)     | Stop                  |
+| `custom.waterFilter`                                                                                                              | Reset water filter    |
+| `samsungce.hoodFilter`                                                                                                            | Reset hood filter     |
 
 ### Climate
 
