@@ -16,7 +16,7 @@ The statistics graph card allows you to display a graph of statistics data for e
 
 <p class='img'>
 <img src='/images/dashboards/statistics_graph_line.png' alt='Screenshot of the statistics graph card for power entities'>
-Screenshot of the statistics graph card with none metered entities and `chart_type` `line`.
+Screenshot of the statistics graph card with no metered entities and `chart_type` `line`.
 </p>
 
 <p class='img'>

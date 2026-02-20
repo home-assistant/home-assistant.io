@@ -100,7 +100,7 @@ These are the properties available for a [Home Assistant trigger](/docs/automati
 
 ### MQTT
 
-These are the properties available for a [MQTT trigger](/docs/automation/trigger/#mqtt-trigger).
+These are the properties available for an [MQTT trigger](/docs/automation/trigger/#mqtt-trigger).
 
 | Template variable | Data |
 | ---- | ---- |

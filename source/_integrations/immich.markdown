@@ -20,7 +20,7 @@ ha_integration_type: service
 ha_quality_scale: silver
 ---
 
-This integration allows adding an [Immich](https://immich.app/) user account to Home Assistant.
+This {% term integration %} allows adding an [Immich](https://immich.app/) user account to Home Assistant.
 
 ## Prerequisites
 

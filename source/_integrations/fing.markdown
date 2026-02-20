@@ -11,7 +11,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@Lorenzo-Gasparini'
 ha_domain: fing
-ha_integration_type: integration
+ha_integration_type: service
 ha_quality_scale: bronze
 ---
 

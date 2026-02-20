@@ -1,7 +1,7 @@
 ---
 title: IntelliClima
 description: Integration for Fantini Cosmi IntelliClima Ecocomfort 2.0 VMC devices.
-ha_release: 2025.12
+ha_release: 2026.3
 ha_category: Fan
 ha_iot_class: Cloud Polling
 ha_quality_scale: bronze
@@ -13,13 +13,10 @@ ha_integration_type: device
 related:
   - url: https://www.fantinicosmi.it/en/
     title: Fantini Cosmi
-  - url: https://developers.home-assistant.io/docs/core/integration-quality-scale/rules/
-    title: Integration Quality Scale - Rules
+
 ---
 
-The **IntelliClima** {% term integration %} is used to integrate with [Fantini Cosmi](https://www.fantinicosmi.it/en/) Ecocomfort 2.0 ventilation devices. The Ecocomfort 2.0 is a mechanical ventilation with heat recovery (MVHR) system that monitors indoor air quality and automates ventilation to maintain healthy indoor environments.
-
-With this integration, you can monitor environmental conditions (temperature, humidity, VOC levels), control fan modes and speeds, and automate ventilation based on air quality or schedules.
+The **IntelliClima** {% term integration %} is used to integrate with [Fantini Cosmi](https://www.fantinicosmi.it/en/) Ecocomfort 2.0 ventilation devices. The Ecocomfort 2.0 is a mechanical ventilation with heat recovery (MVHR) system that monitors indoor air quality and automates ventilation to maintain healthy indoor environments. With this integration, you can monitor environmental conditions (temperature, humidity, VOC levels), control fan modes and speeds, and automate ventilation based on air quality or schedules.
 
 ## Supported devices
 
@@ -29,13 +26,13 @@ The following devices are known to be supported by the integration:
 
 ## Prerequisites
 
-Before setting up this integration, you must complete the following steps in the **IntelliClima+** mobile app:
+Before setting up this integration, you must complete the following steps in the IntelliClima+ mobile app:
 
-1. Install the **IntelliClima+** app on your smartphone (iOS or Android).
+1. Install the IntelliClima+ app on your smartphone (iOS or Android).
 2. Create an account or sign in to your existing account.
 3. Add your Ecocomfort 2.0 device to the app via Bluetooth.
 4. Complete the device setup and configuration in the app (network connection, device name, etc.).
-5. Verify that the device appears as "Online" in the IntelliClima+ app.
+5. Verify that the device appears as Online in the IntelliClima+ app.
 
 Once your device is set up and responding in the IntelliClima+ app, you can add the integration to Home Assistant.
 
@@ -56,18 +53,14 @@ The **IntelliClima** integration provides the following entities for each discov
 
 - **Fan** (Main control entity)
   - **Description**: Control the ventilation system's operation mode and speed.
-  - **Supported modes**:
-    - `forward`: Intake mode (supply air into the room)
-    - `reverse`: Extract mode (exhaust air into the room)
-    - `alternate`: Alternating mode (cycles between intake and extract)
-    - `sensor`: Sensor-based mode based on in-app specified sensor thresholds, but with fixed speed if over thresholds. Corresponds to Manual Sensor mode in-app
-    - `auto`: Full automatic mode that follows in-app programs and sensor thresholds for speeds and modes
+  - **Supported preset mode**:
+    - **auto**: Full automatic mode that follows in-app programs and sensor thresholds for speeds and direction modes
   - **Speed control**: Adjustable from 0-100%, mapped to 5 possible fan control values:
-    - `0%` - Off
-    - `25%` - Sleep
-    - `50%` - Low (Vel1 in-app)
-    - `75%` - Medium (Vel2 in-app)
-    - `100%` - High (Vel3 in-app)
+    - **0%**: Off
+    - **25%**: Sleep
+    - **50%**: Low (Vel1 in-app)
+    - **75%**: Medium (Vel2 in-app)
+    - **100%**: High (Vel3 in-app)
   - **Available for devices**: Ecocomfort 2.0
 
 ### Sensors
@@ -108,7 +101,7 @@ The **IntelliClima** integration provides the following entities for each discov
 
 ## Data updates
 
-The **IntelliClima** integration uses **cloud polling** to fetch device status. The integration polls the IntelliClima cloud API every 1 minute by default to retrieve current device state, sensor readings, and configuration.
+The **IntelliClima** integration uses **cloud polling** to fetch device status. The integration {% term polling polls %} the IntelliClima cloud API every 1 minute by default to retrieve current device state, sensor readings, and configuration.
 
 This means:
 - An active internet connection is required on the Home Assistant device.
@@ -211,18 +204,18 @@ automation:
 
 ## Known limitations
 
-This integration is based on **reverse-engineered communication** with the IntelliClima+ cloud API. The IntelliClima+ service does not provide an official public API documentation. This means:
+This integration is based on reverse-engineered communication with the IntelliClima+ cloud API. The IntelliClima+ service does not provide an official public API documentation. This means:
 
-- **API stability**: If Fantini Cosmi changes their cloud API communication protocol or endpoints, this integration may stop working. Updates would be required to restore functionality.
-- **Feature support**: Only the features and commands that were reverse-engineered are implemented. Future features added by Fantini Cosmi may not be immediately available through this integration.
-- **Cloud dependency**: The integration requires a working internet connection and access to Fantini Cosmi's cloud servers. It cannot operate with local-only communication.
-- **Device support**: Currently, only the Ecocomfort 2.0 device with firmware 0.6.8 has been tested. Other devices in the Ecocomfort line may work but have not been verified.
+- API stability: If Fantini Cosmi changes their cloud API communication protocol or endpoints, this integration may stop working. Updates would be required to restore functionality.
+- Feature support: Only the features and commands that were reverse-engineered are implemented. Future features added by Fantini Cosmi may not be immediately available through this integration.
+- Cloud dependency: The integration requires a working internet connection and access to Fantini Cosmi's cloud servers. It cannot operate with local-only communication.
+- Device support: Currently, only the Ecocomfort 2.0 device with firmware 0.6.8 has been tested. Other devices in the Ecocomfort line may work but have not been verified.
 
 ## Troubleshooting
 
-### Enabling Debugging
+### Enabling debugging
 
-To turn on debug logging modify your {% term "`configuration.yaml`" %} file in the `/config` directory and add the following:
+To turn on debug logging, please check the [documentation on enabling debug logs and diagnostics](https://www.home-assistant.io/docs/configuration/troubleshooting/#debug-logs-and-diagnostics). For fully debugging, you might also want to enable debugging for the external `pyintelliclima` library by modifying your {% term "`configuration.yaml`" %} file in the `/config` directory and adding the following:
 
 ```yaml
 logger:
@@ -241,23 +234,23 @@ The integration cannot communicate with your Ecocomfort 2.0 device through the I
 
 Try the following steps:
 
-1. **Verify device status in IntelliClima+ app**: Open the IntelliClima+ mobile app and check that your Ecocomfort 2.0 shows as "Online" and responsive.
+1. Verify device status in IntelliClima+ app: Open the IntelliClima+ mobile app and check that your Ecocomfort 2.0 shows as "Online" and responsive.
 
-2. **Check your internet connection**: Ensure both your Home Assistant device and your Ecocomfort 2.0 have stable internet connectivity.
+2. Check your internet connection: Ensure both your Home Assistant device and your Ecocomfort 2.0 have stable internet connectivity.
 
-3. **Power cycle the device**: 
+3. Power cycle the device: 
    - Turn off the Ecocomfort 2.0 at the power supply for 30 seconds.
    - Turn it back on and wait 2-3 minutes for it to reconnect.
 
-4. **Restart via IntelliClima+ app**:
+4. Restart via IntelliClima+ app:
    - Open the IntelliClima+ app on your smartphone.
    - Find your Ecocomfort 2.0 device.
    - Use the app's restart or reset function if available: Settings > ECOCOMFORT 2.0 MANAGEMENT > RESTART
    ECOCOMFORT.
    - Wait for the device to come back online.
 
-5. **Check Home Assistant logs**: Look for error messages in the Home Assistant logs for more details about the connection failure:
-   - Go to **Settings** → **System** → **Logs**.
+5. Check Home Assistant logs: Look for error messages in the Home Assistant logs for more details about the connection failure:
+   - Go to {% my logs title="**Settings** > **System** > **Logs**" %}.
    - Search for "intelliclima" messages.
 
 ### Integration fails to authenticate
@@ -268,9 +261,9 @@ Your IntelliClima+ account credentials are incorrect or authentication with Fant
 
 #### Resolution
 
-1. **Verify credentials**: Double-check that your email/username and password are correct.
-2. **Check account status**: Ensure your IntelliClima+ account is active and not locked.
-3. **Try in the mobile app**: Open the IntelliClima+ app and sign in to confirm your credentials work.
+1. Verify credentials: Double-check that your email/username and password are correct.
+2. Check account status: Ensure your IntelliClima+ account is active and not locked.
+3. Try in the mobile app: Open the IntelliClima+ app and sign in to confirm your credentials work.
 
 ### No devices found after authentication
 
@@ -280,10 +273,10 @@ The integration authenticated successfully, but no Ecocomfort devices were found
 
 #### Resolution
 
-1. **Verify device is set up**: Open the IntelliClima+ mobile app and confirm your Ecocomfort 2.0 is listed and shows as "Online".
-2. **Check device status**: Ensure the device is powered on and connected to the internet (may take a few minutes after powering on).
-3. **Re-add the device**: If the device doesn't appear, try removing and re-adding it in the IntelliClima+ app.
-4. **Wait for sync**: After making changes in the IntelliClima+ app, wait a few minutes before retrying the Home Assistant integration setup.
+1. Verify device is set up: Open the IntelliClima+ mobile app and confirm your Ecocomfort 2.0 is listed and shows as "Online".
+2. Check device status: Ensure the device is powered on and connected to the internet (may take a few minutes after powering on).
+3. Re-add the device: If the device doesn't appear, try removing and re-adding it in the IntelliClima+ app.
+4. Wait for sync: After making changes in the IntelliClima+ app, wait a few minutes before retrying the Home Assistant integration setup.
 
 ### Slow response times or delayed updates
 
@@ -293,9 +286,9 @@ Cloud polling introduces latency in command execution and data updates.
 
 #### Resolution
 
-1. **Check internet connection**: Ensure stable, fast internet connectivity for both your Home Assistant device and Ecocomfort 2.0.
-2. **Check cloud service status**: Fantini Cosmi's cloud service may occasionally experience slowdowns. Try again in a few minutes.
-3. **Monitor polling interval**: By default, the integration polls every 1 minute. If real-time responsiveness is critical, you can set up local automations that don't depend on frequent updates.
+1. Check internet connection: Ensure stable, fast internet connectivity for both your Home Assistant device and Ecocomfort 2.0.
+2. Check cloud service status: Fantini Cosmi's cloud service may occasionally experience slowdowns. Try again in a few minutes.
+3. Monitor polling interval: By default, the integration polls every 1 minute. If real-time responsiveness is critical, you can set up local automations that don't depend on frequent updates.
 
 ## Removing the integration
 

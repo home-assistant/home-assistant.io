@@ -13,11 +13,11 @@ ha_config_flow: true
 ha_platforms:
   - diagnostics
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ha_quality_scale: bronze
 ---
 
-The Firefly III {% term integration %} is used as an interface to the [Firefly III API](https://api-docs.firefly-iii.org/).
+The **Firefly III** {% term integration %} is used as an interface to the [Firefly III API](https://api-docs.firefly-iii.org/).
 Firefly III is a free open-source personal finance manager. It contains a full transaction management system, budgets, categories and reports. You can easily import transactions via the diverse options Firefly III offers. It even contains a rule engine to automate and help organize your bookkeeping.
 
 ## Prerequisites

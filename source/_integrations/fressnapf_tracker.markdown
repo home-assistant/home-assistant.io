@@ -12,8 +12,11 @@ ha_domain: fressnapf_tracker
 ha_platforms:
   - binary_sensor
   - device_tracker
+  - light
   - sensor
-ha_integration_type: device
+  - switch
+ha_integration_type: hub
+ha_quality_scale: bronze
 ---
 
 The **Fressnapf Tracker** {% term integration %} allows you to integrate [Fressnapf GPS Trackers](https://tracker.fressnapf.de/) into Home Assistant.
@@ -26,14 +29,16 @@ You can use this integration to track the location of your pets and monitor thei
 
 The **Fressnapf Tracker** integration provides the following entities.
 
-- **Device Tracker**
+- **Device tracker**
   - **Description**: Shows the current location of your pet.
 - **Battery**
   - **Description**: Shows the current battery level of your tracker.
-- **Deep Sleep Status**
-  - **Description**: Indicates whether the tracker is in deep sleep mode.
-- **Charging Status**
+- **Charging status**
   - **Description**: Indicates whether the tracker is currently charging.
+- **Flashlight**
+  - **Description**: Allows you to turn on the flashlight of the tracker to help locate your pet in the dark.
+- **Sleep mode**
+  - **Description**: Allows you to control the sleep mode of the tracker to conserve battery.
   
 ## Prerequisites
 

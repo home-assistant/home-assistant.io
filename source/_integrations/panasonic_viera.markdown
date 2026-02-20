@@ -11,13 +11,13 @@ ha_config_flow: true
 ha_platforms:
   - media_player
   - remote
-ha_integration_type: integration
+ha_integration_type: device
 related:
   - docs: /docs/configuration/
     title: Configuration file
 ---
 
-The Panasonic Viera {% term integration %} allows you to control a Panasonic Viera TV.
+The **Panasonic Viera** {% term integration %} allows you to control a Panasonic Viera TV.
 
 There is currently support for the following device types within Home Assistant:
 

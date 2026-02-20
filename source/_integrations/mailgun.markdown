@@ -9,7 +9,7 @@ ha_config_flow: true
 ha_domain: mailgun
 ha_platforms:
   - notify
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 To be able to receive webhooks from Mailgun, your Home Assistant instance needs to be accessible from the web and you need to have the external URL [configured](/integrations/homeassistant/#allowlist_external_urls).

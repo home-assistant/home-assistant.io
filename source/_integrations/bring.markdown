@@ -28,13 +28,13 @@ related:
 ha_quality_scale: platinum
 ---
 
-The **Bring!** integration allows you to sync your [Bring!](https://www.getbring.com/) shopping lists with Home Assistant.
+The **Bring!** {% term integration %} allows you to sync your [Bring!](https://www.getbring.com/) shopping lists with Home Assistant.
 
 ## About Bring!  
 
 **Bring!** is a grocery shopping list app that allows users to create shared lists and organize grocery shopping with family, partners, or roommates.  
 
-Available as a mobile app on [Google Play for Android](https://play.google.com/store/apps/details?id=ch.publisheria.bring) and the [App Store for iOS](https://itunes.apple.com/app/apple-store/id580669177). **Bring!** also offers a web version at [web.getbring.com](https://web.getbring.com).  
+Available as a mobile app on [Google Play for Android](https://play.google.com/store/apps/details?id=ch.publisheria.bring) and the [App Store for iOS](https://apps.apple.com/app/id580669177). **Bring!** also offers a web version at [web.getbring.com](https://web.getbring.com).  
 
 ## How you can use this integration
 

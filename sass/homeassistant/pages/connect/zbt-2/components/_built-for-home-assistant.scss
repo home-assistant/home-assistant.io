@@ -39,6 +39,7 @@ section#built-for-home-assistant {
         flex-direction: column;
 
         @include bp(tablet) {
+            height: 100%;
             flex-direction: row;
         }
 
@@ -50,23 +51,9 @@ section#built-for-home-assistant {
             flex-grow: 1;
             flex-basis: 0;
 
-
             &:first-child {
-                height: -webkit-fill-available;
+                height: 100%;
                 position: relative;
-
-                &:before {
-                    @include bp(tablet) {
-                        content: '';
-                        position: absolute;
-                        top: calc(100% + 20px);
-                        left: 0;
-                        right: 0;
-                        height: 10rem;
-                        background-color: #000000;
-                        z-index: 1;
-                    }
-                }
 
                 img {
                     margin-top: -17.5%;

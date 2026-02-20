@@ -40,6 +40,26 @@ type: energy-date-selection
 The energy usage graph card shows the amount of energy your house has consumed, and from what source this energy came.
 It will also show the amount of energy your have returned to the grid.
 
+### YAML configuration
+
+The following YAML options are available
+
+{% configuration %}
+type:
+  required: true
+  description: "`energy-usage-graph`"
+  type: string
+collection_key:
+  required: false
+  description: "Collection key to use for the card. This links the card to a specific energy dashboard collection. Defaults to `energy_dashboard`."
+  type: string
+  default: energy_dashboard
+title:
+  required: false
+  description: When defined, shows a card header with the title string and total energy consumed chip.
+  type: string
+{% endconfiguration %}
+
 ### Example
 
 ```yaml
@@ -54,6 +74,26 @@ type: energy-usage-graph
 </p>
 
 The solar production graph card shows the amount of energy your solar panels have produced per source, and if setup and available the forecast of the solar production.
+
+### YAML configuration
+
+The following YAML options are available
+
+{% configuration %}
+type:
+  required: true
+  description: "`energy-solar-graph`"
+  type: string
+collection_key:
+  required: false
+  description: "Collection key to use for the card. This links the card to a specific energy dashboard collection. Defaults to `energy_dashboard`."
+  type: string
+  default: energy_dashboard
+title:
+  required: false
+  description: When defined, shows a card header with the title string and total solar produced chip.
+  type: string
+{% endconfiguration %}
 
 ### Example
 
@@ -70,6 +110,22 @@ type: energy-solar-graph
 
 The gas consumption graph card shows the amount of gas consumed per source.
 
+{% configuration %}
+type:
+  required: true
+  description: "`energy-gas-graph`"
+  type: string
+collection_key:
+  required: false
+  description: "Collection key to use for the card. This links the card to a specific energy dashboard collection. Defaults to `energy_dashboard`."
+  type: string
+  default: energy_dashboard
+title:
+  required: false
+  description: When defined, shows a card header with the title string and total gas consumed chip.
+  type: string
+{% endconfiguration %}
+
 ### Example
 
 ```yaml
@@ -84,6 +140,26 @@ type: energy-gas-graph
 </p>
 
 The water consumption graph card shows the amount of water consumed per source.
+
+### YAML configuration
+
+The following YAML options are available
+
+{% configuration %}
+type:
+  required: true
+  description: "`energy-water-graph`"
+  type: string
+collection_key:
+  required: false
+  description: "Collection key to use for the card. This links the card to a specific energy dashboard collection. Defaults to `energy_dashboard`."
+  type: string
+  default: energy_dashboard
+title:
+  required: false
+  description: When defined, shows a card header with the title string and total water consumed chip.
+  type: string
+{% endconfiguration %}
 
 ### Example
 
@@ -442,6 +518,46 @@ The following example orients the flow from left to right:
 ```yaml
 type: power-sankey
 layout: horizontal
+```
+
+## Power sources graph
+
+<p class='img'>
+  <img src='/images/dashboards/energy/power-sources.png' alt='Screenshot of the Sankey sources graph card'>
+  Screenshot of the power Sankey graph card.
+</p>
+
+The power sources graph shows historical power data.
+
+### YAML configuration
+
+The following YAML options are available
+
+{% configuration %}
+type:
+  required: true
+  description: "`power-sources-graph`"
+  type: string
+collection_key:
+  required: false
+  description: "Collection key to use for the card. This links the card to a specific energy dashboard collection. Defaults to `energy_dashboard`."
+  type: string
+  default: energy_dashboard
+title:
+  required: false
+  description: The title of the card.
+  type: string
+show_legend:
+  required: false
+  description: Show or hide the legend
+  type: boolean
+  default: true
+{% endconfiguration %}
+
+### Examples
+
+```yaml
+type: power-sources-graph
 ```
 
 ## Using multiple collections

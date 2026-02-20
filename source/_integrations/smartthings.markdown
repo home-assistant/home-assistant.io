@@ -47,7 +47,7 @@ ha_platforms:
   - valve
   - water_heater
 ha_dhcp: true
-ha_integration_type: integration
+ha_integration_type: hub
 ha_codeowners:
   - '@joostlek'
 ha_quality_scale: bronze

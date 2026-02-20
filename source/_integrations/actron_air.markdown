@@ -12,7 +12,8 @@ ha_codeowners:
 ha_domain: actron_air
 ha_platforms:
   - climate
-ha_integration_type: integration
+  - switch
+ha_integration_type: hub
 ha_quality_scale: bronze
 ha_dhcp: true
 ---
@@ -36,6 +37,10 @@ This integration supports the Actron Air Neo and Que controllers.
 The integration will create a climate entity for the main air conditioning system found and for each zone. The main air conditioner unit will be reflected based on the name in the Actron Air app. You can set the temperature, operation mode, and fan speed through this entity.
 
 Each zone will be reflected as a separate climate entity. You can set the temperature and operation mode per zone (if supported by your air conditioner).
+
+### Switch
+
+The integration will add the **Away mode**, **Continuous fan**, **Quiet mode**, and **Turbo mode** (if supported) switches to your Actron Air air conditioner.
 
 ## Removing the integration
 

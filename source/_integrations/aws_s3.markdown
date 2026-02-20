@@ -105,7 +105,7 @@ Endpoint URL:
 
 ## Setting up the AWS S3 integration in Home Assistant
 
-1. In Home Assistant, go to **Settings > Devices & Services**.
+1. In Home Assistant, go to **Settings > Devices & services**.
 1. Click **Add Integration** and search for **AWS S3**.
 1. Enter the following details:
    - Access Key ID and Secret Access Key from the IAM user
@@ -113,6 +113,12 @@ Endpoint URL:
    - The region endpoint (e.g., `https://s3.eu-central-1.amazonaws.com/`)
 
 The integration will test the connection and confirm access to your S3 bucket.
+
+## Sensors
+
+The integration provides the following sensor, which is updated every 6 hours:
+
+- **Total size of backups**: The combined size of all Home Assistant backups stored in the configured S3 bucket for this Home Assistant installation.
 
 ## Known limitations
 

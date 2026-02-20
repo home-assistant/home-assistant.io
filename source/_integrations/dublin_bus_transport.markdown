@@ -15,7 +15,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `dublin_bus_transport` {% term integration %} will give you the time until the next two departures from a Dublin bus stop using the RTPI information.
+The **Dublin Bus** {% term integration %} will give you the time until the next two departures from a Dublin bus stop using the RTPI information.
 
 The [Dublin Bus](https://www.dublinbus.ie/RTPI/) website can help to determine the id of your bus stop. You can check if this is correct by going to
 

@@ -31,9 +31,9 @@ In addition, the entity can have the following states:
 
 Available {% term actions %}: `siren.turn_on`, `siren.turn_off`, `siren.toggle`
 
-### Action `siren.turn_on`
+### Action: Turn on
 
-Turn the siren on.
+The `siren.turn_on` action turns the siren on.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -47,17 +47,17 @@ There are three optional input parameters that can be passed into the action dep
 | `duration`      | `integer`               |                                                                                     |
 | `volume_level`  | `float` between 0 and 1 |                                                                                     |
 
-### Action `siren.turn_off`
+### Action: Turn off
 
-Turn the siren off.
+The `siren.turn_off` action turns the siren off.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that point at `entity_id`'s of sirens to control.
 
-### Action `siren.toggle`
+### Action: Toggle
 
-Toggle the siren on/off.
+The `siren.toggle` action toggles the siren on or off.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |

@@ -136,7 +136,7 @@ effective in 0.118).
 
 This is only a concern if you are running Home Assistant Core directly on
 Python. You can check the Python version Home Assistant uses by going to the
-information screen in **Configuration** -> **Info**.
+information screen under {% my repairs title="**Settings** > **System** > **Repairs**" %} > **System information** in the three dots menu (top right).
 
 If you run Home Assistant OS, Supervised or Container, you don't have to worry
 about this, as the Home Assistant project takes care of this for you. As a

@@ -15,7 +15,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `clementine` platform allows you to control a [Clementine Music Player](https://www.clementine-player.org).
+The **Clementine Music Player** {% term integration %} allows you to control a [Clementine Music Player](https://www.clementine-player.org).
 
 To add a Clementine Player to your Home Assistant installation, add the following to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}

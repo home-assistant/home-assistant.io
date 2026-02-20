@@ -7,7 +7,7 @@ related:
     title: Creating a local assistant
   - docs: /voice_control/assist_create_open_ai_personality/
     title: Creating an assistant personality with AI
-  - url: https://amzn.to/40k7mRa
+  - url: https://www.amazon.com/dp/B06XW1BQHC
     title: Grandstream HT801
   - url: https://www.nabucasa.com
     title: Home Assistant Cloud
@@ -24,7 +24,7 @@ your smart home and issue commands and get responses.
 - Home Assistant 2023.5 or later, installed with the Home Assistant Operating System. If you do not have Home Assistant installed yet, refer to the [installation page](/installation/) for instructions.
 - An [analog phone](#about-the-analog-phone) with an RJ11 socket
 - An analog telephone adapter
-  [Grandstream HT801](https://amzn.to/40k7mRa)
+  [Grandstream HT801](https://www.amazon.com/dp/B06XW1BQHC)
   - includes a 5&nbsp;V power adapter and an Ethernet cable
 - RJ11 phone cable to connect the phone to the Grandstream
 - [Cloud assistant pipeline](/voice_control/voice_remote_cloud_assistant/) or a manually configured [local assistant pipeline](/voice_control/voice_remote_local_assistant/)
@@ -58,7 +58,7 @@ your smart home and issue commands and get responses.
 
 ## Setting up the phone in Home Assistant
 
-1. In Home Assistant, go to {% my config_flow_start domain="voip" title="**Settings** > **Devices & Services** > **Add integration**" %} and add the **Voice over IP** integration.
+1. In Home Assistant, go to {% my config_flow_start domain="voip" title="**Settings** > **Devices & services** > **Add integration**" %} and add the **Voice over IP** integration.
     ![Voice over IP integration](/images/assist/voip_install.png)
 2. Once you see the integration, pick up the phone.
    - You should now hear the message *This is your smart home speaking. Your phone is connected, but you must configure it within Home Assistant.*

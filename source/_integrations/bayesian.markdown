@@ -19,7 +19,7 @@ related:
 ha_config_flow: true
 ---
 
-A `Bayesian` sensor is a virtual binary sensor that determines its state by combining the states of other sensors using probability.
+A **Bayesian** sensor is a virtual binary sensor that determines its state by combining the states of other sensors using probability.
 
 This approach enables the detection of complex events that are not directly or easily measurable, such as cooking, showering, being in bed, or starting a morning routine. Additionally, it can improve confidence and reliability in measurable events where sensors may be unreliable, such as some presence detectors.
 
