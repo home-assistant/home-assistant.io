@@ -6,6 +6,7 @@ ha_config_flow: true
 ha_release: 2026.2
 ha_category:
   - Button
+  - Number
   - Select
   - Sensor
   - Switch
@@ -15,6 +16,7 @@ ha_domain: hdfury
 ha_platforms:
   - button
   - diagnostics
+  - number
   - select
   - sensor
   - switch
@@ -54,6 +56,11 @@ Below is a complete overview of the entities this integration provides.
 
 - Issue hotplug (Sends a command to hotplug TX & RX connected devices)
 - Restart (Reboot the device remotely)
+
+### Number
+
+- OLED fade timer (Controls time before the front-panel OLED display fades out)
+- Restart timer (Controls interval for automatic device restarts)
 
 ### Select
 
