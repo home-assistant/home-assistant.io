@@ -340,7 +340,7 @@ This is useful for troubleshooting a specific device and understanding exactly w
 Config entry-level diagnostics contain information about all capabilities and devices in your SmartThings location, but without the current state values. To access config entry diagnostics:
 
 1. Go to **Settings** > **Devices & services** > **SmartThings**
-2. Click the three-dot menu next to the integration name
+2. Click the three dots {% icon "mdi:dots-vertical" %} menu next to the integration name
 3. Select **Download diagnostics**
 4. Download the generated JSON file
 
