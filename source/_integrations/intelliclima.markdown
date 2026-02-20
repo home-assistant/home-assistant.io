@@ -16,7 +16,7 @@ related:
 
 ---
 
-The **IntelliClima** {% term integration %} is used to integrate with [Fantini Cosmi](https://www.fantinicosmi.it/en/) Ecocomfort 2.0 ventilation devices. The Ecocomfort 2.0 is a mechanical ventilation with heat recovery (MVHR) system that monitors indoor air quality and automates ventilation to maintain healthy indoor environments. With this integration, you can monitor environmental conditions (temperature, humidity, VOC levels), control fan modes and speeds, and automate ventilation based on air quality or schedules.
+The **IntelliClima** {% term integration %} is used to integrate with [Fantini Cosmi](https://www.fantinicosmi.it/en/) Ecocomfort 2.0 ventilation devices. The Ecocomfort 2.0 is a mechanical ventilation with heat recovery (MVHR) system that monitors indoor air quality and automates ventilation to maintain healthy indoor environments. With this integration, you can control fan modes and speeds, and automate ventilation based on schedules.
 
 ## Supported devices
 
@@ -74,42 +74,6 @@ The **IntelliClima** integration provides the following entities for each discov
     - **sensor**: Sensor-based mode based on in-app specified sensor thresholds, but with fixed speed if over thresholds. Corresponds to Manual Sensor mode in-app
   - **Available for devices**: Ecocomfort 2.0
 
-### Sensors
-
-- **Temperature**
-  - **Description**: Current indoor ambient temperature detected by the device.
-  - **Unit**: °C
-  - **Measurement type**: Temperature
-  - **Available for devices**: Ecocomfort 2.0
-
-- **Humidity**
-  - **Description**: Current indoor relative humidity detected by the device.
-  - **Unit**: %
-  - **Measurement type**: Humidity
-  - **Available for devices**: Ecocomfort 2.0
-
-- **VOC (Volatile Organic Compounds)**
-  - **Description**: Air quality indicator based on detected volatile organic compounds.
-  - **Unit**: ppm (parts per million)
-  - **Measurement type**: Air quality/VOC level
-  - **Available for devices**: Ecocomfort 2.0
-  - **Remarks**: Higher values indicate lower air quality and may trigger automatic ventilation adjustments.
-
-### Binary Sensors
-
-- **Master/Satellite Unit**
-  - **Description**: Indicates whether the device is configured as a master unit (on) or satellite unit (off) in a multi-device setup.
-  - **Available for devices**: Ecocomfort 2.0
-
-- **Winter/Summer Mode**
-  - **Description**: Shows whether the device is in Winter mode (on) or Summer mode (off). Controls heat recovery behavior.
-  - **Available for devices**: Ecocomfort 2.0
-
-- **Filter Cleaning Required**
-  - **Description**: Diagnostic indicator showing when the device's filter requires cleaning or replacement.
-  - **Available for devices**: Ecocomfort 2.0
-  - **Remarks**: This is a diagnostic entity and is disabled by default.
-
 ## Data updates
 
 The **IntelliClima** integration uses **cloud polling** to fetch device status. The integration {% term polling polls %} the IntelliClima cloud API every 1 minute by default to retrieve current device state, sensor readings, and configuration.
@@ -120,41 +84,6 @@ This means:
 - Data updates are limited by cloud API availability and latency.
 
 ## Examples
-
-### Automatic ventilation based on air quality
-
-Create an automation that adjusts fan speed based on VOC levels:
-
-```yaml
-automation:
-  - alias: "Adjust ventilation by air quality"
-    description: "Increase ventilation when VOC levels are high"
-    triggers:
-      - trigger: numeric_state
-        entity_id: sensor.ecocomfort_2_voc
-        above: 300
-    actions:
-      - action: fan.set_percentage
-        target:
-          entity_id: fan.ecocomfort_2
-        data:
-          percentage: 75
-    mode: single
-
-  - alias: "Reduce ventilation when air quality improves"
-    description: "Lower ventilation speed when VOC levels normalize"
-    triggers:
-      - trigger: numeric_state
-        entity_id: sensor.ecocomfort_2_voc
-        below: 150
-    actions:
-      - action: fan.set_percentage
-        target:
-          entity_id: fan.ecocomfort_2
-        data:
-          percentage: 25
-    mode: single
-```
 
 ### Time-based ventilation schedule
 
@@ -186,25 +115,6 @@ automation:
           entity_id: fan.ecocomfort_2
         data:
           percentage: 25
-    mode: single
-```
-
-### Filter cleaning notification
-
-Send a notification when the device indicates filter cleaning is required:
-
-```yaml
-automation:
-  - alias: "Filter cleaning reminder"
-    description: "Notify when filter needs cleaning"
-    triggers:
-      - trigger: state
-        entity_id: binary_sensor.ecocomfort_2_filter_cleaning
-        to: "on"
-    actions:
-      - action: notify.notify
-        data:
-          message: "Ecocomfort 2.0 filter requires cleaning"
     mode: single
 ```
 
