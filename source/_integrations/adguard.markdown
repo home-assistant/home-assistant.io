@@ -34,16 +34,14 @@ Before setting up the AdGuard Home integration, ensure you have:
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
-Host:
-  description: "The IP address or hostname of your AdGuard Home instance. For example: `192.168.1.100` or `adguard.local`."
-Port:
-  description: "The port AdGuard Home is running on. Default is `3000` for the web interface."
+Adress:
+  description: "Address of your AdGuard Home instance. Accepts a hostname, hostname with port, IP address with port, or a full URL. Examples: `adguard.local`, `adguard.local:3000`, `192.168.1.100:3000`, `https://adguard.example.com`. If no scheme is provided, `http://` is assumed. If no port is specified, port '3000' ist assumed."
 Username:
   description: "Your AdGuard Home admin username."
 Password:
   description: "Your AdGuard Home admin password."
 Verify SSL certificate:
-  description: "Enable SSL certificate verification when connecting via HTTPS."
+  description: "Enable SSL certificate verification when connecting via HTTPS. Has no effect for HTTP connections."
 {% endconfiguration_basic %}
 
 ## Supported functionality
