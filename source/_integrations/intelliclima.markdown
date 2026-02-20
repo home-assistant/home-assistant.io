@@ -63,6 +63,17 @@ The **IntelliClima** integration provides the following entities for each discov
     - **100%**: High (Vel3 in-app)
   - **Available for devices**: Ecocomfort 2.0
 
+### Select
+
+- **Fan Direction Mode**
+  - **Description**: Select the ventilation system's direction operation mode. It only affects the direction of the fan and does not affect the speed if possible. However, if the device was off or its previous mode was the **Fan** entity's **auto** preset, it defaults to **25%** (sleep) speed.
+  - **Supported options**:
+    - **forward**: Intake mode (supply air into the room)
+    - **reverse**: Extract mode (exhaust air into the room)
+    - **alternate**: Alternating mode (cycles between intake and extract)
+    - **sensor**: Sensor-based mode based on in-app specified sensor thresholds, but with fixed speed if over thresholds. Corresponds to Manual Sensor mode in-app
+  - **Available for devices**: Ecocomfort 2.0
+
 ### Sensors
 
 - **Temperature**
@@ -192,7 +203,7 @@ automation:
     description: "Notify when filter needs cleaning"
     triggers:
       - platform: state
-        entity_id: binary_sensor.ecocomfort_2_filter_cleaning_required
+        entity_id: binary_sensor.ecocomfort_2_filter_cleaning
         to: "on"
     conditions: []
     actions:
