@@ -1859,9 +1859,11 @@ For a summary in a more readable format
 - Fix touchline_sl zone availability when alarm state is set ([@molsmadsen] - [#163338])
 - Bump pySmartThings to 3.5.3 ([@joostlek] - [#163375])
 - Fix hassfest requirements check ([@cdce8p] - [#163681])
+- Bump eheimdigital to 1.6.0 ([@autinerd] - [#161961])
 
 [#160898]: https://github.com/home-assistant/core/pull/160898
 [#161155]: https://github.com/home-assistant/core/pull/161155
+[#161961]: https://github.com/home-assistant/core/pull/161961
 [#162224]: https://github.com/home-assistant/core/pull/162224
 [#162333]: https://github.com/home-assistant/core/pull/162333
 [#162450]: https://github.com/home-assistant/core/pull/162450
