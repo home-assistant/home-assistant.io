@@ -330,7 +330,7 @@ Device-level diagnostics contain all capabilities and their current states for a
 
 1. Go to **Settings** > **Devices & services** > **SmartThings**
 2. Click on the device you want to diagnose
-3. Click the **Download diagnostics** button or select it from the menu
+3. Click the **Download diagnostics** button, or open the three-dot menu {% icon "mdi:dots-vertical" %} and select **Download diagnostics**
 4. Download the generated JSON file
 
 This is useful for troubleshooting a specific device and understanding exactly what capabilities and attributes it exposes to the SmartThings API.
