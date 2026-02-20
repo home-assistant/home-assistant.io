@@ -66,7 +66,7 @@ The **IntelliClima** integration provides the following entities for each discov
 ### Select
 
 - **Fan Direction Mode**
-  - **Description**: Select the ventilation system's direction operation mode. It only affects the direction of the fan and does not affect the speed if possible. However, if the device was off or its previous mode was the **Fan** entity's **auto** preset, it defaults to **25%** (sleep) speed.
+  - **Description**: Select the ventilation system's direction operation mode. When you change the direction mode, the integration keeps the current fan speed whenever the device is already running at a fixed speed. If you change the direction mode while the device is off, or while the **Fan** entity is in the **auto** preset (which does not have a fixed speed), the fan is started at **25%** (sleep) speed.
   - **Supported options**:
     - **forward**: Intake mode (supply air into the room)
     - **reverse**: Extract mode (exhaust air into the room)
