@@ -5,11 +5,7 @@ ruby '> 2.5.0'
 group :development do
   gem 'rake', '13.3.1'
   gem 'jekyll', '4.4.1'
-  gem 'compass', '1.0.3'
-  gem 'sass-globbing', '1.1.5'
   gem 'stringex', '2.8.6'
-  # > 2.1.0 causes slowdowns https://github.com/sass/sassc-ruby/issues/189
-  gem 'sassc', '2.1.0'
   gem 'sass-embedded', '1.97.3'
   gem 'rubocop', '1.84.2'
   gem 'ruby-lsp', '0.26.6'
