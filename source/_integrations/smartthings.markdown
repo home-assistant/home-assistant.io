@@ -304,12 +304,47 @@ The SmartThings Water heater platform lets you control heat pumps that provide h
 
 ## Troubleshooting
 
-### Enabling debug logs and diagnostics
+### Enabling debug logs
 
 If debug logging is enabled, the integration shows all the received events in the logs. The log captures events for that device for 5 seconds, and return a JSON file with the state of the device and the events.
 Debug logs can be helpful for diagnosing state updates, for example by selecting the button and then turning on the device physically.
 
 - To enable debug logs, follow the [steps to enable debug logs](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics).
+
+### Missing device functionality
+
+The SmartThings integration does not support all SmartThings capabilities. Only the capabilities listed in this documentation are supported. If a feature of your device is not available in Home Assistant, there are a few possible reasons:
+
+- **The capability is not yet supported by this integration.** You can check the [supported functionality](#supported-functionality) section to see which capabilities are currently implemented.
+- **The feature is not available in the SmartThings API.** Some device features are only available in the SmartThings app and are not exposed through the API. You can check the [SmartThings Developer Portal](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference) to see if the necessary capability is available for your device.
+
+If the capability is available in the SmartThings API but not yet supported by this integration, you can request support by creating a [GitHub Discussion](https://github.com/home-assistant/core/discussions). Do not create a GitHub Issue for feature requests, as issues are intended for bug reports and are automatically closed if not addressed within 30 days. A GitHub Discussion is the better place for feature requests.
+
+### Viewing device diagnostics
+
+The SmartThings integration includes a diagnostics platform that allows you to download detailed information for troubleshooting purposes. Diagnostics are available at two levels:
+
+#### Device diagnostics
+
+Device-level diagnostics contain all capabilities and their current states for a single device. To access device diagnostics:
+
+1. Go to **Settings** > **Devices & Services** > **SmartThings**
+2. Click on the device you want to diagnose
+3. Click the **Download diagnostics** button or select it from the menu
+4. Download the generated JSON file
+
+This is useful for troubleshooting a specific device and understanding exactly what capabilities and attributes it exposes to the SmartThings API.
+
+#### Config entry diagnostics
+
+Config entry-level diagnostics contain information about all capabilities and devices in your SmartThings location, but without the current state values. To access config entry diagnostics:
+
+1. Go to **Settings** > **Devices & Services** > **SmartThings**
+2. Click the three-dot menu next to the integration name
+3. Select **Download diagnostics**
+4. Download the generated JSON file
+
+This is useful for getting a comprehensive overview of all available capabilities across all your connected devices, which can help when requesting support for unsupported capabilities or planning which devices to add.
 
 ## Removing the integration
 
