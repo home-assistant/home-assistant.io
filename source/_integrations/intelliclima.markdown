@@ -87,7 +87,7 @@ This means:
 
 ### Time-based ventilation schedule
 
-Prevent high-speed ventilation during occupied hours, allow it during unoccupied times:
+Create a day and night ventilation schedule to run high speed at night and low speed during the day:
 
 ```yaml
 automation:
