@@ -328,7 +328,7 @@ The SmartThings integration includes a diagnostics platform that allows you to d
 
 Device-level diagnostics contain all capabilities and their current states for a single device. To access device diagnostics:
 
-1. Go to **Settings** > **Devices & Services** > **SmartThings**
+1. Go to **Settings** > **Devices & services** > **SmartThings**
 2. Click on the device you want to diagnose
 3. Click the **Download diagnostics** button or select it from the menu
 4. Download the generated JSON file
@@ -339,7 +339,7 @@ This is useful for troubleshooting a specific device and understanding exactly w
 
 Config entry-level diagnostics contain information about all capabilities and devices in your SmartThings location, but without the current state values. To access config entry diagnostics:
 
-1. Go to **Settings** > **Devices & Services** > **SmartThings**
+1. Go to **Settings** > **Devices & services** > **SmartThings**
 2. Click the three-dot menu next to the integration name
 3. Select **Download diagnostics**
 4. Download the generated JSON file
