@@ -64,6 +64,10 @@ Alternatively, the following shops sell ESPHome-based devices, that use a proxim
 - [Slimme Watermeter Gateway](https://smartgateways.nl/product/slimme-watermeter-gateway/) (Dutch)
 - [watermeterkit.nl](https://watermeterkit.nl/) (Dutch)
 
+## Reading the meter wirelessly via RTL-SDR
+
+{% include energy/rtl_sdr.md %}
+
 ## DIY
 
 Maybe you like to build one yourself?
