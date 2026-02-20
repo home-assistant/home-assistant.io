@@ -316,7 +316,7 @@ Debug logs can be helpful for diagnosing state updates, for example by selecting
 The SmartThings integration does not support all SmartThings capabilities. Only the capabilities listed in this documentation are supported. If a feature of your device is not available in Home Assistant, there are a few possible reasons:
 
 - **The capability is not yet supported by this integration.** You can check the [supported functionality](#supported-functionality) section to see which capabilities are currently implemented.
-- **The feature is not available in the SmartThings API.** Some device features are only available in the SmartThings app and are not exposed through the API. You can check the [SmartThings Developer Portal](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference) to see if the necessary capability is available for your device.
+- **The feature is not available in the SmartThings API.** Some device features are only available in the SmartThings app and are not exposed through the API. You can check the [SmartThings Developer Portal](https://my.smartthings.com/advanced/devices) to see if the necessary capability is available for your device.
 
 If the capability is available in the SmartThings API but not yet supported by this integration, you can request support by creating a [GitHub Discussion]([https://github.com/home-assistant/core/discussions](https://github.com/orgs/home-assistant/discussions?discussions_q=is%3Aopen+label%3A%22integration%3A+smartthings%22)). Do not create a GitHub Issue for feature requests, as issues are intended for bug reports and are automatically closed if it has not been active for 30 days.
 
