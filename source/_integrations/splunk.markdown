@@ -4,6 +4,7 @@ description: Record events in Splunk.
 ha_category:
   - History
 ha_iot_class: Local Push
+ha_config_flow: true
 ha_release: 0.13
 ha_domain: splunk
 ha_codeowners:
