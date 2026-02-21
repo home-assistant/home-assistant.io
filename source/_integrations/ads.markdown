@@ -157,11 +157,11 @@ adsvar_brightness:
   type: string
 min_brightness:
   required: false
-  description: The minimum raw brightness value written to the PLC. Defaults to `0`.
+  description: The minimum raw brightness value written to the PLC. Must be ≤ `max_brightness` and non-negative. Defaults to `0`.
   type: integer
 max_brightness:
   required: false
-  description: The maximum raw brightness value written to the PLC. Defaults to `255` (no scaling). Set to `100` if your PLC expects 0–100 %.
+  description: The maximum raw brightness value written to the PLC. Must be ≥ `min_brightness` and non-negative. Defaults to `255` (no scaling). Set to `100` if your PLC expects 0–100 %.
   type: integer
 adsvar_color_temp_kelvin:
   required: false
@@ -226,7 +226,7 @@ When `adsvar_color_mode` is used, the PLC writes a bitmask value to signal which
 | 32        | Bit 5    | White channel |
 | 48        | Bit 4+5  | RGBW |
 
-If the PLC reports a mode that is not covered by the configured channel variables, Home Assistant falls back to the statically determined default mode.
+If the PLC reports **only** bit 5 (white channel) with no other color capability, Home Assistant uses **brightness** mode instead, because white cannot be the only supported color mode. If the PLC reports a mode that is not covered by the configured channel variables, Home Assistant falls back to the statically determined default mode.
 
 ## Sensor
 
