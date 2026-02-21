@@ -155,7 +155,7 @@ The RFLink integration does not know the difference between a binary sensor, a s
 {% details "Legacy configuration" %}
 
 {% important %}
-That _legacy_ format will stop working on Home Assistant 2026.9.0.
+This _legacy_ format will stop working on Home Assistant 2026.9.0.
 {% endimportant %}
 
 ```yaml
@@ -289,7 +289,7 @@ rflink:
 {% details "Legacy configuration" %}
 
 {% important %}
-That _legacy_ format will stop working on Home Assistant 2026.9.0.
+This _legacy_ format will stop working on Home Assistant 2026.9.0.
 {% endimportant %}
 
 ```yaml
@@ -368,7 +368,7 @@ rflink:
 {% details "Legacy configuration" %}
 
 {% important %}
-That _legacy_ format will stop working on Home Assistant 2026.9.0.
+This _legacy_ format will stop working on Home Assistant 2026.9.0.
 {% endimportant %}
 
 ```yaml
@@ -449,7 +449,7 @@ rflink:
 {% details "Legacy configuration" %}
 
 {% important %}
-That _legacy_ format will stop working on Home Assistant 2026.9.0.
+This _legacy_ format will stop working on Home Assistant 2026.9.0.
 {% endimportant %}
 
 ```yaml
@@ -565,7 +565,7 @@ rflink:
 {% details "Legacy configuration" %}
 
 {% important %}
-That _legacy_ format will stop working on Home Assistant 2026.9.0.
+This _legacy_ format will stop working on Home Assistant 2026.9.0.
 {% endimportant %}
 
 ```yaml
@@ -597,7 +597,7 @@ The configuration above shows that the `type` property may be omitted. When the 
 
 ### Setting up a non-RTS cover
 
-Configure `automatic_add` for the **light** domain (yes, the light domain)
+Configure `automatic_add` for the **light** domain (yes, the light domain).
 ```yaml
 # Example configuration.yaml entry
 rflink:
@@ -670,7 +670,7 @@ rflink:
 {% details "Legacy configuration" %}
 
 {% important %}
-That _legacy_ format will stop working on Home Assistant 2026.9.0.
+This _legacy_ format will stop working on Home Assistant 2026.9.0.
 {% endimportant %}
 
 ```yaml
@@ -725,7 +725,7 @@ rflink:
 {% details "Legacy configuration" %}
 
 {% important %}
-That _legacy_ format will stop working on Home Assistant 2026.9.0.
+This _legacy_ format will stop working on Home Assistant 2026.9.0.
 {% endimportant %}
 
 ```yaml
@@ -906,7 +906,7 @@ rflink:
 {% details "Legacy configuration" %}
 
 {% important %}
-That _legacy_ format will stop working on Home Assistant 2026.9.0.
+This _legacy_ format will stop working on Home Assistant 2026.9.0.
 {% endimportant %}
 
 ```yaml
@@ -1056,7 +1056,7 @@ rflink:
 {% details "Legacy configuration" %}
 
 {% important %}
-That _legacy_ format will stop working on Home Assistant 2026.9.0.
+This _legacy_ format will stop working on Home Assistant 2026.9.0.
 {% endimportant %}
 
 ```yaml
