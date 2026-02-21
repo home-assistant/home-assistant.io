@@ -263,12 +263,10 @@ Default exit delay for home mode:
   description: "Time in seconds before the alarm arms when set to home mode. Set to 0 to disable. Can be overridden per-panel using the `zha.set_exit_delay` action. _(default: 0)_"
 Default exit delay for night mode:
   description: "Time in seconds before the alarm arms when set to night mode. Set to 0 to disable. Can be overridden per-panel using the `zha.set_exit_delay` action. _(default: 0)_"
-Default entry delay:
-  description: "Time in seconds after a sensor is triggered before the alarm sounds. Set to 0 to disable. Can be overridden per-panel using the `zha.set_entry_delay` action. _(default: 0)_"
 {% endconfiguration_basic %}
 
 {% note %}
-Exit delays give you time to leave the area before the alarm arms. Entry delays give you time to disarm the alarm after entering.
+Exit delays give you time to leave the area before the alarm arms.
 {% endnote %}
 
 ### Configuration - YAML
