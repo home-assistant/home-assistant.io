@@ -35,12 +35,6 @@ The `surepetcare.set_lock_state` action changes the locking state of a flap.
 | `flap_id` | `True` | integer | Flap ID to change - see below for instructions on finding device ID
 | `lock_state` | `True` | string | New state to change the flap to
 
-The `flap_id` can be found following these instructions:
-
-- Log into [surepetcare.io](https://surepetcare.io/).
-- Open the sidebar and click your flap.
-- The `flap_id` will be at the end of the URL (i.e., `https://surepetcare.io/control/device/FLAP-ID`)
-
 `lock_state` should be one of:
 
 - `unlocked` - flap is unlocked, pets are allowed both in and out.
@@ -61,3 +55,31 @@ The `surepetcare.set_pet_location` action sets the pet location.
 
 - `Inside` - Pet is inside.
 - `Outside` - Pet is outside.
+
+### Action: Set curfew
+
+The `surepetcare.set_curfew` action sets curfew times for a flap. Curfew automatically locks and unlocks the flap at specified times daily.
+
+| Data attribute | Required | Type | Description |
+| ---------------------- | -------- | -------- | ----------- |
+| `flap_id` | yes | string or integer | Flap ID to change - see below for instructions on finding device ID
+| `lock_time` | yes | string | Time to automatically lock the flap each day. Format: HH:MM:SS (24-hour format). For example: "22:00:00" for 10 PM.
+| `unlock_time` | yes | string | Time to automatically unlock the flap each day. Format: HH:MM:SS (24-hour format). For example: "07:00:00" for 7 AM.
+
+This example configures the flap to automatically lock at 10 PM and unlock at 7 AM every day:
+
+```yaml
+action: surepetcare.set_curfew
+data:
+  flap_id: 123456
+  lock_time: "22:00:00"
+  unlock_time: "07:00:00"
+```
+
+## Finding device IDs
+
+The `flap_id` can be found following these instructions:
+
+- Log into [surepetcare.io](https://surepetcare.io/).
+- Open the sidebar and click your flap.
+- The `flap_id` will be at the end of the URL (i.e., `https://surepetcare.io/control/device/FLAP-ID`)
