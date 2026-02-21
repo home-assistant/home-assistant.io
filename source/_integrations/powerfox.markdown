@@ -1,6 +1,6 @@
 ---
 title: Powerfox Cloud
-description: Instructions on how to integrate Powerfox within Home Assistant.
+description: Instructions on how to integrate Powerfox Cloud within Home Assistant.
 ha_category:
   - Energy
   - Sensor
