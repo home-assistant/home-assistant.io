@@ -246,6 +246,31 @@ Group members assume state of group:
   description: "When using ZHA groups, turning on a ZHA group light makes the ZHA group members optimistically change their state to \"on\", instead of waiting and polling the lights when off. _(default: on)_"
 {% endconfiguration_basic %}
 
+### Alarm control panel options
+
+If you have Zigbee alarm control panels (IAS ACE devices), you can configure global alarm settings. To configure these options, go to {% my integrations title="**Settings** > **Devices & services**" %}, select the **Zigbee Home Automation** {% term integration %}, select **Configure**, and then select **Alarm control panel options**.
+
+{% configuration_basic %}
+Master code for the alarm control panel(s):
+  description: "The master code used to arm and disarm the alarm panels. _(default: 1234)_"
+The number of consecutive failed code entries to trigger an alarm:
+  description: "How many incorrect code attempts are allowed before triggering an alarm. _(default: 3)_"
+Code required for arming actions:
+  description: "Whether a code is required when arming the alarm. _(default: off)_"
+Default exit delay for away mode:
+  description: "Time in seconds before the alarm arms when set to away mode. Set to 0 to disable. Can be overridden per-panel using the `zha.set_exit_delay` action. _(default: 0)_"
+Default exit delay for home mode:
+  description: "Time in seconds before the alarm arms when set to home mode. Set to 0 to disable. Can be overridden per-panel using the `zha.set_exit_delay` action. _(default: 0)_"
+Default exit delay for night mode:
+  description: "Time in seconds before the alarm arms when set to night mode. Set to 0 to disable. Can be overridden per-panel using the `zha.set_exit_delay` action. _(default: 0)_"
+Default entry delay:
+  description: "Time in seconds after a sensor is triggered before the alarm sounds. Set to 0 to disable. Can be overridden per-panel using the `zha.set_entry_delay` action. _(default: 0)_"
+{% endconfiguration_basic %}
+
+{% note %}
+Exit delays give you time to leave the area before the alarm arms. Entry delays give you time to disarm the alarm after entering.
+{% endnote %}
+
 ### Configuration - YAML
 
 For more advanced configuration, you can modify {% term "`configuration.yaml`" %} and restart Home Assistant
@@ -515,6 +540,58 @@ The `zha.disable_lock_user_code` action disables a lock code on a Zigbee lock.
 | Data        | Optional | Description                     |
 | ----------- | -------- | ------------------------------- |
 | `code_slot` | no       | Which lock code slot to disable |
+
+### Action: Set entry delay
+
+The `zha.set_entry_delay` action starts the entry delay countdown on an IAS ACE alarm keypad. This is useful for integrating with external alarm systems like [Alarmo](https://github.com/nielsfaber/alarmo/) that need to coordinate entry delays with multiple sensors.
+
+When called, the alarm panel will display a countdown and emit entry delay status notifications that external systems can listen for.
+
+| Data       | Optional | Description                                                 |
+| ---------- | -------- | ----------------------------------------------------------- |
+| `ieee`     | no       | IEEE address of the alarm keypad device                     |
+| `duration` | no       | Entry delay duration in seconds                             |
+
+#### Example: Setting entry delay for an alarm panel
+
+```yaml
+action: zha.set_entry_delay
+data:
+  ieee: "00:12:4b:00:1c:a1:b8:46"
+  duration: 30
+```
+
+### Action: Set exit delay
+
+The `zha.set_exit_delay` action starts the exit delay countdown on an IAS ACE alarm keypad and specifies which arm mode to activate after the delay completes. This allows external alarm systems to arm the panel after giving you time to leave.
+
+The alarm panel will display a countdown during the exit delay. When the countdown completes, the panel will automatically arm in the specified mode.
+
+| Data       | Optional | Description                                                 |
+| ---------- | -------- | ----------------------------------------------------------- |
+| `ieee`     | no       | IEEE address of the alarm keypad device                     |
+| `duration` | no       | Exit delay duration in seconds                              |
+| `arm_mode` | no       | Arm mode to activate after delay: `arm_away`, `arm_night`, or `arm_day` |
+
+#### Example: Setting exit delay before arming away
+
+```yaml
+action: zha.set_exit_delay
+data:
+  ieee: "00:12:4b:00:1c:a1:b8:46"
+  duration: 60
+  arm_mode: arm_away
+```
+
+#### Using entry and exit delays with external alarm integrations
+
+These actions enable coordination between ZHA alarm panels and external alarm control systems. For example, the [Alarmo custom integration](https://github.com/nielsfaber/alarmo/) can use these actions to:
+
+1. Start an exit delay on the keypad when you arm the alarm, giving you time to leave
+2. Start an entry delay when a sensor is triggered, giving you time to disarm
+3. Synchronize the visual countdown on your alarm panel with the actual alarm logic
+
+This creates a seamless experience where your physical alarm keypad stays synchronized with your automation system's alarm state.
 
 ## Zigbee groups and binding devices
 
