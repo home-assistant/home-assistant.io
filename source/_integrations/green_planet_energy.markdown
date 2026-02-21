@@ -38,14 +38,6 @@ The **Green Planet Energy** integration provides the following sensors.
 - **Lowest price day**: The lowest electricity price during day hours (6:00-18:00)
 - **Lowest price night**: The lowest electricity price during night hours (18:00-6:00)
 
-### Cheapest time windows
-
-The integration provides sensors that help you find the most cost-effective time to run energy-intensive appliances.
-
-- **Cheapest 2.5h day price (06:00-18:00)**: The average price for the cheapest 2.5-hour window during daytime hours
-- **Cheapest 2.5h day time (06:00-18:00)**: The start time of the cheapest 2.5-hour window during daytime hours
-- **Cheapest 2.5h night price (18:00-06:00)**: The average price for the cheapest 2.5-hour window during nighttime hours
-- **Cheapest 2.5h night time (18:00-06:00)**: The start time of the cheapest 2.5-hour window during nighttime hours
 
 ## Actions
 
