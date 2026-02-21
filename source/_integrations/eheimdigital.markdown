@@ -152,7 +152,7 @@ Currently, the following devices and entities are supported:
 
 #### Number
 
-- **Daily burn duration**; Setting the daily burn duraiton of the UV lamp
+- **Daily burn duration**: Setting the daily burn duration of the UV lamp
 - **Booster duration**: Setting the duration of the booster
 - **Pause duration**: Setting the pause duration
 
