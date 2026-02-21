@@ -108,7 +108,7 @@ template:
       - name: "Cheapest 3.5h Average Price"
         state: "{{ cheapest.average_price }}"
         unit_of_measurement: "€/kWh"
-        device_class: monetary
+        state_class: measurement
 ```
 
 {% endraw %}
