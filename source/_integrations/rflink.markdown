@@ -1189,7 +1189,7 @@ rflink:
 
 ## Migrating from _legacy_ configuration format
 
-Legacy RFLink configuration format is deprecated and will be removed in Home Assistant 2026.9.0. The deprecated configuration will produce a repair that direct the user to this section
+Legacy RFLink configuration format is deprecated and will be removed in Home Assistant 2026.9.0. The deprecated configuration will produce a repair that directs you to this section.
 
 If you haven't yet updated your configuration, the change is quite simple.
 
