@@ -30,6 +30,10 @@ task :generate do
   abort("Generating alerts data failed") unless success
   success = system "rake version_data"
   abort("Generating version data failed") unless success
+  success = system "rake language_scores_data"
+  abort("Generating language scores data failed") unless success
+  success = system "rake codeowners_data"
+  abort("Extracting codeowners") unless success
   success = system "jekyll build"
   abort("Generating site failed") unless success
   if ENV["CONTEXT"] != 'production'
@@ -64,9 +68,12 @@ task :preview, :listen do |t, args|
   raise "### You haven't set anything up yet. First run `rake install`." unless File.directory?(source_dir)
   puts "Starting to watch source with Jekyll and Compass."
   puts "Now listening on http://localhost:#{server_port}"
-  system "compass compile --css-dir #{source_dir}/stylesheets" unless File.exist?("#{source_dir}/stylesheets/screen.css")
+  # Always compile all SCSS files before starting Jekyll
+  system "compass compile --css-dir #{source_dir}/stylesheets"
   system "rake analytics_data"
   system "rake version_data"
+  system "rake language_scores_data"
+  system "rake codeowners_data"
   system "rake alerts_data"
   jekyllPid = Process.spawn({"OCTOPRESS_ENV"=>"preview"}, "jekyll build -t --watch --incremental")
   compassPid = Process.spawn("compass watch")
@@ -111,5 +118,38 @@ task :version_data do
 
   File.open("#{source_dir}/_data/version_data.json", "w") do |file|
     file.write(JSON.generate(remote_data))
+  end
+end
+
+desc "Download supported language data from ohf-voice.github.io"
+task :language_scores_data do
+  uri = URI('https://ohf-voice.github.io/intents/language_scores.json')
+
+  remote_data = JSON.parse(Net::HTTP.get(uri))
+
+  File.open("#{source_dir}/_data/language_scores.json", "w") do |file|
+    file.write(JSON.generate(remote_data))
+  end
+end
+
+desc "Extract CODEOWNERS and output to _data/codeowners.json"
+task :codeowners_data do
+  codeowners = []
+  File.readlines("CODEOWNERS").each do |line|
+    next if line.start_with?("#") || line.strip.empty?
+    parts = line.split
+    next if parts.length < 2
+    owners = parts[1..-1]
+    owners.each do |owner|
+      owner = owner.delete_prefix('@')
+      next if owner.include?('/')
+      codeowners << owner unless codeowners.include?(owner)
+    end
+  end
+
+  codeowners.sort!
+
+  File.open("#{source_dir}/_data/codeowners.json", "w") do |file|
+    file.write(JSON.generate(codeowners))
   end
 end

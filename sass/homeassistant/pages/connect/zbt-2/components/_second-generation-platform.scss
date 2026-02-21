@@ -1,0 +1,112 @@
+section#second-generation-platform {
+    isolation: isolate;
+    margin: 0 auto;
+    border-radius: 0;
+    transition: border-radius 0.3s ease-in-out;
+    overflow: hidden;
+
+    @include bp(2016px){
+        border-radius: 16px;
+    }
+
+    @include bp(tablet) {
+        aspect-ratio: 16/9;
+        max-width: 2000px;
+        object-fit: cover;
+    }
+
+    &,
+    p {
+        color: #002E3E;
+        --typography-paragraph-color: #4F606E;
+    }
+
+    h2 {
+        padding-bottom: 16px;
+
+        @include bp(tablet) {
+            padding-bottom: 0;
+        }
+    }
+
+    .section-inner {
+        align-items: flex-start;
+        display: flex;
+        flex-wrap: wrap;
+        background-color: #E8E7E7;
+
+        &-content {
+            padding-bottom: 32px;
+            @include bp(tablet) {
+                padding-bottom: 0;
+            }
+            @include bp(desktop) {
+                padding-top: 120px;
+        }
+        }
+    }
+
+    img {
+        order: 1;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: bottom;
+
+        @include bp(tablet) {
+            aspect-ratio: unset;
+            position: absolute;
+            inset: 0;
+            object-fit: cover;
+            z-index: -1;
+
+            &.mobile {
+                display: none;
+            }
+        }
+
+        &.desktop {
+            display: none;
+
+            @include bp(tablet) {
+                display: block;
+            }
+        }
+    }
+
+    .cols {
+        justify-content: space-between;
+        flex-direction: column;
+        gap: 20px;
+
+        @include bp(tablet) {
+            flex-direction: row;
+        }
+
+        .col {
+            flex-grow: 1;
+            flex-basis: 0;
+
+            @include bp(tablet){
+                max-width: 360px;
+            }
+            
+            @include bp(desktop) {
+                &:first-child {
+                    max-width: 440px;
+                }
+            }
+            
+            &:last-child {
+                justify-content: flex-end;
+                max-width: auto;
+                @include bp(tablet) {
+                    max-width: 360px;
+                }
+                @include bp(desktop) {
+                    max-width: 560px;
+                }
+            }
+        }
+    }
+}

@@ -21,14 +21,15 @@ ha_platforms:
   - binary_sensor
   - climate
   - device_tracker
+  - diagnostics
   - sensor
   - switch
   - water_heater
 ha_dhcp: true
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
-The Tado integration platform is used as an interface to the [my.tado.com](https://my.tado.com/) website.
+The **Tado** {% term integration %} platform is used as an interface to the [my.tado.com](https://my.tado.com/) website.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -38,7 +39,7 @@ There is currently support for the following device types within Home Assistant:
 - [Presence detection](#presence-detection)
 - Sensor - for some additional information of the zones.
 - Weather - for information about the current weather at the location of your Tado home.
-- Switch - for controlling child lock on supported devices
+- Switch - for controlling child lock on supported devices.
 
 The Tado thermostats are internet connected thermostats. There exists an unofficial API at [my.tado.com](https://my.tado.com/), which is used by their website and now by this component.
 
@@ -54,6 +55,12 @@ As of **March 21st 2025**, Tado has changed the authentication method. This mean
 2. Follow the URL and confirm the "Device Code" (normally it should be copied automatically).
 3. Follow the steps to login and authenticate your account.
 4. Once the authentication is completed, go back to Home Assistant. Wait a few seconds for the loading screen to finish. You are now connected with Tado!
+
+{% important %}
+As of **January 1st 2026**, Tado is heavily rate limiting the API. The rate limit is based on a daily quota and is different per subscription type. If affected, the Tado integration will fail to authenticate and/or receive new data. This will result in the integration not working. The reset time is 12:00 CET.
+
+Consider using a [custom polling interval](#defining-a-custom-polling-interval) suiting your needs.
+{% endimportant %}
 
 ### Migrate to new authentication method
 
@@ -76,11 +83,19 @@ Polling Tado API for presence information will happen at most once every 30 seco
 
 Beware that the Tado (v2) API does not provide GPS location of devices, only a bearing, therefore Home Assistant only uses `home`/`not-home` status.
 
+## Data updates
+
+The integration normally updates every five minutes. For more detailed steps on how to define a custom polling interval, follow the procedure below.
+
+### Defining a custom polling interval
+
+{% include common-tasks/define_custom_polling.md %}
+
 ## Actions
 
-### Action `tado.set_climate_timer`
+### Action: Set climate timer
 
-You can use the `tado.set_climate_timer` action to set your Tado climate device, for example a radiator valve, to switch on for a set time period. 
+The `tado.set_climate_timer` action sets your Tado climate device, for example a radiator valve, to switch on for a set time period. 
 
 | Data attribute | Optional | Description                                                            |
 | ---------------------- | -------- | ---------------------------------------------------------------------- |
@@ -89,9 +104,9 @@ You can use the `tado.set_climate_timer` action to set your Tado climate device,
 | `time_period`          | yes      | Time Period, Period of time the boost should last for e.g., `01:30:00` |
 | `overlay`              | yes      | Override your defaults setting. NB dont set this and the time period   |
 
-### Action `tado.set_water_heater_timer`
+### Action: Set water heater timer
 
-You can use the `tado.set_water_heater_timer` action to set your water heater to switch on for a set time period. 
+The `tado.set_water_heater_timer` action sets your water heater to switch on for a set time period. 
 
 | Data attribute | Optional | Description                                                            |
 | ---------------------- | -------- | ---------------------------------------------------------------------- |
@@ -99,9 +114,9 @@ You can use the `tado.set_water_heater_timer` action to set your water heater to
 | `time_period`          | no       | Time Period, Period of time the boost should last for e.g., `01:30:00` |
 | `temperature`          | yes      | String, The required target temperature e.g., `20.5`                   |
 
-### Action `tado.set_climate_temperature_offset`
+### Action: Set climate temperature offset
 
-You can use the `tado.set_climate_temperature_offset` action to set the temperature offset for Tado climate devices.
+The `tado.set_climate_temperature_offset` action sets the temperature offset for Tado climate devices.
 
 | Data attribute | Optional | Description                                                            |
 | ---------------------- | -------- | ---------------------------------------------------------------------- |
@@ -162,9 +177,9 @@ automation:
 ```
 {% endraw %}
 
-### Action `tado.add_meter_reading`
+### Action: Add meter reading
 
-You can use the `tado.add_meter_reading` action to add your meter readings to Tado Energy IQ. With Energy IQ, you can track your energy consumption and take control of your heating expenses.
+The `tado.add_meter_reading` action adds your meter readings to Tado Energy IQ. With Energy IQ, you can track your energy consumption and take control of your heating expenses.
 
 | Data attribute | Optional | Description                                                            |
 | ---------------------- | -------- | ---------------------------------------------------------------------- |

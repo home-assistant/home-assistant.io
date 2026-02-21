@@ -13,10 +13,10 @@ ha_platforms:
   - number
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
-The Ecoforest integration allows monitoring and control of local [Ecoforest](https://ecoforest.com) fireplaces in Home Assistant.
+The **Ecoforest** {% term integration %} allows monitoring and control of local [Ecoforest](https://ecoforest.com) fireplaces in Home Assistant.
 
 There is currently support for the following device platforms within Home Assistant:
 

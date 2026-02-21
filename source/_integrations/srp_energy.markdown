@@ -14,7 +14,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The SRP Energy integration shows information from SRP hourly energy usage report for their customers.
+The **SRP Energy** {% term integration %} shows information from SRP hourly energy usage report for their customers.
 
 You need a username, password, and account ID which you can create at [SRP](https://www.srpnet.com).
 

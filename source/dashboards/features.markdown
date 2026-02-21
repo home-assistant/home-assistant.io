@@ -21,6 +21,7 @@ Features can be enabled on the following cards:
 - [Humidifier](/dashboards/humidifier/)
 - [Thermostat](/dashboards/thermostat/)
 - [Tile](/dashboards/tile/)
+- [Area](/dashboards/area/)
 
 ## Customizing features
 
@@ -40,6 +41,7 @@ Features can be enabled on the following cards:
      - Under **Style**, select the **Dropdown** option.
   
     ![Screen recording showing how you can now reorder the HVAC modes on the thermostat shown in a tile card.](/images/blog/2024-05/tile-card-reorder-features.gif)
+
 
 ## Alarm modes
 
@@ -71,6 +73,72 @@ modes:
   required: true
   description: List of modes to show on the card. The list can contain `armed_home`, `armed_away`, `armed_night`, `armed_vacation`, `armed_custom_bypass`, and `disarmed`.
   type: list
+{% endconfiguration %}
+
+## Bar gauge
+
+Widget that displays the state of a numeric [sensor](/integrations/sensor) as a horizontal bar.
+
+<p class='img'>
+  <img src='/images/dashboards/features/bar_gauge.png' alt='Screenshot of the tile card with the bar gauge feature'>
+  Screenshots of the tile card with the bar gauge feature
+</p>
+
+```yaml
+features:
+  - type: "bar-gauge"
+    min: 0
+    max: 100
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`bar-gauge`"
+  type: string
+min:
+  required: false
+  description: Minimum value for the gauge range.
+  type: integer
+  default: 0
+max:
+  required: false
+  description: Maximum value for the gauge range.
+  type: integer
+  default: 100
+{% endconfiguration %}
+
+## Button
+
+Widget that displays buttons to control [button](/integrations/button), [input_button](/integrations/input_button), [scene](/integrations/scene), or [script](/integrations/script).
+
+<p class='img'>
+  <img src='/images/dashboards/features/button.png' alt='Screenshot of the tile card with the button feature'>
+  Screenshot of the tile card with the button feature
+</p>
+
+```yaml
+features:
+  - type: "button"
+    action_name: "Press"
+    data:
+      variable: some_value
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`button`"
+  type: string
+action_name:
+  required: false
+  type: string
+  description: Text inside the button.
+  type: string
+data:
+  required: false
+  description: Additional data to be passed when the action is executed. Only applies to script.
+  type: map
 {% endconfiguration %}
 
 ## Climate fan modes
@@ -291,6 +359,69 @@ features:
 type:
   required: true
   description: "`cover-tilt-position`"
+  type: string
+{% endconfiguration %}
+
+## Date
+
+Widget that displays a button to select a date using the date picker dialog for the [date](/integrations/date), [datetime](/integrations/datetime), and [input datetime](/integrations/input_datetime) entities.
+
+<p class='img'>
+  <img src='/images/dashboards/features/date.png' alt='Screenshot of the tile card with the date feature'>
+  Screenshot of the tile card with the date feature
+</p>
+
+```yaml
+features:
+  - type: "date"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`date`"
+  type: string
+{% endconfiguration %}
+
+## Fan direction
+
+Widget that displays controls to change direction for a [fan](/integrations/fan).
+
+<p class='img'>
+  <img src='/images/dashboards/features/fan_direction.png' alt='Screenshot of the tile card with the fan direction feature'>
+  Screenshot of the tile card with the fan direction feature
+</p>
+
+```yaml
+features:
+  - type: "fan-direction"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`fan-direction`"
+  type: string
+{% endconfiguration %}
+
+## Fan oscillate
+
+Widget that displays controls to change oscillation state for a [fan](/integrations/fan).
+
+<p class='img'>
+  <img src='/images/dashboards/features/fan_oscillate.png' alt='Screenshot of the tile card with the fan oscillate feature'>
+  Screenshot of the tile card with the fan oscillate feature
+</p>
+
+```yaml
+features:
+  - type: "fan-oscillate"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`fan-oscillate`"
   type: string
 {% endconfiguration %}
 
@@ -518,6 +649,53 @@ type:
   type: string
 {% endconfiguration %}
 
+## Media player playback controls
+
+Widget that displays playback controls for a [media player](/integrations/media_player).
+
+<p class='img'>
+  <img src='/images/dashboards/features/media_player_playback.png' alt='Screenshot of the tile card with media player playback feature'>
+  Screenshot of the tile card with media player playback feature
+</p>
+
+```yaml
+features:
+  - type: "media-player-playback"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`media-player-playback`"
+  type: string
+{% endconfiguration %}
+
+## Media player volume buttons
+
+Widget that displays buttons to control the volume for a [media player](/integrations/media_player).
+
+<p class='img'>
+  <img src='/images/dashboards/features/media_player_volume_buttons.png' alt='Screenshot of the tile card with media player volume buttons feature'>
+  Screenshot of the tile card with media player volume buttons feature
+</p>
+
+```yaml
+features:
+  - type: "media-player-volume-buttons"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`media-player-volume-buttons`"
+  type: string
+step:
+  required: false
+  description: "The step size of the volume. The default is 5%."
+  type: integer
+  default: 5
+{% endconfiguration %}
+
 ## Media player volume slider
 
 Widget that displays a slider to control the volume for a [media player](/integrations/media_player).
@@ -629,6 +807,43 @@ type:
   type: string
 {% endconfiguration %}
 
+## Trend graph
+
+Widget that displays a trend of the history for a numeric [sensor](/integrations/sensor).
+
+<p class='img'>
+  <img src='/images/dashboards/features/trend_graph.png' alt='Screenshot of the tile card with the trend graph feature'>
+  Screenshot of the tile card with the trend graph feature
+</p>
+
+```yaml
+features:
+  - type: "trend-graph"
+    hours_to_show: 24
+    detail: true
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`trend-graph`"
+  type: string
+hours_to_show:
+  required: false
+  description: Hours to show in graph. Minimum is 1 hour. Big values can result in delayed rendering, especially if the selected entities have a lot of state changes.
+  type: integer
+  default: 24
+detail:
+  required: false
+  description: Show more detail in the graph. When enabled, samples to 1 point per 5 pixels. When disabled, samples to 1 point per hour using mean values for a smoother graph.
+  type: boolean
+  default: true
+{% endconfiguration %}
+
+{% note %}
+The `hours_to_show` option controls the time range of historical data shown in the graph. The amount of history available depends on the Recorder's `purge_keep_days` setting. By default, the Recorder purges data older than 10 days. See the [Recorder integration documentation](/integrations/recorder/#purge_keep_days) for more information.
+{% endnote %}
+
 ## Update actions
 
 Widget that displays actions to install or skip an [update](/integrations/update).
@@ -687,6 +902,48 @@ commands:
   type: list
 {% endconfiguration %}
 
+## Valve open/close
+
+Widget that displays buttons to open, close, or stop a [valve](/integrations/valve).
+
+<p class='img'>
+  <img src='/images/dashboards/features/valve_open_close.png' alt='Screenshot of the tile card with open/close feature'>
+  Screenshot of the tile card with valve open/close feature
+</p>
+
+```yaml
+features:
+  - type: "valve-open-close"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`valve-open-close`"
+  type: string
+{% endconfiguration %}
+
+## Valve position
+
+Widget that displays a slider to control the position for a [valve](/integrations/valve).
+
+<p class='img'>
+  <img src='/images/dashboards/features/valve_position.png' alt='Screenshot of the tile card with the valve position feature'>
+  Screenshot of the tile card with the valve position feature
+</p>
+
+```yaml
+features:
+  - type: "valve-position"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`valve-position`"
+  type: string
+{% endconfiguration %}
+
 ## Water heater operation modes
 
 Widget that displays buttons to control the operation mode of a [water heater](/integrations/water_heater).
@@ -720,3 +977,32 @@ operation_modes:
   type: list
 {% endconfiguration %}
 
+## Area control
+
+Widget that displays buttons to control different types of entities in your area. You can control all entities of a specific domain or select individual entities.
+
+<p class='img'>
+  <img src='/images/dashboards/features/area_controls.png' alt='Screenshot of the area card with the area controls feature'>
+  Screenshot of the area card with the area controls feature
+</p>
+
+```yaml
+features:
+  - type: "area-controls"
+    controls:
+      - light
+      - fan
+      - switch
+      - entity_id: light.kitchen_counter
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`area-controls`"
+  type: string
+controls:
+  required: true
+  description: List of controls to show on the card. The list can contain domain names like `light`, `fan`, and `switch`, or mappings that specify a particular entity by using the `entity_id` key, as shown in the example above.
+  type: list
+{% endconfiguration %}

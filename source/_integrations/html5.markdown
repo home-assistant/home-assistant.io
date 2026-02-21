@@ -17,7 +17,7 @@ ha_codeowners:
   - '@alexyao2015'
 ---
 
-The `html5` notification {% term integration %} enables you to receive push notifications to Chrome or Firefox, no matter where you are in the world. `html5` also supports Chrome and Firefox on Android, which enables native-app-like integrations without actually needing a native app.
+The **HTML5 Push Notifications** {% term integration %} enables you to receive push notifications to Chrome or Firefox, no matter where you are in the world. `html5` also supports Chrome and Firefox on Android, which enables native-app-like integrations without actually needing a native app.
 
 {% important %}
 HTML5 push notifications **do not** work on iOS versions below 16.4.
@@ -28,9 +28,9 @@ HTML5 push notifications **do not** work on iOS versions below 16.4.
 The `html5` platform can only function if all of the following requirements are met:
 
 - You are using Chrome and/or Firefox on any desktop platform, ChromeOS or Android. Or you added your Home Assistant instance to your home screen on iOS 16.4 or higher.
+- On Brave desktop, you have gone into Brave Privacy Settings by going to `brave://settings/privacy` in your address bar or **Settings > Privacy and Security** and made sure the **Use Google services for push messaging** option is turned on.
 - Your Home Assistant instance is accessible from outside your network over HTTPS or can perform an alternative [Domain Name Verification Method](https://support.google.com/webmasters/answer/9008080#domain_name_verification) on the domain used by Home Assistant.
 - If using a proxy, HTTP basic authentication must be disabled to register or deregister push notifications. It can be re-enabled afterwards.
-- If you don't run Hass.io: `pywebpush` must be installed. `libffi-dev`, `libpython-dev` and `libssl-dev` must be installed prior to `pywebpush` (i.e., `pywebpush` probably won't automatically install).
 - You have configured SSL/TLS for your Home Assistant. It doesn't need to be configured in Home Assistant though, e.g., you can be running NGINX in front of Home Assistant and this will still work. The certificate must be trustworthy (i.e., not self-signed).
 - You are willing to accept the notification permission in your browser.
 
@@ -43,12 +43,36 @@ Assuming you have already configured the platform:
 
 {% my profile badge %}
 
-1. Open Home Assistant in Chrome, Firefox or the webapp in iOS and load the profile page by clicking the My button above or by clicking on the badge next to the Home Assistant title in the sidebar. Assuming you have met all the [requirements](#requirements) above then you should see a new slider for Push Notifications. If the slider is greyed out, ensure you are viewing Home Assistant via its external HTTPS address (and that you have configured the `notify` HTML5 integration in Home Assistant). If the slider is not visible, ensure you are not in the user configuration (Sidebar, Configuration, Users, View User).
-2. Turn on the slider, and name the device you're using in the alert that appears.
-3. Within a few seconds you should be prompted to allow notifications from Home Assistant.
-4. Assuming you accept, that's all there is to it!
+1. Open the Home Assistant {% my profile title="**User profile**" %} page in [a supported browser](#requirements). 
+   - To open the page, select the **User Profile** link above or in Home Assistant, select your user account initials at the bottom of the sidebar.
+2. Assuming you have met all the [requirements](#requirements) above, you should see a **Receive notifications** toggle.
+   - If the toggle is greyed out, make sure you are viewing Home Assistant via its external HTTPS address. 
+   - Also, make sure you have added the {% my integrations title="**HTML5 Push Notifications**" domain="html5" %} integration to Home Assistant.
+3. Turn on the toggle and name the device.
+4. Within a few seconds, you should be prompted to allow notifications from Home Assistant.
+5. Assuming you accept, that's all there is to it!
 
 **Note:** If you aren't prompted for a device name when enabling notifications, open the `html5_push_registrations.conf` file in your configuration directory. You will see a new entry for the browser you just added. Rename it from `unnamed device` to a name of your choice, which will make it easier to identify later. _Do not change anything else in this file!_ You need to restart Home Assistant after making any changes to the file.
+
+### Notifiers
+
+The **HTML5 Push Notifications**  {% term integration %} will add a notify {% term entity %} for your configured device. To send a notification, you can use the `notify.send_message` {% term action %}. For further instructions on how to use **HTML5 Push Notifications** in automations, please see the [getting started with automation page](/getting-started/automation/).
+
+{% details "Example YAML configuration" %}
+
+{% raw %}
+
+```yaml
+action: notify.send_message
+data:
+  title: "Reminder"
+  message: "Have you considered frogs?"
+  entity_id: notify.my-desktop
+```
+
+{% endraw %}
+
+{% enddetails %}
 
 ### Testing
 
@@ -192,13 +216,13 @@ During the lifespan of a single push notification, Home Assistant will emit a fe
 
 Common event payload parameters are:
 
-| Parameter | Description                                                                                                                                                                                                                                                    |
-| --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `action`  | The `action` key that you set when sending the notification of the action clicked. Only appears in the `clicked` event.                                                                                                                                        |
+| Parameter | Description                                                                                                                                                                                                                                                              |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `action`  | The `action` key that you set when sending the notification of the action clicked. Only appears in the `clicked` event.                                                                                                                                                  |
 | `data`    | The data dictionary you originally passed in the notify payload, minus any parameters that were added to the HTML5 notification (`actions`, `badge`, `body`, `dir`, `icon`, `image`, `lang`, `renotify`, `requireInteraction`, `tag`, `timestamp`, `vibrate`, `silent`). |
-| `tag`     | The unique identifier of the notification. Can be overridden when sending a notification to allow for replacing existing notifications.                                                                                                                        |
-| `target`  | The target that this notification callback describes.                                                                                                                                                                                                          |
-| `type`    | The type of event callback received. Can be `received`, `clicked` or `closed`.                                                                                                                                                                                 |
+| `tag`     | The unique identifier of the notification. Can be overridden when sending a notification to allow for replacing existing notifications.                                                                                                                                  |
+| `target`  | The target that this notification callback describes.                                                                                                                                                                                                                    |
+| `type`    | The type of event callback received. Can be `received`, `clicked` or `closed`.                                                                                                                                                                                           |
 
 You can use the `target` parameter to write automations against a single `target`. For more granularity, use `action` and `target` together to write automations which will do specific things based on what target clicked an action.
 

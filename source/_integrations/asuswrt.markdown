@@ -11,6 +11,7 @@ ha_iot_class: Local Polling
 ha_codeowners:
   - '@kennedyshead'
   - '@ollo69'
+  - '@Vaskivskyi'
 ha_domain: asuswrt
 ha_platforms:
   - device_tracker
@@ -19,7 +20,7 @@ ha_platforms:
 ha_integration_type: hub
 ---
 
-The ASUSWRT integration can connect Home Assistant to a ASUS router that runs on ASUSWRT firmware.
+The **ASUSWRT** {% term integration %} can connect Home Assistant to a ASUS router that runs on ASUSWRT firmware.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -53,7 +54,7 @@ If the integration is configured to use the http(s) protocol, also the following
 - Last boot sensor (Timestamp)
 - Uptime sensor (HH:MM:SS)
 
-Only `Connected devices sensor` and `Last boot sensor` are created in status **enabled**, all other sensors are created in status **disabled**. To use them, simply **enable** on the devices page.
+By default, the integration will create **enabled** Device Tracker entities for devices that HA already knows about via some other integration. The ASUSWRT integration will create **disabled** device_tracker entities for other devices on the network, and the user can enable them manually in the Home Assistant GUI: go to Settings > Devices & Services > Entities. Filter on Integrations = ASUSWRT. Filter on Status = Disabled. Now you should see the disabled device_tracker entities and you can enable them one at a time as desired.
 
 {% include integrations/option_flow.md %}
 {% configuration_basic %}

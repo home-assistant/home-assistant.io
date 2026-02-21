@@ -1,0 +1,543 @@
+---
+layout: post
+title: "2026.2: Home, sweet overview"
+description: "Overview dashboard is now the default for everyone, contribute to a community-powered device database, add-ons become apps, a completely redesigned Quick search with instant access to everything, a brand new distribution card, new sun triggers and light conditions, and more!"
+date: 2026-02-04 00:00:00
+date_formatted: "February 4, 2026"
+author: Franck Nijhof
+author_twitter: frenck
+comments: true
+categories:
+  - Release-Notes
+  - Core
+og_image: /images/blog/2026-02/social.png
+---
+
+<lite-youtube videoid="EohxnoGc3pg" videotitle="Home Assistant 2026.2 Release Party"></lite-youtube>
+
+Home Assistant 2026.2! 💝
+
+February is the month of love, and this release is here to share it!
+
+The new **Home Dashboard** is now the official default for all new installations. If you've been using Home Assistant for a while and never customized your default view, you'll get a suggestion to switch; give it a try!
+
+I also need your help! The **Open Home Foundation device database** is being built as a community-powered resource to help everyone make informed decisions about smart home devices. Head to Home Assistant Labs to opt in and contribute your anonymized device data. 📈
+
+**Add-ons are now called Apps**! After a lot of community discussion, it was time to use terminology that everyone understands. Your TV has apps, your phone has apps, and now Home Assistant has apps too.
+
+My personal favorite this release? The completely redesigned **Quick search**! If you're like me and navigate Home Assistant using your keyboard, you're going to love this one. Press <kbd>⌘</kbd> + <kbd>K</kbd> (or <kbd>Ctrl</kbd> + <kbd>K</kbd> on Windows/Linux) and you have instant access to everything. 🤩
+
+Enjoy the release!
+
+../Frenck
+
+<!--more-->
+
+- [A new way to view your home](#a-new-way-to-view-your-home)
+  - [Discovered devices at a glance](#discovered-devices-at-a-glance)
+  - [Area assignments made easy](#area-assignments-made-easy)
+  - [Faster area edits](#faster-area-edits)
+  - [UX and visual upgrades](#ux-and-visual-upgrades)
+- [Device database: We need your help!](#device-database-we-need-your-help)
+  - [Help us out and share your devices](#help-us-out-and-share-your-devices)
+  - [See the data in action](#see-the-data-in-action)
+  - [Join us in building something meaningful](#join-us-in-building-something-meaningful)
+- [Add-ons are now called Apps](#add-ons-are-now-called-apps)
+  - [A faster, snappier Apps panel](#a-faster-snappier-apps-panel)
+- [Purpose-specific triggers and conditions progress](#purpose-specific-triggers-and-conditions-progress)
+  - [New triggers](#new-triggers)
+  - [New conditions](#new-conditions)
+- [A brand new card: The distribution card](#a-brand-new-card-the-distribution-card)
+- [Quick search: The fastest way to anything](#quick-search-the-fastest-way-to-anything)
+  - [Your favorite shortcuts still work](#your-favorite-shortcuts-still-work)
+- [Integrations](#integrations)
+  - [New integrations](#new-integrations)
+  - [Noteworthy improvements to existing integrations](#noteworthy-improvements-to-existing-integrations)
+  - [Integration quality scale achievements](#integration-quality-scale-achievements)
+  - [Now available to set up from the UI](#now-available-to-set-up-from-the-ui)
+- [Other noteworthy changes](#other-noteworthy-changes)
+  - [Add buttons to your heading card](#add-buttons-to-your-heading-card)
+  - [Pick specific entities in your area card](#pick-specific-entities-in-your-area-card)
+- [Need help? Join the community](#need-help-join-the-community)
+- [Backward-incompatible changes](#backward-incompatible-changes)
+- [All changes](#all-changes)
+
+_A huge thank you to all the contributors who made this release possible! And a special shout-out to [@laupalombi] and [@mkerstner] who helped write the release notes this release. Also, [@wollew], [@Diegorro98], and [@MindFreeze] for putting effort into tweaking its contents. Thanks to them, these release notes are in great shape. ❤️_
+
+[@Diegorro98]: https://github.com/Diegorro98
+[@laupalombi]: https://github.com/laupalombi
+[@MindFreeze]: https://github.com/MindFreeze
+[@mkerstner]: https://github.com/mkerstner
+[@wollew]: https://github.com/wollew
+
+## A new way to view your home
+
+The Home Dashboard is now Overview as it becomes the official default standard, replacing the old "Overview" for all new instances. If you’re a long-time user who never customized your default view, we’ll suggest the switch to you; otherwise, you can find it in {% my dashboards title="**Settings** > **Dashboards**" %} to try it out whenever you're ready.
+
+<img src='/images/blog/2026-02/new-overview.png' alt='Screenshot of the new Overview page' class='no-shadow' />
+
+Liked the old Overview as a way to build your custom dashboards? You can still do it. Go to {% my dashboards title="**Settings** > **Dashboards**" %}, select **Create**, and pick the **Overview (legacy)** template.
+
+### Discovered devices at a glance
+
+<img src='/images/blog/2026-02/discovered-devices.png' alt='Screenshot of the modal view to add discovered devices from Overview' class='no-shadow' />
+
+Check out the new card in the **For You** section! It instantly displays any new devices your Home Assistant has discovered, allowing you to add them on the spot or jump straight to device management without digging through menus.
+
+### Area assignments made easy
+
+<img src='/images/blog/2026-02/assign-devices-page.png' alt='Screenshot of assigning devices to areas from Devices page in Overview' class='no-shadow' />
+
+In the last release, we added a dedicated **Devices** area within the Home Dashboard to catch everything currently unassigned. Now this section provides quick prompts to help you categorize your devices into the right rooms, keeping your setup organized with minimal effort.
+
+### Faster area edits
+
+Need to swap the area temperature sensor? Area pages now feature a shortcut in the **Edit** button. This lets you jump straight to the area's configuration to update primary sensors like humidity or temperature in seconds.
+
+We've also tidied up the interface by removing awkward empty spaces and fixing issues with some back arrows. Navigating through your sub-menus should now feel as smooth and predictable as you'd expect.
+
+### UX and visual upgrades
+
+**Modern look in the default theme**: We've retired the old blue top bar in favor of a clean, consistent theme that matches our **Settings** page. This distraction-free design lets your cards and data take center stage.
+
+**Personalized themes per user**: Themes have moved! You can now find and toggle your favorite looks directly within your {% my profile title="**User profile**" %}, making it easier to set up a theme that works for you in any device you are logged in.
+
+## Device database: We need your help!
+
+Finding reliable information about smart home devices before you buy them can be challenging. That’s why we’re building the **Open Home Foundation device database**: a community-powered resource that helps you make informed decisions based on real-world data.
+
+We’ve been working with early contributors to lay the groundwork, and the [results are already impressive](https://openhomefoundation.grafana.net/public-dashboards/1cb22c82e90c4f64afb366c6125a8489): over **10,000 unique devices** across more than **260 integrations** have been submitted by Home Assistant users who opted in to share their anonymized data.
+
+<img src='/images/blog/2026-02/device-database-statistics.png' alt='Screenshot of the publicly available statistics dashboard for the open home foundation device database.' class='no-shadow' />
+
+### Help us out and share your devices
+
+Since we’re still in the early stages, the device database lives in {% my labs title="**Home Assistant Labs**" %}, where you can opt in to share anonymized information about the devices in your home.
+
+<img src='/images/blog/2026-02/temp-sharing-your-devices-with-ohf-device-database.png' alt='Screenshot of the device analytics sharing option in Home Assistant Analytics.' class='no-shadow' />
+
+We have also added a new section called **Device analytics** to {% my analytics title="**Home Assistant Analytics**" %}, which shows up when you enable it in Home Assistant Labs. If you opt in, you are, of course, able to opt out at any time.
+
+<img src='/images/blog/2026-02/labs-device-database-analytics.png' alt='Screenshot of the device analytics section in Home Assistant Labs.' class='no-shadow' />
+
+**Privacy is our foundation.** We collect zero personal data, period. Only aggregated, anonymized device information is shared if someone chooses to opt in, providing valuable insights while keeping your privacy intact. You can preview what is being sent using the **Preview device analytics** option available in the top-right corner on the Analytics page. Read our [Data Use Statement](https://www.openhomefoundation.org/device-database-data-use-statement/) for complete details.
+
+### See the data in action
+
+We’ve launched an [initial public dashboard](https://openhomefoundation.grafana.net/public-dashboards/1cb22c82e90c4f64afb366c6125a8489) where you can explore aggregated statistics as it grows. This is just our first step. We want to build what comes next together with you.
+
+### Join us in building something meaningful
+
+Head to {% my labs title="**Settings** > **System** > **Labs**" %} to enable device analytics and start contributing your real-world anonymized device data to help others make better choices.
+
+Read our [blog post](/blog/2026/02/02/about-device-database/) for more details and join the conversation in our [Discord project channel](https://discord.com/channels/330944238910963714/1463602457924997236); we'd love to hear your ideas, feedback, and questions as we shape this resource together.
+
+## Add-ons are now called Apps
+
+Starting with this release, **add-ons are now called apps**! 🎉
+
+<img src='/images/blog/2026-02/addons-are-now-apps.png' alt='Screenshot showing the settings menu, that now contains the Apps items instead of Add-ons (as it was called previously)' class='no-shadow' />
+
+You might be wondering: why change the name? The answer comes down to making Home Assistant more approachable for everyone, especially newcomers.
+
+When you first open Home Assistant, you see two sections that sound very similar: "Add-ons" and "Integrations." Both names imply something you add to extend Home Assistant, but they serve fundamentally different purposes. For those of us who've been in the ecosystem for a while, this distinction is second nature. But we keep seeing new users getting confused, attempting to install add-ons when they need integrations, or vice versa.
+
+This is where the rename helps: use terminology that people already understand. Most people know what an "app" is. You open your phone's app store, you pick an app, you install it. Your TV has an app store. Your NAS has apps. Heck, even some fridges have apps these days. It's a concept everyone understands. The same mental model now applies to Home Assistant:
+
+- **Apps** are standalone applications that _run_ alongside Home Assistant.
+- **Integrations** are connections that _connect_ Home Assistant to your devices and services.
+
+Apps are separate software managed by your Home Assistant Operating System, running next to Home Assistant itself. They can be things like code editors, media servers, MQTT brokers, or database tools. Some apps even pair with integrations: for example, the Mosquitto MQTT broker app provides the service, while the MQTT integration connects Home Assistant to it.
+
+Existing documentation, community posts, and tutorials will continue to reference "add-ons" for some time. Search engines and AI assistants will also need time to catch up. We've put redirects in place to ensure that searching for "add-ons" will still get you where you need to go.
+
+Thank you to everyone who participated in the [community discussion](https://community.home-assistant.io/t/why-im-proposing-we-rename-add-ons-to-apps-and-why-it-matters-for-newcomers/945712) and [architecture proposal](https://github.com/home-assistant/architecture/discussions/1287). Whether you supported the idea, pushed back, or landed somewhere in between, your feedback was invaluable.
+
+### A faster, snappier Apps panel
+
+Besides the rename, we did a major refactoring under the hood of the Apps panel (formerly known as the Add-ons panel) in this release. Previously, this panel was served by a separate process (the Supervisor), but it has now been fully integrated into the Home Assistant frontend.
+
+You shouldn't notice much of a difference visually, but the panel is now _much_ faster and snappier to use. More importantly, this change makes future development on Apps significantly easier, paving the way for more improvements down the road.
+
+<img src='/images/blog/2026-02/apps-panel.png' alt='Screenshot of the Home Assistant Apps panel.' class='no-shadow' />
+
+## Purpose-specific triggers and conditions progress
+
+In [Home Assistant 2025.12](/blog/2025/12/03/release-202512/#purpose-specific-triggers-and-conditions), we introduced purpose-specific triggers and conditions. Instead of thinking in technical state changes, you can simply pick things like "When a light turns on" or "If the climate is heating" when building your automations. In [Home Assistant 2026.1](/blog/2026/01/07/release-20261/#purpose-specific-triggers-and-conditions-progress), we added more triggers and laid the groundwork for conditions.
+
+This feature is still being refined in {% my labs title="**Home Assistant Labs**" %}, but we continue to expand it with every release. This release brings a mix of new triggers and, for the first time, a whole set of purpose-specific conditions!
+
+### New triggers
+
+The following new triggers have been added in this release:
+
+- **Calendar** triggers fire when a calendar event starts or ends.
+- **Person** triggers now cover when a person arrives home or leaves home.
+- **Vacuum** triggers fire when a vacuum cleaner returns to its dock.
+
+### New conditions
+
+Purpose-specific conditions are expanding! In the previous release, we introduced the first purpose-specific condition for lights. This release adds a whole set of new conditions across many more entity types.
+
+<img src='/images/blog/2026-02/new-conditions-for-automations.png' alt='Screenshot showing the newly available media player conditions: check if a media player is on, off, playing, paused, or not playing.' class='no-shadow' />
+
+Just like triggers, conditions now allow you to express your intent in a more natural way. Instead of checking if the state of an entity equals a specific value, you can now simply ask "If the climate is heating" or "If the lock is locked".
+
+The following purpose-specific conditions are now available:
+
+- **Alarm control panel** conditions check if the alarm is armed (home, away, night, or vacation), disarmed, or triggered.
+- **Assist satellite** conditions check if your voice assistant satellites are idle, listening, processing, or responding.
+- **Climate** conditions check if the climate device is on, off, heating, cooling, or drying.
+- **Device tracker** conditions check if a device is home or not home.
+- **Fan** conditions check if a fan is on or off.
+- **Humidifier** conditions check if a humidifier is on, off, humidifying, or drying.
+- **Lawn mower** conditions check if your lawn mower is mowing, docked, paused, returning, or encountering an error.
+- **Lock** conditions check if a lock is locked, unlocked, open, or jammed.
+- **Media player** conditions check if a media player is on, off, playing, paused, or not playing.
+- **Person** conditions check if a person is home or not home.
+- **Siren** conditions check if a siren is on or off.
+- **Switch** conditions check if a switch is on or off.
+- **Vacuum** conditions check if a vacuum is cleaning, docked, paused, returning, or encountering an error.
+
+Head over to {% my labs title="**Settings** > **System** > **Labs**" %} to enable purpose-specific triggers and conditions and give them a try!
+
+## A brand new card: The distribution card
+
+Meet the **distribution card**, a brand new dashboard card that visualizes how values are distributed across multiple entities. It displays your data as a proportional horizontal bar chart with an interactive legend, perfect for seeing at a glance where your power, storage, or any other measurable quantity is going.
+
+<img src='/images/blog/2026-02/distribution-card.png' alt='Screenshot of two distribution cards on a desktop, providing new insights into your data.' class='no-shadow' />
+
+The card is fully interactive: select legend items to hide or show entities (the percentages recalculate dynamically), and select bar segments to open the more-info dialog for that entity. When you have many entities, the legend shows the first items with a **More** button to expand the rest.
+
+The distribution card is smart about what you can combine. It validates that all entities share the same domain and device class, so you won't accidentally mix power sensors with battery sensors. It even handles related units gracefully: mixing watts and kilowatts works just fine.
+
+Some ideas for how you might use it:
+
+- **Power monitoring**: See which circuits or appliances are consuming the most electricity right now.
+- **Storage usage**: Visualize how storage is distributed across drives or folders.
+- **Any proportional data**: Compare any group of entities with the same unit.
+
+Thanks to [@jlpouffier] for building this card! 🎉
+
+[@jlpouffier]: https://github.com/jlpouffier
+
+## Quick search: The fastest way to anything
+
+We continue to make it easier to access and find things in Home Assistant. The quick bar has been completely redesigned and is now simply called **Quick search**. Think of it as the command center for your entire Home Assistant: navigate anywhere, run commands, find entities, devices, or areas, all from a single, unified search.
+
+<img src='/images/blog/2026-02/quick-search.png' alt='Screenshot of the Quick search interface showing category filters and search results.' class='no-shadow' />
+
+Open Quick search from anywhere by pressing <kbd>⌘</kbd> + <kbd>K</kbd> on macOS or <kbd>Ctrl</kbd> + <kbd>K</kbd> on Windows and Linux. The new design features category filters at the top: **Navigate**, **Commands**, **Entities**, **Devices**, and **Areas**. Select a filter to instantly narrow your results, or just start typing to search across everything.
+
+Full keyboard navigation makes Quick search a power user's friend. Use the arrow keys to move through results, <kbd>Enter</kbd> to select, and <kbd>Esc</kbd> to close. On mobile, you can assign Quick search to a gesture for one-tap access.
+
+### Your favorite shortcuts still work
+
+If you've been using the single-key shortcuts from the old quick bar, they still work! The difference is that they now open Quick search with the corresponding filter already selected:
+
+- <kbd>e</kbd> opens Quick search with the **Entities** filter
+- <kbd>d</kbd> opens Quick search with the **Devices** filter
+- <kbd>c</kbd> opens Quick search with the **Commands** filter
+- <kbd>a</kbd> still opens **Assist** directly
+- <kbd>m</kbd> still creates a **My link** for the current page (unrelated but still useful mention! 😉)
+
+This means your muscle memory is preserved while you get access to all the new capabilities.
+
+## Integrations
+
+Thanks to our community for keeping pace with the new {% term integrations %} and improvements to existing ones! You're all awesome 🥰
+
+### New integrations
+
+We welcome the following new integrations in this release:
+
+- **[Cloudflare R2]**, added by [@corrreia]  
+  Back up your Home Assistant to [Cloudflare R2](https://www.cloudflare.com/developer-platform/products/r2/). R2 offers generous free tier storage with no egress fees, making it an affordable option for keeping your backups safe in the cloud.
+
+- **[Green Planet Energy]**, added by [@petschni]  
+  Get real-time dynamic electricity pricing data from German renewable energy provider [Green Planet Energy](https://green-planet-energy.de/). Monitor hourly prices and optimize your energy consumption by shifting it to cheaper hours.
+
+- **[HDFury]**, added by [@glenndehaan]  
+  Control and monitor your [HDFury](https://hdfury.com/) HDMI video processing devices, like the VRROOM and Diva. Manage HDMI port selection, operation modes, audio muting, and monitor input/output signal status.
+
+- **[NRGkick]**, added by [@andijakl]  
+  Monitor your [NRGkick](https://www.nrgkick.com/) Gen2 mobile EV charger locally. Track charging status, energy consumption, power flow across all phases, and device temperatures without requiring a cloud connection.
+
+- **[Prana]**, added by [@prana-dev-official]  
+  Integrate your [Prana](https://prana.ua/) heat recovery ventilation systems. Prana HRV units provide balanced mechanical ventilation with energy-efficient heat exchange, and you can now control and monitor them directly from Home Assistant.
+
+- **[uHoo]**, added by [@getuhoo] and [@joshsmonta]  
+  Integrate your [uHoo](https://getuhoo.com) indoor air quality monitors to track temperature, humidity, CO2, PM2.5, and other air quality metrics. Also includes proprietary health indices for virus and mold risk.
+
+[@andijakl]: https://github.com/andijakl
+[@corrreia]: https://github.com/corrreia
+[@getuhoo]: https://github.com/getuhoo
+[@glenndehaan]: https://github.com/glenndehaan
+[@joshsmonta]: https://github.com/joshsmonta
+[@petschni]: https://github.com/petschni
+[@prana-dev-official]: https://github.com/prana-dev-official
+[Cloudflare R2]: /integrations/cloudflare_r2
+[Green Planet Energy]: /integrations/green_planet_energy
+[HDFury]: /integrations/hdfury
+[NRGkick]: /integrations/nrgkick
+[Prana]: /integrations/prana
+[uHoo]: /integrations/uhoo
+
+### Noteworthy improvements to existing integrations
+
+It is not just new {% term integrations %} that have been added; existing ones are also being constantly improved. Here are some of the noteworthy changes to existing integrations:
+
+- [ESPHome] integration now supports water heater devices! Thanks, [@dhoeben], for adding this!
+- [Music Assistant] integration now supports pre-announce URLs, thanks to [@arturpragacz]. Use your custom announcement sounds before your text-to-speech message plays!
+- [@fr33mang] made it possible to play your "Liked Songs" collection directly in the [Spotify] integration. No more searching for that special playlist. 😁
+- The [Sonos] integration now shows your podcast favorites in the media browser, thanks to [@divers33]. May we recommend the [Home Assistant Podcast](https://hasspodcast.io/)? 🎤
+- [@starkillerOG] added a new pet chime option to the [Reolink] integration. Now you can trigger a special chime when your furry friends are at the door! 🐶
+- The [SmartThings] integration now supports audio notifications, thanks to [@vmonkey].
+- [@Lash-L] improved the [Roborock] integration by adding sensors for the dock water box status. Nice!
+- The [Tibber] integration received several enhancements from [@Danielhiversen]: new binary sensors for EV charger status, additional temperature and grid sensors, and more EV settings to fine-tune your charging experience. ⚡️
+- [@LG-ThinQ-Integration] added support for controlling humidifiers and dehumidifiers in the [LG ThinQ] integration. Thanks!
+- Thanks to [@ptarjan], the [Hikvision] integration now has camera support! You can view snapshots and streams from your Hikvision cameras and NVRs directly in Home Assistant.
+- [@cdnninja] added PM1 and PM10 air quality sensors to the [VeSync] integration. Nice!
+- The [Bang & Olufsen] integration received battery support from [@mj23000]. You can now monitor battery levels and charging status for your portable Beosound speakers and Beoremote One remotes.
+- [@erwindouna] enhanced the [Portainer] integration with a new prune images button and a state sensor. Awesome!
+- Thanks to [@klaasnicolaas], the [Powerfox] integration now supports gas meters alongside electricity meters.
+- [@terop] added an Indoor Air Quality Score (IAQS) sensor to the [Ruuvi] integration. Great!
+- [@pandanz] added an ambient temperature sensor to the [ToGrill] integration. Keep an eye on the temperature around your grill 🍗, not just inside it!
+- [@tr4nt0r] added support for sequence IDs to the [ntfy] integration, allowing notifications to be updated, and added two new actions to dismiss and delete notifications.
+
+[@arturpragacz]: https://github.com/arturpragacz
+[@cdnninja]: https://github.com/cdnninja
+[@Danielhiversen]: https://github.com/Danielhiversen
+[@dhoeben]: https://github.com/dhoeben
+[@divers33]: https://github.com/divers33
+[@erwindouna]: https://github.com/erwindouna
+[@fr33mang]: https://github.com/fr33mang
+[@JesusSanchezLopez]: https://github.com/JesusSanchezLopez
+[@klaasnicolaas]: https://github.com/klaasnicolaas
+[@Lash-L]: https://github.com/Lash-L
+[@LG-ThinQ-Integration]: https://github.com/LG-ThinQ-Integration
+[@mj23000]: https://github.com/mj23000
+[@pandanz]: https://github.com/pandanz
+[@ptarjan]: https://github.com/ptarjan
+[@starkillerOG]: https://github.com/starkillerOG
+[@terop]: https://github.com/terop
+[@vmonkey]: https://github.com/vmonkey
+[@tr4nt0r]: https://github.com/tr4nt0r
+[Bang & Olufsen]: /integrations/bang_olufsen
+[ESPHome]: /integrations/esphome
+[Hikvision]: /integrations/hikvision
+[Home Connect]: /integrations/home_connect
+[LG ThinQ]: /integrations/lg_thinq
+[Music Assistant]: /integrations/music_assistant
+[Portainer]: /integrations/portainer
+[Powerfox]: /integrations/powerfox
+[Reolink]: /integrations/reolink
+[Roborock]: /integrations/roborock
+[Ruuvi]: /integrations/ruuvitag
+[SmartThings]: /integrations/smartthings
+[Sonos]: /integrations/sonos
+[Spotify]: /integrations/spotify
+[Tibber]: /integrations/tibber
+[ToGrill]: /integrations/togrill
+[VeSync]: /integrations/vesync
+[ntfy]: /integrations/ntfy
+
+### Integration quality scale achievements
+
+One thing we are incredibly proud of in Home Assistant is our [integration quality scale]. This scale helps us and our contributors to ensure integrations are of high quality, maintainable, and provide the best possible user experience.
+
+This release, we celebrate several {% term integrations %} that have improved their quality scale:
+
+- **3 integrations reached platinum** 🏆
+  - [Airobot], thanks to [@mettolen]
+  - [Duck DNS], thanks to [@tr4nt0r]
+  - [Saunum], thanks to [@mettolen]
+
+- **4 integrations reached silver** 🥈
+  - [Feedreader], thanks to [@mib1185]
+  - [NINA], thanks to [@DeerMaximum]
+  - [Velbus], thanks to [@cereal2nd]
+  - [Velux], thanks to [@wollew]
+
+- **1 integration reached bronze** 🥉
+  - [TP-Link Omada], thanks to [@MarkGodwin]
+
+This is a huge achievement for these integrations and their maintainers. The effort and dedication required to reach these quality levels is significant, as it involves extensive testing, documentation, error handling, and often complete rewrites of parts of the integration.
+
+A big thank you to all the contributors involved! 👏
+
+[integration quality scale]: /docs/quality_scale/
+
+[@cereal2nd]: https://github.com/cereal2nd
+[@DeerMaximum]: https://github.com/DeerMaximum
+[@MarkGodwin]: https://github.com/MarkGodwin
+[@mettolen]: https://github.com/mettolen
+[@mib1185]: https://github.com/mib1185
+[@tr4nt0r]: https://github.com/tr4nt0r
+[@wollew]: https://github.com/wollew
+[Airobot]: /integrations/airobot
+[Duck DNS]: /integrations/duckdns
+[Feedreader]: /integrations/feedreader
+[NINA]: /integrations/nina
+[Saunum]: /integrations/saunum
+[TP-Link Omada]: /integrations/tplink_omada
+[Velbus]: /integrations/velbus
+[Velux]: /integrations/velux
+
+### Now available to set up from the UI
+
+While most {% term integrations %} can be set up directly from the Home Assistant user interface, some were only available using YAML configuration. We keep moving more integrations to the UI, making them more accessible for everyone to set up and use.
+
+The following integrations are now available via the Home Assistant UI:
+
+- **[Namecheap DynamicDNS]**, done by [@tr4nt0r]
+- **[OpenEVSE]**, done by [@c00w]
+- **[Proxmox VE]**, done by [@erwindouna]
+- **[WaterFurnace]**, done by [@masterkoppa]
+
+[@c00w]: https://github.com/c00w
+[@erwindouna]: https://github.com/erwindouna
+[@masterkoppa]: https://github.com/masterkoppa
+[@tr4nt0r]: https://github.com/tr4nt0r
+[Namecheap DynamicDNS]: /integrations/namecheapdns
+[OpenEVSE]: /integrations/openevse
+[Proxmox VE]: /integrations/proxmoxve
+[WaterFurnace]: /integrations/waterfurnace
+
+## Other noteworthy changes
+
+There are many more improvements in this release; here are some of the other noteworthy changes:
+
+- The **Developer tools** have been moved to the {% my general title="**Settings**" %} area. This change keeps all administrative and system tools in one central location, making the interface cleaner and more consistent. We understand this might take some getting used to, and we hear you! We're actively exploring adding full sidebar menu customization capabilities in the future, giving you the flexibility to organize your navigation exactly the way you want it.
+- Dashboards now support calendar colors! Pick a color for each calendar, and it will show up in your calendar cards. The [Google Calendar] integration already supports this feature, thanks to [@Misiu].
+- [@karwosts] added live inline template previews to the template editor. As you type, you can instantly see the result of your template without needing to manually refresh.
+- The sidebar now features a subtle scroll fade effect and keeps **Settings** always visible at the bottom, so you never have to scroll to find it. Thanks, [@ildar170975]!
+- [@MindFreeze] added tap action and image tap action options to the area card, giving you more control over what happens when you interact with your areas.
+- The entity card now supports actions, thanks to [@ildar170975]. Configure tap, hold, or double-tap actions to trigger anything you want directly from the card.
+- [@Thomas55555] added parts per billion (ppb) as a valid unit of measurement for sulfur dioxide sensors and number entities.
+- The Energy dashboard now supports power sensors in other formats without the need for a template sensor thanks to [@MindFreeze]. You can now use a single sensor with an inverted polarity for grid or battery. You can also configure two separte positive sensors for charge and discharge (or import/export).
+
+[@ildar170975]: https://github.com/ildar170975
+[@karwosts]: https://github.com/karwosts
+[@MindFreeze]: https://github.com/MindFreeze
+[@Misiu]: https://github.com/Misiu
+[@Thomas55555]: https://github.com/Thomas55555
+[Google Calendar]: /integrations/google
+
+### Add buttons to your heading card
+
+The heading card now supports button badges, giving you a new way to add quick actions right alongside your section headings. Display an icon, text, or both, pick a custom color, and configure tap, hold, or double-tap actions to trigger anything you want.
+
+<img src='/images/blog/2026-02/heading-card-buttons.png' alt='Screenshot of a heading card with button badges for quick actions.' class='no-shadow' />
+
+You can also set visibility conditions to show or hide buttons based on entity states. Combined with the existing entity badges, this makes the heading card a versatile anchor for your dashboard sections, whether you want to display status information, provide quick controls, or both.
+
+Thanks to [@piitaya] for this addition! 🎉
+
+[@piitaya]: https://github.com/piitaya
+
+### Pick specific entities in your area card
+
+The area card now lets you select individual entities as control buttons, not just entire types of entities like all lights or all switches in the area. Previously, adding a light control meant showing all lights in the area. Now you can pick exactly which entities appear.
+
+<img src='/images/blog/2026-02/area-card-entities.png' alt='Screenshot of the area card control configuration showing entity selection.' class='no-shadow' />
+
+Great job, [@MindFreeze]! 🎉
+
+## Need help? Join the community
+
+Home Assistant has a great community of users who are all more than willing to help each other out. So, join us!
+
+Our very active [Discord chat server](/join-chat) is an excellent place to be, and don't forget to join our amazing [forums](https://community.home-assistant.io/).
+
+Found a bug or issue? Please report it in our [issue tracker](https://github.com/home-assistant/core/issues) to get it fixed! Or check [our help page](/help) for guidance on more places you can go.
+
+Are you more into email? [Sign up for the Open Home Foundation Newsletter](/newsletter) to get the latest news about features, things happening in our community, and other projects that support the Open Home straight into your inbox.
+
+## Backward-incompatible changes
+
+We do our best to avoid making changes to existing functionality that might unexpectedly impact your Home Assistant installation. Unfortunately, sometimes it is inevitable.
+
+We always make sure to document these changes to make the transition as easy as possible for you. This release has the following backward-incompatible changes:
+
+{% details "Group" %}
+
+The behavior of sensor groups has changed:
+
+- A sensor group is now unavailable if all group members are either unavailable or missing (meaning they are not in the state machine).
+- When the group is not considered unavailable and the configuration variable `ignore_non_numeric` is set to `False` (the default), the group state is calculated according to the configured type only if all group members are in the state machine and have a numeric state. If not, the group state will be unknown.
+
+([@emontnemery] - [#152167]) ([group documentation])
+
+[@emontnemery]: https://github.com/emontnemery
+[#152167]: https://github.com/home-assistant/core/pull/152167
+[group documentation]: /integrations/group/
+
+{% enddetails %}
+
+{% details "Sentry" %}
+
+Self-hosted Sentry users only: This upgrade requires Sentry server version 20.6.0 or later (released June 2020) due to the SDK's use of the `/envelope` API endpoint. Users running older self-hosted Sentry instances must upgrade their server before updating Home Assistant.
+
+Home Assistant users using sentry.io are not affected.
+
+([@vaind] - [#159415]) ([sentry documentation])
+
+[@vaind]: https://github.com/vaind
+[#159415]: https://github.com/home-assistant/core/pull/159415
+[sentry documentation]: /integrations/sentry/
+
+{% enddetails %}
+
+{% details "Tractive" %}
+
+The following sensors have been removed because they are no longer supported by the Tractive API:
+
+- `activity`
+- `calories burned`
+- `sleep`
+
+If you use these entities in your automations or scripts, you must update them.
+
+([@bieniu] - [#160089]) ([tractive documentation])
+
+[@bieniu]: https://github.com/bieniu
+[#160089]: https://github.com/home-assistant/core/pull/160089
+[tractive documentation]: /integrations/tractive/
+
+{% enddetails %}
+
+{% details "Tuya" %}
+
+Duplicate HVACMode have been converted to presets. You may need to adjust service calls from `set_hvac_mode` to `set_preset_mode` in your automations or scripts.
+
+([@epenet] - [#160918]) ([tuya documentation])
+
+[@epenet]: https://github.com/epenet
+[#160918]: https://github.com/home-assistant/core/pull/160918
+[tuya documentation]: /integrations/tuya/
+
+{% enddetails %}
+
+{% details "VeSync" %}
+
+The `advanced_sleep` preset mode is now replaced by `sleep`. If you have been using `advanced_sleep`, in your automations or scripts, you must update them to use `sleep` instead.
+
+([@cdnninja] - [#160573]) ([vesync documentation])
+
+[@cdnninja]: https://github.com/cdnninja
+[#160573]: https://github.com/home-assistant/core/pull/160573
+[vesync documentation]: /integrations/vesync/
+
+{% enddetails %}
+
+If you are a custom integration developer and want to learn about changes and new features available for your integration: Be sure to follow our [developer blog][devblog]. The following changes are the most notable for this release:
+
+- [Replacing pre-commit with prek](https://developers.home-assistant.io/blog/2026/01/13/replace-pre-commit-with-prek/)
+- [Solving pyserial-asyncio blocking the event loop](https://developers.home-assistant.io/blog/2026/01/05/pyserial-asyncio-fast)
+
+[devblog]: https://developers.home-assistant.io/blog/
+
+## All changes
+
+Of course, there is a lot more in this release. You can find a list of all changes made here: [Full changelog for Home Assistant Core 2026.2](/changelogs/core-2026.2).

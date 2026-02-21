@@ -16,7 +16,7 @@ ha_platforms:
   - binary_sensor
   - event
   - sensor
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 Integrates [Govee](https://www.govee.com/) BLE devices into Home Assistant.
@@ -32,7 +32,7 @@ The Govee BLE integration will automatically discover devices once the [Bluetoot
 - H5071 Hygrometer Thermometer
 - H5072 Hygrometer Thermometer
 - H5074 Hygrometer Thermometer (Active scans required)
-- [H5075 Bluetooth Hygrometer Thermometer](https://us.govee.com/collections/thermo-hydrometer/products/govee-bluetooth-hygrometer-thermometer-h5075)
+- [H5075 Bluetooth Hygrometer Thermometer](https://us.govee.com/collections/thermo-hydrometer/products/govee-bluetooth-hygrometer-thermometer-h5075) (Active scans required)
 - [H5100 Hygrometer Thermometer](https://us.govee.com/collections/thermo-hydrometer/products/govee-h5100-mini-hygrometer-thermometer-sensors)
 - H5101 Hygrometer Thermometer
 - H5102 Hygrometer Thermometer
@@ -41,6 +41,7 @@ The Govee BLE integration will automatically discover devices once the [Bluetoot
 - H5105 Hygrometer Thermometer
 - H5106 Hygrometer Thermometer and Air Quality Monitor
 - H5108 Hygrometer Thermometer
+- H5110 Hygrometer Thermometer
 - H5121 Motion Sensor
 - H5122 Mini Button
 - H5123 Window Sensor
@@ -48,6 +49,7 @@ The Govee BLE integration will automatically discover devices once the [Bluetoot
 - H5125 2 Button Switch
 - H5126 6 Button Switch
 - H5127 Presence Sensor
+- [H5129 Hygrometer Thermometer](https://us.govee.com/products/wi-fi-temperature-humidity-sensor) (Active scans required)
 - H5130 Pressure Sensor
 - [H5177/5178 Bluetooth Thermo-Hygrometer](https://us.govee.com/collections/thermo-hydrometer/products/bluetooth-thermo-hygrometer)
 - H5174 Hygrometer Thermometer

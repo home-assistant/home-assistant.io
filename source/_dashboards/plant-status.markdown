@@ -8,6 +8,8 @@ related:
     title: Themes
   - docs: /dashboards/cards/
     title: Dashboard cards
+  - docs: /dashboards/naming/
+    title: Card naming
 ---
 
 The plant status card is for all the lovely botanists out there.
@@ -32,12 +34,12 @@ type:
   type: string
 entity:
   required: true
-  description: Entity ID of `plant` domain.
+  description: Entity ID of `plant` domain. For more information, see the [`plant` integration](/integrations/plant).
   type: string
 name:
   required: false
-  description: Overwrites friendly name.
-  type: string
+  description: Overwrites friendly name. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/).
+  type: [string, map, list]
   default: Entity name
 theme:
   required: false

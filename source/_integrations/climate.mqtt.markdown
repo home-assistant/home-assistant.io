@@ -1,6 +1,6 @@
 ---
-title: "MQTT HVAC"
-description: "Instructions on how to integrate MQTT HVAC into Home Assistant."
+title: "MQTT climate (HVAC)"
+description: "Instructions on how to integrate MQTT climate into Home Assistant."
 ha_category:
   - Climate
 ha_release: 0.55
@@ -8,11 +8,11 @@ ha_iot_class: Local Polling
 ha_domain: mqtt
 ---
 
-The `mqtt` climate platform lets you control your MQTT enabled HVAC devices.
+The **MQTT climate** {% term integration %} lets you control your MQTT enabled HVAC devices.
 
 ## Configuration
 
-To enable this climate platform in your installation, first add the following to your {% term "`configuration.yaml`" %} file.
+To use an MQTT climate in your installation, [add an MQTT device as a subentry](/integrations/mqtt/#configuration), or add the following to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
@@ -22,6 +22,8 @@ mqtt:
       name: Study
       mode_command_topic: "study/ac/mode/set"
 ```
+
+Alternatively, a more advanced approach is to set it up via [MQTT discovery](/integrations/mqtt/#mqtt-discovery).
 
 {% configuration %}
 action_template:
@@ -84,6 +86,10 @@ current_temperature_template:
   type: template
 current_temperature_topic:
   description: The MQTT topic on which to listen for the current temperature. A `"None"` value received will reset the current temperature. Empty values (`'''`) will be ignored.
+  required: false
+  type: string
+default_entity_id:
+  description: Use `default_entity_id` instead of name for automatic generation of the entity ID. For example, `climate.foobar`. When used without a `unique_id`, the entity ID will update during restart or reload if the entity ID is available.  If the entity ID already exists, the entity ID will be created with a number at the end. When used with a `unique_id`, the `default_entity_id` is only used when the entity is added for the first time. When set, this overrides a user-customized entity ID if the entity was deleted and added again.
   required: false
   type: string
 device:
@@ -195,7 +201,7 @@ json_attributes_topic:
   required: false
   type: string
 max_humidity:
-  description: The minimum target humidity percentage that can be set.
+  description: The maximum target humidity percentage that can be set.
   required: false
   type: float
   default: 99
@@ -204,7 +210,7 @@ max_temp:
   type: float
   required: false
 min_humidity:
-  description: The maximum target humidity percentage that can be set.
+  description: The minimum target humidity percentage that can be set.
   required: false
   type: float
   default: 30
@@ -238,10 +244,6 @@ name:
   required: false
   type: string
   default: MQTT HVAC
-object_id:
-  description: Used instead of `name` for automatic generation of `entity_id`
-  required: false
-  type: string
 optimistic:
   description: Flag that defines if the climate works in optimistic mode
   required: false
@@ -382,15 +384,15 @@ temperature_high_command_template:
   required: false
   type: template
 temperature_high_command_topic:
-  description: The MQTT topic to publish commands to change the high target temperature.
+  description: The MQTT topic to publish commands to change the upper target temperature.
   required: false
   type: string
 temperature_high_state_template:
-  description: A template to render the value received on the `temperature_high_state_topic` with. A `"None"` value received will reset the temperature high set point. Empty values (`'''`) will be ignored.
+  description: A template to render the value received on the `temperature_high_state_topic` with. A `"None"` value received will reset the upper temperature setpoint. Empty values (`""'`) will be ignored.
   required: false
   type: template
 temperature_high_state_topic:
-  description: The MQTT topic to subscribe for changes in the target high temperature. If this is not set, the target high temperature works in optimistic mode (see below).
+  description: The MQTT topic to subscribe for changes in the upper target temperature. If this is not set, the upper target temperature works in optimistic mode (see below).
   required: false
   type: string
 temperature_low_command_template:
@@ -398,15 +400,15 @@ temperature_low_command_template:
   required: false
   type: template
 temperature_low_command_topic:
-  description: The MQTT topic to publish commands to change the target low temperature.
+  description: The MQTT topic to publish commands to change the lower target temperature.
   required: false
   type: string
 temperature_low_state_template:
-  description: A template to render the value received on the `temperature_low_state_topic` with. A `"None"` value received will reset the temperature low set point. Empty values (`'''`) will be ignored.
+  description: A template to render the value received on the `temperature_low_state_topic` with. A `"None"` value received will reset the lower temperature setpoint. Empty values (`""`) will be ignored.
   required: false
   type: template
 temperature_low_state_topic:
-  description: The MQTT topic to subscribe for changes in the target low temperature. If this is not set, the target low temperature works in optimistic mode (see below).
+  description: The MQTT topic to subscribe for changes in the lower target temperature. If this is not set, the lower target temperature works in optimistic mode (see below).
   required: false
   type: string
 temperature_state_template:

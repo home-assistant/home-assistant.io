@@ -25,14 +25,14 @@ The following screenshot shows a fully populated dashboard in [sections view](/d
     A fully populated dashboard in Sections view layout
 </p>
 
-### Multiple dashboards
+### Different dashboard types
 
-In the sidebar on the left, you see the names of different dashboards. Home Assistant comes with [multiple dashboards](/dashboards/dashboards/) out of the box.
+In the sidebar on the left, you see the names of different dashboards. Home Assistant comes with [different dashboard types](/dashboards/dashboards/) out of the box.
 
 - Overview
 - Energy
 - Map
-- Logbook
+- Activity
 - History
 - To-do lists
 
@@ -90,7 +90,7 @@ In the following steps, we will create a new dashboard and edit some card settin
      - This means that it is no longer automatically updated when new dashboard elements become available.
      - To continue, in the dialog, select the three dots {% icon "mdi:dots-vertical" %} menu, then select **Take control**.
      - Read and accept this before continuing.
-     - You can't get this specific dashboard back to update automatically. However. you can create a new default dashboard.
+     - You can't get this specific dashboard back to update automatically. However, you can create a new default dashboard.
 6. Your dashboard might not have much on it yet.
    - If you have smart home devices in your home, some may have been connected automatically.
    - In this example, some Bluetooth temperature sensors and an AV receiver connected automatically.
@@ -122,7 +122,7 @@ In the following steps, we will create a new dashboard and edit some card settin
 12. Now let's delete the other weather card.
     - In the top right corner, select the pencil.
     ![Dashboard - edit the dashboard](/images/getting-started/onboarding_edit_dashboard_01.png)
-    - On the card, select the three-dot menu and select **Delete**.
+    - On the card, select the three dots {% icon "mdi:dots-vertical" %} menu and select **Delete**.
     ![Dashboard - delete card](/images/getting-started/onboarding_dashboard_delete_card.png)
 13. Finally, we want to move the weather card to the top left corner.
     - On the bottom of the card, select the number or use the minus button to enter `1`.
@@ -138,7 +138,7 @@ In the following steps, we will create a new dashboard and edit some card settin
 
 If you want to learn more about dashboards, views, and cards, take a look at these topics:
 
-1. Take a look at the [introduction to dashboards](/dashboards/) and learn about [multiple dashboards](/dashboards/dashboards).
+1. Take a look at the [introduction to dashboards](/dashboards/) and learn about [dashboard types](/dashboards/dashboards).
 2. Learn more about [view types](/dashboards/views/)
 3. Learn how to [add cards](/dashboards/cards/#adding-cards-to-your-dashboard) to a view.
 

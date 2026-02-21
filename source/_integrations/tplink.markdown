@@ -38,11 +38,11 @@ ha_platforms:
   - switch
   - vacuum
 ha_dhcp: true
-ha_integration_type: integration
+ha_integration_type: device
 ha_quality_scale: platinum
 ---
 
-The `tplink` integration allows you to control your [TP-Link Kasa Smart Home Devices](https://www.tp-link.com/kasa-smart/) and [TP-Link Tapo Devices](https://www.tapo.com/) such as cameras, doorbells, chimes, lights, plugs, wall switches, robot vacuums, hubs, and hub-attached devices.
+The **TP-Link Smart Home** {% term integration %} allows you to control your [TP-Link Kasa Smart Home Devices](https://www.kasasmart.com/) and [TP-Link Tapo Devices](https://www.tapo.com/) such as cameras, doorbells, chimes, lights, plugs, wall switches, robot vacuums, hubs, and hub-attached devices.
 
 ## How you can use this integration
 
@@ -112,7 +112,7 @@ Alternatively, you can factory reset and then prevent the device from accessing 
 - **Wall Switches**: S210, S220, S500D, S505, S505D
 - **Bulbs**: L510B, L510E, L530E, L630
 - **Light Strips**: L900-10, L900-5, L920-5, L930-5
-- **Cameras**: C100, C210, C220, C225, C325WB, C520WS, C720, TC65, TC70
+- **Cameras**: C100, C120, C210, C220, C225, C325WB, C520WS, C720, TC65, TC70
 - **Doorbells and chimes**: D100C, D130, D230
 - **Vacuums**: RV20 Max Plus, RV30 Max
 - **Hubs**: H100, H200

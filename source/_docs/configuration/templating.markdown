@@ -24,7 +24,7 @@ Templating in Home Assistant is powered by the [Jinja2](https://palletsprojects.
 
 We will not go over the basics of the syntax, as Jinja2 does a great job of this in their [templates documentation](https://jinja.palletsprojects.com/en/latest/templates/).
 
-The frontend has a {% my developer_template title="template editor tool" %} to help develop and debug templates. Navigate to {% my developer_template title="Developer Tools > Template" %}, create your template in the _Template editor_ and check the results on the right.
+The frontend has a template editor tool to help develop and debug templates. Go to {% my developer_template title="**Settings** > **Developer tools** > **Template**" %}, create your template in the **Template editor** and check the results on the right.
 
 Templates can get big pretty fast. To keep a clear overview, consider using YAML multiline strings to define your templates:
 
@@ -52,8 +52,8 @@ There are a few very important rules to remember when adding templates to YAML:
 
 1. You **must** surround single-line templates with double quotes (`"`) or single quotes (`'`).
 2. It is advised that you prepare for undefined variables by using `if ... is not none` or the [`default` filter](https://jinja.palletsprojects.com/en/latest/templates/#jinja-filters.default), or both.
-3. It is advised that when comparing numbers, you convert the number(s) to a [`float`](https://jinja.palletsprojects.com/en/latest/templates/#float) or an [`int`](https://jinja.palletsprojects.com/en/latest/templates/#int) by using the respective [filter](https://jinja.palletsprojects.com/en/latest/templates/#list-of-builtin-filters).
-4. While the [`float`](https://jinja.palletsprojects.com/en/latest/templates/#float) and [`int`](https://jinja.palletsprojects.com/en/latest/templates/#int) filters do allow a default fallback value if the conversion is unsuccessful, they do not provide the ability to catch undefined variables.
+3. It is advised that when comparing numbers, you convert the number(s) to a [`float`](https://jinja.palletsprojects.com/en/latest/templates/#jinja-filters.float) or an [`int`](https://jinja.palletsprojects.com/en/latest/templates/#jinja-filters.int) by using the respective [filter](https://jinja.palletsprojects.com/en/latest/templates/#list-of-builtin-filters).
+4. While the [`float`](https://jinja.palletsprojects.com/en/latest/templates/#jinja-filters.float) and [`int`](https://jinja.palletsprojects.com/en/latest/templates/#jinja-filters.int) filters do allow a default fallback value if the conversion is unsuccessful, they do not provide the ability to catch undefined variables.
 
 Remembering these simple rules will help save you from many headaches and endless hours of frustration when using automation templates.
 
@@ -63,7 +63,8 @@ Jinja supports a set of language extensions that add new functionality to the la
 To improve the experience of writing Jinja templates, we have enabled the following
 extensions:
 
-- [Loop Controls](https://jinja.palletsprojects.com/en/3.0.x/extensions/#loop-controls) (`break` and `continue`)
+- [Loop Controls](https://jinja.palletsprojects.com/en/stable/extensions/#loop-controls) (`break` and `continue`)
+- [Expression Statement](https://jinja.palletsprojects.com/en/stable/extensions/#expression-statement) (`do`)
 
 ### Reusing templates
 
@@ -79,7 +80,7 @@ For example, you might define a macro in a template in `config/custom_templates/
 
 {% raw %}
 
-```text
+```jinja
 {% macro format_entity(entity_id) %}
 {{ state_attr(entity_id, 'friendly_name') }} - {{ states(entity_id) }}
 {% endmacro %}
@@ -91,16 +92,35 @@ In your automations, you could then reuse this macro by importing it:
 
 {% raw %}
 
-```text
+```jinja
 {% from 'formatter.jinja' import format_entity %}
 {{ format_entity('sensor.temperature') }}
 ```
 
 {% endraw %}
 
+Home Assistant also allows you to write macros with non-string return values by
+taking a named argument called `returns` and calling it with a return value.  Once created,
+pass the macro into the `as_function` filter to use the returned value:
+
+{% raw %}
+
+```jinja
+{%- macro macro_is_switch(entity_name, returns) -%}
+  {%- do returns(entity_name.startswith('switch.')) -%}
+{%- endmacro -%}
+{%- set is_switch = macro_is_switch | as_function -%}
+{{ "It's a switch!" if is_switch("switch.my_switch") else "Not a switch!" }}
+```
+
+{% endraw %}
+
+In this way, you can export utility functions that return scalar or complex values rather than
+just macros that render to strings.
+
 ## Home Assistant template extensions
 
-Extensions allow templates to access all of the Home Assistant specific states and adds other convenience functions and filters.
+Extensions allow templates to access all the Home Assistant specific states and adds other convenience functions and filters.
 
 ### Limited templates
 
@@ -455,7 +475,7 @@ The same thing can also be expressed as a test:
 ### Config entries
 
 - `config_entry_id(entity_id)` returns the config entry ID for a given entity ID. Can also be used as a filter.
-- `config_entry_attr(config_entry_id, attr)` returns the value of `attr` for the config entry of the given entity ID. Can also be used as a filter. The following attributes are allowed: `domain`, `title`, `state`, `source`, `disabled_by`. Not supported in [limited templates](#limited-templates).
+- `config_entry_attr(config_entry_id, attr)` returns the value of `attr` for the config entry of the given entity ID. Can also be used as a filter. The following attributes are allowed: `domain`, `title`, `state`, `source`, `disabled_by`, `pref_disable_polling`. Not supported in [limited templates](#limited-templates).
 
 #### Config entries examples
 
@@ -603,6 +623,7 @@ If there is more than one entry with the same title, the entities for all the ma
 - `labels()` returns the full list of label IDs, or those for a given area ID, device ID, or entity ID.
 - `label_id(lookup_value)` returns the label ID for a given label name.
 - `label_name(lookup_value)` returns the label name for a given label ID.
+- `label_description(lookup_value)` returns the label description for a given label ID.
 - `label_areas(label_name_or_id)` returns the list of area IDs tied to a given label ID or name.
 - `label_devices(label_name_or_id)` returns the list of device IDs tied to a given label ID or name.
 - `label_entities(label_name_or_id)` returns the list of entity IDs tied to a given label ID or name.
@@ -728,7 +749,7 @@ Examples using `iif`:
 {% warning %}
 The immediate if filter does not short-circuit like you might expect with a typical conditional statement. The `if_true`, `if_false` and `if_none` expressions will all be evaluated and the filter will simply return one of the resulting values. This means you cannot use this filter to prevent executing an expression which would result in an error.
 
-For example, if you wanted to select a field from `trigger` in an automation based on the platform you might go to make this template: `trigger.platform == 'event' | iif(trigger.event.data.message, trigger.to_state.state)`. This won't work because both expressions will be evaluated and one will fail since the field doesn't exist. Instead you have to do this `trigger.event.data.message if trigger.platform == 'event' else trigger.to_state.state`. This form of the expression short-circuits so if the platform is `event` the expression `trigger.to_state.state` will never be evaluated and won't cause an error.
+For example, if you wanted to select a field from `trigger` in an automation based on the platform you might go to make this template: `trigger.platform == 'event' | iif(trigger.event.data.message, trigger.to_state.state)`. This won't work because both expressions will be evaluated and one will fail since the field doesn't exist. Instead, you have to do this `trigger.event.data.message if trigger.platform == 'event' else trigger.to_state.state`. This form of the expression short-circuits so if the platform is `event` the expression `trigger.to_state.state` will never be evaluated and won't cause an error.
 {% endwarning%}
 
 ### Time
@@ -741,7 +762,7 @@ For example, if you wanted to select a field from `trigger` in an automation bas
 - `utcnow()` returns a datetime object of the current time in the UTC timezone.
   - For specific values: `utcnow().second`, `utcnow().minute`, `utcnow().hour`, `utcnow().day`, `utcnow().month`, `utcnow().year`, `utcnow().weekday()` and `utcnow().isoweekday()`.
   - Using `utcnow()` will cause templates to be refreshed at the start of every new minute.
-- `today_at(value)` converts a string containing a military time format to a datetime object with today's date in your time zone. Defaults to midnight (`00:00`).
+- `today_at(value)` converts a string containing a 24-hour time format to a datetime object with today's date in your time zone. Defaults to midnight (`00:00`).
 
   - Using `today_at()` will cause templates to be refreshed at the start of every new minute.
 
@@ -754,10 +775,12 @@ For example, if you wanted to select a field from `trigger` in an automation bas
 
   {% endraw %}
 
-- `as_datetime(value, default)` converts a string containing a timestamp, or valid UNIX timestamp, to a datetime object. If that fails, it returns the `default` value or, if omitted, raises an error. When the input is already a datetime object it will be returned as is. in case the input is a datetime.date object, midnight will be added as time. This function can also be used as a filter.
+- `as_datetime(value, default)` converts a string containing a timestamp or a valid UNIX timestamp to a datetime object. If conversion fails, the function returns the `default` value. If no `default` is provided and the input is a string that cannot be converted to a datetime, it returns `None`. For other invalid inputs (e.g., a list, dictionary, or a numeric value too large to convert), it raises an error when no `default` is supplied. In case the input is already a datetime object, it is returned unchanged. If the input is a `datetime.date` object, midnight is added as the time. This function can also be used as a filter.
 - `as_timestamp(value, default)` converts a datetime object or string to UNIX timestamp. If that fails, returns the `default` value, or if omitted raises an error. This function can also be used as a filter.
 - `as_local()` converts a datetime object to local time. This function can also be used as a filter.
 - `strptime(string, format, default)` parses a string based on a [format](https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior) and returns a datetime object. If that fails, it returns the `default` value or, if omitted, raises an error.
+- `relative_time` converts a datetime object to its human-friendly "age" string. The age can be in seconds, minutes, hours, days, months, or years (but only the biggest unit is considered. For example, if it's 2 days and 3 hours, "2 days" will be returned). Note that it only works for dates _in the past_.
+  - Using `relative_time()` will cause templates to be refreshed at the start of every new minute.
 - `time_since(datetime, precision)` converts a datetime object into its human-readable time string. The time string can be in seconds, minutes, hours, days, months, and years. `precision` takes an integer (full number) and indicates the number of units returned.  The last unit is rounded. For example: `precision = 1` could return "2 years" while `precision = 2` could return "1 year 11 months". This function can also be used as a filter.
 If the datetime is in the future, returns 0 seconds.
 A precision of 0 returns all available units, default is 1.
@@ -788,7 +811,7 @@ A precision of 0 returns all available units, default is 1.
 
 - Filter `timestamp_local(default)` converts a UNIX timestamp to the ISO format string representation as date/time in your local timezone. If that fails, returns the `default` value, or if omitted raises an error. If a custom string format is needed in the string, use `timestamp_custom` instead.
 - Filter `timestamp_utc(default)` converts a UNIX timestamp to the ISO format string representation representation as date/time in UTC timezone. If that fails, returns the `default` value, or if omitted raises an error. If a custom string format is needed in the string, use `timestamp_custom` instead.
-- Filter `timestamp_custom(format_string, local=True, default)` converts an UNIX timestamp to its string representation based on a custom format, the use of a local timezone is the default. If that fails, returns the `default` value, or if omitted raises an error. Supports the standard [Python time formatting options](https://docs.python.org/3/library/time.html#time.strftime).
+- Filter `timestamp_custom(format_string, local=True, default)` converts a UNIX timestamp to its string representation based on a custom format, the use of a local timezone is the default. If that fails, returns the `default` value, or if omitted raises an error. Supports the standard [Python time formatting options](https://docs.python.org/3/library/time.html#time.strftime).
 
 {% tip %}
 [UNIX timestamp](https://en.wikipedia.org/wiki/Unix_time) is the number of seconds that have elapsed since 00:00:00 UTC on 1 January 1970. Therefore, if used as a function's argument, it can be substituted with a numeric value (`int` or `float`).
@@ -880,6 +903,29 @@ The temperature is 25°C
 
 {% endraw %}
 
+`from_json(default)` function will attempt to convert the input to `json`. If that fails, returns the `default` value, or if omitted raises an error.
+
+#### Template
+
+{% raw %}
+
+```text
+{% set result = 'not json'|from_json('not json') %}
+The value is {{ result }}
+```
+
+{% endraw %}
+
+#### Output
+
+{% raw %}
+
+```text
+The value is not json
+```
+
+{% endraw %}
+
 ### Is defined
 
 Sometimes a template should only return if a value or object is defined, if not, the supplied default value should be returned. This can be useful to validate a JSON payload.
@@ -899,7 +945,7 @@ This will throw an error `UndefinedError: 'value_json' is undefined` if the JSON
 
 ### Version
 
-- `version()` Returns a [AwesomeVersion object](https://github.com/ludeeus/awesomeversion) for the value given inside the brackets.
+- `version()` Returns an [AwesomeVersion object](https://github.com/ludeeus/awesomeversion) for the value given inside the brackets.
   - This is also available as a filter (`| version`).
 
 Examples:
@@ -1062,19 +1108,28 @@ The numeric functions and filters raise an error if the input is not a valid num
   Like `float` and `int`, `bool` has a filter form. Using `none` as the default value is particularly useful in combination with the [immediate if filter](#immediate-if-iif): it can handle all three possible cases in a single line.
 
 - `log(value, base, default)` will take the logarithm of the input. When the base is omitted, it defaults to `e` - the natural logarithm. If `value` or `base` can't be converted to a `float`, returns the `default` value, or if omitted raises an error. Can also be used as a filter.
-- `sin(value, default)` will return the sine of the input. If `value` can't be converted to a `float`, returns the `default` value, or if omitted raises an error. Can be used as a filter.
-- `cos(value, default)` will return the cosine of the input. If `value` can't be converted to a `float`, returns the `default` value, or if omitted raises an error. Can be used as a filter.
-- `tan(value, default)` will return the tangent of the input. If `value` can't be converted to a `float`, returns the `default` value, or if omitted raises an error. Can be used as a filter.
-- `asin(value, default)` will return the arcus sine of the input. If `value` can't be converted to a `float`, returns the `default` value, or if omitted raises an error. Can be used as a filter.
-- `acos(value, default)` will return the arcus cosine of the input. If `value` can't be converted to a `float`, returns the `default` value, or if omitted raises an error. Can be used as a filter.
-- `atan(value, default)` will return the arcus tangent of the input. If `value` can't be converted to a `float`, returns the `default` value, or if omitted raises an error. Can be used as a filter.
-- `atan2(y, x, default)` will return the four quadrant arcus tangent of y / x. If `y` or `x` can't be converted to a `float`, returns the `default` value, or if omitted raises an error. Can be used as a filter.
+- `sin(value, default)` will return the sine of the input. The input value is in radians. If `value` can't be converted to a `float`, returns the `default` value, or if omitted raises an error. Can be used as a filter.
+- `cos(value, default)` will return the cosine of the input. The input value is in radians. If `value` can't be converted to a `float`, returns the `default` value, or if omitted raises an error. Can be used as a filter.
+- `tan(value, default)` will return the tangent of the input. The input value is in radians. If `value` can't be converted to a `float`, returns the `default` value, or if omitted raises an error. Can be used as a filter.
+- `asin(value, default)` will return the arcus sine of the input. The return value is in radians. If `value` can't be converted to a `float`, returns the `default` value, or if omitted raises an error. Can be used as a filter.
+- `acos(value, default)` will return the arcus cosine of the input. The return value is in radians. If `value` can't be converted to a `float`, returns the `default` value, or if omitted raises an error. Can be used as a filter.
+- `atan(value, default)` will return the arcus tangent of the input. The return value is in radians. If `value` can't be converted to a `float`, returns the `default` value, or if omitted raises an error. Can be used as a filter.
+- `atan2(y, x, default)` will return the four quadrant arcus tangent of y / x. The return value is in radians. If `y` or `x` can't be converted to a `float`, returns the `default` value, or if omitted raises an error. Can be used as a filter.
 - `sqrt(value, default)` will return the square root of the input. If `value` can't be converted to a `float`, returns the `default` value, or if omitted raises an error. Can be used as a filter.
 - `max([x, y, ...])` will obtain the largest item in a sequence. Uses the same parameters as the built-in [max](https://jinja.palletsprojects.com/en/latest/templates/#jinja-filters.max) filter.
 - `min([x, y, ...])` will obtain the smallest item in a sequence. Uses the same parameters as the built-in [min](https://jinja.palletsprojects.com/en/latest/templates/#jinja-filters.min) filter.
 - `average([x, y, ...], default)` will return the average value of the sequence. If list is empty or contains non-numeric value, returns the `default` value, or if omitted raises an error. Can be used as a filter.
 - `median([x, y, ...], default)` will return the median value of the sequence. If list is empty or contains non-numeric value, returns the `default` value, or if omitted raises an error. Can be used as a filter.
 - `statistical_mode([x, y, ...], default)` will return the statistical mode value (most frequent occurrence) of the sequence. If the list is empty, it returns the `default` value, or if omitted raises an error. It can be used as a filter.
+- `clamp(v, min, max)` limits the value `v` to be between `min` and `max`, [clamping at the edges](https://en.wikipedia.org/wiki/Clamp_(function)). If any of the arguments cannot be converted to a float, an error is raised. Can be used as a filter.
+- `wrap(v, min, max)` limits the value to be between min and max, wrapping the value at the edges. In mathematical terms, this is [modular arithmetic](https://en.wikipedia.org/wiki/Modular_arithmetic), sometimes called "clock face math". If `v`, `min`, or `max` cannot be converted to numbers, an error is raised. Can be used as a filter.
+- `remap(v, in_min, in_max, out_min, out_max, *, [steps], [edges])` remaps a value `v` from the range `in_min`..`in_max` to the range `out_min`..`out_max`.
+  If any of the values `v`, `in_min`, `in_max`, `out_min`, `out_max` cannot be converted to numbers, an error is raised. Can be used as a filter.
+  - You can optionally set the `edges` parameter to control how out-of-bounds input values are handled:
+    - `edges='clamp'` (the default) will clamp the output to the min/max output range.
+    - `edges='wrap'` will wrap the input value around the input range before remapping.
+    - `edges='mirror'` will bounce the input value back and forth within the input range before remapping.
+  - You can optionally set the `steps` parameter to a positive integer to quantize the output to a number of discrete steps.
 - `e` mathematical constant, approximately 2.71828.
 - `pi` mathematical constant, approximately 3.14159.
 - `tau` mathematical constant, approximately 6.28318.
@@ -1144,7 +1199,7 @@ The entities are {{ entities | join(', ') }}
 
 ### Functions and filters to process raw data
 
-These functions are used to process raw value's in a `bytes` format to values in a native Python type or vice-versa.
+These functions are used to process raw value's in a `bytes` format to values in a native Python type or vice versa.
 The `pack` and `unpack` functions can also be used as a filter. They make use of the Python 3 `struct` library.
 See: [Python struct library documentation](https://docs.python.org/3/library/struct.html)
 
@@ -1172,17 +1227,21 @@ Some examples:
 - Filter `urlencode` will convert an object to a percent-encoded ASCII text string (e.g., for HTTP requests using `application/x-www-form-urlencoded`).
 - Filter `slugify(separator="_")` will convert a given string into a "slug".
 - Filter `ordinal` will convert an integer into a number defining a position in a series (e.g., `1st`, `2nd`, `3rd`, `4th`, etc).
+- Filter `value | from_hex` Decodes a hex string to raw bytes.
+- Filter `value | base64_encode` Encodes a string or bytes to a base 64 string.
 - Filter `value | base64_decode` Decodes a base 64 string to a string, by default utf-8 encoding is used.
-- Filter `value | base64_decode("ascii")` Decodes a base 64 string to a string, using ascii encoding.
+- Filter `value | base64_decode("ascii")` Decodes a base 64 string to a string, using ASCII encoding.
 - Filter `value | base64_decode(None)` Decodes a base 64 string to raw bytes.
 
 <div class='note'>
 
 Some examples:
 {% raw %}
-
+- `{{ "homeassistant" | base64_encode }}` - renders as `aG9tZWFzc2lzdGFudA==`
 - `{{ "aG9tZWFzc2lzdGFudA==" | base64_decode }}` - renders as `homeassistant`
 - `{{ "aG9tZWFzc2lzdGFudA==" | base64_decode(None) }}` - renders as `b'homeassistant'`
+- `{{ "0F010003" | from_hex }}` - renders as `b'\x0f\x01\x00\x03'`
+- `{{ "0F010003" | from_hex | base64_encode }}` - renders as `DwEAAw==`
 
 {% endraw %}
 
@@ -1352,6 +1411,26 @@ Some examples:
 
 - `{{ combine({'a': 1, 'b': {'x': 1}}, {'b': {'y': 2}, 'c': 4}, recursive=True) }}` - renders as `{'a': 1, 'b': {'x': 1, 'y': 2}, 'c': 4}`
 - `{{ combine({'a': 1, 'b': {'x': 1}}, {'b': {'y': 2}, 'c': 4}) }}` - renders as `{'a': 1, 'b': {'y': 2}, 'c': 4}`
+
+{% endraw %}
+
+### Working with macros
+
+Home Assistant provides two additional functions that make macros much more powerful.
+
+{% raw %}
+
+- `apply` is both a filter and a test that allows you to use any callable (macros or functions) wherever
+you can use other filters and tests. `apply` also passes along any additional parameters to the function.
+For example, if you had a function called `double`, you could call
+`{{ [1, 2, 3, 4] | map('apply', double) | list }}`, which would render as `[2, 4, 6, 8]`.  
+Alternatively, if you had a function called `is_multiple_of`, you could call
+`{{ [1, 2, 3, 4] | select('apply', is_multiple_of, 2) | list }}`, which would render as `[2, 4]`.
+- `as_function` is a filter that takes a macro that has a named parameter called `returns`. The macro can
+then call `{%- do returns(return_value) -%}`. After passing this macro into `as_function`, the resulting
+function returns your return value directly, preserving the underlying data type rather than rendering
+a string. You can return dictionaries, numbers, `True`/`False` (allowing you to write your own tests when
+used with `apply`), or any other value your code might produce.
 
 {% endraw %}
 
@@ -1614,7 +1693,7 @@ The following overview contains a couple of options to get the needed values:
 
 {% endraw %}
 
-To evaluate a response, go to **{% my developer_template title="Developer Tools > Template" %}**, create your output in "Template editor", and check the result.
+To evaluate a response, go to {% my developer_template title="**Settings** > **Developer tools** > **Template**" %}, create your output in **Template editor**, and check the result.
 
 {% raw %}
 
@@ -1650,10 +1729,12 @@ Example value template:
 With given payload:
 
 ```json
-{ "state": "ON", "temperature": 21.902 }
+{ "state": "ON", "temperature": 21.902, "humidity": null }
 ```
 
 Template {% raw %}`{{ value_json.temperature | round(1) }}`{% endraw %} renders to `21.9`.
+
+Template {% raw %}`{{ value_json.humidity }}`{% endraw %} renders to `None`.
 
 {% endnote %}
 

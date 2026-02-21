@@ -369,7 +369,7 @@ In general, the state trigger fires when the state of any of given entities **ch
   - If for your use case this is undesired, you could consider using the automation to set an [`input_datetime`](/integrations/input_datetime) to the desired time and then use that [`input_datetime`](/integrations/input_datetime) as an automation trigger to perform the desired actions at the set time.
 
 {% tip %}
-The values you see in your overview will often not be the same as the actual state of the entity. For instance, the overview may show `Connected` when the underlying entity is actually `on`. You should check the state of the entity by checking the states in the developer tool, under {% my developer_states title="**Developer Tools** > **States**" %}.
+The values you see in your overview will often not be the same as the actual state of the entity. For instance, the overview may show `Connected` when the underlying entity is actually `on`. You should check the state of the entity by checking the states in the developer tool, under {% my developer_states title="**Settings** > **Developer tools** > **States**" %}.
 {% endtip %}
 
 ### Examples
@@ -417,7 +417,7 @@ automation:
       to:
 ```
 
-If you want to trigger on all state changes *except* specific ones, use `not_from` or `not_to`  The `not_from` and `not_to` options are the counter parts of `from` and `to`. They can be used to trigger on state changes that are **not** the specified state.
+If you want to trigger on all state changes *except* specific ones, use `not_from` or `not_to`  The `not_from` and `not_to` options are the counterparts of `from` and `to`. They can be used to trigger on state changes that are **not** the specified state.
 
 ```yaml
 automation:
@@ -602,7 +602,7 @@ A very thorough explanation of this is available in the Wikipedia article about 
 
 ## Tag trigger
 
-Fires when a [tag](/integrations/tag) is scanned. For example, a NFC tag is
+Fires when a [tag](/integrations/tag) is scanned. For example, an NFC tag is
 scanned using the Home Assistant Companion mobile application.
 
 ```yaml
@@ -696,7 +696,7 @@ A string that represents a time to fire on each day. Can be specified as `HH:MM`
 automation:
   - triggers:
     - trigger: time
-      # Military time format. This trigger will fire at 3:32 PM
+      # 24-hour time format. This trigger will fire at 3:32 PM
       at: "15:32:00"
 ```
 
@@ -825,9 +825,104 @@ blueprint:
 
 {% endraw %}
 
+### Weekday filtering
+
+Time triggers can be filtered to fire only on specific days of the week using the `weekday` option. This allows you to create automations that only run on certain days, such as weekdays or weekends.
+
+The `weekday` option accepts:
+- A single weekday as a string: `"mon"`, `"tue"`, `"wed"`, `"thu"`, `"fri"`, `"sat"`, `"sun"`
+- A list of weekdays using the expanded format
+
+#### Single weekday
+
+This example will turn on the lights only on Mondays at 8:00 AM:
+
+```yaml
+automation:
+  - triggers:
+      - trigger: time
+        at: "08:00:00"
+        weekday: "mon"
+    actions:
+      - action: light.turn_on
+        target:
+          entity_id: light.bedroom
+```
+
+#### Multiple weekdays
+
+This example will run a morning routine only on weekdays (Monday through Friday) at 6:30 AM:
+
+```yaml
+automation:
+  - triggers:
+      - trigger: time
+        at: "06:30:00"
+        weekday:
+          - "mon"
+          - "tue"
+          - "wed"
+          - "thu"
+          - "fri"
+    actions:
+      - action: script.morning_routine
+```
+
+#### Weekend example
+
+This example demonstrates a different wake-up time for weekends:
+
+```yaml
+automation:
+  - alias: "Weekday alarm"
+    triggers:
+      - trigger: time
+        at: "06:30:00"
+        weekday:
+          - "mon"
+          - "tue"
+          - "wed"
+          - "thu"
+          - "fri"
+    actions:
+      - action: script.weekday_morning
+
+  - alias: "Weekend alarm"
+    triggers:
+      - trigger: time
+        at: "08:00:00"
+        weekday:
+          - "sat"
+          - "sun"
+    actions:
+      - action: script.weekend_morning
+```
+
+#### Combined with input datetime
+
+The `weekday` option works with all time formats, including input datetime entities:
+
+```yaml
+automation:
+  - triggers:
+      - trigger: time
+        at: input_datetime.work_start_time
+        weekday:
+          - "mon"
+          - "tue"
+          - "wed"
+          - "thu"
+          - "fri"
+    actions:
+      - action: notify.mobile_app
+        data:
+          title: "Work Day!"
+          message: "Time to start working"
+```
+
 ## Time pattern trigger
 
-With the time pattern trigger, you can match if the hour, minute or second of the current time matches a specific value. You can prefix the value with a `/` to match whenever the value is divisible by that number. You can specify `*` to match any value (when using the web interface this is required, the fields cannot be left empty).
+With the time pattern trigger, you can match if the hour, minute or second of the current time matches a specific value. You can prefix the value with a `/` to match whenever the value is divisible by that number. You can specify `*` to match any value.
 
 ```yaml
 automation:
@@ -872,10 +967,16 @@ See the [Persistent Notification](/integrations/persistent_notification/) integr
 
 ## Webhook trigger
 
-Webhook trigger fires when a web request is made to the webhook endpoint: `/api/webhook/<webhook_id>`. The webhook endpoint is created automatically when you set it as the `webhook_id` in an automation trigger.
+Webhook trigger fires when a web request is made to the webhook endpoint: `/api/webhook/<webhook_id>`. The webhook endpoint is created automatically when you set it as the `webhook_id` in an automation trigger. The `webhook_id` can either be a static value or computed using [limited templates](/docs/configuration/templating/#limited-templates).
+
+{% note %}
+The `webhook_id` template is only evaluated when setting up the trigger, they will not be re-evaluated for incoming webhook triggers.
+{% endnote %}
 
 ```yaml
 automation:
+  trigger_variables:
+    webhook_id_variable: "template_webhook_id"
   triggers:
     - trigger: webhook
       webhook_id: "some_hook_id"
@@ -883,6 +984,10 @@ automation:
         - POST
         - PUT
       local_only: true
+    - trigger: webhook
+      webhook_id: "{{ webhook_id_variable }}"
+      allowed_methods:
+        - POST
 ```
 
 You can run this automation by sending an HTTP POST request to `http://your-home-assistant:8123/api/webhook/some_hook_id`. Here is an example using the **curl** command line program, with an example form data payload:
@@ -891,9 +996,9 @@ You can run this automation by sending an HTTP POST request to `http://your-home
 curl -X POST -d 'key=value&key2=value2' https://your-home-assistant:8123/api/webhook/some_hook_id
 ```
 
-Webhooks support HTTP POST, PUT, HEAD, and GET requests; PUT requests are recommended. HTTP GET and HEAD requests are not enabled by default but can be enabled by adding them to the `allowed_methods` option. The request methods can also be configured in the UI by clicking the settings gear menu button beside the Webhook ID.
+Webhooks support HTTP POST, PUT, HEAD, and GET requests; PUT requests are recommended. HTTP GET and HEAD requests are not enabled by default but can be enabled by adding them to the `allowed_methods` option. The request methods can also be configured in the UI by selecting the settings gear menu button beside the Webhook ID.
 
-By default, webhook triggers can only be accessed from devices on the same network as Home Assistant or via [Nabu Casa Cloud webhooks](https://www.nabucasa.com/config/webhooks/). The `local_only` option should be set to `false` to allow webhooks to be triggered directly via the internet. This option can also be configured in the UI by clicking the settings gear menu button beside the Webhook ID.
+By default, webhook triggers can only be accessed from devices on the same network as Home Assistant or via [Nabu Casa Cloud webhooks](https://www.nabucasa.com/config/webhooks/). The `local_only` option should be set to `false` to allow webhooks to be triggered directly via the internet. This option can also be configured in the UI by selecting the settings gear menu button beside the Webhook ID.
 
 Remember to use an HTTPS URL if you've secured your Home Assistant installation with SSL/TLS.
 
@@ -985,7 +1090,7 @@ additional event data available for use by an automation.
 
 ## Sentence trigger
 
-A sentence trigger fires when [Assist](/voice_control/) matches a sentence from a voice assistant using the default [conversation agent](/integrations/conversation/). Sentence triggers only work with Home Assistant Assist. External conversation agents such as OpenAI or Google Generative AI cannot be used to trigger automations.
+A sentence trigger fires when [Assist](/voice_control/) matches a sentence from a voice assistant using the default [conversation agent](/integrations/conversation/). Sentence triggers work with Home Assistant Assist. They will not work with external conversation agents such as OpenAI or Google Generative AI unless "Prefer handling commands locally" is enabled in the conversation agent settings.
 
 Sentences are allowed to use some basic [template syntax](https://developers.home-assistant.io/docs/voice/intent-recognition/template-sentence-syntax/#sentence-templates-syntax) like optional and alternative words. For example, `[it's ]party time` will match both "party time" and "it's party time".
 

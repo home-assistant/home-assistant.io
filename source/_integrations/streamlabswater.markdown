@@ -14,7 +14,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The StreamLabs Water integration is used to interact with [StreamLabs water monitoring devices](https://www.streamlabswater.com/) in order to retrieve usage information and manage the away mode of the device. The [StreamLabs Water API](https://developer.streamlabswater.com) is used to retrieve daily, monthly, and yearly water usage along with the current away mode.
+The **StreamLabs** {% term integration %} is used to interact with [StreamLabs water monitoring devices](https://www.streamlabswater.com/) in order to retrieve usage information and manage the away mode of the device. The [StreamLabs Water API](https://developer.streamlabswater.com) is used to retrieve daily, monthly, and yearly water usage along with the current away mode.
 
 {% important %}
 Access to the StreamLabs Water API is not free, you must have a StreamPlus™ subscription level that enables API access. Visit [https://streamlabswater.com/subscription](https://streamlabswater.com/subscription) for more information.
