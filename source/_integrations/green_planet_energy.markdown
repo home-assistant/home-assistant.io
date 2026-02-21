@@ -88,10 +88,10 @@ Add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 template:
-  - trigger:
+  - triggers:
       - trigger: time_pattern
-        minutes: "*"
-    action:
+        hours: "*"
+    actions:
       - action: green_planet_energy.get_cheapest_duration
         data:
           entity_id: sensor.green_planet_energy_current_price
