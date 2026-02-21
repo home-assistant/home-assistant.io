@@ -1,0 +1,107 @@
+---
+layout: post
+title: "More devices, more choice: celebrating a massive year for certification"
+description: "A look back at a big year for Work with Home Assistant certifications"
+date: 2025-12-09 00:00:00
+date_formatted: "December 9, 2025"
+author: Miranda Bishop
+comments: true
+categories: Works-with-Home-Assistant
+og_image: /images/blog/2025-12-wwha-recap/art.webp
+---
+
+<img src='/images/blog/2025-12-wwha-recap/art.webp' style='border: 0;box-shadow: none;' alt="More devices, more choice: celebrating a massive year for certification">
+
+If you’re ever in need of a device that works great with Home Assistant, *well, I have just the program for you*. [Works with Home Assistant](https://works-with.home-assistant.io/) is our certification program that ensures devices work seamlessly and locally, all with brands that back them up.
+
+Did you know that this year the Works with Home Assistant program has certified 12 partners across 12 months? That’s more than were certified in the two years since the [program launched in 2022](/blog/2022/07/12/partner-program/)! The full list of devices is insanely long now ([luckily, we made it searchable](https://works-with.home-assistant.io/certified-products/)). To make all this happen over just one year, a lot of important things have been happening behind the scenes.
+<!--more-->
+
+## Moving to a non-profit foundation
+
+In August 2024, the [Open Home Foundation took over](/blog/2024/08/08/works-with-home-assistant-becomes-part-ohf/) Works with Home Assistant. This helped reinforce that this program is not a commercial venture: it exists solely to connect our users with brands that support the foundation’s [core values of privacy, choice, and sustainability](https://www.openhomefoundation.org/about/).
+
+When we moved it over to the foundation, we also took that chance to beef-up our processes, with robust legal contracts that ensure every partner who joins the program formally commits to things like offering users long-term support and easy updates.
+
+## It’s all about the devices  
+
+When we started the program we certified brands, but now we certify devices. This means you know exactly which sensors, switches, or other gadgets have been rigorously tested by us to ensure the best experience with Home Assistant. Each certified device has to work **locally**, without the need for cloud subscriptions or control.
+
+We can now certify in phases, rather than overwhelming our testers with a truckload of devices in order to launch one partner. Also, if a manufacturer has one device that is cloud-controlled, it doesn’t blacklist any remaining items they have that could operate perfectly well locally. It sometimes means that sometimes your favorite devices aren’t part of the first wave of certification but, trust us, the partners check the comments 😉.
+
+## Making it easy to find certified devices
+
+*Here’s a conundrum*: the more products that are certified, the harder it is for you to see and find them. The good news is I think we’ve cracked it!
+
+Last week, we published the first version of our new [searchable certified device list](https://works-with.home-assistant.io/certified-products/). Previously, you’d have to hunt around for info by checking the integration page or digging through launch blogs to see if a device was certified. Now, certified devices are kept up to date in one central, easy-to-use location, with extra information on the region they’re available in, the protocol we’ve certified them under, and notes about any secondary functionality we’re still working on.
+
+<p class="img">
+    <img src="/images/blog/2025-12-wwha-recap/wwha-device-list.webp" alt="So many (useful) columns!">
+    So many (useful) columns!
+</p>
+
+## The badge had a makeover
+
+Every certified device earns the right to display our badge on its packaging, proudly announcing it Works with Home Assistant. If you’re not part of the program, you’re not allowed to use the Home Assistant logo. We used to have different versions of the badges depending on whether the device used Matter, Zigbee, or Z-Wave, and so on, but – let’s be honest – they were overcomplicated and impossible to actually read on a box!
+
+Since the badge is such an important signal when you’re browsing products, we decided to simplify it and focus purely on that mark of quality. Now we have just two versions: a color badge and a monochrome design that are easier to read on any packaging.
+
+<p class="img">
+    <img src="/images/blog/2025-12-wwha-recap/switchbot-badge.webp" alt="We love to see the new badge being used IRL!">
+    We love to see the new badge being used IRL!
+</p>
+
+## Companies of all sizes
+
+For 2025, our goal was simple: we wanted both the big names and passionate community projects to be able to join. Yes, we’re thrilled to have major smart home players such as Shelly and Reolink committing to the program, but it’s equally important for us to connect with smaller, community-built projects – the start-ups or developers who keep open source at the heart of everything they do, like AirGradient and Apollo Automation.
+
+This commitment to inclusivity is a big reason why we keep the annual fee for joining the program deliberately low, at only 500 CHF (per partner, not device) per year. We want to ensure being part of Works with Home Assistant is achievable for everyone who shares our vision.
+
+<p class="img">
+    <img src="/images/blog/2025-12-wwha-recap/ifa-apollo.webp" alt="Some of our team visiting the Apollo booth at IFA Berlin in September.">
+    Some of our team visiting the Apollo booth at IFA Berlin in September.
+</p>
+
+## Improving testing
+
+Testing hasn’t always been perfect – we knew we needed to make improvements, and the community has been amazing in helping us find things we need to look at. Like everything we do, we learn as we go, we iterate, and we improve. Previously, everyone was testing in their own way, but now we’ve standardized the way we test and give feedback to partners. This means testing is more consistent, exacting, and able to handle higher volumes – one of the reasons why we’ve been able to increase the number of devices we’ve certified so radically!
+
+A lot of devices that come across our desks don’t pass certification, and it's often due to organizations not fully understanding the requirements of joining. While this can vary greatly depending on the device and protocol, it was clear we needed to be more transparent. So as well as publishing our [Works with Home Assistant Working Group Resolution](https://www.openhomefoundation.org/documents/), we’re also publishing further testing information: this [sample testing report](https://drive.google.com/file/d/11jG9Al563XKK8N1XlPl3rzU73TUFbdyl/view) for a simple smart plug shows you the process we follow.
+
+## Keeping Home Assistant on the bleeding edge
+
+Because we get to see and test new devices in advance, and receive feedback from our certified partners as part of the process, we have a sneak peek into what vendors have in mind for 2026 and beyond. This allows us to look at our product roadmap and see where we need to realign with innovations in the market. By testing today’s devices, we’re guiding tomorrow’s Home Assistant features!
+
+<p class="img">
+    <img src="/images/blog/2025-12-wwha-recap/sotoh-2025.webp" alt="Spot one of the certified cameras in our State of the Open Home segment">
+    Spot one of the certified cameras in our State of the Open Home segment
+</p>
+
+## What can be controlled in Home Assistant
+
+A core aim of the program is to ensure all certified devices have their “key functionality” available within Home Assistant. So how do we decide what aspects are controllable in Home Assistant and what doesn't make the cut?
+
+1. Key: First, we look at the functionality as a whole. Let’s use a door lock for example. The door should lock and unlock from within Home Assistant. That’s *key* functionality, get it? 😉  
+2. Secondary: If the lock also chimes when it locks or unlocks, we think of that as “secondary” functionality. We recommend that the manufacturer has it as an “exposed feature” in Home Assistant, so you can turn it off during quiet hours for example, but it wouldn’t block certification.  
+3. We have to look at what’s actually supported by the open standard that we’re testing against too. If a feature is not currently supported by the specification, there’s no way for the manufacturer to actually implement it. This is one of the major challenges in certifying against ‘younger’ specifications such as Matter.
+
+We use our best judgment on this, but we also want your feedback, because everyone has a slightly different point of view, even within our team and testers – so look out for our user research requests, or please share your thoughts in our comments below!
+
+## Connecting with our community
+
+For all this talk of testing, Works with Home Assistant is primarily about people and partnerships! As a foundation, we’re focused on making sure the program stays deeply connected with the community it serves, both online and in person.
+
+We’ve been stepping up our presence at meetups and events around the world, so we can share the latest developments and gather your valuable feedback. From gigantic trade shows like CES in Las Vegas to small, local get-togethers, you can expect to see us there! We also want to do this online, so you can ask partners questions on streams, or in comments – keep an eye out for more of this in future.
+
+<p class="img">
+    <img src="/images/blog/2025-12-wwha-recap/meetup-san-diego.webp" alt="San Diego Meetup">
+    San Diego Meetup
+</p>
+
+## On to 2026
+
+So that was 2025 in a (big) nutshell. As for 2026, we want to kick it off with some wonderful Zigbee partners we’ve been working really hard on – particularly after the awesome launch of [Connect ZBT-2](/connect/zbt-2/). Even though Zigbee is one of the longest-established protocols, it’s actually one of the hardest for us to test and certify because so many devices operate outside the official specification. This means our team and partners do a lot of prep to get them to a testable state – but in doing so we’re driving big improvements in functionality for everyone!
+
+We also want to improve coverage globally, so, regardless of region, everyone who uses Home Assistant has a good range of certified options to choose from. This means we’re actively seeking partners who will cover regions outside of Europe and North America for everyday essentials like smart plugs and lighting.
+
+As ever, everything coming up will be covered [right here](/blog/categories/works-with-home-assistant/) – so stay tuned for updates… and here’s to certifying many more devices in 2026! 🎉🥳🎊

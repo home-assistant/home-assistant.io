@@ -16,7 +16,7 @@ ha_platforms:
   - binary_sensor
   - event
   - sensor
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 Integrates [Govee](https://www.govee.com/) BLE devices into Home Assistant.

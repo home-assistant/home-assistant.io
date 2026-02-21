@@ -12,10 +12,10 @@ ha_codeowners:
   - '@cpfair'
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
-The Islamic Prayer Times (`islamic_prayer_times`) integration displays the various prayer times for Muslims as sensors.
+The **Islamic Prayer Times** {% term integration %} displays the various prayer times for Muslims as sensors.
 
 This platform calculates prayer times using the following calculation methods:
 

@@ -4,79 +4,101 @@ description: "Extended instructions how to set up Z-Wave."
 related:
   - docs: /integrations/zwave_js/
     title: Z-Wave integration
+  - docs: /connect/zwa-2/
+    title: Home Assistant Connect ZWA-2
 ---
 
-## Supported Z-Wave adapters
+To use Z-Wave with Home Assistant, you need a compatible Z-Wave adapter.
 
-You need to have a compatible Z-Wave adapter installed. The following devices have been confirmed to work with Z-Wave JS:
+## Recommended Z-Wave adapter
 
-{% warning %}
+The [Home Assistant Connect ZWA-2](/connect/zwa-2/) is an 800 series Z-Wave adapter specifically developed to work with Home Assistant.
 
-The firmwares of 700 and 800 series Z-Wave adapters have several bugs which impact the stability of the mesh and can cause the adapter to become unresponsive. Because there is no known firmware version that is completely fixed, it is recommended to choose a firmware based on the following criteria:
+## Other supported Z-Wave adapters
 
-- 700 series:
-  - prefer SDK versions 7.17.2 to 7.18.x or 7.21.6 and newer
-  - SDK versions 7.19.x are okay
-  - avoid SDK versions before 7.17.2
-  - avoid SDK versions 7.20 to 7.21.5
+This section lists devices that have been confirmed to work with Z-Wave JS.
 
-- 800 series
+A few recommendations if you are new to Z-Wave:
+
+- Use an [800 series adapter](#800-series-usb-adapters) (with firmware updated to ≥ 7.23.2).
+  - The 800 series adapters are the most future-proof and offer the best RF performance.
+- Opt for a USB connection, not a module.
+  - Passing a module through Docker is more complicated than passing a USB connector through.
+
+### 800 series USB adapters
+
+Before connecting the Z-Wave 800 series adapter to Home Assistant, make sure the adapter uses a compatible firmware and SDK version. Some 800 series Z-Wave adapters have bugs which impact the stability of the mesh and can cause the adapter to become unresponsive.
+
+Upgrade the firmware of the 800 series adapter to a recommended version.
+
+- Because there is no known firmware version that is completely fixed, it is recommended to choose a firmware based on the following criteria:
   - prefer SDK versions 7.23.x and newer
   - SDK versions 7.22.x are okay
   - SDK versions 7.17.2 to 7.19.x are okay
   - avoid SDK versions before 7.17.2
   - avoid SDK versions 7.20 to 7.21.3
 
-{% note %}
-The SDK version does not have to match the firmware version. If you are unsure which SDK versions a firmware is based on, contact the manufacturer of your device.
-{% endnote %}
+- **Note**: The SDK version does not have to match the firmware version.
+  - If you are unsure which SDK versions a firmware is based on, contact the manufacturer of your device.
 
-{% important %}
-You should upgrade the firmware on all 700 and 800 series adapters to a recommended version.
-{% endimportant %}
+#### List of supported 800 series adapters
 
-Firmware can be upgraded using the below directions:
+The following 800 series USB adapters have been reported to work with Home Assistant if using the SDK and firmware versions mentioned above.
 
-- [Upgrade instructions using Linux](https://github.com/kpine/zwave-js-server-docker/wiki/700-series-Controller-Firmware-Updates-(Linux))
-- [Upgrade instructions using Windows (Aeotec)](https://aeotec.freshdesk.com/support/solutions/articles/6000252296-update-z-stick-7-with-windows)
-- [Upgrade instructions using Windows (Zooz)](https://www.support.getzooz.com/kb/article/931-how-to-perform-an-ota-firmware-update-on-your-zst10-700-z-wave-stick/)
-- [Upgrade instructions using Windows/Linux (Z-Wave.Me)](https://z-wave.me/support/uzbrazberry-firmwares/)
+- [Home Assistant Connect ZWA-2](/connect/zwa-2/) (officially recommended adapter)
+- HomeSeer SmartStick G8
+- Zooz 800 Series Z-Wave Long Range S2 Stick (ZST39 LR)
 
-{% endwarning %}
+### 700 series USB adapters
 
-- 800 series USB adapters (with some caveats, see notes)
-  - HomeSeer SmartStick G8
-  - Zooz 800 Series Z-Wave Long Range S2 Stick (ZST39 LR)
 
-- 700 series USB adapters
-  - Aeotec Z-Stick 7 USB stick (ZWA010) (the EU version is not recommended due to RF performance issues)
-  - HomeSeer SmartStick+ G3
-  - HomeSeer Z-NET G3
-  - Silicon Labs UZB-7 USB Stick (Silabs SLUSB7000A / SLUSB001A)
-  - Zooz S2 Stick 700 (ZST10 700)
-  - Z-Wave.Me Z-Station
+In general, using a 700 series USB adapter is not recommended.
 
-- 500 series USB adapters
-  - Aeotec Z-Stick Gen5 (see note below)
-  - Everspring USB stick - Gen 5
-  - GoControl HUSBZB-1 stick
-  - Sigma Designs UZB stick
-  - Vision USB stick - Gen5
-  - Z-Wave.Me UZB1 stick (see Aeotec Z-Stick note below)
-  - HomeSeer SmartStick+ G2
-  - HomeSeer Z-NET G2
+Before connecting the Z-Wave 700 series adapter to Home Assistant, make sure the adapter uses a compatible firmware and SDK version. Some 700 series Z-Wave adapters have bugs which impact the stability of the mesh and can cause the adapter to become unresponsive.
 
-- Raspberry Pi HAT adapters
-  - Aeotec Z-Pi 7 Raspberry Pi HAT/Shield (ZWA025, 700 series)
-  - Z-Wave.Me RaZberry 7 (ZME_RAZBERRY7, 700 series)
-  - Z-Wave.Me RaZberry 7 Pro (ZMEERAZBERRY7_PRO or ZMEURAZBERRY7_PRO, 700 series)
-  - Z-Wave.Me Razberry 2 (500 series)
-  - Z-Wave.Me Razberry 1 (300 series)
+Upgrade the firmware of the 700 series adapter to a recommended version:
 
-If you are just starting out, we recommend that you purchase an 800 series adapter (with firmware updated to ≥ 7.23.2). The 800 series adapters are the most future-proof and offer the best RF performance.
-{% tip %}
-It's recommended to use a USB stick, not a module. Passing a module through Docker is more complicated than passing a USB stick through.
-{% endtip %}
+- Because there is no known firmware version that is completely fixed, it is recommended to choose a firmware based on the following criteria:
+  - prefer SDK versions 7.17.2 to 7.18.x or 7.21.6 and newer
+  - SDK versions 7.19.x are okay
+  - avoid SDK versions before 7.17.2
+  - avoid SDK versions 7.20 to 7.21.5
+- **Note**: The SDK version does not have to match the firmware version.
+  - If you are unsure which SDK versions a firmware is based on, contact the manufacturer of your device.
+- To upgrade the firmware, search for the instructions that match your system.
+  - For Linux, the [Upgrade instructions from kpine](https://github.com/kpine/zwave-js-server-docker/wiki/700-series-Controller-Firmware-Updates-(Linux))can be helpful.
+
+#### List of supported 700 series USB adapters
+
+The following 700 series USB adapters have been reported to work with Home Assistant if using the SDK and firmware versions mentioned above:
+
+- Aeotec Z-Stick 7 USB stick (ZWA010) (the EU version is not recommended due to RF performance issues)
+- HomeSeer SmartStick+ G3
+- HomeSeer Z-NET G3
+- Silicon Labs UZB-7 USB Stick (Silabs SLUSB7000A / SLUSB001A)
+- Zooz S2 Stick 700 (ZST10 700)
+- Z-Wave.Me Z-Station
+
+### 500 series USB adapters
+
+The following 500 series USB adapters have been reported to work with Home Assistant:
+
+- Aeotec Z-Stick Gen5 (see note below)
+- Everspring USB stick - Gen 5
+- GoControl HUSBZB-1 stick
+- Sigma Designs UZB stick
+- Vision USB stick - Gen5
+- Z-Wave.Me UZB1 stick (see Aeotec Z-Stick note below)
+- HomeSeer SmartStick+ G2
+- HomeSeer Z-NET G2
+
+### Raspberry Pi HAT adapters
+
+- Aeotec Z-Pi 7 Raspberry Pi HAT/Shield (ZWA025, 700 series)
+- Z-Wave.Me RaZberry 7 (ZME_RAZBERRY7, 700 series)
+- Z-Wave.Me RaZberry 7 Pro (ZMEERAZBERRY7_PRO or ZMEURAZBERRY7_PRO, 700 series)
+- Z-Wave.Me Razberry 2 (500 series)
+- Z-Wave.Me Razberry 1 (300 series)
 
 ## Third-party hubs
 
@@ -98,77 +120,3 @@ The Aeotec Z-Stick and some of its variants (e.g. Z-Wave.Me UZB1) are known to h
 {% endnote %}
 
 It's totally normal for your Z-Wave stick to cycle through its LEDs (Yellow, Blue and Red) while plugged into your system.
-
-### Razberry Board
-
-On Raspberry Pi 3 and 4, you need to disable the on-board Bluetooth since the board requires the use of the hardware UART (whose pins are shared with the Bluetooth). You do this by adjusting the `/boot/config.txt`.
-
-For both processes below you will need to insert your SD card into your PC and open the configuration file with your favorite text editor.
-
-- Once you mounted the disk, you will see the `config.txt` directly in the root directory.
-
-#### Raspberry Pi 5 procedure
-
-Add the following parameters to the bottom of the `config.txt` file.
-
-```text
-dtoverlay=uart0
-```
-
-#### Raspberry Pi 4 procedure
-
-Add the following parameters to the bottom of the `/boot/config.txt` file.
-
-```text
-dtoverlay=disable-bt
-enable_uart=1
-```
-
-Reboot your Pi 4 without the Razberry Z-Wave hat first. Then shutdown, add the hat back, and boot again.
-
-#### Raspberry Pi 3 procedure
-
-Add the following parameters to the bottom of the `/boot/config.txt` file.
-
-```text
-dtoverlay=disable-bt
-```
-
-Reboot your Pi 3.
-
-For Home Assistant OS this should be everything you need to do. You should now be able to use Razberry Z-Wave from `/dev/ttyAMA0`.
-
-For other operating systems such as Raspberry Pi OS you will also have to run the following command:
-
-```bash
-sudo systemctl disable hciuart
-```
-
-You should also check the README for details on the overlays. You might find it in `/boot/overlays/README` on your SD-card. If it is not there you can find [the official version here](https://github.com/raspberrypi/firmware/blob/master/boot/overlays/README).
-
-{% note %}
-It is possible to keep a limited Bluetooth functionality while using Razberry Z-Wave. Check `boot/overlays/README` on `miniuart-bt`.
-{% endnote %}
-
-{% note %}
-`disable-bt` was previously known as `pi3-disable-bt`. If your OS is old, you might need to use this instead.
-{% endnote %}
-
-{% note %}
-If you've installed the Z-Wave.Me Z-Way software. In order to use Z-Wave JS instead of Z-Way, you'll need to ensure you disable it before you install Home Assistant, or you won't be able to access the board. Do this with `sudo /etc/init.d/z-way-server stop; sudo update-rc.d z-way-server disable`. Alternatively, you could use the [Z-Wave.Me](/integrations/zwave_me) integration.
-{% endnote %}
-
-#### Setting up a Raspberry Pi Z-Wave module on Home Assistant Yellow
-
-This procedure has been tested with the following modules:
-
-- Aeotec Z-Pi 7 Raspberry Pi HAT/Shield
-- Z-Wave.Me RaZberry 7
-- Z-Wave.Me RaZberry 7 Pro
-
-1. Make sure the module is properly seated on the Home Assistant Yellow.
-   ![Aeotec Z-Pi 7 on Home Assistant Yellow](/images/docs/z-wave/zpi-7-yellow.jpg).
-2. Carefully [close the case](https://support.nabucasa.com/hc/en-us/articles/25606333033501) (see Reassembling your Home Assistant Yellow section) and power up Home Assistant Yellow.
-3. Follow the procedure on [setting up a Z-Wave JS server](/integrations/zwave_js/#setting-up-a-z-wave-js-server).
-   1. In step 2, follow the manual setup steps to install the Z-Wave integration.
-   2. in Step 4, you will be prompted to choose a **Device path**. Choose **ttyAMA0**.

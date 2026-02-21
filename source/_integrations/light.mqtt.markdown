@@ -8,7 +8,7 @@ ha_release: 0.8
 ha_domain: mqtt
 ---
 
-The `mqtt` light platform lets you control your MQTT enabled lights through one of the supported message schemas, `default`, `json` or `template`.
+The **MQTT Light** {% term integration %} lets you control your MQTT enabled lights through one of the supported message schemas, `default`, `json` or `template`.
 
 ## Comparison of light MQTT schemas
 
@@ -144,6 +144,10 @@ color_temp_value_template:
 command_topic:
   description: The MQTT topic to publish commands to change the switch state.
   required: true
+  type: string
+default_entity_id:
+  description: Use `default_entity_id` instead of name for automatic generation of the entity ID. For example, `light.foobar`. When used without a `unique_id`, the entity ID will update during restart or reload if the entity ID is available.  If the entity ID already exists, the entity ID will be created with a number at the end. When used with a `unique_id`, the `default_entity_id` is only used when the entity is added for the first time. When set, this overrides a user-customized entity ID if the entity was deleted and added again.
+  required: false
   type: string
 device:
   description: 'Information about the device this light is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device.'
@@ -290,10 +294,6 @@ name:
   required: false
   type: string
   default: MQTT Light
-object_id:
-  description: Used `object_id` instead of `name` for automatic generation of `entity_id`. This only works when the entity is added for the first time. When set, this overrides a user-customized Entity ID in case the entity was deleted and added again.
-  required: false
-  type: string
 on_command_type:
   description: "Defines when on the payload_on is sent. Using `last` (the default) will send any style (brightness, color, etc) topics first and then a `payload_on` to the `command_topic`. Using `first` will send the `payload_on` and then any style topics. Using `brightness` will only send brightness commands instead of the `payload_on` to turn the light on."
   required: false
@@ -616,6 +616,10 @@ command_topic:
   description: The MQTT topic to publish commands to change the light’s state.
   required: true
   type: string
+default_entity_id:
+  description: Use `default_entity_id` instead of name for automatic generation of the entity ID. For example, `light.foobar`. When used without a `unique_id`, the entity ID will update during restart or reload if the entity ID is available.  If the entity ID already exists, the entity ID will be created with a number at the end. When used with a `unique_id`, the `default_entity_id` is only used when the entity is added for the first time. When set, this overrides a user-customized entity ID if the entity was deleted and added again.
+  required: false
+  type: string
 device:
   description: 'Information about the device this light is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device.'
   required: false
@@ -726,10 +730,6 @@ name:
   required: false
   type: string
   default: MQTT JSON Light
-object_id:
-  description: Used `object_id` instead of `name` for automatic generation of `entity_id`. This only works when the entity is added for the first time. When set, this overrides a user-customized Entity ID in case the entity was deleted and added again.
-  required: false
-  type: string
 optimistic:
   description: Flag that defines if the light works in optimistic mode.
   required: false
@@ -1039,6 +1039,10 @@ command_topic:
   description: The MQTT topic to publish commands to change the light’s state.
   required: true
   type: string
+default_entity_id:
+  description: Use `default_entity_id` instead of name for automatic generation of the entity ID. For example, `light.foobar`. When used without a `unique_id`, the entity ID will update during restart or reload if the entity ID is available.  If the entity ID already exists, the entity ID will be created with a number at the end. When used with a `unique_id`, the `default_entity_id` is only used when the entity is added for the first time. When set, this overrides a user-customized entity ID if the entity was deleted and added again.
+  required: false
+  type: string
 device:
   description: 'Information about the device this light is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device.'
   required: false
@@ -1137,10 +1141,6 @@ name:
   required: false
   type: string
   default: MQTT Template Light
-object_id:
-  description: Used `object_id` instead of `name` for automatic generation of `entity_id`. This only works when the entity is added for the first time. When set, this overrides a user-customized Entity ID in case the entity was deleted and added again.
-  required: false
-  type: string
 optimistic:
   description: Flag that defines if the light works in optimistic mode.
   required: false

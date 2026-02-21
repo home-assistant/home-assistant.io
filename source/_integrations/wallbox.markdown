@@ -75,7 +75,7 @@ The {% term integration %} adds a switch {% term entity %}, allowing you to paus
 
 ## Data updates
 
-Data is refreshed once every minute. Note that this update interval has been chosen in conjunction with Wallbox to prevent overloading their infrastructure. Altering this refresh rate is not recommended.
+Data is refreshed once every 90 seconds for owners of 1 charger, this rate is multiplied by the amount of chargers for owners of multiple Wallboxes. Note that this update interval has been chosen in conjunction with Wallbox to prevent overloading their infrastructure. Altering this refresh rate is not recommended.
 
 ## Troubleshooting
 
@@ -103,4 +103,3 @@ Always first check whether the data is being received by the Wallbox Portal as t
 ## Removing the integration
 
 {% include integrations/remove_device_service.md %}
-

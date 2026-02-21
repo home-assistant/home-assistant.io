@@ -10,7 +10,7 @@ ha_quality_scale: internal
 ha_integration_type: system
 ---
 
-The `ssdp` "Simple Service Discovery Protocol" (part of UPnP) integration will scan the network for supported devices and services. Discovered integrations will show up in the discovered section on the integrations page in the configuration panel.
+The **Simple Service Discovery Protocol (SSDP)** (part of UPnP) {% term integration %} will scan the network for supported devices and services. Discovered integrations will show up in the discovered section on the integrations page in the configuration panel.
 
 Integrations can opt-in to be found by adding [an SSDP section](https://developers.home-assistant.io/docs/creating_integration_manifest/#ssdp) to their `manifest.json`.
 

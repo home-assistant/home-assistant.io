@@ -52,7 +52,7 @@ Not all icons that appear in the MDI Picker Browser Extension may be available i
 
 ### Material design icons on the Pictogrammers website
 
-The last way to browse through available icons is by viewing the library on the Pictogrammers website, [https://pictogrammers.com/library/mdi/](https://pictogrammers.com/library/mdi/). Select an icon you'd like to use, then click "Home Assistant" to see an example of its usage.
+The last way to browse through available icons is by viewing the library on the Pictogrammers website, [https://pictogrammers.com/library/mdi/](https://pictogrammers.com/library/mdi/). Select an icon you'd like to use, then select "Home Assistant" to see an example of its usage.
 
 {% note %}
 The Pictogrammers website will always show the latest release of the material design icons library. However, you may find icons that may not yet be available in Home Assistant (yet!). Watch the Home Assistant release notes for announcements on upgrades of the Material Design Icons library.

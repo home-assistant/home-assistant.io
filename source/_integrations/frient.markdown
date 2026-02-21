@@ -14,6 +14,8 @@ ha_category:
   - Switch
 ha_domain: frient
 ha_integration_type: brand
+works_with:
+  - zigbee
 ha_platforms:
   - button
   - sensor
@@ -22,6 +24,21 @@ ha_iot_standard: zigbee
 ha_brand: true
 ---
 
-Frient Zigbee devices work locally and integrate seamlessly with the Zigbee integration in Home Assistant (Zigbee stick required). As all connectivity is happening locally, status updates and controlling your devices happen instantly in Home Assistant.
+{% include integrations/wwha.md url="https://www.frient.com/" %}
 
-[Learn more about Zigbee in Home Assistant.](/integrations/zha/)
+## Supported devices
+
+- [Motion Sensor Pro](https://www.frient.com/products/motion-sensor-pro)
+- [IO Module](https://www.frient.com/products/io-module)
+- [Smart Plug Mini](https://www.frient.com/products/smart-plug-mini)
+- [Entry Sensor 2 Pro](https://www.frient.com/products/entry-sensor-2-pro)
+- [Smart Siren UK](https://www.frient.com/products/smart-siren)
+- [Smart Siren EU](https://www.frient.com/products/smart-siren)
+- [Intelligent Keypad](https://www.frient.com/products/intelligent-keypad)
+- [Water Leak Detector](https://www.frient.com/products/water-leak-detector)
+- [Water Leak Detector Probe Version](https://www.frient.com/products/water-leak-detector)
+- [Smart Button](https://www.frient.com/products/smart-button)
+- [Intelligent Smoke Alarm](https://www.frient.com/products/intelligent-smoke-alarm)
+- [Air Quality Sensor](https://www.frient.com/products/air-quality-sensor)
+- [Smart Humidity Sensor](https://www.frient.com/products/smart-humidity-sensor)
+- [Electricity Meter Interface 2 LED](https://www.frient.com/products/electricity-meter-interface-2-led)

@@ -43,12 +43,7 @@ This section explains how to generate a client ID and client secret on
    - For Application type, choose **Web Application** and give this client ID a name (like "Home Assistant Client").
    - Add `https://my.home-assistant.io/redirect/oauth` to **Authorized redirect URIs** then select **Create**.
      > **Note**: This is not a placeholder. It is the URI that must be used.
-   - Click **Create**.
-9. Find the client you just created. Under the Actions column, choose **Download OAuth client** (download icon), which will show you the **Client ID** and **Client Secret**.
-   - Make a note of these (for example, copy and paste them into a text editor), as you will need them shortly.
+9. From the resulting dialog take a note of **Client ID** and **Client Secret** you **can not retrieve it again** after closing the dialog.
    - Once you have noted these strings, select **Close**.
    - Congratulations! You are now the keeper of a client secret. Guard it in your treasure box. In most cases, your new credentials will be active within a few minutes. However, Google states that activation may take up to five hours in some circumstances.
-     > If you need to find these credentials again at any point, then navigate to **APIs & Services** > **Credentials**, and you will see **Home Assistant Credentials** (or whatever you named them in the previous step) under **OAuth 2.0 Client IDs**.
-     >
-     > To view the **Client ID** and **Client Secret**, click the **Download OAuth client** (download icon) under the Actions column.
 {% enddetails %}

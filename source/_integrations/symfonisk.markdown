@@ -18,6 +18,7 @@ ha_platforms:
   - diagnostics
   - media_player
   - number
+  - select
   - sensor
   - switch
 ha_iot_class: Local Push

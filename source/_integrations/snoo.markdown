@@ -15,6 +15,7 @@ ha_codeowners:
 ha_domain: snoo
 ha_platforms:
   - binary_sensor
+  - button
   - event
   - select
   - sensor
@@ -80,11 +81,12 @@ This describes how long until the Snoo will change levels or it is Unknown if it
 This allows you to set the soothing level of your Snoo.
 
 1. Baseline - This is the basic state the snoo starts with. It has not detected the need to do any further soothing.
-2. Level 1 - This is the lowest level of soothing.
-3. Level 2
-4. Level 3
-5. Level 4
-6. Stop - The snoo is no longer running.
+2. Weaning baseline - Same as baseline but does not include motion.
+3. Level 1 - This is the lowest level of soothing.
+4. Level 2
+5. Level 3
+6. Level 4
+7. Stop - The snoo is no longer running.
 
 ## Switch
 
@@ -95,6 +97,12 @@ Keep SNOO’s rhythms locked on your baby’s favorite level (Baseline, Level 1,
 ### Sleepytime sounds
 
 Allows you to turn on SNOO’s soothing sounds before you put your baby in SNOO or after you took your baby out of SNOO for a diaper change or feeding.
+
+## Button
+
+### Start
+
+Starts sleepytime sounds and motion for the SNOO. This adheres to settings such as car ride or weaning mode.
 
 ## Removing the integration
 

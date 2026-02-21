@@ -15,7 +15,7 @@ ha_codeowners:
 ha_integration_type: integration
 ---
 
-The Holiday integration allows you to create a calendar of holidays in Home Assistant for powering automations.
+The **Holiday** {% term integration %} allows you to create a calendar of holidays in Home Assistant for powering automations.
 
 It uses the Python module [holidays](https://pypi.org/project/holidays/) to incorporate information about region-specific public holidays.
 

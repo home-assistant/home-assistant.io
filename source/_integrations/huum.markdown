@@ -5,6 +5,8 @@ ha_category:
   - Binary sensor
   - Climate
   - Light
+  - Number
+  - Sensor
 ha_release: 2024.2
 ha_iot_class: Cloud Polling
 ha_codeowners:
@@ -16,7 +18,9 @@ ha_platforms:
   - binary_sensor
   - climate
   - light
-ha_integration_type: integration
+  - number
+  - sensor
+ha_integration_type: device
 ---
 
 Integrates [Huum](https://huum.eu/) saunas into Home Assistant.
@@ -27,7 +31,7 @@ The integration takes the same security measures regarding an open sauna door as
 If the sauna door is open, the sauna will not turn on.
 
 {% note %}
-When the sauna is off, you must turn on the sauna after setting the temperature.
+When the sauna is off, you must turn on the sauna before setting the temperature.
 This is as a security measure so that one does not turn on the
 sauna by mistake.
 {% endnote %}
@@ -40,6 +44,10 @@ sauna by mistake.
 
 - **Door**: Sauna door state (open or closed).
 
+### Sensors
+
+- **Temperature**: Current sauna temperature in degrees Celsius.
+
 ### Climate
 
 The climate entity controls the sauna heater and offers the following capabilities:
@@ -50,3 +58,7 @@ The climate entity controls the sauna heater and offers the following capabiliti
 ### Light
 
 - **Light**: Sauna light control (on or off).
+
+### Number
+
+- **Humidity**: Control steamer duty cycle (0-10) to adjust sauna humidity.

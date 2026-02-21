@@ -1,6 +1,6 @@
 ---
 title: Z-Box Hub
-description: Connect and control your devices connected to a Z-Box Hub using the Fibaro integration
+description: Connect and control your Z-Box Hub devices using the Fibaro integration
 ha_category:
   - Binary sensor
   - Climate
@@ -12,7 +12,7 @@ ha_category:
   - Scene
   - Sensor
   - Switch
-ha_release: 2025.8
+ha_release: 0.83
 ha_domain: zbox_hub
 ha_integration_type: virtual
 ha_supporting_domain: fibaro

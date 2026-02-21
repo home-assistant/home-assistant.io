@@ -15,7 +15,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `denon` {% term integration %} allows you to control a Denon Network Receiver from Home Assistant. It might be that your device is supported by the [Denon AVR] platform.
+The **Denon Network Receivers** {% term integration %} allows you to control a Denon Network Receiver from Home Assistant. It might be that your device is supported by the [Denon AVR] platform.
 
 Supported devices:
 

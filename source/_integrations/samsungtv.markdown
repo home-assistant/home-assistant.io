@@ -19,10 +19,10 @@ ha_platforms:
 ha_zeroconf: true
 ha_dhcp: true
 ha_integration_type: device
-ha_quality_scale: bronze
+ha_quality_scale: silver
 ---
 
-The `samsungtv` platform allows you to control a [Samsung Smart TV](https://www.samsung.com/uk/tvs/all-tvs/).
+The **Samsung Smart TV** {% term integration %} allows you to control a [Samsung Smart TV](https://www.samsung.com/uk/tvs/all-tvs/).
 
 {% include integrations/config_flow.md %}
 

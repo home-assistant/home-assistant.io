@@ -12,7 +12,7 @@ ha_integration_type: integration
 ha_quality_scale: legacy
 ---
 
-The `twilio_call` notification platform enables sending notifications via Voice, powered by [Twilio](https://twilio.com).
+The **Twilio Call** {% term integration %} enables sending notifications via Voice, powered by [Twilio](https://twilio.com).
 Passed message will be read by Text-to-speech service.
 
 The requirement is that you have setup [Twilio](/integrations/twilio/).

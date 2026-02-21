@@ -15,7 +15,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `x10` light {% term integration %} allows you to control your X10 based lights with Home Assistant.
+The **Heyu X10** {% term integration %} allows you to control your X10 based lights with Home Assistant.
 
 Requires [Heyu x10](https://www.heyu.org/) and a CM11A or a CM17A "FireCracker" interface.
 

@@ -106,10 +106,10 @@ social:
     account: "https://fosstodon.org/@homeassistant"
 
 # Home Assistant release details
-current_major_version: 2025
-current_minor_version: 7
-current_patch_version: 4
-date_released: 2025-07-28
+current_major_version: 2026
+current_minor_version: 2
+current_patch_version: 0
+date_released: 2026-02-04
 
 # Either # or the anchor link to latest release notes in the blog post.
 # Must be prefixed with a # and have double quotes around it.

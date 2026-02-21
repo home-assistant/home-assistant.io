@@ -6,6 +6,7 @@ ha_category:
   - Button
   - Calendar
   - Device tracker
+  - Event
   - Lawn Mower
   - Number
   - Select
@@ -22,17 +23,18 @@ ha_platforms:
   - calendar
   - device_tracker
   - diagnostics
+  - event
   - lawn_mower
   - number
   - select
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: hub
 ha_domain: husqvarna_automower
 ha_quality_scale: silver
 ---
 
-The Husqvarna Automower integration provides connectivity with Husqvarna Automowers lawn mowers through Husqvarna's cloud API. Only mowers with *Automower® Connect* or with the *Automower® Connect Module* are supported.
+The **Husqvarna Automower** {% term integration %} provides connectivity with Husqvarna Automowers lawn mowers through Husqvarna's cloud API. Only mowers with *Automower® Connect* or with the *Automower® Connect Module* are supported.
 
 In order to use this integration you must properly configure OAuth2 credentials using your Husqvarna account.  Refer to [this guide](https://developer.husqvarnagroup.cloud/docs/get-started) for general overview of the process.
 Your Husqvarna account username/password used for the *Automower® Connect*  phone app is required.  Most users probably created a Husqvarna account during initial mower setup.
@@ -119,6 +121,30 @@ The integration will create a calendar entity for all mowers. The calendar shows
 
 The integration will create a device tracker entity to show the position of the mower.
 
+### Event (if available)
+
+- Shows the last error as event.
+- Includes additional context: `severity`, `latitude`, `longitude`, and `date_time`.
+
+#### Example attributes
+
+| Attribute     | Description                            |
+|---------------|----------------------------------------|
+| `event_type`  | Error code (for example, `tilt_error`)        |
+| `severity`    | Error severity (for example, `error`, `warning`) |
+| `latitude`    | Latitude where the error occurred      |
+| `longitude`   | Longitude where the error occurred     |
+| `date_time`   | Timestamp of the error                 |
+
+#### Use cases
+
+- Send a notification when the mower is lifted or stuck.
+- Show last error location on a map
+
+{% note %}
+The entity will only be created when a new message is received. If a mower hasn’t reported any errors yet, the entity won't show up.
+{% endnote %}
+
 ### Lawn mower
 
 The integration will create a lawn mower entity to control the mower. This entity can:
@@ -151,6 +177,7 @@ The integration will create the following sensors:
 - Error. For example: *Mower tilted*, *outside geofence*.
 - Downtime (if available)
 - Inactive reason (if available). For example: *Searching for satellites* or *planning*.
+- Remaining charging time
 - Restricted reason. For example: *Week schedule*, *frost*, or *daily limit*.
 - Mode
 - Next start
@@ -212,7 +239,7 @@ This will override all your schedules during this time. The duration can be give
 
 ```yaml
 # Replace <name> with the name of your mower.
-service: husqvarna_automower.override_schedule_work_area
+action: husqvarna_automower.override_schedule_work_area
 target:
   entity_id: lawn_mower.<name>
 data:

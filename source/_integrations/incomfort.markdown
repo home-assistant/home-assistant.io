@@ -17,13 +17,13 @@ ha_platforms:
   - diagnostics
   - sensor
   - water_heater
-ha_integration_type: integration
+ha_integration_type: hub
 ha_config_flow: true
 ha_dhcp: true
 ha_quality_scale: platinum
 ---
 
-This integration links Home Assistant with your Intergas gateway, including the boiler and any room thermostats attached to it.
+This {% term integration %} links Home Assistant with your Intergas gateway, including the boiler and any room thermostats attached to it.
 The integration uses the [incomfort-client](https://pypi.org/project/incomfort-client/) library.
 
 ### Supported devices

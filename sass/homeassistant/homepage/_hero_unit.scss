@@ -153,28 +153,32 @@
     }
   }
 
-  #HAdemo {
-    width: 100%;
-    max-width: 400px;
-    height: 800px;
+  .demo-frame-wrapper{
     border-radius: 48px;
     border: 12px double white;
     box-shadow: 24px 64px 64px hsla(220, 100%, 25%, .5);
-    // animation-name: floaty-demo;
-    // animation-duration: 4s;
-    // animation-iteration-count: infinite;
-    // animation-direction: alternate;
-    // animation-timing-function: linear;
-    // transform: rotateY(346deg) skewY(3deg);
+    height: 800px;
+    margin: 0 auto;
+    max-width: 400px;
+    overflow: hidden;
+    position: relative;
 
-    @media only screen and (max-height: 840px) {
-      border-bottom: 0;
-      margin-bottom: -8px;
-      border-radius: 48px 48px 0 0;
-      height: 750px;
-
+    >img{
+      height: 100%;
+      inset: 0;
+      object-fit: cover;
+      position: absolute;
+      width: 100%;
     }
 
+    #HAdemo{
+      border: 0;
+      height: 100%;
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+      z-index: 1;
+    }
   }
 }
 
@@ -251,13 +255,14 @@
       flex-direction: column;
     }
 
-    #HAdemo {
+    .demo-frame-wrapper {
       display: none;
     }
 
     #HAdemoScreenshot {
       display: inline-block;
       text-align: center;
+
       padding-top: 48px;
     }
   }

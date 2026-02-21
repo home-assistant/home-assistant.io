@@ -14,10 +14,9 @@ layout: null
 /newsletter https://newsletter.openhomefoundation.org/
 /suggest-community-highlight https://docs.google.com/forms/d/e/1FAIpQLSd9VWPeVM0xg0swWL6kT3wkQUKt8vWsTL5WtPO95LAy-0cYZw/viewform
 /get-blueprints https://community.home-assistant.io/c/blueprints-exchange/53
-/merch https://home-assistant-store.creator-spring.com
+/merch https://store.openhomefoundation.org/
 /feature-requests https://github.com/orgs/home-assistant/discussions
 /issues https://github.com/home-assistant/core/issues
-/community https://community.home-assistant.io/
 /voice /voice_control/builtin_sentences/
 /latest-security-alert /security/
 
@@ -37,8 +36,7 @@ layout: null
 /blog/2021/09/13/home-assistant-amber/ /blog/2021/09/13/home-assistant-yellow/
 
 # Design & User research
-/join-research https://forms.clickup.com/2533032/f/2d9n8-12931/52N1KK00E9BXEW71TN
-/join-dashboard-group https://forms.clickup.com/2533032/f/2d9n8-18091/711QWINKTF866N9HYV
+/join-chat-design https://discord.gg/7FcRFq575z
 
 # Older development pages
 /developers https://developers.home-assistant.io
@@ -86,7 +84,7 @@ layout: null
 /developers/hassio/addon_communication https://developers.home-assistant.io/docs/hassio_addon_communication/
 /developers/hassio/addon_config https://developers.home-assistant.io/docs/hassio_addon_config/
 /developers/hassio/addon_development https://developers.home-assistant.io/docs/hassio_addon_index/
-/developers/hassio/addon_presentation https://developers.home-assistant.io/docs/add-ons/presentation/
+/developers/hassio/addon_presentation https://developers.home-assistant.io/docs/apps/presentation/
 /developers/hassio/addon_publishing https://developers.home-assistant.io/docs/hassio_addon_publishing/
 /developers/hassio/addon_repository https://developers.home-assistant.io/docs/hassio_addon_repository/
 /developers/hassio/addon_testing https://developers.home-assistant.io/docs/hassio_addon_testing/
@@ -345,6 +343,7 @@ layout: null
 /ecosystem/notebooks/stats https://data.home-assistant.io
 /examples/notify.mqtt /integrations/mqtt/#mqtt-notifications
 /ios/whats-new https://companion.home-assistant.io/docs/getting_started/getting-started
+/installation/#about-installation-methods /installation/#about-installation-types
 /installation/nuc /installation/generic-x86-64
 /integrations/auth /docs/authentication
 /integrations/automation /docs/automation
@@ -457,7 +456,7 @@ layout: null
 /getting-started/autostart-macos https://community.home-assistant.io/t/autostart-on-macos/199500
 /getting-started/autostart-systemd https://community.home-assistant.io/t/autostart-using-systemd/199497
 
-# Add-ons
+# Apps
 /addons/cec_scan https://github.com/home-assistant/addons/blob/master/cec_scan/README.md
 /addons/check_config https://github.com/home-assistant/addons/blob/master/check_config/README.md
 /addons/configurator https://github.com/home-assistant/addons/blob/master/configurator/README.md
@@ -495,7 +494,7 @@ layout: null
 
 # Removed documentation
 /docs/installation /getting-started
-/docs/installation/dokcer /getting-started
+/docs/installation/docker /getting-started
 /docs/installation/hassbian /getting-started
 /docs/installation/macos /docs/installation/virtualenv
 /docs/installation/raspberry-pi-all-in-one /getting-started
@@ -503,6 +502,7 @@ layout: null
 /getting-started/installation-raspberry-pi-all-in-one /getting-started
 /docs/tools/keyring/ /docs/configuration/secrets
 /docs/tools/credstash/ /docs/configuration/secrets
+/docs/tools/quick-bar/ /docs/tools/quick-search
 /docs/scripts/editor/ /docs/scripts
 /getting-started/devices /integrations
 /integrations/map /dashboards/map/
@@ -515,11 +515,11 @@ layout: null
 
 # Removed integrations
 /integrations/alarmdotcom /more-info/removed-integration 301
-/integrations/aladdin_connect /more-info/removed-integration 301
 /integrations/almond /more-info/removed-integration 301
 /integrations/ambee /more-info/removed-integration 301
 /integrations/ambiclimate /more-info/removed-integration 301
 /integrations/apns /more-info/removed-integration 301
+/integrations/aps /more-info/removed-integration 301
 /integrations/arlo /more-info/removed-integration 301
 /integrations/arduino /more-info/removed-integration 301
 /integrations/asterisk_cdr /more-info/removed-integration 301
@@ -530,6 +530,7 @@ layout: null
 /integrations/binary_sensor.mychevy /more-info/removed-integration 301
 /integrations/blinkt /more-info/removed-integration 301
 /integrations/bloomsky /more-info/removed-integration 301
+/integrations/bluetooth_tracker /more-info/removed-integration 301
 /integrations/bme280 /more-info/removed-integration 301
 /integrations/bme680 /more-info/removed-integration 301
 /integrations/bmp280 /more-info/removed-integration 301
@@ -549,6 +550,7 @@ layout: null
 /integrations/discovery /more-info/removed-integration 301
 /integrations/dlib_face_detect /more-info/removed-integration 301
 /integrations/dlib_face_identify /more-info/removed-integration 301
+/integrations/dominos /more-info/removed-integration 301
 /integrations/dte_energy_bridge /more-info/removed-integration 301
 /integrations/duke_energy /more-info/removed-integration 301
 /integrations/dweet /more-info/removed-integration 301
@@ -557,11 +559,13 @@ layout: null
 /integrations/edp_redy /more-info/removed-integration 301
 /integrations/ee_brightbox /more-info/removed-integration 301
 /integrations/eight_sleep /more-info/removed-integration 301
+/integrations/enmax /more-info/removed-integration 301
 /integrations/envirophat /more-info/removed-integration 301
 /integrations/epsonworkforce /more-info/removed-integration 301
 /integrations/essent /more-info/removed-integration 301
 /integrations/facebox /more-info/removed-integration 301
 /integrations/fedex /more-info/removed-integration 301
+/integrations/flick_electric /more-info/removed-integration 301
 /integrations/flunearyou /more-info/removed-integration 301
 /integrations/fortigate /more-info/removed-integration 301
 /integrations/fritzbox_netmonitor  /more-info/removed-integration 301
@@ -586,6 +590,7 @@ layout: null
 /integrations/lirc /more-info/removed-integration 301
 /integrations/life360 /more-info/removed-integration 301
 /integrations/lifx_legacy /more-info/removed-integration 301
+/integrations/linear_garage_door /more-info/removed-integration 301
 /integrations/linksys_ap /more-info/removed-integration 301
 /integrations/linky /more-info/removed-integration 301
 /integrations/liveboxplaytv /more-info/removed-integration 301
@@ -598,6 +603,7 @@ layout: null
 /integrations/mailbox /more-info/removed-integration 301
 /integrations/mazda /more-info/removed-integration 301
 /integrations/mcp23017 /more-info/removed-integration 301
+/integrations/mercury_nz /more-info/removed-integration 301
 /integrations/mhz19 /more-info/removed-integration 301
 /integrations/myq /blog/2023/11/06/removal-of-myq-integration/ 301
 /integrations/miflora /integrations/xiaomi_ble
@@ -619,11 +625,13 @@ layout: null
 /integrations/pcal9535a /more-info/removed-integration 301
 /integrations/pi4ioe5v9xxxx /more-info/removed-integration 301
 /integrations/piglow /more-info/removed-integration 301
+/integrations/plum_lightpad /more-info/removed-integration 301
 /integrations/postnl /more-info/removed-integration 301
 /integrations/prezzibenzina /more-info/removed-integration 301
 /integrations/ptvsd /more-info/removed-integration 301
 /integrations/pushetta /more-info/removed-integration 301
 /integrations/raspihats /more-info/removed-integration 301
+/integrations/rpi_camera /more-info/removed-integration 301
 /integrations/rpi_gpio /more-info/removed-integration 301
 /integrations/rpi_gpio_pwm /more-info/removed-integration 301
 /integrations/rpi_pfio /more-info/removed-integration 301
@@ -662,6 +670,10 @@ layout: null
 /integrations/ups /more-info/removed-integration 301
 /integrations/uscis /more-info/removed-integration 301
 /integrations/usps /more-info/removed-integration 301
+/integrations/volvooncall /more-info/removed-integration 301
+/integrations/vulcan /more-info/removed-integration 301
+/integrations/vultr /more-info/removed-integration 301
+/integrations/watson_iot /more-info/removed-integration 301
 /integrations/weather.darksky /more-info/removed-integration 301
 /integrations/weblink /more-info/removed-integration 301
 /integrations/wink /more-info/removed-integration 301
@@ -671,7 +683,8 @@ layout: null
 /integrations/xfinity /more-info/removed-integration 301
 /integrations/yessssms /more-info/removed-integration 301
 /integrations/yweather /more-info/removed-integration 301
-/integrations/zengge /integrations/led_ble
+/integrations/zengge /integrations/led_ble 301
+/integrations/google_gemini /integrations/google_generative_ai_conversation 301
 /components/zwave /integrations/zwave_js
 
 # Lovelace images

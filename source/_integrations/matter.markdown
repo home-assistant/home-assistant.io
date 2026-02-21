@@ -44,7 +44,7 @@ ha_platforms:
   - vacuum
   - valve
   - water_heater
-ha_integration_type: integration
+ha_integration_type: hub
 related:
   - docs: /integrations/thread/
     title: Thread
@@ -55,9 +55,9 @@ related:
 ha_zeroconf: true
 ---
 
-The Matter integration allows you to control Matter devices on your local Wi-Fi or {% term Thread %} network.
+The **Matter** {% term integration %} allows you to control Matter devices on your local Wi-Fi or {% term Thread %} network.
 
-For communicating with Matter devices, the Home Assistant integration runs its own "Matter controller" as add-on. This Matter Server add-on runs the controller software as a separate process and connects your Matter network (called Fabric in technical terms) and Home Assistant. The Home Assistant Matter integration connects to this server via a WebSocket connection.
+For communicating with Matter devices, the Home Assistant integration runs its own "Matter controller" as an app (formerly known as add-on). This Matter Server app runs the controller software as a separate process and connects your Matter network (called Fabric in technical terms) and Home Assistant. The Home Assistant Matter integration connects to this server via a WebSocket connection.
 
 # Introduction - What is Matter?
 
@@ -105,7 +105,7 @@ For devices where Home Assistant provides a native integration (with local API),
 
 ## Supported installation types
 
-It is recommended to run the Matter add-on on Home Assistant OS. This is currently the only supported option. Other installation types are without support and at your own risk.
+It is recommended to run the Matter app (formerly known as Matter add-on) on Home Assistant OS. This is currently the only supported option. Other installation types are without support and at your own risk.
 
 If you run Home Assistant in a container, you can run a Docker image of the [Matter server](https://github.com/home-assistant-libs/python-matter-server). The requirements and instructions for your host setup are described on that GitHub page.
 
@@ -127,9 +127,9 @@ Make sure you have all these components ready before trying to add a Matter devi
   - Add the **Matter** integration.
   - When prompted to **Select the connection method**:
     - If you run Home Assistant OS in a regular setup: select **Submit**.
-      - This will install the official Matter server add-on.
-      - Note that the official Matter server add-on is not supported on 32-bit platforms.
-    - If you are already running the Matter server in another add-on, in or a custom container:
+      - This will install the official Matter Server app for Home Assistant.
+      - Note that the official Matter Server app for Home Assistant is not supported on 32-bit platforms.
+    - If you are already running the Matter server in another Home Assistant app or a custom container:
       - Deselect the checkbox, then select **Submit**.
       - In the next step, provide the URL to your Matter server.
 
@@ -146,13 +146,13 @@ Make sure you have all these components ready before trying to add a Matter devi
   - **Android**:
     - At a minimum, have Android version 8.1. Recommended is version 12 or higher.
     - Have the latest version of the Home Assistant Companion app, installed from the Play Store (full version).
-    - If you are using {% term Thread %}: Make sure there is a Thread border router device (Nest Hub (2nd Gen) or Nest Wi-Fi Pro or Home Assistant with the OpenThread Border Router add-on) present in your home network.
-      - If you are using OpenThread (for Connect ZBT-1/SkyConnect) as border router, make sure you followed the steps in the [Thread documentation](/integrations/thread#turning-home-assistant-into-a-thread-border-router).
+    - If you are using {% term Thread %}: Make sure there is a Thread border router device (Nest Hub (2nd Gen) or Nest Wi-Fi Pro or Home Assistant with the Home Assistant OpenThread Border Router app) present in your home network.
+      - If you are using OpenThread (for Connect ZBT-1, ZBT-2, or SkyConnect) as border router, make sure you followed the steps in the [Thread documentation](/integrations/thread#turning-home-assistant-into-a-thread-border-router).
   - **iPhone**
     - Have the iOS version 16 or higher
     - Have the latest version of the Home Assistant Companion app installed.
-    - If you are using {% term Thread %}: Make sure there is a Thread border router device (HomePod Mini or V2, Apple TV 4K or Home Assistant with the OpenThread Border Router add-on) present in your home network.
-      - If you are using OpenThread (for Connect ZBT-1/SkyConnect) as border router, make sure you followed the steps in the [Thread documentation](/integrations/thread#turning-home-assistant-into-a-thread-border-router).
+    - If you are using {% term Thread %}: Make sure there is a Thread border router device (HomePod Mini or V2, Apple TV 4K or Home Assistant with the Home Assistant OpenThread Border Router app) present in your home network.
+      - If you are using OpenThread (for Connect ZBT-1, ZBT-2, or SkyConnect) as border router, make sure you followed the steps in the [Thread documentation](/integrations/thread#turning-home-assistant-into-a-thread-border-router).
 - Make sure the phone is in close range of the border router and your device.
 - If you are adding a Wi-Fi-based Matter device: Matter devices often use the 2.4&nbsp;GHz frequency for Wi-Fi. For this reason, make sure your phone is in the same 2.4&nbsp;GHz network where you want to operate your devices.
 
@@ -194,7 +194,7 @@ This guide describes how to add a new device. This will use the Bluetooth connec
       - This starts the commissioning process which may take a few minutes.
    - If you're adding a test board (e.g. ESP32 running the example apps) and commissioning fails, you might need to take some actions in the Google Developer console, have a look at any instructions for your test device.
    - Once the process is complete, select **Done**.
-5. To view the device details, go to {% my integrations title="**Settings** > **Devices & Services**" %} and select the **Matter** integration.
+5. To view the device details, go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **Matter** integration.
 6. By default, the device gets a factory specified name. To rename it, on the device page, select the pencil {% icon "mdi:edit" %} to edit and rename the device.
    ![image](/images/integrations/matter/matter-android-rename.png)
 7. Your device is now ready to use.
@@ -278,7 +278,7 @@ To allow Home Assistant to control the Matter device that has already been added
 
 ### Using a Matter bridge
 
-For some ecosystems, you can add some of their non-Matter devices into Home Assistant via a *Matter bridge*. Examples of Matter bridges are the SwitchBot&nbsp;Hub&nbsp;2, Aqara&nbsp;Hub&nbsp;M2, Ikea&nbsp;Dirigera, or the Philips Hue Bridge. Using a bridge allows you to keep controlling these devices via their native App, while having them available in Home Assistant at the same time. The Aquara Hub, for example, uses a cloud-based integration. By bridging it into Home Assistant via Matter (instead of using their cloud-based integration), you can make it use local communication.
+For some ecosystems, you can add some of their non-Matter devices into Home Assistant via a *Matter bridge*. Examples of Matter bridges are the SwitchBot&nbsp;Hub&nbsp;2, Aqara&nbsp;Hub&nbsp;M2, Ikea&nbsp;Dirigera, or the Philips Hue Bridge. Using a bridge allows you to keep controlling these devices via their native App, while having them available in Home Assistant at the same time. The Aqara Hub, for example, uses a cloud-based integration. By bridging it into Home Assistant via Matter (instead of using their cloud-based integration), you can make it use local communication.
 
 Home Assistant, as a Matter controller, only supports **control** of Matter devices. Home Assistant is not a bridge itself and it cannot turn existing devices within Home Assistant into Matter compatible devices.
 
@@ -360,6 +360,22 @@ Notification of an OTA update for a Matter device
 The Home Assistant Matter updates currently do not work for Thread devices on a Thread network with (any) Apple border routers. Typically you'll see "Target node did not process the update file" error instead. The Apple border routers do not forward the necessary mDNS packets which allow to discover the update provider on Home Assistant end. The Apple Home ecosystem might offer updates from their end as an alternative (e.g. for Eve devices).
 {% endnote %}
 
+## Actions
+
+The Matter integration has the following actions:
+
+- `matter.water_heater_boost`
+
+### Action: Water heater boost
+
+The `matter.water_heater_boost` action enables water heater boost for a specific duration.
+
+| Data attribute        | Optional | Description                                                        |
+|----------------------|----------|--------------------------------------------------------------------|
+| `duration`           | No       | Boost duration in seconds                                          |
+| `emergency_boost`    | Yes      | Whether to enable emergency boost mode                             |
+| `temporary_setpoint` | Yes      | Temporary setpoint temperature in Celsius during the boost period  |
+
 ## Automate on a button press
 
 You have a device that takes button presses as inputs (such as a Tuo Smart Button, VTM31SN dimmer by Inovelli, or the Matter Pushbutton Module by Innovation Matters) and now want to trigger an automation based on that button press. To learn how to create an automation triggered by a button press, refer to this [tutorial](/integrations/event/#automating-on-a-button-press).
@@ -386,7 +402,7 @@ NOTE for Android users: You need to follow the instructions at the bottom of the
 
 ### General recommendations
 
-- Using Thread-based Matter devices in Home Assistant requires Home Assistant OS version 10 and above. Home Assistant OS with the Matter Server add-on is the supported path for using Matter with Home Assistant. Running Matter Server as a standalone Docker container is unsupported, but we provide [documentation](https://github.com/home-assistant-libs/python-matter-server/blob/main/README.md) including a description of the host and networking requirements.
+- Using Thread-based Matter devices in Home Assistant requires Home Assistant OS version 10 and above. Home Assistant OS with the Home Assistant Matter Server app is the supported path for using Matter with Home Assistant. Running Matter Server as a standalone Docker container is unsupported, but we provide [documentation](https://github.com/home-assistant-libs/python-matter-server/blob/main/README.md) including a description of the host and networking requirements.
 
 - To use {% term Thread %} devices you will need a {% term Thread %} network with at least one Thread border router in your network nearby the {% term Thread %} device(s). Apple users, for example, need the Apple TV 4K or the HomePod Mini, while Google users need a Nest Hub (2nd Gen). Use the Thread integration in Home Assistant to diagnose your {% term Thread %} network(s).
 
