@@ -115,9 +115,9 @@ template:
 
 This creates three sensors:
 
-- `sensor.cheapest_3_5h_start_time`: Shows when to start your dishwasher
-- `sensor.cheapest_3_5h_hours_until`: Shows how many hours until the optimal time
-- `sensor.cheapest_3_5h_average_price`: Shows the average price during that period
+- `sensor.cheapest_3_5h_start_time`: Shows when to start your dishwasher.
+- `sensor.cheapest_3_5h_hours_until`: Shows how many hours until the optimal time.
+- `sensor.cheapest_3_5h_average_price`: Shows the average price during that period.
 
 
 ## Removing the integration
