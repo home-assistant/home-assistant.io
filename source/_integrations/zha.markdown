@@ -571,7 +571,7 @@ The alarm panel will display a countdown during the exit delay. When the countdo
 | ---------- | -------- | ----------------------------------------------------------- |
 | `ieee`     | no       | IEEE address of the alarm keypad device                     |
 | `duration` | no       | Exit delay duration in seconds                              |
-| `arm_mode` | no       | Arm mode to activate after delay: `arm_away`, `arm_night`, or `arm_day` |
+| `arm_mode` | no       | Arm mode to activate after delay: `arm_away`, `arm_night`, or `arm_home` |
 
 #### Example: Setting exit delay before arming away
 
