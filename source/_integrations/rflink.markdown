@@ -212,7 +212,7 @@ This configuration uses `0a0a0a` to control the inverted shutter (send UP to clo
 {% details "Legacy configuration" %}
 
 {% important %}
-That _legacy_ format will stop working on Home Assistant 2026.9.0.
+This _legacy_ format will stop working on Home Assistant 2026.9.0.
 {% endimportant %}
 
 ```yaml
