@@ -51,7 +51,7 @@ The `green_planet_energy.get_cheapest_duration` action allows you to find the ch
 | -------------- | -------- | --------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------- |
 | `entity_id`    | no       | Any Green Planet Energy sensor entity (used to identify the integration instance).                                          | sensor.green_planet_energy_current_price |
 | `duration`     | no       | Duration in hours for which to find the cheapest time window.                                                               | 3.5                                      |
-| `time_range`   | yes      | Time range to search within: `full_day` (00:00-24:00), `day` (06:00-18:00), or `night` (18:00-06:00). Default: `full_day`  | night                                    |
+| `time_range`   | yes      | Time range to search within: `full_day` (00:00-23:59), `day` (06:00-18:00), or `night` (18:00-06:00). Default: `full_day`  | night                                    |
 
 #### Response data
 
