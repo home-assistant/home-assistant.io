@@ -1,0 +1,139 @@
+---
+title: Green Planet Energy
+description: Instructions on how to integrate Green Planet Energy dynamic electricity pricing into Home Assistant.
+ha_category:
+  - Energy
+  - Sensor
+ha_release: 2026.2
+ha_iot_class: Cloud Polling
+ha_config_flow: true
+ha_codeowners:
+  - '@petschni'
+ha_domain: green_planet_energy
+ha_platforms:
+  - sensor
+ha_integration_type: service
+ha_quality_scale: bronze
+---
+
+The **Green Planet Energy** {% term integration %} provides real-time electricity pricing data from Green Planet Energy, a German renewable energy provider. It fetches hourly electricity prices and provides various sensors for energy optimization and monitoring. It visualizes the prices so that you can adapt your power consumption and shift it to cheaper hours.
+
+## Prerequisites
+
+You don't need to have an account with Green Planet Energy for this integration to work. However, the integration will probably only make sense if you are their customer with a dynamic energy tariff. For the setup, no additional information is required.
+
+{% include integrations/config_flow.md %}
+
+## Sensors
+
+The **Green Planet Energy** integration provides the following sensors.
+
+### Current price
+
+- **Current price**: The current electricity price in EUR/kWh
+
+### Statistics
+
+- **Highest price today**: The highest electricity price for the current day
+- **Lowest price day**: The lowest electricity price during day hours (6:00-18:00)
+- **Lowest price night**: The lowest electricity price during night hours (18:00-6:00)
+
+### Cheapest time windows
+
+The integration provides sensors that help you find the most cost-effective time to run energy-intensive appliances.
+
+- **Cheapest 2.5h day price (06:00-18:00)**: The average price for the cheapest 2.5-hour window during daytime hours
+- **Cheapest 2.5h day time (06:00-18:00)**: The start time of the cheapest 2.5-hour window during daytime hours
+- **Cheapest 2.5h night price (18:00-06:00)**: The average price for the cheapest 2.5-hour window during nighttime hours
+- **Cheapest 2.5h night time (18:00-06:00)**: The start time of the cheapest 2.5-hour window during nighttime hours
+
+## Actions
+
+The integration provides the following actions.
+
+### Action: Get cheapest duration
+
+The `green_planet_energy.get_cheapest_duration` action allows you to find the cheapest time window for any duration between 0.5 and 24 hours.
+
+| Data attribute | Optional | Description                                                                                          | Example                                  |
+| -------------- | -------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------- |
+| `entity_id`    | no       | Any Green Planet Energy sensor entity (used to identify the integration instance).                   | sensor.green_planet_energy_current_price |
+| `duration`     | no       | Duration in hours for which to find the cheapest time window.                                        | 3.5                                      |
+| `time_range`   | yes      | Time range to search within. Options are `full_day` (00:00-24:00), `day` (06:00-18:00), or `night` (18:00-06:00). Default: `full_day` | night                                    |
+
+#### Response data
+
+The action returns the following information:
+
+```json
+{
+  "duration": 3.5,
+  "average_price": 0.2543,
+  "start_time": "2026-02-22T01:00:00+01:00",
+  "hours_until_start": 5.2,
+  "time_range": "night"
+}
+```
+
+## Examples
+
+### Find the cheapest time for your dishwasher
+
+Your dishwasher needs 3.5 hours to run. This example shows how to create sensors that display when the cheapest 3.5-hour window occurs during the night.
+
+Add the following to your {% term "`configuration.yaml`" %} file:
+{% include integrations/restart_ha_after_config_inclusion.md %}
+
+{% raw %}
+
+```yaml
+template:
+  - trigger:
+      - trigger: time_pattern
+        minutes: "*"
+    action:
+      - action: green_planet_energy.get_cheapest_duration
+        data:
+          entity_id: sensor.green_planet_energy_current_price
+          duration: 3.5
+          time_range: night
+        response_variable: cheapest
+    sensor:
+      - name: "Cheapest 3.5h Start Time"
+        state: "{{ cheapest.start_time }}"
+        device_class: timestamp
+        attributes:
+          average_price: "{{ cheapest.average_price }}"
+          hours_until_start: "{{ cheapest.hours_until_start }}"
+          duration: "{{ cheapest.duration }}"
+          time_range: "{{ cheapest.time_range }}"
+
+      - name: "Cheapest 3.5h Hours Until"
+        state: "{{ cheapest.hours_until_start }}"
+        unit_of_measurement: "h"
+        state_class: measurement
+
+      - name: "Cheapest 3.5h Average Price"
+        state: "{{ cheapest.average_price }}"
+        unit_of_measurement: "€/kWh"
+        device_class: monetary
+```
+
+{% endraw %}
+
+This creates three sensors:
+
+- `sensor.cheapest_3_5h_start_time`: Shows when to start your dishwasher
+- `sensor.cheapest_3_5h_hours_until`: Shows how many hours until the optimal time
+- `sensor.cheapest_3_5h_average_price`: Shows the average price during that period
+
+
+## Removing the integration
+
+This integration follows standard integration removal.
+
+{% include integrations/remove_device_service.md %}
+
+## Disclaimer
+
+This plugin is third-party and not offered by Green Planet Energy eG.
