@@ -124,6 +124,8 @@ The `ads` light platform allows you to control your connected ADS lights (on/off
 To use your ADS device, you first have to set up your [ADS hub](#configuration) and then add the following to your {% term "`configuration.yaml`" %}
 file:
 
+The example below assumes a PLC brightness range of 0–100; adjust `min_brightness` and `max_brightness` to match your device.
+
 ```yaml
 # Example configuration.yaml entry
 light:
@@ -144,7 +146,7 @@ light:
     adsvar_color_mode: GVL.light_color_mode
 ```
 
-On the PLC side, red, green, blue and white channel variables must be **USINT** (0–255). Use `UINT` for brightness, color temperature, hue, saturation and color mode.
+On the PLC side, red, green, blue, and white channel variables must be `USINT` (0–255). Use `UINT` for brightness, color temperature, hue, saturation, and color mode.
 
 {% configuration %}
 adsvar:
@@ -161,7 +163,7 @@ min_brightness:
   type: integer
 max_brightness:
   required: false
-  description: The maximum raw brightness value written to the PLC. Must be ≥ `min_brightness` and non-negative. Defaults to `255` (no scaling). Set to `100` if your PLC expects 0–100 %.
+  description: The maximum raw brightness value written to the PLC. Must be ≥ `min_brightness` and non-negative. Defaults to `255` (no scaling). Set to `100` if your PLC expects 0–100%.
   type: integer
 adsvar_color_temp_kelvin:
   required: false
@@ -177,19 +179,19 @@ max_color_temp_kelvin:
   type: integer
 adsvar_red:
   required: false
-  description: The name of the variable that controls the red channel. Use **USINT** (0–255) on the PLC side. Required together with `adsvar_green` and `adsvar_blue` to enable RGB or RGBW color mode.
+  description: The name of the variable that controls the red channel. Use `USINT` (0–255) on the PLC side. Required together with `adsvar_green` and `adsvar_blue` to enable RGB or RGBW color mode.
   type: string
 adsvar_green:
   required: false
-  description: The name of the variable that controls the green channel. Use **USINT** (0–255) on the PLC side. Required together with `adsvar_red` and `adsvar_blue` to enable RGB or RGBW color mode.
+  description: The name of the variable that controls the green channel. Use `USINT` (0–255) on the PLC side. Required together with `adsvar_red` and `adsvar_blue` to enable RGB or RGBW color mode.
   type: string
 adsvar_blue:
   required: false
-  description: The name of the variable that controls the blue channel. Use **USINT** (0–255) on the PLC side. Required together with `adsvar_red` and `adsvar_green` to enable RGB or RGBW color mode.
+  description: The name of the variable that controls the blue channel. Use `USINT` (0–255) on the PLC side. Required together with `adsvar_red` and `adsvar_green` to enable RGB or RGBW color mode.
   type: string
 adsvar_white:
   required: false
-  description: The name of the variable that controls the white channel. Use **USINT** (0–255) on the PLC side. When configured together with `adsvar_red`, `adsvar_green`, and `adsvar_blue`, RGBW color mode is enabled.
+  description: The name of the variable that controls the white channel. Use `USINT` (0–255) on the PLC side. When configured together with `adsvar_red`, `adsvar_green`, and `adsvar_blue`, RGBW color mode is enabled.
   type: string
 adsvar_hue:
   required: false
@@ -216,17 +218,15 @@ name:
 
 When `adsvar_color_mode` is used, the PLC writes a bitmask value to signal which color mode is currently active:
 
-| PLC value | Bits set | Active color mode |
-| --------- | -------- | ----------------- |
-| 1         | Bit 0    | On/Off only |
-| 2         | Bit 1    | Brightness |
-| 4         | Bit 2    | Color temperature |
-| 8         | Bit 3    | Hue/Saturation |
-| 16        | Bit 4    | RGB |
-| 32        | Bit 5    | White channel |
-| 48        | Bit 4+5  | RGBW |
+- PLC value `1` (bit 0): On/off only
+- PLC value `2` (bit 1): Brightness
+- PLC value `4` (bit 2): Color temperature
+- PLC value `8` (bit 3): Hue/saturation
+- PLC value `16` (bit 4): RGB
+- PLC value `32` (bit 5): White channel
+- PLC value `48` (bits 4 and 5): RGBW
 
-If the PLC reports **only** bit 5 (white channel) with no other color capability, Home Assistant uses **brightness** mode instead, because white cannot be the only supported color mode. If the PLC reports a mode that is not covered by the configured channel variables, Home Assistant falls back to the statically determined default mode.
+If the PLC reports only bit 5 (white channel) with no other color capability, Home Assistant uses `brightness` mode instead, because white cannot be the only supported color mode. If the PLC reports a mode that is not covered by the configured channel variables, Home Assistant falls back to the statically determined default mode.
 
 ## Sensor
 
