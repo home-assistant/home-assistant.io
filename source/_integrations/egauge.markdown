@@ -93,7 +93,7 @@ The **eGauge** integration {% term polling polls %} the device every 30 seconds.
 
 ## Known limitations
 
-- The integration currently only supports power registers.
+- The integration currently only supports a subset of register types. See [Sensor](#sensors) for this list of supported types.
 - The integration is currently read-only and cannot modify settings on the eGauge device.
 
 ## Troubleshooting
