@@ -2,9 +2,11 @@
 title: System Nexa 2
 description: How to integrate System Nexa 2 devices within Home Assistant.
 ha_category:
+  - Light
   - Switch
 ha_config_flow: true
 ha_platforms:
+  - light
   - switch
 ha_release: 2026.3
 ha_iot_class: Local Push
@@ -59,13 +61,20 @@ Host:
 
 ## Supported functionality
 
+### Lights
+
+- **Dimmer**
+  - **Description**: Control dimmable lights with adjustable brightness levels
+  - **Available for devices**: WBD-01, WPD-01
+  - **Remarks**: Supports brightness control from 0-100%
+
 ### Switches
 
 - **Relay**
   - **Description**: Turn on or off switch relay
   - **Available for devices**: WBR-01, WPO-01, WPR-01
-- **433 Mhz**
-  - **Description**: Controls whether device should use 433 Mhz communication
+- **433 MHz**
+  - **Description**: Controls whether device should use 433 MHz communication
   - **Available for devices**: all
 - **Cloud Access**
   - **Description**: Controls whether to allow cloud access for device
@@ -81,7 +90,7 @@ Host:
 
 Currently this integration does not support the following functionality:
 
-- Dimming (state, lowest/highest level, dimming method and more)
+- Dimming configuration (lowest/highest brightness level, dimming mode)
 - Device local scheduling/timers (can however be done via Home Assistant)
 - Adding remote control transmitters to control devices
 - Setting mode after power loss
@@ -91,7 +100,7 @@ Currently this integration does not support the following functionality:
 
 ## Data updates
 
-**System Nexa 2** devices push data directly to Home Assistant, enabling immediate updates for device state changes such as relay state and settings (433MHz, cloud access, physical button, and LED).
+**System Nexa 2** devices push data directly to Home Assistant, enabling immediate updates for device state changes such as relay state and settings (433 MHz, cloud access, physical button, and LED).
 
 ## Examples
 
