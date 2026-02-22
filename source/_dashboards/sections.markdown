@@ -133,15 +133,16 @@ Add the `theme` property to a section configuration:
 ```yaml
 views:
   - title: Dashboard
-    theme: default-theme  # View theme
+    # View theme
+    theme: default-theme  
     type: sections
     sections:
       - type: grid
-        theme: custom-theme  # Section overrides view theme
+        # Section overrides view theme
+        theme: custom-theme  
         cards:
           - type: weather-forecast
             entity: weather.home
-      
       - type: grid
         # No theme specified - inherits view theme
         cards:
@@ -164,26 +165,27 @@ This example shows a dashboard with a blue theme for general information and an 
 First, define the themes in your `themes.yaml` or `configuration.yaml`:
 
 ```yaml
-themes:
-  # Main view theme (blue/info tones)
-  main_view:
-    primary-color: "#2196f3"
-    card-background-color: "#f0f8ff"
-    primary-text-color: "#1565c0"
-    modes:
-      dark:
-        card-background-color: "#1a2332"
-        primary-text-color: "#90caf9"
+frontend:
+    themes:
+        # Main view theme (blue/info tones)
+        main_view:
+          primary-color: "#2196f3"
+          card-background-color: "#f0f8ff"
+          primary-text-color: "#1565c0"
+          modes:
+            dark:
+              card-background-color: "#1a2332"
+              primary-text-color: "#90caf9"
 
-  # Alert section theme (amber/orange tones)
-  alert_section:
-    primary-color: "#ff9800"
-    card-background-color: "#fff8f0"
-    primary-text-color: "#d84315"
-    modes:
-      dark:
-        card-background-color: "#2d1f1a"
-        primary-text-color: "#ffab91"
+        # Alert section theme (amber/orange tones)
+        alert_section:
+          primary-color: "#ff9800"
+          card-background-color: "#fff8f0"
+          primary-text-color: "#d84315"
+          modes:
+            dark:
+              card-background-color: "#2d1f1a"
+              primary-text-color: "#ffab91"
 ```
 
 Then create your dashboard:
