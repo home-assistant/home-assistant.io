@@ -64,26 +64,26 @@ Host:
 ### Lights
 
 - **Dimmer**
-  - **Description**: Control dimmable lights with adjustable brightness levels
+  - **Description**: Control dimmable lights with adjustable brightness levels.
   - **Available for devices**: WBD-01, WPD-01
   - **Remarks**: Supports brightness control from 0-100%
 
 ### Switches
 
 - **Relay**
-  - **Description**: Turn on or off switch relay
+  - **Description**: Turn on or off switch relay.
   - **Available for devices**: WBR-01, WPO-01, WPR-01
 - **433 MHz**
-  - **Description**: Controls whether device should use 433 MHz communication
+  - **Description**: Controls whether device should use 433 MHz communication.
   - **Available for devices**: all
 - **Cloud Access**
-  - **Description**: Controls whether to allow cloud access for device
+  - **Description**: Controls whether to allow cloud access for device.
   - **Available for devices**: all
 - **Physical Button**
-  - **Description**: Controls whether the onboard button should have any effect on the device
+  - **Description**: Controls whether the onboard button should have any effect on the device.
   - **Available for devices**: all
 - **LED**
-  - **Description**: Controls whether the onboard LED should be lit at any time
+  - **Description**: Controls whether the onboard LED should be lit at any time.
   - **Available for devices**: all
 
 ## Known limitations
