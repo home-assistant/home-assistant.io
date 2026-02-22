@@ -279,12 +279,19 @@ The `unifiprotect.remove_privacy_zone` action removes a privacy zone from a came
 
 The `unifiprotect.ptz_goto_preset` action moves a <abbr title="pan, tilt, and zoom">PTZ</abbr> camera to a saved preset position.
 
-- **Data attribute**: `device_id`
-  - **Description**: The device ID of the PTZ camera you want to move.
-  - **Optional**: No
-- **Data attribute**: `preset`
-  - **Description**: The name of the preset position to move to. Use `Home` for the home position.
-  - **Optional**: No
+| Data attribute | Optional | Description                                                                                    |
+| -------------- | -------- | ---------------------------------------------------------------------------------------------- |
+| `device_id`    | No       | The device ID of the PTZ camera you want to move.                                              |
+| `preset`       | No       | The name of the preset position to move to. Use `Home` for the home position.                  |
+
+#### Example usage
+
+```yaml
+action: unifiprotect.ptz_goto_preset
+data:
+  device_id: your_device_id_here
+  preset: "Home"
+```
 
 ### Action: Get user keyring info
 
