@@ -113,6 +113,126 @@ In the sections view, you can rearrange sections and cards by dragging them to a
       Rearranging cards by dragging
     </p>
 
+## Applying themes to sections
+
+You can apply different [themes](/integrations/frontend/#defining-themes) to individual sections within a view. This allows you to visually distinguish different areas of your dashboard, such as using warm colors for alerts or cool colors for general information.
+
+### Setting a section theme via the UI
+
+1. Open your dashboard in edit mode.
+2. On the section you want to theme, select the edit {% icon "mdi:edit" %} button.
+3. Select **Edit Section**.
+4. Go to the **Settings** tab.
+5. Use the **Theme** dropdown to select a theme for this section.
+6. Select **Save**.
+
+### Setting a section theme via YAML
+
+Add the `theme` property to a section configuration:
+
+```yaml
+views:
+  - title: Dashboard
+    theme: default-theme  # View theme
+    type: sections
+    sections:
+      - type: grid
+        theme: custom-theme  # Section overrides view theme
+        cards:
+          - type: weather-forecast
+            entity: weather.home
+      
+      - type: grid
+        # No theme specified - inherits view theme
+        cards:
+          - type: sensor
+            entity: sensor.temperature
+```
+
+### How section themes work
+
+Section themes use CSS cascade to provide flexible theming:
+
+- **Override**: Variables defined in a section theme override the view theme for that section.
+- **Inheritance**: Variables not defined in the section theme inherit from the view theme.
+- **Dark mode**: If a section theme defines its own dark mode settings, those are used. Otherwise, the view's dark mode settings apply.
+
+### Example: Status dashboard with themed sections
+
+This example shows a dashboard with a blue theme for general information and an amber/orange theme for system alerts.
+
+First, define the themes in your `themes.yaml` or `configuration.yaml`:
+
+```yaml
+themes:
+  # Main view theme (blue/info tones)
+  main_view:
+    primary-color: "#2196f3"
+    card-background-color: "#f0f8ff"
+    primary-text-color: "#1565c0"
+    modes:
+      dark:
+        card-background-color: "#1a2332"
+        primary-text-color: "#90caf9"
+
+  # Alert section theme (amber/orange tones)
+  alert_section:
+    primary-color: "#ff9800"
+    card-background-color: "#fff8f0"
+    primary-text-color: "#d84315"
+    modes:
+      dark:
+        card-background-color: "#2d1f1a"
+        primary-text-color: "#ffab91"
+```
+
+Then create your dashboard:
+
+```yaml
+views:
+  - title: Home Status
+    theme: main_view
+    type: sections
+    sections:
+      # System alerts section with orange theme
+      - type: grid
+        title: System Alerts
+        theme: alert_section
+        cards:
+          - type: tile
+            entity: update.home_assistant_core_update
+          - type: tile
+            entity: sensor.processor_use
+          - type: tile
+            entity: sensor.memory_use_percent
+      
+      # General info section inherits blue theme
+      - type: grid
+        title: Status & Info
+        cards:
+          - type: tile
+            entity: sun.sun
+          - type: tile
+            entity: weather.home
+```
+
+<p class='img'>
+    <img src="/images/dashboards/section-theme-light.png" alt="Dashboard with themed sections in light mode"/>
+    Dashboard with section themes in light mode
+</p>
+
+<p class='img'>
+    <img src="/images/dashboards/section-theme-dark.png" alt="Dashboard with themed sections in dark mode"/>
+    Dashboard with section themes in dark mode
+</p>
+
+### Best practices for section themes
+
+- **Visual hierarchy**: Use different themes to highlight important sections like security alerts or system status.
+- **Consistency**: Limit yourself to 2-3 different themes per view to avoid visual clutter.
+- **Dark mode**: Either define dark mode colors in your section themes, or let them inherit from the view theme by not setting color variables.
+- **Testing**: Check how your themed sections look on mobile devices where sections stack vertically.
+
 ## Show or hide section conditionally
 
 You can choose to show or hide certain sections based on different conditions. The [available conditions](/dashboards/conditional/#card-conditions) are the same as that for the conditional card.
@@ -183,6 +303,10 @@ background:
       description: "The opacity of the background, from fully transparent to fully opaque."
       type: integer
       default: 50
+theme:
+  required: false
+  description: Theme to apply to this section. Overrides the view theme for this section only. See [themes](/integrations/frontend/#defining-themes).
+  type: string
 {% endconfiguration %}
 
 ### Examples
