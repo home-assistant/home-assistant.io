@@ -149,7 +149,7 @@ Each UniFi Protect camera will get a device in Home Assistant with the following
 If your camera supports <abbr title="pan, tilt, and zoom">PTZ</abbr>, the following additional entities and functionality are available:
 
 - **PTZ patrol** - A select entity that lets you start or stop patrols that are configured in UniFi Protect. The state reflects the currently active patrol. Select **Stopped** to stop the current patrol.
-- **PTZ presets** - Use the [ptz_goto_preset action](#action-ptz-go-to-preset) to move your PTZ camera to a saved preset position, including the home position. Presets must be configured in the UniFi Protect app first.
+- **PTZ presets** - Use the [PTZ go to preset action](#action-ptz-go-to-preset) (`unifiprotect.ptz_goto_preset`) to move your PTZ camera to a saved preset position, including the home position. Presets must be configured in the UniFi Protect app first.
 
 ### UniFi Protect floodlights
 
