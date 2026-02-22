@@ -5,9 +5,9 @@ ha_category:
   - Button
   - Cover
 ha_iot_class: Local Polling
-ha_release: "2025.3"
+ha_release: "2026.3"
 ha_codeowners:
-  - '@kuhadatko'
+  - '@Hadatko'
 ha_domain: inelnet
 ha_config_flow: true
 ha_platforms:
@@ -19,7 +19,11 @@ related:
     title: INELNET Home Assistant setup guide
 ---
 
-The **INELNET Blinds** {% term integration %} lets you control INELNET blind controllers from Home Assistant. The controller is accessed over your local network via its REST API. The integration creates one device per channel; each channel has a cover entity (open, close, stop) and optional button entities for short moves and programming.
+The **INELNET Blinds** {% term integration %} lets you control INELNET blind
+controllers from Home Assistant. The controller is accessed over your local
+network via its REST API. The integration creates one device per channel; each
+channel has a cover entity (open, close, stop) and optional button entities
+for short moves and programming.
 
 Use case: You can open and close blinds from the dashboard, use them in automations and scenes, and trigger short moves or programming mode (for pairing remotes) via device actions or the optional button entities.
 
@@ -31,6 +35,7 @@ The integration works with INELNET blind controllers that expose the HTTP interf
 
 - The INELNET controller must be powered on and reachable on your local network (same subnet or routable).
 - You need the controller’s IP address or hostname. You can find it in your router’s client list or via the device’s own configuration.
+- The controller exposes an HTTP (unencrypted) interface only; HTTPS is not supported by the device.
 
 ## Configuration
 
@@ -88,6 +93,7 @@ The integration does not poll for state. It only sends commands when you open, c
 
 ## Known limitations
 
+- **HTTP only**: The controller provides only an unencrypted HTTP interface; HTTPS is not supported. Communication is over your local network.
 - **No position feedback**: The controller does not report blind position. The cover entity’s state (open/closed) is always unknown; you can still use open, close, and stop.
 - **One channel per device**: Each channel is a separate device. There is no group or “all channels” entity; control is per channel only.
 
@@ -103,7 +109,7 @@ Make sure **Host** is a valid IPv4 address (for example, 192.168.1.67) or a vali
 
 ### Commands have no effect
 
-- Confirm the controller is powered and reachable (e.g. ping the host from your Home Assistant host).
+- Confirm the controller is powered and reachable (for example, ping the host from your Home Assistant host).
 - Check that no firewall is blocking HTTP to the controller’s IP and port (usually 80).
 - Verify the correct channels for your hardware (see the controller’s documentation or labeling).
 
