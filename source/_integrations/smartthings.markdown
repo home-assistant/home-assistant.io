@@ -256,7 +256,7 @@ The following SmartThings capabilities are supported for Select entities:
 
 ### Sensor
 
-The SmartThings Sensor platform lets your view devices that have sensor-related capabilities. A Sensor entity is created for each attribute (below) supported by the device.
+The SmartThings Sensor platform lets you view devices that have sensor-related capabilities. A Sensor entity is created for each attribute (below) supported by the device.
 
 | SmartThings capability                                                                                                                                        | Related entities in Home Assistant                                       |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
