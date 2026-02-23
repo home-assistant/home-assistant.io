@@ -68,11 +68,12 @@ To fully reset the configuration, the stored application credentials must also b
 ### “Connection failed” after authorization
 
 #### Symptom
+
 In some cases, the authorization appears to succeed, but Home Assistant returns a `Connection failed` error after redirecting back from Fitbit.
 
 The Home Assistant Core log typically shows the message `Failed to fetch user profile for Fitbit API: Error from Fitbit API`.
-#### Description
 
+#### Description
 
 This is usually caused by missing permissions. The Fitbit integration requires the **Profile** scope. If **Profile** is not enabled during authorization, Home Assistant cannot fetch the user profile and the setup fails.
 
