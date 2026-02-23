@@ -111,5 +111,5 @@ The created sensor will be called `binary_sensor.NODE_NAME_VMNAME_running`.
 - **Restart**: Restart a VM/LXC.
 - **Reboot**: Reboots a node.
 - **Shutdown**: Shutdowns a node.
-- **Hibernate**: Put a VM in hiberanation; only available to VM's.
+- **Hibernate**: Put a VM in hibernation; only available to VM's.
 - **Reset**: Resets a VM; only available to VM's.
