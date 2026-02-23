@@ -48,63 +48,52 @@ There is currently support for the following device types within Home Assistant:
 
 ### Binary sensors
 
-| Entity | Description |
-|---|---|
-| Status | Reports whether a container is running. |
+- **Status**: Reports whether a container is running.
 
 ### Buttons
 
-| Entity | Description |
-|---|---|
-| Restart container | Restarts the container. |
-| Prune unused images | Removes unused Docker images from the endpoint. |
+- **Restart container**: Restarts the container.
+- **Prune unused images**: Removes unused Docker images from the endpoint.
 
 ### Sensors
 
 #### Container sensors
 
-| Entity | Description |
-|---|---|
-**State**:  Current container state (such as `running`, `exited`, `paused`).
-| Image | The Docker image the container is based on. |
-| CPU usage total | Total CPU time consumed by the container. |
-| Memory usage | Current memory usage of the container. |
-| Memory usage percentage | Memory usage as a percentage of the container's limit. |
-| Memory limit | Memory limit configured for the container. |
+- **State**: Current container state (such as `running`, `exited`, `paused`).
+- **Image**: The Docker image the container is based on.
+- **CPU usage total**: Total CPU time consumed by the container.
+- **Memory usage**: Current memory usage of the container.
+- **Memory usage percentage**: Memory usage as a percentage of the container's limit.
+- **Memory limit**: Memory limit configured for the container.
 
 #### Endpoint sensors
 
-| Entity | Description |
-|---|---|
-| Docker version | Docker engine version running on the host. |
-| API version | Docker API version on the host. |
-| Kernel version | Kernel version of the host operating system. |
-| Operating system | Operating system running on the host. |
-| Total memory | Total memory available on the host. |
-| Total CPU | Total CPU cores available on the host. |
-| Containers running | Number of currently running containers. |
-| Containers stopped | Number of stopped containers. |
-| Containers paused | Number of paused containers. |
-| Container count | Total number of containers on the endpoint. |
-| Image count | Total number of Docker images. |
-| Container disk usage total size | Total disk space used by containers. |
-| Image disk usage total size | Total disk space used by images. |
-| Volume disk usage total size | Total disk space used by volumes. |
+- **Docker version**: Docker engine version running on the host.
+- **API version**: Docker API version on the host.
+- **Kernel version**: Kernel version of the host operating system.
+- **Operating system**: Operating system running on the host.
+- **Total memory**: Total memory available on the host.
+- **Total CPU**: Total CPU cores available on the host.
+- **Containers running**: Number of currently running containers.
+- **Containers stopped**: Number of stopped containers.
+- **Containers paused**: Number of paused containers.
+- **Container count**: Total number of containers on the endpoint.
+- **Image count**: Total number of Docker images.
+- **Container disk usage total size**: Total disk space used by containers.
+- **Image disk usage total size**: Total disk space used by images.
+- **Volume disk usage total size**: Total disk space used by volumes.
 
 #### Stack sensors
 
-| Entity | Description |
-|---|---|
-| Status | Whether the stack is `active` or `inactive`. |
-| Type | The stack type: `Compose`, `Swarm`, or `Kubernetes`. |
-| Container count | Number of containers belonging to the stack. |
+- **Status**: Whether the stack is `active` or `inactive`.
+- **Type**: The stack type: `Compose`, `Swarm`, or `Kubernetes`.
+- **Container count**: Number of containers belonging to the stack.
 
 ### Switches
 
-| Entity | Description |
-|---|---|
-| Container | Starts or stops an individual Docker container. |
-| Stack | Starts or stops all containers in a stack. |
+- **Container**: Starts or stops an individual Docker container.
+- **Stack**: Starts or stops all containers in a stack.
+
 ## Examples
 
 The following examples show how to use the Portainer integration in Home Assistant automations. These examples are just a starting point, and you can use them as inspiration to create your own automations.
