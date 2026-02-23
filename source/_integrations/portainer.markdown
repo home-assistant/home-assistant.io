@@ -6,6 +6,7 @@ ha_category:
   - Button
   - Sensor
   - Switch
+  - Update
 ha_release: '2025.10'
 ha_iot_class: Local Polling
 ha_codeowners:
@@ -97,6 +98,11 @@ The `portainer.prune_images` can be used to prune unused images more granually, 
 - **Data attribute**: `dangling`
     - **Description**: If true, only prune dangling images.
     - **Optional**: Yes
+ 
+## Update
+
+The integration utilizes a watcher, that runs every three hours in the backgrouond. This will check if the current installed images against the latest tag in the repositories.
+If an update is available, this will be shown in the Config Updates. When updating, the integration will initiate a recreate of the container and install the latest tag.
 
 ## Supported devices
 
