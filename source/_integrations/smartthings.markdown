@@ -330,23 +330,23 @@ The SmartThings integration provides diagnostics that allow you to download deta
 
 Device-level diagnostics contain all capabilities and their current states for a single device. To access device diagnostics:
 
-1. Go to **{% my integrations title="Settings > Devices & services" %}**
-2. Find the SmartThings integration
-3. Click on the device you want to diagnose
-4. Click the **Download diagnostics** button, or open the three-dot menu {% icon "mdi:dots-vertical" %} and select **Download diagnostics**
+1. Go to **{% my integrations title="Settings > Devices & services" %}**,
+2. Find the SmartThings integration,
+3. Click on the device you want to diagnose,
+4. Click the **Download diagnostics** button, or open the three-dot menu {% icon "mdi:dots-vertical" %} and select **Download diagnostics**.
 
-This is useful for troubleshooting a specific device and understanding exactly what capabilities and attributes it exposes to the SmartThings API.
+This is useful for troubleshooting a specific device and understanding exactly what capabilities, attributes, and attribute values it exposes to the SmartThings API.
 
 #### Config entry diagnostics
 
 Config entry-level diagnostics contain information about all capabilities and devices in your SmartThings location, but without the current state values. To access config entry diagnostics:
 
-1. Go to **{% my integrations title="Settings > Devices & services" %}**
-2. Find the SmartThings integration
-3. Click the three dots {% icon "mdi:dots-vertical" %} menu next to the integration name
-4. Select **Download diagnostics**
+1. Go to **{% my integrations title="Settings > Devices & services" %}**,
+2. Find the SmartThings integration,
+3. Click the three dots {% icon "mdi:dots-vertical" %} menu next to the integration name,
+4. Select **Download diagnostics**.
 
-This is useful for getting a comprehensive overview of all available capabilities across all your connected devices, which can help when requesting support for unsupported capabilities or planning which devices to add.
+This is useful for getting a comprehensive overview of all available capabilities across all your connected devices, which can help when requesting support for unsupported capabilities or planning which devices to add. Attribute values ​​are not available in these files.
 
 ## Removing the integration
 
