@@ -618,8 +618,8 @@ device:
 
 ## Duration selector
 
-The duration select allow the user to select a time duration. This can be
-helpful for, e.g., delays or offsets.
+The duration selector lets you select a time duration.
+This can be helpful, for example, for delays or offsets.
 
 ![Screenshot of the Duration selector](/images/blueprints/selector-duration.png)
 
@@ -632,6 +632,11 @@ enable_day:
   description: When `true`, the duration selector will allow selecting days.
   type: boolean
   default: false
+  required: false
+enable_second:
+  description: When `true`, the duration selector will allow selecting seconds.
+  type: boolean
+  default: true
   required: false
 enable_millisecond:
   description: When `true`, the duration selector will allow selecting milliseconds.
@@ -649,10 +654,10 @@ The output of this selector is a mapping of the time values the user selected.
 For example:
 
 ```yaml
-days: 1 # Only when enable_day was set to true
+days: 1 # Only when enable_day is set to true
 hours: 12
 minutes: 30
-seconds: 15
+seconds: 15 # Only when enable_second is set to true (default)
 milliseconds: 500 # Only when enable_millisecond was set to true
 ```
 

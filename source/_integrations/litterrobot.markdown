@@ -1,6 +1,6 @@
 ---
-title: Litter-Robot
-description: Instructions on how to integrate a Litter-Robot Wi-Fi-enabled, automatic, self-cleaning litter box to Home Assistant.
+title: Whisker
+description: Instructions on how to integrate Whisker's lineup of Wi-Fi-enabled, automatic, self-cleaning litter boxes and pet feeders to Home Assistant.
 ha_category:
   - Button
   - Select
@@ -29,7 +29,7 @@ ha_integration_type: hub
 ha_quality_scale: bronze
 ---
 
-The **Litter-Robot** {% term integration %} allows you to monitor and control your Wi-Fi-enabled, automatic, self-cleaning litter box and pet feeders. If you have pet profiles set up, you can also track your pet's weight.
+The **Whisker** {% term integration %} allows you to monitor and control your Wi-Fi-enabled, automatic, self-cleaning litter box and pet feeders. If you have pet profiles set up, you can also track your pet's weight.
 
 ## Prerequisites
 

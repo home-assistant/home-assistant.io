@@ -4,6 +4,7 @@ description: Record events in Splunk.
 ha_category:
   - History
 ha_iot_class: Local Push
+ha_config_flow: true
 ha_release: 0.13
 ha_domain: splunk
 ha_codeowners:
@@ -18,6 +19,20 @@ ha_quality_scale: legacy
 The **Splunk** {% term integration %} makes it possible to log all state changes to an external [Splunk](https://splunk.com/) database using Splunk's HTTP Event Collector (HEC) feature. You can either use this alone, or with the Home Assistant for Splunk [app](https://github.com/miniconfig/splunk-homeassistant). Since the HEC feature is new to Splunk, you will need to use at least version 6.3.
 
 {% include integrations/config_flow.md %}
+{% configuration_basic %}
+Token:
+  description: "The HTTP Event Collector (HEC) token created in your Splunk instance."
+Host:
+  description: "The hostname or IP address of your Splunk instance."
+Port:
+  description: "The port of the HTTP Event Collector on your Splunk instance."
+Use SSL:
+  description: "Whether to use HTTPS to connect to your Splunk instance."
+Verify SSL certificate:
+  description: "Whether to verify the SSL certificate of your Splunk instance."
+Name:
+  description: "A friendly name to send to Splunk as the host, instead of the name of the HTTP Event Collector."
+{% endconfiguration_basic %}
 
 ## Filters
 
