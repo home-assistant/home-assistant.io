@@ -65,7 +65,7 @@ There is currently support for the following device types within Home Assistant:
 
 | Entity | Description |
 |---|---|
-| State | Current container state (`running`, `exited`, `paused`, etc.). |
+**State**:  Current container state (such as `running`, `exited`, `paused`).
 | Image | The Docker image the container is based on. |
 | CPU usage total | Total CPU time consumed by the container. |
 | Memory usage | Current memory usage of the container. |
