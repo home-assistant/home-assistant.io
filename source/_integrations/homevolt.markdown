@@ -47,8 +47,6 @@ The {% term integration %} creates switches reported by the device, including:
 
 - Local mode, enable or disable loacal control mode
 
-
-
 ## Troubleshooting
 
 - `Failed to connect`: confirm the IP address, device is powered, and reachable on your network.
