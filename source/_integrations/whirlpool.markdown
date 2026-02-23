@@ -93,7 +93,7 @@ The following actions are also available:
 
 The select platform provides the following entity for refrigerators:
 
-- **Temperature**: Sets the temperature offset of the refrigerator. The available options are `-4`, `-2`, `0`, `3`, and `5`.
+- **Temperature level**: Sets the temperature level of the refrigerator. The available options are `-4 °C`, `-2 °C`, `0 °C`, `3 °C`, and `5 °C`.
 
 ### Sensor
 
