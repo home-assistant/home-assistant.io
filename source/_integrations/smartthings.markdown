@@ -229,6 +229,10 @@ The SmartThings number platform lets you control numeric values for the followin
 | `samsungce.hoodFanSpeed` (on hood component)                                                                                                           | Hood fan speed               |
 | [`thermostatCoolingSetpoint`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#thermostatCoolingSetpoint) (on cooler, freezer, or onedoor components) | Refrigerator temperature |
 
+### Scene
+
+The SmartThings Scene lets you activate scenes defined in SmartThings. A scene entity is created for each SmartThings scene.
+
 ### Select
 
 The SmartThings Select platform lets you configure device options. Some capabilities require remote control to be enabled on the device before they can be changed.
@@ -249,9 +253,6 @@ The following SmartThings capabilities are supported for Select entities:
 | `samsungce.lamp`                                                                                                                           |
 | [`washerOperatingState`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#washerOperatingState)          |
 
-### Scene
-
-The SmartThings Scene lets you activate scenes defined in SmartThings. A scene entity is created for each SmartThings scene.
 
 ### Sensor
 
