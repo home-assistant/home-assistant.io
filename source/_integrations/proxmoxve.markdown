@@ -3,6 +3,7 @@ title: Proxmox VE
 description: Access your ProxmoxVE instance in Home Assistant.
 ha_category:
   - Binary sensor
+  - Button
 ha_release: 0.103
 ha_iot_class: Local Polling
 ha_codeowners:
@@ -100,3 +101,15 @@ In your Home Assistant configuration, use `hass@pve` for the username and your c
 The integration will automatically create a binary sensor for each tracked virtual machine or container. The binary sensor will either be on if the VM's state is running or off if the VM's state is different.
 
 The created sensor will be called `binary_sensor.NODE_NAME_VMNAME_running`.
+
+## Button
+
+- **Start**: Start a node/VM/LXC.
+- **Start all**: Start all VM's and LXC's known on a node.
+- **Stop**: Stop a node/VM/LXC.
+- **Stop all**: Stop all VM's and LXC's known on a node.
+- **Restart**: Restart a VM/LXC.
+- **Reboot**: Reboots a node.
+- **Shutdown**: Shutdowns a node.
+- **Hibernate**: Put a VM in hiberanation; only available to VM's.
+- **Reset**: Resets a VM; only available to VM's.
