@@ -185,7 +185,7 @@ Be sure to connect a compatible radio module and restart Home Assistant before p
 
 ZHA will automatically create a Zigbee network once configured with a Zigbee coordinator; you can then add compatible devices.
 
-It is strongly encouraged to review the guidance for [Zigbee interference avoidance and network range/coverage optimization)](#zigbee-interference-avoidance-and-network-rangecoverage-optimization).
+It is strongly encouraged to review the guidance for [Zigbee interference avoidance and network range/coverage optimization](#zigbee-interference-avoidance-and-network-rangecoverage-optimization).
 
 {% include integrations/config_flow.md %}
 
@@ -213,7 +213,7 @@ It is strongly encouraged to review the guidance for [Zigbee interference avoida
 
 ### ZiGate or Sonoff ZBBridge devices
 
-If you are use ZiGate or Sonoff ZBBridge, there is additional configuration needed for `usb_path`.
+If you use a ZiGate or Sonoff ZBBridge device, you need additional configuration for `usb_path`.
 
 {% details "Additional ZBBridge config" %}
 
