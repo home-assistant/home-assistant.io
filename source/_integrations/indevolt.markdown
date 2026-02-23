@@ -18,7 +18,7 @@ The Indevolt {% term integration %} enables direct local communication between H
 
 ## Use cases
 
-With this integration, you can monitor energy production and consumption as well as battery status, manage battery working mode.
+With this integration, you can monitor energy production and consumption as well as battery status, and configure power limits and other battery protection settings.
 
 ## Supported devices
 
@@ -94,6 +94,18 @@ All Generation 1 sensors, plus:
 - Battery pack 1-5 temperature (°C)
 - Battery pack 1-5 voltage (V)
 - Battery pack 1-5 current (A)
+
+### Configurable entities (Generation 2 only)
+
+In addition to the read-only sensors listed above, the Indevolt integration also exposes the following configurable entities for supported Generation 2 devices. You can change these settings from Home Assistant, and they are applied directly to your device.
+
+- Discharge limit: Set the minimum battery level (emergency power/SOC, %)
+- Max AC output power: Configure maximum discharge power (W)
+- Inverter input limit: Set maximum PV input power (W)
+- Feed-in power limit: Configure grid feed-in power limit (W)
+- Allow grid charging: Enable or disable charging from the grid (switch)
+- Bypass socket: Enable or disable the bypass socket (switch)
+- LED indicator: Enable or disable the LED indicator (switch)
 
 ## Data updates
 
