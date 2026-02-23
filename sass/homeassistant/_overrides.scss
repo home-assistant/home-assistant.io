@@ -555,7 +555,7 @@ a.material-card:hover {
   .material-card {
     .img {
       background-color: $grayLighter;
-      width: calc(100%-8px);
+      width: calc(100% - 8px);
       // aspect-ratio: 120/63;
       background-size: cover;
       background-position: center;

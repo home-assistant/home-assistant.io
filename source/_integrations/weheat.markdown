@@ -9,7 +9,7 @@ ha_iot_class: Cloud Polling
 ha_release: '2024.10'
 ha_config_flow: true
 ha_codeowners:
-  - '@jesperraemaekers'
+  - '@barryvdh'
 ha_domain: weheat
 ha_platforms:
   - binary_sensor
