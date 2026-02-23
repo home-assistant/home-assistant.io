@@ -36,7 +36,7 @@ Ubiquiti UISP products cannot be managed from their popular [UniFi](/integration
 
 ## Prerequisites
 
-This integration only supports devices running airOS 8 and already configured using your browser or the UISP app.
+This integration only supports devices running airOS 6 or 8 and already configured using your browser or the UISP app.
 
 {% include integrations/config_flow.md %}
 
