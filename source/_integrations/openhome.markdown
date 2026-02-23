@@ -14,7 +14,7 @@ ha_codeowners:
 ha_platforms:
   - media_player
   - update
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 The **Linn / OpenHome** {% term integration %} allows you to connect an [Openhome Compliant Renderer](http://openhome.org/) to Home Assistant such as a [Linn Products Ltd](https://www.linn.co.uk) HiFi streamer. It will allow you to control media playback, volume, source and see the current playing item.

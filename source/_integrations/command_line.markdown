@@ -737,7 +737,7 @@ command_line:
 ### Control your VLC player
 
 This switch will control a local VLC media player
-([Source](https://community.home-assistant.io/t/vlc-player/106)).
+([Source](https://community.home-assistant.io/t/106)).
 
 {% raw %}
 ```yaml
@@ -777,8 +777,8 @@ command_line:
 
 Available actions: `reload`.
 
-### Action `command_line.reload`
+### Action: Reload
 
-Reload all `command_line` entities.
+The `command_line.reload` action allows you to reload all `command_line` entities.
 
 This action takes no data attributes.

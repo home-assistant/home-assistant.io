@@ -24,7 +24,7 @@ ha_integration_type: hub
 ha_quality_scale: silver
 ---
 
-The Renault {% term integration %} offers integration with the **MyRenault** cloud service and provides sensors such as charger state and temperature.
+The **Renault** {% term integration %} offers integration with the **MyRenault** cloud service and provides sensors such as charger state and temperature.
 
 This integration provides the following platforms:
 
@@ -58,9 +58,9 @@ For a single vehicle with all 7 endpoints available, the integration fetches dat
 
 ## Actions
 
-### Action `renault.ac_start`
+### Action: Start A/C
 
-Start A/C on vehicle.
+The `renault.ac_start` action starts A/C on a vehicle.
 
   | Data attribute | Required | Description | Example |
   | ---------------------- | -------- | ----------- | ------- |
@@ -68,17 +68,17 @@ Start A/C on vehicle.
   | `temperature` | yes | Target A/C temperature in °C | |
   | `when` | no | Timestamp for the start of the A/C (optional - defaults to now) | `2020-05-01T17:45:00` |
 
-### Action `renault.ac_cancel`
+### Action: Cancel A/C
 
-Cancel A/C on vehicle.
+The `renault.ac_cancel` action cancels A/C on a vehicle.
 
   | Data attribute | Required | Description |
   | ---------------------- | -------- | ----------- |
   | `vehicle`| yes | device_id of the vehicle |
 
-### Action `renault.ac_set_schedules`
+### Action: Set A/C schedules
 
-Update AC schedule on vehicle.
+The `renault.ac_set_schedules` action updates A/C schedules on a vehicle.
 
   | Data attribute | Required | Description | Example |
   | ---------------------- | -------- | ----------- | ------- |
@@ -107,9 +107,9 @@ Notes:
     readyAtTime: 'T12:00Z'
 ```
 
-### Action `renault.charge_set_schedules`
+### Action: Set charge schedules
 
-Update charge schedule on vehicle.
+The `renault.charge_set_schedules` action updates charge schedules on a vehicle.
 
   | Data attribute | Required | Description | Example |
   | ---------------------- | -------- | ----------- | ------- |

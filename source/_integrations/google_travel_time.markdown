@@ -11,7 +11,7 @@ ha_platforms:
   - sensor
 ha_codeowners:
   - '@eifinger'
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 The **Google Maps Travel Time** {% term integration %} provides travel time from the [Google Maps Routes API](https://developers.google.com/maps/documentation/routes/overview).

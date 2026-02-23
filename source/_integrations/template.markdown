@@ -320,7 +320,7 @@ alarm_control_panel:
       required: false
       type: action
     optimistic:
-      description: Flag that defines if the alarm control panel works in optimistic mode. When enabled, the alarm control panel's state will update immediately when a new option is chosen through the UI or service calls, without waiting for the template defined in `state` to update. When disabled (default), the alarm control panel will only update when the `state` template returns a new value.
+      description: Flag that defines if the alarm control panel works in optimistic mode. When enabled, the alarm control panel's state will update immediately when a new option is chosen through the UI or actions, without waiting for the template defined in `state` to update. When disabled (default), the alarm control panel will only update when the `state` template returns a new value.
       required: false
       type: boolean
       default: false
@@ -640,7 +640,7 @@ cover:
       required: false
       type: action
     state:
-      description: Defines a template to get the state of the cover. Valid output values from the template are `open`, `opening`, `closing` and `closed` which are directly mapped to the corresponding states. In addition, `true` is valid as a synonym to `open` and `false` as a synonym to `closed`. If [both a `state` and a `position` template](#combining-state-and-position-templates) are specified, only `opening` and `closing` are set from the `state` template. If the template produces a `None` value the state will be set to `unknown`.
+      description: Defines a template to get the state of the cover. Valid output values from the template are `open`, `opening`, `closing` and `closed` which are directly mapped to the corresponding states. In addition, `1`, `true`, `yes`, `on`, and `enable` are valid as a synonym to `open` and `0`, `false`, `no`, `off`, and `disable` are a synonym to `closed`. If [both a `state` and a `position` template](#combining-state-and-position-templates) are specified, only `opening` and `closing` are set from the `state` template. If the template produces a `None` value the state will be set to `unknown`.
       required: false
       type: template
     stop_cover:
@@ -801,7 +801,7 @@ event:
 
 The template fan platform allows you to create fans with templates to define the state and scripts to define each action.
 
-Fan entities can only be created from YAML.
+Fan entities can be created from the frontend in the Helpers section or via YAML.
 
 {% raw %}
 
@@ -900,7 +900,7 @@ fan:
       required: false
       type: template
     optimistic:
-      description: Flag that defines if the fan works in optimistic mode. When enabled, the fan's state will update immediately when a new option is chosen through the UI or service calls, without waiting for the template defined in `state` to update. When disabled (default), the fan will only update when the `state` template returns a new value.
+      description: Flag that defines if the fan works in optimistic mode. When enabled, the fan's state will update immediately when a new option is chosen through the UI or actions, without waiting for the template defined in `state` to update. When disabled (default), the fan will only update when the `state` template returns a new value.
       required: false
       type: boolean
       default: false
@@ -1121,7 +1121,7 @@ image:
 
 The template light platform allows you to create lights with templates to define the state and scripts to define each action.
 
-Light entities can only be created from YAML.
+Light entities can be created from the frontend in the Helpers section or via YAML.
 
 {% raw %}
 
@@ -1270,7 +1270,7 @@ light:
       type: template
       default: optimistic
     optimistic:
-      description: Flag that defines if the light works in optimistic mode. When enabled, the light's state will update immediately when a new option is chosen through the UI or service calls, without waiting for the template defined in `state` to update. When disabled (default), the light will only update when the `state` template returns a new value.
+      description: Flag that defines if the light works in optimistic mode. When enabled, the light's state will update immediately when a new option is chosen through the UI or actions, without waiting for the template defined in `state` to update. When disabled (default), the light will only update when the `state` template returns a new value.
       required: false
       type: boolean
       default: false
@@ -1457,7 +1457,7 @@ template:
 
 The template lock platform allows you to create locks with templates to define the state and scripts to define each action.
 
-Lock entities can only be created from YAML.
+Lock entities can be created from the frontend in the Helpers section or via YAML.
 
 {% raw %}
 
@@ -1518,7 +1518,7 @@ lock:
       required: false
       type: action
     optimistic:
-      description: Flag that defines if the lock works in optimistic mode. When enabled, the lock's state will update immediately when a new option is chosen through the UI or service calls, without waiting for the template defined in `state` to update. When disabled (default), the lock will only update when the `state` template returns a new value.
+      description: Flag that defines if the lock works in optimistic mode. When enabled, the lock's state will update immediately when a new option is chosen through the UI or actions, without waiting for the template defined in `state` to update. When disabled (default), the lock will only update when the `state` template returns a new value.
       required: false
       type: boolean
       default: false
@@ -1704,7 +1704,7 @@ number:
       type: template
       default: 0.0
     optimistic:
-      description: Flag that defines if the number works in optimistic mode. When enabled, the number's state will update immediately when changed through the UI or service calls, without waiting for the template defined in `state` to update. When disabled (default), the number will only update when the `state` template returns a new value.
+      description: Flag that defines if the number works in optimistic mode. When enabled, the number's state will update immediately when changed through the UI or actions, without waiting for the template defined in `state` to update. When disabled (default), the number will only update when the `state` template returns a new value.
       required: false
       type: boolean
       default: false
@@ -1744,7 +1744,7 @@ template:
         unique_id: automower_cutting_height
         state: "{{ states('number.automower_cutting_height_raw')|int(0) * 0.5 + 1.5 }}"
         set_value:
-          - service: number.set_value
+          - action: number.set_value
             target:
               entity_id: number.automower_cutting_height_raw
             data:
@@ -1804,7 +1804,7 @@ select:
   type: map
   keys:
     optimistic:
-      description: Flag that defines if the select works in optimistic mode. When enabled, the select's state will update immediately when a new option is chosen through the UI or service calls, without waiting for the template defined in `state` to update. When disabled (default), the select will only update when the `state` template returns a new value.
+      description: Flag that defines if the select works in optimistic mode. When enabled, the select's state will update immediately when a new option is chosen through the UI or actions, without waiting for the template defined in `state` to update. When disabled (default), the select will only update when the `state` template returns a new value.
       required: false
       type: boolean
       default: false
@@ -2059,7 +2059,7 @@ switch:
   type: map
   keys:
     optimistic:
-      description: Flag that defines if the switch works in optimistic mode. When enabled, the switch's state will update immediately when a new option is chosen through the UI or service calls, without waiting for the template defined in `state` to update. When disabled (default), the switch will only update when the `state` template returns a new value.
+      description: Flag that defines if the switch works in optimistic mode. When enabled, the switch's state will update immediately when a new option is chosen through the UI or actions, without waiting for the template defined in `state` to update. When disabled (default), the switch will only update when the `state` template returns a new value.
       required: false
       type: boolean
       default: false
@@ -2265,7 +2265,7 @@ update:
 
 The template vacuum platform allows you to create vacuum entities with templates to define the state and scripts to define each action.
 
-Vacuum entities can only be created via YAML.
+Vacuum entities can be created from the frontend in the Helpers section or via YAML.
 
 {% raw %}
 
@@ -2329,7 +2329,7 @@ vacuum:
       required: false
       type: action
     optimistic:
-      description: Flag that defines if the vacuum works in optimistic mode. When enabled, the vacuum's state will update immediately when a new option is chosen through the UI or service calls, without waiting for the template defined in `state` to update. When disabled (default), the vacuum will only update when the `state` template returns a new value.
+      description: Flag that defines if the vacuum works in optimistic mode. When enabled, the vacuum's state will update immediately when a new option is chosen through the UI or actions, without waiting for the template defined in `state` to update. When disabled (default), the vacuum will only update when the `state` template returns a new value.
       required: false
       type: boolean
       default: false
@@ -2423,7 +2423,7 @@ vacuum:
 
 The template weather platform allows you to create weather entities with templates to define the state and attributes.
 
-Weather entities can only be created via YAML.
+Weather entities can be created from the frontend in the Helpers section or via YAML.
 
 {% raw %}
 
@@ -2432,11 +2432,11 @@ Weather entities can only be created via YAML.
 template:
   - weather:
       - name: "My Weather Station"
-        condition_template: "{{ states('weather.my_region') }}"
-        temperature_template: "{{ states('sensor.temperature') | float }}"
+        condition: "{{ states('weather.my_region') }}"
+        temperature: "{{ states('sensor.temperature') | float }}"
         temperature_unit: "°C"
-        humidity_template: "{{ states('sensor.humidity') | float }}"
-        forecast_daily_template: "{{ state_attr('weather.my_region', 'forecast_data') }}"
+        humidity: "{{ states('sensor.humidity') | float }}"
+        forecast_daily: "{{ state_attr('weather.my_region', 'forecast_data') }}"
 ```
 
 ```yaml
@@ -2450,11 +2450,11 @@ template:
         - sensor.humidity
     weather:
       - name: "My Weather Station"
-        condition_template: "{{ states('weather.my_region') }}"
-        temperature_template: "{{ states('sensor.temperature') | float }}"
+        condition: "{{ states('weather.my_region') }}"
+        temperature: "{{ states('sensor.temperature') | float }}"
         temperature_unit: "°C"
-        humidity_template: "{{ states('sensor.humidity') | float }}"
-        forecast_daily_template: "{{ state_attr('weather.my_region', 'forecast_data') }}"
+        humidity: "{{ states('sensor.humidity') | float }}"
+        forecast_daily: "{{ state_attr('weather.my_region', 'forecast_data') }}"
 ```
 
 {% endraw %}
@@ -2465,39 +2465,39 @@ weather:
   required: true
   type: map
   keys:
-    apparent_temperature_template:
+    apparent_temperature:
       description: The current apparent (feels-like) temperature.
       required: false
       type: template
-    cloud_coverage_template:
+    cloud_coverage:
       description: The current cloud coverage.
       required: false
       type: template
-    condition_template:
+    condition:
       description: The current weather condition.
       required: true
       type: template
-    dew_point_template:
+    dew_point:
       description: The current dew point.
       required: false
       type: template
-    forecast_daily_template:
+    forecast_daily:
       description: Daily forecast data.
       required: false
       type: template
-    forecast_hourly_template:
+    forecast_hourly:
       description: Hourly forecast data.
       required: false
       type: template
-    forecast_twice_daily_template:
+    forecast_twice_daily:
       description: Twice daily forecast data.
       required: false
       type: template
-    humidity_template:
+    humidity:
       description: The current humidity.
       required: true
       type: template
-    ozone_template:
+    ozone:
       description: The current ozone level.
       required: false
       type: template
@@ -2505,7 +2505,7 @@ weather:
       description: Unit for precipitation output. Valid options are km, mi, ft, m, cm, mm, in, yd.
       required: false
       type: string
-    pressure_template:
+    pressure:
       description: The current air pressure.
       required: false
       type: template
@@ -2513,7 +2513,7 @@ weather:
       description: Unit for pressure_template output. Valid options are Pa, hPa, kPa, bar, cbar, mbar, mmHg, inHg, psi.
       required: false
       type: string
-    temperature_template:
+    temperature:
       description: The current temperature.
       required: true
       type: template
@@ -2521,11 +2521,11 @@ weather:
       description: Unit for temperature_template output. Valid options are °C, °F, and K.
       required: false
       type: string
-    uv_index_template:
+    uv_index:
       description: The current UV index.
       required: false
       type: template
-    visibility_template:
+    visibility:
       description: The current visibility.
       required: false
       type: template
@@ -2533,11 +2533,11 @@ weather:
       description: Unit for visibility_template output. Valid options are km, mi, ft, m, cm, mm, in, yd.
       required: false
       type: string
-    wind_gust_speed_template:
+    wind_gust_speed:
       description: The current wind gust speed.
       required: false
       type: template
-    wind_speed_template:
+    wind_speed:
       description: The current wind speed.
       required: false
       type: template
@@ -2545,7 +2545,7 @@ weather:
       description: Unit for wind_speed_template output. Valid options are m/s, km/h, mph, mm/d, in/d, and in/h.
       required: false
       type: string
-    wind_bearing_template:
+    wind_bearing:
       description: The current wind bearing.
       required: false
       type: template
@@ -2937,7 +2937,7 @@ To get started with the migration:
     ```
 {% endraw %}
 
-1. Restart Home Assistant by going to **Settings** three dotted menu and selecting **Restart Home Assistant**.  Or reload template entities by going to **Developer tools** **YAML** tab and selecting the **Template entities** reload button.
+1. Restart Home Assistant by going to **Settings** three dotted menu and selecting **Restart Home Assistant**.  Or reload template entities by going to {% my server_controls title="**Settings** > **Developer tools** > **YAML**" %} and selecting the **Template entities** reload button.
 
 ### Migrating a legacy sensor into an existing template section
 
@@ -3050,7 +3050,7 @@ To get started with the migration:
 
     In this example, `configuration.yaml` already had a `template:` section.  When copying the YAML, make sure to avoid adding double `template:` sections.
 
-1. Restart Home Assistant by going to **Settings** three dotted menu and selecting **Restart Home Assistant**.  Or reload template entities by going to **Developer tools** **YAML** tab and selecting the **Template entities** reload button.
+1. Restart Home Assistant by going to **Settings** three dotted menu and selecting **Restart Home Assistant**.  Or reload template entities by going to {% my server_controls title="**Settings** > **Developer tools** > **YAML**" %} and selecting the **Template entities** reload button.
 
 ### Migrating a sensor from an included file to an included file
 
@@ -3163,4 +3163,4 @@ To get started with the migration:
 
     In this example, `configuration.yaml` already has a `template: !include templates.yaml`.  When copying the yaml, make sure to avoid adding the `template:` section inside `templates.yaml`.
 
-1. Restart Home Assistant by going to **Settings** three dotted menu and selecting **Restart Home Assistant**.  Or reload template entities by going to **Developer tools** **YAML** tab and selecting the **Template entities** reload button.
+1. Restart Home Assistant by going to **Settings** three dotted menu and selecting **Restart Home Assistant**.  Or reload template entities by going to {% my server_controls title="**Settings** > **Developer tools** > **YAML**" %} and selecting the **Template entities** reload button.

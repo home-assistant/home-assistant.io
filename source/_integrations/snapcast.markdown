@@ -22,25 +22,25 @@ The **Snapcast** {% term integration %} allows you to control [Snapcast](https:/
 
 The snapcast integration provides a few actions registered under the media_player integration.
 
-### Action `snapcast.snapshot`
+### Action: Snapshot
 
-Take a snapshot of what is currently playing on one or more speakers. This action, and the following one, are useful if you want to play a doorbell or notification sound and resume playback afterwards.
+The `snapcast.snapshot` action takes a snapshot of what is currently playing on one or more speakers. This action, and the following one, are useful if you want to play a doorbell or notification sound and resume playback afterwards.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | no | The speakers to snapshot.
 
-### Action `snapcast.restore`
+### Action: Restore
 
-Restore a previously taken snapshot of one or more speakers.
+The `snapcast.restore` action restores a previously taken snapshot of one or more speakers.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | no | String or list of `entity_id`s that should have their snapshot restored.
 
-### Action `snapcast.set_latency`
+### Action: Set latency
 
-Set the latency of a speaker.
+The `snapcast.set_latency` action sets the latency of a speaker.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |

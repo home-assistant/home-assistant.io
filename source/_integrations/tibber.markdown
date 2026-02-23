@@ -2,6 +2,7 @@
 title: Tibber
 description: Instructions on how to integrate Tibber within Home Assistant.
 ha_category:
+  - Binary sensor
   - Energy
   - Notifications
   - Sensor
@@ -12,6 +13,7 @@ ha_codeowners:
 ha_domain: tibber
 ha_config_flow: true
 ha_platforms:
+  - binary_sensor
   - diagnostics
   - notify
   - sensor
@@ -23,12 +25,25 @@ If you have a [Tibber Pulse](https://tibber.com/no/store/produkt/pulse) or [Watt
 
 There is currently support for the following device types within Home Assistant:
 
+- [Binary sensor](#binary-sensor)
 - [Notifications](#notifications)
 - [Sensor](#sensor)
 
 ## Setup
 
 Go to [developer.tibber.com/settings/accesstoken](https://developer.tibber.com/settings/accesstoken) to get your API token.
+
+
+## Client ID and client secret (Tibber Data API)
+
+1. Go to the Tibber developer portal at https://data-api.tibber.com/clients/manage.
+2. Create a new client.
+3. Add a redirect URI for Home Assistant:
+   - `https://my.home-assistant.io/redirect/oauth`
+
+4. Save the application.
+5. Copy the **client ID** and **client secret**.
+6. Go to {% my application_credentials title="**Settings** > **Devices & services** > **Application credentials**" %}, add Tibber credentials, and paste your client ID and client secret.
 
 {% include integrations/config_flow.md %}
 
@@ -79,16 +94,40 @@ If you have a Tibber Pulse it will also show the electricity consumption in real
 - Monthly net consumption
 - Monthly peak hour
 - Time of max hour consumption
+- Storage state of charge
+- Storage target state of charge
+- Remaining range
+- Maximum charging current
+- Offline fallback charging current
 
-</div>
+## Binary sensor
+
+The Tibber integration provides binary sensors.
+
+## Available binary sensors
+
+
+### Charger sensors
+
+- Charging: Indicates whether the charger is currently charging a vehicle
+- Plug: Indicates whether a vehicle is plugged into the charger
+
+### EV sensors
+
+- Charging: Indicates whether the EV is currently charging
+- Plug: Indicates whether the EV is plugged in
+
+### Heaters
+
+- Power: Indicates whether the smart plug or thermostat is powered on
 
 ## Actions
 
 The hourly prices are exposed using [actions](/docs/scripts/perform-actions/). The actions populate [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data) with price data.
 
-### Action `tibber.get_prices`
+### Action: Get prices
 
-Fetches hourly energy prices.
+The `tibber.get_prices` action fetches hourly energy prices.
 
 | Data attribute | Optional | Description                                           | Example             |
 | -------------- | -------- | ----------------------------------------------------- | ------------------- |

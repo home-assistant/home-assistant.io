@@ -26,7 +26,7 @@ ha_platforms:
 ha_integration_type: device
 ---
 
-The Roku integration allows you to control a [Roku](https://www.roku.com/) media playback device. This integration only supports Roku media playback devices (such as sticks, streaming boxes, and televisions). All other smart home products (such as light bulbs and cameras) are part of a different ecosystem.
+The **Roku** {% term integration %} allows you to control a [Roku](https://www.roku.com/) media playback device. This integration only supports Roku media playback devices (such as sticks, streaming boxes, and televisions). All other smart home products (such as light bulbs and cameras) are part of a different ecosystem.
 
 {% include integrations/config_flow.md %}
 

@@ -37,11 +37,9 @@ The select {% term entity %} exposes additional {% term actions %} to control th
 {% term automation %} or {% term scripts %}. These actions can be created via the UI, but are
 also available in YAML (for which examples are provided below).
 
-### Action `select.select_first`
+### Action: Select first
 
-The {% my developer_call_service service="select.select_first" %} action
-changes the selected option of the select entity to the first option in the
-list of options available.
+The `select.select_first` action changes the selected option of the select entity to the first option in the list of options available.
 
 This action does not have additional options.
 
@@ -55,11 +53,9 @@ target:
   entity_id: select.my_entity
 ```
 
-### Action `select.select_last`
+### Action: Select last
 
-The {% my developer_call_service service="select.select_last" %} action changes
-the selected option of the select entity to the last option in the list of
-options available.
+The `select.select_last` action changes the selected option of the select entity to the last option in the list of options available.
 
 This action does not have additional options.
 
@@ -73,11 +69,9 @@ target:
   entity_id: select.my_entity
 ```
 
-### Action `select.select_next`
+### Action: Select next
 
-The {% my developer_call_service service="select.select_next" %} action changes
-the selected option of the select entity to the next option in the list of
-options available. If the current select option is unknown, the first option
+The `select.select_next` action changes the selected option of the select entity to the next option in the list of options available. If the current select option is unknown, the first option
 in the list is selected instead.
 
 In case the current select option is the last option in the list, it will by
@@ -104,11 +98,9 @@ data:
   cycle: false
 ```
 
-### Action `select.select_option`
+### Action: Select option
 
-The {% my developer_call_service service="select.select_option" %} action
-changes the selected option to a specific desired option provided in the
-action using the required `option` action data.
+The `select.select_option` action changes the selected option to a specific desired option provided in the action using the required `option` action data.
 
 The action call will not succeed if the selected option is not available in
 the list of options for the targeted entity.
@@ -125,11 +117,9 @@ data:
   option: "example_option"
 ```
 
-### Action `select.select_previous`
+### Action: Select previous
 
-The {% my developer_call_service service="select.select_previous" %} action
-changes the selected option of the select entity to the previous option in the
-list of options available. If the current select option is unknown, the
+The `select.select_previous` action changes the selected option of the select entity to the previous option in the list of options available. If the current select option is unknown, the
 last option in the list is selected instead.
 
 In case the current select option is the first option in the list, it will by

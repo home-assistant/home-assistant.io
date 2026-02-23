@@ -90,9 +90,9 @@ The Swiss public transport integration has the following action:
 
 - `swiss_public_transport.fetch_connections`
 
-### Action `swiss_public_transport.fetch_connections`
+### Action: Fetch connections
 
-Fetch the connections for a specific instance.
+The `swiss_public_transport.fetch_connections` action fetches the connections for a specific instance.
 
 | Data attribute | Optional | Description                                              |
 |------------------------|----------|----------------------------------------------------------|

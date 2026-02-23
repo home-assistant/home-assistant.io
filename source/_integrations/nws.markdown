@@ -14,7 +14,7 @@ ha_platforms:
   - diagnostics
   - sensor
   - weather
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 The **NWS** {% term integration %} uses the [National Weather Service](https://www.weather.gov) web API as a source for meteorological data for your location.

@@ -130,19 +130,9 @@ These actions are provided:
 - `put`
 - `remove`
 
-### Action `minio.get`
+### Action: Get
 
-Download file.
-
-| Data attribute | Required | Description                        |
-| ---------------------- | -------- | ---------------------------------- |
-| `bucket`               | yes      | Bucket to use                      |
-| `key`                  | yes      | Object key of the file             |
-| `file_path`            | yes      | File path on the local file system |
-
-### Action `minio.put`
-
-Upload file.
+The `minio.get` action downloads a file from Minio storage.
 
 | Data attribute | Required | Description                        |
 | ---------------------- | -------- | ---------------------------------- |
@@ -150,9 +140,19 @@ Upload file.
 | `key`                  | yes      | Object key of the file             |
 | `file_path`            | yes      | File path on the local file system |
 
-### Action `minio.remove`
+### Action: Put
 
-Delete file.
+The `minio.put` action uploads a file to Minio storage.
+
+| Data attribute | Required | Description                        |
+| ---------------------- | -------- | ---------------------------------- |
+| `bucket`               | yes      | Bucket to use                      |
+| `key`                  | yes      | Object key of the file             |
+| `file_path`            | yes      | File path on the local file system |
+
+### Action: Remove
+
+The `minio.remove` action deletes a file from Minio storage.
 
 | Data attribute | Required | Description            |
 | ---------------------- | -------- | ---------------------- |

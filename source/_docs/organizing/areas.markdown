@@ -54,7 +54,7 @@ If an area has not yet been assigned to a {% term floor %}, it is shown in the *
 You can assign an area to multiple items at once in the {% term automation %}, {% term scene %}, {% term script %}, and {% term device %} pages.
 
 1. Depending on what you want to assign, go to one of the following pages:
-   - For automations, scripts, or scenes {% my automations title="**Settings** > **Automations & Scenes**" %} and open the respective tab.
+   - For automations, scripts, or scenes {% my automations title="**Settings** > **Automations & scenes**" %} and open the respective tab.
    - For devices, go to {% my devices title="**Settings** > **Devices & services** > **Devices**" %}.
 2. In the list, [select all the items](/docs/organizing/tables#selecting-multiple-items-in-a-table) you want to assign to an area.
 

@@ -17,7 +17,7 @@ ha_platforms:
   - climate
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 The **Daikin** {% term integration %} integrates Daikin air conditioning systems into Home Assistant.

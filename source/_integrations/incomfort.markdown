@@ -17,7 +17,7 @@ ha_platforms:
   - diagnostics
   - sensor
   - water_heater
-ha_integration_type: integration
+ha_integration_type: hub
 ha_config_flow: true
 ha_dhcp: true
 ha_quality_scale: platinum

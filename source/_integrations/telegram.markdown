@@ -55,7 +55,7 @@ To create your first [Telegram bot](https://core.telegram.org/bots#how-do-i-crea
 5. From the conversation with BotFather, select the link to open a chat with your new bot.
 6. In the chat with the new bot, enter `/start`.
 7. Test the action:
-   - Go to [**Developer tools** > **Actions** > **YAML mode**](https://my.home-assistant.io/redirect/developer_call_service/?service=homeassistant.turn_on).
+   - Go to [**Settings** > **Developer tools** > **Actions** > **YAML mode**](https://my.home-assistant.io/redirect/developer_call_service/?service=homeassistant.turn_on).
    - Paste this into the YAML file:
    - Replace the `service` and the `message` with your data.
   

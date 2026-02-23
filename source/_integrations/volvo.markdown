@@ -23,7 +23,7 @@ ha_platforms:
 ha_quality_scale: platinum
 related:
   - url: https://developer.volvocars.com/
-    title: Volvo developers portal
+    title: Volvo developer portal
 ---
 
 The **Volvo** {% term integration %} is used to integrate your [Volvo](https://www.volvocars.com/) vehicle.
@@ -289,9 +289,9 @@ Set the **Device class** to **Timestamp** and optionally choose your vehicle for
 
 The **Volvo** integration fetches data from the API at different intervals:
 
-- **Every 60 minutes**: diagnostics, odometer, and statistics.
-- **Every 15 minutes**: car connectivity, fuel status, and location.
-- **Every 2 minutes**: energy data (for battery cars).
+- **Every 30 minutes**: car connectivity, diagnostics, tyres, and warnings.
+- **Every 15 minutes**: brakes, engine warnings, location, and odometer.
+- **Every 2 minutes**: energy data, engine status, fuel status, and statistics.
 - **Every minute**: doors, lock, and windows status.
 
 If you decide to define a custom polling interval, beware that there is a maximum of 10,000 requests per day.
@@ -325,4 +325,4 @@ This integration follows standard integration removal.
 
 {% include integrations/remove_device_service.md %}
 
-After deleting the integration, go to the app of the manufacturer and remove the Home Assistant integration from there as well.
+After deleting the integration, go to the [API applications page](https://developer.volvocars.com/account/#your-api-applications) on Volvo's developer portal and delete the app you use for the Home Assistant integration.

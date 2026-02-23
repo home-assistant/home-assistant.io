@@ -35,14 +35,14 @@ ha_platforms:
   - sensor
   - switch
   - update
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The **Teslemetry** {% term integration %} exposes various commands and sensors from the Tesla vehicles and energy sites connected to a [Teslemetry](https://teslemetry.com/) subscription.
 
 ## Prerequisites
 
-You must have a [Teslemetry](https://teslemetry.com) account, active subscription, and [access token](https://teslemetry.com/console).
+You must have a [Teslemetry](https://teslemetry.com) account with active subscription.
 
 Vehicles delivered in 2024 and later will require a [virtual key](https://teslemetry.com/docs/topics/virtualkey) to be configured in order to run certain commands.
 
@@ -434,11 +434,11 @@ automation:
       - platform: numeric_state
         entity_id: sensor.home_solar_power
         above: 3000
-    action:
-      - service: switch.turn_on
+    actions:
+      - action: switch.turn_on
         target:
           entity_id: switch.my_tesla_charge
-      - service: number.set_value
+      - action: number.set_value
         target:
           entity_id: number.my_tesla_charge_current
         data:
@@ -455,8 +455,8 @@ automation:
         event: start
         offset: "-00:15:00"
         entity_id: calendar.work
-    action:
-      - service: climate.turn_on
+    actions:
+      - action: climate.turn_on
         target:
           entity_id: climate.my_tesla_climate
 ```
@@ -519,8 +519,8 @@ condition:
   - condition: zone
     entity_id: !input route_entity
     zone: !input route_zone
-action:
-  - service: cover.open_cover
+actions:
+  - action: cover.open_cover
     target:
       entity_id: !input cover_entity
 mode: restart

@@ -17,6 +17,7 @@ ha_platforms:
   - switch
   - update
 ha_integration_type: hub
+ha_quality_scale: bronze
 ---
 
 The **TP-Link Omada** {% term integration %} allows you to control your [TP-Link Omada SDN Devices](https://www.tp-link.com/omada-sdn/) such as network switches, access points, and internet gateways.
@@ -101,8 +102,11 @@ The integration provides the following actions.
 
 The `tplink_omada.reconnect_client` action is used to force a Wi-Fi client to reconnect to the network. This is useful if you have a troublesome client network connection that needs to be reset.
 
+- **Data attribute**: `config_entry_id`
+  - **Description**: The instance of the Omada integration that the Wi-Fi client is connected to.
+  - **Optional**: Yes
 - **Data attribute**: `mac`
-  - **Description**: The MAC address of the Wi-Fi client to reconnect
+  - **Description**: The MAC address of the Wi-Fi client to reconnect.
   - **Optional**: No
 
 ## Removing the integration

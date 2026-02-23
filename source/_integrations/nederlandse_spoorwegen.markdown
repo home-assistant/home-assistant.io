@@ -11,9 +11,9 @@ ha_codeowners:
 ha_domain: nederlandse_spoorwegen
 ha_platforms:
   - binary_sensor
+  - diagnostics
   - sensor
 ha_integration_type: service
-ha_quality_scale: legacy
 ha_config_flow: true
 ---
 

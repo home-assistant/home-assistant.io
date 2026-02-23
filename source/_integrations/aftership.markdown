@@ -8,7 +8,7 @@ ha_iot_class: Cloud Polling
 ha_domain: aftership
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ha_config_flow: true
 ---
 

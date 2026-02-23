@@ -150,6 +150,7 @@ For more customizable notifications, use the `ntfy.publish` action instead of `n
 - `email`: Specify the address to forward the notification to, for example `mail@example.com`.
 - `call`: Phone number to call and read the message out loud using text-to-speech. Requires ntfy Pro and prior phone number verification.
 - `icon`: Include an icon that will appear next to the text of the notification. Only JPEG and PNG images are supported.
+- `sequence_id`: Enter a message or sequence ID to update an existing notification, or specify a sequence ID to reference later when updating, clearing (mark as read and dismiss), or deleting a notification. See [**Updating + deleting notifications**](https://docs.ntfy.sh/publish/#updating-deleting-notifications)
 
 {% details "Example YAML configuration" %}
 
@@ -183,6 +184,54 @@ All parameters are optional. If `message` is left empty, the notification will u
 Check out the [emoji reference](https://docs.ntfy.sh/emojis/) for a full list of supported emoji shortcodes.
 
 {% endtip %}
+
+### Dismiss notification
+
+The `ntfy.clear` action dismisses a previously sent message from a ntfy topic by marking it as read.
+
+#### Parameters
+
+- `sequence_id`: The message ID or sequence ID of the notification to dismiss.
+
+{% details "Example YAML configuration" %}
+
+{% raw %}
+
+```yaml
+action: ntfy.clear
+target:
+  entity_id: notify.mytopic
+data:
+  sequence_id: my-download-123
+```
+
+{% endraw %}
+
+{% enddetails %}
+
+### Delete notification
+
+The `ntfy.delete` action deletes a message from a ntfy topic.
+
+#### Parameters
+
+- `sequence_id`: The message ID or sequence ID of the notification to delete.
+
+{% details "Example YAML configuration" %}
+
+{% raw %}
+
+```yaml
+action: ntfy.delete
+target:
+  entity_id: notify.mytopic
+data:
+  sequence_id: my-download-123
+```
+
+{% endraw %}
+
+{% enddetails %}
 
 ## Sensors
 

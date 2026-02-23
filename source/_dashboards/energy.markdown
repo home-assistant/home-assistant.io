@@ -40,6 +40,26 @@ type: energy-date-selection
 The energy usage graph card shows the amount of energy your house has consumed, and from what source this energy came.
 It will also show the amount of energy your have returned to the grid.
 
+### YAML configuration
+
+The following YAML options are available
+
+{% configuration %}
+type:
+  required: true
+  description: "`energy-usage-graph`"
+  type: string
+collection_key:
+  required: false
+  description: "Collection key to use for the card. This links the card to a specific energy dashboard collection. Defaults to `energy_dashboard`."
+  type: string
+  default: energy_dashboard
+title:
+  required: false
+  description: When defined, shows a card header with the title string and total energy consumed chip.
+  type: string
+{% endconfiguration %}
+
 ### Example
 
 ```yaml
@@ -54,6 +74,26 @@ type: energy-usage-graph
 </p>
 
 The solar production graph card shows the amount of energy your solar panels have produced per source, and if setup and available the forecast of the solar production.
+
+### YAML configuration
+
+The following YAML options are available
+
+{% configuration %}
+type:
+  required: true
+  description: "`energy-solar-graph`"
+  type: string
+collection_key:
+  required: false
+  description: "Collection key to use for the card. This links the card to a specific energy dashboard collection. Defaults to `energy_dashboard`."
+  type: string
+  default: energy_dashboard
+title:
+  required: false
+  description: When defined, shows a card header with the title string and total solar produced chip.
+  type: string
+{% endconfiguration %}
 
 ### Example
 
@@ -70,6 +110,22 @@ type: energy-solar-graph
 
 The gas consumption graph card shows the amount of gas consumed per source.
 
+{% configuration %}
+type:
+  required: true
+  description: "`energy-gas-graph`"
+  type: string
+collection_key:
+  required: false
+  description: "Collection key to use for the card. This links the card to a specific energy dashboard collection. Defaults to `energy_dashboard`."
+  type: string
+  default: energy_dashboard
+title:
+  required: false
+  description: When defined, shows a card header with the title string and total gas consumed chip.
+  type: string
+{% endconfiguration %}
+
 ### Example
 
 ```yaml
@@ -84,6 +140,26 @@ type: energy-gas-graph
 </p>
 
 The water consumption graph card shows the amount of water consumed per source.
+
+### YAML configuration
+
+The following YAML options are available
+
+{% configuration %}
+type:
+  required: true
+  description: "`energy-water-graph`"
+  type: string
+collection_key:
+  required: false
+  description: "Collection key to use for the card. This links the card to a specific energy dashboard collection. Defaults to `energy_dashboard`."
+  type: string
+  default: energy_dashboard
+title:
+  required: false
+  description: When defined, shows a card header with the title string and total water consumed chip.
+  type: string
+{% endconfiguration %}
 
 ### Example
 

@@ -13,7 +13,7 @@ ha_config_flow: true
 ha_platforms:
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 Integrate Refoss devices into Home Assistant.

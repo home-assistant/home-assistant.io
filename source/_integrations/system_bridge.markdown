@@ -163,9 +163,9 @@ Here is an example action that will open a URL in the device's browser:
 
 This is an object containing the `source` and `volume` (0-100). The source must be a URL to a playable audio file (an MP3 for example).
 
-### Action `system_bridge.get_process_by_id`
+### Action: Get process by ID
 
-Returns a process by its pid.
+The `system_bridge.get_process_by_id` action returns a process by its PID.
 
 {% my developer_call_service service="system_bridge.get_process_by_id" title="Show action in your Home Assistant instance." %}
 
@@ -190,9 +190,9 @@ username: hostname\user
 working_directory: null
 ```
 
-### Action `system_bridge.get_processes_by_name`
+### Action: Get processes by name
 
-Returns a count and a list of processes matching the name provided.
+The `system_bridge.get_processes_by_name` action returns a count and a list of processes matching the name provided.
 
 {% my developer_call_service service="system_bridge.get_processes_by_name" title="Show action in your Home Assistant instance." %}
 
@@ -219,9 +219,9 @@ processes:
     working_directory: null
 ```
 
-### Action `system_bridge.open_path`
+### Action: Open path
 
-Open a URL or file on the server using the default application.
+The `system_bridge.open_path` action opens a URL or file on the server using the default application.
 
 {% my developer_call_service service="system_bridge.open_path" title="Show action in your Home Assistant instance." %}
 
@@ -242,9 +242,9 @@ data:
 message: Path opened
 ```
 
-### Action `system_bridge.open_url`
+### Action: Open URL
 
-Open a URL or file on the server using the default application.
+The `system_bridge.open_url` action opens a URL or file on the server using the default application.
 
 {% my developer_call_service service="system_bridge.open_url" title="Show action in your Home Assistant instance." %}
 
@@ -265,9 +265,9 @@ data:
 message: URL opened
 ```
 
-### Action`system_bridge.send_keypress`
+### Action: Send keypress
 
-Send a keypress to the server.
+The `system_bridge.send_keypress` action sends a keypress to the server.
 
 {% my developer_call_service service="system_bridge.send_keypress" title="Show action in your Home Assistant instance." %}
 
@@ -288,9 +288,9 @@ data:
 message: Key pressed
 ```
 
-### Action `system_bridge.send_text`
+### Action: Send text
 
-Sends text for the server to type.
+The `system_bridge.send_text` action sends text for the server to type.
 
 {% my developer_call_service service="system_bridge.send_text" title="Show action in your Home Assistant instance." %}
 
@@ -311,9 +311,9 @@ data:
 message: Text entered
 ```
 
-### Action `system_bridge.power_command`
+### Action: Power command
 
-Sends power command to the system.
+The `system_bridge.power_command` action sends a power command to the system.
 
 Supported commands are:
 

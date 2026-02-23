@@ -6,9 +6,10 @@ ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@pantherale0'
 ha_domain: nintendo_parental_controls
-ha_integration_type: integration
+ha_integration_type: service
 ha_platforms:
   - number
+  - select
   - sensor
   - switch
   - time
@@ -63,6 +64,15 @@ You will need:
 
 The **Nintendo Switch Parental Controls** integration provides the following entities.
 
+#### Number
+
+- **Max screentime today**
+  - **Description**: Maximum amount of screentime to allow today, for unlimited screentime, set to `-1`. By setting this to `0` and turning the **Suspend software** switch on, you can 'lock' your Nintendo Switch.
+
+#### Select
+- **Restriction mode**
+  - **Description**: Controls whether the same screen time limits are applied every day or if each day of the week has its own separate limit.
+
 #### Sensors
 
 - **Used screen time**
@@ -74,19 +84,14 @@ The **Nintendo Switch Parental Controls** integration provides the following ent
   - **Unit of measurement**: `minutes`
   - **Device class**: `duration`
 
-#### Time
-
-- **Bedtime alarm**
-  - **Description**: A set bedtime for a given device, at this time, the Switch can either "lock" or show an alert in the top left corner.
-
 #### Switch
 - **Suspend software**
   - **Description**: Enable to automatically suspend running software when the Bedtime alarm is reached or the maximum screen time is exceeded. Turn off to allow software to continue running past these limits. 
 
-#### Number
+#### Time
 
-- **Max screentime today**
-  - **Description**: Maximum amount of screentime to allow today, for unlimited screentime, set to `-1`. By setting this to `0` and turning the **Suspend software** switch on, you can 'lock' your Nintendo Switch.
+- **Bedtime alarm**
+  - **Description**: A set bedtime for a given device, at this time, the Switch can either "lock" or show an alert in the top left corner.
 
 ## Actions
 

@@ -11,7 +11,7 @@ ha_codeowners:
 ha_domain: ourgroceries
 ha_platforms:
   - todo
-ha_integration_type: integration
+ha_integration_type: service
 related:
   - docs: /integrations/todo
     title: To-do list integration documentation

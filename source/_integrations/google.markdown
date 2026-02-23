@@ -12,7 +12,7 @@ ha_platforms:
   - diagnostics
 ha_codeowners:
   - '@allenporter'
-ha_integration_type: integration
+ha_integration_type: service
 google_dev_console_link: https://console.developers.google.com/apis/credentials
 api: Google Calendar API
 api_link: https://console.cloud.google.com/apis/library/calendar-json.googleapis.com
@@ -80,9 +80,9 @@ Using the entity state and attributes is more error prone and less flexible than
 
 {% enddetails %}
 
-### Action `google.create_event`
+### Action: Create event
 
-You can use the `google.create_event` action to create a new calendar event in a calendar.
+The `google.create_event` action allows you to create a new calendar event in a calendar.
 
 {% details "Create event action details" %}
 

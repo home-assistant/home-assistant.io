@@ -17,7 +17,6 @@ ha_codeowners:
 ha_config_flow: true
 ha_ssdp: true
 ha_platforms:
-  - backup
   - binary_sensor
   - button
   - camera
