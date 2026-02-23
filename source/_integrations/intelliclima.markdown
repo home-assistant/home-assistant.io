@@ -92,8 +92,8 @@ The **IntelliClima** integration provides the following entities for each discov
   - **Description**: Air quality indicator based on detected volatile organic compounds.
   - **Unit**: ppm (parts per million)
   - **Measurement type**: Air quality/VOC level
-  - **Available for devices**: Ecocomfort 2.0
   - **Remarks**: Higher values indicate lower air quality and may trigger automatic ventilation adjustments.
+  - **Available for devices**: Ecocomfort 2.0
 
 ## Data updates
 
