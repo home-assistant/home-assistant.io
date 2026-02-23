@@ -195,11 +195,11 @@ It is strongly encouraged to review the guidance for [Zigbee interference avoida
 3. After submitting, the {% term integration %} will try to detect the radio type automatically.
 4. If unsuccessful, you will need to manually set your radio type: 
     - Choose your **Radio Type**:
-        - **ezsp**: Silicon Labs EmberZNet protocol (e.g., Home Assistant ZBT-1 or ZBT-2, Elelabs, HUSBZB-1, Telegesis)
-        - **deCONZ**: dresden elektronik deCONZ protocol (e.g., ConBee I/II, RaspBee I/II)
+        - **ezsp**: Silicon Labs EmberZNet protocol (for example, Home Assistant ZBT-1 or ZBT-2, Elelabs, HUSBZB-1, Telegesis)
+        - **deCONZ**: dresden elektronik deCONZ protocol (for example, ConBee I/II, RaspBee I/II)
         - **znp**: Texas Instruments (for example, CC253x, CC26x2, CC13x2)
-        - **zigate**: ZiGate Serial protocol (e.g., ZiGate USB-TTL, PiZiGate, ZiGate WiFi)
-        - **xbee**: Digi XBee ZB Coordinator Firmware protocol (e.g., Digi XBee Series 2, 2C, 3)
+        - **zigate**: ZiGate Serial protocol (for example, ZiGate USB-TTL, PiZiGate, ZiGate WiFi)
+        - **xbee**: Digi XBee ZB Coordinator Firmware protocol (for example, Digi XBee Series 2, 2C, 3)
     - Select **Submit** to proceed to the next step.
 5. Enter the **Serial device path**:
     - Most devices need at the very least the serial device path, such as `/dev/ttyUSB0`, but it is recommended to use device path from `/dev/serial/by-id` folder (e.g., `/dev/serial/by-id/usb-Silicon_Labs_HubZ_Smart_Home_Controller_C0F003D3-if01-port0`).
