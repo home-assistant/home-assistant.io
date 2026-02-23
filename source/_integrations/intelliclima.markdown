@@ -106,7 +106,6 @@ This means:
 
 ## Examples
 
-
 ### Automatic ventilation based on air quality
 
 Create an automation that adjusts fan speed based on VOC levels:
