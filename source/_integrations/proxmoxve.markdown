@@ -98,18 +98,18 @@ In your Home Assistant configuration, use `hass@pve` for the username and your c
 
 ## Binary sensor
 
-The integration will automatically create a binary sensor for each tracked virtual machine or container. The binary sensor will either be on if the VM's state is running or off if the VM's state is different.
+The integration will automatically create a binary sensor for each tracked virtual machine or container. The binary sensor will either be on if the VM state is running or off if the VM state is different.
 
 The created sensor will be called `binary_sensor.NODE_NAME_VMNAME_running`.
 
 ## Button
 
 - **Start**: Start a node/VM/LXC.
-- **Start all**: Start all VM's and LXC's known on a node.
+- **Start all**: Start all VMs and LXCs known on a node.
 - **Stop**: Stop a node/VM/LXC.
-- **Stop all**: Stop all VM's and LXC's known on a node.
+- **Stop all**: Stop all VMs and LXCs known on a node.
 - **Restart**: Restart a VM/LXC.
 - **Reboot**: Reboots a node.
 - **Shutdown**: Shutdowns a node.
-- **Hibernate**: Put a VM in hibernation; only available to VM's.
-- **Reset**: Resets a VM; only available to VM's.
+- **Hibernate**: Put a VM in hiberanation; only available to VMs.
+- **Reset**: Resets a VM; only available to VMs.
