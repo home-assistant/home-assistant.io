@@ -204,8 +204,8 @@ It is strongly encouraged to review the guidance for [Zigbee interference avoida
 5. Enter the **Serial device path**:
     - Most devices need at the very least the serial device path, such as `/dev/ttyUSB0`, but it is recommended to use device path from `/dev/serial/by-id` folder (e.g., `/dev/serial/by-id/usb-Silicon_Labs_HubZ_Smart_Home_Controller_C0F003D3-if01-port0`).
     - A list of available device paths can be found in {% my hardware title="Settings > System > Hardware" %} > **dot menu** > **All Hardware**.
-6. Set the **Port speed** (not applicable for all radios)
-7. Set the **Data flow control** (not applicable for all radios)
+6. Set the **Port speed** (not applicable for all radios).
+7. Set the **Data flow control** (not applicable for all radios).
 8. Press **Submit**.
     - If unsuccessful, an error will be displayed in the popup. 
     - An error is likely if Home Assistant can't access the USB device or your device is not up to date. 
