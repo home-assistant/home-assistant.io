@@ -76,9 +76,9 @@ SmartThings represents devices as a set of [capabilities](https://developer.smar
 - [Lock](#lock)
 - [Media player](#media-player)
 - [Number](#number)
+- [Scene](#scene)
 - [Select](#select)
 - [Sensor](#sensor)
-- [Scene](#scene)
 - [Switch](#switch)
 - [Update](#update)
 - [Vacuum](#vacuum)
@@ -249,6 +249,10 @@ The following SmartThings capabilities are supported for Select entities:
 | `samsungce.lamp`                                                                                                                           |
 | [`washerOperatingState`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#washerOperatingState)          |
 
+### Scene
+
+The SmartThings Scene lets you activate scenes defined in SmartThings. A scene entity is created for each SmartThings scene.
+
 ### Sensor
 
 The SmartThings Sensor platform lets your view devices that have sensor-related capabilities. A Sensor entity is created for each attribute (below) supported by the device.
@@ -321,10 +325,6 @@ The SmartThings Sensor platform lets your view devices that have sensor-related 
 | [`voltageMeasurement`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#voltageMeasurement)                                 | Voltage                                                                  |
 | [`washerMode`](https://developer.smartthings.com/docs/devices/capabilities/proposed#washerMode)                                                               | Washer mode                                                              |
 | [`washerOperatingState`](https://developer.smartthings.com/docs/devices/capabilities/proposed#washerOperatingState)                                           | Machine state<br/>Job state<br/>Completion time                          |
-
-### Scene
-
-The SmartThings Scene lets you activate scenes defined in SmartThings. A scene entity is created for each SmartThings scene.
 
 ### Switch
 
