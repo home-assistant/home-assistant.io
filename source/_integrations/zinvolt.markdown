@@ -4,7 +4,7 @@ description: Instructions on how to integrate Zinvolt batteries with Home Assist
 ha_category:
   - Energy
   - Sensor
-ha_release: "2026.3"
+ha_release: 2026.3
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
