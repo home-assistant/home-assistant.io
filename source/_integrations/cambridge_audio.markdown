@@ -72,6 +72,7 @@ The integration provides a few entities to configure the device settings. The fo
 - Audio output (Speaker select)
 - Control Bus mode
 - Room correction
+- Volume limit
 
 ### Pre-Amp
 When Pre-Amp mode is enabled, Home Assistant can control the output volume of your Pre-Amplifier. 
