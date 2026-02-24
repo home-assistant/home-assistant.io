@@ -12,6 +12,7 @@ ha_codeowners:
 ha_domain: compit
 ha_platforms:
   - climate
+  - binary_sensor
   - select
   - water_heater
 ha_integration_type: hub
@@ -70,11 +71,51 @@ This integration supports most of Compit device models across thermostats, contr
 - [SHC](https://compit.pl/produkty/osprzet/67-czujnik-stezenia-dwutlenku-wegla-wilgotnosci-i-temperatury-w-pomieszczeniach-shc.html?ic=1) – CO₂, humidity, and temperature sensor
 - [SPM](https://compit.pl/produkty/osprzet/87-czujnik-jakosci-powietrza-spm.html?ic=1) – Air quality sensor
 
+{% note %}
+When the SPM sensor is connected to a Nano Color thermostat, it is displayed as `SPM - Nano Color` in Home Assistant. When connected to a Nano Color 2 thermostat, it is displayed as `SPM - Nano Color 2`.
+{% endnote %}
+
 ## Supported functionality
 
 The **Compit** integration provides the following entities.
 
 ### Binary sensors
+
+- **Airing**
+  - **Description**: Indicates whether a window is open for airing.
+  - **Available for devices**: Nano Color 2 (Room thermostat)
+
+- **Battery charging**
+  - **Description**: Indicates whether the battery is currently charging.
+  - **Available for devices**: AF-1 (Anti-freeze system)
+
+- **CO₂ alert**
+  - **Description**: Indicates whether the CO₂ level has exceeded the threshold.
+  - **Available for devices**: SPM - Nano Color 2 (Air quality sensor connected to Nano Color 2)
+
+- **CO₂ level**
+  - **Description**: Indicates whether the CO₂ level is problematic.
+  - **Available for devices**: Nano Color (Room thermostat), Nano Color 2 (Room thermostat), SPM (Air quality sensor), SHC (CO₂, humidity, and temperature sensor)
+
+- **Dust alert**
+  - **Description**: Indicates whether the dust level has exceeded the threshold.
+  - **Available for devices**: SPM - Nano Color 2 (Air quality sensor connected to Nano Color 2)
+
+- **Has battery**
+  - **Description**: Indicates whether the device has a battery installed.
+  - **Available for devices**: AF-1 (Anti-freeze system)
+
+- **Has external power**
+  - **Description**: Indicates whether the device is connected to external power.
+  - **Available for devices**: AF-1 (Anti-freeze system)
+
+- **Pump status**
+  - **Description**: Indicates whether the pump is currently running.
+  - **Available for devices**: AF-1 (Anti-freeze system)
+
+- **Temperature alert**
+  - **Description**: Indicates whether the temperature has exceeded the threshold.
+  - **Available for devices**: SPM - Nano Color 2 (Air quality sensor connected to Nano Color 2)
 
 Binary sensors provide status information about your Compit devices.
 

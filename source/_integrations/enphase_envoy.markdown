@@ -478,6 +478,12 @@ The firmware version is not available as an entity, but rather as an attribute o
 
 {% endraw %}
 
+### Firmware update alert
+
+To receive a notification when the firmware is updated, use this [Enphase Envoy Firmware update notification](https://community.home-assistant.io/t/enphase-envoy-firmware-update-notification/983651) automation [blueprint](https://www.home-assistant.io/docs/blueprint/) from the community blueprints exchange.
+
+Import the blueprint using the **import blueprint to** button. This will install the blueprint as `/config/blueprints/automation/catsmanac/Track_envoy_firmware.yaml`. Use the [automation example](https://community.home-assistant.io/t/enphase-envoy-firmware-update-notification/983651#p-3741023-example-10) shown in the blueprint exchange to implement an automation that will create a notification when the firmware changes.
+
 ## Energy dashboard
 
 This integration provides several entities suitable for the energy dashboard.

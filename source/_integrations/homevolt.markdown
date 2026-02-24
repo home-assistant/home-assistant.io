@@ -8,6 +8,7 @@ ha_iot_class: Local Polling
 ha_domain: homevolt
 ha_platforms:
   - sensor
+  - switch
 ha_config_flow: true
 ha_codeowners:
   - '@danielhiversen'
@@ -39,6 +40,12 @@ The {% term integration %} creates sensors reported by the device, including:
 - Battery/percentage (%)
 - Signal strength (dB)
 - Text, count, or schedule status values
+
+## Swtiches
+
+The {% term integration %} creates switches reported by the device, including:
+
+- Local mode, enable or disable loacal control mode
 
 ## Troubleshooting
 

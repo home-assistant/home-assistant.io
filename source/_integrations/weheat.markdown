@@ -9,7 +9,7 @@ ha_iot_class: Cloud Polling
 ha_release: '2024.10'
 ha_config_flow: true
 ha_codeowners:
-  - '@jesperraemaekers'
+  - '@barryvdh'
 ha_domain: weheat
 ha_platforms:
   - binary_sensor
@@ -50,7 +50,15 @@ The Weheat integration provides the following sensors:
 - **Outside temperature**: Outside temperature in °C
 - **Current room temperature**: Current room temperature in °C
 - **Room temperature setpoint**: Setpoint for the room temperature in °C
+- **Electricity used heating**: Total electricity used in kWh during central heating mode
+- **Electricity used DHW**: Total electricity used in kWh during DHW mode (optional)
+- **Electricity used cooling**: Total electricity used in kWh during cooling mode
+- **Electricity used defrost**: Total electricity used in kWh during defrost mode
 - **Electricity used**: Total electricity used in kWh
+- **Energy output heating**: Total output generated in kWh during central heating mode
+- **Energy output DHW**: Total output generated in kWh during DHW mode (optional)
+- **Energy output cooling**: Total output generated in kWh during cooling mode. Note that this energy number is negative and decreasing as energy is removed from the house.
+- **Energy output defrost**: Total output generated in kWh during defrost mode. Note that this energy number is negative and decreasing as energy is removed from the house.
 - **Energy output**: Total output generated in kWh
 - **State**: The current heat pump state
 - **DHW top temperature**: The domestic hot water temperature in the top of the vessel in °C (optional)

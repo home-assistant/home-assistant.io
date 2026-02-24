@@ -109,3 +109,13 @@ The data points provided by the SDK are visible in the Home Assistant device dia
 6. Open the diagnostic file, and check manually the `status`, `status_range` and `function` keys
 
 If `status`, `status_range` and `function` are all empty, then only scenes declared inside Tuya (if any) will be available inside Home Assistant.
+
+### Integration requires re-authenticating after every integration reload
+
+When Tuya updates the terms and conditions of iot.tuya.com, the integration will require repeated authentication.
+
+To fix this:
+
+1. Login to [iot.tuya.com](https://iot.tuya.com), and accept the terms and conditions.
+2. Restart Home Assistant.
+3. Reconfigure the Tuya integration.

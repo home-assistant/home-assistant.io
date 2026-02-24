@@ -11,6 +11,7 @@ ha_config_flow: true
 ha_domain: airos
 ha_platforms:
   - binary_sensor
+  - button
   - diagnostics
   - sensor
 ha_integration_type: device
@@ -24,6 +25,7 @@ A common use-case is establishing wireless <abbr title="Point-to-Point">PtP</abb
 There is currently support for the following platforms within Home Assistant:
 
 - [Binary sensor](#binary-sensor)
+- [Button](#button)
 - [Sensor](#sensor)
 
 This integration allows users to pull network metrics and statuses directly into their Home Assistant dashboards, enabling advanced automation, notifications, and comprehensive network oversight within their smart home ecosystem.
@@ -67,6 +69,12 @@ For stations in particular, they can operate in either a 'Bridge' or 'Router' ro
   - Can also be configured as a <abbr title="Point-to-Point Protocol over Ethernet">PPPoE</abbr> client, authenticating with a central <abbr title="Point-to-Point Protocol over Ethernet">PPPoE</abbr> server to receive its IP address, gateway, and other network settings.
 
 The choice between Bridge and Router mode depends on the network architecture and whether the device is intended to extend an existing network (Bridge) or create a new subnet (Router).
+
+## Button
+
+### Reboot
+
+Disabled by default, can be enabled to provide a button to reboot the device.
 
 ## Sensor
 

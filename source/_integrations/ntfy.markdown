@@ -152,6 +152,7 @@ For more customizable notifications, use the `ntfy.publish` action instead of `n
 - `email`: Specify the address to forward the notification to, for example `mail@example.com`.
 - `call`: Phone number to call and read the message out loud using text-to-speech. Requires ntfy Pro and prior phone number verification.
 - `icon`: Include an icon that will appear next to the text of the notification. Only JPEG and PNG images are supported.
+- `action`: Up to three **action buttons** can be added below the notifications. **Ntfy** supports the following types: [**Open website/app**](#open-a-website-or-app), [**Send HTTP request**](#send-http-request), [**Send Android broadcast**](#send-android-broadcast), and [**Copy to clipboard**](#copy-to-clipboard).
 - `sequence_id`: Enter a message or sequence ID to update an existing notification, or specify a sequence ID to reference later when updating, clearing (mark as read and dismiss), or deleting a notification. See [**Updating + deleting notifications**](https://docs.ntfy.sh/publish/#updating-deleting-notifications)
 
 {% details "Example YAML configuration" %}
@@ -167,6 +168,22 @@ data:
   click: "https://homeassistant.local"
   tags:
     - rotating_light
+  actions:
+    - action: http
+      label: 🚪 Close door
+      url: https://api.mygarage.lan/
+      headers:
+        - Authorization: Bearer zAzsx1sk..
+      body: "{\"action\": \"close\"}"
+      method: PUT
+    - action: broadcast
+      label: 📸 Take picture
+      extras:
+        - cmd: pic
+        - camera: front
+    - action: copy
+      label: 📋️ Copy code
+      value: "123456"
 target:
   entity_id: notify.mytopic
 ```
@@ -186,6 +203,50 @@ All parameters are optional. If `message` is left empty, the notification will u
 Check out the [emoji reference](https://docs.ntfy.sh/emojis/) for a full list of supported emoji shortcodes.
 
 {% endtip %}
+
+#### Action button parameters
+
+Depending on the selected type the following required and optional parameters are supported:
+
+##### Open a website or app.
+
+| Parameter | Required | Description |
+| :-------- | :------: | :---------- |
+| `action` | ✔️ | Select `view` to open a website or app when the button is clicked or tapped. |
+| `label` | ✔️ | Label of the action button in the notification. |
+| `url` | ✔️ | URL to open when action is tapped. |
+| `clear` | | Clear notification after action button is tapped. |
+
+##### Send HTTP request
+
+| Parameter | Required | Description |
+| :-------- | :------: | :---------- |
+| `action` | ✔️ | Select `http` to send an HTTP request when the button is clicked or tapped. |
+| `label` | ✔️ | Label of the action button in the notification. |
+| `url` | ✔️ | URL to which the HTTP request will be sent. |
+| `method` | | HTTP method to use for request, default is `POST`. |
+| `headers` | | HTTP headers to pass in request (key-value pairs). |
+| `body` | | Payload to send in the HTTP body. |
+| `clear` | | Clear notification after action button is tapped. |
+
+##### Send Android broadcast
+
+| Parameter | Required | Description |
+| :-------- | :------: | :---------- |
+| `action` | ✔️ | Select `broadcast` to send an Android broadcast intent when the button is clicked or tapped. |
+| `label` | ✔️ | Label of the action button in the notification. |
+| `intent` | | Android intent name, default is `io.heckel.ntfy.USER_ACTION`. |
+| `extras` | | Android intent extras (key-value pairs). |
+| `clear` | | Clear notification after action button is tapped. |
+
+##### Copy to clipboard
+
+| Parameter | Required | Description |
+| :-------- | :------: | :---------- |
+| `action` | ✔️ | Select `copy` to copy a given value to the clipboard when the button is clicked or tapped. |
+| `label` | ✔️ | Label of the action button in the notification. |
+| `value` | ✔️ | Value to copy to the clipboard. |
+| `clear` | | Clear notification after action button is tapped. |
 
 ### Dismiss notification
 
