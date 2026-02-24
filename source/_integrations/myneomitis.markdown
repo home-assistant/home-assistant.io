@@ -24,7 +24,7 @@ ha_integration_type: hub
 - Let’s you view and edit weekly schedules from the Home Assistant Interface.
 - Allows you to monitor the energy consumption of compatible products.
 
-### Supported heating & energy management devices:
+## Supported devices
 
 - Eftair towel rails with blower
 - Ebath towel rails
