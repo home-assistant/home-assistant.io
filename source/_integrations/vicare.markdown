@@ -107,7 +107,7 @@ Number entities are available to adjust values like the predefined temperature f
 
 ### Select
 
-Select entities allow configuring the domestic hot water (<abbr title="domestic hot water">DHW</abbr>) operating mode of your Viessmann device. Available options depend on the specific device model and may include modes such as balanced, economical, or off.
+Select entities allow configuring the domestic hot water (<abbr title="domestic hot water">DHW</abbr>) operating mode of your Viessmann device. Available options depend on the specific device model and may include `balanced`, `economical`, or `off` modes.
 
 ## Actions
 
