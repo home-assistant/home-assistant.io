@@ -609,7 +609,7 @@ type: power-sources-graph
 
 ## Using multiple collections
 
-By default, all energy cards on the current dashboard are linked together. Any `energy-date-selection` cards on this dashboard will control what data is shown. If there are none, a default date of today will be used, whilst multiple such cards will always show the same date. Any `energy-date-selection` card on a different dashboard will not affect energy cards on the current dashboard.
+By default, all energy cards on the current dashboard are linked together. Any `energy-date-selection` cards on this dashboard control what data is shown. If there are none, a default date of today is used. When you add multiple date selection cards, they always show the same date. Any `energy-date-selection` card on a different dashboard does not affect energy cards on the current dashboard.
 
 To enable multiple different date selections on the same dashboard, it is necessary to link them to different collections. This is done using the `collection_key` parameter either in the visual editor or card YAML, and giving this a value of any custom string that begins with `energy_` (strings that do not start with `energy_` will generate an error).
 
