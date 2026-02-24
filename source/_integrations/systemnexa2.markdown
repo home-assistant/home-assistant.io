@@ -68,6 +68,13 @@ Host:
   - **Available for devices**: WBD-01, WPD-01
   - **Remarks**: Supports brightness control from 0-100%
 
+### Sensor
+
+- **Signal strength**
+  - **Description**: Wi-Fi signal strength (dBm).
+  - **Available for devices**: all
+  - **Remarks**: Disabled by default
+
 ### Switches
 
 - **Relay**
