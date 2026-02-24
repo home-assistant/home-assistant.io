@@ -168,27 +168,23 @@ data:
   click: "https://homeassistant.local"
   tags:
     - rotating_light
-  http:
-    - label: Throttle server load
-      url: https://api.example.com/
-      method: POST
+  actions
+  actions:
+    - action: http
+      label: 🚪 Close door
+      url: https://api.mygarage.lan/
       headers:
-        x-client: HomeAssistant
-        Authorization: "Bearer zAzsx1sk.."
-      body: "{\"action\": \"throttle\"}"
-      position: 1
-  broadcast:
-    - label: Set early alarm
-      intent: com.urbandroid.sleep.alarmclock.ALARM_STATE_CHANGE
+        - Authorization: Bearer zAzsx1sk..
+      body: "{\"action\": \"close\"}"
+      method: PUT
+    - action: broadcast
+      label: 📸 Take picture
       extras:
-        alarm_label: Work emergency
-        alarm_enabled: true
-      position: 2
-  view:
-    - label: "Open server dashboard"
-      url: "https://grafana.example.com/d/server-overview"
-      clear: true
-      position: 3
+        - cmd: pic
+        - camera: front
+    - action: copy
+      label: 📋️ Copy code
+      value: "123456"
 target:
   entity_id: notify.mytopic
 ```
