@@ -23,18 +23,15 @@ All station data and prices are provided by **[Fuelprices.dk](https://fuelprices
 
 ## Prerequisites
 
+To set up the integration, you need a valid **[Fuelprices.dk](https://fuelprices.dk)** API key
+
 1. Go to **[Fuelprices.dk](https://fuelprices.dk)**.
 2. Select **Registrering**.
 3. Enter your name and email address.
 4. Select **Opret bruger**.
 5. Check your email and copy your API key.
 
-To set up the integration, you need:
-
-- A valid **[Fuelprices.dk](https://fuelprices.dk)** API key
-- A fuel company
-- A station
-- One or more products
+{% configuration_basic %}
 
 After setup, you can reconfigure selected products for each station from the integration settings.
 
@@ -44,8 +41,7 @@ After setup, you can reconfigure selected products for each station from the int
 
 The integration creates sensor entities for the selected station:
 
-- One price sensor per selected product (for example `Blyfri95`, `Blyfri98`, and `Diesel`)
-- One optional diagnostic timestamp sensor (`last_updated`) that shows when station data was last updated by **[Fuelprices.dk](https://fuelprices.dk)**
+- One price sensor per selected product (for example `Blyfri 92`, `Oktan 95`, and `Diesel`)
 
 ## Data updates
 
