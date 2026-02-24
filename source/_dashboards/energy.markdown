@@ -346,7 +346,7 @@ type: energy-self-sufficiency-gauge
   Screenshot of the devices energy graph card.
 </p>
 
-The devices energy graph show the energy usage per device, it is sorted by usage.
+The devices energy graph shows the energy usage per device, it is sorted by usage.
 
 ### YAML configuration
 
