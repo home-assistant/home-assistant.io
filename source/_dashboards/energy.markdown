@@ -51,9 +51,8 @@ type:
   type: string
 collection_key:
   required: false
-  description: "Collection key to use for the card. This links the card to a specific energy dashboard collection. Defaults to `energy_dashboard`."
+  description: "Collection key to use for the card. This links the card to a specific energy dashboard collection. If not provided, defaults to the current dashboard page URL."
   type: string
-  default: energy_dashboard
 title:
   required: false
   description: When defined, shows a card header with the title string and total energy consumed chip.
@@ -86,9 +85,8 @@ type:
   type: string
 collection_key:
   required: false
-  description: "Collection key to use for the card. This links the card to a specific energy dashboard collection. Defaults to `energy_dashboard`."
+  description: "Collection key to use for the card. This links the card to a specific energy dashboard collection. If not provided, defaults to the current dashboard page URL."
   type: string
-  default: energy_dashboard
 title:
   required: false
   description: When defined, shows a card header with the title string and total solar produced chip.
@@ -117,9 +115,8 @@ type:
   type: string
 collection_key:
   required: false
-  description: "Collection key to use for the card. This links the card to a specific energy dashboard collection. Defaults to `energy_dashboard`."
+  description: "Collection key to use for the card. This links the card to a specific energy dashboard collection. If not provided, defaults to the current dashboard page URL."
   type: string
-  default: energy_dashboard
 title:
   required: false
   description: When defined, shows a card header with the title string and total gas consumed chip.
@@ -152,9 +149,8 @@ type:
   type: string
 collection_key:
   required: false
-  description: "Collection key to use for the card. This links the card to a specific energy dashboard collection. Defaults to `energy_dashboard`."
+  description: "Collection key to use for the card. This links the card to a specific energy dashboard collection. If not provided, defaults to the current dashboard page URL."
   type: string
-  default: energy_dashboard
 title:
   required: false
   description: When defined, shows a card header with the title string and total water consumed chip.
@@ -189,7 +185,7 @@ type:
   type: string
 collection_key:
   required: false
-  description: "Collection key to use for the card. This links the card to a specific energy dashboard collection."
+  description: "Collection key to use for the card. This links the card to a specific energy dashboard collection. If not provided, defaults to the current dashboard page URL."
   type: string
 title:
   required: false
@@ -483,9 +479,8 @@ type:
   type: string
 collection_key:
   required: false
-  description: "Collection key to use for the card. This links the card to a specific energy dashboard collection. Defaults to `energy_dashboard`."
+  description: "Collection key to use for the card. This links the card to a specific energy dashboard collection. If not provided, defaults to the current dashboard page URL."
   type: string
-  default: energy_dashboard
 title:
   required: false
   description: The title of the card.
@@ -540,9 +535,8 @@ type:
   type: string
 collection_key:
   required: false
-  description: "Collection key to use for the card. This links the card to a specific energy dashboard collection. Defaults to `energy_dashboard`."
+  description: "Collection key to use for the card. This links the card to a specific energy dashboard collection. If not provided, defaults to the current dashboard page URL."
   type: string
-  default: energy_dashboard
 title:
   required: false
   description: The title of the card.
@@ -562,7 +556,9 @@ type: power-sources-graph
 
 ## Using multiple collections
 
-By default, all energy cards are linked to any `energy-date-selection` card on the view, and all `energy-date-selection` cards are linked to the same period. To enable multiple different date selections on the same view, it is necessary to link them to different collections. This is done by adding the variable `collection_key` to the card YAML, and giving this a value of any custom string that begins with `energy_`. (strings that do not start with `energy_` will generate an error).
+By default, all energy cards on the current dashboard are linked together. Any `energy-date-selection` cards on this dashboard will control what data is shown. If there are none, a default date of today will be used, whilst multiple such cards will always show the same date. Any `energy-date-selection` card on a different dashboard will not affect energy cards on the current dashboard.
+
+To enable multiple different date selections on the same dashboard, it is necessary to link them to different collections. This is done using the `collection_key` parameter either in the visual editor or card YAML, and giving this a value of any custom string that begins with `energy_` (strings that do not start with `energy_` will generate an error).
 
 All energy cards support use of `collection_key` option.
 
