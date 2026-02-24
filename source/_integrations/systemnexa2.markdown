@@ -68,7 +68,7 @@ Host:
   - **Available for devices**: WBD-01, WPD-01
   - **Remarks**: Supports brightness control from 0-100%
 
-### Sensor
+### Sensors
 
 - **Signal strength**
   - **Description**: Wi-Fi signal strength (dBm).
