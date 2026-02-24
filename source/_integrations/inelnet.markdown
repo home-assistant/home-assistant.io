@@ -33,8 +33,6 @@ The integration works with INELNET blind controllers that expose the HTTP interf
 - You need the controller’s IP address or hostname. You can find it in your router’s client list or via the device’s own configuration.
 - The controller exposes an HTTP (unencrypted) interface only; HTTPS is not supported by the device.
 
-## Configuration
-
 {% include integrations/config_flow.md %}
 
 ### Configuration parameters
@@ -43,26 +41,24 @@ During setup you enter the following:
 
 {% configuration_basic %}
 Host:
-  description: "The IP address or hostname of the INELNET controller on your network (for example, 192.168.1.67)."
+  description: "The IP address or hostname of the INELNET controller on your network (for example, `192.168.1.67`)."
 Channels:
-  description: "The channel numbers to control, as a comma-separated list. Each value must be between 1 and 16 (for example, 1 or 1,2,3). One device is created per channel, each with a cover and optional buttons."
+  description: "The channel numbers to control, as a comma-separated list. Each value must be between 1 and 16 (for example, `1` or `1,2,3`). One device is created per channel, each with a cover and optional buttons."
 {% endconfiguration_basic %}
 
 After setup, one device is created per channel. Each device has one cover entity and, when enabled, three button entities (short move up, short move down, programming mode).
 
 ## Supported functionality
 
-### Entities
-
 The INELNET Blinds integration provides the following entities per channel.
 
-#### Covers
+### Covers
 
 - **Blind channel N** (one per configured channel)
   - **Description**: Opens (rolls up), closes (rolls down), and stops the blind on that channel.
   - **Features**: Open, close, stop. Position is not reported; the device does not send state feedback, so the cover entity’s open/closed state is unknown.
 
-#### Buttons
+### Buttons
 
 The following buttons are created per channel but are **disabled by default**. You can enable them per entity in **Settings** > **Devices & services** > your INELNET device > **Entities**.
 
@@ -73,7 +69,7 @@ The following buttons are created per channel but are **disabled by default**. Y
 - **Programming mode (pair remote)**
   - **Description**: Puts the channel into programming mode so you can pair a remote. Use according to your hardware manual.
 
-### Device actions
+## Actions
 
 You can use INELNET devices in automations and scripts via device actions (no need to enable the button entities). Available actions:
 
