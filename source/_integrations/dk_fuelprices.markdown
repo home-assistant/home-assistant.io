@@ -20,7 +20,7 @@ ha_config_flow: true
 
 The **Fuelprices.dk** {% term integration %} uses the [Fuelprices.dk API](https://fuelprices.dk) as a source for fuel price data from Danish fuel companies.
 
-All station data and prices are provided by **[Fuelprices.dk](https://fuelprices.dk)** and the fuel companies.
+All station data and prices are provided by [Fuelprices.dk](https://fuelprices.dk) and the fuel companies.
 
 ## Companies currently supported
 
@@ -28,12 +28,12 @@ To view a list of currently supported companies, refer to [Fuelprices.dk Compani
 
 ## Prerequisites
 
-To set up the integration, you need a valid **[Fuelprices.dk](https://fuelprices.dk)** API key
+To set up the integration, you need a valid [Fuelprices.dk](https://fuelprices.dk) API key
 
-1. Go to **[Fuelprices.dk](https://fuelprices.dk)**.
-2. Select **Registrering**.
-3. Enter your name and email address.
-4. Select **Opret bruger**.
+1. Go to [Fuelprices.dk](https://fuelprices.dk).
+2. Select `Registrering`.
+3. Enter your `name` and `email address`.
+4. Select `Opret bruger`.
 5. Check your email and copy your API key.
 
 After setup, you can reconfigure selected products for each station from the integration settings.
@@ -55,11 +55,11 @@ The integration creates sensor entities for the selected station:
 
 The integration {% term polling polls %} [Fuelprices.dk](https://fuelprices.dk) every hour.
 
-The integration does not modify values. Home Assistant shows the values exactly as returned by **[Fuelprices.dk](https://fuelprices.dk)**.
+The integration does not modify values. Home Assistant shows the values exactly as returned by [Fuelprices.dk](https://fuelprices.dk).
 
 ## Known limitations
 
-- Data availability and freshness depend on **[Fuelprices.dk](https://fuelprices.dk)** and the fuel companies.
+- Data availability and freshness depend on [Fuelprices.dk](https://fuelprices.dk) and the fuel companies.
 - Some stations may not provide all products.
 - API rate limits can temporarily delay updates.
 
@@ -68,7 +68,7 @@ The integration does not modify values. Home Assistant shows the values exactly 
 - **Invalid API key**: Verify that your API key is correct and still active.
 - **Cannot connect**: Check your internet connection and try again later.
 - **Rate limit exceeded**: Wait and try again later.
-- **Missing prices for a product**: Verify that the selected station provides that product on **[Fuelprices.dk](https://fuelprices.dk)**.
+- **Missing prices for a product**: Verify that the selected station provides that product on [Fuelprices.dk](https://fuelprices.dk).
 
 ## Removing the integration
 
