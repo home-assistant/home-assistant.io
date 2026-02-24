@@ -18,7 +18,7 @@ related:
 ha_config_flow: true
 ---
 
-The **Fuelprices.dk** {% term integration %} uses the **[Fuelprices.dk API](https://fuelprices.dk)** as a source for fuel price data from Danish fuel companies.
+The **Fuelprices.dk** {% term integration %} uses the [Fuelprices.dk API](https://fuelprices.dk) as a source for fuel price data from Danish fuel companies.
 
 All station data and prices are provided by **[Fuelprices.dk](https://fuelprices.dk)** and the fuel companies.
 
