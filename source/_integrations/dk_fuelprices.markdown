@@ -68,7 +68,3 @@ The integration does not modify values. Home Assistant shows the values exactly 
 This integration follows standard integration removal. No extra steps are required.
 
 {% include integrations/remove_device_service.md %}
-
-## Companies currently supported
-
-You can see the currently supported companies at **[Fuelprices.dk Companies](https://fuelprices.dk/selskaber)**.
