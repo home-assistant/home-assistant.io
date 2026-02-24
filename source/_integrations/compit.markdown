@@ -3,6 +3,7 @@ title: Compit
 description: Instructions on how to integrate Compit devices within Home Assistant.
 ha_category:
   - Climate
+  - Water Heater
 ha_release: '2025.10'
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -12,6 +13,7 @@ ha_domain: compit
 ha_platforms:
   - climate
   - select
+  - water_heater
 ha_integration_type: hub
 ha_quality_scale: bronze
 ---
@@ -76,6 +78,81 @@ The **Compit** integration provides the following entities.
 
 Binary sensors provide status information about your Compit devices.
 
+### Climate
+
+The climate entity reflects the current heating or cooling state and the **active** target temperature. Use the climate entity when you want to change the target temperature temporarily or for the current session (for example, turning up the heat for the evening). The climate entity is where you set what temperature the device is aiming for right now.
+
+### Numbers
+
+Number entities let you set **default** temperature setpoints and other configuration values. These are the preset target temperatures used for each operating mode (such as Comfort, Eco, or Holiday). They are not used for temporary or one-off changes; for those, use the climate entity instead.
+
+- **Comfort target temperature**
+  - **Description**: Target room temperature for comfort mode.
+  - **Range**: 0–40 °C
+  - **Available for devices**: Nano One (Room thermostat), Nano Color (Room thermostat), Nano Color 2 (Room thermostat)
+
+- **Eco target temperature**
+  - **Description**: Target room temperature for eco mode.
+  - **Range**: 0–40 °C
+  - **Available for devices**: Nano One (Room thermostat)
+
+- **Holiday target temperature**
+  - **Description**: Target room temperature while you are on holiday.
+  - **Range**: 0–40 °C
+  - **Available for devices**: Nano One (Room thermostat)
+
+- **Eco winter target temperature**
+  - **Description**: Target room temperature for eco mode during the winter
+    season.
+  - **Range**: 0–40 °C
+  - **Available for devices**: Nano Color (Room thermostat), Nano Color 2 (Room thermostat)
+
+- **Eco cooling target temperature**
+  - **Description**: Target room temperature for eco mode during cooling.
+  - **Range**: 0–40 °C
+  - **Available for devices**: Nano Color (Room thermostat), Nano Color 2 (Room thermostat)
+
+- **Out-of-home target temperature**
+  - **Description**: Target room temperature when nobody is at home.
+  - **Range**: 0–40 °C
+  - **Available for devices**: Nano Color (Room thermostat), Nano Color 2 (Room thermostat)
+
+- **Constant target temperature**
+  - **Description**: Constant target temperature for the heating circuit.
+  - **Range**: 0–95 °C
+  - **Available for devices**: R810 (Heating circuit controller)
+
+- **Heating constant target temperature**
+  - **Description**: Constant target temperature for the heat pump heating
+    circuit.
+  - **Range**: 0–95 °C
+  - **Available for devices**: R470 (Heat pump controller)
+
+- **Mixer target temperature**
+  - **Description**: Target temperature for the mixing valve circuit.
+  - **Range**: 0–90 °C
+  - **Available for devices**: R350.M (Universal controller)
+
+- **Mixer target temperature zone 1**
+  - **Description**: Target temperature for mixing valve circuit in zone 1.
+  - **Range**: 0–95 °C
+  - **Available for devices**: R770RS (Boiler controller), R771RS (Boiler controller)
+
+- **Mixer target temperature zone 2**
+  - **Description**: Target temperature for mixing valve circuit in zone 2.
+  - **Range**: 0–95 °C
+  - **Available for devices**: R770RS (Boiler controller), R771RS (Boiler controller)
+
+- **Boiler target temperature**
+  - **Description**: Target temperature for the boiler.
+  - **Range**: 0–95 °C
+  - **Available for devices**: BioMax742 (Pellet boiler controller), EL750 (Electric boiler controller)
+
+- **Boiler constant target temperature**
+  - **Description**: Constant target temperature for the boiler.
+  - **Range**: 0–90 °C
+  - **Available for devices**: BioMax742 (Pellet boiler controller), BioMax772 (Pellet boiler controller), BioMax775 (Pellet boiler controller)
+
 ### Selects
 
 - **Language**
@@ -137,6 +214,19 @@ Binary sensors provide status information about your Compit devices.
   - **Description**: Buffer tank operating mode.
   - **Options**: Schedule, Manual, Disabled
   - **Available for devices**: R480 (Heat pump controller)
+
+### Water heaters
+
+- **Water heater**
+  - **Description**: Controls the domestic hot water parameters.
+  - **Available for devices**: BioMax742, BioMax772, BioMax775, EL750, R350.CWU, R377B, R470, R480, R490, R770RS, R771RS, R900, SolarComp951, SolarComp971, SolarComp971C
+  - **Remarks**:
+    - Solar controllers and R350.CWU only support setting the target temperature.
+    - Other devices also support On/Off and operation modes.
+      - State `off` maps to `off` in Compit
+      - State `performance` maps to `on` in Compit
+      - State `eco` maps to `schedule` in Compit
+    - Solar controllers don't support current temperature attribute.
 
 ## Removing the integration
 

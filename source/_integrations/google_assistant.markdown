@@ -200,7 +200,7 @@ service_account:
       required: true
       type: string
 report_state:
-  description: Actively report state changes on entities. This speeds up response time for actions affecting multiple entities since Google Assistant knows pre-hand what state they are. It is also required for some features on visual controls.
+  description: Actively report state changes on entities. This speeds up response time for actions affecting multiple entities since Google Assistant knows beforehand what state they are. It is also required for some features on visual controls.
   required: false
   default: false
   type: boolean
@@ -247,6 +247,7 @@ entity_config:
 Currently, the following domains are available to be used with Google Assistant, listed with their default types:
 
 - alarm_control_panel (arm/disarm)
+- binary_sensor (entities with device class: `carbon_monoxide`, `door`, `garage_door`, `lock`, `moisture`, `opening`, `smoke`, `window`)
 - button (scene)
 - camera (streaming, requires compatible camera)
 - climate (on/off, temperature setting, hvac_mode)
@@ -265,7 +266,7 @@ Currently, the following domains are available to be used with Google Assistant,
 - scene
 - script (scene)
 - select
-- sensor (temperature setting for temperature sensors and humidity setting for humidity sensors)
+- sensor (entities with device class: `aqi`, `carbon_dioxide`, `carbon_monoxide`, `humidity`, `pm10`, `pm25`, `temperature`, `volatile_organic_compounds`)
 - switch (on/off)
 - vacuum (dock/start/stop/pause)
 - valve (open/close/set position/stop/start=toggle valve)

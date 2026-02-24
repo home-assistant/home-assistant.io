@@ -26,7 +26,7 @@ There is currently support for the following device types within Home Assistant:
 
 - **Binary sensor**: reports whether or not there are any alerts.
 - **Sensor**: reports on the device's system mode, water flow rate, temperature, water pressure, and daily water consumption.
-- **Switch**: allows the user to open and close the valve on the water shutoff device.
+- **Switch**: allows you to open and close the valve on the water shutoff device.
 
 {% include integrations/config_flow.md %}
 

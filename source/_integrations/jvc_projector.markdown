@@ -88,7 +88,7 @@ The JVC Projector binary sensor platform will create the following [Binary Senso
 
 ## Sensor
 
-The JVC Projector sensor platform will create the following [Sensors](/integrations/sensor/) entities. Note that some of these sensors are disabled by default.
+The JVC Projector sensor platform will create the following [Sensors](/integrations/sensor/) entities. Some of these sensors are disabled by default and may not be available for your model.
 
 - **Model name**
   - **Description**: The model series of the JVC Projector. Note this value will be different than your projector model name since the JVC communication protocol only identifies the model series by an internal code. In parentheses is the library's own identifier for the communication protocol version being used.
@@ -102,10 +102,6 @@ The JVC Projector sensor platform will create the following [Sensors](/integrati
   - **Description**: The number of hours on the light source (lamp/laser).
   - **Available for models**: all
 
-- **Source**
-  - **Description**: The signal resolution.
-  - **Available for models**: all
-
 - **Color depth**
   - **Description**: The signal color depth.
   - **Available for models**: all
@@ -116,11 +112,11 @@ The JVC Projector sensor platform will create the following [Sensors](/integrati
 
 - **HDR**
   - **Description**: The signal HDR mode.
-  - **Available for models**: all
+  - **Available for models**: 2017-present
 
 - **HDR processing**
   - **Description**: The signal HDR processing mode.
-  - **Available for models**: all
+  - **Available for models**: 2017-present
 
 - **Picture mode**
   - **Description**: The signal picture mode.
@@ -128,7 +124,7 @@ The JVC Projector sensor platform will create the following [Sensors](/integrati
 
 ## Select
 
-The JVC Projector select platform will create the following [Select](/integrations/select/) entities. Note that some of these selects are disabled by default.
+The JVC Projector select platform will create the following [Select](/integrations/select/) entities. Some of these selects are disabled by default and may not be available for your model.
 
 - **Input**
   - **Description**: The HDMI input source.
@@ -159,3 +155,15 @@ The JVC Projector select platform will create the following [Select](/integratio
   - **Description**: The anamorphic setting.
   - **Options**: Dependent on your detected model.
   - **Available for models**: all
+
+## Switch
+
+The JVC Projector switch platform will create the following Switch entities. Some of these switches are disabled by default and may not be available for your model.
+
+- **E-Shift**
+  - **Description**: The E-Shift mode setting.
+  - **Available for models**: 2014-present
+
+- **Low Latency Mode**
+  - **Description**: The low latency mode setting.
+  - **Available for models**: 2017-present
