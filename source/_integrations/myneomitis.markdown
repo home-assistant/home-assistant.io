@@ -5,7 +5,7 @@ ha_category:
   - Climate
   - Select
   - Sensor
-ha_release: 2025.8.3
+ha_release: 2026.3
 ha_iot_class: Cloud Push
 ha_config_flow: true
 ha_codeowners:
