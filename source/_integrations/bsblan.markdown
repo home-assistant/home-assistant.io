@@ -47,7 +47,6 @@ or using a passkey is supported. Use either one.
 - `climate`
 - `water heater`
 
-
 ## Actions
 
 The integration provides the following action.
