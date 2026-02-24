@@ -367,7 +367,7 @@ max_devices:
   type: integer
 hide_compound_stats:
   required: false
-  description: Hide higher level devices like breakers. These are devices that are set as `included_in_stat` of another device.
+  description: Hide upstream energy devices like breakers. These are devices that are set as `included_in_stat` of another device.
   type: boolean
   default: false
 {% endconfiguration %}
