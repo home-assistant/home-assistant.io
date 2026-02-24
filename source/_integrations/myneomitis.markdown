@@ -33,6 +33,13 @@ The **MyNeomitis** {% term integration %} connects your [Axenco](https://www.axe
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+Email:
+  description: The email address associated with your MyNeomitis account.
+Password:
+  description: The password for your MyNeomitis account.
+{% endconfiguration_basic %}
+
 ## Use cases
 
 - Control temperature and change operating modes.
