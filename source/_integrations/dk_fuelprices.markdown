@@ -15,7 +15,6 @@ ha_quality_scale: bronze
 related:
   - url: https://fuelprices.dk
     title: Fuelprices.dk
-ha_config_flow: true
 ---
 
 The **Fuelprices.dk** {% term integration %} uses the [Fuelprices.dk API](https://fuelprices.dk) as a source for fuel price data from Danish fuel companies.
