@@ -104,12 +104,12 @@ The created sensor will be called `binary_sensor.NODE_NAME_VMNAME_running`.
 
 ## Button
 
-- **Start**: Start a node/VM/LXC.
-- **Start all**: Start all VMs and LXCs known on a node.
-- **Stop**: Stop a node/VM/LXC.
-- **Stop all**: Stop all VMs and LXCs known on a node.
-- **Restart**: Restart a VM/LXC.
+- **Start**: Starts a node/VM/LXC.
+- **Start all**: Starts all VMs and LXCs known on a node.
+- **Stop**: Stops a node/VM/LXC.
+- **Stop all**: Stops all VMs and LXCs known on a node.
+- **Restart**: Restarts a VM/LXC.
 - **Reboot**: Reboots a node.
-- **Shutdown**: Shutdowns a node.
-- **Hibernate**: Put a VM in hiberanation; only available to VMs.
+- **Shutdown**: Shuts a node down.
+- **Hibernate**: Puts a VM in hiberanation; only available to VMs.
 - **Reset**: Resets a VM; only available to VMs.
