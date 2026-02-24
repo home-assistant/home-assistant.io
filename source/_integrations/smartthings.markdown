@@ -231,7 +231,7 @@ The SmartThings number platform lets you control numeric values for the followin
 
 ### Scene
 
-The SmartThings Scene lets you activate scenes defined in SmartThings. A scene entity is created for each SmartThings scene.
+The SmartThings scene platform lets you activate scenes that you defined in SmartThings. A scene entity is created for each SmartThings scene.
 
 ### Select
 
