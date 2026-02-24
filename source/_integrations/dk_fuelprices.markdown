@@ -24,9 +24,9 @@ All station data and prices are provided by **[Fuelprices.dk](https://fuelprices
 ## Prerequisites
 
 1. Go to **[Fuelprices.dk](https://fuelprices.dk)**.
-2. Click **Registrering**.
-3. Enter your **name** and **email address**.
-4. Click **Opret bruger**.
+2. Select **Registrering**.
+3. Enter your name and email address.
+4. Select **Opret bruger**.
 5. Check your email and copy your API key.
 
 ## Configuration
