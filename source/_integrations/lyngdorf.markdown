@@ -73,7 +73,6 @@ The integration creates two media player {% term entities %}:
 
 ### Sensors
 
-All sensor entities are {% term diagnostic %} and report the current signal information from the device.
 
 - **Audio information**: The current audio signal format (such as PCM or Dolby Atmos).
 - **Audio input**: The active audio input connector.
