@@ -2,8 +2,8 @@
 layout: post
 title: "Heiman joins Works with Home Assistant"
 description: "Heiman brings affordable, locally controlled safety devices to Works with Home Assistant, including the first Matter carbon monoxide alarms."
-date: 2026-02-18 00:00:01
-date_formatted: "February 18, 2026"
+date: 2026-02-24 00:00:01
+date_formatted: "February 24, 2026"
 author: Miranda Bishop
 comments: true
 categories: Works-with-Home-Assistant
