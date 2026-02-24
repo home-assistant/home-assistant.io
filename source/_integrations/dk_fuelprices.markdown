@@ -8,6 +8,7 @@ ha_iot_class: Cloud Polling
 ha_codeowners:
   - "@MTrab"
 ha_domain: dk_fuelprices
+ha_config_flow: true
 ha_integration_type: hub
 ha_platforms:
   - sensor
