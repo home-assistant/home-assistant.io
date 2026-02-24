@@ -216,7 +216,7 @@ The integration offers the following actions:
 
 ### Override schedule
 
-With this action, you can let your mower mow or park for a given time. You can select the override mode with the `override_mode´ attribute. This will override all your schedules during this time. The duration can be given in days, hours and/or minutes. The values for the duration have to be between 1 minute and 42 days.
+With this action, you can let your mower mow or park for a given time. You can select the override mode with the `override_mode` attribute. This will override all your schedules during this time. The duration can be given in days, hours and/or minutes. The values for the duration have to be between 1 minute and 42 days.
 
 ```yaml
 # Replace <name> with the name of your mower.
