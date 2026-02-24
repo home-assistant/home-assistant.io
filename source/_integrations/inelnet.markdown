@@ -19,11 +19,7 @@ related:
     title: INELNET Home Assistant setup guide
 ---
 
-The **INELNET Blinds** {% term integration %} lets you control INELNET blind
-controllers from Home Assistant. The controller is accessed over your local
-network via its REST API. The integration creates one device per channel; each
-channel has a cover entity (open, close, stop) and optional button entities
-for short moves and programming.
+The **INELNET Blinds** {% term integration %} lets you control INELNET blind controllers from Home Assistant. The controller is accessed over your local network via its REST API. The integration creates one device per channel; each channel has a cover entity (open, close, stop) and optional button entities for short moves and programming.
 
 Use case: You can open and close blinds from the dashboard, use them in automations and scenes, and trigger short moves or programming mode (for pairing remotes) via device actions or the optional button entities.
 
