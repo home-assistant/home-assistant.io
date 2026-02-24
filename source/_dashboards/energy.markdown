@@ -28,7 +28,7 @@ Specific dates and ranges can be selected by opening the date range picker. The 
 
 ### YAML configuration
 
-The following YAML options are available
+The following YAML options are available:
 
 {% configuration %}
 type:
@@ -69,7 +69,7 @@ It will also show the amount of energy your have returned to the grid.
 
 ### YAML configuration
 
-The following YAML options are available
+The following YAML options are available:
 
 {% configuration %}
 type:
@@ -103,7 +103,7 @@ The solar production graph card shows the amount of energy your solar panels hav
 
 ### YAML configuration
 
-The following YAML options are available
+The following YAML options are available:
 
 {% configuration %}
 type:
@@ -134,6 +134,10 @@ type: energy-solar-graph
 </p>
 
 The gas consumption graph card shows the amount of gas consumed per source.
+
+### YAML configuration
+
+The following YAML options are available:
 
 {% configuration %}
 type:
@@ -167,7 +171,7 @@ The water consumption graph card shows the amount of water consumed per source.
 
 ### YAML configuration
 
-The following YAML options are available
+The following YAML options are available:
 
 {% configuration %}
 type:
@@ -280,7 +284,7 @@ If setup, it will also show the costs and compensation per source and the total.
 
 ### YAML configuration
 
-The following YAML options are available
+The following YAML options are available:
 
 {% configuration %}
 type:
@@ -373,7 +377,7 @@ The devices energy graph shows the energy usage per device, it is sorted by usag
 
 ### YAML configuration
 
-The following YAML options are available
+The following YAML options are available:
 
 {% configuration %}
 type:
@@ -443,7 +447,7 @@ The sankey energy graph shows the flow of energy in your home. It starts with so
 
 ### YAML configuration
 
-The following YAML options are available
+The following YAML options are available:
 
 {% configuration %}
 type:
@@ -497,7 +501,7 @@ It visualizes the instantaneous power flow from sources (like the grid, solar pa
 
 ### YAML configuration
 
-The following YAML options are available
+The following YAML options are available:
 
 {% configuration %}
 type:
@@ -553,7 +557,7 @@ The power sources graph shows historical power data.
 
 ### YAML configuration
 
-The following YAML options are available
+The following YAML options are available:
 
 {% configuration %}
 type:
