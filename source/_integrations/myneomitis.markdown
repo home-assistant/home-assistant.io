@@ -2,22 +2,24 @@
 title: MyNeomitis
 description: Connect the MyNeomitis devices (radiators, towel rails, relays, underfloor heating) to Home Assistant using the cloud API.
 ha_category:
-  - Climate
   - Select
-  - Sensor
 ha_release: 2026.3
 ha_iot_class: Cloud Push
 ha_config_flow: true
 ha_codeowners:
-  - "@leo.periou"
+  - "@l-pr"
 ha_domain: myneomitis
 ha_platforms:
   - select
 ha_integration_type: hub
 ---
 
-The **MyNeomitis** {% term integration %} connects your [Axenco](https://www.axenco.fr/) MyNeomitis heating and energy management devices to Home Assistant. With this integration, you can control your devices, such as electric radiators, towel rails, and underfloor heating, directly from Home Assistant.
+The **MyNeomitis** {% term integration %} connects your [Axenco](https://www.axenco.com/) MyNeomitis heating and energy management devices to Home Assistant. With this integration, you can control your devices, such as electric radiators, towel rails, and underfloor heating, directly from Home Assistant.
 
+## Prerequisites
+
+- Create a MyNeomitis account via the MYNEOMITIS app.
+- Add your devices to the account using the app.
 
 ## Use cases
 
@@ -35,7 +37,7 @@ The **MyNeomitis** {% term integration %} connects your [Axenco](https://www.axe
 - Myneo stat thermostat
 - Myneo Link smart Wi-Fi switch
 
- {% include integrations/config_flow.md %}
+{% include integrations/config_flow.md %}
 
 ## Supported functionality
 
@@ -57,7 +59,6 @@ The **MyNeomitis** integration provides the following entities:
   - **Description**: Controls whether underfloor heating operates in heating or cooling mode.
   - **Options**: `Heating`, `Cooling`
   - **Available for devices**: UFH devices
-
 
 ## Data updates
 
