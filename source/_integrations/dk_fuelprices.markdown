@@ -36,11 +36,14 @@ To set up the integration, you need a valid **[Fuelprices.dk](https://fuelprices
 4. Select **Opret bruger**.
 5. Check your email and copy your API key.
 
-{% configuration_basic %}
-
 After setup, you can reconfigure selected products for each station from the integration settings.
 
 {% include integrations/config_flow.md %}
+
+{% configuration_basic %}
+api_key:
+  description: Your API key as specified in the email received after registration on [Fuelprices.dk](https://fuelprices.dk)
+{% endconfiguration_basic %}
 
 ## Supported functionality
 
