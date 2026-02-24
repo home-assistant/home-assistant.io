@@ -12,9 +12,6 @@ ha_domain: lyngdorf
 ha_ssdp: true
 ha_platforms:
   - media_player
-  - number
-  - select
-  - sensor
 ha_integration_type: device
 ha_quality_scale: silver
 ---
@@ -55,32 +52,6 @@ The integration creates two media player {% term entities %}:
 
 - **Main zone**: Controls your Lyngdorf device, including power, volume, mute, source selection, and sound mode.
 - **Zone B**: Controls the Zone B output, including power, volume, mute, and source selection.
-
-### Numbers
-
-- **Lip sync**: Adjusts the lip sync delay (0 to 200 ms in 1 ms steps).
-- **Trim bass**: Adjusts the bass level (-12.0 to +12.0 dB in 0.5 dB steps).
-- **Trim treble**: Adjusts the treble level (-12.0 to +12.0 dB in 0.5 dB steps).
-- **Trim centre**: Adjusts the center channel level (-10.0 to +10.0 dB in 0.5 dB steps).
-- **Trim height**: Adjusts the height speaker level (-10.0 to +10.0 dB in 0.5 dB steps).
-- **Trim LFE**: Adjusts the low frequency effects level (-10.0 to +10.0 dB in 0.5 dB steps).
-- **Trim surround**: Adjusts the surround speaker level (-10.0 to +10.0 dB in 0.5 dB steps).
-
-### Selects
-
-- **RoomPerfect position**: Chooses the RoomPerfect listening position (such as Global or Focus 1).
-- **Voicing**: Selects the RoomPerfect voicing preset (such as Neutral, Music, or Relaxed).
-
-### Sensors
-
-
-- **Audio information**: The current audio signal format (such as PCM or Dolby Atmos).
-- **Audio input**: The active audio input connector.
-- **Video information**: The current video signal format.
-- **Video input**: The active video input connector.
-- **Streaming source**: The current streaming source name.
-- **Zone B audio input**: The active audio input for Zone B.
-- **Zone B streaming source**: The current streaming source for Zone B.
 
 ## Data updates
 
@@ -123,6 +94,6 @@ To resolve this issue, try the following steps:
 
 ## Removing the integration
 
-This integration follows standard integration removal. No extra steps are required.
+This integration follows standard integration removal.
 
 {% include integrations/remove_device_service.md %}
