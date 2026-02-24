@@ -38,7 +38,6 @@ This integration follows standard integration removal. No extra steps are requir
 
 {% include integrations/remove_device_service.md %}
 
-
 ## Companies currently supported
 
 The supported companies can be seen on **[Fuelprices.dk Companies](https://fuelprices.dk/selskaber)**
