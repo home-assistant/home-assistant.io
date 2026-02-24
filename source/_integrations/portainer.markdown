@@ -102,7 +102,7 @@ The `portainer.prune_images` can be used to prune unused images more granually, 
 ## Update
 
 The integration utilizes a watcher, that runs every three hours in the backgrouond. This will check if the current installed images against the latest tag in the repositories.
-If an update is available, this will be shown in the Config Updates. When updating, the integration will initiate a recreate of the container and install the latest tag.
+If an update is available, this will be shown under {% my updates title="System > Updates" %}. When updating, the integration will recreate the container and install the latest tag.
 
 ## Supported devices
 
