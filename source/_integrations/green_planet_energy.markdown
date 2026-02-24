@@ -47,11 +47,17 @@ The integration provides the following actions.
 
 The `green_planet_energy.get_cheapest_duration` action allows you to find the cheapest time window for any duration between 0.5 and 24 hours.
 
-| Data attribute | Optional | Description                                                                                                                 | Example                                  |
-| -------------- | -------- | --------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------- |
-| `entity_id`    | no       | Any Green Planet Energy sensor entity (used to identify the integration instance).                                          | sensor.green_planet_energy_current_price |
-| `duration`     | no       | Duration in hours for which to find the cheapest time window.                                                               | 3.5                                      |
-| `time_range`   | yes      | Time range to search within: `full_day` (00:00-23:59), `day` (06:00-18:00), or `night` (18:00-06:00). Default: `full_day`  | night                                    |
+- **Data attribute**: `entity_id`
+  - **Description**: Any Green Planet Energy sensor entity, used to identify the integration instance.
+  - **Optional**: No
+
+- **Data attribute**: `duration`
+  - **Description**: Duration in hours for which to find the cheapest time window. Between 0.5 and 24.
+  - **Optional**: No
+
+- **Data attribute**: `time_range`
+  - **Description**: Time range to search within. Options: `full_day` (00:00–23:59), `day` (06:00–18:00), or `night` (18:00–06:00). Default: `full_day`.
+  - **Optional**: Yes
 
 #### Response data
 
@@ -91,7 +97,7 @@ template:
           time_range: night
         response_variable: cheapest
     sensor:
-      - name: "Cheapest 3.5h Start Time"
+      - name: "Cheapest 3.5-hour start time"
         state: "{{ cheapest.start_time }}"
         device_class: timestamp
         attributes:
@@ -100,12 +106,12 @@ template:
           duration: "{{ cheapest.duration }}"
           time_range: "{{ cheapest.time_range }}"
 
-      - name: "Cheapest 3.5h Hours Until"
+      - name: "Cheapest 3.5-hour time until start"
         state: "{{ cheapest.hours_until_start }}"
         unit_of_measurement: "h"
         state_class: measurement
 
-      - name: "Cheapest 3.5h Average Price"
+      - name: "Cheapest 3.5-hour average price"
         state: "{{ cheapest.average_price }}"
         unit_of_measurement: "€/kWh"
         state_class: measurement
