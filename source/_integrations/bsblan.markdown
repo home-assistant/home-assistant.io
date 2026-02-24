@@ -40,6 +40,7 @@ or using a passkey is supported. Use either one.
 
 - `inside temperature`
 - `outside temperature`
+- `total energy`
 
 ## Available platforms depending on your system
 
