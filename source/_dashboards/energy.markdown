@@ -24,6 +24,31 @@ You can configure them on the {% my config_energy title="energy configuration pa
 This card allows you to pick what data to show. Changing it in this card will influence the data in all other cards.
 Specific dates and ranges can be selected by opening the date range picker. The current period can be compared to the previous one using the compare data option within the menu.
 
+### YAML configuration
+
+The following YAML options are available
+
+{% configuration %}
+type:
+  required: true
+  description: "`energy-date-selection`"
+  type: string
+collection_key:
+  required: false
+  description: "Collection key to use for the card. This links the card to a specific energy dashboard collection. If not provided, defaults to the current dashboard page URL."
+  type: string
+vertical_opening_direction:
+  required: false
+  description: "`up`, `down` or `auto`. Determines the direction to open the date range picker. `auto` changes it based on the screen size."
+  type: string
+  default: auto
+disable_compare:
+  required: false
+  description: When true, will disable the option to compare data periods.
+  type: boolean
+  default: false
+{% endconfiguration %}
+
 ### Example
 
 ```yaml
