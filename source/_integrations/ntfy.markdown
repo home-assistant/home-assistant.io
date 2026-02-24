@@ -168,7 +168,6 @@ data:
   click: "https://homeassistant.local"
   tags:
     - rotating_light
-  actions
   actions:
     - action: http
       label: 🚪 Close door
@@ -222,10 +221,10 @@ Depending on the selected type the following required and optional parameters ar
 
 | Parameter | Required | Description |
 | :-------- | :------: | :---------- |
-| `action` | ✔️ | Select `http`: to send an HTTP request when the button is clicked or tapped. |
+| `action` | ✔️ | Select `http` to send an HTTP request when the button is clicked or tapped. |
 | `label` | ✔️ | Label of the action button in the notification. |
 | `url` | ✔️ | URL to which the HTTP request will be sent. |
-| `method` | | HTTP method to use for request, default is `POST` |
+| `method` | | HTTP method to use for request, default is `POST`. |
 | `headers` | | HTTP headers to pass in request (key-value pairs). |
 | `body` | | Payload to send in the HTTP body. |
 | `clear` | | Clear notification after action button is tapped. |
@@ -236,9 +235,9 @@ Depending on the selected type the following required and optional parameters ar
 | :-------- | :------: | :---------- |
 | `action` | ✔️ | Select `broadcast` to send an Android broadcast intent when the button is clicked or tapped. |
 | `label` | ✔️ | Label of the action button in the notification. |
-| `intent` | | Android intent name, default is `io.heckel.ntfy.USER_ACTION` |
+| `intent` | | Android intent name, default is `io.heckel.ntfy.USER_ACTION`. |
 | `extras` | | Android intent extras (key-value pairs). |
-| `clear` | | Clear notification after action button is tapped |
+| `clear` | | Clear notification after action button is tapped. |
 
 ##### Copy to clipboard
 
