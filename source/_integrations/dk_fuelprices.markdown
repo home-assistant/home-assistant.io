@@ -29,7 +29,6 @@ All station data and prices are provided by **[Fuelprices.dk](https://fuelprices
 
 ## Configuration
 
-{% configuration_basic %}
 
 To set up the integration, you need:
 
