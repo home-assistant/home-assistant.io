@@ -33,3 +33,37 @@ ha_integration_type: hub
 - Myneo Fluid radiator
 - Myneo stat thermostat
 - Myneo Link smart Wi-Fi switch
+
+ {% include integrations/config_flow.md %}
+
+## Supported functionality
+
+The **MyNeomitis** integration provides the following entities:
+
+### Selects
+
+- **Pilot wire mode** (`pilote`)
+  - **Description**: Controls the operating mode of heating devices via the pilot wire.
+  - **Options**: `Comfort`, `Comfort +`, `Eco`, `Eco -1`, `Eco -2`, `Frost protection`, `Boost`, `Setpoint`, `Standby`, `Auto`
+  - **Available for devices**: EWS devices without a relay mode
+
+- **Switch mode** (`relais`)
+  - **Description**: Controls the operating mode of smart switch/relay devices.
+  - **Options**: `On`, `Off`, `Auto`
+  - **Available for devices**: EWS devices with a relay mode
+
+- **Underfloor heating mode** (`ufh`)
+  - **Description**: Controls whether underfloor heating operates in heating or cooling mode.
+  - **Options**: `Heating`, `Cooling`
+  - **Available for devices**: UFH devices
+
+
+## Data updates
+
+The **MyNeomitis** integration receives real-time updates from the Axenco cloud API. Device state changes are pushed to Home Assistant immediately without {% term polling %}.
+
+## Removing the integration
+
+This integration follows standard integration removal.
+
+{% include integrations/remove_device_service.md %}
