@@ -4,6 +4,7 @@ description: Access your ProxmoxVE instance in Home Assistant.
 ha_category:
   - Binary sensor
   - Button
+  - Sensor
 ha_release: 0.103
 ha_iot_class: Local Polling
 ha_codeowners:
@@ -95,6 +96,16 @@ The Home Assistant user you create must already exist on the Linux system.
 9. Click `Add`
 
 In your Home Assistant configuration, use `hass@pve` for the username and your chosen password for the password.
+
+## Sensor
+
+- **CPU**: Percentage of CPU usage.
+- **Max CPU**: Maximum amount of CPU on the node/VM/LXC.
+- **Disk**: Disk usage of the node/VM/LXC.
+- **Max disk**: Maximum amount of available disk space.
+- **Memory**: Amount of memory usage.
+- **Max memory**: Maximum amount of memory on the node/VM/LXC.
+- **Status**: Current status of the node/VM/LXC.
 
 ## Binary sensor
 
