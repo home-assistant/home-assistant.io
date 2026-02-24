@@ -12,7 +12,7 @@ related:
 
 This is a list of all the cards used in the energy dashboard. You can also place them anywhere you want in your dashboard.
 
-These cards can either be added using the visual card editor or manually using the YAML editor. In the visual editor, these are located in the **Energy cards** section.
+These cards can either be added using the visual card editor or manually using the YAML editor. In the visual editor, these are located in the **Energy cards** section of the card picker dialog.
 
 You can configure them on the {% my config_energy title="energy configuration page" %}.
 
