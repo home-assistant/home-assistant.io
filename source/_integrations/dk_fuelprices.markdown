@@ -29,7 +29,6 @@ All station data and prices are as provided by the companies.
 3. Fill in your **name** and **email address**
 4. Press **Opret bruger**
 5. Check your email for the required API key
-   
 {% include integrations/config_flow.md %}
 
 ## Removing the integration
