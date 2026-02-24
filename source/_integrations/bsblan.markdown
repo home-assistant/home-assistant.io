@@ -2,6 +2,7 @@
 title: BSB-Lan
 description: Instructions on how to integrate BSBLan device into Home Assistant.
 ha_category:
+  - Button 
   - Climate
   - Sensor
   - Water heater
