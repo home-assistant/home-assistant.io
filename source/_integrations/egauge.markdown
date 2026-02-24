@@ -84,8 +84,8 @@ The **eGauge** integration provides the following entities:
 ### Sensors
 
 - **Power and energy**: Each power register on the eGauge will appear as two Home Assistant sensors: one reporting current power and the other reporting cumulative total energy usage.
-- **Voltage**
-- **Current**
+- **Voltage**: Each voltage register on the eGauge will appear as a Home Assistant sensor reporting the electrical voltage in volts (V).
+**Current**: Each current register on the eGauge will appear as a Home Assistant sensor reporting the electrical current in amperes (A).
 
 ### Data updates
 
