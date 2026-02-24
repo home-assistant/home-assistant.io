@@ -46,7 +46,7 @@ The integration creates sensor entities for the selected station:
 
 ## Data updates
 
-The integration polls **[Fuelprices.dk](https://fuelprices.dk)** every hour.
+The integration {% term polling polls %} [Fuelprices.dk](https://fuelprices.dk) every hour.
 
 The integration does not modify values. Home Assistant shows the values exactly as returned by **[Fuelprices.dk](https://fuelprices.dk)**.
 
