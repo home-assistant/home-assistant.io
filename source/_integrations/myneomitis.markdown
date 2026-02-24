@@ -16,7 +16,8 @@ ha_platforms:
 ha_integration_type: hub
 ---
 
-# MyNeomitis for Home Assistant
+The **MyNeomitis** {% term integration %} connects your [Axenco](https://www.axenco.fr/) MyNeomitis heating and energy management devices to Home Assistant. With this integration, you can control your devices, such as electric radiators, towel rails, and underfloor heating, directly from Home Assistant.
+
 
 ## Use cases
 
