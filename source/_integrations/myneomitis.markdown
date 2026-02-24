@@ -18,7 +18,7 @@ ha_integration_type: hub
 
 # MyNeomitis for Home Assistant
 
-### Manage your MyNeomitis-connected devices directly from Home Assistant:
+## Use cases
 
 - Control temperature and change operating modes.
 - Let’s you view and edit weekly schedules from the Home Assistant Interface.
