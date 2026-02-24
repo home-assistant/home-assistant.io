@@ -47,6 +47,7 @@ api_key:
 
 ## Supported functionality
 
+## Sensors
 The integration creates sensor entities for the selected station:
 
 - One price sensor per selected product (for example `Blyfri 92`, `Oktan 95`, and `Diesel`)
