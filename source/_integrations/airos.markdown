@@ -54,7 +54,7 @@ Do you have a device that works? We’d love to hear [your experience](#feedback
 ### airOS firmware 8
 
 - LiteAP GPS (LAP-GPS)
-- LiteBeam 5 AC (LBE-5AC-GEN2)
+- LiteBeam 5AC (LBE-5AC-GEN2)
 - NanoBeam 5AC (NBE-5AC-Gen2)
 - NanoStation 5AC Loco (Loco5AC)
 - PowerBeam 5AC: 620 (PBE-5AC-620) and Gen2 (PBE-5AC-Gen2)
