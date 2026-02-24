@@ -33,6 +33,13 @@ For authentication, HTTP authentication using a username and password or using a
 
 ## Supported functionality
 
+Depending on your system, the following entities are available:
+
+- Climate
+- Water heater
+- Button
+- Diagnostics
+- Sensor
 ### Buttons
 
 - Sync time
