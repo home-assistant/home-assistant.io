@@ -3,6 +3,7 @@ title: MyNeomitis
 description: Connect the MyNeomitis devices (radiators, towel rails, relays, underfloor heating) to Home Assistant using the cloud API.
 ha_category:
   - Select
+  - Climate
 ha_release: 2026.3
 ha_iot_class: Cloud Push
 ha_config_flow: true
@@ -11,6 +12,7 @@ ha_codeowners:
 ha_domain: myneomitis
 ha_platforms:
   - select
+  - climate
 ha_integration_type: hub
 ---
 
@@ -35,9 +37,9 @@ The **MyNeomitis** {% term integration %} connects your [Axenco](https://www.axe
 
 {% configuration_basic %}
 Email:
-  description: The email address associated with your MyNeomitis account.
+description: The email address associated with your MyNeomitis account.
 Password:
-  description: The password for your MyNeomitis account.
+description: The password for your MyNeomitis account.
 {% endconfiguration_basic %}
 
 ## Use cases
@@ -49,6 +51,13 @@ Password:
 ## Supported functionality
 
 The **MyNeomitis** integration provides the following entities:
+
+### Climate
+
+- **Climate** (`climate`)
+  - **Description**: Controls temperature, preset modes, and HVAC modes for supported radiators, thermostats, and towel rails.
+  - **Features**: Set target temperature, change preset (Comfort, Eco, Boost, Standby, etc.), switch between heating/cooling/off (where supported).
+  - **Available for devices**: EV30, ECTRL, ESTAT, RSS-ECTRL, NTD, ETRV models
 
 ### Selects
 
