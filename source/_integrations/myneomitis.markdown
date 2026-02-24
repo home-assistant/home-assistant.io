@@ -12,9 +12,7 @@ ha_codeowners:
   - "@leo.periou"
 ha_domain: myneomitis
 ha_platforms:
-  - climate
   - select
-  - sensor
 ha_integration_type: hub
 ---
 
