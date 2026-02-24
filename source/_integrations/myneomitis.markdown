@@ -21,12 +21,6 @@ The **MyNeomitis** {% term integration %} connects your [Axenco](https://www.axe
 - Create a MyNeomitis account via the MYNEOMITIS app.
 - Add your devices to the account using the app.
 
-## Use cases
-
-- Control temperature and change operating modes.
-- Let’s you view and edit weekly schedules from the Home Assistant Interface.
-- Allows you to monitor the energy consumption of compatible products.
-
 ## Supported devices
 
 - Eftair towel rails with blower
@@ -38,6 +32,12 @@ The **MyNeomitis** {% term integration %} connects your [Axenco](https://www.axe
 - Myneo Link smart Wi-Fi switch
 
 {% include integrations/config_flow.md %}
+
+## Use cases
+
+- Control temperature and change operating modes.
+- Allows you to view and edit weekly schedules from the Home Assistant Interface.
+- Allows you to monitor the energy consumption of compatible products.
 
 ## Supported functionality
 
