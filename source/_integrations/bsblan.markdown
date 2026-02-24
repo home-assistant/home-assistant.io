@@ -40,6 +40,7 @@ Depending on your system, the following entities are available:
 - Button
 - Diagnostics
 - Sensor
+
 ### Buttons
 
 - Sync time
