@@ -29,9 +29,6 @@ All station data and prices are provided by **[Fuelprices.dk](https://fuelprices
 4. Select **Opret bruger**.
 5. Check your email and copy your API key.
 
-## Configuration
-
-
 To set up the integration, you need:
 
 - A valid **[Fuelprices.dk](https://fuelprices.dk)** API key
