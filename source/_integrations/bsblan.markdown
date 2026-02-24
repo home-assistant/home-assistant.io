@@ -44,9 +44,11 @@ Depending on your system, the following entities are available:
 
 ### Buttons
 
-- Sync time
+### Buttons
 
-Synchronizes the BSBLan device time with Home Assistant. Use this if your BSBLan device time drifts or does not match Home Assistant
+- **Sync time**: Synchronizes the BSB-Lan device time with the current Home Assistant time. Use it when your device's time drifts or doesn't match Home Assistant's time.
+
+The **Sync time** button appears under the **Configuration** section of the device page, not on your dashboards by default. You can also trigger the same synchronization programmatically using the `bsblan.sync_time` action, for example, in a daily automation.
 
 ### Sensors
 
