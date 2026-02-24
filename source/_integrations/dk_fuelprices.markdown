@@ -22,6 +22,10 @@ The **Fuelprices.dk** {% term integration %} uses the **[Fuelprices.dk API](http
 
 All station data and prices are provided by **[Fuelprices.dk](https://fuelprices.dk)** and the fuel companies.
 
+## Companies currently supported
+
+To view a list of currently supported companies, refer to [Fuelprices.dk Companies](https://fuelprices.dk/selskaber).
+
 ## Prerequisites
 
 To set up the integration, you need a valid **[Fuelprices.dk](https://fuelprices.dk)** API key
