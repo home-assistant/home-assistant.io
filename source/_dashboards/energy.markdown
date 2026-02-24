@@ -12,7 +12,7 @@ related:
 
 This is a list of all the cards used in the energy dashboard. You can also place them anywhere you want in your dashboard.
 
-These cards can either be added using the visual card editor or manually using the YAML editor. In the visual editor these are located in the "Energy cards" section.
+These cards can either be added using the visual card editor or manually using the YAML editor. In the visual editor, these are located in the **Energy cards** section.
 
 You can configure them on the {% my config_energy title="energy configuration page" %}.
 
@@ -282,7 +282,7 @@ title:
   type: string
 link_dashboard:
   required: false
-  description: Whether to include a link to the energy dashboard
+  description: Whether to include a link to the energy dashboard.
   type: boolean
   default: false
 {% endconfiguration %}
@@ -395,7 +395,7 @@ type: energy-self-sufficiency-gauge
   Screenshot of the devices energy graph card.
 </p>
 
-The devices energy graph shows the energy usage per device, it is sorted by usage.
+The devices energy graph shows the energy usage per device. It is sorted by usage.
 
 ### YAML configuration
 
