@@ -84,7 +84,7 @@ The integration creates two media player {% term entities %}:
 
 ## Data updates
 
-The **Lyngdorf** integration uses {% term local_push %} to receive real-time updates from the device over a TCP connection. State changes on the device are pushed to Home Assistant immediately.
+The **Lyngdorf** integration uses local push to receive real-time updates from the device over a TCP connection. State changes on the device are pushed to Home Assistant immediately.
 
 ## Known limitations
 
