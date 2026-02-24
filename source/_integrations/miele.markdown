@@ -8,6 +8,7 @@ ha_category:
   - Fan
   - Hub
   - Light
+  - Select
   - Sensor
   - Switch
   - Vacuum
@@ -24,6 +25,7 @@ ha_platforms:
   - diagnostics
   - fan
   - light
+  - select
   - sensor
   - switch
   - vacuum
@@ -32,7 +34,7 @@ ha_zeroconf: true
 ha_quality_scale: platinum
 ---
 
-The Miele {% term integrations %} allows users to integrate their home appliances using the [official 3rd party API](https://www.miele.com/developer).
+The **Miele** {% term integration %} allows users to integrate their home appliances using the [official 3rd party API](https://www.miele.com/developer).
 
 Miele is known as a manufacturer of premium appliances for cooking, laundry care, and floor care.
 
@@ -136,6 +138,13 @@ Climate entities are used to control target temperatures in refrigerators, freez
 - **Ambient light**: Some models of cooker hoods have ambient light that can be turned on and off.
 {% enddetails %}
 
+### Select
+
+{% details "List of select entities" %}
+
+- **Mode**: Select operating mode for freezers and refrigerators. Available modes vary depending on appliance model.
+{% enddetails %}
+
 ### Sensor
 
 {% details "List of sensors" %}
@@ -161,6 +170,11 @@ Climate entities are used to control target temperatures in refrigerators, freez
   - **Start**: Shows the date and time when the program starts. If you've set a delayed start, it shows when the appliance will actually begin the cycle.
   - **Finish**: Shows the estimated date and time when the program will finish. If you've set a delayed start, it shows when the appliance is expected to complete the cycle, including the delay time.
   - **Plate**: Four to six sensors that show the current state of hob heating plates. The status mimics the display on the actual hob. For example, 0 is off, 5 is approximately 50% power, and "B" is power boost. Plates can only be monitored from Home Assistant, not controlled.
+  - **TwinDos level**: Two sensors displaying the remaining level in the detergent containers in applicable washing machines. If the device does not support this sensor, the value is shown as `Unknown`.
+  - **Descaling, degreasing, milk pipework cleaning cycles counter**: A set of sensors displaying the total number of cycles that the appliance has run. These sensors are available only for devices that support these maintenance programs (such as coffee machines or ovens with steam addition).
+  - **PowerDisk level**: A sensor displaying the remaining level in the detergent container in applicable dishwashers. If the device does not support this sensor, the value is shown as `Unknown`.
+  - **Rinse aid level**: A sensor displaying the remaining level in the rinse aid container in dishwashers.
+  - **Salt level**: A sensor displaying the remaining level in the salt container in dishwashers.
 {% enddetails %}
 
 ### Switch
@@ -229,7 +243,7 @@ triggers:
       - sensor.washing_machine
     to: program_ended
 actions:
-  - service: notify.notify
+  - action: notify.notify
     data:
       message: "The appliance has finished the program."
 ```

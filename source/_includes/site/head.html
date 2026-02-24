@@ -27,6 +27,12 @@
     <meta name="twitter:title" content="{% if post.title %}{{ post.title }}{% elsif page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
     <meta name="twitter:description" content="{{ page.description | default: site.description | strip_html | truncate: 200 }}">
     <meta name="twitter:image" content="{{ page.og_image | default: "/images/default-social.png" | prepend: site.url }}">
+    {% if layout.is_post %}{% assign words = page.content | strip_html | number_of_words %}{% assign reading_time = words | divided_by: 200 %}{% if reading_time < 1 %}{% assign reading_time = 1 %}{% endif %}
+    <meta name="twitter:label1" value="Reading time">
+    <meta name="twitter:data1" value="~{{ reading_time }} minute{% if reading_time > 1 %}s{% endif %}">
+    <meta name="twitter:label2" value="Written by">
+    <meta name="twitter:data2" value="{{ page.author | default: site.author }}">
+    {% endif %}
     {% if site.social.mastodon.account %}<link rel="me" href="{{ site.social.mastodon.account }}">{% endif %}
 
     <link href="https://cdn.jsdelivr.net/npm/@docsearch/css@3/dist/style.min.css" rel="stylesheet" />

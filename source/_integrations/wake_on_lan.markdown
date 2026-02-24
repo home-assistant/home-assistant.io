@@ -14,7 +14,7 @@ ha_platforms:
   - switch
 ha_codeowners:
   - '@ntilley905'
-ha_integration_type: integration
+ha_integration_type: service
 related:
   - docs: /docs/configuration/
     title: Configuration file
@@ -57,9 +57,9 @@ wake_on_lan:
 
 Available actions: `send_magic_packet`.
 
-#### Action `wake_on_lan.send_magic_packet`
+#### Action: Send magic packet
 
-Send a _magic packet_ to wake up a device with 'Wake on LAN' capabilities.
+The `wake_on_lan.send_magic_packet` action sends a _magic packet_ to wake up a device with 'Wake on LAN' capabilities.
 
 | Data attribute | Optional | Description                                           |
 | ---------------------- | -------- | ----------------------------------------------------- |

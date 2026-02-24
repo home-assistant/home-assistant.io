@@ -39,6 +39,10 @@ Follow these steps to create a new floor.
     ![Create floor dialog](/images/organizing/create_floor_02.png)
 4. You can now [assign areas to that floor](/docs/organizing/areas/#assigning-areas-to-floors-and-add-labels).
 
+## Reordering floors on built-in dashboards
+
+{% include organizing/reorder-areas.md %}
+
 ## Deleting a floor
 
 Follow these steps to delete a floor. Areas that are assigned to a floor will become unassigned. {% term Automations %} and {% term scripts %} or voice assistants that used a floor as a target will no longer work as they no longer have a target.

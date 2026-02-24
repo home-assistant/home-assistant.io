@@ -21,7 +21,7 @@ ha_codeowners:
 ha_quality_scale: bronze
 ---
 
-The ToGrill {% term integration %} allows you to connect your ToGrill compatible Bluetooth grill thermometer.
+The **ToGrill** {% term integration %} allows you to connect your ToGrill compatible Bluetooth grill thermometer.
 
 {% tip %}
 

@@ -119,14 +119,16 @@ This section shows a similar example to the example automation shown above in YA
    - **Important**: Leave the other fields **empty**.
      ![Select button event as trigger](/images/integrations/event/matter_trigger_on_button_event.png)
 4. Prevent the automation from running on unavailable or unknown states.
-   - Under **Conditions**, select **Add building block**, then, select **Not**.
-   - Inside the **Not** block, select **Add condition**, then, select **Entity** > **State**.
-   - Type `event` and select your button event entity.
-   - Under **State**, select **Unavailable**.
-   - **Important**: Leave the other fields **empty**.
-   - Add another condition inside the **Not** block, but this time select **Unknown** as the state.
-   - **Note** Alternatively, instead of conditions this can be done using the `not_state` attribute of the state trigger, in YAML.
-     ![Condition - prevent unavailable or unknown states](/images/integrations/event/matter_condition_prevent_unavailable_unknown.png)
+   - On the trigger you just created, select the three dots {% icon "mdi:dots-vertical" %} menu and select **Edit in YAML**.
+   - Add the following lines at the bottom of the YAML editor:
+     ```yaml
+     not_from:
+       - unavailable
+     not_to:
+       - unavailable
+       - unknown
+     ```
+       - Note: The `not_from` section prevents running when the entity returns from being unavailable (e.g. when an ESPHome device finishes rebooting). This cannot currently be achieved with the visual condition editors.
 5. Define the condition when something should happen.
    - Under **Then do**, select **Add action**.
    - Type `choose` and select **Add condition**.
