@@ -31,9 +31,9 @@ To view a list of currently supported companies, refer to [Fuelprices.dk Compani
 To set up the integration, you need a valid [Fuelprices.dk](https://fuelprices.dk) API key
 
 1. Go to [Fuelprices.dk](https://fuelprices.dk).
-2. Select `Registrering`.
+2. Select **Registrering**.
 3. Enter your `name` and `email address`.
-4. Select `Opret bruger`.
+4. Select **Opret bruger**.
 5. Check your email and copy your API key.
 
 After setup, you can reconfigure selected products for each station from the integration settings.
