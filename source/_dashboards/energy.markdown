@@ -263,7 +263,29 @@ The energy distribution card shows how the energy flowed, from the grid to your 
 
 If setup, it will also tell you how many kWh of the energy you got from the grid was produced without using fossil fuels.
 
-If you set `link_dashboard` to `true`, the card will include a link to the energy dashboard.
+### YAML configuration
+
+The following YAML options are available:
+
+{% configuration %}
+type:
+  required: true
+  description: "`energy-distribution`"
+  type: string
+collection_key:
+  required: false
+  description: "Collection key to use for the card. This links the card to a specific energy dashboard collection. If not provided, defaults to the current dashboard page URL."
+  type: string
+title:
+  required: false
+  description: The title of the card.
+  type: string
+link_dashboard:
+  required: false
+  description: Whether to include a link to the energy dashboard
+  type: boolean
+  default: false
+{% endconfiguration %}
 
 ### Example
 
