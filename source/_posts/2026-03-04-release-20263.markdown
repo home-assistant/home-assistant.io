@@ -66,7 +66,28 @@ Don't forget to [join our release party live stream on YouTube](https://www.yout
 
 {% endtip %}
 
-Home Assistant 2026.3!
+Home Assistant 2026.3! 🎉
+
+After last month's massive release, this one is a nice and relaxed one. We took
+a step back from the big headline features and fully focused on something
+equally important: getting the amazing contributions from our community
+reviewed, polished, and merged. 💚
+
+And did our community deliver! This release is packed with tons of new
+{% term integrations %}, lots of noteworthy improvements to the ones you
+already use, boatloads of bug fixes, and a really nice list of integrations
+that climbed up the [integration quality scale]. 📈
+
+It's releases like these that really show the strength of our open-source
+community. Every single contribution matters, and this month that shows more
+than ever. Thank you all! 🙏
+
+My personal favorite this month? The automation editor change:
+[Continue on error](#continue-on-error-in-the-automation-editor) has _finally_
+landed in the UI. I actually wrote this feature years ago, but it was only
+available through YAML. Seeing it now land in the visual editor (making it
+accessible to everyone) is just awesome. It's one of those small things that
+make a big difference in everyday use. 🤩
 
 Enjoy the (beta) release!
 
