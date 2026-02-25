@@ -39,9 +39,9 @@ The integration provides the following configuration options:
 
 {% configuration_basic %}
 Read data from:
-  description: "Select whether to read fireplace status data from the local network or from the cloud. Local reads directly from the fireplace on your network, while Cloud reads from IntelliFire's servers."
+    description: "Select whether to read fireplace status data from the local network or from the cloud. Local reads directly from the fireplace on your network, while Cloud reads from IntelliFire's servers."
 Send commands to:
-  description: "Select whether to send control commands through the local network or through the cloud. Local sends commands directly to the fireplace on your network, while Cloud routes commands through IntelliFire's servers."
+    description: "Select whether to send control commands through the local network or through the cloud. Local sends commands directly to the fireplace on your network, while Cloud routes commands through IntelliFire's servers."
 {% endconfiguration_basic %}
 
 {% tip %}
