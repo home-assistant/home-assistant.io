@@ -10,12 +10,12 @@ The steps would be:
 - Navigate to the **Image** section of the Container Manager app.
 - Select the `homeassistant/home-assistant` image and select **Run**.
 - On the **General Settings** page:
-  - Choose a container-name you want (e.g., `homeassistant`).
+  - Choose a container-name you want (for example, `homeassistant`).
   - Set **Enable auto-restart** if you like.
   - Select **Next**.
 - On the **Advanced Settings** page:
-  - In the **Volume Settings** section, select **Add Folder** and choose either an existing folder or add a new folder (e.g. in the `docker` shared folder, add a new folder named `homeassistant` and then within that new folder add another new folder `config`), then select **Select**. Then edit the **Mount path** to be `/config` with the permissions set as **Read/Write**. This configures where Home Assistant will store configs and logs.
-  - To ensure that Home Assistant displays the correct timezone, in the **Environment** section, select the **Add** button and in the **Variable** field add `TZ` and in the value add your timezone (e.g. `Europe/London`). Timezones can be found [here](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
+  - In the **Volume Settings** section, select **Add Folder** and choose either an existing folder or add a new folder (for example, in the `docker` shared folder, add a new folder named `homeassistant` and then within that new folder add another new folder `config`), then select **Select**. Then edit the **Mount path** to be `/config` with the permissions set as **Read/Write**. This configures where Home Assistant will store configs and logs.
+  - To ensure that Home Assistant displays the correct timezone, in the **Environment** section, select the **Add** button and in the **Variable** field add `TZ` and in the value add your timezone (for example, `Europe/London`). Timezones can be found [here](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
   - In the **Network** section, set the Network dropdown as `host`.
 - Select **Next**.
 - Ensure **Run this container after the wizard is finished** is checked and select **Done**.
@@ -35,7 +35,7 @@ To use a Z-Wave USB stick for Z-Wave control, the HA Docker container needs extr
 Adjust the following Terminal command as follows :
 
 - Replace `/PATH_TO_YOUR_CONFIG` points at the folder where you want to store your configuration -  make sure that you keep the `:/config` part
-- Replace `/PATH_TO_YOUR_USB_STICK` matches the path for your USB stick (e.g., `/dev/ttyACM0` for most Synology users)
+- Replace `/PATH_TO_YOUR_USB_STICK` matches the path for your USB stick (for example, `/dev/ttyACM0` for most Synology users)
 - Replace `Australia/Melbourne` with [your timezone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
 
 Run it in Terminal.
@@ -77,7 +77,7 @@ The steps would be:
 - Launch Container Station and move to the **Create Container** section.
 - Search image `homeassistant/home-assistant` with Docker Hub and select **Install**.
 - Choose the **stable** version and select **Next**.
-- Choose a container-name you want (e.g., `homeassistant`).
+- Choose a container-name you want (for example, `homeassistant`).
 - Select **Advanced Settings**.
 - Within **Shared Folders** select **Volume from host** > **Add** and choose either an existing folder or add a new folder. The mount point has to be `/config`, so that Home Assistant will use it for the configuration and logs.
 - Within **Network** and select Network Mode to **Host**.
@@ -90,4 +90,4 @@ Remark: To update your Home Assistant on your Docker within Qnap NAS, you just r
 
 ### Community Notes
 
-Note that some users have reported issues creating Home Assistant containers on ARM QNAP systems (e.g., TS-233) with Container Station 3. A possible workaround is the **Docker compose** approach based on a YAML file (see section **Docker compose**). In the QNAP Container Station 3 UI, this can be accessed by going to the **Applications** section and selecting **Create**. You are then prompted to enter YAML code, which can be copied from that shown in the **Docker compose** section. Take care to modify this code in two ways: firstly, add a first line reading `version: '3'`; secondly, replace the text `/PATH_TO_YOUR_CONFIG` by a valid path on your NAS system, e.g., `/share/Container/HomeAssistant/config`.
+Note that some users have reported issues creating Home Assistant containers on ARM QNAP systems (for example, TS-233) with Container Station 3. A possible workaround is the **Docker compose** approach based on a YAML file (see section **Docker compose**). In the QNAP Container Station 3 UI, this can be accessed by going to the **Applications** section and selecting **Create**. You are then prompted to enter YAML code, which can be copied from that shown in the **Docker compose** section. Take care to modify this code in two ways: firstly, add a first line reading `version: '3'`; secondly, replace the text `/PATH_TO_YOUR_CONFIG` by a valid path on your NAS system, for example `/share/Container/HomeAssistant/config`.

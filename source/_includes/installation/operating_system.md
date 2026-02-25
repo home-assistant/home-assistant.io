@@ -241,7 +241,7 @@ Use this method only if Method 1 does not work for you.
 {% note %}
 
 If the machine complains about not being able to find a bootable medium, you might need to specify the EFI entry in your BIOS.
-This can be accomplished either by using a live operating system (e.g. Ubuntu) and running the following command (replace `<drivename>` with the appropriate drive name assigned by Linux, typically this will be `sda` or `nvme0n1` on NVMe SSDs):
+This can be accomplished either by using a live operating system (for example, Ubuntu) and running the following command (replace `<drivename>` with the appropriate drive name assigned by Linux, typically this will be `sda` or `nvme0n1` on NVMe SSDs):
 
   ```text
   efibootmgr --create --disk /dev/<drivename> --part 1 --label "HAOS" \
@@ -391,7 +391,7 @@ Minimum recommended assignments:
     3. Choose **Generic Default** for the operating system.
     4. Check the box for **Customize configuration before install**.
     5. Under **Network Selection**, select your bridge.
-    6. Under customization select **Overview** > **Firmware** > **UEFI x86_64: ...**. Make sure to select a non-secureboot version of OVMF (does not contain the word `secure`, `secboot`, etc.), e.g., `/usr/share/edk2/ovmf/OVMF_CODE.fd`.
+    6. Under customization select **Overview** > **Firmware** > **UEFI x86_64: ...**. Make sure to select a non-secureboot version of OVMF (does not contain the word `secure`, `secboot`, etc.), for example `/usr/share/edk2/ovmf/OVMF_CODE.fd`.
     7. Select **Add Hardware** (bottom left), and select **Channel**.
     8. Select device type: **unix**.
     9. Select name: **org.qemu.guest_agent.0**.
