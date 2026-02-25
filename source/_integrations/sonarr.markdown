@@ -296,9 +296,9 @@ disks:
     usage_percent: 50.0
 ```
 
-### Action `sonarr.get_upcoming`
+### Action: Get upcoming
 
-Get upcoming episodes from the calendar. Episodes are returned if their air date falls between today and today plus the specified number of days.
+The `sonarr.get_upcoming` action retrieves upcoming episodes from the calendar. Episodes are returned if their air date falls between today and today plus the specified number of days.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
