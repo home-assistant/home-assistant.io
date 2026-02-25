@@ -16,6 +16,7 @@ ha_platforms:
   - event
   - notify
   - sensor
+  - update
 ha_quality_scale: platinum
 ---
 
