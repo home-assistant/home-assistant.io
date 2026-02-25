@@ -258,16 +258,12 @@ The `sonarr.get_diskspace` action retrieves the disk space information for all s
 
 The response contains a `disks` key with a dictionary of disk information keyed by path.
 
-| Return attribute | Description |
-| ---------------------- | ----------- |
-| `path` | The storage path. |
-| `label` | The disk label (if available). |
-| `free_space_bytes` | Free space in bytes. |
-| `total_space_bytes` | Total space in bytes. |
-| `free_space_gb` | Free space in gigabytes. |
-| `total_space_gb` | Total space in gigabytes. |
-| `used_space_gb` | Used space in gigabytes. |
-| `usage_percent` | Percentage of disk space used. |
+- **path**: The storage path
+- **label**: The disk label if available
+- **free_space**: Free space in the selected unit
+- **total_space**: Total space in the selected unit
+- **unit**: The unit being used for the space values
+- **usage_percent**: Percentage of disk space used
 
 #### Example
 
