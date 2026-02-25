@@ -3,10 +3,12 @@ title: System Nexa 2
 description: How to integrate System Nexa 2 devices within Home Assistant.
 ha_category:
   - Light
+  - Sensor
   - Switch
 ha_config_flow: true
 ha_platforms:
   - light
+  - sensor
   - switch
 ha_release: 2026.3
 ha_iot_class: Local Push
@@ -73,7 +75,7 @@ Host:
 - **Signal strength**
   - **Description**: Wi-Fi signal strength (dBm).
   - **Available for devices**: all
-  - **Remarks**: Disabled by default
+  - **Remarks**: Disabled by default.
 
 ### Switches
 
