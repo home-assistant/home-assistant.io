@@ -20,7 +20,7 @@ The **Sonarr** {% term integration %} pulls data from a given [Sonarr](https://s
 
 {% configuration_basic %}
 URL:
-  description: The URL of your Sonarr instance including the port number and base path if applicable (e.g., `http://localhost:8989` or `http://192.168.1.100:8989/sonarr`).
+  description: The URL of your Sonarr instance, including the port number and base path if applicable (for example, `http://localhost:8989` or `http://192.168.1.100:8989/sonarr`).
 API Key:
   description: Your Sonarr API key. To find it, open your Sonarr web interface and navigate to **Settings** > **General**. The API key is listed under the **Security** section.
 {% endconfiguration_basic %}
