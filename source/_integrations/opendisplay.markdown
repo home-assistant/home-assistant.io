@@ -60,8 +60,6 @@ Uploads an image to one or more displays. The image is resized and dithered to m
 | `fit_mode` | How the image is fitted to the display. | No | Contain |
 | `tone_compression` | Dynamic range compression. Use a value between 0.0 and 1.0 for manual control, or leave empty for automatic adjustment. | No | Automatic |
 
-The rotation, dither mode, refresh mode, fit mode, and tone compression options are grouped under **Advanced options** in the action UI and are collapsed by default.
-
 **Refresh modes**:
 
 - **Full**: Clears ghosting but takes longer.
@@ -71,10 +69,10 @@ The rotation, dither mode, refresh mode, fit mode, and tone compression options 
 
 **Fit modes**:
 
-- **Contain**: Scale to fit within the display, pad remaining space with white.
-- **Cover**: Scale to fill the display, crop edges that overflow.
-- **Stretch**: Distort to fill the exact display dimensions.
-- **Crop**: Center-crop at native resolution without scaling.
+- **Contain**: Scale to fit within the display, pad remaining space with white
+- **Cover**: Scale to fill the display, crop edges that overflow
+- **Stretch**: Distort to fill the exact display dimensions
+- **Crop**: Center-crop at native resolution without scaling
 
 ## Examples
 
@@ -90,8 +88,8 @@ target:
   entity_id: image.living_room_display
 data:
   image:
-    media_content_id: media-source://media_source/local/photo.png
-    media_content_type: image/png
+    media_content_id: "media-source://media_source/local/photo.png"
+    media_content_type: "image/png"
 ```
 
 {% endraw %}
@@ -116,8 +114,8 @@ actions:
       entity_id: image.living_room_display
     data:
       image:
-        media_content_id: media-source://media_source/local/daily.png
-        media_content_type: image/png
+        media_content_id: "media-source://media_source/local/daily.png"
+        media_content_type: "image/png"
 ```
 
 {% endraw %}
