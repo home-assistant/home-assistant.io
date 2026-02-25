@@ -41,7 +41,7 @@ The **Zinvolt** integration provides the following entities.
 
 #### Binary sensors
 
-- **Connected to grid**: If the battery is connected to the grid.
+- **Connected to grid**: Whether the battery is connected to the grid.
 
 #### Sensors
 
