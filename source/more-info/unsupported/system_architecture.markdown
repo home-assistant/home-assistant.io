@@ -10,7 +10,7 @@ as unsupported. Home Assistant announced the sunset of these architectures in Ma
 (see [this blog post for more information](https://www.home-assistant.io/blog/2025/05/22/deprecating-core-and-supervised-installation-methods-and-32-bit-systems/)).
 On these system architectures, the Supervisor stops refreshing its update
 information. This means you will no longer receive updates for any component,
-including Home Assistant Core or Add-on updates.
+including Home Assistant Core or app (formerly known as add-ons) updates.
 
 ## The solution
 

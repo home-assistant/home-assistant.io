@@ -156,6 +156,57 @@ If you're experiencing issues with your HDFury integration, try these general tr
 2. Verify that the OLED screen on the HDFury device shows an IP address.
 3. If the integration shows as unavailable, try restarting both your HDFury device and Home Assistant.
 
+## Data updates
+
+This integration uses local {% term polling %}, meaning it checks for changes to all entities by regularly communicating with the HDFury device.
+
+The integration will retrieve data from the device every minute.
+
+## Examples
+
+The following examples show how to use the HDFury integration in Home Assistant automations.
+These examples are just a starting point, and you can use them as inspiration to create your own automations.
+
+### Switch HDMI input
+
+The following example switches the HDFury input to the correct source when the media player powers on.
+
+{% raw %}
+
+```yaml
+automation:
+  - alias: "Switch HDFury input to Nvidia SHIELD when powered on"
+    triggers:
+      - trigger: state
+        entity_id:
+          - remote.nvidia_shield
+        to:
+          - "on"
+        from:
+          - "off"
+
+    actions:
+      - action: select.select_option
+        target:
+          entity_id: select.hdfury_port_selector_tx0
+        data:
+          option: 1
+```
+
+{% endraw %}
+
+## Known limitations
+
+The HDFury integration currently has no known limitations.
+
+## Troubleshooting
+
+If you're experiencing issues with your HDFury integration, try these general troubleshooting steps:
+
+1. Make sure your HDFury device is powered on and properly connected to your home network.
+2. Verify that the OLED screen on the HDFury device shows an IP address.
+3. If the integration shows as unavailable, try restarting both your HDFury device and Home Assistant.
+
 ## Removing the integration
 
 This integration follows standard integration removal, no extra steps are required.

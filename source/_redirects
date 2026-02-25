@@ -402,7 +402,7 @@ layout: null
 /hassio/hassos_faq /faq
 /hassio/index /installation
 /hassio/installation /installation
-/hassio/installing_third_party_addons /common-tasks/os#installing-third-party-add-ons
+/hassio/installing_third_party_addons /common-tasks/os#installing-a-third-party-app-repository
 /integrations/faadelays /integrations/faa_delays
 /cookbook/notify.mqtt /examples#notifications
 /cookbook/#example-configurationyaml /examples/#example-configurationyaml
@@ -692,3 +692,8 @@ layout: null
 
 # Unsupported reasons that are also unhealthy
 /more-info/unsupported/privileged /more-info/unhealthy/privileged
+
+# Music Assistant blog redirects
+/blog/2025/12/17/music-assistant-2-7/ https://www.music-assistant.io/blog/2025/12/17/music-assistant-2-7/ 301!
+/blog/2025/03/05/music-assistants-next-big-hit/ https://www.music-assistant.io/blog/2025/03/05/music-assistants-next-big-hit/ 301!
+/blog/2024/05/09/music-assistant-2/ https://www.music-assistant.io/blog/2024/05/09/music-assistant-2/ 301!

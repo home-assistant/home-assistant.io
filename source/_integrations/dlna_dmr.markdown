@@ -59,3 +59,9 @@ Most DLNA DMR devices can play media from local HTTP servers. For best results, 
 ### Media sources
 
 The DLNA Digital Media Renderer integration can browse any configured [media source](/integrations/media_source/). Displayed media will be filtered based on the capabilities of the DLNA DMR device.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}

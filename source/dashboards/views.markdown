@@ -200,7 +200,7 @@ The background settings of a view can be customized to display a background. Alt
 **Image** - Sets the background image to use behind the view: 
    - **Upload picture** lets you pick an image from the system used to show your Home Assistant UI.
    - **Local path** lets you pick an image stored on Home Assistant. For example: `/homeassistant/images/lights_view_background_image.jpg`.
-     - To store an image on Home Assistant, you need to [configure access to files](/common-tasks/os/#configuring-access-to-files), for example via [Samba](/common-tasks/os/#installing-and-using-the-samba-add-on) or the [Studio Code Server](/common-tasks/os/#installing-and-using-the-visual-studio-code-vsc-add-on) add-on.
+     - To store an image on Home Assistant, you need to [configure access to files](/common-tasks/os/#configuring-access-to-files), for example via [Samba](/common-tasks/os/#installing-and-using-the-samba-app) or the [Studio Code Server](/common-tasks/os/#installing-and-using-the-visual-studio-code-vsc-app) app.
    - **web URL** let you pick an image from the web. For example `https://www.home-assistant.io/images/frontpage/assist_wake_word.png`.
 
 {% configuration views %}
