@@ -367,9 +367,9 @@ episodes:
       clearlogo: "https://artworks.thetvdb.com/banners/v4/series/350665/clearlogo/611bcbd635134.png"
 ```
 
-### Action `sonarr.get_wanted`
+### Action: Get wanted
 
-Get wanted (missing) episodes that Sonarr is searching for.
+The `sonarr.get_wanted` action retrieves wanted (missing) episodes that Sonarr is searching for.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
