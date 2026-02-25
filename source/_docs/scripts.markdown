@@ -565,7 +565,7 @@ For example:
 
 ### Repeat loop variable
 
-A variable named `repeat` is defined within the repeat {% term action %} , meaning it is available inside `sequence`, `while`, and `until`.
+A variable named `repeat` is defined within the repeat {% term action %}, meaning it is available inside `sequence`, `while`, and `until`.
 It contains the following fields:
 
 | field   | description                                                                                  |
