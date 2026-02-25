@@ -93,7 +93,7 @@ shows:
 
 ### Action: Get episodes
 
-The `sonarr.get_episodes` retrieves all episodes for a specific series. Useful for displaying episode details, tracking watched status, or building episode lists.
+The `sonarr.get_episodes` action retrieves all episodes for a specific series. Useful for displaying episode details, tracking watched status, or building episode lists.
 
 - **entry_id** (required): The config entry ID to use.
 - **series_id** (required): Internal Sonarr series ID from `sonarr.get_series`.
