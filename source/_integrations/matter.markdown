@@ -252,7 +252,7 @@ Use one of these methods if your Matter device was added to Apple Home or Google
   - Add the **Matter** integration.
   - When prompted to **Select the connection method**:
     - If you run Home Assistant OS in a regular setup: select **Submit**.
-      - This will install the official Matter server add-on.
+      - This will install the official Matter server app.
     - If you are running the Matter server in a custom container (not recommended):
       - Deselect the checkbox, then select **Submit**.
       - In the next step, provide the URL to your Matter server.

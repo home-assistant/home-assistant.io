@@ -30,7 +30,7 @@ ha_platforms:
   - update
 ha_homekit: true
 ha_dhcp: true
-ha_integration_type: integration
+ha_integration_type: hub
 ha_quality_scale: platinum
 ---
 

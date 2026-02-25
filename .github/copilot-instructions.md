@@ -76,6 +76,7 @@ Some other rules:
 - Use sentence-style capitalization for headings and titles.
 - Do not use "e.g.", "i.e.", "etc.", or "etcetera". Use "like", "for example",
   or "such as" instead.
+- Avoid the verb "click". It is specific to using a mouse. Instead, use verbs that work with multiple devices, such as "select". Use "click" when you need to describe mouse actions specifically, for example, when describing right-clicking or double-clicking with a mouse.
 - Lists:
     - Lists should be surrounded by blank lines.
     - Use a numbered list for sequential steps, procedures, or prioritized items.
@@ -379,7 +380,7 @@ Liquid syntax is used for templating in Jekyll and used within Markdown.
 
 ### My links
 
-To indicate a location in the UI, you can use a [My link](https://www.home-assistant.io/docs/tools/quick-bar/#my-links).
+To indicate a location in the UI, you can use a [My link](https://www.home-assistant.io/docs/tools/quick-search/#my-links).
 Selecting a My link opens that page in their own Home Assistant installation.
 
 For example: `"Go to {% my integrations title="**Settings** > **Devices & services**" %} and select your integration."`
@@ -1075,3 +1076,7 @@ to avoid errors and error messages when the entity isn’t ready yet
 - Textual contents in YAML parameters, follow the same writing style as the
   documentation. For example, the `title` parameters contents should be
   following sentence-style capitalization.
+
+### Blog posts
+
+When adding a new blog post to the `source/_posts` folder, the author specified in the `author` field of the front matter must exist as a top-level key in the `source/_data/people.yml` file. If the author is not present in the `people.yml` file, they must be added before the blog post can be published.

@@ -14,7 +14,7 @@ ha_platforms:
 ha_codeowners:
   - '@noahhusby'
 ha_config_flow: true
-ha_integration_type: integration
+ha_integration_type: hub
 ha_quality_scale: silver
 ha_zeroconf: true
 ---

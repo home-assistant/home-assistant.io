@@ -6,7 +6,7 @@ ha_category:
   - Energy
   - Sensor
 ha_release: 0.38
-ha_iot_class: Local Polling
+ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
   - '@c00w'
@@ -17,6 +17,7 @@ ha_platforms:
   - number
   - sensor
 ha_integration_type: device
+ha_quality_scale: legacy
 ---
 
 The **OpenEVSE** {% term integration %} allows you to monitor your [OpenEVSE](https://openevse.com/) electric vehicle charging station equipped with ESP8266/ESP32-based Wi-Fi connectivity.

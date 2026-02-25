@@ -13,7 +13,7 @@ ha_codeowners:
 ha_platforms:
   - climate
   - switch
-ha_integration_type: integration
+ha_integration_type: device
 ha_dhcp: true
 ---
 

@@ -20,7 +20,7 @@ ha_platforms:
   - calendar
   - switch
 ha_zeroconf: true
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The **Rachio** {% term integration %} allows you to control your [Rachio irrigation system](https://rachio.com/).

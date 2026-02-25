@@ -11,7 +11,7 @@ Almost all houses are connected to the electricity grid which provides the energ
 
 ## Tariffs
 
-It has become popular for energy utilities to split the price of energy based on time of the day; this is done in order to incentivise consumers to shift their power needs towards times where the grid has lower loads. These periods of time are commonly referred to as Peak and Off Peak, exactly because they match periods of time where everyone is consuming energy (Peak) and periods of time where the energy is abundant but no one is using it (Off Peak). Therefore Peak energy is more expensive then Off Peak energy.
+It has become popular for energy utilities to split the price of energy based on time of the day; this is done in order to incentivise consumers to shift their power needs towards times where the grid has lower loads. These periods of time are commonly referred to as Peak and Off-Peak. They match periods when everyone is consuming energy (Peak) and periods when energy is abundant, but no one is using it (Off-Peak). Therefore, Peak energy is more expensive than Off Peak energy.
 
 If you want to split energy usage into multiple tariffs, [read this](/docs/energy/faq/#split-consumption-by-tariffs).
 

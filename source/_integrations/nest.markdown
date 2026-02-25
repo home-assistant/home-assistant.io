@@ -22,7 +22,7 @@ ha_platforms:
   - diagnostics
   - event
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The **Google Nest** {% term integration %} allows you to integrate a few [supported](https://developers.google.com/nest/device-access/supported-devices) Google [Nest](https://store.google.com/us/category/connected_home?) devices in Home Assistant. This integration uses the [Smart Device Management](https://developers.google.com/nest/device-access/api) API and Google's Cloud Pubsub to efficiently listen for changes in device state or other events. See [Supported Devices](https://developers.google.com/nest/device-access/supported-devices) for all devices supported by the SDM API.

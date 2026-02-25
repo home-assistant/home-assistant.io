@@ -642,6 +642,28 @@ Valid code slots are between 1-254.
 | `entity_id`    | no       | Lock entity or list of entities to clear the usercode. |
 | `code_slot`    | yes      | The code slot to clear the usercode from.              |
 
+### Action: Get lock usercode
+
+The `zwave_js.get_lock_usercode` action retrieves [usercodes](/docs/scripts/perform-actions#use-templates-to-handle-response-data) from a lock. You can query a specific code slot or retrieve all code slots at once. Returns the usercode and in-use status for each slot.
+
+| Data attribute | Required | Description                                                                                                                                   |
+| -------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`    | no       | Lock entity or list of entities to get usercodes from.                                                                                        |
+| `code_slot`    | no       | The code slot to retrieve. If not specified, all code slots are returned.                                                                     |
+
+{% details "Example action response" %}
+
+```yaml
+"1":
+  usercode: "1234"
+  in_use: true
+"2":
+  usercode: ""
+  in_use: false
+```
+
+{% enddetails %}
+
 ## Events
 
 There are two types of events that are fired, notification events and value notification events. You can test what events come in using the event {% my developer_events title="developer tools in Home Assistant" %} and subscribing to the `zwave_js_notification` or `zwave_js_value_notification` events respectively. Once you know what the event data looks like, you can use this to create automations.

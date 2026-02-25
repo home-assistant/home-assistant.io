@@ -55,8 +55,6 @@ The integration provides the following sensors:
 - Sulphur dioxide
 - Sulphur dioxide index
 
-The available sensors and data refresh rate depend on the selected measurement station.
-
 ## Data updates
 
 By default, the integration {% term polling polls %} data from the API every 30 minutes.
@@ -89,6 +87,11 @@ automation:
 ```
 
 {% endraw %}
+
+## Known limitations
+
+- The availability of sensors depends on the selected measurement station. Not all stations provide data for all pollutants or indices.
+- The data provider may publish new measurements less frequently than every 30 minutes, so consecutive {% term polling polls %} can return unchanged data.
 
 ## Troubleshooting
 

@@ -9,7 +9,7 @@ ha_domain: airobot
 ha_integration_type: device
 ha_dhcp: true
 ha_config_flow: true
-ha_quality_scale: gold
+ha_quality_scale: platinum
 related:
   - url: https://airobothome.com/
     title: Airobot

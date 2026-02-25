@@ -42,7 +42,15 @@ frontend:
     required: false
     type: list
   development_repo:
-    description: Allows you to point to a directory containing frontend files instead of taking them from a prebuilt PyPI package. Useful for Frontend development.
+    description: "Allows you to point to a directory containing frontend files instead of taking them from a prebuilt PyPI package. Useful for Frontend development. For more information, see [Frontend development](https://developers.home-assistant.io/docs/frontend/development)."
+    required: false
+    type: string
+  development_pr:
+    description: "Allows you to point to a specific frontend [pull request](https://github.com/home-assistant/frontend/pulls) containing frontend files instead of taking them from a prebuilt PyPI package. Useful for Frontend development. This requires `github_token` to be set. For more information, see [Frontend development](https://developers.home-assistant.io/docs/frontend/development#test-an-existing-pr)."
+    required: false
+    type: integer
+  github_token:
+    description: "GitHub token to use when fetching frontend files from a specific pull request. Required when `development_pr` is set. For more information, see [Creating a GitHub token](https://developers.home-assistant.io/docs/frontend/development#creating-a-github-token)."
     required: false
     type: string
 {% endconfiguration %}
