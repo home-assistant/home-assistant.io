@@ -63,7 +63,7 @@ The Pictogrammers website will always show the latest release of the material de
 Being open-source like Home Assistant, the material design icons library is always accepting suggestions and contributions to expand the library.
 
 {% note %}
-Before suggesting or creating a new icon, it is very important that you [search the current library](https://pictogrammers.com/library/mdi/) and [search all issues](https://github.com/Templarian/MaterialDesign/issues?q=is%3Aissue), open and closed, on their GitHub. Try searching with different terms that might mean the same thing. For example: "user," "person," or "account."
+Before suggesting or creating a new icon, it is very important that you [search the current library](https://pictogrammers.com/library/mdi/) and [search all issues](https://github.com/Templarian/MaterialDesign/issues?q=is%3Aissue), open and closed, on their GitHub. Try searching with different terms that might mean the same thing. For example: "user", "person", or "account".
 {% endnote %}
 
 ### Suggesting a new icon
