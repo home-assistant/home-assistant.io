@@ -36,7 +36,7 @@ The Sonarr integration will add the following sensors:
 - **Shows**: The number of series in Sonarr. (disabled by default)
 - **Wanted**: The number of episodes still wanted. (disabled by default)
 
-For detailed information about each item (series details, download progress, etc.), use the corresponding actions described below.
+The sensors provide summary counts. For detailed information about each item, such as series details or download progress, use the corresponding {% term actions %} described below.
 
 ## Actions
 
@@ -45,7 +45,7 @@ For detailed information about each item (series details, download progress, etc
 Get the list of all series in Sonarr with their details and statistics.
 
 | Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
+| -------------- | -------- | ----------- |
 | `entry_id` | No | The config entry ID to use. |
 | `space_unit` | Yes | Unit for disk space values (such as kb, kib, gb, gib. default: bytes). |
 
