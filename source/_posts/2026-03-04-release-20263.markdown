@@ -460,31 +460,44 @@ One thing we are incredibly proud of in Home Assistant is our [integration quali
 
 This release, we celebrate several {% term integrations %} that have improved their quality scale:
 
-- **9 integrations reached platinum** 🏆
+- **11 integrations reached platinum** 🏆
   - [GIOŚ], thanks to [@mik-laj]
   - [HDFury], thanks to [@glenndehaan]
   - [Immich], thanks to [@mib1185]
   - [Namecheap DynamicDNS], thanks to [@tr4nt0r]
+  - [OneDrive for Business], thanks to [@zweckj]
   - [Portainer], thanks to [@erwindouna]
   - [Powerfox Local], thanks to [@klaasnicolaas]
+  - [Ubiquiti airOS], thanks to [@CoMPaTech]
   - [Watts Vision +], thanks to [@theobld-ww]
   - [WLED], thanks to [@mik-laj]
   - [Xbox], thanks to [@tr4nt0r]
 
-- **5 integrations reached silver** 🥈
+- **1 integrations reached gold** 🥇
+  - [UptimeRobot], thanks to [@chemelli74]
+
+- **10 integrations reached silver** 🥈
   - [BSB-Lan], thanks to [@liudger]
   - [devolo Home Control], thanks to [@Shutgun]
   - [Homevolt], thanks to [@Danielhiversen]
+  - [Liebherr], thanks to [@mettolen]
+  - [Mastodon], thanks to [@andrew-codechimp]
+  - [MTA], thanks to [@OnFreund]
   - [NRGkick], thanks to [@andijakl]
   - [Teslemetry], thanks to [@Bre77]
+  - [Teltonika], thanks to [@karlbeecken]
+  - [Velux], thank to [@wollew]
 
-- **6 integrations reached bronze** 🥉
+- **8 integrations reached bronze** 🥉
   - [Aladdin Connect], thanks to [@JamieMagee]
   - [Anthropic Conversation], thanks to [@Shulyaka]
+  - [Indevolt], thanks to [@Xirt]
   - [OpenAI], thanks to [@zweckj]
   - [OpenEVSE], thanks to [@c00w]
+  - [Prana], thanks to [@prana-dev-official]
   - [Splunk], thanks to [@Bre77]
   - [VeSync], thanks to [@cdnninja]
+
 
 This is a huge achievement for these integrations and their maintainers. The effort and dedication required to reach these quality levels is significant, as it involves extensive testing, documentation, error handling, and often complete rewrites of parts of the integration.
 
@@ -496,6 +509,8 @@ A big thank you to all the contributors involved! 👏
 [@Bre77]: https://github.com/Bre77
 [@c00w]: https://github.com/c00w
 [@cdnninja]: https://github.com/cdnninja
+[@chemelli74]: https://github.com/chemelli74
+[@CoMPaTech]: https://github.com/CoMPaTech
 [@Danielhiversen]: https://github.com/Danielhiversen
 [@erwindouna]: https://github.com/erwindouna
 [@glenndehaan]: https://github.com/glenndehaan
@@ -504,6 +519,7 @@ A big thank you to all the contributors involved! 👏
 [@liudger]: https://github.com/liudger
 [@mib1185]: https://github.com/mib1185
 [@mik-laj]: https://github.com/mik-laj
+[@prana-dev-official]: https://github.com/prana-dev-official
 [@Shutgun]: https://github.com/Shutgun
 [@Shulyaka]: https://github.com/Shulyaka
 [@theobld-ww]: https://github.com/theobld-ww
@@ -517,14 +533,19 @@ A big thank you to all the contributors involved! 👏
 [HDFury]: /integrations/hdfury
 [Homevolt]: /integrations/homevolt
 [Immich]: /integrations/immich
+[Mastodon]: /integrations/mastodon
+[MTA]: /integrations/mta
 [Namecheap DynamicDNS]: /integrations/namecheapdns
 [NRGkick]: /integrations/nrgkick
 [OpenAI]: /integrations/openai_conversation
 [OpenEVSE]: /integrations/openevse
+[Prana]: /integrations/prana
 [Portainer]: /integrations/portainer
 [Powerfox Local]: /integrations/powerfox_local
 [Splunk]: /integrations/splunk
 [Teslemetry]: /integrations/teslemetry
+[Ubiquiti airOS]: /integrations/airos
+[UptimeRobot]: /integrations/uptimerobot
 [VeSync]: /integrations/vesync
 [Watts Vision +]: /integrations/watts
 [WLED]: /integrations/wled
