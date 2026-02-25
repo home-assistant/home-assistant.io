@@ -131,6 +131,15 @@ actions:
 
 {% enddetails %}
 
+## Updates
+
+For self-hosted **ntfy** instances, the update platform can notify you when a new version of **ntfy** is available for download. To perform an update, please refer to the official [documentation](https://docs.ntfy.sh/).
+
+**Prerequisites**:
+
+- **ntfy** version v2.17.0 or later
+- The configured user must have **administrator** privileges on the instance.
+
 ## Actions
 
 ### Publish notification
