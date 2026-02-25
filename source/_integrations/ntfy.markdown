@@ -137,8 +137,8 @@ For self-hosted **ntfy** instances, Home Assistant creates an update entity that
 
 **Prerequisites**:
 
-- **ntfy** version v2.17.0 or later
-- The configured user must have **administrator** privileges on the instance.
+- **ntfy** version 2.17.0 or later
+- Configured user with **administrator** privileges on the instance
 
 ## Actions
 
