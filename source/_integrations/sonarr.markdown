@@ -300,10 +300,8 @@ disks:
 
 The `sonarr.get_upcoming` action retrieves upcoming episodes from the calendar. Episodes are returned if their air date falls between today and today plus the specified number of days.
 
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entry_id` | No | The config entry ID to use. |
-| `days` | Yes | Number of days to look ahead for upcoming episodes (1-30, default: 1). |
+- **entry_id** (required): The config entry ID to use.
+- **days** (optional): Number of days to look ahead for upcoming episodes. Valid range is 1-30, default is 1.
 
 #### Response data
 
