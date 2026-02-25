@@ -471,7 +471,7 @@ This release, we celebrate several {% term integrations %} that have improved th
   - [WLED], thanks to [@mik-laj]
   - [Xbox], thanks to [@tr4nt0r]
 
-- **1 integrations reached gold** 🥇
+- **1 integration reached gold** 🥇
   - [UptimeRobot], thanks to [@chemelli74]
 
 - **6 integrations reached silver** 🥈
@@ -480,7 +480,7 @@ This release, we celebrate several {% term integrations %} that have improved th
   - [Mastodon], thanks to [@andrew-codechimp]
   - [NRGkick], thanks to [@andijakl]
   - [Teslemetry], thanks to [@Bre77]
-  - [Velux], thank to [@wollew]
+  - [Velux], thanks to [@wollew]
 
 - **7 integrations reached bronze** 🥉
   - [Aladdin Connect], thanks to [@JamieMagee]
@@ -490,7 +490,6 @@ This release, we celebrate several {% term integrations %} that have improved th
   - [Prana], thanks to [@prana-dev-official]
   - [Splunk], thanks to [@Bre77]
   - [VeSync], thanks to [@cdnninja]
-
 
 This is a huge achievement for these integrations and their maintainers. The effort and dedication required to reach these quality levels is significant, as it involves extensive testing, documentation, error handling, and often complete rewrites of parts of the integration.
 
@@ -527,7 +526,6 @@ A big thank you to all the contributors involved! 👏
 [Homevolt]: /integrations/homevolt
 [Immich]: /integrations/immich
 [Mastodon]: /integrations/mastodon
-[MTA]: /integrations/mta
 [Namecheap DynamicDNS]: /integrations/namecheapdns
 [NRGkick]: /integrations/nrgkick
 [OpenAI]: /integrations/openai_conversation
