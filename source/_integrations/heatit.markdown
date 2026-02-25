@@ -9,7 +9,7 @@ ha_iot_standard: zwave
 ha_brand: true
 ---
 
-[Heatit](https://www.heimantech.com/) is committed to making sure their products are up-to-date and ready to use in Home Assistant.
+[Heatit](https://heatit.com/) is committed to making sure their products are up-to-date and ready to use in Home Assistant.
 
 Heatit Z-Wave devices work locally and integrate seamlessly with the Z-Wave.js integration in Home Assistant. Because all connectivity occurs locally, status updates and device control happen instantly in Home Assistant.
 
