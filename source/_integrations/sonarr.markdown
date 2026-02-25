@@ -175,33 +175,31 @@ The `sonarr.get_queue` action retrieves all episodes currently in the download q
 
 The response contains a `shows` key with a dictionary of queue items keyed by download title.
 
-| Return attribute | Description |
-| ---------------------- | ----------- |
-| `id` | Internal queue item ID. |
-| `series_id` | Internal Sonarr series ID. |
-| `episode_id` | Internal episode ID. |
-| `title` | Series title. |
-| `download_title` | Download release name. |
-| `season_number` | Season number. |
-| `episode_number` | Episode number. |
-| `episode_title` | Episode title. |
-| `episode_identifier` | Formatted identifier (e.g., `S01E01`). |
-| `progress` | Download progress percentage. |
-| `size` | Total download size in bytes. |
-| `size_left` | Remaining download size in bytes. |
-| `status` | Download status (e.g., `downloading`, `paused`). |
-| `tracked_download_status` | Tracked download status (e.g., `ok`, `warning`). |
-| `tracked_download_state` | Tracked download state (e.g., `downloading`). |
-| `quality` | Quality profile name (e.g., `Bluray-1080p`). |
-| `languages` | List of language names. |
-| `download_client` | Download client name. |
-| `download_id` | Download client's ID for this download. |
-| `indexer` | Indexer name. |
-| `protocol` | Download protocol (e.g., `ProtocolType.TORRENT`, `ProtocolType.USENET`). |
-| `episode_has_file` | Whether the episode already has a file. |
-| `estimated_completion_time` | Estimated completion timestamp (or `None`). |
-| `time_left` | Time remaining (or `None`). |
-| `images` | Dictionary of series image URLs by type (poster, banner, fanart, clearlogo). |
+- **id**: Internal queue item ID
+- **series_id**: Internal Sonarr series ID
+- **episode_id**: Internal episode ID
+- **title**: Series title
+- **download_title**: Download release name
+- **season_number**: Season number
+- **episode_number**: Episode number
+- **episode_title**: Episode title
+- **episode_identifier**: Formatted identifier like `S01E01`
+- **progress**: Download progress percentage
+- **size**: Total download size in bytes
+- **size_left**: Remaining download size in bytes
+- **status**: Download status, such as `downloading` or `paused`
+- **tracked_download_status**: Tracked download status, such as `ok` or `warning`
+- **tracked_download_state**: Tracked download state like `downloading`
+- **quality**: Quality profile name, such as `Bluray-1080p`
+- **languages**: List of language names
+- **download_client**: Download client name
+- **download_id**: Download client's ID for this download
+- **indexer**: Indexer name
+- **protocol**: Download protocol like `ProtocolType.TORRENT` or `ProtocolType.USENET`
+- **episode_has_file**: Whether the episode already has a file
+- **estimated_completion_time**: Estimated completion timestamp, or `None`
+- **time_left**: Time remaining, or `None`
+- **images**: Dictionary of series image URLs by type including poster, banner, fanart, and clearlogo
 
 #### Example
 
