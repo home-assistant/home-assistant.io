@@ -133,7 +133,7 @@ actions:
 
 ## Updates
 
-For self-hosted **ntfy** instances, the update platform can notify you when a new version of **ntfy** is available for download. To perform an update, please refer to the official [documentation](https://docs.ntfy.sh/).
+For self-hosted **ntfy** instances, Home Assistant creates an update entity that shows when a new version of **ntfy** is available for download. To perform an update, refer to the official [documentation](https://docs.ntfy.sh/).
 
 **Prerequisites**:
 
