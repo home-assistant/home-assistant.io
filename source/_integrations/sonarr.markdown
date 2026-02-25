@@ -255,6 +255,7 @@ Get disk space information for all storage locations configured in Sonarr.
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entry_id` | No | The config entry ID to use. |
+| `space_unit` | Yes | Unit for disk space values (such as kb, kib, gb, gib. default: bytes). |
 
 #### Response data
 
