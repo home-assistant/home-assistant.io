@@ -85,10 +85,10 @@ shows:
     episode_count: 7
     episodes_info: "7/7 Episodes"
     images:
-      banner: "https://artworks.thetvdb.com/banners/v4/series/416491/banners/6393c5abdabcd.jpg"
-      poster: "https://artworks.thetvdb.com/banners/v4/series/416491/posters/63aa25026aabf.jpg"
-      fanart: "https://artworks.thetvdb.com/banners/v4/series/416491/backgrounds/63965fcbc0ca4.jpg"
-      clearlogo: "https://artworks.thetvdb.com/banners/v4/series/416491/clearlogo/63c4f71decfab.png"
+      banner: "https://artworks.thetvdb.com/banners/416491/banner.jpg"
+      poster: "https://artworks.thetvdb.com/banners/416491/poster.jpg"
+      fanart: "https://artworks.thetvdb.com/banners/416491/fanart.jpg"
+      clearlogo: "https://artworks.thetvdb.com/banners/416491/clearlogo.png"
 ```
 
 ### Action: Get episodes
@@ -101,7 +101,7 @@ The `sonarr.get_episodes` action retrieves all episodes for a specific series. U
 
 #### Response data
 
-The response contains an `episodes` key with a dictionary of episodes keyed by episode identifier (e.g., `S01E01`).
+The response contains an `episodes` key with a dictionary of episodes keyed by episode identifier (for example, `S01E01`).
 
 - **id**: Internal episode ID
 - **series_id**: Internal Sonarr series ID
@@ -240,10 +240,10 @@ shows:
     estimated_completion_time: null
     time_left: null
     images:
-      banner: "https://artworks.thetvdb.com/banners/text/247897-3.jpg"
-      poster: "https://artworks.thetvdb.com/banners/series/247897/posters/62040472.jpg"
-      fanart: "https://artworks.thetvdb.com/banners/fanart/original/247897-33.jpg"
-      clearlogo: "https://artworks.thetvdb.com/banners/v4/series/247897/clearlogo/611b532422f87.png"
+      banner: "https://artworks.thetvdb.com/banners/247897/banner.jpg"
+      poster: "https://artworks.thetvdb.com/banners/247897/poster.jpg"
+      fanart: "https://artworks.thetvdb.com/banners/247897/fanart.jpg"
+      clearlogo: "https://artworks.thetvdb.com/banners/247897/clearlogo.png"
 ```
 
 ### Action: Get disk space
@@ -251,8 +251,7 @@ shows:
 The `sonarr.get_diskspace` action retrieves the disk space information for all storage locations configured in Sonarr.
 
 - **entry_id** (required): The config entry ID to use.
-- **space_unit** (optional): Unit for disk space values, such as kb, kib, gb, gib, pb, and pib. Default is bytes.
-
+- **space_unit** (optional): Unit for disk space values, such as KB, KiB, GB, GiB, PB, and PiB. Default is bytes.
 
 #### Response data
 
@@ -271,6 +270,7 @@ The response contains a `disks` key with a dictionary of disk information keyed 
 action: sonarr.get_diskspace
 data:
   entry_id: "01234567890abcdef1234567890abcde"
+  space_unit: "GB"
 response_variable: disk_data
 ```
 
@@ -279,20 +279,16 @@ disks:
   "/mnt/media":
     path: "/mnt/media"
     label: "Media Storage"
-    free_space_bytes: 2000000000000
-    total_space_bytes: 4000000000000
-    free_space_gb: 1862.65
-    total_space_gb: 3725.29
-    used_space_gb: 1862.65
+    free_space: 1862.65
+    total_space: 3725.29
+    unit: "GB"
     usage_percent: 50.0
   "/mnt/downloads":
     path: "/mnt/downloads"
     label: ""
-    free_space_bytes: 500000000000
-    total_space_bytes: 1000000000000
-    free_space_gb: 465.66
-    total_space_gb: 931.32
-    used_space_gb: 465.66
+    free_space: 465.66
+    total_space: 931.32
+    unit: "GB"
     usage_percent: 50.0
 ```
 
@@ -305,7 +301,7 @@ The `sonarr.get_upcoming` action retrieves upcoming episodes from the calendar. 
 
 #### Response data
 
-The response contains an `episodes` key with a dictionary of upcoming episodes keyed by series title and episode identifier (e.g., `Breaking Bad S01E01`).
+The response contains an `episodes` key with a dictionary of upcoming episodes keyed by series title and episode identifier (for example, `Breaking Bad S01E01`).
 
 - **id**: Internal episode ID
 - **series_id**: Internal Sonarr series ID
@@ -361,10 +357,10 @@ episodes:
     series_status: "continuing"
     network: "ABC (US)"
     images:
-      banner: "https://artworks.thetvdb.com/banners/graphical/5b808369ba86c.jpg"
-      poster: "https://artworks.thetvdb.com/banners/posters/5d8a076567871.jpg"
-      fanart: "https://artworks.thetvdb.com/banners/fanart/original/5b8991cac6f01.jpg"
-      clearlogo: "https://artworks.thetvdb.com/banners/v4/series/350665/clearlogo/611bcbd635134.png"
+      banner: "https://artworks.thetvdb.com/banners/350665/banner.jpg"
+      poster: "https://artworks.thetvdb.com/banners/350665/poster.jpg"
+      fanart: "https://artworks.thetvdb.com/banners/350665/fanart.jpg"
+      clearlogo: "https://artworks.thetvdb.com/banners/350665/clearlogo.png"
 ```
 
 ### Action: Get wanted
@@ -376,7 +372,7 @@ The `sonarr.get_wanted` action retrieves wanted (missing) episodes that Sonarr i
 
 #### Response data
 
-The response contains an `episodes` key with a dictionary of wanted episodes keyed by series title and episode identifier (e.g., `Westworld S00E62`).
+The response contains an `episodes` key with a dictionary of wanted episodes keyed by series title and episode identifier (for example, `Westworld S00E62`).
 
 - **id**: Internal episode ID
 - **series_id**: Internal Sonarr series ID
@@ -432,8 +428,8 @@ episodes:
     series_status: "ended"
     network: "HBO"
     images:
-      banner: "https://artworks.thetvdb.com/banners/graphical/296762-g3.jpg"
-      poster: "https://artworks.thetvdb.com/banners/series/296762/posters/62088687.jpg"
-      fanart: "https://artworks.thetvdb.com/banners/fanart/original/296762-7.jpg"
-      clearlogo: "https://artworks.thetvdb.com/banners/v4/series/296762/clearlogo/611b6e688efba.png"
+      banner: "https://artworks.thetvdb.com/banners/296762/banner.jpg"
+      poster: "https://artworks.thetvdb.com/banners/296762/poster.jpg"
+      fanart: "https://artworks.thetvdb.com/banners/296762/fanart.jpg"
+      clearlogo: "https://artworks.thetvdb.com/banners/296762/clearlogo.png"
 ```
