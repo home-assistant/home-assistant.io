@@ -181,8 +181,8 @@ data:
 
 There are four `homeassistant` actions that aren't tied to any single domain, these are:
 
-- `homeassistant.turn_on` - Turns on an entity (that supports being turned on), for example an `automation`, `switch`, etc.
-- `homeassistant.turn_off` - Turns off an entity (that supports being turned off), for example an `automation`, `switch`, etc.
+- `homeassistant.turn_on` - Turns on an entity (that supports being turned on), such as an `automation` or `switch`.
+- `homeassistant.turn_off` - Turns off an entity (that supports being turned off), such as an `automation` or `switch`.
 - `homeassistant.toggle` - Turns off an entity that is on, or turns on an entity that is off (that supports being turned on and off)
 - `homeassistant.update_entity` - Request the update of an entity, rather than waiting for the next scheduled update, for example [Google travel time] sensor, a [template sensor], or a [light]
 
