@@ -3,7 +3,7 @@ title: Brands
 description: Serves brand images such as icons and logos for integrations and hardware.
 ha_category:
   - Other
-ha_release: "2026.3"
+ha_release: 2026.3
 ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
