@@ -253,7 +253,7 @@ We welcome the following new integrations in this release:
   Control and monitor your [Liebherr](https://home.liebherr.com/) SmartDevice refrigerators and freezers via the cloud. Monitor temperatures, adjust cooling settings, and automate food safety alerts.
 
 - **[MTA New York City Transit]**, added by [@OnFreund]  
-  Get real-time subway arrival predictions for all NYC subway lines using data from the [Metropolitan Transportation Authority (MTA)](https://new.mta.info/).
+  Get real-time arrival predictions for all NYC subway and bus lines using data from the [Metropolitan Transportation Authority (MTA)](https://new.mta.info/).
 
 - **[MyNeomitis]**, added by [@l-pr]  
   Connect your [Axenco](https://www.axenco.com/) MyNeomitis heating and energy management devices, such as electric radiators, towel rails, and underfloor heating, to Home Assistant.
