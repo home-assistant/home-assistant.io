@@ -231,10 +231,10 @@ We welcome the following new integrations in this release:
 - **[Ghost]**, added by [@JohnONolan]  
   Monitor your [Ghost](https://ghost.org) publication metrics, including member counts, revenue, post statistics, and email newsletter performance, right from your Home Assistant dashboard.
 
-- **[Hegel Amplifier]**, added by [@boazca] - launching at 🥈 silver quality
+- **[Hegel Amplifier]**, added by [@boazca] - launching at 🥈 silver quality  
   Control your [Hegel Music Systems](https://www.hegel.com/) amplifiers locally over your network. Manage power, volume, input selection, and mute with real-time push updates for instant feedback.
 
-- **[Homevolt]**, added by [@Danielhiversen] - launching at 🥈 silver quality
+- **[Homevolt]**, added by [@Danielhiversen] - launching at 🥈 silver quality  
   Read local data from your [Homevolt](https://www.homevolt.com/) battery over your network, no cloud required. Monitor power, energy, voltage, temperature, and battery status.
 
 - **[Hypontech Cloud]**, added by [@jcisio]  
@@ -249,28 +249,28 @@ We welcome the following new integrations in this release:
 - **[IntelliClima]**, added by [@dvdinth]  
   Integrate your [Fantini Cosmi](https://www.fantinicosmi.it/en/) Ecocomfort 2.0 ventilation devices. Control fan modes and speeds of your mechanical ventilation with heat recovery system.
 
-- **[Liebherr]**, added by [@mettolen] - launching at 🥈 silver quality
+- **[Liebherr]**, added by [@mettolen] - launching at 🥈 silver quality  
   Control and monitor your [Liebherr](https://home.liebherr.com/) SmartDevice refrigerators and freezers via the cloud. Monitor temperatures, adjust cooling settings, and automate food safety alerts.
 
-- **[MTA New York City Transit]**, added by [@OnFreund] - launching at 🥈 silver quality
+- **[MTA New York City Transit]**, added by [@OnFreund] - launching at 🥈 silver quality  
   Get real-time subway arrival predictions for all NYC subway lines using data from the [Metropolitan Transportation Authority (MTA)](https://new.mta.info/).
 
 - **[MyNeomitis]**, added by [@l-pr]  
   Connect your [Axenco](https://www.axenco.com/) MyNeomitis heating and energy management devices, such as electric radiators, towel rails, and underfloor heating, to Home Assistant.
 
-- **[OneDrive for Business]**, added by [@zweckj] - launching at 🏆 platinum quality
+- **[OneDrive for Business]**, added by [@zweckj] - launching at 🏆 platinum quality  
   Use [OneDrive for Business](https://www.microsoft.com/en-us/microsoft-365/onedrive/online-cloud-storage) as a backup location for your Home Assistant backups. Great for users with a Microsoft 365 business subscription.
 
-- **[Powerfox Local]**, added by [@klaasnicolaas]  - launching at 🏆 platinum quality
+- **[Powerfox Local]**, added by [@klaasnicolaas] - launching at 🏆 platinum quality  
   Gather data from your [Powerfox Poweropti](https://shop.powerfox.energy/collections/frontpage) device directly over your local network, offering faster updates with no cloud dependency.
 
 - **[Redgtech]**, added by [@Jonhsady]  
   Connect your [Redgtech](https://redgtech.com.br/) smart switches to Home Assistant. Control and monitor your cloud-connected switches and relays from this Brazilian smart home brand.
 
-- **[System Nexa 2]**, added by [@konsulten] - launching at 🥈 silver quality
+- **[System Nexa 2]**, added by [@konsulten] - launching at 🥈 silver quality  
   Integrate your [System Nexa 2](https://nexa.se/smarta-hem/system-nexa-2) smart home devices locally. Control lights, switches, and smart plugs with support for dimmers and outdoor plugs.
 
-- **[Teltonika]**, added by [@karlbeecken] - launching at 🥈 silver quality
+- **[Teltonika]**, added by [@karlbeecken] - launching at 🥈 silver quality  
   Monitor your [Teltonika Networks](https://teltonika-networks.com/) routers running RutOS. Track cellular signal quality, modem temperature, and network connectivity.
 
 - **[Trane Local]**, added by [@bdraco]  
