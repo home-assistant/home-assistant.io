@@ -41,9 +41,12 @@ For a full list of supported boards and displays, see the [OpenDisplay hardware 
 
 Once the [Bluetooth](/integrations/bluetooth) integration is active, OpenDisplay devices are discovered automatically.
 
-## Image entity
+## Supported functionality
 
-An image {% term entity %} is created for each OpenDisplay device. When you upload an image, the entity preview updates immediately while the Bluetooth transfer to the physical display runs in the background. If the device is out of range, the preview still updates and the transfer is retried automatically once the device comes back into range. The preview persists across Home Assistant restarts.
+### Image
+
+- **Display**
+  - **Description**: An image entity is created for each OpenDisplay device. When you upload an image, the entity preview updates immediately while the Bluetooth transfer to the physical display runs in the background. If the device is out of range, the preview still updates and the transfer is retried automatically once the device comes back into range. The preview persists across Home Assistant restarts.
 
 ## Actions
 
@@ -62,8 +65,8 @@ Uploads an image to one or more displays. The image is resized and dithered to m
 
 **Refresh modes**:
 
-- **Full**: Clears ghosting but takes longer.
-- **Fast**: Faster refresh, not supported on all displays.
+- **Full**: Clears ghosting but takes longer
+- **Fast**: Faster refresh, not supported on all displays
 
 **Dither modes**: None, Burkes, Ordered, Floyd-Steinberg, Atkinson, Stucki, Sierra, Sierra Lite, Jarvis, Judice & Ninke
 
