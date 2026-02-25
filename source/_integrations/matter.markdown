@@ -391,21 +391,21 @@ The following actions let you manage users and credentials (such as PIN codes an
 Not all Matter locks support user and credential management. Use the `matter.get_lock_info` action to check what your lock supports before attempting to manage users or credentials.
 {% endnote %}
 
-### Action: Set lock user
+#### Action: Set lock user
 
 The `matter.set_lock_user` action creates or updates a user on the lock. If you omit the `user_index`, the lock automatically assigns the next available slot.
 
 - **Data attribute**: `user_index`
-  - **Description**: The user slot index (1-based). Leave empty to let the lock automatically find an available slot.
-  - **Required**: No
+  - **Description**: The user slot index (1-based). Omit this field to let the lock automatically find an available slot.
+  - **Optional**: Yes
 
 - **Data attribute**: `user_name`
   - **Description**: A name for the user.
-  - **Required**: No
+  - **Optional**: Yes
 
 - **Data attribute**: `user_type`
   - **Description**: The type of user to create.
-  - **Required**: No
+  - **Optional**: Yes
   - **Options**:
     - `unrestricted_user`: A regular user with no access restrictions.
     - `year_day_schedule_user`: Access is limited to specific date ranges.
@@ -420,7 +420,7 @@ The `matter.set_lock_user` action creates or updates a user on the lock. If you 
 
 - **Data attribute**: `credential_rule`
   - **Description**: The credential rule for the user. Determines how many credentials must be presented to unlock.
-  - **Required**: No
+  - **Optional**: Yes
   - **Options**:
     - `single`: One credential is required to unlock (for example, just a PIN).
     - `dual`: Two different credentials are required to unlock (for example, a PIN and an RFID tag).
@@ -436,13 +436,13 @@ data:
   credential_rule: single
 ```
 
-### Action: Clear lock user
+#### Action: Clear lock user
 
 The `matter.clear_lock_user` action deletes a user and all their associated credentials from the lock. To clear all users at once, use index `65534`. This is a special value defined by the Matter specification (hex `0xFFFE`) that tells the lock to remove every user.
 
 - **Data attribute**: `user_index`
   - **Description**: The user slot index (1-based) to clear. Use `65534` to clear all users at once.
-  - **Required**: Yes
+  - **Optional**: No
 
 ```yaml
 # Remove a single user
@@ -462,7 +462,7 @@ data:
   user_index: 65534
 ```
 
-### Action: Get lock info
+#### Action: Get lock info
 
 The `matter.get_lock_info` action returns the lock's capabilities, including supported credential types, maximum number of users, and PIN length constraints. This action returns a response and does not require any additional data attributes.
 
@@ -473,7 +473,7 @@ target:
 response_variable: lock_info
 ```
 
-### Action: Get lock users
+#### Action: Get lock users
 
 The `matter.get_lock_users` action returns all users configured on the lock. For each user, the response includes their name, status, type, credential rule, and a list of credential references (type and slot index). For security reasons, the lock does not expose the actual credential secrets (such as PIN codes or RFID tag data). This action returns a response and does not require any additional data attributes.
 
@@ -484,13 +484,13 @@ target:
 response_variable: lock_users
 ```
 
-### Action: Set lock credential
+#### Action: Set lock credential
 
 The `matter.set_lock_credential` action adds or updates a credential on the lock. If you omit the `credential_index`, the lock automatically assigns the next available slot. If you omit the `user_index`, a new user is created for the credential. This action returns a response containing the assigned credential and user indices.
 
 - **Data attribute**: `credential_type`
   - **Description**: The type of credential to set.
-  - **Required**: Yes
+  - **Optional**: No
   - **Options**:
     - `pin`: A numeric PIN code entered on the lock's keypad.
     - `rfid`: An RFID tag or card tapped against the lock's reader.
@@ -500,26 +500,26 @@ The `matter.set_lock_credential` action adds or updates a credential on the lock
 
 - **Data attribute**: `credential_data`
   - **Description**: The credential data to store. For `pin` credentials, use digits only (for example, `1234`). For `rfid` credentials, use a hexadecimal string representing the tag ID (for example, `AABBCCDD`).
-  - **Required**: Yes
+  - **Optional**: No
 
 - **Data attribute**: `credential_index`
-  - **Description**: The credential slot index (0-based). Leave empty to let the lock automatically find an available slot.
-  - **Required**: No
+  - **Description**: The credential slot index (0-based). Omit this field to let the lock automatically find an available slot.
+  - **Optional**: Yes
 
 - **Data attribute**: `user_index`
-  - **Description**: The user index (1-based) to associate the credential with. Leave empty to have the lock automatically create a new user.
-  - **Required**: No
+  - **Description**: The user index (1-based) to associate the credential with. Omit this field to have the lock automatically create a new user.
+  - **Optional**: Yes
 
 - **Data attribute**: `user_status`
   - **Description**: The user status to set when creating a new user for this credential.
-  - **Required**: No
+  - **Optional**: Yes
   - **Options**:
     - `occupied_enabled`: The user is active and can use their credentials to unlock.
     - `occupied_disabled`: The user exists but their credentials are temporarily disabled.
 
 - **Data attribute**: `user_type`
   - **Description**: The user type to set when creating a new user for this credential. See the `matter.set_lock_user` action for a description of each user type.
-  - **Required**: No
+  - **Optional**: Yes
 
 ```yaml
 # Add a PIN to an existing user
@@ -544,17 +544,17 @@ data:
 response_variable: result
 ```
 
-### Action: Clear lock credential
+#### Action: Clear lock credential
 
 The `matter.clear_lock_credential` action removes a credential from the lock.
 
 - **Data attribute**: `credential_type`
   - **Description**: The type of credential to remove. See the `matter.set_lock_credential` action for a description of each credential type.
-  - **Required**: Yes
+  - **Optional**: No
 
 - **Data attribute**: `credential_index`
   - **Description**: The credential slot index (0-based) to clear.
-  - **Required**: Yes
+  - **Optional**: No
 
 ```yaml
 action: matter.clear_lock_credential
@@ -565,13 +565,13 @@ data:
   credential_index: 1
 ```
 
-### Action: Get lock credential status
+#### Action: Get lock credential status
 
 The `matter.get_lock_credential_status` action returns the status of a specific credential slot on the lock, including whether the slot is occupied and which user it belongs to. This action returns a response.
 
 - **Data attribute**: `credential_type`
   - **Description**: The type of credential to query.
-  - **Required**: Yes
+  - **Optional**: No
   - **Options**:
     - `programming_pin`: A special administrative PIN used to manage the lock at the keypad.
     - `pin`: A numeric PIN code entered on the lock's keypad.
@@ -585,7 +585,7 @@ The `matter.get_lock_credential_status` action returns the status of a specific 
 
 - **Data attribute**: `credential_index`
   - **Description**: The credential slot index (0-based) to query.
-  - **Required**: Yes
+  - **Optional**: No
 
 ```yaml
 action: matter.get_lock_credential_status
