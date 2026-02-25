@@ -378,8 +378,6 @@ The `sonarr.get_wanted` action retrieves wanted (missing) episodes that Sonarr i
 
 The response contains an `episodes` key with a dictionary of wanted episodes keyed by series title and episode identifier (e.g., `Westworld S00E62`).
 
-| Return attribute | Description |
-| ---------------------- | ----------- |
 - **id**: Internal episode ID
 - **series_id**: Internal Sonarr series ID
 - **season_number**: Season number
