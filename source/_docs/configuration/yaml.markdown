@@ -18,7 +18,7 @@ related:
 
 Home Assistant uses the [YAML](https://yaml.org/) syntax for configuration. While most integrations can be configured through the UI, some integrations require you to edit your [`configuration.yaml`](/docs/configuration/) file to specify its settings.
 
-## YAML style guide
+## YAML Style Guide
 
 This page gives a high-level introduction to the YAML syntax used in Home Assistant. For a more detailed description and more examples, refer to the [YAML Style Guide for Home Assistant developers](https://developers.home-assistant.io/docs/documenting/yaml-style-guide/).
 
