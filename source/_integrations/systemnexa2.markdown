@@ -3,10 +3,12 @@ title: System Nexa 2
 description: How to integrate System Nexa 2 devices within Home Assistant.
 ha_category:
   - Light
+  - Sensor
   - Switch
 ha_config_flow: true
 ha_platforms:
   - light
+  - sensor
   - switch
 ha_release: 2026.3
 ha_iot_class: Local Push
@@ -67,6 +69,13 @@ Host:
   - **Description**: Control dimmable lights with adjustable brightness levels.
   - **Available for devices**: WBD-01, WPD-01
   - **Remarks**: Supports brightness control from 0-100%
+
+### Sensors
+
+- **Signal strength**
+  - **Description**: Wi-Fi signal strength (dBm).
+  - **Available for devices**: all
+  - **Remarks**: Disabled by default.
 
 ### Switches
 
