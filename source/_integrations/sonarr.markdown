@@ -91,7 +91,7 @@ shows:
       clearlogo: "https://artworks.thetvdb.com/banners/v4/series/416491/clearlogo/63c4f71decfab.png"
 ```
 
-### Action `sonarr.get_episodes`
+### Action: Get episodes
 
 Get all episodes for a specific series. Useful for displaying episode details, tracking watched status, or building episode lists.
 
@@ -164,14 +164,12 @@ episodes:
     episode_file_id: 5002
 ```
 
-### Action `sonarr.get_queue`
+### Action: Get queue
 
-Get all episodes currently in the download queue with their progress and details.
+The `sonarr.get_queue` action retrieves all episodes currently in the download queue with their progress and details.
 
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entry_id` | No | The config entry ID to use. |
-| `max_items` | Yes | Maximum number of queue items to return (0 = no limit, max: 500, default: 0). |
+- **entry_id** (required): The config entry ID to use.
+- **max_items** (optional): Maximum number of queue items to return. Use 0 for no limit, maximum is 500, default is 0.
 
 #### Response data
 
