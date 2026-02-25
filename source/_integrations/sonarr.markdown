@@ -371,10 +371,8 @@ episodes:
 
 The `sonarr.get_wanted` action retrieves wanted (missing) episodes that Sonarr is searching for.
 
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entry_id` | No | The config entry ID to use. |
-| `max_items` | Yes | Maximum number of wanted episodes to return (0 = no limit, max: 500, default: 0). |
+- **entry_id** (required): The config entry ID to use.
+- **max_items** (optional): Maximum number of wanted episodes to return. 0 = no limit, max: 500, default: 0.
 
 #### Response data
 
