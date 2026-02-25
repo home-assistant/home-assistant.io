@@ -307,28 +307,26 @@ The `sonarr.get_upcoming` action retrieves upcoming episodes from the calendar. 
 
 The response contains an `episodes` key with a dictionary of upcoming episodes keyed by series title and episode identifier (e.g., `Breaking Bad S01E01`).
 
-| Return attribute | Description |
-| ---------------------- | ----------- |
-| `id` | Internal episode ID. |
-| `series_id` | Internal Sonarr series ID. |
-| `season_number` | Season number. |
-| `episode_number` | Episode number. |
-| `episode_identifier` | Formatted identifier (e.g., `S01E01`). |
-| `title` | Episode title. |
-| `air_date` | Air date (local). |
-| `air_date_utc` | Air date (UTC). |
-| `overview` | Episode overview/description. |
-| `has_file` | Whether the episode file exists. |
-| `monitored` | Whether the episode is monitored. |
-| `runtime` | Episode runtime in minutes. |
-| `finale_type` | Finale type if applicable (e.g., `series`, `season`). |
-| `series_title` | Series title. |
-| `series_year` | Series premiere year. |
-| `series_tvdb_id` | Series TheTVDB ID. |
-| `series_imdb_id` | Series IMDb ID. |
-| `series_status` | Series status. |
-| `network` | Network the series airs on. |
-| `images` | Dictionary of series image URLs by type (poster, banner, fanart, clearlogo). |
+- **id**: Internal episode ID
+- **series_id**: Internal Sonarr series ID
+- **season_number**: Season number
+- **episode_number**: Episode number
+- **episode_identifier**: Formatted identifier like `S01E01`
+- **title**: Episode title
+- **air_date**: Air date in local time
+- **air_date_utc**: Air date in UTC
+- **overview**: Episode overview or description
+- **has_file**: Whether the episode file exists
+- **monitored**: Whether the episode is monitored
+- **runtime**: Episode runtime in minutes
+- **finale_type**: Finale type if applicable, such as `series` or `season`
+- **series_title**: Series title
+- **series_year**: Series premiere year
+- **series_tvdb_id**: Series TheTVDB ID
+- **series_imdb_id**: Series IMDb ID
+- **series_status**: Series status
+- **network**: Network the series airs on
+- **images**: Dictionary of series image URLs by type including poster, banner, fanart, and clearlogo
 
 #### Example
 
