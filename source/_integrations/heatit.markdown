@@ -13,7 +13,7 @@ ha_brand: true
 
 Heatit Z-Wave devices work locally and integrate seamlessly with the Z-Wave.js integration in Home Assistant. Because all connectivity occurs locally, status updates and device control happen instantly in Home Assistant.
 
-{% my add_matter_device badge domain=page.ha_domain %}
+{% my add_zwave_device badge domain=page.ha_domain %}
 
 [Learn more about Z-Wave in Home Assistant.](/integrations/zwave_js/)
 
