@@ -17,6 +17,7 @@ ha_platforms:
   - number
   - select
   - sensor
+  - switch
   - water_heater
 ha_integration_type: hub
 ha_quality_scale: bronze
@@ -411,6 +412,34 @@ The available sensors depend on your specific Compit device configuration. Not a
   - **Available for devices**: SPM - Nano Color 2 (Air quality sensor connected to Nano Color 2)
 
 Binary sensors provide status information about your Compit devices.
+
+### Switches
+
+Switch entities let you turn device modes and features on or off.
+
+- **Holiday mode**
+  - **Description**: Enables or disables holiday mode (reduced heating when you are away).
+  - **Available for devices**: Nano One (Room thermostat), Nano Color (Room thermostat), R490 (Heat pump controller), R480 (Heat pump controller), Nano Color 2 (Room thermostat), R900 (Heat pump controller)
+
+- **Device on/off**
+  - **Description**: Turns the device on or off.
+  - **Available for devices**: EL750 (Electric boiler controller)
+
+- **Force DHW**
+  - **Description**: Forces domestic hot water production.
+  - **Available for devices**: R900 (Heat pump controller)
+
+- **Summer mode**
+  - **Description**: Enables or disables summer mode.
+  - **Available for devices**: R350 T3 (Universal controller), BioMax742 (Pellet boiler controller), BioMax772 (Pellet boiler controller), BioMax775 (Pellet boiler controller), R480 (Heat pump controller)
+
+- **Out of home mode**
+  - **Description**: Enables or disables out-of-home mode (reduced heating when nobody is at home).
+  - **Available for devices**: Nano Color 2 (Room thermostat)
+
+- **Party mode**
+  - **Description**: Enables or disables party mode.
+  - **Available for devices**: R480 (Heat pump controller)
 
 ### Climate
 
