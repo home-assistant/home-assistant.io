@@ -433,7 +433,7 @@ Switch entities let you turn device modes and features on or off.
   - **Description**: Enables or disables summer mode.
   - **Available for devices**: R350 T3 (Universal controller), BioMax742 (Pellet boiler controller), BioMax772 (Pellet boiler controller), BioMax775 (Pellet boiler controller), R480 (Heat pump controller)
 
-- **Out of home mode**
+- **Out-of-home mode**
   - **Description**: Enables or disables out-of-home mode (reduced heating when nobody is at home).
   - **Available for devices**: Nano Color 2 (Room thermostat)
 
