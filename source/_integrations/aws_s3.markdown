@@ -28,8 +28,8 @@ This integration requires an existing S3 bucket and an IAM user that has access 
 1. Log in to the [AWS Management Console](https://console.aws.amazon.com/).
 1. Navigate to **S3** from the Services menu.
 1. Click **Create bucket**.
-1. Choose a unique **bucket name** (e.g., `home-assistant-backups-123456`).
-1. Select your preferred AWS **region** (e.g., `eu-central-1`).
+1. Choose a unique **bucket name** (for example, `home-assistant-backups-123456`).
+1. Select your preferred AWS **region** (for example, `eu-central-1`).
 1. Adjust the settings:
    - ✅ **Block all public access** (enabled by default, recommended)
    - ⚠️ **Enable Bucket Versioning** (optional). This lets you recover backups after Home Assistant deletes them, but it **can increase storage costs**. Disable this to allow permanent deletion based on retention settings.
@@ -76,7 +76,7 @@ Now, let's create and attach a custom IAM policy to give the user the necessary 
     }
     ```
 
-1. Name the policy (e.g., `HomeAssistantS3Policy`) and create it.
+1. Name the policy (for example, `HomeAssistantS3Policy`) and create it.
 1. Return to the user creation wizard and attach the new policy.
 1. Complete the user setup.
 1. Save the **Access Key ID** and **Secret Access Key** — you'll need these when setting up the AWS S3 integration in Home Assistant.
@@ -103,6 +103,7 @@ Endpoint URL:
   description: "Endpoint URL provided to [Boto3 Session](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/core/session.html). Region-specific [AWS S3 endpoints](https://docs.aws.amazon.com/general/latest/gr/s3.html) are available in their documentation. Defaults to `https://s3.eu-central-1.amazonaws.com/`."
 Prefix:
   description: "Optional path prefix within the S3 bucket where backups will be stored. For example, `home-assistant` will store backups in `s3://bucket-name/home-assistant/`. This is useful for organizing backups when using the same bucket for multiple purposes. Leading and trailing slashes will be automatically removed."
+  required: false
 {% endconfiguration_basic %}
 
 ## Setting up the AWS S3 integration in Home Assistant
@@ -112,21 +113,23 @@ Prefix:
 1. Enter the following details:
    - Access Key ID and Secret Access Key from the IAM user
    - Your bucket name
-   - The region endpoint (e.g., `https://s3.eu-central-1.amazonaws.com/`)
+   - The region endpoint (for example, `https://s3.eu-central-1.amazonaws.com/`)
 
 The integration will test the connection and confirm access to your S3 bucket.
 
-## Using S3 prefix
+## Organizing backups with the prefix option
 
 The optional prefix option allows you to organize your backups within a specific path inside your S3 bucket. This is useful when you want to:
 
-- Store backups in a dedicated folder (for example, `home-assistant/backups/`)
+- Store backups in a dedicated path (for example, `home-assistant/backups/`)
 - Use the same S3 bucket for multiple purposes
-- Manage multiple Home Assistant instances with separate backup directories
+- Manage multiple Home Assistant instances with separate backup paths
 
 ### Examples
 
-#### Without prefix: Backups are stored at the root of your bucket
+#### Without prefix
+
+Backups are stored at the root of your bucket:
 
 ```txt
 s3://my-bucket/
@@ -136,30 +139,31 @@ s3://my-bucket/
 └── backup-2025-02-02.metadata.json
 ```
 
-#### With prefix `home-assistant`: Backups are stored in a subdirectory
+#### With prefix `home-assistant`
+
+Backups are stored in a folder:
 
 ```txt
-s3://my-bucket/
-└── home-assistant/
-    ├── backup-2025-02-01.tar
-    ├── backup-2025-02-01.metadata.json
-    ├── backup-2025-02-02.tar
-    └── backup-2025-02-02.metadata.json
+s3://my-bucket/home-assistant/
+├── backup-2025-02-01.tar
+├── backup-2025-02-01.metadata.json
+├── backup-2025-02-02.tar
+└── backup-2025-02-02.metadata.json
 ```
 
-#### With nested prefix `backups/home-assistant`: Backups are stored in nested subdirectories
+#### With nested prefix `backups/home-assistant`
+
+Backups are stored in nested folders:
 
 ```txt
-s3://my-bucket/
-└── backups/
-    └── home-assistant/
-        ├── backup-2025-02-01.tar
-        ├── backup-2025-02-01.metadata.json
-        ├── backup-2025-02-02.tar
-        └── backup-2025-02-02.metadata.json
+s3://my-bucket/backups/home-assistant/
+├── backup-2025-02-01.tar
+├── backup-2025-02-01.metadata.json
+├── backup-2025-02-02.tar
+└── backup-2025-02-02.metadata.json
 ```
 
-The prefix is automatically normalized, so you can enter it with or without leading/trailing slashes (for example, `home-assistant`, `/home-assistant`, `home-assistant/` will all work the same way).
+The prefix is automatically normalized, so you can enter it with or without leading/trailing slashes. For example, `home-assistant`, `/home-assistant`, and `home-assistant/` all work the same way.
 
 ## Sensors
 
