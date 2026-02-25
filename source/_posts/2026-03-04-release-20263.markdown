@@ -558,7 +558,7 @@ Home Assistant container images are now compressed with `zstd` instead of `gzip`
 
 {% enddetails %}
 
-
+{% details "LIFX" %}
 
 Passing the `color_temp` parameter (in mireds) to the `lifx.effect_pulse` action is no longer allowed. Use the `color_temp_kelvin` parameter instead.
 
