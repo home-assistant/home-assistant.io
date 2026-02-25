@@ -47,7 +47,6 @@ Get the list of all series in Sonarr with their details and statistics.
 | Data attribute | Optional | Description |
 | -------------- | -------- | ----------- |
 | `entry_id` | No | The config entry ID to use. |
-| `space_unit` | Yes | Unit for disk space values (such as kb, kib, gb, gib. default: bytes). |
 
 #### Response data
 
