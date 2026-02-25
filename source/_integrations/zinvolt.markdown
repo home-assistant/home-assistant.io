@@ -3,6 +3,7 @@ title: Zinvolt
 description: Instructions on how to integrate Zinvolt batteries with Home Assistant.
 ha_category:
   - Energy
+  - Binary Sensor
   - Sensor
 ha_release: 2026.3
 ha_iot_class: Cloud Polling
@@ -11,6 +12,7 @@ ha_codeowners:
   - '@joostlek'
 ha_domain: zinvolt
 ha_platforms:
+  - binary_sensor
   - sensor
 ha_integration_type: service
 ha_quality_scale: bronze
@@ -36,6 +38,10 @@ Password:
 ### Entities
 
 The **Zinvolt** integration provides the following entities.
+
+#### Binary sensors
+
+- **Connected to grid**: Whether the battery is connected to the grid.
 
 #### Sensors
 
