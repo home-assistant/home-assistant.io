@@ -246,9 +246,9 @@ shows:
       clearlogo: "https://artworks.thetvdb.com/banners/v4/series/247897/clearlogo/611b532422f87.png"
 ```
 
-### Action `sonarr.get_diskspace`
+### Action: Get disk space
 
-Get disk space information for all storage locations configured in Sonarr.
+The `sonarr.get_diskspace` action retrieves the disk space information for all storage locations configured in Sonarr.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
