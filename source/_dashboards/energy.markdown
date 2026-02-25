@@ -12,7 +12,7 @@ related:
 
 This is a list of all the cards used in the energy dashboard. You can also place them anywhere you want in your dashboard.
 
-These cards can either be added using the visual card editor or manually using the YAML editor. In the visual editor, these are located in the **Energy cards** section of the card picker dialog.
+You can add these cards using the visual card editor or by editing the YAML directly. In the visual editor, these are located in the **Energy cards** section of the card picker dialog.
 
 You can configure them on the {% my config_energy title="energy configuration page" %}.
 
@@ -611,7 +611,7 @@ type: power-sources-graph
 
 By default, all energy cards on the current dashboard are linked together. Any `energy-date-selection` cards on this dashboard control what data is shown. If there are none, a default date of today is used. When you add multiple date selection cards, they always show the same date. Any `energy-date-selection` card on a different dashboard does not affect energy cards on the current dashboard.
 
-To enable multiple different date selections on the same dashboard, it is necessary to link them to different collections. This is done using the `collection_key` parameter either in the visual editor or card YAML, and giving this a value of any custom string that begins with `energy_` (strings that do not start with `energy_` will generate an error).
+To enable multiple different date selections on the same dashboard, they must be linked to different collections. This is done using the `collection_key` parameter, either in the visual editor or in the card YAML, with a value of any custom string that begins with `energy_` (strings that do not start with `energy_` will generate an error).
 
 All energy cards support use of `collection_key` option.
 
