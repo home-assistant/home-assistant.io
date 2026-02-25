@@ -250,10 +250,9 @@ shows:
 
 The `sonarr.get_diskspace` action retrieves the disk space information for all storage locations configured in Sonarr.
 
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entry_id` | No | The config entry ID to use. |
-| `space_unit` | Yes | Unit for disk space values (such as kb, kib, gb, gib. default: bytes). |
+- **entry_id** (required): The config entry ID to use.
+- **space_unit** (optional): Unit for disk space values, such as kb, kib, gb, gib, pb, and pib. Default is bytes.
+
 
 #### Response data
 
