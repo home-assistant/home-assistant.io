@@ -7,11 +7,16 @@ ha_category:
   - Sensor
 ha_iot_class: Local Polling
 ha_codeowners:
-  - '@xirt'
+  - '@xirtnl'
 ha_platforms:
+  - number
+  - select
   - sensor
+  - switch
 ha_domain: indevolt
-ha_integration_type: integration
+ha_integration_type: device
+ha_quality_scale: bronze
+ha_config_flow: true
 ---
 
 The Indevolt {% term integration %} enables direct local communication between Home Assistant and your [Indevolt](https://www.indevolt.com/) energy storage devices.

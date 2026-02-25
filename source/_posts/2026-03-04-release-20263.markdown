@@ -47,7 +47,7 @@ You can find our issue trackers and the reported issues during beta here:
 <br />
 
 - [Report(ed) beta **dashboards/UI/frontend** issues](https://github.com/home-assistant/frontend/milestone/141)
-- [Report(ed) beta **integrations/automations/backend/core** issues](https://github.com/home-assistant/core/milestone/794)
+- [Report(ed) beta **integrations/automations/backend/core** issues](https://github.com/home-assistant/core/milestone/795)
 - [Report(ed) beta **documentation** issues](https://github.com/home-assistant/home-assistant.io/milestone/148)
 
 🙏 When reporting issues, **make sure to mention the exact beta version you are

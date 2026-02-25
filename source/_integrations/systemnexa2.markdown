@@ -5,13 +5,16 @@ ha_category:
   - Switch
 ha_config_flow: true
 ha_platforms:
+  - diagnostics
+  - light
+  - sensor
   - switch
 ha_release: 2026.3
 ha_iot_class: Local Push
 ha_codeowners:
   - '@konsulten'
+  - '@slangstrom'
 ha_domain: systemnexa2
-ha_dhcp: true
 ha_zeroconf: true
 ha_quality_scale: silver
 ha_integration_type: device

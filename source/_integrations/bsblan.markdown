@@ -1,5 +1,5 @@
 ---
-title: BSB-Lan
+title: BSB-LAN
 description: Instructions on how to integrate BSBLan device into Home Assistant.
 ha_category:
   - Climate
@@ -12,12 +12,14 @@ ha_codeowners:
   - '@liudger'
 ha_domain: bsblan
 ha_platforms:
+  - button
   - climate
   - diagnostics
   - sensor
   - water_heater
 ha_integration_type: device
 ha_zeroconf: true
+ha_quality_scale: silver
 ---
 
 The **BSB-Lan** {% term integration %} integrates [BSBLan](https://github.com/fredlcore/BSB-LAN) devices into Home Assistant.

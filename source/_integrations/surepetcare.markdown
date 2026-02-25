@@ -16,7 +16,7 @@ ha_platforms:
   - binary_sensor
   - lock
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The **Sure Petcare** {% term integration %} allows you to get information on your Sure Petcare Connect Pet or Cat Flap.

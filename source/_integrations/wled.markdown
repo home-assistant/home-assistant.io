@@ -23,6 +23,7 @@ ha_platforms:
   - switch
   - update
 ha_integration_type: device
+ha_quality_scale: platinum
 ---
 
 [WLED](https://kno.wled.ge) is a fast and feature-rich
@@ -346,4 +347,3 @@ If the error persists, reconfiguring the integration with the correct IP address
 This integration follows standard integration removal. No extra steps are required.
 
 {% include integrations/remove_device_service.md %}
-

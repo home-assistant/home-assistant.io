@@ -11,7 +11,8 @@ ha_codeowners:
 ha_domain: mta
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
+ha_quality_scale: silver
 ---
 
 The **MTA New York City Transit** {% term integration %} provides real-time subway arrival predictions for all NYC subway lines using GTFS-RT data from the [Metropolitan Transportation Authority (MTA)](https://new.mta.info/).

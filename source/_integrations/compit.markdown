@@ -11,8 +11,11 @@ ha_codeowners:
   - '@Przemko92'
 ha_domain: compit
 ha_platforms:
+  - binary_sensor
   - climate
+  - number
   - select
+  - sensor
   - water_heater
 ha_integration_type: hub
 ha_quality_scale: bronze

@@ -15,7 +15,8 @@ ha_platforms:
   - diagnostics
   - sensor
 ha_integration_type: device
-ha_quality_scale: silver
+ha_quality_scale: platinum
+ha_dhcp: true
 ---
 
 Ubiquiti <abbr title="Ubiquity Internet Service Provider">UISP</abbr>-range of [wireless](https://techspecs.ui.com/uisp/wireless) products offer a comprehensive suite of devices specifically designed for interconnecting various locations. As long as these airOS devices can 'see' each other without any (or limited) obstructions like buildings or trees, a stable and high-bandwidth "beam" can be established. Even their most cost-effective devices can achieve up to 450 Mbps real TCP/IP throughput and maintain reliable links up 10km range!
