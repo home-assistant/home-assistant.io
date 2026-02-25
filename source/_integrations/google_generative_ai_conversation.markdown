@@ -73,6 +73,8 @@ Top K:
   description: Number of top-scored tokens to consider during generation.
 Maximum Tokens to Return in Response:
   description: The maximum number of words or "tokens" that the AI model should generate.
+Thinking budget:
+  description: The number of tokens the model can use for internal reasoning before generating a response. Use -1 for automatic, 0 to disable reasoning (not available for Gemini 2.5 Pro), or a positive number for a custom budget. For Gemini 3 models, this value is mapped to specific thinking levels.
 Safety settings:
   description: Thresholds for different [harmful categories](https://ai.google.dev/gemini-api/docs/safety-settings).
 Enable Google Search tool:
