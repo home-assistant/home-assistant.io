@@ -419,7 +419,7 @@ The climate entity reflects the current heating or cooling state and the **activ
 
 - **Ventilation**
   - **Description**: Controls the ventilation fan. You can turn the fan on or off and set the speed.
-  - **Available for devices**: Nano Color (Room thermostat), Nano Color 2 (Room thermostat)
+  - **Available for devices**: Nano Color (Room thermostat), Nano Color 2 (Room thermostat).
   - **Remarks**: The fan has 5 speed levels, shown as a percentage in Home Assistant.
 
 ### Numbers
