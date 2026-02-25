@@ -58,9 +58,14 @@ Uploads an image to one or more displays. The image is resized and dithered to m
 | `dither_mode` | Dithering algorithm for converting to the display's color palette. | No | Burkes |
 | `refresh_mode` | Full clears ghosting but is slower. Fast is not supported on all displays. | No | Full |
 | `fit_mode` | How the image is fitted to the display. | No | Contain |
-| `tone_compression` | Dynamic range compression (0.0–1.0). | No | Automatic |
+| `tone_compression` | Dynamic range compression. Use a value between 0.0 and 1.0 for manual control, or leave empty for automatic adjustment. | No | Automatic |
 
 The rotation, dither mode, refresh mode, fit mode, and tone compression options are grouped under **Advanced options** in the action UI and are collapsed by default.
+
+**Refresh modes**:
+
+- **Full**: Clears ghosting but takes longer.
+- **Fast**: Faster refresh, not supported on all displays.
 
 **Dither modes**: None, Burkes, Ordered, Floyd-Steinberg, Atkinson, Stucki, Sierra, Sierra Lite, Jarvis, Judice & Ninke
 
