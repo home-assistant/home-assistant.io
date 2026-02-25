@@ -1224,7 +1224,7 @@ Some examples:
 
 ### String filters
 
-- Filter `urlencode` will convert an object to a percent-encoded ASCII text string (for use in HTTP requests using `application/x-www-form-urlencoded`, for example).
+- Filter `urlencode` will convert an object to a percent-encoded ASCII text string (for example, for use in HTTP requests using `application/x-www-form-urlencoded`).
 - Filter `slugify(separator="_")` will convert a given string into a "slug".
 - Filter `ordinal` will convert an integer into a number defining a position in a series (such as `1st`, `2nd`, `3rd`, or `4th`).
 - Filter `value | from_hex` Decodes a hex string to raw bytes.
