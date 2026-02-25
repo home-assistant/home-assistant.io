@@ -79,7 +79,9 @@ Enjoy the (beta) release!
   - [Staying in sync](#staying-in-sync)
   - [Paving the way for voice](#paving-the-way-for-voice)
   - [Supported integrations](#supported-integrations)
-- [Using Assist with wake words on Android](#using-assist-with-wake-words-on-android)
+- [Wake word detection on your Android phone (experimental)](#wake-word-detection-on-your-android-phone-experimental)
+  - [Battery usage](#battery-usage)
+  - [More to come in the next releases](#more-to-come-in-the-next-releases)
 - [Energy dashboard improvements](#energy-dashboard-improvements)
 - [Continue on error in the automation editor](#continue-on-error-in-the-automation-editor)
 - [Integrations](#integrations)
@@ -131,9 +133,6 @@ The `vacuum.clean_area` action is available for the following integrations in th
 [Matter]: /integrations/matter
 [Roborock]: /integrations/roborock
 
-## Using Assist with wake words on Android
-
-To be determined.
 
 ## Energy dashboard improvements
 
@@ -166,6 +165,34 @@ This is especially handy for automations where a single failing action shouldn't
 Thanks, [@wendevlin]! 🎉
 
 [@wendevlin]: https://github.com/wendevlin
+
+## Wake word detection on your Android phone (experimental)
+
+Your phone just became a voice satellite! The Home Assistant Companion app for Android now supports on-device wake word detection, allowing you to open [Assist](/voice_control/android/) from anywhere; even when your phone is locked.
+
+This feature uses [microWakeWord](https://github.com/OHF-Voice/micro-wake-word), the same lightweight wake word engine that powers the [Home Assistant Voice Preview Edition](/voice-pe/). All processing happens locally on your device, no audio is sent to the cloud, and no server-side processing is needed. Your voice stays on your phone.
+
+You can choose between three wake words:
+
+- _Okay Nabu_
+- _Hey Jarvis_
+- _Hey Mycroft_
+
+Once enabled, simply say your chosen wake word and the Assist pipeline will open, ready to take your command.
+
+Watch the video for a step-by-step walkthrough on how to enable and use wake word detection on your Android device.
+
+**TODO:** Add video embed
+
+It already integrates with your voice equipment at home, and if another satellite is nearby, only the fastest one will respond. This also applies to multiple Android devices.
+
+### Battery usage
+
+Because wake word detection requires continuous microphone access and CPU usage, this feature does have a noticeable impact on battery life. To help manage this, you can use automations to [start and stop wake word detection](https://companion.home-assistant.io/docs/notifications/notification-commands#wake-word-detection) based on your context, for example, only enabling it when you're connected to your home Wi-Fi or within a specific zone. This way, you get hands-free voice control when it matters most, without draining your battery all day.
+
+{% note %}
+Battery usage could be drastically reduced if Google opened their API for hardware hotword detection. Unfortunately, this is hidden behind a system API that only phone manufacturers have access to. Maybe one day they will open it up to improve the experience.
+{% endnote %}
 
 ## Integrations
 
