@@ -138,6 +138,53 @@ These switches apply to the entire appliance:
 - **PartyMode**: A 24-hour convenience setting that prepares the appliance for entertaining by maximizing cooling performance. It automatically activates SuperCool for rapid chilling of drinks and SuperFrost for freezing food, while boosting ice production if available.
 - **NightMode**: Optimizes kitchen tranquility by silencing all appliance sounds, halting the IceMaker, and dimming interior LED lighting to a soft glow.
 
+## Automations
+
+Examples of automations you can create using the Liebherr integration.
+
+### Night mode schedule
+
+Schedule your Liebherr appliance to automatically enable night mode at bedtime and disable it in the morning for quieter overnight operation.
+
+{% details "Example YAML configuration" %}
+
+{% raw %}
+
+```yaml
+alias: "Liebherr Night Mode Schedule"
+description: >-
+  Automatically enable night mode at bedtime and disable it in the morning for
+  quieter overnight operation.
+triggers:
+  - trigger: time
+    at: "22:00:00"
+    id: night_mode_on
+  - trigger: time
+    at: "07:00:00"
+    id: night_mode_off
+actions:
+  - choose:
+      - conditions:
+          - condition: trigger
+            id: night_mode_on
+        sequence:
+          - action: switch.turn_on
+            target:
+              entity_id: switch.my_fridge_night_mode
+      - conditions:
+          - condition: trigger
+            id: night_mode_off
+        sequence:
+          - action: switch.turn_off
+            target:
+              entity_id: switch.my_fridge_night_mode
+mode: single
+```
+
+{% endraw %}
+
+{% enddetails %}
+
 ## Data updates
 
 The **Liebherr** integration {% term polling polls %} data from the SmartDevice HomeAPI cloud service every 1 minute.
@@ -230,15 +277,19 @@ The API key is valid, but no appliances are currently connected to the Liebherr 
 
 The integration loses connection to the Liebherr cloud service. This can happen due to internet connectivity issues, API service interruptions, or appliance offline status.
 
-1. Check internet connectivity:
+1. Check for API rate limiting:
+   - If you performed many actions in quick succession, the API may temporarily rate limit your requests.
+   - Wait a few minutes for the rate limit to reset, and the appliances should become available again.
+
+2. Check internet connectivity:
    - Ensure your Home Assistant instance has a stable internet connection.
    - Verify your appliances are connected to Wi-Fi and online in the SmartDevice app.
 
-2. Check the API service status:
+3. Check the API service status:
    - The SmartDevice HomeAPI is a beta service and may occasionally be unavailable.
    - Wait a few minutes for the service to recover.
 
-3. Restart the integration:
+4. Restart the integration:
    - Go to {% my integrations title="**Settings** > **Devices & services**" %}.
    - Select the **Liebherr** integration.
    - Select the three-dot menu {% icon "mdi:dots-vertical" %} and choose **Reload**.
