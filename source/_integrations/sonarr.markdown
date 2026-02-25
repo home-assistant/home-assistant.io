@@ -40,30 +40,28 @@ The sensors provide summary counts. For detailed information about each item, su
 
 ## Actions
 
-### Action `sonarr.get_series`
+### Action: Get series
 
-Get the list of all series in Sonarr with their details and statistics.
+The `sonarr.get_series` action retrieves the list of all series in your Sonarr library with their details and statistics.
 
-| Data attribute | Optional | Description |
-| -------------- | -------- | ----------- |
-| `entry_id` | No | The config entry ID to use. |
+- **Data attribute**: `entry_id`
+  - **Description**: The config entry ID to use.
+  - **Optional**: No
 
 #### Response data
 
 The response contains a `shows` key with a dictionary of series keyed by series title.
 
-| Return attribute | Description |
-| ---------------------- | ----------- |
-| `id` | Internal Sonarr series ID. |
-| `year` | Series premiere year. |
-| `tvdb_id` | TheTVDB ID. |
-| `imdb_id` | IMDb ID. |
-| `status` | Series status (e.g., `continuing`, `ended`). |
-| `monitored` | Whether the series is monitored. |
-| `episode_file_count` | Number of episode files downloaded. |
-| `episode_count` | Total number of episodes. |
-| `episodes_info` | Formatted string showing downloaded/total episodes. |
-| `images` | Dictionary of image URLs by type (poster, banner, fanart, clearlogo). |
+- **id**: Internal Sonarr series ID
+- **year**: Series premiere year
+- **tvdb_id**: TheTVDB ID
+- **imdb_id**: IMDb ID
+- **status**: Series status, such as `continuing` or `ended`
+- **monitored**: Whether the series is monitored
+- **episode_file_count**: Number of episode files downloaded
+- **episode_count**: Total number of episodes
+- **episodes_info**: Formatted string showing downloaded/total episodes
+- **images**: Dictionary of image URLs by type, including poster, banner, fanart, and clearlogo
 
 #### Example
 
@@ -97,33 +95,29 @@ shows:
 
 Get all episodes for a specific series. Useful for displaying episode details, tracking watched status, or building episode lists.
 
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entry_id` | No | The config entry ID to use. |
-| `series_id` | No | Internal Sonarr series ID (from `get_series`). |
-| `season_number` | Yes | Filter to a specific season (optional). |
+- **entry_id** (required): The config entry ID to use.
+- **series_id** (required): Internal Sonarr series ID from `sonarr.get_series`.
+- **season_number** (optional): Filter to a specific season.
 
 #### Response data
 
 The response contains an `episodes` key with a dictionary of episodes keyed by episode identifier (e.g., `S01E01`).
 
-| Return attribute | Description |
-| ---------------------- | ----------- |
-| `id` | Internal episode ID. |
-| `series_id` | Internal Sonarr series ID. |
-| `tvdb_id` | Episode TheTVDB ID. |
-| `season_number` | Season number. |
-| `episode_number` | Episode number. |
-| `episode_identifier` | Formatted identifier (e.g., `S01E01`). |
-| `title` | Episode title. |
-| `air_date` | Air date (local). |
-| `air_date_utc` | Air date (UTC). |
-| `overview` | Episode overview/description (if available). |
-| `has_file` | Whether the episode file exists. |
-| `monitored` | Whether the episode is monitored. |
-| `runtime` | Episode runtime in minutes. |
-| `episode_file_id` | ID of the episode file (0 if no file). |
-| `finale_type` | Finale type if applicable (e.g., `series`, `season`). |
+- **id**: Internal episode ID
+- **series_id**: Internal Sonarr series ID
+- **tvdb_id**: Episode TheTVDB ID
+- **season_number**: Season number
+- **episode_number**: Episode number
+- **episode_identifier**: Formatted identifier like `S01E01`
+- **title**: Episode title
+- **air_date**: Air date in local time
+- **air_date_utc**: Air date in UTC
+- **overview**: Episode overview or description if available
+- **has_file**: Whether the episode file exists
+- **monitored**: Whether the episode is monitored
+- **runtime**: Episode runtime in minutes
+- **episode_file_id**: ID of the episode file, or 0 if no file exists
+- **finale_type**: Finale type if applicable, such as `series` or `season`
 
 #### Example
 
