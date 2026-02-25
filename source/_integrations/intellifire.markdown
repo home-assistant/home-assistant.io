@@ -42,7 +42,9 @@ Send commands to:
     description: "Select whether to send control commands through the local network or through the cloud. Local sends commands directly to the fireplace on your network, while Cloud routes commands through IntelliFire's servers."
 {% endconfiguration_basic %}
 
+{% tip %}
 Some users find that their fireplace hardware prioritizes cloud communication and may experience timeouts with local control. If you encounter connectivity issues, try switching to Cloud for the affected endpoint.
+{% endtip %}
 
 ## API credentials
 
