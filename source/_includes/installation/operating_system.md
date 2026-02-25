@@ -476,7 +476,7 @@ Minimum recommended assignments:
 {% if page.installation_type == 'windows' %}
 - title: Hyper-V
   content: |
-    ⚠️ Hyper-V does not have USB support
+    ⚠️ Hyper-V does not have USB support.
 
     1. Create a new virtual machine.
     2. Select **Generation 2**.
