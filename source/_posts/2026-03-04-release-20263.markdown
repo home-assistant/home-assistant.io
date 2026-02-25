@@ -89,6 +89,12 @@ available through YAML. Seeing it now land in the visual editor (making it
 accessible to everyone) is just awesome. It's one of those small things that
 make a big difference in everyday use. 🤩
 
+Oh, and before I forget: have you seen our
+[brand new merch store](/blog/2026/02/19/open-home-foundation-merch-store-announcement/)?
+The [Open Home Foundation merch store](https://store.openhomefoundation.org/)
+is live! I have to be honest: the quality is _really_ great. The hoodie is so
+darn comfy it's ridiculous. I've been wearing mine non-stop. Go check it out! 🧥
+
 Enjoy the (beta) release!
 
 ../Frenck
@@ -123,7 +129,7 @@ _A huge thank you to all the contributors who made this release possible! And a 
 
 Got a robot vacuum? You can now tell it exactly which areas to clean! This release introduces the `vacuum.clean_area` action, which lets you send your vacuum to clean one or more specific areas on demand, right from Home Assistant.
 
-The best part? The action uses your existing Home Assistant areas — not some obscure vendor-specific identifiers. You simply map the segments your vacuum knows about to the areas you've already set up in Home Assistant, and that's all there is to it.
+The best part? The action uses your existing Home Assistant areas, not some obscure vendor-specific identifiers. You simply map the segments your vacuum knows about to the areas you've already set up in Home Assistant, and that's all there is to it.
 
 ### Getting started
 
@@ -135,7 +141,7 @@ You can also reach this mapping at any time through the vacuum's entity settings
 
 ### Staying in sync
 
-If your vacuum's internal segment layout ever changes — for example, after remapping in the manufacturer's app or the vacuum rediscovering its environment — Home Assistant will notice. A repair issue will alert you that the segments have changed, so you can update your mapping and make sure everything stays in sync.
+If your vacuum's internal segment layout ever changes (for example, after remapping in the manufacturer's app or the vacuum rediscovering its environment), Home Assistant will notice. A repair issue will alert you that the segments have changed, so you can update your mapping and make sure everything stays in sync.
 
 ### Paving the way for voice
 
