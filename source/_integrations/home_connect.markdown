@@ -1052,12 +1052,18 @@ Available actions: `set_program_and_options`, and `change_setting`
 
 ### Action: Set program and options
 
-The `home_connect.set_program_and_options` action starts or selects a program. If the `program` attribute is not set, this action sets the options for the active or the selected program.
+The `home_connect.set_program_and_options` action starts or selects a program or starts a program that it is already selected. 
+{% note %}
+If the `program` attribute is not set, this action sets the options for the active or the selected program.
+{% endnote %}
+{% note %}
+When \"Start selected\" is chosen, the currently selected program is started and any options defined in this service call override the already selected options.
+{% endnote %}
 
 | Data attribute    | Optional | Description                                      |
 |---------------------------|----------|--------------------------------------------------|
 | `device_id` | no | ID of the device. |
-| `affects_to` | no | Selects if the program affected by the action should be the active or the selected program. |
+| `affects_to` | no | Selects whether the action modifies the active program, the selected program, or if it should start the selected program. |
 | `program` | yes | Program to select. If set, it will start or select a program depending on `affects_to`. |
 | `heating_ventilation_air_conditioning_air_conditioner_option_fan_speed_percentage` | yes | Setting to adjust the venting levels of the air conditioner as percentage. |
 | `heating_ventilation_air_conditioning_air_conditioner_option_fan_speed_mode` | yes | Setting to adjust the fan speed mode to Manual or Automatic. |
