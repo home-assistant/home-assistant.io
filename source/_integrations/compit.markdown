@@ -568,8 +568,6 @@ Number entities let you set **default** temperature setpoints and other configur
       - State `eco` maps to `schedule` in Compit
     - Solar controllers don't support current temperature attribute.
 
-
-
 ## Removing the integration
 
 This integration follows standard integration removal. No extra steps are required.
