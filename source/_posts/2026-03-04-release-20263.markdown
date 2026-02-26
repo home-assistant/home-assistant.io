@@ -196,6 +196,10 @@ Thanks, [@wendevlin]! 🎉
 
 Your phone just became a voice satellite! The Home Assistant Companion app for Android now supports on-device wake word detection, allowing you to open [Assist](/voice_control/android/) from anywhere; even when your phone is locked.
 
+Inspired from the great work from [@brownard] in [Ava](https://github.com/brownard/Ava).
+
+[@brownard]: https://github.com/brownard
+
 This feature uses [microWakeWord](https://github.com/OHF-Voice/micro-wake-word), the same lightweight wake word engine that powers the [Home Assistant Voice Preview Edition](/voice-pe/). All processing happens locally on your device, no audio is sent to the cloud, and no server-side processing is needed. Your voice stays on your phone.
 
 You can choose between three wake words:
@@ -219,6 +223,9 @@ Because wake word detection requires continuous microphone access and CPU usage,
 {% note %}
 Battery usage could be drastically reduced if Google opened their API for hardware hotword detection. Unfortunately, this is hidden behind a system API that only phone manufacturers have access to. Maybe one day they will open it up to improve the experience.
 {% endnote %}
+
+Thanks, [@TimoPtr]! 🎉
+[@TimoPtr]: https://github.com/TimoPtr
 
 ## Integrations
 
