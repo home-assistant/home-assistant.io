@@ -20,11 +20,11 @@ The **Orvibo** {% term integration %} allows you to toggle your Orvibo S20 Wi-Fi
 
 {% include integrations/config_flow.md %}
 
-When the switches cannot be discovered, they can be manually configured.
+If Home Assistant cannot discover your switches, you can configure them manually.
 
 {% configuration_basic %}
 Host:
-  description: "The host name or IP address (e.g., 192.168.1.2) of your switch."
+  description: "The host name or IP address (for example, 192.168.1.2) of your switch."
 MAC address:
   description: "The MAC address of the switch. This field is optional. If it is omitted, the {% term integration %} will attempt to discover and connect to the switch using the Host field alone. If this discovery fails, you must enter both the host and MAC address information."
 {% endconfiguration_basic %}
