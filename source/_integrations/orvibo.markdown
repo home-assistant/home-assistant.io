@@ -13,10 +13,10 @@ ha_quality_scale: legacy
 ---
 
 {% caution %}
-Please be aware that the product ORVIBO WIFI SMART SOCKET S20 (LGS-20) has been recalled by the European authorities due to safety concerns. For more information, please visit [RAPEX information](https://ec.europa.eu/consumers/consumers_safety/safety_products/rapex/alerts/?event=viewProduct&reference=A12/1577/15&lng=en).
+Please be aware that the product ORVIBO Wi-Fi SMART SOCKET S20 (LGS-20) has been recalled by the European authorities due to safety concerns. For more information, please visit [RAPEX information](https://ec.europa.eu/consumers/consumers_safety/safety_products/rapex/alerts/?event=viewProduct&reference=A12/1577/15&lng=en).
 {% endcaution %}
 
-The **Orvibo** {% term integration %} allows you to toggle your Orvibo S20 Wifi Smart Sockets.
+The **Orvibo** {% term integration %} allows you to toggle your Orvibo S20 Wi-Fi Smart Sockets.
 
 {% include integrations/config_flow.md %}
 
@@ -31,4 +31,4 @@ MAC address:
 
 ## Troubleshooting
 
-Discovery requires that Home Assistant and the Orvibo switches are on the same network subnet. "In addition, discovery may fail if the switches are in sleep mode. In this case, try toggling the switch state or power cycling the switch. If discovery still fails, you can configure the switches manually.
+Discovery requires that Home Assistant and the Orvibo switches are on the same network subnet. In addition, discovery may fail if the switches are in sleep mode. In this case, try toggling the switch state or power cycling the switch. If discovery still fails, you can configure the switches manually.
