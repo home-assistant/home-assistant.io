@@ -22,11 +22,24 @@ The integration uses Eufy account credentials during setup to discover available
 
 Currently supported:
 
-- Eufy RoboVac G30 Hybrid (`T2253`)
+- RoboVac 30C (`T2118`)
+- RoboVac 15C Max (`T2128`)
+- RoboVac G20 (`T2181`)
+- RoboVac LR30 Hybrid (`T2193`)
+- RoboVac L35 Hybrid (`T2194`)
+- RoboVac G30 Edge (`T2251`)
+- RoboVac G30 Verge (`T2252`)
+- G30 Hybrid (`T2253`)
+- RoboVac G20 Hybrid (`T2254`)
+- RoboVac G35+ (`T2255`)
+- RoboVac G40+ (`T2259`)
+- RoboVac X8 (`T2261`)
+- RoboVac X8 Hybrid (`T2262`)
+- RoboVac LR30 Hybrid+ (`T2268`)
 
 Not currently supported:
 
-- RoboVac models other than `T2253`
+- RoboVac models not listed above
 
 ## Prerequisites
 
@@ -45,7 +58,7 @@ RoboVac:
 Host:
   description: "The local IP address of the selected RoboVac. If auto-discovery does not populate it, enter it manually."
 Protocol version:
-  description: "Tuya protocol version used for local communication. Start with `3.3` for G30 Hybrid (`T2253`)."
+  description: "Tuya protocol version used for local communication. Start with `3.3`; if the device does not respond, try `3.4` or `3.5`."
 {% endconfiguration_basic %}
 
 ## Supported functionality
