@@ -46,7 +46,7 @@ To use Google Assistant, your Home Assistant configuration has to be [externally
     3. Save your Project ID (it's under the main project name) for use below.
     4. Select **Add a Cloud-to-Cloud integration**.
     5. In the bottom right corner, select **Next: Develop**, then select **Next: Setup**.
-    6. Select all applicable device types (you can select any except Chime, Electric Meter, Electric Utility Meter, and Electric Tariff — they are known to cause issues when saving the project).
+    6. Select all applicable device types (you can select all except Chime, Electric Meter, Electric Utility Meter, and Electric Tariff — they are known to cause issues when saving the project).
     7. Create an app icon 144 x 144 pixels and upload it.
     8. Under **Account Linking**, in the **OAuth Client ID** field, enter `https://oauth-redirect.googleusercontent.com/r/[YOUR_PROJECT_ID]`.
     9. Replace `[YOUR_PROJECT_ID]` with your project ID from above.
