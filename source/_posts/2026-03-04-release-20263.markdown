@@ -733,6 +733,7 @@ If you are a custom integration developer and want to learn about changes and ne
 - [Changes in OAuth 2.0 helper error handling](https://developers.home-assistant.io/blog/2026/02/19/oauth-token-request-error-handling)
 - [Custom integrations can now ship their own brand images](https://developers.home-assistant.io/blog/2026/02/24/brands-proxy-api)
 - [Remove deprecated light features](https://developers.home-assistant.io/blog/2026/02/23/remove-deprecate-light-features)
+
 [devblog]: https://developers.home-assistant.io/blog/
 
 ## All changes
