@@ -117,7 +117,9 @@ automation:
     triggers:
       - trigger: numeric_state
         entity_id: sensor.ecocomfort_2_voc
-        above: 300
+        above: 300        
+        for:
+          minutes: 2
     actions:
       - action: fan.set_percentage
         target:
