@@ -181,7 +181,6 @@ If the duration exceeds the number of days of history stored by the `recorder` i
 The history stats sensor will be updated when the source entity changes or once per minute if there is no source change. Keep this in mind when using fixed durations that aren't evenly divisible by one minute.
 {% endnote %}
 
-
 ## Minimum state duration
 
 The minimum state duration variable is used to exclude short state changes from the statistics. In this example state changes shorter than 2 minutes will be excluded from statistics. It can be useful for instance to exclude short disconnections of a device. 
