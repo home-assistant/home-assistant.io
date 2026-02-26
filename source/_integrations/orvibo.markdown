@@ -24,10 +24,11 @@ When the switches cannot be discovered, they can be manually configured.
 
 {% configuration_basic %}
 Host:
-description: "The host name or IP address (e.g., \"192.168.1.2\") of your switch."
-Mac address:
-description: "The Mac address of the switch. This field is optional. If it is omitted, the {% term integration %} will attempt to discover and connect to the switch using the Host field alone. If this discovery fails, you must enter both the host and Mac address information.
+  description: "The host name or IP address (e.g., 192.168.1.2) of your switch."
+MAC address:
+  description: "The MAC address of the switch. This field is optional. If it is omitted, the {% term integration %} will attempt to discover and connect to the switch using the Host field alone. If this discovery fails, you must enter both the host and MAC address information."
+{% endconfiguration_basic %}
 
 ## Troubleshooting
 
-Discovery requires that Home Assistant and the Orvibo switches are on the same network subnet. In addition, discovery may fail if the switches are asleep. In this case, try toggling the state of the switch or power cycling the switch. If discovery still fails, you can configure the switches manually.
+Discovery requires that Home Assistant and the Orvibo switches are on the same network subnet. "In addition, discovery may fail if the switches are in sleep mode. In this case, try toggling the switch state or power cycling the switch. If discovery still fails, you can configure the switches manually.
