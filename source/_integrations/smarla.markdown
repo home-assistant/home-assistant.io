@@ -5,6 +5,7 @@ ha_category:
   - Number
   - Sensor
   - Switch
+  - Update
 ha_iot_class: Cloud Push
 ha_release: 2025.6
 ha_codeowners:
@@ -17,10 +18,11 @@ ha_platforms:
   - number
   - sensor
   - switch
+  - update
 ha_quality_scale: bronze
 ---
 
-The `smarla` {% term integration %} enables Home Assistant to integrate [Swing2Sleep](https://swing2sleep.de) (Smarla) motorized cradles. This integration will allow you to control your Smarla device.
+The **Swing2Sleep Smarla** {% term integration %} enables Home Assistant to integrate [Swing2Sleep](https://swing2sleep.de) (Smarla) motorized cradles. This integration will allow you to control your Smarla device.
 
 ## Requirements
 
@@ -51,6 +53,7 @@ This component will set up the following entities:
 | `period`       | `sensor` | Displays the current measured period of the oscillation.    |
 | `activity`     | `sensor` | Displays the current measured activity level.               |
 | `swing_count`  | `sensor` | Displays the total number of swings.                        |
+| `update`       | `update` | Allows to track/update Smarla's firmware.                   |
 
 ## Removing the integration
 
@@ -58,4 +61,4 @@ This integration follows standard integration removal.
 
 {% include integrations/remove_device_service.md %}
 
-After deleting the integration, go to the Swing2Sleep app and remove the "Home Assistant" entry under **Settings** -> **Connected devices** as well.
+After deleting the integration, go to the Swing2Sleep app and remove the "Home Assistant" entry under **Settings** > **Connected devices** as well.

@@ -7,10 +7,10 @@ Automations support the advanced features of [templating](/docs/configuration/te
 
 Example of variables used in templates:
 
-```jinja
- {{ this.name }} is the name of the automation executing from this trigger
- {{ trigger.platform }} is the type of trigger object, like `calendar`
- ```
+{% raw %}
+- `{{ this.name }}` is the name of the automation executing from this trigger
+- `{{ trigger.platform }}` is the type of trigger object, like `calendar`
+{% endraw %}
 
 ## Available state data
 
@@ -46,8 +46,8 @@ These are the properties available for a [Calendar trigger](/docs/automation/tri
 | `trigger.event`                      | The trigger event type, either `start`  or `end`.
 | `trigger.calendar_event`             | The calendar event object matched. 
 | `trigger.calendar_event.summary`     | The title or summary of the calendar event.
-| `trigger.calendar_event.start`       | String representation of the start date or date time of the calendar event e.g. `2022-04-10`, or `2022-04-10 11:30:00-07:00`
-| `trigger.calendar_event.end`         | String representation of the end time of date time the calendar event in UTC  e.g. `2022-04-11`, or `2022-04-10 11:45:00-07:00`
+| `trigger.calendar_event.start`       | String representation of the start date or date time of the calendar event, for example `2022-04-10`, or `2022-04-10 11:30:00-07:00`
+| `trigger.calendar_event.end`         | String representation of the end time of date time the calendar event in UTC, for example `2022-04-11`, or `2022-04-10 11:45:00-07:00`
 | `trigger.calendar_event.all_day`     | Indicates the event spans the entire day.
 | `trigger.calendar_event.description` | A detailed description of the calendar event, if available.
 | `trigger.calendar_event.location`    | Location information for the calendar event, if available. 
@@ -57,7 +57,7 @@ These are the properties available for a [Calendar trigger](/docs/automation/tri
 
 These are the properties available for a [Device trigger](/docs/automation/trigger/#device-triggers).
 
-Inherites template variables from [event](#event) or [state](#state) template based on the type of trigger selected for the device.
+Inherits template variables from [event](#event) or [state](#state) template based on the type of trigger selected for the device.
 
 | Template variable | Data |
 | ---- | ---- |
@@ -100,7 +100,7 @@ These are the properties available for a [Home Assistant trigger](/docs/automati
 
 ### MQTT
 
-These are the properties available for a [MQTT trigger](/docs/automation/trigger/#mqtt-trigger).
+These are the properties available for an [MQTT trigger](/docs/automation/trigger/#mqtt-trigger).
 
 | Template variable | Data |
 | ---- | ---- |
@@ -135,6 +135,7 @@ These are the properties available for a [Sentence trigger](/docs/automation/tri
 | `trigger.slots`    | Object with matched slot values.
 | `trigger.details`  | Object with matched slot details by name, such as [wildcards](/docs/automation/trigger/#sentence-wildcards). Each detail contains: <ul><li>`name` - name of the slot</li><li>`text` - matched text</li><li>`value` - output value (see [lists](/docs/voice/intent-recognition/template-sentence-syntax/#lists))</li></ul>.
 | `trigger.device_id` | The device ID that captured the command, if any.
+| `trigger.satellite_id` | The entity ID of the satellite that captured the command, if any.
 
 ### State
 

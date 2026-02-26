@@ -9,7 +9,7 @@ related:
     title: Creating a local assistant
   - docs: /voice_control/voice_remote_expose_devices/
     title: Exposing devices to Assist
-  - url: https://support.nabucasa.com/hc/en-us/categories/24451727188125-Home-Assistant-Voice-Preview-Edition
+  - url: https://support.nabucasa.com/hc/categories/24451727188125
     title: Voice Preview Edition - Documentation
 ---
 
@@ -25,7 +25,7 @@ For Assist to be able to talk to your Home Assistant setup your setup needs to b
 In Home Assistant, the Assist pipelines are made up of various components that together form a voice assistant. For each component, you can choose from different options.
 
 - For listening and talking back, it needs your phone with the Home Assistant app, or a voice activated device.
-- For understanding, it needs to have a text-to-speech and speech-to-text software integrated. 
+- For understanding, it needs to have a speech-to-text and text-to-speech software integrated. 
 - For running all together, it needs to have the Home Assistant Operating System running.
 
 ## Some options for speech-to-text and text-to-speech
@@ -61,7 +61,7 @@ There are currently two options to run speech-to-text locally: **Speech-to-Phras
 
 ### Text-to-speech engine
 
-For text-to-speech, we have developed [Piper](https://github.com/rhasspy/piper). Piper is a fast, local neural text-to-speech system that sounds great and is optimized for the Raspberry Pi 4. It supports [many languages](https://rhasspy.github.io/piper-samples/). On a Raspberry Pi, using medium quality models, it can generate 1.6s of voice in a second.
+For text-to-speech, we have developed [Piper](https://github.com/OHF-Voice/piper1-gpl). Piper is a fast, local neural text-to-speech system that sounds great and is optimized for the Raspberry Pi 4. It supports [many languages](https://rhasspy.github.io/piper-samples/). On a Raspberry Pi, using medium quality models, it can generate 1.6s of voice in a second.
 
 Please be sure to check how either option will work in your language, since quality can change quite a bit.
 
@@ -69,11 +69,11 @@ Please be sure to check how either option will work in your language, since qual
 
 For the quickest way to get your local Assist pipeline started, follow these steps:
 
-1. Install the add-ons to convert text into speech and vice versa.
-   - Install the speech-to-text add-on of your choice, either {% my supervisor_addon addon="core_speech-to-phrase" title="**Speech-to-Phrase**" %} or {% my supervisor_addon addon="core_whisper" title="**Whisper**" %}.
+1. Install the apps to convert text into speech and vice versa.
+   - Install the speech-to-text app of your choice, either {% my supervisor_addon addon="core_speech-to-phrase" title="**Speech-to-Phrase**" %} or {% my supervisor_addon addon="core_whisper" title="**Whisper**" %}.
    - Install {% my supervisor_addon addon="core_piper" title="**Piper**" %} for text-to-speech.
-   - Start the add-ons.
-   - Once the add-ons are started, head over to the integrations under {% my integrations title="**Settings** > **Devices & Services**" %}.
+   - Start the apps.
+   - Once the apps are started, head over to the integrations under {% my integrations title="**Settings** > **Devices & services**" %}.
      - You should now see both services being discovered by the [Wyoming integration](/integrations/wyoming/).
        ![Whisper and Piper integrations](/images/assist/piper-whisper-install-new-02.png)
    - For each integration, select **Add**.
@@ -109,7 +109,7 @@ View some of the options in the video below. Explained by Mike Hansen, creator o
 
 <lite-youtube videoid="Tk-pnm7FY7c" videoStartAt="1589" videotitle="Configure your local Assist pipeline for your setup"></lite-youtube>
 
-The options are also documented in the add-on itself. Go to the {% my supervisor_addon addon="core_whisper" title="**Whisper**" %} or the {% my supervisor_addon addon="core_piper" title="**Piper**" %} add-on and open the **Documentation** page.
+The options are also documented in the app itself. Go to the {% my supervisor_addon addon="core_whisper" title="**Whisper**" %} or the {% my supervisor_addon addon="core_piper" title="**Piper**" %} app and open the **Documentation** page.
 
 Also be sure to check the specific tutorial for [using Piper in Automations](/voice_control/using_tts_in_automation/)
 

@@ -9,8 +9,6 @@ ha_category:
   - Switch
 ha_release: 0.21
 ha_iot_class: Local Push
-ha_codeowners:
-  - '@bdurrer'
 ha_domain: enocean
 ha_config_flow: true
 ha_platforms:
@@ -18,7 +16,7 @@ ha_platforms:
   - light
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: device
 related:
   - docs: /docs/configuration/
     title: Configuration file
@@ -125,7 +123,7 @@ automation:
 
 {% endraw %}
 
-You can find the `event_data` `id` by going to {% my developer_events title="Developer Tools -> Events" %} and listening to “button_pressed” events. Then hit a button on the device and you should see an event.
+You can find the `event_data` `id` by going to {% my developer_events title="**Settings** > **Developer tools** > **Events**" %} and listening to "button_pressed" events. Then hit a button on the device and you should see an event.
 
 ## Light
 

@@ -1038,7 +1038,7 @@ this file, simply delete the file entirely.
 2. Restart Home Assistant. All the old, non-functional Life360 entities
 should now be gone. (If you are still seeing the old entities, try refreshing
 your browser.)
-3. Go to the Entities page (under Settings -> Devices & Services -> Entities)
+3. Go to the Entities page (under Settings -> Devices & services -> Entities)
 and change the entity IDs for the new Life360 entities as desired.
 
 ### Removed/changed functionality

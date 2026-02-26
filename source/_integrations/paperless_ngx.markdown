@@ -131,12 +131,6 @@ There are a few known limitations for using the integration:
 - This integration is only fully supported with **Paperless-ngx version 2.15 or later**. Earlier versions are not supported.
 - To enable monitoring of diagnostic sensors, you must have **administrator permissions**. Without administrator rights, specific API endpoints cannot be accessed, and the sensor states will not be available.
 
-## Removing the integration
-
-This integration follows standard integration removal. No extra steps are required.
-
-{% include integrations/remove_device_service.md %}
-
 ## Troubleshooting
 
 {% details "Message: 'Invalid hostname or IP address'" %}

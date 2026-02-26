@@ -72,11 +72,15 @@ commands:
   default: empty
   keys:
     word:
-      description: "Specifies a word that the bot should listen for. If you specify 'my_command' here, the bot will react to any message starting with '!my_command'."
+      description: "Specifies a word that the bot should listen for. If you specify 'my_command' here, the bot will handle any message starting with '!my_command'."
       required: false
       type: string
     expression:
-      description: "Specifies a regular expression (in Python regexp syntax) that the bot should listen to. The bot will react to any message that matches the regular expression."
+      description: "Specifies a regular expression (in Python regexp syntax) that the bot should listen to. The bot will handle any message that matches the regular expression."
+      required: false
+      type: string
+    reaction:
+      description: "Specifies an emoji reaction that the bot should listen to. The bot will handle any message that is reacted to with this emoji."
       required: false
       type: string
     name:
@@ -122,6 +126,8 @@ matrix:
         - "#someothertest:matrix.org"
     - expression: "My name is (?P<name>.*)"
       name: introduction
+    - reaction: 👍
+      name: thumbsup
 
 notify:
   - name: matrix_notify
@@ -129,7 +135,7 @@ notify:
     default_room: "#hasstest:matrix.org"
 
 automation:
-  - alias: "React to !testword"
+  - alias: "Respond to !testword"
     triggers:
       - trigger: event
         event_type: matrix_command
@@ -140,7 +146,7 @@ automation:
         data:
           message: "It looks like you wrote !testword"
 
-  - alias: "React to an introduction"
+  - alias: "Respond to an introduction"
     triggers:
       - trigger: event
         event_type: matrix_command
@@ -150,14 +156,41 @@ automation:
       - action: notify.matrix_notify
         data:
           message: "Hello {{trigger.event.data.args['name']}}"
+
+  - alias: "Respond to a reaction in a thread"
+    triggers:
+      - trigger: event
+        event_type: matrix_command
+        event_data:
+          command: thumbsup
+    actions:
+      - action: notify.matrix_notify
+        data:
+          message: "I saw that {{trigger.event.data.args['reaction']}} -- glad you appreciated this!"
+          data:
+            thread_id: "{{trigger.event.data.thread_parent}}"
+
+  - alias: "React to a command"
+    triggers:
+      - trigger: event
+        event_type: matrix_command
+        event_data:
+          command: testword
+    actions:
+      - action: matrix.react
+        data:
+          reaction: "✅"
+          room: "{{trigger.event.data.room}}"
+          message_id: "{{trigger.event.data.event_id}}"
 ```
 
 {% endraw %}
 
 This configuration will:
 
-- Listen for "!testword" in the room "#someothertest:matrix.org" (and *only*) there. If such a message is encountered, it will answer with "It looks like you wrote !testword" into the "#hasstest:matrix.org" channel.
+- Listen for "!testword" in the room "#someothertest:matrix.org" (and *only*) there. If such a message is encountered, it will answer with "It looks like you wrote !testword" into the "#hasstest:matrix.org" channel and also place a ✅ reaction on the original message.
 - Listen in both rooms for any message matching "My name is <any string>" and answer with "Hello <the string>" into "#hasstest:matrix.org".
+- Listen in both rooms for messages reacted to with 👍 and answer in a thread with "I saw that 👍 -- glad you appreciated this!"
 
 ## Notifications
 
@@ -188,7 +221,6 @@ default_room:
 The target room has to be precreated, the room id can be obtained from the rooms settings dialog. Rooms by default have a canonical id of the form `"!<randomid>:homeserver.tld"`, but can also be allocated aliases like `"#roomname:homeserver.tld"`. Make sure to use quotes around the room id or alias to escape special characters (`!`, and `#`) in YAML. The notifying account may need to be invited to the room, depending on the individual rooms policies.
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
-
 
 ### Message formats
 
@@ -232,4 +264,113 @@ homeassistant:
   allowlist_external_dirs:
     - /tmp
 ```
+
 {% endimportant %}
+
+### Replying in threads
+
+The `matrix_command` event will contain an `event_id` field that represents the message identifier for the received message.
+It will also contain a `thread_parent` field that contains the message identifier for the parent message of the thread.
+If the message was inside of a thread, `thread_parent` will be the identifier of the root message of the thread. If it
+is not inside of a thread, `thread_parent` will be the same as `event_id`.
+
+To reply inside of a thread, pass the correct message identifier of the root message into `data.thread_id` when sending
+a reply message. For example:
+
+{% raw %}
+
+```yaml
+action: notify.matrix_notify
+data:
+  message: "Reply message goes here"
+  data:
+    thread_id: "{{ trigger.event.data.thread_parent }}"
+```
+
+{% endraw %}
+
+## Actions
+
+The integration also provides the following actions:
+
+### Sending a message
+
+As an alternative to using the notify integration as described above, you may use `matrix.send_message` to send a
+message to a Matrix room.
+
+```yaml
+action: matrix.send_message
+data:
+  message: "My cool message"
+  target: "#hasstest:matrix.org"
+  data:
+    images:
+      - /path/to/picture.jpg
+    format: html
+    thread_id: "$-abcdeghij_klmnopqrstuvwxyz123"
+```
+
+- **Data attribute**: `message`
+  - **Description**: The message body to send
+  - **Optional**: No
+  - **Type**: String
+
+- **Data attribute**: `target`
+  - **Description**: The room to send the message to
+  - **Optional**: No
+  - **Type**: String
+
+- **Data attribute**: `data`
+  - **Description**: Additional options
+  - **Optional**: Yes
+  - **Type**: Map
+  - **Sub-attributes**:
+    - **Data attribute**: `images`
+      - **Description**: One or more image paths to attach to the message
+      - **Optional**: Yes
+      - **Type**: List of strings
+    - **Data attribute**: `format`
+      - **Description**: The format of the message. Must be either `text` or `html`
+      - **Optional**: Yes
+      - **Default**: `text`
+      - **Type**: String
+    - **Data attribute**: `thread_id`
+      - **Description**: The ID of the parent message to thread this reply under
+      - **Optional**: Yes
+      - **Type**: String
+
+### Reacting to messages
+
+To react to a message with an emoji reaction, use the `matrix.react` action:
+
+{% raw %}
+
+```yaml
+action: matrix.react
+data:
+  reaction: "✅"
+  room: "{{ trigger.event.data.room }}"
+  message_id: "{{ trigger.event.data.event_id }}"
+```
+
+{% endraw %}
+
+{% tip %}
+Reactions do not have to be an emoji. They can be any valid string. However, emoji are the typical/traditional use
+case.
+{% endtip %}
+
+- **Data attribute**: `reaction`
+  - **Description**: The reaction to send
+  - **Optional**: No
+  - **Type**: String
+
+- **Data attribute**: `room`
+  - **Description**: The room to send the reaction in
+  - **Optional**: No
+  - **Type**: String
+
+- **Data attribute**: `message_id`
+  - **Description**: The ID of the message to apply the reaction to
+  - **Optional**: No
+  - **Type**: String

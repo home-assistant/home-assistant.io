@@ -19,16 +19,16 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The Sure Petcare integration allows you to get information on your Sure Petcare Connect Pet or Cat Flap.
+The **Sure Petcare** {% term integration %} allows you to get information on your Sure Petcare Connect Pet or Cat Flap.
 
 {% include integrations/config_flow.md %}
 
 
 ## Actions
 
-### Action `surepetcare.set_lock_state`
+### Action: Set lock state
 
-This action lets you change the locking state of a flap.
+The `surepetcare.set_lock_state` action changes the locking state of a flap.
 
 | Data attribute | Required | Type | Description |
 | ---------------------- | -------- | -------- | ----------- |
@@ -48,9 +48,9 @@ The `flap_id` can be found following these instructions:
 - `locked_out` - flap is 'out only' - pets can go out, but not back in.
 - `locked_all` - flap is locked both ways.
 
-### Action `surepetcare.set_pet_location`
+### Action: Set pet location
 
-This action lets you set the pet location.
+The `surepetcare.set_pet_location` action sets the pet location.
 
 | Data attribute | Required | Type | Description |
 | ---------------------- | -------- | -------- | ----------- |

@@ -6,11 +6,10 @@ ha_category:
 ha_iot_class: Local Push
 ha_release: 0.45
 ha_domain: datadog
-ha_integration_type: integration
+ha_integration_type: service
 related:
   - docs: /docs/configuration/
     title: Configuration file
-ha_quality_scale: legacy
 ha_config_flow: true
 ---
 
@@ -22,7 +21,7 @@ Datadog allows you to analyze, monitor, cross-reference and alert upon your data
   <img src='/images/screenshots/datadog-board-example.png' />
 </p>
 
-The integration also sends events from the logbook into Datadog, allowing you to correlate these events with your data.
+The integration also sends events from activity tracking into Datadog, allowing you to correlate these events with your data.
 
 <p class='img'>
   <img src='/images/screenshots/datadog-event-stream.png' />

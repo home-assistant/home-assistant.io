@@ -14,7 +14,7 @@ ha_platforms:
 ha_integration_type: service
 ---
 
-The `geonetnz_volcano` integration lets you use a GeoJSON feed provided by 
+The **GeoNet NZ Volcano** {% term integration %} lets you use a GeoJSON feed provided by 
 New Zealand's [GeoNet](https://www.geonet.org.nz/) with information 
 about volcanoes in the New Zealand region. 
 It shows information of those volcanoes filtered by distance to Home Assistant's 

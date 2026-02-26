@@ -15,7 +15,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `Blockchain` sensor platform displays Bitcoin wallet balances from [blockchain.com](https://blockchain.com).
+The **Blockchain.com** {% term integration %} displays Bitcoin wallet balances from [blockchain.com](https://blockchain.com).
 
 To add the Blockchain sensor to your installation, specify a list of bitcoin addresses to watch in the {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}. The sensor state will be the sum of the balances of all addresses listed.

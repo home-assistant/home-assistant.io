@@ -325,7 +325,7 @@ This can be used to take different actions based on whether or not the condition
 
 ## Fire an event
 
-This {% term action %} allows you to fire an event. Events can be used for many things. It could trigger an {% term automation %} or indicate to another integration that something is happening. For instance, in the below example it is used to create an entry in the logbook.
+This {% term action %} allows you to fire an event. Events can be used for many things. It could trigger an {% term automation %} or indicate to another integration that something is happening. For instance, in the below example it is used to create an entry in the **Activity** panel.
 
 ```yaml
 - alias: "Fire LOGBOOK_ENTRY event"
@@ -353,7 +353,7 @@ The `event_data` accepts templates.
 
 {% endraw %}
 
-### Raise and Consume Custom Events
+### Raise and consume custom events
 
 The following {% term automation %} example shows how to raise a custom event called `event_light_state_changed` with `entity_id` as the event data. The {% term action %} part could be inside a script or an {% term automation %}.
 
@@ -430,7 +430,7 @@ script:
 This repeat form accepts a list of items to iterate over. The list of items
 can be a pre-defined list, or a list created by a template.
 
-The sequence is ran for each item in the list, and current item in the
+The sequence is run for each item in the list, and current item in the
 iteration is available as `repeat.item`.
 
 The following example will turn a list of lights:
@@ -452,7 +452,7 @@ repeat:
 {% endraw %}
 
 Other types are accepted as list items, for example, each item can be a
-template, or even an mapping of key/value pairs.
+template, or even a mapping of key/value pairs.
 
 {% raw %}
 
@@ -565,7 +565,7 @@ For example:
 
 ### Repeat loop variable
 
-A variable named `repeat` is defined within the repeat {% term action %} (i.e., it is available inside `sequence`, `while` & `until`.)
+A variable named `repeat` is defined within the repeat {% term action %}, meaning it is available inside `sequence`, `while`, and `until`.
 It contains the following fields:
 
 | field   | description                                                                                  |
@@ -982,7 +982,7 @@ assistant. The conversation response can be templated.
 # Example of a templated conversation response resulting in "Testing 123"
 - variables:
     my_var: "123"
-- set_conversation_response: "{{ 'Testing ' + my_var }}":
+- set_conversation_response: "{{ 'Testing ' ~ my_var }}"
 ```
 
 {% endraw %}

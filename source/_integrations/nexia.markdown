@@ -22,10 +22,10 @@ ha_platforms:
   - scene
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
-The `nexia` integration allows you to integrate your [Nexia](https://mynexia.com/) (Trane) thermostats or [American Standard](https://asairhome.com/) thermostats into Home Assistant.
+The **Nexia/American Standard/Trane** {% term integration %} allows you to integrate your [Nexia](https://mynexia.com/) (Trane) thermostats or [American Standard](https://asairhome.com/) thermostats into Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 

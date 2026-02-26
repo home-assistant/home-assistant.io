@@ -1,0 +1,57 @@
+:root {
+    --color-primary: #00AEF8;
+    --color-secondary: #16F3BE;
+    
+    // Containers and widths
+    --container-max-width: 1100px;
+    --container-full-max-width: 1400px;
+    --container-gutters: 24px;
+
+    --section-spacing-y: 52px;
+
+    // Typography
+    --typography-base-font: "Figtree", serif;
+    --typography-heading-line-height: 1.25;
+
+    --typography-h1-font-size: 36px;
+    --typography-h1-font-weight: 600;
+    --typography-h1-line-height: 1;
+
+    --typography-h2-font-size: 30px;
+    --typography-h2-font-weight: 600;
+    --typography-h2-line-height: 1.1;
+
+    --typography-h3-font-size: 24px;
+    --typography-h3-font-weight: 700;
+    --typography-h3-line-height: var(--typography-heading-line-height);
+
+    --typography-h4-font-size: 14px;
+    --typography-h4-font-weight: 700;
+    --typography-h4-line-height: 1.25;
+
+    --typography-paragraph-color: #4F606E;
+    --typography-paragraph-font-size: 16px;
+    --typography-paragraph-font-weight: 400;
+    --typography-paragraph-line-height: 1.25;
+
+    --typography-small-paragraph-font-size: 12px;
+    --typography-small-paragraph-line-height: 1.3;
+
+    --typography-big-font-size: 46px;
+    --typography-big-font-weight: 700;
+    --typography-big-line-height: 1;
+}
+
+@include bp(desktop) {
+    :root {
+        --section-spacing-y: 80px;
+
+        --typography-h1-font-size: 66px;
+        --typography-h2-font-size: 48px;
+        --typography-h3-font-size: 32px;
+        --typography-h4-font-size: 20px;
+        --typography-paragraph-font-size: 24px;
+        --typography-small-paragraph-font-size: 16px;
+        --typography-big-font-size: 128px;
+    }
+}

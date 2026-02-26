@@ -15,7 +15,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `rocketchat` notify {% term integration %} allows you to send messages to your [Rocket.Chat](https://rocket.chat/) instance from Home Assistant.
+The **Rocket.Chat** {% term integration %} allows you to send messages to your [Rocket.Chat](https://rocket.chat/) instance from Home Assistant.
 
 ## Configuration
 

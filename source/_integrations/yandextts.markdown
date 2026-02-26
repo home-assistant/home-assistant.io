@@ -15,7 +15,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `yandextts` text-to-speech {% term integration %} uses [Yandex SpeechKit](https://tech.yandex.com/speechkit/) text-to-speech engine to read a text with natural sounding voices.
+The **Yandex TTS** {% term integration %} uses [Yandex SpeechKit](https://tech.yandex.com/speechkit/) text-to-speech engine to read a text with natural sounding voices.
 
 {% important %}
 This integration is working only with old API keys. For the new API keys, this integration cannot be used.

@@ -55,6 +55,7 @@ section#buy {
 
         @include bp(desktop) {
             z-index: unset;
+            position: relative;
         }
 
     }
@@ -108,24 +109,32 @@ section#buy {
         }
     }
 
-
     .terms {
         padding: 0 16px;
         max-width: 520px;
         font-size: 14px;
         position: absolute;
-        bottom: 20px;
+        bottom: 50px;
         max-width: 22rem;
         margin-top: 5rem;
 
         @include bp(desktop) {
-            bottom: 80px;
+            bottom: 130px;
             font-size: 16px;
             margin-top: unset;
             max-width: 26rem;
         }
+
         @include bp(1750px) {
             max-width: 33rem;
+        }
+    }
+
+    .nc-collaboration{
+        bottom: 20px;
+        max-width: calc(100% - 20px);
+        @include bp(desktop){
+            bottom: 60px;
         }
     }
 }
