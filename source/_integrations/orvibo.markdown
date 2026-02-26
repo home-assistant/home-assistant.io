@@ -18,49 +18,16 @@ Please be aware that the product ORVIBO WIFI SMART SOCKET S20 (LGS-20) has been 
 
 The **Orvibo** {% term integration %} allows you to toggle your Orvibo S20 Wifi Smart Sockets.
 
-To automatically discover Orvibo sockets on your network:
+{% include integrations/config_flow.md %}
 
-```yaml
-# Example configuration.yaml entry
-switch:
-  - platform: orvibo
-```
+When the switches cannot be discovered, they can be manually configured.
 
-To specify Orvibo sockets and skip discovery:
+{% configuration_basic %}
+Host:
+description: "The host name or IP address (e.g., \"192.168.1.2\") of your switch."
+Mac address:
+description: "The Mac address of the switch. This field is optional. If it is ommitted, the {% term integration %} will attempt to discover and connect to the switch using the Host field alone. If this discovery fails, you must enter both the host and Mac address information.
 
-```yaml
-# Example configuration.yaml entry
-switch:
-  - platform: orvibo
-    discovery: false
-    switches:
-      - host: IP_ADDRESS
-        mac: MA:CA:DD:RE:SS:00
-        name: "My Socket"
-```
+## Troubleshooting
 
-{% configuration %}
-discovery:
-  description: Whether to discover sockets.
-  required: false
-  default: true
-  type: boolean
-switches:
-  description: A list of Orvibo switches.
-  required: false
-  type: list
-  keys:
-    host:
-      description: "IP address of your socket, e.g., 192.168.1.10."
-      required: true
-      type: string
-    mac:
-      description: "MAC address of the socket, e.g., `AA:BB:CC:DD:EE:FF`. This is required if the socket is connected to a different subnet to the machine running Home Assistant."
-      required: false
-      type: string
-    name:
-      description: Your name for the socket.
-      required: false
-      default: Orvibo S20 Switch
-      type: string
-{% endconfiguration %}
+Discovery requires that Home Assistant and the Orvibo switches are on the same network subnet. In addition, discovery may fail if the switches are asleep. In this case, try toggling the state of the switch or power cycling the switch. If discovery still fails, you can configure the switches manually.
