@@ -8,7 +8,7 @@ ha_iot_class: Local Polling
 ha_domain: rest
 ---
 
-The `rest` binary sensor platform is consuming a given endpoint which is exposed
+The **RESTful binary sensor** {% term integration %} is consuming a given endpoint which is exposed
 by a
 [RESTful API](https://en.wikipedia.org/wiki/Representational_state_transfer)
 of a device, an application, or a web service.

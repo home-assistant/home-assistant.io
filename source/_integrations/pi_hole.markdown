@@ -18,10 +18,10 @@ ha_platforms:
   - sensor
   - switch
   - update
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
-The Pi-hole integration allows you to retrieve statistics and interact with a
+The **Pi-hole** {% term integration %} allows you to retrieve statistics and interact with a
 [Pi-hole](https://pi-hole.net/) system.
 
 {% include integrations/config_flow.md %}
@@ -40,17 +40,17 @@ During the setup, it will ask for the following:
 
 The combined host, port and location should take you to the login page of Pi-Hole. Using the example above, it would be `http://192.168.1.1:80/admin`.
 
-To find your App Password, log into your Pi-Hole and go to **Settings** > **Web Interface/API**. Switch from **Basic** to **Expert** mode, then select **Configure app password**.
+To find your App Password, log into your Pi-Hole and go to **Settings** > **Web Interface/API**. Switch from **Basic** to **Expert** mode, then select **Configure app password**.  Your admin login password may be used instead but this is not recommended.
 
-Versions of Pi-hole before version 6 (released in Feb 2025) use an API Key if the Pi-hole was password protected, this can be found in _Settings > API Tab_ and clicking **Show API token**
+Versions of Pi-hole before version 6 (released in Feb 2025) use an API Key if the Pi-hole was password protected, this can be found in _Settings > API Tab_ and clicking **Show API token**.
 
 ## Actions
 
 The platform provides the following actions to interact with your Pi-hole. Use switch entities when calling the actions.
 
-### Action `pi_hole.disable`
+### Action: Disable
 
-Disables configured Pi-hole(s) for the specified amount of time.
+The `pi_hole.disable` action disables configured Pi-hole(s) for the specified amount of time.
 
 | Data attribute | Required | Type | Description |
 | ---------------------- | -------- | -------- | ----------- |
@@ -67,7 +67,10 @@ data:
 target:
   entity_id: all
 ```
-
 ## Switches
 
-The integration creates a switch for the Pi-hole allowing you to toggle the Pi-hole on and off.
+The integration creates a switch for the Pi-hole allowing you to toggle ad-blocking on and off.
+
+## Sensors
+
+The integration creates a number of sensors which report various ad-blocking metrics as well as diagnostic information about the pi-hole itself.

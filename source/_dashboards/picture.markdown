@@ -62,7 +62,7 @@ double_tap_action:
 
 ### Examples
 
-Navigate to another view:
+Go to another view:
 
 ```yaml
 type: picture

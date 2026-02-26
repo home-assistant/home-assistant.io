@@ -32,7 +32,7 @@ In the sidebar on the left, you see the names of different dashboards. Home Assi
 - Overview
 - Energy
 - Map
-- Logbook
+- Activity
 - History
 - To-do lists
 

@@ -17,7 +17,7 @@ ha_codeowners:
   - '@jpbede'
 ---
 
-The `trend` platform allows you to create sensors which show the trend of
+The **Trend** {% term integration %} allows you to create sensors which show the trend of
 numeric `state` or`state_attributes` from other entities. This sensor requires
 at least two updates of the underlying sensor to establish a trend.
 Thus it can take some time to show an accurate state. It can be useful

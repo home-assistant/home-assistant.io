@@ -11,7 +11,7 @@ related:
     title: Best practices with Assist
   - url: https://www.nabucasa.com/config/assist/
     title: Home Assistant Cloud
-  - url: https://support.nabucasa.com/hc/en-us/categories/24451727188125-Home-Assistant-Voice-Preview-Edition
+  - url: https://support.nabucasa.com/hc/categories/24451727188125
     title: Voice Preview Edition
 ---
 
@@ -49,7 +49,9 @@ Another things you can do to further push your setup:
 
 - Voice assistant devices allow you to add Assist to a room and respond to wake words. Follow our tutorial to [create your own for just $13.](/voice_control/thirteen-usd-voice-remote/)
 
-- You can use [ESPHome](https://www.esphome.io/components/voice_assistant.html) to create your own awesome voice assistant, like [@piitaya](https://github.com/piitaya) did with his 3D printed R5 droid:
+- Enable [wake word detection on your Android phone](/voice_control/android/#using-wake-word-detection-on-android) to activate Assist hands-free by saying "Hey Jarvis" or "Hey Nabu", even when your phone is locked.
+
+- You can use [ESPHome](https://www.esphome.io/components/voice_assistant/) to create your own awesome voice assistant, like [@piitaya](https://github.com/piitaya) did with his 3D printed R5 droid.
 
 - If you are interested in a voice assistant that is not always listening, consider using Assist on an analog phone. It will only listen when you pick up the horn, and the responses are for your ears only. Follow our tutorial to create your own [analog phone voice assistant](/voice_control/worlds-most-private-voice-assistant/).
 
@@ -58,8 +60,8 @@ Another things you can do to further push your setup:
 
 Assist aims to support more languages than other voice assistants, but this is still a work in progress, and we need your help.
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bluzky/nice-select2@2.1.0/dist/css/nice-select2.css">
-<script src="https://cdn.jsdelivr.net/gh/bluzky/nice-select2@2.1.0/dist/js/nice-select2.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bluzky/nice-select2@2.1.0/dist/css/nice-select2.css" integrity="sha384-LPh4ytLNuALl70+0CMnq0sP1tXQpGPWbSCH8/zknn1okTVRKHvyDGUg80R568fXO" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/gh/bluzky/nice-select2@2.1.0/dist/js/nice-select2.js" integrity="sha384-efeEfE1PkalgBRHHJ3qv56R1qnZhbbpil0g7lyf+5MOqiWYw579wZUNTTwjH5jjn" crossorigin="anonymous"></script>
 
 <div class="language-card">
 	<div class="form-title h3">Check supported languages here</div>

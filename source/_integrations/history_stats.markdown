@@ -11,6 +11,7 @@ ha_quality_scale: internal
 ha_domain: history_stats
 ha_config_flow: true
 ha_platforms:
+  - diagnostics
   - sensor
 ha_integration_type: helper
 related:
@@ -47,6 +48,8 @@ End:
   description: When to stop the measure (timestamp or datetime). Can be a template.
 Duration:
   description: Duration of the measure.
+State class:
+  description: The [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor.
 Minimum duration of measurement:
   description: Minimum duration of the measurement to be considered for calculations (defaults to 0, all measurements will be included). Useful to exclude short state changes from the statistics.
 {% endconfiguration_basic %}
@@ -107,6 +110,11 @@ duration:
   description: Duration of the measure.
   required: false
   type: time
+state_class:
+  description: "[state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor. May be `null`, `measurement`, or `total_increasing` (not allowed for `ratio` type)."
+  required: false
+  default: measurement
+  type: string
 min_state_duration:
   description: Minimum duration of the measurement to be considered for calculations. Used as a filter to remove short state changes from statistics.
   required: false
@@ -131,7 +139,7 @@ Depending on the sensor type you choose, the `history_stats` integration can sho
 - **count**: How many times the tracked entity matched the configured state during the time period. This will count states (for example, how many times a light was in the `on` state during the time period), as opposed to counting state transitions (for example, how many times a light was *turned* `on`). The difference is if the entity was already in the desired state at the start of the time period, that scenario will be counted with this sensor type. If a list of states is provided to the state option, transitions between defined states are considered all part of a single event and do not increment the count.
 
 {% note %}
-For a **time** or **count** sensor that uses a time period that does not slide (such as one that resets upon each hour, as opposed to one which considers the trailing 60 minutes), consider using [customization](/docs/configuration/customizing-devices/#customizing-an-entity-in-yaml) to change the `state_class` to `total_increasing` to generate statistics that track the `sum`. This is useful when emulating the behavior of a `utility_meter` helper that has a defined reset cycle. Without intervention, the `state_class` of any `history_stats` sensor will be `measurement` and will therefore generate `average`, `min`, and `max` statistics.
+For a **time** or **count** sensor that uses a time period that does not slide (such as one that resets upon each hour, as opposed to one which considers the trailing 60 minutes), set the `state_class` to `total_increasing` to generate statistics that track the `sum`. This is useful when emulating the behavior of a `utility_meter` helper that has a defined reset cycle.
 {% endnote %}
 
 ## Time periods
@@ -200,6 +208,7 @@ Here are some examples of periods you could work with, and what to write in your
 ```yaml
     start: "{{ today_at('00:00') }}"
     end: "{{ now() }}"
+    state_class: total_increasing
 ```
 
 {% endraw %}

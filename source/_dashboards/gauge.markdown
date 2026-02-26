@@ -8,6 +8,8 @@ related:
     title: Themes
   - docs: /dashboards/cards/
     title: Dashboard cards
+  - docs: /dashboards/naming/
+    title: Card naming
 ---
 
 The gauge card is a basic card that allows visually seeing sensor data.
@@ -45,8 +47,8 @@ attribute:
   type: string
 name:
   required: false
-  description: Name of gauge entity.
-  type: string
+  description: Overwrites friendly name. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/).
+  type: [string, map, list]
   default: Entity name
 unit:
   required: false

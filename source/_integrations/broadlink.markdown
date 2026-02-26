@@ -25,7 +25,7 @@ ha_platforms:
   - switch
   - time
 ha_dhcp: true
-ha_integration_type: integration
+ha_integration_type: device
 related:
   - docs: /docs/configuration/
     title: Configuration file

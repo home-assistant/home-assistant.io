@@ -11,7 +11,7 @@ ha_codeowners:
 ha_integration_type: entity
 ---
 
-This integration allows you to track and control various light bulbs. Read the integration documentation for your particular light hardware to learn how to enable it.
+The **Light** {% term integration %} allows you to track and control various light bulbs. Read the integration documentation for your particular light hardware to learn how to enable it.
 
 {% include integrations/building_block_integration.md %}
 

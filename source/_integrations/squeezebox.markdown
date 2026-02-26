@@ -20,10 +20,11 @@ ha_platforms:
   - sensor
   - switch
   - update
-ha_integration_type: integration
+ha_integration_type: hub
+ha_quality_scale: silver
 ---
 
-The Squeezebox integration allows you to control music players from the [Lyrion Music Server](https://lyrion.org/) (LMS) ecosystem. Lyrion Music Server was formerly known as [Logitech Media Server](https://en.wikipedia.org/wiki/Squeezebox_%28network_music_player%29).
+The **Squeezebox** {% term integration %} allows you to control music players from the [Lyrion Music Server](https://lyrion.org/) (LMS) ecosystem. Lyrion Music Server was formerly known as [Logitech Media Server](https://en.wikipedia.org/wiki/Squeezebox_%28network_music_player%29).
 
 This integration connects to an existing <abbr title="Lyrion Music Server">LMS</abbr> server and provides both media players and sensors for monitoring server status.
 
@@ -167,24 +168,31 @@ data:
 
 ## Supported functionality
 
+The integration provides the following functionality:
+
 ### Switches
 
 - **Alarm**: Enables a scheduled alarm to sound. Alarms must also be enabled on the associated player for the alarm to sound, using the Alarms Enabled switch or directly on the Lyrion Music Server for that player.
-- **Alarms Enabled**: Enables a player to sound alarms. Disabling will prevent all alarms from sounding on that player, regardless of whether the individual alarm is enabled
+- **Alarms Enabled**: Enables a player to sound alarms. Disabling will prevent all alarms from sounding on that player, regardless of whether the individual alarm is enabled.
 
 ### Binary sensors
 
-The integration provides the following entities.
+- **Alarm active**
+  - **Description**: One of the alarms on the Squeezebox player is currently going off. 
 
-#### Binary sensors
-
-- **Needs restart**
-  - **Description**: Server Service needs to be restarted (typically, this is needed to apply updates).
+- **Alarm snoozed**
+  - **Description**: One of the alarms on the Squeezebox player is currently active but snoozed. In this case the "Alarm active" binary sensor will be in state OFF.
+  
+- **Alarm upcoming**
+  - **Description**: The Squeezebox player has an alarm scheduled within the next 24 hours.
 
 - **Library rescan**
   - **Description**: The music library is currently being scanned by LMS (depending on the type of scan, some content may be unavailable).
 
-#### Buttons
+- **Needs restart**
+  - **Description**: Server Service needs to be restarted (typically, this is needed to apply updates).
+
+### Buttons
 
 - **Preset 1 ... Preset 6**
   - **Description**: Play media stored in Preset 1 to Preset 6 on Squeezebox.
@@ -201,10 +209,13 @@ The integration provides the following entities.
   - **Description**: Adjust the treble on Logitech Squeezebox players, such as Radio and Boom.
   - **Available on**: Logitech hardware players such as Radio, Duet, and Boom.
 
-#### Sensors
+### Sensors
 
 - **Last scan**
   - **Description**: Date of the last library scan.
+
+- **Next alarm**
+  - **Description**: Timestamp of the next enabled alarm of a player.
 
 - **Player count**
   - **Description**: Number of players on the service.
@@ -229,16 +240,18 @@ The integration provides the following entities.
 
 ### Updates
 
--- **Lyrion Music Server**: Update of the server software is available.
--- **Updated plugins**: Named Plugins will be updated on the next restart. For some installation types, the service will be restarted automatically after the **Install** button has been selected. Allow enough time for the service to restart. It will become briefly unavailable.
+This integration will notify you when updates are available on the LMS for the LMS version or for plugins installed on the LMS
+
+  - **Lyrion Music Server**: Update of the server software is available.
+  - **Updated plugins**: Plugin updates are available.  The list of updates can be viewed by selecting the "Read release announcement" link.  On the LMS, an option is available on the Manage Plugins settings page to "Update plugins automatically".  If this option is selected, plugins will be downloaded automatically by the LMS and then installed on the next restart of the LMS.  For some installation types of LMS, the LMS can be restarted by selecting the **Update** button. Allow enough time for the LMS to restart as it will become briefly unavailable.
 
 ### Actions
 
 The integration provides the following actions.
 
-#### Action `call_method`
+#### Action: Call method
 
-Call a custom Squeezebox JSON-RPC API.
+The `squeezebox.call_method` action calls a custom Squeezebox JSON-RPC API.
 
 See documentation for this interface on `http://HOST:PORT/html/docs/cli-api.html?player=` where HOST and PORT are the host name and port for your Lyrion Music Server.
 

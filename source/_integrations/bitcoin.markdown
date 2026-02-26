@@ -15,7 +15,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `bitcoin` sensor platform displays various details about the [Bitcoin](https://bitcoin.org) network.
+The **Bitcoin** {% term integration %} displays various details about the [Bitcoin](https://bitcoin.org) network.
 
 To add the Bitcoin sensor to your installation, add a selection of the available display options to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}

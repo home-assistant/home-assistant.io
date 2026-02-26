@@ -15,7 +15,7 @@ ha_platforms:
   - diagnostics
 ---
 
-The `google_assistant` integration allows you to control your Home Assistant devices via Google Assistant on your mobile, tablet, or Google Home device.
+The **Google Assistant** {% term integration %} allows you to control your Home Assistant devices via Google Assistant on your mobile, tablet, or Google Home device.
 
 If you want to send commands to Google Assistant to control devices supported by Google Assistant but not by Home Assistant, or broadcast messages to Google Assistant speakers and displays without interrupting music/video playback, take a look at the [Google Assistant SDK](/integrations/google_assistant_sdk) integration.
 
@@ -64,7 +64,7 @@ To use Google Assistant, your Home Assistant configuration has to be [externally
 
 2. In the left hand menu of your project, select the **Analytics** link.
    - Select the hamburger {% icon "mdi:hamburger-menu" %} menu on the top left and select **APIs and Services**.
-3. Enable device sync ([see below for more information](#enable-device-sync)).
+3. Enable device sync ([see below for more information](#utilize-device-sync)).
     1. In the left hand menu, select **Credentials**.
     2. In the **Credentials** view, select **Create credentials** and next **Service account**.
         1. **Service account name**: Give your account a self-selected name.
@@ -78,7 +78,7 @@ To use Google Assistant, your Home Assistant configuration has to be [externally
     7. This will start a download of a JSON file.
         1. Rename the file to `SERVICE_ACCOUNT.json`.
         2. In Home Assistant, add this file to your config-folder. This will be the same folder as your {% term "`configuration.yaml`" %}.
-    8. Go to the **Search (/) for resources, documentation, products, and more** at the top middle and search for **Homegraph API** and select it.
+    8. In the navigation bar in Google Cloud, select the **magnifier** icon, search for **Homegraph API**, and select it.
     9. Enable the HomeGraph API.
 
 4. Add the `google_assistant` integration configuration to your {% term "`configuration.yaml`" %} file and restart Home Assistant following the [configuration guide](#yaml-configuration) below.
@@ -128,7 +128,7 @@ The [HTTP integration](/integrations/http) must **not** be configured to use an 
 
 This is because the Google Assistant device will connect directly to the IP of your Home Assistant instance and will fail if it encounters an invalid SSL certificate.
 
-For secure remote access, use a reverse proxy such as the {% my supervisor_addon addon="core_nginx_proxy" title="NGINX SSL" %} add-on instead of directing external traffic straight to Home Assistant.
+For secure remote access, use a reverse proxy such as the {% my supervisor_addon addon="core_nginx_proxy" title="NGINX SSL" %} app (formerly known as NGINX SSL add-on) instead of directing external traffic straight to Home Assistant.
 {% endimportant %}
 
 1. Open the project you created in the [Google Developer Console](https://console.home.google.com/projects).
@@ -200,7 +200,7 @@ service_account:
       required: true
       type: string
 report_state:
-  description: Actively report state changes on entities. This speeds up response time for actions affecting multiple entities since Google Assistant knows pre-hand what state they are. It is also required for some features on visual controls.
+  description: Actively report state changes on entities. This speeds up response time for actions affecting multiple entities since Google Assistant knows beforehand what state they are. It is also required for some features on visual controls.
   required: false
   default: false
   type: boolean
@@ -247,6 +247,7 @@ entity_config:
 Currently, the following domains are available to be used with Google Assistant, listed with their default types:
 
 - alarm_control_panel (arm/disarm)
+- binary_sensor (entities with device class: `carbon_monoxide`, `door`, `garage_door`, `lock`, `moisture`, `opening`, `smoke`, `window`)
 - button (scene)
 - camera (streaming, requires compatible camera)
 - climate (on/off, temperature setting, hvac_mode)
@@ -256,16 +257,16 @@ Currently, the following domains are available to be used with Google Assistant,
 - group (on/off)
 - humidifier (humidity setting/on/off/mode)
 - input_boolean (on/off)
-- input_button
+- input_button (scene)
 - input_select (option/setting/mode/value)
 - light (on/off/brightness/rgb color/color temp)
 - lawn_mower (dock/start/pause)
 - lock
 - media_player (on/off/set volume (via set volume)/source (via set input source)/control playback)
-- scene (on)
-- script (on)
+- scene
+- script (scene)
 - select
-- sensor (temperature setting for temperature sensors and humidity setting for humidity sensors)
+- sensor (entities with device class: `aqi`, `carbon_dioxide`, `carbon_monoxide`, `humidity`, `pm10`, `pm25`, `temperature`, `volatile_organic_compounds`)
 - switch (on/off)
 - vacuum (dock/start/stop/pause)
 - valve (open/close/set position/stop/start=toggle valve)

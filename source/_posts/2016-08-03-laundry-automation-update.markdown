@@ -46,9 +46,9 @@ Next I wrote [scripts](/integrations/script/) that are run whenever the washer o
 
 Materials used:
 
- - [NodeMCU](https://amzn.to/2Y9Mmxk)
- - [2 x Accelerometers](https://amzn.to/2WXa2s5)
- - [2 x Reed switch](https://amzn.to/2X0ZuZ2)
+ - [NodeMCU](https://www.amazon.com/dp/B010O1G1ES)
+ - [2 x Accelerometers](https://www.amazon.com/dp/B008BOPN40)
+ - [2 x Reed switch](https://www.amazon.com/dp/B01IU7NWMM)
 
 [Sketch for the NodeMCU is available here.](https://github.com/nkgilley/nodemcu-laundry/blob/master/nodemcu-laundry.ino)
 

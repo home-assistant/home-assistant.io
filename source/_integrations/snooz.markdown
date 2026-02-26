@@ -52,9 +52,9 @@ Speed percentages less than 10 have no effect - they all map to a value of 1 on 
 
 ## Actions
 
-### Action `snooz.transition_on`
+### Action: Transition on
 
-Transition the volume level over the specified duration. If the device is powered off, the transition will start at the lowest volume level.
+The `snooz.transition_on` action transitions the volume level over the specified duration. If the device is powered off, the transition will start at the lowest volume level.
 
 {% my developer_call_service badge service="snooz.transition_on" %}
 
@@ -79,9 +79,9 @@ automation:
           duration: 120
 ```
 
-### Action `snooz.transition_off`
+### Action: Transition off
 
-Transition the volume level to the lowest setting over the specified duration, then power off the device.
+The `snooz.transition_off` action transitions the volume level to the lowest setting over the specified duration, then powers off the device.
 
 {% note %}
 Once the transition completes, the volume level is restored to the value before the transition started.

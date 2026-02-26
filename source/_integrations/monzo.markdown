@@ -12,7 +12,7 @@ ha_config_flow: true
 ha_domain: monzo
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 The **Monzo** {% term integration %} allows you to connect your Monzo bank accounts to Home Assistant.

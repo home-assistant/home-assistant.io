@@ -34,7 +34,7 @@ If possible, provide the latest release of which you know that the integration o
 
 ## Operating environment
 
-There are many different ways to run Home Assistant. In this section, please mention which you are using: Home Assistant Operating System, Home Assistant Supervised, Home Assistant Core in Docker, or a manual installation of the Home Assistant Core. It would be helpful to mention which operating system you are using because not all are supported on the same level. You can find this information under {% my system_health title="**Settings** > **System** > **Repairs** > Three dots in the upper right > **System information**" %}.
+There are many different ways to run Home Assistant. In this section, please mention which you are using: Home Assistant Operating System or Home Assistant Container in Docker. It would be helpful to mention which operating system you are using because not all are supported on the same level. You can find this information under {% my system_health title="**Settings** > **System** > **Repairs** > Three dots in the upper right > **System information**" %}.
 
 ## Integration
 
@@ -73,7 +73,7 @@ In some cases, it is also necessary to [enable debug logging](/docs/configuratio
 Enabling this will instruct Home Assistant to log a lot of fine-grained information about the integration. This is helpful for debugging and fixing the issue.
 In contrast to the diagnostics information, debug logs are not automatically redacted. Make sure to include only the parts you think are relevant to the issue.
 
-Look at the `home-assistant.log` file in the [configuration folder](/docs/configuration/) and see if there are any errors related to your integration.
+[Download the logs](/integrations/logger/#viewing-logs) and see if there are any errors related to your integration.
 
 ### Additional information
 
