@@ -108,7 +108,7 @@ This means:
 
 ### Automatic ventilation based on air quality
 
-Create an automation that adjusts fan speed based on VOC levels:
+The following automation adjusts the fan speed based on VOC sensor readings. Replace `sensor.ecocomfort_2_voc` and `fan.ecocomfort_2` with your own entity IDs.
 
 ```yaml
 automation:
