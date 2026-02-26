@@ -1177,7 +1177,6 @@ actions:
           media_type: video
 ```
 
-
 ## Example: automation to send a message and delete after a delay
 
 {% raw %}
