@@ -24,7 +24,9 @@ Currently supported:
 
 - Eufy RoboVac G30 Hybrid (`T2253`)
 
-Other RoboVac models may work, but are not yet validated by this integration.
+Not currently supported:
+
+- RoboVac models other than `T2253`
 
 ## Prerequisites
 
