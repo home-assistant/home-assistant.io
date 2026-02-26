@@ -190,7 +190,6 @@ The minimum state duration variable is used to exclude short state changes from 
 min_state_duration: "00:02:00"
 ```
 
-
 ## Video tutorial
 This video tutorial explains how you can use history stats. It also shows how you can create a daily bar chart graph to visualize things such as occupancy, or how long the lights are on in a particular room.
 
