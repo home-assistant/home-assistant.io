@@ -57,16 +57,16 @@ All fan entities support speed control (0-100%) and the following presets:
 
 #### Switches
 
-- Auto
-  - Description: Enable automatic control based on sensor readings.
-- Auto+
-  - Description: Enhanced automatic mode with quieter operation limits.
-- Winter
-  - Description: Winter mode to prevent icing and manage defrosting.
-- Heater
-  - Description: Turn on the mini-heating element (if equipped).
-- Bound
-  - Description: Synchronizes supply and extract fans. When enabled, you control the Bounded fan. When disabled, you control Supply and Extract fans separately.
+- **Auto**
+  - **Description**: Enable automatic control based on sensor readings.
+- **Auto+**
+  - **Description**: Enhanced automatic mode with quieter operation limits.
+- **Winter**
+  - **Description**: Winter mode to prevent icing and manage defrosting.
+- **Heater**
+  - **Description**: Turn on the mini-heating element (if equipped).
+- **Bound**
+  - **Description**: Synchronizes supply and extract fans. When enabled, you control the Bounded fan. When disabled, you control Supply and Extract fans separately.
 
 ## Data updates
 
