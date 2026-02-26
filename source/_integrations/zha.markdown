@@ -891,7 +891,7 @@ When reporting potential bugs related to the ZHA integration on the issues track
 2. Exact model and firmware of the Zigbee radio (Zigbee Coordinator adapter) being used.
 3. If the issue is related to a specific Zigbee device, provide both the **Zigbee Device Signature** and the **Diagnostics** information.
      - Both the **Zigbee Device Signature** and the **Diagnostics** information can be found under {% my config_zha title="**Settings** > **Zigbee**" %}.
-        - Select **Devices** and from the list, select pick your device.
+        - Select **Devices** and from the list, select your device.
         - Select **Zigbee Device Signature** and **Download Diagnostics**, respectively.
 
 {% tip %}
