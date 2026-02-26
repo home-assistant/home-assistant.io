@@ -77,7 +77,7 @@ modes:
 
 ## Bar gauge
 
-Widget that displays the state of a numeric [sensor](/integrations/sensor), with unit of measurement %, as a horizontal bar.
+Widget that displays the state of a numeric [sensor](/integrations/sensor) as a horizontal bar.
 
 <p class='img'>
   <img src='/images/dashboards/features/bar_gauge.png' alt='Screenshot of the tile card with the bar gauge feature'>
@@ -87,6 +87,8 @@ Widget that displays the state of a numeric [sensor](/integrations/sensor), with
 ```yaml
 features:
   - type: "bar-gauge"
+    min: 0
+    max: 100
 ```
 
 {% configuration features %}
@@ -94,6 +96,16 @@ type:
   required: true
   description: "`bar-gauge`"
   type: string
+min:
+  required: false
+  description: Minimum value for the gauge range.
+  type: integer
+  default: 0
+max:
+  required: false
+  description: Maximum value for the gauge range.
+  type: integer
+  default: 100
 {% endconfiguration %}
 
 ## Button
@@ -797,7 +809,7 @@ type:
 
 ## Trend graph
 
-Widget that displays the a trend of the history for a numeric [sensor](/integrations/sensor).
+Widget that displays a trend of the history for a numeric [sensor](/integrations/sensor).
 
 <p class='img'>
   <img src='/images/dashboards/features/trend_graph.png' alt='Screenshot of the tile card with the trend graph feature'>
@@ -808,6 +820,7 @@ Widget that displays the a trend of the history for a numeric [sensor](/integrat
 features:
   - type: "trend-graph"
     hours_to_show: 24
+    detail: true
 ```
 
 {% configuration features %}
@@ -820,6 +833,11 @@ hours_to_show:
   description: Hours to show in graph. Minimum is 1 hour. Big values can result in delayed rendering, especially if the selected entities have a lot of state changes.
   type: integer
   default: 24
+detail:
+  required: false
+  description: Show more detail in the graph. When enabled, samples to 1 point per 5 pixels. When disabled, samples to 1 point per hour using mean values for a smoother graph.
+  type: boolean
+  default: true
 {% endconfiguration %}
 
 {% note %}
@@ -961,7 +979,7 @@ operation_modes:
 
 ## Area control
 
-Widget that displays buttons to control different types of entity in your area.
+Widget that displays buttons to control different types of entities in your area. You can control all entities of a specific domain or select individual entities.
 
 <p class='img'>
   <img src='/images/dashboards/features/area_controls.png' alt='Screenshot of the area card with the area controls feature'>
@@ -975,6 +993,7 @@ features:
       - light
       - fan
       - switch
+      - entity_id: light.kitchen_counter
 ```
 
 {% configuration features %}
@@ -984,6 +1003,6 @@ type:
   type: string
 controls:
   required: true
-  description: List of controls to show on the card. The list can contain `light`, `fan`, and `switch`.
+  description: List of controls to show on the card. The list can contain domain names like `light`, `fan`, and `switch`, or mappings that specify a particular entity by using the `entity_id` key, as shown in the example above.
   type: list
 {% endconfiguration %}

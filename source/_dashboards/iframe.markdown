@@ -52,6 +52,11 @@ allow_open_top_navigation:
   description: 'Allow the user to open iframe content links by opening the default browser in the Home Assistant mobile app. It is false by default because it adds allow-top-navigation-by-user-activation on the iframe sandbox attribute which is less secure. So set it to true if you need it and are confident with the iframe content.'
   type: boolean
   default: false
+hide_background:
+  required: false
+  description: 'Hide the card background, making it transparent. This removes the background color, box-shadow, and border. Useful for pages which allow transparent backgrounds so the iframe can blend into the dashboard view.'
+  type: boolean
+  default: false
 title:
   required: false
   description: The card title.

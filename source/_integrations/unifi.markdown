@@ -121,17 +121,17 @@ If Home Assistant and the UniFi Network application are running on separate mach
 
 ## Actions
 
-### Action unifi.reconnect_client
+### Action: Reconnect client
 
-Try to get a wireless client to reconnect to the network.
+The `unifi.reconnect_client` action tries to get a wireless client to reconnect to the network.
 
 | Data attribute | Optional | Description                                                                 |
 | ---------------------- | -------- | --------------------------------------------------------------------------- |
 | `device_id`            | No       | String representing a device ID related to a UniFi Network {% term integration %} .     |
 
-### Action unifi.remove_clients
+### Action: Remove clients
 
-Clean up clients on the UniFi Network application that has only been associated with the Network application for a short period of time. The difference between first seen and last seen needs to be less than 15 minutes and the client can not have a fixed IP, hostname or name associated with it.
+The `unifi.remove_clients` action cleans up clients on the UniFi Network application that have only been associated with the Network application for a short period of time. The difference between first seen and last seen needs to be less than 15 minutes and the client can not have a fixed IP, hostname or name associated with it.
 
 ## Switch
 
@@ -176,6 +176,10 @@ Entities appear for each Zone-Based Firewall Policy. The switches can be identif
 ### Bandwidth sensor
 
 Get entities reporting receiving and transmitting bandwidth per network client. These sensors are disabled by default. To enable the bandwidth sensors, on the UniFi integration page, select **Configure**, go to page 3/3 and enable the bandwidth sensors.
+
+### Wired client link speed sensor
+
+Get entities reporting the link speed for wired network clients. This sensor shows the connection speed in megabits per second (Mbit/s) between the wired client and the network switch or gateway. These sensors are disabled by default and are only available for wired clients with an active connection.
 
 ### Wlan clients sensor
 

@@ -36,7 +36,7 @@ Overview of the wake word architecture
 
 2. Each satellite requires ongoing resources inside Home Assistant while it’s streaming audio. Currently, users can have 5 voice satellites streaming audio at the same time without overwhelming a Raspberry Pi 4. To scale up, we’ve updated [the Wyoming protocol][wyoming] to allow users to run wake word detection on an external server.
 
-## About the openWakeWord add-on
+## About the openWakeWord app
 
 Home Assistant’s wake words are leveraging a new project called [openWakeWord] by David Scripka. This project has real-world accuracy, runs on commodity hardware and anyone can [train a basic model of their own wake word][own-wake-word].
 

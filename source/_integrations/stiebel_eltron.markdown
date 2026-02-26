@@ -18,7 +18,7 @@ related:
 ha_config_flow: true
 ---
 
-The `stiebel_eltron` {% term integration %} lets you control integral ventilation or heat pump units of [STIEBEL ELTRON](https://www.stiebel-eltron.com).
+The **STIEBEL ELTRON** {% term integration %} lets you control integral ventilation or heat pump units of [STIEBEL ELTRON](https://www.stiebel-eltron.com).
 
 It requires the following components:
 

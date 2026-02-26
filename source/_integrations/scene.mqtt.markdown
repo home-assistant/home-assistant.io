@@ -8,7 +8,7 @@ ha_iot_class: Configurable
 ha_domain: mqtt
 ---
 
-The `mqtt` scene platform lets you control your MQTT enabled scenes.
+The **MQTT Scene** {% term integration %} lets you control your MQTT enabled scenes.
 
 ## Configuration
 

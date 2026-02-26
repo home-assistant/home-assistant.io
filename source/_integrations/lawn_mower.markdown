@@ -33,25 +33,25 @@ Available actions: `start_mowing`, `pause` and `dock`.
 
 Before calling one of these actions, make sure your lawn_mower platform supports it.
 
-### Action `lawn_mower.start_mowing`
+### Action: Start mowing
 
-Start or resume a mowing task.
-
-| Data attribute | Optional | Description                                                          |
-| -------------- | -------- | -------------------------------------------------------------------- |
-| `entity_id`    | yes      | Only act on specific lawn_mower. Use `entity_id: all` to target all. |
-
-### Action `lawn_mower.pause`
-
-Pause a mowing task.
+The `lawn_mower.start_mowing` action starts or resumes a mowing task.
 
 | Data attribute | Optional | Description                                                          |
 | -------------- | -------- | -------------------------------------------------------------------- |
 | `entity_id`    | yes      | Only act on specific lawn_mower. Use `entity_id: all` to target all. |
 
-### Action `lawn_mower.dock`
+### Action: Pause
 
-Tell the lawn_mower to return to dock.
+The `lawn_mower.pause` action pauses a mowing task.
+
+| Data attribute | Optional | Description                                                          |
+| -------------- | -------- | -------------------------------------------------------------------- |
+| `entity_id`    | yes      | Only act on specific lawn_mower. Use `entity_id: all` to target all. |
+
+### Action: Dock
+
+The `lawn_mower.dock` action tells the lawn mower to return to its dock.
 
 | Data attribute | Optional | Description                                                          |
 | -------------- | -------- | -------------------------------------------------------------------- |

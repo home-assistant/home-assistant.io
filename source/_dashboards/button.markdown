@@ -12,6 +12,8 @@ related:
     title: Themes
   - docs: /dashboards/cards/
     title: Dashboard cards
+  - docs: /dashboards/naming/
+    title: Card naming
 ---
 
 The button card allows you to add buttons to perform tasks.
@@ -67,8 +69,8 @@ entity:
   type: string
 name:
   required: false
-  description: The button name that is displayed on the card. It defaults to the entity name only if the card interacts with an entity. Otherwise, if not configured, no name is displayed.
-  type: string
+  description: Overwrites friendly name. Can be a string, or a name configuration object. See [naming documentation](/dashboards/naming/). It defaults to the entity name only if the card interacts with an entity. Otherwise, if not configured, no name is displayed.
+  type: [string, map, list]
   default: Entity name
 icon:
   required: false

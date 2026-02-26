@@ -18,7 +18,7 @@ related:
     title: Configuration file
 ---
 
-The `worldclock` {% term integration %} simply displays the current time in a different time zone.
+The **Worldclock** {% term integration %} simply displays the current time in a different time zone.
 
 {% include integrations/config_flow.md %}
 

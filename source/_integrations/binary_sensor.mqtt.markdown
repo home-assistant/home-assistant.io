@@ -8,7 +8,7 @@ ha_iot_class: Configurable
 ha_domain: mqtt
 ---
 
-The `mqtt` binary sensor platform uses an MQTT message received to set the binary sensor's state to `on`, `off` or `unknown`.
+The **MQTT binary sensor** {% term integration %} uses an MQTT message received to set the binary sensor's state to `on`, `off` or `unknown`.
 
 The state will be updated only after a new message is published on `state_topic` matching `payload_on`, `payload_off` or `None`. If these messages are published with the `retain` flag set,
 the binary sensor will receive an instant state update after subscription and Home Assistant will display the correct state on startup.

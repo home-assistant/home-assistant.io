@@ -8,7 +8,7 @@ ha_iot_class: Configurable
 ha_domain: mqtt
 ---
 
-The `mqtt` tag scanner platform uses an MQTT message payload to generate tag scanned events.
+The **MQTT tag scanner** {% term integration %} uses an MQTT message payload to generate tag scanned events.
 
 ## Configuration
 

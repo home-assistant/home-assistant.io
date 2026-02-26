@@ -2,7 +2,7 @@
 title: "No URL Available"
 description: "More information on how to resolve the No URL Available message in Home Assistant."
 related:
-  - url: https://support.nabucasa.com/hc/en-us/categories/24734619902749
+  - url: https://support.nabucasa.com/hc/categories/24734619902749
     title: Home Assistant Cloud user documentation
 ---
 

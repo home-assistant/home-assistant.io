@@ -14,7 +14,7 @@ ha_config_flow: true
 ha_integration_type: service
 ---
 
-The International Space Station (ISS) integration uses the
+The **International Space Station (ISS)** {% term integration %} uses the
 [Open Notify API](http://open-notify.org/Open-Notify-API/ISS-Location-Now/)
 to let you know where the station is.
 

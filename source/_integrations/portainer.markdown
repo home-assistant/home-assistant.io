@@ -3,6 +3,9 @@ title: Portainer
 description: Instructions on how to integrate Portainer with Home Assistant.
 ha_category:
   - Binary sensor
+  - Button
+  - Sensor
+  - Switch
 ha_release: '2025.10'
 ha_iot_class: Local Polling
 ha_codeowners:
@@ -19,7 +22,7 @@ ha_integration_type: hub
 ha_quality_scale: bronze
 ---
 
-The Portainer {% term integration %} is used as an interface to the [Portainer API](https://docs.portainer.io/api).
+The **Portainer** {% term integration %} is used as an interface to the [Portainer API](https://docs.portainer.io/api).
 Portainer is a lightweight management UI that allows you to easily manage your Docker containers, images, networks, and volumes. It works on every Docker host or Swarm cluster.
 
 The Portainer API provides a way to manage Docker containers, images, networks, and volumes. It allows you to interact programmatically with your Docker host or Swarm cluster.
@@ -41,15 +44,11 @@ Create a Portainer Access Token by following these steps:
 
 ## Supported functionality
 
-{% note %}
-This integration is currently being actively developed and tested. More platforms and features will be added in the future.
-{% endnote %}
-
 There is currently support for the following device types within Home Assistant:
 
 - Binary sensor - for monitoring the status of Portainer services.
 - Switch - for turning on and off containers.
-- Sensor - for monitoring various elements of containers.
+- Sensor - for monitoring various elements of containers and endpoints.
 - Button - for restarting containers.
 
 ## Data updates

@@ -30,6 +30,7 @@ Ensure that your power supply is not a bulk power supply for an apartment buildi
 1. Compatible USB dongles (tested with):
     - Wi-SUN USB dongle from [Ratoc Systems](https://www.ratocsystems.com/products/wisun/usb-wisun/rs-wsuha/).
     - Wi-SUN Module RL7023 Stick-D/DSS from [Tessera Technology Inc.](https://www.tessera.co.jp/product/rfmodul/rl7023stick-d_dss.html).
+    - Wi-SUN Module RL7023 Stick-D/IPS from [Tessera Technology Inc.](https://www.tessera.co.jp/product/rfmodul/rl7023stick-d_ips.html) (Production ended).
 2. [B Route credentials from your utility company](#obtaining-b-route-credentials).
 3. Smart meter:
     - A smart meter that supports the B Route protocol.

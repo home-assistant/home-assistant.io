@@ -21,17 +21,16 @@ _If you do not have a Docker Hub account [you can create one here][dockerhub-sig
 
 To use your Docker Hub credentials with the Supervisor:
 
-- You need to have the advanced user toggle enabled in your user profile setting.
-- Go to the {% my supervisor title="Settings > Add-ons" %} in the Home Assistant UI.
-- Click on "Add-on Store".
-- Click the three dots in the top right corner of the screen, and select "Registries".
+1. You need to have the advanced user toggle enabled in your user profile setting.
+2. Go to {% my supervisor_store title="**Settings** > **Apps** > **Install app**" %}.
+3. In the top-right corner of the screen, select the three dots {% icon "mdi:dots-vertical" %} menu, and select **Registries**.
 
-In the dialog that opens up, click on "Add new registry" and enter `hub.docker.com` as the registry followed by your credentials:
+4. In the dialog that opens up, select **Add new registry** and enter `docker.io` as the registry followed by your credentials:
 
-<p class='img'>
-<img src='/images/screenshots/supervisor_registry_dockerhub.png' alt='Adding authentication for Docker Hub in the Supervisor panel.'>
-Adding authentication for Docker Hub in the Supervisor panel
-</p>
+    <p class='img'>
+    <img src='/images/screenshots/supervisor_registry_dockerhub.png' alt='Adding authentication for Docker Hub in the Supervisor panel.'>
+    Adding authentication for Docker Hub in the Supervisor panel
+    </p>
 
 _If you do not want to use the UI, this can also be done with the [CLI]_
 

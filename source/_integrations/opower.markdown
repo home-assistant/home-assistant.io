@@ -12,11 +12,11 @@ ha_domain: opower
 ha_config_flow: true
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ha_quality_scale: bronze
 ---
 
-The Opower integration allows you to get energy information from utilities that use [Opower](https://www.oracle.com/industries/utilities/opower-energy-efficiency/).
+The **Opower** {% term integration %} allows you to get energy information from utilities that use [Opower](https://www.oracle.com/utilities/opower-energy-efficiency/).
 
 More than 175 utilities use Opower. Currently only the following utilities are supported by this integration:
 
@@ -34,6 +34,7 @@ More than 175 utilities use Opower. Currently only the following utilities are s
   - Orange & Rockland Utilities (ORU)
 - Duquesne Light Company (DQE)
 - Evergy
+- Eversource
 - Exelon subsidiaries
   - Atlantic City Electric
   - Baltimore Gas and Electric (BGE)
@@ -53,6 +54,7 @@ More than 175 utilities use Opower. Currently only the following utilities are s
 - Sacramento Municipal Utility District (SMUD)
 - Seattle City Light (SCL)
 - Southern Maryland Electric Cooperative (SMECO)
+- Southwest Gas
 
 When you add the Opower integration to Home Assistant, you will need to provide your utility account's authentication details to enable retrieving your energy data.
 This is typically the same information needed to access your utility's website.
@@ -62,6 +64,10 @@ This is typically the same information needed to access your utility's website.
 For many utilities, only a username and password are required to access your accounts. Some utilities require additional authentication information.
 It might be necessary to configure your utility account with an authentication method that is compatible with the Opower integration.
 Utility-specific authentication requirements are listed below:
+
+### Burbank Water and Power (BWP)
+
+You need to first create an account at <https://bwp.opower.com/> and use those credentials when you set up the integration.
 
 ### Consolidated Edison (ConEd)
 
@@ -79,6 +85,10 @@ If you have an existing TOTP set up, there are methods for exporting the account
 Alternatively, you can create a new TOTP secret for your account and use the "no camera to scan" option to capture the TOTP secret. You may also want to capture the QR code by taking a picture, or using a QR code scanner. There are tools available that can decode the TOTP data from a QR code.
 
 **NOTE: At this time, ConEd only has a single TOTP set up per account. Therefore, it is important that you configure the same TOTP secret for ConEd access in both Opower and your authenticator app.**
+
+**Troubleshooting: "2FA code was invalid" error**
+
+If authentication fails despite correct credentials and TOTP secret, this might be due to your Home Assistant server's clock and the ConEd server's clock being out of sync. TOTP codes are only valid within 30-second windows. Try updating and restarting Home Assistant Core, which may resolve the issue. Some users have reported needing to restart multiple times before the issue gets resolved.
 
 ### Exelon subsidiaries (ACE, BGE, ComEd, Delmarva, PECO, Pepco)
 
@@ -120,7 +130,7 @@ Note the unit for gas is CCF (centum cubic feet). 1 CCF is one hundred cubic fee
 ## Energy
 
 Because utilities only release usage/cost data with a 48-hour delay, the integration inserts data into statistic objects.
-You can find the statistics in {% my developer_statistics title="**Developer Tools** > **Statistics**"%} and search for "opower".
+You can find the statistics in {% my developer_statistics title="**Settings** > **Developer tools** > **Statistics**"%} and search for "opower".
 **This delay means that there will be no data in the energy dashboard for today and likely yesterday** (depending on time of day you are checking).
 
 At the initial setup, the integration pulls historical monthly usage/cost since the account activation. If the utility provides more granular data, it pulls daily usage/cost for the past 3 years and hourly usage/cost for the past 2 months (note: typically, utilities provide only monthly or daily data for gas).
@@ -179,4 +189,4 @@ With the above changes your (**{% my config_energy title="Settings > Dashboards 
 {% include integrations/remove_device_service.md %}
 
 If you remove the integration, the statistics are not automatically deleted.
-You can find and delete the statistics in {% my developer_statistics title="**Developer Tools** > **Statistics**"%} and search for "opower".
+You can find and delete the statistics in {% my developer_statistics title="**Settings** > **Developer tools** > **Statistics**"%} and search for "opower".

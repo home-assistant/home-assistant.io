@@ -29,7 +29,7 @@ ha_codeowners:
 ha_quality_scale: legacy
 ---
 
-The ADS (automation device specification) describes a device-independent and fieldbus independent interface for communication between [Beckhoff](https://www.beckhoff.com/) automation devices running [TwinCAT](https://www.beckhoff.com/en-en/products/automation/twincat/) and other devices implementing this interface.
+The **ADS** (automation device specification) {% term integration %} describes a device-independent and fieldbus independent interface for communication between [Beckhoff](https://www.beckhoff.com/) automation devices running [TwinCAT](https://www.beckhoff.com/en-en/products/automation/twincat/) and other devices implementing this interface.
 
 There is currently support for the following device types within Home Assistant:
 

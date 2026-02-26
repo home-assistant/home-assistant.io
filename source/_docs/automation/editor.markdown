@@ -10,12 +10,12 @@ The automation editor is an easy way of creating and editing automations from th
 
 This tutorial uses the [Random sensor](/integrations/random#sensor) because it generates data (by default, values between 0 and 20). This enables us to walk through the example, even if you do not have any actual sensors connected yet. You could use any other sensor that outputs a numeric value.
 
-1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and in the lower right corner, select the **Create Automation** button.
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and in the lower right corner, select the **Create automation** button.
 2. Select **Create new automation**.
 
     ![Create automation dialogue box](/images/docs/automation-editor/create-automation.png)
 
-3. Select **Add Trigger**, and in the **Search trigger** field, type "num".
+3. Select **Add trigger**, and in the **Search trigger** field, type "num".
    - Select **Numeric state**.
 
     ![Add trigger](/images/docs/automation-editor/add-trigger-to-automation.png)
@@ -28,7 +28,7 @@ This tutorial uses the [Random sensor](/integrations/random#sensor) because it g
     ![Automation trigger](/images/docs/automation-editor/new-trigger.png)
 
 5. Define the action that should happen:
-   - In the **Then do** section, select **Add Action**.
+   - In the **Then do** section, select **Add action**.
 
      ![Add action](/images/docs/automation-editor/add_action.png)
 

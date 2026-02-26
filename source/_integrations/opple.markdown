@@ -15,7 +15,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `opple` light {% term integration %} allows you to control the state of your Opple smart light.
+The **Opple** {% term integration %} allows you to control the state of your Opple smart light.
 
 The platform supports all Opple lights with Wi-Fi support or lights that can be controlled by the App.
 

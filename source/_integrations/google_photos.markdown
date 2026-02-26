@@ -9,7 +9,7 @@ ha_config_flow: true
 ha_domain: google_photos
 ha_codeowners:
   - '@allenporter'
-ha_integration_type: integration
+ha_integration_type: service
 related:
   - docs: /integrations/media_source
     title: Media source integration documentation
@@ -19,7 +19,7 @@ related:
     title: Google Developers Console
 ---
 
-The **Google Photos** integration allows you to upload photos to your [Google Photos](https://photos.google.com/) using Home Assistant. The integration adds an action for uploading photos and a
+The **Google Photos** {% term integration %} allows you to upload photos to your [Google Photos](https://photos.google.com/) using Home Assistant. The integration adds an action for uploading photos and a
 [media source](/integrations/media_source) to view or cast the content uploaded by
 Home Assistant. This integration does not give Home Assistant access to your
 entire Google Photos library.
@@ -77,10 +77,9 @@ The integration setup will next give you instructions to enter the [Application 
 {% enddetails %}
 
 
-### Action `google_photos.upload`
+### Action: Upload
 
-You can use the `google_photos.upload` action to upload Photos from Home Assistant
-to Google Photos.
+The `google_photos.upload` action allows you to upload photos from Home Assistant to Google Photos.
 
 {% details "Upload action details" %}
 
