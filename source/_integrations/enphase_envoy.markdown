@@ -221,8 +221,8 @@ The CT entity names use format: **Envoy <abbr title="Envoy serial number">SN</ab
 | **\<type\> CT energy delivered**          | Y | Accumulated energy delivered to the switchboard in Wh.                                                                                    |
 | **\<type\> CT energy received**           | Y | Accumulated energy received from the switchboard in Wh.                                                                                   |
 | **\<type\> CT power**                     | Y | Power in W. Positive to the switchboard                                                                                                   |
-| **Frequency \<type\> CT**                 | N | Voltage in V. (see limitations [Summed voltage](#summed-voltage)) in W.                                                                   |
-| **Voltage \<type\> CT**                   | N | Frequency in Hz.                                                                                                                          |
+| **Frequency \<type\> CT**                 | N | Frequency in Hz.                                                                                                                          |
+| **Voltage \<type\> CT**                   | N | Voltage in V. (see limitations [Summed voltage](#summed-voltage)).                                                                        |
 | **\<type\> CT current**                   | N | Current in A.                                                                                                                             |
 | **Powerfactor \<type\> CT**               | N | Powerfactor, ratio of active to apparent power.                                                                                           |
 | **Metering status \<type\> CT**           | N | Status of the metering process: `normal`, `not-metering`, `check-wiring`.                                                                 |
