@@ -239,7 +239,7 @@ If you have been using the Z-Wave JS UI app, you can migrate to the Z-Wave JS ap
 
 ### Running the migration script
 
-1. Download the migration script from `https://gist.github.com/AlCalzone/eb0947a39a3ff91c053f259f0ac4efc3#file-migrate_to_zwave_js_app-sh`.
+1. Download the migration script `.zip` file from `https://gist.github.com/AlCalzone/eb0947a39a3ff91c053f259f0ac4efc3#file-migrate_to_zwave_js_app-sh`.
 2. Extract the zip file and locate the `migrate_to_zwave_js_app.sh` script.
 3. Locate the backup file you downloaded from the Z-Wave JS UI web interface. It should be a `.zip` file.
 4. Open the Studio Code Server or SSH app.
@@ -267,9 +267,9 @@ If you have been using the Z-Wave JS UI app, you can migrate to the Z-Wave JS ap
 
    ![Reconfiguring the current adapter](/images/integrations/z-wave/z-wave-js-ui-migration-reconfigure-adapter.png)
 
-4. Depending on how your controller is connected, you might need to either select or clear the **Use the Z-Wave Supervisor app** option:
+4. Depending on how your controller is connected, you might need to either select or clear the **Use the Z-Wave Supervisor app** checkbox.
    - _Option 1:_ If you are using a USB-based or TCP-based controller:
-     - Select the **Use the Z-Wave Supervisor app** option.
+     - Select the **Use the Z-Wave Supervisor app** checkbox.
 
        ![Selecting the Z-Wave Supervisor app checkbox](/images/integrations/z-wave/z-wave-js-ui-migration-select-option.png)
 
