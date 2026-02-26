@@ -348,7 +348,7 @@ It is not just new {% term integrations %} that have been added; existing ones a
 - **[Ambient Weather Station]** now exposes sensors for the AQIN indoor air quality monitor, including PM2.5, PM10, CO2, temperature, humidity, and AQI measurements. Thanks, [@n-6]!
 - **[WeatherFlow]** Tempest stations now show battery level as a percentage for consistency with other integrations. Thanks, [@pkolbus]!
 - **[SleepIQ]** now provides five new sleep health sensors per sleeper: sleep score, sleep duration, heart rate average, respiratory rate average, and heart rate variability. Thanks, [@rhcp011235]!
-- **[Anthropic Conversation]** now supports the Claude Opus 4.6 model with adaptive thinking effort levels, and gained native structured outputs for more accurate tool calls on models 4.5 and newer. Thanks, [@Shulyaka]!
+- **[Anthropic]** now supports the Claude Opus 4.6 model with adaptive thinking effort levels, and gained native structured outputs for more accurate tool calls on models 4.5 and newer. Thanks, [@Shulyaka]!
 - **[Tessie]** received several enhancements: an energy remaining sensor for vehicles, battery health diagnostics, island and grid status sensors for energy sites, and full energy history support for the Home Assistant Energy Dashboard. Thanks, [@jrhillery] and [@Bre77]!
 - **[Portainer]** now supports Docker stack monitoring and control with status sensors, container counts, and start/stop switches. It also gained a `prune_images` action to clean up unused Docker images. Thanks, [@erwindouna]!
 - **[Nintendo Parental Controls]** now has a bedtime end time entity, complementing the existing bedtime start time for a complete bedtime schedule. Thanks, [@pantherale0]!
@@ -413,7 +413,7 @@ It is not just new {% term integrations %} that have been added; existing ones a
 [@zerzhang]: https://github.com/zerzhang
 [Alexa Devices]: /integrations/alexa_devices
 [Ambient Weather Station]: /integrations/ambient_station
-[Anthropic Conversation]: /integrations/anthropic
+[Anthropic]: /integrations/anthropic
 [BSB-Lan]: /integrations/bsblan
 [Cambridge Audio]: /integrations/cambridge_audio
 [Compit]: /integrations/compit
@@ -480,7 +480,7 @@ This release, we celebrate several {% term integrations %} that have improved th
 
 - **6 integrations reached bronze** 🥉
   - [Aladdin Connect], thanks to [@JamieMagee]
-  - [Anthropic Conversation], thanks to [@Shulyaka]
+  - [Anthropic], thanks to [@Shulyaka]
   - [OpenAI], thanks to [@zweckj]
   - [OpenEVSE], thanks to [@c00w]
   - [Splunk], thanks to [@Bre77]
@@ -510,7 +510,7 @@ A big thank you to all the contributors involved! 👏
 [@tr4nt0r]: https://github.com/tr4nt0r
 [@zweckj]: https://github.com/zweckj
 [Aladdin Connect]: /integrations/aladdin_connect
-[Anthropic Conversation]: /integrations/anthropic
+[Anthropic]: /integrations/anthropic
 [BSB-Lan]: /integrations/bsblan
 [devolo Home Control]: /integrations/devolo_home_control
 [GIOŚ]: /integrations/gios
