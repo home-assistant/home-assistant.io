@@ -18,25 +18,33 @@ The **Eufy RoboVac** {% term integration %} allows you to connect supported Eufy
 
 The integration uses Eufy account credentials during setup to discover available RoboVacs and retrieve local connection details, then controls the vacuum locally on your network.
 
-{% include integrations/config_flow.md %}
+## Supported devices
 
-{% configuration_basic %}
-Email:
-  description: The email address used for your Eufy account.
-Password:
-  description: The password used for your Eufy account.
-RoboVac:
-  description: The discovered RoboVac to add.
-Host:
-  description: The local IP address of the RoboVac. If auto-discovery does not populate it, enter it manually.
-Protocol version:
-  description: Tuya protocol version used for local communication. Start with `3.3` for G30 Hybrid (`T2253`).
-{% endconfiguration_basic %}
+Currently supported:
+
+- Eufy RoboVac G30 Hybrid (`T2253`)
+
+Other RoboVac models may work, but are not yet validated by this integration.
 
 ## Prerequisites
 
-- Your Home Assistant instance must be able to reach the vacuum over the local network.
-- For reliability, assign a DHCP reservation/static IP to your RoboVac.
+- Your Home Assistant instance must be able to reach the vacuum over your local network.
+- For reliability, assign a Dynamic Host Configuration Protocol (DHCP) reservation or static IP address to your RoboVac.
+
+{% include integrations/config_flow.md %}
+
+{% configuration_basic %}
+Email address:
+  description: "The email address used to sign in to your Eufy account during setup."
+Password:
+  description: "The password used to sign in to your Eufy account during setup."
+RoboVac:
+  description: "The RoboVac discovered from your Eufy account that you want to add."
+Host:
+  description: "The local IP address of the selected RoboVac. If auto-discovery does not populate it, enter it manually."
+Protocol version:
+  description: "Tuya protocol version used for local communication. Start with `3.3` for G30 Hybrid (`T2253`)."
+{% endconfiguration_basic %}
 
 ## Supported functionality
 
