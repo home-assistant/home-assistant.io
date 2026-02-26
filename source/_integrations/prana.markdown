@@ -90,7 +90,7 @@ The integration uses local polling. By default, Home Assistant polls the device 
 
 - Check the device network connection.
 - Ensure the device is powered on and reachable; entities become available automatically when communication is restored.
-- For Fans: Remember that Supply and Extract fans become unavailable when Bound mode is active (and vice versa). This is expected behavior.
+- For fans, remember that supply and extract fans become unavailable when Bound mode is active (and vice versa). This is expected behavior.
 
 ## Community notes
 
