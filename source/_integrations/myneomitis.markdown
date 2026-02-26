@@ -37,9 +37,9 @@ The **MyNeomitis** {% term integration %} connects your [Axenco](https://www.axe
 
 {% configuration_basic %}
 Email:
-  description: The email address associated with your MyNeomitis account.
+description: The email address associated with your MyNeomitis account.
 Password:
-  description: The password for your MyNeomitis account.
+description: The password for your MyNeomitis account.
 {% endconfiguration_basic %}
 
 ## Use cases
@@ -56,7 +56,8 @@ The **MyNeomitis** integration provides the following entities:
 
 - **Climate** (`climate`)
   - **Description**: Controls temperature, preset modes, and HVAC modes for supported radiators, thermostats, and towel rails.
-  - **Features**: Set target temperature, change preset (Comfort, Eco, Boost, Standby, etc.), switch between heating/cooling/off (where supported).
+  - **Features**: Set target temperature, change preset, and switch between heating/cooling/off (where supported).
+  - **Presets**: `Comfort`, `Comfort +`, `Eco`, `Eco -1`, `Eco -2`, `Frost protection`, `Boost`, `Setpoint`, `Standby`.
   - **Available for devices**: EV30, ECTRL, ESTAT, RSS-ECTRL, NTD, ETRV models
 
 ### Selects
