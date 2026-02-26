@@ -326,7 +326,7 @@ See documentation for this interface on `http://HOST:PORT/html/docs/cli-api.html
 | `entity_id`    | no       | Name(s) of the Squeezebox entities where to run the API method.                                       |
 | `command`      | no       | Command to pass to Lyrion Music Server (p0 in the CLI documentation).                                 |
 | `parameters`   | yes      | Array of additional parameters to pass to Lyrion Music Server (p1, ..., pN in the CLI documentation). |
-| `timeout`      | yes      | The number of seconds to wait for a response to the query before timing out.                          |
+| `timeout`      | yes      | The number of seconds to wait for a response to the query before timing out. If timeout is not specified, the default value is 5 seconds.                        |
 
 This action can be used to integrate a Squeezebox query into an automation. For example, in a Python script, you can get a list of albums available by an artist like this:
 `hass.services.call("squeezebox", "call_query", { "entity_id": "media_player.kitchen", "command": "albums", "parameters": ["0", "20", "search:beatles", "tags:al"] })`
