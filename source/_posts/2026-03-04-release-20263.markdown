@@ -228,11 +228,7 @@ Thanks to our community for keeping pace with the new {% term integrations %} an
 
 We welcome the following new integrations in this release:
 
-- **[Ghost]**, added by [@JohnONolan]  
-  Monitor your [Ghost](https://ghost.org) publication metrics, including member counts, revenue, post statistics, and email newsletter performance, right from your Home Assistant dashboard.
-
-- **[Hegel Amplifier]**, added by [@boazca] - launching at 🥈 silver quality  
-  Control your [Hegel Music Systems](https://www.hegel.com/) amplifiers locally over your network. Manage power, volume, input selection, and mute with real-time push updates for instant feedback.
+#### Energy, solar & batteries 🔋
 
 - **[Homevolt]**, added by [@Danielhiversen] - launching at 🥈 silver quality  
   Read local data from your [Homevolt](https://www.homevolt.com/) battery over your network, no cloud required. Monitor power, energy, voltage, temperature, and battery status.
@@ -240,29 +236,33 @@ We welcome the following new integrations in this release:
 - **[Hypontech Cloud]**, added by [@jcisio]  
   Monitor your [Hypontech](https://www.hypon.cloud) solar inverter system through the Hypontech Cloud platform. Track power production, energy yields, and system status.
 
-- **[IDrive e2]**, added by [@patrickvorgers]  
-  Back up your Home Assistant to an [IDrive e2](https://www.idrive.com/s3-storage-e2/) bucket. IDrive e2 offers affordable S3-compatible cloud storage with flexible access controls for keeping your backups safe.
-
 - **[Indevolt]**, added by [@Xirt]  
   Communicate directly with your [Indevolt](https://www.indevolt.com/) energy storage devices over the local network. Monitor energy production, consumption, and battery status.
+
+- **[Powerfox Local]**, added by [@klaasnicolaas] - launching at 🏆 platinum quality  
+  Gather data from your [Powerfox Poweropti](https://shop.powerfox.energy/collections/frontpage) device directly over your local network, offering faster updates with no cloud dependency.
+
+- **[Zinvolt]**, added by [@joostlek]  
+  Monitor your [Zinvolt](https://zinvolt.com/) batteries in Home Assistant, including state of charge and other battery metrics.
+
+#### HVAC &  Climate 🌡
 
 - **[IntelliClima]**, added by [@dvdinth]  
   Integrate your [Fantini Cosmi](https://www.fantinicosmi.it/en/) Ecocomfort 2.0 ventilation devices. Control fan modes and speeds of your mechanical ventilation with heat recovery system.
 
-- **[Liebherr]**, added by [@mettolen] - launching at 🥈 silver quality  
-  Control and monitor your [Liebherr](https://home.liebherr.com/) SmartDevice refrigerators and freezers via the cloud. Monitor temperatures, adjust cooling settings, and automate food safety alerts.
-
-- **[MTA New York City Transit]**, added by [@OnFreund] - launching at 🥈 silver quality  
-  Get real-time arrival predictions for all NYC subway and bus lines using data from the [Metropolitan Transportation Authority (MTA)](https://new.mta.info/).
-
 - **[MyNeomitis]**, added by [@l-pr]  
   Connect your [Axenco](https://www.axenco.com/) MyNeomitis heating and energy management devices, such as electric radiators, towel rails, and underfloor heating, to Home Assistant.
 
-- **[OneDrive for Business]**, added by [@zweckj] - launching at 🏆 platinum quality  
-  Use [OneDrive for Business](https://www.microsoft.com/en-us/microsoft-365/onedrive/online-cloud-storage) as a backup location for your Home Assistant backups. Great for users with a Microsoft 365 business subscription.
+- **[Trane Local]**, added by [@bdraco]  
+  Locally control [Trane](https://www.trane.com/) and [American Standard](https://www.americanstandardair.com/) thermostats over your network using a direct mTLS connection. No cloud required.
 
-- **[Powerfox Local]**, added by [@klaasnicolaas] - launching at 🏆 platinum quality  
-  Gather data from your [Powerfox Poweropti](https://shop.powerfox.energy/collections/frontpage) device directly over your local network, offering faster updates with no cloud dependency.
+#### Smart devices & Entertainment 🔌
+
+- **[Hegel Amplifier]**, added by [@boazca] - launching at 🥈 silver quality  
+  Control your [Hegel Music Systems](https://www.hegel.com/) amplifiers locally over your network. Manage power, volume, input selection, and mute with real-time push updates for instant feedback.
+
+- **[Liebherr]**, added by [@mettolen] - launching at 🥈 silver quality  
+  Control and monitor your [Liebherr](https://home.liebherr.com/) SmartDevice refrigerators and freezers via the cloud. Monitor temperatures, adjust cooling settings, and automate food safety alerts.
 
 - **[Redgtech]**, added by [@Jonhsady]  
   Connect your [Redgtech](https://redgtech.com.br/) smart switches to Home Assistant. Control and monitor your cloud-connected switches and relays from this Brazilian smart home brand.
@@ -270,14 +270,24 @@ We welcome the following new integrations in this release:
 - **[System Nexa 2]**, added by [@konsulten] - launching at 🥈 silver quality  
   Integrate your [System Nexa 2](https://nexa.se/smarta-hem/system-nexa-2) smart home devices locally. Control lights, switches, and smart plugs with support for dimmers and outdoor plugs.
 
+#### Miscellaneous 🧩
+
+- **[Ghost]**, added by [@JohnONolan]  
+  Monitor your [Ghost](https://ghost.org) publication metrics, including member counts, revenue, post statistics, and email newsletter performance, right from your Home Assistant dashboard.
+
+- **[MTA New York City Transit]**, added by [@OnFreund] - launching at 🥈 silver quality  
+  Get real-time arrival predictions for all NYC subway and bus lines using data from the [Metropolitan Transportation Authority (MTA)](https://new.mta.info/).
+
 - **[Teltonika]**, added by [@karlbeecken] - launching at 🥈 silver quality  
   Monitor your [Teltonika Networks](https://teltonika-networks.com/) routers running RutOS. Track cellular signal quality, modem temperature, and network connectivity.
 
-- **[Trane Local]**, added by [@bdraco]  
-  Locally control [Trane](https://www.trane.com/) and [American Standard](https://www.americanstandardair.com/) thermostats over your network using a direct mTLS connection. No cloud required.
+#### Home Assistant Backup ☁️
 
-- **[Zinvolt]**, added by [@joostlek]  
-  Monitor your [Zinvolt](https://zinvolt.com/) batteries in Home Assistant, including state of charge and other battery metrics.
+- **[IDrive e2]**, added by [@patrickvorgers]  
+  Back up your Home Assistant to an [IDrive e2](https://www.idrive.com/s3-storage-e2/) bucket. IDrive e2 offers affordable S3-compatible cloud storage with flexible access controls for keeping your backups safe.
+
+- **[OneDrive for Business]**, added by [@zweckj] - launching at 🏆 platinum quality  
+  Use [OneDrive for Business](https://www.microsoft.com/en-us/microsoft-365/onedrive/online-cloud-storage) as a backup location for your Home Assistant backups. Great for users with a Microsoft 365 business subscription.
 
 [@boazca]: https://github.com/boazca
 [@bdraco]: https://github.com/bdraco
@@ -314,7 +324,8 @@ We welcome the following new integrations in this release:
 [Trane Local]: /integrations/trane
 [Zinvolt]: /integrations/zinvolt
 
-This release also has new virtual integrations. Virtual integrations are stubs that are handled by other (existing) integrations to help with findability. These ones are new:
+#### New virtual integrations.
+Virtual integrations are stubs that are handled by other (existing) integrations to help with findability. Only one in this release:
 
 - **[Lorem]**, provided by [Ipsum], added by [@frenck]
 
@@ -326,46 +337,66 @@ This release also has new virtual integrations. Virtual integrations are stubs t
 
 It is not just new {% term integrations %} that have been added; existing ones are also being constantly improved. Here are some of the noteworthy changes to existing integrations:
 
-- **[Matter]** now supports carbon monoxide alarm states and TVOC air quality level sensors. If you have Matter-certified CO sensors or air quality devices, they now show up in Home Assistant. Thanks, [@Leo2442926161] and [@lboue]!
-- **[HomeKit Controller]** now exposes water level sensors, so devices like the Smartmi Humidifier Rainforest will show their current water level in Home Assistant. Thanks, [@romanlytvyn]!
-- **[Reolink]** cameras gained five new diagonal and continuous rotation PTZ buttons, plus the PTZ patrol switch now correctly reports its real-time status. Thanks, [@starkillerOG]!
-- **[SmartThings]** now supports dual-cavity Samsung ovens, with separate entities for each chamber. It also gained switch and select controls for Samsung dishwasher washing options like sanitize, heated dry, and speed booster. Thanks, [@mik-laj] and [@edu-tsen]!
-- **[Roborock]** now fully supports Zeo washing and drying machines with program selection, temperature control, drying modes, and detergent status sensors. Thanks, [@yangqian]!
-- **[OpenAI Conversation]** now supports the `gpt-image-1.5` image generation model for AI Tasks, offering cheaper and faster image generation. Thanks, [@Shulyaka]!
-- **[UniFi Protect]** cameras now have PTZ support with a `ptz_goto_preset` action for triggering presets and a PTZ patrol select entity with live state updates. Thanks, [@RaHehl]!
-- **[SwitchBot]** now lets you add passwords to Keypad Vision devices programmatically. It also gained a slow mode setting for curtain devices, which can reduce noise and improve reliability with heavier curtains. Thanks, [@zerzhang] and [@ljmerza]!
-- **[Alexa Devices]** now supports Amazon Air Quality Monitor devices, exposing sensors for air quality index, VOC index, humidity, temperature, and particulate matter. Thanks, [@jamesonuk]!
-- **[VeSync]** humidifiers now have a switch to enable or disable auto-drying mode for humidifier pads. Thanks, [@cdnninja]!
-- **[SwitchBot Cloud]** now supports the SwitchBot AI Art Frame with battery level, next/previous picture buttons, and a display image entity showing the current picture. Thanks, [@XiaoLing-git]!
-- **[KNX]** now allows configuring number entities and sending the current time directly from the UI. Additionally, expose gained a new periodic send option to periodically re-send entity states to the bus. Thanks, [@farmio]!
-- **[MELCloud]** air-to-water devices now have additional sensors for RSSI signal strength, condensing temperature, fan frequency, and estimated energy produced. Thanks, [@ffourcot]!
-- **[Nanoleaf]** replaced its underlying library with `aionanoleaf2`, fixing authorization errors that prevented newer Nanoleaf Essentials devices from connecting. Thanks, [@loebi-ch]!
-- **[Uptime Kuma]** monitors now have uptime ratio and average response time sensors for 1-day, 30-day, and 365-day periods. Thanks, [@tr4nt0r]!
-- **[Radarr]** gained two new actions: `radarr.get_movies` and `radarr.get_queue`, returning detailed information about movies in your library and the current download queue. Thanks, [@Liquidmasl]!
-- **[Renault]** vehicles now have buttons to remotely sound the horn or flash the lights. Thanks, [@sebastiaanspeck]!
-- **[Proxmox VE]** gained a sensor platform with CPU usage, memory usage, disk usage, and status sensors for nodes, virtual machines, and containers. Thanks, [@erwindouna]!
-- **[Mealie]** now has a `get_shopping_list_items` action that returns structured shopping list data, useful for automations that need more detail than the to-do entity provides. Thanks, [@andrew-codechimp]!
-- **[Ambient Weather Station]** now exposes sensors for the AQIN indoor air quality monitor, including PM2.5, PM10, CO2, temperature, humidity, and AQI measurements. Thanks, [@n-6]!
-- **[WeatherFlow]** Tempest stations now show battery level as a percentage for consistency with other integrations. Thanks, [@pkolbus]!
-- **[SleepIQ]** now provides five new sleep health sensors per sleeper: sleep score, sleep duration, heart rate average, respiratory rate average, and heart rate variability. Thanks, [@rhcp011235]!
-- **[Anthropic]** now supports the Claude Opus 4.6 model with adaptive thinking effort levels, and gained native structured outputs for more accurate tool calls on models 4.5 and newer. Thanks, [@Shulyaka]!
-- **[Tessie]** received several enhancements: an energy remaining sensor for vehicles, battery health diagnostics, island and grid status sensors for energy sites, and full energy history support for the Home Assistant Energy Dashboard. Thanks, [@jrhillery] and [@Bre77]!
-- **[Portainer]** now supports Docker stack monitoring and control with status sensors, container counts, and start/stop switches. It also gained a `prune_images` action to clean up unused Docker images. Thanks, [@erwindouna]!
-- **[Nintendo Parental Controls]** now has a bedtime end time entity, complementing the existing bedtime start time for a complete bedtime schedule. Thanks, [@pantherale0]!
-- **[LG Soundbar]** now supports play/pause media control, shows track title, artist, and album art, and reports playing/paused state. Thanks, [@alexmerkel]!
-- **[Velux]** now supports on/off switches connected to the KLF 200 gateway. Thanks, [@wollew]!
-- **[Switcher]** now supports Switcher heater devices for monitoring and control. Thanks, [@YogevBokobza]!
-- **[Cambridge Audio]** devices now have a room correction switch for compatible models. Thanks, [@noahhusby]!
-- **[Vera]** metered switches now expose power and energy sensors, bringing energy monitoring to your Vera devices. Thanks, [@jronnols]!
-- **[Control4]** thermostats now support fan mode control with Auto, Circulate, and On modes. Thanks, [@davidrecordon]!
-- **[BSB-Lan]** now shows the current HVAC action (heating, cooling, idle) on the climate entity and gained a button to synchronize your heating system's clock. Thanks, [@liudger]!
-- **[JVC Projector]** gained a wide range of new sensors and controls: source, color depth, HDR status, picture mode, installation mode, light power, and switches for E-Shift and Low Latency Mode. Thanks, [@SteveEasley]!
-- **[NRGkick]** EV chargers now have a switch to enable or pause car charging directly from Home Assistant. Thanks, [@andijakl]!
+#### Energy & mobility 🔋
+
 - **[Green Planet Energy]** now shows timestamp sensors for the highest and lowest energy price times of the day, helping you time your energy usage. Thanks, [@petschni]!
-- **[Compit]** expanded significantly with new water heater, number, and binary sensor platforms for controlling hot water, adjusting temperature settings, and monitoring device states across their HVAC product range. Thanks, [@Przemko92]!
-- **[Saunum]** now has a `start_session` action, letting you start a sauna session with custom duration, target temperature, and fan duration in a single call. Thanks, [@mettolen]!
-- **[Watts Vision +]** now supports controlling smart switches alongside the existing thermostat support. Thanks, [@theobld-ww]!
+- **[Matter]** now supports carbon monoxide alarm states and TVOC air quality level sensors. If you have Matter-certified CO sensors or air quality devices, they now show up in Home Assistant. Thanks, [@Leo2442926161] and [@lboue]!
+- **[NRGkick]** EV chargers now have a switch to enable or pause car charging directly from Home Assistant. Thanks, [@andijakl]!
+- **[Renault]** vehicles now have buttons to remotely sound the horn or flash the lights. Thanks, [@sebastiaanspeck]!
 - **[Sunricher DALI]** now tracks energy consumption for DALI light devices connected through a Sunricher gateway. Thanks, [@niracler]!
+- **[Tessie]** received several enhancements: an energy remaining sensor for vehicles, battery health diagnostics, island and grid status sensors for energy sites, and full energy history support for the Home Assistant Energy Dashboard. Thanks, [@jrhillery] and [@Bre77]!
+- **[Vera]** metered switches now expose power and energy sensors, bringing energy monitoring to your Vera devices. Thanks, [@jronnols]!
+
+#### Security 🔐
+
+- **[Reolink]** cameras gained five new diagonal and continuous rotation PTZ buttons, plus the PTZ patrol switch now correctly reports its real-time status. Thanks, [@starkillerOG]!
+- **[UniFi Protect]** cameras now have PTZ support with a `ptz_goto_preset` action for triggering presets and a PTZ patrol select entity with live state updates. Thanks, [@RaHehl]!
+
+#### Health 📈
+
+- **[Saunum]** now has a `start_session` action, letting you start a sauna session with custom duration, target temperature, and fan duration in a single call. Thanks, [@mettolen]!
+- **[SleepIQ]** now provides five new sleep health sensors per sleeper: sleep score, sleep duration, heart rate average, respiratory rate average, and heart rate variability. Thanks, [@rhcp011235]!
+
+#### HVAC, Climate & Weather 🌡
+
+- **[Ambient Weather Station]** now exposes sensors for the AQIN indoor air quality monitor, including PM2.5, PM10, CO2, temperature, humidity, and AQI measurements. Thanks, [@n-6]!
+- **[BSB-Lan]** now shows the current HVAC action (heating, cooling, idle) on the climate entity and gained a button to synchronize your heating system's clock. Thanks, [@liudger]!
+- **[Compit]** expanded significantly with new water heater, number, and binary sensor platforms for controlling hot water, adjusting temperature settings, and monitoring device states across their HVAC product range. Thanks, [@Przemko92]!
+- **[Control4]** thermostats now support fan mode control with Auto, Circulate, and On modes. Thanks, [@davidrecordon]!
+- **[HomeKit Controller]** now exposes water level sensors, so devices like the Smartmi Humidifier Rainforest will show their current water level in Home Assistant. Thanks, [@romanlytvyn]!
+- **[MELCloud]** air-to-water devices now have additional sensors for RSSI signal strength, condensing temperature, fan frequency, and estimated energy produced. Thanks, [@ffourcot]!
+- **[Switcher]** now supports Switcher heater devices for monitoring and control. Thanks, [@YogevBokobza]!
+- **[VeSync]** humidifiers now have a switch to enable or disable auto-drying mode for humidifier pads. Thanks, [@cdnninja]!
+- **[WeatherFlow]** Tempest stations now show battery level as a percentage for consistency with other integrations. Thanks, [@pkolbus]!
+
+#### Smart devices & Entertainment 🔌
+
+- **[Cambridge Audio]** devices now have a room correction switch for compatible models. Thanks, [@noahhusby]!
+- **[JVC Projector]** gained a wide range of new sensors and controls: source, color depth, HDR status, picture mode, installation mode, light power, and switches for E-Shift and Low Latency Mode. Thanks, [@SteveEasley]!
+- **[LG Soundbar]** now supports play/pause media control, shows track title, artist, and album art, and reports playing/paused state. Thanks, [@alexmerkel]!
+- **[KNX]** now allows configuring number entities and sending the current time directly from the UI. Additionally, expose gained a new periodic send option to periodically re-send entity states to the bus. Thanks, [@farmio]!
+- **[Nanoleaf]** replaced its underlying library with `aionanoleaf2`, fixing authorization errors that prevented newer Nanoleaf Essentials devices from connecting. Thanks, [@loebi-ch]!
+- **[Nintendo Parental Controls]** now has a bedtime end time entity, complementing the existing bedtime start time for a complete bedtime schedule. Thanks, [@pantherale0]!
+- **[Roborock]** now fully supports Zeo washing and drying machines with program selection, temperature control, drying modes, and detergent status sensors. Thanks, [@yangqian]!
+- **[SmartThings]** now supports dual-cavity Samsung ovens, with separate entities for each chamber. It also gained switch and select controls for Samsung dishwasher washing options like sanitize, heated dry, and speed booster. Thanks, [@mik-laj] and [@edu-tsen]!
+- **[SwitchBot]** now lets you add passwords to Keypad Vision devices programmatically. It also gained a slow mode setting for curtain devices, which can reduce noise and improve reliability with heavier curtains. Thanks, [@zerzhang] and [@ljmerza]!
+- **[SwitchBot Cloud]** now supports the SwitchBot AI Art Frame with battery level, next/previous picture buttons, and a display image entity showing the current picture. Thanks, [@XiaoLing-git]!
+- **[Velux]** now supports on/off switches connected to the KLF 200 gateway. Thanks, [@wollew]!
+- **[Watts Vision +]** now supports controlling smart switches alongside the existing thermostat support. Thanks, [@theobld-ww]!
+
+#### Generative AI 🧠
+
+- **[Alexa Devices]** now supports Amazon Air Quality Monitor devices, exposing sensors for air quality index, VOC index, humidity, temperature, and particulate matter. Thanks, [@jamesonuk]!
+- **[Anthropic]** now supports the Claude Opus 4.6 model with adaptive thinking effort levels, and gained native structured outputs for more accurate tool calls on models 4.5 and newer. Thanks, [@Shulyaka]!
+- **[OpenAI Conversation]** now supports the `gpt-image-1.5` image generation model for AI Tasks, offering cheaper and faster image generation. Thanks, [@Shulyaka]!
+
+#### Miscellaneous 🧩
+
+- **[Mealie]** now has a `get_shopping_list_items` action that returns structured shopping list data, useful for automations that need more detail than the to-do entity provides. Thanks, [@andrew-codechimp]!
+- **[Portainer]** now supports Docker stack monitoring and control with status sensors, container counts, and start/stop switches. It also gained a `prune_images` action to clean up unused Docker images. Thanks, [@erwindouna]!
+- **[Proxmox VE]** gained a sensor platform with CPU usage, memory usage, disk usage, and status sensors for nodes, virtual machines, and containers. Thanks, [@erwindouna]!
+- **[Radarr]** gained two new actions: `radarr.get_movies` and `radarr.get_queue`, returning detailed information about movies in your library and the current download queue. Thanks, [@Liquidmasl]!
+- **[Uptime Kuma]** monitors now have uptime ratio and average response time sensors for 1-day, 30-day, and 365-day periods. Thanks, [@tr4nt0r]!
 
 [@alexmerkel]: https://github.com/alexmerkel
 [@andrew-codechimp]: https://github.com/andrew-codechimp
