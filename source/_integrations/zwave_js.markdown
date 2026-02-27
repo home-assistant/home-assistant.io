@@ -285,7 +285,7 @@ If you have been using the Z-Wave JS UI app, you can migrate to the Z-Wave JS ap
      - Enter the connection details for your Z-Wave JS app:
        - In the **URL** field, enter `ws://core-zwave-js:3000`.
 
-       ![Reconfiguring the current adapter](/images/integrations/z-wave/z-wave-js-ui-migration-enter-url.png)
+       ![Entering the WebSocket URL for the Z-Wave JS app](/images/integrations/z-wave/z-wave-js-ui-migration-enter-url.png)
 
 5. Remove the temporary files you uploaded to the `/tmp` folder for the migration.
 6. Done! Your Z-Wave JS app is now managing your Z-Wave network. You can start the Z-Wave JS app and stop and uninstall the Z-Wave JS UI app.
