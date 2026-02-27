@@ -1057,8 +1057,8 @@ The `home_connect.set_program_and_options` action starts or selects a program or
 If the `program` attribute is not set, this action sets the options for the active or the selected program.
 {% endnote %}
 {% note %}
-When "Start selected" is chosen, the selected program and options are used.
-If program or option values are provided in this call, program overrides the selected program, matching options are overridden, and new options are added before start.
+When **Start selected** is chosen, the selected program and options are used.
+If program or option values are provided, **program** service key overrides the selected program, matching options are overridden, and new options are added before start.
 {% endnote %}
 
 | Data attribute    | Optional | Description                                      |
