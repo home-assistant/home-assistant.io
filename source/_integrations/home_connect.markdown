@@ -1054,10 +1054,10 @@ Available actions: `set_program_and_options`, and `change_setting`
 
 The `home_connect.set_program_and_options` action starts or selects a program or starts a program that it is already selected. 
 {% note %}
-If the `program` attribute is not set, this action sets the options for the active or the selected program.
+If the `program` attribute is not set, this action sets the options for the active or selected program instead of starting or selecting a new one.
 {% endnote %}
 {% note %}
-When **Start selected** is chosen, the selected program and options are used.
+When **Start selected** is chosen, the action uses the program and options currently selected on the appliance. If you also provide a program value, it overrides the selected program. Any option values you provide, override matching options, or are added as new options, before the appliance starts.
 If program or option values are provided, **program** service key overrides the selected program, matching options are overridden, and new options are added before start.
 {% endnote %}
 
