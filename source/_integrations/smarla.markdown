@@ -2,6 +2,7 @@
 title: Swing2Sleep Smarla
 description: Instructions on connecting Swing2Sleep Smarla to Home Assistant.
 ha_category:
+  - Button
   - Number
   - Sensor
   - Switch
@@ -15,6 +16,7 @@ ha_domain: smarla
 ha_integration_type: device
 ha_config_flow: true
 ha_platforms:
+  - button
   - number
   - sensor
   - switch
@@ -57,6 +59,8 @@ Additionally, the integration sets up the following entities:
   - `Activity`: Displays the current measured activity level.
   - `Swing count`: Displays the total number of swings.
   - `Total swing time`: Displays the total swing time in seconds.
+- **Buttons**
+  - `Send diagnostics`: Triggers a one-time event to send diagnostic data to the manufacturer.
 
 ## Removing the integration
 
