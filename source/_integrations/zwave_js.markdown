@@ -103,15 +103,13 @@ While your Z-Wave mesh is permanently stored on your adapter, the additional met
 
 ### Adding a new device to the Z-Wave network
 
-1. In Home Assistant, go to {% my integrations title="**Settings** > **Devices & services**" %}.
-2. Select the Z-Wave integration.
-   - Then, on the entry of the hub, select {% icon "ic:baseline-arrow-forward-ios" %} to open the device info page.
-3. Select **Add device**.
+1. In Home Assistant, go to {% my config_zwave-js title="**Settings** > **Z-Wave**" %}.
+2. Select **Add device**.
    - The Z-Wave adapter is now in inclusion mode.
-4. Check, if your device supports SmartStart:
+3. Check, if your device supports SmartStart:
    - On the packaging, check for the SmartStart label.
    - Find the QR code. It can be on the packaging or on the device itself.
-5. Depending on whether your device supports SmartStart, follow the steps in either option 1 or 2:
+4. Depending on whether your device supports SmartStart, follow the steps in either option 1 or 2:
    - **Option 1: your device supports SmartStart**:
      - Make sure the device is turned off.
      - Select **Scan QR code** and scan the QR code on your device.
@@ -125,8 +123,8 @@ While your Z-Wave mesh is permanently stored on your adapter, the additional met
    - **Option 2: your device does not support SmartStart**:
      - Set the device in inclusion mode. Refer to the device manual to see how this is done.
      - If your device is included using S2 security, you may be prompted to enter a PIN number provided with your device. Often, this PIN is provided with the documentation _and_ is also printed on the device itself. For more information on secure inclusion, refer to [this section](/integrations/zwave_js/#should-i-use-secure-inclusion).
-6. The UI should confirm that the device was added. After a short while (seconds to minutes), the entities should also be created.
-7. **Troubleshooting**: If the adapter fails to add/find your device, cancel the inclusion process.
+5. The UI should confirm that the device was added. After a short while (seconds to minutes), the entities should also be created.
+6. **Troubleshooting**: If the adapter fails to add/find your device, cancel the inclusion process.
    - In some cases, it might help to first [remove](/integrations/zwave_js/#removing-a-device-from-the-z-wave-network) a device (exclusion) before you add it, even when the device has not been added to this Z-Wave network yet.
    - Another approach would be to factory reset the device. Refer to the device manual to see how this is done.
 
@@ -141,11 +139,13 @@ Do this before using the device with another adapter, or when you don't use the 
 
 1. In Home Assistant, go to {% my integrations title="**Settings** > **Devices & services**" %}.
 2. Select the **Z-Wave** integration.
-   - Then, select the cogwheel {% icon "mdi:cog-outline" %}.
-3. Select **Remove a device**, then **Start exclusion**.
+   - Then, select the device you want to remove.
+3. Under **Device info**, select the three-dot {% icon "mdi:dots-vertical" %} menu, then select **Delete**.
+   - This opens a dialog with options for removing the device.
+4. Select **Remove a working device**.
    - The Z-Wave adapter is now in exclusion mode.
-4. Put the device you want to remove in exclusion mode. Refer to its manual how this is done.
-5. The UI should confirm that the device was removed and the device and entities will be removed from Home Assistant.
+5. Put the device you want to remove in exclusion mode. Refer to its manual to learn how this is done.
+6. The UI should confirm that the device was removed and the device and entities will be removed from Home Assistant.
 
 ## Migrating a Z-Wave network to a new adapter
 
@@ -326,12 +326,10 @@ It's recommended to create a backup before making any major changes to your Z-Wa
 
 ### To backup your Z-Wave network
 
-1. In Home Assistant, go to {% my integrations title="**Settings** > **Devices & services**" %}.
-2. Select the **Z-Wave** integration.
-   - Then, select the cogwheel {% icon "mdi:cog-outline" %}.
-3. Under **Backup and restore**, select **Download backup**.
+1. In Home Assistant, go to {% my config_zwave_js title="**Settings** > **Z-Wave**" %}.
+2. Under **Download backup**, select **Download**.
    - **Result**: The backup file is downloaded to the device from which you initiated the download.
-4. Done! Store the backup file somewhere safe in case you need it later to restore your Z-Wave network.
+3. Done! Store the backup file somewhere safe in case you need it later to restore your Z-Wave network.
 
 ## Restoring your Z-Wave network from a backup
 
@@ -344,10 +342,8 @@ You can restore your Z-Wave network from a backup.
 
 ### Restoring a Z-Wave network from backup
 
-1. In Home Assistant, go to {% my integrations title="**Settings** > **Devices & services**" %}.
-2. Select the **Z-Wave** integration.
-   - Then, select the cogwheel {% icon "mdi:cog-outline" %}.
-3. Under **Backup and restore**, select **Restore from backup**.
+1. In Home Assistant, go to {% my config_zwave_js title="**Settings** > **Z-Wave**" %}.
+2. Under **Restore from backup**, select **Restore**.
    - Select the backup you want to restore from.
    - **Result**: The Z-Wave network is being restored and the devices that were part of the network should show up again.
 
@@ -373,10 +369,10 @@ The Home Assistant and Z-Wave JS teams do not take any responsibility for any da
 
 ### To update firmware of a Z-Wave device
 
-1. In Home Assistant, go to {% my integrations title="**Settings** > **Devices & services**" %}.
-2. Select the **Z-Wave** integration.
-   - Then, on the entry of the hub, select {% icon "ic:baseline-arrow-forward-ios" %} to open the device info page.
-3. Under **Device info**, select **Update**.
+1. In Home Assistant, go to {% my config_zwave_js title="**Settings** > **Z-Wave**" %}.
+2. Select the **Devices**.
+   - Then select the device you want to update.
+3. Under **Device info**, select the three-dot {% icon "mdi:dots-vertical" %} menu, then select **Update**.
 4. Select the firmware file that you previously downloaded to your computer.
    - **Notice: Risk of damage to the device**
      - Make sure you select the correct firmware file.
@@ -1020,7 +1016,7 @@ If you are using Home Assistant Container or you do not want to use the built-in
 This application provides the connection between your Z-Wave adapter and Home Assistant. The Home Assistant Z-Wave integration connects to this server via a WebSocket connection. You need to run this Z-Wave JS server before you can use the integration.
 
 There are multiple ways to run this server:
-The chart below illustrates Options 1 and 2, which are available for Home Assistant OS only.
+The chart below illustrates Options 1 and 3, which are available for Home Assistant OS only.
 
 ![Overview of installation options 1 and 2](/images/integrations/z-wave/z-wave-server-install-options-1-2.png)
 
@@ -1030,21 +1026,15 @@ _This option is only available for {% term "Home Assistant Operating System" %} 
 
 This app (formerly known as an add-on) can only be configured via the built-in Z-Wave control panel in Home Assistant. If you followed the standard [installation procedure](#setting-up-a-z-wave-js-server), this is how you are running the Z-Wave JS server.
 
-**Option 2: The Z-Wave JS UI app installed from the community app store**
-
-_This option is only available for {% term "Home Assistant Operating System" %} (the recommended installation type) installations._
-
-This app (formerly known as an add-on) includes the Z-Wave JS Server as part of the Z-Wave JS UI application. The Z-Wave network can be configured via the built-in Z-Wave control panel in Home Assistant and alternatively via the Z-Wave control panel built into Z-Wave JS UI. It provides you with a full-fledged, attractive, and feature-complete UI to manage your Z-Wave nodes and settings, which may support more advanced use cases as development continues on the Z-Wave control panel.
-
-**Option 3: The Z-Wave JS UI Docker container**
+**Option 2: The Z-Wave JS UI Docker container**
 
 This is the recommended approach if you're running Home Assistant Container. See the [Z-Wave JS UI documentation](https://zwave-js.github.io/zwave-js-ui//#/getting-started/quick-start) for instructions.
 
 This method provides the same server application and UI as the Z-Wave JS UI app. After installing the Docker image, make sure you enable the **WS Server** in the **Home Assistant** section of the **Settings** page.
 
-**Option 4: Run the Z-Wave JS server yourself**
+**Option 3: Run the Z-Wave JS server yourself**
 
-This is considered a very advanced use case. In this case you run the Z-Wave JS Server or Z-Wave JS UI NodeJS application directly. Installation and maintaining this is out of scope for this document. See the [Z-Wave JS server](https://github.com/zwave-js/zwave-js-server) or [Z-Wave JS UI](https://github.com/zwave-js/zwave-js-ui/) GitHub repository for information.
+This is considered a more involved use case. In this case, you run the Z-Wave JS Server or Z-Wave JS UI NodeJS application directly. Installation and maintaining this is out of scope for this document. See the [Z-Wave JS server](https://github.com/zwave-js/zwave-js-server) or [Z-Wave JS UI](https://github.com/zwave-js/zwave-js-ui/) GitHub repository for information.
 
 {% note %}
 [Supported Z-Wave adapter](/docs/z-wave/controllers/#supported-z-wave-usb-sticks--hardware-modules). The Z-Wave adapter should be connected to the same host as where the Z-Wave JS server is running. In the configuration for the Z-Wave JS server, you need to provide the path to this adapter. It's recommended to use the `/dev/serial-by-id/yourdevice` version of the path to your adapter, to make sure the path doesn't change over reboots. The most common known path is `/dev/serial/by-id/usb-0658_0200-if00`.
@@ -1053,7 +1043,7 @@ This is considered a very advanced use case. In this case you run the Z-Wave JS 
 {% note %}
 **Network keys** are used to connect securely to compatible devices. The network keys consist of 32 hexadecimal characters, for example, `2232666D100F795E5BB17F0A1BB7A146` (do not use this one, pick a random one). Without network keys security enabled devices cannot be added securely and will not function correctly. You must provide these network keys in the configuration part of the Z-Wave JS Server.
 
-For new installations, unique default keys will be auto-generated for you by the Z-Wave JS app. You can also generate those network keys in the Settings section of Z-Wave JS UI.
+For new installations, unique default keys will be auto-generated for you by the Z-Wave JS app.
 
 Make sure that you keep a backup of these keys in a safe place. You will need to enter the same keys to be able to access securely paired devices.
 {% endnote %}
@@ -1100,6 +1090,10 @@ Additional devices may be discoverable, however only devices that have been conf
 ### What happened to Zwavejs2Mqtt or the Z-Wave JS to MQTT app?
 
 Zwavejs2Mqtt was renamed Z-Wave JS UI in September 2022. They are synonymous with no difference between their capabilities.
+
+### What happened to the Z-Wave JS UI app?
+
+The **Z-Wave JS UI** app is being phased out, as its feature-rich UI is now included in the **Z-Wave JS** app. The **Z-Wave JS UI** app will continue to be supported for a while, but users are encouraged to switch to the **Z-Wave JS** app.
 
 ### Should I use `Secure Inclusion`?
 
