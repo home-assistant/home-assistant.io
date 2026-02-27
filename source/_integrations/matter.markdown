@@ -161,8 +161,8 @@ Make sure you have all these components ready before trying to add a Matter devi
 This guide describes how to add a new device. This will use the Bluetooth connection of your phone to add the device.
 
 1. Open The Home Assistant app on your phone.
-2. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
-3. On the **Devices** tab, select the **Add device** button, and select **Add Matter device**.
+2. Go to {% my config_matter title="**Settings** > **Matter**" %}.
+3. Select the **Add device** button.
 4. In the dialog, select **No, it's new.**.
 5. Scan the QR-code of the Matter device with your phone camera or select **More options...** to manually enter the Commission code.
 6. Select **Add to Home Assistant**.
@@ -262,8 +262,8 @@ Use one of these methods if your Matter device was added to Apple Home or Google
 To allow Home Assistant to control the Matter device that has already been added to another Matter controller, like Google Home, follow these steps:
 
 1. Open the Home Assistant app on your phone.
-2. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
-3. On the **Devices** tab, select the **Add device** button and select **Add Matter device**.
+2. Go to {% my config_matter title="**Settings** > **Matter**" %}.
+3. Select the **Add device** button.
 4. In the dialog, select **Yes, it's already in use**, then select which controller it is already connected to. For example, Google Home.
 5. Follow the instructions given in the dialog.
    - **Troubleshooting**: If Home Assistant fails to add the device, check if you have the Matter integration installed   and the latest version of the Companion app.
@@ -296,7 +296,7 @@ In some cases, bridging devices into Home Assistant via Matter might not bring y
 
 Follow these steps if you have added a Matter device to Home Assistant and you want to make it available in an other platform, such as Google Home or Apple Home.
 
-1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and on the **Matter** integration card, select **Devices**.
+1. Go to {% my config_matter title="**Settings** > **Matter**" %} and select **Devices**.
 2. From the list of devices, select the device you want to share.
 3. Select **Share device**, then in the dialog, select **Share device** again.
    - There is no need to press a hardware button on the device to set it to commissioning mode.
@@ -311,7 +311,7 @@ Follow these steps if you have added a Matter device to Home Assistant and you w
 
 Follow these steps if you want to remove a device from a particular Matter controller.
 
-1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and on the **Matter** integration card, select **Devices**.
+1. Go to {% my config_matter title="**Settings** > **Matter**" %} and select **Devices**.
 2. From the list of devices, select the device you want to remove from a controller.
 3. In the **Device info** section, next to **Share device**, select the three dots {% icon "mdi:dots-vertical" %} menu. Then, select **Manage fabrics**.
 4. From the list, remove the controller of interest.
@@ -323,7 +323,7 @@ Follow these steps if you want to remove a device from a particular Matter contr
 
 The device information section provides some diagnostic information of a device.
 
-1. To view the device details, go to {% my integrations title="**Settings** > **Devices & services**" %} and on the **Matter** integration card, select **Devices**.
+1. To view the device details, go to {% my config_matter title="**Settings** > **Matter**" %} and select **Devices**.
 2. From the list of devices, select the device you want to look at.
 
 <p class='img'>
