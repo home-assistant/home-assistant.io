@@ -18,7 +18,6 @@ ha_platforms:
   - switch
   - select
   - number
-  - button
 ha_integration_type: device
 ---
 
