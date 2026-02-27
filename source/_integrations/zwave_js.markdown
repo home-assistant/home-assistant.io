@@ -235,7 +235,7 @@ If you have been using the Z-Wave JS UI app, you can migrate to the Z-Wave JS ap
 
    ![Download button in the Z-Wave JS UI web interface](/images/integrations/z-wave/z-wave-js-ui-download-backup.png)
 
-3. Stop the **Z-Wave JS UI** app.
+3. Stop the **Z-Wave JS UI** app. In Home Assistant, go to **Settings** > **Apps** > **Z-Wave JS UI**, then select **Stop**.
 
 ### Running the migration script
 
