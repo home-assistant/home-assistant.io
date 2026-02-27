@@ -104,7 +104,9 @@ Sensors include:
 - Power state
 - GPU / HDMI input / CPU / mainboard temperatures
 - Active profile
-- Additional advanced sensors (`version`, `current_menu`, `aspect_ratio_mode`) can be enabled via options.
+- Incoming/outgoing signal resolution, frame rate, and HDR mode
+- Incoming signal aspect ratio plus aspect/masking ratio telemetry
+- Additional advanced sensors (`version`, `current_menu`) can be enabled via options.
 
 ### Options
 
