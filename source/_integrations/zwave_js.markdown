@@ -248,7 +248,7 @@ If you have been using the Z-Wave JS UI app, you can migrate to the Z-Wave JS ap
 
    ![Navigating to the temp folder in the terminal](/images/integrations/z-wave/z-wave-js-ui-migration-tmp-1.png)
 
-7. Make the script executable by running `chmod +x ./migrate_to_zwave_js_app.sh`
+7. Make the script executable by running `chmod +x ./migrate_to_zwave_js_app.sh`.
 
    ![Make the script executable in the terminal](/images/integrations/z-wave/z-wave-js-ui-migration-run-chmod.png)
 
