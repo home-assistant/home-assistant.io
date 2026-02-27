@@ -54,7 +54,13 @@ The following sensors are available, depending on your heating system:
 
 - Inside temperature
 - Outside temperature
-- Total Energy
+- Total Energy (disabled by default)
+
+To use the **Total Energy** sensor, [enable the entity](/common-tasks/general/#enabling-or-disabling-entities) in Home Assistant.
+
+{% note %}
+The **Total Energy** sensor is not real-time. It updates in 1 kWh steps, so the value changes only after another 1 kWh has been used.
+{% endnote %}
 
 
 ## Actions
