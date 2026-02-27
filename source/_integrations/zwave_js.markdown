@@ -914,9 +914,6 @@ If you are using Home Assistant Container or you do not want to use the built-in
 This application provides the connection between your Z-Wave adapter and Home Assistant. The Home Assistant Z-Wave integration connects to this server via a WebSocket connection. You need to run this Z-Wave JS server before you can use the integration.
 
 There are multiple ways to run this server:
-The chart below illustrates Options 1 and 2, which are available for Home Assistant OS only.
-
-![Overview of installation options 1 and 2](/images/integrations/z-wave/z-wave-server-install-options-1-2.png)
 
 **Option 1: The official Z-Wave JS app, as described above**
 
@@ -924,19 +921,13 @@ _This option is only available for {% term "Home Assistant Operating System" %} 
 
 This app (formerly known as an add-on) can only be configured via the built-in Z-Wave control panel in Home Assistant. If you followed the standard [installation procedure](#setting-up-a-z-wave-js-server), this is how you are running the Z-Wave JS server.
 
-**Option 2: The Z-Wave JS UI app installed from the community app store**
-
-_This option is only available for {% term "Home Assistant Operating System" %} (the recommended installation type) installations._
-
-This app (formerly known as an add-on) includes the Z-Wave JS Server as part of the Z-Wave JS UI application. The Z-Wave network can be configured via the built-in Z-Wave control panel in Home Assistant and alternatively via the Z-Wave control panel built into Z-Wave JS UI. It provides you with a full-fledged, attractive, and feature-complete UI to manage your Z-Wave nodes and settings, which may support more advanced use cases as development continues on the Z-Wave control panel.
-
-**Option 3: The Z-Wave JS UI Docker container**
+**Option 2: The Z-Wave JS UI Docker container**
 
 This is the recommended approach if you're running Home Assistant Container. See the [Z-Wave JS UI documentation](https://zwave-js.github.io/zwave-js-ui//#/getting-started/quick-start) for instructions.
 
 This method provides the same server application and UI as the Z-Wave JS UI app. After installing the Docker image, make sure you enable the **WS Server** in the **Home Assistant** section of the **Settings** page.
 
-**Option 4: Run the Z-Wave JS server yourself**
+**Option 3: Run the Z-Wave JS server yourself**
 
 This is considered a very advanced use case. In this case you run the Z-Wave JS Server or Z-Wave JS UI NodeJS application directly. Installation and maintaining this is out of scope for this document. See the [Z-Wave JS server](https://github.com/zwave-js/zwave-js-server) or [Z-Wave JS UI](https://github.com/zwave-js/zwave-js-ui/) GitHub repository for information.
 
