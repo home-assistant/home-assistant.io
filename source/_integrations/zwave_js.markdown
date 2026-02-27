@@ -106,7 +106,7 @@ While your Z-Wave mesh is permanently stored on your adapter, the additional met
 1. In Home Assistant, go to {% my config_zwave_js title="**Settings** > **Z-Wave**" %}.
 2. Select **Add device**.
    - The Z-Wave adapter is now in inclusion mode.
-3. Check, if your device supports SmartStart:
+3. Check if your device supports SmartStart:
    - On the packaging, check for the SmartStart label.
    - Find the QR code. It can be on the packaging or on the device itself.
 4. Depending on whether your device supports SmartStart, follow the steps in either option 1 or 2:
@@ -370,7 +370,7 @@ The Home Assistant and Z-Wave JS teams do not take any responsibility for any da
 ### To update firmware of a Z-Wave device
 
 1. In Home Assistant, go to {% my config_zwave_js title="**Settings** > **Z-Wave**" %}.
-2. Select the **Devices**.
+2. Select **Devices**.
    - Then select the device you want to update.
 3. Under **Device info**, select the three-dot {% icon "mdi:dots-vertical" %} menu, then select **Update**.
 4. Select the firmware file that you previously downloaded to your computer.
