@@ -23,6 +23,46 @@ The **Sure Petcare** {% term integration %} allows you to get information on you
 
 {% include integrations/config_flow.md %}
 
+## Entities
+
+These are the entities available in the Sure Petcare integration.
+
+### Pets
+
+| Domain        | Name                     | Description
+| ------------- | ------------------------ | ------------------------------------------------------------
+| Binary sensor | Presence                 | Whether the pet is inside (presence).
+| Sensor        | Last seen flap device id | Diagnostic: last flap device id used by the pet (useful for the [pet select location blueprint](#pet-select-location)); unknown if the last status is not from a flap update.
+| Sensor        | Last seen user id        | Diagnostic: last user id that manually changed pet location (useful for the [pet select location blueprint](#pet-select-location)); unknown if the last status is not from a manual update.
+
+### Cat flap
+
+| Domain         | Name           | Description                                                                    |
+| -------------- | -------------- | ------------------------------------------------------------------------------ |
+| Binary sensor  | Connectivity   | Device connectivity (online); shows device RSSI when available.                |
+| Lock           | Locked in      | Lock state: flap locked to allow entry only.                                   |
+| Lock           | Locked out     | Lock state: flap locked to allow exit only.                                    |
+| Lock           | Locked all     | Lock state: flap locked both ways.                                             |
+| Sensor         | Battery level  | Battery level percent (derived from battery voltage).                          |
+
+### Feeders
+
+| Domain         | Name           | Description                                                                    |
+| -------------- | -------------- | ------------------------------------------------------------------------------ |
+| Binary sensor  | Connectivity   | Feeder connectivity (online); shows device RSSI when available.                |
+| Sensor         | Battery level  | Battery level percent (derived from battery voltage).                          |
+
+### Felaqua
+
+| Domain | Name    | Description                  |
+| ------ | ------- | ---------------------------- |
+| Sensor | Felaqua | Water remaining in the bowl. |
+
+### Hub
+
+| Domain         | Name           | Description                                                                  |
+| -------------- | -------------- | ---------------------------------------------------------------------------- |
+| Binary sensor  | Connectivity   | Hub connectivity (online); attributes include `led_mode` and `pairing_mode`. |
 
 ## Actions
 
@@ -61,3 +101,16 @@ The `surepetcare.set_pet_location` action sets the pet location.
 
 - `Inside` - Pet is inside.
 - `Outside` - Pet is outside.
+
+## Blueprints
+
+### Pet select location
+
+**[Source](https://gist.github.com/Zhephyr54/846f369dce673a989e141e9c2555e4d2)**
+
+Create a select entity for a pet representing its current location.
+This is especially useful if you have multiple flaps that do not directly lead outside and the existing binary sensors can't accurately reflect your pets' locations.
+
+Supports up to 10 flaps.
+
+The sync is one-way only. While the pet select location is synced from the pet binary sensor, manually changing the select entity state won't impact the pet binary sensor (thus no impact in Sure Petcare).
