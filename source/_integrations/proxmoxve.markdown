@@ -78,7 +78,8 @@ For the group to access the VMs read-only we need to grant it the auditor role
 7. Make sure `Propagate` is checked
 
 {% note %}
-Pick `PVEAdmin` instead of `PVEAuditor` if you wish to grant Home Assistant controlling privileges on your environment. Or create a custom role to at minimum grant 'VM.Audit' and optionally 'VM.PowerMgmt' privileges.
+Pick `PVEUser` instead of `PVEAuditor` if you wish to grant Home Assistant controlling privileges on your environment.
+Or create a new custom role to at grant 'VM.Audit' and 'VM.PowerMgmt' privileges.
 {% endnote %}
 
 
