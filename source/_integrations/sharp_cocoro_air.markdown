@@ -86,7 +86,7 @@ If you see a "cannot connect" error during setup:
 
 If all entities become unavailable, the cloud connection may have been interrupted. The integration will automatically retry on the next polling cycle. If the issue persists, try reloading the integration from {% my integrations title="**Settings** > **Devices & services**" %}.
 
-### Authentication errors after setup
+### I get authentication errors after setting up the integration
 
 Your session may have expired. Use the reauthentication flow to enter your credentials again. If you have multiple Home Assistant instances or the mobile app running simultaneously, you may hit the terminal session limit. Try reducing the number of active sessions.
 
