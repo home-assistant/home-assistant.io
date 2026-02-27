@@ -41,7 +41,7 @@ Host:
 Port:
   description: "Port to connect to Proxmox. Default is `8006`."
 Realm:
-  description: "Authentication source of Proxmox. Default is `PAM`."
+  description: "Authentication source of Proxmox. Default is `pam`."
 Username:
   description: "Configured user to authenticate."
 Password:
@@ -67,7 +67,7 @@ Privileges can be either applied to Groups or Roles.
 
 ### Add Group Permissions to all Assets
 
-For the group to access the VMs we need to grant it the auditor role
+For the group to access the VMs read-only we need to grant it the auditor role
 
 1. Click `Datacenter`
 2. Click `Permissions`
@@ -77,12 +77,17 @@ For the group to access the VMs we need to grant it the auditor role
 6. Select the Auditor role (`PVEAuditor`)
 7. Make sure `Propagate` is checked
 
+{% note %}
+Pick `PVEAdmin` instead of `PVEAuditor` if you wish to grant Home Assistant controlling privileges on your environment. Or create a custom role to at minimum grant 'VM.Audit' and optionally 'VM.PowerMgmt' privileges.
+{% endnote %}
+
+
 ### Create Home Assistant User
 
-Creating a dedicated user for Home Assistant, limited to only to the access just created is the most secure method. These instructions use the `pve` realm for the user. This allows a connection, but ensures that the user is not authenticated for SSH connections. If you use the `pve` realm, just be sure to add `realm: pve` to your configuration.
+Creating a dedicated user for Home Assistant, limited to only to the access just created is the most secure method. These instructions use the `pve` realm for the user. This allows a connection, but ensures that the user is not authenticated for SSH connections. If you use the `pve` realm, change the default `realm` to `pve`.
 
 {% important %}
-The Home Assistant user you create must already exist on the Linux system.
+When using `pam`, the Home Assistant user you create must already exist on the Linux system. For `pve` the user only has to exist in Proxmox.
 {% endimportant %}
 
 1. Click `Datacenter`
@@ -124,3 +129,7 @@ The created sensor will be called `binary_sensor.NODE_NAME_VMNAME_running`.
 - **Shutdown**: Shuts a node down.
 - **Hibernate**: Puts a VM in hiberanation; only available to VMs.
 - **Reset**: Resets a VM; only available to VMs.
+
+{% important %}
+In order to use these buttons to control powermanagement of your node/VM/LXC your user should have 'VM.PowerMgmt' privileges. Make sure you either selected `PVEVMUser` or have a custom role that allows control.
+{% endimportant %}
