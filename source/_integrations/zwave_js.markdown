@@ -103,7 +103,7 @@ While your Z-Wave mesh is permanently stored on your adapter, the additional met
 
 ### Adding a new device to the Z-Wave network
 
-1. In Home Assistant, go to {% my config_zwave-js title="**Settings** > **Z-Wave**" %}.
+1. In Home Assistant, go to {% my config_zwave_js title="**Settings** > **Z-Wave**" %}.
 2. Select **Add device**.
    - The Z-Wave adapter is now in inclusion mode.
 3. Check, if your device supports SmartStart:
