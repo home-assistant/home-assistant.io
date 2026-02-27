@@ -152,7 +152,7 @@ Do this before using the device with another adapter, or when you don't use the 
 Do this if you have an existing Z-Wave network and want to replace its adapter with a new adapter. The Z-Wave integration with all its entities will stay in Home Assistant. The new adapter is added to Home Assistant and paired with the existing network.
 
 {% tip %}
-You cannot run two Z-Wave adapters simultaneously using the same app. If you only run one app, you need to migrate the network. If you want to run two adapters, you would need to run an additional server. For example, you could run a separate container. You could also run a Z-Wave JS Server or Z-Wave JS UI elsewhere (outside of Home Assistant).
+You cannot run two Z-Wave adapters at the same time with the same Z-Wave app instance. If you only want to use a single app instance, you need to migrate the network to the new adapter. If you want to use two adapters at the same time, you need a second Z-Wave JS Server instance. You can run this additional Z-Wave JS Server instance in a separate container, or run Z-Wave JS Server or Z-Wave JS UI on another system outside of Home Assistant.
 {% endtip %}
 
 ### Prerequisites
