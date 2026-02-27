@@ -1018,7 +1018,7 @@ This application provides the connection between your Z-Wave adapter and Home As
 There are multiple ways to run this server:
 The chart below illustrates Options 1 and 3, which are available for Home Assistant OS only.
 
-![Overview of installation options 1 and 2](/images/integrations/z-wave/z-wave-server-install-options-1-2.png)
+![Overview of installation options 1 and 3](/images/integrations/z-wave/z-wave-server-install-options-1-2.png)
 
 **Option 1: The official Z-Wave JS app, as described above**
 
