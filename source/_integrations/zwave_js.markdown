@@ -947,7 +947,7 @@ This is considered a very advanced use case. In this case you run the Z-Wave JS 
 {% note %}
 **Network keys** are used to connect securely to compatible devices. The network keys consist of 32 hexadecimal characters, for example, `2232666D100F795E5BB17F0A1BB7A146` (do not use this one, pick a random one). Without network keys security enabled devices cannot be added securely and will not function correctly. You must provide these network keys in the configuration part of the Z-Wave JS Server.
 
-For new installations, unique default keys will be auto-generated for you by the Z-Wave JS app. You can also generate those network keys in the Settings section of Z-Wave JS UI.
+For new installations, unique default keys will be auto-generated for you by the Z-Wave JS app.
 
 Make sure that you keep a backup of these keys in a safe place. You will need to enter the same keys to be able to access securely paired devices.
 {% endnote %}
