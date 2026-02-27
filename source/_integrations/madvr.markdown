@@ -8,7 +8,7 @@ ha_category:
   - Select
   - Sensor
   - Switch
-ha_release: '2026.4'
+ha_release: '2024.8'
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
@@ -64,11 +64,17 @@ target:
 
 ### Services
 
-The integration provides these domain services:
+The integration provides these domain services.
 
-- `madvr.press_key`
-- `madvr.activate_profile`
-- `madvr.run_action`
+- `madvr.press_key`: Send one remote key press.
+  Fields:
+  `key` (required), `entry_id` (optional; required when multiple madVR entries are loaded).
+- `madvr.activate_profile`: Activate a profile by group/index.
+  Fields:
+  `group_id` (required), `profile_index` (required), `entry_id` (optional; required when multiple entries are loaded).
+- `madvr.run_action`: Run one predefined action.
+  Fields:
+  `action` (required), `entry_id` (optional; required when multiple entries are loaded).
 
 ### Select and switch entities
 
@@ -80,6 +86,7 @@ The integration provides these domain services:
 ### Buttons
 
 The integration exposes button entities for common one-shot actions, including:
+
 - Power on / standby / power off
 - Hotplug
 - Restart
@@ -93,6 +100,7 @@ The integration creates a `signal_present` binary sensor.
 ### Sensor
 
 Sensors include:
+
 - Power state
 - GPU / HDMI input / CPU / mainboard temperatures
 - Active profile
@@ -101,6 +109,7 @@ Sensors include:
 ### Options
 
 The options flow allows tuning:
+
 - Sync/connect/command/read timeouts
 - Reconnect backoff and jitter
 - Advanced entity enable/disable
