@@ -995,6 +995,10 @@ Additional devices may be discoverable, however only devices that have been conf
 
 Zwavejs2Mqtt was renamed Z-Wave JS UI in September 2022. They are synonymous with no difference between their capabilities.
 
+### What happened to the Z-Wave JS UI app?
+
+The Z-Wave JS UI app is being phased out as the functionality has been integrated into the official Z-Wave JS app. If you are currently using the Z-Wave JS UI app, [migrate to the official Z-Wave JS app](#migrating-from-z-wave-js-ui-to-the-z-wave-js-app). The official Z-Wave JS app provides the same Z-Wave Server functionality as the Z-Wave JS UI app.
+
 ### Can I switch between Z-Wave JS and Z-Wave JS UI?
 
 You can switch between the official Z-Wave JS app and the Z-Wave JS UI app. However, you cannot run them both at the same time. Only one of them can be active at the same time.
