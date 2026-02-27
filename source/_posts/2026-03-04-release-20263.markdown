@@ -133,11 +133,9 @@ The best part? The action uses your existing Home Assistant areas, not some obsc
 
 ### Getting started
 
-When your vacuum supports area cleaning but doesn't have a mapping configured yet, a repair issue will automatically show up in {% my repairs title="**Settings** > **System** > **Repairs**" %}. Select it, and you'll be taken straight to the mapping dialog where you can match the segments your vacuum has detected to your Home Assistant areas.
+When your vacuum supports area cleaning, you can set up the mapping through the vacuum's entity settings. Open the vacuum entity, select the {% icon "mdi:cog-outline" %} settings icon, and look for the **Map vacuum segments to areas** section. From there, you can match the segments your vacuum has detected to your Home Assistant areas.
 
 <img src='/images/blog/2026-03/temp-vacuum-area-mapping.png' alt='Screenshot of the vacuum area mapping dialog, allowing you to map vacuum segments to Home Assistant areas.' class='no-shadow' />
-
-You can also reach this mapping at any time through the vacuum's entity settings. Open the vacuum entity, select the {% icon "mdi:cog-outline" %} settings icon, and look for the **Map vacuum segments to areas** section.
 
 ### Staying in sync
 
