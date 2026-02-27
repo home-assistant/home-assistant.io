@@ -44,16 +44,17 @@ The **Swing2Sleep Smarla** {% term integration %} enables Home Assistant to inte
 
 This component will set up the following entities:
 
-| Entity         | Platform | Description                                                 |
-| -------------- | -------- | ----------------------------------------------------------- |
-| `swing_active` | `switch` | Turns the cradle’s oscillation on or off.                   |
-| `smart_mode`   | `switch` | Enables or disables automatic intensity control.            |
-| `intensity`    | `number` | Sets the intensity level (range: `0` to `100`).             |
-| `amplitude`    | `sensor` | Displays the current measured amplitude of the oscillation. |
-| `period`       | `sensor` | Displays the current measured period of the oscillation.    |
-| `activity`     | `sensor` | Displays the current measured activity level.               |
-| `swing_count`  | `sensor` | Displays the total number of swings.                        |
-| `update`       | `update` | Allows to track/update Smarla's firmware.                   |
+| Entity             | Platform | Description                                                 |
+| ------------------ | -------- | ----------------------------------------------------------- |
+| `swing_active`     | `switch` | Turns the cradle’s oscillation on or off.                   |
+| `smart_mode`       | `switch` | Enables or disables automatic intensity control.            |
+| `intensity`        | `number` | Sets the intensity level (range: `0` to `100`).             |
+| `amplitude`        | `sensor` | Displays the current measured amplitude of the oscillation. |
+| `period`           | `sensor` | Displays the current measured period of the oscillation.    |
+| `activity`         | `sensor` | Displays the current measured activity level.               |
+| `swing_count`      | `sensor` | Displays the total number of swings.                        |
+| `total_swing_time` | `sensor` | Displays the total swing time in seconds.                   |
+| `update`           | `update` | Allows to track/update Smarla's firmware.                   |
 
 ## Removing the integration
 
