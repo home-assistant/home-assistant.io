@@ -57,7 +57,7 @@ The available preset modes are:
 - **Medium**: Medium fan speed
 - **High**: Maximum fan speed
 - **AI Auto**: AI-assisted automatic mode
-- **Turbo clean**: Maximum cleaning power
+- **Turbo clean**: Maximum purifying power
 
 {% note %}
 Not all preset modes may be available on every device model. The integration exposes all modes, but unsupported modes may have no effect on your specific device.
