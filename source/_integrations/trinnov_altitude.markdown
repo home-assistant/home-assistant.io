@@ -3,8 +3,6 @@ title: Trinnov Altitude
 description: Instructions for setting up the Trinnov Altitude integration in Home Assistant.
 ha_category:
   - Media player
-  - Remote
-  - Sensor
 ha_iot_class: Local Push
 ha_release: '2026.4'
 ha_domain: trinnov_altitude
@@ -13,17 +11,12 @@ ha_codeowners:
 ha_config_flow: true
 ha_platforms:
   - media_player
-  - remote
-  - sensor
-  - switch
-  - select
-  - number
 ha_integration_type: device
 ---
 
 The **Trinnov Altitude** integration lets Home Assistant control and monitor Trinnov Altitude processors over your local network.
 
-The integration supports power control (including Wake-on-LAN when a MAC address is configured), source and preset selection, volume and mute controls, and device status sensors.
+The initial integration supports media-player control for Trinnov Altitude processors, including power control (with Wake-on-LAN when a MAC address is configured), source selection, and volume/mute controls.
 
 {% include integrations/config_flow.md %}
 
@@ -37,16 +30,13 @@ mac:
 ## Supported functionality
 
 - Power on/off
-- Source and preset selection
-- Upmixer mode selection
+- Source selection
 - Volume and mute control
-- Device state and status sensors
-- Remote command passthrough for advanced control
 
 ## Known behavior
 
 - To power on from Home Assistant, configure the device MAC address during setup.
-- After power-on, wait until the remote entity shows as **On** in Home Assistant before sending additional commands.
+- After power-on, wait until the media player entity updates before sending additional commands.
 - The integration requires the Trinnov device to be reachable on your local network.
 
 ## Troubleshooting
