@@ -345,11 +345,10 @@ These sections both provide helpful advice on improving your Zigbee network perf
 
 **To add a new Zigbee device:**
 
-1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
-2. Select the **Zigbee Home Automation** {% term integration %}. Then, select **Configure**.
-3. To start a scan for new devices, on the bottom right corner of the screen, select **Add device**.
-4. Reset your Zigbee devices to factory default settings according to the device instructions provided by the manufacturer (e.g., turn on/off lights up to 10 times; switches usually have a reset button/pin). It might take a few seconds for the devices to appear. You can click on **Show logs** for more verbose output.
-5. Once the device is found, it will appear on that page and will be automatically added to your devices. You can optionally change its name and add it to an area (you can change this later). You can search again to add another device, or you can go back to the list of added devices.
+1. Go to {% my config_zha title="**Settings** > **Zigbee**" %}.
+2. To start a scan for new devices, on the bottom right corner of the screen, select **Add device**.
+3. Reset your Zigbee devices to factory default settings according to the device instructions provided by the manufacturer (e.g., turn on/off lights up to 10 times; switches usually have a reset button/pin). It might take a few seconds for the devices to appear. You can click on **Show logs** for more verbose output.
+4. Once the device is found, it will appear on that page and will be automatically added to your devices. You can optionally change its name and add it to an area (you can change this later). You can search again to add another device, or you can go back to the list of added devices.
 
 ### Using router devices to add more devices
 
@@ -591,8 +590,8 @@ You will not be able to control your existing Zigbee devices until they join the
 If some existing devices do not resume normal functions after some time, try power-cycling them to attempt rejoining to the network.
 {% endimportant %}
 
-1. Go to **{% my integrations title="Settings > Devices & services" %}** and select the ZHA {% term integration %}. Then select the cogwheel {% icon "mdi:cog-outline" %}.
-2. Under **Network settings**, select **Migrate adapter**.
+1. Go to {% my config_zha title="**Settings** > **Zigbee**" %}.
+2. Select **Migrate**.
 3. Plug in the new Zigbee adapter.
    - To minimize interference:
      - Use a USB extension cable.
@@ -881,8 +880,7 @@ Vendor-specific examples:
 - Other manufacturers and Zigbee stacks measure and calculate LQI values in another way.
 
 {% enddetails %}
-
-
+ 
 ### Reporting issues
 
 For more details on where and how to report issues, please refer to the [Reporting issues page](/help/reporting_issues/).
@@ -892,9 +890,8 @@ When reporting potential bugs related to the ZHA integration on the issues track
 1. Debug logs for the issue, see [debug logging](#debug-logging).
 2. Exact model and firmware of the Zigbee radio (Zigbee Coordinator adapter) being used.
 3. If the issue is related to a specific Zigbee device, provide both the **Zigbee Device Signature** and the **Diagnostics** information.
-     - Both the **Zigbee Device Signature** and the **Diagnostics** information can be found under {% my integrations title="**Settings** > **Devices & services**" %}. 
-        - Select the **Zigbee Home Automation** integration. 
-        - Then, navigate to **Configure** > **Devices** (pick your device). 
+     - Both the **Zigbee Device Signature** and the **Diagnostics** information can be found under {% my config_zha title="**Settings** > **Zigbee**" %}.
+        - Select **Devices** and from the list, select your device.
         - Select **Zigbee Device Signature** and **Download Diagnostics**, respectively.
 
 {% tip %}

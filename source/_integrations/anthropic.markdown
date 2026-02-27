@@ -1,6 +1,6 @@
 ---
-title: Anthropic Conversation
-description: Instructions on how to integrate Anthropic Claude as a conversation agent
+title: Anthropic
+description: Instructions on how to integrate Anthropic Claude with Home Assistant
 ha_category:
   - Voice
 ha_release: 2024.9
