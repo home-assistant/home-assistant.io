@@ -19,7 +19,7 @@ ha_codeowners:
 ---
 
 The **Electricity Maps** {% term integration %} (formerly known as CO2Signal) queries the [Electricity Maps](https://electricitymaps.com/free-tier) API for the CO2 intensity of a specific region. 
-Data can be collected for your home by using the home location, latitude/longitude, or a country code.
+Data can be collected for your home by using the home location, latitude/longitude, or a zone key.
 
 This API uses the same data as shown on the [Electricity Maps app](https://app.electricitymaps.com/map/). 
 Not all countries/regions in the world are supported, so please check the app to verify local availability before setting up the integration.
@@ -50,7 +50,7 @@ The integration provides the following configuration options when setting it up:
 
 {% configuration_basic %}
 Location:
-  description: Choose between using your Home Assistant's configured home location, a specific country code, or custom latitude/longitude coordinates.
+  description: Choose between using your Home Assistant's configured home location, a specific zone key, or custom latitude/longitude coordinates.
 API key:
   description: The API key obtained from the Electricity Maps API Portal.
 {% endconfiguration_basic %}
@@ -64,11 +64,11 @@ Longitude:
   description: The longitude of your home location.
 {% endconfiguration_basic %}
 
-When configuring the location based on a country code, you will be prompted to enter the following:
+When configuring the location based on a zone key, you will be prompted to enter the following:
 
 {% configuration_basic %}
-Country code:
-  description: The country code for your home location. For most countries, this is the two-letter ISO 3166-1 alpha-2 country code (for example, `DE` for Germany, `GB` for Great Britain). However, for the United States, you need to specify a zone identifier that includes the specific electricity grid region, such as `US-CENT-SWPP` for the Southwest Power Pool, `US-CAR-DUK` for Duke Energy Carolinas, or `US-CAR-CPLE` for Duke Energy Progress East. You can find zone identifiers in the [Electricity Maps app](https://app.electricitymaps.com) or using the [Zones API reference](https://portal.electricitymaps.com/developer-hub/api/reference#zones).
+Zone key:
+  description: The zone key for your home location. For most countries, this is the two-letter ISO 3166-1 alpha-2 country code (for example, `DE` for Germany, `GB` for Great Britain). However, for the United States, you need to specify a zone key that includes the specific electricity grid region, such as `US-CENT-SWPP` for the Southwest Power Pool, `US-CAR-DUK` for Duke Energy Carolinas, or `US-CAR-CPLE` for Duke Energy Progress East. You can find zone key in the [Electricity Maps app](https://app.electricitymaps.com) or using the [Zones API reference](https://app.electricitymaps.com/developer-hub/api/reference#zones).
 {% endconfiguration_basic %}
 
 ## Supported functionality
@@ -187,14 +187,14 @@ If you see an invalid token error during setup, your API key may be invalid or e
 
 #### Symptom: "No data available for selected location" during setup
 
-If you receive a "No data available for selected location" error, the coordinates or country code you provided might not be supported by Electricity Maps, or there may be a zone mismatch.
+If you receive a "No data available for selected location" error, the coordinates or zone key you provided might not be supported by Electricity Maps, or there may be a zone mismatch.
 
 ##### Resolution
 
 1. Check the [Electricity Maps app](https://app.electricitymaps.com) to verify coverage for your location.
-2. If using a country code, verify that you're using the correct format. For the United States, you need to use a specific zone identifier like `US-CENT-SWPP` rather than just `US`. For most other countries, use the two-letter ISO country code.
-3. Make sure the country code you enter in Home Assistant matches the zone you selected when you created your API key. If you need to change zones, you will need to create a new API key with the new zone and reconfigure the integration.
-4. Try using coordinates instead of a country code, or vice versa.
+2. If using a zone key, verify that you're using the correct format. For the United States for example, you should use a specific zone key like `US-CENT-SWPP` rather than just `US`. For country level data, use the two-letter ISO country code.
+3. Make sure the zone key you enter in Home Assistant matches the zone you selected when you created your API key. If you need to change zones, you will need to create a new API key with the new zone and reconfigure the integration.
+4. Try using a zone key instead of coordinates. This is more accurate and less error prone.
 5. If your exact location isn't supported, try using the nearest supported location.
 
 ### Sensors show "unavailable"

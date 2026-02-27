@@ -362,7 +362,7 @@ conditions:
 
 ### Sun elevation condition
 
-The sun elevation can be used to test if the sun has set or risen, it is dusk, it is night, etc. when a trigger occurs.
+The sun elevation can be used to test if the sun has set or risen, it is dusk, or it is night when a trigger occurs.
 For an in-depth explanation of sun elevation, see [sun elevation trigger][sun_elevation_trigger].
 
 [sun_elevation_trigger]: /docs/automation/trigger/#sun-elevation-trigger
