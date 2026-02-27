@@ -46,7 +46,7 @@ mac:
 ## Known behavior
 
 - To power on from Home Assistant, configure the device MAC address during setup.
-- After power-on, wait until the remote entity becomes `on` before sending additional commands.
+- After power-on, wait until the remote entity shows as **On** in Home Assistant before sending additional commands.
 - The integration requires the Trinnov device to be reachable on your local network.
 
 ## Troubleshooting
