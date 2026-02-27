@@ -550,7 +550,7 @@ Although not a replacement for individual energy or power measurement devices, w
 
 ## Actions
 
-Available actions are: `switch.turn_on`, `switch.turn_off`, `switch.toggle`, [`number.set_value`](#action-numberset_value), [`select.select`](#action-selectselect)
+Available actions are: `switch.turn_on`, `switch.turn_off`, `switch.toggle`, [`number.set_value`](#action-numberset_value), [`select.select`](#action-selectselect), [`enphase_envoy.inspect`](#action-enphase_envoyinspect)
 
 ### Action `switch.turn_on`/`switch.turn_off`/`switch.toggle`
 
@@ -632,6 +632,52 @@ data:
 {% note %}
 Technically `select.first`, `select.last`, `select.previous`, `select.next` are available as well, but as there's no logical sequence in the values to select, their use is not advocated.
 {% endnote %}
+
+### Action `enphase_envoy.inspect`
+
+The action `enphase_envoy.inspect` returns data from the specified endpoint in the Envoy device. This allows to inspect any endpoint in the Envoy using {% my developer_services title="**Settings** > **Developer tools** > **Actions**" %}. In the **Action** drop-down, select **Inspect Envoy endpoint**. Configure the desired attributes as listed below.
+
+| Data attribute | Optional | Description |
+| - | - | - |
+| `endpoint` | no | The Envoy endpoint to inspect. Start with leading /. For example, use /api/v1/production |
+| `device_id` | yes | The device_id for the Envoy to inspect. If no Envoy is specified, the first configured one will be used. No need to specify if only a single Envoy is configured. <ul><li>In UI mode, click the checkbox and select an Envoy device from the dropdown list. <br><li> In YAML mode enter a device_id or use an expression like `device_id('sensor.envoy_123456789012_current_power_production')` </ul> |
+
+Example with a single envoy installed, no Envoy device_id specified:
+
+{% raw %}
+
+```yaml
+action: enphase_envoy.inspect
+data:
+  endpoint: /api/v1/production
+```
+
+{% endraw %}
+
+Response example
+
+{% raw %}
+
+```yaml
+"/api/v1/production":
+  {
+    "wattHoursToday":12364,
+    "wattHoursSevenDays":13418759,
+    "wattHoursLifetime":13431123,
+    "wattsNow":7081
+  }
+```
+
+{% endraw %}
+
+{% details "Inspect Envoy Endpoint UI example" %}
+
+<figure>
+  <img src="/images/integrations/enphase_envoy/enphase_envoy_inspect_action_ui.png" alt="inspect envoy endpoint">
+  <figcaption>Example of Inspect envoy endpoint action specifying /api/v1/production.</figcaption>
+</figure>
+
+{% enddetails %}
 
 ## Envoy replacement
 
