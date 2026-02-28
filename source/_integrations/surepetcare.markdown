@@ -32,8 +32,8 @@ These are the entities available in the Sure Petcare integration.
 | Domain        | Name                     | Description
 | ------------- | ------------------------ | ------------------------------------------------------------
 | Binary sensor | Presence                 | Whether the pet is inside (presence).
-| Sensor        | Last seen flap device ID | Diagnostic: last flap device ID used by the pet (useful for the [pet select location blueprint](#pet-select-location)); `unknown` if the last status is not from a flap update.
-| Sensor        | Last seen user ID        | Diagnostic: last user ID that manually changed pet location (useful for the [pet select location blueprint](#pet-select-location)); `unknown` if the last status is not from a manual update.
+| Sensor        | Last seen flap device ID | Diagnostic: last flap device ID used by the pet (useful for the [pet select location blueprint](#pet-select-location-template-entity)); `unknown` if the last status is not from a flap update.
+| Sensor        | Last seen user ID        | Diagnostic: last user ID that manually changed pet location (useful for the [pet select location blueprint](#pet-select-location-template-entity)); `unknown` if the last status is not from a manual update.
 
 ### Cat flap
 
