@@ -1,5 +1,6 @@
 ; This file is for unifying the coding style for different editors and IDEs.
 ; More information at http://EditorConfig.org
+; Checks editor styles against existing directs
 
 root = true
 
