@@ -134,17 +134,17 @@ A sensor that takes into account the humidex or wind chill for what the temperat
 ```yaml
 template:
   - sensor:
-    - name: "Feels Like"
-      device_class: temperature
-      unit_of_measurement: "°C"
-      state: >
-        {% if not is_state('sensor.NAME_humidex', 'unknown') %}
-          {{ states('sensor.NAME_humidex') }}
-        {% elif not is_state('sensor.NAME_wind_chill', 'unknown') %}
-          {{ states('sensor.NAME_wind_chill') }}
-        {% else %}
-          {{ states('sensor.NAME_temperature') | round(0) }}
-        {% endif %}
+      - name: "Feels Like"
+        device_class: temperature
+        unit_of_measurement: "°C"
+        state: >
+          {% if not is_state('sensor.NAME_humidex', 'unknown') %}
+            {{ states('sensor.NAME_humidex') }}
+          {% elif not is_state('sensor.NAME_wind_chill', 'unknown') %}
+            {{ states('sensor.NAME_wind_chill') }}
+          {% else %}
+            {{ states('sensor.NAME_temperature') | round(0) }}
+          {% endif %}
 ```
 
 {% endraw %}
@@ -184,7 +184,7 @@ template:
 
 ### Alert count by category
 
-To get a count of active alerts for a specific category (for example, warnings), use the following template. Replace `NAME_alerts` with your alerts sensor entity ID.
+To get a count of active alerts for a specific category (for example, warnings), use the following template. Replace `NAME` in `sensor.NAME_alerts` with your station name so it matches your alerts sensor entity ID.
 
 {% raw %}
 
