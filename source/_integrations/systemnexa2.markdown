@@ -202,7 +202,7 @@ To resolve this issue, try the following steps:
 
 ## Reconfiguration
 
-Once setup, the hostname or IP address used to access the **System Nexa 2** device can be changed by reconfiguring the integration.
+Once set up, the hostname or IP address used to access the **System Nexa 2** device can be changed by reconfiguring the integration.
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
 2. Select **System Nexa 2**. Click the three dots {% icon "mdi:dots-vertical" %} menu next to the device you wish to update and then select **Reconfigure**.
