@@ -18,7 +18,7 @@ ha_codeowners:
 ha_domain: systemnexa2
 ha_dhcp: true
 ha_zeroconf: true
-ha_quality_scale: silver
+ha_quality_scale: platinum
 ha_integration_type: device
 ---
 
@@ -199,6 +199,15 @@ To resolve this issue, try the following steps:
    - Go to {% my integrations title="**Settings** > **Devices & services**" %}.
    - Select **Add integration** and search for **System Nexa 2**.
    - Enter the IP address you found in the **Nexa Hem** app.
+
+## Reconfiguration
+
+Once setup, the hostname or IP address used to access the **System Nexa 2** device can be changed by reconfiguring the integration.
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Select **System Nexa 2**. Click the three dots {% icon "mdi:dots-vertical" %} menu next to the device you wish to update and then select **Reconfigure**.
+3. Enter a new hostname or IP address.
+4. Click Submit to complete the reconfiguration.
 
 ## Removing the integration
 
