@@ -365,6 +365,13 @@ The Home Assistant Matter updates currently do not work for Thread devices on a 
 The Matter integration has the following actions:
 
 - `matter.water_heater_boost`
+- `matter.set_lock_user`
+- `matter.clear_lock_user`
+- `matter.get_lock_info`
+- `matter.get_lock_users`
+- `matter.set_lock_credential`
+- `matter.clear_lock_credential`
+- `matter.get_lock_credential_status`
 
 ### Action: Water heater boost
 
@@ -375,6 +382,220 @@ The `matter.water_heater_boost` action enables water heater boost for a specific
 | `duration`           | No       | Boost duration in seconds                                          |
 | `emergency_boost`    | Yes      | Whether to enable emergency boost mode                             |
 | `temporary_setpoint` | Yes      | Temporary setpoint temperature in Celsius during the boost period  |
+
+### Lock user and credential management
+
+The following actions let you manage users and credentials (such as PIN codes and RFID tags) on Matter-compatible locks. Your lock must support the Matter Door Lock cluster user and credential management features for these actions to work.
+
+{% note %}
+Not all Matter locks support user and credential management. Use the `matter.get_lock_info` action to check what your lock supports before attempting to manage users or credentials.
+{% endnote %}
+
+#### Action: Set lock user
+
+The `matter.set_lock_user` action creates or updates a user on the lock. If you omit the `user_index`, the lock automatically assigns the next available slot.
+
+- **Data attribute**: `user_index`
+  - **Description**: The user slot index (1-based). Omit this field to let the lock automatically find an available slot.
+  - **Optional**: Yes
+
+- **Data attribute**: `user_name`
+  - **Description**: A name for the user.
+  - **Optional**: Yes
+
+- **Data attribute**: `user_type`
+  - **Description**: The type of user to create.
+  - **Optional**: Yes
+  - **Options**:
+    - `unrestricted_user`: A regular user with no access restrictions.
+    - `year_day_schedule_user`: Access is limited to specific date ranges.
+    - `week_day_schedule_user`: Access is limited to specific days and times each week.
+    - `programming_user`: A user who can manage other users and credentials on the lock.
+    - `non_access_user`: A user record that exists on the lock but cannot unlock it.
+    - `forced_user`: A user whose access triggers a special alarm or notification, for example a duress code.
+    - `disposable_user`: A user whose credential is automatically revoked after a single use.
+    - `expiring_user`: A user whose access expires after a set period.
+    - `schedule_restricted_user`: A user restricted by both week-day and year-day schedules.
+    - `remote_only_user`: A user who can only operate the lock remotely, not from the physical keypad.
+
+- **Data attribute**: `credential_rule`
+  - **Description**: The credential rule for the user. Determines how many credentials must be presented to unlock.
+  - **Optional**: Yes
+  - **Options**:
+    - `single`: One credential is required to unlock (for example, just a PIN).
+    - `dual`: Two different credentials are required to unlock (for example, a PIN and an RFID tag).
+    - `tri`: Three different credentials are required to unlock.
+
+```yaml
+action: matter.set_lock_user
+target:
+  entity_id: lock.front_door
+data:
+  user_name: "Jane"
+  user_type: unrestricted_user
+  credential_rule: single
+```
+
+#### Action: Clear lock user
+
+The `matter.clear_lock_user` action deletes a user and all their associated credentials from the lock. To clear all users at once, use index `65534`. This is a special value defined by the Matter specification (hex `0xFFFE`) that tells the lock to remove every user.
+
+- **Data attribute**: `user_index`
+  - **Description**: The user slot index (1-based) to clear. Use `65534` to clear all users at once.
+  - **Optional**: No
+
+```yaml
+# Remove a single user
+action: matter.clear_lock_user
+target:
+  entity_id: lock.front_door
+data:
+  user_index: 3
+```
+
+```yaml
+# Remove all users
+action: matter.clear_lock_user
+target:
+  entity_id: lock.front_door
+data:
+  user_index: 65534
+```
+
+#### Action: Get lock info
+
+The `matter.get_lock_info` action returns the lock's capabilities, including supported credential types, maximum number of users, and PIN length constraints. This action returns a response and does not require any additional data attributes.
+
+```yaml
+action: matter.get_lock_info
+target:
+  entity_id: lock.front_door
+response_variable: lock_info
+```
+
+#### Action: Get lock users
+
+The `matter.get_lock_users` action returns all users configured on the lock. For each user, the response includes their name, status, type, credential rule, and a list of credential references (type and slot index). For security reasons, the lock does not expose the actual credential secrets (such as PIN codes or RFID tag data). This action returns a response and does not require any additional data attributes.
+
+```yaml
+action: matter.get_lock_users
+target:
+  entity_id: lock.front_door
+response_variable: lock_users
+```
+
+#### Action: Set lock credential
+
+The `matter.set_lock_credential` action adds or updates a credential on the lock. If you omit the `credential_index`, the lock automatically assigns the next available slot. If you omit the `user_index`, a new user is created for the credential. This action returns a response containing the assigned credential and user indices.
+
+- **Data attribute**: `credential_type`
+  - **Description**: The type of credential to set.
+  - **Optional**: No
+  - **Options**:
+    - `pin`: A numeric PIN code entered on the lock's keypad.
+    - `rfid`: An RFID tag or card tapped against the lock's reader.
+    - `fingerprint`: A fingerprint registered on the lock's biometric sensor.
+    - `finger_vein`: A finger-vein pattern registered on the lock's biometric sensor.
+    - `face`: A facial recognition profile registered on the lock.
+
+- **Data attribute**: `credential_data`
+  - **Description**: The credential data to store. For `pin` credentials, use digits only (for example, `1234`). For `rfid` credentials, use a hexadecimal string representing the tag ID (for example, `AABBCCDD`).
+  - **Optional**: No
+
+- **Data attribute**: `credential_index`
+  - **Description**: The credential slot index (0-based). Omit this field to let the lock automatically find an available slot.
+  - **Optional**: Yes
+
+- **Data attribute**: `user_index`
+  - **Description**: The user index (1-based) to associate the credential with. Omit this field to have the lock automatically create a new user.
+  - **Optional**: Yes
+
+- **Data attribute**: `user_status`
+  - **Description**: The user status to set when creating a new user for this credential.
+  - **Optional**: Yes
+  - **Options**:
+    - `occupied_enabled`: The user is active and can use their credentials to unlock.
+    - `occupied_disabled`: The user exists but their credentials are temporarily disabled.
+
+- **Data attribute**: `user_type`
+  - **Description**: The user type to set when creating a new user for this credential. See the `matter.set_lock_user` action for a description of each user type.
+  - **Optional**: Yes
+
+```yaml
+# Add a PIN to an existing user
+action: matter.set_lock_credential
+target:
+  entity_id: lock.front_door
+data:
+  credential_type: pin
+  credential_data: "1234"
+  user_index: 1
+response_variable: result
+```
+
+```yaml
+# Add an RFID tag and let the lock create a new user
+action: matter.set_lock_credential
+target:
+  entity_id: lock.front_door
+data:
+  credential_type: rfid
+  credential_data: "AABBCCDD"
+response_variable: result
+```
+
+#### Action: Clear lock credential
+
+The `matter.clear_lock_credential` action removes a credential from the lock.
+
+- **Data attribute**: `credential_type`
+  - **Description**: The type of credential to remove. See the `matter.set_lock_credential` action for a description of each credential type.
+  - **Optional**: No
+
+- **Data attribute**: `credential_index`
+  - **Description**: The credential slot index (0-based) to clear.
+  - **Optional**: No
+
+```yaml
+action: matter.clear_lock_credential
+target:
+  entity_id: lock.front_door
+data:
+  credential_type: pin
+  credential_index: 1
+```
+
+#### Action: Get lock credential status
+
+The `matter.get_lock_credential_status` action returns the status of a specific credential slot on the lock, including whether the slot is occupied and which user it belongs to. This action returns a response.
+
+- **Data attribute**: `credential_type`
+  - **Description**: The type of credential to query.
+  - **Optional**: No
+  - **Options**:
+    - `programming_pin`: A special administrative PIN used to manage the lock at the keypad.
+    - `pin`: A numeric PIN code entered on the lock's keypad.
+    - `rfid`: An RFID tag or card tapped against the lock's reader.
+    - `fingerprint`: A fingerprint registered on the lock's biometric sensor.
+    - `finger_vein`: A finger-vein pattern registered on the lock's biometric sensor.
+    - `face`: A facial recognition profile registered on the lock.
+    - `aliro_credential_issuer_key`: An Aliro credential issuer key (used by Aliro-compatible locks for NFC-based access).
+    - `aliro_evictable_endpoint_key`: An Aliro endpoint key that the lock can remove when it runs out of space.
+    - `aliro_non_evictable_endpoint_key`: An Aliro endpoint key that the lock must keep and cannot automatically remove.
+
+- **Data attribute**: `credential_index`
+  - **Description**: The credential slot index (0-based) to query.
+  - **Optional**: No
+
+```yaml
+action: matter.get_lock_credential_status
+target:
+  entity_id: lock.front_door
+data:
+  credential_type: pin
+  credential_index: 1
+response_variable: credential_status
+```
 
 ## Automate on a button press
 
