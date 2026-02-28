@@ -84,7 +84,7 @@ When Control Bus mode is enabled, Home Assistant can control the output volume o
 
 ### Equalizer
 
-If supported by the device Home Assistant can enable or disable the equalizer.
+If your device supports it, Home Assistant can enable or disable the equalizer.
 
 ## Playing media
 
