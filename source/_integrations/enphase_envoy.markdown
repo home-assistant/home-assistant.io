@@ -654,18 +654,21 @@ data:
 
 {% endraw %}
 
-Response example
+Response is returned with endpoint and data keys showing requested endpoint and returned data. For example:
 
 {% raw %}
 
 ```json
-"/api/v1/production":
-  {
-    "wattHoursToday":12364,
-    "wattHoursSevenDays":13418759,
-    "wattHoursLifetime":13431123,
-    "wattsNow":7081
-  }
+{
+  "endpoint":"/api/v1/production",
+  "data":
+    {
+      "wattHoursToday":5552,
+      "wattHoursSevenDays":84640,
+      "wattHoursLifetime":25882770,
+      "wattsNow":0
+    }
+}
 ```
 
 {% endraw %}
