@@ -1,3 +1,4 @@
+source/_integrations/homekit_controller.markdown
 ---
 title: HomeKit Device
 description: Instructions for how to integrate your HomeKit devices within Home Assistant.
