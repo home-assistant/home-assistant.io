@@ -353,7 +353,7 @@ The `event_data` accepts templates.
 
 {% endraw %}
 
-### Raise and Consume Custom Events
+### Raise and consume custom events
 
 The following {% term automation %} example shows how to raise a custom event called `event_light_state_changed` with `entity_id` as the event data. The {% term action %} part could be inside a script or an {% term automation %}.
 
@@ -565,7 +565,7 @@ For example:
 
 ### Repeat loop variable
 
-A variable named `repeat` is defined within the repeat {% term action %} (i.e., it is available inside `sequence`, `while` & `until`.)
+A variable named `repeat` is defined within the repeat {% term action %}, meaning it is available inside `sequence`, `while`, and `until`.
 It contains the following fields:
 
 | field   | description                                                                                  |

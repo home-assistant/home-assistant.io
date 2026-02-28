@@ -8,6 +8,7 @@ ha_iot_class: Local Polling
 ha_domain: homevolt
 ha_platforms:
   - sensor
+  - switch
 ha_config_flow: true
 ha_codeowners:
   - '@danielhiversen'
@@ -22,6 +23,13 @@ The **Homevolt** {% term integration %} lets Home Assistant read local data from
 API access must be explicitly enabled on the Homevolt device; contact Tibber Customer Support to activate the API.
 Configuration needs the device IP address and, if set on the device, a password. 
 
+{% configuration_basic %}
+Host:
+ description: "The IP address or hostname of your Homevolt device. You can find it in your router or via the device's discovery."
+Password:
+ description: "The password for your Homevolt device, if it is password protected. Leave empty if no password is set."
+{% endconfiguration_basic %}
+
 ## Sensors
 
 The {% term integration %} creates sensors reported by the device, including:
@@ -32,6 +40,12 @@ The {% term integration %} creates sensors reported by the device, including:
 - Battery/percentage (%)
 - Signal strength (dB)
 - Text, count, or schedule status values
+
+## Swtiches
+
+The {% term integration %} creates switches reported by the device, including:
+
+- Local mode, enable or disable loacal control mode
 
 ## Troubleshooting
 
