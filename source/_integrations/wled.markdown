@@ -62,7 +62,6 @@ Host:
 
 {% configuration_basic %}
 Keep Master Light:
-  description: Keep the master light, even if there is only 1 segment. This ensures the master light is always there, in case you are automating segments to appear and remove dynamically.
 {% endconfiguration_basic %}
 
 ## Lights
