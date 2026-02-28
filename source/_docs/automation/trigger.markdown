@@ -36,7 +36,7 @@ An {% term automation %} can be triggered by an {% term event %}, a certain {% t
 
 ## Trigger ID
 
-All triggers can be assigned an optional `id`. If the ID is omitted, it will instead be set to the index of the trigger. The `id` can be referenced from [trigger conditions and actions](/docs/scripts/conditions/#trigger-condition). The `id` does not have to be unique for each trigger, and it can be used to group similar triggers for use later in the automation (i.e., several triggers of different types that should all turn some entity on).
+All triggers can be assigned an optional `id`. If the ID is omitted, it will instead be set to the index of the trigger. The `id` can be referenced from [trigger conditions and actions](/docs/scripts/conditions/#trigger-condition). The `id` does not have to be unique for each trigger, and it can be used to group similar triggers for use later in the automation (such as several triggers of different types that should all turn some entity on).
 
 ### Video tutorial
 
@@ -215,7 +215,7 @@ Fires when the numeric value of an entity's state (or attribute's value if using
 
 {% note %}
 Crossing the threshold means that the trigger only fires if the state wasn't previously within the threshold.
-If the current state of your entity is `50` and you set the threshold to `below: 75`, the trigger would not fire if the state changed to e.g. `49` or `72` because the threshold was never crossed. The state would first have to change to e.g. `76` and then to e.g. `74` for the trigger to fire.
+If the current state of your entity is `50` and you set the threshold to `below: 75`, the trigger would not fire if the state changed to `49` or `72` because the threshold was never crossed. The state would first have to change to `76` and then to `74` for the trigger to fire.
 {% endnote %}
 
 {% raw %}
@@ -483,7 +483,7 @@ don't cancel the hold time.
 You can also fire the trigger when the state value changed from a specific
 state, but hasn't returned to that state value for the specified time.
 
-This can be useful, e.g., checking if a media player hasn't turned "off" for
+This can be useful for checking if a media player hasn't turned "off" for
 the time specified, but doesn't care about "playing" or "paused".
 
 ```yaml
@@ -544,9 +544,9 @@ Use quotes around your values for `from` and `to` to avoid the YAML parser from 
 
 ### Sunset / Sunrise trigger
 
-Fires when the sun is setting or rising, i.e., when the sun elevation reaches 0°.
+Fires when the sun is setting or rising—that is, when the sun elevation reaches 0°.
 
-An optional time offset can be given to have it fire a set time before or after the sun event (e.g.,  45 minutes before sunset). A negative value makes it fire before sunrise or sunset, a positive value afterwards. The offset needs to be specified in number of seconds, or in a hh:mm:ss format.
+An optional time offset can be given to have it fire a set time before or after the sun event (for example, 45 minutes before sunset). A negative value makes it fire before sunrise or sunset, a positive value afterwards. The offset needs to be specified in number of seconds, or in a hh:mm:ss format.
 
 {% tip %}
 Since the duration of twilight is different throughout the year, it is recommended to use [sun elevation triggers][sun_elevation_trigger] instead of `sunset` or `sunrise` with a time offset to trigger automations during dusk or dawn.
@@ -1008,7 +1008,7 @@ Note that a given webhook can only be used in one automation at a time. That is,
 
 Payloads may either be encoded as form data or JSON. Depending on that, its data will be available in an automation template as either `trigger.data` or `trigger.json`. URL query parameters are also available in the template as `trigger.query`.
 
-Note that to use JSON encoded payloads, the `Content-Type` header must be set to `application/json`, e.g.:
+Note that to use JSON encoded payloads, the `Content-Type` header must be set to `application/json`, for example:
 
 ```bash
 curl -X POST -H "Content-Type: application/json" -d '{ "key": "value" }' https://your-home-assistant:8123/api/webhook/some_hook_id
@@ -1071,7 +1071,7 @@ Calendar trigger fires when a [Calendar](/integrations/calendar/) event starts o
 for much more flexible automations than using the Calendar entity state which only supports a single
 event start at a time.
 
-An optional time offset can be given to have it fire a set time before or after the calendar event (e.g., 5 minutes before event start).
+An optional time offset can be given to have it fire a set time before or after the calendar event (such as 5 minutes before event start).
 
 ```yaml
 automation:

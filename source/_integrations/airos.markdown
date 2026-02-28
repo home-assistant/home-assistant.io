@@ -36,21 +36,29 @@ Ubiquiti UISP products cannot be managed from their popular [UniFi](/integration
 
 ## Prerequisites
 
-This integration only supports devices running airOS 8 and already configured using your browser or the UISP app.
+This integration only supports devices running airOS 6 or 8 and already configured using your browser or the UISP app.
 
 {% include integrations/config_flow.md %}
 
 ## Supported devices
 
+While there is no known limitation to which devices running airOS firmware versions 6 or 8 are supported, success has been reported on the devices listed below.
+
+Do you have a device that works? We’d love to hear [your experience](#feedback_section) so we can add it to this list!
+
+### airOS firmware 6
+
+- NanoStation M5 (NSM5)
+- NanoStation M5 loco (LocoM5)
+
 ### airOS firmware 8
 
-While there is no known limitation to which devices running airOS firmware version 8 are supported, success has been reported on:
-
+- LiteAP GPS (LAP-GPS)
+- LiteBeam 5AC (LBE-5AC-GEN2)
 - NanoBeam 5AC (NBE-5AC-Gen2)
 - NanoStation 5AC Loco (Loco5AC)
 - PowerBeam 5AC: 620 (PBE-5AC-620) and Gen2 (PBE-5AC-Gen2)
 
-Do you have a device that works? We’d love to hear [your experience](#feedback_section) so we can add it to this list!
 
 ## Operating roles
 

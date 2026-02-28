@@ -99,6 +99,7 @@ All Generation 1 sensors, plus:
 
 In addition to the read-only sensors listed above, the Indevolt integration also exposes the following configurable entities for supported Generation 2 devices. You can change these settings from Home Assistant, and they are applied directly to your device.
 
+- Energy mode: Configure battery and energy management strategy (select)
 - Discharge limit: Set the minimum battery level (emergency power/SOC, %)
 - Max AC output power: Configure maximum discharge power (W)
 - Inverter input limit: Set maximum PV input power (W)
@@ -113,6 +114,7 @@ The Indevolt integration automatically retrieves data from your devices by polli
 
 ## Known limitations
 
+- Energy mode can only be set when the device is not in "Outdoor / Portable"-mode
 - Some sensors are device generation-specific and may not appear for all models.
 - Some sensors / configurations available in the app are not (yet) available in the integration.
 
