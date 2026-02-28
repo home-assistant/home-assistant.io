@@ -550,7 +550,7 @@ Although not a replacement for individual energy or power measurement devices, w
 
 ## Actions
 
-Available actions are: `switch.turn_on`, `switch.turn_off`, `switch.toggle`, [`number.set_value`](#action-numberset_value), [`select.select`](#action-selectselect), [`enphase_envoy.inspect`](#action-enphase_envoyinspect)
+Available actions are: `switch.turn_on`, `switch.turn_off`, `switch.toggle`, [`number.set_value`](#action-numberset_value), [`select.select`](#action-selectselect), [`enphase_envoy.inspect`](#action-enphase_envoyinspect).
 
 ### Action `switch.turn_on`/`switch.turn_off`/`switch.toggle`
 
@@ -635,12 +635,12 @@ Technically `select.first`, `select.last`, `select.previous`, `select.next` are 
 
 ### Action `enphase_envoy.inspect`
 
-The action `enphase_envoy.inspect` returns data from the specified endpoint in the Envoy device. This allows to inspect any endpoint in the Envoy using {% my developer_services title="**Settings** > **Developer tools** > **Actions**" %}. In the **Action** drop-down, select **Inspect Envoy endpoint**. Configure the desired attributes as listed below.
+The action `enphase_envoy.inspect` returns data from the specified endpoint in the Envoy device. You can use this action to inspect any endpoint in the Envoy by using {% my developer_services title="**Settings** > **Developer tools** > **Actions**" %}. In the **Action** dropdown, select **Inspect Envoy endpoint**. Then configure the desired attributes as listed below.
 
 | Data attribute | Optional | Description |
 | - | - | - |
-| `endpoint` | no | The Envoy endpoint to inspect. Start with leading /. For example, use /api/v1/production |
-| `device_id` | yes | The device_id for the Envoy to inspect. If no Envoy is specified, the first configured one will be used. No need to specify if only a single Envoy is configured. <ul><li>In UI mode, click the checkbox and select an Envoy device from the dropdown list. <br><li> In YAML mode enter a device_id or use an expression like `device_id('sensor.envoy_123456789012_current_power_production')` </ul> |
+| `endpoint` | no | The Envoy endpoint to inspect. Start with a leading `/`. For example, use `/api/v1/production` |
+| `device_id` | yes | The device_id for the Envoy to inspect. If no Envoy is specified, the first configured one is used. You do not need to specify this when only a single Envoy is configured. In UI mode, select the checkbox, then select an Envoy device from the drop-down list. In YAML mode, enter a device_id or use an expression like `device_id('sensor.envoy_123456789012_current_power_production')`. |
 
 Example with a single envoy installed, no Envoy device_id specified:
 
@@ -658,7 +658,7 @@ Response example
 
 {% raw %}
 
-```yaml
+```json
 "/api/v1/production":
   {
     "wattHoursToday":12364,
@@ -673,8 +673,8 @@ Response example
 {% details "Inspect Envoy Endpoint UI example" %}
 
 <figure>
-  <img src="/images/integrations/enphase_envoy/enphase_envoy_inspect_action_ui.png" alt="inspect envoy endpoint">
-  <figcaption>Example of Inspect envoy endpoint action specifying /api/v1/production.</figcaption>
+  <img src="/images/integrations/enphase_envoy/enphase_envoy_inspect_action_ui.png" alt="Screenshot of Inspect Envoy endpoint action for `/api/v1/production`.">
+  <figcaption>Screenshot of Inspect Envoy endpoint action specifying the `/api/v1/production` endpoint.</figcaption>
 </figure>
 
 {% enddetails %}
