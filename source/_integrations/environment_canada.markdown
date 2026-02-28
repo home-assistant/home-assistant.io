@@ -39,10 +39,10 @@ The integration will create the entities listed below.
 
 - Current conditions, daily forecast, and hourly forecast
 
-### Radar map (Camera)
+### Radar map (camera)
 
 - Loop of radar imagery from the last 3 hours.
-- This entity is disabled by default can be enabled in the entry's settings dialog.
+- This entity is disabled by default and can be enabled in the entry's settings dialog.
 - By default, this entity uses the radar rain layer from 1 April to 30 November and the snow layer from 1 December to 31 March. The rain/snow layer can be changed using the action described below.
 
 ### Sensors
@@ -65,8 +65,8 @@ The integration will create the entities listed below.
 - Forecast high temperature
 - Forecast low temperature
 - Dewpoint
-- Wind chill (only at temperatures below 0ºC)
-- Humidex (only at temperatures above 19ºC)
+- Wind chill (only at temperatures below 0°C)
+- Humidex (only at temperatures above 19°C)
 
 #### Wind
 
@@ -156,27 +156,28 @@ The configuration snippet below adds a template sensor containing the current fo
 {% raw %}
 
 ```yaml
-- trigger:
-    - platform: time_pattern
-      hours: "/4"
-    - platform: homeassistant
-      event: start
-    - platform: event
-      event_type: event_template_reloaded
-  actions:
-    - action: environment_canada.get_forecasts
-      target:
-        entity_id: weather.NAME
-      response_variable: forecasts
-  sensor:
-    - name: Weather Forecast Daily
-      unique_id: weather_forecast_daily
-      state: "{{ states('weather.NAME') }}"
-      attributes:
-        daily: "{{ forecasts['weather.NAME']['daily_forecast'] }}"
-        hourly: "{{ forecasts['weather.NAME']['hourly_forecast'] }}"
-        summary: "{{ forecasts['weather.NAME']['daily_forecast'][0]['text_summary'] }}"
-        temperature_unit: "{{ state_attr('weather.NAME', 'temperature_unit') }}"
+template:
+  - trigger:
+      - platform: time_pattern
+        hours: "/4"
+      - platform: homeassistant
+        event: start
+      - platform: event
+        event_type: event_template_reloaded
+    actions:
+      - action: environment_canada.get_forecasts
+        target:
+          entity_id: weather.NAME
+        response_variable: forecasts
+    sensor:
+      - name: Weather Forecast Daily
+        unique_id: weather_forecast_daily
+        state: "{{ states('weather.NAME') }}"
+        attributes:
+          daily: "{{ forecasts['weather.NAME']['daily_forecast'] }}"
+          hourly: "{{ forecasts['weather.NAME']['hourly_forecast'] }}"
+          summary: "{{ forecasts['weather.NAME']['daily_forecast'][0]['text_summary'] }}"
+          temperature_unit: "{{ state_attr('weather.NAME', 'temperature_unit') }}"
 ```
 
 {% endraw %}
