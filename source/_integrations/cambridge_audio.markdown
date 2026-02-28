@@ -72,7 +72,7 @@ The integration provides a few entities to configure the device settings. The fo
 - Audio output (Speaker select)
 - Control Bus mode
 - Room correction
-- Equalizer state and presets
+- Equalizer state
 
 ### Pre-Amp
 
@@ -84,7 +84,7 @@ When Control Bus mode is enabled, Home Assistant can control the output volume o
 
 ### Equalizer
 
-If supported by the device Home Assistant can enable the equalizer and change presets. The available presets match the ones from the StreamMagic app.
+If supported by the device Home Assistant can enable or disable the equalizer.
 
 ## Playing media
 
