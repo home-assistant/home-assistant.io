@@ -139,10 +139,11 @@ The interface automatically sets which controls are available depending on which
 
 ### The ability to change volume is missing
 
-Volume control is only supported on all-in-one amps, streamers with pre-amp mode or when the streamer is connected to an amplifier via control bus.
-Likely, the device is not configured to be in pre-amp mode or the control bus is not activated.
-These settings can be changed by navigating to the IP address of the device in a web browser, selecting settings in the StreamMagic app or directly in the device view in Home Assistant.
-Make sure to either set **Pre-Amp** to **On** or **Control Bus mode** to **Amplifier**.
+Volume control is only supported on all-in-one amplifiers, streamers that are in pre-amp mode, or streamers that are connected to an amplifier by a Control Bus connection.
+If you do not see volume controls, your device is likely not configured to use pre-amp mode, or the Control Bus feature is not activated.
+To check and adjust these settings:
+- In a web browser, go to the IP address of your device, or open the StreamMagic app, or open the device in Home Assistant.
+- In the settings, set **Pre-Amp** to **On**, or set **Control Bus mode** to **Amplifier**.
 
 ### Turning on the device doesn't work from Home Assistant
 
