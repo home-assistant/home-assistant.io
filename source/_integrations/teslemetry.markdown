@@ -5,6 +5,7 @@ ha_category:
   - Binary sensor
   - Button
   - Car
+  - Calendar
   - Climate
   - Cover
   - Device tracker
@@ -24,6 +25,7 @@ ha_domain: teslemetry
 ha_platforms:
   - binary_sensor
   - button
+  - calendar
   - climate
   - cover
   - device_tracker
@@ -255,6 +257,8 @@ Entities in the device tracker platform specifically require the `Vehicle locati
 |Binary sensor|Grid services enabled|Yes|
 |Binary sensor|Grid status|Yes|
 |Binary sensor|Storm watch active|Yes|
+|Calendar|Buy tariff|Yes|
+|Calendar|Sell tariff|Yes|
 |Number|Backup reserve|Yes|
 |Number|Off grid reserve|Yes|
 |Select|Allow export|Yes|

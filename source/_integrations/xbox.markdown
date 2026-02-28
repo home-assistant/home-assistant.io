@@ -351,6 +351,10 @@ Internal examples: `http://192.168.0.2:8123/auth/external/callback`, `http://hom
 
 This integration synchronizes your consoles with the Xbox Network every 10 minutes. Console status, including power state and currently playing media, is refreshed every 10 seconds. Presence information is updated every 30 seconds.
 
+## Known limitations
+
+- Xbox consoles cannot be woken up through Home Assistant when they are in **energy saving**. When an Xbox is turned off, it will eventually enter energy saving automatically. To enable remote wake via Home Assistant, the console must be set to **sleep mode** in the power options. Be aware that this mode consumes significantly more energy compared to **shutdown (energy saving) mode**. For more details, see the [Xbox documentation on power modes](https://support.xbox.com/en-US/help/hardware-network/power/learn-about-power-modes).
+
 ## Troubleshooting
 
 The **Xbox** integration relies on an active internet connection to communicate with **Xbox Network**. If you encounter issues, verify that your network connection is stable. The Xbox Network service itself may also experience downtime. This can be unexpected or due to scheduled maintenance.

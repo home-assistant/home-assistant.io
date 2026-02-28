@@ -179,57 +179,50 @@ If you find an opportunity to improve this information, refer to the section on 
 
 ## Configuration requirements
 
+{% important %}
 Be sure to connect a compatible radio module and restart Home Assistant before proceeding with configuration.
+{% endimportant %}
 
-ZHA will automatically create a Zigbee network once it is configured with a Zigbee coordinator; you can then add compatible devices.
+ZHA will automatically create a Zigbee network once configured with a Zigbee coordinator; you can then add compatible devices.
 
-It is highly recommended to review the guidance for [Zigbee interference avoidance and network range/coverage optimization)](#zigbee-interference-avoidance-and-network-rangecoverage-optimization).
+It is strongly encouraged to review the guidance for [Zigbee interference avoidance and network range/coverage optimization](#zigbee-interference-avoidance-and-network-rangecoverage-optimization).
 
 {% include integrations/config_flow.md %}
 
-In the popup:
-
-- Serial Device Path - List of detected serial ports on the system. You need to pick one to which your
-radio is connected
-- Submit
-
-Press `Submit` and the {% term integration %} will try to detect radio type automatically. If unsuccessful, you will get
-a new pop-up asking for a radio type. In the pop-up:
-
-- Radio Type
-
-| Radio Type | Zigbee Radio Hardware                                                                           |
-| ---------- | ----------------------------------------------------------------------------------------------- |
-| `ezsp`     | Silicon Labs EmberZNet protocol (e.g., Home Assistant SkyConnect, Elelabs, HUSBZB-1, Telegesis) |
-| `deconz`   | dresden elektronik deCONZ protocol (e.g., ConBee I/II, RaspBee I/II)                            |
-| `znp`      | Texas Instruments (e.g., CC253x, CC26x2, CC13x2)                                                |
-| `zigate`   | ZiGate Serial protocol (e.g., ZiGate USB-TTL, PiZiGate, ZiGate WiFi)                            |
-| `xbee`     | Digi XBee ZB Coordinator Firmware protocol (e.g., Digi XBee Series 2, 2C, 3)                    |
-
-- Submit
-
-Press `Submit` to save radio type and you will get a new form asking for port settings specific for this
-radio type. In the pop-up:
-
-- Serial device path
-- port speed (not applicable for all radios)
-- data flow control (not applicable for all radios)
-
-Most devices need at the very least the serial device path, like `/dev/ttyUSB0`, but it is recommended to use
-device path from `/dev/serial/by-id` folder,
-e.g., `/dev/serial/by-id/usb-Silicon_Labs_HubZ_Smart_Home_Controller_C0F003D3-if01-port0`
-A list of available device paths can be found in {% my hardware title="Settings > System > Hardware" %} > **dot menu** > **All Hardware**.
-
-Press `Submit`. The success dialog will appear or an error will be displayed in the popup. An error is likely if Home Assistant can't access the USB device or your device is not up to date. Refer to [Troubleshooting](#troubleshooting) below for more information.
+1. In the popup dialog, select the **Serial Device Path** from the detected options on your system.
+    - Choose the one to which your radio is connected.
+2. Select **Submit**.
+3. After submitting, the {% term integration %} will try to detect the radio type automatically.
+4. If unsuccessful, you will need to manually set your radio type: 
+    - Choose your **Radio Type**:
+        - **ezsp**: Silicon Labs EmberZNet protocol (for example, Home Assistant ZBT-1 or ZBT-2, Elelabs, HUSBZB-1, Telegesis)
+        - **deCONZ**: dresden elektronik deCONZ protocol (for example, ConBee I/II, RaspBee I/II)
+        - **znp**: Texas Instruments (for example, CC253x, CC26x2, CC13x2)
+        - **zigate**: ZiGate Serial protocol (for example, ZiGate USB-TTL, PiZiGate, ZiGate WiFi)
+        - **xbee**: Digi XBee ZB Coordinator Firmware protocol (for example, Digi XBee Series 2, 2C, 3)
+    - Select **Submit** to proceed to the next step.
+5. Enter the **Serial device path**:
+    - Most devices need at the very least the serial device path, such as `/dev/ttyUSB0`, but it is recommended to use device path from `/dev/serial/by-id` folder (e.g., `/dev/serial/by-id/usb-Silicon_Labs_HubZ_Smart_Home_Controller_C0F003D3-if01-port0`).
+    - A list of available device paths can be found in {% my hardware title="Settings > System > Hardware" %} > **dot menu** > **All Hardware**.
+6. Set the **Port speed** (not applicable for all radios).
+7. Set the **Data flow control** (not applicable for all radios).
+8. Press **Submit**.
+    - If unsuccessful, an error will be displayed in the popup. 
+    - An error is likely if Home Assistant can't access the USB device or your device is not up to date. 
+    - Refer to [Troubleshooting](#troubleshooting) below for more information.
 
 ### ZiGate or Sonoff ZBBridge devices
 
-If you are use ZiGate or Sonoff ZBBridge you have to use some special usb_path configuration:
+If you use a ZiGate or Sonoff ZBBridge device, you need additional configuration for `usb_path`.
+
+{% details "Additional ZBBridge config" %}
 
 - ZiGate USB TTL or DIN: `/dev/ttyUSB0` or `auto` to auto discover the zigate
-- PiZigate : `pizigate:/dev/ttyS0`
-- Wifi Zigate : `socket://[IP]:[PORT]` for example `socket://192.168.1.10:9999`
-- Sonoff ZBBridge : `socket://[IP]:[PORT]` for example `socket://192.168.1.11:8888`
+- PiZigate: `pizigate:/dev/ttyS0`
+- Wifi Zigate: `socket://[IP]:[PORT]` — for example `socket://192.168.1.10:9999`
+- Sonoff ZBBridge: `socket://[IP]:[PORT]` — for example `socket://192.168.1.11:8888`
+
+{% enddetails %}
 
 ### Global Options
 
@@ -352,11 +345,10 @@ These sections both provide helpful advice on improving your Zigbee network perf
 
 **To add a new Zigbee device:**
 
-1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
-2. Select the **Zigbee Home Automation** {% term integration %}. Then, select **Configure**.
-3. To start a scan for new devices, on the bottom right corner of the screen, select **Add device**.
-4. Reset your Zigbee devices to factory default settings according to the device instructions provided by the manufacturer (e.g., turn on/off lights up to 10 times; switches usually have a reset button/pin). It might take a few seconds for the devices to appear. You can click on **Show logs** for more verbose output.
-5. Once the device is found, it will appear on that page and will be automatically added to your devices. You can optionally change its name and add it to an area (you can change this later). You can search again to add another device, or you can go back to the list of added devices.
+1. Go to {% my config_zha title="**Settings** > **Zigbee**" %}.
+2. To start a scan for new devices, on the bottom right corner of the screen, select **Add device**.
+3. Reset your Zigbee devices to factory default settings according to the device instructions provided by the manufacturer (e.g., turn on/off lights up to 10 times; switches usually have a reset button/pin). It might take a few seconds for the devices to appear. You can click on **Show logs** for more verbose output.
+4. Once the device is found, it will appear on that page and will be automatically added to your devices. You can optionally change its name and add it to an area (you can change this later). You can search again to add another device, or you can go back to the list of added devices.
 
 ### Using router devices to add more devices
 
@@ -598,8 +590,8 @@ You will not be able to control your existing Zigbee devices until they join the
 If some existing devices do not resume normal functions after some time, try power-cycling them to attempt rejoining to the network.
 {% endimportant %}
 
-1. Go to **{% my integrations title="Settings > Devices & services" %}** and select the ZHA {% term integration %}. Then select the cogwheel {% icon "mdi:cog-outline" %}.
-2. Under **Network settings**, select **Migrate adapter**.
+1. Go to {% my config_zha title="**Settings** > **Zigbee**" %}.
+2. Select **Migrate**.
 3. Plug in the new Zigbee adapter.
    - To minimize interference:
      - Use a USB extension cable.
@@ -888,8 +880,7 @@ Vendor-specific examples:
 - Other manufacturers and Zigbee stacks measure and calculate LQI values in another way.
 
 {% enddetails %}
-
-
+ 
 ### Reporting issues
 
 For more details on where and how to report issues, please refer to the [Reporting issues page](/help/reporting_issues/).
@@ -899,9 +890,8 @@ When reporting potential bugs related to the ZHA integration on the issues track
 1. Debug logs for the issue, see [debug logging](#debug-logging).
 2. Exact model and firmware of the Zigbee radio (Zigbee Coordinator adapter) being used.
 3. If the issue is related to a specific Zigbee device, provide both the **Zigbee Device Signature** and the **Diagnostics** information.
-     - Both the **Zigbee Device Signature** and the **Diagnostics** information can be found under {% my integrations title="**Settings** > **Devices & services**" %}. 
-        - Select the **Zigbee Home Automation** integration. 
-        - Then, navigate to **Configure** > **Devices** (pick your device). 
+     - Both the **Zigbee Device Signature** and the **Diagnostics** information can be found under {% my config_zha title="**Settings** > **Zigbee**" %}.
+        - Select **Devices** and from the list, select your device.
         - Select **Zigbee Device Signature** and **Download Diagnostics**, respectively.
 
 {% tip %}
