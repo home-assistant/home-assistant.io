@@ -640,9 +640,9 @@ The action `enphase_envoy.inspect` returns data from the specified endpoint in t
 | Data attribute | Optional | Description |
 | - | - | - |
 | `endpoint` | no | The Envoy endpoint to inspect. Start with a leading `/`. For example, use `/api/v1/production` |
-| `device_id` | yes | The device_id for the Envoy to inspect. If no Envoy is specified, the first configured one is used. You do not need to specify this when only a single Envoy is configured. In UI mode, select the checkbox, then select an Envoy device from the drop-down list. In YAML mode, enter a device_id or use an expression like `device_id('sensor.envoy_123456789012_current_power_production')`. |
+| `device_id` | yes | The `device_id` of the Envoy to inspect. You do not need to specify a `device_id` when only a single Envoy is configured. In UI mode, select the checkbox, then select an Envoy device from the drop-down list. In YAML mode, enter a `device_id` or use an expression like `device_id('sensor.envoy_123456789012_current_power_production')`. |
 
-Example with a single envoy installed, no Envoy device_id specified:
+Example with a single envoy installed, no Envoy `device_id` specified:
 
 {% raw %}
 
@@ -654,7 +654,7 @@ data:
 
 {% endraw %}
 
-Response is returned with endpoint and data keys showing requested endpoint and returned data. For example:
+Response returns requested endpoint in `endpoint` key and endpoint data in `data` key. Above example response:
 
 {% raw %}
 
