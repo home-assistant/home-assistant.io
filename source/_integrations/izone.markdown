@@ -26,6 +26,13 @@ Any current iZone unit with ducted reverse cycle air-conditioning, and the CB wi
 
 {% include integrations/config_flow.md %}
 
+When adding the integration, you will be prompted with an optional **Host** field:
+
+- **Leave blank** to use automatic discovery via UDP broadcast. This works when the iZone controller is on the same network/VLAN as Home Assistant.
+- **Enter an IP address** (e.g., `192.168.2.100`) to connect directly to an iZone controller on a different VLAN or subnet. This bypasses broadcast discovery entirely.
+
+If the controller becomes temporarily unreachable, the integration will automatically retry the connection every 30 seconds when a static IP is configured.
+
 ## Manual configuration
 
 Alternatively, the iZone integration can be configured manually via the
@@ -50,6 +57,14 @@ exclude:
 ## Network settings
 
 The iZone system uses UDP broadcasts over the local network to find and communicate with iZone devices. For this to work properly, UDP port  12107 must be able to be broadcasted on, 7005 needs to be listened to for broadcasted messages, and TCP port 80 for HTTP data to the bridge. The integration currently listens on `0.0.0.0` and broadcasts to all broadcast IPv4 local addresses, which is not configurable.
+
+### Cross-VLAN setup
+
+If your iZone controller is on a different VLAN or subnet from Home Assistant, use the **Host** option in the config flow to specify the controller's IP address directly. In this setup:
+
+- **TCP port 80** must be routable from Home Assistant to the iZone controller (required for the HTTP API).
+- **UDP port 7005** from the controller to Home Assistant enables instant push notifications for state changes. Without it, the integration will still function using polling (every 25 seconds), but updates will not be immediate.
+- **UDP broadcast** (port 12107) is **not required** when using a static IP — the manual IP mode bypasses broadcast discovery entirely.
 
 ## Master controller
 
