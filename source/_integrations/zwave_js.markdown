@@ -235,7 +235,7 @@ If you have been using the Z-Wave JS UI app, you can migrate to the Z-Wave JS ap
 
    ![Download button in the Z-Wave JS UI web interface](/images/integrations/z-wave/z-wave-js-ui-download-backup.png)
 
-3. Stop the **Z-Wave JS UI** app. In Home Assistant, go to **Settings** > **Apps** > **Z-Wave JS UI**, then select **Stop**.
+3. Stop the **Z-Wave JS UI** app.
 
 ### Running the migration script
 
@@ -248,7 +248,7 @@ If you have been using the Z-Wave JS UI app, you can migrate to the Z-Wave JS ap
 
    ![Navigating to the temp folder in the terminal](/images/integrations/z-wave/z-wave-js-ui-migration-tmp-1.png)
 
-7. Make the script executable by running `chmod +x ./migrate_to_zwave_js_app.sh`.
+7. Make the script executable by running `chmod +x ./migrate_to_zwave_js_app.sh`
 
    ![Make the script executable in the terminal](/images/integrations/z-wave/z-wave-js-ui-migration-run-chmod.png)
 
@@ -267,25 +267,25 @@ If you have been using the Z-Wave JS UI app, you can migrate to the Z-Wave JS ap
 
    ![Reconfiguring the current adapter](/images/integrations/z-wave/z-wave-js-ui-migration-reconfigure-adapter.png)
 
-4. Depending on how your controller is connected, you might need to either select or clear the **Use the Z-Wave JS Supervisor app** checkbox.
+4. Depending on how your controller is connected, you might need to either select or clear the **Use the Z-Wave Supervisor app** checkbox.
    - _Option 1:_ If you are using a USB-based or TCP-based controller:
-     - Select the **Use the Z-Wave JS Supervisor app** checkbox.
+     - Select the **Use the Z-Wave Supervisor app** checkbox.
 
-       ![Selecting the Z-Wave JS Supervisor app checkbox](/images/integrations/z-wave/z-wave-js-ui-migration-select-option.png)
+       ![Selecting the Z-Wave Supervisor app checkbox](/images/integrations/z-wave/z-wave-js-ui-migration-select-option.png)
 
      - In the next step, select your controller and select **Submit**.
 
        ![Reconfiguring the current adapter](/images/integrations/z-wave/z-wave-js-ui-migration-select-adapter-1.png)
 
    - _Option 2:_ If you are using a GPIO module or if your controller is not showing up in the list:
-     - Clear the **Use the Z-Wave JS Supervisor app** checkbox.
+     - Clear the **Use the Z-Wave Supervisor app** checkbox.
 
-       ![Deselecting the Z-Wave JS Supervisor app](/images/integrations/z-wave/z-wave-js-ui-migration-deselect-option.png)
+       ![Deselecting the Z-Wave Supervisor app](/images/integrations/z-wave/z-wave-js-ui-migration-deselect-option.png)
 
      - Enter the connection details for your Z-Wave JS app:
        - In the **URL** field, enter `ws://core-zwave-js:3000`.
 
-       ![Entering the WebSocket URL for the Z-Wave JS app](/images/integrations/z-wave/z-wave-js-ui-migration-enter-url.png)
+       ![Reconfiguring the current adapter](/images/integrations/z-wave/z-wave-js-ui-migration-enter-url.png)
 
 5. Remove the temporary files you uploaded to the `/tmp` folder for the migration.
 6. Done! Your Z-Wave JS app is now managing your Z-Wave network. You can start the Z-Wave JS app and stop and uninstall the Z-Wave JS UI app.
@@ -725,6 +725,28 @@ Valid code slots are between 1-254.
 | -------------- | -------- | ------------------------------------------------------ |
 | `entity_id`    | no       | Lock entity or list of entities to clear the usercode. |
 | `code_slot`    | yes      | The code slot to clear the usercode from.              |
+
+### Action: Get lock usercode
+
+The `zwave_js.get_lock_usercode` action retrieves [usercodes](/docs/scripts/perform-actions#use-templates-to-handle-response-data) from a lock. You can query a specific code slot or retrieve all code slots at once. Returns the usercode and in-use status for each slot.
+
+| Data attribute | Required | Description                                                                                                                                   |
+| -------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`    | no       | Lock entity or list of entities to get usercodes from.                                                                                        |
+| `code_slot`    | no       | The code slot to retrieve. If not specified, all code slots are returned.                                                                     |
+
+{% details "Example action response" %}
+
+```yaml
+"1":
+  usercode: "1234"
+  in_use: true
+"2":
+  usercode: ""
+  in_use: false
+```
+
+{% enddetails %}
 
 ## Events
 

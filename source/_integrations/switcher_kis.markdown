@@ -44,6 +44,7 @@ Supported devices:
 - Switcher Light SL02
 - Switcher Light SL02 Mini
 - Switcher Light SL03
+- Switcher Heater
 
 Devices that require a token:
 
@@ -54,6 +55,7 @@ Devices that require a token:
 - Switcher Light SL02
 - Switcher Light SL02 Mini
 - Switcher Light SL03
+- Switcher Heater
 
 If you completed the integration setup but are still unable to control the device, please make sure your device's firmware is up-to-date.
 
@@ -92,7 +94,7 @@ For Switcher light control devices (Switcher Runner S11, Switcher Runner S12, an
   
 ## Sensors
 
-For Switcher power control devices (Switcher Power Plug, Switcher Touch, Switcher V2/V4) the integration provides the following sensors:
+For Switcher power control devices (Switcher Power Plug, Switcher Touch, Switcher V2/V4, Switcher Heater) the integration provides the following sensors:
 | Sensor Name         | Description                                            | Example           |
 | ------------------- | ------------------------------------------------------ | ----------------- |
 | `Auto Shutdown`*    | The auto shutdown time limit configured on the device  | 01:30:00          |

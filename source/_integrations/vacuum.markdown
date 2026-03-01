@@ -30,7 +30,7 @@ A vacuum {% term entity %} can have the following states:
 
 ## Actions
 
-Available actions: `start`, `pause`, `stop`, `return_to_base`, `locate`, `clean_spot`, `set_fan_speed` and `send_command`.
+Available actions: `start`, `pause`, `stop`, `return_to_base`, `locate`, `clean_spot`, `clean_area`, `set_fan_speed`, and `send_command`.
 
 Before calling one of these actions, make sure your vacuum platform supports it.
 
@@ -81,6 +81,15 @@ The `vacuum.clean_spot` action tells the vacuum cleaner to do a spot clean-up.
 | Data attribute | Optional | Description                                                      |
 | ---------------------- | -------- | ---------------------------------------------------------------- |
 | `entity_id`            | yes      | Only act on specific vacuum. Use `entity_id: all` to target all. |
+
+### Action: Clean area
+
+The `vacuum.clean_area` action tells the vacuum to clean one or more Home Assistant areas. To use this action, the vacuum's segments must first be mapped to areas.
+
+| Data attribute | Optional | Description                                                      |
+| ---------------------- | -------- | ---------------------------------------------------------------- |
+| `entity_id`            | yes      | Only act on specific vacuum. Use `entity_id: all` to target all. |
+| `cleaning_area_id`     | no       | List of areas for the vacuum to clean.                           |
 
 ### Action: Set fan speed
 
