@@ -14,29 +14,35 @@ ha_codeowners:
   - '@SierraNL'
 ---
 
-The **Fresh-R** {% term integration %} uses the dashboard provided for the end user [Fresh-R.me](https://www.fresh-r.me/).
+The **Fresh-R** {% term integration %} connects to the [Fresh-R.me](https://www.fresh-r.me/) cloud dashboard, letting you monitor all Fresh-R ventilation devices linked to your account. It polls the Fresh-R cloud to keep your data up to date.
 
-With this integration, it is possible to get information from all the Fresh-R devices connected to the account. The integration emulates the user flow in a minimal way and polls for data.
+## Prerequisites
+
+- A Fresh-R account on [Fresh-R.me](https://www.fresh-r.me/).
+- At least one Fresh-R ventilation unit connected to your Fresh-R account.
 
 {% include integrations/config_flow.md %}
 
-There is currently support for the following device types within Home Assistant:
+{% configuration_basic %}
+Username:
+  description: The email address you use to sign in to your Fresh-R account.
+Password:
+  description: The password for your Fresh-R account.
+{% endconfiguration_basic %}
 
-- **[Sensor](#sensor)**
+## Supported functionality
 
-## Sensor
+### Sensors
 
-This integration provides the following sensors:
+The integration provides the following sensors:
 
-|Name|Description|
-|----|-----------|
-|Inside temperature|Temperature of the outgoing air in the unit in °C|
-|Outside temperature|Temperature of the incoming air in the unit in °C|
-|Inside CO2|CO2 in ppm|
-|Inside Humidity|Humidity in %|
-|Flow|Flow in m3/h|
-|Dew Point|Dew point in °C|
+- **Inside temperature**: Temperature of the air leaving the ventilation unit, in °C.
+- **Outside temperature**: Temperature of the incoming fresh air, in °C.
+- **Inside CO2**: CO2 concentration of the indoor air, in ppm.
+- **Inside humidity**: Relative humidity of the indoor air, in %.
+- **Flow**: Air flow rate through the ventilation unit, in m³/h.
+- **Dew point**: Dew point temperature of the indoor air, in °C.
 
 {% note %}
-Some systems support an air quality sensor, that is not yet supported.
+Some Fresh-R systems include an air quality sensor, which is not yet supported by this integration.
 {% endnote %}
