@@ -38,7 +38,7 @@ Calendar name:
 {% endconfiguration_basic %}
 
 {% note %}
-The integration currently only supports the following countries and regions.
+The integration currently only supports the following countries and regions:
 
 - The Netherlands
   - Midden
