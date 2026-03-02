@@ -48,6 +48,10 @@ To define Home Assistant Assist as default assistant app on your Android phone, 
 9. You can now also start Assist from your lock screen.
    <lite-youtube videoid="8TsutVHj7LQ" videotitle="Use Home Assistant from anywhere on Android"></lite-youtube>
 
+{% note %}
+This feature is experimental. If the app becomes unresponsive or stops opening as expected, you can disable Home Assistant as your default digital assistant. On your Android phone, go to **Settings** > **Apps** > **Default apps** > **Digital assistant app** and select a different assistant or **None**. If you run into issues, please [open an issue on GitHub](https://github.com/home-assistant/android/issues) so the team can look into it.
+{% endnote %}
+
 To activate Assist hands-free, [enable wake word detection](#enabling-wake-word-detection-on-android).
 
 ### About wake word detection on Android
