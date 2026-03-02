@@ -159,6 +159,9 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 - [Lock Pro (WoLockPro)](https://www.switch-bot.com/pages/switchbot-lock-pro)
 - [Lock Ultra (WoLockUltra)](https://www.switch-bot.com/products/switchbot-lock-ultra)
 - [Lock Lite (WoLockLite)](https://www.switchbot.jp/products/switchbot-lock-lite)
+- Lock Vision
+- Lock Vision Pro
+- Lock Pro Wifi
 
 ### Humidifiers
 
@@ -667,7 +670,7 @@ Options:
 2. Under **Integration entries**, find the lock and select **Configure**.
 3. In the **Options** dialog, configure the nightlatch operation mode.
 
-#### Lock Pro
+#### Lock Pro (Wifi)
 
 This is an encrypted device.
 
@@ -714,6 +717,40 @@ Features:
 - Lock or unlock
 - calibration state
 - get battery level
+
+#### Lock Vision
+
+This is an encrypted device.
+
+Features:
+
+- Lock or unlock
+- calibration state
+- get battery level
+
+Options:
+
+1. To enable nightlatch operation mode, go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Under **Integration entries**, find the lock and select **Configure**.
+3. In the **Options** dialog, configure the nightlatch operation mode.
+
+#### Lock Vision Pro
+
+This is an encrypted device.
+
+Features:
+
+- Lock or unlock
+- open or closed state
+- auto-lock paused state
+- calibration state
+- get battery level
+
+Options:
+
+1. To enable nightlatch operation mode, go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Under **Integration entries**, find the lock and select **Configure**.
+3. In the **Options** dialog, configure the nightlatch operation mode.
 
 ### Hubs
 
