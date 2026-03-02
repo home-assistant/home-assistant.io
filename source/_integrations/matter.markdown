@@ -197,10 +197,9 @@ This guide describes how to add a new device. This will use the Bluetooth connec
 5. To view the device details, go to {% my config_matter title="**Settings** > **Matter**" %}.
 6. Select **Devices** and select the device you just added.
    - By default, the device gets a factory specified name. To rename it, on the device page, select the pencil {% icon "mdi:edit" %} to edit and rename the device.
+
    ![image](/images/integrations/matter/matter-android-rename.png)
-7. By default, the device gets a factory specified name. To rename it, on the device page, select the pencil {% icon "mdi:edit" %} to edit and rename the device.
-   ![image](/images/integrations/matter/matter-android-rename.png)
-8. Your device is now ready to use.
+7. Your device is now ready to use.
 
 <p class='img'>
     <img width="300" src="/images/integrations/matter/matter_android_connect_new.webp" alt="Screencast showing how to add a new Matter device to Home Assistant."/>
