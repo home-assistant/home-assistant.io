@@ -97,12 +97,13 @@ The **Fresh-r** integration {% term polling polls %} sensor readings from the Fr
 - Some Fresh-r systems include an air quality sensor, which is not yet supported by this integration.
 - Because data is {% term polling polled %} every 10 minutes, sensor values may be slightly behind real-time readings.
 - The integration depends on the Fresh-r cloud service. If the service is unavailable, data will not update until the connection is restored.
+- Devices that are removed from your Fresh-r account are not automatically removed from Home Assistant. Remove and re-add the integration to update the device list.
 
 ## Troubleshooting
 
 ### Authentication failed
 
-If the integration shows an authentication error during setup or stops working after some time, make sure the username (email address) and password you entered match the credentials you use to sign in to [fresh-r.me](https://www.fresh-r.me/). If you recently changed your password, remove the integration and add it again with your updated credentials.
+If the integration shows an authentication error, make sure the username (email address) and password you entered match the credentials you use to sign in to [fresh-r.me](https://www.fresh-r.me/). If you recently changed your password, remove the integration and add it again with your updated credentials.
 
 ### Cannot connect to Fresh-r
 
@@ -110,7 +111,7 @@ If the integration cannot connect or sensor values stop updating, check that you
 
 ### No devices appear after setup
 
-If the integration is set up successfully but no devices or sensors appear in Home Assistant, make sure at least one Fresh-r ventilation unit is connected and visible in your [fresh-r.me](https://www.fresh-r.me/) dashboard before setting up the integration. If you add a new device to your account later, remove and re-add the integration to pick it up.
+If the integration is set up successfully but no devices or sensors appear in Home Assistant, make sure at least one Fresh-r ventilation unit is connected and visible in your [fresh-r.me](https://www.fresh-r.me/) dashboard before setting up the integration. If you add or remove a device from your account, remove and re-add the integration to update the device list.
 
 ## Removing the integration
 
