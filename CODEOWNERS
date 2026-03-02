@@ -699,7 +699,7 @@ source/_integrations/osoenergy.markdown @osohotwateriot
 source/_integrations/otbr.markdown @home-assistant/core
 source/_integrations/ourgroceries.markdown @OnFreund
 source/_integrations/overkiz.markdown @imicknl
-source/_integrations/seerr.markdown @joostlek @AmGarera
+source/_integrations/overseerr.markdown @joostlek @AmGarera
 source/_integrations/ovo_energy.markdown @timmo001
 source/_integrations/p1_monitor.markdown @klaasnicolaas
 source/_integrations/palazzetti.markdown @dotvav
