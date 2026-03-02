@@ -1,6 +1,6 @@
 ---
 title: WebDAV
-description: Instructions on how to setup a WebDAV location to be used with backups.
+description: Instructions on how to set up WebDAV for backups and storage monitoring.
 ha_release: 2025.3
 ha_category:
   - Backup
@@ -45,6 +45,35 @@ Verify SSL:
 - [Beeline Cloud](https://cloudbeeline.ru/): `https://webdav.cloudbeeline.ru` – free 10GB (forever), to enable WebDAV – navigate to Profile → Security and toggle the setting (screenshots and [detailed explanation here](https://t.me/another_mvp/49)).
 - [Mail.ru Cloud](https://cloud.mail.ru/): `https://webdav.cloud.mail.ru/` – free 8GB (forever).
 
+## Supported functionality
+
+### Backup
+
+The integration allows you to use a WebDAV-compatible location for [Home Assistant backups](/common-tasks/general/#backups).
+
+### Sensors
+
+The integration provides sensors that show the storage quota of your WebDAV server. These sensors are only available if your WebDAV server supports quota reporting (RFC 4331).
+
+- **Free space**: The amount of free storage space available on the server
+- **Used space**: The amount of storage space currently in use on the server
+
+{% note %}
+Not all WebDAV providers support quota reporting. If your server does not support this feature, no sensor entities will be created.
+{% endnote %}
+
+## Data updates
+
+Storage quota information is fetched from the server once every 15 minutes. If the server does not support quota reporting, polling is automatically disabled.
+
+## Known limitations
+
+Due to the nature of WebDAV, your server needs to have a fairly high file upload limit. If you experience issues with the backup, check the server configuration or contact your WebDAV service provider.
+
+The following WebDAV services are known to have issues with Home Assistant backups:
+
+- Yandex Disk is not supported, as the speed is artificially slowed down when using WebDAV.
+- pCloud WebDAV implementation proved to be unstable and is not recommended for backups.
 
 ## Removing the integration
 
@@ -53,13 +82,3 @@ This integration follows standard integration removal. No extra steps are requir
 {% include integrations/remove_device_service.md %}
 
 - If you remove the integration, the backup folder is not automatically deleted. You have to manually delete it.
-
-## Known issues / limitations
-
-Due to the nature of WebDAV, it is required to have a fairly high file upload limit on the server.
-If you experience issues with the backup, please check the server configuration or with your WebDAV service provider.
-
-Following WebDAV services are known to have issues with Home Assistant backups:
-
-- Yandex Disk is not supported, as the speed is artificially slowed down when using WebDAV.
-- pCloud WebDAV implementation proved to be unstable and is not recommended for backups.
