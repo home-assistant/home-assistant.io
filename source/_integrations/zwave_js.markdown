@@ -125,7 +125,7 @@ While your Z-Wave mesh is permanently stored on your adapter, the additional met
      - If your device is included using S2 security, you may be prompted to enter a PIN number provided with your device. Often, this PIN is provided with the documentation _and_ is also printed on the device itself. For more information on secure inclusion, refer to [this section](/integrations/zwave_js/#should-i-use-secure-inclusion).
 5. The UI should confirm that the device was added. After a short while (seconds to minutes), the entities should also be created.
 6. **Troubleshooting**: If the adapter fails to add/find your device, cancel the inclusion process.
-   - In some cases, it might help to first [remove](/integrations/zwave_js/#removing-a-device-from-the-z-wave-network) a device (exclusion) before you add it, even when the device has not been added to this Z-Wave network yet.
+   - In some cases, it might help to first [remove](#removing-a-device-from-a-foreign-z-wave-network) a device (exclusion) before you add it, even when the device has not been added to this Z-Wave network yet.
    - Another approach would be to factory reset the device. Refer to the device manual to see how this is done.
 
 **Important:**
@@ -133,7 +133,7 @@ While your Z-Wave mesh is permanently stored on your adapter, the additional met
 1. **Do not move your Z-Wave adapter to include devices.** Moving the adapter is no longer necessary and leads to broken routes.
 2. **Do not initiate device inclusion from the Z-Wave adapter itself.** This is no longer supported.
 
-### Removing a device from the Z-Wave network
+### Removing a device from the current Z-Wave network
 
 Do this before using the device with another adapter, or when you don't use the device anymore. It removes the device from the Z-Wave network stored on the adapter. It also removes the device and all its entities from Home Assistant. You can not join a device to a new network if it is still paired with an adapter.
 
@@ -146,6 +146,16 @@ Do this before using the device with another adapter, or when you don't use the 
    - The Z-Wave adapter is now in exclusion mode.
 5. Put the device you want to remove in exclusion mode. Refer to its manual to learn how this is done.
 6. The UI should confirm that the device was removed and the device and entities will be removed from Home Assistant.
+
+### Removing a device from a foreign Z-Wave network
+
+Do this when you have a device that is still paired with an adapter, but you don't have access to that adapter anymore. If the device was not excluded from that adapter, you cannot join it to a new network. This process removes the device from the previous adapter's network, allowing you to pair it with a new adapter.
+
+1. In Home Assistant, go to {% my config_zwave_js title="**Settings** > **Z-Wave**" %}.
+2. Select **Options**.
+3. Next to **Remove foreign device**, select **Remove** > **Start exclusion**.
+4. Put the device you want to remove in exclusion mode. Refer to its manual to learn how this is done.
+5. The UI should confirm that the device was removed and the device and entities will be removed from Home Assistant.
 
 ## Migrating a Z-Wave network to a new adapter
 
