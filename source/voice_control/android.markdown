@@ -67,7 +67,7 @@ Wake word detection runs entirely on your Android device, which means it works w
 ### Enabling wake word detection on Android
 
 {% note %}
-The wake word detection is experimental. If the app becomes unresponsive or stops opening as expected, you can disable Home Assistant as your default digital assistant. On your Android phone, go to **Settings** > **Apps** > **Default apps** > **Digital assistant app** and select a different assistant or **None**. If you run into issues, please [open an issue on GitHub](https://github.com/home-assistant/android/issues) so the team can look into it.
+Wake word detection is experimental. If the app becomes unresponsive or stops opening as expected, you can disable Home Assistant as your default digital assistant to turn off wake word detection. On your Android phone, go to **Settings** > **Apps** > **Default apps** > **Digital assistant app** and select a different assistant or **None**. If you run into issues, please [open an issue on GitHub](https://github.com/home-assistant/android/issues) so the team can look into it.
 {% endnote %}
 
 To enable wake word detection on your Android device, follow these steps:
