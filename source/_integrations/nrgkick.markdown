@@ -13,6 +13,7 @@ ha_integration_type: device
 ha_config_flow: true
 ha_zeroconf: true
 ha_platforms:
+  - binary_sensor
   - number
   - sensor
   - switch
@@ -148,6 +149,7 @@ These sensors are only available on NRGkick SIM models and are disabled by defau
 - **Vehicle connected since**: Timestamp derived from the device-reported connection time.
 - **Vehicle charging time** (s): Charging time of the most recent charge session.
 - **Status**: Charging status (for example standby, connected, charging, error).
+- **Charge permitted**: Tells whether the EV is allowed to charge (`on`) or not (`off`).
 - **Charge count**: Vehicle plug-in cycle count.
 - **RCD trigger**: Indicates if the RCD got triggered and which type.
 - **Warning code**: Current warning code reported by the device.
