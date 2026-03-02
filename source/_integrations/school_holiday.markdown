@@ -65,7 +65,7 @@ The integration provides the following entities.
 ### Open cover during school holidays
 
 ```yaml
-automations:
+automation:
   - alias: "Open cover during school holidays"
     triggers:
       - trigger: time
