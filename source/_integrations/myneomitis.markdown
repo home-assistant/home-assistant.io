@@ -37,9 +37,9 @@ The **MyNeomitis** {% term integration %} connects your [Axenco](https://www.axe
 
 {% configuration_basic %}
 Email:
-description: The email address associated with your MyNeomitis account.
+  description: The email address associated with your MyNeomitis account.
 Password:
-description: The password for your MyNeomitis account.
+  description: The password for your MyNeomitis account.
 {% endconfiguration_basic %}
 
 ## Use cases
