@@ -440,7 +440,7 @@ The following features can be accessed from the integration configuration panel:
 
 ![Z-Wave integration configuration panel](/images/integrations/z-wave/z-wave-integration-config-panel.png)
 
-- **Add device**: Button in the bottom-left corner. Allows you to pre-provision a SmartStart device or start the inclusion process for adding a new device to your network.
+- **Add device**: Button in the bottom-right corner. Allows you to pre-provision a SmartStart device or start the inclusion process for adding a new device to your network.
 
 The **My network** section gives you access to the device and entity lists for your Z-Wave network.
 
