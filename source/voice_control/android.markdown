@@ -48,10 +48,6 @@ To define Home Assistant Assist as default assistant app on your Android phone, 
 9. You can now also start Assist from your lock screen.
    <lite-youtube videoid="8TsutVHj7LQ" videotitle="Use Home Assistant from anywhere on Android"></lite-youtube>
 
-{% note %}
-This feature is experimental. If the app becomes unresponsive or stops opening as expected, you can disable Home Assistant as your default digital assistant. On your Android phone, go to **Settings** > **Apps** > **Default apps** > **Digital assistant app** and select a different assistant or **None**. If you run into issues, please [open an issue on GitHub](https://github.com/home-assistant/android/issues) so the team can look into it.
-{% endnote %}
-
 To activate Assist hands-free, [enable wake word detection](#enabling-wake-word-detection-on-android).
 
 ### About wake word detection on Android
@@ -71,6 +67,7 @@ Wake word detection runs entirely on your Android device, which means it works w
 ### Enabling wake word detection on Android
 
 To enable wake word detection on your Android device, follow these steps:
+
 #### Prerequisites
 
 - Home Assistant Companion App version 2026.2.3 or later
@@ -89,6 +86,10 @@ To enable wake word detection on your Android device, follow these steps:
    - Hey Mycroft
    **Result**:  Once enabled, wake word detection works even when your device is locked or the app is in the background.
 6. To use Assist on Android, say your chosen wake word, wait for the listening prompt, and then speak your command.
+
+{% note %}
+The wake word detection is experimental. If the app becomes unresponsive or stops opening as expected, you can disable Home Assistant as your default digital assistant. On your Android phone, go to **Settings** > **Apps** > **Default apps** > **Digital assistant app** and select a different assistant or **None**. If you run into issues, please [open an issue on GitHub](https://github.com/home-assistant/android/issues) so the team can look into it.
+{% endnote %}
 
 #### Controlling wake word detection from Home Assistant
 
