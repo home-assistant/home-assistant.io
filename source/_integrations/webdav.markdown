@@ -77,8 +77,8 @@ The following WebDAV services are known to have issues with Home Assistant backu
 
 ## Removing the integration
 
-This integration follows standard integration removal. No extra steps are required.
+This integration follows standard integration removal in Home Assistant. No extra steps are required in Home Assistant.
 
 {% include integrations/remove_device_service.md %}
 
-- If you remove the integration, the backup folder is not automatically deleted. You have to manually delete it.
+- If you want to free up space on your WebDAV server after removing the integration, you can manually delete the Home Assistant backup folder on the server. It is not removed automatically.
