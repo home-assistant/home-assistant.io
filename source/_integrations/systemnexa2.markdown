@@ -7,6 +7,7 @@ ha_category:
   - Switch
 ha_config_flow: true
 ha_platforms:
+  - diagnostics
   - light
   - sensor
   - switch
