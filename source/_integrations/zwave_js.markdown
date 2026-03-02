@@ -440,11 +440,21 @@ The following features can be accessed from the integration configuration panel:
 
 ![Z-Wave integration configuration panel](/images/integrations/z-wave/z-wave-integration-config-panel.png)
 
-- **Add device:** Allows you to pre-provision a SmartStart device or start the inclusion process for adding a new device to your network.
-- **Remove device:** Starts the exclusion process for removing a device from your network.
-- **Rebuild network routes:** Discovers new routes between the adapter and the device. This is useful when devices or the adapter have moved to a new location, or if you are having significant problems with your network, but it also generates a lot of network traffic and should be used sparingly.
-- **[Adapter statistics](https://zwave-js.github.io/node-zwave-js/#/api/controller?id=quotstatistics-updatedquot):** Provides statistics about communication between the adapter and other devices, allowing you to troubleshoot your network's RF quality.
-- **Third-party data opt-in/out:** Allows you to opt-in or out of telemetry that the Z-Wave JS project collects to help inform development decisions, influence manufacturers, etc. This telemetry is disabled by default and has to be opted in to be activated.
+- **Add device**: Button in the bottom-left corner. Allows you to pre-provision a SmartStart device or start the inclusion process for adding a new device to your network.
+
+The **My network** section gives you access to the device and entity lists for your Z-Wave network.
+
+- **Show map**: Allows you to see a visual representation of your Z-Wave network, showing the devices and the routes between them. This can be helpful to troubleshoot issues in your network.
+
+- **Options** > **Remove device:** Starts the exclusion process for [removing a foreign device from a network](#removing-a-device-from-a-foreign-z-wave-network). This allows you to remove a device that is still paired to another Z-Wave adapter.
+- **Options** > **Discover and assign new routes:** Discovers new routes between the adapter and the device. This is useful when devices or the adapter have moved to a new location, or if you are having significant problems with your network. The discovery process generates a lot of network traffic and should be used sparingly.
+- **[Statistics](https://zwave-js.github.io/node-zwave-js/#/api/controller?id=quotstatistics-updatedquot):** Provides statistics about communication between the adapter and other devices, allowing you to troubleshoot your network's RF quality.
+- **Logs**: Provides access to Z-Wave JS logs, which can be helpful to troubleshoot issues with your network.
+- **Analytics:** Allows you to opt-in or out of telemetry that the Z-Wave JS project collects to help development and manufacturers make informed decisions. This telemetry is disabled by default and has to be opted in to be activated.
+- **Network information**: Meta data about your Z-Wave network, such as the Home ID, server version or server URL. This information can be helpful when troubleshooting your network or when contacting support.
+- **Download backup**: Create and [download a backup of your Z-Wave network](#downloading-the-backup-from-z-wave-js-ui). The backup contains the non-volatile memory (NVM) of your Z-Wave adapter, which includes all paired devices. It is recommended to create a backup before making any major changes to your Z-Wave network, such as migrating to a new adapter or resetting your adapter.
+- **Restore from backup**: [Restore your Z-Wave network from a backup file](#restoring-a-z-wave-network-from-backup) that you previously downloaded. This can be helpful when migrating to a new adapter, or when you want to restore your network after resetting your adapter.
+- **Migrate adapter**: Allows you to [migrate your Z-Wave network to a new adapter](#migrating-a-z-wave-network-to-a-new-adapter).
 
 ### Integration menu
 
