@@ -2,26 +2,53 @@
 title: Derivative
 description: Instructions on how to integrate Derivative Sensor into Home Assistant.
 ha_category:
-  - Utility
   - Energy
+  - Helper
   - Sensor
+  - Utility
 ha_release: 0.105
 ha_iot_class: Calculated
-logo: derivative.png
 ha_qa_scale: internal
 ha_codeowners:
   - '@afaucogney'
+  - '@karwosts'
 ha_domain: derivative
+ha_config_flow: true
 ha_platforms:
+  - diagnostics
   - sensor
+ha_integration_type: helper
+ha_quality_scale: internal
 ---
 
-The `derivative` platform creates a sensor that estimates the derivative of the values provided by a source sensor.
-Derivative sensors are updated upon changes of the **source**.
+The derivative ([Wikipedia](https://en.wikipedia.org/wiki/Derivative)) {% term integration %} creates a sensor that estimates the derivative of the
+values provided by another sensor (the **source sensor**). Derivative sensors are updated upon changes of the **source sensor**.
 
-## Configuration
+For sensors that reset to zero after a power interruption and need a "non-negative derivative", such as bandwidth counters in routers, or rain gauges, you can now use this integration directly. Ensure that the input sensor has a `total_increasing` state class, as this is necessary for the integration to handle resets correctly without registering significant changes in the derivative sensor.
 
-To enable Derivative Sensor in your installation, add the following to your `configuration.yaml` file:
+{% include integrations/config_flow.md %}
+{% configuration_basic %}
+Name:
+  description: The name the sensor should have. You can change it again later.
+Input sensor:
+  description: The entity providing numeric readings to create the derivative of.
+Precision:
+  description: Round the calculated derivative value to at most N decimal places.
+Time window:
+  description: The time window in which to calculate the derivative. Derivatives in this window will be averaged with a simple moving average algorithm (SMA) weighted by time. This is for instance useful for a sensor that outputs discrete values, or to filter out short duration noise. By default the derivative is calculated between two consecutive updates without any smoothing.
+Metric Prefix:
+  description: Metric unit to prefix the derivative result ([Wikipedia](https://en.wikipedia.org/wiki/Unit_prefix)).
+Time unit:
+  description: SI unit of time of the derivative. If this parameter is set, the unit of measurement will be set to **x/y** where **x** is the unit of the source sensor and **y** is the value of this parameter.
+Max sub-interval:
+  description: Normally, the derivative is calculated each time the source sensor updates. If a time is specified for this option, the derivative will also be recalculated if this amount of time elapses without an update of the source sensor.
+{% endconfiguration_basic %}
+
+## YAML configuration
+
+Alternatively, this integration can be configured and set up manually via YAML
+instead. To enable the Derivative sensor in your installation, add the
+following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -38,8 +65,12 @@ source:
 name:
   description: Name to use in the frontend.
   required: false
-  default: source entity ID meter
+  default: source entity ID derivative
   type: string
+unique_id:
+  description: An ID that uniquely identifies the derivative sensor. Set this to a unique value to allow customization through the UI.
+  required: false
+  type: string  
 round:
   description: Round the calculated derivative value to at most N decimal places.
   required: false
@@ -60,10 +91,15 @@ unit:
   required: false
   type: string
 time_window:
-  description: The time window in which to calculate the derivative. This is useful for sensor that output discrete values. By default the derivative is calculated between two consecutive updates.
+  description: The time window in which to calculate the derivative. Derivatives in this window will be averaged with a Simple Moving Average algorithm weighted by time. This is for instance useful for a sensor that outputs discrete values, or to filter out short duration noise. By default the derivative is calculated between two consecutive updates without any smoothing.
   default: 0
   required: false
   type: time
+max_sub_interval:
+  description: Normally, the derivative is calculated each time the source sensor updates. If a time is specified for this option, the derivative will also be recalculated if this amount of time elapses without an update of the source sensor.
+  required: false
+  type: time
+  default: 0
 {% endconfiguration %}
 
 ## Temperature example
@@ -72,7 +108,7 @@ For example, you have a temperature sensor `sensor.temperature` that outputs a v
 That means that two consecutive output values might be the same (so the derivative is `Δy/Δx=0` because `Δy=0` !)
 However, the temperature might actually be changing over time.
 In order to capture this, you should use a `time_window`, such that immediate jumps don't result in high derivatives and that after the next sensor update, the derivatives doesn't vanish to zero.
-An example configuration that uses `time_window` is
+An example YAML configuration that uses `time_window` is
 
 ```yaml
 sensor:

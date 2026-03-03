@@ -1,0 +1,40 @@
+{% assign related_topics = "" | split: ',' %}
+{% assign related_links = "" | split: ',' %}
+{%- for entry in page.related -%}
+{%- if entry.url -%}
+{% assign related_links = related_links | push: entry %}
+{% else %}
+{% assign related_topics = related_topics | push: entry %}
+{% endif %}
+{%- endfor -%}
+{% if related_topics and related_topics.size != 0 %}
+<div class="text related-topics">
+  <h2>Related topics<a class="title-link" href="#related-topics" name="related-topics"></a></h2>
+  <ul>
+    {%- for related in related_topics -%}
+    {% assign computed = related.docs | split: "#" %}
+    {% assign target_url = computed[0] %}
+    {% assign target_page = site.data["site_pages"][target_url] %}
+    {% unless target_page == null %}
+    {% assign link_target = computed[1] %}
+    {% assign suggested_title = related.title | default: link_target | split: "-" | join: " " | capitalize %}
+    <li>
+      <a href="{{ target_page['url'] | relative_url }}{% if link_target %}#{{link_target}}{% endif %}" class="topic">
+        {{ suggested_title | default: target_page["title"]}}
+      </a>
+    </li>
+    {% endunless %}
+    {%- endfor -%}
+  </ul>
+</div>
+{% endif %}
+{% if related_links and related_links.size != 0 %}
+<div class="text related-links">
+  <h2>Related links<a class="title-link" href="#related-links" name="related-links"></a></h2>
+  <ul>
+    {% for link in related_links %}
+    <li><a href="{{ link.url }}" class="link" target="_blank">{{ link.title | default: link.url }}</a></li>
+    {% endfor %}
+  </ul>
+</div>
+{% endif %}

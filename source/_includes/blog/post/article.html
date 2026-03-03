@@ -1,17 +1,16 @@
 <header>
   {% if index %}
-  <h1 class="beta">
+  <h1>
     <a href="{{ post.url }}">{{ post.title }}</a>
   </h1>
   {% else %}
-  <h1 class="title indent">{{ page.title }}</h1>
+  <h1>{{ page.title }}</h1>
   {% endif %}
 
   {% unless post.meta == false %}
   <div class="meta clearfix">
-    {% include blog/post/date.html %}{{ time }}
     {% include post/author.html %}
-    <span><i class='icon-time'></i> {{ post.content | reading_time_as_s }} reading time</span>
+    {% include blog/post/date.html %}{{ time }}
     {% include blog/post/tags.html %}
     {% if page.comments != false and post.comments != false %}
       <a class='comments'

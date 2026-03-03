@@ -26,7 +26,7 @@ TL;DR:
 - Upgrade the custom integrations to a fixed version or remove them from your installation.
 - If you have used any of the custom integrations with a known vulnerability, we recommend that you update your credentials.
 
-On the morning of Saturday, January 23 2021, the Home Assistant project was informed by [security researcher Nathan Brady](https://twitter.com/NateBrady23) about a security vulnerability. It provided more insight on the implementation of the fixes done for the [previous security vulnerability](/blog/2021/01/22/security-disclosure/). We learned that not all custom integrations that implement security patches are sufficient to deflect the problem.
+On the morning of Saturday, January 23 2021, the Home Assistant project was informed by security researcher Nathan Brady about a security vulnerability. It provided more insight on the implementation of the fixes done for the [previous security vulnerability](/blog/2021/01/22/security-disclosure/). We learned that not all custom integrations that implement security patches are sufficient to deflect the problem.
 
 We verified all fixes made to custom integrations that were found to be vulnerable in the previous security disclosure. The conclusion is that some custom integrations are still vulnerable to a directory traversal attack while not being authenticated with Home Assistant. It allows an attacker to access any file without having to log in. This access includes any credentials that you might have stored to allow Home Assistant to access other services.
 

@@ -75,7 +75,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 <!--more-->
 
-## Breaking Changes
+## Backward-incompatible changes
 
 - We have added a new option to whitelist folders that can be used as sources for sending files. You will need to use this option if you are using files with the telegram component. ([@pvizeli] - [#8189]) (breaking change)
 

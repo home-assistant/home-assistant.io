@@ -8,9 +8,11 @@ ha_iot_class: Cloud Polling
 ha_domain: travisci
 ha_platforms:
   - sensor
+ha_integration_type: integration
+ha_quality_scale: legacy
 ---
 
-With this sensor platform, you will be able to integrate the test build results reported by [Travis-CI](https://travis-ci.org/) working within Home Assistant.
+With this {% term integration %}, you will be able to integrate the test build results reported by [Travis-CI](https://travis-ci.org/) working within Home Assistant.
 
 ## Setup
 
@@ -24,7 +26,7 @@ Create a GitHub [access token](https://github.com/settings/tokens) with the foll
 
 ## Configuration
 
-To enable this platform, please add the following to your `configuration.yaml` file:
+To enable this platform, please add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry

@@ -36,11 +36,11 @@ On the Z-Wave front a lot has happened. The biggest one is that we have a major 
 </p>
 Thanks to the work by the Python Open Z-Wave team we are now able to install it on demand from PyPi! There is no longer a need to pre-compile it yourself. This should give us the guarantee that we work with the Python Open Z-Wave version that the code expects.
 
-<div class='note warning'>
+{% warning %}
 
 If you have a security key set in your Open Z-Wave `options.xml`, copy `options.xml` to your Home Assistant configuration directory. This is the only place where options will get persisted.
 
-</div>
+{% endwarning %}
 
 Next to that [@armills] has lead the charge and managed to get full test coverage for Z-Wave! Thanks for all the hard work!
 
@@ -85,7 +85,7 @@ If you are using our [experimental Hass.io image][hass.io], we made a breaking c
 ## Reporting Issues
 Experiencing issues introduced by this release? Please report them in our [issue tracker][issue]. Make sure to fill in all fields of the issue template.
 
-## Breaking changes
+## Backward-incompatible changes
 
 - PyPI Openzwave ([@JshWright] - [#7415]) ([zwave docs]) (breaking change)
 - Remove listening to `homeassistant_start` with event automation ([@balloob] - [#7474]) ([automation.event docs]) (breaking change)

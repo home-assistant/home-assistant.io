@@ -8,15 +8,17 @@ ha_release: 0.61
 ha_iot_class: Cloud Polling
 ha_domain: coinbase
 ha_platforms:
+  - diagnostics
   - sensor
 ha_codeowners:
   - '@tombrien'
 ha_config_flow: true
+ha_integration_type: service
 ---
 
-The `coinbase` integration lets you access account balances and exchange rates from [Coinbase](https://coinbase.com).
+The **Coinbase** {% term integration %} lets you access account balances and exchange rates from [Coinbase](https://coinbase.com).
 
-You will need to obtain an API key from the API section in Coinbase's [User Settings](https://www.coinbase.com/settings/api) to use this integration. You need to select the account wallet or wallets (e.g. "BTC Wallet") that you wish to show in Home Assistant and give read access to `wallet:accounts` in order for the integration to access relevant data. It is worth noting that once you close the New API Key popup on Coinbase you will not be able to see the API Secret again.
+You will need to obtain an API key from the API section in Coinbase's [User Settings](https://www.coinbase.com/settings/api) to use this integration. Your API key and secret should be of the form `organizations/XXXXX/apiKeys/XXXXX` and `-----BEGIN EC PRIVATE KEY-----\nXXXXXXXXXXXXXXXXX\n-----END EC PRIVATE KEY-----\n` respectively. When creating your API key, it is highly recommended to ensure that only the **View** box is ticked in the **API restrictions** section.
 
 {% include integrations/config_flow.md %}
 
@@ -36,4 +38,6 @@ Exchange rates to report:
   description: Optional list of currencies to create exchange rate sensors for.
 Base currency for exchange rate sensors:
   description: Currency used as the currency unit for exchange rate sensors. The default is US Dollar (USD).
+Number of decimal places for exchange rates:
+  description: The number of decimals calculated in exchange rate sensors, a smaller number of decimal places may be returned when the upstream data from Coinbase lacks sufficient precision, this is usually the case when the exchange rate is much larger than the base currency and thus should have no significant effect on calculations.
 {% endconfiguration_basic %}

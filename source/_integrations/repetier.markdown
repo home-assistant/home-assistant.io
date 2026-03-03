@@ -7,10 +7,12 @@ ha_category:
 ha_release: 0.94
 ha_iot_class: Local Polling
 ha_codeowners:
-  - '@MTrab'
+  - '@ShadowBr0ther'
 ha_domain: repetier
 ha_platforms:
   - sensor
+ha_integration_type: integration
+ha_quality_scale: legacy
 ---
 
 [Repetier-Server](https://www.repetier-server.com/) is a 3D printer/CNC server, able to control multiple devices on the same server.
@@ -102,8 +104,8 @@ camera:
 
 To generate the needed API-key do the following:
 
-* Go to your Repetier Server web-console
-* Push the settings icon (the gear icon)
-* Select User Profiles.
-* Create a new user, deselect all options and click Create User.
-* Edit the newly created user and take note of the API-key for this user, that's the one to use in the Home Assistant Settings
+- Go to your Repetier Server web-console
+- Push the settings icon (the gear icon)
+- Select User Profiles.
+- Create a new user, deselect all options and click Create User.
+- Edit the newly created user and take note of the API-key for this user, that's the one to use in the Home Assistant Settings

@@ -200,7 +200,7 @@ This is super annoying, I know, especially since we had said in [0.12][zero-one-
  - Fix a spelling problem on user-facing error ([@robbiet480])
  - YAML includes will ignore dirs/files prefixed with . ([@lwis])
 
-## Breaking changes
+## Backward-incompatible changes
 
  - The [HTTP] component now takes a different format for authenticating IPs
  - Configuration format has changed for [Proximity]

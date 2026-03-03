@@ -37,7 +37,7 @@ Tons of new supported things in 0.20.
 - Export to [Logentries] support added ([@omgapuppy])
 - Group more info dialog allows control of group domain if available (@fignuts)
 
-### Breaking changes
+### Backward-incompatible changes
 
 - Asus WRT will now default to SSH with Telnet being an option
 

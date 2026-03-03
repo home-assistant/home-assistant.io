@@ -176,7 +176,7 @@ The following platforms have been added to existing integrations:
 - Add Huawei LTE binary sensor support, mobile connection sensor ([@scop] - [#28226]) ([huawei_lte docs]) (new-platform)
 - Broadlink remote ([@felipediel] - [#26528]) ([broadlink docs]) (new-platform)
 
-## Breaking Changes
+## Backward-incompatible changes
 
 If you are an existing user, make sure to read the this section **before** upgrading,
 this helps you understand the changes and avoids having issues during an upgrade.
@@ -217,7 +217,7 @@ All services for use in Home Assistant are moved to their integration naming spa
 - **Xiaomi Miio**: `*.xiaomi_*` -> `xiaomi_miio.*` ([#29134])
 - **Yamaha**: `media_player.yamaha_*` -> `yamaha.*` ([#29142])
 
-### Other Breaking Changes
+### Other backward-incompatible changes
 
 - **Mobile App** - Loading the Mobile App no longer causes the Cloud integration to be loaded. If you relied on this, add `cloud:` to your configuration.yaml. - ([@balloob] - [#29373]) ([mobile_app docs])
 - **Samsung TV** - The behavior for next and previous track commands for Samsung TVs has changed. Before the change, the Samsung TV integration reacted to the two above commands sending the KEY_FF and KEY_REWIND commands. While watching TV programs, those two commands do nothing. After the change, the entity sends the KEY_CHUP and KEY_CHDOWN commands instead, thus allowing the user to change the channel using the media player standard Lovelace interface. The user doesn't need to change anything in the configuration. - ([@tulindo] - [#28213]) ([samsungtv docs])

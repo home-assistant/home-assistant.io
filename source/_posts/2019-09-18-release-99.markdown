@@ -107,7 +107,7 @@ We have published a release candidate of HassOS that is compatible with the new 
 
 Home Assistant had a booth this year at the [CEDIA home tech trade show](https://www.cediaexpo.com/). We spend a lot of time talking to manufacturers about local APIs, official integrations and better support for open source systems.
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Hanging out at <a href="https://twitter.com/CEDIAExpo?ref_src=twsrc%5Etfw">@CEDIAExpo</a> in innovation alley <a href="https://t.co/9SnUXo11oA">pic.twitter.com/9SnUXo11oA</a></p>&mdash; Home Assistant (@home_assistant) <a href="https://twitter.com/home_assistant/status/1172559987979292673?ref_src=twsrc%5Etfw">September 13, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Hanging out at <a href="https://twitter.com/CEDIAExpo?ref_src=twsrc%5Etfw">@CEDIAExpo</a> in innovation alley <a href="https://t.co/9SnUXo11oA">pic.twitter.com/9SnUXo11oA</a></p>&mdash; Home Assistant (@home_assistant) <a href="https://twitter.com/home_assistant/status/1172559987979292673?ref_src=twsrc%5Etfw">September 13, 2019</a></blockquote>
 
 We also had some great drinks in the evenings with companies that integrate with Home Assistant. In this picture [Konnected.io](/integrations/konnected) and Senic.
 
@@ -116,7 +116,7 @@ We also had some great drinks in the evenings with companies that integrate with
 
 [@timmo] has released version 2.0 of his Home Panel. This is an alternative user interface for Home Assistant.
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">It&#39;s finally here. 🎉<br><br>Home Panel v2.0.0 is now released and has been completely rewritten in <a href="https://twitter.com/hashtag/React?src=hash&amp;ref_src=twsrc%5Etfw">#React</a> with <a href="https://twitter.com/hashtag/TypeScript?src=hash&amp;ref_src=twsrc%5Etfw">#TypeScript</a><br><br>⚠️Please read the release notes before upgrading as are breaking changes to know about before upgrading!<a href="https://t.co/NMDQu4zZW8">https://t.co/NMDQu4zZW8</a><a href="https://twitter.com/hashtag/HomePanel?src=hash&amp;ref_src=twsrc%5Etfw">#HomePanel</a> <a href="https://twitter.com/hashtag/HomeAssistant?src=hash&amp;ref_src=twsrc%5Etfw">#HomeAssistant</a> <a href="https://t.co/ucA1HxwurB">pic.twitter.com/ucA1HxwurB</a></p>&mdash; Timmo (@timmo001) <a href="https://twitter.com/timmo001/status/1172958335982850052?ref_src=twsrc%5Etfw">September 14, 2019</a>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">It&#39;s finally here. 🎉<br><br>Home Panel v2.0.0 is now released and has been completely rewritten in <a href="https://twitter.com/hashtag/React?src=hash&amp;ref_src=twsrc%5Etfw">#React</a> with <a href="https://twitter.com/hashtag/TypeScript?src=hash&amp;ref_src=twsrc%5Etfw">#TypeScript</a><br><br>⚠️Please read the release notes before upgrading as are backward-incompatible changes to know about before upgrading!<a href="https://t.co/NMDQu4zZW8">https://t.co/NMDQu4zZW8</a><a href="https://twitter.com/hashtag/HomePanel?src=hash&amp;ref_src=twsrc%5Etfw">#HomePanel</a> <a href="https://twitter.com/hashtag/HomeAssistant?src=hash&amp;ref_src=twsrc%5Etfw">#HomeAssistant</a> <a href="https://t.co/ucA1HxwurB">pic.twitter.com/ucA1HxwurB</a></p>&mdash; Timmo (@timmo001) <a href="https://twitter.com/timmo001/status/1172958335982850052?ref_src=twsrc%5Etfw">September 14, 2019</a>
 </blockquote>
 
 [@cogneato]: https://github.com/cogneato
@@ -191,7 +191,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 <!--more-->
 
-## Breaking Changes
+## Backward-incompatible changes
 
 - **Unifi** - Removes support of directly configuring the UniFi platform for device trackers. Use `unifi:` instead. Extra configuration through config entry options from the GUI (see release notes 0.98 for example) and through unifi configuration in configuration.yaml will continue to work.- ([@Kane610] - [#26587]) ([unifi docs])
 
@@ -266,12 +266,12 @@ Experiencing issues introduced by this release? Please report them in our [issue
       password: password
   ```
 
-* **Radiotherm** - Update climate attributes. Automations may break if the user is checking against the previous "mode" or "fan" attributes or previous mode or fan attribute values. - ([@dieselrabbit] - [#26465]) ([radiotherm docs])
+- **Radiotherm** - Update climate attributes. Automations may break if the user is checking against the previous "mode" or "fan" attributes or previous mode or fan attribute values. - ([@dieselrabbit] - [#26465]) ([radiotherm docs])
 
   - The old "mode" attribute is now supported via "hvac_action" attribute.
   - The old "fan" attribute now called "fan_action" to follow "hvac_action" .
 
-* **SolarEdge** - Monitored conditions are no longer supported. - ([@Cereal2nd] - [#26282]) ([solaredge docs])
+- **SolarEdge** - Monitored conditions are no longer supported. - ([@Cereal2nd] - [#26282]) ([solaredge docs])
 
 - **SMA** - Removes deprecated SMA config - ([@balloob] - [#26306]) ([sma docs])
 

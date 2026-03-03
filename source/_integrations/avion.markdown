@@ -8,6 +8,8 @@ ha_release: 0.37
 ha_domain: avion
 ha_platforms:
   - light
+ha_integration_type: integration
+ha_quality_scale: legacy
 ---
 
 Support for the Avi-on Bluetooth dimmer switch [Avi-on](https://avi-on.com/).
@@ -26,7 +28,8 @@ with the email and password fields replaced with those used when registering the
 
 ## Configuration
 
-To enable these lights, add the following lines to your `configuration.yaml` file:
+To enable these lights, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -34,7 +37,7 @@ light:
   - platform: avion
 ```
 
-There are two ways to configure this component: username & password, or list of devices. You must choose one.
+There are two ways to configure this integration: username & password, or list of devices. You must choose one.
 
 {% configuration %}
 username:

@@ -20,25 +20,25 @@ A big improvement has been brought this release by wind-rider. He took the time 
   <img src='/images/screenshots/media_player-card.png' />   Example of the new media player cards
 </p>
 
-<div class='note'>
+{% note %}
 To update to the latest version, run <code>scripts/update</code>. Please report any issues on <a href='https://github.com/home-assistant/home-assistant/issues'>GitHub</a>.
-</div>
+{% endnote %}
 
 <!--more-->
 
 Before jumping into the newly supported platforms, here are the other improvements that are landing this release:
 
- * Fronted upgraded to Polymer 1.0 by @balloob
- * Include other YAML files using the `!include` keyword by @andythigpen
- * Switch support and bug fixes for Vera platform by @jamespcole
- * HTTP session support for the HTTP component by @jamespcole
- * Device tracker bugfixes by @Dutchy-
- * Bugfix for device tracker platform by @fbradyirl
- * Fixing Chromecast support by @wind-rider
- * Media player improvements by @balloob and @wind-rider
- * Nest thermostat bugfixes by @balloob
- * Fix the device tracker getting in a deadlock by @balloob
- * Update documentation by @fabaff
+- Fronted upgraded to Polymer 1.0 by @balloob
+- Include other YAML files using the `!include` keyword by @andythigpen
+- Switch support and bug fixes for Vera platform by @jamespcole
+- HTTP session support for the HTTP component by @jamespcole
+- Device tracker bugfixes by @Dutchy-
+- Bugfix for device tracker platform by @fbradyirl
+- Fixing Chromecast support by @wind-rider
+- Media player improvements by @balloob and @wind-rider
+- Nest thermostat bugfixes by @balloob
+- Fix the device tracker getting in a deadlock by @balloob
+- Update documentation by @fabaff
 
 __Music Player Daemon__
 <img src='/images/supported_brands/mpd.png' style='border:none; box-shadow: none; float: right;' height='50' /> Fabaff has contributed MusicPlayerDaemon support. The mpd platform allows you to control a [Music Player Daemon](http://www.musicpd.org/) from Home Assistant. Right now, only playback is supported and not playlist manipulation.

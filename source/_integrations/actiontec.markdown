@@ -2,25 +2,31 @@
 title: Actiontec
 description: Instructions on how to integrate Actiontec routers into Home Assistant.
 ha_category:
-  - Presence Detection
+  - Presence detection
 ha_iot_class: Local Polling
 ha_release: 0.7
 ha_domain: actiontec
 ha_platforms:
   - device_tracker
+ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
+ha_quality_scale: legacy
 ---
 
-This platform allows you to detect presence by looking at connected devices to an [Actiontec](https://www.actiontec.com/) device.
+The **Actiontec** {% term integration %} allows you to detect presence by looking at devices connected to an [Actiontec](https://www.actiontec.com/) device.
 
 Supported devices (tested):
 
 - MI424WR (Verizon FIOS)
 
-<div class='note warning'>
+{% important %}
 This device tracker needs telnet to be enabled on the router.
-</div>
+{% endimportant %}
 
-To use this device tracker in your installation, add the following to your `configuration.yaml` file:
+To use this device tracker in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

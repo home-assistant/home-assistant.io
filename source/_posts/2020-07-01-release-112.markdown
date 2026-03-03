@@ -288,7 +288,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 <!--more-->
 
-## Breaking Changes
+## Backward-incompatible changes
 
 - **Tile**
 
@@ -322,7 +322,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 - **Xiaomi Miio**
 
-  Due to general code updates to the xiaomi_miio vacuum component there are breaking changes to the following services:
+  Due to general code updates to the xiaomi_miio vacuum component there are backward-incompatible changes to the following services:
 
   - `xiaomi_miio.vacuum_remote_control_start`
   - `xiaomi_miio.vacuum_remote_control_stop`
@@ -514,7 +514,7 @@ Previously the `autobypass` configuration option only worked for `home` and `awa
 
 - **Hunter Hydrawise**
 
-  Hydrawise made an API change that removed rain sensor status, changed the behavior of the automatic watering switches, and the way in which the watering schedule is reported. As a result, the following breaking changes were made.
+  Hydrawise made an API change that removed rain sensor status, changed the behavior of the automatic watering switches, and the way in which the watering schedule is reported. As a result, the following backward-incompatible changes were made.
 
   - The rain sensor is no longer available.
   - The `auto_watering` switch state now reports `off` when the corresponding watering zone is actively watering. If `auto_watering` is enabled the switch status will report `off` when watering starts and will return to `on` when watering stops in that zone.

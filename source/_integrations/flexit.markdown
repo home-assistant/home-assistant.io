@@ -8,13 +8,19 @@ ha_iot_class: Local Polling
 ha_domain: flexit
 ha_platforms:
   - climate
+ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
+ha_quality_scale: legacy
 ---
 
 Integrates [Flexit](https://www.flexit.no/en/) Air Conditioning unit into Home Assistant.
 
 Requires an CI66 Modbus Adapter [CI66](https://www.flexit.no/en/products/air_handling_units_700-5000_m-h/accessories_ahu/modbusadapter_ci66/modbus_adapter_ci66_k2-c2-uni/)
 
-To enable this platform, add the following lines to your `configuration.yaml` file:
+To enable this integration, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -39,11 +45,9 @@ hub:
   type: string
 {% endconfiguration %}
 
-<div class='note'>
-
-This integration requires the [Modbus](/integrations/modbus/) integration to be set up to work
-
-</div>
+{% important %}
+This integration requires the [Modbus](/integrations/modbus/) integration to be set up to work.
+{% endimportant %}
 
 Full configuration example including modbus setup shown below:
 

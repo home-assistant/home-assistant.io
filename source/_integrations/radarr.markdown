@@ -4,156 +4,179 @@ description: Instructions on how to integrate Radarr sensors with Home Assistant
 ha_category:
   - Downloading
 ha_release: 0.47
+ha_config_flow: true
 ha_iot_class: Local Polling
 ha_domain: radarr
 ha_platforms:
+  - binary_sensor
+  - calendar
   - sensor
+ha_codeowners:
+  - '@tkdrob'
+ha_integration_type: service
 ---
 
-This `radarr` sensor platform pulls data from a given [Radarr](https://radarr.video/) instance.
+The **Radarr** {% term integration %} pulls data from a given [Radarr](https://radarr.video/) instance.
+Your API key can be found in Settings > General in the Radarr Web UI.
 
-## Configuration
+{% include integrations/config_flow.md %}
 
-To use your Radarr sensor in your installation, add the following to your `configuration.yaml` file:
+## Integration entities
+
+### Binary sensor
+
+- **Health**: Shows if the Radarr instance is healthy. This is determined to have a problem if Radarr cannot communicate with any enabled download clients or no indexers are available for RSS feeds or searches.
+
+### Calendar
+
+A calendar entity will be created indicating the day of release and the type of release, such as Cinemas, Digital, or Physical.
+
+### Sensors
+
+- **Disk space**: Shows the disk space available to Radarr in gigabytes. A separate sensor is created for each storage path configured in Radarr (for example: `sensor.radarr_disk_space_movies`).
+- **Movies**: Shows the number of movies in the Radarr database. (disabled by default)
+- **Queue**: The number of movies in the download queue. (disabled by default)
+- **Start time**: The time when Radarr was last restarted. (disabled by default)
+
+## Actions
+
+### Action `radarr.get_movies`
+
+Get the list of all movies in Radarr with their details and statistics.
+
+| Data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entry_id` | no | The Radarr config entry to use. |
+
+#### Response data
+
+The response is a dictionary with a single key `movies` containing a dictionary of movie objects indexed by movie title.
+
+| Return attribute | Description |
+| ---------------------- | ----------- |
+| `id` | Internal Radarr movie ID. |
+| `title` | Movie title. |
+| `year` | Release year. |
+| `tmdb_id` | The Movie Database (TMDB) ID. |
+| `imdb_id` | Internet Movie Database (IMDb) ID. |
+| `status` | Movie status (e.g., "released", "announced"). |
+| `monitored` | Whether the movie is monitored. |
+| `has_file` | Whether the movie file exists. |
+| `path` | Path where the movie is stored. |
+| `movie_file_count` | Number of movie files. |
+| `size_on_disk` | Size of movie files in bytes. |
+| `images` | Dictionary of image URLs by type (poster, fanart). |
+
+#### Example action
 
 ```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: radarr
-    api_key: YOUR_API_KEY
+action: radarr.get_movies
+data:
+  entry_id: "01234567890abcdef1234567890abcde"
 ```
 
-{% configuration %}
-api_key:
-  required: true
-  type: string
-  description: Your Radarr API key, found in Settings > General in the Radarr Web UI.
-host:
-  required: false
-  type: string
-  description: The host Radarr is running on.
-  default: "`localhost`"
-port:
-  required: false
-  type: integer
-  description: The port Radarr is running on.
-  default: 7878
-urlbase:
-  required: false
-  type: string
-  description: The base URL Radarr is running under. Defaults to `/`.
-monitored_conditions:
-  required: false
-  type: list
-  description: Conditions to display on the frontend.
-  default: "`movies`"
-  keys:
-    movies:
-      description: The number of movies in Radarr.
-    upcoming:
-      description: The number of upcoming movie releases (physical and in cinemas).
-    commands:
-      description: The number of commands being run.
-    diskspace:
-      description: The available disk space.
-    status:
-      description: The current system status information.
-days:
-  required: false
-  type: integer
-  description: How many days to look ahead for the upcoming sensor, 1 means today only.
-  default: 1
-include_paths:
-  required: false
-  type: list
-  description: Array of file paths to include when calculating diskspace. Leave blank to include all.
-unit:
-  required: false
-  type: string
-  description: The unit to display disk space in.
-  default: GB
-ssl:
-  required: false
-  type: boolean
-  description: Whether or not to use SSL for Radarr.
-  default: false
-{% endconfiguration %}
-
-## Examples
-
-In this section you find some real-life examples of how to use this sensor.
-
-### Show upcoming movie releases in the next 2 days
+#### Example response
 
 ```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: radarr
-    api_key: YOUR_API_KEY
-    host: 192.168.1.8
-    monitored_conditions:
-      - upcoming
-    days: 2
+movies:
+  The Amateur:
+    id: 3
+    title: The Amateur
+    year: 2025
+    tmdb_id: 1087891
+    imdb_id: tt0899043
+    status: released
+    monitored: true
+    has_file: true
+    size_on_disk: 0
+    path: /data/media/movies/The Amateur (2025) {tmdb-1087891}
+    movie_file_count: 0
+    images:
+      poster: https://image.tmdb.org/t/p/original/SNEoUInCa5fAgwuEBMIMBGvkkh.jpg
+      fanart: https://image.tmdb.org/t/p/original/aD7FXrm2GErTmzrIFBntPyhAqS9.jpg
+  The Maze Runner:
+    id: 4
+    title: The Maze Runner
+    year: 2014
+    tmdb_id: 198663
+    imdb_id: tt1790864
+    status: released
+    monitored: true
+    has_file: true
+    size_on_disk: 0
+    path: /data/media/movies/The Maze Runner (2014) {tmdb-198663}
+    movie_file_count: 0
+    images:
+      poster: https://image.tmdb.org/t/p/original/ode14q7WtDugFDp78fo9lCsmay9.jpg
+      fanart: https://image.tmdb.org/t/p/original/eTlcNXGv32zkVI7ZDHhfeaKHXKQ.jpg
 ```
 
-### Enable SSL
+### Action `radarr.get_queue`
 
-SSL may run on a different port than the default (7878). The SSL port can be bound to any port in Radarr, so it should be set in the configuration here (unless it is changed to 7878).
+Get all movies currently in the download queue with their progress and details.
+
+| Data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entry_id` | no | The Radarr config entry to use. |
+
+#### Response data
+
+The response is a dictionary with a single key `movies` containing a dictionary of queue item objects indexed by download title.
+
+| Return attribute | Description |
+| ---------------------- | ----------- |
+| `id` | Internal queue item ID. |
+| `movie_id` | Internal Radarr movie ID. |
+| `title` | Movie title. |
+| `download_title` | Download release name. |
+| `progress` | Download progress percentage. |
+| `size` | Total download size in bytes. |
+| `size_left` | Remaining download size in bytes. |
+| `status` | Download status (e.g., "downloading", "queued"). |
+| `tracked_download_status` | Tracked download status. |
+| `tracked_download_state` | Tracked download state. |
+| `quality` | Quality profile name (e.g., "WEBDL-1080p"). |
+| `languages` | List of language names. |
+| `download_client` | Download client name. |
+| `download_id` | Download client's ID for this download. |
+| `indexer` | Indexer name. |
+| `protocol` | Download protocol (torrent/usenet). |
+| `estimated_completion_time` | Estimated completion timestamp. |
+| `time_left` | Time remaining. |
+| `custom_format_score` | Custom format score. |
+
+#### Example action
 
 ```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: radarr
-    api_key: YOUR_API_KEY
-    host: 192.168.1.8
-    port: 9898
-    monitored_conditions:
-      - upcoming
-    days: 2
-    ssl: true
+action: radarr.get_queue
+data:
+  entry_id: "01234567890abcdef1234567890abcde"
+response_variable: queue_data
 ```
 
-### Get disk space for all storage locations
+#### Example response
 
 ```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: radarr
-    api_key: YOUR_API_KEY
-    host: 192.168.1.8
-    monitored_conditions:
-      - diskspace
-```
-
-### Get disk space for listed storage locations
-
-The storage locations Radarr returns are in the system page and in some cases this can list duplicates if sub paths are mounted separately. By listing paths to include, you can choose what data is reported by the sensor.
-
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: radarr
-    api_key: YOUR_API_KEY
-    host: 192.168.1.8
-    monitored_conditions:
-      - diskspace
-    include_paths:
-      - /tank/plex
-```
-
-### Get disk space in different unit
-
-The Radarr API returns available space in bytes, but this sensor will default to reporting it in GB to make the number more manageable. This can be overridden if your storage needs require a different unit. All units from bytes (B) to yottabytes (YB) are supported.
-
-*This calculation is done using base 2 math, and may differ from systems calculating using base 10 math.*
-
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: radarr
-    api_key: YOUR_API_KEY
-    host: 192.168.1.8
-    monitored_conditions:
-      - diskspace
-    unit: TB
+movies:
+  "The.Matrix.1999.1080p.BluRay.x264":
+    id: 123456789
+    movie_id: 1
+    title: "The Matrix"
+    download_title: "The.Matrix.1999.1080p.BluRay.x264"
+    progress: "45.32%"
+    size: 8589934592
+    size_left: 4697620070
+    status: "downloading"
+    tracked_download_status: "ok"
+    tracked_download_state: "downloading"
+    quality: "Bluray-1080p"
+    languages:
+      - "English"
+    download_client: "qBittorrent"
+    download_id: "ABC123DEF456"
+    indexer: "My Indexer"
+    protocol: "torrent"
+    estimated_completion_time: "2024-01-15T18:30:00Z"
+    time_left: "01:23:45"
+    custom_format_score: 100
 ```

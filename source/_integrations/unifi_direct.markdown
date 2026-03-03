@@ -1,18 +1,26 @@
 ---
-title: Ubiquiti UniFi AP
+title: UniFi AP
 description: Instructions on how to use a Unifi WAP as a device tracker.
 ha_category:
-  - Presence Detection
+  - Presence detection
 ha_iot_class: Local Polling
 ha_release: 0.59
 ha_domain: unifi_direct
 ha_platforms:
   - device_tracker
+ha_integration_type: integration
+ha_codeowners:
+  - '@tofuSCHNITZEL'
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
+ha_quality_scale: legacy
 ---
 
-This platform allows you to detect presence by looking at devices connected to a [UniFi AP](https://www.ui.com/products/#unifi). This device tracker differs form [Ubiquiti UniFi](/integrations/unifi) because it doesn't require the UniFi controller software.
+This {% term integration %} allows you to detect presence by looking at devices connected to a [UniFi AP](https://www.ui.com/products/#unifi). This device tracker differs from [Ubiquiti UniFi](/integrations/unifi) because it doesn't require the UniFi Network application.
 
-To use this device tracker in your installation, add the following to your `configuration.yaml` file:
+To use this device tracker in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

@@ -6,31 +6,15 @@ ha_category:
 ha_release: 0.57
 ha_iot_class: Cloud Polling
 ha_domain: whois
+ha_config_flow: true
+ha_codeowners:
+  - '@frenck'
 ha_platforms:
+  - diagnostics
   - sensor
+ha_integration_type: service
 ---
 
-The `whois` sensor platform allows you to perform daily WHOIS lookups against your owned domains. This provides you with information such as `expiration_date`, `name_servers` and `registrar` details.
+The **Whois** {% term integration %} allows you to perform daily WHOIS lookups against your owned domains. This provides you with information such as `expiration_date`, `name_servers` and `registrar` details.
 
-## Configuration
-
-To use this sensor in your installation, add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: whois
-    domain: example.net
-```
-
-{% configuration %}
-  domain:
-    description: The domain you want to perform WHOIS lookups against.
-    required: true
-    type: string
-  name:
-    description: Name to use in the frontend.
-    required: false
-    default: Whois
-    type: string
-{% endconfiguration %}
+{% include integrations/config_flow.md %}

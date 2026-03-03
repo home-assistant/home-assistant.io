@@ -8,13 +8,16 @@ ha_iot_class: Cloud Polling
 ha_domain: comed_hourly_pricing
 ha_platforms:
   - sensor
+ha_integration_type: integration
+ha_quality_scale: legacy
 ---
 
 The ComEd Hourly Pricing program is an optional program available to ComEd electric subscribers which charges customers a variable rate for electricity supply based on current demand rather than a traditional fixed rate. Live prices are published [here](https://hourlypricing.comed.com/live-prices/) and also via an [API](https://hourlypricing.comed.com/hp-api/) which we can integrate as a sensor in Home Assistant.
 
 There are two price feeds available: the 5-minute price and current hour average price.
 
-To use this sensor in your installation, add the following to your `configuration.yaml` file:
+To use this sensor in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

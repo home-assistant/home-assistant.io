@@ -1,11 +1,10 @@
 ---
 title: GreenEye Monitor (GEM)
 description: Instructions on how to integrate your GreenEye Monitor within Home Assistant.
-logo: brultech.png
 ha_category:
+  - Energy
   - Hub
   - Sensor
-  - Energy
 ha_release: 0.82
 ha_iot_class: Local Push
 ha_codeowners:
@@ -13,11 +12,17 @@ ha_codeowners:
 ha_domain: greeneye_monitor
 ha_platforms:
   - sensor
+ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
+ha_quality_scale: legacy
 ---
 
-The [GreenEye Monitor (GEM)](https://www.brultech.com/greeneye/) integration for Home Assistant allows you to create sensors for the various data channels of the GEM. Each current transformer (CT) channel, pulse counter, and temperature sensor appears in Home Assistant as a sensor, and can be used in automations.
+The [GreenEye Monitor (GEM)](https://www.brultech.com/greeneye/) {% term integration %} for Home Assistant allows you to create sensors for the various data channels of the GEM. Each current transformer (CT) channel, pulse counter, and temperature sensor appears in Home Assistant as a sensor, and can be used in automations.
 
-Configure your GEM(s) to produce binary-format packets (for example, "Bin32 NET" for a 32-channel GEM with some channels configured for net metering) and send them to an unused port on your Home Assistant machine. (These settings are in the "Packet Send" and "Network" pages of the GEM UI.) Then specify that port and information about your monitor(s) and the data channels you wish to monitor in your `configuration.yaml`:
+Configure your GEM(s) to produce binary-format packets (for example, "Bin32 NET" for a 32-channel GEM with some channels configured for net metering) and send them to an unused port on your Home Assistant machine. (These settings are in the "Packet Send" and "Network" pages of the GEM UI.) Then specify that port and information about your monitor(s) and the data channels you wish to monitor in your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

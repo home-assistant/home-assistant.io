@@ -3,22 +3,26 @@ title: AEMET OpenData
 description: Instructions on how to integrate AEMET OpenData within Home Assistant.
 ha_release: 2021.3
 ha_category:
-  - Weather
   - Sensor
+  - Weather
 ha_iot_class: Cloud Polling
 ha_config_flow: true
-ha_codeowners:
-  - '@noltari'
 ha_domain: aemet
 ha_platforms:
+  - diagnostics
+  - image
   - sensor
   - weather
+ha_integration_type: service
+ha_codeowners:
+  - '@Noltari'
 ---
 
-The AEMET weather platform uses [AEMET OpenData](https://opendata.aemet.es/) as a source for current meteorological data for your location. AEMET stands for "Agencia Estatal de Meteorología", which is the Spanish Meteorological Agency.
+The **AEMET** {% term integration %} uses [AEMET OpenData](https://opendata.aemet.es/) as a source for current meteorological data for your location. AEMET stands for "Agencia Estatal de Meteorología", which is the Spanish Meteorological Agency.
 
-There is currently support for the following device types within Home Assistant:
+There is currently support for the following entity types within Home Assistant:
 
+- Image
 - Sensor
 - Weather
 
@@ -27,7 +31,7 @@ The AEMET OpenData service is completely free but is limited to the Spanish terr
 
 ## Configuration
 
-To add AEMET OpenData integration go to **Configuration** >> **Integrations** and find the integration in the list.
+To add AEMET OpenData integration go to {% my integrations title="**Settings** > **Devices & services**" %} and find the integration in the list.
 
 {% configuration_basic %}
 API Key:
@@ -66,4 +70,12 @@ For each condition, the following sensors are created:
 | wind_max_speed      | Max Wind speed.                      |
 | wind_speed          | Wind speed.                          |
 
+The integration creates an image entity for the weather radar if the radar option is enabled.
+
 Details about the API are available in the [AEMET OpenData documentation](https://opendata.aemet.es/dist).
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}

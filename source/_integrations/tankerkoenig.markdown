@@ -9,98 +9,98 @@ ha_iot_class: Cloud Polling
 ha_domain: tankerkoenig
 ha_codeowners:
   - '@guillempages'
+  - '@mib1185'
+  - '@jpbede'
 ha_platforms:
+  - binary_sensor
+  - diagnostics
   - sensor
+ha_config_flow: true
+related:
+  - docs: /common-tasks/general/#defining-a-custom-polling-interval
+    title: Defining a custom polling interval
+ha_integration_type: service
+ha_quality_scale: platinum
 ---
 
-The `tankerkoenig` platform allows you to monitor the fuel prices with [tankerkoenig.de](https://www.tankerkoenig.de/) from within Home Assistant and setup automations based on the information.
-One sensor entity will be created for each fuel station within the given radius and for each configured fuel type in it.
+The **Tankerkoenig** {% term integration %} allows you to monitor the fuel prices with [tankerkoenig.de](https://www.tankerkoenig.de/) from within Home Assistant and setup automations based on the information.
 
-You can also add additional stations manually, referencing them via their IDs. To find out the ID for a given fuel station, you can use the [TankstellenFinder](https://creativecommons.tankerkoenig.de/TankstellenFinder/index.html) tool.
+## Prerequisites
 
-## Setup
+To use this integration, you need an API key from tankerkoenig. 
+1. Go to [tankerkoenig API](https://creativecommons.tankerkoenig.de) and in the top right, select **API-KEY**.
+2. Fill out the form and request a free API key.
 
-To use this sensor you need an API key from tankerkoenig. Go to [tankerkoenig API](https://creativecommons.tankerkoenig.de) and click on API-KEY in the top right, fill out the form and request a key. The API is free, but requests should be limited to less than once every 5 minutes.
+{% important %}
+The Terms & Conditions of tankerkoenig.de specify that the API is not meant for massive data fetching, but it does not explicitly mention a limit. Having a maximum of 10 monitored fuel stations is recommended, and a warning will be issued otherwise.
+If you consider to [define a custom polling interval](/common-tasks/general/#defining-a-custom-polling-interval), then please keep in mind that requests should be limited to less than once every 5 minutes.
+{% endimportant %}
 
-It is recommended to choose a radius that doesn't return too many fuel stations. The Terms & Conditions of tankerkoenig.de specify that the API is not meant for massive data fetching, but it does not explicitly mention a limit. Having a maximum of 10 monitored fuel stations is recommended, and a warning will be issued otherwise.
+{% include integrations/config_flow.md %}
 
-## Configuration
+{% configuration_basic %}
+Region name:
+    description: "The name of the particular region to be added."
+API Key:
+    description: "The tankerkoenig API-KEY to be used (_see [Prerequisites](#prerequisites)_)."
+Location:
+    description: "Pick the location where to search for gas stations (_defaults to the location of your Home which was et during [onboarding](/getting-started/onboarding)_)"
+Search radius:
+    description: "The radius in kilometers to search for gas stations around the selected location (_default: 2km_)"
+Stations:
+    description: "Select the gas stations you want to add to Home Assistant."
+{% endconfiguration_basic %}
 
-To enable this platform, add the following lines to your `configuration.yaml`:
+{% include integrations/option_flow.md %}
 
-```yaml
-# Example configuration.yaml entry
-tankerkoenig:
-  api_key: YOUR_API_KEY
-  radius: 1
-  fuel_types:
-    - "diesel"
-```
+{% configuration_basic %}
+Stations:
+    description: "Select the gas stations you want to add to Home Assistant."
+Show stations on map:
+    description: "Weather to show the station sensors on the map or not."
+{% endconfiguration_basic %}
 
-{% configuration %}
-api_key:
-  description: The api key you got when you registered.
-  required: true
-  type: string
-fuel_types:
-  description: The types of fuels you want to track. Allowed values are `e5`, `e10` and `diesel`.
-  required: false
-  default: ["e5", "e10", "diesel"]
-  type: list
-latitude:
-  description: The latitude of the gas station to list.
-  required: inclusive
-  type: float
-  default: latitude of your home zone
-longitude:
-  description: The longitude of the gas station to list.
-  required: inclusive
-  type: float
-  default: longitude of your home zone
-radius:
-  description: The radius in km. in which to search for gas stations. Cannot be less than 1.
-  required: false
-  default: 2
-  type: integer
-scan_interval:
-  description: The time interval in seconds to poll the server for new data. You should not put values lower than 5 minutes here; otherwise you risk your API key being blocked.
-  required: false
-  default: 1800 (30min)
-  type: time
-stations:
-  description: List of additional fuel stations to create entities for.
-  required: false
-  type: list
-show_on_map:
-  description: Display all gas stations on map.
-  default: true
-  required: false
-  type: boolean
-{% endconfiguration %}
+## Data updates
 
-## Full example
+This integration fetches the data every 30 minutes from the [tankerkoenig API](https://creativecommons.tankerkoenig.de).
 
-This is a full example of the platform:
+## Provides entities
+
+This integrations provides a set of {% term "Binary sensor" %} and {% term Sensor %} entities for each selected gas station.
+
+| Sensors | Description |
+| --- | --- |
+| Status | Indicates if the gas station is opened or closed at the moment. |
+| Diesel | The current price of Diesel fuel. |
+| Super | The current price of Super fuel. |
+| Super E10 | The current price of Super E10 fuel. |
+
+{% note %}
+As the data of [tankerkoenig.de](https://www.tankerkoenig.de/) is based on data from the German market transparency office for fuels (_[Markttransparenzstelle für Kraftstoffe](https://www.bundeskartellamt.de/DE/Aufgaben/MarkttransparenzstelleFuerKraftstoffe/MTS-K_Infotext/mts-k_node.html) MTS-K_), only the three base fuel types `Diesel`, `Super`, and `Super E10` are available.
+{% endnote %}
+
+## Usage examples
+
+### Show current fuel price only when station is opened
+
+The example below uses the common [sensor card](/dashboards/sensor/) in the {% term frontend %} and adds a visibility condition.
 
 ```yaml
-tankerkoenig:
-  api_key: YOUR_API_KEY
-  fuel_types:
-    - "diesel"
-    - "e10"
-  latitude: 52.51627
-  longitude: 13.3777
-  radius: 1
-  scan_interval: "0:10:01"
-  stations:
-    - 8531b393-1e42-423b-cb4d-e4b98cff8a0c
-  show_on_map: false
+graph: line
+type: sensor
+entity: sensor.my_favorite_gas_station_super
+detail: 1
+name: Favorite Gas Station
+visibility:
+  - condition: state
+    entity: binary_sensor.my_favorite_gas_station_status
+    state: "on"
 ```
 
-Assuming there are only two fuel stations within the specified range and location, you would get six sensor entities:
- * sensor.tankerkoenig_berlin_paulstrasse_20_diesel
- * sensor.tankerkoenig_berlin_paulstrasse_20_e10
- * sensor.tankerkoenig_aral_tankstelle_diesel
- * sensor.tankerkoenig_aral_tankstelle_e10
- * sensor.tankerkoenig_svg_hamburg_strassen_diesel
- * sensor.tankerkoenig_svg_hamburg_strassen_e10
+## Troubleshooting
+
+Before reporting an issue, enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics) and restart the integration. As soon as the issue re-occurs, stop the debug logging again (_download of debug log file will start automatically_). Further, _if still possible_, download the {% term diagnostics %} data. If you have collected the debug log and the diagnostics data, include them in the issue report.
+
+## Remove the integration
+
+{% include integrations/remove_device_service.md %}

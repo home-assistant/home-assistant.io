@@ -18,7 +18,7 @@ To go with the configuration entry support, MQTT also now also integrates with t
 Lovelace has another three new cards, the alarm panel, the button card, and the thermostat card:
 
 <p class='img'>
-  <img src='/images/lovelace/lovelace_thermostat_card.gif' alt='Screenshot of the thermostat card'>
+  <img src='/images/dashboards/lovelace_thermostat_card.gif' alt='Screenshot of the thermostat card'>
   Screenshot of the thermostat card.
 </p>
 
@@ -141,7 +141,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 <!--more-->
 
-## Breaking Changes
+## Backward-incompatible changes
 
 - LIFX can now be configured from the integrations page in the config panel and advanced configuration is available through the `lifx:` component configuration. Configuring LIFX via light platform config no longer works. ([@amelchio] - [#17201]) ([lifx docs]) ([light.lifx docs]) (breaking change)
 - Daikin Climate now follows the official operating modes, making it compatible with Google Assistant, Alexa and HomeKit. ([@MatteGary] - [#16913]) ([climate.daikin docs]) (breaking change)

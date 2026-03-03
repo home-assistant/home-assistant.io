@@ -3,7 +3,7 @@ title: ASUSWRT
 description: Instructions on how to integrate ASUSWRT into Home Assistant.
 ha_category:
   - Hub
-  - Presence Detection
+  - Presence detection
   - Sensor
 ha_release: 0.83
 ha_config_flow: true
@@ -11,32 +11,29 @@ ha_iot_class: Local Polling
 ha_codeowners:
   - '@kennedyshead'
   - '@ollo69'
+  - '@Vaskivskyi'
 ha_domain: asuswrt
 ha_platforms:
   - device_tracker
+  - diagnostics
   - sensor
+ha_integration_type: hub
 ---
 
-The ASUSWRT integration can connect Home Assistant to a ASUS router that runs on ASUSWRT firmware.
+The **ASUSWRT** {% term integration %} can connect Home Assistant to a ASUS router that runs on ASUSWRT firmware.
 
 There is currently support for the following device types within Home Assistant:
 
 - **Presence Detection** - The ASUSWRT platform offers presence detection by looking at connected devices to a ASUSWRT based router.
-- **Sensor** - The ASUSWRT sensor platform allows you to get upload and download data from your ASUSWRT within Home Assistant.
+- **Sensor** - The ASUSWRT sensors platform allows you to get information from your ASUS router within Home Assistant.
 
-## Configuration
+{% include integrations/config_flow.md %}
 
-To add your ASUSWRT devices into your Home Assistant installation, go to:
-
-**Configuration** -> **Integrations** in the UI, click the button with `+` sign and from the list of integrations select **ASUSWRT**.
-
-<div class='note warning'>
-
+{% important %}
 You need to enable telnet on your router if you choose to use `protocol: telnet`.
+{% endimportant %}
 
-</div>
-
-### Sensor Configuration
+### Sensors configuration
 
 These sensors are automatically created and associated to the router device:
 
@@ -46,21 +43,36 @@ These sensors are automatically created and associated to the router device:
 - Upload sensor (unit_of_measurement: Gigabyte - *Daily accumulation*)
 - Upload Speed sensor (unit_of_measurement: Mbit/s)
 - Load average sensors (1min, 5min, 15min)
+- Temperature sensors (2 GHz, 5 GHz, 6 GHz, CPU). Only temperature sensors available on your router will be created.
 
-Only `Connected devices sensor` is created in status **enabled**, all other sensors are created in status **disabled**.
-To use them, simply **enable** on the devices page.
+If the integration is configured to use the http(s) protocol, also the following sensors will be available:
 
-## Integration Options
+- CPU usage sensors (percentage for total and single core)
+- Memory usage sensor (percentage)
+- Free memory sensor (Megabyte)
+- Memory used sensor (Megabyte)
+- Last boot sensor (Timestamp)
+- Uptime sensor (HH:MM:SS)
 
-It is possible to change some behaviors through the integration options. These can be changed at **ASUSWRT** -> **Options** on the Integrations page.
+By default, the integration will create **enabled** Device Tracker entities for devices that HA already knows about via some other integration. The ASUSWRT integration will create **disabled** device_tracker entities for other devices on the network, and the user can enable them manually in the Home Assistant GUI: go to Settings > Devices & Services > Entities. Filter on Integrations = ASUSWRT. Filter on Status = Disabled. Now you should see the disabled device_tracker entities and you can enable them one at a time as desired.
 
-- **Consider home**: Number of seconds that must elapse before considering a disconnected device "not at home"
-- **Track unknown**: Enable this option to track also devices that do not have a name. Name will be replaced by mac address.
-- **Interface**: The interface that you want statistics from (e.g. eth0,eth1 etc)
-- **Dnsmasq**: The location in the router of the dnsmasq.leases files
-- **Require IP**: If devices must have IP (this option is available only for access point mode)
+{% include integrations/option_flow.md %}
+{% configuration_basic %}
+Consider home:
+  description: Number of seconds that must elapse before considering a disconnected device `not at home`.
+Track unknown:
+  description: Enable this option to track also devices that do not have a name. Name will be replaced by mac address.
+Interface:
+  description: The interface that you want statistics from (e.g. eth0,eth1 etc).
+Dnsmasq:
+  description: The location in the router of the `dnsmasq.leases` file.
+Require IP:
+  description: If devices must have IP (this option is available only for access point mode).
+{% endconfiguration_basic %}
 
-**Note**: if you don't want to automatically track new detected device, disable the integration system option `Enable new added entities`
+{% note %}
+If you don't want to automatically track new detected device, disable the integration system option `Enable new added entities`
+{% endnote %}
 
 ## Padavan custom firmware (The rt-n56u project)
 

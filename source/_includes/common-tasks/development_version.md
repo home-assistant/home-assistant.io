@@ -1,61 +1,39 @@
-## Run a development version
+### Running a development version
 
 If you want to stay on the bleeding-edge Home Assistant Core development branch, you can upgrade to `dev`.
 
-<div class='note warning'>
+{% caution %}
+The `dev` branch is likely to be unstable. Potential consequences include loss of data and instance corruption.
+{% endcaution %}
 
-  The `dev` branch is likely to be unstable. Potential consequences include loss of data and instance corruption.
+{% if page.installation == "os" %}
 
-</div>
-
-{% if page.installation == "os" or page.installation == "supervised" %}
-
-1. Join the dev channel
+1. Join the dev channel.
 
     ```bash
     ha supervisor options --channel dev
     ```
 
-2. Reload the supervisor
+2. Reload the {% term "Home Assistant Supervisor" %}.
 
     ```bash
     ha supervisor reload
     ```
 
-3. Update Home Assistant core to the latest dev version
+3. Update {% term "Home Assistant Core" %} to the latest dev version.
 
     ```bash
-    ha core update
+    ha core update --backup
     ```
+
+    _The_ `--backup` _flag here ensures that you have a partial backup of your current setup incase you need to downgrade._
 
 {% elsif page.installation == "container" %}
 
 ```bash
-docker pull {{ site.installation.container.base }}:dev
+docker pull {{ site.installation.container }}:dev
 ```
 
 **[You then need to recreate the container with the new image.](/installation/linux#install-home-assistant-container)**
-
-{% elsif page.installation == "core" %}
-
-1. Switch to the user that is running Home Assistant
-
-    ```bash
-    sudo -u homeassistant -H -s
-    ```
-
-2. Activate the virtual environment that Home Assistant is running in
-
-    ```bash
-    source /srv/homeassistant/bin/activate
-    ```
-
-3. Download and install the version you want
-
-    ```bash
-    pip3 install --upgrade git+git://github.com/home-assistant/core.git@dev
-    ```
-
-4. When that is complete restart the service for it to use the new files.
 
 {% endif %}

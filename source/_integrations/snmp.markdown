@@ -3,9 +3,9 @@ title: SNMP
 description: Instructions on how to integrate SNMP into Home Assistant.
 ha_category:
   - Network
-  - Switch
-  - Presence Detection
+  - Presence detection
   - Sensor
+  - Switch
 ha_iot_class: Local Polling
 ha_release: 0.57
 ha_domain: snmp
@@ -13,44 +13,51 @@ ha_platforms:
   - device_tracker
   - sensor
   - switch
+ha_integration_type: integration
+ha_codeowners:
+  - '@nmaggioni'
+ha_quality_scale: legacy
 ---
 
-A lot of Wi-Fi access points and Wi-Fi routers support the Simple Network Management Protocol (SNMP). This is a standardized method for monitoring/managing network connected devices. SNMP uses a tree-like hierarchy where each node is an object. Many of these objects contain (live) lists of instances and metrics, like network interfaces, disks and Wi-Fi registrations.
+Many routers, Wi-Fi access points, printers, and other network-connected devices support the [Simple Network Management Protocol (SNMP)](https://en.wikipedia.org/wiki/Simple_Network_Management_Protocol). This is a standardized method for monitoring/managing network-connected devices. SNMP uses a tree-like hierarchy where each node is an object. Many of these objects contain continuously updated lists of metrics like network interfaces throughput, disk activity, active devices on the network, toner levels, and such.
 
 There is currently support for the following device types within Home Assistant:
 
-- [Presence Detection](#precense-detection)
+- [Presence detection](#presence-detection)
 - [Sensor](#sensor)
+  - [Finding OIDs](#finding-oids)
+  - [Examples](#examples)
+    - [Printer uptime minutes](#printer-uptime-minutes)
 - [Switch](#switch)
 
-<div class='note warning'>
-This device tracker needs SNMP to be enabled on the router. It could be that you need to install the SNMP support manually.
-</div>
+{% important %}
+This device tracker needs SNMP to be enabled on the target network device. It could be that you need to install SNMP support manually on your router, switch, server, or any other device that you will be trying to extract information from.
+{% endimportant %}
 
-## Presence Detection
+## Presence detection
 
-The following OID examples pull the current MAC Address table from a router. This reflects all recent devices seen on the network. However, since devices are not removed until they time out, this is less effective for [device tracker integration page](/integrations/device_tracker/) than desirable. It is recommended to use [Ping](/integrations/ping) or [Nmap](/integrations/nmap_tracker) instead.
+The following OIDs refer to the current MAC Address table from various common router brands. These reflect all recent devices seen on the network. However, since devices are usually not removed from these internal tables until after a predefined timeout (typically in a range of 5-15 minutes after they were last active on the network, depending on the specific manufacturer's implementation), this is less effective for [device tracking](/integrations/device_tracker/) than desirable. If near-realtime values are needed, it is recommended to use [Ping](/integrations/ping) or [Nmap](/integrations/nmap_tracker) integrations instead.
 
-| Brand | Device/Firmware | OID |
-| --- | --- | --- |
-| Aerohive | AP230 | `1.3.6.1.4.1.26928.1.1.1.2.1.2.1.1` |
-| Apple | Airport Express (2nd gen.) 7.6.9 | `1.3.6.1.2.1.3.1.1.2` or `1.3.6.1.2.1.4.22.1.2`|
-| Aruba | IAP325 on AOS 6.5.4.8 | `1.3.6.1.4.1.14823.2.3.3.1.2.4.1.1` |
-| BiPAC | 7800DXL Firmware 2.32e | `1.3.6.1.2.1.17.7.1.2.2.1.1` |
-| DD-WRT | unknown version/model | `1.3.6.1.2.1.4.22.1.2` |
-| IPFire | 2.25 | `1.3.6.1.2.1.4.22.1.2` |
-| MikroTik | unknown RouterOS version/model | `1.3.6.1.4.1.14988.1.1.1.2.1.1` |
-| MikroTik | RouterOS 6.x on RB2011 | `1.3.6.1.2.1.4.22.1.2` |
-| OpenWrt | Chaos Calmer 15.05 | `1.3.6.1.2.1.4.22.1.2` |
-| OPNSense | 19.1 | `1.3.6.1.2.1.4.22.1.2` |
-| pfSense | 2.2.4 | `1.3.6.1.2.1.4.22.1.2` |
-| Ruckus | ZoneDirector 9.13.3 | `1.3.6.1.4.1.25053.1.2.2.1.1.3.1.1.1.6` |
-| TP-Link | Archer VR1600v | `1.3.6.1.2.1.3.1.1.2.16.1` |
-| TP-Link | Archer VR2600v | `1.3.6.1.2.1.3.1.1.2.19.1` |
-| TP-Link | Archer VR600 | `1.3.6.1.2.1.3.1.1.2` |
-| Ubiquiti | Edgerouter Lite v1.9.0 | `1.3.6.1.2.1.4.22.1.2` |
+| Brand    | Device/Firmware                  | OID                                             |
+| -------- | -------------------------------- | ----------------------------------------------- |
+| Aerohive | AP230                            | `1.3.6.1.4.1.26928.1.1.1.2.1.2.1.1`             |
+| Apple    | Airport Express (2nd gen.) 7.6.9 | `1.3.6.1.2.1.3.1.1.2` or `1.3.6.1.2.1.4.22.1.2` |
+| Aruba    | IAP325 on AOS 6.5.4.8            | `1.3.6.1.4.1.14823.2.3.3.1.2.4.1.1`             |
+| BiPAC    | 7800DXL Firmware 2.32e           | `1.3.6.1.2.1.17.7.1.2.2.1.1`                    |
+| DD-WRT   | unknown version/model            | `1.3.6.1.2.1.4.22.1.2`                          |
+| IPFire   | 2.25                             | `1.3.6.1.2.1.4.22.1.2`                          |
+| MikroTik | unknown RouterOS version/model   | `1.3.6.1.4.1.14988.1.1.1.2.1.1`                 |
+| MikroTik | RouterOS 6.x on RB2011           | `1.3.6.1.2.1.4.22.1.2`                          |
+| OpenWrt  | Chaos Calmer 15.05               | `1.3.6.1.2.1.4.22.1.2`                          |
+| OPNSense | 19.1                             | `1.3.6.1.2.1.4.22.1.2`                          |
+| pfSense  | 2.2.4                            | `1.3.6.1.2.1.4.22.1.2`                          |
+| Ruckus   | ZoneDirector 9.13.3              | `1.3.6.1.4.1.25053.1.2.2.1.1.3.1.1.1.6`         |
+| TP-Link  | Archer VR1600v                   | `1.3.6.1.2.1.3.1.1.2.16.1`                      |
+| TP-Link  | Archer VR2600v                   | `1.3.6.1.2.1.3.1.1.2.19.1`                      |
+| TP-Link  | Archer VR600                     | `1.3.6.1.2.1.3.1.1.2`                           |
+| Ubiquiti | Edgerouter Lite v1.9.0           | `1.3.6.1.2.1.4.22.1.2`                          |
 
-To use the SNMP version 1 or 2c platform in your installation, add the following to your `configuration.yaml` file:
+To use SNMP version 1 or 2c in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry for SNMP version 1 or 2c
@@ -61,7 +68,7 @@ device_tracker:
     baseoid: 1.3.6.1.4.1.14988.1.1.1.2.1.1
 ```
 
-If you want to use encryption, you must enable SNMP version 3 by adding `auth_key` and `priv_key` variables and enabling SNMP version 3 on your router. Currently only SHA1 is supported for authentication and AES for encryption. Example of SNMPv3 configuration:
+If your network device supports SNMP version 3 and is configured appropriately, you can enable encryption by adding `auth_key` and `priv_key` variables. Example configuration:
 
 ```yaml
 # Example configuration.yaml entry for SNMP version 3
@@ -80,7 +87,7 @@ host:
   required: true
   type: string
 community:
-  description: The SNMP community which is set for the device. Most devices have a default community set to `public` with read-only permission (which is sufficient).
+  description: The SNMP community which is set for the device. Most devices have a default community set to `public` with read-only permission (which is sufficient for most purposes).
   required: true
   type: string
 baseoid:
@@ -99,9 +106,11 @@ priv_key:
 
 See the [device tracker integration page](/integrations/device_tracker/) for instructions how to configure the people to be tracked.
 
+{% include integrations/using_templates.md %}
+
 ## Sensor
 
-The `snmp` sensor platform displays information available through the [Simple Network Management Protocol (SNMP)](https://en.wikipedia.org/wiki/Simple_Network_Management_Protocol). SNMP uses a tree-like hierarchy where each node is an object, and is mainly supported by network-oriented devices such as routers, modems and printers.
+The `snmp` sensor platform displays values made available by network devices through the SNMP protocol.
 
 To enable this sensor in your installation, add the following to your `configuration.yaml` file:
 
@@ -114,30 +123,11 @@ sensor:
 ```
 
 {% configuration %}
-host:
-  description: The IP address of your host, e.g., `192.168.1.32`.
+accept_errors:
+  description: "Determines whether the sensor should start and keep working even if the SNMP host is unreachable or not responding. This allows the sensor to be initialized properly even if, for example, your printer is not on when you start Home Assistant."
   required: false
   type: string
-  default: 'localhost'
-baseoid:
-  description: The OID where the information is located. It's advised to use the numerical notation.
-  required: true
-  type: string
-port:
-  description: The SNMP port of your host.
-  required: false
-  type: string
-  default: '161'
-community:
-  description: "The SNMP community which is set for the device for SNMP v1 and v2c. Most devices have a default community set to `public` with read-only permission (which is sufficient)."
-  required: false
-  type: string
-  default: 'public'
-username:
-  description: Username to use for authentication.
-  required: false
-  type: string
-  default: ''
+  default: false
 auth_key:
   description: Authentication key to use for SNMP v3.
   required: false
@@ -148,6 +138,46 @@ auth_protocol:
   required: false
   type: string
   default: 'none'
+baseoid:
+  description: The OID where the information is located. It's advised to use the numerical notation.
+  required: true
+  type: string
+community:
+  description: "The SNMP community which is set for the device for SNMP v1 and v2c. Most devices have a default community set to `public` with read-only permission (which is sufficient for most devices that don't accept direct modifications of their parameters via SNMP, such as printers)."
+  required: false
+  type: string
+  default: 'public'
+default_value:
+  description: "Determines what value the sensor should take if `accept_errors` is set and the host is unreachable or not responding. If not set, the sensor will have value `unknown` in case of errors."
+  required: false
+  type: string
+device_class:
+  description: Sets the [class of the device](/integrations/sensor#device-class), changing the device state and icon that is displayed on the frontend.
+  required: false
+  type: string
+host:
+  description: The IP address of your host, e.g., `192.168.1.32`.
+  required: false
+  type: string
+  default: 'localhost'
+icon:
+  description: Defines a template for the icon of the SNMP sensor.
+  required: false
+  type: template
+name:
+  description: Defines a template for the name of the SNMP sensor.
+  required: false
+  type: template
+  default: SNMP
+picture:
+  description: Defines a template for the entity picture of the SNMP sensor.
+  required: false
+  type: template
+port:
+  description: The SNMP port of your host.
+  required: false
+  type: string
+  default: '161'
 priv_key:
   description: Privacy key to use for SNMP v3.
   required: false
@@ -158,32 +188,32 @@ priv_protocol:
   required: false
   type: string
   default: 'none'
+state_class:
+  description: The [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor.
+  required: false
+  type: string
+unique_id:
+  description: An ID that uniquely identifies this entity. This allows changing the `name`, `icon` and `entity_id` from the web interface.
+  required: false
+  type: string
+unit_of_measurement:
+  description: Defines the units of measurement of the sensor, if any.
+  required: false
+  type: string
+username:
+  description: Username to use for authentication.
+  required: false
+  type: string
+  default: ''
+value_template:
+  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to parse the value."
+  required: false
+  type: template
 version:
   description: "Version of SNMP protocol, `1`, `2c` or `3`. Version `2c` or higher is needed to read data from 64-bit counters."
   required: false
   type: string
   default: '1'
-name:
-  description: Name of the SNMP sensor.
-  required: false
-  type: string
-unit_of_measurement:
-  description: Defines the unit of measurement of the sensor, if any.
-  required: false
-  type: string
-value_template:
-  description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to parse the value."
-  required: false
-  type: template
-accept_errors:
-  description: "Determines whether the sensor should start and keep working even if the SNMP host is unreachable or not responding. This allows the sensor to be initialized properly even if, for example, your printer is not on when you start Home Assistant."
-  required: false
-  type: string
-  default: false
-default_value:
-  description: "Determines what value the sensor should take if `accept_errors` is set and the host is unreachable or not responding. If not set, the sensor will have value `unknown` in case of errors."
-  required: false
-  type: string
 {% endconfiguration %}
 
 Valid values for `auth_protocol`:
@@ -207,7 +237,7 @@ Valid values for `priv_protocol`:
 
 ### Finding OIDs
 
-OIDs may vary on different systems because they are vendor-specific. Besides the device's manual, the [OID Repository](http://www.oid-info.com/) is a good place to start if you are looking for OIDs. As an example, the following OIDs are for the load of a Linux system.
+OIDs may vary on different systems because they are vendor-specific. The best place to find OIDs is in your device's manual or vendor documentation. For example, the following OIDs are for the load of a Linux system.
 
 - 1 minute Load: `1.3.6.1.4.1.2021.10.1.3.1`
 - 5 minute Load: `1.3.6.1.4.1.2021.10.1.3.2`
@@ -343,7 +373,7 @@ vartype:
   default: 'none'
 {% endconfiguration %}
 
-You should check with your device's vendor to find out the correct BaseOID and what values turn the switch on and off.
+You should check with your device's vendor to find out the correct OID and what values turn the switch on and off.
 
 Valid values for `auth_protocol`:
 
@@ -402,9 +432,9 @@ switch:
     baseoid: 1.3.6.1.4.1.19865.1.2.1.4.0
     payload_on: 1
     payload_off: 0
-    
+
   - platform: snmp
-    name: Enable PoE on Netgear switch port 2 using SNMP v3
+    name: Enable PoE on NETGEAR switch port 2 using SNMP v3
     host: 192.168.0.4
     version: "3"
     username: "myusername"

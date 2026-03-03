@@ -16,7 +16,7 @@ module Jekyll
             #{args}
 
             Valid syntax:
-              {% my <redirect> [title="Link name"] [badge] [icon[="icon-puzzle-piece"]] [addon="core_ssh"] [blueprint_url="http://example.com/blueprint.yaml"] [domain="hue"] [service="light.turn_on"] %}
+              {% my <redirect> [title="Link name"] [badge] [icon[="icon-puzzle-piece"]] [addon="core_ssh"] [blueprint_url="http://example.com/blueprint.yaml"] [domain="hue"] [brand="philips"] [service="light.turn_on"] %}
           MSG
         end
       end
@@ -33,6 +33,7 @@ module Jekyll
         query += [["addon", options[:addon]]] if options.include? :addon
         query += [["blueprint_url", options[:blueprint_url]]] if options.include? :blueprint_url
         query += [["domain", options[:domain]]] if options.include? :domain
+        query += [["brand", options[:brand]]] if options.include? :brand
         query += [["repository_url", options[:repository_url]]] if options.include? :repository_url
         query += [["service", options[:service]]] if options.include? :service
         unless query.empty?
@@ -52,8 +53,8 @@ module Jekyll
             # Custom title
             title = options[:title]
           elsif @redirect == "developer_call_service"
-            # Developer service call
-            title = "Call Service"
+            # Developer actions
+            title = "Perform action"
             title = "`#{options[:service]}`" if options.include? :service
           elsif DEFAULT_TITLES.include?(@redirect)
             # Lookup defaults
@@ -64,10 +65,10 @@ module Jekyll
             raise ArgumentError, "No default icon for redirect #{@redirect}" \
             if !!options[:icon] == options[:icon] and ! DEFAULT_ICONS.include?(@redirect)
               icon = !!options[:icon] == options[:icon] ? DEFAULT_ICONS[@redirect] : @options[:icon]
-            icon = "<i class='#{icon}' /> "
+            icon = "<iconify-icon inline icon='#{icon}'></iconify-icon> "
           end
 
-          "#{icon}<a href='#{uri}' class='my' target='_blank'>#{title}</a>"
+          "<a href='#{uri}' class='my' target='_blank'>#{icon}#{title}</a>"
         end
       end
 
@@ -78,13 +79,14 @@ module Jekyll
 
       # Default icons when used in in-line text
       DEFAULT_ICONS = {
-        "config_flow_start" => "icon-plus-sign",
-        "config" => "icon-cog",
-        "integrations" => "icon-puzzle-piece",
+        "config_flow_start" => "mdi:plus",
+        "config" => "mdi:cog",
+        "integrations" => "mdi:devices",
       }
 
       # Default title used for in-line text
       DEFAULT_TITLES = {
+        "automations" => "Automations & Scenes",
         "blueprint_import" => "Import Blueprint",
         "cloud" => "Home Assistant Cloud",
         "config_energy" => "Energy Configuration",
@@ -92,9 +94,9 @@ module Jekyll
         "config_mqtt" => "MQTT Configuration",
         "config_zha" => "ZHA Configuration",
         "config_zwave_js" => "Z-Wave JS Configuration",
-        "config" => "Configuration",
+        "config" => "Settings",
         "developer_events" => "Events",
-        "developer_services" => "Services",
+        "developer_services" => "Actions",
         "developer_states" => "States",
         "developer_template" => "Templates",
         "energy" => "Energy",
@@ -102,6 +104,7 @@ module Jekyll
         "info" => "Information",
         "supervisor_info" => "Supervisor Information",
         "supervisor_backups" => "Backups",
+        "integrations" => "Devices & services",
       }
 
       def parse_options(input, context)

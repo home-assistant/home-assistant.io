@@ -8,12 +8,13 @@ author_twitter: balloob
 categories:
 - Release-Notes
 - Core
+- Dashboard
 og_image: /images/blog/2019-01-lovelace/demo.png
 ---
 
 Today we're happy to announce that our new Lovelace UI, which has been in beta for the last 8 months, is becoming the new default interface of [Home Assistant 0.86](/blog/2019/01/23/release-86/). With Lovelace we're taking a new approach to building user interfaces for Home Assistant. We're no longer storing the look and feel of your UI in your configuration.yaml, requiring restarts for changes. With Lovelace we're keeping the UI concerns in the UI<sup>1</sup>, unlocking a whole new set of features:
 
- - [24 cards](/lovelace/alarm-panel/) to place and configure as you like.
+ - [24 cards](/dashboards/alarm-panel/) to place and configure as you like.
  - UI Editor. A configuration UI to manage your Lovelace UI including live preview when editing cards.
  - Fast. Using a static config allows us to build up the UI once.
  - Customizable.
@@ -30,9 +31,9 @@ In case you're reading this and want to give it a try right now: we've updated [
 
 For a deep dive into all the new features, check out the [latest episode of the Home Assistant podcast](https://hasspodcast.io/ha042/), featuring an interview with [Zack Arnett][@zsarnett] from the Lovelace team.
 
-For an overview of all the different features, check out the [Lovelace documentation](/lovelace/).
+For an overview of all the different features, check out the [Lovelace documentation](/dashboards/).
 
-<sup>1</sup>: If you prefer to write your Lovelace config in YAML, Lovelace also includes an optional [YAML mode](/lovelace/yaml-mode/).
+<sup>1</sup>: If you prefer to write your Dashboard config in YAML, Home Assistant also includes an optional [YAML mode](/dashboards/yaml-mode/).
 
 ## Migrating to Lovelace
 

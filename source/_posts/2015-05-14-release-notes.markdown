@@ -16,9 +16,9 @@ This release includes a significant startup boost for the frontend and a fix for
 
 I would like to give a big shout out to our newest contributor [fabaff](https://github.com/fabaff) for taking the time to improve the documentation.
 
-<div class='note'>
+{% note %}
 To update to the latest version, run <code>scripts/update</code>. Please report any issues on <a href='https://github.com/home-assistant/home-assistant/issues'>GitHub</a>.
-</div>
+{% endnote %}
 
 <!--more-->
 

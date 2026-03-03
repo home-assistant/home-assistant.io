@@ -2,7 +2,7 @@
 title: Modern Forms
 description: Instructions on how to integrate a Modern Forms Smart Fan with Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Fan
   - Light
   - Sensor
@@ -16,29 +16,29 @@ ha_domain: modern_forms
 ha_zeroconf: true
 ha_platforms:
   - binary_sensor
+  - diagnostics
   - fan
   - light
   - sensor
   - switch
+ha_integration_type: integration
 ---
 
 [Modern Forms](https://modernforms.com/) has a line of smart Wi-Fi-connected fans that allow for cloud or local control of the fan and light. There is support for individual sleep timers for the fan and light that can be set and cleared independently.
 
 {% include integrations/config_flow.md %}
 
-<div class='note'>
-
-If the Modern Forms fan does not have a light unit installed, then the Light entities and services will not show up.
-
-</div>
+{% note %}
+If the Modern Forms fan does not have a light unit installed, then the Light entities and actions will not show up.
+{% endnote %}
 
 ## Fans
 
-The Modern Forms integration has support for the Modern Forms fans. This includes directional support, and sleep timer services for the fan.
+The Modern Forms integration has support for the Modern Forms fans. This includes directional support, and sleep timer actions for the fan.
 
 ## Lights
 
-The Modern Forms integration has support for the Modern Forms fans light. This includes brightness, and sleep timer services for the light.
+The Modern Forms integration has support for the Modern Forms fans light. This includes brightness, and sleep timer actions for the light.
 
 ## Binary sensors
 
@@ -61,34 +61,32 @@ The Modern Forms integration provides support for the following toggleable attri
 - Away mode - to allow the fan simulate someone being home.
 - Adaptive learning - for allow learning for away mode.
 
-## Services
+## Actions
 
-### Service `modern_forms.clear_fan_sleep_timer`
+### Action `modern_forms.clear_fan_sleep_timer`
 
-This service will clear the sleep timer for the fan if it has been set. It will not turn off the fan when the timer is cleared.
+This action will clear the sleep timer for the fan if it has been set. It will not turn off the fan when the timer is cleared.
 
-### Service `modern_forms.clear_light_sleep_timer`
+### Action `modern_forms.clear_light_sleep_timer`
 
-This service will clear the sleep timer for the light if it has been set. It will not turn off the light when the timer is cleared.
+This action will clear the sleep timer for the light if it has been set. It will not turn off the light when the timer is cleared.
 
-### Service `modern_forms.set_fan_sleep_timer`
+### Action `modern_forms.set_fan_sleep_timer`
 
-This service will set a sleep timer for the fan. When the sleep timer is expired it will turn off the fan.
+This action will set a sleep timer for the fan. When the sleep timer is expired it will turn off the fan.
 
-| Service Data Attribute | Required | Description                                        |
+| Data attribute | Required | Description                                        |
 | ---------------------- | -------- | -------------------------------------------------- |
 | `sleep_time`           | yes      | The amount of time in minutes to set the sleep timer for. This is time in minutes from 1 to 1440 (1 day). |
 
-### Service `modern_forms.set_light_sleep_timer`
+### Action `modern_forms.set_light_sleep_timer`
 
-This service will set a sleep timer for the light. When the sleep timer is expired it will turn off the light.
+This action will set a sleep timer for the light. When the sleep timer is expired it will turn off the light.
 
-| Service Data Attribute | Required | Description                                        |
+| Data attribute | Required | Description                                        |
 | ---------------------- | -------- | -------------------------------------------------- |
 | `sleep_time`           | yes      | The amount of time in minutes to set the sleep timer for. This is time in minutes from 1 to 1440 (1 day).|
 
-<div class='note'>
-
+{% note %}
 Modern Forms Fans use NTP to pool.ntp.org in order to set its internal clock and check of sleep timers have expired. Sleep timers will only work if the Modern Forms Fans have internet NTP access. You can block off cloud access for the fan and only leave NTP (UDP port 123) outbound working for the sleep timers.
-
-</div>
+{% endnote %}

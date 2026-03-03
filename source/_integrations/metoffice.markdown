@@ -7,20 +7,27 @@ ha_release: 0.42
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@MrHarcombe'
+  - '@avee87'
 ha_domain: metoffice
 ha_config_flow: true
 ha_platforms:
   - sensor
   - weather
+ha_integration_type: service
 ---
 
-The `metoffice` weather platform uses the Met Office's [DataPoint API](https://www.metoffice.gov.uk/datapoint) for weather data.
+The **Met Office** weather {% term integration %} uses the Met Office's [DataHub API](https://www.metoffice.gov.uk/services/data/met-office-weather-datahub) for weather data.
+
+## Prerequisites
+
+1. Register for a [Met Office DataHub](https://datahub.metoffice.gov.uk/) account.
+2. After registration, [subscribe](https://datahub.metoffice.gov.uk/profile/subscriptions) to [Site Specific Global Spot](https://datahub.metoffice.gov.uk/pricing/site-specific) dataset to obtain your API key. Free tier subscription gives 360 calls per day, which is enough for using this integration
 
 {% include integrations/config_flow.md %}
 
 ## Entities
 
-This integration creates a number of weather entities for each entry created in the configuration by location: one weather entity with a summary and a forecast, and twelve sensor entities for individual reporting on each of the individual measurements, for both 3-hourly and daily updates (to a grand total of 26 entities available). Note that only one of the two summary entities and the 3-hourly sensor entities flagged below are enabled by default, so your system isn't overrun on initial configuration. The time supplied for each forecast is the start time for the forecast.
+This integration creates a number of weather entities for each entry created in the configuration by location: one weather entity with a summary and a forecast (daily, hourly, and twice-daily), and sensor entities for individual reporting on each of the individual measurements. Note that only some of the sensor entities flagged below are enabled by default, so your system isn't overrun on initial configuration.
 
 The available sensor entities:
 
@@ -29,9 +36,9 @@ The available sensor entities:
 - probability of precipitation
 - station name
 - temperature
+- pressure
 - UV index
 - visibility
-- visibility distance
 - weather
 - wind direction
 - wind gust
@@ -39,4 +46,4 @@ The available sensor entities:
 
 Only probability of precipitation, temperature, weather and wind speed are enabled by default.
 
-Details about the API are available in the [DataPoint API documentation](https://www.metoffice.gov.uk/services/data/datapoint/api-reference). The [DataPoint](https://github.com/EJEP/datapoint-python) library is used to retrieve data.
+Details about the API are available in the [DataHub API documentation](https://datahub.metoffice.gov.uk/docs/f/category/site-specific/overview). The [datapoint-python](https://github.com/EJEP/datapoint-python) library is used to retrieve data.

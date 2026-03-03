@@ -37,7 +37,7 @@ Screenshot of Sensor Search & Filter.
 
 ## Shortcuts
 
-Sometimes when you open the app you may already know exactly where you want to go. You may find yourself on the same view often to see your cameras or give the nursery a quick look to make sure things are ok. You may even want to quickly see the history of an entity like when the door was last opened. In this release, we have introduced [Android Shortcuts](https://developer.android.com/guide/topics/ui/shortcuts) which will let you get to anywhere in the Home Assistant frontend quickly, directly from your home screen. Shortcuts will look like a separate app on the home screen allowing you to make them easily accessible and even place them into a folder for better organization. You can navigate to any Lovelace [view or dashboard](/lovelace/dashboards-and-views/) including other pages like the [Shopping List](/integrations/shopping_list/). You can also navigate to any entity directly to get more information like the history or see the graph.
+Sometimes when you open the app you may already know exactly where you want to go. You may find yourself on the same view often to see your cameras or give the nursery a quick look to make sure things are ok. You may even want to quickly see the history of an entity like when the door was last opened. In this release, we have introduced [Android Shortcuts](https://developer.android.com/guide/topics/ui/shortcuts) which will let you get to anywhere in the Home Assistant frontend quickly, directly from your home screen. Shortcuts will look like a separate app on the home screen allowing you to make them easily accessible and even place them into a folder for better organization. You can navigate to any Lovelace [view or dashboard](/dashboards/dashboards-and-views/) including other pages like the [Shopping List](/integrations/shopping_list/). You can also navigate to any entity directly to get more information like the history or see the graph.
 
 There are a few different shortcut types and in the nature of Home Assistant, we have opted not to add static shortcuts because they are static! We support dynamic shortcuts which will show up under the app long-press menu. Once you create a shortcut, you will be able to drag it onto your home screen. There is also support for pinned shortcuts that can be added automatically to your home screen without needing to drag the icon, given your device and launcher support pinned shortcuts. Check out the [documentation](https://companion.home-assistant.io/docs/integrations/android-shortcuts) for more details including known limitations.
 
@@ -50,19 +50,19 @@ Screenshot of Shortcuts
 
 Here is a list of the other changes you may notice:
 
-*  [Battery Temperature Sensor](https://companion.home-assistant.io/docs/core/sensors#battery-sensors)
-*  Notification command to [turn on the screen](https://companion.home-assistant.io/docs/notifications/notification-commands#screen-on)
-*  [BLE Transmitter](https://companion.home-assistant.io/docs/core/sensors#bluetooth-sensors) has a new setting to enable/disable the transmitter so the sensor can remain enabled. This new setting will correspond to the existing notification command.
-*  High Accuracy mode has a new zone-based automation feature allowing you to trigger this mode faster. See the [documentation](https://companion.home-assistant.io/docs/core/location#high-accuracy-mode) for more details.
+-  [Battery Temperature Sensor](https://companion.home-assistant.io/docs/core/sensors#battery-sensors)
+-  Notification command to [turn on the screen](https://companion.home-assistant.io/docs/notifications/notification-commands#screen-on)
+-  [BLE Transmitter](https://companion.home-assistant.io/docs/core/sensors#bluetooth-sensors) has a new setting to enable/disable the transmitter so the sensor can remain enabled. This new setting will correspond to the existing notification command.
+-  High Accuracy mode has a new zone-based automation feature allowing you to trigger this mode faster. See the [documentation](https://companion.home-assistant.io/docs/core/location#high-accuracy-mode) for more details.
 
 <p class='img'>
 <img src='/images/blog/2021-04-09-android-april-2021/high_accuracy_zone.png' alt='Screenshot of High Accuracy Zoning'></a>
 Screenshot of High Accuracy Zoning.
 </p>
 
-*  Long-pressing an entity in Android's Power Menu will now take you directly to the entity instead of the home page.
-*  Covers that support setting the position are also supported in Android's Power Menu.
-*  Lots of fixes and improvements in all other areas of the app.
+-  Long-pressing an entity in Android's Power Menu will now take you directly to the entity instead of the home page.
+-  Covers that support setting the position are also supported in Android's Power Menu.
+-  Lots of fixes and improvements in all other areas of the app.
 
 Big thank you to everyone involved. Please keep those bug reports and feature requests coming!
 

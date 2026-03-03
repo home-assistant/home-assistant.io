@@ -3,143 +3,164 @@ title: Camera
 description: Instructions on how to integrate cameras within Home Assistant.
 ha_category:
   - Camera
+  - Media source
 ha_release: 0.7
 ha_quality_scale: internal
 ha_domain: camera
+ha_codeowners:
+  - '@home-assistant/core'
+ha_integration_type: entity
+ha_platforms:
+  - diagnostics
 ---
 
-The camera integration allows you to use IP cameras with Home Assistant.
+The **Camera** {% term integration %} allows you to use IP cameras with Home Assistant.
 
-### Streaming Video
+{% include integrations/building_block_integration.md %}
+
+## Streaming video
 
 If your camera supports it, and the [`stream`](/integrations/stream) integration is setup, you will be able to stream your cameras in the frontend and on supported media players.
 
-The `Preload stream` option will start the camera feed on Home Assistant startup and continue to keep the stream alive. This will result in reduced latency when opening the stream in the frontend, as well as when using the `play_stream` service or Google Assistant integration. It does, however, utilize more resources on your machine, so it is recommended to check CPU usage if you plan to use this feature.
+The `Preload stream` option will start the camera feed on Home Assistant startup and continue to keep the stream alive. This will result in reduced latency when opening the stream in the frontend, as well as when using the `play_stream` action or Google Assistant integration. It does, however, utilize more resources on your machine, so it is recommended to check CPU usage if you plan to use this feature.
 
 <p class='img'>
   <img src='/images/integrations/camera/preload-stream.png' alt='Screenshot showing Preload Stream option in Home Assistant front end.'>
   Example showing the Preload Stream option in the camera dialog.
 </p>
 
+## The state of a camera
 
-### Services
+A camera can have the following states. Not all camera integrations support all states.
 
-Once loaded, the `camera` platform will expose services that can be called to perform various actions.
+- **Streaming**: The camera transmits a live play-back of the video data it is recording.
+- **Recording**: The camera is currently capturing video content.
+- **Idle**: The camera is not currently capturing video content.
+- **Unavailable**: The entity is currently unavailable.
+- **Unknown**: The state is not yet known.
 
-Available services: `enable_motion_detection`, `disable_motion_detection`, `play_stream`, `record`, `snapshot`, `turn_off` and `turn_on`.
+## Actions
 
-#### Service `enable_motion_detection`
+Once loaded, the `camera` platform will expose actions that can be called to perform various actions.
 
-Enable the motion detection in a camera.
+Available actions: `enable_motion_detection`, `disable_motion_detection`, `play_stream`, `record`, `snapshot`, `turn_off` and `turn_on`.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            |     yes  | Name(s) of entities to enable motion detection, e.g., `camera.living_room_camera`. |
+### Action: Enable motion detection
 
-#### Service `disable_motion_detection`
+The `camera.enable_motion_detection` action allows you to enable the motion detection in a camera.
 
-Disable the motion detection in a camera.
+| Data attribute | Optional | Description                                                                        |
+| -------------- | -------- | ---------------------------------------------------------------------------------- |
+| `entity_id`    | yes      | Name(s) of entities to enable motion detection, e.g., `camera.living_room_camera`. |
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            |     yes  | Name(s) of entities to disable motion detection, e.g., `camera.living_room_camera`. |
+### Action: Disable motion detection
 
-#### Service `play_stream`
+The `camera.disable_motion_detection` action allows you to disable the motion detection in a camera.
 
-Play a live stream from a camera to selected media player(s). Requires [`stream`](/integrations/stream) integration to be set up.
+| Data attribute | Optional | Description                                                                         |
+| -------------- | -------- | ----------------------------------------------------------------------------------- |
+| `entity_id`    | yes      | Name(s) of entities to disable motion detection, e.g., `camera.living_room_camera`. |
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            |      no  | Name of entity to fetch stream from, e.g., `camera.living_room_camera`. |
-| `media_player`         |      no  | Name of media player to play stream on, e.g., `media_player.living_room_tv`. |
-| `format`               |      yes | Stream format supported by `stream` integration and selected `media_player`. Default: `hls` |
+### Action: Play stream
+
+The `camera.play_stream` action allows you to play a live stream from a camera to selected media player(s). Requires [`stream`](/integrations/stream) integration to be set up.
+
+| Data attribute | Optional | Description                                                                                 |
+| -------------- | -------- | ------------------------------------------------------------------------------------------- |
+| `entity_id`    | no       | Name of entity to fetch stream from, e.g., `camera.living_room_camera`.                     |
+| `media_player` | no       | Name of media player to play stream on, e.g., `media_player.living_room_tv`.                |
+| `format`       | yes      | Stream format supported by `stream` integration and selected `media_player`. Default: `hls` |
 
 For example, the following action in an automation would send an `hls` live stream to your chromecast.
 
 ```yaml
-action:
-  service: camera.play_stream
-  target:
-    entity_id: camera.yourcamera
-  data:
-    media_player: media_player.chromecast
+actions:
+  - action: camera.play_stream
+    target:
+      entity_id: camera.yourcamera
+    data:
+      media_player: media_player.chromecast
 ```
 
-#### Service `record`
+### Action: Record
 
-Make a `.mp4` recording from a camera stream. Requires `stream` integration to be set up.
+The `camera.record` action allows you to make a `.mp4` recording from a camera stream. Requires `stream` integration to be set up.
 
 Both `duration` and `lookback` options are suggestions, but should be consistent per camera.  The actual length of the recording may vary. It is suggested that you tweak these settings to fit your needs.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            |      no  | Name(s) of entities to create a snapshot from, e.g., `camera.living_room_camera`. |
-| `filename`             |      no  | Template of a file name. Variable is `entity_id`, e.g., {% raw %}`/tmp/{{ entity_id.name }}.mp4`{% endraw %}. |
-| `duration`             |      yes | Target recording length (in seconds). Default: 30 |
-| `lookback`             |      yes | Target lookback period (in seconds) to include in addition to duration.  Only available if there is currently an active HLS stream. Default: 0 |
+| Data attribute | Optional | Description                                                                                                                                    |
+| -------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`    | no       | Name(s) of entities to create a snapshot from, e.g., `camera.living_room_camera`.                                                              |
+| `filename`     | no       | Recording file name.                                                                                                                           |
+| `duration`     | yes      | Target recording length (in seconds). Default: 30                                                                                              |
+| `lookback`     | yes      | Target lookback period (in seconds) to include in addition to duration.  Only available if there is currently an active HLS stream. Default: 0 |
 
-The path part of `filename` must be an entry in the `allowlist_external_dirs` in your [`homeassistant:`](/docs/configuration/basic/) section of your `configuration.yaml` file.
+The path part of `filename` must be an entry in the `allowlist_external_dirs` in your [`homeassistant:`](/integrations/homeassistant/#allowlist_external_dirs) section of your {% term "`configuration.yaml`" %} file.
 
 For example, the following action in an automation would take a recording from "yourcamera" and save it to /tmp with a timestamped filename.
 
 {% raw %}
 
 ```yaml
-action:
-  service: camera.record
-  target:
-    entity_id: camera.yourcamera
-  data:
-    filename: '/tmp/{{ entity_id.name }}_{{ now().strftime("%Y%m%d-%H%M%S") }}.mp4'
+actions:
+  - variables:
+      my_camera_id: camera.yourcamera  # Store the camera entity_id in a variable for reuse
+  - action: camera.record
+    target:
+      entity_id: '{{ my_camera_id }}'
+    data:
+      filename: '/tmp/{{ my_camera_id }}_{{ now().strftime("%Y%m%d-%H%M%S") }}.mp4'
 ```
 
 {% endraw %}
 
-#### Service `snapshot`
+### Action: Snapshot
 
-Take a snapshot from a camera.
+The `camera.snapshot` action allows you to take a snapshot from a camera.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            |      no  | Name(s) of entities to create a snapshot from, e.g., `camera.living_room_camera`. |
-| `filename`             |      no  | Template of a file name. Variable is `entity_id`, e.g., {% raw %}`/tmp/snapshot_{{ entity_id.name }}`{% endraw %}. |
+| Data attribute | Optional | Description                                                                                                        |
+| -------------- | -------- | ------------------------------------------------------------------------------------------------------------------ |
+| `entity_id`    | no       | Name(s) of entities to create a snapshot from, e.g., `camera.living_room_camera`.                                  |
+| `filename`     | no       | Snapshot file name.                                                                                                |
 
-The path part of `filename` must be an entry in the `allowlist_external_dirs` in your [`homeassistant:`](/docs/configuration/basic/) section of your `configuration.yaml` file.
+The path part of `filename` must be an entry in the `allowlist_external_dirs` in your [`homeassistant:`](/integrations/homeassistant/) section of your {% term "`configuration.yaml`" %} file.
 
 For example, the following action in an automation would take a snapshot from "yourcamera" and save it to /tmp with a timestamped filename.
 
 {% raw %}
 
 ```yaml
-action:
-  service: camera.snapshot
-  target:
-    entity_id: camera.yourcamera
-  data:
-    filename: '/tmp/yourcamera_{{ now().strftime("%Y%m%d-%H%M%S") }}.jpg'
+actions:
+  - variables:
+      my_camera_id: camera.yourcamera  # Store the camera entity_id in a variable for reuse
+  - action: camera.snapshot
+    target:
+      entity_id: '{{ my_camera_id }}'
+    data:
+      filename: '/tmp/{{ my_camera_id }}_{{ now().strftime("%Y%m%d-%H%M%S") }}.jpg'
 ```
 
 {% endraw %}
 
-#### Service `turn_off`
+### Action: Turn off
 
-Turn off camera. Not all camera models support this service, please consult individual camera page.
+The `camera.turn_off` action allows you to turn off a camera. Not all camera models support this action, please consult individual camera page.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            |     yes  | Name(s) of entities to turn off, e.g., `camera.living_room_camera`. |
+| Data attribute | Optional | Description                                                         |
+| -------------- | -------- | ------------------------------------------------------------------- |
+| `entity_id`    | yes      | Name(s) of entities to turn off, e.g., `camera.living_room_camera`. |
 
-#### Service `turn_on`
+### Action: Turn on
 
-Turn on camera. Not all camera models support this service, please consult individual camera page.
+The `camera.turn_on` action allows you to turn on a camera. Not all camera models support this action, please consult individual camera page.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            |     yes  | Name(s) of entities to turn on, e.g., `camera.living_room_camera`.      |
+| Data attribute | Optional | Description                                                        |
+| -------------- | -------- | ------------------------------------------------------------------ |
+| `entity_id`    | yes      | Name(s) of entities to turn on, e.g., `camera.living_room_camera`. |
 
 ### Test if it works
 
-A simple way to test if you have set up your `camera` platform correctly, is to use **Services** from the **Developer Tools**. Choose your service from the dropdown menu **Service**, enter something like the sample below into the **Service Data** field, and hit **CALL SERVICE**.
+A way to test if you have set up your `camera` platform correctly, is to use **Actions** from the **Developer tools**. Choose your action from the dropdown menu **Action**, enter something like the sample below into the **data** field, and select **Perform action**.
 
 ```yaml
 entity_id: camera.living_room_camera

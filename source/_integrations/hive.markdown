@@ -2,13 +2,13 @@
 title: Hive
 description: Instructions on how to integrate Hive devices with Home Assistant.
 ha_category:
-  - Hub
-  - Binary Sensor
+  - Binary sensor
   - Climate
+  - Hub
   - Light
   - Sensor
   - Switch
-  - Water Heater
+  - Water heater
 ha_release: 0.59
 ha_iot_class: Cloud Polling
 ha_codeowners:
@@ -23,12 +23,18 @@ ha_platforms:
   - switch
   - water_heater
 ha_config_flow: true
+ha_integration_type: hub
+ha_homekit: true
 ---
 
-The Hive integration for Home Assistant allows you to interact with supported devices and services offered by
+The **Hive** {% term integration %} for Home Assistant allows you to interact with supported devices and services offered by
 [hivehome.com](https://www.hivehome.com)
 
-This Hive integration uses the same username and password you use on the [Hive website](https://sso.hivehome.com) to configure it within Home Assistant, 2FA authentication is also supported. Once configured Home Assistant will detect and add all Hive devices, including support for multi-zone heating.
+This Hive integration uses the same username and password you use on the [Hive website](https://sso.hivehome.com) to configure it within Home Assistant. 2FA authentication must be enabled to use this integration. Once configured, Home Assistant will detect and add all Hive devices, including support for multi-zone heating.
+
+{% note %}
+Please note that the credentials used must be for the Hive account owner. Shared accounts or secondary users will not work with this integration.
+{% endnote %}
 
 {% include integrations/config_flow.md %}
 
@@ -38,13 +44,13 @@ Menu: *Configuration* > *Integrations* > *Select your new integration* > *Press 
 
 - **Scan Interval**: Update the scan interval allowing the integration to poll for data more frequently (Cannot be set lower than 30 seconds).
   
-## Services
+## Actions
 
-### Service `hive.boost_heating_on`
+### Action: Boost heating on
 
-You can use the service `hive.boost_heating_on` to set your heating to boost for a period of time at a certain target temperature". Individual TRVs can also be boosted in the same way, using this service.
+The `hive.boost_heating_on` action sets your heating to boost for a period of time at a certain target temperature. Individual TRVs can also be boosted in the same way, using this action.
 
-| Service data attribute | Optional | Description                                                            |
+| Data attribute | Optional | Description                                                            |
 | ---------------------- | -------- | ---------------------------------------------------------------------- |
 | `entity_id`            | no       | String, Name of entity e.g., `climate.heating`                         |
 | `time_period`          | no       | Time Period, Period of time the boost should last for e.g., `01:30:00` |
@@ -57,7 +63,7 @@ Examples:
 script:
   boost_heating:
     sequence:
-      - service: hive.boost_heating_on
+      - action: hive.boost_heating_on
         target:
           entity_id: "climate.heating"
         data:
@@ -65,11 +71,11 @@ script:
           temperature: "20.5"
 ```
 
-### Service `hive.boost_heating_off`
+### Action: Boost heating off
 
-You can use the service `hive.boost_heating_off` to set your heating to boost for a period of time at a certain target temperature". Individual TRVs can also be boosted in the same way, using this service.
+The `hive.boost_heating_off` action turns your heating boost off.
 
-| Service data attribute | Optional | Description                                    |
+| Data attribute | Optional | Description                                    |
 | ---------------------- | -------- | ---------------------------------------------- |
 | `entity_id`            | no       | String, Name of entity e.g., `climate.heating` |
 
@@ -80,16 +86,16 @@ Examples:
 script:
   boost_heating:
     sequence:
-      - service: hive.boost_heating_off
+      - action: hive.boost_heating_off
         target:
           entity_id: "climate.heating"
 ```
 
-### Service `hive.boost_hot_water`
+### Action: Boost hot water
 
-You can use the service `hive.boost_hot_water` to set your hot water to boost for a period of time.
+The `hive.boost_hot_water` action sets your hot water to boost for a period of time.
 
-| Service data attribute | Optional | Description                                                             |
+| Data attribute | Optional | Description                                                             |
 | ---------------------- | -------- | ----------------------------------------------------------------------- |
 | `entity_id`            | no       | String, Name of entity e.g., `water_heater.hot_water`                   |
 | `time_period`          | yes      | Time Period, Period of time the boost should last for e.g., `01:30:00`. |
@@ -102,7 +108,7 @@ Examples:
 script:
   boost_hot_water:
     sequence:
-      - service: "hive.boost_hot_water"
+      - action: "hive.boost_hot_water"
         target:
           entity_id: "water_heater.hot_water"
         data:
@@ -112,7 +118,7 @@ script:
 
 ## Platforms
 
-### Binary Sensor
+### Binary sensor
 
 The `hive` binary sensor integration integrates your Hive sensors into Home Assistant.
 
@@ -156,6 +162,11 @@ The `hive` sensor integration exposes Hive data as a sensor.
 The platform exposes the following sensors:
 
 - Battery level for supported products
+- Boost for supported products
+- Mode for supported products
+- State for supported products
+- Current temperature for supported products
+- Target temperature for supported products
   
 ### Switch
 
@@ -166,7 +177,7 @@ The platform supports the following Hive products:
 - Hive Active Plug
 - Hive Heat on Demand
 
-### Water Heater
+### Water heater
 
 The `hive` water heater platform integrates your Hive hot water into Home Assistant, enabling control of setting the **mode**.
 

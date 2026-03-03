@@ -2,25 +2,31 @@
 title: Sighthound
 description: Detect people with Sighthound Cloud.
 ha_category:
-  - Image Processing
+  - Image processing
 ha_release: 0.105
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@robmarkcole'
 ha_domain: sighthound
+ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
+ha_quality_scale: legacy
 ---
 
 Detect people in camera images using [Sighthound Cloud](https://www.sighthound.com/products/cloud). The Sighthound Developer tier (free for non-commercial use) allows 5000 images to be processed per month. If you need more processing per month you will need to sign up for a production account (i.e., a Basic or Pro account).
 
-This integration adds an image processing entity where the state of the entity is the number of people detected in an image. For each person detected, an `sighthound.person_detected` event is fired. The event data includes the entity_id of the image processing entity firing the event, and the bounding box around the detected person.
+This {% term integration %} adds an image processing entity where the state of the entity is the number of people detected in an image. For each person detected, an `sighthound.person_detected` event is fired. The event data includes the entity_id of the image processing entity firing the event, and the bounding box around the detected person.
 
 If `save_file_folder` is configured, on each new detection of a person, an annotated image with the name `sighthound_{camera_name}_latest.jpg` is saved in the configured folder if it doesn't already exist, and overwritten if it does exist. The saved image shows the bounding box around detected people and can be displayed on the Home Assistant front end using a [Local File](/integrations/local_file/) camera, and used in notifications. If `save_timestamped_file` is configured as `true`, then the annotated image is saved with a file name that includes the time of detection.
 
-**Note** that by default the component will not automatically scan images, but requires you to call the `image_processing.scan` service, e.g., using an automation triggered by motion.
+**Note** that by default the {% term integration %} will not automatically scan images, but requires you to call the `image_processing.scan` action, e.g., using an automation triggered by motion.
 
 ## Configuration
 
-To enable this platform in your installation, add the following to your `configuration.yaml` file:
+To enable this {% term integration %} in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -68,40 +74,36 @@ To verify the integration, check if a new entity is appeared as `image_processin
 
 ## Process an Image
 
-When you want to process an image, you have to call `image_processing.scan` service and listen to the `sighthound.person_detected` and/or `sighthound.vehicle_detected` events.
+When you want to process an image, you have to call `image_processing.scan` action and listen to the `sighthound.person_detected` and/or `sighthound.vehicle_detected` events.
 
 An example using two automations:
 
-- The first automation is triggered, when a motion is detected. It calls the `image_processing.scan` service to send the camera image to the sighthound server for processing.
+- The first automation is triggered, when a motion is detected. It calls the `image_processing.scan` action to send the camera image to the sighthound server for processing.
 
 - The second automation is triggered by a `sighthound.vehicle_detected` event. It sends a notification to a phone.
 
 ```yaml
 # Example automations.yaml entry
-- id: "SOME_UNIQUE_ID"
-  alias: "Entrance Motion Image Processing"
+- alias: "Entrance motion image processing"
   description: "Send a camera image to sighthound, when motion is detected at the entrance"
-  trigger:
-    - type: motion
-      platform: device
+  triggers:
+    - trigger: device
+      type: motion
       device_id: YOUR_DEVICE_ID
       entity_id: binary_sensor.my_motion_sensor
       domain: binary_sensor
-  action:
-    - service: image_processing.scan
+  actions:
+    - action: image_processing.scan
       target:
         entity_id: image_processing.sighthound_my_cam
-  mode: single
 
-- id: "ANOTHER_UNIQUE_ID"
-  alias: "Arriving Vehicle Notification"
+- alias: "Arriving vehicle notification"
   description: "Send a notification to a phone, when a vehicle is detected at the entrance"
-  trigger:
-    - platform: event
+  triggers:
+    - trigger: event
       event_type: sighthound.vehicle_detected
-  action:
-    - service: notify.mobile_app_my_iphone
+  actions:
+    - action: notify.mobile_app_my_iphone
       data:
         message: "Somebody has just arrived by car."
-  mode: single
 ```

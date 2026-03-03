@@ -45,9 +45,9 @@ If you are currently testing Lovelace, please read the notes thoroughly as a lot
 
 So if you were using Lovelace before 0.84, you now have two options. Option one is to use the new storage mode and import your existing file. You can do this by opening the Lovelace UI and click on Configure UI, this will prompt you to change to storage mode. This will unlock a new option in the menu called "raw config editor". Open this and paste the content of your `ui-lovelace.yaml` file into it and click save. Note that YAML comments are not persisted and `!include`/`!secret` are not supported if in storage mode.
 
-If you want to continue managing a YAML file, [check here how to enable the YAML mode](/lovelace/yaml-mode/). The file `ui-lovelace.yaml` will now follow the same options as `configuration.yaml`. This means that the Lovelace YAML config is now parsed with YAML 1.1 instead of YAML 1.2. Major change is that you need to make sure that you wrap `on` and `off` with quotes in your configs!
+If you want to continue managing a YAML file, [check here how to enable the YAML mode](/dashboards/yaml-mode/). The file `ui-lovelace.yaml` will now follow the same options as `configuration.yaml`. This means that the Lovelace YAML config is now parsed with YAML 1.1 instead of YAML 1.2. Major change is that you need to make sure that you wrap `on` and `off` with quotes in your configs!
 
-We have also aligned the configuration of all the cards, causing breaking changes. Changes are especially focused around how we define actions for short and long presses. See [the docs](/lovelace/changelog/) for more info.
+We have also aligned the configuration of all the cards, causing backward-incompatible changes. Changes are especially focused around how we define actions for short and long presses. See [the docs](/dashboards/changelog/) for more info.
 
 Editor UI is now further processed. You can manage your Lovelace UI without leaving your browser! It is possible to add, edit and delete views. It is possible to add, edit, move and delete cards, including custom cards!
 
@@ -177,7 +177,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 <!--more-->
 
-## Breaking Changes
+## Backward-incompatible changes
 
 - State restoration will not work the first time you start 0.84. ([@armills] - [#17270]) ([history docs])
 - Support for multiple IHC controllers added. Manual IHC device configuration must be moved from platform sections to controller configuration section under the ihc component section. ([@mopolus] - [#18058]) ([ihc docs]) ([binary_sensor.ihc docs]) ([light.ihc docs]) ([switch.ihc docs]) (breaking change)

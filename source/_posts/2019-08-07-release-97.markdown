@@ -45,7 +45,7 @@ Home Assistant Cast opens a whole new world of possibilities for using Lovelace,
 
 This release contains a couple of notable UI changes:
 
-- [New Cast row available](/lovelace/entities/#cast) in the Lovelace entities card to start Home Assistant Cast.
+- [New Cast row available](/dashboards/entities/#cast) in the Lovelace entities card to start Home Assistant Cast.
 - Improved accessibility for visually impaired users. This is an [ongoing effort](https://github.com/home-assistant/home-assistant-polymer/issues/3267) on making the frontend accessible.
 - Split out `configuration.yaml` actions from the core configuration into a new server control config panel. Thanks [@IcyPalm]
 - Markdown card now has a size + 1, if it has a header defined. Some layouts might be moved around due to this.
@@ -145,7 +145,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 <!--more-->
 
-## Breaking Changes
+## Backward-incompatible changes
 
 - **Python** - Bump Python support to min Python 3.6.0 ([@balloob] - [#25582])
 - **Z-Wave** - Improve handling of Z-Wave config entry vs yaml config. If a Z-Wave `network_key` is specified in configuration.yaml it will override a `network_key` specified in the Z-Wave config entry. ([@cgarwood] - [#25112]) ([zwave docs])
@@ -167,7 +167,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
       language: french
   ```
 
-- **TotalConnect** - Total Connect Client was upgraded to support more than one alarm panel and allow future support for additional sensors. Previous `alarm_control_panel` entries must be removed, and a new totalconnect entry must be added to configuration.yaml. See https://www.home-assistant.io/integrations/totalconnect/ for configuration details. ([@austinmroczek] - [#24427]) ([totalconnect docs])
+- **TotalConnect** - Total Connect Client was upgraded to support more than one alarm panel and allow future support for additional sensors. Previous `alarm_control_panel` entries must be removed, and a new totalconnect entry must be added to configuration.yaml. See </integrations/totalconnect/> for configuration details. ([@austinmroczek] - [#24427]) ([totalconnect docs])
 - **Nuki** - The `lock.nuki_unlatch` service has been removed. It has been replaced by the `lock.open` service. The `lock.nuki_lock_n_go` service has been renamed to `nuki.lock_n_go`. Users that are using the removed or renamed services in automations need to replace them with the new services. ([@franfos] - [#22888]) ([nuki docs])
 - **Snapcast** - This changes adds multiroom support for the snapcast component. It adds 2 services `media_player.snapcast_join` and `media_player.snapcast_unjoin` to group/ungroup a client with another client. Also added source selection support in the snapcast clients as the groups are unusable due to their dynamic nature. ([@lyghtnox] - [#24061]) ([snapcast docs])
 - **Ambient Weather Station** - The `unique_id` for Ambient sensors uses a new formula, meaning that even though they have the same friendly names, new sensors will be created. The integration will automatically perform this migration under the hood, but if you've altered the entity IDs of any Ambient PWS entities, you'll need do the same to the new entities upon creation. Additionally, the `monitored_keys` configuration option is no longer supported in `configuration.yaml`. The integration will now create sensors for all conditions supported by the particular device.

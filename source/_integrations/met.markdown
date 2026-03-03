@@ -8,12 +8,12 @@ ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
   - '@danielhiversen'
-  - '@thimic'
 ha_domain: met
 ha_platforms:
   - weather
+ha_integration_type: service
 ---
 
-The `met` platform uses the [Met.no](https://met.no/) web service as a source for meteorological data for your location. The weather forecast is delivered by the Norwegian Meteorological Institute and the NRK.
+The **Meteorologisk institutt (Met.no)** {% term integration %} uses the [Met.no](https://met.no/) web service as a source for meteorological data for your location. The weather forecast is delivered by the Norwegian Meteorological Institute and the NRK.
 
 {% include integrations/config_flow.md %}

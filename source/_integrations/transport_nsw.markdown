@@ -8,13 +8,15 @@ ha_release: 0.81
 ha_domain: transport_nsw
 ha_platforms:
   - sensor
+ha_integration_type: integration
+ha_quality_scale: legacy
 ---
 
-The `transport_nsw` sensor will give you the time until the next departure from a Transport NSW stop for bus, train, light rail or ferry.
+The **Transport NSW** {% term integration %} will give you the time until the next departure from a Transport NSW stop for bus, train, light rail or ferry.
 
 ## Setup
 
-Prerequisite is a free API key from [Transport NSW](https://opendata.transport.nsw.gov.au/). You will need to register an account and then create a new application. You will need to add the 'Trip Planner APIs' to your application. 
+Prerequisite is a free API key from [Transport NSW](https://opendata.transport.nsw.gov.au/). You will need to register an account and then create a new application. You will need to add the 'Trip Planner APIs' to your application. Transport NSW has [instructions for doing so](https://opendata.transport.nsw.gov.au/developers/userguide).
 
 In order to find your stop id, use the [Transport NSW stop finder](https://transportnsw.info/stop#/) and search for your stop. The URL will contain the stop id as a number.
 
@@ -24,7 +26,7 @@ As a default the sensor picks up the next mode of transport leaving from a stop 
 
 ## Configuration
 
-To enable the sensor, add the following lines to your `configuration.yaml` file:
+To enable the sensor, add the following lines to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -89,11 +91,10 @@ The sensor returns n/a if no stop event is found within the next 24h. A `templat
 
 ```yaml
 # Sample template sensor
-- platform: template
-  sensors:
-    busmonitor:
-      friendly_name: "Bus Mon 199"
-      value_template: >-
+template:
+  - sensor:
+    - name: "Bus monitor 199"
+      state: >-
         {% if is_state_attr('sensor.bus', 'due', 'n/a') %}
           No schedule found
         {% else %}

@@ -2,41 +2,58 @@
 title: SleepIQ
 description: Instructions for how to integrate SleepIQ beds within Home Assistant.
 ha_category:
+  - Binary sensor
+  - Button
   - Health
+  - Light
+  - Number
+  - Select
   - Sensor
-  - Binary Sensor
+  - Switch
 ha_release: 0.29
 ha_iot_class: Cloud Polling
 ha_domain: sleepiq
+ha_config_flow: true
+ha_dhcp: true
+ha_codeowners:
+  - '@mfugate1'
+  - '@kbickar'
 ha_platforms:
   - binary_sensor
+  - button
+  - light
+  - number
+  - select
   - sensor
+  - switch
+ha_integration_type: integration
 ---
 
-The SleepIQ implementation lets you view sensor data from [SleepIQ by SleepNumber](https://www.sleepnumber.com/sleepiq-sleep-tracker). In particular, it lets you see the occupancy and current SleepNumber (ie current firmness) of each side of a SleepNumber bed.
+The **SleepIQ** {% term integration %} lets you integrate your SleepNumber Bed via [SleepIQ by SleepNumber](https://www.sleepnumber.com/pages/sleepiq-sleep-tracker).
 
-## Setup
+## Prerequisites
 
-You will need an account on [SleepIQ](https://sleepiq.sleepnumber.com/) to use this component.
+You will need an account on [SleepIQ](https://sleepiq.sleepnumber.com/) to use this integration.
 
-## Configuration
+{% include integrations/config_flow.md %}
 
-To set it up, add the following information to your `configuration.yaml` file:
+## Supported device types
 
-```yaml
-# Example configuration.yaml entry
-sleepiq:
-  username: YOUR_USERNAME
-  password: YOUR_PASSWORD
-```
+There is currently support available for the following platforms within Home Assistant, depending on the bed's capabilities:
 
-{% configuration %}
-username:
-  description: Your SleepIQ username (usually an e-mail address).
-  required: true
-  type: string
-password:
-  description: Your SleepIQ password.
-  required: true
-  type: string
-{% endconfiguration %}
+- Binary sensor - View occupancy of each side
+- Button - Calibrate the bed
+- Button - Stop the pump
+- Light - Control lights on supported models
+- Number - View/Set the actuator positions of the foundation
+- Number - View/Set firmness for each side
+- Select - Choose a foundation preset position
+- Select/Number - Set a foot warmer mode and timeout
+- Select/Number - Set core climate heat/cool modes and timeout
+- Sensor - View pressure of each side
+- Switch - Toggle Privacy mode
+
+## Notes
+
+- If you are using a DNS-based ad-blocker such as Pi-hole, you may need to disable it temporarily while configuring this item in Home Assistant.
+- The Sleep Number bed communicates with endpoints on **sleepnumber.com** as well as the AWS Firehose data collection service at **firehose.us-east-1.amazonaws.com**.

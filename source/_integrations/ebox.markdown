@@ -8,13 +8,19 @@ ha_iot_class: Cloud Polling
 ha_domain: ebox
 ha_platforms:
   - sensor
+ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
+ha_quality_scale: legacy
 ---
 
 Integrate your [EBox](https://client.ebox.ca/) account information into Home Assistant.
 
 ## Configuration
 
-To use your EBox sensor in your installation, add the following to your `configuration.yaml` file:
+To use your EBox sensor in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

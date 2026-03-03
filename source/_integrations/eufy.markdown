@@ -1,6 +1,6 @@
 ---
-title: eufy
-description: Instructions on how to integrate Eufy devices into Home Assistant.
+title: EufyHome
+description: Instructions on how to integrate EufyHome devices into Home Assistant.
 ha_category:
   - Hub
   - Light
@@ -11,16 +11,22 @@ ha_domain: eufy
 ha_platforms:
   - light
   - switch
+ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
+ha_quality_scale: legacy
 ---
 
-The `eufy` integration is the main integration to integrate various [eufy](https://www.eufylife.com/) devices with Home Assistant.
+The **EufyHome** {% term integration %} is the main integration to integrate [eufy](https://eufy.com/) devices sold under the EufyHome product line with Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 
 - Light
 - Switch
 
-Supported devices will be discovered after the `eufy` integration is configured:
+Supported devices will be discovered after the EufyHome integration is added to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -29,7 +35,7 @@ eufy:
   password: PASSWORD
 ```
 
-where username and password are the ones configured in the EufyHome app. Alternately, Eufy devices that are not discoverable can be statically configured.
+where username and password are the ones configured in the EufyHome app. Alternately, EufyHome devices that are not discoverable can be statically configured.
 
 ```yaml
 eufy:
@@ -44,7 +50,7 @@ eufy:
       name: Smart Switch
 ```
 
-`access_token can be obtained by running:
+`access_token` can be obtained by running:
 
 ```bash
 $ curl -H "Content-Type: application/json" \
@@ -52,7 +58,7 @@ $ curl -H "Content-Type: application/json" \
    https://home-api.eufylife.com/v1/user/email/login
 ```
 
-replacing USERNAME and PASSWORD with the Eufy username and password. This will give an `access_token`. Then run:
+replacing USERNAME and PASSWORD with the EufyHome username and password. This will give an `access_token`. Then run:
 
 ```bash
 $ curl -H token:TOKEN -H category:Home \

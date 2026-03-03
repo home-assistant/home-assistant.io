@@ -138,19 +138,19 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 <!--more-->
 
-## Breaking Changes
+## Backward-incompatible changes
 
 -  __http.api_password__ - __Deprecated__ - Users who are still using api_password for authentication will need to move its configuration under auth_providers. Please see the [updated documentation](/docs/authentication/providers/#legacy-api-password) for further details. Those who don't make this change will see an INFO level reminder in the Home Assistant logs until the fix is made for a time, but please note, __api_password authentication will eventually be removed completely__ and we advise users to change to use one of the [other authentication methods](/docs/authentication/providers/#available-auth-providers). If you manually specify auth providers in your `configuration.yaml`, you will need to migrate your API Password from the http section to the auth provider section to continue using it. ([@awarecan] - [#21884]) ([api docs]) ([frontend docs]) ([hassio docs]) ([http docs]) ([mqtt docs]) ([websocket_api docs]) ([zeroconf docs]) ([camera.proxy docs])
 - __Default Config__ - Default config no longer contains the discovery component. That is now part of the initial written configuration.yaml. If you rely on default config and want to use discovery, add `discovery:` back to your configuration.yaml.
 - __Netatmo__
-   * Added support for multiple Netatmo thermostats/valves allowing the user to specify different homes or rooms! Please check the [updated documentation](/integrations/netatmo#climate) for configuration details.  ([@shanbs] - [#19407]) ([netatmo docs]) ([climate.netatmo docs])
-   * `current_operation` will no longer return the the boiler status, but the operation_mode. For example, heat, cool, or idle. Please check the [updated documentation](/integrations/netatmo#climate) for more details. ([@shanbs] - [#21633]) ([netatmo docs])
+  - Added support for multiple Netatmo thermostats/valves allowing the user to specify different homes or rooms! Please check the [updated documentation](/integrations/netatmo#climate) for configuration details.  ([@shanbs] - [#19407]) ([netatmo docs]) ([climate.netatmo docs])
+  - `current_operation` will no longer return the the boiler status, but the operation_mode. For example, heat, cool, or idle. Please check the [updated documentation](/integrations/netatmo#climate) for more details. ([@shanbs] - [#21633]) ([netatmo docs])
 - __Utility Meter__ - Currently the offset configuration parameter is an integer that limits daily cycles to have offsets in days, monthly cycles to have offsets in months, etc.
 This change increases the flexibility of offset by making it a more flexible time period that can be described in a combination of hours, days, months, etc. This makes it possible for a yearly cycle to start at a given day of a given month. Please see the [updated documentation](/integrations/utility_meter/) for the new configuration options. ([@dgomes] - [#20926]) ([utility_meter docs])
 - __KNX__ - An update for xknx to version 0.10.0 requires users to update their configuration by changing `target_temperature_address` to `target_temperature_state_address`. Other fixes and features:
-   * Connection config can now be configured in xknx.yml.
-   * Introduce a configurable rate limit which limits the number of KNX telegrams sent to the bus per second.
-   * Users who configured their lights via xknx.yml no longer need to manually set min_kelvin and max_kelvin (fixes #21251) ([@marvin-w] - [#21541]) ([knx docs])
+  - Connection config can now be configured in xknx.yml.
+  - Introduce a configurable rate limit which limits the number of KNX telegrams sent to the bus per second.
+  - Users who configured their lights via xknx.yml no longer need to manually set min_kelvin and max_kelvin (fixes #21251) ([@marvin-w] - [#21541]) ([knx docs])
 -  __Nanoleaf__ - The Nanoleaf component now supports _both_ nanoleaf lights, Aurora and Canvas. As a result of this change the user needs to change the platform from `nanoleaf_aurora` to `nanoleaf` ([@Oro] - [#21913]) ([light.nanoleaf docs])
 - __FireTV__- is now androidtv. Instead of having near-duplicate integrations for androidtv and firetv, the decision was made to combine them into one.
 Users will need to change `- platform: firetv` to `- platform: androidtv` in their configuration. ([@JeffLIrion] - [#21944])
