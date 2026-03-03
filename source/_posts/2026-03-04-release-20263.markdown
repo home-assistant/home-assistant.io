@@ -166,7 +166,7 @@ The **Now** view gained badges that show real-time power consumption, gas flow r
 
 <img src='/images/blog/2026-03/energy-badges.png' alt='Screenshot of the new badges in the Energy dashboard.' class='no-shadow' />
 
-To reduce ambiguity, the second tab on the Energy dashboard has been renamed from "Energy" to **Electricity**, since the dashboard covers electricity, gas, and water. On the configuration side, the energy settings page is now split into three tabs: **Electricity**, **Gas**, and **Water**, making it easier to find and manage your energy sources.
+To reduce ambiguity, the second tab on the Energy dashboard has been renamed from **Energy** to **Electricity**, since the dashboard covers electricity, gas, and water. On the configuration side, the energy settings page is now split into three tabs: **Electricity**, **Gas**, and **Water**, making it easier to find and manage your energy sources.
 
 <img src='/images/blog/2026-03/energy-tabs.png' alt='Screenshot of the new tabs in the Energy dashboard config page.' class='no-shadow' />
 
