@@ -62,7 +62,7 @@ To discover the key codes for your device, go to {% my developer_events title="*
 
 Fired whenever a key event occurs that matches your configured event types.
 
-- `key_code` — The numeric key code (evdev) for the key that was pressed
+- `key_code` — The numeric key code (evdev) for the key involved in the event
 - `type` — The event type: `key_up`, `key_down`, or `key_hold`
 - `device_descriptor` — The `/dev/input/` path of the device
 - `device_name` — The human-readable name of the device
@@ -103,7 +103,7 @@ automation:
     actions:
       - action: light.turn_on
         target:
-          entity_id: light.all
+          entity_id: all
 ```
 
 You can include `device_descriptor` or `device_name` in the event data to target a specific keyboard. This is especially useful when you have multiple Bluetooth remotes controlling different devices. Omit both to trigger the automation for any connected keyboard.
@@ -224,7 +224,7 @@ getfacl /dev/input/event*
 
 ### Running in a container
 
-If you are running Home Assistant Container, you need to pass the input devices through to the container. You can pass a specific device with the `--devices` flag, but restarting the container or unplugging the keyboard will break the connection because only the device instance that existed when the container started is available inside it.
+If you are running Home Assistant Container, you need to pass the input devices through to the container. You can pass a specific device with the `--device` flag (you can repeat this flag to pass multiple devices), but restarting the container or unplugging the keyboard will break the connection because only the device instance that existed when the container started is available inside it.
 
 The following incomplete `docker-compose.yml` example shows how to give Home Assistant persistent access to input devices in a container:
 
