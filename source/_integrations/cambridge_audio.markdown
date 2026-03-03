@@ -80,7 +80,7 @@ When Pre-Amp mode is enabled, Home Assistant can control the output volume of yo
 
 ### Control Bus
 
-When Control Bus mode is enabled, Home Assistant can control the output volume of your power amplifier when it is connected to a Cambridge Audio network player using the Control Bus interface. In this case Pre-Amp mode can be disabled, the network player will send the signal with full volume to the power amplifier and the volume of the power amplifier can be controlled using volume up and down controls. Control Bus does not support setting the volume to a certain value, it can only increase and decrease the current volume.
+When Control Bus mode is enabled, Home Assistant can control the output volume of your power amplifier when it is connected to a Cambridge Audio network player using the Control Bus interface. In this case, Pre-Amp mode can be disabled. The network player will send the signal at full volume to the power amplifier, and the power amplifier's volume can be controlled using the volume up and down controls. The Control Bus does not support setting the volume to a certain value; it can only increase and decrease the current volume.
 
 ### Equalizer
 
