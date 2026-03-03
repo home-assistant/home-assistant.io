@@ -181,7 +181,6 @@ template:
 ```
 
 {% endraw %}
-{% endraw %}
 
 ### Alert count by category
 
