@@ -3,7 +3,7 @@ title: Fresh-r
 description: Instructions on how to integrate Fresh-r ventilation solutions within Home Assistant.
 ha_category:
   - Sensor
-ha_release: 2026.1.2
+ha_release: 2026.4.0
 ha_iot_class: Cloud Polling
 ha_domain: freshr
 ha_config_flow: true
@@ -60,7 +60,7 @@ The integration provides the following sensors:
   - **Description**: Relative humidity of the indoor air, in %.
   - **Available for**: All devices
 
-- **Flow**
+- **Air flow rate**
   - **Description**: Air flow rate through the ventilation unit, in m³/h.
   - **Available for**: Fresh-r, Forward
 
@@ -85,7 +85,7 @@ High indoor humidity can lead to condensation and mold. Use the **Humidity** sen
 
 ### Track ventilation performance
 
-Use the **Flow** sensor to verify that your ventilation unit is delivering the expected amount of fresh air. A sudden drop in flow rate can indicate a dirty filter or a blocked duct.
+Use the **Air flow rate** sensor to verify that your ventilation unit is delivering the expected amount of fresh air. A sudden drop can indicate a dirty filter or a blocked duct.
 
 ## Data updates
 
