@@ -139,7 +139,7 @@ The interface automatically sets which controls are available depending on which
 
 ### The ability to change volume is missing
 
-Volume control is only supported on all-in-one amplifiers, streamers that are in Pre-Amp mode, or streamers that are connected to an amplifier using the Control Bus interface.
+Volume control is supported only on all-in-one amplifiers, streamers in Pre-Amp mode, or streamers connected to an amplifier via the Control Bus interface.
 If you do not see volume controls, your device is likely not configured to use Pre-Amp mode, or the Control Bus feature is not activated.
 To check and adjust these settings:
 
