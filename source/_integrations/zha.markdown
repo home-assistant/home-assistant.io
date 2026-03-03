@@ -825,9 +825,9 @@ If the upgrade still does not start, then try manually restarting the device by 
 
 Be aware that OTAU (Over-The-Air Upgrade) of Zigbee devices typically takes around 10 minutes per device, if it takes longer then another common reason for Zigbee firmware upgrades not starting, taking a very long time, or even failing, is poor reception or not having a stable Zigbee network mesh. Take action to try to optimize your Zigbee network by avoiding radio frequency interference and adding many Zigbee Router devices (repeaters/extenders) to extend range and coverage. Try to follow all the best practice tips above in the [Zigbee interference avoidance and network range/coverage optimization)](#zigbee-interference-avoidance-and-network-rangecoverage-optimization) section under troubleshooting.
 
-### Zigbee network visualization in ZHA UI
+### Visualization of the Zigbee network topology and device links
 
-The ZHA configuration UI has a tab to visualize device links in your Zigbee network topology.
+To visualize device links in your Zigbee network topology, go to {% my config_zha title="**Settings** > **Zigbee**" %} and select **Show map**.
 
 The network visualization can help to identify devices with poor connection (that is, low values on the link). You will need to look at the ZHA logs to find more detailed information required for troubleshooting.
 
