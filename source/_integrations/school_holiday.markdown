@@ -23,11 +23,16 @@ The integration provides a binary sensor that indicates whether the current day 
 
 The integration also provides a calendar entity that can be used to see upcoming school holidays.
 
+{% note %}
+The integration currently only supports the following countries and regions:
+
+- The Netherlands
+  - Midden
+  - Noord
+  - Zuid
+{% endnote %}
+
 {% include integrations/config_flow.md %}
-
-## Configuration options
-
-The integration provides the following configuration options:
 
 {% configuration_basic %}
 Sensor name:
@@ -40,25 +45,16 @@ Calendar name:
     description: "The name for your new calendar."
 {% endconfiguration_basic %}
 
-{% note %}
-The integration currently only supports the following countries and regions:
-
-- The Netherlands
-  - Midden
-  - Noord
-  - Zuid
-{% endnote %}
-
 ## Supported functionality
 
 The integration provides the following entities.
 
-### Binary sensors
+### Binary sensor
 
 - **School Holiday Sensor**
   - **Description**: Binary sensor that shows whether today is a school holiday or not.
 
-### Calendars
+### Calendar
 
 - **School Holiday Calendar**
   - **Description**: Calendar that shows all school holidays.
@@ -85,7 +81,7 @@ automation:
 
 ## Data updates
 
-The integration {% term polling polls %} data from the Internet when it is started. After that, the update interval of the calendar is set to every 24 hours.
+The integration {% term polling polls %} data from the Internet when it is started. After that, the integration refreshes its data every 24 hours, updating both the binary sensor and the calendar state.
 
 ## Removing the integration
 
