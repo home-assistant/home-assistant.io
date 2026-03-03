@@ -29,40 +29,52 @@ These are the entities available in the Sure Petcare integration.
 
 ### Pets
 
-| Domain        | Name                     | Description
-| ------------- | ------------------------ | ------------------------------------------------------------
-| Binary sensor | Presence                 | Whether the pet is inside (presence).
-| Sensor        | Last seen flap device ID | Diagnostic: last flap device ID used by the pet (useful for the [pet select location blueprint](#pet-select-location-template-entity)); `unknown` if the last status is not from a flap update.
-| Sensor        | Last seen user ID        | Diagnostic: last user ID that manually changed pet location (useful for the [pet select location blueprint](#pet-select-location-template-entity)); `unknown` if the last status is not from a manual update.
+#### Binary sensors
+
+- **Presence**: Whether the pet is inside (presence).
+
+#### Sensors
+
+- **Last seen flap device ID**: Diagnostic: last flap device ID used by the pet (useful for the [pet select location blueprint](#pet-select-location-template-entity)); `unknown` if the last status is not from a flap update.
+- **Last seen user ID**: Diagnostic: last user ID that manually changed pet location (useful for the [pet select location blueprint](#pet-select-location-template-entity)); `unknown` if the last status is not from a manual update.
 
 ### Pet and cat flaps
 
-| Domain         | Name           | Description                                                                    |
-| -------------- | -------------- | ------------------------------------------------------------------------------ |
-| Binary sensor  | Connectivity   | Device connectivity (online); shows device RSSI when available.                |
-| Lock           | Locked in      | Lock state: flap locked to allow entry only.                                   |
-| Lock           | Locked out     | Lock state: flap locked to allow exit only.                                    |
-| Lock           | Locked all     | Lock state: flap locked both ways.                                             |
-| Sensor         | Battery level  | Battery level percentage (derived from battery voltage).                       |
+#### Binary sensors
+
+- **Connectivity**: Device connectivity (online); shows device RSSI when available.
+
+#### Locks
+
+- **Locked in**: Lock state: flap locked to allow entry only.
+- **Locked out**: Lock state: flap locked to allow exit only.
+- **Locked all**: Lock state: flap locked both ways.
+
+#### Sensors
+
+- **Battery level**: Battery level percentage (derived from battery voltage).
 
 ### Feeders
 
-| Domain         | Name           | Description                                                                    |
-| -------------- | -------------- | ------------------------------------------------------------------------------ |
-| Binary sensor  | Connectivity   | Feeder connectivity (online); shows device RSSI when available.                |
-| Sensor         | Battery level  | Battery level percentage (derived from battery voltage).                       |
+#### Binary sensors
+
+- **Connectivity**: Feeder connectivity (online); shows device RSSI when available.
+
+#### Sensors
+
+- **Battery level**: Battery level percentage (derived from battery voltage).            |
 
 ### Felaqua
 
-| Domain | Name    | Description                  |
-| ------ | ------- | ---------------------------- |
-| Sensor | Felaqua | Water remaining in the bowl. |
+#### Sensors
+
+- **Felaqua**: Water remaining in the bowl.
 
 ### Hub
 
-| Domain         | Name           | Description                                                                  |
-| -------------- | -------------- | ---------------------------------------------------------------------------- |
-| Binary sensor  | Connectivity   | Hub connectivity (online); attributes include `led_mode` and `pairing_mode`. |
+#### Binary sensors
+
+- **Connectivity**: Hub connectivity (online); attributes include `led_mode` and `pairing_mode`.
 
 ## Actions
 
