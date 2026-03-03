@@ -21,7 +21,14 @@ The {% term integration %} is able to report network status, up-time, model numb
 
 ## Configuration
 
-Enter the IP Address of your router / access point, along with the device name.
+{% include integrations/config_flow.md %}
+
+{% configuration_basic %}
+Name:
+  description: "Name of the Wifi Router/Access point."
+IP address:
+  description: "The IP Address of your Router/Access point."
+{% endconfiguration_basic %}
 
 ## Important Information
 
