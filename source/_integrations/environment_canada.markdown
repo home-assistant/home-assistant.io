@@ -157,12 +157,12 @@ The configuration snippet below adds a template sensor containing the current fo
 
 ```yaml
 template:
-  - trigger:
-      - platform: time_pattern
+  - triggers:
+      - trigger: time_pattern
         hours: "/4"
-      - platform: homeassistant
+      - trigger: homeassistant
         event: start
-      - platform: event
+      - trigger: event
         event_type: event_template_reloaded
     actions:
       - action: environment_canada.get_forecasts
@@ -176,8 +176,12 @@ template:
         attributes:
           daily: "{{ forecasts['weather.NAME']['daily_forecast'] }}"
           hourly: "{{ forecasts['weather.NAME']['hourly_forecast'] }}"
-          summary: "{{ forecasts['weather.NAME']['daily_forecast'][0]['text_summary'] }}"
-          temperature_unit: "{{ state_attr('weather.NAME', 'temperature_unit') }}"
+          summary: >-
+            {{
+              forecasts['weather.NAME']['daily_forecast'][0]['text_summary']
+            }}
+          temperature_unit: >-
+            {{ state_attr('weather.NAME', 'temperature_unit') }}
 ```
 
 {% endraw %}
