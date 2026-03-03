@@ -23,7 +23,7 @@ The **Sure Petcare** {% term integration %} allows you to get information on you
 
 {% include integrations/config_flow.md %}
 
-## Entities
+## Supported functionality
 
 These are the entities available in the Sure Petcare integration.
 
