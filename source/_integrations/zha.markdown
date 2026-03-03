@@ -254,7 +254,6 @@ The best practice is to **not change the Zigbee channel** from the ZHA default.
 These sections both provide helpful advice on improving your Zigbee network performance.
 {% endnote %}
 
-ZHA prefers to use Zigbee channel 15 by default.
 
 #### To change the Zigbee channel
 
