@@ -193,28 +193,24 @@ There is no easy way to update that device.
 
 ### To migrate a Z-Wave network to a new adapter
 
-1. In Home Assistant, go to {% my integrations title="**Settings** > **Devices & services**" %}.
-2. Connect your new adapter.
-   - Plug in your new adapter.
-   - **Result**: The adapter should be discovered and show up in the **Discovered section**.
-   - Select **Add** and follow the instructions on screen.
-   - **Troubleshooting**: Not all devices can be discovered automatically. If your device does not show up, follow these steps:
-     1. Select the **Z-Wave** integration.
-     2. Then, select the cogwheel {% icon "mdi:cog-outline" %}.
-     3. Under **Backup and restore**, select **Migrate adapter**.
-     4. Select **Migrate to a new adapter**.
-        - To confirm, select **Submit**.
+1. In Home Assistant, go to {% my config_zwave_js title="**Settings** > **Z-Wave**" %}.
+2. Under **Migrate adapter**, select **Migrate**.
 3. When the **Unplug your adapter** dialog shows up, unplug your old adapter.
    - It is important to remove the old device now, as it might interfere with the new one. Even though it might not throw an error immediately, it might cause issues.
-4. Follow the steps on screen.
-5. Once the migration has completed, check if you want to rename the adapter. If you have previously changed the name, the new adapter might keep the name of the old adapter.
+4. Connect the new adapter.
+5. Select **Submit**.
+6. In the **Select your device** dialog, select the Z-Wave adapter you just connected.
+   - Typically, you can select the device you connected to a USB port.
+   - To connect to a Z-Wave controller that you exposed elsewhere via TCP (such as [Portable Z-Wave](https://www.home-assistant.io/blog/2025/10/13/portable-z-wave-with-wifi-and-poe/)), select the **Use socket** option.
+7. Select **Submit**.
+   - The new adapter is now being paired with your existing Z-Wave network.
+   - **Troubleshooting**: If the migration fails, it might be because you selected **Use socket** by mistake. If you were using a USB-based controller, plug the old adapter in again, and wait for the network to reload.
+     - Once your old adapter is connected and the network is operational, repeat the migration steps.
+     - Make sure to select the new controller this time (instead of **Use socket**).
+8. Once the migration has completed, check if you want to rename the adapter. If you have previously changed the name, the new adapter might keep the name of the old adapter.
    - In the top-left corner, select the back button to go back to the integration page.
    - In the list of devices, check the device name.
    - To change the device name, select the {% icon "mdi:pencil" %} button.
-
-The video below shows how a Z-Wave network is migrated to a Home Assistant Connect ZWA-2:
-
-<lite-youtube videoid="3-1YV9i5M30" videotitle="Example showing how to migrate to a Home Assistant Connect ZWA-2" posterquality="maxresdefault"></lite-youtube>
 
 ## Migrating from Z-Wave JS UI to the Z-Wave JS app
 
