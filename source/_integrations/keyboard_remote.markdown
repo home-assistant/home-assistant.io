@@ -239,7 +239,7 @@ services:
       - /dev/input:/dev/input/ # this is needed to read input events.
     restart: unless-stopped
     device_cgroup_rules:
-      # allow creation of /dev/input/* with mknod, this is not enough on its own and needs mknod to be called in the container
+      # allow creation of /dev/input/* with mknod
       - 'c 13:* rmw'
     devices:
       # since input id may change, pass them all in
