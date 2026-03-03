@@ -52,7 +52,7 @@ The Govee BLE integration will automatically discover devices once the [Bluetoot
 - H5127 Presence Sensor
 - [H5129 Hygrometer Thermometer](https://us.govee.com/products/wi-fi-temperature-humidity-sensor) (Active scans required)
 - H5130 Pressure Sensor
-- H5140 Smart Air Quality Monitor (Hygrometer/Thermometer/CO2)
+- H5140 Hygrometer Thermometer and CO2 Monitor
 - [H5177/5178 Bluetooth Thermo-Hygrometer](https://us.govee.com/collections/thermo-hydrometer/products/bluetooth-thermo-hygrometer)
 - H5174 Hygrometer Thermometer
 - [H5179 Hygrometer Thermometer](https://us.govee.com/products/wi-fi-temperature-humidity-sensor)
