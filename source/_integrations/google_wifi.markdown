@@ -4,56 +4,45 @@ description: Instructions on how to integrate Google Wifi/OnHub routers into Hom
 ha_category:
   - System monitor
 ha_iot_class: Local Polling
-ha_release: '0.50'
+ha_release: '2026.2.3'
 ha_domain: google_wifi
+ha_config_flow: true
 ha_platforms:
   - sensor
 ha_integration_type: integration
-related:
-  - docs: /docs/configuration/
-    title: Configuration file
+ha_codeowners:
+  - '@EpicBurrito'
 ha_quality_scale: legacy
 ---
 
-The **Google Wifi** {% term integration %} is displaying the exposed status of a Google Wifi (or OnHub) router.
+The **Google Wifi** {% term integration %} is displaying the exposed status of a Google Wifi, Nest Wifi, or OnHub router.
 
-The {% term integration %} is able to report network status, up-time, current IP address and firmware versions.
+The {% term integration %} is able to report network status, up-time, model number, current IP address and firmware versions.
 
-To enable this {% term integration %}, add the following lines to your {% term "`configuration.yaml`" %} file.
-{% include integrations/restart_ha_after_config_inclusion.md %}
+## Configuration
 
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: google_wifi
-```
+Enter the IP Address of your router / access point, along with the device name.
+Google/Nest IP addresses default to the 192.168.86.1-255 range. Your primary router will be assigned 192.168.86.1, while all additional points added to the system will be assigned a number correponsing to the order in which devices are added to the network. Unfortunately, if you are using the internal DHCP services provided by these routers, you can not assign a static IP to the access points - only to client devices.
 
-{% configuration %}
-host:
-  description: The address to retrieve status from the router. Valid options are `testwifi.here`, in some cases `onhub.here` or the router's IP address such as 192.168.86.1.
-  required: false
-  default: testwifi.here
-  type: string
-name:
-  description: Name to give the Google Wifi sensor.
-  required: false
-  default: google_wifi
-  type: string
-monitored_conditions:
-  description: Defines the data to monitor as sensors. Defaults to all of the listed options below.
-  required: false
-  type: list
-  keys:
-    current_version:
-      description: Current firmware version of the router.
-    new_version:
-      description: Latest available firmware version. If router is up-to-date, this value shows to `Latest`.
-    uptime:
-      description: Days since router has been turned on.
-    last_restart:
-      description: Date of last restart. Format is `YYYY-MM-DD HH:mm:SS`.
-    local_ip:
-      description: Local public IP address.
-    status:
-      description: Reports whether the router is or is not connected to the internet.
-{% endconfiguration %}
+
+## Data updates
+
+The integration normally updates every 30 seconds.
+
+## Removing the integration
+
+This integration follows standard integration removal.
+
+{% include integrations/remove_device_service.md %}
+
+## Supported functionality
+
+The {% term integration %} connects to your router at the API endpoint '/api/v1/status'. From there, it scrapes the following information:
+
+- system/modelID - For setting the model ID in the Home Assistant device.
+- software/softwareVersion - For setting the Firmware version in the Home Assistant device.
+- software/updateNewVersion - Lets you know if an update is available or not.
+- system/groupRole - Shows if the router is acting as the root of the network tree or a leaf.
+- system/uptime - Creates one sensor showing uptime in days, and a second one showing the last system restart.
+- wan/localIpAddress - Shows your Public IP address.
+- wan/online - Shows system Online/Offline status.
