@@ -189,9 +189,12 @@ To get a count of active alerts for a specific category (for example, warnings),
 {% raw %}
 
 ```yaml
-{{ state_attr('sensor.NAME_alerts', 'alerts')
-   | selectattr('category', 'eq', 'warnings')
-   | list | count }}
+weather_alert_tts: >-
+  {{
+    state_attr('sensor.NAME_alerts', 'alerts')
+    | selectattr('category', 'eq', 'warnings')
+    | list | count
+  }}
 ```
 
 {% endraw %}
@@ -203,9 +206,12 @@ To display a comma-separated list of all active alert titles:
 {% raw %}
 
 ```yaml
-{{ state_attr('sensor.NAME_alerts', 'alerts')
-   | map(attribute='title')
-   | list | join(', ') }}
+alert_list: >-
+  {{
+    state_attr('sensor.NAME_alerts', 'alerts')
+    | map(attribute='title')
+    | list | join(', ')
+  }}
 ```
 
 {% endraw %}
