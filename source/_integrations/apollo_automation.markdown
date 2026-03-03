@@ -63,4 +63,4 @@ The following devices are known to be supported by the integration. They are cer
 - [LED-1 Controller](https://apolloautomation.com/products/led-1-led-controller) - A versatile LED controller designed for advanced lighting projects.
 - [BTN-1 Macro Deck](https://apolloautomation.com/products/btn-1-macro-deck) - A four keycap button deck with LEDs.
 - [R PRO-1 PoE dual mmWave Multisensor](https://apolloautomation.com/products/r-pro-1) - An advanced presence sensor.
-- [PLT-1 / PLT1B Plant Sensor](https://apolloautomation.com/products/plt-1) - An indoor plant multisensor.
+- [PLT-1 / PLT-1B Plant Sensor](https://apolloautomation.com/products/plt-1) - An indoor plant multisensor.
