@@ -88,7 +88,10 @@ If all entities become unavailable, the cloud connection may have been interrupt
 
 ### I get authentication errors after setting up the integration
 
-Your session may have expired. Use the reauthentication flow to enter your credentials again. If you have multiple Home Assistant instances or the mobile app running simultaneously, you may hit the terminal session limit. Try reducing the number of active sessions.
+Your session may have expired.
+
+- Use the reauthentication flow to enter your credentials again. 
+- If you have multiple Home Assistant instances or the mobile app running simultaneously, you may hit the terminal session limit. Try reducing the number of active sessions.
 
 ## Removing the integration
 
