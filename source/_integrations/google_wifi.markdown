@@ -15,14 +15,19 @@ ha_codeowners:
 ha_quality_scale: legacy
 ---
 
-The **Google Wifi** {% term integration %} is displaying the exposed status of a Google Wifi, Nest Wifi, or OnHub router.
+The **Google Wifi** {% term integration %} displays the exposed status of Google Wifi, Nest Wifi, or OnHub router(s).
 
 The {% term integration %} is able to report network status, up-time, model number, current IP address and firmware versions.
 
 ## Configuration
 
 Enter the IP Address of your router / access point, along with the device name.
-Google/Nest IP addresses default to the 192.168.86.1-255 range. Your primary router will be assigned 192.168.86.1, while all additional points added to the system will be assigned a number correponsing to the order in which devices are added to the network. Unfortunately, if you are using the internal DHCP services provided by these routers, you can not assign a static IP to the access points - only to client devices.
+
+## Important Information
+
+Google/Nest IP addresses default to the 192.168.86.1-255 range. Your primary router will be assigned 192.168.86.1, while all additional points added to the system will be assigned a number correponsing to the order in which devices are added to the network.
+
+Unfortunately, if you are using the internal DHCP services provided by these routers, you can not assign a static IP to the access points - only to client devices. If your device changes IP, you will need to reconfigure the device in Home Assistant in order to reconnect.
 
 ## Supported functionality
 
