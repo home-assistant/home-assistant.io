@@ -162,11 +162,13 @@ The `vacuum.clean_area` action is available for the following integrations in th
 
 The Energy dashboard received a nice batch of improvements this release.
 
-The **Now** view gained tile cards that show real-time power consumption, gas flow rate, and water flow rate at a glance. Water also gets its own Sankey chart in the **Now** view, giving you a visual breakdown of water usage across your home, just like the existing power Sankey chart.
+The **Now** view gained badges that show real-time power consumption, gas flow rate, and water flow rate at a glance. Water also gets its own Sankey chart in the **Now** view, giving you a visual breakdown of water usage across your home, just like the existing power Sankey chart.
+
+<img src='/images/blog/2026-03/energy-badges.png' alt='Screenshot of the new badges in the Energy dashboard.' class='no-shadow' />
 
 To reduce ambiguity, the second tab on the Energy dashboard has been renamed from "Energy" to **Electricity**, since the dashboard covers electricity, gas, and water. On the configuration side, the energy settings page is now split into three tabs: **Electricity**, **Gas**, and **Water**, making it easier to find and manage your energy sources.
 
-**TODO:** Add screenshot of the new energy settings page with tabs
+<img src='/images/blog/2026-03/energy-tabs.png' alt='Screenshot of the new tabs in the Energy dashboard config page.' class='no-shadow' />
 
 Finally, energy bar chart tooltips now include the day of the week, helping you quickly spot usage patterns.
 
