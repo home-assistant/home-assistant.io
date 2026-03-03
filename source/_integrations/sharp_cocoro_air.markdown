@@ -1,7 +1,7 @@
 ---
 title: Sharp COCORO Air
 description: Instructions on how to integrate Sharp COCORO Air devices within Home Assistant.
-ha_release: "2026.4"
+ha_release: 2026.4
 ha_category:
   - Fan
 ha_iot_class: Cloud Polling
