@@ -272,7 +272,7 @@ These sections both provide helpful advice on improving your Zigbee network perf
    - To check the status, go to {% my config_zha title="**Settings** > **Zigbee**" %} and select **Show map** to view the connected devices.
    - To speed up this process, power cycle your Zigbee end devices.
 
-#### Troubleshooting
+#### Troubleshooting Zigbee channels
 
 The related troubleshooting segments mentioned above will, among other things, inform that if you have issues with overlapping frequencies between Wi-Fi and Zigbee, then it is usually better to first only try changing and setting a static Wi-Fi channel on your Wi-Fi router or all your Wi-Fi access points (instead of just changing to another Zigbee channel).
 
