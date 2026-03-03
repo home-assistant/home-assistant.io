@@ -239,27 +239,7 @@ Group members assume state of group:
   description: "When using ZHA groups, turning on a ZHA group light makes the ZHA group members optimistically change their state to \"on\", instead of waiting and polling the lights when off. _(default: on)_"
 {% endconfiguration_basic %}
 
-### Configuration - YAML
-
-For more advanced configuration, you can modify {% term "`configuration.yaml`" %} and restart Home Assistant
-
-{% configuration %}
-database_path:
-  description: _Full_ path to the database which will keep persistent network data.
-  required: false
-  type: string
-enable_quirks:
-  description: Enable quirks mode for devices where manufacturers didn't follow specs.
-  required: false
-  type: boolean
-  default: true
-custom_quirks_path:
-  description: Full path to a directory containing custom quirk modules that will take precedence over any built-in quirks matching a device.
-  required: false
-  type: string
-{% endconfiguration %}
-
-#### Defining Zigbee channel to use
+### Defining the Zigbee channel to use
 
 {% important %}
 The best practice is to **not change the Zigbee channel** from the ZHA default.
@@ -274,26 +254,38 @@ The best practice is to **not change the Zigbee channel** from the ZHA default.
 These sections both provide helpful advice on improving your Zigbee network performance.
 {% endnote %}
 
-ZHA prefers to use Zigbee channel 15 by default. You can change this using YAML configuration, but this only works
-if there's no existing network. To change the channel for an existing network, radio has to be factory reset and a new network to be formed. This requires re-pairing of all the devices.
+ZHA prefers to use Zigbee channel 15 by default.
 
-```yaml
-zha:
-  zigpy_config:
-    network:
-      channel: 15             # What channel the radio should try to use.
-      channels: [15, 20, 25]  # Channel mask
-```
+#### To change the Zigbee channel
+
+1. Go to {% my config_zha title="**Settings** > **Zigbee**" %}.
+2. Select **Network information**.
+3. To edit the Zigbee channel, select the pencil {% icon "mdi:edit" %}.
+4. Select the desired Zigbee channel from the dropdown menu.
+   - **Smart**: scans all of the channels and then picks the best one, preferring `15`, `20`, `25` over all other channels.
+     - This is a one-time operation. It does not continuously monitor the channels and change the channel if interference is detected.
+     - This is most likely the best option. Only change it if you have a specific reason to do so.
+
+    ![Changing the Zigbee channel](/images/integrations/zha/zha-change-channel.png)
+
+5. To confirm, select **Change channel**.
+6. It might take up to an hour for all devices to reconnect to the new channel.
+   - To check the status, go to {% my config_zha title="**Settings** > **Zigbee**" %} and select **Show map** to view the connected devices.
+   - To speed up this process, power cycle your Zigbee end devices.
+
+#### Troubleshooting
 
 The related troubleshooting segments mentioned above will, among other things, inform that if you have issues with overlapping frequencies between Wi-Fi and Zigbee, then it is usually better to first only try changing and setting a static Wi-Fi channel on your Wi-Fi router or all your Wi-Fi access points (instead of just changing to another Zigbee channel).
 
 MetaGeek Support has a good reference article about channel selection for [Zigbee and WiFi coexistence](https://support.metageek.com/hc/en-us/articles/203845040-ZigBee-and-WiFi-Coexistence).
 
+#### About Zigbee channels
+
 The Zigbee specification standards divide the 2.4&nbsp;GHz ISM radio band into 16 Zigbee channels (i.e. distinct radio frequencies for Zigbee). For all Zigbee devices to be able to communicate, they must support the same Zigbee channel (i.e. Zigbee radio frequency) that is set on the Zigbee Coordinator as the channel to use for its Zigbee network. Not all Zigbee devices support all Zigbee channels. Channel support usually depends on the age of the hardware and firmware, as well as on the device's power ratings.
 
 The general recommendation is to only use channels 15, 20, or 25 in order to avoid interoperability problems with Zigbee devices. Not only because there is less chance of Wi-Fi networks interfering too much with the Zigbee network on other channels, but also because not all Zigbee devices support all channels.
 
-#### Modifying the device type
+### Modifying the device type
 
 As not all device manufacturers follow the Zigbee standard, at times a device can be incorrectly classified. For example, a switch could be classified as a light.
 
