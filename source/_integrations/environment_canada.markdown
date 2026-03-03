@@ -148,7 +148,6 @@ template:
 ```
 
 {% endraw %}
-{% endraw %}
 
 ### Additional forecast data
 
