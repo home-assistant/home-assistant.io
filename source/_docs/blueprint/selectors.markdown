@@ -247,7 +247,7 @@ area:
 The attributes selector shows a list of state attributes from a provided entity
 of which one can be selected.
 
-This allows for selecting, e.g., the "Effect" attribute from a light entity, or the
+This allows for selecting, for example, the "Effect" attribute from a light entity, or the
 "Next dawn" attribute from the `sun` entity.
 
 ![Screenshot of an attribute selector](/images/blueprints/selector-attribute.png)
@@ -618,8 +618,8 @@ device:
 
 ## Duration selector
 
-The duration select allow the user to select a time duration. This can be
-helpful for, e.g., delays or offsets.
+The duration selector lets you select a time duration.
+This can be helpful, for example, for delays or offsets.
 
 ![Screenshot of the Duration selector](/images/blueprints/selector-duration.png)
 
@@ -632,6 +632,11 @@ enable_day:
   description: When `true`, the duration selector will allow selecting days.
   type: boolean
   default: false
+  required: false
+enable_second:
+  description: When `true`, the duration selector will allow selecting seconds.
+  type: boolean
+  default: true
   required: false
 enable_millisecond:
   description: When `true`, the duration selector will allow selecting milliseconds.
@@ -649,10 +654,10 @@ The output of this selector is a mapping of the time values the user selected.
 For example:
 
 ```yaml
-days: 1 # Only when enable_day was set to true
+days: 1 # Only when enable_day is set to true
 hours: 12
 minutes: 30
-seconds: 15
+seconds: 15 # Only when enable_second is set to true (default)
 milliseconds: 500 # Only when enable_millisecond was set to true
 ```
 
@@ -1214,7 +1219,7 @@ number:
 
 ## Object selector
 
-The object selector can be used to input arbitrary data in YAML form. This is useful for e.g. lists and dictionaries containing data for actions. The value of the input will contain the provided data.
+The object selector can be used to input arbitrary data in YAML form. This is useful for lists and dictionaries containing data for actions, for example. The value of the input will contain the provided data.
 
 When used without options, the selector will accept any valid YAML content, such as objects, arrays, strings, or other YAML types. The input box is displayed as an editor with syntax highlighting.
 
