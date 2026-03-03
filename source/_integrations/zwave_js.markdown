@@ -205,12 +205,12 @@ There is no easy way to update that device.
 7. Select **Submit**.
    - The new adapter is now being paired with your existing Z-Wave network.
    - **Troubleshooting**: If the migration fails, it might be because you selected **Use socket** by mistake. If you were using a USB-based controller, plug the old adapter in again, and wait for the network to reload.
-     - Once your old adapter is connected and the network operational, repeat the migration steps.
+     - Once your old adapter is connected and the network is operational, repeat the migration steps.
      - Make sure to select the new controller this time (instead of **Use socket**).
 8. Once the migration has completed, check if you want to rename the adapter. If you have previously changed the name, the new adapter might keep the name of the old adapter.
    - In the top-left corner, select the back button to go back to the integration page.
    - In the list of devices, check the device name.
-   - To change the device name, select the {% icon "mdi:pencil" %} butt on.
+   - To change the device name, select the {% icon "mdi:pencil" %} button.
 
 ## Migrating from Z-Wave JS UI to the Z-Wave JS app
 
