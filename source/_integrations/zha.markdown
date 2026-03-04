@@ -236,11 +236,11 @@ Identify on join:
 Light transition time:
   description: "The default transition time (in seconds) used when changing light state. Set to `0` to disable transitions. Default: `0`."
 Smooth transition power-on:
-  description: "For older non Zigbee 3.0 lights, this allows a smooth transition from an off-state to a new color or brightness level, without first showing the old color. Default: `off`."
+  description: "For older non-Zigbee 3.0 lights, this allows a smooth transition from an off-state to a new color or brightness level, without first showing the old color. Default: `off`."
 Prevent slider jumping during transitions:
   description: "Prevents the brightness slider from jumping to an intermediate value while a light is transitioning. This avoids a confusing visual flicker in the UI when turning lights on with a transition effect. Default: `on`."
 Assume state of group:
-  description: "When you turn on a ZHA group light, all group members optimistically update their state to on, instead of waiting to be polled. Default: `on`."
+  description: "When you turn on a ZHA group light, all group members optimistically update to the `on` state, instead of waiting to be polled. Default: `on`."
 Consider mains-powered devices unavailable after:
   description: "The time (in seconds) after which a mains-powered device with no activity is considered unavailable. Set to `0` to disable. Default: `7200`."
 Consider battery-powered devices unavailable after:
