@@ -1837,3 +1837,67 @@ For a summary in a more readable format
 [@luochen1990]: https://github.com/luochen1990
 [@mdz]: https://github.com/mdz
 [@pantherale0]: https://github.com/pantherale0
+
+## Release 2026.2.3 - February 20
+
+- Add the ability to select region for Roborock ([@Lash-L] - [#160898])
+- Fix dynamic entity creation in eheimdigital ([@autinerd] - [#161155])
+- Fix HomematicIP entity recovery after access point cloud reconnect ([@lackas] - [#162575])
+- Show progress indicator during backup stage of Core/App update ([@hbludworth] - [#162683])
+- Fix Z-Wave climate set preset ([@MartinHjelmare] - [#162728])
+- Block redirect to localhost ([@edenhaus] - [#162941])
+- Bump pypck to 0.9.10 ([@alengwenus] - [#162333])
+- Bump pypck to 0.9.11 ([@alengwenus] - [#163043])
+- Fix blocking call in Xbox config flow ([@tr4nt0r] - [#163122])
+- Bump ical to 13.2.0 ([@allenporter] - [#163123])
+- Add Lux to homee units ([@Taraman17] - [#163180])
+- Fix remote calendar event handling of events within the same update period ([@allenporter] - [#163186])
+- Fix Control4 HVAC action mapping for multi-stage and idle states ([@davidrecordon] - [#163222])
+- NRGkick: do not update vehicle connected timestamp when vehicle is not connected ([@andijakl] - [#163292])
+- Add Miele dishwasher program code ([@astrandb] - [#163308])
+- Bump pyrainbird to 6.0.5 ([@allenporter] - [#163333])
+- Fix touchline_sl zone availability when alarm state is set ([@molsmadsen] - [#163338])
+- Bump pySmartThings to 3.5.3 ([@joostlek] - [#163375])
+- Fix hassfest requirements check ([@cdce8p] - [#163681])
+- Bump eheimdigital to 1.6.0 ([@autinerd] - [#161961])
+
+[#160898]: https://github.com/home-assistant/core/pull/160898
+[#161155]: https://github.com/home-assistant/core/pull/161155
+[#161961]: https://github.com/home-assistant/core/pull/161961
+[#162224]: https://github.com/home-assistant/core/pull/162224
+[#162333]: https://github.com/home-assistant/core/pull/162333
+[#162450]: https://github.com/home-assistant/core/pull/162450
+[#162575]: https://github.com/home-assistant/core/pull/162575
+[#162683]: https://github.com/home-assistant/core/pull/162683
+[#162728]: https://github.com/home-assistant/core/pull/162728
+[#162941]: https://github.com/home-assistant/core/pull/162941
+[#162950]: https://github.com/home-assistant/core/pull/162950
+[#163043]: https://github.com/home-assistant/core/pull/163043
+[#163122]: https://github.com/home-assistant/core/pull/163122
+[#163123]: https://github.com/home-assistant/core/pull/163123
+[#163180]: https://github.com/home-assistant/core/pull/163180
+[#163186]: https://github.com/home-assistant/core/pull/163186
+[#163222]: https://github.com/home-assistant/core/pull/163222
+[#163292]: https://github.com/home-assistant/core/pull/163292
+[#163308]: https://github.com/home-assistant/core/pull/163308
+[#163333]: https://github.com/home-assistant/core/pull/163333
+[#163338]: https://github.com/home-assistant/core/pull/163338
+[#163375]: https://github.com/home-assistant/core/pull/163375
+[#163681]: https://github.com/home-assistant/core/pull/163681
+[@Lash-L]: https://github.com/Lash-L
+[@MartinHjelmare]: https://github.com/MartinHjelmare
+[@Taraman17]: https://github.com/Taraman17
+[@alengwenus]: https://github.com/alengwenus
+[@allenporter]: https://github.com/allenporter
+[@andijakl]: https://github.com/andijakl
+[@astrandb]: https://github.com/astrandb
+[@autinerd]: https://github.com/autinerd
+[@cdce8p]: https://github.com/cdce8p
+[@davidrecordon]: https://github.com/davidrecordon
+[@edenhaus]: https://github.com/edenhaus
+[@frenck]: https://github.com/frenck
+[@hbludworth]: https://github.com/hbludworth
+[@joostlek]: https://github.com/joostlek
+[@lackas]: https://github.com/lackas
+[@molsmadsen]: https://github.com/molsmadsen
+[@tr4nt0r]: https://github.com/tr4nt0r
