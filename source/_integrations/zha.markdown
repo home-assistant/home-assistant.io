@@ -236,7 +236,7 @@ Identify on join:
 Light transition time:
   description: "The default transition time (in seconds) used when changing light state. Set to `0` to disable transitions. Increase this (for example, to `1` or `2`) if you want all lights to fade in and out by default, without having to set a transition on every automation. Default: `0`."
 Smooth transition power-on:
-  description: "For older non-Zigbee 3.0 lights, this allows a smooth transition from an off-state to a new color or brightness level, without first showing the old color. Enable this if you have older bulbs (such as older IKEA or Philips bulbs) that briefly flash their previous color when turning on with a transition. Avoid enabling this option. If multiple lights are turned on at the same time, this can lead to temporary network congestion. Default: `off`."
+  description: "For older non-Zigbee 3.0 lights, this allows a smooth transition from an off-state to a new color or brightness level, without first showing the old color. Enable this if you have older bulbs (such as older IKEA or Philips bulbs) that briefly flash their previous color when turning on with a transition. Only enable this option if absolutely necessary. If multiple lights are turned on at the same time, this can lead to temporary network congestion. Default: `off`."
 Prevent slider jumping during transitions:
   description: "Prevents the brightness slider from jumping to an intermediate value while a light is transitioning. This avoids a confusing visual flicker in the UI when turning lights on with a transition effect. Disable this if you are debugging light behavior and want to see the actual intermediate brightness values during a transition. Default: `on`."
 Assume state of group:
