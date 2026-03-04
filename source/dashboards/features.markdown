@@ -320,6 +320,37 @@ type:
   type: string
 {% endconfiguration %}
 
+## Cover position preset
+
+Widget that displays a dropdown with preset positions for a [cover](/integrations/cover).
+
+<p class='img'>
+  <img src='/images/dashboards/features/cover_position_preset.png' alt='Screenshot of the tile card with the cover position preset feature'>
+  Screenshot of the tile card with the cover position preset feature
+</p>
+
+```yaml
+features:
+  - type: "cover-position-preset"
+    positions:
+      - 0
+      - 25
+      - 75
+      - 100
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`cover-position-preset`"
+  type: string
+positions:
+  required: false
+  description: List of preset positions to show on the card. Values are percentages from 0 to 100.
+  type: list
+  default: "[0, 25, 75, 100]"
+{% endconfiguration %}
+
 ## Cover tilt
 
 Widget that displays buttons to open, close, or stop a [cover](/integrations/cover).
