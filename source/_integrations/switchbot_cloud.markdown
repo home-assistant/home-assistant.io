@@ -146,7 +146,7 @@ Please note, device names configured in the SwitchBot app are transferred into H
 
 - [AI Art Frame](https://www.switch-bot.com/products/switchbot-ai-art-frame)
 
-### Keypad
+### Keypads
 
 - Keypad
 - [Keypad Touch](https://www.switch-bot.com/products/switchbot-keypad)
@@ -507,7 +507,7 @@ Features:
 - display current picture
 
 
-### Keypad
+### Keypads
 
 #### Keypad/Keypad Touch/Keypad Vision/Keypad Vision Pro
 
