@@ -37,9 +37,9 @@ All communication is direct Bluetooth, with no cloud dependency or bridge hardwa
 
 The setup flow consists of two registration steps, each of which requires you to scan the Master Card on the lock:
 
-1. **Select lock** – Home Assistant scans for nearby ISEO locks and presents them in a list. Select your lock and click **Submit**.
-2. **Register Gateway** – Home Assistant generates a unique identity. Click **Submit**, then within 30 seconds scan the **Master Card** on the lock. The lock LEDs blink green when successful.
-3. **Enable Gateway Logs** – Click **Submit** again and scan the **Master Card** a second time within 30 seconds to grant Home Assistant permission to receive real-time log entries. The lock LEDs blink green when successful.
+1. **Select lock** – Home Assistant scans for nearby ISEO locks and presents them in a list. Select your lock and select **Submit**.
+2. **Register Gateway** – Home Assistant generates a unique identity. Select **Submit**, then within 30 seconds scan the **Master Card** on the lock. The lock LEDs blink green when successful.
+3. **Enable Gateway Logs** – Select **Submit** again and scan the **Master Card** a second time within 30 seconds to grant Home Assistant permission to receive real-time log entries. The lock LEDs blink green when successful.
 
 ## Entities
 
