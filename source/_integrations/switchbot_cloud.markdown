@@ -146,6 +146,15 @@ Please note, device names configured in the SwitchBot app are transferred into H
 
 - [AI Art Frame](https://www.switch-bot.com/products/switchbot-ai-art-frame)
 
+### Keypad
+
+- Keypad
+- [Keypad Touch](https://www.switch-bot.com/products/switchbot-keypad)
+- [Keypad Vision](https://www.switch-bot.com/products/switchbot-keypad-vision)
+- [Keypad Vision Pro](https://www.switch-bot.com/products/switchbot-keypad-vision-pro)
+
+
+
 ## Supported functionality
 
 ### Plugs and switches
