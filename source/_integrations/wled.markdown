@@ -66,7 +66,11 @@ Keep Master Light:
   description: Keep the master light (the main light entity that controls the entire WLED device), even if there is only 1 segment. This ensures the master light is always there, in case you are automating segments to be added and removed dynamically.
 {% endconfiguration_basic %}
 
-## Lights
+## Supported functionality
+
+The **WLED** integration provides the following entities.
+
+### Lights
 
 This {% term integration %} adds the WLED device as a light in Home Assistant.
 Home Assistant treats every segment of the LED strip as a separate light
@@ -75,7 +79,7 @@ Home Assistant treats every segment of the LED strip as a separate light
 Only native supported features of a light in Home Assistant are supported
 (which includes effects).
 
-### Using WLED segments
+#### Using WLED segments
 
 WLED can split a single LED strip into multiple segments. These segments can be
 controlled separately in WLED and in Home Assistant as well.
@@ -90,7 +94,7 @@ Home Assistant. Additionally, a master light {% term entity %} is created. This 
 
 Additionally, select, number, and switch entities described below will be created for each segment.
 
-## Select entities
+### Selects
 
 This {% term integration %} provides [select entities](/integrations/select)
 for the following information from WLED:
@@ -100,7 +104,7 @@ for the following information from WLED:
 - Preset: Activates a preset configured on the WLED device.
 - Color palette (per segment): Selects the color palette used by the current effect.
 
-## Number entities
+### Numbers
 
 This {% term integration %} provides [number entities](/integrations/number)
 to control the following, segment-specific settings:
@@ -108,7 +112,7 @@ to control the following, segment-specific settings:
 - Intensity
 - Speed
 
-## Sensor entities
+### Sensors
 
 This {% term integration %} provides [sensor entities](/integrations/sensor)
 for the following information from WLED:
@@ -124,19 +128,19 @@ for the following information from WLED:
 - Wi-Fi BSSID (disabled by default)
 - IP Address
 
-## Switches
+### Switches
 
 The {% term integration %} will also create a number of
 [switch entities](/integrations/switch).
 
-### Nightlight
+#### Nightlight
 
 Toggles the WLED nightlight feature, which gradually dims the lights over a configurable duration.
 
 Can be configured on the WLED itself under
 **Settings** > **LED Preferences** > **Timed light**.
 
-### Sync receive and sync send
+#### Sync receive and sync send
 
 Toggles the synchronization between multiple WLED devices.
 Can be configured on the WLED itself under 
@@ -144,16 +148,16 @@ Can be configured on the WLED itself under
 
 [WLED Sync documentation](https://kno.wled.ge/interfaces/udp-notifier/)
 
-### Reverse
+#### Reverse
 
 Reverses the direction of the LED effect on a segment. One switch is created per segment.
 
-## Buttons
+### Buttons
 
 This {% term integration %} provides a [button entity](/integrations/button)
 to restart the WLED device.
 
-## Firmware updates
+### Updates
 
 The {% term integration %} has an [update entity](/integrations/update/)
 that provides information on the latest available version of WLED
