@@ -249,6 +249,20 @@ Refresh mains-powered devices state on startup:
   description: "Poll mains-powered devices to refresh their state when ZHA starts up. Disable this if your network is large and the startup polling causes congestion, or if your devices are slow to reconnect after a restart. Default: `on`."
 {% endconfiguration_basic %}
 
+### About network information
+
+The network information page provides details about your Zigbee network and coordinator. To open it, go to {% my config_zha title="**Settings** > **Zigbee**" %} and select **Network information**.
+
+The following information is shown:
+
+- **Channel**: The Zigbee channel currently in use by the network. Valid channels are 11–26 (all in the 2.4&nbsp;GHz band). This is the only field you can change. To edit it, select the pencil {% icon "mdi:edit" %} icon.
+- **PAN ID**: The 16-bit Personal Area Network identifier of your Zigbee network. Uniquely identifies the network among nearby Zigbee networks.
+- **Extended PAN ID**: The 64-bit extended version of the PAN ID. Used to uniquely identify the network across longer distances and more devices.
+- **Coordinator IEEE**: The IEEE 802.15.4 hardware address (MAC address) of the Zigbee coordinator. This address is fixed and unique to the coordinator hardware.
+- **Radio type**: The Zigbee radio stack used by the coordinator. Common values are `ezsp` (Silicon Labs), `znp` (Texas Instruments), `deconz` (ConBee/RaspBee), `zigate`, and `xbee`.
+- **Serial port**: The path to the serial device the coordinator is connected to, for example `/dev/ttyUSB0` or a `socket://` URL for network-connected adapters.
+- **Baudrate**: The communication speed of the serial connection in bits per second (for example, `115200`). This field is only shown for direct serial connections and is hidden for network/socket-based (Ethernet) adapters.
+
 ### Defining the Zigbee channel to use
 
 {% important %}
