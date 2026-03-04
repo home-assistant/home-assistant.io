@@ -224,7 +224,7 @@ If you use a ZiGate or Sonoff ZBBridge device, you need additional configuration
 
 {% enddetails %}
 
-### Global Options
+### Global options
 
 There are a few global options available once ZHA has been configured. To access these settings, go to {% my config_zha title="**Settings** > **Zigbee**" %} and select **Options**.
 
