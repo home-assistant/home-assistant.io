@@ -4,7 +4,7 @@ description: Instructions on how to integrate Google Wifi/OnHub routers into Hom
 ha_category:
   - System monitor
 ha_iot_class: Local Polling
-ha_release: '2026.2.3'
+ha_release: 2026.2
 ha_domain: google_wifi
 ha_config_flow: true
 ha_platforms:
