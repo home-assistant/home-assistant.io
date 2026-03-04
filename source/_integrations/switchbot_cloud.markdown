@@ -154,7 +154,6 @@ Please note, device names configured in the SwitchBot app are transferred into H
 - [Keypad Vision Pro](https://www.switch-bot.com/products/switchbot-keypad-vision-pro)
 
 
-
 ## Supported functionality
 
 ### Plugs and switches
@@ -506,6 +505,15 @@ Features:
 - get battery
 - switch picture
 - display current picture
+
+
+### Keypad
+
+#### Keypad/Keypad Touch/Keypad Vision/Keypad Vision Pro
+
+Features:
+- Generate one-time password
+
 
 ## Important considerations
 
