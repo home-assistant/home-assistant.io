@@ -32,7 +32,21 @@ ID or passport number:
   description: Your government ID or passport number used to sign-up with Ituran.
 Mobile phone number:
   description: The mobile phone number used to sign-up with Ituran. A one-time-password will be sent to this number.
+Mobile ID (Password):
+  description: "Optional. The mobile ID from your Ituran mobile app. Does not require a one-time password and allows using both this integration and the mobile app simultaneously."
 {% endconfiguration_basic %}
+
+{% important %}
+To be able to provide the `Mobile ID (Password)` on integration setup, you need to enable [advanced mode](/blog/2019/07/17/release-96/#advanced-mode).
+{% endimportant %}
+
+### Finding the Mobile ID on Android
+
+To find the Mobile ID on an Android device, you must enable Developer Options and USB Debugging on your phone. Then, connect your phone to a computer with ADB installed, open the Ituran app, and run the following command in your terminal:
+
+```bash
+adb logcat --pid=$(adb shell pidof -s com.ituran.forall) --regex="Password\s="
+```
 
 ## Data updates
 
@@ -65,8 +79,9 @@ The Ituran {% term integration %} also exposes the following sensors for each re
 
 ## Known limitations
 
-- While this integration is configured with your account, you won't be able to use the official app, as only one connection at a time is supported
-  - As a workaround, it's possible to add another user from the app, with a different ID and mobile phone number that will be dedicated for Home Assistant use.
+- By default, while this integration is configured using a one-time password, you won't be able to use the official app, as only one connection at a time is supported.
+  - To solve this, you can configure the `Mobile ID (Password)` option (requires advanced mode) to allow using both the integration and the mobile app simultaneously.
+  - Alternatively, it's possible to add another user from the app, with a different ID and mobile phone number that will be dedicated for Home Assistant use.
 - The vehicle's heading value is unreliable when it's not in motion
 - The mileage value is not read from the vehicle's odometer but is calculated from GPS, which may result in slight variations from the actual odometer reading
 
