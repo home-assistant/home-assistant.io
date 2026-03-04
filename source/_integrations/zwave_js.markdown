@@ -458,6 +458,15 @@ The **My network** section gives you access to the device and entity lists for y
 - **Restore from backup**: [Restore your Z-Wave network from a backup file](#restoring-a-z-wave-network-from-backup) that you previously downloaded. This can be helpful when migrating to a new adapter, or when you want to restore your network after resetting your adapter.
 - **Migrate adapter**: Allows you to [migrate your Z-Wave network to a new adapter](#migrating-a-z-wave-network-to-a-new-adapter).
 
+#### About network information
+
+The **Network information** section in the integration configuration panel shows metadata about your Z-Wave network and the software running it. This information is useful when troubleshooting issues or when contacting support.
+
+- **Home ID**: A unique identifier assigned to your Z-Wave network. Every device paired to your network shares this ID. It can be used to verify that a device belongs to your network or to identify your network when seeking help.
+- **Driver version**: The version of the [Z-Wave JS driver](https://github.com/zwave-js/node-zwave-js) running on your Z-Wave JS server. The driver is the core library that communicates directly with your Z-Wave adapter.
+- **Server version**: The version of the [Z-Wave JS server](https://github.com/zwave-js/zwave-js-server) running in your setup. The server acts as the bridge between the Z-Wave JS driver and Home Assistant.
+- **Server URL**: The WebSocket URL that Home Assistant uses to connect to your Z-Wave JS server, for example `ws://homeassistant.local:3000`. This can be useful when you need to verify or reconfigure the connection between Home Assistant and the Z-Wave JS server.
+
 ### Integration menu
 
 Some features can be accessed from the menu of integration itself. As they are not specific to Z-Wave, they are not described here in detail.
