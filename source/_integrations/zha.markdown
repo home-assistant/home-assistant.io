@@ -555,7 +555,7 @@ Prerequisites and steps can vary depending on the device type, manufacturer, and
 
 1. Go to {% my config_zha title="**Settings** > **Zigbee**" %}.
 2. Select **Devices**, then select the device you want to manage bindings for.
-3. In the options menu ({% icon "mdi:dots-vertical" %}) to the right of the **Reconfigure** button, select **Manage Zigbee device**.
+3. In the three dots {% icon "mdi:dots-vertical" %} menu next to the **Reconfigure** button, select **Manage Zigbee device**.
 4. In the pop-up dialog, select the **Bindings** tab.
 5. Choose the device from the list of **Bindable devices** (or **Bindable groups**).
 6. If the remote is battery-powered or low-power, wake it by pressing a button immediately before sending a command.
