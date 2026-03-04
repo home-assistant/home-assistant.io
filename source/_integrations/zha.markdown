@@ -269,7 +269,7 @@ These sections both provide helpful advice on improving your Zigbee network perf
 
 5. To confirm, select **Change channel**.
 6. It might take up to an hour for all devices to reconnect to the new channel.
-   - To check the status, go to {% my config_zha title="**Settings** > **Zigbee**" %} and select **Show map** to view the connected devices.
+   - To check the status, take a look at the [visualization of the Zigbee network topology](#visualization-of-the-zigbee-network-topology-and-device-links).
    - To speed up this process, power cycle your Zigbee end devices.
 
 #### Troubleshooting Zigbee channels
