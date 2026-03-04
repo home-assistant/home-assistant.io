@@ -1,0 +1,61 @@
+---
+title: ISEO Argo BLE
+description: Instructions on how to integrate your ISEO Argo smart lock into Home Assistant via Bluetooth.
+ha_category:
+  - Lock
+ha_release: "2026.4"
+ha_iot_class: Local Push
+ha_config_flow: true
+ha_codeowners:
+  - '@FezVrasta'
+ha_domain: iseo_argo_ble
+ha_platforms:
+  - lock
+ha_bluetooth: true
+ha_integration_type: device
+ha_quality_scale: bronze
+---
+
+The **ISEO Argo BLE** {% term integration %} connects Home Assistant to [ISEO](https://www.iseo.com) Argo smart locks over Bluetooth Low Energy. ISEO is an Italian security manufacturer specializing in high-security cylinders and electronic access control, widely used in residential and commercial buildings across Italy and Switzerland.
+
+Home Assistant registers itself as an Argo Gateway, giving it the same privileges as the official Argo app: unlocking the lock and receiving real-time access log entries.
+
+All communication is direct Bluetooth, with no cloud dependency or bridge hardware required.
+
+## Prerequisites
+
+- A Bluetooth adapter accessible to Home Assistant (built-in or via [ESPHome Bluetooth proxy](https://www.home-assistant.io/integrations/esphome/)).
+- An ISEO Argo smart lock (e.g., x1R Smart, AGB Smart).
+- The physical **Master Card** that was supplied with the lock — it is required during the setup process to authorize Home Assistant.
+- The official **ARGO app must be closed** on all phones during each setup step, as the lock only accepts one Bluetooth connection at a time.
+
+## Setup
+
+{% include integrations/config_flow.md %}
+
+### Step-by-step walkthrough
+
+The setup flow consists of two registration steps, each of which requires you to scan the Master Card on the lock:
+
+1. **Select lock** – Home Assistant scans for nearby ISEO locks and presents them in a list. Select your lock and click **Submit**.
+2. **Register Gateway** – Home Assistant generates a unique identity. Click **Submit**, then within 30 seconds scan the **Master Card** on the lock. The lock LEDs blink green when successful.
+3. **Enable Gateway Logs** – Click **Submit** again and scan the **Master Card** a second time within 30 seconds to grant Home Assistant permission to receive real-time log entries. The lock LEDs blink green when successful.
+
+## Entities
+
+### Lock
+
+| Entity | Description |
+|--------|-------------|
+| Lock | Controls the lock (unlock only). Reflects the current locked/unlocked state. |
+
+## Known limitations
+
+- The lock only supports **one active Bluetooth connection** at a time. Close the ARGO app on all phones before unlocking or during setup.
+- The ISEO X1R is a momentary actuator: it re-latches automatically after every unlock. The `lock` action is therefore a no-op.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
