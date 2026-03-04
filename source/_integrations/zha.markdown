@@ -523,12 +523,14 @@ While using a native Zigbee group instead of Home Assistant's [Group](/integrati
 
 #### To create a Zigbee group
 
-1. Select the **Configure** button on the ZHA integration page,
-2. Choose **Groups** and select **Create Group**,
-3. Enter a name for the group,
+1. Go to {% my config_zha title="**Settings** > **Zigbee**" %}.
+2. Choose **Groups** and select the **Create group** button.
+3. Enter a name for the group.
 4. Select which devices to include in the group:
     - At least two devices must be added to a Zigbee Group before a group entity is created.
     - The group should consist of products of the same device type (all lights, all switches, or all fans).
+5. To confirm, select **Create group**.
+   - You can now control all devices in the group with a single command or entity. For example, you can add a toggle to the dashboard to turn on/off all lights in the group.
 
 ### Binding
 
