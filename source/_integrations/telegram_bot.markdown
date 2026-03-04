@@ -118,6 +118,14 @@ If your Home Assistant is publicly accessible, do the following:
 
 {% include integrations/config_flow.md %}
 
+{% note %}
+When configuring the **API endpoint**, please note the following protocol requirements:
+
+- (Default) Official Telegram servers: HTTPS is required.
+- Custom API endpoints: Both HTTP and HTTPS are supported.
+
+{% endnote %}
+
 {% configuration_basic %}
 Platform:
   description: The Telegram bot type, either `Broadcast`, `Polling` or `Webhooks`.
