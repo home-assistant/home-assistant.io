@@ -560,7 +560,7 @@ Prerequisites and steps can vary depending on the device type, manufacturer, and
 5. Choose the device from the list of **Bindable devices** (or **Bindable groups**).
 6. If the remote is battery-powered or low-power, wake it by pressing a button immediately before sending a command.
 7. Confirm the **Bind** or **Unbind** action:
-    - To bind devices: select **Bind** (or **Bind group**).
+    - To bind devices, select **Bind** (or **Bind group**).
     - To unbind devices, select **Unbind** (or **Unbind group**).
 
 ## Backups and migration
