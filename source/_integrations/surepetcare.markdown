@@ -62,13 +62,18 @@ These are the entities available in the Sure Petcare integration.
 
 #### Sensors
 
-- **Battery level**: Battery level percentage (derived from battery voltage).            |
+- **Battery level**: Battery level percentage (derived from battery voltage).
 
 ### Felaqua
+
+#### Binary sensors
+
+- **Connectivity**: Felaqua connectivity (online); shows device RSSI when available.
 
 #### Sensors
 
 - **Felaqua**: Water remaining in the bowl.
+- **Battery level**: Battery level percentage (derived from battery voltage).
 
 ### Hub
 
