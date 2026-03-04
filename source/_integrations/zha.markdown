@@ -242,9 +242,9 @@ Prevent slider jumping during transitions:
 Assume state of group:
   description: "When you turn on a ZHA group light, all group members optimistically update to the `on` state, instead of waiting to be polled. Default: `on`."
 Consider mains-powered devices unavailable after:
-  description: "The time (in seconds) after which a mains-powered device with no activity is considered unavailable. Set to `0` to disable. Default: `7200`."
+  description: "The time (in seconds) after which a mains-powered device with no activity is considered unavailable. Set to `0` to disable. Default: `7200` (2 hours)."
 Consider battery-powered devices unavailable after:
-  description: "The time (in seconds) after which a battery-powered device with no activity is considered unavailable. Set to `0` to disable. Default: `21600`."
+  description: "The time (in seconds) after which a battery-powered device with no activity is considered unavailable. Set to `0` to disable. Default: `21600` (6 hours)."
 Refresh mains-powered devices state on startup:
   description: "Poll mains-powered devices to refresh their state when ZHA starts up. Default: `on`."
 {% endconfiguration_basic %}
