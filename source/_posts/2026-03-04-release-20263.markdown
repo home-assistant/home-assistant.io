@@ -225,6 +225,7 @@ Battery usage could be drastically reduced if Google opened their API for hardwa
 {% endnote %}
 
 Thanks, [@TimoPtr]! 🎉
+
 [@TimoPtr]: https://github.com/TimoPtr
 
 ## Integrations
