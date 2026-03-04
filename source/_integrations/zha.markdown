@@ -894,10 +894,10 @@ When reporting potential bugs related to the ZHA integration on the issues track
 2. Exact model and firmware of the Zigbee radio (Zigbee Coordinator adapter) being used.
 3. If the issue is related to a specific Zigbee device, provide both the **Zigbee Device Signature** and the **Diagnostics** information.
      - Go to {% my config_zha title="**Settings** > **Zigbee**" %}.
-        - Select **Devices** and from the list, select your device.
-        - In the three dots {% icon "mdi:dots-vertical" %} menu next to the **Reconfigure** button, select **Download diagnostics**.
-        - In the three dots {% icon "mdi:dots-vertical" %} menu next to the **Reconfigure** button, select **Manage Zigbee device**.
-          - Open the **Signature** tab and copy the signature.
+        1. Select **Devices** and from the list, select your device.
+        2. In the three dots {% icon "mdi:dots-vertical" %} menu next to the **Reconfigure** button, select **Download diagnostics**.
+        3. In the three dots {% icon "mdi:dots-vertical" %} menu next to the **Reconfigure** button, select **Manage Zigbee device**.
+        4. Open the **Signature** tab and copy the signature.
 
 {% tip %}
 For troubleshooting, read the following sections on this page. They provide information on improving your Zigbee network performance.
