@@ -346,7 +346,7 @@ type:
   type: string
 positions:
   required: false
-  description: List of preset positions to show on the card. Values are percentages from 0 to 100.
+  description: List of preset positions to show on the card. Values are percentages from 0 to 100, and you can configure up to 6 positions.
   type: list
   default:
     - 0
