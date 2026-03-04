@@ -22,7 +22,7 @@ related:
     title: Assist
 ---
 
-The Assist pipeline {% term integration %} provides the foundation for the [Assist](/voice_control/) voice assistant in Home Assistant.
+The **Assist pipeline** {% term integration %} provides the foundation for the [Assist](/voice_control/) voice assistant in Home Assistant.
 
 For most users, there is no need to install this integration manually. The Assist pipeline integration is part of the default configuration and is set up automatically if needed by other integrations.
 If you are not using the default {% term integration %}, you need to add the following to your {% term "`configuration.yaml`" %} file.

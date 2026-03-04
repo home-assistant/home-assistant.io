@@ -135,7 +135,7 @@ If there are missing Zimi devices after the initial integration, you may have to
 
 To do this:
 
-1. Go to **Settings** > **Devices & Services**.
+1. Go to **Settings** > **Devices & services**.
 2. Select **Zimi**.
 3. Select **Add Hub**.
 This will re-run the discovery process.

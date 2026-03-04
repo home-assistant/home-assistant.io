@@ -3,12 +3,14 @@ title: SwitchBot Bluetooth
 description: Instructions on how to set up SwitchBot Devices.
 ha_category:
   - Binary sensor
+  - Button
   - Climate
   - Cover
   - Fan
   - Humidifier
   - Light
   - Lock
+  - Select
   - Sensor
   - Switch
   - Vacuum
@@ -27,6 +29,7 @@ works_with:
 ha_bluetooth: true
 ha_platforms:
   - binary_sensor
+  - button
   - climate
   - cover
   - diagnostics
@@ -34,15 +37,16 @@ ha_platforms:
   - humidifier
   - light
   - lock
+  - select
   - sensor
   - switch
   - vacuum
 ha_config_flow: true
-ha_integration_type: integration
+ha_integration_type: device
 ha_quality_scale: gold
 ---
 
-The SwitchBot integration allows you to control SwitchBot [devices](https://www.switch-bot.com/) such as sensors, locks, shades, lights, plugs, robot vacuums, hubs and etc.
+The **SwitchBot Bluetooth** {% term integration %} allows you to control SwitchBot [devices](https://www.switch-bot.com/) such as sensors, locks, shades, lights, plugs, robot vacuums, hubs and etc.
 
 ## How you can use this integration
 
@@ -63,7 +67,24 @@ Please note, device names configured in the SwitchBot app are not transferred in
 
 Some SwitchBot devices need to be configured within the app before being controlled by Home Assistant, such as calibrating the cover open/close limits or pairing two covers to move together.
 
+### Add mode
 
+Before adding SwitchBot devices over Bluetooth, confirm whether your Bluetooth adapter is set to **Active** or **Passive** mode in the Bluetooth integration configuration.
+
+- To open the Bluetooth integration settings, go to {% my integrations title="**Settings** > **Devices & services**" %} and select **Integrations**, then find and open the **Bluetooth** integration to check the adapter mode.
+
+- Active mode
+  - Devices are normally discovered automatically.
+  - If a device is not discovered automatically:
+    - For devices with a physical button, press and hold the button to enter pairing mode.
+    - For devices without a button, power-cycle the device to trigger pairing mode.
+    - If the device still cannot be discovered, try syncing devices from your SwitchBot account by selecting  the **SwitchBot** integration and signing in.
+
+- Passive mode
+  - Devices cannot be discovered via local Bluetooth scanning and must be synchronized through your SwitchBot account.
+  - To sync devices from your account, go to {% my integrations title="**Settings** > **Devices & services**" %}, open **Integrations**, select **SwitchBot**, select  the integration to open the login window, and sign in. If the local Bluetooth scan detects devices that are linked to your SwitchBot account and within range, you can add them after signing in.
+
+If you still cannot add a device, make sure it is powered on, within Bluetooth range, and not connected to another app. If necessary, follow the manufacturer's reset instructions or consult SwitchBot support.
 
 ### Adding encrypted SwitchBot devices
 
@@ -138,6 +159,9 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 - [Lock Pro (WoLockPro)](https://www.switch-bot.com/pages/switchbot-lock-pro)
 - [Lock Ultra (WoLockUltra)](https://www.switch-bot.com/products/switchbot-lock-ultra)
 - [Lock Lite (WoLockLite)](https://www.switchbot.jp/products/switchbot-lock-lite)
+- Lock Vision
+- Lock Vision Pro
+- Lock Pro Wifi
 
 ### Humidifiers
 
@@ -185,6 +209,15 @@ For instructions on how to obtain the encryption key, see README in [PySwitchbot
 ### Climates
 
 - [Smart Radiator Thermostat](https://www.switch-bot.com/products/switchbot-smart-radiator-thermostat)
+
+### Buttons
+
+- [Art Frame](https://www.switch-bot.com/products/switchbot-ai-art-frame)
+
+### Keypad Visions
+
+- [Keypad Vision](https://www.switch-bot.com/products/switchbot-keypad-vision)
+- [Keypad Vision Pro](https://www.switch-bot.com/products/switchbot-keypad-vision-pro)
 
 ## Works with Home Assistant
 
@@ -310,6 +343,14 @@ Features:
 - get light level
 - get battery level
 - get calibration state
+- set curtain movement speed
+
+Curtain movement speed is configured from the device options. Curtain movement speed is primarily designed for Curtain 3 models. Older Curtain models may ignore the setting.
+
+1. To set **Curtain movement speed**, go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Find the SwitchBot integration and select the curtain device you want to configure.
+3. Select **Configure** for that device.
+4. In the **Options** dialog, set **Curtain movement speed** to a number between 0-255. The default is 255.
 
 #### Blind Tilt
 
@@ -435,6 +476,33 @@ Features:
 - get humidity
 - get carbon dioxide
 - get battery level
+- set display time format (12h/24h)
+- sync the device date and time with Home Assistant
+
+{% details "Syncing the device date and time with Home Assistant automatically" %} 
+
+The integration adds a **Sync date and time** button to the device's details page. You can set up your own automation that triggers that button regularly. Here's a simple example for `configuration.yaml`:
+
+{% raw %}
+
+```yaml
+automation:
+  - alias: "Daily SwitchBot CO2 Time Sync"
+    description: "Sync date and time sync for the Meter Pro CO2 every night."
+    trigger:
+    triggers:
+      - trigger: time
+        # Ensures the time is in sync after a DST (summer/winter) time change.
+        at: "03:00:00"
+    actions:
+      - action: button.press
+        target:
+          # Replace with your actual entity ID
+          entity_id: button.<your_device_name>_sync_date_and_time
+```
+
+{% endraw %}
+{% enddetails %}
 
 #### Contact Sensor
 
@@ -486,6 +554,21 @@ Features:
 - get battery
 - motion detection state
 - light detection state
+
+#### Keypad Vision (Pro)
+
+This is an encrypted device. For testing, you can execute the actions that this device supports individually within the development tools.
+
+Actions:
+- add_password
+
+Examples:
+```yaml
+action: switchbot.add_password
+data:
+  device_id: c2d01328efd261f586e56d914e3af07e
+  password: 123456
+```
 
 ### Lights
 
@@ -587,7 +670,7 @@ Options:
 2. Under **Integration entries**, find the lock and select **Configure**.
 3. In the **Options** dialog, configure the nightlatch operation mode.
 
-#### Lock Pro
+#### Lock Pro (Wifi)
 
 This is an encrypted device.
 
@@ -634,6 +717,40 @@ Features:
 - Lock or unlock
 - calibration state
 - get battery level
+
+#### Lock Vision
+
+This is an encrypted device.
+
+Features:
+
+- Lock or unlock
+- calibration state
+- get battery level
+
+Options:
+
+1. To enable nightlatch operation mode, go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Under **Integration entries**, find the lock and select **Configure**.
+3. In the **Options** dialog, configure the nightlatch operation mode.
+
+#### Lock Vision Pro
+
+This is an encrypted device.
+
+Features:
+
+- Lock or unlock
+- open or closed state
+- auto-lock paused state
+- calibration state
+- get battery level
+
+Options:
+
+1. To enable nightlatch operation mode, go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Under **Integration entries**, find the lock and select **Configure**.
+3. In the **Options** dialog, configure the nightlatch operation mode.
 
 ### Hubs
 
@@ -740,7 +857,7 @@ Features:
 
 climate entities are added for smart radiator thermostat
 
-This is an encryed device.
+This is an encrypted device.
 
 Features:
 
@@ -748,6 +865,19 @@ Features:
 - turn off
 - set mode
 - set target temperature
+
+### Buttons
+
+button entities are added for art frame.
+
+This is an encrypted device.
+
+Note: Users need to preset images in the app.
+
+Features:
+- next image
+- previous image
+
 
 ## Data updates
 

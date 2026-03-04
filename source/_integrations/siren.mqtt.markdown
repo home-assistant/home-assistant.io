@@ -8,7 +8,7 @@ ha_iot_class: Configurable
 ha_domain: mqtt
 ---
 
-The `mqtt` siren platform lets you control your MQTT enabled sirens and text based notification devices.
+The **MQTT Siren** {% term integration %} lets you control your MQTT enabled sirens and text based notification devices.
 
 ## Configuration
 

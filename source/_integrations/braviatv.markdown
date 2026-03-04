@@ -21,7 +21,7 @@ ha_ssdp: true
 ha_integration_type: device
 ---
 
-The **Bravia TV** {% term integration %} allows you to control a [Sony Bravia TV](https://www.sony.com/).
+The **Sony Bravia TV** {% term integration %} allows you to control a [Sony Bravia TV](https://www.sony.com/).
 
 Almost all [Sony Bravia TV 2013 and newer](https://info.tvsideview.sony.net/en_ww/home_device.html#bravia) are supported. For older TVs see more generic methods to control your device [below](#for-tvs-older-than-2013).
 
@@ -31,7 +31,7 @@ Almost all [Sony Bravia TV 2013 and newer](https://info.tvsideview.sony.net/en_w
 
 The Bravia TV integration supports two types of authentication:
 
-- **PSK (Pre-Shared-Key)** is a user-defined secret key used for access control. This authentication method is recommended as more reliable and stable. To set up and enable PSK on your TV, go to: **Settings -> Network -> Home Network Setup -> IP Control**.
+- **PSK (Pre-Shared-Key)** is a user-defined secret key used for access control. This authentication method is recommended as more reliable and stable. To set up and enable PSK on your TV, go to: **Settings** > **Network** > **Home Network Setup** > **IP Control**.
 - **PIN Code** authentication is easier and does not require additional settings. [See this guide](#tv-does-not-generate-new-pin) if your TV does not show the PIN code.
 
 For more information, see [IP Control Authentication](https://pro-bravia.sony.net/develop/integrate/ip-control/index.html#ip-control-authentication).

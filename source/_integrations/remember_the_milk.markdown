@@ -13,7 +13,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `remember_the_milk` integration allows you to create tasks in [Remember The Milk (RTM)](https://www.rememberthemilk.com) from Home Assistant. You can use this if you want Home Assistant to send you a task that you should not forget, e.g., water the plants. The integration allows you to have several RTM accounts in parallel.
+The **Remember The Milk** {% term integration %} allows you to create tasks in [Remember The Milk (RTM)](https://www.rememberthemilk.com) from Home Assistant. You can use this if you want Home Assistant to send you a task that you should not forget, e.g., water the plants. The integration allows you to have several RTM accounts in parallel.
 
 ## Setup
 

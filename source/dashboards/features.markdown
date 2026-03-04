@@ -840,7 +840,7 @@ type:
 
 ## Trend graph
 
-Widget that displays the a trend of the history for a numeric [sensor](/integrations/sensor).
+Widget that displays a trend of the history for a numeric [sensor](/integrations/sensor).
 
 <p class='img'>
   <img src='/images/dashboards/features/trend_graph.png' alt='Screenshot of the tile card with the trend graph feature'>
@@ -1010,7 +1010,7 @@ operation_modes:
 
 ## Area control
 
-Widget that displays buttons to control different types of entity in your area.
+Widget that displays buttons to control different types of entities in your area. You can control all entities of a specific domain or select individual entities.
 
 <p class='img'>
   <img src='/images/dashboards/features/area_controls.png' alt='Screenshot of the area card with the area controls feature'>
@@ -1024,6 +1024,7 @@ features:
       - light
       - fan
       - switch
+      - entity_id: light.kitchen_counter
 ```
 
 {% configuration features %}
@@ -1033,6 +1034,6 @@ type:
   type: string
 controls:
   required: true
-  description: List of controls to show on the card. The list can contain `light`, `fan`, and `switch`.
+  description: List of controls to show on the card. The list can contain domain names like `light`, `fan`, and `switch`, or mappings that specify a particular entity by using the `entity_id` key, as shown in the example above.
   type: list
 {% endconfiguration %}

@@ -8,7 +8,7 @@ ha_release: 0.18
 ha_domain: mqtt
 ---
 
-The `mqtt` cover platform allows you to control an MQTT cover (such as blinds, a roller shutter or a garage door).
+The **MQTT cover** {% term integration %} allows you to control an MQTT cover (such as blinds, a roller shutter or a garage door).
 
 ## Configuration
 
