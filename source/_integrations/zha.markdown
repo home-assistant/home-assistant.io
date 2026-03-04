@@ -226,17 +226,27 @@ If you use a ZiGate or Sonoff ZBBridge device, you need additional configuration
 
 ### Global Options
 
-There are a few global options available once ZHA has been configured. Press **Configure** to access these settings.
+There are a few global options available once ZHA has been configured. To access these settings, go to {% my config_zha title="**Settings** > **Zigbee**" %} and select **Options**.
 
 The options are as follows:
 
 {% configuration_basic %}
-Enable enhanced light color/temperature transition from an off-state:
-  description: "For older non Zigbee 3.0 lights, this still allows a proper transition from an off-state to a new color (without seeing the old color). _(default: off)_"
-Enable enhanced brightness slider during light transition:
-  description: "This avoids seeing intermediary brightness state when turning on lights with a transition. _(default: on)_"
-Group members assume state of group:
-  description: "When using ZHA groups, turning on a ZHA group light makes the ZHA group members optimistically change their state to \"on\", instead of waiting and polling the lights when off. _(default: on)_"
+Identify on join:
+  description: "When a new device joins the network, it performs an identify procedure (such as blinking) so you can locate it. Default: `on`."
+Light transition time:
+  description: "The default transition time (in seconds) used when changing light state. Set to `0` to disable transitions. Default: `0`."
+Smooth transition power-on:
+  description: "For older non Zigbee 3.0 lights, this allows a smooth transition from an off-state to a new color or brightness level, without first showing the old color. Default: `off`."
+Prevent slider jumping during transitions:
+  description: "Prevents the brightness slider from jumping to an intermediate value while a light is transitioning. This avoids a confusing visual flicker in the UI when turning lights on with a transition effect. Default: `on`."
+Assume state of group:
+  description: "When you turn on a ZHA group light, all group members optimistically update their state to on, instead of waiting to be polled. Default: `on`."
+Consider mains-powered devices unavailable after:
+  description: "The time (in seconds) after which a mains-powered device with no activity is considered unavailable. Set to `0` to disable. Default: `7200`."
+Consider battery-powered devices unavailable after:
+  description: "The time (in seconds) after which a battery-powered device with no activity is considered unavailable. Set to `0` to disable. Default: `21600`."
+Refresh mains-powered devices state on startup:
+  description: "Poll mains-powered devices to refresh their state when ZHA starts up. Default: `on`."
 {% endconfiguration_basic %}
 
 ### Defining the Zigbee channel to use
