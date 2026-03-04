@@ -348,7 +348,11 @@ positions:
   required: false
   description: List of preset positions to show on the card. Values are percentages from 0 to 100.
   type: list
-  default: "[0, 25, 75, 100]"
+  default:
+    - 0
+    - 25
+    - 75
+    - 100
 {% endconfiguration %}
 
 ## Cover tilt
