@@ -170,7 +170,7 @@ These sensors are only available on NRGkick SIM models and are disabled by defau
 
 The integration creates the following device tracker:
 
-- **GPS tracker**: Current device location (latitude/longitude) and location accuracy.
+- **GPS tracker**: Current device location (latitude and longitude) and location accuracy.
 
 The device tracker is only available on NRGkick SIM models.
 
