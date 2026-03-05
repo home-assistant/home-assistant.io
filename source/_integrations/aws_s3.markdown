@@ -105,7 +105,6 @@ Endpoint URL:
   description: "Endpoint URL provided to [Boto3 Session](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/core/session.html). Region-specific [AWS S3 endpoints](https://docs.aws.amazon.com/general/latest/gr/s3.html) are available in their documentation. Defaults to `https://s3.eu-central-1.amazonaws.com/`."
 Prefix:
   description: "Optional path prefix within the S3 bucket where backups will be stored. For example, `home-assistant` will store backups in `s3://bucket-name/home-assistant/`. This is useful for organizing backups when using the same bucket for multiple purposes. Leading and trailing slashes will be automatically removed."
-  required: false
 {% endconfiguration_basic %}
 
 ## Setting up the AWS S3 integration in Home Assistant
