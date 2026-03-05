@@ -1306,15 +1306,15 @@ light:
       required: false
       type: action
     set_rgb:
-      description: Defines a set of actions (script) to run when the light is given an RGB color command. The script will only execute if the light is turned on with a `rgb` or `xy_color`.  The script receives the variables `rgb` as a tuple, `r`, `g`, and `b`, and may also receive variables `brightness` and/or `transition`.
+      description: Defines a set of actions (script) to run when the light is given an RGB color command. The script will only execute if the light is turned on with a `rgb` value.  The script receives the variables `rgb` as a tuple, `r`, `g`, and `b`, and may also receive variables `brightness` and/or `transition`.
       required: false
       type: action
     set_rgbw:
-      description: Defines a set of actions (script) to run when the light is given an RGBW color command. The script will only execute if the light is turned on with a `rgb` or `xy_color`.  The script receives the variables `rgbw` as a tuple, `rgb` as a tuple, `r`, `g`, `b`, and `w`, and may also receive variables `brightness` and/or `transition`.
+      description: Defines a set of actions (script) to run when the light is given an RGBW color command. The script will only execute if the light is turned on with a `rgbw` value.  The script receives the variables `rgbw` as a tuple, `rgb` as a tuple, `r`, `g`, `b`, and `w`, and may also receive variables `brightness` and/or `transition`.
       required: false
       type: action
     set_rgbww:
-      description: Defines a set of actions (script) to run when the light is given an RGBWW color command. The script will only execute if the light is turned on with a `rgb` or `xy_color`.  The script receives the variables `rgbww` as a tuple, `rgb` as a tuple, `r`, `g`, `b`, `cw`, and `ww`, and may also receive variables `brightness` and/or `transition`.
+      description: Defines a set of actions (script) to run when the light is given an RGBWW color command. The script will only execute if the light is turned on with a `rgbww` value.  The script receives the variables `rgbww` as a tuple, `rgb` as a tuple, `r`, `g`, `b`, `cw`, and `ww`, and may also receive variables `brightness` and/or `transition`.
       required: false
       type: action
     state:
