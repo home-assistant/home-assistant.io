@@ -91,9 +91,9 @@ Entities are defined in your YAML configuration files under the `template:` key.
 
 ### State-based template entities
 
-Template entities will by default update as soon as any of the referenced data in the template updates.
+Template entities by default update as soon as any of the referenced data in the template updates.
 
-For example, you can have a template that takes the averages of two sensors. Home Assistant will update your template sensor as soon as either source sensor updates.
+For example, you can have a template that takes the averages of two sensors. Home Assistant updates your template sensor as soon as either source sensor updates.
 
 {% raw %}
 
@@ -115,7 +115,7 @@ template:
 
 If you want more control over when an entity updates, you can define triggers. Triggers follow the same format and work exactly the same as [triggers in automations][trigger-doc]. This feature is a great way to create entities based on webhook data ([example](#trigger-based-sensor-and-binary-sensor-storing-webhook-information)), or update entities based on a schedule.
 
-Whenever a trigger fires, all related entities will re-render and it will have access to [the trigger data](/docs/automation/templating/) in the templates.
+Whenever a trigger fires, all related entities re-render and have access to [the trigger data](/docs/automation/templating/) in the templates.
 
 Trigger-based entities do not automatically update when states referenced in the templates change. This functionality can be added back by defining a [state trigger](/docs/automation/trigger/#state-trigger) for each entity that you want to trigger updates.
 
@@ -132,7 +132,7 @@ Buttons do not support using `trigger` or `action` options.
 template:
   - triggers:
       - trigger: time_pattern
-        # This will update every night
+        # This updates every night
         hours: 0
         minutes: 0
     sensor:
@@ -156,11 +156,11 @@ conditions:
   required: false
   type: list
 triggers:
-  description: Define one or multiple automation triggers to update the entities. Optional. If omitted will update based on referenced entities. [See trigger documentation](/docs/automation/trigger).
+  description: Define one or multiple automation triggers to update the entities. Optional. If omitted updates based on referenced entities. [See trigger documentation](/docs/automation/trigger).
   required: false
   type: list
 unique_id:
-  description: The unique ID for this config block. This will be prefixed to all unique IDs of all entities in this block.
+  description: The unique ID for this config block. This is prefixed to all unique IDs of all entities in this block.
   required: false
   type: string
 variables:
@@ -202,12 +202,12 @@ template:
 
 {% configuration device %}
   availability:
-    description: Defines a template to get the `available` state of the entity. If the template either fails to render or returns `True`, `"1"`, `"true"`, `"yes"`, `"on"`, `"enable"`, or a non-zero number, the entity will be `available`. If the template returns any other value, the entity will be `unavailable`. If not configured, the entity will always be `available`. Note that the string comparison is not case sensitive; `"TrUe"` and `"yEs"` are allowed.
+    description: Defines a template to get the `available` state of the entity. If the template either fails to render or returns `True`, `"1"`, `"true"`, `"yes"`, `"on"`, `"enable"`, or a non-zero number, the entity is `available`. If the template returns any other value, the entity is `unavailable`. If not configured, the entity is always `available`. Note that the string comparison is not case sensitive; `"TrUe"` and `"yEs"` are allowed.
     required: false
     type: template
     default: true
   default_entity_id:
-    description: Use `default_entity_id` instead of name for automatic generation of the entity id. E.g. `sensor.my_awesome_sensor`. When used without a `unique_id`, the entity id will update during restart or reload if the entity id is available.  If the entity id already exists, the entity id will be created with a number at the end. When used with a `unique_id`, the `default_entity_id` is only used when the entity is added for the first time. When set, this overrides a user-customized Entity ID in case the entity was deleted and added again.
+    description: Use `default_entity_id` instead of name for automatic generation of the entity id. E.g. `sensor.my_awesome_sensor`. When used without a `unique_id`, the entity id updates during restart or reload if the entity id is available.  If the entity id already exists, the entity id is created with a number at the end. When used with a `unique_id`, the `default_entity_id` is only used when the entity is added for the first time. Setting this overrides a user-customized Entity ID if the entity is deleted and added again.
     required: false
     type: string
   icon:
@@ -223,7 +223,7 @@ template:
     required: false
     type: template
   unique_id:
-    description: An ID that uniquely identifies this entity. Will be combined with the unique ID of the configuration block if available. This allows changing the `name`, `icon` and `entity_id` from the web interface.  Changing the `entity_id` from the web interface will overwrite the value in `default_entity_id`.
+    description: An ID that uniquely identifies this entity. It is combined with the unique ID of the configuration block if available. This allows changing the `name`, `icon` and `entity_id` from the web interface.  Changing the `entity_id` from the web interface overwrites the value in `default_entity_id`.
     required: false
     type: string
   variables:
@@ -320,7 +320,7 @@ alarm_control_panel:
       required: false
       type: action
     optimistic:
-      description: Flag that defines if the alarm control panel works in optimistic mode. When enabled, the alarm control panel's state will update immediately when a new option is chosen through the UI or actions, without waiting for the template defined in `state` to update. When disabled (default), the alarm control panel will only update when the `state` template returns a new value.
+      description: Flag that defines if the alarm control panel works in optimistic mode. When enabled, the alarm control panel's state updates immediately when a new option is chosen through the UI or actions, without waiting for the template defined in `state` to update. When disabled (default), the alarm control panel updates only when the `state` template returns a new value.
       required: false
       type: boolean
       default: false
@@ -385,11 +385,11 @@ binary_sensor:
       required: false
       type: time
     delay_off:
-      description: The amount of time the template state must be ***not met*** before this sensor will switch to `off`. This can also be a template.
+      description: The amount of time the template state must be ***not met*** before this sensor switches to `off`. This can also be a template.
       required: false
       type: time
     delay_on:
-      description: The amount of time (e.g. `0:00:05`) the template state must be ***met*** before this sensor will switch to `on`. This can also be a template.
+      description: The amount of time (e.g. `0:00:05`) the template state must be ***met*** before this sensor switches to `on`. This can also be a template.
       required: false
       type: time
     device_class:
@@ -398,7 +398,7 @@ binary_sensor:
       type: device_class
       default: None
     state:
-      description: The sensor is `on` if the template evaluates as `True`, `yes`, `on`, `enable` or a positive number. The sensor is `unknown` if the template evaluates as `None`. Any other value will render it as `off`. The actual appearance in the frontend (`Open`/`Closed`, `Detected`/`Clear` etc) depends on the sensor's device_class value
+      description: The sensor is `on` if the template evaluates as `True`, `yes`, `on`, `enable` or a positive number. The sensor is `unknown` if the template evaluates as `None`. Any other value renders it as `off`. The actual appearance in the frontend (`Open`/`Closed`, `Detected`/`Clear` etc) depends on the sensor's device_class value
       required: true
       type: template
 
@@ -407,7 +407,7 @@ binary_sensor:
 ### State based binary sensor - Washing Machine Running
 
 This example creates a washing machine "load running" sensor by monitoring an
-energy meter connected to the washer. During the washer's operation, the energy meter will fluctuate wildly, hitting zero frequently even before the load is finished. By utilizing `delay_off`, we can have this sensor only turn off if there has been no washer activity for 5 minutes.
+energy meter connected to the washer. During the washer's operation, the energy meter fluctuates wildly, hitting zero frequently even before the load is finished. By utilizing `delay_off`, we can have this sensor only turn off if there has been no washer activity for 5 minutes.
 
 {% raw %}
 
@@ -628,19 +628,19 @@ cover:
       type: boolean
       default: false
     position:
-      description: Defines a template to get the position of the cover. Legal values are numbers between `0` (closed) and `100` (open). If the template produces a `None` value the current position will be set to `unknown`.
+      description: Defines a template to get the position of the cover. Legal values are numbers between `0` (closed) and `100` (open). If the template produces a `None` value, the current position is set to `unknown`.
       required: false
       type: template
     set_cover_position:
-      description: Defines an action to set to a cover position (between `0` and `100`). The variable `position` will contain the entity's set position.
+      description: Defines an action to set to a cover position (between `0` and `100`). The variable `position` contains the entity's set position.
       required: false
       type: action
     set_cover_tilt_position:
-      description: Defines an action to set the tilt of a cover (between `0` and `100`). The variable `tilt` will contain the entity's set tilt position.
+      description: Defines an action to set the tilt of a cover (between `0` and `100`). The variable `tilt` contains the entity's set tilt position.
       required: false
       type: action
     state:
-      description: Defines a template to get the state of the cover. Valid output values from the template are `open`, `opening`, `closing` and `closed` which are directly mapped to the corresponding states. In addition, `1`, `true`, `yes`, `on`, and `enable` are valid as a synonym to `open` and `0`, `false`, `no`, `off`, and `disable` are a synonym to `closed`. If [both a `state` and a `position` template](#combining-state-and-position-templates) are specified, only `opening` and `closing` are set from the `state` template. If the template produces a `None` value the state will be set to `unknown`.
+      description: Defines a template to get the state of the cover. Valid output values from the template are `open`, `opening`, `closing` and `closed` which are directly mapped to the corresponding states. In addition, `1`, `true`, `yes`, `on`, and `enable` are valid as a synonym to `open` and `0`, `false`, `no`, `off`, and `disable` are a synonym to `closed`. If [both a `state` and a `position` template](#combining-state-and-position-templates) are specified, only `opening` and `closing` derive from the `state` template. If the template produces a `None` value the state is set to `unknown`.
       required: false
       type: template
     stop_cover:
@@ -648,7 +648,7 @@ cover:
       required: false
       type: action
     tilt:
-      description: Defines a template to get the tilt state of the cover. Legal values are numbers between `0` (closed) and `100` (open). If the template produces a `None` value, the current tilt state will be set to `unknown`.
+      description: Defines a template to get the tilt state of the cover. Legal values are numbers between `0` (closed) and `100` (open). If the template produces a `None` value, the current tilt state is set to `unknown`.
       required: false
       type: template
     tilt_optimistic:
@@ -665,7 +665,7 @@ In optimistic mode, the cover position state is maintained internally. This mode
 
 ### Combining `state` and `position` templates
 
-If both a `state` and a `position` are specified only `opening` and `closing` states are set directly from the `state`, the `open` and `closed` states will instead be derived from the cover position.
+If both a `state` and a `position` are specified, only `opening` and `closing` states are set directly from the `state`. The `open` and `closed` states are instead derived from the cover position.
 
 | value_template output | result                               |
 | --------------------- | ------------------------------------ |
@@ -900,7 +900,7 @@ fan:
       required: false
       type: template
     optimistic:
-      description: Flag that defines if the fan works in optimistic mode. When enabled, the fan's state will update immediately when a new option is chosen through the UI or actions, without waiting for the template defined in `state` to update. When disabled (default), the fan will only update when the `state` template returns a new value.
+      description: Flag that defines if the fan works in optimistic mode. When enabled, the fan's state updates immediately when a new option is chosen through the UI or actions, without waiting for the template defined in `state` to update. When disabled (default), the fan updates only when the `state` template returns a new value.
       required: false
       type: boolean
       default: false
@@ -1270,7 +1270,7 @@ light:
       type: template
       default: optimistic
     optimistic:
-      description: Flag that defines if the light works in optimistic mode. When enabled, the light's state will update immediately when a new option is chosen through the UI or actions, without waiting for the template defined in `state` to update. When disabled (default), the light will only update when the `state` template returns a new value.
+      description: Flag that defines if the light works in optimistic mode. When enabled, the light's state updates immediately when a new option is chosen through the UI or actions, without waiting for the template defined in `state` to update. When disabled (default), the light updates only when the `state` template returns a new value.
       required: false
       type: boolean
       default: false
@@ -1290,40 +1290,40 @@ light:
       type: template
       default: optimistic
     set_effect:
-      description: Defines a set of actions (script) to run when the light is given an effect command. The script will only execute if the light is turned on with an `effect`. The `set_effect` script receives the variable `effect`. It may also receive variables `brightness` and/or `transition`.
+      description: Defines a set of actions (script) to run when the light is given an effect command. The script executes only if the light is turned on with an `effect`. The `set_effect` script receives the variable `effect`. It may also receive variables `brightness` and/or `transition`.
       required: inclusive
       type: action
     set_level:
-      description: Defines a set of actions (script) to run when the light is given a brightness command. The script will only execute if the light is turned on with a `brightness`, `brightness_pct`, or `transition`. The `set_level` script receives the variables `brightness` and/or `transition`.
+      description: Defines a set of actions (script) to run when the light is given a brightness command. The script executes only if the light is turned on with a `brightness`, `brightness_pct`, or `transition`. The `set_level` script receives the variables `brightness` and/or `transition`.
       required: false
       type: action
     set_temperature:
-      description: Defines a set of actions (script) to run when the light is given a color temperature command. The script will only execute if the light is turned on with a `color_temp` or `color_temp_kelvin`. The script receives the variables `color_temp` and `color_temp_kelvin`, and may also receive variables `brightness` and/or `transition`.
+      description: Defines a set of actions (script) to run when the light is given a color temperature command. The script executes only if the light is turned on with a `color_temp` or `color_temp_kelvin`. The script receives the variables `color_temp` and `color_temp_kelvin`, and may also receive variables `brightness` and/or `transition`.
       required: false
       type: action
     set_hs:
-      description: Defines a set of actions (script) to run when the light is given a hs color command. The script will only execute if the light is turned on with an `hs_color`.  The script receives the variables `hs` as a tuple, `h`, and `s`, and may also receive variables `brightness` and/or `transition`.
+      description: Defines a set of actions (script) to run when the light is given a hs color command. The script executes only if the light is turned on with an `hs_color`.  The script receives the variables `hs` as a tuple, `h`, and `s`, and may also receive variables `brightness` and/or `transition`.
       required: false
       type: action
     set_rgb:
-      description: Defines a set of actions (script) to run when the light is given an RGB color command. The script will only execute if the light is turned on with an `rgbw_color`.  The script receives the variables `rgb` as a tuple, `r`, `g`, and `b`, and may also receive `brightness` and/or `transition`.
+      description: Defines a set of actions (script) to run when the light is given an RGB color command. The script executes only if the light is turned on with an `rgbw_color`.  The script receives the variables `rgb` as a tuple, `r`, `g`, and `b`, and may also receive `brightness` and/or `transition`.
       required: false
       type: action
     set_rgbw:
-      description: Defines a set of actions (script) to run when the light is given an RGBW color command. The script will only execute if the light is turned on with `rgbw_color`.  The script receives the variables `rgbw` and `rgb` as tuples, `r`, `g`, `b`, and `w`, and may also receive `brightness` and/or `transition`.
+      description: Defines a set of actions (script) to run when the light is given an RGBW color command. The script executes only if the light is turned on with `rgbw_color`.  The script receives the variables `rgbw` and `rgb` as tuples, `r`, `g`, `b`, and `w`, and may also receive `brightness` and/or `transition`.
       required: false
       type: action
     set_rgbww:
-      description: Defines a set of actions (script) to run when the light is given an RGBWW color command. The script will only execute if the light is turned on with a `rgbww_color`.  The script receives the variables `rgbww` and `rgb` as tuples, `r`, `g`, `b`, `cw`, and `ww`, and may also receive `brightness` and/or `transition`.
+      description: Defines a set of actions (script) to run when the light is given an RGBWW color command. The script executes only if the light is turned on with a `rgbww_color`.  The script receives the variables `rgbww` and `rgb` as tuples, `r`, `g`, `b`, `cw`, and `ww`, and may also receive `brightness` and/or `transition`.
       required: false
       type: action
     state:
-      description: Defines a template to set the state of the light. If not defined, the light will optimistically assume all commands are successful. The light is `on` if the template evaluates to `1`, `true`, `yes`, `on`, or `enable`.  The light is `off` if the template evaluates to `0`, `false`, `no`, `off`, or `disable`. The light is `unknown` if the template evaluates as `None`.
+      description: Defines a template to set the state of the light. If not defined, the light optimistically assumes all commands are successful. The light is `on` if the template evaluates to `1`, `true`, `yes`, `on`, or `enable`.  The light is `off` if the template evaluates to `0`, `false`, `no`, `off`, or `disable`. The light is `unknown` if the template evaluates as `None`.
       required: false
       type: template
       default: optimistic
     supports_transition:
-      description: Defines a template to get if the light supports transition. Should return a boolean value (True/False). If this value is `True`, the transition parameter in a `turn on` or `turn off` call will be passed as a named parameter `transition` in either of the scripts.
+      description: Defines a template to get if the light supports transition. Should return a boolean value (True/False). If this value is `True`, the transition parameter in a `turn on` or `turn off` call is passed as a named parameter `transition` in either of the scripts.
       required: false
       type: template
       default: false
@@ -1345,7 +1345,7 @@ light:
 
 ### Light Considerations
 
-Transition doesn't have its own script, it will instead be passed as a named parameter `transition` to the `turn_on`, `turn_off`, `brightness`, `color_temp`, `effect`, `hs_color`, `rgb_color`, `rgbw_color` or `rgbww_color` scripts. Brightness will be passed as a named parameter `brightness` to either of `turn_on`, `color_temp`, `effect`, `hs_color`, `rgb_color`, `rgbw_color` or `rgbww_color` scripts if the corresponding parameter is also in the call. In this case, the brightness script (`set_level`) will not be called. If only brightness is passed to `light.turn_on` action, then `set_level` script is called.
+Transition does not have its own script. It is instead passed as a named parameter `transition` to the `turn_on`, `turn_off`, `brightness`, `color_temp`, `effect`, `hs_color`, `rgb_color`, `rgbw_color`, or `rgbww_color` scripts. Brightness is passed as a named parameter `brightness` to either of `turn_on`, `color_temp`, `effect`, `hs_color`, `rgb_color`, `rgbw_color`, or `rgbww_color` scripts if the corresponding parameter is also in the call. In this case, the brightness script (`set_level`) is not called. If only brightness is passed to `light.turn_on` action, the `set_level` script is called.
 
 ### State based light - Theater Volume Control
 
@@ -1505,7 +1505,7 @@ lock:
   type: map
   keys:
     code_format:
-      description: Defines a template to get the `code_format` attribute of the entity. This template must evaluate to a valid [Python regular expression](https://docs.python.org/3/library/re.html#regular-expression-syntax) or `None`. If it evaluates to a not-`None` value, you are prompted to enter a code when interacting with the lock. The code will be matched against the regular expression, and the lock/unlock actions will be executed only if they match. The actual _validity_ of the entered code must be verified within these actions. If there's a syntax error in the template, the entity will be unavailable. If the template fails to render for other reasons or if the regular expression is invalid, no code will be accepted, and the lock/unlock actions will never be invoked.
+      description: Defines a template to get the `code_format` attribute of the entity. This template must evaluate to a valid [Python regular expression](https://docs.python.org/3/library/re.html#regular-expression-syntax) or `None`. If it evaluates to a not-`None` value, you are prompted to enter a code when interacting with the lock. The code is matched against the regular expression, and the lock/unlock actions are executed only if they match. The actual _validity_ of the entered code must be verified within these actions. If there's a syntax error in the template, the entity is unavailable. If the template fails to render for other reasons or if the regular expression is invalid, no code is accepted, and the lock/unlock actions are never be invoked.
       required: false
       type: template
       default: None
@@ -1518,12 +1518,12 @@ lock:
       required: false
       type: action
     optimistic:
-      description: Flag that defines if the lock works in optimistic mode. When enabled, the lock's state will update immediately when a new option is chosen through the UI or actions, without waiting for the template defined in `state` to update. When disabled (default), the lock will only update when the `state` template returns a new value.
+      description: Flag that defines if the lock works in optimistic mode. When enabled, the lock's state updates immediately when a new option is chosen through the UI or actions, without waiting for the template defined in `state` to update. When disabled (default), the lock updates only when the `state` template returns a new value.
       required: false
       type: boolean
       default: false
     state:
-      description: Defines a template to set the state of the lock. Valid output values from the template are `locked`, `unlocked`, `open`, `locking`, `unlocking`, `opening`, and `jammed`, which are directly mapped to the corresponding states. In addition,  `1`, `true`, `yes`, `on`, and `enable` are valid as synonyms to `locked` while `0`, `false`, `no`, `off`, and `disable` are valid as synonyms to `unlocked`. If the template produces a `None` value the state will be set to `unknown`.
+      description: Defines a template to set the state of the lock. Valid output values from the template are `locked`, `unlocked`, `open`, `locking`, `unlocking`, `opening`, and `jammed`, which are directly mapped to the corresponding states. In addition,  `1`, `true`, `yes`, `on`, and `enable` are valid as synonyms to `locked` while `0`, `false`, `no`, `off`, and `disable` are valid as synonyms to `unlocked`. If the template produces a `None` value, the state is set to `unknown`.
       required: false
       default: optimistic
       type: template
@@ -1558,7 +1558,7 @@ template:
 
 ### State based lock - Optimistic mode
 
-This example shows a lock in optimistic mode. This lock will immediately change state after command and will not wait for state update from the sensor.
+This example shows a lock in optimistic mode. This lock immediately changes state after command and does not wait for state updates from the sensor.
 
 {% raw %}
 
@@ -1704,16 +1704,16 @@ number:
       type: template
       default: 0.0
     optimistic:
-      description: Flag that defines if the number works in optimistic mode. When enabled, the number's state will update immediately when changed through the UI or actions, without waiting for the template defined in `state` to update. When disabled (default), the number will only update when the `state` template returns a new value.
+      description: Flag that defines if the number works in optimistic mode. When enabled, the number's state updates immediately when changed through the UI or actions, without waiting for the template defined in `state` to update. When disabled (default), the number updates only when the `state` template returns a new value.
       required: false
       type: boolean
       default: false
     set_value:
-      description: Defines actions to run when the number value changes. The variable `value` will contain the number entered.
+      description: Defines actions to run when the number value changes. The variable `value` contains the number entered.
       required: true
       type: action
     state:
-      description: Template for the number's current value.  When omitted, the state will be set to the `value` provided by the `set_value` action.
+      description: Template for the number's current value.  When omitted, the state is set to the `value` provided by the `set_value` action.
       required: false
       type: template
       default: optimistic
@@ -1804,7 +1804,7 @@ select:
   type: map
   keys:
     optimistic:
-      description: Flag that defines if the select works in optimistic mode. When enabled, the select's state will update immediately when a new option is chosen through the UI or actions, without waiting for the template defined in `state` to update. When disabled (default), the select will only update when the `state` template returns a new value.
+      description: Flag that defines if the select works in optimistic mode. When enabled, the select's state updates immediately when a new option is chosen through the UI or actions, without waiting for the template defined in `state` to update. When disabled (default), the select updates only when the `state` template returns a new value.
       required: false
       type: boolean
       default: false
@@ -1813,11 +1813,11 @@ select:
       required: true
       type: template
     select_option:
-      description: Defines actions to run to select an option from the `options` list. The variable `option` will contain the option selected.
+      description: Defines actions to run to select an option from the `options` list. The variable `option` contains the option selected.
       required: false
       type: action
     state:
-      description: Template for the select's current value. When omitted, the state will be set to the `option` provided by the `select_option` action.
+      description: Template for the select's current value. When omitted, the state is set to the `option` provided by the `select_option` action.
       required: false
       type: template
       default: optimistic
@@ -1914,12 +1914,12 @@ sensor:
       required: true
       type: template
     state_class:
-      description: "The [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor. This will also display the value based on the user profile Number Format setting and influence the graphical presentation in the history visualization as a continuous value. If you desire to include the sensor in {% term "Long-term statistics" %}, include this key and assign it the appropriate value"
+      description: "The [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor. This also displays the value based on the user profile number format setting and influences the graphical presentation in the history visualization as a continuous value. If you desire to include the sensor in {% term "Long-term statistics" %}, include this key and assign the appropriate value."
       required: false
       type: string
       default: None
     unit_of_measurement:
-      description: "Defines the units of measurement of the sensor, if any. This will also display the value based on the user profile Number Format setting and influence the graphical presentation in the history visualization as a continuous value."
+      description: "Defines the units of measurement of the sensor, if any. This also displays the value based on the user profile number format setting and influences the graphical presentation in the history visualization as a continuous value."
       required: false
       type: string
       default: None
@@ -1988,7 +1988,7 @@ template:
 
 ### Trigger based sensor - Using conditions to control updates
 
-This example shows how to store the last valid value of a temperature sensor. It will update as long as the source sensor has a valid (numeric) state. Otherwise, the template sensor's state will remain unchanged.
+This example shows how to store the last valid value of a temperature sensor. It updates as long as the source sensor has a valid (numeric) state. Otherwise, the template sensor's state remains unchanged.
 
 {% raw %}
 
@@ -2059,12 +2059,12 @@ switch:
   type: map
   keys:
     optimistic:
-      description: Flag that defines if the switch works in optimistic mode. When enabled, the switch's state will update immediately when a new option is chosen through the UI or actions, without waiting for the template defined in `state` to update. When disabled (default), the switch will only update when the `state` template returns a new value.
+      description: Flag that defines if the switch works in optimistic mode. When enabled, the switch's state updates immediately when a new option is chosen through the UI or actions, without waiting for the template defined in `state` to update. When disabled (default), the switch updates only when the `state` template returns a new value.
       required: false
       type: boolean
       default: false
     state:
-      description: Defines a template to set the state of the switch. If not defined, the switch will optimistically assume all commands are successful. The switch is `on` if the template evaluates to `1`, `true`, `yes`, `on`, or `enable`.  The switch is `off` if the template evaluates to `0`, `false`, `no`, `off`, or `disable`. The switch is `unknown` if the template evaluates as `None`.
+      description: Defines a template to set the state of the switch. If not defined, the switch optimistically assumes all commands are successful. The switch is `on` if the template evaluates to `1`, `true`, `yes`, `on`, or `enable`.  The switch is `off` if the template evaluates to `0`, `false`, `no`, `off`, or `disable`. The switch is `unknown` if the template evaluates as `None`.
       required: false
       type: template
       default: optimistic
@@ -2151,7 +2151,7 @@ template:
 
 ### State based switch - Optimistic Switch
 
-This example switch with an assumed state based on the actions performed. This switch will immediately change state after a `turn_on`/`turn_off` command.
+This example switch with an assumed state based on the actions performed. This switch immediately changes state after a `turn_on`/`turn_off` command.
 
 {% raw %}
 
@@ -2214,7 +2214,7 @@ update:
   keys:
     backup:
       default: false
-      description: Enable or disable the `automatic backup before update` option in the update repair. When disabled, the `backup` variable will always provide `False` during the `install` action and it will not accept the `backup` option.
+      description: Enable or disable the `automatic backup before update` option in the update repair. When disabled, the `backup` variable always provides `False` during the `install` action, and it does not accept the `backup` option.
       required: false
       type: boolean
     device_class:
@@ -2231,11 +2231,11 @@ update:
       required: false
       type: action
     installed_version:
-      description: Defines a template to get the installed version.  When the value of `installed_version` matches the value of `latest_version`, the update entity state will be `on`.
+      description: Defines a template to get the installed version.  When the value of `installed_version` matches the value of `latest_version`, the update entity state is `on`.
       required: true
       type: template
     latest_version:
-      description: Defines a template to get the latest version.  When the value of `installed_version` matches the value of `latest_version`, the update entity state will be `on`.
+      description: Defines a template to get the latest version.  When the value of `installed_version` matches the value of `latest_version`, the update entity state is `on`.
       required: true
       type: template
     release_summary:
@@ -2248,7 +2248,7 @@ update:
       type: template
     specific_version:
       default: false
-      description: Enable or disable using the `version` variable with the `install` action. When disabled, the `specific_version` variable will always provide `None` in the `install` actions.
+      description: Enable or disable using the `version` variable with the `install` action. When disabled, the `specific_version` variable always provides `None` in the `install` actions.
       required: false
       type: boolean
     title:
@@ -2329,7 +2329,7 @@ vacuum:
       required: false
       type: action
     optimistic:
-      description: Flag that defines if the vacuum works in optimistic mode. When enabled, the vacuum's state will update immediately when a new option is chosen through the UI or actions, without waiting for the template defined in `state` to update. When disabled (default), the vacuum will only update when the `state` template returns a new value.
+      description: Flag that defines if the vacuum works in optimistic mode. When enabled, the vacuum's state updates immediately when a new option is chosen through the UI or actions, without waiting for the template defined in `state` to update. When disabled (default), the vacuum updates only when the `state` template returns a new value.
       required: false
       type: boolean
       default: false
@@ -2694,7 +2694,7 @@ template:
 
 For template entities that support interactivity (like `number` and `select`), you can enable optimistic mode by setting the `optimistic` parameter to `true`. This affects how the entity's state updates when you interact with it:
 
-- **With optimistic mode disabled (default)**: When you interact with the entity (for example, selecting a new option in a dropdown or setting a new number value), the entity's state in Home Assistant will only update after the underlying template defined in the `state` parameter returns the new value.
+- **With optimistic mode disabled (default)**: When you interact with the entity (for example, selecting a new option in a dropdown or setting a new number value), the entity's state in Home Assistant updates only after the underlying template defined in the `state` parameter returns the new value.
 
 - **With optimistic mode enabled**: When you interact with the entity, the entity's state in Home Assistant immediately updates to reflect your change, without waiting for the `state` template to update. This provides a more responsive UI experience but may not reflect the actual state if the underlying action fails or takes time to complete.
 
@@ -2702,13 +2702,13 @@ Optimistic mode is particularly useful when:
 
 - The underlying system doesn't provide immediate feedback
 - You want a more responsive UI experience
-- You're confident the action will succeed
+- You're confident the action succeeds
 
 When optimistic mode is disabled (default), you get more accuracy but potentially a less responsive UI, as the entity only updates after confirmation from the underlying system.
 
 ## Rate limiting updates
 
-When there are entities present in the template and no triggers are defined, the template will be re-rendered when one of the entities changes states. To avoid this taking up too many resources in Home Assistant, rate limiting will be automatically applied if too many states are observed.
+When there are entities present in the template and no triggers are defined, the template re-renders when one of the entities changes states. To avoid this taking up too many resources in Home Assistant, rate limiting is automatically applied if too many states are observed.
 
 {% tip %}
 <a href='#trigger-based-template-sensors'>Define a trigger</a> to avoid a rate limit and get more control over entity updates.
@@ -2782,7 +2782,7 @@ template:
     unique_id: inverted_foo
 ```
 
-If you look at the blueprint definition, you will notice it has one input defined (`reference_entity`), which expects a `binary_sensor` entity ID. When you create a template entity based on that blueprint, you will have to tell it which of your `binary_sensor` entities it should use to fill that spot.
+If you look at the blueprint definition, you notice it has one input defined (`reference_entity`), which expects a `binary_sensor` entity ID. When you create a template entity based on that blueprint, you have to tell it which of your `binary_sensor` entities it should use to fill that spot.
 
 ### Importing blueprints
 
@@ -2870,7 +2870,7 @@ To get started with the migration:
 1. Add the modern syntax provided by the repair.
 
     The repair would provide the following YAML.
-  
+
   {% raw %}
     ```yaml
     template:
@@ -2881,7 +2881,7 @@ To get started with the migration:
         state: '{{ states.light | selectattr(''state'', ''eq'', ''on'') | list | count }}'
     ```
    {% endraw %}
-  
+
     This YAML should be added to the `template:` section inside `configuration.yaml`.
 
 {% raw %}
@@ -2915,7 +2915,7 @@ To get started with the migration:
       baseoid: 1.3.6.1.4.1.2021.10.1.3.1
 
     template:
-    
+
     # Migrated sensor
     - sensor:
       - default_entity_id: sensor.my_light_count
@@ -2928,7 +2928,7 @@ To get started with the migration:
       - default_entity_id: cover.garage
         name: Garage Cover
         state: '{{ is_state(''binary_sensor.relay'', ''on'') }}'
-  
+
     # Migrated light
     - light:
       - default_entity_id: light.skylight
@@ -3010,7 +3010,7 @@ To get started with the migration:
 1. Add the modern syntax provided by the repair.
 
     The repair would provide the following YAML.
-  
+
   {% raw %}
     ```yaml
     template:
@@ -3021,7 +3021,7 @@ To get started with the migration:
         state: '{{ states.light | selectattr(''state'', ''eq'', ''on'') | list | count }}'
     ```
 {% endraw %}
-  
+
     This YAML should be added to the `template:` section inside `configuration.yaml`.
 
 {% raw %}
@@ -3038,7 +3038,7 @@ To get started with the migration:
     - binary_sensor:
       - name: Bright Outside
         state: "{{ states('sensor.lux_value') | float(0) > 10 }}"
-    
+
     # Copied example
     - sensor:
       - default_entity_id: sensor.my_light_count
@@ -3118,7 +3118,7 @@ To get started with the migration:
 
     ```yaml
     # sensors.yaml
-  
+
     # SNMP Configuration
     - platform: snmp
       host: 192.168.1.32
@@ -3128,7 +3128,7 @@ To get started with the migration:
 2. Add the modern syntax provided by the repair.
 
     The repair would provide the following YAML.
-  
+
   {% raw %}
     ```yaml
     template:
@@ -3138,7 +3138,7 @@ To get started with the migration:
         unique_id: sa892hfa9sdf8
         state: '{{ states.light | selectattr(''state'', ''eq'', ''on'') | list | count }}'
     ```
-  
+
   {% endraw %}
     This YAML should be added to the `templates.yaml` file.
 
@@ -3150,7 +3150,7 @@ To get started with the migration:
     - binary_sensor:
       - name: Bright Outside
         state: "{{ states('sensor.lux_value') | float(0) > 10 }}"
-    
+
     # Copied example
     - sensor:
       - default_entity_id: sensor.my_light_count
