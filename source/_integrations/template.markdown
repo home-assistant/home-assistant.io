@@ -1290,7 +1290,7 @@ light:
       type: template
       default: optimistic
     set_effect:
-      description: Defines a set of actions (script) to run when the light is given an effect command. The script will only execute if the light is turned on with an `effect`. The `set_effect` script receives the variables `effect` May also receive the variables `brightness`, and/or  `transition`.
+      description: Defines a set of actions (script) to run when the light is given an effect command. The script will only execute if the light is turned on with an `effect`. The `set_effect` script receives the variables `effect`, and may also receive variables `brightness` and/or `transition`.
       required: inclusive
       type: action
     set_level:
