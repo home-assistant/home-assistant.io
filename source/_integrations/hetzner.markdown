@@ -37,9 +37,13 @@ API Token:
 
 ### Binary sensors
 
-The integration creates a binary sensor for each target attached to your load balancers. Each sensor shows whether the target is healthy based on the load balancer's health checks.
+The integration creates a binary sensor for each **server** or **IP** target attached to your load balancers. Each sensor shows whether the target is healthy based on the load balancer's health checks.
 
-- **Target health**: Shows the health status of a load balancer target (server or IP). The sensor is **on** when all health checks for the target report healthy, and **off** when any health check reports unhealthy.
+- **Target health**: Shows the health status of a load balancer target. The sensor is **on** when all health checks for the target report healthy, and **off** when any health check reports unhealthy.
+
+## Known limitations
+
+- **label_selector targets are not supported.** Load balancers using `label_selector` type targets will not produce any entities due to a limitation in the underlying `hcloud` Python library, which does not parse the resolved targets within `label_selector` entries. If you need health monitoring for these targets, switch to direct **server** targets on your load balancer.
 
 ## Data updates
 
