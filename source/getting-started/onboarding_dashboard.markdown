@@ -108,10 +108,10 @@ Follow the steps in [Creating a new dashboard](/dashboards/dashboards/#creating-
    - Under **Sensors**, select **Add to dashboard**, then **Pick different card**.
    ![Dashboard - change the card type](/images/getting-started/onboarding_pick_different_card_01.png)
 
-7.  From the list, select **Show current weather and forecast**.
-8.  Select the details to be shown on the card.
+7. From the list, select **Show current weather and forecast**.
+8. Select the details to be shown on the card.
     ![Dashboard - change the card details](/images/getting-started/onboarding_card_settings_02.png)
-    - **Save** your changes
+    - Select **Save**.
     - You now see the forecast card on the dashboard.
 
 9.  Now let's delete the other weather card.
