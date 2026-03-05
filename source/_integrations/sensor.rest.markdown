@@ -134,7 +134,7 @@ state_class:
   required: false
   type: string
 timeout:
-  description: Defines the maximum time in seconds to wait for data from the endpoint.
+  description: Defines the maximum time in seconds to wait for data from the endpoint before the sensor is marked as `unavailable`.
   required: false
   type: integer
   default: 10
