@@ -9,6 +9,6 @@ To define options for {{ name }}, follow these steps:
 3. On the device, select the cogwheel {% icon "mdi:cog-outline" %}.
    - If the device does not have a cogwheel, it does not support options.
 
-   ![Store tab in the Z-Wave JS UI web interface](/images/screenshots/device-options.png)
+   ![Screenshot showing the cogwheel icon on an integration card in the Settings > Devices & services page](/images/screenshots/device-options.png)
 
 4. Edit the options, then select **Submit** to save the changes.
