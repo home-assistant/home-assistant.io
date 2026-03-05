@@ -11,7 +11,7 @@ ha_domain: script
 ha_integration_type: system
 ---
 
-The script {% term integration %} allows users to specify a sequence of actions to be executed by Home Assistant. These are run when you turn the script on. The script integration will create an entity for each script and allow them to be controlled via actions.
+The **Scripts** {% term integration %} allows users to specify a sequence of actions to be executed by Home Assistant. These are run when you turn the script on. The script integration will create an entity for each script and allow them to be controlled via actions.
 
 Scripts can be created via YAML configuration (described below) or via {% my scripts title="the UI" %}.
 

@@ -115,6 +115,29 @@ Home Assistant instance:
 
    ![Screenshot of Claude for Desktop adding an item to a Home Assistant To-do list](/images/integrations/mcp_server/claude-todo-list-control.png)
 
+### Example: Claude Code
+
+Claude Code supports remote MCP servers, making it easy to connect to your Home Assistant instance:
+
+1. Install [Claude Code](https://claude.com/product/claude-code) and log in.
+2. In your shell, run the following command:
+
+   ```bash
+   claude mcp add-json "HA" '{
+     "type": "http",
+     "url": "https://<your_home_assistant_url>/api/mcp",
+     "oauth": {
+       "clientId": "http://localhost:12345",
+       "callbackPort": 12345
+     }
+   }' --client-secret
+   ```
+   The name "HA", the URL "https://<your_home_assistant_url>", and the callback port "12345" are examples; adjust them to match your setup.
+
+3. Start `claude` and type `/mcp`. Navigate to your MCP listing (for example, **HA**) and press Enter. Select **Authenticate** to open a web browser to your Home Assistant login page.
+4. After you authenticate to your Home Assistant server, Home Assistant will tell you that you can close the web browser.
+5. You can now enable tools from Home Assistant when chatting with Claude, allowing you to control Home Assistant in a similar way to how you control it through the Voice Assistant. Claude will ask you for permission before calling any tools.
+
 ### Example: Cursor
 
 1. Download and install [Cursor](https://www.cursor.com).
@@ -144,6 +167,29 @@ Home Assistant instance:
 7. In chat agent mode (Ctrl+I), ask it to control your home and the tool should be used.
 
 ![Screenshot of Cursor controlling the office lights](/images/integrations/mcp_server/cursor-lights-control.png)
+
+### Example: gemini-cli
+
+1.  Install `gemini-cli` if you haven't already. You can find installation instructions at [https://geminicli.com/](https://geminicli.com/).
+2.  Open the `gemini-cli` configuration file. This is usually located at `~/.gemini/settings.json`. For more details, refer to the [gemini-cli MCP server documentation](https://geminicli.com/docs/tools/mcp-server/).
+3.  Add the following to your `mcpServers` configuration:
+
+    ```json
+    {
+      "mcpServers": {
+        "homeassistant": {
+          "httpUrl": "https://<your_home_assistant_url>/api/mcp",
+          "headers": {
+            "Authorization": "Bearer ${HOMEASSISTANT_TOKEN}"
+          }
+        }
+      }
+    }
+    ```
+
+4.  Replace `<your_home_assistant_url>` with the URL of your Home Assistant instance.
+5.  Set the `HOMEASSISTANT_TOKEN` environment variable to a [Long-Lived Access Token](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token) from your Home Assistant instance.
+6.  Save the file. You can now use Home Assistant tools within `gemini-cli`.
 
 ## Supported functionality
 

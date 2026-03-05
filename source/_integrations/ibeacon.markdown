@@ -13,7 +13,7 @@ ha_platforms:
   - sensor
 ha_bluetooth: true
 ha_config_flow: true
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 {% include integrations/config_flow.md %}

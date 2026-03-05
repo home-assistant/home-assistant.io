@@ -17,7 +17,7 @@ ha_platforms:
 ha_integration_type: helper
 ---
 
-The Min/Max {% term integration %} consumes the state from other sensors to determine the minimum, maximum, latest (last), mean, median, range and sum of the collected states.
+The **Min/Max** {% term integration %} consumes the state from other sensors to determine the minimum, maximum, latest (last), mean, median, range and sum of the collected states.
 
 The sensor provided by this integration will always show you the lowest/highest/latest value which was received from all monitored sensors. If you have spikes in your values, it's recommended to filter/equalize your values with a [statistics sensor](/integrations/statistics) first.
 

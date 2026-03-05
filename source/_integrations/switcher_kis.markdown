@@ -21,11 +21,11 @@ ha_platforms:
   - sensor
   - switch
 ha_config_flow: true
-ha_integration_type: integration
+ha_integration_type: hub
 ha_quality_scale: silver
 ---
 
-This `Switcher` integration allows you to control your [Switcher Devices](https://www.switcher.co.il/).
+The **Switcher** {% term integration %} allows you to control your [Switcher Devices](https://www.switcher.co.il/).
 
 Supported devices:
 
@@ -44,6 +44,7 @@ Supported devices:
 - Switcher Light SL02
 - Switcher Light SL02 Mini
 - Switcher Light SL03
+- Switcher Heater
 
 Devices that require a token:
 
@@ -54,6 +55,7 @@ Devices that require a token:
 - Switcher Light SL02
 - Switcher Light SL02 Mini
 - Switcher Light SL03
+- Switcher Heater
 
 If you completed the integration setup but are still unable to control the device, please make sure your device's firmware is up-to-date.
 
@@ -92,7 +94,7 @@ For Switcher light control devices (Switcher Runner S11, Switcher Runner S12, an
   
 ## Sensors
 
-For Switcher power control devices (Switcher Power Plug, Switcher Touch, Switcher V2/V4) the integration provides the following sensors:
+For Switcher power control devices (Switcher Power Plug, Switcher Touch, Switcher V2/V4, Switcher Heater) the integration provides the following sensors:
 | Sensor Name         | Description                                            | Example           |
 | ------------------- | ------------------------------------------------------ | ----------------- |
 | `Auto Shutdown`*    | The auto shutdown time limit configured on the device  | 01:30:00          |
@@ -115,9 +117,9 @@ For Switcher cover control devices (Switcher Runner, Switcher Runner S11, Switch
 
 For Switcher power control devices (Switcher Touch, Switcher V2/V4) the integration provides the following sensors:
 
-### Action: `switcher_kis.set_auto_off`
+### Action: Set auto off
 
-You can use the `switcher_kis.set_auto_off` action to set the auto-off configuration setting for the device.
+The `switcher_kis.set_auto_off` action sets the auto-off configuration setting for the device.
 
 Meaning the device will turn itself off when reaching the auto-off configuration limit.
 
@@ -126,9 +128,9 @@ Meaning the device will turn itself off when reaching the auto-off configuration
 | `entity_id`   | Yes       | Name of the entity id associated with the integration, used for permission validation  | switch.switcher_kis_boiler |
 | `auto_off`    | Yes       | Time period string containing hours and minutes                                        | "02:30"                    |
 
-### Action: `switcher_kis.turn_on_with_timer`
+### Action: Turn on with timer
 
-You can use the `switcher_kis.turn_on_with_timer` action to turn on the switcher device with timer.
+The `switcher_kis.turn_on_with_timer` action turns on the switcher device with a timer.
 
 Meaning the device will turn itself off when timer ends.
 Note: This does not affect the auto off timer.

@@ -10,7 +10,7 @@ ha_domain: evil_genius_labs
 ha_platforms:
   - diagnostics
   - light
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 This {% term integration %} allows you to control and monitor the artworks by [Evil Genius Labs](https://www.evilgeniuslabs.org/). Tested with the Fibonacci256.

@@ -2,15 +2,17 @@
 type: card
 title: "Energy cards"
 sidebar_label: Energy cards
-description: "An overview of the energy cards that are available."
+description: "An overview of the energy cards and badges that are available."
 related:
   - docs: /integrations/frontend/
     title: Themes
   - docs: /dashboards/cards/
     title: Dashboard cards
+  - docs: /dashboards/badges/
+    title: Dashboard badges
 ---
 
-This is a list of all the cards used in the energy dashboard. You can also place them anywhere you want in your dashboard.
+This is a list of all the cards and badges used in the energy dashboard. You can also place them anywhere you want in your dashboard.
 
 You can configure them on the {% my config_energy title="energy configuration page" %}.
 
@@ -40,6 +42,26 @@ type: energy-date-selection
 The energy usage graph card shows the amount of energy your house has consumed, and from what source this energy came.
 It will also show the amount of energy your have returned to the grid.
 
+### YAML configuration
+
+The following YAML options are available
+
+{% configuration %}
+type:
+  required: true
+  description: "`energy-usage-graph`"
+  type: string
+collection_key:
+  required: false
+  description: "Collection key to use for the card. This links the card to a specific energy dashboard collection. Defaults to `energy_dashboard`."
+  type: string
+  default: energy_dashboard
+title:
+  required: false
+  description: When defined, shows a card header with the title string and total energy consumed chip.
+  type: string
+{% endconfiguration %}
+
 ### Example
 
 ```yaml
@@ -54,6 +76,26 @@ type: energy-usage-graph
 </p>
 
 The solar production graph card shows the amount of energy your solar panels have produced per source, and if setup and available the forecast of the solar production.
+
+### YAML configuration
+
+The following YAML options are available
+
+{% configuration %}
+type:
+  required: true
+  description: "`energy-solar-graph`"
+  type: string
+collection_key:
+  required: false
+  description: "Collection key to use for the card. This links the card to a specific energy dashboard collection. Defaults to `energy_dashboard`."
+  type: string
+  default: energy_dashboard
+title:
+  required: false
+  description: When defined, shows a card header with the title string and total solar produced chip.
+  type: string
+{% endconfiguration %}
 
 ### Example
 
@@ -70,6 +112,22 @@ type: energy-solar-graph
 
 The gas consumption graph card shows the amount of gas consumed per source.
 
+{% configuration %}
+type:
+  required: true
+  description: "`energy-gas-graph`"
+  type: string
+collection_key:
+  required: false
+  description: "Collection key to use for the card. This links the card to a specific energy dashboard collection. Defaults to `energy_dashboard`."
+  type: string
+  default: energy_dashboard
+title:
+  required: false
+  description: When defined, shows a card header with the title string and total gas consumed chip.
+  type: string
+{% endconfiguration %}
+
 ### Example
 
 ```yaml
@@ -84,6 +142,26 @@ type: energy-gas-graph
 </p>
 
 The water consumption graph card shows the amount of water consumed per source.
+
+### YAML configuration
+
+The following YAML options are available
+
+{% configuration %}
+type:
+  required: true
+  description: "`energy-water-graph`"
+  type: string
+collection_key:
+  required: false
+  description: "Collection key to use for the card. This links the card to a specific energy dashboard collection. Defaults to `energy_dashboard`."
+  type: string
+  default: energy_dashboard
+title:
+  required: false
+  description: When defined, shows a card header with the title string and total water consumed chip.
+  type: string
+{% endconfiguration %}
 
 ### Example
 
@@ -482,6 +560,93 @@ show_legend:
 
 ```yaml
 type: power-sources-graph
+```
+
+## Power consumption badge
+
+<p class='img'>
+  <img src='/images/dashboards/energy/power-total-badge.png' alt='Screenshot of the power consumption badge'>
+  Screenshot of the power consumption badge.
+</p>
+
+The power consumption badge displays the current total power consumption of your home. It calculates the total power by combining grid import, solar, and battery sources.
+
+### YAML configuration
+
+{% configuration %}
+type:
+  required: true
+  description: "`power-total`"
+  type: string
+collection_key:
+  required: false
+  description: "Collection key to use for the badge. This links the badge to a specific energy dashboard collection. Defaults to `energy_dashboard`."
+  type: string
+  default: energy_dashboard
+{% endconfiguration %}
+
+### Example
+
+```yaml
+type: power-total
+```
+
+## Gas flow rate badge
+
+<p class='img'>
+  <img src='/images/dashboards/energy/gas-total-badge.png' alt='Screenshot of the gas flow rate badge'>
+  Screenshot of the gas flow rate badge.
+</p>
+
+The gas flow rate badge displays the current total gas flow rate from all configured gas sources.
+
+### YAML configuration
+
+{% configuration %}
+type:
+  required: true
+  description: "`gas-total`"
+  type: string
+collection_key:
+  required: false
+  description: "Collection key to use for the badge. This links the badge to a specific energy dashboard collection. Defaults to `energy_dashboard`."
+  type: string
+  default: energy_dashboard
+{% endconfiguration %}
+
+### Example
+
+```yaml
+type: gas-total
+```
+
+## Water flow rate badge
+
+<p class='img'>
+  <img src='/images/dashboards/energy/water-total-badge.png' alt='Screenshot of the water flow rate badge'>
+  Screenshot of the water flow rate badge.
+</p>
+
+The water flow rate badge displays the current total water flow rate from all configured water sources.
+
+### YAML configuration
+
+{% configuration %}
+type:
+  required: true
+  description: "`water-total`"
+  type: string
+collection_key:
+  required: false
+  description: "Collection key to use for the badge. This links the badge to a specific energy dashboard collection. Defaults to `energy_dashboard`."
+  type: string
+  default: energy_dashboard
+{% endconfiguration %}
+
+### Example
+
+```yaml
+type: water-total
 ```
 
 ## Using multiple collections

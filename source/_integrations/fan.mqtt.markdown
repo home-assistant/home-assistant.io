@@ -8,7 +8,7 @@ ha_iot_class: Configurable
 ha_domain: mqtt
 ---
 
-The `mqtt` fan platform lets you control your MQTT enabled fans.
+The **MQTT Fan** {% term integration %} lets you control your MQTT enabled fans.
 
 ## Configuration
 
