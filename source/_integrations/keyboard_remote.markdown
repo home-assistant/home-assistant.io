@@ -74,9 +74,9 @@ The `keyboard_remote_connected` event is fired when a configured device is detec
 - `device_descriptor` — The `/dev/input/` path of the device
 - `device_name` — The human-readable name of the device
 
-### keyboard_remote_disconnected
+### Keyboard remote disconnected
 
-Fired when a configured device is disconnected or removed.
+The `keyboard_remote_disconnected` event is fired when a configured device is disconnected or removed.
 
 - `device_descriptor` — The `/dev/input/` path of the device
 - `device_name` — The human-readable name of the device
