@@ -310,7 +310,7 @@ For more on how to use notifications in your automations, please see the [gettin
 
 The integration does not provide functionality to get the stream, favorite, bookmark, or boost posts of that account.
 
-Mastodon account details only show the date of the last status posted, not the time. If you are using the `get_account` action to monitor posts you should check the statuses count field for changes.
+Mastodon account details only show the date of the last status you posted, not the time. If you use the `mastodon.get_account` action to monitor new posts, you should instead watch the `statuses_count` field in the action response for changes.
 
 ## Troubleshooting
 
