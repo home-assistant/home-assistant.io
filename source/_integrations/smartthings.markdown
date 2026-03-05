@@ -18,6 +18,7 @@ ha_category:
   - Select
   - Sensor
   - Switch
+  - Time
   - Update
   - Vacuum
   - Valve
@@ -42,6 +43,7 @@ ha_platforms:
   - select
   - sensor
   - switch
+  - time
   - update
   - vacuum
   - valve
@@ -343,6 +345,10 @@ The SmartThings Switch lets you control devices that have the [`switch`](https:/
 | `samsungce.steamClosetKeepFreshMode`   |
 | `samsungce.steamClosetSanitizeMode`    |
 | `samsungce.washerBubbleSoak`           |
+
+### Time
+
+The SmartThings time platform lets you control the start and end time for the do not disturb mode on supported devices.
 
 ### Update
 
