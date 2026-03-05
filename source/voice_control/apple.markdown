@@ -43,6 +43,7 @@ To use Home Assistant Assist as your voice assistant, follow these steps:
    - [Start Assist using the action button](#to-start-assist-using-the-action-button).
    - [Start Assist using control center](#to-start-assist-using-control-center).
    - [Start Assist from Lock Screen](#to-start-assist-from-lock-screen).
+   - [Start Assist using Voice Control](#to-start-assist-using-voice-control).
 3. [Give a command](/voice_control/custom_sentences/).
 
 #### To create a shortcut to Assist in App
