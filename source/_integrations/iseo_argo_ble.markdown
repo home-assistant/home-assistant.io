@@ -33,7 +33,6 @@ All communication is direct Bluetooth, with no cloud dependency or bridge hardwa
 
 ### Adding your ISEO lock to Home Assistant
 
-The setup flow consists of two steps. You only need to scan the Master Card once:
 
 1. As soon as you add the integration to Home Assistant, Home Assistant scans for nearby ISEO locks and presents them in a list.
 2. In Home Assistant, go to {% my integrations title="**Settings** > **Devices & services**" %}.
