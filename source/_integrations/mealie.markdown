@@ -83,33 +83,35 @@ The integration provides the following sensors for the statistics, which are upd
 
 ## Actions
 
-The Mealie integration has the following actions:
-
-- `mealie.get_mealplan`
-- `mealie.get_recipe`
-- `mealie.get_recipes`
-- `mealie.import_recipe`
-- `mealie.set_mealplan`
-- `mealie.set_random_mealplan`
+All Mealie actions require the integration `config_entry_id`. To find it, go to **Developer tools** > **Actions**. Choose the desired action and select your integration from dropdown. Then switch to YAML mode to see `config_entry_id`.
 
 ### Action: Get meal plan
 
 The `mealie.get_mealplan` action gets the meal plan for a specified range.
 
-| Data attribute | Optional | Description                                              |
-|------------------------|----------|----------------------------------------------------------|
-| `config_entry_id`      | No       | The ID of the Mealie config entry to get data from.      |
-| `start_date`           | Yes      | The start date of the meal plan. (today if not supplied) |
-| `end_date`             | Yes      | The end date of the meal plan. (today if not supplied)   |
+- **Data attribute**: `config_entry_id`
+  - **Description**: The ID of the Mealie config entry to get data from.
+  - **Optional**: No
+
+- **Data attribute**: `start_date`
+  - **Description**: The start date of the meal plan. (today if not supplied)
+  - **Optional**: Yes
+
+- **Data attribute**: `end_date`
+  - **Description**: The end date of the meal plan. (today if not supplied)
+  - **Optional**: Yes
 
 ### Action: Get recipe
 
 The `mealie.get_recipe` action gets the recipe for a specified recipe ID or slug.
 
-| Data attribute | Optional | Description                                         |
-|------------------------|----------|-----------------------------------------------------|
-| `config_entry_id`      | No       | The ID of the Mealie config entry to get data from. |
-| `recipe_id`            | No       | The ID or the slug of the recipe to get.            |
+- **Data attribute**: `config_entry_id`
+  - **Description**: The ID of the Mealie config entry to get data from.
+  - **Optional**: No
+
+- **Data attribute**: `recipe_id`
+  - **Description**: The ID or the slug of the recipe to get.
+  - **Optional**: No
 
 ### Action: Get recipes
 
@@ -117,48 +119,84 @@ The `mealie.get_recipes` action gets a list of recipes that match your search te
 
 Please note the behavior of the search function depends on the backend used for Mealie (see [documentation](https://docs.mealie.io/documentation/getting-started/faq/#what-is-fuzzy-search-and-how-do-i-use-it)). In the case of postgresql backend, the search will be fuzzy, otherwise it will be literal.
 
-| Data attribute    | Optional | Description                                                                 |
-|-------------------|----------|-----------------------------------------------------------------------------|
-| `config_entry_id` | No       | The ID of the Mealie config entry to get data from.                         |
-| `search_terms`    | Yes      | Search terms on which all the properties of recipes are searched.           |
-| `result_limit`    | Yes      | The maximum number of recipes to return.                                    |
+- **Data attribute**: `config_entry_id`
+  - **Description**: The ID of the Mealie config entry to get data from.
+  - **Optional**: No
+
+- **Data attribute**: `search_terms`
+  - **Description**: Search terms on which all the properties of recipes are searched.
+  - **Optional**: Yes
+
+- **Data attribute**: `result_limit`
+  - **Description**: The maximum number of recipes to return.
+  - **Optional**: Yes
 
 ### Action: Import recipe
 
 The `mealie.import_recipe` action imports a recipe into Mealie from a URL.
 
-| Data attribute | Optional | Description                                                     |
-|------------------------|----------|-----------------------------------------------------------------|
-| `config_entry_id`      | No       | The ID of the Mealie config entry to get data from.             |
-| `url`                  | No       | The URL of the recipe.                                          |
-| `include_tags`         | Yes      | Include tags from the website to the recipe. (false by default) |
+- **Data attribute**: `config_entry_id`
+  - **Description**: The ID of the Mealie config entry to get data from.
+  - **Optional**: No
+
+- **Data attribute**: `url`
+  - **Description**: The URL of the recipe.
+  - **Optional**: No
+
+- **Data attribute**: `include_tags`
+  - **Description**: Include tags from the website to the recipe. (false by default)
+  - **Optional**: Yes
 
 ### Action: Set meal plan
 
 The `mealie.set_mealplan` action sets a meal plan on a specific date.
 
-| Data attribute    | Optional | Description                                                                    |
-|-------------------|----------|--------------------------------------------------------------------------------|
-| `config_entry_id` | No       | The ID of the Mealie config entry to get data from.                            |
-| `date`            | No       | The date that should be filled.                                                |
-| `entry_type`      | No       | One of "breakfast", "lunch", "dinner", "side", "drink", "dessert", or "snack".  |
-| `recipe_id`       | Yes      | The recipe to plan.                                                            |
-| `note_title`      | Yes      | The title of the meal note.                                                    |
-| `note_text`       | Yes      | The description of the meal note.                                              |
+- **Data attribute**: `config_entry_id`
+  - **Description**: The ID of the Mealie config entry to get data from.
+  - **Optional**: No
+
+- **Data attribute**: `date`
+  - **Description**: The date that should be filled. 
+  - **Optional**: No
+
+- **Data attribute**: `entry_type`
+  - **Description**: One of "breakfast", "lunch", "dinner", "side", "drink", "dessert", or "snack".
+  - **Optional**: No
+
+- **Data attribute**: `recipe_id`
+  - **Description**: The recipe to plan.
+  - **Optional**: Yes
+
+- **Data attribute**: `note_title`
+  - **Description**: The title of the meal note.
+  - **Optional**: Yes
+
+- **Data attribute**: `note_text`
+  - **Description**: The description of the meal note.
+  - **Optional**: Yes
 
 ### Action: Set random meal plan
 
 The `mealie.set_random_mealplan` action sets a random meal plan on a specific date.
 
-| Data attribute    | Optional | Description                                                                    |
-|-------------------|----------|--------------------------------------------------------------------------------|
-| `config_entry_id` | No       | The ID of the Mealie config entry to get data from.                            |
-| `date`            | No       | The date that should be filled.                                                |
-| `entry_type`      | No       | One of "breakfast", "lunch", "dinner", "side", "drink", "dessert", or "snack".  |
+- **Data attribute**: `config_entry_id`
+  - **Description**: The ID of the Mealie config entry to get data from.
+  - **Optional**: No
 
-{% tip %}
-You can get your `config_entry_id` by using actions within [Developer tools](/docs/tools/dev-tools/), using one of the above actions and viewing the YAML.
-{% endtip %}
+- **Data attribute**: `date`
+  - **Description**: The date that should be filled. 
+  - **Optional**: No
+
+- **Data attribute**: `entry_type`
+  - **Description**: One of "breakfast", "lunch", "dinner", "side", "drink", "dessert", or "snack".
+  - **Optional**: No
+
+### Action: Get shopping list items
+
+The `mealie.get_shopping_list_items` action gets the shopping list items for a shopping list, including structured data for labels, units, and food.
+
+- **Data attribute**: `entity_id`
+  - **Description**: The ID of the Mealie ToDo list entity. May be a list of multiple entity IDs.
 
 ## Examples
 

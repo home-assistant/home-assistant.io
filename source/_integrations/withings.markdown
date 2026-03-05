@@ -15,7 +15,7 @@ ha_platforms:
   - calendar
   - diagnostics
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
 ha_dhcp: true
 ---
 

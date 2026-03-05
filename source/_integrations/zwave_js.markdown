@@ -103,15 +103,13 @@ While your Z-Wave mesh is permanently stored on your adapter, the additional met
 
 ### Adding a new device to the Z-Wave network
 
-1. In Home Assistant, go to {% my integrations title="**Settings** > **Devices & services**" %}.
-2. Select the Z-Wave integration.
-   - Then, on the entry of the hub, select {% icon "ic:baseline-arrow-forward-ios" %} to open the device info page.
-3. Select **Add device**.
+1. In Home Assistant, go to {% my config_zwave_js title="**Settings** > **Z-Wave**" %}.
+2. Select **Add device**.
    - The Z-Wave adapter is now in inclusion mode.
-4. Check, if your device supports SmartStart:
+3. Check if your device supports SmartStart:
    - On the packaging, check for the SmartStart label.
    - Find the QR code. It can be on the packaging or on the device itself.
-5. Depending on whether your device supports SmartStart, follow the steps in either option 1 or 2:
+4. Depending on whether your device supports SmartStart, follow the steps in either option 1 or 2:
    - **Option 1: your device supports SmartStart**:
      - Make sure the device is turned off.
      - Select **Scan QR code** and scan the QR code on your device.
@@ -125,9 +123,9 @@ While your Z-Wave mesh is permanently stored on your adapter, the additional met
    - **Option 2: your device does not support SmartStart**:
      - Set the device in inclusion mode. Refer to the device manual to see how this is done.
      - If your device is included using S2 security, you may be prompted to enter a PIN number provided with your device. Often, this PIN is provided with the documentation _and_ is also printed on the device itself. For more information on secure inclusion, refer to [this section](/integrations/zwave_js/#should-i-use-secure-inclusion).
-6. The UI should confirm that the device was added. After a short while (seconds to minutes), the entities should also be created.
-7. **Troubleshooting**: If the adapter fails to add/find your device, cancel the inclusion process.
-   - In some cases, it might help to first [remove](/integrations/zwave_js/#removing-a-device-from-the-z-wave-network) a device (exclusion) before you add it, even when the device has not been added to this Z-Wave network yet.
+5. The UI should confirm that the device was added. After a short while (seconds to minutes), the entities should also be created.
+6. **Troubleshooting**: If the adapter fails to add/find your device, cancel the inclusion process.
+   - In some cases, it might help to first [remove](#removing-a-device-from-a-foreign-z-wave-network) a device (exclusion) before you add it, even when the device has not been added to this Z-Wave network yet.
    - Another approach would be to factory reset the device. Refer to the device manual to see how this is done.
 
 **Important:**
@@ -135,16 +133,28 @@ While your Z-Wave mesh is permanently stored on your adapter, the additional met
 1. **Do not move your Z-Wave adapter to include devices.** Moving the adapter is no longer necessary and leads to broken routes.
 2. **Do not initiate device inclusion from the Z-Wave adapter itself.** This is no longer supported.
 
-### Removing a device from the Z-Wave network
+### Removing a device from the current Z-Wave network
 
 Do this before using the device with another adapter, or when you don't use the device anymore. It removes the device from the Z-Wave network stored on the adapter. It also removes the device and all its entities from Home Assistant. You can not join a device to a new network if it is still paired with an adapter.
 
 1. In Home Assistant, go to {% my integrations title="**Settings** > **Devices & services**" %}.
 2. Select the **Z-Wave** integration.
-   - Then, select the cogwheel {% icon "mdi:cog-outline" %}.
-3. Select **Remove a device**, then **Start exclusion**.
+   - Then, select the device you want to remove.
+3. Under **Device info**, select the three-dot {% icon "mdi:dots-vertical" %} menu, then select **Delete**.
+   - This opens a dialog with options for removing the device.
+4. Select **Remove a working device**.
    - The Z-Wave adapter is now in exclusion mode.
-4. Put the device you want to remove in exclusion mode. Refer to its manual how this is done.
+5. Put the device you want to remove in exclusion mode. Refer to its manual to learn how this is done.
+6. The UI should confirm that the device was removed and the device and entities will be removed from Home Assistant.
+
+### Removing a device from a foreign Z-Wave network
+
+Do this when you have a device that is still paired with an adapter, but you don't have access to that adapter anymore. If the device was not excluded from that adapter, you cannot join it to a new network. This process removes the device from the previous adapter's network, allowing you to pair it with a new adapter.
+
+1. In Home Assistant, go to {% my config_zwave_js title="**Settings** > **Z-Wave**" %}.
+2. Select **Options**.
+3. Next to **Remove foreign device**, select **Remove** > **Start exclusion**.
+4. Put the device you want to remove in exclusion mode. Refer to its manual to learn how this is done.
 5. The UI should confirm that the device was removed and the device and entities will be removed from Home Assistant.
 
 ## Migrating a Z-Wave network to a new adapter
@@ -183,28 +193,24 @@ There is no easy way to update that device.
 
 ### To migrate a Z-Wave network to a new adapter
 
-1. In Home Assistant, go to {% my integrations title="**Settings** > **Devices & services**" %}.
-2. Connect your new adapter.
-   - Plug in your new adapter.
-   - **Result**: The adapter should be discovered and show up in the **Discovered section**.
-   - Select **Add** and follow the instructions on screen.
-   - **Troubleshooting**: Not all devices can be discovered automatically. If your device does not show up, follow these steps:
-     1. Select the **Z-Wave** integration.
-     2. Then, select the cogwheel {% icon "mdi:cog-outline" %}.
-     3. Under **Backup and restore**, select **Migrate adapter**.
-     4. Select **Migrate to a new adapter**.
-        - To confirm, select **Submit**.
+1. In Home Assistant, go to {% my config_zwave_js title="**Settings** > **Z-Wave**" %}.
+2. Under **Migrate adapter**, select **Migrate**.
 3. When the **Unplug your adapter** dialog shows up, unplug your old adapter.
    - It is important to remove the old device now, as it might interfere with the new one. Even though it might not throw an error immediately, it might cause issues.
-4. Follow the steps on screen.
-5. Once the migration has completed, check if you want to rename the adapter. If you have previously changed the name, the new adapter might keep the name of the old adapter.
+4. Connect the new adapter.
+5. Select **Submit**.
+6. In the **Select your device** dialog, select the Z-Wave adapter you just connected.
+   - Typically, you can select the device you connected to a USB port.
+   - To connect to a Z-Wave controller that you exposed elsewhere via TCP (such as [Portable Z-Wave](https://www.home-assistant.io/blog/2025/10/13/portable-z-wave-with-wifi-and-poe/)), select the **Use socket** option.
+7. Select **Submit**.
+   - The new adapter is now being paired with your existing Z-Wave network.
+   - **Troubleshooting**: If the migration fails, it might be because you selected **Use socket** by mistake. If you were using a USB-based controller, plug the old adapter in again, and wait for the network to reload.
+     - Once your old adapter is connected and the network is operational, repeat the migration steps.
+     - Make sure to select the new controller this time (instead of **Use socket**).
+8. Once the migration has completed, check if you want to rename the adapter. If you have previously changed the name, the new adapter might keep the name of the old adapter.
    - In the top-left corner, select the back button to go back to the integration page.
    - In the list of devices, check the device name.
    - To change the device name, select the {% icon "mdi:pencil" %} button.
-
-The video below shows how a Z-Wave network is migrated to a Home Assistant Connect ZWA-2:
-
-<lite-youtube videoid="3-1YV9i5M30" videotitle="Example showing how to migrate to a Home Assistant Connect ZWA-2" posterquality="maxresdefault"></lite-youtube>
 
 ## Migrating from Z-Wave JS UI to the Z-Wave JS app
 
@@ -235,7 +241,7 @@ If you have been using the Z-Wave JS UI app, you can migrate to the Z-Wave JS ap
 
    ![Download button in the Z-Wave JS UI web interface](/images/integrations/z-wave/z-wave-js-ui-download-backup.png)
 
-3. Stop the **Z-Wave JS UI** app. In Home Assistant, go to **Settings** > **Apps** > **Z-Wave JS UI**, then select **Stop**.
+3. Stop the **Z-Wave JS UI** app.
 
 ### Running the migration script
 
@@ -248,7 +254,7 @@ If you have been using the Z-Wave JS UI app, you can migrate to the Z-Wave JS ap
 
    ![Navigating to the temp folder in the terminal](/images/integrations/z-wave/z-wave-js-ui-migration-tmp-1.png)
 
-7. Make the script executable by running `chmod +x ./migrate_to_zwave_js_app.sh`.
+7. Make the script executable by running `chmod +x ./migrate_to_zwave_js_app.sh`
 
    ![Make the script executable in the terminal](/images/integrations/z-wave/z-wave-js-ui-migration-run-chmod.png)
 
@@ -267,25 +273,25 @@ If you have been using the Z-Wave JS UI app, you can migrate to the Z-Wave JS ap
 
    ![Reconfiguring the current adapter](/images/integrations/z-wave/z-wave-js-ui-migration-reconfigure-adapter.png)
 
-4. Depending on how your controller is connected, you might need to either select or clear the **Use the Z-Wave JS Supervisor app** checkbox.
+4. Depending on how your controller is connected, you might need to either select or clear the **Use the Z-Wave Supervisor app** checkbox.
    - _Option 1:_ If you are using a USB-based or TCP-based controller:
-     - Select the **Use the Z-Wave JS Supervisor app** checkbox.
+     - Select the **Use the Z-Wave Supervisor app** checkbox.
 
-       ![Selecting the Z-Wave JS Supervisor app checkbox](/images/integrations/z-wave/z-wave-js-ui-migration-select-option.png)
+       ![Selecting the Z-Wave Supervisor app checkbox](/images/integrations/z-wave/z-wave-js-ui-migration-select-option.png)
 
      - In the next step, select your controller and select **Submit**.
 
        ![Reconfiguring the current adapter](/images/integrations/z-wave/z-wave-js-ui-migration-select-adapter-1.png)
 
    - _Option 2:_ If you are using a GPIO module or if your controller is not showing up in the list:
-     - Clear the **Use the Z-Wave JS Supervisor app** checkbox.
+     - Clear the **Use the Z-Wave Supervisor app** checkbox.
 
-       ![Deselecting the Z-Wave JS Supervisor app](/images/integrations/z-wave/z-wave-js-ui-migration-deselect-option.png)
+       ![Deselecting the Z-Wave Supervisor app](/images/integrations/z-wave/z-wave-js-ui-migration-deselect-option.png)
 
      - Enter the connection details for your Z-Wave JS app:
        - In the **URL** field, enter `ws://core-zwave-js:3000`.
 
-       ![Entering the WebSocket URL for the Z-Wave JS app](/images/integrations/z-wave/z-wave-js-ui-migration-enter-url.png)
+       ![Reconfiguring the current adapter](/images/integrations/z-wave/z-wave-js-ui-migration-enter-url.png)
 
 5. Remove the temporary files you uploaded to the `/tmp` folder for the migration.
 6. Done! Your Z-Wave JS app is now managing your Z-Wave network. You can start the Z-Wave JS app and stop and uninstall the Z-Wave JS UI app.
@@ -326,12 +332,10 @@ It's recommended to create a backup before making any major changes to your Z-Wa
 
 ### To backup your Z-Wave network
 
-1. In Home Assistant, go to {% my integrations title="**Settings** > **Devices & services**" %}.
-2. Select the **Z-Wave** integration.
-   - Then, select the cogwheel {% icon "mdi:cog-outline" %}.
-3. Under **Backup and restore**, select **Download backup**.
+1. In Home Assistant, go to {% my config_zwave_js title="**Settings** > **Z-Wave**" %}.
+2. Under **Download backup**, select **Download**.
    - **Result**: The backup file is downloaded to the device from which you initiated the download.
-4. Done! Store the backup file somewhere safe in case you need it later to restore your Z-Wave network.
+3. Done! Store the backup file somewhere safe in case you need it later to restore your Z-Wave network.
 
 ## Restoring your Z-Wave network from a backup
 
@@ -344,10 +348,8 @@ You can restore your Z-Wave network from a backup.
 
 ### Restoring a Z-Wave network from backup
 
-1. In Home Assistant, go to {% my integrations title="**Settings** > **Devices & services**" %}.
-2. Select the **Z-Wave** integration.
-   - Then, select the cogwheel {% icon "mdi:cog-outline" %}.
-3. Under **Backup and restore**, select **Restore from backup**.
+1. In Home Assistant, go to {% my config_zwave_js title="**Settings** > **Z-Wave**" %}.
+2. Under **Restore from backup**, select **Restore**.
    - Select the backup you want to restore from.
    - **Result**: The Z-Wave network is being restored and the devices that were part of the network should show up again.
 
@@ -373,10 +375,10 @@ The Home Assistant and Z-Wave JS teams do not take any responsibility for any da
 
 ### To update firmware of a Z-Wave device
 
-1. In Home Assistant, go to {% my integrations title="**Settings** > **Devices & services**" %}.
-2. Select the **Z-Wave** integration.
-   - Then, on the entry of the hub, select {% icon "ic:baseline-arrow-forward-ios" %} to open the device info page.
-3. Under **Device info**, select **Update**.
+1. In Home Assistant, go to {% my config_zwave_js title="**Settings** > **Z-Wave**" %}.
+2. Select **Devices**.
+   - Then select the device you want to update.
+3. Under **Device info**, select the three-dot {% icon "mdi:dots-vertical" %} menu, then select **Update**.
 4. Select the firmware file that you previously downloaded to your computer.
    - **Notice: Risk of damage to the device**
      - Make sure you select the correct firmware file.
@@ -440,11 +442,30 @@ The following features can be accessed from the integration configuration panel:
 
 ![Z-Wave integration configuration panel](/images/integrations/z-wave/z-wave-integration-config-panel.png)
 
-- **Add device:** Allows you to pre-provision a SmartStart device or start the inclusion process for adding a new device to your network.
-- **Remove device:** Starts the exclusion process for removing a device from your network.
-- **Rebuild network routes:** Discovers new routes between the adapter and the device. This is useful when devices or the adapter have moved to a new location, or if you are having significant problems with your network, but it also generates a lot of network traffic and should be used sparingly.
-- **[Adapter statistics](https://zwave-js.github.io/node-zwave-js/#/api/controller?id=quotstatistics-updatedquot):** Provides statistics about communication between the adapter and other devices, allowing you to troubleshoot your network's RF quality.
-- **Third-party data opt-in/out:** Allows you to opt-in or out of telemetry that the Z-Wave JS project collects to help inform development decisions, influence manufacturers, etc. This telemetry is disabled by default and has to be opted in to be activated.
+- **Add device**: Button in the bottom-right corner. Allows you to pre-provision a SmartStart device or start the inclusion process for adding a new device to your network.
+
+The **My network** section gives you access to the device and entity lists for your Z-Wave network.
+
+- **Show map**: Allows you to see a visual representation of your Z-Wave network, showing the devices and the routes between them. This can be helpful to troubleshoot issues in your network.
+
+- **Options** > **Remove device**: Starts the exclusion process for [removing a foreign device from a network](#removing-a-device-from-a-foreign-z-wave-network). This allows you to remove a device that is still paired to another Z-Wave adapter.
+- **Options** > **Discover and assign new routes**: Discovers new routes between the adapter and the device. This is useful when devices or the adapter have moved to a new location, or if you are having significant problems with your network. The discovery process generates a lot of network traffic and should be used sparingly.
+- **[Statistics](https://zwave-js.github.io/node-zwave-js/#/api/controller?id=quotstatistics-updatedquot)**: Provides statistics about communication between the adapter and other devices, allowing you to troubleshoot your network's RF quality.
+- **Logs**: Provides access to Z-Wave JS logs, which can be helpful to troubleshoot issues with your network.
+- **Analytics**: Allows you to opt in or out of telemetry that the Z-Wave JS project collects to help development and manufacturers make informed decisions. This telemetry is disabled by default and has to be opted in to be activated.
+- **Network information**: Metadata about your Z-Wave network, such as the Home ID, server version, or server URL. This information can be helpful when troubleshooting your network or when contacting support.
+- **Download backup**: Create and [download a backup of your Z-Wave network](#backing-up-your-z-wave-network). The backup contains the non-volatile memory (NVM) of your Z-Wave adapter, which includes all paired devices. It is recommended to create a backup before making any major changes to your Z-Wave network, such as migrating to a new adapter or resetting your adapter.
+- **Restore from backup**: [Restore your Z-Wave network from a backup file](#restoring-a-z-wave-network-from-backup) that you previously downloaded. This can be helpful when migrating to a new adapter, or when you want to restore your network after resetting your adapter.
+- **Migrate adapter**: Allows you to [migrate your Z-Wave network to a new adapter](#migrating-a-z-wave-network-to-a-new-adapter).
+
+#### About network information
+
+The **Network information** section in the integration configuration panel shows metadata about your Z-Wave network and the software running it. This information is useful when troubleshooting issues or when contacting support.
+
+- **Home ID**: A unique identifier assigned to your Z-Wave network. Every device paired to your network shares this ID. It can be used to verify that a device belongs to your network or to identify your network when seeking help.
+- **Driver version**: The version of the [Z-Wave JS driver](https://github.com/zwave-js/node-zwave-js) running on your Z-Wave JS server. The driver is the core library that communicates directly with your Z-Wave adapter.
+- **Server version**: The version of the [Z-Wave JS server](https://github.com/zwave-js/zwave-js-server) running in your setup. The server acts as the bridge between the Z-Wave JS driver and Home Assistant.
+- **Server URL**: The WebSocket URL that Home Assistant uses to connect to your Z-Wave JS server, for example `ws://homeassistant.local:3000`. This can be useful when you need to verify or reconfigure the connection between Home Assistant and the Z-Wave JS server.
 
 ### Integration menu
 
@@ -726,6 +747,28 @@ Valid code slots are between 1-254.
 | `entity_id`    | no       | Lock entity or list of entities to clear the usercode. |
 | `code_slot`    | yes      | The code slot to clear the usercode from.              |
 
+### Action: Get lock usercode
+
+The `zwave_js.get_lock_usercode` action retrieves [usercodes](/docs/scripts/perform-actions#use-templates-to-handle-response-data) from a lock. You can query a specific code slot or retrieve all code slots at once. Returns the usercode and in-use status for each slot.
+
+| Data attribute | Required | Description                                                                                                                                   |
+| -------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`    | no       | Lock entity or list of entities to get usercodes from.                                                                                        |
+| `code_slot`    | no       | The code slot to retrieve. If not specified, all code slots are returned.                                                                     |
+
+{% details "Example action response" %}
+
+```yaml
+"1":
+  usercode: "1234"
+  in_use: true
+"2":
+  usercode: ""
+  in_use: false
+```
+
+{% enddetails %}
+
 ## Events
 
 There are two types of events that are fired, notification events and value notification events. You can test what events come in using the event {% my developer_events title="developer tools in Home Assistant" %} and subscribing to the `zwave_js_notification` or `zwave_js_value_notification` events respectively. Once you know what the event data looks like, you can use this to create automations.
@@ -998,6 +1041,9 @@ If you are using Home Assistant Container or you do not want to use the built-in
 This application provides the connection between your Z-Wave adapter and Home Assistant. The Home Assistant Z-Wave integration connects to this server via a WebSocket connection. You need to run this Z-Wave JS server before you can use the integration.
 
 There are multiple ways to run this server:
+The chart below illustrates Options 1 and 3, which are available for Home Assistant OS only.
+
+![Overview of installation options 1 and 3](/images/integrations/z-wave/z-wave-server-install-options-1-2.png)
 
 **Option 1: The official Z-Wave JS app, as described above**
 
@@ -1013,7 +1059,7 @@ This method provides the same server application and UI as the Z-Wave JS UI app.
 
 **Option 3: Run the Z-Wave JS server yourself**
 
-This is considered a very advanced use case. In this case you run the Z-Wave JS Server or Z-Wave JS UI NodeJS application directly. Installation and maintaining this is out of scope for this document. See the [Z-Wave JS server](https://github.com/zwave-js/zwave-js-server) or [Z-Wave JS UI](https://github.com/zwave-js/zwave-js-ui/) GitHub repository for information.
+This is considered a more involved use case. In this case, you run the Z-Wave JS Server or Z-Wave JS UI NodeJS application directly. Installation and maintaining this is out of scope for this document. See the [Z-Wave JS server](https://github.com/zwave-js/zwave-js-server) or [Z-Wave JS UI](https://github.com/zwave-js/zwave-js-ui/) GitHub repository for information.
 
 {% note %}
 [Supported Z-Wave adapter](/docs/z-wave/controllers/#supported-z-wave-usb-sticks--hardware-modules). The Z-Wave adapter should be connected to the same host as where the Z-Wave JS server is running. In the configuration for the Z-Wave JS server, you need to provide the path to this adapter. It's recommended to use the `/dev/serial-by-id/yourdevice` version of the path to your adapter, to make sure the path doesn't change over reboots. The most common known path is `/dev/serial/by-id/usb-0658_0200-if00`.
@@ -1069,6 +1115,10 @@ Additional devices may be discoverable, however only devices that have been conf
 ### What happened to Zwavejs2Mqtt or the Z-Wave JS to MQTT app?
 
 Zwavejs2Mqtt was renamed Z-Wave JS UI in September 2022. They are synonymous with no difference between their capabilities.
+
+### What happened to the Z-Wave JS UI app?
+
+The **Z-Wave JS UI** app is being phased out, as its feature-rich UI is now included in the **Z-Wave JS** app. The **Z-Wave JS UI** app will continue to be supported for a while, but users are encouraged to switch to the **Z-Wave JS** app.
 
 ### Should I use `Secure Inclusion`?
 

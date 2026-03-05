@@ -108,6 +108,7 @@ These entities are simpler diagnostic entities without any additional attributes
 - **Discussions**: Shows the number of discussions
 - **Forks**: Shows the number of forks
 - **Issues**: Shows the number of open issues
+- **Merged pull requests**: Shows the number of merged pull requests
 - **Pull requests**: Shows the number of open pull requests
 - **Stars**: Shows the number of stars
 - **Watchers**: Shows the number of watchers

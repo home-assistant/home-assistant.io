@@ -107,6 +107,10 @@ cluster:
   description: 'When set to `false`, the map will not cluster the markers. This is useful when you want to see all markers at once, but it may cause performance issues with a large number of markers.'
   type: boolean
   default: true
+conditions:
+  required: false
+  description: List of conditions to check for entity visibility. See [description](#conditions-options).
+  type: list
 {% endconfiguration %}
 
 {% important %}
@@ -118,6 +122,23 @@ The `default_zoom` value will be ignored if it is set higher than the current zo
 after fitting all visible entity markers in the map window. In other words, this can only
 be used to zoom the map _out_ by default.
 {% endnote %}
+
+## Conditions options
+
+You can specify one or more `conditions`, in which case every selected entity will be tested against each condition and shown if it passes every condition. See [available conditions](/dashboards/conditional/#conditions-options). For conditions which accept an `entity` id, this will be automatically set to the entity being tested.
+
+### Examples
+
+Map all locatable entities, except hiding those that have a state of `home`.
+
+```yaml
+type: map
+auto_fit: true
+show_all: true
+conditions:
+  - condition: state
+    state_not: home
+```
 
 ## Options for entities
 

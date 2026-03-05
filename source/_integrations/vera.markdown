@@ -24,7 +24,7 @@ ha_platforms:
   - scene
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The [Vera](https://getvera.com/) hub is a controller mainly for connecting to Z-Wave devices. 
