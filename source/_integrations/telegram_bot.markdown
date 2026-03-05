@@ -130,7 +130,7 @@ Proxy URL:
 ### Webhooks configuration
 
 {% note %}
-If you are using Home Assistant Cloud, you must include `127.0.0.1` in the **Trusted networks** field as IP address of incoming requests are not forwarded to your Home Assistant.
+If you are using Home Assistant Cloud, you must include `127.0.0.1` in the **Trusted networks** field because the IP address of incoming requests is not forwarded to your Home Assistant.
 {% endnote %}
 
 {% note %}
