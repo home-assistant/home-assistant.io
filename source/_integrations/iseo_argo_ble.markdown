@@ -44,7 +44,7 @@ The setup flow consists of two steps. You only need to scan the Master Card once
 
 ## Known limitations
 
-- The lock only supports **one active Bluetooth connection** at a time. Close the Argo app on all phones before unlocking or during setup.
+- The lock only supports _one active Bluetooth connection_ at a time. Close the Argo app on all phones before unlocking or during setup.
 - The ISEO X1R is a momentary actuator: it re-latches automatically after every unlock. The `lock` action is therefore not supported.
 
 ## Removing the integration
