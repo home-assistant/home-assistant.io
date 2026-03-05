@@ -29,7 +29,6 @@ All communication is direct Bluetooth, with no cloud dependency or bridge hardwa
 - The physical Master Card that was supplied with the lock. It is required during the setup process to authorize Home Assistant.
 - The official **Argo** app must be closed on all phones during each setup step, as the lock only accepts one Bluetooth connection at a time.
 
-## Setup
 
 {% include integrations/config_flow.md %}
 
