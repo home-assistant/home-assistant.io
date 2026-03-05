@@ -194,7 +194,7 @@ Entity IDs depend on your device name in Home Assistant. The examples below assu
 - `sensor.nrgkick_charging_current`: Charging current.
 - `sensor.nrgkick_charged_energy`: Charged energy.
 - `sensor.nrgkick_status`: Charging status.
-- `device_tracker.nrgkick_gps_tracker`: Current location of the charger (only on SIM models).
+- `device_tracker.nrgkick_gps_tracker`: Current location of the device (only on SIM models).
 - `number.nrgkick_charging_current`: Set the charging current.
 - `number.nrgkick_energy_limit`: Set an energy limit for the current charging session (0 = no limit).
 - `number.nrgkick_phase_count`: Set the number of phases.
