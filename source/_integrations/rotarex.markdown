@@ -3,7 +3,8 @@ title: "Rotarex DIMES SRG"
 description: "Instructions on how to integrate your Rotarex gas tanks into Home Assistant."
 ha_release: 2026.2
 ha_domain: rotarex
-ha_iot_class: cloud_polling
+ha_config_flow: true
+ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@Rotarex'
 related:
@@ -35,7 +36,9 @@ Password:
   description: "The password you use to sign in to the Rotarex DIMES SRG Camping app."
 {% endconfiguration_basic %}
 
-## Sensors
+## Supported functionality
+
+### Sensors
 
 This integration creates a device for each tank found in your account. Each device has the following sensors:
 
