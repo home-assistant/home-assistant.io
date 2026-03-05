@@ -87,7 +87,7 @@ For control center and lock screen:
 
 iOS includes an accessibility feature called **Voice Control** that allows you to operate your iPhone entirely with voice commands. Using **custom commands**, you can trigger the **Assist in app** shortcut with your own wake phrase.
 
-For example, you could create a custom command such as **"Ok Nabu"** that runs the **Assist in app** shortcut.
+For example, you could create a custom command such as **"Okay Nabu"** that runs the **Assist in app** shortcut.
 
 To set this up:
 
