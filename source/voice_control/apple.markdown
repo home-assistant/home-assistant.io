@@ -82,6 +82,28 @@ For control center and lock screen:
 5. After you see the icon in lock screen, tap once more to choose which pipeline you want to use.
 6. Alternatively you can execute the same steps but add a widget below the lock screen clock.
 
+#### Start Assist using Voice Control
+
+iOS includes an accessibility feature called **Voice Control** that allows you to operate your iPhone entirely with voice commands. Using **custom commands**, you can trigger the **Assist in app** shortcut with your own wake phrase.
+
+For example, you could create a custom command such as **"Ok Nabu"** that runs the **Assist in app** shortcut.
+
+To set this up:
+
+1. Go to **Settings** > **Accessibility** > **Voice Control**.
+2. Enable **Voice Control**.
+3. Tap **Customize Commands** > **Create New Command**.
+4. Enter the phrase you want to use (for example, `Ok Nabu`).
+5. Under **Action**, select **Run Shortcut**.
+6. Choose the **Assist in app** shortcut you created earlier.
+7. Save the command.
+
+After this is configured, saying your custom phrase will launch Assist.
+
+{% note %}
+While this approach works well, it may not be as fast as triggering Siri or using hardware buttons. Also note that enabling Voice Control means full system voice navigation is active, which may occasionally trigger other commands unintentionally.
+{% endnote %}
+
 ## Adjusting the language
 
 Shortcuts triggered via Siri will always use the same language as Siri is set to. The Assist Button shortcut is meant to be manually triggered and can be configured for any language.
