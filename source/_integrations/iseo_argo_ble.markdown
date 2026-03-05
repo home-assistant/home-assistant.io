@@ -31,7 +31,7 @@ All communication is direct Bluetooth, with no cloud dependency or bridge hardwa
 
 {% include integrations/config_flow.md %}
 
-### Step-by-step walkthrough
+### Adding your ISEO lock to Home Assistant
 
 The setup flow consists of two steps. You only need to scan the Master Card once:
 
