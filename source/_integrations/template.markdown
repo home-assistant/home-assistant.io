@@ -1290,31 +1290,31 @@ light:
       type: template
       default: optimistic
     set_effect:
-      description: Defines an action to run when the light is given an effect command. Receives the variable `effect`. May also receive the variables `brightness`, and/or  `transition`.
+      description: Defines a set of actions (script) to run when the light is given an effect command. The script will only execute if the light is turned on with an `effect`. The `set_effect` script receives the variable `effect`. It may also receive variables `brightness` and/or `transition`.
       required: inclusive
       type: action
     set_level:
-      description: Defines an action to run when the light is given a brightness command. The script will only be called if the `turn_on` call only ha brightness, and optionally transition. Receives variables `brightness` and, optionally, `transition`.
+      description: Defines a set of actions (script) to run when the light is given a brightness command. The script will only execute if the light is turned on with a `brightness`, `brightness_pct`, or `transition`. The `set_level` script receives the variables `brightness` and/or `transition`.
       required: false
       type: action
     set_temperature:
-      description: Defines an action to run when the light is given a color temperature command. Receives variable `color_temp`. May also receive variables `brightness`  and/or `transition`.
+      description: Defines a set of actions (script) to run when the light is given a color temperature command. The script will only execute if the light is turned on with a `color_temp` or `color_temp_kelvin`. The script receives the variables `color_temp` and `color_temp_kelvin`, and may also receive variables `brightness` and/or `transition`.
       required: false
       type: action
     set_hs:
-      description: "Defines an action to run when the light is given a hs color command. Available variables: `hs` as a tuple, `h` and `s`"
+      description: Defines a set of actions (script) to run when the light is given a hs color command. The script will only execute if the light is turned on with an `hs_color`.  The script receives the variables `hs` as a tuple, `h`, and `s`, and may also receive variables `brightness` and/or `transition`.
       required: false
       type: action
     set_rgb:
-      description: "Defines an action to run when the light is given an RGB color command. Available variables: `rgb` as a tuple, `r`, `g` and `b`."
+      description: Defines a set of actions (script) to run when the light is given an RGB color command. The script will only execute if the light is turned on with an `rgbw_color`.  The script receives the variables `rgb` as a tuple, `r`, `g`, and `b`, and may also receive `brightness` and/or `transition`.
       required: false
       type: action
     set_rgbw:
-      description: "Defines an action to run when the light is given an RGBW color command. Available variables: `rgbw` as a tuple, `rgb` as a tuple, `r`, `g`, `b`  and `w`."
+      description: Defines a set of actions (script) to run when the light is given an RGBW color command. The script will only execute if the light is turned on with `rgbw_color`.  The script receives the variables `rgbw` and `rgb` as tuples, `r`, `g`, `b`, and `w`, and may also receive `brightness` and/or `transition`.
       required: false
       type: action
     set_rgbww:
-      description: "Defines an action to run when the light is given an RGBWW color command. Available variables: `rgbww` as a tuple, `rgb` as a tuple, `r`, `g`  `b`, `cw` and `ww`."
+      description: Defines a set of actions (script) to run when the light is given an RGBWW color command. The script will only execute if the light is turned on with a `rgbww_color`.  The script receives the variables `rgbww` and `rgb` as tuples, `r`, `g`, `b`, `cw`, and `ww`, and may also receive `brightness` and/or `transition`.
       required: false
       type: action
     state:
@@ -1328,7 +1328,7 @@ light:
       type: template
       default: false
     temperature:
-      description: Defines a template to get the color temperature of the light.
+      description: Defines a template to get the color temperature of the light. The template must return the color temperature in mireds. If you are using a `color_temp_kelvin` attribute from another source, convert the value to mireds by dividing 1000000 by the `color_temp_kelvin` result.
       required: false
       type: template
       default: optimistic
