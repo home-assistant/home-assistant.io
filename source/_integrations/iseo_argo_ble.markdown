@@ -24,7 +24,7 @@ All communication is direct Bluetooth, with no cloud dependency or bridge hardwa
 
 ## Prerequisites
 
-- A Bluetooth adapter accessible to Home Assistant (built-in or via [ESPHome Bluetooth proxy](https://www.home-assistant.io/integrations/esphome/)).
+- A Bluetooth adapter accessible to Home Assistant (built-in or via [ESPHome Bluetooth proxy](https://www.home-assistant.io/integrations/bluetooth/#remote-adapters-bluetooth-proxies)).
 - An ISEO Argo smart lock, such as x1R Smart or AGB Smart.
 - The physical Master Card that was supplied with the lock. It is required during the setup process to authorize Home Assistant.
 - The official **Argo** app must be closed on all phones during each setup step, as the lock only accepts one Bluetooth connection at a time.
