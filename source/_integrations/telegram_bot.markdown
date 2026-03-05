@@ -134,7 +134,7 @@ If you are using Home Assistant Cloud, you must include `127.0.0.1` in the **Tru
 {% endnote %}
 
 {% note %}
-If you are using a custom **API endpoint**, you must include the IP address or CIDR of the server in the **Trusted networks** field.
+If you are using a custom **API endpoint**, you must include the IP address or IP range of the server in CIDR notation, like `192.168.0.0/16`, in the **Trusted networks** field.
 {% endnote %}
 
 If you have selected the `Webhooks` Telegram bot type, the integration setup will continue with the webhooks configuration step.
