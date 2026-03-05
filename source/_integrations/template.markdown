@@ -1302,19 +1302,19 @@ light:
       required: false
       type: action
     set_hs:
-      description: Defines a set of actions (script) to run when the light is given a hs color command. The script will only execute if the light is turned on with a `hs`.  The script receives the variables `hs` as a tuple, `h`, and `s`, and may also receive variables `brightness` and/or `transition`.
+      description: Defines a set of actions (script) to run when the light is given a hs color command. The script will only execute if the light is turned on with a `hs_color`.  The script receives the variables `hs` as a tuple, `h`, and `s`, and may also receive variables `brightness` and/or `transition`.
       required: false
       type: action
     set_rgb:
-      description: Defines a set of actions (script) to run when the light is given an RGB color command. The script will only execute if the light is turned on with a `rgb` value.  The script receives the variables `rgb` as a tuple, `r`, `g`, and `b`, and may also receive variables `brightness` and/or `transition`.
+      description: Defines a set of actions (script) to run when the light is given an RGB color command. The script will only execute if the light is turned on with a `rgbw_color`.  The script receives the variables `rgb` as a tuple, `r`, `g`, and `b`, and may also receive variables `brightness` and/or `transition`.
       required: false
       type: action
     set_rgbw:
-      description: Defines a set of actions (script) to run when the light is given an RGBW color command. The script will only execute if the light is turned on with a `rgbw` value.  The script receives the variables `rgbw` as a tuple, `rgb` as a tuple, `r`, `g`, `b`, and `w`, and may also receive variables `brightness` and/or `transition`.
+      description: Defines a set of actions (script) to run when the light is given an RGBW color command. The script will only execute if the light is turned on with a `rgbw_color`.  The script receives the variables `rgbw` as a tuple, `rgb` as a tuple, `r`, `g`, `b`, and `w`, and may also receive variables `brightness` and/or `transition`.
       required: false
       type: action
     set_rgbww:
-      description: Defines a set of actions (script) to run when the light is given an RGBWW color command. The script will only execute if the light is turned on with a `rgbww` value.  The script receives the variables `rgbww` as a tuple, `rgb` as a tuple, `r`, `g`, `b`, `cw`, and `ww`, and may also receive variables `brightness` and/or `transition`.
+      description: Defines a set of actions (script) to run when the light is given an RGBWW color command. The script will only execute if the light is turned on with a `rgbww_color`.  The script receives the variables `rgbww` as a tuple, `rgb` as a tuple, `r`, `g`, `b`, `cw`, and `ww`, and may also receive variables `brightness` and/or `transition`.
       required: false
       type: action
     state:
@@ -1328,7 +1328,7 @@ light:
       type: template
       default: false
     temperature:
-      description: Defines a template to get the color temperature of the light. The result of the template has to return a light temperature in mired units. If you are using a `color_temp_kelvin` attribute from another source, convert the value to mireds by dividing 1000000 by the `color_temp_kelvin` result.
+      description: Defines a template to get the color temperature of the light. The template must return the color temperature in mireds. If you are using a `color_temp_kelvin` attribute from another source, convert the value to mireds by dividing 1000000 by the `color_temp_kelvin` result.
       required: false
       type: template
       default: optimistic
