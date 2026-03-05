@@ -13,7 +13,7 @@ ha_platforms:
   - lock
 ha_bluetooth: true
 ha_integration_type: device
-ha_quality_scale: platinum
+ha_quality_scale: bronze
 ---
 
 The **ISEO Argo BLE** {% term integration %} connects Home Assistant to [ISEO](https://www.iseo.com) Argo smart locks over Bluetooth Low Energy. ISEO is an Italian security manufacturer specializing in high-security cylinders and electronic access control, widely used in residential and commercial buildings across Italy and Switzerland.
