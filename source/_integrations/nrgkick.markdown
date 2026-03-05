@@ -15,6 +15,7 @@ ha_zeroconf: true
 ha_platforms:
   - binary_sensor
   - device_tracker
+  - diagnostics
   - number
   - sensor
   - switch
