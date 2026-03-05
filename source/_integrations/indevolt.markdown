@@ -36,7 +36,7 @@ The integration supports the following devices:
 
 1. Connect your Indevolt device and Home Assistant to the same local network.
 2. Ensure the Indevolt device is powered on and has acquired a network IP address. You can get the IP from the app or from your router.
-3. Enable the device's Local API through the app (use: "http").
+3. In the Indevolt app, enable the **Local API** and set the protocol to `http`.
 
 {% include integrations/config_flow.md %}
 
