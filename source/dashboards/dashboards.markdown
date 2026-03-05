@@ -153,9 +153,8 @@ This will leave the default dashboard intact.
 1. Go to {% my lovelace_dashboards title="**Settings** > **Dashboards**" %}.
 2. Select **Add dashboard**.
 3. In the dialog, choose one of the options:
-   - If you want to start with a pre-populated dashboard, choose **Overview** or one of the suggested ones, such as the **Map** dashboard.
+   - If you want to start with a pre-populated dashboard, choose **Overview (Legacy)** or one of the suggested ones, such as the **Map** dashboard.
    - If you want to start with a completely empty dashboard, choose **New dashboard from scratch**.
-   ![Screenshot of the Add Dashboard dialog showing dashboard options like Overview, Map, and Areas](/images/dashboards/dashboards-add-dashboard-selector.png)
 
 4. In the **Add new dashboard** dialog, enter a name and select an icon.
    - Define if this dashboard should be visible only to the admin user.
