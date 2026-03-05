@@ -125,10 +125,10 @@ resource_template:
   required: true
   type: template
 scan_interval:
-  description: Defines the time in seconds after which the endpoint is called for new data.
+  description: The frequency in seconds to call the REST endpoint.
   required: false
   type: integer
-  default: 60
+  default: 30
 state_class:
   description: The [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor.
   required: false
