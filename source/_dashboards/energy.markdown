@@ -2,15 +2,17 @@
 type: card
 title: "Energy cards"
 sidebar_label: Energy cards
-description: "An overview of the energy cards that are available."
+description: "An overview of the energy cards and badges that are available."
 related:
   - docs: /integrations/frontend/
     title: Themes
   - docs: /dashboards/cards/
     title: Dashboard cards
+  - docs: /dashboards/badges/
+    title: Dashboard badges
 ---
 
-This is a list of all the cards used in the energy dashboard. You can also place them anywhere you want in your dashboard.
+This is a list of all the cards and badges used in the energy dashboard. You can also place them anywhere you want in your dashboard.
 
 You can configure them on the {% my config_energy title="energy configuration page" %}.
 
@@ -558,6 +560,93 @@ show_legend:
 
 ```yaml
 type: power-sources-graph
+```
+
+## Power consumption badge
+
+<p class='img'>
+  <img src='/images/dashboards/energy/power-total-badge.png' alt='Screenshot of the power consumption badge'>
+  Screenshot of the power consumption badge.
+</p>
+
+The power consumption badge displays the current total power consumption of your home. It calculates the total power by combining grid import, solar, and battery sources.
+
+### YAML configuration
+
+{% configuration %}
+type:
+  required: true
+  description: "`power-total`"
+  type: string
+collection_key:
+  required: false
+  description: "Collection key to use for the badge. This links the badge to a specific energy dashboard collection. Defaults to `energy_dashboard`."
+  type: string
+  default: energy_dashboard
+{% endconfiguration %}
+
+### Example
+
+```yaml
+type: power-total
+```
+
+## Gas flow rate badge
+
+<p class='img'>
+  <img src='/images/dashboards/energy/gas-total-badge.png' alt='Screenshot of the gas flow rate badge'>
+  Screenshot of the gas flow rate badge.
+</p>
+
+The gas flow rate badge displays the current total gas flow rate from all configured gas sources.
+
+### YAML configuration
+
+{% configuration %}
+type:
+  required: true
+  description: "`gas-total`"
+  type: string
+collection_key:
+  required: false
+  description: "Collection key to use for the badge. This links the badge to a specific energy dashboard collection. Defaults to `energy_dashboard`."
+  type: string
+  default: energy_dashboard
+{% endconfiguration %}
+
+### Example
+
+```yaml
+type: gas-total
+```
+
+## Water flow rate badge
+
+<p class='img'>
+  <img src='/images/dashboards/energy/water-total-badge.png' alt='Screenshot of the water flow rate badge'>
+  Screenshot of the water flow rate badge.
+</p>
+
+The water flow rate badge displays the current total water flow rate from all configured water sources.
+
+### YAML configuration
+
+{% configuration %}
+type:
+  required: true
+  description: "`water-total`"
+  type: string
+collection_key:
+  required: false
+  description: "Collection key to use for the badge. This links the badge to a specific energy dashboard collection. Defaults to `energy_dashboard`."
+  type: string
+  default: energy_dashboard
+{% endconfiguration %}
+
+### Example
+
+```yaml
+type: water-total
 ```
 
 ## Using multiple collections

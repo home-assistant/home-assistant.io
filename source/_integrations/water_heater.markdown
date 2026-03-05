@@ -20,6 +20,12 @@ water_heater:
   platform: demo
 ```
 
+{% warning %}
+
+ Misconfiguring Water Heater automations may allow water temperatures to drop into ranges between 25°C to 45°C (77°F and 113°F) which allows for Legionella bacteria growth. This can pose serious health risks, including death from Legionnaires' disease. Maintain water temperature ≥ 60°C (140°F) for bacterial safety.
+
+{% endwarning %}
+
 ## The state of a water heater entity
 
 A water heater entity can have the following states:

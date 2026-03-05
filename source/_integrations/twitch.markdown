@@ -8,7 +8,7 @@ ha_iot_class: Cloud Polling
 ha_domain: twitch
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ha_codeowners:
   - '@joostlek'
 ha_config_flow: true
