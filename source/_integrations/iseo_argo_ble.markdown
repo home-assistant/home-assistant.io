@@ -3,7 +3,7 @@ title: ISEO Argo BLE
 description: Instructions on how to integrate your ISEO Argo smart lock into Home Assistant via Bluetooth.
 ha_category:
   - Lock
-ha_release: '2026.4'
+ha_release: 2026.4
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
@@ -29,7 +29,6 @@ All communication is direct Bluetooth, with no cloud dependency or bridge hardwa
 - The physical Master Card that was supplied with the lock. It is required during the setup process to authorize Home Assistant.
 - The official **Argo** app must be closed on all phones during each setup step, as the lock only accepts one Bluetooth connection at a time.
 
-
 {% include integrations/config_flow.md %}
 
 ### Step-by-step walkthrough
@@ -41,11 +40,7 @@ The setup flow consists of two steps. You only need to scan the Master Card once
 
 ## Supported functionality
 
-### Lock
-
-| Entity | Description                                                                  |
-| ------ | ---------------------------------------------------------------------------- |
-| Lock   | Controls the lock (unlock only). Reflects the current locked/unlocked state. |
+- **Lock**: Controls the lock (unlock only). Reflects the current locked/unlocked state.
 
 ## Known limitations
 
