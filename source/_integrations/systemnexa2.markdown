@@ -2,16 +2,21 @@
 title: System Nexa 2
 description: How to integrate System Nexa 2 devices within Home Assistant.
 ha_category:
+  - Light
+  - Sensor
   - Switch
 ha_config_flow: true
 ha_platforms:
+  - diagnostics
+  - light
+  - sensor
   - switch
 ha_release: 2026.3
 ha_iot_class: Local Push
 ha_codeowners:
   - '@konsulten'
+  - '@slangstrom'
 ha_domain: systemnexa2
-ha_dhcp: true
 ha_zeroconf: true
 ha_quality_scale: silver
 ha_integration_type: device
@@ -59,29 +64,43 @@ Host:
 
 ## Supported functionality
 
+### Lights
+
+- **Dimmer**
+  - **Description**: Control dimmable lights with adjustable brightness levels.
+  - **Available for devices**: WBD-01, WPD-01
+  - **Remarks**: Supports brightness control from 0-100%
+
+### Sensors
+
+- **Signal strength**
+  - **Description**: Wi-Fi signal strength (dBm).
+  - **Available for devices**: all
+  - **Remarks**: Disabled by default.
+
 ### Switches
 
 - **Relay**
-  - **Description**: Turn on or off switch relay
+  - **Description**: Turn on or off switch relay.
   - **Available for devices**: WBR-01, WPO-01, WPR-01
-- **433 Mhz**
-  - **Description**: Controls whether device should use 433 Mhz communication
+- **433 MHz**
+  - **Description**: Controls whether device should use 433 MHz communication.
   - **Available for devices**: all
 - **Cloud Access**
-  - **Description**: Controls whether to allow cloud access for device
+  - **Description**: Controls whether to allow cloud access for device.
   - **Available for devices**: all
 - **Physical Button**
-  - **Description**: Controls whether the onboard button should have any effect on the device
+  - **Description**: Controls whether the onboard button should have any effect on the device.
   - **Available for devices**: all
 - **LED**
-  - **Description**: Controls whether the onboard LED should be lit at any time
+  - **Description**: Controls whether the onboard LED should be lit at any time.
   - **Available for devices**: all
 
 ## Known limitations
 
 Currently this integration does not support the following functionality:
 
-- Dimming (state, lowest/highest level, dimming method and more)
+- Dimming configuration (lowest/highest brightness level, dimming mode)
 - Device local scheduling/timers (can however be done via Home Assistant)
 - Adding remote control transmitters to control devices
 - Setting mode after power loss
@@ -91,7 +110,7 @@ Currently this integration does not support the following functionality:
 
 ## Data updates
 
-**System Nexa 2** devices push data directly to Home Assistant, enabling immediate updates for device state changes such as relay state and settings (433MHz, cloud access, physical button, and LED).
+**System Nexa 2** devices push data directly to Home Assistant, enabling immediate updates for device state changes such as relay state and settings (433 MHz, cloud access, physical button, and LED).
 
 ## Examples
 

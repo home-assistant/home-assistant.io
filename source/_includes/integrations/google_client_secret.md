@@ -30,16 +30,16 @@ This section explains how to generate a client ID and client secret on
    - Complete the App Information:
       - Set the **App name** (the name of the application asking for consent) to anything you want, for example, *Home Assistant*.
       - For a **Support email**, choose your email address from the dropdown menu.
-      - Click **Next**.
-   - For Audience, select **External** then click  **Next**.
-   - Under Contact Information, enter your email address (the same as above is fine). Click **Next**.
-   - Read the policy and check the box if you agree. Click **Continue**.
-   - Click **Create**.
+      - Select **Next**.
+   - For Audience, select **External** then select **Next**.
+   - Under Contact Information, enter your email address (the same as above is fine). Select **Next**.
+   - Read the policy and check the box if you agree. Select **Continue**.
+   - Select **Create**.
 7. In the left sidebar, select **Audience**:
    - Under **Publishing status > Testing**, select **Publish app**.
      > Otherwise, your credentials will expire every 7 days.
 8. In the left sidebar, select **Clients**:
-   - Click **+ Create Client**.
+   - Select **+ Create Client**.
    - For Application type, choose **Web Application** and give this client ID a name (like "Home Assistant Client").
    - Add `https://my.home-assistant.io/redirect/oauth` to **Authorized redirect URIs** then select **Create**.
      > **Note**: This is not a placeholder. It is the URI that must be used.

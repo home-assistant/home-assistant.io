@@ -15,7 +15,7 @@ ha_platforms:
   - calendar
   - diagnostics
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
 ha_dhcp: true
 ---
 
@@ -97,7 +97,7 @@ For example, measurement sensors like weight only work when data has been regist
 
 Sleep sensors are only created if the {% term integration %} can find sleep data for you within the last day.
 
-Workout calendar and the workout and activity sensors show if the latest available data point is no older than 14 days.
+Workout {% term calendar %} and the workout and activity sensors show if the latest available data point is no older than 14 days.
 
 ## Removing the integration
 
