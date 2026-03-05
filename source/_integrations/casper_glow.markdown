@@ -4,7 +4,7 @@ description: Instructions on how to integrate Casper Glow lights into Home Assis
 ha_category:
   - Light
 ha_bluetooth: true
-ha_release: 2025.4
+ha_release: 2026.4
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@mikeodr'
