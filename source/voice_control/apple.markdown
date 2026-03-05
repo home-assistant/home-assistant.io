@@ -94,7 +94,7 @@ To set this up:
 1. Go to **Settings** > **Accessibility** > **Voice Control**.
 2. Enable **Voice Control**.
 3. Tap **Customize Commands** > **Create New Command**.
-4. Enter the phrase you want to use (for example, `Ok Nabu`).
+4. Enter the phrase you want to use (for example, `Okay Nabu`).
 5. Under **Action**, select **Run Shortcut**.
 6. Choose the **Assist in app** shortcut you created earlier.
 7. Save the command.
