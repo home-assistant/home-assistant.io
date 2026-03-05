@@ -11,7 +11,7 @@ ha_codeowners:
   - '@kroimon'
 ha_platforms:
   - media_player
-ha_integration_type: integration
+ha_integration_type: device
 ha_zeroconf: true
 ---
 

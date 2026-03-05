@@ -3,6 +3,8 @@ title: Proxmox VE
 description: Access your ProxmoxVE instance in Home Assistant.
 ha_category:
   - Binary sensor
+  - Button
+  - Sensor
 ha_release: 0.103
 ha_iot_class: Local Polling
 ha_codeowners:
@@ -12,6 +14,9 @@ ha_codeowners:
 ha_domain: proxmoxve
 ha_platforms:
   - binary_sensor
+  - button
+  - diagnostics
+  - sensor
 ha_integration_type: service
 related:
   - docs: /docs/configuration/
@@ -95,8 +100,30 @@ The Home Assistant user you create must already exist on the Linux system.
 
 In your Home Assistant configuration, use `hass@pve` for the username and your chosen password for the password.
 
+## Sensor
+
+- **CPU**: Percentage of CPU usage.
+- **Max CPU**: Maximum amount of CPU on the node/VM/LXC.
+- **Disk**: Disk usage of the node/VM/LXC.
+- **Max disk**: Maximum amount of available disk space.
+- **Memory**: Amount of memory usage.
+- **Max memory**: Maximum amount of memory on the node/VM/LXC.
+- **Status**: Current status of the node/VM/LXC.
+
 ## Binary sensor
 
-The integration will automatically create a binary sensor for each tracked virtual machine or container. The binary sensor will either be on if the VM's state is running or off if the VM's state is different.
+The integration will automatically create a binary sensor for each tracked virtual machine or container. The binary sensor will either be on if the VM state is running or off if the VM state is different.
 
 The created sensor will be called `binary_sensor.NODE_NAME_VMNAME_running`.
+
+## Button
+
+- **Start**: Starts a node/VM/LXC.
+- **Start all**: Starts all VMs and LXCs known on a node.
+- **Stop**: Stops a node/VM/LXC.
+- **Stop all**: Stops all VMs and LXCs known on a node.
+- **Restart**: Restarts a VM/LXC.
+- **Reboot**: Reboots a node.
+- **Shutdown**: Shuts a node down.
+- **Hibernate**: Puts a VM in hiberanation; only available to VMs.
+- **Reset**: Resets a VM; only available to VMs.

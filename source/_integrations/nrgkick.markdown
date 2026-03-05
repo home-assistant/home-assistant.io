@@ -4,7 +4,7 @@ description: Integrate the NRGkick Gen2 mobile EV charger using the local REST J
 ha_category:
   - Energy
 ha_iot_class: Local Polling
-ha_quality_scale: bronze
+ha_quality_scale: silver
 ha_release: 2026.2
 ha_codeowners:
   - '@andijakl'
@@ -13,6 +13,7 @@ ha_integration_type: device
 ha_config_flow: true
 ha_zeroconf: true
 ha_platforms:
+  - diagnostics
   - number
   - sensor
   - switch

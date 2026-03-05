@@ -11,7 +11,7 @@ ha_domain: sensorpush_cloud
 ha_config_flow: true
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
 ha_quality_scale: bronze
 ---
 

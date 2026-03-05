@@ -61,6 +61,10 @@ In countries like Germany, SML (Smart Message Language) is used typically. ESPHo
 
 ![Photo of the AI-on-the-edge-device Workflow](/images/docs/energy/ai-on-the-edge-device.jpg)
 
+#### Reading the meter wirelessly via RTL-SDR
+
+{% include energy/rtl_sdr.md %}
+
 ### Using a CT clamp sensor
 
 {% include energy/ct_clamp.md %}

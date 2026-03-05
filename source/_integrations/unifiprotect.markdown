@@ -144,6 +144,13 @@ Each UniFi Protect camera will get a device in Home Assistant with the following
   - configuration text and select for LCD Screen for doorbells to either set custom messages or use predefined messages
 - **Button** - A disabled by default button is added for each camera device. The button will let you reboot your camera device.
 
+#### PTZ cameras
+
+If your camera supports <abbr title="pan, tilt, and zoom">PTZ</abbr>, the following additional entities and functionality are available:
+
+- **PTZ patrol** - A select entity that lets you start or stop patrols that are configured in UniFi Protect. The state reflects the currently active patrol. Select **Stopped** to stop the current patrol.
+- **PTZ presets** - Use the [PTZ go to preset action](#action-ptz-go-to-preset) (`unifiprotect.ptz_goto_preset`) to move your PTZ camera to a saved preset position, including the home position. Presets must be configured in the UniFi Protect app first.
+
 ### UniFi Protect floodlights
 
 Each UniFi Protect floodlight will get a device in Home Assistant with the following:
@@ -267,6 +274,24 @@ The `unifiprotect.remove_privacy_zone` action removes a privacy zone from a came
 | ---------------------- | -------- | ------------------------------------------------------------------------------------------------------- |
 | `device_id`            | No       | Camera you want to remove privacy zone from.                                                            |
 | `name`                 | No       | The name of the zone to remove.                                                                         |
+
+### Action: PTZ go to preset
+
+The `unifiprotect.ptz_goto_preset` action moves a <abbr title="pan, tilt, and zoom">PTZ</abbr> camera to a saved preset position.
+
+| Data attribute | Optional | Description                                                                                    |
+| -------------- | -------- | ---------------------------------------------------------------------------------------------- |
+| `device_id`    | No       | The device ID of the PTZ camera you want to move.                                              |
+| `preset`       | No       | The name of the preset position to move to. Use `Home` for the home position.                  |
+
+#### Example usage
+
+```yaml
+action: unifiprotect.ptz_goto_preset
+data:
+  device_id: your_device_id_here
+  preset: "Home"
+```
 
 ### Action: Get user keyring info
 

@@ -9,7 +9,7 @@ ha_config_flow: true
 ha_domain: simplepush
 ha_platforms:
   - notify
-ha_integration_type: integration
+ha_integration_type: service
 ha_codeowners:
   - '@engrbm87'
 ---

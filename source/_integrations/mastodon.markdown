@@ -13,11 +13,10 @@ ha_iot_class: Cloud Polling
 ha_platforms:
   - binary_sensor
   - diagnostics
-  - notify
   - sensor
 ha_integration_type: service
 ha_config_flow: true
-ha_quality_scale: bronze
+ha_quality_scale: silver
 ---
 
 The **Mastodon** {% term integration %} uses [Mastodon](https://joinmastodon.org/) to post status updates and get account statistics.
