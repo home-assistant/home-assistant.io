@@ -82,7 +82,7 @@ For control center and lock screen:
 5. After you see the icon in lock screen, tap once more to choose which pipeline you want to use.
 6. Alternatively you can execute the same steps but add a widget below the lock screen clock.
 
-#### Start Assist using Voice Control
+#### To start Assist using Voice Control
 
 iOS includes an accessibility feature called **Voice Control** that allows you to operate your iPhone entirely with voice commands. Using **custom commands**, you can trigger the **Assist in app** shortcut with your own wake phrase.
 
