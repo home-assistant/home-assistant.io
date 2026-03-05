@@ -69,6 +69,21 @@ After setting up the integration, you can add zones through the UI:
 
 You can reconfigure a zone's device class at any time by selecting the zone's configure button.
 
+### Options
+
+After setting up the integration, you can configure additional options:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Find the **Ness Alarm** integration and select **Configure**.
+3. Adjust the available options:
+
+{% configuration_basic %}
+Scan interval:
+  description: "Time in seconds between polling the alarm panel for updates. Default is 60 seconds."
+Show arm home mode:
+  description: "Enable this to show the arm home option on the alarm panel."
+{% endconfiguration_basic %}
+
 ## Actions
 
 ### Action `aux`
