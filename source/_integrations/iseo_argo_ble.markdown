@@ -39,7 +39,7 @@ The setup flow consists of two steps. You only need to scan the Master Card once
 1. **Select lock** – Home Assistant scans for nearby ISEO locks and presents them in a list. Select your lock and select **Submit**.
 2. **Register Gateway** – Select **Submit**, then within 30 seconds scan the **Master Card** on the lock to authorize Home Assistant. The lock LEDs blink green when the card is read successfully.
 
-## Entities
+## Supported functionality
 
 ### Lock
 
