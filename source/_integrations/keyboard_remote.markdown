@@ -18,15 +18,15 @@ The **Keyboard Remote** {% term integration %} lets you use a USB or Bluetooth k
 
 Each input device is added as a separate integration entry, so you can connect multiple keyboards or remotes and configure them independently.
 
-Because the integration uses the Linux `evdev` interface, it works only on Linux-based Home Assistant installations. The integration captures the device exclusively, which means a keyboard you add here can no longer be used for regular typing at the same time.
+Because the integration uses the Linux `evdev` interface, it works only on Linux-based Home Assistant installations. The integration captures the device exclusively. This means a keyboard you add here can no longer be used for regular typing.
 
 ## Prerequisites
 
 Before setting up the integration, make sure you meet the following requirements:
 
-- Your Home Assistant instance runs on a Linux-based system (Home Assistant OS, Home Assistant Supervised, or Home Assistant Container on Linux).
+- Your Home Assistant instance runs on a Linux-based system (Home Assistant OS, or Home Assistant Container on Linux).
 - The input device you want to use is connected to your system and recognized by Linux. For Bluetooth devices, pair them first using your operating system's Bluetooth settings.
-- The Home Assistant process has read and write access to the device files under `/dev/input/`. On Home Assistant OS and Supervised, this is handled automatically. For Home Assistant Container, see the [Containers](#running-in-a-container) troubleshooting section below.
+- The Home Assistant process has read and write access to the device files under `/dev/input/`. On Home Assistant OS, this is handled automatically. For Home Assistant Container, see the [Containers](#running-in-a-container) troubleshooting section below.
 
 {% include integrations/config_flow.md %}
 
@@ -58,18 +58,18 @@ The integration does not create any entities. Instead, it fires events on the Ho
 To discover the key codes for your device, go to {% my developer_events title="**Settings** > **Developer tools** > **Events**" %}. In the **Listen to events** section, enter `keyboard_remote_command_received` and select **Start listening**. Then press a key on your device to see its key code and other event data.
 {% endtip %}
 
-### keyboard_remote_command_received
+### Keyboard remote command received
 
-Fired whenever a key event occurs that matches your configured event types.
+The `keyboard_remote_command_received`event is fired whenever a key event occurs that matches your configured event types.
 
 - `key_code` — The numeric key code (evdev) for the key involved in the event
 - `type` — The event type: `key_up`, `key_down`, or `key_hold`
 - `device_descriptor` — The `/dev/input/` path of the device
 - `device_name` — The human-readable name of the device
 
-### keyboard_remote_connected
+### Keyboard remote connected
 
-Fired when a configured device is detected or reconnected. This is useful for Bluetooth devices that turn off automatically to save battery.
+The `keyboard_remote_connected` event is fired when a configured device is detected or reconnected. This is useful for Bluetooth devices that turn off automatically to save battery.
 
 - `device_descriptor` — The `/dev/input/` path of the device
 - `device_name` — The human-readable name of the device
@@ -224,7 +224,7 @@ getfacl /dev/input/event*
 
 ### Running in a container
 
-If you are running Home Assistant Container, you need to pass the input devices through to the container. You can pass a specific device with the `--device` flag (you can repeat this flag to pass multiple devices), but restarting the container or unplugging the keyboard will break the connection because only the device instance that existed when the container started is available inside it.
+If you are running Home Assistant Container, you need to pass input devices to the container. You can pass a specific device using the `--device` flag (you can repeat this flag to pass multiple devices). However, restarting the container or unplugging the keyboard will break the connection, as only the device instance that existed when the container started is available inside it.
 
 The following incomplete `docker-compose.yml` example shows how to give Home Assistant persistent access to input devices in a container:
 
