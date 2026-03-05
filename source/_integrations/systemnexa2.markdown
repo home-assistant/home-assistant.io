@@ -18,7 +18,7 @@ ha_codeowners:
 ha_domain: systemnexa2
 ha_dhcp: true
 ha_zeroconf: true
-ha_quality_scale: platinum
+ha_quality_scale: silver
 ha_integration_type: device
 ---
 
