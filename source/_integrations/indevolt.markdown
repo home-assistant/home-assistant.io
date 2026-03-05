@@ -46,6 +46,7 @@ Host:
 
 {% endconfiguration_basic %}
 
+
 The Indevolt integration communicates with your device over its standard TCP port (8080), which is used automatically by Home Assistant and does not need to be configured manually.
 
 ## Supported functionality
