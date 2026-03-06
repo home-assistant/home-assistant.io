@@ -57,7 +57,7 @@ Verify SSL certificate:
 This integration reads status and resource usage from Proxmox VE, and can perform actions using `button` entities.
 
 {% important %}
-To keep things secure, create a dedicated Proxmox VE user for Home Assistant and only grant the permissions you need. In short, do not use the `root` account!
+To keep things secure, create a dedicated Proxmox VE user for Home Assistant and only grant the permissions you need. In short, do not use the `root` account.
 {% endimportant %}
 
 ### Choose the right role
@@ -158,6 +158,6 @@ If you need to create an issue to report a bug or want to inspect diagnostic dat
 
 ## Removing the integration
 
-This integration follows standard integration removal. No extra steps are required within Home Assistant. Remember to clean up your Proxmox permissions!
+This integration follows standard integration removal. No extra steps are required within Home Assistant. Remember to clean up your Proxmox permissions.
 
 {% include integrations/remove_device_service.md %}
