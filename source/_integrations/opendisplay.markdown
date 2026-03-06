@@ -2,7 +2,7 @@
 title: OpenDisplay
 description: Instructions on how to integrate OpenDisplay e-paper displays into Home Assistant.
 ha_category:
-  - DIY
+  - Sensor
 ha_bluetooth: true
 ha_release: 2026.4
 ha_iot_class: Local Push
@@ -42,7 +42,7 @@ Once the [Bluetooth](/integrations/bluetooth) integration is active, OpenDisplay
 
 ## Actions
 
-### Action: Upload image (`opendisplay.upload_image`)
+### Action: Upload image
 
 The `opendisplay.upload_image` action allows you to upload an image to a display. The image is resized and dithered to match the display's resolution and color palette.
 
