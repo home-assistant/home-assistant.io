@@ -173,7 +173,7 @@ To play media on any player you first need to find the `media_content_id` of the
   - Example: `a982a31451450daeda02c89952e6d7cf`
 - Data attribute: `media_content_type`
   - Optional: No.
-  - Description: The type of content you are playing, one of "episode", "season", "tvshow", "collection", "movie", or "music".
+  - Description: The type of content you are playing, one of "episode", "season", "tvshow", "movie", or "music".
   - Example: `tvshow`
 - Data attribute: `enqueue`
   - Optional: Yes.
@@ -209,7 +209,7 @@ data:
 
 ### Action jellyfin.play_media_shuffle
 
-The Jellyfin API supports shuffling of a collection or directory when beginning playback. This is enabled through a separate {% term service %} to [play_media](#action-play_media). This will immediately replace the current play queue of the client with the shuffled media. An `entity_id` target is required.
+The Jellyfin API supports shuffling of a directory (series/tvshow or season) when beginning playback. This is enabled through a separate {% term service %} to [play_media](#action-play_media). This will immediately replace the current play queue of the client with the shuffled media. An `entity_id` target is required.
 
 - Data attribute: `media_content_id`
   - Optional: No.
@@ -217,8 +217,8 @@ The Jellyfin API supports shuffling of a collection or directory when beginning 
   - Example: `895dc4e1066da92847d48f9be28eb77c`
 - Data attribute: `media_content_type`
   - Optional: No.
-  - Description: The type of content you are playing, one of "episode", "season", "tvshow", "collection", "movie", or "music".
-  - Example: `collection`
+  - Description: The type of content you are playing, one of "episode", "season", "tvshow", "movie", or "music".
+  - Example: `tvshow`
 
 #### Examples:
 
@@ -237,7 +237,7 @@ data:
 ## Notes
 
 - The [player](#action-play_media) supports the enqueue options "next" and "add" only. The options "play" and "replace" will act as if the `enqueue` key was not set, and will replace the current play queue.
-- The selection of `media_content_type` is inconsequential to Jellyfin, and any string can be supplied here to pass validation; don't be too concerned about whether your folder is a collection or a season.
+- The selection of `media_content_type` is generally inconsequential to Jellyfin, and any string can be supplied here to pass validation.
 
 ## Known limitations
 
