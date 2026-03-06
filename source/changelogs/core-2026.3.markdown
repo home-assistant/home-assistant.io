@@ -1234,6 +1234,86 @@ For a summary in a more readable format
 - Fix handling of several thermostat QuickApp's in fibaro ([@rappenze] - [#164344])
 - Fix this variable preview issue with template entities from the UI ([@Petro31] - [#164740])
 
+## Release 2026.3.1 - March 6
+
+- Fix Rain Bird controllers updated by Rain Bird 2.x ([@rblakemesser] - [#163915])
+- Bump spotifyaio to 2.0.2 ([@joostlek] - [#164114])
+- Hunter Douglas Powerview: Fix missing class in hierarchy. ([@gwww] - [#164264])
+- Ensure Snapcast client has a valid current group before accessing group attributes. ([@mill1000] - [#164683])
+- Fix button entity creation for devices with more than two radios ([@tl-sl] - [#164699])
+- Fix IntesisHome outdoor_temp not reported when value is 0.0 ([@antonio-mello-ai] - [#164703])
+- Update keyboard_remote dependencies ([@lanrat] - [#164755])
+- more programs for Miele steam ovens ([@sean797] - [#164768])
+- Enforce SSRF redirect protection only for connector allowed_protocol_schema_set ([@RaHehl] - [#164769])
+- Remove caio from licenses exception list ([@epenet] - [#164806])
+- Add device class to active_liter_lpm sensor ([@glenndehaan] - [#164809])
+- Update ness_alarm scan interval to 5 secs ([@Poshy163] - [#164835])
+- Fix Ghost config flow using wrong field name for site UUID ([@JohnONolan] - [#164836])
+- Fix KNX sensor default attributes for energy and volume DPTs ([@farmio] - [#164838])
+- Fix volvo test RuntimeWarning ([@cdce8p] - [#164845])
+- Fix 'this' variable in template options flow ([@Petro31] - [#164866])
+- Bump onedrive-personal-sdk to 0.1.5 ([@zweckj] - [#164880])
+- Pass in Base Url during Roborock reauth ([@Lash-L] - [#164903])
+- Bump aiovodafone to 3.1.3 ([@chemelli74] - [#164955])
+- Fix energy unit in Homevolt ([@Danielhiversen] - [#164959])
+- Bump python-bsblan to 5.1.1 ([@liudger] - [#164591])
+- Bump python-bsblan to 5.1.2 ([@liudger] - [#164963])
+- Change setpoint step size in IronOS integration ([@tr4nt0r] - [#164979])
+- Bump aioswitcher to 6.1.1 ([@thecode] - [#164981])
+- Bump teltasync to 0.2.0 ([@karlbeecken] - [#164995])
+
+[#163915]: https://github.com/home-assistant/core/pull/163915
+[#164114]: https://github.com/home-assistant/core/pull/164114
+[#164264]: https://github.com/home-assistant/core/pull/164264
+[#164591]: https://github.com/home-assistant/core/pull/164591
+[#164683]: https://github.com/home-assistant/core/pull/164683
+[#164699]: https://github.com/home-assistant/core/pull/164699
+[#164703]: https://github.com/home-assistant/core/pull/164703
+[#164755]: https://github.com/home-assistant/core/pull/164755
+[#164757]: https://github.com/home-assistant/core/pull/164757
+[#164768]: https://github.com/home-assistant/core/pull/164768
+[#164769]: https://github.com/home-assistant/core/pull/164769
+[#164806]: https://github.com/home-assistant/core/pull/164806
+[#164809]: https://github.com/home-assistant/core/pull/164809
+[#164835]: https://github.com/home-assistant/core/pull/164835
+[#164836]: https://github.com/home-assistant/core/pull/164836
+[#164838]: https://github.com/home-assistant/core/pull/164838
+[#164845]: https://github.com/home-assistant/core/pull/164845
+[#164866]: https://github.com/home-assistant/core/pull/164866
+[#164880]: https://github.com/home-assistant/core/pull/164880
+[#164903]: https://github.com/home-assistant/core/pull/164903
+[#164955]: https://github.com/home-assistant/core/pull/164955
+[#164959]: https://github.com/home-assistant/core/pull/164959
+[#164963]: https://github.com/home-assistant/core/pull/164963
+[#164979]: https://github.com/home-assistant/core/pull/164979
+[#164981]: https://github.com/home-assistant/core/pull/164981
+[#164995]: https://github.com/home-assistant/core/pull/164995
+[@Danielhiversen]: https://github.com/Danielhiversen
+[@JohnONolan]: https://github.com/JohnONolan
+[@Lash-L]: https://github.com/Lash-L
+[@Petro31]: https://github.com/Petro31
+[@Poshy163]: https://github.com/Poshy163
+[@RaHehl]: https://github.com/RaHehl
+[@antonio-mello-ai]: https://github.com/antonio-mello-ai
+[@cdce8p]: https://github.com/cdce8p
+[@chemelli74]: https://github.com/chemelli74
+[@epenet]: https://github.com/epenet
+[@farmio]: https://github.com/farmio
+[@frenck]: https://github.com/frenck
+[@glenndehaan]: https://github.com/glenndehaan
+[@gwww]: https://github.com/gwww
+[@joostlek]: https://github.com/joostlek
+[@karlbeecken]: https://github.com/karlbeecken
+[@lanrat]: https://github.com/lanrat
+[@liudger]: https://github.com/liudger
+[@mill1000]: https://github.com/mill1000
+[@rblakemesser]: https://github.com/rblakemesser
+[@sean797]: https://github.com/sean797
+[@thecode]: https://github.com/thecode
+[@tl-sl]: https://github.com/tl-sl
+[@tr4nt0r]: https://github.com/tr4nt0r
+[@zweckj]: https://github.com/zweckj
+
 [#101267]: https://github.com/home-assistant/core/pull/101267
 [#134463]: https://github.com/home-assistant/core/pull/134463
 [#136947]: https://github.com/home-assistant/core/pull/136947
