@@ -90,10 +90,6 @@ Assign the role you chose to the group at the root path (`/`) so it applies to a
 4. For Path, select `/`
 5. for Group,  select your Home Assistant group (`HomeAssistant`)
 6. For **Role**, select the role you want to use, like **PVEAuditor** (monitoring only) or **PVEVMUser** (monitoring plus basic actions).
-6. Select the appropriate role from the list:
-  - Monitor-only: Select the Auditor role (`PVEAuditor`)
-  - Basic actions: Select the User role (`PVEVMUser`)
-  - Full control: Select the Admin role (`PVEVMAdmin`)
 7. Make sure `Propagate` is checked
 8. Confirm `Create`
 
