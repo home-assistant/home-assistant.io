@@ -43,7 +43,7 @@ Host:
 Port:
   description: "Port to connect to Proxmox. Default is `8006`."
 Realm:
-  description: "The authentication realm in Proxmox VE. Default is `PAM`. For a dedicated Home Assistant account, we recommend using the built-in Proxmox VE realm and selecting `pve` (see [Proxmox permissions](#proxmox-permissions))."
+  description: "The authentication realm in Proxmox VE. Default is `pam`. For a dedicated Home Assistant account, we recommend using the built-in Proxmox VE realm and selecting `pve` (see [Proxmox permissions](#proxmox-permissions))."
 Username:
   description: "Configured user to authenticate."
 Password:
