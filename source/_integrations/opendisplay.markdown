@@ -10,6 +10,8 @@ ha_codeowners:
   - '@g4bri3lDev'
 ha_domain: opendisplay
 ha_config_flow: true
+ha_platforms:
+  - sensor
 ha_integration_type: device
 ha_quality_scale: silver
 ---
@@ -113,6 +115,18 @@ actions:
 {% endraw %}
 
 {% enddetails %}
+
+## Sensors
+
+The following sensors are provided. All are in the {% term diagnostic %} category.
+
+| Sensor          | Unit | Description                                                  | Enabled by default |
+|-----------------|------|--------------------------------------------------------------|--------------------|
+| Battery         | %    | State of charge estimated from battery voltage and chemistry | Yes                |
+| Battery voltage | mV   | Raw battery voltage from the ADC                             | No                 |
+| Temperature     | °C   | Internal microcontroller temperature                         | No                 |
+
+Battery and voltage sensors are only created for battery- or solar-powered devices. The temperature reading reflects the microcontroller's internal temperature, not ambient temperature.
 
 ## Known limitations
 
