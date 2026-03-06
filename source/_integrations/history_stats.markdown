@@ -50,6 +50,8 @@ Duration:
   description: Duration of the measure.
 State class:
   description: The [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor.
+Minimum duration of measurement:
+  description: Minimum duration of the measurement to be considered for calculations (defaults to 0, all measurements will be included). Useful to exclude short state changes from the statistics.
 {% endconfiguration_basic %}
 
 ## YAML Configuration
@@ -113,6 +115,11 @@ state_class:
   required: false
   default: measurement
   type: string
+min_state_duration:
+  description: Minimum duration of the measurement to be considered for calculations. Used as a filter to remove short state changes from statistics.
+  required: false
+  default: 0
+  type: time
 {% endconfiguration %}
 
 {% note %}
@@ -174,12 +181,21 @@ If the duration exceeds the number of days of history stored by the `recorder` i
 The history stats sensor will be updated when the source entity changes or once per minute if there is no source change. Keep this in mind when using fixed durations that aren't evenly divisible by one minute.
 {% endnote %}
 
-### Video tutorial
+## Minimum state duration
+
+The minimum state duration variable is used to exclude short state changes from the statistics. In this example state changes shorter than 2 minutes will be excluded from statistics. It can be useful for instance to exclude short disconnections of a device. 
+
+```yaml
+# 2 minutes
+min_state_duration: "00:02:00"
+```
+
+## Video tutorial
 This video tutorial explains how you can use history stats. It also shows how you can create a daily bar chart graph to visualize things such as occupancy, or how long the lights are on in a particular room.
 
 <lite-youtube videoid="BMlU4SynQBY" videotitle="How To Master Graphs to Monitor Occupancy and Device Usage in Home Assistant" posterquality="maxresdefault"></lite-youtube>
 
-### Examples
+## Examples
 
 Here are some examples of periods you could work with, and what to write in your {% term "`configuration.yaml`" %}:
 

@@ -115,7 +115,7 @@ The integration will create the following buttons:
 
 ### Calendar
 
-The integration will create a calendar entity for all mowers. The calendar shows all current and upcoming schedules.
+The integration will create a {% term calendar %} entity for all mowers. The calendar shows all current and upcoming schedules.
 
 ### Device tracker (if available)
 

@@ -15,7 +15,7 @@ ha_platforms:
   - binary_sensor
   - number
   - sensor
-ha_integration_type: service
+ha_integration_type: hub
 ha_quality_scale: bronze
 ---
 

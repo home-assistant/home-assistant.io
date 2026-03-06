@@ -60,13 +60,15 @@ The integration setup will next give you instructions to enter the [Application 
 
 2. If your Google account settings are set to a language not supported by the SDK -- which can be noticed by the authentication screen of Google being localized in that language -- the authorization will fail without a clear error. Changing the language at the bottom of the error page to one that is [supported](https://developers.google.com/assistant/sdk/reference/rpc/languages) by the SDK will allow you to continue to the link page of Home Assistant.
 
-3. **NOTE**: You may get a message telling you that the app has not been verified and you will need to acknowledge that in order to proceed.
+{% note %}
+You may get a message telling you that the app has not been verified and you will need to acknowledge that in order to proceed.
+{% endnote %}
 
-4. You can now see the details of what you are authorizing Home Assistant to access with two options at the bottom. Click **Continue**.
+3. You can now see the details of what you are authorizing Home Assistant to access with two options at the bottom. Select **Continue**.
 
-5. The page will now display _Link account to Home Assistant?_, note _Your instance URL_. If this is not correct, please refer to [My Home Assistant](/integrations/my). If everything looks good, click **Link Account**.
+4. The page will now display _Link account to Home Assistant?_, note _Your instance URL_. If this is not correct, refer to [My Home Assistant](/integrations/my). If everything looks good, select **Link Account**.
 
-6. You may close the window, and return back to Home Assistant where you should see a _Success!_ message from Home Assistant.
+5. You may close the window, and return back to Home Assistant where you should see a _Success!_ message from Home Assistant.
 
 {% enddetails %}
 
@@ -115,7 +117,7 @@ This guide is for advanced users only. It requires creating an OAuth client ID o
 
 {% details "Enable personal results" %}
 
-1. Go to  {% my developer_services title="**Settings** > **Developer tools** > **Actions**" %} and issue a query that requires personal results, for example call `google_assistant_sdk.send_text_command` with `command: "what is my name"`
+1. Go to  {% my developer_services title="**Settings** > **Developer tools** > **Actions**" %} and issue a query that requires personal results, for example call `google_assistant_sdk.send_text_command` with `command: "what is my name"`.
 2. On your phone, you should receive a notification **Allow personal answers** **Allow Google Assistant to answer your questions about your calendar, trips, and more**.
 3. DO NOT tap on **ALLOW** (it won't work until you enter a device name). Instead, tap on the notification text.
 4. If the app doesn't open, you need to retry on a device running Android 12. If you don't have such a device, you can use an Android emulator.
@@ -128,7 +130,7 @@ This guide is for advanced users only. It requires creating an OAuth client ID o
 
 If you have an error with your credentials you can delete them in the [Application Credentials](/integrations/application_credentials/) user interface.
 
-If commands don't work try removing superfluous words such as "the". E.g. "play rain sounds on bedroom speaker" instead of "play rain sounds on the bedroom speaker".
+If commands don't work, try removing superfluous words such as "the". For example, "play rain sounds on bedroom speaker" instead of "play rain sounds on the bedroom speaker".
 
 If commands to a specific device (like streaming a camera to a Google TV) fail, you may need to enable "Personal Results" on that device itself. For example, on a Google TV or Chromecast with Google TV, this setting may be located under `Settings > Privacy > Google Assistant > Personal Results`. This may be required in addition to enabling it in the Google Home app.
 

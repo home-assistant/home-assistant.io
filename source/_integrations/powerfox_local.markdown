@@ -11,9 +11,10 @@ ha_codeowners:
   - '@klaasnicolaas'
 ha_domain: powerfox_local
 ha_platforms:
+  - diagnostics
   - sensor
 ha_integration_type: device
-ha_quality_scale: bronze
+ha_quality_scale: platinum
 ha_zeroconf: true
 ---
 

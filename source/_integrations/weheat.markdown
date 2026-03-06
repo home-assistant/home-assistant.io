@@ -14,7 +14,7 @@ ha_domain: weheat
 ha_platforms:
   - binary_sensor
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The **Weheat** {% term integration %} allows you to display your [Weheat](https://www.weheat.nl/) devices through Home Assistant.

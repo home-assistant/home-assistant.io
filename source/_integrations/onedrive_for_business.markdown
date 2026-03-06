@@ -13,8 +13,9 @@ ha_integration_type: service
 related:
   - docs: /common-tasks/general/#backups
     title: Backups
-ha_quality_scale: bronze
+ha_quality_scale: platinum
 ha_platforms:
+  - diagnostics
   - sensor
 ---
 
