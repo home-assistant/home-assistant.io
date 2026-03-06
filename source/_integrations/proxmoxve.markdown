@@ -67,33 +67,33 @@ The minimum required permissions depend on what you want to do:
 - **Monitor only** (sensors and binary sensors): The **Auditor** role (`PVEAuditor`) is typically sufficient.
 - **Monitor and control** (button entities like start, stop, reboot): You will need a role that allows those actions, such as **User** (`PVEVMUser`) or another custom role that includes the required privileges.
 
-If you are not sure which privileges you need for control in your Proxmox VE setup, start with `PVEVMUser`, confirm everything works, and then tighten the permissions by switching to a custom role. If you want full but responsible control start with `PVEVMAdmin`
+If you are not sure which privileges you need for control in your Proxmox VE setup, start with `PVEVMUser`, confirm everything works, and then tighten the permissions by switching to a custom role. If you want full but responsible control start with `PVEVMAdmin`.
 
-### Create Home Assistant Group
+### Create a Home Assistant group
 
-Before creating the user, we need to create a group for the user.
+Before creating the user, you need to create a group for the user.
 Privileges can be either applied to Groups or Roles.
 
-1. Select `Datacenter`
-2. Open `Permissions` and select `Groups`
-3. Select the `Create` button above all the existing groups
-4. Name the new group (e.g., `HomeAssistant`)
-5. Confirm `Create`
+1. Select **Datacenter**
+2. Open **Permissions** and select **Groups**
+3. Select the **Create** button above all the existing groups
+4. Name the new group (e.g., **HomeAssistant**)
+5. Confirm **Create**
 
 ### Add Group Permissions to all Assets
 
-Assign the role you chose to the group at the root path (`/`) so it applies to all nodes, VMs, and containers.
+Assign the role you chose to the group at the root path (**/**) so it applies to all nodes, VMs, and containers.
 
-1. Select `Datacenter`
-2. Select `Permissions`
-3. Open `Add` and select `Group Permission`
-4. For Path, select `/`
-5. for Group,  select your Home Assistant group (`HomeAssistant`)
+1. Select **Datacenter**
+2. Select **Permissions**
+3. Open **Add** and select **Group Permission**
+4. For **Path**, select **/**
+5. for **Group**,  select your Home Assistant group (**HomeAssistant**)
 6. For **Role**, select the role you want to use, like **PVEAuditor** (monitoring only) or **PVEVMUser** (monitoring plus basic actions).
-7. Make sure `Propagate` is checked
-8. Confirm `Create`
+7. Make sure **Propagate** is checked
+8. Confirm **Create**
 
-### Create Home Assistant User
+### Create a user for Home Assistant
 
 Using the `pve` realm helps limit the account to API access, instead of Linux system authentication.
 
@@ -105,17 +105,15 @@ If you plan to use the `pve` realm, make sure you select it during user creation
 If you plan to use the `pam` realm, the Home Assistant user you create must already exist on the Linux system on **each** node.
 {% endnote %}
 
-1. Select `Datacenter`
-2. Open `Permissions` and select `Users`
-3. Select `Add`
-4. Enter a username (e.g.,`hass`)
+1. Select **Datacenter**
+2. Open **Permissions** and select **Users**
+3. Select **Add**
+4. Enter a username (e.g.,**hass**)
 5. Set the realm to "Proxmox VE authentication server"
 6. Enter a secure password (it can be complex as you will only need to copy/paste it into your Home Assistant configuration)
-7. Select the group just created earlier (`HomeAssistant`) to grant access to Proxmox
-8. Ensure `Enabled` is checked and `Expire` is set to "never"
-9. Confirm `Add`
-
-In your Home Assistant configuration, use `hass@pve` for the username and your chosen password for the password.
+7. Select the group just created earlier (**HomeAssistant**) to grant access to Proxmox
+8. Ensure **Enabled** is checked and **Expire** is set to "never"
+9. Confirm **Add**
 
 ## Entities
 
@@ -144,18 +142,18 @@ The created sensor will be called `binary_sensor.NODE_NAME_VMNAME_running`.
 - **Restart**: Restarts a VM/LXC.
 - **Reboot**: Reboots a node.
 - **Shutdown**: Shuts a node down.
-- **Hibernate**: Puts a VM in hiberanation; only available to VMs.
+- **Hibernate**: Puts a VM in hibernation; only available to VMs.
 - **Reset**: Resets a VM; only available to VMs.
 
 ## Troubleshooting
 
 ### Buttons not working
 
-If you want to use the `button` entities to control power actions (start/stop/reboot, etc.), the Proxmox VE user must have the required privileges for those actions (for example `VM.PowerMgmt` on the relevant path).  If monitoring works but button presses fail, assign a more permissive role (or create a custom role) and try again.
+If you want to use the `button` entities to control power actions (start/stop/reboot and similar actions), the Proxmox VE user must have the required privileges for those actions (for example `VM.PowerMgmt` on the relevant path).  If monitoring works but button presses fail, assign a more permissive role (or create a custom role) and try again.
 
 ### Diagnostic data
 
-If you need to create an issue to report a bug or want to inspect diagnostic data, use the below method to retrieve diagnostics:
+If you need to create an issue to report a bug or want to inspect diagnostic data, use the following steps to retrieve diagnostics:
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %}, and select your integration and device.
 2. On the integration entry, select the {% icon "mdi:dots-vertical" %}.
