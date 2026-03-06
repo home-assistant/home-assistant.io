@@ -80,7 +80,7 @@ Follow the steps in [Creating a new dashboard](/dashboards/dashboards/#creating-
 
 ## Editing cards in a new dashboard
 
-1. Open your new dashboard and in the top right of the screen, select the <img height="28px" src="/images/blog/2024-03-dashboard-chapter-1/mdi-edit.png" alt="Edit icon"/> button.
+1. Open your new dashboard and in the top right of the screen, select the {% icon "mdi:pencil" %} button.
 2. By editing the dashboard, you are taking over control of this dashboard.
      - This means that it is no longer automatically updated when new dashboard elements become available.
      - To continue, in the dialog, select the three dots {% icon "mdi:dots-vertical" %} menu, then select **Take control**.
