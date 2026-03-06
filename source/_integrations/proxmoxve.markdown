@@ -77,7 +77,7 @@ Privileges can be either applied to Groups or Roles.
 1. Select **Datacenter**
 2. Open **Permissions** and select **Groups**
 3. Select the **Create** button above all the existing groups
-4. Name the new group (e.g., **HomeAssistant**)
+4. Name the new group (e.g., `HomeAssistant`
 5. Confirm **Create**
 
 ### Add Group Permissions to all Assets
@@ -88,7 +88,7 @@ Assign the role you chose to the group at the root path (**/**) so it applies to
 2. Select **Permissions**
 3. Open **Add** and select **Group Permission**
 4. For **Path**, select **/**
-5. for **Group**,  select your Home Assistant group (**HomeAssistant**)
+5. for **Group**,  select your Home Assistant group (`HomeAssistant`)
 6. For **Role**, select the role you want to use, like **PVEAuditor** (monitoring only) or **PVEVMUser** (monitoring plus basic actions).
 7. Make sure **Propagate** is checked
 8. Confirm **Create**
@@ -108,10 +108,10 @@ If you plan to use the `pam` realm, the Home Assistant user you create must alre
 1. Select **Datacenter**
 2. Open **Permissions** and select **Users**
 3. Select **Add**
-4. Enter a username (e.g.,**hass**)
+4. Enter a username (e.g.,`hass`)
 5. Set the realm to "Proxmox VE authentication server"
 6. Enter a secure password (it can be complex as you will only need to copy/paste it into your Home Assistant configuration)
-7. Select the group just created earlier (**HomeAssistant**) to grant access to Proxmox
+7. Select the group just created earlier (`HomeAssistant`) to grant access to Proxmox
 8. Ensure **Enabled** is checked and **Expire** is set to "never"
 9. Confirm **Add**
 
