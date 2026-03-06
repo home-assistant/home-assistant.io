@@ -21,7 +21,7 @@ The **Remote calendar** {% term integration %} allows you to read a calendar in 
 
 ## Known limitations
 
-The integration does not provide the ability to connect to a resource that requires authentication or special headers.
+The integration does not provide the ability to connect to a resource that requires special headers. Only HTTP Basic Authentication is supported for authenticated calendars.
 
 ## Installation instructions
 
@@ -38,6 +38,10 @@ Calendar URL:
 Verify SSL certificate:
   description: "Enable SSL certificate verification when connecting via HTTPS."
 {% endconfiguration_basic %}
+
+### Authentication
+
+If the calendar URL requires HTTP Basic Authentication (the server responds with `401 Unauthorized` and a `WWW-Authenticate: Basic` header), you will be prompted for a username and password in a second step. The credentials are stored in the configuration entry and used for all subsequent calendar fetches.
 
 ## Data updates
 
