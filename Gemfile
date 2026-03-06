@@ -21,7 +21,7 @@ end
 
 gem 'sinatra', '4.2.1'
 gem 'nokogiri', '1.19.1'
-gem 'ostruct', '0.6.1'
+gem 'ostruct', '0.6.3'
 
 # Windows and JRuby does not include zoneinfo files, so bundle the tzinfo-data gem
 # and associated library
