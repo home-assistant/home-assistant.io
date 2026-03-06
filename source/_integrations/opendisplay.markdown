@@ -2,17 +2,14 @@
 title: OpenDisplay
 description: Instructions on how to integrate OpenDisplay e-paper displays into Home Assistant.
 ha_category:
-  - Image
   - DIY
 ha_bluetooth: true
-ha_release: 2026.3
+ha_release: 2026.4
 ha_iot_class: Local Push
 ha_codeowners:
   - '@g4bri3lDev'
 ha_domain: opendisplay
 ha_config_flow: true
-ha_platforms:
-  - image
 ha_integration_type: device
 ha_quality_scale: bronze
 ---
@@ -41,34 +38,28 @@ For a full list of supported boards and displays, see the [OpenDisplay hardware 
 
 Once the [Bluetooth](/integrations/bluetooth) integration is active, OpenDisplay devices are discovered automatically.
 
-## Supported functionality
-
-### Image
-
-- **Display**
-  - **Description**: An image entity is created for each OpenDisplay device. When you upload an image, the entity preview updates immediately while the Bluetooth transfer to the physical display runs in the background. If the device is out of range, the preview still updates and the transfer is retried automatically once the device comes back into range. The preview persists across Home Assistant restarts.
-
 ## Actions
 
 ### Action: Upload image (`opendisplay.upload_image`)
 
-Uploads an image to one or more displays. The image is resized and dithered to match each display's resolution and color palette.
+Uploads an image to a display. The image is resized and dithered to match the display's resolution and color palette.
 
 | Data attribute | Description | Required | Default |
 | --- | --- | --- | --- |
+| `device_id` | The OpenDisplay device to upload the image to. | Yes | - |
 | `image` | The image to upload, selected from a media source. | Yes | - |
 | `rotation` | Clockwise rotation in degrees: 0, 90, 180, or 270. | No | 0 |
 | `dither_mode` | Dithering algorithm for converting to the display's color palette. | No | Burkes |
 | `refresh_mode` | Full clears ghosting but is slower. Fast is not supported on all displays. | No | Full |
 | `fit_mode` | How the image is fitted to the display. | No | Contain |
-| `tone_compression` | Dynamic range compression. Use a value between 0.0 and 1.0 for manual control, or leave empty for automatic adjustment. | No | Automatic |
+| `tone_compression` | Dynamic range compression strength as a percentage (0–100). Omit for automatic adjustment. | No | Automatic |
 
 **Refresh modes**:
 
 - **Full**: Clears ghosting but takes longer
 - **Fast**: Faster refresh, not supported on all displays
 
-**Dither modes**: None, Burkes, Ordered, Floyd-Steinberg, Atkinson, Stucki, Sierra, Sierra Lite, Jarvis, Judice & Ninke
+**Dither modes**: None, Burkes, Ordered, Floyd-Steinberg, Atkinson, Stucki, Sierra, Sierra Lite, Jarvis, Judice, and Ninke
 
 **Fit modes**:
 
@@ -87,9 +78,8 @@ Uploads an image to one or more displays. The image is resized and dithered to m
 
 ```yaml
 action: opendisplay.upload_image
-target:
-  entity_id: image.living_room_display
 data:
+  device_id: "your_device_id"
   image:
     media_content_id: "media-source://media_source/local/photo.png"
     media_content_type: "image/png"
@@ -113,9 +103,8 @@ triggers:
     at: "08:00:00"
 actions:
   - action: opendisplay.upload_image
-    target:
-      entity_id: image.living_room_display
     data:
+      device_id: "your_device_id"
       image:
         media_content_id: "media-source://media_source/local/daily.png"
         media_content_type: "image/png"
@@ -125,14 +114,10 @@ actions:
 
 {% enddetails %}
 
-## Data updates
-
-Images are pushed to the display on demand. When the **Upload image** action is called, the entity preview updates right away and the Bluetooth transfer runs in the background. If the device is out of range, the transfer is queued and retried automatically once the device comes back into range.
-
 ## Known limitations
 
 - BLE range is limited. Displays far from a Bluetooth adapter may experience unreliable transfers.
-- Starting a new upload while one is already in progress cancels the ongoing transfer. A short delay is added to let the device reset before the new transfer begins.
+- Starting a new upload while one is already in progress cancels the ongoing transfer.
 
 ## Troubleshooting
 
@@ -144,7 +129,7 @@ Check that the [Bluetooth](/integrations/bluetooth) integration is set up and wo
 
 {% details "Upload fails with a connection error" %}
 
-BLE connections can drop at longer ranges. Try moving the display closer to your Bluetooth adapter. If you are using an ESPHome proxy, check that it has a stable Wi-Fi connection. Pending uploads are retried automatically when the device comes back into range.
+BLE connections can drop at longer ranges. Try moving the display closer to your Bluetooth adapter. If you are using an ESPHome proxy, check that it has a stable Wi-Fi connection.
 
 {% enddetails %}
 
