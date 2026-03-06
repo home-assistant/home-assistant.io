@@ -118,7 +118,7 @@ actions:
 
 ## Sensors
 
-The following sensors are provided. All are in the {% term diagnostic %} category.
+The following sensors are provided. All are in the diagnostic category.
 
 | Sensor          | Unit | Description                                                  | Enabled by default |
 |-----------------|------|--------------------------------------------------------------|--------------------|
