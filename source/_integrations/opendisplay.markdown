@@ -54,7 +54,7 @@ The `opendisplay.upload_image` action allows you to upload an image to a display
 | `dither_mode`     | Dithering algorithm for converting to the display's color palette.                              | No       | Burkes    |
 | `refresh_mode`    | Refresh mode to use. Full clears ghosting but is slower; fast is not supported on all displays. | No       | Full      |
 | `fit_mode`        | How the image is fitted to the display.                                                         | No       | Contain   |
-| `tone_compression`| Dynamic range compression strength as a percentage (0-100). Omit to use automatic adjustment.   | No       | Automatic |
+| `tone_compression` | Dynamic range compression strength as a percentage (0-100). Omit to use automatic adjustment.  | No       | Automatic |
 
 **Refresh modes**:
 
