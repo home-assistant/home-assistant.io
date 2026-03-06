@@ -77,7 +77,7 @@ Privileges can be either applied to Groups or Roles.
 1. Select **Datacenter**
 2. Open **Permissions** and select **Groups**
 3. Select the **Create** button above all the existing groups
-4. Name the new group (e.g., `HomeAssistant`
+4. Name the new group (e.g., `HomeAssistant`)
 5. Confirm **Create**
 
 ### Add Group Permissions to all Assets
@@ -95,24 +95,20 @@ Assign the role you chose to the group at the root path (**/**) so it applies to
 
 ### Create a user for Home Assistant
 
-Using the `pve` realm helps limit the account to API access, instead of Linux system authentication.
+Using the `pve` realm helps limit the account to API access, instead of Linux system authentication and remote (SSH) command line access.
 
 {% important %}
 If you plan to use the `pve` realm, make sure you select it during user creation and use the `@pve` suffix in Home Assistant (like `hass@pve`).
 {% endimportant %}
 
-{% note %}
-If you plan to use the `pam` realm, the Home Assistant user you create must already exist on the Linux system on **each** node.
-{% endnote %}
-
 1. Select **Datacenter**
 2. Open **Permissions** and select **Users**
 3. Select **Add**
 4. Enter a username (e.g.,`hass`)
-5. Set the realm to "Proxmox VE authentication server"
+5. Set the realm to **Proxmox VE authentication server** for `pve` (or **Linux PAM standard authentication** for `pam`)
 6. Enter a secure password (it can be complex as you will only need to copy/paste it into your Home Assistant configuration)
 7. Select the group just created earlier (`HomeAssistant`) to grant access to Proxmox
-8. Ensure **Enabled** is checked and **Expire** is set to "never"
+8. Ensure **Enabled** is checked and **Expire** is set to "never" (i.e. leave it blank)
 9. Confirm **Add**
 
 ## Entities
