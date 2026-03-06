@@ -1,6 +1,6 @@
 ---
 title: Huum
-description: Instructions on how to integrate a Huum saunas into Home Assistant.
+description: Instructions on how to integrate Huum saunas into Home Assistant.
 ha_release: 2024.2
 ha_iot_class: Cloud Polling
 ha_codeowners:
