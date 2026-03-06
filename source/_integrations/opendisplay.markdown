@@ -11,7 +11,7 @@ ha_codeowners:
 ha_domain: opendisplay
 ha_config_flow: true
 ha_integration_type: device
-ha_quality_scale: bronze
+ha_quality_scale: silver
 ---
 
 The **OpenDisplay** {% term integration %} lets you use [OpenDisplay](https://opendisplay.org/) e-paper displays with Home Assistant over Bluetooth Low Energy.
