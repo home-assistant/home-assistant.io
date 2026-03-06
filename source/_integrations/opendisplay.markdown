@@ -44,7 +44,7 @@ Once the [Bluetooth](/integrations/bluetooth) integration is active, OpenDisplay
 
 ### Action: Upload image (`opendisplay.upload_image`)
 
-Uploads an image to a display. The image is resized and dithered to match the display's resolution and color palette.
+The `opendisplay.upload_image` action allows you to upload an image to a display. The image is resized and dithered to match the display's resolution and color palette.
 
 | Data attribute    | Description                                                                                      | Required | Default   |
 | ----------------- | ------------------------------------------------------------------------------------------------ | -------- | --------- |
