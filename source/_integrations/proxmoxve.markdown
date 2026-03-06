@@ -8,9 +8,9 @@ ha_category:
 ha_release: 0.103
 ha_iot_class: Local Polling
 ha_codeowners:
-  - '@jhollowe'
   - '@Corbeno'
   - '@erwindouna'
+  - '@CoMPaTech'
 ha_domain: proxmoxve
 ha_platforms:
   - binary_sensor
@@ -25,15 +25,14 @@ ha_quality_scale: legacy
 ha_config_flow: true
 ---
 
-[Proxmox VE](https://www.proxmox.com/en/) is an open-source server virtualization environment. This integration allows you to poll various data from your instance.
+[Proxmox VE](https://www.proxmox.com/en/) is an open-source server virtualization environment. This integration lets you monitor your Proxmox VE nodes, virtual machines, and containers in Home Assistant, and exposes control actions (if your Proxmox permissions allow it).
 
-After configuring this {% term integration %}, the binary sensors automatically appear.
-
-## Configuration
+## Prerequisites
 
 {% important %}
-You should have at least one VM or container entry configured within Home Assistant, else this integration won't do anything.
-You should have the [Proxmox permissions](#proxmox-permissions) ready before creating the integration.
+To see entities in Home Assistant, you need at least one node with at least one virtual machine or container in Proxmox VE.
+
+Before you set up the integration, make sure you have created a Proxmox VE user with the right permissions. See [Proxmox permissions](#proxmox-permissions).
 {% endimportant %}
 
 {% include integrations/config_flow.md %}
@@ -44,7 +43,7 @@ Host:
 Port:
   description: "Port to connect to Proxmox. Default is `8006`."
 Realm:
-  description: "Authentication source of Proxmox. Default is `PAM`."
+  description: "The authentication realm in Proxmox VE. Default is `PAM`. For a dedicated Home Assistant account, we recommend using the built-in Proxmox VE realm and selecting `pve` (see [Proxmox permissions](#proxmox-permissions))."
 Username:
   description: "Configured user to authenticate."
 Password:
@@ -55,52 +54,76 @@ Verify SSL certificate:
 
 ## Proxmox permissions
 
-To be able to retrieve the status of VMs and containers, the user used to connect must minimally have the `VM.Audit` privilege. Below is a guide to how to configure a new user with the minimum required permissions.
+This integration reads status and resource usage from Proxmox VE, and can perform actions using `button` entities.
+
+{% important %}
+To keep things secure, create a dedicated Proxmox VE user for Home Assistant and only grant the permissions you need. In short, do not use the `root` account!
+{% endimportant %}
+
+### Choose the right role
+
+The minimum required permissions depend on what you want to do:
+
+- **Monitor only** (sensors and binary sensors): The **Auditor** role (`PVEAuditor`) is typically sufficient.
+- **Monitor and control** (button entities like start, stop, reboot): You will need a role that allows those actions, such as **User** (`PVEVMUser`) or another custom role that includes the required privileges.
+
+If you are not sure which privileges you need for control in your Proxmox VE setup, start with `PVEVMUser`, confirm everything works, and then tighten the permissions by switching to a custom role. If you want full but responsible control start with `PVEVMAdmin`
 
 ### Create Home Assistant Group
 
 Before creating the user, we need to create a group for the user.
 Privileges can be either applied to Groups or Roles.
 
-1. Click `Datacenter`
-2. Open `Permissions` and click `Groups`
-3. Click the `Create` button above all the existing groups
+1. Select `Datacenter`
+2. Open `Permissions` and select `Groups`
+3. Select the `Create` button above all the existing groups
 4. Name the new group (e.g., `HomeAssistant`)
-5. Click `Create`
+5. Confirm `Create`
 
 ### Add Group Permissions to all Assets
 
-For the group to access the VMs we need to grant it the auditor role
+Assign the role you chose to the group at the root path (`/`) so it applies to all nodes, VMs, and containers.
 
-1. Click `Datacenter`
-2. Click `Permissions`
-3. Open `Add` and click `Group Permission`
-4. Select "/" for the path
-5. Select your Home Assistant group (`HomeAssistant`)
-6. Select the Auditor role (`PVEAuditor`)
+1. Select `Datacenter`
+2. Select `Permissions`
+3. Open `Add` and select `Group Permission`
+4. For Path, select `/`
+5. for Group,  select your Home Assistant group (`HomeAssistant`)
+6. For **Role**, select the role you want to use, like **PVEAuditor** (monitoring only) or **PVEVMUser** (monitoring plus basic actions).
+6. Select the appropriate role from the list:
+  - Monitor-only: Select the Auditor role (`PVEAuditor`)
+  - Basic actions: Select the User role (`PVEVMUser`)
+  - Full control: Select the Admin role (`PVEVMAdmin`)
 7. Make sure `Propagate` is checked
+8. Confirm `Create`
 
 ### Create Home Assistant User
 
-Creating a dedicated user for Home Assistant, limited to only to the access just created is the most secure method. These instructions use the `pve` realm for the user. This allows a connection, but ensures that the user is not authenticated for SSH connections. If you use the `pve` realm, just be sure to add `realm: pve` to your configuration.
+Using the `pve` realm helps limit the account to API access, instead of Linux system authentication.
 
 {% important %}
-The Home Assistant user you create must already exist on the Linux system.
+If you plan to use the `pve` realm, make sure you select it during user creation and use the `@pve` suffix in Home Assistant (like `hass@pve`).
 {% endimportant %}
 
-1. Click `Datacenter`
-2. Open `Permissions` and click `Users`
-3. Click `Add`
+{% note %}
+If you plan to use the `pam` realm, the Home Assistant user you create must already exist on the Linux system on **each** node.
+{% endnote %}
+
+1. Select `Datacenter`
+2. Open `Permissions` and select `Users`
+3. Select `Add`
 4. Enter a username (e.g.,`hass`)
 5. Set the realm to "Proxmox VE authentication server"
 6. Enter a secure password (it can be complex as you will only need to copy/paste it into your Home Assistant configuration)
 7. Select the group just created earlier (`HomeAssistant`) to grant access to Proxmox
 8. Ensure `Enabled` is checked and `Expire` is set to "never"
-9. Click `Add`
+9. Confirm `Add`
 
 In your Home Assistant configuration, use `hass@pve` for the username and your chosen password for the password.
 
-## Sensor
+## Entities
+
+### Sensor
 
 - **CPU**: Percentage of CPU usage.
 - **Max CPU**: Maximum amount of CPU on the node/VM/LXC.
@@ -110,13 +133,13 @@ In your Home Assistant configuration, use `hass@pve` for the username and your c
 - **Max memory**: Maximum amount of memory on the node/VM/LXC.
 - **Status**: Current status of the node/VM/LXC.
 
-## Binary sensor
+### Binary sensor
 
 The integration will automatically create a binary sensor for each tracked virtual machine or container. The binary sensor will either be on if the VM state is running or off if the VM state is different.
 
 The created sensor will be called `binary_sensor.NODE_NAME_VMNAME_running`.
 
-## Button
+### Button
 
 - **Start**: Starts a node/VM/LXC.
 - **Start all**: Starts all VMs and LXCs known on a node.
@@ -127,3 +150,24 @@ The created sensor will be called `binary_sensor.NODE_NAME_VMNAME_running`.
 - **Shutdown**: Shuts a node down.
 - **Hibernate**: Puts a VM in hiberanation; only available to VMs.
 - **Reset**: Resets a VM; only available to VMs.
+
+## Troubleshooting
+
+### Buttons not working
+
+If you want to use the `button` entities to control power actions (start/stop/reboot, etc.), the Proxmox VE user must have the required privileges for those actions (for example `VM.PowerMgmt` on the relevant path).  If monitoring works but button presses fail, assign a more permissive role (or create a custom role) and try again.
+
+### Diagnostic data
+
+If you need to create an issue to report a bug or want to inspect diagnostic data, use the below method to retrieve diagnostics:
+
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}, and select your integration and device.
+2. On the integration entry, select the {% icon "mdi:dots-vertical" %}.
+   - Then, select **Download diagnostics** and a JSON file will be downloaded.
+3. You can inspect the downloaded file or, when requested, upload it to your issue report.
+
+## Removing the integration
+
+This integration follows standard integration removal. No extra steps are required within Home Assistant. Remember to clean up your Proxmox permissions!
+
+{% include integrations/remove_device_service.md %}
