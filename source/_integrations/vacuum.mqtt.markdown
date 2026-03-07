@@ -229,9 +229,9 @@ supported_features:
   type: [string, list]
   default: "`start`, `stop`, `return_home`, `status`, `clean_spot`"
 unique_id:
-   description: An ID that uniquely identifies this vacuum. If two vacuums have the same unique ID, Home Assistant will raise an exception. Required when used with device-based discovery or when segment cleaning is configured.
-   required: false
-   type: string
+  description: An ID that uniquely identifies this vacuum. If two vacuums have the same unique ID, Home Assistant will raise an exception. Required when used with device-based discovery or when segment cleaning is configured.
+  required: false
+  type: string
 {% endconfiguration %}
 
 ## Configuration example
