@@ -2,10 +2,7 @@
 title: PAJ GPS
 description: Instructions on how to integrate PAJ GPS devices into Home Assistant.
 ha_category:
-  - Binary sensor
   - Device tracker
-  - Sensor
-  - Switch
 ha_release: 2026.3
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -14,10 +11,7 @@ ha_codeowners:
 ha_domain: pajgps
 ha_zeroconf: true
 ha_platforms:
-  - binary_sensor
   - device_tracker
-  - switch
-  - sensor
 ha_integration_type: hub
 ha_quality_scale: platinum
 ---
@@ -56,30 +50,15 @@ The PAJ GPS integration provides the following entities.
 ### Device Tracker
 - Location (latitude and longitude)
 
-### Sensor
-- Battery level
-- Speed
-- Elevation
-
-### Binary Sensor
-- Different alert statuses (SOS, low battery, etc.)
-
-### Switch
-- Enable/disable different alerts (SOS, low battery, etc.)
-
 ## Data updates
 
 The integration is using multi-tier system for cloud {% term polling polls %}.
 - Tier 1: General, mostly static data like device list is updated every 5 minutes.
 - Tier 2: Device location is updated every 30 seconds.
-- Tier 3: Device alerts that are time-critical (like SOS) are checked every 10 seconds.
-- Elevation data is only updated when the device is moving.
-- Enabling or disabling alerts via the switch entities will trigger an immediate update of the alert status in API.
 
 ## Possible use-cases
 
 - Track the location of your PAJ GPS devices on a map in Home Assistant.
-- Receive notifications on your phone when a specific alert is triggered (e.g., SOS alert, low battery).
 - Create automations based on the location or status of your PAJ GPS devices (e.g., open garage door when car is near).
 
 ## Examples
@@ -107,37 +86,6 @@ mode: single
 
 {% endraw %}
 
-Car-alarm - send a notification to your phone when tracker detects shock or movement at night:
-
-{% raw %}
-
-```yaml
-alias: Car alarm
-description: "Send an alert to the phone if shock or movement is detected (Speed > 0) by the tracker"
-triggers:
-  - platform: state
-    entity_id:
-      - binary_sensor.car_tracker_shock_alert
-    to: "on"
-  - platform: numeric_state
-    entity_id: sensor.car_tracker_speed
-    above: 0
-conditions:
-  - condition: time
-    after: "22:00:00"
-    before: "06:00:00"
-
-actions:
-  - service: notify.my_phone_notify
-    data:
-      title: "Car alarm"
-      message: "Shock or movement detected by the tracker!"
-      
-
-```
-
-{% endraw %}
-
 ## Known limitations
 
 - The integration relies on the PAJ GPS cloud API, so if there are any issues with the API or your internet connection, the integration may not work properly.
@@ -156,26 +104,14 @@ If you encounter any issues with PAJ GPS devices, please report them.
 
 The integration supports the following functions:
 - Tracking the location of PAJ GPS devices (latitude and longitude).
-- Monitoring the battery level of the devices.
-- Monitoring the speed of the devices.
-- Monitoring the elevation of the devices (through open-meteo API).
-- Receiving notifications for specific events such as SOS alerts or low battery warnings.
-- Enabling/disabling specific alerts (SOS, low battery, etc.) through switch entities.
 - Automatically discovering all devices connected to the user's account on www.v2.finder-portal.com and creating corresponding entities in Home Assistant.
-- Updating device data at appropriate intervals based on the type of data (location, alerts, etc.) to ensure timely and accurate information in Home Assistant.
 - Handling authentication with the PAJ GPS cloud API using the user's email and password to generate API tokens for accessing device data.
 
 ## Troubleshooting
 
-### Battery level on devices without battery
-Some PAJ GPS devices are repoting battery level despite not having an integrated battery. 
-There is a mixup in the API between battery level and measured voltage, which is causing the confusion. 
-PAJ GPS team is aware of this issue and is working on fixing it.
+### No sensors other than GPS location available
 
-### No battery sensor for devices with battery
-For the same reson as above, some devices in API are mislabeled as having no battery, despite having one.
-They receive battery level updates, so in order to force battery sensor to show for them there is an option to force battery sensor for all devices in the configuration.
-This issue is also being worked on by PAJ GPS team.
+Those will be available in the next realease of this integration.
 
 ## Removing the integration
 
