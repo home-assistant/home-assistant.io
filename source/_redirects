@@ -534,6 +534,7 @@ layout: null
 /integrations/bme280 /more-info/removed-integration 301
 /integrations/bme680 /more-info/removed-integration 301
 /integrations/bmp280 /more-info/removed-integration 301
+/integrations/bmw_connected_drive /more-info/removed-integration 301
 /integrations/bom /more-info/removed-integration 301
 /integrations/circuit /more-info/removed-integration 301
 /integrations/ciscospark /more-info/removed-integration 301
@@ -607,6 +608,7 @@ layout: null
 /integrations/mhz19 /more-info/removed-integration 301
 /integrations/myq /blog/2023/11/06/removal-of-myq-integration/ 301
 /integrations/miflora /integrations/xiaomi_ble
+/integrations/mini_connected /more-info/removed-integration 301
 /integrations/mitemp_bt /integrations/xiaomi_ble
 /integrations/mopar /more-info/removed-integration 301
 /integrations/mpchc /more-info/removed-integration 301
