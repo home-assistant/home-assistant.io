@@ -2004,7 +2004,7 @@ state_class:
   required: false
   type: string
 device_class:
-  description: Overrides the DPT's default [class of the device](/integrations/sensor/), changing the device state and icon that is displayed on the frontend.
+  description: Overrides the DPT's default [class of the device](/integrations/sensor#device-class), changing the device state and icon that is displayed on the frontend.
   required: false
   type: string
 unit_of_measurement:
