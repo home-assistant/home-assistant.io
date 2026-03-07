@@ -22,7 +22,6 @@ ha_codeowners:
 There is currently support for the following device types within Home Assistant:
 
 - [Polling interval](#polling-interval)
-  - [Defining a custom polling interval](#defining-a-custom-polling-interval)
 - [Integration options](#integration-options)
 - [Binary sensor](#binary-sensor)
 - [Sensors](#sensors)
