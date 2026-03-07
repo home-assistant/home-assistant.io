@@ -54,10 +54,8 @@ To create your first [Telegram bot](https://core.telegram.org/bots#how-do-i-crea
    - BotFather will give you a link to your new bot and an HTTP **API token**.
    - Store the **API token** somewhere safe, it will be used for setting up the integration later.
 2. Get your **chat ID**:
-   - Send any message to the [GetIDs bot](https://t.me/getidsbot).
-   - Then, enter `/start`.
-   - The bot will return your **chat ID** and username.
-   - Note down your **chat ID**. You will need to add this ID to the allowlist after setting up the integration to permit your new bot to send/receive messages with this target.
+   - Send any message to [@id_bot](https://t.me/id_bot).
+   - Note down the value of the **ID** field in the bot's response. You will need to add this ID to the allowlist after setting up the integration to permit your new bot to send/receive messages with this target.
 3. Make the first contact with your new bot (bots are not allowed to initiate contact with users):
    - From the conversation with BotFather, select the link to open a chat.
    - In the chat, enter `/start`.
@@ -132,7 +130,11 @@ Proxy URL:
 ### Webhooks configuration
 
 {% note %}
-If you are using Home Assistant Cloud, you must include `127.0.0.1` in the **Trusted networks** field as IP address of incoming requests are not forwarded to your Home Assistant.
+If you are using Home Assistant Cloud, you must include `127.0.0.1` in the **Trusted networks** field because the IP address of incoming requests is not forwarded to your Home Assistant.
+{% endnote %}
+
+{% note %}
+If you are using a custom **API endpoint**, you must include the IP address or IP range of the server in CIDR notation, like `192.168.0.0/16`, in the **Trusted networks** field.
 {% endnote %}
 
 If you have selected the `Webhooks` Telegram bot type, the integration setup will continue with the webhooks configuration step.

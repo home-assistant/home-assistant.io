@@ -72,65 +72,60 @@ The temperature sensors are shown because the Home Assistant device used here (R
 
 If your Home Assistant has other controllers, such as a [Zigbee](/integrations/zha/) or a [Z-Wave](/integrations/zwave_js/) controller, and you have Zigbee or Z-Wave devices, these could be detected and shown here. However, these devices usually need to be paired first.
 
-## Creating a new dashboard and edit cards
+## Creating a new dashboard
 
 The default **Overview** dashboard updates automatically when you add new devices. However, once you start editing the default dashboard, it no longer updates automatically. For this reason, we start here by adding a new dashboard. This lets us keep the default **Overview** dashboard.
 
-In the following steps, we will create a new dashboard and edit some card settings.
+Follow the steps in [Creating a new dashboard](/dashboards/dashboards/#creating-a-new-dashboard).
 
-1. Go to {% my lovelace_dashboards title="**Settings** > **Dashboards**" %} and select **Add dashboard**.
-   ![Screenshot of the dashboard list](/images/dashboards/dashboard-manage-02.png)
-2. In the dialog, choose **Default dashboard**.
-3. In the **Add new dashboard** dialog, enter a name and select an icon.
-   - Leave the **Admin only** and **Show in sidebar** options as they are.
-   - Select **Create**.
-   - **Result**: The dashboard is added.
-4. Open your new dashboard and in the top right of the screen, select the <img height="28px" src="/images/blog/2024-03-dashboard-chapter-1/mdi-edit.png" alt="Edit icon"/> button.
-5. By editing the dashboard, you are taking over control of this dashboard.
+## Editing cards in a new dashboard
+
+1. Open your new dashboard and in the top right of the screen, select the {% icon "mdi:pencil" %} button.
+2. By editing the dashboard, you are taking over control of this dashboard.
      - This means that it is no longer automatically updated when new dashboard elements become available.
      - To continue, in the dialog, select the three dots {% icon "mdi:dots-vertical" %} menu, then select **Take control**.
      - Read and accept this before continuing.
      - You can't get this specific dashboard back to update automatically. However, you can create a new default dashboard.
-6. Your dashboard might not have much on it yet.
+3. Your dashboard might not have much on it yet.
    - If you have smart home devices in your home, some may have been connected automatically.
    - In this example, some Bluetooth temperature sensors and an AV receiver connected automatically.
    - Some cards are there by default, such as the weather, a card for the person who set up the system, and the text-to-speech service.
 
     ![Dashboard after onboarding a new device](/images/getting-started/onboarding_dashboard_01.png)
-7. Next, we want to edit the weather card.
+4. Next, we want to edit the weather card.
    - Select the weather card.
    - Then, select the cogwheel {% icon "mdi:cog-outline" %}.
 
    ![Weather details](/images/getting-started/weather_card_details_01.png)
 
-8. Change any of the units, if you like.
+5. Change any of the units, if you like.
    - Do not change the **Entity ID**.
    - Once you are done, select **Update**.
    ![Weather details](/images/getting-started/onboarding_card_settings_01.png)
 
-9. Next, we want to add a new card for this weather {% term service %}.
+6. Next, we want to add a new card for this weather {% term service %}.
    - Select the weather card again, select the three dots {% icon "mdi:dots-vertical" %}, then **Device info**.
    - Under **Sensors**, select **Add to dashboard**, then **Pick different card**.
    ![Dashboard - change the card type](/images/getting-started/onboarding_pick_different_card_01.png)
 
-10. From the list, select **Show current weather and forecast**.
-11. Select the details to be shown on the card.
+7. From the list, select **Show current weather and forecast**.
+8. Select the details to be shown on the card.
     ![Dashboard - change the card details](/images/getting-started/onboarding_card_settings_02.png)
-    - **Save** your changes
+    - Select **Save**.
     - You now see the forecast card on the dashboard.
 
-12. Now let's delete the other weather card.
+9.  Now let's delete the other weather card.
     - In the top right corner, select the pencil.
     ![Dashboard - edit the dashboard](/images/getting-started/onboarding_edit_dashboard_01.png)
     - On the card, select the three dots {% icon "mdi:dots-vertical" %} menu and select **Delete**.
     ![Dashboard - delete card](/images/getting-started/onboarding_dashboard_delete_card.png)
-13. Finally, we want to move the weather card to the top left corner.
+10. Finally, we want to move the weather card to the top left corner.
     - On the bottom of the card, select the number or use the minus button to enter `1`.
     - Repeat this on other cards, if you want to move them around.
     - When you are done, in the top right corner, select **Done**.
-14. If you want to change any of the other cards, select the **Edit** button on the card.
-15. Congratulations! You have completed your first dashboard customization.
-16. While your dashboard is still small, this is a good moment to [migrate it into sections view](/dashboards/views/#migrating-a-view-into-a-sections-view).
+11. If you want to change any of the other cards, select the **Edit** button on the card.
+12. Congratulations! You have completed your first dashboard customization.
+13. While your dashboard is still small, this is a good moment to [migrate it into sections view](/dashboards/views/#migrating-a-view-into-a-sections-view).
     - The sections view offers features such as drag and drop, customizing number and width of columns, and more heading options.
     - To learn more, head over to the documentation on [section view](/dashboards/sections/).
 

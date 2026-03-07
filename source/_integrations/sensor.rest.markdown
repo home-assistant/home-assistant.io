@@ -124,12 +124,17 @@ resource_template:
   description: The resource or endpoint that contains the value with template support.
   required: true
   type: template
+scan_interval:
+  description: The frequency in seconds to call the REST endpoint.
+  required: false
+  type: integer
+  default: 30
 state_class:
   description: The [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor.
   required: false
   type: string
 timeout:
-  description: Defines max time to wait data from the endpoint.
+  description: Defines the maximum time in seconds to wait for data from the endpoint before the sensor is marked as `unavailable`.
   required: false
   type: integer
   default: 10

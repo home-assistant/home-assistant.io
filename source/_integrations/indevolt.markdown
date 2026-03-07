@@ -34,9 +34,11 @@ The integration supports the following devices:
 
 ## Prerequisites
 
+<!-- textlint-disable capitalize -->
 1. Connect your Indevolt device and Home Assistant to the same local network.
 2. Ensure the Indevolt device is powered on and has acquired a network IP address. You can get the IP from the app or from your router.
-3. Enable the device's API through the app.
+3. In the Indevolt app, enable the **Local API** and set the protocol to `http`.
+<!-- textlint-disable capitalize -->
 
 {% include integrations/config_flow.md %}
 
@@ -45,6 +47,7 @@ Host:
   description: "The IP address of your device. You can find it in your router or in the Indevolt app."
 
 {% endconfiguration_basic %}
+
 
 The Indevolt integration communicates with your device over its standard TCP port (8080), which is used automatically by Home Assistant and does not need to be configured manually.
 
