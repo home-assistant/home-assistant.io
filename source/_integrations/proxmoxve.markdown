@@ -138,3 +138,45 @@ The created sensor will be called `binary_sensor.NODE_NAME_VMNAME_running`.
 {% important %}
 To use these buttons to control state / power management of your node, VM or LXC, the user should have 'VM.PowerMgmt' privileges. Make sure the Proxmox role assigned to the Home Assistant user includes this privilege.
 {% endimportant %}
+
+## Services
+
+### Create snapshot
+
+The `proxmoxve.create_snapshot` {% term action %} creates a snapshot on a QEMU VM or LXC container. This is useful in automations — for example, taking a snapshot before a Home Assistant upgrade.
+
+{% note %}
+To create snapshots, the configured Proxmox VE user needs the `VM.Snapshot` privilege in addition to the `VM.Audit` privilege already required for monitoring. You can grant this to the Home Assistant group by updating its role to `PVEAdmin`, or by creating a custom role that includes both `VM.Audit` and `VM.Snapshot`.
+{% endnote %}
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `target` | No | A Proxmox VE VM or container entity or device. |
+| `vm_name` | Yes | Override the VM name used to build the snapshot name. |
+| `snapshot_name` | Yes | Full snapshot name override. Invalid characters are replaced with underscores. |
+| `description` | Yes | Snapshot description. Defaults to `Snapshot triggered from Home Assistant on YYYY-MM-DD`. |
+| `version_entity` | Yes | A sensor entity whose state is used as a version string in the snapshot name instead of the current date. |
+| `include_ram` | Yes | Save the VM RAM state in the snapshot. Only applies to QEMU VMs — LXC containers do not support RAM snapshots. Defaults to `false`. |
+
+The snapshot name is built automatically from the VM or container name and the current date, for example `my-vm_2026_03_07`. When `version_entity` is provided, the date is replaced by the sensor's state, for example `my-vm_2025_3_4`. If the generated name conflicts with an existing snapshot, a letter suffix is appended automatically (`_a`, `_b`, …, `_z`).
+
+#### Example: snapshot before a Home Assistant upgrade
+
+{% raw %}
+
+```yaml
+automation:
+  - alias: "Snapshot VMs before HA update"
+    trigger:
+      - platform: state
+        entity_id: update.home_assistant_core_update
+        to: "on"
+    action:
+      - action: proxmoxve.create_snapshot
+        target:
+          entity_id: sensor.my_vm_cpu_usage
+        data:
+          version_entity: sensor.current_version
+```
+
+{% endraw %}
