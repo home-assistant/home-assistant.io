@@ -13,19 +13,18 @@ related:
     title: Voice Preview Edition - Documentation
 ---
 
-The simplest and most effective way to use Assist is to leverage the voice providers (for speech-to-text and text-to-speech) included in [Home Assistant Cloud](/voice_control/voice_remote_cloud_assistant/) 
+The simplest and most effective way to use Assist is to leverage the voice providers (for speech-to-text and text-to-speech) included in [Home Assistant Cloud](/voice_control/voice_remote_cloud_assistant/)
 
 If you are interested in setting up a fully local voice assistant, follow this setup:
 
-
 ## Prerequisites
 
-For Assist to be able to talk to your Home Assistant setup your setup needs to be able to listen, understand and then talk back. 
+For Assist to be able to talk to your Home Assistant setup your setup needs to be able to listen, understand and then talk back.
 
 In Home Assistant, the Assist pipelines are made up of various components that together form a voice assistant. For each component, you can choose from different options.
 
 - For listening and talking back, it needs your phone with the Home Assistant app, or a voice activated device.
-- For understanding, it needs to have a speech-to-text and text-to-speech software integrated. 
+- For understanding, it needs to have a speech-to-text and text-to-speech software integrated.
 - For running all together, it needs to have the Home Assistant Operating System running.
 
 ## Some options for speech-to-text and text-to-speech
@@ -37,7 +36,8 @@ There are speech-to-text and text-to-speech options that run entirely local. No 
 There are currently two options to run speech-to-text locally: **Speech-to-Phrase** and **Whisper**.
 
 #### Speech-to-Phrase
-[Speech-to-Phrase](https://github.com/OHF-voice/speech-to-phrase) is a close-ended speech model. 
+
+[Speech-to-Phrase](https://github.com/OHF-voice/speech-to-phrase) is a close-ended speech model.
 
 - It transcribes what it knows.
 - Extremely fast transcription even on a Home Assistant Green or Raspberry Pi 4 (under one second).
@@ -51,11 +51,11 @@ There are currently two options to run speech-to-text locally: **Speech-to-Phras
 [Whisper](https://github.com/openai/whisper) is an open-ended speech model.
 
 - It will try to transcribe everything.
-- The cost is slower processing speed: 
-    - On a Raspberry Pi 4, it takes around 8 seconds to process incoming voice commands. 
+- The cost is slower processing speed:
+    - On a Raspberry Pi 4, it takes around 8 seconds to process incoming voice commands.
     - On an Intel NUC, it is done in under a second.
 - Supports [various languages](https://github.com/openai/whisper#available-models-and-languages).
-- Whisper is only a great option in the following case: 
+- Whisper is only a great option in the following case:
     1. You have powerful hardware at home.
     2. You plan to extend your voice set-up beyond simple home control. For example, by pairing your assistant with an LLM-based agent.
 

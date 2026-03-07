@@ -60,7 +60,7 @@ show_empty:
   type: boolean
 text_only:
   required: false
-  description: Display the card without border, background, padding and title. 
+  description: Display the card without border, background, padding and title.
   default: false
   type: boolean
 {% endconfiguration %}
