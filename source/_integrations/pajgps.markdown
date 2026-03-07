@@ -18,8 +18,7 @@ ha_quality_scale: platinum
 
 The **PAJ GPS** {% term integration %} allows you to incorporate PAJ GPS devices from www.paj-gps.de into your Home Assistant.
 
-It provides entities for tracking the location, battery level, speed, and other attributes of your PAJ GPS devices.
-You can also receive notifications for specific events such as SOS alerts or low battery warnings and enable/disable those alerts.
+It provides entities for tracking the location of your PAJ GPS devices.
 
 ## Prerequisites
 
@@ -35,12 +34,6 @@ Email:
     description: "Email address used to log in on www.v2.finder-portal.com."
 Password: 
     description: "Password used to log in on www.v2.finder-portal.com."
-Consume notifications: 
-    description: "If enabled the alerts notifications read by Home Assistant will be marked as read in the Finder Portal."
-Fetch elevation data: 
-    description: "If enabled, the integration will fetch elevation data for the devices from open-meteo API. This is an optional feature and can be disabled if you don't need elevation data or want to reduce the number of API calls."
-Force battery sensor: 
-    description: "Some devices that have a battery are mislabeled in the API as having no battery, which causes the integration to not create battery sensor for them. Enabling this option will force the integration to create battery sensor for all devices, even those that are labeled as having no battery. This is a workaround for the issue in the API and is being worked on by PAJ GPS team."
 {% endconfiguration_basic %}
 
 ## Supported functionality
