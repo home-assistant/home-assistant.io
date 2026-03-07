@@ -63,7 +63,7 @@ availability_topic:
   required: false
   type: string
 clean_segments_command_template:
-  description: Defines a [template](/docs/configuration/templating/#using-command-templates-with-mqtt) to generate the payload to send to `clean_segments_command_topic`. The `value` variable contains is a list of segment ID strings. 
+  description: Defines a [template](/docs/configuration/templating/#using-command-templates-with-mqtt) to generate the payload to send to `clean_segments_command_topic`. The `value` variable contains a list of segment ID strings. 
   required: false
   type: template
 clean_segments_command_topic:
