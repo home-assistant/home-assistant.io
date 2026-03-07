@@ -67,7 +67,7 @@ clean_segments_command_template:
   required: false
   type: template
 clean_segments_command_topic:
-  description: The MQTT topic to publish a JSON list of strings of the segment IDs that should be cleaned. Use the `clean_segments_command_template` option if an other payload format is needed. The `clean_segments_command_topic` option needs to be configured together with the `segments` and the `unique_id` option.
+  description: The MQTT topic to publish a JSON list of segment ID strings for the segments that should be cleaned. Use the `clean_segments_command_template` option if another payload format is needed. The `clean_segments_command_topic` option needs to be configured together with the `segments` and the `unique_id` option.
   required: false
   type: string
 command_topic:
@@ -208,7 +208,7 @@ retain:
   type: boolean
   default: false
 segments:
-  description: A list of segment areas the vacuum supports. The list can be with or without IDs. With IDs the `.` char is used as a separator, for example `["1.Living room",: "2.Kitchen"]`. Without IDs the names and IDs will be identical, for example `["Living room",: Kitchen"]`. The `segments` option needs to be configured together with the `clean_segments_command_topic` and the `unique_id` option.
+  description: A list of segment areas the vacuum supports. The list can be with or without IDs. With IDs the `.` char is used as a separator, for example `["1.Living room",: "2.Kitchen"]`. Without IDs the names and IDs will be identical, for example `["Living room", "Kitchen"]`. The `segments` option needs to be configured together with the `clean_segments_command_topic` and the `unique_id` option.
   required: false
   type: list
 send_command_topic:
