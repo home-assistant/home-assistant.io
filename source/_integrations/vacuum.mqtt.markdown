@@ -208,7 +208,7 @@ retain:
   type: boolean
   default: false
 segments:
-  description: A list of segment areas the vacuum supports. The list can be with or without IDs. With IDs the `.` char is used as a separator, for example `["1.Living room",: "2.Kitchen"]`. Without IDs the names and IDs will be identical, for example `["Living room", "Kitchen"]`. The `segments` option needs to be configured together with the `clean_segments_command_topic` and the `unique_id` option.
+  description: 'A list of segment areas the vacuum supports. The list can be with or without IDs. With IDs the `.` char is used as a separator, for example `["1.Living room",: "2.Kitchen"]`. Without IDs the names and IDs will be identical, for example `["Living room", "Kitchen"]`. The `segments` option needs to be configured together with the `clean_segments_command_topic` and the `unique_id` option.'
   required: false
   type: list
 send_command_topic:
