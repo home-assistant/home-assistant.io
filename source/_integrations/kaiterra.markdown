@@ -48,8 +48,6 @@ API key:
   description: Your personal API key from the Kaiterra dashboard.
 Device ID:
   description: The ID of the Kaiterra device you want to add.
-Name:
-  description: Optional name for the device in Home Assistant.
 {% endconfiguration_basic %}
 
 Add one config entry for each Kaiterra device you want to monitor.
@@ -81,7 +79,7 @@ All entities for a configured device are grouped under one Kaiterra device in Ho
 
 ## Data updates
 
-This integration {% term polling polls %} data from the Kaiterra API every 30 seconds.
+This integration {% term polling polls %} data from the Kaiterra API every 60 seconds.
 
 ## Troubleshooting
 
