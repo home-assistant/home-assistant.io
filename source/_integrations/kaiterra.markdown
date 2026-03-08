@@ -12,7 +12,7 @@ ha_platforms:
   - sensor
 ha_integration_type: integration
 ha_config_flow: true
-ha_quality_scale: bronze
+ha_quality_scale: silver
 ---
 
 The **Kaiterra** {% term integration %} lets you monitor air quality readings from your Kaiterra devices in Home Assistant by using the [Kaiterra REST API](https://dev.kaiterra.com/).
