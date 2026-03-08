@@ -658,7 +658,7 @@ The water heater operation mode state `on` has been changed to `performance` for
 
 {% details "Container image" %}
 
-Home Assistant container images are now compressed with `zstd` instead of `gzip`. Since containerd has supported `zstd` since 2021, this is not expected to break current installations. If you are running a very old container runtime, make sure it supports `zstd` before updating.
+Home Assistant container images are now compressed with `zstd` instead of `gzip`. Since containerd has supported `zstd` since 2021, this is not expected to break current installations. If you are running a very old container runtime (_requires at least docker 23.0.0 and containerd 1.5.0_), make sure it supports `zstd` before updating.
 
 ([@duhow] - [#160665])
 
