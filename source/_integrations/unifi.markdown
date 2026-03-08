@@ -52,7 +52,7 @@ It is recommended you use the Administrator or a user with full read/write acces
 but it is not required. The entities that are created will automatically adjust based on the permissions of the user you
 use has.
 
-1. Login to your _Local Portal_ on your UniFi OS device, and select  **Users**. 
+1. Login to your _Local Portal_ on your UniFi OS device, and select **Users**.
     - **Note**: This **must** be done from the UniFi OS by accessing it directly by IP address (i.e. _Local Portal_), not via `unifi.ui.com` or within the UniFi Network app.
 2. Go to **Admins & Users** from the left hand side menu or [IP address]/admins/users e.g. 192.168.1.1/admins/users.
 3. Select **Add New Admin**.
@@ -61,178 +61,130 @@ use has.
 
 ![UniFi OS User Creation](/images/integrations/unifi/user.png)
 
-There is currently support for the following device types within Home Assistant:
-
-- [Button](#button)
-- [Image](#image)
-- [Light](#light)
-- [Presence detection](#presence-detection)
-- [Actions](#actions)
-- [Switch](#switch)
-- [Sensor](#sensor)
-- [Firmware updates](#firmware-updates)
-
 {% include integrations/config_flow.md %}
 
+## Device support
+
+Each object in your UniFi Network controller is represented as a device in Home Assistant. The sections below describe exactly which entities are created for each object type.
+
 {% note %}
-**Permissions**: The below sections on the features available to your Home Assistant instance assume you have full
-write access to each device. If the user you are using has limited access to some devices, you will get fewer entities
-and in many cases, get a read-only sensor instead of an editable switch {% term entity %}.
+**Permissions**: The sections below assume the configured user has full administrator access. Users with limited permissions will receive fewer entities; in many cases a read-only sensor is created instead of a controllable switch or button.
 {% endnote %}
 
-### Extra configuration of the integration
+### UniFi Network devices
 
-All configuration options are offered from the front end. Enter what UniFi Network {% term integration %} you want to change options on and press the cog wheel. Some advanced options are available when "Advanced Mode" is enabled on your user profile page.
+Each UniFi device (gateway, switch, access point, etc.) registered to the controller gets a device in Home Assistant with the following:
 
-## Button
+- **State sensor** - Reports the operational state of the device as reported by the controller (for example, connected, upgrading, or disconnected).
+- **Uptime sensor** - Reports the time elapsed since the device last restarted.
+- **CPU utilization sensor** - Reports current CPU load as a percentage.
+- **Memory utilization sensor** - Reports current RAM usage as a percentage.
+- **Temperature sensor** - Reports the device's internal temperature. Only available on hardware that exposes this metric.
+- **Firmware update** - Shows when a firmware upgrade is available for the device. If the configured user has admin privileges, the update can be installed directly from Home Assistant.
+- **Restart button** - Triggers a full reboot of the device. On PoE switches, the PoE supply remains active throughout the restart. Requires admin privileges.
 
-The Button entities will only be available and usable if the integration has a UniFi Network account with administrator privileges.
+#### Access points with LED ring support
 
-### Power cycle PoE
+On compatible access points that support LED ring customization, an additional entity is created:
 
-Use the **Power cycle PoE** button entity to power cycle one specific PoE port to cause the connected device to restart.
+- **LED light** - Controls the LED ring on the access point. Supports on/off, brightness, and color. Requires admin privileges.
 
-### Restart UniFi device
+{% note %}
+LED changes may take over 5 seconds to apply while the device adopts its new configuration. The Home Assistant UI updates optimistically before the device confirms the change.
+{% endnote %}
 
-Use the **Restart UniFi device** button entity to restart the entire UniFi device. In case the device is a PoE switch, the PoE supply is not affected.
+### Switch ports
 
-### WLAN regenerate password
-Use the **WLAN regenerate password** button entity to generate and apply a new password to the specified WLAN (Wireless Local Area Network). Use the **WLAN regenerate password** button entity to generate and apply a new password to the specified WLAN (Wireless Local Area Network). **It will be randomly generated with 20 characters, consisting of lowercase letters, uppercase letters, and digits.**
+Each physical port on a UniFi switch gets the following entities. All port entities are disabled by default.
 
-## Image
+- **PoE switch** - Enables or disables Power over Ethernet on the port. Only present on PoE-capable ports. Requires admin privileges.
+- **Port enable switch** - Enables or disables the port entirely, cutting all traffic through it. Requires admin privileges.
+- **Power cycle PoE button** - Cuts and immediately restores power to the PoE port, forcing the connected device to restart. Only present on PoE-capable ports. Requires admin privileges.
+- **Port bandwidth sensors (RX and TX)** - Report current receive and transmit throughput for the port in Mbit/s. These sensors are disabled by default and must be enabled via the integration's **Configure** option on page 3/3, or individually via the entity registry.
+- **Port link speed sensor** - Reports the negotiated link speed for the port in Mbit/s.
 
-Provides QR Code images that can be scanned to easily join a specific WLAN. Entities are disabled by default. This feature requires admin privileges.
+### Smart power outlets
 
-## Presence detection
+On UniFi smart power devices that support per-outlet power metering (such as the USP-PDU-Pro), each outlet gets the following:
 
-This platform allows you to detect presence by looking at devices connected to a [Ubiquiti](https://ui.com/) [UniFi Network](https://ui.com/cloud-gateways) application. By default devices are marked as away 300 seconds after they were last seen.
+- **Outlet power sensor** - Reports the current power draw of the outlet in watts.
 
-### Troubleshooting and Time Synchronization
+### Network clients
 
-If tracked devices continue to show "Home" when not connect/present and show connected in the UniFi Controller, disable 802.11r Fast Roaming.  When enabled, it has been observed on the various UniFi Controller versions, failure to declare disconnected clients.
+Every client device seen by the controller — wired or wireless — gets a device in Home Assistant with the following:
 
-Presence detection is not compatible with Client MAC Address Randomization, enabled by default on most modern SmartPhones. This feature will need to be disabled within the client device settings, usually under the settings for the specific network.
+- **Device tracker** - Tracks whether the client is currently connected to the network. A client is considered `home` while actively connected, and transitions to `not_home` after a configurable period of inactivity (300 seconds by default).
+- **Uptime sensor** - Reports the time elapsed since the client last connected or reconnected.
+- **Bandwidth sensors (RX and TX)** - Report current receive and transmit throughput for the client in Mbit/s. Disabled by default; enable via the integration's **Configure** option on page 3/3.
+- **Link speed sensor** - Reports the negotiated connection speed between the client and its switch or gateway port in Mbit/s. Only available for wired clients with an active connection. Disabled by default.
+- **Block network access switch** - Blocks or unblocks the client's access to the network. This switch is only created for clients whose MAC addresses have been added to the integration's block list in the integration options. Requires admin privileges.
 
-Presence detection depends on accurate time configuration between Home Assistant and the UniFi Network application.
+#### Presence detection
 
-If Home Assistant and the UniFi Network application are running on separate machines or VMs ensure that all clocks are synchronized. Failing to have synchronized clocks will lead to Home Assistant failing to mark a device as home.
+Presence detection works by monitoring which clients are actively connected to the controller. There are several conditions that can affect its reliability:
 
-[Related Issue](https://github.com/home-assistant/home-assistant/issues/10507)
+- **802.11r Fast Roaming** - When enabled, some versions of UniFi Network fail to correctly mark wireless clients as disconnected when they leave. If tracked devices remain `home` after leaving, disable Fast Roaming in your UniFi Network wireless settings.
+- **MAC address randomization** - Most modern smartphones randomize their MAC address per network by default. Because the integration tracks clients by MAC address, a device using a randomized MAC will appear as a new, unknown client on each connection. Disable MAC randomization in the device's Wi-Fi settings for each relevant network to ensure consistent tracking.
+- **Clock synchronization** - Presence detection depends on Home Assistant and the UniFi Network controller having synchronized clocks. If they run on separate machines or VMs, ensure NTP is correctly configured on both. Clock skew will cause unreliable `home`/`not_home` transitions.
+
+### WLANs
+
+Each wireless network (SSID) configured in UniFi Network gets a device in Home Assistant with the following:
+
+- **Client count sensor** - Reports the number of clients currently associated with the WLAN.
+- **WLAN enable switch** - Enables or disables the WLAN. Toggling this triggers a reconfiguration of all access points broadcasting the SSID, which may cause a brief interruption for connected clients. Requires admin privileges.
+- **Regenerate password button** - Generates and immediately applies a new random password to the WLAN. The password is 20 characters long and consists of mixed-case letters and digits. Requires admin privileges.
+- **QR code image** - Provides a scannable QR code that joins the WLAN when scanned by a mobile device. Disabled by default. Requires admin privileges.
+
+### DPI restriction groups
+
+Each Deep Packet Inspection (DPI) restriction group configured in UniFi Network gets the following:
+
+- **Group enable switch** - Enables or disables all traffic restrictions within the group simultaneously. No entity is created for groups that contain no restrictions.
+
+### Port forwarding rules
+
+Each port forwarding rule configured in UniFi Network gets the following:
+
+- **Rule enable switch** - Enables or disables the port forwarding rule.
+
+### Traffic rules
+
+Each traffic rule configured in UniFi Network gets the following:
+
+- **Rule enable switch** - Enables or disables the traffic rule.
+
+### Policy-based routing rules
+
+Each policy-based routing (PBR) rule configured in UniFi Network gets the following:
+
+- **Rule enable switch** - Enables or disables the PBR rule.
+
+### Zone-based firewall policies
+
+Each zone-based firewall policy configured in UniFi Network gets the following:
+
+- **Policy enable switch** - Enables or disables the firewall policy.
 
 ## Actions
 
 ### Action: Reconnect client
 
-The `unifi.reconnect_client` action tries to get a wireless client to reconnect to the network.
+The `unifi.reconnect_client` action instructs the controller to force a wireless client to reconnect to the network. This is useful in automations to recover a client with a stale or dropped connection without needing to interact with the client device itself.
 
-| Data attribute | Optional | Description                                                                 |
-| ---------------------- | -------- | --------------------------------------------------------------------------- |
-| `device_id`            | No       | String representing a device ID related to a UniFi Network {% term integration %} .     |
+| Data attribute | Optional | Description |
+| --- | --- | --- |
+| `device_id` | No | The Home Assistant device ID of the wireless client to reconnect. |
 
 ### Action: Remove clients
 
-The `unifi.remove_clients` action cleans up clients on the UniFi Network application that have only been associated with the Network application for a short period of time. The difference between first seen and last seen needs to be less than 15 minutes and the client can not have a fixed IP, hostname or name associated with it.
+The `unifi.remove_clients` action removes transient client records from the controller and the Home Assistant device registry. This is useful for periodically cleaning up short-lived or probe-only client entries.
 
-## Switch
+A client is eligible for removal only if all of the following are true:
 
-### Block network access for clients
-
-Allow control of network access to clients configured in the {% term integration %} options by adding MAC addresses. Items in this list will have a Home Assistant switch created, using the UniFi Device name, allowing for blocking and unblocking.
-
-### PoE port control
-
-Provides per-port PoE control. Entities are disabled by default. This feature requires admin privileges.
-
-### Port control
-
-Provides individual control to enable or disable switch ports. Entities are disabled by default. This feature requires admin privileges.
-
-### Control DPI Traffic Restrictions
-
-Entities appear automatically for each restriction group. If there are no restrictions in a group, no {% term entity %} will be visible. Toggling the switch in Home Assistant will enable or disable all restrictions inside a group.
-
-### Control WLAN availability
-
-Entities appear for each WLAN. Changing the state of WLAN will trigger a reconfiguration of affected access points, limiting access to all WLANs exposed by the access point.
-
-### Control Port Forwarding Rules
-
-Entities appear for each port Forwarding Rule. The switches can be identified from icon {% icon "mdi:upload-network" %}.
-
-### Control Traffic Rules
-
-Entities appear for each Traffic Rule. The switches can be identified from icon {% icon "mdi:security-network" %}.
-
-### Control Policy-Based Routing Rules
-
-Entities appear for each Policy-Based Routing Rule. The switches can be identified from icon {% icon "mdi:routes" %}.
-
-### Control Zone-Based Firewall Policies
-
-Entities appear for each Zone-Based Firewall Policy. The switches can be identified from icon {% icon "mdi:security-network" %}.
-
-## Sensor
-
-### Bandwidth sensor
-
-Get entities reporting receiving and transmitting bandwidth per network client. These sensors are disabled by default. To enable the bandwidth sensors, on the UniFi integration page, select **Configure**, go to page 3/3 and enable the bandwidth sensors.
-
-### Wired client link speed sensor
-
-Get entities reporting the link speed for wired network clients. This sensor shows the connection speed in megabits per second (Mbit/s) between the wired client and the network switch or gateway. These sensors are disabled by default and are only available for wired clients with an active connection.
-
-### Wlan clients sensor
-
-Entities reporting connected clients to a WLAN.
-
-### Uptime sensor
-
-Get entities reporting uptime per network client or UniFi Network device.
-
-### Power Outlet sensor
-
-Get entities reporting the power utilization for outlets that support metrics (such as the AC outlets on the USP-PDU-Pro).
-
-### Device temperature sensor
-
-Get entities reporting the general temperature of a UniFi Network device.
-
-### Device state
-
-Get entities reporting the current state of a UniFi Network device.
-
-### Device CPU
-
-Get entities reporting the current CPU utilization of a UniFi Network device.
-
-### Device memory
-
-Get entities reporting the current memory utilization of a UniFi Network device.
-
-### Port Bandwidth sensor
-
-Get entities reporting receiving and transmitting bandwidth per port. These sensors are disabled by default. To enable the bandwidth sensors, on the UniFi integration page, select **Configure**, go to page 3/3 and enable the bandwidth sensors.
-
-### Port link speed sensor
-
-Get entities reporting the link negotiation speed for network device ports. These sensors show the connection speed in megabits per second (Mbit/s) at which each port negotiated its link. Entities are disabled by default.
-
-## Light
-
-The Light entities will only be available for UniFi access points that support LED ring customization. Not all access points have this capability.
-
-### LED control
-
-Provides control over the LED ring on compatible UniFi access points. Entities appear automatically for devices that support LED customization. The LED state, brightness, and color can be controlled. This feature requires admin privileges.
-
-{% note %}
-Changes may take over 5 seconds to apply as the device must adopt a new configuration. The UI updates optimistically.
-{% endnote %}
-
-## Firmware updates
-
-This will show if there are firmware updates available for the UniFi network devices connected to the controller. If the configured user has admin privileges, the firmware upgrades can also be installed directly from Home Assistant.
-
+- The time between its `first_seen` and `last_seen` timestamps is less than 15 minutes.
+- It has no fixed IP address, hostname, or name assigned in UniFi Network.
+- It is no longer known to the controller since the last startup or reload of the integration.
 
 ## Removing a device in Home Assistant
 
