@@ -150,12 +150,12 @@ The JVC Projector select platform will create the following [Select](/integratio
   - **Available for models**: all
 
 - **HDR processing**
-  - **Description**: The signal HDR processing mode.
+  - **Description**: The signal HDR processing mode setting.
   - **Options**: Dependent on your detected model.
   - **Available for models**: 2017-present
 
 - **Picture mode**
-  - **Description**: The signal picture mode.
+  - **Description**: The signal picture mode setting.
   - **Options**: Dependent on your detected model.
   - **Available for models**: all
 
