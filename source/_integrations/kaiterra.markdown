@@ -7,6 +7,7 @@ ha_category:
 ha_release: '0.100'
 ha_codeowners:
   - '@Michsior14'
+  - '@archcorsair'
 ha_domain: kaiterra
 ha_platforms:
   - sensor
