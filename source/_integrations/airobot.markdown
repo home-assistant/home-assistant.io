@@ -189,7 +189,7 @@ Send a notification when the air quality exceeds a specified threshold.
 alias: "Airobot Air Quality Alert"
 description: >-
   Sends a notification when the Airobot air quality sensor exceeds
-  the configured threshold.
+  a threshold.
 
 triggers:
   - trigger: numeric_state
@@ -197,7 +197,11 @@ triggers:
     above: 1000
 
 conditions:
-  - "{{ trigger.from_state.state | float(0) < trigger.to_state.state | float(0) }}"
+  - >-
+    {{
+      trigger.from_state.state | float(0)
+      < trigger.to_state.state | float(0)
+    }}
 
 actions:
   - action: notify.mobile_app_your_phone
