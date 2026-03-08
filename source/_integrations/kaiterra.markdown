@@ -49,7 +49,7 @@ Add one config entry for each Kaiterra device you want to monitor.
 
 ## Configuration options
 
-After setup, you can change the following option from the integration options dialog:
+The integration provides the following configuration options:
 
 {% configuration_basic %}
 AQI standard:
@@ -65,7 +65,7 @@ The integration provides sensor entities for measurements like:
 - PM2.5
 - PM10
 - Carbon dioxide
-- TVOC
+- Total volatile organic compounds (TVOC)
 - AQI
 
 All entities for a configured device are grouped under one Kaiterra device in Home Assistant.
@@ -92,8 +92,7 @@ Make sure the device is visible in the Kaiterra dashboard and that you entered t
 
 ### The temperature unit is not what I expect
 
-Home Assistant controls how temperature is displayed based on your unit preferences.
-The integration provides the device reading, and Home Assistant converts the displayed unit when needed.
+Home Assistant controls how temperature is displayed based on your unit preferences. The integration provides the device reading, and Home Assistant converts the displayed unit when needed.
 
 ## Removing the integration
 
