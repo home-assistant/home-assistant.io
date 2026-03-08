@@ -19,6 +19,13 @@ The **Kaiterra** {% term integration %} lets you monitor air quality readings fr
 
 You can use the integration to monitor devices like Laser Egg and Sensedge, and use their readings in dashboards, automations, and alerts.
 
+## Supported devices
+
+The following Kaiterra devices are known to work with this integration:
+
+- Laser Egg
+- Sensedge
+
 ## Prerequisites
 
 Before you begin, make sure you have:
@@ -48,6 +55,8 @@ Name:
 Add one config entry for each Kaiterra device you want to monitor.
 
 ## Configuration options
+
+{% include integrations/option_flow.md %}
 
 The integration provides the following configuration options:
 
