@@ -32,7 +32,7 @@ Before you begin, make sure you have:
 
 1. A Kaiterra account.
 2. A Kaiterra device that is visible in the Kaiterra dashboard.
-3. An API key from the [Kaiterra dashboard](https://dashboard.kaiterra.cn/).
+3. An API key from the [Kaiterra dashboard](https://dashboard.kaiterra.com/me/settings/account/api-keys).
 4. The device ID of the device you want to add.
 
 To create an API key in the Kaiterra dashboard, open **Settings** > **Profile** > **Developer**.
