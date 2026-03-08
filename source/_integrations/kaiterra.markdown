@@ -35,7 +35,7 @@ Before you begin, make sure you have:
 3. An API key from the [Kaiterra dashboard](https://dashboard.kaiterra.com/me/settings/account/api-keys).
 4. The device ID of the device you want to add.
 
-To create an API key in the Kaiterra dashboard, open **Settings** > **Profile** > **Developer**.
+To create an API key in the Kaiterra dashboard, select your profile icon in the lower-left corner, go to **Account settings**, open the **API keys** tab, and select **Generate API Key**.
 
 If you previously set up Kaiterra in your {% term "configuration.yaml" %} file, remove that YAML configuration before adding the integration from the UI.
 
