@@ -40,7 +40,7 @@ Below is a complete overview of the entities this integration provides.
 - Autopia standby wait time
 - Big Thunder Mountain standby wait time
 - Blanche-Neige et les Sept Nains standby wait time
-- Buzz Lightyear Laser Blast standby wait time
+- Buzz <!-- textlint-disable -->Lightyear<!-- textlint-enable --> Laser Blast standby wait time
 - Casey Jr. – le Petit Train du Cirque standby wait time
 - Disneyland Railroad Discoveryland Station standby wait time
 - Disneyland Railroad Fantasyland Station standby wait time
