@@ -99,7 +99,7 @@ The integration will retrieve data from the device every 5 minutes.
 The following examples show how to use the Disneyland Paris integration in Home Assistant automations.
 These examples are just a starting point, and you can use them as inspiration to create your own automations.
 
-### Park Opening Notification
+### Park opening notification
 
 The following example sends a notification in the morning with the opening times of both parks.
 
