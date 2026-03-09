@@ -3,7 +3,7 @@ title: Fresh-r
 description: Instructions on how to integrate Fresh-r ventilation solutions within Home Assistant.
 ha_category:
   - Sensor
-ha_release: 2026.4.0
+ha_release: 2026.4
 ha_iot_class: Cloud Polling
 ha_domain: freshr
 ha_config_flow: true
