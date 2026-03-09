@@ -20,15 +20,13 @@ ha_quality_scale: legacy
 The **Signal Messenger** {% term integration %} uses the [Signal Messenger REST API](https://github.com/bbernhard/signal-cli-rest-api) to deliver notifications from Home Assistant to your Android or iOS device.
 
 ## Setup
- 
+
 The requirements are:
 
-- You need to set up the Signal Messenger REST API. 
-- You need a spare phone number to register with the Signal Messenger service. 
+- You need to set up the Signal Messenger REST API.
+- You need a spare phone number to register with the Signal Messenger service.
 
-
-Please follow those [instructions](https://github.com/bbernhard/signal-cli-rest-api/blob/master/doc/HOMEASSISTANT.md), to set up the Signal Messenger REST API. 
-
+Please follow those [instructions](https://github.com/bbernhard/signal-cli-rest-api/blob/master/doc/HOMEASSISTANT.md), to set up the Signal Messenger REST API.
 
 ## Configuration
 
@@ -60,7 +58,7 @@ name:
   type: string
   default: notify
 url:
-  description: The URL where the Signal Messenger REST API listens for incoming requests. 
+  description: The URL where the Signal Messenger REST API listens for incoming requests.
   required: true
   type: string
 number:

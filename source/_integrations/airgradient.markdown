@@ -28,7 +28,7 @@ ha_quality_scale: platinum
 ---
 
 The **AirGradient** {% term integration %} will fetch data from your [AirGradient devices](https://www.airgradient.com/).
-AirGradient creates indoor and outdoor air quality monitors that enable you to know if the air quality is healthy or not. They measure metrics such as PM2.5, CO2, TVOCs, and NOx. Both the software and hardware are open-source, allowing you to customize or extend the device functionality. 
+AirGradient creates indoor and outdoor air quality monitors that enable you to know if the air quality is healthy or not. They measure metrics such as PM2.5, CO2, TVOCs, and NOx. Both the software and hardware are open-source, allowing you to customize or extend the device functionality.
 
 ## Use cases
 

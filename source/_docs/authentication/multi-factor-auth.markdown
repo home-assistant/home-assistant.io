@@ -52,7 +52,7 @@ You will need an authenticator app on your phone. We recommend either [Google Au
 
 #### Using TOTP
 
-Once TOTP is enabled, Home Assistant requires the latest code from your phone app before you can log in. 
+Once TOTP is enabled, Home Assistant requires the latest code from your phone app before you can log in.
 
 {% note %}
 TOTP is _time based_ so it relies on your Home Assistant clock being accurate. If the verification keeps failing, make sure the clock on Home Assistant is correct.

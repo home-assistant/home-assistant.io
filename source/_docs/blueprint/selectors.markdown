@@ -1186,7 +1186,7 @@ translation_key:
     [Backend Localization](https://developers.home-assistant.io/docs/internationalization/core/#selectors)
     for more information.
   type: string
-  required: false    
+  required: false
 {% endconfiguration %}
 
 The output of this selector is a number, for example: `42`

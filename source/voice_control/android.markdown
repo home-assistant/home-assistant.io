@@ -67,10 +67,11 @@ Wake word detection runs entirely on your Android device, which means it works w
 ### Enabling wake word detection on Android
 
 {% note %}
-Wake word detection on Android is experimental. 
+Wake word detection on Android is experimental.
 
 If the app becomes unresponsive or stops opening as expected, disable Home Assistant as your default digital assistant to disable wake-word detection:
-- On your Android phone, go to **Settings** > **Apps** > **Default apps** > **Digital assistant app** and select a different assistant or **None**. 
+
+- On your Android phone, go to **Settings** > **Apps** > **Default apps** > **Digital assistant app** and select a different assistant or **None**.
 - If you run into issues, please [open an issue on GitHub](https://github.com/home-assistant/android/issues) so the team can look into it.
 {% endnote %}
 
@@ -140,11 +141,11 @@ Assist is available on Wear OS using the [Home Assistant Companion App](https://
 The way how Assist can be set up on your phone may differ depending on your version of Wear OS.
 
 1. After [installing the companion app](https://companion.home-assistant.io/docs/getting_started/) on your watch and connecting it to your Home Assistant, Assist appears automatically on the **Apps screen**.
-    
+
     ![Assist app](/images/assist/wearos_assist_app.png)
 
 2. To add an Assist tile, in the Wear OS app, go to the **Tiles** area, select **Add tile** > **Assist**.
-    
+
     ![Conversation tile](/images/assist/android_tile.png)
 
 ### Adding Assist to the watch face
@@ -156,27 +157,27 @@ The way how Assist can be set up on your phone may differ depending on your vers
    - If you just recently added the Home Assistant app, Assist may not be listed yet.
    - After rebooting your watch, under **Complications**, there should be a section with Home Assistant icons.
 5. Save your changes. You should now see Assist as a complication on your watch face.
-   
+
      ![Assist complication](/images/assist/android_watch_5.png)
 
 ### Using Assist on Wear OS
 
-1. On your watch, open Assist. 
+1. On your watch, open Assist.
    - For example, swipe left until the **Assist** button is visible.
-   
+
     ![Assist button](/images/assist/android_watch_1.png)
 
 2. After tapping **Assist**, wait for **How can I assist?** to be displayed and the microphone to start pulsing.
-   
+
     ![How can I assist](/images/assist/android_watch_2.png)
 
 3. Speak your command.
-   
+
     ![Assist speak your command](/images/assist/android_watch_3.png)
 
 4. To change the assistant, tap the current assistant (**Home Assistant Cloud** in the screenshot above).
    - Select the assistant from the list.
-    
+
    ![List of assistants](/images/assist/android_watch_6.png)
 
 ### Setting up Home Assistant Assist as default assistant app on a Wear OS watch
@@ -200,9 +201,9 @@ Depending on your watch, you can assign Assist to a button so that you can start
 1. On your watch, go to **Settings** > **Advances features** > **Customize keys**.
 2. Assign a key:
    - To use double press, tap **Home key** > **Double press**. From the list of apps, select **HA: Assist**.
-   - On a Galaxy watch, if Assist is set as the default, you can use long press. Tap **Home key**, then tap **press and hold**. Select **Assistant**. 
+   - On a Galaxy watch, if Assist is set as the default, you can use long press. Tap **Home key**, then tap **press and hold**. Select **Assistant**.
      - Then long press the home key, and from the selection, select **HA: Assist**.
      - Select **Always**.
-      
+
      ![List of assistants](/images/assist/android_watch_7.png)
 3. Now, use your key and speak a command.
