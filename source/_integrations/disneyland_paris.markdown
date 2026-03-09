@@ -3,6 +3,7 @@ title: Disneyland Paris
 description: Instructions on how to integrate Disneyland Paris service within Home Assistant.
 ha_iot_class: Cloud Polling
 ha_config_flow: true
+ha_release: 2026.4
 ha_category:
   - Sensor
 ha_codeowners:
