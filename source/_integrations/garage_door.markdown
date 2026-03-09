@@ -11,4 +11,4 @@ ha_domain: door
 ha_integration_type: system
 ---
 
-This {% term integration %} provides automation triggers for binary sensors and covers with device class garage_door. There are no configuration options for this integration.
+The **Garage door** {% term integration %} provides automation triggers for binary sensors and covers with device class `garage_door`. There are no configuration options for this integration.
