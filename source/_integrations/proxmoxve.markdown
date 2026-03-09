@@ -84,14 +84,14 @@ Privileges can be either applied to Groups or Roles.
 
 Assign the role you chose to the group at the root path (**/**) so it applies to all nodes, VMs, and containers.
 
-1. Select **Datacenter**
-2. Select **Permissions**
-3. Open **Add** and select **Group Permission**
-4. For **Path**, select **/**
-5. for **Group**,  select your Home Assistant group (`HomeAssistant`)
+1. Select **Datacenter**.
+2. Select **Permissions**.
+3. Open **Add** and select **Group Permission**.
+4. For **Path**, select **/**.
+5. For **Group**,  select your Home Assistant group (`HomeAssistant`).
 6. For **Role**, select the role you want to use, like **PVEAuditor** (monitoring only) or **PVEVMUser** (monitoring plus basic actions).
-7. Make sure **Propagate** is checked
-8. Confirm **Create**
+7. Make sure **Propagate** is checked.
+8. Confirm **Create**.
 
 ### Create a user for Home Assistant
 
@@ -101,15 +101,15 @@ Using the `pve` realm helps limit the account to API access, instead of Linux sy
 If you plan to use the `pve` realm, make sure you select it during user creation and use the `@pve` suffix in Home Assistant (like `hass@pve`).
 {% endimportant %}
 
-1. Select **Datacenter**
-2. Open **Permissions** and select **Users**
-3. Select **Add**
-4. Enter a username (e.g.,`hass`)
-5. Set the realm to **Proxmox VE authentication server** for `pve` (or **Linux PAM standard authentication** for `pam`)
-6. Enter a secure password (it can be complex as you will only need to copy/paste it into your Home Assistant configuration)
-7. Select the group just created earlier (`HomeAssistant`) to grant access to Proxmox
-8. Ensure **Enabled** is checked and **Expire** is set to "never" (i.e. leave it blank)
-9. Confirm **Add**
+1. Select **Datacenter**.
+2. Open **Permissions** and select **Users**.
+3. Select **Add**.
+4. Enter a username (for example,`hass`).
+5. Set the realm to **Proxmox VE authentication server** for `pve` (or **Linux PAM standard authentication** for `pam`).
+6. Enter a secure password (it can be complex as you will only need to copy/paste it into your Home Assistant configuration).
+7. Select the group just created earlier (`HomeAssistant`) to grant access to Proxmox.
+8. Ensure **Enabled** is checked and **Expire** is set to "never" (for example, leave it blank).
+9. Confirm **Add**.
 
 ## Entities
 
@@ -145,7 +145,7 @@ The created sensor will be called `binary_sensor.NODE_NAME_VMNAME_running`.
 
 ### Buttons not working
 
-If you want to use the `button` entities to control power actions (start/stop/reboot and similar actions), the Proxmox VE user must have the required privileges for those actions (for example `VM.PowerMgmt` on the relevant path).  If monitoring works but button presses fail, assign a more permissive role (or create a custom role) and try again.
+If you want to use the `button` entities to control power actions (start/stop/reboot and similar actions), the Proxmox VE user must have the required privileges for those actions (for example, `VM.PowerMgmt` on the relevant path).  If monitoring works but button presses fail, assign a more permissive role (or create a custom role) and try again.
 
 ### Diagnostic data
 
