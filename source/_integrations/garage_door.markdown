@@ -1,5 +1,5 @@
 ---
-title: Garge door
+title: Garage door
 description: This integration provides garage door automation triggers.
 ha_category:
   - Other
