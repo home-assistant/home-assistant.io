@@ -77,8 +77,8 @@ Privileges can be either applied to Groups or Roles.
 1. Select **Datacenter**.
 2. Open **Permissions** and select **Groups**.
 3. Select the **Create** button above all the existing groups.
-4. Name the new group (e.g., `HomeAssistant`)
-5. Confirm **Create**
+4. Name the new group (for example, `HomeAssistant`).
+5. Confirm **Create**.
 
 ### Add Group Permissions to all Assets
 
