@@ -18,6 +18,7 @@ ha_category:
   - Select
   - Sensor
   - Switch
+  - Time
   - Update
   - Vacuum
   - Valve
@@ -42,6 +43,7 @@ ha_platforms:
   - select
   - sensor
   - switch
+  - time
   - update
   - vacuum
   - valve
@@ -344,6 +346,10 @@ The SmartThings Switch lets you control devices that have the [`switch`](https:/
 | `samsungce.steamClosetSanitizeMode`    |
 | `samsungce.washerBubbleSoak`           |
 
+### Time
+
+The SmartThings time platform lets you control the start and end time for the do not disturb mode on supported devices.
+
 ### Update
 
 The SmartThings update platform lets you update the firmware of devices that have the [`firmwareUpdate`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#firmwareUpdate) capability.
@@ -392,7 +398,7 @@ The SmartThings integration does not support all SmartThings capabilities. Only 
 
 ### Viewing device diagnostics
 
-The SmartThings integration provides diagnostics at two levels. To download diagnostics, follow the [steps to download diagnostics](docs/configuration/troubleshooting/#download-diagnostics).
+The SmartThings integration provides diagnostics at two levels. To download diagnostics, follow the [steps to download diagnostics](/docs/configuration/troubleshooting/#download-diagnostics).
 
 - **Device diagnostics**: Contains all capabilities and their current states for a single device. This is useful when troubleshooting a specific device — it shows exactly what capabilities, attributes, and attribute values the device exposes to the SmartThings API.
 - **Config entry diagnostics**: Contains information about all capabilities and devices in your SmartThings location, but without the current state values. This is useful for getting a comprehensive overview of available capabilities across all your connected devices.

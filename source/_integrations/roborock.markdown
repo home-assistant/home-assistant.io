@@ -486,4 +486,4 @@ We recommend using the "Auto" setting for your region. If that doesn't work beca
 
 1. If you ever accidentally created a Roborock account in the wrong roborock server region, delete it using the Roborock App.
 2. The Roborock server region for your account may not always be associated with your actual country.  While setting up the integration, you may select the Roborock server region that you want to sign in with, with four available options: US, EU, RU, or CN, and you may need to try a different region than the one you expect. Most users outside of Russia or China are in the US and EU Roborock server regions.
-3. Please note that the "Region" that is shown in the app is actually the country your account is registered to. It does not always match the region the integration is looking for. 
+3. Please note that the "Region" that is shown in the app is actually the country your account is registered to. It does not always match the region the integration is looking for.

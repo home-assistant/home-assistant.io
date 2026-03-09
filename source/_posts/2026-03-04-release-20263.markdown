@@ -1,0 +1,699 @@
+---
+layout: post
+title: "2026.3: A clean sweep"
+description: "Area cleaning for your vacuum, continue on error in the automation editor, Energy dashboard gains real-time badges and a Water Sankey chart, Android phones become voice satellites with wake word detection, and 18 new integrations from the community!"
+date: 2026-03-04 00:00:00
+date_formatted: "March 4, 2026"
+author: Franck Nijhof
+author_twitter: frenck
+comments: true
+categories:
+  - Release-Notes
+  - Core
+og_image: /images/blog/2026-03/social.png
+---
+
+<lite-youtube videoid="AQOzKdvO97s" videotitle="Home Assistant 2026.3 Release Party"></lite-youtube>
+
+Home Assistant 2026.3! 🎉
+
+After last month's massive release, this one is a nice and relaxed one. We took
+a step back from the big headline features and fully focused on something
+equally important: getting the amazing contributions from our community
+reviewed, polished, and merged. 💚
+
+And did our community deliver! This release is packed with tons of new
+{% term integrations %}, lots of noteworthy improvements to the ones you
+already use, boatloads of bug fixes, and a really nice list of integrations
+that climbed up the [integration quality scale]. 📈
+
+It's releases like these that really show the strength of our open-source
+community. Every single contribution matters, and this month that shows more
+than ever. Thank you all! 🙏
+
+My personal favorite this month? The automation editor change:
+[Continue on error](#continue-on-error-in-the-automation-editor) has _finally_
+landed in the UI. I actually wrote this feature years ago, but it was only
+available through YAML. Seeing it now land in the visual editor (making it
+accessible to everyone) is just awesome. It's one of those small things that
+make a big difference in everyday use. 🤩
+
+Oh, and before I forget: have you seen our
+[brand new merch store](/blog/2026/02/19/open-home-foundation-merch-store-announcement/)?
+The [Open Home Foundation store](https://store.openhomefoundation.org/)
+is live! I have to be honest: the quality is _really_ great. The hoodie is so
+darn comfy it's ridiculous. I've been wearing mine non-stop. Go check it out! 🏃
+
+Also, mark your calendars: [State of the Open Home 2026](https://sotoh.openhomefoundation.org/)
+is happening on April 8 in Utrecht, the Netherlands! Join us live in the audience
+for a celebration of everything we've built together, a look at what's ahead,
+and your chance to help shape the future of the Open Home. Tickets are limited,
+so [grab yours](https://sotoh.openhomefoundation.org/) while you can! 🎟️
+
+Enjoy the release!
+
+../Frenck
+
+<!--more-->
+
+- [Send your vacuum to clean specific areas](#send-your-vacuum-to-clean-specific-areas)
+  - [Getting started](#getting-started)
+  - [Paving the way for voice](#paving-the-way-for-voice)
+- [Energy dashboard improvements](#energy-dashboard-improvements)
+- [Continue on error in the automation editor](#continue-on-error-in-the-automation-editor)
+- [Wake word detection on your Android phone (experimental)](#wake-word-detection-on-your-android-phone-experimental)
+  - [Battery usage](#battery-usage)
+- [Integrations](#integrations)
+  - [New integrations](#new-integrations)
+  - [Noteworthy improvements to existing integrations](#noteworthy-improvements-to-existing-integrations)
+  - [Integration quality scale achievements](#integration-quality-scale-achievements)
+  - [Now available to set up from the UI](#now-available-to-set-up-from-the-ui)
+- [Other noteworthy changes](#other-noteworthy-changes)
+  - [Running on Python 3.14 🚀](#running-on-python-314-)
+- [Need help? Join the community](#need-help-join-the-community)
+- [Backward-incompatible changes](#backward-incompatible-changes)
+- [All changes](#all-changes)
+
+_A huge thank you to all the contributors who made this release possible! And a special shout-out to [@TimoPtr], [@arturpragacz], and [@MindFreeze] who helped write the release notes this release. Also, [@CoMPaTech], [@balloob], [@OnFreund], and [@silamon] for putting effort into tweaking its contents. Thanks to them, these release notes are in great shape. ❤️_
+
+[@arturpragacz]: https://github.com/arturpragacz
+[@balloob]: https://github.com/balloob
+[@CoMPaTech]: https://github.com/CoMPaTech
+[@MindFreeze]: https://github.com/MindFreeze
+[@OnFreund]: https://github.com/OnFreund
+[@silamon]: https://github.com/silamon
+[@TimoPtr]: https://github.com/TimoPtr
+
+## Send your vacuum to clean specific areas
+
+Got a robot vacuum? You can now tell it exactly which areas to clean! This release introduces the [clean area](/integrations/vacuum#action-clean-area) action, which lets you send your vacuum to clean one or more specific areas on demand, right from Home Assistant. In this release, it's supported by [Matter], [Ecovacs], and [Roborock].
+
+The best part? The action uses your existing Home Assistant areas, not some obscure vendor-specific identifiers. You simply map the segments your vacuum knows about to the areas you've already set up in Home Assistant, and that's all there is to it.
+
+[Ecovacs]: /integrations/ecovacs
+[Matter]: /integrations/matter
+[Roborock]: /integrations/roborock
+
+### Getting started
+
+When your vacuum supports area cleaning, you can set up the mapping through the vacuum's entity settings. Open the vacuum entity, select the {% icon "mdi:cog-outline" %} settings icon, and look for the **Map vacuum segments to areas** section. From there, you can match the segments your vacuum has detected to your Home Assistant areas.
+
+<img src='/images/blog/2026-03/vacuum-area-mapping.png' alt='Screenshot of the vacuum area mapping dialog, allowing you to map vacuum segments to Home Assistant areas.' class='no-shadow' />
+
+If your vacuum's internal segment layout ever changes (for example, after remapping in the manufacturer's app or the vacuum rediscovering its environment), Home Assistant will notice. A repair issue will alert you that the segments have changed, so you can update your mapping and make sure everything stays in sync.
+
+### Paving the way for voice
+
+Because the mapping uses native Home Assistant areas, this feature lays the groundwork for future voice assistant support. Imagine simply saying "clean the kitchen" and having your vacuum head to the right area. That's not available just yet, but the foundation is now in place to make it happen.
+
+## Energy dashboard improvements
+
+The Energy dashboard received a nice batch of improvements this release.
+
+The **Now** view gained badges that show real-time power consumption, gas flow rate, and water flow rate at a glance. Water also gets its own Sankey chart in the **Now** view, giving you a visual breakdown of water usage across your home, just like the existing power Sankey chart.
+
+<img src='/images/blog/2026-03/energy-badges.png' alt='Screenshot of the new badges in the Energy dashboard.' class='no-shadow' />
+
+To reduce ambiguity, the second tab on the Energy dashboard has been renamed from **Energy** to **Electricity**, since the dashboard covers electricity, gas, and water. On the configuration side, the energy settings page is now split into three tabs: **Electricity**, **Gas**, and **Water**, making it easier to find and manage your energy sources.
+
+<img src='/images/blog/2026-03/energy-tabs.png' alt='Screenshot of the new tabs in the Energy dashboard settings page.' class='no-shadow' />
+
+Finally, energy bar chart tooltips now include the day of the week, helping you quickly spot usage patterns.
+
+Thanks, [@MindFreeze], [@NoRi2909], and [@gpoitch]! 🎉
+
+[@gpoitch]: https://github.com/gpoitch
+[@MindFreeze]: https://github.com/MindFreeze
+[@NoRi2909]: https://github.com/NoRi2909
+
+## Continue on error in the automation editor
+
+The automation editor now has a **Continue on error** option for actions, directly accessible from the visual editor. Previously, this setting was only available through YAML.
+
+You can find it in the three-dots {% icon "mdi:dots-vertical" %} menu of any action. When enabled, a visual indicator appears on the action row, so you can quickly see which actions will continue running even if they encounter an error.
+
+<img src='/images/blog/2026-03/automation-continue-on-error.png' alt='Screenshot of the automation editor showing the Continue on error option.' class='no-shadow' />
+
+This is especially handy for automations where a single failing action shouldn't stop the rest from running. For example, if one of several notification actions fails, the remaining ones will still be sent.
+
+Thanks, [@wendevlin]! 🎉
+
+[@wendevlin]: https://github.com/wendevlin
+
+## Wake word detection on your Android phone (experimental)
+
+Your phone just became a voice satellite! The Home Assistant Companion app for Android now supports on-device wake word detection, allowing you to open [Assist](/voice_control/android/) from anywhere; even when your phone is locked.
+
+Inspired from the great work from [@brownard] in [Ava](https://github.com/brownard/Ava).
+
+[@brownard]: https://github.com/brownard
+
+This feature uses [microWakeWord](https://github.com/OHF-Voice/micro-wake-word), the same lightweight wake word engine that powers the [Home Assistant Voice Preview Edition](/voice-pe/). All processing happens locally on your device, no audio is sent to the cloud, and no server-side processing is needed. Your voice stays on your phone.
+
+You can choose between three wake words:
+
+- _Okay Nabu_
+- _Hey Jarvis_
+- _Hey Mycroft_
+
+To enable wake word detection, open your Android device's **Settings** > **Companion App** > **Assist for Android**, and enable the **Enable wake word detection** toggle. Once enabled, simply say your chosen wake word and the Assist pipeline will open, ready to take your command.
+
+Watch the video to see wake word detection in action on an Android device.
+
+<lite-youtube videoid="-XkuDD9IlZI" videotitle="Wake word detection on your Android phone"></lite-youtube>
+
+It already integrates with your voice equipment at home, and if another satellite is nearby, only the fastest one will respond. This also applies to multiple Android devices.
+
+### Battery usage
+
+Because wake word detection requires continuous microphone access and CPU usage, this feature does have a noticeable impact on battery life. To help manage this, you can use automations to [start and stop wake word detection](https://companion.home-assistant.io/docs/notifications/notification-commands#wake-word-detection) based on your context, for example, only enabling it when you're connected to your home Wi-Fi or within a specific zone. This way, you get hands-free voice control when it matters most, without draining your battery all day.
+
+{% note %}
+Battery usage could be drastically reduced if Google opened their API for hardware hotword detection. Unfortunately, this is hidden behind a system API that only phone manufacturers have access to. Maybe one day they will open it up to improve the experience.
+{% endnote %}
+
+Thanks, [@TimoPtr]! 🎉
+
+[@TimoPtr]: https://github.com/TimoPtr
+
+## Integrations
+
+Thanks to our community for keeping pace with the new {% term integrations %} and improvements to existing ones! You're all awesome 🥰
+
+### New integrations
+
+We welcome the following new integrations in this release:
+
+- **[Ghost]**, added by [@JohnONolan]  
+  Monitor your [Ghost](https://ghost.org) publication metrics, including member counts, revenue, post statistics, and email newsletter performance, right from your Home Assistant dashboard.
+
+- **[Hegel Amplifier]**, added by [@boazca] - launching at 🥈 silver quality  
+  Control your [Hegel Music Systems](https://www.hegel.com/) amplifiers locally over your network. Manage power, volume, input selection, and mute with real-time push updates for instant feedback.
+
+- **[Homevolt]**, added by [@Danielhiversen] - launching at 🥈 silver quality  
+  Read local data from your [Homevolt](https://www.homevolt.com/) battery over your network, no cloud required. Monitor power, energy, voltage, temperature, and battery status.
+
+- **[Hypontech Cloud]**, added by [@jcisio]  
+  Monitor your [Hypontech](https://www.hypon.cloud) solar inverter system through the Hypontech Cloud platform. Track power production, energy yields, and system status.
+
+- **[IDrive e2]**, added by [@patrickvorgers]  
+  Back up your Home Assistant to an [IDrive e2](https://www.idrive.com/s3-storage-e2/) bucket. IDrive e2 offers affordable S3-compatible cloud storage with flexible access controls for keeping your backups safe.
+
+- **[Indevolt]**, added by [@Xirt]  
+  Communicate directly with your [Indevolt](https://www.indevolt.com/) energy storage devices over the local network. Monitor energy production, consumption, and battery status.
+
+- **[IntelliClima]**, added by [@dvdinth]  
+  Integrate your [Fantini Cosmi](https://www.fantinicosmi.it/en/) Ecocomfort 2.0 ventilation devices. Control fan modes and speeds of your mechanical ventilation with heat recovery system.
+
+- **[Liebherr]**, added by [@mettolen] - launching at 🥈 silver quality  
+  Control and monitor your [Liebherr](https://home.liebherr.com/) SmartDevice refrigerators and freezers via the cloud. Monitor temperatures, adjust cooling settings, and automate food safety alerts.
+
+- **[MTA New York City Transit]**, added by [@OnFreund] - launching at 🥈 silver quality  
+  Get real-time arrival predictions for all NYC subway and bus lines using data from the [Metropolitan Transportation Authority (MTA)](https://new.mta.info/).
+
+- **[MyNeomitis]**, added by [@l-pr]  
+  Connect your [Axenco](https://www.axenco.com/) MyNeomitis heating and energy management devices, such as electric radiators, towel rails, and underfloor heating, to Home Assistant.
+
+- **[OneDrive for Business]**, added by [@zweckj] - launching at 🏆 platinum quality  
+  Use [OneDrive for Business](https://www.microsoft.com/en-us/microsoft-365/onedrive/online-cloud-storage) as a backup location for your Home Assistant backups. Great for users with a Microsoft 365 business subscription.
+
+- **[Powerfox Local]**, added by [@klaasnicolaas] - launching at 🏆 platinum quality  
+  Gather data from your [Powerfox Poweropti](https://shop.powerfox.energy/collections/frontpage) device directly over your local network, offering faster updates with no cloud dependency.
+
+- **[Redgtech]**, added by [@Jonhsady]  
+  Connect your [Redgtech](https://redgtech.com.br/) smart switches to Home Assistant. Control and monitor your cloud-connected switches and relays from this Brazilian smart home brand.
+
+- **[System Nexa 2]**, added by [@konsulten] - launching at 🥈 silver quality  
+  Integrate your [System Nexa 2](https://nexa.se/smarta-hem/system-nexa-2) smart home devices locally. Control lights, switches, and smart plugs with support for dimmers and outdoor plugs.
+
+- **[Teltonika]**, added by [@karlbeecken] - launching at 🥈 silver quality  
+  Monitor your [Teltonika Networks](https://teltonika-networks.com/) routers running RutOS. Track cellular signal quality, modem temperature, and network connectivity.
+
+- **[Trane Local]**, added by [@bdraco]  
+  Locally control [Trane](https://www.trane.com/) and [American Standard](https://www.americanstandardair.com/) thermostats over your network using a direct <abbr title="mutual TLS">mTLS</abbr> connection. No cloud required.
+
+- **[Zinvolt]**, added by [@joostlek]  
+  Monitor your [Zinvolt](https://zinvolt.com/) batteries in Home Assistant, including state of charge and other battery metrics.
+
+[@boazca]: https://github.com/boazca
+[@bdraco]: https://github.com/bdraco
+[@Danielhiversen]: https://github.com/Danielhiversen
+[@dvdinth]: https://github.com/dvdinth
+[@jcisio]: https://github.com/jcisio
+[@JohnONolan]: https://github.com/JohnONolan
+[@Jonhsady]: https://github.com/Jonhsady
+[@joostlek]: https://github.com/joostlek
+[@karlbeecken]: https://github.com/karlbeecken
+[@klaasnicolaas]: https://github.com/klaasnicolaas
+[@konsulten]: https://github.com/konsulten
+[@l-pr]: https://github.com/l-pr
+[@mettolen]: https://github.com/mettolen
+[@OnFreund]: https://github.com/OnFreund
+[@patrickvorgers]: https://github.com/patrickvorgers
+[@Xirt]: https://github.com/Xirt
+[@zweckj]: https://github.com/zweckj
+[Ghost]: /integrations/ghost
+[Hegel Amplifier]: /integrations/hegel
+[Homevolt]: /integrations/homevolt
+[Hypontech Cloud]: /integrations/hypontech
+[IDrive e2]: /integrations/idrive_e2
+[Indevolt]: /integrations/indevolt
+[IntelliClima]: /integrations/intelliclima
+[Liebherr]: /integrations/liebherr
+[MTA New York City Transit]: /integrations/mta
+[MyNeomitis]: /integrations/myneomitis
+[OneDrive for Business]: /integrations/onedrive_for_business
+[Powerfox Local]: /integrations/powerfox_local
+[Redgtech]: /integrations/redgtech
+[System Nexa 2]: /integrations/systemnexa2
+[Teltonika]: /integrations/teltonika
+[Trane Local]: /integrations/trane
+[Zinvolt]: /integrations/zinvolt
+
+This release also has new virtual integrations. Virtual integrations are stubs that are handled by other (existing) integrations to help with findability. These ones are new:
+
+- **[Ubisys]**, provided by [ZHA], added by [@abmantis]
+
+[@abmantis]: https://github.com/abmantis
+[Ubisys]: /integrations/ubisys
+[ZHA]: /integrations/zha
+
+### Noteworthy improvements to existing integrations
+
+It is not just new {% term integrations %} that have been added; existing ones are also being constantly improved. Here are some of the noteworthy changes to existing integrations:
+
+- **[Matter]** now supports carbon monoxide alarm states and <abbr title="total volatile organic compounds">TVOC</abbr> air quality level sensors. If you have Matter-certified CO sensors or air quality devices, they now show up in Home Assistant. Thanks, [@Leo2442926161] and [@lboue]!
+- **[HomeKit Controller]** now exposes water level sensors, so devices like the Smartmi Humidifier Rainforest will show their current water level in Home Assistant. Thanks, [@romanlytvyn]!
+- **[Reolink]** cameras gained five new diagonal and continuous rotation <abbr title="pan, tilt, and zoom">PTZ</abbr> buttons, plus the PTZ patrol switch now correctly reports its real-time status. Thanks, [@starkillerOG]!
+- **[SmartThings]** now supports dual-cavity Samsung ovens, with separate entities for each chamber. It also gained switch and select controls for Samsung dishwasher washing options like sanitize, heated dry, and speed booster. Thanks, [@mik-laj] and [@edu-tsen]!
+- **[Roborock]** now fully supports Zeo washing and drying machines with program selection, temperature control, drying modes, and detergent status sensors. Thanks, [@yangqian]!
+- **[OpenAI Conversation]** now supports the `gpt-image-1.5` image generation model for AI Tasks, offering cheaper and faster image generation. Thanks, [@Shulyaka]!
+- **[UniFi Protect]** cameras now have PTZ support with a `ptz_goto_preset` action for triggering presets and a PTZ patrol select entity with live state updates. Thanks, [@RaHehl]!
+- **[SwitchBot]** now lets you add passwords to Keypad Vision devices programmatically. It also gained a slow mode setting for curtain devices, which can reduce noise and improve reliability with heavier curtains. Thanks, [@zerzhang] and [@ljmerza]!
+- **[Alexa Devices]** now supports Amazon Air Quality Monitor devices, exposing sensors for air quality index, VOC index, humidity, temperature, and particulate matter. Thanks, [@jamesonuk]!
+- **[VeSync]** humidifiers now have a switch to enable or disable auto-drying mode for humidifier pads. Thanks, [@cdnninja]!
+- **[SwitchBot Cloud]** now supports the SwitchBot AI Art Frame with battery level, next/previous picture buttons, and a display image entity showing the current picture. Thanks, [@XiaoLing-git]!
+- **[KNX]** now allows configuring number entities and sending the current time directly from the UI. Additionally, expose gained a new periodic send option to periodically re-send entity states to the bus. Thanks, [@farmio]!
+- **[MELCloud]** air-to-water devices now have additional sensors for RSSI signal strength, condensing temperature, fan frequency, and estimated energy produced. Thanks, [@ffourcot]!
+- **[Nanoleaf]** replaced its underlying library with `aionanoleaf2`, fixing authorization errors that prevented newer Nanoleaf Essentials devices from connecting. Thanks, [@loebi-ch]!
+- **[Uptime Kuma]** monitors now have uptime ratio and average response time sensors for 1-day, 30-day, and 365-day periods. Thanks, [@tr4nt0r]!
+- **[Radarr]** gained two new actions: `radarr.get_movies` and `radarr.get_queue`, returning detailed information about movies in your library and the current download queue. Thanks, [@Liquidmasl]!
+- **[Renault]** vehicles now have buttons to remotely sound the horn or flash the lights. Thanks, [@sebastiaanspeck]!
+- **[Proxmox VE]** gained a sensor platform with CPU usage, memory usage, disk usage, and status sensors for nodes, virtual machines, and containers. Thanks, [@erwindouna]!
+- **[Mealie]** now has a `get_shopping_list_items` action that returns structured shopping list data, useful for automations that need more detail than the to-do entity provides. Thanks, [@andrew-codechimp]!
+- **[Ambient Weather Station]** now exposes sensors for the AQIN indoor air quality monitor, including PM2.5, PM10, CO2, temperature, humidity, and <abbr title="air quality index">AQI</abbr> measurements. Thanks, [@n-6]!
+- **[WeatherFlow]** Tempest stations now show battery level as a percentage for consistency with other integrations. Thanks, [@pkolbus]!
+- **[SleepIQ]** now provides five new sleep health sensors per sleeper: sleep score, sleep duration, heart rate average, respiratory rate average, and heart rate variability. Thanks, [@rhcp011235]!
+- **[Anthropic]** now supports the Claude Opus 4.6 model with adaptive thinking effort levels, and gained native structured outputs for more accurate tool calls on models 4.5 and newer. Thanks, [@Shulyaka]!
+- **[Tessie]** received several enhancements: an energy remaining sensor for vehicles, battery health diagnostics, island and grid status sensors for energy sites, and full energy history support for the Home Assistant Energy Dashboard. Thanks, [@jrhillery] and [@Bre77]!
+- **[Portainer]** now supports Docker stack monitoring and control with status sensors, container counts, and start/stop switches. It also gained a `prune_images` action to clean up unused Docker images. Thanks, [@erwindouna]!
+- **[Nintendo Parental Controls]** now has a bedtime end time entity, complementing the existing bedtime start time for a complete bedtime schedule. Thanks, [@pantherale0]!
+- **[LG Soundbar]** now supports play/pause media control, shows track title, artist, and album art, and reports playing/paused state. Thanks, [@alexmerkel]!
+- **[Velux]** now supports on/off switches connected to the KLF 200 gateway. Thanks, [@wollew]!
+- **[Switcher]** now supports Switcher heater devices for monitoring and control. Thanks, [@YogevBokobza]!
+- **[Cambridge Audio]** devices now have a room correction switch for compatible models. Thanks, [@noahhusby]!
+- **[Vera]** metered switches now expose power and energy sensors, bringing energy monitoring to your Vera devices. Thanks, [@jronnols]!
+- **[Control4]** thermostats now support fan mode control with Auto, Circulate, and On modes. Thanks, [@davidrecordon]!
+- **[BSB-Lan]** now shows the current HVAC action (heating, cooling, idle) on the climate entity and gained a button to synchronize your heating system's clock. Thanks, [@liudger]!
+- **[JVC Projector]** gained a wide range of new sensors and controls: source, color depth, HDR status, picture mode, installation mode, light power, and switches for E-Shift and Low Latency Mode. Thanks, [@SteveEasley]!
+- **[NRGkick]** EV chargers now have a switch to enable or pause car charging directly from Home Assistant. Thanks, [@andijakl]!
+- **[Green Planet Energy]** now shows timestamp sensors for the highest and lowest energy price times of the day, helping you time your energy usage. Thanks, [@petschni]!
+- **[Compit]** expanded significantly with new water heater, number, and binary sensor platforms for controlling hot water, adjusting temperature settings, and monitoring device states across their HVAC product range. Thanks, [@Przemko92]!
+- **[Saunum]** now has a `start_session` action, letting you start a sauna session with custom duration, target temperature, and fan duration in a single call. Thanks, [@mettolen]!
+- **[Watts Vision +]** now supports controlling smart switches alongside the existing thermostat support. Thanks, [@theobld-ww]!
+- **[Sunricher DALI]** now tracks energy consumption for DALI light devices connected through a Sunricher gateway. Thanks, [@niracler]!
+
+[@alexmerkel]: https://github.com/alexmerkel
+[@andrew-codechimp]: https://github.com/andrew-codechimp
+[@andijakl]: https://github.com/andijakl
+[@Bre77]: https://github.com/Bre77
+[@cdnninja]: https://github.com/cdnninja
+[@davidrecordon]: https://github.com/davidrecordon
+[@edu-tsen]: https://github.com/edu-tsen
+[@erwindouna]: https://github.com/erwindouna
+[@farmio]: https://github.com/farmio
+[@ffourcot]: https://github.com/ffourcot
+[@jamesonuk]: https://github.com/jamesonuk
+[@jrhillery]: https://github.com/jrhillery
+[@jronnols]: https://github.com/jronnols
+[@karwosts]: https://github.com/karwosts
+[@Lash-L]: https://github.com/Lash-L
+[@lboue]: https://github.com/lboue
+[@Leo2442926161]: https://github.com/Leo2442926161
+[@liudger]: https://github.com/liudger
+[@ljmerza]: https://github.com/ljmerza
+[@Liquidmasl]: https://github.com/Liquidmasl
+[@loebi-ch]: https://github.com/loebi-ch
+[@mettolen]: https://github.com/mettolen
+[@mik-laj]: https://github.com/mik-laj
+[@n-6]: https://github.com/n-6
+[@niracler]: https://github.com/niracler
+[@noahhusby]: https://github.com/noahhusby
+[@pantherale0]: https://github.com/pantherale0
+[@petschni]: https://github.com/petschni
+[@pkolbus]: https://github.com/pkolbus
+[@Przemko92]: https://github.com/Przemko92
+[@RaHehl]: https://github.com/RaHehl
+[@rhcp011235]: https://github.com/rhcp011235
+[@romanlytvyn]: https://github.com/romanlytvyn
+[@sebastiaanspeck]: https://github.com/sebastiaanspeck
+[@Shulyaka]: https://github.com/Shulyaka
+[@starkillerOG]: https://github.com/starkillerOG
+[@SteveEasley]: https://github.com/SteveEasley
+[@theobld-ww]: https://github.com/theobld-ww
+[@tr4nt0r]: https://github.com/tr4nt0r
+[@wollew]: https://github.com/wollew
+[@XiaoLing-git]: https://github.com/XiaoLing-git
+[@yangqian]: https://github.com/yangqian
+[@YogevBokobza]: https://github.com/YogevBokobza
+[@zerzhang]: https://github.com/zerzhang
+[Alexa Devices]: /integrations/alexa_devices
+[Ambient Weather Station]: /integrations/ambient_station
+[Anthropic]: /integrations/anthropic
+[BSB-Lan]: /integrations/bsblan
+[Cambridge Audio]: /integrations/cambridge_audio
+[Compit]: /integrations/compit
+[Control4]: /integrations/control4
+[Green Planet Energy]: /integrations/green_planet_energy
+[HomeKit Controller]: /integrations/homekit_controller
+[JVC Projector]: /integrations/jvc_projector
+[KNX]: /integrations/knx
+[LG Soundbar]: /integrations/lg_soundbar
+[Matter]: /integrations/matter
+[Mealie]: /integrations/mealie
+[MELCloud]: /integrations/melcloud
+[Nanoleaf]: /integrations/nanoleaf
+[Nintendo Parental Controls]: /integrations/nintendo_parental_controls
+[NRGkick]: /integrations/nrgkick
+[OpenAI Conversation]: /integrations/openai_conversation
+[Portainer]: /integrations/portainer
+[Proxmox VE]: /integrations/proxmoxve
+[Radarr]: /integrations/radarr
+[Recorder]: /integrations/recorder
+[Reolink]: /integrations/reolink
+[Renault]: /integrations/renault
+[Roborock]: /integrations/roborock
+[Saunum]: /integrations/saunum
+[Sensor]: /integrations/sensor
+[SleepIQ]: /integrations/sleepiq
+[SmartThings]: /integrations/smartthings
+[Sunricher DALI]: /integrations/sunricher_dali
+[SwitchBot]: /integrations/switchbot
+[SwitchBot Cloud]: /integrations/switchbot_cloud
+[Switcher]: /integrations/switcher_kis
+[Tessie]: /integrations/tessie
+[UniFi Protect]: /integrations/unifiprotect
+[Uptime Kuma]: /integrations/uptime_kuma
+[Velux]: /integrations/velux
+[Vera]: /integrations/vera
+[VeSync]: /integrations/vesync
+[Watts Vision +]: /integrations/watts
+[WeatherFlow]: /integrations/weatherflow
+
+### Integration quality scale achievements
+
+One thing we are incredibly proud of in Home Assistant is our [integration quality scale]. This scale helps us and our contributors to ensure integrations are of high quality, maintainable, and provide the best possible user experience.
+
+This release, we celebrate several {% term integrations %} that have improved their quality scale:
+
+- **9 integrations reached platinum** 🏆
+  - [GIOŚ], thanks to [@mik-laj]
+  - [HDFury], thanks to [@glenndehaan]
+  - [Immich], thanks to [@mib1185]
+  - [Namecheap DynamicDNS], thanks to [@tr4nt0r]
+  - [Portainer], thanks to [@erwindouna]
+  - [Ubiquiti airOS], thanks to [@CoMPaTech]
+  - [Watts Vision +], thanks to [@theobld-ww]
+  - [WLED], thanks to [@mik-laj]
+  - [Xbox], thanks to [@tr4nt0r]
+
+- **1 integration reached gold** 🥇
+  - [UptimeRobot], thanks to [@chemelli74]
+
+- **6 integrations reached silver** 🥈
+  - [BSB-Lan], thanks to [@liudger]
+  - [devolo Home Control], thanks to [@Shutgun]
+  - [Mastodon], thanks to [@andrew-codechimp]
+  - [NRGkick], thanks to [@andijakl]
+  - [Teslemetry], thanks to [@Bre77]
+  - [Velux], thanks to [@wollew]
+
+- **7 integrations reached bronze** 🥉
+  - [Aladdin Connect], thanks to [@JamieMagee]
+  - [Anthropic], thanks to [@Shulyaka]
+  - [OpenAI], thanks to [@zweckj]
+  - [OpenEVSE], thanks to [@c00w]
+  - [Prana], thanks to [@prana-dev-official]
+  - [Splunk], thanks to [@Bre77]
+  - [VeSync], thanks to [@cdnninja]
+
+This is a huge achievement for these integrations and their maintainers. The effort and dedication required to reach these quality levels is significant, as it involves extensive testing, documentation, error handling, and often complete rewrites of parts of the integration.
+
+A big thank you to all the contributors involved! 👏
+
+[integration quality scale]: /docs/quality_scale/
+
+[@andijakl]: https://github.com/andijakl
+[@Bre77]: https://github.com/Bre77
+[@c00w]: https://github.com/c00w
+[@cdnninja]: https://github.com/cdnninja
+[@chemelli74]: https://github.com/chemelli74
+[@CoMPaTech]: https://github.com/CoMPaTech
+[@Danielhiversen]: https://github.com/Danielhiversen
+[@erwindouna]: https://github.com/erwindouna
+[@glenndehaan]: https://github.com/glenndehaan
+[@JamieMagee]: https://github.com/JamieMagee
+[@klaasnicolaas]: https://github.com/klaasnicolaas
+[@liudger]: https://github.com/liudger
+[@mib1185]: https://github.com/mib1185
+[@mik-laj]: https://github.com/mik-laj
+[@prana-dev-official]: https://github.com/prana-dev-official
+[@Shutgun]: https://github.com/Shutgun
+[@Shulyaka]: https://github.com/Shulyaka
+[@theobld-ww]: https://github.com/theobld-ww
+[@tr4nt0r]: https://github.com/tr4nt0r
+[@zweckj]: https://github.com/zweckj
+[Aladdin Connect]: /integrations/aladdin_connect
+[Anthropic]: /integrations/anthropic
+[BSB-Lan]: /integrations/bsblan
+[devolo Home Control]: /integrations/devolo_home_control
+[GIOŚ]: /integrations/gios
+[HDFury]: /integrations/hdfury
+[Homevolt]: /integrations/homevolt
+[Immich]: /integrations/immich
+[Mastodon]: /integrations/mastodon
+[Namecheap DynamicDNS]: /integrations/namecheapdns
+[NRGkick]: /integrations/nrgkick
+[OpenAI]: /integrations/openai_conversation
+[OpenEVSE]: /integrations/openevse
+[Prana]: /integrations/prana
+[Portainer]: /integrations/portainer
+[Powerfox Local]: /integrations/powerfox_local
+[Splunk]: /integrations/splunk
+[Teslemetry]: /integrations/teslemetry
+[Ubiquiti airOS]: /integrations/airos
+[UptimeRobot]: /integrations/uptimerobot
+[VeSync]: /integrations/vesync
+[Watts Vision +]: /integrations/watts
+[WLED]: /integrations/wled
+[Xbox]: /integrations/xbox
+
+### Now available to set up from the UI
+
+While most {% term integrations %} can be set up directly from the Home Assistant user interface, some were only available using YAML configuration. We keep moving more integrations to the UI, making them more accessible for everyone to set up and use.
+
+The following integrations are now available via the Home Assistant UI:
+
+- **[InfluxDB]**, done by [@RobBie1221]
+- **[Ness Alarm]**, done by [@Poshy163]
+- **[Splunk]**, done by [@Bre77]
+
+[@Bre77]: https://github.com/Bre77
+[@Poshy163]: https://github.com/Poshy163
+[@RobBie1221]: https://github.com/RobBie1221
+[InfluxDB]: /integrations/influxdb
+[Ness Alarm]: /integrations/ness_alarm
+[Splunk]: /integrations/splunk
+
+## Other noteworthy changes
+
+There are many more improvements in this release; here are some of the other noteworthy changes:
+
+- The settings pages for Matter, Z-Wave, Zigbee, and Bluetooth have been reorganized for better clarity and discoverability. Thanks, [@matthiasdebaat]!
+- You can now ask your Assist to remove items from a to-do list! The new remove item intent complements the existing complete item intent, so managing your lists by voice just got even easier. Thanks, [@mistic100]!
+- The statistics graph card editor now offers "Year" as a selectable period, making it easy to view annual trends right from the UI. Thanks, [@karwosts]!
+- The Security dashboard now also shows window-type covers (automated windows), so they appear alongside your other window and door sensors. Thanks, [@jhenkens]!
+- The sections view now supports footer cards, giving you a sticky card at the bottom of the viewport, similar to the existing view header. Thanks, [@MindFreeze]!
+
+[@gpoitch]: https://github.com/gpoitch
+[@jhenkens]: https://github.com/jhenkens
+[@karwosts]: https://github.com/karwosts
+[@lboue]: https://github.com/lboue
+[@matthiasdebaat]: https://github.com/matthiasdebaat
+[@MindFreeze]: https://github.com/MindFreeze
+[@mistic100]: https://github.com/mistic100
+
+### Running on Python 3.14 🚀
+
+This release ships running on Python 3.14! In case you are wondering what that means: Python is the programming language Home Assistant is built with.
+
+So, why does it matter to you? Python 3.14 brings performance improvements to the foundation that Home Assistant is built on. The new version includes a faster interpreter, improved startup times, and better memory usage, all of which contribute to a snappier Home Assistant experience. 🚀
+
+Don't worry! We handle the upgrade to Python 3.14 automatically for you on all officially supported installation methods. Just upgrade Home Assistant as you normally would, and you are good to go! 😎
+
+## Need help? Join the community
+
+Home Assistant has a great community of users who are all more than willing to help each other out. So, join us!
+
+Our very active [Discord chat server](/join-chat) is an excellent place to be, and don't forget to join our amazing [forums](https://community.home-assistant.io/).
+
+Found a bug or issue? Please report it in our [issue tracker](https://github.com/home-assistant/core/issues) to get it fixed! Or check [our help page](/help) for guidance on more places you can go.
+
+Are you more into email? [Sign up for the Open Home Foundation Newsletter](/newsletter) to get the latest news about features, things happening in our community, and other projects that support the Open Home straight into your inbox.
+
+## Backward-incompatible changes
+
+We do our best to avoid making changes to existing functionality that might unexpectedly impact your Home Assistant installation. Unfortunately, sometimes it is inevitable.
+
+We always make sure to document these changes to make the transition as easy as possible for you. This release has the following backward-incompatible changes:
+
+{% details "BSB-Lan" %}
+
+The water heater operation mode state `on` has been changed to `performance` for the BSB-Lan water heater. If you use this state in your automations or scripts, you will need to update them to use the new state value.
+
+([@liudger] - [#160256]) ([BSB-Lan documentation])
+
+[@liudger]: https://github.com/liudger
+[#160256]: https://github.com/home-assistant/core/pull/160256
+[BSB-Lan documentation]: /integrations/bsblan/
+
+{% enddetails %}
+
+{% details "Container image" %}
+
+Home Assistant container images are now compressed with `zstd` instead of `gzip`. Since containerd has supported `zstd` since 2021, this is not expected to break current installations. If you are running a very old container runtime, make sure it supports `zstd` before updating.
+
+([@duhow] - [#160665])
+
+[@duhow]: https://github.com/duhow
+[#160665]: https://github.com/home-assistant/core/pull/160665
+
+{% enddetails %}
+
+{% details "LIFX" %}
+
+Passing the `color_temp` parameter (in mireds) to the `lifx.effect_pulse` action is no longer allowed. Use the `color_temp_kelvin` parameter instead.
+
+([@Djelibeybi] - [#161848]) ([LIFX documentation])
+
+[@Djelibeybi]: https://github.com/Djelibeybi
+[#161848]: https://github.com/home-assistant/core/pull/161848
+[LIFX documentation]: /integrations/lifx/
+
+{% enddetails %}
+
+{% details "Lights" %}
+
+Using `color_temp` (in mireds) to set a light's color temperature is no longer supported. Use `color_temp_kelvin` instead.
+
+Additionally, the `color_temp`, `kelvin`, `min_mireds`, and `max_mireds` light entity state attributes have been removed. Use `color_temp_kelvin`, `min_color_temp_kelvin`, and `max_color_temp_kelvin` instead.
+
+([@emontnemery] - [#161777]) ([light documentation])
+
+[@emontnemery]: https://github.com/emontnemery
+[#161777]: https://github.com/home-assistant/core/pull/161777
+[light documentation]: /integrations/light/
+
+{% enddetails %}
+
+{% details "Satel Integra" %}
+
+Binary sensors and switches now have an initial state of unknown while the alarm panel is still reporting all states during startup. Previously, the default state was off, which was incorrect, as no data had been received from the panel yet.
+
+The chance that you are impacted is low, as most states are reported before Home Assistant fully finishes setup; but this might occur on larger installations and slower connections.
+
+([@Tommatheussen] - [#158533]) ([Satel Integra documentation])
+
+[@Tommatheussen]: https://github.com/Tommatheussen
+[#158533]: https://github.com/home-assistant/core/pull/158533
+[Satel Integra documentation]: /integrations/satel_integra/
+
+{% enddetails %}
+
+{% details "Snapcast" %}
+
+Media player entities for Snapcast groups have been removed. Additionally, the Snapcast-specific grouping actions have been removed. If you use these entities or actions in your automations or scripts, you will need to update them.
+
+([@luar123] - [#160945]) ([Snapcast documentation])
+
+[@luar123]: https://github.com/luar123
+[#160945]: https://github.com/home-assistant/core/pull/160945
+[Snapcast documentation]: /integrations/snapcast/
+
+{% enddetails %}
+
+{% details "StarLine" %}
+
+The `ignition` and `autostart` state attributes of the engine switch have been removed. Two new binary sensors have been introduced to replace them. If you reference these attributes in your automations or scripts, update them to use the new binary sensor entities instead.
+
+([@epenet] - [#163289]) ([StarLine documentation])
+
+[@epenet]: https://github.com/epenet
+[#163289]: https://github.com/home-assistant/core/pull/163289
+[StarLine documentation]: /integrations/starline/
+
+{% enddetails %}
+
+{% details "Tado" %}
+
+Mobile device tracking has been removed from the Tado integration. Mobile devices and their associated device tracker entities are no longer available. This change resolves re-authentication issues and reduces unnecessary load on the Tado API.
+
+([@erwindouna] - [#160881]) ([Tado documentation])
+
+[@erwindouna]: https://github.com/erwindouna
+[#160881]: https://github.com/home-assistant/core/pull/160881
+[Tado documentation]: /integrations/tado/
+
+{% enddetails %}
+
+{% details "Template" %}
+
+The behavior of template fans has changed:
+
+- A template fan's state will be `unavailable` if the `state` template encounters a syntax error. Previously, a template error would show the fan's state as `off`.
+- The `percentage` attribute will be `None` if the `percentage` template encounters a syntax error. Previously, it would be `0`.
+- Template fans can now have the `unknown` state. A `state` template that returns `None` will render the entity as `unknown` instead of `off`.
+
+([@Petro31] - [#162328]) ([Template documentation])
+
+[@Petro31]: https://github.com/Petro31
+[#162328]: https://github.com/home-assistant/core/pull/162328
+[Template documentation]: /integrations/template/
+
+{% enddetails %}
+
+{% details "Z-Wave" %}
+
+Percentage speeds reported by Z-Wave fans have been corrected to align with other integrations. As a result, values may differ slightly. For example, a value previously reported as 67% may now appear as 66%. If you have automations that trigger on exact percentage values, you may need to adjust them.
+
+([@arturpragacz] - [#163093]) ([Z-Wave documentation])
+
+[@arturpragacz]: https://github.com/arturpragacz
+[#163093]: https://github.com/home-assistant/core/pull/163093
+[Z-Wave documentation]: /integrations/zwave_js/
+
+{% enddetails %}
+
+If you are a custom integration developer and want to learn about changes and new features available for your integration: Be sure to follow our [developer blog][devblog]. The following changes are the most notable for this release:
+
+- [async_listen in Labs is deprecated](https://developers.home-assistant.io/blog/2026/02/16/labs-async-listen-deprecation)
+- [Changes in OAuth 2.0 helper error handling](https://developers.home-assistant.io/blog/2026/02/19/oauth-token-request-error-handling)
+- [Custom integrations can now ship their own brand images](https://developers.home-assistant.io/blog/2026/02/24/brands-proxy-api)
+- [Reconfiguration support for webhook helper](https://developers.home-assistant.io/blog/2026/02/18/reconfiguration-support-for-webhook-helper)
+- [Remove deprecated light features](https://developers.home-assistant.io/blog/2026/02/23/remove-deprecate-light-features)
+
+[devblog]: https://developers.home-assistant.io/blog/
+
+## All changes
+
+Of course, there is a lot more in this release. You can find a list of all changes made here: [Full changelog for Home Assistant Core 2026.3](/changelogs/core-2026.3).
