@@ -1801,7 +1801,7 @@ mode:
   type: string
   default: auto
 device_class:
-  description: Overrides the DPT's default [class of the device](/integrations/number#device-class), changing the device state and icon that is displayed on the frontend.
+  description: Overrides the DPT's default [device class](/integrations/number#device-class), changing the device state and icon that is displayed on the frontend.
   required: false
   type: string
 unit_of_measurement:
