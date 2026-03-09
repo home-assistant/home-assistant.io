@@ -74,9 +74,9 @@ If you are not sure which privileges you need for control in your Proxmox VE set
 Before creating the user, you need to create a group for the user.
 Privileges can be either applied to Groups or Roles.
 
-1. Select **Datacenter**
-2. Open **Permissions** and select **Groups**
-3. Select the **Create** button above all the existing groups
+1. Select **Datacenter**.
+2. Open **Permissions** and select **Groups**.
+3. Select the **Create** button above all the existing groups.
 4. Name the new group (e.g., `HomeAssistant`)
 5. Confirm **Create**
 
