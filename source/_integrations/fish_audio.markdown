@@ -11,7 +11,7 @@ ha_platforms:
 ha_config_flow: true
 ha_integration_type: service
 ha_codeowners:
-  - "@noambav"
+  - '@noambav'
 ha_quality_scale: bronze
 ---
 
