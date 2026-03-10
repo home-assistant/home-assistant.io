@@ -29,19 +29,19 @@ The **EARN-E P1 Meter** integration provides the following entities.
 
 ### Real-time sensors (~1 second updates)
 
-- **Power Delivered** — Current power being consumed (kW)
-- **Power Returned** — Current power being returned to the grid (kW)
-- **Voltage L1** — Voltage on phase 1 (V)
-- **Current L1** — Current on phase 1 (A)
+- **Power delivered**: Current power being consumed (kW)
+- **Power returned**: Current power being returned to the grid (kW)
+- **Voltage L1**: Voltage on phase 1 (V)
+- **Current L1**: Current on phase 1 (A)
 
 ### Meter reading sensors (~60 second updates)
 
-- **Energy Delivered Tariff 1** — Total energy consumed on tariff 1 (kWh)
-- **Energy Delivered Tariff 2** — Total energy consumed on tariff 2 (kWh)
-- **Energy Returned Tariff 1** — Total energy returned on tariff 1 (kWh)
-- **Energy Returned Tariff 2** — Total energy returned on tariff 2 (kWh)
-- **Gas Delivered** — Total gas consumed (m³)
-- **Wi-Fi RSSI** — Wi-Fi signal strength of the device (dBm)
+- **Energy delivered tariff 1**: Total energy consumed on tariff 1 (kWh)
+- **Energy delivered tariff 2**: Total energy consumed on tariff 2 (kWh)
+- **Energy returned tariff 1**: Total energy returned on tariff 1 (kWh)
+- **Energy returned tariff 2**: Total energy returned on tariff 2 (kWh)
+- **Gas delivered**: Total gas consumed (m³)
+- **Wi-Fi RSSI**: Wi-Fi signal strength of the device (dBm)
 
 ## Prerequisites
 
@@ -50,8 +50,6 @@ The EARN-E energy monitor must be:
 - Connected to your smart meter's P1 port
 - Connected to the same local network as your Home Assistant instance
 - Powered on and broadcasting UDP packets on port 16121
-
-## Configuration
 
 {% include integrations/config_flow.md %}
 
