@@ -1,10 +1,10 @@
 ---
 title: EARN-E P1 Meter
-description: Monitor your smart meter's energy and gas data in real time with the EARN-E P1 Meter integration.
+description: Monitor your smart meter's energy and gas data in real-time with the EARN-E P1 Meter integration.
 ha_category:
   - Energy
   - Sensor
-ha_release: "2026.4"
+ha_release: 2026.4
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
@@ -25,7 +25,7 @@ No cloud connection or polling is needed — the device pushes data directly to 
 
 ## Supported functionality
 
-The following sensor entities are created:
+The **EARN-E P1 Meter** integration provides the following entities.
 
 ### Real-time sensors (~1 second updates)
 
@@ -41,7 +41,7 @@ The following sensor entities are created:
 - **Energy Returned Tariff 1** — Total energy returned on tariff 1 (kWh)
 - **Energy Returned Tariff 2** — Total energy returned on tariff 2 (kWh)
 - **Gas Delivered** — Total gas consumed (m³)
-- **WiFi RSSI** — WiFi signal strength of the device (dBm)
+- **Wi-Fi RSSI** — Wi-Fi signal strength of the device (dBm)
 
 ## Prerequisites
 
