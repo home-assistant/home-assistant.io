@@ -14,6 +14,7 @@ ha_config_flow: true
 ha_zeroconf: true
 ha_platforms:
   - binary_sensor
+  - device_tracker
   - diagnostics
   - number
   - sensor
@@ -165,6 +166,14 @@ These sensors are only available on NRGkick SIM models and are disabled by defau
 - **Domestic plug 1 temperature** (°C): Domestic attachment pin 1 temperature.
 - **Domestic plug 2 temperature** (°C): Domestic attachment pin 2 temperature.
 
+### Device tracker
+
+The integration creates the following device tracker:
+
+- **GPS tracker**: Current device location (latitude and longitude) and location accuracy.
+
+The device tracker is only available on NRGkick SIM models.
+
 ### Controls
 
 The integration creates the following controls.
@@ -185,6 +194,7 @@ Entity IDs depend on your device name in Home Assistant. The examples below assu
 - `sensor.nrgkick_charging_current`: Charging current.
 - `sensor.nrgkick_charged_energy`: Charged energy.
 - `sensor.nrgkick_status`: Charging status.
+- `device_tracker.nrgkick_gps_tracker`: Current location of the device (only on SIM models).
 - `number.nrgkick_charging_current`: Set the charging current.
 - `number.nrgkick_energy_limit`: Set an energy limit for the current charging session (0 = no limit).
 - `number.nrgkick_phase_count`: Set the number of phases.
@@ -202,7 +212,7 @@ The integration {% term polling polls %} the device for updates.
 - The maximum charging current and phase count depend on the connected attachment.
 - Per-phase values for L2 and L3 are only available when the power source and session are using multiple phases.
 - Some temperature sensors depend on the connected attachment and may not be available.
-- Cellular and GPS sensors are only available on SIM models.
+- Cellular sensors and the GPS device tracker are only available on SIM models.
 
 ## Troubleshooting
 

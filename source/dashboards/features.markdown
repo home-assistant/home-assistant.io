@@ -376,6 +376,41 @@ type:
   type: string
 {% endconfiguration %}
 
+## Cover tilt preset
+
+Widget that displays a dropdown with preset tilt positions for a [cover](/integrations/cover).
+
+<p class='img'>
+  <img src='/images/dashboards/features/cover_tilt_preset.png' alt='Screenshot of the tile card with the cover tilt preset feature'>
+  Screenshot of the tile card with the cover tilt preset feature
+</p>
+
+```yaml
+features:
+  - type: "cover-tilt-preset"
+    positions:
+      - 0
+      - 25
+      - 75
+      - 100
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`cover-tilt-preset`"
+  type: string
+positions:
+  required: false
+  description: List of preset tilt positions to show on the card. Values are percentages from 0 to 100, and you can configure up to 6 positions.
+  type: list
+  default:
+    - 0
+    - 25
+    - 75
+    - 100
+{% endconfiguration %}
+
 ## Cover tilt position
 
 Widget that displays a slider to control the tilt position for a [cover](/integrations/cover).

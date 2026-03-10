@@ -559,6 +559,13 @@ Features:
 
 This is an encrypted device. For testing, you can execute the actions that this device supports individually within the development tools.
 
+Note: Users need to bind the device to the lock before the doorbell event can be triggered.
+
+Features:
+- get battery
+- get tamper alarm
+- get doorbell event
+
 Actions:
 - add_password
 
