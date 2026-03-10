@@ -66,8 +66,8 @@ The integration provides diagnostic sensors for monitoring the incoming audio an
 - **Incoming video aspect ratio**
   - **Description**: The aspect ratio of the incoming video signal.
   - **Options**: 16:9, 4:3, Undefined
-- **Incoming video colorspace**
-  - **Description**: The colorspace of the incoming video signal.
+- **Incoming video color space**
+  - **Description**: The color space of the incoming video signal.
   - **Options**: Normal, HDR10, HDR10+, HLG, Dolby Vision
 
 #### Audio sensors
