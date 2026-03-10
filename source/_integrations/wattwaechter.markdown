@@ -8,7 +8,7 @@ ha_release: 2026.4
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
-  - '@simono41'
+  - '@smartcircuits'
 ha_domain: wattwaechter
 ha_platforms:
   - diagnostics
