@@ -55,7 +55,7 @@ This integration may also work with [JBL](https://www.jblsynthesis.com/products/
 
 The integration provides the following diagnostic binary sensors, one for each zone. They are disabled by default.
 
-- **Zone incoming video interlaced**: Indicates whether the incoming video signal is using interlaced scanning. Shows as on when the signal is interlaced, off when progressive, and unknown when video parameters are not available.
+- **Zone incoming video interlaced**: Indicates whether the incoming video signal is using interlaced scanning. It is `on` when the signal is interlaced, `off` when it is progressive, and `unknown` when video parameters are not available.
 
 ## Power state
 
