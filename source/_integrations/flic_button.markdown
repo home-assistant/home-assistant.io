@@ -32,7 +32,7 @@ The following Flic devices are supported:
 
 - **Flic 2** — A single-button device powered by a CR2032 coin cell battery. Supports click, double-click, and hold actions.
 - **Flic Duo** — A two-button device (big button and small button) powered by a CR2032 coin cell battery. Supports click, double-click, hold, swipe gestures (left, right, up, down), and rotation while holding a button.
-- **Flic Twist** — A rotary dial device powered by 2x AAA batteries with 12 physical detent positions. Supports click, double-click, hold, and rotation. The rotation behavior is configurable via the push-twist mode option.
+- **Flic Twist** — A rotary dial device powered by two AAA batteries with 12 physical detent positions. Supports click, double-click, hold, and rotation. The rotation behavior is configurable via the push-twist mode option.
 
 ## Prerequisites
 
