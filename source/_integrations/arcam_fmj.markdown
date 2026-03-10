@@ -12,6 +12,7 @@ ha_domain: arcam_fmj
 ha_ssdp: true
 ha_platforms:
   - media_player
+  - sensor
 ha_integration_type: device
 ---
 
@@ -47,6 +48,26 @@ This integration may also work with [JBL](https://www.jblsynthesis.com/products/
 - SDP-55/58
 
 {% include integrations/config_flow.md %}
+
+## Supported functionality
+
+### Sensors
+
+The integration provides diagnostic sensors for monitoring the incoming audio and video stream properties of each zone. All sensors are disabled by default and can be enabled from the device page.
+
+#### Video sensors
+
+- **Incoming video horizontal resolution**: The horizontal resolution of the incoming video signal, in pixels.
+- **Incoming video vertical resolution**: The vertical resolution of the incoming video signal, in pixels.
+- **Incoming video refresh rate**: The refresh rate of the incoming video signal, in Hz.
+- **Incoming video aspect ratio**: The aspect ratio of the incoming video signal (16:9, 4:3, or undefined).
+- **Incoming video colorspace**: The colorspace of the incoming video signal (Normal, HDR10, HDR10+, HLG, or Dolby Vision).
+
+#### Audio sensors
+
+- **Incoming audio format**: The format of the incoming audio signal, such as PCM, Dolby Digital, DTS, Dolby TrueHD, Dolby Atmos, Auro-3D, and others.
+- **Incoming audio configuration**: The spatial configuration of the incoming audio signal, such as stereo, 5.1, 7.1, or various Auro-3D and Dolby Atmos layouts.
+- **Incoming audio sample rate**: The sample rate of the incoming audio signal, in Hz.
 
 ## Power state
 
