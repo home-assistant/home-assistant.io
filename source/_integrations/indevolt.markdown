@@ -57,7 +57,7 @@ The Indevolt integration provides sensors for monitoring your device (read only)
 
 The following button entity allows triggering device actions directly from Home Assistant.
 
-- **Pause battery**: Temporarily pauses battery charging and discharging. The battery activities can be resumed by changing the energy mode.
+- **Pause battery**: Temporarily pauses battery charging and discharging. Change the energy mode to resume normal battery activity.
 
 ### Sensors
 
