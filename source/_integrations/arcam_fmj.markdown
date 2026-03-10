@@ -57,17 +57,29 @@ The integration provides diagnostic sensors for monitoring the incoming audio an
 
 #### Video sensors
 
-- **Incoming video horizontal resolution**: The horizontal resolution of the incoming video signal, in pixels.
-- **Incoming video vertical resolution**: The vertical resolution of the incoming video signal, in pixels.
-- **Incoming video refresh rate**: The refresh rate of the incoming video signal, in Hz.
-- **Incoming video aspect ratio**: The aspect ratio of the incoming video signal (16:9, 4:3, or undefined).
-- **Incoming video colorspace**: The colorspace of the incoming video signal (Normal, HDR10, HDR10+, HLG, or Dolby Vision).
+- **Incoming video horizontal resolution**
+  - **Description**: The horizontal resolution of the incoming video signal, in pixels.
+- **Incoming video vertical resolution**
+  - **Description**: The vertical resolution of the incoming video signal, in pixels.
+- **Incoming video refresh rate**
+  - **Description**: The refresh rate of the incoming video signal, in Hz.
+- **Incoming video aspect ratio**
+  - **Description**: The aspect ratio of the incoming video signal.
+  - **Options**: 16:9, 4:3, Undefined
+- **Incoming video colorspace**
+  - **Description**: The colorspace of the incoming video signal.
+  - **Options**: Normal, HDR10, HDR10+, HLG, Dolby Vision
 
 #### Audio sensors
 
-- **Incoming audio format**: The format of the incoming audio signal, such as PCM, Dolby Digital, DTS, Dolby TrueHD, Dolby Atmos, Auro-3D, and others.
-- **Incoming audio configuration**: The spatial configuration of the incoming audio signal, such as stereo, 5.1, 7.1, or various Auro-3D and Dolby Atmos layouts.
-- **Incoming audio sample rate**: The sample rate of the incoming audio signal, in Hz.
+- **Incoming audio format**
+  - **Description**: The format of the incoming audio signal.
+  - **Options**: Analogue direct, Auro-3D, Dolby Atmos, Dolby Digital, Dolby Digital EX, Dolby Digital Plus, Dolby Digital Surround, Dolby TrueHD, DTS, DTS 96/24, DTS Core, DTS-ES Discrete, DTS-ES Discrete 96/24, DTS-ES Matrix, DTS-ES Matrix 96/24, DTS-HD High Resolution Audio, DTS-HD Master Audio, DTS Low Bit Rate, DTS:X, IMAX Enhanced, PCM, PCM zero, Undetected, Unsupported
+- **Incoming audio configuration**
+  - **Description**: The spatial channel configuration of the incoming audio signal.
+  - **Options**: Mono, Mono + LFE, Dual mono, Dual mono + LFE, Stereo only, Stereo only Lo/Ro, Stereo only Lo/Ro + LFE, Stereo + LFE, Stereo downmix, Stereo downmix + LFE, Stereo center, Stereo center + LFE, Stereo surround mono, Stereo surround mono + LFE, Stereo surround L/R, Stereo surround L/R + LFE, Stereo surround L/R back mono, Stereo surround L/R back mono + LFE, Stereo surround L/R back matrix, Stereo surround L/R back matrix + LFE, Stereo surround L/R back L/R, Stereo surround L/R back L/R + LFE, Stereo center surround mono, Stereo center surround mono + LFE, Stereo center surround L/R, Stereo center surround L/R + LFE, Stereo center surround L/R back mono, Stereo center surround L/R back mono + LFE, Stereo center surround L/R back matrix, Stereo center surround L/R back matrix + LFE, Stereo center surround L/R back L/R, Stereo center surround L/R back L/R + LFE, Auro quad, Auro 2.2.2, Auro 5.0, Auro 5.1, Auro 8.0, Auro 9.1, Auro 10.1, Auro 11.1, Auro 13.1, Undetected, Unknown
+- **Incoming audio sample rate**
+  - **Description**: The sample rate of the incoming audio signal, in Hz.
 
 ## Power state
 
