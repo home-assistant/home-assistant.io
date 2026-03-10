@@ -201,6 +201,12 @@ multiple:
   type: boolean
   default: false
   required: false
+reorder:
+  description: >
+    Allows reordering of areas (only applies if `multiple` is set to `true`).
+  type: boolean
+  default: false
+  required: false
 {% endconfiguration %}
 
 The output of this selector is the area ID, or (in case `multiple` is set to
