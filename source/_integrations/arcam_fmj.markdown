@@ -11,6 +11,7 @@ ha_codeowners:
 ha_domain: arcam_fmj
 ha_ssdp: true
 ha_platforms:
+  - binary_sensor
   - media_player
 ha_integration_type: device
 ---
@@ -47,6 +48,14 @@ This integration may also work with [JBL](https://www.jblsynthesis.com/products/
 - SDP-55/58
 
 {% include integrations/config_flow.md %}
+
+## Supported functionality
+
+### Binary sensors
+
+The integration provides the following diagnostic binary sensor for each zone. These are disabled by default.
+
+- **Zone incoming video interlaced**: Indicates whether the incoming video signal is using interlaced scanning. Shows as on when the signal is interlaced, off when progressive, and unknown when video parameters are not available.
 
 ## Power state
 
