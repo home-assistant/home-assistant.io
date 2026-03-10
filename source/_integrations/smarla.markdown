@@ -40,20 +40,23 @@ The **Swing2Sleep Smarla** {% term integration %} enables Home Assistant to inte
 
 {% include integrations/config_flow.md %}
 
-## Entities
+## Provided entities
 
-This component will set up the following entities:
+The **Swing2Sleep Smarla** integration provides one `switch` entity for each configured Smarla device as its main feature, allowing you to toggle the cradle's oscillation.
+The firmware of each device can be monitored and updated through an `update` entity available on the device page.
 
-| Entity         | Platform | Description                                                 |
-| -------------- | -------- | ----------------------------------------------------------- |
-| `swing_active` | `switch` | Turns the cradle’s oscillation on or off.                   |
-| `smart_mode`   | `switch` | Enables or disables automatic intensity control.            |
-| `intensity`    | `number` | Sets the intensity level (range: `0` to `100`).             |
-| `amplitude`    | `sensor` | Displays the current measured amplitude of the oscillation. |
-| `period`       | `sensor` | Displays the current measured period of the oscillation.    |
-| `activity`     | `sensor` | Displays the current measured activity level.               |
-| `swing_count`  | `sensor` | Displays the total number of swings.                        |
-| `update`       | `update` | Allows to track/update Smarla's firmware.                   |
+Additionally, the integration sets up the following entities:
+
+- **Switches**
+  - `Smart mode`: Enables or disables automatic intensity control.
+- **Numbers**
+  - `Intensity`: Sets the intensity level (range: `0` to `100`).
+- **Sensors**
+  - `Amplitude`: Displays the current measured amplitude of the oscillation.
+  - `Period`: Displays the current measured period of the oscillation.
+  - `Activity`: Displays the current measured activity level.
+  - `Swing count`: Displays the total number of swings.
+  - `Total swing time`: Displays the total swing time in seconds.
 
 ## Removing the integration
 

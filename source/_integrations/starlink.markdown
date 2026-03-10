@@ -23,7 +23,7 @@ ha_platforms:
   - sensor
   - switch
   - time
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 The **Starlink** {% term integration %} allows you to integrate your [Starlink](https://www.starlink.com/) into Home Assistant.

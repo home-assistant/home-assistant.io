@@ -11,6 +11,8 @@ ha_domain: openai_conversation
 ha_integration_type: service
 ha_platforms:
   - conversation
+  - stt
+  - tts
 related:
   - docs: /voice_control/voice_remote_expose_devices/
     title: Exposing entities to Assist
@@ -20,6 +22,7 @@ related:
     title: OpenAI API key
   - url: https://www.openai.com
     title: OpenAI
+ha_quality_scale: bronze
 ---
 
 The **OpenAI** {% term integration %} adds a conversation agent powered by [OpenAI](https://www.openai.com) in Home Assistant.
