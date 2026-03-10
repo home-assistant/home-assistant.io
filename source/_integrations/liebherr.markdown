@@ -9,7 +9,7 @@ ha_domain: liebherr
 ha_integration_type: hub
 ha_zeroconf: true
 ha_config_flow: true
-ha_quality_scale: bronze
+ha_quality_scale: silver
 related:
   - url: https://home.liebherr.com/
     title: Liebherr
@@ -25,6 +25,7 @@ ha_category:
   - Sensor
   - Switch
 ha_platforms:
+  - diagnostics
   - number
   - select
   - sensor

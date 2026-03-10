@@ -115,6 +115,14 @@
   link: /integrations/button
   aliases:
     - buttons
+- term: Calendar entity
+  definition: >-
+    A calendar entity represents a schedule of events coming from a local or external calendar source.
+    It can be used to trigger automations based on the start or end of an event, react to offsets (like 15 minutes before), or retrieve event details through services.
+  link: /integrations/calendar
+  aliases:
+    - calendar
+    - calendars
 - term: Category
   definition: >-
     A category is an organization tool that allows [grouping](/docs/organizing/) items in a table.

@@ -25,7 +25,7 @@ integration_type: hub
 related:
   - url: https://zimi.life/
 ha_quality_scale: bronze
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The **Zimi Cloud Controller** {% term integration %} allows you to connect your Zimi Cloud Controller to Home Assistant and, via this integration, control local devices connected to the Zimi mesh.

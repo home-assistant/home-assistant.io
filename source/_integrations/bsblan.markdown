@@ -1,5 +1,5 @@
 ---
-title: BSB-Lan
+title: BSB-LAN
 description: Instructions on how to integrate BSBLan device into Home Assistant.
 ha_category:
   - Button 
@@ -20,6 +20,7 @@ ha_platforms:
   - water_heater
 ha_integration_type: device
 ha_zeroconf: true
+ha_quality_scale: silver
 ---
 
 The **BSB-Lan** {% term integration %} integrates [BSBLan](https://github.com/fredlcore/BSB-LAN) devices into Home Assistant.
@@ -54,7 +55,13 @@ The following sensors are available, depending on your heating system:
 
 - Inside temperature
 - Outside temperature
-- Total Energy
+- Total Energy (disabled by default)
+
+To use the **Total Energy** sensor, [enable the entity](/common-tasks/general/#enabling-or-disabling-entities) in Home Assistant.
+
+{% note %}
+The **Total Energy** sensor is not real-time. It updates in 1 kWh steps, so the value changes only after another 1 kWh has been used.
+{% endnote %}
 
 
 ## Actions

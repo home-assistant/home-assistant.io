@@ -8,6 +8,7 @@ ha_release: 0.9
 ha_iot_class: Local Push
 ha_codeowners:
   - '@mdegat01'
+  - '@Robbie1221'
 ha_domain: influxdb
 ha_platforms:
   - sensor
@@ -16,6 +17,7 @@ related:
   - docs: /docs/configuration/
     title: Configuration file
 ha_quality_scale: legacy
+ha_config_flow: true
 ---
 
 The **InfluxDB** {% term integration %} lets you transfer all state changes to an external [InfluxDB](https://influxdata.com/) database. This integration supports:
