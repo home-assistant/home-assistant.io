@@ -100,7 +100,7 @@ Your assistant will now use the default voice and model you configured for the F
 
 ### Using with Large Language Models (LLMs)
 
-The `s2-pro`, `s1` and `v1.6` models are capable of highly expressive speech by using special markers for emotion and tone. To leverage this with a Large Language Model (LLM), you can add instructions to your prompt that guide the LLM to generate these markers in its response. For a complete list of available markers and more advanced examples, you can refer to the [emotion control documentation](https://docs.fish.audio/developer-guide/core-features/emotions) to help you craft the perfect prompt for your needs.
+The `s2-pro`, `s1`, and `v1.6` models are capable of highly expressive speech by using special markers for emotion and tone. To leverage this with a Large Language Model (LLM), you can add instructions to your prompt that guide the LLM to generate these markers in its response. For a complete list of available markers and more advanced examples, you can refer to the [emotion control documentation](https://docs.fish.audio/developer-guide/core-features/emotions) to help you craft the perfect prompt for your needs.
 
 For example, you could combine your main request with a set of instructions for the LLM like this:
 
