@@ -9,7 +9,7 @@ ha_domain: freshr
 ha_config_flow: true
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
 ha_codeowners:
   - '@SierraNL'
 ---
