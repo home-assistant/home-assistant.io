@@ -35,7 +35,7 @@ The WattWächter Plus must be connected to your local network and reachable from
 
 {% include integrations/config_flow.md %}
 
-The integration supports automatic discovery via {% term mDNS %}/{% term zeroconf %}. If your device is on the same network, it will appear automatically in the discovered integrations.
+The integration supports automatic discovery via mDNS. If your device is on the same network, it will appear automatically in the discovered integrations.
 
 ### Configuration parameters
 
