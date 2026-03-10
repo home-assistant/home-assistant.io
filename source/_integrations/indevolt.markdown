@@ -1,14 +1,15 @@
 ---
 title: Indevolt
 description: Instructions on how to integrate your Indevolt device with Home Assistant.
-ha_release: 2026.3
+ha_release: 2026.4
 ha_category:
   - Energy
   - Sensor
 ha_iot_class: Local Polling
 ha_codeowners:
-  - '@xirtnl'
+  - '@xirt'
 ha_platforms:
+  - button
   - number
   - select
   - sensor
@@ -51,6 +52,12 @@ The Indevolt integration communicates with your device over its standard TCP por
 ## Supported functionality
 
 The Indevolt integration provides sensors for monitoring your device (read only).
+
+### Buttons
+
+The following button entity allows triggering device actions directly from Home Assistant.
+
+- **Pause battery**: Temporarily pauses battery charging and discharging. The battery activities can be resumed by changing the energy mode.
 
 ### Sensors
 
