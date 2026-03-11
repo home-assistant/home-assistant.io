@@ -20,10 +20,16 @@ The **HiVi Speaker** {% term integration %} allows you to control [HiVi](https:/
 
 The integration automatically discovers compatible HiVi Multi-Room devices on your local network and controls them directly over your home network. Media browsing can use local media and [DLNA Digital Media Server](/integrations/dlna_dms/) content when that integration is configured.
 
-There is support for the following platform types within Home Assistant:
+## Supported devices
 
-- [Media player](#media-player)
-- [Switch](#switch)
+Compatible with HiVi speakers that support Multi-Room, including (but not limited to):
+
+- HiVi M5A, M3AMKIII, H6, H8, H5MKII, M500, M300MKII, M200MKII (Wi‑Fi), M200D, M100MKIII, M80W
+- MT1-MAX, MT1-MINI
+- T200MKII, MS2 series
+
+Other HiVi models with Multi-Room functionality may also work.
+
 
 ## Prerequisites
 
@@ -36,25 +42,28 @@ Setup is single-instance: you add the integration once. The integration then sca
 
 ## Options
 
-From the integration’s **Options** you can trigger a **Refresh discovery** to scan again for speakers. Newly discovered devices will be added automatically.
+From the integration’s **Options**, you can trigger a **Refresh discovery** to scan again for speakers. Newly discovered devices will be added automatically.
+### Supported functionality
 
-## Media player
+The **HiVi Speakers** integration provides the following entities.
+
+### Media player
 
 Each discovered HiVi speaker is represented by a [media player](/integrations/media_player/) entity. You can:
 
-- **Play / Pause** — Control playback on that speaker.
-- **Volume** — Adjust volume and mute.
-- **Media source** — Choose media from local sources or from a configured [DLNA DMS](/integrations/dlna_dms/) (when available).
-- **Browse media** — Use the media browser to select and play music or other audio.
+- **Play / Pause**: Control playback on that speaker.
+- **Volume**: Adjust volume and mute.
+- **Media source**: Choose media from local sources or from a configured [DLNA DMS](/integrations/dlna_dms/) (when available).
+- **Browse media**: Use the media browser to select and play music or other audio.
 
 Playback and volume apply to the individual speaker. To play the same audio on multiple speakers in sync, use the [Multi-room synchronization](#multi-room-synchronization) switches below.
 
-## Switch
+### Switches
 
 For each HiVi speaker that can act as a **leader**, the integration creates **switch** entities: one per other available speaker. Each switch represents “use this other speaker as a synchronized **follower** of the current leader.”
 
-- **Switch on** — Add that speaker as a follower; it will play in sync with the leader.
-- **Switch off** — Remove the follower link; that speaker returns to standalone mode.
+- **Switch on**: Add that speaker as a follower; it will play in sync with the leader.
+- **Switch off**: Remove the follower link; that speaker returns to standalone mode.
 
 You can change sync groups at any time; multiple independent leader–follower groups are supported.
 
@@ -83,16 +92,6 @@ Living Room Speaker (leader)
 - Each leader can have its own set of followers.
 - All speakers in a sync group must be on the same local network.
 - You can add or remove followers at any time without restarting playback.
-
-## Supported devices
-
-Compatible with HiVi speakers that support Multi-Room, including (but not limited to):
-
-- HiVi M5A, M3AMKIII, H6, H8, H5MKII, M500, M300MKII, M200MKII (Wi‑Fi), M200D, M100MKIII, M80W
-- MT1-MAX, MT1-MINI
-- T200MKII, MS2 series
-
-Other HiVi models with Multi-Room functionality may also work.
 
 ## Troubleshooting
 
@@ -129,4 +128,6 @@ Restart Home Assistant and reproduce the issue, then inspect the logs.
 
 ## Removing the integration
 
-Removing the integration from {% my integrations title="**Settings** > **Devices & services**" %} will remove all related entities and devices. No extra steps are required.
+This integration follows standard integration removal. No extra steps are required.
+
+{% include integrations/remove_device_service.md %}
