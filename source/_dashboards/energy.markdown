@@ -272,7 +272,7 @@ types:
   type: list
 show_only_totals:
   required: false
-  description: Display table as a summarized version with only the resource totals listed.
+  description: "Display table as a summarized version with only the resource totals listed."
   type: boolean
   default: false
 {% endconfiguration %}
