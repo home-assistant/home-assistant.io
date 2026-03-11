@@ -73,7 +73,7 @@ Multi-room works by designating one speaker as the **leader** and others as **fo
 
 ### How to set up
 
-1. Open the HiVi speaker **device** in Home Assistant (the one you want to use as leader).
+1. In Home Assistant, go to {% my integrations title="**Settings** > **Devices & services**" %}, and select the **HiVi Speaker** integration. From the list of devices, select the HiVi speaker **device** in Home Assistant (the one you want to use as leader).
 2. In the device’s configuration area, find the list of switches named after other HiVi speakers.
 3. Turn on the switch for each speaker you want to sync with this leader.
 4. Those speakers become followers of this leader; playback on the leader is synchronized to them.
@@ -114,7 +114,7 @@ Living Room Speaker (leader)
 
 ### Enabling debug logging
 
-To help diagnose issues, enable debug logging for this integration:
+To help diagnose issues, enable debug logging for this integration. For general guidance, see [debug logs and diagnostics](https://www.home-assistant.io/docs/configuration/troubleshooting/#debug-logs-and-diagnostics).
 
 ```yaml
 # configuration.yaml
