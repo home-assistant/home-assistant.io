@@ -36,7 +36,7 @@ This integration requires an API key to use, [which you can generate here.](http
 # Prerequisites 
 
 {% important %}
-This integration is specifically designed to work only with **OpenAI service** and not with third-party providers or alternative models. Third-party providers and other AI services are not supported. If you need support for other providers, consider using the [OpenRouter integration](https://www.home-assistant.io/integrations/open_router/) as an alternative, or refer to [feature request for additional providers](https://github.com/orgs/home-assistant/discussions/1681).
+This integration is specifically designed to work **only with OpenAI** and not with third-party providers or alternative models. Third-party providers and other AI services are not supported. If you need support for other providers, consider using the [OpenRouter integration](https://www.home-assistant.io/integrations/open_router/) as an alternative, or refer to [feature request for additional providers](https://github.com/orgs/home-assistant/discussions/1681).
 {% endimportant %}
 
 The OpenAI key is used to authenticate requests to the OpenAI API. To generate an API key take the following steps:
