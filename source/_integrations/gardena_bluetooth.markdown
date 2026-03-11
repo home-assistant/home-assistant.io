@@ -79,4 +79,4 @@ Irrigation valves are currently untested, but expected to work.
 
 ### Limitations
 
-Configuration of contours is not supported and must be set-up using official application.
+Configuration of contours is not supported and must be set up using the official application.
