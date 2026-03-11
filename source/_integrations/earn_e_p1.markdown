@@ -59,7 +59,7 @@ If no device is discovered (for example, if the meter is on a different subnet),
 
 {% configuration_basic %}
 IP Address:
-  description: "The local IP address of your EARN-E P1 Meter (e.g., 192.168.1.100). Only required if auto-discovery does not find your device."
+  description: "The local IP address of your EARN-E P1 Meter (for example, 192.168.1.100). Only required if auto-discovery does not find your device."
 {% endconfiguration_basic %}
 
 ## Reconfiguration
@@ -67,7 +67,7 @@ IP Address:
 If the IP address of your EARN-E device changes (for example, after a DHCP renewal), you can update it through the reconfigure option:
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
-2. On the **EARN-E P1 Meter** integration, select the three-dot menu.
+2. On the **EARN-E P1 Meter** integration, select the three dots {% icon "mdi:dots-vertical" %} menu.
 3. Select **Reconfigure**.
 4. Enter the new IP address.
 
