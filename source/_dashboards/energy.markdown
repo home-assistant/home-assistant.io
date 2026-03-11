@@ -549,10 +549,10 @@ type: energy-sankey
 layout: vertical
 ```
 
-## Power Sankey graph to visualize power flow
+## Power flow Sankey graph
 
 <p class='img'>
-  <img src='/images/dashboards/energy/sankey.png' alt='Screenshot of the Sankey graph card to visualize power'>
+  <img src='/images/dashboards/energy/sankey.png' alt='Screenshot of the power Sankey graph card'>
   Screenshot of the power Sankey graph card.
 </p>
 
