@@ -116,6 +116,21 @@ Authentication using API token is currently supported for the following inverter
 
 **MID 11-30KTL3-XH Series**: 11KTL3-XH, 12KTL3-XH, 13KTL3-XH, 15KTL3-XH, 17KTL3-XH, 20KTL3-XH, 25KTL3-XH, 30KTL3-XH
 
+**SPH 3000-6000 Series**: SPH 3000, SPH 3600, SPH 4000, SPH 4600, SPH 5000, SPH 6000
+
+**SPH 3000-6000TL BL-UP Series**: SPH 3000 TL3 BL-UP, SPH 3600 TL3 BL-UP, SPH 4000 TL3 BL-UP, SPH 4600 TL3 BL-UP, SPH 5000 TL3 BL-UP, SPH 6000 TL3 BL-UP
+
+**SPH 10000TL-X Series**: SPH 10000TL-X
+
+**SPH 4000-10000TL3 BH Series**: SPH 4000TL3 BH, SPH 5000TL3 BH, SPH 6000TL3 BH, SPH 7000TL3 BH, SPH 8000TL3 BH, SPH 10000TL3 BH
+
+**SPH 4000-10000TL3 BH-UP Series**: SPH 4000TL3 BH-UP, SPH 5000TL3 BH-UP, SPH 6000TL3 BH-UP, SPH 7000TL3 BH-UP, SPH 8000TL3 BH-UP, SPH 10000TL3 BH-UP
+
+**SPH 3000-6000TL BL-US Series**: SPH 3000TL BL-US, SPH 4000TL BL-US, SPH 5000TL BL-US, SPH 6000TL BL-US
+
+SPH support in Home Assistant is determined by the Growatt Open API V1 device type reported by Growatt (`5`).
+
+
 ## Known limitations
 
 ### Rate limiting with username/password authentication
@@ -151,7 +166,10 @@ These controls directly modify your inverter's operational settings. Only change
 
 ## Actions
 
-The integration provides the following actions for managing Time-of-Use (TOU) battery schedules on MIN inverters:
+The integration provides the following actions for managing battery schedules:
+
+- Time-of-Use (TOU) schedules for MIN inverters
+- AC charge and discharge period schedules for SPH inverters
 
 ### Action: Update time segment
 
@@ -163,7 +181,7 @@ This action modifies your inverter's TOU scheduling settings. Incorrect configur
 
 **Data attributes:**
 
-- **device_id** *(string, optional)*: The device ID of the inverter. Required only when multiple devices are present
+- **device_id** *(string, required)*: The device ID of the inverter
 - **segment_id** *(integer, required)*: Time segment number (1-9)
 - **batt_mode** *(string, required)*: Energy priority mode for the system:
   - `load_first`: Prioritize powering home loads from available energy sources (solar/battery), discharge battery when needed to meet home consumption
@@ -183,7 +201,70 @@ The `growatt_server.read_time_segments` action reads the current configuration o
 
 **Data attributes:**
 
-- **device_id** *(string, optional)*: The device ID of the MIN inverter. Required only when multiple devices are present
+- **device_id** *(string, required)*: The device ID of the MIN inverter
+
+### Action: Write AC charge times (SPH)
+
+The `growatt_server.write_ac_charge_times` action writes AC charge settings and up to three configurable charge periods on supported SPH devices.
+
+{% important %}
+This action modifies inverter charging behavior. Incorrect settings can affect battery lifespan and charging costs. Make changes only if you understand your battery and tariff setup.
+{% endimportant %}
+
+**Data attributes:**
+
+- **device_id** *(string, required)*: The device ID of the Growatt SPH inverter
+- **charge_power** *(integer, optional)*: Charge power limit (0-100)
+- **charge_stop_soc** *(integer, optional)*: Stop charging state of charge (0-100)
+- **mains_enabled** *(boolean, optional)*: Enable AC (mains) charging
+- **period_1_start** *(time, optional)*: Start time for period 1 (`HH:MM` or `HH:MM:SS`)
+- **period_1_end** *(time, optional)*: End time for period 1 (`HH:MM` or `HH:MM:SS`)
+- **period_1_enabled** *(boolean, optional)*: Enable period 1
+- **period_2_start** *(time, optional)*: Start time for period 2 (`HH:MM` or `HH:MM:SS`)
+- **period_2_end** *(time, optional)*: End time for period 2 (`HH:MM` or `HH:MM:SS`)
+- **period_2_enabled** *(boolean, optional)*: Enable period 2
+- **period_3_start** *(time, optional)*: Start time for period 3 (`HH:MM` or `HH:MM:SS`)
+- **period_3_end** *(time, optional)*: End time for period 3 (`HH:MM` or `HH:MM:SS`)
+- **period_3_enabled** *(boolean, optional)*: Enable period 3
+
+{% note %}
+You can provide a full payload or only the fields you want to change. Omitted fields keep their current values from the inverter settings.
+{% endnote %}
+
+### Action: Write AC discharge times (SPH)
+
+The `growatt_server.write_ac_discharge_times` action writes AC discharge settings and up to three configurable discharge periods on supported SPH devices.
+
+**Data attributes:**
+
+- **device_id** *(string, required)*: The device ID of the Growatt SPH inverter
+- **discharge_power** *(integer, optional)*: Discharge power limit (0-100)
+- **discharge_stop_soc** *(integer, optional)*: Stop discharging state of charge (0-100)
+- **period_1_start** *(time, optional)*: Start time for period 1 (`HH:MM` or `HH:MM:SS`)
+- **period_1_end** *(time, optional)*: End time for period 1 (`HH:MM` or `HH:MM:SS`)
+- **period_1_enabled** *(boolean, optional)*: Enable period 1
+- **period_2_start** *(time, optional)*: Start time for period 2 (`HH:MM` or `HH:MM:SS`)
+- **period_2_end** *(time, optional)*: End time for period 2 (`HH:MM` or `HH:MM:SS`)
+- **period_2_enabled** *(boolean, optional)*: Enable period 2
+- **period_3_start** *(time, optional)*: Start time for period 3 (`HH:MM` or `HH:MM:SS`)
+- **period_3_end** *(time, optional)*: End time for period 3 (`HH:MM` or `HH:MM:SS`)
+- **period_3_enabled** *(boolean, optional)*: Enable period 3
+
+### Action: Read AC charge times (SPH)
+
+The `growatt_server.read_ac_charge_times` action reads AC charge periods from a supported SPH device.
+
+**Data attributes:**
+
+- **device_id** *(string, required)*: The device ID of the Growatt SPH inverter
+
+### Action: Read AC discharge times (SPH)
+
+The `growatt_server.read_ac_discharge_times` action reads AC discharge periods from a supported SPH device.
+
+**Data attributes:**
+
+- **device_id** *(string, required)*: The device ID of the Growatt SPH inverter
 
 ## Examples
 
@@ -244,6 +325,35 @@ Check your current time segment settings:
 
 ```yaml
 action: growatt_server.read_time_segments
+```
+
+### Writing SPH AC charge times
+
+Configure charge behavior and two charge periods on an SPH inverter:
+
+```yaml
+action: growatt_server.write_ac_charge_times
+data:
+  device_id: "YOUR_SPH_DEVICE_ID"
+  charge_power: 100
+  charge_stop_soc: 95
+  mains_enabled: true
+  period_1_start: "00:00"
+  period_1_end: "06:00"
+  period_1_enabled: true
+  period_2_start: "12:00"
+  period_2_end: "14:00"
+  period_2_enabled: false
+```
+
+### Reading SPH AC discharge times
+
+Read the current discharge periods from an SPH inverter:
+
+```yaml
+action: growatt_server.read_ac_discharge_times
+data:
+  device_id: "YOUR_SPH_DEVICE_ID"
 ```
 
 ## Troubleshooting
