@@ -384,15 +384,15 @@ The `state_attr_translated` function returns a translated attribute value of an 
 {% raw %}
 
 ```text
-{{ state_attr("climate.living_room", "fan_mode") }}                     # low
-{{ state_attr_translated("climate.living_room", "fan_mode") }}          # Low
-{{ "climate.living_room" | state_attr_translated("fan_mode") }}         # Low
+{{ state_attr("climate.living_room", "fan_mode") }} # low
+{{ state_attr_translated("climate.living_room", "fan_mode") }} # Low
+{{ "climate.living_room" | state_attr_translated("fan_mode") }} # Low
 ```
 
 ```text
-{{ state_attr("climate.living_room", "hvac_action") }}                  # heating
-{{ state_attr_translated("climate.living_room", "hvac_action") }}       # Heating
-{{ "climate.living_room" | state_attr_translated("hvac_action") }}      # Heating
+{{ state_attr("climate.living_room", "hvac_action") }} # heating
+{{ state_attr_translated("climate.living_room", "hvac_action") }} # Heating
+{{ "climate.living_room" | state_attr_translated("hvac_action") }} # Heating
 ```
 
 {% endraw %}
