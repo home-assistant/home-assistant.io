@@ -33,10 +33,10 @@ This integration does not integrate with [sentence triggers](/docs/automation/tr
 
 This integration requires an API key to use, [which you can generate here.](https://platform.openai.com/account/api-keys). This is a paid service, we advise you to monitor your costs in the [OpenAI portal](https://platform.openai.com/account) closely and configure [usage limits](https://platform.openai.com/account/billing/limits) to avoid unwanted costs associated with using the service.
 
-# Prerequisites 
+## Prerequisites
 
 {% important %}
-This integration is specifically designed to work **only with OpenAI** and not with third-party providers or alternative models. Third-party providers and other AI services are not supported. If you need support for other providers, consider using the [OpenRouter integration](https://www.home-assistant.io/integrations/open_router/) as an alternative, or refer to [feature request for additional providers](https://github.com/orgs/home-assistant/discussions/1681).
+This integration works only with the official OpenAI API endpoint and does not support OpenAI-API-compatible third-party services, proxies, or alternative backends. If you need support for other providers, consider using the [OpenRouter integration](/integrations/open_router/) as an alternative, or refer to [feature request for additional solutions](https://github.com/orgs/home-assistant/discussions/1681).
 {% endimportant %}
 
 The OpenAI key is used to authenticate requests to the OpenAI API. To generate an API key take the following steps:
