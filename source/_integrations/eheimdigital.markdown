@@ -166,8 +166,8 @@ Currently, the following devices and entities are supported:
 #### Select
 
 - **Operation mode**: Setting the operation mode
-  - **Constant mode**: The UV lamp is burning constantly
-  - **Daycycle mode**: The UV lamp is burning on a day cycle
+  - **Constant mode**: The UVC lamp is burning constantly
+  - **Daycycle mode**: The UVC lamp is burning on a day cycle
 
 #### Sensor
 
