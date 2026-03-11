@@ -98,7 +98,7 @@ Living Room Speaker (leader)
 ### No speakers are found
 
 - Confirm HiVi speakers are on and on the same network as Home Assistant.
-- Ensure multicast is not blocked (UDP 239.255.255.250, port 1900).
+- Ensure multicast is not blocked (UDP `239.255.255.250`, port `1900`).
 - Restart Home Assistant and the speakers, then use **Options** > **Refresh discovery**.
 
 ### Speakers are out of sync during playback
