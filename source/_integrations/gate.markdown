@@ -2,7 +2,7 @@
 title: Gate
 description: This integration provides gate automation triggers.
 ha_category:
-  - Other
+  - Automation
 ha_release: 2026.4
 ha_quality_scale: internal
 ha_codeowners:
