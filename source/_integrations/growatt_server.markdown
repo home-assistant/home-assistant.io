@@ -128,8 +128,6 @@ Authentication using API token is currently supported for the following inverter
 
 **SPH 3000-6000TL BL-US Series**: SPH 3000TL BL-US, SPH 4000TL BL-US, SPH 5000TL BL-US, SPH 6000TL BL-US
 
-SPH support in Home Assistant is determined by the Growatt Open API V1 device type reported by Growatt (`5`).
-
 
 ## Known limitations
 
