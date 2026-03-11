@@ -109,27 +109,6 @@ In addition to the read-only sensors listed above, the Indevolt integration also
 
 ## Actions
 
-### Action: Change the energy mode of the battery
-
-The `indevolt.change_energy_mode` action changes the energy mode of your Indevolt device.
-
-- **Data attribute**: `device_id`
-  - **Description**: The `entity_id` of the Indevolt device(s)
-  - **Optional**: No
-- **Data attribute**: `mode`
-  - **Description**: The requested energy mode `self_consumed_prioritized` (prioritize self-consumption), `real_time_control` (real-time control mode), `charge_discharge_schedule` (schedule-based charging/discharging)
-  - **Optional**: No
-
-#### Example
-
-```yaml
-action: indevolt.change_energy_mode
-target:
-  device_id: YOUR_DEVICE_ID
-data:
-  mode: self_consumed_prioritized
-```
-
 ### Action: Charge the battery (real-time control mode)
 
 The `indevolt.change_energy_mode` action configures the battery to start charging with specified maximum power to the target SOC. The device will automatically switch to real-time control mode if needed.
@@ -178,22 +157,6 @@ target:
 data:
   power: 800
   target_soc: 10
-```
-
-### Action: Stop the battery (real-time control mode)
-
-The `indevolt.change_energy_mode` actions puts the battery into standby mode (idle).
-
-- **Data attribute**: `device_id`
-  - **Description**: The `entity_id` of the Indevolt device(s)
-  - **Optional**: No
-
-#### Example
-
-```yaml
-action: indevolt.stop
-target:
-  device_id: YOUR_DEVICE_ID
 ```
 
 ## Data updates
