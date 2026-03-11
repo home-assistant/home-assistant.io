@@ -4,7 +4,7 @@ description: Instructions on how to integrate HiVi Multi-Room speakers into Home
 ha_category:
   - Media player
   - Switch
-ha_release: 2025.4
+ha_release: "2025.4"
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
@@ -16,7 +16,7 @@ ha_platforms:
 ha_integration_type: hub
 ---
 
-The **HiVi Speaker** {% term integration %} allows you to control [HiVi](https://www.hivi.com) Multi-Room speakers from Home Assistant. It discovers HiVi speakers on your local network and creates [media player](/integrations/media_player/) entities for playback control, plus [switch](/integrations/switch/) entities to manage multi-room synchronization (master–slave groups).
+The **HiVi Speaker** {% term integration %} allows you to control [HiVi](https://www.hivi.com) Multi-Room speakers from Home Assistant. It discovers HiVi speakers on your local network and creates [media player](/integrations/media_player/) entities for playback control, plus [switch](/integrations/switch/) entities to manage multi-room synchronization (leader–follower groups).
 
 The integration automatically discovers compatible HiVi Multi-Room devices on your local network and controls them directly over your home network. Media browsing can use local media and [DLNA Digital Media Server](/integrations/dlna_dms/) content when that integration is configured.
 
@@ -51,38 +51,38 @@ Playback and volume apply to the individual speaker. To play the same audio on m
 
 ## Switch
 
-For each HiVi speaker that can act as a **master**, the integration creates **switch** entities: one per other available speaker. Each switch represents “use this other speaker as a synchronized **slave** of the current master.”
+For each HiVi speaker that can act as a **leader**, the integration creates **switch** entities: one per other available speaker. Each switch represents “use this other speaker as a synchronized **follower** of the current leader.”
 
-- **Switch on** — Add that speaker as a slave; it will play in sync with the master.
-- **Switch off** — Remove the slave link; that speaker returns to standalone mode.
+- **Switch on** — Add that speaker as a follower; it will play in sync with the leader.
+- **Switch off** — Remove the follower link; that speaker returns to standalone mode.
 
-You can change sync groups at any time; multiple independent master–slave groups are supported.
+You can change sync groups at any time; multiple independent leader–follower groups are supported.
 
 ## Multi-room synchronization
 
-Multi-room works by designating one speaker as the **master** and others as **slaves**. Audio played on the master is streamed in sync to all its slaves.
+Multi-room works by designating one speaker as the **leader** and others as **followers**. Audio played on the leader is streamed in sync to all its followers.
 
 ### How to set up
 
-1. Open the HiVi speaker **device** in Home Assistant (the one you want to use as master).
+1. Open the HiVi speaker **device** in Home Assistant (the one you want to use as leader).
 2. In the device’s configuration area, find the list of switches named after other HiVi speakers.
-3. Turn on the switch for each speaker you want to sync with this master.
-4. Those speakers become slaves of this master; playback on the master is synchronized to them.
+3. Turn on the switch for each speaker you want to sync with this leader.
+4. Those speakers become followers of this leader; playback on the leader is synchronized to them.
 5. Turn off a switch to remove that speaker from the sync group.
 
 ### Example layout
 
 ```text
-Living Room Speaker (master)
+Living Room Speaker (leader)
 ├── [On]  Kitchen Speaker   (synchronized)
 ├── [On]  Bedroom Speaker   (synchronized)
 ├── [Off] Bathroom Speaker  (standalone)
 └── [Off] Office Speaker   (standalone)
 ```
 
-- Each master can have its own set of slaves.
+- Each leader can have its own set of followers.
 - All speakers in a sync group must be on the same local network.
-- You can add or remove slaves at any time without restarting playback.
+- You can add or remove followers at any time without restarting playback.
 
 ## Supported devices
 
