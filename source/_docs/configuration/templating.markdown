@@ -373,6 +373,31 @@ The `state_translated` function returns a translated state of an entity using a 
 {% endraw %}
 
 
+### State attribute translated
+
+Not supported in [limited templates](#limited-templates).
+
+The `state_attr_translated` function returns a translated attribute value of an entity using the language that is currently configured in the [general settings](https://my.home-assistant.io/redirect/general/). This is useful for attributes like `fan_mode`, `hvac_action`, `preset_mode`, or `color_mode`, which have translations defined but are stored as untranslated values in the state.
+
+#### State attribute translated examples
+
+{% raw %}
+
+```text
+{{ state_attr("climate.living_room", "fan_mode") }}                     # low
+{{ state_attr_translated("climate.living_room", "fan_mode") }}          # Low
+{{ "climate.living_room" | state_attr_translated("fan_mode") }}         # Low
+```
+
+```text
+{{ state_attr("climate.living_room", "hvac_action") }}                  # heating
+{{ state_attr_translated("climate.living_room", "hvac_action") }}       # Heating
+{{ "climate.living_room" | state_attr_translated("hvac_action") }}      # Heating
+```
+
+{% endraw %}
+
+
 ### Working with groups
 
 Not supported in [limited templates](#limited-templates).
