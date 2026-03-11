@@ -7,7 +7,7 @@ ha_release: 0.42
 ha_iot_class: Cloud Push
 ha_config_flow: true
 ha_domain: telegram_bot
-ha_integration_type: integration
+ha_integration_type: service
 ha_quality_scale: silver
 ha_codeowners:
   - '@hanwg'
@@ -117,6 +117,14 @@ If your Home Assistant is publicly accessible, do the following:
    - `ssl_key`
 
 {% include integrations/config_flow.md %}
+
+{% note %}
+When configuring the **API endpoint**, please note the following protocol requirements:
+
+- (Default) Official Telegram servers: HTTPS is required.
+- Custom API endpoints: Both HTTP and HTTPS are supported.
+
+{% endnote %}
 
 {% configuration_basic %}
 Platform:

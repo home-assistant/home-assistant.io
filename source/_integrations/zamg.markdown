@@ -11,7 +11,7 @@ ha_config_flow: true
 ha_platforms:
   - sensor
   - weather
-ha_integration_type: integration
+ha_integration_type: service
 ha_codeowners:
   - '@killer0071234'
 ---

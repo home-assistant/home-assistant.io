@@ -17,7 +17,7 @@ ha_platforms:
   - diagnostics
   - notify
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The **Tibber** {% term integration %} provides a sensor with the current electricity price if you are a [Tibber](https://tibber.com/) customer.

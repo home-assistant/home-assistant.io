@@ -14,6 +14,9 @@ ha_codeowners:
 ha_domain: proxmoxve
 ha_platforms:
   - binary_sensor
+  - button
+  - diagnostics
+  - sensor
 ha_integration_type: service
 related:
   - docs: /docs/configuration/

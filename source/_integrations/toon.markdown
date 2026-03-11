@@ -17,7 +17,7 @@ ha_platforms:
   - climate
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 The **Toon** {% term integration %} platform can be used to control your Quby Toon thermostat,

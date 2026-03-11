@@ -17,7 +17,7 @@ ha_platforms:
 ha_codeowners:
   - '@mib1185'
 ha_integration_type: service
-ha_quality_scale: silver
+ha_quality_scale: platinum
 ---
 
 This {% term integration %} allows adding an [Immich](https://immich.app/) user account to Home Assistant.

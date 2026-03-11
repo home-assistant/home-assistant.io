@@ -10,6 +10,7 @@ ha_codeowners:
   - '@danielhiversen'
 ha_domain: met
 ha_platforms:
+  - diagnostics
   - weather
 ha_integration_type: service
 ---

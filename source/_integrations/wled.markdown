@@ -11,6 +11,7 @@ ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
   - '@frenck'
+  - '@mik-laj'
 ha_domain: wled
 ha_zeroconf: true
 ha_platforms:
@@ -23,6 +24,7 @@ ha_platforms:
   - switch
   - update
 ha_integration_type: device
+ha_quality_scale: platinum
 ---
 
 [WLED](https://kno.wled.ge) is a fast and feature-rich
@@ -57,6 +59,13 @@ Host:
     description: "Hostname or IP address of your WLED device."
 {% endconfiguration_basic %}
 
+{% include integrations/option_flow.md %}
+
+{% configuration_basic %}
+Keep Master Light:
+  description: Keep the master light (the main light entity that controls the entire WLED device), even if there is only 1 segment. This ensures the master light is always there, in case you are automating segments to be added and removed dynamically.
+{% endconfiguration_basic %}
+
 ## Lights
 
 This {% term integration %} adds the WLED device as a light in Home Assistant.
@@ -79,16 +88,17 @@ If WLED has 2 or more segments, each segment gets its own light {% term entity %
 Home Assistant. Additionally, a master light {% term entity %} is created. This master
 {% term entity %} controls the strip power and overall brightness applied to all segments.
 
-Additionally, select and number entities described below will be created for each segment.
+Additionally, select, number, and switch entities described below will be created for each segment.
 
 ## Select entities
 
 This {% term integration %} provides [select entities](/integrations/select)
 for the following information from WLED:
 
-- Playlist
-- Preset
-- Color palette (per segment, disabled by default).
+- Live override: Controls how WLED handles incoming real-time data (off, on, or until device restarts).
+- Playlist: Activates a playlist configured on the WLED device.
+- Preset: Activates a preset configured on the WLED device.
+- Color palette (per segment): Selects the color palette used by the current effect.
 
 ## Number entities
 
@@ -103,7 +113,9 @@ to control the following, segment-specific settings:
 This {% term integration %} provides [sensor entities](/integrations/sensor)
 for the following information from WLED:
 
-- Estimated current (in mA)
+- Estimated current (in mA, only when a automatic brightness limiter is configured on the device)
+- Max current (in mA, only when a automatic brightness limiter is configured on the device)
+- LED count
 - Uptime (disabled by default)
 - Free memory (in bytes, disabled by default)
 - Wi-Fi Signal Strength (in %, disabled by default)
@@ -119,7 +131,8 @@ The {% term integration %} will also create a number of
 
 ### Nightlight
 
-Toggles the WLED Timer.
+Toggles the WLED nightlight feature, which gradually dims the lights over a configurable duration.
+
 Can be configured on the WLED itself under
 **Settings** > **LED Preferences** > **Timed light**.
 
@@ -129,7 +142,16 @@ Toggles the synchronization between multiple WLED devices.
 Can be configured on the WLED itself under 
 **Settings** > **Sync Interfaces** > **WLED Broadcast**.
 
-[WLED Sync documentation](https://kno.wled.ge/interfaces/udp-realtime/)
+[WLED Sync documentation](https://kno.wled.ge/interfaces/udp-notifier/)
+
+### Reverse
+
+Reverses the direction of the LED effect on a segment. One switch is created per segment.
+
+## Buttons
+
+This {% term integration %} provides a [button entity](/integrations/button)
+to restart the WLED device.
 
 ## Firmware updates
 
@@ -143,13 +165,6 @@ directly from Home Assistant.
 The update {% term entity %} will only provide updates to stable versions,
 unless you are using a beta version of WLED. In that case, the update
 {% term entity %} will also provide updates to newer beta versions.
-
-{% include integrations/option_flow.md %}
-
-{% configuration_basic %}
-Keep Master Light:
-  description: Keep the master light, even if there is only 1 segment. This ensures the master light is always there, in case you are automating segments to appear and remove dynamically.
-{% endconfiguration_basic %}
 
 ## Data updates
 
@@ -169,7 +184,13 @@ Information about new WLED releases is checked independently, once every 3 hours
 
 - Real-time effects that depend on **sound-reactive** or **2D matrix** features appear in the effect list, but may not behave correctly if the WLED instance was not compiled with those capabilities.
 
-- The integration does not provide direct control for WLED's user-created **presets or playlists stored on the filesystem** (JSON files in `/presets.json`).
+- [Custom palettes](https://kno.wled.ge/features/palettes/#custom-palettes) uploaded to the WLED device (JSON files named `palette0.json` through `palette9.json`) are not supported by the integration. Only the built-in palettes are available in the color palette select entity.
+
+- Custom segment names configured in WLED are not used by the integration. Segments are always named using their index (for example, "Segment 1", "Segment 2"), regardless of any names assigned in the WLED interface.
+
+- The integration does not support controlling WLED usermods, such as the AudioReactive usermod. Features like toggling the microphone on or off are not available.
+
+- There is no segment master control to apply changes (color, effect, brightness) to all segments in a single action. To control multiple segments at once, you can group them using a [light group](/integrations/group#light-group), though this sends separate requests per segment and may result in less smooth transitions compared to WLED's native multi-segment control.
 
 ## Supported devices
 
@@ -228,9 +249,9 @@ and can be done by selecting a random one from the available palette select
 ```yaml
 action: select.select_option
 target:
-  entity_id: select.wled_palette
+  entity_id: select.wled_color_palette
 data:
-  option: "{{ state_attr('select.wled_palette', 'options') | random }}"
+  option: "{{ state_attr('select.wled_color_palette', 'options') | random }}"
 ```
 
 {% endraw %}
@@ -346,4 +367,3 @@ If the error persists, reconfiguring the integration with the correct IP address
 This integration follows standard integration removal. No extra steps are required.
 
 {% include integrations/remove_device_service.md %}
-
