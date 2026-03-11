@@ -24,7 +24,7 @@ ha_platforms:
   - event
   - lock
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The **Yale** {% term integration %} allows you to integrate your [Yale](https://www.assaabloy.com/vn/en/solutions/products/yale) devices in Home Assistant.

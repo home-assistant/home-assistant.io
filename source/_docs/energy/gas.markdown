@@ -32,3 +32,7 @@ We have worked with creator [Marcel Zuidwijk](https://www.zuidwijk.com) to devel
 #### Read the gas meter using a magnetometer
 
 [Diaphragm/bellows gas meters](https://en.wikipedia.org/wiki/Gas_meter#Diaphragm/bellows_meters) are the most common type of gas meter, seen in almost all residential installations, and their movement can frequently be observed with a magnetometer. The [QMC5883L](https://esphome.io/components/sensor/qmc5883l/) and [HMC5883L](https://esphome.io/components/sensor/hmc5883l/) are common and inexpensive options that ESPHome supports. A project that makes it easy to use these magnetometers and calibrate them is [this water-gas-meter project on GitHub](https://github.com/tronikos/esphome-magnetometer-water-gas-meter).
+
+#### Reading the meter wirelessly via RTL-SDR
+
+{% include energy/rtl_sdr.md %}

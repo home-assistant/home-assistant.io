@@ -11,6 +11,7 @@ ha_codeowners:
 ha_domain: lunatone
 ha_config_flow: true
 ha_platforms:
+  - diagnostics
   - light
 ha_integration_type: hub
 ha_quality_scale: silver

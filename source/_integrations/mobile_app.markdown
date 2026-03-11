@@ -15,7 +15,7 @@ ha_platforms:
   - device_tracker
   - notify
   - sensor
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 The **Mobile App** {% term integration %} allows Home Assistant mobile apps to easily integrate with Home Assistant.

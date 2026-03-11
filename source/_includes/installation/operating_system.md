@@ -241,7 +241,7 @@ Use this method only if Method 1 does not work for you.
 {% note %}
 
 If the machine complains about not being able to find a bootable medium, you might need to specify the EFI entry in your BIOS.
-This can be accomplished either by using a live operating system (e.g. Ubuntu) and running the following command (replace `<drivename>` with the appropriate drive name assigned by Linux, typically this will be `sda` or `nvme0n1` on NVMe SSDs):
+This can be accomplished either by using a live operating system (for example, Ubuntu) and running the following command (replace `<drivename>` with the appropriate drive name assigned by Linux, typically this will be `sda` or `nvme0n1` on NVMe SSDs):
 
   ```text
   efibootmgr --create --disk /dev/<drivename> --part 1 --label "HAOS" \
@@ -320,39 +320,39 @@ Minimum recommended assignments:
     
     #### Create the virtual machine
     
-    1. Open VirtualBox and click the **New** button (the blue star).
+    1. Open VirtualBox and select the **New** button (the blue star).
     2. **Name:** Type Home Assistant.
     3. **ISO Image:** Leave this as **None** or **Empty**.
     4. **Type & Version:** Select **Linux**, then select **Oracle Linux (64-bit)** (or **ARM 64-bit** if you are using a Mac with an M1/M2/M3 chip).
-    5. Click **Next**.
+    5. Select **Next**.
  
     #### Configure hardware
     1. **Base Memory:** Move the slider to at least **2048 MB** (2GB).
     2. **Number of CPUs:** Move the slider to at least **2**.
     3. **EFI:** Check the box for **Enable EFI (special OSes only)**. This is required for Home Assistant to boot.
-    4. Click **Next**.
+    4. Select **Next**.
 
     #### Finalizing the wizard
 
     1. On the **Virtual Hard Disk** screen, leave the settings as they are (it will suggest creating a new disk). We will swap this for your downloaded file in the next step.
-    2. Click **Finish**.
+    2. Select **Finish**.
 
     #### Attach the Home Assistant disk (VDI)
 
-    1. Click on your new "Home Assistant" VM in the left-hand list and click the **Settings** icon (the orange gear).
+    1. Select your new "Home Assistant" VM in the left-hand list and select the **Settings** icon (the orange gear).
     2. Go to the **Storage** section on the left menu.
-    3. In the "Storage Devices" list, you will see a disk already listed under **Controller: SATA**. **Right-click** that disk and select **Remove Attachment**. This removes the empty placeholder disk.
-    4. Click the **Add Hard Disk** icon (the small disk with a green plus symbol) located next to the words "Controller: SATA".
-    5. In the window that pops up, click the **Add** button at the top.
+    3. In the **Storage Devices** list, you will see a disk already listed under **Controller: SATA**. Right-click that disk and select **Remove Attachment**. This removes the empty placeholder disk.
+    4. Select the **Add Hard Disk** icon (the small disk with a green plus symbol) located next to the words **Controller: SATA**.
+    5. In the window that pops up, select the **Add** button at the top.
     6. Find and select the `.vdi` file you previously downloaded and unzipped.
-    7. Click **Choose** to confirm the file.
+    7. Select **Choose** to confirm the file.
 
     #### Configure network
 
     1. While still in the **Settings** window, go to the **Network** section.
-    2. Change the **Attached to** setting from "NAT" to **Bridged Adapter**.
+    2. Change the **Attached to** setting from **NAT** to **Bridged Adapter**.
     3. Under **Name**, select the adapter you use for internet access. This allows Home Assistant to talk to other devices in your home.
-    4. Click **OK**.
+    4. Select **OK**.
 
     {% icon "mdi:alert-outline" %}  By default, VirtualBox does not
     free up unused disk space. To automatically shrink the vdi disk image the `discard` option must
@@ -391,7 +391,7 @@ Minimum recommended assignments:
     3. Choose **Generic Default** for the operating system.
     4. Check the box for **Customize configuration before install**.
     5. Under **Network Selection**, select your bridge.
-    6. Under customization select **Overview** > **Firmware** > **UEFI x86_64: ...**. Make sure to select a non-secureboot version of OVMF (does not contain the word `secure`, `secboot`, etc.), e.g., `/usr/share/edk2/ovmf/OVMF_CODE.fd`.
+    6. Under customization select **Overview** > **Firmware** > **UEFI x86_64: ...**. Make sure to select a non-secureboot version of OVMF (does not contain the word `secure`, `secboot`, etc.), for example `/usr/share/edk2/ovmf/OVMF_CODE.fd`.
     7. Select **Add Hardware** (bottom left), and select **Channel**.
     8. Select device type: **unix**.
     9. Select name: **org.qemu.guest_agent.0**.
@@ -476,7 +476,7 @@ Minimum recommended assignments:
 {% if page.installation_type == 'windows' %}
 - title: Hyper-V
   content: |
-    ⚠️ Hyper-V does not have USB support
+    ⚠️ Hyper-V does not have USB support.
 
     1. Create a new virtual machine.
     2. Select **Generation 2**.

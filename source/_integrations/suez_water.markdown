@@ -12,7 +12,7 @@ ha_codeowners:
 ha_domain: suez_water
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ha_quality_scale: bronze
 ---
 

@@ -4,6 +4,7 @@ description: Instructions on how to integrate ntfy with Home Assistant.
 ha_category:
   - Event
   - Notifications
+  - Update
 ha_iot_class: Cloud Push
 ha_release: 2025.5
 ha_config_flow: true

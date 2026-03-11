@@ -12,7 +12,7 @@ ha_codeowners:
 ha_domain: hypontech
 ha_platforms:
   - sensor
-ha_integration_type: device
+ha_integration_type: hub
 ha_quality_scale: bronze
 ---
 
