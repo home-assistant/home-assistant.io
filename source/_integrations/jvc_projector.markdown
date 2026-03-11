@@ -15,6 +15,7 @@ ha_platforms:
   - remote
   - select
   - sensor
+  - switch
 ha_integration_type: device
 ---
 

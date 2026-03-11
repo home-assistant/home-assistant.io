@@ -179,94 +179,91 @@ If you find an opportunity to improve this information, refer to the section on 
 
 ## Configuration requirements
 
+{% important %}
 Be sure to connect a compatible radio module and restart Home Assistant before proceeding with configuration.
+{% endimportant %}
 
-ZHA will automatically create a Zigbee network once it is configured with a Zigbee coordinator; you can then add compatible devices.
+ZHA will automatically create a Zigbee network once configured with a Zigbee coordinator; you can then add compatible devices.
 
-It is highly recommended to review the guidance for [Zigbee interference avoidance and network range/coverage optimization)](#zigbee-interference-avoidance-and-network-rangecoverage-optimization).
+It is strongly encouraged to review the guidance for [Zigbee interference avoidance and network range/coverage optimization](#zigbee-interference-avoidance-and-network-rangecoverage-optimization).
 
 {% include integrations/config_flow.md %}
 
-In the popup:
-
-- Serial Device Path - List of detected serial ports on the system. You need to pick one to which your
-radio is connected
-- Submit
-
-Press `Submit` and the {% term integration %} will try to detect radio type automatically. If unsuccessful, you will get
-a new pop-up asking for a radio type. In the pop-up:
-
-- Radio Type
-
-| Radio Type | Zigbee Radio Hardware                                                                           |
-| ---------- | ----------------------------------------------------------------------------------------------- |
-| `ezsp`     | Silicon Labs EmberZNet protocol (e.g., Home Assistant SkyConnect, Elelabs, HUSBZB-1, Telegesis) |
-| `deconz`   | dresden elektronik deCONZ protocol (e.g., ConBee I/II, RaspBee I/II)                            |
-| `znp`      | Texas Instruments (e.g., CC253x, CC26x2, CC13x2)                                                |
-| `zigate`   | ZiGate Serial protocol (e.g., ZiGate USB-TTL, PiZiGate, ZiGate WiFi)                            |
-| `xbee`     | Digi XBee ZB Coordinator Firmware protocol (e.g., Digi XBee Series 2, 2C, 3)                    |
-
-- Submit
-
-Press `Submit` to save radio type and you will get a new form asking for port settings specific for this
-radio type. In the pop-up:
-
-- Serial device path
-- port speed (not applicable for all radios)
-- data flow control (not applicable for all radios)
-
-Most devices need at the very least the serial device path, like `/dev/ttyUSB0`, but it is recommended to use
-device path from `/dev/serial/by-id` folder,
-e.g., `/dev/serial/by-id/usb-Silicon_Labs_HubZ_Smart_Home_Controller_C0F003D3-if01-port0`
-A list of available device paths can be found in {% my hardware title="Settings > System > Hardware" %} > **dot menu** > **All Hardware**.
-
-Press `Submit`. The success dialog will appear or an error will be displayed in the popup. An error is likely if Home Assistant can't access the USB device or your device is not up to date. Refer to [Troubleshooting](#troubleshooting) below for more information.
+1. In the popup dialog, select the **Serial Device Path** from the detected options on your system.
+    - Choose the one to which your radio is connected.
+2. Select **Submit**.
+3. After submitting, the {% term integration %} will try to detect the radio type automatically.
+4. If unsuccessful, you will need to manually set your radio type: 
+    - Choose your **Radio Type**:
+        - **ezsp**: Silicon Labs EmberZNet protocol (for example, Home Assistant ZBT-1 or ZBT-2, Elelabs, HUSBZB-1, Telegesis)
+        - **deCONZ**: dresden elektronik deCONZ protocol (for example, ConBee I/II, RaspBee I/II)
+        - **znp**: Texas Instruments (for example, CC253x, CC26x2, CC13x2)
+        - **zigate**: ZiGate Serial protocol (for example, ZiGate USB-TTL, PiZiGate, ZiGate WiFi)
+        - **xbee**: Digi XBee ZB Coordinator Firmware protocol (for example, Digi XBee Series 2, 2C, 3)
+    - Select **Submit** to proceed to the next step.
+5. Enter the **Serial device path**:
+    - Most devices need at the very least the serial device path, such as `/dev/ttyUSB0`, but it is recommended to use device path from `/dev/serial/by-id` folder (e.g., `/dev/serial/by-id/usb-Silicon_Labs_HubZ_Smart_Home_Controller_C0F003D3-if01-port0`).
+    - A list of available device paths can be found in {% my hardware title="Settings > System > Hardware" %} > **dot menu** > **All Hardware**.
+6. Set the **Port speed** (not applicable for all radios).
+7. Set the **Data flow control** (not applicable for all radios).
+8. Press **Submit**.
+    - If unsuccessful, an error will be displayed in the popup. 
+    - An error is likely if Home Assistant can't access the USB device or your device is not up to date. 
+    - Refer to [Troubleshooting](#troubleshooting) below for more information.
 
 ### ZiGate or Sonoff ZBBridge devices
 
-If you are use ZiGate or Sonoff ZBBridge you have to use some special usb_path configuration:
+If you use a ZiGate or Sonoff ZBBridge device, you need additional configuration for `usb_path`.
+
+{% details "Additional ZBBridge config" %}
 
 - ZiGate USB TTL or DIN: `/dev/ttyUSB0` or `auto` to auto discover the zigate
-- PiZigate : `pizigate:/dev/ttyS0`
-- Wifi Zigate : `socket://[IP]:[PORT]` for example `socket://192.168.1.10:9999`
-- Sonoff ZBBridge : `socket://[IP]:[PORT]` for example `socket://192.168.1.11:8888`
+- PiZigate: `pizigate:/dev/ttyS0`
+- Wifi Zigate: `socket://[IP]:[PORT]` — for example `socket://192.168.1.10:9999`
+- Sonoff ZBBridge: `socket://[IP]:[PORT]` — for example `socket://192.168.1.11:8888`
 
-### Global Options
+{% enddetails %}
 
-There are a few global options available once ZHA has been configured. Press **Configure** to access these settings.
+### Global options
+
+There are a few global options available once ZHA has been configured. To access these settings, go to {% my config_zha title="**Settings** > **Zigbee**" %} and select **Options**.
 
 The options are as follows:
 
 {% configuration_basic %}
-Enable enhanced light color/temperature transition from an off-state:
-  description: "For older non Zigbee 3.0 lights, this still allows a proper transition from an off-state to a new color (without seeing the old color). _(default: off)_"
-Enable enhanced brightness slider during light transition:
-  description: "This avoids seeing intermediary brightness state when turning on lights with a transition. _(default: on)_"
-Group members assume state of group:
-  description: "When using ZHA groups, turning on a ZHA group light makes the ZHA group members optimistically change their state to \"on\", instead of waiting and polling the lights when off. _(default: on)_"
+Identify on join:
+  description: "When a new device joins the network, it performs an identify procedure (such as blinking) so you can locate it. Turn this off if you are adding many devices in bulk and don't need the visual feedback, or if a particular device's identify behavior is disruptive (for example, a siren that beeps). Default: `on`."
+Light transition time:
+  description: "The default transition time (in seconds) used when changing light state. Set to `0` to disable transitions. Increase this (for example, to `1` or `2`) if you want all lights to fade in and out by default, without having to set a transition on every automation. Default: `0`."
+Smooth transition power-on:
+  description: "For older non-Zigbee 3.0 lights, this allows a smooth transition from an off-state to a new color or brightness level, without first showing the old color. Enable this if you have older bulbs (such as older IKEA or Philips bulbs) that briefly flash their previous color when turning on with a transition. Only enable this option if absolutely necessary. If multiple lights are turned on at the same time, this can lead to temporary network congestion. Default: `off`."
+Prevent slider jumping during transitions:
+  description: "Prevents the brightness slider from jumping to an intermediate value while a light is transitioning. This avoids a confusing visual flicker in the UI when turning lights on with a transition effect. Disable this if you are debugging light behavior and want to see the actual intermediate brightness values during a transition. Default: `on`."
+Assume state of group:
+  description: "When you turn on a ZHA group light, all group members optimistically update to the `on` state, instead of waiting to be polled. Disable this if you have unreliable bulbs in a group that sometimes don't respond, so the UI reflects the actual state rather than an assumed state. Default: `on`."
+Consider mains-powered devices unavailable after:
+  description: "The time (in seconds) after which a mains-powered device with no activity is considered unavailable. Set to `0` to disable. Lower this value (for example, to `3600` (1 hour)) if you want faster detection when a plug or bulb loses power. Default: `7200` (2 hours)."
+Consider battery-powered devices unavailable after:
+  description: "The time (in seconds) after which a battery-powered device with no activity is considered unavailable. Set to `0` to disable. Raise this for sleepy sensors (such as door or temperature sensors) that only report when triggered, to prevent them from repeatedly going unavailable. Lower it if you want quicker notification when a battery runs out. Default: `21600` (6 hours)."
+Refresh mains-powered devices state on startup:
+  description: "Poll mains-powered devices to refresh their state when ZHA starts up. Disable this if your network is large and the startup polling causes congestion, or if your devices are slow to reconnect after a restart. Default: `on`."
 {% endconfiguration_basic %}
 
-### Configuration - YAML
+### About network information
 
-For more advanced configuration, you can modify {% term "`configuration.yaml`" %} and restart Home Assistant
+The network information page provides details about your Zigbee network and coordinator. To open it, go to {% my config_zha title="**Settings** > **Zigbee**" %} and select **Network information**.
 
-{% configuration %}
-database_path:
-  description: _Full_ path to the database which will keep persistent network data.
-  required: false
-  type: string
-enable_quirks:
-  description: Enable quirks mode for devices where manufacturers didn't follow specs.
-  required: false
-  type: boolean
-  default: true
-custom_quirks_path:
-  description: Full path to a directory containing custom quirk modules that will take precedence over any built-in quirks matching a device.
-  required: false
-  type: string
-{% endconfiguration %}
+The following information is shown:
 
-#### Defining Zigbee channel to use
+- **Channel**: The Zigbee channel currently in use by the network. Valid channels are 11–26 (all in the 2.4&nbsp;GHz band). This is the only field you can change. To edit it, select the pencil {% icon "mdi:edit" %} icon.
+- **PAN ID**: The 16-bit Personal Area Network identifier of your Zigbee network. This value uniquely identifies the network among nearby Zigbee networks.
+- **Extended PAN ID**: The 64-bit extended version of the PAN ID. This value is used to uniquely identify the network across longer distances and more devices.
+- **Coordinator IEEE**: The IEEE 802.15.4 hardware address (MAC address) of the Zigbee coordinator. This address is fixed and unique to the coordinator hardware.
+- **Radio type**: The Zigbee radio stack used by the coordinator. Common values are `ezsp` (Silicon Labs), `znp` (Texas Instruments), `deconz` (ConBee/RaspBee), `zigate`, and `xbee`.
+- **Serial port**: The path to the serial device the coordinator is connected to, for example `/dev/ttyUSB0` or a `socket://` URL for network-connected adapters.
+- **Baudrate**: The communication speed of the serial connection in bits per second (for example, `115200`). This field is only shown for direct serial connections and is hidden for network/socket-based (Ethernet) adapters.
+
+### Defining the Zigbee channel to use
 
 {% important %}
 The best practice is to **not change the Zigbee channel** from the ZHA default.
@@ -281,26 +278,37 @@ The best practice is to **not change the Zigbee channel** from the ZHA default.
 These sections both provide helpful advice on improving your Zigbee network performance.
 {% endnote %}
 
-ZHA prefers to use Zigbee channel 15 by default. You can change this using YAML configuration, but this only works
-if there's no existing network. To change the channel for an existing network, radio has to be factory reset and a new network to be formed. This requires re-pairing of all the devices.
 
-```yaml
-zha:
-  zigpy_config:
-    network:
-      channel: 15             # What channel the radio should try to use.
-      channels: [15, 20, 25]  # Channel mask
-```
+#### To change the Zigbee channel
+
+1. Go to {% my config_zha title="**Settings** > **Zigbee**" %}.
+2. Select **Network information**.
+3. To edit the Zigbee channel, select the pencil {% icon "mdi:edit" %}.
+4. Select the desired Zigbee channel from the dropdown menu.
+   - **Smart**: scans all of the channels and then picks the best one, preferring `15`, `20`, `25` over all other channels.
+     - This is a one-time operation. It does not continuously monitor the channels and change the channel if interference is detected.
+     - This is most likely the best option. Only change it if you have a specific reason to do so.
+
+    ![Changing the Zigbee channel](/images/integrations/zha/zha-change-channel.png)
+
+5. To confirm, select **Change channel**.
+6. It might take up to an hour for all devices to reconnect to the new channel.
+   - To check the status, take a look at the [visualization of the Zigbee network topology](#visualization-of-the-zigbee-network-topology-and-device-links).
+   - To speed up this process, power cycle your Zigbee end devices.
+
+#### Troubleshooting Zigbee channels
 
 The related troubleshooting segments mentioned above will, among other things, inform that if you have issues with overlapping frequencies between Wi-Fi and Zigbee, then it is usually better to first only try changing and setting a static Wi-Fi channel on your Wi-Fi router or all your Wi-Fi access points (instead of just changing to another Zigbee channel).
 
 MetaGeek Support has a good reference article about channel selection for [Zigbee and WiFi coexistence](https://support.metageek.com/hc/en-us/articles/203845040-ZigBee-and-WiFi-Coexistence).
 
+#### About Zigbee channels
+
 The Zigbee specification standards divide the 2.4&nbsp;GHz ISM radio band into 16 Zigbee channels (i.e. distinct radio frequencies for Zigbee). For all Zigbee devices to be able to communicate, they must support the same Zigbee channel (i.e. Zigbee radio frequency) that is set on the Zigbee Coordinator as the channel to use for its Zigbee network. Not all Zigbee devices support all Zigbee channels. Channel support usually depends on the age of the hardware and firmware, as well as on the device's power ratings.
 
 The general recommendation is to only use channels 15, 20, or 25 in order to avoid interoperability problems with Zigbee devices. Not only because there is less chance of Wi-Fi networks interfering too much with the Zigbee network on other channels, but also because not all Zigbee devices support all channels.
 
-#### Modifying the device type
+### Modifying the device type
 
 As not all device manufacturers follow the Zigbee standard, at times a device can be incorrectly classified. For example, a switch could be classified as a light.
 
@@ -352,11 +360,10 @@ These sections both provide helpful advice on improving your Zigbee network perf
 
 **To add a new Zigbee device:**
 
-1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
-2. Select the **Zigbee Home Automation** {% term integration %}. Then, select **Configure**.
-3. To start a scan for new devices, on the bottom right corner of the screen, select **Add device**.
-4. Reset your Zigbee devices to factory default settings according to the device instructions provided by the manufacturer (e.g., turn on/off lights up to 10 times; switches usually have a reset button/pin). It might take a few seconds for the devices to appear. You can click on **Show logs** for more verbose output.
-5. Once the device is found, it will appear on that page and will be automatically added to your devices. You can optionally change its name and add it to an area (you can change this later). You can search again to add another device, or you can go back to the list of added devices.
+1. Go to {% my config_zha title="**Settings** > **Zigbee**" %}.
+2. To start a scan for new devices, on the bottom right corner of the screen, select **Add device**.
+3. Reset your Zigbee devices to factory default settings according to the device instructions provided by the manufacturer (e.g., turn on/off lights up to 10 times; switches usually have a reset button/pin). It might take a few seconds for the devices to appear. You can click on **Show logs** for more verbose output.
+4. Once the device is found, it will appear on that page and will be automatically added to your devices. You can optionally change its name and add it to an area (you can change this later). You can search again to add another device, or you can go back to the list of added devices.
 
 ### Using router devices to add more devices
 
@@ -530,12 +537,14 @@ While using a native Zigbee group instead of Home Assistant's [Group](/integrati
 
 #### To create a Zigbee group
 
-1. Select the **Configure** button on the ZHA integration page,
-2. Choose **Groups** and select **Create Group**,
-3. Enter a name for the group,
+1. Go to {% my config_zha title="**Settings** > **Zigbee**" %}.
+2. Choose **Groups** and select the **Create group** button.
+3. Enter a name for the group.
 4. Select which devices to include in the group:
     - At least two devices must be added to a Zigbee Group before a group entity is created.
     - The group should consist of products of the same device type (all lights, all switches, or all fans).
+5. To confirm, select **Create group**.
+   - You can now control all devices in the group with a single command or entity. For example, you can add a toggle to the dashboard to turn on/off all lights in the group.
 
 ### Binding
 
@@ -558,14 +567,15 @@ Before binding devices, note the following:
 Prerequisites and steps can vary depending on the device type, manufacturer, and your desired end result.
 {% endnote %}
 
-1. Navigate to the Zigbee remote's configuration page,
-2. In the options menu (the "three dots" icon) to the right of the **Reconfigure** button, select **Manage Zigbee device**,
-3. Select the **Bindings** tab in the pop-up dialog,
-4. Choose the device from the dropdown list of _Bindable devices_ (or _Bindable groups_),
-5. If the remote is battery powered or low-power, wake it by pressing a button immediately before sending a command.
-6. Confirm the Bind or Unbind action:
-   - To bind devices: select **Bind** (or **Bind group**), or
-   - To unbind devices, select **Unbind** (or **Unbind group**).
+1. Go to {% my config_zha title="**Settings** > **Zigbee**" %}.
+2. Select **Devices**, then select the device you want to manage bindings for.
+3. In the three dots {% icon "mdi:dots-vertical" %} menu next to the **Reconfigure** button, select **Manage Zigbee device**.
+4. In the pop-up dialog, select the **Bindings** tab.
+5. Choose the device from the list of **Bindable devices** (or **Bindable groups**).
+6. If the remote is battery-powered or low-power, wake it by pressing a button immediately before sending a command.
+7. Confirm the **Bind** or **Unbind** action:
+    - To bind devices, select **Bind** (or **Bind group**).
+    - To unbind devices, select **Unbind** (or **Unbind group**).
 
 ## Backups and migration
 
@@ -598,8 +608,8 @@ You will not be able to control your existing Zigbee devices until they join the
 If some existing devices do not resume normal functions after some time, try power-cycling them to attempt rejoining to the network.
 {% endimportant %}
 
-1. Go to **{% my integrations title="Settings > Devices & services" %}** and select the ZHA {% term integration %}. Then select the cogwheel {% icon "mdi:cog-outline" %}.
-2. Under **Network settings**, select **Migrate adapter**.
+1. Go to {% my config_zha title="**Settings** > **Zigbee**" %}.
+2. Select **Migrate**.
 3. Plug in the new Zigbee adapter.
    - To minimize interference:
      - Use a USB extension cable.
@@ -833,9 +843,9 @@ If the upgrade still does not start, then try manually restarting the device by 
 
 Be aware that OTAU (Over-The-Air Upgrade) of Zigbee devices typically takes around 10 minutes per device, if it takes longer then another common reason for Zigbee firmware upgrades not starting, taking a very long time, or even failing, is poor reception or not having a stable Zigbee network mesh. Take action to try to optimize your Zigbee network by avoiding radio frequency interference and adding many Zigbee Router devices (repeaters/extenders) to extend range and coverage. Try to follow all the best practice tips above in the [Zigbee interference avoidance and network range/coverage optimization)](#zigbee-interference-avoidance-and-network-rangecoverage-optimization) section under troubleshooting.
 
-### Zigbee network visualization in ZHA UI
+### Visualization of the Zigbee network topology and device links
 
-The ZHA configuration UI has a tab to visualize device links in your Zigbee network topology.
+To visualize device links in your Zigbee network topology, go to {% my config_zha title="**Settings** > **Zigbee**" %} and select **Show map**.
 
 The network visualization can help to identify devices with poor connection (that is, low values on the link). You will need to look at the ZHA logs to find more detailed information required for troubleshooting.
 
@@ -888,8 +898,7 @@ Vendor-specific examples:
 - Other manufacturers and Zigbee stacks measure and calculate LQI values in another way.
 
 {% enddetails %}
-
-
+ 
 ### Reporting issues
 
 For more details on where and how to report issues, please refer to the [Reporting issues page](/help/reporting_issues/).
@@ -899,10 +908,11 @@ When reporting potential bugs related to the ZHA integration on the issues track
 1. Debug logs for the issue, see [debug logging](#debug-logging).
 2. Exact model and firmware of the Zigbee radio (Zigbee Coordinator adapter) being used.
 3. If the issue is related to a specific Zigbee device, provide both the **Zigbee Device Signature** and the **Diagnostics** information.
-     - Both the **Zigbee Device Signature** and the **Diagnostics** information can be found under {% my integrations title="**Settings** > **Devices & services**" %}. 
-        - Select the **Zigbee Home Automation** integration. 
-        - Then, navigate to **Configure** > **Devices** (pick your device). 
-        - Select **Zigbee Device Signature** and **Download Diagnostics**, respectively.
+     - Go to {% my config_zha title="**Settings** > **Zigbee**" %}.
+        1. Select **Devices** and from the list, select your device.
+        2. In the three dots {% icon "mdi:dots-vertical" %} menu next to the **Reconfigure** button, select **Download diagnostics**.
+        3. In the three dots {% icon "mdi:dots-vertical" %} menu next to the **Reconfigure** button, select **Manage Zigbee device**.
+        4. Open the **Signature** tab and copy the signature.
 
 {% tip %}
 For troubleshooting, read the following sections on this page. They provide information on improving your Zigbee network performance.

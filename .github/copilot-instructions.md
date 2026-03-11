@@ -76,6 +76,7 @@ Some other rules:
 - Use sentence-style capitalization for headings and titles.
 - Do not use "e.g.", "i.e.", "etc.", or "etcetera". Use "like", "for example",
   or "such as" instead.
+- Avoid the verb "click". It is specific to using a mouse. Instead, use verbs that work with multiple devices, such as "select". Use "click" when you need to describe mouse actions specifically, for example, when describing right-clicking or double-clicking with a mouse.
 - Lists:
     - Lists should be surrounded by blank lines.
     - Use a numbered list for sequential steps, procedures, or prioritized items.

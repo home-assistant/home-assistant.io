@@ -30,6 +30,7 @@ ha_platforms:
   - cover
   - fan
   - humidifier
+  - image
   - light
   - lock
   - sensor

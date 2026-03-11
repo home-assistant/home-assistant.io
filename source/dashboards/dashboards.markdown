@@ -33,13 +33,13 @@ Screenshot of the Dashboard list.
 
 ### Dashboards shown in the sidebar by default
 
-Built-in dashboards that are available in the sidebar by default:
+Predefined dashboards that are available in the sidebar by default:
 
 - [Home dashboard](#home-dashboard). Category: built-in. It is shown in the sidebar only while it is set as your default dashboard. If you set another dashboard as default, that dashboard appears in the sidebar instead.
 - [Activity dashboard](#activity-dashboard). Category: built-in.
 - Energy dashboard. Category: built-in.
 - [History dashboard](#history-dashboard). Category: built-in.
-- [Map dashboard](#map-dashboard). Category: user-created. The Map dashboard is an exception: it is available out of the box, but you can edit it freely. This is why it is categorized as **User-created** dashboard.
+- [Map dashboard](#map-dashboard). Category: User created. The Map dashboard is an exception: it is available out of the box, but you can edit it freely. This is why it is categorized as a **User created** dashboard.
 - [To-do lists dashboard](#to-do-lists-dashboard). Category: built-in.
 
 <p class='img'>

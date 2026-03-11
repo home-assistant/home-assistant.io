@@ -10,7 +10,7 @@ ha_codeowners:
 ha_domain: vivotek
 ha_platforms:
   - camera
-ha_integration_type: integration
+ha_integration_type: device
 ha_config_flow: true
 ---
 

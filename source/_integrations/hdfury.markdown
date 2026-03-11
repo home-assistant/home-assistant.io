@@ -21,7 +21,7 @@ ha_platforms:
   - sensor
   - switch
 ha_integration_type: device
-ha_quality_scale: silver
+ha_quality_scale: platinum
 ha_zeroconf: true
 ---
 
@@ -59,6 +59,8 @@ Below is a complete overview of the entities this integration provides.
 
 ### Number
 
+- Unmute delay (Controls time offset before sending audio data to SINK0)
+- eARC unmute delay (Controls time offset before sending audio data to eARC TX)
 - OLED fade timer (Controls time before the front-panel OLED display fades out)
 - Restart timer (Controls interval for automatic device restarts)
 

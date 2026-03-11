@@ -12,7 +12,7 @@ ha_config_flow: true
 ha_domain: vlc_telnet
 ha_platforms:
   - media_player
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 The **VLC media player via Telnet** {% term integration %} allows you to control a [VLC media player](https://www.videolan.org/vlc/index.html) using the built in telnet interface.
