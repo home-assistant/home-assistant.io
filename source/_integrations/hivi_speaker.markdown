@@ -60,7 +60,7 @@ Playback and volume apply to the individual speaker. To play the same audio on m
 
 ### Switches
 
-For each HiVi speaker that can act as a **leader**, the integration creates **switch** entities: one per other available speaker. Each switch represents “use this other speaker as a synchronized **follower** of the current leader.”
+For each HiVi speaker that can act as a **leader**, the integration creates **switch** entities: one per other available speaker. Each switch represents “use this other speaker as a synchronized **follower** of the current leader”.
 
 - **Switch on**: Add that speaker as a follower; it will play in sync with the leader.
 - **Switch off**: Remove the follower link; that speaker returns to standalone mode.
