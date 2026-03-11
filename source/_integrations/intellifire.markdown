@@ -45,7 +45,7 @@ Send commands to:
 {% endconfiguration_basic %}
 
 {% tip %}
-Some users find that their fireplace hardware prioritizes cloud communication and may experience timeouts with local control. If you encounter connectivity issues, try switching to Cloud for the affected endpoint.
+Some people find that their fireplace hardware prioritizes cloud communication and may experience timeouts with local control. If you encounter connectivity issues, try switching to Cloud for the affected endpoint.
 {% endtip %}
 
 ## API credentials
