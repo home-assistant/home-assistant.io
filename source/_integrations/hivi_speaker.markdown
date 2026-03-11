@@ -4,7 +4,7 @@ description: Instructions on how to integrate HiVi Multi-Room speakers into Home
 ha_category:
   - Media player
   - Switch
-ha_release: "2025.4"
+ha_release: 2025.4
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
