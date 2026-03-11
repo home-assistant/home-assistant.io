@@ -6,6 +6,7 @@ ha_category:
   - Number
   - Sensor
   - Switch
+  - Select
 ha_release: '2023.8'
 ha_iot_class: Local Polling
 ha_codeowners:
@@ -19,12 +20,13 @@ ha_platforms:
   - sensor
   - switch
   - valve
+  - select
 ha_integration_type: device
 ---
 
 The **Gardena Bluetooth** {% term integration %} allows users to integrate their Gardena Bluetooth devices into Home Assistant.
 
-See device section for support information: [water control](#water-control), [irrigation valves](#irrigation-valves), [lawn mowers](#lawn-mowers), [garden pumps](#gard-pumps)
+See device section for support information: [water control](#water-control), [irrigation valves](#irrigation-valves), [lawn mowers](#lawn-mowers), [garden pumps](#gard-pumps), [aqua contours](#aqua-contours).
 
 {% include integrations/config_flow.md %}
 
@@ -69,3 +71,12 @@ Gardena Bluetooth lawn mowers are currently not supported due to custom protocol
 ### Limitations
 
 Irrigation valves are currently untested, but expected to work.
+
+## Aqua Contours
+
+- Aqua Precise Overground ([16000-20](https://www.gardena.com/int/products/watering/sprinklersystem/aquaprecise-solar-powered-lawn-irrigation-system/970746801.html))
+- Aqua Precise Underground ([16001-20](https://www.gardena.com/int/products/watering/sprinklersystem/aquaprecise-solar-powered-lawn-pipeline-irrigation-system/970746901.html))
+
+### Limitations
+
+Configuration of contours is not supported and must be set-up using official application.
