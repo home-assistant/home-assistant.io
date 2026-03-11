@@ -8,7 +8,7 @@ ha_release: "2025.4"
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
-  - "@swansmart"
+  - '@swansmart'
 ha_domain: hivi_speaker
 ha_platforms:
   - media_player
@@ -18,7 +18,7 @@ ha_integration_type: hub
 
 The **HiVi Speaker** {% term integration %} allows you to control [HiVi](https://www.hivi.com) Multi-Room speakers from Home Assistant. It discovers HiVi speakers on your local network and creates [media player](/integrations/media_player/) entities for playback control, plus [switch](/integrations/switch/) entities to manage multi-room synchronization (master–slave groups).
 
-This integration uses a custom SSDP discovery step (`ssdp:wiimudevice`) to find only HiVi Multi-Room–capable devices, then uses the manufacturer’s private HTTP protocol for sync control. Media browsing can use local media and [DLNA Digital Media Server](/integrations/dlna_dms/) content when that integration is configured.
+The integration automatically discovers compatible HiVi Multi-Room devices on your local network and controls them directly over your home network. Media browsing can use local media and [DLNA Digital Media Server](/integrations/dlna_dms/) content when that integration is configured.
 
 There is support for the following platform types within Home Assistant:
 
@@ -34,7 +34,7 @@ There is support for the following platform types within Home Assistant:
 
 Setup is single-instance: you add the integration once. The integration then scans the network for HiVi Multi-Room speakers and creates entities as devices are discovered.
 
-### Integration options
+## Options
 
 From the integration’s **Options** you can trigger a **Refresh discovery** to scan again for speakers. Newly discovered devices will be added automatically.
 
@@ -53,8 +53,8 @@ Playback and volume apply to the individual speaker. To play the same audio on m
 
 For each HiVi speaker that can act as a **master**, the integration creates **switch** entities: one per other available speaker. Each switch represents “use this other speaker as a synchronized **slave** of the current master.”
 
-- **Switch ON** — Add that speaker as a slave; it will play in sync with the master.
-- **Switch OFF** — Remove the slave link; that speaker returns to standalone mode.
+- **Switch on** — Add that speaker as a slave; it will play in sync with the master.
+- **Switch off** — Remove the slave link; that speaker returns to standalone mode.
 
 You can change sync groups at any time; multiple independent master–slave groups are supported.
 
@@ -66,18 +66,18 @@ Multi-room works by designating one speaker as the **master** and others as **sl
 
 1. Open the HiVi speaker **device** in Home Assistant (the one you want to use as master).
 2. In the device’s configuration area, find the list of switches named after other HiVi speakers.
-3. Turn **ON** the switch for each speaker you want to sync with this master.
+3. Turn on the switch for each speaker you want to sync with this master.
 4. Those speakers become slaves of this master; playback on the master is synchronized to them.
-5. Turn **OFF** a switch to remove that speaker from the sync group.
+5. Turn off a switch to remove that speaker from the sync group.
 
 ### Example layout
 
-```
+```text
 Living Room Speaker (master)
-├── [ON]  Kitchen Speaker   (synchronized)
-├── [ON]  Bedroom Speaker   (synchronized)
-├── [OFF] Bathroom Speaker  (standalone)
-└── [OFF] Office Speaker   (standalone)
+├── [On]  Kitchen Speaker   (synchronized)
+├── [On]  Bedroom Speaker   (synchronized)
+├── [Off] Bathroom Speaker  (standalone)
+└── [Off] Office Speaker   (standalone)
 ```
 
 - Each master can have its own set of slaves.
@@ -88,7 +88,7 @@ Living Room Speaker (master)
 
 Compatible with HiVi speakers that support Multi-Room, including (but not limited to):
 
-- HiVi M5A, M3AMKIII, H6, H8, H5MKII, M500, M300MKII, M200MKII (WiFi), M200D, M100MKIII, M80W
+- HiVi M5A, M3AMKIII, H6, H8, H5MKII, M500, M300MKII, M200MKII (Wi‑Fi), M200D, M100MKIII, M80W
 - MT1-MAX, MT1-MINI
 - T200MKII, MS2 series
 
@@ -99,7 +99,7 @@ Other HiVi models with Multi-Room functionality may also work.
 ### No speakers are found
 
 - Confirm HiVi speakers are on and on the same network as Home Assistant.
-- Ensure multicast/SSDP is not blocked (UDP to 239.255.255.250, port 1900).
+- Ensure multicast is not blocked (UDP 239.255.255.250, port 1900).
 - Restart Home Assistant and the speakers, then use **Options** > **Refresh discovery**.
 
 ### Speakers are out of sync during playback
