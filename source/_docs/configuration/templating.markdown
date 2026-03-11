@@ -377,7 +377,7 @@ The `state_translated` function returns a translated state of an entity using a 
 
 Not supported in [limited templates](#limited-templates).
 
-The `state_attr_translated` function returns a translated attribute value of an entity using the language that is currently configured in the [general settings](https://my.home-assistant.io/redirect/general/). This is useful for attributes like `fan_mode`, `hvac_action`, `preset_mode`, or `color_mode`, which have translations defined but are stored as untranslated values in the state.
+The `state_attr_translated` function returns a translated attribute value of an entity using the language that is currently configured in {% my general title="**Settings** > **System** > **General**" %}. This is useful for attributes like `fan_mode`, `hvac_action`, `preset_mode`, or `color_mode`, which have translations defined but are stored as untranslated values in the state.
 
 #### State attribute translated examples
 
