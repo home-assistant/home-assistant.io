@@ -33,15 +33,11 @@ This integration does not integrate with [sentence triggers](/docs/automation/tr
 
 This integration requires an API key to use, [which you can generate here.](https://platform.openai.com/account/api-keys). This is a paid service, we advise you to monitor your costs in the [OpenAI portal](https://platform.openai.com/account) closely and configure [usage limits](https://platform.openai.com/account/billing/limits) to avoid unwanted costs associated with using the service.
 
-{% include integrations/config_flow.md %}
+# Prerequisites 
 
-
-{% configuration_basic %}
-API key:
-  description: "API key from OpenAI for authentication."
-{% endconfiguration_basic %}
-
-## Generate an API Key
+{% important %}
+This integration is specifically designed to work only with **OpenAI service** and not with third-party providers or alternative models. Third-party providers and other AI services are not supported. If you need support for other providers, consider using the [OpenRouter integration](https://www.home-assistant.io/integrations/open_router/) as an alternative, or refer to [feature request for additional providers](https://github.com/orgs/home-assistant/discussions/1681).
+{% endimportant %}
 
 The OpenAI key is used to authenticate requests to the OpenAI API. To generate an API key take the following steps:
 
@@ -49,6 +45,13 @@ The OpenAI key is used to authenticate requests to the OpenAI API. To generate a
 - Enable billing with a valid credit card
 - Configure [usage limits](https://platform.openai.com/account/billing/limits).
 - Visit the [API Keys page](https://platform.openai.com/account/api-keys) to retrieve the API key you'll use to configure the integration.
+
+{% include integrations/config_flow.md %}
+
+{% configuration_basic %}
+API key:
+  description: "API key from OpenAI for authentication."
+{% endconfiguration_basic %}
 
 {% include integrations/option_flow.md %}
 
