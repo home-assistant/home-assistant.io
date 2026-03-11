@@ -14,7 +14,7 @@ ha_config_flow: true
 ha_platforms:
   - button
   - sensor
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 Integrates [ThermoPro](https://buythermopro.com/) devices into Home Assistant.

@@ -95,7 +95,7 @@ Context is a property used in state objects and events. It ties {% term events %
   ```
 
   {% endraw %}  
-  result type: `string` representing a datetime object e.g.  
+  result type: `string` representing a datetime object, for example  
   `2025-11-11 12:56:10.244125+00:00`
 
 ***
@@ -108,7 +108,7 @@ Context is a property used in state objects and events. It ties {% term events %
     ```
 
   {% endraw %}
-  result type: `string` representing an id code e.g.  
+  result type: `string` representing an id code, for example  
   `01K9SF2R36KRV5N4PTC38S6KJ2F`
 
 ***
@@ -122,5 +122,5 @@ Context is a property used in state objects and events. It ties {% term events %
   ```
 
   {% endraw %}
-  result type: `string` representing a user id code e.g.
+  result type: `string` representing a user id code, for example
   `01K9SF2R36KRV5N4PTC38SKS4LW6`

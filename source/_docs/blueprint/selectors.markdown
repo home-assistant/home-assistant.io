@@ -201,6 +201,12 @@ multiple:
   type: boolean
   default: false
   required: false
+reorder:
+  description: >
+    Allows reordering of areas (only applies if `multiple` is set to `true`).
+  type: boolean
+  default: false
+  required: false
 {% endconfiguration %}
 
 The output of this selector is the area ID, or (in case `multiple` is set to
@@ -247,7 +253,7 @@ area:
 The attributes selector shows a list of state attributes from a provided entity
 of which one can be selected.
 
-This allows for selecting, e.g., the "Effect" attribute from a light entity, or the
+This allows for selecting, for example, the "Effect" attribute from a light entity, or the
 "Next dawn" attribute from the `sun` entity.
 
 ![Screenshot of an attribute selector](/images/blueprints/selector-attribute.png)
@@ -1219,7 +1225,7 @@ number:
 
 ## Object selector
 
-The object selector can be used to input arbitrary data in YAML form. This is useful for e.g. lists and dictionaries containing data for actions. The value of the input will contain the provided data.
+The object selector can be used to input arbitrary data in YAML form. This is useful for lists and dictionaries containing data for actions, for example. The value of the input will contain the provided data.
 
 When used without options, the selector will accept any valid YAML content, such as objects, arrays, strings, or other YAML types. The input box is displayed as an editor with syntax highlighting.
 

@@ -11,8 +11,10 @@ ha_codeowners:
   - '@Przemko92'
 ha_domain: compit
 ha_platforms:
-  - climate
   - binary_sensor
+  - climate
+  - fan
+  - number
   - select
   - sensor
   - water_heater
@@ -413,6 +415,13 @@ Binary sensors provide status information about your Compit devices.
 ### Climate
 
 The climate entity reflects the current heating or cooling state and the **active** target temperature. Use the climate entity when you want to change the target temperature temporarily or for the current session (for example, turning up the heat for the evening). The climate entity is where you set what temperature the device is aiming for right now.
+
+### Fans
+
+- **Ventilation**
+  - **Description**: Controls the ventilation fan. You can turn the fan on or off and set the speed.
+  - **Available for devices**: Nano Color (Room thermostat), Nano Color 2 (Room thermostat).
+  - **Remarks**: The fan has 5 speed levels, shown as a percentage in Home Assistant.
 
 ### Numbers
 

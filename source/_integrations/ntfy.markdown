@@ -4,6 +4,7 @@ description: Instructions on how to integrate ntfy with Home Assistant.
 ha_category:
   - Event
   - Notifications
+  - Update
 ha_iot_class: Cloud Push
 ha_release: 2025.5
 ha_config_flow: true
@@ -16,6 +17,7 @@ ha_platforms:
   - event
   - notify
   - sensor
+  - update
 ha_quality_scale: platinum
 ---
 
@@ -130,6 +132,15 @@ actions:
 {% endraw %}
 
 {% enddetails %}
+
+## Updates
+
+For self-hosted **ntfy** instances, Home Assistant creates an update entity that shows when a new version of **ntfy** is available for download. To perform an update, refer to the official [documentation](https://docs.ntfy.sh/).
+
+### Prerequisites
+
+- **ntfy** version 2.17.0 or later
+- Configured user with **administrator** privileges on the instance
 
 ## Actions
 

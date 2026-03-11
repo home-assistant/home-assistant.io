@@ -78,3 +78,7 @@ Maybe you like to build one yourself?
 If you manually integrate your sensors, for example, using the [MQTT](/integrations/mqtt) or [RESTful](/integrations/rest) integrations: Make sure you set and provide the `device_class`, `state_class`, and `unit_of_measurement` for those sensors.
 
 For any of the above-listed options, make sure it actually works with the type of water meter you have before getting one.
+
+### Reading the meter wirelessly via RTL-SDR
+
+{% include energy/rtl_sdr.md %}
