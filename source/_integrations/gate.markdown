@@ -11,4 +11,4 @@ ha_domain: gate
 ha_integration_type: system
 ---
 
-This {% term integration %} provides automation triggers for covers with device class gate. There are no configuration options for this integration.
+This {% term integration %} provides automation triggers for covers with device class: `gate`. There are no configuration options for this integration.
