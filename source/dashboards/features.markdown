@@ -660,7 +660,7 @@ type:
 
 Widget that displays a set of buttons to select a color for a [light](/integrations/light) from a list of favorites.
 
-Favorites can be customized in a light's more-info dialog. Based on screen width available to the feature, only a subset of favorites may be shown (based on sort order). 
+You can customize favorites in a light's more-info dialog. The feature shows as many favorites as fit in the available width, following the favorites' sort order.
 
 <p class='img'>
   <img src='/images/dashboards/features/light_color_favorites.png' alt='Screenshot of the tile card with the light color favorites feature'>
