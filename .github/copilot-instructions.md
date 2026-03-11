@@ -77,6 +77,7 @@ Some other rules:
 - Do not use "e.g.", "i.e.", "etc.", or "etcetera". Use "like", "for example",
   or "such as" instead.
 - Avoid the verb "click". It is specific to using a mouse. Instead, use verbs that work with multiple devices, such as "select". Use "click" when you need to describe mouse actions specifically, for example, when describing right-clicking or double-clicking with a mouse.
+- [Don't use "master/slave"](https://learn.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/m/master-slave). Instead, use alternatives such as "client"/"server", "leader/follower", "main/replica", or "controller/device".
 - Lists:
     - Lists should be surrounded by blank lines.
     - Use a numbered list for sequential steps, procedures, or prioritized items.
