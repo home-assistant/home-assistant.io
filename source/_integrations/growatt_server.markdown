@@ -173,6 +173,8 @@ The integration provides the following actions for managing battery schedules:
 
 The `growatt_server.update_time_segment` action configures individual time segments (1-9) with battery operation mode, time range, and enable/disable state for automated battery charging and discharging schedules.
 
+Suppored on MIN inverters.
+
 {% important %}
 This action modifies your inverter's TOU scheduling settings. Incorrect configuration may affect your battery's charging/discharging behavior and energy costs. Ensure you understand your electricity tariff structure before making changes.
 {% endimportant %}
@@ -195,15 +197,19 @@ This action modifies your inverter's TOU scheduling settings. Incorrect configur
 
 ### Action: Read time segments
 
-The `growatt_server.read_time_segments` action reads the current configuration of all 9 time segments from the inverter and returns the complete TOU schedule configuration.
+The `growatt_server.read_time_segments` action reads the current configuration of all 9 time segments from a inverter and returns the complete TOU schedule configuration.
+
+Suppored on MIN inverters.
 
 **Data attributes:**
 
 - **device_id** *(string, required)*: The device ID of the MIN inverter
 
-### Action: Write AC charge times (SPH)
+### Action: Write AC charge times
 
-The `growatt_server.write_ac_charge_times` action writes AC charge settings and up to three configurable charge periods on supported SPH devices.
+The `growatt_server.write_ac_charge_times` action writes AC charge settings and up to three configurable charge periods  on supported SPH devices.
+
+Suppored on SPH inverters.
 
 {% important %}
 This action modifies inverter charging behavior. Incorrect settings can affect battery lifespan and charging costs. Make changes only if you understand your battery and tariff setup.
@@ -229,7 +235,7 @@ This action modifies inverter charging behavior. Incorrect settings can affect b
 You can provide a full payload or only the fields you want to change. Omitted fields keep their current values from the inverter settings.
 {% endnote %}
 
-### Action: Write AC discharge times (SPH)
+### Action: Write AC discharge times
 
 The `growatt_server.write_ac_discharge_times` action writes AC discharge settings and up to three configurable discharge periods on supported SPH devices.
 
@@ -248,7 +254,7 @@ The `growatt_server.write_ac_discharge_times` action writes AC discharge setting
 - **period_3_end** *(time, optional)*: End time for period 3 (`HH:MM` or `HH:MM:SS`)
 - **period_3_enabled** *(boolean, optional)*: Enable period 3
 
-### Action: Read AC charge times (SPH)
+### Action: Read AC charge times
 
 The `growatt_server.read_ac_charge_times` action reads AC charge periods from a supported SPH device.
 
@@ -256,7 +262,7 @@ The `growatt_server.read_ac_charge_times` action reads AC charge periods from a 
 
 - **device_id** *(string, required)*: The device ID of the Growatt SPH inverter
 
-### Action: Read AC discharge times (SPH)
+### Action: Read AC discharge times
 
 The `growatt_server.read_ac_discharge_times` action reads AC discharge periods from a supported SPH device.
 
