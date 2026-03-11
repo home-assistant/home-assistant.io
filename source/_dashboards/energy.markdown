@@ -64,6 +64,38 @@ disable_compare:
 type: energy-date-selection
 ```
 
+## Energy compare alert
+
+<p class='img'>
+  <img src='/images/dashboards/energy/energy-compare.png' alt='Screenshot of the energy compare alert card'>
+  Screenshot of the energy compare alert card.
+</p>
+
+This card shows which date ranges are being compared, and provides the option to switch between different compare modes.
+
+The card is only visible when comparing data periods, otherwise it will be hidden.
+
+### YAML configuration
+
+The following YAML options are available:
+
+{% configuration %}
+type:
+  required: true
+  description: "`energy-compare-card`"
+  type: string
+collection_key:
+  required: false
+  description: "Collection key to use for the card. This links the card to a specific energy dashboard collection. If not provided, defaults to the current dashboard page URL."
+  type: string
+{% endconfiguration %}
+
+### Example
+
+```yaml
+type: energy-compare-card
+```
+
 ## Energy usage graph
 
 <p class='img'>
