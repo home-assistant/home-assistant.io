@@ -43,7 +43,12 @@ collection_key:
   type: string
 vertical_opening_direction:
   required: false
-  description: "`up`, `down` or `auto`. Determines the direction to open the date range picker. `auto` changes it based on the screen size."
+  description: "`up`, `down` or `auto`. Determines the vertical direction to open the date range picker. `auto` changes it based on the screen size."
+  type: string
+  default: auto
+opening_direction:
+  required: false
+  description: "`left`, `right`, `center` or `auto`. Determines the horizontal direction to open the date range picker. `auto` changes it based on the screen size."
   type: string
   default: auto
 disable_compare:
