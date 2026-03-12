@@ -81,12 +81,12 @@ transporter_toslink:
 {% include integrations/option_flow.md %}
 
 {% configuration_basic %}  
-Browse limit:  
+Browse limit:
  description: Maximum number of items to include when browsing media or in a playlist.
-Volume step:  
- description: Amount to adjust the volume when turning volume up or down.  
-LMS timeout:  
- description: The number of seconds to wait for a response from the LMS before timing out.  
+Volume step:
+ description: Amount to adjust the volume when turning volume up or down.
+LMS timeout:
+ description: The number of seconds to wait for a response from the LMS before timing out.
 {% endconfiguration_basic %}
 
 ## Announce
