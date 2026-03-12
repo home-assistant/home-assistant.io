@@ -70,10 +70,9 @@ Create a Tesla Developer Application to connect Home Assistant with the Tesla Fl
    - OAuth Grant Type: Select **Authorization Code and Machine-to-Machine**
    - Allowed Origin URL(s): Enter your domain's URL, for example `https://yourdomain.com/`
    - Allowed Redirect URI: Enter one of the following:
-     - The literal, hardcoded string `https://my.home-assistant.io/redirect/oauth` if [`my`](https://www.home-assistant.io/integrations/my/) integration is enabled (it is by default)
-       - This is a redirection service provided by [https://my.home-assistant.io/](https://my.home-assistant.io/)
-       - If you have `my:` in your configuration or `default_config:` enabled, Home Assistant automatically uses this URL as the OAuth redirect destination.
-     - `https://yourdomain.com/auth/external/callback` if you do not have [`my:`](https://www.home-assistant.io/integrations/my/)
+     - The literal string `https://my.home-assistant.io/redirect/oauth` if the [`My Home Assistant`](https://www.home-assistant.io/integrations/my/) integration is enabled (it is by default)
+       - Home Assistant uses [this service](https://my.home-assistant.io/) by default to redirect requests towards your instance
+     - `<HOME_ASSISTANT_URL>/auth/external/callback` if you do not the [`My Home Assistant`](https://www.home-assistant.io/integrations/my/) integration is enabled
    - Allowed Returned URL(s): Leave this field empty (not required)
 
 4. Select desired API scopes:
