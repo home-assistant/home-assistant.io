@@ -124,10 +124,6 @@ This section describes how to edit cards in a recently created dashboard, namely
 11. If you want to change the configuration of another card, select the {% icon "mdi:pencil" %} button again, and then select **Edit** on the card.
 
 Congratulations! You have completed your first dashboard customization.
-While your dashboard is still small, this is a good moment to [migrate it into sections view](/dashboards/views/#migrating-a-view-into-a-sections-view).
-
-- The sections view offers features such as drag and drop, customizing number and width of columns, and more heading options.
-- To learn more, head over to the documentation on [section view](/dashboards/sections/).
 
 ## Learning more about dashboards
 
