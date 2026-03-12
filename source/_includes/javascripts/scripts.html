@@ -47,11 +47,11 @@
         document.addEventListener('mousemove', loadLazyFrames, { passive: true, once: true });
         document.addEventListener('touchmove', loadLazyFrames, { passive: true, once: true });
         document.addEventListener('scroll', loadLazyFrames, { passive: true, once: true });
-  
+
         function loadLazyFrames() {
           if (loaded) return;
           loaded = true;
-  
+
           iframes.forEach((iframe) => {
             const src = iframe.getAttribute("data-src");
             if (src) {
@@ -64,3 +64,63 @@
     }
   }
 </script>
+
+{% if page.toc %}
+<script type="text/javascript">
+  {
+    const scrollButton = document.getElementById("back-to-top-button");
+    const depthCircle = document.getElementById("depth");
+    const footer = document.querySelector("footer");
+
+    if (scrollButton && depthCircle && footer) {
+      const circumference = depthCircle.getTotalLength();
+
+      depthCircle.style.strokeDasharray = circumference;
+      depthCircle.style.strokeDashoffset = circumference;
+
+      const handleScroll = () => {
+        const scrollY = window.scrollY;
+
+        const footerTop = footer.offsetTop;
+        const windowHeight = window.innerHeight;
+
+        const scrollStart = 0;
+        const scrollEnd = footerTop - windowHeight;
+        let scrollProgress;
+
+        if (scrollEnd <= scrollStart) {
+          scrollProgress = 1;
+        } else {
+          scrollProgress = Math.min(
+            Math.max((scrollY - scrollStart) / (scrollEnd - scrollStart), 0),
+            1
+          );
+        }
+
+        const footerOffset = -50;
+        const footerIsVisible = scrollY + windowHeight >= footerTop - footerOffset;
+
+        if (scrollY > 100 && !footerIsVisible) {
+          scrollButton.classList.add("visible");
+        } else {
+          scrollButton.classList.remove("visible");
+        }
+
+        const offset = circumference - (scrollProgress * circumference);
+        depthCircle.style.strokeDashoffset = offset;
+      };
+
+      scrollButton.addEventListener("click", () => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+      });
+
+      window.addEventListener("scroll", handleScroll, { passive: true });
+
+      handleScroll();
+    }
+  }
+</script>
+{% endif %}
