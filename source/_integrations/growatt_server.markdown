@@ -198,7 +198,7 @@ This action modifies your inverter's TOU scheduling settings. Incorrect configur
 
 The `growatt_server.read_time_segments` action reads the current configuration of all 9 time segments from an inverter and returns the complete TOU schedule configuration.
 
-Suppored on MIN inverters.
+Supported on MIN inverters.
 
 **Data attributes:**
 
@@ -206,9 +206,9 @@ Suppored on MIN inverters.
 
 ### Action: Write AC charge times
 
-The `growatt_server.write_ac_charge_times` action writes AC charge settings and up to three configurable charge periods  on supported SPH devices.
+The `growatt_server.write_ac_charge_times` action writes AC charge settings and up to three configurable charge periods on supported SPH devices.
 
-Suppored on SPH inverters.
+Supported on SPH inverters.
 
 {% important %}
 This action modifies inverter charging behavior. Incorrect settings can affect battery lifespan and charging costs. Make changes only if you understand your battery and tariff setup.
