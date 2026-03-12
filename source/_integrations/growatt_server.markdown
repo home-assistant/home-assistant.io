@@ -128,7 +128,6 @@ Authentication using API token is currently supported for the following inverter
 
 **SPH 3000-6000TL BL-US Series**: SPH 3000TL BL-US, SPH 4000TL BL-US, SPH 5000TL BL-US, SPH 6000TL BL-US
 
-
 ## Known limitations
 
 ### Rate limiting with username/password authentication
