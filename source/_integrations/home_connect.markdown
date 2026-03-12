@@ -1111,7 +1111,7 @@ The `home_connect.set_program_and_options` action starts or selects a program. I
 
 ### Action: Start selected program
 
-The `home_connect.start_selected_program` action starts the program program that is already selected using the specified optons. You can specify start-only options to set them when starting the program. You can also use it to update the start-only options for a program that is already active but delayed (so that the operation state is "delayed start").
+The `home_connect.start_selected_program` action starts the program that is already selected using the specified options. You can specify start-only options to set them when starting the program. You can also use it to update the start-only options for a program that is already active but delayed (so that the operation state is "delayed start").
 
 | Data attribute    | Optional | Description                                      |
 |---------------------------|----------|--------------------------------------------------|
