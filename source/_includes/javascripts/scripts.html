@@ -73,7 +73,8 @@
     const footer = document.querySelector("footer");
 
     if (scrollButton && depthCircle && footer) {
-      const circumference = 106.1258544921875;
+      const circumference = depthCircle.getAttribute("data-circumference");
+
       depthCircle.style.strokeDasharray = circumference;
       depthCircle.style.strokeDashoffset = circumference;
 
