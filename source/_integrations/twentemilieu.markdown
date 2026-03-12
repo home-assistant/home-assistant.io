@@ -45,7 +45,7 @@ With the Twente Milieu integration, you can:
 
 ### Calendar
 
-The integration provides a calendar entity that displays all upcoming waste collection dates from Twente Milieu. You can view this calendar in your {% my calendar title="Calendar dashboard" %}.
+The integration provides a {% term calendar %} entity that displays all upcoming waste collection dates from Twente Milieu. You can view this calendar in your {% my calendar title="Calendar dashboard" %}.
 
 ### Sensors
 

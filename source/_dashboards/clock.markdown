@@ -67,7 +67,7 @@ time_zone:
   type: string
   required: false
 analog_options:
-  description: When using the analog clock style, this allows the user to configure the appearance of the clock.
+  description: When using the analog clock style, this allows you to configure the appearance of the clock.
   type: map
   required: false
   keys:

@@ -14,7 +14,7 @@ ha_integration_type: device
 ha_quality_scale: legacy
 ---
 
-The `yi` camera platform allows you to utilize [Yi Home Cameras](https://www.yitechnology.com/) within Home Assistant. Specifically, this platform supports the line of Yi Home Cameras that are based on the Hi3518e Chipset. This includes:
+The **Yi Home Cameras** {% term integration %} allows you to utilize [Yi Home Cameras](https://www.yitechnology.com/) within Home Assistant. Specifically, this platform supports the line of Yi Home Cameras that are based on the Hi3518e Chipset. This includes:
 
 - Yi Home 17CN / 27US / 47US
 - Yi 1080p Home

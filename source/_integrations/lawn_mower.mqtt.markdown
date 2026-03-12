@@ -8,7 +8,7 @@ ha_iot_class: Configurable
 ha_domain: mqtt
 ---
 
-The `mqtt` `lawn_mower` platform allows controlling a lawn mower over MQTT.
+The **MQTT lawn mower** {% term integration %} allows controlling a lawn mower over MQTT.
 
 ## Configuration
 

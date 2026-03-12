@@ -32,3 +32,7 @@ ha_iot_class: Local Polling
 ---
 
 {% include integrations/supported_brand.md %}
+
+## Port configuration
+
+Fujitsu anywAiR uses port **10211** for API communication. You will need to change the default port provided by the Advantage Air integration to **10211** to use it with Fujitsu anywAiR.

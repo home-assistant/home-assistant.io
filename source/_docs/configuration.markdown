@@ -21,8 +21,8 @@ While you can configure most of Home Assistant from the user interface, for some
 This file contains {% term integrations %} to be loaded along with their configurations. Throughout the documentation, you will find snippets that you can add to your configuration file to enable specific functionality.
 
 <p class='img'>
-<img src='/images/docs/configuration/config-yaml_via-file-editor.png' alt='Screenshot of an example of a configuration.yaml file, accessed using the File editor add-on on a Home Assistant Operating System installation.'>
-Example of a configuration.yaml file, accessed using the File editor add-on on a Home Assistant Operating System installation.
+<img src='/images/docs/configuration/config-yaml_via-file-editor.png' alt='Screenshot of an example of a configuration.yaml file, accessed using the File editor app on a Home Assistant Operating System installation.'>
+Example of a configuration.yaml file, accessed using the File editor app on a Home Assistant Operating System installation.
 </p>
 
 ## Editing `configuration.yaml`
@@ -37,13 +37,13 @@ How you edit your `configuration.yaml` file depends on your editor preferences a
 ### To set up access to the files and prepare an editor
 
 Before you can edit a file, you need to know how to access files in Home Assistant and setup an editor.
-File access depends on your [installation type](/installation/#about-installation-types). If you use {% term "Home Assistant Operating System" %}, you can use editor add-ons, for example. If you use {% term "Home Assistant Container" %}, add-ons are not available.
+File access depends on your [installation type](/installation/#about-installation-types). If you use {% term "Home Assistant Operating System" %}, you can use editor apps, for example. If you use {% term "Home Assistant Container" %}, apps are not available.
 
 To set up file access on the Home Assistant Operating System, follow these steps:
 
-- If you are unsure which option to choose, install the [file editor add-on](/common-tasks/os/#installing-and-using-the-file-editor-add-on).
-  - Alternatively, use the [Studio Code Server add-on](/common-tasks/os/#installing-and-using-the-visual-studio-code-vsc-add-on). This editor offers live syntax checking and auto-fill of various Home Assistant entities. But it looks more complex than the file editor.
-  - If you prefer to use a file editor on your computer, use the [Samba add-on](/common-tasks/os/#installing-and-using-the-samba-add-on).
+- If you are unsure which option to choose, install the [file editor app](/common-tasks/os/#installing-and-using-the-file-editor-app).
+  - Alternatively, use the [Studio Code Server app](/common-tasks/os/#installing-and-using-the-visual-studio-code-vsc-app). This editor offers live syntax checking and auto-fill of various Home Assistant entities. But it looks more complex than the file editor.
+  - If you prefer to use a file editor on your computer, use the [Samba app](/common-tasks/os/#installing-and-using-the-samba-app).
 
 ### To find the configuration directory
 
@@ -63,8 +63,8 @@ To set up file access on the Home Assistant Operating System, follow these steps
 
 Once you have located the config folder, you can edit your `configuration.yaml` file. How you edit the file depends on the editor you set up in step 1:
 
-- **If you are using the File editor add-on**: Open the add-on, navigate to the `/config` folder in the file browser on the left, and select the `configuration.yaml` file to open it in the editor.
-- **If you are using the Studio Code Server add-on**: Open the add-on, use the file explorer on the left to navigate to the `configuration.yaml` file, and select it to open in the editor.
+- **If you are using the File editor app**: Open the app, navigate to the `/config` folder in the file browser on the left, and select the `configuration.yaml` file to open it in the editor.
+- **If you are using the Studio Code Server app**: Open the app, use the file explorer on the left to navigate to the `configuration.yaml` file, and select it to open in the editor.
 - **If you are using Samba to access files**: Navigate to the shared folder on your computer, locate the `configuration.yaml` file, and open it with your favorite text editor like [Notepad++](https://notepad-plus-plus.org/) or [Visual Studio Code](https://code.visualstudio.com/).
 
 {% note %}

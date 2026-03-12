@@ -16,10 +16,10 @@ ha_platforms:
   - light
   - select
 ha_dhcp: true
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
-The Twinkly integration allows you to control [Twinkly](https://twinkly.com/) LED string from Home Assistant.
+The **Twinkly** {% term integration %} allows you to control [Twinkly](https://twinkly.com/) LED string from Home Assistant.
 
 This integration can be used to:
 - Turn your Twinklys on and off

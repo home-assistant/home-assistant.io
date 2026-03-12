@@ -57,9 +57,9 @@ item to a pre-configured to-do list.
 Some to-do list integrations allow Home Assistant to manage the to-do items in the list. The
 actions provided by some to-do list entities are described below or you can read more about [actions](/docs/scripts/perform-actions/).
 
-### Action `todo.get_items`
+### Action: Get items
 
-Get to-do items from a to-do list. A to-do list `target` is selected with a [target selector](/docs/blueprint/selectors/#target-selector). The `data` payload supports the following fields:
+The `todo.get_items` action gets to-do items from a to-do list. A to-do list `target` is selected with a [target selector](/docs/blueprint/selectors/#target-selector). The `data` payload supports the following fields:
 
 | Data attribute | Optional | Description                               | Example                     |
 | -------------- | -------- | ----------------------------------------- | --------------------------- |
@@ -89,9 +89,9 @@ todo.vacation_preparation:
       status: needs_action
 ```
 
-### Action `todo.add_item`
+### Action: Add item
 
-Add a new to-do item. A to-do list `target` is selected with a [Target Selector](/docs/blueprint/selectors/#target-selector) and the `data` payload supports the following fields:
+The `todo.add_item` action adds a new to-do item. A to-do list `target` is selected with a [Target Selector](/docs/blueprint/selectors/#target-selector) and the `data` payload supports the following fields:
 
 | Data attribute | Optional | Description                                                       | Example                                                      |
 | -------------- | -------- | ----------------------------------------------------------------- | ------------------------------------------------------------ |
@@ -114,9 +114,9 @@ data:
   description: "Collect all necessary documents and submit the final return."
 ```
 
-### Action `todo.update_item`
+### Action: Update item
 
-Update a to-do item. A to-do list `target` is selected with a [Target Selector](/docs/blueprint/selectors/#target-selector) and the `data` payload supports the following fields:
+The `todo.update_item` action updates a to-do item. A to-do list `target` is selected with a [Target Selector](/docs/blueprint/selectors/#target-selector) and the `data` payload supports the following fields:
 
 | Data attribute | Optional | Description                                                                                                            | Example                                                              |
 | -------------- | -------- | ---------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
@@ -139,9 +139,9 @@ data:
   status: "completed"
 ```
 
-### Action `todo.remove_item`
+### Action: Remove item
 
-Removing a to-do item. A to-do list `target` is selected with a [Target Selector](/docs/blueprint/selectors/#target-selector), and the `data` payload supports the following fields:
+The `todo.remove_item` action removes a to-do item. A to-do list `target` is selected with a [Target Selector](/docs/blueprint/selectors/#target-selector), and the `data` payload supports the following fields:
 
 | Data attribute | Optional | Description                                                                                                            | Example                                                              |
 | -------------- | -------- | ---------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
@@ -157,9 +157,9 @@ data:
   item: "Submit income tax return"
 ```
 
-### Action `todo.remove_completed_items`
+### Action: Remove completed items
 
-Removes all completed to-do items. A to-do list `target` is selected with a [Target Selector](/docs/blueprint/selectors/#target-selector).
+The `todo.remove_completed_items` action removes all completed to-do items. A to-do list `target` is selected with a [Target Selector](/docs/blueprint/selectors/#target-selector).
 
 This is a full example that deletes all completed to-do items.
 

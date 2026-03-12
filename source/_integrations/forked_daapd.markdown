@@ -15,7 +15,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The OwnTone integration allows you to control your [OwnTone (previously forked-daapd)](https://github.com/owntone/owntone-server) server from Home Assistant. This integration can control the OwnTone outputs (zones) with limited playback control (play/pause, previous/next track) and media info support. Playlist manipulation is not supported.
+The **OwnTone** {% term integration %} allows you to control your [OwnTone (previously forked-daapd)](https://github.com/owntone/owntone-server) server from Home Assistant. This integration can control the OwnTone outputs (zones) with limited playback control (play/pause, previous/next track) and media info support. Playlist manipulation is not supported.
 
 ## Requirements
 

@@ -15,13 +15,13 @@ ha_platforms:
   - number
   - select
   - sensor
-ha_integration_type: integration
+ha_integration_type: device
 ha_codeowners:
   - '@elupus'
 ha_quality_scale: bronze
 ---
 
-The ToGrill {% term integration %} allows you to connect your ToGrill compatible Bluetooth grill thermometer.
+The **ToGrill** {% term integration %} allows you to connect your ToGrill compatible Bluetooth grill thermometer.
 
 {% tip %}
 

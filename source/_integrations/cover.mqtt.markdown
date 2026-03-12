@@ -8,7 +8,7 @@ ha_release: 0.18
 ha_domain: mqtt
 ---
 
-The `mqtt` cover platform allows you to control an MQTT cover (such as blinds, a roller shutter or a garage door).
+The **MQTT cover** {% term integration %} allows you to control an MQTT cover (such as blinds, a roller shutter or a garage door).
 
 ## Configuration
 
@@ -159,6 +159,10 @@ entity_picture:
   description: "Picture URL for the entity."
   required: false
   type: string
+group:
+  description: A list of unique IDs of the member cover entities. Set this if the cover entity represents a cover group.
+  required: false
+  type: list
 icon:
   description: "[Icon](/docs/configuration/customizing-devices/#icon) for the entity."
   required: false

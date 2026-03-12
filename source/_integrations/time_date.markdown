@@ -15,7 +15,7 @@ ha_platforms:
 ha_integration_type: service
 ---
 
-The time and date (`time_date`) integration allows one to create sensors for the current date or time in different formats. All values are based on the timezone which is set in "General Configuration". 
+The **Time & Date** {% term integration %} allows one to create sensors for the current date or time in different formats. All values are based on the timezone which is set in "General Configuration". 
 
 {% include integrations/config_flow.md %}
 

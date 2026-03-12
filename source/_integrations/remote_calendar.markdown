@@ -35,6 +35,8 @@ Calendar Name:
     Example: `Home Assistant Events`"
 Calendar URL:
     description: "The URL of the remote calendar. Example: `https://calendar.google.com/calendar/ical/p07n98go11onamd08d0kmq6jhs%40group.calendar.google.com/public/basic.ics`"
+Verify SSL certificate:
+  description: "Enable SSL certificate verification when connecting via HTTPS."
 {% endconfiguration_basic %}
 
 ## Data updates

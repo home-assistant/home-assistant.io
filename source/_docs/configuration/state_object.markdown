@@ -32,7 +32,7 @@ The `state` prefix indicates that this information is part of the state object (
 
 ### About the state
 
-The screenshot of the Developer Tools States page shows three lights in different states (the `state.state`): `on`, `off`, and `unavailable`. Each light comes with its own entity state attributes such as `supported_color_modes`, `supported_features`. These attributes have their own state: the state of the `supported_color_modes` attribute is `color_temp` and `hs`, the state of the `supported_features` attribute is `4`.
+The screenshot of the Developer tools States page shows three lights in different states (the `state.state`): `on`, `off`, and `unavailable`. Each light comes with its own entity state attributes such as `supported_color_modes`, `supported_features`. These attributes have their own state: the state of the `supported_color_modes` attribute is `color_temp` and `hs`, the state of the `supported_features` attribute is `4`.
 
 <p class='img'>
   <img src='/images/integrations/light/state_light.png' alt='Screenshot showing three lights with different states: `on`, `off`, or `unavailable`'>
@@ -95,7 +95,7 @@ Context is a property used in state objects and events. It ties {% term events %
   ```
 
   {% endraw %}  
-  result type: `string` representing a datetime object e.g.  
+  result type: `string` representing a datetime object, for example  
   `2025-11-11 12:56:10.244125+00:00`
 
 ***
@@ -108,7 +108,7 @@ Context is a property used in state objects and events. It ties {% term events %
     ```
 
   {% endraw %}
-  result type: `string` representing an id code e.g.  
+  result type: `string` representing an id code, for example  
   `01K9SF2R36KRV5N4PTC38S6KJ2F`
 
 ***
@@ -122,5 +122,5 @@ Context is a property used in state objects and events. It ties {% term events %
   ```
 
   {% endraw %}
-  result type: `string` representing an user id code e.g.  
+  result type: `string` representing a user id code, for example
   `01K9SF2R36KRV5N4PTC38SKS4LW6`

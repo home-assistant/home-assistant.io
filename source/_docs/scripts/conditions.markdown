@@ -362,7 +362,7 @@ conditions:
 
 ### Sun elevation condition
 
-The sun elevation can be used to test if the sun has set or risen, it is dusk, it is night, etc. when a trigger occurs.
+The sun elevation can be used to test if the sun has set or risen, it is dusk, or it is night when a trigger occurs.
 For an in-depth explanation of sun elevation, see [sun elevation trigger][sun_elevation_trigger].
 
 [sun_elevation_trigger]: /docs/automation/trigger/#sun-elevation-trigger
@@ -554,7 +554,10 @@ conditions:
 Valid values for `weekday` are `mon`, `tue`, `wed`, `thu`, `fri`, `sat`, `sun`.
 Note that if only `before` key is used, the condition will be `true` *from midnight* until the specified time.
 If only `after` key is used, the condition will be `true` from the specified time *until midnight*.
+
 Time condition windows can span across the midnight threshold if **both** `after` and `before` keys are used. In the example above, the condition window is from 3pm to 2am.
+
+The after times are inclusive while before are exclusive. In the example above, if the time was at 3pm (15:00:00) then it meets the after time condition. If the time was at 2am (2:00:00), it would fail the condition because it will only be valid up to 1:59:59.
 
 {% tip %}
 A better weekday condition could be by using the [Workday Binary Sensor](/integrations/workday/).

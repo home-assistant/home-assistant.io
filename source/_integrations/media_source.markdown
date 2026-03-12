@@ -11,7 +11,7 @@ ha_quality_scale: internal
 ha_integration_type: system
 ---
 
-The Media source integration platform allows integrations to expose media for
+The **Media source** {% term integration %} platform allows integrations to expose media for
 use inside Home Assistant through the Media Browser panel or through supported
 media players like Google Cast.
 
@@ -37,7 +37,7 @@ example in companion app notification.
 This folder is by default configured in the path `/media`.
 
 Home Assistant OS users can access this folder by using,
-for example, the Samba add-on. Users of Home Assistant Container can
+for example, the Samba app. Users of Home Assistant Container can
 mount a volume of their choice to `/media`.
 
 Files served from `media` are protected by Home Assistant authentication
