@@ -671,6 +671,64 @@ conditions:
     - zone.work
 ```
 
+## Entity conditions
+
+Entity conditions, also called *purpose-specific conditions*, let you check entity state using meaningful terminology specific to that entity's domain. Instead of writing a [state condition](#state-condition) to check whether a state value equals a specific string, you can simply ask "If the climate is heating" or "If the lock is locked". This makes your automations much easier to read and understand, both when building them and when reviewing them later.
+
+{% note %}
+Entity conditions are a **Purpose-specific triggers and conditions** preview feature. To use them, first enable this feature under {% my labs title="**Settings** > **System** > **Labs**" %}.
+{% endnote %}
+
+Just like [entity triggers](/docs/automation/trigger/#entity-triggers), entity conditions support targeting. You can target an area, a floor, or a label instead of a specific entity. This lets you check, for example, whether any light in an area is on, without having to list each light individually. When you add or remove devices in an area, your automations automatically stay in sync.
+
+Entity conditions use the following YAML structure:
+
+```yaml
+conditions:
+  - condition: <domain>
+    type: <condition_type>
+    entity_id: <entity_id>
+```
+
+The `condition` key specifies the entity domain (such as `climate` or `light`), and `type` specifies the state to check for.
+
+Entities in the `unavailable` or `unknown` state are excluded from the condition check. With `behavior: any` (the default), the condition fails if all targeted entities are `unavailable` or `unknown`. With `behavior: all`, the condition passes if all targeted entities are `unavailable` or `unknown`, because there are no available entities left to fail the check.
+
+The following condition types are available per domain:
+
+- **Alarm control panel** (`condition: alarm_control_panel`): Check if the alarm is in a specific state: `is_armed_home`, `is_armed_away`, `is_armed_night`, `is_armed_vacation`, `is_disarmed`, or `is_triggered`.
+- **Assist satellite** (`condition: assist_satellite`): Check if your voice assistant satellite is `is_idle`, `is_listening`, `is_processing`, or `is_responding`.
+- **Climate** (`condition: climate`): Check if a climate device `is_on`, `is_off`, `is_heating`, `is_cooling`, or `is_drying`. See [Climate conditions](/integrations/climate/#conditions).
+- **Device tracker** (`condition: device_tracker`): Check if a tracked device `is_home` or `is_not_home`. See [Device tracker conditions](/integrations/device_tracker/#conditions).
+- **Fan** (`condition: fan`): Check if a fan `is_on` or `is_off`. See [Fan conditions](/integrations/fan/#conditions).
+- **Humidifier** (`condition: humidifier`): Check if a humidifier `is_on`, `is_off`, `is_humidifying`, or `is_drying`. See [Humidifier conditions](/integrations/humidifier/#conditions).
+- **Lawn mower** (`condition: lawn_mower`): Check if a lawn mower `is_mowing`, `is_docked`, `is_paused`, `is_returning`, or `is_encountering_an_error`.
+- **Light** (`condition: light`): Check if a light `is_on` or `is_off`. See [Light conditions](/integrations/light/#conditions).
+- **Lock** (`condition: lock`): Check if a lock `is_locked`, `is_unlocked`, `is_open`, or `is_jammed`. See [Lock conditions](/integrations/lock/#conditions).
+- **Media player** (`condition: media_player`): Check if a media player `is_on`, `is_off`, `is_playing`, `is_paused`, or `is_not_playing`.
+- **Person** (`condition: person`): Check if a person `is_home` or `is_not_home`. See [Person conditions](/integrations/person/#conditions).
+- **Siren** (`condition: siren`): Check if a siren `is_on` or `is_off`. See [Siren conditions](/integrations/siren/#conditions).
+- **Switch** (`condition: switch`): Check if a switch `is_on` or `is_off`.
+- **Vacuum** (`condition: vacuum`): Check if a vacuum `is_cleaning`, `is_docked`, `is_paused`, `is_returning`, or `is_encountering_an_error`. See [Vacuum conditions](/integrations/vacuum/#conditions).
+
+### Example: Continue only if the climate is heating
+
+```yaml
+conditions:
+  - condition: climate
+    type: is_heating
+    entity_id: climate.living_room
+```
+
+### Example: Continue only if the living room light is on
+
+```yaml
+conditions:
+  - condition: light
+    type: is_on
+    entity_id: light.living_room
+```
+
 ## Examples
 
 {% raw %}
