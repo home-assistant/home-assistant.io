@@ -55,4 +55,15 @@ To find more information, please use the [Z-Wave integration](/integrations/zwav
 
 ### Firmware updates
 
-Leviton is working on adding firmware updates that are publicly available to download. In Home Assistant, you can navigate to your device page and use the Update Device Firmware option to upload the firmware from Leviton for your device.
+Leviton have firmware updates that are publicly available to download. In Home Assistant, you can navigate to your device page and use the Update Device Firmware option to upload the firmware from Leviton for your device.
+
+## Supported devices
+
+The following devices are known to be supported by the integration. They are certified under the [Works with Home Assistant](https://partner.home-assistant.io/) program.
+
+- [Leviton Decora Smart Z-Wave Dimmer](https://leviton.com/products/zw6hd-1rw)
+- [Leviton Decora Smart Z-Wave Switch](https://leviton.com/products/zw15s-1rw)
+- [Leviton Decora Smart Z-Wave Fan Speed Controller](https://leviton.com/products/zw4sf-1bw)
+- [Leviton Decora Smart Z-Wave Plug-in Dimmer](https://leviton.com/products/dzpd3-2bw)
+- [Leviton Decora Smart Z-Wave Plug-In Outlet](https://leviton.com/products/dzpa1-2bw)
+- [Leviton Decora Smart Z-Wave Outlet](https://leviton.com/products/zw15r-1bw)
