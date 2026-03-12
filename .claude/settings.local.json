@@ -1,7 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(python3 -c \"import govee_local_api; print\\(govee_local_api.__file__\\)\")"
-    ]
-  }
-}
