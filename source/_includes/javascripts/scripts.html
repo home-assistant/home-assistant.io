@@ -108,16 +108,6 @@
         });
       });
 
-      scrollButton.addEventListener("keydown", (e) => {
-        if (e.key === "Enter" || e.key === " ") {
-          e.preventDefault();
-          window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-          });
-        }
-      });
-
       window.addEventListener("scroll", handleScroll, { passive: true });
 
       handleScroll();
