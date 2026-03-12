@@ -85,7 +85,7 @@ To install and use the File Editor in Home Assistant, follow these steps:
    - Go to the app under {% my supervisor_addon title="**Settings** > **Apps** > **File editor**" addon="core_configurator" %}.
    - Open the **Configuration** tab.
 
-    ![Configuration tab of the File Editor app](/images/docs/configuration/file-editor-config-tab.png)
+     ![Configuration tab of the File Editor app](/images/docs/configuration/file-editor-config-tab.png)
    - In the configuration settings, disable the **Enforce basepath** option.
    - Note: The **Enforce basepath** option is intended to protect you from inadvertently making changes to settings files.
 3. For information on other configuration settings, open the **Documentation** tab.
