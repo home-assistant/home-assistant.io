@@ -16,7 +16,7 @@ related:
 
 <img src='/images/screenshots/activity-panel.png' style='margin-left:10px; float: right;' height="100" />
 
-The activity {% term integration %} provides a different perspective on the history of your
+The **Activity** {% term integration %} provides a different perspective on the history of your
 house by showing all the changes that happened to your house in reverse
 chronological order. It depends on
 the [`recorder`](/integrations/recorder/) integration for storing the data. This means that if the

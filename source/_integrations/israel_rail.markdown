@@ -11,10 +11,10 @@ ha_codeowners:
 ha_domain: israel_rail
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
-The Israel rail integration will give you the next three departure times from a given location to another one in Israel rail.
+The **Israel Railways** {% term integration %} will give you the next three departure times from a given location to another one in Israel rail.
 
 {% include integrations/config_flow.md %}
 

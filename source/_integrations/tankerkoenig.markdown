@@ -23,7 +23,7 @@ ha_integration_type: service
 ha_quality_scale: platinum
 ---
 
-The `tankerkoenig` integration allows you to monitor the fuel prices with [tankerkoenig.de](https://www.tankerkoenig.de/) from within Home Assistant and setup automations based on the information.
+The **Tankerkoenig** {% term integration %} allows you to monitor the fuel prices with [tankerkoenig.de](https://www.tankerkoenig.de/) from within Home Assistant and setup automations based on the information.
 
 ## Prerequisites
 

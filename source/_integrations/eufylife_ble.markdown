@@ -14,7 +14,7 @@ ha_platforms:
 ha_integration_type: device
 ---
 
-The EufyLife integration allows you to integrate Eufy smart scales with Home Assistant.
+The **EufyLife** {% term integration %} allows you to integrate Eufy smart scales with Home Assistant.
 
 ## Supported devices
 

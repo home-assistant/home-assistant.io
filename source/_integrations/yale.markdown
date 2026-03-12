@@ -1,5 +1,5 @@
 ---
-title: Yale
+title: Yale Home
 description: Instructions on how to integrate your Yale devices into Home Assistant.
 ha_category:
   - Binary sensor
@@ -24,10 +24,10 @@ ha_platforms:
   - event
   - lock
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
-The **Yale** integration allows you to integrate your [Yale](https://www.assaabloy.com/vn/en/solutions/products/yale) devices in Home Assistant.
+The **Yale** {% term integration %} allows you to integrate your [Yale](https://www.assaabloy.com/vn/en/solutions/products/yale) devices in Home Assistant.
 
 The login credentials used to authenticate the integration are the same as the ones used in the Yale Home app.
 

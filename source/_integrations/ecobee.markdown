@@ -25,7 +25,7 @@ ha_platforms:
   - weather
 ha_zeroconf: true
 ha_homekit: true
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The **ecobee** {% term integration %} lets you control and view sensor data from [ecobee](https://ecobee.com) thermostats.
@@ -60,7 +60,7 @@ Your new application will now appear on the left. Upon clicking on the applicati
 
 ## Configuration
 
-1. In the **Settings** -> **Devices & services** menu, click **+** and then select "ecobee" from the pop-up menu.
+1. In the {% my integrations title="**Settings** > **Devices & services**" %} menu, click **+** and then select "ecobee" from the pop-up menu.
 2. In the pop-up box, enter the API key you obtained from ecobee's [developer portal](https://ecobee.com/developers).
 3. In the next pop-up box, you will be presented with a unique 8 character code separated by a dash (format: XXXX-XXXX), which you will need to authorize in the [ecobee consumer portal](https://www.ecobee.com/consumerportal/index.html). You can do this by logging in, selecting **My Apps** from the hamburger menu, clicking **Add Application** on the left, entering the PIN code from Home Assistant, clicking **Validate** and then **Add Application** in the bottom right.
 4. After authorizing the app with ecobee, return to Home Assistant and click **Submit**. If the authorization was successful, a configuration entry will be created and your thermostats, ventilators and sensors will be available in Home Assistant.
@@ -186,9 +186,9 @@ Besides the standard actions provided by the Home Assistant [Climate](/integrati
 - `ecobee.set_occupancy_modes`
 - `ecobee.set_sensors_in_climate`
 
-### Action `ecobee.create_vacation`
+### Action: Create vacation
 
-Creates a vacation on the selected ecobee thermostat.
+The `ecobee.create_vacation` action allows you to create a vacation on the selected ecobee thermostat.
 
 | Data attribute | Optional | Description                                                                                          |
 | ---------------------- | -------- | ---------------------------------------------------------------------------------------------------- |
@@ -203,54 +203,54 @@ Creates a vacation on the selected ecobee thermostat.
 | `fan_mode`             | yes      | Fan mode of the thermostat during the vacation (auto or on) (auto if not provided)                   |
 | `fan_min_on_time`      | yes      | Minimum number of minutes to run the fan each hour (0 to 60) during the vacation (0 if not provided) |
 
-### Action `ecobee.delete_vacation`
+### Action: Delete vacation
 
-Delete a vacation on the selected ecobee thermostat.
+The `ecobee.delete_vacation` action allows you to delete a vacation on the selected ecobee thermostat.
 
 | Data attribute | Optional | Description                                       |
 | ---------------------- | -------- | ------------------------------------------------- |
 | `entity_id`            | no       | ecobee thermostat on which to delete the vacation |
 | `vacation_name`        | no       | Name of the vacation to delete                    |
 
-### Action `ecobee.resume_program`
+### Action: Resume program
 
-Resumes the standard active schedule of presets. This cancels any manual temperature settings or selected preset. This will not cancel vacation events, use `delete_vacation`.
+The `ecobee.resume_program` action allows you to resume the standard active schedule of presets. This cancels any manual temperature settings or selected preset. This will not cancel vacation events, use `delete_vacation`.
 
 | Data attribute | Optional | Description                                                                                                                |
 | ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------- |
 | `entity_id`            | yes      | String or list of strings that point at `entity_id`s of climate devices to control. Omit to target all ecobee thermostats. |
 | `resume_all`           | no       | `true` will resume the standard schedule. `false` will only cancel the latest active event, which is not used often.       |
 
-### Action `ecobee.set_fan_min_on_time`
+### Action: Set fan minimum on time
 
-Sets the minimum amount of time that the fan will run per hour.
+The `ecobee.set_fan_min_on_time` action allows you to set the minimum amount of time that the fan will run per hour.
 
 | Data attribute | Optional | Description                                                                                                                 |
 | ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------- |
 | `entity_id`            | yes      | String or list of strings that point at `entity_id`'s of climate devices to control. Omit to target all ecobee thermostats. |
 | `fan_min_on_time`      | no       | integer (e.g.,  5)                                                                                                          |
 
-### Action `ecobee.set_dst_mode`
+### Action: Set DST mode
 
-Enable/disable automatic daylight savings time.
+The `ecobee.set_dst_mode` action allows you to enable/disable automatic daylight savings time.
 
 | Data attribute | Optional | Description                                                                                          |
 | ---------------------- | -------- | ---------------------------------------------------------------------------------------------------- |
 | `entity_id`            | yes      | ecobee thermostat on which to set daylight savings time mode. Omit to target all ecobee thermostats. |
 | `dst_enabled`          | no       | true or false                                                                                        |
 
-### Action `ecobee.set_mic_mode`
+### Action: Set mic mode
 
-Enable/disable Alexa mic (only for ecobee 4).
+The `ecobee.set_mic_mode` action allows you to enable/disable the Alexa mic (only for ecobee 4).
 
 | Data attribute | Optional | Description                                                                            |
 | ---------------------- | -------- | -------------------------------------------------------------------------------------- |
 | `entity_id`            | yes      | ecobee thermostat on which to set the mic mode. Omit to target all ecobee thermostats. |
 | `mic_enabled`          | no       | true or false                                                                          |
 
-### Action `ecobee.set_occupancy_modes`
+### Action: Set occupancy modes
 
-Enable/disable Smart Home/Away and Follow Me modes.
+The `ecobee.set_occupancy_modes` action allows you to enable/disable Smart Home/Away and Follow Me modes.
 
 | Data attribute | Optional | Description                                                                               |
 | ---------------------- | -------- | ----------------------------------------------------------------------------------------- |
@@ -258,9 +258,9 @@ Enable/disable Smart Home/Away and Follow Me modes.
 | `auto_away`            | yes      | true or false                                                                             |
 | `follow_me`            | yes      | true or false                                                                             |
 
-### Service `ecobee.set_sensors_in_climate`
+### Action: Set sensors in climate
 
-Set which sensors are active on a thermostat for a specific climate program.
+The `ecobee.set_sensors_in_climate` action allows you to set which sensors are active on a thermostat for a specific climate program.
 
 | Service data attribute | Optional | Description                                                                                                                                         |
 | ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |

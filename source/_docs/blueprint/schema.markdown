@@ -94,7 +94,7 @@ input:
 A blueprint can accept one or multiple inputs from the user, but does not require any input.
 
 These inputs can be of any type (string, boolean, list, map). They can have
-a default value and also provide a [selector](/docs/blueprint/selectors/) that
+a default value and provide a [selector](/docs/blueprint/selectors/) that
 ensures a matching input field in the user interface.
 
 A blueprint input has the following configuration:

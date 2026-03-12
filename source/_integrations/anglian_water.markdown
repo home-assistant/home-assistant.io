@@ -6,7 +6,7 @@ ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@pantherale0'
 ha_domain: anglian_water
-ha_integration_type: integration
+ha_integration_type: service
 ha_platforms:
   - sensor
 ha_category:

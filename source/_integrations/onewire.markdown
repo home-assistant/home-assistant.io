@@ -21,7 +21,7 @@ ha_zeroconf: true
 ha_quality_scale: silver
 ---
 
-The Onewire integration supports sensors that use the 1-wire bus for communication.
+The **1-Wire** {% term integration %} supports sensors that use the 1-wire bus for communication.
 
 Every 1-wire device has a (globally) unique ID that identifies the device on the bus. The first two digits identify a device family and the last 14 digits are a globally unique number given to it during manufacturing.
 

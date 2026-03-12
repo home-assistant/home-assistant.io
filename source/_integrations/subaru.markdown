@@ -17,10 +17,10 @@ ha_platforms:
   - diagnostics
   - lock
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
-This integration retrieves vehicle information and actuates remote services provided by [MySubaru Connected Services](https://www.subaru.com/vehicle-info/connected-services/mysubaru-connected-services.html)(formerly known as Subaru STARLINK). This service is currently only available in the USA and Canada.
+This {% term integration %} retrieves vehicle information and actuates remote services provided by [MySubaru Connected Services](https://www.subaru.com/vehicle-info/connected-services/mysubaru-connected-services.html)(formerly known as Subaru STARLINK). This service is currently only available in the USA and Canada.
 
 This integration requires a telematics equipped Subaru and an active vehicle subscription to the MySubaru service. Before using this integration, you must first register and have login credentials to [MySubaru](https://www.mysubaru.com). 
 
@@ -90,7 +90,7 @@ Tracks the most recently reported location of the vehicle. The vehicle reports i
 
 Subaru integration options are set via:
 
-**Settings** -> **Devices & services** -> **Subaru** -> **Options**.
+{% my integrations title="**Settings** > **Devices & services**" %} > **Subaru** > **Options**.
 
 - **Enable vehicle polling *[Default: off]*:** When enabled, vehicle polling will send a remote command to your vehicle every 2 hours to obtain new sensor data. This involves "waking" your vehicle and requesting that it send new data to Subaru servers. Without vehicle polling, new sensor data is only received when the vehicle automatically pushes data (normally after engine shutdown). This option only applies to vehicles with Security Plus subscriptions because it uses a "locate" command to request the data.
 

@@ -110,6 +110,12 @@ Now go and automate stuff!
 - [Other noteworthy changes](#other-noteworthy-changes)
   - [Get insight into your AI conversations](#get-insight-into-your-ai-conversations)
   - [Add entities to Android widgets and favorites](#add-entities-to-android-widgets-and-favorites)
+- [Patch releases](#patch-releases)
+  - [2025.12.1 - December 5](#2025121---december-5)
+  - [2025.12.2 - December 8](#2025122---december-8)
+  - [2025.12.3 - December 12](#2025123---december-12)
+  - [2025.12.4 - December 19](#2025124---december-19)
+  - [2025.12.5 - December 29](#2025125---december-29)
 - [Need help? Join the community](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
@@ -276,6 +282,8 @@ We welcome the following new integrations in this release:
   Integrate your Anglian Water smart water meter to track water usage and consumption costs.
 - **[Backblaze B2]**, added by [@ElCruncharino]  
   Use a Backblaze B2 cloud storage bucket as a backup location for your Home Assistant backups.
+- **[EnergyID]**, added by [@Molier]  
+  Sync anything from your home directly to EnergyID for advanced analytics, performance tracking and benchmarking.
 - **[Essent]**, added by [@jaapp]  
   Monitor dynamic electricity and gas prices for Essent customers in the Netherlands with variable pricing contracts.
 - **[Google Air Quality]**, added by [@Thomas55555]  
@@ -296,6 +304,7 @@ We welcome the following new integrations in this release:
 [@bestycame]: https://github.com/bestycame
 [@ElCruncharino]: https://github.com/ElCruncharino
 [@flip-dots]: https://github.com/flip-dots
+[@molier]: https://github.com/Molier
 [@jaapp]: https://github.com/jaapp
 [@mettolen]: https://github.com/mettolen
 [@pantherale0]: https://github.com/pantherale0
@@ -305,6 +314,7 @@ We welcome the following new integrations in this release:
 [Airobot]: /integrations/airobot
 [Anglian Water]: /integrations/anglian_water
 [Backblaze B2]: /integrations/backblaze_b2
+[EnergyID]: /integrations/energyid
 [Essent]: /integrations/essent
 [Google Air Quality]: /integrations/google_air_quality
 [Google Weather]: /integrations/google_weather
@@ -527,6 +537,413 @@ This is a first step in integrating native mobile features directly into the Hom
 Thanks for this great addition, [@TimoPtr]! 🙏
 
 [@TimoPtr]: https://github.com/TimoPtr
+
+## Patch releases
+
+We will also release patch releases for Home Assistant 2025.12 in December. 🎄
+These patch releases only contain bug fixes. Our goal is to release a patch
+release once a week, aiming for Friday.
+
+### 2025.12.1 - December 5
+
+- Fix Rituals Perfume Genie ([@quebulm] - [#151537])
+- Move telegram-bot URLs out of strings.json ([@maxmichels] - [#155130])
+- Fix Starlink's ever updating uptime ([@davidrapan] - [#155574])
+- Display error when forming new ZHA network fails ([@TheJulianJES] - [#157863])
+- Move teslemetry time-of-use URL out of strings.json ([@jbouwh] - [#157874])
+- Correctly pass MopParserConfig for Roborock ([@Lash-L] - [#157891])
+- Fix VeSync binary sensor discovery ([@cdnninja] - [#157898])
+- Bump reolink_aio to 0.17.1 ([@starkillerOG] - [#157929])
+- Move out URL of Xiaomy_aquara from strings.json ([@jbouwh] - [#157937])
+- Set account number as required for Anglian Water config entry ([@pantherale0] - [#157939])
+- Move translatable URL from rainmachine push_weather_data action description ([@jbouwh] - [#157941])
+- Convert image URLs to secure URLs in Xbox integration ([@tr4nt0r] - [#157945])
+- Add pyanglianwater to Anglian Water loggers ([@pantherale0] - [#157947])
+- Fix template migration errors ([@Petro31] - [#157949])
+- Move Yeelight URLs out of translatable strings for action descriptions ([@jbouwh] - [#157957])
+- Move out zwave_js api docs url from strings.json ([@jbouwh] - [#157959])
+- Fix unit parsing in Tuya climate entities ([@epenet] - [#157964])
+- Update template deprecation to be more explicit ([@Petro31] - [#157965])
+- Move pilight URL out of strings.json ([@jbouwh] - [#157967])
+- Move out example URL and IP of strings.json for reolink ([@jbouwh] - [#157970])
+- Add subscribe preview feature endpoint to labs ([@piitaya] - [#157976])
+- Bump python-Roborock to 3.10.0 ([@Lash-L] - [#157980])
+- Bump oralb-ble to 1.0.2 ([@abmantis] - [#157992])
+- Bump evohome-async to 1.0.6 ([@zxdavb] - [#158005])
+- Fix doorbird duplicate unique ID generation ([@ptarjan] - [#158013])
+- SharkIQ dep upgrade `v1.5.0` ([@funkybunch] - [#158015])
+- Bump python-roborock to 3.10.2 ([@allenporter] - [#158020])
+- Change ZHA strings for incorrect adapter state ([@TheJulianJES] - [#158021])
+- Improve action descriptions for Telegram bot ([@hanwg] - [#158022])
+- Fix missing template key in deprecation repair ([@Petro31] - [#158033])
+- Prevent entsoe from loading ([@joostlek] - [#158036])
+- Do not create `restart` button for sleeping gen2+ Shelly devices ([@bieniu] - [#158047])
+- Replace deprecated preview image model ([@Shulyaka] - [#158048])
+- Move lametric URLs out of strings.json ([@jbouwh] - [#158051])
+- Move example image path out of translatable strings ([@jbouwh] - [#158053])
+- Fix inverted kelvin issue ([@Petro31] - [#158054])
+- Bump uiprotect to 7.33.2 ([@RaHehl] - [#158057])
+- Update frontend to 20251203.1 ([@piitaya] - [#158069])
+
+[#151537]: https://github.com/home-assistant/core/pull/151537
+[#155130]: https://github.com/home-assistant/core/pull/155130
+[#155574]: https://github.com/home-assistant/core/pull/155574
+[#157330]: https://github.com/home-assistant/core/pull/157330
+[#157863]: https://github.com/home-assistant/core/pull/157863
+[#157874]: https://github.com/home-assistant/core/pull/157874
+[#157891]: https://github.com/home-assistant/core/pull/157891
+[#157898]: https://github.com/home-assistant/core/pull/157898
+[#157929]: https://github.com/home-assistant/core/pull/157929
+[#157937]: https://github.com/home-assistant/core/pull/157937
+[#157939]: https://github.com/home-assistant/core/pull/157939
+[#157941]: https://github.com/home-assistant/core/pull/157941
+[#157945]: https://github.com/home-assistant/core/pull/157945
+[#157947]: https://github.com/home-assistant/core/pull/157947
+[#157949]: https://github.com/home-assistant/core/pull/157949
+[#157957]: https://github.com/home-assistant/core/pull/157957
+[#157959]: https://github.com/home-assistant/core/pull/157959
+[#157964]: https://github.com/home-assistant/core/pull/157964
+[#157965]: https://github.com/home-assistant/core/pull/157965
+[#157967]: https://github.com/home-assistant/core/pull/157967
+[#157970]: https://github.com/home-assistant/core/pull/157970
+[#157976]: https://github.com/home-assistant/core/pull/157976
+[#157980]: https://github.com/home-assistant/core/pull/157980
+[#157992]: https://github.com/home-assistant/core/pull/157992
+[#158005]: https://github.com/home-assistant/core/pull/158005
+[#158013]: https://github.com/home-assistant/core/pull/158013
+[#158015]: https://github.com/home-assistant/core/pull/158015
+[#158020]: https://github.com/home-assistant/core/pull/158020
+[#158021]: https://github.com/home-assistant/core/pull/158021
+[#158022]: https://github.com/home-assistant/core/pull/158022
+[#158033]: https://github.com/home-assistant/core/pull/158033
+[#158036]: https://github.com/home-assistant/core/pull/158036
+[#158047]: https://github.com/home-assistant/core/pull/158047
+[#158048]: https://github.com/home-assistant/core/pull/158048
+[#158051]: https://github.com/home-assistant/core/pull/158051
+[#158053]: https://github.com/home-assistant/core/pull/158053
+[#158054]: https://github.com/home-assistant/core/pull/158054
+[#158057]: https://github.com/home-assistant/core/pull/158057
+[#158069]: https://github.com/home-assistant/core/pull/158069
+
+### 2025.12.2 - December 8
+
+- fix Lutron Caseta smart away subscription ([@omrishiv] - [#158082])
+- Fix legacy template entity_id field in migration ([@Petro31] - [#158105])
+- Revert "Remove Shelly redundant device entry check for sleepy devices" ([@thecode] - [#158108])
+- Ensure Roborock disconnects mqtt on unload/stop ([@allenporter] - [#158144])
+- Fix secure URLs for promotional game media in Xbox integration ([@tr4nt0r] - [#158162])
+- Add program id codes for Miele WQ1000 ([@astrandb] - [#158175])
+- Bump pymiele dependency to 0.6.1 ([@astrandb] - [#158177])
+- Bump asusrouter to 1.21.1 ([@Vaskivskyi] - [#158192])
+- Bump HueBLE to 2.1.0 ([@flip-dots] - [#158197])
+- Bump python-roborock to 3.10.10 ([@allenporter] - [#158212])
+- Be more specific about winter mode in the description ([@piitaya] - [#158230])
+- Fix description placeholders for system_bridge ([@jbouwh] - [#158232])
+- Bump google air quality api to 2.0.0 ([@Thomas55555] - [#158234])
+- Fix zwave_js service description placeholders ([@epenet] - [#158236])
+- Fix yeelight service description placeholders ([@epenet] - [#158239])
+- Fix teslemetry service description placeholders ([@epenet] - [#158240])
+- Fix multiple top-level support for template integration ([@Petro31] - [#158244])
+- Bump yt-dlp to 2025.12.08 ([@andreimoraru] - [#158253])
+- Update frontend to 20251203.2 ([@piitaya] - [#158259])
+- Skip check for onboarding done in Music Assistant integration ([@marcelveldt] - [#158270])
+
+[#157330]: https://github.com/home-assistant/core/pull/157330
+[#158071]: https://github.com/home-assistant/core/pull/158071
+[#158082]: https://github.com/home-assistant/core/pull/158082
+[#158105]: https://github.com/home-assistant/core/pull/158105
+[#158108]: https://github.com/home-assistant/core/pull/158108
+[#158144]: https://github.com/home-assistant/core/pull/158144
+[#158162]: https://github.com/home-assistant/core/pull/158162
+[#158175]: https://github.com/home-assistant/core/pull/158175
+[#158177]: https://github.com/home-assistant/core/pull/158177
+[#158192]: https://github.com/home-assistant/core/pull/158192
+[#158197]: https://github.com/home-assistant/core/pull/158197
+[#158212]: https://github.com/home-assistant/core/pull/158212
+[#158230]: https://github.com/home-assistant/core/pull/158230
+[#158232]: https://github.com/home-assistant/core/pull/158232
+[#158234]: https://github.com/home-assistant/core/pull/158234
+[#158236]: https://github.com/home-assistant/core/pull/158236
+[#158239]: https://github.com/home-assistant/core/pull/158239
+[#158240]: https://github.com/home-assistant/core/pull/158240
+[#158244]: https://github.com/home-assistant/core/pull/158244
+[#158253]: https://github.com/home-assistant/core/pull/158253
+[#158259]: https://github.com/home-assistant/core/pull/158259
+[#158270]: https://github.com/home-assistant/core/pull/158270
+[@Petro31]: https://github.com/Petro31
+[@Thomas55555]: https://github.com/Thomas55555
+[@Vaskivskyi]: https://github.com/Vaskivskyi
+[@allenporter]: https://github.com/allenporter
+[@andreimoraru]: https://github.com/andreimoraru
+[@astrandb]: https://github.com/astrandb
+[@epenet]: https://github.com/epenet
+[@flip-dots]: https://github.com/flip-dots
+[@frenck]: https://github.com/frenck
+[@jbouwh]: https://github.com/jbouwh
+[@marcelveldt]: https://github.com/marcelveldt
+[@omrishiv]: https://github.com/omrishiv
+[@piitaya]: https://github.com/piitaya
+[@thecode]: https://github.com/thecode
+[@tr4nt0r]: https://github.com/tr4nt0r
+
+### 2025.12.3 - December 12
+
+- Fix Tuya BitmapTypeInformation parsing ([@epenet] - [#158475])
+- Move translatable URL out of strings.json for knx integration ([@jbouwh] - [#155244])
+- Improve Tuya HVACMode handling ([@epenet] - [#158042])
+- Bump pypck to 0.9.7 ([@alengwenus] - [#158089])
+- Bump blinkpy to 0.25.1 ([@KiraPC] - [#158135])
+- Fix webhook exception when empty json data is sent ([@mikedast] - [#158254])
+- Fix roborock off peak electricity timer ([@allenporter] - [#158292])
+- Switchbot Cloud: Fixed binary sensors didn't update automatically ([@XiaoLing-git] - [#158434])
+- Add Tuya local_strategy to Tuya diagnostic ([@epenet] - [#158450])
+- Improve Roborock exception logging behavior for Zeo/Dyad devices ([@allenporter] - [#158465])
+- Fix Matter Door Lock Operating Mode select entity ([@lboue] - [#158468])
+- Bump asusrouter to 1.21.3 ([@Vaskivskyi] - [#158492])
+- Bump hanna-cloud to version 0.0.7 ([@bestycame] - [#158536])
+- Add measurement state class to ohme sensors ([@andrew-codechimp] - [#158541])
+- Bump python-roborock to 3.12.2 ([@allenporter] - [#158572])
+- Pin pycares to 4.11.0 ([@bdraco] - [#158695])
+- Add state_class to Growatt power and energy sensors ([@johanzander] - [#158705])
+- Update advanced_options display text for MQTT ([@ndrwrbgs] - [#158728])
+- Bump google air quality api to 2.0.2 ([@Thomas55555] - [#158742])
+- Migrate Blink component to use hardware_id instead of device_id ([@cdutr] - [#158765])
+- Bump ical to 12.1.1 ([@allenporter] - [#158770])
+- Bump pylamarzocco to 2.2.3 ([@zweckj] - [#158104])
+- Bump pylamarzocco to 2.2.4 ([@zweckj] - [#158774])
+- Increase Xbox update interval to 15 seconds and refactor title data handling ([@tr4nt0r] - [#158780])
+- Bump pySmartThings to 3.5.1 ([@joostlek] - [#158795])
+- Bump aioasuswrt to 1.5.2 ([@kennedyshead] - [#158727])
+
+[#155244]: https://github.com/home-assistant/core/pull/155244
+[#157330]: https://github.com/home-assistant/core/pull/157330
+[#158042]: https://github.com/home-assistant/core/pull/158042
+[#158071]: https://github.com/home-assistant/core/pull/158071
+[#158089]: https://github.com/home-assistant/core/pull/158089
+[#158104]: https://github.com/home-assistant/core/pull/158104
+[#158135]: https://github.com/home-assistant/core/pull/158135
+[#158254]: https://github.com/home-assistant/core/pull/158254
+[#158274]: https://github.com/home-assistant/core/pull/158274
+[#158292]: https://github.com/home-assistant/core/pull/158292
+[#158434]: https://github.com/home-assistant/core/pull/158434
+[#158450]: https://github.com/home-assistant/core/pull/158450
+[#158465]: https://github.com/home-assistant/core/pull/158465
+[#158468]: https://github.com/home-assistant/core/pull/158468
+[#158475]: https://github.com/home-assistant/core/pull/158475
+[#158492]: https://github.com/home-assistant/core/pull/158492
+[#158536]: https://github.com/home-assistant/core/pull/158536
+[#158541]: https://github.com/home-assistant/core/pull/158541
+[#158572]: https://github.com/home-assistant/core/pull/158572
+[#158695]: https://github.com/home-assistant/core/pull/158695
+[#158705]: https://github.com/home-assistant/core/pull/158705
+[#158727]: https://github.com/home-assistant/core/pull/158727
+[#158728]: https://github.com/home-assistant/core/pull/158728
+[#158742]: https://github.com/home-assistant/core/pull/158742
+[#158765]: https://github.com/home-assistant/core/pull/158765
+[#158770]: https://github.com/home-assistant/core/pull/158770
+[#158774]: https://github.com/home-assistant/core/pull/158774
+[#158780]: https://github.com/home-assistant/core/pull/158780
+[#158795]: https://github.com/home-assistant/core/pull/158795
+[@KiraPC]: https://github.com/KiraPC
+[@Thomas55555]: https://github.com/Thomas55555
+[@Vaskivskyi]: https://github.com/Vaskivskyi
+[@XiaoLing-git]: https://github.com/XiaoLing-git
+[@alengwenus]: https://github.com/alengwenus
+[@allenporter]: https://github.com/allenporter
+[@andrew-codechimp]: https://github.com/andrew-codechimp
+[@bdraco]: https://github.com/bdraco
+[@bestycame]: https://github.com/bestycame
+[@cdutr]: https://github.com/cdutr
+[@epenet]: https://github.com/epenet
+[@frenck]: https://github.com/frenck
+[@jbouwh]: https://github.com/jbouwh
+[@johanzander]: https://github.com/johanzander
+[@joostlek]: https://github.com/joostlek
+[@kennedyshead]: https://github.com/kennedyshead
+[@lboue]: https://github.com/lboue
+[@mikedast]: https://github.com/mikedast
+[@ndrwrbgs]: https://github.com/ndrwrbgs
+[@tr4nt0r]: https://github.com/tr4nt0r
+[@zweckj]: https://github.com/zweckj
+
+### 2025.12.4 - December 19
+
+- Prevent empty aliases in registries ([@FI-153] - [#156061])
+- Do not check Reolink firmware at start ([@starkillerOG] - [#158275])
+- Update pynintendoparental to 2.0.0 ([@pantherale0] - [#158285])
+- Enable volvo engine status for all engine types ([@thomasddn] - [#158437])
+- Update pynintendoparental to 2.1.0 ([@pantherale0] - [#158487])
+- Suppress roborock failures under some unavailability threshold ([@allenporter] - [#158673])
+- Suppress verbose UPnP subscription error logs ([@ptarjan] - [#158677])
+- Fix Sonos speaker async_offline assertion failure ([@ptarjan] - [#158764])
+- Bump pynintendoparental to 2.1.1 ([@pantherale0] - [#158779])
+- Bump aioasuswrt 1.5.3 ([@kennedyshead] - [#158882])
+- Revert adding entity_category to Plugwise thermostat schedule select ([@bouwew] - [#158901])
+- Bump aiomealie to 1.1.1 and statically define mealplan entry types ([@andrew-codechimp] - [#158907])
+- Update systembridgeconnector to 5.2.4, fix media source ([@timmo001] - [#158917])
+- Assume cover or valve is always "running" in google assistant when the state is assumed or the position is reported to allow it to be be stopped ([@jbouwh] - [#158919])
+- Bump ical to 12.1.2 ([@allenporter] - [#158965])
+- Update unnecessary error logging of unknown and unavailable source states from mold indicator ([@Petro31] - [#158979])
+- Add exception handling for rate limited or unauthorized MQTT requests ([@allenporter] - [#158997])
+- Bump aioasuswrt to 1.5.4 ([@upsuper] - [#159038])
+- Bump blinkpy to 0.25.2 ([@fronzbot] - [#159049])
+- Fix slow event state updates for remote calendar ([@allenporter] - [#159058])
+- Bump aiodns to 3.6.1 ([@mithomas] - [#159073])
+- Bump pysmlight to v0.2.13 ([@tl-sl] - [#159075])
+- Improve icloud reauth flow ([@PaulCavill] - [#159081])
+- Sonos fix media player join to avoid race condition ([@PeteRager] - [#159106])
+- Sonos increase wait for groups timeout ([@PeteRager] - [#159108])
+- Bump pynintendoparental 2.1.3 ([@pantherale0] - [#159120])
+- Bump soco to 0.30.13 for Sonos ([@PeteRager] - [#159123])
+- Handle missing Miele status codes gracefully ([@astrandb] - [#159124])
+- Bump ekey-bionyxpy to version 1.0.1 ([@richardpolzer] - [#159196])
+- Fix incorrect status updates for lcn ([@alengwenus] - [#159251])
+- Bump python-roborock to 3.18.0 ([@Lash-L] - [#159271])
+- Bump pypck to 0.9.8 ([@alengwenus] - [#159277])
+- Fix AttributeError in Roborock Empty Mode entity ([@allenporter] - [#159278])
+- Add missing strings for Shelly voltmeter sensor ([@chemelli74] - [#159332])
+- Do not trigger reauth for addon in Music Assistant ([@arturpragacz] - [#159372])
+- Align format of voltmeter strings for Shelly ([@chemelli74] - [#159394])
+- Bump ZHA to 0.0.81 ([@puddly] - [#159396])
+- Bump python-roborock to 3.19.0 ([@allenporter] - [#159404])
+- Remove users refresh tokens when the user get's deactivated ([@edenhaus] - [#159443])
+- Update frontend to 20251203.3 ([@bramkragten] - [#159451])
+
+[#156061]: https://github.com/home-assistant/core/pull/156061
+[#157330]: https://github.com/home-assistant/core/pull/157330
+[#158071]: https://github.com/home-assistant/core/pull/158071
+[#158274]: https://github.com/home-assistant/core/pull/158274
+[#158275]: https://github.com/home-assistant/core/pull/158275
+[#158285]: https://github.com/home-assistant/core/pull/158285
+[#158437]: https://github.com/home-assistant/core/pull/158437
+[#158487]: https://github.com/home-assistant/core/pull/158487
+[#158673]: https://github.com/home-assistant/core/pull/158673
+[#158677]: https://github.com/home-assistant/core/pull/158677
+[#158764]: https://github.com/home-assistant/core/pull/158764
+[#158779]: https://github.com/home-assistant/core/pull/158779
+[#158811]: https://github.com/home-assistant/core/pull/158811
+[#158882]: https://github.com/home-assistant/core/pull/158882
+[#158901]: https://github.com/home-assistant/core/pull/158901
+[#158907]: https://github.com/home-assistant/core/pull/158907
+[#158917]: https://github.com/home-assistant/core/pull/158917
+[#158919]: https://github.com/home-assistant/core/pull/158919
+[#158965]: https://github.com/home-assistant/core/pull/158965
+[#158979]: https://github.com/home-assistant/core/pull/158979
+[#158997]: https://github.com/home-assistant/core/pull/158997
+[#159038]: https://github.com/home-assistant/core/pull/159038
+[#159049]: https://github.com/home-assistant/core/pull/159049
+[#159058]: https://github.com/home-assistant/core/pull/159058
+[#159073]: https://github.com/home-assistant/core/pull/159073
+[#159075]: https://github.com/home-assistant/core/pull/159075
+[#159081]: https://github.com/home-assistant/core/pull/159081
+[#159106]: https://github.com/home-assistant/core/pull/159106
+[#159108]: https://github.com/home-assistant/core/pull/159108
+[#159120]: https://github.com/home-assistant/core/pull/159120
+[#159123]: https://github.com/home-assistant/core/pull/159123
+[#159124]: https://github.com/home-assistant/core/pull/159124
+[#159196]: https://github.com/home-assistant/core/pull/159196
+[#159251]: https://github.com/home-assistant/core/pull/159251
+[#159271]: https://github.com/home-assistant/core/pull/159271
+[#159277]: https://github.com/home-assistant/core/pull/159277
+[#159278]: https://github.com/home-assistant/core/pull/159278
+[#159332]: https://github.com/home-assistant/core/pull/159332
+[#159372]: https://github.com/home-assistant/core/pull/159372
+[#159394]: https://github.com/home-assistant/core/pull/159394
+[#159396]: https://github.com/home-assistant/core/pull/159396
+[#159404]: https://github.com/home-assistant/core/pull/159404
+[#159443]: https://github.com/home-assistant/core/pull/159443
+[#159451]: https://github.com/home-assistant/core/pull/159451
+[@FI-153]: https://github.com/FI-153
+[@Lash-L]: https://github.com/Lash-L
+[@PaulCavill]: https://github.com/PaulCavill
+[@PeteRager]: https://github.com/PeteRager
+[@Petro31]: https://github.com/Petro31
+[@alengwenus]: https://github.com/alengwenus
+[@allenporter]: https://github.com/allenporter
+[@andrew-codechimp]: https://github.com/andrew-codechimp
+[@arturpragacz]: https://github.com/arturpragacz
+[@astrandb]: https://github.com/astrandb
+[@bouwew]: https://github.com/bouwew
+[@bramkragten]: https://github.com/bramkragten
+[@chemelli74]: https://github.com/chemelli74
+[@edenhaus]: https://github.com/edenhaus
+[@frenck]: https://github.com/frenck
+[@fronzbot]: https://github.com/fronzbot
+[@jbouwh]: https://github.com/jbouwh
+[@kennedyshead]: https://github.com/kennedyshead
+[@mithomas]: https://github.com/mithomas
+[@pantherale0]: https://github.com/pantherale0
+[@ptarjan]: https://github.com/ptarjan
+[@puddly]: https://github.com/puddly
+[@richardpolzer]: https://github.com/richardpolzer
+[@starkillerOG]: https://github.com/starkillerOG
+[@thomasddn]: https://github.com/thomasddn
+[@timmo001]: https://github.com/timmo001
+[@tl-sl]: https://github.com/tl-sl
+[@upsuper]: https://github.com/upsuper
+
+### 2025.12.5 - December 29
+
+- Disable quoted cookies for compatibility with older SolarLog devices ([@dontinelli] - [#157839])
+- Normalize unique ID in WLED ([@mik-laj] - [#157901])
+- Change Samsung TV WoL turn_on log from warning to debug ([@ptarjan] - [#158676])
+- Fix ZeroDivisionError for inverse unit conversions ([@ReneNulschDE] - [#159161])
+- Add openid scope and update OAuth2 url:s in senz integration ([@astrandb] - [#159265])
+- Create issue for Sonos when Sonos system does not have UPnP enabled ([@PeteRager] - [#159330])
+- Bump insteon panel to 0.6.0 to fix dialog button issues ([@teharris1] - [#159449])
+- Bump yalexs-ble to 3.2.2 ([@bdraco] - [#158124])
+- Bump yalexs-ble to 3.2.4 ([@bdraco] - [#159476])
+- Improve date handling in UniFi Protect media source ([@RaHehl] - [#159491])
+- Redact additional unnecessary diagnostic fields ([@allenporter] - [#159546])
+- Bump melissa to 3.0.3 ([@kennedyshead] - [#159557])
+- Bump valbusaio to 2025.12.0 ([@cereal2nd] - [#159578])
+- Bump uiprotect to 7.33.3 ([@RaHehl] - [#159593])
+- Fix Ecoforest unknown alarm translation key ([@maylikenoother] - [#159594])
+- Bump axis to v66 fixing an issue with latest xmltodict ([@Kane610] - [#159604])
+- Bump python-roborock to 3.20.1 ([@allenporter] - [#159621])
+- Bump python-roborock to 3.21.1 ([@allenporter] - [#159660])
+- Fix Roborock repair issue behavior ([@allenporter] - [#159718])
+- Start reauth when roborock notices the MQTT session is unauthorized ([@allenporter] - [#159719])
+- Add state_class to Nuki battery sensor ([@victor-gurbani] - [#159756])
+
+[#157839]: https://github.com/home-assistant/core/pull/157839
+[#157901]: https://github.com/home-assistant/core/pull/157901
+[#158124]: https://github.com/home-assistant/core/pull/158124
+[#158676]: https://github.com/home-assistant/core/pull/158676
+[#159161]: https://github.com/home-assistant/core/pull/159161
+[#159265]: https://github.com/home-assistant/core/pull/159265
+[#159330]: https://github.com/home-assistant/core/pull/159330
+[#159449]: https://github.com/home-assistant/core/pull/159449
+[#159460]: https://github.com/home-assistant/core/pull/159460
+[#159476]: https://github.com/home-assistant/core/pull/159476
+[#159491]: https://github.com/home-assistant/core/pull/159491
+[#159546]: https://github.com/home-assistant/core/pull/159546
+[#159557]: https://github.com/home-assistant/core/pull/159557
+[#159578]: https://github.com/home-assistant/core/pull/159578
+[#159593]: https://github.com/home-assistant/core/pull/159593
+[#159594]: https://github.com/home-assistant/core/pull/159594
+[#159604]: https://github.com/home-assistant/core/pull/159604
+[#159621]: https://github.com/home-assistant/core/pull/159621
+[#159660]: https://github.com/home-assistant/core/pull/159660
+[#159718]: https://github.com/home-assistant/core/pull/159718
+[#159719]: https://github.com/home-assistant/core/pull/159719
+[#159756]: https://github.com/home-assistant/core/pull/159756
+[@Kane610]: https://github.com/Kane610
+[@PeteRager]: https://github.com/PeteRager
+[@RaHehl]: https://github.com/RaHehl
+[@ReneNulschDE]: https://github.com/ReneNulschDE
+[@allenporter]: https://github.com/allenporter
+[@astrandb]: https://github.com/astrandb
+[@bdraco]: https://github.com/bdraco
+[@bramkragten]: https://github.com/bramkragten
+[@cereal2nd]: https://github.com/cereal2nd
+[@dontinelli]: https://github.com/dontinelli
+[@kennedyshead]: https://github.com/kennedyshead
+[@maylikenoother]: https://github.com/maylikenoother
+[@mik-laj]: https://github.com/mik-laj
+[@ptarjan]: https://github.com/ptarjan
+[@teharris1]: https://github.com/teharris1
+[@victor-gurbani]: https://github.com/victor-gurbani
 
 ## Need help? Join the community
 

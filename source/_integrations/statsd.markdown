@@ -13,7 +13,7 @@ related:
 ha_quality_scale: legacy
 ---
 
-The `statsd` {% term integration %} makes it possible to transfer all state changes to an external [StatsD](https://github.com/etsy/statsd) instance.
+The **StatsD** {% term integration %} makes it possible to transfer all state changes to an external [StatsD](https://github.com/etsy/statsd) instance.
 
 To use the `statsd` {% term integration %} in your installation, add the following to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}

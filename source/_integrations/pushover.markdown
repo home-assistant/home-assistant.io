@@ -9,12 +9,12 @@ ha_iot_class: Cloud Push
 ha_domain: pushover
 ha_platforms:
   - notify
-ha_integration_type: integration
+ha_integration_type: service
 ha_codeowners:
   - '@engrbm87'
 ---
 
-The [Pushover service](https://pushover.net/) is a platform for the notify integration. This allows integrations to send messages to the user using Pushover.
+The [Pushover action](https://pushover.net/) is a platform for the notify integration. This allows integrations to send messages to the user using Pushover.
 
 ## Configuration
 
@@ -22,7 +22,7 @@ In order to get an API key, you need to [register an application](https://pushov
 
 {% include integrations/config_flow.md %}
 
-Example Automation:
+Example automation:
 
 ```yaml
 - action: notify.entity_id
@@ -57,7 +57,7 @@ To use a specific Pushover device, set it using `target`. If one of the entered 
 Using the `ttl` parameter, messages may be set to delete automatically after a certain period of time. This is useful for messages that, at some point, outlive their usefulness. The `ttl` parameter specifies a time-to-live in seconds. In the following example, the message will self-delete from the targeted device(s) after 6 hours.
 
 ```yaml
-  - service: notify.pushover
+  - action: notify.pushover
     data:
       message: "This is the message"
       title: "Title of message"

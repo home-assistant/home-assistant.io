@@ -15,7 +15,7 @@ related:
     title: Configuration file
 ---
 
-The Emulated Kasa {% term integration %} emulates a TP-Link Kasa smart plug and announces the power usage of configured devices to any that might request it on the local network.
+The **Emulated Kasa** {% term integration %} emulates a TP-Link Kasa smart plug and announces the power usage of configured devices to any that might request it on the local network.
 
 For example, the [Sense Energy Monitor](/integrations/sense) can use this to identify power usage.
 
