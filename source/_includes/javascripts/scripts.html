@@ -123,4 +123,66 @@
     }
   }
 </script>
+
+<script type="text/javascript">
+  {
+    const tocCurrent = document.querySelector(".toc-current");
+
+    if (tocCurrent) {
+      const headings = Array.from(
+        document.querySelectorAll("article h2, article h3")
+      );
+
+      if (headings.length > 0) {
+        const getHeadingText = (heading) =>
+          heading.childNodes[0].textContent.trim();
+
+        tocCurrent.textContent = getHeadingText(headings[0]);
+
+        const updateTocCurrent = () => {
+          const scrollY = window.scrollY + 140;
+          let current = headings[0];
+
+          for (const heading of headings) {
+            if (heading.offsetTop <= scrollY) {
+              current = heading;
+            } else {
+              break;
+            }
+          }
+
+          tocCurrent.textContent = getHeadingText(current);
+
+          const tocList = document.getElementById("toc");
+          if (tocList) {
+            const titleLink = current.querySelector("a.title-link");
+            const slug = titleLink && titleLink.getAttribute("name");
+            tocList.querySelectorAll("a[aria-current]").forEach((a) => {
+              a.removeAttribute("aria-current");
+            });
+            if (slug) {
+              const activeLink = tocList.querySelector(`a[href="#${slug}"]`);
+              if (activeLink) {
+                activeLink.setAttribute("aria-current", "true");
+              }
+            }
+          }
+        };
+
+        window.addEventListener("scroll", updateTocCurrent, { passive: true });
+        updateTocCurrent();
+      }
+
+      const tocToggle = document.getElementById("toc-toggle");
+      const tocList = document.getElementById("toc");
+      if (tocToggle && tocList) {
+        tocList.addEventListener("click", (e) => {
+          if (e.target.closest("a")) {
+            tocToggle.checked = false;
+          }
+        });
+      }
+    }
+  }
+</script>
 {% endif %}
