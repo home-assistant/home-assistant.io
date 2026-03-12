@@ -4,6 +4,7 @@ description: Instructions on how to set up the Home Connect integration within H
 ha_category:
   - Binary sensor
   - Button
+  - Fan
   - Hub
   - Light
   - Number
@@ -23,6 +24,7 @@ ha_platforms:
   - binary_sensor
   - button
   - diagnostics
+  - fan
   - light
   - number
   - select
@@ -171,6 +173,17 @@ The integration configuration will ask for the *Client ID* and *Client Secret* c
 - **Partial open door**
   - **Description**: Opens the door of the appliance partially.
   - **Availability**: Oven
+
+{% enddetails %}
+
+### Fan
+
+{% details "List of fan entities" %}
+
+- **Air conditioner**:
+  - **Description**: Controls the fan speed of air conditioner appliances.
+  - **Availability**: Air conditioner
+  - **Controls**: fan speed percentage, fan speed mode
 
 {% enddetails %}
 

@@ -27,7 +27,7 @@ ha_platforms:
   - sensor
   - siren
   - switch
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The **RFXCOM RFXtrx** {% term integration %} supports RFXtrx devices by [RFXCOM](http://www.rfxcom.com), which communicate in the frequency range of 433.92 MHz.

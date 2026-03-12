@@ -9,7 +9,7 @@ ha_domain: snapcast
 ha_config_flow: true
 ha_platforms:
   - media_player
-ha_integration_type: integration
+ha_integration_type: hub
 ha_codeowners:
   - '@luar123'
 ---

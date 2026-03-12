@@ -12,7 +12,7 @@ ha_domain: sensorpro
 ha_config_flow: true
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 Integrates [SensorPro](https://www.sigmawit.com/) devices into Home Assistant.

@@ -12,6 +12,7 @@ ha_config_flow: true
 ha_integration_type: service
 ha_codeowners:
   - '@noambav'
+ha_quality_scale: bronze
 ---
 
 The **Fish Audio** {% term integration %} brings high-quality voice cloning and a wide variety of public voices to Home Assistant. It provides a text-to-speech (<abbr title="text-to-speech">TTS</abbr>) service, allowing you to create expressive, human-like speech.

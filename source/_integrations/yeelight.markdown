@@ -18,7 +18,7 @@ ha_platforms:
 ha_homekit: true
 ha_dhcp: true
 ha_zeroconf: true
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 The **Yeelight** {% term integration %} allows you to control your Yeelight Wi-Fi bulbs with Home Assistant.

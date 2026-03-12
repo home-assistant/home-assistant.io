@@ -13,6 +13,7 @@ ha_platforms:
   - binary_sensor
   - diagnostics
 ha_integration_type: service
+ha_quality_scale: silver
 ---
 
 The [NINA](https://www.bbk.bund.de/DE/Warnung-Vorsorge/Warn-App-NINA/warn-app-nina_node.html) {% term integration %} displays warnings from the [Bundesamt für Bevölkerungsschutz und Katastrophenhilfe](https://www.bbk.bund.de/) in Germany.

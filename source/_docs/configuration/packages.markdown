@@ -5,7 +5,7 @@ description: "Describes all there is to know about configuration packages in Hom
 
 Packages in Home Assistant provide a way to bundle configurations from multiple integrations. With packages, we have a way to include multiple integrations, or parts of integrations using any of the `!include` directives introduced in [splitting the configuration](/docs/configuration/splitting_configuration).
 
-Packages are configured under the core `homeassistant/packages` in the configuration and take the format of a package name (no spaces, all lower case) followed by a dictionary with the package configuration. For example, package `pack_1` would be created as:
+Packages are configured under the core `homeassistant/packages` in the configuration and take the format of a package name (no spaces, all lowercase) followed by a dictionary with the package configuration. For example, package `pack_1` would be created as:
 
 ```yaml
 homeassistant:
@@ -59,7 +59,7 @@ There are some rules for packages that will be merged:
 1. Platform based integrations (`light`, `switch`, etc) can always be merged.
 2. Integrations where entities are identified by a key that will represent the entity_id (`{key: config}`) need to have unique 'keys' between packages and the main configuration file.
 
-    For example if we have the following in the main configuration. You are not allowed to re-use "my_input" again for `input_boolean` in a package:
+    For example, if we have the following in the main configuration. You are not allowed to re-use "my_input" again for `input_boolean` in a package:
 
     ```yaml
     input_boolean:
@@ -74,7 +74,7 @@ Integrations inside packages can only specify platform entries using configurati
 
 ## Create a packages folder
 
-One way to organize packages is to create a folder named "packages" in your Home Assistant configuration directory. In this packages folder, you can store any number of packages in {% term YAML %} files, and organize those packages into {% term YAML %} files and subfolders as you see fit. With `!include_dir_named`, the file name is used as the package name. This means that file names must be globally unique, even across subfolders. This entry in your {% term "`configuration.yaml`" %} will load all {% term YAML %}-files in this _packages_ folder and its sub folders:
+One way to organize packages is to create a folder named "packages" in your Home Assistant configuration directory. In this packages folder, you can store any number of packages in {% term YAML %} files, and organize those packages into {% term YAML %} files and subfolders as you see fit. With `!include_dir_named`, the filename is used as the package name. This means that file names must be globally unique, even across subfolders. This entry in your {% term "`configuration.yaml`" %} will load all {% term YAML %}-files in this _packages_ folder and its sub folders:
 
 ```yaml
 homeassistant:

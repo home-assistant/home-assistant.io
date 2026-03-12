@@ -12,7 +12,7 @@ ha_domain: input_text
 ha_integration_type: helper
 ---
 
-The **Input text** {% term integration %} allows the user to define values that can be controlled via the frontend and can be used within conditions of automation. Changes to the value stored in the text box generate state events. These state events can be utilized as `automation` triggers as well. It can also be configured in password mode (obscured text).
+The **Input text** {% term integration %} allows you to define values that can be controlled via the frontend and can be used within conditions of automation. Changes to the value stored in the text box generate state events. These state events can be utilized as `automation` triggers as well. It can also be configured in password mode (obscured text).
 
 The preferred way to configure an input text is via the user interface at **{% my helpers title="Settings > Devices & services > Helpers" %}**. Click the add button and then choose the **{% my config_flow_start domain="input_text" title="Text" %}** option.
 

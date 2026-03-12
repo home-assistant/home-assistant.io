@@ -320,6 +320,41 @@ type:
   type: string
 {% endconfiguration %}
 
+## Cover position preset
+
+Widget that displays a dropdown with preset positions for a [cover](/integrations/cover).
+
+<p class='img'>
+  <img src='/images/dashboards/features/cover_position_preset.png' alt='Screenshot of the tile card with the cover position preset feature'>
+  Screenshot of the tile card with the cover position preset feature
+</p>
+
+```yaml
+features:
+  - type: "cover-position-preset"
+    positions:
+      - 0
+      - 25
+      - 75
+      - 100
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`cover-position-preset`"
+  type: string
+positions:
+  required: false
+  description: List of preset positions to show on the card. Values are percentages from 0 to 100, and you can configure up to 6 positions.
+  type: list
+  default:
+    - 0
+    - 25
+    - 75
+    - 100
+{% endconfiguration %}
+
 ## Cover tilt
 
 Widget that displays buttons to open, close, or stop a [cover](/integrations/cover).
@@ -339,6 +374,41 @@ type:
   required: true
   description: "`cover-tilt`"
   type: string
+{% endconfiguration %}
+
+## Cover tilt preset
+
+Widget that displays a dropdown with preset tilt positions for a [cover](/integrations/cover).
+
+<p class='img'>
+  <img src='/images/dashboards/features/cover_tilt_preset.png' alt='Screenshot of the tile card with the cover tilt preset feature'>
+  Screenshot of the tile card with the cover tilt preset feature
+</p>
+
+```yaml
+features:
+  - type: "cover-tilt-preset"
+    positions:
+      - 0
+      - 25
+      - 75
+      - 100
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`cover-tilt-preset`"
+  type: string
+positions:
+  required: false
+  description: List of preset tilt positions to show on the card. Values are percentages from 0 to 100, and you can configure up to 6 positions.
+  type: list
+  default:
+    - 0
+    - 25
+    - 75
+    - 100
 {% endconfiguration %}
 
 ## Cover tilt position
@@ -583,6 +653,29 @@ features:
 type:
   required: true
   description: "`light-brightness`"
+  type: string
+{% endconfiguration %}
+
+## Light color favorites
+
+Widget that displays a set of buttons to select a color for a [light](/integrations/light) from a list of favorites.
+
+You can customize favorites in a light's more-info dialog. The feature shows as many favorites as fit in the available width, following the favorites' sort order.
+
+<p class='img'>
+  <img src='/images/dashboards/features/light_color_favorites.png' alt='Screenshot of the tile card with the light color favorites feature'>
+  Screenshot of the tile card with the light color favorites feature
+</p>
+
+```yaml
+features:
+  - type: "light-color-favorites"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`light-color-favorites`"
   type: string
 {% endconfiguration %}
 
