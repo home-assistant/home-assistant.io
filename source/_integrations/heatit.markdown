@@ -9,11 +9,13 @@ ha_iot_standard: zwave
 ha_brand: true
 ---
 
-[Heatit](https://www.heimantech.com/) is committed to making sure their products are up-to-date and ready to use in Home Assistant.
+{% include integrations/wwha.md url="https://heatit.com/" %}
 
-Heatit Zwave devices work locally and integrate seamlessly with the Zwave.js integration in Home Assistant. As all connectivity is happening locally, status updates and controlling your devices happen instantly in Home Assistant.
+## Supported devices
 
-{% my add_matter_device badge domain=page.ha_domain %}
-
-[Learn more about Zwave in Home Assistant.](/integrations/zwave_js/)
-
+- [Z-Push Wall Controller](https://heatit.com/product/10221/products/controllers/heatit-z-push-wall-controller-white-ral-9010-glossy/1107)
+- [Z-Temp3](https://heatit.com/product/10289/heatit-z-temp3-white-ral-9003/0)
+- [Z-TRM6 DC](https://heatit.com/produkt/10413/heatit-z-trm6-dc-white-ral-9003)
+- [Z-Smoke 2](https://heatit.com/product/10524/heatit-z-smoke2-detector-230vac)
+- [ZM Thermostat 16A](https://heatit.com/product/10194/products/controllers/heatit-zm-thermostat-16a/1107)
+- [Z-HAN](https://heatit.com/produkt/10343/heatit-z-han2)2
