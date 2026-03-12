@@ -157,6 +157,10 @@ force_update:
   required: false
   type: boolean
   default: false
+group:
+  description: A list of unique IDs of the member binary sensor entities. Set this if the binary sensor entity represents a binary sensor group.
+  required: false
+  type: list
 icon:
   description: "[Icon](/docs/configuration/customizing-devices/#icon) for the entity."
   required: false

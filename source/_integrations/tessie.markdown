@@ -211,7 +211,6 @@ The integration will create sensor entities for a variety of metrics related to 
 - Battery module temperature min
 - Battery pack current
 - Battery pack voltage
-- Energy remaining
 - Lifetime energy used
 - Phantom drain
 

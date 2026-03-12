@@ -14,6 +14,8 @@ related:
 
 This is a list of all the cards and badges used in the energy dashboard. You can also place them anywhere you want in your dashboard.
 
+You can add these cards using the visual card editor or by editing the YAML directly. In the visual editor, these are located in the **Energy cards** section of the card picker dialog.
+
 You can configure them on the {% my config_energy title="energy configuration page" %}.
 
 ## Energy date picker
@@ -26,10 +28,72 @@ You can configure them on the {% my config_energy title="energy configuration pa
 This card allows you to pick what data to show. Changing it in this card will influence the data in all other cards.
 Specific dates and ranges can be selected by opening the date range picker. The current period can be compared to the previous one using the compare data option within the menu.
 
+### YAML configuration
+
+The following YAML options are available:
+
+{% configuration %}
+type:
+  required: true
+  description: "`energy-date-selection`"
+  type: string
+collection_key:
+  required: false
+  description: "Collection key to use for the card. This links the card to a specific energy dashboard collection. If not provided, defaults to the current dashboard page URL."
+  type: string
+vertical_opening_direction:
+  required: false
+  description: "`up`, `down` or `auto`. Determines the vertical direction to open the date range picker. `auto` changes it based on the screen size."
+  type: string
+  default: auto
+opening_direction:
+  required: false
+  description: "`left`, `right`, `center` or `auto`. Determines the horizontal direction to open the date range picker. `auto` changes it based on the screen size."
+  type: string
+  default: auto
+disable_compare:
+  required: false
+  description: When true, will disable the option to compare data periods.
+  type: boolean
+  default: false
+{% endconfiguration %}
+
 ### Example
 
 ```yaml
 type: energy-date-selection
+```
+
+## Energy compare alert
+
+<p class='img'>
+  <img src='/images/dashboards/energy/energy-compare.png' alt='Screenshot of the energy compare alert card'>
+  Screenshot of the energy compare alert card.
+</p>
+
+This card shows which date ranges are being compared, and provides the option to switch between different compare modes.
+
+The card is only visible when comparing data periods, otherwise it will be hidden.
+
+### YAML configuration
+
+The following YAML options are available:
+
+{% configuration %}
+type:
+  required: true
+  description: "`energy-compare-card`"
+  type: string
+collection_key:
+  required: false
+  description: "Collection key to use for the card. This links the card to a specific energy dashboard collection. If not provided, defaults to the current dashboard page URL."
+  type: string
+{% endconfiguration %}
+
+### Example
+
+```yaml
+type: energy-compare-card
 ```
 
 ## Energy usage graph
@@ -44,7 +108,7 @@ It will also show the amount of energy your have returned to the grid.
 
 ### YAML configuration
 
-The following YAML options are available
+The following YAML options are available:
 
 {% configuration %}
 type:
@@ -53,9 +117,8 @@ type:
   type: string
 collection_key:
   required: false
-  description: "Collection key to use for the card. This links the card to a specific energy dashboard collection. Defaults to `energy_dashboard`."
+  description: "Collection key to use for the card. This links the card to a specific energy dashboard collection. If not provided, defaults to the current dashboard page URL."
   type: string
-  default: energy_dashboard
 title:
   required: false
   description: When defined, shows a card header with the title string and total energy consumed chip.
@@ -79,7 +142,7 @@ The solar production graph card shows the amount of energy your solar panels hav
 
 ### YAML configuration
 
-The following YAML options are available
+The following YAML options are available:
 
 {% configuration %}
 type:
@@ -88,9 +151,8 @@ type:
   type: string
 collection_key:
   required: false
-  description: "Collection key to use for the card. This links the card to a specific energy dashboard collection. Defaults to `energy_dashboard`."
+  description: "Collection key to use for the card. This links the card to a specific energy dashboard collection. If not provided, defaults to the current dashboard page URL."
   type: string
-  default: energy_dashboard
 title:
   required: false
   description: When defined, shows a card header with the title string and total solar produced chip.
@@ -112,6 +174,10 @@ type: energy-solar-graph
 
 The gas consumption graph card shows the amount of gas consumed per source.
 
+### YAML configuration
+
+The following YAML options are available:
+
 {% configuration %}
 type:
   required: true
@@ -119,9 +185,8 @@ type:
   type: string
 collection_key:
   required: false
-  description: "Collection key to use for the card. This links the card to a specific energy dashboard collection. Defaults to `energy_dashboard`."
+  description: "Collection key to use for the card. This links the card to a specific energy dashboard collection. If not provided, defaults to the current dashboard page URL."
   type: string
-  default: energy_dashboard
 title:
   required: false
   description: When defined, shows a card header with the title string and total gas consumed chip.
@@ -145,7 +210,7 @@ The water consumption graph card shows the amount of water consumed per source.
 
 ### YAML configuration
 
-The following YAML options are available
+The following YAML options are available:
 
 {% configuration %}
 type:
@@ -154,9 +219,8 @@ type:
   type: string
 collection_key:
   required: false
-  description: "Collection key to use for the card. This links the card to a specific energy dashboard collection. Defaults to `energy_dashboard`."
+  description: "Collection key to use for the card. This links the card to a specific energy dashboard collection. If not provided, defaults to the current dashboard page URL."
   type: string
-  default: energy_dashboard
 title:
   required: false
   description: When defined, shows a card header with the title string and total water consumed chip.
@@ -191,7 +255,7 @@ type:
   type: string
 collection_key:
   required: false
-  description: "Collection key to use for the card. This links the card to a specific energy dashboard collection."
+  description: "Collection key to use for the card. This links the card to a specific energy dashboard collection. If not provided, defaults to the current dashboard page URL."
   type: string
 title:
   required: false
@@ -238,7 +302,29 @@ The energy distribution card shows how the energy flowed, from the grid to your 
 
 If setup, it will also tell you how many kWh of the energy you got from the grid was produced without using fossil fuels.
 
-If you set `link_dashboard` to `true`, the card will include a link to the energy dashboard.
+### YAML configuration
+
+The following YAML options are available:
+
+{% configuration %}
+type:
+  required: true
+  description: "`energy-distribution`"
+  type: string
+collection_key:
+  required: false
+  description: "Collection key to use for the card. This links the card to a specific energy dashboard collection. If not provided, defaults to the current dashboard page URL."
+  type: string
+title:
+  required: false
+  description: The title of the card.
+  type: string
+link_dashboard:
+  required: false
+  description: Whether to include a link to the energy dashboard.
+  type: boolean
+  default: false
+{% endconfiguration %}
 
 ### Example
 
@@ -259,7 +345,7 @@ If setup, it will also show the costs and compensation per source and the total.
 
 ### YAML configuration
 
-The following YAML options are available
+The following YAML options are available:
 
 {% configuration %}
 type:
@@ -348,11 +434,11 @@ type: energy-self-sufficiency-gauge
   Screenshot of the devices energy graph card.
 </p>
 
-The devices energy graph show the energy usage per device, it is sorted by usage.
+The devices energy graph shows the energy usage per device. It is sorted by usage.
 
 ### YAML configuration
 
-The following YAML options are available
+The following YAML options are available:
 
 {% configuration %}
 type:
@@ -369,7 +455,7 @@ max_devices:
   type: integer
 hide_compound_stats:
   required: false
-  description: Hide higher level devices like breakers. These are devices that are set as `included_in_stat` of another device.
+  description: Hide upstream energy devices like breakers. These are devices that are set as `included_in_stat` of another device.
   type: boolean
   default: false
 {% endconfiguration %}
@@ -422,7 +508,7 @@ The sankey energy graph shows the flow of energy in your home. It starts with so
 
 ### YAML configuration
 
-The following YAML options are available
+The following YAML options are available:
 
 {% configuration %}
 type:
@@ -463,10 +549,10 @@ type: energy-sankey
 layout: vertical
 ```
 
-## Power Sankey graph to visualize power flow
+## Power flow Sankey graph
 
 <p class='img'>
-  <img src='/images/dashboards/energy/sankey.png' alt='Screenshot of the Sankey graph card to visualize power'>
+  <img src='/images/dashboards/energy/sankey.png' alt='Screenshot of the power Sankey graph card'>
   Screenshot of the power Sankey graph card.
 </p>
 
@@ -476,7 +562,7 @@ It visualizes the instantaneous power flow from sources (like the grid, solar pa
 
 ### YAML configuration
 
-The following YAML options are available
+The following YAML options are available:
 
 {% configuration %}
 type:
@@ -485,9 +571,8 @@ type:
   type: string
 collection_key:
   required: false
-  description: "Collection key to use for the card. This links the card to a specific energy dashboard collection. Defaults to `energy_dashboard`."
+  description: "Collection key to use for the card. This links the card to a specific energy dashboard collection. If not provided, defaults to the current dashboard page URL."
   type: string
-  default: energy_dashboard
 title:
   required: false
   description: The title of the card.
@@ -533,7 +618,7 @@ The power sources graph shows historical power data.
 
 ### YAML configuration
 
-The following YAML options are available
+The following YAML options are available:
 
 {% configuration %}
 type:
@@ -542,9 +627,8 @@ type:
   type: string
 collection_key:
   required: false
-  description: "Collection key to use for the card. This links the card to a specific energy dashboard collection. Defaults to `energy_dashboard`."
+  description: "Collection key to use for the card. This links the card to a specific energy dashboard collection. If not provided, defaults to the current dashboard page URL."
   type: string
-  default: energy_dashboard
 title:
   required: false
   description: The title of the card.
@@ -651,7 +735,9 @@ type: water-total
 
 ## Using multiple collections
 
-By default, all energy cards are linked to any `energy-date-selection` card on the view, and all `energy-date-selection` cards are linked to the same period. To enable multiple different date selections on the same view, it is necessary to link them to different collections. This is done by adding the variable `collection_key` to the card YAML, and giving this a value of any custom string that begins with `energy_`. (strings that do not start with `energy_` will generate an error).
+By default, all energy cards on the current dashboard are linked together. Any `energy-date-selection` cards on this dashboard control what data is shown. If there are none, a default date of today is used. When you add multiple date selection cards, they always show the same date. Any `energy-date-selection` card on a different dashboard does not affect energy cards on the current dashboard.
+
+To enable multiple different date selections on the same dashboard, they must be linked to different collections. This is done using the `collection_key` parameter, either in the visual editor or in the card YAML, with a value of any custom string that begins with `energy_` (strings that do not start with `energy_` will generate an error).
 
 All energy cards support use of `collection_key` option.
 

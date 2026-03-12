@@ -128,7 +128,6 @@ source/_integrations/blueprint.markdown @home-assistant/core
 source/_integrations/bluesound.markdown @thrawnarn @LouisChrist
 source/_integrations/bluetooth.markdown @bdraco
 source/_integrations/bluetooth_adapters.markdown @bdraco
-source/_integrations/bmw_connected_drive.markdown @gerard33 @rikroe
 source/_integrations/bond.markdown @bdraco @prystupa @joshs85 @marciogranzotto
 source/_integrations/bosch_alarm.markdown @mag1024 @sanjay900
 source/_integrations/bosch_shc.markdown @tschamm
@@ -596,7 +595,6 @@ source/_integrations/mikrotik.markdown @engrbm87
 source/_integrations/mill.markdown @danielhiversen
 source/_integrations/min_max.markdown @gjohansson-ST
 source/_integrations/minecraft_server.markdown @elmurato @zachdeibert
-source/_integrations/mini_connected.markdown @gerard33 @rikroe
 source/_integrations/minio.markdown @tkislan
 source/_integrations/moat.markdown @bdraco
 source/_integrations/mobile_app.markdown @home-assistant/core
