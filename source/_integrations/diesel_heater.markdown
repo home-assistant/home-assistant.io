@@ -29,14 +29,12 @@ This integration supports diesel heaters from multiple brands that use compatibl
 
 ### Supported protocols
 
-| Protocol | App | Notes |
-|----------|-----|-------|
-| AA55 | AirHeaterBLE | Original Vevor protocol |
-| AA55 Encrypted | AirHeaterBLE | XOR encrypted variant |
-| AA66 | AirHeaterBLE | 20-byte variant |
-| AA66 Encrypted | AirHeaterBLE | Encrypted, Fahrenheit internal |
-| ABBA | AirHeaterCC | HeaterCC heaters |
-| CBFF | Sunster | Double XOR encryption |
+- **AA55** (AirHeaterBLE app) - Original Vevor protocol
+- **AA55 Encrypted** (AirHeaterBLE app) - XOR encrypted variant
+- **AA66** (AirHeaterBLE app) - 20-byte variant
+- **AA66 Encrypted** (AirHeaterBLE app) - Encrypted, Fahrenheit internal
+- **ABBA** (AirHeaterCC app) - HeaterCC heaters
+- **CBFF** (Sunster app) - Double XOR encryption
 
 ## Prerequisites
 
