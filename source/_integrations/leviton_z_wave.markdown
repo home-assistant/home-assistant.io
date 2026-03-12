@@ -53,7 +53,7 @@ Leviton Z-Wave devices work locally and integrate seamlessly with the Z-Wave int
 <br><br>
 To find more information, please use the [Z-Wave integration](/integrations/zwave_js) page.
 
-### Firmware updates
+## Firmware updates
 
 Leviton provides firmware updates that are publicly available to download. In Home Assistant, you can navigate to your device page and use the Update Device Firmware option to upload the firmware from Leviton for your device.
 
