@@ -32,4 +32,4 @@ ha_brand: true
 - [Z-TRM6 DC](https://heatit.com/produkt/10413/heatit-z-trm6-dc-white-ral-9003)
 - [Z-Smoke 2](https://heatit.com/product/10524/heatit-z-smoke2-detector-230vac)
 - [ZM Thermostat 16A](https://heatit.com/product/10194/products/controllers/heatit-zm-thermostat-16a/1107)
-- [Z-HAN](https://heatit.com/produkt/10343/heatit-z-han2)2
+- [Z-HAN](https://heatit.com/produkt/10343/heatit-z-han2)
