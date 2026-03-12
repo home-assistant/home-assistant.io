@@ -22,10 +22,10 @@ library from Home Assistant.
 
 ## Prerequisites
 
-- An active Spotify account. A premium account is not required, but recommended.
-  Premium accounts can be controlled (pause, play, next, etc.), while
-  free accounts can only be used for browsing and current playback status.
-- Spotify compatible playback [source](#selecting-output-source) device
+- An active Spotify Premium account. As of February 2026, Spotify requires a
+  Premium account to access the Developer Portal and create an application.
+  This means the integration only works with a Spotify Premium account.
+- A Spotify-compatible playback [source](#selecting-output-source) device.
 - A Spotify Developer application. Instructions for that are in
   the next step.
 
