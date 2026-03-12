@@ -197,7 +197,7 @@ This action modifies your inverter's TOU scheduling settings. Incorrect configur
 
 ### Action: Read time segments
 
-The `growatt_server.read_time_segments` action reads the current configuration of all 9 time segments from a inverter and returns the complete TOU schedule configuration.
+The `growatt_server.read_time_segments` action reads the current configuration of all 9 time segments from an inverter and returns the complete TOU schedule configuration.
 
 Suppored on MIN inverters.
 
