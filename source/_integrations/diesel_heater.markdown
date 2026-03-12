@@ -57,16 +57,10 @@ After setup, you can configure these options:
 {% configuration_basic %}
 PIN code:
     description: "4-digit PIN for heater authentication. Default is 1234."
-Temperature offset:
-    description: "Manual calibration offset for the temperature sensor, from -20 to +20 °C."
 Away preset temperature:
     description: "Target temperature when the Away preset is active. Default is 8 °C."
 Comfort preset temperature:
     description: "Target temperature when the Comfort preset is active. Default is 21 °C."
-External temperature sensor:
-    description: "External Home Assistant temperature sensor to use for automatic offset calibration."
-Max auto offset:
-    description: "Maximum automatic offset when using an external sensor, from 1 to 9 °C."
 {% endconfiguration_basic %}
 
 ## Supported functionality
