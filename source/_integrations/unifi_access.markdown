@@ -75,13 +75,9 @@ Each door registered in your UniFi Access controller is represented as a **lock*
 - **Unlock**: Triggers the configured door lock relay to open the door for its configured duration.
 - **Open**: Opens the door (same as unlock).
 
-{% note %}
-The UniFi Access API does not support a remote **lock** command. Doors automatically re-lock after the configured relay timeout. The lock entity reflects the current locked/unlocked state as reported by the controller.
-{% endnote %}
-
 ## Known limitations
 
-- **No remote lock command**: The UniFi Access API only supports unlocking doors. Doors re-lock automatically after the configured timeout on the controller.
+- **No remote lock command**: The UniFi Access API only supports unlocking doors.
 - **Single controller**: Each configuration entry connects to one UniFi Access controller. If you have multiple controllers, add a separate integration entry for each.
 
 ## Troubleshooting
