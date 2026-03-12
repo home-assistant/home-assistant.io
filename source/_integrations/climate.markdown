@@ -288,3 +288,453 @@ The climate entity has extra attributes to represent the state of the thermostat
 | `fan_mode` | If the fan is currently on or off: `on` / `off`.
 
 It depends on the thermostat you are using which states are available.
+
+## Triggers
+
+The climate {% term integration %} provides purpose-specific [automation triggers](/docs/automation/trigger/#entity-triggers). These are available when the **Purpose-specific triggers and conditions** feature in {% my labs title="**Settings** > **System** > **Labs**" %} is enabled.
+
+These triggers only fire when the entity transitions from a known, valid state. If a device goes offline and reconnects (transitioning from `unavailable` or `unknown` back to an active state), the trigger does not fire for that recovery.
+
+### Trigger: Climate-control device turned on
+
+{% include integrations/labs_entity_triggers_note.md %}
+
+The `climate.turned_on` trigger fires when the climate device is turned on.
+
+The following example triggers the automation as soon as the first of the two targeted climate devices turns on:
+
+```yaml
+automation:
+  triggers:
+    - trigger: climate.turned_on
+      target:
+        entity_id:
+          - climate.living_room
+          - climate.bedroom
+      options:
+        behavior: first
+```
+
+- **`target`**
+  - **Description**: The `climate` entity to monitor.
+  - **Optional**: No
+- **`options`**
+  - **`behavior`**
+    - **Description**: Controls which events trigger the automation when multiple climate devices are targeted. Options: `any` (fires every time any targeted climate device turns on), `first` (fires only when the first targeted climate device turns on), `last` (fires only after the last targeted climate device has turned on).
+    - **Optional**: Yes
+
+### Trigger: Climate-control device turned off
+
+{% include integrations/labs_entity_triggers_note.md %}
+
+The `climate.turned_off` trigger fires when the climate device is turned off.
+
+The following example triggers the automation only after both targeted climate devices have turned off:
+
+```yaml
+automation:
+  triggers:
+    - trigger: climate.turned_off
+      target:
+        entity_id:
+          - climate.living_room
+          - climate.bedroom
+      options:
+        behavior: last
+```
+
+- **`target`**
+  - **Description**: The `climate` entity to monitor.
+  - **Optional**: No
+- **`options`**
+  - **`behavior`**
+    - **Description**: Controls which events trigger the automation when multiple climate devices are targeted. Options: `any` (fires every time any targeted climate device turns off), `first` (fires only when the first targeted climate device turns off), `last` (fires only after the last targeted climate device has turned off).
+    - **Optional**: Yes
+
+### Trigger: Climate-control device started cooling
+
+{% include integrations/labs_entity_triggers_note.md %}
+
+The `climate.started_cooling` trigger fires when the climate device begins cooling.
+
+The following example triggers the automation as soon as the first of the two targeted climate devices starts cooling:
+
+```yaml
+automation:
+  triggers:
+    - trigger: climate.started_cooling
+      target:
+        entity_id:
+          - climate.living_room
+          - climate.bedroom
+      options:
+        behavior: first
+```
+
+- **`target`**
+  - **Description**: The `climate` entity to monitor.
+  - **Optional**: No
+- **`options`**
+  - **`behavior`**
+    - **Description**: Controls which events trigger the automation when multiple climate devices are targeted. Options: `any` (fires every time any targeted climate device starts cooling), `first` (fires only when the first targeted climate device starts cooling), `last` (fires only after the last targeted climate device has started cooling).
+    - **Optional**: Yes
+
+### Trigger: Climate-control device started drying
+
+{% include integrations/labs_entity_triggers_note.md %}
+
+The `climate.started_drying` trigger fires when the climate device begins operating in dry mode.
+
+The following example triggers the automation as soon as the first of the two targeted climate devices starts drying:
+
+```yaml
+automation:
+  triggers:
+    - trigger: climate.started_drying
+      target:
+        entity_id:
+          - climate.living_room
+          - climate.bedroom
+      options:
+        behavior: first
+```
+
+- **`target`**
+  - **Description**: The `climate` entity to monitor.
+  - **Optional**: No
+- **`options`**
+  - **`behavior`**
+    - **Description**: Controls which events trigger the automation when multiple climate devices are targeted. Options: `any` (fires every time any targeted climate device starts drying), `first` (fires only when the first targeted climate device starts drying), `last` (fires only after the last targeted climate device has started drying).
+    - **Optional**: Yes
+
+### Trigger: Climate-control device started heating
+
+{% include integrations/labs_entity_triggers_note.md %}
+
+The `climate.started_heating` trigger fires when the climate device begins operating in heating mode.
+
+The following example triggers the automation as soon as the first of the two targeted climate devices starts heating:
+
+```yaml
+automation:
+  triggers:
+    - trigger: climate.started_heating
+      target:
+        entity_id:
+          - climate.living_room
+          - climate.bedroom
+      options:
+        behavior: first
+```
+
+- **`target`**
+  - **Description**: The `climate` entity to monitor.
+  - **Optional**: No
+- **`options`**
+  - **`behavior`**
+    - **Description**: Controls which events trigger the automation when multiple climate devices are targeted. Options: `any` (fires every time any targeted climate device starts heating), `first` (fires only when the first targeted climate device starts heating), `last` (fires only after the last targeted climate device has started heating).
+    - **Optional**: Yes
+
+### Trigger: Climate-control device mode changed
+
+{% include integrations/labs_entity_triggers_note.md %}
+
+The `climate.hvac_mode_changed` trigger fires when the HVAC mode changes.
+
+The following example triggers the automation whenever the HVAC mode of the living room climate device changes:
+
+```yaml
+automation:
+  triggers:
+    - trigger: climate.hvac_mode_changed
+      target:
+        entity_id: climate.living_room
+      options:
+        hvac_mode: heat
+```
+
+- **`target`**
+  - **Description**: The `climate` entity to monitor.
+  - **Optional**: No
+- **`options`**
+  - **`hvac_mode`**
+    - **Description**: Only trigger when the HVAC mode changes to one of these values. Types: `heat`, `cool`, `heat_cool`, `auto`, `dry`, `fan_only`, `off`.
+    - **Optional**: No
+
+### Trigger: Climate-control device target temperature changed
+
+{% include integrations/labs_entity_triggers_note.md %}
+
+The `climate.target_temperature_changed` trigger fires when the target temperature setpoint changes.
+
+The following example triggers the automation whenever the target temperature of the living room changes, but only when the new value is between 20 °C and 25 °C:
+
+```yaml
+automation:
+  triggers:
+    - trigger: climate.target_temperature_changed
+      target:
+        entity_id: climate.living_room
+      options:
+        above: 20
+        below: 25
+```
+
+- **`target`**
+  - **Description**: The `climate` entity to monitor.
+  - **Optional**: No
+- **`options`**
+  - **`above`**
+    - **Description**: Only trigger if the new target temperature is above this value.
+    - **Optional**: Yes
+  - **`below`**
+    - **Description**: Only trigger if the new target temperature is below this value.
+    - **Optional**: Yes
+
+### Trigger: Climate-control device target temperature crossed threshold
+
+{% include integrations/labs_entity_triggers_note.md %}
+
+The `climate.target_temperature_crossed_threshold` trigger fires when the target temperature setpoint crosses a defined threshold.
+
+The following example triggers the automation when the target temperature of the living room crosses above the 21 °C threshold:
+
+```yaml
+automation:
+  triggers:
+    - trigger: climate.target_temperature_crossed_threshold
+      target:
+        entity_id: climate.living_room
+      options:
+        threshold_type: above
+        lower_limit: 21
+```
+
+- **`target`**
+  - **Description**: The `climate` entity to monitor.
+  - **Optional**: No
+- **`options`**
+  - **`threshold_type`**
+    - **Description**: How the threshold is defined. Types: `above`, `below`, `between`, `outside`.
+    - **Optional**: No
+  - **`lower_limit`**
+    - **Description**: The lower threshold value.
+    - **Optional**: Required when threshold type is `above`, `between`, or `outside`.
+  - **`upper_limit`**
+    - **Description**: The upper threshold value.
+    - **Optional**: Required when threshold type is `below`, `between`, or `outside`.
+  - **`behavior`**
+    - **Description**: Controls which crossings trigger the automation when multiple climate devices are targeted. Options: `any` (fires every time any targeted climate device crosses the threshold), `first` (fires only when the first targeted climate device crosses the threshold), `last` (fires only after the last targeted climate device has crossed the threshold).
+    - **Optional**: Yes
+
+### Trigger: Climate-control device target humidity changed
+
+{% include integrations/labs_entity_triggers_note.md %}
+
+The `climate.target_humidity_changed` trigger fires when the target humidity setpoint changes.
+
+The following example triggers the automation whenever the target humidity of the living room changes, but only when the new value is between 40% and 60%:
+
+```yaml
+automation:
+  triggers:
+    - trigger: climate.target_humidity_changed
+      target:
+        entity_id: climate.living_room
+      options:
+        above: 40
+        below: 60
+```
+
+- **`target`**
+  - **Description**: The `climate` entity to monitor.
+  - **Optional**: No
+- **`options`**
+  - **`above`**
+    - **Description**: Only trigger if the new target humidity is above this percentage (0–100).
+    - **Optional**: Yes
+  - **`below`**
+    - **Description**: Only trigger if the new target humidity is below this percentage (0–100).
+    - **Optional**: Yes
+
+### Trigger: Climate-control device target humidity crossed threshold
+
+{% include integrations/labs_entity_triggers_note.md %}
+
+The `climate.target_humidity_crossed_threshold` trigger fires when the target humidity setpoint crosses a defined threshold.
+
+The following example triggers the automation when the target humidity of the living room crosses above the 50% threshold:
+
+```yaml
+automation:
+  triggers:
+    - trigger: climate.target_humidity_crossed_threshold
+      target:
+        entity_id: climate.living_room
+      options:
+        threshold_type: above
+        lower_limit: 50
+```
+
+- **`target`**
+  - **Description**: The `climate` entity to monitor.
+  - **Optional**: No
+- **`options`**
+  - **`threshold_type`**
+    - **Description**: How the threshold is defined. Types: `above`, `below`, `between`, `outside`.
+    - **Optional**: No
+  - **`lower_limit`**
+    - **Description**: The lower threshold value.
+    - **Optional**: Required when threshold type is `above`, `between`, or `outside`.
+  - **`upper_limit`**
+    - **Description**: The upper threshold value.
+    - **Optional**: Required when threshold type is `below`, `between`, or `outside`.
+  - **`behavior`**
+    - **Description**: Controls which crossings trigger the automation when multiple climate devices are targeted. Options: `any` (fires every time any targeted climate device crosses the threshold), `first` (fires only when the first targeted climate device crosses the threshold), `last` (fires only after the last targeted climate device has crossed the threshold).
+    - **Optional**: Yes
+
+## Conditions
+
+The climate {% term integration %} provides purpose-specific [automation conditions](/docs/automation/condition/#entity-conditions). These are available when the **Purpose-specific triggers and conditions** feature in {% my labs title="**Settings** > **System** > **Labs**" %} is enabled.
+
+Entities that are `unavailable` or `unknown` are excluded from the check. With `behavior: any` (the default), the condition fails if all targeted entities are `unavailable` or `unknown`. With `behavior: all`, the condition passes if all targeted entities are `unavailable` or `unknown`.
+
+### Condition: Climate-control device is on
+
+{% include integrations/labs_entity_triggers_note.md %}
+
+The `climate.is_on` condition passes when the climate device is on.
+
+The following example passes only when both the living room and bedroom climate devices are on:
+
+```yaml
+automation:
+  conditions:
+    - condition: climate.is_on
+      target:
+        entity_id:
+          - climate.living_room
+          - climate.bedroom
+      options:
+        behavior: all
+```
+
+- **`target`**
+  - **Description**: The `climate` entity to check.
+  - **Optional**: No
+- **`options`**
+  - **`behavior`**
+    - **Description**: How to evaluate when multiple climate devices are targeted. Defaults to `any` if not specified. Options: `any` (passes if at least one climate device is on), `all` (passes only if all targeted climate devices are on).
+    - **Optional**: Yes
+
+### Condition: Climate-control device is off
+
+{% include integrations/labs_entity_triggers_note.md %}
+
+The `climate.is_off` condition passes when the climate device is off.
+
+The following example passes only when both the living room and bedroom climate devices are off:
+
+```yaml
+automation:
+  conditions:
+    - condition: climate.is_off
+      target:
+        entity_id:
+          - climate.living_room
+          - climate.bedroom
+      options:
+        behavior: all
+```
+
+- **`target`**
+  - **Description**: The `climate` entity to check.
+  - **Optional**: No
+- **`options`**
+  - **`behavior`**
+    - **Description**: How to evaluate when multiple climate devices are targeted. Defaults to `any` if not specified. Options: `any` (passes if at least one climate device is off), `all` (passes only if all targeted climate devices are off).
+    - **Optional**: Yes
+
+### Condition: Climate-control device is cooling
+
+{% include integrations/labs_entity_triggers_note.md %}
+
+The `climate.is_cooling` condition passes when the climate device is actively cooling.
+
+The following example passes only when both the living room and bedroom climate devices are actively cooling:
+
+```yaml
+automation:
+  conditions:
+    - condition: climate.is_cooling
+      target:
+        entity_id:
+          - climate.living_room
+          - climate.bedroom
+      options:
+        behavior: all
+```
+
+- **`target`**
+  - **Description**: The `climate` entity to check.
+  - **Optional**: No
+- **`options`**
+  - **`behavior`**
+    - **Description**: How to evaluate when multiple climate devices are targeted. Defaults to `any` if not specified. Options: `any` (passes if at least one climate device is actively cooling), `all` (passes only if all targeted climate devices are actively cooling).
+    - **Optional**: Yes
+
+### Condition: Climate-control device is heating
+
+{% include integrations/labs_entity_triggers_note.md %}
+
+The `climate.is_heating` condition passes when the climate device is actively heating.
+
+The following example passes only when both the living room and bedroom climate devices are actively heating:
+
+```yaml
+automation:
+  conditions:
+    - condition: climate.is_heating
+      target:
+        entity_id:
+          - climate.living_room
+          - climate.bedroom
+      options:
+        behavior: all
+```
+
+- **`target`**
+  - **Description**: The `climate` entity to check.
+  - **Optional**: No
+- **`options`**
+  - **`behavior`**
+    - **Description**: How to evaluate when multiple climate devices are targeted. Defaults to `any` if not specified. Options: `any` (passes if at least one climate device is actively heating), `all` (passes only if all targeted climate devices are actively heating).
+    - **Optional**: Yes
+
+### Condition: Climate-control device is drying
+
+{% include integrations/labs_entity_triggers_note.md %}
+
+The `climate.is_drying` condition passes when the climate device is actively operating in dry mode.
+
+The following example passes only when both the living room and bedroom climate devices are operating in dry mode:
+
+```yaml
+automation:
+  conditions:
+    - condition: climate.is_drying
+      target:
+        entity_id:
+          - climate.living_room
+          - climate.bedroom
+      options:
+        behavior: all
+```
+
+- **`target`**
+  - **Description**: The `climate` entity to check.
+  - **Optional**: No
+- **`options`**
+  - **`behavior`**
+    - **Description**: How to evaluate when multiple climate devices are targeted. Defaults to `any` if not specified. Options: `any` (passes if at least one climate device is operating in dry mode), `all` (passes only if all targeted climate devices are operating in dry mode).
+    - **Optional**: Yes
