@@ -82,26 +82,26 @@ Follow the steps in [Creating a new dashboard](/dashboards/dashboards/#creating-
 
 This section describes how to edit cards in a recently created dashboard, namely how to:
 
-- Change the details of a weather card.
-- Add a new weather card.
+- Change the details of a weather forecast card.
+- Add a new weather forecast card.
 - Change the position of cards.
 
 1. Open your new dashboard. It might not have much on it yet.
    - If you have smart home devices in your home, some may have been connected automatically.
-   - Some cards are there by default, such as the weather card, and a card for the person who set up the system.
+   - Some cards are there by default, such as the weather forecast card, and a card for the person who set up the system.
 
-2. To edit the weather card, for example, select it and then select the cogwheel {% icon "mdi:cog-outline" %}.
+2. To edit the weather forecast card, for example, select it and then select the cogwheel {% icon "mdi:cog-outline" %}.
 3. Change any of the units or other details, such as name and icon, if you like.
    - Do not change the **Entity ID**.
    - Once you are done, select **Update**.
 
 4. For the next activities, you need to edit your dashboard. In the top right of the screen, select the {% icon "mdi:pencil" %} button.
 5. In the **Edit dashboard** dialog, go to the three dots {% icon "mdi:dots-vertical" %} menu, and then select **Take control**.
-   - Note that, by editing the dashboard, you are taking control over it. The dashboard will no longer update when new {% term entities %} or dashboard components are available. You can't revert this. However, you can create a new default dashboard.
+   - Note that, by editing the dashboard, you are taking control over it. The dashboard will no longer update automatically when new {% term entities %} or dashboard components are available. You can't revert this. However, you can create a new default dashboard.
    - Read the text in the dialog and if you agree, select **Take control**.
 
 6. Now you can add a new card for this weather {% term service %}.
-   - Select the weather card again, go to the three dots {% icon "mdi:dots-vertical" %} menu, and then select **Service info**.
+   - Select the weather forecast card again, go to the three dots {% icon "mdi:dots-vertical" %} menu, and then select **Service info**.
    - Under **Sensors**, select **Add to dashboard**.
    - In the **Choose a view** dialog, select your dashboard from the dropdown list, and then select **Next**.
    - In the suggestion dialog, select **Pick different card**.
@@ -110,13 +110,13 @@ This section describes how to edit cards in a recently created dashboard, namely
 8. In the **Weather forecast card configuration** dialog:
    - Select the details to be shown on the card, and then select **Save**.
    - Go back to the edit window, and select **Done**.
-   - Result: You see the forecast card on the dashboard.
+   - Result: You see the new weather forecast card on the dashboard.
 
-9. If you want to delete the other weather card from the dashboard:
+9. If you want to delete the other weather forecast card from the dashboard:
    - In the top right corner, select the {% icon "mdi:pencil" %} button to go back to the edit mode.
    - On the card, go to the three dots {% icon "mdi:dots-vertical" %} menu, and then select **Delete**.
 
-10. Finally, to move the weather card to the top left corner:
+10. Finally, to move the weather forecast card to the top left corner:
     - On the bottom of the card, select the number or use the minus button to enter `1`.
     - Change the number on the other cards, if you want to move them around.
     - When you are done, in the top right corner, select **Done**.
