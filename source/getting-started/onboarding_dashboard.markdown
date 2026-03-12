@@ -97,8 +97,8 @@ This section describes how to edit cards in a recently created dashboard, namely
 
 4. For the next activities, you need to edit your dashboard. In the top right of the screen, select the {% icon "mdi:pencil" %} button.
 5. In the **Edit dashboard** dialog, go to the three dots {% icon "mdi:dots-vertical" %} menu, and then select **Take control**.
-    - Note that, by editing the dashboard, you are taking control over it. The dashboard will no longer update when new {% term entities %} or dashboard components are available. You can't revert this. However, you can create a new default dashboard.
-    - Read the text in the dialog and if you agree, select **Take control**.
+   - Note that, by editing the dashboard, you are taking control over it. The dashboard will no longer update when new {% term entities %} or dashboard components are available. You can't revert this. However, you can create a new default dashboard.
+   - Read the text in the dialog and if you agree, select **Take control**.
 
 6. Now you can add a new card for this weather {% term service %}.
    - Select the weather card again, go to the three dots {% icon "mdi:dots-vertical" %} menu, and then select **Service info**.
@@ -110,7 +110,7 @@ This section describes how to edit cards in a recently created dashboard, namely
 8. In the **Weather forecast card configuration** dialog:
    - Select the details to be shown on the card, and then select **Save**.
    - Go back to the edit window, and select **Done**.
-   - Result: You now see the forecast card on the dashboard.
+   - Result: You see the forecast card on the dashboard.
 
 9. If you want to delete the other weather card from the dashboard:
    - In the top right corner, select the {% icon "mdi:pencil" %} button to go back to the edit mode.
