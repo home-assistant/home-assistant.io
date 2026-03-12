@@ -25,7 +25,7 @@ library from Home Assistant.
 - An active Spotify Premium account. As of February 2026, Spotify requires a
   Premium account to access the Developer Portal and create an application.
   This means the integration only works with a Spotify Premium account.
-- Spotify compatible playback [source](#selecting-output-source) device
+- A Spotify-compatible playback [source](#selecting-output-source) device.
 - A Spotify Developer application. Instructions for that are in
   the next step.
 
