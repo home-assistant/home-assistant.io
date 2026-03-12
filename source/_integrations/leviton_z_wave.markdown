@@ -65,5 +65,5 @@ The following devices are known to be supported by the integration. They are cer
 - [Leviton Decora Smart Z-Wave Switch](https://leviton.com/products/zw15s-1rw)
 - [Leviton Decora Smart Z-Wave Fan Speed Controller](https://leviton.com/products/zw4sf-1bw)
 - [Leviton Decora Smart Z-Wave Plug-in Dimmer](https://leviton.com/products/dzpd3-2bw)
-- [Leviton Decora Smart Z-Wave Plug-In Outlet](https://leviton.com/products/dzpa1-2bw)
+- [Leviton Decora Smart Z-Wave Plug-in Outlet](https://leviton.com/products/dzpa1-2bw)
 - [Leviton Decora Smart Z-Wave Outlet](https://leviton.com/products/zw15r-1bw)
