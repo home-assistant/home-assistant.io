@@ -26,14 +26,14 @@ This integration communicates with the UniFi Access controller over the local ne
 
 Before setting up this integration, make sure you have the following:
 
-- A running **UniFi Access controller** (for example, on a UniFi Dream Machine Pro or Cloud Key Gen2 Plus with the Access application installed).
-- An **API token** generated from the UniFi Access controller settings:
+- A running UniFi Access controller (for example, on a UniFi Dream Machine Pro or Cloud Key Gen2 Plus with the Access application installed).
+- An API token generated from the UniFi Access controller settings:
   1. Open the UniFi Access web interface.
   2. Navigate to **Settings** > **Advanced**.
   3. Under **API Token**, select **Create Token**.
   4. Give the token a descriptive name (for example, *Home Assistant*) and save it.
   5. Copy the generated token — you will need it during setup.
-- The Home Assistant instance must be able to reach the UniFi Access controller on the local network.
+- Your Home Assistant instance must be able to reach the UniFi Access controller on your local network.
 
 {% include integrations/config_flow.md %}
 
@@ -60,7 +60,7 @@ This integration supports any door managed by a UniFi Access controller, includi
 
 ## Data updates
 
-The integration uses a **local push** architecture via WebSocket. When a door's lock or position status changes, the UniFi Access controller pushes updates to Home Assistant in real time. No polling is performed.
+The integration uses a local push architecture via WebSocket. When a door's lock or position status changes, the UniFi Access controller pushes updates to Home Assistant in real time. No {% term polling %} is performed.
 
 ## Supported functionality
 
@@ -94,13 +94,13 @@ When trying to set up the integration, the form shows a connection error.
 
 ##### Description
 
-This means Home Assistant cannot reach the UniFi Access controller on the network.
+This means your Home Assistant instance cannot reach the UniFi Access controller on the network.
 
 ##### Resolution
 
 To resolve this issue, try the following steps:
 
-1. Verify that the UniFi Access controller is reachable from Home Assistant (check the host or IP address).
+1. Verify that the UniFi Access controller is reachable from your Home Assistant instance (check the host or IP address).
 2. Make sure no firewall is blocking the connection.
 3. Ensure the UniFi Access application is running on the controller.
 
