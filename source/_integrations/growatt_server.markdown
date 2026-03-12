@@ -173,7 +173,7 @@ The integration provides the following actions for managing battery schedules:
 
 The `growatt_server.update_time_segment` action configures individual time segments (1-9) with battery operation mode, time range, and enable/disable state for automated battery charging and discharging schedules.
 
-Suppored on MIN inverters.
+Supported on MIN inverters.
 
 {% important %}
 This action modifies your inverter's TOU scheduling settings. Incorrect configuration may affect your battery's charging/discharging behavior and energy costs. Ensure you understand your electricity tariff structure before making changes.
