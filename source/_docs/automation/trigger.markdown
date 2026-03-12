@@ -1,5 +1,5 @@
 ---
-title: "Automation Trigger"
+title: "Automation trigger"
 description: "All the different ways how automations can be triggered."
 related:
   - docs: /voice_control/custom_sentences/#adding-a-custom-sentence-to-trigger-an-automation
@@ -26,6 +26,7 @@ An {% term automation %} can be triggered by an {% term event %}, a certain {% t
 - [Webhook trigger](#webhook-trigger)
 - [Zone trigger](#zone-trigger)
 - [Geolocation trigger](#geolocation-trigger)
+- [Entity triggers](#entity-triggers)
 - [Device triggers](#device-triggers)
 - [Calendar trigger](#calendar-trigger)
 - [Sentence trigger](#sentence-trigger)
@@ -1054,6 +1055,83 @@ automation:
       zone: zone.bushfire_alert_zone
       # Event is either enter or leave
       event: enter # or "leave"
+```
+
+## Entity triggers
+
+Entity triggers, also called *purpose-specific triggers*, let you trigger automations based on what an entity *does*. Instead of writing a [numeric state trigger](#numeric-state-trigger) or a [state trigger](#state-trigger) to detect a technical state change, you can say things like "When a light turns on" or "When the climate starts heating".
+
+{% note %}
+Entity triggers are a **Purpose-specific triggers and conditions** preview feature. To use them, first enable this feature under {% my labs title="**Settings** > **System** > **Labs**" %}.
+{% endnote %}
+
+Entity triggers allow you to target a specific entity, an area, a floor, or a label. This means you can trigger when any light in your living room turns on, without listing each light individually or creating a group first. When you add or remove devices in an area, your automations automatically stay in sync. This also makes your automations much easier to read at a glance, since the target makes the intent of the automation immediately clear.
+
+### About entity trigger YAML structure
+
+Entity triggers use the following YAML structure:
+
+```yaml
+automation:
+  triggers:
+    - trigger: <domain>.<trigger_type>
+      target:
+        entity_id: <entity_id>
+      options: {}
+```
+
+The `trigger` key combines the entity domain and trigger type (such as `light.turned_on` or `humidity.changed`). Use the `target` key to specify which entity or entities to monitor. Use the `options` key to configure trigger-specific settings, such as `behavior`, `above`/`below` range limits, or `threshold_type`.
+
+### Unavailable and unknown state behavior
+
+Most entity triggers do not fire when an entity transitions *from* an `unavailable` or `unknown` state. For example, if a light goes offline and comes back on, the `light.turned_on` trigger does not fire for that recovery.
+
+The exception is *origin-state triggers* — triggers that fire when an entity *leaves* a specific state. The `person.left_home` and `device_tracker.left_home` triggers fire whenever the entity changes *from* `home` to any other state, including `unavailable` or `unknown`. This means a device going offline while at home fires the `left_home` trigger. If you're using `left_home` to turn off lights when everyone has left, consider adding a [`person.is_not_home`](/integrations/person/#condition-person-is-not-home) or [`device_tracker.is_not_home`](/integrations/device_tracker/#condition-device-tracker-is-not-home) condition to avoid acting on unavailability.
+
+### List of entity trigger types
+
+The following trigger types are available per domain:
+
+- **Button** (`trigger: button`): Fires when a button entity is pressed. See [Button triggers](/integrations/button/#triggers).
+- **Calendar** (`trigger: calendar`): Fires when a calendar event starts or ends.
+- **Climate** (`trigger: climate`): Fires when a climate device turns on or off, starts heating, cooling, or drying, when the HVAC mode changes, or when a target temperature or humidity setpoint changes or crosses a threshold. See [Climate triggers](/integrations/climate/#triggers).
+- **Device tracker** (`trigger: device_tracker`): Fires when a tracked device arrives home or leaves home, or when the first device arrives or the last device leaves. See [Device tracker triggers](/integrations/device_tracker/#triggers).
+- **Door** (`trigger: door`): Fires when a door opens or closes. See [Door triggers](/integrations/door/).
+- **Fan** (`trigger: fan`): Fires when a fan turns on or turns off. See [Fan triggers](/integrations/fan/#triggers).
+- **Garage door** (`trigger: door`): Fires when a garage door opens or closes. See [Garage door triggers](/integrations/garage_door/).
+- **Humidity** (`trigger: humidity`): Fires when humidity changes or crosses a threshold on a humidity sensor, climate, humidifier, or weather entity. See [Humidity triggers](/integrations/humidity/).
+- **Humidifier** (`trigger: humidifier`): Fires when a humidifier turns on or off, or starts humidifying or drying. See [Humidifier triggers](/integrations/humidifier/#triggers).
+- **Light** (`trigger: light`): Fires when a light turns on or off, or when its brightness changes or crosses a threshold. See [Light triggers](/integrations/light/#triggers).
+- **Lock** (`trigger: lock`): Fires when a lock is locked, unlocked, opened, or jammed. See [Lock triggers](/integrations/lock/#triggers).
+- **Person** (`trigger: person`): Fires when a person arrives home or leaves home. See [Person triggers](/integrations/person/#triggers).
+- **Scene** (`trigger: scene`): Fires when a scene is activated. See [Scene triggers](/integrations/scene/#triggers).
+- **Siren** (`trigger: siren`): Fires when a siren turns on or turns off. See [Siren triggers](/integrations/siren/#triggers).
+- **Update** (`trigger: update`): Fires when an update becomes available for a device or add-on (`update_became_available`). See [Update triggers](/integrations/update/#triggers).
+- **Vacuum** (`trigger: vacuum`): Fires when a vacuum cleaner starts cleaning, pauses, starts returning, docks, or encounters an error. See [Vacuum triggers](/integrations/vacuum/#triggers).
+
+### Example: Trigger when bedroom humidity rises above 70%
+
+```yaml
+automation:
+  triggers:
+    - trigger: humidity.crossed_threshold
+      target:
+        entity_id: sensor.bedroom_humidity
+      options:
+        threshold_type: above
+        lower_limit: 70
+```
+
+### Example: Trigger when the living room light turns on
+
+```yaml
+automation:
+  triggers:
+    - trigger: light.turned_on
+      target:
+        entity_id: light.living_room
+      options:
+        behavior: any
 ```
 
 ## Device triggers
