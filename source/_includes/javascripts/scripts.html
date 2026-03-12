@@ -82,11 +82,19 @@
 
         const footerTop = footer.offsetTop;
         const windowHeight = window.innerHeight;
-        const documentHeight = document.documentElement.scrollHeight;
 
         const scrollStart = 0;
         const scrollEnd = footerTop - windowHeight;
-        const scrollProgress = Math.min(Math.max((scrollY - scrollStart) / (scrollEnd - scrollStart), 0), 1);
+        let scrollProgress;
+
+        if (scrollEnd <= scrollStart) {
+          scrollProgress = 1;
+        } else {
+          scrollProgress = Math.min(
+            Math.max((scrollY - scrollStart) / (scrollEnd - scrollStart), 0),
+            1
+          );
+        }
 
         const footerOffset = -50;
         const footerIsVisible = scrollY + windowHeight >= footerTop - footerOffset;
