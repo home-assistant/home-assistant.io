@@ -123,3 +123,192 @@ Turns one or multiple lights off.
 Toggles the state of one or multiple lights. Takes the same arguments as the [`light.turn_on`](#action-lightturn_on) action.
 
 *Note*: If `light.toggle` is used for a group of lights, it will toggle the individual state of each light. If you want the lights to be treated as a single light, use [Light Groups](/integrations/group#binary-sensor-light-and-switch-groups) instead.
+
+## Triggers
+
+The light {% term integration %} provides purpose-specific [automation triggers](/docs/automation/trigger/#entity-triggers). These are available when the **Purpose-specific triggers and conditions** feature in {% my labs title="**Settings** > **System** > **Labs**" %} is enabled.
+
+These triggers only fire when the entity transitions from a known, valid state. If a device goes offline and reconnects (transitioning from `unavailable` or `unknown` back to an active state), the trigger does not fire for that recovery.
+
+### Trigger: Light turned on
+
+{% include integrations/labs_entity_triggers_note.md %}
+
+The `light.turned_on` trigger fires when the light is turned on.
+
+The following example triggers the automation as soon as the first of the two targeted lights turns on:
+
+```yaml
+automation:
+  triggers:
+    - trigger: light.turned_on
+      target:
+        entity_id:
+          - light.living_room
+          - light.bedroom
+      options:
+        behavior: first
+```
+
+- **`target`**
+  - **Description**: The `light` entity to monitor.
+  - **Optional**: No
+- **`options`**
+  - **`behavior`**
+    - **Description**: Controls which events trigger the automation when multiple lights are targeted. Options: `any` (fires every time any targeted light turns on), `first` (fires only when the first targeted light turns on), `last` (fires only after the last targeted light has turned on).
+    - **Optional**: Yes
+
+### Trigger: Light turned off
+
+{% include integrations/labs_entity_triggers_note.md %}
+
+The `light.turned_off` trigger fires when the light is turned off.
+
+The following example triggers the automation only after the last of the two targeted lights has turned off:
+
+```yaml
+automation:
+  triggers:
+    - trigger: light.turned_off
+      target:
+        entity_id:
+          - light.living_room
+          - light.bedroom
+      options:
+        behavior: last
+```
+
+- **`target`**
+  - **Description**: The `light` entity to monitor.
+  - **Optional**: No
+- **`options`**
+  - **`behavior`**
+    - **Description**: Controls which events trigger the automation when multiple lights are targeted. Options: `any` (fires every time any targeted light turns off), `first` (fires only when the first targeted light turns off), `last` (fires only after the last targeted light has turned off).
+    - **Optional**: Yes
+
+### Trigger: Light brightness changed
+
+{% include integrations/labs_entity_triggers_note.md %}
+
+The `light.brightness_changed` trigger fires when the brightness of the light changes. Optionally, you can limit firing to a specific range using the `above` and `below` options.
+
+- **`target`**
+  - **Description**: The `light` entity to monitor.
+  - **Optional**: No
+- **`options`**
+  - **`above`**
+    - **Description**: Only trigger if the new brightness is above this percentage (0–100).
+    - **Optional**: Yes
+  - **`below`**
+    - **Description**: Only trigger if the new brightness is below this percentage (0–100).
+    - **Optional**: Yes
+
+The following example triggers the automation whenever the brightness of the living room light changes, but only when the new brightness is above 50%:
+
+```yaml
+automation:
+  triggers:
+    - trigger: light.brightness_changed
+      target:
+        entity_id: light.living_room
+      options:
+        above: 50
+```
+
+### Trigger: Light brightness crossed threshold
+
+{% include integrations/labs_entity_triggers_note.md %}
+
+The `light.brightness_crossed_threshold` trigger fires when the brightness of the light crosses a defined threshold.
+
+- **`target`**
+  - **Description**: The `light` entity to monitor.
+  - **Optional**: No
+- **`options`**
+  - **`threshold_type`**
+    - **Description**: How the threshold is defined. Types: `above`, `below`, `between`, `outside`.
+    - **Optional**: No
+  - **`lower_limit`**
+    - **Description**: The lower threshold value as a brightness percentage (0–100).
+    - **Optional**: Required when threshold type is `above`, `between`, or `outside`.
+  - **`upper_limit`**
+    - **Description**: The upper threshold value as a brightness percentage (0–100).
+    - **Optional**: Required when threshold type is `below`, `between`, or `outside`.
+  - **`behavior`**
+    - **Description**: Controls which crossings trigger the automation when multiple lights are targeted. Options: `any` (fires every time any targeted light crosses the threshold), `first` (fires only when the first targeted light crosses the threshold), `last` (fires only after the last targeted light has crossed the threshold).
+    - **Optional**: Yes
+
+The following example triggers the automation when the brightness of the living room light crosses above the 50% threshold:
+
+```yaml
+automation:
+  triggers:
+    - trigger: light.brightness_crossed_threshold
+      target:
+        entity_id: light.living_room
+      options:
+        threshold_type: above
+        lower_limit: 50
+```
+
+## Conditions
+
+The light {% term integration %} provides purpose-specific [automation conditions](/docs/automation/condition/#entity-conditions). These are available when the **Purpose-specific triggers and conditions** feature in {% my labs title="**Settings** > **System** > **Labs**" %} is enabled.
+
+Entities that are `unavailable` or `unknown` are excluded from the check. With `behavior: any` (the default), the condition fails if all targeted entities are `unavailable` or `unknown`. With `behavior: all`, the condition passes if all targeted entities are `unavailable` or `unknown`.
+
+### Condition: Light is on
+
+{% include integrations/labs_entity_triggers_note.md %}
+
+The `light.is_on` condition passes when the light is on.
+
+The following example passes only when both the living room and bedroom lights are on:
+
+```yaml
+automation:
+  conditions:
+    - condition: light.is_on
+      target:
+        entity_id:
+          - light.living_room
+          - light.bedroom
+      options:
+        behavior: all
+```
+
+- **`target`**
+  - **Description**: The `light` entity to check.
+  - **Optional**: No
+- **`options`**
+  - **`behavior`**
+    - **Description**: How to evaluate when multiple lights are targeted. Defaults to `any` if not specified. Options: `any` (passes if at least one light is on), `all` (passes only if all targeted lights are on).
+    - **Optional**: Yes
+
+### Condition: Light is off
+
+{% include integrations/labs_entity_triggers_note.md %}
+
+The `light.is_off` condition passes when the light is off.
+
+The following example passes only when both the living room and bedroom lights are off:
+
+```yaml
+automation:
+  conditions:
+    - condition: light.is_off
+      target:
+        entity_id:
+          - light.living_room
+          - light.bedroom
+      options:
+        behavior: all
+```
+
+- **`target`**
+  - **Description**: The `light` entity to check.
+  - **Optional**: No
+- **`options`**
+  - **`behavior`**
+    - **Description**: How to evaluate when multiple lights are targeted. Defaults to `any` if not specified. Options: `any` (passes if at least one light is off), `all` (passes only if all targeted lights are off).
+    - **Optional**: Yes
