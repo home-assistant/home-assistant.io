@@ -49,7 +49,7 @@ To further improve your setup, try building other voice assistant satellite devi
 
 - Enable [wake word detection on your Android phone](/voice_control/android/#using-wake-word-detection-on-android) to activate Assist hands-free by saying "Hey Jarvis" or "Hey Nabu", even when your phone is locked.
 
-- You can use [ESPHome](https://www.esphome.io/components/voice_assistant/) to create your own awesome voice assistant satellites based on inexpensive ESP32 microcontrollers, like [@piitaya](https://github.com/piitaya) did with his 3D printed R5 droid. Follow our tutorial to [create your own for just $13.](/voice_control/thirteen-usd-voice-remote/)
+- You can use [ESPHome](https://www.esphome.io/components/voice_assistant/) to create your own awesome voice assistant satellites based on inexpensive ESP32 microcontrollers, like [@piitaya](https://github.com/piitaya) did with his 3D-printed R5 droid. Follow our tutorial to [create your own for just $13](/voice_control/thirteen-usd-voice-remote/).
 
 - Another alternative voice satellite solution is the experimental is the [Linux-Voice-Assistant](https://github.com/OHF-Voice/linux-voice-assistant) project which allow you to create your own build a Linux-based voice assistant smart speaker that runs on any x64 or ARM64 hardware capable of handling local audio processing on-device.  This approach also provides greater flexibility for customization, and because it runs on a full Linux system and offers access significantly more local computing resources for additional features and other integrations on the same satellite.
 
