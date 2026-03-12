@@ -1,6 +1,6 @@
 ---
 title: Heatit
-description: Connect and control your Heatit Zwave devices using the Zwave integration
+description: Connect and control your Heatit Z-Wave devices using the Z-Wave integration
 ha_release: '2026.2'
 ha_iot_class: Local Push
 ha_domain: heatit
