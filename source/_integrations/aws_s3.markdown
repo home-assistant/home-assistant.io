@@ -109,13 +109,13 @@ Prefix:
 
 ## Setting up the AWS S3 integration in Home Assistant
 
-1. In Home Assistant, go to **Settings > Devices & services**.
+1. In Home Assistant, go to **{% my integrations title="Settings > Devices & services" %}**.
 1. Select **Add Integration** and search for **AWS S3**.
 1. Enter the following details:
    - Access Key ID and Secret Access Key from the IAM user
    - Your bucket name
    - The region endpoint (for example, `https://s3.eu-central-1.amazonaws.com/`)
-   - The path prefix 
+   - The optional prefix (path inside the bucket for organizing backups; you can leave this empty)
 
 The integration will test the connection and confirm access to your S3 bucket.
 
@@ -143,7 +143,7 @@ s3://my-bucket/
 
 #### With prefix `home-assistant`
 
-Backups are stored in a folder:
+Backups are stored in a path prefix:
 
 ```txt
 s3://my-bucket/home-assistant/
@@ -155,7 +155,7 @@ s3://my-bucket/home-assistant/
 
 #### With nested prefix `backups/home-assistant`
 
-Backups are stored in nested folders:
+Backups are stored in nested prefixes:
 
 ```txt
 s3://my-bucket/backups/home-assistant/
