@@ -121,3 +121,130 @@ person:
 ```
 
 If you change the YAML, you can reload it by calling the `person.reload` action.
+
+## Triggers
+
+The person {% term integration %} provides purpose-specific [automation triggers](/docs/automation/trigger/#entity-triggers). These are available when the **Purpose-specific triggers and conditions** feature in {% my labs title="**Settings** > **System** > **Labs**" %} is enabled.
+
+There is an important asymmetry in how these triggers handle `unavailable` and `unknown` states:
+
+- **Entered home** (`person.entered_home`): Does not fire when a person's state recovers from `unavailable` or `unknown` back to `home`. If someone returns home but their device briefly went offline, this trigger does not fire on recovery.
+- **Left home** (`person.left_home`): _Does_ fire when a person's state changes from `home` to `unavailable` or `unknown`. If a device loses tracking while at home, this trigger fires. This can cause unexpected behavior in automations that assume the person physically left, such as "turn off lights when everyone has left." To prevent false triggers, consider adding a condition to check that the person is `not_home` rather than simply `unavailable`.
+
+### Trigger: Entered home
+
+{% include integrations/labs_entity_triggers_note.md %}
+
+The `person.entered_home` trigger fires when the person arrives home.
+
+The following example triggers the automation as soon as the first of the two targeted people arrives home:
+
+```yaml
+automation:
+  triggers:
+    - trigger: person.entered_home
+      target:
+        entity_id:
+          - person.ada
+          - person.bob
+      options:
+        behavior: first
+```
+
+- **`target`**
+  - **Description**: The `person` entity to monitor.
+  - **Optional**: No
+- **`options`**
+  - **`behavior`**
+    - **Description**: Controls which arrivals trigger the automation when multiple people are targeted. Options: `any` (fires every time any targeted person arrives home), `first` (fires only when the first targeted person arrives home), `last` (fires only after the last targeted person has arrived home).
+    - **Optional**: Yes
+
+### Trigger: Left home
+
+{% include integrations/labs_entity_triggers_note.md %}
+
+The `person.left_home` trigger fires when the person leaves home.
+
+The following example triggers the automation only after the last of the two targeted people has left home:
+
+```yaml
+automation:
+  triggers:
+    - trigger: person.left_home
+      target:
+        entity_id:
+          - person.ada
+          - person.bob
+      options:
+        behavior: last
+```
+
+- **`target`**
+  - **Description**: The `person` entity to monitor.
+  - **Optional**: No
+- **`options`**
+  - **`behavior`**
+    - **Description**: Controls which departures trigger the automation when multiple people are targeted. Options: `any` (fires every time any targeted person leaves home), `first` (fires only when the first targeted person leaves home), `last` (fires only after the last targeted person has left home).
+    - **Optional**: Yes
+
+## Conditions
+
+The person {% term integration %} provides purpose-specific [automation conditions](/docs/automation/condition/#entity-conditions). These are available when the **Purpose-specific triggers and conditions** feature in {% my labs title="**Settings** > **System** > **Labs**" %} is enabled.
+
+Entities that are `unavailable` or `unknown` are excluded from the check. With `behavior: any` (the default), the condition fails if all targeted entities are `unavailable` or `unknown`. With `behavior: all`, the condition passes if all targeted entities are `unavailable` or `unknown`.
+
+### Condition: Person is home
+
+{% include integrations/labs_entity_triggers_note.md %}
+
+The `person.is_home` condition passes when the person is home.
+
+The following example passes only when both Ada and Bob are home:
+
+```yaml
+automation:
+  conditions:
+    - condition: person.is_home
+      target:
+        entity_id:
+          - person.ada
+          - person.bob
+      options:
+        behavior: all
+```
+
+- **`target`**
+  - **Description**: The `person` entity to check.
+  - **Optional**: No
+- **`options`**
+  - **`behavior`**
+    - **Description**: How to evaluate when multiple people are targeted. Defaults to `any` if not specified. Options: `any` (passes if at least one person is home), `all` (passes only if all targeted people are home).
+    - **Optional**: Yes
+
+### Condition: Person is not home
+
+{% include integrations/labs_entity_triggers_note.md %}
+
+The `person.is_not_home` condition passes when the person is not home.
+
+The following example passes only when both Ada and Bob are not home:
+
+```yaml
+automation:
+  conditions:
+    - condition: person.is_not_home
+      target:
+        entity_id:
+          - person.ada
+          - person.bob
+      options:
+        behavior: all
+```
+
+- **`target`**
+  - **Description**: The `person` entity to check.
+  - **Optional**: No
+- **`options`**
+  - **`behavior`**
+    - **Description**: How to evaluate when multiple people are targeted. Defaults to `any` if not specified. Options: `any` (passes if at least one person is not home), `all` (passes only if all targeted people are not home).
+    - **Optional**: Yes
