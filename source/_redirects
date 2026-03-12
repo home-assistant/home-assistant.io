@@ -294,6 +294,12 @@ layout: null
 /docs/configuration/basic/#external_urls /integrations/homeassistant/#external_urls
 /docs/configuration/customizing-devices/#device-class /integrations/homeassistant/#device-class
 /docs/configuration/customizing-devices/#customizing-entities /integrations/homeassistant/#editing-the-entity-settings-in-yaml
+/android https://companion.home-assistant.io/
+/ios https://companion.home-assistant.io/
+/ios/nfc https://companion.home-assistant.io/
+/ios/beta https://companion.home-assistant.io/app/ios/beta
+/ios/beta-auth /docs/ecosystem/ios
+/ios/dev-auth /docs/ecosystem/ios
 /docs/ecosystem/ios/ https://companion.home-assistant.io/
 /docs/ecosystem/ios/devices_file https://companion.home-assistant.io/
 /docs/ecosystem/ios/integration https://companion.home-assistant.io/docs/integrations/integrations
@@ -352,6 +358,7 @@ layout: null
 /integrations/hassio /hassio
 /integrations/cloud.alexa /cloud/alexa
 /integrations/imap_email_content /integrations/imap/#using-events
+/integrations/webhook /docs/automation/trigger/#webhook-trigger
 /getting-started/automation-create-first /getting-started/automation
 /getting-started/automation-2 /getting-started/automation
 /getting-started/automation-action /docs/automation/action
