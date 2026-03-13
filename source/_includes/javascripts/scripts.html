@@ -141,13 +141,12 @@
 
         const siteHeader = document.querySelector(".site-header");
         const tocBar = document.getElementById("toc-bar");
-        const scrollOffsetModifier = 20;
 
         const getScrollOffset = () => {
           if (siteHeader && (window.innerWidth > 1280)) {
-            return siteHeader.offsetHeight;
+            return siteHeader.offsetHeight + 58;
           } else if (siteHeader && tocBar) {
-            return siteHeader.offsetHeight + tocBar.offsetHeight + scrollOffsetModifier;
+            return siteHeader.offsetHeight + tocBar.offsetHeight + 20;
           }
 
           return 140;
