@@ -49,7 +49,7 @@ The **Qube Heat Pump** integration exposes various entities to monitor and contr
 
 ### Sensor
 
-- Temperatures: inlet (°C), outlet (°C), minimum and maximum setpoints (°C), outside temperature (°C), central heating (CH) and domestic hot water (DHW) temperatures (°C).
+- Temperatures: inlet (°C), outlet (°C), minimum and maximum setpoints (°C), outside temperature (°C), central heating (<abbr title="Central heating">CH</abbr>) and domestic hot water (<abbr title="Domestic hot water">DHW</abbr>) temperatures (°C).
 - Flow: Current flow rate (L/min).
 - Power: standby power and total electric power (W).
 - Status: Operation hours (h).
