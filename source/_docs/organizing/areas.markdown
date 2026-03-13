@@ -70,7 +70,7 @@ The **Overview** (built-in) dashboard has a dedicated **Devices** section that s
 2. Scroll down to the **Devices** section and select the **Devices** card.
 3. For your device, select **Assign area** and choose the target area from the list.
 
-   ![Assign area](/images/organizing/devices-dashboard-assign-area.png)
+   ![Screenshot of the Devices card on the Overview dashboard showing the Assign area action for an unassigned device](/images/organizing/devices-dashboard-assign-area.png)
 
 ## Editing an area
 
