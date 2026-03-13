@@ -13,7 +13,7 @@ ha_domain: actron_air
 ha_platforms:
   - climate
   - switch
-ha_integration_type: integration
+ha_integration_type: hub
 ha_quality_scale: bronze
 ha_dhcp: true
 ---

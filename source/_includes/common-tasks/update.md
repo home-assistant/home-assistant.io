@@ -16,7 +16,7 @@ To update Home Assistant Core, choose one of the following options.
     content: |
 
       1. Open your Home Assistant UI.
-      2. Navigate to the **Settings** panel.
+      2. Go to the **Settings** panel.
       3. On the top you will be presented with an update notification.
         - **Troubleshooting**: If you do not see that notification:
           - In the top right corner, select the three dots {% icon "mdi:dots-vertical" %} menu and select **Check for updates**.

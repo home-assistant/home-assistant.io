@@ -111,6 +111,6 @@ ttl:
 
 ## Actions
 
-### Action `route53.update_records`
+### Action: Update records
 
-Use this action to manually trigger an update of the DNS records.
+The `route53.update_records` action manually triggers an update of the DNS records.

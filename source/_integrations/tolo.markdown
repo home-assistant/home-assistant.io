@@ -22,7 +22,7 @@ ha_platforms:
   - sensor
   - switch
 ha_dhcp: true
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 The **TOLO Sauna** {% term integration %} allows to control [Steamtec TOLO](https://www.tolosauna.com/) devices with Home Assistant.

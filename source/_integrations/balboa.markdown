@@ -23,7 +23,7 @@ ha_codeowners:
   - '@garbled1'
   - '@natekspencer'
 ha_config_flow: true
-ha_integration_type: integration
+ha_integration_type: device
 ha_dhcp: true
 ---
 

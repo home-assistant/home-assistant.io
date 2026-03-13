@@ -9,7 +9,7 @@ ha_codeowners:
   - '@eavanvalkenburg'
 ha_domain: azure_event_hub
 ha_config_flow: true
-ha_integration_type: integration
+ha_integration_type: service
 related:
   - docs: /docs/configuration/
     title: Configuration file

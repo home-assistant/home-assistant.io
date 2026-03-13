@@ -9,7 +9,7 @@ ha_codeowners:
   - '@ludeeus'
 ha_domain: elvia
 ha_config_flow: true
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 The **Elvia** {% term integration %} will import your historical grid consumption.

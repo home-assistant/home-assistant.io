@@ -4,6 +4,8 @@ title: "Area card"
 sidebar_label: Area
 description: "The area card gives control of your entities in a specified area."
 related:
+  - docs: /dashboards/actions/
+    title: Card actions
   - docs: /dashboards/cards/
     title: Dashboard cards
   - docs: /dashboards/dashboards/#home-dashboard
@@ -59,10 +61,16 @@ aspect_ratio:
   description: 'Forces the height of the image to be a ratio of the width. Valid formats: Height percentage value (`23%`) or ratio expressed with colon or "x" separator (`16:9` or `16x9`). For a ratio, the second element can be omitted and will default to "1" (`1.78` equals `1.78:1`).'
   default: "16:9"
   type: string
-navigation_path:
+tap_action:
   required: false
-  description: link to view. For more information about views, see the [view documentation](/dashboards/views/)
-  type: string
+  description: Action taken on card tap. See [action documentation](/dashboards/actions/#tap-action).
+  type: map
+  default: none
+image_tap_action:
+  required: false
+  description: Action taken on image tap (only available when `display_type` is `icon`, `picture` or `camera`). When not configured, image taps use the card's `tap_action`. See [action documentation](/dashboards/actions/#tap-action).
+  type: map
+  default: "`more-info` for camera display type, `none` otherwise"
 alert_classes:
   required: false
   type: list
@@ -103,7 +111,9 @@ Complex example
 type: area
 area: bedroom
 display_type: picture
-navigation_path: my_bedroom
+tap_action:
+  action: navigate
+  navigation_path: /lovelace/my_bedroom
 sensor_classes:
   - temperature
   - humidity

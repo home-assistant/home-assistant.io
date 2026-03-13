@@ -60,6 +60,19 @@ There has been a discussion about the inverter's lifetime being shortened when u
 
 ## Prerequisites
 
-Make sure the local API is activated and set to **Continuously**. For that, connect to the inverter via Bluetooth using the app and go to **Settings** > **Local Mode**, set the switch **Enable Local Mode** to on and make sure to set this to **Continuously**.
+Make sure the local API is activated and set to **Continuously**. For that, connect to the inverter via Bluetooth using the app and go to **Settings** > **Local Mode**, set the switch **Enable Local Mode** to on, and make sure to set this to **Continuously**.
+
+{% note %}
+If **Settings** > **Local Mode** is not visible in the APsystems app, the device is probably still connected to the APsystems cloud.
+
+To make **Settings** > **Local Mode** available:
+
+1. Open the APsystems app on your mobile device.
+2. Sign out of your APsystems cloud account in the app.
+3. If the app specifically asks you to remove the device from the cloud so that you can use it locally, follow the on-screen steps.
+4. After you are signed out, reconnect to the inverter directly via Bluetooth.
+
+When you are connected via Bluetooth only, **Settings** > **Local Mode** should be visible in the app.
+{% endnote %}
 
 {% include integrations/config_flow.md %}

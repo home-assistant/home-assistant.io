@@ -24,9 +24,9 @@ When setting this up be aware, that there are two apps: one for your smartphone 
 
 ## Actions
 
-The following options can be specified inside the data field for the notify action:
+### Action: Notify
 
-### Action `notify.[name_of_your_tv]`
+The `notify.[name_of_your_tv]` action sends a notification to your Android TV. The following options can be specified inside the data field for the notify action:
 
 {% configuration %}
 duration:

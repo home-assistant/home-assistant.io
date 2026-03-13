@@ -144,6 +144,13 @@ Each UniFi Protect camera will get a device in Home Assistant with the following
   - configuration text and select for LCD Screen for doorbells to either set custom messages or use predefined messages
 - **Button** - A disabled by default button is added for each camera device. The button will let you reboot your camera device.
 
+#### PTZ cameras
+
+If your camera supports <abbr title="pan, tilt, and zoom">PTZ</abbr>, the following additional entities and functionality are available:
+
+- **PTZ patrol** - A select entity that lets you start or stop patrols that are configured in UniFi Protect. The state reflects the currently active patrol. Select **Stopped** to stop the current patrol.
+- **PTZ presets** - Use the [PTZ go to preset action](#action-ptz-go-to-preset) (`unifiprotect.ptz_goto_preset`) to move your PTZ camera to a saved preset position, including the home position. Presets must be configured in the UniFi Protect app first.
+
 ### UniFi Protect floodlights
 
 Each UniFi Protect floodlight will get a device in Home Assistant with the following:
@@ -232,43 +239,63 @@ Below are the accepted identifiers to resolve media. Since events do not necessa
 
 ## Actions
 
-### Action unifiprotect.add_doorbell_text
+### Action: Add doorbell text
 
-Adds a new custom message for Doorbells.
+The `unifiprotect.add_doorbell_text` action adds a new custom message for Doorbells.
 
 | Data attribute | Optional | Description                                                                                                 |
 | ---------------------- | -------- | ----------------------------------------------------------------------------------------------------------- |
 | `device_id`            | No       | Any device from the UniFi Protect instance you want to change. In case you have multiple Protect instances. |
 | `message`              | No       | New custom message to add for Doorbells. Must be less than 30 characters.                                   |
 
-### Action unifiprotect.remove_doorbell_text
+### Action: Remove doorbell text
 
-Removes an existing message for Doorbells.
+The `unifiprotect.remove_doorbell_text` action removes an existing message for Doorbells.
 
 | Data attribute | Optional | Description                                                                                                 |
 | ---------------------- | -------- | ----------------------------------------------------------------------------------------------------------- |
 | `device_id`            | No       | Any device from the UniFi Protect instance you want to change. In case you have multiple Protect instances. |
 | `message`              | No       | Existing custom message to remove for Doorbells.                                                            |
 
-### Action unifiprotect.set_chime_paired_doorbells
+### Action: Set chime paired doorbells
 
-Use to set the paired doorbell(s) with a smart chime.
+The `unifiprotect.set_chime_paired_doorbells` action sets the paired doorbell(s) with a smart chime.
 
 | Data attribute | Optional | Description                                                                                             |
 | ---------------------- | -------- | ------------------------------------------------------------------------------------------------------- |
 | `device_id`            | No       | The device ID of the Chime you want to pair or unpair doorbells to.                                     |
 | `doorbells`            | Yes      | A target selector for any number of doorbells you want to pair to the chime. No value means unpair all. |
 
-### Action unifiprotect.remove_privacy_zone
+### Action: Remove privacy zone
 
-Use to remove a privacy zone from a camera.
+The `unifiprotect.remove_privacy_zone` action removes a privacy zone from a camera.
 
 | Data attribute | Optional | Description                                                                                             |
 | ---------------------- | -------- | ------------------------------------------------------------------------------------------------------- |
 | `device_id`            | No       | Camera you want to remove privacy zone from.                                                            |
 | `name`                 | No       | The name of the zone to remove.                                                                         |
 
-### Action unifiprotect.get_user_keyring_info
+### Action: PTZ go to preset
+
+The `unifiprotect.ptz_goto_preset` action moves a <abbr title="pan, tilt, and zoom">PTZ</abbr> camera to a saved preset position.
+
+| Data attribute | Optional | Description                                                                                    |
+| -------------- | -------- | ---------------------------------------------------------------------------------------------- |
+| `device_id`    | No       | The device ID of the PTZ camera you want to move.                                              |
+| `preset`       | No       | The name of the preset position to move to. Use `Home` for the home position.                  |
+
+#### Example usage
+
+```yaml
+action: unifiprotect.ptz_goto_preset
+data:
+  device_id: your_device_id_here
+  preset: "Home"
+```
+
+### Action: Get user keyring info
+
+The `unifiprotect.get_user_keyring_info` action retrieves keyring information for a UniFi Protect instance.
 
 | Data attribute | Optional | Description                                                                                                 |
 | -------------- | -------- | ----------------------------------------------------------------------------------------------------------- |
@@ -277,7 +304,7 @@ Use to remove a privacy zone from a camera.
 #### Example Usage
 
 ```yaml
-service: unifiprotect.get_user_keyring_info
+action: unifiprotect.get_user_keyring_info
 data:
   device_id: your_device_id_here
 ```
@@ -328,7 +355,7 @@ Four URLs for proxy API endpoints:
 
 `nvr_id` can either be the UniFi Protect ID of your NVR or the config entry ID for your UniFi Protect {% term integrations %}. `camera_id` can either be the UniFi Protect ID of your camera or an entity ID of any {% term entity %} provided by the UniFi Protect {% term integrations %} that can be reversed to a UniFi Protect camera (i.e., an entity ID of a detected object sensor).
 
-The easiest way to find the `nvr_id`, `camera_id`, `start`, and `end` times is by viewing one of the videos from UniFi Protect in the Media browser. If you open the video in a new browser tab, you will see all these values in the URL. The `start` time is close to the last_changed timestamp of the event when the sensor started detecting motion. The `end` time is close to the last_changed timestamp of the event when the sensor stopped detecting motion. Similarly, to see the `event_id` of the image, go to {% my developer_states title="**Developer Tools** > **States**" %} and find the event when the sensor started detecting motion.
+The easiest way to find the `nvr_id`, `camera_id`, `start`, and `end` times is by viewing one of the videos from UniFi Protect in the Media browser. If you open the video in a new browser tab, you will see all these values in the URL. The `start` time is close to the last_changed timestamp of the event when the sensor started detecting motion. The `end` time is close to the last_changed timestamp of the event when the sensor stopped detecting motion. Similarly, to see the `event_id` of the image, go to {% my developer_states title="**Settings** > **Developer tools** > **States**" %} and find the event when the sensor started detecting motion.
 
 ### Example notification automation with thumbnail
 
@@ -495,8 +522,8 @@ condition:
          (trigger.event.data.new_state.attributes.ulp_id|default('')) != '' and
          trigger.event.data.new_state.attributes.ulp_id in ['ALLOWED_ID1', 'ALLOWED_ID2']
        }}{% endraw %}
-action:
-  - service: notify.mobile_app_your_device # Replace with your notification target
+actions:
+  - action: notify.mobile_app_your_device # Replace with your notification target
     data:
       {% raw %}message: "Fingerprint identified with ID: {{ trigger.event.data.new_state.attributes.ulp_id }}"{% endraw %}
       title: "Fingerprint Scan Notification"
