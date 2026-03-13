@@ -41,18 +41,19 @@ The integration exposes the following entities.
 
 The integration provides fan entities to control the recuperator's speed and airflow.
 
-- Supply
-  - Controls the fresh air intake speed independently.
-- Extract
-  - Controls the exhaust air speed independently.
+- **Supply**
+  - **Description**: Controls the fresh air intake speed independently.
+- **Extract**
+  - **Description**: Controls the exhaust air speed independently.
   
 {% note %}
-When **Bound Mode** is active, the Supply and Extract fans operate in sync. Adjusting the speed of one fan will automatically update the other to the same value, ensuring balanced airflow.
+When **Bound mode** is active, the Supply and Extract fans operate in sync. Adjusting the speed of one fan will automatically update the other to the same value, ensuring balanced airflow.
 {% endnote %}
 
 All fan entities support speed control (0-100%) and the following presets:
-- Night: Sets the device to silent, minimum speed operation.
-- Boost: Sets the device to maximum speed.
+
+  - **Night**: Sets the device to silent, minimum speed operation.
+  - **Boost**: Sets the device to maximum speed.
 
 #### Switches
 
