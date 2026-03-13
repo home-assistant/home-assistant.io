@@ -110,7 +110,7 @@ To edit the section visibility conditions, select the edit {% icon "mdi:edit" %}
 
 ## Editing the footer
 
-The footer allows you to pick exactly one card which will be displayed at the bottom of the view. It will display over other cards unless scrolled to the bottom of the view.
+The footer lets you choose one card to show at the bottom of the view. This card stays on top of other cards while you scroll and only moves out of the way when you reach the bottom of the view.
 
 1. To add a footer, select the **Add footer** button.
 2. Select a card type to be used as the footer.
