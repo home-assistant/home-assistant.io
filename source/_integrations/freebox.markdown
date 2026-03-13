@@ -140,7 +140,8 @@ To do this, follow these steps:
 3. Copy the **ECC Root CA** certificate shown below.
 4. Copy the **RSA Root CA** certificate shown below.
 5. In the Additional CA integration, add both certificates as new certificate authorities, following the integration's documentation.
-6. Restart Home Assistant, then reload the Freebox integration.
+6. Restart Home Assistant to load the certificates.
+7. Manually add the Iliadbox under **Settings** > **Devices & services** by selecting **Add integration**, then **Freebox**, and create a new instance. Use `myiliadbox.iliad.it` as the host and `443` as the port.
 
 ECC Root CA
 ```text
@@ -195,5 +196,3 @@ G2Gkv4w/V/eB3eAvd5lgm6oOe8ehdr5JdpD6wnW2GOHs4SBdBo6yR+4RgEimNmgF
 Yu11tlZsB2Iw/TT1EyPVb5z6tK4wUgWLNFAvjXU=
 -----END CERTIFICATE-----
 ```
-
-After you load the certificates, you can manually add the Iliadbox under **Settings** > **Devices & services** by selecting **Add integration**, then **Freebox**, and creating a new instance. Use `myiliadbox.iliad.it` as the host and `443` as the port.
