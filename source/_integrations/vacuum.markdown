@@ -125,7 +125,7 @@ Before you can send your vacuum to clean specific areas, you need to map the are
 
 1. Go to {% my entities title="**Settings** > **Devices & services** > **Entities**" %} and select your vacuum entity.
 2. In the entity settings, select the cogwheel {% icon "mdi:cog-outline" %}.
-3. Select **Map vacuum to areas**.
+3. Select **Map vacuum segments to areas**.
    - Result: In the dialog, you should see the vacuum areas listed on the left and the Home Assistant areas on the right.
    - If you do not see the **Map vacuum to areas** option, your vacuum does not support area cleaning. You cannot use the `vacuum.clean_area` action with this vacuum.
    - Troubleshooting: If there are no areas listed on the left, make sure the areas are properly set up in the vacuum's app. You might need to save or confirm them again in the app.
