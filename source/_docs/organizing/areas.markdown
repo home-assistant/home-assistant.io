@@ -62,6 +62,16 @@ You can assign an area to multiple items at once in the {% term automation %}, {
 
 3. In the top right corner, select **Move to area** and select the target area from the list.
 
+## Assigning an area to a device from the devices dashboard
+
+The **Overview** (built-in) dashboard has a dedicated **Devices** section that shows all devices that are not assigned to an area.
+
+1. Go to {% my lovelace_dashboards title="**Settings** > **Dashboards**" %} and select the **Overview** (built-in) dashboard.
+2. Scroll down to the **Other areas** section and select the **Devices** card.
+3. For your device, select **Assign area** and choose the target area from the list.
+
+   ![Screenshot of the Devices card on the Overview dashboard showing the Assign area action for an unassigned device](/images/organizing/devices-dashboard-assign-area.png)
+
 ## Editing an area
 
 Follow these steps to edit an area.
@@ -77,6 +87,15 @@ Follow these steps to edit an area.
    - Add an image representing that area.
    - Add an **Alias**.
      - Aliases are alternative names used in [voice assistants](/voice_control/aliases/) to refer to an area, entity, or floor.
+
+## Editing an area from the area dashboard
+
+You can also edit the area details when you're on the area dashboard.
+
+1. Go to {% my lovelace_dashboards title="**Settings** > **Dashboards**" %} and select the **Overview** (built-in) dashboard.
+2. Select the area.
+3. In the top-right corner, select the edit {% icon "mdi:edit" %} button.
+4. In the **Update area** dialog, [edit the area details](#editing-an-area).```
 
 ## Reordering areas on built-in dashboards
 
